@@ -43,7 +43,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
-| **Open pre-registrations** | 0 (1 strawman in `atlas_tl_session.md §3.7`, not yet locked) |
+| **Open pre-registrations** | **1 locked** at `research/prereg/genome_id_portability_2026-04-21.md` (Gate-1 ID portability on 3 language classes). Validator passes: K=18, c=2.7729, 0 errors, 3/3 pinned pointers resolve. Awaits smoke-test + R6 architectural review. |
 | **Phase-3 claims** | 0 |
 | **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
 | **Gate semantics** | LOCKED in `atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
@@ -88,8 +88,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 |---|---|---|---|---|
 | Intrinsic dimension (TwoNN + MLE estimator pair) | ⚫ | — | — | Batch-1 LEAD (P1.1). Prereg strawman in `atlas_tl_session.md §3.7`. |
 | Participation ratio (centered + uncentered pair) | ⚫ | — | — | Batch-1 (P1.2). Pure covariance measure — high Gate-1 prior. |
-| Spectral slope (PCA eigenvalue decay) | ⚫ | — | — | Batch-1 auxiliary (P1.3). Cheap add on top of PR. |
-| kNN-5 clustering coefficient (P1.3 single-cloud coordinate) | ⚫ | — | — | **LOCKED in Batch 1 per Round 3 redefinition.** Single-cloud scalar, weighted+unweighted estimator variants, analytical SE O(1/n). Addresses Codex Round 1 Intuition 2. |
+| kNN-5 clustering coefficient (P1.3 single-cloud coordinate) | ⚫ | — | — | **LOCKED in Batch 1 per Round 3 redefinition.** Single-cloud scalar, weighted+unweighted estimator variants, analytical SE O(1/n). Addresses Codex Round 1 Intuition 2. Replaced the earlier "spectral slope" Batch-1 candidate per Codex R2 (fragile, redundant with PR). |
 | Koopman spectrum (DMD) | ⚫ | — | — | **NEW** H11 (conf medium). Strongest cross-class candidate by literature (transformer+SSM+diffusion 2025-2026). Deferred to Batch 2 per parsimony. |
 | Persistent homology | ⚫ | — | — | Deferred to Batch 2; needs subsampling-stability control. |
 | Ricci curvature (Ollivier) | ⚫ | — | — | Deferred to Batch 2. H3a. Null result on SSM/diffusion in 2025-2026 lit — new science opportunity. |
@@ -100,7 +99,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | Procrustes / CCA / SVCCA | ⚫ | — | — | Prior: fails cross-arch (p=0.82); informative bound. |
 | RSA (cross-system RDM) | ⚫ | — | — | Canonical bridge to biology — stimulus-bank-conditional. |
 | SAE (feature decomposition) | ⚫ | — | — | High-risk, family-local per dark-matter lit; see Mystery 7. Phase-N not Phase-1. |
-| PCA / SVD spectral | 🟡 | LLM, vision | — | Covered by spectral-slope primitive in Batch 1. |
+| PCA / SVD spectral | 🟡 | LLM, vision | — | Spectral-slope retired per Codex R2 (fragile, redundant with PR). PCA/SVD still a generic diagnostic. |
 | Activation ablation | ⚫ | — | — | Minimum class-agnostic causal primitive; Gate-2 G2.4 requirement. |
 | Path / activation patching | ⚪ | transformer | — | **DEMOTED** per Round 1 — transformer-native; Level-0 until class-agnostic extension derived. |
 | CAA (direction steering) | ⚪ | transformer-only | — | Demoted — fails on hybrids/SSMs; see Mystery 4. |

@@ -19,8 +19,10 @@ Per project conventions: ASCII-only source, no Unicode.
 
 from __future__ import annotations
 
+import ast
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, asdict
 from pathlib import Path
@@ -72,10 +74,11 @@ _K_DECLARED_RE = re.compile(r'\bK\s*=\s*(\d+)\b')
 _N_SYSTEMS_RE = re.compile(r'(\d+)\s*systems\s*[x×]\s*(\d+)\s*decisions', re.IGNORECASE)
 _N_SWEEP_RE = re.compile(r'n\s*(?:∈|in)\s*\{([0-9,\s]+)\}')
 # Pinned-identity pointer for F.generator etc.: (git_commit=<hash>, file_path="...", symbol="...")
+# Capturing groups (1) git_commit, (2) file_path, (3) symbol.
 _PINNED_PTR_RE = re.compile(
-    r'\((?:git_commit\s*=\s*<?[A-Za-z0-9]+>?)\s*,\s*'
-    r'(?:file_path\s*=\s*"[^"]+")\s*,\s*'
-    r'(?:symbol\s*=\s*"[^"]+")\)'
+    r'\(\s*git_commit\s*=\s*<?([A-Za-z0-9]+)>?\s*,\s*'
+    r'file_path\s*=\s*"([^"]+)"\s*,\s*'
+    r'symbol\s*=\s*"([^"]+)"\s*\)'
 )
 
 
@@ -255,21 +258,115 @@ def validate(path: Path) -> ValidationResult:
         errors.append(f"alpha_FWER out of (0, 1): {config.alpha_fwer}")
 
     # Code-identity pinning check (F.generator, filter, invariance_check per 2.5.7).
-    # Every Callable referenced in F must be pinned to (git_commit, file_path, symbol).
+    # Every Callable referenced in F must be pinned to (git_commit, file_path, symbol)
+    # AND the target must actually resolve at that commit. Regex-counting alone was
+    # flagged by Codex R5 as "theater" — hardened here to do real resolution.
     text = path.read_text(encoding="utf-8", errors="replace")
     pinned = _PINNED_PTR_RE.findall(text)
     expected_pinned = 3  # generator, filter, invariance_check per 2.5.7
     if len(pinned) < expected_pinned:
-        warnings.append(
+        errors.append(
             f"F code-identity pinning: found {len(pinned)} (git_commit, file_path, "
             f"symbol) pointers in prereg; 2.5.7 requires >= {expected_pinned} "
             f"(generator + filter + invariance_check). Callable references "
-            f"without pinned identity allow scope creep — Codex R4 kill shot #2."
+            f"without pinned identity allow scope creep (Codex R4 kill shot #2)."
         )
+
+    # Resolve each pointer: check file exists in repo + symbol is defined at top level
+    # (module-level def or assignment). This closes the Codex R5 'theater' critique.
+    repo_root = path.parent
+    # Walk up until we find .git or fall back to prereg's directory.
+    probe = path.resolve()
+    while probe.parent != probe:
+        if (probe / ".git").exists():
+            repo_root = probe
+            break
+        probe = probe.parent
+    derived["pinned_pointers"] = []
+    for (commit, file_path, symbol) in pinned:
+        resolved = _resolve_pinned_pointer(repo_root, commit, file_path, symbol)
+        derived["pinned_pointers"].append(resolved)
+        if not resolved["file_exists"]:
+            errors.append(
+                f"pinned pointer unresolved: file '{file_path}' does not exist "
+                f"in repo (referenced from prereg with symbol '{symbol}')"
+            )
+        elif not resolved["symbol_defined"]:
+            errors.append(
+                f"pinned pointer unresolved: symbol '{symbol}' not defined at "
+                f"top level of '{file_path}' (referenced from prereg)"
+            )
+        if commit != "HEAD" and not resolved.get("commit_verified", False):
+            warnings.append(
+                f"pinned pointer git_commit={commit!r} not verified against "
+                f"repo state; validator only checks current HEAD. Use commit='HEAD' "
+                f"or verify via git show {commit}:{file_path}."
+            )
 
     passed = len(errors) == 0
     return ValidationResult(passed=passed, config=config,
                             errors=errors, warnings=warnings, derived=derived)
+
+
+# -------------------- Pinned-pointer resolution --------------------
+
+def _resolve_pinned_pointer(repo_root: Path, commit: str, file_path: str,
+                            symbol: str) -> dict[str, object]:
+    """Verify that (commit, file_path, symbol) resolves in the repo.
+
+    Checks (in order):
+      1. file exists at repo_root / file_path
+      2. symbol is defined at module top level in that file
+      3. (optional) git show <commit>:<file_path> succeeds and matches
+    """
+    full = repo_root / file_path
+    result: dict[str, object] = {
+        "commit": commit,
+        "file_path": file_path,
+        "symbol": symbol,
+        "file_exists": full.is_file(),
+        "symbol_defined": False,
+        "commit_verified": None,
+    }
+    if not result["file_exists"]:
+        return result
+
+    try:
+        src = full.read_text(encoding="utf-8", errors="replace")
+        tree = ast.parse(src, filename=str(full))
+    except (OSError, SyntaxError) as exc:
+        result["symbol_defined"] = False
+        result["parse_error"] = repr(exc)
+        return result
+
+    top_level_names: set[str] = set()
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            top_level_names.add(node.name)
+        elif isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name):
+                    top_level_names.add(target.id)
+        elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+            top_level_names.add(node.target.id)
+
+    result["symbol_defined"] = symbol in top_level_names
+
+    # Commit verification: if the prereg pins a specific commit, try
+    # `git show <commit>:<file_path>`. If <hash>-like placeholder (e.g.
+    # "HEAD" or "<hash>") skip. Best-effort; never blocks.
+    if commit and commit != "HEAD" and not commit.startswith("<"):
+        try:
+            proc = subprocess.run(
+                ["git", "-C", str(repo_root), "show",
+                 f"{commit}:{file_path}"],
+                capture_output=True, text=True, timeout=5,
+            )
+            result["commit_verified"] = (proc.returncode == 0)
+        except (OSError, subprocess.TimeoutExpired):
+            result["commit_verified"] = False
+
+    return result
 
 
 # -------------------- CLI --------------------

@@ -114,13 +114,13 @@ If P1.3 clustering-coefficient fails Gate 1 on any system in Batch 1, these are 
 
 ## 3. Representation-similarity primitives
 
-### 3.1 Centered kernel alignment (CKA) ⚪ (DEMOTED — per Round 1)
-**Status note (2026-04-20):** Demoted from 🟡 to ⚪ diagnostic. Round 1 Codex review: CKA is scale-confounded (Feb 2026 "Aristotelian View" paper shows apparent convergence largely disappears under scale correction). PC-dominance makes it sensitive to leading principal components only. Do NOT treat as coordinate. Use at most as a cross-check alongside local-neighborhood primitives.
+### 3.1 Centered kernel alignment (CKA) ⚪ (DEMOTED — per Round 1; revival path closed per R5)
+**Status note (2026-04-21):** Demoted from 🟡 to ⚪ diagnostic. Round 1 Codex review: CKA is scale-confounded (Feb 2026 "Aristotelian View" paper shows apparent convergence largely disappears under scale correction). PC-dominance makes it sensitive to leading principal components only. **Not a coordinate candidate.** Codex R5 adversarial audit flagged the prior "Promotion test" paragraph as a silent revival vector — removed.
 **Measures.** Similarity between two representation spaces.
 **Methods.** Linear or RBF-kernel CKA (Kornblith et al. 2019).
 **Derivation basis.** Well-established.
 **Agnosticism expectation.** Cross-system by construction. Current state: widely used on LLMs + vision; untested on diffusion/JEPA/world models at scale.
-**Promotion test.** Run CKA between Qwen3-0.6B, Mamba2-370M, Falcon-H1-0.5B, DINOv2-small, V-JEPA-base, stable-diffusion-v1-5-text-encoder. If CKA patterns are stable across runs, promote to coordinate.
+**Role in atlas.** Level-0 cross-system diagnostic only — may appear in figures or cross-references but NEVER as a Gate-1 coordinate. If promoted back, it requires a fresh design round addressing the scale-confound in its definition (e.g., local-subspace CKA per ICLR 2025) — not the current formulation.
 
 ### 3.2 Procrustes / CCA / SVCCA ⚫
 **Measures.** Linear alignability of representations across models.
