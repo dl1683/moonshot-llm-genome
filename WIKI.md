@@ -36,10 +36,10 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | Field | Value |
 |---|---|
 | **Phase** | 1 — Instrument live (smoke test passes, first atlas rows emitted 2026-04-21) |
-| **Axiom status** | **CROSS-MODAL UNIVERSALITY CANDIDATE (genome_005_cross_modal, 2026-04-21).** 54 atlas rows from 3 systems × 3 classes × 2 modalities × 3 sentinel depths: (i) **kNN-5 clustering coefficient agrees within 0.06 across Qwen3 (text, transformer) + RWKV (text, recurrent) + DINOv2 (vision, ViT)** at every depth — strongest Level-1 candidate; (ii) TwoNN ID DEMOTED — text models show decreasing-depth trajectory but DINOv2 shows INCREASING — not cross-modal universal; (iii) PR is feedforward-vs-recurrent signature (Qwen+DINOv2 expand, RWKV compresses) — not text-vs-vision as initially thought. Pending Gate-1 stability suite + Gate-2 derivation. Falcon-H1 hybrid still Windows-blocked. |
+| **Axiom status** | **FIRST GATE-1 VERDICT (genome_006, 2026-04-21).** 162 atlas rows from 3-seed stimulus-resample probe. At strict δ=0.10 only 3/18 cells pass (meaningful: RWKV kNN-k10). At δ=0.20 sensitivity: **kNN-k10 clustering passes G1.3 on ALL 3 systems × 2 modalities** — first `🟡 (δ-sensitive)` primitive per §2.5.6c. ID cells fail every δ (SE too large). PR feedforward-vs-recurrent signature confirmed. Path to clean 🟡 at δ=0.10: scale n=500 → 2000 (halves SE). |
 | **Bestiary coverage** | 0 / 9 classes measured |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
-| **Gate-1 passed (🟡 coordinate)** | 0 |
+| **Gate-1 passed (🟡 coordinate)** | 0 clean; **1 `🟡 (δ-sensitive)` candidate**: kNN-k10 clustering coefficient (passes G1.3 at δ=0.20 on all 3 systems × 2 modalities; strict δ=0.10 pending n=2000 rerun) |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
@@ -159,6 +159,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_003_cross_arch_pilot` | ✅ passed 2026-04-21 (2/3 systems) | **FIRST CROSS-CLASS atlas data** — Qwen3 transformer vs RWKV linear-attention at matched depths on matched stimuli | Qwen3-0.6B + RWKV-4-169M (Falcon-H1 hybrid deferred) | ID + PR + kNN-clustering | STAGED |
 | `genome_004_neg_control` | ✅ passed 2026-04-21 | Trained vs untrained negative control — discriminates learned vs architectural geometry | Qwen3-0.6B trained + random-init; RWKV trained | ID + PR + kNN-clustering | STAGED |
 | `genome_005_cross_modal` | ✅ passed 2026-04-21 (3/4 systems — Falcon blocked) | **FIRST CROSS-MODAL atlas data** — 3 systems × 3 classes × 2 modalities (text + vision). Clustering coefficient agrees within 0.06 across all three. Strongest Level-1 universality candidate. | Qwen3-0.6B + RWKV-4-169M + DINOv2-small | ID + PR + kNN-clustering (k=5 + k=10) | STAGED |
+| `genome_006_stim_resample_g13` | ✅ executed 2026-04-21 | **FIRST formal Gate-1 G1.3 verdicts** — 3 seeds × 3 systems × 3 depths × 6 primitive-estimator cells. Strict δ=0.10: 3/18 pass. δ=0.20 sensitivity: kNN-k10 passes ALL 3 systems. kNN-k10 is the atlas's first 🟡 (δ-sensitive) Level-1 candidate. | Qwen3-0.6B + RWKV-4-169M + DINOv2-small | ID + PR + kNN clustering (equivalence criterion) | STAGED; scale to n=2000 for clean 🟡 at δ=0.10 |
 
 ---
 

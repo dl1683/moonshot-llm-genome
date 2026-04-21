@@ -125,4 +125,30 @@ Format per entry:
 
 ---
 
+## 2026-04-21 — genome_006_stim_resample_g13 — **first formal Gate-1 verdicts**
+
+**Purpose.** Execute Gate-1 G1.3 (stimulus-resample stability) across the 3 cross-modal systems with 3 seeds (42/123/456). Apply equivalence criterion `|Δ| + c·SE(Δ) < δ·median(|f|)` with c=2.77 (K=18 Bonferroni), δ_relative=0.10 (prereg default), and mandatory sensitivity sweep at δ ∈ {0.05, 0.10, 0.20}.
+**Systems.** Qwen3-0.6B + RWKV-4-169M + DINOv2-small (3 classes, 2 modalities).
+**Primitive.** ID (TwoNN + MLE), PR (centered + uncentered), kNN clustering (k=5 + k=10).
+**Universality level claimed.** null — Gate-1 verdicts only.
+**Commit.** pending.
+**Result — FIRST FORMAL GATE-1 GATE EXECUTED:**
+
+**At strict δ=0.10 (prereg default):** 3/18 cells pass. Only `RWKV kNN-k10`, `Qwen3 PR_uncentered`, `RWKV PR_uncentered`. PR_uncentered is trivially ≈1 everywhere (not scientifically interesting — uncentered PR of mean-dominated activations). So meaningful pass: `RWKV kNN-k10` alone.
+
+**At δ=0.20 (sensitivity-sweep point):** kNN-k10 clustering **PASSES on ALL 3 systems × 2 modalities** (Qwen max_stat=0.054 vs margin=0.078; RWKV 0.035 vs 0.080; DINOv2 0.043 vs 0.078). kNN-k5 passes on 2/3 (fails Qwen). ID cells fail all deltas (max_stat 4.7-10.7 vs margin 1.6-2.1).
+
+**Verdict.** **kNN-k10 clustering is the atlas's strongest universality candidate, annotated `🟡 (δ-sensitive)` per §2.5.6c.** It is NOT yet a clean 🟡 promotion at strict δ=0.10. **Path to clean 🟡:** increase n from 500 → 2000 (reduces SE by 2×, which halves the c·SE term and should bring max_stat under the δ=0.10 margin of ~0.035-0.039 for most cells).
+
+**Why this matters.** The atlas is now making discriminating, quantitative, honest statements:
+- "kNN-k10 is cross-class + cross-modal stable under stimulus resample at δ=0.20 across 3 systems" — testable and true.
+- "kNN-k10 is not yet stable at δ=0.10 without larger n" — testable and currently true.
+- "ID-based primitives are too noisy to pass G1.3 at any sensitivity level" — testable and currently true.
+
+Compare to genome_005's eyeball observation ("kNN values agree within 0.06"): formally evaluating the equivalence criterion reveals the SE-aware verdict is TIGHTER than the eyeball threshold. The atlas is distinguishing visually-similar from statistically-equivalent-under-precise-criterion. This is exactly what a scientific instrument should do.
+
+**Next.** (1) Scale n from 500 → 2000 on kNN-k10 to promote to clean 🟡 at δ=0.10. (2) Gate-2 derivation for kNN clustering — why SHOULD local clustering be universal? (Manifold-hypothesis argument: all systems learn low-dim manifolds with similar local graph curvature). (3) Efficiency-linked probe — is kNN-k10 stable under Q8 quantization? (strategic-adversarial directive).
+
+---
+
 *(Future entries above this line, newest first.)*
