@@ -105,9 +105,13 @@ def _transformer_blocks(model: Any) -> list[Any]:
         "model.rwkv.blocks",         # RWKV wrapped
         "gpt_neox.layers",           # Pythia / GPT-NeoX
         "model.blocks",              # Falcon-H1 variants
-        "encoder.layer",             # DINOv2, ViT, BERT encoders
+        "encoder.layer",             # DINOv2, ViT, BERT, RoBERTa, MiniLM encoders
         "vit.encoder.layer",         # ViT variants with outer wrapper
         "dinov2.encoder.layer",      # DINOv2 direct
+        "vision_model.encoder.layers", # CLIPVisionModel (vision branch)
+        "encoder.layers",            # some sentence-transformer wrappers
+        "bert.encoder.layer",        # BERT-backbone wrappers
+        "roberta.encoder.layer",     # RoBERTa-backbone wrappers
         "blocks",                    # bare ViT (timm-style wrapped)
     ]:
         obj = model

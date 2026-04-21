@@ -94,6 +94,43 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         # Single move satisfies both ">=3 classes that actually run" and
         # "1st non-language class" per manifesto anti-drift rule.
     },
+    # -------------------- Batch 2: encoder / contrastive / multilingual
+    # Added 2026-04-21 per user-directed scope expansion ("we've only
+    # tested decoder models"). Each class probes a distinct training-objective
+    # or modality axis the Batch-1 bestiary is blind to.
+    "bert-base-uncased": {
+        "hf_id": "bert-base-uncased",
+        "class_id": 7,
+        "class_name": "masked-LM encoder (MLM objective)",
+        "approx_params": 110_000_000,
+        "modality": "text",
+        # BERT is encoder-only — no causal head. Tests training-objective
+        # invariance of kNN-k10: MLM vs autoregressive CLM. Uses AutoModel.
+        "uses_causal_lm": False,
+    },
+    "minilm-l6-contrastive": {
+        "hf_id": "sentence-transformers/all-MiniLM-L6-v2",
+        "class_id": 8,
+        "class_name": "contrastive text encoder (sentence transformer)",
+        "approx_params": 22_000_000,
+        "modality": "text",
+        # Contrastive training objective distinct from MLM and CLM. If kNN-k10
+        # passes here, universality spans 3 distinct text training objectives.
+        "uses_causal_lm": False,
+    },
+    "clip-vit-b32-image": {
+        "hf_id": "openai/clip-vit-base-patch32",
+        "class_id": 10,
+        "class_name": "contrastive vision encoder (CLIP image branch)",
+        "approx_params": 151_000_000,
+        "modality": "vision",
+        # CLIP vision branch: contrastive supervision (image-text pairs) vs
+        # DINOv2 self-supervision. If both pass, kNN-k10 is vision-training-
+        # objective-invariant. Uses CLIPVisionModel via AutoModel + its own
+        # image processor.
+        "uses_causal_lm": False,
+        "vision_model_class": "CLIPVisionModel",
+    },
 }
 
 
@@ -208,8 +245,21 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
     quant_cfg = _quantization_config(quant)
     dtype = _torch_dtype(quant)
 
-    # Pick model class by modality: LM-head for text, bare encoder for vision.
-    model_cls = AutoModelForCausalLM if modality == "text" else AutoModel
+    # Pick model class. Text systems with a causal LM head use
+    # AutoModelForCausalLM (the default); encoder-only text systems (BERT,
+    # sentence-transformers, etc.) set `uses_causal_lm: False` and go
+    # through AutoModel. Vision systems use AutoModel unless a specific
+    # vision_model_class is declared (e.g. CLIPVisionModel for CLIP's
+    # vision branch).
+    uses_causal_lm = bool(meta.get("uses_causal_lm", modality == "text"))
+    vision_model_class_name = meta.get("vision_model_class")
+    if modality == "vision" and vision_model_class_name == "CLIPVisionModel":
+        from transformers import CLIPVisionModel  # noqa: PLC0415
+        model_cls = CLIPVisionModel
+    elif uses_causal_lm:
+        model_cls = AutoModelForCausalLM
+    else:
+        model_cls = AutoModel
 
     if untrained:
         # Random-init: instantiate from config only, skip pretrained weights.
