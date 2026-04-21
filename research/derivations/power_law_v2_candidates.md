@@ -62,7 +62,27 @@ This is appealing because it connects `p` to the gap between ambient dim and dou
 
 ---
 
-## Candidate framework C — heavy-tailed neighbor-count distribution
+## Candidate framework C — heavy-tailed neighbor-count distribution — **FALSIFIED 2026-04-21 (genome_nn_degree_pilot_qwen3)**
+
+**Pilot result** (`results/gate2/nn_degree_pilot_qwen3.json`, Qwen3-0.6B mid-depth `ℓ/L = 0.52`, n=1000 C4-clean stimuli, seed 42):
+
+| k | mean in-deg | max in-deg | `α` tail | R² log-log | `p_pred = (3-α)/(α-1)` |
+|---|---|---|---|---|---|
+| 10 | 10.0 | 72 | **3.80** | 0.961 | **-0.285** |
+| 30 | 30.0 | 149 | 3.92 | 0.931 | -0.315 |
+| 60 | 60.0 | 266 | 3.78 | 0.909 | -0.282 |
+
+Empirical Qwen3 mid `p = +0.156` (from `results/gate2/ck_power_fit.json`). Framework C predicts `p` in `[-0.32, -0.28]`. **Sign is wrong, magnitude is off by 3×.**
+
+**Interpretation.** The NN-in-degree distribution *is* a power law (log-log tail `R² > 0.9`) but with `α ≈ 3.8` — a sub-Zipf, only-moderately-heavy tail. In Dorogovtsev-Mendes scale-free-graph theory, `α > 3` regimes predict clustering that is constant or decreasing in `k`; only `α < 2` would produce the observed growth. Trained networks' degree distributions land in the wrong regime for this framework to explain `C(k) ~ k^p`.
+
+**Kill decision.** Drop framework C from the candidate list. The NN-degree distribution is still an interesting *descriptor* of learned geometry — `α ≈ 3.8` across depths 10/30/60-neighborhoods at k=1000 is itself non-trivial and worth checking cross-architecture as a separate diagnostic — but it does not *cause* the observed power law in clustering.
+
+**Reduced candidate set after this pilot: A, B, D (three remaining).**
+
+---
+
+## Candidate framework C — heavy-tailed neighbor-count distribution (original text, retained)
 
 In trained networks, the `k`-NN degree distribution (how many points claim `x` as one of their `k` nearest) is likely heavy-tailed — a few "hub" points are many others' neighbors, mirroring the power-law degree distribution seen in many learned graph structures (word embeddings, protein interaction networks).
 
@@ -98,8 +118,8 @@ This is the most speculative framework — but potentially the most manifesto-al
 |---|---|---|---|---|
 | A — fractal d_2/d_int | High | High (both estimators are off-the-shelf) | Medium | 1 |
 | B — doubling-dim ratio | Medium | Medium (doubling-dim needs implementation) | High | 2 |
-| D — rate-distortion | Low | Low (R(D) is hard to estimate directly) | Very high | 4 |
-| C — heavy-tailed NN-degree | Medium | High (in-degree histogram from existing data) | Medium | 3 |
+| D — rate-distortion | Low | Low (R(D) is hard to estimate directly) | Very high | 3 |
+| ~~C — heavy-tailed NN-degree~~ | ~~Medium~~ | ~~High~~ | ~~Medium~~ | **FALSIFIED** (2026-04-21 pilot: α ≈ 3.8, predicts wrong sign) |
 
 ---
 
