@@ -91,7 +91,8 @@ System classes for agnosticism (from `SYSTEM_BESTIARY.md`): autoregressive LLM �
 
 ### 2.5 kNN-5 clustering coefficient ⚫ (Batch-1 P1.3; single-cloud local-neighborhood coordinate)
 **Measures.** Per-point local manifold density — for each point, the fraction of pairs among its k-nearest neighbors that are themselves neighbors of each other in the kNN graph. Averaged over all points in the cloud to produce a single scalar `C(X)`.
-**Methods.** Build kNN graph (k=5, Euclidean, with weighted and unweighted estimator variants for Gate-1 G1.4); compute `C(i) = (# edges among kNN_5(i)) / C(k, 2)` per point; average. `C(X) = mean_i C(i)`.
+**Methods.** Build kNN graph (Euclidean); compute `C(i) = (# edges among kNN_k(i)) / C(k, 2)` per point; average. `C(X) = mean_i C(i)`.
+**G1.4 estimator pair (Codex R6 §3 cleanup).** k=5 vs k=10 neighborhood sizes. Same mathematical target (mean local clustering coefficient); two different neighborhoods. This replaces the earlier "weighted vs unweighted" framing that Codex flagged as possibly two different mathematical quantities masquerading as estimator variants.
 **Derivation basis.** Graph theory; local-manifold learning lineage (NPE He et al. 2005; local-neighborhood invariants). Addresses Codex Round 1 Intuition 2 (medium-high): "global similarity collapses, only local neighborhood survives cross-architecture."
 **Invariance group G_f.** Orthogonal rotations + global isotropic rescaling (kNN sets are rotation/scale-invariant). NOT invariant to non-isotropic scaling.
 **Agnosticism expectation.** High — pure graph-theoretic property of a point cloud. Works on any point cloud with a defined distance.

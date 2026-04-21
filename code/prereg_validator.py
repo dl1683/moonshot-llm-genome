@@ -257,6 +257,44 @@ def validate(path: Path) -> ValidationResult:
     if config.alpha_fwer <= 0.0 or config.alpha_fwer >= 1.0:
         errors.append(f"alpha_FWER out of (0, 1): {config.alpha_fwer}")
 
+    # Placeholder-rejection for LOCKED prereg (Codex R6 priority directive + Part V).
+    # Status discipline: a prereg declares `status: STAGED` (can hold placeholders
+    # for later fill-in) or `status: LOCKED` (must be fully pinned — no HEAD, no
+    # PLACEHOLDER). Validator enforces. Also: strawman preregs in research/prereg/
+    # drafts/ are excluded from lock-grade checks.
+    text = path.read_text(encoding="utf-8", errors="replace")
+    is_drafts = "research/prereg/drafts" in str(path).replace("\\", "/")
+    is_prereg_folder = ("research/prereg/" in str(path).replace("\\", "/")
+                        and not is_drafts)
+
+    status_match = re.search(r'\bstatus\s*:\s*(STAGED|LOCKED)\b', text)
+    declared_status = status_match.group(1) if status_match else None
+    derived["declared_status"] = declared_status or "UNSPECIFIED"
+
+    if is_prereg_folder:
+        # In the prereg folder but no status declared — require explicit lock stance.
+        if declared_status is None:
+            errors.append(
+                "prereg in research/prereg/ must declare `status: STAGED` or "
+                "`status: LOCKED` (per Codex R6 lock discipline). Without an "
+                "explicit status, lock semantics are ambiguous."
+            )
+
+        if declared_status == "LOCKED":
+            if re.search(r'git_commit\s*=\s*HEAD\b', text):
+                errors.append(
+                    "LOCKED prereg contains 'git_commit=HEAD' sentinel — must "
+                    "replace with an actual commit SHA before lock (Codex R6 Part V "
+                    "self-deception #1)."
+                )
+            if re.search(r'PLACEHOLDER_sha256|PLACEHOLDER_[a-z_]+', text):
+                errors.append(
+                    "LOCKED prereg contains 'PLACEHOLDER_' values — the "
+                    "conditioning distribution is not actually pinned (Codex R6 "
+                    "Part V self-deception #2). Populate real dataset_hash "
+                    "before lock."
+                )
+
     # Code-identity pinning check (F.generator, filter, invariance_check per 2.5.7).
     # Every Callable referenced in F must be pinned to (git_commit, file_path, symbol)
     # AND the target must actually resolve at that commit. Regex-counting alone was

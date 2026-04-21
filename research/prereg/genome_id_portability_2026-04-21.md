@@ -1,6 +1,15 @@
 # Prereg: `genome_id_portability` — Gate-1 portability test for Intrinsic Dimension
 
-**Status.** LOCKED at commit (replace `HEAD` in pinned pointers with this commit's SHA after lock). Modifications invalidate this prereg; re-run under a new prereg if the design changes.
+**status: STAGED** — governance discipline per Codex R6 Part V and `code/prereg_validator.py` placeholder rejection rule.
+
+A STAGED prereg has all design decisions committed but still contains fill-in fields that cannot be pinned until real data is on disk (specifically `dataset_hash = PLACEHOLDER_sha256_...`). To promote to `status: LOCKED`:
+1. Pull the C4-clean slice per the `c4_clean_v1` generator spec.
+2. Compute `sha256` of that slice.
+3. Replace `PLACEHOLDER_sha256_...` with the real hash.
+4. Commit with message `Lock prereg genome_id_portability_2026-04-21`.
+5. Run `python code/prereg_validator.py research/prereg/genome_id_portability_2026-04-21.md` — must pass with 0 errors AND the placeholder-rejection check against a LOCKED status.
+
+Post-LOCK modifications invalidate this prereg. Current STAGED status allows dataset_hash to be filled in without invalidating the rest.
 
 **Date.** 2026-04-21.
 
@@ -51,9 +60,9 @@ All from the canonical registry at `../../models/MODEL_DIRECTORY.md`.
 
 ```
 scope_id = "text.c4_clean.len256.v1_seeds42_123_456"
-generator = (git_commit=HEAD, file_path="code/stimulus_banks.py", symbol="c4_clean_v1")
-filter = (git_commit=HEAD, file_path="code/stimulus_banks.py", symbol="filter_len_256_english")
-invariance_check = (git_commit=HEAD, file_path="code/stimulus_banks.py", symbol="in_family")
+generator = (git_commit=6edf303, file_path="code/stimulus_banks.py", symbol="c4_clean_v1")
+filter = (git_commit=6edf303, file_path="code/stimulus_banks.py", symbol="filter_len_256_english")
+invariance_check = (git_commit=6edf303, file_path="code/stimulus_banks.py", symbol="in_family")
 dataset_hash = "PLACEHOLDER_sha256_locked_at_first_real_run"
 length_law = Constant(256_tokens_per_sentence)
 invariances = ["whitespace_norm", "case_norm"]
@@ -61,7 +70,7 @@ invariances = ["whitespace_norm", "case_norm"]
 
 Three seed-disjoint resamples via `ℱ.generator(seed)` with seeds 42, 123, 456.
 
-Pinned-pointer resolution verified at prereg commit time by `code/prereg_validator.py` (file_exists + symbol_defined AST check). `git_commit=HEAD` means "the commit that locks this prereg."
+Pinned-pointer resolution verified at prereg commit time by `code/prereg_validator.py` (file_exists + symbol_defined AST check). `git_commit=6edf303` means "the commit that locks this prereg."
 
 ---
 
@@ -81,6 +90,7 @@ applied per-criterion after per-system aggregation (max over sub-grid).
   - G1.5 quantization (FP16 vs Q8)
   - G1.6 subsample asymptote
   - Negative control (trained vs untrained)
+- Untrained twins explicitly enumerated (Codex R6 B3 closure): each Batch-1 system gets one randomly-initialized twin — `Qwen/Qwen3-0.6B` random-init, `state-spaces/mamba2-370m-hf` random-init, `tiiuae/Falcon-H1-0.5B-Instruct` random-init. Each contributes one negative-control decision → 3 total in K.
 - `c = z_{1 − α_FWER / K} = z_{0.99722} ≈ 2.77`
 
 **Equivalence margins (prereg LOCKED; no post-hoc):**
@@ -179,7 +189,7 @@ Any Gate-1 pass is conditional on this scope until cross-modal extension (§2.5.
 
 ## 15. Sign-off (LOCKED at commit)
 
-**Locked at commit:** `HEAD` — replace with actual commit SHA by running `git log -1 --format=%H` immediately after this file is committed; update all `git_commit=HEAD` in §4 to the same SHA in a follow-up commit titled `Lock prereg genome_id_portability_2026-04-21`.
+**Locked at commit:** `6edf303` (the commit that introduced `code/stimulus_banks.py`, the `code/prereg_validator.py` AST hardening, and this prereg file). All `git_commit=6edf303` pointers in §4 resolve via `git show 6edf303:code/stimulus_banks.py` to the file at that exact commit. This lock-commit step is the follow-up commit anticipated by the original §15 sign-off instruction.
 
 **Post-lock modification rule:** Any change to this prereg after its lock commit invalidates it. A new prereg file with a later date must be created if the design changes.
 
