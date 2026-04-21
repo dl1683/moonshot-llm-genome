@@ -46,7 +46,7 @@ def main():
             if len(ks) < 5:
                 continue
             p_slope, log_c0, c0, r2 = fit_power_law(ks, Cs)
-            cell_key = f"dit-xl-2-256||depth{row['k_normalized']:.2f}"
+            cell_key = f"dit-xl-2-256||depth{row['k_normalized']:.2f}||seed{row.get('seed')}"
             cells[cell_key] = {
                 "p_slope": p_slope,
                 "log_c0_intercept": log_c0,
