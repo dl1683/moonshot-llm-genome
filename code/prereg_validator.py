@@ -398,15 +398,31 @@ def _validate_gate2(path: Path, text: str) -> ValidationResult:
     alpha_fwer = _read_greek_alpha_fwer(text) or 0.05
     derived["alpha_fwer"] = alpha_fwer
 
-    m = _DELTA_CAUSAL_RE.search(text)
-    if m:
-        derived["delta_causal"] = float(m.group(1))
+    # Gate-2 subtypes:
+    #   G2.3 = hierarchical model comparison (BIC-based)
+    #   G2.4 = causal ablation (delta_causal effect-size)
+    #   G2.5 = biology instantiation (equivalence test on biological data)
+    # At least one subtype's decision threshold must be declared.
+    m_causal = _DELTA_CAUSAL_RE.search(text)
+    if m_causal:
+        derived["delta_causal"] = float(m_causal.group(1))
+        derived["gate2_subtype"] = "G2.4_causal"
+    elif re.search(r'(?:ΔBIC|delta[_ ]?BIC|Δ-BIC)\s*[><]?=?\s*\d+', text):
+        derived["gate2_subtype"] = "G2.3_hierarchical"
+        m_bic = re.search(r'(?:ΔBIC|delta[_ ]?BIC|Δ-BIC)\s*[><]?=?\s*(\d+)', text)
+        if m_bic:
+            derived["delta_bic_threshold"] = int(m_bic.group(1))
+    elif re.search(r'5%\s*relative', text) or re.search(r'causal', text, re.IGNORECASE):
+        # Fallback for prose-style G2.4
+        derived["gate2_subtype"] = "G2.4_causal_prose"
+    elif re.search(r'biolog', text, re.IGNORECASE):
+        derived["gate2_subtype"] = "G2.5_biology"
     else:
-        # Allow plain-prose form with "delta_causal = 0.05" or "5% relative".
-        m2 = re.search(r'5%\s*relative', text)
-        if not m2:
-            errors.append("delta_causal not found; Gate-2 prereg must declare "
-                          "the minimum effect-size threshold for causal ablation.")
+        errors.append(
+            "Gate-2 prereg missing decision-threshold declaration. Expected "
+            "one of: delta_causal = X (G2.4), ΔBIC > X (G2.3), or explicit "
+            "biology-equivalence threshold (G2.5)."
+        )
 
     # Derivation pointer must resolve.
     deriv_m = _DERIVATION_PTR_RE.search(text)
