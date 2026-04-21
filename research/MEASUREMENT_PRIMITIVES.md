@@ -89,17 +89,26 @@ System classes for agnosticism (from `SYSTEM_BESTIARY.md`): autoregressive LLM �
 **Risk.** Estimator-choice sensitivity is severe — practical choices (observable family, Hankel depth, rank truncation) dominate the spectrum. Pre-reg must LOCK observable family, estimator rank, and DMD variant before any run.
 **Active prereg.** Deferred to Batch 2 per `atlas_tl_session.md §3e`.
 
-### 2.5 Local-connectivity statistics ⚫
-**Measures.** Per-point stability of the local neighborhood (kNN set) under resampling — captures "how locally-stable is the representation manifold" independent of global structure.
-**Methods.** Candidate specs under consideration:
-  - **Mean kNN Jaccard self-stability.** Resample the point cloud, measure Jaccard overlap of each point's k-neighbor set across resamples; average across points. Cheap (kNN in O(n log n)).
-  - **kNN-graph clustering coefficient.** Per-node fraction of neighbors-of-neighbors that are also direct neighbors.
-  - **Diffusion entropy at step t.** Entropy of random-walk distribution on the kNN graph after t steps.
-**Derivation basis.** Local-manifold learning (Neighborhood Preserving Embedding He et al. 2005; NNGS, Fornasier et al. 2024 as cross-system variant). Codex Round 1 Intuition 2 (medium-high conviction): global similarity collapses under scale correction, only local neighborhood structure survives cross-architecture.
-**Agnosticism expectation.** High — pure graph-theoretic properties of point-cloud neighborhood structure. Works on any point cloud.
-**Candidate universality level.** Level-1 candidate. Intuitively: local neighborhood preservation = intrinsic manifold property, architecture-agnostic.
-**Distinction from similarity primitives.** NNGS (Jaccard of kNN graphs between TWO embeddings) is a cross-system diagnostic (Level-0) — it measures how similar two systems are, not a per-system coordinate. Local-connectivity statistics are per-system.
-**Active prereg.** Deferred; Codex Round 2 to rule whether it joins Batch 1 as a 4th primitive.
+### 2.5 kNN-5 clustering coefficient ⚫ (Batch-1 P1.3; single-cloud local-neighborhood coordinate)
+**Measures.** Per-point local manifold density — for each point, the fraction of pairs among its k-nearest neighbors that are themselves neighbors of each other in the kNN graph. Averaged over all points in the cloud to produce a single scalar `C(X)`.
+**Methods.** Build kNN graph (k=5, Euclidean, with weighted and unweighted estimator variants for Gate-1 G1.4); compute `C(i) = (# edges among kNN_5(i)) / C(k, 2)` per point; average. `C(X) = mean_i C(i)`.
+**Derivation basis.** Graph theory; local-manifold learning lineage (NPE He et al. 2005; local-neighborhood invariants). Addresses Codex Round 1 Intuition 2 (medium-high): "global similarity collapses, only local neighborhood survives cross-architecture."
+**Invariance group G_f.** Orthogonal rotations + global isotropic rescaling (kNN sets are rotation/scale-invariant). NOT invariant to non-isotropic scaling.
+**Agnosticism expectation.** High — pure graph-theoretic property of a point cloud. Works on any point cloud with a defined distance.
+**Candidate universality level.** Level-1 candidate pending Gate-1 pass + subsequent Gate-2 derivation.
+**Analytical SE.** Under independence of per-point clustering values (approximation), `SE(C(X)) = std(C(i)) / √n`. O(1/n). No bootstrap needed.
+**Distinction from related methods.**
+- **kNN Jaccard self-stability across resampled clouds** (earlier P1.3 draft): conflated coordinate with stability diagnostic; retired per Codex Round 3 NEW kill shot #3.
+- **NNGS (cross-system Jaccard)**: Level-0 diagnostic, not a per-system coordinate. See §3.2 below.
+**Biology instantiation (§2.5 G2.5 required declaration).** On neural population data: build kNN graph on stimulus-indexed response vectors `x_i ∈ R^{N_neurons}` (one point per stimulus condition, trial-averaged). Compute mean clustering coefficient over stimuli. Standard application of graph-theoretic neuroscience tools.
+**Active prereg.** P1.3 within Batch 1 under `atlas_tl_session.md §3c`.
+
+### 2.6 Local-neighborhood alternative specs ⚫ (Batch-2 options if P1.3 fails Gate 1)
+Codex Round 3 flagged cleaner alternatives. Kept as fallbacks:
+  - **Local reachability density (LOF-style).** Per-point density of the local neighborhood; sensitive to outliers/boundary points.
+  - **Heat-kernel trace / diffusion entropy at fixed t.** `tr(exp(-tL))` or entropy of the random-walk distribution after t steps on the kNN-graph Laplacian. Single-cloud scalar; t pre-registered.
+
+If P1.3 clustering-coefficient fails Gate 1 on any system in Batch 1, these are the first-backup primitives before falling back to heavier Koopman/Ricci/PH probes in Batch 2.
 
 ---
 
@@ -226,13 +235,17 @@ These must be developed explicitly — do not assume standard tools port.
 
 **LOCKED IN `research/atlas_tl_session.md §2.5`** (produced as Round-1 priority-directive deliverable). This section now cross-references the locked spec.
 
-**Gate 1 — PORTABILITY (promotion from ⚫/⚪ to 🟡).** Five criteria, all with pre-registered tolerances:
-- G1.1 Computability within COMPUTE.md envelope
-- G1.2 Invariance under the primitive's declared invariance group
-- G1.3 Stability under stimulus resampling (H12)
-- G1.4 Stability under estimator variant
-- G1.5 Stability under quantization ladder (H13)
-Plus the negative-control rule (primitive must distinguish trained vs untrained or it's Level-0).
+**Gate 1 — PORTABILITY (promotion from ⚫/⚪ to 🟡).** Seven criteria, all under the §2.5.6 equivalence/precision criterion `|Δ| + c·SE(Δ) < δ` (Bonferroni-corrected):
+- G1.1 Computability within COMPUTE.md envelope (declarative)
+- G1.2 Invariance under declared invariance group (tested via random transformation + equivalence check)
+- G1.3 Stimulus-resample stability (H12) — 3 seed-disjoint resamples, pairwise equivalence
+- G1.4 Estimator-variant stability — two estimators (e.g., TwoNN/MLE, weighted/unweighted clustering) agree within δ
+- G1.5 Quantization stability (H13) — FP16 vs Q8 agree within δ
+- G1.6 Subsample asymptote (H14) — n-sweep, slope within 1 SE of zero at n_max/2 vs n_max
+- G1.7 Preprocessing / metric declaration (primitive identity)
+Plus the negative-control rule (trained vs untrained differ by ≥ δ_neg-control, i.e., primitive measures learned geometry, not just architecture).
+
+K enumeration (Batch-1 prereg §3.7 example): 3 systems × 6 decisions (G1.2..G1.6 + negative-control aggregated per-system) = K=18. `c = z_{1 − 0.05/18} ≈ 2.77` one-sided. Equivalence margin δ_relative = 0.10 default, with mandatory sensitivity sweep at δ ∈ {0.05, 0.10, 0.20}.
 
 **Promotion threshold:** Gate 1 passed on ≥3 distinct system classes → 🟡 (coordinate, portability gate passed). **No universality claim.**
 

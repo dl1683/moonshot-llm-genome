@@ -42,7 +42,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Gate-1 passed (🟡 coordinate)** | 0 |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
-| **Active hypotheses (H-register)** | 13 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability (→ `atlas_tl_session.md §1c`) |
+| **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
 | **Open pre-registrations** | 0 (1 strawman in `atlas_tl_session.md §3.7`, not yet locked) |
 | **Phase-3 claims** | 0 |
 | **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
@@ -89,7 +89,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | Intrinsic dimension (TwoNN + MLE estimator pair) | ⚫ | — | — | Batch-1 LEAD (P1.1). Prereg strawman in `atlas_tl_session.md §3.7`. |
 | Participation ratio (centered + uncentered pair) | ⚫ | — | — | Batch-1 (P1.2). Pure covariance measure — high Gate-1 prior. |
 | Spectral slope (PCA eigenvalue decay) | ⚫ | — | — | Batch-1 auxiliary (P1.3). Cheap add on top of PR. |
-| Local-connectivity statistics (Jaccard / clustering / diffusion-entropy) | ⚫ | — | — | **NEW** per Codex Round 1 Intuition 2. Candidate Batch-1 4th primitive pending Round 2 ruling. |
+| kNN-5 clustering coefficient (P1.3 single-cloud coordinate) | ⚫ | — | — | **LOCKED in Batch 1 per Round 3 redefinition.** Single-cloud scalar, weighted+unweighted estimator variants, analytical SE O(1/n). Addresses Codex Round 1 Intuition 2. |
 | Koopman spectrum (DMD) | ⚫ | — | — | **NEW** H11 (conf medium). Strongest cross-class candidate by literature (transformer+SSM+diffusion 2025-2026). Deferred to Batch 2 per parsimony. |
 | Persistent homology | ⚫ | — | — | Deferred to Batch 2; needs subsampling-stability control. |
 | Ricci curvature (Ollivier) | ⚫ | — | — | Deferred to Batch 2. H3a. Null result on SSM/diffusion in 2025-2026 lit — new science opportunity. |
