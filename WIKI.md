@@ -35,8 +35,8 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 
 | Field | Value |
 |---|---|
-| **Phase** | 0 — Scaffolding + active TL design session (2026-04-20) |
-| **Axiom status** | Stated; 0 atlas entries |
+| **Phase** | 1 — Instrument live (smoke test passes, first atlas rows emitted 2026-04-21) |
+| **Axiom status** | Stated; 12 smoke-atlas rows emitted (genome_001_smoke, n=5, degenerate as expected); 0 non-smoke atlas entries yet |
 | **Bestiary coverage** | 0 / 9 classes measured |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
 | **Gate-1 passed (🟡 coordinate)** | 0 |
@@ -154,7 +154,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Systems | Primitive | Pre-reg |
 |---|---|---|---|---|---|
-| *(none — scaffolding phase)* | — | — | — | — | — |
+| `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `atlas_tl_session.md §3.7` strawman via prereg |
 
 ---
 
