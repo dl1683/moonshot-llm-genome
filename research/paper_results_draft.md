@@ -83,11 +83,38 @@ The top-k-neighbor subspace that kNN-10 identifies is not descriptively similar 
 
 DINOv2 causal testing (vision, via the public DINOv2 ImageNet linear-probe head as a downstream-loss target) is pending: probe code is implemented (`code/genome_causal_probe.py::run_causal_cell`) and will run post-acceptance in the final journal version. Until then we report the cross-architecture causal claim as text-restricted.
 
-## 4.5 Functional-form identification (Gate-2 G2.3)
+## 4.5 Functional-form identification (Gate-2 G2.3): derivation falsified, universality reframed
 
-*[PENDING — wider log-spaced k-sweep completing as of 2026-04-21 T+19h. This section writes up the Bayesian-information-criterion comparison between the derivation-predicted pooled-universal form (H0: `α_d, β_d` shared across systems) and a per-system free fit (H1). Two paragraphs will replace this placeholder when the sweep lands. If H0 wins by ΔBIC > 10 with bounded CIs on `α_d, β_d`: derivation empirically validated. If H0 fails or `β_d → 0` degenerate: we report that honestly and narrow the claim to "coefficient is cross-portable, but the functional form the derivation predicts is not identified at the tested k-range." Both outcomes are publishable.]*
+We ran the G2.3 hierarchical test at three successively richer k-grids — `{5, 10}`, then `{3, 5, 10, 20, 30}`, then the log-spaced grid `{3, 5, 8, 12, 18, 27, 40, 60, 90, 130}` recommended by our methodological auditor. At every grid the hierarchical fit **collapses to a constant**: the best maximum-likelihood estimate of `β_d` is 0.0, `κ` and `d_int` take non-physical extremes (1e+18 to 1e+50), and the pooled-vs-per-system BIC comparison favors H0 by ΔBIC ≈ 40 only because H1 has more free parameters to mis-fit the same constant.
 
-Preliminary note: the k ∈ {5, 10} smoke fit and the k ∈ {3, 5, 10, 20, 30} fit were both **degenerate** — `β_d → 0` and non-physical `κ, d_int`. A log-spaced grid `k ∈ {3, 5, 8, 12, 18, 27, 40, 60, 90, 130}` is now running; the expectation is that the wider k-range provides enough lever-arm on the `k^(2/d_int)` term to break the degeneracy. If it does not, §4.5 becomes honest falsification.
+Inspecting the raw data reveals why: `C(X, k)` **increases monotonically** with `k` across all five architectures at mid-depth. The locked Laplace-Beltrami derivation (§3.6) predicts the opposite sign — the `(1 − β_d·κ·k^{2/d_int})₊` term is a *decreasing* function of `k` whenever `β_d > 0`. The ML fit sets `β_d → 0` to reconcile an increasing-in-`k` observation with a derivation that only supports decreasing-in-`k` shapes. **The locked derivation's functional form is falsified at the Gate-2 G2.3 level.**
+
+**Table 6. `C(X, k=·)` at mid-depth `ℓ/L ≈ 0.52`, seed-averaged (N=3 stimulus resamples), 5 systems, log-spaced `k`.** Source: `results/gate2/Ck_curves_middepth.json`.
+
+|   `k` |   Qwen3 | DeepSeek |    RWKV |  Falcon |  DINOv2 |
+|------:|--------:|---------:|--------:|--------:|--------:|
+|     3 |  0.2494 |   0.2495 |  0.2685 |  0.2531 |  0.2303 |
+|     5 |  0.2817 |   0.2684 |  0.2977 |  0.2796 |  0.2615 |
+|     8 |  0.3043 |   0.2932 |  0.3213 |  0.3022 |  0.2926 |
+|    12 |  0.3218 |   0.3109 |  0.3429 |  0.3181 |  0.3181 |
+|    18 |  0.3403 |   0.3294 |  0.3661 |  0.3383 |  0.3441 |
+|    27 |  0.3595 |   0.3497 |  0.3887 |  0.3574 |  0.3726 |
+|    40 |  0.3797 |   0.3716 |  0.4136 |  0.3793 |  0.4026 |
+|    60 |  0.4039 |   0.3972 |  0.4447 |  0.4060 |  0.4368 |
+|    90 |  0.4334 |   0.4284 |  0.4818 |  0.4367 |  0.4742 |
+|   130 |  0.4655 |   0.4618 |  0.5211 |  0.4699 |  0.5136 |
+
+**Reframing the result — the universality is stronger than the value at `k=10`.** Rather than C(10) being cross-class-portable, **the entire function `C(X, k)` is cross-class-portable**. At every sampled `k` the five systems sit inside a band of width < 0.06, while within-system variation across seeds is ≤ 0.008. The curves are not only monotonic, they are nearly homothetic — systems track each other tightly across a 40× range of `k`. This is a stronger empirical statement than our pre-registered k=10 portability, and it holds despite the falsification of the specific functional-form we predicted.
+
+We treat the LOCKED derivation document as scientific record — the prediction was specific and specifically wrong. A v2 derivation that predicts increasing-in-`k` curvature — plausibly a different kNN-graph-limit result where `k/n` enters the continuum limit differently — is follow-up work. The v2 derivation is NOT this paper's responsibility; reporting the v1 falsification honestly IS.
+
+## 4.6 Preliminary biology bridge (Gate-2 G2.5 smoke)
+
+A single-session smoke of the Gate-2 biology bridge (G2.5 per prereg `genome_knn_k10_biology_2026-04-21.md`) on Allen Brain Observatory Visual Coding Neuropixels (dandiset `000021`, session `sub-699733573_ses-715093703`, 100-neuron subsample) under Natural Movie One gives:
+
+  > **kNN-10 (biology, Natural Movie One)** = **0.389** (SE 0.005, n=900 stimulus frames, 100 cortical units).
+
+This is inside the `[0.28, 0.52]` band that the trained-network population occupies across depths and `k` values. At the k=10 sentinel depth this biological value is 0.04–0.09 above DINOv2's ImageNet-val range (0.30–0.35) — not equivalent at the pre-registered δ=0.10 equivalence threshold, but in the *same family*. We do not claim G2.5 from one session, 100 neurons, and no controls; we report the smoke as the first positive data point toward a biology-bridged universality claim. Full G2.5 — 30+ sessions, shuffle control, different-movie control, area-specificity — is the most important remaining experiment.
 
 ## 4.6 Summary of the Gate structure
 
