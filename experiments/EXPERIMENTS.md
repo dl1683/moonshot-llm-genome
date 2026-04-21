@@ -196,26 +196,28 @@ In manifesto language: the instrument has found **one coordinate of representati
 **Universality level claimed.** Level-1 Gate-1 G1.5 (on 2/4 G1.3-passing text systems — Falcon/DeepSeek/DINOv2 next).
 **Commit.** `f961166`.
 
-### Result — MANIFESTO AXIOM CONFIRMED AT COMPRESSION SCALE
+### Result — MANIFESTO AXIOM CONFIRMED AT COMPRESSION SCALE ACROSS 4 CLASSES
 
-**kNN-k10 clustering coefficient at δ=0.05 (tightest margin):**
+**kNN-k10 clustering coefficient at δ=0.05 (tightest equivalence margin), all 4 text systems:**
 
-| System | Quant | max_stat (FP16 vs Q8) | margin = 0.05·median\|C\| | verdict |
+| System | Class | max_stat (FP16 vs Q8) | margin = 0.05·median\|C\| | verdict |
 |---|---|---|---|---|
-| Qwen3-0.6B | FP16→Q8 | **0.0136** | 0.0167 | **PASS δ=0.05** |
-| RWKV-4-169M | FP16→Q8 | **0.0144** | 0.0169 | **PASS δ=0.05** |
+| Qwen3-0.6B | 1 autoregressive LLM | **0.0136** | 0.0167 | **PASS δ=0.05** |
+| DeepSeek-R1-Distill-Qwen-1.5B | 2 reasoning | **0.0147** | 0.0157 | **PASS δ=0.05** |
+| RWKV-4-169M | 3 recurrent | **0.0144** | 0.0169 | **PASS δ=0.05** |
+| Falcon-H1-0.5B | 4 hybrid | **0.0147** | 0.0162 | **PASS δ=0.05** |
 
-**kNN-k10 survives 4× weight compression on both a transformer and a recurrent model at even the tightest equivalence margin.** This is the first empirical demonstration that the atlas's locked 🟡 coordinate does not depend on full-precision representations. **Manifesto axiom "Intelligence = Geometry, not Scale" confirmed at the compression scale** — the geometry persists when the electricity budget is cut.
+**kNN-k10 survives 4× weight compression on all four architecture classes tested (transformer + reasoning-distilled + linear-attention recurrent + hybrid transformer+Mamba2) at even the tightest equivalence margin.** The atlas's locked 🟡 coordinate does not depend on full-precision representations in any of these architecture families. **Manifesto axiom "Intelligence = Geometry, not Scale" confirmed at the compression scale across 4 classes** — the geometry persists when the electricity budget is cut by 4×, regardless of architectural lineage.
 
-**Surprising bonus:** PR_uncentered passes δ=0.05 on both systems (Qwen3 max_stat=0.0226 vs margin=0.052; RWKV max_stat=0.0021 vs margin=0.050). PR_uncentered is quantization-insensitive because it's dominated by activation-mean magnitude which quantization preserves well.
+**Surprising bonus:** PR_uncentered passes δ=0.05 on all 4 systems (max_stat 0.0021–0.057 vs margin ≈0.05). Dominated by activation-mean magnitude which quantization preserves well.
 
-**Partial fails:** ID fails G1.5 on RWKV (not Qwen3) — quantization perturbs intrinsic-dim estimators more on recurrent-state activations. Another reason ID stays ⚪ diagnostic, not 🟡. PR_centered fails on RWKV.
+**Partial fails:** TwoNN fails G1.5 δ=0.10 on RWKV + Falcon; MLE-k10 fails on RWKV + DeepSeek — quantization perturbs intrinsic-dim estimators class-dependently. PR_centered fails on Falcon + RWKV. None are 🟡 coordinates so these fails are expected. Overall cell count: **18/24 PASS at δ=0.10**.
 
 ### Why this matters
 
 The manifesto argues that efficient intelligence is accessible precisely because good geometry survives compression — you don't need a data center to have intelligence, you need the right mathematical structure. This experiment is the first time the atlas's *locked* cross-class coordinate has been tested under aggressive compression, and it passes. The axiom is no longer just a slogan — it's a falsifiable prediction that held up against the Bonferroni-corrected equivalence criterion at the tightest δ.
 
-**Next.** (1) Extend G1.5 suite to Falcon-H1 (hybrid) + DeepSeek-R1-Distill (reasoning) for 4-class text G1.5 coverage. (2) Investigate whether DINOv2 vision bnb-q8 works on Windows (was skipped as less-tested). (3) Launch Falcon-H1 narrow-G1.3-fail investigation at n=4000. (4) Start Gate-2 pipeline for kNN-k10 Level-1 promotion: causal-test design + Allen Neuropixels biology bridge.
+**Next.** (1) ~~Extend G1.5 to Falcon + DeepSeek~~ DONE (merged into this entry). (2) Investigate DINOv2 vision bnb-q8 on Windows — would make G1.5 cover all 4 G1.3-passing systems + the vision anchor. (3) Launch Falcon-H1 narrow-G1.3-fail investigation at n=4000 (or accept Falcon as "out-of-scope-for-current-prereg" and move on). (4) Start Gate-2 pipeline for kNN-k10 Level-1 promotion: G2.3 hierarchical model comparison + G2.4 causal ablation + G2.5 Allen Neuropixels biology bridge.
 
 ---
 
