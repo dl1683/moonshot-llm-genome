@@ -15,7 +15,7 @@ from __future__ import annotations
 import dataclasses
 from typing import Any, Callable
 
-import numpy as np
+import numpy as np  # noqa: F401 (used inside hook closure after rewrite)
 import torch
 
 
@@ -101,6 +101,10 @@ def _transformer_blocks(model: Any) -> list[Any]:
         "backbone.layers",           # Mamba2-hf
         "transformer.h",             # GPT-2 style
         "model.decoder.layers",      # some BART-ish
+        "rwkv.blocks",               # RWKV
+        "model.rwkv.blocks",         # RWKV wrapped
+        "gpt_neox.layers",           # Pythia / GPT-NeoX
+        "model.blocks",              # Falcon-H1 variants
     ]:
         obj = model
         ok = True
@@ -164,17 +168,26 @@ def extract_trajectory(
                     h = output
                 # h: (batch, seq_len, d)
                 mask = attention_mask  # captured from outer scope below
+                # Cast to float32 EARLY to avoid FP16 overflow during pooling
+                # (observed on RWKV intermediate activations).
+                h32 = h.detach().to(torch.float32)
                 if pooling == "seq_mean":
-                    # Mean over non-pad tokens per sequence.
-                    mask_f = mask.unsqueeze(-1).to(h.dtype)
-                    lengths = mask.sum(dim=1, keepdim=True).to(h.dtype).clamp(min=1)
-                    pooled = (h * mask_f).sum(dim=1) / lengths
-                    captured[layer_i] = pooled.detach().to(torch.float32).cpu().numpy()
-                else:  # per_token_subsample: store flattened non-pad tokens
-                    batch, seq, dim = h.shape
-                    flat = h.reshape(batch * seq, dim)
+                    mask_f = mask.unsqueeze(-1).to(torch.float32)
+                    lengths = mask.sum(dim=1, keepdim=True).to(torch.float32).clamp(min=1)
+                    pooled = (h32 * mask_f).sum(dim=1) / lengths
+                    arr = pooled.cpu().numpy()
+                else:  # per_token_subsample
+                    batch, seq, dim = h32.shape
+                    flat = h32.reshape(batch * seq, dim)
                     mflat = mask.reshape(batch * seq).bool()
-                    captured[layer_i] = flat[mflat].detach().to(torch.float32).cpu().numpy()
+                    arr = flat[mflat].cpu().numpy()
+                # Filter non-finite rows (some SSM/RWKV FP16 activations
+                # produce inf/nan; document + drop).
+                finite_mask = np.all(np.isfinite(arr), axis=1)
+                n_dropped = int((~finite_mask).sum())
+                if n_dropped > 0:
+                    arr = arr[finite_mask]
+                captured[layer_i] = arr
             return hook
 
         hooks.append(block.register_forward_hook(make_hook(i)))

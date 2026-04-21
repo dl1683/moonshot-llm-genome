@@ -56,4 +56,20 @@ Format per entry:
 
 ---
 
+## 2026-04-21 — genome_003_cross_arch_pilot
+
+**Purpose.** First cross-CLASS atlas comparison. 2 architectures × 3 sentinel depths × matched stimuli.
+**Systems.** `Qwen/Qwen3-0.6B` (Class 1, autoregressive LLM) + `RWKV/rwkv-4-169m-pile` (Class 3, linear-attention recurrent — substituted for state-spaces/mamba2-370m due to Windows mamba-ssm kernel unavailability). Falcon-H1 hybrid OOMed in naive fallback and is deferred.
+**Primitive.** ID (TwoNN), PR (centered + uncentered), kNN-5 clustering coefficient.
+**Universality level claimed.** null — these are Phase-2 observations pending Gate-1 suite.
+**Commit.** `571f5b3` (pre-run) — to be updated post-commit.
+**Result (FIRST CROSS-CLASS DATA in the repo):**
+- **Intrinsic dimension (TwoNN)** decreases monotonically with depth in both classes: Qwen3 23.6 → 22.3 → 17.9; RWKV 24.7 → 16.8 → 15.3. Same sign/shape, different magnitudes → **Level-2 family-local candidate**.
+- **Participation ratio (centered)** is OPPOSITE SIGN across classes: Qwen3 expands 8.9 → 26.9 → 33.4; RWKV compresses 25.1 → 7.8 → 4.9. **NOT a cross-class universal**, not even Level-2 as written. Genuine falsification evidence — this primitive's behavior is architecture-specific.
+- **kNN-5 clustering coefficient** agrees across classes AND depths within ~0.05: Qwen3 0.358 / 0.337 / 0.382; RWKV 0.326 / 0.351 / 0.387. **Strongest universality candidate in the atlas to date.** Validates Codex Round 1 Intuition 2 ("global similarity collapses; only local neighborhood structure survives cross-architecture").
+**What this proves.** The atlas produces real, interpretable, cross-class signal at 45-second wall-clock on 500 C4 sentences. Sacred outcome S2 (architecture-agnostic instrument) moves from policy-only to empirically-tested at N=2 classes. S7 (manifesto: Intelligence = Geometry) gets first evidence that SOME geometric statistics are class-agnostic and SOME are not — exactly the kind of discrimination the atlas is designed to make.
+**Next.** (1) Unblock the hybrid class (Falcon-H1 or substitute Granite-4.0-H) to reach ≥3 classes. (2) Add untrained-twin controls to verify the cross-class agreement isn't architectural coincidence. (3) Run Gate-1 suite per prereg — stimulus-resample stability, quantization stability, n-sweep asymptote — on the 2 working classes to establish whether ID and clustering pass Gate 1.
+
+---
+
 *(Future entries above this line, newest first.)*

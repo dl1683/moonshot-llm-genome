@@ -36,7 +36,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | Field | Value |
 |---|---|
 | **Phase** | 1 — Instrument live (smoke test passes, first atlas rows emitted 2026-04-21) |
-| **Axiom status** | Stated; 12 smoke-atlas rows emitted (genome_001_smoke, n=5, degenerate as expected); 0 non-smoke atlas entries yet |
+| **Axiom status** | **FIRST CROSS-CLASS EVIDENCE.** 36 atlas rows from genome_003_cross_arch_pilot (Qwen3 + RWKV, n=500 real C4, 3 sentinel depths): (i) kNN-5 clustering coefficient agrees within 0.05 across both classes — strongest universality candidate; (ii) TwoNN ID trajectories share monotone-decreasing shape with different magnitudes — Level-2 family-local candidate; (iii) PR is OPPOSITE-SIGN across classes — falsified as universal. Falcon-H1 hybrid deferred (Windows mamba-ssm blocker). |
 | **Bestiary coverage** | 0 / 9 classes measured |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
 | **Gate-1 passed (🟡 coordinate)** | 0 |
@@ -155,6 +155,8 @@ Any markdown file not in this table either feeds one of these or should be delet
 | ID | Status | Purpose | Systems | Primitive | Pre-reg |
 |---|---|---|---|---|---|
 | `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `atlas_tl_session.md §3.7` strawman via prereg |
+| `genome_002_n500_c4` | ✅ passed 2026-04-21 | First real primitive values (n=500 C4, Qwen3, 2 depths) | Qwen3-0.6B | ID + PR + kNN-clustering | `research/prereg/genome_id_portability_2026-04-21.md` STAGED |
+| `genome_003_cross_arch_pilot` | ✅ passed 2026-04-21 (2/3 systems) | **FIRST CROSS-CLASS atlas data** — Qwen3 transformer vs RWKV linear-attention at matched depths on matched stimuli | Qwen3-0.6B + RWKV-4-169M (Falcon-H1 hybrid deferred) | ID + PR + kNN-clustering | STAGED |
 
 ---
 

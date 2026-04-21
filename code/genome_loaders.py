@@ -43,17 +43,28 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "class_name": "autoregressive LLM",
         "approx_params": 600_000_000,
     },
-    "mamba2-370m": {
-        "hf_id": "state-spaces/mamba2-370m-hf",
+    "rwkv-4-169m": {
+        "hf_id": "RWKV/rwkv-4-169m-pile",
         "class_id": 3,
-        "class_name": "SSM",
-        "approx_params": 370_000_000,
+        "class_name": "linear-attention recurrent (RWKV)",
+        "approx_params": 169_000_000,
+        # SUBSTITUTE for state-spaces/mamba2-370m which is Windows-blocked:
+        # Mamba/Mamba2 HF wrappers require the mamba-ssm + causal-conv1d CUDA
+        # kernels, which have no prebuilt Windows wheels and fail source build
+        # (bare_metal_version NameError at compile). RWKV-4 is HF-native, uses
+        # linear-attention recurrence (class_id=3 per SYSTEM_BESTIARY), and
+        # serves the same "non-transformer recurrent/state-space" role in
+        # Batch-1's ≥3-class gate test.
     },
+    # Skipped for now on Windows (same mamba-ssm kernel blocker):
+    # "mamba2-370m": state-spaces/mamba2-370m (needs mamba-ssm CUDA kernels)
+    # Flag: revisit on Linux or once prebuilt Windows wheel available.
     "falcon-h1-0.5b": {
         "hf_id": "tiiuae/Falcon-H1-0.5B-Instruct",
         "class_id": 4,
         "class_name": "hybrid (transformer + Mamba2)",
         "approx_params": 500_000_000,
+        "trust_remote_code": True,  # Falcon-H1 requires custom modeling code
     },
 }
 
@@ -138,15 +149,24 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
     """
     system_key = _resolve_system_key(hf_id)
     meta = SYSTEM_IDS[system_key]
+    trust_remote = bool(meta.get("trust_remote_code", False))
 
     if device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA requested but not available")
 
-    tokenizer = AutoTokenizer.from_pretrained(hf_id, trust_remote_code=False)
+    tokenizer_source = meta.get("tokenizer_fallback", hf_id)
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_source, trust_remote_code=trust_remote)
+    except Exception:
+        # If fallback also fails, try loading the model's own tokenizer
+        # without trust_remote_code in case the remote-code path is broken.
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_source, trust_remote_code=False)
     if tokenizer.pad_token is None and tokenizer.eos_token is not None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    config = AutoConfig.from_pretrained(hf_id, trust_remote_code=False)
+    config = AutoConfig.from_pretrained(hf_id, trust_remote_code=trust_remote)
 
     quant_cfg = _quantization_config(quant)
     dtype = _torch_dtype(quant)
@@ -159,12 +179,13 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
                 "untrained twins must be loaded at fp16 (quantizing random "
                 "weights does not give a meaningful negative control)"
             )
-        model = AutoModelForCausalLM.from_config(config, torch_dtype=dtype)
+        model = AutoModelForCausalLM.from_config(
+            config, torch_dtype=dtype, trust_remote_code=trust_remote)
         model = model.to(device)
     else:
         load_kwargs: dict[str, Any] = {
             "torch_dtype": dtype,
-            "trust_remote_code": False,
+            "trust_remote_code": trust_remote,
         }
         if quant_cfg is not None:
             load_kwargs["quantization_config"] = quant_cfg
