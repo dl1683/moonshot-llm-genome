@@ -1,6 +1,13 @@
 # Prereg: `genome_id_portability` — Gate-1 portability test for Intrinsic Dimension
 
-**status: STAGED** — governance discipline per Codex R6 Part V and `code/prereg_validator.py` placeholder rejection rule.
+**status: SUPERSEDED** (2026-04-21) — this was the original joint ID + PR + kNN prereg. All three primitives have since had dedicated focused preregs created as empirical evidence accumulated:
+- **kNN-10**: `research/prereg/genome_knn_k10_portability_2026-04-21.md` LOCKED at 62338b8. Passes G1.3 on 5/5 Batch-1 classes.
+- **ID (TwoNN, MLE)**: DEMOTED to ⚪ diagnostic — fails G1.3 on all systems (genome_006, 007, 009); neg-control gap only 6-13% (genome_004). No replacement prereg.
+- **PR**: DEMOTED to ⚪ diagnostic — PR_uncentered is DC-artifact (commit `0c505dc`); PR_centered fails G1.3 cross-class.
+
+This file is kept for audit trail. No further action will be taken under this prereg's scope. New Gate-1 work goes through the focused kNN prereg (or new dedicated preregs per primitive).
+
+**Original status (historical):** STAGED — governance discipline per Codex R6 Part V and `code/prereg_validator.py` placeholder rejection rule.
 
 A STAGED prereg has all design decisions committed but still contains fill-in fields that cannot be pinned until real data is on disk (specifically `dataset_hash = PLACEHOLDER_sha256_...`). To promote to `status: LOCKED`:
 1. Pull the C4-clean slice per the `c4_clean_v1` generator spec.
