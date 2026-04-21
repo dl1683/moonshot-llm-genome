@@ -140,14 +140,17 @@ def extract_trajectory(
     quantization: str,
     stimulus_version: str,
     seed: int,
+    batch_size: int = 64,
 ) -> PointCloudTrajectory:
-    """Forward-pass a batch of texts through the model, hook the selected
-    layers, return a PointCloudTrajectory of point-clouds at those depths.
+    """Forward-pass texts through the model in MICRO-BATCHES, hook selected
+    layers, return a PointCloudTrajectory of pooled point-clouds.
 
-    - pooling="seq_mean": average hidden states across tokens (one point per
-      input sentence).
-    - pooling="per_token_subsample": flatten tokens and optionally subsample
-      (upstream caller can reduce).
+    Micro-batching (batch_size sentences per forward pass) keeps peak VRAM
+    bounded regardless of total n_sentences. Pooled outputs are accumulated
+    per-layer across batches and concatenated at the end.
+
+    - pooling="seq_mean": one point per input sentence (batch_size × d per pass).
+    - pooling="per_token_subsample": flattens tokens, subsamples upstream.
     """
     if pooling not in ("seq_mean", "per_token_subsample"):
         raise ValueError(f"unsupported pooling {pooling!r}")
@@ -155,9 +158,11 @@ def extract_trajectory(
     blocks = _transformer_blocks(model)
     n_layers = len(blocks)
     layer_idx_set = set(layer_indices)
-    captured: dict[int, np.ndarray] = {}
+    # Accumulate pooled arrays across micro-batches; concatenate at end.
+    batch_captured: dict[int, list[np.ndarray]] = {i: [] for i in layer_indices}
 
-    # Hooks capture residual-stream output per selected layer.
+    # Hooks write into a per-batch scratch dict; outer loop moves scratch into batch_captured.
+    scratch: dict[int, np.ndarray] = {}
     hooks = []
     for i, block in enumerate(blocks):
         if i not in layer_idx_set:
@@ -165,51 +170,61 @@ def extract_trajectory(
 
         def make_hook(layer_i: int):
             def hook(module, _inputs, output):  # noqa: ARG001
-                # HF blocks return either a Tensor or a tuple with hidden_states first.
                 if isinstance(output, tuple):
                     h = output[0]
                 else:
                     h = output
-                # h: (batch, seq_len, d)
-                mask = attention_mask  # captured from outer scope below
-                # Cast to float32 EARLY to avoid FP16 overflow during pooling
-                # (observed on RWKV intermediate activations).
+                mask = _current_attention_mask[0]  # captured via closure
                 h32 = h.detach().to(torch.float32)
                 if pooling == "seq_mean":
                     mask_f = mask.unsqueeze(-1).to(torch.float32)
                     lengths = mask.sum(dim=1, keepdim=True).to(torch.float32).clamp(min=1)
                     pooled = (h32 * mask_f).sum(dim=1) / lengths
                     arr = pooled.cpu().numpy()
-                else:  # per_token_subsample
-                    batch, seq, dim = h32.shape
-                    flat = h32.reshape(batch * seq, dim)
-                    mflat = mask.reshape(batch * seq).bool()
+                else:
+                    batch_, seq, dim = h32.shape
+                    flat = h32.reshape(batch_ * seq, dim)
+                    mflat = mask.reshape(batch_ * seq).bool()
                     arr = flat[mflat].cpu().numpy()
-                # Filter non-finite rows (some SSM/RWKV FP16 activations
-                # produce inf/nan; document + drop).
                 finite_mask = np.all(np.isfinite(arr), axis=1)
-                n_dropped = int((~finite_mask).sum())
-                if n_dropped > 0:
+                if not finite_mask.all():
                     arr = arr[finite_mask]
-                captured[layer_i] = arr
+                scratch[layer_i] = arr
             return hook
-
         hooks.append(block.register_forward_hook(make_hook(i)))
 
-    try:
-        enc = tokenizer(
-            texts, padding=True, truncation=True, max_length=max_length,
-            return_tensors="pt",
-        )
-        input_ids = enc["input_ids"].to(device)
-        attention_mask = enc["attention_mask"].to(device)
+    # Single-element list so closure can rebind per-batch attention mask.
+    _current_attention_mask: list[Any] = [None]
 
-        with torch.no_grad():
-            _ = model(input_ids=input_ids, attention_mask=attention_mask,
-                      use_cache=False, output_hidden_states=False)
+    try:
+        for start in range(0, len(texts), batch_size):
+            chunk = texts[start:start + batch_size]
+            enc = tokenizer(
+                chunk, padding=True, truncation=True, max_length=max_length,
+                return_tensors="pt",
+            )
+            input_ids = enc["input_ids"].to(device)
+            attention_mask = enc["attention_mask"].to(device)
+            _current_attention_mask[0] = attention_mask
+
+            scratch.clear()
+            with torch.no_grad():
+                _ = model(input_ids=input_ids, attention_mask=attention_mask,
+                          use_cache=False, output_hidden_states=False)
+            for i, arr in scratch.items():
+                batch_captured[i].append(arr)
+            # Release VRAM before next micro-batch.
+            del input_ids, attention_mask, enc
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
     finally:
         for h in hooks:
             h.remove()
+
+    captured: dict[int, np.ndarray] = {
+        i: np.concatenate(arrs, axis=0) if arrs else np.zeros((0, 0), dtype=np.float32)
+        for i, arrs in batch_captured.items()
+    }
 
     # Assemble PointCloudTrajectory in the declared layer_indices order.
     layers: list[PointCloudLayer] = []
@@ -256,6 +271,7 @@ def extract_vision_trajectory(
     quantization: str,
     stimulus_version: str,
     seed: int,
+    batch_size: int = 32,
 ) -> PointCloudTrajectory:
     """Forward-pass a batch of PIL images through a vision encoder (DINOv2 /
     ViT), hook the selected blocks, return a PointCloudTrajectory.
@@ -271,7 +287,8 @@ def extract_vision_trajectory(
     blocks = _transformer_blocks(model)
     n_layers = len(blocks)
     layer_idx_set = set(layer_indices)
-    captured: dict[int, np.ndarray] = {}
+    batch_captured: dict[int, list[np.ndarray]] = {i: [] for i in layer_indices}
+    scratch: dict[int, np.ndarray] = {}
 
     hooks = []
     for i, block in enumerate(blocks):
@@ -285,39 +302,43 @@ def extract_vision_trajectory(
                 else:
                     h = output
                 h32 = h.detach().to(torch.float32)
-                # h32 shape: (batch, n_tokens, d). ViT has CLS + patch tokens.
                 if pooling == "cls_or_mean":
-                    # DINOv2 CLS is index 0 when present; use mean over all
-                    # tokens as a robust fallback. Empirically for DINOv2 both
-                    # agree on the overall geometry when n is large.
                     pooled = h32.mean(dim=1)
-                else:  # patch_mean
+                else:
                     pooled = h32[:, 1:, :].mean(dim=1) if h32.shape[1] > 1 \
                         else h32.mean(dim=1)
                 arr = pooled.cpu().numpy()
                 finite_mask = np.all(np.isfinite(arr), axis=1)
                 if not finite_mask.all():
                     arr = arr[finite_mask]
-                captured[layer_i] = arr
+                scratch[layer_i] = arr
             return hook
-
         hooks.append(block.register_forward_hook(make_hook(i)))
 
     try:
-        # Process all images in one batch (DINOv2-small is tiny; 500 images at
-        # 224x224 FP16 is well inside envelope).
-        proc_out = image_processor(images=images, return_tensors="pt")
-        pixel_values = proc_out["pixel_values"].to(device)
-        # DINOv2 expects fp16 / fp32 consistent with model dtype.
         model_dtype = next(model.parameters()).dtype
-        if pixel_values.dtype != model_dtype:
-            pixel_values = pixel_values.to(model_dtype)
-
-        with torch.no_grad():
-            _ = model(pixel_values=pixel_values)
+        for start in range(0, len(images), batch_size):
+            chunk = images[start:start + batch_size]
+            proc_out = image_processor(images=chunk, return_tensors="pt")
+            pixel_values = proc_out["pixel_values"].to(device)
+            if pixel_values.dtype != model_dtype:
+                pixel_values = pixel_values.to(model_dtype)
+            scratch.clear()
+            with torch.no_grad():
+                _ = model(pixel_values=pixel_values)
+            for i, arr in scratch.items():
+                batch_captured[i].append(arr)
+            del pixel_values, proc_out
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
     finally:
         for h in hooks:
             h.remove()
+
+    captured: dict[int, np.ndarray] = {
+        i: np.concatenate(arrs, axis=0) if arrs else np.zeros((0, 0), dtype=np.float32)
+        for i, arrs in batch_captured.items()
+    }
 
     layers: list[PointCloudLayer] = []
     for i in sorted(layer_indices):

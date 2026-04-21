@@ -1,0 +1,3680 @@
+{
+  "experiment_id": "genome_006_stim_resample",
+  "n_sentences": 2000,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "total_wall_clock_seconds": 297.84,
+  "per_seed_summary": {
+    "42": {
+      "systems_ok": 2,
+      "wall_clock": 99.43,
+      "seed_wall_clock": 99.45
+    },
+    "123": {
+      "systems_ok": 2,
+      "wall_clock": 96.66,
+      "seed_wall_clock": 96.68
+    },
+    "456": {
+      "systems_ok": 2,
+      "wall_clock": 101.69,
+      "seed_wall_clock": 101.71
+    }
+  },
+  "n_rows": 108,
+  "g13_verdicts": {
+    "rwkv-4-169m||intrinsic_dim||twonn": {
+      "status": "fail",
+      "max_stat": 4.433725423822201,
+      "margin_abs": 2.1132288171413713,
+      "median_abs_f": 21.132288171413713,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 1.8446582549984605,
+          "se_delta": 0.934681288384022,
+          "equiv_stat": 4.433725423822201
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.3094449034104514,
+          "se_delta": 0.9099654069326898,
+          "equiv_stat": 2.830049080614002
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 1.535213351588009,
+          "se_delta": 0.9394325175568983,
+          "equiv_stat": 4.137441425220617
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 1.240958873687596,
+          "se_delta": 0.6562036305122808,
+          "equiv_stat": 3.058642930206614
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 1.0110654127781835,
+          "se_delta": 0.652471152106476,
+          "equiv_stat": 2.818410504113122
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.22989346090941254,
+          "se_delta": 0.6719063950625992,
+          "equiv_stat": 2.091074175232812
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 1.0050832709133068,
+          "se_delta": 0.5779106870417535,
+          "equiv_stat": 2.605895874018964
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 1.2056608588087059,
+          "se_delta": 0.581176284707483,
+          "equiv_stat": 2.815519167448434
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.20057758789539903,
+          "se_delta": 0.5967637437919735,
+          "equiv_stat": 1.8536131581991657
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 1.0566144085706857,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 2.1132288171413713,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 4.226457634282743,
+          "status": "fail"
+        }
+      }
+    },
+    "rwkv-4-169m||intrinsic_dim||mle_k10": {
+      "status": "fail",
+      "max_stat": 2.538757381186173,
+      "margin_abs": 1.8392011893044147,
+      "median_abs_f": 18.392011893044145,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.3548396474911044,
+          "se_delta": 0.7884179544025518,
+          "equiv_stat": 2.538757381186173
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.21511573871620726,
+          "se_delta": 0.7861961199615163,
+          "equiv_stat": 2.3928789910096073
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.13972390877489715,
+          "se_delta": 0.7918023520134957,
+          "equiv_stat": 2.33301642385228
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.5813907586872666,
+          "se_delta": 0.573459121830716,
+          "equiv_stat": 2.16987252615835
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.5506676571849631,
+          "se_delta": 0.5729658216753871,
+          "equiv_stat": 2.1377829832257857
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.030723101502303507,
+          "se_delta": 0.5820924609343276,
+          "equiv_stat": 1.643119218290391
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.7109977343420013,
+          "se_delta": 0.5086222895936847,
+          "equiv_stat": 2.119881476516508
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.6166112282224425,
+          "se_delta": 0.5070993859710642,
+          "equiv_stat": 2.02127652736229
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.09438650611955879,
+          "se_delta": 0.5182496657263699,
+          "equiv_stat": 1.5299380801816034
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.9196005946522073,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 1.8392011893044147,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 3.6784023786088293,
+          "status": "pass"
+        }
+      }
+    },
+    "rwkv-4-169m||participation_ratio||pr_centered": {
+      "status": "fail",
+      "max_stat": 3.948399254484884,
+      "margin_abs": 0.7822819455162824,
+      "median_abs_f": 7.822819455162823,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.6833424551507967,
+          "se_delta": 0.8895785726171198,
+          "equiv_stat": 3.1474751013002185
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 1.5079921247047139,
+          "se_delta": 0.881013404252769,
+          "equiv_stat": 3.948399254484884
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.8246496695539172,
+          "se_delta": 0.8962219286290679,
+          "equiv_stat": 3.307184411856435
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.005279410911568583,
+          "se_delta": 0.4075973524194585,
+          "equiv_stat": 1.1343240771134686
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.24644498155665673,
+          "se_delta": 0.41462398642035714,
+          "equiv_stat": 1.394953423941046
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.24116557064508815,
+          "se_delta": 0.4152838131172953,
+          "equiv_stat": 1.3915017329799961
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.12220370210938913,
+          "se_delta": 0.23661701814461097,
+          "equiv_stat": 0.7776328423699616
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.14197953081818238,
+          "se_delta": 0.23729831388728895,
+          "equiv_stat": 0.7992958602859728
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.01977582870879324,
+          "se_delta": 0.2410858810819324,
+          "equiv_stat": 0.687583719305746
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.3911409727581412,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.7822819455162824,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 1.5645638910325648,
+          "status": "fail"
+        }
+      }
+    },
+    "rwkv-4-169m||participation_ratio||pr_uncentered": {
+      "status": "pass",
+      "max_stat": 0.002250501131736252,
+      "margin_abs": 0.10111910873185433,
+      "median_abs_f": 1.0111910873185432,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 6.0410040017000455e-05,
+          "se_delta": 0.0003499709444626798,
+          "equiv_stat": 0.0010298295561786235
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 5.192759513739098e-05,
+          "se_delta": 0.00034745991767785183,
+          "equiv_stat": 0.0010143915671050406
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.00011233763515439144,
+          "se_delta": 0.00034873070608113817,
+          "equiv_stat": 0.0010783216909991443
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0001008117462450997,
+          "se_delta": 0.0005114015443230579,
+          "equiv_stat": 0.0015173940240199699
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 6.301119099805241e-05,
+          "se_delta": 0.0005076977952074665,
+          "equiv_stat": 0.0014693340837227346
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.0001638229372431521,
+          "se_delta": 0.0005099050520551727,
+          "equiv_stat": 0.0015762599314359806
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.00020650337042282807,
+          "se_delta": 0.0007379053289940158,
+          "equiv_stat": 0.002250501131736252
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.00010196005950935394,
+          "se_delta": 0.0007354833115476543,
+          "equiv_stat": 0.0021392488324963564
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.00010454331091347413,
+          "se_delta": 0.0007401007335885485,
+          "equiv_stat": 0.002154622342953753
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.05055955436592716,
+          "status": "pass"
+        },
+        "delta_0.1": {
+          "margin": 0.10111910873185433,
+          "status": "pass"
+        },
+        "delta_0.2": {
+          "margin": 0.20223821746370865,
+          "status": "pass"
+        }
+      }
+    },
+    "rwkv-4-169m||knn_clustering||knn_k5": {
+      "status": "fail",
+      "max_stat": 0.03352082158007682,
+      "margin_abs": 0.030270000000000005,
+      "median_abs_f": 0.3027,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.002899999999999958,
+          "se_delta": 0.005645866887064663,
+          "equiv_stat": 0.018539051277169077
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.0126,
+          "se_delta": 0.005559129604621616,
+          "equiv_stat": 0.027998789004801877
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.009700000000000042,
+          "se_delta": 0.0054629732782175726,
+          "equiv_stat": 0.024832435980662718
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0009499999999999509,
+          "se_delta": 0.00594010405364115,
+          "equiv_stat": 0.017404088228585936
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.01689999999999997,
+          "se_delta": 0.006000296599305722,
+          "equiv_stat": 0.03352082158007682
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.01595000000000002,
+          "se_delta": 0.005666315144223521,
+          "equiv_stat": 0.03164569294949918
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.007799999999999974,
+          "se_delta": 0.005818134825390626,
+          "equiv_stat": 0.023916233466332006
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.01624999999999993,
+          "se_delta": 0.005915266176341389,
+          "equiv_stat": 0.03263528730846558
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.008449999999999958,
+          "se_delta": 0.00571632635032953,
+          "equiv_stat": 0.024284223990412756
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.015135000000000003,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.030270000000000005,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 0.06054000000000001,
+          "status": "pass"
+        }
+      }
+    },
+    "rwkv-4-169m||knn_clustering||knn_k10": {
+      "status": "pass",
+      "max_stat": 0.02385664482519622,
+      "margin_abs": 0.033621111111111115,
+      "median_abs_f": 0.3362111111111111,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.004244444444444384,
+          "se_delta": 0.003893595189351275,
+          "equiv_stat": 0.015029703118947415
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.012966666666666626,
+          "se_delta": 0.0039314000572308995,
+          "equiv_stat": 0.02385664482519622
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.008722222222222242,
+          "se_delta": 0.0038686942164870325,
+          "equiv_stat": 0.019438505201891325
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0015999999999999903,
+          "se_delta": 0.004195920391963631,
+          "equiv_stat": 0.01322269948573925
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.011244444444444501,
+          "se_delta": 0.004187612186639376,
+          "equiv_stat": 0.022844130201435574
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.009644444444444511,
+          "se_delta": 0.004014299796600155,
+          "equiv_stat": 0.02076405488102694
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0015444444444444594,
+          "se_delta": 0.0042105975424632704,
+          "equiv_stat": 0.013207799637067719
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.00785555555555556,
+          "se_delta": 0.004320854255316431,
+          "equiv_stat": 0.019824321842782072
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.00940000000000002,
+          "se_delta": 0.004125943435807372,
+          "equiv_stat": 0.02082886331718644
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.016810555555555558,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.033621111111111115,
+          "status": "pass"
+        },
+        "delta_0.2": {
+          "margin": 0.06724222222222223,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||intrinsic_dim||twonn": {
+      "status": "fail",
+      "max_stat": 3.0728917405683154,
+      "margin_abs": 2.3245279071991654,
+      "median_abs_f": 23.245279071991654,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.34179191938189746,
+          "se_delta": 0.611495180894964,
+          "equiv_stat": 2.0356335704609476
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.9747842040668964,
+          "se_delta": 0.6016602586355327,
+          "equiv_stat": 2.641383120487322
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.6329922846849989,
+          "se_delta": 0.5961426294150597,
+          "equiv_stat": 2.2843073681647144
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.17210866319550533,
+          "se_delta": 0.7753223191429804,
+          "equiv_stat": 2.319751487221561
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.9593225175431819,
+          "se_delta": 0.7630213801534779,
+          "equiv_stat": 3.0728917405683154
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.7872138543476765,
+          "se_delta": 0.7602512210599353,
+          "equiv_stat": 2.893109736683697
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.8557943817630047,
+          "se_delta": 0.748733844820057,
+          "equiv_stat": 2.9297871319145625
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.028365877440428733,
+          "se_delta": 0.7346319001439088,
+          "equiv_stat": 2.063296240839056
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.8841602592034334,
+          "se_delta": 0.7482936589022401,
+          "equiv_stat": 2.9569336943626383
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 1.1622639535995827,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 2.3245279071991654,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 4.649055814398331,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||intrinsic_dim||mle_k10": {
+      "status": "fail",
+      "max_stat": 2.401250570628228,
+      "margin_abs": 2.0293078950658554,
+      "median_abs_f": 20.293078950658554,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.137169136954844,
+          "se_delta": 0.49934275608156353,
+          "equiv_stat": 1.520348571300775
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.17749059687276514,
+          "se_delta": 0.4943708042606666,
+          "equiv_stat": 1.5468977246748117
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.31465973382760914,
+          "se_delta": 0.4965565982397202,
+          "equiv_stat": 1.690121510951634
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.3600030128094751,
+          "se_delta": 0.676953758894064,
+          "equiv_stat": 2.2351649249460324
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.5336123800088473,
+          "se_delta": 0.6742376139420146,
+          "equiv_stat": 2.401250570628228
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.17360936719937214,
+          "se_delta": 0.6684983106239331,
+          "equiv_stat": 2.0253496876276667
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.26325547006655725,
+          "se_delta": 0.6375746552213849,
+          "equiv_stat": 2.0293372650297936
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.08365508437513469,
+          "se_delta": 0.6430475655937753,
+          "equiv_stat": 1.8648968410698923
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.34691055444169194,
+          "se_delta": 0.6389073166736216,
+          "equiv_stat": 2.116683821627624
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 1.0146539475329277,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 2.0293078950658554,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 4.058615790131711,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||participation_ratio||pr_centered": {
+      "status": "fail",
+      "max_stat": 3.9740202938550637,
+      "margin_abs": 2.671885779239508,
+      "median_abs_f": 26.71885779239508,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.17724431059228785,
+          "se_delta": 0.33674065370411504,
+          "equiv_stat": 1.1100159213526866
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.4475246533029722,
+          "se_delta": 0.33680718979761287,
+          "equiv_stat": 1.3804805690423598
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.62476896389526,
+          "se_delta": 0.33912722369757514,
+          "equiv_stat": 1.5641513735375432
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.5762853719973258,
+          "se_delta": 0.6973264758487516,
+          "equiv_stat": 2.5078797100983676
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.5123620794146007,
+          "se_delta": 0.7143774335591141,
+          "equiv_stat": 2.491187570373347
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 1.0886474514119264,
+          "se_delta": 0.7107808391127926,
+          "equiv_stat": 3.0575103757543616
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.4430433641222393,
+          "se_delta": 1.1306477350297237,
+          "equiv_stat": 3.574937590154574
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.8567088870161186,
+          "se_delta": 1.1253831793642401,
+          "equiv_stat": 3.9740202938550637
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.41366552289387926,
+          "se_delta": 1.1206744802330422,
+          "equiv_stat": 3.517933833139406
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 1.335942889619754,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 2.671885779239508,
+          "status": "fail"
+        },
+        "delta_0.2": {
+          "margin": 5.343771558479016,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||participation_ratio||pr_uncentered": {
+      "status": "pass",
+      "max_stat": 0.12322503999295857,
+      "margin_abs": 0.15540878942827197,
+      "median_abs_f": 1.5540878942827194,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.012055008025576353,
+          "se_delta": 0.02045991354621339,
+          "equiv_stat": 0.06872896854858744
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.003714754605587345,
+          "se_delta": 0.020888384610961097,
+          "equiv_stat": 0.06157557997794958
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.015769762631163697,
+          "se_delta": 0.020571211189513782,
+          "equiv_stat": 0.07275201762611688
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.006051907618854324,
+          "se_delta": 0.02763185173909864,
+          "equiv_stat": 0.08259213693615755
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.0035256990135916766,
+          "se_delta": 0.0278943701132645,
+          "equiv_stat": 0.08079310422733434
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.009577606632446,
+          "se_delta": 0.02773022540876772,
+          "equiv_stat": 0.08639033101473258
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0005503746009245525,
+          "se_delta": 0.04385348036537015,
+          "equiv_stat": 0.12202451521299987
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.001665154533664559,
+          "se_delta": 0.043884435183860655,
+          "equiv_stat": 0.12322503999295857
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.0011147799327400065,
+          "se_delta": 0.04389939757303031,
+          "equiv_stat": 0.12271611121003397
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.07770439471413598,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.15540878942827197,
+          "status": "pass"
+        },
+        "delta_0.2": {
+          "margin": 0.31081757885654393,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||knn_clustering||knn_k5": {
+      "status": "pass",
+      "max_stat": 0.026420659095472296,
+      "margin_abs": 0.026740000000000003,
+      "median_abs_f": 0.2674,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0011500000000000399,
+          "se_delta": 0.00502034517566685,
+          "equiv_stat": 0.015056356136597214
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.008649999999999991,
+          "se_delta": 0.005033977971456426,
+          "equiv_stat": 0.02259411898093429
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.007499999999999951,
+          "se_delta": 0.0051364354356394125,
+          "equiv_stat": 0.021727926156721124
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.009500000000000008,
+          "se_delta": 0.005324621187971751,
+          "equiv_stat": 0.02424920069068176
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.007550000000000001,
+          "se_delta": 0.005531311458707293,
+          "equiv_stat": 0.022871732740619204
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.0019500000000000073,
+          "se_delta": 0.005366067562987375,
+          "equiv_stat": 0.016814007149475035
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.010149999999999992,
+          "se_delta": 0.005873884149990001,
+          "equiv_stat": 0.026420659095472296
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.005749999999999977,
+          "se_delta": 0.005666174769477123,
+          "equiv_stat": 0.021445304111451607
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.004400000000000015,
+          "se_delta": 0.005856304778000067,
+          "equiv_stat": 0.0206219642350602
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.013370000000000002,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.026740000000000003,
+          "status": "pass"
+        },
+        "delta_0.2": {
+          "margin": 0.05348000000000001,
+          "status": "pass"
+        }
+      }
+    },
+    "dinov2-small||knn_clustering||knn_k10": {
+      "status": "pass",
+      "max_stat": 0.018643614800782665,
+      "margin_abs": 0.03126555555555556,
+      "median_abs_f": 0.3126555555555556,
+      "delta_relative": 0.1,
+      "c_bonferroni": 2.77,
+      "n_pairs": 9,
+      "details_truncated": [
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.0008666666666666822,
+          "se_delta": 0.003408477643696392,
+          "equiv_stat": 0.010308149739705688
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.007233333333333314,
+          "se_delta": 0.003530294685200691,
+          "equiv_stat": 0.01701224961133923
+        },
+        {
+          "depth": 0.273,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.006366666666666632,
+          "se_delta": 0.0034900776301025086,
+          "equiv_stat": 0.01603418170205058
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.006122222222222196,
+          "se_delta": 0.0038568861546714604,
+          "equiv_stat": 0.01680579687066214
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.003822222222222227,
+          "se_delta": 0.003967386545816766,
+          "equiv_stat": 0.014811882954134667
+        },
+        {
+          "depth": 0.545,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.0022999999999999687,
+          "se_delta": 0.0038798581392177757,
+          "equiv_stat": 0.013047207045633207
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            123
+          ],
+          "delta": 0.003166666666666762,
+          "se_delta": 0.004453647459973163,
+          "equiv_stat": 0.015503270130792423
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            42,
+            456
+          ],
+          "delta": 0.003555555555555534,
+          "se_delta": 0.004199760617170262,
+          "equiv_stat": 0.01518889246511716
+        },
+        {
+          "depth": 0.727,
+          "seed_pair": [
+            123,
+            456
+          ],
+          "delta": 0.006722222222222296,
+          "se_delta": 0.004303751833415295,
+          "equiv_stat": 0.018643614800782665
+        }
+      ],
+      "sensitivity_sweep": {
+        "delta_0.05": {
+          "margin": 0.01563277777777778,
+          "status": "fail"
+        },
+        "delta_0.1": {
+          "margin": 0.03126555555555556,
+          "status": "pass"
+        },
+        "delta_0.2": {
+          "margin": 0.06253111111111112,
+          "status": "pass"
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 28.620494363761416,
+      "se": 0.6399737094702012,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 24.753913735261,
+      "se": 0.5535143382120933,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 26.323780820615085,
+      "se": 0.6181912770239318,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.007673876775949,
+      "se": 0.00024657144096280746,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2741,
+      "se": 0.004058057283289287,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.31411111111111106,
+      "se": 0.002797248198484923,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 20.12122275863553,
+      "se": 0.44992421878724886,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 17.841344235859182,
+      "se": 0.3989445852135517,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 7.817540044251254,
+      "se": 0.28773947102997544,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0111910873185432,
+      "se": 0.0003600593205869989,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.30365,
+      "se": 0.0044261308235335195,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3378111111111111,
+      "se": 0.0030844157391962264,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 17.765688002406566,
+      "se": 0.3972528604043353,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 15.724620971529276,
+      "se": 0.35161321412758245,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 4.955730634219615,
+      "se": 0.1645838707047957,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.016093059603576,
+      "se": 0.000518503076299728,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.32404999999999995,
+      "se": 0.004252333467633975,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.35925555555555555,
+      "se": 0.0031125153754481202,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 19.507316280648137,
+      "se": 0.43619685262117597,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 15.721870909693518,
+      "se": 0.3515517208755116,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 10.846055113072309,
+      "se": 0.23645938034217928,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.4147170883125795,
+      "se": 0.014692820426493778,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2655,
+      "se": 0.0034757611335833856,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3117888888888889,
+      "se": 0.0024392681840864085,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 24.603747804134336,
+      "se": 0.5501565259130555,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 21.58640221129893,
+      "se": 0.48268662734116186,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 26.71885779239508,
+      "se": 0.4956762704872307,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.5540878942827194,
+      "se": 0.01965514835006652,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2674,
+      "se": 0.0038828028637879,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3104666666666666,
+      "se": 0.0027894827149105863,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 23.245279071991654,
+      "se": 0.5197802416092656,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 20.293078950658554,
+      "se": 0.45376704006442625,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 43.05838681879214,
+      "se": 0.8027889854993685,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.8474139115828685,
+      "se": 0.030998502256459046,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.30210000000000004,
+      "se": 0.0040194368929575485,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed42.n2000",
+      "seed": 42,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.35443333333333327,
+      "se": 0.0030782044356762787,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 30.465152618759877,
+      "se": 0.6812215220045281,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 25.108753382752106,
+      "se": 0.561448793941115,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 27.00712327576588,
+      "se": 0.6396792804765782,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.007734286815966,
+      "se": 0.00024835898709252475,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.27120000000000005,
+      "se": 0.003925300497031532,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3098666666666667,
+      "se": 0.002708410237503219,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 21.362181632323125,
+      "se": 0.4776729027757192,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 18.42273499454645,
+      "se": 0.4119448777927007,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 7.822819455162823,
+      "se": 0.28868944994707063,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0112918990647883,
+      "se": 0.0003631650109721987,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.3027,
+      "se": 0.003961590854827202,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3362111111111111,
+      "se": 0.002844666497762933,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 18.770771273319873,
+      "se": 0.4197272055724352,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 16.435618705871278,
+      "se": 0.36751160678595296,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 5.077934336329004,
+      "se": 0.1699993022911396,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0162995629739988,
+      "se": 0.0005250322222735335,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.31625,
+      "se": 0.003970938544785505,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3608,
+      "se": 0.0028357326570388787,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 19.16552436126624,
+      "se": 0.42855415296219546,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 15.859040046648362,
+      "se": 0.3546189160219717,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 11.023299423664596,
+      "se": 0.23975243336672797,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.4026620802870031,
+      "se": 0.014238296605750753,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.26665000000000005,
+      "se": 0.003622561279690456,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3126555555555556,
+      "se": 0.0023806911966237666,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 24.43163914093883,
+      "se": 0.5463080592088378,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 21.226399198489457,
+      "se": 0.4746367152536947,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 27.295143164392407,
+      "se": 0.49047859157715473,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.548035986663865,
+      "se": 0.019421492575711213,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2579,
+      "se": 0.003643546722131909,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3043444444444444,
+      "se": 0.0026635234170758605,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 24.10107345375466,
+      "se": 0.5389163857331105,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 20.029823480591997,
+      "se": 0.4478804687992514,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 43.501430182914376,
+      "se": 0.7961746953330902,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.847964286183793,
+      "se": 0.03101968081738123,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.31225,
+      "se": 0.004283298036681024,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed123.n2000",
+      "seed": 123,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.35760000000000003,
+      "se": 0.0032186383999928112,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed123.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 28.929939267171868,
+      "se": 0.6468931078633674,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 24.96902947397721,
+      "se": 0.5583244723600885,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 27.8317729453198,
+      "se": 0.6277134405798345,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0076219491808116,
+      "se": 0.0002448079224498756,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2615,
+      "se": 0.003799485892396925,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.30114444444444444,
+      "se": 0.0027624823847525203,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 21.132288171413713,
+      "se": 0.4725323287139579,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 18.392011893044145,
+      "se": 0.411257888358313,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 8.063985025807911,
+      "se": 0.2985281342294197,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0111280761275452,
+      "se": 0.00035793063143149857,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.28675,
+      "se": 0.004051286858839584,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3265666666666666,
+      "se": 0.0028323974603662555,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 18.971348861215272,
+      "se": 0.4242122567854057,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 16.34123219975172,
+      "se": 0.3654010603475326,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 5.097710165037797,
+      "se": 0.17094630524693244,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.0161950196630853,
+      "se": 0.0005216227194369725,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.3078,
+      "se": 0.004111937987981883,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
+      "class_id": 3,
+      "class_name": "linear-attention recurrent (RWKV)",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3514,
+      "se": 0.0029970034256378755,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 18.53253207658124,
+      "se": 0.4144000151843099,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 15.544380312820753,
+      "se": 0.34758291047576645,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 10.398530459769336,
+      "se": 0.23984587665323295,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.4184318429181668,
+      "se": 0.014847411881208241,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.27415,
+      "se": 0.00364143086703286,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 3,
+      "k_normalized": 0.2727,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3190222222222222,
+      "se": 0.002552048449865332,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 23.644425286591154,
+      "se": 0.5287054222973276,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 21.052789831290085,
+      "se": 0.47075469178780954,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 26.20649571298048,
+      "se": 0.5144318734821708,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.557613593296311,
+      "se": 0.019793206596018263,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.25985,
+      "se": 0.003939447724515086,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 6,
+      "k_normalized": 0.5455,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3066444444444444,
+      "se": 0.0028211597237914328,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 23.216913194551225,
+      "se": 0.5191459613072834,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 20.37673403503369,
+      "se": 0.4556376246176891,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 43.915095705808255,
+      "se": 0.7886806357181976,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 1.849079066116533,
+      "se": 0.03106342719763501,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.30785,
+      "se": 0.003993702991183858,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    },
+    {
+      "system_key": "dinov2-small",
+      "system_tag": "dinov2-small",
+      "class_id": 6,
+      "class_name": "vision encoder (ViT)",
+      "hf_id": "facebook/dinov2-small",
+      "untrained": false,
+      "quantization": "fp16",
+      "pooling": "cls_or_mean",
+      "stimulus_version": "c4_en.seed456.n2000",
+      "seed": 456,
+      "k_index": 8,
+      "k_normalized": 0.7273,
+      "n_points": 2000,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.35087777777777773,
+      "se": 0.002857034597920933,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed456.n2000, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "d31378632b0f85cdc7806cdd12d76735f6e029a9"
+    }
+  ]
+}
