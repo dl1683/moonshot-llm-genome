@@ -149,8 +149,8 @@ if __name__ == "__main__":
             results.append({"quantization": q, "error": f"{type(e).__name__}: {e}"})
 
     print()
-    print("=== SUMMARY: GEOMETRY → EFFICIENCY ===")
-    print(f"{'quant':>8s} {'c_0':>10s} {'p':>10s} {'NLL':>10s} {'R²':>8s}")
+    print("=== SUMMARY: GEOMETRY-EFFICIENCY ===")
+    print(f"{'quant':>8s} {'c_0':>10s} {'p':>10s} {'NLL':>10s} {'R2':>8s}")
     for r in results:
         if "error" in r:
             print(f"  {r['quantization']:>8s}  ERROR: {r['error']}")
@@ -169,8 +169,8 @@ if __name__ == "__main__":
             dp = r["p_slope"] - base["p_slope"]
             dNLL = r["nll_per_token"] - base["nll_per_token"]
             rel_dNLL = dNLL / base["nll_per_token"] * 100
-            print(f"  {r['quantization']:>8s} -> Δc_0={dC:+.4f} Δp={dp:+.4f} "
-                  f"ΔNLL={dNLL:+.4f} ({rel_dNLL:+.1f}%)")
+            print(f"  {r['quantization']:>8s} -> dc0={dC:+.4f} dp={dp:+.4f} "
+                  f"dNLL={dNLL:+.4f} ({rel_dNLL:+.1f}%)")
 
     out = {"timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
            "n_sentences": args.n_sentences, "seed": args.seed,

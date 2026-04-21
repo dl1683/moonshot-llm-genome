@@ -198,14 +198,25 @@ def _quantization_config(quant: str) -> BitsAndBytesConfig | None:
         return None
     if quant == "q8":
         return BitsAndBytesConfig(load_in_8bit=True)
-    raise ValueError(f"unsupported quant {quant!r}; expected 'fp16' or 'q8'")
+    if quant == "q4":
+        # NF4 quantization with fp16 compute dtype — standard bnb 4-bit config.
+        # Added 2026-04-21 for the Geometry-Efficiency probe (strategic Codex
+        # directive): need Q4 data point to test whether (c_0, p) geometry
+        # drift predicts NLL drift when capability visibly degrades.
+        return BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+        )
+    raise ValueError(f"unsupported quant {quant!r}; expected 'fp16'/'q8'/'q4'")
 
 
 def _torch_dtype(quant: str) -> torch.dtype:
     if quant == "fp16":
         return torch.float16
-    if quant == "q8":
-        # q8 loads at fp16 then quantizes internally; specify fp16 compute.
+    if quant in ("q8", "q4"):
+        # bnb quantized weights load at fp16 then quantize internally.
         return torch.float16
     raise ValueError(f"unsupported quant {quant!r}")
 
