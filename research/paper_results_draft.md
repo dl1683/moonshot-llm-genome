@@ -41,6 +41,22 @@ We directly test this. On iid Gaussian point clouds at `n ∈ {2000, 4000}`, `h 
 
 Across the ambient-dimension range of our bestiary, random-Gaussian kNN-10 is **0.05–0.08**. Our trained networks sit at **0.28–0.36**. The trained-to-random ratio is 3.5–7.2×. This is not a subtle preservation; the trained networks are producing an object the random cloud cannot produce. Compare to the `PR_uncentered` diagnostic we demoted earlier in the atlas (values all ≈1.0 because dominated by the DC-component eigenvector — a true random-geometry artifact that looked universal).
 
+**A stronger control: random-init architecture twins.** A Gaussian cloud is the null for "random data"; a more informative null for the manifesto claim "training shapes geometry" is a *random-initialized twin* of each actual architecture — same computation graph, random weights. We run this control on three text systems at `n=1000` C4-clean, seed 42, mid-depth.
+
+**Table 2b. Random-init-twin power-law fit vs trained.** Source: `results/gate2/untrained_power_law.json` (genome_028).
+
+| System | `h` | trained `p` | untrained `p` | trained `R²` | untrained `R²` |
+|---|---:|---:|---:|---:|---:|
+| Qwen3-0.6B | 1024 | 0.154 | **0.021** | 0.992 | **0.110** |
+| RWKV-4-169M | 768 | 0.171 | **0.355** | 0.996 | 0.999 |
+| DeepSeek-R1-Distill-Qwen-1.5B | 1536 | 0.171 | **0.192** | 0.996 | 0.990 |
+
+Across the three random-init twins, the exponent `p` spans `[0.021, 0.355]` — a **16.9× range**. Across the trained networks, the exponent spans `[0.154, 0.171]` — a **1.1× range**. Training is therefore acting as a *convergence* operation: it takes architecture-specific random-init exponents that disagree by ~17× and imprints a shared `p ≈ 0.17` to within ~10%. The cross-architecture universal is the *output of training*, not an architectural constant.
+
+Two subtleties worth the reader's attention:
+- The power-law *form* is not uniformly destroyed by random init. On Qwen3-0.6B it collapses (R² 0.99 → 0.11). On RWKV-4 and DeepSeek it remains a good fit (R² > 0.99) but at the "wrong" exponent. So the claim is not "training creates the log-linearity"; it is "training converges architecture-specific exponents to a shared value."
+- This control rules out the hypothesis that the cross-architecture match at `p ≈ 0.17` is coincidence-by-architecture-family. A narrow trained band produced by broadly-spread random starting points is the opposite of that: the training process is dragging heterogeneous inductive biases toward the same representational-geometry signature.
+
 ## 4.3 Quantization stability (Gate-1 G1.5)
 
 We test whether kNN-10 survives aggressive weight compression. For each of the four text architectures (Qwen3-0.6B, RWKV-4-169M, Falcon-H1-0.5B, DeepSeek-R1-Distill-Qwen-1.5B), we re-extract activations under FP16 and under 8-bit quantization (bitsandbytes `load_in_8bit=True`, transformers-standard Q8 setting) on the same stimulus bank at seed 42, and evaluate the FP16↔Q8 equivalence criterion.
