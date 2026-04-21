@@ -207,6 +207,17 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
         print(f"  [{time.time()-t_sys:.1f}s] extracted {len(traj.layers)} sentinel layers")
 
         # Compute primitives at each sentinel depth.
+        # Scope bookkeeping is modality-aware (fix landed 2026-04-21 per Codex
+        # R8 finding #1: previously vision rows falsely claimed modality=text /
+        # pooling=seq_mean; per-row metadata now matches the actual forward pass).
+        row_stim_version = (stimulus_version if modality == "text"
+                            else f"imagenet_val.v1.seed{seed}.n{len(vision_stimuli) if vision_stimuli else 0}")
+        row_tokenizer = ("per-model-native" if modality == "text"
+                         else "n/a (vision)")
+        row_scope_label = (
+            f"(modality={modality}, stimulus_family={row_stim_version}, "
+            f"pooling={traj.pooling}, tokenizer={row_tokenizer})"
+        )
         for lyr in traj.layers:
             measurements = _measure_point_cloud(lyr.X)
             for m in measurements:
@@ -216,10 +227,11 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
                     "class_id": sys_obj.class_id,
                     "class_name": sys_obj.class_name,
                     "hf_id": hf_id,
+                    "modality": modality,
                     "untrained": sys_obj.untrained,
                     "quantization": sys_obj.quant,
                     "pooling": traj.pooling,
-                    "stimulus_version": stimulus_version,
+                    "stimulus_version": row_stim_version,
                     "seed": seed,
                     "k_index": lyr.k_index,
                     "k_normalized": round(lyr.k_normalized, 4),
@@ -228,10 +240,7 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
                     "estimator": m.estimator,
                     "value": m.value,
                     "se": m.se,
-                    "scope_label": (
-                        f"(modality=text, stimulus_family={stimulus_version}, "
-                        f"pooling=seq_mean, tokenizer=per-model-native)"
-                    ),
+                    "scope_label": row_scope_label,
                     "commit_sha": commit_sha,
                 })
 
