@@ -39,7 +39,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Axiom status** | **FIRST GATE-1 VERDICT (genome_006, 2026-04-21).** 162 atlas rows from 3-seed stimulus-resample probe. At strict δ=0.10 only 3/18 cells pass (meaningful: RWKV kNN-k10). At δ=0.20 sensitivity: **kNN-k10 clustering passes G1.3 on ALL 3 systems × 2 modalities** — first `🟡 (δ-sensitive)` primitive per §2.5.6c. ID cells fail every δ (SE too large). PR feedforward-vs-recurrent signature confirmed. Path to clean 🟡 at δ=0.10: scale n=500 → 2000 (halves SE). |
 | **Bestiary coverage** | 0 / 9 classes measured |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
-| **Gate-1 passed (🟡 coordinate)** | 0 clean; **1 `🟡 (δ-sensitive)` candidate**: kNN-k10 clustering coefficient (passes G1.3 at δ=0.20 on all 3 systems × 2 modalities; strict δ=0.10 pending n=2000 rerun) |
+| **Gate-1 passed (🟡 coordinate)** | 0 clean yet; **1 strong-🟡 candidate pending seed-456 rerun**: kNN-k10 clustering coefficient. n=2000 with 2-of-3 seeds already complete across **4 classes (transformer + recurrent + hybrid + ViT) × 2 modalities** (Falcon-H1 hybrid UNBLOCKED post micro-batching); 2-seed mean values cluster within 3-9% relative at all 3 sentinel depths. Strict δ=0.10 verdict pending seed-456 in-flight rerun (`b9trgjejy`). |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
@@ -120,10 +120,10 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | Class | In atlas? | Phase-1 anchor | Status |
 |---|---|---|---|
-| 1 Autoregressive LLM | 0/N | `Qwen/Qwen3-0.6B` | Not yet loaded |
+| 1 Autoregressive LLM | **measured genome_001..007** | `Qwen/Qwen3-0.6B` | ACTIVE in Batch 1 at n∈{5, 500, 2000} |
 | 2 Reasoning | 0/N | `deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B` | Not yet loaded |
-| 3 SSM / linear-attention | 0/N | `state-spaces/mamba2-370m-hf` | Not yet loaded |
-| 4 Hybrid | 0/N | `tiiuae/Falcon-H1-0.5B-Instruct` | Not yet loaded |
+| 3 SSM / linear-attention | **measured genome_003..007** | ~~`state-spaces/mamba2-370m-hf`~~ → `RWKV/rwkv-4-169m-pile` | ACTIVE. Mamba2 Windows-blocked (mamba-ssm kernel build fail); RWKV-4 substituted as linear-attention recurrent. |
+| 4 Hybrid | **2/3 seeds at n=2000** | `tiiuae/Falcon-H1-0.5B-Instruct` | **UNBLOCKED 2026-04-21** via micro-batched extractor. Natural-fallback Mamba layers work for Falcon at n=2000 with batch_size=64 (was 93 GB OOM in single-batch). |
 | 5 Diffusion | 0/N | `GSAI-ML/LLaDA-8B-Instruct` | Not yet loaded |
 | 6 Vision encoder | 0/N | `facebook/dinov2-small` | Not in canonical registry yet — add Phase 1 |
 | 7 JEPA | 0/N | `facebook/ijepa-vit-huge-14-448` | Not in canonical registry yet — add Phase 1 |
