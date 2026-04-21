@@ -288,4 +288,45 @@ This is the first time an atlas coordinate has passed the strict Gate-1 threshol
 
 ---
 
+## 2026-04-21 — genome_011_8class_batch2  ← 8-CLASS TRAINING-OBJECTIVE EXTENSION
+
+**Purpose.** Extend G1.3 portability to 8 architecture classes spanning 5 distinct training objectives by adding BERT (MLM), MiniLM-L6 (contrastive sentence encoder), and CLIP-vision (contrastive image encoder) to the Batch-1 bestiary. Tests whether kNN-10 universality is per-architecture or per-training-objective.
+**Systems.** Qwen3-0.6B + DeepSeek-R1-Distill-Qwen-1.5B + RWKV-4-169M + Falcon-H1-0.5B + DINOv2-small + **bert-base-uncased + all-MiniLM-L6-v2 + openai/clip-vit-base-patch32**.
+**Primitive.** ID + PR + kNN clustering (k=5, k=10) at 3 sentinel depths × 3 seeds.
+**Universality level claimed.** Level-1 Gate-1 G1.3 portability extension.
+**Commit.** `3e8d395` (initial), full CLIP coverage via retry in the same commit window.
+
+### Result — 7/8 PASS at strict δ=0.10
+
+| System | Class | max_stat kNN-10 | margin | Verdict |
+|---|---|---:|---:|---|
+| Qwen3-0.6B | 1 autoregressive LLM | 0.0253 | 0.0330 | PASS |
+| DeepSeek-R1-Distill-Qwen-1.5B | 2 reasoning-distilled | 0.0223 | 0.0312 | PASS |
+| RWKV-4-169M | 3 linear-attention recurrent | 0.0239 | 0.0336 | PASS |
+| Falcon-H1-0.5B | 4 hybrid transformer+Mamba | 0.0326 | 0.0315 | narrow-fail (tips at n=4000 per genome_010) |
+| DINOv2-small | 6 self-supervised ViT | 0.0188 | 0.0313 | PASS |
+| bert-base-uncased | 7 masked-LM encoder | **0.0263** | 0.0302 | **PASS (NEW)** |
+| all-MiniLM-L6-v2 | 8 contrastive text encoder | **0.0175** | 0.0301 | **PASS (NEW, BEST max_stat)** |
+| clip-vit-b32-image | 10 contrastive vision encoder | **0.0246** | 0.0302 | **PASS (NEW)** |
+
+### Why this matters
+
+The Batch-1 5-class result could be read as "autoregressive-LLM-universal + ViT." The Batch-2 extension adds 3 distinct training objectives (MLM, contrastive-text, contrastive-vision) that mix encoder-only architectures and different supervision signals. The fact that kNN-10 still clusters in the same [0.28, 0.36] band on all of them is stronger evidence that what we're measuring is a property of the representational manifold, not a property of the specific autoregressive pretraining recipe.
+
+**MiniLM-L6 contrastive is notable** — it produces the tightest kNN-10 value of any tested system (max_stat 0.0175, 42% headroom to the margin). Sentence-transformer contrastive training may produce the cleanest manifold structure of any objective tested so far.
+
+### Method caveats (per Codex R8 review)
+
+1. **Prereg status:** `research/prereg/genome_knn_k10_batch2_2026-04-21.md` is STAGED not LOCKED. This means the 8-class claim is provisional under the project's prereg discipline (see `research/CLAIM_EVIDENCE_MAP.md` for formal claim-evidence tracking).
+2. **Scope metadata bug (now fixed):** until commit `f4973dc`, vision atlas rows mis-recorded `modality=text, pooling=seq_mean`. Numeric verdicts unaffected but the bug is documented in the R8 integration thread.
+3. **SE calibration (documented):** analytic SE `std(C_i)/√n` underestimates true SE by ~1.3-2.3× on real clouds (see genome_se_sanity). The G1.3 pass verdicts survive the correction because `|Δ|` dominates `c·SE` in all passing cells.
+
+### Why this matters, in syndicate-pitch framing
+
+kNN-10 now has portability evidence across 5 training objectives + 4 architecture families + 2 modalities. The coordinate isn't an autoregressive-LM artifact; it's reading a geometric property that survives swapping the training loss from CLM → MLM → contrastive → self-supervised → image-text contrastive. That's the strongest cross-class / cross-objective universality candidate the atlas has produced.
+
+**Next.** Lock the Batch-2 prereg (or amend CLAIM_EVIDENCE_MAP to tag C8 provisional until LOCK). Run Gate-2 G2.3 hierarchical fit on extended k-sweep (underway). Run DINOv2 causal test (code ready, GPU queued).
+
+---
+
 *(Future entries above this line, newest first.)*
