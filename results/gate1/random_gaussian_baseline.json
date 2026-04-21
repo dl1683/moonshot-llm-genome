@@ -1,0 +1,68 @@
+{
+  "purpose": "Random Gaussian baseline for kNN-10 \u2014 sanity check that trained-network values are not a random-geometry artifact (cf PR_uncentered DC-artifact demotion)",
+  "primitive": "knn_clustering_coefficient k=10",
+  "trials_per_cell": 5,
+  "cells": [
+    {
+      "n": 2000,
+      "h": 384,
+      "mean": 0.08196,
+      "std": 0.004673900478081704
+    },
+    {
+      "n": 2000,
+      "h": 768,
+      "mean": 0.07856666666666665,
+      "std": 0.01232479434130873
+    },
+    {
+      "n": 2000,
+      "h": 1024,
+      "mean": 0.08138666666666666,
+      "std": 0.015258766757604073
+    },
+    {
+      "n": 2000,
+      "h": 1536,
+      "mean": 0.07789333333333333,
+      "std": 0.013917875529665402
+    },
+    {
+      "n": 4000,
+      "h": 384,
+      "mean": 0.06390444444444443,
+      "std": 0.00848485069745041
+    },
+    {
+      "n": 4000,
+      "h": 768,
+      "mean": 0.06112222222222221,
+      "std": 0.006046926828900287
+    },
+    {
+      "n": 4000,
+      "h": 1024,
+      "mean": 0.05604888888888889,
+      "std": 0.01178038060862002
+    },
+    {
+      "n": 4000,
+      "h": 1536,
+      "mean": 0.05164444444444444,
+      "std": 0.006522874044657703
+    }
+  ],
+  "trained_network_observed_range": [
+    0.28,
+    0.36
+  ],
+  "random_gaussian_observed_range": [
+    0.05,
+    0.09
+  ],
+  "ratio_trained_over_random": [
+    3.5,
+    7.2
+  ],
+  "verdict": "kNN-10 is NOT a random-geometry artifact. Trained-network values are 4-7x higher than random-Gaussian baseline. Universality claim reflects real structure."
+}
