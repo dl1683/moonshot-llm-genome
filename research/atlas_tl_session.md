@@ -199,133 +199,61 @@ Verdicts come from Codex Round 1 (`.codex/outputs/round1.md` §1 + §2). MODIFY 
 
 ---
 
-### 1b. Leibniz research brief (compiled from web search, 2024-2026)
+### 1b. Leibniz research brief (Round 2-compressed)
 
-Facts only. No mechanisms yet — that's Codex's job in Phase 4.
+Compressed per Codex Round 2 §11 parsimony mandate. Only load-bearing-for-Batch-1 content in full; others are pointers. Full expanded brief preserved in git history (commits `dd17cc6`, `d638e5b`) + `.codex/outputs/round1.md`.
 
-#### B1. Mechanistic interpretability — current state of the art
+#### B2. Representation similarity & cross-architecture alignment (load-bearing for P1.3 + H4)
 
-- **Anthropic circuit tracing (2025-2026).** Attribution graphs via cross-layer transcoders replace MLPs with interpretable sparse features. Open-sourced. Supports Gemma-2-2B, Llama-3.1-1B, Qwen3-4B. MIT Tech Review named mech-interp a 2026 Breakthrough Technology. [[Anthropic]](https://www.anthropic.com/research/open-source-circuit-tracing) [[Circuits thread]](https://transformer-circuits.pub/) [[MIT Tech Review]](https://www.technologyreview.com/2026/01/12/1130003/mechanistic-interpretability-ai-research-models-2026-breakthrough-technologies/)
-- **Universal SAEs (USAE, Thasarathan et al., Feb 2025, revised Mar 2026).** Single sparse autoencoder ingests activations from multiple models, decodes to any other. Universal concept space across architectures. Strong correlation between concept universality and importance. [[paper]](https://arxiv.org/abs/2502.03714)
-- **SAE cross-LLM feature universality (Lan et al. 2024).** SAE feature spaces significantly similar across multiple LLMs at multiple layers. [[paper]](https://arxiv.org/html/2410.06981v3)
+- **Platonic Representation Hypothesis** (Huh et al. 2024): cross-modality convergence with scale. [[arXiv:2405.07987]](https://arxiv.org/abs/2405.07987)
+- **Aristotelian-view critical revision** (Feb 2026): similarity metrics are scale-confounded; global spectral convergence largely disappears under calibration; **only local neighborhood similarity survives cross-modality.** Direct motivation for P1.3 local-neighborhood primitive. [[arXiv:2602.14486]](https://arxiv.org/abs/2602.14486)
+- **CKA limitations** (Kornblith et al. + 2024-2025 follow-ups): PC-dominated; Procrustes + Bures more sensitive. → CKA demoted to ⚪ diagnostic in `MEASUREMENT_PRIMITIVES §3.1`. [[ICLR 2025]](https://proceedings.iclr.cc/paper_files/paper/2025/file/03d113a060c0ac93a5859517a0f07271-Paper-Conference.pdf)
 
-**Counter-evidence to SAE-based approaches:**
-- **"Dark Matter" (Engels et al., Oct 2024, ICLR 2025).** >90% of SAE reconstruction error norm is linearly predictable from the input. Error decomposes into: unlearned linear features, unlearned dense features, nonlinear SAE errors. Scaling SAE width doesn't uniformly help. [[paper]](https://arxiv.org/abs/2410.14670)
-- **Specialized SAEs for rare concepts.** Wide SAEs miss rare/specific concepts; infrequent activations are essentially invisible. [[paper]](https://arxiv.org/html/2411.00743)
-- **Nanda pessimism update (Sept 2025):** "I don't see a path to deeply and reliably understanding what AIs are thinking." Theoretical barriers: "feature" lacks rigorous definition; many interpretability queries are computationally intractable; fundamental math limits constrain linear interventions in chaotic deep networks.
-- **Temporal/agentic interpretability frontier.** Static mechanistic interpretability insufficient for agents; long-horizon trajectories need new methods.
+#### B3. Geometric primitives (load-bearing for P1.1 + P1.2)
 
-#### B2. Representation similarity and cross-architecture alignment
+- **TwoNN intrinsic dimension** (Facco et al. 2017): 1st-to-2nd NN distance ratio is Pareto-distributed; MLE gives ID. Word embeddings extrinsic 300 → ID 10-30. Fine-tuning lowers local ID.
+- **Local ID of contextual embeddings** (Ruppik et al. 2025): fine-tuned LLMs show markedly lower local ID than bases. [[arXiv:2506.01034]](https://arxiv.org/html/2506.01034v1)
+- **Participation ratio** — Gao & Ganguli 2015 (neural recordings) provides the biology-bridge anchor in prereg §3.7 §9a.
+- **Ollivier-Ricci on LLM embeddings** (HELM 2025): decoder-only LLMs show negative Ricci → hyperbolic. Batch-2 primitive. [[arXiv:2505.24722]](https://arxiv.org/html/2505.24722)
+- **Ricci for representational alignment** (Fumero et al. 2025). [[arXiv:2501.00919]](https://arxiv.org/html/2501.00919)
+- **Persistent homology for LLMs** (2024-2025): TDA on attention / latent representations. Batch-2+ primitive. [[review]](https://link.springer.com/article/10.1007/s10462-025-11462-w)
 
-- **Platonic Representation Hypothesis (Huh et al. 2024).** Representations converge across modalities and architectures as scale increases. Both vision and language measure distance between datapoints increasingly similarly. [[paper]](https://arxiv.org/abs/2405.07987)
-- **Critical revision — "Aristotelian View" (Feb 2026).** Existing similarity metrics are scale-confounded. Under calibration, global spectral convergence largely disappears. **Only local neighborhood similarity retains significant agreement across modalities.** [[paper]](https://arxiv.org/abs/2602.14486)
-- **Entropic-force theory for Platonic convergence.** SGD with implicit entropic regularization enforces "perfect Platonic" alignment in deep linear models. [[ref]](https://phillipi.github.io/prh/)
-- **CKA limitations (Kornblith et al., plus 2024-2025 follow-ups).** CKA is scale-invariant but PC-dominated — misalignment of leading principal components causes rapid score drop; low-variance PCs contribute weakly. Procrustes + Bures more sensitive. Subspace CKA reveals leakage global CKA misses. [[ICLR 2025]](https://proceedings.iclr.cc/paper_files/paper/2025/file/03d113a060c0ac93a5859517a0f07271-Paper-Conference.pdf)
-- **Multi-way representation alignment (2026).** Extensions to simultaneous alignment across >2 systems. [[paper]](https://arxiv.org/html/2602.06205)
+#### B8d. Local-neighborhood primitives (load-bearing for P1.3 after Round-2 swap)
 
-#### B3. Geometric primitives
+- **NNGS** — Jaccard of kNN graphs between two embeddings; strongly correlates with downstream task accuracy. Cross-system diagnostic, Level-0. [[arXiv:2411.08687]](https://arxiv.org/html/2411.08687v1)
+- **NPE** (He et al. 2005), **LNCA** — local-manifold foundations.
+- **For the atlas:** per-point kNN-5 Jaccard self-stability is a per-system Gate-1 candidate (P1.3 in Batch 1). Per-system variants: clustering coefficient, diffusion entropy at t, local reachability ratio.
 
-- **Intrinsic dimension via TwoNN (Facco et al. 2017).** Ratio of 1st to 2nd nearest neighbor distances is Pareto-distributed; MLE gives ID estimate. Applied broadly to LLMs. Word embeddings: extrinsic 300 → ID 10-30. Fine-tuning systematically lowers local ID only on fine-tuning dataset. [[background]](https://www.emergentmind.com/topics/intrinsic-dimension-id-of-llm-representations)
-- **Local ID of contextual embeddings (Ruppik et al. 2025).** TwoNN localized. Fine-tuned LLMs have markedly lower local ID than bases. Decision-making geometry in LLMs has clear low-ID structure. [[paper]](https://arxiv.org/html/2506.01034v1)
-- **Ollivier-Ricci curvature on LLM embeddings.** Decoder-only LLM token embeddings show wide range of negative curvatures — spaces are more hyperbolic than Euclidean. [[HELM: Hyperbolic LLMs]](https://arxiv.org/html/2505.24722)
-- **Ricci curvature for representational alignment (Fumero et al. 2025).** Ollivier-Ricci curvature + Ricci flow analyze local structure agnostic to source of representational space. Enables direct comparison between human behavior and model embeddings. [[paper]](https://arxiv.org/html/2501.00919)
-- **Persistent homology for LLMs (2024-2025).** TDA tools (persistent homology, Mapper) applied to attention patterns, latent representations, training dynamics. [[review]](https://link.springer.com/article/10.1007/s10462-025-11462-w) [[LLMs]](https://www.mdpi.com/2227-7390/14/2/378) [[arXiv:2410.11042]](https://arxiv.org/pdf/2410.11042)
-- **Persistent homology of brain dynamics.** Topological features covary with behavioral traits; useful at individual level. [[paper]](https://pmc.ncbi.nlm.nih.gov/articles/PMC12163041/)
+#### B8c. Ricci on SSM / diffusion — NULL RESULT (Batch-2 opportunity)
 
-#### B4. Information-theoretic and statistical-physics primitives
+No published Ollivier-Ricci measurement on Mamba/SSM or diffusion U-Net latents in 2025-2026. Only LLM embeddings (HELM + Fumero) have been Ricci-measured. → H3a Batch-2 probe is new science.
 
-- **Generalized Information Bottleneck (GIB, Sept 2025, updated Jan 2026).** Reformulates IB via synergy. Demonstrates clear compression phases. Overcomes infinite-complexity-term issue of standard IB. [[paper]](https://arxiv.org/abs/2509.26327)
-- **Two-phase learning dynamics.** Rapid curve-fitting phase → slower compression / coarse-graining. Three timescales (grokking-perfect-training, double-descent second descent, IB compression) empirically align. [[paper]](https://arxiv.org/html/2504.12700)
-- **Information-theoretic grokking progress measures.** Grokking is an emergent phase transition attributable to synergistic neuron interactions. [[paper]](https://arxiv.org/html/2408.08944)
-- **Grokking as dimensional phase transition (Rubin et al. 2026).** Effective dimensionality crosses from sub-diffusive to super-diffusive at generalization onset; self-organized criticality (SOC). [[paper]](https://arxiv.org/abs/2604.04655)
-- **Provable scaling laws of feature emergence (Sept 2025).** Mathematical framework for Lazy / Independent / Interactive feature learning stages → provable scaling laws. [[paper]](https://arxiv.org/abs/2509.21519)
-- **Spectral entropy collapse in grokking.** Empirical signature of delayed generalization. [[paper]](https://arxiv.org/html/2604.13123)
-- **Renormalization group and neural networks.** Dynamic-neuron RG approach (Phys. Rev. Research, June 2025) reveals translational symmetry in DNNs, simplifying RG transformations. Earlier: Koch-Janusz & Ringel (Nature Physics 2018) show NNs can implement RG. [[2025]](https://arxiv.org/abs/2410.00396) [[2018]](https://www.nature.com/articles/s41567-018-0081-4)
-- **Diffusion-guided tensor-network RG for neural systems.** Iterative coarse-graining via tensor networks. [[paper]](https://arxiv.org/html/2510.06361)
+#### B8b. Koopman spectrum — strongest cross-class candidate (H11, Batch 2)
 
-**Counter-evidence — IB theory:**
-- Some research shows IB's core claims don't hold generally; networks that do NOT compress still generalize, and vice versa. Compression → generalization causal link contested.
+Koopman operator theory now applied across all three target classes within 2025-2026:
+- Koopman-enhanced transformers (Mar 2026) [[arXiv:2602.02592]](https://arxiv.org/html/2602.02592)
+- Residual Koopman Spectral Profiling for Mamba (Feb 2026) [[arXiv:2602.22988]](https://arxiv.org/html/2602.22988)
+- Hierarchical Koopman Diffusion (Oct 2025) [[arXiv:2510.12220]](https://arxiv.org/abs/2510.12220)
+- Koopman-Wasserstein generative (Feb 2026) [[arXiv:2512.18837]](https://arxiv.org/html/2512.18837)
+- Pseudo-resolvent Koopman for spectral-pollution control (Feb 2026) [[arXiv:2512.24953]](https://arxiv.org/abs/2512.24953)
+- JEPA recovers Koopman invariants.
 
-#### B5. SSM / Mamba interpretability
+**Caveat (per Codex Round 2):** estimator choices (observable family, Hankel depth, rank truncation) dominate the spectrum — prereg must LOCK these before any run. Not "all upside."
 
-- **Mamba-3 (ICLR 2026).** Three methodological improvements: more expressive SSM-discretization recurrence, complex-valued state update for richer state tracking, MIMO formulation. [[paper]](https://openreview.net/pdf?id=HwCvaJOiCj)
-- **Mamba-2 activation patching + causal mediation.** Factual info concentrated at subject's final token in middle layers, prompt end in later layers — **paralleling transformer behavior.** First strong evidence of cross-class universality in causal structure. [[ref]](https://www.emergentmind.com/topics/mamba-based-selective-state-space-model)
-- **LATIM (Latent Token-to-Token Interaction in Mamba).** Layerwise decomposition interpreting Mamba-2 recurrence as implicit attention matrix. Enables token attribution despite recurrent structure.
-- **Layer-wise relevance propagation adapted for Mamba.** Stable, faithful attribution.
+#### B5 / B8 — minimal pointers (secondary for Batch 1)
 
-#### B6. Diffusion interpretability
+- **B5 SSM/Mamba interpretability:** Mamba-2 activation patching + causal mediation finds factual info in same layer bands as transformers → first cross-class causal signal (H7, Batch 2+). Mamba-3 (ICLR 2026).
+- **B8 Brain-LLM alignment:** LLM-to-brain RSA scales with model size (774M → 65B) [[Nature Comput Sci]](https://www.nature.com/articles/s43588-025-00863-0). Brain-informed FT gains scale with size + duration. **Gap:** SSM/diffusion/JEPA-to-brain alignment unpublished → direct genome opportunity. fMRI-LM (Nov 2025) infrastructure; brain-decoding survey (Nov 2025 bioRxiv).
 
-- **Mechanistic SAE analysis of diffusion (2025).** Human-interpretable concepts in diffusion activations. Early diffusion steps: composition is predictable from spatial concept distribution BEFORE first reverse step completes. [[paper]](https://arxiv.org/html/2504.15473v1)
-- **DIFFLENS (CVPR 2025).** Directly interacts with diffusion internals. Identifies and modifies bias-specific features. [[paper]](https://openaccess.thecvf.com/content/CVPR2025/papers/Shi_Dissecting_and_Mitigating_Diffusion_Bias_via_Mechanistic_Interpretability_CVPR_2025_paper.pdf)
-- **Phase structure:** early steps control composition; middle steps set stylistic; final steps minor texture. "Chaotic early stage" is a blind spot.
+#### B1 / B4 / B6 / B7 / B9 — archived pointers (not load-bearing for Batch 1)
 
-#### B7. JEPA — geometric theory
+Full content in git history commits `d638e5b`/`dd17cc6` + `.codex/outputs/round1.md`. Summary:
 
-- **Collapse theorems.** Sufficient target diversity + nontrivial context-target mapping ensure non-collapsed global minima of JEPA objective.
-- **Koopman-invariant recovery.** JEPA loss structure recovers Koopman invariants on time-series / dynamical data. Implication: JEPA latent space IS a dynamical-systems invariant representation. [[background]](https://www.emergentmind.com/topics/joint-embedding-predictive-architecture-jepa-1c718c4a-0bb8-4b78-a67b-0990aa485ceb)
-- **V-JEPA 2.1 (2026).** Dense spatio-temporal features; open challenge: simultaneous dense structure + dynamics + global understanding.
-- **LeJEPA theory upgrade.** Theoretical foundation for JEPA objectives.
-
-#### B8. Brain-LLM alignment
-
-- **Tuckute et al. / recent fMRI-RSA work.** Alignment with human eye movement and fMRI significantly improves as model scales from 774M → 65B. [[Nature Comput Sci]](https://www.nature.com/articles/s43588-025-00863-0)
-- **Brain-informed fine-tuning.** Voxel-level gains scale with both model size (GPT-2-124M → LLaMA-2-7B) and training duration (1-40h). [[ICLR]](https://openreview.net/forum?id=07S1CPoQYP)
-- **Platonic Hypothesis vs. Intermediate-Layer Advantage (NeurIPS 2025 workshop).** Middle-depth layers often encode richer, more generalizable features. [[paper]](https://arxiv.org/html/2510.17833v1)
-- **fMRI-LM (Nov 2025).** Foundation model for language-aligned fMRI understanding. [[paper]](https://arxiv.org/html/2511.21760)
-- **Brain decoding survey (Nov 2025, bioRxiv).** Foundation models as priors, targets, generators for non-invasive brain decoding. [[survey]](https://www.biorxiv.org/content/10.64898/2025.11.30.691403v2.full)
-
-**Gap:** brain-alignment literature is LLM-to-brain. SSM-to-brain, diffusion-to-brain, JEPA-to-brain alignments are largely unpublished. Direct genome opportunity.
-
-#### B8b. Koopman spectral analysis — candidate universal trajectory invariant (2025-2026)
-
-Added post-draft during heartbeat T+0.5. Koopman operator theory is emerging across ALL three major non-biological system classes the atlas cares about:
-
-- **Learnable Koopman-enhanced transformers (Mar 2026).** Full spectral analysis — eigenvalue trajectories, stability envelopes, learned spectral distributions — compared against SSM baselines AND transformer architectures (Autoformer, Informer, PatchTST). [[paper]](https://arxiv.org/html/2602.02592)
-- **Residual Koopman Spectral Profiling for transformer training instability (Feb 2026).** "Koopman Spectral Shaping" reshapes spectra during training; applied to transformers AND Mamba SSMs. [[paper]](https://arxiv.org/html/2602.22988)
-- **Hierarchical Koopman Diffusion (Oct 2025).** Lifts nonlinear diffusion dynamics into a latent space where evolution is governed by globally linear Koopman operators; closed-form trajectory solutions; access to intermediate states. [[paper]](https://arxiv.org/abs/2510.12220)
-- **Data-driven spectral analysis via pseudo-resolvent Koopman (Feb 2026).** Addresses spectral-pollution in finite-dimensional approximations. [[paper]](https://arxiv.org/abs/2512.24953)
-- **Generative modeling via Koopman spectral Wasserstein gradient descent (Feb 2026).** Training-free generative framework via Koopman + Wasserstein. [[paper]](https://arxiv.org/html/2512.18837)
-- **JEPA recovers Koopman invariants** (from B7 — Koopman appears there naturally too).
-
-**Implication for the atlas:** Koopman spectrum is the strongest candidate I've found for a **cross-class universal trajectory invariant** (U8 research uncertainty resolved in favor of Koopman). It applies to any dynamical system by construction, is architecture-agnostic, has formal spectral theory (eigenvalues carry mode information, Koopman modes are the universal "features" of the trajectory), and has been computed on transformers, SSMs, and diffusion in the literature within the last 12 months.
-
-**This should be flagged to Codex Round 1** (arriving too late for that round, but critical for Round 2): consider promoting **Koopman spectral analysis** to a top-tier candidate primitive alongside intrinsic dimension. Unlike TwoNN ID, Koopman has (a) a first-principles derivation (linear operator on observables, Koopman 1931), (b) already-demonstrated cross-class applicability (transformer + Mamba + diffusion all in 2025-2026), (c) natural causal interpretability (eigenmodes = dynamical modes; ablating a mode has a defined theoretical effect).
-
-**Addendum to H-register: H11.** The Koopman spectrum of the layer/time/step-indexed trajectory is a Level-1 universal coordinate. Same functional form of spectral distribution across transformer, SSM, diffusion; class-specific scales. Conf: medium-high. Kill: if Koopman spectra of three matched systems on matched tasks show non-superimposable distributions even under scale normalization, H11 fails.
-
-#### B8d. Local-neighborhood primitives (per Codex Round 1 Intuition 2 — research during T+1h)
-
-Intuition from Round 1: "Global similarity collapses under scale correction; only local neighborhood structure survives cross-architecture" (medium-high conviction, aligns H4).
-
-Published work:
-- **Nearest Neighborhood Graph Similarity (NNGS) — Jaccard of kNN graphs.** Average Jaccard between corresponding nodes of k-neighborhood graphs in paired embedding spaces. Strongly correlates with task-specific accuracy on analogy and cross-modal zero-shot. [[paper 2411.08687]](https://arxiv.org/html/2411.08687v1)
-- **Local Neighborhood Component Analysis (LNCA).** Deep metric-learning variant; leverages feature memory banks for local kNN structure. [[ScienceDirect]](https://www.sciencedirect.com/science/article/abs/pii/S0020025522012105)
-- **Neighborhood Preserving Embedding (NPE).** Classic (He et al.), preserves local manifold structure where PCA preserves global. Foundation for the class.
-- **Node Embeddings via Neighbor Embeddings.** Recent (2025, OpenReview `8APIU9cauZ`). Graph-native neighbor-embedding framework.
-
-**Architectural implication for the atlas:**
-- **NNGS is a Level-0 diagnostic — pair-similarity**, not a coordinate. It measures similarity between two embeddings; does not produce a scalar per system. Useful as cross-system alignment auditor; can supplement the Level-2 joint-fit test (§2.5 G2.3) but cannot be a promoted coordinate.
-- **Local-connectivity statistics** — e.g., mean local reachability ratio = (diameter of kNN-5-neighborhood) / (diameter of full cloud), or kNN-graph clustering coefficient, or diffusion entropy after t random-walk steps on the kNN graph — ARE per-point-cloud metrics and could be Gate-1 candidates.
-- **For Round 2:** recommendation to Codex — rule whether a local-connectivity statistic should join ID / PR / spectral slope in Batch 1 as a 4th primitive. Candidate spec: **mean 5-nearest-neighbor Jaccard self-stability** (resample the point cloud, measure Jaccard overlap of each point's kNN set across resamples; average across points). This directly tests "local structure stability," captures Codex Intuition 2, and is cheap.
-
-#### B8c. Null result — Ricci curvature on SSM / diffusion (2025-2026)
-
-Added during heartbeat T+0.5. No published application of Ollivier-Ricci (or any discrete Ricci) to Mamba/SSM hidden states or diffusion U-Net latents was found in 2025-2026 literature. Only LLM embeddings (HELM and Fumero et al.) have been Ricci-measured.
-
-**Implication:** if the atlas applies Ricci to SSM/diffusion, it is **new science**. H3 can be tested cleanly — no prior Ricci measurement in those classes means our measurement IS the measurement. Cheap Phase-3 probe candidate (adds ~2 h compute per class on 10k embeddings at most).
-
-**Addendum to H-register: H3a.** We can strengthen H3's test: measure Ricci on Qwen3-0.6B + Mamba2-370M + a diffusion latent decoder (e.g., FLUX latent) on matched stimuli. If all three show negative mean Ricci → H3 promotes to Level-1 hyperbolic-embedding claim. If Mamba is positive or flat, H3 stays Level-2 (transformer-only).
-
-#### B9. Critical limitations of current interpretability
-
-- **Theoretical barriers** (2026 ICLR paper, cited in 2026 mech-interp status report):
-  - "Feature" lacks rigorous definition
-  - Computational complexity results prove many queries intractable
-  - Fundamental math limits on linear-intervention methods in chaotic deep networks
-  - Models may learn harder-to-study representations if trained against interp techniques
-- **Reductionist tradeoff.** Researchers want succinct explanations of terabyte-scale models. Information-theoretic limit: detailed-AND-succinct may be impossible.
-- **Temporal gap.** Mechanisms governing agent trajectories live across many forward passes; static interpretability insufficient.
-- **Neel Nanda 2025 update:** pessimistic about high-risk-high-reward mech-interp; more optimistic about medium-risk-medium-reward approaches.
+- **B1 Mech-interp state-of-art:** Anthropic circuit tracing (cross-layer transcoders), USAE (Universal SAEs), SAE dark-matter limitation (>90% of error norm is linearly predictable from input; scaling SAE width doesn't help — defers SAE-family primitives to Batch 5+), Nanda Sept-2025 pessimism update, MIT Tech Review 2026 Breakthrough designation.
+- **B4 Information-theoretic + statistical physics:** Generalized Information Bottleneck (GIB, synergy-based), two-phase learning dynamics (curve-fit → compression), grokking = dimensional phase transition with SOC (Rubin et al. 2026), provable feature-emergence scaling laws (Sept 2025), spectral-entropy collapse as grokking signature, RG-as-coarse-graining (dynamic-neuron RG 2025, Koch-Janusz 2018). → H5 phase-transition hypothesis + H9 RG-lens deferred to Batch 2+.
+- **B6 Diffusion interp:** DIFFLENS (CVPR 2025), mechanistic-SAE on diffusion — early steps control composition, middle stylistic, late texture. → Batch 5+.
+- **B7 JEPA geometric theory:** collapse theorems, Koopman-invariant recovery, V-JEPA 2.1 (2026), LeJEPA. → Batch 5+.
+- **B9 Critical limitations of mech-interp:** "feature" undefined, NP-hard queries, fundamental math limits on linear interventions in chaotic deep networks, temporal-agentic gap. → Scope caveat: the atlas does NOT promise mech-interp; it promises geometry.
 
 ---
 
@@ -1013,6 +941,7 @@ Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-lin
 | T+1.5h (cron heartbeat fire) | ON TRACK | No | Round 2 still running (~10 min, within 5-15 min typical); GPU/CPU idle (Codex is remote); repo clean; anti-entropy sweep next on WIKI/MEASUREMENT_PRIMITIVES/SYSTEM_BESTIARY/OPEN_MYSTERIES — session has advanced (H11-H13, §2.5 two-gate, revised Batch 1) but canonical docs haven't been patched to match | Sweep and patch canonical research docs for consistency with revised session state |
 | T+1.8h (sweep complete) | ON TRACK | Minor — Round 2 now ~20 min, past typical 5-15 min window but process count stable at 4 (not stuck; longer prompt + more targeted questions vs Round 1) | Anti-entropy sweep committed: MEASUREMENT_PRIMITIVES.md status legend updated to four-tier, Koopman (§2.4) + local-connectivity (§2.5) added, CKA demoted ⚪, §9 gate replaced with cross-reference to locked §2.5. WIKI §1 project-state glance + §3 primitives table patched. Model registry verified: all three Batch-1 anchors (Qwen3-0.6B, mamba2-370m, Falcon-H1-0.5B) present in `../../models/MODEL_DIRECTORY.md`. | Wait for Round 2 output; if it lands, process + fire Round 3; if heartbeat fires before Round 2 returns, do additional research on the deferred-to-Batch-2 primitives (Koopman observable-family and DMD estimator variants) so Batch 2 can move fast once Batch 1 lands. |
 | T+2h (Round 2 landed, 8.3/10) | ON TRACK | No | Processed Round 2: KS2 CLOSED, KS1/KS3 PARTIAL. Derived §2.5.6 noise-calibrated decision rule + §2.5.7 conditional universality (Alt C) — priority directive deliverable. Fixed entropy bugs (5-row taxonomy, P1.5 typo, Alt C undefined). Added G1.6 subsample stability, G1.7 preprocessing/metric declaration, H14/H15. Swapped spectral slope → local-neighborhood kNN-Jaccard (P1.3) per Codex Intuition 2. Added biology instantiations to §3.7 prereg + modality-scope labels. | Fire Round 3 fresh session; while waiting, compress §1b research brief per parsimony mandate (Codex §11) — most not load-bearing for next probe |
+| T+2.3h (cron heartbeat fire, Round 3 running) | ON TRACK | Minor — session doc at 1019 lines (S6 entropy risk); Round 3 running ~10 min (in typical window) | Parsimony compression of §1b in progress — keep only Batch-1-load-bearing content (B2 Platonic critique, B3 geometric primitives, B8c-d Ricci-null + local-neighborhood), compress B1/B4/B6/B7 to pointers | Complete §1b compression; commit; continue waiting for Round 3 |
 
 ---
 
