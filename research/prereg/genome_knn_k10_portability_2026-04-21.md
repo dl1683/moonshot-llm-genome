@@ -211,8 +211,8 @@ pooling=[seq_mean, cls_or_mean], tokenizer=per-model-native or rgb_conversion)`
 
 ## 15. Sign-off
 
-**Locked at commit:** 9ee0b51 (HEAD at time of lock; this commit updates to the
-lock SHA post-commit per convention).
+**Locked at commit:** 62338b8 (the commit that flipped `status: STAGED` →
+`status: LOCKED` and filled in real dataset hashes).
 
 **Evidence for lock:** `results/gate1/stim_resample_n2000_seeds42_123_456.json`
 (genome_007). At n=2000 with seeds {42, 123, 456}, kNN-k10 clustering
