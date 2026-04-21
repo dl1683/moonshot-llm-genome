@@ -19,7 +19,7 @@ This file is a living catalog. Add a primitive only after defining:
 - ⚪ **Diagnostic (Level-0)** — class-local, or fails semantic comparability, or fails G1.x on some classes. Useful as annotation.
 - ⚫ **Untested** — proposed but not yet run.
 
-Promotion semantics are locked in `research/atlas_tl_session.md §2.5` (two-gate spec + pre-reg template §2.5.5). This file is the catalog; promotion verdicts come from pre-registered probe results logged in `experiments/ledger.jsonl`.
+Promotion semantics are locked in `research/atlas_tl_session.md §2.5` (two-gate spec + pre-reg template §2.5.9). This file is the catalog; promotion verdicts come from pre-registered probe results logged in `experiments/ledger.jsonl`.
 
 System classes for agnosticism (from `SYSTEM_BESTIARY.md`): autoregressive LLM · reasoning · SSM · hybrid · diffusion · vision encoder · JEPA · world model · biological recording · untrained network.
 
@@ -258,7 +258,7 @@ K enumeration (Batch-1 prereg §3.7 example): 3 systems × 6 decisions (G1.2..G1
 
 **Promotion threshold:** all five → 🟢¹ (Level-1 universal). If G2.2/G2.3 show family-local constants → 🟢² (Level-2 family-local). If G2.2 derivation-first fails → remains 🟡 as "Phase-2 atlas observation" pending derivation.
 
-See `atlas_tl_session.md §2.5.5` for the LOCKED-at-commit pre-registration template.
+See `atlas_tl_session.md §2.5.9` for the LOCKED-at-commit pre-registration template.
 
 ---
 

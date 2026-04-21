@@ -703,22 +703,25 @@ This is a **policy**, not a hypothesis. It does not have a kill criterion — it
 
 **Operational trigger:** If the first cross-modal extension (Batch-5 DINOv2 or similar) produces a Gate-1 FAIL for a primitive that passed on all three language classes, that primitive is relabeled **text-only** and its promotion ceiling is Level-2-text-family-local.
 
-#### 2.5.5 Pre-registration template (LOCKED at commit)
+#### 2.5.9 Pre-registration template (LOCKED at commit) — was §2.5.5, renumbered for linear section order per Codex Round 3 Q4
 
 Every new coordinate promotion requires a pre-reg at `research/prereg/genome_<primitive>_<scope>_YYYY-MM-DD.md` with these fields LOCKED:
 
-1. Primitive name + mathematical definition
+1. Primitive name + mathematical definition (class-agnostic per §2.5.3)
 2. Supported classes targeted in this prereg
-3. Invariance group `G_f` + invariance check protocol
-4. Stimulus distribution `D` + resampling protocol
-5. Noise-calibrated decision rule: equivalence margin `δ`, family-wise α_FWER + K enumeration (§2.5.6b), Gate-2 hierarchical comparison parameters (§2.5.6d)
-6. Estimator variants to be run
-7. Quantization ladder points to be run
-8. Promotion target: Gate 1 / Gate 2 / universality claim
-9. If Gate 2: derivation write-up (attached), causal-test design, biology instantiation spec
-10. Kill criterion: what outcome refutes the claim?
-11. COMPUTE.md §9 compliance checklist filled
-12. Sign-off: "locked at commit `<hash>`; modifications invalidate this prereg"
+3. Invariance group `G_f` + invariance check protocol (§2.5.1 G1.2)
+4. Stimulus family `ℱ` (full machine-checkable tuple per §2.5.7): scope_id, generator, dataset_hash, filter, length_law, invariances, invariance_check
+5. Noise-calibrated decision rule (§2.5.6): equivalence margins `δ_relative`, `δ_slope`, `δ_neg-control`; family-wise α_FWER; K enumeration per §2.5.6b; mandatory sensitivity sweep at δ ∈ {0.05, 0.10, 0.20}
+6. Estimator variants (for G1.4 stability)
+7. Quantization ladder points (for G1.5 stability)
+8. n-sweep for G1.6 subsample asymptote
+9. Analytical SE or sufficient-statistic storage plan (§2.5.6f)
+10. Promotion target: Gate 1 portability / Gate 2 universality / other
+11. If Gate 2: G2.2 derivation write-up (attached) + G2.3 hierarchical-comparison procedure (§2.5.6d) + G2.4 causal-test design (coordinate-defined subspace + ablation metric) + G2.5 biology instantiation (stimulus-indexed per §9a pattern)
+12. Scope label `(modality, stimulus-family, pooling, tokenizer)` per §2.5.4
+13. Kill criterion: what outcome refutes the claim? Which specific Gate-1 or Gate-2 criterion fails?
+14. COMPUTE.md §9 compliance checklist filled
+15. Sign-off: "locked at commit `<hash>`; modifications invalidate this prereg"
 
 ### 2d. Failure modes (revised)
 
@@ -931,7 +934,7 @@ Note: **Koopman (H11), Ricci (H3a), and persistent-homology probes are deferred 
 
 ### 3g. Prereg strawman — `genome_id_portability_2026-04-20` (NOT YET LOCKED)
 
-Demonstrates the §2.5.5 template in practice for the Batch-1 lead probe P1.1. STRAWMAN ONLY — will be reviewed by Codex Round 2 and locked at commit after approval. Current location: this section. At lock, migrates to `research/prereg/genome_id_portability_2026-04-20.md` and becomes immutable.
+Demonstrates the §2.5.9 template in practice for the Batch-1 lead probe P1.1. STRAWMAN ONLY — will be reviewed by Codex Round 2 and locked at commit after approval. Current location: this section. At lock, migrates to `research/prereg/genome_id_portability_2026-04-20.md` and becomes immutable.
 
 **1. Primitive** — Intrinsic dimension via TwoNN (Facco et al. 2017). For a point cloud `X ∈ R^{n×d}`, compute for each point its nearest and second-nearest neighbors with distances `r_1, r_2`. The ratio `μ = r_2 / r_1` is Pareto-distributed with scale parameter d (the intrinsic dimension). Estimate d via MLE on `log μ`.
 
@@ -1044,12 +1047,13 @@ Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-lin
 | T+0 (session start) | ON TRACK | No | — | Phase 1a decomposition + Phase 1b research in parallel |
 | T+0.5 (post-Phase-1+2 draft) | ON TRACK | No | Codex Round 1 fired in background (task `b2kmq8iou`); U5/U8 research in parallel | Process U5 (null result — Ricci-on-SSM unpublished) and U8 (Koopman strong candidate) into §1b research brief; draft Phase 3 probe batch while Codex runs |
 | T+1h (post-Round-1 Codex output) | ON TRACK | No | Codex scored 8/10, flagged 3 kill shots; revised §1a axioms with verdicts, added A9/A10, H12/H13, added §2.5 agnosticism gate semantics (priority directive deliverable), rewrote §2a/§2b/§2c/§2d for point-cloud + operator view, rewrote §3 Batch 1 for language-only + controls | Fire Codex Round 2 on revised artifacts; continue compressing/aligning research brief with intuitions from Round 1 while it runs |
-| T+1.2h (Round 2 running) | ON TRACK | No | Round 2 fired in background (task `b3fwyis5j`); parallel work: researched local-neighborhood primitives (Codex Intuition 2) — added §B8d brief distinguishing NNGS (cross-system diagnostic) from local-connectivity statistics (per-system Gate-1 candidates); drafted prereg strawman §3.7 for ID Gate-1 test (demonstrates §2.5.5 template) | Wait for Round 2 output; while waiting, continue entropy sweep + possibly smoke-test prep for P1.1 once prereg approved |
+| T+1.2h (Round 2 running) | ON TRACK | No | Round 2 fired in background (task `b3fwyis5j`); parallel work: researched local-neighborhood primitives (Codex Intuition 2) — added §B8d brief distinguishing NNGS (cross-system diagnostic) from local-connectivity statistics (per-system Gate-1 candidates); drafted prereg strawman §3.7 for ID Gate-1 test (demonstrates §2.5.9 template) | Wait for Round 2 output; while waiting, continue entropy sweep + possibly smoke-test prep for P1.1 once prereg approved |
 | T+1.5h (cron heartbeat fire) | ON TRACK | No | Round 2 still running (~10 min, within 5-15 min typical); GPU/CPU idle (Codex is remote); repo clean; anti-entropy sweep next on WIKI/MEASUREMENT_PRIMITIVES/SYSTEM_BESTIARY/OPEN_MYSTERIES — session has advanced (H11-H13, §2.5 two-gate, revised Batch 1) but canonical docs haven't been patched to match | Sweep and patch canonical research docs for consistency with revised session state |
 | T+1.8h (sweep complete) | ON TRACK | Minor — Round 2 now ~20 min, past typical 5-15 min window but process count stable at 4 (not stuck; longer prompt + more targeted questions vs Round 1) | Anti-entropy sweep committed: MEASUREMENT_PRIMITIVES.md status legend updated to four-tier, Koopman (§2.4) + local-connectivity (§2.5) added, CKA demoted ⚪, §9 gate replaced with cross-reference to locked §2.5. WIKI §1 project-state glance + §3 primitives table patched. Model registry verified: all three Batch-1 anchors (Qwen3-0.6B, mamba2-370m, Falcon-H1-0.5B) present in `../../models/MODEL_DIRECTORY.md`. | Wait for Round 2 output; if it lands, process + fire Round 3; if heartbeat fires before Round 2 returns, do additional research on the deferred-to-Batch-2 primitives (Koopman observable-family and DMD estimator variants) so Batch 2 can move fast once Batch 1 lands. |
 | T+2h (Round 2 landed, 8.3/10) | ON TRACK | No | Processed Round 2: KS2 CLOSED, KS1/KS3 PARTIAL. Derived §2.5.6 noise-calibrated decision rule + §2.5.7 conditional universality (Alt C) — priority directive deliverable. Fixed entropy bugs (5-row taxonomy, P1.5 typo, Alt C undefined). Added G1.6 subsample stability, G1.7 preprocessing/metric declaration, H14/H15. Swapped spectral slope → local-neighborhood kNN-Jaccard (P1.3) per Codex Intuition 2. Added biology instantiations to §3.7 prereg + modality-scope labels. | Fire Round 3 fresh session; while waiting, compress §1b research brief per parsimony mandate (Codex §11) — most not load-bearing for next probe |
 | T+2.3h (cron heartbeat fire, Round 3 running) | ON TRACK | Minor — session doc at 1019 lines (S6 entropy risk); Round 3 running ~10 min (in typical window) | Parsimony compression of §1b in progress — keep only Batch-1-load-bearing content (B2 Platonic critique, B3 geometric primitives, B8c-d Ricci-null + local-neighborhood), compress B1/B4/B6/B7 to pointers | Complete §1b compression; commit; continue waiting for Round 3 |
 | T+2.8h (Round 3 landed, 8.4/10) | ON TRACK | No | Round 3 score +0.1 (trajectory capped by stats loopholes + drift). Processed: (1) §2.5.6 rewritten with equivalence/precision criterion `|Δ|+c·SE<δ` replacing `|z|<c`, K enumerated to 18 with per-system aggregation rule, analytical SE for TwoNN (d/√n) + sufficient-statistic storage fixing compute arithmetic; (2) P1.3 redefined as single-cloud kNN-5 clustering coefficient (not Jaccard across resampled clouds); (3) §2.5 drift fixes — Gate 1 "all seven criteria", taxonomy G1.1-G1.7, Gate 2 G2.3 hierarchical-only (RSS/α_universal purged); (4) ℱ formalized as generator+hash+invariances+scope_id machine-checkable object; (5) biology §9a corrected — stimulus-indexed points not time-indexed (Gao&Ganguli framing); (6) H15 retired from H-register → §2.5.8 governance rule. | Fire Codex Round 4 fresh session; during wait, propagate changes to WIKI + MEASUREMENT_PRIMITIVES + verify no residual legacy text |
+| T+3.3h (cron heartbeat fire, Round 4 running ~15m) | ON TRACK | No | Round 4 still running (typical window). Productive parallel work: (1) fixed §2.5.5 ordering issue flagged in Round 3 Q4 — renumbered to §2.5.9 so §2.5 is now 0-1-2-3-4-6-7-8-9 with the prereg template at the logical end (after governance rule); propagated the renumber to MEASUREMENT_PRIMITIVES.md. (2) Drafted `.codex/prompts/round5_adversarial.md` per TL §5 so R5 audit can fire immediately when R4 lands — hostile-auditor persona, 10 specific audit questions, A1 component-name-vs-behavior, A4 confidence-rating justification, A8 compute-arithmetic live-fire, A10 dominant self-deception. | Fire Codex Round 5 adversarial audit when R4 output lands; address findings before any Round 6 |
 
 ---
 
