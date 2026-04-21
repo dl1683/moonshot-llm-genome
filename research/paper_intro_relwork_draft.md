@@ -22,7 +22,7 @@ This paper contributes one such tool: a pre-registered, mechanically-validated a
 | G2.4 | Causal-ablation load-bearingness | PASS 3/3 text; DINOv2 method-limit |
 | G2.5 | Biological instantiation | Preliminary (Allen V1, 200 neurons in DINOv2 range) |
 
-**What we do not claim.** We do not claim Level-1 universality (the formal standard is Gate-1 + Gate-2 all PASS). We claim a strong G1 portability result, a narrower-than-pre-registered but stronger-than-expected functional-form universality (G2.3 replacement), a text-only G2.4 causal claim, and a preliminary G2.5 data point that lands in-range.
+**What we do not claim.** We do not claim Level-1 universality (the formal standard is Gate-1 + Gate-2 all PASS). We claim a strong G1 portability result, a narrower-than-pre-registered but stronger-than-expected functional-form universality (G2.3 replacement), a text-only G2.4 causal claim, a preliminary G2.5 data point that lands in-range, and a training-convergence negative-control finding on three architectures.
 
 **Why a reader of the representation-alignment literature should care.** Existing cross-architecture similarity claims (CKA, SVCCA, the Platonic Representation Hypothesis) are mostly linear-similarity claims on activation spaces, and have been criticized for conflating scale with geometry (the "Aristotelian-View" critique, 2026). Our primitive is a rank-based graph invariant that escapes the PC-dominance pathology by construction. Existing mechanistic-interpretability work (Anthropic circuits, SAE feature decomposition) operates at the feature-direction level rather than the point-cloud level. Our result complements, rather than competes with, this line: we show that a point-cloud-level invariant with specific functional form is preserved across architectures even when feature-directional circuits clearly differ.
 
@@ -33,6 +33,7 @@ This paper contributes one such tool: a pre-registered, mechanically-validated a
 3. A pre-registered falsification of a specific Laplace-Beltrami-convergence derivation — and its replacement by an empirical power-law form with R² > 0.989 (mean 0.997) across 27 (system, depth, seed) cells.
 4. A text-architecture causal-ablation result showing the local-neighborhood subspace is load-bearing (7.8–443% loss increase, 20–66× specificity).
 5. A first biological data point (mouse V1 Neuropixels under natural movies) that lands inside the trained-network reference range at matched neuron count.
+6. A random-init-twin negative control on three architectures showing the cross-architecture `p ≈ 0.18` band is the output of training, not an architectural constant: random-init exponents span `[0.021, 0.355]` (16.9×), trained exponents span `[0.154, 0.171]` (1.1×). Training is a convergence operation.
 
 All artifacts — code, atlas rows, pre-registrations, validator, paper drafts — are released open-source at the time of submission.
 
