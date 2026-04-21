@@ -1,7 +1,6 @@
 # Prereg: `genome_knn_k10_portability` — Gate-1 portability for kNN-k10 clustering coefficient
 
-**status: STAGED** (will promote to LOCKED once in-flight n=2000 rerun completes and
-all three systems pass G1.3 at δ=0.10).
+**status: LOCKED** (locked at commit 9ee0b51 once all three Batch-1 systems passed G1.3 at δ=0.10 with n=2000 and 3 stimulus-resample seeds).
 
 **Rationale for a dedicated prereg.** The original `genome_id_portability_2026-04-21.md`
 was a joint prereg for ID + PR + kNN (all three primitives). Evidence from
@@ -70,7 +69,7 @@ F_text:
   generator = (git_commit=6e33a6f, file_path="code/stimulus_banks.py", symbol="c4_clean_v1")
   filter = (git_commit=6e33a6f, file_path="code/stimulus_banks.py", symbol="filter_len_256_english")
   invariance_check = (git_commit=6e33a6f, file_path="code/stimulus_banks.py", symbol="in_family")
-  dataset_hash = "PLACEHOLDER_sha256_c4_clean_v1"
+  dataset_hash = "6c6ccf844f9ec8b62ed6b0c9e427f921b097435574289121f4596ec4959318f7"
   length_law = Constant(256_tokens)
   invariances = ["whitespace_norm", "case_norm"]
 
@@ -79,7 +78,7 @@ F_vision:
   generator = (git_commit=6e33a6f, file_path="code/stimulus_banks.py", symbol="imagenet_val_v1")
   filter = n/a
   invariance_check = n/a (images are canonicalized by RGB conversion; no text-style invariances)
-  dataset_hash = "PLACEHOLDER_sha256_imagenet_val"
+  dataset_hash = "0a3af317f97750442121510b318f5dd199a4c2721f2c9217b1aec5c3061bb02f"
   length_law = Constant(224_px_square)
   invariances = ["rgb_conversion", "resize_224"]
 ```
@@ -212,10 +211,25 @@ pooling=[seq_mean, cls_or_mean], tokenizer=per-model-native or rgb_conversion)`
 
 ## 15. Sign-off
 
-**Locked at commit:** pending — will fill when Qwen3 n=2000 rerun completes and
-kNN-k10 passes G1.3 at δ=0.10 on all 3 systems. Planned commit-message title:
-`Lock prereg genome_knn_k10_portability_2026-04-21 — first 🟡 coordinate`.
+**Locked at commit:** 9ee0b51 (HEAD at time of lock; this commit updates to the
+lock SHA post-commit per convention).
 
-Post-lock modification invalidates this prereg.
+**Evidence for lock:** `results/gate1/stim_resample_n2000_seeds42_123_456.json`
+(genome_007). At n=2000 with seeds {42, 123, 456}, kNN-k10 clustering
+coefficient passes G1.3 at δ=0.10 on:
+- Qwen3-0.6B (class 1, autoregressive LLM): max_stat=0.0253, margin=0.0330, PASS
+- RWKV-4-169M (class 3, linear-attention recurrent): max_stat=0.0239, margin=0.0336, PASS
+- DINOv2-small (class 6, vision ViT): max_stat=0.0188, margin=0.0313, PASS
 
-Validator must exit 0 before the lock commit.
+**Out-of-scope but logged:** Falcon-H1-0.5B (class 4, hybrid) narrowly fails at
+δ=0.10 (max_stat=0.0326, margin=0.0315). Not in this prereg's promotion scope
+(which is the three original Batch-1 anchors). A follow-up prereg will assess
+whether Falcon-H1 passes at larger n or with tighter stimulus filtering — this
+is expected to tip from the current 3.3% relative deviation to below 3.2%.
+
+**Atlas status after this lock:** kNN-10 clustering coefficient is the first
+🟡 coordinate in the Neural Genome atlas — cross-class (transformer + recurrent)
++ cross-modal (text + vision) Gate-1 portability stable under stimulus resampling.
+
+Post-lock modification invalidates this prereg. Validator must exit 0 before
+the lock commit.

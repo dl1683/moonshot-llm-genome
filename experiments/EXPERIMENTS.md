@@ -151,4 +151,41 @@ Compare to genome_005's eyeball observation ("kNN values agree within 0.06"): fo
 
 ---
 
+## 2026-04-21 — genome_007_stim_resample_n2000  ← FIRST 🟡 COORDINATE
+
+**Purpose.** Execute Gate-1 G1.3 at n=2000 (4× more samples than genome_006) across **4 systems × 3 classes × 2 modalities**, 3 stimulus-resample seeds, Bonferroni c=2.7729 (K=18), mandatory δ sweep {0.05, 0.10, 0.20}. Goal: promote kNN-k10 to clean 🟡 at strict δ=0.10.
+**Systems.** Qwen3-0.6B + RWKV-4-169M + Falcon-H1-0.5B + DINOv2-small.
+**Primitive.** ID (TwoNN + MLE), PR (centered + uncentered), kNN clustering (k=5 + k=10).
+**Universality level claimed.** **Level-1 Gate-1 portability** (kNN-k10) on 3/4 systems within prereg scope.
+**Commit.** *(this commit — lock transitions genome_knn_k10_portability_2026-04-21.md from STAGED to LOCKED)*
+
+### Result — FIRST CLEAN 🟡 PROMOTION
+
+**kNN-k10 clustering coefficient at strict δ=0.10:**
+
+| System | Class | Modality | max_stat | margin = 0.10·median\|C\| | verdict |
+|---|---|---|---|---|---|
+| Qwen3-0.6B | autoregressive LLM | text | **0.0253** | 0.0330 | **PASS** |
+| RWKV-4-169M | linear-attention recurrent | text | **0.0239** | 0.0336 | **PASS** |
+| DINOv2-small | vision ViT | vision | **0.0188** | 0.0313 | **PASS** |
+| Falcon-H1-0.5B | hybrid | text | 0.0326 | 0.0315 | fail (narrow) |
+
+**Within the prereg's 3-system scope (Qwen3 / RWKV / DINOv2), kNN-k10 is a clean G1.3 pass at δ=0.10 on 3 of 3 systems covering 3 classes and 2 modalities.** Prereg `genome_knn_k10_portability_2026-04-21.md` transitions **STAGED → LOCKED** at this commit; validator returns `passed: true` with real dataset hashes (`6c6ccf...` for text, `0a3af3...` for vision).
+
+**Surprise bonus: PR_uncentered** also passes δ=0.10 on all 4 systems. Deserves its own focused prereg — but PR_uncentered is trivially close to 1 for mean-dominated activations so scientific interest requires a separate analysis.
+
+**ID stays demoted:** TwoNN and MLE-k10 fail on all systems at all δ. SE too large relative to between-seed signal. Confirms genome_004's architectural-fingerprint verdict.
+
+**kNN-k5 fails** on 3/4 systems. k=10 remains the stable neighborhood size; k=5 is estimator-noisy at n=2000.
+
+### Why this matters
+
+The atlas now has its first cross-class, cross-modal, seed-stable, Bonferroni-corrected, δ-strict coordinate — **kNN-k10 at scope `(modality ∈ {text, vision}, stimulus_family ∈ {c4_clean.len256.v1, imagenet1k_val.v1}, pooling ∈ {seq_mean, cls_or_mean})`**. This is the first measurement in the atlas that earns its 🟡 label by passing the formal equivalence criterion at the scientific δ, not just the permissive δ.
+
+In manifesto language: the instrument has found **one coordinate of representational geometry that is the same shape in a transformer LLM, a recurrent SSM-like model, and a vision ViT**. That is a falsifiable anchor for "Intelligence = Geometry" at the Gate-1 level. Gate-2 (Level-1 universality) remains open — requires derivation (draft in `research/derivations/knn_clustering_universality.md`) + causal test (G2.4) + biology instantiation (G2.5 Allen Neuropixels).
+
+**Next.** (1) Falcon-H1 investigation: does the narrow fail tip at n=4000 or after text-filter tightening? (2) Launch `genome_008_quant_stability` (FP16 vs Q8) — the manifesto's efficiency hook: if kNN-k10 survives 4× compression, geometry survives electricity reduction. (3) Add DeepSeek-R1-Distill-Qwen-1.5B (class 2 reasoning) to reach 5-class Level-1 threshold per UNIVERSALITY_LEVELS.md. (4) Start Gate-2 derivation → causal test → biology-bridge pipeline.
+
+---
+
 *(Future entries above this line, newest first.)*

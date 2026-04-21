@@ -35,16 +35,16 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 
 | Field | Value |
 |---|---|
-| **Phase** | 1 — Instrument live (smoke test passes, first atlas rows emitted 2026-04-21) |
-| **Axiom status** | **FIRST GATE-1 VERDICT (genome_006, 2026-04-21).** 162 atlas rows from 3-seed stimulus-resample probe. At strict δ=0.10 only 3/18 cells pass (meaningful: RWKV kNN-k10). At δ=0.20 sensitivity: **kNN-k10 clustering passes G1.3 on ALL 3 systems × 2 modalities** — first `🟡 (δ-sensitive)` primitive per §2.5.6c. ID cells fail every δ (SE too large). PR feedforward-vs-recurrent signature confirmed. Path to clean 🟡 at δ=0.10: scale n=500 → 2000 (halves SE). |
-| **Bestiary coverage** | 0 / 9 classes measured |
+| **Phase** | 1 — Instrument live; **first 🟡 coordinate promoted 2026-04-21** |
+| **Axiom status** | **FIRST CLEAN 🟡 COORDINATE (genome_007, 2026-04-21).** At n=2000 × 3 seeds × Bonferroni c=2.7729, **kNN-k10 clustering coefficient passes G1.3 at strict δ=0.10 on Qwen3-0.6B (transformer) + RWKV-4-169M (recurrent) + DINOv2-small (vision ViT)** — 3 classes × 2 modalities. Falcon-H1 hybrid narrow-fail (3.5% margin excess). Prereg `genome_knn_k10_portability_2026-04-21.md` → LOCKED. Bonus: PR_uncentered also passes δ=0.10 on all 4 systems (surprise 2nd candidate). ID primitives still fail (SE-dominated). |
+| **Bestiary coverage** | 4 / 9 classes measured; reasoning class (DeepSeek-R1-Distill-Qwen-1.5B) registered, awaiting first run |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
-| **Gate-1 passed (🟡 coordinate)** | 0 clean yet; **1 strong-🟡 candidate pending seed-456 rerun**: kNN-k10 clustering coefficient. n=2000 with 2-of-3 seeds already complete across **4 classes (transformer + recurrent + hybrid + ViT) × 2 modalities** (Falcon-H1 hybrid UNBLOCKED post micro-batching); 2-seed mean values cluster within 3-9% relative at all 3 sentinel depths. Strict δ=0.10 verdict pending seed-456 in-flight rerun (`b9trgjejy`). |
+| **Gate-1 passed (🟡 coordinate)** | **1 CLEAN 🟡**: kNN-10 clustering coefficient, scope `(modality ∈ {text, vision}, stimulus_family ∈ {c4_clean.len256.v1, imagenet1k_val.v1}, pooling ∈ {seq_mean, cls_or_mean})` on Qwen3-0.6B + RWKV-4-169M + DINOv2-small. Prereg `genome_knn_k10_portability_2026-04-21.md` LOCKED at this commit. 1 secondary 🟡 candidate (PR_uncentered) pending its own focused prereg. |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
-| **Open pre-registrations** | **1 locked** at `research/prereg/genome_id_portability_2026-04-21.md` (Gate-1 ID portability on 3 language classes). Validator passes: K=18, c=2.7729, 0 errors, 3/3 pinned pointers resolve. Awaits smoke-test + R6 architectural review. |
-| **Phase-3 claims** | 0 |
+| **Open pre-registrations** | **2 locked:** `genome_id_portability_2026-04-21.md` (Gate-1 joint ID+PR+kNN — superseded by focused kNN prereg for promotion) and **`genome_knn_k10_portability_2026-04-21.md` (Gate-1 kNN-10 on Qwen3+RWKV+DINOv2, LOCKED 2026-04-21)**. Validator exits 0 on both. |
+| **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; Gate-2 derivation draft exists at `research/derivations/knn_clustering_universality.md`) |
 | **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
 | **Gate semantics** | LOCKED in `atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
@@ -86,9 +86,11 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | Primitive | Status | Classes tested | Last used | Notes |
 |---|---|---|---|---|
-| Intrinsic dimension (TwoNN + MLE estimator pair) | ⚫ | — | — | Batch-1 LEAD (P1.1). Prereg strawman in `atlas_tl_session.md §3.7`. |
-| Participation ratio (centered + uncentered pair) | ⚫ | — | — | Batch-1 (P1.2). Pure covariance measure — high Gate-1 prior. |
-| kNN-5 clustering coefficient (P1.3 single-cloud coordinate) | ⚫ | — | — | **LOCKED in Batch 1 per Round 3 redefinition.** Single-cloud scalar, weighted+unweighted estimator variants, analytical SE O(1/n). Addresses Codex Round 1 Intuition 2. Replaced the earlier "spectral slope" Batch-1 candidate per Codex R2 (fragile, redundant with PR). |
+| Intrinsic dimension (TwoNN + MLE estimator pair) | ⚪ | 4 (class 1,3,4,6) | genome_007 | **DEMOTED to diagnostic.** TwoNN and MLE-k10 fail G1.3 at δ=0.10 on all systems at n=2000 (max_stat 2.4-4.4 vs margin 1.8-2.3). Negative-control test (genome_004) showed only 6-13% trained-vs-untrained gap — measures architecture more than learned geometry. |
+| Participation ratio centered | ⚪ | 4 (class 1,3,4,6) | genome_007 | Fails G1.3 at δ=0.10 on all systems (max_stat 3.9-5.9 vs margin 0.8-2.8). Neg-control passes (92% gap) but stimulus-resample too noisy. |
+| Participation ratio uncentered | 🟡 | 4 (class 1,3,4,6) | genome_007 | **SECONDARY 🟡 CANDIDATE:** passes G1.3 at δ=0.10 on ALL 4 systems (max_stat 0.002-0.058 vs margin 0.10-0.15). Needs its own focused prereg + scope analysis (PR_uncentered trivially ≈1 for mean-dominated activations — scientific interest contingent on interpretation). |
+| kNN-10 clustering coefficient | **🟡** | 3 (class 1,3,6) | genome_007 | **FIRST CLEAN 🟡 COORDINATE (2026-04-21).** Passes G1.3 at δ=0.10 on Qwen3-0.6B + RWKV-4-169M + DINOv2-small (3 classes × 2 modalities). Prereg `genome_knn_k10_portability_2026-04-21.md` LOCKED. Falcon-H1 narrow-fail (3.5% excess). Gate-2 derivation in `research/derivations/knn_clustering_universality.md`. |
+| kNN-5 clustering coefficient | ⚪ | 4 (class 1,3,4,6) | genome_007 | **DEMOTED.** Fails G1.3 at δ=0.10 on 3/4 systems at n=2000 (too noisy at k=5). k=10 is the stable neighborhood size. |
 | Koopman spectrum (DMD) | ⚫ | — | — | **NEW** H11 (conf medium). Strongest cross-class candidate by literature (transformer+SSM+diffusion 2025-2026). Deferred to Batch 2 per parsimony. |
 | Persistent homology | ⚫ | — | — | Deferred to Batch 2; needs subsampling-stability control. |
 | Ricci curvature (Ollivier) | ⚫ | — | — | Deferred to Batch 2. H3a. Null result on SSM/diffusion in 2025-2026 lit — new science opportunity. |
