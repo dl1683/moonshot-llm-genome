@@ -52,15 +52,23 @@ Third, the kNN-10 value is **sensitive to the neuron-count subsample** — 0.389
 - We are not claiming the atlas coordinate is architecture-independent in any deep sense. It is a robust *descriptive* invariant on our bestiary; whether it stays invariant under ablations of specific feature-directions (Anthropic-style circuit work) is a separate question. Our G2.4 text evidence says it is causally load-bearing for autoregressive next-token prediction; G2.4 vision is unresolved.
 - We are not claiming the LOCKED v1 derivation is correct. It is not. The scientific record explicitly retains it as a falsified prediction so future replication can check whether our successor derivation fares better under the same tests.
 
-## 5.5 Practical consequences if the pattern holds
+## 5.5 Practical consequences: a first Geometry → Efficiency data point
 
-Assuming the `C(X, k) = c_0 · k^p` empirical form with `(c_0 ≈ 0.22, p ≈ 0.17)` holds beyond our 8-class bestiary, three near-term consequences follow:
+One of the three practical consequences we listed in the abstract — using the coordinate as a compression-gating signal — admits a quick empirical test on Qwen3-0.6B. We run the same `k`-sweep extraction + power-law fit at three weight-quantization levels (FP16, bitsandbytes 8-bit, bitsandbytes NF4 4-bit), on the same 500-stimulus C4 batch, and measure next-token NLL on the same batch as an independent capability proxy.
 
-- **Architecture-agnostic quantization priors.** Layers at which `p` deviates from the population mean are candidates for precision-sensitivity — a reader's INT4/INT8 budget can be allocated by coordinate deviation rather than per-model tuning.
-- **Geometry-aware activation-caching policies.** KV-cache eviction policies can use the top-`k`-neighbor-subspace rank as a compressibility prior, again without per-model engineering.
-- **Cross-model representation alignment.** Transfer of interpretability interventions (feature steering, SAE-derived concepts, routing decisions) between analog models is currently done per-model-pair. Under the `(c_0, p)` framing, alignment becomes a geometric match between two continuous parameters rather than an ad-hoc empirical search.
+**Table 8. Geometry → Efficiency on Qwen3-0.6B (n=500 C4, mid-depth).** Source: `results/gate2/geom_efficiency.json`.
 
-None of these downstream applications are tested in this paper. We list them because our intended audience (cf. §2 Related Work — Anthropic, DeepMind circuit work, Platonic Representation Hypothesis, the Aristotelian-View critique) needs to know why a pre-registered functional-form claim about a point-cloud invariant is a scaffolding move, not an endpoint.
+| Quantization | `c_0` | `p` | R² of power-law fit | NLL per token | ΔNLL vs FP16 |
+|---|---:|---:|---:|---:|---:|
+| FP16 | 0.2618 | 0.1639 | **0.9967** | 3.6561 | — |
+| Q8 (bnb 8-bit) | 0.2704 | 0.1544 | **0.9927** | 3.6682 | +0.3% |
+| Q4 (bnb NF4) | 0.2532 | 0.1744 | **0.9835** | 3.7905 | **+3.7%** |
+
+**The clean signal is R², not (c_0, p) individually.** The prefactor and exponent drift as we compress, but non-monotonically (Q8 and Q4 move them in opposite directions). The **power-law fit quality**, however, decreases monotonically with compression, in lockstep with NLL degradation. Aggressive compression is where clean log-linearity breaks — the residuals from the idealized power-law grow as the model's internal geometry corrupts — and this breakdown is detectable before capability numerically collapses, not just after.
+
+**The implied tool.** `R² of the C(X, k) power-law fit` is a cheap, architecture-agnostic, single-scalar **compression-stop signal**. You quantize until R² drops below a threshold, then you stop. No task-specific evals required. No per-model tuning required. We do not claim this tool is validated — a single-model, single-stimulus-batch data point is a first signal, not a framework. But the signal direction is monotone in the right direction at the grain we tested, which is what the manifesto's "intelligence = geometry" claim would predict if it has content.
+
+**The other two practical consequences** (geometry-aware KV caching, cross-model intervention transfer) are not tested in this paper. We list them as hypothesis seeds for intended readers: for compression and caching teams, the atlas gives a single-scalar compressibility signal worth adding to existing per-layer heuristics; for interpretability teams (Anthropic, DeepMind, Martian), it gives a coordinate on which to transfer feature-direction interventions between analog models.
 
 ---
 
