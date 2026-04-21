@@ -108,6 +108,16 @@ def build():
 \1""",
         results, count=1,
     )
+    # Figure 4 injected at end of §4.2 (before §4.3 quantization stability)
+    results = re.sub(
+        r"(## 4\.3 Quantization stability)",
+        r"""![Figure 4](""" + _FIG_REL + r"""/genome_fig4_training_convergence.png)
+
+**Figure 4.** Training as a convergence operation. (a) `C(X, k)` curves on Qwen3 / RWKV / DeepSeek trained (solid) vs random-init twins (dashed). (b) Exponent `p` on a number line: trained cluster at `p=0.179±0.022` (shaded band, 27-cell atlas), random-init values span 16.9× wider. Training compresses architecture-specific initial exponents onto a shared cross-architecture band.
+
+\1""",
+        results, count=1,
+    )
     # Figure 2 at end of §4.4 (before §4.5)
     results = re.sub(
         r"(## 4\.5 Functional-form identification)",

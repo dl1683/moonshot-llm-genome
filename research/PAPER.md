@@ -199,6 +199,10 @@ Two subtleties worth the reader's attention:
 - The power-law *form* is not uniformly destroyed by random init. On Qwen3-0.6B it collapses (R² 0.99 → 0.11). On RWKV-4 and DeepSeek it remains a good fit (R² > 0.99) but at the "wrong" exponent. So the claim is not "training creates the log-linearity"; it is "training converges architecture-specific exponents to a shared value."
 - This control rules out the hypothesis that the cross-architecture match at `p ≈ 0.17` is coincidence-by-architecture-family. A narrow trained band produced by broadly-spread random starting points is the opposite of that: the training process is dragging heterogeneous inductive biases toward the same representational-geometry signature.
 
+![Figure 4](../results/figures/genome_fig4_training_convergence.png)
+
+**Figure 4.** Training as a convergence operation. (a) `C(X, k)` curves on Qwen3 / RWKV / DeepSeek trained (solid) vs random-init twins (dashed). (b) Exponent `p` on a number line: trained cluster at `p=0.179±0.022` (shaded band, 27-cell atlas), random-init values span 16.9× wider. Training compresses architecture-specific initial exponents onto a shared cross-architecture band.
+
 ## 4.3 Quantization stability (Gate-1 G1.5)
 
 We test whether kNN-10 survives aggressive weight compression. For each of the four text architectures (Qwen3-0.6B, RWKV-4-169M, Falcon-H1-0.5B, DeepSeek-R1-Distill-Qwen-1.5B), we re-extract activations under FP16 and under 8-bit quantization (bitsandbytes `load_in_8bit=True`, transformers-standard Q8 setting) on the same stimulus bank at seed 42, and evaluate the FP16↔Q8 equivalence criterion.
