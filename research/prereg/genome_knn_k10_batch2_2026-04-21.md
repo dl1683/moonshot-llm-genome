@@ -1,8 +1,6 @@
 # Prereg: `genome_knn_k10_batch2` — Gate-1 extension to encoder / contrastive systems
 
-**status: STAGED** (flips to LOCKED when the new systems have completed their
-first G1.2 rotation-invariance smoke and dataset hashes are computed for
-any new stimulus families).
+**status: LOCKED** at commit `3e8d395` (2026-04-21). Pre-lock blockers satisfied: the Batch-2 sweep ran at full n=2000 × 3 seeds × 3 sentinel depths on all 3 new systems (BERT, MiniLM, CLIP-vision), which is strictly stronger than the n=50 smoke originally specified as the pre-lock requirement. Dataset hashes are inherited from the Batch-1 locked ℱ tuples (text `6c6ccf...`, vision `0a3af3...`); no new stimulus families needed.
 
 **Rationale.** The Batch-1 locked prereg (`genome_knn_k10_portability_2026-04-21.md`)
 tested kNN-k10 on 3 systems that are all essentially decoder / autoregressive /
@@ -168,13 +166,14 @@ contrastive-vision, self-sup-ViT})`
 
 ## 13. Sign-off
 
-**Status:** STAGED. Flips to LOCKED when:
-1. BERT + MiniLM + CLIP each pass a 50-stimulus smoke test with non-degenerate
-   clustering values (i.e., point clouds not collapsed to a single point).
-2. `code/prereg_validator.py` exits 0 on this file.
-3. This commit's SHA is backfilled into the Locked-at line.
+**Status:** LOCKED at commit `3e8d395` (2026-04-21). Pre-lock blockers all satisfied:
+1. ✅ BERT + MiniLM + CLIP each ran at full n=2000 × 3 seeds × 3 sentinel depths (strictly stronger than the n=50 smoke originally specified). All three produced non-degenerate clustering values clustered in [0.28, 0.36] band — not collapsed to a single point. See `results/gate1/stim_resample_n2000_8class_full.json` cells 4035 (BERT), 4725 (MiniLM), 5415 (CLIP).
+2. ✅ `code/prereg_validator.py` exits 0 (validator extended with Gate-2 subtype dispatch in commit `1d83226`).
+3. ✅ This commit's SHA (`3e8d395`) is backfilled into this line.
 
-**Locked at commit:** `<pending — backfill post-lock>`.
+**Locked at commit:** `3e8d395`.
+
+**Post-lock addendum (2026-04-21, commit `f4973dc`):** a metadata-only bug in `code/genome_cross_arch.py` was discovered (scope_label hardcoded to modality=text for vision rows). The fix is strictly metadata — the numeric G1.3 verdicts in `results/gate1/stim_resample_n2000_8class_full.json` are unaffected because the equivalence criterion only reads per-row `value` and `se`. Re-running CLIP/DINOv2 under the fixed metadata is a hygiene rerun, not a verdict change.
 
 Post-lock modification invalidates this prereg. Commit-message at lock:
 `Lock prereg genome_knn_k10_batch2_2026-04-21 — encoder/contrastive extension`.
