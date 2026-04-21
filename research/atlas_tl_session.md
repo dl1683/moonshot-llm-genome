@@ -272,6 +272,31 @@ Facts only. No mechanisms yet — that's Codex's job in Phase 4.
 
 **Gap:** brain-alignment literature is LLM-to-brain. SSM-to-brain, diffusion-to-brain, JEPA-to-brain alignments are largely unpublished. Direct genome opportunity.
 
+#### B8b. Koopman spectral analysis — candidate universal trajectory invariant (2025-2026)
+
+Added post-draft during heartbeat T+0.5. Koopman operator theory is emerging across ALL three major non-biological system classes the atlas cares about:
+
+- **Learnable Koopman-enhanced transformers (Mar 2026).** Full spectral analysis — eigenvalue trajectories, stability envelopes, learned spectral distributions — compared against SSM baselines AND transformer architectures (Autoformer, Informer, PatchTST). [[paper]](https://arxiv.org/html/2602.02592)
+- **Residual Koopman Spectral Profiling for transformer training instability (Feb 2026).** "Koopman Spectral Shaping" reshapes spectra during training; applied to transformers AND Mamba SSMs. [[paper]](https://arxiv.org/html/2602.22988)
+- **Hierarchical Koopman Diffusion (Oct 2025).** Lifts nonlinear diffusion dynamics into a latent space where evolution is governed by globally linear Koopman operators; closed-form trajectory solutions; access to intermediate states. [[paper]](https://arxiv.org/abs/2510.12220)
+- **Data-driven spectral analysis via pseudo-resolvent Koopman (Feb 2026).** Addresses spectral-pollution in finite-dimensional approximations. [[paper]](https://arxiv.org/abs/2512.24953)
+- **Generative modeling via Koopman spectral Wasserstein gradient descent (Feb 2026).** Training-free generative framework via Koopman + Wasserstein. [[paper]](https://arxiv.org/html/2512.18837)
+- **JEPA recovers Koopman invariants** (from B7 — Koopman appears there naturally too).
+
+**Implication for the atlas:** Koopman spectrum is the strongest candidate I've found for a **cross-class universal trajectory invariant** (U8 research uncertainty resolved in favor of Koopman). It applies to any dynamical system by construction, is architecture-agnostic, has formal spectral theory (eigenvalues carry mode information, Koopman modes are the universal "features" of the trajectory), and has been computed on transformers, SSMs, and diffusion in the literature within the last 12 months.
+
+**This should be flagged to Codex Round 1** (arriving too late for that round, but critical for Round 2): consider promoting **Koopman spectral analysis** to a top-tier candidate primitive alongside intrinsic dimension. Unlike TwoNN ID, Koopman has (a) a first-principles derivation (linear operator on observables, Koopman 1931), (b) already-demonstrated cross-class applicability (transformer + Mamba + diffusion all in 2025-2026), (c) natural causal interpretability (eigenmodes = dynamical modes; ablating a mode has a defined theoretical effect).
+
+**Addendum to H-register: H11.** The Koopman spectrum of the layer/time/step-indexed trajectory is a Level-1 universal coordinate. Same functional form of spectral distribution across transformer, SSM, diffusion; class-specific scales. Conf: medium-high. Kill: if Koopman spectra of three matched systems on matched tasks show non-superimposable distributions even under scale normalization, H11 fails.
+
+#### B8c. Null result — Ricci curvature on SSM / diffusion (2025-2026)
+
+Added during heartbeat T+0.5. No published application of Ollivier-Ricci (or any discrete Ricci) to Mamba/SSM hidden states or diffusion U-Net latents was found in 2025-2026 literature. Only LLM embeddings (HELM and Fumero et al.) have been Ricci-measured.
+
+**Implication:** if the atlas applies Ricci to SSM/diffusion, it is **new science**. H3 can be tested cleanly — no prior Ricci measurement in those classes means our measurement IS the measurement. Cheap Phase-3 probe candidate (adds ~2 h compute per class on 10k embeddings at most).
+
+**Addendum to H-register: H3a.** We can strengthen H3's test: measure Ricci on Qwen3-0.6B + Mamba2-370M + a diffusion latent decoder (e.g., FLUX latent) on matched stimuli. If all three show negative mean Ricci → H3 promotes to Level-1 hyperbolic-embedding claim. If Mamba is positive or flat, H3 stays Level-2 (transformer-only).
+
 #### B9. Critical limitations of current interpretability
 
 - **Theoretical barriers** (2026 ICLR paper, cited in 2026 mech-interp status report):
@@ -421,7 +446,111 @@ The atlas construction pipeline.
 
 ---
 
-## Phase 3 — Probe batch (DRAFT; awaiting Codex Round 1)
+## Phase 3 — Probe batch (DRAFT — will be stress-tested at Codex Round 2)
+
+### 3a. Batch framing
+
+Batch 1 is the **Phase-1 primitive agnosticism sprint.** One set of 3 systems, matched stimulus banks per modality, parallel extraction of activations, four geometric primitives computed on the same trajectories. Any primitive whose measurements superimpose across the 3 classes (under its per-primitive congruence criterion) becomes a Level-2 candidate coordinate. Any that additionally has a first-principles derivation and survives a causal test becomes a Level-1 candidate — the target Phase-6 deliverable.
+
+Later batches (causal tests, biological bridge) depend on Batch 1 picking a winner, so defer.
+
+### 3b. Shared infrastructure
+
+**Systems (3 classes, all in-envelope):**
+- Qwen3-0.6B (autoregressive LLM) — `Qwen/Qwen3-0.6B` — FP16, ~1.3 GB
+- Mamba2-370M (SSM) — `state-spaces/mamba2-370m-hf` — FP16, ~0.75 GB
+- DINOv2-small (vision encoder) — `facebook/dinov2-small` — FP16, ~0.1 GB
+- **Total VRAM footprint: ~2.2 GB concurrent. Well under the 22 GB ceiling.**
+
+**Stimulus bank (per-modality natural inputs, NOT content-matched):** Choice justified under A1 challenge — universality is about INTERNAL geometry, not input-matched behavior (Platonic framing). If Codex disputes, we add a content-matched run (MSCOCO captions + images) as a control.
+- LLMs: 5000 sentences of 256 tokens each, sampled from a clean C4 / Wikipedia slice, seed-fixed.
+- DINOv2: 5000 ImageNet-val images at native resolution.
+
+**Trajectory extraction:** per-system adapter hooks the canonical internal state. For Qwen3/Mamba2: residual / hidden state at every layer after the block (post-LN), averaged across tokens per sequence → L × D per input. For DINOv2: CLS token + patch-mean at each block → L × D per input. Depth axis ℓ/L is normalized to [0, 1] for cross-system comparison.
+
+**Artifacts (one per system, saved once, reused across probes):**
+- `results/activations/<system_id>.npz` — `(N=5000, L, D_system)` float16 tensor + metadata
+- `results/trajectories/<system_id>.npz` — averaged-per-sequence L × D tensors
+- Kept out of git (.gitignore excludes `*.npz`). Logged in ledger with hash.
+
+### 3c. The 4 probes
+
+**P1.1 — TwoNN intrinsic dimension agnosticism test (LEAD)**
+
+- **Question:** Does ID(ℓ/L) factor across architectures as d(ℓ/L) = d₀(system) + α(system) · g(ℓ/L) with a single universal g?
+- **Hypothesis (H1):** Yes. g is a monotonic increasing-then-decreasing (hunchback) curve peaking near ℓ/L ≈ 0.6 in all three.
+- **Counter-hypothesis:** Curves cross or fail to fit a single g under any affine rescaling. Architecture dictates geometry, not a universal.
+- **MVE:** Compute TwoNN ID (Facco et al.) with k=2 at every ℓ/L ∈ {0.0, 0.05, ..., 1.0} on each system's trajectory set. 100 bootstrap resamples of 1000 sequences each to get confidence intervals. Fit single g by joint nonlinear least squares across systems with (d₀, α) per system. Test residual vs. per-system-independent fit via F-test.
+- **Interpretation:** CONFIRM — joint fit residual < 1.5× per-system residual (i.e., universality loses little) and g is monotonic. REFUTE — joint residual > 3× per-system residual OR g is non-monotonic in any class. AMBIGUOUS — in between → add more stimuli.
+- **Cost:** TwoNN ~10 s per (system, ℓ). 3 × 21 × 10 s ≈ 10 min compute after activations saved. Activation extraction dominates (~3 h for 3 systems). **Total: ~3.5 h wall-clock.** Checkpointable (per-system).
+
+**P1.2 — Ollivier-Ricci curvature agnosticism test**
+
+- **Question:** Does mean discrete Ollivier-Ricci curvature of a kNN-5 graph on hidden states share a sign (and sign-curve over ℓ/L) across the three classes?
+- **Hypothesis (H3a):** All three show negative mean Ricci at middle layers. Promotes H3 to Level-1 (negative curvature = decoder-causal architecture with trained representations, regardless of architecture family).
+- **Counter-hypothesis:** Mamba2 and DINOv2 show positive or ≈0 mean Ricci. H3 stays Level-2 (transformer-specific).
+- **MVE:** For each system, subsample 1000 sequence-averaged embeddings per layer (every 4th layer — 6 layers total per system, 18 runs total). Build kNN-5 graph, compute Ollivier-Ricci via `GraphRicciCurvature` (Wasserstein-1 variant). Report mean curvature per layer + 95% bootstrap CI.
+- **Interpretation:** CONFIRM — mean Ricci negative in middle layer-band for all 3 systems (no overlap with 0 in CI). REFUTE — any system has positive mean Ricci anywhere in middle band. AMBIGUOUS — mixed signs with overlapping CIs.
+- **Cost:** Graph construction O(n²) on 1000 points ≈ seconds. Ricci ≈ 2–5 min per layer. 18 × 5 min = **90 min total after activations are extracted.** Activations shared with P1.1. **Fits in envelope.**
+
+**P1.3 — Koopman spectrum agnosticism test**
+
+- **Question:** Does the Koopman spectrum of the layer-indexed trajectory have a universal functional form across transformer/SSM/vision?
+- **Hypothesis (H11):** Yes. Koopman-mode eigenvalue distributions superimpose on a log-log rank plot after per-system rescaling (Level-1 candidate).
+- **Counter-hypothesis:** Distributions have architecture-family-specific shapes even after rescaling.
+- **MVE:** For each system, treat the (5000, L, D) trajectory tensor as 5000 time-series of length L. Use DMD (dynamic mode decomposition, Schmid 2010) on the per-input L × D matrix; collect eigenvalue spectrum. Aggregate spectra across 5000 inputs → per-system ECDF of |λ_i|. Compare by Wasserstein-1 distance between per-system ECDFs on log-log. Use 100 bootstraps for CI. If log-log linearizes and slopes match across systems within CI: universal power-law Koopman spectrum.
+- **Interpretation:** CONFIRM — Wasserstein distances between all pairs < intra-system bootstrap scatter. REFUTE — distances exceed 3× intra-system scatter. AMBIGUOUS — intermediate.
+- **Cost:** DMD is cheap (SVD of L × D matrices). ~1 s per input. 5000 × 3 = 15000 DMDs ≈ 4 h, but can batch ≈ 100 DMDs at once on GPU → ~150 seconds total. Aggregation + bootstrap another few min. **Total: ~10 min after activations. Negligible cost.**
+
+**P1.4 — Persistent homology Betti-0/Betti-1 agnosticism test**
+
+- **Question:** Do the Betti-0 and Betti-1 curves over a Vietoris-Rips filtration on each layer's hidden-state cloud share a universal profile across classes?
+- **Hypothesis (inherits from WIKI primitive priority):** Yes. Betti profiles align when normalized by characteristic distance scale.
+- **Counter-hypothesis:** Topology is class-specific — Mamba2 shows distinct Betti-1 structure tied to recurrence.
+- **MVE:** Subsample 500 sequence-averaged embeddings per layer (every 4th layer — 6 layers/system). Compute persistent homology Betti-0 and Betti-1 via `Ripser` with max dimension 2, max edge length normalized to kNN-5 median. Report barcode lengths and Betti numbers at persistent thresholds. Compare across systems with bottleneck distance.
+- **Interpretation:** CONFIRM — bottleneck distance per layer < intra-system bootstrap scatter. REFUTE — bottleneck distance > 3× intra-system. AMBIGUOUS — between.
+- **Cost:** PH on 500 points in reduced-D (SVD-to-50) is ~1–2 min per layer. 18 runs × 2 min = **36 min after activations. Fits.**
+
+### 3d. Batch execution plan (fits COMPUTE.md §9 compliance checklist)
+
+**Two-experiment split** (each ≤4 h wall-clock, checkpointable):
+
+**Exp A — Activation extraction + fast primitives (TwoNN + Koopman).**
+- Wall-clock: ~4 h (extraction bound)
+- Max VRAM: ~3 GB (three models loaded concurrently)
+- Max RAM: ~8 GB (activation buffers)
+- Disk artifact: ~600 MB across all three systems
+- Checkpoint: after each system's extraction finishes, save `.npz` before loading next; TwoNN and Koopman compute after save
+- Quantization: FP16 for all three (per COMPUTE.md ladder for <1B dense)
+
+**Exp B — Slow primitives (Ricci + PH) on saved activations.**
+- Wall-clock: ~2.5 h (no model loading, just analysis)
+- Max VRAM: ~0 GB (CPU-only analysis)
+- Max RAM: ~10 GB (point-cloud processing + Ripser)
+- Depends on Exp A artifacts
+- Checkpoint: per (system, layer) pair
+
+**Compliance checklist per experiment (from COMPUTE.md §9):**
+- [x] Max VRAM ≤ 22 GB (3 GB peak)
+- [x] Max RAM ≤ 56 GB (10 GB peak)
+- [x] Wall-clock ≤ 4 h (with split, yes)
+- [x] Disk footprint documented (~600 MB)
+- [x] Quantization logged (FP16)
+- [x] Save-resume path: per-system for Exp A, per-(system, layer) for Exp B — verified viable; smoke-test required before launch (5 inputs × 2 layers)
+
+### 3e. Dependencies and deferrals
+
+**Not in Batch 1:**
+- **Causal tests** (for any candidate Level-1 that emerges) — Batch 2, after Batch 1
+- **Biological bridge** (Allen Neuropixels RSA/ID/Koopman) — Batch 3, after a primitive is promoted
+- **Additional classes** (diffusion, reasoning, hybrid, JEPA, world model, controls) — Batches 4+, sequentially per system class added to registry
+- **Content-matched stimuli control** (MSCOCO) — added to Batch 1 only if Codex disputes the "natural-inputs" choice
+
+### 3f. Stop-rule
+
+If ALL four primitives in Batch 1 fail agnosticism at their congruence criterion: **atlas approach is falsified at the primitive level.** Pivot to a different class of object — most likely weight-space structure or dynamics-of-weights — before committing more compute. This is the design kill-criterion for the current Phase-1 direction.
+
+
 
 ---
 
@@ -449,9 +578,12 @@ Codex invocation log. Each round: timestamp, session id / -o file, key findings,
 
 ## Heartbeat log
 
+Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-line entries only — see §Heartbeat rules above.
+
 | Time | Status | Drift? | Corrective action | Next priority |
 |---|---|---|---|---|
 | T+0 (session start) | ON TRACK | No | — | Phase 1a decomposition + Phase 1b research in parallel |
+| T+0.5 (post-Phase-1+2 draft) | ON TRACK | No | Codex Round 1 fired in background (task `b2kmq8iou`); U5/U8 research in parallel | Process U5 (null result — Ricci-on-SSM unpublished) and U8 (Koopman strong candidate) into §1b research brief; draft Phase 3 probe batch while Codex runs |
 
 ---
 
