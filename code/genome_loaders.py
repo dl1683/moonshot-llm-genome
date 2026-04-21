@@ -1,0 +1,220 @@
+"""Model loaders for the Neural Genome Batch-1 pipeline.
+
+Loads the three Batch-1 anchor systems + their random-init twins in FP16 or
+Q8 quantization, returning a uniform `LoadedSystem` record. Per
+`research/atlas_tl_session.md` 3b and 2.5.6 G1.5.
+
+Windows + CUDA constraints (per CLAUDE.md 6): num_workers=0, pin_memory=False,
+ASCII-only source, per-model native tokenizer.
+
+Usage:
+    from genome_loaders import load_system, SYSTEM_IDS
+
+    sys = load_system("Qwen/Qwen3-0.6B", quant="fp16", untrained=False,
+                      device="cuda")
+    # sys.model, sys.tokenizer, sys.metadata
+
+Trained models come from the canonical registry at ../../models/MODEL_DIRECTORY.md.
+Untrained twins are random-init using the config from the trained HF ID — same
+architecture, fresh weights.
+"""
+
+from __future__ import annotations
+
+import dataclasses
+import gc
+from typing import Any
+
+import torch
+from transformers import (
+    AutoConfig,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+)
+
+
+# -------------------- Canonical system IDs for Batch 1 --------------------
+
+SYSTEM_IDS: dict[str, dict[str, Any]] = {
+    "qwen3-0.6b": {
+        "hf_id": "Qwen/Qwen3-0.6B",
+        "class_id": 1,
+        "class_name": "autoregressive LLM",
+        "approx_params": 600_000_000,
+    },
+    "mamba2-370m": {
+        "hf_id": "state-spaces/mamba2-370m-hf",
+        "class_id": 3,
+        "class_name": "SSM",
+        "approx_params": 370_000_000,
+    },
+    "falcon-h1-0.5b": {
+        "hf_id": "tiiuae/Falcon-H1-0.5B-Instruct",
+        "class_id": 4,
+        "class_name": "hybrid (transformer + Mamba2)",
+        "approx_params": 500_000_000,
+    },
+}
+
+
+@dataclasses.dataclass
+class LoadedSystem:
+    """One loaded model + tokenizer + metadata.
+
+    Held in memory; .unload() should be called before loading the next one
+    unless running multiple concurrently (allowed for the three sub-1B models
+    per COMPUTE.md section 2).
+    """
+
+    system_key: str             # e.g. "qwen3-0.6b"
+    hf_id: str
+    class_id: int
+    class_name: str
+    untrained: bool             # True -> random-init twin
+    quant: str                  # "fp16" or "q8"
+    device: str                 # "cuda" or "cpu"
+    model: Any                  # the HF model
+    tokenizer: Any              # the HF tokenizer
+    config: Any                 # the HF config (for layer-count etc.)
+
+    def n_hidden_layers(self) -> int:
+        """Return depth L for the system. Handles transformer + Mamba + hybrid."""
+        cfg = self.config
+        for attr in ("num_hidden_layers", "n_layer", "num_layers", "n_layers"):
+            if hasattr(cfg, attr):
+                val = getattr(cfg, attr)
+                if isinstance(val, int) and val > 0:
+                    return val
+        raise AttributeError(
+            f"cannot determine layer depth for {self.hf_id}: "
+            f"config has none of num_hidden_layers / n_layer / num_layers / n_layers"
+        )
+
+    def unload(self) -> None:
+        """Free VRAM. Call between systems if not running concurrent."""
+        del self.model
+        self.model = None
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        gc.collect()
+
+
+# -------------------- Quantization config --------------------
+
+def _quantization_config(quant: str) -> BitsAndBytesConfig | None:
+    if quant == "fp16":
+        return None
+    if quant == "q8":
+        return BitsAndBytesConfig(load_in_8bit=True)
+    raise ValueError(f"unsupported quant {quant!r}; expected 'fp16' or 'q8'")
+
+
+def _torch_dtype(quant: str) -> torch.dtype:
+    if quant == "fp16":
+        return torch.float16
+    if quant == "q8":
+        # q8 loads at fp16 then quantizes internally; specify fp16 compute.
+        return torch.float16
+    raise ValueError(f"unsupported quant {quant!r}")
+
+
+# -------------------- Loading --------------------
+
+def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
+                device: str = "cuda") -> LoadedSystem:
+    """Load a Batch-1 system. Trained = pretrained weights from HF hub.
+    Untrained = random-init using the same config (for negative control).
+
+    Parameters:
+        hf_id    : canonical HuggingFace ID from SYSTEM_IDS
+        quant    : "fp16" or "q8"
+        untrained: True -> random-init twin; False -> trained weights
+        device   : "cuda" or "cpu"
+
+    Raises:
+        ValueError if hf_id not in registry
+        RuntimeError if CUDA requested but unavailable
+    """
+    system_key = _resolve_system_key(hf_id)
+    meta = SYSTEM_IDS[system_key]
+
+    if device == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA requested but not available")
+
+    tokenizer = AutoTokenizer.from_pretrained(hf_id, trust_remote_code=False)
+    if tokenizer.pad_token is None and tokenizer.eos_token is not None:
+        tokenizer.pad_token = tokenizer.eos_token
+
+    config = AutoConfig.from_pretrained(hf_id, trust_remote_code=False)
+
+    quant_cfg = _quantization_config(quant)
+    dtype = _torch_dtype(quant)
+
+    if untrained:
+        # Random-init: instantiate from config only, skip pretrained weights.
+        # bnb quantization on random weights is not the comparison we want; force fp16.
+        if quant != "fp16":
+            raise ValueError(
+                "untrained twins must be loaded at fp16 (quantizing random "
+                "weights does not give a meaningful negative control)"
+            )
+        model = AutoModelForCausalLM.from_config(config, torch_dtype=dtype)
+        model = model.to(device)
+    else:
+        load_kwargs: dict[str, Any] = {
+            "torch_dtype": dtype,
+            "trust_remote_code": False,
+        }
+        if quant_cfg is not None:
+            load_kwargs["quantization_config"] = quant_cfg
+            # bitsandbytes places weights on its chosen device automatically.
+        else:
+            load_kwargs["device_map"] = device if device == "cuda" else None
+
+        model = AutoModelForCausalLM.from_pretrained(hf_id, **load_kwargs)
+        if quant_cfg is None and device == "cuda":
+            model = model.to(device)
+
+    model.eval()
+
+    return LoadedSystem(
+        system_key=system_key,
+        hf_id=hf_id,
+        class_id=meta["class_id"],
+        class_name=meta["class_name"],
+        untrained=untrained,
+        quant=quant,
+        device=device,
+        model=model,
+        tokenizer=tokenizer,
+        config=config,
+    )
+
+
+def _resolve_system_key(hf_id: str) -> str:
+    for key, meta in SYSTEM_IDS.items():
+        if meta["hf_id"].lower() == hf_id.lower():
+            return key
+    raise ValueError(
+        f"unknown system {hf_id!r}; allowed Batch-1 systems: "
+        f"{[m['hf_id'] for m in SYSTEM_IDS.values()]}"
+    )
+
+
+# -------------------- CLI for quick sanity --------------------
+
+if __name__ == "__main__":
+    import sys
+
+    # Smoke: list systems and check CUDA availability; do NOT actually load
+    # models (that would download multi-GB weights). Intended to verify the
+    # module imports cleanly.
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"Torch version : {torch.__version__}")
+    print(f"Registered Batch-1 systems:")
+    for key, meta in SYSTEM_IDS.items():
+        print(f"  {key:20s} hf_id={meta['hf_id']:45s} "
+              f"class={meta['class_id']} ({meta['class_name']})")
+    print(f"OK: {len(SYSTEM_IDS)} systems registered")
+    sys.exit(0)
