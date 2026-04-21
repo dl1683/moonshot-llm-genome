@@ -1,8 +1,17 @@
 # Gate-2 Derivation: kNN Clustering Coefficient as Universal Coordinate
 
-**Status:** DRAFT (pre-commit). Candidate derivation for Level-1 universality claim on
+**Status:** LOCKED at commit 62338b8 (the commit that also locked the kNN-k10
+portability prereg). Candidate derivation for Level-1 universality claim on
 `code/genome_primitives.py::knn_clustering_coefficient` across trained neural
 networks with learned representation manifolds.
+
+**Lock trigger (per §8 protocol):** kNN-k10 clustering coefficient passed G1.3
+at δ=0.10 on Qwen3-0.6B + RWKV-4-169M + DINOv2-small (3 classes × 2 modalities)
+in genome_007 (n=2000, seeds 42/123/456, Bonferroni c=2.7729). Per prereg
+`genome_knn_k10_portability_2026-04-21.md` this derivation becomes the locked
+Gate-2 artifact that any Level-1 promotion attempt must test. Post-lock
+modification invalidates any Level-1 claim built on it; open a v2 derivation
+instead.
 
 **Purpose (per `research/atlas_tl_session.md` §2.5.2 G2.2 requirement):**
 *"A candidate form `f(m, x) = g(θ(m), x)` has been derived from first principles
@@ -214,11 +223,26 @@ One dataset (~900 stimuli, ~400 neurons per session). n_stimuli × n_neurons
 - [x] Falsification criteria (§5)
 - [x] Causal-test design sketch (§6)
 - [x] Biology instantiation (§7)
-- [ ] Locked at prereg commit (pending — when kNN-k10 passes clean Gate-1)
+- [x] **Locked at prereg commit (LOCKED 2026-04-21 at 62338b8 — coincident with the kNN-k10 Gate-1 prereg lock)**
 
-**When kNN-k10 passes clean G1.3 at δ=0.10 on 3 systems × 2 modalities, this
-derivation becomes the locked Gate-2 artifact for its Level-1 promotion
-attempt.**
+**Gate-1 evidence for the lock:** genome_007 (n=2000, 3 seeds, c=2.7729).
+kNN-k10 passes G1.3 at δ=0.10 on Qwen3-0.6B (max_stat=0.0253, margin=0.0330)
++ RWKV-4-169M (0.0239, 0.0336) + DINOv2-small (0.0188, 0.0313) — 3 classes
+across 2 modalities.
+
+**Gate-1 G1.5 corollary:** genome_008 (Qwen3 + RWKV at n=2000). kNN-k10 also
+passes FP16-vs-Q8 quantization-stability at δ=0.05 — geometry survives 4×
+weight compression. This is not required for the Gate-2 derivation lock, but
+it is the first evidence that the *form* of `C(X, k)` is invariant under
+weight-level perturbation of the encoder producing `X`.
+
+**Next milestones for Level-1 promotion (§2.5.2 G2.1-G2.5):**
+1. G2.3 hierarchical model comparison — fit `C = α_d (1 − β_d·κ·k^{2/d_int})`
+   per system and test pooled vs per-system parameterization.
+2. G2.4 causal test — ablate the top-k neighbor subspace and verify
+   `E[Δ loss]` degradation is monotonic in ablation magnitude.
+3. G2.5 biology instantiation — Allen Brain Observatory Natural Movie One
+   on DINOv2-compatible stimulus set.
 
 ---
 
@@ -240,4 +264,5 @@ attempt.**
 - Bengio, Y., Courville, A., Vincent, P. (2013). *Representation Learning:
   A Review and New Perspectives.* — manifold hypothesis.
 
-**Locked at commit:** `<pending — fill in post-lock>`
+**Locked at commit:** `62338b8` (2026-04-21). Post-lock modification invalidates
+any Level-1 claim built on this derivation.
