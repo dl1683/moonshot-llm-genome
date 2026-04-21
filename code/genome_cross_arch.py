@@ -80,9 +80,10 @@ def _measure_point_cloud(X):
 
 
 def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
-                   max_length: int) -> dict:
+                   max_length: int, run_untrained: bool = False) -> dict:
     print(f"=== CROSS-ARCHITECTURE BATCH-1 PILOT ===")
-    print(f"n_sentences: {n_sentences}, c4: {use_c4}, seed: {seed}")
+    print(f"n_sentences: {n_sentences}, c4: {use_c4}, seed: {seed}, "
+          f"untrained_twins: {run_untrained}")
     print(f"CUDA available: {torch.cuda.is_available()}")
     t0 = time.time()
 
@@ -102,16 +103,25 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
     commit_sha = _current_commit_sha()
     stimulus_version = f"{'c4_en' if use_c4 else 'fallback'}.seed{seed}.n{len(stimuli)}"
 
+    # Build system list: trained + optional untrained twins for neg-control.
+    system_plan: list[tuple[str, dict, bool]] = []
     for system_key, meta in SYSTEM_IDS.items():
+        system_plan.append((system_key, meta, False))  # trained
+        if run_untrained:
+            system_plan.append((system_key, meta, True))  # untrained twin
+
+    for system_key, meta, untrained in system_plan:
         hf_id = meta["hf_id"]
-        print(f"\n--- System: {system_key} ({hf_id}) ---")
+        tag = f"{system_key}{'_untrained' if untrained else ''}"
+        print(f"\n--- System: {tag} ({hf_id}{' random-init' if untrained else ''}) ---")
         t_sys = time.time()
 
         try:
-            sys_obj = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
+            sys_obj = load_system(hf_id, quant="fp16", untrained=untrained,
+                                  device="cuda")
         except Exception as exc:
-            print(f"  SKIP {system_key}: load failed ({type(exc).__name__}: {exc})")
-            per_system_summary[system_key] = {
+            print(f"  SKIP {tag}: load failed ({type(exc).__name__}: {exc})")
+            per_system_summary[tag] = {
                 "status": "skipped",
                 "reason": f"{type(exc).__name__}: {exc}",
             }
@@ -135,9 +145,9 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
                 seed=seed,
             )
         except Exception as exc:
-            print(f"  FAIL extraction for {system_key}: {type(exc).__name__}: {exc}")
+            print(f"  FAIL extraction for {tag}: {type(exc).__name__}: {exc}")
             sys_obj.unload()
-            per_system_summary[system_key] = {
+            per_system_summary[tag] = {
                 "status": "extract_failed",
                 "reason": f"{type(exc).__name__}: {exc}",
             }
@@ -151,6 +161,7 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
             for m in measurements:
                 all_rows.append({
                     "system_key": system_key,
+                    "system_tag": tag,
                     "class_id": sys_obj.class_id,
                     "class_name": sys_obj.class_name,
                     "hf_id": hf_id,
@@ -173,11 +184,12 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
                     "commit_sha": commit_sha,
                 })
 
-        per_system_summary[system_key] = {
+        per_system_summary[tag] = {
             "status": "ok",
             "n_layers_total": n_layers,
             "sentinel_layers": sentinel_idxs,
             "wall_clock_system_seconds": round(time.time() - t_sys, 2),
+            "untrained": untrained,
         }
 
         # Free VRAM before loading the next system.
@@ -217,10 +229,12 @@ if __name__ == "__main__":
     ap.add_argument("--c4", action="store_true")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max-length", type=int, default=128)
+    ap.add_argument("--untrained", action="store_true",
+                    help="also run untrained-twin negative-control for each system")
     args = ap.parse_args()
     result = run_cross_arch(
         n_sentences=args.n_sentences, use_c4=args.c4, seed=args.seed,
-        max_length=args.max_length,
+        max_length=args.max_length, run_untrained=args.untrained,
     )
     ok = sum(1 for s in result["per_system_summary"].values() if s["status"] == "ok")
     sys.exit(0 if ok >= 1 else 1)

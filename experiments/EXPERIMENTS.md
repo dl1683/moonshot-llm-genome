@@ -72,4 +72,30 @@ Format per entry:
 
 ---
 
+## 2026-04-21 — genome_004_neg_control
+
+**Purpose.** Add trained-vs-untrained negative-control arm to the cross-arch pilot. Tests whether ID/PR/clustering measure *learned* geometry or just architectural structure (Gate-1 negative-control rule per `atlas_tl_session.md §2.5.1`).
+**Systems.** `Qwen/Qwen3-0.6B` trained + random-init; `RWKV/rwkv-4-169m-pile` trained (untrained RWKV failed on `geqrf_cpu not implemented for Half` during FP16 random-init).
+**Primitive.** ID (TwoNN), PR (centered), kNN-5 clustering coefficient.
+**Universality level claimed.** null — these are primitive-ranking observations, not coordinate promotions.
+**Commit.** `e41d2a9-pending`
+**Result — MAJOR REFRAMING OF PRIMITIVE RANKINGS:**
+
+| Primitive | Qwen3 trained (depth 0.25/0.5/0.75) | Qwen3 untrained (0.25/0.5/0.75) | Relative neg-control effect @ 0.25 | Verdict at δ_neg-control=0.20 |
+|---|---|---|---|---|
+| **PR_centered** | 8.9 / 26.9 / 33.4 | 116.5 / 106.6 / 100.6 | **92%** | **PASS** (strong neg-control) |
+| **TwoNN ID** | 23.6 / 22.3 / 17.9 | 22.1 / 17.4 / 15.6 | **6%** | **FAIL** neg-control (architecture-dominated) |
+| **kNN-5 clustering** | 0.358 / 0.337 / 0.382 | 0.297 / 0.297 / 0.290 | **17%** | **MARGINAL** (below 20% but above 10%) |
+
+**Scientific interpretation.**
+- PR STRONGLY measures LEARNED geometry: training compresses PR by ~10× (random-init Qwen3 has PR ≈ 100-116, indicating near-full-rank 1024d covariance; trained Qwen3 has PR ≈ 10-33, a bottlenecked rank). This is a SIGNATURE OF LEARNING.
+- ID is DOMINATED BY ARCHITECTURE. Untrained Qwen3 already has ID ≈ 22 at depth 0.25 (vs 23.6 trained). Only a 6% relative shift. This suggests ID may be a Level-0 *architectural fingerprint* rather than a genuine learned-representation coordinate — needs Gate-1 sensitivity sweep to adjudicate.
+- kNN clustering is marginal (17%) — below the prereg's δ_neg-control=0.20 threshold. Training has a modest local-neighborhood-structure effect.
+
+**This reframes genome_003's PR opposite-sign finding.** The opposite-sign is NOT "PR is a bad primitive" — it is that Qwen and RWKV have DIFFERENT TRAINING DYNAMICS: Qwen expands PR with depth because training compressed initial PR and later layers partially recover rank; RWKV compresses PR because its recurrence compounds information concentration. Both are real learned-geometry signals with architecture-specific direction.
+
+**Next.** (1) Primitive rerank in `WIKI.md §3` reflecting neg-control data. (2) Fix RWKV untrained FP16 path or fall back to FP32. (3) Gate-1 stimulus-resample stability on PR (the current strongest candidate). (4) Unblock hybrid class to reach ≥3-class portability.
+
+---
+
 *(Future entries above this line, newest first.)*

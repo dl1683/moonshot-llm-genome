@@ -1,9 +1,9 @@
 {
   "experiment_id": "genome_003_cross_arch_pilot",
-  "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174",
+  "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6",
   "n_sentences": 500,
   "stimulus_version": "c4_en.seed42.n500",
-  "wall_clock_seconds": 45.66,
+  "wall_clock_seconds": 147.43,
   "per_system_summary": {
     "qwen3-0.6b": {
       "status": "ok",
@@ -13,7 +13,19 @@
         14,
         20
       ],
-      "wall_clock_system_seconds": 6.89
+      "wall_clock_system_seconds": 6.95,
+      "untrained": false
+    },
+    "qwen3-0.6b_untrained": {
+      "status": "ok",
+      "n_layers_total": 28,
+      "sentinel_layers": [
+        7,
+        14,
+        20
+      ],
+      "wall_clock_system_seconds": 23.67,
+      "untrained": true
     },
     "rwkv-4-169m": {
       "status": "ok",
@@ -23,17 +35,27 @@
         6,
         8
       ],
-      "wall_clock_system_seconds": 3.28
+      "wall_clock_system_seconds": 3.34,
+      "untrained": false
+    },
+    "rwkv-4-169m_untrained": {
+      "status": "skipped",
+      "reason": "NotImplementedError: \"geqrf_cpu\" not implemented for 'Half'"
     },
     "falcon-h1-0.5b": {
       "status": "extract_failed",
       "reason": "OutOfMemoryError: CUDA out of memory. Tried to allocate 93.75 GiB. GPU 0 has a total capacity of 23.89 GiB of which 17.61 GiB is free. Of the allocated memory 4.91 GiB is allocated by PyTorch, and 29.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+    },
+    "falcon-h1-0.5b_untrained": {
+      "status": "extract_failed",
+      "reason": "OutOfMemoryError: CUDA out of memory. Tried to allocate 93.75 GiB. GPU 0 has a total capacity of 23.89 GiB of which 15.77 GiB is free. Of the allocated memory 4.91 GiB is allocated by PyTorch, and 1.86 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
     }
   },
-  "n_rows": 36,
+  "n_rows": 54,
   "rows": [
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -50,10 +72,11 @@
       "value": 23.636032099148668,
       "se": 1.0570354898412693,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -70,10 +93,11 @@
       "value": 18.734030326611055,
       "se": 0.8378113060568981,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -90,10 +114,11 @@
       "value": 8.927169681127735,
       "se": 0.6474047560216333,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -110,10 +135,11 @@
       "value": 1.0147630756437231,
       "se": 0.0009511741708527155,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -130,10 +156,11 @@
       "value": 0.3576,
       "se": 0.008384813067705249,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -150,10 +177,11 @@
       "value": 0.4053777777777777,
       "se": 0.005375569050904709,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -170,10 +198,11 @@
       "value": 22.312425637057558,
       "se": 0.997842009347395,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -190,10 +219,11 @@
       "value": 18.218568391148146,
       "se": 0.8147591475067246,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -210,10 +240,11 @@
       "value": 26.934426161956367,
       "se": 0.8731046653241926,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -230,10 +261,11 @@
       "value": 1.040720566267588,
       "se": 0.002646899313417254,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -250,10 +282,11 @@
       "value": 0.3374,
       "se": 0.00869676649651984,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -270,10 +303,11 @@
       "value": 0.38204444444444435,
       "se": 0.005665239755554402,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -290,10 +324,11 @@
       "value": 17.906319957317443,
       "se": 0.8007949730284587,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -310,10 +345,11 @@
       "value": 15.870235387146147,
       "se": 0.7097385028916295,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -330,10 +366,11 @@
       "value": 33.377652671798145,
       "se": 1.0127202677433893,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -350,10 +387,11 @@
       "value": 1.174026479866055,
       "se": 0.01160613603023368,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -370,10 +408,11 @@
       "value": 0.3822,
       "se": 0.009324172907062674,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b",
       "class_id": 1,
       "class_name": "autoregressive LLM",
       "hf_id": "Qwen/Qwen3-0.6B",
@@ -390,10 +429,389 @@
       "value": 0.4204888888888888,
       "se": 0.006441834559321645,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 22.1340488112672,
+      "se": 0.9898647551858374,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 25.829263293170353,
+      "se": 1.1551197706453797,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 116.5267502423445,
+      "se": 2.2512303273444436,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 96.5026244470201,
+      "se": 2.9669518094419365,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.2974,
+      "se": 0.012195242017102877,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 7,
+      "k_normalized": 0.2593,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.29115555555555556,
+      "se": 0.01141918036896122,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 17.354630842485264,
+      "se": 0.7761226857642298,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 21.175689536167273,
+      "se": 0.9470056254660202,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 106.60894960830149,
+      "se": 2.512456284327741,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 96.09833428643394,
+      "se": 2.603316440389076,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.29719999999999996,
+      "se": 0.011506916975304596,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 14,
+      "k_normalized": 0.5185,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.30497777777777774,
+      "se": 0.011146939518092192,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "twonn",
+      "value": 15.611669949939277,
+      "se": 0.6981751050070992,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "intrinsic_dim",
+      "estimator": "mle_k10",
+      "value": 19.39150900293768,
+      "se": 0.8672146463373565,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_centered",
+      "value": 100.57284388364079,
+      "se": 2.651350102097345,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "participation_ratio",
+      "estimator": "pr_uncentered",
+      "value": 93.99571117152333,
+      "se": 2.5909325797858203,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k5",
+      "value": 0.29020000000000007,
+      "se": 0.01179007768692503,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
+    },
+    {
+      "system_key": "qwen3-0.6b",
+      "system_tag": "qwen3-0.6b_untrained",
+      "class_id": 1,
+      "class_name": "autoregressive LLM",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": true,
+      "quantization": "fp16",
+      "pooling": "seq_mean",
+      "stimulus_version": "c4_en.seed42.n500",
+      "seed": 42,
+      "k_index": 20,
+      "k_normalized": 0.7407,
+      "n_points": 500,
+      "primitive_id": "knn_clustering",
+      "estimator": "knn_k10",
+      "value": 0.3002222222222222,
+      "se": 0.011174519583588198,
+      "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -410,10 +828,11 @@
       "value": 24.665468576839196,
       "se": 1.1030732886939487,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -430,10 +849,11 @@
       "value": 21.315253285708515,
       "se": 0.9532471060893997,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -450,10 +870,11 @@
       "value": 25.101404397649887,
       "se": 1.1128962871799788,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -470,10 +891,11 @@
       "value": 1.0077208387150645,
       "se": 0.0004972139298198115,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -490,10 +912,11 @@
       "value": 0.32639999999999997,
       "se": 0.008010894385629823,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -510,10 +933,11 @@
       "value": 0.3748444444444444,
       "se": 0.005505369043039431,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -530,10 +954,11 @@
       "value": 16.84614027696565,
       "se": 0.7533822963558464,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -550,10 +975,11 @@
       "value": 15.917242213727635,
       "se": 0.7118407120844845,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -570,10 +996,11 @@
       "value": 7.788685818386006,
       "se": 0.5691141052979539,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -590,10 +1017,11 @@
       "value": 1.0113258715991644,
       "se": 0.0007300520549160541,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -610,10 +1038,11 @@
       "value": 0.3506,
       "se": 0.00821304988276301,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -630,10 +1059,11 @@
       "value": 0.4110666666666666,
       "se": 0.005723188669135164,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -650,10 +1080,11 @@
       "value": 15.263642343964001,
       "se": 0.6826108373069546,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -670,10 +1101,11 @@
       "value": 14.459013346620189,
       "se": 0.6466267346123894,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -690,10 +1122,11 @@
       "value": 4.877106424668101,
       "se": 0.3215517054674657,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -710,10 +1143,11 @@
       "value": 1.0163366114963022,
       "se": 0.0010544352705320495,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -730,10 +1164,11 @@
       "value": 0.38680000000000003,
       "se": 0.008553235392022289,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     },
     {
       "system_key": "rwkv-4-169m",
+      "system_tag": "rwkv-4-169m",
       "class_id": 3,
       "class_name": "linear-attention recurrent (RWKV)",
       "hf_id": "RWKV/rwkv-4-169m-pile",
@@ -750,7 +1185,7 @@
       "value": 0.43511111111111106,
       "se": 0.0055924935464334,
       "scope_label": "(modality=text, stimulus_family=c4_en.seed42.n500, pooling=seq_mean, tokenizer=per-model-native)",
-      "commit_sha": "571f5b3d80d7ea8c0dfe6693b894790074ebf174"
+      "commit_sha": "e41d2a987e9d28eeb7109fca8e6c16108da166e6"
     }
   ]
 }
