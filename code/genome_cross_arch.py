@@ -82,7 +82,8 @@ def _measure_point_cloud(X):
 
 
 def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
-                   max_length: int, run_untrained: bool = False) -> dict:
+                   max_length: int, run_untrained: bool = False,
+                   systems_filter: list[str] | None = None) -> dict:
     print(f"=== CROSS-ARCHITECTURE BATCH-1 PILOT ===")
     print(f"n_sentences: {n_sentences}, c4: {use_c4}, seed: {seed}, "
           f"untrained_twins: {run_untrained}")
@@ -123,6 +124,8 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
     # Build system list: trained + optional untrained twins for neg-control.
     system_plan: list[tuple[str, dict, bool]] = []
     for system_key, meta in SYSTEM_IDS.items():
+        if systems_filter is not None and system_key not in systems_filter:
+            continue
         system_plan.append((system_key, meta, False))  # trained
         if run_untrained:
             system_plan.append((system_key, meta, True))  # untrained twin
@@ -239,6 +242,11 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
     out_dir = _THIS_DIR.parent / "results" / "cross_arch"
     out_dir.mkdir(parents=True, exist_ok=True)
     suffix = f"_n{len(text_stimuli)}{'_c4' if use_c4 else ''}_seed{seed}"
+    if systems_filter:
+        # Don't clobber the canonical full-bestiary atlas; write partial-run
+        # rows to a suffixed file so the caller can merge explicitly.
+        filter_tag = "_".join(sorted(systems_filter))[:40]
+        suffix += f"_only_{filter_tag}"
     out_path = out_dir / f"atlas_rows{suffix}.json"
 
     payload = {
@@ -270,10 +278,13 @@ if __name__ == "__main__":
     ap.add_argument("--max-length", type=int, default=128)
     ap.add_argument("--untrained", action="store_true",
                     help="also run untrained-twin negative-control for each system")
+    ap.add_argument("--systems", type=str, nargs="*", default=None,
+                    help="subset of SYSTEM_IDS keys to run; defaults to all")
     args = ap.parse_args()
     result = run_cross_arch(
         n_sentences=args.n_sentences, use_c4=args.c4, seed=args.seed,
         max_length=args.max_length, run_untrained=args.untrained,
+        systems_filter=args.systems,
     )
     ok = sum(1 for s in result["per_system_summary"].values() if s["status"] == "ok")
     sys.exit(0 if ok >= 1 else 1)
