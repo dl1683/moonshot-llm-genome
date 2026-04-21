@@ -131,6 +131,27 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "uses_causal_lm": False,
         "vision_model_class": "CLIPVisionModel",
     },
+    # -------------------- Batch 3: predictive-only architectures --------------------
+    # Added 2026-04-21 per strategic Codex directive: current bestiary is
+    # sequence models + image encoders; genuinely non-next-token-time
+    # generative-prediction systems (JEPA, diffusion) are the cleanest
+    # architecture-agnostic stress test we haven't run.
+    "ijepa-vitb16": {
+        "hf_id": "facebook/ijepa_vitb16_1k",
+        "class_id": 9,
+        "class_name": "predictive-masked vision encoder (I-JEPA)",
+        "approx_params": 86_000_000,
+        "modality": "vision",
+        # I-JEPA: Image-based Joint Embedding Predictive Architecture. Trained
+        # by predicting target-block features from context-block features in
+        # the latent embedding space (LeCun / Assran et al. 2023). Encoder-only
+        # ViT, so architecturally it fits the existing extractor, but the
+        # TRAINING OBJECTIVE is fundamentally different from DINOv2 (self-
+        # distillation), CLIP (contrastive), BERT (masked-input-reconstruction),
+        # or any CLM. If kNN-k10 passes on I-JEPA too, the cross-architecture
+        # portability spans 6 training objectives.
+        "uses_causal_lm": False,
+    },
 }
 
 
