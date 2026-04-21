@@ -115,8 +115,10 @@ Inspecting the raw data reveals why: `C(X, k)` **increases monotonically** with 
 | RWKV-4-169M | 0.55 | 0.170 | 0.224 | 0.9979 |
 | Falcon-H1-0.5B | 0.51 | 0.158 | 0.215 | 0.9973 |
 | DINOv2-small | 0.55 | 0.208 | 0.187 | 0.9984 |
+| I-JEPA ViT-H/14 | 0.53 | 0.192 | 0.207 | 0.9989 |
+| DiT-XL/2-256 | 0.52 | 0.204 | 0.201 | 0.9924 |
 
-Across all **18 (system, depth) cells, including I-JEPA ViT-H/14 as a 6th training-objective class (predictive-masked)**: **`p = 0.173 ± 0.022` (CV 12.6%)**, `c_0 = 0.21 ± 0.02`, **R² > 0.994 everywhere (mean 0.997)**. The log-linearity is nearly exact, the exponent is nearly architecture-invariant, and the prefactor is too. Adding the genuinely-different predictive-masked objective moved the mean by less than 0.5σ and left CV essentially unchanged. Source: `results/gate2/ck_power_fit.json`.
+Across all **27 (system, depth, seed) cells**, including **I-JEPA ViT-H/14** (6th training objective: predictive-masked) and **DiT-XL/2-256** (9th architecture class, 7th training objective: class-conditional diffusion transformer, 3-seed robustness): **`p = 0.179 ± 0.021` (CV 12.0%)**, `c_0 = 0.22 ± 0.02`, **R² > 0.989 everywhere (mean 0.997)**. The log-linearity is nearly exact, the exponent is nearly architecture-invariant, and the prefactor is too. DiT per-depth `C` values varied by `< 0.007` across 3 seeds; all 9 DiT cells land within 2σ z-score of the pre-DiT 18-cell cluster. Closing the strategic architecture-gap (genuinely non-next-token-time generative-prediction systems) did not broaden the cluster. Source: `results/gate2/ck_power_fit.json` (pre-DiT 18-cell baseline) and `results/gate2/ck_power_fit_with_dit.json` (27-cell including DiT).
 
 **The cross-architecture universal is a power law, not a single value.** A provisional replacement-derivation (§5.2 Discussion) can motivate the `k^p` form via kNN-graph asymptotics on effective-dimension manifolds (`p = 2/d_eff` would imply `d_eff ≈ 12`, loosely consistent with the TwoNN intrinsic-dim range of 22 ± 5 if a factor-of-2 convention difference). We do not claim the replacement derivation in this paper — we document the observation (power-law fit with cross-class constants) and explicitly mark it as the most important follow-up theoretical work.
 
