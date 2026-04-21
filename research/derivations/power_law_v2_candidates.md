@@ -20,7 +20,27 @@ Any v2 derivation must predict (1) sign, (2) shape (power law, not some other mo
 
 ---
 
-## Candidate framework A — fractal correlation dimension
+## Candidate framework A — fractal correlation dimension — **FALSIFIED 2026-04-21 (genome_024)**
+
+**Pilot result** (`results/gate2/fractal_dim_pilot.json`, 3 systems × mid-depth × n=1000 C4 seed 42):
+
+| System | TwoNN `d_int` | GP `d_2` | `d_2/d_int` | `p_pred = d_2/d_int - 1` | empirical `p` | `|Δ|/p_emp` |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen3-0.6B | 20.32 | 11.87 | 0.584 | **-0.416** | +0.156 | 3.67 |
+| RWKV-4-169M | 18.03 | 10.35 | 0.574 | **-0.426** | +0.170 | 3.51 |
+| DeepSeek-R1-Distill-Qwen-1.5B | 23.09 | 13.60 | 0.589 | **-0.411** | +0.160 | 3.57 |
+
+Empirical p is **positive** across all 3 systems. Framework A predicts **negative** p on all 3. Sign is wrong; 3–4× magnitude gap. 0 of 3 systems pass the 20% pre-registered criterion. **FRAMEWORK_A_FALSIFIED.**
+
+**Secondary finding (worth keeping).** The ratio `d_2 / d_int ≈ 0.58 ± 0.008` is **cross-architecture stable** across these 3 distinct architecture classes (CV 1.4%). That is a separate candidate-coordinate — a dimensionful invariant in its own right, distinct from the kNN clustering power law — but does not, by this framework's specific relation, explain C(X, k).
+
+**Interpretation.** The GP correlation dimension `d_2` is bounded above by the intrinsic pointwise dimension `d_int` for any distribution on an embedded manifold; consequently `d_2/d_int ≤ 1` and framework-A-style predictions `p_pred = d_2/d_int - 1 ≤ 0` are **structurally constrained** to be non-positive. Any framework whose prediction depends on `d_2/d_int - 1` in this direct way will disagree with our empirical positive `p` in sign, not just magnitude. The fractal-gap story is the wrong class of argument for the phenomenon.
+
+**Reduced candidate set after this pilot: B, D (two remaining).**
+
+---
+
+## Candidate framework A — fractal correlation dimension (original text, retained)
 
 If the pooled hidden-state point cloud lies on a set with fractal correlation dimension `d_2` (Grassberger-Procaccia), then:
 
@@ -116,10 +136,10 @@ This is the most speculative framework — but potentially the most manifesto-al
 
 | Framework | Cleanness | Testability | Manifesto alignment | Priority |
 |---|---|---|---|---|
-| A — fractal d_2/d_int | High | High (both estimators are off-the-shelf) | Medium | 1 |
-| B — doubling-dim ratio | Medium | Medium (doubling-dim needs implementation) | High | 2 |
-| D — rate-distortion | Low | Low (R(D) is hard to estimate directly) | Very high | 3 |
-| ~~C — heavy-tailed NN-degree~~ | ~~Medium~~ | ~~High~~ | ~~Medium~~ | **FALSIFIED** (2026-04-21 pilot: α ≈ 3.8, predicts wrong sign) |
+| ~~A — fractal d_2/d_int~~ | ~~High~~ | ~~High~~ | ~~Medium~~ | **FALSIFIED** (genome_024 2026-04-21: d_2/d_int ≈ 0.58 on 3 systems, predicts p = -0.42, wrong sign) |
+| B — doubling-dim ratio | Medium | Medium (doubling-dim needs implementation) | High | 1 |
+| D — rate-distortion | Low | Low (R(D) is hard to estimate directly) | Very high | 2 |
+| ~~C — heavy-tailed NN-degree~~ | ~~Medium~~ | ~~High~~ | ~~Medium~~ | **FALSIFIED** (genome_020 2026-04-21: α ≈ 3.8, predicts p = -0.28, wrong sign) |
 
 ---
 
