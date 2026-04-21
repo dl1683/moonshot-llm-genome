@@ -77,10 +77,10 @@ def measure_nll(model, tokenizer, texts, device, max_length=128, batch_size=16):
 
 
 def run_quant_cell(quant: str, *, n: int, seed: int, max_length: int,
+                   hf_id: str = "Qwen/Qwen3-0.6B",
                    device: str = "cuda") -> dict:
     import torch
-    print(f"\n=== QUANT={quant} ===")
-    hf_id = "Qwen/Qwen3-0.6B"
+    print(f"\n=== QUANT={quant} hf_id={hf_id} ===")
     sys_obj = load_system(hf_id, quant=quant, untrained=False, device=device)
     print(f"  loaded {hf_id} at {quant}")
 
@@ -135,6 +135,9 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max-length", type=int, default=128)
     ap.add_argument("--quants", type=str, nargs="+", default=["fp16", "q8"])
+    ap.add_argument("--hf-id", type=str, default="Qwen/Qwen3-0.6B")
+    ap.add_argument("--out-suffix", type=str, default="",
+                    help="Appended to geom_efficiency<sfx>.json filename")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -142,7 +145,7 @@ if __name__ == "__main__":
     for q in args.quants:
         try:
             r = run_quant_cell(q, n=args.n_sentences, seed=args.seed,
-                               max_length=args.max_length)
+                               max_length=args.max_length, hf_id=args.hf_id)
             results.append(r)
         except Exception as e:
             print(f"SKIP quant={q}: {type(e).__name__}: {e}")
@@ -173,10 +176,11 @@ if __name__ == "__main__":
                   f"dNLL={dNLL:+.4f} ({rel_dNLL:+.1f}%)")
 
     out = {"timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+           "hf_id": args.hf_id,
            "n_sentences": args.n_sentences, "seed": args.seed,
            "results": results,
            "total_wall_clock_seconds": round(time.time() - t0, 2)}
-    out_path = _THIS_DIR.parent / "results" / "gate2" / "geom_efficiency.json"
+    out_path = _THIS_DIR.parent / "results" / "gate2" / f"geom_efficiency{args.out_suffix}.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, default=float)
