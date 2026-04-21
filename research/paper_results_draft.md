@@ -104,9 +104,23 @@ Inspecting the raw data reveals why: `C(X, k)` **increases monotonically** with 
 |    90 |  0.4334 |   0.4284 |  0.4818 |  0.4367 |  0.4742 |
 |   130 |  0.4655 |   0.4618 |  0.5211 |  0.4699 |  0.5136 |
 
-**Reframing the result — the universality is stronger than the value at `k=10`.** Rather than C(10) being cross-class-portable, **the entire function `C(X, k)` is cross-class-portable**. At every sampled `k` the five systems sit inside a band of width < 0.06, while within-system variation across seeds is ≤ 0.008. The curves are not only monotonic, they are nearly homothetic — systems track each other tightly across a 40× range of `k`. This is a stronger empirical statement than our pre-registered k=10 portability, and it holds despite the falsification of the specific functional-form we predicted.
+**Reframing the result — the universality is stronger than the value at `k=10`.** Rather than C(10) being cross-class-portable, **the entire function `C(X, k)` is cross-class-portable**. At every sampled `k` the five systems sit inside a band of width < 0.06, while within-system variation across seeds is ≤ 0.008. The curves are not only monotonic, they are nearly homothetic — systems track each other tightly across a 40× range of `k`.
 
-We treat the LOCKED derivation document as scientific record — the prediction was specific and specifically wrong. A v2 derivation that predicts increasing-in-`k` curvature — plausibly a different kNN-graph-limit result where `k/n` enters the continuum limit differently — is follow-up work. The v2 derivation is NOT this paper's responsibility; reporting the v1 falsification honestly IS.
+**A simple power law fits the observation cleanly.** Linear regression in `log C` vs `log k` (Table 7) gives `C(X, k) ≈ c_0 · k^p`:
+
+| System | Depth | `p` | `c_0` | R² |
+|---|---:|---:|---:|---:|
+| Qwen3-0.6B | 0.52 | 0.156 | 0.216 | 0.9946 |
+| DeepSeek-R1-Distill | 0.52 | 0.160 | 0.208 | 0.9979 |
+| RWKV-4-169M | 0.55 | 0.170 | 0.224 | 0.9979 |
+| Falcon-H1-0.5B | 0.51 | 0.158 | 0.215 | 0.9973 |
+| DINOv2-small | 0.55 | 0.208 | 0.187 | 0.9984 |
+
+Across all **15 (system, depth) cells**: **`p = 0.169 ± 0.021` (CV 12.2%)**, `c_0 = 0.22 ± 0.02`, **R² > 0.994 everywhere**. The log-linearity is nearly exact, the exponent is nearly architecture-invariant, and the prefactor is too. Source: `results/gate2/ck_power_fit.json`.
+
+**The cross-architecture universal is a power law, not a single value.** A provisional replacement-derivation (§5.2 Discussion) can motivate the `k^p` form via kNN-graph asymptotics on effective-dimension manifolds (`p = 2/d_eff` would imply `d_eff ≈ 12`, loosely consistent with the TwoNN intrinsic-dim range of 22 ± 5 if a factor-of-2 convention difference). We do not claim the replacement derivation in this paper — we document the observation (power-law fit with cross-class constants) and explicitly mark it as the most important follow-up theoretical work.
+
+**Scientific record.** The LOCKED v1 derivation document stays locked as scientific record: a specific pre-registered prediction, a specific falsification. The universality phenomenon it attempted to explain is robust; the explanation is not. This is exactly what pre-registration discipline is supposed to deliver — you can tell when a specific theoretical claim is wrong because the prediction was specific to begin with.
 
 ## 4.6 Preliminary biology bridge (Gate-2 G2.5 smoke)
 

@@ -226,8 +226,9 @@ def run_causal_cell(system_key: str, *,
     meta = SYSTEM_IDS[system_key]
     modality = meta.get("modality", "text")
 
+    # sys_obj initialized in both branches so cleanup doesn't UnboundLocal.
+    sys_obj = None
     if modality == "text":
-        sys_obj = None
         print(f"[{system_key}] loading...")
         sys_obj = load_system(meta["hf_id"], quant="fp16", untrained=False, device=device)
         n_layers = sys_obj.n_hidden_layers()
