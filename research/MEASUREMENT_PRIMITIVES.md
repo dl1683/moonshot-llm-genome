@@ -95,7 +95,13 @@ Role in atlas going forward: Level-0 architectural fingerprint / diagnostic. NOT
 **Risk.** Estimator-choice sensitivity is severe — practical choices (observable family, Hankel depth, rank truncation) dominate the spectrum. Pre-reg must LOCK observable family, estimator rank, and DMD variant before any run.
 **Active prereg.** Deferred to Batch 2 per `atlas_tl_session.md §3e`.
 
-### 2.5 kNN-5 clustering coefficient ⚫ (Batch-1 P1.3; single-cloud local-neighborhood coordinate)
+### 2.5 kNN-10 clustering coefficient 🟡 (**FIRST 5-CLASS CLEAN-PASS COORDINATE, 2026-04-21**) (Batch-1 P1.3; single-cloud local-neighborhood coordinate)
+
+**Status note (2026-04-21).** kNN-k10 passes G1.3 at strict δ=0.10 on all 5 Batch-1 classes covering 2 modalities: Qwen3-0.6B (transformer), DeepSeek-R1-Distill-Qwen-1.5B (reasoning), RWKV-4-169M (recurrent), Falcon-H1-0.5B (hybrid, required n=4000), DINOv2-small (vision ViT). Prereg `genome_knn_k10_portability_2026-04-21.md` LOCKED at 62338b8. Also passes G1.5 quantization-stability at δ=0.05 on all 4 text classes. Gate-2 derivation LOCKED at 62338b8 in `research/derivations/knn_clustering_universality.md` with form `C(X,k) = α_d(1 − β_d·κ·k^(2/d_int))₊ + O(n^(-1/2))`. Level-1 Gate-1 portion formally satisfied; Gate-2 (causal + biology) pending — see prereg `genome_knn_k10_causal_2026-04-21.md` STAGED.
+
+k=5 DEMOTED to ⚪: fails G1.3 at δ=0.10 on 3/4 text systems at n=2000 — too noisy at that neighborhood size. k=10 is the stable primary.
+
+
 **Measures.** Per-point local manifold density — for each point, the fraction of pairs among its k-nearest neighbors that are themselves neighbors of each other in the kNN graph. Averaged over all points in the cloud to produce a single scalar `C(X)`.
 **Methods.** Build kNN graph (Euclidean); compute `C(i) = (# edges among kNN_k(i)) / C(k, 2)` per point; average. `C(X) = mean_i C(i)`.
 **G1.4 estimator pair (Codex R6 §3 cleanup).** k=5 vs k=10 neighborhood sizes. Same mathematical target (mean local clustering coefficient); two different neighborhoods. This replaces the earlier "weighted vs unweighted" framing that Codex flagged as possibly two different mathematical quantities masquerading as estimator variants.
