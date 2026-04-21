@@ -35,15 +35,19 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 
 | Field | Value |
 |---|---|
-| **Phase** | 0 — Scaffolding (scaffold complete 2026-04-20) |
+| **Phase** | 0 — Scaffolding + active TL design session (2026-04-20) |
 | **Axiom status** | Stated; 0 atlas entries |
 | **Bestiary coverage** | 0 / 9 classes measured |
-| **Promoted primitives (🟢)** | 0 |
-| **Active mysteries** | 7 |
+| **Promoted primitives (🟢¹/🟢²)** | 0 |
+| **Gate-1 passed (🟡 coordinate)** | 0 |
+| **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
-| **Open pre-registrations** | 0 |
+| **Active hypotheses (H-register)** | 13 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability (→ `atlas_tl_session.md §1c`) |
+| **Open pre-registrations** | 0 (1 strawman in `atlas_tl_session.md §3.7`, not yet locked) |
 | **Phase-3 claims** | 0 |
-| **Next phase trigger** | Phase 1 begins when any primitive is tested on Phase-1 minimum viable bestiary |
+| **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
+| **Gate semantics** | LOCKED in `atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
+| **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
 
 → Phase definitions: `README.md` §Status.
 
@@ -76,34 +80,38 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 ## 3. Measurement primitives status
 
-→ Full catalog: `research/MEASUREMENT_PRIMITIVES.md`.
+→ Full catalog: `research/MEASUREMENT_PRIMITIVES.md`. Gate semantics locked in `research/atlas_tl_session.md §2.5`.
 
-**Legend.** 🟢 coordinate (agnosticism gate passed, ≥3 classes) · 🟡 candidate (1–2 classes) · ⚪ diagnostic (architecture-specific) · ⚫ untested.
+**Legend (four-tier per §2.5).** 🟢¹ Level-1 universal (Gate 2 passed) · 🟢² Level-2 family-local (Gate 1 on ≥5 classes + family constants) · 🟡 coordinate (Gate 1 on ≥3 classes, portability only, no universality claim) · ⚪ diagnostic (Level-0; class-local or fails semantic comparability) · ⚫ untested.
 
 | Primitive | Status | Classes tested | Last used | Notes |
 |---|---|---|---|---|
-| Intrinsic dimension (TwoNN, MLE) | ⚫ | — | — | Priority primitive #1 for Phase-1 agnosticism gate |
-| Participation ratio | ⚫ | — | — | Pure covariance measure — high agnosticism prior |
-| Fisher info matrix trace | ⚫ | — | — | Harder on JEPAs (no probability output) |
-| Persistent homology | ⚫ | — | — | Topology is modality-agnostic by construction |
-| Ricci curvature (Ollivier) | ⚫ | — | — | `llm-platonic-geometry/` reports positive Ricci in LLMs |
-| Lyapunov spectrum | ⚫ | — | — | Needs layer-wise adaptation for feedforward |
-| CKA (linear / RBF) | 🟡 | LLM, vision | — | Needs diffusion/JEPA/world-model test to promote |
-| Procrustes / CCA / SVCCA | ⚫ | — | — | Prior: fails cross-arch (p=0.82); informative bound |
-| RSA (cross-system RDM) | ⚫ | — | — | Canonical bridge to biology — priority primitive |
-| SAE (feature decomposition) | ⚫ | — | — | See Mystery 7 (feature universality across models) |
-| PCA / SVD spectral | 🟡 | LLM, vision | — | Spectral decay slope — candidate Level-2 constant |
-| Activation ablation | ⚫ | — | — | Required for every Level-1 claim (CLAUDE.md §4.4) |
-| Path / activation patching | 🟡 | transformer | — | Needs SSM + diffusion generalization (research task) |
-| CAA (direction steering) | ⚪ | transformer-only | — | Demoted — fails on hybrids/SSMs; see Mystery 4 |
-| Linear probes | ⚪ | — | — | Diagnostic; cannot imply usability (see Mystery 2) |
-| MDL probes | ⚫ | — | — | Pure information-theoretic — works anywhere |
-| Non-linear / MLP probes | ⚫ | — | — | Pair with linear probes for manifold hypothesis test |
-| Task-conditional compression | ⚫ | — | — | Carries over the 99.7%→3D coherent-divergence finding |
-| Successive-refinement D(R) curves | ⚫ | — | — | Direct CTI lineage — strong Level-1 candidate |
-| Diffusion noise-step representations | ⚫ | — | — | No analogue in transformer "layer depth" |
-| JEPA predictor/encoder alignment | ⚫ | — | — | Dual-network geometry |
-| World-model latent rollout | ⚫ | — | — | Dynamics-aware, not static |
+| Intrinsic dimension (TwoNN + MLE estimator pair) | ⚫ | — | — | Batch-1 LEAD (P1.1). Prereg strawman in `atlas_tl_session.md §3.7`. |
+| Participation ratio (centered + uncentered pair) | ⚫ | — | — | Batch-1 (P1.2). Pure covariance measure — high Gate-1 prior. |
+| Spectral slope (PCA eigenvalue decay) | ⚫ | — | — | Batch-1 auxiliary (P1.3). Cheap add on top of PR. |
+| Local-connectivity statistics (Jaccard / clustering / diffusion-entropy) | ⚫ | — | — | **NEW** per Codex Round 1 Intuition 2. Candidate Batch-1 4th primitive pending Round 2 ruling. |
+| Koopman spectrum (DMD) | ⚫ | — | — | **NEW** H11 (conf medium). Strongest cross-class candidate by literature (transformer+SSM+diffusion 2025-2026). Deferred to Batch 2 per parsimony. |
+| Persistent homology | ⚫ | — | — | Deferred to Batch 2; needs subsampling-stability control. |
+| Ricci curvature (Ollivier) | ⚫ | — | — | Deferred to Batch 2. H3a. Null result on SSM/diffusion in 2025-2026 lit — new science opportunity. |
+| Fisher info matrix trace | ⚫ | — | — | Harder on JEPAs (no probability output). |
+| Lyapunov spectrum | ⚫ | — | — | Needs layer-wise adaptation for feedforward. |
+| CKA (linear / RBF) | ⚪ | — | — | **DEMOTED** from 🟡 to ⚪ per Round 1 (scale-confound Feb-2026 Aristotelian-View; PC-dominance). Diagnostic only. |
+| NNGS (kNN Jaccard between two embeddings) | ⚪ | — | — | **NEW** cross-system diagnostic (not a per-system coordinate). Level-0. |
+| Procrustes / CCA / SVCCA | ⚫ | — | — | Prior: fails cross-arch (p=0.82); informative bound. |
+| RSA (cross-system RDM) | ⚫ | — | — | Canonical bridge to biology — stimulus-bank-conditional. |
+| SAE (feature decomposition) | ⚫ | — | — | High-risk, family-local per dark-matter lit; see Mystery 7. Phase-N not Phase-1. |
+| PCA / SVD spectral | 🟡 | LLM, vision | — | Covered by spectral-slope primitive in Batch 1. |
+| Activation ablation | ⚫ | — | — | Minimum class-agnostic causal primitive; Gate-2 G2.4 requirement. |
+| Path / activation patching | ⚪ | transformer | — | **DEMOTED** per Round 1 — transformer-native; Level-0 until class-agnostic extension derived. |
+| CAA (direction steering) | ⚪ | transformer-only | — | Demoted — fails on hybrids/SSMs; see Mystery 4. |
+| Linear probes | ⚪ | — | — | Diagnostic; cannot imply usability (see Mystery 2). |
+| MDL probes | ⚫ | — | — | Pure information-theoretic — works anywhere. |
+| Non-linear / MLP probes | ⚫ | — | — | Pair with linear probes for manifold hypothesis test. |
+| Task-conditional compression | ⚫ | — | — | Carries over the 99.7%→3D coherent-divergence finding. |
+| Successive-refinement D(R) curves | ⚫ | — | — | Direct CTI lineage — strong Level-1 candidate. |
+| Diffusion noise-step representations | ⚫ | — | — | No analogue in transformer "layer depth". |
+| JEPA predictor/encoder alignment | ⚫ | — | — | Dual-network geometry. |
+| World-model latent rollout | ⚫ | — | — | Dynamics-aware, not static. |
 
 ---
 

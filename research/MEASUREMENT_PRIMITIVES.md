@@ -11,14 +11,17 @@ This file is a living catalog. Add a primitive only after defining:
 
 ---
 
-## Status legend
+## Status legend (four-tier per `research/atlas_tl_session.md` §2.5)
 
-- 🟢 **Coordinate** — validated on ≥3 distinct system classes; eligible for atlas entries.
-- 🟡 **Candidate coordinate** — works on 1–2 classes; promotion test pending.
-- ⚪ **Diagnostic** — confirmed architecture-specific; useful as annotation, not atlas coordinate.
+- 🟢¹ **Level-1 universal coordinate** — Gate 2 passed: ≥5 classes with derivation-first functional form, causal test, biology instantiation (§2.5.2 G2.1-G2.5).
+- 🟢² **Level-2 family-local coordinate** — Gate 1 passed on ≥5 classes AND joint fit shows family-specific constants (no single universal form).
+- 🟡 **Coordinate / Gate-1 portability passed** — ≥3 classes pass G1.1-G1.5 + negative control (§2.5.1). No universality claim.
+- ⚪ **Diagnostic (Level-0)** — class-local, or fails semantic comparability, or fails G1.x on some classes. Useful as annotation.
 - ⚫ **Untested** — proposed but not yet run.
 
-System classes for agnosticism: autoregressive LLM · SSM · hybrid · diffusion · JEPA · vision encoder · world model · biological recording · untrained network.
+Promotion semantics are locked in `research/atlas_tl_session.md §2.5` (two-gate spec + pre-reg template §2.5.5). This file is the catalog; promotion verdicts come from pre-registered probe results logged in `experiments/ledger.jsonl`.
+
+System classes for agnosticism (from `SYSTEM_BESTIARY.md`): autoregressive LLM · reasoning · SSM · hybrid · diffusion · vision encoder · JEPA · world model · biological recording · untrained network.
 
 ---
 
@@ -26,18 +29,22 @@ System classes for agnosticism: autoregressive LLM · SSM · hybrid · diffusion
 
 ### 1.1 Intrinsic dimension (ID) ⚫
 **Measures.** Effective dimensionality of the manifold on which activations lie.
-**Methods.** TwoNN (Facco et al. 2017), MLE (Levina & Bickel 2004), persistence-based ID.
+**Methods.** TwoNN (Facco et al. 2017), MLE (Levina & Bickel 2004), persistence-based ID. **For Gate-1 G1.4 (estimator-variant stability) TwoNN + MLE are the pre-registered pair.**
 **Derivation basis.** Well-founded in statistics; distribution-free estimators exist.
 **Agnosticism expectation.** Should work on any activation vector. High prior for promotion to coordinate.
 **Candidate universality level.** Level 1 or 2. CTI-adjacent: prior work in `LLM exploration/` found SSM intrinsic dim ≈ 5.3× Transformer at comparable scale — a candidate Level-2 family constant.
+**Biology instantiation (§2.5 G2.5 required declaration).** Given neural population activity `N_neurons × T_timepoints` under stimulus `s`, compute ID on columns (time-slices as points in N-dim neural space) via TwoNN. Directly applicable to Allen Neuropixels and fMRI BOLD series.
+**Active prereg.** `research/atlas_tl_session.md §3.7 (strawman; genome_id_portability_2026-04-20, not yet locked)`
 **Script stub.** `code/genome_intrinsic_dim.py`
 
 ### 1.2 Participation ratio (PR) ⚫
 **Measures.** Effective number of active dimensions in activations.
-**Methods.** `PR = (Σ λ_i)² / Σ λ_i²` from activation covariance eigenvalues.
+**Methods.** `PR = (Σ λ_i)² / Σ λ_i²` from activation covariance eigenvalues. **For Gate-1 G1.4 the centered vs uncentered PR forms are the pre-registered estimator pair.**
 **Derivation basis.** Canonical in random matrix theory and neuroscience (Gao & Ganguli 2015 for neural recordings).
 **Agnosticism expectation.** High — pure covariance measure.
 **Candidate universality level.** Level 1 for scaling with depth/width; Level 2 family constants.
+**Biology instantiation (§2.5 G2.5 required declaration).** Directly from Gao & Ganguli 2015: PR on the neuron-neuron covariance matrix of population activity under fixed stimulus. Directly applicable to Allen Neuropixels.
+**Active prereg.** P1.2 under `research/atlas_tl_session.md §3c`, batched with ID.
 **Script stub.** `code/genome_participation_ratio.py`
 
 ### 1.3 Fisher information matrix trace ⚫
@@ -72,11 +79,34 @@ System classes for agnosticism: autoregressive LLM · SSM · hybrid · diffusion
 **Agnosticism expectation.** Applies naturally to autoregressive, recurrent, and state-space models; needs adaptation for feedforward vision encoders (layer-wise instead of time-wise).
 **Prior signal.** `llm-platonic-geometry/` — Lyapunov ≈ 0 in LLMs (near-critical dynamics).
 
+### 2.4 Koopman spectrum ⚫
+**Measures.** Spectral signature of the (approximately linear) operator mapping observables forward along the layer/time/step axis of a trajectory.
+**Methods.** Dynamic-mode decomposition (DMD, Schmid 2010) on per-input layer/time/step matrices; aggregate eigenvalue ECDFs across the stimulus bank; pseudo-resolvent Koopman for spectral-pollution control (2026 lit). Observable family must be pre-registered.
+**Derivation basis.** Koopman 1931 — linear operator theory on observables of a dynamical system. Natural invariant under time-reparameterization when observables are chosen correctly.
+**Agnosticism expectation.** Very high. Published applications in 2025-2026 cover transformers, Mamba SSMs, and diffusion simultaneously (Koopman-enhanced transformers; Residual Koopman Spectral Profiling for Mamba; Hierarchical Koopman Diffusion; Koopman-Wasserstein generative). Strongest cross-class candidate per `atlas_tl_session.md §B8b` and H11.
+**Candidate universality level.** Level 1 candidate. Eigenvalue ECDF shape (log-log slope) is the candidate universal; scales per-system are the Level-2 constants.
+**Biology instantiation (§2.5 G2.5).** Given `N_neurons × T_timepoints`, apply DMD on the time axis to estimate the Koopman operator on population activity. Eigenvalue ECDF is directly comparable to model Koopman spectra. Standard in computational neuroscience dynamical-systems analyses.
+**Risk.** Estimator-choice sensitivity is severe — practical choices (observable family, Hankel depth, rank truncation) dominate the spectrum. Pre-reg must LOCK observable family, estimator rank, and DMD variant before any run.
+**Active prereg.** Deferred to Batch 2 per `atlas_tl_session.md §3e`.
+
+### 2.5 Local-connectivity statistics ⚫
+**Measures.** Per-point stability of the local neighborhood (kNN set) under resampling — captures "how locally-stable is the representation manifold" independent of global structure.
+**Methods.** Candidate specs under consideration:
+  - **Mean kNN Jaccard self-stability.** Resample the point cloud, measure Jaccard overlap of each point's k-neighbor set across resamples; average across points. Cheap (kNN in O(n log n)).
+  - **kNN-graph clustering coefficient.** Per-node fraction of neighbors-of-neighbors that are also direct neighbors.
+  - **Diffusion entropy at step t.** Entropy of random-walk distribution on the kNN graph after t steps.
+**Derivation basis.** Local-manifold learning (Neighborhood Preserving Embedding He et al. 2005; NNGS, Fornasier et al. 2024 as cross-system variant). Codex Round 1 Intuition 2 (medium-high conviction): global similarity collapses under scale correction, only local neighborhood structure survives cross-architecture.
+**Agnosticism expectation.** High — pure graph-theoretic properties of point-cloud neighborhood structure. Works on any point cloud.
+**Candidate universality level.** Level-1 candidate. Intuitively: local neighborhood preservation = intrinsic manifold property, architecture-agnostic.
+**Distinction from similarity primitives.** NNGS (Jaccard of kNN graphs between TWO embeddings) is a cross-system diagnostic (Level-0) — it measures how similar two systems are, not a per-system coordinate. Local-connectivity statistics are per-system.
+**Active prereg.** Deferred; Codex Round 2 to rule whether it joins Batch 1 as a 4th primitive.
+
 ---
 
 ## 3. Representation-similarity primitives
 
-### 3.1 Centered kernel alignment (CKA) 🟡
+### 3.1 Centered kernel alignment (CKA) ⚪ (DEMOTED — per Round 1)
+**Status note (2026-04-20):** Demoted from 🟡 to ⚪ diagnostic. Round 1 Codex review: CKA is scale-confounded (Feb 2026 "Aristotelian View" paper shows apparent convergence largely disappears under scale correction). PC-dominance makes it sensitive to leading principal components only. Do NOT treat as coordinate. Use at most as a cross-check alongside local-neighborhood primitives.
 **Measures.** Similarity between two representation spaces.
 **Methods.** Linear or RBF-kernel CKA (Kornblith et al. 2019).
 **Derivation basis.** Well-established.
@@ -192,14 +222,30 @@ These must be developed explicitly — do not assume standard tools port.
 
 ---
 
-## 9. The agnosticism gate
+## 9. The agnosticism gate — two-gate spec
 
-A primitive is promoted from 🟡 to 🟢 only when the Cross-System Auditor (Codex persona, CLAUDE.md §7.4) certifies that:
+**LOCKED IN `research/atlas_tl_session.md §2.5`** (produced as Round-1 priority-directive deliverable). This section now cross-references the locked spec.
 
-1. The primitive has been run on ≥3 distinct system classes.
-2. The output is interpretable at the same semantic level across classes (not just numerically computable).
-3. A negative result in any class is explainable by a principled reason, not "the tool doesn't work there."
-4. At least one potential universality claim has been formulated using it.
+**Gate 1 — PORTABILITY (promotion from ⚫/⚪ to 🟡).** Five criteria, all with pre-registered tolerances:
+- G1.1 Computability within COMPUTE.md envelope
+- G1.2 Invariance under the primitive's declared invariance group
+- G1.3 Stability under stimulus resampling (H12)
+- G1.4 Stability under estimator variant
+- G1.5 Stability under quantization ladder (H13)
+Plus the negative-control rule (primitive must distinguish trained vs untrained or it's Level-0).
+
+**Promotion threshold:** Gate 1 passed on ≥3 distinct system classes → 🟡 (coordinate, portability gate passed). **No universality claim.**
+
+**Gate 2 — UNIVERSALITY (promotion from 🟡 to 🟢¹ or 🟢²).** Five additional criteria:
+- G2.1 Gate-1 portability on ≥5 classes (Level-1 threshold per `UNIVERSALITY_LEVELS.md`)
+- G2.2 Derivation-first functional form from first principles (LOCKED before fitting)
+- G2.3 Joint-fit residual < α_universal × per-class independent fit residual
+- G2.4 Causal test: ablation of coordinate-defined subspace produces predicted behavior change
+- G2.5 Biology instantiation specified (may be deferred in execution, NOT in declaration)
+
+**Promotion threshold:** all five → 🟢¹ (Level-1 universal). If G2.2/G2.3 show family-local constants → 🟢² (Level-2 family-local). If G2.2 derivation-first fails → remains 🟡 as "Phase-2 atlas observation" pending derivation.
+
+See `atlas_tl_session.md §2.5.5` for the LOCKED-at-commit pre-registration template.
 
 ---
 
