@@ -54,21 +54,28 @@ _NATURAL_MOVIE_ONE_STIMULUS_NAME = "natural_movie_one_presentations"
 
 
 def list_visual_coding_sessions(max_sessions: int = 30) -> list[dict]:
-    """Enumerate available sessions in Visual Coding Neuropixels dandiset.
+    """Enumerate SESSION-LEVEL (aggregate) NWBs in the Visual Coding Neuropixels
+    dandiset — these contain the stimulus intervals + sorted units we need.
+    Per-probe NWBs (with `_probe-<id>_ecephys.nwb` suffix) contain only raw
+    signal and no stimulus metadata; we skip them.
 
-    Returns a list of dicts: {session_id, asset_url, size_bytes, area_list}.
-    Network call — caches client between uses within one Python process.
+    Returns a list of dicts: {session_id, asset_url, size_bytes, path}.
     """
     from dandi.dandiapi import DandiAPIClient
     client = DandiAPIClient()
     dandiset = client.get_dandiset(_DANDISET_VISUAL_CODING, "draft")
 
     sessions: list[dict] = []
+    # Scan more than `max_sessions` assets because session files are sparse
+    # in the dandiset (every ~6-8th file is a session-level aggregate).
+    scan_cap = max(300, max_sessions * 10)
     for idx, asset in enumerate(dandiset.get_assets()):
-        if idx >= max_sessions:
+        if idx >= scan_cap:
             break
         if not asset.path.endswith(".nwb"):
             continue
+        if "_probe-" in asset.path:
+            continue  # skip per-probe files — no stimulus metadata
         sessions.append({
             "session_id": asset.path.replace("/", "_").replace(".nwb", ""),
             "asset_url": asset.get_content_url(
@@ -76,6 +83,8 @@ def list_visual_coding_sessions(max_sessions: int = 30) -> list[dict]:
             "size_bytes": asset.size,
             "path": asset.path,
         })
+        if len(sessions) >= max_sessions:
+            break
     return sessions
 
 
