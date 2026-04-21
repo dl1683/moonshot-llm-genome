@@ -20,6 +20,8 @@ either be in the table (add it + map it) or deleted (unsubstantiated).
 | C5 | PR_uncentered's 5/5 G1.3 pass is a DC-activation-mean artifact, not a substantive geometric claim | demoted ⚪ diagnostic | (self-analysis committed in `0c505dc`) | n/a | Per-system values 1.01-1.60 vs PR_centered 13-44 → ratio 13-39× means DC eigenvector captures ≥95% of uncentered covariance |
 | C6 | ID (TwoNN, MLE-k10) is architecture-dominated, not learned-geometry: fails Gate-1 G1.3 on all systems AND fails neg-control | ⚪ diagnostic | `genome_004_neg_control` + `genome_006_stim_resample_g13` + `genome_007` + `genome_009` | `genome_id_portability_2026-04-21.md` LOCKED (now superseded by focused kNN prereg) | 6% trained-vs-untrained gap on Qwen3 at depth 0.25; fails G1.3 all δ |
 | C7 | Gate-2 derivation predicts functional form C(X,k) = α_d (1 − β_d·κ·k^(2/d_int))₊ + O(n^(-1/2)) from Laplace-Beltrami convergence | theoretical framework, not empirical claim | n/a (derivation) | `research/derivations/knn_clustering_universality.md` LOCKED at 62338b8 | Laplacian Eigenmaps (Belkin-Niyogi 2003) + Diffusion Maps (Coifman-Lafon 2006) |
+| C8 | kNN-10 passes Gate-1 portability at δ=0.10 on 7/8 classes across 5 training objectives (CLM + reasoning + linear-attn + MLM + contrastive-text + self-sup-ViT + contrastive-vision; Falcon narrow-fail at n=2000 tips at n=4000) | 🟡 extended portability (8 classes, 5 objectives) | `genome_011_8class_batch2` + `genome_010_falcon_n4000_tips_level1` | `genome_knn_k10_batch2_2026-04-21.md` STAGED (lock pending) | `results/gate1/stim_resample_n2000_8class_full.json` |
+| C9 | kNN-10 local-neighborhood subspace is CAUSALLY load-bearing on Qwen3 mid-depth (ablation smoke) | Gate-2 G2.4 smoke evidence | `genome_012_g24_causal_smoke_qwen3` | `genome_knn_k10_causal_2026-04-21.md` LOCKED at 03da4d5 | topk λ=1 +55% NLL vs random 0.7% / pca 8.3% — specificity ratios 79× / 6.7× |
 
 ---
 
@@ -30,7 +32,7 @@ a LOCKED prereg + passing ledger entry. Treat as aspirational until promoted.
 
 | # | Provisional claim | Missing piece | Prereg status |
 |---|---|---|---|
-| P1 | kNN-10 causally load-bearing (ablating the local-neighborhood subspace degrades downstream loss ≥5%, monotonic in λ, specific vs random-10d and PCA-10 controls) | G2.4 smoke test result + full-grid run | `genome_knn_k10_causal_2026-04-21.md` STAGED |
+| P1 | kNN-10 causally load-bearing on ≥2/3 systems at ≥2/3 depths (2-of-3: Qwen3, RWKV, DINOv2) | G2.4 FULL GRID running now; smoke on Qwen3 passed decisively (C9) | `genome_knn_k10_causal_2026-04-21.md` LOCKED at 03da4d5 — awaits full grid to produce final verdict |
 | P2 | kNN-10 functional form is pooled-universal (ΔBIC(per-system − pooled) > 10) | Extended k-sweep {5, 10, 20, 30} + hierarchical fit | `genome_knn_k10_hierarchical_2026-04-21.md` STAGED |
 | P3 | kNN-10 extends to encoder / contrastive training objectives (BERT MLM + MiniLM contrastive + CLIP vision contrastive) | Batch-2 G1.3 sweep | `genome_knn_k10_batch2_2026-04-21.md` STAGED |
 | P4 | kNN-10 on biological neural populations matches kNN-10 on DINOv2 under same stimulus set | G2.5 Allen Neuropixels pipeline | Not yet drafted |
