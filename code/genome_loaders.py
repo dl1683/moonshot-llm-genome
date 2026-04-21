@@ -157,16 +157,29 @@ class LoadedSystem:
     config: Any                 # the HF config (for layer-count etc.)
 
     def n_hidden_layers(self) -> int:
-        """Return depth L for the system. Handles transformer + Mamba + hybrid."""
+        """Return depth L for the system. Handles transformer + Mamba + hybrid +
+        multi-modal configs (CLIP) that nest vision_config / text_config."""
+        # Try top-level attrs first.
         cfg = self.config
         for attr in ("num_hidden_layers", "n_layer", "num_layers", "n_layers"):
             if hasattr(cfg, attr):
                 val = getattr(cfg, attr)
                 if isinstance(val, int) and val > 0:
                     return val
+        # For multi-modal configs (CLIP, BLIP, etc.), look inside the relevant
+        # sub-config matching our modality.
+        sub_attr = "vision_config" if self.modality == "vision" else "text_config"
+        if hasattr(cfg, sub_attr):
+            sub = getattr(cfg, sub_attr)
+            for attr in ("num_hidden_layers", "n_layer", "num_layers", "n_layers"):
+                if hasattr(sub, attr):
+                    val = getattr(sub, attr)
+                    if isinstance(val, int) and val > 0:
+                        return val
         raise AttributeError(
             f"cannot determine layer depth for {self.hf_id}: "
-            f"config has none of num_hidden_layers / n_layer / num_layers / n_layers"
+            f"config has none of num_hidden_layers / n_layer / num_layers / n_layers "
+            f"(also checked {sub_attr} sub-config)"
         )
 
     def unload(self) -> None:
