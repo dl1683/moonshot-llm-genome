@@ -289,7 +289,7 @@ Format: **H#. Claim. Level. Theoretical confidence. Kill criteria.**
 
 **H14. Subsample stability (NEW; Codex Round 2 gap).** Point-cloud-based primitives must asymptote in n. For a primitive `f` applied on a point cloud of size n, the variance-over-n curve must flatten before the prereg's sampling budget. Conf: N/A. **Kill:** `f` has not asymptoted at the prereg-declared n; in that case the primitive is undersampled and its Gate-1 verdict is invalid. Pivot: increase n within envelope, or accept that the primitive is non-viable at the current compute budget.
 
-**H15. Modality-scope (NEW; Codex Round 2 Q6 bias-warning).** Any Gate-1 pass achieved on a single modality (e.g., text) is text-conditional until cross-modal replication. A primitive that passes Gate-1 on transformer + SSM + hybrid language models is Level-2-text-family-local at best — it is NOT Level-1 until cross-modal (image, audio) replication. Conf: N/A (meta-hypothesis). **Kill:** n/a — this is a policy hypothesis shaping claim scope, not an empirically refutable statement.
+**~~H15~~ (retired from H-register; moved to Governance Rule §G-modality-scope per Codex Round 3 Q6).** H15 was misclassified as a hypothesis — it is a claim-scope policy, not a falsifiable statement. See §1f (new) for the reclassification.
 
 ### 1d. Probe candidates (from empirical uncertainties)
 
@@ -420,7 +420,7 @@ Two gates, in sequence.
 
 #### 2.5.1 Gate 1 — PORTABILITY (coordinate eligibility)
 
-A primitive `f` passes Gate 1 for a system class `C` iff ALL five criteria hold with pre-registered tolerances:
+A primitive `f` passes Gate 1 for a system class `C` iff all seven criteria (G1.1–G1.7) hold under the noise-calibrated decision rule of §2.5.6:
 
 **G1.1 Computability.** There exists a finite algorithm producing `f(m, x)` for `m ∈ C` and `x ~ D_stimulus` within the COMPUTE.md envelope (≤22 GB VRAM, ≤56 GB RAM, ≤4 h wall-clock).
 
@@ -457,13 +457,9 @@ A primitive `f` passes Gate 2 iff ALL five criteria hold:
 
 **G2.2 Derivation-first functional form.** A candidate form `f(m, x) = g(θ(m), x)` has been derived from first principles BEFORE fitting. The derivation is written up in a pre-reg, cites its theoretical source (info-theory, statistical mechanics, dynamical systems, EVT, etc.), and is LOCKED at pre-reg commit.
 
-**G2.3 Joint-fit residual bound.** Across the ≥5 classes, joint nonlinear fit of `g` with class-specific parameters `θ(m)` has residual
-```
-RSS_joint / RSS_per_class_independent < α_universal
-```
-with `α_universal` pre-registered (default 1.5). If the joint fit is worse than ~1.5× per-class independent fits, class-specific models beat universality and the primitive is Level-2 (family constants) not Level-1.
+**G2.3 Hierarchical model comparison (replaces RSS ratio; see §2.5.6e for full procedure).** Across the ≥5 classes, compare class-specific model A vs universal model B via LRT (α=0.01) + ΔBIC > 10 + AIC agreement + leave-one-class-out holdout error within in-sample scatter. All four conditions must hold for Level-1 promotion. Partial agreement → Level-2 family-local.
 
-**G2.4 Causal test.** A do-intervention that ablates a coordinate-defined subspace (top-k directions from an SVD on `f`'s input, or a subspace carrying a specific coordinate value) produces a predicted behavior change in the class-appropriate loss/metric. Estimand: `E[loss(m with subspace ablated) − loss(m intact)]` must exceed a pre-registered minimum and show a monotonic response to ablation magnitude.
+**G2.4 Causal test (operational definition for scalar primitives).** A coordinate-defined subspace is: the top-k principal directions of the point-cloud covariance that carry the coordinate's value above a pre-reg threshold (for ID: the top-k eigenvectors explaining the claimed intrinsic dimension; for PR: the top-PR eigenvectors; for clustering coefficient: the k nearest neighbors of each high-clustering-coefficient point). The causal test: ablate this subspace (project out the top-k directions, then project back to original dim) and measure behavior change in a class-appropriate metric. Estimand: `E[loss(m with subspace ablated) − loss(m intact)]` must (i) exceed a pre-registered minimum effect size and (ii) show a monotonic response to ablation magnitude (k → 2k → 4k). Pre-reg locks (a) the ablation procedure, (b) the behavior metric per class, (c) the minimum effect.
 
 **G2.5 Biology instantiation specified (may be deferred in execution, not in declaration).** The primitive ships with a concrete biology instantiation: "given a neural-population activity matrix N_neurons × T_timepoints under stimulus `s`, `f` is computed by … with sampling rule …". If the primitive cannot be evaluated on Allen-style recordings even in principle, it is LLM-specific, not a genome coordinate.
 
@@ -489,46 +485,117 @@ Every promoted coordinate additionally carries a **scope label** `(modality, sti
 | Status | Gate tests passed | What you can say | What you cannot say |
 |---|---|---|---|
 | **Untested (⚫)** | — | — | — |
-| **Diagnostic (Level-0, ⚪)** | class-local, fails semantic comparability, or fails G1.2–G1.6 on some classes | "In class C under scope S, this primitive behaves like X" | "This primitive measures the same thing across classes" |
-| **Coordinate / portability-passed (🟡)** | Gate 1 (G1.1–G1.6) on ≥3 classes at scope S + negative control | "This primitive is a semantically-comparable measurement in these ≥3 classes under scope S; its values are class-dependent" | "There is a universal law" |
+| **Diagnostic (Level-0, ⚪)** | class-local, fails semantic comparability, or fails G1.2–G1.7 on some classes | "In class C under scope S, this primitive behaves like X" | "This primitive measures the same thing across classes" |
+| **Coordinate / portability-passed (🟡)** | Gate 1 (G1.1–G1.7) on ≥3 classes at scope S + negative control | "This primitive is a semantically-comparable measurement in these ≥3 classes under scope S; its values are class-dependent" | "There is a universal law" |
 | **Coordinate / Level-2 family-local (🟢²)** | Gate 1 on ≥5 classes AND hierarchical model comparison (§2.5.6) prefers family-specific fit over single universal fit | "There is a family-specific functional form under scope S" | "A single functional form holds across families" |
 | **Coordinate / Level-1 universal (🟢¹)** | Gate 2 all 5 criteria pass AND hierarchical model comparison prefers universal functional form over family-specific | "This functional form is universal across tested trained-NN classes under declared scope S, with causal test and biology instantiation" | Nothing more — science is never final, scope can always widen |
 
-#### 2.5.6 Noise-calibrated decision rule (Round 2 priority-directive deliverable)
+#### 2.5.6 Noise-calibrated decision rule (Round 2 priority-directive; Round-3-revised)
 
-**Derived in response to Codex Round 2 Priority Directive:** *"Derive/pre-register a noise-calibrated tolerance + universality model-comparison rule because current fixed thresholds (τ_resample, τ_estimator, τ_quant, α_universal, H12 variance cutoff) are arbitrary and will dominate Gate-1/Gate-2 pass/fail outcomes."*
+**Round 3 criticism addressed:** `|z|<c` is a fail-to-reject rule — a high-variance primitive passes by being too noisy to distinguish from zero (Codex Round 3 NEW kill shot #1). Replacement: **equivalence / precision gating**, plus explicit K enumeration (NEW kill shot #2).
 
-The problem with fixed thresholds: a gate that depends on `τ = 0.10` chosen "because" makes the false-positive / false-negative rate a function of choosing-well, not a function of data. Noise-calibration replaces "does the difference exceed a hand-picked constant?" with "does the difference exceed what we'd expect under the null?"
+##### 2.5.6a. The generic Gate-1 stability test — EQUIVALENCE + PRECISION
 
-##### 2.5.6a. The generic stability test
+Every Gate-1 stability criterion (G1.2 invariance, G1.3 stimulus resample, G1.4 estimator variant, G1.5 quantization, G1.6 subsample asymptote) is a test of the form: **is the effect of the nuisance factor *small enough that we can treat the two measurements as equivalent* AND *precise enough that the test is informative*?**
 
-Every Gate-1 stability criterion (G1.2 invariance, G1.3 stimulus resample, G1.4 estimator variant, G1.5 quantization, G1.6 subsample) is a test of the form: **do two measurements of the same primitive, differing only in a nuisance factor, agree within statistical noise?**
+Let `f_A` and `f_B` be two measurements of primitive `f` differing only in a nuisance factor `N`. Define:
+- `Δ = f_A − f_B` (point estimate of the effect)
+- `SE(Δ)` (standard error of the difference)
+- `δ` = a pre-registered **equivalence margin** (relative to the primitive's scale — e.g., `δ = 0.10 × median(|f|)`)
 
-Let `f_A` and `f_B` be two measurements of primitive `f` that differ only in nuisance factor `N` (rotation, resample, estimator, quantization, subsample). Define the standardized difference:
-
-```
-z_{AB} = (f_A − f_B) / SE(f_A − f_B)
-```
-
-where `SE(f_A − f_B)` is estimated from bootstrap resampling of the underlying point clouds (see §2.5.6c for sample-size-efficient estimation).
-
-The stability criterion is:
+The stability criterion (TOST-style equivalence):
 
 ```
-|z_{AB}| < c_{G1.x}
+|Δ| + c · SE(Δ) < δ
 ```
 
-with `c_{G1.x}` chosen to control the **family-wise false-positive rate at α_FWER = 0.05** across all Gate-1 tests in a prereg, Bonferroni-corrected:
+Both summands must be small simultaneously. This forces:
+- **Effect-size smallness** (`|Δ|` near zero)
+- **Precision** (`c · SE(Δ)` — the uncertainty band — must itself fit under δ; otherwise the test is uninformative and the primitive fails Gate 1)
+
+A high-variance primitive CANNOT pass by being noisy: if `SE(Δ)` is large, `c · SE(Δ) > δ` even when `|Δ| = 0`, so the criterion fails. The precision loophole is closed.
+
+`c` is Bonferroni-corrected for the family-wise error rate `α_FWER = 0.05` across K independent tests in the prereg. Since this is a one-sided equivalence test:
 
 ```
-c_{G1.x} = z_{1 − α_FWER / (2K)}
+c = z_{1 − α_FWER / K}
 ```
 
-where K is the total number of independent Gate-1 comparisons in the prereg. For the prereg-strawman §3.7 with K ≈ 10 (three systems × stability tests), `c_{G1.x} ≈ 2.81` (two-sided α/2K ≈ 0.0025).
+(one-sided, not two-sided, because we're only asking "is the upper bound of |Δ| below δ?")
 
-**This replaces** fixed τ_resample, τ_estimator, τ_quant. Instead of "values must agree to 10%," the rule is "values must agree within what we'd expect if they were sampling the same distribution."
+##### 2.5.6b. K enumeration — OPERATIONAL DEFINITION (Round 3 NEW kill shot #2 closure)
 
-**When it matters vs. doesn't.** If the SE is large (small sample, high noise), a loose criterion still makes sense; if the SE is tight (asymptoted primitive, large n), very small differences become significant. The rule adapts to the actual precision of the measurement, which is what we want.
+**Rule:** K is the number of independent pass/fail decisions in the prereg. Each decision corresponds to ONE (criterion, system) pair. Per-layer curves, per-pooling variants, per-quantization points, and per-resample pairs are **aggregated into a single per-system pass/fail decision per criterion** using the following rule:
+
+- **G1.2 rotation invariance:** aggregate across all (layer, pooling) → 1 decision per (system, criterion). The aggregate statistic is the max over the grid of `|Δ(ℓ, pool)|`; the SE is the max SE over the grid. Passing the aggregate = passing worst-case.
+- **G1.3 stimulus resample:** aggregate across 3 resample pairs × (layer, pooling) — same max rule.
+- **G1.4 estimator variant:** aggregate across (layer, pooling, quant).
+- **G1.5 quantization:** aggregate across (layer, pooling).
+- **G1.6 subsample asymptote:** 1 decision per system (slope across n-sweep must be within 1 SE of zero).
+- **Negative control** (trained vs untrained): 1 decision per system (must be non-equivalent at δ_neg-control).
+
+Per-system criteria count: 5 stability + 1 negative control = **6 decisions per system**.
+
+For the Batch-1 prereg §3.7 (3 systems × 6 decisions) → **K = 18**.
+
+Correction: `c = z_{1 − 0.05/18} = z_{0.9972} ≈ 2.77`.
+
+Each test failing → primitive fails Gate 1 on that system. Gate 1 portability (≥3 systems pass) → Coordinate 🟡. Testing per-layer curves separately would be a different prereg (Level-2-within-system) — not part of Gate 1's portability promotion.
+
+##### 2.5.6c. Equivalence-margin δ — PRE-REGISTRATION RULE
+
+δ cannot be post-hoc. Pre-register:
+- **δ_relative:** default 0.10 (i.e., 10% of the primitive's median value on the test cloud). Used for G1.2/G1.3/G1.4/G1.5.
+- **δ_slope:** default 0.05 (absolute, applied to the G1.6 asymptote slope in log-log space).
+- **δ_neg-control:** default 0.20 (relative; a trained-vs-untrained difference of more than 20% of median passes the "measures learned geometry" negative control).
+
+δ values are prereg'd at commit and LOCKED. A prereg is invalid if δ is chosen after seeing data.
+
+**Sensitivity check (mandatory per prereg):** also compute pass/fail at δ = 0.05 and δ = 0.20. Report how the verdict changes. If the primitive is Gate-1 pass at δ=0.10 but fail at δ=0.05, that's a weak pass — flag in the atlas as `🟡 (δ-sensitive)`.
+
+##### 2.5.6d. Universality decision rule (Gate 2 G2.3) — hierarchical model comparison
+
+For a primitive's measurements across `{class × depth × stimulus_resample × pooling × quant}`:
+
+1. **Class-specific model (Model A):** `f_{c,k,…} = g_c(k, …) + ε`. Each class has its own function.
+2. **Universal model (Model B):** `f_{c,k,…} = g(θ(c), k, …) + ε`. Single universal `g` with class-specific parameters.
+3. **Compare via LRT + BIC + AIC triple:**
+   - LRT: `Λ = 2(log L_B − log L_A)`, reject A (prefer universal) iff `Λ > χ²_{1−α, df}` with α=0.01 for Level-1.
+   - BIC: prefer Model B iff `ΔBIC = BIC_A − BIC_B > 10` (Raftery scale: "very strong" evidence).
+   - AIC: agreement on preferred model required.
+4. **Leave-one-class-out predictive check** (Codex Round 3 Q1c): refit Model B on C−1 classes, predict on the held-out class, report prediction error. Holdout error must be within 1.5× in-sample scatter. If not, universality is overfit — demote.
+5. **Decision (all four conditions must hold):**
+   - Reject A (universal preferred) + ΔBIC>10 + AIC agrees + holdout passes → Level-1 candidate pending causal (G2.4) + biology (G2.5).
+   - Fail to reject A OR any single disagreement → Level-2 family-local.
+   - Inconclusive at current sample → "extend n" or cite failure per §2.5.7 escalation.
+
+##### 2.5.6f. Sample-size-efficient SE estimation — COMPUTE FIX (Round 3 NEW kill shot #2)
+
+Codex Round 3 §1b: bootstrap plan of `20 × 0.20 × 756 ≈ 3000 evals × 5s = 4.2h` is **out of envelope**. Fix per Codex Round 3 §8 (store sufficient statistics + analytical SE):
+
+- **TwoNN ID analytical SE.** Under the TwoNN asymptotic distribution, `SE(d_hat) = d_hat / √n` (from Pareto MLE asymptotics). For n=5000, `SE ≈ d/70 ≈ 0.014 d` — tight; no bootstrap needed. Just store `log μ_i` samples per (system, layer) → ~40 KB per measurement.
+- **PR delta method or Hutchinson trace estimator.** PR = `(Σλ)²/Σλ²` — delta method on eigenvalue sums gives `Var(PR)` in terms of `Σλ, Σλ², Σλ³, Σλ⁴`. Store the top-k eigenvalues (k=100) per measurement → ~800 bytes.
+- **Clustering coefficient SE (new P1.3).** Standard result: variance of clustering coefficient on a sparse graph is `O(1/n)`. Store the per-point clustering values → ~40 KB per measurement.
+- **Bootstrap RESERVED for primitives without analytical SE** (Batch-2 Ricci, Koopman, persistent homology).
+
+**Revised budget:**
+- Primitive computation: ~60 min for ID, ~10 min PR, ~15 min clustering = ~85 min.
+- Sufficient-statistic dumping: ~1 min.
+- Analytical SE computation: ~1 min.
+- Total compute after activations: < 2 h. **Fits the envelope.**
+
+Activation extraction (Exp A) remains the wall-clock constraint at ~3.5 h; Exp B (primitive + SE + Gate-1 checks) is now ~2 h; Exp C (hierarchical fit + normalization) is ~0.5 h. **Compliant.**
+
+##### 2.5.6g. Defaults — DERIVED, not picked
+
+- Gate 1 per-test: `|Δ| + 2.77·SE < δ_relative=0.10` (K=18, α_FWER=0.05 one-sided).
+- Gate 2 universality: LRT α=0.01 + ΔBIC > 10 + AIC agreement + leave-one-class-out holdout error within in-sample scatter.
+- H12 stimulus-dominance: variance-component model, `σ²_stimulus > σ²_system` rejects atlas well-posedness at current scope (pivots to cUniv per §2.5.7).
+- H14 subsample asymptote: slope `log|f(n) − f(n_max)| vs log n` within 1 SE of zero at n=n_max/2 vs n_max.
+- H13 quantization: same equivalence criterion as G1.5 with δ=0.10.
+- Sensitivity check: report at δ ∈ {0.05, 0.10, 0.20} in every ledger entry.
+
+All defaults are derivable from the prereg's declared α + K + δ structure. **Removing arbitrariness requires that choice of (α, K, δ) be justified once in the prereg — and Round 3 flagged that even α is picked by convention, not cost.** Acceptable compromise: α=0.05 FWER + α=0.01 for Level-1 promotion come from Bayesian/frequentist convention; prereg's "cost-rationale" section states why these are chosen for this project (false-pass > false-fail cost since an atlas row is hard to retract once published).
 
 ##### 2.5.6b. The universality decision rule
 
@@ -589,7 +656,30 @@ Formally, conditional universality (cUniv) is a Level-1 or Level-2 claim qualifi
 (cUniv)    f(m, x) = g(θ(m), x)   for all x ~ D ∈ ℱ
 ```
 
-where `ℱ` is a pre-registered stimulus family (e.g., ℱ = {English-language text of length ∈ [128, 512] tokens from the C4-clean distribution}).
+**ℱ is a formal object (Round-3 closure per Codex Q2).** ℱ is not a prose description; it is a machine-checkable tuple:
+
+```
+ℱ = (
+    scope_id: str,              # e.g. "text.c4_clean.len256.v1"
+    generator: Callable,        # deterministic sampling code with seed
+    dataset_hash: str,          # sha256 of the source dataset used to seed
+    filter: Callable,           # predicate on raw examples (language, length, format)
+    length_law: Distribution,   # the distribution of stimulus length in tokens
+    invariances: List[Transform], # transformations that keep x "in the same family"
+                                  # e.g. permutation of sentence order within a doc,
+                                  # case normalization, whitespace normalization
+    invariance_check: Callable  # takes two stimuli, returns True iff in same ℱ
+)
+```
+
+A primitive's measurement `f(m, x)` is claimed conditional on `ℱ` iff:
+1. x was sampled via `ℱ.generator(seed)` with the declared seed — the sample is machine-reproducible.
+2. x passes `ℱ.filter`.
+3. `f(m, x)` is stable under any `τ ∈ ℱ.invariances` applied to x (tested under the G1.3 stimulus-resample stability; resamples from `ℱ.generator` + samples from `τ(x)` are both valid stimuli).
+
+The Batch-1 prereg §3.7 locks its ℱ with `scope_id = "text.c4_clean.len256.v1_seeds42_123_456"` and `invariances = [whitespace_norm, case_norm]`. Tokenization mismatch across models is NOT declared as an invariance (tokenizers produce different token sequences from the same raw text) — this is treated as a **conditioning variable** carried in the scope label, not an invariance.
+
+No prose re-interpretation of ℱ post-lock. Extending to ℱ_2 requires a NEW prereg with a new scope_id and explicit enumeration of which invariances or filters changed.
 
 **Escalation rule:** A primitive that passes Gate 2 within `ℱ_1` is **cUniv on ℱ_1** but NOT unconditional. To extend to ℱ_2, re-run Gate 2 with prereg-declared `ℱ_2`. To generalize ("unconditional"), re-run Gate 2 on a sequence of ℱ's that span the scope claim (e.g., text → image → audio → synthetic distributions).
 
@@ -603,6 +693,16 @@ where `ℱ` is a pre-registered stimulus family (e.g., ℱ = {English-language t
 
 Both are valuable; the atlas makes the distinction explicit rather than pretending unconditional universality when only cUniv was demonstrated.
 
+#### 2.5.8 Governance rule — modality-scope (reclassified from H15 per Codex Round 3 Q6)
+
+This is a **policy**, not a hypothesis. It does not have a kill criterion — it shapes the scope of any claim that may be made from a probe result.
+
+**Rule:** A primitive that passes Gate 1 on a set of classes within a single modality (e.g., language: transformer + SSM + hybrid) is scope-labeled **(modality-local)**. It is a coordinate only within the tested modality. It is NOT eligible for Gate 2 universality promotion until at least one class from a different modality (vision encoder or diffusion) has been tested. "Cross-modal replication" means: same Gate-1-passing primitive, re-run on a model from a different modality, with its scope label updated.
+
+**Enforcement:** At commit time, a prereg whose claim set exceeds its tested modality is rejected by the Cross-System Auditor (Persona 9 per `CLAUDE.md §7.4`). Modality-scope is part of the scope label `(modality, stimulus-family, pooling, tokenizer)` in every coordinate row.
+
+**Operational trigger:** If the first cross-modal extension (Batch-5 DINOv2 or similar) produces a Gate-1 FAIL for a primitive that passed on all three language classes, that primitive is relabeled **text-only** and its promotion ceiling is Level-2-text-family-local.
+
 #### 2.5.5 Pre-registration template (LOCKED at commit)
 
 Every new coordinate promotion requires a pre-reg at `research/prereg/genome_<primitive>_<scope>_YYYY-MM-DD.md` with these fields LOCKED:
@@ -611,7 +711,7 @@ Every new coordinate promotion requires a pre-reg at `research/prereg/genome_<pr
 2. Supported classes targeted in this prereg
 3. Invariance group `G_f` + invariance check protocol
 4. Stimulus distribution `D` + resampling protocol
-5. Tolerances: `τ_resample`, `τ_estimator`, `τ_quant`, `α_universal` (all with justifications)
+5. Noise-calibrated decision rule: equivalence margin `δ`, family-wise α_FWER + K enumeration (§2.5.6b), Gate-2 hierarchical comparison parameters (§2.5.6d)
 6. Estimator variants to be run
 7. Quantization ladder points to be run
 8. Promotion target: Gate 1 / Gate 2 / universality claim
@@ -739,7 +839,7 @@ Later batches depend on Batch 1 landing at least one Gate-1-passing primitive. I
   4. **G1.4 estimator check:** compute MLE-ID alongside TwoNN, verify `|ID_MLE − ID_TwoNN| / mean < τ_estimator = 0.15`.
   5. **G1.5 quantization check:** verify `|ID_FP16 − ID_Q8| / ID_FP16 < τ_quant = 0.15`.
   6. **Negative-control check:** verify `ID_trained ≠ ID_untrained` on at least one layer (else ID measures architecture, not representation — becomes Level-0).
-  7. If all Gate-1 checks pass: joint fit `d(k) = d_0(m) + α(m) g(k)`, test universality via F-test (joint-fit RSS vs per-class RSS).
+  7. If all Gate-1 checks pass, the primitive is portable (🟡) for Batch-1 scope. A secondary Level-2 joint fit is optional and deferred — per §2.5.6d, universality is decided by the hierarchical LRT+BIC+AIC+holdout rule, not an F-test on RSS ratios. Level-1 requires a separate Gate-2 prereg with G2.2 derivation, G2.4 causal test, and G2.5 biology — none of which is in scope for this Gate-1 prereg.
 - **Interpretation (per §2.5):** PASS-Gate-1 on class C iff G1.1–G1.5 + negative-control all pass on C. PASS-Level-2 iff Gate 1 on ≥3 classes AND joint-fit RSS / per-class RSS < 1.5 AND g monotonic. PASS-Level-1 needs Gate 2 (separate batch; not claimed from Batch 1 alone).
 - **Cost:** TwoNN ~5 s per measurement. 756 × 5 s ≈ 63 min + boot. Activation extraction ~3 h (dominant). **Total: ~4 h wall-clock, fits one experiment.**
 
@@ -751,15 +851,18 @@ Later batches depend on Batch 1 landing at least one Gate-1-passing primitive. I
 - **MVE:** Same point clouds as P1.1. Compute PR = `(Σ λ_i)² / Σ λ_i²` where λ_i are covariance eigenvalues. Estimator variants: centered vs uncentered. All G1.1–G1.5 checks + negative control. Joint fit test for Level-2.
 - **Cost:** PR is O(D³) eigendecomp — fast at D ≤ 1024. All measurements ≈ 5 min total. Shares activations with P1.1.
 
-**P1.3 — Local-neighborhood kNN Jaccard self-stability (Gate-1 promotion target; SWAP from spectral slope per Codex Round 2 §3)**
+**P1.3 — kNN-5 graph clustering coefficient (Gate-1 promotion target; SINGLE-CLOUD redefinition per Codex Round 3 Q4 + NEW kill shot #3)**
 
-- **Rationale for swap:** Codex Round 2 §3: "spectral slope is fragile and likely redundant with PR." Local-neighborhood statistics are Codex Intuition 2 (medium-high conviction) — "global similarity collapses under scale correction; only local neighborhood survives cross-architecture." Direct test of H4.
-- **Question:** Is mean per-point kNN-5 Jaccard overlap under point-cloud resampling a Gate-1 coordinate on language classes? I.e., is local neighborhood structure stable enough per-primitive to qualify as a measurement?
-- **Hypothesis (supports H4, H15 modality-scope):** Yes. Across the three classes, mean-point Jaccard(kNN_5(X), kNN_5(X')) where X, X' are two resamples of the same stimulus bank has class-specific mean but similar scaling with n and layer.
-- **Counter-hypothesis:** Jaccard is so small (few overlapping neighbors) that it's dominated by noise and fails G1.3 stimulus-resample stability.
-- **MVE:** For each point in X_k, compute its kNN_5 set. Resample (two disjoint stimulus draws). Compute Jaccard overlap between its kNN_5 sets in X_k and X'_k. Average across all points in the cloud. Apply G1.1–G1.7.
-- **Interpretation (per §2.5 + §2.5.6):** PASS-Gate-1 per class iff all seven gates pass under the noise-calibrated z-criterion. Cross-class portable iff ≥3 language classes pass. Cross-modal portability only after H15 modality-scope test (vision encoder extension, deferred).
-- **Cost:** kNN O(n log n), Jaccard O(n·k). ~10 s per (system, layer). Negligible on top of P1.1/P1.2 activations.
+- **Round 3 correction.** The Round-2 draft defined P1.3 as "mean per-point kNN-Jaccard across resamples." Codex Round 3 §Q4: that definition **conflates the coordinate with its G1.3 stability diagnostic** and is underspecified (Jaccard across DIFFERENT clouds lacks shared anchor points). Redefined here as a single-cloud scalar per Codex recommendation.
+- **Primitive.** For a point cloud X, build the k-nearest-neighbor graph (k=5, Euclidean). The **local clustering coefficient** `C(i)` for point `i` is the fraction of pairs among `i`'s k neighbors that are themselves neighbors (edges in the kNN graph). The coordinate `C(X) = mean_i C(i)` — one scalar per point cloud.
+- **Why this primitive:** single-cloud, class-agnostic, cheap (O(n k²)), measures local manifold density independent of global structure, directly tests Codex Intuition 2 ("local neighborhood structure survives cross-architecture"). Invariant to orthogonal rotations of the embedding (kNN distances unchanged) — clean G1.2 pass.
+- **Question:** Does mean kNN-5 clustering coefficient pass Gate 1 (all of G1.1–G1.7) on all three language classes?
+- **Hypothesis (supports H4):** Yes. Clustering coefficient C(k_normalized) is stable under resampling (G1.3), asymptotes in n (G1.6), and differs between trained and untrained controls (negative control). Its depth curve C(ℓ/L) may or may not factor universally across classes (that's a Level-2 question for Gate 2, not Gate 1).
+- **Counter-hypothesis:** C(i) is too local-graph-topology-dependent — small changes in k break it; distance-metric choice dominates; fails G1.4 estimator variant.
+- **MVE:** Compute C(X) at every ℓ/L ∈ {0.0, 0.05, …, 1.0} × 3 systems × 2 pooling × 3 stimulus resamples × 2 quantizations. Estimator variants: (a) weighted clustering coefficient (edge-weighted by 1/distance), (b) unweighted. Store per-point C(i) as sufficient statistic → analytical SE via O(1/n) variance of the mean.
+- **Gate-1 checks:** G1.2 (random rotation → identical clustering, tight tolerance), G1.3 (resample stability via equivalence criterion §2.5.6a), G1.4 (weighted vs unweighted within δ=0.10), G1.5 (FP16 vs Q8 within δ=0.10), G1.6 (n-sweep asymptote), plus trained vs untrained negative control.
+- **Interpretation (per §2.5 + §2.5.6):** PASS-Gate-1 per class iff all seven criteria pass the equivalence criterion at δ=0.10. Cross-class portable iff ≥3 language classes pass. **A coordinate-level measurement, not a stability measurement** — stability is tested by G1.3-G1.6, not part of the primitive definition.
+- **Cost:** kNN build O(n log n), clustering O(n k²). ~5 s per (system, layer). Negligible on top of P1.1/P1.2 activations.
 
 **P1.4 — Stimulus-dominance variance-decomposition probe (H12, Codex §7 required)**
 
@@ -866,19 +969,22 @@ Justification: all decisions come from a statistical model under the null, not h
 
 **9. Derivation (Gate-2 placeholder, not within prereg scope)** — N/A for Gate-1 prereg. A future Level-1 prereg would need a first-principles functional form for d(k_normalized) from information theory or statistical mechanics.
 
-**9a. Biology instantiation (Codex Round 2 Q7; required at declare-time per §2.5 G2.5).** Given a neural population recording `N_neurons × T_timepoints` under stimulus `s` (Allen Neuropixels or fMRI BOLD):
-- **Treat each time bin `t` as a point `x_t ∈ R^{N_neurons}`** (z-scored firing rates for spikes, BOLD activation per voxel for fMRI).
-- **Bin width:** 10–25 ms for Neuropixels, TR-based for fMRI.
-- **Sampling window:** fixed post-stimulus window (e.g., 0–500 ms post-stim onset).
-- **Point-cloud construction:** `X = {x_t}_t` → apply TwoNN/MLE ID on this cloud.
-- **Preregistered pitfalls:** low neuron count may cause n < asymptote (G1.6 fails on biology); use as N-sweep sanity check before promoting any H8 brain/LLM comparison.
+**9a. Biology instantiation (Codex Round 3 Q5 correction — stimulus-indexed, not time-indexed).** Given a neural population recording `N_neurons × T_timepoints` under a set of stimulus conditions `{s_i}`:
+- **Point identity:** each point `x_i ∈ R^{N_neurons}` is the **population response vector for stimulus condition `s_i`** — specifically, the trial-averaged z-scored firing rate (for Neuropixels) or BOLD activation (for fMRI) over a stimulus-locked window `w(s_i)`. Points index stimuli, not time.
+  - Rationale (Codex Q5): time-bin-indexed points measure temporal-autocorrelation geometry, not stimulus representation geometry. The atlas coordinates are about *how the system encodes different stimuli*, which is the stimulus-indexed formulation (consistent with Gao & Ganguli 2015 for PR on neural recordings).
+- **Window `w(s_i)`:** stimulus-locked — e.g., frame-locked for natural-movie stimuli (~33 ms), trial-locked for fixed-duration stimuli, or block-averaged for slow-event fMRI. Prereg'd.
+- **Preprocessing invariance (G1.7):** z-scoring per-neuron across stimuli declared as part of primitive identity. Different preprocessing = different primitive.
+- **Sensitivity (required per prereg):** Also compute at alternative binning widths (e.g., 10/25/50 ms for spike rate, 1/2 TR for fMRI) and report verdict consistency.
+- **Preregistered pitfalls:**
+  - Low neuron count in a recording may cause `n_stimuli × n_neurons < asymptote` (G1.6 fails on biology). Use Allen V1 datasets with N_stimuli ≥ 100 + N_neurons ≥ 200 for first validations.
+  - For fMRI, voxel count (~10⁵) is large but trial count is small; use multi-session aggregation for stimulus diversity.
 
 **9b. Modality-scope label (Codex Round 2 §4, §11 + §2.5.4).** This prereg's claim is scope-labeled:
 `(modality=text, stimulus_family=c4_clean_5k_v1, pooling=seq_mean_and_per_token_subsample, tokenizer=per-model-native)`. Any Gate-1 pass is conditional on this scope until cross-modal re-validation.
 
 **10. Kill criterion** —
 - **Primary (primitive-level):** ID fails Gate 1 on ≥ 1 of 3 classes. In that case ID is not a coordinate for the atlas; the probe output is a NEGATIVE RESULT that narrows the primitive search space.
-- **Secondary (H1 universality):** Level-2 joint fit RSS / per-class RSS ≥ 1.5, OR joint g is non-monotonic. Refutes H1; ID may still be a Level-2 family-local coordinate.
+- **Secondary (H1 universality):** Under §2.5.6d hierarchical comparison (LRT α=0.01 + ΔBIC>10 + AIC + leave-one-class-out), the universal-form model fails any of the four checks → Level-1 refuted; ID may still be Level-2 family-local.
 - **Tertiary (negative control):** ID_trained ≈ ID_untrained within stimulus-resample scatter. Refutes the "ID measures learned geometry" interpretation; demotes ID to Level-0 diagnostic.
 
 **11. COMPUTE.md §9 compliance checklist:**
@@ -914,7 +1020,8 @@ Codex invocation log. Each round: timestamp, session id / output file, key findi
 |---|---|---|---|---|---|---|
 | 1 | 2026-04-20 | `.codex/outputs/round1.md` | Agnosticism gate conflates "measurement congruence" with "coordinate promotion"; trajectory tensor is transformer-shaped; stimulus treated as component not conditioning variable | Derive and pre-register the agnosticism gate semantics (invariances + stability + semantic comparability) | 2, 2, 3, 3, 3, 4, 3 | 8/10 |
 | 2 | 2026-04-21 | `.codex/outputs/round2.md` | KS2 CLOSED (point-cloud contract); KS1/KS3 PARTIAL. Arbitrary τ/α thresholds dominate gate outcomes more than science. Missing G1.6 subsample stability. Alt C referenced but not defined. 4-tier taxonomy has 5 rows. Spectral slope fragile — swap for local-neighborhood. Batch-1 extraction/uncertainty plan can silently go out-of-envelope. Biology instantiations ceremonial without concrete per-primitive specs. | Derive/pre-register noise-calibrated tolerance + universality model-comparison rule. | 3, 3, 3, 3, 3, 4, 3 | 8.3/10 (trajectory +0.3) |
-| 3 | queued | `.codex/outputs/round3.md` | — | — | — | — |
+| 3 | 2026-04-21 | `.codex/outputs/round3.md` | KS2 CLOSED; KS1/KS3 PARTIAL. NEW kill shots: (1) precision loophole (`|z|<c` passes noisy primitives), (2) K ambiguity (undercounted grid), (3) P1.3 conflates coordinate with stability diagnostic. Compute arithmetic fails: bootstrap plan 4.2h OOE. Biology instantiation mis-framed (time-indexed, should be stimulus-indexed). §2.5 internal drift (Gate 1 count, old RSS text). ℱ informal. | Lock Gate-1 into prereg-grade decision procedure: K enumeration + equivalence/precision criterion + P1.3 single-cloud redefinition | 4, 4, 3, 3, 4, 3, 4 | 8.4/10 (trajectory +0.1) |
+| 4 | queued | `.codex/outputs/round4.md` | — | — | — | — |
 
 ---
 
@@ -942,6 +1049,7 @@ Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-lin
 | T+1.8h (sweep complete) | ON TRACK | Minor — Round 2 now ~20 min, past typical 5-15 min window but process count stable at 4 (not stuck; longer prompt + more targeted questions vs Round 1) | Anti-entropy sweep committed: MEASUREMENT_PRIMITIVES.md status legend updated to four-tier, Koopman (§2.4) + local-connectivity (§2.5) added, CKA demoted ⚪, §9 gate replaced with cross-reference to locked §2.5. WIKI §1 project-state glance + §3 primitives table patched. Model registry verified: all three Batch-1 anchors (Qwen3-0.6B, mamba2-370m, Falcon-H1-0.5B) present in `../../models/MODEL_DIRECTORY.md`. | Wait for Round 2 output; if it lands, process + fire Round 3; if heartbeat fires before Round 2 returns, do additional research on the deferred-to-Batch-2 primitives (Koopman observable-family and DMD estimator variants) so Batch 2 can move fast once Batch 1 lands. |
 | T+2h (Round 2 landed, 8.3/10) | ON TRACK | No | Processed Round 2: KS2 CLOSED, KS1/KS3 PARTIAL. Derived §2.5.6 noise-calibrated decision rule + §2.5.7 conditional universality (Alt C) — priority directive deliverable. Fixed entropy bugs (5-row taxonomy, P1.5 typo, Alt C undefined). Added G1.6 subsample stability, G1.7 preprocessing/metric declaration, H14/H15. Swapped spectral slope → local-neighborhood kNN-Jaccard (P1.3) per Codex Intuition 2. Added biology instantiations to §3.7 prereg + modality-scope labels. | Fire Round 3 fresh session; while waiting, compress §1b research brief per parsimony mandate (Codex §11) — most not load-bearing for next probe |
 | T+2.3h (cron heartbeat fire, Round 3 running) | ON TRACK | Minor — session doc at 1019 lines (S6 entropy risk); Round 3 running ~10 min (in typical window) | Parsimony compression of §1b in progress — keep only Batch-1-load-bearing content (B2 Platonic critique, B3 geometric primitives, B8c-d Ricci-null + local-neighborhood), compress B1/B4/B6/B7 to pointers | Complete §1b compression; commit; continue waiting for Round 3 |
+| T+2.8h (Round 3 landed, 8.4/10) | ON TRACK | No | Round 3 score +0.1 (trajectory capped by stats loopholes + drift). Processed: (1) §2.5.6 rewritten with equivalence/precision criterion `|Δ|+c·SE<δ` replacing `|z|<c`, K enumerated to 18 with per-system aggregation rule, analytical SE for TwoNN (d/√n) + sufficient-statistic storage fixing compute arithmetic; (2) P1.3 redefined as single-cloud kNN-5 clustering coefficient (not Jaccard across resampled clouds); (3) §2.5 drift fixes — Gate 1 "all seven criteria", taxonomy G1.1-G1.7, Gate 2 G2.3 hierarchical-only (RSS/α_universal purged); (4) ℱ formalized as generator+hash+invariances+scope_id machine-checkable object; (5) biology §9a corrected — stimulus-indexed points not time-indexed (Gao&Ganguli framing); (6) H15 retired from H-register → §2.5.8 governance rule. | Fire Codex Round 4 fresh session; during wait, propagate changes to WIKI + MEASUREMENT_PRIMITIVES + verify no residual legacy text |
 
 ---
 
