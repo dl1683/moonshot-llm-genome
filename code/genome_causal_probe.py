@@ -109,6 +109,50 @@ def _install_ablation_hook(block: torch.nn.Module, *,
     return handle.remove
 
 
+def measure_vision_nll(model: Any, image_processor: Any, images: list,
+                       labels: list[int], *, device: str, batch_size: int = 16
+                       ) -> tuple[float, float, int]:
+    """Vision analog of measure_loss. Uses DINOv2's ImageNet linear-probe
+    classifier (`facebook/dinov2-small-imagenet1k-1-layer`) to convert CLS
+    embeddings → class logits, returns mean cross-entropy per image + SE.
+
+    The classifier head is frozen; ablation hooks on intermediate blocks
+    perturb the CLS going into the head, which is exactly the causal
+    effect we want to measure.
+    """
+    from transformers import AutoModelForImageClassification  # lazy
+    model.eval()
+    # Assume model is AutoModelForImageClassification (loaded via DINOv2-1-layer checkpoint)
+    per_batch_nll: list[float] = []
+    per_batch_n: list[int] = []
+    with torch.no_grad():
+        for start in range(0, len(images), batch_size):
+            batch_imgs = images[start:start + batch_size]
+            batch_labels = torch.tensor(labels[start:start + batch_size],
+                                        dtype=torch.long, device=device)
+            proc_out = image_processor(images=batch_imgs, return_tensors="pt")
+            pixel_values = proc_out["pixel_values"].to(device)
+            model_dtype = next(model.parameters()).dtype
+            if pixel_values.dtype != model_dtype:
+                pixel_values = pixel_values.to(model_dtype)
+            out = model(pixel_values=pixel_values, labels=batch_labels)
+            nll_mean = float(out.loss.item())
+            n = batch_labels.shape[0]
+            per_batch_nll.append(nll_mean * n)
+            per_batch_n.append(n)
+    total_n = sum(per_batch_n)
+    if total_n == 0:
+        return float("nan"), float("nan"), 0
+    if len(per_batch_nll) > 1:
+        per_batch_mean = [nll / n for nll, n in zip(per_batch_nll, per_batch_n)]
+        mean_of_means = float(np.mean(per_batch_mean))
+        se = float(np.std(per_batch_mean, ddof=1) / (len(per_batch_mean) ** 0.5))
+    else:
+        mean_of_means = per_batch_nll[0] / per_batch_n[0]
+        se = 0.0
+    return mean_of_means, se, total_n
+
+
 def measure_loss(model: Any, tokenizer: Any, texts: list[str],
                  *, max_length: int, device: str, batch_size: int = 16
                  ) -> tuple[float, float, int]:
@@ -150,6 +194,21 @@ def measure_loss(model: Any, tokenizer: Any, texts: list[str],
     return mean_of_means, se, total_ntok
 
 
+def _load_dinov2_classifier(device: str):
+    """Load `facebook/dinov2-small-imagenet1k-1-layer` — DINOv2-small backbone +
+    linear ImageNet classifier head. Returns (model, image_processor).
+    Used by the vision causal probe: ablate intermediate DINOv2 block; the
+    downstream linear classifier produces a loss delta we can measure.
+    """
+    from transformers import AutoImageProcessor, AutoModelForImageClassification
+    hf_id = "facebook/dinov2-small-imagenet1k-1-layer"
+    ip = AutoImageProcessor.from_pretrained(hf_id)
+    model = AutoModelForImageClassification.from_pretrained(
+        hf_id, torch_dtype=torch.float16).to(device)
+    model.eval()
+    return model, ip, hf_id
+
+
 def run_causal_cell(system_key: str, *,
                     n_sentences: int, seed: int, max_length: int,
                     depth_index: int,
@@ -157,33 +216,77 @@ def run_causal_cell(system_key: str, *,
                     device: str = "cuda") -> dict:
     """Run one (system, depth) cell of the G2.4 grid: all schemes × all lams.
 
+    Text systems: measure next-token NLL delta.
+    Vision systems (DINOv2): use the ImageNet linear-probe checkpoint
+    `facebook/dinov2-small-imagenet1k-1-layer`; measure classification
+    cross-entropy delta on ImageNet-val.
+
     Returns a dict keyed by (scheme, lam) → {loss, se, ntok}.
     """
     meta = SYSTEM_IDS[system_key]
-    if meta.get("modality", "text") != "text":
-        raise ValueError(f"{system_key} is not a text system; causal probe only runs on LLMs")
+    modality = meta.get("modality", "text")
 
-    print(f"[{system_key}] loading...")
-    sys_obj = load_system(meta["hf_id"], quant="fp16", untrained=False, device=device)
-    n_layers = sys_obj.n_hidden_layers()
+    if modality == "text":
+        sys_obj = None
+        print(f"[{system_key}] loading...")
+        sys_obj = load_system(meta["hf_id"], quant="fp16", untrained=False, device=device)
+        n_layers = sys_obj.n_hidden_layers()
+        model = sys_obj.model
+        image_processor = None
+    elif modality == "vision":
+        # Vision branch: swap in the DINOv2 ImageNet-1k linear-probe checkpoint
+        # (backbone is identical to facebook/dinov2-small, plus a trained
+        # classifier head). This makes the ablation test causally meaningful.
+        print(f"[{system_key}] loading DINOv2 linear-probe classifier...")
+        model, image_processor, hf_id = _load_dinov2_classifier(device)
+        print(f"[{system_key}] loaded {hf_id}")
+        # n_hidden_layers fallback: DINOv2 config has num_hidden_layers=12.
+        cfg = getattr(model, "config", None)
+        n_layers = getattr(cfg, "num_hidden_layers", 12)
+    else:
+        raise ValueError(f"unsupported modality: {modality}")
+
     sentinel_idxs = sentinel_layer_indices(n_layers)
     k_index = sentinel_idxs[depth_index]
     k_normalized = k_index / max(n_layers - 1, 1)
     print(f"[{system_key}] L={n_layers}  sentinel depth index {depth_index} -> "
           f"layer {k_index} (normalized {k_normalized:.3f})")
 
-    print(f"[{system_key}] streaming {n_sentences} C4 sentences (seed={seed})...")
-    texts = [it["text"] for it in c4_clean_v1(seed=seed, n_samples=n_sentences)]
-
-    blocks = _transformer_blocks(sys_obj.model)
-    target_block = blocks[k_index]
+    # Stimuli + target-block resolution
+    if modality == "text":
+        print(f"[{system_key}] streaming {n_sentences} C4 sentences (seed={seed})...")
+        texts = [it["text"] for it in c4_clean_v1(seed=seed, n_samples=n_sentences)]
+        blocks = _transformer_blocks(model)
+        target_block = blocks[k_index]
+    else:
+        from stimulus_banks import imagenet_val_v1  # lazy
+        print(f"[{system_key}] streaming {n_sentences} ImageNet-val images (seed={seed})...")
+        items = list(imagenet_val_v1(seed=seed, n_samples=n_sentences))
+        images = [it["image"] for it in items]
+        labels = [int(it.get("label", 0)) for it in items]
+        # DINOv2 classifier wraps the backbone in .dinov2 — blocks live at
+        # model.dinov2.encoder.layer
+        dinov2_backbone = getattr(model, "dinov2", model)
+        encoder = getattr(dinov2_backbone, "encoder", None)
+        if encoder is None:
+            raise AttributeError(
+                f"couldn't locate dinov2.encoder on {type(model).__name__}")
+        blocks = list(encoder.layer)
+        target_block = blocks[k_index]
 
     results: dict = {}
-    # Baseline (lam=0) once.
-    loss0, se0, ntok0 = measure_loss(sys_obj.model, sys_obj.tokenizer, texts,
-                                      max_length=max_length, device=device)
-    print(f"[{system_key}] baseline NLL = {loss0:.4f} (+/- {se0:.4f}, n_tokens={ntok0})")
-    results["baseline"] = {"loss": loss0, "se": se0, "ntok": ntok0}
+
+    # Baseline
+    if modality == "text":
+        loss0, se0, n0 = measure_loss(model, sys_obj.tokenizer, texts,
+                                       max_length=max_length, device=device)
+        label = "NLL"
+    else:
+        loss0, se0, n0 = measure_vision_nll(model, image_processor, images,
+                                             labels, device=device)
+        label = "CE"
+    print(f"[{system_key}] baseline {label} = {loss0:.4f} (+/- {se0:.4f}, n={n0})")
+    results["baseline"] = {"loss": loss0, "se": se0, "ntok": n0}
 
     for scheme in schemes:
         for lam in lams:
@@ -194,20 +297,29 @@ def run_causal_cell(system_key: str, *,
                                             scheme_name=scheme, lam=lam,
                                             rng_seed=int(seed) * 100 + int(lam * 1000))
             try:
-                loss, se, ntok = measure_loss(sys_obj.model, sys_obj.tokenizer,
-                                              texts, max_length=max_length,
-                                              device=device)
+                if modality == "text":
+                    loss, se, n = measure_loss(model, sys_obj.tokenizer, texts,
+                                               max_length=max_length, device=device)
+                else:
+                    loss, se, n = measure_vision_nll(model, image_processor,
+                                                     images, labels, device=device)
             finally:
                 remove()
             delta = loss - loss0
-            print(f"[{system_key}] {scheme:6s} lam={lam:.2f}  NLL={loss:.4f}  "
+            print(f"[{system_key}] {scheme:6s} lam={lam:.2f}  {label}={loss:.4f}  "
                   f"delta={delta:+.4f}  ({delta/loss0*100:+.1f}% rel)")
             results[f"{scheme}|lam={lam}"] = {
-                "loss": loss, "se": se, "ntok": ntok,
+                "loss": loss, "se": se, "ntok": n,
                 "delta": delta, "rel_delta": delta / loss0 if loss0 else 0.0,
             }
 
-    sys_obj.unload()
+    if sys_obj is not None:
+        sys_obj.unload()
+    else:
+        # Vision path — release the locally-loaded classifier
+        del model
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
     return {
         "system_key": system_key,
         "n_layers": n_layers,

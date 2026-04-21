@@ -69,15 +69,24 @@ def _current_commit_sha() -> str:
 
 
 def _measure_point_cloud(X):
-    """Run all Batch-1 primitives + estimator variants on a single point cloud."""
+    """Run all Batch-1 primitives + estimator variants on a single point cloud.
+
+    Extended 2026-04-21 with k=3/20/30 neighborhood sizes — Gate-2 G2.3
+    hierarchical-fit needs k ∈ {3, 5, 10, 20, 30} to identify α_d, β_d,
+    κ, d_int independently (per prereg `genome_knn_k10_hierarchical_2026-04-21.md`
+    §8). Smoke fit at k ∈ {5, 10} alone is underdetermined.
+    """
     n = X.shape[0]
     return [
         twonn_id(X),
         mle_id(X, k=min(10, n - 1)),
         participation_ratio(X, centered=True),
         participation_ratio(X, centered=False),
+        knn_clustering_coefficient(X, k=min(3, n - 2)),
         knn_clustering_coefficient(X, k=min(5, n - 2)),
         knn_clustering_coefficient(X, k=min(10, n - 2)),
+        knn_clustering_coefficient(X, k=min(20, n - 2)),
+        knn_clustering_coefficient(X, k=min(30, n - 2)),
     ]
 
 
