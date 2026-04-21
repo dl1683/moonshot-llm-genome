@@ -71,23 +71,22 @@ def _current_commit_sha() -> str:
 def _measure_point_cloud(X):
     """Run all Batch-1 primitives + estimator variants on a single point cloud.
 
-    Extended 2026-04-21 with k=3/20/30 neighborhood sizes — Gate-2 G2.3
-    hierarchical-fit needs k ∈ {3, 5, 10, 20, 30} to identify α_d, β_d,
-    κ, d_int independently (per prereg `genome_knn_k10_hierarchical_2026-04-21.md`
-    §8). Smoke fit at k ∈ {5, 10} alone is underdetermined.
+    k-grid expanded to log-spaced values per Codex R8 Q1b (2026-04-21):
+    k ∈ {3, 5, 8, 12, 18, 27, 40, 60, 90, 130}. Narrower grids {5, 10} and
+    {3, 5, 10, 20, 30} both left the hierarchical fit degenerate (β→0,
+    non-physical κ/d_int). Log-spacing maximizes lever-arm on the
+    k^(2/d_int) exponent for β_d identification.
     """
     n = X.shape[0]
-    return [
+    k_grid = (3, 5, 8, 12, 18, 27, 40, 60, 90, 130)
+    rows = [
         twonn_id(X),
         mle_id(X, k=min(10, n - 1)),
         participation_ratio(X, centered=True),
         participation_ratio(X, centered=False),
-        knn_clustering_coefficient(X, k=min(3, n - 2)),
-        knn_clustering_coefficient(X, k=min(5, n - 2)),
-        knn_clustering_coefficient(X, k=min(10, n - 2)),
-        knn_clustering_coefficient(X, k=min(20, n - 2)),
-        knn_clustering_coefficient(X, k=min(30, n - 2)),
     ]
+    rows.extend(knn_clustering_coefficient(X, k=min(k, n - 2)) for k in k_grid)
+    return rows
 
 
 def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,

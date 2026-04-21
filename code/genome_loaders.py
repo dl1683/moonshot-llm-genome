@@ -136,11 +136,11 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
     # sequence models + image encoders; genuinely non-next-token-time
     # generative-prediction systems (JEPA, diffusion) are the cleanest
     # architecture-agnostic stress test we haven't run.
-    "ijepa-vitb16": {
-        "hf_id": "facebook/ijepa_vitb16_1k",
+    "ijepa-vith14": {
+        "hf_id": "facebook/ijepa_vith14_1k",
         "class_id": 9,
         "class_name": "predictive-masked vision encoder (I-JEPA)",
-        "approx_params": 86_000_000,
+        "approx_params": 632_000_000,
         "modality": "vision",
         # I-JEPA: Image-based Joint Embedding Predictive Architecture. Trained
         # by predicting target-block features from context-block features in
