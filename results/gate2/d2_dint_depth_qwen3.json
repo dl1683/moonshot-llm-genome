@@ -1,0 +1,75 @@
+{
+  "purpose": "d_2/d_int ratio depth stability within Qwen3-0.6B",
+  "system": "qwen3-0.6b",
+  "hf_id": "Qwen/Qwen3-0.6B",
+  "seed": 42,
+  "n": 1000,
+  "target_depth_fracs": [
+    0.18,
+    0.37,
+    0.52,
+    0.66,
+    0.81
+  ],
+  "per_depth": [
+    {
+      "depth_idx": 5,
+      "depth_normalized": 0.18518518518518517,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "d_int_twonn": 22.269321707498282,
+      "d_2_gp": 9.592870177674076,
+      "gp_fit_R2": 0.9863427492030293,
+      "ratio_d2_over_dint": 0.430766159098778
+    },
+    {
+      "depth_idx": 10,
+      "depth_normalized": 0.37037037037037035,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "d_int_twonn": 19.39395224988679,
+      "d_2_gp": 11.510534168891265,
+      "gp_fit_R2": 0.9956101261486924,
+      "ratio_d2_over_dint": 0.5935115246536948
+    },
+    {
+      "depth_idx": 14,
+      "depth_normalized": 0.5185185185185185,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "d_int_twonn": 20.32333832147798,
+      "d_2_gp": 11.87014414880111,
+      "gp_fit_R2": 0.9955130317898268,
+      "ratio_d2_over_dint": 0.5840646827325893
+    },
+    {
+      "depth_idx": 18,
+      "depth_normalized": 0.6666666666666666,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "d_int_twonn": 19.092396757180857,
+      "d_2_gp": 11.960369319095411,
+      "gp_fit_R2": 0.9963098214670528,
+      "ratio_d2_over_dint": 0.6264467196658788
+    },
+    {
+      "depth_idx": 22,
+      "depth_normalized": 0.8148148148148148,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "d_int_twonn": 15.835342081034874,
+      "d_2_gp": 10.816919482142243,
+      "gp_fit_R2": 0.9983369000050908,
+      "ratio_d2_over_dint": 0.6830871999347004
+    }
+  ],
+  "summary": {
+    "mean_ratio": 0.5835752572171283,
+    "std_ratio": 0.09379522702617886,
+    "cv_pct": 16.072516075039978,
+    "min_ratio": 0.430766159098778,
+    "max_ratio": 0.6830871999347004
+  },
+  "verdict": "DEPTH_VARIABLE",
+  "wall_clock_s": 52.335549116134644
+}
