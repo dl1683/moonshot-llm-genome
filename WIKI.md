@@ -44,7 +44,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
 | **Open pre-registrations** | **2 locked:** `genome_id_portability_2026-04-21.md` (Gate-1 joint ID+PR+kNN — superseded by focused kNN prereg for promotion) and **`genome_knn_k10_portability_2026-04-21.md` (Gate-1 kNN-10 on Qwen3+RWKV+DINOv2, LOCKED 2026-04-21)**. Validator exits 0 on both. |
-| **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; Gate-2 derivation draft exists at `research/derivations/knn_clustering_universality.md`) |
+| **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation `research/derivations/knn_clustering_universality.md` FALSIFIED at G2.3 — predicted decreasing-in-k, observed increasing; power-law `C(k)=c_0·k^p`, p≈0.173±0.022 (CV 12.5%), R²>0.994 across 18 cells replaces it empirically. v2 derivation candidates drafted in `research/derivations/power_law_v2_notes.md` — fractal d_2/d_int, doubling-dim ratio, heavy-tailed NN-degree, rate-distortion.) |
 | **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
 | **Gate semantics** | LOCKED in `atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
