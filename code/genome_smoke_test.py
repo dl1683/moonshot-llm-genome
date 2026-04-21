@@ -23,6 +23,7 @@ basic sanity checks. Exits non-zero otherwise.
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -37,7 +38,7 @@ _THIS_DIR = Path(__file__).resolve().parent
 if str(_THIS_DIR) not in sys.path:
     sys.path.insert(0, str(_THIS_DIR))
 
-from stimulus_banks import _whitespace_word_count, _canonicalize  # noqa: E402
+from stimulus_banks import _whitespace_word_count, _canonicalize, c4_clean_v1  # noqa: E402
 from genome_loaders import load_system  # noqa: E402
 from genome_extractor import (  # noqa: E402
     extract_trajectory, sentinel_layer_indices,
@@ -98,16 +99,30 @@ def _current_commit_sha() -> str:
 
 # -------------------- Pipeline --------------------
 
-def run_smoke() -> dict:
+def run_smoke(*, n_sentences: int = SMOKE_N_SENTENCES,
+              use_c4: bool = False, seed: int = SMOKE_SEED,
+              max_length: int = SMOKE_MAX_LENGTH) -> dict:
     print(f"=== SMOKE TEST START ===")
     print(f"system: {SMOKE_SYSTEM}, quant: {SMOKE_QUANT}, "
-          f"n_sentences: {SMOKE_N_SENTENCES}, seed: {SMOKE_SEED}")
+          f"n_sentences: {n_sentences}, seed: {seed}, c4: {use_c4}")
     print(f"CUDA available: {torch.cuda.is_available()}")
 
     t0 = time.time()
 
-    # 1. Stimulus: use the hardcoded fixture (no C4 download).
-    stimuli = _SMOKE_STIMULI[:SMOKE_N_SENTENCES]
+    # 1. Stimulus: hardcoded fixture OR real C4 stream.
+    if use_c4:
+        print(f"[{time.time()-t0:.1f}s] streaming {n_sentences} sentences from "
+              f"allenai/c4 (may take a few minutes on first pull)...")
+        stimuli = [item["text"] for item in c4_clean_v1(
+            seed=seed, n_samples=n_sentences, length_tokens=256)]
+    else:
+        # Repeat hardcoded fixture to reach n_sentences (for n=5, just use the 5).
+        base = _SMOKE_STIMULI
+        if n_sentences <= len(base):
+            stimuli = base[:n_sentences]
+        else:
+            reps = (n_sentences + len(base) - 1) // len(base)
+            stimuli = (base * reps)[:n_sentences]
     print(f"[{time.time()-t0:.1f}s] stimuli: {len(stimuli)} sentences, "
           f"avg wc={sum(_whitespace_word_count(s) for s in stimuli)/len(stimuli):.1f}")
 
@@ -184,7 +199,8 @@ def run_smoke() -> dict:
     # 6. Emit.
     out_dir = _THIS_DIR.parent / "results" / "smoke"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "atlas_rows.json"
+    suffix = f"_n{len(stimuli)}{'_c4' if use_c4 else ''}"
+    out_path = out_dir / f"atlas_rows{suffix}.json"
     with open(out_path, "w", encoding="utf-8") as fp:
         json.dump({
             "smoke_test_id": "genome_smoke_2026-04-21",
@@ -218,8 +234,23 @@ def run_smoke() -> dict:
 
 
 if __name__ == "__main__":
-    # Ensure Windows+CUDA safe defaults (DataLoader workers etc.) by not
-    # spawning any subprocess workers here.
+    # Ensure Windows+CUDA safe defaults (DataLoader workers etc.).
     os.environ.setdefault("PYTHONUNBUFFERED", "1")
-    result = run_smoke()
+
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("-n", "--n-sentences", type=int, default=SMOKE_N_SENTENCES,
+                    help="number of stimulus sentences")
+    ap.add_argument("--c4", action="store_true",
+                    help="stream real allenai/c4 instead of hardcoded fixture")
+    ap.add_argument("--seed", type=int, default=SMOKE_SEED)
+    ap.add_argument("--max-length", type=int, default=SMOKE_MAX_LENGTH,
+                    help="max token length per sentence")
+    args = ap.parse_args()
+
+    result = run_smoke(
+        n_sentences=args.n_sentences,
+        use_c4=args.c4,
+        seed=args.seed,
+        max_length=args.max_length,
+    )
     sys.exit(0 if result["passed"] else 1)

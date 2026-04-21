@@ -40,4 +40,20 @@ Format per entry:
 
 ---
 
+## 2026-04-21 — genome_002_n500_c4
+
+**Purpose.** Scale smoke to n=500 sentences streamed from real `allenai/c4` en. First real primitive measurements.
+**Systems.** `Qwen/Qwen3-0.6B` (FP16, trained).
+**Primitive.** ID (TwoNN + MLE), PR (centered + uncentered), kNN clustering (k=5 + k=10).
+**Universality level claimed.** null (1 system only; cross-architecture comparison is the next step).
+**Commit.** `cc3a2ee`
+**Result.**
+- Wall-clock: **26.7 seconds** (20s C4 streaming + 2s model load + 5s forward+primitives).
+- Layer 7 (depth 0.259): TwoNN ID = **23.6**, MLE ID = **18.7**, PR_centered = **8.9**, kNN clustering k=5 = **0.36**.
+- Layer 14 (depth 0.519): TwoNN ID = **22.3**, MLE ID = **18.2**, PR_centered = **26.9**, kNN clustering k=5 = **0.34**.
+- First scientific observations: (1) PR expands ~3× from layer 7 → 14 (mid-layer capacity expansion); (2) TwoNN and MLE disagree by ~25% (would fail G1.4 at δ_relative=0.10 but pass at δ=0.20); (3) clustering coefficient slightly decreases with depth.
+**Next.** Repeat on Mamba2-370M and Falcon-H1-0.5B at matched depths. First cross-architecture comparison = first atlas row that actually tests the universality axiom.
+
+---
+
 *(Future entries above this line, newest first.)*
