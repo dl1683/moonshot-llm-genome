@@ -130,17 +130,23 @@ All experiments use models from `../../models/MODEL_DIRECTORY.md` (the repo-wide
 
 ## Status
 
-**Phase 0 — Scaffolding (current).** Axiom stated. Bestiary and primitives defined. No experiments run.
+**Current phase (2026-04-21): between Phase 1 and Phase 3.** First atlas coordinate promoted; Gate-2 pipeline staged.
 
-**Phase 1 — Atlas Primitives.** Validate that each measurement primitive is architecture-agnostic by running it on ≥3 system classes. Any primitive that only works on transformers is demoted from "coordinate" to "diagnostic."
+**What has actually happened so far** (see `experiments/EXPERIMENTS.md` for full narrative, `research/CLAIM_EVIDENCE_MAP.md` for claim↔evidence trail):
 
-**Phase 2 — Cross-System Atlas.** Apply the validated primitives to the full bestiary. Record everything in `experiments/ledger.jsonl`. Look for patterns.
+- **Phase 1 (atlas-primitives):** 5 architecture classes measured (transformer, reasoning-distilled, recurrent, hybrid, vision ViT). 6 candidate primitives tested (ID TwoNN, ID MLE, PR centered, PR uncentered, kNN-5, kNN-10). Five demoted to ⚪ diagnostic based on empirical evidence.
+- **Phase 1 outcome:** **one coordinate — kNN-10 clustering coefficient — passes Gate-1 portability at strict δ=0.10 on all 5 Batch-1 classes** (Bonferroni-corrected, 3 stimulus-resample seeds, n=2000 or 4000). Prereg `research/prereg/genome_knn_k10_portability_2026-04-21.md` LOCKED at commit 62338b8. Additionally passes G1.5 FP16↔Q8 quantization-stability at even tighter δ=0.05 on all 4 text classes (manifesto's efficiency-hook confirmed: geometry survives 4× weight compression).
+- **Phase 3 (universality claims):** Gate-2 scaffolding built. Derivation `research/derivations/knn_clustering_universality.md` LOCKED with form `C(X, k) = α_d (1 − β_d·κ·k^(2/d_int))₊ + O(n^(-1/2))`. Two Gate-2 preregs STAGED: G2.3 hierarchical fit (`genome_knn_k10_hierarchical_2026-04-21.md`) and G2.4 causal ablation (`genome_knn_k10_causal_2026-04-21.md`).
+- **Phase 4 (biological validation):** not started. Allen Brain Observatory Natural Movie One stimulus pipeline pending.
 
-**Phase 3 — Universality Claims.** When a candidate invariant emerges across ≥5 system classes, derive its functional form from first principles, pre-register it, and run causal tests.
+**Phase definitions (unchanged):**
 
-**Phase 4 — Biological Validation.** Take surviving universality claims to neural recordings. If they hold there too, the axiom upgrades from "fact about trained neural networks" to "fact about learning systems."
-
-**Phase 5 — Engineering.** Only after an axiom survives Phase 4. Until then, grafting and surgery are speculation.
+- **Phase 0 — Scaffolding.** Axiom stated. Bestiary and primitives defined.
+- **Phase 1 — Atlas Primitives.** Validate measurement primitives on ≥3 system classes. Architecture-specific primitives demoted.
+- **Phase 2 — Cross-System Atlas.** Apply validated primitives to full bestiary.
+- **Phase 3 — Universality Claims.** ≥5 classes pass AND functional form derived AND causal test passes.
+- **Phase 4 — Biological Validation.** Surviving Level-1 claims replicated on neural recordings.
+- **Phase 5 — Engineering.** Only after Phase 4.
 
 We do not skip phases. We do not promote a Phase-2 correlation to a Phase-3 claim without derivation. We do not promote a Phase-3 claim to a Phase-4 universal without biology.
 
