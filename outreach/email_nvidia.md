@@ -24,13 +24,11 @@ Early results from the last two weeks (one RTX 5090 laptop, all pre-registered, 
 4. 4-7× above random-Gaussian baseline — not a high-dimensional artifact.
 5. Theoretically grounded — we locked a Laplace-Beltrami-convergence derivation before fitting, prediction held empirically.
 
-**Why I'm writing.** Two reasons:
+**Why I'm writing.** This is straightforwardly the kind of thing the Nemotron / open-dataset program cares about. We're going to open-source the atlas, the code, the prereg discipline, and the extensible bestiary — CMC runs a fairly large open-source community and this drops into that pipeline. If Neural Genome works at Level-1 universality, it's a public-good tool for every model release — you test your next Nemotron against the atlas and get a free mechanistic sanity check.
 
-First, this is straightforwardly the kind of thing the Nemotron / open-dataset program cares about. We're going to open-source the atlas, the code, the prereg discipline, and the extensible bestiary. If it works at Level-1 universality, it's a public-good tool for every model release — you test your next Nemotron against the atlas and get a free mechanistic sanity check. We want NVIDIA aware of this before the open-source drop because if there's a shape to this that helps the open-research story you're telling, we'd rather structure the release with that in mind than publish into a void.
+Honestly — this is a moonshot. The precursors (CTI + Latent Space Reasoning) delivered results the field didn't expect, but we don't yet know if Neural Genome extends all the way to biology + RL agents + world models. If it does, it's the first cross-substrate empirical evidence for what a "universal science of intelligence" would even look like — and NVIDIA Research is one of a handful of groups in the world that would take that seriously as science, not just as a paper to cite.
 
-Second, honestly — this is a moonshot. The precursors (CTI + Latent Space Reasoning) delivered results the field didn't expect, but we don't yet know if Neural Genome extends all the way to biology + RL agents + world models. If it does, it's the first cross-substrate empirical evidence for what a "universal science of intelligence" would even look like — and NVIDIA Research is one of a handful of groups in the world that would take that seriously as science, not just as a paper to cite.
-
-Not asking for anything specific — no syndicate, no funding, no NDA. Just wanted you to have a heads-up and, if it's interesting, an open door for feedback before we push public. If any of this lands and you'd want 20 min to see the current atlas state, Karl's group at VERSES + Martian's interp team are already on that list.
+Not asking for anything specific. Planning to stick to the open-source community for distribution. Just wanted NVIDIA Research to have a heads-up and, if it's interesting, an open door for feedback or collaboration on the public release.
 
 Dev
 CMC / AI Moonshots — github.com/dl1683/ai-moonshots
