@@ -70,58 +70,153 @@ class StimulusFamily:
 
 # -------------------- Generators --------------------
 
+_C4_SCOPE_ID = "text.c4_clean.len256.v1"
+
+
 def c4_clean_v1(seed: int, n_samples: int = 5000,
                 length_tokens: int = 256) -> Iterator[dict[str, Any]]:
     """Yield n_samples stimuli deterministically from the C4-clean distribution.
 
-    Each yielded item:
-        {"scope_id": "text.c4_clean.len256.v1",
-         "seed": int,
-         "idx": int,
-         "text": str,  # raw Unicode text, not yet tokenized
-         "length_tokens": int  # after per-model tokenization}
+    Streams `allenai/c4` (en subset) via the `datasets` library in streaming
+    mode, seeds with the given seed for reproducibility, applies
+    `filter_len_256_english`, and yields until n_samples accepted stimuli
+    have been produced (or the stream is exhausted, which should not happen
+    for C4-scale).
 
-    STUB: raises NotImplementedError until Batch-1 extraction lands. The
-    signature is locked so prereg pointers can reference it now.
+    Each yielded item:
+        {"scope_id": str,     # constant "text.c4_clean.len256.v1"
+         "seed": int,
+         "idx": int,           # 0..n_samples-1
+         "text": str,          # raw Unicode text, not yet tokenized
+         "length_tokens_est": int  # whitespace-word-count heuristic proxy}
+
+    Caller per-model tokenizes downstream. The `length_tokens` prereg field
+    is a target; real per-model token count is recorded in the atlas row.
+
+    Determinism: seeded via `datasets.IterableDataset.shuffle(seed=seed)`.
+    Two calls with the same seed produce the same sequence.
     """
-    raise NotImplementedError(
-        "c4_clean_v1 is a pinned-identity stub for prereg F references. "
-        "Implementation lands with code/genome_extraction.py after prereg "
-        "lock and smoke-test approval per atlas_tl_session.md section 3g."
+    from datasets import load_dataset  # lazy: heavy import
+
+    # Streaming + shuffle(seed) + filter yields a reproducible stream.
+    ds = load_dataset(
+        "allenai/c4", "en", split="train", streaming=True,
+        trust_remote_code=False,
     )
+    ds = ds.shuffle(seed=seed, buffer_size=10_000)
+
+    yielded = 0
+    for idx, example in enumerate(ds):
+        if yielded >= n_samples:
+            break
+        if not filter_len_256_english(example):
+            continue
+        text = example["text"]
+        yield {
+            "scope_id": _C4_SCOPE_ID,
+            "seed": seed,
+            "idx": yielded,
+            "text": text,
+            "length_tokens_est": _whitespace_word_count(text),
+        }
+        yielded += 1
 
 
 # -------------------- Filter --------------------
 
-def filter_len_256_english(example: dict[str, Any]) -> bool:
-    """Predicate: example is English text with tokenized length == 256.
+def _whitespace_word_count(text: str) -> int:
+    """Fast proxy for tokenized length: whitespace-split word count.
 
-    STUB: returns False and raises NotImplementedError so any call fails loudly
-    before Batch-1 implementation lands. Signature locked.
+    For English BPE tokenizers (Qwen3/Llama/Mamba), `tokens ~= 1.3 * words`
+    on average. Good enough to filter candidates before per-model tokenization.
     """
-    raise NotImplementedError(
-        "filter_len_256_english is a pinned-identity stub. Implementation "
-        "lands with code/genome_extraction.py."
-    )
+    return len(text.split())
+
+
+def filter_len_256_english(example: dict[str, Any]) -> bool:
+    """Predicate: example is English text likely to tokenize to around 256 tokens.
+
+    Heuristic (BPE token count ~= 1.3 * word count):
+      - Length target 256 tokens -> target ~196 words
+      - Accept range: 150 to 350 words (covers 195 to 455 tokens)
+      - Text must be non-empty, not code / URL-heavy
+
+    Returns True iff the example should be included in the stimulus bank. Called
+    from c4_clean_v1 during streaming; also usable standalone for auditing.
+    """
+    text = example.get("text") if isinstance(example, dict) else None
+    if not isinstance(text, str) or not text.strip():
+        return False
+
+    wc = _whitespace_word_count(text)
+    if wc < 150 or wc > 350:
+        return False
+
+    # Reject text dominated by URLs (C4 has leakage cases).
+    url_fraction = (text.count("http://") + text.count("https://")) * 10 / max(wc, 1)
+    if url_fraction > 0.10:
+        return False
+
+    # Reject text that looks like a code dump (many braces/semicolons per word).
+    symbol_rate = sum(text.count(c) for c in "{}[];") / max(wc, 1)
+    if symbol_rate > 0.50:
+        return False
+
+    return True
 
 
 # -------------------- Invariance check --------------------
 
+def _whitespace_norm(text: str) -> str:
+    """Collapse runs of whitespace to single space; strip ends. Decidable."""
+    return " ".join(text.split())
+
+
+def _case_norm(text: str) -> str:
+    """Lowercase. Decidable under Unicode casing (ASCII for our stimuli)."""
+    return text.casefold()
+
+
+def _canonicalize(text: str) -> str:
+    """Apply the Batch-1-declared invariances in order: whitespace_norm,
+    case_norm. Idempotent.
+    """
+    return _case_norm(_whitespace_norm(text))
+
+
 def in_family(a: dict[str, Any], b: dict[str, Any],
               family_scope_id: str) -> bool:
-    """True iff stimulus a and stimulus b belong to the same F under
-    declared invariances (whitespace-norm, case-norm for the Batch-1
-    scope).
+    """True iff stimulus a and stimulus b belong to the same family F.
 
-    Per prereg 2.5.7: invariances must be syntactic / canonicalizable so that
-    in_family is decidable. Semantic invariances are forbidden.
+    Checks (all must hold; short-circuits):
+      1. Both stimuli declare scope_id == family_scope_id.
+      2. Both pass filter_len_256_english.
+      3. Their canonicalized texts (whitespace_norm then case_norm applied)
+         are string-equal — meaning one is obtainable from the other by a
+         composition of declared invariances.
 
-    STUB: raises NotImplementedError. Signature locked.
+    Check 3 is the real membership test. Two DIFFERENT stimuli from the
+    same family will fail it (their canonical forms differ); that is
+    correct. In-family membership is NOT "same distribution" — it is
+    "equivalent up to declared invariances."
+
+    Decidable: all three operations are syntactic.
     """
-    raise NotImplementedError(
-        "in_family is a pinned-identity stub. Implementation lands with "
-        "code/genome_extraction.py."
-    )
+    if not isinstance(a, dict) or not isinstance(b, dict):
+        return False
+    if a.get("scope_id") != family_scope_id:
+        return False
+    if b.get("scope_id") != family_scope_id:
+        return False
+    if not filter_len_256_english(a):
+        return False
+    if not filter_len_256_english(b):
+        return False
+    text_a = a.get("text", "")
+    text_b = b.get("text", "")
+    if not isinstance(text_a, str) or not isinstance(text_b, str):
+        return False
+    return _canonicalize(text_a) == _canonicalize(text_b)
 
 
 # -------------------- Canonical F for Batch-1 --------------------
