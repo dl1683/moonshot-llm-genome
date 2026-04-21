@@ -111,8 +111,15 @@ def ablate_topk_neighbors(X: np.ndarray, lam: float, *,
     onto span{x_{j_m} - x_i : m=1..k}.
     """
     n, h = X.shape
-    # Euclidean kNN. n_neighbors = k+1 because 0-th NN is self.
-    nn = NearestNeighbors(n_neighbors=k + 1, metric="euclidean",
+    if n < 2:
+        # Can't ablate with fewer than 2 points; return unchanged.
+        return X.copy(), {"scheme": "topk", "k": k, "lam": lam,
+                          "degenerate_n_too_small": True}
+    # Euclidean kNN. n_neighbors = k+1 because 0-th NN is self. Clamp to
+    # available points when batches are small (e.g. last micro-batch has
+    # fewer than k+1 rows).
+    k_eff = min(k, n - 1)
+    nn = NearestNeighbors(n_neighbors=k_eff + 1, metric="euclidean",
                           algorithm="auto", n_jobs=1)
     nn.fit(X)
     _dist, idx = nn.kneighbors(X, return_distance=True)
@@ -120,8 +127,8 @@ def ablate_topk_neighbors(X: np.ndarray, lam: float, *,
     X_ablated = np.empty_like(X)
     effective_ranks = np.empty(n, dtype=np.int32)
     for i in range(n):
-        neighbors = X[idx[i, 1:k+1]]           # (k, h), skip self
-        tangent = neighbors - X[i:i+1]          # (k, h)
+        neighbors = X[idx[i, 1:k_eff+1]]        # (k_eff, h), skip self
+        tangent = neighbors - X[i:i+1]          # (k_eff, h)
         # QR on (h, k) to orthonormalize.
         Q, _ = np.linalg.qr(tangent.T)          # (h, rank)
         x_i = X[i]
