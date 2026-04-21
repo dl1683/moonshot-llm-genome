@@ -221,4 +221,38 @@ The manifesto argues that efficient intelligence is accessible precisely because
 
 ---
 
+## 2026-04-21 — genome_009_stim_resample_5class  ← 5-CLASS LEVEL-1 THRESHOLD
+
+**Purpose.** Extend G1.3 cross-architecture suite to 5 classes by adding DeepSeek-R1-Distill-Qwen-1.5B (class 2, reasoning-distilled). Per `UNIVERSALITY_LEVELS.md`, Level-1 universality requires ≥5 system classes. This run is the first test at the Level-1 threshold.
+**Systems.** Qwen3-0.6B (class 1) + DeepSeek-R1-Distill-Qwen-1.5B (class 2) + RWKV-4-169M (class 3) + Falcon-H1-0.5B (class 4) + DINOv2-small (class 6).
+**Primitive.** ID (TwoNN + MLE), PR (centered + uncentered), kNN clustering (k=5 + k=10).
+**Universality level claimed.** Level-1 threshold met by PR_uncentered (5/5); kNN-k10 at 4/5 (narrow Falcon fail).
+**Commit.** `e9965aa` (DeepSeek runs) → this entry.
+
+### Result — 5-CLASS VERDICT AT δ=0.10
+
+| Primitive/est | Class 1 Qwen3 | Class 2 DeepSeek | Class 3 RWKV | Class 4 Falcon | Class 6 DINOv2 | pass count |
+|---|---|---|---|---|---|---|
+| kNN-10 clustering | **PASS** | **PASS** | **PASS** | fail (0.0326 vs 0.0315) | **PASS** | **4/5** |
+| PR uncentered | **PASS** | **PASS** | **PASS** | **PASS** | **PASS** | **5/5** |
+| ID (TwoNN / MLE) | fail | varies | fail | fail | fail | 0-1/5 |
+| PR centered | fail | pass | fail | fail | fail | 1/5 |
+| kNN-5 clustering | pass | pass | pass | fail | pass | 4/5 |
+
+### Interpretation
+
+**PR_uncentered hits the Level-1 5-class threshold cleanly.** But PR_uncentered is trivially ≈1.0 for mean-dominated activations — this value is the same across systems because all trained networks have large DC components in their hidden states, not because they share substantive geometry. Requires interpretation work before it can be claimed as Level-1 universal. Documenting it as a "trivial-looking 🟡 candidate pending geometric interpretation."
+
+**kNN-k10 hits 4/5 with Falcon-H1 narrow-fail.** Under the current prereg scope (Qwen3 / RWKV / DINOv2) kNN-k10 is clean 🟡. Under a 5-class extended scope, kNN-k10 is either (a) Level-2 family-local with an explicit "hybrid mamba-fallback exclusion", or (b) requires Falcon-H1 investigation (the naive Mamba fallback may produce numerically-ill activations that don't reflect the trained hybrid's actual geometry).
+
+**DeepSeek-R1-Distill-Qwen-1.5B passes cleanly** (max_stat=0.0223 vs margin=0.0312) — the reasoning class is Gate-1-equivalent to the base autoregressive class. Consistent with its architecture being pure Qwen transformer with reasoning distillation.
+
+### Why this matters
+
+First time the atlas has been tested across 5 classes. One coordinate (PR_uncentered) hits the Level-1 threshold but needs interpretation. The primary coordinate (kNN-k10) is 4/5 — robust on transformer + reasoning + recurrent + vision, with the hybrid class as the sole hold-out. The mission question "do universal coordinates exist across classes?" has moved from hypothesis to active-empirical-finding.
+
+**Next.** (1) Investigate Falcon-H1: run with n=4000 to halve SE, or install mamba-ssm kernels to remove the naive-fallback. (2) Decide whether PR_uncentered is substantive or DC-artifact — compare `PR_uncentered − ||mean_activation||_2` vs `PR_uncentered` as a control. (3) Proceed with Gate-2 G2.4 causal test on the 3-system clean scope (Qwen/RWKV/DINOv2) per prereg `genome_knn_k10_causal_2026-04-21.md`.
+
+---
+
 *(Future entries above this line, newest first.)*
