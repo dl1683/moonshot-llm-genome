@@ -63,7 +63,25 @@ Our observed `p ≈ 0.17` would imply `d_2 / d_int ≈ 1.17`. This is non-trivia
 
 ---
 
-## Candidate framework B — doubling-dimension ratio
+## Candidate framework B — doubling-dimension ratio — **FALSIFIED 2026-04-21 (genome_026)**
+
+**Pilot result** (`results/gate2/doubling_dim_pilot.json`, 3 systems × mid-depth × n=1000 C4 seed 42):
+
+| System | `h` | `d_db` (k-NN scaling est) | `p_pred = (h - d_db)/d_db` | empirical `p` | `|Δ|/p_emp` |
+|---|---:|---:|---:|---:|---:|
+| Qwen3-0.6B | 1024 | 14.58 | **69.24** | +0.156 | 444 |
+| RWKV-4-169M | 768 | 12.42 | **60.83** | +0.170 | 357 |
+| DeepSeek-R1-Distill | 1536 | 16.78 | **90.52** | +0.160 | 565 |
+
+The naive `p = (h - d_db)/d_db` relation predicts absurd magnitudes because `h >> d_db` always (ambient dim dominates). 0 of 3 systems pass. **FRAMEWORK_B_FALSIFIED** as stated; the sketch was wrong — any relation where `h` enters linearly in the numerator will explode on high-ambient-dim point clouds.
+
+**Lesson.** A correct doubling-dim-based framework would need `h` not to enter, or to enter logarithmically. The observed `p ≈ 0.17` is a small positive number — it cannot come from an `h`-dominated formula.
+
+**Reduced candidate set after this pilot: D (rate-distortion) only, from the original four.** All three algebraic dimension-ratio sketches have been ruled out on sign or magnitude.
+
+---
+
+## Candidate framework B — doubling-dimension ratio (original text, retained)
 
 The doubling dimension `d_db` of a metric space is the smallest `d` such that every ball of radius `2r` can be covered by `2^d` balls of radius `r`. For data drawn iid from a distribution with doubling dim `d_db` embedded in ambient dim `h`:
 
