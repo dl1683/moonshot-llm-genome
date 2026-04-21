@@ -30,6 +30,7 @@ _OUT = _ROOT / "results" / "figures"
 _OUT.mkdir(parents=True, exist_ok=True)
 
 SYSTEM_COLOR = {
+    "ijepa-vith14": "#17becf",
     "qwen3-0.6b": "#1f77b4",
     "deepseek-r1-distill-qwen-1.5b": "#ff7f0e",
     "rwkv-4-169m": "#2ca02c",
@@ -37,6 +38,7 @@ SYSTEM_COLOR = {
     "dinov2-small": "#9467bd",
 }
 SYSTEM_SHORT = {
+    "ijepa-vith14": "I-JEPA ViT-H/14",
     "qwen3-0.6b": "Qwen3-0.6B",
     "deepseek-r1-distill-qwen-1.5b": "DeepSeek-R1-Distill-1.5B",
     "rwkv-4-169m": "RWKV-4-169M",
@@ -60,8 +62,8 @@ def fig1_ck():
     ax.set_xscale("log")
     ax.set_xlabel("kNN neighborhood size  $k$")
     ax.set_ylabel(r"mean clustering coefficient  $C(X, k)$")
-    ax.set_title("Figure 1. Cross-architecture $C(X, k)$ at mid-depth, 5 trained networks\n"
-                 "(n=2000 stimuli, seed-averaged, error bars = std across 3 seeds)")
+    ax.set_title("Figure 1. Cross-architecture $C(X, k)$ at mid-depth, 6 trained networks\n"
+                 "(n=2000 stimuli, seed-averaged where available, error bars = std across seeds)")
     ax.grid(True, which="both", alpha=0.3)
     ax.legend(loc="lower right", fontsize=8, framealpha=0.9)
     fig.tight_layout()
