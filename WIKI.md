@@ -71,7 +71,7 @@ Single source of truth per topic. If a topic's pointer goes stale, update here f
 | Experiment log (human) | `experiments/EXPERIMENTS.md` |
 | Experiment ledger (JSONL) | `experiments/ledger.jsonl` |
 | Pre-registrations | `research/prereg/` (one file per experiment, dated, locked) |
-| Claim-to-evidence map | `research/CLAIM_EVIDENCE_MAP.md` (create on first claim) |
+| Claim-to-evidence map | `research/CLAIM_EVIDENCE_MAP.md` — every public claim maps to a ledger entry + locked prereg |
 | Repo-wide model registry | `../../models/MODEL_DIRECTORY.md` + `../../models/registry.py` |
 
 Any markdown file not in this table either feeds one of these or should be deleted. (CLAUDE.md §3.4.)
