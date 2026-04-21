@@ -122,6 +122,73 @@ def c4_clean_v1(seed: int, n_samples: int = 5000,
         yielded += 1
 
 
+# -------------------- Multilingual C4 (Tier 1b) --------------------
+
+_C4_MULTILINGUAL_SCOPE_ID = "text.c4_multilingual.len256.v1"
+# Languages cover Germanic (German), Romance (French), Sino-Tibetan (Chinese
+# simplified), Afro-Asiatic (Arabic), Dravidian (Tamil). Spans 3 scripts
+# (Latin, Han, Arabic, Tamil) and 5 language families.
+_C4_MULTILINGUAL_LANGS = ("de", "fr", "zh", "ar", "ta")
+
+
+def c4_multilingual_v1(seed: int, n_samples: int = 2000,
+                       langs: tuple[str, ...] = _C4_MULTILINGUAL_LANGS
+                       ) -> Iterator[dict[str, Any]]:
+    """Stream multilingual C4 (allenai/c4 per-language subsets).
+
+    Yields `n_samples // len(langs)` examples per language, round-robin
+    interleaved. Tests: is the kNN-k10 clustering value a property of
+    English-language geometry or of the underlying manifold shared across
+    languages?
+
+    Same-architecture test: runs Qwen3 / BERT / MiniLM on non-English
+    input, compares atlas values vs the English baseline. If kNN-k10 is
+    invariant, the universality claim is modality-level not language-level.
+
+    NOTE: this is a new stimulus family (scope_id differs from c4_clean_v1),
+    so any Gate-1 verdict is evaluated per-(system, lang) scope. A prereg
+    extension will compute a fresh dataset_hash.
+    """
+    from datasets import load_dataset  # lazy
+    per_lang = max(1, n_samples // len(langs))
+    iters = {}
+    for lang in langs:
+        try:
+            ds = load_dataset("allenai/c4", lang, split="train",
+                              streaming=True, trust_remote_code=False)
+            ds = ds.shuffle(seed=seed, buffer_size=10_000)
+            iters[lang] = iter(ds)
+        except Exception as exc:
+            print(f"WARN: c4_multilingual_v1 skipping lang={lang}: "
+                  f"{type(exc).__name__}: {exc}")
+
+    yielded_per_lang: dict[str, int] = {lang: 0 for lang in iters}
+    total_idx = 0
+    while any(yielded_per_lang[lang] < per_lang for lang in iters):
+        for lang in list(iters.keys()):
+            if yielded_per_lang[lang] >= per_lang:
+                continue
+            try:
+                example = next(iters[lang])
+            except StopIteration:
+                del iters[lang]
+                continue
+            # Use same length filter (whitespace word count proxy).
+            wc = _whitespace_word_count(example.get("text", ""))
+            if wc < 100 or wc > 500:
+                continue
+            yield {
+                "scope_id": _C4_MULTILINGUAL_SCOPE_ID,
+                "seed": seed,
+                "idx": total_idx,
+                "lang": lang,
+                "text": example["text"],
+                "length_tokens_est": wc,
+            }
+            yielded_per_lang[lang] += 1
+            total_idx += 1
+
+
 # -------------------- Filter --------------------
 
 def _whitespace_word_count(text: str) -> int:
