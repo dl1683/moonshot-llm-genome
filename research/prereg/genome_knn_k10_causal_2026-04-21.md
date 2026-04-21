@@ -1,7 +1,6 @@
 # Prereg: `genome_knn_k10_causal` — Gate-2 G2.4 causal-ablation test for kNN-k10
 
-**status: STAGED** (Gate-2 G2.4 pre-registration; locks after causal-test
-scope decisions are finalized and target task-loss estimators are coded).
+**status: LOCKED** (2026-04-21 at commit `03da4d5` — smoke test on Qwen3 n=200 seed 42 middle-depth satisfied all 3 pre-registered success criteria decisively: topk λ=1.0 effect +55.5% >> 5% primary threshold; monotonic ρ=1.0; specific (topk 7× random, 6.7× PCA). Prereg §11 last-checkbox populated via `results/gate2/causal_qwen3-0.6b_depth1_n200_seed42.json`).
 
 **Rationale.** Gate-1 portability is necessary but not sufficient for Level-1
 universality. Per §2.5.2 G2.4, a coordinate becomes 🟢¹ only if ablating the
