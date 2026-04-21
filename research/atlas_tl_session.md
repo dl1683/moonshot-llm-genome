@@ -293,6 +293,21 @@ Added post-draft during heartbeat T+0.5. Koopman operator theory is emerging acr
 
 **Addendum to H-register: H11.** The Koopman spectrum of the layer/time/step-indexed trajectory is a Level-1 universal coordinate. Same functional form of spectral distribution across transformer, SSM, diffusion; class-specific scales. Conf: medium-high. Kill: if Koopman spectra of three matched systems on matched tasks show non-superimposable distributions even under scale normalization, H11 fails.
 
+#### B8d. Local-neighborhood primitives (per Codex Round 1 Intuition 2 — research during T+1h)
+
+Intuition from Round 1: "Global similarity collapses under scale correction; only local neighborhood structure survives cross-architecture" (medium-high conviction, aligns H4).
+
+Published work:
+- **Nearest Neighborhood Graph Similarity (NNGS) — Jaccard of kNN graphs.** Average Jaccard between corresponding nodes of k-neighborhood graphs in paired embedding spaces. Strongly correlates with task-specific accuracy on analogy and cross-modal zero-shot. [[paper 2411.08687]](https://arxiv.org/html/2411.08687v1)
+- **Local Neighborhood Component Analysis (LNCA).** Deep metric-learning variant; leverages feature memory banks for local kNN structure. [[ScienceDirect]](https://www.sciencedirect.com/science/article/abs/pii/S0020025522012105)
+- **Neighborhood Preserving Embedding (NPE).** Classic (He et al.), preserves local manifold structure where PCA preserves global. Foundation for the class.
+- **Node Embeddings via Neighbor Embeddings.** Recent (2025, OpenReview `8APIU9cauZ`). Graph-native neighbor-embedding framework.
+
+**Architectural implication for the atlas:**
+- **NNGS is a Level-0 diagnostic — pair-similarity**, not a coordinate. It measures similarity between two embeddings; does not produce a scalar per system. Useful as cross-system alignment auditor; can supplement the Level-2 joint-fit test (§2.5 G2.3) but cannot be a promoted coordinate.
+- **Local-connectivity statistics** — e.g., mean local reachability ratio = (diameter of kNN-5-neighborhood) / (diameter of full cloud), or kNN-graph clustering coefficient, or diffusion entropy after t random-walk steps on the kNN graph — ARE per-point-cloud metrics and could be Gate-1 candidates.
+- **For Round 2:** recommendation to Codex — rule whether a local-connectivity statistic should join ID / PR / spectral slope in Batch 1 as a 4th primitive. Candidate spec: **mean 5-nearest-neighbor Jaccard self-stability** (resample the point cloud, measure Jaccard overlap of each point's kNN set across resamples; average across points). This directly tests "local structure stability," captures Codex Intuition 2, and is cheap.
+
 #### B8c. Null result — Ricci curvature on SSM / diffusion (2025-2026)
 
 Added during heartbeat T+0.5. No published application of Ollivier-Ricci (or any discrete Ricci) to Mamba/SSM hidden states or diffusion U-Net latents was found in 2025-2026 literature. Only LLM embeddings (HELM and Fumero et al.) have been Ricci-measured.
@@ -760,6 +775,58 @@ Note: **Koopman (H11), Ricci (H3a), and persistent-homology probes are deferred 
 - **Biology bridge (Allen V1 first, per Codex §5 and §8 — bio-first-for-vision-class)** — Batch 4, for vision-class coordinates; LLM-specific bio bridge via fMRI-language dataset is later still
 - **Cross-modal extension** (diffusion, vision encoder, JEPA, world model) — Batches 5+, sequentially per class. **First extension target: vision encoder (DINOv2) with Allen V1 bio bridge co-planned.**
 
+### 3g. Prereg strawman — `genome_id_portability_2026-04-20` (NOT YET LOCKED)
+
+Demonstrates the §2.5.5 template in practice for the Batch-1 lead probe P1.1. STRAWMAN ONLY — will be reviewed by Codex Round 2 and locked at commit after approval. Current location: this section. At lock, migrates to `research/prereg/genome_id_portability_2026-04-20.md` and becomes immutable.
+
+**1. Primitive** — Intrinsic dimension via TwoNN (Facco et al. 2017). For a point cloud `X ∈ R^{n×d}`, compute for each point its nearest and second-nearest neighbors with distances `r_1, r_2`. The ratio `μ = r_2 / r_1` is Pareto-distributed with scale parameter d (the intrinsic dimension). Estimate d via MLE on `log μ`.
+
+Mathematical definition (class-agnostic, §2.5.3 naming rule): "the intrinsic dimension of the data manifold sampled by X, computed as the scale parameter of the nearest-two-neighbor ratio distribution."
+
+**2. Supported classes** — Class 1 (autoregressive LLM), Class 3 (SSM), Class 4 (hybrid), via the three models in §3b. Controls: untrained Class 1.
+
+**3. Invariance group G_f** — f is invariant to (a) isometric transformations of X (orthogonal rotations + translations), (b) global isotropic rescaling. f is NOT invariant to (c) token permutation within a sequence, (d) stimulus resampling. (c) is mitigated by seq-mean pooling; (d) is tested in G1.3.
+
+**G1.2 check:** apply a random d×d orthogonal Q to each X_k; verify `|ID(Q·X_k) − ID(X_k)| / ID(X_k) < τ_G1.2 = 0.02`. 10 random Q per (system, layer, pooling).
+
+**4. Stimulus distribution D** — 5000 sentences × 256 tokens from a clean C4 / Wikipedia slice. Three seed-disjoint resamples (seeds 42, 123, 456). The invariance class of D: "natural-language text from the c4_clean distribution; length 256 tokens; no task conditioning."
+
+**G1.3 check:** verify `max_{i,j in {42,123,456}} |ID_i − ID_j| / mean(ID) < τ_resample = 0.10`.
+
+**5. Tolerances (pre-registered):**
+- `τ_G1.2` (invariance) = 0.02 — rotation-invariant by construction; any drift > 2% indicates numerical instability.
+- `τ_resample` = 0.10 — if stimulus resampling moves ID by >10%, the primitive is stimulus-dominated at this sample size.
+- `τ_estimator` = 0.15 — TwoNN vs MLE should agree to 15%; larger gap indicates method-specific artifact.
+- `τ_quant` = 0.15 — FP16 vs Q8 should agree to 15%; larger gap means hardware-dependent.
+- `α_universal` (for optional Level-2 fit) = 1.5 — joint-fit RSS must be < 1.5× per-class RSS to claim universal functional form.
+
+Justification: all tolerances are starting points; Codex Round 2 may tighten or loosen. `τ_G1.2` is tight because rotation invariance is theoretical. Others are loose pending empirical calibration on a pilot run.
+
+**6. Estimator variants** — (a) TwoNN Facco et al. 2017, (b) MLE Levina-Bickel 2004. Both computed on same point clouds; `|d_TwoNN − d_MLE| / mean < τ_estimator` required per class.
+
+**7. Quantization ladder points** — FP16 and Q8 for each of the three models. Q8 via `bitsandbytes` 8-bit quantization at inference. ID computed on both; `|d_FP16 − d_Q8| / d_FP16 < τ_quant` required per class.
+
+**8. Promotion target** — Gate 1 (portability) on all three language classes. If passed, optionally test Level-2 joint fit as secondary analysis. Level-1 claim is NOT within this prereg's scope; requires subsequent prereg with derivation + causal + biology.
+
+**9. Derivation (Gate-2 placeholder, not within prereg scope)** — N/A for Gate-1 prereg. A future Level-1 prereg would need a first-principles functional form for d(k_normalized) from information theory or statistical mechanics.
+
+**10. Kill criterion** —
+- **Primary (primitive-level):** ID fails Gate 1 on ≥ 1 of 3 classes. In that case ID is not a coordinate for the atlas; the probe output is a NEGATIVE RESULT that narrows the primitive search space.
+- **Secondary (H1 universality):** Level-2 joint fit RSS / per-class RSS ≥ 1.5, OR joint g is non-monotonic. Refutes H1; ID may still be a Level-2 family-local coordinate.
+- **Tertiary (negative control):** ID_trained ≈ ID_untrained within stimulus-resample scatter. Refutes the "ID measures learned geometry" interpretation; demotes ID to Level-0 diagnostic.
+
+**11. COMPUTE.md §9 compliance checklist:**
+- [x] Max VRAM ≤ 22 GB — peak ~3 GB (three models FP16 concurrent, or one-at-a-time Q8)
+- [x] Max RAM ≤ 56 GB — peak ~12 GB (activation buffers for per-token variant)
+- [x] Wall-clock ≤ 4 h — 3-experiment split (Exp A extraction ~3.5 h, Exp B primitive compute ~2 h, Exp C stats ~0.5 h) — each ≤ 4 h
+- [x] Disk footprint — ~800 MB activations in `.gitignore` path
+- [x] Quantization logged — FP16 + Q8 per model, logged per ledger entry
+- [x] Save-resume path verified on smoke test (pre-reg blocker — smoke test must pass before full run)
+
+**12. Sign-off (LOCKED AT COMMIT)** — pending Codex Round 2 approval. Upon approval, commit with message `Lock prereg: genome_id_portability_2026-04-20` and move to `research/prereg/`. Post-lock modifications invalidate the experiment.
+
+---
+
 ### 3f. Stop-rule (revised per Gate 1 semantics)
 
 If ALL three candidate primitives (ID, PR, spectral slope) fail Gate 1 on at least one of the three language classes: **atlas approach is falsified at the primitive-vocabulary level on language.** Options:
@@ -803,6 +870,7 @@ Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-lin
 | T+0 (session start) | ON TRACK | No | — | Phase 1a decomposition + Phase 1b research in parallel |
 | T+0.5 (post-Phase-1+2 draft) | ON TRACK | No | Codex Round 1 fired in background (task `b2kmq8iou`); U5/U8 research in parallel | Process U5 (null result — Ricci-on-SSM unpublished) and U8 (Koopman strong candidate) into §1b research brief; draft Phase 3 probe batch while Codex runs |
 | T+1h (post-Round-1 Codex output) | ON TRACK | No | Codex scored 8/10, flagged 3 kill shots; revised §1a axioms with verdicts, added A9/A10, H12/H13, added §2.5 agnosticism gate semantics (priority directive deliverable), rewrote §2a/§2b/§2c/§2d for point-cloud + operator view, rewrote §3 Batch 1 for language-only + controls | Fire Codex Round 2 on revised artifacts; continue compressing/aligning research brief with intuitions from Round 1 while it runs |
+| T+1.2h (Round 2 running) | ON TRACK | No | Round 2 fired in background (task `b3fwyis5j`); parallel work: researched local-neighborhood primitives (Codex Intuition 2) — added §B8d brief distinguishing NNGS (cross-system diagnostic) from local-connectivity statistics (per-system Gate-1 candidates); drafted prereg strawman §3.7 for ID Gate-1 test (demonstrates §2.5.5 template) | Wait for Round 2 output; while waiting, continue entropy sweep + possibly smoke-test prep for P1.1 once prereg approved |
 
 ---
 
