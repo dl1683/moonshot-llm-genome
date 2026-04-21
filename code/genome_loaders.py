@@ -71,6 +71,17 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "trust_remote_code": True,  # Falcon-H1 requires custom modeling code
         "modality": "text",
     },
+    "deepseek-r1-distill-qwen-1.5b": {
+        "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+        "class_id": 2,
+        "class_name": "reasoning (distilled-from-R1)",
+        "approx_params": 1_500_000_000,
+        "modality": "text",
+        # Reasoning class added 2026-04-21 to push Batch-1 bestiary from 4
+        # classes (1,3,4,6) -> 5 classes (1,2,3,4,6), hitting the Level-1
+        # threshold per UNIVERSALITY_LEVELS.md. Same qwen-family tokenizer so
+        # fits the same text F.
+    },
     "dinov2-small": {
         "hf_id": "facebook/dinov2-small",
         "class_id": 6,
