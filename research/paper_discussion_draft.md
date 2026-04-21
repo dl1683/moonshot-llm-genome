@@ -52,21 +52,29 @@ Third, the kNN-10 value is **sensitive to the neuron-count subsample** — 0.389
 - We are not claiming the atlas coordinate is architecture-independent in any deep sense. It is a robust *descriptive* invariant on our bestiary; whether it stays invariant under ablations of specific feature-directions (Anthropic-style circuit work) is a separate question. Our G2.4 text evidence says it is causally load-bearing for autoregressive next-token prediction; G2.4 vision is unresolved.
 - We are not claiming the LOCKED v1 derivation is correct. It is not. The scientific record explicitly retains it as a falsified prediction so future replication can check whether our successor derivation fares better under the same tests.
 
-## 5.5 Practical consequences: a first Geometry → Efficiency data point
+## 5.5 Practical consequences: a first Geometry → Efficiency data point, partial generalization
 
-One of the three practical consequences we listed in the abstract — using the coordinate as a compression-gating signal — admits a quick empirical test on Qwen3-0.6B. We run the same `k`-sweep extraction + power-law fit at three weight-quantization levels (FP16, bitsandbytes 8-bit, bitsandbytes NF4 4-bit), on the same 500-stimulus C4 batch, and measure next-token NLL on the same batch as an independent capability proxy.
+One of the three practical consequences we listed in the abstract — using the coordinate as a compression-gating signal — admits a quick empirical test. We run the same `k`-sweep extraction + power-law fit at three weight-quantization levels (FP16, bitsandbytes 8-bit, bitsandbytes NF4 4-bit), on the same 500-stimulus C4 batch, and measure next-token NLL on the same batch as an independent capability proxy. We test three text architectures: Qwen3-0.6B (transformer CLM), RWKV-4-169M (linear-attention recurrent), DeepSeek-R1-Distill-Qwen-1.5B (reasoning-distilled CLM).
 
-**Table 8. Geometry → Efficiency on Qwen3-0.6B (n=500 C4, mid-depth).** Source: `results/gate2/geom_efficiency.json`.
+**Table 8. Geometry → Efficiency across 3 text architectures (n=500 C4, mid-depth).** Sources: `results/gate2/geom_efficiency.json`, `results/gate2/geom_efficiency_rwkv4_3q.json`, `results/gate2/geom_efficiency_deepseek_3q.json`.
 
-| Quantization | `c_0` | `p` | R² of power-law fit | NLL per token | ΔNLL vs FP16 |
-|---|---:|---:|---:|---:|---:|
-| FP16 | 0.2618 | 0.1639 | **0.9967** | 3.6561 | — |
-| Q8 (bnb 8-bit) | 0.2704 | 0.1544 | **0.9927** | 3.6682 | +0.3% |
-| Q4 (bnb NF4) | 0.2532 | 0.1744 | **0.9835** | 3.7905 | **+3.7%** |
+| System | Quant | `c_0` | `p` | R² | NLL / tok | ΔNLL vs FP16 |
+|---|---|---:|---:|---:|---:|---:|
+| Qwen3-0.6B | FP16 | 0.262 | 0.164 | **0.9967** | 3.656 | — |
+| Qwen3-0.6B | Q8 | 0.270 | 0.154 | **0.9927** | 3.668 | +0.3% |
+| Qwen3-0.6B | Q4 | 0.253 | 0.174 | **0.9835** | 3.791 | +3.7% |
+| RWKV-4-169M | FP16 | 0.251 | 0.206 | **0.9972** | 3.504 | — |
+| RWKV-4-169M | Q8 | 0.239 | 0.222 | **0.9945** | 3.518 | +0.4% |
+| RWKV-4-169M | Q4 | 0.244 | 0.220 | **0.9894** | 3.760 | +7.3% |
+| DeepSeek-1.5B | FP16 | 0.255 | 0.167 | **0.9969** | 4.297 | — |
+| DeepSeek-1.5B | Q8 | 0.256 | 0.166 | **0.9937** | 4.317 | +0.5% |
+| DeepSeek-1.5B | Q4 | 0.253 | 0.172 | **0.9942** | 4.386 | +2.1% |
 
-**The clean signal is R², not (c_0, p) individually.** The prefactor and exponent drift as we compress, but non-monotonically (Q8 and Q4 move them in opposite directions). The **power-law fit quality**, however, decreases monotonically with compression, in lockstep with NLL degradation. Aggressive compression is where clean log-linearity breaks — the residuals from the idealized power-law grow as the model's internal geometry corrupts — and this breakdown is detectable before capability numerically collapses, not just after.
+**Partial generalization.** On Qwen3 and RWKV, `R²` decreases **monotonically** with compression and NLL increases monotonically — the simple "R²-as-compression-stop" rule works. On DeepSeek the R² drops cleanly from FP16→Q8 (−0.0032) but **bounces back at Q4** (+0.0005 above Q8), despite NLL continuing to rise. The FP16↔Q8 direction is consistent across all three systems; the fine-grained Q8↔Q4 direction is not. One partial explanation: reasoning-distilled models may carry compressed-by-design geometries that degrade differently than base-CLM or recurrent systems under bnb Q4 quantization.
 
-**The implied tool.** `R² of the C(X, k) power-law fit` is a cheap, architecture-agnostic, single-scalar **compression-stop signal**. You quantize until R² drops below a threshold, then you stop. No task-specific evals required. No per-model tuning required. We do not claim this tool is validated — a single-model, single-stimulus-batch data point is a first signal, not a framework. But the signal direction is monotone in the right direction at the grain we tested, which is what the manifesto's "intelligence = geometry" claim would predict if it has content.
+**The scoped tool.** `R² of the C(X, k) power-law fit` is a useful **coarse-grained compression signal** — FP16 to Q8 to Q4, R² monotone-decreases in 2 of 3 tested systems, and the FP16→Q8 drop is consistent across all 3. For finer-grained "stop here" decisions at Q4-level aggression, the signal is architecture-dependent and should not be used without per-family calibration. We do not promote R² to a single-scalar compression-stop rule; we promote it to a **candidate early-warning signal** whose first strong-monotonicity failure (DeepSeek Q8→Q4) is itself informative.
+
+**What this does NOT say.** The Geometry→Efficiency probe does not claim that degrading geometry *causes* capability drop (only that the two track each other in the FP16→Q8 regime). It does not claim the R² signal is calibrated to absolute NLL increase. It does not claim generalization beyond bnb int8/NF4 quantization to e.g. pruning or distillation.
 
 **The other two practical consequences** (geometry-aware KV caching, cross-model intervention transfer) are not tested in this paper. We list them as hypothesis seeds for intended readers: for compression and caching teams, the atlas gives a single-scalar compressibility signal worth adding to existing per-layer heuristics; for interpretability teams (Anthropic, DeepMind, Martian), it gives a coordinate on which to transfer feature-direction interventions between analog models.
 
