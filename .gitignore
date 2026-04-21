@@ -1,0 +1,111 @@
+# ─────────────────────────────────────────────────────────────────────────
+# Neural Genome — Public Repo .gitignore
+#
+# This repo is the public face of the Neural Genome moonshot.
+# Only mission-critical, externally-meaningful content is pushed.
+# Agent-process and internal-scaffolding files stay private.
+# ─────────────────────────────────────────────────────────────────────────
+
+# ═══ PROCESS / AGENT-INTERNAL DOCS (PRIVATE) ═══
+# Operating manuals and registries are for agents, not external readers.
+CLAUDE.md
+WIKI.md
+ROUNDTABLE_STATE.md
+*_HANDOFF.md
+*_NOTES.md
+
+# Codex review artifacts — private senior-review scratch
+codex_*.md
+codex_*.txt
+codex_*.log
+*_REVIEW.md
+*_AUDIT.md
+.codex/
+codex-output/
+reviews/
+
+# Heartbeat / session scratch
+heartbeat_*.md
+session_*.md
+
+# In-progress / draft preregs (locked preregs ARE public)
+research/prereg/drafts/
+research/prereg/*.draft.md
+
+# ═══ MODEL WEIGHTS & LARGE BINARY ARTIFACTS ═══
+*.bin
+*.safetensors
+*.gguf
+*.ggml
+*.pt
+*.pth
+*.onnx
+*.npz
+*.npy
+*.pkl
+*.h5
+*.hdf5
+*.parquet
+
+# HuggingFace cache (if accidentally placed inside repo)
+.cache/
+models_cache/
+hf_cache/
+
+# Large activation dumps / atlas artifacts — live outside git
+activations/
+atlas_dumps/
+*.activations
+*.tensors
+
+# ═══ PYTHON ═══
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+.env.local
+
+# ═══ LATEX / PAPER BUILD ARTIFACTS ═══
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+
+# ═══ IDE / EDITOR ═══
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ═══ OS ═══
+.DS_Store
+Thumbs.db
+NUL
+desktop.ini
+
+# ═══ SECRETS ═══
+*.key
+*.pem
+secrets.json
+credentials.json
+.env.secret
