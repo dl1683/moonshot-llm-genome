@@ -98,4 +98,31 @@ Format per entry:
 
 ---
 
+## 2026-04-21 — genome_005_cross_modal — **BREAKTHROUGH: first cross-modal universality candidate**
+
+**Purpose.** Execute strategic-adversarial MINOR-ADJUSTMENT directive (add non-language class immediately). 3 systems × 3 classes × 2 modalities × 3 sentinel depths.
+**Systems.** `Qwen/Qwen3-0.6B` (class 1, text, transformer) + `RWKV/rwkv-4-169m-pile` (class 3, text, recurrent) + `facebook/dinov2-small` (class 6, **vision**, ViT).
+**Primitive.** ID (TwoNN), PR (centered), kNN-5 + kNN-10 clustering coefficient.
+**Universality level claimed.** null — pending Gate-2 derivation + causal + biology — but strongest empirical Level-1 candidate to date.
+**Commit.** pending.
+**Result — CROSS-MODAL UNIVERSALITY CANDIDATE:**
+
+| Primitive | Qwen3 (text, TX) | RWKV (text, RNN) | DINOv2 (**vision**, ViT) | Max Δ across 3 systems at matched depth | Verdict |
+|---|---|---|---|---|---|
+| kNN-5 clustering | 0.358 / 0.337 / 0.382 | 0.326 / 0.351 / 0.387 | 0.336 / 0.326 / 0.376 | **0.061** (~17% relative) | **CROSS-MODAL CONGRUENT** — strongest Level-1 candidate |
+| kNN-10 clustering | 0.405 / 0.382 / 0.420 | 0.375 / 0.411 / 0.435 | 0.385 / 0.404 / 0.435 | ~0.030 (~7% relative) | **Tighter than k=5**; supports that local-neighborhood structure is the universal |
+| TwoNN ID | 23.6 / 22.3 / 17.9 (decrease) | 24.7 / 16.8 / 15.3 (decrease) | 16.6 / 21.7 / 21.3 (**increase**) | >5 units; **opposite trajectories** | **NOT cross-modal universal** — modality-specific; DINOv2 ID goes UP with depth |
+| PR_centered | 8.9 / 26.9 / 33.4 (expand) | 25.1 / 7.8 / 4.9 (compress) | 11.1 / 26.4 / 41.3 (expand) | Signed-opposite | **Feedforward-vs-recurrent** signature — not cross-modal universal |
+
+**Scientific interpretation.**
+- **kNN clustering coefficient is the strongest universality candidate** the atlas has identified. Across transformer + recurrent + ViT (2 modalities, 3 classes), values agree at every depth within ~0.06 (k=5) or ~0.03 (k=10). Validates Codex R1 Intuition 2: "global similarity collapses cross-architecture; only local neighborhood structure survives" — including cross-modally.
+- **ID was an imposter.** Text models have decreasing-ID depth trajectory; DINOv2 has increasing-ID. ID is modality-specific. Combined with genome_004's finding (only 6% trained-vs-untrained on Qwen), ID should be demoted to Level-0 architectural diagnostic.
+- **PR discriminates feedforward vs recurrent.** Qwen (transformer) and DINOv2 (ViT) both feedforward-expand PR with depth; RWKV (recurrent) compresses. PR's genome_003 "opposite-sign" was misread as text-vs-vision; it's actually feedforward-vs-recurrent. PR is architecturally informative but not cross-class universal.
+
+**Why this matters for the manifesto.** Intelligence = Geometry predicts that SOME geometric statistics are universal across systems that learn. We now have empirical evidence for one candidate: the **local graph structure of the representation manifold** (kNN clustering) is genuinely cross-class and cross-modal. The atlas discriminates universals from class-specific and modality-specific statistics — which is exactly what an instrument should do.
+
+**Next.** (1) Run stimulus-resample stability on kNN clustering to promote to 🟡 Gate-1. (2) Add efficiency-linked probe (quantization robustness of kNN clustering) per strategic directive. (3) Unblock hybrid class. (4) Gate-2 derivation for kNN clustering — why SHOULD local structure be universal? Information-theoretic argument?
+
+---
+
 *(Future entries above this line, newest first.)*

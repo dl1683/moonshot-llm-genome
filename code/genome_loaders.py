@@ -28,6 +28,8 @@ from typing import Any
 import torch
 from transformers import (
     AutoConfig,
+    AutoImageProcessor,
+    AutoModel,
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
@@ -42,12 +44,14 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "class_id": 1,
         "class_name": "autoregressive LLM",
         "approx_params": 600_000_000,
+        "modality": "text",
     },
     "rwkv-4-169m": {
         "hf_id": "RWKV/rwkv-4-169m-pile",
         "class_id": 3,
         "class_name": "linear-attention recurrent (RWKV)",
         "approx_params": 169_000_000,
+        "modality": "text",
         # SUBSTITUTE for state-spaces/mamba2-370m which is Windows-blocked:
         # Mamba/Mamba2 HF wrappers require the mamba-ssm + causal-conv1d CUDA
         # kernels, which have no prebuilt Windows wheels and fail source build
@@ -65,28 +69,43 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "class_name": "hybrid (transformer + Mamba2)",
         "approx_params": 500_000_000,
         "trust_remote_code": True,  # Falcon-H1 requires custom modeling code
+        "modality": "text",
+    },
+    "dinov2-small": {
+        "hf_id": "facebook/dinov2-small",
+        "class_id": 6,
+        "class_name": "vision encoder (ViT)",
+        "approx_params": 22_000_000,
+        "modality": "vision",
+        # DINOv2 is a self-supervised ViT — no causal LM head. Use AutoModel.
+        # Added per strategic-adversarial Codex directive (2026-04-21):
+        # "add 1 non-language class immediately (vision encoder cleanest)."
+        # Single move satisfies both ">=3 classes that actually run" and
+        # "1st non-language class" per manifesto anti-drift rule.
     },
 }
 
 
 @dataclasses.dataclass
 class LoadedSystem:
-    """One loaded model + tokenizer + metadata.
+    """One loaded model + tokenizer-or-image-processor + metadata.
 
     Held in memory; .unload() should be called before loading the next one
     unless running multiple concurrently (allowed for the three sub-1B models
     per COMPUTE.md section 2).
     """
 
-    system_key: str             # e.g. "qwen3-0.6b"
+    system_key: str             # e.g. "qwen3-0.6b" or "dinov2-small"
     hf_id: str
     class_id: int
     class_name: str
+    modality: str               # "text" or "vision"
     untrained: bool             # True -> random-init twin
     quant: str                  # "fp16" or "q8"
     device: str                 # "cuda" or "cpu"
     model: Any                  # the HF model
-    tokenizer: Any              # the HF tokenizer
+    tokenizer: Any              # text: HF tokenizer; vision: None
+    image_processor: Any        # vision: HF image processor; text: None
     config: Any                 # the HF config (for layer-count etc.)
 
     def n_hidden_layers(self) -> int:
@@ -150,26 +169,36 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
     system_key = _resolve_system_key(hf_id)
     meta = SYSTEM_IDS[system_key]
     trust_remote = bool(meta.get("trust_remote_code", False))
+    modality = meta.get("modality", "text")
 
     if device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA requested but not available")
 
-    tokenizer_source = meta.get("tokenizer_fallback", hf_id)
-    try:
-        tokenizer = AutoTokenizer.from_pretrained(
-            tokenizer_source, trust_remote_code=trust_remote)
-    except Exception:
-        # If fallback also fails, try loading the model's own tokenizer
-        # without trust_remote_code in case the remote-code path is broken.
-        tokenizer = AutoTokenizer.from_pretrained(
-            tokenizer_source, trust_remote_code=False)
-    if tokenizer.pad_token is None and tokenizer.eos_token is not None:
-        tokenizer.pad_token = tokenizer.eos_token
+    tokenizer = None
+    image_processor = None
+    if modality == "text":
+        tokenizer_source = meta.get("tokenizer_fallback", hf_id)
+        try:
+            tokenizer = AutoTokenizer.from_pretrained(
+                tokenizer_source, trust_remote_code=trust_remote)
+        except Exception:
+            tokenizer = AutoTokenizer.from_pretrained(
+                tokenizer_source, trust_remote_code=False)
+        if tokenizer.pad_token is None and tokenizer.eos_token is not None:
+            tokenizer.pad_token = tokenizer.eos_token
+    elif modality == "vision":
+        image_processor = AutoImageProcessor.from_pretrained(
+            hf_id, trust_remote_code=trust_remote)
+    else:
+        raise ValueError(f"unsupported modality {modality!r}")
 
     config = AutoConfig.from_pretrained(hf_id, trust_remote_code=trust_remote)
 
     quant_cfg = _quantization_config(quant)
     dtype = _torch_dtype(quant)
+
+    # Pick model class by modality: LM-head for text, bare encoder for vision.
+    model_cls = AutoModelForCausalLM if modality == "text" else AutoModel
 
     if untrained:
         # Random-init: instantiate from config only, skip pretrained weights.
@@ -179,7 +208,7 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
                 "untrained twins must be loaded at fp16 (quantizing random "
                 "weights does not give a meaningful negative control)"
             )
-        model = AutoModelForCausalLM.from_config(
+        model = model_cls.from_config(
             config, torch_dtype=dtype, trust_remote_code=trust_remote)
         model = model.to(device)
     else:
@@ -193,7 +222,7 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
         else:
             load_kwargs["device_map"] = device if device == "cuda" else None
 
-        model = AutoModelForCausalLM.from_pretrained(hf_id, **load_kwargs)
+        model = model_cls.from_pretrained(hf_id, **load_kwargs)
         if quant_cfg is None and device == "cuda":
             model = model.to(device)
 
@@ -204,11 +233,13 @@ def load_system(hf_id: str, *, quant: str = "fp16", untrained: bool = False,
         hf_id=hf_id,
         class_id=meta["class_id"],
         class_name=meta["class_name"],
+        modality=modality,
         untrained=untrained,
         quant=quant,
         device=device,
         model=model,
         tokenizer=tokenizer,
+        image_processor=image_processor,
         config=config,
     )
 

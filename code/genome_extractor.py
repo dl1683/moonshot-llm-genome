@@ -105,6 +105,10 @@ def _transformer_blocks(model: Any) -> list[Any]:
         "model.rwkv.blocks",         # RWKV wrapped
         "gpt_neox.layers",           # Pythia / GPT-NeoX
         "model.blocks",              # Falcon-H1 variants
+        "encoder.layer",             # DINOv2, ViT, BERT encoders
+        "vit.encoder.layer",         # ViT variants with outer wrapper
+        "dinov2.encoder.layer",      # DINOv2 direct
+        "blocks",                    # bare ViT (timm-style wrapped)
     ]:
         obj = model
         ok = True
@@ -234,6 +238,111 @@ def extract_trajectory(
         seed=seed,
         layers=layers,
         n_stimuli=len(texts),
+    )
+
+
+# -------------------- Vision extraction --------------------
+
+def extract_vision_trajectory(
+    model: Any,
+    image_processor: Any,
+    images: list,             # list of PIL Images
+    *,
+    layer_indices: list[int],
+    pooling: str = "cls_or_mean",
+    device: str = "cuda",
+    system_key: str,
+    class_id: int,
+    quantization: str,
+    stimulus_version: str,
+    seed: int,
+) -> PointCloudTrajectory:
+    """Forward-pass a batch of PIL images through a vision encoder (DINOv2 /
+    ViT), hook the selected blocks, return a PointCloudTrajectory.
+
+    Pooling for vision:
+      - "cls_or_mean": take CLS token if present (index 0) else mean of patch tokens.
+      - "patch_mean": mean across patch tokens (excluding CLS if present).
+    Default produces one point per image (same semantics as "seq_mean" for text).
+    """
+    if pooling not in ("cls_or_mean", "patch_mean"):
+        raise ValueError(f"unsupported vision pooling {pooling!r}")
+
+    blocks = _transformer_blocks(model)
+    n_layers = len(blocks)
+    layer_idx_set = set(layer_indices)
+    captured: dict[int, np.ndarray] = {}
+
+    hooks = []
+    for i, block in enumerate(blocks):
+        if i not in layer_idx_set:
+            continue
+
+        def make_hook(layer_i: int):
+            def hook(module, _inputs, output):  # noqa: ARG001
+                if isinstance(output, tuple):
+                    h = output[0]
+                else:
+                    h = output
+                h32 = h.detach().to(torch.float32)
+                # h32 shape: (batch, n_tokens, d). ViT has CLS + patch tokens.
+                if pooling == "cls_or_mean":
+                    # DINOv2 CLS is index 0 when present; use mean over all
+                    # tokens as a robust fallback. Empirically for DINOv2 both
+                    # agree on the overall geometry when n is large.
+                    pooled = h32.mean(dim=1)
+                else:  # patch_mean
+                    pooled = h32[:, 1:, :].mean(dim=1) if h32.shape[1] > 1 \
+                        else h32.mean(dim=1)
+                arr = pooled.cpu().numpy()
+                finite_mask = np.all(np.isfinite(arr), axis=1)
+                if not finite_mask.all():
+                    arr = arr[finite_mask]
+                captured[layer_i] = arr
+            return hook
+
+        hooks.append(block.register_forward_hook(make_hook(i)))
+
+    try:
+        # Process all images in one batch (DINOv2-small is tiny; 500 images at
+        # 224x224 FP16 is well inside envelope).
+        proc_out = image_processor(images=images, return_tensors="pt")
+        pixel_values = proc_out["pixel_values"].to(device)
+        # DINOv2 expects fp16 / fp32 consistent with model dtype.
+        model_dtype = next(model.parameters()).dtype
+        if pixel_values.dtype != model_dtype:
+            pixel_values = pixel_values.to(model_dtype)
+
+        with torch.no_grad():
+            _ = model(pixel_values=pixel_values)
+    finally:
+        for h in hooks:
+            h.remove()
+
+    layers: list[PointCloudLayer] = []
+    for i in sorted(layer_indices):
+        if i not in captured:
+            raise RuntimeError(
+                f"hook for layer {i} never fired; model forward path may have "
+                f"skipped that block")
+        layers.append(PointCloudLayer(
+            k_index=i,
+            k_normalized=i / max(n_layers - 1, 1),
+            pooling=pooling,
+            X=captured[i],
+            point_kind="image",
+        ))
+
+    return PointCloudTrajectory(
+        system_key=system_key,
+        class_id=class_id,
+        quantization=quantization,
+        index_kind="layer",
+        pooling=pooling,
+        stimulus_version=stimulus_version,
+        seed=seed,
+        layers=layers,
+        n_stimuli=len(images),
     )
 
 

@@ -36,7 +36,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | Field | Value |
 |---|---|
 | **Phase** | 1 — Instrument live (smoke test passes, first atlas rows emitted 2026-04-21) |
-| **Axiom status** | **FIRST CROSS-CLASS EVIDENCE.** 36 atlas rows from genome_003_cross_arch_pilot (Qwen3 + RWKV, n=500 real C4, 3 sentinel depths): (i) kNN-5 clustering coefficient agrees within 0.05 across both classes — strongest universality candidate; (ii) TwoNN ID trajectories share monotone-decreasing shape with different magnitudes — Level-2 family-local candidate; (iii) PR is OPPOSITE-SIGN across classes — falsified as universal. Falcon-H1 hybrid deferred (Windows mamba-ssm blocker). |
+| **Axiom status** | **CROSS-MODAL UNIVERSALITY CANDIDATE (genome_005_cross_modal, 2026-04-21).** 54 atlas rows from 3 systems × 3 classes × 2 modalities × 3 sentinel depths: (i) **kNN-5 clustering coefficient agrees within 0.06 across Qwen3 (text, transformer) + RWKV (text, recurrent) + DINOv2 (vision, ViT)** at every depth — strongest Level-1 candidate; (ii) TwoNN ID DEMOTED — text models show decreasing-depth trajectory but DINOv2 shows INCREASING — not cross-modal universal; (iii) PR is feedforward-vs-recurrent signature (Qwen+DINOv2 expand, RWKV compresses) — not text-vs-vision as initially thought. Pending Gate-1 stability suite + Gate-2 derivation. Falcon-H1 hybrid still Windows-blocked. |
 | **Bestiary coverage** | 0 / 9 classes measured |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
 | **Gate-1 passed (🟡 coordinate)** | 0 |
@@ -157,6 +157,8 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `atlas_tl_session.md §3.7` strawman via prereg |
 | `genome_002_n500_c4` | ✅ passed 2026-04-21 | First real primitive values (n=500 C4, Qwen3, 2 depths) | Qwen3-0.6B | ID + PR + kNN-clustering | `research/prereg/genome_id_portability_2026-04-21.md` STAGED |
 | `genome_003_cross_arch_pilot` | ✅ passed 2026-04-21 (2/3 systems) | **FIRST CROSS-CLASS atlas data** — Qwen3 transformer vs RWKV linear-attention at matched depths on matched stimuli | Qwen3-0.6B + RWKV-4-169M (Falcon-H1 hybrid deferred) | ID + PR + kNN-clustering | STAGED |
+| `genome_004_neg_control` | ✅ passed 2026-04-21 | Trained vs untrained negative control — discriminates learned vs architectural geometry | Qwen3-0.6B trained + random-init; RWKV trained | ID + PR + kNN-clustering | STAGED |
+| `genome_005_cross_modal` | ✅ passed 2026-04-21 (3/4 systems — Falcon blocked) | **FIRST CROSS-MODAL atlas data** — 3 systems × 3 classes × 2 modalities (text + vision). Clustering coefficient agrees within 0.06 across all three. Strongest Level-1 universality candidate. | Qwen3-0.6B + RWKV-4-169M + DINOv2-small | ID + PR + kNN-clustering (k=5 + k=10) | STAGED |
 
 ---
 

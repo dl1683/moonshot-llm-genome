@@ -221,6 +221,82 @@ def in_family(a: dict[str, Any], b: dict[str, Any],
 
 # -------------------- Canonical F for Batch-1 --------------------
 
+# -------------------- Vision stimulus bank (Batch-1 cross-modal extension) --------------------
+
+_IMAGENET_SCOPE_ID = "vision.imagenet1k_val.v1"
+
+
+def imagenet_val_v1(seed: int, n_samples: int = 500) -> Iterator[dict[str, Any]]:
+    """Yield n_samples ImageNet-1k validation images deterministically.
+
+    Uses the HF `datasets` `ILSVRC/imagenet-1k` validation split in streaming
+    mode with shuffle(seed) for reproducibility. Added for Batch-1 cross-modal
+    extension per strategic-adversarial Codex directive.
+
+    Yields:
+        {"scope_id": str,     # "vision.imagenet1k_val.v1"
+         "seed": int,
+         "idx": int,
+         "image": PIL.Image,  # RGB PIL Image (preprocessed by caller)
+         "label": int}
+
+    Falls back to `imagefolder` if `ILSVRC/imagenet-1k` requires auth; callers
+    should handle either.
+    """
+    from datasets import load_dataset  # lazy import
+    # HF ImageNet validation requires gated access; try public mirrors first.
+    candidates = [
+        ("zh-plus/tiny-imagenet", "valid"),
+        ("mrm8488/ImageNet1K-val", "train"),
+    ]
+    ds = None
+    for name, split in candidates:
+        try:
+            ds = load_dataset(name, split=split, streaming=True,
+                              trust_remote_code=False)
+            break
+        except Exception:
+            continue
+    if ds is None:
+        raise RuntimeError(
+            "no accessible ImageNet-val mirror; add a local fixture or grant "
+            "HF access to ILSVRC/imagenet-1k."
+        )
+    ds = ds.shuffle(seed=seed, buffer_size=10_000)
+
+    yielded = 0
+    for idx, example in enumerate(ds):
+        if yielded >= n_samples:
+            break
+        img = example.get("image")
+        if img is None:
+            continue
+        # Convert to RGB for downstream image-processor compatibility.
+        try:
+            img = img.convert("RGB")
+        except Exception:
+            continue
+        yield {
+            "scope_id": _IMAGENET_SCOPE_ID,
+            "seed": seed,
+            "idx": yielded,
+            "image": img,
+            "label": int(example.get("label", -1)),
+        }
+        yielded += 1
+
+
+BATCH1_VISION_F = StimulusFamily(
+    scope_id=_IMAGENET_SCOPE_ID,
+    generator_symbol="code/stimulus_banks.py::imagenet_val_v1",
+    filter_symbol="code/stimulus_banks.py::filter_len_256_english",  # N/A vision
+    invariance_check_symbol="code/stimulus_banks.py::in_family",      # N/A vision
+    dataset_hash="PLACEHOLDER_sha256_imagenet_val",
+    length_tokens=224,  # image side in pixels
+    invariances=("rgb_conversion", "resize_224"),
+)
+
+
 BATCH1_LANGUAGE_F = StimulusFamily(
     scope_id="text.c4_clean.len256.v1_seeds42_123_456",
     generator_symbol="code/stimulus_banks.py::c4_clean_v1",

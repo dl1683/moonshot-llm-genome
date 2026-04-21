@@ -32,9 +32,11 @@ _THIS_DIR = Path(__file__).resolve().parent
 if str(_THIS_DIR) not in sys.path:
     sys.path.insert(0, str(_THIS_DIR))
 
-from stimulus_banks import c4_clean_v1  # noqa: E402
+from stimulus_banks import c4_clean_v1, imagenet_val_v1  # noqa: E402
 from genome_loaders import load_system, SYSTEM_IDS  # noqa: E402
-from genome_extractor import extract_trajectory, sentinel_layer_indices  # noqa: E402
+from genome_extractor import (  # noqa: E402
+    extract_trajectory, extract_vision_trajectory, sentinel_layer_indices,
+)
 from genome_primitives import (  # noqa: E402
     twonn_id, mle_id, participation_ratio, knn_clustering_coefficient,
 )
@@ -87,21 +89,36 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
     print(f"CUDA available: {torch.cuda.is_available()}")
     t0 = time.time()
 
-    # 1. One stimulus bank, used for all 3 systems.
+    # 1. Modality-specific stimulus banks. Both used if any vision system present.
     if use_c4:
         print(f"[{time.time()-t0:.1f}s] streaming {n_sentences} sentences from C4...")
-        stimuli = [it["text"] for it in c4_clean_v1(seed=seed, n_samples=n_sentences)]
+        text_stimuli = [it["text"] for it in c4_clean_v1(seed=seed, n_samples=n_sentences)]
     else:
         base = _FALLBACK_STIMULI
         reps = max(1, (n_sentences + len(base) - 1) // len(base))
-        stimuli = (base * reps)[:n_sentences]
-    print(f"[{time.time()-t0:.1f}s] stimuli ready ({len(stimuli)} sentences)")
+        text_stimuli = (base * reps)[:n_sentences]
+    print(f"[{time.time()-t0:.1f}s] text stimuli ready ({len(text_stimuli)} sentences)")
+
+    vision_stimuli = None
+    has_vision = any(meta.get("modality") == "vision"
+                     for meta in SYSTEM_IDS.values())
+    if has_vision:
+        print(f"[{time.time()-t0:.1f}s] streaming {n_sentences} images from ImageNet-val mirror...")
+        try:
+            vision_stimuli = [it["image"] for it in imagenet_val_v1(
+                seed=seed, n_samples=n_sentences)]
+            print(f"[{time.time()-t0:.1f}s] vision stimuli ready "
+                  f"({len(vision_stimuli)} images)")
+        except Exception as exc:
+            print(f"  WARN: vision stimulus fetch failed "
+                  f"({type(exc).__name__}: {exc}); vision systems will be skipped")
+            vision_stimuli = None
 
     # 2. For each system, load -> extract -> measure -> unload -> collect.
     all_rows = []
     per_system_summary = {}
     commit_sha = _current_commit_sha()
-    stimulus_version = f"{'c4_en' if use_c4 else 'fallback'}.seed{seed}.n{len(stimuli)}"
+    stimulus_version = f"{'c4_en' if use_c4 else 'fallback'}.seed{seed}.n{len(text_stimuli)}"
 
     # Build system list: trained + optional untrained twins for neg-control.
     system_plan: list[tuple[str, dict, bool]] = []
@@ -112,9 +129,19 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
 
     for system_key, meta, untrained in system_plan:
         hf_id = meta["hf_id"]
+        modality = meta.get("modality", "text")
         tag = f"{system_key}{'_untrained' if untrained else ''}"
-        print(f"\n--- System: {tag} ({hf_id}{' random-init' if untrained else ''}) ---")
+        print(f"\n--- System: {tag} ({hf_id}{' random-init' if untrained else ''}; modality={modality}) ---")
         t_sys = time.time()
+
+        # Skip vision systems if vision stimuli unavailable.
+        if modality == "vision" and vision_stimuli is None:
+            print(f"  SKIP {tag}: vision stimuli unavailable")
+            per_system_summary[tag] = {
+                "status": "skipped",
+                "reason": "vision stimuli not fetched this run",
+            }
+            continue
 
         try:
             sys_obj = load_system(hf_id, quant="fp16", untrained=untrained,
@@ -134,16 +161,28 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
               f"{[round(i/max(n_layers-1, 1), 3) for i in sentinel_idxs]}")
 
         try:
-            traj = extract_trajectory(
-                sys_obj.model, sys_obj.tokenizer, stimuli,
-                layer_indices=sentinel_idxs, pooling="seq_mean",
-                max_length=max_length, device="cuda",
-                system_key=sys_obj.system_key,
-                class_id=sys_obj.class_id,
-                quantization=sys_obj.quant,
-                stimulus_version=stimulus_version,
-                seed=seed,
-            )
+            if modality == "text":
+                traj = extract_trajectory(
+                    sys_obj.model, sys_obj.tokenizer, text_stimuli,
+                    layer_indices=sentinel_idxs, pooling="seq_mean",
+                    max_length=max_length, device="cuda",
+                    system_key=sys_obj.system_key,
+                    class_id=sys_obj.class_id,
+                    quantization=sys_obj.quant,
+                    stimulus_version=stimulus_version,
+                    seed=seed,
+                )
+            else:  # vision
+                traj = extract_vision_trajectory(
+                    sys_obj.model, sys_obj.image_processor, vision_stimuli,
+                    layer_indices=sentinel_idxs, pooling="cls_or_mean",
+                    device="cuda",
+                    system_key=sys_obj.system_key,
+                    class_id=sys_obj.class_id,
+                    quantization=sys_obj.quant,
+                    stimulus_version="imagenet_val.v1.seed" + str(seed),
+                    seed=seed,
+                )
         except Exception as exc:
             print(f"  FAIL extraction for {tag}: {type(exc).__name__}: {exc}")
             sys_obj.unload()
@@ -199,13 +238,13 @@ def run_cross_arch(*, n_sentences: int, use_c4: bool, seed: int,
     # 3. Emit.
     out_dir = _THIS_DIR.parent / "results" / "cross_arch"
     out_dir.mkdir(parents=True, exist_ok=True)
-    suffix = f"_n{len(stimuli)}{'_c4' if use_c4 else ''}_seed{seed}"
+    suffix = f"_n{len(text_stimuli)}{'_c4' if use_c4 else ''}_seed{seed}"
     out_path = out_dir / f"atlas_rows{suffix}.json"
 
     payload = {
-        "experiment_id": "genome_003_cross_arch_pilot",
+        "experiment_id": "genome_005_cross_modal",
         "commit_sha": commit_sha,
-        "n_sentences": len(stimuli),
+        "n_sentences": len(text_stimuli),
         "stimulus_version": stimulus_version,
         "wall_clock_seconds": round(time.time() - t0, 2),
         "per_system_summary": per_system_summary,
