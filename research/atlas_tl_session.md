@@ -180,18 +180,22 @@ Level-1 universality ⟺ f factors as f(m, x) = g(θ(m), x) where θ extracts a 
 - **Topological data analysis:** persistent homology of activation point clouds → Betti numbers stable under perturbation. Candidate modality-agnostic invariant.
 - **Geometry:** Riemannian curvature (Ricci, sectional) of embedding spaces. Decoder-only LLMs are empirically hyperbolic (HELM). Brains are plausibly also non-Euclidean.
 
-#### Inherited axioms — surfaced for Codex challenge
+#### Inherited axioms — surfaced for Codex challenge (Round 1 verdicts applied)
 
-| # | Axiom | Challenge (what if wrong?) |
-|---|---|---|
-| A1 | "Representational geometry" is the right abstraction | Dynamics might be primary; geometry is a static snapshot. Trajectories, not snapshots, are the primitive (supported by Koopman + grokking literature). |
-| A2 | Primitives transfer if they pass ≥3-class gate | 3 is arbitrary. Why not 5? Why not specific class-pairs with theoretical kinship (e.g., causal-attention architectures)? |
-| A3 | Derivation-first for Level-1 | RG discovered phase transitions empirically before Wilson's derivation. Requiring derivation-first may miss real laws. Compromise: admit empirical-first, but demote to Phase-2 until derivation exists. |
-| A4 | Biological validation = RSA / Neuropixels / fMRI | Neuropixels is single-modality (mostly mouse V1). fMRI is coarse (mm³). Behavior and evolutionary constraints may be deeper bridges. Also: brain-alignment lit is all LLM-to-brain — SSM-to-brain, diffusion-to-brain unexplored. |
-| A5 | 9-class bestiary covers trained NNs | Missing: spiking NNs, pre-transformer RNNs (LSTM/GRU distinct from SSM). Also missing: ensembles, MoEs treated as separate class, graph NNs. |
-| A6 | RTX 5090 doesn't limit WHAT is in the atlas, only HOW fast | Absolutely false. We cannot fit >32B models at reasonable quantization. Our atlas is biased to the ≤10B dense / ≤20B MoE regime. State this explicitly — it is a SCOPE of the atlas, not a weakness. |
-| A7 | 3-tier framework is sufficient | Possibly missing Level-0 (class-specific diagnostic only) and Level-4 (meta-law relating Level-1 laws). |
-| A8 | Intrinsic dim, participation ratio, CKA, RSA are candidate coordinates | Recent lit: CKA scale-confounded (Aristotelian-view paper Feb 2026), some ID estimators biased at small n, RSA depends on stimulus choice. These aren't ground truth. |
+Verdicts come from Codex Round 1 (`.codex/outputs/round1.md` §1 + §2). MODIFY = keep with constraint; KEEP = unchanged; REJECT = drop; SPLIT = decompose into sub-claims with separate verdicts.
+
+| # | Axiom | Challenge (what if wrong?) | **Round 1 verdict** |
+|---|---|---|---|
+| A1 | "Representational geometry" is the right abstraction | Dynamics might be primary; geometry is a static snapshot. Trajectories, not snapshots, are the primitive (supported by Koopman + grokking literature). | **MODIFY** → "geometry-of-trajectory / geometry-of-update." `llm-platonic-geometry` Lyapunov≈0 and `Latent-Space-Reasoning` basin effects pressure-test toward dynamics-first. |
+| A2 | Primitives transfer if they pass ≥3-class gate | 3 is arbitrary. Why not 5? | **MODIFY** → keep ≥3 as *portability gate*, not universality. Level-1 requires ≥5 classes (per `UNIVERSALITY_LEVELS.md`). Every use of "3-class" must add: "portability; Level-1 requires ≥5." |
+| A3 | Derivation-first for Level-1 | RG discovered phase transitions empirically before Wilson's theory. | **KEEP** as graduation rule, not exploration blocker. Empirical-first is fine as Phase-2 observation; derivation required only for Phase-3 Level-1 promotion. |
+| A4 | Biological validation = RSA / Neuropixels / fMRI | Neuropixels is mouse V1, fMRI is coarse, RSA is stimulus-dependent. | **MODIFY** → RSA is *first* bridge (cheap) but must be paired to versioned stimulus bank; first serious bio validation should target a **vision-class claim** (Allen V1-aligned), not language. |
+| A5 | 9-class bestiary covers trained NNs | Missing spiking, RNN, GNN, ensembles, non-backprop. | **MODIFY** → relabel 9-class as "Phase-1/2 bestiary," not "trained-NN closure." Add "Phase-N expansion candidates" register. |
+| A6 | RTX 5090 doesn't limit WHAT is in the atlas, only HOW fast | Absolutely false. | **REJECT** — compute is **epistemic**. Per COMPUTE.md §7 the atlas vocabulary IS bounded by the envelope: small-to-mid dense (≤10B), MoE with ≤8B active. Sample size, stimulus-bank size, and primitive complexity are all constrained by ≤4h/experiment. Primitives that need huge activation dumps are non-viable as atlas coordinates. |
+| A7 | 3-tier framework is sufficient | Possibly needs Level-0 and Level-4. | **MODIFY** → codify Level-0 explicitly (diagnostic/scope-limited, already in primitives doc) plus existing "Phase-2 null." No Level-4 — premature complexity. |
+| A8 | ID / PR / CKA / RSA are candidate coordinates | CKA scale-confounded (Aristotelian-view, Feb 2026). | **SPLIT.** ID + PR = strong candidates (distribution-conditional but semantically stable). RSA = biology bridge, stimulus-dependent. **CKA demoted to diagnostic only** — do not treat as coordinate. Promote "local neighborhood agreement" (kNN-overlap) as the thing H4 actually wants. |
+| **A9** | **(NEW; Codex flag)** Depth normalization ℓ/L is meaningful cross-class. | If wrong, H1/H2 collapse — comparing curves by ℓ/L assumes an equivalence class that may not exist. | **LOAD-BEARING.** Must be tested empirically (new probe P1.6). Dynamical-systems lens: the proper universal parameter is *arc-length in state space* or *spectral measure*, not raw index. |
+| **A10** | **(NEW; Codex flag)** Stimulus-bank comparability isn't the dominant confound. | If wrong, "universality" is ill-posed: we're comparing different problems. | **LOAD-BEARING.** Must be tested: variance decomposition per primitive into `{system, depth/time, stimulus}`. Universality requires stimulus variance NOT to dominate. Pipeline must treat stimulus as the *conditioning variable of every coordinate*, not a component. |
 
 ---
 
@@ -334,6 +338,12 @@ Format: **H#. Claim. Level. Theoretical confidence. Kill criteria.**
 
 **H10. The atlas cannot be built from ANY single primitive; it requires a multi-chart cover.** (A meta-hypothesis.) Conf: high (no single current primitive passes all 4 validation tests). **Kill:** some single primitive passes all validation tests (agnostic, causal, biological-bridge, adversarial-robust). Would simplify the whole design.
 
+**H11. The Koopman spectrum of a layer/time/step-indexed trajectory is a Level-1 universal coordinate.** Same functional-form spectral distribution across transformer, SSM, diffusion; class-specific scales. Conf: **medium** (reset from medium-high after Codex Round 1's anti-overconfidence audit — literature proximity is not evidence in OUR envelope; needs in-repo pilot). **Kill:** Koopman spectra of three matched systems on matched tasks show non-superimposable distributions even under scale normalization.
+
+**H12. Stimulus dominance (NEW; Codex Round 1 gap).** For any primitive f, the variance of f decomposes into `Var(f) = σ²_system + σ²_depth + σ²_stimulus + interactions`. Any universality claim requires `σ²_stimulus < min(σ²_system, σ²_depth) / 2`. Conf: N/A (this is an enabling meta-hypothesis, not a universality claim itself). **Kill:** stimulus variance dominates — in that case "universality" is ill-posed and we need conditional universality (Alt C below) from the ground up.
+
+**H13. Quantization stability (NEW; Codex Round 1 gap).** Every candidate coordinate must be stable under the project quantization ladder (FP16 → Q8 → Q4_K_M) within a prereg-specified tolerance. A coordinate whose measurement changes materially under quantization is hardware-dependent, not universal. Conf: N/A. **Kill:** primitive values drift by > 2× bootstrap scatter across FP16 vs Q6 on the same model, rendering the primitive hardware-dependent.
+
 ### 1d. Probe candidates (from empirical uncertainties)
 
 These get triaged in Phase 2 — some resolved by thought, some by research, some go into the Phase 3 probe batch.
@@ -349,63 +359,206 @@ These get triaged in Phase 2 — some resolved by thought, some by research, som
 
 ---
 
-## Phase 2 — Mental machine (DRAFT; to be refined after Codex Round 1)
+## Phase 2 — Mental machine (Round 1-revised)
 
-The atlas construction pipeline.
+The atlas construction pipeline. Round 1 flagged three kill shots; this section now addresses them:
+- **Kill shot 1** (agnosticism gate broken): split into two gates — see new §2.5
+- **Kill shot 2** (trajectory tensor transformer-shaped): replaced with point-cloud + operator view
+- **Kill shot 3** (stimulus as component): replaced with stimulus as conditioning variable of every coordinate + mandatory variance-decomposition probe
 
-### 2a. Component inventory
+### 2a. Component inventory (revised)
 
 ```
 [model registry]           ←  ../../models/registry.py (canonical)
         ↓
 [system loader]            ←  class-specific adapter: load model at the quantization
-        |                     chosen for its parameter bucket (COMPUTE.md ladder)
+        |                     chosen for its parameter bucket (COMPUTE.md ladder).
+        |                     Must declare its quantization level for H13 stability test.
         ↓
-[stimulus bank]            ←  fixed input sets per task: language (Wikipedia sample,
-        |                     c4), vision (ImageNet val subset), control (random).
+[stimulus bank (VERSIONED; conditioning variable)]
+        |                  ←  every coordinate is f(m, x) where x ~ D_stimulus.
+        |                     D_stimulus is versioned, its invariance class declared,
+        |                     its resamplings pre-defined. No coordinate is evaluated
+        |                     without naming its conditioning distribution.
         ↓
-[trajectory extractor]     ←  class-specific hook: extract {h_ℓ(x)} for transformer,
-        |                     {h_t(x)} for SSM, {h_τ(x)} for diffusion, {h_ctx, h_tgt}
-        |                     for JEPA. Returns a uniform trajectory representation
-        |                     tagged with class, layer/time/step, token/patch index.
+[trajectory extractor → point-cloud sequence]
+        |                  ←  class-specific hook, but OUTPUT IS UNIFORM:
+        |                     sequence {(k, X_k, meta_k)} where k indexes depth/time/step,
+        |                     X_k ∈ R^{n_k × d_k} is a *point cloud* (each row is one state
+        |                     vector sampled from the class's internal state at index k),
+        |                     meta_k describes what a point is (token / patch / neuron /
+        |                     spatial site) and how sampled (pooling, subsample).
+        |                     Point clouds — NOT transformer-tensors. Works for diffusion
+        |                     U-Nets, world-model rollouts, and biology recordings.
+        |                     Codex Round 1 Alt A.
         ↓
-[primitive evaluator]      ←  f: trajectory → measurement. Plug-in architecture:
-        |                     each primitive is a module with a class-agnostic
-        |                     interface. Returns structured measurement.
+[operator view (OPTIONAL per primitive)]
+        |                  ←  estimate a linear operator K_k mapping observables across
+        |                     k → k+1 (Koopman-lite). Plug-in point for H11 spectral
+        |                     primitives without redesigning the pipeline.
         ↓
-[atlas row builder]        ←  assemble (system_id, layer_or_time, primitive_id,
-        |                     task_id, value, uncertainty) → one ledger entry
+[primitive evaluator]      ←  f: {(k, X_k, meta_k)} or K-sequence → Measurement.
+        |                     Plug-in architecture. Each primitive declares:
+        |                       - invariance group G (what f(m,x) should be invariant to)
+        |                       - supported class_ids
+        |                       - estimator variants for the robustness check (H13)
+        |                       - biology instantiation spec (Alt D — mandatory at declare time)
         ↓
-[agnosticism gate]         ←  for a primitive, tracks which classes it has been
-        |                     tested on. Promotes primitive to "coordinate" when
-        |                     ≥3 classes pass a prereg agreement criterion.
+[atlas row builder]        ←  assembles (system_id, k_normalized, primitive_id,
+        |                     stimulus_version, pooling_choice, value, uncertainty,
+        |                     estimator_variant_result) → one ledger entry
         ↓
-[causal tester]            ←  for a candidate Level-1 claim: runs do-intervention
-        |                     / ablation that predicts behavior change if the claim
-        |                     is real.
+[two-gate semantics (see §2.5)]
+        |                  ←  Gate 1 PORTABILITY (≥3 classes, stability + comparability)
+        |                     Gate 2 UNIVERSALITY (≥5 classes, derivation, causal, biology)
         ↓
-[biological bridge]        ←  same primitive applied to Allen Neuropixels / fMRI
-        |                     under matched stimuli. For Level-1 claims only.
+[causal tester]            ←  class-agnostic causal estimand: "sensitivity of output to
+        |                     removal of a coordinate-defined subspace at matched norm."
+        |                     Ablation is the minimum cross-class primitive (patching
+        |                     is transformer-native and stays as a Level-0 diagnostic
+        |                     until a class-agnostic extension is derived — see H7).
         ↓
-[law fitter]               ←  derivation-first: given functional form from theory,
-                              fit constants + uncertainty + cross-validation residuals.
+[biological bridge (CO-EQUAL AXIS — Alt D)]
+        |                  ←  each coordinate ships with a declared biology instantiation:
+        |                     "given neural population activity matrix N_neurons × T_timepoints
+        |                     under stimulus s, the primitive is computed as …". May be
+        |                     deferred in execution but MUST be specified at coordinate
+        |                     declare-time.
+        ↓
+[law fitter (STUB ONLY UNTIL DERIVATION EXISTS)]
+                           ←  per Codex Round 1: do not build until a first-principles
+                              functional form is in hand. Prevents optimizing for fit-ability.
 ```
 
-### 2b. Interface contracts
+### 2b. Interface contracts (revised)
 
-- **Trajectory** = `{"system_id": str, "class": {1..9}, "states": Tensor[L_or_T, N_tokens, D], "metadata": {tokenizer, task, seed, ...}}`. L_or_T axis is "depth" for transformers, "time" for SSM, "noise step" for diffusion.
-- **Primitive module** must implement: `evaluate(trajectory: Trajectory) → Measurement`. `Measurement = {value: Any, uncertainty: Any, metadata: dict}`. Must declare supported `class_ids` — primitives raise clearly if asked on an unsupported class.
-- **Agnosticism gate** reads the primitive's class list + ledger; promotes when ≥3 classes have produced congruent measurements (definition of congruent varies by primitive — part of the prereg).
+- **`PointCloudTrajectory`** = `{system_id: str, class_id: {1..9}, quantization: str, index_kind: "layer"|"time"|"step", sequence: List[{k: float, k_normalized: float, X: Tensor[n_k, d_k], point_kind: "token"|"patch"|"neuron"|"site", pooling: str, stimulus_version: str, seed: int}]}`.
+  - Point clouds uniformly shaped across classes. No fake "token axis" for classes that don't have one.
+  - Each entry carries its conditioning variables inline (stimulus version, pooling, seed).
+- **`OperatorView`** (optional, per primitive's request) = `List[{k: float, K: Tensor[d, d] or LinearOp, residual: float}]` — Koopman-lite operators between consecutive point clouds.
+- **`Primitive`** module contract:
+  - `invariance_group: str` — formal declaration (e.g., "orthogonal rotations + token permutations + stimulus resampling within D")
+  - `supported_classes: Set[int]`
+  - `estimator_variants: List[str]` — each must produce a comparable value (for H13 stability)
+  - `biology_instantiation: str` — how to compute on neural-population data (co-equal axis)
+  - `evaluate(trajectory) → Measurement` — raises if class not supported
+  - `Measurement = {value, uncertainty, estimator_variants_results, invariance_checks_passed}`
+- **`AgnosticismGate`** — NO LONGER "promote on ≥3 congruent measurements." See §2.5 for the revised two-gate spec.
 
-### 2c. Data flow — worked example (H1 test, U1 probe)
+### 2c. Data flow — revised worked example
 
-1. Load Qwen3-0.6B (FP16, ~1.3 GB), Mamba2-370M (FP16, ~0.7 GB), DINOv2-small (FP16, ~0.1 GB). Total ≤ 3 GB — well in envelope; can load all three concurrently.
-2. Build matched stimulus bank: 5000 sentences from Wikipedia clean, chunked to 256 tokens for LLMs. For DINOv2, corresponding sentences have no direct visual analogue — so define a separate vision stimulus bank (ImageNet val 5000 images) and ALSO a matched-difficulty text-vision pair set (LAION/MSCOCO captions + images).
-3. Extract trajectories per class. For Qwen3 and Mamba2: residual/hidden state at each of L layers for each of 256 tokens, averaged within sequence to get L × 768 for transformer (L=24) and L × 1024 for Mamba2 (L=24). For DINOv2-small: patch-token outputs at each of 12 blocks.
-4. Per primitive (TwoNN), compute ID at each normalized layer position ℓ/L. Per system get ID(ℓ/L) curve.
-5. **The question:** do the curves collapse under architecture-normalization? H1 predicts yes (after d₀, α rescaling).
+Probe P1.1 (ID agnosticism), revised:
 
-### 2d. Failure modes
+1. Load **three matched-modality language systems** (Codex Round 1 §7, §11 parsimony):
+   - Qwen3-0.6B (Class 1, autoregressive LLM), FP16, ~1.3 GB
+   - Mamba2-370M (Class 3, SSM), FP16, ~0.75 GB
+   - Falcon-H1-0.5B (Class 4, hybrid), FP16, ~0.5 GB
+   - Total: ~2.6 GB concurrent. All use same text tokenization-family (we lose nothing across class comparisons because stimulus is matched).
+2. **One** stimulus bank: 5000 sentences × 256 tokens from a clean C4 slice. Version = `text/c4_clean_5k_v1_seed42`. Alongside: **two disjoint resamples** (version `_v2_seed123`, `_v3_seed456`) for stimulus-resampling stability (H12).
+3. **Untrained control:** random-init Qwen3-0.6B. Measures how much of the primitive is "learned geometry" vs "architectural geometry."
+4. Extract point-cloud sequences per system. Per layer k: subsample 5000 sequence-averaged embeddings (seq-mean pooling) → X_k ∈ R^{5000 × d}. Also save per-token embeddings (no pooling) for the pooling-control.
+5. Apply primitive ID(X_k) with both TwoNN and MLE estimators (H13 stability check). Also apply to untrained-control and pooling-variant.
+6. Compute **variance decomposition (H12 probe)**: `Var[ID] = σ²_system + σ²_k + σ²_stimulus + interactions`, via two-way ANOVA on {system × stimulus_resample}.
+7. Apply two-gate semantics (§2.5).
+
+### 2.5. Agnosticism gate semantics (Round 2 priority-directive deliverable)
+
+Derived in response to Codex Round 1 Priority Directive: *"Derive and pre-register the agnosticism gate semantics (invariances + stability tests + semantic comparability criteria) because the current design assumes 'congruent measurements' is the right promotion criterion, and that assumption will invalidate the atlas either by stalling or by false promotion."*
+
+#### 2.5.0 Conceptual framing
+
+The category error in the Round 1 design: it conflated **"the primitive measures the same thing in two systems"** (coordinate promotion — a statement about the primitive itself) with **"the primitive produces the same *number* in two systems"** (universality — a statement about the systems). These are different. A thermometer measures the same thing in a cup of coffee and a block of ice, but the numbers differ — and that difference IS the science. An atlas coordinate must be a valid *measurement* on each system class; whether the values agree or form a universal law is a separate question.
+
+Two gates, in sequence.
+
+#### 2.5.1 Gate 1 — PORTABILITY (coordinate eligibility)
+
+A primitive `f` passes Gate 1 for a system class `C` iff ALL five criteria hold with pre-registered tolerances:
+
+**G1.1 Computability.** There exists a finite algorithm producing `f(m, x)` for `m ∈ C` and `x ~ D_stimulus` within the COMPUTE.md envelope (≤22 GB VRAM, ≤56 GB RAM, ≤4 h wall-clock).
+
+**G1.2 Invariance.** `f` is invariant under the primitive's declared invariance group `G_f`. For common primitives:
+- ID (TwoNN / MLE): invariant to global isotropic rescaling of X; invariant to orthogonal rotations; NOT invariant to token permutations unless sequence-mean pooled (then: yes).
+- Participation ratio: invariant to orthogonal rotations; NOT invariant to rescaling.
+- Koopman spectrum (eigenvalue ECDF): invariant to orthogonal change of basis on X; invariant to rescaling of K; NOT invariant to reparameterizations of the time axis unless pre-registered arc-length normalization is applied.
+- Persistent homology (Betti profile): invariant to ambient isometry; stable under Hausdorff perturbation (Cohen-Steiner stability theorem).
+- Ricci curvature (Ollivier): invariant to graph isomorphism; sensitive to kNN choice, distance metric, and graph construction — these MUST be pre-registered per primitive use.
+
+The primitive's declared `G_f` is checked at measurement time: apply a random element of `G_f` to `X_k`, verify `f` output is within a pre-registered tolerance.
+
+**G1.3 Stability under stimulus resampling (H12 conditional).** For the primitive's declared `D_stimulus`, draw two disjoint resamples `x₁, x₂ ~ D`. Require
+```
+|f(m, x₁) − f(m, x₂)| < τ_resample · max(|f(m, x₁)|, |f(m, x₂)|)
+```
+with `τ_resample` pre-registered (default 0.10). If this fails, the primitive is stimulus-dominated for class `C` and does NOT pass Gate 1 on that class.
+
+**G1.4 Stability under estimator variant (H13 conditional).** For every primitive, at least TWO independent estimators must be declared (e.g., TwoNN vs MLE for ID; centered vs uncentered PR). Require the two estimators to agree within `τ_estimator` (pre-registered, default 0.15) on at least one system from class `C` at a typical depth.
+
+**G1.5 Stability under quantization (H13 primary).** Run the primitive at two points on the quantization ladder (e.g., FP16 and Q8 on the same model) and require agreement within `τ_quant` (pre-registered, default 0.15). If quantization-sensitive, the primitive is hardware-dependent and fails Gate 1.
+
+**Portability promotion:** a primitive is a **coordinate for class C** iff G1.1–G1.5 pass on at least one model in C. It becomes a **coordinate (portability gate passed)** when it has passed on ≥3 distinct classes. Portability makes no universality claim — values may differ across classes.
+
+#### 2.5.2 Gate 2 — UNIVERSALITY (Level-1 claim)
+
+A primitive `f` passes Gate 2 iff ALL five criteria hold:
+
+**G2.1 Portability on ≥5 classes** (per `UNIVERSALITY_LEVELS.md` Level-1 threshold; extends the Round-1 ≥3 portability gate).
+
+**G2.2 Derivation-first functional form.** A candidate form `f(m, x) = g(θ(m), x)` has been derived from first principles BEFORE fitting. The derivation is written up in a pre-reg, cites its theoretical source (info-theory, statistical mechanics, dynamical systems, EVT, etc.), and is LOCKED at pre-reg commit.
+
+**G2.3 Joint-fit residual bound.** Across the ≥5 classes, joint nonlinear fit of `g` with class-specific parameters `θ(m)` has residual
+```
+RSS_joint / RSS_per_class_independent < α_universal
+```
+with `α_universal` pre-registered (default 1.5). If the joint fit is worse than ~1.5× per-class independent fits, class-specific models beat universality and the primitive is Level-2 (family constants) not Level-1.
+
+**G2.4 Causal test.** A do-intervention that ablates a coordinate-defined subspace (top-k directions from an SVD on `f`'s input, or a subspace carrying a specific coordinate value) produces a predicted behavior change in the class-appropriate loss/metric. Estimand: `E[loss(m with subspace ablated) − loss(m intact)]` must exceed a pre-registered minimum and show a monotonic response to ablation magnitude.
+
+**G2.5 Biology instantiation specified (may be deferred in execution, not in declaration).** The primitive ships with a concrete biology instantiation: "given a neural-population activity matrix N_neurons × T_timepoints under stimulus `s`, `f` is computed by … with sampling rule …". If the primitive cannot be evaluated on Allen-style recordings even in principle, it is LLM-specific, not a genome coordinate.
+
+**Universality promotion:** a primitive promotes from coordinate to **Level-1 universal coordinate** iff G2.1–G2.5 pass. Below G2.5 the primitive is a **Level-2 family-local coordinate** (universal within a family). Below G2.2 it is a **Phase-2 atlas observation** (pattern exists, derivation pending). These status labels already exist in `research/UNIVERSALITY_LEVELS.md` — this section operationalizes them.
+
+#### 2.5.3 Semantic comparability without numeric agreement
+
+Gate 1 G1.2 requires the primitive be *invariant* to its declared group. Gate 2 G2.3 tests *numeric agreement* across classes via a joint fit. The gap between them is **semantic comparability** — does the primitive "mean the same thing" across classes independent of numerical agreement?
+
+The operational definition:
+- **Naming rule.** The primitive's measurement function must be definable in a class-agnostic mathematical statement (e.g., "intrinsic dimension = log-asymptotic growth rate of ball volume / log-radius on the point cloud") whose computation depends only on the point cloud, not on class-specific artifacts.
+- **Interpretation rule.** The primitive must have a single documented interpretation that applies to every supported class (not one interpretation per class).
+- **Negative-control rule.** The primitive must produce *different* measurements on controls that SHOULD differ (e.g., trained vs untrained model of the same architecture). If a primitive returns the same value on trained and untrained models, it measures the architecture alone, not the representation — it is a Level-0 diagnostic, not a coordinate.
+
+Primitives that fail semantic comparability become Level-0 diagnostics regardless of Gate 1 pass.
+
+#### 2.5.4 Summary: four-tier status taxonomy
+
+This replaces the informal "primitive promotion" talk with explicit status:
+
+| Status | Gate tests passed | What you can say | What you cannot say |
+|---|---|---|---|
+| **Untested (⚫)** | — | — | — |
+| **Diagnostic (Level-0, ⚪)** | class-local, fails semantic comparability or fails G1.2–G1.5 on some classes | "In class C, this primitive behaves like X" | "This primitive measures the same thing across classes" |
+| **Coordinate / Level-2 candidate (🟡)** | Gate 1 on ≥3 classes | "This primitive is a semantically-comparable measurement in these 3+ classes; its values are (class-dependent values)" | "There is a universal law" |
+| **Coordinate / Level-2 family-local (🟢²)** | Gate 1 on ≥5 classes AND joint fit shows family-specific constants | "There is a family-specific functional form" | "A single functional form holds across families" |
+| **Coordinate / Level-1 universal (🟢¹)** | Gate 2 all 5 criteria pass | "This functional form is universal across trained NNs in the ≥5 tested classes, with causal test and biology instantiation" | Nothing more — science is never final |
+
+#### 2.5.5 Pre-registration template (LOCKED at commit)
+
+Every new coordinate promotion requires a pre-reg at `research/prereg/genome_<primitive>_<scope>_YYYY-MM-DD.md` with these fields LOCKED:
+
+1. Primitive name + mathematical definition
+2. Supported classes targeted in this prereg
+3. Invariance group `G_f` + invariance check protocol
+4. Stimulus distribution `D` + resampling protocol
+5. Tolerances: `τ_resample`, `τ_estimator`, `τ_quant`, `α_universal` (all with justifications)
+6. Estimator variants to be run
+7. Quantization ladder points to be run
+8. Promotion target: Gate 1 / Gate 2 / universality claim
+9. If Gate 2: derivation write-up (attached), causal-test design, biology instantiation spec
+10. Kill criterion: what outcome refutes the claim?
+11. COMPUTE.md §9 compliance checklist filled
+12. Sign-off: "locked at commit `<hash>`; modifications invalidate this prereg"
+
+### 2d. Failure modes (revised)
 
 - **F1. Layer/time axis mismatch.** Transformer depth L=24, Mamba2 L=24, DINOv2 L=12. Normalize by ℓ/L — but this bakes in a "depth is the universal axis" assumption (A2 challenge). If false, curves never collapse.
 - **F2. Tokenization / input-space mismatch.** LLMs see tokens, DINOv2 sees patches. Matched stimulus construction is load-bearing. A primitive that depends on input distribution (e.g., ID at raw embedding layer) will never cross cleanly.
@@ -413,166 +566,231 @@ The atlas construction pipeline.
 - **F4. "Agnosticism gate" semantics.** What counts as "congruent measurement" across classes? If threshold is too loose, false positives; too tight, never promotes anything. **This is the biggest open question in the pipeline.**
 - **F5. Stimulus bank dominance.** If different classes require different stimuli, we're not comparing the same function f on the same input x — we're comparing f on different inputs. The universality claim weakens.
 
-### 2e. Stress test — what I'd challenge if I were Codex
+### 2e. Self-stress-test — Round 1 outcomes
 
-- "Your trajectory definition implicitly assumes a sequence/layer axis. What about bag-of-words encoders, symmetric models, models with no inherent ordering? Define your object more carefully."
-- "Your ≥3-class gate is ad hoc. You should either (a) derive the minimal statistical sample for a valid universality claim (conditional on assumed effect size), or (b) admit that 3 is a convention and cite the precedent."
-- "Your biological bridge is a bolt-on. It should be a co-equal axis of the design, with Level-1 claims required to include biology from the start."
-- "You haven't addressed adversarial / OOD stability. A primitive that agrees across clean inputs but diverges under weight perturbation or adversarial stimuli is a false positive."
-- "You list 7+ primitive families with no priority. Without explicit ranking + kill criteria per primitive, the atlas becomes a menu, not a plan."
+The Round-1 draft surfaced these challenges. Post-Round-1 status:
 
-### 2f. Triage of uncertainties from §1d
+| Challenge (pre-Round-1) | Status |
+|---|---|
+| Trajectory axis assumes sequence/layer ordering; what about symmetric models? | **Addressed** in revised §2a — uniform point-cloud-per-index contract replaces transformer tensor. |
+| ≥3-class gate is ad hoc | **Addressed** in §2.5 — ≥3 is *portability* only; Level-1 requires ≥5. |
+| Biological bridge is a bolt-on | **Addressed** — co-equal axis (Alt D); every coordinate declares biology instantiation at declare-time. |
+| No adversarial / OOD stability | **Partially addressed** — §2.5 G1.3 covers stimulus-resample stability; adversarial perturbation deferred to a Batch-N robustness probe. |
+| 7+ primitive menu with no priority | **Addressed** — §3a/§3c prune Batch 1 to ID + PR + spectral slope. Ricci, PH, Koopman moved to Batch 2. |
+| (Round-1 adds) Agnosticism gate conflates promotion with universality | **Addressed** in §2.5 two-gate spec. |
+| (Round-1 adds) Depth ℓ/L is assumed meaningful cross-class | **Testable now** via P1.5 normalization probe. |
+| (Round-1 adds) Stimulus treated as component, not conditioning variable | **Addressed** — stimulus is explicit conditioning variable in every `Measurement` (§2b); P1.4 variance decomposition verifies non-dominance. |
 
-| # | Uncertainty | Disposition | Action |
+### 2f. Triage of uncertainties from §1d (Round-1 outcomes + additions)
+
+| # | Uncertainty | Disposition | Round-1 outcome |
 |---|---|---|---|
-| U1 | TwoNN collapse across 3 classes? | PROBE | Phase-3 batch: lead experiment |
-| U2 | Compression-phase alignment? | PROBE | Phase-3 batch: piggyback on U1 trajectories |
-| U3 | Ablation equivalence? | PROBE | Phase-3 batch: depends on U1+U2 |
-| U4 | PH Betti numbers? | PROBE | Phase-3 batch: secondary (cost concern; PH is O(n³)) |
-| U5 | Ricci on SSM / diffusion — literature check | RESEARCH | Fire follow-up web search before Round 2 |
-| U6 | Allen pipeline re-use? | OPERATIONAL | Defer to implementation; CTI reference scripts exist |
-| U7 | Moduli-space framing → structural constraints? | THOUGHT | Resolved: forces Level-0 diagnostic / Level-1 coordinate distinction |
-| U8 | Universal trajectory invariant — exists? | RESEARCH | Fire follow-up: Koopman / Lyapunov / spectral-entropy comparative lit |
+| U1 | TwoNN agnosticism across classes? | PROBE | Revised to P1.1 on 3 language classes + controls (Batch 1 lead). |
+| U2 | Compression-phase alignment? | PROBE | Operationalized into P1.1 joint fit + P1.3 spectral slope + P1.5 normalization probe. |
+| U3 | Ablation equivalence? | PROBE | Deferred to Batch 2 (Gate-2 causal test) with class-agnostic estimand "sensitivity of output to removal of coordinate-defined subspace at matched norm." |
+| U4 | PH Betti agnosticism? | PROBE | Deferred to Batch 2 with pre-registered subsampling-stability control. |
+| U5 | Ricci on SSM / diffusion literature check | RESEARCH | **Resolved** — null in 2025-2026 lit; H3a probe deferred to Batch 2 with pre-registered graph protocol. |
+| U6 | Allen pipeline re-use? | OPERATIONAL | Deferred to Batch 4 (biology bridge), per Codex §5 targeted at vision-class first (DINOv2 + Allen V1). |
+| U7 | Moduli-space framing → structural constraints? | THOUGHT | **Resolved** — drove the §2.5 two-gate semantics. |
+| U8 | Universal trajectory invariant — exists? | RESEARCH | **Resolved** — Koopman is the strongest candidate; H11 registered; probe deferred to Batch 2 with pre-registered observable family + estimator. |
+| **U9** (NEW, from Codex Round 1) | Is `ℓ/L` meaningful cross-class? (A9) | PROBE | P1.5 normalization probe in Batch 1. |
+| **U10** (NEW, from Codex Round 1) | Does stimulus variance dominate? (A10, H12) | PROBE | P1.4 variance-decomposition probe in Batch 1. |
 
-### 2g. Open questions for Codex Round 1 (priority-ordered)
+### 2g. Open questions — Round 1 outcomes + new Round 2 asks
 
-1. Is the moduli-space framing (§1a) a useful formalization, or pretentious decoration over a simpler framing?
-2. Is "trajectory through state space" the right primary object, or should weights / dynamics-of-weights also be first-class?
-3. Is the agnosticism gate (≥3 classes) sufficient, or does Phase-1 need a stronger statistical framework?
-4. Do the 10 hypotheses H1–H10 cover the load-bearing claims, or is a critical one missing?
-5. Given the envelope, what is the MINIMAL first atlas — the smallest sprint that yields a defensible Level-1 claim?
-6. Is there an inherited paradigm we're assuming (e.g., "layers are discrete, indexable by integer") that breaks on some class?
-7. Should the Phase-1 minimum viable atlas be *one primitive across all 9 classes* or *three primitives across 3 classes*? What's the tradeoff?
+**Answered in Round 1:**
+- Q3 (agnosticism gate sufficient?) — **No.** Split into two-gate spec (§2.5).
+- Q4 (H1-H10 cover load-bearing claims?) — **Not quite.** Added H11 (Koopman), H12 (stimulus dominance), H13 (quantization stability).
+- Q5 (minimal first atlas?) — **ID + PR + spectral slope on 3 language classes with full Gate-1 control suite.**
+- Q6 (inherited paradigm breaking on some class?) — **Yes: ℓ/L depth normalization.** Added A9; P1.5 tests it.
+- Q7 (one primitive × 9 classes or 3 primitives × 3 classes?) — **3 primitives × 3 classes first (Batch 1). Then expand classes per primitive that passes Gate 1.**
+
+**Partially answered (open for Round 2):**
+- Q1 (moduli-space framing useful?) — Codex did not explicitly rule; it accepted the formalization but questioned whether H10 (multi-chart cover) reflects structural reality. Round 2 asks Codex to explicit-rule on moduli-space usefulness given the two-gate redesign.
+- Q2 (trajectory as primary object vs. weights) — Codex's "operator view" addition (Alt A) and `knowledge-surgeon` cross-reference (weight-space writes succeed where activation-space fails) suggest weights may be a separate coordinate axis, not a substitute. Round 2 asks Codex to rule: one object or two?
+
+**New questions for Round 2:**
+- Q8. Is the two-gate spec (§2.5) sufficient, or are there still underspecified criteria (e.g., numerical tolerances need derivation, not declaration)?
+- Q9. Does the revised Phase 3 Batch 1 actually fix the three kill shots, or does some kill shot persist in a subtler form?
+- Q10. Given the three-language-class parsimony, is there a risk of "language-family-local" laws masquerading as universal? How do we detect this before premature claims?
+- Q11. With Koopman/Ricci/PH deferred, is there a primitive we're missing that should actually be in Batch 1 (e.g., local-neighborhood overlap from Codex Intuition 2)?
+- Q12. What is the priority directive for Round 2?
 
 ---
 
-## Phase 3 — Probe batch (DRAFT — will be stress-tested at Codex Round 2)
+## Phase 3 — Probe batch (Round 1-revised)
 
-### 3a. Batch framing
+### 3a. Batch framing (revised per Codex Round 1 §7, §11)
 
-Batch 1 is the **Phase-1 primitive agnosticism sprint.** One set of 3 systems, matched stimulus banks per modality, parallel extraction of activations, four geometric primitives computed on the same trajectories. Any primitive whose measurements superimpose across the 3 classes (under its per-primitive congruence criterion) becomes a Level-2 candidate coordinate. Any that additionally has a first-principles derivation and survives a causal test becomes a Level-1 candidate — the target Phase-6 deliverable.
+Batch 1 is now the **Phase-1 coordinate portability + stimulus-dominance sprint.** It answers one load-bearing question: **can ANY primitive pass Gate 1 (§2.5.1) on ≥3 matched-modality language classes, and is its signal ≫ stimulus-bank variance?**
 
-Later batches (causal tests, biological bridge) depend on Batch 1 picking a winner, so defer.
+Three critical revisions vs. the Round-1 draft:
+1. **Systems restricted to language classes** (Qwen3-0.6B + Mamba2-370M + Falcon-H1-0.5B) — matched tokenization family, single text stimulus bank, no cross-modal confound.
+2. **Primitive zoo pruned to Phase-1 MVP** per Codex §11: ID + Participation Ratio (+ spectral slope as auxiliary). Ricci, persistent homology, and Koopman — each scientifically attractive — **defer to Batch 2** to avoid pipeline-bloat before the first coordinate row lands.
+3. **Gate 1 semantics (§2.5.1) is the promotion criterion**, not "congruent measurements." Every probe checks G1.1–G1.5 explicitly.
 
-### 3b. Shared infrastructure
+Later batches depend on Batch 1 landing at least one Gate-1-passing primitive. If Batch 1 yields zero, the atlas approach is falsified at the primitive-vocabulary level — **we pivot** (see §3f stop-rule).
 
-**Systems (3 classes, all in-envelope):**
-- Qwen3-0.6B (autoregressive LLM) — `Qwen/Qwen3-0.6B` — FP16, ~1.3 GB
-- Mamba2-370M (SSM) — `state-spaces/mamba2-370m-hf` — FP16, ~0.75 GB
-- DINOv2-small (vision encoder) — `facebook/dinov2-small` — FP16, ~0.1 GB
-- **Total VRAM footprint: ~2.2 GB concurrent. Well under the 22 GB ceiling.**
+### 3b. Shared infrastructure (revised)
 
-**Stimulus bank (per-modality natural inputs, NOT content-matched):** Choice justified under A1 challenge — universality is about INTERNAL geometry, not input-matched behavior (Platonic framing). If Codex disputes, we add a content-matched run (MSCOCO captions + images) as a control.
-- LLMs: 5000 sentences of 256 tokens each, sampled from a clean C4 / Wikipedia slice, seed-fixed.
-- DINOv2: 5000 ImageNet-val images at native resolution.
+**Systems (3 language classes, matched modality):**
+- Qwen3-0.6B (Class 1 — autoregressive LLM) — `Qwen/Qwen3-0.6B` — FP16, ~1.3 GB
+- Mamba2-370M (Class 3 — SSM) — `state-spaces/mamba2-370m-hf` — FP16, ~0.75 GB
+- Falcon-H1-0.5B (Class 4 — hybrid, transformer + Mamba2 layers) — `tiiuae/Falcon-H1-0.5B-Instruct` — FP16, ~0.5 GB
+- **Total VRAM footprint: ~2.6 GB concurrent. In envelope.**
 
-**Trajectory extraction:** per-system adapter hooks the canonical internal state. For Qwen3/Mamba2: residual / hidden state at every layer after the block (post-LN), averaged across tokens per sequence → L × D per input. For DINOv2: CLS token + patch-mean at each block → L × D per input. Depth axis ℓ/L is normalized to [0, 1] for cross-system comparison.
+**Controls (mandatory per Codex §7):**
+- **Untrained control:** random-init Qwen3-0.6B. Separates "learned geometry" from "architectural geometry" (G1.4 negative-control rule).
+- **Pooling control:** per-token vs sequence-mean vs last-token. Same model, same stimuli, different pooling. (Codex §7: "ID can change radically with pooling.")
+- **Stimulus-resampling control:** three disjoint sub-sets of the stimulus bank. (G1.3 stability test, H12 variance decomposition.)
 
-**Artifacts (one per system, saved once, reused across probes):**
-- `results/activations/<system_id>.npz` — `(N=5000, L, D_system)` float16 tensor + metadata
-- `results/trajectories/<system_id>.npz` — averaged-per-sequence L × D tensors
-- Kept out of git (.gitignore excludes `*.npz`). Logged in ledger with hash.
+**Stimulus bank (single, versioned, matched):**
+- 5000 sentences × 256 tokens from a clean C4 / Wikipedia slice.
+- Version strings: `text/c4_clean_5k_v1_seed42`, `…v2_seed123`, `…v3_seed456`.
+- Tokenizer fan-out: each model's native tokenizer applied; sequence-length capped at 256 tokens and truncated. Mild detokenization mismatch is acknowledged and part of the invariance-group declaration for the primitive.
+- **No cross-modal stimuli in Batch 1.** Vision, diffusion, JEPA etc. come in later batches with their own conditioning distributions.
 
-### 3c. The 4 probes
+**Trajectory extraction → point-cloud sequence** (new interface per §2b):
+- Qwen3 and Mamba2: hidden state after each of L blocks, per token. 24 layers × 5000 seq × 256 tokens × D. Store as `PointCloudTrajectory` per system.
+- Falcon-H1: hybrid-block output — layer-type (attention vs Mamba) recorded in `meta_k.point_kind_extra`.
+- **Pooling:** generate two point-cloud variants per (system, layer):
+  - `seq_mean`: one state vector per sequence (n_k = 5000)
+  - `per_token_subsample`: random subsample of 5000 tokens across all sequences (n_k = 5000)
+- Depth axis `k_normalized = ℓ / L ∈ [0, 1]`. **A9 load-bearing assumption** — explicitly tested by P1.5.
 
-**P1.1 — TwoNN intrinsic dimension agnosticism test (LEAD)**
+**Artifacts (saved once, reused):**
+- `results/activations/<system_id>_<pooling>.npz` — float16, one per (system, pooling) pair → 6 files, ~600 MB total across all three systems
+- `results/trajectories/<system_id>_<pooling>.pkl` — `PointCloudTrajectory` objects with metadata
+- All excluded by .gitignore (`*.npz`, `*.pkl`). Ledger logs hash + size + config.
 
-- **Question:** Does ID(ℓ/L) factor across architectures as d(ℓ/L) = d₀(system) + α(system) · g(ℓ/L) with a single universal g?
-- **Hypothesis (H1):** Yes. g is a monotonic increasing-then-decreasing (hunchback) curve peaking near ℓ/L ≈ 0.6 in all three.
-- **Counter-hypothesis:** Curves cross or fail to fit a single g under any affine rescaling. Architecture dictates geometry, not a universal.
-- **MVE:** Compute TwoNN ID (Facco et al.) with k=2 at every ℓ/L ∈ {0.0, 0.05, ..., 1.0} on each system's trajectory set. 100 bootstrap resamples of 1000 sequences each to get confidence intervals. Fit single g by joint nonlinear least squares across systems with (d₀, α) per system. Test residual vs. per-system-independent fit via F-test.
-- **Interpretation:** CONFIRM — joint fit residual < 1.5× per-system residual (i.e., universality loses little) and g is monotonic. REFUTE — joint residual > 3× per-system residual OR g is non-monotonic in any class. AMBIGUOUS — in between → add more stimuli.
-- **Cost:** TwoNN ~10 s per (system, ℓ). 3 × 21 × 10 s ≈ 10 min compute after activations saved. Activation extraction dominates (~3 h for 3 systems). **Total: ~3.5 h wall-clock.** Checkpointable (per-system).
+### 3c. The 5 probes (pruned + controlled)
 
-**P1.2 — Ollivier-Ricci curvature agnosticism test**
+**P1.1 — TwoNN intrinsic dimension (LEAD, Gate-1 promotion target)**
 
-- **Question:** Does mean discrete Ollivier-Ricci curvature of a kNN-5 graph on hidden states share a sign (and sign-curve over ℓ/L) across the three classes?
-- **Hypothesis (H3a):** All three show negative mean Ricci at middle layers. Promotes H3 to Level-1 (negative curvature = decoder-causal architecture with trained representations, regardless of architecture family).
-- **Counter-hypothesis:** Mamba2 and DINOv2 show positive or ≈0 mean Ricci. H3 stays Level-2 (transformer-specific).
-- **MVE:** For each system, subsample 1000 sequence-averaged embeddings per layer (every 4th layer — 6 layers total per system, 18 runs total). Build kNN-5 graph, compute Ollivier-Ricci via `GraphRicciCurvature` (Wasserstein-1 variant). Report mean curvature per layer + 95% bootstrap CI.
-- **Interpretation:** CONFIRM — mean Ricci negative in middle layer-band for all 3 systems (no overlap with 0 in CI). REFUTE — any system has positive mean Ricci anywhere in middle band. AMBIGUOUS — mixed signs with overlapping CIs.
-- **Cost:** Graph construction O(n²) on 1000 points ≈ seconds. Ricci ≈ 2–5 min per layer. 18 × 5 min = **90 min total after activations are extracted.** Activations shared with P1.1. **Fits in envelope.**
+- **Question:** Does ID pass Gate 1 on all three language classes? Does the ID(k_normalized) function admit a class-independent g under affine rescaling (H1 Level-2 test)?
+- **Hypothesis (H1):** Gate 1 passes on all three. ID(k) is a monotonic-increasing-then-decreasing (hunchback) curve peaking near k ≈ 0.5-0.7 after affine rescaling `d(k) = d_0(m) + α(m)·g(k)`.
+- **Counter-hypothesis:** Either (a) Gate 1 fails on one or more classes (stimulus-dominated, quantization-sensitive, or estimator-sensitive — kills ID as a coordinate), OR (b) joint fit fails (kills H1 universality; ID stays Level-2 at best).
+- **MVE:**
+  1. Compute TwoNN (k=2) at every k_normalized ∈ {0.0, 0.05, …, 1.0} × 3 systems × 2 pooling variants × 3 stimulus resamples × {FP16, Q8} quantization = 21 × 3 × 2 × 3 × 2 = **756 values** + 100-boot bootstrap CIs.
+  2. **G1.2 invariance check:** rotate point clouds by random orthogonal, verify ID invariant to rotation within `τ_G1.2 = 0.02`.
+  3. **G1.3 stimulus-resample check:** verify `|ID(v1) − ID(v2)| / ID(v1) < τ_resample = 0.10` pairwise across the 3 resamples.
+  4. **G1.4 estimator check:** compute MLE-ID alongside TwoNN, verify `|ID_MLE − ID_TwoNN| / mean < τ_estimator = 0.15`.
+  5. **G1.5 quantization check:** verify `|ID_FP16 − ID_Q8| / ID_FP16 < τ_quant = 0.15`.
+  6. **Negative-control check:** verify `ID_trained ≠ ID_untrained` on at least one layer (else ID measures architecture, not representation — becomes Level-0).
+  7. If all Gate-1 checks pass: joint fit `d(k) = d_0(m) + α(m) g(k)`, test universality via F-test (joint-fit RSS vs per-class RSS).
+- **Interpretation (per §2.5):** PASS-Gate-1 on class C iff G1.1–G1.5 + negative-control all pass on C. PASS-Level-2 iff Gate 1 on ≥3 classes AND joint-fit RSS / per-class RSS < 1.5 AND g monotonic. PASS-Level-1 needs Gate 2 (separate batch; not claimed from Batch 1 alone).
+- **Cost:** TwoNN ~5 s per measurement. 756 × 5 s ≈ 63 min + boot. Activation extraction ~3 h (dominant). **Total: ~4 h wall-clock, fits one experiment.**
 
-**P1.3 — Koopman spectrum agnosticism test**
+**P1.2 — Participation ratio (Gate-1 promotion target)**
 
-- **Question:** Does the Koopman spectrum of the layer-indexed trajectory have a universal functional form across transformer/SSM/vision?
-- **Hypothesis (H11):** Yes. Koopman-mode eigenvalue distributions superimpose on a log-log rank plot after per-system rescaling (Level-1 candidate).
-- **Counter-hypothesis:** Distributions have architecture-family-specific shapes even after rescaling.
-- **MVE:** For each system, treat the (5000, L, D) trajectory tensor as 5000 time-series of length L. Use DMD (dynamic mode decomposition, Schmid 2010) on the per-input L × D matrix; collect eigenvalue spectrum. Aggregate spectra across 5000 inputs → per-system ECDF of |λ_i|. Compare by Wasserstein-1 distance between per-system ECDFs on log-log. Use 100 bootstraps for CI. If log-log linearizes and slopes match across systems within CI: universal power-law Koopman spectrum.
-- **Interpretation:** CONFIRM — Wasserstein distances between all pairs < intra-system bootstrap scatter. REFUTE — distances exceed 3× intra-system scatter. AMBIGUOUS — intermediate.
-- **Cost:** DMD is cheap (SVD of L × D matrices). ~1 s per input. 5000 × 3 = 15000 DMDs ≈ 4 h, but can batch ≈ 100 DMDs at once on GPU → ~150 seconds total. Aggregation + bootstrap another few min. **Total: ~10 min after activations. Negligible cost.**
+- **Question:** Does PR pass Gate 1 on all three language classes? Does PR(k) admit a class-independent functional form?
+- **Hypothesis:** Gate 1 passes on all three (covariance statistics are nearly universal). PR(k) will likely show a compression-expansion shape similar to ID but with different sensitivity to pooling.
+- **Counter-hypothesis:** Gate 1 fails on one or more classes due to pooling sensitivity (H12 variance decomposition will reveal this).
+- **MVE:** Same point clouds as P1.1. Compute PR = `(Σ λ_i)² / Σ λ_i²` where λ_i are covariance eigenvalues. Estimator variants: centered vs uncentered. All G1.1–G1.5 checks + negative control. Joint fit test for Level-2.
+- **Cost:** PR is O(D³) eigendecomp — fast at D ≤ 1024. All measurements ≈ 5 min total. Shares activations with P1.1.
 
-**P1.4 — Persistent homology Betti-0/Betti-1 agnosticism test**
+**P1.3 — Spectral slope (auxiliary, Gate-1 eligibility check)**
 
-- **Question:** Do the Betti-0 and Betti-1 curves over a Vietoris-Rips filtration on each layer's hidden-state cloud share a universal profile across classes?
-- **Hypothesis (inherits from WIKI primitive priority):** Yes. Betti profiles align when normalized by characteristic distance scale.
-- **Counter-hypothesis:** Topology is class-specific — Mamba2 shows distinct Betti-1 structure tied to recurrence.
-- **MVE:** Subsample 500 sequence-averaged embeddings per layer (every 4th layer — 6 layers/system). Compute persistent homology Betti-0 and Betti-1 via `Ripser` with max dimension 2, max edge length normalized to kNN-5 median. Report barcode lengths and Betti numbers at persistent thresholds. Compare across systems with bottleneck distance.
-- **Interpretation:** CONFIRM — bottleneck distance per layer < intra-system bootstrap scatter. REFUTE — bottleneck distance > 3× intra-system. AMBIGUOUS — between.
-- **Cost:** PH on 500 points in reduced-D (SVD-to-50) is ~1–2 min per layer. 18 runs × 2 min = **36 min after activations. Fits.**
+- **Question:** Is the spectral decay exponent of the covariance eigenvalues a Gate-1 coordinate on language classes?
+- **MVE:** Fit power law `λ_i ∝ i^{-β}` on top-100 eigenvalues at each (system, k). Report β(k). Apply G1.1–G1.5. (Optional — this is a cheap addition. Codex §11 allows it.)
+- **Cost:** Negligible on top of P1.2.
 
-### 3d. Batch execution plan (fits COMPUTE.md §9 compliance checklist)
+**P1.4 — Stimulus-dominance variance-decomposition probe (H12, Codex §7 required)**
 
-**Two-experiment split** (each ≤4 h wall-clock, checkpointable):
+- **Question:** For each primitive in P1.1–P1.3, does stimulus variance dominate system or depth variance?
+- **Hypothesis (H12):** Stimulus variance is subdominant: `σ²_stimulus < min(σ²_system, σ²_k) / 2`.
+- **Counter-hypothesis:** Stimulus dominates. In that case universality is ill-posed with current stimuli and we need conditional universality (§2.5 Alt C).
+- **MVE:** Two-way ANOVA on `{primitive_value ~ system + k_normalized + stimulus_resample + interactions}`. Report `σ²_system : σ²_k : σ²_stimulus` ratio per primitive.
+- **Interpretation:** CONFIRM — stimulus variance < 0.5 × min(system, k) → universality claims are well-posed. REFUTE — stimulus dominates → pivot to conditional-universality framing and add more stimulus diversity.
+- **Cost:** statistical analysis only on saved measurements. ~10 min.
 
-**Exp A — Activation extraction + fast primitives (TwoNN + Koopman).**
-- Wall-clock: ~4 h (extraction bound)
-- Max VRAM: ~3 GB (three models loaded concurrently)
-- Max RAM: ~8 GB (activation buffers)
-- Disk artifact: ~600 MB across all three systems
-- Checkpoint: after each system's extraction finishes, save `.npz` before loading next; TwoNN and Koopman compute after save
-- Quantization: FP16 for all three (per COMPUTE.md ladder for <1B dense)
+**P1.5 — Normalization / depth-axis probe (A9 load-bearing test)**
 
-**Exp B — Slow primitives (Ricci + PH) on saved activations.**
-- Wall-clock: ~2.5 h (no model loading, just analysis)
-- Max VRAM: ~0 GB (CPU-only analysis)
-- Max RAM: ~10 GB (point-cloud processing + Ripser)
+- **Question:** Does the raw depth axis `ℓ/L` align primitive curves cross-class, or is a different reparameterization needed (e.g., arc-length in state space, spectral-measure-rank)?
+- **Hypothesis:** `ℓ/L` is at best a weak alignment; a dynamics-based reparameterization (cumulative per-layer state-space speed: `s(ℓ) = Σ_{i≤ℓ} ||X_{i+1} − X_i||_F`, normalized to [0,1]) aligns curves better.
+- **Counter-hypothesis:** No reparameterization improves cross-class alignment — depth is fundamentally class-specific.
+- **MVE:** Using P1.1 ID curves, fit joint g under (a) raw ℓ/L axis, (b) arc-length axis, (c) spectral-rank axis (k reordered by descending spectral gap). Compare joint-fit RSS under each parameterization. Best parameterization wins.
+- **Interpretation:** CONFIRM — at least one reparameterization gives joint-fit RSS < 1.5 × per-class RSS; adopt it. REFUTE — no reparameterization helps; depth is class-specific, H1/H2 stay Level-2 at best even after stimulus controls.
+- **Cost:** statistical analysis only on saved measurements. ~15 min.
+
+Note: **Koopman (H11), Ricci (H3a), and persistent-homology probes are deferred to Batch 2** per Codex Round 1 parsimony mandate (§11). Their Gate-1 checks are expensive and require their own preregs with additional estimator-stability controls. They should not slow Batch 1.
+
+### 3d. Batch execution plan (revised; fits COMPUTE.md §9 compliance checklist)
+
+**Three-experiment split** (each ≤4 h wall-clock, checkpointable):
+
+**Exp A — Activation extraction.**
+- Wall-clock: ~3.5 h (extraction bound; 3 systems × 2 pooling variants × 3 stimulus resamples × 2 quantizations = 36 runs but shared activations across some axes)
+- Max VRAM: ~3 GB (three models loaded concurrently OR sequentially with Q8 second pass)
+- Max RAM: ~12 GB (activation buffers for per-token variant)
+- Disk artifact: ~800 MB total
+- Checkpoint: per (system, pooling, resample, quant) — one `.npz` file each
+- Quantization: both FP16 and Q8 per model (for G1.5 stability check)
+
+**Exp B — Primitive computation + Gate 1 checks (P1.1, P1.2, P1.3).**
+- Wall-clock: ~2 h (no model loading; ID + PR + spectral-slope across all saved point-clouds)
+- Max VRAM: 0 (CPU-only analysis on saved tensors)
+- Max RAM: ~12 GB
 - Depends on Exp A artifacts
-- Checkpoint: per (system, layer) pair
+- Includes G1.2 rotation invariance check, G1.3/G1.4/G1.5/negative-control checks
+
+**Exp C — Variance decomposition + normalization probes (P1.4, P1.5) + joint fits.**
+- Wall-clock: ~0.5 h (pure statistics on saved measurements)
+- Max VRAM: 0
+- Max RAM: ~4 GB
+- Depends on Exp B measurements
+- Output: two-way ANOVA, reparameterization comparison, Gate-1 pass/fail tables, Level-2 joint-fit test
 
 **Compliance checklist per experiment (from COMPUTE.md §9):**
-- [x] Max VRAM ≤ 22 GB (3 GB peak)
-- [x] Max RAM ≤ 56 GB (10 GB peak)
-- [x] Wall-clock ≤ 4 h (with split, yes)
-- [x] Disk footprint documented (~600 MB)
-- [x] Quantization logged (FP16)
-- [x] Save-resume path: per-system for Exp A, per-(system, layer) for Exp B — verified viable; smoke-test required before launch (5 inputs × 2 layers)
+- [x] Max VRAM ≤ 22 GB (3 GB peak, Exp A only)
+- [x] Max RAM ≤ 56 GB (12 GB peak)
+- [x] Wall-clock ≤ 4 h per experiment (3.5 h + 2 h + 0.5 h split)
+- [x] Disk footprint documented (~800 MB)
+- [x] Quantization logged (FP16 + Q8 per model)
+- [x] Save-resume path: per-tuple `.npz` for Exp A; per-primitive `.json` for Exp B; final summary `.json` for Exp C
+- [ ] **Smoke test required before launch** (5 sentences × 2 layers × 1 system, end-to-end through Exp A+B+C) — prereg checkpoint
 
 ### 3e. Dependencies and deferrals
 
-**Not in Batch 1:**
-- **Causal tests** (for any candidate Level-1 that emerges) — Batch 2, after Batch 1
-- **Biological bridge** (Allen Neuropixels RSA/ID/Koopman) — Batch 3, after a primitive is promoted
-- **Additional classes** (diffusion, reasoning, hybrid, JEPA, world model, controls) — Batches 4+, sequentially per system class added to registry
-- **Content-matched stimuli control** (MSCOCO) — added to Batch 1 only if Codex disputes the "natural-inputs" choice
+**Not in Batch 1** (deferred for anti-entropy — one sprint at a time):
+- **Koopman spectrum probe (H11)** — Batch 2, after Batch 1 validates that any coordinate can pass Gate 1 on language classes
+- **Ollivier-Ricci probe (H3a)** — Batch 2, with pre-registered graph-construction protocol
+- **Persistent-homology probe** — Batch 2, with pre-registered point-cloud subsampling stability check
+- **Causal test for any Gate-1-passing primitive (Gate 2 G2.4)** — Batch 3
+- **Biology bridge (Allen V1 first, per Codex §5 and §8 — bio-first-for-vision-class)** — Batch 4, for vision-class coordinates; LLM-specific bio bridge via fMRI-language dataset is later still
+- **Cross-modal extension** (diffusion, vision encoder, JEPA, world model) — Batches 5+, sequentially per class. **First extension target: vision encoder (DINOv2) with Allen V1 bio bridge co-planned.**
 
-### 3f. Stop-rule
+### 3f. Stop-rule (revised per Gate 1 semantics)
 
-If ALL four primitives in Batch 1 fail agnosticism at their congruence criterion: **atlas approach is falsified at the primitive level.** Pivot to a different class of object — most likely weight-space structure or dynamics-of-weights — before committing more compute. This is the design kill-criterion for the current Phase-1 direction.
+If ALL three candidate primitives (ID, PR, spectral slope) fail Gate 1 on at least one of the three language classes: **atlas approach is falsified at the primitive-vocabulary level on language.** Options:
+1. **Pivot primitive family.** Move to dynamics-first primitives (Koopman, Lyapunov, local neighborhood overlap) in a new Batch 1'.
+2. **Pivot object.** Move from activation geometry to weight-space geometry (informed by `knowledge-surgeon` — LoRA weight-space edits succeed where activation-space edits fail — Mystery 2).
+3. **Pivot framing.** Abandon primitive-hunting and attempt a task-based approach (e.g., CTI's rate-distortion lineage).
+
+This is the design kill-criterion for the current Phase-1 direction, now operationalized through Gate 1 rather than informal congruence.
 
 
-
----
-
-## Phase 2 — Mental machine (pending)
-
----
-
-## Phase 3 — Probe batch (pending)
-
----
-
-## Phase 4 — Codex rounds (pending)
-
-Codex invocation log. Each round: timestamp, session id / -o file, key findings, priority directive issued.
 
 ---
 
-## Phase 5 — Adversarial audits (pending)
+## Phase 4 — Codex rounds (active)
+
+Codex invocation log. Each round: timestamp, session id / output file, key findings, priority directive issued.
+
+| Round | Timestamp | Output file | Top finding | Priority directive | Sacred-outcome scores (S1..S7) | Overall (1-10) |
+|---|---|---|---|---|---|---|
+| 1 | 2026-04-20 | `.codex/outputs/round1.md` | Agnosticism gate conflates "measurement congruence" with "coordinate promotion"; trajectory tensor is transformer-shaped; stimulus treated as component not conditioning variable | Derive and pre-register the agnosticism gate semantics (invariances + stability + semantic comparability) | 2, 2, 3, 3, 3, 4, 3 | 8/10 |
+| 2 | queued | `.codex/outputs/round2.md` | — | — | — | — |
 
 ---
 
-## Phase 6 — Blueprint (pending)
+## Phase 5 — Adversarial audits (scheduled at rounds 5, 10, 15, and at claimed convergence)
+
+*(none yet — triggers at Round 5)*
+
+---
+
+## Phase 6 — Blueprint (pending; produced at convergence)
 
 ---
 
@@ -584,6 +802,7 @@ Cron job: `cf3f1112` @ `4,34 * * * *` (session-only, 7-day auto-expire). One-lin
 |---|---|---|---|---|
 | T+0 (session start) | ON TRACK | No | — | Phase 1a decomposition + Phase 1b research in parallel |
 | T+0.5 (post-Phase-1+2 draft) | ON TRACK | No | Codex Round 1 fired in background (task `b2kmq8iou`); U5/U8 research in parallel | Process U5 (null result — Ricci-on-SSM unpublished) and U8 (Koopman strong candidate) into §1b research brief; draft Phase 3 probe batch while Codex runs |
+| T+1h (post-Round-1 Codex output) | ON TRACK | No | Codex scored 8/10, flagged 3 kill shots; revised §1a axioms with verdicts, added A9/A10, H12/H13, added §2.5 agnosticism gate semantics (priority directive deliverable), rewrote §2a/§2b/§2c/§2d for point-cloud + operator view, rewrote §3 Batch 1 for language-only + controls | Fire Codex Round 2 on revised artifacts; continue compressing/aligning research brief with intuitions from Round 1 while it runs |
 
 ---
 
