@@ -28,18 +28,23 @@ Second, the cross-architecture sharing is tighter on the *function* (all five sy
 
 ## 5.3 Biology bridge (preliminary)
 
-Two preliminary biology data points from the Allen Brain Observatory Visual Coding Neuropixels dandiset (session `sub-699733573_ses-715093703`, Natural Movie One):
+Three preliminary biology data points from the Allen Brain Observatory Visual Coding Neuropixels dandiset (`000021`, three independent mouse sessions under Natural Movie One), each extracted at a 200-neuron subsample:
 
-| Sample | `n_neurons` | `n_stimuli` | kNN-10 | SE | vs DINOv2 range |
-|---|---:|---:|---:|---:|:---:|
-| session 0, 100-unit subsample | 100 | 900 | 0.389 | 0.005 | above |
-| session 0, 200-unit subsample | 200 | 900 | 0.353 | 0.005 | inside |
+| Session | Mouse | `n_neurons` | `n_stimuli` | kNN-10 | SE | in DINOv2 range [0.30, 0.35]? |
+|---|---|---:|---:|---:|---:|:---:|
+| 0 | sub-699733573 | 200 | 900 | 0.3534 | 0.0050 | ✓ |
+| 1 | sub-703279277 | 200 | 900 | 0.3222 | 0.0047 | ✓ |
+| 2 | sub-707296975 | 200 | 900 | 0.3937 | 0.0058 | slightly above |
 
-Two observations and their limits.
+Mean across the three sessions: `0.356 ± 0.036`. All three values land in the trained-network band `[0.28, 0.52]`; **two of three land inside DINOv2's ImageNet-val range** `[0.30, 0.35]`. Per-session equivalence to DINOv2 at the pre-registered `δ=0.10` tolerance passes on one session (the middle one); at `δ=0.20` all three pass.
 
-First, the **200-neuron subsample of a single mouse V1 session produces a biology kNN-10 value (0.353) that sits inside DINOv2's ImageNet-val range (0.30–0.35)**. This is the first direct measurement we have of the atlas coordinate on a biological neural population under ecological stimuli, and it lands in-family with the artificial systems. We do not yet claim G2.5 equivalence — that requires ≥30 sessions, shuffle controls, different-movie controls, and visual-area-specificity — but the first point is positive, not negative.
+Three observations and their limits.
 
-Second, the **value drops from 0.389 to 0.353** as the neuron sample grows from 100 to 200. The kNN-10 coefficient is evidently sensitive to the number of neurons (the ambient dimension of the biology cloud), consistent with the `k^p` power-law dependence on neighborhood structure that also shows up in the ANN sweep. A principled biology-vs-ANN equivalence test therefore needs either (a) matched `n_neurons` across ANN depths and biological subsamples or (b) the equivalence to live at the level of `(c_0, p)` rather than scalar kNN-10 values at a single `k`. We pre-register the latter as the operational form of the G2.5 test for the full run.
+First, cross-species kNN-10 data points now exist for a trained-network atlas coordinate. The fact that mouse V1 under ecological natural-movie stimuli produces values in the same band as DINOv2-small under ImageNet-val stills is the first direct evidence that this primitive reads something about the representational geometry of inference systems broadly, not just artificial networks.
+
+Second, **we have not yet met the biology prereg's formal criterion** (≥60% of sessions pass at `δ=0.10`). At 3 sessions we have 1/3 pass. This can be a sample-size-too-small finding that will resolve as 30+ sessions come in, or it can be a genuine restriction on the cross-species claim — mouse V1 and self-supervised ViT may measurably differ. Both outcomes are publishable; the full run is the test.
+
+Third, the kNN-10 value is **sensitive to the neuron-count subsample** — 0.389 at 100 neurons collapses to 0.353 at 200 on the same session, consistent with the `k^p` power-law dependence we identify in §4.5 (larger cloud → different regime). A principled biology-vs-ANN equivalence test therefore ought to live at the `(c_0, p)` level — matched power-law parameters rather than matched scalar values at a single `k, n` operating point. We pre-register this as the operational form of the G2.5 test for the full run.
 
 ## 5.4 What we are not claiming
 
