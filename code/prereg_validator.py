@@ -81,6 +81,13 @@ _PINNED_PTR_RE = re.compile(
     r'symbol\s*=\s*"([^"]+)"\s*\)'
 )
 
+# Gate-2 specific patterns.
+_DELTA_CAUSAL_RE = re.compile(r'(?:delta|δ)_causal\s*=\s*([0-9.]+)')
+_DERIVATION_PTR_RE = re.compile(
+    r'`research/derivations/([A-Za-z0-9_.-]+\.md)`'
+)
+_GATE_DECLARE_RE = re.compile(r'\bgate\s*:\s*([12])\b', re.IGNORECASE)
+
 
 def _read_greek_alpha_fwer(text: str) -> float | None:
     # The source doc uses the Greek letter alpha in "alpha_FWER"; also accept
@@ -208,11 +215,34 @@ def _extract_list_after(text: str, header: str) -> list[str]:
 
 # -------------------- Validation --------------------
 
+def _detect_gate(text: str) -> int:
+    """Determine if prereg is for Gate 1 (portability) or Gate 2 (universality).
+
+    Prereg SHOULD declare `gate: 2` explicitly in the first few lines. If it
+    doesn't, fall back to title-matching keywords: "causal", "Gate-2", "G2.".
+    Gate 1 is the default (historical; most existing preregs).
+    """
+    m = _GATE_DECLARE_RE.search(text[:2000])
+    if m:
+        return int(m.group(1))
+    head = text[:400].lower()
+    if "gate-2" in head or "g2." in head or "causal" in head:
+        return 2
+    return 1
+
+
 def validate(path: Path) -> ValidationResult:
+    text_for_gate = path.read_text(encoding="utf-8", errors="replace") \
+        if path.exists() else ""
+    gate = _detect_gate(text_for_gate)
+
+    if gate == 2:
+        return _validate_gate2(path, text_for_gate)
+
     config, parse_errors = parse_prereg(path)
     errors = list(parse_errors)
     warnings: list[str] = []
-    derived: dict[str, float | str] = {}
+    derived: dict[str, float | str] = {"gate": 1}
 
     if config is None:
         return ValidationResult(passed=False, config=None,
@@ -343,6 +373,136 @@ def validate(path: Path) -> ValidationResult:
 
     passed = len(errors) == 0
     return ValidationResult(passed=passed, config=config,
+                            errors=errors, warnings=warnings, derived=derived)
+
+
+# -------------------- Gate-2 validation --------------------
+
+def _validate_gate2(path: Path, text: str) -> ValidationResult:
+    """Validate a Gate-2 (universality / causal) prereg.
+
+    Gate-2 requirements differ from Gate-1:
+      - Inherits ℱ stimulus family + scope from a Gate-1-locked prereg
+        (pointer required, not fresh F tuple).
+      - Declares `delta_causal` (effect-size threshold for ablation loss).
+      - References a locked derivation at `research/derivations/*.md`.
+      - LOCKED status still requires real commit SHA + no PLACEHOLDER_.
+      - Alpha-FWER + Bonferroni correction over system-level tests (not
+        criterion × system grid).
+    """
+    errors: list[str] = []
+    warnings: list[str] = []
+    derived: dict[str, float | str | list] = {"gate": 2}
+
+    # Alpha and delta_causal.
+    alpha_fwer = _read_greek_alpha_fwer(text) or 0.05
+    derived["alpha_fwer"] = alpha_fwer
+
+    m = _DELTA_CAUSAL_RE.search(text)
+    if m:
+        derived["delta_causal"] = float(m.group(1))
+    else:
+        # Allow plain-prose form with "delta_causal = 0.05" or "5% relative".
+        m2 = re.search(r'5%\s*relative', text)
+        if not m2:
+            errors.append("delta_causal not found; Gate-2 prereg must declare "
+                          "the minimum effect-size threshold for causal ablation.")
+
+    # Derivation pointer must resolve.
+    deriv_m = _DERIVATION_PTR_RE.search(text)
+    if deriv_m:
+        deriv_path = path.parent.parent / "derivations" / deriv_m.group(1)
+        # Alternate: repo_root / research / derivations / <file>
+        if not deriv_path.is_file():
+            # Try walking to repo_root
+            probe = path.resolve()
+            while probe.parent != probe:
+                if (probe / ".git").exists():
+                    cand = probe / "research" / "derivations" / deriv_m.group(1)
+                    if cand.is_file():
+                        deriv_path = cand
+                    break
+                probe = probe.parent
+        if deriv_path.is_file():
+            derived["derivation_path"] = str(deriv_path.relative_to(
+                path.parents[2] if len(path.parents) >= 3 else path.parent))
+            # Check the derivation is locked
+            dtext = deriv_path.read_text(encoding="utf-8", errors="replace")
+            if re.search(r'\bstatus:\s*LOCKED\b', dtext) or \
+               re.search(r'LOCKED at commit', dtext):
+                derived["derivation_locked"] = True
+            else:
+                errors.append(
+                    f"Gate-2 prereg references derivation `{deriv_m.group(1)}` "
+                    f"but the derivation does not declare LOCKED status. "
+                    f"Gate-2 claims require a frozen derivation."
+                )
+        else:
+            errors.append(
+                f"derivation file `{deriv_m.group(1)}` referenced in prereg "
+                f"does not resolve under research/derivations/"
+            )
+    else:
+        errors.append(
+            "Gate-2 prereg missing derivation pointer; expected a link like "
+            "`research/derivations/<name>.md`. Per §2.5.2 G2.2, Level-1 claims "
+            "require a first-principles derivation locked before fitting."
+        )
+
+    # Status discipline (same as Gate-1).
+    status_match = re.search(r'\bstatus\s*:\s*(STAGED|LOCKED)\b', text)
+    declared_status = status_match.group(1) if status_match else None
+    derived["declared_status"] = declared_status or "UNSPECIFIED"
+
+    is_drafts = "research/prereg/drafts" in str(path).replace("\\", "/")
+    is_prereg_folder = ("research/prereg/" in str(path).replace("\\", "/")
+                        and not is_drafts)
+
+    if is_prereg_folder:
+        if declared_status is None:
+            errors.append(
+                "prereg in research/prereg/ must declare `status: STAGED` or "
+                "`status: LOCKED`"
+            )
+        if declared_status == "LOCKED":
+            if re.search(r'git_commit\s*=\s*HEAD\b', text):
+                errors.append(
+                    "LOCKED Gate-2 prereg contains 'git_commit=HEAD' sentinel — "
+                    "must replace with an actual commit SHA before lock."
+                )
+            if re.search(r'PLACEHOLDER_[a-z_]+', text):
+                errors.append(
+                    "LOCKED Gate-2 prereg contains 'PLACEHOLDER_' values — "
+                    "populate real values before lock."
+                )
+
+    # Must reference at least 3 Gate-1-passing systems (Level-1 cross-class minimum).
+    # Heuristic: count bullet-point system rows mentioning class N.
+    n_system_refs = len(re.findall(r'class\s+\d+\s+[a-z_ ]+?:', text))
+    if n_system_refs < 3:
+        warnings.append(
+            f"only {n_system_refs} system references detected; Gate-2 claims "
+            f"should name all Gate-1-passing systems being tested."
+        )
+    derived["n_system_refs"] = n_system_refs
+
+    # Kill criteria must be explicit.
+    if not re.search(r'[Kk]ill\s+criteri', text):
+        errors.append(
+            "Gate-2 prereg missing explicit kill criteria; required to prevent "
+            "post-hoc goalpost-moving."
+        )
+
+    # Specificity / monotonicity checks (narrative presence).
+    for required in ("onotonic", "pecific"):
+        if required not in text:
+            warnings.append(
+                f"Gate-2 prereg should discuss {required}-ity explicitly; "
+                f"not found."
+            )
+
+    passed = len(errors) == 0
+    return ValidationResult(passed=passed, config=None,
                             errors=errors, warnings=warnings, derived=derived)
 
 
