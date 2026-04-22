@@ -8,6 +8,19 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 ---
 
+## ⚡ TIER-0 FRAMING — READ BEFORE EVERY ACTION ⚡
+
+**We are ONE independent researcher competing against DeepMind, Anthropic, OpenAI, Google, Meta.** Workshop-grade "we measured X across 9 models" papers are what they already publish monthly. We will not stand out that way. Every action must advance toward: (a) **first-principles derivation**, not phenomenology, or (b) a finding the big labs architecturally cannot/will not publish because it contradicts "scale = capability", or (c) **electricity-grade efficiency** on a real task (10× less compute, match capability). "Tighter error bars" / "one more architecture row" / "another figure" default to NO unless they enable (a)/(b)/(c). See `CLAUDE.md §0.1` for the full framing.
+
+**Current distinctive-direction status (2026-04-21 session):**
+- (a) Derivation: **c = p × d_rd modality-stratified training invariant** (text c≈2.07, vision c≈3.18) — genome_036 / 037 / 038 / 039. First quantitatively predictive derivation candidate after A/B/C falsified. Pending: explain the specific integers 2 and 3 from first principles.
+- (b) Big-lab-forbidden finding: **training-convergence negative control** (genome_028-033): random-init p spans 22× wider than trained. Big labs won't publish this because "training produces good geometry" isn't their product.
+- (c) Efficiency: **pre-registered decision rule** `ΔR²(Q8) ≤ -0.003 → ΔNLL(Q4) ≥ 2%` VALIDATED on held-out Qwen3-1.7B (genome_035). Proof-of-concept, not yet electricity-grade.
+
+**When in doubt, fire Codex with:** *"given current state, which action has the highest probability of producing a finding DeepMind cannot or will not produce?"*
+
+---
+
 ## How to read this file
 
 - Every section is scannable. Scan it.

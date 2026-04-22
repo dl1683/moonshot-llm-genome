@@ -4,6 +4,29 @@
 
 ---
 
+## 0. The Competitive Reality
+
+**We are one independent researcher. DeepMind, Anthropic, OpenAI, Google, Meta publish representational-geometry papers monthly with more compute, more authors, and more review cycles than we can match.** "We measured X across N architectures, pre-registered it, it mostly held up" — that is the baseline product of those labs. If our output looks like that, we are invisible.
+
+**We win by doing exactly what those labs cannot or will not publish:**
+1. **First-principles derivation**, not phenomenology. If we can predict an observed invariant from information-theoretic or geometric axioms before fitting, we have a Nature-grade claim. If we can only fit it, we have a workshop paper nobody reads.
+2. **Findings that contradict "bigger model = better"**, because that is the product of every big lab. The manifesto — *intelligence is geometry, not scale* — is structurally hostile to the business model of scaling labs. They cannot push this agenda. We can.
+3. **Electricity-grade efficiency** on a real task. Not "this signal correlates with quantization cost" — actually *training* a model at 10× less compute using geometry-derived tools, matching baseline capability. That is the manifesto cashing in. That is what Weka / Furiosa / Martian / VERSES will care about.
+4. **Pre-registered falsification discipline**. Big labs cannot write papers this way — their output is the capability, not the epistemic process. We can, and this is a structural differentiator for serious reviewers.
+
+**The default answer to any marginal improvement — another model row, tighter error bars, one more figure — is NO**, unless it directly enables (1)–(4). Paper polish that makes us look like a smaller DeepMind is the failure mode.
+
+Concretely, as of 2026-04-21, the breakthrough-aligned directions are:
+
+- **Derive why `c = p × d_rd = 2.07` for text and `3.18` for vision** from information theory. If we show these are not free parameters but predicted from stimulus intrinsic-dimension or rate-distortion axioms, we have the theoretical frame the field has been missing.
+- **Train a model with geometry-as-auxiliary-loss** targeting the identified invariant and demonstrate it matches baseline at substantially less compute.
+- **Transfuse trained geometry into a random-init model** surgically and observe capability emergence.
+- **Derive the biology-vs-ANN equivalence from first principles**, not just show it empirically — why does mouse V1 land at the same `c` as DINOv2?
+
+None of this is done. The current paper (8900 words, 10 tables, 4 figures) is workshop-grade respectable — useful scaffolding, not the breakthrough.
+
+---
+
 ## 1. The Bet
 
 Every trained neural network — regardless of architecture, modality, or training objective — compresses some structure about its training distribution into its representations. The compression is not random: it produces geometric regularities. We bet that those regularities, properly measured and compared across systems, resolve into a small number of universal laws.
