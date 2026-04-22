@@ -107,6 +107,16 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
     # Added 2026-04-21 per user-directed scope expansion ("we've only
     # tested decoder models"). Each class probes a distinct training-objective
     # or modality axis the Batch-1 bestiary is blind to.
+    "roberta-base": {
+        "hf_id": "FacebookAI/roberta-base",
+        "class_id": 7,
+        "class_name": "masked-LM encoder (RoBERTa, MLM objective, BPE)",
+        "approx_params": 125_000_000,
+        "modality": "text",
+        "uses_causal_lm": False,
+        # Added 2026-04-22 as second-MLM disambiguation for genome_053
+        # candidate-5 test (is BERT outlier at c=2.65 MLM-specific or BERT-specific?).
+    },
     "bert-base-uncased": {
         "hf_id": "bert-base-uncased",
         "class_id": 7,

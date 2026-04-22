@@ -109,12 +109,12 @@ def main():
     er_s = eff_rank(s_shuffled)
     er_g = eff_rank(s_gauss)
 
-    print(f"\n  Trained:      α={fit_t['alpha']:.3f}  eff_rank={er_t:.1f}  top-10 σ = {[round(float(x),2) for x in s_trained[:10]]}")
-    print(f"  Shuffled:     α={fit_s['alpha']:.3f}  eff_rank={er_s:.1f}")
-    print(f"  Gaussian:     α={fit_g['alpha']:.3f}  eff_rank={er_g:.1f}")
+    print(f"\n  Trained:      alpha={fit_t['alpha']:.3f}  eff_rank={er_t:.1f}  top-10 sigma = {[round(float(x),2) for x in s_trained[:10]]}")
+    print(f"  Shuffled:     alpha={fit_s['alpha']:.3f}  eff_rank={er_s:.1f}")
+    print(f"  Gaussian:     alpha={fit_g['alpha']:.3f}  eff_rank={er_g:.1f}")
 
     print(f"\n  Compare eff_rank to d_rd (k-means scaling): trained d_rd=12.3, shuffled=32.4")
-    print(f"  Compare α: trained has steeper decay -> concentrated joint structure")
+    print(f"  Compare alpha: trained has steeper decay -> concentrated joint structure")
 
     out = {
         "trained": {"alpha": fit_t["alpha"], "eff_rank": er_t,
