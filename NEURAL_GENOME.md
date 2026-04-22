@@ -1,6 +1,6 @@
 # The Neural Genome
 
-A 112 KB vector table carries 49% of the capability of a 600 M-parameter model.
+A 28 KB vector table — covering just the last 7 of 28 transformer layers — carries 53% of the capability of a 600 M-parameter model.
 
 ## The claim
 
@@ -13,11 +13,26 @@ With the atlas installed, NLL drops to 10.40. **Fraction of the capability gap c
 | Quantity | NLL |
 |---|---:|
 | Teacher (pretrained Qwen3-0.6B) | 3.67 |
-| Student (all 28 layers lesioned) | 16.90 |
-| Student + 112 KB atlas (this result) | 10.40 |
-| fraction_gap_closed | **+0.491** |
+| Student (all 28 layers lesioned) | 18.10 |
+| Student + full 112 KB atlas (28 layers) | 10.28 |
+| Student + **28 KB atlas (last 7 layers only)** | **10.49** |
+| fraction_gap_closed (last-7) | **+0.527** |
+| fraction_gap_closed (all-28) | +0.542 |
 
-The half-atlas control (patching only the first 14 layers) is null (-1.4% gap closed). The recovery is not layer-additive — all layers contribute jointly. Atlas size is the full 28-layer table or nothing.
+**The genome is localized to the last quarter of the network.** Sweeping which layers get patched (`genome_079`):
+
+| Regime | layers patched | fg_closed |
+|---|---:|---:|
+| none | 0 | +0.003 |
+| first-7 (layers 0-6) | 7 | +0.009 |
+| **last-7 (layers 21-27)** | **7** | **+0.527** |
+| first-14 | 14 | +0.116 |
+| last-14 | 14 | +0.445 |
+| mid-14 (layers 7-20) | 14 | **-0.012** |
+| alternate (every 2nd) | 14 | +0.383 |
+| all-28 | 28 | +0.542 |
+
+The middle 14 layers alone contribute essentially zero. The last 7 layers alone carry the entire observed effect. Storage for the landmark result: **28 KB** — 1 / 40,000 of the 1.2 GB weight file.
 
 ## Why it works
 
