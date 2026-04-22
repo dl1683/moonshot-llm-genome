@@ -293,16 +293,23 @@ README landmark-findings block added. GENOMEGUARD.md updated with cross-arch + c
 
 **Scope lock (2026-04-22):** CS/AI/MATH ONLY. No biology. End goal: capability transfer + model surgery + AI diagnostic tools. See `CLAUDE.md §0.05`.
 
-**🔥 Session T+50h landmark (genome_078):** a 112 KB per-layer mean-activation atlas recovers **49% of capability** in a fully-lesioned Qwen3-0.6B (all 28 blocks' matmul weights scrambled). Half-atlas is null. The "neural genome" is literal. See `NEURAL_GENOME.md`.
+**🔥 Session T+50h landmark — HONEST FINAL SCOPE (genome_078 → genome_084):**
 
-Related: single-layer mean-shift surgery closes 57–67% across 3 lesion depths (`genome_074`, `genome_075`). Rank-48/256/1024 linear adapters FAIL at the same task (`genome_074` v1/v2). Mean+rotation Procrustes HURTS. The right adapter class is pure additive, not rotational.
+A 28 KB per-layer mean-activation atlas (last 7 of 28 layers) recovers **53% of next-token NLL gap** in a fully-lesioned Qwen3-0.6B. Cross-size ridge projection transfers 59% to Qwen3-1.7B.
 
-1. **Neural-genome layer-coverage sweep (IN FLIGHT).** 8 patching regimes to characterize which layers carry the signal. Result in `results/gate2/full_mean_genome_sweep.json`.
-2. **Cross-size atlas transfer.** Qwen3-0.6B teacher atlas (1024-d) → Qwen3-1.7B student (2048-d) via learned linear projection. If it works, cross-size capability transfer via a small table.
-3. **Cross-family same-size atlas transfer.** Any two 1024-d trained CLMs — does teacher atlas patch student of different family?
-4. **Task-specific capability recovery.** Does atlas restore arithmetic/reasoning accuracy, not just NLL?
-5. **Candidate-8 P3 richer derivation** (genome_076 MP+lowrank MISSED). Try Wishart-with-structured-signal.
-6. **GenomeGuard real-training extended.** genome_077 landed 1/2 sabotage modes (100-step lead on grad-sign-flip). Need real LR-blowup + stale checkpoint modes.
+**Scope corrections from `genome_083` + `genome_084`:**
+1. NLL recovery is unigram-prior restoration — atlas-patched models generate degenerate repetition (`" directly directly..."`) not coherent text.
+2. Atlas works ONLY on fully-destroyed models. Partial lesion (last-7 only, early/middle intact) → +0.2% null. Teacher-unconditional mean doesn't match context-conditional target.
+
+Honest framing: **the atlas is a distribution-prior restorer, not a capability-surgery primitive.** Interesting scientific finding; the "model surgery" framing is withdrawn. See `NEURAL_GENOME.md` for full scope-corrected summary.
+
+**Atlas work is scope-closed** (genome_078 → genome_084). Neural-genome atlas is a distribution-prior restorer, not a surgery primitive. Further atlas variants (rank-k correction, covariance matching) are not the highest-leverage direction now.
+
+1. **Gradient-distillation surgery.** To restore coherent generation in a lesioned model we need to restore context-conditional distributions, not just means. Fit a short gradient-distillation pass (few hundred steps) on the LAST N layers using teacher logits as target while middle/early layers stay frozen. If 50-100 steps of last-N distillation recovers coherent generation, we have a cheap model-surgery primitive that's actually useful.
+2. **Candidate-8 P3 richer derivation** (genome_076 MP+lowrank missed). Try Wishart-with-structured-signal, or use empirical spectrum directly.
+3. **GenomeGuard real-training extended.** genome_077 partial (100-step lead on grad_sign_flip). Need bigger LR-blowup and stale-checkpoint reload sabotage modes.
+4. **Preprint + release tag.** Candidate-8 bridge + GenomeGuard + 12-op null + atlas-unigram-narrow is a coherent paper-grade package if framed honestly. Synthesis already in `research/BREAKTHROUGH_SYNTHESIS.md`.
+5. **Cross-family bridge validation.** Candidate-8 measured on different trained model families within same h-dim (e.g., Phi-3-mini? RedPajama?). Strengthens universality.
 
 **Explicitly out of scope:** biology, mouse V1, neural recordings.
 
