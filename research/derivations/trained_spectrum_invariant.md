@@ -181,7 +181,32 @@ Simulated at n=800, α_true=0.8, varying k_head:
 | 20 | 102.8 | 7.25 |
 | 50 | 218.2 | 8.73 |
 
-The empirical trained ML invariant ≈ 4.27 corresponds to k_head ∈ [4, 6]. The fit (`genome_091` pending) will localize the true empirical k_head value.
+My initial hand-picked candidate was (k_head=5, α_true=0.8). The empirical invariant ≈ 4.27 happens to match this specific parameter choice, but `genome_091` (fitting the shape to empirical spectra) reveals k=5 is NOT the right shape.
+
+### P7. Shifted-power-law FALSIFIED as spectrum model (`genome_091`, 2026-04-22)
+
+Fit `log σ² = logA - 2·α·log(i + k)` to empirical spectra of 5 text systems via scipy `curve_fit` on log-log space:
+
+| System | α_pure | k_head_fit | α_true_fit | R² | er_pred | er_emp |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen3-0.6B | 0.806 | 125.77 | 1.991 | 0.87 | 98.4 | 25.2 |
+| DeepSeek-R1 | 0.727 | 146.33 | 1.807 | 0.87 | 131.8 | 33.6 |
+| BERT-base | 0.812 | 125.88 | 2.170 | 0.84 | 86.8 | 33.3 |
+| RoBERTa-base | 0.799 | 129.12 | 2.209 | 0.85 | 86.7 | 28.0 |
+| MiniLM-L6 | 0.789 | 106.01 | 2.287 | 0.84 | 67.4 | 27.9 |
+| **mean** | **0.787** | **126.62** | **2.093** | 0.85 | ~94 | ~30 |
+| **CV** | 3.9% | 10.1% | 8.2% | | | |
+
+Two things to note:
+
+1. **k_head converges to ~127 universally** (CV 10%), not 5. My hand-picked k=5 was a coincidence of the invariant formula (k=5, α=0.8 happens to give the same er·α² ≈ 18 as the empirical) — not the actual spectrum shape.
+2. **The fitted shape predicts eff_rank 3-4× too high** (67-132 vs empirical 25-34). Log-log R² = 0.85 is decent for curve-matching but does NOT mean the shape reproduces eff_rank.
+
+Conclusion: **the shifted-power-law `σ²=(i+k)^(-2α)` is NOT the correct trained-spectrum shape.** It can mimic the log-log singular-value decay with R²≈0.85, but it fails to reproduce the participation ratio (eff_rank). A richer two-regime model (e.g., flat plateau + steep tail) is needed. 
+
+However, the observation that `k_head` and `α_true` cluster tightly across 5 systems (CV 10% and 8%) is independently useful — it says trained spectra do converge to a specific shape, just not the simple shifted power-law. Fitting a two-regime (broken power-law) or rational-function model is the next derivation step.
+
+The invariant `sqrt(eff_rank)·α ≈ 3√2` is empirically robust — `genome_088` and `genome_089` both confirm. **The invariant is validated. The derivation of its constant 18 via a spectrum-shape model is OPEN.**
 
 ## Relation to existing claims
 
