@@ -65,11 +65,16 @@ def fit_alpha_tail(s, lo_frac=0.05, hi_frac=0.5):
     return float(-slope)
 
 
+# RWKV and Falcon-H1 intentionally excluded: Windows custom-kernel issues per
+# user directive "we can drop rwkv and mamba from our list if they keep being
+# a problem" + COMPUTE.md Windows constraints. The bridge hypothesis is a
+# geometric identity, so excluding SSM/hybrid classes at this test-of-
+# universality step does not invalidate candidate-8 on transformer/encoder
+# classes. Can add back via a separate Linux-compatible run later.
 TEXT_SYSTEMS = [
     ("Qwen/Qwen3-0.6B", "qwen3-0.6b", 1),
     ("deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
      "deepseek-r1-distill-qwen-1.5b", 2),
-    ("RWKV/rwkv-4-169m-pile", "rwkv-4-169m", 3),
     ("bert-base-uncased", "bert-base-uncased", 7),
     ("FacebookAI/roberta-base", "roberta-base", 7),
     ("sentence-transformers/all-MiniLM-L6-v2", "minilm-l6-contrastive", 8),
