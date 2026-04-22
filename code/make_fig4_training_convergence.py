@@ -92,10 +92,29 @@ def main():
         if ps.size:
             multi_seed["qwen3-0.6b"] = (float(ps.mean()), float(ps.std(ddof=1)))
 
+    # Load trained 3-stim-seed data for trained error bars
+    trained_multi = {}
+    tmf = _ROOT / "results/gate2/trained_stim_seed_sweep_all.json"
+    if tmf.exists():
+        tdata = json.loads(tmf.read_text())
+        for sk, s in tdata.get("per_system_summary", {}).items():
+            trained_multi[sk] = (s["p_mean"], s["p_std"])
+    q32 = _ROOT / "results/gate2/qwen3_trained_seed_sweep.json"
+    if q32.exists():
+        qd = json.loads(q32.read_text())
+        trained_multi["qwen3-0.6b"] = (qd["p_mean"], qd["p_std"])
+
     # Horizontal strip plot: trained on one row, untrained on another
     for i, sk in enumerate(by_system):
         color = SYSTEM_COLOR.get(sk, "gray")
-        if False in by_system[sk]:
+        if sk in trained_multi:
+            pm, ps_ = trained_multi[sk]
+            ax2.errorbar([pm], [1], xerr=[ps_], fmt="o", color=color,
+                         ms=9, capsize=5, mec="black", mew=0.6, zorder=3,
+                         lw=1.5)
+            ax2.text(pm, 1.08, SYSTEM_SHORT.get(sk, sk)[:10], ha="center",
+                     fontsize=7, color=color)
+        elif False in by_system[sk]:
             p = by_system[sk][False]["p_slope"]
             ax2.scatter([p], [1], color=color, s=140, marker="o",
                         edgecolor="black", lw=0.6, zorder=3)
