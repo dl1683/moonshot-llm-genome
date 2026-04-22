@@ -72,7 +72,10 @@ def run_condition(hf_id, sents, label, atlas=None, student_atlas=None, patch_lay
         except Exception as e:
             c = f"<gen error: {e}>"
         completions[p] = c
-        print(f"  [{label}] {p!r} -> {c!r}")
+        # ASCII-safe print: replace non-cp1252 chars for Windows console
+        safe_p = p.encode("ascii", "backslashreplace").decode("ascii")
+        safe_c = c.encode("ascii", "backslashreplace").decode("ascii")
+        print(f"  [{label}] {safe_p!r} -> {safe_c!r}")
     for h in handles:
         h.remove()
     sys_m.unload(); torch.cuda.empty_cache()
