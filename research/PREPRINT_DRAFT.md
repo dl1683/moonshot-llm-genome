@@ -28,7 +28,7 @@ Implications: (1) geometry-as-auxiliary-loss becomes a concrete training-efficie
 6. **Phase transition** — capability recovery from catastrophic lesion requires ~1500 dense-supervision steps and shows phase behavior.
 7. **The null catalog** — 15 forward-transfer operations all fail; the atlas restores unigram prior but not mode diversity.
 8. **GenomeGuard** — training-health monitor from the bridge.
-9. **Aux-loss efficiency** — (pending genome_090) adding the invariant as an aux loss either accelerates or fails to accelerate the phase transition. Either outcome publishable.
+9. **Aux-loss efficiency** — genome_090 tested batch-level eff_rank matching at γ=1e-3. Quantitative NLL/eff_rank trajectories overlap with control (null). Aux was marginally worse on final NLL (0.05). Rep-count at step 500 differed (control 5/5, aux 1/5) but this is likely seed artifact. Diagnosis: γ=1e-3 on batch_size=4 gives aux loss contribution ≤ 0.002 vs kl_loss ~5 — underpowered. Next (genome_093 queued): buffered-aux at K=64 for genuine leverage. Until that lands, honest claim is **the invariant is a capability-coupled measurement, not yet a demonstrated training-speedup primitive.**
 10. **Toward derivation** — shifted power-law `σ² ∝ (i+k_head)^(-2α)` with `k_head ≈ 5` reproduces the invariant at empirical α values; derives to `sqrt(er)·α = 3√2` in closed form (pending numerical validation on empirical spectra via genome_091).
 11. **Discussion** — why trained networks converge to this specific attractor; the role of gradient descent vs architecture vs objective; biology comparison.
 
