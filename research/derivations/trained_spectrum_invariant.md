@@ -331,3 +331,35 @@ Three clean regimes: random-init ~7.5 (architecture-dependent wide spread), iid-
 **The CV structure is robust across most windows (<10%)**, but the specific mean VALUE varies with window choice: 3.57 (early) to 9.99 (very-late). '3√2 ≈ 4.24' is specific to the [5%, 50%] window; different windows yield different tight constants.
 
 Honest reframe: the universal finding is *"any consistent probe definition yields a tight cross-system constant"*, not *"the specific number 3√2 is fundamental"*. The 3√2 match is probe-dependent. The universality of the tight-CV structure is what survives stress-testing.
+
+### P13. Direction identity is shared — `genome_099` (blind spot #4 REFUTED)
+
+Codex flagged: the invariant only describes eigenvalues. If systems share spectrum SHAPE but have DIFFERENT top eigenvector directions, the invariant is epiphenomenal. Direct test: for each of 5 text systems, compute top-30 **left** singular vectors of centered mid-depth activations (on the shared n=800 stimulus space — no cross-h ambiguity), then compute pairwise subspace overlap `||U_A^T U_B||_F² / 30`.
+
+Full overlap matrix:
+
+| | qwen3 | deepseek | bert | roberta | minilm |
+|---|---:|---:|---:|---:|---:|
+| qwen3 | 1.00 | **0.773** | 0.656 | 0.709 | 0.593 |
+| deepseek | 0.773 | 1.00 | 0.634 | 0.670 | 0.577 |
+| bert | 0.656 | 0.634 | 1.00 | **0.699** | 0.625 |
+| roberta | 0.709 | 0.670 | 0.699 | 1.00 | 0.586 |
+| minilm | 0.593 | 0.577 | 0.625 | 0.586 | 1.00 |
+
+Mean off-diagonal overlap = **0.6521** (CV 10%). Random baseline (two 30-dim orthogonal subspaces in R^800) = 30/800 = 0.0375. The empirical mean is **17.4× above random baseline**.
+
+Within-family structure visible: Qwen3↔DeepSeek-R1-Distill-Qwen = 0.77 (same backbone), BERT↔RoBERTa = 0.70 (same MLM family). Cross-family pairs all in [0.58, 0.67]. MiniLM is consistently lowest (smallest hidden dim, contrastive-trained).
+
+**Blind spot #4 refuted.** Different trained text LMs converge not only on the same spectrum shape but also on largely the same top-30 semantic directions when fed the same text. The spectrum invariant reflects real shared structure, not just shared noise level.
+
+Sharpens the interpretation of `genome_093`'s aux-loss null: pushing shape without pushing direction-identity fails to install capability because BOTH are parts of the trained signature. The invariant is a necessary but not sufficient *measurement* of the shared trained manifold.
+
+### Emerging composite claim
+
+Training converges different architectures to a **trained manifold** characterized by:
+1. **Shared spectrum shape** (universal tail CDF `genome_096`, `sqrt(er)·α ≈ 4.3` at our probe `genome_088`)
+2. **Shared top-30 direction identity** (subspace overlap ~0.65, `genome_099`)
+3. **Not reached by random-init** (13.5σ separation from random-init baseline, `genome_097`)
+4. **Capability-coupled but not causally controllable via aux-loss** (matching shape alone insufficient, `genome_093`)
+
+That is a deep universality claim about what trained networks look like internally. The derivation of the constants (what fixes the shape, why 3√2 at this probe, what pins direction-identity across architectures) is the open theoretical problem.
