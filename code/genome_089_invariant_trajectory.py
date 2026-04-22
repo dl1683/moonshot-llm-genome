@@ -178,7 +178,7 @@ def main():
                 safe_print(f"S{step}", p, c)
 
     print(f"\n=== INVARIANT TRAJECTORY ===")
-    print(f"  teacher: sqrt(er)*alpha = {inv_teacher['sqrt_er_alpha']:.3f}  (3√2 = 4.243)")
+    print(f"  teacher: sqrt(er)*alpha = {inv_teacher['sqrt_er_alpha']:.3f}  (3sqrt(2) = 4.243)")
     print(f"  trajectory:")
     for r in log:
         print(f"    step {r['step']:4d}  NLL={r['val_nll']:6.3f}  "

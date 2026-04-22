@@ -113,7 +113,6 @@ def train_one_condition(cond_name, gamma, t0, sys_t, mid, n_layers,
     log = [{"step": 0, "val_nll": float(nll_lesion), **inv_lesion, "rep": 5}]
     batch_size = 4
     max_len = 96
-    er_target = 20.0  # teacher's empirical eff_rank at mid-depth
 
     for step in range(1, 2001):
         idx = ((step - 1) * batch_size) % max(len(train_texts) - batch_size, 1)
@@ -144,11 +143,17 @@ def train_one_condition(cond_name, gamma, t0, sys_t, mid, n_layers,
         kl = F.kl_div(logT_s, logT_t, reduction="none", log_target=True).sum(-1, keepdim=True)
         kl_loss = (kl * mask).sum() / mask.sum().clamp(min=1)
 
-        # Aux loss: push student's mid-depth eff_rank toward target
-        mid_h = s_hidden[mid]  # (b, s, h)
-        pooled = (mid_h * mask).sum(1) / mask.sum(1).clamp(min=1)  # (b, h)
-        er_s = eff_rank_diff(pooled)
-        aux_loss = (er_s - er_target) ** 2
+        # Aux loss: match teacher's batch-level eff_rank at mid-depth
+        # At batch_size=4, er is bounded by 4; teacher's healthy er is
+        # typically ~3.5 (near max spread), degenerate student er ~1.
+        mid_h_s = s_hidden[mid]
+        mid_h_t = t_hidden[mid]
+        pooled_s = (mid_h_s * mask).sum(1) / mask.sum(1).clamp(min=1)
+        pooled_t = (mid_h_t * mask).sum(1) / mask.sum(1).clamp(min=1)
+        er_s = eff_rank_diff(pooled_s)
+        with torch.no_grad():
+            er_t = eff_rank_diff(pooled_t)
+        aux_loss = (er_s - er_t) ** 2
 
         loss = 0.01 * fm_loss + 1.0 * kl_loss + gamma * aux_loss
 
@@ -168,6 +173,7 @@ def train_one_condition(cond_name, gamma, t0, sys_t, mid, n_layers,
                         "kl_loss": float(kl_loss.item()),
                         "aux_loss": float(aux_loss.item()),
                         "er_s_train": float(er_s.item()),
+                        "er_t_train": float(er_t.item()),
                         "wall_s": time.time() - t0})
             print(f"\n  [{cond_name} step {step:4d}] val_nll={nll_now:.3f}  "
                   f"eff_rank={inv['eff_rank']:.2f}  alpha={inv['alpha']:.3f}  "
