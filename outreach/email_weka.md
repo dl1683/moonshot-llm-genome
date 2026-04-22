@@ -31,10 +31,10 @@ Specifically: the same `eff_rank / d_rd` coordinate that tells Furiosa which lay
 
 This is where I want to be honest: the KV-caching application is an instinct, not a proven result yet. I want to explore it with your team, not pitch it as a done deal. But if the instinct is right, NeuralMesh gets a geometry-aware caching policy that's provably near-optimal — and you're the only data-platform company in position to own that story.
 
-Honestly — this is a moonshot. It might not work, or it might work only narrowly. That's the nature of the ambition and we name it that way on purpose. But three precursors delivered real, reproducible results that surprised the field, and the Neural Genome already has a shipping tool (GenomeGuard) + a hard negative claim (12-op null) that frontier labs can't write up. If it lands the way we think it might, this is the **DeepSeek moment for efficient intelligence** — a mathematical argument that says "intelligence doesn't require a data center, it requires better geometry," and a commercial story that re-positions everything downstream. For Weka that means becoming *the* data platform for reasoning-scale AI, not just a storage vendor to NVIDIA's stack.
+This is a difficult project but we think we can pull it off. Three precursors delivered real, reproducible results that surprised the field, the Neural Genome bridge is already holding on 7/8 systems, GenomeGuard is shipping cross-arch, and the 12-op null is already in hand. The KV-caching application specifically is still a hypothesis I want to test with your team, not pitch as a done deal — but the underlying geometric structure is no longer speculative. If it lands the way we think it might, this is the **DeepSeek moment for efficient intelligence** — a mathematical argument that says "intelligence doesn't require a data center, it requires better geometry," and a commercial story that re-positions everything downstream. For Weka that means becoming *the* data platform for reasoning-scale AI, not just a storage vendor to NVIDIA's stack.
 
 CMC is putting together a research syndicate — us + Martian (interpretability) + Furiosa (inference hardware) + Liquid AI (efficient architectures) + VERSES (active inference) + you. Before we push the atlas open-source in a few weeks, I'd rather have Weka in on the roadmap than read-afterward.
 
-30-min call this week?
+Would love to talk further if that's useful.
 
 Dev

@@ -35,11 +35,11 @@ Second — your continuous-time networks are the **hardest test** of the univers
 
 We'd love to add an LFM to the bestiary. Measurement is ~30 minutes of GPU time per model, and the script is already open-source in the repo. If you share a checkpoint (or point us at a public one), we'll run it this week and share the result before any announcement.
 
-Honestly — this is a moonshot. We don't know if the bridge extends to continuous-time architectures or to biology (V1 probe in flight today). But three precursors delivered results the field didn't expect, and the Neural Genome already has a shipping tool (GenomeGuard) + a hard negative claim (12-op null). If it lands, this is the **DeepSeek moment for efficient intelligence** — a mathematical case that geometric structure, not parameter count, is what produces capability. Liquid AI is one of the few companies that has been making that case commercially since day one; it would be a pity if the paper cites everyone except the team whose thesis it most directly validates.
+This is a difficult project but we think we can pull it off. The bridge is already holding on 7/8 discrete-time systems, GenomeGuard is already shipping cross-arch, and the 12-op null is already in hand. The continuous-time extension is a real open question — but the underlying geometric structure is no longer speculative, and every step so far has landed. If it lands, this is the **DeepSeek moment for efficient intelligence** — a mathematical case that geometric structure, not parameter count, is what produces capability. Liquid AI is one of the few companies that has been making that case commercially since day one; it would be a pity if the paper cites everyone except the team whose thesis it most directly validates.
 
 CMC is putting together a research syndicate — us + Martian (mechanistic interp) + Furiosa (inference hardware) + Weka (context memory) + VERSES (active inference) + you. Efficient architectures + representational geometry + active inference + inference hardware + data substrate = the full stack for proving the non-scale thesis. Before the open-source drop, we'd rather have Liquid in on the long-term roadmap than pitching you after.
 
-30-min call this week?
+Would love to talk further if that's useful.
 
 Dev
 CMC / AI Moonshots — github.com/dl1683/ai-moonshots

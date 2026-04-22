@@ -29,9 +29,9 @@ Plus: universal bulk width `k_bulk ≈ h/22` (CV 4.2% across 5 text systems); st
 
 **Why I'm writing.** This is straightforwardly the kind of thing the Nemotron / open-dataset program cares about. We're going to open-source the atlas, the preregs, the extensible bestiary, and GenomeGuard — CMC runs a fairly large open-source community and this drops into that pipeline. If the Neural Genome extends all the way to biology + RL + world models, it's a public-good tool for every model release — you test your next Nemotron against the atlas and get a free mechanistic sanity check + a training-time corruption detector.
 
-Honestly — this is a moonshot. The precursors delivered results the field didn't expect, but we don't yet know if the bridge extends all the way. If it does, it's the first cross-substrate empirical evidence for what a "universal science of intelligence" would even look like — and NVIDIA Research is one of a handful of groups in the world that would take that seriously as science, not just as a paper to cite.
+This is a difficult project but we think we can pull it off. The precursors delivered results the field didn't expect, the bridge is already holding on 7/8 trained systems, and we have a shipping tool plus a hard negative claim already in hand. If the biology + RL + world-model extensions land the way text and vision did, it's the first cross-substrate empirical evidence for what a "universal science of intelligence" would even look like — and NVIDIA Research is one of a handful of groups in the world that would take that seriously as science, not just as a paper to cite.
 
-Not asking for anything specific. Planning to stick to the open-source community for distribution. Just wanted NVIDIA Research to have a heads-up and, if it's interesting, an open door for feedback or collaboration on the public release.
+Not asking for anything specific. Planning to stick to the open-source community for distribution. Just wanted NVIDIA Research to have a heads-up and, if it's interesting, an open door for feedback or collaboration on the public release. Would love to talk further if that's useful.
 
 Dev
 CMC / AI Moonshots — github.com/dl1683/ai-moonshots

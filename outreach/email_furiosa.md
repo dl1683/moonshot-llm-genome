@@ -31,10 +31,10 @@ First, the workload profile is literally what RNGD was built for. Model inferenc
 
 Second — and this is the one we think is bigger commercially — the bridge is a **portable quantization prior**. Because the same geometric coordinate predicts which layers of *any* architecture tolerate aggressive INT4/INT8 (and we've already shown the bridge survives 4× weight quantization from FP16→Q8 at even tighter tolerance), Furiosa's compiler gets an architecture-agnostic rule for "this block is safe to smash, that block must stay high-precision." Today automatic quantization is per-model engineering work; we think we can give you a mathematical lookup that works on any new customer model the day it's uploaded.
 
-To be real with you: this is a moonshot. It might turn out the universality is narrower than we hope, or that the bridge breaks on something we haven't tested yet. But CTI + Latent Space Reasoning + Fractal Embeddings all delivered unexpected upside, and the Neural Genome already has a shipping tool (GenomeGuard) + a hard negative claim (12-op null) that frontier labs can't write up. If it lands, this is the **DeepSeek moment for efficient intelligence** — a mathematical case for "you don't need a data center, you need better geometry," with hardware positioning to match. The fame side is real; the market-positioning side (Furiosa as *the* inference platform for post-scale AI) is bigger.
+This is a difficult project but we think we can pull it off. The bridge is already holding on 7/8 systems, GenomeGuard is already shipping cross-arch, the 12-op null is already in hand. The remaining extensions (biology, diffusion, video, audio) are genuine open questions, but every step so far has landed. If it all lands, this is the **DeepSeek moment for efficient intelligence** — a mathematical case for "you don't need a data center, you need better geometry," with hardware positioning to match. The fame side is real; the market-positioning side (Furiosa as *the* inference platform for post-scale AI) is bigger.
 
 CMC is assembling a research syndicate — us + Martian (interpretability) + Weka (context memory) + Liquid AI (efficient architectures) + VERSES (active inference) + you. We'd rather have Furiosa in on the long-term roadmap before the open-source drop than pitching you after.
 
-30-min call this week?
+Would love to talk further if that's useful.
 
 Dev

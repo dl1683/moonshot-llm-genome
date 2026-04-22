@@ -30,10 +30,10 @@ What we've found in the last two weeks (single RTX 5090 laptop, all pre-register
 
 The **12-op null catalog** is the other direct hit: it says capability doesn't live in any separable weight-subset or geometric target, which is exactly the bar Model-Mapping has to clear if it's going to make routing decisions based on structural similarity. Our null result tells you *which* invariants to look for (joint-configuration fingerprints, not per-component matches). That sharpens your mechanistic-interp targets enormously.
 
-To be honest — this is a moonshot. We don't know if the bridge extends to everything we want it to (biology probe is in flight today, RL agents / diffusion / world models are queued). But the precursors have already delivered results nobody saw coming, and the Neural Genome already shipped a working tool (GenomeGuard) plus a hard negative claim (12-op null). If the biology extension lands, this is the **DeepSeek moment for interpretability** — and for us. A paper that everyone has to cite, a coordinate system everyone uses, a positioning no competitor can match because the math is openly provable.
+This is a difficult project but we think we can pull it off. The bridge is already holding on 7/8 systems, GenomeGuard is already shipping cross-arch, the 12-op null is already in hand. Biology probe is in flight today; RL agents / diffusion / world models are queued and non-trivial, but every step so far has landed on schedule. If the biology extension lands, this is the **DeepSeek moment for interpretability** — and for us. A paper that everyone has to cite, a coordinate system everyone uses, a positioning no competitor can match because the math is openly provable.
 
 We want CMC + Martian + Furiosa (inference hardware) + Weka (context memory) + Liquid AI (efficient architectures) + VERSES (active inference) as the founding research syndicate. Before we push this public in a few weeks, we'd rather have you in on the long-term roadmap than reading it afterward.
 
-30-min call this week?
+Would love to talk further if that's useful.
 
 Dev

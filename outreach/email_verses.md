@@ -29,12 +29,12 @@ The result's texture is perfect for the FEP worldview:
 
 More concretely: we want Genius in the bestiary. If the bridge passes on an active-inference / generative-world-model architecture the way it does on transformers and recurrent LMs, that's a signature of active inference that nobody else has — geometric positioning that says VERSES is *measurably* doing the same inference math biological cortex does, grounded in a coordinate system that the whole syndicate cites. If it *doesn't* pass, we've found the structural difference between active-inference systems and scale-based systems, and that's an even bigger paper for VERSES because it puts numbers on the thesis Gabriel has been making for years.
 
-To be honest — this is a moonshot. It might turn out the universality is narrower than we hope, or the instrument needs an iteration we haven't seen yet. That's the nature of ambitious research and we name it that way. But the three precursors delivered results the field didn't expect, and the Neural Genome already has a shipping tool (GenomeGuard) plus a hard negative claim (12-op null catalog) that frontier labs can't write up. If the biology extension lands, this is the **DeepSeek moment for non-scale AI** — a mathematical case that intelligence is about geometric structure, not parameter count, backed by the first cross-class + cross-species empirical evidence. The fame side is real. The positioning side (VERSES as the commercial anchor of the post-scale paradigm, with geometric receipts rather than just a thesis) is much bigger.
+This is a difficult project but we think we can pull it off. The bridge is already holding on 7/8 trained systems, the shipping tool (GenomeGuard) is already working cross-architecture, and the 12-op null catalog is a hard negative claim that frontier labs can't write up. If the biology extension lands, this is the **DeepSeek moment for non-scale AI** — a mathematical case that intelligence is about geometric structure, not parameter count, backed by the first cross-class + cross-species empirical evidence. The fame side is real. The positioning side (VERSES as the commercial anchor of the post-scale paradigm, with geometric receipts rather than just a thesis) is much bigger.
 
 CMC is putting together a research syndicate — us + Martian (mechanistic interp) + Furiosa (inference hardware) + Weka (context memory) + Liquid AI (continuous-time models) + you. Active inference + representational geometry + inference hardware + data substrate + efficient architecture = the full stack for proving the non-scale thesis. Before the open-source drop in a few weeks, we'd rather have VERSES in on the long-term roadmap than shipping a paper you read afterward.
 
 Karl — if any of this sounds wrong-headed from an FEP perspective I really want to hear where. That's exactly the feedback that makes the research better.
 
-30-min call this week?
+Would love to talk further if that's useful.
 
 Dev
