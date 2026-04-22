@@ -128,7 +128,15 @@ def verdict(r):
 
 
 def main():
-    results = [run_system("facebook/dinov2-small", "dinov2-small")]
+    import sys as _s
+    target = _s.argv[1] if len(_s.argv) > 1 else "facebook/dinov2-small"
+    sk_map = {
+        "facebook/dinov2-small": "dinov2-small",
+        "facebook/ijepa_vith14_1k": "ijepa-vith14",
+        "openai/clip-vit-base-patch32": "clip-vit-b32-image",
+    }
+    sk = sk_map.get(target, target.split("/")[-1].lower())
+    results = [run_system(target, sk)]
 
     print("\n=== VERDICT ===")
     for r in results:
