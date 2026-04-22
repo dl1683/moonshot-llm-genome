@@ -47,7 +47,7 @@ SYSTEMS = [
     ("qwen3-0.6b",                   "Qwen/Qwen3-0.6B"),
     ("deepseek-r1-distill-qwen-1.5b","deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"),
     ("bert-base-uncased",            "bert-base-uncased"),
-    ("roberta-base",                 "roberta-base"),
+    ("roberta-base",                 "FacebookAI/roberta-base"),
     ("minilm-l6-contrastive",        "sentence-transformers/all-MiniLM-L6-v2"),
 ]
 
