@@ -1,6 +1,6 @@
 # Trained-spectrum invariant: sqrt(eff_rank) · alpha ≈ 3√2
 
-**Status:** VALIDATED (first flagged 2026-04-22 T+44h retrospective on 8 systems; validated 2026-04-22 T+44.5h via `genome_088` fresh-extraction probe on 4 text systems with matched shuffled and Gaussian controls). CV 5.65% on trained, 5.1σ separation from shuffled/Gaussian baseline. RoBERTa added in rerun pending (N=5).
+**Status:** VALIDATED + ADVERSARIALLY STRESS-TESTED (2026-04-22 T+60h). Empirical tightness and trained-specificity hold under true random-init controls (genome_097: 13.54σ separation vs actual random-init networks, up from 5.5σ vs shuffled/Gaussian). Probe-window sensitivity (genome_098) shows the CV structure is robust but the *specific constant* 3√2 is window-dependent — the universal is "any consistent probe gives a tight constant across trained ML", not the specific value 3√2. See P11/P12 below for full stress-test results.
 
 ## The observation
 
@@ -292,3 +292,42 @@ If this compound prediction holds on the next validation cycle, we have moved fr
 - Plateau-plus-power-law may decompose `eff_rank` into bulk contribution + tail contribution differently than the single-slope fit captures. The invariant may not survive under a richer spectrum model.
 
 But the one-sigma calibration works in our favor: even a naive coincidence hypothesis says that across N=8 systems, hitting `3√2` to 0.1% has probability roughly 0.03σ × 2 / √(π · N · σ_empirical²) ≈ small. Worth chasing.
+
+## Adversarial stress tests (2026-04-22 T+60h)
+
+### P11. Random-init control — `genome_097` (blind spot #1 REFUTED)
+
+Codex adversarial review flagged that shuffled/iid-Gaussian surrogates of a trained cloud are not the same as a **true random-init network** with the same architecture, LayerNorm, tokenizer. If random-init already sits near the trained value, the invariant is an architecture artifact.
+
+Direct test on actual random-init models:
+
+| System | Trained | Random-init |
+|---|---:|---:|
+| Qwen3-0.6B | 4.051 | **8.277** |
+| BERT-base | 4.685 | 7.125 |
+| RoBERTa-base | 4.224 | 7.074 |
+| DeepSeek-R1-distill | 4.215 | — |
+
+- Trained mean = 4.294 (N=4, std=0.236, CV 5.5%)
+- Random-init mean = 7.492 (N=3, std=0.555, CV 7.4%)
+- **Separation: 13.54σ of trained distribution** — 2.5× stronger than the earlier 5.5σ against shuffled/Gaussian.
+
+Three clean regimes: random-init ~7.5 (architecture-dependent wide spread), iid-Gaussian/shuffled ~5.5, trained ~4.3 (tight attractor). Training moves spectrum from architecture-specific random-init land through iid baseline down to the universal trained attractor. **Training is CV-reducing across architectures** (7.4% → 5.5%): each architecture's init gives a different random-init value but training converges them to ~4.3.
+
+**Blind spot #1 decisively refuted.** Distillation (DeepSeek-R1-distill) does not shift the constant — preliminary refutation of blind spot #5.
+
+### P12. Probe-window sensitivity — `genome_098` (blind spot #2 partially confirmed)
+
+| Fit window | sqrt(er)·α mean | CV |
+|---|---:|---:|
+| [5%, 50%] (baseline) | 4.268 | 5.09% |
+| [2%, 30%] early | 3.572 | 4.11% |
+| [10%, 40%] narrow | 4.250 | 5.81% |
+| [10%, 75%] wide | 5.692 | 7.11% |
+| [20%, 80%] late | 7.032 | 8.86% |
+| [30%, 95%] very-late | 9.987 | 16.54% |
+| top-128 truncation | 2.909 | 5.43% |
+
+**The CV structure is robust across most windows (<10%)**, but the specific mean VALUE varies with window choice: 3.57 (early) to 9.99 (very-late). '3√2 ≈ 4.24' is specific to the [5%, 50%] window; different windows yield different tight constants.
+
+Honest reframe: the universal finding is *"any consistent probe definition yields a tight cross-system constant"*, not *"the specific number 3√2 is fundamental"*. The 3√2 match is probe-dependent. The universality of the tight-CV structure is what survives stress-testing.

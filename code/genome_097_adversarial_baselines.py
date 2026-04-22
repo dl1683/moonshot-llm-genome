@@ -115,7 +115,6 @@ def main():
     trained_inv = [r["sqrt_er_alpha"] for r in rows if not r["untrained"]]
     randinit_inv = [r["sqrt_er_alpha"] for r in rows if r["untrained"]]
     if trained_inv and randinit_inv:
-        import numpy as np
         tm, ts = float(np.mean(trained_inv)), float(np.std(trained_inv))
         rm, rs = float(np.mean(randinit_inv)), float(np.std(randinit_inv))
         sep_sigma = (rm - tm) / ts if ts > 0 else float('inf')
