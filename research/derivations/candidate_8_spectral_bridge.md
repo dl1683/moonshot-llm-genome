@@ -1,6 +1,29 @@
 # Candidate-8: Spectral Bridge (eff_rank / d_rd = c)
 
-**Status:** HYPOTHESIS (drafted 2026-04-22 T+43h after genome_057 + BERT-wikitext surprise). Testable; not yet proven.
+**Status:** SUPPORTED (2026-04-22 T+44h, 7/8 preregistered PASS across text + CLIP + vision). P2 derivation: pure-power-law FALSIFIED, plateau-plus-power-law PARTIAL with universal k_bulk=48 across 5 text systems (CV 4.2pct). Aux-loss training with ratio target NEUTRAL (genome_066, 12th null forward-transfer op).
+
+**Empirical scorecard (2026-04-22 final):**
+
+| System | modality | c | ratio = eff_rank/d_rd | rel_err | PASS |
+|---|---|---:|---:|---:|:---:|
+| Qwen3-0.6B | text CLM | 1.889 | 2.059 | 9.0% | ✓ |
+| DeepSeek-R1-Distill-1.5B | text CLM | 2.410 | 2.413 | 0.2% | ✓ |
+| BERT-base | text MLM | 2.653 | 2.292 | 13.6% | ✓ |
+| RoBERTa-base | text MLM | 2.250 | 2.158 | 4.1% | ✓ |
+| MiniLM-L6 | text contrastive | 2.027 | 2.199 | 8.4% | ✓ |
+| DINOv2-small | vision | 2.242 | 2.694 | 20.2% | ✗ (by 5pt) |
+| CLIP-text-B/32 | text + 1 align | 2.975 | 3.184 | 7.0% | ✓ |
+| CLIP-vision-B/32 | vision + 1 align | 2.447 | 2.145 | 12.3% | ✓ |
+
+**7/8 systems PASS** preregistered 15% threshold. Median rel_err 8.7%.
+
+**Stimulus sensitivity:** bridge holds universally across MODELS at C4 baseline. Breaks on wikitext (29-613% rel_err) and scrambled/reversed (60%+). The bridge is a **C4-specific geometric identity** — it characterizes trained-network activation geometry on natural text specifically, and deviates when stimulus structure is destroyed.
+
+**P2 derivation status:** pure power-law `σ_i² ∝ i^{-2α}` predicts ratio≈0.29 (7× too small vs empirical 2.06). Plateau + power-law with `k_bulk` bulk of flat eigenvalues + α-decay tail gives `k_bulk = 48` universally across 5 text systems (CV 4.2%) — a real structural universal — but predicted ratio 1.5 still 30% off empirical 2.2. Full closed-form derivation requires a richer spectrum model (smooth broken power-law, Marchenko-Pastur + low-rank cluster, or spectrum-based d_rd) which is P3.
+
+**Aux-loss training:** CANDIDATE-8 as auxiliary loss (`(eff_rank - 2·d_rd_ma)²`) on tiny transformer from scratch, 2 seeds × 500 steps: speedup **1.00×**, val-NLL identical within 0.01. Aux shifts geometry (c 0.60→1.22 in seed 1337) but NOT capability. 12th null forward-transfer operation on record. Candidate-8 is a **diagnostic of trained capability**, not a **training lever**.
+
+---
 
 ## The bridge claim
 
