@@ -293,23 +293,24 @@ README landmark-findings block added. GENOMEGUARD.md updated with cross-arch + c
 
 **Scope lock (2026-04-22):** CS/AI/MATH ONLY. No biology. End goal: capability transfer + model surgery + AI diagnostic tools. See `CLAUDE.md §0.05`.
 
-**🔥 Session T+50h landmark — HONEST FINAL SCOPE (genome_078 → genome_084):**
+**🔥 Session T+50h landmark — HONEST FINAL SCOPE (genome_078 → genome_086):**
 
 A 28 KB per-layer mean-activation atlas (last 7 of 28 layers) recovers **53% of next-token NLL gap** in a fully-lesioned Qwen3-0.6B. Cross-size ridge projection transfers 59% to Qwen3-1.7B.
 
-**Scope corrections from `genome_083` + `genome_084`:**
+**Scope corrections from `genome_083` → `genome_086`:**
 1. NLL recovery is unigram-prior restoration — atlas-patched models generate degenerate repetition (`" directly directly..."`) not coherent text.
 2. Atlas works ONLY on fully-destroyed models. Partial lesion (last-7 only, early/middle intact) → +0.2% null. Teacher-unconditional mean doesn't match context-conditional target.
+3. **Three-wall convergence (`genome_085` + `genome_086`):** gradient-distillation on last-7 (66% NLL, 5/5 rep) AND full-unfreeze layerwise-FM (65% NLL, 5/5 rep) both hit the same coherence ceiling. NLL recovery decouples from generation coherence across the full supervision-density spectrum.
 
-Honest framing: **the atlas is a distribution-prior restorer, not a capability-surgery primitive.** Interesting scientific finding; the "model surgery" framing is withdrawn. See `NEURAL_GENOME.md` for full scope-corrected summary.
+Honest framing: **the atlas is a distribution-prior restorer, and the three-wall result is the real finding** — capability is not recoverable from a catastrophically-lesioned model by any sparse or short supervised intervention. Publishable negative capability-transfer claim. See `NEURAL_GENOME.md` "Three-wall convergence" section.
 
-**Atlas work is scope-closed** (genome_078 → genome_084). Neural-genome atlas is a distribution-prior restorer, not a surgery primitive. Further atlas variants (rank-k correction, covariance matching) are not the highest-leverage direction now.
+**Atlas + sparse-distill + dense-FM are ALL scope-closed** (genome_078 → genome_086). **Three-wall convergence:** three intervention classes (static mean atlas / output-KL distill on last-7 / full-unfreeze layerwise feature-matching) all plateau at 49–66% NLL gap closed with **5/5 prompts degenerate** (`",,,,,,,,"`, `" the the the,"`). **NLL-gap recovery decouples from generation coherence.** This is the publishable negative claim: capability is not recoverable from a catastrophically-lesioned model by any sparse / short supervised intervention. See `NEURAL_GENOME.md` "Three-wall convergence" section.
 
-1. **Gradient-distillation surgery.** To restore coherent generation in a lesioned model we need to restore context-conditional distributions, not just means. Fit a short gradient-distillation pass (few hundred steps) on the LAST N layers using teacher logits as target while middle/early layers stay frozen. If 50-100 steps of last-N distillation recovers coherent generation, we have a cheap model-surgery primitive that's actually useful.
-2. **Candidate-8 P3 richer derivation** (genome_076 MP+lowrank missed). Try Wishart-with-structured-signal, or use empirical spectrum directly.
-3. **GenomeGuard real-training extended.** genome_077 partial (100-step lead on grad_sign_flip). Need bigger LR-blowup and stale-checkpoint reload sabotage modes.
-4. **Preprint + release tag.** Candidate-8 bridge + GenomeGuard + 12-op null + atlas-unigram-narrow is a coherent paper-grade package if framed honestly. Synthesis already in `research/BREAKTHROUGH_SYNTHESIS.md`.
-5. **Cross-family bridge validation.** Candidate-8 measured on different trained model families within same h-dim (e.g., Phi-3-mini? RedPajama?). Strengthens universality.
+1. **Close the derivation — c = p·d_rd from first principles.** This is the real home-run per §0.1/TIER-0. Genome_057 established the spectral signature (trained α=0.86 vs shuffled α=0.65, 2.5× eff_rank concentration). Next step: derive `c ≈ 2` for text and `c ≈ 3` for vision from the power-law decay exponent α via Wishart-with-structured-signal random matrix theory. Candidate mechanism: integer c = rank of the *signal* subspace under spiked-covariance decomposition. Big labs will not publish this — no product story.
+2. **Training-budget wall test.** Is the three-wall coherence ceiling a 200-step artifact or fundamental? Run layerwise-FM for 2000–5000 steps on the fully-lesioned student. If coherence breaks, the wall is budget; if not, it's structural and confirms the "must retrain from scratch" interpretation.
+3. **Geometry-as-auxiliary-loss efficiency training** (electricity-grade move per §0.1(c)). Train a small model with the candidate-8 ratio as an auxiliary loss term, target: match baseline NLL at ≤ 50% compute budget. If it works, it's the first concrete demonstration of "geometry beats scale".
+4. **Candidate-8 cross-family bridge validation.** Phi-3-mini, Gemma, RedPajama — strengthens universality at low cost.
+5. **Preprint + release tag.** Candidate-8 bridge + GenomeGuard + 12-op null + three-wall negative claim + atlas-scope-corrected is a coherent paper-grade package. Synthesis in `research/BREAKTHROUGH_SYNTHESIS.md`.
 
 **Explicitly out of scope:** biology, mouse V1, neural recordings.
 

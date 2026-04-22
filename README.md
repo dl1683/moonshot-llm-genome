@@ -58,12 +58,13 @@ See `GENOMEGUARD.md` for usage. Run: `python code/genome_genomeguard.py`.
 
 Genome is localized to the last quarter of the network. Middle 14 layers contribute ~0%. First 7 contribute ~1%. Transfers across model sizes with a one-batch ridge fit.
 
-**Important scope caveats (`genome_083`, `genome_084`):**
+**Important scope caveats (`genome_083` → `genome_086`):**
 
 1. The 53-58% numbers are NLL-gap recoveries, not functional capability. Atlas-patched models produce degenerate repetition (`" directly directly directly..."` or `" on on in on change change..."`) instead of coherent completions. The atlas restores the *unigram frequency prior* — assigning high probability to common English tokens — but not reasoning, factual retrieval, or coherent generation.
 2. The atlas works **only on fully-destroyed models**. Patching a partial lesion (only last-7 layers lesioned, early/middle intact) recovers **+0.2%** (null). The atlas is fit from teacher-unconditional means, which only matches the target when the entire stream is mis-shaped. When early layers produce correct context-conditional activations, the atlas's static bias does not align with what the lesioned blocks need downstream.
+3. **Three-wall convergence** (`genome_085`, `genome_086`): gradient-based interventions do NOT break the coherence wall. Output-KL distillation on last-7 layers (200 steps) → **66% NLL**, 5/5 repetitive. Full-unfreeze layer-wise feature-matching (all 600M params, per-layer hidden MSE + output KL, 200 steps) → **65% NLL**, 5/5 repetitive (`",,,,,,,,"`, `" the the the the,"`). **NLL recovery is decoupled from generation coherence** across the full supervision-density spectrum — static / sparse-gradient / dense-gradient all hit the same ceiling.
 
-Honest final framing: **a 28 KB per-layer mean-activation table is a distribution-prior restorer, not a capability-surgery primitive.** It is a real scientific effect (per-layer means carry a specific signal, last-7 layers concentrate it, cross-size transfer via ridge projection preserves it) but the initial "half the capability of a 600M-param model" framing was overclaimed. See `NEURAL_GENOME.md`.
+Honest final framing: **the atlas is a distribution-prior restorer, and three-wall convergence is the real finding.** Capability is not recoverable from a catastrophically-lesioned model by any sparse or short supervised intervention — conditioning structure must be re-learned over many gradient steps, effectively retraining from scratch with teacher supervision. This is a publishable *negative* capability-transfer claim that extends the 12-op null catalog from zero-step geometric manipulation into the short-horizon supervised regime. See `NEURAL_GENOME.md`.
 
 Raw data in `experiments/ledger.jsonl` (72 entries). Full synthesis in `research/BREAKTHROUGH_SYNTHESIS.md`.
 
