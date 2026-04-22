@@ -1,0 +1,38 @@
+{
+  "purpose": "Candidate-5 stimulus-sensitivity test on text CLM anchors",
+  "per_system_stimulus": [
+    {
+      "system": "qwen3-0.6b",
+      "stimulus": "c4_clean.v1",
+      "p": 0.15392436198774162,
+      "d_rd": 12.273173722192025,
+      "c": 1.8891404347531235,
+      "Ck_R2": 0.9918317497903403
+    },
+    {
+      "system": "qwen3-0.6b",
+      "stimulus": "wikitext103.v1",
+      "p": 0.10961576519587723,
+      "d_rd": 10.563017220143971,
+      "c": 1.1578732153633093,
+      "Ck_R2": 0.9797582792380655
+    },
+    {
+      "system": "deepseek-r1-distill-qwen-1.5b",
+      "stimulus": "c4_clean.v1",
+      "p": 0.17136962287614116,
+      "d_rd": 14.060768224356133,
+      "c": 2.4095885479567394,
+      "Ck_R2": 0.9957979989811664
+    },
+    {
+      "system": "deepseek-r1-distill-qwen-1.5b",
+      "stimulus": "wikitext103.v1",
+      "p": 0.11945438664583075,
+      "d_rd": 12.940696622821344,
+      "c": 1.545822977848897,
+      "Ck_R2": 0.9780114397651081
+    }
+  ],
+  "verdict": "STIMULUS_DOMINATES \u2014 decoder-CLM c also drops ~0.80 on wikitext. Candidate-5 is NOT a model-only invariant; it's model x stimulus. Reframes the claim."
+}
