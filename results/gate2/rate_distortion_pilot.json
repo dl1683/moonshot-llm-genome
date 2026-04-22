@@ -1,0 +1,62 @@
+{
+  "purpose": "Framework D pilot: rate-distortion for v2 derivation",
+  "per_system": [
+    {
+      "system_key": "qwen3-0.6b",
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "untrained": false,
+      "depth_idx": 14,
+      "n_stimuli": 1000,
+      "hidden_dim": 1024,
+      "empirical_p": 0.15392436198774162,
+      "empirical_c0": 0.2590577965993718,
+      "Ck_R2": 0.9918317497903403,
+      "d_rd": 12.273173722192025,
+      "rd_fit_R2": 0.991967270306902,
+      "candidate_p_pred_inverse": 0.1629570350156173,
+      "candidate_p_pred_inverse_half": 0.08147851750780866,
+      "rel_err_inverse": 0.058682543238964636,
+      "rel_err_inverse_half": 0.4706587283805177,
+      "elapsed_s": 65.18458294868469
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "untrained": false,
+      "depth_idx": 6,
+      "n_stimuli": 1000,
+      "hidden_dim": 768,
+      "empirical_p": 0.17105166233744967,
+      "empirical_c0": 0.2576472751947225,
+      "Ck_R2": 0.9959548207762788,
+      "d_rd": 11.403194530929484,
+      "rd_fit_R2": 0.9868201620848205,
+      "candidate_p_pred_inverse": 0.17538944850719637,
+      "candidate_p_pred_inverse_half": 0.08769472425359819,
+      "rel_err_inverse": 0.02535950899552874,
+      "rel_err_inverse_half": 0.4873202455022356,
+      "elapsed_s": 111.15502643585205
+    },
+    {
+      "system_key": "deepseek-r1-distill-qwen-1.5b",
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "untrained": false,
+      "depth_idx": 14,
+      "n_stimuli": 1000,
+      "hidden_dim": 1536,
+      "empirical_p": 0.17136962287614116,
+      "empirical_c0": 0.2367141856506153,
+      "Ck_R2": 0.9957979989811664,
+      "d_rd": 14.060769923759938,
+      "rd_fit_R2": 0.986233397795944,
+      "candidate_p_pred_inverse": 0.1422397216400215,
+      "candidate_p_pred_inverse_half": 0.07111986082001075,
+      "rel_err_inverse": 0.16998287530324757,
+      "rel_err_inverse_half": 0.5849914376516238,
+      "elapsed_s": 54.44172739982605
+    }
+  ],
+  "passes_p_eq_2_over_drd": 3,
+  "passes_p_eq_1_over_drd": 0,
+  "verdict": "FRAMEWORK_D_SUPPORTED (p=2/d_rd, 3/3 systems pass 20% criterion)"
+}
