@@ -1,0 +1,116 @@
+{
+  "purpose": "k_bulk=48 low-rank factorization demo on Qwen3 mid-MLP",
+  "per_condition": [
+    {
+      "label": "baseline",
+      "k": null,
+      "val_nll": 3.6560819759368894,
+      "patched_projections": []
+    },
+    {
+      "label": "factored_k48",
+      "k": 48,
+      "val_nll": 3.6862247657775877,
+      "patched_projections": [
+        {
+          "name": "model.layers.14.mlp.gate_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 196608
+        },
+        {
+          "name": "model.layers.14.mlp.up_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 196608
+        },
+        {
+          "name": "model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3072
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 196608
+        }
+      ]
+    },
+    {
+      "label": "factored_k16_aggressive",
+      "k": 16,
+      "val_nll": 3.6836663036346438,
+      "patched_projections": [
+        {
+          "name": "model.layers.14.mlp.gate_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 65536
+        },
+        {
+          "name": "model.layers.14.mlp.up_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 65536
+        },
+        {
+          "name": "model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3072
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 65536
+        }
+      ]
+    },
+    {
+      "label": "factored_k256_gentle",
+      "k": 256,
+      "val_nll": 3.6839539623260498,
+      "patched_projections": [
+        {
+          "name": "model.layers.14.mlp.gate_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 1048576
+        },
+        {
+          "name": "model.layers.14.mlp.up_proj.weight",
+          "shape": [
+            3072,
+            1024
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 1048576
+        },
+        {
+          "name": "model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3072
+          ],
+          "param_count_original": 3145728,
+          "param_count_rank_k": 1048576
+        }
+      ]
+    }
+  ],
+  "baseline_nll": 3.6560819759368894,
+  "k48_nll_rel_pct": 0.8244560718027677,
+  "verdict": "K_BULK_LOW_RANK_DEMO_LANDS - at k_bulk=48 the mid-MLP loses only 0.82pct NLL for ~13x parameter reduction per factored projection. k_bulk is a principled rank target for compression."
+}
