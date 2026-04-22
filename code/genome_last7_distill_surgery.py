@@ -72,13 +72,14 @@ def main():
     n_layers = sys_t.n_hidden_layers()
     print(f"  teacher NLL = {nll_teacher:.3f}  n_layers = {n_layers}")
 
-    # Student: fully lesioned
-    print(f"[{time.time()-t0:.1f}s] STUDENT (all 28 layers lesioned)...")
+    # Student: fully lesioned. Cast to fp32 so gradient updates are stable.
+    print(f"[{time.time()-t0:.1f}s] STUDENT (all 28 layers lesioned, fp32)...")
     sys_s = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
     sd = sys_s.model.state_dict()
     for L in range(n_layers):
         lesion_midblock(sd, f"model.layers.{L}.")
     sys_s.model.load_state_dict(sd, strict=False)
+    sys_s.model.to(dtype=torch.float32)  # cast whole model to fp32 for training
     nll_lesion, _ = measure_nll(sys_s.model, sys_s.tokenizer, val_texts)
     print(f"  student lesion NLL = {nll_lesion:.3f}")
 
@@ -98,8 +99,6 @@ def main():
                 pass
         if unfreeze:
             p.requires_grad_(True)
-            # Cast trainable params to float32 for stability
-            p.data = p.data.to(torch.float32)
             trainable_params.append(p)
         else:
             p.requires_grad_(False)
