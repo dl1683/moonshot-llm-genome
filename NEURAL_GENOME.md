@@ -2,7 +2,13 @@
 
 A 28 KB vector table — covering just the last 7 of 28 transformer layers — recovers **53% of the next-token NLL gap** of a fully-lesioned 600 M-parameter model.
 
-**Important scope (genome_083 qualitative demo).** The atlas restores the *unigram frequency prior* — the model assigns high probability to common English tokens after the patch. Generation is still degenerate (repetitive filler tokens like `" directly directly..."` or `" on on in on change..."` instead of coherent sentences). The 53% number is NLL, which is averaged per-token; it does NOT mean "53% of reasoning ability" or "half the functional capability." The atlas carries the learned output-distribution shape, not the conditioning/reasoning machinery. Extending the atlas to restore coherent generation is open work.
+**Important scope — read this before citing the number (`genome_083`, `genome_084`):**
+
+1. The 53% is next-token NLL gap, not functional capability. Generation from atlas-patched models is degenerate: repetitive filler tokens (`" directly directly..."`, `" on on in on change..."`) on every prompt. The atlas restores the unigram frequency prior, not reasoning.
+2. The atlas works ONLY on fully-destroyed models (every layer scrambled). Patching a partial lesion — only the last 7 layers lesioned, early/middle intact — recovers **+0.2%** (null). When early layers produce correct context-conditional activations, the teacher-unconditional mean atlas does not match the context-conditional target the lesioned last-7 layers would need to produce. The atlas is fit to unconditional activation means, which only matches when the *entire* stream is mis-shaped.
+3. Cross-size transfer shares all the same caveats — it recovers 59% NLL on a fully-wiped Qwen3-1.7B via ridge-projected 0.6B atlas, but generation coherence has the same unigram-only scope.
+
+Honest final framing: **a 28 KB per-layer mean-activation table is a distribution-prior restorer, not a capability-surgery primitive.** It has interesting scientific implications (per-layer means carry a specific identifiable signal; cross-size projection preserves that signal; last-7 layers concentrate it) but the initial "half the capability of a 600M-parameter model" framing was overclaimed. Keep the honest scope when citing.
 
 ## The claim
 

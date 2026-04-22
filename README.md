@@ -58,7 +58,12 @@ See `GENOMEGUARD.md` for usage. Run: `python code/genome_genomeguard.py`.
 
 Genome is localized to the last quarter of the network. Middle 14 layers contribute ~0%. First 7 contribute ~1%. Transfers across model sizes with a one-batch ridge fit.
 
-**Important scope caveat (`genome_083` qualitative demo).** The 53-58% numbers are NLL-gap recoveries. The atlas restores the *unigram frequency prior* (the model predicts common English tokens with high probability), but GENERATION IS STILL DEGENERATE — lesion-plus-atlas-patched models produce repetition like `" directly directly directly..."` or `" on on in on change change..."` instead of coherent completions. The atlas carries the learned output-distribution shape, not the full reasoning/retrieval capability. Extending the atlas class to restore coherent generation is open work. See `NEURAL_GENOME.md`.
+**Important scope caveats (`genome_083`, `genome_084`):**
+
+1. The 53-58% numbers are NLL-gap recoveries, not functional capability. Atlas-patched models produce degenerate repetition (`" directly directly directly..."` or `" on on in on change change..."`) instead of coherent completions. The atlas restores the *unigram frequency prior* — assigning high probability to common English tokens — but not reasoning, factual retrieval, or coherent generation.
+2. The atlas works **only on fully-destroyed models**. Patching a partial lesion (only last-7 layers lesioned, early/middle intact) recovers **+0.2%** (null). The atlas is fit from teacher-unconditional means, which only matches the target when the entire stream is mis-shaped. When early layers produce correct context-conditional activations, the atlas's static bias does not align with what the lesioned blocks need downstream.
+
+Honest final framing: **a 28 KB per-layer mean-activation table is a distribution-prior restorer, not a capability-surgery primitive.** It is a real scientific effect (per-layer means carry a specific signal, last-7 layers concentrate it, cross-size transfer via ridge projection preserves it) but the initial "half the capability of a 600M-param model" framing was overclaimed. See `NEURAL_GENOME.md`.
 
 Raw data in `experiments/ledger.jsonl` (72 entries). Full synthesis in `research/BREAKTHROUGH_SYNTHESIS.md`.
 
