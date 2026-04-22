@@ -2,6 +2,8 @@
 
 **Status:** SUPPORTED (2026-04-22 T+44h, 7/8 preregistered PASS across text + CLIP + vision). P2 derivation: pure-power-law FALSIFIED, plateau-plus-power-law PARTIAL with universal k_bulk=48 across 5 text systems (CV 4.2pct). Aux-loss training with ratio target NEUTRAL (genome_066, 12th null forward-transfer op).
 
+**→ See also `trained_spectrum_invariant.md` (2026-04-22 T+55h): the *spectral-only* invariant `sqrt(eff_rank)·α ≈ 3√2` (CV 5% across 5 text systems, 5.5σ separated from shuffled/Gaussian baseline). That invariant closes half of the bridge — predicting eff_rank from α alone — and the compound prediction `d_rd ≈ 18/(α²·(d_stim+1))` reproduces empirical d_rd within 5% without any k-means probe. The two derivation docs now cover complementary pieces.**
+
 **Empirical scorecard (2026-04-22 final):**
 
 | System | modality | c | ratio = eff_rank/d_rd | rel_err | PASS |
