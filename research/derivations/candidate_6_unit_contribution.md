@@ -1,6 +1,23 @@
 # Candidate-6 derivation: each informational axis contributes 1 to `c = p · d_rd`
 
-*Draft — session 2026-04-22. Theoretical attempt at the Nature-grade derivation. Hand-waves marked. Next step: rigorous proof or rigorous falsification.*
+*Draft — session 2026-04-22. **Step 5 FALSIFIED on toy data (genome_054).** Theoretical attempt failed. Doc retained as the specific target a future rigorous derivation must either close or abandon.*
+
+---
+
+## STATUS (updated 2026-04-22 after genome_054 toy test)
+
+**Step 5 is FALSIFIED.** On synthetic product manifolds `[0,1]^n_axes` embedded in `R^128`, observed `c` values are `[8.38, 1.08, 0.32, 0.30, 0.42, 0.91]` for `n_axes ∈ {1, 2, 3, 4, 5, 8}`. Not one fits `c = n_axes`. `c` does NOT track axis count on generic product manifolds.
+
+**What this means.** The empirical 11/12 match of `c ≈ n_axes` in real trained networks is NOT explained by generic product-manifold geometry. Either:
+
+- **(a) Coincidence.** Only 2 real base-modality values tested (text ≈ 2, vision ≈ 3). Two agreeing integer hits could be accidental. Future sessions need more base-modality data points (audio, video, touch, etc.) to discriminate.
+- **(b) Training-induced non-generic structure.** Trained networks produce specific manifolds whose `c = n_axes` property arises from training dynamics (loss landscape, Fisher information, spectral decay), not from the raw product-manifold geometry. The derivation would need to characterize *this specific training-induced structure*, not generic manifolds.
+
+The rest of this doc is preserved as the historical derivation attempt and its specific failure point. Any future derivation must either explain why training produces manifolds where `c = n_axes` (option b), or accept the empirical match as a surface coincidence requiring more data (option a).
+
+---
+
+## Original draft below (Step 5 now known to be wrong)
 
 ---
 
