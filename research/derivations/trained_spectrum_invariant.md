@@ -99,13 +99,30 @@ Probe: 5 text systems (Qwen3-0.6B, DeepSeek-R1-Distill-1.5B, BERT-base, RoBERTa-
 
 Invariant held under fresh-extraction probe with matched controls; no kill condition tripped. Next tier: expand to N≥10 (add Falcon-H1, RWKV, DINOv2, CLIP-text, CLIP-vision) and random-init twin condition.
 
-### P2. Derive the constant 18
+### P2. Derive the constant 18 — FIRST CANDIDATE SHAPE IDENTIFIED (2026-04-22)
 
-Two tractable derivation paths:
+Numerical exploration of analytic spectrum families:
 
-**Path A — plateau-plus-power-law.** Assume the spectrum has `k_bulk` flat eigenvalues at σ_p² and tail `σ_i² = σ_p²·(k_bulk/i)^(2α)` for `i > k_bulk`. Compute `eff_rank(k_bulk, α, h)` in closed form (integrals converge; already sketched in `candidate_8_spectral_bridge.md`). At `k_bulk = 48` universal, does `eff_rank · α² = 18` fall out as α → 0.78? Quick numerical check first.
+- **Pure power-law** `σ² ∝ i^(-2α)`: er·α² ≈ 2.9 at α=0.8. Far below empirical 18.
+- **Plateau-plus-power-law with `k_bulk=48`**: er·α² ≈ 120 at α=0.8. Far above.
+- **Shifted power-law `σ² ∝ (i+k_head)^(-2α)` with k_head ≈ 5**: er ≈ 31, α_fit ≈ 0.78, **er·α_fit² ≈ 18.7** and **sqrt(er)·α_fit ≈ 4.33** at α_true=0.80. **Matches empirical trained attractor to ~3%.**
 
-**Path B — rate-distortion at the peak-capability operating point.** The trained spectrum is the argmin of a rate-distortion functional under a training-task constraint. If the extremal spectrum in this variational problem has `eff_rank · α² = const` as a free-parameter constraint, the constant is derived from the variational form. Requires writing the variational problem down cleanly.
+| k_head | α_true | eff_rank | α_fit | sqrt(er)·α_fit | er·α_fit² |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 0.80 | 4.4 | 0.800 | 1.67 | 2.80 |
+| 2 | 0.80 | 14.9 | 0.791 | 3.05 | 9.33 |
+| **5** | **0.80** | **31.0** | **0.777** | **4.33** | **18.72** |
+| 10 | 0.80 | 56.4 | 0.756 | 5.68 | 32.2 |
+| 20 | 0.80 | 102.8 | 0.718 | 7.28 | 53.0 |
+| 48 | 0.80 | 188 (flat+tail) | ~ | 11.0 | ~120 |
+
+The shifted-power-law shape `σ² ∝ (i+5)^(-2α)` generates the empirical invariant at α_true ≈ 0.80 for any h. At k_head=5 and α_true varying 0.70–0.90, the invariant sqrt(er)·α_fit lands in [4.09, 4.70] — a narrow range around 3√2 = 4.24. **The invariant is stable under the specific family `σ² ∝ (i+5)^(-2α)` because k_head=5 and empirical α_true converge together.**
+
+Explicit prediction: trained spectra should fit `σ² ∝ (i + 5)^(-2α)` better than pure power-law, with k_head ≈ 5 universally. Next step: fit both shapes to the empirical singular spectra of the 5 `genome_088` systems and compare residuals.
+
+The constant `3√2` therefore has a plausible origin: it is the value of `sqrt(er)·α` for the one-parameter family `σ² = (i + k_head)^(-2α)` with k_head ≈ 5 and α near the empirical attractor 0.78. Why `k_head = 5`, and why trained α converges to 0.78, remain open — but those are now **two specific numeric questions** with concrete spectrum-shape context, not free parameters.
+
+**Path B — rate-distortion variational argument.** The trained spectrum is the argmin of a rate-distortion functional under a training-task constraint. If the extremal spectrum in this variational problem takes the `(i+k_head)^(-2α)` form with k_head and α coupled, the constant is derived from the variational form. Requires writing the variational problem down cleanly.
 
 ### P3. Test on biology and untrained ML
 
