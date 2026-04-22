@@ -232,9 +232,35 @@ Mechanism interpretation: trained spectra have **~24 "head" eigendirections** ca
 
 Status: **FALSIFIED** on empirical fit (`genome_094`, 2026-04-22). All 5 systems hit the upper bound k_brk=200 (my search range was [2, 200]). a1 ∈ [0.44, 0.67], a2 ∈ [1.39, 2.52]. Even at best-fit the predicted eff_rank is wildly off empirical (7.4–38.3 predicted vs 25.2–33.6 empirical, up to 73% error). My analytical hand-pick (k_brk=24, a1=0.4, a2=0.8) matched empirical INTEGRATED statistics (eff_rank, α, invariant, er·α²) to 1% — but that was a COINCIDENCE of parameter combinations in a 3-variable space, not the actual spectrum shape. The log-log fit points to a wholly different parameter regime.
 
-### P9. Derivation remains open
+### P9. CDF universality is TIGHTER than the invariant itself (`genome_096`, 2026-04-22)
 
-Two parametric spectrum families falsified (`genome_091` shifted, `genome_094` broken). The real trained spectrum shape does not admit a simple 2-3 parameter power-law description that matches both log-log decay AND eff_rank simultaneously. Candidates for future work:
+Non-parametric analysis of the same 5 trained spectra reveals a stronger universal than the invariant itself. The **cumulative distribution function** of normalized variance is universal across systems at sub-percent CV:
+
+| Feature | Mean | CV | Interpretation |
+|---|---:|---:|---|
+| `cum_var_at_q75` | 0.997 | **0.13%** | Top 75% of eigenspaces carry 99.7% of variance |
+| `cum_var_at_q50` | 0.984 | **0.42%** | Top 50% carries 98.4% — bottom 50% only 1.6% |
+| `cum_var_at_q25` | 0.932 | **1.25%** | Top 25% carries 93.2% |
+| `cum_var_at_q10` | 0.817 | 3.37% | Top 10% carries 81.7% |
+| `cum_var_at_q5` | 0.707 | 6.13% | Top 5% carries 70.7% |
+| `sigma_k=10 / sigma_1` | 0.444 | 7.53% | 10th eigenvalue is 44% of first |
+| `sigma_k=30 / sigma_1` | 0.241 | 6.87% | 30th is 24% of first |
+| `sigma_k=100 / sigma_1` | 0.110 | 6.39% | 100th is 11% of first |
+| Shannon entropy | 4.376 nats | 3.43% | Entropic effective dim = e^4.376 ≈ 80 |
+| `α` (tail slope) | 0.787 | 3.90% | — |
+| **`sqrt(er)·α`** | **4.268** | **5.09%** | **Our invariant** |
+| `er·α²` | 18.26 | 10.47% | — |
+| `eff_rank` | 29.58 | 11.11% | — |
+
+**The sub-percent CV on cum_var_at_q{50, 75} is "architecturally impossible coincidence" level.** CV 0.42% at q50 across 5 systems means the CUMULATIVE DISTRIBUTION of normalized variance at the midpoint is *literally the same number* on Qwen3, DeepSeek, BERT, RoBERTa, MiniLM — differs by less than half a percent.
+
+Reframes the derivation problem: all summary stats (`eff_rank`, `α`, `sqrt(er)·α`, `er·α²`) are *downstream* functionals of the universal CDF. The right question is not "what shape produces the invariant" but "what universal CDF do trained ML spectra converge to?". Any shape that reproduces the observed quantile values at q25, q50, q75 simultaneously will also reproduce the invariant.
+
+This is consistent with why `genome_091` and `genome_094` failed: simple parametric shapes with 2-3 parameters cannot match the empirical CDF at multiple quantiles simultaneously with the required <1% tolerance. The shape is more constrained than any low-dim parametric family.
+
+### P10. Derivation remains open — but narrowed
+
+Two parametric spectrum families falsified (`genome_091` shifted, `genome_094` broken). The real trained spectrum CDF is universal to <1% at multiple quantiles (`genome_096`) but does not admit a simple 2-3 parameter description. Candidates for future work:
 
 - Smooth transitions between regimes (not sharp break) — e.g., σ² ∝ (i^β + k_0^β)^(-γ/β) for smoothly-interpolating head and tail.
 - Multi-regime: 3+ zones with different scaling (Q-state statistical-mechanics analogy).
