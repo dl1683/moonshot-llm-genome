@@ -1,0 +1,48 @@
+{
+  "purpose": "Stimulus intrinsic-dim sweep \u2014 does c shift when vision forced 1D?",
+  "per_system": [
+    {
+      "system": "dinov2-small",
+      "hf_id": "facebook/dinov2-small",
+      "conditions": {
+        "natural": {
+          "condition": "natural",
+          "n": 1000,
+          "h": 384,
+          "p": 0.21885968976964418,
+          "c_0": 0.20545492498768508,
+          "Ck_R2": 0.9978968453093882,
+          "d_rd": 13.508156445487282,
+          "rd_fit_R2": 0.9883990601463798,
+          "c_invariant": 2.956390929019166
+        },
+        "1d_stripes": {
+          "condition": "1d_stripes",
+          "n": 1000,
+          "h": 384,
+          "p": 0.22817320643521316,
+          "c_0": 0.18511409255575084,
+          "Ck_R2": 0.9998133421174491,
+          "d_rd": 10.993357432430017,
+          "rd_fit_R2": 0.9932991211711167,
+          "c_invariant": 2.5083896148459393
+        },
+        "iid_noise": {
+          "condition": "iid_noise",
+          "n": 1000,
+          "h": 384,
+          "p": 0.3315376792322072,
+          "c_0": 0.09562488233320617,
+          "Ck_R2": 0.9986630255160381,
+          "d_rd": 23.929097060768207,
+          "rd_fit_R2": 0.9737874789498008,
+          "c_invariant": 7.933397305649323
+        }
+      },
+      "elapsed_s": 27.547210931777954
+    }
+  ],
+  "verdicts": {
+    "dinov2-small": "PARTIAL_direction_correct_magnitude_small"
+  }
+}
