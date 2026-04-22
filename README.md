@@ -29,7 +29,7 @@ where `c = p · d_rd` is the kNN-clustering exponent × rate-distortion dimensio
 
 Prereg: `research/prereg/genome_svd_bridge_2026-04-22.md`. Full derivation: `research/derivations/candidate_8_spectral_bridge.md`.
 
-**Cross-substrate (2026-04-22)**: the bridge ALSO HOLDS on **mouse V1 Neuropixels** under Natural Movie One (Allen Brain Observatory, session 0, 900 frames × 50 cortical units): c = 2.488, ratio = 2.183, **rel_err = 12.3%** — PASSES the same 15% threshold as the artificial networks. First empirical evidence that candidate-8 is a property of representational geometry in learning systems generally, not an artifact of gradient-based training. (`genome_070`)
+*(Note: scope is CS/AI/math — no biology extensions pursued. See `CLAUDE.md §0.05`.)*
 
 **2. GenomeGuard** — one-shot training health monitor using the bridge.
 

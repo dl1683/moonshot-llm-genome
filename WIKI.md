@@ -8,6 +8,12 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 ---
 
+## ⚠ SCOPE LOCK — CS/AI/MATH ONLY (read first) ⚠
+
+We are a CS / AI / math research group. End goal: **map the learning of every AI model** so we can diagnose capability, perform model surgery (transfer a capability from Model A into Model B without retraining), and ship tools for ML practitioners. **Biology experiments are DEPRIORITIZED.** We borrow biological principles as inspiration but do not replicate biology in this repo. See `CLAUDE.md §0.05` for the full scope lock. Any experiment, outreach, or synthesis that drifts into "let's also test on mouse V1 / organoids / cortex" — **stop and redirect**. Partners: Martian / Furiosa / Weka / Liquid AI / VERSES / NVIDIA. They care about capability transfer + efficient inference + geometry of *learned ML representations*.
+
+---
+
 ## ⚡ TIER-0 FRAMING — READ BEFORE EVERY ACTION ⚡
 
 **We are ONE independent researcher competing against DeepMind, Anthropic, OpenAI, Google, Meta.** Workshop-grade "we measured X across 9 models" papers are what they already publish monthly. We will not stand out that way. Every action must advance toward: (a) **first-principles derivation**, not phenomenology, or (b) a finding the big labs architecturally cannot/will not publish because it contradicts "scale = capability", or (c) **electricity-grade efficiency** on a real task (10× less compute, match capability). "Tighter error bars" / "one more architecture row" / "another figure" default to NO unless they enable (a)/(b)/(c). See `CLAUDE.md §0.1` for the full framing.
@@ -285,11 +291,15 @@ README landmark-findings block added. GENOMEGUARD.md updated with cross-arch + c
 - **Candidate-8 is stimulus-dependent** (bridge BREAKS on wikitext-raw, scrambled, reversed — rel_err rises 3-45×). This is a FEATURE, not a bug: it is the basis of GenomeGuard.
 - **GenomeGuard shipping tool** (`GENOMEGUARD.md`, `code/genome_genomeguard.py`, `genome_067`): ~20s per probe; 6/6 (Qwen3+BERT) × (wiki_raw+scrambled+reversed) detect contamination with ≥3× rel_err spike. Silent data corruption detector with zero training overhead.
 
-1. **Synthesize + preprint.** Full session has produced derivation-grade bridge + 12-op null + shippable tool. Next session should write the preprint and ship the tool open-source.
-2. **Cross-architecture GenomeGuard** on more models (MiniLM, CLIP, DINOv2) to lock universality of the detector.
-3. **Real-training-failure detection**: replace 3% weight noise with actual training blowups (LR×10, gradient hacking, stale checkpoint) — likely cross the 2× doomed threshold that the noise simulation missed.
-4. **Candidate-8 P3 derivation**: close the ratio(α) closed form with a richer spectrum model (smooth broken power-law, Marchenko-Pastur + low-rank cluster). Nature-grade mathematical target.
-5. **Audio + biology extensions**: wav2vec2 base modality + Allen V1 neurons. If bridge holds, candidate-8 extends beyond ML.
+**Scope lock (2026-04-22):** CS/AI/MATH ONLY. No biology, no neuroscience replication. End goal: capability transfer + model surgery + AI diagnostic tools. See `CLAUDE.md §0.05`.
+
+1. **Model surgery / capability transfer between trained AI models.** The 12-op null catalog ruled out naive forward transfer. Next: non-naive transfer — gradient distillation matched on candidate-8 target, direction-identity contrastive distillation, or low-rank capability graft using the k_bulk=48 basis. Concrete ML partner demo.
+2. **Compute-efficiency demo on a real AI workload.** Use k_bulk=h/22 as a principled rank target — low-rank-factorize mid layers of Qwen3 to rank 48, measure NLL retention. If <2% NLL loss at 20× parameter reduction for the factored layer, this is the Furiosa/Weka/Liquid demo.
+3. **Real-training-failure GenomeGuard demo.** Replace 3% weight noise simulation with actual training blowups (LR×10, gradient hacking, stale optimizer state). Show bridge rel_err diverges before val loss does. Turns the tool into a real early-warning monitor.
+4. **Candidate-8 P3 derivation.** Close the ratio(α) closed form with a richer spectrum model (Marchenko-Pastur + low-rank cluster, smooth broken power-law). Pure CPU, Nature-grade mathematical target. Prereg before firing.
+5. **LFM / SSM extension** (Linux host required if RWKV/Mamba kernels cause Windows issues). Liquid AI partner leverage.
+
+**Explicitly out of scope per §0.05:** biology session replications (genome_070 session 0 stands as single reference point; we will not extend to session 1-9), mouse V1, Allen Neuropixels, wav2vec2-audio-as-biology-analog, cortical-area comparisons. Biology framing removed from outreach emails and synthesis docs.
 
 Session logs + synthesis drafts: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `GENOMEGUARD.md`, `research/prereg/genome_svd_bridge_2026-04-22.md`.
 
