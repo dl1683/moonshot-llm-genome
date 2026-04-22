@@ -90,10 +90,27 @@ Build-on / vary:
 - `code/genome_capability_patch_generalize.py` — mean-shift across 3 lesion depths (57-67% each)
 - `code/genome_full_mean_genome_sweep.py` — 8-regime coverage sweep (which layers carry the signal)
 
+## Cross-size transfer (`genome_082`)
+
+Can a smaller model's atlas patch a larger model?
+
+Teacher: Qwen3-0.6B (h=1024).
+Student: Qwen3-1.7B (h=2048), all 28 layers lesioned.
+Method: ridge-regularized pseudoinverse projection fit per layer on ~300 C4 probes of the *pretrained* student to align hidden-space geometries; then project teacher atlas → student space; patch lesioned student.
+
+| | NLL |
+|---|---:|
+| Qwen3-1.7B teacher (pretrained) | 3.374 |
+| Qwen3-1.7B student (all 28 layers lesioned) | 18.673 |
+| Student + projected 0.6B atlas | **9.676** |
+| fraction_gap_closed | **+0.588** |
+
+**A 0.6B model's 112 KB atlas recovers 59% of a 1.7B model's capability when every transformer layer is destroyed.** Marginally better than same-size transfer. Knowledge projects across model sizes via a simple ridge-fit linear map.
+
 ## Open questions
 
-- Does the atlas transfer across model families within the same hidden size (e.g., Qwen3-0.6B → a different 1024-dim CLM)?
-- With a linear projection, does the atlas transfer across sizes (Qwen3-0.6B → Qwen3-1.7B)?
+- Cross-family transfer (different trained model, same hidden size)?
+- Cross-size + last-N combined (do we still need only the last 7 layers when projecting across sizes)?
 - Does it recover task-specific capabilities (arithmetic, code, reasoning) or only general language-modeling?
 - Can the atlas be *learned* on a different teacher corpus and still patch?
 
