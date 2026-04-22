@@ -24,6 +24,7 @@ The last two weeks (one RTX 5090 laptop, pre-registered, Bonferroni-corrected):
 3. **Universal bulk width** `k_bulk ≈ h/22` (CV 4.2% across 5 text systems) — a structural invariant that tells us exactly how many "informational directions" a trained text model actually uses.
 4. **GenomeGuard** — a 20-second training health monitor that uses the bridge to detect silent data corruption across 5 architectures with **6.9× – 144.9× signal** (DeepSeek is most sensitive at 144.9×, BERT at 23.7×). Catastrophic weight-divergence at 8× signal. Ship-ready in under 300 lines.
 5. **12-op null catalog**: every forward geometric manipulation we tested for installing capability fails. Capability is joint weight configuration, not any separable linear or geometric target.
+6. **Cross-substrate (today)**: bridge holds on mouse V1 Neuropixels under Natural Movie One at rel_err 12.3% — the same identity observed on the 7 ML systems. Not a training-recipe artifact.
 
 **Why I think this matters for Weka.** Your whole NeuralMesh / Augmented Memory Grid thesis is that reasoning workloads need more context than HBM can hold, so you stream KV-cache intelligently between GPU memory and the petabyte token warehouse. The hard question underneath that is *which activations are compressible and which are essential* — today that's a per-model guess. We think the bridge answers it from first principles.
 

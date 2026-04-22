@@ -15,7 +15,15 @@
 | CLIP-text-B/32 | text + 1 align | 2.975 | 3.184 | 7.0% | ✓ |
 | CLIP-vision-B/32 | vision + 1 align | 2.447 | 2.145 | 12.3% | ✓ |
 
-**7/8 systems PASS** preregistered 15% threshold. Median rel_err 8.7%.
+**7/8 ML systems PASS** preregistered 15% threshold. Median rel_err 8.7%.
+
+**Biology extension (2026-04-22, genome_070)**: Allen V1 Neuropixels session 0, 900 frames × 50 cortical units under Natural Movie One:
+
+| System | modality | c | ratio | rel_err | PASS |
+|---|---|---:|---:|---:|:---:|
+| Mouse V1 (session 0) | biological neurons | 2.488 | 2.183 | **12.3%** | ✓ |
+
+Biological `alpha = 0.200` (vs ML `alpha ≈ 0.77-0.86`) — mouse cortex has much shallower spectral decay (broader variance distribution across neurons) — yet the `c ≈ eff_rank/d_rd` bridge still holds within the 15% threshold. First cross-substrate empirical evidence for candidate-8 universality.
 
 **Stimulus sensitivity:** bridge holds universally across MODELS at C4 baseline. Breaks on wikitext (29-613% rel_err) and scrambled/reversed (60%+). The bridge is a **C4-specific geometric identity** — it characterizes trained-network activation geometry on natural text specifically, and deviates when stimulus structure is destroyed.
 

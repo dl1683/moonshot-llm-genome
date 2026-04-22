@@ -26,6 +26,7 @@ Headline results from the last two weeks (single RTX 5090 laptop, pre-registered
 3. **Trained-spectrum fingerprint**: α ≈ 0.86 power-law decay on trained activation covariance vs α ≈ 0.65 on shuffled / iid-Gaussian. 30% steeper decay *is* the signature.
 4. **GenomeGuard** — a 20-second training health monitor. Cross-architecture (5 text systems) silent data corruption detection with **6.9× – 144.9× rel_err spike**. Catastrophic weight-divergence at 8× signal. Ship-ready in under 300 lines.
 5. **12-operation null catalog** — every forward geometric manipulation we tested for *installing* capability is null: covariance transfer, codebook, PCA basis, aux-regularizer, single-layer weight transplant, QK/V/O/attn-all/MLP subset transplants, Procrustes-aligned transplant, candidate-8-ratio aux-loss. Capability is irreducibly joint weight configuration. A publishable negative claim that frontier labs structurally won't write up.
+6. **Cross-substrate (today)**: bridge holds on **mouse V1 Neuropixels** under Natural Movie One at rel_err 12.3% (Allen Brain Observatory, session 0, 900 frames × 50 cortical units). Same identity, biological substrate. Not a backprop artifact.
 
 **Why Liquid AI specifically.** Two reasons:
 

@@ -24,6 +24,7 @@ The headline result from the last two weeks (single RTX 5090 laptop, pre-registe
 3. **Trained-spectrum signature**: α ≈ 0.86 power-law decay on trained covariance vs α ≈ 0.65 on shuffled or iid-Gaussian baseline. 30% steeper decay is the training-specific fingerprint.
 4. **GenomeGuard** — a 20-second training health monitor built on the bridge. On 5 text architectures it flags silent data corruption with **6.9× – 144.9× rel_err spike** (DeepSeek most sensitive at 144.9×). Catches catastrophic weight-divergence at 8× signal. Cross-architecture. Ship-ready in under 300 lines.
 5. **12-operation null catalog**: every forward geometric manipulation we tested (covariance transfer, codebook, PCA basis, aux-regularizer, single-layer weight transplant, QK/V/O/attn-all/MLP subset transplants, Procrustes-aligned transplant, candidate-8-ratio aux-loss) is null for installing capability. Capability is irreducibly joint weight config.
+6. **Cross-substrate (today)**: bridge holds on mouse V1 Neuropixels under Natural Movie One at rel_err 12.3% — the same identity we measured on Qwen3, DeepSeek, BERT, CLIP also applies to biological cortex. Not a backprop artifact.
 
 **Why this matters for Furiosa specifically.** Two reasons, both consequential:
 
