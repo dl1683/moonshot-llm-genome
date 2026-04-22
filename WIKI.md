@@ -268,9 +268,16 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-22 T+46h, 11 experiments landed this session.)* Start here on next session.
+*(Updated 2026-04-22 T+48h, 13 experiments landed this session + cross-arch GenomeGuard + biology bridge in flight.)* Start here on next session.
 
-**Current state: CANDIDATE-8 BRIDGE + GENOMEGUARD TOOL SHIPPED.**
+**Current state: CANDIDATE-8 BRIDGE + GENOMEGUARD TOOL SHIPPED (cross-arch universal).**
+
+Latest landings (genome_068 + genome_069):
+- **GenomeGuard noise-sweep**: 8.2× rel_err spike at σ=0.3 catastrophic weight perturbation (genome_068). Detector has 2 proven failure modes.
+- **GenomeGuard cross-arch**: 5/5 text systems (Qwen3, DeepSeek, BERT, RoBERTa, MiniLM) detect C4→wikitext-shuffled swap with **6.9× – 144.9× spike** (mean 39×). Mean baseline → swap: DeepSeek 0.002→0.227, tightest-baseline systems give largest spike (genome_069).
+- **Candidate-8 on biology** (genome_biology_bridge): in flight on Allen V1 session 0. If ratio matches c on mouse neurons, candidate-8 extends beyond ML.
+
+README landmark-findings block added. GENOMEGUARD.md updated with cross-arch + catastrophic-divergence tables.
 
 - **Candidate-8 spectral bridge** `c ≈ eff_rank / d_rd` **7/8 PASS** preregistered 15% threshold (Qwen3 9% / DeepSeek 0.2% / BERT 14% / RoBERTa 4% / MiniLM 8% / CLIP-text 7% / CLIP-vision 12% / DINOv2 20%=fail by 5pt). Median rel_err 8.7%, 88% pass rate above prereg 80% target. Derivation-grade universal geometric identity across base text + MLM + contrastive + vision + cross-modal.
 - **k_bulk=48 universal** (CV 4.2% across 5 text systems) — plateau-plus-power-law P2 partial fit. Pure power-law falsified.
