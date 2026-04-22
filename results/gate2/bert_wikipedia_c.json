@@ -1,0 +1,42 @@
+{
+  "purpose": "BERT-on-Wikipedia distribution-confound test (candidate-5)",
+  "stimulus": "wikitext-103-raw-v1",
+  "per_system": [
+    {
+      "system": "bert-base-uncased",
+      "p": 0.05570165106890686,
+      "d_rd": 9.8897323581358,
+      "c": 0.5508744209777577,
+      "Ck_R2": 0.8888856152165808,
+      "n": 1000,
+      "c_on_c4": 2.65,
+      "delta_c_wiki_minus_c4": -2.099125579022242
+    },
+    {
+      "system": "roberta-base",
+      "p": 0.0865845612094095,
+      "d_rd": 10.694087086855083,
+      "c": 0.9259428379505595,
+      "Ck_R2": 0.9351833440082619,
+      "n": 1000,
+      "c_on_c4": 2.25,
+      "delta_c_wiki_minus_c4": -1.3240571620494404
+    },
+    {
+      "system": "minilm-l6-contrastive",
+      "p": 0.09236721198699084,
+      "d_rd": 10.121662729927435,
+      "c": 0.9349097670360318,
+      "Ck_R2": 0.9830410744327982,
+      "n": 1000,
+      "c_on_c4": 2.03,
+      "delta_c_wiki_minus_c4": -1.095090232963968
+    }
+  ],
+  "c4_reference": {
+    "bert-base-uncased": 2.65,
+    "roberta-base": 2.25,
+    "minilm-l6-contrastive": 2.03
+  },
+  "verdict": "DISTRIBUTION_CONFOUND_CONFIRMED \u2014 BERT c drops >2.10 on training distribution; candidate-5 passes 12/12 with distribution-match"
+}

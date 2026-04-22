@@ -122,6 +122,48 @@ def c4_clean_v1(seed: int, n_samples: int = 5000,
         yielded += 1
 
 
+# -------------------- Wikitext-103 (BERT distribution proxy) --------------------
+
+_WIKITEXT_SCOPE_ID = "text.wikitext103_raw.len256.v1"
+
+
+def wikitext_v1(seed: int, n_samples: int = 5000,
+                length_tokens: int = 256) -> Iterator[dict[str, Any]]:
+    """Yield n_samples stimuli from Wikitext-103-raw.
+
+    Serves as a proxy for the BERT-family training distribution
+    (Wikipedia+BooksCorpus). Candidate-5 test: BERT's c=2.65 outlier on C4
+    is attributed to stimulus-vs-training distribution mismatch. If the
+    outlier resolves to c~2.0 on wikitext, distribution-confound wins.
+
+    Same filter and item schema as c4_clean_v1 so extractor code is shared.
+    """
+    from datasets import load_dataset  # lazy
+
+    ds = load_dataset(
+        "Salesforce/wikitext", "wikitext-103-raw-v1",
+        split="train", streaming=True, trust_remote_code=False,
+    )
+    ds = ds.shuffle(seed=seed, buffer_size=10_000)
+
+    yielded = 0
+    for idx, example in enumerate(ds):
+        if yielded >= n_samples:
+            break
+        text = example.get("text", "")
+        # Wikitext includes empty lines and short headers - reuse c4 filter.
+        if not filter_len_256_english({"text": text}):
+            continue
+        yield {
+            "scope_id": _WIKITEXT_SCOPE_ID,
+            "seed": seed,
+            "idx": yielded,
+            "text": text,
+            "length_tokens_est": _whitespace_word_count(text),
+        }
+        yielded += 1
+
+
 # -------------------- Multilingual C4 (Tier 1b) --------------------
 
 _C4_MULTILINGUAL_SCOPE_ID = "text.c4_multilingual.len256.v1"

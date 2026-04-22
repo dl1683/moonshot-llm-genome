@@ -268,15 +268,15 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-22 after the 53-experiment session-end.)* First things an agent should pick up on startup. Keep short (≤5 items). Reorder by priority.
+*(Updated 2026-04-22 T+43h session-continued after user hardware-off-restart.)* First things an agent should pick up on startup. Keep short (≤5 items). Reorder by priority.
 
-**Current state:** `c = p · d_rd = base_modality_c + n_alignment_targets` fits 11 / 12 systems within 20% (see `research/BREAKTHROUGH_SYNTHESIS.md`). Rung-3 causal-substrate analysis exhausted (5 forward transfusion nulls + PCA-causal + random-vs-PCA-direction + weight-interpolation nonlinear). Paper at 8900 words + 10 tables workshop-submittable. G1 + G2.4-text + G2.5-biology all PASS.
+**Current state:** `c = p · d_rd = base_modality_c + n_alignment_targets` fits 11 / 12 systems within 20% (see `research/BREAKTHROUGH_SYNTHESIS.md`). Rung-3 causal-substrate analysis exhausted (5 forward transfusion nulls + PCA-causal + random-vs-PCA-direction + weight-interpolation nonlinear). genome_056 localized c to training-specific joint inter-dim structure. **genome_057 (new 2026-04-22)**: the joint-structure signature is a specific singular-spectrum power-law decay — trained alpha=0.861 vs shuffled/Gaussian alpha=0.653 (30pct steeper), eff_rank 25.3 vs 63.4 (2.5x concentrated). Shuffle spectrum is statistically indistinguishable from iid-Gaussian baseline. eff_rank / d_rd ratio = 25.27 / 12.27 = **2.06 ≈ observed c_trained=1.89** — first quantitative spectral-geometric bridge candidate.
 
-1. **Rigorous derivation of `c = base_modality + n_alignments`.** Why exactly +1 per alignment? Candidates: alignment axis in the joint embedding space, rate-distortion asymptotic prefactor, manifold tangent-bundle dimension. Required for Nature-grade claim. Do this BEFORE more measurement.
-2. **Measure BERT on its training distribution (Wikipedia+BooksCorpus).** If BERT on C4-clean c=2.65 drops to c≈2 on Wikipedia, the only candidate-5 outlier resolves as distribution-confound. Confirms robustness of the derivation.
-3. **Audio system measurement (wav2vec2-base).** Candidate-5 predicts audio c = base_audio_c + n_alignments. If base_audio ≈ 3 (1D time + 1D freq + 1D identity), single-modality wav2vec2 should land at ~3. Adds a 3rd base modality data point.
-4. **ImageBind or similar multi-alignment model.** Trained to align vision against text+audio+video+depth+thermal+IMU (5 alignments). Candidate-5 predicts c ≈ vision(3) + 5 = 8. Strong prediction; large gap from typical measurement.
-5. **Higher-order transfer operator Compiler attempt.** Beyond covariance/codebook/basis, try attention-pattern graft or direction-identity contrastive distillation. Session-46/047/049/050 established substrate is higher-order than 2nd moment. Next Compiler candidate.
+1. **BERT-on-Wikipedia** (IN FLIGHT `genome_bert_wikipedia_c.py`). Tests distribution-confound theory for the 1 / 12 scorecard outlier. If c drops 2.65→~2.0 on wikitext, 12/12 fit lands. → `results/gate2/bert_wikipedia_c.json`.
+2. **Orthogonal-Compiler intervention.** All 5 prior transfusions (covariance / codebook / basis / aux-regularizer / single-layer transplant) target per-dim or 2nd-moment structure and fail. genome_057 says the real signature is a *power-law spectrum with alpha=0.86*. New intervention: **attention-QK transplant** grafts joint-structure routing without copying value/output processing. Tests whether capability lives in inter-dim routing patterns. (`genome_attention_qk_transplant.py` to scribe next.)
+3. **Rigorous derivation: alpha → c via random matrix theory.** Now that eff_rank / d_rd = 2.06 empirically for Qwen3, test on vision (predicts 3.0) and CLIP (predicts 3, 4). If the eff_rank / d_rd quantity tracks c across all 11 fit systems, it is a derivation candidate. Fire `genome_svd_spectrum_multimodel.py` after BERT + QK-transplant land.
+4. **Audio system measurement (wav2vec2-base).** Adds 3rd base modality data point. Predicts c ≈ 3 (time + freq + identity).
+5. **ImageBind** multi-alignment — predicts c ≈ 8. High-leverage confirmation of alignment axis additivity.
 
 Session logs + synthesis + derivation-attempt drafts live in `research/BREAKTHROUGH_SYNTHESIS.md`, `research/CURRENT_KNOWLEDGE.md`, `research/derivations/c_integer_derivation_attempt.md`.
 
