@@ -1,6 +1,81 @@
 # Breakthrough synthesis — 2026-04-21 + 2026-04-22 sessions
 
-*Draft integration of genome_036 through genome_059. Read this before firing the next compiler-sprint experiment. Not paper polish — this is the framing the paper will need if the claims hold.*
+*Draft integration of genome_036 through genome_082. Read this before firing the next compiler-sprint experiment. Not paper polish — this is the framing the paper will need if the claims hold.*
+
+---
+
+## 🔥 2026-04-22 T+52h FINALE — THE NEURAL GENOME IS LITERAL
+
+After the outreach emails went out (NVIDIA / VERSES / Furiosa / Weka / Martian / Liquid AI), user set scope lock to CS/AI/math ONLY and pushed for home-run results. Final 9 experiments landed the project-namesake finding.
+
+### genome_074 — mean-shift capability patch at one lesioned layer
+
+Lesion Qwen3-0.6B mid block (layer 14, 7 matmul weights randomized). Test 3 hook styles × 3 ranks (48, 256, 1024) as adapters. Result: the simplest possible adapter — a 1024-dim additive bias vector equal to `teacher_mean - student_lesion_mean` — wins with `fraction_gap_closed = +0.647` (65% capability recovery). Rank-48 adapter FAILS (destructive), rank-1024 residual closes 53%, mean-shift wins. Mean + orthogonal Procrustes rotation consistently hurts (disrupts residual stream).
+
+### genome_075 — mean-shift generalizes across layer depths
+
+Same mean-shift surgery at lesion layers {7, 14, 21}: fg_closed = {0.574, 0.590, 0.674}. Mean **0.613 (CV 8.3%)**. Layer-agnostic capability-patch technique.
+
+### genome_078 — THE NEURAL GENOME: 112 KB atlas, 49% recovery
+
+Lesion EVERY layer of Qwen3-0.6B (196 matmul weight tensors across 28 transformer blocks randomized; NLL jumps from 3.67 → 16.90 — complete capability wipeout). Install per-layer mean-activation shifts from the pretrained teacher (28 × 1024 = 28,672 scalars = **112 KB** ≈ 1/10,000 of the 1.2 GB weight file). Patched NLL: **10.40, fg_closed = +0.491.** Half-atlas (first 14 layers only) is null (-1.4%). Full atlas is jointly load-bearing.
+
+### genome_079 — GENOME LOCALIZED TO LAST-7 LAYERS
+
+Sweep which layers carry the signal:
+
+| Regime | n_layers | fg_closed |
+|---|---:|---:|
+| none | 0 | +0.003 |
+| first-7 | 7 | +0.009 |
+| **last-7** | **7** | **+0.527** |
+| first-14 | 14 | +0.116 |
+| last-14 | 14 | +0.445 |
+| **mid-14** | 14 | **-0.012** |
+| alternate | 14 | +0.383 |
+| all-28 | 28 | +0.542 |
+
+The last 7 layers alone recover essentially the full atlas's effect. Middle 14 layers contribute nothing. **Capability genome is localized to the LM-head-adjacent quarter of the network.**
+
+### genome_080 — compression curve
+
+Minimum sufficient last-N sweep:
+
+| last-N | size | fg_closed |
+|---:|---:|---:|
+| 1 | 4 KB | **20.4%** |
+| 3 | 12 KB | **45.8%** |
+| 7 | 28 KB | 53.5% (peak plateau) |
+| 28 | 112 KB | 58.5% |
+
+Thresholds: 15% at **4 KB** (single last layer), 30% at **12 KB** (last 3), 50% at **28 KB** (last 7). At the 50% threshold, compression ratio is ~**40,000×** vs the weight file.
+
+### genome_082 — CROSS-SIZE ATLAS TRANSFER
+
+Qwen3-0.6B teacher atlas (1024-d) projected up to Qwen3-1.7B student (2048-d) via ridge-regularized pinv per layer fit on one 300-sentence C4 probe of the pretrained student. Apply as additive bias on fully-lesioned Qwen3-1.7B.
+
+| | NLL |
+|---|---:|
+| Qwen3-1.7B pretrained | 3.374 |
+| All-28-layers lesioned | 18.673 (gap 15.299) |
+| Student + projected 0.6B atlas | **9.676** |
+| fraction_gap_closed | **+0.588** |
+
+**A 0.6B model's atlas recovers 59% of a 1.7B model's capability after every transformer block is destroyed.** Slightly BETTER than same-size transfer. Capability knowledge is not locked to exact hidden dim or weight configuration. Total surgery package (112 KB atlas + 6 MB projection state) is ~500× smaller than the 3.5 GB weight file.
+
+### What it means
+
+- **The capability-carrying signal is an additive direction per layer at the end of the network.** Rotation hurts. Rank-48 linear adapter hurts. Mean-shift wins.
+- **The genome is localized to the last quarter of the network.** LM-head-adjacent residual-stream conditioning is where the learnable direction lives.
+- **It transfers across model sizes.** A smaller model's atlas can patch a larger model via ridge-fit projection.
+- **Honest caveats**: embedding + LM-head are tied and NOT lesioned. The atlas restores residual-stream conditioning into an intact decoder. Extending the lesion to embeddings, testing cross-family and task-specific benchmarks, are open work.
+
+### Open questions for next session
+
+1. Cross-family same-size transfer (does atlas from Model A patch Model B of different training family, same hidden dim)?
+2. Task-specific benchmarks (does atlas recover arithmetic, code, reasoning — not just NLL)?
+3. Lesion extended to include embeddings — does the atlas still transfer?
+4. Mechanism: can we derive WHY mean-shift at last-7 layers specifically works?
 
 ---
 
