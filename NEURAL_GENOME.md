@@ -64,6 +64,7 @@ What DOES transfer is the simplest possible adapter: **additive mean shift**. Le
 
 ## Scope
 
+- **Tokenizer + embedding + LM head are NOT lesioned.** Only the 28 transformer blocks' matmul weights are randomized. Because Qwen3's embedding and LM-head are tied, the decode-side mapping (hidden-state → token probabilities) is intact in both teacher and lesioned student. The atlas is therefore carrying "mean residual-stream state per layer" into a decode path that knows how to read it. This is still a real capability-transfer result (every transformer block is destroyed), but the honest framing is "the atlas restores residual-stream conditioning, not the tokenizer/decoder." Extending lesion to embeddings is future work.
 - Tested on Qwen3-0.6B with C4-clean stimuli. Cross-architecture / cross-size and arbitrary-task benchmarks are future work.
 - Recovery is on language-model NLL. Task-specific benchmarks (arithmetic, reasoning, instruction-following) have not been evaluated yet.
 - The atlas is per-model (teacher-specific). Whether a teacher atlas transfers to a different-family student is an open question.
