@@ -22,7 +22,7 @@ The bridge **breaks** the moment the model encodes out-of-distribution stimuli. 
 
 ## The result
 
-On Qwen3-0.6B mid-depth, n=1000 C4 probe batch:
+**On Qwen3-0.6B** (CLM, mid-depth, n=1000 C4 probe batch):
 
 | Condition | rel_err | separation from baseline |
 |---|---:|---:|
@@ -30,7 +30,20 @@ On Qwen3-0.6B mid-depth, n=1000 C4 probe batch:
 | Doomed (3% attention-weight noise) | 0.113 | 1.26x |
 | **SWAP (C4 → wikitext-shuffled)** | **0.655** | **7.29x** |
 
-One probe after the stimulus swap, `rel_err` jumps 7× above the healthy baseline. No training signal was consulted.
+**Cross-model corruption detection matrix** (2 architectures × 3 corruption types, computed from genome_060 + genome_062 data):
+
+| Model | Corruption | baseline → corrupted rel_err | spike |
+|---|---|---:|---:|
+| Qwen3-0.6B (CLM) | wiki_raw | 0.090 → 0.286 | **3.2×** |
+| Qwen3-0.6B (CLM) | wiki_word_shuffled | 0.090 → 0.621 | **6.9×** |
+| Qwen3-0.6B (CLM) | wiki_word_reversed | 0.090 → 0.606 | **6.7×** |
+| BERT-base (MLM) | wiki_raw | 0.136 → 6.134 | **45.1×** |
+| BERT-base (MLM) | wiki_word_shuffled | 0.136 → 3.218 | **23.7×** |
+| BERT-base (MLM) | wiki_word_reversed | 0.136 → 3.235 | **23.8×** |
+
+**6 / 6 (model, corruption) pairs detect contamination with ≥3× spike.** MLM encoders (BERT) are ~5× more sensitive than CLMs (Qwen3) — suggesting MLM training produces a more rigid bridge that is more easily violated. Either way, the detector works on both architectures.
+
+One probe after the stimulus swap, `rel_err` jumps 3-45× above the healthy baseline. No training signal was consulted.
 
 ## How to use it
 
