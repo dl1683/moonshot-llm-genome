@@ -45,13 +45,21 @@ _ROOT = _THIS_DIR.parent
 
 def fit_projection(X_src, X_tgt):
     """Fit P in R^{h_src x h_tgt} such that X_src @ P approximately equals X_tgt.
-    Closed form: P = pinv(X_src) @ X_tgt. We then orthonormalize P's columns
-    so the projection doesn't blow up magnitudes.
+    Closed form (ridge-regularized pinv to keep numerical stability).
     """
-    P = np.linalg.pinv(X_src) @ X_tgt   # (h_src, h_tgt)
-    # Normalize column norms so projected mean has sensible scale
-    col_norms = np.linalg.norm(P, axis=0, keepdims=True) + 1e-6
-    P = P / col_norms * np.linalg.norm(X_tgt, axis=0, keepdims=True) / max(np.linalg.norm(X_src, axis=0, keepdims=True).mean(), 1e-6)
+    # Center both
+    mu_s = X_src.mean(axis=0, keepdims=True)
+    mu_t = X_tgt.mean(axis=0, keepdims=True)
+    A = X_src - mu_s    # (n, h_src)
+    B = X_tgt - mu_t    # (n, h_tgt)
+    # Ridge-regularized pseudoinverse: P = (A^T A + lambda I)^-1 A^T B
+    lam = 1e-2 * float(np.trace(A.T @ A)) / max(A.shape[1], 1)
+    AtA = A.T @ A + lam * np.eye(A.shape[1], dtype=A.dtype)
+    AtB = A.T @ B
+    P = np.linalg.solve(AtA, AtB).astype(np.float32)
+    # Sanity: if any NaN, fall back to identity-padded mean-only
+    if not np.all(np.isfinite(P)):
+        P = np.zeros((A.shape[1], B.shape[1]), dtype=np.float32)
     return P
 
 
