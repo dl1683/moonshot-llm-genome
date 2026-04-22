@@ -35,7 +35,7 @@ import torch
 
 _THIS_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(_THIS_DIR))
-from genome_extractor import extract_trajectory  # noqa: E402
+from genome_extractor import extract_trajectory, extract_vision_trajectory  # noqa: E402
 from genome_loaders import load_system  # noqa: E402
 from genome_primitives import knn_clustering_coefficient  # noqa: E402
 from genome_rate_distortion_probe import rate_distortion_dim, fit_power_law  # noqa: E402
@@ -153,13 +153,13 @@ def run_one_vision(hf_id, sk, cid, n=500, seed=42):
     sys_obj = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
     mid = sys_obj.n_hidden_layers() // 2
     imgs = _get_imagenet(n, seed)
-    traj = extract_trajectory(
-        model=sys_obj.model, tokenizer=None,
-        texts=None, images=imgs, layer_indices=[mid], pooling="cls_or_mean",
+    traj = extract_vision_trajectory(
+        model=sys_obj.model, image_processor=sys_obj.tokenizer,
+        images=imgs, layer_indices=[mid], pooling="cls_or_mean",
         device="cuda", system_key=sk, class_id=cid,
         quantization="fp16",
         stimulus_version=f"imagenet_val.v1.seed{seed}.n{n}",
-        seed=seed, batch_size=16, max_length=None,
+        seed=seed, batch_size=16,
     )
     X = traj.layers[0].X.astype(np.float32)
     sys_obj.unload(); torch.cuda.empty_cache()

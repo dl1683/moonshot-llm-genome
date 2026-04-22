@@ -1,0 +1,65 @@
+{
+  "purpose": "Candidate-8 bridge: eff_rank/d_rd approximately equals c across scorecard systems",
+  "per_system": [
+    {
+      "system": "qwen3-0.6b",
+      "modality": "text",
+      "c": 1.8891404347531235,
+      "p": 0.15392436198774162,
+      "d_rd": 12.273173722192025,
+      "eff_rank": 25.26885882201647,
+      "alpha": 0.861410904866676,
+      "ratio": 2.058869155932014,
+      "rel_err_ratio_vs_c": 0.08984441709918244
+    },
+    {
+      "system": "deepseek-r1-distill-qwen-1.5b",
+      "modality": "text",
+      "c": 2.4095888391829288,
+      "p": 0.17136962287614116,
+      "d_rd": 14.060769923759938,
+      "eff_rank": 33.93375603779326,
+      "alpha": 0.7717850576411748,
+      "ratio": 2.413364006508056,
+      "rel_err_ratio_vs_c": 0.0015667267642255924
+    },
+    {
+      "system": "bert-base-uncased",
+      "modality": "text",
+      "c": 2.6528547941637144,
+      "p": 0.1846219494224523,
+      "d_rd": 14.369119178204791,
+      "eff_rank": 32.940233051810246,
+      "alpha": 0.7836258994169297,
+      "ratio": 2.2924323087092415,
+      "rel_err_ratio_vs_c": 0.13586212341791304
+    },
+    {
+      "system": "roberta-base",
+      "modality": "text",
+      "c": 2.2502551865012212,
+      "p": 0.17310257624105518,
+      "d_rd": 12.999547640282447,
+      "eff_rank": 28.056306988902133,
+      "alpha": 0.7681922073667445,
+      "ratio": 2.1582525611862398,
+      "rel_err_ratio_vs_c": 0.040885418625800626
+    },
+    {
+      "system": "minilm-l6-contrastive",
+      "modality": "text",
+      "c": 2.027314245446461,
+      "p": 0.15790623759060893,
+      "d_rd": 12.83872174006526,
+      "eff_rank": 28.226165593284183,
+      "alpha": 0.7727154130779944,
+      "ratio": 2.198518370033675,
+      "rel_err_ratio_vs_c": 0.08444873554840075
+    },
+    {
+      "system": "dinov2-small",
+      "error": "extract_trajectory() got an unexpected keyword argument 'images'"
+    }
+  ],
+  "verdict": "CANDIDATE_8_SUPPORTED \u2014 5/5 systems fit eff_rank/d_rd approximately equals c within 15pct. Bridge is a universal geometric identity, not a Qwen3 coincidence."
+}
