@@ -13,6 +13,7 @@ Retrospective scan of all 8 systems in the candidate-8 spectral bridge scorecard
 | BERT-base | text MLM | 0.784 | 32.94 | 4.50 | 20.25 |
 | RoBERTa-base | text MLM | 0.768 | 28.06 | 4.07 | 16.55 |
 | MiniLM-L6 | text contrastive | 0.773 | 28.23 | 4.11 | 16.86 |
+| Falcon-H1-0.5B | text hybrid (transformer+Mamba) | 0.784 | 28.55 | 4.19 | 17.57 |
 | DINOv2-small | vision | 0.762 | 26.45 | 3.92 | 15.36 |
 | CLIP-text | text+align | 0.609 | 51.07 | 4.35 | 18.95 |
 | CLIP-vision | vision+align | 0.892 | 22.28 | 4.21 | 17.73 |
