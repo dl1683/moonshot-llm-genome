@@ -324,10 +324,12 @@ Fresh extraction + matched controls on 4 text systems:
 
 **Atlas is scope-closed** as distribution-prior restorer only. The 200-step "three-wall" is now understood as a training-budget artifact observable at short horizon. The positive story is the phase transition around 1500 steps + the new spectral invariant.
 
-**Further updates 2026-04-22 T+57h (genome_089 → genome_091):**
+**Further updates 2026-04-22 T+57h (genome_089 → genome_093):**
 - `genome_089` — invariant tracks capability recovery as U-shape (mode-collapse-then-expand): eff_rank 78.7 → 4.72 (step 500) → 17.29 (step 2000, near teacher 20.4). **The coherence wall is mode collapse.**
-- `genome_090` — NULL at γ=1e-3 weak batch-aux. 13th null-op on record. Trajectories overlap with control. genome_093 (buffered-K=64, γ=1e-2) running with genuine leverage.
-- `genome_091` — **shifted-power-law σ²=(i+k)^(-2α) FALSIFIED as spectrum model.** Fit gives k=127 (not 5), α=2.09 — reproduces log-log R²=0.85 but predicts wrong eff_rank (3-4× overshoot). My hand-picked (k=5, α=0.8) was a coincidence of invariant arithmetic. The invariant itself still valid; derivation path needs broken-power-law or two-regime model.
+- `genome_090` — NULL at γ=1e-3 weak batch-aux. 13th null-op on record. Trajectories overlap with control.
+- `genome_091` — **shifted-power-law σ²=(i+k)^(-2α) FALSIFIED as spectrum model.** Fit gives k=127 (not 5), α=2.09 — reproduces log-log R²=0.85 but predicts wrong eff_rank (3-4× overshoot). My hand-picked (k=5, α=0.8) was a coincidence of invariant arithmetic.
+- **Broken-power-law candidate** — numerical fit (k_brk=24, a1=0.4, a2=0.8) reproduces all 4 empirical statistics (er, α, invariant, er·α²) to ~1%. k_brk ≈ k_bulk/2 from genome_047. genome_094 will test fit across 5 empirical spectra.
+- `genome_093` — **aux loss IS a spectrum knob but NOT a capability lever.** Buffered K=64, γ=1e-2, target er=16. Aux drove student eff_rank to 22.81 (above teacher 20.44) at step 1000 and sqrt(er)·α to 2.58 (closer to teacher 2.88). But NLL was NOT improved — marginally WORSE (aux 7.02 vs control 6.98 at step 2000; aux 6.90 vs control 6.78 at step 1000 where aux spectrum already matched teacher). **The invariant is a DIAGNOSTIC of mode diversity, not a CAUSAL LEVER for capability.** 15+ null-op catalog, all converging: no sparse geometric intervention transplants capability. Spectrum matching fills directions with optimization noise, not semantic content.
 
 1. **Derive the constant 18 (`genome_091` ruled out shifted power-law).** Remaining candidate paths: (a) two-regime / broken-power-law spectrum fit — flat head + steep tail, with sharp break point; (b) variational form of trained-spectrum extremum under rate-distortion + training-objective. Genome_091 confirms that simple three-parameter rational shapes won't work.
 2. **Geometry-as-auxiliary-loss efficiency training** (electricity-grade per §0.1(c)). genome_090 null at γ=1e-3 batch aux (weak leverage). **genome_093 running** — buffered K=64 at γ=1e-2 gives real signal strength. If 093 shows faster coherence emergence than control, first concrete "geometry beats scale" demonstration.

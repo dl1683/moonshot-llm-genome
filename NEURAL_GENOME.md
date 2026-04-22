@@ -155,7 +155,7 @@ The 200-step coherence wall was **training-budget limited**, not structural. Cap
 - Coherence recovery from full lesion requires *dense* supervision (every hidden state, every layer) AND *sustained* supervision (~1500 steps, not 200).
 - The coherence-emergence curve is a phase transition, not a continuous ramp — rep-count drops from 4/5 to 1/5 in a single 500-step interval.
 
-**Open question — the efficiency angle:** the 1500-step onset is cheap relative to full pretraining (~10^6 steps), but can it be cheaper still? If an auxiliary loss on a geometric invariant (candidate-8 ratio, `eff_rank·α² ≈ 18`, etc.) pulls the phase transition earlier, we have the first concrete "geometry accelerates training" demonstration — an electricity-grade efficiency direction per §0.1(c) of `CLAUDE.md`.
+**Efficiency angle tested — `genome_090` (γ=1e-3 batch aux) and `genome_093` (γ=1e-2 buffered K=64 aux).** Both are NULL: the aux can control the spectrum (`genome_093` drives student mid-depth eff_rank to 22.81 above teacher 20.44 by step 1000, with sqrt(er)·α tracking the teacher attractor), but **NLL and coherence do NOT improve** — in fact aux final NLL is marginally worse (7.02 vs 6.98 at step 2000). The invariant is therefore a **diagnostic that measures mode diversity, not a causal lever for installing capability.** Matching a trained model's spectrum shape fills those directions with optimization noise, not semantic content. This extends the null forward-transfer catalog to 15+ operations. Honest framing: the invariant is derivation-grade and a real capability-coupled measurement, but it is not yet a training-speedup primitive.
 
 ## Open questions
 
