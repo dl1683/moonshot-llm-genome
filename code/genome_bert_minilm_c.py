@@ -3,8 +3,8 @@
 Candidate-5 from research/derivations/c_integer_derivation_attempt.md:
   c = base_modality_c + n_alignment_targets
 
-BERT-base: masked-LM on text only, no cross-modal alignment → predicts c ≈ 2
-MiniLM-L6: contrastive sentence transformer, text only (no cross-modal) → predicts c ≈ 2
+BERT-base: masked-LM on text only, no cross-modal alignment → predicts c ~= 2
+MiniLM-L6: contrastive sentence transformer, text only (no cross-modal) → predicts c ~= 2
 
 Both held-out predictions for candidate-5 after genome_051 (CLIP-text = 3.14 fits
 candidate-5) and genome_050 (DiT = 2.33 falsified candidate-4).
@@ -75,7 +75,7 @@ def main():
             results.append({"system": sk, "error": str(e)})
 
     print("\n=== CANDIDATE-5 TEST (base_modality_c + n_alignment_axes) ===")
-    print(f"  prediction for single-modality text: c ≈ 2.0")
+    print(f"  prediction for single-modality text: c ~= 2.0")
     for r in results:
         if "error" in r:
             print(f"  {r['system']}: ERROR")
