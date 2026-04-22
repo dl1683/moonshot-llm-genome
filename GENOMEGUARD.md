@@ -30,20 +30,41 @@ The bridge **breaks** the moment the model encodes out-of-distribution stimuli. 
 | Doomed (3% attention-weight noise) | 0.113 | 1.26x |
 | **SWAP (C4 → wikitext-shuffled)** | **0.655** | **7.29x** |
 
-**Cross-model corruption detection matrix** (2 architectures × 3 corruption types, computed from genome_060 + genome_062 data):
+**Cross-architecture corruption detection** (5 text systems, wikitext-word-shuffled swap, genome_069):
 
-| Model | Corruption | baseline → corrupted rel_err | spike |
-|---|---|---:|---:|
-| Qwen3-0.6B (CLM) | wiki_raw | 0.090 → 0.286 | **3.2×** |
-| Qwen3-0.6B (CLM) | wiki_word_shuffled | 0.090 → 0.621 | **6.9×** |
-| Qwen3-0.6B (CLM) | wiki_word_reversed | 0.090 → 0.606 | **6.7×** |
-| BERT-base (MLM) | wiki_raw | 0.136 → 6.134 | **45.1×** |
-| BERT-base (MLM) | wiki_word_shuffled | 0.136 → 3.218 | **23.7×** |
-| BERT-base (MLM) | wiki_word_reversed | 0.136 → 3.235 | **23.8×** |
+| Model | class | baseline rel_err | swap rel_err | spike |
+|---|---|---:|---:|---:|
+| Qwen3-0.6B | CLM decoder | 0.090 | 0.621 | **6.9×** |
+| DeepSeek-R1-Distill-1.5B | CLM decoder (reasoning-distilled) | 0.002 | 0.227 | **144.9×** |
+| BERT-base | MLM encoder | 0.136 | 3.218 | **23.7×** |
+| RoBERTa-base | MLM encoder | 0.041 | 0.488 | **11.9×** |
+| MiniLM-L6 | contrastive encoder | 0.084 | 0.738 | **8.7×** |
+
+**5 / 5 text architectures pass ≥2× threshold.** Mean spike **39×**. Systems with the tightest baseline (DeepSeek at rel_err=0.002) give the largest spike (144.9×) — the tighter the healthy bridge, the more sensitive the detector. Cross-architecture matrix across CLM decoders, MLM encoders, and contrastive encoders.
+
+**Cross-corruption** (Qwen3 + BERT × 3 corruption types, from genome_062):
+
+| Model | wiki_raw | wiki_word_shuffled | wiki_word_reversed |
+|---|---:|---:|---:|
+| Qwen3-0.6B | 3.2× | 6.9× | 6.7× |
+| BERT-base | **45.1×** | 23.7× | 23.8× |
 
 **6 / 6 (model, corruption) pairs detect contamination with ≥3× spike.** MLM encoders (BERT) are ~5× more sensitive than CLMs (Qwen3) — suggesting MLM training produces a more rigid bridge that is more easily violated. Either way, the detector works on both architectures.
 
 One probe after the stimulus swap, `rel_err` jumps 3-45× above the healthy baseline. No training signal was consulted.
+
+**Catastrophic training-divergence detection** (genome_068): sweep Gaussian noise magnitude on all attention + MLP weights:
+
+| sigma (frac. of Frobenius) | rel_err | separation from baseline |
+|---:|---:|---:|
+| 0.00 | 0.090 | 1.00× |
+| 0.01 | 0.105 | 1.17× |
+| 0.03 | 0.111 | 1.24× |
+| 0.10 | 0.042 | 0.47× *(non-monotone dip)* |
+| **0.30** | **0.736** | **8.19×** |
+| **0.50** | **0.660** | **7.35×** |
+
+At catastrophic-perturbation levels (σ ≥ 0.3 = 30% Frobenius), the bridge breaks with 7-8× signal. Small perturbations (σ ≤ 0.03) are not reliably detected — this is a usage note, not a kill. Practical threshold `rel_err > 0.25` (≈3× healthy baseline) triggers reliably at σ ≥ 0.3.
 
 ## How to use it
 

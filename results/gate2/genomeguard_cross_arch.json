@@ -1,0 +1,48 @@
+{
+  "purpose": "GenomeGuard cross-architecture swap detection",
+  "rows": [
+    {
+      "system": "qwen3-0.6b",
+      "baseline_rel_err": 0.08984433341411241,
+      "swap_rel_err": 0.6212808028540976,
+      "swap_spike": 6.915080553722592,
+      "PASS_2x": true,
+      "wall_s": 28.3454110622406
+    },
+    {
+      "system": "deepseek-r1-distill-qwen-1.5b",
+      "baseline_rel_err": 0.0015665719693542376,
+      "swap_rel_err": 0.22698378501334548,
+      "swap_spike": 144.89202504172937,
+      "PASS_2x": true,
+      "wall_s": 42.69703507423401
+    },
+    {
+      "system": "bert-base-uncased",
+      "baseline_rel_err": 0.13586216881209426,
+      "swap_rel_err": 3.2177423478342058,
+      "swap_spike": 23.683872971912745,
+      "PASS_2x": true,
+      "wall_s": 11.120666027069092
+    },
+    {
+      "system": "roberta-base",
+      "baseline_rel_err": 0.040885418625800626,
+      "swap_rel_err": 0.4884697459385647,
+      "swap_spike": 11.947284933272451,
+      "PASS_2x": true,
+      "wall_s": 10.538216352462769
+    },
+    {
+      "system": "minilm-l6-contrastive",
+      "baseline_rel_err": 0.08444884088234794,
+      "swap_rel_err": 0.738056403515619,
+      "swap_spike": 8.739686605572965,
+      "PASS_2x": true,
+      "wall_s": 6.595077037811279
+    }
+  ],
+  "passes": 5,
+  "tested": 5,
+  "verdict": "CROSS_ARCH_LANDS - 5/5 systems spike >=2x. GenomeGuard is cross-architecture."
+}
