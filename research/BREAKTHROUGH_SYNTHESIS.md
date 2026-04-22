@@ -33,6 +33,19 @@ Late-session discovery (genome_051, 052): `c` is shaped by what the model aligns
 
 **The alignment side of candidate-5 is supported by both CLIP branches cleanly (rel_err < 5% on each).** The base modality side is supported by 7 text (CLM + contrastive + MLM + hybrid) + 2 vision = 9 systems with rel_err < 13%. RoBERTa + Falcon-H1 extend the text coverage to include MLM-RoBERTa (pure BPE-MLM text) and hybrid (transformer+Mamba text), both fitting.
 
+---
+
+## ⚠ Mechanism is OPEN (genome_054 toy-manifold FALSIFICATION)
+
+A hand-waved derivation attempt (`research/derivations/candidate_6_unit_contribution.md`, candidate-6 Step 5) proposed `c = n_axes` would arise from product-manifold geometry. **This was tested on synthetic data and FALSIFIED.** Generic product manifolds `[0,1]^n_axes` in `R^128` produce `c ∈ [0.3, 1]` regardless of `n_axes ∈ {2, 3, 4, 5, 8}` — they do NOT track axis count.
+
+**The empirical 11/12 scorecard is therefore not explained by generic product-manifold geometry.** Two possibilities remain:
+
+- **Coincidence.** Only *two* true base-modality values are discriminated in the scorecard (text ~ 2, vision ~ 3). Two integer matches across 12 systems could be accidental. More base-modality data points (audio, video, touch) are required to discriminate.
+- **Training-induced non-generic structure.** Trained networks may produce specific manifold structure whose `c = n_axes` scaling arises from training dynamics (loss landscape, Fisher information, spectral decay), not from raw geometry. A rigorous derivation would need to characterize *that specific structure*, not generic manifolds.
+
+**Until one of those is resolved, candidate-5 is an empirical regularity with strong cross-system evidence but no derivation-grade mechanism.** Paper-grade, not yet Nature-grade. The session's final honest assessment.
+
 This is the strongest single derivation candidate the moonshot has produced. It is not yet a proof — 9-of-10 could be a coincidence, and the BERT outlier warrants investigation — but the predictive power across 10 systems spanning 7 training objectives is non-trivial.
 
 Five supporting sub-claims:
