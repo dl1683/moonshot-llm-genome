@@ -1,0 +1,40 @@
+{
+  "purpose": "d_rd trained vs untrained \u2014 is d_rd the converged quantity?",
+  "per_run": [
+    {
+      "system_key": "rwkv-4-169m",
+      "untrained": false,
+      "p_emp": 0.17105166233744967,
+      "Ck_R2": 0.9959548207762788,
+      "d_rd": 11.403195272494866,
+      "p_pred": 0.1753894371013807,
+      "rel_err": 0.02535944231499769,
+      "n": 1000
+    },
+    {
+      "system_key": "rwkv-4-169m",
+      "untrained": true,
+      "error": "NotImplementedError: \"geqrf_cpu\" not implemented for 'Half'"
+    },
+    {
+      "system_key": "deepseek-r1-distill-qwen-1.5b",
+      "untrained": false,
+      "p_emp": 0.17136962287614116,
+      "Ck_R2": 0.9957979989811664,
+      "d_rd": 14.0607720968906,
+      "p_pred": 0.14223969965648472,
+      "rel_err": 0.16998300358465707,
+      "n": 1000
+    },
+    {
+      "system_key": "deepseek-r1-distill-qwen-1.5b",
+      "untrained": true,
+      "p_emp": 0.35932752462058465,
+      "Ck_R2": 0.9946187487364929,
+      "d_rd": 42.90270712982322,
+      "p_pred": 0.0466171049287873,
+      "rel_err": 0.8702656998569467,
+      "n": 1000
+    }
+  ]
+}
