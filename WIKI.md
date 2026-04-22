@@ -324,11 +324,15 @@ Fresh extraction + matched controls on 4 text systems:
 
 **Atlas is scope-closed** as distribution-prior restorer only. The 200-step "three-wall" is now understood as a training-budget artifact observable at short horizon. The positive story is the phase transition around 1500 steps + the new spectral invariant.
 
-1. **Derive the constant 18.** Candidate paths: (a) plateau-plus-power-law with `k_bulk=48` universal → compute `eff_rank(α)` in closed form, check whether `eff_rank · α²` lands at 18 at empirical α; (b) variational form of trained-spectrum extremum under rate-distortion + training-objective. This is the P3 derivation step we've wanted.
-2. **Geometry-as-auxiliary-loss efficiency training** (electricity-grade per §0.1(c)). Train small model with `eff_rank · α² → 18` (or `sqrt(er)·α → 3√2`) as aux loss. Target: match baseline NLL at ≤ 50% compute budget. If it works, first concrete "geometry beats scale" demonstration.
-3. **Pull the phase transition earlier.** If aux-geometry loss accelerates the 1000→1500 coherence-emergence window, it's a cheap-surgery primitive (recover coherence from lesion faster than plain FM).
-4. **Invariant N≥15 validation.** Extend genome_088 to RoBERTa (rerun pending) + vision systems (DINOv2, CLIP-vision) + random-init twins + aligned models (Perceiver, VLMs). Target: CV stays < 7% on trained, untrained cleanly separated.
-5. **Preprint + release tag.** Candidate-8 bridge + new invariant + phase-transition finding + GenomeGuard + 12-op null + atlas-scope-corrected is now a *stronger* paper-grade package. Synthesis pending in `research/BREAKTHROUGH_SYNTHESIS.md`.
+**Further updates 2026-04-22 T+57h (genome_089 → genome_091):**
+- `genome_089` — invariant tracks capability recovery as U-shape (mode-collapse-then-expand): eff_rank 78.7 → 4.72 (step 500) → 17.29 (step 2000, near teacher 20.4). **The coherence wall is mode collapse.**
+- `genome_090` — NULL at γ=1e-3 weak batch-aux. 13th null-op on record. Trajectories overlap with control. genome_093 (buffered-K=64, γ=1e-2) running with genuine leverage.
+- `genome_091` — **shifted-power-law σ²=(i+k)^(-2α) FALSIFIED as spectrum model.** Fit gives k=127 (not 5), α=2.09 — reproduces log-log R²=0.85 but predicts wrong eff_rank (3-4× overshoot). My hand-picked (k=5, α=0.8) was a coincidence of invariant arithmetic. The invariant itself still valid; derivation path needs broken-power-law or two-regime model.
+
+1. **Derive the constant 18 (`genome_091` ruled out shifted power-law).** Remaining candidate paths: (a) two-regime / broken-power-law spectrum fit — flat head + steep tail, with sharp break point; (b) variational form of trained-spectrum extremum under rate-distortion + training-objective. Genome_091 confirms that simple three-parameter rational shapes won't work.
+2. **Geometry-as-auxiliary-loss efficiency training** (electricity-grade per §0.1(c)). genome_090 null at γ=1e-3 batch aux (weak leverage). **genome_093 running** — buffered K=64 at γ=1e-2 gives real signal strength. If 093 shows faster coherence emergence than control, first concrete "geometry beats scale" demonstration.
+3. **Invariant N≥15 validation.** Extend genome_088 to vision systems (DINOv2, CLIP-vision) + random-init twins + aligned models (Perceiver, VLMs). Target: CV stays < 7% on trained, untrained cleanly separated. N=5 current, target N≥12.
+4. **Preprint draft lives at** `research/PREPRINT_DRAFT.md`. Narrative covered: bridge + invariant + mode-diversity mechanism + phase transition + null catalog + GenomeGuard. Section 9 (aux-loss efficiency) pending genome_093 outcome.
 
 **Explicitly out of scope:** biology, mouse V1, neural recordings.
 
