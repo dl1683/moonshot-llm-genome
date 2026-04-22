@@ -34,6 +34,28 @@ With the atlas installed, NLL drops to 10.40. **Fraction of the capability gap c
 
 The middle 14 layers alone contribute essentially zero. The last 7 layers alone carry the entire observed effect. Storage for the landmark result: **28 KB** — 1 / 40,000 of the 1.2 GB weight file.
 
+## The compression curve (`genome_080`)
+
+How small can the atlas get? Sweeping last-N from 1 to 28:
+
+| Last N layers | Atlas size | fg_closed |
+|---:|---:|---:|
+| 1 (layer 27 only) | 4 KB | **20.4%** |
+| 2 | 8 KB | 28.7% |
+| 3 | 12 KB | **45.8%** |
+| 5 | 20 KB | 49.6% |
+| 7 | 28 KB | **53.5%** (peak) |
+| 10 | 40 KB | 47.7% |
+| 14 | 56 KB | 52.5% |
+| 28 | 112 KB | 58.5% |
+
+Thresholds:
+- ≥15% recovery at **4 KB** (single last layer)
+- ≥30% recovery at **12 KB** (last 3 layers)
+- ≥50% recovery at **28 KB** (last 7 layers)
+
+The curve plateaus past last-7. Adding layers 10-20 contributes near-zero or negative return on size.
+
 ## Why it works
 
 The candidate-8 spectral bridge (research/derivations/candidate_8_spectral_bridge.md) establishes that trained activation covariances have a specific universal structure — effective rank ≈ 2 × rate-distortion dimension across 7 of 8 tested architectures. The 12-op null catalog (see README landmark finding 3) established that forward geometric manipulation of weights cannot install capability. Rank-48, rank-256, and rank-1024 linear adapters ALL fail at a single-layer patch (see `genome_capability_patch_k48_v2`).
