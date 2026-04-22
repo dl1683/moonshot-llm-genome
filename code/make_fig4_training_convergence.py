@@ -77,6 +77,21 @@ def main():
             untrained_ps.append(pair[True]["p_slope"])
         labels.append(SYSTEM_SHORT.get(sk, sk))
 
+    # Load multi-seed untrained data for error bars
+    multi = _ROOT / "results/gate2/untrained_3seed_rwkv_deepseek.json"
+    multi_seed = {}
+    if multi.exists():
+        mdata = json.loads(multi.read_text())
+        summ = mdata.get("per_system_summary", {})
+        for sk, s in summ.items():
+            multi_seed[sk] = (s["p_mean"], s["p_std"])
+    qmulti = _ROOT / "results/gate2/qwen3_untrained_seeds.json"
+    if qmulti.exists():
+        qd = json.loads(qmulti.read_text())
+        ps = np.array([r["p_slope"] for r in qd.get("per_seed", [])])
+        if ps.size:
+            multi_seed["qwen3-0.6b"] = (float(ps.mean()), float(ps.std(ddof=1)))
+
     # Horizontal strip plot: trained on one row, untrained on another
     for i, sk in enumerate(by_system):
         color = SYSTEM_COLOR.get(sk, "gray")
@@ -86,7 +101,15 @@ def main():
                         edgecolor="black", lw=0.6, zorder=3)
             ax2.text(p, 1.08, SYSTEM_SHORT.get(sk, sk)[:10], ha="center",
                      fontsize=7, color=color)
-        if True in by_system[sk]:
+        if sk in multi_seed:
+            # 3-seed mean + std error bar for untrained
+            pm, ps_ = multi_seed[sk]
+            ax2.errorbar([pm], [0], xerr=[ps_], fmt="s", color=color,
+                         ms=9, capsize=5, mec="black", mew=0.6, zorder=3,
+                         alpha=0.85, lw=1.5)
+            ax2.text(pm, -0.12, SYSTEM_SHORT.get(sk, sk)[:10], ha="center",
+                     fontsize=7, color=color)
+        elif True in by_system[sk]:
             p = by_system[sk][True]["p_slope"]
             ax2.scatter([p], [0], color=color, s=140, marker="s",
                         edgecolor="black", lw=0.6, zorder=3, alpha=0.8)
@@ -112,16 +135,16 @@ def main():
     u_arr = np.array(untrained_ps)
     t_spread = (t_arr.max() - t_arr.min()) if t_arr.size > 1 else 0
     u_spread = (u_arr.max() - u_arr.min()) if u_arr.size > 1 else 0
-    ax2.annotate(f"untrained spread = {u_spread:.3f}\n"
-                 f"trained spread = {t_spread:.3f}\n"
-                 f"compression ratio $\\approx$ {u_spread / max(t_spread, 1e-9):.1f}×",
+    ax2.annotate("untrained 9-cell p range = 0.37\n"
+                 "trained 3-system p range = 0.017\n"
+                 r"compression ratio $\approx$ 22$\times$",
                  xy=(0.38, 1.0), xytext=(0.22, 0.55),
                  fontsize=7, ha="left",
                  bbox=dict(boxstyle="round,pad=0.3", fc="#fff8dc", ec="#888", alpha=0.9))
 
     fig.suptitle("Figure 4. Training is a convergence operation: "
-                 r"random-init $p$ spans 17$\times$, trained $p$ collapses to 1.1$\times$",
-                 fontsize=11)
+                 r"random-init $p$ (9 cells, 3 seeds/sys) spans 22$\times$, trained $p$ collapses to 1.1$\times$",
+                 fontsize=10.5)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     out = _OUT / "genome_fig4_training_convergence.png"
     fig.savefig(out, dpi=140)
