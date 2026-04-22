@@ -39,7 +39,9 @@ The moonshot is not "a paper." It is three coupled artifacts whose joint landing
 
 **The paradigm-shift rung is the Compiler.** Before it, geometry is "interesting survey." After it, geometry is a *controllable state variable that manufactures capability or substitutes for compute*. That is the finding DeepMind/Anthropic/OpenAI will not publish because it reframes scaling itself.
 
-The full 4-rung ladder from current state to DONE lives in `research/CURRENT_KNOWLEDGE.md` §7–§8. Rung 1 (stress-test universality) is ~2/3 complete. Rung 2 (close derivation) not started. Rung 3 (Compiler) is the move that separates this moonshot from the field.
+The full 4-rung ladder from current state to DONE lives in `research/CURRENT_KNOWLEDGE.md` §7–§8. Rung 1 (stress-test universality) is ~2/3 complete. Rung 2 (close derivation) has first rigorous evidence: 2/2 vision systems shift `c` toward text value when stimuli are forced to 1D structure (genome_040/041). Rung 3 (Compiler) has first transfusion attempts and **two clean nulls at the 2nd-moment level** (genome_042 covariance: geometry moves 61% toward trained, NLL unchanged; genome_043 k-means codebook: geometry overshoots, NLL unchanged). **The substrate is decisively higher-order than covariance or piecewise-constant structure.** Remaining candidates for what the substrate actually is: higher moments (skew, kurtosis), feature-direction orthogonality / tangent alignment, operator-level structure (Koopman attention patterns), or nonlinear per-token transformations preserving identity.
+
+This narrowing is not a failure — it is precisely the kind of progress the moonshot should make. The `c = p · d_rd` invariant is *real* (genome_036 confirms on 4 text + 3 vision systems), *training-specific* (genome_038 confirms random-init breaks it), but *not sufficient for capability*. The Genome Compiler, when it lands, will need to transfer something richer than 2nd-moment geometry. This is now the explicit rung-3 problem statement.
 
 ---
 
