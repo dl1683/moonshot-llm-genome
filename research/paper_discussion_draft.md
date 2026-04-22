@@ -68,6 +68,22 @@ One of the three practical consequences we listed in the abstract — using the 
 
 **The scoped tool.** `R² of the C(X, k) power-law fit` is a useful **coarse-grained compression signal** — FP16 to Q8 to Q4, R² monotone-decreases in 2 of 3 tested systems, and the FP16→Q8 drop is consistent across all 3. For finer-grained "stop here" decisions at Q4-level aggression, the signal is architecture-dependent and should not be used without per-family calibration. We do not promote R² to a single-scalar compression-stop rule; we promote it to a **candidate early-warning signal** whose first strong-monotonicity failure (DeepSeek Q8→Q4) is itself informative.
 
+**A pre-registered blind test of the decision rule.** To move this from descriptive to decision-making, we locked a specific prediction rule (`research/prereg/genome_geom_eff_decision_rule_2026-04-21.md`) **before** running a new held-out system:
+
+> If `ΔR²(Q8) ≡ R²_Q8 − R²_FP16 ≤ −0.003`, **predict** `ΔNLL(Q4)% ≥ 2.0%`.
+
+Thresholds were set from the observed deltas on the three training-set systems above. The rule would have predicted correctly on 3 of 3 training systems. The held-out system was **Qwen3-1.7B** (same Qwen3 family as Qwen3-0.6B in the training set, but 2.8× parameters, never before run through the geom-efficiency pipeline).
+
+**Blind-test result (genome_035, `results/gate2/geom_efficiency_qwen3_1p7b_blind.json`):**
+
+| Qwen3-1.7B | `c_0` | `p` | R² | NLL | ΔNLL vs FP16 |
+|---|---:|---:|---:|---:|---:|
+| FP16 | 0.277 | 0.159 | 0.9960 | 3.351 | — |
+| Q8 | 0.273 | 0.163 | **0.9919** | 3.362 | +0.3% |
+| Q4 | 0.281 | 0.155 | 0.9974 | 3.447 | **+2.9%** |
+
+`ΔR²(Q8) = −0.0041 ≤ −0.003` → rule triggers → predicts `ΔNLL(Q4)% ≥ 2%`. Observed `ΔNLL(Q4)% = +2.9%`. **Rule VALIDATED on blind test.** Both pre-registered conditions met; the threshold set from three training systems survived a 4th test on a held-out system at a different scale. A secondary observation — Q4 R² (0.9974) bounces back above FP16 R² (0.9960) — reproduces the non-monotone pattern first seen on DeepSeek, confirming that the FP16→Q8 R² drop is the reliable signal, not the absolute Q4 R². The blind-test success is a single data point, not a validated framework; the natural next step is a larger blind cohort (≥5 models, mixed families and scales) with the same pre-registered threshold.
+
 **What this does NOT say.** The Geometry→Efficiency probe does not claim that degrading geometry *causes* capability drop (only that the two track each other in the FP16→Q8 regime). It does not claim the R² signal is calibrated to absolute NLL increase. It does not claim generalization beyond bnb int8/NF4 quantization to e.g. pruning or distillation.
 
 **The other two practical consequences** (geometry-aware KV caching, cross-model intervention transfer) are not tested in this paper. We list them as hypothesis seeds for intended readers: for compression and caching teams, the atlas gives a single-scalar compressibility signal worth adding to existing per-layer heuristics; for interpretability teams (Anthropic, DeepMind, Martian), it gives a coordinate on which to transfer feature-direction interventions between analog models.
