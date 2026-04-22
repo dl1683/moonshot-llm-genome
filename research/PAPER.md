@@ -329,9 +329,9 @@ The cross-session mean kNN-10 is `0.333`, inside DINOv2's ImageNet-val reference
 | G1.7 | Cross-seed + random-baseline (vs. DC-artifact failure mode) | PASS 4–7× above Gaussian baseline | §4.2 |
 | G2.3 | Functional-form identification | PENDING wider k-sweep | §4.5 |
 | G2.4 | Causal ablation (≥5% at λ=1.0, monotonic, specific) | **PASS 3/3 text systems** | §4.4 |
-| G2.5 | Biological instantiation (Allen Neuropixels) | Scaffold only; 1-session smoke pending | §5.3 (Discussion) |
+| G2.5 | Biological instantiation (Allen Neuropixels, 10 sessions) | **PASS 10/10 at δ=0.10 and 8/10 at δ=0.05** | §4.6 |
 
-Gate-1 is satisfied on the LOCKED prereg scope (`research/prereg/genome_knn_k10_portability_2026-04-21.md`, Batch-1 + Batch-2). Gate-2 has provisional G2.4 closure on text; G2.3 and G2.5 are the remaining work for a full Level-1 claim. We do not claim Level-1 in this paper — we claim Gate-1 portability + G2.4 causal, which is a stronger empirical foundation than any published cross-architecture universality claim we are aware of (see §2 Related Work).
+Gate-1 is satisfied on the LOCKED prereg scope (`research/prereg/genome_knn_k10_portability_2026-04-21.md`, Batch-1 + Batch-2). Gate-2 has provisional G2.4 closure on text, **formal G2.5 closure on biology (10 sessions, both tolerances pass their 60% thresholds with ≥20-point margin)**, and a partial-form G2.3 result: the locked v1 derivation is falsified, the replacement empirical form `C(X,k) = c_0 · k^p` holds with `R² > 0.989` on 27 cells, but no theoretical v2 derivation has yet survived pilot testing (three of four candidate sketches — fractal `d_2/d_int`, doubling-dim ratio, heavy-tailed NN-degree — are falsified with sign or magnitude errors; rate-distortion untested). **We therefore claim Gate-1 portability, G2.4 causal load-bearing on text, and G2.5 biological instantiation, but do not claim Level-1 universality pending a theoretical v2 derivation for G2.3.** This is a stronger empirical foundation than any published cross-architecture universality claim we are aware of (see §2 Related Work).
 
 ---
 
