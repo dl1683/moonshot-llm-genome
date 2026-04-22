@@ -268,14 +268,17 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-First things an agent should pick up on startup. Keep this short (≤5 items). Reorder by priority as phases progress.
+*(Updated 2026-04-22 after the 53-experiment session-end.)* First things an agent should pick up on startup. Keep short (≤5 items). Reorder by priority.
 
-1. **ACTIVE: TL design session on "how do we map LLM internals."** Working doc `research/atlas_tl_session.md`. Phase 1 landscape + Phase 2 mental machine drafted. Codex Round 1 queued. Will promote to `research/BLUEPRINT.md` at convergence (then add to §2 canonical index).
-2. **Phase-1 primitive agnosticism sprint.** Pick intrinsic dimension (TwoNN). Run on the full Phase-1 minimum viable bestiary. Promotion criteria per CLAUDE.md §4.3. Pre-register before loading any model. (Will be re-specced by Phase 6 blueprint from the active TL session — do not pre-register ahead of that.)
-2. **Add `facebook/dinov2-small`, `facebook/ijepa-vit-huge-14-448`, and a small DiT variant to `Projects/models/` canonical registry.** Separate commit per add; paradigm/tier/VRAM metadata required.
-3. **Biology access smoke test.** Reproduce CTI's Allen Neuropixels data-load pattern (`remfile + h5py + dandi`) on one session — confirms Phase-4 path is live *before* Phase 1 results appear.
-4. **Develop an SSM-compatible activation-patching primitive.** Mysteries 2 and 4 depend on it. Design gate before implementation.
-5. **Mystery 5 (coherent divergence) cross-class replication.** Candidate for first flashy atlas entry. Pre-register as a Level-1 probe.
+**Current state:** `c = p · d_rd = base_modality_c + n_alignment_targets` fits 11 / 12 systems within 20% (see `research/BREAKTHROUGH_SYNTHESIS.md`). Rung-3 causal-substrate analysis exhausted (5 forward transfusion nulls + PCA-causal + random-vs-PCA-direction + weight-interpolation nonlinear). Paper at 8900 words + 10 tables workshop-submittable. G1 + G2.4-text + G2.5-biology all PASS.
+
+1. **Rigorous derivation of `c = base_modality + n_alignments`.** Why exactly +1 per alignment? Candidates: alignment axis in the joint embedding space, rate-distortion asymptotic prefactor, manifold tangent-bundle dimension. Required for Nature-grade claim. Do this BEFORE more measurement.
+2. **Measure BERT on its training distribution (Wikipedia+BooksCorpus).** If BERT on C4-clean c=2.65 drops to c≈2 on Wikipedia, the only candidate-5 outlier resolves as distribution-confound. Confirms robustness of the derivation.
+3. **Audio system measurement (wav2vec2-base).** Candidate-5 predicts audio c = base_audio_c + n_alignments. If base_audio ≈ 3 (1D time + 1D freq + 1D identity), single-modality wav2vec2 should land at ~3. Adds a 3rd base modality data point.
+4. **ImageBind or similar multi-alignment model.** Trained to align vision against text+audio+video+depth+thermal+IMU (5 alignments). Candidate-5 predicts c ≈ vision(3) + 5 = 8. Strong prediction; large gap from typical measurement.
+5. **Higher-order transfer operator Compiler attempt.** Beyond covariance/codebook/basis, try attention-pattern graft or direction-identity contrastive distillation. Session-46/047/049/050 established substrate is higher-order than 2nd moment. Next Compiler candidate.
+
+Session logs + synthesis + derivation-attempt drafts live in `research/BREAKTHROUGH_SYNTHESIS.md`, `research/CURRENT_KNOWLEDGE.md`, `research/derivations/c_integer_derivation_attempt.md`.
 
 ---
 
