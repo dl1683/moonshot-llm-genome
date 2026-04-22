@@ -1,0 +1,61 @@
+{
+  "purpose": "Orthogonal-compiler probe: does capability live in attention Q/K routing?",
+  "model": "qwen3-0.6b",
+  "nll_trained": 3.6560819759368894,
+  "nll_untrained": 12.135597137451171,
+  "per_pattern": [
+    {
+      "pattern": "qk_only",
+      "n_over": 56,
+      "nll": 12.132826393127441,
+      "p": 0.12994731344799723,
+      "d_rd": 15.952825090002662,
+      "c": 2.0730267623516507,
+      "Ck_R2": 0.6906489108425915,
+      "fraction_gap_closed": 0.0003267573995627951
+    },
+    {
+      "pattern": "v_only",
+      "n_over": 28,
+      "nll": 12.135724914550782,
+      "p": 0.11359685144196406,
+      "d_rd": 13.53685160370963,
+      "c": 1.5377437206185158,
+      "Ck_R2": 0.633459540572199,
+      "fraction_gap_closed": -1.506891575480219e-05
+    },
+    {
+      "pattern": "o_only",
+      "n_over": 28,
+      "nll": 12.124857620239258,
+      "p": 0.12910792871611662,
+      "d_rd": 14.67485744827102,
+      "c": 1.8946404493505478,
+      "Ck_R2": 0.6854568878675347,
+      "fraction_gap_closed": 0.0012665249141432604
+    },
+    {
+      "pattern": "attn_all",
+      "n_over": 112,
+      "nll": 12.077266975402832,
+      "p": 0.26743160638850977,
+      "d_rd": 15.117315333135096,
+      "c": 4.042847923821968,
+      "Ck_R2": 0.9883313820533622,
+      "fraction_gap_closed": 0.006878950144824352
+    },
+    {
+      "pattern": "mlp_only",
+      "n_over": 84,
+      "nll": 12.145701110839843,
+      "p": 0.32981926358110397,
+      "d_rd": 20.06893443559962,
+      "c": 6.619121176406924,
+      "Ck_R2": 0.9924101264286139,
+      "fraction_gap_closed": -0.0011915744233267555
+    }
+  ],
+  "verdict": "ROUTING_NULL \u2014 QK-only transplant is null; attention routing alone does not install capability. Joint structure must live in more than Q/K routing.",
+  "seed": 42,
+  "n_stim": 500
+}

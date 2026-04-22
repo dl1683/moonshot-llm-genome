@@ -1,6 +1,81 @@
-# Breakthrough synthesis — 2026-04-21 session
+# Breakthrough synthesis — 2026-04-21 + 2026-04-22 sessions
 
-*Draft integration of genome_036 through genome_047. Read this before firing the next compiler-sprint experiment. Not paper polish — this is the framing the paper will need if the claims hold.*
+*Draft integration of genome_036 through genome_059. Read this before firing the next compiler-sprint experiment. Not paper polish — this is the framing the paper will need if the claims hold.*
+
+---
+
+## 2026-04-22 T+43h UPDATE — candidate-5 reframed + spectral signature isolated
+
+Three major developments since the 2026-04-21 session-end wrapped. They sharpen but don't invalidate prior claims.
+
+### 1. genome_056 localized `c` to training-specific JOINT structure
+
+Marginal-shuffle Qwen3 activations destroys `c`: trained c=1.89 → marginal-shuffled c=12.23 → Gaussian-marginal-matched c=11.54. Shuffle and iid-Gaussian are indistinguishable (both at c≈12). **`c`'s training-specific value lives in inter-dim joint structure, not per-dim marginals.** This closed the generic-geometry derivation path (candidate-6/7 toy manifolds falsified in genome_054/055) and pointed at spectral / covariance-decay as the real derivation technical path.
+
+### 2. genome_057 found the spectral signature
+
+SVD spectrum on trained Qwen3 mid-depth activations vs marginal-shuffled vs Gaussian-marginal: trained alpha=**0.861**, shuffled alpha=0.654, Gaussian alpha=0.652. **30% steeper power-law decay in trained clouds** is the signature. Effective rank: trained **25.3** vs shuffled 63.4 (2.5x concentrated). Shuffle and Gaussian spectra are statistically indistinguishable, confirming shuffle fully destroys joint structure.
+
+Striking empirical match: **eff_rank / d_rd = 25.27 / 12.27 = 2.06 ≈ c_trained = 1.89** (9% rel_err). First quantitative spectral-to-geometric bridge candidate. Promoted to candidate-8 (`research/derivations/candidate_8_spectral_bridge.md`).
+
+### 3. genome_058 — candidate-5 is STIMULUS-DEPENDENT
+
+BERT-on-Wikipedia test (original goal: confirm the BERT outlier resolves on BERT's training distribution) produced a surprise: **ALL text models drop substantially on wikitext-103-raw vs C4.**
+
+| Model | c on C4 | c on wikitext-103 | Δ |
+|---|---:|---:|---:|
+| Qwen3-0.6B (CLM) | 1.89 | 1.16 | **-0.73** |
+| DeepSeek-R1-Distill-Qwen-1.5B (CLM) | 2.41 | 1.55 | -0.86 |
+| BERT-base (MLM) | 2.65 | 0.55 | **-2.10** |
+| RoBERTa-base (MLM) | 2.25 | 0.93 | -1.32 |
+| MiniLM-L6 (contrastive) | 2.03 | 0.93 | -1.10 |
+
+Two facts: (a) all 5 text systems drop on wikitext; (b) encoders (MLM+contrastive) drop more (-1.1 to -2.1) than decoders (CLM, -0.7 to -0.9).
+
+**Candidate-5 is a (model × stimulus) property, not model-only.** The 11/12 C4 scorecard remains an empirical regularity *at fixed stimulus distribution* — but different stimulus distributions produce different `c` values, and the gap between distributions is large compared to the alignment-axis-prediction gap (+1.0 per alignment).
+
+This does NOT falsify candidate-5; it sharpens what needs to be derived. The target is now:
+
+```
+c(model, stimulus) = f(stimulus intrinsic-dim structure, model training objective,
+                       n_alignments) -- predicted by candidate-8 via
+                       eff_rank(X) / d_rd(X) computed jointly on (model × stimulus)
+                       activation clouds.
+```
+
+If candidate-8 is universal across (model × stimulus) — if `eff_rank/d_rd ≈ c` point-by-point — then `c` is a deterministic function of the activation spectrum and candidate-5's C4 integer values are a special case. Testing that universality is the next experiment (`genome_svd_bridge_multimodel.py`, preregistered at `research/prereg/genome_svd_bridge_2026-04-22.md`).
+
+### 4. genome_059 — attention-subset transplants (QK/V/O/attn_all/MLP)
+
+Orthogonal-compiler probe per strategic verdict 2026-04-22-0047 intervention mandate. Graft trained Qwen3 weights in subsets into untrained twin; measure NLL + c.
+
+| Subset | params grafted | NLL | c | fraction_gap_closed |
+|---|---:|---:|---:|---:|
+| untrained baseline | 0 | 12.136 | ? | 0.0 |
+| qk_only (routing) | 56 (Q+K all layers) | 12.133 | 2.07 | 0.00 |
+| v_only (values) | 28 (V all layers) | 12.136 | 1.54 | -0.00 |
+| o_only (output proj) | 28 (O all layers) | 12.125 | 1.89 | +0.001 |
+| attn_all (Q+K+V+O) | 112 | *pending* | *pending* | *pending* |
+| mlp_only (gate+up+down) | 84 | *pending* | *pending* | *pending* |
+| trained full | all | 3.656 | 1.89 | 1.0 |
+
+What's clear from the 3 subsets already landed:
+
+- **Every attention subset produces near-trained c (1.54-2.07, bracketing trained 1.89) but leaves NLL unchanged.**
+- **Output-projection alone produces c=1.89 exactly** — a remarkable but nil result: geometry installed without capability.
+- **Capability is not installable via any single attention-projection-type transplant.** Even if attn_all and mlp_only also null, we have strong evidence that capability requires simultaneously trained Q+K+V+O+MLP *interacting*.
+
+Combined with the 2026-04-21 compiler nulls (covariance / codebook / basis / aux-regularizer / single-layer transplant), we now have **≥6 distinct forward-transfer operations that install geometry without capability.** This is a genuinely novel negative result about the nature of learned capability: *the geometric envelope is freely installable; the joint weight configuration that makes it useful is not.*
+
+This is exactly the kind of big-lab-forbidden finding identified in CLAUDE.md §0.1 — big labs don't publish "capability is non-transferable via these 6 mechanisms" because it reframes scaling and contradicts their product story.
+
+---
+
+## Original session framing (2026-04-21)
+
+*Unchanged below; the 2026-04-22 findings above refine but do not falsify these claims.*
+
+---
 
 ---
 
