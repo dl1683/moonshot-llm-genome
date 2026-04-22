@@ -229,9 +229,18 @@ Mechanism interpretation: trained spectra have **~24 "head" eigendirections** ca
 
 **Connection to prior findings:** `genome_047` found a universal `k_bulk = 48` plateau width across 5 text systems (CV 4.2%). The broken-power-law candidate gives k_brk = 24 ≈ k_bulk / 2. If the "break point" of the head-vs-tail decay sits at half the bulk-plateau width, the two findings connect via a single universal: `k_brk ≈ k_bulk/2`. Testable.
 
-Status: CANDIDATE. Needs empirical fit across 5 systems (`genome_094` pending) to verify (k_brk, a1, a2) universality. If CV on (k_brk/k_bulk) is ≤ 10%, the derivation closes.
+Status: **FALSIFIED** on empirical fit (`genome_094`, 2026-04-22). All 5 systems hit the upper bound k_brk=200 (my search range was [2, 200]). a1 ∈ [0.44, 0.67], a2 ∈ [1.39, 2.52]. Even at best-fit the predicted eff_rank is wildly off empirical (7.4–38.3 predicted vs 25.2–33.6 empirical, up to 73% error). My analytical hand-pick (k_brk=24, a1=0.4, a2=0.8) matched empirical INTEGRATED statistics (eff_rank, α, invariant, er·α²) to 1% — but that was a COINCIDENCE of parameter combinations in a 3-variable space, not the actual spectrum shape. The log-log fit points to a wholly different parameter regime.
 
-**The invariant `sqrt(eff_rank)·α ≈ 3√2` is empirically robust** (genome_088 CV 5.09%, genome_089 trajectory confirms). **The derivation candidate shifted → broken-power-law. The shape-derivation has a working candidate with matching statistics; empirical validation pending.**
+### P9. Derivation remains open
+
+Two parametric spectrum families falsified (`genome_091` shifted, `genome_094` broken). The real trained spectrum shape does not admit a simple 2-3 parameter power-law description that matches both log-log decay AND eff_rank simultaneously. Candidates for future work:
+
+- Smooth transitions between regimes (not sharp break) — e.g., σ² ∝ (i^β + k_0^β)^(-γ/β) for smoothly-interpolating head and tail.
+- Multi-regime: 3+ zones with different scaling (Q-state statistical-mechanics analogy).
+- Exponential head + power-law tail.
+- A random-matrix-theory-motivated shape from spiked covariance + task-structured signal (rather than phenomenological power-law).
+
+**The invariant `sqrt(eff_rank)·α ≈ 3√2` remains empirically robust** (genome_088 CV 5.09% across 5 trained text systems, 5.5σ-separated from shuffled/Gaussian). What is open is the derivation of the constant 18 from first principles — which requires characterizing the actual trained spectrum shape. The two-session candidate falsifications narrow the search: it is not a simple power-law-based shape.
 
 ## Relation to existing claims
 
