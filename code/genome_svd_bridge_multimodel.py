@@ -85,16 +85,41 @@ VISION_SYSTEMS = [
 ]
 
 
+_CACHED_TEXT_SENTS = []
+_CACHED_IMAGES = []
+
+
+def _get_text_sents(n, seed):
+    """Cache C4 sentences in-process to avoid refetching HF stream per model."""
+    global _CACHED_TEXT_SENTS
+    if len(_CACHED_TEXT_SENTS) >= n:
+        return _CACHED_TEXT_SENTS[:n]
+    _CACHED_TEXT_SENTS = []
+    for rec in c4_clean_v1(seed=seed, n_samples=5 * n):
+        _CACHED_TEXT_SENTS.append(rec["text"])
+        if len(_CACHED_TEXT_SENTS) >= n:
+            break
+    return _CACHED_TEXT_SENTS[:n]
+
+
+def _get_imagenet(n, seed):
+    global _CACHED_IMAGES
+    if len(_CACHED_IMAGES) >= n:
+        return _CACHED_IMAGES[:n]
+    _CACHED_IMAGES = []
+    for rec in imagenet_val_v1(seed=seed, n_samples=n):
+        _CACHED_IMAGES.append(rec["image"])
+        if len(_CACHED_IMAGES) >= n:
+            break
+    return _CACHED_IMAGES[:n]
+
+
 def run_one_text(hf_id, sk, cid, n=1000, seed=42):
     print(f"\n=== {sk} (text) ===")
     t0 = time.time()
     sys_obj = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
     mid = sys_obj.n_hidden_layers() // 2
-    sents = []
-    for rec in c4_clean_v1(seed=seed, n_samples=5 * n):
-        sents.append(rec["text"])
-        if len(sents) >= n:
-            break
+    sents = _get_text_sents(n, seed)
     traj = extract_trajectory(
         model=sys_obj.model, tokenizer=sys_obj.tokenizer,
         texts=sents, layer_indices=[mid], pooling="seq_mean",
@@ -127,11 +152,7 @@ def run_one_vision(hf_id, sk, cid, n=500, seed=42):
     t0 = time.time()
     sys_obj = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
     mid = sys_obj.n_hidden_layers() // 2
-    imgs = []
-    for rec in imagenet_val_v1(seed=seed, n_samples=n):
-        imgs.append(rec["image"])
-        if len(imgs) >= n:
-            break
+    imgs = _get_imagenet(n, seed)
     traj = extract_trajectory(
         model=sys_obj.model, tokenizer=None,
         texts=None, images=imgs, layer_indices=[mid], pooling="cls_or_mean",
@@ -161,18 +182,31 @@ def run_one_vision(hf_id, sk, cid, n=500, seed=42):
 
 def main():
     results = []
+    out_path = _ROOT / "results/gate2/svd_bridge_multimodel.json"
+
+    def flush():
+        """Incremental write so kill-9 does not lose prior results."""
+        out_partial = {
+            "purpose": "Candidate-8 bridge probe (incremental)",
+            "per_system": results,
+            "verdict": "IN_PROGRESS",
+        }
+        out_path.write_text(json.dumps(out_partial, indent=2))
+
     for hf, sk, cid in TEXT_SYSTEMS:
         try:
             results.append(run_one_text(hf, sk, cid))
         except Exception as e:
             import traceback; traceback.print_exc()
             results.append({"system": sk, "error": str(e)})
+        flush()
     for hf, sk, cid in VISION_SYSTEMS:
         try:
             results.append(run_one_vision(hf, sk, cid))
         except Exception as e:
             import traceback; traceback.print_exc()
             results.append({"system": sk, "error": str(e)})
+        flush()
 
     print("\n=== CANDIDATE-8 PASS RATE ===")
     passes = 0; tested = 0
@@ -205,7 +239,6 @@ def main():
     out = {"purpose": "Candidate-8 bridge: eff_rank/d_rd approximately equals c across scorecard systems",
            "per_system": results,
            "verdict": verdict}
-    out_path = _ROOT / "results/gate2/svd_bridge_multimodel.json"
     out_path.write_text(json.dumps(out, indent=2))
     print(f"wrote {out_path}")
 
