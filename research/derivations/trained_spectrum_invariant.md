@@ -202,11 +202,36 @@ Two things to note:
 1. **k_head converges to ~127 universally** (CV 10%), not 5. My hand-picked k=5 was a coincidence of the invariant formula (k=5, α=0.8 happens to give the same er·α² ≈ 18 as the empirical) — not the actual spectrum shape.
 2. **The fitted shape predicts eff_rank 3-4× too high** (67-132 vs empirical 25-34). Log-log R² = 0.85 is decent for curve-matching but does NOT mean the shape reproduces eff_rank.
 
-Conclusion: **the shifted-power-law `σ²=(i+k)^(-2α)` is NOT the correct trained-spectrum shape.** It can mimic the log-log singular-value decay with R²≈0.85, but it fails to reproduce the participation ratio (eff_rank). A richer two-regime model (e.g., flat plateau + steep tail) is needed. 
+Conclusion: **the shifted-power-law `σ²=(i+k)^(-2α)` is NOT the correct trained-spectrum shape.** It can mimic the log-log singular-value decay with R²≈0.85, but it fails to reproduce the participation ratio (eff_rank). A richer two-regime model is needed.
 
-However, the observation that `k_head` and `α_true` cluster tightly across 5 systems (CV 10% and 8%) is independently useful — it says trained spectra do converge to a specific shape, just not the simple shifted power-law. Fitting a two-regime (broken power-law) or rational-function model is the next derivation step.
+### P8. Broken-power-law CANDIDATE (2026-04-22, numerical)
 
-The invariant `sqrt(eff_rank)·α ≈ 3√2` is empirically robust — `genome_088` and `genome_089` both confirm. **The invariant is validated. The derivation of its constant 18 via a spectrum-shape model is OPEN.**
+A two-regime power-law:
+```
+sigma² = i^(-2·a1)       for i ≤ k_brk
+       = (k_brk/i)^(2·a2) · k_brk^(-2·a1)   for i > k_brk
+```
+with continuity at `i = k_brk`.
+
+Numerical search over (k_brk, a1, a2) ∈ [2..200] × [0, 1] × [0.8, 3] minimizing distance to empirical targets (eff_rank ≈ 30, α_pure ≈ 0.79, invariant ≈ 4.27) gives:
+
+| Parameter | Best-fit | Empirical (target) |
+|---|---:|---:|
+| k_brk | 24 | — |
+| a1 (head) | 0.40 | — |
+| a2 (tail) | 0.80 | — |
+| eff_rank (model) | 29.04 | ~28–34 |
+| α_pure (fit slope on tail) | 0.800 | 0.79 (±0.03) |
+| sqrt(er)·α | **4.311** | **4.268** (match) |
+| er·α² | **18.58** | **18.37** (match) |
+
+Mechanism interpretation: trained spectra have **~24 "head" eigendirections** carrying most of the variance with mild decay a1=0.4, and the remaining 1000 tail eigendirections decaying faster with a2=0.8. Pure-power-law fits α on the [5%, 50%] range which lies entirely in the tail, so recovers a2=0.8 — consistent with the CV 3.9% α_pure convergence across 5 systems.
+
+**Connection to prior findings:** `genome_047` found a universal `k_bulk = 48` plateau width across 5 text systems (CV 4.2%). The broken-power-law candidate gives k_brk = 24 ≈ k_bulk / 2. If the "break point" of the head-vs-tail decay sits at half the bulk-plateau width, the two findings connect via a single universal: `k_brk ≈ k_bulk/2`. Testable.
+
+Status: CANDIDATE. Needs empirical fit across 5 systems (`genome_094` pending) to verify (k_brk, a1, a2) universality. If CV on (k_brk/k_bulk) is ≤ 10%, the derivation closes.
+
+**The invariant `sqrt(eff_rank)·α ≈ 3√2` is empirically robust** (genome_088 CV 5.09%, genome_089 trajectory confirms). **The derivation candidate shifted → broken-power-law. The shape-derivation has a working candidate with matching statistics; empirical validation pending.**
 
 ## Relation to existing claims
 
