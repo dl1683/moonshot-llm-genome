@@ -46,6 +46,15 @@ SYSTEM_IDS: dict[str, dict[str, Any]] = {
         "approx_params": 600_000_000,
         "modality": "text",
     },
+    "qwen3-1.7b": {
+        "hf_id": "Qwen/Qwen3-1.7B",
+        "class_id": 1,
+        "class_name": "autoregressive LLM (larger Qwen3)",
+        "approx_params": 1_700_000_000,
+        "modality": "text",
+        # Added 2026-04-21 as held-out test system for Geom->Efficiency
+        # decision-rule prereg (research/prereg/genome_geom_eff_decision_rule_2026-04-21.md).
+    },
     "rwkv-4-169m": {
         "hf_id": "RWKV/rwkv-4-169m-pile",
         "class_id": 3,
