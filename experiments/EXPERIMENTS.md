@@ -2,6 +2,30 @@
 
 *Reverse-chronological log of every experiment. One entry per run. Only Codex-validated conclusions appear here. Raw ledger lives in `ledger.jsonl`.*
 
+---
+
+## 2026-04-22 session catch-up (genome_012 → genome_090, highlights only)
+
+Full ledger has 88+ entries; this doc details genome_000–011 then jumps to highlights. Per-experiment details live in `experiments/ledger.jsonl`. Major landings this session:
+
+- **genome_034** — candidate-5 kNN-10 clustering hits biology (10/10 Allen V1 sessions at δ=0.10). `c = p·d_rd` modality-stratified at 2 (text) / 3 (vision).
+- **genome_038–039** — `c = p·d_rd` promoted to training invariant; random-init controls span 22× wider than trained (genome_028). Training is a convergence op.
+- **genome_047** — k_bulk=48 universal plateau width (CV 4.2% across 5 text systems).
+- **genome_056–057** — training-specific joint-structure attribution; spectral signature α=0.86 (trained) vs α=0.65 (shuffled/iid).
+- **genome_060–069** — candidate-8 spectral bridge `c ≈ eff_rank/d_rd` 7/8 ML PASS; GenomeGuard shipping tool with cross-arch detection (6.9–144.9× rel_err spike on C4→wikitext-shuffled swap).
+- **genome_070** — biology bridge: mouse V1 session 0, rel_err=12.3% PASS. Candidate-8 extends beyond ML.
+- **genome_078–082** — neural genome atlas: per-layer mean-activation table recovers 53% NLL on lesioned Qwen3-0.6B, 59% cross-size on 1.7B.
+- **genome_083–084** — atlas scope correction: distribution-prior restorer only, degenerate generation, fails on partial lesion.
+- **genome_085–086** — 200-step three-wall convergence: atlas/output-KL/layerwise-FM all 5/5 rep at 49–66% NLL.
+- **genome_087** — WALL BREAKS at 2000 steps: rep 5/5→0/5, NLL 77%, phase transition between step 1000–1500. Coherent English emerges.
+- **genome_088** — NEW INVARIANT validated: `sqrt(eff_rank)·α ≈ 3√2` trained (CV 5.09%, N=5 text systems); shuffled/Gaussian 5.47 (CV 17%); 5.5σ separation. Trained-ML-specific (biology gives 0.95).
+- **genome_089** — invariant tracks capability recovery as U-shape: lesion 78.7 → min 4.72 at step 500 → back to 17.29 at step 2000 (teacher 20.4). Mode-collapse-then-expand mechanism.
+- **genome_090** — (running) aux-loss accelerated recovery A/B test.
+
+Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md`, `NEURAL_GENOME.md`, `GENOMEGUARD.md`, `research/BREAKTHROUGH_SYNTHESIS.md`.
+
+---
+
 Format per entry:
 ```
 ## <YYYY-MM-DD> — <experiment-id>
