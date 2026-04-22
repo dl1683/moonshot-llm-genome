@@ -27,6 +27,22 @@ None of this is done. The current paper (8900 words, 10 tables, 4 figures) is wo
 
 ---
 
+## 0.1. What Done Looks Like — The Three Deliverables (Codex-ratified vision, 2026-04-21)
+
+The moonshot is not "a paper." It is three coupled artifacts whose joint landing settles whether Intelligence = Geometry:
+
+1. **The Genome Equation.** A derived law — currently candidate `c = p · d_rd` — that predicts the invariant *a priori* from stimulus/representation geometry, holds across architectures + objectives + brains, and **predicts capability/compute**, not just fits it. The integers that land (text c=2, vision c=3 as of today) must come from derivation, not measurement.
+2. **The Genome Extractor.** One command that outputs a model's or recording's genome vector + uncertainty, with locked stimulus banks and stability proofs (seed / quantization / stimulus resampling). Any lab or neuroscience group should be able to run it.
+3. **The Genome Compiler.** Two causal demos that prove geometry is not descriptive but generative:
+   - **Geometry transfusion**: inject genome structure into random-init weights → capability emerges without SGD.
+   - **Geometry-regularized training**: ≥10× compute reduction at equal eval on a real task.
+
+**The paradigm-shift rung is the Compiler.** Before it, geometry is "interesting survey." After it, geometry is a *controllable state variable that manufactures capability or substitutes for compute*. That is the finding DeepMind/Anthropic/OpenAI will not publish because it reframes scaling itself.
+
+The full 4-rung ladder from current state to DONE lives in `research/CURRENT_KNOWLEDGE.md` §7–§8. Rung 1 (stress-test universality) is ~2/3 complete. Rung 2 (close derivation) not started. Rung 3 (Compiler) is the move that separates this moonshot from the field.
+
+---
+
 ## 1. The Bet
 
 Every trained neural network — regardless of architecture, modality, or training objective — compresses some structure about its training distribution into its representations. The compression is not random: it produces geometric regularities. We bet that those regularities, properly measured and compared across systems, resolve into a small number of universal laws.

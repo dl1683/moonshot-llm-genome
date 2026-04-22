@@ -19,6 +19,19 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 **When in doubt, fire Codex with:** *"given current state, which action has the highest probability of producing a finding DeepMind cannot or will not produce?"*
 
+### The 4-rung ladder (Codex-ratified 2026-04-21)
+
+DONE = `Genome Equation` + `Genome Extractor` + `Genome Compiler` (derived law + reproducible extractor + causal transfusion / geometry-regularized training demos). See `research/MANIFESTO.md §0.1` + `research/CURRENT_KNOWLEDGE.md §7-§8`.
+
+| Rung | Goal | Status |
+|---|---|---|
+| 1 | Stress-test universality (diffusion + JEPA + ≥2 stim banks per modality + LOCO + random-init controls) | **~2/3 done** (7 sys pass `c=p·d_rd`; LOCO + 2nd banks + dynamical stress-test pending) |
+| 2 | Close the derivation (no-fit explanation for text c=2 / vision c=3, pre-reg prediction for new modality) | **Not started** |
+| 3 | ⚡ **PARADIGM-SHIFT** ⚡ Make geometry causal (intervention moves coordinate → predicted capability change) | **Not started** |
+| 4 | Cash it in (scaling-law replacement + ≥10× compute-reduction training demo + biology beyond V1) | **Partial** (decision-rule blind test validated, no training demo) |
+
+**Failure modes named (6-month window):** (i) measurement artifact (collapses under replication), (ii) post-hoc fitted theory (no out-of-sample predictions), (iii) no causal lever (field files as "interesting geometry survey").
+
 ---
 
 ## How to read this file

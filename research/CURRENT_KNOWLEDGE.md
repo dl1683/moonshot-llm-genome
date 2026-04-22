@@ -91,8 +91,49 @@ The following are explicitly missing. Any one of them would be the breakthrough-
 
 ---
 
-## 7. The open vision question
+## 7. The long-term vision (Codex-ratified 2026-04-21 22:13)
 
-This document describes **what is** as of 2026-04-21. The **long-term vision** — what this moonshot looks like when it is done, and the ladder from here to there — is being asked of a fresh Codex session (fired at 2026-04-21 22:14, output at `.codex/outputs/long_term_vision_2026-04-21-2213.md`). When that verdict lands it will be integrated here and into `research/MANIFESTO.md`.
+Source: `.codex/outputs/long_term_vision_2026-04-21-2213.md`, senior-architectural-authority verdict.
 
-Until then: the paper is shippable, the atlas instrument is mature, and the critical open question is whether we can do genuine first-principles work (derivation, electricity-grade efficiency demo, geometry transfusion, biology-ANN bridge theory) that separates us from "another professional representational-geometry paper." The user's directive this session: aim for exceptional, not respectable.
+**DONE looks like three coupled deliverables:**
+
+1. **Genome Equation** — a derived law where `c = p · d_rd` (and any other promoted coordinates) is predicted *a priori* from stimulus/representation geometry, holds across architectures + objectives + brains, and **predicts** capability/compute (not just fits it).
+2. **Genome Extractor** — one command that outputs a model's/recording's genome vector + uncertainty, with locked stimulus banks and stability proofs (seed / quantization / stimulus-resampling).
+3. **Genome Compiler** — two causal demos:
+   - **Geometry transfusion**: inject genome structure into random-init weights; capability appears without SGD.
+   - **Geometry-regularized training**: ≥10× compute reduction at equal eval on a real task.
+
+**Ladder from today to DONE:**
+
+| Rung | Goal | Timeframe | Pass condition |
+|---|---|---|---|
+| 1 | Stress-test universality | 2–3 weeks | `c` holds on diffusion + JEPA + world-model anchors; ≥2 stimulus banks per modality; random-init controls fail; LOCO passes CV ≤ 10% |
+| 2 | Close the derivation | 4–8 weeks | No-fit explanation for text `c=2` vs vision `c=3` + pre-registered prediction for a new modality; hit within error bars |
+| 3 | **⚡ Make geometry causal ⚡** | 6–10 weeks | Intervention moves genome coordinate by target Δ and produces the predicted capability change at fixed params/compute (passes prereg thresholds) |
+| 4 | Cash it in | 3–6 months | Public "geometry scaling law" beating Chinchilla-style compute/param heuristics for planning; electricity-grade training demo; biology extended beyond V1 |
+
+**Rung 3 is the paradigm-shift** — the point where geometry stops being a descriptive atlas and becomes a *controllable state variable that manufactures capability (transfusion) or substitutes for compute (regularized training).* Everything before rung 3 is scaffolding for rung 3; everything after is cash-in.
+
+**6-month failure modes to avoid:**
+
+- **Measurement artifact**: `c` is secretly a property of the stimulus bank / kNN hyperparams / sampling regime; collapses under independent replication.
+- **Post-hoc theory**: derivation becomes fitted storytelling (integers become tunable constants); zero out-of-sample predictions.
+- **No causal lever**: never show a knob that changes capability/compute; field files it as "interesting geometry survey."
+
+**External success signals:**
+
+- A scaling lab uses "genome coordinates" as a training-planning primitive (early-run probe → predicts final capability/compute) and cites it as scaling-law replacement.
+- An independent group reproduces the transfusion or ≥10× compute-reduction demo and ships it in a mainstream training stack.
+- Neuroscience groups adopt the genome extractor to compare cortex↔ANNs (Allen-style pipelines cite and standardize it).
+
+---
+
+## 8. Where we are on the ladder
+
+**Between rung 1 and rung 2.** Current state:
+- Rung 1: partially done — `c` holds on 7 systems (4 text + 3 vision), but diffusion (DiT) + I-JEPA have d_rd measured only loosely; LOCO not yet run; random-init controls done on text only; second stimulus bank per modality not tried.
+- Rung 2: not started — text `c=2` vs vision `c=3` is an observation, not a derivation.
+- Rung 3: not started — no intervention that moves `c` and produces predicted capability change.
+- Rung 4: partially demoed — decision-rule blind test validated (genome_035), but not yet a scaling-law replacement.
+
+The **immediate next cycle** per this vision should harden rung 1 (diffusion/JEPA/world-model anchors + LOCO + 2nd stimulus banks) so the claim is airtight before we start rung 2 derivation work. Paper polish is invisible to this ladder. Second Codex (breakthrough-rank, still in flight as of 22:37) will give the tactical next-experiment pick that best advances rung 1 → rung 2.
