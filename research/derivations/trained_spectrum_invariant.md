@@ -252,11 +252,13 @@ Non-parametric analysis of the same 5 trained spectra reveals a stronger univers
 | `er·α²` | 18.26 | 10.47% | — |
 | `eff_rank` | 29.58 | 11.11% | — |
 
-**The sub-percent CV on cum_var_at_q{50, 75} is "architecturally impossible coincidence" level.** CV 0.42% at q50 across 5 systems means the CUMULATIVE DISTRIBUTION of normalized variance at the midpoint is *literally the same number* on Qwen3, DeepSeek, BERT, RoBERTa, MiniLM — differs by less than half a percent.
+**The sub-percent CV on cum_var_at_q{50, 75} is "architecturally impossible coincidence" level for the bulk/tail.** CV 0.42% at q50 across 5 systems means the CUMULATIVE DISTRIBUTION of normalized variance at the midpoint is *literally the same number* on Qwen3, DeepSeek, BERT, RoBERTa, MiniLM — differs by less than half a percent.
 
-Reframes the derivation problem: all summary stats (`eff_rank`, `α`, `sqrt(er)·α`, `er·α²`) are *downstream* functionals of the universal CDF. The right question is not "what shape produces the invariant" but "what universal CDF do trained ML spectra converge to?". Any shape that reproduces the observed quantile values at q25, q50, q75 simultaneously will also reproduce the invariant.
+**Important nuance from overlay figure (`results/figures/genome_096_universal_cdf.png`):** the CDFs overlay tightly in the tail (rank ≥ 0.25) but the HEAD (rank ∈ [0, 0.15]) varies 5-10% across systems. Qwen3 has a fatter head (captures ~50% of variance in top 1% of directions), MiniLM has a thinner head (~30%). The tail universality is genuine; the head is system-specific. This matches the broken-power-law intuition (a "head" region of variable size) without locking in a specific parametric shape.
 
-This is consistent with why `genome_091` and `genome_094` failed: simple parametric shapes with 2-3 parameters cannot match the empirical CDF at multiple quantiles simultaneously with the required <1% tolerance. The shape is more constrained than any low-dim parametric family.
+Reframes the derivation problem: all summary stats (`eff_rank`, `α`, `sqrt(er)·α`, `er·α²`) are *downstream* functionals of the (mostly) universal CDF. The right question is not "what shape produces the invariant" but "what universal TAIL CDF do trained ML spectra converge to, and why is the HEAD system-specific?". Any shape that reproduces the tail CDF and the system's head variance will reproduce the invariant.
+
+This is consistent with why `genome_091` and `genome_094` failed: simple parametric shapes with 2-3 parameters cannot match the empirical CDF at multiple quantiles simultaneously with the required <1% tolerance in the tail AND the system-specific head. The tail shape is more constrained than any low-dim parametric family.
 
 ### P10. Derivation remains open — but narrowed
 
