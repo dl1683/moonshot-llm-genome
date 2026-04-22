@@ -46,7 +46,19 @@ See `GENOMEGUARD.md` for usage. Run: `python code/genome_genomeguard.py`.
 
 **5. Model surgery via mean-shift (layer-agnostic capability patch)** — lesioning a Qwen3-0.6B transformer block (randomizing its weights) and installing a single 1024-dim bias vector (the teacher's mean activation at that layer) recovers **57–67% of the capability NLL gap across 3 lesion depths** (layers 7, 14, 21; mean 61%, CV 8.3%). Pure additive shift beats all rank-48/256/1024 linear adapters AND orthogonal Procrustes rotation. First non-naive capability-transfer result — the simplest possible adapter (1024 scalars from the teacher) carries most of a trained block's contribution.
 
-**6. 🔥 THE NEURAL GENOME — localized to the last 7 layers (28 KB) and TRANSFERS ACROSS MODEL SIZES.** Lesion EVERY layer of Qwen3-0.6B (randomize all 196 matmul weights across 28 transformer blocks → capability destroyed, NLL jumps from 3.67 → 18.10). Install per-layer mean-activation shifts from a pretrained teacher (`genome_078`, `genome_079`). Full 28-layer atlas (112 KB) recovers **54.2%** of capability. Just **the last 7 layers' atlas (28 KB)** recovers **52.7%** — near-identical. The middle 14 layers contribute essentially nothing (-1.2%). First 7 layers contribute ~1%. **Cross-size transfer (`genome_082`): project the 0.6B teacher atlas (1024-d) up to Qwen3-1.7B student (2048-d) via ridge-regularized pinv on one probe batch; patch fully-lesioned 1.7B; recovers 58.8% — slightly BETTER than same-size transfer.** A 28-112 KB vector table (~1/40,000 of the 1.2 GB weight file), localized to the LM-head-adjacent quarter of the network, carries half the capability of a trained model, and transfers between model sizes. See `NEURAL_GENOME.md`.
+**6. 🔥 THE NEURAL GENOME — localized to the last 7 layers (28 KB), transfers across sizes, but carries unigram prior not coherent generation.** Lesion EVERY layer of Qwen3-0.6B (randomize all 196 matmul weights across 28 transformer blocks → NLL jumps from 3.67 → 18.10). Install per-layer mean-activation shifts from a pretrained teacher (`genome_078` → `genome_082`). Headline scorecard:
+
+| Intervention | atlas size | fg_closed (NLL) |
+|---|---:|---:|
+| Last 1 layer | 4 KB | 20% |
+| Last 3 layers | 12 KB | 46% |
+| Last 7 layers (peak) | 28 KB | **53.5%** |
+| All 28 layers | 112 KB | 58.5% |
+| Cross-size (0.6B atlas → 1.7B student, ridge-pinv) | 112 KB + 6 MB proj | **58.8%** |
+
+Genome is localized to the last quarter of the network. Middle 14 layers contribute ~0%. First 7 contribute ~1%. Transfers across model sizes with a one-batch ridge fit.
+
+**Important scope caveat (`genome_083` qualitative demo).** The 53-58% numbers are NLL-gap recoveries. The atlas restores the *unigram frequency prior* (the model predicts common English tokens with high probability), but GENERATION IS STILL DEGENERATE — lesion-plus-atlas-patched models produce repetition like `" directly directly directly..."` or `" on on in on change change..."` instead of coherent completions. The atlas carries the learned output-distribution shape, not the full reasoning/retrieval capability. Extending the atlas class to restore coherent generation is open work. See `NEURAL_GENOME.md`.
 
 Raw data in `experiments/ledger.jsonl` (72 entries). Full synthesis in `research/BREAKTHROUGH_SYNTHESIS.md`.
 

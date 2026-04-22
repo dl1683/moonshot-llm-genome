@@ -1,0 +1,35 @@
+{
+  "purpose": "Qualitative generation from teacher / lesion / last-7 atlas / all-28 atlas",
+  "completions": {
+    "teacher": {
+      "The capital of France is": " Paris. The capital of Italy is Rome. The capital of Spain is Madrid. The capital of China",
+      "Water boils at": " 100 [deg] C at 1 atm pressure. What is the temperature in Fahrenheit?",
+      "Two plus three equals": " five, and three plus five equals eight, and five plus eight equals ten, and so on.",
+      "The Eiffel Tower is located in": " Paris, France. The Eiffel Tower is a tall, slender structure that is 30",
+      "Once upon a time,": " there were 3000 people in a town. The number of people who are in the"
+    },
+    "lesioned_no_patch": {
+      "The capital of France is": "onusprehonus[CJK/cyrillic tokens] getToken iskofully Watcher ...  garbage token soup",
+      "Water boils at": "umentSetTextumentumentument[CJK]...garbage",
+      "Two plus three equals": "enko[cyrillic]amentioolsHEET...garbage",
+      "The Eiffel Tower is located in": "SharedPtr prehinsky cript pite usp pite appropriate on usp burgh uraturaturat_INITIALIZERancies",
+      "Once upon a time,": "[CJK] handleRequestunctionradoreon foss foss [CJK] ponses [CJK] ri[ea]ng fray foss [CJK] arning"
+    },
+    "last_7_atlas_28kb": {
+      "The capital of France is": " on on on  in on on on change change change  in  change   import  change",
+      "Water boils at": " ' at at at at at at at at at at at at at at at at at at at",
+      "Two plus three equals": " at in in in in in and in in in in in in in in in in in in in",
+      "The Eiffel Tower is located in": " in in on in on on once change change change on on on on in on in until orders in",
+      "Once upon a time,": " at ' at at ' ' at at at at at at at at at at at at at at"
+    },
+    "all_28_atlas_112kb": {
+      "The capital of France is": " directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly",
+      "Water boils at": " directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly",
+      "Two plus three equals": " directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly and directly and directly directly",
+      "The Eiffel Tower is located in": " directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly",
+      "Once upon a time,": " directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly directly"
+    }
+  },
+  "finding": "Atlas-patched models collapse to degenerate repetition of common English stop-filler tokens (on/at/in/directly) instead of coherent completions. The 53-58pct NLL recovery reflects restoration of UNIGRAM FREQUENCY PRIOR, NOT reasoning/retrieval capability.",
+  "verdict": "SCOPE_CORRECTION_UNIGRAM_ONLY"
+}

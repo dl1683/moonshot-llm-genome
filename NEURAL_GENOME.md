@@ -1,6 +1,8 @@
 # The Neural Genome
 
-A 28 KB vector table — covering just the last 7 of 28 transformer layers — carries 53% of the capability of a 600 M-parameter model.
+A 28 KB vector table — covering just the last 7 of 28 transformer layers — recovers **53% of the next-token NLL gap** of a fully-lesioned 600 M-parameter model.
+
+**Important scope (genome_083 qualitative demo).** The atlas restores the *unigram frequency prior* — the model assigns high probability to common English tokens after the patch. Generation is still degenerate (repetitive filler tokens like `" directly directly..."` or `" on on in on change..."` instead of coherent sentences). The 53% number is NLL, which is averaged per-token; it does NOT mean "53% of reasoning ability" or "half the functional capability." The atlas carries the learned output-distribution shape, not the conditioning/reasoning machinery. Extending the atlas to restore coherent generation is open work.
 
 ## The claim
 
