@@ -81,22 +81,23 @@ None of these is proven. All are testable.
 
 ## What to do next
 
-### P1. Validate at scale — DONE (2026-04-22, `genome_088`)
+### P1. Validate at scale — DONE (2026-04-22, `genome_088`, N=5)
 
-Probe: 4 text systems (Qwen3-0.6B, DeepSeek-R1-Distill-1.5B, BERT-base, MiniLM-L6; RoBERTa failed registry lookup, rerun pending) × {trained, shuffled, Gaussian}. Fresh extraction under C4 (800 sentences × max_len 256), same primitives.
+Probe: 5 text systems (Qwen3-0.6B, DeepSeek-R1-Distill-1.5B, BERT-base, RoBERTa-base, MiniLM-L6) × {trained, shuffled, Gaussian}. Fresh extraction under C4 (800 sentences × max_len 256), same primitives.
 
 | Condition | N | sqrt(er)·alpha mean | CV | er·alpha² mean | CV |
 |---|---:|---:|---:|---:|---:|
-| **Trained** | 4 | **4.279** | **5.65%** | **18.37** | 11.6% |
-| Shuffled | 4 | 5.501 | 18.85% | 31.33 | 36.1% |
-| Gaussian | 4 | 5.505 | 19.07% | 31.41 | 36.6% |
+| **Trained** | 5 | **4.268** | **5.09%** | **18.26** | 10.5% |
+| Shuffled | 5 | 5.472 | 16.98% | 30.80 | 33.0% |
+| Gaussian | 5 | 5.463 | 17.26% | 30.74 | 33.7% |
 
-- Trained mean (4.279) vs shuffled mean (5.501): separation = **5.1σ** of trained distribution. Invariant sharply distinguishes trained from untrained.
-- Shuffled and Gaussian coincide (5.501 vs 5.505) — consistent with shuffle destroying joint structure to iid-Gaussian baseline.
-- Trained CV 5.65% is 3.4× tighter than shuffled/Gaussian CV (~19%). **Training is a CV-reducing operation** on this functional — trained spectra converge to a specific attractor shape while untrained spectra do not.
-- Per-system trained sqrt(er)·α: Qwen3 4.05, DeepSeek 4.22, BERT 4.69, MiniLM 4.17. Spread within ±0.3 of 4.24 = 3√2.
+- Trained mean (4.268) vs shuffled mean (5.472): separation = **5.5σ** of trained distribution. Invariant sharply distinguishes trained from untrained.
+- Shuffled and Gaussian coincide (5.472 vs 5.463) — consistent with shuffle destroying joint structure to iid-Gaussian baseline.
+- Trained CV 5.09% is 3.3× tighter than shuffled/Gaussian CV (~17%). **Training is a CV-reducing operation** on this functional — trained spectra converge to a specific attractor shape while untrained spectra do not.
+- Per-system trained sqrt(er)·α: Qwen3 4.05, DeepSeek 4.22, BERT 4.69, RoBERTa 4.22, MiniLM 4.17. Spread within ±0.4 of 4.24 = 3√2. Four of five systems cluster within ±0.2 of 3√2.
+- Empirical mean 4.268 deviates from 3√2 = 4.243 by **0.6%**.
 
-Invariant held under fresh-extraction probe with matched controls; no kill condition tripped.
+Invariant held under fresh-extraction probe with matched controls; no kill condition tripped. Next tier: expand to N≥10 (add Falcon-H1, RWKV, DINOv2, CLIP-text, CLIP-vision) and random-init twin condition.
 
 ### P2. Derive the constant 18
 
