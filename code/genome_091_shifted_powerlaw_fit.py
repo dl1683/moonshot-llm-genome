@@ -132,10 +132,10 @@ def main():
         row = {"system": sys_key, "n": int(X.shape[0]), "h": int(X.shape[1]),
                 "alpha_pure_fit": alpha_pure, **fit}
         rows.append(row)
-        print(f"  pure α-fit (i^(-2α)): α={alpha_pure:.3f}")
+        print(f"  pure alpha-fit: alpha={alpha_pure:.3f}")
         if "err" not in fit:
-            print(f"  shifted α-fit A·(i+k)^(-2α): k_head={fit['k_head']:.2f}  "
-                  f"α_true={fit['alpha_true']:.3f}  R²={fit['r2']:.4f}  "
+            print(f"  shifted fit A*(i+k)^(-2a): k_head={fit['k_head']:.2f}  "
+                  f"alpha_true={fit['alpha_true']:.3f}  R2={fit['r2']:.4f}  "
                   f"er_pred={fit['er_pred']:.2f}  er_emp={fit['er_emp']:.2f}")
         else:
             print(f"  fit failed: {fit['err']}")
@@ -148,9 +148,9 @@ def main():
         km, ks_ = float(np.mean(ks)), float(np.std(ks))
         am, as_ = float(np.mean(atrues)), float(np.std(atrues))
         apm, aps_ = float(np.mean(apures)), float(np.std(apures))
-        print(f"  k_head    N={len(ks)} mean={km:.2f}  std={ks_:.2f}  CV={100*ks_/km:.1f}%")
-        print(f"  α_true    N={len(atrues)} mean={am:.3f}  std={as_:.3f}  CV={100*as_/am:.1f}%")
-        print(f"  α_pure    N={len(apures)} mean={apm:.3f}  std={aps_:.3f}  CV={100*aps_/apm:.1f}%")
+        print(f"  k_head      N={len(ks)} mean={km:.2f}  std={ks_:.2f}  CV={100*ks_/km:.1f}%")
+        print(f"  alpha_true  N={len(atrues)} mean={am:.3f}  std={as_:.3f}  CV={100*as_/am:.1f}%")
+        print(f"  alpha_pure  N={len(apures)} mean={apm:.3f}  std={aps_:.3f}  CV={100*aps_/apm:.1f}%")
 
     out_path = _ROOT / "results/gate2/shifted_powerlaw_fit.json"
     out_path.write_text(json.dumps({"rows": rows}, indent=2), encoding="utf-8")
