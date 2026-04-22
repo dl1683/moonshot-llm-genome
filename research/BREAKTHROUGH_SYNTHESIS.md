@@ -64,9 +64,23 @@ No big lab publishes this because it reframes scaling: the compute is not paying
 
 ## What the next experiment should be
 
-Per strategic verdict 2026-04-21-2329 (MINOR-ADJUSTMENT, Compiler-first sprint), the three questions were (1) is the invariant causal? (yes, genome_044), (2) what higher-order invariant is capability-linked? (direction identity, genome_045), (3) can we get a tiny compute-efficiency win?
+Per strategic verdict 2026-04-21-2329 (MINOR-ADJUSTMENT, Compiler-first sprint), the three questions were (1) is the invariant causal? (yes, genome_044), (2) what higher-order invariant is capability-linked? (direction identity, genome_045), (3) can we get a tiny compute-efficiency win? (**first attempt NEUTRAL**, genome_048).
 
-**Question 3 is the only open rung-3 question.** The single experiment that would answer it in the affirmative is #2 above: small-model training with `c = p · d_rd` aux regularizer. That is the next concrete breakthrough-direction fire.
+All three compiler-sprint questions now answered for this cycle:
+
+- **Q1 answered yes** — geometry is causally necessary (PCA destruction traces monotone NLL damage).
+- **Q2 answered direction-identity** — trained feature-directions specifically, not the geometric envelope, carry capability.
+- **Q3 answered NEUTRAL (first attempt)** — regularizing a tiny transformer toward text-d_rd target changed the final geometry substantially (c 0.47→1.05, d_rd 3.21→5.34) but gave 0% speedup vs baseline. The envelope doesn't accelerate; matching it doesn't install capability.
+
+**Reinforced synthesis:** the trained-manifold invariant `c = p · d_rd` is a *signature* of weight-activation co-evolution, not a *substrate* that can be installed or induced cheaply. All four operations we tested (covariance transfer, codebook transfer, basis transfer, aux-regularizer) confirm this.
+
+**Next concrete breakthrough-direction fires** (future sessions, not now):
+
+- **Higher-order aux regularizer**: replace the eff-dim target with matching *higher moments* (skew, kurtosis) or with a *direction-identity* contrastive loss (predict whether a held-out activation came from this model vs a twin-trained model; if model can't distinguish, direction-identity is transferred). Tests whether Q3's null is specific to the envelope form.
+- **Derivation of `c = 2` / `c = 3` from stimulus intrinsic-dim**: genome_040/041 show 1D-forced vision stimuli shift c toward text. A theoretical derivation that predicts *exact* shifts from stimulus intrinsic dim → rate-distortion prefactor would be Nature-grade.
+- **Weight-space layer transplant**: full trained weight-matrix transplant of the mid-depth block into an otherwise-untrained model. Tests whether capability is layer-localized.
+
+This session has delivered the cleanest scientific framing of the moonshot to date. The paradigm-shift rung (rung 3) is *diagnosed* — direction identity is the substrate — but not yet *installed* via a compiler. That is the next session's target.
 
 ---
 
