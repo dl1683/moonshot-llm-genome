@@ -291,17 +291,22 @@ README landmark-findings block added. GENOMEGUARD.md updated with cross-arch + c
 - **Candidate-8 is stimulus-dependent** (bridge BREAKS on wikitext-raw, scrambled, reversed — rel_err rises 3-45×). This is a FEATURE, not a bug: it is the basis of GenomeGuard.
 - **GenomeGuard shipping tool** (`GENOMEGUARD.md`, `code/genome_genomeguard.py`, `genome_067`): ~20s per probe; 6/6 (Qwen3+BERT) × (wiki_raw+scrambled+reversed) detect contamination with ≥3× rel_err spike. Silent data corruption detector with zero training overhead.
 
-**Scope lock (2026-04-22):** CS/AI/MATH ONLY. No biology, no neuroscience replication. End goal: capability transfer + model surgery + AI diagnostic tools. See `CLAUDE.md §0.05`.
+**Scope lock (2026-04-22):** CS/AI/MATH ONLY. No biology. End goal: capability transfer + model surgery + AI diagnostic tools. See `CLAUDE.md §0.05`.
 
-1. **Model surgery / capability transfer between trained AI models.** The 12-op null catalog ruled out naive forward transfer. Next: non-naive transfer — gradient distillation matched on candidate-8 target, direction-identity contrastive distillation, or low-rank capability graft using the k_bulk=48 basis. Concrete ML partner demo.
-2. **Compute-efficiency demo on a real AI workload.** Use k_bulk=h/22 as a principled rank target — low-rank-factorize mid layers of Qwen3 to rank 48, measure NLL retention. If <2% NLL loss at 20× parameter reduction for the factored layer, this is the Furiosa/Weka/Liquid demo.
-3. **Real-training-failure GenomeGuard demo.** Replace 3% weight noise simulation with actual training blowups (LR×10, gradient hacking, stale optimizer state). Show bridge rel_err diverges before val loss does. Turns the tool into a real early-warning monitor.
-4. **Candidate-8 P3 derivation.** Close the ratio(α) closed form with a richer spectrum model (Marchenko-Pastur + low-rank cluster, smooth broken power-law). Pure CPU, Nature-grade mathematical target. Prereg before firing.
-5. **LFM / SSM extension** (Linux host required if RWKV/Mamba kernels cause Windows issues). Liquid AI partner leverage.
+**🔥 Session T+50h landmark (genome_078):** a 112 KB per-layer mean-activation atlas recovers **49% of capability** in a fully-lesioned Qwen3-0.6B (all 28 blocks' matmul weights scrambled). Half-atlas is null. The "neural genome" is literal. See `NEURAL_GENOME.md`.
 
-**Explicitly out of scope per §0.05:** biology session replications (genome_070 session 0 stands as single reference point; we will not extend to session 1-9), mouse V1, Allen Neuropixels, wav2vec2-audio-as-biology-analog, cortical-area comparisons. Biology framing removed from outreach emails and synthesis docs.
+Related: single-layer mean-shift surgery closes 57–67% across 3 lesion depths (`genome_074`, `genome_075`). Rank-48/256/1024 linear adapters FAIL at the same task (`genome_074` v1/v2). Mean+rotation Procrustes HURTS. The right adapter class is pure additive, not rotational.
 
-Session logs + synthesis drafts: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `GENOMEGUARD.md`, `research/prereg/genome_svd_bridge_2026-04-22.md`.
+1. **Neural-genome layer-coverage sweep (IN FLIGHT).** 8 patching regimes to characterize which layers carry the signal. Result in `results/gate2/full_mean_genome_sweep.json`.
+2. **Cross-size atlas transfer.** Qwen3-0.6B teacher atlas (1024-d) → Qwen3-1.7B student (2048-d) via learned linear projection. If it works, cross-size capability transfer via a small table.
+3. **Cross-family same-size atlas transfer.** Any two 1024-d trained CLMs — does teacher atlas patch student of different family?
+4. **Task-specific capability recovery.** Does atlas restore arithmetic/reasoning accuracy, not just NLL?
+5. **Candidate-8 P3 richer derivation** (genome_076 MP+lowrank MISSED). Try Wishart-with-structured-signal.
+6. **GenomeGuard real-training extended.** genome_077 landed 1/2 sabotage modes (100-step lead on grad-sign-flip). Need real LR-blowup + stale checkpoint modes.
+
+**Explicitly out of scope:** biology, mouse V1, neural recordings.
+
+Key synthesis docs: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `GENOMEGUARD.md`, `NEURAL_GENOME.md`.
 
 ---
 
