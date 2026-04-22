@@ -1,0 +1,41 @@
+{
+  "purpose": "Procrustes-aligned weight-transplant (Codex move 2)",
+  "trained_NLL": 3.6560819759368894,
+  "untrained_NLL": 12.116042854309082,
+  "procrustes_R2_pre": -21.275753021240234,
+  "procrustes_R2_post": -21.019710540771484,
+  "per_condition": [
+    {
+      "condition": "1block_noalign",
+      "graft_layers": [
+        14
+      ],
+      "use_align": false,
+      "nll": 12.120546966552734,
+      "fraction_gap_closed": -0.0005324034364232424,
+      "n_tensors": 11
+    },
+    {
+      "condition": "1block_align",
+      "graft_layers": [
+        14
+      ],
+      "use_align": true,
+      "nll": 12.120724090576172,
+      "fraction_gap_closed": -0.0005533401790375527,
+      "n_tensors": 11
+    },
+    {
+      "condition": "2block_align",
+      "graft_layers": [
+        13,
+        14
+      ],
+      "use_align": true,
+      "nll": 12.126067916870117,
+      "fraction_gap_closed": -0.0011850010543976955,
+      "n_tensors": 22
+    }
+  ],
+  "verdict": "ALIGNMENT_POOR \u2014 R2 -21.28/-21.02 below 0.8; Procrustes is not a faithful basis map here. Kill condition does not cleanly discriminate. Pivot to learned alignment (linear probe + cross-entropy) before concluding."
+}
