@@ -336,9 +336,39 @@ Fresh extraction + matched controls on 4 text systems:
 3. **Invariant N≥15 validation.** Extend genome_088 to vision systems (DINOv2, CLIP-vision) + random-init twins + aligned models (Perceiver, VLMs). Target: CV stays < 7% on trained, untrained cleanly separated. N=5 current, target N≥12.
 4. **Preprint draft lives at** `research/PREPRINT_DRAFT.md`. Narrative covered: bridge + invariant + mode-diversity mechanism + phase transition + null catalog + GenomeGuard. Section 9 (aux-loss efficiency) pending genome_093 outcome.
 
+**Further updates 2026-04-22 T+66h (genome_097 → genome_109 adversarial cycle):**
+
+Round-1 Codex adversarial review (6 blind spots, `drafts/missing_angles_2026-04-22.md`):
+| # | Blind spot | Verdict |
+|---|---|---|
+| 1 | Shuffled ≠ true random-init control | **REFUTED** (13.5σ separation, `genome_097`) |
+| 2 | Probe-window arbitrary | partial (CV tight at fixed window, value shifts with window, `genome_098`) |
+| 3 | Unconditional stimulus prior | partial (conditional subsets shift 10-20%, `genome_100`) |
+| 4 | Eigenvectors might differ | **REFUTED** (top-30 overlap 0.65 = 17.4× random, `genome_099`) |
+| 5 | SFT/RLHF/distill shift | **REFUTED** (CV 1.53% across regimes, `genome_101`) |
+| 6 | Fisher/NTK-side invariant | **CONFIRMED** (Fisher CV 37.8% N=4, `genome_102`) — claim scopes to activations only |
+
+Round-2 Codex adversarial review (6 new blind spots, `research/adversarial_review_round2_invariant_2026-04-22.md`):
+| # | Blind spot | Verdict |
+|---|---|---|
+| 1 | Fractional depth wrong axis | **running** (`genome_109`) |
+| 2 | seq_mean pooling is the story | partial refute (last_token also tight at n=800; no_pool breaks CLM/MLM, `genome_107`) |
+| 3 | C4 is just dataset adjacency | **partially confirmed** (tight on C4+scrambled-C4, LOOSE on wikitext and random-chars, `genome_108`) |
+| 4 | n=800 rank cap | partial confirm (CV loosens at n=3200, `genome_107`) |
+| 5 | Cross-class (diffusion/RL) undefined | untested (would require non-transformer systems) |
+| 6 | Content direction not pinned | not tested yet (genome_110 planned) |
+
+**Major new positive findings from the adversarial cycle:**
+- `genome_103/104` — invariant is a **shared CURVE `f(normalized_depth)` across 5 systems**, tight band [0.4, 0.8] with CV 5-9% per depth. The "universal attractor" is a function of depth, not a single number.
+- `genome_105` — cross-stimulus test: **scrambled-C4 preserves universality (word-order not required), wikitext breaks it** (domain shift is the real issue, not syntax).
+- `genome_106` — **the attractor is a dynamical fixed point of training.** Pythia-410m at step-0 = 9.55 (random-init-like), step-1k = 3.57 (overshoot), step-143k = 4.09 (settled). Gradient descent actively pulls networks from random-init-land toward the universal attractor.
+- `genome_108` mechanistic bonus: trained LMs project OOD text (random chars) to a rank-1-to-7 degenerate subspace at mid-depth (vs rank 24-34 on C4). OOD detection signal by itself.
+
+**Current strongest claim (post round-2):** *trained text LMs converge to a shared activation-cloud curve sqrt(er)·α = f(normalized_depth) in the mid-band [0.4, 0.8] at CV 5-9% per depth, specifically for (sentence-level pooling, n~800, natural-text-like stimuli). The attractor is reached by gradient descent dynamically (Pythia trajectory). Shape AND direction-identity are shared across 5 systems. Random-init is separated by 13.5σ. The invariant is activation-side-only (Fisher CV 38%), domain-sensitive (C4 tight, wikitext loose, OOD collapses), and probe-choice affects specific values but not the tight-CV structure.*
+
 **Explicitly out of scope:** biology, mouse V1, neural recordings.
 
-Key synthesis docs: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md` (new 2026-04-22), `GENOMEGUARD.md`, `NEURAL_GENOME.md`.
+Key synthesis docs: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md` (new 2026-04-22), `research/adversarial_review_round2_invariant_2026-04-22.md`, `GENOMEGUARD.md`, `NEURAL_GENOME.md`.
 
 ---
 
