@@ -167,6 +167,23 @@ If P1.3 clustering-coefficient fails Gate 1 on any system in Batch 1, these are 
 **Agnosticism expectation.** Trivial to apply anywhere; already promoted by common practice. Main question is what invariants to extract (power-law slope, spectral gap, rank).
 **Candidate universality level.** Spectral decay exponent is a strong Level-2 family constant candidate.
 
+### 4.3 `sqrt(eff_rank) · α` spectral invariant 🟡 (**REGISTERED 2026-04-22, PROMOTED TO 🟡 COORDINATE**)
+**Measures.** A scalar summary of mid-depth activation spectrum: `sqrt(trace(Σ)² / trace(Σ²)) · (-slope of log σ_i vs log i in the [5%, 50%] tail window)`.
+**Methods.** SVD of centered pooled-activation matrix X ∈ R^(n, h). eff_rank = (Σσ²)²/Σσ⁴ (participation ratio). α = tail-slope fit of log σ vs log i over [lo=0.05h, hi=0.5h]. Invariant = sqrt(eff_rank) · α. Canonical probe: n=800 C4 sentences, mid-depth (`n_hidden_layers // 2`), pooling=seq_mean, batch=16, max_len=256.
+**Derivation basis.** Empirical. `research/derivations/trained_spectrum_invariant.md` — two parametric spectrum-shape candidates (shifted-PL `genome_091`, broken-PL `genome_094`) falsified; derivation of specific constant from first principles open.
+**Agnosticism expectation.** Validated on text-CLM (Qwen3-0.6B, Qwen3-1.7B, DeepSeek-R1-Distill), text-MLM (BERT-base, RoBERTa-base), text-contrastive (MiniLM-L6), hybrid Mamba (Falcon-H1-0.5B-Instruct) — 4 distinct training-objective classes. Vision extension pending (`genome_095` tooling refactor needed). Cross-substrate: mouse V1 does NOT satisfy (biology at 0.95, ~5× below trained attractor).
+**Candidate universality level.** Level-2 family constant (tight cross-system at fixed probe/stimulus). Level-1 status pending derivation of constant from first principles.
+**Adversarial stress tests (Codex 6-point review, 2026-04-22):**
+- #1 true random-init control: REFUTED (13.5σ separation, random-init at 7.49 vs trained 4.29)
+- #2 probe-window arbitrary: partially confirmed — specific value window-dependent (3.57 early, 4.27 base, 7.03 late), CV structure tight at fixed window
+- #3 unconditional vs conditional: partially confirmed — 10-20% shift on topic-homogeneous stimulus subsets (still tight at fixed stimulus)
+- #4 direction identity: REFUTED (top-30 subspace overlap 0.65, 17.4× random baseline across 5 systems)
+- #5 SFT/RLHF/distill shift: REFUTED (CV 1.53% across {Qwen3-0.6B-base, Qwen3-1.7B-base, DeepSeek-R1-Distill, Falcon-H1-Instruct})
+- #6 Fisher/NTK-side: CONFIRMED (Fisher-diagonal analog CV 37.8% on N=4, activation-side-only universality)
+
+Invariant survived 4/6 stress tests decisively; 2 partial confirmations tightened claim without killing it.
+**Primary evidence:** `genome_088`, `genome_097`, `genome_099`, `genome_101`. Derivation doc: `research/derivations/trained_spectrum_invariant.md`.
+
 ---
 
 ## 5. Causal / intervention primitives
