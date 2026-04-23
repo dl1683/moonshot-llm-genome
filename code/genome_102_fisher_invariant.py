@@ -38,7 +38,8 @@ _ROOT = _THIS_DIR.parent
 SYSTEMS = [
     ("qwen3-0.6b",                   "Qwen/Qwen3-0.6B"),
     ("deepseek-r1-distill-qwen-1.5b","deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"),
-    ("bert-base-uncased",            "bert-base-uncased"),
+    ("qwen3-1.7b",                   "Qwen/Qwen3-1.7B"),
+    ("falcon-h1-0.5b-instruct",      "tiiuae/Falcon-H1-0.5B-Instruct"),
 ]
 
 
