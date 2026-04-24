@@ -186,8 +186,14 @@ class RankAdapters(nn.Module):
                 self.B.append(nn.Parameter(
                     torch.tensor(init_B[l], dtype=torch.float32).to(DEVICE)))
             else:
-                self.A.append(nn.Parameter(torch.zeros(d_model, rank, device=DEVICE)))
-                self.B.append(nn.Parameter(torch.zeros(d_model, rank, device=DEVICE)))
+                # Kaiming init (NOT zeros): g=0 means zero output at init, but A,B must
+                # be non-zero so that ∂L/∂g is non-zero from step 1 (avoids gradient deadlock)
+                A_init = torch.empty(d_model, rank, device=DEVICE)
+                B_init = torch.empty(d_model, rank, device=DEVICE)
+                nn.init.kaiming_uniform_(A_init, a=np.sqrt(5))
+                nn.init.kaiming_uniform_(B_init, a=np.sqrt(5))
+                self.A.append(nn.Parameter(A_init))
+                self.B.append(nn.Parameter(B_init))
             self.g.append(nn.Parameter(torch.zeros(1, device=DEVICE)))
 
 
@@ -197,13 +203,23 @@ def attach_adapters(model, adapters, n_layers):
     def make_hook(l):
         def forward_hook(module, inp, out):
             h_l = inp[0].float()                        # (B, T, d)
-            h_l1 = out[0].float()                       # (B, T, d)
+            # Qwen3 decoder layers may return tensor or tuple depending on wrapper
+            if isinstance(out, tuple):
+                h_l1 = out[0].float()
+                orig_dtype = out[0].dtype
+                rest = out[1:]
+            else:
+                h_l1 = out.float()
+                orig_dtype = out.dtype
+                rest = None
             A = adapters.A[l].to(h_l.device)
             B = adapters.B[l].to(h_l.device)
             g = adapters.g[l].to(h_l.device)
             delta = (h_l @ B) @ A.T * g                # (B, T, d)
-            new_h = (h_l1 + delta).to(out[0].dtype)
-            return (new_h,) + out[1:]
+            new_h = (h_l1 + delta).to(orig_dtype)
+            if rest is not None:
+                return (new_h,) + rest
+            return new_h
         return forward_hook
 
     for l in range(n_layers):
