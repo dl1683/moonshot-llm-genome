@@ -43,7 +43,7 @@ Major landings after the `genome_090` block:
 - **grafting_005** — reported 2.0× `CtQ_75` speedup is invalid due to arm contamination.
 - **grafting_006** — KILL (CtQ_75 speedup=1.0×). Token-level rank-30 adapter init provides no CE training acceleration vs zero-init; open-loop fitting misaligns with closed-loop training context, CE gradient dominates within 50 steps.
 - **grafting_007** — KILL (CtQ_75 speedup=1.0×). Fixed mean-shift bias gives 58% zero-step gap closure (CtQ_50=∞) but becomes a liability after step 25: backbone trains to compensate for the fixed offset, making Arm B 0.5 nats WORSE than Arm A from step 50 onward. Confirms: fixed prior does not persist through gradient updates.
-- **grafting_008** — planned: trainable mean-shift bias (donor-init) with protected warmup + anchor penalty, testing whether trainable carrier preserves the step-0 geometry advantage during CE training.
+- **grafting_008** — KILL (CtQ_75 speedup=1.14×). Trainable bias with anchor: anchor over-constrains (bias cosine ~0.9999 throughout 150 steps), protected warmup backfires (blocks backbone while biases do nothing useful). Arm_c WORSE than arm_b (35 vs 30 steps). All hook/adapter/bias approaches have now failed. Next: weight-space seed via rank-1 weight delta.
 
 Per-experiment details remain canonical in `experiments/ledger.jsonl`; this markdown log still needs full backfill beyond the highlight level.
 

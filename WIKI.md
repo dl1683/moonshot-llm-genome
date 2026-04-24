@@ -424,13 +424,15 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Codex: "bottleneck is persistence, not step-0 effect. Test trainable carrier with anchor protection."
 - **Next: grafting_008** — trainable mean-shift bias + anchor penalty + protected warmup
 
-**grafting_008 PLANNED (2026-04-24): trainable mean-shift persistence test.**
-- Three arms: (A) zero-init trainable bias, (B) donor-init fixed bias [= g_007 arm_b], (C) donor-init trainable bias + anchor
-- Protected warmup: steps 0-10 bias-params only, steps 11+ full backbone unfreeze
-- Arm C anchor: λ(t)=max(0,1-t/50)*λ0 * ||b-b0||^2 decaying through step 50
-- Fine-grained logging: every step for 0-20, every 5 for 21-100
-- Primary metric: CtQ_75 speedup arm_c vs arm_a; secondary: retention ratio, bias cosine similarity
-- Project gate: >=10×. Strong partial: arm_c materially beats both arm_a and arm_b, retention>=0.7
+**grafting_008 KILL (2026-04-24): trainable mean-shift persistence test — CtQ_75 speedup=1.14× (no acceleration).**
+- Arm A (zero-init trainable bias + warmup): CtQ_75=step 40
+- Arm B (donor-init fixed bias, no warmup): CtQ_75=step 30 — BEST arm
+- Arm C (donor-init trainable bias + anchor + warmup): CtQ_75=step 35 — WORSE than arm_b
+- KILL: CtQ_75 speedup arm_c vs arm_a = 1.14× < 2× threshold. `grafting/results/grafting_008_trainable_meanshift_persistence.json`
+- Critical finding: bias cosine sim stays ~0.9999 throughout (anchor lambda=1.0 over-constrains biases; they never adapt)
+- Protected warmup backfired: blocks backbone for 10 steps while biases do nothing → arm_c wastes 10 steps arm_b doesn't
+- Pattern confirmed: no hook/adapter/bias approach has worked. Geometry in output space ≠ geometry in weight space.
+- **Next: grafting_009** — weight-space seed: directly initialize down_proj weights via outer product of donor output means × lesion inner activation means (rank-1 weight delta, no hooks needed)
 
 ---
 
