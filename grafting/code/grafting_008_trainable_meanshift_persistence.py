@@ -182,7 +182,7 @@ class LayerBiases(nn.Module):
             self.biases.append(nn.Parameter(b_init))
 
     def init_values(self):
-        return [b.detach().clone() for b in self.biases]
+        return [b.detach().float().cpu().numpy() for b in self.biases]
 
 
 def attach_bias_hooks(model, layer_biases, n_layers, fixed=False):
