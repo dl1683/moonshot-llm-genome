@@ -167,7 +167,7 @@ def ridge_solve(h_donor, h_lesion, mlp_interm, n_layers, n_train, lam):
 def install_solutions(model, solutions, n_layers):
     with torch.no_grad():
         for L in range(n_layers):
-            w = torch.tensor(solutions[L].T, dtype=torch.float16).to(DEVICE)
+            w = torch.tensor(solutions[L].T, dtype=torch.bfloat16).to(DEVICE)
             model.model.layers[L].mlp.down_proj.weight.copy_(w)
 
 
@@ -214,7 +214,7 @@ def train_arm(model, tokenizer, train_texts, eval_texts, n_steps, t0, arm_name):
         )
         optimizer.zero_grad()
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 0.3)
         optimizer.step()
 
     return trajectory
@@ -246,7 +246,7 @@ def main():
     # ---- Compile step: collect donor hidden states ----
     print(f"\n[{time.time()-t0:.1f}s] Loading donor for compile step...")
     donor = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, dtype=torch.float16, trust_remote_code=True
+        MODEL_ID, dtype=torch.bfloat16, trust_remote_code=True
     ).to(DEVICE).eval()
     n_layers = donor.config.num_hidden_layers
 
@@ -261,7 +261,7 @@ def main():
     # ---- Load recipient, measure lesion NLL, collect intermediates ----
     print(f"\n[{time.time()-t0:.1f}s] Loading recipient, creating lesion...")
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, dtype=torch.float16, trust_remote_code=True
+        MODEL_ID, dtype=torch.bfloat16, trust_remote_code=True
     ).to(DEVICE)
     zero_mlp(model, n_layers)
 
