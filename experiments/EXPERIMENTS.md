@@ -26,6 +26,20 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-24 — genome_113_consistency_lattices — NULL (with critical outlier)
+
+**Purpose.** Test Consistency Lattice hypothesis: do pairs of top-20 PCA directions show superadditive ablation damage?
+**Systems.** Qwen/Qwen3-0.6B (BF16).
+**Primitive.** Pairwise ablation synergy = NLL_ij - NLL_i - NLL_j + NLL_clean across 100 sampled direction pairs.
+**Universality level claimed.** null.
+**Commit.** pending.
+**Result.** NULL (barely). mean_synergy=0.0091 ≤ 0.01 kill threshold. Distribution near-symmetric around zero (median=0.001, p25=-0.003, p75=0.005). 6/100 pairs technically above 0.05 nats. Directions are approximately independent — no systematic compatibility constraint web.
+**Critical outlier:** Direction 0 (top PCA component) ablation alone raises NLL from 4.21 → 10.04 (+5.83 nats, +138%). This is the largest capability signal found in the entire genome_110-113 series. Pair (0,17) synergy=0.288 is dominated by this extreme dir-0 effect, not a true constraint interaction.
+**What this means.** No consistency lattice structure. But the power-law concentration in dir-0 is a new finding: one dominant PCA direction at layer 14 carries catastrophic capability. This was not part of any of the four hypotheses and is the most actionable result from the full series.
+**Next.** Synthesize all four findings → critical subspace power law experiment (genome_114).
+
+---
+
 ## 2026-04-24 — genome_112_scaffold_flow — PARTIAL
 
 **Purpose.** Test Scaffold-and-Flow hypothesis: do distinct task types follow different paths through a shared PCA scaffold?

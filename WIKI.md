@@ -469,8 +469,39 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Finding: scaffold encodes task structure early and statically, not via dynamic mid-layer flow.
 - `code/genome_112_scaffold_flow.py` -> `results/genome_112_scaffold_flow.json`
 
-**genome_113 RUNNING (2026-04-24): Consistency Lattices** — measure single vs. pairwise ablation damage on top-20 PCA directions; synergy = NLL_ij - NLL_i - NLL_j + NLL_clean. Pass: >20% pairs synergy>0.05 nats. Kill: mean<0.01.
+**genome_113 NULL/SURPRISING (2026-04-24): Consistency Lattices — directions independent, but dominant dir-0 catastrophic**
+- mean_synergy=0.0091 (kill threshold ≤0.01). Directions approximately independent. Lattice model falsified.
+- CRITICAL OUTLIER: ablating dir-0 alone raises NLL 4.21→10.04 (+5.83 nats, +138%). Power-law concentration.
+- Pair (0,17) synergy=0.288 — but this is dominated by dir-0 being catastrophically important, not a true constraint.
+- 6/100 pairs above 0.05 nats; distribution near-symmetric around zero (median=0.001).
 - `code/genome_113_consistency_lattices.py` -> `results/genome_113_consistency_lattices.json`
+
+---
+
+## §14 Mental Model Series Synthesis (genome_110–113)
+
+**Three falsified, one partial. One unexpected finding.**
+
+| Exp | Mental Model | Verdict | Key number |
+|---|---|---|---|
+| 110 | Syndrome Codes (ECC) | NULL | max_repair=0.0, amplification -51× at dist 27 |
+| 111 | Routing Constitutions | NULL | mean JS-div=0.007, zero pairs above 0.10 |
+| 112 | Scaffold-and-Flow | PARTIAL | max_sep=2.81, 74% NN acc, diverges at layer 2 |
+| 113 | Consistency Lattices | NULL | mean_synergy=0.009, dir-0 NLL delta=+5.83 nats |
+
+**What was falsified:** All dynamic computation hypotheses. The model does NOT repair perturbations, route differently by internal state, or maintain a constraint web between directions.
+
+**What was confirmed:** Task-domain geometry IS real (genome_112). 74% nearest-centroid accuracy in top-30 PCA scaffold, established by layer 2, maintained through all 28 layers.
+
+**The unexpected finding (genome_113):** Direction 0 (top PCA component at layer 14) alone accounts for +5.83 nats NLL (+138%) when ablated. This is a power-law concentration of capability in one dominant subspace direction — not predicted by any of the four mental models.
+
+**Synthesis:** Qwen3-0.6B's capability appears to be organized as a **static low-dimensional critical subspace** (not circuits, not routers, not error-correctors). Structure is:
+1. Early (established by layer 2, not mid-depth dynamics)
+2. Concentrated (one dominant direction carries catastrophic importance)  
+3. Persistent (maintained through all 28 layers via residual stream)
+4. Non-routing (same head patterns regardless of state)
+
+**Next direction (Codex to confirm):** Map the critical subspace power law — how many PCA directions are truly important? What NLL contribution does direction k have as a function of k? Does the top direction correspond to a specific capability or is it universal? This "critical subspace" framing is the first model-native organizational principle that survived the series.
 
 ---
 
