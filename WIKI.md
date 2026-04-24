@@ -395,13 +395,21 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Root cause: mean-pooling over tokens discards token-level structure needed for exact MLP weight recovery. Averaging is too lossy — the MLP operates token-by-token but we fit from pooled sentence vectors. This ceiling (~55-60%) is fundamental to the pooling approximation, not fixable by regularization.
 - **Next: grafting_005** — does 55% zero-step recovery provide CE training speedup vs lesioned baseline?
 
-**grafting_005 PLANNED (2026-04-24): head-to-head CE training comparison — grafted init vs lesioned init.**
-- Arm A (lesion): down_proj=0 at start (NLL≈17.86), train CE
-- Arm B (grafted): best grafting_004 weights (n=1500,λ=0.1) at start (NLL≈10.08), train CE
-- Both arms: identical pretrained attention/embedding/LN weights; full unfreeze; 300 CE steps
-- Metric: CtQ_25 speedup = (steps_lesion / steps_grafted) to 25% gap closure toward donor NLL 3.87
-- Pass: CtQ_25 speedup ≥ 2× (grafting provides meaningful training acceleration)
-- Kill: < 1.5× speedup (55% zero-step init doesn't help training)
+**grafting_005 CONTAMINATED (2026-04-24): CE speedup test showed 2.0× CtQ_75 speedup BUT experiment is invalid.**
+- Arm B reuses same model object after Arm A's 300 CE training steps — Arm B attention weights were already trained
+- NLL_0 Arm B = 7.94 (not ~10.08 as expected) because attention was already partially trained
+- Project gate is >=10× not 2× (see `grafting/OBJECTIVE.md`). 2× is below minimum meaningful threshold.
+- `load_texts_at_offset` does not guarantee disjoint compile/train/eval splits
+- Result filed as INVALID. `grafting/results/grafting_005_ce_training_speedup.json` retained as reference.
+- Codex verdict: "skip grafting_005 as currently written; rewrite as fresh-arm, matched-capacity, frozen-backbone adapter training"
+
+**grafting_006 PLANNED (2026-04-24): token-level rank-30 adapter bootstrap — the correct speedup test.**
+- Key fix: fresh model load for EACH arm; freeze backbone; train ONLY adapter params {A_l, B_l, g_l}
+- Adapter: h_{l+1} += g_l * A_l(B_l^T h_l), rank-30 residual adapter per layer
+- Arm A (zero-init adapters): randomly initialized {A_l,B_l,g_l} for all 28 layers
+- Arm B (token-fitted adapters): A_l,B_l fit from token-level donor-vs-base residuals via streaming lstsq + top-30 SVD
+- Metric: CtQ_75 speedup of Arm B vs Arm A; project gate >=10×
+- Key improvement over grafting_003/004: token-level (not sentence-averaged) — breaks the pooling ceiling
 
 ---
 
