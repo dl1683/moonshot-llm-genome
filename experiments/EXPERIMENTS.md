@@ -42,7 +42,8 @@ Major landings after the `genome_090` block:
 - **grafting_003 → grafting_004** — analytical same-arch MLP grafts recover ~55–59% of the lesion gap at zero steps, but mean pooling imposes a hard ceiling.
 - **grafting_005** — reported 2.0× `CtQ_75` speedup is invalid due to arm contamination.
 - **grafting_006** — KILL (CtQ_75 speedup=1.0×). Token-level rank-30 adapter init provides no CE training acceleration vs zero-init; open-loop fitting misaligns with closed-loop training context, CE gradient dominates within 50 steps.
-- **grafting_007** — mean-shift speedup test (running): does 61% zero-step gap closure from fixed per-layer bias translate to CtQ_75 ≥10× training speedup? Full backbone unfreeze, non-trainable bias from donor-minus-lesion means.
+- **grafting_007** — KILL (CtQ_75 speedup=1.0×). Fixed mean-shift bias gives 58% zero-step gap closure (CtQ_50=∞) but becomes a liability after step 25: backbone trains to compensate for the fixed offset, making Arm B 0.5 nats WORSE than Arm A from step 50 onward. Confirms: fixed prior does not persist through gradient updates.
+- **grafting_008** — planned: trainable mean-shift bias (donor-init) with protected warmup + anchor penalty, testing whether trainable carrier preserves the step-0 geometry advantage during CE training.
 
 Per-experiment details remain canonical in `experiments/ledger.jsonl`; this markdown log still needs full backfill beyond the highlight level.
 

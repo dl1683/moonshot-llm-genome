@@ -413,12 +413,24 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Codex architecture review: mean-shift (61% zero-step closure, zero params) is the real comparison baseline
 - **Next: grafting_007** — mean-shift speedup test: does adding donor-minus-lesion per-layer bias provide CtQ_75 speedup ≥10×?
 
-**grafting_007 PLANNED (2026-04-24): affine-statistics grafting — mean-shift speedup test.**
-- Arm A: fresh lesion baseline + CE training, no modifications
-- Arm B: fresh lesion + per-layer additive bias = mean(donor_hl) − mean(lesion_hl), then CE training
-- Both arms: FULL unfreeze (no frozen backbone), same optimizer, same eval texts
-- Metric: CtQ_75 speedup of Arm B vs Arm A; project gate >=10×
-- Reference: capability_patch_generalize.json shows mean-shift achieves 61% zero-step gap closure across layers 7/14/21
+**grafting_007 KILL (2026-04-24): mean-shift speedup test — CtQ_75 speedup=1.0× (no acceleration).**
+- Arm B: lesion + fixed (non-trainable) per-layer mean-shift bias = mean(donor) - mean(lesion), full unfreeze
+- Arm B NLL at step 0: 9.703 (58.1% gap closed) — strong zero-step advantage (CtQ_50 = inf!)
+- At step 25: Arm B=7.37 vs Arm A=7.46 (slight edge). Target_75=7.34 not yet crossed.
+- At step 50+: Arm A BETTER than Arm B by 0.5 nats consistently — fixed bias becomes a liability
+- Mechanism: backbone trains to compensate for fixed offset → misalignment grows → Arm B stuck
+- KILL: CtQ_75 speedup 1.00× = 1.0×. `grafting/results/grafting_007_meanshift_speedup.json`
+- Key finding: fixed prior does NOT persist through gradient updates; good step-0 effect evaporates
+- Codex: "bottleneck is persistence, not step-0 effect. Test trainable carrier with anchor protection."
+- **Next: grafting_008** — trainable mean-shift bias + anchor penalty + protected warmup
+
+**grafting_008 PLANNED (2026-04-24): trainable mean-shift persistence test.**
+- Three arms: (A) zero-init trainable bias, (B) donor-init fixed bias [= g_007 arm_b], (C) donor-init trainable bias + anchor
+- Protected warmup: steps 0-10 bias-params only, steps 11+ full backbone unfreeze
+- Arm C anchor: λ(t)=max(0,1-t/50)*λ0 * ||b-b0||^2 decaying through step 50
+- Fine-grained logging: every step for 0-20, every 5 for 21-100
+- Primary metric: CtQ_75 speedup arm_c vs arm_a; secondary: retention ratio, bias cosine similarity
+- Project gate: >=10×. Strong partial: arm_c materially beats both arm_a and arm_b, retention>=0.7
 
 ---
 
