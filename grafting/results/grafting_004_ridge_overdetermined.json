@@ -1,0 +1,94 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_layers": 28,
+  "nll_donor": 3.8723032373839907,
+  "nll_lesion": 17.862086021011145,
+  "grafting_003_reference": {
+    "nll_grafted": 9.6436,
+    "ceiling_gap": 5.799,
+    "pct_recovered": 59.5,
+    "method": "lstsq_minimum_norm",
+    "n_train": 1500
+  },
+  "conditions": {
+    "n1500_l1e-4": {
+      "n_train": 1500,
+      "lambda": 0.0001,
+      "nll_grafted": 10.099539685273037,
+      "improvement": 7.762546335738108,
+      "ceiling_gap": 6.227236447889046,
+      "pct_recovered": 55.487254203996294,
+      "mean_r2_train": 0.999999997066724,
+      "transplant_s": 282.3627920150757,
+      "verdict": "PARTIAL"
+    },
+    "n1500_l0.01": {
+      "n_train": 1500,
+      "lambda": 0.01,
+      "nll_grafted": 10.084532344060738,
+      "improvement": 7.777553676950406,
+      "ceiling_gap": 6.212229106676748,
+      "pct_recovered": 55.594527786756004,
+      "mean_r2_train": 0.9999828708801706,
+      "transplant_s": 20.140129327774048,
+      "verdict": "PARTIAL"
+    },
+    "n1500_l0.1": {
+      "n_train": 1500,
+      "lambda": 0.1,
+      "nll_grafted": 10.078066582659202,
+      "improvement": 7.784019438351942,
+      "ceiling_gap": 6.205763345275212,
+      "pct_recovered": 55.64074552652751,
+      "mean_r2_train": 0.999678493738377,
+      "transplant_s": 23.203681230545044,
+      "verdict": "PARTIAL"
+    },
+    "n1500_l1.0": {
+      "n_train": 1500,
+      "lambda": 1.0,
+      "nll_grafted": 10.182218794021379,
+      "improvement": 7.679867226989765,
+      "ceiling_gap": 6.309915556637389,
+      "pct_recovered": 54.89625783166444,
+      "mean_r2_train": 0.9981277182104333,
+      "transplant_s": 21.35747003555298,
+      "verdict": "PARTIAL"
+    },
+    "n1500_l10.0": {
+      "n_train": 1500,
+      "lambda": 10.0,
+      "nll_grafted": 10.494135850622515,
+      "improvement": 7.36795017038863,
+      "ceiling_gap": 6.621832613238524,
+      "pct_recovered": 52.66665168677,
+      "mean_r2_train": 0.9938420405848527,
+      "transplant_s": 22.969656944274902,
+      "verdict": "PARTIAL"
+    },
+    "n4096_l1e-4": {
+      "n_train": 4096,
+      "lambda": 0.0001,
+      "nll_grafted": 12.846313258074039,
+      "improvement": 5.015772762937106,
+      "ceiling_gap": 8.974010020690049,
+      "pct_recovered": 35.85311395118501,
+      "mean_r2_train": 0.9904362063266079,
+      "transplant_s": 28.04982304573059,
+      "verdict": "PARTIAL"
+    },
+    "n4096_l0.1": {
+      "n_train": 4096,
+      "lambda": 0.1,
+      "nll_grafted": 13.081653879966648,
+      "improvement": 4.780432141044496,
+      "ceiling_gap": 9.209350642582658,
+      "pct_recovered": 34.170881814113955,
+      "mean_r2_train": 0.9900597459791322,
+      "transplant_s": 27.729113817214966,
+      "verdict": "PARTIAL"
+    }
+  },
+  "best_condition": "n1500_l0.1",
+  "elapsed_s": 970.0965421199799
+}

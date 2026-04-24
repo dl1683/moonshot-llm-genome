@@ -389,14 +389,19 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Failure mode: minimum-norm lstsq does not generalize — geometric content packed into low-rank projection
 - Next: **grafting_004** — Ridge regularization (lambda sweep) + overdetermined regime (n=4096 > d=3072) to close ceiling gap
 
-**grafting_004 RUNNING (2026-04-24): Ridge + overdetermined sweep to fix lstsq generalization failure.**
-- 7 conditions: n=1500 (λ=1e-4/0.01/0.1/1.0/10.0) + n=4096 (λ=1e-4/0.1)
-- Solver: Ridge normal equations `(F^T F + λI)^{-1} F^T r` — faster than lstsq, always invertible
-- Pass: any condition NLL < 4.34 (within 0.5 nats of donor 3.8446)
-- Codex (8.0/10): "stop thinking geometry matching, start thinking operator compiler"
-- If PASS → grafting_005: same-arch random-init compiler with sequential hidden-state recomputation
-- If PARTIAL → adapter bootstrap: T_l into rank-30 residual adapters + CE training
-- → `grafting/research/codex_grafting_architecture.md` (local, gitignored)
+**grafting_004 PARTIAL (2026-04-24): mean-pooled lstsq/Ridge ceiling identified at ~55-60%.**
+- All 7 conditions PARTIAL. Best: n=1500, λ=0.1 → NLL 10.08, 55.6% recovered
+- Ridge barely helps (55.5%→55.6%). Overdetermined n=4096 is WORSE (35.9%)
+- Root cause: mean-pooling over tokens discards token-level structure needed for exact MLP weight recovery. Averaging is too lossy — the MLP operates token-by-token but we fit from pooled sentence vectors. This ceiling (~55-60%) is fundamental to the pooling approximation, not fixable by regularization.
+- **Next: grafting_005** — does 55% zero-step recovery provide CE training speedup vs lesioned baseline?
+
+**grafting_005 PLANNED (2026-04-24): head-to-head CE training comparison — grafted init vs lesioned init.**
+- Arm A (lesion): down_proj=0 at start (NLL≈17.86), train CE
+- Arm B (grafted): best grafting_004 weights (n=1500,λ=0.1) at start (NLL≈10.08), train CE
+- Both arms: identical pretrained attention/embedding/LN weights; full unfreeze; 300 CE steps
+- Metric: CtQ_25 speedup = (steps_lesion / steps_grafted) to 25% gap closure toward donor NLL 3.87
+- Pass: CtQ_25 speedup ≥ 2× (grafting provides meaningful training acceleration)
+- Kill: < 1.5× speedup (55% zero-step init doesn't help training)
 
 ---
 
