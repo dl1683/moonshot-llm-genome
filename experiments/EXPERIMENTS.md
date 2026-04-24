@@ -6,7 +6,7 @@
 
 ## 2026-04-22 session catch-up (genome_012 → genome_090, highlights only)
 
-Full ledger has 88+ entries; this doc details genome_000–011 then jumps to highlights. Per-experiment details live in `experiments/ledger.jsonl`. Major landings this session:
+Full ledger has 114 entries as of 2026-04-24; this doc details genome_000–011 then jumps to highlights. Per-experiment details live in `experiments/ledger.jsonl`. Major landings this session:
 
 - **genome_034** — candidate-5 kNN-10 clustering hits biology (10/10 Allen V1 sessions at δ=0.10). `c = p·d_rd` modality-stratified at 2 (text) / 3 (vision).
 - **genome_038–039** — `c = p·d_rd` promoted to training invariant; random-init controls span 22× wider than trained (genome_028). Training is a convergence op.
@@ -20,9 +20,30 @@ Full ledger has 88+ entries; this doc details genome_000–011 then jumps to hig
 - **genome_087** — WALL BREAKS at 2000 steps: rep 5/5→0/5, NLL 77%, phase transition between step 1000–1500. Coherent English emerges.
 - **genome_088** — NEW INVARIANT validated: `sqrt(eff_rank)·α ≈ 3√2` trained (CV 5.09%, N=5 text systems); shuffled/Gaussian 5.47 (CV 17%); 5.5σ separation. Trained-ML-specific (biology gives 0.95).
 - **genome_089** — invariant tracks capability recovery as U-shape: lesion 78.7 → min 4.72 at step 500 → back to 17.29 at step 2000 (teacher 20.4). Mode-collapse-then-expand mechanism.
-- **genome_090** — (running) aux-loss accelerated recovery A/B test.
+- **genome_090** — weak batch aux-loss recovery test is NULL at `γ=1e-3`; no measurable acceleration over control.
 
 Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md`, `NEURAL_GENOME.md`, `GENOMEGUARD.md`, `research/BREAKTHROUGH_SYNTHESIS.md`.
+
+---
+
+## 2026-04-24 session catch-up (genome_091 → genome_109, grafting_001 → grafting_006, highlights only)
+
+Major landings after the `genome_090` block:
+
+- **genome_091 + genome_094** — shifted-power-law and broken-power-law spectrum fits both fail as general derivations of the trained-spectrum constant.
+- **genome_093** — buffered aux loss can steer spectrum statistics but does **not** improve NLL; geometry matching remains diagnostic, not a demonstrated capability lever.
+- **genome_095 + genome_096** — invariant extends to Falcon-H1 hybrid; normalized variance CDF is tighter than the scalar `sqrt(eff_rank)·α` summary.
+- **genome_097 + genome_099** — adversarial baselines close two major objections: true random-init models sit far from the trained attractor, and top-30 eigendirections are substantially shared across systems.
+- **genome_100 + genome_105 + genome_108** — universality is conditional on stimulus regime: tight on C4 / scrambled-C4, looser on wikitext, and broken on hard OOD text.
+- **genome_101 + genome_102 + genome_102b** — invariant survives scale / distill / SFT changes, but Fisher-side spectra are not tight; the claim scopes to activation geometry, not all spectral objects.
+- **genome_103 + genome_104 + genome_107 + genome_109** — the stronger claim is a shared mid-band depth curve in sentence-level pooled activations, tighter in functional-depth space than raw layer index.
+- **genome_106** — Pythia checkpoints show gradient descent dynamically moves random-init models toward the trained attractor.
+- **grafting_001 → grafting_002** — Procrustes similarity probe was artifactual; held-out cross-prediction validates shared layer-transition operators across Qwen3 / DeepSeek / BERT.
+- **grafting_003 → grafting_004** — analytical same-arch MLP grafts recover ~55–59% of the lesion gap at zero steps, but mean pooling imposes a hard ceiling.
+- **grafting_005** — reported 2.0× `CtQ_75` speedup is invalid due to arm contamination.
+- **grafting_006** — corrected token-level rank-30 adapter bootstrap is now the live speedup test; project gate remains `≥10×`.
+
+Per-experiment details remain canonical in `experiments/ledger.jsonl`; this markdown log still needs full backfill beyond the highlight level.
 
 ---
 

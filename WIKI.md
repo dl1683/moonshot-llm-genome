@@ -71,14 +71,14 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Axiom status** | **G1 + G2.4-text + G2.5-biology all PASS as of genome_034 2026-04-21.** 9 trained neural networks across 7 training objectives produce `C(X,k) = c_0·k^p` with `p = 0.179 ± 0.021 (CV 12.0%), R² mean 0.997` across 27 cells. The 12% CV decomposes into: **text systems converge to `p ∈ [0.158, 0.177]`, vision systems to `p ∈ [0.210, 0.223]`** (Δ ≈ 0.06 modality gap; verified via 4 systems × 3 stim seeds = 12 cells, per-system CV 1.6–3.4%). **Random-init twins span `p ∈ [0, 0.37]` (22× wider)**, across 15 cells → training is a modality-stratified convergence operation toward a shared fixed point. **Biology bridge passes (genome_034, 10/10 Allen V1 sessions at δ=0.10, 8/10 at δ=0.05, prereg criterion cleared by 40 and 20 points respectively)**. Only open criterion for Level-1 is G2.3 theoretical re-derivation (v1 FALSIFIED, 3 of 4 v2 sketches FALSIFIED, framework D untested). |
 | **Bestiary coverage** | **9 / ~13 classes measured** (through genome_022 2026-04-21): classes 1 transformer / 2 reasoning / 3 recurrent / 4 hybrid / 6 vision ViT / 7 BERT-MLM / 8 MiniLM-contrastive-text / 9 I-JEPA-predictive-masked / 10 CLIP-contrastive-vision + **NEW: 11 DiT-XL/2-256 class-conditional diffusion transformer (genome_021+022, 3-seed n=2000 cluster-join)**. **kNN-k10 + power-law passes on 9 classes** (Falcon narrow-fail at n=2000, tips at n=4000). Spans **7 distinct training objectives** (CLM + reasoning-distilled + MLM + contrastive-text + self-supervised-ViT + contrastive-vision + predictive-masked + diffusion-denoising). |
 | **Promoted primitives (🟢¹/🟢²)** | 0 |
-| **Gate-1 passed (🟡 coordinate)** | **1 CLEAN 🟡 + now 9-class extended**: kNN-10 clustering coefficient + power-law form `C(X,k)=c_0·k^p`, scope `(modality ∈ {text, vision}, stimulus_family ∈ {c4_clean.len256.v1, imagenet1k_val.v1}, pooling ∈ {seq_mean, cls_or_mean})` on **Qwen3-0.6B + RWKV-4-169M + DINOv2-small + DeepSeek-R1-Distill-Qwen-1.5B + Falcon-H1-0.5B + BERT-base + MiniLM-L6 + CLIP-ViT-B/32 + I-JEPA-ViT-H/14 + DiT-XL/2-256**. Prereg `genome_knn_k10_portability_2026-04-21.md` LOCKED. **Biology interim (genome_027, n=4/10 sessions)**: 100% pass rate at δ=0.10 vs DINOv2 band. |
+| **Gate-1 passed (🟡 coordinate)** | **1 CLEAN 🟡 + now 9-class extended**: kNN-10 clustering coefficient + power-law form `C(X,k)=c_0·k^p`, scope `(modality ∈ {text, vision}, stimulus_family ∈ {c4_clean.len256.v1, imagenet1k_val.v1}, pooling ∈ {seq_mean, cls_or_mean})` on **Qwen3-0.6B + RWKV-4-169M + DINOv2-small + DeepSeek-R1-Distill-Qwen-1.5B + Falcon-H1-0.5B + BERT-base + MiniLM-L6 + CLIP-ViT-B/32 + I-JEPA-ViT-H/14 + DiT-XL/2-256**. Prereg `research/prereg/genome_knn_k10_portability_2026-04-21.md` LOCKED. **Biology interim (genome_027, n=4/10 sessions)**: 100% pass rate at δ=0.10 vs DINOv2 band. |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
-| **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `atlas_tl_session.md §1c`). H15 retired to governance rule `atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
-| **Open pre-registrations** | **2 locked:** `genome_id_portability_2026-04-21.md` (Gate-1 joint ID+PR+kNN — superseded by focused kNN prereg for promotion) and **`genome_knn_k10_portability_2026-04-21.md` (Gate-1 kNN-10 on Qwen3+RWKV+DINOv2, LOCKED 2026-04-21)**. Validator exits 0 on both. |
+| **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `research/atlas_tl_session.md §1c`). H15 retired to governance rule `research/atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
+| **Open pre-registrations** | **2 locked:** `research/prereg/genome_id_portability_2026-04-21.md` (Gate-1 joint ID+PR+kNN — superseded by focused kNN prereg for promotion) and **`research/prereg/genome_knn_k10_portability_2026-04-21.md` (Gate-1 kNN-10 on Qwen3+RWKV+DINOv2, LOCKED 2026-04-21)**. Validator exits 0 on both. |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
-| **Active TL session** | `atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
-| **Gate semantics** | LOCKED in `atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
+| **Active TL session** | `research/atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
+| **Gate semantics** | LOCKED in `research/atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
 
 → Phase definitions: `README.md` §Status.
@@ -189,7 +189,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Systems | Primitive | Pre-reg |
 |---|---|---|---|---|---|
-| `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `atlas_tl_session.md §3.7` strawman via prereg |
+| `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `research/atlas_tl_session.md §3.7` strawman via prereg |
 | `genome_002_n500_c4` | ✅ passed 2026-04-21 | First real primitive values (n=500 C4, Qwen3, 2 depths) | Qwen3-0.6B | ID + PR + kNN-clustering | `research/prereg/genome_id_portability_2026-04-21.md` STAGED |
 | `genome_003_cross_arch_pilot` | ✅ passed 2026-04-21 (2/3 systems) | **FIRST CROSS-CLASS atlas data** — Qwen3 transformer vs RWKV linear-attention at matched depths on matched stimuli | Qwen3-0.6B + RWKV-4-169M (Falcon-H1 hybrid deferred) | ID + PR + kNN-clustering | STAGED |
 | `genome_004_neg_control` | ✅ passed 2026-04-21 | Trained vs untrained negative control — discriminates learned vs architectural geometry | Qwen3-0.6B trained + random-init; RWKV trained | ID + PR + kNN-clustering | STAGED |
@@ -242,13 +242,13 @@ Architectural / methodological decisions. One line each. Irreversible choices ge
 | Date | Decision | Rationale |
 |---|---|---|
 | 2026-04-20 | **Axiom-first framing, atlas as instrument.** | CTI template; avoids pre-specified-curve-fit trap. README §The Axiom. |
-| 2026-04-20 | **Inherit CTI's 3-tier universality framework.** | Prevents "universality collapsed because one constant varied" failure. `UNIVERSALITY_LEVELS.md`. |
+| 2026-04-20 | **Inherit CTI's 3-tier universality framework.** | Prevents "universality collapsed because one constant varied" failure. `research/UNIVERSALITY_LEVELS.md`. |
 | 2026-04-20 | **Architecture-agnosticism gate: ≥3 classes before a primitive becomes a coordinate.** | Keeps LLM-specific tools from masquerading as atlas coordinates. CLAUDE.md §4.3. |
 | 2026-04-20 | **Biological validation mandatory for every Level-1 claim.** | Separates "fact about trained NNs" from "fact about learning systems." CLAUDE.md §4.5. |
 | 2026-04-20 | **Anti-entropy is a Tier-1 rule, not a cleanup chore.** | Atlas dies under file-bloat within 6 months without this. CLAUDE.md §3. |
 | 2026-04-20 | **Repo-wide model registry at `Projects/models/` is canonical; no local model lists.** | One source of truth across every moonshot and research project. |
 | 2026-04-20 | **WIKI.md is read first, updated every commit touching state.** | Agents bootstrap fast; nothing goes stale. |
-| 2026-04-20 | **9 system classes + Phase-1 minimum viable bestiary defined.** | Concrete, constrained first atlas iteration. `SYSTEM_BESTIARY.md` §Phase 1. |
+| 2026-04-20 | **9 system classes + Phase-1 minimum viable bestiary defined.** | Concrete, constrained first atlas iteration. `research/SYSTEM_BESTIARY.md` §Phase 1. |
 | 2026-04-20 | **`COMPUTE.md` is the binding hardware envelope.** | RTX 5090 Laptop (24 GB VRAM, ≤22 GB usable), Ultra 9 285HX, 64 GB RAM. Every Codex prompt, every prereg must comply with §9 checklist. Out-of-envelope proposals are rejected at design gate. No cloud available. |
 | 2026-04-20 | **`moonshot-llm-genome` becomes its own GitHub repo** (pattern matches `moonshot-sutra`). Process docs (`CLAUDE.md`, `WIKI.md`, codex review artifacts) excluded from public push. | Separates mission-public content from agent-process scaffolding. |
 
@@ -403,13 +403,22 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Result filed as INVALID. `grafting/results/grafting_005_ce_training_speedup.json` retained as reference.
 - Codex verdict: "skip grafting_005 as currently written; rewrite as fresh-arm, matched-capacity, frozen-backbone adapter training"
 
-**grafting_006 PLANNED (2026-04-24): token-level rank-30 adapter bootstrap — the correct speedup test.**
-- Key fix: fresh model load for EACH arm; freeze backbone; train ONLY adapter params {A_l, B_l, g_l}
-- Adapter: h_{l+1} += g_l * A_l(B_l^T h_l), rank-30 residual adapter per layer
-- Arm A (zero-init adapters): randomly initialized {A_l,B_l,g_l} for all 28 layers
-- Arm B (token-fitted adapters): A_l,B_l fit from token-level donor-vs-base residuals via streaming lstsq + top-30 SVD
+**grafting_006 KILL (2026-04-24): token-level rank-30 adapter bootstrap — CtQ_75 speedup=1.0× (no acceleration).**
+- Key fix over grafting_005: fresh model load per arm, frozen backbone, adapter-only training, token-level XtX/XtY
+- Arm A (zero-init kaiming): NLL 17.83→7.73@50→5.88@500
+- Arm B (token-fitted rank-30): NLL 17.83→8.63@50→6.62@500 — SLOWER than Arm A early
+- CtQ_75: both arms reach target at step 150 → speedup=1.0× (TIE)
+- Root cause: open-loop fitting misaligns with closed-loop context; CE gradient dominates any init advantage at step 50+
+- KILL: CtQ_75 speedup 1.00× < 2× threshold. `grafting/results/grafting_006_tokenlevel_rank30_adapter_bootstrap.json`
+- Codex architecture review: mean-shift (61% zero-step closure, zero params) is the real comparison baseline
+- **Next: grafting_007** — mean-shift speedup test: does adding donor-minus-lesion per-layer bias provide CtQ_75 speedup ≥10×?
+
+**grafting_007 PLANNED (2026-04-24): affine-statistics grafting — mean-shift speedup test.**
+- Arm A: fresh lesion baseline + CE training, no modifications
+- Arm B: fresh lesion + per-layer additive bias = mean(donor_hl) − mean(lesion_hl), then CE training
+- Both arms: FULL unfreeze (no frozen backbone), same optimizer, same eval texts
 - Metric: CtQ_75 speedup of Arm B vs Arm A; project gate >=10×
-- Key improvement over grafting_003/004: token-level (not sentence-averaged) — breaks the pooling ceiling
+- Reference: capability_patch_generalize.json shows mean-shift achieves 61% zero-step gap closure across layers 7/14/21
 
 ---
 
