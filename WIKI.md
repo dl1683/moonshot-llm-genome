@@ -387,7 +387,16 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Minimum-norm lstsq solution fits training activations perfectly but generalizes partially (distribution shift)
 - Direction alive: 59% capability recovery at zero gradient steps. Not PASS (ceiling gap 5.80 > 0.5 threshold)
 - Failure mode: minimum-norm lstsq does not generalize — geometric content packed into low-rank projection
-- Next: **grafting_004** — Ridge regularization / larger n_train, OR cross-arch (DeepSeek donor → Qwen3 recipient)
+- Next: **grafting_004** — Ridge regularization (lambda sweep) + overdetermined regime (n=4096 > d=3072) to close ceiling gap
+
+**grafting_004 RUNNING (2026-04-24): Ridge + overdetermined sweep to fix lstsq generalization failure.**
+- 7 conditions: n=1500 (λ=1e-4/0.01/0.1/1.0/10.0) + n=4096 (λ=1e-4/0.1)
+- Solver: Ridge normal equations `(F^T F + λI)^{-1} F^T r` — faster than lstsq, always invertible
+- Pass: any condition NLL < 4.34 (within 0.5 nats of donor 3.8446)
+- Codex (8.0/10): "stop thinking geometry matching, start thinking operator compiler"
+- If PASS → grafting_005: same-arch random-init compiler with sequential hidden-state recomputation
+- If PARTIAL → adapter bootstrap: T_l into rank-30 residual adapters + CE training
+- → `grafting/research/codex_grafting_architecture.md` (local, gitignored)
 
 ---
 
