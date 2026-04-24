@@ -352,7 +352,7 @@ Round-1 Codex adversarial review (6 blind spots, `drafts/missing_angles_2026-04-
 Round-2 Codex adversarial review (6 new blind spots, `research/adversarial_review_round2_invariant_2026-04-22.md`):
 | # | Blind spot | Verdict |
 |---|---|---|
-| 1 | Fractional depth wrong axis | **running** (`genome_109`) |
+| 1 | Fractional depth wrong axis | **REFUTED** (`genome_109`) — functional-depth band [0.4-0.7] CV 2-4% (TIGHTER than layer-index 5-9%); early [0-0.3] loose as expected |
 | 2 | seq_mean pooling is the story | partial refute (last_token also tight at n=800; no_pool breaks CLM/MLM, `genome_107`) |
 | 3 | C4 is just dataset adjacency | **partially confirmed** (tight on C4+scrambled-C4, LOOSE on wikitext and random-chars, `genome_108`) |
 | 4 | n=800 rank cap | partial confirm (CV loosens at n=3200, `genome_107`) |
