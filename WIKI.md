@@ -445,4 +445,24 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 ---
 
+## §13 Mental Model Exploration Series (genome_110–113)
+
+**Strategic pivot (2026-04-24):** grafting_001-009 established that global mean-level geometric priors cannot transfer capability. Codex postmortem verdict: we have been measuring trained-manifold occupancy (observability) but NOT capability-bearing control geometry (controllability). New series tests four model-native mental models derived from Codex analysis.
+
+**Codex key insight:** "stop asking global descriptive geometry to do a circuit's job." Every new geometry object must be task-conditioned and intervention-linked.
+
+**genome_110 RUNNING (2026-04-24): Syndrome Codes — does Qwen3-0.6B repair controlled hidden-state corruptions?**
+- Inject delta=eps*v (random unit vector) at each layer l_inj, measure repair_frac=1-||corrupted[l]-clean[l]||/eps at all l > l_inj
+- 100 seqs, 5 directions, 4 epsilons ([0.1,0.5,1.0,2.0]), all 28 injection layers
+- Pass: >=3 (l_inj, l_meas) pairs with repair>50%. Kill: max repair<20%.
+- `code/genome_110_syndrome_codes.py` -> `results/genome_110_syndrome_codes.json`
+
+**genome_111 PENDING: Routing Constitutions** — cluster layer-14 residual stream into K=8 regimes; compute state-conditioned attention head coalitions; test if communication graph differs across regimes.
+
+**genome_112 PENDING: Scaffold-and-Flow Fields** — project residual streams onto top-30 shared directions (genome_099); cluster trajectories by task type; test if tasks follow distinct flow paths through scaffold space.
+
+**genome_113 PENDING: Consistency Lattices** — measure single vs. pairwise layer-ablation damage; compute synergy = pair_damage - (A+B); test if superadditive pairs cluster spatially.
+
+---
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
