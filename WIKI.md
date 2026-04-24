@@ -503,6 +503,11 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 **Next direction (Codex to confirm):** Map the critical subspace power law — how many PCA directions are truly important? What NLL contribution does direction k have as a function of k? Does the top direction correspond to a specific capability or is it universal? This "critical subspace" framing is the first model-native organizational principle that survived the series.
 
+**genome_114 RUNNING (2026-04-24): Critical Subspace Power Law**
+- Ablate top-k PCA dirs (k=0..20) across all layers; measure NLL(k). Controls: random-k, bottom-k.
+- Per-task sweep (math/code/factual) at k=0,1,3,5,10. Pass: NLL(k=1)/NLL_clean>2.0. Kill: <1.5.
+- `code/genome_114_critical_subspace.py` -> `results/genome_114_critical_subspace.json`
+
 ---
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
