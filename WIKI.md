@@ -105,6 +105,7 @@ Single source of truth per topic. If a topic's pointer goes stale, update here f
 | Pre-registrations | `research/prereg/` (one file per experiment, dated, locked) |
 | Claim-to-evidence map | `research/CLAIM_EVIDENCE_MAP.md` — every public claim maps to a ledger entry + locked prereg |
 | Repo-wide model registry | `../../models/MODEL_DIRECTORY.md` + `../../models/registry.py` |
+| **Grafting subproject** | `grafting/OBJECTIVE.md` — geometry-first initialization for efficient training |
 
 Any markdown file not in this table either feeds one of these or should be deleted. (CLAUDE.md §3.4.)
 
@@ -369,6 +370,9 @@ Round-2 Codex adversarial review (6 new blind spots, `research/adversarial_revie
 **Explicitly out of scope:** biology, mouse V1, neural recordings.
 
 Key synthesis docs: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md` (new 2026-04-22), `research/adversarial_review_round2_invariant_2026-04-22.md`, `GENOMEGUARD.md`, `NEURAL_GENOME.md`.
+
+**NEW SUBPROJECT (2026-04-24): `grafting/`**
+Goal: geometry-first initialization — initialize new model weights so activations already sit in the trained attractor (correct spectrum + direction identity from reference pretrained model), then train normally. Bypasses attractor-finding phase of gradient descent. Target: orders-of-magnitude fewer training steps. See `grafting/OBJECTIVE.md`. TL session + two Codex design sessions in flight.
 
 ---
 
