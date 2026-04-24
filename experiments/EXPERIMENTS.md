@@ -26,6 +26,19 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-24 — genome_110_syndrome_codes — NULL/KILL
+
+**Purpose.** Test Syndrome Code hypothesis: does Qwen3-0.6B systematically repair controlled hidden-state corruptions as they propagate forward?
+**Systems.** Qwen/Qwen3-0.6B (BF16).
+**Primitive.** repair_frac = 1 - mean_token_norm(corrupted[l]-clean[l]) / eps at each (l_inj, l_meas) pair across 100 seqs, 5 dirs, 4 epsilons, 28 layers.
+**Universality level claimed.** null.
+**Commit.** c040704 (script), pending (results).
+**Result.** NULL/KILL. max_repair=0.0 — zero pairs above the 20% kill threshold. Corruption is **amplified**, not repaired: repair_by_distance is monotonically negative at every distance (dist1=-0.98, dist5=-3.94, dist27=-51.14). The model has no syndrome-code error-correction mechanism. Mental model 4 (Syndrome Codes) is falsified for Qwen3-0.6B.
+**What this means.** Perturbations to the residual stream compound as they propagate forward — residual connections accumulate error rather than correcting it. The model's forward pass is not a Reed-Solomon decoder. This negative result sharpens our understanding: capability is not organized as distributed parity checks; it must arise from a different organizational principle (routing, flow, or constraint consistency — being tested in genome_111-113).
+**Next.** Routing Constitutions (genome_111) now running.
+
+---
+
 ## 2026-04-24 session catch-up (genome_091 → genome_109, grafting_001 → grafting_006, highlights only)
 
 Major landings after the `genome_090` block:

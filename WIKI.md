@@ -451,13 +451,15 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 **Codex key insight:** "stop asking global descriptive geometry to do a circuit's job." Every new geometry object must be task-conditioned and intervention-linked.
 
-**genome_110 RUNNING (2026-04-24): Syndrome Codes — does Qwen3-0.6B repair controlled hidden-state corruptions?**
-- Inject delta=eps*v (random unit vector) at each layer l_inj, measure repair_frac=1-||corrupted[l]-clean[l]||/eps at all l > l_inj
-- 100 seqs, 5 directions, 4 epsilons ([0.1,0.5,1.0,2.0]), all 28 injection layers
-- Pass: >=3 (l_inj, l_meas) pairs with repair>50%. Kill: max repair<20%.
+**genome_110 NULL/KILL (2026-04-24): Syndrome Codes — FALSIFIED for Qwen3-0.6B**
+- max_repair=0.0 (0 pairs above 50%, 0 above 20%). Corruption AMPLIFIED not repaired.
+- repair_by_distance monotonically negative (dist1=-0.98, dist5=-3.94, dist27=-51.14).
+- The model has NO syndrome code error-correction mechanism. Perturbations grow larger, not smaller, as they propagate forward. Mental model 4 falsified.
 - `code/genome_110_syndrome_codes.py` -> `results/genome_110_syndrome_codes.json`
 
-**genome_111 PENDING: Routing Constitutions** — cluster layer-14 residual stream into K=8 regimes; compute state-conditioned attention head coalitions; test if communication graph differs across regimes.
+**genome_111 RUNNING (2026-04-24): Routing Constitutions** — cluster layer-14 residual stream into K=8 regimes; compute state-conditioned attention head coalitions; test if communication graph differs across regimes.
+- 500 diverse contexts: 200 wikitext + 100 math + 100 code + 100 factual. Pass: >30% cluster pairs JS-div>0.30. Kill: mean JS-div<0.10.
+- `code/genome_111_routing_constitutions.py` -> `results/genome_111_routing_constitutions.json`
 
 **genome_112 PENDING: Scaffold-and-Flow Fields** — project residual streams onto top-30 shared directions (genome_099); cluster trajectories by task type; test if tasks follow distinct flow paths through scaffold space.
 
