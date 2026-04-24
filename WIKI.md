@@ -434,11 +434,14 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Pattern confirmed: no hook/adapter/bias approach has worked. Geometry in output space ≠ geometry in weight space.
 - **Next: grafting_009** — weight-space seed: directly initialize down_proj weights via outer product of donor output means × lesion inner activation means (rank-1 weight delta, no hooks needed)
 
-**grafting_009 RUNNING (2026-04-24): rank-1 weight-space seed — no hooks, bake prior into W_down directly.**
-- Codex-corrected formulation: mu_inner from lesion pre-hook; mu_out_target = W_donor @ mu_inner (analytical, consistent distribution); ridge = 1e-4 * E[||x||^2]; signal_frac guard for degenerate layers
-- Arm A: zero-init lesion baseline; Arm B: rank-1 seed; Arm C: full donor copy oracle (unscored sanity)
-- Gate: CtQ_75 speedup arm_b vs arm_a >= 10×. Kill: < 2×. Codex rated: 6/10 honest, 2/10 chance of >=10×
-- `grafting/code/grafting_009_weightspace_seed.py` → `grafting/results/grafting_009_weightspace_seed.json`
+**grafting_009 KILL (2026-04-24): rank-1 weight-space seed — CtQ_75 speedup=0.9× (arm_b SLOWER than arm_a).**
+- Arm B step-0 NLL: 17.18 (3% gap closed — seed barely changes initial state)
+- CtQ_50: arm_b=step 1, arm_a=step 5 → **5× speedup** (seed gives first gradient massive leverage: step-1 NLL 10.0 vs 17.4)
+- CtQ_75: arm_b=step 50, arm_a=step 45 → **0.9× (arm_b LOSES)** — fast initial descent into shallower basin; arm_a overtakes from step ~25
+- signal_frac range: [0.038, 0.288], 0 degenerate layers. Ridge stabilization worked. Seed mathematically valid.
+- KILL: CtQ_75 speedup 0.9× < 2× threshold. `grafting/results/grafting_009_weightspace_seed.json`
+- **Definitive conclusion: mean-based initialization family (output-space priors + weight-space seeds) is exhausted.** 7 experiments, consistent null at CtQ_75. CE gradient is too efficient — a lesioned model recovers fast from zero-init; no mean-level geometric prior provides enough of a head start to matter at ≥10× gate.
+- **Next decision: pivot grafting to surgical capability transfer (specific circuit/skill) OR redirect to genome_109 atlas track.**
 
 ---
 
