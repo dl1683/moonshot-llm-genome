@@ -372,7 +372,15 @@ Round-2 Codex adversarial review (6 new blind spots, `research/adversarial_revie
 Key synthesis docs: `research/BREAKTHROUGH_SYNTHESIS.md`, `research/derivations/candidate_8_spectral_bridge.md`, `research/derivations/trained_spectrum_invariant.md` (new 2026-04-22), `research/adversarial_review_round2_invariant_2026-04-22.md`, `GENOMEGUARD.md`, `NEURAL_GENOME.md`.
 
 **NEW SUBPROJECT (2026-04-24): `grafting/`**
-Goal: geometry-first initialization — initialize new model weights so activations already sit in the trained attractor (correct spectrum + direction identity from reference pretrained model), then train normally. Bypasses attractor-finding phase of gradient descent. Target: orders-of-magnitude fewer training steps. See `grafting/OBJECTIVE.md`. TL session + two Codex design sessions in flight.
+Goal: geometry-first initialization via shared transition operators. See `grafting/OBJECTIVE.md`.
+
+**grafting_002 PASS (2026-04-24): transition operator T_l IS genuinely shared across architectures.**
+- Cross-prediction R²=0.911 vs within-model R²=0.980 (ratio 0.93) across Qwen3/DeepSeek/BERT
+- T_l fit on Qwen3 predicts DeepSeek's next-layer activations with 93% of within-model accuracy
+- BERT→Qwen3 and BERT→DeepSeek also transfer (R² 0.72–0.99 across mid-depth band)
+- No Procrustes artifact — direct held-out R² test
+- **grafting_001** (pairwise cosine sim) had inflated shuffled baseline (Procrustes artifact); **grafting_002** proper cross-prediction is the valid test
+- Next: **grafting_003** — install compiled T_l into lesioned/new model analytically (zero gradient steps), measure capability vs 200-step FM+KL baseline
 
 ---
 
