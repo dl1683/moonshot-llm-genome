@@ -41,7 +41,8 @@ Major landings after the `genome_090` block:
 - **grafting_001 → grafting_002** — Procrustes similarity probe was artifactual; held-out cross-prediction validates shared layer-transition operators across Qwen3 / DeepSeek / BERT.
 - **grafting_003 → grafting_004** — analytical same-arch MLP grafts recover ~55–59% of the lesion gap at zero steps, but mean pooling imposes a hard ceiling.
 - **grafting_005** — reported 2.0× `CtQ_75` speedup is invalid due to arm contamination.
-- **grafting_006** — corrected token-level rank-30 adapter bootstrap is now the live speedup test; project gate remains `≥10×`.
+- **grafting_006** — KILL (CtQ_75 speedup=1.0×). Token-level rank-30 adapter init provides no CE training acceleration vs zero-init; open-loop fitting misaligns with closed-loop training context, CE gradient dominates within 50 steps.
+- **grafting_007** — mean-shift speedup test (running): does 61% zero-step gap closure from fixed per-layer bias translate to CtQ_75 ≥10× training speedup? Full backbone unfreeze, non-trainable bias from donor-minus-lesion means.
 
 Per-experiment details remain canonical in `experiments/ledger.jsonl`; this markdown log still needs full backfill beyond the highlight level.
 
