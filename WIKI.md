@@ -434,6 +434,12 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - Pattern confirmed: no hook/adapter/bias approach has worked. Geometry in output space ≠ geometry in weight space.
 - **Next: grafting_009** — weight-space seed: directly initialize down_proj weights via outer product of donor output means × lesion inner activation means (rank-1 weight delta, no hooks needed)
 
+**grafting_009 RUNNING (2026-04-24): rank-1 weight-space seed — no hooks, bake prior into W_down directly.**
+- Codex-corrected formulation: mu_inner from lesion pre-hook; mu_out_target = W_donor @ mu_inner (analytical, consistent distribution); ridge = 1e-4 * E[||x||^2]; signal_frac guard for degenerate layers
+- Arm A: zero-init lesion baseline; Arm B: rank-1 seed; Arm C: full donor copy oracle (unscored sanity)
+- Gate: CtQ_75 speedup arm_b vs arm_a >= 10×. Kill: < 2×. Codex rated: 6/10 honest, 2/10 chance of >=10×
+- `grafting/code/grafting_009_weightspace_seed.py` → `grafting/results/grafting_009_weightspace_seed.json`
+
 ---
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
