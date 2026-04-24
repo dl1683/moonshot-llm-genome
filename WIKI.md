@@ -380,7 +380,14 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - BERT→Qwen3 and BERT→DeepSeek also transfer (R² 0.72–0.99 across mid-depth band)
 - No Procrustes artifact — direct held-out R² test
 - **grafting_001** (pairwise cosine sim) had inflated shuffled baseline (Procrustes artifact); **grafting_002** proper cross-prediction is the valid test
-- Next: **grafting_003** — install compiled T_l into lesioned/new model analytically (zero gradient steps), measure capability vs 200-step FM+KL baseline
+
+**grafting_003 PARTIAL (2026-04-24): analytical lstsq MLP transplant recovers 59% of lesioned capability at zero gradient steps.**
+- Donor NLL 3.84 → Lesion NLL 18.14 → Grafted NLL 9.64 (improvement 8.49 nats, ceiling gap 5.80 nats)
+- All 28 layers: rank=1500, R²_train=1.0 (underdetermined: 1500 samples in 3072-dim space)
+- Minimum-norm lstsq solution fits training activations perfectly but generalizes partially (distribution shift)
+- Direction alive: 59% capability recovery at zero gradient steps. Not PASS (ceiling gap 5.80 > 0.5 threshold)
+- Failure mode: minimum-norm lstsq does not generalize — geometric content packed into low-rank projection
+- Next: **grafting_004** — Ridge regularization / larger n_train, OR cross-arch (DeepSeek donor → Qwen3 recipient)
 
 ---
 
