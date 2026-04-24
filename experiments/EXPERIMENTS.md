@@ -26,6 +26,32 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-24 — genome_112_scaffold_flow — PARTIAL
+
+**Purpose.** Test Scaffold-and-Flow hypothesis: do distinct task types follow different paths through a shared PCA scaffold?
+**Systems.** Qwen/Qwen3-0.6B (BF16).
+**Primitive.** Inter-task centroid separability in top-30 PCA projection at each of 28 layers.
+**Universality level claimed.** null.
+**Commit.** pending.
+**Result.** PARTIAL. max_sep=2.807 at peak_layer=5 (fails [6,22] mid-depth criterion); 74% nearest-centroid classification accuracy in scaffold space; top-30 PCA explains 99.9% of variance. Task separation emerges by layer 2 (diverge_layer=2) and maintains a plateau (~2.8) through all 28 layers. The scaffold DOES encode task-domain structure, but the organization is early and static, not dynamic (mid-depth flow node hypothesis not supported). 
+**What this means.** The first positive finding among the four mental models: task-conditioned structure exists in PCA scaffold coordinates, but it is encoded early (by layer 2) rather than emerging mid-depth. This suggests task routing is determined at the level of early representation, not via mid-network attractor dynamics. The "flow" metaphor is wrong but the "scaffold" metaphor is partially right — it is a shared scaffold with task-specific occupancy regions, established almost immediately.
+**Next.** Consistency Lattices (genome_113) now running.
+
+---
+
+## 2026-04-24 — genome_111_routing_constitutions — NULL
+
+**Purpose.** Test Routing Constitution hypothesis: do K=8 internal-state clusters show distinct attention head coalitions?
+**Systems.** Qwen/Qwen3-0.6B (BF16, eager attention).
+**Primitive.** JS-divergence between per-cluster mean attention entropy profiles.
+**Universality level claimed.** null.
+**Commit.** b8d66aa (script, eager fix).
+**Result.** NULL. mean JS-div=0.007, max=0.030 (kill threshold 0.10). Zero pairs above 0.30 pass threshold. State-regime clusters are internally coherent (silhouette=0.67, domain purity=72%) but attention head entropy profiles are nearly identical across all regimes. The model routes computation through the SAME head coalitions regardless of internal state. Note: required attn_implementation='eager' fix — Qwen3's default SDPA silently blocks attention output.
+**What this means.** Head coalition diversity is approximately zero in activation space. Either (a) Qwen3's head routing is genuinely state-invariant (all heads active in all states), or (b) attention entropy is not the right proxy for routing — the actual routing signal may be in OV weights, MLP gate activations, or residual write magnitudes rather than attention pattern entropy. Routing Constitution mental model falsified in this proxy.
+**Next.** Scaffold-and-Flow (genome_112) was running in parallel and returned PARTIAL.
+
+---
+
 ## 2026-04-24 — genome_110_syndrome_codes — NULL/KILL
 
 **Purpose.** Test Syndrome Code hypothesis: does Qwen3-0.6B systematically repair controlled hidden-state corruptions as they propagate forward?

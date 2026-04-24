@@ -457,13 +457,20 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 - The model has NO syndrome code error-correction mechanism. Perturbations grow larger, not smaller, as they propagate forward. Mental model 4 falsified.
 - `code/genome_110_syndrome_codes.py` -> `results/genome_110_syndrome_codes.json`
 
-**genome_111 RUNNING (2026-04-24): Routing Constitutions** — cluster layer-14 residual stream into K=8 regimes; compute state-conditioned attention head coalitions; test if communication graph differs across regimes.
-- 500 diverse contexts: 200 wikitext + 100 math + 100 code + 100 factual. Pass: >30% cluster pairs JS-div>0.30. Kill: mean JS-div<0.10.
+**genome_111 NULL (2026-04-24): Routing Constitutions — FALSIFIED for Qwen3-0.6B**
+- mean JS-div=0.007, max=0.030 (kill threshold 0.10). Zero pairs above 0.30 pass threshold.
+- Clusters ARE coherent (silhouette=0.67, domain purity=72%) but attention profiles identical across all 8 state regimes.
+- The model routes through the SAME head coalitions regardless of internal state. Routing Constitution mental model falsified.
 - `code/genome_111_routing_constitutions.py` -> `results/genome_111_routing_constitutions.json`
 
-**genome_112 PENDING: Scaffold-and-Flow Fields** — project residual streams onto top-30 shared directions (genome_099); cluster trajectories by task type; test if tasks follow distinct flow paths through scaffold space.
+**genome_112 PARTIAL (2026-04-24): Scaffold-and-Flow Fields — task-domain structure confirmed early, flow hypothesis not supported**
+- max_sep=2.807, 74% NN accuracy in top-30 PCA scaffold. Task types ARE separable.
+- BUT: separation peaks at layer 5 (early), maintained plateau ~2.8 through all 28 layers. NOT a mid-depth routing node.
+- Finding: scaffold encodes task structure early and statically, not via dynamic mid-layer flow.
+- `code/genome_112_scaffold_flow.py` -> `results/genome_112_scaffold_flow.json`
 
-**genome_113 PENDING: Consistency Lattices** — measure single vs. pairwise layer-ablation damage; compute synergy = pair_damage - (A+B); test if superadditive pairs cluster spatially.
+**genome_113 RUNNING (2026-04-24): Consistency Lattices** — measure single vs. pairwise ablation damage on top-20 PCA directions; synergy = NLL_ij - NLL_i - NLL_j + NLL_clean. Pass: >20% pairs synergy>0.05 nats. Kill: mean<0.01.
+- `code/genome_113_consistency_lattices.py` -> `results/genome_113_consistency_lattices.json`
 
 ---
 
