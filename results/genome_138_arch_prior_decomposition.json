@@ -1,0 +1,237 @@
+{
+  "genome": 138,
+  "name": "arch_prior_decomposition",
+  "config": {
+    "train_steps": 100,
+    "lr": 0.0003,
+    "batch": 8,
+    "seed": 42,
+    "tokenizer": "EleutherAI/pythia-160m"
+  },
+  "arms": [
+    "baseline_full",
+    "no_attention",
+    "no_mlp",
+    "no_residual",
+    "no_causal_mask",
+    "depth_halved",
+    "width_halved",
+    "frozen_random_linear"
+  ],
+  "rows_per_arm": {
+    "baseline_full": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.895523617345468
+        },
+        {
+          "step": 25,
+          "nll": 9.996787876292057,
+          "loss": 10.0625
+        },
+        {
+          "step": 50,
+          "nll": 8.765967961125067,
+          "loss": 8.75
+        },
+        {
+          "step": 100,
+          "nll": 7.921261788082197,
+          "loss": 7.84375
+        }
+      ],
+      "n_params_M": 29.928192
+    },
+    "no_attention": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.937693036280525
+        },
+        {
+          "step": 25,
+          "nll": 10.697854466087387,
+          "loss": 10.75
+        },
+        {
+          "step": 50,
+          "nll": 10.392126178808219,
+          "loss": 10.375
+        },
+        {
+          "step": 100,
+          "nll": 9.801754313717415,
+          "loss": 9.625
+        }
+      ],
+      "n_params_M": 26.389248
+    },
+    "no_mlp": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.884981262611703
+        },
+        {
+          "step": 25,
+          "nll": 9.846559321335913,
+          "loss": 9.875
+        },
+        {
+          "step": 50,
+          "nll": 8.636824115636454,
+          "loss": 8.6875
+        },
+        {
+          "step": 100,
+          "nll": 7.921261788082197,
+          "loss": 7.84375
+        }
+      ],
+      "n_params_M": 22.850304
+    },
+    "no_residual": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": NaN
+        }
+      ],
+      "n_params_M": 29.928192
+    },
+    "no_causal_mask": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.895523617345468
+        },
+        {
+          "step": 25,
+          "nll": 9.996787876292057,
+          "loss": 10.0625
+        },
+        {
+          "step": 50,
+          "nll": 8.765967961125067,
+          "loss": 8.75
+        },
+        {
+          "step": 100,
+          "nll": 7.921261788082197,
+          "loss": 7.84375
+        }
+      ],
+      "n_params_M": 29.928192
+    },
+    "depth_halved": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.895523617345468
+        },
+        {
+          "step": 25,
+          "nll": 9.857101676069679,
+          "loss": 9.9375
+        },
+        {
+          "step": 50,
+          "nll": 8.618374994852365,
+          "loss": 8.5625
+        },
+        {
+          "step": 100,
+          "nll": 7.901494872956389,
+          "loss": 7.8125
+        }
+      ],
+      "n_params_M": 24.617472
+    },
+    "width_halved": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": 10.871803319194498
+        },
+        {
+          "step": 25,
+          "nll": 10.515998846929952,
+          "loss": 10.5
+        },
+        {
+          "step": 50,
+          "nll": 9.830745789235268,
+          "loss": 9.875
+        },
+        {
+          "step": 100,
+          "nll": 8.635506321294733,
+          "loss": 8.625
+        }
+      ],
+      "n_params_M": 12.309888
+    },
+    "frozen_random_linear": {
+      "rows": [
+        {
+          "step": 0,
+          "nll": NaN
+        }
+      ],
+      "n_params_M": 21.080832
+    }
+  },
+  "summary": {
+    "baseline_full": {
+      "step0_nll": 10.895523617345468,
+      "final_nll": 7.921261788082197,
+      "nll_drop": 2.9742618292632708,
+      "relative_capability": 1.0
+    },
+    "no_attention": {
+      "step0_nll": 10.937693036280525,
+      "final_nll": 9.801754313717415,
+      "nll_drop": 1.1359387225631092,
+      "relative_capability": 0.38192290651307015
+    },
+    "no_mlp": {
+      "step0_nll": 10.884981262611703,
+      "final_nll": 7.921261788082197,
+      "nll_drop": 2.9637194745295057,
+      "relative_capability": 0.9964554718653077
+    },
+    "no_residual": {
+      "step0_nll": NaN,
+      "final_nll": NaN,
+      "nll_drop": NaN,
+      "relative_capability": NaN
+    },
+    "no_causal_mask": {
+      "step0_nll": 10.895523617345468,
+      "final_nll": 7.921261788082197,
+      "nll_drop": 2.9742618292632708,
+      "relative_capability": 1.0
+    },
+    "depth_halved": {
+      "step0_nll": 10.895523617345468,
+      "final_nll": 7.901494872956389,
+      "nll_drop": 2.9940287443890785,
+      "relative_capability": 1.0066459902525475
+    },
+    "width_halved": {
+      "step0_nll": 10.871803319194498,
+      "final_nll": 8.635506321294733,
+      "nll_drop": 2.2362969978997658,
+      "relative_capability": 0.7518830305715553
+    },
+    "frozen_random_linear": {
+      "step0_nll": NaN,
+      "final_nll": NaN,
+      "nll_drop": NaN,
+      "relative_capability": NaN
+    }
+  },
+  "verdict": "PASS: architecture-prior is LOCALIZABLE. Catastrophic without ['no_attention', 'width_halved']; preserved without ['no_mlp', 'no_causal_mask', 'depth_halved']. Identifies the irreducible architectural cores for the g125 prior.",
+  "elapsed_s": 39.33804273605347
+}

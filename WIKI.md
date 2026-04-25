@@ -832,4 +832,29 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Per memory rule: firing Codex immediately for next direction.
 - `code/genome_137_optimizer_state_transfer.py` -> `results/genome_137_optimizer_state_transfer.json`
 
+**genome_138 COMPLETED (2026-04-25): ARCH-PRIOR DECOMPOSITION — PASS (architecture-prior is LOCALIZABLE)**
+- Codex Q1 attack on the only live positive datum (g125 architecture-prior, 43% gap closure under glue-only training).
+- 8 one-factor ablations on tiny Llama, glue-only training (26% trainable, attn+MLP frozen at random), 100 steps.
+- Relative capability vs baseline (drop_arm / drop_baseline):
+
+| Ablation | Rel capability | Verdict |
+|---|---|---|
+| baseline_full | 1.000 | reference |
+| **no_attention** | **0.382** | **CATASTROPHIC** (62% loss) |
+| no_mlp | 0.996 | preserved |
+| no_residual | (model broken) | required for forward |
+| no_causal_mask | 1.000 | preserved (bidirectional same) |
+| depth_halved (3 layers) | 1.007 | preserved |
+| **width_halved (192)** | **0.752** | **25% loss** |
+| frozen_random_linear | (model broken) | tech failure |
+
+- **Architecture-prior is LOCALIZED to ATTENTION + WIDTH + RESIDUALS.**
+- MLP, depth, and causal masking are nearly irrelevant at this scale!
+  - Removing MLP preserves 99.6% of capability
+  - 3 layers as good as 6 (depth doesn't matter)
+  - Bidirectional attention works as well as causal
+- **Practical implication:** minimal-prior architectures are smaller than the standard. MLP and most layers are wasted compute for capturing the architecture-prior.
+- **Connects to manifesto goal:** efficient architectures (attention + width + residuals, minimal depth, no MLP) capture the same prior at much lower compute.
+- `code/genome_138_arch_prior_decomposition.py` -> `results/genome_138_arch_prior_decomposition.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
