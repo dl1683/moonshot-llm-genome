@@ -1,0 +1,1133 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "genome": 121,
+  "name": "closed_circuit_transfer",
+  "motivation": "test whether donor basis + donor attention + norm glue + silenced random branch breaks the holism barrier",
+  "n_eval": 200,
+  "seeds": [
+    7,
+    13,
+    23,
+    42,
+    101
+  ],
+  "arms": [
+    {
+      "name": "embed_only",
+      "copy_groups": [
+        "embed"
+      ],
+      "zero_groups": [],
+      "kind": "compound"
+    },
+    {
+      "name": "all_attn",
+      "copy_groups": [
+        "all_attn"
+      ],
+      "zero_groups": [],
+      "kind": "compound"
+    },
+    {
+      "name": "embed_attn",
+      "copy_groups": [
+        "embed",
+        "all_attn"
+      ],
+      "zero_groups": [],
+      "kind": "compound"
+    },
+    {
+      "name": "embed_attn_ln",
+      "copy_groups": [
+        "embed",
+        "all_attn",
+        "all_ln"
+      ],
+      "zero_groups": [],
+      "kind": "compound"
+    },
+    {
+      "name": "embed_attn_ln_zero_mlp",
+      "copy_groups": [
+        "embed",
+        "all_attn",
+        "all_ln"
+      ],
+      "zero_groups": [
+        "all_mlp"
+      ],
+      "kind": "primary"
+    },
+    {
+      "name": "zero_mlp_only",
+      "copy_groups": [],
+      "zero_groups": [
+        "all_mlp"
+      ],
+      "kind": "control"
+    },
+    {
+      "name": "embed_mlp",
+      "copy_groups": [
+        "embed",
+        "all_mlp"
+      ],
+      "zero_groups": [],
+      "kind": "contrast"
+    },
+    {
+      "name": "embed_mlp_ln",
+      "copy_groups": [
+        "embed",
+        "all_mlp",
+        "all_ln"
+      ],
+      "zero_groups": [],
+      "kind": "contrast"
+    },
+    {
+      "name": "embed_mlp_ln_zero_attn",
+      "copy_groups": [
+        "embed",
+        "all_mlp",
+        "all_ln"
+      ],
+      "zero_groups": [
+        "all_attn"
+      ],
+      "kind": "contrast"
+    },
+    {
+      "name": "zero_attn_only",
+      "copy_groups": [],
+      "zero_groups": [
+        "all_attn"
+      ],
+      "kind": "control"
+    },
+    {
+      "name": "full_exact",
+      "copy_groups": [
+        "__full_exact__"
+      ],
+      "zero_groups": [],
+      "kind": "control"
+    }
+  ],
+  "donor_nll": {
+    "mean": 4.193203125,
+    "ci_lo": 4.080603515625,
+    "ci_hi": 4.301689453125
+  },
+  "recipient_nll": {
+    "mean_of_seed_means": 12.127749999999999,
+    "seed_means": [
+      12.1096875,
+      12.1325,
+      12.148125,
+      12.12125,
+      12.1271875
+    ],
+    "ci_across_seeds_lo": 12.110843749999999,
+    "ci_across_seeds_hi": 12.1465625
+  },
+  "criteria": {
+    "pass_gap_pct": 20.0,
+    "partial_gap_pct": 5.0,
+    "primary_delta_pass_pct_points": 5.0,
+    "primary_delta_partial_pct_points": 3.0,
+    "full_exact_tolerance_nll": 0.02
+  },
+  "aggregate_results": {
+    "embed_only": {
+      "kind": "compound",
+      "params_copied_pct": 26.10225398570643,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 12.2816875,
+        "ci_lo": 12.2588296875,
+        "ci_hi": 12.3032890625
+      },
+      "gap_closed_pct": {
+        "mean": -1.9400918845791002,
+        "ci_lo": -2.255738445301228,
+        "ci_hi": -1.6311338738705659
+      }
+    },
+    "all_attn": {
+      "kind": "compound",
+      "params_copied_pct": 29.5559029686641,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 12.0571875,
+        "ci_lo": 12.049809375,
+        "ci_hi": 12.06475
+      },
+      "gap_closed_pct": {
+        "mean": 0.8893072422614076,
+        "ci_lo": 0.7563667354667997,
+        "ci_hi": 1.0296721341097566
+      }
+    },
+    "embed_attn": {
+      "kind": "compound",
+      "params_copied_pct": 55.65815695437053,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 12.2540625,
+        "ci_lo": 12.233740625,
+        "ci_hi": 12.2732890625
+      },
+      "gap_closed_pct": {
+        "mean": -1.5919308561649799,
+        "ci_lo": -1.8404397916580553,
+        "ci_hi": -1.3136075412654649
+      }
+    },
+    "embed_attn_ln": {
+      "kind": "compound",
+      "params_copied_pct": 55.667949422759754,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 16.3935,
+        "ci_lo": 16.247146875,
+        "ci_hi": 16.5240015625
+      },
+      "gap_closed_pct": {
+        "mean": -53.76173418850713,
+        "ci_lo": -55.51991624896663,
+        "ci_hi": -51.90410564994831
+      }
+    },
+    "embed_attn_ln_zero_mlp": {
+      "kind": "primary",
+      "params_copied_pct": 55.667949422759754,
+      "params_zeroed_pct": 44.33205057724024,
+      "surgery_nll": {
+        "mean": 18.2646875,
+        "ci_lo": 18.094365625,
+        "ci_hi": 18.458728125
+      },
+      "gap_closed_pct": {
+        "mean": -77.34452384843968,
+        "ci_lo": -79.58731493056077,
+        "ci_hi": -75.27227383559706
+      }
+    },
+    "zero_mlp_only": {
+      "kind": "control",
+      "params_copied_pct": 0.0,
+      "params_zeroed_pct": 44.33205057724024,
+      "surgery_nll": {
+        "mean": 12.1271875,
+        "ci_lo": 12.119809375,
+        "ci_hi": 12.134384375
+      },
+      "gap_closed_pct": {
+        "mean": 0.007089251709801127,
+        "ci_lo": -0.06431938719680605,
+        "ci_hi": 0.07454669619100888
+      }
+    },
+    "embed_mlp": {
+      "kind": "contrast",
+      "params_copied_pct": 70.43430456294666,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 12.360625,
+        "ci_lo": 12.345490625,
+        "ci_hi": 12.376631249999999
+      },
+      "gap_closed_pct": {
+        "mean": -2.934950207852921,
+        "ci_lo": -3.1654390501326803,
+        "ci_hi": -2.71312769181522
+      }
+    },
+    "embed_mlp_ln": {
+      "kind": "contrast",
+      "params_copied_pct": 70.4440970313359,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 17.7300625,
+        "ci_lo": 17.584021875,
+        "ci_hi": 17.8718625
+      },
+      "gap_closed_pct": {
+        "mean": -70.60658394560178,
+        "ci_lo": -72.39940869895396,
+        "ci_hi": -68.77159698079384
+      }
+    },
+    "embed_mlp_ln_zero_attn": {
+      "kind": "contrast",
+      "params_copied_pct": 70.4440970313359,
+      "params_zeroed_pct": 29.5559029686641,
+      "surgery_nll": {
+        "mean": 17.56625,
+        "ci_lo": 17.528975,
+        "ci_hi": 17.60750625
+      },
+      "gap_closed_pct": {
+        "mean": -68.54203630878416,
+        "ci_lo": -69.25135463032673,
+        "ci_hi": -67.91049357079692
+      }
+    },
+    "zero_attn_only": {
+      "kind": "control",
+      "params_copied_pct": 0.0,
+      "params_zeroed_pct": 29.5559029686641,
+      "surgery_nll": {
+        "mean": 12.129125,
+        "ci_lo": 12.1235625,
+        "ci_hi": 12.1343453125
+      },
+      "gap_closed_pct": {
+        "mean": -0.01732928195725682,
+        "ci_lo": -0.12931379753130012,
+        "ci_hi": 0.09874329314090519
+      }
+    },
+    "full_exact": {
+      "kind": "control",
+      "params_copied_pct": 100.0,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll": {
+        "mean": 4.193359375,
+        "ci_lo": 4.144186328125,
+        "ci_hi": 4.238317578125
+      },
+      "gap_closed_pct": {
+        "mean": 99.99803076341395,
+        "ci_lo": 99.98927386521633,
+        "ci_hi": 100.00748224591479
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 7,
+      "recipient_nll": {
+        "mean": 12.1096875,
+        "ci_lo": 12.0945234375,
+        "ci_hi": 12.1240625
+      },
+      "results_by_arm": {
+        "embed_only": {
+          "params_copied_pct": 26.10225398570643,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.1353125,
+            "ci_lo": 12.0917109375,
+            "ci_hi": 12.1830078125
+          },
+          "gap_closed_pct": {
+            "mean": -0.3236916639527857,
+            "ci_lo": -0.9419016008345583,
+            "ci_hi": 0.28075389280816593
+          }
+        },
+        "all_attn": {
+          "params_copied_pct": 29.5559029686641,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.065625,
+            "ci_lo": 12.0484375,
+            "ci_hi": 12.0801640625
+          },
+          "gap_closed_pct": {
+            "mean": 0.5565917636261236,
+            "ci_lo": 0.25991515023478895,
+            "ci_hi": 0.866160974091403
+          }
+        },
+        "embed_attn": {
+          "params_copied_pct": 55.65815695437053,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.241875,
+            "ci_lo": 12.1970078125,
+            "ci_hi": 12.2934375
+          },
+          "gap_closed_pct": {
+            "mean": -1.6697752908784156,
+            "ci_lo": -2.367841242074449,
+            "ci_hi": -1.0534636500161065
+          }
+        },
+        "embed_attn_ln": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 14.985,
+            "ci_lo": 14.712765625,
+            "ci_hi": 15.27353125
+          },
+          "gap_closed_pct": {
+            "mean": -36.320573171092754,
+            "ci_lo": -40.103091528045056,
+            "ci_hi": -32.76897442292484
+          }
+        },
+        "embed_attn_ln_zero_mlp": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 18.2646875,
+            "ci_lo": 17.914671875,
+            "ci_hi": 18.640882812500003
+          },
+          "gap_closed_pct": {
+            "mean": -77.7491586977332,
+            "ci_lo": -82.68925173032262,
+            "ci_hi": -73.32072850149603
+          }
+        },
+        "zero_mlp_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 12.1225,
+            "ci_lo": 12.1060703125,
+            "ci_hi": 12.1379765625
+          },
+          "gap_closed_pct": {
+            "mean": -0.16184583197640406,
+            "ci_lo": -0.33457188827112927,
+            "ci_hi": 0.010228526716675448
+          }
+        },
+        "embed_mlp": {
+          "params_copied_pct": 70.43430456294666,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.28875,
+            "ci_lo": 12.2557734375,
+            "ci_hi": 12.325625
+          },
+          "gap_closed_pct": {
+            "mean": -2.2618941883530286,
+            "ci_lo": -2.7707031623359644,
+            "ci_hi": -1.7879766070403151
+          }
+        },
+        "embed_mlp_ln": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 15.6571875,
+            "ci_lo": 15.4782578125,
+            "ci_hi": 15.869257812499999
+          },
+          "gap_closed_pct": {
+            "mean": -44.811558160878704,
+            "ci_lo": -47.47634329666074,
+            "ci_hi": -42.35642434913717
+          }
+        },
+        "embed_mlp_ln_zero_attn": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 17.56625,
+            "ci_lo": 17.469671875,
+            "ci_hi": 17.658484375
+          },
+          "gap_closed_pct": {
+            "mean": -68.92658712536145,
+            "ci_lo": -70.37518652237188,
+            "ci_hi": -67.42526490721032
+          }
+        },
+        "zero_attn_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 12.1225,
+            "ci_lo": 12.1096875,
+            "ci_hi": 12.1345390625
+          },
+          "gap_closed_pct": {
+            "mean": -0.16184583197640406,
+            "ci_lo": -0.3884080537044685,
+            "ci_hi": 0.0827796492006942
+          }
+        },
+        "full_exact": {
+          "params_copied_pct": 100.0,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.09162890625,
+            "ci_hi": 4.30742578125
+          },
+          "gap_closed_pct": {
+            "mean": 99.99802627034175,
+            "ci_lo": 99.97924320330091,
+            "ci_hi": 100.01970857981418
+          }
+        }
+      }
+    },
+    {
+      "seed": 13,
+      "recipient_nll": {
+        "mean": 12.1325,
+        "ci_lo": 12.1170234375,
+        "ci_hi": 12.147828125
+      },
+      "results_by_arm": {
+        "embed_only": {
+          "params_copied_pct": 26.10225398570643,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.234375,
+            "ci_lo": 12.1835859375,
+            "ci_hi": 12.291281249999999
+          },
+          "gap_closed_pct": {
+            "mean": -1.2831740846068276,
+            "ci_lo": -1.9976831912770678,
+            "ci_hi": -0.651144044596855
+          }
+        },
+        "all_attn": {
+          "params_copied_pct": 29.5559029686641,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.0634375,
+            "ci_lo": 12.046234375000001,
+            "ci_hi": 12.0803125
+          },
+          "gap_closed_pct": {
+            "mean": 0.8698818180923752,
+            "ci_lo": 0.5802306884047564,
+            "ci_hi": 1.1404455724581022
+          }
+        },
+        "embed_attn": {
+          "params_copied_pct": 55.65815695437053,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.2778125,
+            "ci_lo": 12.231203125,
+            "ci_hi": 12.3217421875
+          },
+          "gap_closed_pct": {
+            "mean": -1.8302943231355018,
+            "ci_lo": -2.360646114301247,
+            "ci_hi": -1.2244389824017257
+          }
+        },
+        "embed_attn_ln": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 15.96,
+            "ci_lo": 15.7054453125,
+            "ci_hi": 16.22034375
+          },
+          "gap_closed_pct": {
+            "mean": -48.209558859706966,
+            "ci_lo": -51.75027437612684,
+            "ci_hi": -44.87099879525493
+          }
+        },
+        "embed_attn_ln_zero_mlp": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 18.2646875,
+            "ci_lo": 17.9248203125,
+            "ci_hi": 18.650421875
+          },
+          "gap_closed_pct": {
+            "mean": -77.23842043631855,
+            "ci_lo": -82.25324791524402,
+            "ci_hi": -72.73582391963868
+          }
+        },
+        "zero_mlp_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 12.1275,
+            "ci_lo": 12.114359375,
+            "ci_hi": 12.1411015625
+          },
+          "gap_closed_pct": {
+            "mean": 0.06297786918316721,
+            "ci_lo": -0.07471847271259599,
+            "ci_hi": 0.20926614629477658
+          }
+        },
+        "embed_mlp": {
+          "params_copied_pct": 70.43430456294666,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.5059375,
+            "ci_lo": 12.471875,
+            "ci_hi": 12.5395390625
+          },
+          "gap_closed_pct": {
+            "mean": -4.7036596046170605,
+            "ci_lo": -5.149962834867502,
+            "ci_hi": -4.204644742363523
+          }
+        },
+        "embed_mlp_ln": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 16.8734375,
+            "ci_lo": 16.657109375,
+            "ci_hi": 17.070015625
+          },
+          "gap_closed_pct": {
+            "mean": -59.71482833610503,
+            "ci_lo": -62.338802476126325,
+            "ci_hi": -56.86384712166098
+          }
+        },
+        "embed_mlp_ln_zero_attn": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 17.56625,
+            "ci_lo": 17.477171875,
+            "ci_hi": 17.65565625
+          },
+          "gap_closed_pct": {
+            "mean": -68.44119933479625,
+            "ci_lo": -69.86929008850662,
+            "ci_hi": -66.97818033851014
+          }
+        },
+        "zero_attn_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 12.11875,
+            "ci_lo": 12.1073359375,
+            "ci_hi": 12.13
+          },
+          "gap_closed_pct": {
+            "mean": 0.17318914025368182,
+            "ci_lo": -0.06700644167097257,
+            "ci_hi": 0.3951246101615372
+          }
+        },
+        "full_exact": {
+          "params_copied_pct": 100.0,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.086599609375,
+            "ci_hi": 4.30770703125
+          },
+          "gap_closed_pct": {
+            "mean": 99.99803194158802,
+            "ci_lo": 99.9787356649058,
+            "ci_hi": 100.01767638179935
+          }
+        }
+      }
+    },
+    {
+      "seed": 23,
+      "recipient_nll": {
+        "mean": 12.148125,
+        "ci_lo": 12.1329609375,
+        "ci_hi": 12.163453125
+      },
+      "results_by_arm": {
+        "embed_only": {
+          "params_copied_pct": 26.10225398570643,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.328125,
+            "ci_lo": 12.278882812500001,
+            "ci_hi": 12.379375
+          },
+          "gap_closed_pct": {
+            "mean": -2.2627500662915025,
+            "ci_lo": -2.9666276620061924,
+            "ci_hi": -1.61988804190985
+          }
+        },
+        "all_attn": {
+          "params_copied_pct": 29.5559029686641,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.0340625,
+            "ci_lo": 12.019046875,
+            "ci_hi": 12.0503125
+          },
+          "gap_closed_pct": {
+            "mean": 1.4338607190909851,
+            "ci_lo": 1.1143609448425238,
+            "ci_hi": 1.7253851784215324
+          }
+        },
+        "embed_attn": {
+          "params_copied_pct": 55.65815695437053,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.219375,
+            "ci_lo": 12.1709375,
+            "ci_hi": 12.2708046875
+          },
+          "gap_closed_pct": {
+            "mean": -0.8956719012403769,
+            "ci_lo": -1.538562960729752,
+            "ci_hi": -0.27486087964124106
+          }
+        },
+        "embed_attn_ln": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 16.2134375,
+            "ci_lo": 15.89440625,
+            "ci_hi": 16.513578125
+          },
+          "gap_closed_pct": {
+            "mean": -51.104367382614946,
+            "ci_lo": -55.22871226608118,
+            "ci_hi": -46.76465381654781
+          }
+        },
+        "embed_attn_ln_zero_mlp": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 18.2646875,
+            "ci_lo": 17.84684375,
+            "ci_hi": 18.66215625
+          },
+          "gap_closed_pct": {
+            "mean": -76.89029001306189,
+            "ci_lo": -82.00693477372461,
+            "ci_hi": -71.39376115818928
+          }
+        },
+        "zero_mlp_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 12.14125,
+            "ci_lo": 12.125,
+            "ci_hi": 12.1567265625
+          },
+          "gap_closed_pct": {
+            "mean": 0.08642448169864461,
+            "ci_lo": -0.06305716824294229,
+            "ci_hi": 0.24045967968944792
+          }
+        },
+        "embed_mlp": {
+          "params_copied_pct": 70.43430456294666,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.2396875,
+            "ci_lo": 12.216546875,
+            "ci_hi": 12.2654921875
+          },
+          "gap_closed_pct": {
+            "mean": -1.151016960804536,
+            "ci_lo": -1.534593971424767,
+            "ci_hi": -0.7537617606750312
+          }
+        },
+        "embed_mlp_ln": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 19.3540625,
+            "ci_lo": 18.994445312499998,
+            "ci_hi": 19.661804687500002
+          },
+          "gap_closed_pct": {
+            "mean": -90.5846419767636,
+            "ci_lo": -94.64270052975007,
+            "ci_hi": -85.93535615383247
+          }
+        },
+        "embed_mlp_ln_zero_attn": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 17.56625,
+            "ci_lo": 17.470890625,
+            "ci_hi": 17.649375
+          },
+          "gap_closed_pct": {
+            "mean": -68.11034834958703,
+            "ci_lo": -69.55953069807043,
+            "ci_hi": -66.58133897290512
+          }
+        },
+        "zero_attn_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 12.1109375,
+            "ci_lo": 12.099375,
+            "ci_hi": 12.1240625
+          },
+          "gap_closed_pct": {
+            "mean": 0.4674778782789734,
+            "ci_lo": 0.20616083039151872,
+            "ci_hi": 0.7058483318972726
+          }
+        },
+        "full_exact": {
+          "params_copied_pct": 100.0,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.082861328125,
+            "ci_hi": 4.3050253906250004
+          },
+          "gap_closed_pct": {
+            "mean": 99.99803580723412,
+            "ci_lo": 99.97498150360458,
+            "ci_hi": 100.01821875149597
+          }
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "recipient_nll": {
+        "mean": 12.12125,
+        "ci_lo": 12.107171875,
+        "ci_hi": 12.136875
+      },
+      "results_by_arm": {
+        "embed_only": {
+          "params_copied_pct": 26.10225398570643,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.3465625,
+            "ci_lo": 12.2995234375,
+            "ci_hi": 12.39
+          },
+          "gap_closed_pct": {
+            "mean": -2.8419673035800432,
+            "ci_lo": -3.4510352554289865,
+            "ci_hi": -2.2044746443305594
+          }
+        },
+        "all_attn": {
+          "params_copied_pct": 29.5559029686641,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.0709375,
+            "ci_lo": 12.0559375,
+            "ci_hi": 12.085625
+          },
+          "gap_closed_pct": {
+            "mean": 0.6346140580809877,
+            "ci_lo": 0.35539500227916404,
+            "ci_hi": 0.9110383781298914
+          }
+        },
+        "embed_attn": {
+          "params_copied_pct": 55.65815695437053,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.2196875,
+            "ci_lo": 12.1654453125,
+            "ci_hi": 12.26659375
+          },
+          "gap_closed_pct": {
+            "mean": -1.2416362005932173,
+            "ci_lo": -1.8396342188806911,
+            "ci_hi": -0.5229805867383045
+          }
+        },
+        "embed_attn_ln": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 17.3259375,
+            "ci_lo": 17.072125,
+            "ci_hi": 17.56003125
+          },
+          "gap_closed_pct": {
+            "mean": -65.64905054247674,
+            "ci_lo": -68.63497425219488,
+            "ci_hi": -62.36543549443058
+          }
+        },
+        "embed_attn_ln_zero_mlp": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 18.2646875,
+            "ci_lo": 17.8898125,
+            "ci_hi": 18.65878125
+          },
+          "gap_closed_pct": {
+            "mean": -77.48992402368965,
+            "ci_lo": -82.73359994259657,
+            "ci_hi": -72.88042313011289
+          }
+        },
+        "zero_mlp_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 12.1203125,
+            "ci_lo": 12.1048359375,
+            "ci_hi": 12.1361015625
+          },
+          "gap_closed_pct": {
+            "mean": 0.011825106672305685,
+            "ci_lo": -0.12245855679475015,
+            "ci_hi": 0.1638147214212878
+          }
+        },
+        "embed_mlp": {
+          "params_copied_pct": 70.43430456294666,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.36625,
+            "ci_lo": 12.3382734375,
+            "ci_hi": 12.394703125
+          },
+          "gap_closed_pct": {
+            "mean": -3.090294543698709,
+            "ci_lo": -3.515201959191894,
+            "ci_hi": -2.7148261630615482
+          }
+        },
+        "embed_mlp_ln": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 17.3403125,
+            "ci_lo": 17.142335937499997,
+            "ci_hi": 17.5634765625
+          },
+          "gap_closed_pct": {
+            "mean": -65.83036884478561,
+            "ci_lo": -68.89875466372031,
+            "ci_hi": -63.267488047000924
+          }
+        },
+        "embed_mlp_ln_zero_attn": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 17.56625,
+            "ci_lo": 17.48125,
+            "ci_hi": 17.6475
+          },
+          "gap_closed_pct": {
+            "mean": -68.6802195528139,
+            "ci_lo": -70.12197296615747,
+            "ci_hi": -67.06766245103798
+          }
+        },
+        "zero_attn_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 12.1171875,
+            "ci_lo": 12.1060859375,
+            "ci_hi": 12.1296875
+          },
+          "gap_closed_pct": {
+            "mean": 0.051242128913369454,
+            "ci_lo": -0.18315799083855663,
+            "ci_hi": 0.29635343517342133
+          }
+        },
+        "full_exact": {
+          "params_copied_pct": 100.0,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.08019140625,
+            "ci_hi": 4.301373046875
+          },
+          "gap_closed_pct": {
+            "mean": 99.99802914888795,
+            "ci_lo": 99.97731908866317,
+            "ci_hi": 100.01728834772693
+          }
+        }
+      }
+    },
+    {
+      "seed": 101,
+      "recipient_nll": {
+        "mean": 12.1271875,
+        "ci_lo": 12.1115625,
+        "ci_hi": 12.1436015625
+      },
+      "results_by_arm": {
+        "embed_only": {
+          "params_copied_pct": 26.10225398570643,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.3640625,
+            "ci_lo": 12.3082421875,
+            "ci_hi": 12.416265625
+          },
+          "gap_closed_pct": {
+            "mean": -2.9855743193343445,
+            "ci_lo": -3.6480550739223183,
+            "ci_hi": -2.2251936672357955
+          }
+        },
+        "all_attn": {
+          "params_copied_pct": 29.5559029686641,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.051875,
+            "ci_lo": 12.0360859375,
+            "ci_hi": 12.0646875
+          },
+          "gap_closed_pct": {
+            "mean": 0.9492393284427032,
+            "ci_lo": 0.6773206405349687,
+            "ci_hi": 1.248059400152223
+          }
+        },
+        "embed_attn": {
+          "params_copied_pct": 55.65815695437053,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.3115625,
+            "ci_lo": 12.265921875,
+            "ci_hi": 12.3617734375
+          },
+          "gap_closed_pct": {
+            "mean": -2.323863916104587,
+            "ci_lo": -3.019107036290662,
+            "ci_hi": -1.7330407589042889
+          }
+        },
+        "embed_attn_ln": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 17.483125,
+            "ci_lo": 17.132171875,
+            "ci_hi": 17.838515625
+          },
+          "gap_closed_pct": {
+            "mean": -67.5062773866378,
+            "ci_lo": -71.85290228844356,
+            "ci_hi": -63.12855891510286
+          }
+        },
+        "embed_attn_ln_zero_mlp": {
+          "params_copied_pct": 55.667949422759754,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 18.2646875,
+            "ci_lo": 17.9022890625,
+            "ci_hi": 18.660625
+          },
+          "gap_closed_pct": {
+            "mean": -77.35709713948108,
+            "ci_lo": -82.36904586037964,
+            "ci_hi": -72.38368123741051
+          }
+        },
+        "zero_mlp_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 44.33205057724024,
+          "surgery_nll": {
+            "mean": 12.124375,
+            "ci_lo": 12.10875,
+            "ci_hi": 12.1390625
+          },
+          "gap_closed_pct": {
+            "mean": 0.03544877160158534,
+            "ci_lo": -0.14899563718791944,
+            "ci_hi": 0.2355602892463364
+          }
+        },
+        "embed_mlp": {
+          "params_copied_pct": 70.43430456294666,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 12.4025,
+            "ci_lo": 12.369375,
+            "ci_hi": 12.436578125
+          },
+          "gap_closed_pct": {
+            "mean": -3.470040864556153,
+            "ci_lo": -3.9586615333361697,
+            "ci_hi": -2.9685457994541498
+          }
+        },
+        "embed_mlp_ln": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 19.4253125,
+            "ci_lo": 19.067898437500002,
+            "ci_hi": 19.8356953125
+          },
+          "gap_closed_pct": {
+            "mean": -91.98562355373937,
+            "ci_lo": -97.14779414988912,
+            "ci_hi": -87.44243919052995
+          }
+        },
+        "embed_mlp_ln_zero_attn": {
+          "params_copied_pct": 70.4440970313359,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 17.56625,
+            "ci_lo": 17.471453125,
+            "ci_hi": 17.644078125
+          },
+          "gap_closed_pct": {
+            "mean": -68.55398552508494,
+            "ci_lo": -70.04572330904406,
+            "ci_hi": -66.8929140626154
+          }
+        },
+        "zero_attn_only": {
+          "params_copied_pct": 0.0,
+          "params_zeroed_pct": 29.5559029686641,
+          "surgery_nll": {
+            "mean": 12.17625,
+            "ci_lo": 12.1638984375,
+            "ci_hi": 12.1895390625
+          },
+          "gap_closed_pct": {
+            "mean": -0.6183841268278246,
+            "ci_lo": -0.8729695253967626,
+            "ci_hi": -0.38720423108629276
+          }
+        },
+        "full_exact": {
+          "params_copied_pct": 100.0,
+          "params_zeroed_pct": 0.0,
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.081822265625,
+            "ci_hi": 4.287841796875
+          },
+          "gap_closed_pct": {
+            "mean": 99.99803062379992,
+            "ci_lo": 99.97542952357928,
+            "ci_hi": 100.01972926745412
+          }
+        }
+      }
+    }
+  ],
+  "verdict": "KILL: closed-circuit compound transfer does not break the holism barrier. Best non-full arm closes 0.9% of the gap; primary delta vs all_attn = -78.2 points.",
+  "elapsed_s": 244.71157026290894
+}

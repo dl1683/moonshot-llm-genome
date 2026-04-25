@@ -26,6 +26,40 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_121_closed_circuit_transfer — KILL (norm catastrophe + holism barrier unbreakable by compound surgery)
+
+**Purpose.** Test whether combining donor embedding + donor attention + donor layer norms + zeroed MLP ("closed circuit") breaks the holism barrier. 5 random seeds × 11 arms. Codex-designed experiment.
+**Systems.** Qwen3-0.6B donor (NLL=4.193), 5 random-init recipients (seed-mean NLL=12.128). Gap=7.935 nats.
+**Protocol.** 11 arms: embed_only, all_attn, embed_attn, embed_attn_ln, embed_attn_ln_zero_mlp (primary), zero_mlp_only, embed_mlp, embed_mlp_ln, embed_mlp_ln_zero_attn, zero_attn_only, full_exact. Pass: primary closes >=20% AND beats all_attn by >=5pp.
+**Results.**
+
+| Arm | Copied | Zeroed | Gap closed |
+|---|---|---|---|
+| full_exact | 100% | 0% | **+100%** (positive control ✓) |
+| all_attn | 29.6% | 0% | **+0.89%** (best non-trivial) |
+| zero_mlp_only | 0% | 44.3% | +0.01% |
+| zero_attn_only | 0% | 29.6% | -0.02% |
+| embed_attn | 55.7% | 0% | -1.59% |
+| embed_only | 26.1% | 0% | -1.94% |
+| embed_mlp | 70.4% | 0% | -2.93% |
+| **embed_attn_ln** | 55.7% | 0% | **-53.76%** (catastrophic) |
+| embed_mlp_ln_zero_attn | 70.4% | 29.6% | -68.54% |
+| embed_mlp_ln | 70.4% | 0% | -70.61% |
+| **embed_attn_ln_zero_mlp** | 55.7% | 44.3% | **-77.34%** (worst) |
+
+**Verdict.** KILL. Best non-full arm closes 0.9%. Primary arm is the worst compound arm.
+**Critical finding — norm catastrophe.** Copying donor layer norms is catastrophically harmful. `embed_attn` (no norms) = -1.59%; `embed_attn_ln` (add norms) = -53.76%. The delta is -52 percentage points from adding norms alone. Donor layer norms are calibrated to normalize activations at donor scale/statistics. In a random-init recipient where activation distributions are completely different, the donor norms re-scale activations catastrophically, amplifying errors rather than normalizing them.
+**Zeroing weights is neutral.** `zero_mlp_only` ≈ 0% and `zero_attn_only` ≈ 0%. The residual connection bypasses zeroed modules cleanly — zeroing is not destructive but also provides no benefit.
+**all_attn is uniquely robust** (+0.89% with 5 seeds). Attention weights are slightly more transferable because: (a) QK patterns capture relative token similarity which is somewhat input-agnostic, (b) attention does not include scale-dependent norms in this arm, (c) attention operates multiplicatively rather than additively on the residual stream.
+**Theoretical synthesis.** Scale mismatch is the coupling mechanism preventing all weight-copy transfer. Every trained component assumes specific activation statistics (scale, distribution shape) produced by the full trained system. Norms are the most acute manifestation: they're explicitly calibrated to re-normalize to unit-scale, which fails when activation scale differs by orders of magnitude. MLPs and attention are implicitly scale-dependent via their learned weight magnitudes.
+**Surgery series fully exhausted (genome_113-121).** All naive and compound weight-copy strategies fail. The holism barrier is:
+1. Architecture-independent (Pythia + Qwen3)
+2. Component-combination-independent (every subset combination fails)
+3. Caused by scale mismatch + readout alignment constraints
+**Next.** Two candidates for genome_122: (a) norm-recalibrated transfer — copy weights but re-estimate norm statistics from recipient's own activations before copying (cheap, 0 gradient steps); (b) pivot to genome-guided curriculum learning using donor invariants to accelerate recipient training from scratch.
+
+---
+
 ## 2026-04-25 — genome_120_holism_replication — KILL (holism barrier cross-architecture confirmed)
 
 **Purpose.** Replicate genome_119 weight-component surgery on Qwen3-0.6B (d=1024, 28 layers) to confirm the holism barrier generalizes beyond Pythia-160M.

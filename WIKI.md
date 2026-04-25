@@ -640,4 +640,17 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Additional finding:** tied-embedding behavior means copying embed OR head produces identical result (26.1% wasted copy — same 26.1% params, same NLL impact).
 - `code/genome_120_holism_replication.py` -> `results/genome_120_holism_replication.json`
 
+**genome_121 COMPLETED (2026-04-25): CLOSED-CIRCUIT COMPOUND TRANSFER — KILL (norm catastrophe discovered)**
+- Qwen3-0.6B, 5 seeds × 11 arms. Donor NLL=4.193, recipient NLL=12.128 (seed-mean). Gap=7.935 nats.
+- Primary arm `embed_attn_ln_zero_mlp` (55.67% copy + 44.33% zeroed): NLL=18.26, gap=-77.34% — WORST compound arm.
+- `embed_attn_ln` (copy embed+attn+norms): NLL=16.39, gap=-53.76% — catastrophic.
+- `embed_attn` (copy embed+attn, NO norms): NLL=12.25, gap=-1.59% — just slightly worse than attn alone.
+- `all_attn` (29.56%): NLL=12.06, gap=+0.89% — STILL the best non-trivial arm (beats embed+attn).
+- `zero_mlp_only` / `zero_attn_only`: gap≈0% — zeroing weights has no effect (residual bypass).
+- `full_exact`: gap=100.00%, NLL=4.193 — validates positive control.
+- **KILL: best non-full arm closes 0.9%. Holism barrier unbreakable by closed-circuit compound transfer.**
+- **CRITICAL NEW INSIGHT: donor layer norms are calibrated for donor activation statistics. In the wrong (random-init) context, they amplify errors instead of normalizing them. Adding norms (-53% to -77%) is far worse than omitting them. This is the coupling mechanism: norms are the bridge between trained components and trained scale.**
+- **Implication:** Zero-step transfer cannot work via any naive weight-copy strategy. The scale mismatch between donor and recipient activations means every normalization layer causes destructive amplification. The right approach is either (a) re-calibrate norms using recipient statistics before copying, or (b) curriculum learning using donor geometry as training signal.
+- `code/genome_121_closed_circuit_transfer.py` -> `results/genome_121_closed_circuit_transfer.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
