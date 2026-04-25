@@ -733,4 +733,14 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Breakthrough-aligned finding** contradicting the simple "scale=capability" narrative: capability emerges through a UNIVERSAL geometric trajectory in spectral space, scale-invariant across model sizes within a family.
 - `code/genome_128_trajectory_fine_grain.py` -> `results/genome_128_trajectory_fine_grain.json`
 
+**genome_129 COMPLETED (2026-04-25): PYTHIA-1.4B TRAJECTORY — PARTIAL (qualitative match, quantitative scale-shift)**
+- 8 checkpoints on Pythia-1.4b (9× capacity vs Pythia-160m).
+- Trajectory: random=**8.46** → step128=**2.56 (MIN)** → step512=3.14 → step1k=3.92 → step4k+=4.79+ → final=**4.33 (2.1% from target)**.
+- **U-shape SHAPE matches 160m/410m** (mode collapse minimum, recovery to target ~4.2).
+- **Minimum step SHIFTS EARLIER with capacity:** 160m=step512, 410m=step512, **1.4b=step128**. Larger model → faster trajectory traversal.
+- Final convergence ranking: 410m (0.9%) < 1.4b (2.1%) < 160m (5.6%). All within 10% of target.
+- **Implication:** trajectory shape is universal across capacity (architecture × task fingerprint), but landmarks scale with capacity. Possible scaling law: minimum-step ~ 1/N where N = parameter count.
+- **Strengthens core finding:** the universal attractor at sqrt(er)·α ≈ 4.243 is reached by all 3 Pythia sizes despite 9× capacity range. The path may be different but the destination is the same.
+- `code/genome_129_trajectory_pythia_1p4b.py` -> `results/genome_129_trajectory_pythia_1p4b.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*

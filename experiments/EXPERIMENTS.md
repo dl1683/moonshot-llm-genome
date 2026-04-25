@@ -26,6 +26,51 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_129_trajectory_pythia_1p4b — PARTIAL (universal shape, capacity-scaled landmarks)
+
+**Purpose.** Extend genome_128 PASS to Pythia-1.4b (9× capacity ratio vs 160m). Test whether trajectory landmarks remain identical or scale with capacity.
+**Systems.** EleutherAI/pythia-1.4b at 8 log-spaced steps [0, 128, 512, 1000, 4000, 16000, 64000, 143000].
+**Pre-stated PASS.** Pythia-1.4b matches all 3 landmarks (min_step, first-below, first-above) within tolerance AND final-step within 10%.
+
+**Results.**
+
+| Step | sqrt(er)·α | eff_rank | α |
+|---|---|---|---|
+| 0 | 8.458 | 138.47 | 0.719 |
+| **128** | **2.563 (MIN)** | 12.24 | 0.733 |
+| 512 | 3.142 | 10.83 | (below) |
+| 1000 | 3.917 | 22.88 | 0.819 |
+| 4000 | 4.790 | 38.01 | 0.777 |
+| 16000 | 4.863 | 46.26 | 0.715 |
+| 64000 | 4.831 | 48.88 | 0.691 |
+| 143000 | **4.330** | 39.23 | 0.691 |
+
+**Verdict.** PARTIAL — trajectory SHAPE matches but landmarks SHIFT EARLIER.
+
+**Comparison across 3 sizes:**
+
+| Size | Min step | Min value | Step 4k value | Final value | Final dev |
+|---|---|---|---|---|---|
+| Pythia-160m | 512 | 2.884 | 4.845 | 4.005 | 5.6% |
+| Pythia-410m | 512 | 2.773 | 4.515 | 4.204 | 0.9% |
+| **Pythia-1.4b** | **128** | **2.563** | 4.790 | 4.330 | **2.1%** |
+
+**Findings:**
+
+1. **Universal trajectory shape across 9× capacity** — random init high, mode-collapse minimum, recovery to target ~4.2. The U-shape is reproducible.
+
+2. **Minimum step shifts earlier with capacity.** Pythia-160m and 410m share min=512, but Pythia-1.4b min is at step 128 (4× earlier). Suggests minimum_step is not architecture-task-only but also depends on capacity. Possible scaling: min_step ~ 1/N.
+
+3. **All 3 sizes converge to target within 10%.** Pythia-410m converges tightest (0.9%), then 1.4b (2.1%), then 160m (5.6%). The destination is shared; the path differs slightly with capacity.
+
+4. **Mode-collapse minimum value scales with capacity.** Min values: 2.88 (160m) > 2.77 (410m) > 2.56 (1.4b). Larger models collapse to LOWER eff_rank during the mode-collapse phase, then recover further.
+
+**Refined claim.** The trained-spectrum invariant has a universal asymptotic value (4.243) reached by all sizes. The trajectory through this coordinate is qualitatively the same across capacity but quantitatively scales: larger models traverse faster and reach lower mode-collapse minima. The constant 18 = (3√2)² is a universal training-dynamics fixed point, but the approach to it depends on capacity.
+
+**For variational derivation:** the fixed-point structure must explain (a) the asymptotic value, (b) the U-shape trajectory, (c) the capacity-dependent rate of approach. This is closer to a stochastic dynamical-systems problem than a static optimization.
+
+---
+
 ## 2026-04-25 — genome_128_trajectory_fine_grain — PASS (extraordinary scale-invariance)
 
 **Purpose.** Refine genome_127 PASS with finer step resolution. Locate the U-shape minimum, first-crossing point, and re-crossing point. Test scale-invariance across Pythia-160m and Pythia-410m.

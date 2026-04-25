@@ -1,0 +1,173 @@
+{
+  "genome": 129,
+  "name": "trajectory_pythia_1p4b",
+  "target_sqrt_er_alpha": 4.242640687119285,
+  "checkpoints_tested": [
+    "step0",
+    "step128",
+    "step512",
+    "step1000",
+    "step4000",
+    "step16000",
+    "step64000",
+    "step143000"
+  ],
+  "rows": [
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step0",
+      "step": 0,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.718742439032362,
+      "eff_rank": 138.46883255084947,
+      "sqrt_er_alpha": 8.457642121690338,
+      "er_alpha2": 71.53171025859064,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step128",
+      "step": 128,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.7327604814166987,
+      "eff_rank": 12.235911711503773,
+      "sqrt_er_alpha": 2.563186497687659,
+      "er_alpha2": 6.569925021928328,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step512",
+      "step": 512,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.9544946621574689,
+      "eff_rank": 10.833443586081794,
+      "sqrt_er_alpha": 3.1416425265274683,
+      "er_alpha2": 9.869917764485894,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step1000",
+      "step": 1000,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.8190007302703926,
+      "eff_rank": 22.877929573727354,
+      "sqrt_er_alpha": 3.917352458613259,
+      "er_alpha2": 15.345650285003344,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step4000",
+      "step": 4000,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.7768921401895656,
+      "eff_rank": 38.009220225139956,
+      "sqrt_er_alpha": 4.789665758330838,
+      "er_alpha2": 22.94089807652693,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step16000",
+      "step": 16000,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.7149455475488641,
+      "eff_rank": 46.26242084304519,
+      "sqrt_er_alpha": 4.86280823357206,
+      "er_alpha2": 23.646903916496218,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step64000",
+      "step": 64000,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.6909792072711743,
+      "eff_rank": 48.876922161428695,
+      "sqrt_er_alpha": 4.830776043907582,
+      "er_alpha2": 23.336397186391387,
+      "n": 800,
+      "h": 2048
+    },
+    {
+      "system": "pythia-1.4b",
+      "hf_id": "EleutherAI/pythia-1.4b",
+      "revision": "step143000",
+      "step": 143000,
+      "n_layers": 24,
+      "mid_layer": 12,
+      "alpha": 0.6913501881634228,
+      "eff_rank": 39.228719138171606,
+      "sqrt_er_alpha": 4.3301221675670565,
+      "er_alpha2": 18.749957986055627,
+      "n": 800,
+      "h": 2048
+    }
+  ],
+  "summary": {
+    "steps": [
+      0,
+      128,
+      512,
+      1000,
+      4000,
+      16000,
+      64000,
+      143000
+    ],
+    "sqrt_er_alpha": [
+      8.457642121690338,
+      2.563186497687659,
+      3.1416425265274683,
+      3.917352458613259,
+      4.789665758330838,
+      4.86280823357206,
+      4.830776043907582,
+      4.3301221675670565
+    ],
+    "eff_rank": [
+      138.46883255084947,
+      12.235911711503773,
+      10.833443586081794,
+      22.877929573727354,
+      38.009220225139956,
+      46.26242084304519,
+      48.876922161428695,
+      39.228719138171606
+    ],
+    "min_step": 128,
+    "min_value": 2.563186497687659,
+    "first_crossing_below": 128,
+    "first_recrossing_above": 4000,
+    "final_dev_pct": 2.0619582684285915
+  },
+  "g128_reference": {
+    "min_step": 512,
+    "first_below": 128,
+    "first_above_after": 4000
+  },
+  "verdict": "PARTIAL: 1.4b converges to target (final_dev=2.1%) but trajectory landmarks differ from g128: min@128, first-below@128, first-above@4000.",
+  "elapsed_s": 247.1735692024231
+}
