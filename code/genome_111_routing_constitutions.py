@@ -176,7 +176,7 @@ def main():
 
     tok   = AutoTokenizer.from_pretrained(MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, torch_dtype=torch.bfloat16
+        MODEL_ID, dtype=torch.bfloat16, attn_implementation="eager"
     ).to(DEVICE)
     model.eval()
 
