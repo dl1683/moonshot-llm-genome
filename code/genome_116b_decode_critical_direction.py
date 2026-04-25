@@ -258,7 +258,7 @@ def main():
     }
 
     out_path = RESULTS / "genome_116b_decode_critical_direction.json"
-    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
     print(f"\nSaved: {out_path}  ({time.time()-t0:.1f}s)")
 
 

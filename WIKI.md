@@ -513,6 +513,14 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 **Next direction (Codex to confirm):** Map the critical subspace power law — how many PCA directions are truly important? What NLL contribution does direction k have as a function of k? Does the top direction correspond to a specific capability or is it universal? This "critical subspace" framing is the first model-native organizational principle that survived the series.
 
+**genome_116b COMPLETED (2026-04-25): Semantic Decode of PC1 at Layer 5**
+- PC1 is a sentence-boundary / DC mean-activation axis, NOT a semantic content axis.
+- Projection range: min=-1.7, mean=118, max=7297 (almost always non-negative).
+- Top tokens: `"`, `M`, `Although`, `The`, `As`, `By` — all sentence-initial / document-start.
+- Bottom tokens: mid-sentence fragments (`al`, `ast`, `.C`, `it`, `just`).
+- Implication: ablating PC1 removes the model's structural text-position prior — catastrophic because everything downstream depends on it. Surgery injects structural scaffolding, not semantic knowledge. Still valuable for bootstrapping untrained models.
+- `code/genome_116b_decode_critical_direction.py` -> `results/genome_116b_decode_critical_direction.json`
+
 **genome_115 CONFIRMED (2026-04-25): Layer-Local Critical Subspace — REAL, NOT ARTIFACT**
 - 6/9 probe layers pass (layers 2,5,8,11,20,23). Codex-flagged global-hook confound ruled out.
 - Depth-dependent structure: early (2-11) = one dominant direction (PC1 4.5-4.8 nats, PC2 ~0.1); mid (14-17) = two-direction zone (PC1 AND PC2 both catastrophic); late (20-23) = one direction weaker; layer 26 = reversed (PC2 > PC1).
