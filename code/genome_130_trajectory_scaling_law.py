@@ -99,8 +99,16 @@ def measure_at_checkpoint(hf_id, revision, texts, sys_key, batch_size=2):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     print(f"    loading {hf_id} @ {revision}...")
     tok = AutoTokenizer.from_pretrained(hf_id, revision=revision)
-    if tok.pad_token is None:
-        tok.pad_token = tok.eos_token
+    # Robust pad_token: Pythia/GPT-NeoX checkpoints sometimes have eos=None.
+    # Token id 0 = <|endoftext|> for these tokenizers; use it as pad.
+    if tok.pad_token is None or not tok.pad_token:
+        if tok.eos_token is not None and tok.eos_token_id is not None:
+            tok.pad_token = tok.eos_token
+            tok.pad_token_id = tok.eos_token_id
+        else:
+            # Pythia/GPT-NeoX fallback: token id 0 is <|endoftext|>
+            tok.pad_token = tok.decode([0])
+            tok.pad_token_id = 0
     try:
         model = AutoModelForCausalLM.from_pretrained(
             hf_id, revision=revision, torch_dtype=torch.float16
