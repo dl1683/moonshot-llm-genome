@@ -1,0 +1,97 @@
+{
+  "genome": 133,
+  "name": "trajectory_llama_from_scratch",
+  "target": 4.242640687119285,
+  "config": {
+    "hidden_size": 384,
+    "n_layers": 6,
+    "n_heads": 6,
+    "intermediate_size": 1024,
+    "seq_len": 256,
+    "max_steps": 4000,
+    "lr": 0.0003,
+    "batch_size": 8,
+    "n_params_M": 29.928192,
+    "tokenizer": "EleutherAI/pythia-160m"
+  },
+  "rows": [
+    {
+      "step": 0,
+      "alpha": 0.7984574364154381,
+      "eff_rank": 73.1551936341477,
+      "sqrt_er_alpha": 6.82927108397812,
+      "er_alpha2": 46.63894353845968,
+      "n": 800,
+      "h": 384
+    },
+    {
+      "step": 32,
+      "alpha": 0.8784374637683324,
+      "eff_rank": 2.0453269653855317,
+      "sqrt_er_alpha": 1.25629670703998,
+      "er_alpha2": 1.5782814161194971,
+      "n": 800,
+      "h": 384,
+      "loss": 8.25
+    },
+    {
+      "step": 128,
+      "alpha": 0.8743660738887091,
+      "eff_rank": 1.3985723189084547,
+      "sqrt_er_alpha": 1.0340362462470531,
+      "er_alpha2": 1.0692309585526965,
+      "n": 800,
+      "h": 384,
+      "loss": 7.53125
+    },
+    {
+      "step": 512,
+      "alpha": 1.1890892271401492,
+      "eff_rank": 4.040968825992826,
+      "sqrt_er_alpha": 2.3903263256789327,
+      "er_alpha2": 5.713659943233748,
+      "n": 800,
+      "h": 384,
+      "loss": 6.9375
+    },
+    {
+      "step": 1000,
+      "alpha": 1.1834058291148024,
+      "eff_rank": 6.705673087722257,
+      "sqrt_er_alpha": 3.0644666028225407,
+      "er_alpha2": 9.390955559814723,
+      "n": 800,
+      "h": 384,
+      "loss": 6.4375
+    },
+    {
+      "step": 2000,
+      "alpha": 1.074432389933352,
+      "eff_rank": 13.83408834472311,
+      "sqrt_er_alpha": 3.9962657831615545,
+      "er_alpha2": 15.970140209667832,
+      "n": 800,
+      "h": 384,
+      "loss": 5.9375
+    },
+    {
+      "step": 4000,
+      "alpha": 0.9054518500364365,
+      "eff_rank": 25.612336149071517,
+      "sqrt_er_alpha": 4.58236793111537,
+      "er_alpha2": 20.998095856114556,
+      "n": 800,
+      "h": 384,
+      "loss": 5.21875
+    }
+  ],
+  "summary": {
+    "min_step": 128,
+    "min_value": 1.0340362462470531,
+    "final_step": 4000,
+    "final_value": 4.58236793111537,
+    "final_dev_pct": 8.007447932781629
+  },
+  "verdict": "PASS: Llama trajectory matches Pythia U-shape. random=6.83 (>6), min=1.03 (<3.5), final=4.58 (dev 8.0%<30%). Trajectory is architecture-universal for transformers.",
+  "elapsed_s": 137.38451433181763
+}

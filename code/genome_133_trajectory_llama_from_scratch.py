@@ -76,9 +76,11 @@ def make_tiny_llama(vocab_size):
         max_position_embeddings=SEQ_LEN + 64,
         rms_norm_eps=1e-6,
         tie_word_embeddings=True,
+        attn_implementation="eager",  # avoid SDPA mask bug
     )
     torch.manual_seed(SEED)
-    model = LlamaForCausalLM(cfg).to("cuda").to(torch.float16)
+    # bfloat16 for numerical stability; Llama RMSNorm + RoPE can NaN in fp16
+    model = LlamaForCausalLM(cfg).to("cuda").to(torch.bfloat16)
     return model
 
 
@@ -149,7 +151,10 @@ def main():
     print(f"  calib N={len(calib_texts)}, train N={len(train_texts)}")
 
     print(f"Building tiny Llama: hidden={HIDDEN_SIZE}, layers={N_LAYERS}, heads={N_HEADS}, ffn={INTERMEDIATE_SIZE}")
-    model = make_tiny_llama(tok.vocab_size)
+    # Use len(tok), not vocab_size — Pythia tokenizer has 23 special tokens beyond vocab_size
+    actual_vocab = len(tok)
+    print(f"  effective vocab size: {actual_vocab}")
+    model = make_tiny_llama(actual_vocab)
     n_params = sum(p.numel() for p in model.parameters())
     print(f"  total params: {n_params/1e6:.2f}M")
 
