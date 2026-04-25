@@ -1,0 +1,47 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "genome": 124,
+  "name": "activation_basis_alignment",
+  "n_eval": 200,
+  "n_calib": 64,
+  "seeds": [
+    42
+  ],
+  "donor_nll": {
+    "mean": 4.193203125,
+    "ci_lo": 4.080603515625,
+    "ci_hi": 4.301689453125
+  },
+  "arm_results": {
+    "seed42_rotated_baseline": {
+      "surgery_nll_mean": 12.149375,
+      "surgery_nll_ci": {
+        "mean": 12.149375,
+        "ci_lo": 12.1310859375,
+        "ci_hi": 12.1665625
+      },
+      "gap_closed_pct": {
+        "mean": -0.35475320016948425,
+        "ci_lo": -0.6329139452911151,
+        "ci_hi": -0.05476977454919132
+      },
+      "description": "recipient with T_0 rotation applied (no donor weights)"
+    },
+    "seed42_rotated_all_attn": {
+      "surgery_nll_mean": 12.07625,
+      "surgery_nll_ci": {
+        "mean": 12.07625,
+        "ci_lo": 12.06,
+        "ci_hi": 12.0914140625
+      },
+      "gap_closed_pct": {
+        "mean": 0.5676051202711883,
+        "ci_lo": 0.27146235193402907,
+        "ci_hi": 0.8578428172351472
+      },
+      "description": "T_0-rotated recipient + donor all_attn weights"
+    }
+  },
+  "verdict": "KILL: best seed42_rotated_all_attn closes 0.6%. Activation-basis alignment via T_0 does not break holism barrier.",
+  "elapsed_s": 44.840537786483765
+}

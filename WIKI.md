@@ -672,4 +672,14 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Confirms transformation framing (Codex direction A):** the bottleneck is coordinate mismatch. Layerwise FM in raw coordinates is hopeless because random-init activations are not in donor's basis. Need to either (a) ALIGN the bases first via Procrustes / Re-Basin, then transplant; or (b) abandon basis-matching and use logit distillation (genome_124_kd backup).
 - `code/genome_123_curriculum_learning.py` -> `results/genome_123_curriculum_learning.json`
 
+**genome_124 COMPLETED (2026-04-25): ACTIVATION-BASIS ALIGNMENT (Procrustes T_0) — KILL**
+- Per-layer Procrustes fit on cross-covariance of donor vs recipient activations (29 layers, 3758 tokens × 1024 dim).
+- Applied T_0 rotation only (RMSNorm precludes per-layer rotation without re-fitting gammas).
+- rotated_baseline: gap=-0.35% (rotation alone slightly hurts).
+- rotated_all_attn: gap=+0.57% (no improvement over genome_120/121/122 all_attn baseline of +0.6-0.9%).
+- **KILL: T_0 activation-basis rotation does not break holism barrier.** Single-layer rotation is too weak; full-stack rotation requires norm-gamma refit which is a non-trivial joint optimization.
+- Six experiments now confirm holism barrier: surgery (119/120), compound surgery (121), scale calibration (122), curriculum FM (123), basis Procrustes (124). All KILL.
+- **Next direction (Codex pending):** full-stack permutation Re-Basin with norm refit, OR donor-init + structured noise (option B previously dismissed by Codex), OR inference-time RSA-style transfer (no weights copied at all).
+- `code/genome_124_activation_basis_alignment.py` -> `results/genome_124_activation_basis_alignment.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*

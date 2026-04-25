@@ -26,6 +26,19 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_124_activation_basis_alignment — KILL (T_0 rotation insufficient)
+
+**Purpose.** Codex direction A (basis alignment) reframed as activation-space Procrustes. Fit per-layer orthogonal T_l = U V^T from SVD of cross-covariance H_recip^T @ H_donor. Apply T_0 to embedding output (RMSNorm prevents per-layer rotation without joint gamma refit).
+**Systems.** Qwen3-0.6B donor + random-init recipient (seed=42). 29 layers × 1024-dim Procrustes.
+**Arms.** rotated_baseline (T_0 only), rotated_all_attn (T_0 + donor self_attn).
+**Results.** rotated_baseline gap=-0.35%, rotated_all_attn gap=+0.57%.
+**Verdict.** KILL. T_0 rotation alone hurts slightly; combined with all_attn copy gives the same +0.57% as un-aligned all_attn from genome_120/121/122. The Procrustes alignment provides no measurable benefit.
+**Why it fails.** Single-layer rotation at the embedding output is too weak — the recipient's downstream layers (untouched by T_0) still have random-init structure. Proper basis alignment would require ROTATING ALL 29 LAYER BOUNDARIES jointly, but RMSNorm is not rotation-invariant (rotating breaks per-channel structure of gamma weights). Full-stack rotation requires either: (a) replacing RMSNorm with rotation-invariant alternative, (b) re-fitting norm gammas after each layer's rotation as joint optimization, or (c) using permutation-only transformations (Git Re-Basin proper, which IS basis-invariant for RMSNorm with tied permutations).
+**Six experiments confirm holism barrier.** genome_119 (Pythia component KILL) → genome_120 (Qwen3 component KILL) → genome_121 (compound + norm catastrophe KILL) → genome_122 (calibration catastrophe KILL) → genome_123 (curriculum FM fights CE KILL) → genome_124 (activation Procrustes T_0 KILL). The transformation problem is not solvable by simple weight-copy or simple rotation.
+**Next direction options.** (a) Full-stack permutation alignment with norm-gamma re-permutation (proper Re-Basin); (b) Donor-init + structured noise warm start (Codex previously dismissed but worth re-examining); (c) Inference-time RSA-style transfer (no weight copy — instead align activations at inference time via learned transformation). Codex strategic review pending.
+
+---
+
 ## 2026-04-25 — genome_123_curriculum_learning — KILL (layerwise FM fights CE)
 
 **Purpose.** First gradient-based pivot after surgery KILL. Test whether donor hidden-state matching (CE + γ × layerwise MSE to donor activations) accelerates random-init Qwen3-0.6B training vs CE-only baseline.
