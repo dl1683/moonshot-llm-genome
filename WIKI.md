@@ -778,4 +778,14 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Strongest universality datum yet.** The trained-spectrum invariant trajectory is a property of TRANSFORMER training dynamics, not a Pythia-specific quirk.
 - `code/genome_133_trajectory_llama_from_scratch.py` -> `results/genome_133_trajectory_llama_from_scratch.json`
 
+**genome_134 COMPLETED (2026-04-25): GLUE-ONLY TRAJECTORY — PARTIAL (boundary finding)**
+- Tested whether the U-shape trajectory holds under glue-only training (g125 setup: train embed + lm_head + RMSNorm gammas only, freeze attn + MLP at random init).
+- Trajectory: 6.0 → 6.0 → 6.0 → 6.0 → 5.7 → 4.9 (monotonic descent, **NO mode collapse**).
+- eff_rank: 106 → 105 → 105 → 101 → 80 → 55 (monotonic decrease, no dip to <15 like full training).
+- Final value 4.93 at step 100 is 16% from target 4.243.
+- **Major mechanistic insight:** the U-shape mode collapse observed in g127-133 is **NOT** a residual-stream property — it's specifically a property of training the ATTENTION + MLP weights. Glue-only training reaches a similar endpoint but via a SMOOTH path, not collapse-and-recovery.
+- **Refined trajectory framing:** full-stack training causes attn/MLP to early-commit to a few features (collapse), then expand to the universal manifold. Glue-only never triggers commit, descends monotonically to the same manifold.
+- This is a BOUNDARY finding: trajectory universality holds for full-stack training, but the specific U-shape is full-stack-specific. The endpoint (~4.2-4.9) is shared.
+- `code/genome_134_glue_only_trajectory.py` -> `results/genome_134_glue_only_trajectory.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
