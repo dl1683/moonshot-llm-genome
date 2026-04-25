@@ -26,6 +26,21 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_123_curriculum_learning — KILL (layerwise FM fights CE)
+
+**Purpose.** First gradient-based pivot after surgery KILL. Test whether donor hidden-state matching (CE + γ × layerwise MSE to donor activations) accelerates random-init Qwen3-0.6B training vs CE-only baseline.
+**Systems.** Qwen3-0.6B donor (NLL=4.193), random-init recipient (NLL=12.121). 1000 steps, lr=3e-4, batch=4, seq=64.
+**Arms.** baseline CE, γ=0.01, γ=0.1, γ=1.0.
+**Results (NLL @ step 1000).** baseline=6.6686, γ=0.01=6.7555, γ=0.1=7.1459, γ=1.0=7.4072. **Monotonic degradation** — every increase in FM weight makes convergence slower. CtQ_75 target (6.175) reached by NONE of the 4 arms in 1000 steps.
+**Verdict.** KILL. The donor's hidden states fight the recipient's natural CE trajectory because they live in a different basis (random-init activations have no relationship to the donor's coordinate system).
+**Key insight — basis mismatch is the dominant barrier.** The FM loss tries to force recipient activations onto donor activations point-by-point, but the recipient's path through weight space leads to a permutation/rotation of the donor's solution, not the donor's solution itself. Linear Mode Connectivity (Git Re-Basin) results predict this: two trained models converge to the SAME function but in different permuted bases. A random-init model on the same trajectory will also reach a permuted basis. Forcing it through the donor's specific basis is fighting the inevitable permutation.
+**Implication for path forward.** Either:
+1. Solve the basis-alignment problem FIRST (Procrustes / Re-Basin on activations or weights), then transplant in aligned coordinates → genome_124 (activation-Procrustes, written and queued).
+2. Abandon basis-matching entirely and use BASIS-INVARIANT signals (logit distillation, output-space KL) → genome_124_kd_logit_distillation.py (alternate orthogonal control).
+**Surgery + curriculum-via-FM both KILL.** Six experiments now confirm the holism barrier in different forms. The transformation problem is the unifying frame.
+
+---
+
 ## 2026-04-25 — genome_122_scale_calibrated_transfer — KILL (calibration catastrophe + zero-step surgery fully exhausted)
 
 **Purpose.** Test whether (a) zeroing MLP interference and (b) recalibrating norm gammas to match donor activation statistics breaks the holism barrier. 3 seeds × 6 arms.

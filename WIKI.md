@@ -663,4 +663,13 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Pivot to curriculum learning (genome_123).** Zero-step transfer is blocked by a deep holism barrier. The path to capability transfer now requires gradient steps — but donor geometry should guide convergence significantly faster than random training.
 - `code/genome_122_scale_calibrated_transfer.py` -> `results/genome_122_scale_calibrated_transfer.json`
 
+**genome_123 COMPLETED (2026-04-25): GENOME-GUIDED CURRICULUM (LAYERWISE FM) — KILL (FM fights CE)**
+- Random-init Qwen3-0.6B trained 1000 steps. 4 arms: baseline CE, plus γ ∈ {0.01, 0.1, 1.0} with layerwise donor activation matching.
+- NLL@1000: baseline=6.6686, γ=0.01: 6.7555, γ=0.1: 7.1459, γ=1.0: 7.4072. **Monotonic degradation with γ.**
+- CtQ_75 target=6.175. NONE of the 4 arms reached it in 1000 steps.
+- **KILL: all FM-augmented arms WORSE than baseline. Higher γ → worse convergence.**
+- **Critical insight:** donor hidden states are NOT in the recipient's natural learning trajectory because they live in a different basis (different permutation/rotation of hidden units). Forcing the recipient to match donor hidden states fights the CE gradient that wants to find the recipient's own valid basis.
+- **Confirms transformation framing (Codex direction A):** the bottleneck is coordinate mismatch. Layerwise FM in raw coordinates is hopeless because random-init activations are not in donor's basis. Need to either (a) ALIGN the bases first via Procrustes / Re-Basin, then transplant; or (b) abandon basis-matching and use logit distillation (genome_124_kd backup).
+- `code/genome_123_curriculum_learning.py` -> `results/genome_123_curriculum_learning.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
