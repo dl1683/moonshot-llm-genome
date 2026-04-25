@@ -511,6 +511,13 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 **Next direction (Codex to confirm):** Map the critical subspace power law — how many PCA directions are truly important? What NLL contribution does direction k have as a function of k? Does the top direction correspond to a specific capability or is it universal? This "critical subspace" framing is the first model-native organizational principle that survived the series.
 
+**genome_115 CONFIRMED (2026-04-25): Layer-Local Critical Subspace — REAL, NOT ARTIFACT**
+- 6/9 probe layers pass (layers 2,5,8,11,20,23). Codex-flagged global-hook confound ruled out.
+- Depth-dependent structure: early (2-11) = one dominant direction (PC1 4.5-4.8 nats, PC2 ~0.1); mid (14-17) = two-direction zone (PC1 AND PC2 both catastrophic); late (20-23) = one direction weaker; layer 26 = reversed (PC2 > PC1).
+- Layer 5 strongest: local_top1 DELTA_NLL=4.46 nats, 906x vs random, 57x vs PC2.
+- Surgery target = early layers (2-11): one clean dominant direction, maximum damage signal.
+- `code/genome_115_local_subspace_disambiguation.py` -> `results/genome_115_local_subspace_disambiguation.json`
+
 **genome_114 CONFIRMED (2026-04-24): Critical Subspace Power Law — STEP FUNCTION AT k=1**
 - ratio_k1=2.38 (PASS>2.0). Dir-0 alone = 73% of total k=20 damage. Power-law exponent=0.108.
 - NLL curve: 4.20→10.01→10.62→10.66→10.96→10.96→11.20→11.63→12.07→11.86→11.80→12.18

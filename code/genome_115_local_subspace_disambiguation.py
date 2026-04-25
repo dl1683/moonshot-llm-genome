@@ -101,7 +101,7 @@ def load_model():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, torch_dtype=torch.bfloat16
+        MODEL_ID, dtype=torch.bfloat16
     ).to(DEVICE).eval()
     return model, tok
 
@@ -118,15 +118,14 @@ def tokenize(texts, tok, seq_len=SEQ_LEN):
 
 def extract_activations(model, tok, texts, layer_idx):
     """Return shape (N_seqs, d_model) mean-pooled activations at layer_idx."""
-    acts = []
-    handles = []
+    pooled_batches = []
 
     def hook_fn(module, inp, out):
-        h = out[0]   # (B, T, D)
-        acts.append(h.detach().float().cpu())
+        h = out[0] if isinstance(out, tuple) else out  # (B, T, D)
+        # mean-pool over tokens immediately to avoid variable-T concat issues
+        pooled_batches.append(h.detach().float().mean(dim=1).cpu())  # (B, D)
 
-    h = model.model.layers[layer_idx].register_forward_hook(hook_fn)
-    handles.append(h)
+    handle = model.model.layers[layer_idx].register_forward_hook(hook_fn)
 
     for i in range(0, len(texts), BATCH):
         batch = texts[i:i+BATCH]
@@ -134,13 +133,8 @@ def extract_activations(model, tok, texts, layer_idx):
         with torch.no_grad():
             model(input_ids=ids, attention_mask=mask)
 
-    for h in handles:
-        h.remove()
-
-    all_acts = torch.cat(acts, dim=0)   # (N, T, D)
-    mask_cpu = torch.ones(all_acts.shape[:2], dtype=torch.bool)
-    pooled = (all_acts * mask_cpu.unsqueeze(-1)).sum(1) / mask_cpu.sum(1, keepdim=True)
-    return pooled.numpy()   # (N, D)
+    handle.remove()
+    return torch.cat(pooled_batches, dim=0).numpy()  # (N, D)
 
 
 # ---------------------------------------------------------------------------
@@ -165,12 +159,11 @@ def make_local_hook(direction, layer_idx):
     dir_t = dir_t / (dir_t.norm() + 1e-8)
 
     def hook_fn(module, inp, out):
-        h = out[0]
+        is_tuple = isinstance(out, tuple)
+        h = out[0] if is_tuple else out
         proj = (h @ dir_t).unsqueeze(-1) * dir_t
         h_new = h - proj
-        if isinstance(out, tuple):
-            return (h_new,) + out[1:]
-        return h_new
+        return (h_new,) + out[1:] if is_tuple else h_new
 
     return hook_fn
 
@@ -181,12 +174,11 @@ def make_alllayer_hook(direction):
     dir_t = dir_t / (dir_t.norm() + 1e-8)
 
     def hook_fn(module, inp, out):
-        h = out[0]
+        is_tuple = isinstance(out, tuple)
+        h = out[0] if is_tuple else out
         proj = (h @ dir_t).unsqueeze(-1) * dir_t
         h_new = h - proj
-        if isinstance(out, tuple):
-            return (h_new,) + out[1:]
-        return h_new
+        return (h_new,) + out[1:] if is_tuple else h_new
 
     return hook_fn
 
