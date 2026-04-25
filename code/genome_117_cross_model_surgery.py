@@ -9,27 +9,29 @@ boundary axis, sign-flipped, same tokens in Qwen3 and Pythia).
 
 This experiment tests GENUINE capability transfer: donor model != recipient.
 
-Protocol specified by Codex (see C:/tmp/codex_117_protocol.txt).
-Scaffold is ready; main() filled after Codex review.
+Locked genome_117 protocol:
+  - Recipient FIRST: random-init Qwen3-0.6B, not partially-trained Qwen3 and
+    not Pythia-lesioned.
+  - Reason: the project end goal is trained -> untrained transfer at zero
+    gradient steps, and same-architecture Qwen avoids the token-alignment and
+    hidden-size confounds that a Pythia recipient would introduce.
+  - Primary condition: exact per-token coefficient replacement at layer 5.
+  - Secondary condition: exact per-token coefficient replacement at layers
+    [2, 5, 8, 11] to test whether the structural scaffold is distributed.
+  - Diagnostic condition: donor mean-coefficient injection at layer 5 using a
+    constant offset along the donor PC1 direction.
 
-Design space:
-  (A) Qwen3 trained donor -> random-init Qwen3 recipient (inject only)
-      - Same d_model: injection is directly applicable
-      - Random-init has no sentence-boundary structure at layer 5
-      - Test: does injecting donor PC1 coefficients improve random-init NLL?
-  (B) Qwen3 trained donor -> partially trained Qwen3 recipient (inject only)
-      - Recipient has some structure; more realistic surgery target
-  (C) Mean-coefficient injection: use donor's mean proj (scalar) instead of
-      per-token coefficients — "knowledge-free" surgery scenario
+Key question:
+  Does injecting donor PC1 structure into a random-init twin close any
+  meaningful fraction of the donor-recipient NLL gap at zero gradient steps?
+  If yes: this is the cleanest direct hit on the moonshot end goal so far.
+  If no: PC1 alone is a real causal handle, but insufficient without trained
+  downstream readers.
 
-Key question for (A)/(B):
-  Does injecting the donor's per-token PC1 values at layer 5 move a model
-  that doesn't know the sentence-boundary structure toward lower NLL?
-  If yes: the critical direction IS transferable at zero gradient steps.
-  If no: downstream layers need to be co-trained to use the injected info.
-
-Pass: gap_closed >= 20% with CI_lo > 0 (direction IS transferable)
-Kill: gap_closed < 5% (direction is model-specific, not transferable)
+Pass: exact layer-5 replacement closes >= 20% of the donor-recipient gap with
+      CI_lo > 0
+Partial: best exact condition closes >= 5% with CI_lo > 0
+Kill: both exact conditions close < 5% of the gap
 
 Results: results/genome_117_cross_model_surgery.json
 """
@@ -61,6 +63,14 @@ N_BOOT   = 500
 
 SURGERY_LAYER = 5
 CRITICAL_LAYERS = [2, 5, 8, 11]
+
+PRIMARY_RECIPIENT = "random_init_qwen3"
+PRIMARY_LAYERS = [SURGERY_LAYER]
+SECONDARY_LAYERS = CRITICAL_LAYERS
+
+PASS_GAP_CLOSED_PCT = 20.0
+PARTIAL_GAP_CLOSED_PCT = 5.0
+KILL_GAP_CLOSED_PCT = 5.0
 
 
 # ---------------------------------------------------------------------------
@@ -321,13 +331,235 @@ def bootstrap_gap_closed(baseline_nlls, donor_nlls, repaired_nlls, n_boot=N_BOOT
 
 
 # ---------------------------------------------------------------------------
-# Main — Codex protocol to be filled in from C:/tmp/codex_117_protocol.txt
+# Evaluation helper
+# ---------------------------------------------------------------------------
+
+def evaluate_condition(model, tok, texts, recipient_clean_per_seq, donor_clean_per_seq,
+                       hook_fns_by_layer=None, batch_hook_factories_by_layer=None):
+    per_seq = measure_nll_per_seq(
+        model,
+        tok,
+        texts,
+        hook_fns_by_layer=hook_fns_by_layer,
+        batch_hook_factories_by_layer=batch_hook_factories_by_layer,
+    )
+    return per_seq, {
+        "nll": bootstrap_mean_ci(per_seq),
+        "gap_closed_pct": bootstrap_gap_closed(
+            recipient_clean_per_seq,
+            donor_clean_per_seq,
+            per_seq,
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Main
 # ---------------------------------------------------------------------------
 
 def main():
-    # TODO: implement once Codex specifies protocol
-    print("genome_117 scaffold ready. Awaiting Codex cross-model surgery protocol.")
-    print("Check C:/tmp/codex_117_protocol.txt for Codex output.")
+    t0 = time.time()
+
+    print("Loading donor + random-init recipient...")
+    donor, tok = load_trained()
+    recipient = load_random_init(tok)
+    print(f"  donor_model     = {MODEL_ID}")
+    print(f"  recipient_first = {PRIMARY_RECIPIENT}")
+    print(f"  primary_layers  = {PRIMARY_LAYERS}")
+    print(f"  secondary_layers= {SECONDARY_LAYERS}")
+
+    print(f"Loading data (fit={N_FIT}, eval={N_EVAL})...")
+    fit_texts = load_wikitext_split(N_FIT, offset=0)
+    eval_texts = load_wikitext_split(N_EVAL, offset=N_FIT)
+    print(f"  fit={len(fit_texts)}, eval={len(eval_texts)}")
+
+    print("Measuring donor clean NLL...")
+    donor_clean_per_seq = measure_nll_per_seq(donor, tok, eval_texts)
+    donor_clean_stats = bootstrap_mean_ci(donor_clean_per_seq)
+    print(f"  donor clean NLL = {donor_clean_stats['mean']:.4f}")
+
+    print("Measuring random-init recipient clean NLL...")
+    recipient_clean_per_seq = measure_nll_per_seq(recipient, tok, eval_texts)
+    recipient_clean_stats = bootstrap_mean_ci(recipient_clean_per_seq)
+    print(f"  recipient clean NLL = {recipient_clean_stats['mean']:.4f}")
+
+    direction_layers = sorted(set(SECONDARY_LAYERS))
+    print("Fitting donor PC1 directions...")
+    direction_info = {}
+    directions_by_layer = {}
+    for layer_idx in direction_layers:
+        direction, var_pc1 = extract_critical_direction(donor, tok, fit_texts, layer_idx)
+        direction_info[layer_idx] = {"var_pc1": var_pc1}
+        directions_by_layer[layer_idx] = direction
+        print(f"  layer {layer_idx}: PC1 var={var_pc1:.3f}")
+
+    print("Collecting donor per-token coefficients on eval split...")
+    donor_coeff_batches = collect_donor_coeff_batches(
+        donor, tok, eval_texts, directions_by_layer
+    )
+
+    print("Computing donor mean coefficient at layer 5...")
+    donor_mean_proj = compute_donor_mean_proj(
+        donor, tok, fit_texts, directions_by_layer[SURGERY_LAYER], SURGERY_LAYER
+    )
+    print(f"  donor mean proj (l5) = {donor_mean_proj:.4f}")
+
+    print("\nEvaluating diagnostic mean injection: layer 5...")
+    inject_l5_per_seq, inject_l5 = evaluate_condition(
+        recipient,
+        tok,
+        eval_texts,
+        recipient_clean_per_seq,
+        donor_clean_per_seq,
+        hook_fns_by_layer={
+            SURGERY_LAYER: make_inject_hook(
+                directions_by_layer[SURGERY_LAYER], donor_mean_proj
+            )
+        },
+    )
+    print(
+        f"  inject_l5_mean NLL = {inject_l5['nll']['mean']:.4f}  "
+        f"gap_closed = {inject_l5['gap_closed_pct']['mean']:.2f}%"
+    )
+
+    print("\nEvaluating primary exact replacement: layer 5...")
+    replace_l5_per_seq, replace_l5 = evaluate_condition(
+        recipient,
+        tok,
+        eval_texts,
+        recipient_clean_per_seq,
+        donor_clean_per_seq,
+        batch_hook_factories_by_layer=make_batch_replace_factories(
+            directions_by_layer, donor_coeff_batches, PRIMARY_LAYERS
+        ),
+    )
+    print(
+        f"  replace_l5_exact NLL = {replace_l5['nll']['mean']:.4f}  "
+        f"gap_closed = {replace_l5['gap_closed_pct']['mean']:.2f}%"
+    )
+
+    print("\nEvaluating secondary exact replacement: layers [2, 5, 8, 11]...")
+    replace_early4_per_seq, replace_early4 = evaluate_condition(
+        recipient,
+        tok,
+        eval_texts,
+        recipient_clean_per_seq,
+        donor_clean_per_seq,
+        batch_hook_factories_by_layer=make_batch_replace_factories(
+            directions_by_layer, donor_coeff_batches, SECONDARY_LAYERS
+        ),
+    )
+    print(
+        f"  replace_early4_exact NLL = {replace_early4['nll']['mean']:.4f}  "
+        f"gap_closed = {replace_early4['gap_closed_pct']['mean']:.2f}%"
+    )
+
+    primary_gap = replace_l5["gap_closed_pct"]["mean"]
+    primary_ci_lo = replace_l5["gap_closed_pct"]["ci_lo"]
+    secondary_gap = replace_early4["gap_closed_pct"]["mean"]
+    secondary_ci_lo = replace_early4["gap_closed_pct"]["ci_lo"]
+    mean_gap = inject_l5["gap_closed_pct"]["mean"]
+    best_exact_gap = max(primary_gap, secondary_gap)
+
+    if primary_gap >= PASS_GAP_CLOSED_PCT and primary_ci_lo > 0.0:
+        verdict = (
+            f"PASS: random-init layer-5 exact replacement closes {primary_gap:.1f}% "
+            "of the donor-recipient gap. A trained donor can directly improve an "
+            "untrained twin at zero gradient steps."
+        )
+    elif secondary_gap >= PASS_GAP_CLOSED_PCT and secondary_ci_lo > 0.0:
+        verdict = (
+            f"PASS: early-4 exact replacement closes {secondary_gap:.1f}% of the "
+            "donor-recipient gap. Transfer is real, but distributed scaffold "
+            "injection outperforms single-layer surgery for a random-init twin."
+        )
+    elif primary_gap >= PARTIAL_GAP_CLOSED_PCT and primary_ci_lo > 0.0:
+        verdict = (
+            f"PARTIAL: layer-5 exact replacement closes {primary_gap:.1f}% of the "
+            "donor-recipient gap. The critical direction transfers some useful "
+            "structure, but not enough to stand alone."
+        )
+    elif secondary_gap >= PARTIAL_GAP_CLOSED_PCT and secondary_ci_lo > 0.0:
+        verdict = (
+            f"PARTIAL: early-4 exact replacement closes {secondary_gap:.1f}% of the "
+            "donor-recipient gap. Multi-layer scaffold helps, but transfer remains "
+            "limited."
+        )
+    elif best_exact_gap < KILL_GAP_CLOSED_PCT:
+        verdict = (
+            f"KILL: best exact condition closes only {best_exact_gap:.1f}% of the "
+            "donor-recipient gap. Sentence-boundary PC1 alone is not sufficient "
+            "for zero-step transfusion into a random-init twin."
+        )
+    else:
+        verdict = (
+            f"INCONCLUSIVE: layer-5={primary_gap:.1f}% (CI lo {primary_ci_lo:.1f}%), "
+            f"early-4={secondary_gap:.1f}% (CI lo {secondary_ci_lo:.1f}%). "
+            "Re-run before escalating to cross-architecture recipients."
+        )
+
+    print("\n=== CROSS-MODEL SURGERY SUMMARY ===")
+    print(f"  donor clean NLL:        {donor_clean_stats['mean']:.4f}")
+    print(f"  recipient clean NLL:    {recipient_clean_stats['mean']:.4f}")
+    print(
+        f"  inject_l5_mean NLL:     {inject_l5['nll']['mean']:.4f}  "
+        f"gap_closed={mean_gap:.2f}%"
+    )
+    print(
+        f"  replace_l5_exact NLL:   {replace_l5['nll']['mean']:.4f}  "
+        f"gap_closed={primary_gap:.2f}%"
+    )
+    print(
+        f"  replace_early4_exact:   {replace_early4['nll']['mean']:.4f}  "
+        f"gap_closed={secondary_gap:.2f}%"
+    )
+    print(f"  verdict: {verdict}")
+
+    out = {
+        "donor_model": MODEL_ID,
+        "recipient_type_first": PRIMARY_RECIPIENT,
+        "random_init_first": True,
+        "n_fit": N_FIT,
+        "n_eval": N_EVAL,
+        "seq_len": SEQ_LEN,
+        "batch_size": BATCH,
+        "primary_layers": PRIMARY_LAYERS,
+        "secondary_layers": SECONDARY_LAYERS,
+        "pass_criteria": {
+            "pass_gap_closed_pct": PASS_GAP_CLOSED_PCT,
+            "partial_gap_closed_pct": PARTIAL_GAP_CLOSED_PCT,
+            "kill_gap_closed_pct": KILL_GAP_CLOSED_PCT,
+        },
+        "pc1_by_layer": {
+            str(layer_idx): {"var_pc1": info["var_pc1"]}
+            for layer_idx, info in direction_info.items()
+        },
+        "conditions": {
+            "donor_clean": {"layers": [], "nll": donor_clean_stats},
+            "recipient_clean": {"layers": [], "nll": recipient_clean_stats},
+            "inject_l5_mean": {"layers": PRIMARY_LAYERS, **inject_l5},
+            "replace_l5_exact": {"layers": PRIMARY_LAYERS, **replace_l5},
+            "replace_early4_exact": {"layers": SECONDARY_LAYERS, **replace_early4},
+        },
+        "recommended_protocol": {
+            "recipient_type": PRIMARY_RECIPIENT,
+            "inject_layers": PRIMARY_LAYERS,
+            "primary_mode": "per_token_exact_replacement",
+            "secondary_mode": "early4_exact_replacement",
+            "why": (
+                "Random-init same-architecture transfer is the cleanest direct test "
+                "of the moonshot end goal. It keeps tokenizer and hidden-size "
+                "alignment exact, so any failure is informative rather than a "
+                "cross-architecture bookkeeping confound."
+            ),
+        },
+        "verdict": verdict,
+        "elapsed_s": time.time() - t0,
+    }
+
+    out_path = RESULTS / "genome_117_cross_model_surgery.json"
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
+    print(f"\nSaved: {out_path}  ({time.time()-t0:.1f}s)")
 
 
 if __name__ == "__main__":

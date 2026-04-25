@@ -591,7 +591,10 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - clean NLL=4.21, lesion_l5=9.47, replace_l5=4.21. gap_closed=100%. PASS.
 - lesion_early4=9.90, replace_early4=4.21. gap_closed=100%.
 - Expected: donor=recipient (same Qwen3-0.6B), so exact coefficient replacement = identity. Validates machinery.
-- **Next**: genome_117 — cross-model surgery (Qwen3 donor → different recipient type, Codex to specify).
+- **Next (protocol locked 2026-04-25):** genome_117 = trained Qwen3 donor -> **random-init Qwen3 recipient first**.
+- Primary condition: exact per-token coefficient replacement at layer 5. Secondary: exact replacement at layers [2,5,8,11]. Diagnostic: layer-5 mean injection.
+- Pass threshold: >=20% donor-recipient gap closure with CI_lo>0. Partial: >=5%. Kill: both exact conditions <5%.
+- Why this first: it directly targets the moonshot end goal (trained -> untrained, zero-step) while avoiding the token-alignment and hidden-size confounds of a Pythia recipient. Pythia-lesioned is phase-2 if same-arch random-init transfer shows signal.
 - `code/genome_116_surgery_injection.py` -> `results/genome_116_surgery_injection.json`
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
