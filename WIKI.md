@@ -907,4 +907,25 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Strongest defendable manifesto-grade result of the project.** Direct hit on manifesto criterion (c) — electricity-grade efficiency, validated across 3 seeds, two distributions, and three metrics (NLL, top-1, top-5).
 - `code/genome_141_minimal_prior_capability.py` -> `results/genome_141_minimal_prior_capability.json`
 
+**genome_142 COMPLETED (2026-04-25): EFFICIENCY PARETO FRONTIER — 3L PASS, 2L PARTIAL, 1L PARTIAL**
+- Codex U1: locate failure boundary. 4 arms × 3 seeds × 4000 steps with full capability eval.
+
+| Arm | C4 NLL gap | C4 top1 gap | OOD NLL gap | OOD top1 gap | Params % | Time % | Verdict |
+|---|---|---|---|---|---|---|---|
+| baseline_full (6L+MLP, 30M) | — | — | — | — | 100% | 100% | reference |
+| **minimal_3L** | **+0.019** | **+0.12 pp** | **−0.020** | **−0.05 pp** | **70%** | **67%** | **PASS** |
+| minimal_2L | +0.053 | +0.30 pp | **−0.004** | +0.22 pp | 68% | 63% | PARTIAL |
+| minimal_1L | +0.149 | +0.88 pp | +0.068 | +0.09 pp | 66% | 56% | PARTIAL |
+
+- **3L is strict PASS** (full capability at 33% efficiency gain; OOD better than baseline).
+- **2L is marginal PARTIAL** — matches OOD NLL exactly (gap −0.004) and top-1 gap only 0.30pp, but C4 NLL gap +0.053 just above 0.05 threshold.
+- **1L is at the boundary** — 44% efficiency gain costs 0.88pp top-1 capability + 0.149 NLL.
+- **Linear degradation pattern:** each layer reduction adds ~0.05-0.10 NLL gap and ~0.3-0.5pp top-1 loss.
+- **Pareto sweet spots identified:**
+  - 3L: 33% efficient at full capability (manifesto-grade defendable)
+  - 2L: 37% efficient at minor in-dist penalty
+  - 1L: 44% efficient at meaningful capability cost
+- The **architecture-prior** is incredibly compressible — even 1 layer of attention captures most of the capability the standard 6-layer + MLP transformer provides.
+- `code/genome_142_push_efficiency_boundary.py` -> `results/genome_142_push_efficiency_boundary.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
