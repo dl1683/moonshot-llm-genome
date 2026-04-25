@@ -967,4 +967,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Manifesto-grade implication:** the standard "more layers + MLP = better" doctrine is wrong at fixed-budget training. Smaller, attention-only models are MORE sample-efficient.
 - `code/genome_144_minimal_prior_scale_100m.py` -> `results/genome_144_minimal_prior_scale_100m.json`
 
+**genome_145 COMPLETED (2026-04-26): MATCHED-FLOPs AT 100M — REVERSE WITH CONFOUND**
+- Codex W1: train minimal for 8000 steps to match baseline's 4000-step FLOPs.
+- Result reversed at matched compute: baseline_100M (4000 steps) beats minimal_6L_100M (8000 steps) by 0.73pp top-1 on C4 and 0.62pp on OOD.
+- **BUT major confound discovered:** with only N_TRAIN=4000 unique sequences:
+  - 8000 steps × batch=8 = 64000 samples = 16 epochs through the data
+  - minimal_6L OVERFITS: training loss keeps falling (3.95 final) but eval NLL **rises from 6.59 (4000 steps in g144) to 7.15 (8000 steps here)**
+  - baseline_100M at 4000 steps is still undertrained (loss descending)
+- **Neither arm is well-calibrated.** The 100M-scale architecture-prior question is NOT cleanly testable at this data pool size.
+- **g144 reversal was indeed a step-budget artifact** (baseline undertrained at 4000 steps).
+- **g145 isn't the clean answer either** (minimal overtrains at 8000 steps).
+- **Combined with g141 PASS (30M, same data pool):** the architecture-prior claim is robust at 30M but ambiguous at 100M with current setup.
+- The 30M models tolerate the 4000-sequence pool limit; 100M models don't.
+- `code/genome_145_matched_flops_100m.py` -> `results/genome_145_matched_flops_100m.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
