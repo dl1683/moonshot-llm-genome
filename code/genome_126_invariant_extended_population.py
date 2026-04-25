@@ -42,11 +42,14 @@ ALREADY_TESTED = [
     ("minilm-l6-contrastive",        "sentence-transformers/all-MiniLM-L6-v2"),
 ]
 NEW_SYSTEMS = [
-    ("pythia-160m",                  "EleutherAI/pythia-160m"),
-    ("pythia-410m",                  "EleutherAI/pythia-410m"),
-    ("gpt-neo-125m",                 "EleutherAI/gpt-neo-125m"),
-    ("distilbert-base-uncased",      "distilbert-base-uncased"),
-    ("albert-base-v2",               "albert-base-v2"),
+    # (sys_key, hf_id, is_causal_lm)
+    ("pythia-160m",                  "EleutherAI/pythia-160m",     True),
+    ("pythia-410m",                  "EleutherAI/pythia-410m",     True),
+    ("pythia-1.4b",                  "EleutherAI/pythia-1.4b",     True),
+    ("gpt-neo-125m",                 "EleutherAI/gpt-neo-125m",    True),
+    ("opt-125m",                     "facebook/opt-125m",          True),
+    ("opt-350m",                     "facebook/opt-350m",          True),
+    ("tinyllama-1.1b",               "TinyLlama/TinyLlama-1.1B-Chat-v1.0", True),
 ]
 
 
@@ -72,16 +75,46 @@ def eff_rank(s):
     return float(tot ** 2 / (s2 ** 2).sum()) if tot > 0 else 0.0
 
 
-def measure(sys_key, hf_id, texts):
+def _direct_load(hf_id, is_causal_lm):
+    """Fallback for systems not in canonical registry."""
+    from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
+    tok = AutoTokenizer.from_pretrained(hf_id)
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token if tok.eos_token else tok.cls_token
+    cls = AutoModelForCausalLM if is_causal_lm else AutoModel
+    model = cls.from_pretrained(hf_id, torch_dtype=torch.float16).to("cuda").eval()
+    # Determine n_hidden_layers
+    cfg = model.config
+    n_layers = None
+    for name in ("num_hidden_layers", "n_layer", "n_layers"):
+        if hasattr(cfg, name):
+            n_layers = getattr(cfg, name)
+            break
+    return model, tok, n_layers
+
+
+def measure(sys_key, hf_id, texts, is_causal_lm=True):
     """Returns dict with trained + shuffled rows, or None on failure."""
+    used_direct = False
     try:
         sys_obj = load_system(hf_id, quant="fp16", untrained=False, device="cuda")
+        model = sys_obj.model
+        tok = sys_obj.tokenizer
+        n_layers = sys_obj.n_hidden_layers()
     except Exception as e:
-        return {"error": f"load: {e}"}
-    mid = max(1, sys_obj.n_hidden_layers() // 2)
+        # Fallback: direct HuggingFace load
+        print(f"  not in registry, direct load: {e}")
+        try:
+            model, tok, n_layers = _direct_load(hf_id, is_causal_lm)
+            sys_obj = None
+            used_direct = True
+        except Exception as e2:
+            return {"error": f"direct load: {e2}"}
+
+    mid = max(1, n_layers // 2)
     try:
         traj = extract_trajectory(
-            model=sys_obj.model, tokenizer=sys_obj.tokenizer,
+            model=model, tokenizer=tok,
             texts=texts, layer_indices=[mid], pooling="seq_mean",
             device="cuda", system_key=sys_key, class_id=1,
             quantization="fp16",
@@ -90,9 +123,14 @@ def measure(sys_key, hf_id, texts):
         )
         X = traj.layers[0].X.astype(np.float32)
     except Exception as e:
-        sys_obj.unload(); torch.cuda.empty_cache()
+        if sys_obj: sys_obj.unload()
+        else: del model
+        torch.cuda.empty_cache()
         return {"error": f"extract: {e}"}
-    sys_obj.unload(); torch.cuda.empty_cache()
+
+    if sys_obj: sys_obj.unload()
+    else: del model
+    torch.cuda.empty_cache()
 
     rows = []
     s_tr = spectrum(X)
@@ -125,10 +163,12 @@ def main():
     print(f"  N={len(texts)}")
 
     rows = []
-    all_systems = ALREADY_TESTED + NEW_SYSTEMS
-    for sys_key, hf_id in all_systems:
+    all_systems = [(k, h, True) for k, h in ALREADY_TESTED] + NEW_SYSTEMS
+    # Note: bert/roberta/minilm in ALREADY_TESTED are encoders but load_system
+    # already handles them via uses_causal_lm meta; the True default is unused.
+    for sys_key, hf_id, is_causal in all_systems:
         print(f"\n[{time.time()-t0:.1f}s] === {sys_key} ===")
-        result = measure(sys_key, hf_id, texts)
+        result = measure(sys_key, hf_id, texts, is_causal_lm=is_causal)
         if "error" in result:
             print(f"  FAIL: {result['error']}")
             continue

@@ -693,4 +693,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Honest call per Codex's own pre-stated criterion:** "If frozen_attn_glue does not clear 20% gap closure with >=5pp delta over matched control, surgery is dead." Result: 0.86pp delta. Surgery is dead.
 - `code/genome_125_frozen_attn_glue_train.py` -> `results/genome_125_frozen_attn_glue_train.json`
 
+**genome_126 COMPLETED (2026-04-25): EXTENDED TRAINED-SPECTRUM INVARIANT POPULATION — PARTIAL (looser than genome_088 N=5)**
+- N=12 text systems via genome_extractor + direct-load fallback. Target sqrt(er)*alpha = 4.243.
+- Mean (all 12): **4.168 (deviation 1.7% from target)**, CV=20.20%. GPT-Neo-125m is a clean outlier (sqrt_er_alpha=1.62, er=4.14 — vs cluster er=22-58).
+- Excluding GPT-Neo (N=11): mean=**4.40, CV=8.2%** (PARTIAL grade, was N=5 CV=5.1% in genome_088).
+- New systems added: Pythia-160m (4.005), Pythia-410m (4.204), Pythia-1.4b (4.330) — Pythia scale tight 4.0-4.3. OPT-125m (5.230), OPT-350m (4.862), TinyLlama-1.1b (4.430).
+- DistilBERT and ALBERT failed extraction (architecture-specific layer paths missing from `_transformer_blocks`).
+- **Interpretation:** the invariant exists across a broader population than genome_088 reported, but the CV=5% precision was a small-N artifact. True population CV ~8% on 11 capable text LMs.
+- **GPT-Neo-125m off-manifold:** consistent with manifesto framing — training is convergence to the universal attractor. GPT-Neo's older/weaker training leaves it in a less-converged state. Worth investigating: is this a genuine "training maturity" signal?
+- **Variational-derivation pursuit:** Codex Y direction still alive but the target is now "predict mean ~ 4.3 with population CV ~ 8% on capable trained LMs," not perfect precision at 4.243.
+- `code/genome_126_invariant_extended_population.py` -> `results/genome_126_invariant_extended_population.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
