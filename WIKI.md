@@ -788,4 +788,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - This is a BOUNDARY finding: trajectory universality holds for full-stack training, but the specific U-shape is full-stack-specific. The endpoint (~4.2-4.9) is shared.
 - `code/genome_134_glue_only_trajectory.py` -> `results/genome_134_glue_only_trajectory.json`
 
+**genome_135 COMPLETED (2026-04-25): CLOSED-LOOP PHASE CONTROL — KILL (trajectory is epiphenomenal)**
+- The decisive Codex P2 test: is the universal trajectory CAUSAL or EPIPHENOMENAL?
+- Two-arm tiny-Llama from-scratch (4000 steps each). Arm B = closed-loop spectrum measurement every 32 steps, adaptive LR/wd to push student toward 2× accelerated trajectory.
+- Arm A control NLL@4000 = **6.366**. Arm B phase-controlled NLL@4000 = **6.873 (WORSE)**.
+- CtQ_75 (target NLL=7.499): both arms reach at step 512. **Speedup = 1.0×**.
+- Phase controller drove LR from 3e-4 to 6e-5 (5× reduction) and wd from 0.1 to 0.5 — these reductions slowed loss descent without producing any compensating benefit.
+- **Verdict: trajectory is EPIPHENOMENAL.** The universal U-shape is a SYMPTOM of training, not a CAUSAL LEVER. Controlling the spectrum does not accelerate capability acquisition.
+- **This decisively closes the spectral thread.** The invariant exists (g126), trajectory is universal (g127-133), within-trajectory predicts NLL (g131) — but cannot be used to accelerate training. Spectrum is downstream of capability, not upstream.
+- **Pivot indicated:** Codex's pre-stated alternative was P3 (high-dim process descriptors). Per memory rule, firing Codex for concrete next direction.
+- `code/genome_135_closed_loop_phase_control.py` -> `results/genome_135_closed_loop_phase_control.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
