@@ -108,7 +108,7 @@ def collect_layer_activations(model, tok, texts):
     activations = {}
     with torch.no_grad():
         for i in range(0, len(texts), BATCH):
-            ids, mask = tokenize(texts[i:i + BATCH])
+            ids, mask = tokenize(texts[i:i + BATCH], tok)
             out = model(input_ids=ids, attention_mask=mask,
                         output_hidden_states=True)
             for l, h in enumerate(out.hidden_states):
@@ -205,7 +205,7 @@ def apply_basis_rotation(model, T_per_layer):
 def measure_nll(model, tok, texts):
     per_seq = []
     for i in range(0, len(texts), BATCH):
-        ids, mask = tokenize(texts[i:i + BATCH])
+        ids, mask = tokenize(texts[i:i + BATCH], tok)
         with torch.no_grad():
             out = model(input_ids=ids, attention_mask=mask)
         for j in range(ids.shape[0]):
