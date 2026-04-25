@@ -813,4 +813,23 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Per Codex's pre-stated criterion: narrow P3a to **optimizer/gradient state**. genome_137 = optimizer-state transfer test.
 - `code/genome_136_data_order_transfer.py` -> `results/genome_136_data_order_transfer.json`
 
+**genome_137 COMPLETED (2026-04-25): OPTIMIZER-STATE TRANSFER — PARTIAL/effectively-KILL**
+- Codex P3a narrowed: 4 arms × 3 seeds checkpoint-fork at K=1000 → 4000 on tiny Llama 30M.
+- **resume_true** (donor weights + donor opt state): early-mean NLL 6.606, final 6.119, post-K CtQ 2000
+- **resume_reset** (donor weights + fresh AdamW): early 6.636, final 6.118, post-K CtQ 2000
+- **resume_foreign** (donor weights + DIFFERENT seed's opt state): early 6.608, final 6.118, post-K CtQ 2000
+- **state_only** (random weights + donor opt state): early 8.762 (catastrophic), final 6.201
+- **Verdict:** PARTIAL, effectively KILL. Three observations:
+  1. Early-NLL gain resume_true vs reset = +0.030 (real but below PASS 0.05)
+  2. resume_foreign INDISTINGUISHABLE from resume_true → opt state carries no seed-specific path info
+  3. All weight-resume arms reach CtQ at SAME step, same final NLL → opt state advantage washes out by step 2000
+- **Combined picture (g135 + g136 + g137):** Three of Codex's "high-dim process descriptor" candidates eliminated:
+  - Spectrum trajectory: EPIPHENOMENAL (g135 KILL)
+  - Data ordering: NOT A LEVER (g136 KILL)
+  - Optimizer state: WEAK GENERIC SMOOTHING, NOT TRANSFERABLE (g137 PARTIAL/KILL)
+- **Capability sits in (architecture × weights × data multiset) at long-horizon equilibrium.** Path details are mostly forgotten by step 4000.
+- The user's "weights are a low-dim shadow" framing needs revision: weights AT CONVERGENCE are a sufficient description; path-symmetries (permutations, gauges) discarded but not capability-bearing.
+- Per memory rule: firing Codex immediately for next direction.
+- `code/genome_137_optimizer_state_transfer.py` -> `results/genome_137_optimizer_state_transfer.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
