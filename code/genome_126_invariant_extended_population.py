@@ -117,11 +117,11 @@ def load_model_and_tok(hf_id, is_causal_lm):
         tok.pad_token = tok.eos_token if tok.eos_token else tok.cls_token
     if is_causal_lm:
         model = AutoModelForCausalLM.from_pretrained(
-            hf_id, dtype=torch.float16, output_hidden_states=True
+            hf_id, dtype=torch.float16
         )
     else:
         model = AutoModel.from_pretrained(
-            hf_id, dtype=torch.float16, output_hidden_states=True
+            hf_id, dtype=torch.float16
         )
     model = model.to(DEVICE).eval()
     return model, tok
@@ -136,27 +136,69 @@ def n_hidden_layers(model):
     raise ValueError(f"can't find num_layers in config: {cfg}")
 
 
+def find_transformer_blocks(model):
+    """Return the ModuleList of transformer blocks for various architectures."""
+    candidates = [
+        # Llama-family / Qwen / Pythia-causal
+        lambda m: m.model.layers,
+        # GPT-Neo / GPT2
+        lambda m: m.transformer.h,
+        # BERT / RoBERTa / DistilBERT (encoder)
+        lambda m: m.encoder.layer,
+        # ALBERT
+        lambda m: m.encoder.albert_layer_groups[0].albert_layers,
+        # MiniLM / sentence-transformer wrapped BERT
+        lambda m: m.bert.encoder.layer,
+        # Pythia (gpt_neox)
+        lambda m: m.gpt_neox.layers,
+        # If model is AutoModel (encoder), might already be the encoder
+        lambda m: m.layers,
+    ]
+    for fn in candidates:
+        try:
+            blocks = fn(model)
+            if hasattr(blocks, "__len__") and len(blocks) > 1:
+                return list(blocks)
+        except (AttributeError, IndexError, TypeError):
+            continue
+    raise ValueError(f"can't locate transformer blocks for {type(model).__name__}")
+
+
 def collect_mid_layer_activations(model, tok, texts, batch_size=8):
-    """Run model on texts, return seq-mean-pooled mid-layer hidden states.
-       Returns array of shape (n_texts, hidden_dim)."""
-    n_layers = n_hidden_layers(model)
+    """Run model on texts via forward HOOK on mid-layer block (matches
+    genome_extractor / genome_088 / genome_095 semantics). Returns seq-mean-
+    pooled activation cloud of shape (n_texts, hidden_dim)."""
+    blocks = find_transformer_blocks(model)
+    n_layers = len(blocks)
     mid_layer = max(1, n_layers // 2)
     print(f"    n_layers={n_layers}, mid_layer={mid_layer}")
 
-    all_pooled = []
-    for i in range(0, len(texts), batch_size):
-        batch = texts[i:i + batch_size]
-        enc = tok(batch, return_tensors="pt", padding=True,
-                   truncation=True, max_length=SEQ_LEN).to(DEVICE)
-        with torch.no_grad():
-            out = model(**enc, output_hidden_states=True)
-        # hidden_states is tuple of (n_layers+1) tensors of shape (B, T, D)
-        # index 0 = embeddings, 1..n_layers = layer outputs
-        h = out.hidden_states[mid_layer]  # (B, T, D)
-        mask = enc["attention_mask"].unsqueeze(-1).float()  # (B, T, 1)
-        pooled = (h.float() * mask).sum(dim=1) / mask.sum(dim=1).clamp(min=1)
-        all_pooled.append(pooled.cpu().numpy())
-    return np.concatenate(all_pooled, axis=0)
+    captured = []
+    current_mask = [None]
+
+    def hook(module, _inputs, output):
+        h = output[0] if isinstance(output, tuple) else output
+        h32 = h.detach().to(torch.float32)
+        mask = current_mask[0]
+        mask_f = mask.unsqueeze(-1).to(torch.float32)
+        lengths = mask.sum(dim=1, keepdim=True).to(torch.float32).clamp(min=1)
+        pooled = (h32 * mask_f).sum(dim=1) / lengths
+        captured.append(pooled.cpu().numpy())
+
+    h = blocks[mid_layer].register_forward_hook(hook)
+    try:
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i:i + batch_size]
+            enc = tok(batch, return_tensors="pt", padding=True,
+                       truncation=True, max_length=SEQ_LEN).to(DEVICE)
+            current_mask[0] = enc["attention_mask"]
+            with torch.no_grad():
+                model(input_ids=enc["input_ids"],
+                      attention_mask=enc["attention_mask"],
+                      use_cache=False)
+    finally:
+        h.remove()
+    return np.concatenate(captured, axis=0)
 
 
 def spectrum(X):
