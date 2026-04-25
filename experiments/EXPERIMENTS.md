@@ -26,6 +26,35 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_125_frozen_attn_glue_train — PARTIAL (surgery dead; architecture-prior surprise)
+
+**Purpose.** Codex direction (d): if all_attn is the only consistent positive component (genome_120-124), copy it from donor, FREEZE it, and train ONLY the interface (embed/lm_head + RMSNorm gammas) for 100 steps. Test the hypothesis that interface calibration is the bottleneck.
+**Systems.** Qwen3-0.6B donor + random-init recipient (seed=42). 3 arms × 100 steps × 4 evals.
+**Pre-stated criteria.** PASS = ≥20% gap AND ≥5pp over matched control. KILL = ≤ matched control.
+**Results @ step 100.**
+
+| Arm | Trainable | NLL | Gap closed |
+|---|---|---|---|
+| frozen_attn_glue (donor attn copied + frozen, train glue) | 26.1% | 8.6713 | **43.52%** |
+| matched_param_ctrl (random attn frozen, train glue) | 26.1% | 8.7395 | **42.66%** |
+| full_train_ctrl (random init, full unfreeze) | 100% | 7.6969 | **55.81%** |
+
+**Donor attention advantage: +0.86 pp.** Below the 5 pp threshold for PASS. Above zero by a slim margin.
+
+**Verdict.** PARTIAL — frozen_attn_glue closes 43.5% (well above 10% partial threshold) but only 0.86pp better than matched random-attn control. By Codex's pre-stated honest criterion ("If frozen_attn_glue does not clear ≥5pp delta, surgery is dead"), this is a SURGERY KILL.
+
+**Two findings that point opposite directions:**
+
+1. **Surgery is dead (negative finding, expected after genome_119-124 chain).** Donor attention weights provide essentially zero capability transfer when used as a fixed feature extractor. The ~+0.6-0.9% gap closure observed across genome_120-124 for `all_attn` is now explained: it's a small constant from the donor's attention being slightly better than random for the specific role of "process tokens with some learned structure," but that role doesn't compose into capability under partial transplant. After 100 gradient steps on the glue, even this small advantage is washed out (+0.86pp).
+
+2. **Architecture-as-prior is unexpectedly strong (positive finding, surprising).** A random-init Qwen3 architecture, with FROZEN random attention + FROZEN random MLP, can achieve 42.66% gap closure in 100 steps just by training the embedding/LM-head + RMSNorm gammas (26.1% of total params). This says the trained Qwen3 architecture as designed contains substantial prior structure (residual connections, attention pattern + MLP shape, layer count, hidden dimension) that random weights can express usefully when only the input/output interfaces are calibrated.
+
+**Research pivot indicated.** The kill chain has now exhausted weight-surgery as a transfer mechanism. The new positive finding (architecture-prior) opens a different question: **how much of capability is in architecture vs weights?** This is closer to lottery-ticket / untrained-prior research, and is the natural next direction.
+
+**Six straight surgery KILLs + one architecture-prior finding** — the genome series has produced strong negative evidence on weight-subset transfer and one unexpected positive datum. Time to redirect.
+
+---
+
 ## 2026-04-25 — genome_124_activation_basis_alignment — KILL (T_0 rotation insufficient)
 
 **Purpose.** Codex direction A (basis alignment) reframed as activation-space Procrustes. Fit per-layer orthogonal T_l = U V^T from SVD of cross-covariance H_recip^T @ H_donor. Apply T_0 to embedding output (RMSNorm prevents per-layer rotation without joint gamma refit).

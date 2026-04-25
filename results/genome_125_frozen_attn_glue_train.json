@@ -1,0 +1,143 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "genome": 125,
+  "name": "frozen_attn_glue_train",
+  "donor_nll": {
+    "mean": 4.193203125,
+    "ci_lo": 4.080603515625,
+    "ci_hi": 4.301689453125
+  },
+  "random_init_nll": {
+    "mean": 12.12125,
+    "ci_lo": 12.107171875,
+    "ci_hi": 12.136875
+  },
+  "max_steps": 100,
+  "lr": 0.0003,
+  "eval_steps": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "criteria": {
+    "pass_gap_pct": 20.0,
+    "partial_gap_pct": 10.0,
+    "glue_delta_pass_pp": 5.0
+  },
+  "arm_results": {
+    "frozen_attn_glue": {
+      "trainable_params": 155640832,
+      "total_params": 596049920,
+      "donor_attn_copied": true,
+      "nll_curve": {
+        "0": {
+          "mean": 12.0709375,
+          "ci_lo": 12.0559375,
+          "ci_hi": 12.085625,
+          "gap_closed_pct": 0.6346140580809877
+        },
+        "10": {
+          "mean": 11.8959375,
+          "ci_lo": 11.8648359375,
+          "ci_hi": 11.9234375,
+          "gap_closed_pct": 2.8419673035800432
+        },
+        "25": {
+          "mean": 11.5446875,
+          "ci_lo": 11.4795078125,
+          "ci_hi": 11.6067265625,
+          "gap_closed_pct": 7.272440603474606
+        },
+        "50": {
+          "mean": 10.278125,
+          "ci_lo": 10.1279609375,
+          "ci_hi": 10.427875,
+          "gap_closed_pct": 23.24815971777413
+        },
+        "100": {
+          "mean": 8.67125,
+          "ci_lo": 8.5047734375,
+          "ci_hi": 8.83294140625,
+          "gap_closed_pct": 43.51639255412449
+        }
+      }
+    },
+    "matched_param_ctrl": {
+      "trainable_params": 155640832,
+      "total_params": 596049920,
+      "donor_attn_copied": false,
+      "nll_curve": {
+        "0": {
+          "mean": 12.12125,
+          "ci_lo": 12.107171875,
+          "ci_hi": 12.136875,
+          "gap_closed_pct": 0.0
+        },
+        "10": {
+          "mean": 11.9190625,
+          "ci_lo": 11.88371875,
+          "ci_hi": 11.9548515625,
+          "gap_closed_pct": 2.5502813389962338
+        },
+        "25": {
+          "mean": 11.4740625,
+          "ci_lo": 11.3916640625,
+          "ci_hi": 11.5551640625,
+          "gap_closed_pct": 8.163265306122442
+        },
+        "50": {
+          "mean": 10.298125,
+          "ci_lo": 10.130296875,
+          "ci_hi": 10.4579765625,
+          "gap_closed_pct": 22.99589077543136
+        },
+        "100": {
+          "mean": 8.73953125,
+          "ci_lo": 8.578375000000001,
+          "ci_hi": 8.9040078125,
+          "gap_closed_pct": 42.65513061815744
+        }
+      }
+    },
+    "full_train_ctrl": {
+      "trainable_params": 596049920,
+      "total_params": 596049920,
+      "donor_attn_copied": false,
+      "nll_curve": {
+        "0": {
+          "mean": 12.12125,
+          "ci_lo": 12.107171875,
+          "ci_hi": 12.136875,
+          "gap_closed_pct": 0.0
+        },
+        "10": {
+          "mean": 9.5296875,
+          "ci_lo": 9.44778125,
+          "ci_hi": 9.61284375,
+          "gap_closed_pct": 32.688536544506746
+        },
+        "25": {
+          "mean": 8.31265625,
+          "ci_lo": 8.206484375,
+          "ci_hi": 8.424496093750001,
+          "gap_closed_pct": 48.03949585628554
+        },
+        "50": {
+          "mean": 8.0371875,
+          "ci_lo": 7.921921875,
+          "ci_hi": 8.15430078125,
+          "gap_closed_pct": 51.514106366834525
+        },
+        "100": {
+          "mean": 7.696875,
+          "ci_lo": 7.569359375,
+          "ci_hi": 7.8261328125,
+          "gap_closed_pct": 55.80662008888538
+        }
+      }
+    }
+  },
+  "verdict": "PARTIAL: frozen_attn_glue closes 43.5% (>= 10.0%) but only beats matched_param by 0.9 pp. Weak signal.",
+  "elapsed_s": 277.48944091796875
+}

@@ -682,4 +682,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Next direction (Codex pending):** full-stack permutation Re-Basin with norm refit, OR donor-init + structured noise (option B previously dismissed by Codex), OR inference-time RSA-style transfer (no weights copied at all).
 - `code/genome_124_activation_basis_alignment.py` -> `results/genome_124_activation_basis_alignment.json`
 
+**genome_125 COMPLETED (2026-04-25): FROZEN-ATTN GLUE TRAIN — PARTIAL (surgery dead, but architecture-as-prior is real)**
+- Codex direction (d): copy donor all_attn into random-init Qwen3, freeze it, train glue (embed+lm_head + 29×2 RMSNorm gammas, 26.1% of params) for 100 steps.
+- frozen_attn_glue: gap=**43.52%** at step 100 (NLL 12.12→8.67).
+- matched_param_ctrl (random attn + same glue train): gap=**42.66%** (NLL 12.12→8.74).
+- full_train_ctrl (random init, full unfreeze): gap=**55.81%** (NLL 12.12→7.70).
+- delta (donor - random) = **+0.86 pp** — donor attention weights provide essentially zero additional capability transfer. Surgery is functionally DEAD.
+- **NEW POSITIVE FINDING:** glue-only training (only embed/head + RMSNorm gammas, 26% of params) achieves 42.66% gap closure in 100 steps even with completely random attention and MLP weights. The Qwen3 architecture provides massive prior capability when interface layers are trained.
+- **Research pivot:** Question is no longer "can we transfer donor weights?" (answer: largely no for this size/budget). New question: "how much capability is the architecture itself providing?" Lottery ticket / untrained network prior territory.
+- **Honest call per Codex's own pre-stated criterion:** "If frozen_attn_glue does not clear 20% gap closure with >=5pp delta over matched control, surgery is dead." Result: 0.86pp delta. Surgery is dead.
+- `code/genome_125_frozen_attn_glue_train.py` -> `results/genome_125_frozen_attn_glue_train.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
