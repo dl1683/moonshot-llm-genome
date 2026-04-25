@@ -26,6 +26,20 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_118_checkpoint_surgery — KILL (formula artifact in nominal PASS)
+
+**Purpose.** Does PC1 activation surgery work on a partially-trained same-architecture recipient? At what training step does readout alignment emerge?
+**Systems.** Donor: Pythia-160M step-143000 (NLL=4.863). Recipients: 8 log-spaced checkpoints [step0, step1, step8, step64, step512, step4000, step32000, step143000].
+**Protocol.** Exact per-token PC1 replacement at layer 3 (sentence-boundary axis). gap_closed% = (NLL_recip - NLL_after) / (NLL_recip - NLL_donor) × 100.
+**Raw results.** step0=+1.01%, step8=+0.23%, step64=-1.17%, step512=-7.56%, step4000=246% (artifact), step32000=29% (artifact), step143000=0%.
+**ARTIFACT NOTE.** At steps 4000–32000, the Pythia recipient evaluated on wikitext is BETTER than the step-143000 donor (NLL 4.75, 4.35 < 4.86), because Pythia was trained on The Pile, not wikitext. The gap formula denominator flips sign, producing spurious >100% figures. Surgery actually makes these checkpoints WORSE too.
+**Real verdict: KILL.** Surgery never improves any recipient. Early training: negligible +1% (noise-level). Mid-training step512: -7.6% (most harmful — developing readout weights are disrupted). Late training: distribution-shift artifact masks real signal (surgery still harmful).
+**What this means.** PC1 activation injection cannot transfer capability at any training stage in same-architecture surgery. The sentence-boundary/DC axis is a **structural axis** (position prior), not a capability axis. Every model must learn its own position prior; injecting a foreign one disrupts the recipient's developing structure rather than helping it.
+**Critical constraint, now complete.** Across genome_116 (same-model hook algebra verified) → genome_117 (random-init Qwen3: 0%) → genome_118 (Pythia all checkpoints: ≤1%, worsens with training), the PC1 activation surgery approach is exhausted. The direction is too model-specific to transfer beneficially.
+**Next.** Codex to specify: (a) target capability-specific directions (not PC1/DC axis), or (b) weight-space surgery (inject weight SVD subspaces directly).
+
+---
+
 ## 2026-04-25 — genome_117_cross_model_surgery — KILL (decisive)
 
 **Purpose.** Decisive cross-model surgery: does injecting trained Qwen3-0.6B PC1 structure into a random-init Qwen3 recipient close any meaningful fraction of the NLL gap at zero gradient steps?

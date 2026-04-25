@@ -608,4 +608,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Next direction (pending Codex):** options are (a) partially-trained recipient (Pythia early checkpoint — does transfer work once 10-50% of training is done?), (b) weight-space surgery (transfer the actual weight subspace, not activation direction), or (c) conditioned surgery (find a task-specific direction that survives into a recipient with trained task-relevant weights).
 - `code/genome_117_cross_model_surgery.py` -> `results/genome_117_cross_model_surgery.json`
 
+**genome_118 COMPLETED (2026-04-25): CHECKPOINT SURGERY SWEEP — KILL (formula artifact in nominal PASS)**
+- Donor: Pythia-160M step-143000 (NLL=4.863). Recipients: 8 checkpoints [step0…step143000].
+- Surgery: exact per-token PC1 replacement at layer 3 (sentence-boundary axis).
+- Raw results: step0=+1.01%, step1=+1.01%, step8=+0.23%, step64=-1.17%, step512=-7.56%, step4000=246% (ARTIFACT), step32000=29% (ARTIFACT), step143000=0%.
+- **ARTIFACT at steps 4000-32000**: recipient NLL (4.75, 4.35) < donor NLL (4.86) on wikitext eval, because Pythia was trained on The Pile, not wikitext. Gap formula denominator flips sign → meaningless %. Surgery actually HURTS these checkpoints too.
+- **Real verdict: KILL.** Surgery never improves any recipient at any training stage. Early (~step0): negligible +1% (noise). Mid-training (step512): actively harmful -7.6% (recipient's developing alignment is disrupted by injecting foreign PC1). Late training: distribution shift artifact.
+- **Critical theoretical constraint, now fully established:** PC1 sentence-boundary activation injection cannot transfer capability at ANY training stage. The direction is model-specific by the time training is complete; partial training creates MISALIGNED readout, making surgery worse than nothing.
+- **Implication:** The sentence-boundary/DC axis (PC1) is a structural axis, NOT a capability axis. It encodes position priors that every model must learn, but injecting one model's position prior into another disrupts the recipient's own emerging structure.
+- **Next direction (pending Codex):** Either (a) target a task-specific CAPABILITY direction (not PC1/structural axis), or (b) weight-space surgery (inject actual weight SVD subspaces, not activation directions).
+- `code/genome_118_checkpoint_surgery.py` -> `results/genome_118_checkpoint_surgery.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
