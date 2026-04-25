@@ -752,4 +752,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - This converts the genome_127-129 finding into a USABLE TOOL — direct GenomeGuard extension for training monitoring.
 - `code/genome_131_invariant_predicts_nll.py` -> `results/genome_131_invariant_predicts_nll.json`
 
+**genome_132 COMPLETED (2026-04-25): CROSS-ARCH NLL PREDICTION — KILL (informative boundary)**
+- Combined g131 (16 Pythia trajectory pts) + 9 fully-trained cross-arch LMs = N=25.
+- Combined Pearson |inv-target| vs NLL: **0.718** (below 0.80 PASS threshold).
+- **Cross-arch ONLY (N=9): Pearson r = 0.179** — essentially no correlation.
+- Within-Pythia trajectory (g131 N=16): r = 0.89.
+- **The invariant predicts NLL WITHIN a training trajectory but NOT ACROSS architectures.**
+- Counter-examples cross-arch:
+  - GPT-Neo-125m: deviation=2.82 (huge), NLL=3.50 (moderate)
+  - OPT-125m: deviation=0.12 (tiny), NLL=3.35 (similar to GPT-Neo)
+  - TinyLlama-1.1b: deviation=0.53 (moderate), NLL=2.37 (best)
+- **Refined claim:** invariant is an ARCHITECTURE-INTERNAL training-trajectory diagnostic. Cross-architecture, raw NLL depends on training-data quantity / model capacity / optimization quality, factors orthogonal to geometric convergence.
+- **Implication:** the g131 PASS is a within-trajectory result that doesn't extrapolate to "model-quality across architectures." But it remains a useful within-arch training-monitoring tool.
+- `code/genome_132_predicts_nll_crossarch.py` -> `results/genome_132_predicts_nll_crossarch.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
