@@ -14,6 +14,8 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 Every experiment serves this. The atlas measures geometry. The invariants are the map. The destination is always: take a model that cannot do X, inject geometric structure from a model that can, and watch X emerge — cheaply, reproducibly, at scale. Surgical injection via identified critical subspace directions is the current path toward this goal.
 
+**Success threshold**: Even 50–60% capability transfer qualifies as a moonshot success IF it happens at near-zero cost (no gradient steps, seconds of compute). Cheap partial transfer >> expensive full recovery. Multi-donor ensemble surgery (injecting from several trained models) may unlock both higher transfer rates and implicit regularization benefits — worth exploring after single-donor baseline is established.
+
 ---
 
 ## ⚠ SCOPE LOCK — CS/AI/MATH ONLY (read first) ⚠
