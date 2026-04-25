@@ -1,0 +1,112 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "recipient_type_first": "lesioned_pretrained_qwen3",
+  "random_init_first": false,
+  "n_fit": 200,
+  "n_eval": 100,
+  "seq_len": 64,
+  "batch_size": 8,
+  "primary_layers": [
+    5
+  ],
+  "secondary_layers": [
+    2,
+    5,
+    8,
+    11
+  ],
+  "pass_criteria": {
+    "pass_gap_closed_pct": 90.0,
+    "partial_gap_closed_pct": 20.0,
+    "kill_gap_closed_pct": 5.0
+  },
+  "pc1_by_layer": {
+    "2": {
+      "var_pc1": 0.8240641951560974
+    },
+    "5": {
+      "var_pc1": 0.5873722434043884
+    },
+    "8": {
+      "var_pc1": 0.40453267097473145
+    },
+    "11": {
+      "var_pc1": 0.2044973224401474
+    }
+  },
+  "conditions": {
+    "clean": {
+      "layers": [],
+      "nll": {
+        "mean": 4.205625,
+        "ci_lo": 4.0481289062500005,
+        "ci_hi": 4.38812890625
+      }
+    },
+    "lesion_l5": {
+      "layers": [
+        5
+      ],
+      "nll": {
+        "mean": 9.47328125,
+        "ci_lo": 9.23775,
+        "ci_hi": 9.6939609375
+      }
+    },
+    "replace_l5_exact": {
+      "layers": [
+        5
+      ],
+      "nll": {
+        "mean": 4.205625,
+        "ci_lo": 4.0481289062500005,
+        "ci_hi": 4.38812890625
+      },
+      "gap_closed_pct": {
+        "mean": 100.0,
+        "ci_lo": 100.0,
+        "ci_hi": 100.0
+      }
+    },
+    "lesion_early4": {
+      "layers": [
+        2,
+        5,
+        8,
+        11
+      ],
+      "nll": {
+        "mean": 9.9015625,
+        "ci_lo": 9.6519140625,
+        "ci_hi": 10.123757812500001
+      }
+    },
+    "replace_early4_exact": {
+      "layers": [
+        2,
+        5,
+        8,
+        11
+      ],
+      "nll": {
+        "mean": 4.205625,
+        "ci_lo": 4.0481289062500005,
+        "ci_hi": 4.38812890625
+      },
+      "gap_closed_pct": {
+        "mean": 100.0,
+        "ci_lo": 100.0,
+        "ci_hi": 100.0
+      }
+    }
+  },
+  "recommended_protocol": {
+    "recipient_type": "lesioned_pretrained_qwen3",
+    "inject_layers": [
+      5
+    ],
+    "why": "Layer 5 is the strongest local causal axis, shares basis with the donor, and avoids adding approximation error from weaker early layers."
+  },
+  "verdict": "PASS: layer-5 exact coefficient replacement closes 100.0% of the lesion gap. The correct first surgery protocol is a lesioned pretrained Qwen recipient with a composite hook at layer 5.",
+  "elapsed_s": 15.207513332366943
+}

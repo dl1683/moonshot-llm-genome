@@ -580,11 +580,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Follow-up decode: is Pythia PC1 also a sentence-boundary axis?
 - `code/genome_116d_pythia_critical_subspace.py` -> `results/genome_116d_pythia_critical_subspace.json`
 
-**genome_116 PROTOCOL LOCKED (2026-04-25): Codex surgery protocol implemented**
-- Recipient: lesioned pretrained Qwen3-0.6B (not random-init — basis-aligned with donor).
-- Primary: layer-5 exact coefficient replacement. Secondary: layers [2,5,8,11].
-- Injection = exact inverse of lesion: `h_replace = h - (h.d)d + c_donor * d` where c_donor = per-token donor coefficient.
-- Pass: ≥90% gap closed. Partial: ≥20%. Kill: <5%.
-- Ready to run: `code/genome_116_surgery_injection.py`
+**genome_116e COMPLETED (2026-04-25): Pythia PC1 Decode — SAME SENTENCE-BOUNDARY AXIS (sign-flipped)**
+- Layer 3 (early): frac_pos=0.000, PC1 var=0.982. BOT tokens: `L`, `H`, `As`, `By`, `The`, `If`, `"`, `G`.
+- These BOT tokens are IDENTICAL to Qwen3's TOP tokens → same sentence-boundary axis, PCA sign flipped.
+- **Critical direction is architecture-universal** across transformer families (Qwen3 + Pythia).
+- Layer 11 (final): DIFFERENT axis — BOT tokens = semantic/discourse words (`stated`, `however`, `said`, `thinking`). Explains anomalous negative power-law exponent at layer 11 in genome_116d.
+- `code/genome_116e_pythia_decode.py` -> `results/genome_116e_pythia_decode.json`
+
+**genome_116 COMPLETED (2026-04-25): Surgery hook algebra VERIFIED — 100% gap closed (same-model test)**
+- clean NLL=4.21, lesion_l5=9.47, replace_l5=4.21. gap_closed=100%. PASS.
+- lesion_early4=9.90, replace_early4=4.21. gap_closed=100%.
+- Expected: donor=recipient (same Qwen3-0.6B), so exact coefficient replacement = identity. Validates machinery.
+- **Next**: genome_117 — cross-model surgery (Qwen3 donor → different recipient type, Codex to specify).
+- `code/genome_116_surgery_injection.py` -> `results/genome_116_surgery_injection.json`
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
