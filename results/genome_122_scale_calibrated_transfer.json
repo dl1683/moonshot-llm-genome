@@ -1,0 +1,363 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "genome": 122,
+  "name": "scale_calibrated_transfer",
+  "n_eval": 200,
+  "n_calib": 200,
+  "seeds": [
+    7,
+    13,
+    42
+  ],
+  "donor_nll": {
+    "mean": 4.193203125,
+    "ci_lo": 4.080603515625,
+    "ci_hi": 4.301689453125
+  },
+  "criteria": {
+    "pass_gap_pct": 10.0,
+    "partial_gap_pct": 5.0
+  },
+  "aggregate_results": {
+    "embed_attn": {
+      "params_copied_pct": 81.76041094007697,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll_mean": 12.246458333333333,
+      "surgery_nll_ci": {
+        "mean": 12.246458333333333,
+        "ci_lo": 12.217604166666666,
+        "ci_hi": 12.271989583333333
+      },
+      "gap_closed_pct": {
+        "mean": -1.5806433599511185,
+        "ci_lo": -1.9435953922365399,
+        "ci_hi": -1.2205014203615359
+      }
+    },
+    "embed_attn_zero_mlp": {
+      "params_copied_pct": 81.76041094007697,
+      "params_zeroed_pct": 44.33205057724024,
+      "surgery_nll_mean": 12.2621875,
+      "surgery_nll_ci": {
+        "mean": 12.2621875,
+        "ci_lo": 12.231908854166667,
+        "ci_hi": 12.291671874999999
+      },
+      "gap_closed_pct": {
+        "mean": -1.7790449786980997,
+        "ci_lo": -2.1702762240756712,
+        "ci_hi": -1.3893908024298927
+      }
+    },
+    "embed_attn_calib_zero_mlp": {
+      "params_copied_pct": 81.76041094007697,
+      "params_zeroed_pct": 44.33205057724024,
+      "surgery_nll_mean": 18.6465625,
+      "surgery_nll_ci": {
+        "mean": 18.6465625,
+        "ci_lo": 18.529315104166667,
+        "ci_hi": 18.764289062499998
+      },
+      "gap_closed_pct": {
+        "mean": -82.3090795018937,
+        "ci_lo": -84.0506085814642,
+        "ci_hi": -80.4839016955602
+      }
+    },
+    "all_attn": {
+      "params_copied_pct": 29.5559029686641,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll_mean": 12.066666666666666,
+      "surgery_nll_ci": {
+        "mean": 12.066666666666666,
+        "ci_lo": 12.057916666666667,
+        "ci_hi": 12.076096354166667
+      },
+      "gap_closed_pct": {
+        "mean": 0.6871791165872319,
+        "ci_lo": 0.5428204599073609,
+        "ci_hi": 0.8484745193251738
+      }
+    },
+    "all_attn_zero_mlp": {
+      "params_copied_pct": 29.5559029686641,
+      "params_zeroed_pct": 44.33205057724024,
+      "surgery_nll_mean": 12.058020833333334,
+      "surgery_nll_ci": {
+        "mean": 12.058020833333334,
+        "ci_lo": 12.048799479166666,
+        "ci_hi": 12.067401041666667
+      },
+      "gap_closed_pct": {
+        "mean": 0.796234310997815,
+        "ci_lo": 0.6347923035307611,
+        "ci_hi": 0.946480990427183
+      }
+    },
+    "full_exact": {
+      "params_copied_pct": 100.0,
+      "params_zeroed_pct": 0.0,
+      "surgery_nll_mean": 4.193359375,
+      "surgery_nll_ci": {
+        "mean": 4.193359375,
+        "ci_lo": 4.133524739583333,
+        "ci_hi": 4.251029947916667
+      },
+      "gap_closed_pct": {
+        "mean": 99.99802912299258,
+        "ci_lo": 99.0286840844475,
+        "ci_hi": 101.02784004501193
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 7,
+      "recipient_nll": {
+        "mean": 12.1096875,
+        "ci_lo": 12.0945234375,
+        "ci_hi": 12.1240625
+      },
+      "arms": {
+        "embed_attn": {
+          "surgery_nll": {
+            "mean": 12.241875,
+            "ci_lo": 12.1970078125,
+            "ci_hi": 12.2934375
+          },
+          "gap_closed_pct": {
+            "mean": -1.6697752908784156,
+            "ci_lo": -2.3702066378429665,
+            "ci_hi": -1.0474417029900929
+          }
+        },
+        "embed_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.2621875,
+            "ci_lo": 12.2110859375,
+            "ci_hi": 12.3154765625
+          },
+          "gap_closed_pct": {
+            "mean": -1.926360146450739,
+            "ci_lo": -2.6558717313305498,
+            "ci_hi": -1.2871772532182315
+          }
+        },
+        "embed_attn_calib_zero_mlp": {
+          "surgery_nll": {
+            "mean": 18.6465625,
+            "ci_lo": 18.4597734375,
+            "ci_hi": 18.840140625
+          },
+          "gap_closed_pct": {
+            "mean": -82.57295398249305,
+            "ci_lo": -85.42670735125543,
+            "ci_hi": -79.76631534257832
+          }
+        },
+        "all_attn": {
+          "surgery_nll": {
+            "mean": 12.065625,
+            "ci_lo": 12.0484375,
+            "ci_hi": 12.0801640625
+          },
+          "gap_closed_pct": {
+            "mean": 0.5565917636261236,
+            "ci_lo": 0.2880637917141034,
+            "ci_hi": 0.8208600414194479
+          }
+        },
+        "all_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.0484375,
+            "ci_lo": 12.0310859375,
+            "ci_hi": 12.0642265625
+          },
+          "gap_closed_pct": {
+            "mean": 0.7737020260334861,
+            "ci_lo": 0.4923204035874865,
+            "ci_hi": 1.0209304888022535
+          }
+        },
+        "full_exact": {
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.09162890625,
+            "ci_hi": 4.30742578125
+          },
+          "gap_closed_pct": {
+            "mean": 99.99802627034175,
+            "ci_lo": 98.1479440781012,
+            "ci_hi": 102.11121120007098
+          }
+        }
+      }
+    },
+    {
+      "seed": 13,
+      "recipient_nll": {
+        "mean": 12.1325,
+        "ci_lo": 12.1170234375,
+        "ci_hi": 12.147828125
+      },
+      "arms": {
+        "embed_attn": {
+          "surgery_nll": {
+            "mean": 12.2778125,
+            "ci_lo": 12.231203125,
+            "ci_hi": 12.3217421875
+          },
+          "gap_closed_pct": {
+            "mean": -1.8302943231355018,
+            "ci_lo": -2.4405686035731553,
+            "ci_hi": -1.2576451287704902
+          }
+        },
+        "embed_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.2621875,
+            "ci_lo": 12.2115625,
+            "ci_hi": 12.3114296875
+          },
+          "gap_closed_pct": {
+            "mean": -1.6334884819381348,
+            "ci_lo": -2.2788591364802784,
+            "ci_hi": -1.0246553312240156
+          }
+        },
+        "embed_attn_calib_zero_mlp": {
+          "surgery_nll": {
+            "mean": 18.6465625,
+            "ci_lo": 18.4569609375,
+            "ci_hi": 18.836328124999998
+          },
+          "gap_closed_pct": {
+            "mean": -82.04835519518221,
+            "ci_lo": -84.8225741776703,
+            "ci_hi": -79.52377524588142
+          }
+        },
+        "all_attn": {
+          "surgery_nll": {
+            "mean": 12.0634375,
+            "ci_lo": 12.046234375000001,
+            "ci_hi": 12.0803125
+          },
+          "gap_closed_pct": {
+            "mean": 0.8698818180923752,
+            "ci_lo": 0.587085249183442,
+            "ci_hi": 1.1231516943684874
+          }
+        },
+        "all_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.066875,
+            "ci_lo": 12.0503125,
+            "ci_hi": 12.0832890625
+          },
+          "gap_closed_pct": {
+            "mean": 0.8265845330289493,
+            "ci_lo": 0.5492197511902143,
+            "ci_hi": 1.0846554566015132
+          }
+        },
+        "full_exact": {
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.086599609375,
+            "ci_hi": 4.30770703125
+          },
+          "gap_closed_pct": {
+            "mean": 99.99803194158802,
+            "ci_lo": 98.07410430505553,
+            "ci_hi": 101.96636912512658
+          }
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "recipient_nll": {
+        "mean": 12.12125,
+        "ci_lo": 12.107171875,
+        "ci_hi": 12.136875
+      },
+      "arms": {
+        "embed_attn": {
+          "surgery_nll": {
+            "mean": 12.2196875,
+            "ci_lo": 12.1654453125,
+            "ci_hi": 12.26659375
+          },
+          "gap_closed_pct": {
+            "mean": -1.2416362005932173,
+            "ci_lo": -1.8760798554773617,
+            "ci_hi": -0.6576661448840931
+          }
+        },
+        "embed_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.2621875,
+            "ci_lo": 12.2148203125,
+            "ci_hi": 12.3138125
+          },
+          "gap_closed_pct": {
+            "mean": -1.7777077030715678,
+            "ci_lo": -2.538861957482611,
+            "ci_hi": -1.1676426921335223
+          }
+        },
+        "embed_attn_calib_zero_mlp": {
+          "surgery_nll": {
+            "mean": 18.6465625,
+            "ci_lo": 18.4432421875,
+            "ci_hi": 18.8416015625
+          },
+          "gap_closed_pct": {
+            "mean": -82.30668414154655,
+            "ci_lo": -84.75750788983207,
+            "ci_hi": -79.79541189762304
+          }
+        },
+        "all_attn": {
+          "surgery_nll": {
+            "mean": 12.0709375,
+            "ci_lo": 12.0559375,
+            "ci_hi": 12.085625
+          },
+          "gap_closed_pct": {
+            "mean": 0.6346140580809877,
+            "ci_lo": 0.35578722889699216,
+            "ci_hi": 0.905715320318842
+          }
+        },
+        "all_attn_zero_mlp": {
+          "surgery_nll": {
+            "mean": 12.05875,
+            "ci_lo": 12.0409375,
+            "ci_hi": 12.074375
+          },
+          "gap_closed_pct": {
+            "mean": 0.788340444821096,
+            "ci_lo": 0.5125900913736158,
+            "ci_hi": 1.0666107882153333
+          }
+        },
+        "full_exact": {
+          "surgery_nll": {
+            "mean": 4.193359375,
+            "ci_lo": 4.08019140625,
+            "ci_hi": 4.301373046875
+          },
+          "gap_closed_pct": {
+            "mean": 99.99802914888795,
+            "ci_lo": 98.20551939160501,
+            "ci_hi": 101.92010017272028
+          }
+        }
+      }
+    }
+  ],
+  "verdict": "KILL: best arm (all_attn_zero_mlp) closes 0.8%. Scale calibration does not break the holism barrier. Pivot to curriculum learning.",
+  "elapsed_s": 143.0089898109436
+}

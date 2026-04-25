@@ -26,6 +26,24 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_122_scale_calibrated_transfer — KILL (calibration catastrophe + zero-step surgery fully exhausted)
+
+**Purpose.** Test whether (a) zeroing MLP interference and (b) recalibrating norm gammas to match donor activation statistics breaks the holism barrier. 3 seeds × 6 arms.
+**Systems.** Qwen3-0.6B donor (NLL=4.193), 3 random-init recipients. Gap≈7.93 nats.
+**Key arms.** `embed_attn_zero_mlp` (81.8%+44.3%): -1.78%. `embed_attn_calib_zero_mlp` (calibrated): -82.31%. `all_attn`: +0.69%. `all_attn_zero_mlp`: +0.80%. `full_exact`: +100%.
+**Verdict.** KILL. Best non-trivial arm (all_attn_zero_mlp) closes 0.80%.
+**Critical finding 1 — zeroing MLP marginally worse.** embed_attn_zero_mlp (-1.78%) vs embed_attn (-1.58%): zeroing MLP removes the small amount of marginal signal that random MLPs provide via the residual stream. The residual connection means even a zeroed MLP passes gradients/signal through.
+**Critical finding 2 — calibration catastrophe.** Norm calibration (gamma = donor_rms / transplant_rms) produces extreme gamma values because the transplanted model's RMS is near-zero in many layers (no matching activation statistics). This creates NLL=18.64 (-82%), even worse than raw donor norm transplant (-53% to -77% in genome_121). The problem: the ratio-based calibration assumes the transplant activations are a scaled version of donor activations, but they're in a completely different space.
+**Surgery series synthesis (genome_119-122).** Four experiments across two architectures confirm:
+1. Single-component surgery → always hurts (genome_119, 120)
+2. Compound surgery with norms → catastrophic (genome_121)
+3. Compound surgery without norms + zero MLP → marginal, doesn't help (genome_122)
+4. Norm calibration → catastrophic amplification (genome_122)
+5. all_attn alone → only consistently positive (+0.7-0.9%), but near-noise-level
+**PIVOT.** Zero-step weight surgery is exhausted. The holism barrier is real, deep, and not fixable by any weight-subset strategy. **genome_123: genome-guided curriculum** — use donor activation matching as auxiliary loss to accelerate recipient training from scratch.
+
+---
+
 ## 2026-04-25 — genome_121_closed_circuit_transfer — KILL (norm catastrophe + holism barrier unbreakable by compound surgery)
 
 **Purpose.** Test whether combining donor embedding + donor attention + donor layer norms + zeroed MLP ("closed circuit") breaks the holism barrier. 5 random seeds × 11 arms. Codex-designed experiment.

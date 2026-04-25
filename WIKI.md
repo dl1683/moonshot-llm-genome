@@ -653,4 +653,14 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Implication:** Zero-step transfer cannot work via any naive weight-copy strategy. The scale mismatch between donor and recipient activations means every normalization layer causes destructive amplification. The right approach is either (a) re-calibrate norms using recipient statistics before copying, or (b) curriculum learning using donor geometry as training signal.
 - `code/genome_121_closed_circuit_transfer.py` -> `results/genome_121_closed_circuit_transfer.json`
 
+**genome_122 COMPLETED (2026-04-25): SCALE-CALIBRATED TRANSFER — KILL (calibration catastrophe + zero-step surgery exhausted)**
+- 3 seeds × 6 arms. Donor NLL=4.193, recipient NLL=12.12.
+- embed_attn_zero_mlp (81.8% copy + 44.3% zeroed): gap=-1.78% — zeroing MLP is marginally WORSE than keeping random MLP.
+- **embed_attn_calib_zero_mlp: gap=-82.31%** — norm calibration (gamma = donor_rms/transplant_rms) creates extreme gamma values when transplant RMS is near-zero → catastrophically amplifies activations.
+- all_attn: +0.69%, all_attn_zero_mlp: +0.80% — marginal, consistent with genome_120-121.
+- **KILL: all zero-step weight-copy strategies exhausted across genome_119-122.**
+- **Synthesis of the surgery series:** (1) Component surgery hurts (genome_119-120). (2) Closed-circuit compound surgery hurts more when norms included (genome_121). (3) Scale calibration makes things catastrophically worse by creating extreme gamma values (genome_122). (4) The ONLY consistently positive signal is all_attn alone (+0.7-0.9%), which reflects marginal structural/positional attention transfer.
+- **Pivot to curriculum learning (genome_123).** Zero-step transfer is blocked by a deep holism barrier. The path to capability transfer now requires gradient steps — but donor geometry should guide convergence significantly faster than random training.
+- `code/genome_122_scale_calibrated_transfer.py` -> `results/genome_122_scale_calibrated_transfer.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
