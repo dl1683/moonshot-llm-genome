@@ -8,6 +8,14 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 ---
 
+## THE END GOAL (every Codex review must know this)
+
+**Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient.**
+
+Every experiment serves this. The atlas measures geometry. The invariants are the map. The destination is always: take a model that cannot do X, inject geometric structure from a model that can, and watch X emerge — cheaply, reproducibly, at scale. Surgical injection via identified critical subspace directions is the current path toward this goal.
+
+---
+
 ## ⚠ SCOPE LOCK — CS/AI/MATH ONLY (read first) ⚠
 
 We are a CS / AI / math research group. End goal: **map the learning of every AI model** so we can diagnose capability, perform model surgery (transfer a capability from Model A into Model B without retraining), and ship tools for ML practitioners. **Biology experiments are DEPRIORITIZED.** We borrow biological principles as inspiration but do not replicate biology in this repo. See `CLAUDE.md §0.05` for the full scope lock. Any experiment, outreach, or synthesis that drifts into "let's also test on mouse V1 / organoids / cortex" — **stop and redirect**. Partners: Martian / Furiosa / Weka / Liquid AI / VERSES / NVIDIA. They care about capability transfer + efficient inference + geometry of *learned ML representations*.
