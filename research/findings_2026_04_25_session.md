@@ -28,6 +28,25 @@ The session began with the surgery research thread (genome_119) and ended with c
 - **Cross-architecture NLL prediction fails** (r = 0.18, N=9): the invariant tracks geometric convergence, not raw NLL across arch boundaries. Other factors (training-data quantity, capacity, optimization) dominate cross-arch.
 - **Trajectory is architecture-universal**: trained a 30M-param Llama from scratch (RoPE + RMSNorm + SwiGLU + tied embed) and observed identical U-shape: random=6.83, mode-collapse-min=1.03 at step 128, recovery to 4.58 by step 4000. Mode-collapse is deeper and earlier in smaller Llama.
 
+## Quick post-session analysis (no new experiment)
+
+Re-analyzed g132's 9 cross-arch trained-LM data points:
+
+| Predictor | Pearson r with NLL |
+|---|---|
+| `sqrt(er)*alpha` (universal invariant) | −0.17 (no signal) |
+| `er` (eff_rank) | −0.51 |
+| `log(er)` | −0.36 |
+| **`alpha` (decay exponent)** | **+0.65** |
+| `alpha^2` | +0.69 |
+| 2-feature linear `(er, alpha)` | R² = 0.43 |
+
+**Insight:** the universal invariant 4.243 is a FIXED POINT (all capable trained LMs converge to it), but the actual cross-arch NLL signal lives mostly in `alpha` alone (steeper decay = worse NLL). Within Pythia, alpha tracks NLL monotonically: 160m (α=0.77, NLL=3.51) > 410m (α=0.71, NLL=3.09) > 1.4b (α=0.65, NLL=2.83).
+
+This refines the framing: capable models converge to a 1-D universal manifold (parametrized by the invariant), and within that manifold, lower α is "more capable." The trajectory observed in g127–g133 is a path that slides along this manifold during training.
+
+The remaining 57% of cross-arch NLL variance (R²=0.43 fit) is non-spectral: training data, model capacity, optimizer settings, etc.
+
 ## What we don't know
 
 1. **Why 4.243?** The constant 18 = (3√2)² is empirical. No first-principles derivation yet. Codex's Y-direction recommendation was to attempt this; the empirical work has now constrained the target enough that derivation has a fighting chance.
