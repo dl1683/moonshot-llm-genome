@@ -1,0 +1,130 @@
+{
+  "model": "EleutherAI/pythia-160m",
+  "n_eval": 200,
+  "components_tested": [
+    "embed_only",
+    "lm_head_only",
+    "layer0_mlp",
+    "early_mlp",
+    "all_mlp",
+    "all_attn",
+    "all_layers"
+  ],
+  "donor_nll": {
+    "mean": 4.91125,
+    "ci_lo": 4.81130078125,
+    "ci_hi": 5.01055078125
+  },
+  "recipient_nll": {
+    "mean": 10.936875,
+    "ci_lo": 10.92625,
+    "ci_hi": 10.948125
+  },
+  "pass_criteria": {
+    "pass_gap_pct": 20.0,
+    "partial_gap_pct": 5.0,
+    "kill_gap_pct": 5.0
+  },
+  "results_by_component": {
+    "embed_only": {
+      "params_copied_pct": 23.80037661219353,
+      "surgery_nll_mean": 10.9621875,
+      "surgery_nll_ci": {
+        "mean": 10.9621875,
+        "ci_lo": 10.9520234375,
+        "ci_hi": 10.9725
+      },
+      "gap_closed_pct": {
+        "mean": -0.42008090447049173,
+        "ci_lo": -0.6536418531973586,
+        "ci_hi": -0.21155001495998405
+      }
+    },
+    "lm_head_only": {
+      "params_copied_pct": 23.80037661219353,
+      "surgery_nll_mean": 11.68125,
+      "surgery_nll_ci": {
+        "mean": 11.68125,
+        "ci_lo": 11.6490625,
+        "ci_hi": 11.711726562499999
+      },
+      "gap_closed_pct": {
+        "mean": -12.353490301835905,
+        "ci_lo": -12.89060758585475,
+        "ci_hi": -11.804037344085433
+      }
+    },
+    "layer0_mlp": {
+      "params_copied_pct": 2.9092818819254536,
+      "surgery_nll_mean": 10.9490625,
+      "surgery_nll_ci": {
+        "mean": 10.9490625,
+        "ci_lo": 10.937484375,
+        "ci_hi": 10.9603125
+      },
+      "gap_closed_pct": {
+        "mean": -0.2022611762265254,
+        "ci_lo": -0.45616612402317547,
+        "ci_hi": 0.06990128656421521
+      }
+    },
+    "early_mlp": {
+      "params_copied_pct": 11.637127527701814,
+      "surgery_nll_mean": 10.9478125,
+      "surgery_nll_ci": {
+        "mean": 10.9478125,
+        "ci_lo": 10.9376484375,
+        "ci_hi": 10.9586015625
+      },
+      "gap_closed_pct": {
+        "mean": -0.1815164402032807,
+        "ci_lo": -0.4278212908947083,
+        "ci_hi": 0.06726356494248335
+      }
+    },
+    "all_mlp": {
+      "params_copied_pct": 34.91138258310544,
+      "surgery_nll_mean": 11.0071875,
+      "surgery_nll_ci": {
+        "mean": 11.0071875,
+        "ci_lo": 10.9948359375,
+        "ci_hi": 11.0192265625
+      },
+      "gap_closed_pct": {
+        "mean": -1.1668914013069183,
+        "ci_lo": -1.4505556378626634,
+        "ci_hi": -0.8711196729362367
+      }
+    },
+    "all_attn": {
+      "params_copied_pct": 17.46420764768781,
+      "surgery_nll_mean": 10.9703125,
+      "surgery_nll_ci": {
+        "mean": 10.9703125,
+        "ci_lo": 10.9573359375,
+        "ci_hi": 10.9826640625
+      },
+      "gap_closed_pct": {
+        "mean": -0.5549216886215087,
+        "ci_lo": -0.7594400480698094,
+        "ci_hi": -0.3343173473464411
+      }
+    },
+    "all_layers": {
+      "params_copied_pct": 52.39830051382015,
+      "surgery_nll_mean": 11.0346875,
+      "surgery_nll_ci": {
+        "mean": 11.0346875,
+        "ci_lo": 11.022796875000001,
+        "ci_hi": 11.0454765625
+      },
+      "gap_closed_pct": {
+        "mean": -1.6232755938180659,
+        "ci_lo": -1.8930852546849657,
+        "ci_hi": -1.3546104094499984
+      }
+    }
+  },
+  "verdict": "KILL: best component early_mlp closes only -0.2%. Capability is fully distributed \u2014 no single component transfers.",
+  "elapsed_s": 16.494664192199707
+}

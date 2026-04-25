@@ -26,6 +26,19 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_119_weight_component_surgery — KILL (weight holism confirmed)
+
+**Purpose.** Test whether any individual weight component (embedding, LM head, MLPs, attention) carries transferable capability from trained to random-init Pythia-160M.
+**Systems.** Pythia-160M donor (NLL=4.91) and random-init Pythia-160M recipient (NLL=10.94). Gap=6.03 nats.
+**Protocol.** 7 conditions: copy one component at a time, measure gap_closed%.
+**Results.** embed_only=-0.42%, lm_head_only=-12.35%, layer0_mlp=-0.20%, early_mlp=-0.18%, all_mlp=-1.17%, all_attn=-0.55%, all_layers=-1.62%.
+**What this means.** Every component transfer HURTS. More weights copied → worse performance. The LM head is catastrophically harmful (-12.35%) because it was adapted to read from the donor's activation space, not the random-init space. The all_layers condition copies 52.4% of parameters and is STILL worse than random-init, because the donor's transformer layers are adapted to operate on the donor's embeddings.
+**Theoretical result.** Capability is a holistic property of the full weight configuration. Every weight is co-adapted with every other weight via the shared representational space anchored to the token embeddings. Simple weight component transplantation cannot transfer capability — it creates destructive interference between adapted (donor) and unadapted (recipient) components.
+**Exhaustion summary.** Across genome_113-119, all naive surgery approaches are exhausted: direction ablation (causal) → activation injection at all training stages (KILL) → weight component copy (KILL). Grafting series (001-009) also exhausted mean-level approaches.
+**Next.** This is not a surgery problem — it's a transformation problem. Codex to specify: transformation-based transfer (analytically map recipient weight space → donor weight space), or genome-guided curriculum learning (donor geometry as training signal). The latter would require gradient steps but may need far fewer than from-scratch training.
+
+---
+
 ## 2026-04-25 — genome_118_checkpoint_surgery — KILL (formula artifact in nominal PASS)
 
 **Purpose.** Does PC1 activation surgery work on a partially-trained same-architecture recipient? At what training step does readout alignment emerge?

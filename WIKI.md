@@ -619,4 +619,14 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Next direction (pending Codex):** Either (a) target a task-specific CAPABILITY direction (not PC1/structural axis), or (b) weight-space surgery (inject actual weight SVD subspaces, not activation directions).
 - `code/genome_118_checkpoint_surgery.py` -> `results/genome_118_checkpoint_surgery.json`
 
+**genome_119 COMPLETED (2026-04-25): WEIGHT-COMPONENT ISOLATION — KILL (holism confirmed)**
+- All 7 weight components tested. Every component transfer HURTS the recipient.
+- embed_only (23.8% params): -0.42%. lm_head_only (23.8%): -12.35% (WORST). layer0_mlp (2.9%): -0.20%. early_mlp (11.6%): -0.18% (best, but negative). all_mlp (34.9%): -1.17%. all_attn (17.5%): -0.55%. **all_layers (52.4%): -1.62%** (more = worse).
+- **KILL: copying MORE weights → WORSE performance. No single component transfers capability.**
+- **Theoretical result established:** Weight-space surgery cannot transfer capability via naive component copy because all weights are co-adapted with the token embedding as foundation. Copying transformer layers without the embedding puts donor computations on random input → structured garbage. Copying LM head without transformer layers puts donor's readout on random hidden states → confident wrong predictions.
+- **Key insight:** Capability is a holistic property of the FULL weight configuration. It cannot be decomposed into transferable components. This is not a surgery problem — it's a **transformation problem.** Zero-step capability transfer requires finding the right transformation between representational spaces, not copying subsets.
+- **Exhaustion summary (genome_113-119):** direction ablation (causal) → activation injection (KILL) → checkpoint sweep (KILL) → weight component copy (KILL). ALL naive surgery approaches exhausted.
+- **Next direction (Codex pending):** Either (a) transformation-based transfer (find rotation R: recipient space → donor space, apply to weights analytically), or (b) genome-guided curriculum learning (use donor's geometric invariants to generate training data for recipient — needs gradient steps but potentially far fewer than from-scratch).
+- `code/genome_119_weight_component_surgery.py` -> `results/genome_119_weight_component_surgery.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
