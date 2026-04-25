@@ -49,6 +49,7 @@ PYTHIA_SIZES = [
     ("pythia-160m", "EleutherAI/pythia-160m"),
     ("pythia-410m", "EleutherAI/pythia-410m"),
 ]
+# genome_128 = fine-grained version (set in caller); kept here for reference.
 
 
 def spectrum(X):
