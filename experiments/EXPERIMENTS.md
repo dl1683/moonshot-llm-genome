@@ -26,6 +26,18 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_117_cross_model_surgery — KILL (decisive)
+
+**Purpose.** Decisive cross-model surgery: does injecting trained Qwen3-0.6B PC1 structure into a random-init Qwen3 recipient close any meaningful fraction of the NLL gap at zero gradient steps?
+**Systems.** Donor: Qwen/Qwen3-0.6B (trained). Recipient: Qwen3-0.6B (random-init, SEED=42). Eval n=100 wikitext.
+**Protocol.** 3 conditions — (1) inject_l5_mean: constant mean offset along donor PC1 at layer 5; (2) replace_l5_exact: per-token donor coefficient replacement at layer 5; (3) replace_early4_exact: per-token replacement at layers [2,5,8,11]. Pass ≥20% gap, Partial ≥5%, Kill <5%.
+**Result.** KILL. inject_l5_mean: -2.0%. replace_l5_exact: -0.3%. replace_early4_exact: -0.5%. All ≤0 (no improvement).
+**What this means.** PC1 sentence-boundary activation injection into a tabula rasa model does not transfer capability. The critical direction is causal only because trained downstream weights have aligned to read from it. Injecting the direction into a model whose readout weights are random noise produces no signal — or slight degradation (random additions to near-noise activations harm stability). The bottleneck is **trained readout alignment**, not direction identity.
+**Theoretical constraint established.** For activation-space surgery to work, the recipient needs trained weight readout compatible with the injected direction. Random-init does not qualify.
+**Next.** Codex to specify: (a) partially-trained recipient (Pythia checkpoint series), (b) weight-space surgery (inject weight subspace, not activation), or (c) conditioned surgery (task-specific direction into task-trained recipient).
+
+---
+
 ## 2026-04-25 — genome_116e_pythia_decode — ARCHITECTURE-UNIVERSAL ★
 
 **Purpose.** Decode PC1 at Pythia-160M layers 3 and 11. Is the sentence-boundary axis universal?

@@ -597,4 +597,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Why this first: it directly targets the moonshot end goal (trained -> untrained, zero-step) while avoiding the token-alignment and hidden-size confounds of a Pythia recipient. Pythia-lesioned is phase-2 if same-arch random-init transfer shows signal.
 - `code/genome_116_surgery_injection.py` -> `results/genome_116_surgery_injection.json`
 
+**genome_117 COMPLETED (2026-04-25): DECISIVE CROSS-MODEL SURGERY — KILL**
+- donor NLL=4.21, recipient (random-init Qwen3) NLL=12.13. Gap=7.92 nats.
+- inject_l5_mean NLL=12.28, gap_closed=-2.0% (slight degradation)
+- replace_l5_exact NLL=12.15, gap_closed=-0.3% (noise-level, not positive)
+- replace_early4_exact NLL=12.17, gap_closed=-0.5% (noise-level, not positive)
+- **KILL: PC1 sentence-boundary injection into random-init twin closes 0% of the donor-recipient gap at zero gradient steps.**
+- Root cause: random-init downstream weights cannot read from the injected PC1 direction — the readout weights are untrained noise. Capability transfer requires trained weight readout, not just trained PC1 activation direction.
+- **Critical theoretical insight:** the PC1 direction is causal only because the trained downstream weights have aligned to read from it. Transfer of the direction alone into a tabula rasa model is insufficient — you are injecting signal into a system with no receiver.
+- **Next direction (pending Codex):** options are (a) partially-trained recipient (Pythia early checkpoint — does transfer work once 10-50% of training is done?), (b) weight-space surgery (transfer the actual weight subspace, not activation direction), or (c) conditioned surgery (find a task-specific direction that survives into a recipient with trained task-relevant weights).
+- `code/genome_117_cross_model_surgery.py` -> `results/genome_117_cross_model_surgery.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
