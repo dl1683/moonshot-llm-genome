@@ -799,4 +799,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Pivot indicated:** Codex's pre-stated alternative was P3 (high-dim process descriptors). Per memory rule, firing Codex for concrete next direction.
 - `code/genome_135_closed_loop_phase_control.py` -> `results/genome_135_closed_loop_phase_control.json`
 
+**genome_136 COMPLETED (2026-04-25): DATA-ORDERING TRANSFER — KILL (clean negative)**
+- Codex P3c after g135 spectrum-thread KILL. Tests whether data ordering is a transferable process-level capability lever.
+- Fixed pool 32k C4 sequences, donor warmed 512 steps, scored every sequence by donor NLL. 4 student arms × 3 init seeds × 4000 steps.
+- **All 4 orders reach CtQ_75 at the SAME step (512).** Speedup = 1.0×.
+- Final NLLs:
+  - random_A: 6.116
+  - random_B: 6.110 (statistically indistinguishable from random_A)
+  - easy_to_hard: 6.164 (slightly **worse** than random, −0.05 nats)
+  - hard_to_easy: 6.281 (worst, as expected)
+- **Verdict:** data ordering is NOT a transferable lever. Capability is determined by (architecture × data × optimizer), NOT the sequence of examples.
+- Combined with g135: capability is NOT in the spectrum AND NOT in data ordering. Two of Codex's three P3 candidates eliminated.
+- Per Codex's pre-stated criterion: narrow P3a to **optimizer/gradient state**. genome_137 = optimizer-state transfer test.
+- `code/genome_136_data_order_transfer.py` -> `results/genome_136_data_order_transfer.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
