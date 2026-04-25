@@ -629,4 +629,15 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Next direction (Codex pending):** Either (a) transformation-based transfer (find rotation R: recipient space → donor space, apply to weights analytically), or (b) genome-guided curriculum learning (use donor's geometric invariants to generate training data for recipient — needs gradient steps but potentially far fewer than from-scratch).
 - `code/genome_119_weight_component_surgery.py` -> `results/genome_119_weight_component_surgery.json`
 
+**genome_120 COMPLETED (2026-04-25): HOLISM REPLICATION ON Qwen3-0.6B — KILL (cross-architecture confirmed)**
+- Replicates genome_119 protocol on Qwen3-0.6B (d=1024, 28 layers). Donor NLL=4.193, recipient NLL=12.121. Gap=7.928 nats.
+- embed_only (26.1%): -2.84%. **lm_head_only (26.1%): -2.84% IDENTICAL to embed_only** — confirms Qwen3 uses tied embeddings (model.embed_tokens ≡ lm_head in state dict).
+- layer0_mlp (1.6%): -0.38%. early_mlp (6.3%): -0.28%. all_mlp (44.3%): -0.37%.
+- **all_attn (29.6%): +0.63% [CI 0.36%, 0.91%]** — ONLY component with positive signal (below 5% PARTIAL threshold, but non-zero CI). Attention weights transfer marginally better than MLP weights.
+- all_layers (73.9%): -0.98%.
+- **KILL: best component (all_attn) closes only 0.6% of gap. Holism barrier confirmed on Qwen3-0.6B.**
+- **Cross-architecture conclusion:** Both Pythia-160M (genome_119) and Qwen3-0.6B (genome_120) give KILL. Holism barrier is architecture-independent. Weight-component surgery fails across transformer families.
+- **Additional finding:** tied-embedding behavior means copying embed OR head produces identical result (26.1% wasted copy — same 26.1% params, same NLL impact).
+- `code/genome_120_holism_replication.py` -> `results/genome_120_holism_replication.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*

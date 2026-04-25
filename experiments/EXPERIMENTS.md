@@ -26,6 +26,19 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_120_holism_replication — KILL (holism barrier cross-architecture confirmed)
+
+**Purpose.** Replicate genome_119 weight-component surgery on Qwen3-0.6B (d=1024, 28 layers) to confirm the holism barrier generalizes beyond Pythia-160M.
+**Systems.** Qwen3-0.6B donor (NLL=4.193) and random-init Qwen3-0.6B recipient (NLL=12.121). Gap=7.928 nats.
+**Protocol.** 7 conditions: embed_only, lm_head_only, layer0_mlp, early_mlp, all_mlp, all_attn, all_layers. Same pass/partial/kill thresholds as genome_119 (20%/5%/5%).
+**Results.** embed_only=-2.84%, lm_head_only=-2.84% (TIED EMBEDDINGS — identical!), layer0_mlp=-0.38%, early_mlp=-0.28%, all_mlp=-0.37%, **all_attn=+0.63% [CI 0.36%, 0.91%]**, all_layers=-0.98%.
+**Verdict.** KILL. Best component (all_attn) closes only 0.63% of gap — below 5% PARTIAL threshold.
+**Notable findings.** (1) embed_only and lm_head_only produce identical NLL — Qwen3 uses tied embeddings, so copying either key updates both. 26.1% of params "copied twice" with no additional benefit. (2) all_attn is the ONLY component with a reliably positive (CI_lo>0) signal, suggesting attention weight matrices are marginally more transferable than MLP weights — but the signal is trivially small.
+**Cross-architecture conclusion.** Pythia-160M (genome_119, all KILL) + Qwen3-0.6B (genome_120, all KILL). The holism barrier is architecture-independent. Weight-component surgery fails across transformer families. The underlying theoretical result stands: all weights are co-adapted with the token embedding as foundation; no proper-subset transplant creates a functional receiver.
+**Surgery series exhausted.** genome_113-120 cover: direction ablation (causal) → activation injection → checkpoint sweep → weight component copy (Pythia + Qwen3). All KILL. The problem is not surgery technique — it's a transformation problem: the representational spaces are incommensurable without a global alignment step.
+
+---
+
 ## 2026-04-25 — genome_119_weight_component_surgery — KILL (weight holism confirmed)
 
 **Purpose.** Test whether any individual weight component (embedding, LM head, MLPs, attention) carries transferable capability from trained to random-init Pythia-160M.
