@@ -572,4 +572,19 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 
 ---
 
+**genome_116d COMPLETED (2026-04-25): Cross-Arch Critical Subspace — Pythia-160M PASS (2469× ratio)**
+- Pythia-160M: layer 11 (final) shows 25.777 nats damage (5.3× clean NLL), ratio_k1=2469× vs random. PASS.
+- ANOMALY: negative power-law exponent (-0.187) at layer 11 — adding more PCA directions DECREASES total damage (counter-directions interact at final layer). Possible final-layer artifact.
+- Layer 3 (early, fractional depth 0.25): delta=1.932 nats — comparable to Qwen3 early-layer pattern.
+- **Critical subspace concentration is cross-architecture** (Qwen3 906× + Pythia 2469×).
+- Follow-up decode: is Pythia PC1 also a sentence-boundary axis?
+- `code/genome_116d_pythia_critical_subspace.py` -> `results/genome_116d_pythia_critical_subspace.json`
+
+**genome_116 PROTOCOL LOCKED (2026-04-25): Codex surgery protocol implemented**
+- Recipient: lesioned pretrained Qwen3-0.6B (not random-init — basis-aligned with donor).
+- Primary: layer-5 exact coefficient replacement. Secondary: layers [2,5,8,11].
+- Injection = exact inverse of lesion: `h_replace = h - (h.d)d + c_donor * d` where c_donor = per-token donor coefficient.
+- Pass: ≥90% gap closed. Partial: ≥20%. Kill: <5%.
+- Ready to run: `code/genome_116_surgery_injection.py`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
