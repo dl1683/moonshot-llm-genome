@@ -26,6 +26,22 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-25 — genome_115_local_subspace_disambiguation — CONFIRMED ★
+
+**Purpose.** Disambiguate genome_114: is the critical subspace effect layer-local (real finding) or an artifact of the all-layer projection hook?
+**Systems.** Qwen/Qwen3-0.6B (BF16). Fit split n=200, eval split n=100 (disjoint). Bootstrap n=500.
+**Primitive.** Per-layer local PCA ablation vs matched controls (PC2, random unit vector, all-layer replicate).
+**Result.** LAYER_LOCAL_CONFIRMED. 6/9 layers pass strict criteria (ΔNLL≥1.0, top1/random≥5×, top1/pc2≥3×). Codex-flagged all-layer-hook confound is RULED OUT.
+**Depth-dependent structure (new finding):**
+- Layers 2–11: one dominant direction. PC1=3.5–4.8 nats, PC2=0.05–0.16 nats, ratio 27–906×. Cleanest surgical targets.
+- Layers 14–17: two-direction zone. PC1=3.9–4.2 nats AND PC2=1.4–2.5 nats both catastrophic. Critical subspace is 2D here.
+- Layers 20–23: one direction, weaker (2.7–2.9 nats, ratio 5–7×).
+- Layer 26: reversed — PC2 (1.30 nats) > PC1 (0.53 nats).
+**What this means.** The critical subspace is real, layer-local, and has a depth-dependent structure not predicted by any prior hypothesis. Surgery target is the early-layer single-direction regime (layers 2–11, best at layer 5: 4.46 nats, 906× vs random).
+**Next.** genome_116: surgical injection — Codex to specify exact protocol.
+
+---
+
 ## 2026-04-24 — genome_114_critical_subspace — CONFIRMED ★
 
 **Purpose.** Map critical subspace power law: ablate top-k PCA directions (k=0..20) at all layers; measure NLL(k). Confirm genome_113 dir-0 finding (+5.83 nats). Controls: random-k, PCA-bottom-k.
