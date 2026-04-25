@@ -513,6 +513,12 @@ Goal: geometry-first initialization via shared transition operators. See `grafti
 
 **Next direction (Codex to confirm):** Map the critical subspace power law — how many PCA directions are truly important? What NLL contribution does direction k have as a function of k? Does the top direction correspond to a specific capability or is it universal? This "critical subspace" framing is the first model-native organizational principle that survived the series.
 
+**genome_116c COMPLETED (2026-04-25): Multi-Layer Decode Confirms Identical PC1 at Layers 2, 5, 8, 11**
+- PC1 is IDENTICAL at all four early layers: same top tokens (`"`, `M`, `L`, `I`, `The`, `H`, `As`, `By`), same sentence-boundary/DC axis.
+- frac_pos=0.998–1.000 throughout. var_pc1 decreases with depth (0.208→0.127→0.106→0.069).
+- Surgery injection at any early layer activates the same structural prior — not layer-specific.
+- `code/genome_116c_multilayer_decode.py` -> `results/genome_116c_multilayer_decode.json`
+
 **genome_116b COMPLETED (2026-04-25): Semantic Decode of PC1 at Layer 5**
 - PC1 is a sentence-boundary / DC mean-activation axis, NOT a semantic content axis.
 - Projection range: min=-1.7, mean=118, max=7297 (almost always non-negative).

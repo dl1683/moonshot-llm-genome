@@ -141,9 +141,12 @@ def extract_activations(model, tok, texts, layer_idx):
 # NLL measurement with optional ablation hook
 # ---------------------------------------------------------------------------
 
-def logits_to_nll(logits, input_ids):
+def logits_to_nll(logits, input_ids, attention_mask=None):
     shift_logits = logits[:, :-1, :].contiguous()
     shift_labels = input_ids[:, 1:].contiguous()
+    if attention_mask is not None:
+        shift_mask = attention_mask[:, 1:].contiguous()
+        shift_labels = shift_labels.masked_fill(shift_mask == 0, -100)
     loss = F.cross_entropy(
         shift_logits.view(-1, shift_logits.size(-1)),
         shift_labels.view(-1),
@@ -220,9 +223,8 @@ def measure_nll_per_seq(model, tok, texts, hook_fns_by_layer=None):
         ids, mask = tokenize(batch, tok)
         with torch.no_grad():
             out = model(input_ids=ids, attention_mask=mask)
-        # per-sequence NLL
         for j in range(ids.shape[0]):
-            nll_j = logits_to_nll(out.logits[j:j+1], ids[j:j+1])
+            nll_j = logits_to_nll(out.logits[j:j+1], ids[j:j+1], mask[j:j+1])
             per_seq.append(nll_j)
 
     for h in handles:

@@ -26,23 +26,29 @@ Step 2. Prepare recipient:
     dir_critical at layer 5 (and optionally layers 2-11)
   - [TODO: Codex option B] Random-init: torch.manual_seed(42) random init
 
-Step 3. Injection conditions (Codex to specify subset):
-  a. NO_INJECTION: recipient as-is (baseline for lesioned, or random-init NLL)
-  b. INJECT_HOOK: add fixed activation hook at layer 5 that adds
-     alpha * (donor_mean[5] projected onto dir_critical) to every token
-  c. INJECT_SUBSPACE: add fixed hook at layers {2,5,8,11} (all early-layer
-     critical layers from genome_115) that adds the per-layer donor direction
-  d. INJECT_WEIGHT: directly modify MLP/attention weights at layer 5 to
-     encode the critical direction (weight-space surgery, not hook-space)
+Step 3. Injection conditions:
+  a. NO_INJECTION: recipient as-is (baseline)
+  b. LESION_ONLY: project out dir_critical at surgery layers (defines gap)
+  c. TRANSPLANT_HOOK: composite hook = project-out then inject donor mean proj
+     (make_transplant_hook: h -> h - (h·d)d + donor_mean_proj * d)
+  d. INJECT_ONLY: add donor mean proj without first projecting out
+     (tests injection on unlesioned model as upper bound)
+
+  Correctness notes (fixed from scaffold):
+  - Injection uses donor_mean_proj (extracted from fit split) not fixed alpha
+  - make_transplant_hook is the correct inverse: removes recipient component,
+    injects donor mean — avoids non-inverse composition bug
+  - logits_to_nll masks pad labels via attention_mask -> ignore_index=-100
+  - extract_critical_direction uses masked mean pooling (no pad contamination)
+  - eval split starts at offset 700 (past genome_116b probe range 200-699)
 
 Step 4. Measure:
-  - NLL on eval-split (n=100, disjoint from fit-split), ZERO gradient steps
-  - Bootstrap CIs (n=500)
-  - Report: NLL_recipient, NLL_donor, NLL_after_injection, gap_closed_%
+  - NLL on eval-split (n=100, offset=700, disjoint from fit+116b probe), ZERO gradient steps
+  - Paired bootstrap CIs (n=500)
+  - Report: NLL_donor, NLL_lesion, NLL_transplant, gap_closed_%
 
-Pass: injection recovers >= 20% of the lesion gap (NLL_recipient - NLL_donor)
-      at ZERO gradient steps with CI excluding zero
-Kill: injection recovers < 5% of gap — direction cannot be transplanted
+Pass: transplant recovers >= 20% of lesion gap at ZERO gradient steps with CI_lo > 0
+Kill: < 5% gap recovery — direction cannot be transplanted
 
 This is the decisive experiment toward the end goal.
 Results: results/genome_116_surgery_injection.json
@@ -79,9 +85,8 @@ CRITICAL_LAYERS = [2, 5, 8, 11]
 
 N_BOOT   = 500
 
-# TODO: Codex to specify exact recipient type and injection conditions
-# RECIPIENT_TYPE = "lesioned"  # or "random_init"
-# INJECTION_LAYERS = [5]  # or CRITICAL_LAYERS
+# Eval offset: past genome_115 fit (0-199) + genome_116b probe (200-699) = 700
+EVAL_OFFSET = 700
 
 
 # ---------------------------------------------------------------------------
@@ -138,36 +143,69 @@ def tokenize(texts, tok):
 # Extract critical direction from donor at SURGERY_LAYER
 # ---------------------------------------------------------------------------
 
+def masked_mean_pool(h_raw, mask):
+    """Attention-mask-weighted mean pool. h_raw: (B,T,D), mask: (B,T) -> (B,D)."""
+    m = mask.float().unsqueeze(-1)          # (B, T, 1)
+    return (h_raw * m).sum(dim=1) / m.sum(dim=1).clamp(min=1e-8)
+
+
 def extract_critical_direction(donor, tok, fit_texts, layer_idx):
     """Returns unit-normed PC1 direction (d_model,) from layer_idx."""
-    pooled = []
+    raw_acts, masks = [], []
 
     def hook_fn(module, inp, out):
         h = out[0] if isinstance(out, tuple) else out
-        pooled.append(h.detach().float().mean(dim=1).cpu())
+        raw_acts.append(h.detach().float().cpu())
 
     handle = donor.model.layers[layer_idx].register_forward_hook(hook_fn)
     for i in range(0, len(fit_texts), BATCH):
         ids, mask = tokenize(fit_texts[i:i+BATCH], tok)
+        masks.append(mask.cpu())
         with torch.no_grad():
             donor(input_ids=ids, attention_mask=mask)
     handle.remove()
 
-    acts = torch.cat(pooled, dim=0).numpy()
+    pooled = torch.cat(
+        [masked_mean_pool(h, m) for h, m in zip(raw_acts, masks)], dim=0
+    ).numpy()
     pca = PCA(n_components=5)
-    pca.fit(acts)
+    pca.fit(pooled)
     dir_pc1 = pca.components_[0]
     return dir_pc1 / (np.linalg.norm(dir_pc1) + 1e-8), float(pca.explained_variance_ratio_[0])
 
 
 def extract_per_layer_directions(donor, tok, fit_texts, layer_idxs):
-    """Returns dict {layer_idx: unit-normed PC1} for multiple layers."""
+    """Returns dict {layer_idx: (unit-normed PC1, var)} for multiple layers."""
     dirs = {}
     for li in layer_idxs:
         d, var = extract_critical_direction(donor, tok, fit_texts, li)
         dirs[li] = (d, var)
         print(f"  layer {li}: PC1 var={var:.3f}")
     return dirs
+
+
+def extract_donor_mean_proj(donor, tok, fit_texts, direction, layer_idx):
+    """Compute mean per-token projection of donor activations onto direction."""
+    dir_t = torch.tensor(direction, dtype=torch.float32)
+    proj_vals = []
+
+    def hook_fn(module, inp, out):
+        h = out[0] if isinstance(out, tuple) else out   # (B, T, D)
+        proj_vals.append((h.detach().float().cpu() @ dir_t))  # (B, T)
+
+    handle = donor.model.layers[layer_idx].register_forward_hook(hook_fn)
+    masks_list = []
+    for i in range(0, len(fit_texts), BATCH):
+        ids, mask = tokenize(fit_texts[i:i+BATCH], tok)
+        masks_list.append(mask.cpu())
+        with torch.no_grad():
+            donor(input_ids=ids, attention_mask=mask)
+    handle.remove()
+
+    all_projs = []
+    for p, m in zip(proj_vals, masks_list):
+        all_projs.extend(p[m.bool()].tolist())
+    return float(np.mean(all_projs))
 
 
 # ---------------------------------------------------------------------------
@@ -189,11 +227,11 @@ def make_lesion_hook(direction):
     return hook_fn
 
 
-def make_injection_hook(direction, scale=1.0):
-    """Add scale * direction to every token's activation (injection)."""
+def make_injection_hook(direction, donor_mean_proj):
+    """Add donor_mean_proj * direction to every token (sets mean component to donor's)."""
     dir_t = torch.tensor(direction, dtype=torch.bfloat16, device=DEVICE)
     dir_t = dir_t / (dir_t.norm() + 1e-8)
-    scale_t = torch.tensor(scale, dtype=torch.bfloat16, device=DEVICE)
+    scale_t = torch.tensor(donor_mean_proj, dtype=torch.bfloat16, device=DEVICE)
 
     def hook_fn(module, inp, out):
         is_tuple = isinstance(out, tuple)
@@ -204,25 +242,51 @@ def make_injection_hook(direction, scale=1.0):
     return hook_fn
 
 
+def make_transplant_hook(direction, donor_mean_proj):
+    """Composite: project out recipient's component then inject donor mean.
+    Equivalent to: h -> h - (h·d)d + donor_mean_proj * d
+    Correct inverse of lesion for the mean-level capability we measured.
+    """
+    dir_t = torch.tensor(direction, dtype=torch.bfloat16, device=DEVICE)
+    dir_t = dir_t / (dir_t.norm() + 1e-8)
+    scale_t = torch.tensor(donor_mean_proj, dtype=torch.bfloat16, device=DEVICE)
+
+    def hook_fn(module, inp, out):
+        is_tuple = isinstance(out, tuple)
+        h = out[0] if is_tuple else out
+        proj = (h @ dir_t).unsqueeze(-1) * dir_t   # remove recipient component
+        h_new = h - proj + scale_t * dir_t          # inject donor mean
+        return (h_new,) + out[1:] if is_tuple else h_new
+
+    return hook_fn
+
+
 # ---------------------------------------------------------------------------
 # NLL measurement
 # ---------------------------------------------------------------------------
 
-def logits_to_nll(logits, input_ids):
+def logits_to_nll(logits, input_ids, attention_mask=None):
     shift_logits = logits[:, :-1].contiguous()
     shift_labels = input_ids[:, 1:].contiguous()
+    if attention_mask is not None:
+        shift_mask = attention_mask[:, 1:].contiguous()
+        shift_labels = shift_labels.masked_fill(shift_mask == 0, -100)
     return F.cross_entropy(
         shift_logits.view(-1, shift_logits.size(-1)),
         shift_labels.view(-1),
         reduction="mean",
+        ignore_index=-100,
     ).item()
 
 
 def measure_nll_per_seq(model, tok, texts, hook_fns_by_layer=None):
+    """hook_fns_by_layer: dict {layer_idx: hook_fn | list[hook_fn]}"""
     handles = []
     if hook_fns_by_layer:
         for li, fn in hook_fns_by_layer.items():
-            handles.append(model.model.layers[li].register_forward_hook(fn))
+            fns = fn if isinstance(fn, list) else [fn]
+            for f in fns:
+                handles.append(model.model.layers[li].register_forward_hook(f))
 
     per_seq = []
     for i in range(0, len(texts), BATCH):
@@ -230,7 +294,7 @@ def measure_nll_per_seq(model, tok, texts, hook_fns_by_layer=None):
         with torch.no_grad():
             out = model(input_ids=ids, attention_mask=mask)
         for j in range(ids.shape[0]):
-            per_seq.append(logits_to_nll(out.logits[j:j+1], ids[j:j+1]))
+            per_seq.append(logits_to_nll(out.logits[j:j+1], ids[j:j+1], mask[j:j+1]))
 
     for h in handles:
         h.remove()
