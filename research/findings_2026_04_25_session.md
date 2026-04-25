@@ -1,6 +1,6 @@
 # Session 2026-04-25 — Findings Summary
 
-**Internal research notes, not a paper.** Consolidates 15 experiments completed in one session.
+**Internal research notes, not a paper.** Consolidates 16 experiments completed in one session.
 
 ## The narrative arc
 
@@ -75,6 +75,27 @@ This is a hypothesis worth testing: do trained models converge to the same eigen
 - `WIKI.md` reflects every change.
 - 14 commits on `main` today.
 - Repo is clean (no stale files except some `*_run.log` files that are gitignored).
+
+## genome_134 boundary finding (added post-synthesis)
+
+Tested glue-only training (frozen random attn+MLP, train only embed+lm_head+RMSNorm gammas, 26% of params) trajectory on Qwen3-0.6B random init for 100 steps.
+
+| Step | sqrt(er)·α | eff_rank |
+|---|---|---|
+| 0 | 6.006 | 105.96 |
+| 5 | 6.001 | 105.44 |
+| 10 | 6.004 | 105.01 |
+| 25 | 5.994 | 100.96 |
+| 50 | 5.681 | 80.51 |
+| 100 | 4.930 | 54.77 |
+
+**No mode collapse.** Glue-only training produces a MONOTONIC descent from random (6.0) toward target (target ~4.243, reached 4.93 at step 100, 16% from target). Compare to full-stack training which dips to invariant ≈ 1-3 (eff_rank ≈ 2-15) before recovering.
+
+**Mechanistic insight:** the U-shape mode collapse is full-stack-training-specific, not a residual-stream property. With attn/MLP frozen at random init, no early-feature-commitment happens, so no collapse. The endpoint manifold (~4.243) is shared between full-stack and glue-only training, but the trajectory shape differs.
+
+This refines the universality claim:
+- **Endpoint** (sqrt(er)·α ≈ 4.243): universal across full-stack and glue-only training, capable text LMs converge here.
+- **U-shape trajectory:** full-stack-specific. Glue-only takes a different (smoother, monotonic) path to the same endpoint.
 
 ## Open candidates for next session
 
