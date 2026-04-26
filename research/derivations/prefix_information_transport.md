@@ -4,6 +4,21 @@
 **Origin:** Codex first-principles consult, 2026-04-26.
 **Source:** `codex_outputs/first_principles_derivation.md`
 
+## g152 long-horizon crossover (2026-04-26): theory's ATTENUATION prediction observed
+
+The transport theory predicts MLP parameters are wasted only until the transport gap closes (η_ℓ > δ_ℓ^mlp). At larger compute, the transport gap should close, so the architecture-prior advantage should SHRINK. g152's 3-seed long-horizon crossover at 200M gave exactly this trajectory:
+
+| (base_step, min_step) | C4 gap | OOD gap |
+|---|---:|---:|
+| (4000, 8000)   | +0.54pp | +1.03pp |
+| (8000, 16000)  | +1.60pp | +1.70pp ← peak |
+| (16000, 32000) | +0.69pp | +0.96pp |
+| (25000, 50000) | +0.27pp | +0.45pp ← final |
+
+The peak is at modest compute and the gap monotonically attenuates after, while remaining strictly positive. This is consistent with transport-gap-closes-with-compute. It does NOT prove the theory (a single trajectory is not causal evidence), but it falsifies the alternative "transport doesn't matter at all and the win is artifactual" — the artifactual reading would predict either crossover (baseline overtakes) or a flat gap, neither observed.
+
+g156 is the causal test of the same prediction along a DIFFERENT axis (data structure rather than compute). g158 would extend it along context length. The triangulation of these three axes (compute, data order, context length) is what makes the theory load-bearing.
+
 ## Empirical record this is meant to derive
 
 In this repo's matched-budget protocol, a smaller **MLP-free attention+residual** model beats a larger attention+MLP baseline across 30M → 100M → 200M, and the win survives arm-specific tuning (`g138`, `g141`, `g146`, `g147`, `g148`, `g151`).
