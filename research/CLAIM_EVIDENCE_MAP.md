@@ -45,6 +45,7 @@ a LOCKED prereg + passing ledger entry. Treat as aspirational until promoted.
 | P7 | The architecture-prior win is mechanistically driven by residual-branch density, not by MLP-as-special | g153 2×2 mlp×depth factorial | `research/prereg/genome_153_mlp_depth_factorial_2026-04-26.md` LOCKED |
 | P8 | A frozen-teacher logit-distillation signal (top-k=64 KL) lifts minimal_3L_30M student top-1 by ≥0.30pp over CE-only training (smoke test of g155 production pipeline) | g154 distillation smoke | `research/prereg/genome_154_distillation_smoke_2026-04-26.md` LOCKED |
 | P9 | A first-principles derivation exists for WHY attention + width + residuals beat MLP at matched compute (axis being explored: information-theoretic, statistical-mechanics, rate-distortion, spectral) | Codex first-principles derivation consult fired 2026-04-26 (`codex_outputs/first_principles_derivation.md`); experiment to follow | Not yet drafted |
+| P10 | Distilled MLP-free student matches >=90% of Qwen3-8B on C3_macro (HellaSwag + PIQA + Winogrande) AND beats teacher TEI/kJ by >=4x AND beats best non-distilled sub-2B baseline by >=1.25x — manifesto's electricity-grade efficiency demo | g155 production distillation + benchmark execution (gated on g154 PASS + wall-power meter acquisition) | `research/prereg/genome_155_edge_benchmark_c3_energy_2026-04-26.md` **LOCKED at 1a00ee1** |
 
 ---
 

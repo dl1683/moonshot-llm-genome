@@ -1117,4 +1117,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 
 **Hygiene 2026-04-26:** Deleted stale `code/genome_130_trajectory_scaling_law.py` + result JSONs (Pythia checkpoint aliasing skip, no ledger entry). Deleted dead `code/genome_124_kd_logit_distillation.py` (superseded by g154; never committed).
 
+**genome_155 PREREG LOCKED (2026-04-26): C3-TEI/kJ EDGE BENCHMARK** ★
+- Codex Competitive-Analyst-delivered benchmark spec for the manifesto-aligned electricity-grade efficiency demo.
+- Headline metric: C3-TEI/kJ = HellaSwag + PIQA + Winogrande teacher-equivalent items per kilojoule of wall power. NOT tokens/sec/joule (gameable across tokenizers).
+- BREAKTHROUGH targets: C3_macro >= 90% of Qwen3-8B, TEI/kJ >= 4x Qwen3-8B, TEI/kJ >= 1.25x best non-distilled sub-2B.
+- Pre-reg LOCKED at commit 1a00ee1.
+- `research/prereg/genome_155_edge_benchmark_c3_energy_2026-04-26.md`
+- Codex consult: `codex_outputs/edge_benchmark_spec.md`
+- Prerequisite: external AC wall-power meter (Yokogawa WT310E gold; logging smart plug practical) — must acquire before running.
+- Pipeline: g154 (smoke) -> g155 production distillation -> evaluate against this benchmark.
+
+**Active Codex consults (in flight 2026-04-26):**
+- `codex_prompts/first_principles_derivation.txt` -> `codex_outputs/first_principles_derivation.md` (Architecture Theorist deriving why MLP-free + reduced-depth wins; for breakthrough-axis per CLAUDE.md §0.1)
+- `codex_prompts/adversarial_kill_arch_prior.txt` -> `codex_outputs/adversarial_kill_arch_prior.md` (Research Integrity + Novelty Challenger trying to KILL the architecture-prior thesis; bulletproofing audit)
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
