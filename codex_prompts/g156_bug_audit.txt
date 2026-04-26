@@ -1,0 +1,54 @@
+You are running TWO Codex personas: Correctness Engineer + Cross-System Auditor.
+
+YOUR JOB: bug-audit code/genome_156_prefix_destruction_200m.py before it runs.
+
+If g156 returns an unexpected result (especially KILL_TRANSPORT), we want high confidence the theory is failing, NOT the implementation. Find every bug, edge case, or subtle confound that could distort the natural-vs-shuffled comparison.
+
+READ:
+1. code/genome_156_prefix_destruction_200m.py (the experiment)
+2. research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md (locked spec)
+3. research/derivations/prefix_information_transport.md (theory)
+4. code/stimulus_banks.py (data source)
+5. code/genome_151_arm_specific_lr.py (closest reference; g156 inherits its LR/warmup/AdamW)
+
+SPECIFIC AUDIT POINTS:
+
+A) **Shuffle correctness**
+- shuffle_token_rows uses a single rng across all rows. Same row always gets the same shuffle pattern? Or does each row get a different shuffle?
+- Are eval and train shuffled with different SHUFFLE_SEEDs (SHUFFLE_SEED for train, SHUFFLE_SEED+1 for eval)? Is this fair, or does it create train/test mismatch?
+- Per-row permutation only on (mask==1) positions: is the LOSS computed against the SHIFTED labels correctly when those labels are themselves shuffled targets? Specifically: if `ids[r, p_i]` is the i-th valid token, then `ids[r, p_i+1]` (the prediction target) — is that the (i+1)-th SHUFFLED token, or the next-position token at the original position?
+
+B) **Position embedding interaction**
+- Llama uses RoPE positional encoding. Even with shuffled tokens, the model still sees position information (token at pos t in the sequence). Does this leak prefix-order info even on shuffled inputs?
+- Does the model effectively still "know" something about prefix structure because RoPE is unshuffled even when content is shuffled?
+- Could the architecture difference (minimal vs baseline) interact with this RoPE-only signal in a way that confounds the test?
+
+C) **Loss & evaluation symmetry**
+- measure_full uses the SAME train/eval pipeline for both natural and shuffled. Verify there's no asymmetry where shuffled gets effectively-different loss masking.
+- Verify the per-token loss computation correctly handles padding tokens that may have been swapped into "valid" positions by mask-aware shuffling.
+
+D) **Seed handling**
+- SEEDS=[42,7,13] used for model init AND batch sampling. Are different seeds producing genuinely independent runs?
+- The shuffle uses SHUFFLE_SEED=42 (frozen), so all seeds see the SAME shuffled corpus. This is intentional per the prereg, but verify it doesn't accidentally couple seed=42 to the shuffled condition in a special way.
+
+E) **Cross-condition bias**
+- Are the natural and shuffled corpora identical at the token-multiset level? (They should be, since shuffle is a permutation.) But verify the implementation doesn't accidentally drop or duplicate tokens.
+- Token frequency distribution: shuffled and natural should have IDENTICAL token frequencies. Verify.
+
+F) **Architecture-prior leakage**
+- Is the "minimal_7L noMLP" actually getting fewer FLOPs than "baseline_14L+MLP" per step due to the ZeroMLP zeroing out a forward pass that still costs compute? Or does the ZeroMLP truly skip the FFN computation?
+- Could the model's behavior on shuffled text be artifically "rescued" by the ZeroMLP returning zeros (which happens to be a sensible "I don't know" signal for shuffled inputs)?
+
+G) **Statistical power**
+- 3 seeds is the minimum for the ±0.5pp Δ_nat threshold. Is the within-arm seed variance likely to dominate the cross-condition signal?
+- Codex previously noted (g141 std ~0.08pp at 30M) that seed variance is small. Verify that 200M seed variance is also small enough.
+
+DELIVERABLES:
+1. A ranked list of every bug, confound, or subtle issue you find. Severity 1-10.
+2. For severity ≥7: the EXACT code change that fixes it, OR the experimental controls that disambiguate it.
+3. The single biggest risk that could make us mis-interpret g156's result.
+4. A pre-flight checklist (≤8 items) that we run AFTER g152 finishes but BEFORE launching g156.
+
+If you find no critical bugs, say so explicitly — don't manufacture issues. We're trying to validate, not find work.
+
+Output a single markdown report. Be precise. Reference exact line numbers from code/genome_156_prefix_destruction_200m.py.
