@@ -1103,10 +1103,23 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - g152 (long-horizon crossover, 3.3hr) launched immediately to address the remaining attack.
 - `code/genome_151_arm_specific_lr.py` -> `results/genome_151_arm_specific_lr.json`
 
-**genome_152 RUNNING (launched 2026-04-26): LONG-HORIZON CROSSOVER AT 200M**
-- Strongest remaining attack on minimal-architecture win: short-horizon compute-optimality artifact. Test: minimal_3L at 50k steps vs baseline at 25k steps with N_TRAIN=131072. If baseline catches and overtakes minimal at long horizons, the win is short-horizon compute-optimality. If minimal stays ahead or extends lead, it's a real architecture-prior advantage.
-- Status as of patch time: baseline arm running, step 4000 logged at 18.74% C4 / 10.13% OOD top-1.
-- `code/genome_152_long_horizon_crossover.py` -> `results/genome_152_long_horizon_crossover.json` (pending)
+**genome_152 COMPLETED (2026-04-26): LONG-HORIZON CROSSOVER — AMBIGUOUS / PARTIAL ★★ MAJOR**
+- Verdict text: "AMBIGUOUS: C4 +0.27pp, OOD +0.45pp at final. Mixed signal across metrics."
+- Honest reframing: minimal wins at EVERY checkpoint (no crossover; baseline never overtakes), but gap monotonically attenuates after peak.
+- Trajectory (3-seed averaged):
+
+  | (base_step, min_step) | C4 gap | OOD gap |
+  |---|---|---|
+  | (4000, 8000)   | +0.54pp | +1.03pp |
+  | (8000, 16000)  | **+1.60pp** | **+1.70pp** ← peak |
+  | (16000, 32000) | +0.69pp | +0.96pp |
+  | (25000, 50000) | +0.27pp | +0.45pp ← final |
+
+- **Codex severity-10 short-horizon attack PARTIALLY confirmed:** the win is regime-dependent (6x bigger at peak than final); but it does NOT collapse to baseline-overtakes. Direction survives, magnitude attenuates.
+- Manifesto-aligned reframing: at consumer-scale budgets (the regime that matters for the manifesto), architecture-prior is meaningful; at much-larger compute, it shrinks. This is HONEST framing per the audit.
+- C12 in CLAIM_EVIDENCE_MAP updated to reflect attenuating trajectory.
+- g156 prefix-destruction killer remains the right next move — does the small persistent advantage have an information-transport explanation, or is the attenuation evidence the transport gap is closing as compute grows?
+- `code/genome_152_long_horizon_crossover.py` -> `results/genome_152_long_horizon_crossover.json` (3.4hr wall-clock).
 
 **genome_153 PRE-STAGED (2026-04-26): MLP × DEPTH FACTORIAL MECHANISM TEST**
 - 2x2 factorial across 6 LRs to disentangle: is the architecture-prior win driven by (a) absence of MLP, (b) reduced depth, (c) interaction? Cells: {14L+MLP, 14L noMLP, 7L+MLP, 7L noMLP} x {LRs}.

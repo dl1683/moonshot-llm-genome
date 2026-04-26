@@ -26,6 +26,34 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 — genome_152_long_horizon_crossover — AMBIGUOUS / PARTIAL (gap attenuates, no crossover)
+
+**Purpose.** Falsify the "short-horizon compute-optimality artifact" attack on the architecture-prior thesis (Codex severity-10). 200M baseline_14L+MLP at 25k steps vs minimal_7L_noMLP at 50k steps, 3 seeds, N_TRAIN=131072.
+**Systems.** Llama-3 family, hidden=1024, ffn=2304, 16 heads. lr=3e-4 with 200-step warmup. AdamW (0.9, 0.95). Pythia GPT-NeoX tokenizer.
+**Pre-stated kill condition.** If baseline catches and overtakes minimal at long horizon, the architecture-prior thesis collapses to a low-budget efficiency artifact.
+**Compute.** 12098s (~3.4 hr).
+
+### Result — minimal wins everywhere, gap attenuates monotonically after peak
+
+| (baseline_step, minimal_step) | C4 gap | OOD gap |
+|---|---:|---:|
+| (4000, 8000)   | +0.54pp | +1.03pp |
+| (8000, 16000)  | **+1.60pp** | **+1.70pp** ← peak |
+| (16000, 32000) | +0.69pp | +0.96pp |
+| (25000, 50000) | +0.27pp | +0.45pp ← final |
+
+### Why this matters
+
+The Codex severity-10 short-horizon attack is **partially confirmed**: the win is regime-dependent (6× bigger at peak than final), so the original strong framing ("scale-monotonic capability advantage") was an overclaim at long horizons. But the win does NOT collapse to baseline-overtakes — minimal is ahead at every single matched-compute checkpoint. The architecture-prior survives in DIRECTION; the magnitude is honestly attenuated.
+
+**Manifesto-aligned reframing:** at consumer-scale budgets (the regime that matters for the manifesto), the architecture-prior is meaningful; at much-larger compute, it shrinks. This is consistent with the prefix-information transport theory's prediction that the win should shrink as the transport gap closes (more compute → more transport budget).
+
+**C12 in CLAIM_EVIDENCE_MAP** updated to reflect the attenuating-trajectory finding. P6 (the long-horizon survival provisional claim) absorbed into C12 with the magnitude-regime-dependent caveat.
+
+**Next.** g156 prefix-destruction killer is now even more decisive — does the small-but-persistent (+0.27pp / +0.45pp) advantage at long horizon have a transport-information explanation? If g156 PASSes, the attenuating trajectory becomes evidence FOR the theory (transport gap closes with compute). If g156 KILLs, the persistent gap needs another explanation entirely.
+
+---
+
 ## 2026-04-26 session catch-up (genome_132 → genome_151, architecture-prior thread)
 
 After the holism-barrier KILLs (g117-g125) and the trajectory-mapping work (g126-g131), the project pivoted from "transfer trained weights into untrained architectures" toward "isolate which structural priors carry capability." The g132-g151 block is a single coherent thread. Per-experiment details live in `experiments/ledger.jsonl` and `WIKI.md`; highlights:
