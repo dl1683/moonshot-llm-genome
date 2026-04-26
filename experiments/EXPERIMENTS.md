@@ -26,6 +26,37 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 session catch-up (genome_132 → genome_151, architecture-prior thread)
+
+After the holism-barrier KILLs (g117-g125) and the trajectory-mapping work (g126-g131), the project pivoted from "transfer trained weights into untrained architectures" toward "isolate which structural priors carry capability." The g132-g151 block is a single coherent thread. Per-experiment details live in `experiments/ledger.jsonl` and `WIKI.md`; highlights:
+
+- **genome_132** — invariant predictive of NLL across architectures (cross-arch generalization of g131's training-monitoring tool).
+- **genome_133** — Llama-from-scratch trajectory characterization. Spectrum-trajectory U-shape replicates on Llama, confirming Pythia → Llama universality at the trajectory level (still epiphenomenal per g135).
+- **genome_134-135** — glue-only trajectory + closed-loop phase control: spectrum trajectory can be steered, but steering it does NOT improve loss. Trajectory is correlate, not cause.
+- **genome_136-137** — data-order transfer + optimizer-state transfer: AdamW state IS path-dependent and transferable; donor weights + matched optimizer state beats reset state at K=1000 → K=4000 continuation.
+- **genome_138** — architecture-prior decomposition: tested attn-only / MLP-only / width-only / residual-only ablations on random-init recipients. Win is LOCALIZED to attention + width + residuals; MLP and depth contribute little.
+- **genome_139-140** — minimal-prior benchmark + multi-seed OOD: 3-layer Llama with no MLP at hidden=384 matches the full Llama-3 baseline within 0.5pp top-1 across seeds, on both C4 and OOD WikiText-103.
+- **genome_141** — 3-seed validation at 30M params confirms minimal_3L within 0.5pp of baseline.
+- **genome_142-144** — efficiency-boundary push + Pythia-family + scale-100M: scale-monotonic confirmation (minimal beats baseline at 100M by +0.82pp, +0.79pp at 200M).
+- **genome_145** — matched-FLOPs at 100M with N_TRAIN=4096 — minimal overfit confound; resolved in g146.
+- **genome_146** — matched-FLOPs at 100M with N_TRAIN=32k — minimal beats baseline +0.82pp.
+- **genome_147** — matched-FLOPs at 200M, scale-monotonic confirmation — minimal beats baseline +0.79pp top-1.
+- **genome_148** — HellaSwag capability-grade test at 200M — minimal +0.73pp (Python crashed on Unicode print but JSON saved manually). Capability-graded.
+- **genome_149** — HP-robustness sweep at 200M with lrs {1e-4, 3e-4, 1e-3} — KILL_strict because both arms diverged at lr=1e-3.
+- **genome_150** — warmup rescue of broken 1e-3 cell — KILL, minimal collapses harder than baseline; minimal MORE LR-fragile.
+- **genome_151** — arm-specific LR sweep across {2e-4, 3e-4, 4e-4, 6e-4} — **PASS**. Best-vs-best: baseline best at 2e-4 (18.34% C4), minimal best at 3e-4 (18.99% C4). Architecture-prior win is +0.65pp C4 / +0.52pp OOD when each arm tunes its own LR. Codex mechanistic conjecture partially confirmed (different optima exist) but direction opposite (baseline wants LOWER, not minimal wants HIGHER). Minimal still more fragile at extreme LRs.
+
+**Refined thesis surviving all attacks except long-horizon (g152 in progress as of 2026-04-26):** in the well-behaved LR basin (2-3e-4 with 200-step warmup), MLP-free 3-layer Llama with hidden=384 wins ~0.5-0.8pp top-1 over the MLP-equipped baseline at matched FLOPs, scale-monotonic 30M → 100M → 200M, transfers to OOD WikiText-103 + downstream HellaSwag, robust to arm-specific LR tuning. The win is real. The remaining attack — short-horizon compute-optimality artifact — is being addressed by **g152 long-horizon crossover** (50k-step minimal vs 25k-step baseline at 200M, 3.3hr run).
+
+**Active queue (pre-staged, not yet run):**
+- `genome_152_long_horizon_crossover` — running. Tests whether baseline catches and overtakes minimal at long horizons.
+- `genome_153_mlp_depth_factorial` — pre-reg LOCKED 2026-04-26. 4 arms × 6 LRs disentangle branch density vs MLP-as-special.
+- `genome_154_distillation_smoke` — pre-reg LOCKED 2026-04-26. KD vs scratch on minimal_3L_30M with Qwen3-0.6B teacher. Validates production-distillation pipeline.
+
+**Strategic next step (Codex outreach analysis):** if g154 PASSes, g155 production distillation with stronger teacher and bigger MLP-free student. The shippable artifact is an OpenAI-compatible edge inference server demonstrating quality-per-joule advantage on consumer hardware — the manifesto-aligned electricity-grade efficiency demo.
+
+---
+
 ## 2026-04-25 — genome_131_invariant_predicts_nll — PASS (training-monitoring tool established)
 
 **Purpose.** Test whether the trained-spectrum invariant has practical predictive utility: does sqrt(er)·α at training step k predict the model's NLL on held-out text at the same step?
