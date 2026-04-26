@@ -1143,7 +1143,11 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Files: `research/derivations/prefix_information_transport.md` (canonical doc), `research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md` LOCKED, `code/genome_156_prefix_destruction_200m.py` ready to run.
 - **Why this matters per CLAUDE.md §0.1:** This is a derivation a big lab cannot publish without contradicting their "more MLP = better" product story. Surviving this test (PASS_TRANSPORT) gets the architecture-prior thesis from "phenomenology" → "first-principles-supported, falsifiable theory."
 
-**Active Codex consults (in flight 2026-04-26):**
-- `codex_prompts/adversarial_kill_arch_prior.txt` -> `codex_outputs/adversarial_kill_arch_prior.md` (Research Integrity + Novelty Challenger trying to KILL the architecture-prior thesis; bulletproofing audit; still running)
+**Codex adversarial audit COMPLETE (2026-04-26):** `codex_outputs/adversarial_kill_arch_prior.md`. Brutal but fair. Three patches applied to `CLAIM_EVIDENCE_MAP.md`:
+- C11 reframed: 30M anchor was matched-STEPS (not matched-FLOPs as written). Minimal still wins with FEWER FLOPs at 30M — stronger efficiency claim correctly stated now.
+- C12 HellaSwag demoted: noise-level (~chance, ~0.7pp gap inside seed oscillation). Directional only, NOT capability-grade.
+- C13 caveated: single-seed best-vs-best with uncorrected multiple-comparison.
+- §3.5 added with 4 open audit items (Wikitext OOD using train split, C4 dedup unverified, HellaSwag tokenization discipline, big-lab publishability score 4/10 §0.1).
+- **Verdict:** the empirical chain (C10-C13) is real but smaller than original framing claimed. Codex flagship-score: not yet a breakthrough. **The breakthrough-axis comes from g156 derivation route, not from C10-C13 alone.**
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
