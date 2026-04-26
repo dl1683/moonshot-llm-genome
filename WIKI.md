@@ -1098,4 +1098,23 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - g152 (long-horizon crossover, 3.3hr) launched immediately to address the remaining attack.
 - `code/genome_151_arm_specific_lr.py` -> `results/genome_151_arm_specific_lr.json`
 
+**genome_152 RUNNING (launched 2026-04-26): LONG-HORIZON CROSSOVER AT 200M**
+- Strongest remaining attack on minimal-architecture win: short-horizon compute-optimality artifact. Test: minimal_3L at 50k steps vs baseline at 25k steps with N_TRAIN=131072. If baseline catches and overtakes minimal at long horizons, the win is short-horizon compute-optimality. If minimal stays ahead or extends lead, it's a real architecture-prior advantage.
+- Status as of patch time: baseline arm running, step 4000 logged at 18.74% C4 / 10.13% OOD top-1.
+- `code/genome_152_long_horizon_crossover.py` -> `results/genome_152_long_horizon_crossover.json` (pending)
+
+**genome_153 PRE-STAGED (2026-04-26): MLP × DEPTH FACTORIAL MECHANISM TEST**
+- 2x2 factorial across 6 LRs to disentangle: is the architecture-prior win driven by (a) absence of MLP, (b) reduced depth, (c) interaction? Cells: {14L+MLP, 14L noMLP, 7L+MLP, 7L noMLP} x {LRs}.
+- Will fire after g152 completes.
+- `code/genome_153_mlp_depth_factorial.py` (no result yet)
+
+**genome_154 PRE-STAGED (2026-04-26): DISTILLATION SMOKE TEST (D2 pilot)**
+- First step toward the outreach product Codex identified: MLP-free student trained from a strong teacher, shipped as edge inference server.
+- Two arms on minimal_3L_30M: CE-only (scratch) vs CE+KL_topk (kd) with Qwen3-0.6B as frozen teacher.
+- Smoke scale: N_TRAIN=4096, top-k=64 logit cache, T=2.0, gamma=0.5. ~15 min wall-clock.
+- PASS: KD beats scratch by >=0.3pp top-1. If PASS, g155 scales to N_TRAIN=131072 with stronger teacher.
+- `code/genome_154_distillation_smoke.py` (no result yet)
+
+**Hygiene 2026-04-26:** Deleted stale `code/genome_130_trajectory_scaling_law.py` + result JSONs (Pythia checkpoint aliasing skip, no ledger entry). Deleted dead `code/genome_124_kd_logit_distillation.py` (superseded by g154; never committed).
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
