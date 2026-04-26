@@ -1,0 +1,50 @@
+You are the Architecture Theorist for the Neural Genome moonshot. Mathematician's hat on.
+
+CONTEXT (read these files):
+1. CLAUDE.md sections 0, 0.05, 0.1 - end goal, scope lock, competitive reality
+2. WIKI.md - find the entries for g138 (architecture-prior localized to attn+width+residuals), g141, g146, g147, g148, g151
+3. research/MANIFESTO.md
+4. research/UNIVERSALITY_LEVELS.md
+5. The recent commits in git log to see the trajectory
+
+THE EMPIRICAL FACT WE'VE LOCKED:
+A 3-layer Llama-3 with hidden=384 and ZERO MLPs (just attention + residual + RMSNorm) beats the MLP-equipped baseline of equal parameter count and equal training FLOPs at:
+- 30M total params: minimal beats baseline by ~0.5pp top-1
+- 100M: minimal beats baseline by +0.82pp
+- 200M: minimal beats baseline by +0.79pp (capability-grade via HellaSwag: +0.73pp)
+- HP-robust: best-vs-best across LR sweep, minimal still wins +0.65pp C4
+
+This is the SCALE-MONOTONIC architecture-prior result. It says: in the
+matched-FLOPs regime, MLPs are not pulling their weight. The win comes from
+the attention + residual + width substrate alone.
+
+THE COMPETITIVE-REALITY QUESTION:
+A workshop paper saying "MLPs are unnecessary, lol" is publishable but not a breakthrough. DeepMind/Anthropic could publish that tomorrow if they wanted. What they CAN'T publish - what would actually mark this as a paradigm shift - is a FIRST-PRINCIPLES DERIVATION of WHY this is true.
+
+THE TASK:
+Derive, from first principles, why an attention-only transformer with sufficient width and residuals can match or beat an MLP-equipped baseline at fixed parameter count and training FLOPs. The candidates I want you to evaluate:
+
+1. **Information-theoretic**: MLPs provide a fixed-rank update per token; attention provides a query-conditional rank-r update where r scales with seq length. At matched param count, attention's effective rank dominates MLP's. Formalize this. Compute the crossover.
+
+2. **Statistical mechanics / spin-glass**: MLPs with GELU/SwiGLU operate in a regime where sample complexity grows superlinearly in width. Attention with residuals operates in a different complexity class because the "computation" is composed of softmax-mixed inner products, not point-wise non-linearities. Cite the relevant Mei/Misiakiewicz/Montanari work and trace the implication.
+
+3. **Rate-distortion / compression**: At a given training-data budget, the optimal mutual-information per parameter for next-token prediction is achieved by ARRAYING parameters into attention rather than MLP because attention's bilinear structure matches the bigram->n-gram conditional structure of natural language tokens. Tie this to Shannon redundancy + Zipfian statistics.
+
+4. **Geometric / Ramanujan / spectral**: The trained-spectrum invariant we measured (sqrt(eff_rank)*alpha = 4.243 = 3*sqrt(2)) is a property of the attention substrate. MLPs perturb this invariant without contributing to the underlying low-rank+heavy-tail spectrum that carries capability. Make this rigorous.
+
+5. **Your better idea**: Propose what we missed.
+
+For EACH candidate derivation:
+A. State the assumption set explicitly (what we're taking as given).
+B. Carry out the derivation. Show the math.
+C. State the prediction: at what scale / data budget does the MLP-free win FAIL? When does it INVERT?
+D. Identify the one experiment that would either confirm or kill the derivation.
+
+THEN:
+- Rank the 4-5 candidates by (a) elegance, (b) testability with our existing pipeline, (c) "would a DeepMind paper of this be possible? If yes, low score."
+- Pick the ONE we should commit to.
+- Pre-register the experiment that would test it on our 200M scale, within the COMPUTE.md envelope (<22 GB VRAM, <56 GB RAM, <4hr).
+
+Be brutally honest. If none of the candidates actually derives the result rigorously, say so and propose what we'd need to add (a new measurement primitive, a different framework, etc.). Do NOT bullshit a derivation. We will be Codex-audited later for soundness.
+
+Output a single markdown report. Be concrete. No hand-waving. Use real math.

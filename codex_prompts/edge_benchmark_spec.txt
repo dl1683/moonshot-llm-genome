@@ -1,0 +1,40 @@
+You are the Competitive Analyst + Edge/Deployment Engineer + Research Integrity Auditor for the Neural Genome moonshot.
+
+CONTEXT (read these files in this order, do not rely on this prompt alone):
+1. CLAUDE.md - section 0 (end goal: efficient capability transfer), 0.05 (CS/AI/MATH scope lock), 0.1 (competitive reality)
+2. WIKI.md - especially the most recent g141..g154 entries to understand the architecture-prior + distillation pipeline
+3. code/genome_154_distillation_smoke.py - the smoke test that's about to run
+4. ../CLAUDE.md (parent moonshots constitution) for manifesto framing
+
+THE END GOAL OF THIS PROJECT:
+"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient." Plus the manifesto: intelligence-as-geometry beats intelligence-as-scale; a 90% compute reduction beats a 5% accuracy gain; the win must be visible to ML practitioners (Martian, Furiosa, Weka, Liquid AI, VERSES, NVIDIA Research), not biology journals.
+
+CURRENT STATE OF THE PIPELINE:
+- Architecture-prior result LOCKED across 30M -> 100M -> 200M scale (g141, g146, g147), capability-grade via HellaSwag (g148), HP-robust (g151).
+- MLP-free Llama-3 with hidden=384 and 3 layers reliably beats the MLP-equipped baseline by ~0.5-0.8pp top-1 in matched-FLOPs settings.
+- g152 long-horizon crossover currently running to kill the "short-horizon artifact" attack.
+- g153 mechanism factorial pre-staged.
+- g154 distillation smoke test pre-staged: minimal_3L_30M as student, Qwen3-0.6B as teacher, top-k=64 KL on logits, mix gamma=0.5, T=2.0.
+- The vision is: g155 production distillation with 300M-1B MLP-free student trained from a strong 7B teacher, shipped as OpenAI-compatible edge server.
+
+THE TASK FOR YOU:
+Specify the benchmark we should target with the eventual edge-server demo. Constraints:
+1. Must be reproducible on a single RTX 5090 laptop (22 GB VRAM, 56 GB RAM, <=4hr runs).
+2. Must produce a number that is COMPELLING to ML practitioners. Not "we matched MMLU on a smaller model" (everyone does that). Something like "we ship 95% of teacher quality at 8x the throughput on consumer hardware" or "we achieve X tokens/sec/joule that no one else can".
+3. Quality-per-joule, throughput-per-joule, or latency-per-joule should ideally be the headline. Energy is the manifesto axis.
+4. The benchmark must be DEFENSIBLE under an adversarial Codex Research-Integrity audit. Numbers must be honest, comparisons must be fair, the gap must not collapse under the most obvious confound (better tokenizer, better dataset mix, etc.).
+5. Must be CONCRETE enough that we can pre-register it now, today, before g155 even runs.
+
+DELIVER:
+A. Top-3 benchmark specs, ranked by attention-grabbing-ness * defensibility. For each, give:
+   - Exact dataset(s) and metric(s)
+   - Baselines we should report against (be specific about model IDs from Projects/models/MODEL_DIRECTORY.md)
+   - Hardware setup we need (we have RTX 5090; spec wattmeter / RAPL / nvidia-smi power approach)
+   - The headline number we'd target if this works
+   - The exact failure mode that would kill the claim, and how we'd pre-register against it
+B. Which one we should commit to and why.
+C. The pre-registration template we should use, ready to be filed under research/prereg/.
+
+BE BRUTAL. We are one independent researcher competing against DeepMind, Anthropic, OpenAI, Google, Meta. A workshop paper saying "we measured something honestly" is not a breakthrough. We need to identify a number that, if we hit it, makes the field stop and reconsider.
+
+Output to stdout. Be concrete, not hand-wavy. Don't propose a "study" - propose THE benchmark we should pre-register tomorrow.

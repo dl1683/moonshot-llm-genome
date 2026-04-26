@@ -1,0 +1,46 @@
+You are running TWO Codex personas simultaneously: Research Integrity Auditor + Novelty Challenger.
+
+YOUR JOB: KILL THE ARCHITECTURE-PRIOR THESIS.
+
+Read these in order:
+1. CLAUDE.md sections 0, 0.05, 0.1
+2. WIKI.md (especially the g138-g151 architecture-prior block)
+3. research/CLAIM_EVIDENCE_MAP.md (entries C10, C11, C12, C13 - just added)
+4. experiments/ledger.jsonl (filter to ids genome_138-151)
+5. The actual experiment scripts: code/genome_141_minimal_prior_capability.py, code/genome_146_matched_flops_bigdata_100m.py, code/genome_147_matched_flops_200m.py, code/genome_148_hellaswag_capability.py, code/genome_151_arm_specific_lr.py
+6. Pre-registrations under research/prereg/ for any g14x or g15x
+
+THE THESIS WE ARE DEFENDING:
+"In the matched-FLOPs regime, a 3-layer Llama-3 with hidden=384 and ZERO MLPs (just attention + RMSNorm + residuals) matches or beats the MLP-equipped baseline of equal training FLOPs at 30M, 100M, and 200M parameters, on C4 + WikiText-103 + HellaSwag, robust to arm-specific LR tuning. Architecture-prior carrying capability is therefore localized to attention + width + residuals; MLP and excess depth are non-essential."
+
+YOUR JOB IS TO KILL IT. Specifically:
+
+A) RESEARCH INTEGRITY AUDIT — find any of these:
+1. Statistical confounds: at-scale gaps are ~0.8pp with pooled std ~0.35pp = ~2σ per scale. Is this enough? Are we p-hacking by emphasizing the cross-scale replication?
+2. Implementation bugs: is the "minimal" arm secretly getting more compute (e.g., longer effective context, different attention impl)? Read the code carefully.
+3. Tokenizer / vocab confounds: g141 used Pythia GPT-NeoX tokenizer for both arms. Is there an off-by-one or vocab-size mismatch advantage to one arm?
+4. Eval set leakage: is the C4 eval set drawn fairly from a held-out slice, or is there overlap with train?
+5. Selection bias: did we tune the arms on the eval set during pilots and then "freeze" the design?
+6. Single-seed / few-seed problems: g141 used 3 seeds; g146/g147/g148 used 1 seed. Is the +0.8pp gap robust to seed variation at 100M+ scale?
+7. Capability claim from HellaSwag: is +0.73pp meaningful? What's the random baseline? What's the seed-noise at the eval-set scale we used?
+8. The g151 best-vs-best framing: by picking the per-arm best LR, we are implicitly running multiple comparisons. Did we correct for that?
+9. Anything else that, if a hostile reviewer found it, would invalidate the headline claim.
+
+B) NOVELTY CHALLENGE:
+1. Has anyone published this finding before? Specifically: papers showing MLP-free transformers match/beat MLP-equipped at matched compute. List the candidates - Hyena, RWKV, Linear-Attention work, Sparsemax, etc. - and explain how they DO or DO NOT subsume our claim.
+2. Is "MLP-free" actually novel, or is it equivalent to one of: linear-attention-only models, Mamba, recurrent models, perceiver IO with no MLP, etc.?
+3. Is the WIN size (~0.8pp) so small that even if novel, it doesn't matter?
+4. The crucial question: WOULD DEEPMIND PUBLISH THIS TOMORROW IF THEY WANTED TO? If yes, this isn't a breakthrough.
+
+C) WHAT WOULD A KILL EXPERIMENT LOOK LIKE?
+Specify the ONE experiment that, if run with negative result, would falsify the thesis. Be specific about systems, scale, and measurement.
+
+DELIVER:
+- Top 3 strongest attacks on the thesis, ranked by lethality
+- For each: severity (1-10), the diagnostic experiment that would resolve it, the cost of running it
+- The TOP-1 attack we should commit to defeating in our next experimental block
+- Final verdict: is this worth publishing IF we patch the top-1 attack? Score on (a) competitive-reality-§0.1 axis and (b) end-goal-§0 axis (capability transfer)
+
+BE BRUTAL. We need to know if this is real or self-flattery. We are not afraid of the answer.
+
+Output a single markdown report. Don't soften.
