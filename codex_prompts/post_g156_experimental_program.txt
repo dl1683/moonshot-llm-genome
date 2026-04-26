@@ -1,0 +1,48 @@
+You are running TWO Codex personas: Architecture Theorist + Scaling Expert.
+
+CONTEXT (read in order):
+1. CLAUDE.md sections 0, 0.05, 0.1
+2. WIKI.md (especially the 2026-04-26 entries about g156 and the prefix-information transport derivation)
+3. research/derivations/prefix_information_transport.md (the canonical derivation doc)
+4. research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md (the locked killer test)
+5. research/CLAIM_EVIDENCE_MAP.md (especially §3.5 audit findings and P11)
+6. codex_outputs/adversarial_kill_arch_prior.md (the brutal audit telling us C10-C13 alone is "narrow ablation, not breakthrough")
+
+WHERE WE ARE:
+- We have an empirical thesis (architecture-prior win in matched-step Llama; C10-C13 in CLAIM_EVIDENCE_MAP) that the adversarial Codex audit scored 4/10 on §0.1 — narrow efficiency ablation, not flagship.
+- We have a derivation route (Prefix-Information Transport Principle) that, if validated by g156's killer test, graduates the thesis from phenomenology to first-principles theory.
+- g156 is staged: 12 runs, ~1hr GPU. natural vs shuffled c4. PASS_TRANSPORT if Δ_nat≥+0.5pp AND Δ_shuf≤+0.1pp AND C≥+0.4pp.
+- The honest framing is: g156 PASS turns this into a breakthrough; g156 KILL means we keep the empirical result as a narrow ablation but lose the derivation route.
+
+YOUR TASK:
+Design the post-g156-PASS experimental program. Specifically: assuming g156 PASSes (the win collapses on shuffled, supporting the transport theory), what are the next 3-5 experiments that turn this into a real publishable theory rather than a single-test surprise?
+
+CONSTRAINTS (must satisfy ALL):
+1. Each experiment must fit COMPUTE.md envelope (≤22 GB VRAM, ≤56 GB RAM, ≤4hr wall-clock, RTX 5090 laptop, no cloud)
+2. Each must be pre-registerable BEFORE execution (concrete metrics, thresholds)
+3. Each must serve at least one of: (a) extending the derivation across architecture classes, (b) building the missing measurement primitive (ηℓ/δℓ^mlp probe), (c) demonstrating the theory predicts the inversion regime, (d) directly enabling the manifesto-aligned end-goal (capability transfer / electricity-grade efficiency demo)
+4. Each must be RESISTANT to the adversarial audit's complaints that already hit C10-C13: matched-FLOPs accounting, multi-seed, proper held-out splits, full-validation-set capability tests, dedup checks
+
+DELIVERABLES:
+A. Top 3-5 follow-up experiments, ranked by (a) how much they advance the breakthrough-axis claim, (b) cost in GPU-hours, (c) defensibility under hostile audit. For each:
+   - Hypothesis (concrete, falsifiable, with direction)
+   - System (specific architectures, scales, seeds)
+   - Pre-stated PASS/PARTIAL/KILL thresholds
+   - The exact thing that would falsify the broader theory if this one fails
+   - Compute estimate (GPU-hours)
+   - Why this experiment specifically ADVANCES THE THEORY rather than being adjacent ablation
+B. The full sequencing: which to run first, second, third, and why
+C. The first NEW MEASUREMENT PRIMITIVE this program needs (the ηℓ/δℓ^mlp probe). Sketch:
+   - What it measures
+   - How to estimate it from a trained model on text data (concrete algorithm)
+   - What value would FALSIFY the transport theory
+   - Compute cost
+D. Final answer: if g156 PASSes AND we run all 5, what specific claim could we make in front of an adversarial Codex audit that we couldn't make today? Word it precisely.
+
+DO NOT propose:
+- Biological / V1 / cortex experiments (per §0.05 scope lock)
+- Anything requiring cloud compute
+- Experiments that just polish the C10-C13 chain (the audit said it's done; we need NEW evidence types)
+- Multi-month engineering builds
+
+BE CONCRETE. We will pre-register one of these tomorrow if g156 PASSes. Output a single markdown report.

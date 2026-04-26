@@ -1143,6 +1143,17 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Files: `research/derivations/prefix_information_transport.md` (canonical doc), `research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md` LOCKED, `code/genome_156_prefix_destruction_200m.py` ready to run.
 - **Why this matters per CLAUDE.md §0.1:** This is a derivation a big lab cannot publish without contradicting their "more MLP = better" product story. Surviving this test (PASS_TRANSPORT) gets the architecture-prior thesis from "phenomenology" → "first-principles-supported, falsifiable theory."
 
+**POST-g156-PASS PROGRAM LOCKED (2026-04-26):** `research/programs/post_g156_pass_program.md`. If g156 PASSes, the next 5 experiments are sequenced and pre-specified by Codex Architecture-Theorist + Scaling-Expert consult:
+- **g157** η/δ probe on g156 checkpoints (~2hr) — builds the missing measurement primitive
+- **g158** context-length inversion sweep (~1.5hr) — sharpest unique theory prediction
+- **g159** cross-class causal lesion (Qwen3 + RWKV + Falcon-H1, ~0.8hr) — class extension via pretrained
+- **g161** RWKV training extension (~3hr) — direct training-time replication beyond transformers
+- **g160** transport-guided student comparison (~3.5hr) — cashes the law as a model-selection rule for the manifesto end-goal
+- Shared audit-hard protocol locked: 13-token rolling-hash dedup, ±2% FLOPs match, Wikitext-103 VAL (not train), full-validation HellaSwag/PIQA/Winogrande with full-string tokenization. These are the protocols that survive the 2026-04-26 adversarial audit.
+- Final claim available after all 5 PASS: "prefix-information transport is a measured design law" — the framing that survives audit and that C10-C13 alone cannot make.
+- Codex source: `codex_outputs/post_g156_experimental_program.md`.
+- g156 patched 2026-04-26 to save final checkpoints (hygiene; protocol-preserving) so g157 can run immediately on g156 PASS.
+
 **Codex adversarial audit COMPLETE (2026-04-26):** `codex_outputs/adversarial_kill_arch_prior.md`. Brutal but fair. Three patches applied to `CLAIM_EVIDENCE_MAP.md`:
 - C11 reframed: 30M anchor was matched-STEPS (not matched-FLOPs as written). Minimal still wins with FEWER FLOPs at 30M — stronger efficiency claim correctly stated now.
 - C12 HellaSwag demoted: noise-level (~chance, ~0.7pp gap inside seed oscillation). Directional only, NOT capability-grade.

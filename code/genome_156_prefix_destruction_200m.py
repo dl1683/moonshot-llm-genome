@@ -228,6 +228,12 @@ def main():
         ("token_shuffled", train_ids_shuf, train_mask, eval_ids_shuf, eval_mask),
     ]
 
+    # Final checkpoints saved for downstream g157 layerwise probe (hygiene per
+    # post_g156_experimental_program.md). Prereg locks hypothesis/criteria/thresholds,
+    # not artifact set; saving final weights does not change protocol.
+    ckpt_dir = ROOT / "results" / "genome_156_checkpoints"
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+
     results = {}  # results[condition][arm][seed] = {nll, top1_acc, top5_acc, nan_seen, wallclock_s}
     for cond_name, t_ids, t_mask, e_ids, e_mask in conditions:
         results[cond_name] = {}
@@ -246,6 +252,15 @@ def main():
                 metrics["nan_seen"] = nan_seen
                 metrics["wallclock_s"] = elapsed
                 metrics["params_M"] = n_total / 1e6
+                # Save final checkpoint for g157 downstream probe
+                ckpt_path = ckpt_dir / f"{cond_name}__{arm_name}__seed{seed}.pt"
+                torch.save({"state_dict": {k: v.detach().cpu() for k, v in model.state_dict().items()},
+                            "cond": cond_name, "arm": arm_name, "seed": seed,
+                            "config": {**kw, "lr": lr, "n_steps": n_steps,
+                                        "vocab_size": actual_vocab},
+                            "metrics": metrics},
+                            ckpt_path)
+                metrics["checkpoint_path"] = str(ckpt_path.relative_to(ROOT))
                 results[cond_name][arm_name][seed] = metrics
                 del model; torch.cuda.empty_cache()
 
