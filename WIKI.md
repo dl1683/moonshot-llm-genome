@@ -1115,8 +1115,11 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
   | (16000, 32000) | +0.69pp | +0.96pp |
   | (25000, 50000) | +0.27pp | +0.45pp ← final |
 
-- **Codex severity-10 short-horizon attack PARTIALLY confirmed:** the win is regime-dependent (6x bigger at peak than final); but it does NOT collapse to baseline-overtakes. Direction survives, magnitude attenuates.
-- Manifesto-aligned reframing: at consumer-scale budgets (the regime that matters for the manifesto), architecture-prior is meaningful; at much-larger compute, it shrinks. This is HONEST framing per the audit.
+- **Codex severity-10 short-horizon attack PARTIALLY confirmed:** the win is regime-dependent (6x bigger at peak than final); but it does NOT collapse to baseline-overtakes within the observed horizon. Direction survives, magnitude attenuates.
+- **CRITICAL HONESTY (Codex 2026-04-26 trajectory consult):** final-checkpoint 3-seed paired-gap 95% CIs *include zero* (C4: [-0.42, +0.95]pp; OOD: [-0.06, +0.97]pp). Power-law extrapolation projects gap → practical zero by 7B+ scale. The "small persistent advantage" is at the noise floor.
+- **Codex one-sentence summary (LOCKED as headline framing):** "As of g152, the no-MLP minimal arm still stays ahead through the full 200M matched-budget horizon, but its advantage decays from a +1.60/+1.70pp mid-horizon peak to a final +0.27pp C4 / +0.45pp OOD, so architecture-prior currently stands as a small, attenuating, regime-dependent effect consistent with, but not yet validating, the prefix-information-transport hypothesis."
+- **§0.1 publishability scores (Codex):** NOW 4/10 (narrow regime-specific empirical effect; not breakthrough). With g156 PASS: 6/10 (serious theory lead). With g156 KILL: 1/10 (breakthrough-axis dead; demote to low-budget family-specific curiosity).
+- Attenuation pattern is *consistency* evidence for the transport theory, NOT *discrimination*. The same trajectory is also compatible with a banal "smaller arm is more compute-efficient early" reading. g156 is the orthogonal-axis test that can DISCRIMINATE between these.
 - C12 in CLAIM_EVIDENCE_MAP updated to reflect attenuating trajectory.
 - g156 prefix-destruction killer remains the right next move — does the small persistent advantage have an information-transport explanation, or is the attenuation evidence the transport gap is closing as compute grows?
 - `code/genome_152_long_horizon_crossover.py` -> `results/genome_152_long_horizon_crossover.json` (3.4hr wall-clock).

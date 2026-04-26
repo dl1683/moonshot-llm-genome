@@ -15,9 +15,11 @@ The transport theory predicts MLP parameters are wasted only until the transport
 | (16000, 32000) | +0.69pp | +0.96pp |
 | (25000, 50000) | +0.27pp | +0.45pp ← final |
 
-The peak is at modest compute and the gap monotonically attenuates after, while remaining strictly positive. This is consistent with transport-gap-closes-with-compute. It does NOT prove the theory (a single trajectory is not causal evidence), but it falsifies the alternative "transport doesn't matter at all and the win is artifactual" — the artifactual reading would predict either crossover (baseline overtakes) or a flat gap, neither observed.
+The peak is at modest compute and the gap monotonically attenuates after, while remaining strictly positive. This is **consistent** with transport-gap-closes-with-compute. **It is consistency evidence, not discrimination** — the same trajectory is also compatible with a banal "smaller transport-heavy arm is more compute-efficient early; the larger MLP arm catches up toward parity later" reading. So g152 alone does NOT validate the theory.
 
-g156 is the causal test of the same prediction along a DIFFERENT axis (data structure rather than compute). g158 would extend it along context length. The triangulation of these three axes (compute, data order, context length) is what makes the theory load-bearing.
+**Statistical caveat (Codex 2026-04-26):** the final-checkpoint 3-seed paired-gap 95% CIs *include zero* (C4: [-0.42, +0.95]pp; OOD: [-0.06, +0.97]pp). The "small but persistent advantage" framing is at the noise floor. Power-law extrapolation projects the gap to ~0 by 1B-scale compute and below noise floor by 7B+. Honest framing: the long-run gap goes to practical zero.
+
+g156 is the causal test along an ORTHOGONAL axis (data structure rather than compute) that can DISCRIMINATE between transport-control-variable and early-budget-artifact. g158 extends along context length. The triangulation of all three axes (compute, data order, context length) is what makes the theory load-bearing — no single trajectory does. g152 alone strengthens the case for running g156; it does not strengthen the thesis on its own.
 
 ## Empirical record this is meant to derive
 
