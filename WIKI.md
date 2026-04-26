@@ -261,6 +261,9 @@ Architectural / methodological decisions. One line each. Irreversible choices ge
 | 2026-04-20 | **9 system classes + Phase-1 minimum viable bestiary defined.** | Concrete, constrained first atlas iteration. `research/SYSTEM_BESTIARY.md` §Phase 1. |
 | 2026-04-20 | **`COMPUTE.md` is the binding hardware envelope.** | RTX 5090 Laptop (24 GB VRAM, ≤22 GB usable), Ultra 9 285HX, 64 GB RAM. Every Codex prompt, every prereg must comply with §9 checklist. Out-of-envelope proposals are rejected at design gate. No cloud available. |
 | 2026-04-20 | **`moonshot-llm-genome` becomes its own GitHub repo** (pattern matches `moonshot-sutra`). Process docs (`CLAUDE.md`, `WIKI.md`, codex review artifacts) excluded from public push. | Separates mission-public content from agent-process scaffolding. |
+| 2026-04-26 | **Architecture-prior thread treated as breakthrough-axis seed** (g138-g151 → C10-C13). Pursue derivation, not phenomenology, per CLAUDE.md §0.1. | A workshop paper saying "minimal-3L wins by 0.8pp" is publishable but not a breakthrough. The derivation is what's distinctive. |
+| 2026-04-26 | **Prefix-Information Transport Principle is the committed first-principles route** (research/derivations/prefix_information_transport.md). | Codex audit: of 5 candidates evaluated, only Candidate 5 is mechanistically right-shaped + brutally falsifiable + product-conflict for big labs. g156 is its locked killer test. |
+| 2026-04-26 | **C3-TEI/kJ (HellaSwag+PIQA+Winogrande items per kJ wall power) is the committed edge-benchmark headline metric**, not tokens/sec/joule. | Codex Competitive-Analyst: tokens/sec/joule is gameable across tokenizers; an integrity audit would tear it apart. Wall-power required, GPU-only never the headline. g155 prereg LOCKED. |
 
 ---
 
@@ -272,6 +275,8 @@ Every deletion, merge, and rename. Demonstrates the repo is getting simpler, not
 |---|---|---|---|
 | 2026-04-20 | Migrated | Old `LLM Genome Project/` → deleted in full | Superseded by axiom-first scope; content had diverged from the vision |
 | 2026-04-20 | Scaffolded | `moonshot-llm-genome/` | New home under AI Moonshots umbrella |
+| 2026-04-26 | Deleted | `code/genome_130_trajectory_scaling_law.py` + result JSON + run.log | Pythia-2.8b checkpoint aliasing meant all step* branches mapped to same file; experiment was skipped, never had a ledger entry. |
+| 2026-04-26 | Deleted | `code/genome_124_kd_logit_distillation.py` (untracked, never committed) | Dead duplicate of the now-canonical g154 distillation pipeline. |
 
 ---
 
