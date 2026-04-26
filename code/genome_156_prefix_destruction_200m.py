@@ -216,8 +216,36 @@ def main():
 
     print("Building shuffled corpus (frozen at shuffle_seed=42)...")
     train_ids_shuf = shuffle_token_rows(train_ids_nat, train_mask, SHUFFLE_SEED)
+    # Eval uses SHUFFLE_SEED+1 to avoid identical permutation across train/eval
+    # (same-row identity is irrelevant since eval texts != train texts, but +1
+    # documents intent and avoids the appearance of train/eval coupling).
     eval_ids_shuf = shuffle_token_rows(eval_ids_nat, eval_mask, SHUFFLE_SEED + 1)
     print(f"  train shapes: nat={tuple(train_ids_nat.shape)} shuf={tuple(train_ids_shuf.shape)}")
+
+    # Save shuffled corpus per Codex bug-audit findings §6 (prereg artifact plan).
+    cache_dir = ROOT / "cache"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_path = cache_dir / f"c4_shuffled_seed{SHUFFLE_SEED}_pythia_n{N_TRAIN}.pt"
+    torch.save({
+        "train_ids_shuf": train_ids_shuf, "train_mask": train_mask,
+        "eval_ids_shuf": eval_ids_shuf, "eval_mask": eval_mask,
+        "shuffle_seed_train": SHUFFLE_SEED, "shuffle_seed_eval": SHUFFLE_SEED + 1,
+    }, cache_path)
+    print(f"  saved shuffled corpus -> {cache_path.relative_to(ROOT)}")
+
+    # Pre-flight integrity audit (Codex bug-audit checklist items 4 & 5):
+    # token-multiset preservation per row + global frequency equality
+    print("Running pre-flight shuffle audit...")
+    n_audit = min(100, train_ids_nat.shape[0])
+    for r in range(n_audit):
+        valid_pos = (train_mask[r] == 1).nonzero(as_tuple=True)[0]
+        nat_multiset = sorted(train_ids_nat[r, valid_pos].tolist())
+        shuf_multiset = sorted(train_ids_shuf[r, valid_pos].tolist())
+        assert nat_multiset == shuf_multiset, f"shuffle multiset mismatch at row {r}"
+    nat_hist = torch.bincount(train_ids_nat[train_mask == 1], minlength=actual_vocab)
+    shuf_hist = torch.bincount(train_ids_shuf[train_mask == 1], minlength=actual_vocab)
+    assert torch.equal(nat_hist, shuf_hist), "global token frequency mismatch"
+    print(f"  audit passed: per-row multiset + global frequency equal across {n_audit}/{train_ids_nat.shape[0]} rows")
 
     arms = [
         ("baseline_200M_4k", dict(hidden=1024, layers=14, heads=16, ffn=2304, no_mlp=False), BASELINE_STEPS),
@@ -283,11 +311,31 @@ def main():
                     "n": len(tops),
                 }
 
+    # Codex bug-audit Severity-8 fix: do not emit a verdict if any cell is incomplete.
+    required_n = len(SEEDS)
+    incomplete = [
+        (cond_name, arm_name, summary[cond_name][arm_name]["n"])
+        for cond_name in summary
+        for arm_name in summary[cond_name]
+        if summary[cond_name][arm_name]["n"] != required_n
+    ]
+    if incomplete:
+        raise RuntimeError(f"Incomplete g156 run; missing valid seeds: {incomplete}")
+
     delta_nat = (summary["natural"]["minimal_7L_200M_8k"]["top1_mean"]
                  - summary["natural"]["baseline_200M_4k"]["top1_mean"]) * 100
     delta_shuf = (summary["token_shuffled"]["minimal_7L_200M_8k"]["top1_mean"]
                   - summary["token_shuffled"]["baseline_200M_4k"]["top1_mean"]) * 100
     C = delta_nat - delta_shuf
+    # Codex bug-audit Severity-7 fix: at 200M, per-seed C4-gap std ~ 0.35pp,
+    # so n=3 yields SE_mean ~ 0.20pp on each Δ. If |C| or any Δ lands within
+    # 0.2pp of a threshold, the result is at noise floor — flag for promotion
+    # to 5 seeds before treating as decisive.
+    pp_se_estimate = 0.20
+    near_threshold = (abs(C) < 0.30 or abs(delta_nat - 0.5) < pp_se_estimate
+                      or abs(delta_nat - 0.3) < pp_se_estimate
+                      or abs(delta_shuf - 0.1) < pp_se_estimate
+                      or abs(delta_shuf - 0.2) < pp_se_estimate)
 
     print(f"  natural:        baseline {100*summary['natural']['baseline_200M_4k']['top1_mean']:.2f}% "
           f"vs minimal {100*summary['natural']['minimal_7L_200M_8k']['top1_mean']:.2f}% "
@@ -310,16 +358,26 @@ def main():
     else:
         verdict = (f"AMBIGUOUS: Δ_nat={delta_nat:+.2f}pp Δ_shuf={delta_shuf:+.2f}pp C={C:+.2f}pp.")
 
+    if near_threshold:
+        verdict = "PROVISIONAL_" + verdict.split(":", 1)[0] + (
+            f" — RESULT IS NOISE-FLOOR-ADJACENT (Codex bug-audit Severity-7). "
+            f"|C|={abs(C):.2f}pp, SE_mean per Δ ≈ {pp_se_estimate:.2f}pp at n=3 seeds. "
+            f"Promote to 5 seeds before treating as decisive: "
+            + verdict.split(":", 1)[1]
+        )
+
     print(f"\n  verdict: {verdict}")
 
     out = {
         "genome": 156, "name": "prefix_destruction_200m",
-        "config": {"seeds": SEEDS, "shuffle_seed": SHUFFLE_SEED,
+        "config": {"seeds": SEEDS, "shuffle_seed_train": SHUFFLE_SEED,
+                    "shuffle_seed_eval": SHUFFLE_SEED + 1,
                     "warmup_steps": LR_WARMUP_STEPS, "n_train": N_TRAIN,
                     "baseline_steps": BASELINE_STEPS, "minimal_steps": MINIMAL_STEPS,
                     "arm_lr": ARM_LR},
         "results": results, "summary": summary,
         "delta_nat_pp": delta_nat, "delta_shuf_pp": delta_shuf, "C_pp": C,
+        "near_threshold": near_threshold,
         "verdict": verdict, "elapsed_s": time.time() - t0,
     }
     out_path = ROOT / "results" / "genome_156_prefix_destruction_200m.json"
