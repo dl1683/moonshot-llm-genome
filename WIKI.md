@@ -1063,4 +1063,21 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Firing Codex to adjudicate next move (long-horizon test still relevant if we accept the nuance, or 30M backstop if we go strict).
 - `code/genome_149_hp_robustness_200m.py` -> `results/genome_149_hp_robustness_200m.json`
 
+**genome_150 COMPLETED (2026-04-26): WARMUP RESCUE OF lr=1e-3 — KILL**
+- Codex Option C: rescue g149 broken cell with linear LR warmup over 200 steps.
+- 2 runs at 200M with lr=1e-3 + warmup, single seed:
+
+| Arm | C4 top-1 | OOD top-1 | Final loss |
+|---|---|---|---|
+| baseline_200M + warmup | **11.90%** | 6.29% | 6.66 (climbed from 6.47) |
+| minimal_7L + warmup | **5.19%** | 1.83% | 7.72 (climbed from 6.72) |
+
+- **Verdict: KILL** — both arms degrade vs lr=3e-4, minimal degrades MORE. Gap −6.71pp top-1.
+- **lr=1e-3 with batch=8 is outside the stable training region** for these architectures even with warmup.
+- **Asymmetric collapse: minimal collapses harder than baseline.** Supports Codex mechanistic conjecture: removing MLP changes Hessian/gradient noise/Jacobians, making minimal MORE sensitive to too-high LR.
+- **Implication:** minimal has its OWN (likely narrower) LR sweet spot. The architecture-prior advantage is real at well-tuned LR but the optimization landscape is genuinely different.
+- **Refined thesis:** "minimal architecture wins at well-tuned LR; needs LR scheduling more than baseline does."
+- Next: g151 arm-specific LR sweep in {2e-4, 3e-4, 4e-4, 6e-4} (avoiding broken 1e-3 region). Already pre-staged.
+- `code/genome_150_warmup_rescue.py` -> `results/genome_150_warmup_rescue.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
