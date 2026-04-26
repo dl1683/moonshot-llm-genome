@@ -1047,4 +1047,20 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Note: Python crashed on Unicode print after computing verdict; JSON reconstructed from log.
 - `code/genome_148_hellaswag_capability.py` -> `results/genome_148_hellaswag_capability.json`
 
+**genome_149 COMPLETED (2026-04-26): HP ROBUSTNESS SWEEP — KILL_strict (with nuance)**
+- Codex AA2: lr ∈ {1e-4, 3e-4, 1e-3} × 2 arms × 1 seed at 200M.
+
+| LR | baseline C4 top-1 | minimal C4 top-1 | gap (pp) | OOD gap | win? |
+|---|---|---|---|---|---|
+| 1e-4 | 17.62% | 17.31% | −0.31 | +0.02 | tied |
+| **3e-4** | **17.93%** | **18.30%** | **+0.37** | **+0.41** | **win** |
+| 1e-3 | **12.19%** | **5.10%** | −7.08 | −4.21 | **BOTH DIVERGED** |
+
+- **Verdict: KILL by strict criterion** (minimal wins 1/3 cells), BUT lr=1e-3 broke both arms (loss went UP to 8.0+) — not a fair comparison.
+- **Honest reading:** at well-tuned LR (3e-4) minimal still wins. At too-low LR (1e-4) it's tied. At too-high LR (1e-3) the comparison is invalid because both arms failed to train.
+- **Implication for thesis:** the architecture-prior advantage exists at well-tuned LR but is **fragile to LR mistuning**. Without warmup/LR scheduling, can't claim universal robustness.
+- This is a real weakening of the claim. The thesis isn't dead but it's narrower than "minimal wins always" — it's "minimal wins at appropriate LR."
+- Firing Codex to adjudicate next move (long-horizon test still relevant if we accept the nuance, or 30M backstop if we go strict).
+- `code/genome_149_hp_robustness_200m.py` -> `results/genome_149_hp_robustness_200m.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
