@@ -1,5 +1,5 @@
 """
-genome_150_long_horizon_crossover.py
+genome_152_long_horizon_crossover.py
 
 CODEX (parallel adversarial + prestage consults aligned):
   Strongest remaining attack on architecture-prior thesis is "short-horizon
@@ -10,7 +10,7 @@ CODEX (parallel adversarial + prestage consults aligned):
   late-crosses and wins, the thesis collapses to "smaller is better in
   low-budget regime" rather than "MLP/depth are wasted compute."
 
-PROTOCOL (PASS-branch of Codex genome_150 prestage):
+PROTOCOL (PASS-branch of Codex genome_152 prestage):
   Same arms as g147:
     baseline_200M:  14L+MLP, hidden=1024, ffn=2304 (~209M)
     minimal_7L_200M: 7L no-MLP, hidden=1024, ffn=2304 (~81M)
@@ -37,7 +37,7 @@ PRE-STATED CRITERIA (locked):
 
 Compute: ~3.3 hours. Largest experiment of the project.
 
-Results: results/genome_150_long_horizon_crossover.json
+Results: results/genome_152_long_horizon_crossover.json
 """
 from __future__ import annotations
 import json
@@ -206,7 +206,7 @@ def train_arm_with_checkpoints(arm_name, seed, model, train_ids, train_mask,
 
 def main():
     t0 = time.time()
-    print("genome_150: long-horizon crossover test at 200M (Codex AA1)")
+    print("genome_152: long-horizon crossover test at 200M (Codex AA1)")
     print(f"  N_TRAIN={N_TRAIN}, baseline_steps={BASELINE_STEPS}, minimal_steps={MINIMAL_STEPS}")
     print(f"  checkpoints (baseline,minimal): {CKPT_PAIRS}")
 
@@ -333,7 +333,7 @@ def main():
     print(f"\n  verdict: {verdict}")
 
     out = {
-        "genome": 150, "name": "long_horizon_crossover",
+        "genome": 152, "name": "long_horizon_crossover",
         "config": {"baseline_steps": BASELINE_STEPS, "minimal_steps": MINIMAL_STEPS,
                     "n_train_pool": N_TRAIN, "lr": LR, "batch": BATCH_SIZE, "seeds": SEEDS,
                     "ckpt_pairs": CKPT_PAIRS},
@@ -345,7 +345,7 @@ def main():
         "verdict": verdict,
         "elapsed_s": time.time() - t0,
     }
-    out_path = ROOT / "results" / "genome_150_long_horizon_crossover.json"
+    out_path = ROOT / "results" / "genome_152_long_horizon_crossover.json"
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
     print(f"\nSaved: {out_path}  ({time.time()-t0:.1f}s)")
 
