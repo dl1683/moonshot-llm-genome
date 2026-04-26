@@ -1080,4 +1080,22 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Next: g151 arm-specific LR sweep in {2e-4, 3e-4, 4e-4, 6e-4} (avoiding broken 1e-3 region). Already pre-staged.
 - `code/genome_150_warmup_rescue.py` -> `results/genome_150_warmup_rescue.json`
 
+**genome_151 COMPLETED (2026-04-26): ARM-SPECIFIC LR SWEEP — PASS (win is not a tuning artifact)**
+- Codex mechanistic insight: do arms have different optimal LRs? Test in well-behaved basin {2e-4, 3e-4, 4e-4, 6e-4}.
+
+| LR | baseline C4 top-1 | minimal C4 top-1 | baseline OOD | minimal OOD |
+|---|---|---|---|---|
+| 2e-4 | **18.34%** | 18.90% | **10.62%** | 11.02% |
+| 3e-4 | 18.00% | **18.99%** | 10.42% | **11.14%** |
+| 4e-4 | 17.28% | 16.58% | 9.98% | 9.82% |
+| 6e-4 | 15.99% | 10.43% (collapse start) | 8.87% | 5.14% |
+
+- **Best-vs-best:** baseline (2e-4) → 18.34%, minimal (3e-4) → 18.99%. **+0.65pp C4, +0.52pp OOD.**
+- **Verdict: PASS.** Arms have different optima (baseline 2e-4, minimal 3e-4) but minimal's optimum still beats baseline's optimum. Win is NOT a tuning artifact.
+- **Codex conjecture partially confirmed:** different optima exist, but direction is *opposite* of prediction — baseline wants LOWER LR, not minimal wants higher. Both within 1.5× range.
+- **Minimal still more fragile outside basin** — at lr=6e-4, minimal collapses to 10.43% while baseline holds 15.99%. The g149/g150 LR-fragility finding stands at extreme LRs but doesn't undermine the basin claim.
+- **Refined thesis surviving all attacks except long-horizon:** in the well-behaved LR basin (2-3e-4 with warmup), minimal architecture wins ~0.5-0.8pp top-1, scale-monotonic 30M→200M, transfers to OOD + downstream multi-choice, robust to arm-specific tuning.
+- g152 (long-horizon crossover, 3.3hr) launched immediately to address the remaining attack.
+- `code/genome_151_arm_specific_lr.py` -> `results/genome_151_arm_specific_lr.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
