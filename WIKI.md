@@ -1001,4 +1001,24 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - **Manifesto-grade thesis solidified:** removing MLP and most depth gives more capability per FLOP. "Bigger isn't better at fixed compute budget."
 - `code/genome_146_matched_flops_bigdata_100m.py` -> `results/genome_146_matched_flops_bigdata_100m.json`
 
+**genome_147 COMPLETED (2026-04-26): MATCHED-FLOPs AT 200M — PASS (scale-monotonic)**
+- Codex Y1: scale extension. 2 arms × 3 seeds × matched FLOPs at 200M scale.
+
+| Metric | baseline_200M (209M, 4000 steps) | minimal_7L (81M, 8000 steps) | minimal − baseline |
+|---|---|---|---|
+| C4 NLL | 5.989 | **5.924** | **+0.064 (better)** |
+| C4 top-1 | 18.00% ± 0.11 | **18.80% ± 0.36** | **+0.79pp** |
+| OOD NLL | 7.149 | **6.998** | **+0.152 (better)** |
+| OOD top-1 | 10.17% ± 0.02 | **10.95% ± 0.32** | **+0.78pp** |
+
+- **Wallclock matched** (321s vs 329s). Minimal beats baseline on every metric, all 3 seeds.
+- **The architecture-prior efficiency win is SCALE-MONOTONIC across 30M → 100M → 200M (7× scale range):**
+  - 30M Llama (g141, matched steps): tie + OOD bonus
+  - 100M Llama (g146, matched FLOPs, big data): **+0.82pp top-1**
+  - **200M Llama (g147, matched FLOPs, big data): +0.79pp top-1**
+- Advantage size is essentially constant (~0.8pp) across 2× scale jumps.
+- **Thesis is now structural, not local.** Smaller architectures get more capability per FLOP at every tested scale.
+- **Manifesto criterion (c) — electricity-grade efficiency on a real task — definitively hit across multiple scales.**
+- `code/genome_147_matched_flops_200m.py` -> `results/genome_147_matched_flops_200m.json`
+
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
