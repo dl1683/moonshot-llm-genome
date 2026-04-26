@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-21 (session T+12h).
+**Last updated.** 2026-04-26 (architecture-prior thread C10–C13 added).
 
 ---
 
@@ -22,6 +22,10 @@ either be in the table (add it + map it) or deleted (unsubstantiated).
 | C7 | Gate-2 derivation predicts functional form C(X,k) = α_d (1 − β_d·κ·k^(2/d_int))₊ + O(n^(-1/2)) from Laplace-Beltrami convergence | theoretical framework, not empirical claim | n/a (derivation) | `research/derivations/knn_clustering_universality.md` LOCKED at 62338b8 | Laplacian Eigenmaps (Belkin-Niyogi 2003) + Diffusion Maps (Coifman-Lafon 2006) |
 | C8 | kNN-10 passes Gate-1 portability at δ=0.10 on 7/8 classes across 5 training objectives (CLM + reasoning + linear-attn + MLM + contrastive-text + self-sup-ViT + contrastive-vision; Falcon narrow-fail at n=2000 tips at n=4000) | 🟡 extended portability (8 classes, 5 objectives) | `genome_011_8class_batch2` + `genome_010_falcon_n4000_tips_level1` | `genome_knn_k10_batch2_2026-04-21.md` **LOCKED at 3e8d395** (2026-04-21) | `results/gate1/stim_resample_n2000_8class_full.json` |
 | C9 | kNN-10 local-neighborhood subspace is CAUSALLY load-bearing on Qwen3 mid-depth (ablation smoke) | Gate-2 G2.4 smoke evidence | `genome_012_g24_causal_smoke_qwen3` | `genome_knn_k10_causal_2026-04-21.md` LOCKED at 03da4d5 | topk λ=1 +55% NLL vs random 0.7% / pca 8.3% — specificity ratios 79× / 6.7× |
+| C10 | The architecture-prior carrying capability in random-init Llama-3 is LOCALIZED to attention + width + residuals; MLP and excess depth contribute negligibly | 🟡 single-family decomposition (Llama-3 derivatives only) | `genome_138_arch_prior_decomposition` | (no LOCKED prereg — predates §4.1 enforcement on this thread) | PASS verdict in ledger; quantified gaps per ablation |
+| C11 | A 3-layer Llama-3 with hidden=384 and ZERO MLP (minimal_3L) matches the MLP-equipped baseline of equal training FLOPs at 30M params, within seed-noise on C4 + WikiText-103 | 🟡 same-architecture-family efficiency match | `genome_141_minimal_prior_capability` | (no LOCKED prereg) | C4 gap +0.12pp (within std 0.08pp), OOD gap −0.05pp (within std 0.05pp) |
+| C12 | Architecture-prior win is SCALE-MONOTONIC: at 100M and 200M params, minimal beats baseline by ~0.8pp top-1 on C4 + OOD, and by +0.73pp on HellaSwag (capability-grade) | 🟡 single-family scale-monotonic | `genome_146_matched_flops_bigdata_100m` + `genome_147_matched_flops_200m` + `genome_148_hellaswag_capability` | (no LOCKED prereg) | C4 gaps +0.82/+0.79pp, OOD +0.77/+0.78pp, HellaSwag +0.73pp — all PASS verdicts. Statistical strength ~2σ per-scale; replication strength is the load-bearing argument. |
+| C13 | Architecture-prior win is NOT a hyperparameter-tuning artifact: when each arm tunes its own LR (best-vs-best across 4-LR sweep), minimal still beats baseline +0.65pp C4 / +0.52pp OOD | 🟡 HP-robust within well-behaved LR basin | `genome_151_arm_specific_lr` | `research/prereg/genome_153_mlp_depth_factorial_2026-04-26.md` (mechanism follow-up) | baseline_best=lr2e-4@18.34%, minimal_best=lr3e-4@18.99% on C4 |
 
 ---
 
@@ -37,6 +41,10 @@ a LOCKED prereg + passing ledger entry. Treat as aspirational until promoted.
 | P3 | kNN-10 extends to encoder / contrastive training objectives (BERT MLM + MiniLM contrastive + CLIP vision contrastive) | Batch-2 G1.3 sweep | `genome_knn_k10_batch2_2026-04-21.md` STAGED |
 | P4 | kNN-10 on biological neural populations matches kNN-10 on DINOv2 under same stimulus set | G2.5 Allen Neuropixels pipeline | Not yet drafted |
 | P5 | kNN-10 is language-invariant (English ↔ multilingual C4) | Multilingual extraction + G1.3 | Not yet drafted |
+| P6 | Architecture-prior win persists at long horizon (50k vs 25k steps at 200M) — i.e., is not a short-horizon compute-optimality artifact | g152 long-horizon crossover (running 2026-04-26) | (no LOCKED prereg yet — pre-staged code, no claim file) |
+| P7 | The architecture-prior win is mechanistically driven by residual-branch density, not by MLP-as-special | g153 2×2 mlp×depth factorial | `research/prereg/genome_153_mlp_depth_factorial_2026-04-26.md` LOCKED |
+| P8 | A frozen-teacher logit-distillation signal (top-k=64 KL) lifts minimal_3L_30M student top-1 by ≥0.30pp over CE-only training (smoke test of g155 production pipeline) | g154 distillation smoke | `research/prereg/genome_154_distillation_smoke_2026-04-26.md` LOCKED |
+| P9 | A first-principles derivation exists for WHY attention + width + residuals beat MLP at matched compute (axis being explored: information-theoretic, statistical-mechanics, rate-distortion, spectral) | Codex first-principles derivation consult fired 2026-04-26 (`codex_outputs/first_principles_derivation.md`); experiment to follow | Not yet drafted |
 
 ---
 
