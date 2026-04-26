@@ -1127,8 +1127,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Prerequisite: external AC wall-power meter (Yokogawa WT310E gold; logging smart plug practical) — must acquire before running.
 - Pipeline: g154 (smoke) -> g155 production distillation -> evaluate against this benchmark.
 
+**genome_156 PREREG LOCKED + CODE STAGED (2026-04-26): PREFIX-DESTRUCTION KILLER TEST** ★★ BREAKTHROUGH-AXIS
+
+- **First-principles derivation route LOCKED:** Codex Architecture-Theorist consult identified Candidate 5 (Prefix-Information Transport Principle) as the sole derivation candidate that is mechanistically right-shaped, brutally falsifiable, and product-conflict for big labs.
+- **Core principle:** Token-local MLP sublayers cannot create new prefix information at the current token (data processing). Only attention + width + residuals can transport prefix info across tokens. Until the transport gap closes, MLP parameters are worse spent than attention/width/residuals.
+- **Killer experiment locked:** g156. 12 runs (2 conditions × 2 arms × 3 seeds). Same 200M baseline_14L+MLP vs minimal_7L_noMLP from g147/g151, but trained on natural c4 OR per-sequence-permuted c4. If transport theory holds, the win collapses on shuffled.
+- **PASS_TRANSPORT:** Δ_nat ≥ +0.5pp AND Δ_shuf ≤ +0.1pp AND C := Δ_nat − Δ_shuf ≥ +0.4pp.
+- **KILL_TRANSPORT:** |Δ_nat − Δ_shuf| ≤ 0.2pp.
+- Compute: ~1hr on RTX 5090.
+- Files: `research/derivations/prefix_information_transport.md` (canonical doc), `research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md` LOCKED, `code/genome_156_prefix_destruction_200m.py` ready to run.
+- **Why this matters per CLAUDE.md §0.1:** This is a derivation a big lab cannot publish without contradicting their "more MLP = better" product story. Surviving this test (PASS_TRANSPORT) gets the architecture-prior thesis from "phenomenology" → "first-principles-supported, falsifiable theory."
+
 **Active Codex consults (in flight 2026-04-26):**
-- `codex_prompts/first_principles_derivation.txt` -> `codex_outputs/first_principles_derivation.md` (Architecture Theorist deriving why MLP-free + reduced-depth wins; for breakthrough-axis per CLAUDE.md §0.1)
-- `codex_prompts/adversarial_kill_arch_prior.txt` -> `codex_outputs/adversarial_kill_arch_prior.md` (Research Integrity + Novelty Challenger trying to KILL the architecture-prior thesis; bulletproofing audit)
+- `codex_prompts/adversarial_kill_arch_prior.txt` -> `codex_outputs/adversarial_kill_arch_prior.md` (Research Integrity + Novelty Challenger trying to KILL the architecture-prior thesis; bulletproofing audit; still running)
 
 *End of WIKI. If anything here surprised you, fix the docs — not the wiki — and then patch the wiki pointer.*
