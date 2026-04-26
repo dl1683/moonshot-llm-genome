@@ -1,0 +1,64 @@
+You are running THREE Codex personas: Architecture Theorist + Research Integrity Auditor + Competitive Analyst.
+
+g152 (long-horizon crossover at 200M, 3 seeds, N_TRAIN=131072) just completed. Verdict label: AMBIGUOUS. Verdict reality: minimal wins at every checkpoint, but the gap monotonically attenuates after a peak.
+
+Trajectory (3-seed averaged):
+
+  | (base_step, min_step) | C4 gap     | OOD gap    |
+  | (4000, 8000)          | +0.54pp    | +1.03pp    |
+  | (8000, 16000)         | +1.60pp    | +1.70pp    | <- peak
+  | (16000, 32000)        | +0.69pp    | +0.96pp    |
+  | (25000, 50000)        | +0.27pp    | +0.45pp    | <- final
+
+Read in order:
+1. CLAUDE.md §0, §0.05, §0.1
+2. WIKI.md (especially the just-updated g152 entry)
+3. research/CLAIM_EVIDENCE_MAP.md (especially the updated C12 row)
+4. research/derivations/prefix_information_transport.md (the locked theory)
+5. research/programs/post_g156_pass_program.md (the planned follow-up chain)
+6. results/genome_152_long_horizon_crossover.json (raw data)
+7. codex_outputs/adversarial_kill_arch_prior.md (the prior audit that flagged this attack)
+
+THE QUESTION FOR YOU:
+
+Given this attenuating-but-positive trajectory, what is the HONEST current status of the architecture-prior thesis under CLAUDE.md §0.1's bar (would a big lab publish this; is this a breakthrough)?
+
+Specifically:
+
+A) **Does the attenuating trajectory weaken or strengthen the prefix-information-transport theory?**
+The theory predicts MLP parameters are wasted only until the transport gap closes. At larger compute, the transport gap should close, so the architecture-prior advantage should shrink. The g152 attenuation pattern is *exactly* what the theory predicts. So is g152 secretly EVIDENCE FOR the theory rather than against it? Does this strengthen the case for running g156?
+
+B) **What is the projected gap at 1B, 7B, 70B parameters?**
+Extrapolate the attenuation. Spearman ρ of (compute, gap), best-fit functional form (linear / exponential decay / power-law). What's the gap projected to be at compute scales 10×, 100×, 1000× larger than g152's final checkpoint? Is the win statistically distinguishable from zero at any of those scales?
+
+C) **Reframing for §0.1 publishability:**
+Codex's adversarial audit (`codex_outputs/adversarial_kill_arch_prior.md`) said this thesis was "narrow ablation, not breakthrough" and would be 4/10 on the §0.1 publishability bar. With g152's data integrated:
+- Does the attenuating trajectory NUKE the thesis (turns into "small models win for a while, big models match them")?
+- Or does the trajectory + transport theory together produce a STRONGER §0.1 claim (e.g., "transport demand IS the control variable; we predicted attenuation and observed it")?
+- What's the new §0.1 score with g156 PASS? With g156 KILL?
+
+D) **Decision: continue or pivot?**
+The original plan was: g152 → g156 → g154 → post-g156 program. With g152 PARTIAL, do we:
+- (i) Continue exactly as planned (g156 next)
+- (ii) Modify the post-g156 program (e.g., test attenuation at multiple scales explicitly)
+- (iii) Pivot away from architecture-prior and go directly to distillation (g154 → g155)
+- (iv) Something else
+
+Pick ONE option and defend it with reference to the manifesto end-goal (capability transfer + electricity-grade efficiency).
+
+E) **Honest one-sentence summary:**
+Write the one sentence that should appear in WIKI's headline summary describing where the thesis stands as of g152's completion, that survives an adversarial Codex audit and that you would defend in front of a hostile reviewer.
+
+Compute envelope: I have ~1hr of GPU before g156 finishes. Whatever you recommend must fit within that or be queued for after g156.
+
+Do NOT:
+- Soften the conclusions.
+- Recommend writing a paper.
+- Suggest more architecture-prior ablations (that's the patch-old-chain trap).
+
+DO:
+- Be brutal about what's now true vs. wishful thinking.
+- Quantify projections where possible.
+- Reference specific data from results/genome_152_long_horizon_crossover.json.
+
+Output a single markdown report.
