@@ -102,7 +102,10 @@ EVAL_STEPS = [0, 10, 50]
 CALIB_WINDOWS = 48          # 48 * 256 = 12,288 calibration tokens.
 TRAIN_WINDOWS = 512         # 512 windows supports 50 x 8 draws with replacement.
 N_C4_EVAL_WINDOWS = 200
-N_WIKI_EVAL_WINDOWS = 200
+# Reduced from 200 -> 150: wikitext-103 validation only yields ~186 windows of
+# length 256 at strict-no-truncation per the sampler, so 200 fails. 150 is well
+# under the available pool. Codex-written; user-fix 2026-04-27.
+N_WIKI_EVAL_WINDOWS = 150
 N_BOOT = 10000
 LR = 3e-4
 BETAS = (0.9, 0.95)
