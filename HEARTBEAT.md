@@ -56,12 +56,36 @@ After the checklist + (optionally) firing reviews, post to chat:
 
 Keep under 200 words per heartbeat output.
 
-## What "actively working" means
+## What "actively working" means (HARDENED 2026-04-26 — fourth violation)
 
-Between heartbeats, the agent must NOT idle. If there is no GPU work and no Codex consult to integrate, the agent should:
-- Pre-stage the next experiment's prereg
-- Audit a canonical doc for staleness
-- Do an anti-entropy pass
-- Cross-check the ledger against results/
+**ABSOLUTE RULE:** Heartbeats are a safety net. They DO NOT mark turn boundaries. The agent works **continuously across heartbeats** — the wakeup just ensures that if the agent ever does fall idle, it will be kicked back into action. The wakeup is NOT a "see you in 25 min" signal.
 
-NEVER end a turn with "scheduled wakeup" or "waiting for X to finish" unless ALL parallel work axes are blocked. The wakeup is a last resort, not the pace.
+**Never end a turn just because:**
+- GPU is busy with a long experiment
+- Codex consults are firing in background
+- A wakeup has been scheduled
+
+**Always end a turn ONLY because:**
+- The user explicitly stopped the loop
+- Genuinely zero parallel work exists AND a Codex consult has been fired asking "what's next?"
+
+**Active work that does NOT need GPU or Codex (so always available):**
+- Pre-stage the next 1-3 experiments' preregs
+- Pre-stage their implementations (g159, g160, g161 are all queued)
+- Audit canonical docs for staleness (WIKI, CLAIM_EVIDENCE_MAP, EXPERIMENTS, ledger)
+- Anti-entropy pass: dead files, duplicates, broken pointers
+- Cross-check ledger entries against results/ files
+- Code review staged scripts for Severity-7+ bugs (Unicode, OOM, silent-drop)
+- Verify .gitignore catches new artifact directories
+- Re-read research/derivations/ docs for staleness given new results
+
+**Forbidden phrases in end-of-turn output:**
+- "waiting for X to finish"
+- "next heartbeat will catch Y"
+- "scheduled wakeup at HH:MM"
+- "will integrate when Z completes"
+
+**Required phrases in end-of-turn output:**
+- "Now [doing concrete next thing]" (continuing in same turn)
+
+If literally everything is blocked: fire Codex with "Given current state, what is the highest-leverage next move within COMPUTE.md envelope?" THEN do whatever Codex says immediately. Do NOT wait for Codex output before acting on something else.
