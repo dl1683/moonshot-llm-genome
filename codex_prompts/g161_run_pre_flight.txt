@@ -1,0 +1,54 @@
+You are running Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+PRE-FLIGHT REVIEW of code/genome_161_run.py before launch.
+
+Context: this is the EXPERIMENT RUNNER for g161. The model module is at code/genome_161_rwkv_training_extension.py (Codex-maintained). genome_161_run.py imports from it and adds the locked-prereg training loop.
+
+READ:
+1. code/genome_161_run.py (the runner, ~280 lines)
+2. code/genome_161_rwkv_training_extension.py (the model module)
+3. research/prereg/genome_161_rwkv_training_extension_2026-04-26.md (locked spec)
+4. codex_outputs/g161_rwkv_implementation.md (your earlier impl report; flagged pure-PyTorch WKV too slow for envelope)
+5. code/genome_158_context_length_inversion.py (similar runner pattern, post-pre-flight patches)
+
+SPECIFIC AUDIT POINTS:
+
+A) **Microbenchmark + hard-abort:**
+   - The runner does a 30-step microbenchmark on each arm before main loop.
+   - If projected total runtime > HARD_ABORT_HOURS=3.5, raise.
+   - Verify this catches the slow-WKV case you flagged.
+
+B) **FLOP-match verification:**
+   - flop_match_ratio() called at startup; raises if > 2%. Verify the model's analytic FLOP function gives the right answer for the (12L+chmix vs 18L noch) pair at hidden=512, channel_mix_hidden=336.
+
+C) **Encoding** (Windows cp1252 hazard).
+
+D) **Compute hazards beyond WKV slowness:**
+   - The runner uses `for s in SEEDS: ... build_rwkv_arm(...)`. Memory leak risk if model state lingers between cells?
+   - `del model; torch.cuda.empty_cache()` after each cell — verify it's enough.
+
+E) **NaN handling:**
+   - If a cell goes NaN, the loop breaks early but proceeds to next cell. Verdict logic should treat NaN as missing-data.
+   - Check the verdict aggregation correctly handles NaN cells.
+
+F) **Dedup audit:**
+   - Currently uses c4_clean_v1(seed=161) for fresh slice. NO 13-token dedup audit added. Severity 7 if needed.
+
+G) **Wikitext OOD:**
+   - load_dataset("wikitext", "wikitext-103-raw-v1", split="validation"). Verified valid split.
+
+H) **Token-shuffled corpus:**
+   - shuffle_token_rows applied per row to ids only. Padding stays fixed. Verify mask handling.
+
+I) **TorchScript WKV scan:**
+   - Numerical stability of `_wkv_scan_script` at very long sequences? Did you test SEQ_LEN=256?
+
+J) **Other Severity-7+ issues**
+
+DELIVERABLES:
+1. Severity-ranked list of bugs/hazards.
+2. For Sev≥7: exact code change.
+3. Honest compute estimate (will hard-abort fire correctly?).
+4. Pre-flight checklist.
+
+If clean, say so. Output to codex_outputs/g161_run_pre_flight.md.
