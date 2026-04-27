@@ -26,15 +26,55 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
-## 2026-04-27 — genome_158c_3seed_canonical — RUNNING (canonical follow-up to g158 PILOT)
+## 2026-04-27 — genome_158c_3seed_canonical — PASS_canonical ★★★ MAJOR (canonical follow-up to g158 PILOT)
 
 **Purpose.** Canonical 3-seed verdict (SEEDS=[42,7,13]) of context-length inversion. Confirms whether g158 PILOT's perfect rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion survives multi-seed.
 
-**Status.** Launched 2026-04-27 08:57 UTC. Expected wall ~5.5hr (envelope overrun documented; cycle 21 framing accepts overrun as the highest-leverage move post-g160 PILOT_KILL).
+**Verdict.** **PASS_canonical** at all three locked thresholds. Wall 4.7hr (16,975s, mostly L=32 minimal cells at 200k steps each).
 
-**Decision tree.** `research/programs/post_g158c_decision_tree.md` (PASS_canonical / WEAK / PILOT_FRAGILE locked before verdict).
+### Result table
 
-**Verdict pending.** When complete, `python code/integrate_g158c.py --commit` writes ledger entry + WIKI patch.
+| L | seed=42 D_c4 | seed=7 D_c4 | seed=13 D_c4 | mean | 95% CI |
+|---|---:|---:|---:|---:|---|
+| 32  | -0.24 | -0.13 | -0.27 | **-0.22** | [-0.40, -0.03] |
+| 64  | -0.21 | -0.47 | -0.08 | -0.25 | (mixed) |
+| 128 | +1.81 | +2.30 | +1.63 | +1.91 | (positive) |
+| 256 | +4.10 | +3.70 | +2.97 | **+3.59** | [+2.16, +5.01] |
+
+Per-seed Spearman rho(L, Delta_c4): seed=42 = +1.00, seed=7 = +0.80, seed=13 = +1.00. **Mean rho = +0.933**.
+
+### PASS_canonical thresholds (all cleared)
+
+- mean rho >= +0.8: **+0.933 ✓**
+- mean Delta_256 95% CI excludes 0 AND mean >= +2.0pp: **+3.59pp, CI [+2.16, +5.01] ✓**
+- mean Delta_32 <= 0.0: **-0.22pp, CI [-0.40, -0.03] entirely below zero ✓**
+
+### Why this is major
+
+Theory's input-side prediction (architecture-prior advantage is monotone in transport demand, with sign inversion at short context) is **LOCKED at canonical 3-seed scale**. Combined with g156 PASS (data-order destruction inverts the advantage), the chain now has **two independent control axes** confirmed at canonical scale.
+
+§0.1 score: 6.8 → 7.2.
+
+### Theory chain status (2026-04-27)
+
+| Prediction | Status | Evidence |
+|---|---|---|
+| Data-order destruction inverts arch-prior | PASS | g156 (CLAIM_EVIDENCE_MAP C14) |
+| Transport demand modulates arch-prior monotonically | **PASS canonical** | **g158c (C17)** |
+| η > δ^mlp internal mechanism | REJECTED | g157 + g157b (R7) |
+| Transport principle as design-rule (matched-FLOPs) | REJECTED at PILOT | g160 (R8) |
+
+### Compute
+
+- Wall-clock: 4.7hr (envelope overrun documented per cycle 21)
+
+### Next
+
+Per cycle 24 strategic pivot (locked BEFORE verdict): first post-g158c GPU slot is **g165 annealed-donor / decaying-anchor washout test** regardless of g158c verdict. Path A (g162 transport-arm capacity sweep) is the slot AFTER g165 if PASS_canonical activates. Specs locked in `research/programs/post_g158c_decision_tree.md`.
+
+---
+
+## 2026-04-27 — genome_158c_3seed_canonical — RUNNING (canonical follow-up to g158 PILOT) — superseded by entry above
 
 ---
 

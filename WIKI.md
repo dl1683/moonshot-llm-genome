@@ -74,12 +74,16 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Decision locked (cycle 21):** launch g158c next (canonical 3-seed verdict of context-length inversion). Accept envelope overrun (~5.5hr).
 
-**genome_158c LAUNCHED 2026-04-27 08:57 — 3-seed canonical of context-length inversion ★ ACTIVE**
-- SEEDS=[42, 7, 13], same FLOP-matched protocol as g158 PILOT
-- Goal: confirm rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion across multiple seeds
-- Decision tree: `research/programs/post_g158c_decision_tree.md` (PASS_canonical / WEAK / PILOT_FRAGILE locked)
-- Expected wall: ~5.5hr; envelope overrun documented; running in active python process
-- `code/genome_158c_3seed_canonical.py` -> `results/genome_158c_3seed_canonical.json` (in flight)
+**★ genome_158c COMPLETED 2026-04-27 17:40 UTC: PASS_canonical ★★ MAJOR**
+- mean_rho across 3 seeds = +0.933 (per-seed: +1.00, +0.80, +1.00)
+- mean Delta_256(c4) = +3.59pp, 95% CI [+2.16, +5.01] excludes zero
+- mean Delta_32(c4) = -0.22pp, 95% CI [-0.40, -0.03] entirely negative — **sign inversion LOCKED at canonical scale**
+- All three PASS_canonical thresholds cleared cleanly
+- Theory's input-side prediction (transport demand is the control variable for the architecture-prior advantage) is **LOCKED at canonical 3-seed scale**
+- §0.1 score: 6.8 → 7.2
+- Wall: 4.7hr (envelope overrun documented per cycle 21)
+- Next per cycle 24 strategic pivot: g165 annealed-donor (locked regardless of verdict; §0 axis is now primary research line)
+- `code/genome_158c_3seed_canonical.py` -> `results/genome_158c_3seed_canonical.json`
 
 **Theory state after cycle 21:** Two unique theory predictions tested:
 - η > δ^mlp mechanism: REJECTED at PILOT scale (g157 v2 + g157b both KILL). `research/THEORY_REVISION_2026-04-26.md`.
