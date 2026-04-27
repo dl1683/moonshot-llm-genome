@@ -1,0 +1,63 @@
+You are running Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+PRE-FLIGHT REVIEW of code/genome_159_cross_class_lesion.py before launch.
+
+You designed the lesion algorithm in codex_outputs/g159_lesion_algorithm.md. Now audit the implementation against your own spec.
+
+READ:
+1. code/genome_159_cross_class_lesion.py (~340 lines)
+2. codex_outputs/g159_lesion_algorithm.md (your spec)
+3. research/prereg/genome_159_cross_class_lesion_2026-04-26.md (locked spec)
+4. code/stimulus_banks.py (data source)
+
+SPECIFIC AUDIT POINTS:
+
+A) **Encoding** (Windows cp1252 hazard — same class that crashed g148, g156, g157 v1):
+   - Any non-ASCII characters in print() formatting? If yes, will Python crash on Windows cp1252 codec?
+
+B) **Module path correctness:**
+   - For each adapter, does `get_transport_sublayer(0.5)` actually return the expected nn.Module path on the installed transformers library?
+   - Specifically Qwen3 `model.model.layers[i].self_attn`, RWKV `model.rwkv.blocks[i].attention`, Falcon-H1 `FalconTransportSite` wrapping the parent layer.
+   - Does `Falcon-H1-0.5B-Instruct` actually exist on HuggingFace? Verify if known. If unavailable, what's the fallback?
+
+C) **PCA fitting:**
+   - `fit_pca_at_sublayer` for the Falcon transport site uses a temporary `MethodType` patch to capture m_out + a_out. Verify the `cap_forward` signature matches `FalconH1DecoderLayer.forward` — specifically the **kwargs and position_embeddings handling.
+   - Streaming covariance: the implementation does `X = torch.cat(X_chunks)` and then SVD on the full matrix. Is this OOM-safe for large calib sets? At 2048 calib × 256 tokens × 1024 hidden × fp32 = ~2 GB. Should be OK for system RAM.
+   - The subsample-50000 fallback for SVD — does the resulting basis represent the full distribution well? Or should we use randomized SVD on full data?
+
+D) **Lesion symmetry:**
+   - For Qwen3 attention output: `o_proj` is the final projection. Is `self_attn(...)` returning post-`o_proj`? Verify against transformers source.
+   - For RWKV `attention`: it returns `(output, state_or_layer_state)`. Hooking captures `output[0]` correctly?
+   - For Falcon-H1: the patched_forward in `install_lesion_hook` substitutes the WHOLE layer forward, including residual adds + ln. Verify it matches the original behavior except for the lesion.
+
+E) **Hook lifecycle:**
+   - `install_lesion_hook` returns a `_H` wrapper for non-Falcon, `ForwardPatchHandle` for Falcon. Is `.remove()` called in a finally block in main()? Check try/finally in the eval loop.
+   - If a forward pass raises mid-eval, do we leak the patched forward? Could this cascade into next-depth's evaluation?
+
+F) **NLL measurement:**
+   - `measure_nll` does cross_entropy with reduction="sum" and divides by total_tokens. Verify mask handling: pads excluded both from numerator and denominator.
+
+G) **Variance-explained reporting:**
+   - The Codex spec said log `var_explained_top32` for cross-class fairness. Implementation captures it in PCABasis. Is it propagated to the result JSON?
+
+H) **Compute envelope:**
+   - 3 models × 3 depths × (2 PCA fits @ 2048 + 4 eval passes @ 1024) ≈ 3 × 3 × ~14k window-forwards. At RTX 5090 batch=64 (Qwen, RWKV) / 32 (Falcon), ~250 batched forwards per model-depth. Estimate: ~5-15 min per model. Total 15-45 min.
+   - Codex spec said 0.8-1.5 hr for the full run including the naive Mamba path overhead.
+   - Honest reanalysis if my estimate differs.
+
+I) **Failure-isolation:**
+   - If one model fails to load (e.g. Falcon-H1-0.5B-Instruct doesn't exist), does the script gracefully skip and continue with the others? Verify the try/except at model load.
+   - The verdict logic handles n_total < 3 with INCOMPLETE — verify.
+
+J) **Codex pre-flight bugs caught here are Severity-7+:**
+   - Severity 9: any module-path mismatch with installed transformers
+   - Severity 8: missing var_explained in result JSON, OOM risk in PCA
+   - Severity 7: hook leakage on exception, encoding hazards
+
+DELIVERABLES:
+1. Ranked list of bugs/hazards with Severity and exact code change.
+2. Pre-flight checklist (≤6 items) before launching.
+3. Honest compute estimate.
+4. Verify Falcon-H1-0.5B-Instruct HF availability OR propose fallback (e.g. Falcon-H1-1.5B-Base).
+
+If clean, say so. Don't manufacture issues. Output a single markdown report at codex_outputs/g159_pre_flight.md (NOT g159_pre_flight_audit.md — that pattern is gitignored).
