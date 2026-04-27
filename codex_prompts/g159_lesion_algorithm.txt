@@ -1,0 +1,61 @@
+You are running Architecture Theorist + Correctness Engineer for the Neural Genome moonshot.
+
+g159 (cross-class causal transport-vs-local lesion) prereg is LOCKED (research/prereg/genome_159_cross_class_lesion_2026-04-26.md). I need a precise, executable lesion algorithm that handles three different architecture classes correctly.
+
+TASK: Specify the EXACT module-level lesion algorithm for each of:
+1. Qwen3-0.6B (HuggingFace `Qwen/Qwen3-0.6B`, transformer with self-attention + SwiGLU MLP)
+2. RWKV-4-169M (HuggingFace `RWKV/rwkv-4-169m-pile`, linear-recurrent with time-mix + channel-mix)
+3. Falcon-H1-0.5B (HuggingFace `tiiuae/Falcon-H1-0.5B-Instruct`, hybrid transformer + Mamba)
+
+For each architecture:
+
+A) **Identify modules:**
+   - Which exact PyTorch module path is the "transport sublayer" (cross-token mixing)? E.g. `model.layers[i].self_attn`, `model.blocks[i].att`, `model.layers[i].attn` etc.
+   - Which exact path is the "local sublayer" (per-token nonlinearity)? E.g. `model.layers[i].mlp`, `model.blocks[i].ffn`, etc.
+   - For Falcon-H1 hybrid: at each layer, IS it a transformer block or a Mamba block? How do we detect? What's the local sublayer in a Mamba block?
+
+B) **Define the lesion:**
+   - Calibration: forward-pass on 2048 c4 windows, capture the OUTPUT of the chosen sublayer (the residual contribution it adds, NOT post-residual hidden state).
+   - Fit top-32 PCA basis on those captured outputs (mean-centered).
+   - At eval time: register a forward hook on the same sublayer that subtracts the projection onto top-32 PCA from its output BEFORE it gets added to the residual stream.
+
+C) **Symmetric lesion budget:**
+   - Both transport and local lesions remove rank 32. Verify this is fair across architectures (some sublayers may have very different total rank).
+   - Should we use a percentage-of-rank instead of fixed 32? Pre-reg says fixed 32; I'll keep that but flag if it makes the comparison unfair.
+
+D) **Eval protocol:**
+   - Run forward pass on natural c4_val (1024 windows, dedup-audited against training) and shuffled control.
+   - Measure NLL increase ΔNLL_lesion vs no-lesion baseline.
+   - Compute ratio R = ΔNLL_transport / max(ΔNLL_local, ε).
+   - Aggregate: median across 3 functional depths {0.25, 0.5, 0.75} per (model, eval).
+
+E) **Edge cases:**
+   - Qwen3-0.6B's attention has output projection o_proj — is "attention sublayer output" the o_proj output, or pre-o_proj?
+   - RWKV's time-mix is fundamentally different (uses a recurrent state). Can we even hook the "output" the same way? The residual contribution may need different extraction.
+   - Falcon-H1's Mamba blocks: Mamba mixes information across tokens via a state-space. Is Mamba the "transport sublayer" in those layers, or do hybrid Mamba+attention layers have BOTH?
+
+F) **Concrete code skeleton:**
+Provide a Python class hierarchy:
+
+```python
+class LesionAdapter(ABC):
+    def __init__(self, model): ...
+    def get_transport_sublayers(self, depth_frac: float) -> List[nn.Module]: ...
+    def get_local_sublayers(self, depth_frac: float) -> List[nn.Module]: ...
+    def fit_pca(self, sublayers, calib_data) -> Dict[str, torch.Tensor]: ...
+    def install_lesion_hook(self, sublayer, pca_basis, rank=32) -> Handle: ...
+
+class Qwen3Adapter(LesionAdapter): ...
+class RWKVAdapter(LesionAdapter): ...
+class FalconH1Adapter(LesionAdapter): ...
+```
+
+Show what `get_transport_sublayers(0.5)` returns concretely for each architecture (module paths).
+
+DELIVERABLES:
+1. Module-path specification for each of 3 architectures.
+2. The exact lesion-hook implementation (pre-residual-add output subtraction).
+3. Edge-case decisions for Falcon-H1 hybrid layers and RWKV's recurrent state.
+4. Honest compute estimate: 3 models × 3 depths × 2 lesions × 2 conditions × 1024 windows ≈ ?
+
+Output a single markdown report. Be precise. If something is genuinely architecture-incompatible (e.g. RWKV state dynamics make pre-residual-add hooking unworkable), say so and propose a workaround.

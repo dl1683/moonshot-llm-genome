@@ -1,0 +1,412 @@
+"""
+genome_160_transport_guided_student.py
+
+POST-CHAIN MANIFESTO CASH-OUT: transport-guided student vs local-heavy student.
+
+Pre-reg LOCKED: research/prereg/genome_160_transport_guided_student_2026-04-26.md
+Theory: research/derivations/prefix_information_transport.md
+Program: research/programs/post_g156_pass_program.md §g160
+
+If the transport theory is a real design law (validated by g156, g157,
+g158, g159), then under matched inference FLOPs and matched distillation
+budget, a transport-heavy student should beat a local-heavy student on:
+  - C3_macro = mean(HellaSwag, PIQA, Winogrande) accuracy (full validation)
+  - CtQ_90: compute to reach 90% of own-final C3_macro
+
+Two students at matched inference FLOPs (within +/- 2%):
+  transport_heavy:  6L_noMLP_wide   hidden=512, 6 layers, no MLP, ~50-70M
+  local_heavy:      4L_MLP          hidden=384, 4 layers, ffn=1024, ~50-70M
+
+Teacher: Qwen3-0.6B (matches g154 smoke). Distillation: top-k=64 KD with
+gamma=0.5, T=2.0. 8192 c4 train windows. Seeds {42,7,13}.
+
+Pre-stated criteria:
+  PASS: C3_macro_transport - C3_macro_local >= +1.0pp
+        AND CtQ_90_transport <= 0.80 * CtQ_90_local in >=2/3 seeds
+  PARTIAL: C3 gain >= +0.5pp OR only the CtQ_90 criterion lands
+  KILL: local_heavy ties or wins on both metrics
+
+Compute: ~3-3.5 hr per program estimate.
+"""
+from __future__ import annotations
+import json
+import sys
+import time
+from pathlib import Path
+from typing import Dict, List
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+_THIS_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(_THIS_DIR))
+from stimulus_banks import c4_clean_v1  # noqa: E402
+
+ROOT = _THIS_DIR.parent
+
+TEACHER_HF = "Qwen/Qwen3-0.6B"
+SEQ_LEN = 256
+BATCH_SIZE = 8
+SEEDS = [42, 7, 13]
+N_TRAIN = 8192
+KD_TEMP = 2.0
+KD_GAMMA = 0.5
+KD_TOPK = 64
+LR_WARMUP_STEPS = 200
+TRAIN_STEPS = 8000
+LR = 3e-4
+
+# CtQ_90 measurement: evaluate every K steps and find the step at which
+# C3_macro reaches >= 0.90 * own_final.
+CTQ_EVAL_STEPS = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
+
+
+class ZeroMLP(nn.Module):
+    def forward(self, x):
+        return torch.zeros_like(x)
+
+
+def build_student(name: str, vocab_size: int, seed: int = 42):
+    """Build matched-inference-FLOPs students."""
+    from transformers import LlamaConfig, LlamaForCausalLM
+    if name == "transport_heavy":
+        cfg = LlamaConfig(
+            vocab_size=vocab_size, hidden_size=512, num_hidden_layers=6,
+            num_attention_heads=8, num_key_value_heads=8, intermediate_size=1024,
+            max_position_embeddings=SEQ_LEN + 64, rms_norm_eps=1e-6,
+            tie_word_embeddings=True, attn_implementation="eager",
+        )
+    elif name == "local_heavy":
+        cfg = LlamaConfig(
+            vocab_size=vocab_size, hidden_size=384, num_hidden_layers=4,
+            num_attention_heads=6, num_key_value_heads=6, intermediate_size=1536,
+            max_position_embeddings=SEQ_LEN + 64, rms_norm_eps=1e-6,
+            tie_word_embeddings=True, attn_implementation="eager",
+        )
+    else:
+        raise ValueError(f"unknown student: {name}")
+    torch.manual_seed(seed)
+    model = LlamaForCausalLM(cfg).to("cuda").to(torch.bfloat16)
+    if name == "transport_heavy":
+        for layer in model.model.layers:
+            layer.mlp = ZeroMLP()
+    return model
+
+
+def count_inference_flops(model, seq_len=SEQ_LEN):
+    """Approximate per-token forward FLOPs for inference."""
+    cfg = model.config
+    h = cfg.hidden_size
+    L = cfg.num_hidden_layers
+    m = cfg.intermediate_size
+    # Attention per layer per token: 4 * h^2 + 2 * seq_len * h (qkv proj, attn matmul, output proj)
+    attn = 4 * h * h + 2 * seq_len * h
+    # MLP per layer per token (SwiGLU = 3 * h * m): 3 * h * m
+    has_mlp = not isinstance(model.model.layers[0].mlp, ZeroMLP)
+    mlp = 3 * h * m if has_mlp else 0
+    per_layer = 2 * (attn + mlp)  # x2 for forward (mul-add)
+    return L * per_layer * seq_len
+
+
+def precompute_teacher_logits(teacher, tok, train_ids, train_mask, top_k=KD_TOPK):
+    teacher.eval()
+    n = train_ids.shape[0]
+    topk_idx = torch.zeros((n, train_ids.shape[1] - 1, top_k), dtype=torch.int64)
+    topk_lg = torch.zeros((n, train_ids.shape[1] - 1, top_k), dtype=torch.float32)
+    with torch.no_grad():
+        for i in range(0, n, BATCH_SIZE):
+            ids_b = train_ids[i:i+BATCH_SIZE].to("cuda")
+            msk_b = train_mask[i:i+BATCH_SIZE].to("cuda")
+            out = teacher(input_ids=ids_b, attention_mask=msk_b, use_cache=False)
+            logits = out.logits[:, :-1].float()
+            tk = logits.topk(top_k, dim=-1)
+            topk_idx[i:i+BATCH_SIZE] = tk.indices.cpu()
+            topk_lg[i:i+BATCH_SIZE] = tk.values.cpu()
+            if i % (BATCH_SIZE * 50) == 0:
+                print(f"    teacher cache: {i}/{n}")
+    return topk_idx, topk_lg
+
+
+def kd_loss(student_logits, teacher_idx, teacher_lg, mask, T):
+    teacher_idx = teacher_idx.to(student_logits.device)
+    teacher_lg = teacher_lg.to(student_logits.device).float()
+    s_at = student_logits.gather(2, teacher_idx)
+    s_lp = F.log_softmax(s_at / T, dim=-1)
+    t_p = F.softmax(teacher_lg / T, dim=-1)
+    kl = (t_p * (t_p.clamp_min(1e-10).log() - s_lp)).sum(dim=-1)
+    m = mask[:, 1:].float()
+    return (kl * m).sum() / m.sum().clamp(min=1) * (T ** 2)
+
+
+def warmup_lr(step, target_lr, warmup_steps):
+    if step < warmup_steps:
+        return target_lr * (step + 1) / warmup_steps
+    return target_lr
+
+
+def measure_capability(model, tok, c3_data):
+    """Compute multiple-choice log-likelihood accuracy on each task."""
+    model.eval()
+    results = {}
+    for task_name, items in c3_data.items():
+        correct = 0
+        for item in items:
+            ll_per_choice = []
+            for choice in item["choices"]:
+                full = item["context"] + choice
+                ids = tok(full, return_tensors="pt", truncation=True, max_length=SEQ_LEN+128)
+                ids = ids["input_ids"].to("cuda")
+                ctx_len = len(tok(item["context"])["input_ids"])
+                with torch.no_grad():
+                    out = model(input_ids=ids, use_cache=False)
+                    logits = out.logits[0, ctx_len-1:-1]
+                    targets = ids[0, ctx_len:]
+                    ll = -F.cross_entropy(logits, targets, reduction="sum").item()
+                ll_per_choice.append(ll)
+            pred = int(np.argmax(ll_per_choice))
+            if pred == item["label"]:
+                correct += 1
+        results[task_name] = correct / len(items)
+    model.train()
+    macro = float(np.mean(list(results.values())))
+    return {"per_task": results, "C3_macro": macro}
+
+
+def load_c3_validation(n_per_task=None):
+    """Load HellaSwag, PIQA, Winogrande validation sets.
+    n_per_task: if None, full validation. For smoke runs, can subsample."""
+    from datasets import load_dataset
+    print("Loading C3 validation sets...")
+    out = {}
+
+    # HellaSwag
+    try:
+        ds = load_dataset("Rowan/hellaswag", split="validation")
+        items = []
+        for ex in ds:
+            ctx = ex["ctx"] if ex.get("ctx") else (ex.get("activity_label", "") + " " + ex.get("ctx_a", "") + " " + ex.get("ctx_b", ""))
+            items.append({"context": ctx, "choices": ex["endings"], "label": int(ex["label"])})
+            if n_per_task and len(items) >= n_per_task:
+                break
+        out["hellaswag"] = items
+        print(f"  hellaswag: {len(items)}")
+    except Exception as e:
+        print(f"  hellaswag load failed: {e}")
+        out["hellaswag"] = []
+
+    # PIQA
+    try:
+        ds = load_dataset("ybisk/piqa", split="validation", trust_remote_code=True)
+        items = []
+        for ex in ds:
+            items.append({"context": ex["goal"] + " ", "choices": [ex["sol1"], ex["sol2"]], "label": int(ex["label"])})
+            if n_per_task and len(items) >= n_per_task:
+                break
+        out["piqa"] = items
+        print(f"  piqa: {len(items)}")
+    except Exception as e:
+        print(f"  piqa load failed: {e}")
+        out["piqa"] = []
+
+    # Winogrande
+    try:
+        ds = load_dataset("allenai/winogrande", "winogrande_debiased", split="validation", trust_remote_code=True)
+        items = []
+        for ex in ds:
+            ctx = ex["sentence"].replace("_", "{}")
+            items.append({"context": "", "choices": [ctx.format(ex["option1"]), ctx.format(ex["option2"])],
+                          "label": int(ex["answer"]) - 1})
+            if n_per_task and len(items) >= n_per_task:
+                break
+        out["winogrande"] = items
+        print(f"  winogrande: {len(items)}")
+    except Exception as e:
+        print(f"  winogrande load failed: {e}")
+        out["winogrande"] = []
+
+    return out
+
+
+def train_student_with_kd(student, train_ids, train_mask, topk_idx, topk_lg,
+                           tok, c3_data, ctq_eval_steps, seed, n_steps=TRAIN_STEPS):
+    opt = torch.optim.AdamW(student.parameters(), lr=LR, betas=(0.9, 0.95), weight_decay=0.1)
+    rng = np.random.default_rng(seed)
+    t0 = time.time()
+    student.train()
+    n_train = train_ids.size(0)
+    history = []  # list of {step, c3_macro, per_task}
+
+    for step in range(1, n_steps + 1):
+        cur_lr = warmup_lr(step, LR, LR_WARMUP_STEPS)
+        for g in opt.param_groups:
+            g['lr'] = cur_lr
+        idx = rng.integers(0, n_train, size=BATCH_SIZE)
+        ids = train_ids[idx].to("cuda")
+        mask = train_mask[idx].to("cuda")
+        opt.zero_grad()
+        out = student(input_ids=ids, attention_mask=mask, use_cache=False)
+        logits = out.logits
+        sl = logits[:, :-1].contiguous()
+        lbl = ids[:, 1:].clone()
+        sm = mask[:, 1:]
+        lbl_ce = lbl.clone()
+        lbl_ce[sm == 0] = -100
+        ce = F.cross_entropy(sl.reshape(-1, sl.size(-1)), lbl_ce.reshape(-1), ignore_index=-100)
+        kd = kd_loss(sl, topk_idx[idx], topk_lg[idx], mask, KD_TEMP)
+        loss = (1 - KD_GAMMA) * ce + KD_GAMMA * kd
+        if not torch.isfinite(loss):
+            print("NaN seen; stopping arm")
+            break
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(student.parameters(), 1.0)
+        opt.step()
+
+        if step in ctq_eval_steps or step == n_steps:
+            metrics = measure_capability(student, tok, c3_data)
+            metrics["step"] = step
+            metrics["wallclock_s"] = time.time() - t0
+            history.append(metrics)
+            print(f"    step={step:5d} ce={ce.item():.3f} kd={kd.item():.3f} C3_macro={metrics['C3_macro']:.4f}")
+
+    return history
+
+
+def main():
+    t0 = time.time()
+    print("genome_160: transport-guided student vs local-heavy student")
+
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    print(f"Loading teacher tokenizer {TEACHER_HF}...")
+    tok = AutoTokenizer.from_pretrained(TEACHER_HF)
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    vocab = len(tok)
+    print(f"  vocab={vocab}")
+
+    print(f"\nLoading {N_TRAIN} c4 train windows...")
+    pool = []
+    for rec in c4_clean_v1(seed=42, n_samples=N_TRAIN):
+        pool.append(rec["text"])
+        if len(pool) >= N_TRAIN:
+            break
+    enc = tok(pool, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    train_ids = enc["input_ids"]
+    train_mask = enc["attention_mask"]
+
+    print(f"\nLoading teacher {TEACHER_HF}...")
+    teacher = AutoModelForCausalLM.from_pretrained(
+        TEACHER_HF, torch_dtype=torch.bfloat16, attn_implementation="eager",
+    ).to("cuda")
+    teacher.eval()
+    n_t = sum(p.numel() for p in teacher.parameters())
+    print(f"  teacher params: {n_t/1e6:.1f}M")
+
+    cache_dir = ROOT / "cache"
+    cache_dir.mkdir(exist_ok=True)
+    cache_path = cache_dir / f"g160_teacher_topk_qwen3-0.6b_n{N_TRAIN}.pt"
+    if cache_path.exists():
+        print(f"\nLoading cached teacher top-{KD_TOPK} logits from {cache_path}...")
+        cached = torch.load(cache_path, map_location="cpu", weights_only=False)
+        topk_idx, topk_lg = cached["idx"], cached["lg"]
+    else:
+        print(f"\nPrecomputing teacher top-{KD_TOPK} logits over {N_TRAIN} sequences...")
+        topk_idx, topk_lg = precompute_teacher_logits(teacher, tok, train_ids, train_mask, KD_TOPK)
+        torch.save({"idx": topk_idx, "lg": topk_lg}, cache_path)
+        print(f"  cached -> {cache_path}")
+    del teacher
+    torch.cuda.empty_cache()
+
+    c3_data = load_c3_validation()
+
+    students = ["transport_heavy", "local_heavy"]
+    results = {s: {} for s in students}
+    for student_name in students:
+        ref = build_student(student_name, vocab, seed=42)
+        flops = count_inference_flops(ref)
+        n_params = sum(p.numel() for p in ref.parameters())
+        del ref
+        torch.cuda.empty_cache()
+        print(f"\n  {student_name}: ~{n_params/1e6:.1f}M params, ~{flops/1e9:.2f} G inference FLOPs/seq")
+
+    # FLOP-match check (warn if outside +/- 2%)
+    th_ref = build_student("transport_heavy", vocab, 42)
+    lh_ref = build_student("local_heavy", vocab, 42)
+    th_flops = count_inference_flops(th_ref)
+    lh_flops = count_inference_flops(lh_ref)
+    flop_diff_pct = abs(th_flops - lh_flops) / max(th_flops, lh_flops) * 100
+    print(f"\n  FLOP match: transport={th_flops/1e9:.2f}G  local={lh_flops/1e9:.2f}G  diff={flop_diff_pct:.1f}%")
+    if flop_diff_pct > 5:
+        print("  WARNING: FLOP diff > 5%; results may not be matched-FLOP comparison")
+    del th_ref, lh_ref
+    torch.cuda.empty_cache()
+
+    for student_name in students:
+        for seed in SEEDS:
+            print(f"\n=== {student_name} seed={seed} ===")
+            student = build_student(student_name, vocab, seed=seed)
+            history = train_student_with_kd(
+                student, train_ids, train_mask, topk_idx, topk_lg,
+                tok, c3_data, set(CTQ_EVAL_STEPS), seed,
+            )
+            results[student_name][seed] = {"history": history}
+            del student
+            torch.cuda.empty_cache()
+
+    # Analysis
+    print(f"\n=== ANALYSIS ===")
+    summary = {}
+    for student_name in students:
+        finals = [results[student_name][s]["history"][-1]["C3_macro"]
+                  for s in SEEDS if results[student_name][s]["history"]]
+        ctqs = []
+        for s in SEEDS:
+            hist = results[student_name][s]["history"]
+            if not hist:
+                continue
+            final_c3 = hist[-1]["C3_macro"]
+            target = 0.9 * final_c3
+            ctq_step = next((h["step"] for h in hist if h["C3_macro"] >= target), hist[-1]["step"])
+            ctqs.append(ctq_step)
+        summary[student_name] = {
+            "C3_final_mean": float(np.mean(finals)) if finals else float("nan"),
+            "C3_final_std": float(np.std(finals)) if finals else float("nan"),
+            "CtQ_90_mean": float(np.mean(ctqs)) if ctqs else float("nan"),
+        }
+        print(f"  {student_name}: C3={summary[student_name]['C3_final_mean']*100:.2f}%  CtQ_90={summary[student_name]['CtQ_90_mean']:.0f}")
+
+    th = summary.get("transport_heavy", {})
+    lh = summary.get("local_heavy", {})
+    c3_gap_pp = (th.get("C3_final_mean", 0) - lh.get("C3_final_mean", 0)) * 100
+    ctq_ratio = th.get("CtQ_90_mean", float("inf")) / max(lh.get("CtQ_90_mean", 1), 1)
+
+    if c3_gap_pp >= 1.0 and ctq_ratio <= 0.80:
+        verdict = (f"PASS: C3 gap={c3_gap_pp:+.2f}pp (>=1.0pp), CtQ_90 ratio={ctq_ratio:.2f} (<=0.80). "
+                   f"Transport principle confirmed as model-selection rule.")
+    elif c3_gap_pp >= 0.5 or ctq_ratio <= 0.85:
+        verdict = (f"PARTIAL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}.")
+    else:
+        verdict = (f"KILL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}. "
+                   f"Theory does not select better matched-cost design.")
+    print(f"\n  verdict: {verdict}")
+
+    out = {
+        "genome": 160, "name": "transport_guided_student",
+        "config": {"teacher": TEACHER_HF, "students": students, "seeds": SEEDS,
+                    "n_train": N_TRAIN, "train_steps": TRAIN_STEPS, "lr": LR,
+                    "kd_temp": KD_TEMP, "kd_gamma": KD_GAMMA, "kd_topk": KD_TOPK,
+                    "ctq_eval_steps": CTQ_EVAL_STEPS,
+                    "th_inference_flops": int(th_flops), "lh_inference_flops": int(lh_flops),
+                    "flop_diff_pct": flop_diff_pct},
+        "results": {s: {str(k): v for k, v in d.items()} for s, d in results.items()},
+        "summary": summary,
+        "c3_gap_pp": c3_gap_pp, "ctq_ratio": ctq_ratio,
+        "verdict": verdict, "elapsed_s": time.time() - t0,
+    }
+    out_path = ROOT / "results" / "genome_160_transport_guided_student.json"
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
+    print(f"\nSaved: {out_path}  ({time.time()-t0:.1f}s)")
+
+
+if __name__ == "__main__":
+    main()
