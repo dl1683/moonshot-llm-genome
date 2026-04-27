@@ -17,7 +17,7 @@
 **g165 spec (DRAFT):**
 - Donor: Qwen3-0.6B (trained); recipient: random-init same-architecture model.
 - Anchored regularization: λ(t) = λ_0 · decay_schedule(t), where decay_schedule ∈ {step (drop at step 25), linear (1→0 by step 50), exponential (τ=10), constant (control)}.
-- λ_0 ∈ {1.0, 0.1, 0.01}. Compare against scratch (no anchor) baseline.
+- λ_0 ∈ {1.3e-4, 1.3e-3, 1.0e-2}. Compare against scratch (no anchor) baseline. Revised 2026-04-27 after Codex lean pre-flight showed the original grid would collapse all anchored arms into donor-clone behavior.
 - PASS: at least one (λ_0, schedule) combination produces final-step NLL advantage > +0.5 nats over scratch with 95% CI excluding zero.
 - FAIL: no schedule produces persistent positive advantage; the same washout pattern emerges.
 - Compute: ~3-4hr wall, <12 GB VRAM, <24 GB RAM.

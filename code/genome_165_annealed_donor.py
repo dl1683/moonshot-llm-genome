@@ -11,15 +11,17 @@ Design (per research/prereg/genome_165_annealed_donor_2026-04-27.md):
   Recipient: random-init Qwen3-0.6B-architecture model
   Loss:    L_CE(recipient) + lambda(t) * ||theta_recipient - theta_donor||_F^2
   Schedules:
-    - constant:    lambda(t) = lambda_0                    [washout-replication control]
-    - step:        lambda(t) = lambda_0 if t < 25 else 0   [hard cutoff]
-    - linear:      lambda(t) = lambda_0 * max(0, 1 - t/50) [decay to 0 by step 50]
-    - exponential: lambda(t) = lambda_0 * exp(-t/10)       [tau=10 decay]
-  lambda_0 in {1.0, 0.1, 0.01}
+    - constant:        lambda(t) = lambda_0                    [washout-replication control]
+    - step:            lambda(t) = lambda_0 if t < 25 else 0   [hard cutoff at 25]
+    - linear:          lambda(t) = lambda_0 * max(0, 1 - t/50) [decay to 0 by step 50]
+    - exponential:     lambda(t) = lambda_0 * exp(-t/10)       [tau=10 decay]
+    - hard_cut_step1:  lambda(t) = lambda_0 if t==1 else 0     [Codex cycle 30: early-only]
+  lambda_0 in {1.3e-4, 1.3e-3, 1.0e-2}
   Seeds:   [42, 7, 13]
+  + 1 attention-only anchor (Codex cycle 30: tests g125 boundary on attn submanifold)
   + 1 scratch baseline (no anchor; lambda=0)
 
-  13 arms x 3 seeds = 39 cells.
+  14 arms x 3 seeds = 42 cells.
   500 train steps, batch=8, lr=3e-4, BF16 forward, FP32 anchor regularizer.
   C4 val NLL every 25 steps.
 
@@ -88,6 +90,11 @@ def lambda_schedule(name: str, lam0: float, t: int) -> float:
         return lam0 * max(0.0, 1.0 - t / 50.0)
     if name == "exponential":
         return lam0 * math.exp(-t / 10.0)
+    if name == "hard_cut_step1":
+        # Active at step 1 only; zero from step 2 onward.
+        # Per Codex cycle 30 direction review: tests "early-help only, no
+        # continued anchor" — the corrected g125 boundary inside g165.
+        return lam0 if t == 1 else 0.0
     raise ValueError(f"unknown schedule {name}")
 
 
@@ -150,8 +157,15 @@ def snapshot_donor_params(donor) -> dict:
     return out
 
 
-def anchor_loss(recipient, donor_params: dict) -> torch.Tensor:
-    """Compute Frobenius ||theta_r - theta_d||^2 in FP32."""
+def anchor_loss(recipient, donor_params: dict, submanifold: str = "all") -> torch.Tensor:
+    """Compute Frobenius ||theta_r - theta_d||^2 in FP32.
+
+    submanifold:
+      "all"  - anchor every parameter (default; full-weight anchor).
+      "attn" - anchor only attention parameters (per Codex cycle 30 direction
+               review: g125's persistence used attention-only anchor; this
+               restores apples-to-apples comparison inside g165).
+    """
     total = torch.zeros((), device=DEVICE, dtype=torch.float32)
     matched = 0
     for name, p in recipient.named_parameters():
@@ -159,10 +173,12 @@ def anchor_loss(recipient, donor_params: dict) -> torch.Tensor:
             continue
         if p.shape != donor_params[name].shape:
             continue
+        if submanifold == "attn" and ".self_attn." not in name:
+            continue
         total = total + ((p.to(torch.float32) - donor_params[name]) ** 2).sum()
         matched += 1
     if matched == 0:
-        raise RuntimeError("anchor_loss: no parameters matched between recipient and donor")
+        raise RuntimeError(f"anchor_loss({submanifold=}): no parameters matched between recipient and donor")
     return total
 
 
@@ -188,6 +204,7 @@ def train_one_arm(
     arm_label: str, lam0: float, schedule_name: str,
     seed: int, donor_params: dict | None,
     train_ids, train_mask, val_ids, val_mask, tok,
+    submanifold: str = "all",
 ):
     """Train one recipient arm; return list of (step, val_nll)."""
     torch.manual_seed(seed)
@@ -221,7 +238,7 @@ def train_one_arm(
         if donor_params is not None and lam0 > 0:
             lam_t = lambda_schedule(schedule_name, lam0, step)
             if lam_t > 0:
-                loss_anchor = anchor_loss(recipient, donor_params)
+                loss_anchor = anchor_loss(recipient, donor_params, submanifold=submanifold)
                 loss = loss_ce + lam_t * loss_anchor
             else:
                 loss = loss_ce
@@ -293,8 +310,18 @@ def main():
                 "label": f"anchor_lam{lam0}_{sched}",
                 "lam0": lam0,
                 "schedule": sched,
+                "submanifold": "all",
             })
-    arms.append({"label": "scratch_baseline", "lam0": 0.0, "schedule": "constant"})  # no donor
+    # Codex cycle 30 direction review: attention-only hard-cut anchor.
+    # Tests "early-help only, no continued anchor" on the SAME submanifold (attention-
+    # only) where g125 saw +0.07 nats persistence. Restores apples-to-apples comparison.
+    arms.append({
+        "label": "anchor_attn_only_lam1.3e-3_hardcut",
+        "lam0": 1.3e-3,
+        "schedule": "hard_cut_step1",
+        "submanifold": "attn",
+    })
+    arms.append({"label": "scratch_baseline", "lam0": 0.0, "schedule": "constant", "submanifold": "all"})  # no donor
 
     print(f"\n=== Running {len(arms)} arms x {len(SEEDS)} seeds = {len(arms)*len(SEEDS)} cells ===")
 
@@ -311,6 +338,7 @@ def main():
                 donor_params=donor_params if arm_spec["lam0"] > 0 else None,
                 train_ids=train_ids, train_mask=train_mask,
                 val_ids=val_ids, val_mask=val_mask, tok=tok,
+                submanifold=arm_spec.get("submanifold", "all"),
             )
             results[arm_spec["label"]][seed] = traj
             # incremental save after each cell

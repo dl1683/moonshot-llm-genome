@@ -24,6 +24,7 @@ The motivation is empirical, not post-hoc:
   - **step**: λ(t) = λ_0 if t < 25 else 0
   - **linear**: λ(t) = λ_0 · max(0, 1 - t/50)
   - **exponential**: λ(t) = λ_0 · exp(-t/10)
+  - (additional standalone arm) **hard_cut_step1** at λ_0=1.3e-3 with attention-only submanifold — see "Cycle 30 added arm" below
 - **λ_0 ∈ {1.3e-4, 1.3e-3, 1.0e-2}** (3 strengths × 4 schedules = 12 anchored arms + 1 scratch baseline = 13 arms total). **REVISED 2026-04-27 per Codex lean pre-flight**: Frobenius F² ≈ 2.03e6 over 596M params; the original grid {1.0, 0.1, 0.01} would collapse all three strengths to "donor clone" because anchor gradient dominates CE by ≥7.6× across the entire grid. The revised grid spans weak (CE 10× dominates), balanced (comparable gradients), and strong (anchor 7.6× dominates without being effectively frozen). See `codex_outputs/g165_lambda_grid_check_20260427T114500.md`.
 - **Seeds:** [42, 7, 13] (3 seeds for canonical scope).
 - **Training:** 500 steps, batch_size=8, lr=3e-4 (matched to grafting series).
@@ -31,7 +32,17 @@ The motivation is empirical, not post-hoc:
 
 ## Cells
 
-39 train cells: 13 arms × 3 seeds.
+42 train cells: 14 arms × 3 seeds. (12 anchored full-weight + 1 attention-only-hardcut + 1 scratch baseline.)
+
+## Cycle 30 added arm (Codex direction review 2026-04-27)
+
+Codex cycle 30 direction review identified a blind spot: g165 anchors ALL recipient weights, but g125's persistence (the empirical motivation, +0.07 nats) used **attention-only** anchor. Without an attention-only arm in g165, results aren't directly comparable to g125's boundary condition. Added one arm:
+
+- Label: `anchor_attn_only_lam1.3e-3_hardcut`
+- Submanifold: attention parameters only (`.self_attn.` in name match)
+- λ_0: 1.3e-3 (the balanced strength from the Codex-revised grid)
+- Schedule: `hard_cut_step1` (λ active only at training step 1, zero from step 2 onward)
+- Tests: "early-help only on attention submanifold, no continued anchor" — directly probes the g125-boundary inside g165's framework.
 
 **Compute estimate:** ~3-4hr wall (matches Codex cycle 24 estimate). VRAM peak <12 GB (one model live at a time).
 

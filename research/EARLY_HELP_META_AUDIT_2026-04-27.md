@@ -124,11 +124,11 @@ But: if the recipient is then trained at all (even for 25 steps), the advantage 
 
 ## Recommended follow-up experiments (CPU + GPU)
 
-**CPU (DONE 2026-04-27)**: ~~extend the audit to g125/g134/g137~~. Schema extractors patched; g125 + g137 added (n=5 → n=7). g134 confirmed as single-arm trajectory (no donor-vs-scratch comparison). Pattern HOLDS: 0/7 persist, mean final = -0.43 nats. **g137 is the lone positive-final outlier — see optimizer-state hypothesis above.**
+**CPU (DONE 2026-04-27)**: ~~extend the audit to g125/g134/g137~~. Schema extractors patched; g125 + g137 added (n=5 -> n=7). g134 confirmed as single-arm trajectory (no donor-vs-scratch comparison). Corrected pooled pattern: **1/7 persists, mean final = -0.29 nats**. **g125 is the lone positive-final outlier** (+0.07 nats vs matched_param_ctrl); **g137 washes out** with the corrected comparator (resume_true vs resume_reset).
 
-**GPU experiment 1 (after g158c)**: anchored-donor experiment. Take Qwen3-0.6B as donor; random-init recipient at matched architecture; train recipient with anchored regularization to donor at multiple anchor strengths (1.0, 0.1, 0.01, decaying). Measure NLL trajectory. Hypothesis: a properly anchored / decaying schedule beats both fixed-persistence and scratch at final step. ~3-4hr wall, <12 GB VRAM.
+**GPU experiment 1 (after g158c)**: anchored-donor experiment. Take Qwen3-0.6B as donor; random-init recipient at matched architecture; train recipient with anchored regularization to donor at multiple anchor strengths (1.3e-4, 1.3e-3, 1.0e-2, decaying). Measure NLL trajectory. Hypothesis: a properly anchored / decaying schedule beats both fixed-persistence and scratch at final step. ~3-4hr wall, <12 GB VRAM.
 
-**GPU experiment 2 (after g158c) — NEW per g137 outlier**: optimizer-state-amplified transfer. g137 already showed a small positive final advantage from transferring Adam m, v moments. Test: does transferring optimizer state PLUS a decay-anchored weight signal compound? Hypothesis: weight-init alone washes out (proven, n=6/7 negative final), optimizer-state alone gives +0.08 nats (proven, n=1/7), combined could give a meaningfully positive final advantage. ~3-4hr wall, <12 GB VRAM.
+**GPU experiment 2 (after g158c) — NEW per g137 decay-shape**: optimizer-state-amplified transfer. g137 no longer persists at final step with the corrected comparator, but it does show a slower washout trajectory (+0.046 at step 1064 -> -0.0004 at step 4000) than the weight-init mechanisms. Test: does transferring optimizer state PLUS a decay-anchored weight signal compound? Hypothesis: weight-init alone washes out; optimizer-state may lengthen the half-life of donor help when combined with an anchor schedule. ~3-4hr wall, <12 GB VRAM.
 
 ## Honest caveats
 

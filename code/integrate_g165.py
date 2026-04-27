@@ -65,8 +65,8 @@ def main():
 
     # Active-ingredient analysis: is the persistence due to decay schedule or
     # just anchor presence? Compare PASS arms by schedule type.
-    decay_pass = [a for a in pass_arms if "constant" not in a]
-    constant_pass = [a for a in pass_arms if "constant" in a]
+    decay_pass = [a for a in pass_arms if not a.endswith("_constant")]
+    constant_pass = [a for a in pass_arms if a.endswith("_constant")]
     if path == "PASS":
         if decay_pass and not constant_pass:
             interpretation = (
