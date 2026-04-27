@@ -74,32 +74,27 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Decision locked (cycle 21):** launch g158c next (canonical 3-seed verdict of context-length inversion). Accept envelope overrun (~5.5hr).
 
-**Killed and relocked:**
-- `g158` was launched at 22:55 then killed at 23:50 — at the corrected exact-FLOP-match the 3-seed run projected to ~11hr (over envelope). Relocked as **single-seed PILOT** (`research/prereg/genome_158_PILOT_2026-04-27.md`); ~3.5hr. Queued behind g159.
+**genome_158c LAUNCHED 2026-04-27 08:57 — 3-seed canonical of context-length inversion ★ ACTIVE**
+- SEEDS=[42, 7, 13], same FLOP-matched protocol as g158 PILOT
+- Goal: confirm rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion across multiple seeds
+- Decision tree: `research/programs/post_g158c_decision_tree.md` (PASS_canonical / WEAK / PILOT_FRAGILE locked)
+- Expected wall: ~5.5hr; envelope overrun documented; running in active python process
+- `code/genome_158c_3seed_canonical.py` -> `results/genome_158c_3seed_canonical.json` (in flight)
 
-**Pre-staged + ready:**
-- `g158 PILOT` (single-seed, 3.5hr)
-- `g160` transport-guided student (1-seed pilot, ~2-3hr; FLOP-matched ffn=1024, dedup, BOS handling, history-completeness guard, CtQ-FLOPs)
-- `g159b` rank-sweep (conditional on g159 INCOMPLETE)
+**Theory state after cycle 21:** Two unique theory predictions tested:
+- η > δ^mlp mechanism: REJECTED at PILOT scale (g157 v2 + g157b both KILL). `research/THEORY_REVISION_2026-04-26.md`.
+- Transport-demand input-side prediction: PILOT DIRECTIONAL_SUPPORT (g158, rho=+1.00). Canonical verdict pending g158c.
+- g160 design-rule cash-out: PILOT_KILL at -0.34pp (within seed noise but inconclusive). g160c skipped per cycle 21 (canonizes a null).
+- §0.1 ceiling: ~7.0/10 if g158c PASS_canonical; ~6.0/10 if PILOT_FRAGILE.
 
-**LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
-- `g157c` 3-seed canonical verdict (Path A trigger if g157b PASSes; reuses g157b code with SEEDS=[42,7,13])
-- `g157d` probe-budget expansion (Path B; 2000 steps, 5 depths, kv_dim=1500)
-- `g157 v3` same-layer FP32 control (Path C; via patches to genome_157_eta_delta_probe.py)
-- `g158` context-length inversion sweep (exact-FLOP match + dedup + NaN guard, ~1.6-2.0 hr)
-- `g159` cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (val data + exact streaming PCA + ratio guard, ~0.9-1.6 hr)
-- `g160` transport-guided student vs local-heavy student (ffn=1024 FLOP-matched, dedup, CtQ-FLOPs, 1-seed pilot, ~2-3 hr)
-- `g161` RWKV training-time extension (`code/genome_161_run.py`, ~2-3 hr; will hard-abort on RTX 5090 due to pure-PyTorch WKV scan; needs fused kernel for full launch)
+**Codex consults completed:** g158/g159/g160/g161 pre-flights; g157 PILOT interpretation; heartbeat cycles 3/6/9/12/15/18/21 reviews.
 
-**Provisional theory revision (`research/PROVISIONAL_THEORY_REVISION.md`):** g157 v2 + g157b natural+shuffled-baseline data show eta SIGN-FLIPS by condition (natural<0, shuffled>0) — opposite of theory's predicted by-arm signal. Reinterpretation: well-trained models close transport gap; ill-trained ones don't. The η > δ^mlp criterion is likely empirically falsified (canonical verdict pending shuf-minimal data + g157c). Empirical g156 PASS still stands; mechanism candidate revised.
-
-**Decision tree (`research/programs/post_g157b_decision_tree.md`):**
-- g157b DIRECTIONAL_SUPPORT (unlikely given current data) → g157c canonical
-- g157b WEAK_SUPPORT → g157d probe-budget expansion
-- g157b KILL_157b (likely) → run g157 v3 control + launch g158/g159 in parallel; if both null, pivot to distillation track (g160 → g155)
-- All paths preserve g156 PASS as standalone empirical evidence.
-
-**Codex consults completed:** g158/g159/g160/g161 pre-flights (5 patches landed); g157 PILOT interpretation; heartbeat cycle 3 reviews.
+**Retired from queue (no longer pre-staged):**
+- `g157c/d/v3` — archived after g157b KILL (mechanism rejected)
+- `g158 PILOT` — completed (DIRECTIONAL_SUPPORT)
+- `g159b` rank-sweep — archived per cycle 15+18+21 direction (low-leverage salvage)
+- `g160c` — skipped per cycle 21 (canonizes null)
+- `g161` RWKV — hardware-blocked on fused WKV kernel
 
 ---
 
