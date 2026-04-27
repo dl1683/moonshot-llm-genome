@@ -3,6 +3,8 @@
 **Date locked:** 2026-04-26 (before g157b verdict known)
 **Purpose:** record the decision logic so the verdict-to-action transition is mechanical, not vibes-based.
 
+**TOMBSTONE 2026-04-27.** g157b returned KILL_157b. Path C (mechanism rejection) was activated. The η > δ^mlp criterion is REJECTED (R7 in CLAIM_EVIDENCE_MAP). Implementation files `code/genome_157c_3seed_canonical_verdict.py` and `code/genome_157d_probe_budget_expansion.py` referenced below were deleted 2026-04-27 (entropy reduction; preregs retained per audit trail). This document is now a historical record of the decision logic — do NOT attempt to execute Path A/B paths from here. Active decision tree for the current branch is `post_g158c_decision_tree.md`.
+
 ## Inputs
 
 g157b PILOT verdict is one of: DIRECTIONAL_SUPPORT_157b / WEAK_SUPPORT_157b / KILL_157b.

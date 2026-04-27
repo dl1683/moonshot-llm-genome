@@ -2,6 +2,8 @@
 
 **Date:** 2026-04-26
 **Status:** LOCKED at first commit. CONDITIONAL: launches only if g157b PILOT returns DIRECTIONAL_SUPPORT_157b.
+
+**TOMBSTONE 2026-04-27.** g157b returned KILL_157b (CLAIM_EVIDENCE_MAP R7); the η > δ^mlp criterion is REJECTED. This pre-reg therefore did NOT execute. Implementation file `code/genome_157c_3seed_canonical_verdict.py` referenced below was deleted 2026-04-27 (entropy reduction). This pre-reg is retained for audit trail only.
 **Author:** Devansh / Neural Genome
 **Theory ref:** `research/derivations/prefix_information_transport.md`
 **Predecessor:** `research/prereg/genome_157b_eta_delta_probe_embedding_prefix_2026-04-26.md` (PILOT)
