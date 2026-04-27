@@ -288,18 +288,32 @@ def main():
         # Backwards-compat shim used by current main loop; resolved per arm below
         return None  # caller must use per-arm version
 
-    # 1) LR selection per arm at L=128 with reduced steps for speed
-    print("\n=== LR SELECTION at L=128 ===")
-    train_ids_128, train_mask_128 = tokenize_at_L(tok, train_texts_all, 128)
-    val_ids_128, val_mask_128 = tokenize_at_L(tok, val_lr_texts, 128)
+    # 1) LR selection per arm — Codex pre-flight Severity 7 fix:
+    # The optimal LR can shift with horizon (longer training -> tolerates higher LR).
+    # Run LR selection at the EXTREMES (L=32 with most steps, L=256 with fewest steps),
+    # take the min of the two to be conservative against divergence at long horizons.
+    print("\n=== LR SELECTION at L=32 and L=256 (then take min per arm) ===")
+    train_ids_32, train_mask_32 = tokenize_at_L(tok, train_texts_all, 32)
+    val_ids_32, val_mask_32 = tokenize_at_L(tok, val_lr_texts, 32)
+    train_ids_256, train_mask_256 = tokenize_at_L(tok, train_texts_all, 256)
+    val_ids_256, val_mask_256 = tokenize_at_L(tok, val_lr_texts, 256)
     arm_lr = {}
     for arm_name, kw in arms.items():
-        arm_lr[arm_name] = select_lr_per_arm(
-            arm_name, kw, max_pos=128 + 64, vocab=vocab,
-            train_ids=train_ids_128, train_mask=train_mask_128,
-            val_ids=val_ids_128, val_mask=val_mask_128,
-            n_steps_select=2000,
+        # n_steps for selection: scale to 1500 at the chosen L for speed
+        lr_at_32 = select_lr_per_arm(
+            arm_name + "_at_L32", kw, max_pos=32 + 64, vocab=vocab,
+            train_ids=train_ids_32, train_mask=train_mask_32,
+            val_ids=val_ids_32, val_mask=val_mask_32, n_steps_select=2000,
         )
+        lr_at_256 = select_lr_per_arm(
+            arm_name + "_at_L256", kw, max_pos=256 + 64, vocab=vocab,
+            train_ids=train_ids_256, train_mask=train_mask_256,
+            val_ids=val_ids_256, val_mask=val_mask_256, n_steps_select=1000,
+        )
+        # Pick the smaller LR (conservative for divergence at long horizons)
+        chosen = min(lr_at_32, lr_at_256)
+        print(f"  {arm_name}: lr_at_L32={lr_at_32}, lr_at_L256={lr_at_256}, CHOSEN={chosen}")
+        arm_lr[arm_name] = chosen
 
     # 2) Main sweep
     results = {}  # results[L][arm][seed] = metrics
