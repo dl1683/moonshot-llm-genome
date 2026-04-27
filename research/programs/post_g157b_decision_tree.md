@@ -34,7 +34,7 @@ Direction is right but signal weaker than threshold. Suggests:
 - Mid-band wrong — sweep all 5 depths
 
 **Next actions:**
-1. Run g157d (probe-budget expansion): same scope as g157b but PROBE_STEPS=2000, all 5 depths, kv_dim=1500. Compute estimate: ~3.5x the pilot = ~100 min.
+1. Run g157d (probe-budget expansion): IMPLEMENTED at `code/genome_157d_probe_budget_expansion.py`. Same scope as g157b but PROBE_STEPS=2000, all 5 depths, kv_dim=1500. Compute estimate: ~3.5x the pilot = ~100 min.
 2. Launch g158 in parallel (independent).
 3. If g157d still WEAK, the underlying η/δ probe paradigm cannot reach the 0.02-nat threshold at our scale. Pivot to: give up on g157 series, treat g156 PASS as the discrimination evidence, claim §0.1 score 6/10 (what we have).
 
