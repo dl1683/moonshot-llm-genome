@@ -64,6 +64,13 @@ def main():
             mini = cell.get("minimal_3L_noMLP", {}).get(s_str, {})
             base_top1 = base.get("c4", {}).get("top1_acc", float("nan"))
             mini_top1 = mini.get("c4", {}).get("top1_acc", float("nan"))
+            # Codex cycle 24 SEV7 fix: fail loudly on NaN/missing rather than
+            # silently emitting PILOT_FRAGILE on a corrupt JSON.
+            if not math.isfinite(base_top1) or not math.isfinite(mini_top1):
+                raise RuntimeError(
+                    f"incomplete/corrupt g158c result: L={L} seed={seed} "
+                    f"baseline_c4={base_top1!r} minimal_c4={mini_top1!r}"
+                )
             delta = (mini_top1 - base_top1) * 100.0  # pp
             per_seed_deltas[seed][L] = delta
         # Spearman rho between L (rank) and delta (rank) — for monotone with 4 points

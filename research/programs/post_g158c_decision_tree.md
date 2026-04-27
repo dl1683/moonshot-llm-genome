@@ -3,6 +3,31 @@
 **Date locked:** 2026-04-27 (before g158c verdict known)
 **Purpose:** mechanical verdict-to-action transition for the canonical 3-seed run of context-length inversion. No vibes-based pivots.
 
+## ★ STRATEGIC OVERRIDE 2026-04-27 (cycle 24 Codex direction review)
+
+**The first post-g158c GPU slot is now LOCKED to the annealed-donor / decaying-anchor washout test (g165), regardless of g158c verdict.** This decision overrides the original Path A/B/C structure below for the *next* GPU slot (Path A/B/C still apply for the slot AFTER g165).
+
+**Reason (from `codex_outputs/heartbeats/cycle24_direction_review_20260427T101600.md`):**
+
+- Annealed donor experiment scores PASS=**7.3/10**, FAIL=6.2/10 — higher than Path A (6.8) and Path B (6.4), and unlike Path C (8.2/10) it is NOT hardware-blocked.
+- Codex finding: "§0 should replace architecture-prior as the primary research line." The architecture-prior chain (g138-g160) has become a feeder/cash-out branch, not the discovery branch.
+- The early-help meta-audit (n=7) made annealed donor a mechanistically motivated test, not a post-hoc rescue. Already-collected data shows 0/7 mechanisms persist; g137 (optimizer-state) is the lone positive-final outlier (+0.08 nats).
+- Codex caveat: "**don't run plain anchoring**" (g008 already partly tested static anchoring and washed out). The right test is **decaying anchor / annealed donor schedule**.
+
+**g165 spec (DRAFT):**
+- Donor: Qwen3-0.6B (trained); recipient: random-init same-architecture model.
+- Anchored regularization: λ(t) = λ_0 · decay_schedule(t), where decay_schedule ∈ {step (drop at step 25), linear (1→0 by step 50), exponential (τ=10), constant (control)}.
+- λ_0 ∈ {1.0, 0.1, 0.01}. Compare against scratch (no anchor) baseline.
+- PASS: at least one (λ_0, schedule) combination produces final-step NLL advantage > +0.5 nats over scratch with 95% CI excluding zero.
+- FAIL: no schedule produces persistent positive advantage; the same washout pattern emerges.
+- Compute: ~3-4hr wall, <12 GB VRAM, <24 GB RAM.
+- Files (to be created on g158c-completion / launch trigger): `research/prereg/genome_165_annealed_donor_2026-04-27.md`, `code/genome_165_annealed_donor.py`, `results/genome_165_annealed_donor.json`.
+- Codex pre-flight required before launch.
+
+**Active queue §0.1 expected uplift before this override:** 5.8/10 (Codex cycle 24).
+**After override:** 7.0/10 (g165 first slot, Path A/B/C as fallback).
+**If wall-power meter unblocks:** g155 still beats g165 at 8.2 vs 7.3 — meter remains the highest-impact procurement.
+
 ## Inputs
 
 g158c verdict is one of: PASS_canonical / WEAK_canonical / PILOT_FRAGILE.
