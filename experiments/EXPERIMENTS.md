@@ -26,6 +26,33 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 — genome_157 v2 PILOT — PILOT_KILL (rejected by Codex; probe-design contamination)
+
+**Purpose.** First post-g156-PASS experiment per locked program: build the η/δ probe primitive on the 12 saved g156 checkpoints. v1 was killed at pre-flight for projecting 91 GPU-hours; v2 was the relocked PILOT scope (1 seed, 4 ckpts, 3 mid-band depths, 500 probe steps, BF16).
+
+**Verdict label.** PILOT_KILL: nat_G=-3.31 < +0.02 PASS threshold.
+
+**Why this is NOT a real theory falsification (per Codex `codex_outputs/g157_pilot_interpretation.md`):**
+
+1. **Numerical pathology on shuffled.** lin probe trained in BF16 without grad clipping exploded on token_shuffled distribution. CE = 230-290 on baseline shuffled; 60-95 on minimal shuffled. Local + prefix probes were less affected but still elevated. The shuffled-arm G_l calculations are dominated by lin probe blow-up, not real signal.
+
+2. **Same-layer prefix probe is structurally weaker than q_local.** When q_prefix uses same-layer h_<t as K/V, it can only extract info already merged into h_t by the residual stream. q_local extracts the same info from h_t alone, plus token-local nonlinear features. Therefore q_prefix ≤ q_local in expectation — making η = CE_local − CE_prefix non-positive almost by construction.
+
+**Pattern across natural-baseline and natural-minimal arms:**
+
+| arm | layer 5/2 | layer 7/3 | layer 9/4 |
+|---|---:|---:|---:|
+| natural-baseline (14L) | G=-3.51 | G=-4.26 | G=-5.70 |
+| natural-minimal (7L) | G=-2.77 | G=-3.30 | G=-3.84 |
+
+Note: minimal arm is consistently LESS NEGATIVE than baseline at comparable functional depth — directionally consistent with theory (more transport gap remains in minimal). But all values negative and below the +0.02 PASS threshold.
+
+**Lesson learned (`research/PROBE_DESIGN_LESSONS.md`):** all probes must use FP32 + grad clip + skip non-finite + best-or-raise; same-layer prefix is wrong test; embedding-layer prefix is the correct probe.
+
+**Action taken.** g157b PILOT launched immediately with FP32 + grad clip + embedding-layer prefix variant. g157 v3 (same-layer FP32 control) and g157d (probe-budget expansion) pre-staged. g157c (3-seed canonical verdict) pre-staged conditional on g157b DIRECTIONAL_SUPPORT.
+
+---
+
 ## 2026-04-26 — genome_154_distillation_smoke — PASS (distillation pipeline validated)
 
 **Purpose.** Codex D2 smoke test: validate the distillation pipeline mechanics before scaling to a production student-teacher run (g160).
