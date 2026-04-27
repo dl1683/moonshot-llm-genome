@@ -53,6 +53,20 @@ The η > δ^mlp criterion is empirically wrong on natural-minimal even with the 
    - g159 (cross-class lesion) as the empirical extension
    - g161 (RWKV training) as the architecture-class extension
 
+## Update 2026-04-26 22:37: lin probe pathology persists on shuffled
+
+g157b mid-run observation (shuffled-baseline layer 5): even with FP32 + grad clip + skip-non-finite, the lin probe still produces CE=249 on shuffled distribution. The local + prefix probes are well-behaved (CE ~8 and ~7.8 respectively).
+
+**Diagnosis:** the issue is NOT BF16 numerics. It's probe undertraining on out-of-distribution activations. A linear probe with 50M params at vocab=50277 and only 500 training steps × 32 batch = 16k samples is severely under-fit. On natural data the probe works; on shuffled the model's hidden states have very different statistics and the same probe config fails.
+
+**Implication:** the `delta = CE_lin - CE_local` term is dominated by lin-pathology on shuffled. The G_l calculation will be massively negative on shuffled-baseline regardless of theory.
+
+**Workaround for verdict logic:**
+- If shuf_G_baseline is more than 10x more negative than nat_G_baseline (current g157b: ~-200 vs ~-3.7), the shuffled-arm `delta` is corrupted by lin pathology. Use ONLY the eta term (`CE_local - CE_prefix_embed`) for the discrimination criterion in this case.
+- New criterion candidate: `eta_nat_minimal > 0 AND eta_shuf_minimal <= 0` — robust to lin-pathology because eta uses local + prefix CE only.
+
+**Action:** when g157b finishes, compute BOTH the locked criterion (G_l based) AND this eta-only criterion. Report both. If they disagree, treat as AMBIGUOUS_PROBE_PATHOLOGY.
+
 ## What does NOT change regardless of g157b outcome
 
 - g154 PASS (distillation pipeline validated) stands.
