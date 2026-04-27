@@ -99,6 +99,28 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g168 FAILED 2026-04-27 ~20:50 UTC: zero-step alignment-based transfer is dead.**
+
+g168 re-basin + norm-refit zero-step transplant FAILed at all 4 transplant arms.
+
+| Arm | step=0 | step=50 |
+|---|---:|---:|
+| identity | -0.023 | +0.291 |
+| raw_copy | -0.023 | +0.291 |
+| permutation_only | +0.003 | -0.016 |
+| norm_refit_only | -0.013 | **+0.438** |
+| permutation + norm_refit | +0.001 | +0.187 |
+
+**Best zero-step gain: +0.003 nats** (vs PASS threshold +0.8 nats). Decisive FAIL.
+
+**But: at step=50, norm_refit_only and identity show +0.29-0.44 nats gain — same SGD-required pattern as g165.** Combined with g165 PASS, the conclusion is: **donor weights alone (zero-step) DON'T transfer capability; the active ingredient is the optimization constraint that uses the donor weights as a basin-of-attraction during SGD.** Alignment was NOT the loophole. Wall 15.3 min.
+
+This **closes the alignment-loophole branch** of the surgery story (g117-g124 stayed dead). Codex's 8.3/10 score was wrong; actual is FAIL.
+
+§0 zero-step capability transfer: **EMPIRICALLY DEAD via weight injection + alignment**. Possible salvage paths: function/activation transfer (g169 ScaffoldSwap), distillation logits (g167/g170), routing/attention maps (g171). Weight-positional transfer at zero step = closed.
+
+Source: `results/genome_168_rebasin_zero_step_transplant.json`.
+
 **★ g165 PASSED 2026-04-27 23:28 UTC ★★ MAJOR §0 RESULT**
 
 Verdict: PASS — 2 anchored arms produce ≥+0.5 nats persistent C4 NLL advantage with bootstrap 95% CI excluding zero. Wall 1.8hr.
