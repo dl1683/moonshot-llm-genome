@@ -29,6 +29,7 @@ from __future__ import annotations
 import argparse
 import math
 from dataclasses import dataclass
+from typing import Tuple
 
 import torch
 import torch.nn as nn
@@ -65,6 +66,37 @@ def _shift_with_state(x: torch.Tensor, prev_x: torch.Tensor | None) -> tuple[tor
 
 def _mix_current_prev(x: torch.Tensor, x_prev: torch.Tensor, mix: torch.Tensor) -> torch.Tensor:
     return x_prev + (x - x_prev) * mix
+
+@torch.jit.script
+def _wkv_scan_script(
+    k: torch.Tensor,
+    v: torch.Tensor,
+    aa: torch.Tensor,
+    bb: torch.Tensor,
+    pp: torch.Tensor,
+    decay: torch.Tensor,
+    bonus: torch.Tensor,
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    outs = []
+    steps = k.size(1)
+    for t in range(steps):
+        kt = k[:, t, :]
+        vt = v[:, t, :]
+        ww = bonus + kt
+        p = torch.maximum(pp, ww)
+        e1 = torch.exp(pp - p)
+        e2 = torch.exp(ww - p)
+        numer = e1 * aa + e2 * vt
+        denom = e1 * bb + e2
+        outs.append((numer / denom).unsqueeze(1))
+        ww = pp + decay
+        p = torch.maximum(ww, kt)
+        e1 = torch.exp(ww - p)
+        e2 = torch.exp(kt - p)
+        aa = e1 * aa + e2 * vt
+        bb = e1 * bb + e2
+        pp = p
+    return torch.cat(outs, dim=1), aa, bb, pp
 
 class TimeMixV4(nn.Module):
     def __init__(self, hidden_size: int, layer_id: int, n_layers: int):
@@ -122,25 +154,8 @@ class TimeMixV4(nn.Module):
             pp = pp.to(device=k.device, dtype=torch.float32)
         decay = (-torch.exp(self.time_decay.float())).view(1, hidden)
         bonus = self.time_first.float().view(1, hidden)
-        outs = []
-        for t in range(steps):
-            kt = kf[:, t, :]
-            vt = vf[:, t, :]
-            ww = bonus + kt
-            p = torch.maximum(pp, ww)
-            e1 = torch.exp(pp - p)
-            e2 = torch.exp(ww - p)
-            numer = e1 * aa + e2 * vt
-            denom = e1 * bb + e2
-            outs.append((numer / denom).unsqueeze(1))
-            ww = pp + decay
-            p = torch.maximum(ww, kt)
-            e1 = torch.exp(ww - p)
-            e2 = torch.exp(kt - p)
-            aa = e1 * aa + e2 * vt
-            bb = e1 * bb + e2
-            pp = p
-        return torch.cat(outs, dim=1), (aa.detach(), bb.detach(), pp.detach())
+        out, aa, bb, pp = _wkv_scan_script(kf, vf, aa, bb, pp, decay, bonus)
+        return out, (aa.detach(), bb.detach(), pp.detach())
 
     def forward(
         self,
