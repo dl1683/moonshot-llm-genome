@@ -87,7 +87,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 - g160 design-rule cash-out: PILOT_KILL at -0.34pp (within seed noise but inconclusive). g160c skipped per cycle 21 (canonizes a null).
 - §0.1 ceiling: ~7.0/10 if g158c PASS_canonical; ~6.0/10 if PILOT_FRAGILE.
 
-**Codex consults completed:** g158/g159/g160/g161 pre-flights; g157 PILOT interpretation; heartbeat cycles 3/6/9/12/15/18/21 reviews.
+**Codex consults completed:** g158/g159/g160/g161 pre-flights; g157 PILOT interpretation; heartbeat cycles 3/6/9/12/15/18/21 reviews; g158c audit + post-g158c direction consults (2026-04-27).
+
+**★ STRATEGIC FINDING from cycle 22 Codex direction consult (2026-04-27):** Among the three post-g158c paths, **only Path C (g155 production distill + locked C3 TEI/kJ benchmark) breaks the §0.1 ceiling — Codex score 8.2/10**. Paths A (g162 capacity sweep, 6.8) and B (g158e endpoint seed expansion, 6.4) cap at workshop-grade. Path C is HARDWARE-BLOCKED on external AC wall-power meter (Yokogawa WT310E gold; logging smart plug practical). **Acquiring the wall-power meter is the highest-impact procurement action across the entire decision tree** — it unblocks the only experimental direction with a chance of producing a flagship-grade finding. Source: `codex_outputs/heartbeats/post_g158c_design_20260427T090500.md`.
 
 **Retired from queue (no longer pre-staged):**
 - `g157c/d/v3` — archived after g157b KILL (mechanism rejected)
