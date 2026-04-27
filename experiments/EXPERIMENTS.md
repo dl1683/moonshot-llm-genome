@@ -26,6 +26,49 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 — genome_157b PILOT — KILL_157b (mechanism candidate REJECTED across both probe variants)
+
+**Purpose.** Path C of the post-g157-v2 decision tree: with FP32 + grad clip + skip-non-finite-loss + embedding-layer prefix probe (instead of same-layer), test whether the η > δ^mlp transport-budget criterion is observable when the structural-weakness issue is fixed.
+
+**Verdict label.** KILL_157b: nat_G_mean=-2.41 < +0.02 PASS threshold.
+
+**Critical eta-only criterion (probe-pathology robust):** nat-min eta=-0.39, shuf-min eta=+0.11 → contrast=**-0.51 nats** (WRONG SIGN). The shuffled arm has MORE available prefix info than the natural arm — opposite of theory's prediction.
+
+### Per-arm × per-condition eta means (single seed, 3 mid-band layers)
+
+| condition | baseline | minimal |
+|---|---:|---:|
+| natural | eta=-0.45 | eta=-0.39 |
+| token_shuffled | eta=+0.18 | eta=+0.11 |
+
+**Pattern is BY-CONDITION (natural<0, shuffled>0), NOT BY-ARM.**
+
+### Why the criterion is structurally untestable
+
+At any TRAINED autoregressive LM, h_t already contains the transported prefix info merged into the residual stream by attention. q_local extracts it from h_t alone — adequately, because the transport has happened during training. q_prefix(y | h_t, embed(prefix)) has nothing extra to add → eta < 0 always on natural data, regardless of architecture.
+
+The η > δ^mlp criterion measures TRAINING QUALITY (closed transport gap → eta < 0), not ARCHITECTURE-PRIOR (transport-heavy vs local-heavy). Tautological signal.
+
+### What survives
+
+The empirical g156 PASS_TRANSPORT result stands independently. The PROPOSED MECHANISM (transport budget criterion) is rejected. The post-g156 program continues:
+- **g158** (context-length inversion) — launched immediately upon g157b KILL_157b. Tests theory's INPUT-SIDE prediction (transport demand control variable). Independent of η/δ probe.
+- **g159** (cross-class lesion) — independent.
+- **g160** (transport-guided student) — independent.
+- **g161** (RWKV training) — independent.
+
+§0.1 score remains 6/10 (g156 + g152 evidence). Path to 7-8/10 now requires g158 + g159 + g160 (not g157+).
+
+### CLAIM_EVIDENCE_MAP impact
+
+P12 → R7 REJECTED. Mechanism candidate dies; empirical chain stands.
+
+### Compute
+
+Wall-clock: 2548.6s (~42 min). Within envelope.
+
+---
+
 ## 2026-04-26 — genome_157 v2 PILOT — PILOT_KILL (rejected by Codex; probe-design contamination)
 
 **Purpose.** First post-g156-PASS experiment per locked program: build the η/δ probe primitive on the 12 saved g156 checkpoints. v1 was killed at pre-flight for projecting 91 GPU-hours; v2 was the relocked PILOT scope (1 seed, 4 ckpts, 3 mid-band depths, 500 probe steps, BF16).
