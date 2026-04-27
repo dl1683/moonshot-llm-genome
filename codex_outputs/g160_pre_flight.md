@@ -1,0 +1,3 @@
+Pre-flight report is written to [g160_pre_flight.md](</C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/codex_outputs/g160_pre_flight.md>).
+
+Main verdict: not launch-clean. The top blockers are the broken/non-canonical C3 evaluator (Winogrande is likely to crash with the cached Qwen3 tokenizer because `tok("")` returns `[]`), the `local_heavy` `intermediate_size=1536` bug that destroys the matched-FLOP claim, the missing dedup audit, CtQ_90 being measured in steps instead of FLOPs, and the full 3-seed run not fitting the 4-hour envelope. The memo includes exact fixes for all severity `>= 7` findings, a FLOP recompute, a recommended replacement student pair if you want both FLOP match and the 50-70M band, and a pre-flight checklist.

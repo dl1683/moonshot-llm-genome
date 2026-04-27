@@ -48,7 +48,9 @@ ROOT = _THIS_DIR.parent
 TEACHER_HF = "Qwen/Qwen3-0.6B"
 SEQ_LEN = 256
 BATCH_SIZE = 8
-SEEDS = [42, 7, 13]
+# PILOT scope: 1 seed first, expand to 3 seeds in g160b only if PASS.
+# Original 3-seed run > 4hr envelope (Codex pre-flight Severity 8).
+SEEDS = [42]
 N_TRAIN = 8192
 KD_TEMP = 2.0
 KD_GAMMA = 0.5
@@ -57,8 +59,10 @@ LR_WARMUP_STEPS = 200
 TRAIN_STEPS = 8000
 LR = 3e-4
 
-# CtQ_90 measurement: evaluate every K steps and find the step at which
-# C3_macro reaches >= 0.90 * own_final.
+# CtQ_90 measurement: evaluate at these step checkpoints and find the step at
+# which C3_macro reaches >= 0.90 * own_final. Per Codex: also report cumulative
+# train FLOPs at each checkpoint so the metric can be expressed in FLOPs (the
+# fair currency for comparing two architectures).
 CTQ_EVAL_STEPS = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
 
 
@@ -148,7 +152,12 @@ def warmup_lr(step, target_lr, warmup_steps):
 
 
 def measure_capability(model, tok, c3_data):
-    """Compute multiple-choice log-likelihood accuracy on each task."""
+    """Compute multiple-choice log-likelihood accuracy on each task.
+
+    Handles empty-context items (Winogrande): when item['context'] is "",
+    ctx tokenization may return [] and the off-by-one breaks. We use BOS-only
+    as a 1-token prefix in that case so logits indexing is well-defined.
+    """
     model.eval()
     results = {}
     for task_name, items in c3_data.items():
@@ -156,22 +165,33 @@ def measure_capability(model, tok, c3_data):
         for item in items:
             ll_per_choice = []
             for choice in item["choices"]:
-                full = item["context"] + choice
+                ctx = item["context"]
+                if not ctx.strip():
+                    ctx = tok.bos_token if tok.bos_token else (tok.eos_token or " ")
+                full = ctx + choice
                 ids = tok(full, return_tensors="pt", truncation=True, max_length=SEQ_LEN+128)
                 ids = ids["input_ids"].to("cuda")
-                ctx_len = len(tok(item["context"])["input_ids"])
+                ctx_ids = tok(ctx, return_tensors="pt", truncation=True, max_length=SEQ_LEN+128)["input_ids"]
+                ctx_len = max(1, ctx_ids.shape[1])
+                if ids.shape[1] <= ctx_len:
+                    # Defensive: full string didn't add tokens beyond ctx (rare)
+                    ll_per_choice.append(float("-inf"))
+                    continue
                 with torch.no_grad():
                     out = model(input_ids=ids, use_cache=False)
-                    logits = out.logits[0, ctx_len-1:-1]
+                    logits = out.logits[0, ctx_len-1:-1].float()
                     targets = ids[0, ctx_len:]
+                    if logits.shape[0] != targets.shape[0]:
+                        ll_per_choice.append(float("-inf"))
+                        continue
                     ll = -F.cross_entropy(logits, targets, reduction="sum").item()
                 ll_per_choice.append(ll)
             pred = int(np.argmax(ll_per_choice))
             if pred == item["label"]:
                 correct += 1
-        results[task_name] = correct / len(items)
+        results[task_name] = correct / max(len(items), 1)
     model.train()
-    macro = float(np.mean(list(results.values())))
+    macro = float(np.mean(list(results.values()))) if results else 0.0
     return {"per_task": results, "C3_macro": macro}
 
 
