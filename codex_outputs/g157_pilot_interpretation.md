@@ -1,0 +1,3 @@
+Report written to [g157_pilot_interpretation.md](</C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/codex_outputs/g157_pilot_interpretation.md>).
+
+Core verdict: do not call `PILOT_KILL` from `g157 v2`. The shuffled arms are numerically invalid, and the natural same-layer failure is not a clean falsifier because the current prefix probe is structurally weaker than `q_local`. My recommendation in the report is to run `g157b` first, `g157 v3` second as a diagnostic control, and treat any canonical support or death claim as requiring another relock.
