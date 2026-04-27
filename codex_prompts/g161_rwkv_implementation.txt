@@ -1,0 +1,65 @@
+You are running Architecture Theorist + Performance Engineer for the Neural Genome moonshot.
+
+g161 (RWKV training-time transport extension) prereg is LOCKED. I need a precise small-RWKV-4 implementation that supports two FLOP-matched arms within ±2%:
+
+- **baseline_rwkv:** standard RWKV-4 with channel-mix (the local sublayer) + time-mix (the transport sublayer). 12 layers, hidden=512.
+- **transport_heavy:** RWKV-4 with NO channel-mix; the parameter budget removed from channel-mix is reinvested in more layers. 18 layers, hidden=512.
+
+The hypothesis: in a non-transformer architecture, the natural-vs-shuffled contrast observed in g156 (transformer) replicates. Specifically:
+- Δ_nat = top1_transport_heavy − top1_baseline >= +0.3pp on both c4-val and wikitext-val
+- Δ_shuf <= +0.1pp on both
+- contrast = Δ_nat − Δ_shuf >= +0.3pp on both
+
+YOUR TASK:
+
+A) Provide the exact PyTorch code for a minimal RWKV-4 variant (NOT relying on the official RWKV repo; we want a self-contained script in code/genome_161_rwkv_training_extension.py). Specifically:
+
+1. **TimeMixV4 module** — the recurrent time-mixing block. Should support:
+   - per-channel time-mix coefficients (input gating from previous timestep)
+   - QKV-style projection with token-shift
+   - exponential-moving-average state (the "WKV" formulation)
+   - NO attention; this is purely linear-recurrent
+   - Suggested vocab=50277 (Pythia tokenizer)
+   - hidden_size=512
+
+2. **ChannelMixV4 module** — the local nonlinearity. Should support:
+   - token-shift between current and previous timestep
+   - SwiGLU-style two-projection MLP
+   - parameterized so removing it produces a clean baseline-vs-transport contrast
+
+3. **RWKV4Block** — composes TimeMix + ChannelMix with residual connections. Mode flag `no_channel_mix=False` to drop it.
+
+4. **RWKV4ForCausalLM** — the full model with embedding, N blocks, lm_head (tied embeddings). Forward signature compatible with the existing measure() and train_arm() helpers used in g156/g158.
+
+B) FLOP counter:
+   - Per-token forward FLOPs for TimeMix (analytic; depends on hidden, vocab is on lm_head only).
+   - Per-token forward FLOPs for ChannelMix.
+   - Total: should let us match baseline_rwkv (12L + chmix) and transport_heavy (18L noch) within ±2%.
+   - Concrete numbers for hidden=512, n_layers=(12,18) so we can verify ±2%.
+
+C) Training-loop integration:
+   - Reuse the train_arm + measure helpers from code/genome_156_prefix_destruction_200m.py (warmup, AdamW, BF16, log_every=1000).
+   - Note: RWKV-4 typically trains in FP32 due to numerical sensitivity in time-mix. But we want BF16 for memory. Recommend the right precision for training and eval, with justification.
+
+D) Smoke validation steps:
+   - 1 seed, 100 steps, baseline + transport on natural c4 only.
+   - Verify loss decreases (both arms reach <6.5 NLL by step 100; if not, init or LR is broken).
+   - Verify FLOP-counter says ±2% match.
+
+E) Compute estimate:
+   - 12 cells (2 arms × 2 conditions × 3 seeds).
+   - FLOP-matched ~30M params each.
+   - 4000 train steps, batch=8, seq=256.
+   - Per-cell wall-clock estimate on RTX 5090 Laptop (compare to known transformer rate of ~40s/1000 steps at this scale).
+   - Total ≤ 4 hr per COMPUTE.md envelope.
+
+DELIVERABLES:
+1. Complete Python code for the four modules listed in (A) — drop-in replacement for the stub at code/genome_161_rwkv_training_extension.py.
+2. Concrete FLOP analysis showing ±2% match between baseline_rwkv (12L+chmix) and transport_heavy (18L noch) at hidden=512.
+3. Training precision recommendation (FP32 vs BF16 vs mixed).
+4. Smoke-test step-by-step procedure I should run before the full launch.
+5. Honest wall-clock estimate.
+
+Output a single markdown report at codex_outputs/g161_rwkv_implementation.md. ASCII-only (no Greek letters in print() — we just had a Δ-char crash in g156).
+
+If RWKV-4 cannot be cleanly implemented in <500 lines of self-contained PyTorch, propose pulling in a specific 3rd-party port and document the dependency.
