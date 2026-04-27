@@ -158,7 +158,10 @@ class PrefixEmbedAttnProbe(nn.Module):
 
 def train_probe(probe, h_train, e_train, ids_train, mask_train,
                  h_val, e_val, ids_val, mask_val, use_prefix=False):
-    probe = probe.to("cuda").to(torch.bfloat16)
+    # Probe weights in FP32 for numerical stability; activations stay BF16.
+    # Lesson from g157 v2 PILOT: BF16 probes blew up on shuffled distribution
+    # (CE > 200) due to exploding lin-probe gradients without clipping.
+    probe = probe.to("cuda").to(torch.float32)
     opt = torch.optim.AdamW(probe.parameters(), lr=PROBE_LR, weight_decay=0.01)
     n_train = h_train.size(0)
     rng = np.random.default_rng(0)
@@ -166,21 +169,24 @@ def train_probe(probe, h_train, e_train, ids_train, mask_train,
     best_state = None
     for step in range(PROBE_STEPS):
         idx = rng.integers(0, n_train, size=PROBE_BATCH)
-        h_b = h_train[idx].to("cuda").to(torch.bfloat16)
+        h_b = h_train[idx].to("cuda").to(torch.float32)
         ids_b = ids_train[idx].to("cuda")
         mask_b = mask_train[idx].to("cuda")
         if use_prefix:
-            e_b = e_train[idx].to("cuda").to(torch.bfloat16)
+            e_b = e_train[idx].to("cuda").to(torch.float32)
             logits = probe(h_b, e_b, mask_b)
         else:
             logits = probe(h_b)
-        sl = logits[:, :-1].contiguous().float()
+        sl = logits[:, :-1].contiguous()
         lbl = ids_b[:, 1:].clone()
         sm = mask_b[:, 1:]
         lbl[sm == 0] = -100
         loss = F.cross_entropy(sl.reshape(-1, sl.size(-1)), lbl.reshape(-1), ignore_index=-100)
+        if not torch.isfinite(loss):
+            continue  # Skip non-finite losses instead of poisoning the params
         opt.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(probe.parameters(), 1.0)
         opt.step()
         if (step + 1) % 100 == 0:
             v = eval_probe(probe, h_val, e_val, ids_val, mask_val, use_prefix)
@@ -197,15 +203,15 @@ def eval_probe(probe, h, e, ids, mask, use_prefix=False):
     total_loss, total_tokens = 0.0, 0
     with torch.no_grad():
         for i in range(0, h.size(0), PROBE_BATCH):
-            h_b = h[i:i+PROBE_BATCH].to("cuda").to(torch.bfloat16)
+            h_b = h[i:i+PROBE_BATCH].to("cuda").to(torch.float32)
             ids_b = ids[i:i+PROBE_BATCH].to("cuda")
             mask_b = mask[i:i+PROBE_BATCH].to("cuda")
             if use_prefix:
-                e_b = e[i:i+PROBE_BATCH].to("cuda").to(torch.bfloat16)
+                e_b = e[i:i+PROBE_BATCH].to("cuda").to(torch.float32)
                 logits = probe(h_b, e_b, mask_b)
             else:
                 logits = probe(h_b)
-            sl = logits[:, :-1].contiguous().float()
+            sl = logits[:, :-1].contiguous()
             lbl = ids_b[:, 1:].clone()
             sm = mask_b[:, 1:]
             valid = (sm != 0)
