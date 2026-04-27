@@ -194,12 +194,43 @@ def main():
 
     # Load enough text for the longest L training + eval + lr-select val + ood eval
     target_n = N_TRAIN_256 + N_C4_EVAL + 1024  # 1024 for LR selection val bank
-    print(f"\nLoading {target_n} c4 sequences...")
+    print(f"\nLoading {target_n} c4 sequences (seed=77 to avoid g141..g157 train slice)...")
     pool = []
     for rec in c4_clean_v1(seed=77, n_samples=target_n):
         pool.append(rec["text"])
         if len(pool) >= target_n:
             break
+
+    # Per Codex pre-flight Severity-9: 13-token rolling-hash dedup audit
+    # vs the c4_clean_v1 seed=42 train slice that g141..g157 have used.
+    print("Running 13-token dedup audit vs g141..g157 train slice (seed=42)...")
+    g_train_texts = []
+    for rec in c4_clean_v1(seed=42, n_samples=2048):
+        g_train_texts.append(rec["text"])
+        if len(g_train_texts) >= 2048:
+            break
+
+    def _hashes(seqs, _tok=tok):
+        enc = _tok(seqs, padding="max_length", truncation=True,
+                    max_length=256, return_tensors="pt")
+        ids, mask = enc["input_ids"], enc["attention_mask"]
+        hashes = set()
+        for r in range(ids.shape[0]):
+            v = mask[r].sum().item()
+            if v < 13:
+                continue
+            row = ids[r, :v].tolist()
+            for i in range(len(row) - 12):
+                hashes.add(tuple(row[i:i+13]))
+        return hashes
+
+    g_hashes = _hashes(g_train_texts)
+    pool_hashes = _hashes(pool[:N_TRAIN_256])  # check only the train portion
+    overlap = pool_hashes & g_hashes
+    pct = 100.0 * len(overlap) / max(len(pool_hashes), 1)
+    print(f"  13-gram overlap: {pct:.2f}%")
+    if pct > 5.0:
+        raise RuntimeError(f"dedup FAIL: {pct:.2f}% > 5% — pick a different seed")
 
     # OOD eval from wikitext-103 VALIDATION split (per audit-fix A1)
     from datasets import load_dataset
@@ -226,11 +257,36 @@ def main():
         "minimal_3L_noMLP": dict(hidden=384, layers=3, heads=6, ffn=1024, no_mlp=True),
     }
 
-    # Step budget per L: scale to keep total token-FLOPs comparable.
-    # At L=256, base budget = 4000 steps x 8 batch x 256 = ~8.4M tokens.
-    # At L=L', steps_L = 4000 * 256 / L  (gives same total tokens).
+    # Per Codex pre-flight Severity-10: exact-FLOP match (not token match).
+    # Analytic per-step FLOPs for the two arms at given L:
+    #   attn_per_token_per_layer = 4*h^2 + 2*L*h
+    #   mlp_per_token_per_layer  = 3*h*m  (or 0 if no_mlp)
+    #   per_step = batch_size * L * n_layers * 2 * (attn + mlp)
+    def per_step_flops(L, hidden, layers, ffn, no_mlp):
+        attn = 4 * hidden * hidden + 2 * L * hidden
+        mlp = 0 if no_mlp else 3 * hidden * ffn
+        return BATCH_SIZE * L * layers * 2 * (attn + mlp)
+
+    def steps_at_L_for_arm(L, kw, target_total_flops):
+        per_step = per_step_flops(L, kw["hidden"], kw["layers"], kw["ffn"], kw["no_mlp"])
+        return max(100, int(target_total_flops / per_step))
+
+    # Reference total FLOPs: arm baseline @ L=256, 4000 steps.
+    ref_arm = arms["baseline_6L+MLP"]
+    target_total_flops = per_step_flops(256, ref_arm["hidden"], ref_arm["layers"],
+                                          ref_arm["ffn"], ref_arm["no_mlp"]) * 4000
+    print(f"\n  target total FLOPs/cell: {target_total_flops/1e12:.3f} TFLOP")
+    for arm_name, kw in arms.items():
+        for L in CONTEXT_LENGTHS:
+            n_steps = steps_at_L_for_arm(L, kw, target_total_flops)
+            actual = per_step_flops(L, kw["hidden"], kw["layers"], kw["ffn"], kw["no_mlp"]) * n_steps
+            pct = 100.0 * abs(actual - target_total_flops) / target_total_flops
+            print(f"  {arm_name} L={L:3d}: n_steps={n_steps:6d}  actual={actual/1e12:.3f} TFLOP  diff={pct:.1f}%")
+            assert pct < 2.0, f"FLOP-match violation: {arm_name} L={L} diff={pct:.1f}% > 2%"
+
     def steps_at_L(L):
-        return int(4000 * 256 / L)
+        # Backwards-compat shim used by current main loop; resolved per arm below
+        return None  # caller must use per-arm version
 
     # 1) LR selection per arm at L=128 with reduced steps for speed
     print("\n=== LR SELECTION at L=128 ===")
@@ -252,14 +308,14 @@ def main():
         train_ids, train_mask = tokenize_at_L(tok, train_texts_all, L)
         eval_ids_c4, eval_mask_c4 = tokenize_at_L(tok, eval_texts_c4, L)
         eval_ids_ood, eval_mask_ood = tokenize_at_L(tok, ood_texts, L)
-        n_steps = steps_at_L(L)
         max_pos = L + 64
-        print(f"\n=== L={L}, n_steps={n_steps} ===")
+        print(f"\n=== L={L} (per-arm n_steps for exact-FLOP match) ===")
         for arm_name, kw in arms.items():
             results[L][arm_name] = {}
             lr = arm_lr[arm_name]
+            n_steps = steps_at_L_for_arm(L, kw, target_total_flops)  # per-arm exact-FLOP match
             for seed in SEEDS:
-                print(f"  -- {arm_name} L={L} seed={seed} --")
+                print(f"  -- {arm_name} L={L} seed={seed} n_steps={n_steps} --")
                 model = make_llama(vocab, max_pos=max_pos, seed=seed, **kw)
                 _, elapsed, nan_seen = train_arm(arm_name, lr, model, train_ids, train_mask, n_steps, seed)
                 if nan_seen:
@@ -295,6 +351,16 @@ def main():
         delta_per_L[L] = {"c4": d_c4, "ood": d_ood,
                           "n_b": len(nat_b), "n_m": len(nat_m)}
         print(f"  L={L:3d}: delta_c4={d_c4:+.2f}pp  delta_ood={d_ood:+.2f}pp")
+
+    # Per Codex pre-flight Severity-8: completeness guard. Do not emit verdict
+    # if any (L, arm) cell has fewer than len(SEEDS) valid seeds.
+    required_n = len(SEEDS)
+    incomplete = [(L, arm, results[L][arm].get(s, {}).get("nan_seen", True))
+                  for L in CONTEXT_LENGTHS for arm in arms for s in SEEDS]
+    n_nan = sum(1 for _, _, n in incomplete if n)
+    if n_nan > 0:
+        raise RuntimeError(f"g158 incomplete: {n_nan} NaN/missing cells out of {len(incomplete)}; "
+                           f"investigate before emitting verdict.")
 
     Ls_arr = np.array([L for L in CONTEXT_LENGTHS if L in delta_per_L])
     d_c4_arr = np.array([delta_per_L[L]["c4"] for L in Ls_arr])
