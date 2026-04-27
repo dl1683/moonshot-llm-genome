@@ -158,7 +158,9 @@ class PrefixAttnProbe(nn.Module):
 
 
 def train_probe(probe, h_train, ids_train, mask_train, h_val, ids_val, mask_val, use_mask=False):
-    probe = probe.to("cuda").to(torch.bfloat16)
+    # FP32 throughout for numerical stability on shuffled distribution
+    # (BF16 caused lin probe CE > 200 on shuffled in v2 PILOT).
+    probe = probe.to("cuda").to(torch.float32)
     opt = torch.optim.AdamW(probe.parameters(), lr=PROBE_LR, weight_decay=0.01)
     n_train = h_train.size(0)
     rng = np.random.default_rng(0)
@@ -166,17 +168,20 @@ def train_probe(probe, h_train, ids_train, mask_train, h_val, ids_val, mask_val,
     best_state = None
     for step in range(PROBE_STEPS):
         idx = rng.integers(0, n_train, size=PROBE_BATCH)
-        h_b = h_train[idx].to("cuda").to(torch.bfloat16)
+        h_b = h_train[idx].to("cuda").to(torch.float32)
         ids_b = ids_train[idx].to("cuda")
         mask_b = mask_train[idx].to("cuda")
         logits = probe(h_b, mask_b) if use_mask else probe(h_b)
-        sl = logits[:, :-1].contiguous().float()  # FP32 for loss only
+        sl = logits[:, :-1].contiguous()
         lbl = ids_b[:, 1:].clone()
         sm = mask_b[:, 1:]
         lbl[sm == 0] = -100
         loss = F.cross_entropy(sl.reshape(-1, sl.size(-1)), lbl.reshape(-1), ignore_index=-100)
+        if not torch.isfinite(loss):
+            continue
         opt.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(probe.parameters(), 1.0)
         opt.step()
         if (step + 1) % 100 == 0:
             v = eval_probe(probe, h_val, ids_val, mask_val, use_mask)
@@ -193,11 +198,11 @@ def eval_probe(probe, h, ids, mask, use_mask=False):
     total_loss, total_tokens = 0.0, 0
     with torch.no_grad():
         for i in range(0, h.size(0), PROBE_BATCH):
-            h_b = h[i:i+PROBE_BATCH].to("cuda").to(torch.bfloat16)
+            h_b = h[i:i+PROBE_BATCH].to("cuda").to(torch.float32)
             ids_b = ids[i:i+PROBE_BATCH].to("cuda")
             mask_b = mask[i:i+PROBE_BATCH].to("cuda")
             logits = probe(h_b, mask_b) if use_mask else probe(h_b)
-            sl = logits[:, :-1].contiguous().float()
+            sl = logits[:, :-1].contiguous()
             lbl = ids_b[:, 1:].clone()
             sm = mask_b[:, 1:]
             valid = (sm != 0)
