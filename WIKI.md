@@ -1166,11 +1166,13 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Unblocks g160 (transport-guided student) which needed g154 PASS as prerequisite.
 - `code/genome_154_distillation_smoke.py` -> `results/genome_154_distillation_smoke.json`
 
-**genome_157 RUNNING (launched 2026-04-26 21:26): η/δ LAYERWISE PROBE on g156 checkpoints**
-- Builds the missing measurement primitive that turns the transport theory into a measured internal quantity (G_l = η̂_l − δ̂_l^mlp).
-- Operates on the 12 saved g156 checkpoints (no retraining; just probe training on held-out c4_val + wikitext_val).
+**genome_157 PILOT RUNNING (launched 2026-04-26 21:35 after relock): η/δ LAYERWISE PROBE**
+- v1 (3-seed full sweep) was killed: Codex pre-flight `codex_outputs/g157_pre_flight.md` flagged 91-hour estimate (vs 1.5-2hr promised), wrong c4-train data split, wrong layer indices, BF16 violation. NO-GO verdict.
+- v2 PILOT relocked at `research/prereg/genome_157_eta_delta_probe_pilot_2026-04-26.md`: 1-seed pilot only (4 ckpts), 3 mid-band depths only, 500 probe steps, BF16 throughout, true c4 + wikitext VALIDATION splits, 13-token rolling-hash dedup audit (passed at 0.02% overlap), microbenchmark + hard-abort if projected > 3.5hr.
+- Microbenchmark passed: 0.50 hr projected. Now running.
+- Pilot decision rule: DIRECTIONAL_SUPPORT → write 3-seed prereg + run; PILOT_KILL → pivot to distillation track without burning more GPU.
+- Early data (natural-baseline arm, all 3 layers): G_l = -3.51, -4.26, -5.70 (all very negative — consistent with theory, since baseline has MLP doing local synthesis already; key data is natural-MINIMAL arm coming next).
 - `code/genome_157_eta_delta_probe.py` -> `results/genome_157_eta_delta_probe.json` (pending)
-- Codex pre-flight review firing in parallel (`codex_outputs/g157_pre_flight.md`).
 
 **genome_156 COMPLETED (2026-04-26): PASS_TRANSPORT ★★★ BREAKTHROUGH-AXIS VALIDATED**
 - **All three pre-stated criteria cleared cleanly:**
