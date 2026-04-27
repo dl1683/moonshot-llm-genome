@@ -78,9 +78,11 @@ def build_student(name: str, vocab_size: int, seed: int = 42):
             tie_word_embeddings=True, attn_implementation="eager",
         )
     elif name == "local_heavy":
+        # FLOP-matched to transport_heavy (h=512, L=6, noMLP) at intermediate_size=1024.
+        # Verified: both arms = 4.027 GFLOP/seq inference at SEQ_LEN=256.
         cfg = LlamaConfig(
             vocab_size=vocab_size, hidden_size=384, num_hidden_layers=4,
-            num_attention_heads=6, num_key_value_heads=6, intermediate_size=1536,
+            num_attention_heads=6, num_key_value_heads=6, intermediate_size=1024,
             max_position_embeddings=SEQ_LEN + 64, rms_norm_eps=1e-6,
             tie_word_embeddings=True, attn_implementation="eager",
         )
