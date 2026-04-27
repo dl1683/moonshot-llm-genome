@@ -37,8 +37,9 @@ ROOT = _THIS_DIR.parent
 SEQ_LEN = 256
 BATCH_SIZE = 8
 SEEDS = [42, 7, 13]
-N_C4_EVAL = 256
-N_OOD_EVAL = 256
+# Per Codex pre-flight: locked prereg requires 1024/512 eval banks
+N_C4_EVAL = 1024
+N_OOD_EVAL = 512
 N_TRAIN = 32768
 TRAIN_STEPS = 4000
 LR_WARMUP_STEPS = 200
@@ -159,8 +160,11 @@ def microbenchmark():
         print(f"  {arm_name}: {1000*per_step:.1f} ms/step")
         del model, opt
         torch.cuda.empty_cache()
-    # 12 cells (2 arms x 2 conds x 3 seeds), each 4000 steps
-    total_seconds = sum(times.values()) * TRAIN_STEPS * 2 * len(SEEDS) / 2  # /2 because arms ALREADY summed
+    # 12 cells = 2 arms x 2 conds x 3 seeds, each TRAIN_STEPS = 4000.
+    # Per Codex pre-flight: was undercounting by 2x. Correct formula:
+    # for each arm, time = per_step[arm] * TRAIN_STEPS * (#seeds * #conditions)
+    n_cells_per_arm = len(SEEDS) * 2  # natural + shuffled
+    total_seconds = sum(times[arm] * TRAIN_STEPS * n_cells_per_arm for arm in times)
     total_hours = total_seconds / 3600
     print(f"  PROJECTED full run: {total_hours:.2f} hr")
     if total_hours > HARD_ABORT_HOURS:
@@ -186,17 +190,40 @@ def main():
         tok.pad_token = tok.eos_token
         tok.pad_token_id = tok.eos_token_id
 
-    print(f"\nLoading {N_TRAIN}+{N_C4_EVAL} c4 sequences (seed=161)...")
-    pool = []
-    for rec in c4_clean_v1(seed=161, n_samples=N_TRAIN + N_C4_EVAL):
-        pool.append(rec["text"])
-        if len(pool) >= N_TRAIN + N_C4_EVAL:
+    # Per Codex pre-flight Sev-8: must use c4 VALIDATION split for eval, not train stream.
+    print(f"\nLoading {N_TRAIN} c4 train sequences (seed=161; train stream)...")
+    train_pool = []
+    for rec in c4_clean_v1(seed=161, n_samples=N_TRAIN):
+        train_pool.append(rec["text"])
+        if len(train_pool) >= N_TRAIN:
             break
-    enc = tok(pool, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
-    train_ids_nat = enc["input_ids"][:N_TRAIN]
-    train_mask = enc["attention_mask"][:N_TRAIN]
-    eval_ids_nat = enc["input_ids"][N_TRAIN:]
-    eval_mask = enc["attention_mask"][N_TRAIN:]
+    enc_t = tok(train_pool, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    train_ids_nat = enc_t["input_ids"]
+    train_mask = enc_t["attention_mask"]
+
+    from datasets import load_dataset
+    print(f"Loading {N_C4_EVAL} c4 VALIDATION sequences for eval...")
+    val_pool = []
+    try:
+        ds_c4_val = load_dataset("allenai/c4", "en", split="validation", streaming=True)
+        for ex in ds_c4_val:
+            t = ex["text"]
+            if len(t) > 200:
+                val_pool.append(t)
+            if len(val_pool) >= N_C4_EVAL:
+                break
+    except Exception as e:
+        print(f"  c4 streaming failed: {e}; trying file fallback")
+        ds_c4_val = load_dataset("allenai/c4", "en", split="validation",
+                                   data_files={"validation": "en/c4-validation.00000-of-00008.json.gz"})
+        for ex in ds_c4_val:
+            val_pool.append(ex["text"])
+            if len(val_pool) >= N_C4_EVAL:
+                break
+    enc_e = tok(val_pool[:N_C4_EVAL], padding="max_length", truncation=True,
+                  max_length=SEQ_LEN, return_tensors="pt")
+    eval_ids_nat = enc_e["input_ids"]
+    eval_mask = enc_e["attention_mask"]
     train_ids_shuf = shuffle_token_rows(train_ids_nat, train_mask, SHUFFLE_SEED)
     eval_ids_shuf = shuffle_token_rows(eval_ids_nat, eval_mask, SHUFFLE_SEED + 1)
 
@@ -220,7 +247,49 @@ def main():
         ("natural", train_ids_nat, train_mask, eval_ids_nat, eval_mask, ood_ids_nat, ood_mask),
         ("token_shuffled", train_ids_shuf, train_mask, eval_ids_shuf, eval_mask, ood_ids_shuf, ood_mask),
     ]
-    arm_lr = {"baseline_rwkv": 3e-4, "transport_heavy": 3e-4}
+    # Per Codex pre-flight: arm-specific LR selection on a SEPARATE val bank.
+    # Use a small slice of validation for selection, train budget = 500 steps.
+    print("\n=== LR SELECTION (per arm, separate val bank) ===")
+    LR_GRID_RWKV = [2e-4, 3e-4, 4e-4]
+    LR_SELECT_STEPS = 500
+    # Use a separate small val bank from c4 validation (next 256 sequences)
+    sel_val_pool = []
+    try:
+        ds_c4_val2 = load_dataset("allenai/c4", "en", split="validation", streaming=True)
+        for ex in ds_c4_val2:
+            t = ex["text"]
+            if len(t) > 200:
+                sel_val_pool.append(t)
+            if len(sel_val_pool) >= 256 + N_C4_EVAL + 50:
+                break
+    except Exception:
+        sel_val_pool = val_pool[N_C4_EVAL:]
+    # Take the slice AFTER the eval bank
+    sel_texts = sel_val_pool[N_C4_EVAL:N_C4_EVAL + 256] if len(sel_val_pool) > N_C4_EVAL + 256 else val_pool[:256]
+    enc_sel = tok(sel_texts, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    sel_ids, sel_mask_t = enc_sel["input_ids"], enc_sel["attention_mask"]
+
+    arm_lr = {}
+    for arm_name in arms:
+        best_lr = None
+        best_top1 = -1
+        for lr_try in LR_GRID_RWKV:
+            print(f"  selecting LR for {arm_name} at lr={lr_try}...")
+            mdl = build_rwkv_arm(arm_name, seed=42, device="cuda", dtype=torch.bfloat16)
+            _, _, ns = train_arm(arm_name + f"_lrsel_{lr_try}", lr_try, mdl,
+                                   train_ids_nat, train_mask, LR_SELECT_STEPS, seed=42)
+            if not ns:
+                m = measure(mdl, sel_ids, sel_mask_t)
+                if m["top1_acc"] > best_top1:
+                    best_top1 = m["top1_acc"]
+                    best_lr = lr_try
+                print(f"    lr={lr_try}: val_top1={100*m['top1_acc']:.2f}%")
+            del mdl
+            torch.cuda.empty_cache()
+        if best_lr is None:
+            raise RuntimeError(f"LR selection failed for {arm_name} (all NaN)")
+        print(f"  {arm_name}: chosen lr={best_lr} (val_top1={100*best_top1:.2f}%)")
+        arm_lr[arm_name] = best_lr
 
     results = {}
     for cond_name, t_ids, t_mask, e_ids, e_mask, o_ids, o_mask in conditions:
@@ -244,6 +313,18 @@ def main():
                 results[cond_name][arm_name][seed] = metrics
                 del model
                 torch.cuda.empty_cache()
+
+    # Per Codex pre-flight Sev-8: completeness guard before verdict
+    required_n = len(SEEDS)
+    incomplete = []
+    for cond in ["natural", "token_shuffled"]:
+        for arm in ["baseline_rwkv", "transport_heavy"]:
+            n_valid = sum(1 for s in SEEDS
+                           if not results[cond][arm].get(s, {}).get("nan_seen", True))
+            if n_valid != required_n:
+                incomplete.append((cond, arm, n_valid))
+    if incomplete:
+        raise RuntimeError(f"g161 incomplete: {incomplete}; cannot emit verdict")
 
     print(f"\n=== ANALYSIS ===")
     deltas = {}
