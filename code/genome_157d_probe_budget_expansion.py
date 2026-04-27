@@ -319,8 +319,9 @@ def microbenchmark(hidden, vocab):
     print("\nMicrobenchmark...")
     fake_ids = torch.randint(0, vocab, (PROBE_BATCH, SEQ_LEN), device="cuda")
     fake_mask = torch.ones_like(fake_ids)
-    fake_h = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.bfloat16, device="cuda")
-    fake_e = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.bfloat16, device="cuda")
+    # Per cycle 12 code review Sev-7: must be FP32 to match actual probe-train dtype
+    fake_h = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.float32, device="cuda")
+    fake_e = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.float32, device="cuda")
     rng = np.random.default_rng(0)
     times = {}
     for name, ProbeClass, use_prefix in [
@@ -328,7 +329,8 @@ def microbenchmark(hidden, vocab):
         ("local", LocalMLPProbe, False),
         ("prefix_embed", PrefixEmbedAttnProbe, True),
     ]:
-        probe = ProbeClass(hidden, vocab).to("cuda").to(torch.bfloat16)
+        # Per cycle 12 code review Sev-7: probe must be FP32 to match train_probe path
+        probe = ProbeClass(hidden, vocab).to("cuda").to(torch.float32)
         opt = torch.optim.AdamW(probe.parameters(), lr=PROBE_LR)
         torch.cuda.synchronize()
         t0 = time.time()
@@ -352,7 +354,9 @@ def microbenchmark(hidden, vocab):
         n_params = sum(p.numel() for p in probe.parameters())
         print(f"  {name}: {1000*per_step:.1f} ms/step  params={n_params/1e6:.2f}M")
         del probe, opt; torch.cuda.empty_cache()
-    n_layers_used = 3
+    # Per cycle 12 code review Sev-7: g157d uses 5 depths, not 3.
+    # Use the actual midband list lengths (max across model sizes).
+    n_layers_used = max(len(v) for v in MIDBAND_INDICES.values())
     n_ckpts = 4
     total_seconds = sum(times.values()) * PROBE_STEPS * n_layers_used * n_ckpts + n_layers_used * n_ckpts * 30
     total_hours = total_seconds / 3600

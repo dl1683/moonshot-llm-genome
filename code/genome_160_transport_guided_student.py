@@ -363,10 +363,13 @@ def main():
     cache_dir = ROOT / "cache"
     cache_dir.mkdir(exist_ok=True)
     teacher_slug = TEACHER_HF.replace("/", "-")
-    cache_path = cache_dir / f"g160_teacher_topk_{teacher_slug}_n{N_TRAIN}_seq{SEQ_LEN}_topk{KD_TOPK}.pt"
+    # Per cycle 12 code review Sev-8: train_seed must match the actual c4_clean_v1
+    # seed used for loading (line 319 uses seed=160). Was incorrectly recorded as 42.
+    C4_TRAIN_SEED = 160
+    cache_path = cache_dir / f"g160_teacher_topk_{teacher_slug}_n{N_TRAIN}_seq{SEQ_LEN}_topk{KD_TOPK}_seed{C4_TRAIN_SEED}.pt"
     expected_meta = {
         "teacher_hf": TEACHER_HF, "n_train": N_TRAIN, "seq_len": SEQ_LEN,
-        "kd_topk": KD_TOPK, "train_seed": 42,  # c4_clean_v1 seed
+        "kd_topk": KD_TOPK, "train_seed": C4_TRAIN_SEED,
     }
     if cache_path.exists():
         print(f"\nLoading cached teacher top-{KD_TOPK} logits from {cache_path}...")
@@ -477,14 +480,20 @@ def main():
     # CtQ ratio in FLOPs (architecture-fair) per Codex pre-flight
     ctq_ratio = th.get("CtQ_90_flops_mean", float("inf")) / max(lh.get("CtQ_90_flops_mean", 1), 1)
 
+    # Per cycle 12 code review Sev-7: SEEDS=[42] is single-seed PILOT scope.
+    # Verdict labels reflect PILOT directionality, NOT canonical PASS.
+    # A canonical 3-seed verdict requires a separate g160c prereg.
+    pilot_scope = (len(SEEDS) == 1)
+    pilot_prefix = "PILOT_" if pilot_scope else ""
+
     if c3_gap_pp >= 1.0 and ctq_ratio <= 0.80:
-        verdict = (f"PASS: C3 gap={c3_gap_pp:+.2f}pp (>=1.0pp), CtQ_90 ratio={ctq_ratio:.2f} (<=0.80). "
-                   f"Transport principle confirmed as model-selection rule.")
+        verdict = (f"{pilot_prefix}DIRECTIONAL_SUPPORT: C3 gap={c3_gap_pp:+.2f}pp (>=1.0pp), CtQ_90 ratio={ctq_ratio:.2f} (<=0.80). "
+                   f"{'PILOT directional support — write 3-seed canonical prereg.' if pilot_scope else 'Transport principle confirmed as model-selection rule.'}")
     elif c3_gap_pp >= 0.5 or ctq_ratio <= 0.85:
-        verdict = (f"PARTIAL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}.")
+        verdict = (f"{pilot_prefix}PARTIAL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}.")
     else:
-        verdict = (f"KILL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}. "
-                   f"Theory does not select better matched-cost design.")
+        verdict = (f"{pilot_prefix}KILL: C3 gap={c3_gap_pp:+.2f}pp, CtQ_90 ratio={ctq_ratio:.2f}. "
+                   f"Theory does not select better matched-cost design at this scale.")
     print(f"\n  verdict: {verdict}")
 
     out = {

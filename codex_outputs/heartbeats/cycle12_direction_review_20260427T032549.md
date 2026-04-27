@@ -1,0 +1,9 @@
+**Verdict**
+
+Yes: interpretation **(b)** is the more interesting one, but it should be reported in a disciplined way. The right claim is **not** “g159 proves local sublayers are unimportant.” The right claim is: **at rank-32, all three architecture classes exhibit the same lesion-underbite, so the local-vs-transport asymmetry test is non-diagnostic at that scale, and the null pattern is itself consistent with the architecture-prior thesis from g156.**
+
+That matters because the result is **cross-class**. A one-model null is usually shrugged off as bad targeting. A three-class null with the same failure mode is different: it suggests either a shared scale mismatch, or a shared fact that local sublayers are low-impact for NLL relative to transport. Both interpretations are useful. If g159b later shows a clean rank dependence, then g159 becomes the precursor evidence that the mechanism only becomes visible above rank-32. If g159b does **not** rescue the effect, then g159 already reads as early evidence that g156 was pointing at a real architectural regularity.
+
+So I would report **g159 INCOMPLETE / SCALE-LIMITED**, but explicitly as a **cross-class null finding**, not as a failure. The key sentence is: **“Across Falcon, Qwen3, and RWKV, rank-32 local lesions failed to bite despite transport-side effects, and because local PCA captured only ~21–25% variance, this does not identify mechanism at rank-32; however, the uniform null is itself supportive of a transport-dominant architecture prior.”**
+
+Competitive-analyst view: this is stronger than a mere excuse, but weaker than confirmation. Frame it as **supportive, not dispositive**. That raises the score above 6/10 because it turns an execution shortfall into a cross-architecture empirical constraint.

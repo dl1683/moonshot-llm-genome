@@ -332,7 +332,9 @@ def microbenchmark(hidden, vocab, n_ckpts):
         ("local", LocalMLPProbe, False),
         ("prefix_embed", PrefixEmbedAttnProbe, True),
     ]:
-        probe = ProbeClass(hidden, vocab).to("cuda").to(torch.bfloat16)
+        # Per cycle 12 code review Sev-9: probe must be FP32 to match
+        # train_probe path (mat1/mat2 dtype mismatch crashes otherwise)
+        probe = ProbeClass(hidden, vocab).to("cuda").to(torch.float32)
         opt = torch.optim.AdamW(probe.parameters(), lr=PROBE_LR)
         torch.cuda.synchronize()
         t0 = time.time()
