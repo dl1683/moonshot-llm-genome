@@ -1,0 +1,293 @@
+{
+  "genome": "157b",
+  "name": "eta_delta_probe_embedding_prefix",
+  "config": {
+    "midband_indices": {
+      "14": [
+        5,
+        7,
+        9
+      ],
+      "7": [
+        2,
+        3,
+        4
+      ]
+    },
+    "n_probe_train": 2048,
+    "probe_lr": 0.001,
+    "probe_steps": 500,
+    "probe_batch": 32,
+    "pilot_seed": 42,
+    "projected_hours": 0.4977974812189739
+  },
+  "results": {
+    "natural__baseline_200M_4k__seed42": {
+      "meta": {
+        "cond": "natural",
+        "arm": "baseline_200M_4k",
+        "seed": 42,
+        "vocab_size": 50277,
+        "n_layers": 14,
+        "hidden": 1024
+      },
+      "per_layer": {
+        "5": {
+          "CE_lin": 8.907256971939027,
+          "CE_local": 6.747382584380877,
+          "CE_prefix_embed": 7.245639599623874,
+          "delta_hat_mlp": 2.1598743875581503,
+          "eta_hat": -0.4982570152429968,
+          "G_l": -2.658131402801147,
+          "depth_frac": 0.38461538461538464,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 211.61395621299744
+        },
+        "7": {
+          "CE_lin": 9.829613805923984,
+          "CE_local": 6.768747061516382,
+          "CE_prefix_embed": 7.2154873552410175,
+          "delta_hat_mlp": 3.060866744407602,
+          "eta_hat": -0.44674029372463586,
+          "G_l": -3.507607038132238,
+          "depth_frac": 0.5384615384615384,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 214.77701878547668
+        },
+        "9": {
+          "CE_lin": 11.166137997377017,
+          "CE_local": 6.76860462238939,
+          "CE_prefix_embed": 7.225945882411165,
+          "delta_hat_mlp": 4.397533374987628,
+          "eta_hat": -0.4573412600217752,
+          "G_l": -4.854874635009403,
+          "depth_frac": 0.6923076923076923,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 211.24864768981934
+        }
+      }
+    },
+    "natural__minimal_7L_200M_8k__seed42": {
+      "meta": {
+        "cond": "natural",
+        "arm": "minimal_7L_200M_8k",
+        "seed": 42,
+        "vocab_size": 50277,
+        "n_layers": 7,
+        "hidden": 1024
+      },
+      "per_layer": {
+        "2": {
+          "CE_lin": 8.606472319484311,
+          "CE_local": 6.859392862887261,
+          "CE_prefix_embed": 7.258623598807285,
+          "delta_hat_mlp": 1.7470794565970502,
+          "eta_hat": -0.3992307359200238,
+          "G_l": -2.146310192517074,
+          "depth_frac": 0.3333333333333333,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 213.92881679534912
+        },
+        "3": {
+          "CE_lin": 8.78664033888449,
+          "CE_local": 6.8407312493813714,
+          "CE_prefix_embed": 7.236598194843116,
+          "delta_hat_mlp": 1.945909089503119,
+          "eta_hat": -0.3958669454617443,
+          "G_l": -2.3417760349648633,
+          "depth_frac": 0.5,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 227.7923092842102
+        },
+        "4": {
+          "CE_lin": 9.16625754726319,
+          "CE_local": 6.806377050752252,
+          "CE_prefix_embed": 7.195447670246462,
+          "delta_hat_mlp": 2.3598804965109377,
+          "eta_hat": -0.38907061949420996,
+          "G_l": -2.7489511160051476,
+          "depth_frac": 0.6666666666666666,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 207.30667400360107
+        }
+      }
+    },
+    "token_shuffled__baseline_200M_4k__seed42": {
+      "meta": {
+        "cond": "token_shuffled",
+        "arm": "baseline_200M_4k",
+        "seed": 42,
+        "vocab_size": 50277,
+        "n_layers": 14,
+        "hidden": 1024
+      },
+      "per_layer": {
+        "5": {
+          "CE_lin": 249.8453033752351,
+          "CE_local": 8.002326196426804,
+          "CE_prefix_embed": 7.8399374721617345,
+          "delta_hat_mlp": 241.8429771788083,
+          "eta_hat": 0.16238872426506923,
+          "G_l": -241.68058845454323,
+          "depth_frac": 0.38461538461538464,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 204.17541694641113
+        },
+        "7": {
+          "CE_lin": 272.45439720874987,
+          "CE_local": 8.13506577563595,
+          "CE_prefix_embed": 7.871374993813719,
+          "delta_hat_mlp": 264.3193314331139,
+          "eta_hat": 0.2636907818222305,
+          "G_l": -264.0556406512917,
+          "depth_frac": 0.5384615384615384,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 202.63472962379456
+        },
+        "9": {
+          "CE_lin": 298.7493714738197,
+          "CE_local": 7.948450259205186,
+          "CE_prefix_embed": 7.831707088859744,
+          "delta_hat_mlp": 290.8009212146145,
+          "eta_hat": 0.11674317034544224,
+          "G_l": -290.68417804426906,
+          "depth_frac": 0.6923076923076923,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 203.22858214378357
+        }
+      }
+    },
+    "token_shuffled__minimal_7L_200M_8k__seed42": {
+      "meta": {
+        "cond": "token_shuffled",
+        "arm": "minimal_7L_200M_8k",
+        "seed": 42,
+        "vocab_size": 50277,
+        "n_layers": 7,
+        "hidden": 1024
+      },
+      "per_layer": {
+        "2": {
+          "CE_lin": 73.61202489359596,
+          "CE_local": 7.967535091680689,
+          "CE_prefix_embed": 7.859172476615857,
+          "delta_hat_mlp": 65.64448980191527,
+          "eta_hat": 0.10836261506483158,
+          "G_l": -65.53612718685044,
+          "depth_frac": 0.3333333333333333,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 200.86307072639465
+        },
+        "3": {
+          "CE_lin": 88.60089701078887,
+          "CE_local": 7.933989208032267,
+          "CE_prefix_embed": 7.860849500148471,
+          "delta_hat_mlp": 80.6669078027566,
+          "eta_hat": 0.07313970788379631,
+          "G_l": -80.5937680948728,
+          "depth_frac": 0.5,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 200.5107226371765
+        },
+        "4": {
+          "CE_lin": 105.34570300900722,
+          "CE_local": 7.9693734224982675,
+          "CE_prefix_embed": 7.807552753513808,
+          "delta_hat_mlp": 97.37632958650896,
+          "eta_hat": 0.16182066898445946,
+          "G_l": -97.2145089175245,
+          "depth_frac": 0.6666666666666666,
+          "params_M": {
+            "lin": 51.533925,
+            "local": 51.506183,
+            "prefix_embed": 51.532062
+          },
+          "wallclock_s": 200.20795845985413
+        }
+      }
+    }
+  },
+  "summary": {
+    "natural__baseline_200M_4k": {
+      "G_mid_mean": -3.673537691980929,
+      "G_per_layer": [
+        -2.658131402801147,
+        -3.507607038132238,
+        -4.854874635009403
+      ]
+    },
+    "natural__minimal_7L_200M_8k": {
+      "G_mid_mean": -2.4123457811623616,
+      "G_per_layer": [
+        -2.146310192517074,
+        -2.3417760349648633,
+        -2.7489511160051476
+      ]
+    },
+    "token_shuffled__baseline_200M_4k": {
+      "G_mid_mean": -265.4734690500347,
+      "G_per_layer": [
+        -241.68058845454323,
+        -264.0556406512917,
+        -290.68417804426906
+      ]
+    },
+    "token_shuffled__minimal_7L_200M_8k": {
+      "G_mid_mean": -81.11480139974924,
+      "G_per_layer": [
+        -65.53612718685044,
+        -80.5937680948728,
+        -97.2145089175245
+      ]
+    }
+  },
+  "nat_G_mean": -2.4123457811623616,
+  "shuf_G_mean": -81.11480139974924,
+  "contrast": 78.70245561858688,
+  "verdict": "KILL_157b: nat_G=-2.4123, shuf_G=-81.1148. Theory's eta>delta criterion not observed even with embed-prefix probe; g156 inversion stands but proposed mechanism dies.",
+  "elapsed_s": 2548.638203382492
+}

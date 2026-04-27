@@ -28,13 +28,15 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Decisive thesis state:** g156 PASS_TRANSPORT validates the prefix-information transport derivation route along the data-order axis (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp). g152 PARTIAL/AMBIGUOUS shows the win attenuates with compute (consistency-evidence for the theory's saturation prediction). §0.1 score: **6/10 currently**, projected **7-8/10** if g157+ chain validates internal mechanism.
 
-**g157 v2 PILOT: PILOT_KILL (2026-04-26 22:10)** — locked criteria: `nat_G=-3.31 < +0.02 threshold`. BUT failure mode is probe-protocol, not theory:
-  - BF16 probes + no grad clip → lin probe weights exploded on shuffled (CE 230-290)
-  - Same-layer prefix probe captures only info already-merged into residual stream
-  - g157b launched 22:11 to discriminate: FP32 + grad clip + embedding-layer prefix
+**g157 v2 PILOT: PILOT_KILL (22:10)** then **g157b PILOT: KILL_157b (22:55)** — both probe variants reject the η > δ^mlp criterion. Mechanism falsified.
+  - g157 v2 same-layer prefix: nat_G=-3.31 (probe-pathology suspected)
+  - g157b embedding-layer prefix + FP32 + grad clip: nat_G=-2.41, shuf_G=-81.11
+  - **eta-only criterion (probe-pathology robust):** nat-min eta = −0.39, shuf-min eta = +0.11 → contrast = **−0.51** (WRONG SIGN: shuffled-arm has MORE prefix-info-available than natural-arm, opposite of theory)
+  - Diagnosis: at any TRAINED autoregressive LM, h_t already contains transported prefix info → q_local extracts it from h_t → q_prefix has nothing extra → eta < 0 always on natural. The η > δ^mlp criterion is structurally untestable on fully-trained models.
+  - **Mechanism candidate REJECTED.** Empirical g156 PASS_TRANSPORT stands; the proposed transport-budget criterion does not explain it.
 
 **Running:**
-- `g157b` embedding-prefix probe variant (FP32, dedup 0.02%, projected 30 min)
+- `g158` context-length inversion sweep (launched 22:55, ~1.6-2hr) — tests theory's OTHER unique prediction (transport demand control variable), independent of η/δ probe
 
 **LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
 - `g157c` 3-seed canonical verdict (Path A trigger if g157b PASSes; reuses g157b code with SEEDS=[42,7,13])
