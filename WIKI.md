@@ -36,7 +36,15 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
   - **Mechanism candidate REJECTED.** Empirical g156 PASS_TRANSPORT stands; the proposed transport-budget criterion does not explain it.
 
 **Running:**
-- `g158` context-length inversion sweep (launched 22:55, ~1.6-2hr) — tests theory's OTHER unique prediction (transport demand control variable), independent of η/δ probe
+- `g159` cross-class causal lesion (Qwen3 + RWKV-4 + Falcon-H1) — launched 23:55. Qwen3 + RWKV both INCOMPLETE (rank-32 PCA lesion captures ~25% local variance, d_l_shuf turns NEGATIVE so ratio undefined). Falcon-H1 in progress. Likely overall verdict: INCOMPLETE/KILL → triggers Path C pivot.
+
+**Killed and relocked:**
+- `g158` was launched at 22:55 then killed at 23:50 — at the corrected exact-FLOP-match the 3-seed run projected to ~11hr (over envelope). Relocked as **single-seed PILOT** (`research/prereg/genome_158_PILOT_2026-04-27.md`); ~3.5hr. Queued behind g159.
+
+**Pre-staged + ready:**
+- `g158 PILOT` (single-seed, 3.5hr)
+- `g160` transport-guided student (1-seed pilot, ~2-3hr; FLOP-matched ffn=1024, dedup, BOS handling, history-completeness guard, CtQ-FLOPs)
+- `g159b` rank-sweep (conditional on g159 INCOMPLETE)
 
 **LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
 - `g157c` 3-seed canonical verdict (Path A trigger if g157b PASSes; reuses g157b code with SEEDS=[42,7,13])
