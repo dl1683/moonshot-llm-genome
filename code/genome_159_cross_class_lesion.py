@@ -263,20 +263,29 @@ def fit_pca_at_sublayer(model, sublayer_or_site, ids, mask, batch_size, is_falco
     X = torch.cat(X_chunks, dim=0).to(torch.float32)
     print(f"      PCA fit on {X.shape[0]} tokens, hidden={X.shape[1]}")
 
-    # Streaming covariance: mu = mean(X), C = (X^T X - N*mu*mu^T) / (N-1)
+    # Per Codex pre-flight blocker 2: exact deterministic streaming covariance.
+    # mu = mean(X), C = (X^T X - N*mu*mu^T) / (N-1), then top-K eigenvectors of C.
+    # No random subsampling.
+    N = X.shape[0]
     mu = X.mean(dim=0)
     Xc = X - mu
-    # Use SVD on Xc / sqrt(N-1) for top-K eigenvectors of cov
-    if Xc.shape[0] > 50000:
-        # Subsample for SVD speed
-        idx = torch.randperm(Xc.shape[0])[:50000]
-        Xc_sub = Xc[idx]
-    else:
-        Xc_sub = Xc
-    U, S, Vh = torch.linalg.svd(Xc_sub, full_matrices=False)
-    basis = Vh[:PCA_RANK]  # [K, H]
-    total_var = (S ** 2).sum().item() / max(Xc_sub.shape[0] - 1, 1)
-    top_var = (S[:PCA_RANK] ** 2).sum().item() / max(Xc_sub.shape[0] - 1, 1)
+    # Compute X^T X via streaming chunks to avoid OOM at full N
+    H = X.shape[1]
+    cov = torch.zeros(H, H, dtype=torch.float32)
+    chunk = 8192
+    for i in range(0, N, chunk):
+        Xc_chunk = Xc[i:i+chunk]
+        cov += Xc_chunk.T @ Xc_chunk
+    cov /= max(N - 1, 1)
+    # Eigendecomposition (symmetric)
+    eigvals, eigvecs = torch.linalg.eigh(cov)  # ascending
+    # Sort descending and take top-K
+    idx_sorted = torch.argsort(eigvals, descending=True)
+    eigvals = eigvals[idx_sorted]
+    eigvecs = eigvecs[:, idx_sorted]
+    basis = eigvecs[:, :PCA_RANK].T.contiguous()  # [K, H]
+    total_var = eigvals.clamp_min(0).sum().item()
+    top_var = eigvals[:PCA_RANK].clamp_min(0).sum().item()
     var_explained = top_var / max(total_var, 1e-12)
 
     return PCABasis(mean=mu, basis=basis, path=str(getattr(sublayer_or_site, "path", "")),
@@ -326,19 +335,66 @@ def adapter_for(short_name, model):
     raise ValueError(short_name)
 
 
+def thirteen_token_hashes(ids, mask):
+    hashes = set()
+    for r in range(ids.shape[0]):
+        valid = mask[r].sum().item()
+        if valid < 13:
+            continue
+        row = ids[r, :valid].tolist()
+        for i in range(len(row) - 12):
+            hashes.add(tuple(row[i:i+13]))
+    return hashes
+
+
 def load_eval_data(tok):
-    print("Loading c4 + shuffled control...")
+    """Per Codex pre-flight blocker 1: use c4 VALIDATION split, not train.
+    Plus 13-token rolling-hash dedup audit per program audit-hard protocol."""
+    from datasets import load_dataset
+    print("Loading c4 VALIDATION split...")
     pool = []
-    for rec in c4_clean_v1(seed=159, n_samples=N_CALIB + N_EVAL + 100):
-        pool.append(rec["text"])
-        if len(pool) >= N_CALIB + N_EVAL:
-            break
+    try:
+        ds_c4 = load_dataset("allenai/c4", "en", split="validation", streaming=True)
+        for ex in ds_c4:
+            t = ex["text"]
+            if len(t) > 200:
+                pool.append(t)
+            if len(pool) >= N_CALIB + N_EVAL + 100:
+                break
+    except Exception as e:
+        print(f"  c4 streaming failed: {e}; trying file fallback")
+        ds_c4 = load_dataset("allenai/c4", "en", split="validation",
+                              data_files={"validation": "en/c4-validation.00000-of-00008.json.gz"})
+        for ex in ds_c4:
+            pool.append(ex["text"])
+            if len(pool) >= N_CALIB + N_EVAL + 100:
+                break
+    print(f"  loaded {len(pool)} c4-val sequences")
+
     enc = tok(pool[:N_CALIB + N_EVAL], padding="max_length", truncation=True,
                max_length=SEQ_LEN, return_tensors="pt")
     calib_ids = enc["input_ids"][:N_CALIB]
     calib_mask = enc["attention_mask"][:N_CALIB]
     eval_ids = enc["input_ids"][N_CALIB:]
     eval_mask = enc["attention_mask"][N_CALIB:]
+
+    # 13-token dedup audit vs the c4_clean_v1 train slice that g141..g158 use
+    print("Running 13-token dedup audit...")
+    g_train_texts = []
+    for rec in c4_clean_v1(seed=42, n_samples=2048):
+        g_train_texts.append(rec["text"])
+        if len(g_train_texts) >= 2048:
+            break
+    enc_train = tok(g_train_texts, padding="max_length", truncation=True,
+                     max_length=SEQ_LEN, return_tensors="pt")
+    train_h = thirteen_token_hashes(enc_train["input_ids"], enc_train["attention_mask"])
+    eval_h = thirteen_token_hashes(eval_ids, eval_mask)
+    overlap = eval_h & train_h
+    pct = 100.0 * len(overlap) / max(len(eval_h), 1)
+    print(f"  13-gram overlap: {pct:.2f}%")
+    if pct > 5.0:
+        raise RuntimeError(f"dedup FAIL: {pct:.2f}% > 5%")
+
     eval_ids_shuf = shuffle_token_rows(eval_ids, eval_mask, SHUFFLE_SEED)
     return calib_ids, calib_mask, eval_ids, eval_mask, eval_ids_shuf
 
