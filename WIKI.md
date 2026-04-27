@@ -99,6 +99,26 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g165 PASSED 2026-04-27 23:28 UTC ★★ MAJOR §0 RESULT**
+
+Verdict: PASS — 2 anchored arms produce ≥+0.5 nats persistent C4 NLL advantage with bootstrap 95% CI excluding zero. Wall 1.8hr.
+
+| Arm | Final advantage (nats) | CI |
+|---|---:|---|
+| **anchor_lam0.01_constant** | **+1.088** | [+0.998, +1.159] |
+| **anchor_lam0.0013_constant** | **+0.717** | [+0.685, +0.748] |
+| anchor_lam0.00013_constant (weak) | +0.274 | [+0.238, +0.296] |
+| All decay schedules (step / linear / exp) | -0.01 to +0.10 | mostly crosses zero |
+| anchor_attn_only_lam1.3e-3_hardcut | -0.012 | [-0.066, +0.029] |
+
+**Theoretical reframe (active-ingredient analysis):** The "annealed donor" / "decay schedule rescues washout" hypothesis was **WRONG**. Decay schedules all fail. The active ingredient is **continuous Frobenius tension** holding the recipient near the donor manifold throughout training. Stronger constant λ → stronger persistence (clean monotone: 0.01 > 0.0013 > 0.00013). This is the **g125 boundary condition (anchor-rate-zero) extended to full-weight anchoring at calibrated λ** — and it produces +1.088 nats vs g125's +0.07 nats because the breadth (all weights vs attention-only) and strength matter.
+
+**§0 implication:** Continuous anchoring is a real persistence mechanism for capability transfer. NOT zero-step (recipient trained 500 steps) but persistence-under-training is empirically locked at canonical 3-seed scale.
+
+§0.1 score: **6.8 → 7.5** (g165 PASS at canonical scale + active-ingredient interpretation locked).
+
+Next: g168 re-basin zero-step transplant (8.3/10) tests the ZERO-step version of the same axis.
+
 **★ TRANSFER-AXIS RETHINK 2026-04-27 (Codex "codex everywhere" consult):** Codex re-ranked all transfer techniques and surfaced 4 NEW techniques scoring HIGHER than g165. The new ranking by PASS ceiling:
 
 | Technique | PASS | Status |
