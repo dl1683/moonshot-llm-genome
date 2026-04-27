@@ -24,6 +24,35 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
+## ⚡ ACTIVE EXPERIMENT QUEUE (snapshot 2026-04-26 22:00) ⚡
+
+**Decisive thesis state:** g156 PASS_TRANSPORT validates the prefix-information transport derivation route along the data-order axis (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp). g152 PARTIAL/AMBIGUOUS shows the win attenuates with compute (consistency-evidence for the theory's saturation prediction). §0.1 score: **6/10 currently**, projected **7-8/10** if g157+ chain validates internal mechanism.
+
+**Running:**
+- `g157` η/δ probe PILOT (1-seed, 4 ckpts, projected 30 min) — early data shows G_l < 0 on natural arms; suspected probe-design issue (same-layer prefix captures already-transported info)
+
+**LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
+- `g157b` — embedding-layer prefix probe variant (FP32 weights + grad clip + skip-non-finite-loss; conditional on g157 KILL/WEAK)
+- `g158` — context-length inversion sweep (exact-FLOP match + dedup + NaN guard, ~1.6-2.0 hr)
+- `g159` — cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (val data + exact streaming PCA, ~0.9-1.6 hr)
+- `g160` — transport-guided student vs local-heavy student (ffn=1024 FLOP-matched, ~3-7 hr; pre-flight pending)
+
+**LOCKED, awaiting Codex design:**
+- `g161` — RWKV training-time extension (stub; Codex codex_outputs/g161_rwkv_implementation.md firing)
+
+**Decision tree:**
+- g157 PILOT DIRECTIONAL_SUPPORT → write 3-seed prereg + run; theory mechanism observed
+- g157 PILOT KILL/WEAK → run g157b (probe-design variant); if also KILL → mechanism dies, pivot to distillation track (g160 + g155)
+- g158 PASS_INVERSION → context-length is the predicted control variable
+- g159 PASS → class-general transport asymmetry
+- g160 PASS → manifesto cash-out: matched-cost transport-heavy student wins on C3_macro and CtQ_90
+
+**Codex consults in flight:**
+- g160 pre-flight (Performance + Correctness)
+- g161 implementation design (Architecture-Theorist)
+
+---
+
 ## ⚡ TIER-0 FRAMING — READ BEFORE EVERY ACTION ⚡
 
 **We are ONE independent researcher competing against DeepMind, Anthropic, OpenAI, Google, Meta.** Workshop-grade "we measured X across 9 models" papers are what they already publish monthly. We will not stand out that way. Every action must advance toward: (a) **first-principles derivation**, not phenomenology, or (b) a finding the big labs architecturally cannot/will not publish because it contradicts "scale = capability", or (c) **electricity-grade efficiency** on a real task (10× less compute, match capability). "Tighter error bars" / "one more architecture row" / "another figure" default to NO unless they enable (a)/(b)/(c). See `CLAUDE.md §0.1` for the full framing.
