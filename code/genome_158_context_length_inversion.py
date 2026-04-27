@@ -50,7 +50,11 @@ from stimulus_banks import c4_clean_v1  # noqa: E402
 ROOT = _THIS_DIR.parent
 
 BATCH_SIZE = 8
-SEEDS = [42, 7, 13]
+# PILOT scope (RELOCKED 2026-04-27): single seed to fit 4-hr envelope.
+# 3-seed canonical run takes ~11 hr due to GPU underutilization at small L
+# (kernel launch overhead dominates with low batch*seq).
+# If PILOT shows directional support, write multi-seed verdict prereg.
+SEEDS = [42]
 N_C4_EVAL = 200
 N_OOD_EVAL = 200
 N_TRAIN_256 = 32768  # token-budget match: scale up at shorter L
