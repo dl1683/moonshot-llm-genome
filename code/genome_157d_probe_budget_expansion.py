@@ -476,7 +476,7 @@ def main():
         "nat_G_mean": nat_G, "shuf_G_mean": shuf_G, "contrast": contrast,
         "verdict": verdict, "elapsed_s": time.time() - t0,
     }
-    out_path = ROOT / "results" / "genome_157b_eta_delta_probe.json"
+    out_path = ROOT / "results" / "genome_157d_probe_budget_expansion.json"
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
     print(f"\nSaved: {out_path} ({time.time()-t0:.1f}s)")
 

@@ -166,21 +166,29 @@ def tokenize_at_L(tok, texts, L):
 
 
 def select_lr_per_arm(arm_name, kw, max_pos, vocab, train_ids, train_mask, val_ids, val_mask, n_steps_select):
-    """Run small LR sweep on a separate validation bank, pick best."""
+    """Run small LR sweep on a separate validation bank, pick best.
+    Per cycle 6 code review Sev-7: skip LRs that diverge during selection."""
     print(f"\n  -- LR selection for {arm_name} at L=128 --")
     best_lr = None
     best_top1 = -1
+    n_diverged = 0
     for lr in LR_GRID:
         model = make_llama(vocab, max_pos=max_pos, seed=42, **kw)
-        train_arm(arm_name + f"_lrsel_{lr}", lr, model, train_ids, train_mask, n_steps_select, seed=42)
-        m = measure(model, val_ids, val_mask)
-        print(f"    lr={lr}: val_top1={100*m['top1_acc']:.2f}%")
-        if m["top1_acc"] > best_top1:
-            best_top1 = m["top1_acc"]
-            best_lr = lr
+        _, _, nan_seen = train_arm(arm_name + f"_lrsel_{lr}", lr, model, train_ids, train_mask, n_steps_select, seed=42)
+        if nan_seen:
+            print(f"    lr={lr}: DIVERGED (nan during training); skipping")
+            n_diverged += 1
+        else:
+            m = measure(model, val_ids, val_mask)
+            print(f"    lr={lr}: val_top1={100*m['top1_acc']:.2f}%")
+            if m["top1_acc"] > best_top1:
+                best_top1 = m["top1_acc"]
+                best_lr = lr
         del model
         torch.cuda.empty_cache()
-    print(f"  selected lr={best_lr} for {arm_name} (val_top1={100*best_top1:.2f}%)")
+    if best_lr is None:
+        raise RuntimeError(f"LR selection FAILED for {arm_name}: all {len(LR_GRID)} LRs diverged")
+    print(f"  selected lr={best_lr} for {arm_name} (val_top1={100*best_top1:.2f}%; {n_diverged} diverged)")
     return best_lr
 
 

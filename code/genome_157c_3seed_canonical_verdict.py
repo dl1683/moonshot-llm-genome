@@ -433,8 +433,9 @@ def main():
         results[ckpt_name] = {"meta": meta, "per_layer": per_layer}
         del model; torch.cuda.empty_cache()
 
-    if len(results) != 4:
-        raise RuntimeError(f"PILOT incomplete: {len(results)}/4")
+    expected = 4 * len(SEEDS)  # 4 conditions/arms × N seeds
+    if len(results) != expected:
+        raise RuntimeError(f"canonical incomplete: {len(results)}/{expected}")
 
     # Summary
     print(f"\n=== ANALYSIS (157b, embedding-layer prefix) ===")
@@ -489,7 +490,7 @@ def main():
         "nat_G_mean": nat_G, "shuf_G_mean": shuf_G, "contrast": contrast,
         "verdict": verdict, "elapsed_s": time.time() - t0,
     }
-    out_path = ROOT / "results" / "genome_157b_eta_delta_probe.json"
+    out_path = ROOT / "results" / "genome_157c_3seed_canonical_verdict.json"
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
     print(f"\nSaved: {out_path} ({time.time()-t0:.1f}s)")
 

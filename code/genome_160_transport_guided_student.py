@@ -418,6 +418,18 @@ def main():
     def per_step_train_flops(student_name):
         return th_per_step_train_flops if student_name == "transport_heavy" else lh_per_step_train_flops
 
+    # Per cycle 6 code review Sev-8: completeness guard before verdict.
+    # Each (student, seed) must have history reaching TRAIN_STEPS — no NaN-truncated runs.
+    incomplete = []
+    for student_name in students:
+        for s in SEEDS:
+            hist = results[student_name][s].get("history", [])
+            if not hist or hist[-1].get("step") != TRAIN_STEPS:
+                last_step = hist[-1].get("step") if hist else None
+                incomplete.append((student_name, s, last_step))
+    if incomplete:
+        raise RuntimeError(f"g160 incomplete (training did not reach TRAIN_STEPS): {incomplete}; cannot emit verdict")
+
     print(f"\n=== ANALYSIS ===")
     summary = {}
     for student_name in students:

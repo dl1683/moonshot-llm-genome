@@ -703,10 +703,11 @@ def run_full_experiment():
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="g161 small RWKV-4 implementation")
+    parser = argparse.ArgumentParser(description="g161 small RWKV-4 implementation (model module)")
     parser.add_argument("--summary", action="store_true", help="Print param and FLOP summaries")
     parser.add_argument("--smoke", action="store_true", help="Run a tiny forward/backward smoke test")
-    parser.add_argument("--run", action="store_true", help="Run the full g161 training experiment")
+    parser.add_argument("--run", action="store_true",
+                        help="DEPRECATED: use python code/genome_161_run.py")
     args = parser.parse_args()
     if not (args.summary or args.smoke or args.run):
         args.summary = True
@@ -717,7 +718,12 @@ def main() -> None:
         print(f"running smoke on device={device}")
         _run_smoke(device)
     if args.run:
-        run_full_experiment()
+        # Per cycle 6 code review Sev-8: this stale path used N_C4_EVAL=256, fixed arm_lr,
+        # no microbenchmark/completeness guard. canonical runner is genome_161_run.py.
+        raise RuntimeError(
+            "Deprecated: --run on the model module is removed; "
+            "use `python code/genome_161_run.py` for the locked-prereg training experiment."
+        )
 
 
 if __name__ == "__main__":
