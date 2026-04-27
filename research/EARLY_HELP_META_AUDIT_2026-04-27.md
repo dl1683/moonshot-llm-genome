@@ -24,38 +24,51 @@ Across all donor-injection experiments in the repo (grafting_005-009 + g125 + g1
 
 5/8 experiments parseable. The g125/g134/g137 trajectories use unusual JSON shapes; generic extractor missed them. Future audit can patch those, but the signal is already strong with 5/5 OK rows.
 
-## Per-experiment results (extended n=7 with g125 + g137 schema patches)
+## Per-experiment results (n=7, corrected comparators per Codex cycle 27 SEV8 fix 2026-04-27)
 
-| Experiment | Peak advantage (nats) | Peak step | Washout step | Final advantage (nats) | Decay fraction |
-|---|---:|---:|---:|---:|---:|
-| g005 ridge-grafted init | **+9.98** | 0 | 25 | -0.10 | 1.01 |
-| g006 rank30 adapter | 0.00 | 0 | None | -0.73 | n/a (no peak) |
-| g007 mean-shift init | **+8.13** | 0 | 25 | -0.50 | 1.06 |
-| g008 trainable mean-shift | **+22.92** | 11 | 12 | -0.42 | 1.02 |
-| g009 weight-space seed | **+10.46** | 2 | 4 | -0.33 | 1.03 |
-| g125 frozen-attn glue | +0.05 | 0 | 10 | **-0.97** (worst!) | 20.4 |
-| g137 optimizer-state | **+4.26** | 1000 | 1128 | **+0.08 (only positive!)** | 0.98 |
+| Experiment | Peak advantage (nats) | Peak step | Washout step | Final advantage (nats) | Notes |
+|---|---:|---:|---:|---:|---|
+| g005 ridge-grafted init | **+9.98** | 0 | 25 | -0.10 | vs lesion |
+| g006 rank30 adapter | 0.00 | 0 | None | -0.73 | vs arm_a (no peak) |
+| g007 mean-shift init | **+8.13** | 0 | 25 | -0.50 | vs arm_a |
+| g008 trainable mean-shift | **+22.92** | 11 | 12 | -0.42 | vs arm_a |
+| g009 weight-space seed | **+10.46** | 2 | 4 | -0.33 | vs arm_a |
+| **g125 frozen-attn glue** | +0.07 | 100 | None | **+0.07 (lone positive!)** | vs **matched_param_ctrl** (corrected per Codex) |
+| g137 optimizer-state | +0.05 | 1064 | 2000 | -0.0004 | vs **resume_reset** (corrected per Codex) |
 
-## Pooled findings (n=7)
+## Pooled findings (n=7, corrected)
 
-- **Mean peak advantage: +7.97 nats** (still very large)
-- **Mean peak step: 144.7** (skewed by g137's late peak; median = 1)
-- **Washout: 6/7 experiments**
-- **n_persisting (non-trivial advantage at final step): 0/7**
-- **Mean final advantage: -0.43 nats**
-- **Mean decay fraction: 425%** (skewed by g125's 20× overcorrection)
+- **Mean peak advantage: +7.37 nats** (still substantial)
+- **Washout: 5/7 experiments** (g125 maintains parity throughout; g006 had no peak to wash out from)
+- **n_persisting (non-trivial advantage at final step): 1/7** (g125 frozen-attn glue, +0.07 nats)
+- **Mean final advantage: -0.29 nats**
+- **6/7 mechanisms net-negative or zero at convergence**
 
-## The g137 outlier (optimizer-state transfer)
+## Codex cycle 27 SEV8 correction (2026-04-27)
 
-g137 is the ONLY mechanism with a **positive** final advantage (+0.08 nats at step 4000). It washed out at step 1128 but RECOVERED a small positive margin by training end. All other mechanisms wash out and stay negative.
+The original n=7 audit used the WRONG scratch arm for two of seven experiments:
+- **g125**: I compared `frozen_attn_glue` vs `full_train_ctrl`. Codex flagged this: `full_train_ctrl` is a stronger sanity baseline, not the like-for-like no-donor lesion. The correct comparator is `matched_param_ctrl` (matched trainable parameters but without donor signal). With the right comparator, g125 final advantage flips from **-0.97 → +0.07 nats** — g125 becomes the lone positive outlier, NOT the worst endpoint.
+- **g137**: I compared `resume_true` vs `state_only`. Codex flagged: `state_only` is catastrophic baseline (no resume at all), not a clean optimizer-state-vs-no-optimizer-state test. The correct comparator is `resume_reset` (resume model + zero optimizer state). With the right comparator, g137 shows monotone decay: 1064: +0.0456 → 2000: +0.0061 → 4000: -0.0004. Same washout pattern as the others.
 
-g137's mechanism: **transfer the donor's Adam optimizer state (m, v moments) into the recipient**, not the weights. Optimizer state carries gradient-direction information rather than parameter values. The +0.08 result is small but it's the ONLY non-negative final-step result across 7 mechanisms.
+**Headline that survives correction:**
+- The donor signal is real and large early (mean peak +7.37 nats).
+- 5/7 mechanisms wash out under continued training; 1/7 (g125) maintains a tiny positive advantage by freezing donor weights (a degenerate "always-on anchor"); 1/7 (g006 rank30 adapter) had no peak to begin with.
+- The decaying-anchor / annealed donor hypothesis is still well-motivated. The g125 outlier suggests static weight freezing IS a form of "always-on anchor" — its decay-rate is zero — and it produces the only non-negative final advantage.
 
-**Hypothesis suggested by g137:** the right transfer signal is at the *update direction* level, not the *parameter value* level. Weight/init transfer washes out because gradient descent flushes any prior away under noisy update dynamics. Optimizer-state transfer gives the recipient information about *which directions to update*, which compounds with native training rather than competing with it.
+## g125 outlier (frozen-attn glue) — proper interpretation
 
-## g125 vs others
+g125's mechanism: freeze donor attention layers, train only adapters + glue. With `matched_param_ctrl` (same trainable param count, no donor) as comparator, the frozen donor attention maintains a tiny positive advantage (~+0.07 nats) throughout training. This is consistent with the annealed-donor hypothesis under a **special case**: when the anchor decay rate is zero (full freeze), the donor signal cannot wash out because the anchored params literally cannot move. The cost is that the recipient cannot adapt those params — locking in any teacher mistakes — so the absolute advantage stays small (+0.07, not the +10 nats of the early-peak mechanisms).
 
-g125 is the WORST endpoint (-0.97 nats). Its donor mechanism (frozen-attn glue) freezes donor attention layers and trains only adapters. Locking the donor weights prevents the recipient from adapting, accumulating the gap.
+## g137 with corrected comparator — confirms washout
+
+The cleanly compared g137 (resume_true vs resume_reset) shows the SAME washout pattern as weight-init mechanisms:
+- step 1064: donor advantage +0.046 nats (peak)
+- step 1128: +0.045 nats
+- step 1512: +0.016 nats
+- step 2000: +0.006 nats
+- step 4000: ~0 nats
+
+The earlier "+0.08 nats lone positive outlier" framing was an artifact of comparing against `state_only` (catastrophic). Optimizer-state transfer is NOT a special positive-persistence mechanism; it shows the same decay law.
 
 ## Interpretation
 

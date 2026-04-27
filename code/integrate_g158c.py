@@ -109,14 +109,14 @@ def main():
         path_text = (
             "PASS: theory's input-side prediction LOCKS at canonical 3-seed scale. "
             "Promote P13 -> C17 (canonical). §0.1 score 6.8 -> 7.2. "
-            "Next: causal mechanism probe (g162 or g163 — Codex direction review)."
+            "Next GPU slot is LOCKED to g165 annealed-donor regardless of verdict per cycle 24 strategic pivot (research/programs/post_g158c_decision_tree.md). g162 capacity sweep is the slot AFTER g165 if PASS_canonical."
         )
     elif mean_rho >= 0.5 and mean_d256 >= 1.0 and ci_d256[0] > 0:
         path = "WEAK_canonical"
         path_text = (
             "WEAK: signal softens at canonical scale but holds. "
             "Mark P13 -> WEAK_CANONICAL. §0.1 score 6.8 -> 7.0. "
-            "Consider g158d budget-expansion (Codex sign-off required)."
+            "Next GPU slot is LOCKED to g165 annealed-donor per cycle 24 strategic pivot. g158e endpoint expansion is the slot AFTER g165 if WEAK_canonical (NOT g158d budget — Codex flagged that as p-hacking-vulnerable)."
         )
     else:
         path = "PILOT_FRAGILE"

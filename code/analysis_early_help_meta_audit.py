@@ -131,11 +131,13 @@ def to_step_indexed(traj_obj):
 
 def extract_genome_125(d):
     """g125 schema: arm_results[arm].nll_curve = list-of-{step,nll} OR list-of-floats keyed
-    by eval_steps. Donor arm = frozen_attn_glue; scratch arm = full_train_ctrl."""
+    by eval_steps. Donor arm = frozen_attn_glue; scratch arm = matched_param_ctrl
+    (the like-for-like no-donor lesion). full_train_ctrl is a stronger sanity baseline,
+    NOT the right scratch comparator. Codex cycle 27 SEV8 fix 2026-04-27."""
     arm_results = d.get("arm_results", {})
     eval_steps = d.get("eval_steps", [])
     donor_arm = arm_results.get("frozen_attn_glue", {})
-    scratch_arm = arm_results.get("full_train_ctrl", {})
+    scratch_arm = arm_results.get("matched_param_ctrl", {})
 
     def _curve(arm_data):
         curve = arm_data.get("nll_curve")
@@ -168,8 +170,11 @@ def extract_genome_125(d):
 
 def extract_genome_137(d):
     """g137 schema: rows_per_seed_per_arm[seed][arm] = list-of-{step,nll}.
-    Donor arm = resume_true (full state transfer); scratch arm = state_only.
-    Average across seeds."""
+    Codex cycle 27 SEV-direction fix 2026-04-27: scratch arm should be
+    resume_reset (state-zeroed, isolates the value of optimizer state), NOT
+    state_only (catastrophic baseline). The clean comparison is
+    donor=resume_true vs scratch=resume_reset. With this comparator g137 shows
+    monotone decay (1064: +0.0456 -> 4000: -0.0004), consistent with washout."""
     rps = d.get("rows_per_seed_per_arm", {})
     if not rps:
         return None, None
@@ -189,7 +194,7 @@ def extract_genome_137(d):
             return None
         return {step: sum(vs) / len(vs) for step, vs in per_seed_curves.items()}
 
-    return (_avg_curve("resume_true"), _avg_curve("state_only"))
+    return (_avg_curve("resume_true"), _avg_curve("resume_reset"))
 
 
 def extract_genome_134(d):
