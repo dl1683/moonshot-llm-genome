@@ -204,7 +204,13 @@ def load_c3_validation(n_per_task=None):
 
     # HellaSwag
     try:
-        ds = load_dataset("Rowan/hellaswag", split="validation")
+        # Per cycle ad-hoc fix: Rowan/hellaswag triggers 'must be called with
+        # a dataclass type or instance' on this datasets version. Use 'hellaswag'
+        # (canonical) instead, which has the same schema.
+        try:
+            ds = load_dataset("hellaswag", split="validation", trust_remote_code=True)
+        except Exception:
+            ds = load_dataset("Rowan/hellaswag", split="validation", trust_remote_code=True)
         items = []
         for ex in ds:
             ctx = ex["ctx"] if ex.get("ctx") else (ex.get("activity_label", "") + " " + ex.get("ctx_a", "") + " " + ex.get("ctx_b", ""))
