@@ -86,12 +86,17 @@ def main():
     ci_d256 = t_ci([per_seed_deltas[s][256] for s in seeds])
     ci_d32 = t_ci([per_seed_deltas[s][32] for s in seeds])
 
-    # Decision rule
+    # Decision rule.
+    # Codex audit SEV8 (2026-04-27): the d32 threshold here previously allowed
+    # +0.5pp, which conflicts with both the script's own PASS gate (d32 <= -0.2pp)
+    # and the decision-tree wording ("negative or zero"). Tighten to <= 0 to match
+    # the decision tree exactly (Path A: "Delta_32 sign matches PILOT (negative
+    # or zero, never strongly positive)"). This is the authoritative rule.
     if (
         mean_rho >= 0.8
         and ci_d256[0] > 0
         and mean_d256 >= 2.0
-        and mean_d32 <= 0.5  # not strongly positive
+        and mean_d32 <= 0.0  # negative or zero per decision tree (no positive d32 allowed)
     ):
         path = "PASS_canonical"
         path_text = (
@@ -138,7 +143,7 @@ def main():
         "purpose": "g158c canonical 3-seed verdict of context-length inversion: confirms theory's input-side prediction (transport demand as control variable) at canonical scale.",
         "git_commit": "(set at commit time)",
         "config_path": "code/genome_158c_3seed_canonical.py",
-        "prereg_path": "research/prereg/genome_158_PILOT_2026-04-27.md",
+        "prereg_path": "research/prereg/genome_158c_3seed_canonical_2026-04-27.md",
         "systems": ["baseline_6L+MLP x 4 L x 3 seeds", "minimal_3L_noMLP x 4 L x 3 seeds"],
         "primitive": "context_length_inversion",
         "universality_level_claimed": None,

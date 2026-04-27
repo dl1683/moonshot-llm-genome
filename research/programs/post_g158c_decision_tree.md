@@ -36,15 +36,21 @@ The PILOT is unusually clean for a single seed. The canonical question is whethe
 **Interpretation:** The strongest unique theory prediction (transport-demand monotonicity + short-L sign inversion) survives multi-seed. Theory's input-side prediction is locked at canonical scale.
 
 **Next actions (in order):**
-1. Run `python code/integrate_g158c.py --commit` (helper to be written) -> appends ledger entry, updates EXPERIMENTS.md, writes WIKI patch.
+1. Run `python code/integrate_g158c.py --commit` -> appends ledger entry, updates EXPERIMENTS.md, writes WIKI patch.
 2. Update `research/CLAIM_EVIDENCE_MAP.md`: promote P13 from PILOT to CANONICAL. New row C17 in confirmed claims.
 3. Update WIKI §0.1 score: 6.8 -> 7.2 (per cycle 18 ceiling at PASS).
 4. Author `research/THEORY_LOCK_2026-04-27.md`: state that the input-side prediction is locked; the η > δ^mlp mechanism is rejected; the chain now reads: g156 (data-order destruction) + g158c (transport-demand monotonicity) as two independent control axes.
-5. **Next experiment decision:** highest-leverage move is now a CAUSAL mechanism probe distinct from η/δ. Candidates:
-   - **g162 transport-arm capacity sweep:** does the inversion persist at intermediate transport capacities (4L, 5L, 7L noMLP)? Tests whether the effect is smooth in transport budget (theory predicts yes).
-   - **g163 attention-head ablation in minimal_3L_noMLP:** which attention heads carry the transport signal? Causal head-level test.
-   - Pick via Codex direction review at the next consult cycle.
-6. Do NOT rerun g160 unless g162 + g163 both PASS (would only canonize a null).
+5. **Next experiment LOCKED by Codex direction consult 2026-04-27 (`codex_outputs/heartbeats/post_g158c_design_20260427T090500.md`):**
+   **g162 transport-arm capacity sweep** (NOT head ablation — head ablation localizes a toy effect that may not generalize).
+   - Setup: noMLP arms with layers `{3, 4, 5, 7}` against `baseline_6L+MLP` at `L ∈ {32, 256}`.
+   - Primary statistic: `Δ(L,k) = top1(noMLP_kL) - top1(baseline_6L+MLP)` on C4.
+   - **PASS:** at L=256, `rho(k, Δ256) >= +0.8` AND `Δ256(7L) - Δ256(3L) >= +0.8pp`; at L=32, `Δ32(7L) <= Δ32(3L) + 0.1pp`.
+   - **FAIL:** `rho(k, Δ256) < +0.3` OR `Δ256(7L) - Δ256(3L) < +0.3pp`.
+   - Why highest leverage: turns g158 from a binary pairwise effect into a dose-response architecture intervention. If smooth, closest thing to a design law on this branch. If not smooth, transport story stays a brittle 3L-vs-6L curiosity.
+   - Compute: 10 cells (2 contexts × 1 baseline × 4 noMLP depths × 1 seed). ~2.5-3.0h, <4 GB VRAM, <16 GB RAM.
+   - Files: `research/prereg/genome_162_transport_arm_capacity_sweep_2026-04-27.md`, `code/genome_162_transport_arm_capacity_sweep.py`, `results/genome_162_transport_arm_capacity_sweep.json`.
+   - Codex score: PASS=6.8/10, FAIL=6.1/10.
+6. Do NOT rerun g160 (would canonize a null).
 
 ## Path B: g158c returns WEAK_canonical
 
@@ -54,8 +60,14 @@ The PILOT is unusually clean for a single seed. The canonical question is whethe
 1. Run `python code/integrate_g158c.py --commit`.
 2. Update CLAIM_EVIDENCE_MAP: P13 -> WEAK_CANONICAL (new status row, between PILOT and PASS).
 3. Update WIKI §0.1 score: 6.8 -> 7.0.
-4. **Probe-budget consideration:** g158 used n_train_256=32768. At larger N the signal might sharpen. BUT this is post-hoc — only consider if Codex direction review at next consult signs off as not p-hacking.
-5. **Next experiment decision:** g158d budget-expansion (matched-FLOPs at 2x training budget) is the cheapest move that would either lock or kill the WEAK signal.
+4. **Next experiment LOCKED by Codex direction consult 2026-04-27 — DO NOT pursue g158d budget expansion** (post-hoc, easy to attack as goalpost-moving). Instead:
+   **g158e endpoint seed expansion** — same protocol, NEW seeds only, ENDPOINTS only `L ∈ {32, 256}`. Aggregate with existing 3 canonical seeds for N=6.
+   - **PASS:** mean Delta_256(c4) >= +1.2pp AND mean Delta_32(c4) <= 0.0pp AND endpoint contrast `C = Delta_256 - Delta_32 >= +1.5pp` AND bootstrap 95% CI(C) excludes 0.
+   - **FAIL:** CI(C) crosses 0 OR mean Delta_32 > +0.2pp.
+   - Why highest leverage: weak canonical means the live question is variance, not "more train tokens." Endpoint seed expansion keeps the estimand fixed, tests sharpest unique prediction directly, either rescues or kills inversion honestly.
+   - Compute: 12 cells (2 contexts × 2 arms × 3 new seeds). ~3.0-3.5h, <4 GB VRAM, <16 GB RAM.
+   - Files: `research/prereg/genome_158e_endpoint_seed_expansion_2026-04-27.md`, `code/genome_158e_endpoint_seed_expansion.py`, `results/genome_158e_endpoint_seed_expansion.json`.
+   - Codex score: PASS=6.4/10, FAIL=6.0/10.
 
 ## Path C: g158c returns PILOT_FRAGILE
 
@@ -63,18 +75,44 @@ The PILOT is unusually clean for a single seed. The canonical question is whethe
 
 **Next actions:**
 1. Run `python code/integrate_g158c.py --commit`.
-2. Update CLAIM_EVIDENCE_MAP: P13 -> REJECTED (new status row R8). Mirror R7 (g157) framing.
+2. Update CLAIM_EVIDENCE_MAP: P13 -> REJECTED (new status row R8b). Mirror R7 (g157) framing.
 3. Update WIKI §0.1 score: 6.8 -> ~6.0. Both unique theory predictions (mechanism + input-side) failed canonical confirmation.
-4. Author `research/THEORY_REJECTION_2026-04-27.md`: state that the prefix-information transport principle does NOT survive canonical confirmation in either of its derivable predictions. The g156 PASS stands as a narrow empirical observation; the derivation chain is dead.
-5. **Pivot decision:** abandon transport theory entirely. Manifesto-aligned cash-out paths:
-   - Distillation product: g160 PILOT_KILL was inconclusive at -0.34pp; consider g160c as a 3-seed CANONICAL only if a different theoretical motivation comes up. Otherwise retire.
-   - g159 cross-class lesion: completed as INCOMPLETE/SCALE-LIMITED. Retire.
-   - g161 RWKV: still hardware-blocked.
-   - **g155 edge benchmark:** if hardware available, is the most manifesto-aligned remaining direction (even without the transport theory).
-   - **NEW direction needed:** Codex consult cycle at this point should ask: "given both transport predictions failed canonical confirmation, what is the highest-leverage breakthrough-aligned direction this researcher can still pursue with ≤4h compute envelope?"
-6. Reframe the project narrative: from "we found a derivable invariant" to "we falsified two derivable invariant candidates honestly." This is still publishable as a falsification result but not as a manifesto-grade breakthrough.
+4. Author `research/THEORY_REJECTION_2026-04-27.md`: state that the prefix-information transport principle does NOT survive canonical confirmation in either of its derivable predictions.
+5. **Next experiment LOCKED by Codex direction consult 2026-04-27 (highest score in entire decision tree):**
+   **g155 production distillation + locked C3 TEI/kJ benchmark** (production student fed to the locked benchmark contract).
+   - PASS criteria (already locked in `research/prereg/genome_155_edge_benchmark_c3_energy_2026-04-26.md`): `C3_ratio >= 0.90` AND `TEI/kJ vs Qwen3-8B >= 4.0x` AND `TEI/kJ vs best non-distilled sub-2B >= 1.25x` AND no single-dataset gap > 5pp.
+   - FAIL: `C3_ratio < 0.85` OR `TEI/kJ < 2.5x` OR student loses to best sub-2B baseline.
+   - Why highest leverage: once both unique transport predictions are dead, another small-model mechanism salvage is workshop-grade. The only remaining route on this branch that can still beat the §0.1 competitive bar is an electricity-grade edge result big labs will not publish (conflicts with scale-product narrative).
+   - Compute: ~3.5-4.0h wall (student kept in 0.3B-0.6B band), <12 GB VRAM, <24 GB RAM.
+   - Files: `research/prereg/genome_155_production_distill_2026-04-27.md` (training half), keep the locked benchmark contract unchanged, `code/genome_155_production_distill.py`, `code/genome_155_edge_benchmark.py`.
+   - **HARDWARE PREREQUISITE: external AC wall-power meter must be in hand** (Yokogawa WT310E gold; logging smart plug practical). Without it, this prereg cannot execute honestly. Acquisition is a prerequisite, not a footnote.
+   - Codex score: PASS=8.2/10 (BREAKS the §0.1 ceiling that all other paths cap at ~7.0), FAIL=6.7/10.
+6. Reframe the project narrative: from "we found a derivable invariant" to "we falsified two derivable invariant candidates honestly + delivered an electricity-grade efficiency demo." Path C with g155 PASS is the ONLY decision-tree branch that exits the workshop-paper trap.
 
-## Codex pre-flight prompt template
+## Codex direction consult — fired 2026-04-27 09:05, completed 2026-04-27
+
+**Output:** `codex_outputs/heartbeats/post_g158c_design_20260427T090500.md`
+
+**Adjudication summary:**
+- Path A: g162 transport-arm capacity sweep (NOT head ablation). PASS=6.8/10.
+- Path B: g158e endpoint seed expansion (NOT g158d budget expansion). PASS=6.4/10.
+- Path C: g155 production+benchmark. PASS=8.2/10. **HARDWARE-BLOCKED on wall-power meter.**
+
+**One experiment to launch RIGHT NOW that does NOT depend on g158c verdict:** g155 production distillation feeding the locked C3-TEI/kJ benchmark, **assuming the wall-power meter is already available**. Currently it is not (per WIKI §pre-staged + research/prereg/genome_155_edge_benchmark_c3_energy_2026-04-26.md §146). Acquire the meter — that is the highest-impact lift across the entire decision tree.
+
+## Codex audit consult — fired 2026-04-27 09:05, completed 2026-04-27
+
+**Output:** `codex_outputs/heartbeats/g158c_audit_20260427T090500.md`
+
+**SEV findings applied 2026-04-27:**
+- SEV8 #1 (integrate_g158c.py over-permissive d32 threshold): FIXED — `mean_d32 <= 0.0pp` (was `<= 0.5pp`).
+- SEV8 #2 (no incremental checkpoint): DEFERRED — in-flight run cannot be retro-fitted; future canonicals must add per-seed checkpoint.
+- SEV6 #1 (single C4 corpus across seeds): DOCUMENTED in canonical prereg + WIKI patch.
+- SEV6 #2 (lr_select_L=128 metadata false): TO PATCH for future re-runs (current run unaffected by metadata bug).
+- SEV5 #1 (CUDA non-deterministic): DOCUMENTED.
+- SEV5 #2 (canonical prereg missing): FIXED — `research/prereg/genome_158c_3seed_canonical_2026-04-27.md` LOCKED 2026-04-27.
+
+## Codex pre-flight prompt template (for the integrity audit AFTER verdict lands)
 
 When g158c verdict lands, use this prompt for the integrity audit Codex consult:
 

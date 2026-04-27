@@ -61,7 +61,12 @@ N_TRAIN_256 = 32768  # token-budget match: scale up at shorter L
 CONTEXT_LENGTHS = [32, 64, 128, 256]
 LR_WARMUP_STEPS = 200
 LR_GRID = [2e-4, 3e-4, 4e-4]
-LR_SELECT_L = 128  # depth at which to choose arm-specific LR
+# LR_SELECT_L is legacy metadata — actual policy is min(lr_at_L32, lr_at_L256)
+# per Codex pre-flight Severity 7 fix; the metadata key is retained for backwards
+# compatibility with parsers that look for it. lr_select_L_actual_policy carries
+# the real value. Codex audit 2026-04-27 SEV6 #2 flagged the false metadata.
+LR_SELECT_L = 128  # legacy metadata only; do not use as the actual policy
+LR_SELECT_L_ACTUAL_POLICY = "min(lr_at_L32, lr_at_L256)"
 
 
 class ZeroMLP(nn.Module):
@@ -429,6 +434,7 @@ def main():
         "config": {"context_lengths": CONTEXT_LENGTHS, "seeds": SEEDS,
                     "warmup_steps": LR_WARMUP_STEPS, "n_train_256": N_TRAIN_256,
                     "lr_grid": LR_GRID, "lr_select_L": LR_SELECT_L,
+                    "lr_select_L_actual_policy": LR_SELECT_L_ACTUAL_POLICY,
                     "arm_lr": arm_lr},
         "results": {str(L): results[L] for L in results},
         "delta_per_L": {str(L): v for L, v in delta_per_L.items()},
