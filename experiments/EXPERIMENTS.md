@@ -26,6 +26,53 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-27 — genome_158c_3seed_canonical — RUNNING (canonical follow-up to g158 PILOT)
+
+**Purpose.** Canonical 3-seed verdict (SEEDS=[42,7,13]) of context-length inversion. Confirms whether g158 PILOT's perfect rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion survives multi-seed.
+
+**Status.** Launched 2026-04-27 08:57 UTC. Expected wall ~5.5hr (envelope overrun documented; cycle 21 framing accepts overrun as the highest-leverage move post-g160 PILOT_KILL).
+
+**Decision tree.** `research/programs/post_g158c_decision_tree.md` (PASS_canonical / WEAK / PILOT_FRAGILE locked before verdict).
+
+**Verdict pending.** When complete, `python code/integrate_g158c.py --commit` writes ledger entry + WIKI patch.
+
+---
+
+## 2026-04-27 — genome_160_transport_guided_student PILOT — PILOT_KILL (transport theory does NOT guide design at matched-FLOPs, single-seed)
+
+**Purpose.** Manifesto cash-out test: at matched inference FLOPs (4.03 GFLOP) and matched distillation budget, does a transport-heavy student (6L noMLP h512) beat a local-heavy student (4L MLP h384 ffn1024) on C3_macro and CtQ_90?
+
+**Verdict label.** PILOT_KILL: C3 gap = -0.34pp; CtQ_90 ratio = 1.00.
+
+### Result
+
+| Student | C3_macro | CtQ_90 (FLOPs) |
+|---|---:|---:|
+| transport_heavy (6L noMLP h512) | 0.4328 | (1.00x) |
+| local_heavy (4L MLP h384 ffn1024) | **0.4363** | (1.00x) |
+
+local_heavy ties or wins on both metrics at single-seed pilot. Theory does not guide design selection at this scale.
+
+### Honest caveat
+
+At single-seed pilot, -0.34pp is well within seed noise (typical seed std on similar tasks is ~0.4-0.6pp). A 3-seed canonical (g160c) could flip the sign to +0.3-0.5pp. **g160c was NOT pursued** per cycle 21 direction review: canonizing a null is lower-leverage than canonizing the strong PILOT signal of g158 (rho=+1.00). Budget was reallocated to g158c.
+
+### Compute
+
+- Wall-clock: 127 min (within envelope)
+- KD cache hit on Qwen3-1.7B teacher
+
+### CLAIM_EVIDENCE_MAP impact
+
+- P16 -> R8 (rejected at PILOT scale, canonical not pursued)
+- §0.1 ceiling unchanged: ~7.0/10 if g158c PASS_canonical, ~6.0/10 if PILOT_FRAGILE
+
+### Next
+
+Per cycle 21: launch g158c (canonical 3-seed of context-length inversion). g160c skipped.
+
+---
+
 ## 2026-04-27 — genome_158_context_length_inversion PILOT — PARTIAL_INVERSION → DIRECTIONAL_SUPPORT (input-side theory prediction validated) ★★
 
 **Purpose.** Test theory's input-side prediction: architecture-prior advantage is monotone in transport demand (context length L). Single-seed PILOT scope after the original 3-seed run was killed at 11hr projected.
