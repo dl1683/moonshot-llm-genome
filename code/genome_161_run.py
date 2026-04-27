@@ -252,20 +252,34 @@ def main():
     print("\n=== LR SELECTION (per arm, separate val bank) ===")
     LR_GRID_RWKV = [2e-4, 3e-4, 4e-4]
     LR_SELECT_STEPS = 500
-    # Use a separate small val bank from c4 validation (next 256 sequences)
+    # Per cycle 9 code review Sev-8: previous fallback `val_pool[:256]` leaked
+    # eval data into LR selection (same bank as eval_ids_nat). Force-load a
+    # SEPARATE 256-sequence slice AFTER the eval bank, both on streaming and
+    # file-fallback paths. Raise if not enough validation data.
     sel_val_pool = []
+    needed = N_C4_EVAL + 256 + 50
     try:
         ds_c4_val2 = load_dataset("allenai/c4", "en", split="validation", streaming=True)
         for ex in ds_c4_val2:
             t = ex["text"]
             if len(t) > 200:
                 sel_val_pool.append(t)
-            if len(sel_val_pool) >= 256 + N_C4_EVAL + 50:
+            if len(sel_val_pool) >= needed:
                 break
-    except Exception:
-        sel_val_pool = val_pool[N_C4_EVAL:]
-    # Take the slice AFTER the eval bank
-    sel_texts = sel_val_pool[N_C4_EVAL:N_C4_EVAL + 256] if len(sel_val_pool) > N_C4_EVAL + 256 else val_pool[:256]
+    except Exception as e:
+        print(f"  c4 streaming for LR-sel failed: {e}; trying file fallback")
+        ds_c4_val2 = load_dataset("allenai/c4", "en", split="validation",
+                                    data_files={"validation": "en/c4-validation.00000-of-00008.json.gz"})
+        for ex in ds_c4_val2:
+            t = ex["text"]
+            if len(t) > 200:
+                sel_val_pool.append(t)
+            if len(sel_val_pool) >= needed:
+                break
+    if len(sel_val_pool) < N_C4_EVAL + 256:
+        raise RuntimeError(f"Not enough c4 validation for LR sel: {len(sel_val_pool)} < {N_C4_EVAL + 256}")
+    # Always take the slice AFTER the eval bank — never overlap
+    sel_texts = sel_val_pool[N_C4_EVAL:N_C4_EVAL + 256]
     enc_sel = tok(sel_texts, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
     sel_ids, sel_mask_t = enc_sel["input_ids"], enc_sel["attention_mask"]
 

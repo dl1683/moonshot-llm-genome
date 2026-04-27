@@ -358,17 +358,32 @@ def main():
     n_t = sum(p.numel() for p in teacher.parameters())
     print(f"  teacher params: {n_t/1e6:.1f}M")
 
+    # Per cycle 9 code review Sev-7: cache key must include all relevant config
+    # so changing TEACHER_HF/SEQ_LEN/KD_TOPK/seed doesn't silently load stale logits.
     cache_dir = ROOT / "cache"
     cache_dir.mkdir(exist_ok=True)
-    cache_path = cache_dir / f"g160_teacher_topk_qwen3-0.6b_n{N_TRAIN}.pt"
+    teacher_slug = TEACHER_HF.replace("/", "-")
+    cache_path = cache_dir / f"g160_teacher_topk_{teacher_slug}_n{N_TRAIN}_seq{SEQ_LEN}_topk{KD_TOPK}.pt"
+    expected_meta = {
+        "teacher_hf": TEACHER_HF, "n_train": N_TRAIN, "seq_len": SEQ_LEN,
+        "kd_topk": KD_TOPK, "train_seed": 42,  # c4_clean_v1 seed
+    }
     if cache_path.exists():
         print(f"\nLoading cached teacher top-{KD_TOPK} logits from {cache_path}...")
         cached = torch.load(cache_path, map_location="cpu", weights_only=False)
+        cached_meta = cached.get("meta", {})
+        if cached_meta != expected_meta:
+            print(f"  cache meta mismatch ({cached_meta} vs {expected_meta}); discarding and recomputing")
+            cache_path.unlink()
+            cached = None
+    else:
+        cached = None
+    if cached is not None:
         topk_idx, topk_lg = cached["idx"], cached["lg"]
     else:
         print(f"\nPrecomputing teacher top-{KD_TOPK} logits over {N_TRAIN} sequences...")
         topk_idx, topk_lg = precompute_teacher_logits(teacher, tok, train_ids, train_mask, KD_TOPK)
-        torch.save({"idx": topk_idx, "lg": topk_lg}, cache_path)
+        torch.save({"idx": topk_idx, "lg": topk_lg, "meta": expected_meta}, cache_path)
         print(f"  cached -> {cache_path}")
     del teacher
     torch.cuda.empty_cache()

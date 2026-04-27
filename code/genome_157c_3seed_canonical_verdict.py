@@ -315,12 +315,16 @@ def load_validation_data(tok):
     }
 
 
-def microbenchmark(hidden, vocab):
-    print("\nMicrobenchmark...")
+def microbenchmark(hidden, vocab, n_ckpts):
+    """Per cycle 9 code review Sev-9: was timing BF16 fake probes (mismatched
+    to actual FP32 train_probe) AND hardcoding n_ckpts=4 (canonical scope is
+    4 * len(SEEDS) = 12). Both fixes applied."""
+    print("\nMicrobenchmark (FP32, full scope)...")
     fake_ids = torch.randint(0, vocab, (PROBE_BATCH, SEQ_LEN), device="cuda")
     fake_mask = torch.ones_like(fake_ids)
-    fake_h = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.bfloat16, device="cuda")
-    fake_e = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.bfloat16, device="cuda")
+    # FP32 to match train_probe behavior (probes are loaded at fp32 in the actual run)
+    fake_h = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.float32, device="cuda")
+    fake_e = torch.randn(PROBE_BATCH * 4, SEQ_LEN, hidden, dtype=torch.float32, device="cuda")
     rng = np.random.default_rng(0)
     times = {}
     for name, ProbeClass, use_prefix in [
@@ -353,7 +357,7 @@ def microbenchmark(hidden, vocab):
         print(f"  {name}: {1000*per_step:.1f} ms/step  params={n_params/1e6:.2f}M")
         del probe, opt; torch.cuda.empty_cache()
     n_layers_used = 3
-    n_ckpts = 4
+    # n_ckpts now passed in; canonical 3-seed = 12 ckpts (4*len(SEEDS))
     total_seconds = sum(times.values()) * PROBE_STEPS * n_layers_used * n_ckpts + n_layers_used * n_ckpts * 30
     total_hours = total_seconds / 3600
     print(f"  PROJECTED total: {total_hours:.2f} hr")
@@ -381,7 +385,7 @@ def main():
     print(f"Canonical scope: {len(all_ckpts)} ckpts ({len(SEEDS)} seeds x 4 conditions/arms)")
 
     model_ref, meta_ref = load_checkpoint(all_ckpts[0])
-    projected_hr = microbenchmark(meta_ref["hidden"], meta_ref["vocab_size"])
+    projected_hr = microbenchmark(meta_ref["hidden"], meta_ref["vocab_size"], n_ckpts=len(all_ckpts))
     del model_ref; torch.cuda.empty_cache()
 
     results = {}
