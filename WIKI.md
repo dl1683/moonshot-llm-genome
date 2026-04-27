@@ -37,24 +37,23 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 - `g157b` embedding-prefix probe variant (FP32, dedup 0.02%, projected 30 min)
 
 **LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
-- `g157b` — embedding-layer prefix probe variant (FP32 weights + grad clip + skip-non-finite-loss; conditional on g157 KILL/WEAK)
-- `g158` — context-length inversion sweep (exact-FLOP match + dedup + NaN guard, ~1.6-2.0 hr)
-- `g159` — cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (val data + exact streaming PCA, ~0.9-1.6 hr)
-- `g160` — transport-guided student vs local-heavy student (ffn=1024 FLOP-matched, ~3-7 hr; pre-flight pending)
+- `g157c` 3-seed canonical verdict (Path A trigger if g157b PASSes; reuses g157b code with SEEDS=[42,7,13])
+- `g157d` probe-budget expansion (Path B; 2000 steps, 5 depths, kv_dim=1500)
+- `g157 v3` same-layer FP32 control (Path C; via patches to genome_157_eta_delta_probe.py)
+- `g158` context-length inversion sweep (exact-FLOP match + dedup + NaN guard, ~1.6-2.0 hr)
+- `g159` cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (val data + exact streaming PCA + ratio guard, ~0.9-1.6 hr)
+- `g160` transport-guided student vs local-heavy student (ffn=1024 FLOP-matched, dedup, CtQ-FLOPs, 1-seed pilot, ~2-3 hr)
+- `g161` RWKV training-time extension (`code/genome_161_run.py`, ~2-3 hr; will hard-abort on RTX 5090 due to pure-PyTorch WKV scan; needs fused kernel for full launch)
 
-**LOCKED, awaiting Codex design:**
-- `g161` — RWKV training-time extension (stub; Codex codex_outputs/g161_rwkv_implementation.md firing)
+**Provisional theory revision (`research/PROVISIONAL_THEORY_REVISION.md`):** g157 v2 + g157b natural+shuffled-baseline data show eta SIGN-FLIPS by condition (natural<0, shuffled>0) — opposite of theory's predicted by-arm signal. Reinterpretation: well-trained models close transport gap; ill-trained ones don't. The η > δ^mlp criterion is likely empirically falsified (canonical verdict pending shuf-minimal data + g157c). Empirical g156 PASS still stands; mechanism candidate revised.
 
-**Decision tree:**
-- g157 PILOT DIRECTIONAL_SUPPORT → write 3-seed prereg + run; theory mechanism observed
-- g157 PILOT KILL/WEAK → run g157b (probe-design variant); if also KILL → mechanism dies, pivot to distillation track (g160 + g155)
-- g158 PASS_INVERSION → context-length is the predicted control variable
-- g159 PASS → class-general transport asymmetry
-- g160 PASS → manifesto cash-out: matched-cost transport-heavy student wins on C3_macro and CtQ_90
+**Decision tree (`research/programs/post_g157b_decision_tree.md`):**
+- g157b DIRECTIONAL_SUPPORT (unlikely given current data) → g157c canonical
+- g157b WEAK_SUPPORT → g157d probe-budget expansion
+- g157b KILL_157b (likely) → run g157 v3 control + launch g158/g159 in parallel; if both null, pivot to distillation track (g160 → g155)
+- All paths preserve g156 PASS as standalone empirical evidence.
 
-**Codex consults in flight:**
-- g160 pre-flight (Performance + Correctness)
-- g161 implementation design (Architecture-Theorist)
+**Codex consults completed:** g158/g159/g160/g161 pre-flights (5 patches landed); g157 PILOT interpretation; heartbeat cycle 3 reviews.
 
 ---
 
