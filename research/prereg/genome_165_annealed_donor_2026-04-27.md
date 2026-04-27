@@ -24,7 +24,7 @@ The motivation is empirical, not post-hoc:
   - **step**: λ(t) = λ_0 if t < 25 else 0
   - **linear**: λ(t) = λ_0 · max(0, 1 - t/50)
   - **exponential**: λ(t) = λ_0 · exp(-t/10)
-- **λ_0 ∈ {1.0, 0.1, 0.01}** (3 strengths × 4 schedules = 12 anchored arms + 1 scratch baseline = 13 arms total).
+- **λ_0 ∈ {1.3e-4, 1.3e-3, 1.0e-2}** (3 strengths × 4 schedules = 12 anchored arms + 1 scratch baseline = 13 arms total). **REVISED 2026-04-27 per Codex lean pre-flight**: Frobenius F² ≈ 2.03e6 over 596M params; the original grid {1.0, 0.1, 0.01} would collapse all three strengths to "donor clone" because anchor gradient dominates CE by ≥7.6× across the entire grid. The revised grid spans weak (CE 10× dominates), balanced (comparable gradients), and strong (anchor 7.6× dominates without being effectively frozen). See `codex_outputs/g165_lambda_grid_check_20260427T114500.md`.
 - **Seeds:** [42, 7, 13] (3 seeds for canonical scope).
 - **Training:** 500 steps, batch_size=8, lr=3e-4 (matched to grafting series).
 - **Eval:** C4 val every 25 steps; full trajectory recorded for trajectory comparison.

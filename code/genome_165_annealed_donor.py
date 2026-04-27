@@ -61,7 +61,16 @@ BATCH_SIZE = 8
 N_STEPS = 500
 EVAL_EVERY = 25
 
-LAMBDA_0_GRID = [1.0, 0.1, 0.01]
+# Codex lean pre-flight 2026-04-27 (codex_outputs/g165_lambda_grid_check_20260427T114500.md):
+# Frobenius F^2 = ||theta_init - theta_donor||^2 ≈ 2.03e6 over 596M params (per-param
+# mean squared gap ~3.4e-3). At lambda_0=1.0, anchor gradient dominates CE by ~759x;
+# at 0.01 still 7.6x. The original grid {1.0, 0.1, 0.01} would just collapse the
+# recipient to a donor clone in all 3 strengths. Codex-recommended grid below
+# spans weak/balanced/strong without freezing the recipient:
+#   1.3e-4: weak anchor, CE dominates 10x
+#   1.3e-3: balanced (CE and anchor comparable)
+#   1.0e-2: strong anchor (7.6x dominant), recipient still trains
+LAMBDA_0_GRID = [1.3e-4, 1.3e-3, 1.0e-2]
 SCHEDULES = ["constant", "step", "linear", "exponential"]
 
 C4_TRAIN_SEED = 165
