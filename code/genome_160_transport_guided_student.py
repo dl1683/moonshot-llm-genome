@@ -306,15 +306,43 @@ def main():
     vocab = len(tok)
     print(f"  vocab={vocab}")
 
-    print(f"\nLoading {N_TRAIN} c4 train windows...")
+    # Use c4_clean_v1 seed=160 (different from g141..g158 seed=42 / g159 seed=159)
+    # to minimize overlap with prior experiments.
+    print(f"\nLoading {N_TRAIN} c4 train windows (seed=160)...")
     pool = []
-    for rec in c4_clean_v1(seed=42, n_samples=N_TRAIN):
+    for rec in c4_clean_v1(seed=160, n_samples=N_TRAIN):
         pool.append(rec["text"])
         if len(pool) >= N_TRAIN:
             break
     enc = tok(pool, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
     train_ids = enc["input_ids"]
     train_mask = enc["attention_mask"]
+
+    # Per Codex pre-flight: 13-token rolling-hash dedup audit vs c4_clean_v1 seed=42
+    print("Running 13-token dedup audit vs c4_clean_v1 seed=42 train slice...")
+    g42 = []
+    for rec in c4_clean_v1(seed=42, n_samples=2048):
+        g42.append(rec["text"])
+        if len(g42) >= 2048:
+            break
+    enc42 = tok(g42, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    def _hashes(ids, mask):
+        H = set()
+        for r in range(ids.shape[0]):
+            v = mask[r].sum().item()
+            if v < 13:
+                continue
+            row = ids[r, :v].tolist()
+            for i in range(len(row) - 12):
+                H.add(tuple(row[i:i+13]))
+        return H
+    h_train = _hashes(train_ids, train_mask)
+    h_42 = _hashes(enc42["input_ids"], enc42["attention_mask"])
+    overlap = h_train & h_42
+    pct = 100.0 * len(overlap) / max(len(h_train), 1)
+    print(f"  13-gram overlap: {pct:.2f}%")
+    if pct > 5.0:
+        raise RuntimeError(f"dedup FAIL: {pct:.2f}% > 5%")
 
     print(f"\nLoading teacher {TEACHER_HF}...")
     teacher = AutoModelForCausalLM.from_pretrained(
@@ -375,13 +403,22 @@ def main():
             del student
             torch.cuda.empty_cache()
 
-    # Analysis
+    # Analysis — per Codex pre-flight Severity-7: CtQ_90 measured in train FLOPs,
+    # not steps (so the comparison across architectures is FLOP-fair, not
+    # step-fair which advantages whichever arm has cheaper steps).
+    th_per_step_train_flops = th_flops * 3  # forward + backward ~ 3x forward FLOPs
+    lh_per_step_train_flops = lh_flops * 3
+
+    def per_step_train_flops(student_name):
+        return th_per_step_train_flops if student_name == "transport_heavy" else lh_per_step_train_flops
+
     print(f"\n=== ANALYSIS ===")
     summary = {}
     for student_name in students:
         finals = [results[student_name][s]["history"][-1]["C3_macro"]
                   for s in SEEDS if results[student_name][s]["history"]]
-        ctqs = []
+        ctq_steps = []
+        ctq_flops = []
         for s in SEEDS:
             hist = results[student_name][s]["history"]
             if not hist:
@@ -389,18 +426,23 @@ def main():
             final_c3 = hist[-1]["C3_macro"]
             target = 0.9 * final_c3
             ctq_step = next((h["step"] for h in hist if h["C3_macro"] >= target), hist[-1]["step"])
-            ctqs.append(ctq_step)
+            ctq_steps.append(ctq_step)
+            ctq_flops.append(ctq_step * per_step_train_flops(student_name))
         summary[student_name] = {
             "C3_final_mean": float(np.mean(finals)) if finals else float("nan"),
             "C3_final_std": float(np.std(finals)) if finals else float("nan"),
-            "CtQ_90_mean": float(np.mean(ctqs)) if ctqs else float("nan"),
+            "CtQ_90_steps_mean": float(np.mean(ctq_steps)) if ctq_steps else float("nan"),
+            "CtQ_90_flops_mean": float(np.mean(ctq_flops)) if ctq_flops else float("nan"),
         }
-        print(f"  {student_name}: C3={summary[student_name]['C3_final_mean']*100:.2f}%  CtQ_90={summary[student_name]['CtQ_90_mean']:.0f}")
+        print(f"  {student_name}: C3={summary[student_name]['C3_final_mean']*100:.2f}%  "
+              f"CtQ_90_flops={summary[student_name]['CtQ_90_flops_mean']/1e12:.2f} TFLOP "
+              f"({summary[student_name]['CtQ_90_steps_mean']:.0f} steps)")
 
     th = summary.get("transport_heavy", {})
     lh = summary.get("local_heavy", {})
     c3_gap_pp = (th.get("C3_final_mean", 0) - lh.get("C3_final_mean", 0)) * 100
-    ctq_ratio = th.get("CtQ_90_mean", float("inf")) / max(lh.get("CtQ_90_mean", 1), 1)
+    # CtQ ratio in FLOPs (architecture-fair) per Codex pre-flight
+    ctq_ratio = th.get("CtQ_90_flops_mean", float("inf")) / max(lh.get("CtQ_90_flops_mean", 1), 1)
 
     if c3_gap_pp >= 1.0 and ctq_ratio <= 0.80:
         verdict = (f"PASS: C3 gap={c3_gap_pp:+.2f}pp (>=1.0pp), CtQ_90 ratio={ctq_ratio:.2f} (<=0.80). "
