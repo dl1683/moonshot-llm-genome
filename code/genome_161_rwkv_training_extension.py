@@ -438,12 +438,262 @@ def _run_smoke(device: str) -> None:
         grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         print(f"  smoke {arm_name}: loss={out.loss.item():.4f} grad_norm={float(grad_norm):.4f}")
 
+# ============================================================
+# Training loop integration (added 2026-04-26 by Devansh, post-Codex model)
+# ============================================================
+
+import json
+import sys
+import time
+from pathlib import Path
+import numpy as np
+
+_THIS_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(_THIS_DIR))
+
+ROOT_DIR = _THIS_DIR.parent
+
+# Locked prereg constants
+SEEDS_FOR_TRAIN = [42, 7, 13]
+N_C4_EVAL = 256
+N_OOD_EVAL = 256
+N_TRAIN = 32768
+TRAIN_STEPS = 4000
+LR_WARMUP_STEPS = 200
+SHUFFLE_SEED = 42
+BATCH_SIZE = 8
+LR_GRID = [2e-4, 3e-4, 4e-4]
+
+
+def _shuffle_token_rows(ids, mask, shuffle_seed=SHUFFLE_SEED):
+    rng = np.random.default_rng(shuffle_seed)
+    out = ids.clone()
+    for r in range(ids.shape[0]):
+        valid_pos = (mask[r] == 1).nonzero(as_tuple=True)[0].cpu().numpy()
+        if len(valid_pos) <= 1:
+            continue
+        perm = rng.permutation(len(valid_pos))
+        out[r, valid_pos] = ids[r, valid_pos[perm]]
+    return out
+
+
+def _warmup_lr(step, target_lr, warmup_steps):
+    if step < warmup_steps:
+        return target_lr * (step + 1) / warmup_steps
+    return target_lr
+
+
+def _measure(model, eval_ids, eval_mask, device="cuda"):
+    model.eval()
+    total_loss = 0.0
+    total_tokens = 0
+    correct_top1 = 0
+    with torch.no_grad():
+        for i in range(0, eval_ids.size(0), BATCH_SIZE):
+            ids = eval_ids[i:i+BATCH_SIZE].to(device)
+            mask = eval_mask[i:i+BATCH_SIZE].to(device)
+            out = model(input_ids=ids, attention_mask=mask, use_cache=False)
+            logits = out.logits.float() if hasattr(out, "logits") else out["logits"].float()
+            sl = logits[:, :-1].contiguous()
+            lbl = ids[:, 1:].clone()
+            sm = mask[:, 1:]
+            valid = (sm != 0)
+            lbl[~valid] = -100
+            loss = F.cross_entropy(sl.reshape(-1, sl.size(-1)), lbl.reshape(-1),
+                                    ignore_index=-100, reduction="sum")
+            total_loss += loss.item()
+            total_tokens += valid.sum().item()
+            preds = sl.argmax(dim=-1)
+            correct_top1 += ((preds == lbl) & valid).sum().item()
+    model.train()
+    return {"nll": total_loss / max(total_tokens, 1),
+            "top1_acc": correct_top1 / max(total_tokens, 1)}
+
+
+def _train_arm(arm_name, lr, model, train_ids, train_mask, n_steps, seed, device="cuda"):
+    n_total = sum(p.numel() for p in model.parameters())
+    print(f"  {arm_name} seed={seed} lr={lr}: params={n_total/1e6:.2f}M steps={n_steps}")
+    opt = torch.optim.AdamW(model.parameters(), lr=lr, betas=(0.9, 0.95), weight_decay=0.1)
+    rng = np.random.default_rng(seed)
+    t_arm = time.time()
+    model.train()
+    n_train = train_ids.size(0)
+    nan_seen = False
+    for step in range(1, n_steps + 1):
+        cur_lr = _warmup_lr(step, lr, LR_WARMUP_STEPS)
+        for g in opt.param_groups:
+            g['lr'] = cur_lr
+        idx = rng.integers(0, n_train, size=BATCH_SIZE)
+        ids = train_ids[idx].to(device)
+        mask = train_mask[idx].to(device)
+        opt.zero_grad()
+        out = model(input_ids=ids, attention_mask=mask, use_cache=False)
+        logits = out.logits.float() if hasattr(out, "logits") else out["logits"].float()
+        sl = logits[:, :-1].contiguous()
+        lbl = ids[:, 1:].clone()
+        sm = mask[:, 1:]
+        lbl[sm == 0] = -100
+        loss = F.cross_entropy(sl.reshape(-1, sl.size(-1)), lbl.reshape(-1), ignore_index=-100)
+        if not torch.isfinite(loss):
+            nan_seen = True
+            break
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        opt.step()
+        if step % 1000 == 0:
+            print(f"    step={step:5d} loss={loss.item():.3f} ({time.time()-t_arm:.0f}s)")
+    return n_total, time.time() - t_arm, nan_seen
+
+
+def run_full_experiment():
+    """Full g161 training experiment per locked prereg."""
+    t0 = time.time()
+    print("genome_161: RWKV training-time transport extension")
+    print(f"  arms: baseline_rwkv ({BASELINE_LAYERS}L+chmix) vs transport_heavy ({TRANSPORT_LAYERS}L noch)")
+    print(f"  conditions: natural + token_shuffled (shuffle_seed={SHUFFLE_SEED})")
+    print(f"  seeds: {SEEDS_FOR_TRAIN}")
+
+    # Pre-flight FLOP-match check
+    flop_diff = flop_match_ratio() * 100
+    print(f"  forward FLOP match: {flop_diff:.2f}% (target <=2.0%)")
+    if flop_diff > 2.0:
+        raise RuntimeError(f"FLOP match violated: {flop_diff:.2f}%")
+
+    from transformers import AutoTokenizer
+    from stimulus_banks import c4_clean_v1
+    tok = AutoTokenizer.from_pretrained("EleutherAI/pythia-160m")
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+        tok.pad_token_id = tok.eos_token_id
+
+    # Use c4_clean_v1 seed=161 to avoid g141..g160 train slices
+    print(f"\nLoading {N_TRAIN}+{N_C4_EVAL} c4 sequences (seed=161)...")
+    pool = []
+    for rec in c4_clean_v1(seed=161, n_samples=N_TRAIN + N_C4_EVAL):
+        pool.append(rec["text"])
+        if len(pool) >= N_TRAIN + N_C4_EVAL:
+            break
+    enc = tok(pool, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    train_ids_nat = enc["input_ids"][:N_TRAIN]
+    train_mask = enc["attention_mask"][:N_TRAIN]
+    eval_ids_nat = enc["input_ids"][N_TRAIN:]
+    eval_mask = enc["attention_mask"][N_TRAIN:]
+
+    # Build shuffled corpus
+    train_ids_shuf = _shuffle_token_rows(train_ids_nat, train_mask, SHUFFLE_SEED)
+    eval_ids_shuf = _shuffle_token_rows(eval_ids_nat, eval_mask, SHUFFLE_SEED + 1)
+
+    # OOD eval from wikitext-103 VAL split
+    from datasets import load_dataset
+    ds_ood = load_dataset("wikitext", "wikitext-103-raw-v1", split="validation")
+    ood_texts = []
+    rng_ood = np.random.default_rng(12345)
+    for idx in rng_ood.permutation(len(ds_ood)):
+        t = ds_ood[int(idx)]["text"].strip()
+        if len(t) > 200:
+            ood_texts.append(t[:1500])
+        if len(ood_texts) >= N_OOD_EVAL:
+            break
+    enc_ood = tok(ood_texts, padding="max_length", truncation=True, max_length=SEQ_LEN, return_tensors="pt")
+    ood_ids_nat = enc_ood["input_ids"]
+    ood_mask = enc_ood["attention_mask"]
+    ood_ids_shuf = _shuffle_token_rows(ood_ids_nat, ood_mask, SHUFFLE_SEED + 2)
+
+    arms = ["baseline_rwkv", "transport_heavy"]
+    conditions = [
+        ("natural", train_ids_nat, train_mask, eval_ids_nat, eval_mask, ood_ids_nat, ood_mask),
+        ("token_shuffled", train_ids_shuf, train_mask, eval_ids_shuf, eval_mask, ood_ids_shuf, ood_mask),
+    ]
+
+    # NOTE: locked prereg expects per-arm best LR chosen on a separate val bank.
+    # For PILOT-fast, use lr=3e-4 for both (matches g141..g158 default).
+    # If pilot passes, write a g161b prereg with proper LR selection.
+    arm_lr = {"baseline_rwkv": 3e-4, "transport_heavy": 3e-4}
+
+    results = {}
+    for cond_name, t_ids, t_mask, e_ids, e_mask, o_ids, o_mask in conditions:
+        results[cond_name] = {}
+        for arm_name in arms:
+            results[cond_name][arm_name] = {}
+            lr = arm_lr[arm_name]
+            for seed in SEEDS_FOR_TRAIN:
+                print(f"\n=== cond={cond_name} arm={arm_name} seed={seed} ===")
+                model = build_rwkv_arm(arm_name, vocab_size=tok.vocab_size if hasattr(tok, 'vocab_size') and tok.vocab_size else VOCAB_SIZE,
+                                          seed=seed, device="cuda", dtype=torch.bfloat16)
+                n_total, elapsed, nan_seen = _train_arm(arm_name, lr, model, t_ids, t_mask, TRAIN_STEPS, seed)
+                metrics = {"nan_seen": nan_seen, "wallclock_s": elapsed, "params_M": n_total / 1e6}
+                if not nan_seen:
+                    metrics["c4"] = _measure(model, e_ids, e_mask)
+                    metrics["ood"] = _measure(model, o_ids, o_mask)
+                    print(f"    c4 top1={100*metrics['c4']['top1_acc']:.2f}%  "
+                          f"ood top1={100*metrics['ood']['top1_acc']:.2f}%")
+                else:
+                    metrics["c4"] = {"top1_acc": float("nan"), "nll": float("nan")}
+                    metrics["ood"] = {"top1_acc": float("nan"), "nll": float("nan")}
+                results[cond_name][arm_name][seed] = metrics
+                del model
+                torch.cuda.empty_cache()
+
+    # Analysis
+    print(f"\n=== ANALYSIS ===")
+    deltas = {}
+    for cond_name in ["natural", "token_shuffled"]:
+        b_c4 = [results[cond_name]["baseline_rwkv"][s]["c4"]["top1_acc"] for s in SEEDS_FOR_TRAIN
+                if not results[cond_name]["baseline_rwkv"][s]["nan_seen"]]
+        t_c4 = [results[cond_name]["transport_heavy"][s]["c4"]["top1_acc"] for s in SEEDS_FOR_TRAIN
+                if not results[cond_name]["transport_heavy"][s]["nan_seen"]]
+        b_ood = [results[cond_name]["baseline_rwkv"][s]["ood"]["top1_acc"] for s in SEEDS_FOR_TRAIN
+                 if not results[cond_name]["baseline_rwkv"][s]["nan_seen"]]
+        t_ood = [results[cond_name]["transport_heavy"][s]["ood"]["top1_acc"] for s in SEEDS_FOR_TRAIN
+                 if not results[cond_name]["transport_heavy"][s]["nan_seen"]]
+        d_c4 = (np.mean(t_c4) - np.mean(b_c4)) * 100 if b_c4 and t_c4 else float("nan")
+        d_ood = (np.mean(t_ood) - np.mean(b_ood)) * 100 if b_ood and t_ood else float("nan")
+        deltas[cond_name] = {"c4": d_c4, "ood": d_ood}
+        print(f"  {cond_name}: delta_c4={d_c4:+.2f}pp, delta_ood={d_ood:+.2f}pp")
+
+    nat_c4 = deltas["natural"]["c4"]
+    shuf_c4 = deltas["token_shuffled"]["c4"]
+    nat_ood = deltas["natural"]["ood"]
+    shuf_ood = deltas["token_shuffled"]["ood"]
+    contrast_c4 = nat_c4 - shuf_c4
+    contrast_ood = nat_ood - shuf_ood
+
+    if (nat_c4 >= 0.3 and nat_ood >= 0.3 and shuf_c4 <= 0.1 and shuf_ood <= 0.1
+        and contrast_c4 >= 0.3 and contrast_ood >= 0.3):
+        verdict = (f"PASS_RWKV: Δ_nat_c4={nat_c4:+.2f}pp / ood={nat_ood:+.2f}pp; "
+                   f"Δ_shuf_c4={shuf_c4:+.2f}pp / ood={shuf_ood:+.2f}pp; "
+                   f"contrast_c4={contrast_c4:+.2f}pp / ood={contrast_ood:+.2f}pp. "
+                   f"RWKV transport extension confirmed.")
+    elif nat_c4 >= 0.2 and contrast_c4 >= 0.2:
+        verdict = (f"PARTIAL_RWKV: contrast_c4={contrast_c4:+.2f}pp.")
+    else:
+        verdict = (f"KILL_RWKV: contrast_c4={contrast_c4:+.2f}pp / ood={contrast_ood:+.2f}pp; "
+                   f"theory does not extend to RWKV training-time.")
+    print(f"\n  verdict: {verdict}")
+
+    out = {
+        "genome": 161, "name": "rwkv_training_extension",
+        "config": {"baseline_layers": BASELINE_LAYERS, "transport_layers": TRANSPORT_LAYERS,
+                    "hidden_size": HIDDEN_SIZE, "channel_mix_hidden": CHANNEL_MIX_HIDDEN,
+                    "seeds": SEEDS_FOR_TRAIN, "shuffle_seed": SHUFFLE_SEED,
+                    "n_train": N_TRAIN, "train_steps": TRAIN_STEPS,
+                    "arm_lr": arm_lr, "flop_diff_pct": float(flop_diff)},
+        "results": results, "deltas": deltas,
+        "contrast_c4": float(contrast_c4), "contrast_ood": float(contrast_ood),
+        "verdict": verdict, "elapsed_s": time.time() - t0,
+    }
+    out_path = ROOT_DIR / "results" / "genome_161_rwkv_training_extension.json"
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
+    print(f"\nSaved: {out_path}  ({time.time()-t0:.1f}s)")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="g161 small RWKV-4 implementation")
     parser.add_argument("--summary", action="store_true", help="Print param and FLOP summaries")
     parser.add_argument("--smoke", action="store_true", help="Run a tiny forward/backward smoke test")
+    parser.add_argument("--run", action="store_true", help="Run the full g161 training experiment")
     args = parser.parse_args()
-    if not args.summary and not args.smoke:
+    if not (args.summary or args.smoke or args.run):
         args.summary = True
     if args.summary:
         _print_summary()
@@ -451,6 +701,9 @@ def main() -> None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"running smoke on device={device}")
         _run_smoke(device)
+    if args.run:
+        run_full_experiment()
+
 
 if __name__ == "__main__":
     main()
