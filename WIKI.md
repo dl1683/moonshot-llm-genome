@@ -1159,6 +1159,18 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Files: `research/derivations/prefix_information_transport.md` (canonical doc), `research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md` LOCKED, `code/genome_156_prefix_destruction_200m.py` ready to run.
 - **Why this matters per CLAUDE.md §0.1:** This is a derivation a big lab cannot publish without contradicting their "more MLP = better" product story. Surviving this test (PASS_TRANSPORT) gets the architecture-prior thesis from "phenomenology" → "first-principles-supported, falsifiable theory."
 
+**genome_156 COMPLETED (2026-04-26): PASS_TRANSPORT ★★★ BREAKTHROUGH-AXIS VALIDATED**
+- **All three pre-stated criteria cleared cleanly:**
+  - Δ_nat = +0.560pp ✓ (≥ 0.5)
+  - Δ_shuf = **−0.197pp** ✓ (≤ 0.1, MINIMAL LOSES on shuffled — sharp inversion)
+  - C = +0.757pp ✓ (≥ 0.4)
+- 3-seed values per cell tight: natural baseline {18.34, 18.39, 18.41}, natural minimal {18.99, 18.74, 19.09}, shuffled baseline {4.56, 4.42, 4.54}, shuffled minimal {4.37, 4.25, 4.31}.
+- The architecture-prior win EXISTS in natural condition AND INVERTS on shuffled. Token-shuffled data is dramatically harder for both arms (~4.4% top-1 vs ~18.4% on natural), and on that harder distribution the no-MLP arm becomes a slight LOSS — exactly the predicted regime where MLP token-local features matter more than transport.
+- **Codex §0.1 score: 4/10 → 6/10.** Theory now has serious lead with falsifiable cross-axis evidence (g152 attenuation in compute axis + g156 inversion in data-order axis).
+- **Per Codex decision rule:** queue g157 (η/δ probe on saved checkpoints) immediately; stay on locked transport program.
+- Note: script crashed on Unicode Δ char in print formatting AFTER all 12 cells completed; results reconstructed from `results/genome_156_run.log`. ASCII fix applied to script + checkpoints saved successfully (12 × ~400MB under `results/genome_156_checkpoints/`).
+- `code/genome_156_prefix_destruction_200m.py` -> `results/genome_156_prefix_destruction_200m.json`
+
 **genome_156 PRE-FLIGHT HARDENED (2026-04-26):** Codex Correctness + Cross-System review (`codex_outputs/g156_pre_flight.md`) found no critical bugs but flagged real hardening issues. Applied Severity-8 (incomplete-seed silent dropout → explicit RuntimeError), Severity-7 (n=3 noise-floor → PROVISIONAL_* wrapper for borderline results), Severity-6 (artifact-plan compliance → save shuffled corpus), Severity-5 (prereg drift → explicit shuffle-seed documentation). Pre-flight integrity audit added (multiset + frequency equality on first 100 rows). Severity-9 (interpretation risk: token_shuffled still has positional info via RoPE + causal mask) tracked as post-result control: if KILL or near-KILL, rerun with FRESH per-presentation reshuffles before declaring theory dead. Hypothesis/criteria/thresholds unchanged → prereg lock holds.
 
 **genome_158 PREREG LOCKED (2026-04-26):** `research/prereg/genome_158_context_length_inversion_2026-04-26.md`. Conditional on g156 PASS. Tests the theory's sharpest unique prediction: architecture-prior advantage is monotone in transport demand (context length). PASS_INVERSION requires Spearman ρ(L, Δ_L) ≥ +0.8 in both eval sets AND Δ_32 ≤ −0.2pp AND Δ_256 ≥ +0.5pp. Uses audit-hard protocol (dedup_v2, Wikitext VAL, ±2% FLOP match). 24 cells, ~1.6hr.

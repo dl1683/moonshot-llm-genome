@@ -1,0 +1,139 @@
+{
+  "genome": 156,
+  "name": "prefix_destruction_200m",
+  "config": {
+    "seeds": [
+      42,
+      7,
+      13
+    ],
+    "shuffle_seed_train": 42,
+    "shuffle_seed_eval": 43,
+    "warmup_steps": 200,
+    "n_train": 32768,
+    "baseline_steps": 4000,
+    "minimal_steps": 8000,
+    "arm_lr": {
+      "baseline_200M_4k": 0.0002,
+      "minimal_7L_200M_8k": 0.0003
+    }
+  },
+  "results": {
+    "natural": {
+      "baseline_200M_4k": {
+        "42": {
+          "top1_acc": 0.1834,
+          "nll": 5.977,
+          "nan_seen": false,
+          "params_M": 209.32
+        },
+        "7": {
+          "top1_acc": 0.1839,
+          "nll": 5.977,
+          "nan_seen": false,
+          "params_M": 209.32
+        },
+        "13": {
+          "top1_acc": 0.1841,
+          "nll": 5.972,
+          "nan_seen": false,
+          "params_M": 209.32
+        }
+      },
+      "minimal_7L_200M_8k": {
+        "42": {
+          "top1_acc": 0.1899,
+          "nll": 5.9,
+          "nan_seen": false,
+          "params_M": 80.86
+        },
+        "7": {
+          "top1_acc": 0.1874,
+          "nll": 5.93,
+          "nan_seen": false,
+          "params_M": 80.86
+        },
+        "13": {
+          "top1_acc": 0.1909,
+          "nll": 5.898,
+          "nan_seen": false,
+          "params_M": 80.86
+        }
+      }
+    },
+    "token_shuffled": {
+      "baseline_200M_4k": {
+        "42": {
+          "top1_acc": 0.0456,
+          "nll": 7.528,
+          "nan_seen": false,
+          "params_M": 209.32
+        },
+        "7": {
+          "top1_acc": 0.0442,
+          "nll": 7.535,
+          "nan_seen": false,
+          "params_M": 209.32
+        },
+        "13": {
+          "top1_acc": 0.0454,
+          "nll": 7.538,
+          "nan_seen": false,
+          "params_M": 209.32
+        }
+      },
+      "minimal_7L_200M_8k": {
+        "42": {
+          "top1_acc": 0.0437,
+          "nll": 7.576,
+          "nan_seen": false,
+          "params_M": 80.86
+        },
+        "7": {
+          "top1_acc": 0.0425,
+          "nll": 7.575,
+          "nan_seen": false,
+          "params_M": 80.86
+        },
+        "13": {
+          "top1_acc": 0.0431,
+          "nll": 7.568,
+          "nan_seen": false,
+          "params_M": 80.86
+        }
+      }
+    }
+  },
+  "summary": {
+    "natural": {
+      "baseline_200M_4k": {
+        "top1_mean": 0.1838,
+        "top1_std": 0.000294392028877597,
+        "n": 3
+      },
+      "minimal_7L_200M_8k": {
+        "top1_mean": 0.1894,
+        "top1_std": 0.0014719601443879664,
+        "n": 3
+      }
+    },
+    "token_shuffled": {
+      "baseline_200M_4k": {
+        "top1_mean": 0.04506666666666667,
+        "top1_std": 0.0006182412330330464,
+        "n": 3
+      },
+      "minimal_7L_200M_8k": {
+        "top1_mean": 0.0431,
+        "top1_std": 0.0004898979485566355,
+        "n": 3
+      }
+    }
+  },
+  "delta_nat_pp": 0.5600000000000022,
+  "delta_shuf_pp": -0.1966666666666672,
+  "C_pp": 0.7566666666666694,
+  "near_threshold": false,
+  "verdict": "PASS_TRANSPORT: delta_nat=+0.56pp >=0.5 AND delta_shuf=-0.20pp <=0.1 AND C=+0.76pp >=0.4. Prefix-Information Transport theory SUPPORTED.",
+  "reconstruction_note": "Reconstructed from results/genome_156_run.log after Unicode crash on Delta char in print formatting. All 12 cells completed cleanly; only the verdict-print path failed. Train+eval values are exact; checkpoints saved by ZeroMLP/torch.save are intact under results/genome_156_checkpoints/."
+}

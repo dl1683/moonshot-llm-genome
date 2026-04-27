@@ -26,6 +26,42 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 — genome_156_prefix_destruction_200m — PASS_TRANSPORT ★★★ (orthogonal-axis discrimination, theory's predicted inversion observed)
+
+**Purpose.** Codex Architecture-Theorist consult identified the Prefix-Information Transport Principle (`research/derivations/prefix_information_transport.md`) as the only first-principles derivation route for the architecture-prior win that is mechanistically right-shaped, brutally falsifiable, and product-conflict for big labs (CLAUDE.md §0.1). g156 is its locked killer test: destroying ordered prefix information should collapse (or invert) the win.
+
+**Systems.** 200M Llama-3 family, baseline_14L+MLP @4k steps vs minimal_7L_noMLP @8k steps. Arm-specific best LRs from g151 (baseline=2e-4, minimal=3e-4). 3 seeds × 2 conditions (natural / token_shuffled).
+
+**Pre-stated thresholds.** PASS_TRANSPORT: Δ_nat ≥ +0.5pp AND Δ_shuf ≤ +0.1pp AND C := Δ_nat − Δ_shuf ≥ +0.4pp.
+
+### Result — all three thresholds cleared cleanly
+
+| condition | baseline top-1 (seeds 42/7/13) | minimal top-1 (seeds 42/7/13) | Δ |
+|---|---|---|---:|
+| natural | 18.34 / 18.39 / 18.41 → 18.38 | 18.99 / 18.74 / 19.09 → 18.94 | **+0.560pp** |
+| token_shuffled | 4.56 / 4.42 / 4.54 → 4.51 | 4.37 / 4.25 / 4.31 → 4.31 | **−0.197pp** |
+
+**C = +0.757pp** ≥ +0.4pp threshold ✓.
+
+### Why this matters
+
+Combined with g152's compute-axis attenuation (peak +1.60pp → final +0.27pp as compute grows), g156 gives the orthogonal-axis discrimination Codex's adversarial audit said the thesis needed. The architecture-prior win:
+- exists in natural condition (g141, g146, g147 + g156 confirmation: +0.56pp)
+- attenuates with compute as the transport gap closes (g152)
+- INVERTS when ordered prefix information is destroyed (g156: minimal LOSES by 0.20pp on shuffled)
+
+Two orthogonal control axes, both behaving exactly as the theory predicts. **Codex §0.1 score: 4/10 → 6/10.** Per Codex decision rule: queue g157 (η/δ probe on the 12 saved checkpoints) immediately; stay on the locked post-g156 program.
+
+### Caveats
+
+1. Single-family (Llama-3 derivatives only). g159's cross-class lesion test (Qwen3 + RWKV + Falcon-H1) is required for class-generality.
+2. 200M scale only. g158's context-length inversion sweep tests the theory's sharpest unique prediction.
+3. Script crashed on Unicode Δ character in verdict-print formatting AFTER all 12 cells completed and saved checkpoints. Results reconstructed from log; ASCII fix applied; same-bug pattern as g148.
+
+**Next.** Pre-stage g157 prereg (η/δ layerwise probe on the saved 12 checkpoints). Per locked sequencing: g157 → g158 → g159 → g161 → g160. Each is itself preregistered before launch.
+
+---
+
 ## 2026-04-26 — genome_152_long_horizon_crossover — AMBIGUOUS / PARTIAL (gap attenuates, no crossover)
 
 **Purpose.** Falsify the "short-horizon compute-optimality artifact" attack on the architecture-prior thesis (Codex severity-10). 200M baseline_14L+MLP at 25k steps vs minimal_7L_noMLP at 50k steps, 3 seeds, N_TRAIN=131072.

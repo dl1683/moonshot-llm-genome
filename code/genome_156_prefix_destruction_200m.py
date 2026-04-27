@@ -24,9 +24,9 @@ Two arms (200M-class, arm-specific best LRs from g151):
 3 seeds: {42, 7, 13}.
 
 Pre-stated criteria:
-  PASS_TRANSPORT: Δ_nat ≥ +0.5pp AND Δ_shuf ≤ +0.1pp AND C := Δ_nat − Δ_shuf ≥ +0.4pp
-  PARTIAL_TRANSPORT: Δ_nat ≥ +0.3pp AND Δ_shuf ≤ +0.2pp AND C ≥ +0.2pp
-  KILL_TRANSPORT: |Δ_nat − Δ_shuf| ≤ 0.2pp (theory dies)
+  PASS_TRANSPORT: delta_nat >= +0.5pp AND delta_shuf <= +0.1pp AND C := delta_nat - delta_shuf >= +0.4pp
+  PARTIAL_TRANSPORT: delta_nat >= +0.3pp AND delta_shuf <= +0.2pp AND C >= +0.2pp
+  KILL_TRANSPORT: |delta_nat - delta_shuf| <= 0.2pp (theory dies)
 
 Compute: 12 runs (2 conditions x 2 arms x 3 seeds), ~1hr on RTX 5090.
 
@@ -328,7 +328,7 @@ def main():
                   - summary["token_shuffled"]["baseline_200M_4k"]["top1_mean"]) * 100
     C = delta_nat - delta_shuf
     # Codex bug-audit Severity-7 fix: at 200M, per-seed C4-gap std ~ 0.35pp,
-    # so n=3 yields SE_mean ~ 0.20pp on each Δ. If |C| or any Δ lands within
+    # so n=3 yields SE_mean ~ 0.20pp on each delta_. If |C| or any delta_ lands within
     # 0.2pp of a threshold, the result is at noise floor — flag for promotion
     # to 5 seeds before treating as decisive.
     pp_se_estimate = 0.20
@@ -339,29 +339,29 @@ def main():
 
     print(f"  natural:        baseline {100*summary['natural']['baseline_200M_4k']['top1_mean']:.2f}% "
           f"vs minimal {100*summary['natural']['minimal_7L_200M_8k']['top1_mean']:.2f}% "
-          f"(Δ_nat = {delta_nat:+.2f}pp)")
+          f"(delta_nat = {delta_nat:+.2f}pp)")
     print(f"  token_shuffled: baseline {100*summary['token_shuffled']['baseline_200M_4k']['top1_mean']:.2f}% "
           f"vs minimal {100*summary['token_shuffled']['minimal_7L_200M_8k']['top1_mean']:.2f}% "
-          f"(Δ_shuf = {delta_shuf:+.2f}pp)")
-    print(f"  C = Δ_nat - Δ_shuf = {C:+.2f}pp")
+          f"(delta_shuf = {delta_shuf:+.2f}pp)")
+    print(f"  C = delta_nat - delta_shuf = {C:+.2f}pp")
 
     if delta_nat >= 0.5 and delta_shuf <= 0.1 and C >= 0.4:
-        verdict = (f"PASS_TRANSPORT: Δ_nat={delta_nat:+.2f}pp ≥ +0.5pp AND "
-                   f"Δ_shuf={delta_shuf:+.2f}pp ≤ +0.1pp AND C={C:+.2f}pp ≥ +0.4pp. "
+        verdict = (f"PASS_TRANSPORT: delta_nat={delta_nat:+.2f}pp >= +0.5pp AND "
+                   f"delta_shuf={delta_shuf:+.2f}pp <= +0.1pp AND C={C:+.2f}pp >= +0.4pp. "
                    f"Prefix-Information Transport theory SUPPORTED.")
     elif delta_nat >= 0.3 and delta_shuf <= 0.2 and C >= 0.2:
-        verdict = (f"PARTIAL_TRANSPORT: Δ_nat={delta_nat:+.2f}pp Δ_shuf={delta_shuf:+.2f}pp "
+        verdict = (f"PARTIAL_TRANSPORT: delta_nat={delta_nat:+.2f}pp delta_shuf={delta_shuf:+.2f}pp "
                    f"C={C:+.2f}pp. Direction consistent with theory but signal weaker than expected.")
     elif abs(delta_nat - delta_shuf) <= 0.2:
-        verdict = (f"KILL_TRANSPORT: |Δ_nat - Δ_shuf|={abs(delta_nat - delta_shuf):.2f}pp ≤ 0.2pp. "
+        verdict = (f"KILL_TRANSPORT: |delta_nat - delta_shuf|={abs(delta_nat - delta_shuf):.2f}pp <= 0.2pp. "
                    f"Architecture-prior win does NOT depend on prefix order. Transport theory FALSIFIED.")
     else:
-        verdict = (f"AMBIGUOUS: Δ_nat={delta_nat:+.2f}pp Δ_shuf={delta_shuf:+.2f}pp C={C:+.2f}pp.")
+        verdict = (f"AMBIGUOUS: delta_nat={delta_nat:+.2f}pp delta_shuf={delta_shuf:+.2f}pp C={C:+.2f}pp.")
 
     if near_threshold:
         verdict = "PROVISIONAL_" + verdict.split(":", 1)[0] + (
             f" — RESULT IS NOISE-FLOOR-ADJACENT (Codex bug-audit Severity-7). "
-            f"|C|={abs(C):.2f}pp, SE_mean per Δ ≈ {pp_se_estimate:.2f}pp at n=3 seeds. "
+            f"|C|={abs(C):.2f}pp, SE_mean per delta_ ≈ {pp_se_estimate:.2f}pp at n=3 seeds. "
             f"Promote to 5 seeds before treating as decisive: "
             + verdict.split(":", 1)[1]
         )

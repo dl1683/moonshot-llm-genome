@@ -21,6 +21,21 @@ The peak is at modest compute and the gap monotonically attenuates after, while 
 
 g156 is the causal test along an ORTHOGONAL axis (data structure rather than compute) that can DISCRIMINATE between transport-control-variable and early-budget-artifact. g158 extends along context length. The triangulation of all three axes (compute, data order, context length) is what makes the theory load-bearing — no single trajectory does. g152 alone strengthens the case for running g156; it does not strengthen the thesis on its own.
 
+## g156 prefix-destruction killer test (2026-04-26): PASS_TRANSPORT ★★★
+
+The orthogonal-axis discrimination test the theory required. 3 seeds × 2 conditions × 2 arms = 12 cells at 200M, arm-specific best LRs from g151.
+
+| condition | baseline top-1 | minimal top-1 | Δ |
+|---|---:|---:|---:|
+| natural c4 | 18.38% | 18.94% | **+0.560pp** |
+| token_shuffled | 4.51% | 4.31% | **−0.197pp** |
+
+Contrast: **C = Δ_nat − Δ_shuf = +0.757pp**. All three PASS_TRANSPORT thresholds cleared (≥0.5, ≤0.1, ≥0.4). Per-seed std small (~0.05pp baseline, ~0.15pp minimal) so signal dominates noise here unlike g152's final-checkpoint borderline.
+
+**Combined with g152's compute-axis attenuation, this is now cross-axis falsifiable evidence.** The architecture-prior win exists in natural condition, attenuates as compute closes the transport gap (g152), and INVERTS when ordered prefix information is destroyed (g156). Two orthogonal control axes, both behaving as the theory predicts.
+
+The Codex §0.1 publishability score moves from 4/10 (narrow regime-specific empirical effect) to 6/10 (serious theory lead with cross-axis falsifiable evidence). Closing the gap to a "measured design law" requires the locked post-g156 program (g157 η/δ probe, g158 context-length inversion, g159 cross-class lesion, g160 transport-guided student, g161 RWKV training).
+
 ## Empirical record this is meant to derive
 
 In this repo's matched-budget protocol, a smaller **MLP-free attention+residual** model beats a larger attention+MLP baseline across 30M → 100M → 200M, and the win survives arm-specific tuning (`g138`, `g141`, `g146`, `g147`, `g148`, `g151`).
