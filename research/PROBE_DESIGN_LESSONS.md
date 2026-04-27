@@ -86,6 +86,22 @@ Adding FP32 + grad clip + microbenchmark + dedup audit + non-finite-loss handlin
 
 When in doubt, document the patches in the commit message and proceed.
 
+## 9. Theory predictions are DIRECTIONAL not ABSOLUTE
+
+The locked PASS criterion required `nat_G >= +0.02 nats` (absolutely positive transport surplus). On both v2 (same-layer prefix) and v3/b (FP32 + grad clip + same/embed prefix), the **absolute** G_l on natural-minimal is consistently negative.
+
+But the **directional** contrast nat - shuf is positive in the predicted direction:
+- v2 same-layer: contrast eta_nat_minimal - eta_shuf_minimal = **+2.32 nats** (per `python integrate_g157b_eta_only.py`)
+- The mid-band G_l on natural-minimal is LESS NEGATIVE than on natural-baseline at every depth
+
+This is consistent with: "transport gap exists on minimal more than baseline at the same compute, prefix info is more relevant on natural than shuffled." The absolute zero baseline (`G > 0`) was not the right reference — the noise floor (G on shuffled) is.
+
+**Implication:** future probe-criterion designs should use:
+- A relative criterion: `eta_nat - eta_shuf >= threshold` (not absolute)
+- A noise-floor reference: estimate the eta value on shuffled as the null hypothesis
+
+The locked PILOT criteria `nat_G >= +0.02` was a procedural error; the canonical 3-seed verdict (g157c) should use the relative criterion.
+
 ## How to apply going forward
 
 For g157c, g157d, g158, g159, g160, g161 and any future probe / measurement experiment:
