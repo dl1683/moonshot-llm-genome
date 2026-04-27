@@ -1,0 +1,40 @@
+{
+  "genome": 159,
+  "name": "cross_class_lesion",
+  "config": {
+    "models": [
+      "Qwen/Qwen3-0.6B",
+      "RWKV/rwkv-4-169m-pile",
+      "tiiuae/Falcon-H1-0.5B-Instruct"
+    ],
+    "depths": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "n_calib": 2048,
+    "n_eval": 1024,
+    "pca_rank": 32,
+    "shuffle_seed": 42,
+    "seq_len": 256
+  },
+  "results": {
+    "qwen3": {
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "n_layers": 28,
+      "error": "non-positive local lesion delta; ratio undefined"
+    },
+    "rwkv4": {
+      "hf_id": "RWKV/rwkv-4-169m-pile",
+      "n_layers": 12,
+      "error": "non-positive local lesion delta; ratio undefined"
+    },
+    "falcon_h1": {
+      "hf_id": "tiiuae/Falcon-H1-0.5B-Instruct",
+      "n_layers": 36,
+      "error": "non-positive local lesion delta; ratio undefined"
+    }
+  },
+  "verdict": "INCOMPLETE: only 0/3 models loaded successfully; cannot decide cross-class.",
+  "elapsed_s": 17962.952900648117
+}

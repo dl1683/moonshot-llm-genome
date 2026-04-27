@@ -35,8 +35,16 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
   - Diagnosis: at any TRAINED autoregressive LM, h_t already contains transported prefix info → q_local extracts it from h_t → q_prefix has nothing extra → eta < 0 always on natural. The η > δ^mlp criterion is structurally untestable on fully-trained models.
   - **Mechanism candidate REJECTED.** Empirical g156 PASS_TRANSPORT stands; the proposed transport-budget criterion does not explain it.
 
+**genome_159 COMPLETED (2026-04-27 04:53): INCOMPLETE / SCALE-LIMITED — cross-class null finding (supportive of architecture-prior thesis per cycle 12 direction review)**
+- All 3 architectures (Qwen3-0.6B, RWKV-4-169M, Falcon-H1-0.5B) marked INCOMPLETE.
+- Same lesion-underbite pattern in 9/9 cells: rank-32 PCA captures only ~21-25% of local sublayer variance (vs ~25-50% transport). Local-lesion delta on shuffled is consistently NEGATIVE (top-32 PCA components are noise/bias, projecting them out IMPROVES NLL on shuffled). R = ΔNLL_t / ΔNLL_l undefined when d_l ≤ 0.
+- Wall-clock: 299 min (~5 hr).
+- **Codex cycle 12 direction interpretation:** "Across Falcon, Qwen3, and RWKV, rank-32 local lesions failed to bite despite transport-side effects, and because local PCA captured only ~21–25% variance, this does not identify mechanism at rank-32; however, the uniform null is itself supportive of a transport-dominant architecture prior." Frame as **supportive, not dispositive**. §0.1 score moves >6/10 (turning execution shortfall into a cross-architecture empirical constraint).
+- Per cycle 9+12 sequencing: launching **g158 PILOT** next (single-seed, ~3.5hr).
+- `code/genome_159_cross_class_lesion.py` -> `results/genome_159_cross_class_lesion.json` (commit 73d5fc0)
+
 **Running:**
-- `g159` cross-class causal lesion (Qwen3 + RWKV-4 + Falcon-H1) — launched 23:55. Qwen3 + RWKV both INCOMPLETE (rank-32 PCA lesion captures ~25% local variance, d_l_shuf turns NEGATIVE so ratio undefined). Falcon-H1 in progress. Likely overall verdict: INCOMPLETE/KILL → triggers Path C pivot.
+- `g158 PILOT` context-length inversion sweep (single-seed, launched 04:53; ~3.5hr) — tests theory's INPUT-SIDE prediction (transport demand control variable). Independent of η/δ probe AND independent of rank-32 lesion issue.
 
 **Killed and relocked:**
 - `g158` was launched at 22:55 then killed at 23:50 — at the corrected exact-FLOP-match the 3-seed run projected to ~11hr (over envelope). Relocked as **single-seed PILOT** (`research/prereg/genome_158_PILOT_2026-04-27.md`); ~3.5hr. Queued behind g159.

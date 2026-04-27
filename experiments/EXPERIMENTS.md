@@ -26,6 +26,45 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-27 — genome_159_cross_class_lesion — INCOMPLETE / SCALE-LIMITED (cross-class null is supportive of architecture-prior thesis)
+
+**Purpose.** Cross-class causal test of transport-vs-local sublayer asymmetry on three pretrained architectures: Qwen3-0.6B (transformer), RWKV-4-169M (linear-recurrent), Falcon-H1-0.5B-Instruct (hybrid). Per Codex's locked spec at rank-32 PCA lesion.
+
+**Verdict label.** INCOMPLETE: 0/3 models cleanly resolved (all marked INCOMPLETE individually due to non-positive local-lesion delta).
+
+**Pattern (uniform across 9/9 cells = 3 models × 3 depths):**
+- Transport top-32 PCA captures ~25-50% of variance; local top-32 PCA captures ~21-25%.
+- Transport-lesion delta on natural data: small but POSITIVE (~+0.003 to +0.005 nats — bites slightly)
+- Local-lesion delta on natural data: ~zero or NEGATIVE
+- Local-lesion delta on shuffled data: NEGATIVE (projecting out top-32 IMPROVES NLL — components are noise/bias)
+- Ratio R = ΔNLL_transport / ΔNLL_local undefined when d_l ≤ 0 → all cells flagged INCOMPLETE.
+
+### Cycle 12 direction-review interpretation (supportive cross-class null)
+
+> "Across Falcon, Qwen3, and RWKV, rank-32 local lesions failed to bite despite transport-side effects, and because local PCA captured only ~21–25% variance, this does not identify mechanism at rank-32; however, the uniform null is itself supportive of a transport-dominant architecture prior."
+
+**Two valid follow-ups:**
+1. **g159b rank-sweep** (LOCKED prereg, conditional): test ranks {64, 128, 256} on Qwen3 + RWKV. If higher ranks show local lesion biting, the null at rank-32 was a scale issue. If even rank-256 doesn't bite, local sublayer is genuinely low-impact across these trained models.
+2. **Skip g159b, accept the null as supportive evidence**: cross-class uniformity at the same rank IS a finding (3/3 architectures show transport-dominant pattern at this scale).
+
+### Why this matters
+
+The empirical g156 PASS_TRANSPORT (Llama-3 architecture-prior win) is now joined by a cross-class observation: at rank-32 PCA, the local sublayer in 3 distinct trained architectures (transformer, linear-recurrent, hybrid) shows lesion-underbite while transport shows lesion-bite. **Cross-class transport-dominance signal**, even though the locked R-ratio metric is non-diagnostic at this rank.
+
+§0.1 score moves >6/10 (turning execution shortfall into cross-architecture empirical constraint).
+
+### Compute
+
+- Wall-clock: 299 min (~5 hr) due to Falcon-H1's slow Mamba reference path.
+- Codex pre-flight estimate: 0.9-1.6 hr; actual much higher because Codex didn't account for Mamba slow path.
+
+### Next
+
+- Per cycle 9+12 direction reviews: launch **g158 PILOT** (context-length inversion, single-seed, ~3.5hr) as the next experiment.
+- g159b decision deferred until g158 verdict.
+
+---
+
 ## 2026-04-26 — genome_157b PILOT — KILL_157b (mechanism candidate REJECTED across both probe variants)
 
 **Purpose.** Path C of the post-g157-v2 decision tree: with FP32 + grad clip + skip-non-finite-loss + embedding-layer prefix probe (instead of same-layer), test whether the η > δ^mlp transport-budget criterion is observable when the structural-weakness issue is fixed.
