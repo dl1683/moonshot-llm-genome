@@ -1,0 +1,43 @@
+You are the Architecture Theorist + Research Integrity Auditor for the Neural Genome moonshot.
+
+g157 v2 PILOT is finishing. Preliminary data is in `results/genome_157_run.log`. Three things happened:
+
+1. The lin probe blew up on token_shuffled (CE = 230-290 on baseline shuffled, CE = 60-75 on minimal shuffled). On natural data it's ~8-10 CE which is reasonable. This is a BF16 numerical issue — probe weights exploded without grad clipping.
+
+2. Even on natural data (where lin probe is fine), G_l = eta_hat - delta_hat^mlp is consistently NEGATIVE on both natural-baseline and natural-minimal arms (G ≈ -3 to -5 nats). The transport theory predicted G > 0 on minimal. It does not show.
+
+3. The same-layer prefix probe was used. The prereg explicitly allowed "or their embeddings plus h." The g157b alternative-probe variant uses embedding-layer prefix and is ready to launch.
+
+DATA SUMMARY (will be in the JSON when g157 finishes):
+  natural_baseline_seed42 mid-band G: ~-4.5 (per-layer: -3.51, -4.26, -5.70)
+  natural_minimal_seed42  mid-band G: ~-3.3 (per-layer: -2.77, -3.30, -3.84)
+  shuffled_baseline_seed42 mid-band G: ~-300 (lin pathological; ignore)
+  shuffled_minimal_seed42  mid-band G: ~-60 (lin pathological)
+
+HONEST INTERPRETATIONS:
+
+A) The same-layer prefix probe is structurally weaker than the local probe at every layer of every checkpoint. This means q_local can already extract whatever info q_prefix could extract from same-layer h_<t. Either:
+   (a) Information is already merged into h_t by the residual stream (supports theory; G > 0 only on layer-0-prefix probes), OR
+   (b) The eta>delta criterion is wrong for autoregressive LMs.
+
+B) The lin probe failure on shuffled is a probe-protocol bug, not a theory issue. With FP32 + grad clip, both g157 v3 (same-layer) and g157b (embedding-layer) should produce numerically clean G_l values.
+
+QUESTIONS FOR YOU:
+
+1. Given (A), is the locked PASS criterion (G > +0.02 on natural-minimal mid-band) testable with a same-layer prefix probe AT ALL? If not, the g157 v2 was ill-designed and we should NOT call PILOT_KILL on its data.
+
+2. Should we re-run g157 v3 (FP32 same-layer prefix) AND g157b (FP32 embedding prefix) and compare, OR just go straight to g157b as the canonical test?
+
+3. If both g157 v3 and g157b show G > 0 on natural-minimal, is THAT enough to claim DIRECTIONAL_SUPPORT? Or do we need a 3-seed expansion?
+
+4. What's the minimum data we need to write a clean Phase-3 atlas claim for the η > δ^mlp criterion? Be specific about seeds, depths, probe variants, eval splits.
+
+5. If both g157 v3 and g157b also return G ≤ 0 on natural-minimal, is the transport-theory mechanism truly dead, or is there a third probe variant we should try (e.g., different-architecture probe, fixed-attention probe)?
+
+DELIVER:
+- Direct answers to questions 1-5.
+- Recommended decision tree for the next 4 GPU-hours given current data.
+- Ranking: g157 v3 vs g157b vs both vs other.
+- Whether the locked g157 PILOT prereg is salvageable OR needs another relock.
+
+Output a single markdown report at codex_outputs/g157_pilot_interpretation.md (NOT *_AUDIT.md per gitignore). Be brutally honest about whether the theory is in trouble.
