@@ -97,7 +97,31 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRONG EMPIRICAL FINDING from Codex data-mining consult + cycle 23/24 audit, CORRECTED cycle 27 (2026-04-27):** Extended to **n=7** across distinct donor mechanisms (ridge-grafted init, mean-shift init, trainable mean-shift, weight-space seed, rank30 adapter, frozen-attn glue, optimizer-state). Pattern: donor signal provides up to **+23 nats** of NLL advantage early, **washes out by step 4-2000** in 5/7 cases, mean final advantage -0.29 nats. **Codex cycle 27 SEV8 correction:** the comparators for g125 and g137 were wrong in the first pass; with proper comparators (matched_param_ctrl for g125, resume_reset for g137), the headline shifts: **1/7 mechanisms persists** — g125 frozen-attn glue at +0.07 nats (NOT g137 as originally claimed). g125's "persistence" is a degenerate special case: freezing donor weights = "always-on anchor" with decay rate zero. g137 optimizer-state, with correct comparator, shows the SAME washout pattern (1064: +0.046 → 4000: -0.0004). The annealed-donor hypothesis still motivated: g125 demonstrates that anchor-rate-zero is the only persistence mode currently known. Audit: `research/EARLY_HELP_META_AUDIT_2026-04-27.md`. Cycle 27 SEV8: `codex_outputs/heartbeats/cycle27_code_review_20260427T110500.md`.
 
-**★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW. Crucial Codex caveat: "don't run plain anchoring — g008 already partly tested static anchoring and still washed out. The right test is decaying anchor / annealed donor schedule." Specs locked in `research/programs/post_g158c_decision_tree.md` § STRATEGIC OVERRIDE.
+**★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
+
+**★ TRANSFER-AXIS RETHINK 2026-04-27 (Codex "codex everywhere" consult):** Codex re-ranked all transfer techniques and surfaced 4 NEW techniques scoring HIGHER than g165. The new ranking by PASS ceiling:
+
+| Technique | PASS | Status |
+|---|:--:|---|
+| **g168 re-basin + norm-refit zero-step transplant** | **8.3** | DRAFT 2026-04-27 — Codex's #1 immediate-fire recommendation |
+| **g169 functional scaffold distillation (ScaffoldSwap)** | **8.0** | concept; donor compute mixed in early with α→0, transfers function not weights |
+| **g170 transport-gated token KD** | **7.8** | concept; KD weighted by transport-demand per token |
+| **g171 attention-routing KD** | **7.6** | concept; transfer attention maps not weights |
+| g165 annealed-donor (RUNNING) | 7.3 | will finish first; verdict feeds next decision |
+| g172 spectral scaffold transfer | 7.1 | concept; donor's left-singular subspace as scaffold |
+| g162 capacity sweep | 6.8 | DRAFT, theory-tightening on architecture-prior |
+| g173 gradient-sketch replay | 6.9 | concept; transfer "how to move" not "where to sit" |
+| g166 optimizer-state | 6.4 | DRAFT, demoted further per cycle 33 + cycle 36 |
+
+**Repo state implications:**
+- "Raw weight copy dies, raw activation matching dies by basis mismatch, donor signal is real but SGD erases it" — Codex's framing.
+- The right axis is **transfer FUNCTION, ROUTING, or ALIGNED COORDINATES** — not parameter proximity.
+- **g168 (re-basin) is the new #1 candidate**: directly attacks the basis+norm mismatch failure mode that killed g121-g124 surgery experiments. Tests literal §0 zero-step transfer.
+- After g165 verdict: launch g168, then g169 (ScaffoldSwap) and g170 (transport-gated KD).
+- g125 deepdive: 3-seed canonical confirms +0.07 nats persistence is real but narrow. LOW priority.
+- **Distillation was prematurely deprioritized.** g154 PASS (+0.586pp KD transfer at smoke scale) deserves canonical scale-up. g160's PILOT_KILL was a transport-theory test, NOT a KD test. g167 (canonical g154 scale-up) at 7/10.
+
+Source: `codex_outputs/transfer_axis_rethink_20260427T200000.md`, `codex_outputs/g125_deepdive_20260427T200000.md`, `codex_outputs/distill_axis_audit_20260427T200000.md`. Crucial Codex caveat for g165: "don't run plain anchoring — g008 already partly tested static anchoring and still washed out. The right test is decaying anchor / annealed donor schedule." Specs locked in `research/programs/post_g158c_decision_tree.md` § STRATEGIC OVERRIDE.
 
 **Retired from queue (no longer pre-staged):**
 - `g157c/d/v3` — archived after g157b KILL (mechanism rejected)
