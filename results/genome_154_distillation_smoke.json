@@ -1,0 +1,38 @@
+{
+  "genome": 154,
+  "name": "distillation_smoke",
+  "config": {
+    "teacher": "Qwen/Qwen3-0.6B",
+    "student": "minimal_3L_30M",
+    "n_train": 4096,
+    "train_steps": 4000,
+    "kd_temp": 2.0,
+    "kd_gamma": 0.5,
+    "lr": 0.0003,
+    "batch": 8,
+    "seed": 42
+  },
+  "teacher_params_M": 596.04992,
+  "arm_A_scratch": {
+    "params_M": 60.013056,
+    "wallclock_s": 651.3490693569183,
+    "metrics": {
+      "nll": 6.520779220779221,
+      "top1_acc": 0.14665178571428572
+    }
+  },
+  "arm_B_kd": {
+    "params_M": 60.013056,
+    "wallclock_s": 1425.9469587802887,
+    "metrics": {
+      "nll": 6.462337662337663,
+      "top1_acc": 0.15251623376623377
+    }
+  },
+  "deltas": {
+    "top1_gap_pp": 0.5864448051948051,
+    "nll_gap": 0.05844155844155807
+  },
+  "verdict": "PASS: KD student beats scratch by +0.59pp top1 + +0.058 NLL. Distillation pipeline works. Ready to scale to stronger teacher and bigger student.",
+  "elapsed_s": 2302.8752715587616
+}
