@@ -140,10 +140,26 @@ def main():
     print("\nTo append to ledger.jsonl, run:")
     print(f"  python code/integrate_g157b.py --commit")
 
+    # Build WIKI patch text
+    wiki_patch = f"""**genome_157b PILOT COMPLETED ({datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}): {verdict.split(':',1)[0]}**
+- nat_G_mean = {nat_G:+.4f}, shuf_G_mean = {shuf_G:+.4f}, contrast = {contrast:+.4f}
+- eta-only criterion: nat-min={eta_nat_min:+.4f}, shuf-min={eta_shuf_min:+.4f}, contrast={eta_contrast_min:+.4f}
+  ({eta_only_verdict})
+- Pathology flagged: {pathology_flagged} (lin probe |delta|>100 anywhere)
+- **Path {path}:** {path_text}
+- `code/genome_157b_eta_delta_probe_embedding_prefix.py` -> `results/genome_157b_eta_delta_probe.json`
+"""
+    print("\n=== WIKI patch (paste into ACTIVE EXPERIMENT QUEUE section) ===")
+    print(wiki_patch)
+
     if "--commit" in sys.argv:
         with open(LEDGER, "a") as f:
             f.write(json.dumps(entry) + "\n")
         print(f"\nAppended to {LEDGER}")
+        # Also write the wiki patch to a stash file
+        wiki_path = ROOT / "research" / "g157b_wiki_patch.md"
+        wiki_path.write_text(wiki_patch, encoding="utf-8")
+        print(f"WIKI patch stashed at {wiki_path}; manual integration required")
 
 
 if __name__ == "__main__":
