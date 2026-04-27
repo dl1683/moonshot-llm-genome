@@ -17,13 +17,23 @@ These are the protocols that survive the Codex 2026-04-26 adversarial audit (CLA
 
 ## Sequencing
 
-1. **g157** — η/δ probe on g156 checkpoints (~2 GPU-hr). Builds the missing measurement primitive.
-2. **g158** — context-length inversion sweep (~1.5 GPU-hr). Sharpest unique prediction.
-3. **g159** — cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (~0.8 GPU-hr). Architecture-class extension via pretrained models.
-4. **g161** — RWKV training extension (~3 GPU-hr). Direct training-time replication beyond transformers.
-5. **g160** — transport-guided student comparison (~3.5 GPU-hr). Cashes the law as a model-selection rule.
+1. **g157** — η/δ probe on g156 checkpoints. v1 was 91-hr; relocked as PILOT (1-seed, 4 ckpts, ~30 min projected). Running 2026-04-26 21:35.
+   - Backup: **g157b** — embedding-layer prefix probe variant (LOCKED; conditional on g157 PILOT KILL/WEAK due to suspected probe-design issue at same-layer prefix).
+2. **g158** — context-length inversion sweep (~1.6-2.0 GPU-hr post-fixes). Pre-flight blockers patched (exact-FLOP match, dedup, NaN guard).
+3. **g159** — cross-class causal lesion on Qwen3 + RWKV + Falcon-H1 (~0.9-1.6 GPU-hr per Codex). Pre-flight blockers patched (val data, exact streaming PCA).
+4. **g161** — RWKV training extension (~2-3 GPU-hr). Stub written; awaiting Codex implementation design (codex_outputs/g161_rwkv_implementation.md, firing).
+5. **g160** — transport-guided student comparison (~3+ GPU-hr; pre-flight pending).
 
-g152 and g153 are NOT in this stack (they patch the old empirical chain rather than add new evidence types).
+g152 and g153 are NOT in this stack (they patch the old empirical chain rather than add new evidence types). g154 (distillation smoke) PASSed and unblocks g160.
+
+## Status as of 2026-04-26 evening
+
+- g154: **PASS** (KD beats scratch +0.59pp top-1; pipeline validated)
+- g156: **PASS_TRANSPORT** (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp; theory's predicted inversion observed)
+- g152: AMBIGUOUS/PARTIAL (long-horizon attenuation observed; final-checkpoint CIs include zero)
+- g157 PILOT: running, early data shows G_l < 0 on natural arms (probe-design issue suspected)
+- g157b: LOCKED, ready to launch if g157 PILOT confirms probe-design issue
+- g158/g159/g160/g161: locked + implemented + Codex-pre-flighted + patched (g158/g159) or awaiting Codex design (g161); ready to launch when GPU frees
 
 ## g157 — Layerwise η/δ probe
 
