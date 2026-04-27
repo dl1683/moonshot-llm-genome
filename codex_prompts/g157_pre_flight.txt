@@ -1,0 +1,73 @@
+You are running Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+PRE-FLIGHT REVIEW of code/genome_157_eta_delta_probe.py before launch.
+
+If g157 returns an unexpected result, we want high confidence the theory is failing, NOT the implementation. Find every bug, edge case, encoding hazard, OOM risk, silent-data-drop, or interpretation-distorting confound.
+
+READ:
+1. code/genome_157_eta_delta_probe.py (the experiment, ~430 lines)
+2. research/prereg/genome_157_eta_delta_probe_2026-04-26.md (locked spec)
+3. research/derivations/prefix_information_transport.md (theory)
+4. code/genome_156_prefix_destruction_200m.py (which produced the 12 checkpoints g157 loads)
+5. code/stimulus_banks.py (data source)
+
+SPECIFIC AUDIT POINTS:
+
+A) Encoding / Unicode (we just had Δ char crash g156's verdict-print after all cells completed):
+   - Are there any non-ASCII characters in print() or string formatting? (η, δ, Δ, ≥, ≤, etc.)
+   - Will it crash on Windows cp1252 codec?
+
+B) Checkpoint loading correctness:
+   - load_checkpoint() reconstructs LlamaForCausalLM from the saved config dict. Verify it correctly handles the no_mlp=True case (re-installs ZeroMLP after load_state_dict).
+   - state_dict was saved as {k: v.detach().cpu()} — verify it loads cleanly on cuda+bf16 model.
+   - Does the saved config dict actually contain {hidden, layers, heads, ffn, no_mlp, vocab_size}? Cross-check against g156's torch.save call.
+
+C) Activation hooking:
+   - extract_activations registers a forward hook on model.model.layers[layer_idx]. The hook captures `out[0] if isinstance(out, tuple) else out`. Llama layer output is a tuple (hidden_states, ...) — verify [0] is the residual-stream output, not e.g. attention weights.
+   - Activations are appended to a list and torch.cat'd. With batches up to 32 × 256 × 1024 × bf16 ≈ 16 MB per batch, 5120 windows total → ~5 GB activation tensor per layer. Will this OOM on RAM (we move .cpu() at the end)?
+
+D) Probe param-matching:
+   - LinearProbe params = hidden×vocab + vocab. For Pythia tokenizer at vocab~50k and hidden=1024 (baseline) or 1024 (minimal): ~51M params.
+   - LocalMLPProbe with mlp_hidden = hidden*vocab/(hidden+vocab) ≈ 51M*1024/(1024+50k) ≈ ~1k. So mlp_hidden ~1000. Total params: hidden*1000 + 1000 + 1000*vocab + vocab ≈ 1M + 50M = 51M. Matches LinearProbe ✓.
+   - PrefixAttnProbe with kv_dim=hidden=1024: q_proj + k_proj + v_proj = 3 × hidden×kv_dim = 3M; out = kv_dim×vocab + vocab = 51M. Total ≈ 54M. Slightly OVER LinearProbe.
+   - Is this within 1% match per the prereg? Or do we need to shrink kv_dim?
+
+E) Probe training symmetry:
+   - All three probes use same train/val/test split, same optimizer, same LR (1e-3), same step count (3000), same batch (32). ✓
+   - Best-state-on-val protocol: stores best_state at every 500 steps if val improves. Reloads at end. ✓
+   - But: probes compute logits on h's full T tokens; loss is on shifted (T-1) tokens. PrefixAttnProbe does causal masking inside; LinearProbe and LocalMLPProbe do NOT — they're per-token, so causal is automatic. ✓
+
+F) Cross-checkpoint coupling:
+   - DEPTHS converted to layer indices via depth_to_layer_idx. For baseline (14 layers): {0.20→3, 0.35→5, 0.50→7, 0.65→8, 0.80→10}. For minimal (7 layers): {0.20→1, 0.35→2, 0.50→3, 0.65→4, 0.80→5}. The "mid-band" {0.35, 0.50, 0.65} maps to {5,7,8} on baseline and {2,3,4} on minimal. Verify aggregation across architectures uses the FUNCTIONAL DEPTH not the raw layer index.
+   - Aggregation in main(): "if 0.30 <= li / (n_layers - 1) <= 0.70" — this filters by depth fraction ✓.
+
+G) PrefixAttnProbe vs prereg spec:
+   - Prereg says "one-head cross-attention probe that sees the actual prefix tokens or their embeddings plus h". The implementation uses h itself (the activations at the same layer) as both query and keys/values. Is this the right interpretation, or should keys/values come from the input embedding layer?
+   - Concern: if K/V come from the same activations as Q, then the attention is over already-transported information. The probe may show G_l > 0 even if MLP could have closed the gap, because the probe is given a richer object than q_local sees.
+   - Counterargument: the prereg explicitly allows "or their embeddings plus h" — current implementation matches "their (prefix) activations plus h".
+
+H) Silent-data-drop:
+   - load_probe_data() loads c4 from c4_clean_v1(seed=99) — confirms it pulls a DIFFERENT slice than g156 used (g156 used seed=42). Avoids train/eval overlap.
+   - But there's no dedup audit between g99-slice and g42-slice. The §3.5 audit finding A1 said no dedup was done. Should g157 add a 13-token rolling-hash check?
+   - Per locked prereg, audit-hard protocol IS required, but the implementation does not verify dedup. SEVERITY: depends on overlap risk.
+
+I) Verdict logic:
+   - PASS requires nat_n_pos >= 2 AND shuf_G <= 0.0 AND contrast >= 0.03. PARTIAL requires nat_G >= 0.0 AND contrast >= 0.015. KILL otherwise.
+   - Edge case: what if all 12 checkpoints succeed but some seed has G_per_seed empty? "if G_per_seed:" handles missing seeds. But: aggregate over seeds with sum/3 vs len(G_per_seed) — verify mean uses len() not 3.
+
+J) Compute estimate:
+   - 12 ckpts × 5 layers (or fewer dedup) × 3 probes × (3000 train + eval) per ckpt+layer.
+   - Per probe: 3000 × 32 × 256 × hidden×vocab forward + backward at fp32 ≈ ~3 GFLOP/step ≈ 100s for 3000 steps on RTX 5090.
+   - Per (ckpt, layer): 3 × 100s = 300s + activation extract (~5s) ≈ 305s.
+   - Total: 12 × ~5 layers × 305s = 18,300s = ~5 hours.
+   - PREREG SAYS ~1.5-2 hr. If actual is 5 hr, we are over the COMPUTE.md 4hr envelope. SEVERITY 8 if true. Recompute and propose fix.
+
+DELIVERABLES:
+1. Ranked list of bugs / hazards (Severity 1-10).
+2. For each ≥7: exact code change.
+3. Pre-flight checklist (≤6 items) before launching g157.
+4. Compute-time estimate honest reanalysis.
+
+If clean, say so. Don't manufacture issues.
+
+Output a single markdown report. Reference exact line numbers.

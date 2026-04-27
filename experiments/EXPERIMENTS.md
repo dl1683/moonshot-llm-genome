@@ -26,6 +26,40 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-26 — genome_154_distillation_smoke — PASS (distillation pipeline validated)
+
+**Purpose.** Codex D2 smoke test: validate the distillation pipeline mechanics before scaling to a production student-teacher run (g160).
+
+**Systems.** Qwen3-0.6B teacher (frozen, BF16, top-k=64 logit cache precomputed). Student: minimal_3L_30M Llama (3 layers, hidden=384, no MLP via ZeroMLP, ~60M params with Qwen3 vocab). Two arms (single seed, smoke scale): from-scratch CE vs KD (γ=0.5, T=2.0).
+
+**Pre-stated PASS.** KD beats scratch by ≥0.30pp top-1 on C4 eval (200 sequences).
+
+**Compute.** 4096 train sequences × 4000 steps × 2 arms. Wall-clock 2302s (~38 min). KD arm 3.5× slower per-step than scratch (470s vs 150s per 1000 steps) due to teacher top-k lookup + KL computation per step.
+
+### Result — PASS by +0.59pp
+
+| Arm | NLL | Top-1 |
+|---|---:|---:|
+| scratch (CE only) | 6.5208 | 14.67% |
+| KD (γ=0.5, T=2.0) | **6.4623** | **15.25%** |
+
+KD top-1 gap: **+0.586pp** (≥ 0.30pp threshold ✓)
+KD NLL gap: +0.058 (KD better)
+
+### Why this matters
+
+Mechanically validates the production distillation path. Unblocks g160 (transport-guided student comparison) which was gated on g154 PASS. The pipeline correctly handles teacher logit caching, KL-on-top-k, and mixed CE+KD loss. Teacher tokenizer (Qwen3) used for both arms ensures fair comparison.
+
+### Caveats
+
+1. Single-seed smoke test. Production g160 uses 3 seeds with FLOP-matched students.
+2. Smoke scale (4096 sequences) too small to measure capability transfer; only validates pipeline mechanics.
+3. KD speed (~3.5× slowdown) is real and will compound at production scale; budget accordingly for g160.
+
+**Next.** g160 production run (transport-heavy 6L_noMLP_wide vs local-heavy 4L_MLP students at matched inference FLOPs, 3 seeds, full HellaSwag/PIQA/Winogrande validation).
+
+---
+
 ## 2026-04-26 — genome_156_prefix_destruction_200m — PASS_TRANSPORT ★★★ (orthogonal-axis discrimination, theory's predicted inversion observed)
 
 **Purpose.** Codex Architecture-Theorist consult identified the Prefix-Information Transport Principle (`research/derivations/prefix_information_transport.md`) as the only first-principles derivation route for the architecture-prior win that is mechanistically right-shaped, brutally falsifiable, and product-conflict for big labs (CLAUDE.md §0.1). g156 is its locked killer test: destroying ordered prefix information should collapse (or invert) the win.

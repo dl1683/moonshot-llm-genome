@@ -1159,6 +1159,19 @@ The top PCA direction at layer 14 of Qwen3-0.6B concentrates 73% of the model's 
 - Files: `research/derivations/prefix_information_transport.md` (canonical doc), `research/prereg/genome_156_prefix_destruction_200m_2026-04-26.md` LOCKED, `code/genome_156_prefix_destruction_200m.py` ready to run.
 - **Why this matters per CLAUDE.md §0.1:** This is a derivation a big lab cannot publish without contradicting their "more MLP = better" product story. Surviving this test (PASS_TRANSPORT) gets the architecture-prior thesis from "phenomenology" → "first-principles-supported, falsifiable theory."
 
+**genome_154 COMPLETED (2026-04-26): PASS — distillation pipeline validated**
+- KD student beats scratch by +0.586pp top-1 (15.25% vs 14.67%) and +0.058 NLL on C4 eval at smoke scale (4096 train sequences). PASS criterion was ≥0.30pp; cleared comfortably.
+- Pipeline validated: Qwen3-0.6B frozen teacher → top-k=64 logit cache → minimal_3L_30M student with mixed CE+KL (γ=0.5, T=2.0) trains correctly.
+- KD arm 3.5× slower per-step than scratch (470s vs 150s per 1000 steps). Total run 2302s (~38 min).
+- Unblocks g160 (transport-guided student) which needed g154 PASS as prerequisite.
+- `code/genome_154_distillation_smoke.py` -> `results/genome_154_distillation_smoke.json`
+
+**genome_157 RUNNING (launched 2026-04-26 21:26): η/δ LAYERWISE PROBE on g156 checkpoints**
+- Builds the missing measurement primitive that turns the transport theory into a measured internal quantity (G_l = η̂_l − δ̂_l^mlp).
+- Operates on the 12 saved g156 checkpoints (no retraining; just probe training on held-out c4_val + wikitext_val).
+- `code/genome_157_eta_delta_probe.py` -> `results/genome_157_eta_delta_probe.json` (pending)
+- Codex pre-flight review firing in parallel (`codex_outputs/g157_pre_flight.md`).
+
 **genome_156 COMPLETED (2026-04-26): PASS_TRANSPORT ★★★ BREAKTHROUGH-AXIS VALIDATED**
 - **All three pre-stated criteria cleared cleanly:**
   - Δ_nat = +0.560pp ✓ (≥ 0.5)
