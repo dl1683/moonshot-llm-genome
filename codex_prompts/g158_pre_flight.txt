@@ -1,0 +1,61 @@
+You are running Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+PRE-FLIGHT REVIEW of code/genome_158_context_length_inversion.py before launch. We just had Codex flag g157 v1 as a 91-hour NO-GO; we need similar discipline on g158.
+
+READ:
+1. code/genome_158_context_length_inversion.py
+2. research/prereg/genome_158_context_length_inversion_2026-04-26.md (locked spec)
+3. code/stimulus_banks.py
+4. code/genome_141_minimal_prior_capability.py (closest reference; g141-style 30M arms)
+
+SPECIFIC AUDIT POINTS:
+
+A) **Encoding** (Windows cp1252 hazard):
+   - Print statements all ASCII? Verified earlier but re-check — particularly the analysis and verdict lines.
+
+B) **FLOP-budget matching:**
+   - The prereg requires exact-FLOP match within ±2% across arms. Implementation uses `steps_at_L = 4000 * 256 / L` (token-budget match, NOT FLOP match).
+   - At fixed batch=8 and given the same arm, total FLOPs per step depends on attention (O(L²)) and MLP (O(L)). So scaling steps as 256/L is an approximation, not exact-FLOP match.
+   - Across the two ARMS at a given L: baseline_6L+MLP and minimal_3L_noMLP have very different per-step FLOPs. The prereg locked "exact-FLOP match" — does the implementation provide that? If not, severity 9 because it violates the locked spec.
+
+C) **Compute estimate:**
+   - 24 cells (4 L × 2 arms × 3 seeds). Per cell:
+     - L=256: 4000 steps × 30M params × ~0.05s/step = ~3 min
+     - L=128: 8000 steps × ~0.025s/step = ~3 min
+     - L=64: 16000 steps × ~0.012s/step = ~3 min
+     - L=32: 32000 steps × ~0.006s/step = ~3 min
+   - Plus LR selection: 6 LR cells × 2000 steps × ~0.025s/step = ~5 min total.
+   - Total: ~24×3 + 5 = ~80 min. Within envelope ✓.
+   - Honest reanalysis: any I missing?
+
+D) **LR selection bias:**
+   - LR selection runs at L=128 with 2000 steps (vs main run 4000-32000 steps depending on L). Is this enough to identify the right LR for the L=32 (32000 steps) and L=256 (4000 steps) cells? Or does the optimal LR shift with horizon?
+
+E) **Wikitext-103 train vs val:**
+   - Implementation uses `load_dataset("wikitext", "wikitext-103-raw-v1", split="validation")`. Verified val split, not train. ✓
+
+F) **C4 data leakage:**
+   - Implementation uses `c4_clean_v1(seed=77)`. This is a different seed than g141..g151 (seed=42) and g156 (seed=42) and g159 (seed=159). No 13-token dedup audit.
+   - Per the prereg's audit-hard protocol section, dedup is required. Severity 7 if missing.
+
+G) **Padding asymmetry across L:**
+   - At very short L (32), most c4 windows will be much longer than 32 tokens, so we're truncating heavily. This may bias the comparison: shorter L = different text distribution (more sentence-starts, less long-range content).
+   - Is this a real concern, or is it the intended manipulation?
+
+H) **NaN / instability:**
+   - Per arm × seed, train_arm has nan_seen guard but immediately breaks out. Subsequent eval still runs and reports. Verify: if NaN, the metrics show as NaN in JSON, not silently dropped.
+   - Aggregation `delta_per_L`: `nat_b = [... if not results[L][...][s]['nan_seen']]`. If a NaN cell appears, delta_per_L's `n_b` < 3. Does the verdict logic handle this?
+
+I) **Spearman edge cases:**
+   - With only 4 L points, Spearman ρ is computable but low statistical power. Bootstrap CI on ρ?
+   - Implementation just uses scipy.stats.spearmanr without bootstrap.
+
+J) **Other Severity-7+ issues**
+
+DELIVERABLES:
+1. Ranked findings with severity 1-10.
+2. For severity ≥7: exact code change.
+3. Pre-flight checklist.
+4. Honest compute estimate.
+
+If clean, say so. Output to codex_outputs/g158_pre_flight.md (NOT *_AUDIT.md per gitignore).
