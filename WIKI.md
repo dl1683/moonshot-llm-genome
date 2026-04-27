@@ -28,8 +28,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Decisive thesis state:** g156 PASS_TRANSPORT validates the prefix-information transport derivation route along the data-order axis (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp). g152 PARTIAL/AMBIGUOUS shows the win attenuates with compute (consistency-evidence for the theory's saturation prediction). §0.1 score: **6/10 currently**, projected **7-8/10** if g157+ chain validates internal mechanism.
 
+**g157 v2 PILOT: PILOT_KILL (2026-04-26 22:10)** — locked criteria: `nat_G=-3.31 < +0.02 threshold`. BUT failure mode is probe-protocol, not theory:
+  - BF16 probes + no grad clip → lin probe weights exploded on shuffled (CE 230-290)
+  - Same-layer prefix probe captures only info already-merged into residual stream
+  - g157b launched 22:11 to discriminate: FP32 + grad clip + embedding-layer prefix
+
 **Running:**
-- `g157` η/δ probe PILOT (1-seed, 4 ckpts, projected 30 min) — early data shows G_l < 0 on natural arms; suspected probe-design issue (same-layer prefix captures already-transported info)
+- `g157b` embedding-prefix probe variant (FP32, dedup 0.02%, projected 30 min)
 
 **LOCKED + IMPLEMENTED, ready to launch when GPU frees:**
 - `g157b` — embedding-layer prefix probe variant (FP32 weights + grad clip + skip-non-finite-loss; conditional on g157 KILL/WEAK)
