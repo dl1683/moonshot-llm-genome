@@ -70,6 +70,18 @@ The cleanly compared g137 (resume_true vs resume_reset) shows the SAME washout p
 
 The earlier "+0.08 nats lone positive outlier" framing was an artifact of comparing against `state_only` (catastrophic). Optimizer-state transfer is NOT a special positive-persistence mechanism; it shows the same decay law.
 
+### g137 decay-shape extraction (cycle 27 Q2 schedule-calibration audit)
+
+Per Codex cycle 27 direction review Q2, the g137 (resume_true - resume_reset) advantage trajectory provides schedule calibration for a future g166 (optimizer-state + decay-anchor combined). The empirical half-life is approximately:
+
+- Peak +0.046 at step 1064.
+- Half-peak (+0.023) reached between step 1128 (0.045) and step 1512 (0.016).
+- Linear interpolation: half-life ≈ step 1128 + (0.045 - 0.023) / (0.045 - 0.016) × (1512 - 1128) ≈ 1128 + 295 = **~step 1420** (after the donor weight-init has settled).
+
+**Implication for g166** (only fires if g165 FAILs): an optimizer-state transfer with anchor decay should target a half-life of order **400-1500 steps** (not 25 like the weight-init mechanisms). The two mechanisms have very different decay constants — g166 must NOT just clone g165's schedules.
+
+**Implication for g165**: the schedule grid `step (cutoff at 25)`, `linear (decay to 0 by 50)`, `exponential (τ=10)` matches the weight-init mechanism timescale (peak by step 12, washout by step 25). It does NOT cover the g137 timescale. This is fine for g165 (it tests weight-init mechanisms only); g166 would extend to step-1000-scale schedules.
+
 ## Interpretation
 
 **The donor-signal problem is not "doesn't persist" — it's "actively harms long-run training."**
