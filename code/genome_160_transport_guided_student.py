@@ -5,7 +5,7 @@ POST-CHAIN MANIFESTO CASH-OUT: transport-guided student vs local-heavy student.
 
 Pre-reg LOCKED: research/prereg/genome_160_transport_guided_student_2026-04-26.md
 Theory: research/derivations/prefix_information_transport.md
-Program: research/programs/post_g156_pass_program.md §g160
+Program: research/programs/post_g156_pass_program.md section g160
 
 If the transport theory is a real design law (validated by g156, g157,
 g158, g159), then under matched inference FLOPs and matched distillation

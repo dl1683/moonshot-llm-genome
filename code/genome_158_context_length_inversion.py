@@ -5,7 +5,7 @@ POST-g156-PASS THEORY-PREDICTION TEST: context-length inversion sweep.
 
 Pre-reg LOCKED: research/prereg/genome_158_context_length_inversion_2026-04-26.md
 Theory: research/derivations/prefix_information_transport.md
-Program: research/programs/post_g156_pass_program.md §g158
+Program: research/programs/post_g156_pass_program.md section g158
 
 Tests the theory's sharpest unique prediction: architecture-prior advantage
 is monotone in transport demand. As context shrinks, transport demand
@@ -227,7 +227,7 @@ def main():
     }
 
     # Step budget per L: scale to keep total token-FLOPs comparable.
-    # At L=256, base budget = 4000 steps × 8 batch × 256 = ~8.4M tokens.
+    # At L=256, base budget = 4000 steps x 8 batch x 256 = ~8.4M tokens.
     # At L=L', steps_L = 4000 * 256 / L  (gives same total tokens).
     def steps_at_L(L):
         return int(4000 * 256 / L)

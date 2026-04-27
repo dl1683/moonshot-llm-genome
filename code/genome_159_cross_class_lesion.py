@@ -5,7 +5,7 @@ POST-CHAIN ARCHITECTURE-CLASS EXTENSION via lesion on pretrained models.
 
 Pre-reg LOCKED: research/prereg/genome_159_cross_class_lesion_2026-04-26.md
 Theory: research/derivations/prefix_information_transport.md
-Program: research/programs/post_g156_pass_program.md §g159
+Program: research/programs/post_g156_pass_program.md section g159
 Codex design: codex_outputs/g159_lesion_algorithm.md
 
 Tests transport-vs-local lesion asymmetry across three architecture
