@@ -28,6 +28,64 @@ def main():
     contrast = r.get("contrast", float("nan"))
     verdict = r.get("verdict", "(missing)")
 
+    # Compute the eta-only criterion as a probe-pathology-robust alternative
+    # (per research/programs/post_g157b_decision_tree.md update 2026-04-26 22:37).
+    eta_nat_minimal_per_layer = []
+    eta_shuf_minimal_per_layer = []
+    eta_nat_baseline_per_layer = []
+    eta_shuf_baseline_per_layer = []
+    res = r.get("results", {})
+    for ckpt_key, ckpt_data in res.items():
+        per_layer = ckpt_data.get("per_layer", {})
+        for layer_str, lv in per_layer.items():
+            eta = lv.get("eta_hat", float("nan"))
+            if "natural__minimal" in ckpt_key:
+                eta_nat_minimal_per_layer.append(eta)
+            elif "token_shuffled__minimal" in ckpt_key:
+                eta_shuf_minimal_per_layer.append(eta)
+            elif "natural__baseline" in ckpt_key:
+                eta_nat_baseline_per_layer.append(eta)
+            elif "token_shuffled__baseline" in ckpt_key:
+                eta_shuf_baseline_per_layer.append(eta)
+
+    def _mean(xs):
+        if not xs:
+            return float("nan")
+        import math
+        return sum(xs) / len(xs)
+
+    eta_nat_min = _mean(eta_nat_minimal_per_layer)
+    eta_shuf_min = _mean(eta_shuf_minimal_per_layer)
+    eta_nat_base = _mean(eta_nat_baseline_per_layer)
+    eta_shuf_base = _mean(eta_shuf_baseline_per_layer)
+    eta_contrast_min = eta_nat_min - eta_shuf_min
+
+    # Probe pathology check: lin probe blew up if delta is >100 nats anywhere
+    pathology_flagged = False
+    for ckpt_key, ckpt_data in res.items():
+        for layer_str, lv in ckpt_data.get("per_layer", {}).items():
+            d = lv.get("delta_hat_mlp", 0)
+            if abs(d) > 100:
+                pathology_flagged = True
+                break
+        if pathology_flagged:
+            break
+
+    print("\n=== Eta-only (probe-pathology robust) ===")
+    print(f"  eta nat-minimal mid-band: {eta_nat_min:+.4f}")
+    print(f"  eta shuf-minimal mid-band: {eta_shuf_min:+.4f}")
+    print(f"  eta contrast (nat-shuf): {eta_contrast_min:+.4f}")
+    print(f"  pathology flagged (delta > 100 anywhere): {pathology_flagged}")
+
+    eta_only_verdict = ""
+    if eta_nat_min > 0 and eta_shuf_min <= 0 and eta_contrast_min >= 0.05:
+        eta_only_verdict = "ETA_ONLY_PASS: prefix-info signal exists on natural-minimal AND collapses on shuffled"
+    elif eta_nat_min > 0:
+        eta_only_verdict = "ETA_ONLY_WEAK: prefix beats local on natural-minimal but contrast small"
+    else:
+        eta_only_verdict = "ETA_ONLY_KILL: no prefix-beats-local signal on natural-minimal"
+    print(f"  eta-only verdict: {eta_only_verdict}")
+
     # Choose path per decision tree
     if "DIRECTIONAL_SUPPORT_157b" in verdict:
         path = "A"
