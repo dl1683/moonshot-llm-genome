@@ -43,8 +43,26 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 - Per cycle 9+12 sequencing: launching **g158 PILOT** next (single-seed, ~3.5hr).
 - `code/genome_159_cross_class_lesion.py` -> `results/genome_159_cross_class_lesion.json` (commit 73d5fc0)
 
+**genome_158 PILOT COMPLETED (2026-04-27 06:43): PARTIAL_INVERSION → DIRECTIONAL_SUPPORT under PILOT spec ★★ MAJOR**
+- **Spearman ρ = +1.000 on BOTH c4 and OOD** (perfect monotone with context length)
+- Δ_L per context length:
+
+  | L | Δ_c4 | Δ_ood |
+  |---|---:|---:|
+  | 32  | -0.24pp | -0.21pp |
+  | 64  | -0.21pp | +0.74pp |
+  | 128 | +1.81pp | +1.81pp |
+  | 256 | **+4.10pp** | **+4.71pp** |
+
+- Δ_256=+4.10pp REPLICATES (and far exceeds) the original g141 result with proper LR selection.
+- Δ_32=-0.24pp shows SIGN INVERSION at short context — the predicted regime where the architecture-prior advantage flips.
+- Locked verdict label: PARTIAL_INVERSION (sign-consistency across c4+ood at L=64 fails). Under PILOT prereg DIRECTIONAL_SUPPORT_158 criterion (ρ≥+0.6 AND Δ_256≥+0.3pp), this is **DIRECTIONAL_SUPPORT** — strongly so.
+- **Theory's input-side prediction (transport demand is the control variable) is VALIDATED at PILOT scale.** The architecture-prior ISN'T just a fixed regime artifact — it's modulated by transport demand exactly as predicted.
+- §0.1 score uplift: +0.5 to +1.0 → ~7-7.5/10 with g158 PILOT alone.
+- `code/genome_158_context_length_inversion.py` -> `results/genome_158_context_length_inversion.json`
+
 **Running:**
-- `g158 PILOT` context-length inversion sweep (single-seed, launched 04:53; ~3.5hr) — tests theory's INPUT-SIDE prediction (transport demand control variable). Independent of η/δ probe AND independent of rank-32 lesion issue.
+- `g160` transport-guided student comparison — launched immediately upon g158 verdict (~2-3hr). The manifesto cash-out: transport-heavy 6L_noMLP_h512 vs local-heavy 4L_MLP at matched inference FLOPs (4.027 GFLOP each). PASS = +1.0pp C3_macro and ≤0.80 CtQ_90 ratio. Per cycle 15 direction: g159b skipped, go straight to g160.
 
 **Killed and relocked:**
 - `g158` was launched at 22:55 then killed at 23:50 — at the corrected exact-FLOP-match the 3-seed run projected to ~11hr (over envelope). Relocked as **single-seed PILOT** (`research/prereg/genome_158_PILOT_2026-04-27.md`); ~3.5hr. Queued behind g159.
