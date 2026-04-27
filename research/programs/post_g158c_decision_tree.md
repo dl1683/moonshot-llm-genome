@@ -114,6 +114,16 @@ The PILOT is unusually clean for a single seed. The canonical question is whethe
    - Codex score: PASS=8.2/10 (BREAKS the §0.1 ceiling that all other paths cap at ~7.0), FAIL=6.7/10.
 6. Reframe the project narrative: from "we found a derivable invariant" to "we falsified two derivable invariant candidates honestly + delivered an electricity-grade efficiency demo." Path C with g155 PASS is the ONLY decision-tree branch that exits the workshop-paper trap.
 
+## ★ CYCLE 33 OVERRIDE: g166 deferred; g162 is the FAIL pivot (2026-04-27 14:49)
+
+Codex cycle 33 direction review (`codex_outputs/heartbeats/cycle33_direction_review_20260427T144900.md`) revised the FAIL-pivot ordering after g158c PASS_canonical landed:
+
+- **If g165 FAILs, do NOT auto-run g166.** Move g162 (transport-arm capacity sweep) ahead of g166. g166 is draft-only, higher-envelope, and its own prereg flagged that the required donor optimizer state may not exist yet (no Qwen3-0.6B optimizer-state checkpoint preserved).
+- **g162 PASS=6.8/10**, g166 estimated **~6.4/10**. With g158c PASS_canonical, g162 cleanly extends the just-PASSED theory into a dose-response architecture intervention.
+- Wall-power-meter procurement remains the parallel priority unblocking g155 (8.2/10).
+
+**Updated FAIL-pivot order:** g165 FAIL → g162 (capacity sweep) → wall-power-meter procurement → g166 (only if a meaningful donor-optimizer-state checkpoint exists).
+
 ## Codex direction consult — fired 2026-04-27 09:05, completed 2026-04-27
 
 **Output:** `codex_outputs/heartbeats/post_g158c_design_20260427T090500.md`

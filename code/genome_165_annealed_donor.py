@@ -215,6 +215,23 @@ def train_one_arm(
     n_train = train_ids.shape[0]
     perm = torch.randperm(n_train, generator=torch.Generator().manual_seed(seed)).numpy()
 
+    # Codex cycle 33 SEV8 fix: pre-build (recipient_param, donor_param) pairs once
+    # so the per-step anchor-gradient injection is a flat list iteration. Avoids
+    # per-step .named_parameters() walk + dict lookups + autograd graph.
+    anchor_pairs = []
+    if donor_params is not None and lam0 > 0:
+        for name, p in recipient.named_parameters():
+            if name not in donor_params:
+                continue
+            d = donor_params[name]
+            if p.shape != d.shape:
+                continue
+            if submanifold == "attn" and ".self_attn." not in name:
+                continue
+            anchor_pairs.append((p, d))
+        if not anchor_pairs:
+            raise RuntimeError(f"no anchor pairs for {arm_label}")
+
     trajectory = []
     # Eval at step 0
     nll0 = eval_nll(recipient, val_ids, val_mask)
@@ -234,19 +251,24 @@ def train_one_arm(
         out = recipient(input_ids=ids, attention_mask=mask, labels=ids)
         loss_ce = out.loss
 
-        # Anchor regularizer
-        if donor_params is not None and lam0 > 0:
+        optimizer.zero_grad(set_to_none=True)
+        loss_ce.backward()
+
+        # Codex cycle 33 SEV8 fix: inject anchor gradient directly without
+        # building autograd graph for ||theta_r - theta_d||^2. Mathematically
+        # equivalent (grad of squared-Frobenius is 2*(theta_r - theta_d)) but
+        # ~3x faster: no FP32 cast tree, no temporary buffers, no autograd.
+        if anchor_pairs:
             lam_t = lambda_schedule(schedule_name, lam0, step)
             if lam_t > 0:
-                loss_anchor = anchor_loss(recipient, donor_params, submanifold=submanifold)
-                loss = loss_ce + lam_t * loss_anchor
-            else:
-                loss = loss_ce
-        else:
-            loss = loss_ce
+                with torch.no_grad():
+                    coeff = 2.0 * lam_t
+                    for p, d in anchor_pairs:
+                        if p.grad is None:
+                            continue
+                        # diff in p's dtype to avoid fp32 materialization
+                        p.grad.add_(p.detach().to(d.dtype) - d, alpha=coeff)
 
-        optimizer.zero_grad(set_to_none=True)
-        loss.backward()
         torch.nn.utils.clip_grad_norm_(recipient.parameters(), 1.0)
         optimizer.step()
 
@@ -302,33 +324,38 @@ def main():
     val_ids, val_mask = tokenize_block(tok, val_texts, SEQ_LEN)
     print(f"  train: {train_ids.shape}  val: {val_ids.shape}")
 
-    # Build arm specifications
-    arms = []
+    # Build arm specifications. Per Codex cycle 33 SEV7: scratch FIRST so we have
+    # a comparator for the seed=42 futility gate.
+    scratch_arm = {"label": "scratch_baseline", "lam0": 0.0, "schedule": "constant", "submanifold": "all"}
+    anchored_arms = []
     for lam0 in LAMBDA_0_GRID:
         for sched in SCHEDULES:
-            arms.append({
+            anchored_arms.append({
                 "label": f"anchor_lam{lam0}_{sched}",
                 "lam0": lam0,
                 "schedule": sched,
                 "submanifold": "all",
             })
     # Codex cycle 30 direction review: attention-only hard-cut anchor.
-    # Tests "early-help only, no continued anchor" on the SAME submanifold (attention-
-    # only) where g125 saw +0.07 nats persistence. Restores apples-to-apples comparison.
-    arms.append({
+    anchored_arms.append({
         "label": "anchor_attn_only_lam1.3e-3_hardcut",
         "lam0": 1.3e-3,
         "schedule": "hard_cut_step1",
         "submanifold": "attn",
     })
-    arms.append({"label": "scratch_baseline", "lam0": 0.0, "schedule": "constant", "submanifold": "all"})  # no donor
+    arms = [scratch_arm, *anchored_arms]  # scratch first per SEV7 fix
 
     print(f"\n=== Running {len(arms)} arms x {len(SEEDS)} seeds = {len(arms)*len(SEEDS)} cells ===")
+    print(f"=== Iteration: SEED-MAJOR (all arms per seed) — SEV7 cycle 33 ===")
 
     results = {}  # arm_label -> {seed: trajectory}
     for arm_spec in arms:
         results[arm_spec["label"]] = {}
-        for seed in SEEDS:
+
+    # Codex cycle 33 SEV7: seed-major loop with futility gate at seed=42.
+    futility_threshold = 0.0  # nats; seed=42 best anchor delta vs scratch
+    for seed_idx, seed in enumerate(SEEDS):
+        for arm_spec in arms:
             print(f"\n--- arm={arm_spec['label']} seed={seed} ---")
             traj = train_one_arm(
                 arm_label=arm_spec["label"],
@@ -341,8 +368,21 @@ def main():
                 submanifold=arm_spec.get("submanifold", "all"),
             )
             results[arm_spec["label"]][seed] = traj
-            # incremental save after each cell
             _save_results(results, arms, t_start)
+        # Futility gate after seed=42 (first seed): if best anchored arm's
+        # final-step delta vs scratch <= 0, abort before spending 4 more hours.
+        if seed_idx == 0 and arm_spec["label"] != "scratch_baseline":
+            if "scratch_baseline" in results and seed in results["scratch_baseline"]:
+                scratch_final = results["scratch_baseline"][seed][-1]["nll"]
+                best_delta = max(
+                    (scratch_final - results[a["label"]][seed][-1]["nll"])
+                    for a in anchored_arms
+                    if seed in results[a["label"]]
+                )
+                print(f"\n=== seed=42 futility check: best anchor delta = {best_delta:+.3f} nats (threshold {futility_threshold:+.3f}) ===")
+                if best_delta <= futility_threshold:
+                    print(f"=== ABORTING: no anchor arm beat scratch at seed=42; multi-seed cannot rescue. ===")
+                    break
 
     # Final analysis: PASS / WEAK / FAIL
     summary = compute_verdict(results, arms)
