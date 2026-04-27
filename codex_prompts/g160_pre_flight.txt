@@ -1,0 +1,48 @@
+You are running Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+PRE-FLIGHT REVIEW of code/genome_160_transport_guided_student.py before launch.
+
+READ:
+1. code/genome_160_transport_guided_student.py
+2. research/prereg/genome_160_transport_guided_student_2026-04-26.md (locked spec)
+3. code/genome_154_distillation_smoke.py (reference; g160 reuses the KD pattern)
+
+SPECIFIC AUDIT POINTS:
+
+A) **Encoding** (Windows cp1252 hazard).
+
+B) **FLOP-match correctness:**
+   - `count_inference_flops` formula: `attn = 4*h^2 + 2*seq_len*h; mlp = 3*h*m if has_mlp else 0; per_layer = 2*(attn+mlp); total = L * per_layer * seq_len`.
+   - For transport_heavy (h=512, L=6, no MLP): attn = 4*512² + 2*256*512 = 1.31M, total = 6 * 2 * 1.31M * 256 = ~4.0 GFLOPs.
+   - For local_heavy (h=384, L=4, m=1536, MLP): attn = 4*384² + 2*256*384 = 0.79M, mlp = 3*384*1536 = 1.77M, per_layer = 2*(0.79M + 1.77M) = 5.12M, total = 4 * 5.12M * 256 = ~5.24 GFLOPs.
+   - These are NOT matched within 2%. They differ by ~30%. Severity 9 if confirmed.
+
+C) **C3 evaluation correctness:**
+   - For HellaSwag, ctx is built from `ctx` field if present, else `activity_label + ctx_a + ctx_b`. Verify this matches the canonical lm-eval-harness scoring.
+   - For PIQA, item label = `int(ex["label"])`. PIQA labels are 0/1 strings or ints? Verify.
+   - For Winogrande, label = `int(ex["answer"]) - 1`. Winogrande labels are "1"/"2" strings. The `int()` would parse them; subtracting 1 gives 0/1 indices. Verify.
+   - The MC scoring: `ctx_len = len(tok(item["context"])["input_ids"])`. With BOS token added by tokenizer, this includes BOS. Then `logits[ctx_len-1:-1]` and `targets = ids[ctx_len:]`. Verify the off-by-one is correct.
+
+D) **Distillation pipeline:**
+   - Reuses g154's pattern. teacher logit cache + KD on top-k. Same BF16 + AdamW + warmup. Verified clean in g154 PASS.
+
+E) **CtQ_90 measurement:**
+   - Eval at steps {1k, 2k, ..., 8k}. CtQ_90 = first step where C3_macro >= 0.9 * own_final. If C3_macro is non-monotonic (bumps), this can give wrong answer. Should we use smoothed C3?
+
+F) **Compute estimate:**
+   - Teacher cache: 8192 sequences × 256 tokens × bf16 + Qwen3-0.6B forward ≈ 5 min.
+   - 2 students × 3 seeds × 8000 steps × KD overhead. At g154's KD rate (~470s/1000 steps), 8000 steps = ~62 min/run × 6 = ~6 hr. PLUS C3 eval at 8 checkpoints per run × full HellaSwag/PIQA/Winogrande.
+   - Full HellaSwag val = 10042 items, PIQA = 1838, Winogrande = 1267. 13k items × 2 choices × forward at SEQ_LEN+128 ≈ several min per eval × 8 evals × 6 runs = ~1-2 hr total eval.
+   - Total: 5 min + 6 hr + 1-2 hr = ~7-8 hr. WAY OVER 4 hr envelope.
+   - Even if we cut to 1 seed pilot: 5 min + 2 hr + 0.5 hr = ~3 hr. Tight.
+   - Severity 8: prereg locks "~3-3.5 hr"; reality is 7-8 hr at 3 seeds.
+
+G) **Other Severity-7+ issues**
+
+DELIVERABLES:
+1. Severity ranking + exact fixes for each ≥7.
+2. FLOP-match recompute and recommendation: revise student configs to actually match within ±2%.
+3. Compute reanalysis: how to get inside 4hr envelope (likely: reduce N_TRAIN, reduce seeds for pilot, or smaller eval subsets).
+4. Pre-flight checklist.
+
+Output to codex_outputs/g160_pre_flight.md (NOT *_AUDIT.md per gitignore).
