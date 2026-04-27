@@ -188,8 +188,13 @@ def train_probe(probe, h_train, ids_train, mask_train, h_val, ids_val, mask_val,
             if v < best_val:
                 best_val = v
                 best_state = {k: t.detach().clone() for k, t in probe.state_dict().items()}
-    if best_state is not None:
-        probe.load_state_dict(best_state)
+    # Per heartbeat code review Sev-7: refuse to return random/unvalidated probe
+    if best_state is None:
+        raise RuntimeError(
+            "probe training never produced a finite validation checkpoint; "
+            "all loss values were non-finite or no eval interval reached"
+        )
+    probe.load_state_dict(best_state)
     return probe
 
 

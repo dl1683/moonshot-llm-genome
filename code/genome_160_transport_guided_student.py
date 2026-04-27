@@ -247,6 +247,12 @@ def load_c3_validation(n_per_task=None):
         print(f"  winogrande load failed: {e}")
         out["winogrande"] = []
 
+    # Per heartbeat code review Sev-8: raise on any missing C3 task
+    required = ("hellaswag", "piqa", "winogrande")
+    missing = [t for t in required if len(out.get(t, [])) == 0]
+    if missing:
+        raise RuntimeError(f"C3 validation incomplete; missing/empty tasks: {missing}")
+
     return out
 
 

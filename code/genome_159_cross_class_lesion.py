@@ -471,8 +471,14 @@ def main():
             d_t_shuf = nll_t_shuf - nll_shuf_base
             d_l_nat = nll_l_nat - nll_nat_base
             d_l_shuf = nll_l_shuf - nll_shuf_base
-            R_nat = d_t_nat / max(d_l_nat, 1e-6)
-            R_shuf = d_t_shuf / max(d_l_shuf, 1e-6)
+            # Per heartbeat code review Sev-8: NaN if denominator non-positive
+            if d_l_nat <= 0 or d_l_shuf <= 0:
+                R_nat = float("nan")
+                R_shuf = float("nan")
+                print(f"    NON-POSITIVE local lesion delta (d_l_nat={d_l_nat:.4f}, d_l_shuf={d_l_shuf:.4f}); ratio set NaN")
+            else:
+                R_nat = d_t_nat / d_l_nat
+                R_shuf = d_t_shuf / d_l_shuf
             per_depth[d] = {
                 "nll_t_nat": nll_t_nat, "nll_t_shuf": nll_t_shuf,
                 "nll_l_nat": nll_l_nat, "nll_l_shuf": nll_l_shuf,
@@ -486,9 +492,19 @@ def main():
             print(f"    R_nat={R_nat:.2f}  R_shuf={R_shuf:.2f}  "
                   f"(dT_nat={d_t_nat:+.3f} dL_nat={d_l_nat:+.3f})")
 
-        # Aggregate by median over depths
-        R_nat_med = float(np.median([per_depth[d]["R_nat"] for d in DEPTHS]))
-        R_shuf_med = float(np.median([per_depth[d]["R_shuf"] for d in DEPTHS]))
+        # Per heartbeat Sev-8: abort verdict if any depth has NaN ratio
+        rat_nat = [per_depth[d]["R_nat"] for d in DEPTHS if np.isfinite(per_depth[d]["R_nat"])]
+        rat_shuf = [per_depth[d]["R_shuf"] for d in DEPTHS if np.isfinite(per_depth[d]["R_shuf"])]
+        if len(rat_nat) != len(DEPTHS) or len(rat_shuf) != len(DEPTHS):
+            print(f"  WARNING: {short_name} has NaN R at some depths; treating as INCOMPLETE for this model")
+            results[short_name] = {"hf_id": hf_id, "n_layers": n_layers,
+                                     "error": "non-positive local lesion delta; ratio undefined"}
+            del model
+            torch.cuda.empty_cache()
+            continue
+
+        R_nat_med = float(np.median(rat_nat))
+        R_shuf_med = float(np.median(rat_shuf))
         results[short_name] = {
             "hf_id": hf_id, "n_layers": n_layers,
             "nll_nat_base": nll_nat_base, "nll_shuf_base": nll_shuf_base,
