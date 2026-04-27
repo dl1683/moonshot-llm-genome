@@ -130,17 +130,72 @@ def to_step_indexed(traj_obj):
 
 
 def extract_genome_125(d):
-    """g125 has donor_nll (single value) + random_init_nll (single) + eval_steps + (presumably) per-step values somewhere."""
-    out_donor = {}
-    out_scratch = {}
-    # Look for arrays
-    for k, v in d.items():
-        if isinstance(v, list) and len(v) > 0 and isinstance(v[0], (int, float)):
-            if "donor" in k.lower() and "nll" in k.lower():
-                out_donor = {i: float(x) for i, x in enumerate(v)}
-            elif ("random" in k.lower() or "scratch" in k.lower() or "init" in k.lower()) and "nll" in k.lower():
-                out_scratch = {i: float(x) for i, x in enumerate(v)}
-    return (out_donor or None, out_scratch or None)
+    """g125 schema: arm_results[arm].nll_curve = list-of-{step,nll} OR list-of-floats keyed
+    by eval_steps. Donor arm = frozen_attn_glue; scratch arm = full_train_ctrl."""
+    arm_results = d.get("arm_results", {})
+    eval_steps = d.get("eval_steps", [])
+    donor_arm = arm_results.get("frozen_attn_glue", {})
+    scratch_arm = arm_results.get("full_train_ctrl", {})
+
+    def _curve(arm_data):
+        curve = arm_data.get("nll_curve")
+        if curve is None:
+            return None
+        if isinstance(curve, dict):
+            # {step: {mean, ci_lo, ci_hi, ...}} OR {step: float}
+            out = {}
+            for k, v in curve.items():
+                try:
+                    step = int(k)
+                except (ValueError, TypeError):
+                    continue
+                if isinstance(v, dict) and "mean" in v:
+                    out[step] = float(v["mean"])
+                elif isinstance(v, (int, float)):
+                    out[step] = float(v)
+            return out if out else None
+        if isinstance(curve, list) and curve:
+            if isinstance(curve[0], dict):
+                return {int(item.get("step", i)): float(item["nll"]) for i, item in enumerate(curve) if "nll" in item}
+            if isinstance(curve[0], (int, float)):
+                if len(curve) == len(eval_steps):
+                    return {int(eval_steps[i]): float(curve[i]) for i in range(len(curve))}
+                return {i: float(x) for i, x in enumerate(curve)}
+        return None
+
+    return (_curve(donor_arm), _curve(scratch_arm))
+
+
+def extract_genome_137(d):
+    """g137 schema: rows_per_seed_per_arm[seed][arm] = list-of-{step,nll}.
+    Donor arm = resume_true (full state transfer); scratch arm = state_only.
+    Average across seeds."""
+    rps = d.get("rows_per_seed_per_arm", {})
+    if not rps:
+        return None, None
+
+    def _avg_curve(arm_name):
+        per_seed_curves = {}
+        for seed, arms in rps.items():
+            rows = arms.get(arm_name, [])
+            if not rows:
+                continue
+            for item in rows:
+                if not isinstance(item, dict) or "nll" not in item:
+                    continue
+                step = int(item.get("step", 0))
+                per_seed_curves.setdefault(step, []).append(float(item["nll"]))
+        if not per_seed_curves:
+            return None
+        return {step: sum(vs) / len(vs) for step, vs in per_seed_curves.items()}
+
+    return (_avg_curve("resume_true"), _avg_curve("state_only"))
+
+
+def extract_genome_134(d):
+    """g134 has only a single-arm 'rows' trajectory. No donor vs scratch comparison.
+    Skip — does not fit the audit pattern."""
+    return (None, None)
 
 
 def extract_generic(d, donor_key, scratch_key):
@@ -199,23 +254,10 @@ def main():
 
         if ex["label"].startswith("g125"):
             donor, scratch = extract_genome_125(d)
-        elif ex["label"].startswith("g134") or ex["label"].startswith("g137"):
-            # g134/g137 schemas are unusual; try a generic scan
-            donor, scratch = None, None
-            # g137 has donor_nll_K_per_seed
-            if "donor_nll_K_per_seed" in d:
-                # Format: {seed: {K: nll}} or similar
-                v = d["donor_nll_K_per_seed"]
-                if isinstance(v, dict):
-                    for s_key, k_dict in v.items():
-                        if isinstance(k_dict, dict):
-                            for k_key, nll in k_dict.items():
-                                try:
-                                    donor = donor or {}
-                                    donor[int(k_key)] = float(nll)
-                                except (ValueError, TypeError):
-                                    continue
-                            break
+        elif ex["label"].startswith("g134"):
+            donor, scratch = extract_genome_134(d)
+        elif ex["label"].startswith("g137"):
+            donor, scratch = extract_genome_137(d)
         else:
             donor, scratch = extract_generic(d, ex["donor_key"], ex["scratch_key"])
 

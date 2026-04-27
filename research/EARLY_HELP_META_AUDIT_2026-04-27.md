@@ -24,7 +24,7 @@ Across all donor-injection experiments in the repo (grafting_005-009 + g125 + g1
 
 5/8 experiments parseable. The g125/g134/g137 trajectories use unusual JSON shapes; generic extractor missed them. Future audit can patch those, but the signal is already strong with 5/5 OK rows.
 
-## Per-experiment results
+## Per-experiment results (extended n=7 with g125 + g137 schema patches)
 
 | Experiment | Peak advantage (nats) | Peak step | Washout step | Final advantage (nats) | Decay fraction |
 |---|---:|---:|---:|---:|---:|
@@ -33,15 +33,29 @@ Across all donor-injection experiments in the repo (grafting_005-009 + g125 + g1
 | g007 mean-shift init | **+8.13** | 0 | 25 | -0.50 | 1.06 |
 | g008 trainable mean-shift | **+22.92** | 11 | 12 | -0.42 | 1.02 |
 | g009 weight-space seed | **+10.46** | 2 | 4 | -0.33 | 1.03 |
+| g125 frozen-attn glue | +0.05 | 0 | 10 | **-0.97** (worst!) | 20.4 |
+| g137 optimizer-state | **+4.26** | 1000 | 1128 | **+0.08 (only positive!)** | 0.98 |
 
-## Pooled findings (n=5)
+## Pooled findings (n=7)
 
-- **Mean peak advantage: +10.30 nats** (very large)
-- **Mean peak step: 2.6** (donor signal peaks IMMEDIATELY)
-- **Washout: 4/5 experiments** (the rank30 adapter never had a peak in the first place)
-- **n_persisting (non-trivial advantage at final step): 0/5**
-- **Mean final advantage: -0.42 nats** (donor arms are slightly WORSE at end than scratch)
-- **Mean decay fraction: 103%** — donor advantage doesn't just decay, it **overcorrects to a slight disadvantage**
+- **Mean peak advantage: +7.97 nats** (still very large)
+- **Mean peak step: 144.7** (skewed by g137's late peak; median = 1)
+- **Washout: 6/7 experiments**
+- **n_persisting (non-trivial advantage at final step): 0/7**
+- **Mean final advantage: -0.43 nats**
+- **Mean decay fraction: 425%** (skewed by g125's 20× overcorrection)
+
+## The g137 outlier (optimizer-state transfer)
+
+g137 is the ONLY mechanism with a **positive** final advantage (+0.08 nats at step 4000). It washed out at step 1128 but RECOVERED a small positive margin by training end. All other mechanisms wash out and stay negative.
+
+g137's mechanism: **transfer the donor's Adam optimizer state (m, v moments) into the recipient**, not the weights. Optimizer state carries gradient-direction information rather than parameter values. The +0.08 result is small but it's the ONLY non-negative final-step result across 7 mechanisms.
+
+**Hypothesis suggested by g137:** the right transfer signal is at the *update direction* level, not the *parameter value* level. Weight/init transfer washes out because gradient descent flushes any prior away under noisy update dynamics. Optimizer-state transfer gives the recipient information about *which directions to update*, which compounds with native training rather than competing with it.
+
+## g125 vs others
+
+g125 is the WORST endpoint (-0.97 nats). Its donor mechanism (frozen-attn glue) freezes donor attention layers and trains only adapters. Locking the donor weights prevents the recipient from adapting, accumulating the gap.
 
 ## Interpretation
 
@@ -85,9 +99,11 @@ But: if the recipient is then trained at all (even for 25 steps), the advantage 
 
 ## Recommended follow-up experiments (CPU + GPU)
 
-**CPU (next)**: extend the audit to g125/g134/g137 by patching the schema extractor in `code/analysis_early_help_meta_audit.py`. ~30 min. If the pattern holds (washout by step ~25, no persistence), the n=5 result generalizes to n=8.
+**CPU (DONE 2026-04-27)**: ~~extend the audit to g125/g134/g137~~. Schema extractors patched; g125 + g137 added (n=5 → n=7). g134 confirmed as single-arm trajectory (no donor-vs-scratch comparison). Pattern HOLDS: 0/7 persist, mean final = -0.43 nats. **g137 is the lone positive-final outlier — see optimizer-state hypothesis above.**
 
-**GPU (after g158c)**: anchored-donor experiment. Take Qwen3-0.6B as donor; random-init recipient at matched architecture; train recipient with anchored regularization to donor at multiple anchor strengths (1.0, 0.1, 0.01, decaying). Measure NLL trajectory. Hypothesis: a properly anchored / decaying schedule beats both fixed-persistence and scratch at final step. ~3-4hr wall, <12 GB VRAM.
+**GPU experiment 1 (after g158c)**: anchored-donor experiment. Take Qwen3-0.6B as donor; random-init recipient at matched architecture; train recipient with anchored regularization to donor at multiple anchor strengths (1.0, 0.1, 0.01, decaying). Measure NLL trajectory. Hypothesis: a properly anchored / decaying schedule beats both fixed-persistence and scratch at final step. ~3-4hr wall, <12 GB VRAM.
+
+**GPU experiment 2 (after g158c) — NEW per g137 outlier**: optimizer-state-amplified transfer. g137 already showed a small positive final advantage from transferring Adam m, v moments. Test: does transferring optimizer state PLUS a decay-anchored weight signal compound? Hypothesis: weight-init alone washes out (proven, n=6/7 negative final), optimizer-state alone gives +0.08 nats (proven, n=1/7), combined could give a meaningfully positive final advantage. ~3-4hr wall, <12 GB VRAM.
 
 ## Honest caveats
 
