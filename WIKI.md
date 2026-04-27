@@ -61,8 +61,18 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 - §0.1 score uplift: +0.5 to +1.0 → ~7-7.5/10 with g158 PILOT alone.
 - `code/genome_158_context_length_inversion.py` -> `results/genome_158_context_length_inversion.json`
 
-**Running:**
-- `g160` transport-guided student comparison — launched immediately upon g158 verdict (~2-3hr). The manifesto cash-out: transport-heavy 6L_noMLP_h512 vs local-heavy 4L_MLP at matched inference FLOPs (4.027 GFLOP each). PASS = +1.0pp C3_macro and ≤0.80 CtQ_90 ratio. Per cycle 15 direction: g159b skipped, go straight to g160.
+**genome_160 COMPLETED (2026-04-27 08:54): PILOT_KILL — design-rule cash-out NOT confirmed at single-seed pilot**
+- transport_heavy seed=42 final C3_macro = 0.4328
+- local_heavy seed=42 final C3_macro = 0.4363 (slightly higher)
+- C3 gap = -0.34pp (within single-seed noise; locked PASS required >=+1.0pp)
+- CtQ_90 ratio = 1.00 (no convergence-speed advantage)
+- Wall-clock: 127 min.
+- **Per Codex cycle 21 direction:** §0.1 score 6.8-7.0/10 with current evidence (g156 PASS + g158 PILOT DIRECTIONAL_SUPPORT). Theory has strong directional support but lacks manifesto cash-out as a validated model-selection law.
+- **Critical:** at single-seed pilot, -0.34pp is well within seed noise. NOT a decisive falsification. 3-seed canonical (g160c) could flip to +0.3-0.5pp.
+- **But cycle 21 says:** highest-leverage next move is **g158c (3-seed canonical of context-length inversion)**, NOT g160c. Reason: g160c canonizes a null if PILOT was already null; g158c canonizes a strong-pilot signal which is the chain's strongest result.
+- `code/genome_160_transport_guided_student.py` -> `results/genome_160_transport_guided_student.json`
+
+**Decision locked (cycle 21):** launch g158c next (canonical 3-seed verdict of context-length inversion). Accept envelope overrun (~5.5hr).
 
 **Killed and relocked:**
 - `g158` was launched at 22:55 then killed at 23:50 — at the corrected exact-FLOP-match the 3-seed run projected to ~11hr (over envelope). Relocked as **single-seed PILOT** (`research/prereg/genome_158_PILOT_2026-04-27.md`); ~3.5hr. Queued behind g159.

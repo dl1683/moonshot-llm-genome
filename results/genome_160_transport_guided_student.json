@@ -1,0 +1,225 @@
+{
+  "genome": 160,
+  "name": "transport_guided_student",
+  "config": {
+    "teacher": "Qwen/Qwen3-0.6B",
+    "students": [
+      "transport_heavy",
+      "local_heavy"
+    ],
+    "seeds": [
+      42
+    ],
+    "n_train": 8192,
+    "train_steps": 8000,
+    "lr": 0.0003,
+    "kd_temp": 2.0,
+    "kd_gamma": 0.5,
+    "kd_topk": 64,
+    "ctq_eval_steps": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7000,
+      8000
+    ],
+    "th_inference_flops": 4026531840,
+    "lh_inference_flops": 4026531840,
+    "flop_diff_pct": 0.0
+  },
+  "results": {
+    "transport_heavy": {
+      "42": {
+        "history": [
+          {
+            "per_task": {
+              "hellaswag": 0.25731925911173076,
+              "piqa": 0.5380848748639826,
+              "winogrande": 0.5027624309392266
+            },
+            "C3_macro": 0.43272218830497994,
+            "step": 1000,
+            "wallclock_s": 503.64264154434204
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2568213503286198,
+              "piqa": 0.530467899891186,
+              "winogrande": 0.5074980268350434
+            },
+            "C3_macro": 0.43159575901828306,
+            "step": 2000,
+            "wallclock_s": 1005.4223289489746
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2592113124875523,
+              "piqa": 0.5331882480957563,
+              "winogrande": 0.4925019731649566
+            },
+            "C3_macro": 0.42830051124942176,
+            "step": 3000,
+            "wallclock_s": 1506.676503419876
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2581159131647082,
+              "piqa": 0.5380848748639826,
+              "winogrande": 0.5090765588003157
+            },
+            "C3_macro": 0.43509244894300214,
+            "step": 4000,
+            "wallclock_s": 2009.6399850845337
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2597092212706632,
+              "piqa": 0.5380848748639826,
+              "winogrande": 0.4964483030781373
+            },
+            "C3_macro": 0.43141413307092774,
+            "step": 5000,
+            "wallclock_s": 2511.1632125377655
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.261202947619996,
+              "piqa": 0.5397170837867247,
+              "winogrande": 0.5138121546961326
+            },
+            "C3_macro": 0.43824406203428445,
+            "step": 6000,
+            "wallclock_s": 3013.7816138267517
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2625970922127066,
+              "piqa": 0.5386289445048966,
+              "winogrande": 0.4996053670086819
+            },
+            "C3_macro": 0.43361046790876173,
+            "step": 7000,
+            "wallclock_s": 3518.800396680832
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.25721967735510853,
+              "piqa": 0.544069640914037,
+              "winogrande": 0.4972375690607735
+            },
+            "C3_macro": 0.43284229577663963,
+            "step": 8000,
+            "wallclock_s": 4021.5988788604736
+          }
+        ]
+      }
+    },
+    "local_heavy": {
+      "42": {
+        "history": [
+          {
+            "per_task": {
+              "hellaswag": 0.2586138219478192,
+              "piqa": 0.5375408052230686,
+              "winogrande": 0.4972375690607735
+            },
+            "C3_macro": 0.4311307320772204,
+            "step": 1000,
+            "wallclock_s": 441.0296139717102
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.25781716789484166,
+              "piqa": 0.5348204570184983,
+              "winogrande": 0.510655090765588
+            },
+            "C3_macro": 0.43443090522630934,
+            "step": 2000,
+            "wallclock_s": 882.4268853664398
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2562238597888867,
+              "piqa": 0.5342763873775843,
+              "winogrande": 0.5027624309392266
+            },
+            "C3_macro": 0.4310875593685659,
+            "step": 3000,
+            "wallclock_s": 1324.6611771583557
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2590121489743079,
+              "piqa": 0.5424374319912949,
+              "winogrande": 0.5169692186266772
+            },
+            "C3_macro": 0.4394729331974267,
+            "step": 4000,
+            "wallclock_s": 1765.7874336242676
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.25791674965146383,
+              "piqa": 0.5375408052230686,
+              "winogrande": 0.5019731649565904
+            },
+            "C3_macro": 0.43247690661037425,
+            "step": 5000,
+            "wallclock_s": 2206.863490819931
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2582154949213304,
+              "piqa": 0.5353645266594124,
+              "winogrande": 0.5043409629044988
+            },
+            "C3_macro": 0.4326403281617472,
+            "step": 6000,
+            "wallclock_s": 2646.976393699646
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.2608046205935073,
+              "piqa": 0.5337323177366703,
+              "winogrande": 0.5122336227308603
+            },
+            "C3_macro": 0.43559018702034596,
+            "step": 7000,
+            "wallclock_s": 3089.0691900253296
+          },
+          {
+            "per_task": {
+              "hellaswag": 0.25891256721768574,
+              "piqa": 0.5478781284004353,
+              "winogrande": 0.5019731649565904
+            },
+            "C3_macro": 0.43625462019157046,
+            "step": 8000,
+            "wallclock_s": 3531.380748271942
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "transport_heavy": {
+      "C3_final_mean": 0.43284229577663963,
+      "C3_final_std": 0.0,
+      "CtQ_90_steps_mean": 1000.0,
+      "CtQ_90_flops_mean": 12079595520000.0
+    },
+    "local_heavy": {
+      "C3_final_mean": 0.43625462019157046,
+      "C3_final_std": 0.0,
+      "CtQ_90_steps_mean": 1000.0,
+      "CtQ_90_flops_mean": 12079595520000.0
+    }
+  },
+  "c3_gap_pp": -0.3412324414930834,
+  "ctq_ratio": 1.0,
+  "verdict": "PILOT_KILL: C3 gap=-0.34pp, CtQ_90 ratio=1.00. Theory does not select better matched-cost design at this scale.",
+  "elapsed_s": 7605.468596696854
+}
