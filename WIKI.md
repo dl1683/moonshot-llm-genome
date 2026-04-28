@@ -26,7 +26,11 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
 
-**§0.1 ceiling:** held at **7.5-7.9** until g177v2 verdict (was projected 8.1 with g175 PASS, retracted after cycle 55 9/10 attack).
+**§0.1 ceiling:** **current-locked claims 7.5-7.9**, **forward-looking queue uplift 5.8/10** (cycle 60 direction). g177v2 cannot relock C22 (NLL × Δ scatter assumption-dominated with n=3 alt donors at NLL ~5.7-5.8 extrapolated 2.1 nats); g173 cross-arch is the real uplift candidate.
+
+**Cycle 60 limitations logged:**
+- A5 (cycle 57 desk audit): C20 late-KD has soft matched-compute-null gap; kept at Level-0.
+- A6 (cycle 60 adversarial 8/10): C18/C19/C21 are single-architecture/task/λ. Honest framing is "trained-structure-specific continuous constraint within Qwen3-arch family" — the strong "neural genome transfer" framing requires g173 cross-arch PASS.
 
 **Locked claims:** C17 (g158c transport-demand) + C18 (g165 weight-anchor) + C19 (g167 KD canonical) + C21 (g174 trained-structure specificity, both axes) — all matched-null backed.
 
