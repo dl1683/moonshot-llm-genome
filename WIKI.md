@@ -124,6 +124,34 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g175 PASS 2026-04-28 ~04:00 UTC: DONOR-IDENTITY specificity LOCKED ★★★ MAJOR**
+
+g175 alternative-donor falsifier closes cycle 50 adversarial caveat. Wall ~40 min total (12 min Wikitext-103 alt-donor pretrain + 28 min main 9 cells).
+
+| Anchor target | Δ vs scratch (nats) | % of Qwen3 |
+|---|---:|---:|
+| **anchor_qwen3_donor** | **+1.087** [CI +1.006, +1.152] | 100% |
+| anchor_alternative_trained_donor (Wikitext-103 3000 steps) | +0.431 [CI +0.380, +0.458] | **40%** |
+
+Δ(Qwen3 - alt_trained) = **+0.656 nats** [CI +0.626, +0.694, excludes zero by wide margin]. Donor-identity specificity LOCKED.
+
+**Four-layer null hierarchy now beaten** (combining g174 + g175):
+1. Random init: -0.687 (HARMS)
+2. Permuted Qwen3 (g174): +0.128 (12%)
+3. Alt-trained Wikitext-pretrained (g175): +0.431 (40%)
+4. Qwen3 trained: +1.087 (100%)
+
+**Loose component decomposition** of the +1.087 nats:
+- ~12% generic trained-structure
+- ~28% generic "any trained-like model"
+- **~60% Qwen3-specific identity** ← the critical novel finding
+
+The active ingredient is NOT generic continuous regularization (g174 PART A killed), NOT generic dense supervision (g174 PART B killed), NOT generic trained-like weights (g175 killed). It IS the specific Qwen3-0.6B identity.
+
+§0.1 ceiling: 8.0 → **8.1**. C18 + C19 + C21 + C22 form a fully-validated donor-specific weight-anchor / KD transfer mechanism at canonical 3-seed scale.
+
+Source: `results/genome_175_alternative_donor_falsifier.json`.
+
 **★ g174 BOTH PARTS PASS 2026-04-28 ~03:00 UTC: trained-structure donor-specificity LOCKED on both weight-anchor AND KD axes ★★★ MAJOR**
 
 g174 donor-structure-specificity matched-null control (24 cells: 12 weight-anchor + 12 KD-target). Wall ~98 min total.
