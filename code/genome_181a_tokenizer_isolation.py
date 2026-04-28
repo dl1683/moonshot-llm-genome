@@ -443,7 +443,20 @@ def compute_lambda_diagnostics(
             donor_params_device,
             "no_embed_lm_head",
         )
+        # Cycle 66 SEV-6: independent partition-consistency check via direct full computation.
+        f2_full_direct, n_full_tensors, n_full_params = frobenius_sq_for_subset(
+            recipient,
+            donor_params_device,
+            "all",
+        )
         f2_full = f2_embed + f2_no_embed
+        rel_err = abs(f2_full - f2_full_direct) / max(f2_full_direct, 1e-30)
+        if rel_err > 1e-6:
+            raise RuntimeError(
+                f"Frobenius² partition mismatch seed={seed}: "
+                f"f2_embed+f2_no_embed={f2_full:.6f} vs f2_full_direct={f2_full_direct:.6f} "
+                f"rel_err={rel_err:.2e} > 1e-6 — masking has overlap or gap"
+            )
         if f2_embed <= 0.0 or f2_no_embed <= 0.0:
             raise RuntimeError(
                 f"non-positive Frobenius component seed={seed}: embed={f2_embed}, no_embed={f2_no_embed}"
@@ -479,6 +492,10 @@ def compute_lambda_diagnostics(
             "matched_params_embed_lm_head": n_embed_params,
             "matched_params_no_embed_lm_head": n_no_embed_params,
             "matched_params_full": n_embed_params + n_no_embed_params,
+            "frobenius_sq_full_direct": f2_full_direct,
+            "matched_tensors_full_direct": n_full_tensors,
+            "matched_params_full_direct": n_full_params,
+            "frobenius_sq_partition_relative_error": rel_err,
         }
         del recipient
         cleanup_cuda()
