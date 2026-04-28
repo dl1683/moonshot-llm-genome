@@ -35,6 +35,19 @@ Outputs
   - results/genome_177_matched_alt_donor.json
   - results/genome_177_targets/genome_177_alt_donor_c4_seed*.npz
 """
+# ENVELOPE COMPLIANCE (g177v2, 2026-04-28)
+# Target alt-donor steps: 10,000 per donor, strict stop NLL remains
+# min(3.60, Qwen3_heldout_C4_NLL + 0.05); unmatched donors are saved but are
+# not valid for main matched-condition cells unless --allow-unmatched-donors is
+# explicitly set.
+# Envelope budget: pretrain ~2,600s/donor x 3 = 7,800s; recipient
+# ~200s/cell x 15 = 3,000s; setup/eval/checkpoint overhead <=1,200s; total
+# ~12,000s (<=14,400s).
+# Justification: at the observed ~0.25s/step, 30,000 steps/donor is
+# out-of-envelope before main cells. There is no defensible evidence that
+# same-architecture Qwen3 scratch donors reach 3.60 NLL by 12k-18k steps, so
+# the stop rule stays strict and the cap/budget enforce an auditable partial
+# result instead of silently relaxing the matched-NLL condition.
 from __future__ import annotations
 
 import argparse
@@ -76,7 +89,10 @@ ALT_DONOR_SEEDS = [1234, 5678, 9999]
 ANCHOR_LAMBDA_QWEN3 = 0.01
 ANCHOR_SCHEDULE = "constant"
 
-ALT_DONOR_MAX_STEPS = 30_000
+ALT_DONOR_MAX_STEPS = 10_000
+ALT_PRETRAIN_TOTAL_BUDGET_SEC = 8_000
+ALT_DONOR_EST_SEC_PER_STEP = 0.25
+ALT_DONOR_EST_EVAL_OVERHEAD_SEC = 100.0
 ALT_DONOR_TARGET_NLL = 3.60
 ALT_DONOR_QWEN3_MATCH_TOLERANCE_NATS = 0.05
 ALT_DONOR_BATCH_SIZE = g165.BATCH_SIZE
@@ -86,6 +102,7 @@ ALT_DONOR_WEIGHT_DECAY = 0.01
 ALT_DONOR_GRAD_CLIP = 1.0
 ALT_DONOR_LOG_EVERY = 100
 ALT_DONOR_EVAL_EVERY = 500
+ALT_DONOR_STOP_RULE_LAST_K = 3
 ALT_DONOR_EVAL_WINDOWS = 256
 ALT_DONOR_TRAIN_SPLIT = "train"
 ALT_DONOR_EVAL_SPLIT = "validation"
@@ -243,6 +260,9 @@ def base_payload() -> dict[str, Any]:
                 "target_nll_nominal": ALT_DONOR_TARGET_NLL,
                 "qwen3_match_tolerance_nats": ALT_DONOR_QWEN3_MATCH_TOLERANCE_NATS,
                 "max_steps": ALT_DONOR_MAX_STEPS,
+                "total_budget_sec": ALT_PRETRAIN_TOTAL_BUDGET_SEC,
+                "estimated_sec_per_step": ALT_DONOR_EST_SEC_PER_STEP,
+                "estimated_eval_overhead_sec_per_donor": ALT_DONOR_EST_EVAL_OVERHEAD_SEC,
                 "batch_size": ALT_DONOR_BATCH_SIZE,
                 "seq_len": g165.SEQ_LEN,
                 "lr": ALT_DONOR_LR,
@@ -250,7 +270,9 @@ def base_payload() -> dict[str, Any]:
                 "weight_decay": ALT_DONOR_WEIGHT_DECAY,
                 "grad_clip": ALT_DONOR_GRAD_CLIP,
                 "eval_every": ALT_DONOR_EVAL_EVERY,
+                "stop_rule_last_k": ALT_DONOR_STOP_RULE_LAST_K,
                 "log_every": ALT_DONOR_LOG_EVERY,
+                "overlap_filter": "reject alt train/eval windows sharing any token 13-gram with recipient main train or eval windows",
             },
             "lambda_normalization": {
                 "qwen3_lambda": ANCHOR_LAMBDA_QWEN3,
@@ -289,6 +311,17 @@ def base_payload() -> dict[str, Any]:
 
 
 def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    config = payload.setdefault("config", {})
+    alt_config = config.setdefault("alternative_donors", {})
+    alt_config.setdefault("max_steps", ALT_DONOR_MAX_STEPS)
+    alt_config.setdefault("total_budget_sec", ALT_PRETRAIN_TOTAL_BUDGET_SEC)
+    alt_config.setdefault("estimated_sec_per_step", ALT_DONOR_EST_SEC_PER_STEP)
+    alt_config.setdefault("estimated_eval_overhead_sec_per_donor", ALT_DONOR_EST_EVAL_OVERHEAD_SEC)
+    alt_config.setdefault("stop_rule_last_k", ALT_DONOR_STOP_RULE_LAST_K)
+    alt_config.setdefault(
+        "overlap_filter",
+        "reject alt train/eval windows sharing any token 13-gram with recipient main train or eval windows",
+    )
     payload.setdefault("data", {})
     payload.setdefault("qwen3_reference", {})
     payload.setdefault("alternative_donors", {})
@@ -567,6 +600,7 @@ class StreamingC4Batcher:
         batch_size: int,
         seq_len: int,
         buffer_size: int,
+        forbidden_hashes: set[int] | None = None,
     ) -> None:
         self.tok = tok
         self.split = split
@@ -574,9 +608,11 @@ class StreamingC4Batcher:
         self.batch_size = batch_size
         self.seq_len = seq_len
         self.buffer_size = buffer_size
+        self.forbidden_hashes = forbidden_hashes
         self.epoch = 0
         self.records_seen = 0
         self.windows_yielded = 0
+        self.overlap_rejects = 0
         self.chosen_dataset = ""
         self._token_buffer: list[int] = []
         self._buffer_cursor = 0
@@ -611,6 +647,11 @@ class StreamingC4Batcher:
                     dtype=np.int64,
                 )
                 self._buffer_cursor += self.seq_len
+                if self.forbidden_hashes is not None:
+                    row_hashes = g167.rolling_13gram_hashes(window)
+                    if any(int(h) in self.forbidden_hashes for h in row_hashes.tolist()):
+                        self.overlap_rejects += 1
+                        continue
                 windows.append(window)
 
             if len(windows) >= self.batch_size:
@@ -654,6 +695,13 @@ class StreamingC4Batcher:
             "epochs_started": self.epoch + 1,
             "records_seen": self.records_seen,
             "windows_yielded": self.windows_yielded,
+            "overlap_filter": (
+                "recipient_main_train_plus_eval_token_13gram"
+                if self.forbidden_hashes is not None
+                else None
+            ),
+            "forbidden_hash_count": len(self.forbidden_hashes) if self.forbidden_hashes is not None else 0,
+            "overlap_rejects": self.overlap_rejects,
         }
 
 
@@ -661,17 +709,21 @@ def load_alt_eval_data(
     tok,
     *,
     n_windows: int,
+    forbidden_hashes: set[int],
 ) -> tuple[torch.Tensor, torch.Tensor, dict[str, Any]]:
     ids, mask, meta = g167.load_c4_windows(
         tok,
         split=ALT_DONOR_EVAL_SPLIT,
         seed=ALT_DONOR_C4_EVAL_SEED,
         n_windows=n_windows,
+        forbidden_hashes=forbidden_hashes,
     )
     meta.update(
         {
             "purpose": "alternative donor held-out C4 stopping metric",
             "nll_target_nominal": ALT_DONOR_TARGET_NLL,
+            "overlap_filter": "recipient_main_train_plus_eval_token_13gram",
+            "forbidden_hash_count": len(forbidden_hashes),
         }
     )
     return ids, mask, meta
@@ -698,8 +750,14 @@ def final_eval_nll_from_metadata(metadata: dict[str, Any]) -> float | None:
     return None
 
 
+def final_stop_rule_nll_from_metadata(metadata: dict[str, Any]) -> float | None:
+    if "final_stop_rule_mean_heldout_c4_nll" in metadata:
+        return float(metadata["final_stop_rule_mean_heldout_c4_nll"])
+    return final_eval_nll_from_metadata(metadata)
+
+
 def donor_metadata_is_matched(metadata: dict[str, Any], stop_nll: float) -> bool:
-    final_nll = final_eval_nll_from_metadata(metadata)
+    final_nll = final_stop_rule_nll_from_metadata(metadata)
     own_stop_nll = float(metadata.get("heldout_c4_stop_nll", stop_nll))
     effective_stop_nll = min(own_stop_nll, stop_nll)
     if metadata.get("matched_target") is True:
@@ -711,6 +769,8 @@ def evaluate_qwen3_on_alt_heldout(
     tok,
     val_ids: torch.Tensor,
     val_mask: torch.Tensor,
+    val_meta: dict[str, Any],
+    forbidden_meta: dict[str, Any],
 ) -> dict[str, Any]:
     donor, _ = g165.load_trained_donor(tok)
     if hasattr(donor.config, "use_cache"):
@@ -724,6 +784,8 @@ def evaluate_qwen3_on_alt_heldout(
         "heldout_tokens": int(val_mask[:, 1:].sum().item()),
         "evaluated_utc": now_utc(),
         "model": g165._MODEL_ID,
+        "dataset_eval": val_meta,
+        "forbidden_hash_sha1": forbidden_meta["combined_forbidden_hash_sha1"],
     }
 
 
@@ -737,6 +799,8 @@ def pretrain_alternative_donor(
     stop_nll: float,
     max_steps: int,
     eval_every: int,
+    forbidden_hashes: set[int],
+    forbidden_meta: dict[str, Any],
     payload: dict[str, Any],
     t_start: float,
 ) -> tuple[dict[str, torch.Tensor], dict[str, Any]]:
@@ -760,6 +824,7 @@ def pretrain_alternative_donor(
         batch_size=ALT_DONOR_BATCH_SIZE,
         seq_len=g165.SEQ_LEN,
         buffer_size=ALT_DONOR_C4_TRAIN_BUFFER_SIZE,
+        forbidden_hashes=forbidden_hashes,
     )
 
     n_total_params = int(sum(param.numel() for param in model.parameters()))
@@ -771,6 +836,8 @@ def pretrain_alternative_donor(
     eval_row = {
         "step": 0,
         "heldout_c4_nll": float(initial_nll),
+        "stop_rule_mean_heldout_c4_nll": float(initial_nll),
+        "stop_rule_last_k": ALT_DONOR_STOP_RULE_LAST_K,
         "elapsed_s": time.time() - t0,
     }
     eval_log.append(eval_row)
@@ -812,6 +879,7 @@ def pretrain_alternative_donor(
                 "elapsed_s": time.time() - t0,
                 "stream_records_seen": batcher.records_seen,
                 "stream_windows_yielded": batcher.windows_yielded,
+                "stream_overlap_rejects": batcher.overlap_rejects,
             }
             train_log.append(row)
             print(
@@ -822,9 +890,18 @@ def pretrain_alternative_donor(
 
         if should_eval:
             heldout_nll = evaluate_nll(model, val_ids, val_mask, batch_size=g165.BATCH_SIZE)
+            stop_window = eval_log[-(ALT_DONOR_STOP_RULE_LAST_K - 1) :] if ALT_DONOR_STOP_RULE_LAST_K > 1 else []
+            stop_values = [float(row["heldout_c4_nll"]) for row in stop_window]
+            stop_values.append(float(heldout_nll))
+            stop_rule_mean = float(np.mean(stop_values))
+            has_full_stop_window = len(stop_values) >= ALT_DONOR_STOP_RULE_LAST_K
+            matched_now = bool(has_full_stop_window and stop_rule_mean <= stop_nll)
             eval_row = {
                 "step": step,
                 "heldout_c4_nll": float(heldout_nll),
+                "stop_rule_mean_heldout_c4_nll": stop_rule_mean,
+                "stop_rule_last_k": ALT_DONOR_STOP_RULE_LAST_K,
+                "stop_rule_full_window": has_full_stop_window,
                 "elapsed_s": time.time() - t0,
                 "train_loss_last": final_loss,
             }
@@ -833,18 +910,22 @@ def pretrain_alternative_donor(
                 "status": "pretraining",
                 "current_step": step,
                 "latest_heldout_c4_nll": float(heldout_nll),
+                "latest_stop_rule_mean_heldout_c4_nll": stop_rule_mean,
                 "stop_nll": stop_nll,
-                "matched": bool(heldout_nll <= stop_nll),
+                "matched": matched_now,
                 "eval_log": eval_log,
                 "train_log_tail": train_log[-10:],
                 "stream": batcher.metadata(),
+                "overlap_rejects": batcher.overlap_rejects,
             }
             write_payload(payload, t_start=t_start, incremental=True)
             print(
                 f"    alt_pretrain seed={donor_seed} step={step:5d} "
-                f"heldout_c4_nll={heldout_nll:.4f} target<={stop_nll:.4f}"
+                f"heldout_c4_nll={heldout_nll:.4f} "
+                f"stop_mean_k{ALT_DONOR_STOP_RULE_LAST_K}={stop_rule_mean:.4f} "
+                f"target<={stop_nll:.4f}"
             )
-            if heldout_nll <= stop_nll:
+            if matched_now:
                 matched = True
                 break
             model.train()
@@ -854,6 +935,7 @@ def pretrain_alternative_donor(
     cleanup_cuda()
 
     final_eval_nll = float(eval_log[-1]["heldout_c4_nll"])
+    final_stop_rule_nll = float(eval_log[-1]["stop_rule_mean_heldout_c4_nll"])
     status = "matched_target" if matched else "max_steps_reached_without_target"
     metadata = {
         "target_kind": "alternative_c4_trained",
@@ -869,11 +951,19 @@ def pretrain_alternative_donor(
         "weight_decay": ALT_DONOR_WEIGHT_DECAY,
         "grad_clip": ALT_DONOR_GRAD_CLIP,
         "heldout_c4_stop_nll": stop_nll,
+        "stop_rule_last_k": ALT_DONOR_STOP_RULE_LAST_K,
         "final_heldout_c4_nll": final_eval_nll,
+        "final_stop_rule_mean_heldout_c4_nll": final_stop_rule_nll,
         "matched_target": bool(matched),
         "status": status,
         "dataset_train": batcher.metadata(),
         "dataset_eval": val_meta,
+        "overlap_filter": forbidden_meta,
+        "forbidden_hash_sha1": forbidden_meta["combined_forbidden_hash_sha1"],
+        "overlap_rejects": {
+            "train": batcher.overlap_rejects,
+            "eval": int(val_meta.get("forbidden_overlap_rejects", 0)),
+        },
         "train_log": train_log,
         "eval_log": eval_log,
         "n_total_params": n_total_params,
@@ -896,6 +986,8 @@ def ensure_alternative_donor(
     stop_nll: float,
     max_steps: int,
     eval_every: int,
+    forbidden_hashes: set[int],
+    forbidden_meta: dict[str, Any],
     payload: dict[str, Any],
     t_start: float,
     force: bool,
@@ -911,11 +1003,18 @@ def ensure_alternative_donor(
         validation = validate_target_params(params, label=arm_label)
         final_nll = final_eval_nll_from_metadata(metadata)
         matched = donor_metadata_is_matched(metadata, stop_nll)
-        if not matched and not allow_unmatched:
+        overlap_ok = overlap_filter_matches(metadata, forbidden_meta)
+        if not overlap_ok:
             raise RuntimeError(
+                f"existing donor {path} was not trained with the recipient 13-gram "
+                "overlap filter required by g177v2. Use --force-alt-donors to retrain."
+            )
+        if not matched and not allow_unmatched:
+            print(
                 f"existing donor {path} is not matched to held-out C4 target: "
                 f"final_nll={final_nll} stop_nll={stop_nll:.4f}. "
-                "Use --force-alt-donors to retrain or --allow-unmatched-donors to proceed."
+                "It remains saved for audit but will block main cells unless "
+                "--allow-unmatched-donors is set."
             )
         payload["target_npz"][arm_label] = {
             "path": str(path),
@@ -931,7 +1030,9 @@ def ensure_alternative_donor(
             "metadata": metadata,
             "matched_target": bool(matched),
             "final_heldout_c4_nll": final_nll,
+            "final_stop_rule_mean_heldout_c4_nll": final_stop_rule_nll_from_metadata(metadata),
             "stop_nll": stop_nll,
+            "overlap_rejects": metadata.get("overlap_rejects", {}),
             "param_count": anchor_param_count(params),
             "norm_sq": anchor_state_norm_sq(params),
         }
@@ -949,6 +1050,8 @@ def ensure_alternative_donor(
         stop_nll=stop_nll,
         max_steps=max_steps,
         eval_every=eval_every,
+        forbidden_hashes=forbidden_hashes,
+        forbidden_meta=forbidden_meta,
         payload=payload,
         t_start=t_start,
     )
@@ -959,22 +1062,27 @@ def ensure_alternative_donor(
         save_meta = save_state_npz(path, params, metadata=metadata, force=True)
         payload["target_npz"][arm_label] = save_meta
         payload["alternative_donors"][key] = {
-            "status": "saved_unmatched_then_stopped",
+            "status": "saved_unmatched_requires_explicit_allow_for_main",
             "npz_path": str(path),
             "metadata": metadata,
             "matched_target": False,
             "final_heldout_c4_nll": metadata["final_heldout_c4_nll"],
+            "final_stop_rule_mean_heldout_c4_nll": metadata["final_stop_rule_mean_heldout_c4_nll"],
             "stop_nll": stop_nll,
+            "overlap_rejects": metadata.get("overlap_rejects", {}),
             "param_count": anchor_param_count(params),
             "norm_sq": anchor_state_norm_sq(params),
         }
         write_payload(payload, t_start=t_start, incremental=True)
-        raise RuntimeError(
+        print(
             f"alternative donor seed={donor_seed} did not reach held-out C4 target: "
             f"final_nll={metadata['final_heldout_c4_nll']:.4f} stop_nll={stop_nll:.4f}. "
-            "Saved the unmatched checkpoint; rerun with higher --alt-max-steps or "
-            "--allow-unmatched-donors only for diagnostic runs."
+            "Saved the unmatched checkpoint for audit; main cells will not run with it "
+            "unless --allow-unmatched-donors is set."
         )
+        del params
+        cleanup_cuda()
+        return
 
     save_meta = save_state_npz(path, params, metadata=metadata, force=True)
     payload["target_npz"][arm_label] = save_meta
@@ -984,7 +1092,9 @@ def ensure_alternative_donor(
         "metadata": metadata,
         "matched_target": bool(matched),
         "final_heldout_c4_nll": metadata["final_heldout_c4_nll"],
+        "final_stop_rule_mean_heldout_c4_nll": metadata["final_stop_rule_mean_heldout_c4_nll"],
         "stop_nll": stop_nll,
+        "overlap_rejects": metadata.get("overlap_rejects", {}),
         "param_count": anchor_param_count(params),
         "norm_sq": anchor_state_norm_sq(params),
     }
@@ -1004,14 +1114,26 @@ def ensure_alternative_donors(
     eval_every: int,
     eval_windows: int,
     explicit_target_nll: float | None,
+    forbidden_hashes: set[int],
+    forbidden_meta: dict[str, Any],
 ) -> None:
-    val_ids, val_mask, val_meta = load_alt_eval_data(tok, n_windows=eval_windows)
+    val_ids, val_mask, val_meta = load_alt_eval_data(
+        tok,
+        n_windows=eval_windows,
+        forbidden_hashes=forbidden_hashes,
+    )
     payload["data"]["alternative_donor_heldout_c4"] = val_meta
+    payload["data"]["recipient_overlap_forbidden_hashes"] = forbidden_meta
 
     qwen3_eval = payload.get("qwen3_reference", {}).get("alternative_donor_heldout_c4")
-    if not isinstance(qwen3_eval, dict) or "heldout_c4_nll" not in qwen3_eval:
+    qwen3_eval_current = (
+        isinstance(qwen3_eval, dict)
+        and "heldout_c4_nll" in qwen3_eval
+        and qwen3_eval.get("forbidden_hash_sha1") == forbidden_meta["combined_forbidden_hash_sha1"]
+    )
+    if not qwen3_eval_current:
         print("\n=== Qwen3 reference eval on alternative-donor held-out C4 ===")
-        qwen3_eval = evaluate_qwen3_on_alt_heldout(tok, val_ids, val_mask)
+        qwen3_eval = evaluate_qwen3_on_alt_heldout(tok, val_ids, val_mask, val_meta, forbidden_meta)
         payload["qwen3_reference"]["alternative_donor_heldout_c4"] = qwen3_eval
         write_payload(payload, t_start=t_start, incremental=True)
 
@@ -1020,9 +1142,35 @@ def ensure_alternative_donors(
     payload["config"]["alternative_donors"]["effective_max_steps"] = max_steps
     payload["config"]["alternative_donors"]["effective_eval_every"] = eval_every
     payload["config"]["alternative_donors"]["effective_eval_windows"] = eval_windows
+    payload["config"]["alternative_donors"]["effective_total_budget_sec"] = ALT_PRETRAIN_TOTAL_BUDGET_SEC
+    payload["config"]["alternative_donors"]["estimated_sec_per_donor"] = estimate_alt_donor_wallclock_s(max_steps)
     write_payload(payload, t_start=t_start, incremental=True)
 
+    budget_start = time.time()
+    budget_exhausted = False
     for donor_seed in ALT_DONOR_SEEDS:
+        elapsed_budget_s = time.time() - budget_start
+        next_est_s = 0.0 if alt_npz_path(donor_seed).exists() and not force else estimate_alt_donor_wallclock_s(max_steps)
+        remaining_budget_s = ALT_PRETRAIN_TOTAL_BUDGET_SEC - elapsed_budget_s
+        if elapsed_budget_s > 0.0 and next_est_s > remaining_budget_s:
+            payload["alternative_donors"][str(donor_seed)] = {
+                "status": "skipped_pretrain_budget_exhausted",
+                "matched_target": False,
+                "budget_elapsed_s": elapsed_budget_s,
+                "budget_remaining_s": remaining_budget_s,
+                "estimated_next_donor_s": next_est_s,
+                "total_budget_sec": ALT_PRETRAIN_TOTAL_BUDGET_SEC,
+            }
+            budget_exhausted = True
+            payload["config"]["alternative_donors"]["pretrain_budget_elapsed_s"] = elapsed_budget_s
+            payload["config"]["alternative_donors"]["pretrain_budget_exhausted"] = True
+            print(
+                f"  skipping alternative donor seed={donor_seed}: "
+                f"elapsed_pretrain_budget={elapsed_budget_s:.0f}s "
+                f"remaining={remaining_budget_s:.0f}s estimated_next={next_est_s:.0f}s"
+            )
+            write_payload(payload, t_start=t_start, incremental=True)
+            break
         ensure_alternative_donor(
             tok,
             donor_seed=donor_seed,
@@ -1032,11 +1180,16 @@ def ensure_alternative_donors(
             stop_nll=stop_nll,
             max_steps=max_steps,
             eval_every=eval_every,
+            forbidden_hashes=forbidden_hashes,
+            forbidden_meta=forbidden_meta,
             payload=payload,
             t_start=t_start,
             force=force,
             allow_unmatched=allow_unmatched,
         )
+        payload["config"]["alternative_donors"]["pretrain_budget_elapsed_s"] = time.time() - budget_start
+        payload["config"]["alternative_donors"]["pretrain_budget_exhausted"] = budget_exhausted
+        write_payload(payload, t_start=t_start, incremental=True)
 
 
 def load_qwen3_anchor_params(tok) -> tuple[dict[str, torch.Tensor], dict[str, Any]]:
@@ -1162,6 +1315,59 @@ def load_main_data(tok) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch
         "protocol_note": "Exact g165/g174 Part A C4 text loader and tokenizer block.",
     }
     return train_ids, train_mask, val_ids, val_mask, meta
+
+
+def hash_set_sha1(hashes: set[int]) -> str:
+    if not hashes:
+        return hashlib.sha1(b"").hexdigest()
+    arr = np.fromiter(hashes, dtype=np.uint64, count=len(hashes))
+    arr.sort()
+    return hashlib.sha1(arr.tobytes()).hexdigest()
+
+
+def build_recipient_forbidden_hashes(
+    train_ids: torch.Tensor,
+    train_mask: torch.Tensor,
+    val_ids: torch.Tensor,
+    val_mask: torch.Tensor,
+) -> tuple[set[int], dict[str, Any]]:
+    train_hashes = g167.collect_13gram_hashes(train_ids, train_mask)
+    heldout_hashes = g167.collect_13gram_hashes(val_ids, val_mask)
+    forbidden_hashes = set(train_hashes)
+    forbidden_hashes.update(heldout_hashes)
+    meta = {
+        "source": "recipient_main_train_plus_eval_token_13gram",
+        "hash_len": g167.HASH_LEN,
+        "main_train_hash_count": len(train_hashes),
+        "main_eval_hash_count": len(heldout_hashes),
+        "combined_forbidden_hash_count": len(forbidden_hashes),
+        "combined_forbidden_hash_sha1": hash_set_sha1(forbidden_hashes),
+        "main_train_seed": g165.C4_TRAIN_SEED,
+        "main_eval_seed": g165.C4_VAL_SEED,
+        "main_train_shape": list(train_ids.shape),
+        "main_eval_shape": list(val_ids.shape),
+    }
+    return forbidden_hashes, meta
+
+
+def estimate_alt_donor_wallclock_s(max_steps: int) -> float:
+    return float(max_steps) * ALT_DONOR_EST_SEC_PER_STEP + ALT_DONOR_EST_EVAL_OVERHEAD_SEC
+
+
+def overlap_filter_matches(metadata: dict[str, Any], forbidden_meta: dict[str, Any]) -> bool:
+    dataset_train = metadata.get("dataset_train", {})
+    dataset_eval = metadata.get("dataset_eval", {})
+    expected_count = int(forbidden_meta["combined_forbidden_hash_count"])
+    expected_sha1 = str(forbidden_meta["combined_forbidden_hash_sha1"])
+    return (
+        isinstance(dataset_train, dict)
+        and isinstance(dataset_eval, dict)
+        and dataset_train.get("overlap_filter") == "recipient_main_train_plus_eval_token_13gram"
+        and dataset_eval.get("overlap_filter") == "recipient_main_train_plus_eval_token_13gram"
+        and int(dataset_train.get("forbidden_hash_count", -1)) == expected_count
+        and int(dataset_eval.get("forbidden_hash_count", -1)) == expected_count
+        and metadata.get("forbidden_hash_sha1") == expected_sha1
+    )
 
 
 def run_anchor_cell(
@@ -1447,6 +1653,7 @@ def run_alt_anchor_arm(
     val_mask: torch.Tensor,
     tok,
     allow_unmatched: bool,
+    forbidden_meta: dict[str, Any],
 ) -> None:
     if arm.donor_seed is None:
         raise RuntimeError(f"{arm.label}: donor_seed missing")
@@ -1468,6 +1675,11 @@ def run_alt_anchor_arm(
         metadata,
         float(payload["config"]["alternative_donors"].get("effective_stop_nll", ALT_DONOR_TARGET_NLL)),
     )
+    if not overlap_filter_matches(metadata, forbidden_meta):
+        raise RuntimeError(
+            f"{arm.label}: donor checkpoint was not trained with the recipient "
+            "13-gram overlap filter required by g177v2. Rebuild with --force-alt-donors."
+        )
     if not matched and not allow_unmatched:
         raise RuntimeError(
             f"{arm.label}: donor checkpoint is not matched to held-out C4 target. "
@@ -1536,9 +1748,14 @@ def run_main_cells(
     t_start: float,
     tok,
     allow_unmatched: bool,
+    forbidden_meta: dict[str, Any],
+    main_data: tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, dict[str, Any]] | None = None,
 ) -> None:
     print("\n=== Main matched-alt identity falsifier: 5 arms x 3 seeds ===")
-    train_ids, train_mask, val_ids, val_mask, data_meta = load_main_data(tok)
+    if main_data is None:
+        train_ids, train_mask, val_ids, val_mask, data_meta = load_main_data(tok)
+    else:
+        train_ids, train_mask, val_ids, val_mask, data_meta = main_data
     payload["data"]["main_g165_c4"] = data_meta
     write_payload(payload, t_start=t_start, incremental=True)
 
@@ -1573,6 +1790,7 @@ def run_main_cells(
             val_mask=val_mask,
             tok=tok,
             allow_unmatched=allow_unmatched,
+            forbidden_meta=forbidden_meta,
         )
 
     payload["summary"] = build_summary(payload)
@@ -1607,6 +1825,17 @@ def print_active_ingredient_summary(summary: dict[str, Any]) -> None:
 
 def all_alt_npzs_exist() -> bool:
     return all(alt_npz_path(seed).exists() for seed in ALT_DONOR_SEEDS)
+
+
+def alt_donors_blocking_main(payload: dict[str, Any]) -> list[int]:
+    stop_nll = float(payload["config"]["alternative_donors"].get("effective_stop_nll", ALT_DONOR_TARGET_NLL))
+    blocking = []
+    for seed in ALT_DONOR_SEEDS:
+        row = payload.get("alternative_donors", {}).get(str(seed), {})
+        metadata = row.get("metadata") if isinstance(row, dict) else None
+        if not isinstance(metadata, dict) or not donor_metadata_is_matched(metadata, stop_nll):
+            blocking.append(seed)
+    return blocking
 
 
 def parse_args() -> argparse.Namespace:
@@ -1682,6 +1911,22 @@ def main() -> None:
     t_start = time.time()
     payload = load_or_create_payload(resume=not args.no_resume)
     tok = load_tokenizer()
+    main_data = load_main_data(tok)
+    train_ids, train_mask, val_ids, val_mask, data_meta = main_data
+    forbidden_hashes, forbidden_meta = build_recipient_forbidden_hashes(
+        train_ids,
+        train_mask,
+        val_ids,
+        val_mask,
+    )
+    payload["data"]["main_g165_c4"] = data_meta
+    payload["data"]["recipient_overlap_forbidden_hashes"] = forbidden_meta
+    write_payload(payload, t_start=t_start, incremental=True)
+    print(
+        "  recipient overlap filter: "
+        f"{forbidden_meta['combined_forbidden_hash_count']} token 13-grams "
+        f"sha1={forbidden_meta['combined_forbidden_hash_sha1'][:12]}"
+    )
 
     need_alt_donors = args.stage in {"all", "alt-donors"} or not all_alt_npzs_exist()
     if need_alt_donors:
@@ -1695,6 +1940,8 @@ def main() -> None:
             eval_every=args.alt_eval_every,
             eval_windows=args.alt_eval_windows,
             explicit_target_nll=args.alt_target_nll,
+            forbidden_hashes=forbidden_hashes,
+            forbidden_meta=forbidden_meta,
         )
         if args.stage == "alt-donors":
             payload["summary"] = build_summary(payload)
@@ -1708,12 +1955,30 @@ def main() -> None:
         print("  all alternative donor NPZ files already exist")
         return
 
+    if args.stage == "all" and need_alt_donors and not args.allow_unmatched_donors:
+        blocking = alt_donors_blocking_main(payload)
+        if blocking:
+            payload["summary"] = build_summary(payload)
+            payload["verdict"] = (
+                "INCOMPLETE: alternative donors not matched within the envelope; "
+                f"blocking seeds={blocking}."
+            )
+            write_payload(payload, t_start=t_start, incremental=False)
+            print(
+                "  not launching main cells: unmatched or skipped alternative donors "
+                f"block matched-condition inference (seeds={blocking})"
+            )
+            print(f"Saved: {OUT_PATH} ({payload['elapsed_s']:.1f}s)")
+            return
+
     if args.stage in {"all", "main"}:
         run_main_cells(
             payload,
             t_start=t_start,
             tok=tok,
             allow_unmatched=args.allow_unmatched_donors,
+            forbidden_meta=forbidden_meta,
+            main_data=main_data,
         )
 
     payload["summary"] = build_summary(payload)
