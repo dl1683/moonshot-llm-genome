@@ -47,6 +47,30 @@ Prompt: "You are Architecture Theorist + Competitive Analyst for the Neural Geno
 
 Both consults run in parallel via `run_in_background: true`. Their outputs are read on the FOLLOWING heartbeat (since Codex takes 5-15 min) and integrated.
 
+## Adversarial Codex review (every 5th fire — ADDITIONALLY)
+
+**MANDATORY at heartbeats #5, #10, #15, #20, ...** (in addition to whatever cycle-3 dual review may also be due — at #15, #30, #45 etc. ALL THREE consults fire).
+
+```
+codex exec --full-auto --skip-git-repo-check -C <PROJECT_DIR> -o codex_outputs/heartbeats/cycle<N>_adversarial_<TIMESTAMP>.md "<PROMPT>"
+```
+
+Prompt: "You are the ADVERSARIAL Codex reviewer for the Neural Genome moonshot. Read CLAUDE.md §0/§0.05/§0.1, WIKI.md (especially the ★ findings), research/CLAIM_EVIDENCE_MAP.md, and the most recent canonical-PASS claim. Your job is to KILL the strongest current claim if you can. Steelman the strongest objection — what's the experiment that would falsify it? What's the alternative explanation we've ruled out too quickly? What confound have we missed? If you can't find a real objection, say so explicitly — but try hard before giving up. Report under 500 words. Output a single ranked-by-severity list of attacks + the one experiment that would resolve the strongest one."
+
+Distinct from the cycle-3 personas because each persona reviews CONSTRUCTIVELY within its scope; adversarial reviewer's job is to FALSIFY. Catches overclaims the persona suite tends to miss.
+
+## Advisor-style Codex (EVERY experiment completion — ADDITIONALLY)
+
+**MANDATORY when ANY `genome_*.py` writes its result JSON.** Fire BEFORE deciding the next experiment.
+
+```
+codex exec --full-auto --skip-git-repo-check -C <PROJECT_DIR> -o codex_outputs/g<N>_advisor_<TIMESTAMP>.md "<PROMPT>"
+```
+
+Prompt: "Read results/genome_<N>_*.json (the actual numbers, not just the verdict label), WIKI.md, research/CLAIM_EVIDENCE_MAP.md, and the last 3 ledger entries. The user wants POWERFUL next directions, not obvious follow-ups in the existing chain. Score 5 candidate next-experiments by §0.1-uplift potential. The candidates should include at least 2 that are NOT obvious continuations of the current branch. Pick the highest-leverage one and explain why it beats the obvious continuation. Report under 600 words."
+
+This consult is FIRED IMMEDIATELY when a result JSON appears — do NOT wait for the next heartbeat. It runs parallel to the integration helper.
+
 ## Output format per heartbeat
 
 After the checklist + (optionally) firing reviews, post to chat:
