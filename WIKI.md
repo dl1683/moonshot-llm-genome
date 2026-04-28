@@ -124,6 +124,34 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g174 BOTH PARTS PASS 2026-04-28 ~03:00 UTC: trained-structure donor-specificity LOCKED on both weight-anchor AND KD axes ★★★ MAJOR**
+
+g174 donor-structure-specificity matched-null control (24 cells: 12 weight-anchor + 12 KD-target). Wall ~98 min total.
+
+**PART A weight-anchor:**
+| Arm | Δ vs scratch (nats) | % of trained |
+|---|---:|---:|
+| anchor_trained_donor | **+1.087** | 100% (reproduces g165) |
+| anchor_permuted_donor | +0.128 [paired t-CI +0.029, +0.227] | 12% |
+| anchor_random_donor | **-0.687** (HARMS) | NEGATIVE |
+| **Trained beats best null** | **+0.959** [CI +0.924, +1.029] | — |
+
+**PART B KD-target:**
+| Arm | C4 top-1 | Δ vs scratch (pp) |
+|---|---:|---:|
+| scratch_ce | 15.66% | — |
+| **kd_trained_teacher** | **16.67%** | **+1.014** (reproduces g167) |
+| kd_uniform_target | 15.72% | +0.05 |
+| **Trained beats best null** | — | **+0.981** [CI +0.908, +1.024] |
+
+**Cycle 45 adversarial attack REFUTED on BOTH axes.** Continuous-constraint effect is NOT generic regularization or generic dense supervision.
+
+**Cycle 50 caveat (still active):** this proves **trained-STRUCTURE specificity** (vs random/permuted/uniform nulls). NOT YET proves **donor-IDENTITY specificity** (vs different trained models of same shape). Falsifying experiment g175 queued: anchor to a DIFFERENT trained Qwen3-0.6B-shape model. If gets ≥80% of true-donor → identity-specificity dies; effect is "trained-like weights" generally.
+
+§0.1 ceiling: 7.9 → ~8.0 with both parts confirmed. g175 either tightens (~8.1 if identity-specificity locks) or significantly weakens framing (~7.5 if any trained model of same shape works).
+
+Source: `results/genome_174_donor_specificity_control.json` + `research/DONOR_SPECIFICITY_LOCK_2026-04-28.md`.
+
 **★ g172 MIXED 2026-04-28 00:08 UTC: KD has BOTH init-signal AND continuous-constraint components. Late KD >> early KD. ★ RICH FINDING**
 
 | Arm | Δ vs scratch (C4 top-1 pp) | Retention vs full_kd |
