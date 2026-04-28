@@ -124,6 +124,20 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g172 MIXED 2026-04-28 00:08 UTC: KD has BOTH init-signal AND continuous-constraint components. Late KD >> early KD. ★ RICH FINDING**
+
+| Arm | Δ vs scratch (C4 top-1 pp) | Retention vs full_kd |
+|---|---:|---:|
+| full_kd | **+1.014** [CI +0.988, +1.036] | 100% (sanity reproduces g167) |
+| **kd_late_only** (steps 4001-6000) | **+0.700** [CI +0.659, +0.764] | **69%** |
+| kd_warmup_then_ce_cutoff (steps 0-2000) | +0.139 [CI +0.118, +0.157] | 14% |
+
+**Sharper than the cycle 39 binary:** KD has BOTH components. Init-signal exists (+0.139 pp persists post-cutoff, CI excludes zero) but is small. Continuous-constraint dominates. Most striking: **late KD (33% of compute, applied at fine-tuning convergence) yields 69% of full effect.** Suggests donor anchoring is most effective when the recipient is ALREADY partially structured — analogous to fine-tuning, not initialization.
+
+**Theoretical implication for the basin-of-attraction interpretation:** the recipient must reach the vicinity of a meaningful basin BEFORE donor anchoring can usefully steer it. Early in training, the recipient is too random for donor signal to resolve coherently.
+
+§0.1 ceiling unchanged at 7.9, but this is a sharper empirical statement than just "continuous-constraint." Wall 76 min. Source: `results/genome_172_kd_warmup_cutoff.json`.
+
 **★ g170 FAILED 2026-04-27 ~23:00 UTC: transport-gated KD does NOT beat uniform KD.**
 
 g170 transport-gated KD (4 arms × 3 seeds, 6000 steps). Best gated arm = position_gated_kd at **-0.436 pp** vs uniform [CI -0.569, -0.330]. All transport-aware weighting REDUCES capability transfer compared to uniform.
