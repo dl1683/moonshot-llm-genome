@@ -44,11 +44,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
-**Sequencing locked (post-g177v2-FAIL revision per advisor 2026-04-28 ~08:50):**
-1. **g173 cross-arch FLOP cash-out** RUNNING — the A6 cross-architecture test. Even more necessary post-g177v2 FAIL: the story can no longer lean on donor identity, so it needs cross-arch functional transfer + FLOP cash-out. 3.85h hard envelope.
-2. **g180 Genome Forecast — early-checkpoint destiny predictor (NEW, advisor pick 8.6/10)** — biggest §0.1 uplift candidate. Use ≤3% training checkpoints + activation-spectrum/geometry features to predict final run quality better than early loss. Cross-arch from start (Qwen3/Llama/RWKV/Falcon-H1). Compute-saving claim is product-grade — diagnostic + efficiency double-aligned with CLAUDE.md §0.05/§0.1. Non-obvious pivot less likely to be subsumed by big-lab work. Order: AFTER g173 verdict.
-3. **g179 λ-sweep + Hessian projection** — first-principles derivation test (basin-of-attraction). Tests Δ_NLL ≈ Σ[g_i·a_i − 0.5·h_i·a_i²] with a_i(λ)=λ/(h_i+λ)·z_i. λ ∈ {0.0003, 0.0013, 0.003, 0.01, 0.03} × 1-2 seeds. <4h. Order: gates after g173+g180 if both PASS.
-4. **g178 layer-family C18 decomposition** — DEFERRED indefinitely. Within-family explanatory work; both advisor and cycle 63 say "maps a Qwen3-family basin" without decisive uplift. Reconsider only if g173+g180+g179 all stall.
+**Sequencing locked (post-cycle-65 revision 2026-04-28 ~09:20):**
+1. **g173 cross-arch FLOP cash-out** RUNNING — A6 cross-architecture test. ~3.85h.
+2. **g181a tokenizer-isolation control (NEW, cycle 65 9/10 attack)** — CRITICAL. Tests whether the surviving "+1 nat" claim is just Qwen3-tokenizer-prior. 4 arms × 3 seeds × 2000 steps = ~2.6h. Survives only if no_embed_lm_head_anchor retains ≥+0.5 nats AND beats embed-only by ≥+0.3 nats. **If FAIL → C18+C19+C21 collapse to "Qwen3-tokenizer init artifact."**
+3. **g181b long-horizon (cycle 65 8/10 attack)** — scratch + full_anchor × 3 seeds × 5000 steps = ~3.3h. Survives only if gap at step 5000 ≥+0.5 nats. **If FAIL → claim narrows to "short-horizon acceleration" only.** Order: AFTER g181a survives.
+4. **g180 Genome Forecast (advisor pick 8.6/10)** — biggest §0.1 uplift candidate. NEW direction: early-checkpoint destiny predictor. Cross-arch from start. **Order: gated on g181a+g181b survival.** If g181 series kills the transfer claim, g180 becomes the pivot anyway.
+5. **g179 λ-sweep derivation** — gated on g181a+g181b survival.
+6. **g178 layer-family** — DEFERRED indefinitely.
 
 **g177v2 NLL × Δ scatter formal verdict (advisor 08:48):** Fit `Δ = 3.116 − 0.362·NLL`. At Qwen3 NLL=3.565, predicted Δ=+1.825, 95% PI = [-0.998, +4.648] (huge due to df=1, 3 alt donors clustered at NLL ~5.72). **Qwen3's observed +1.087 is INSIDE PI and even below the point estimate.** Identity-residual NOT confirmed. C22 fully REJECTED, not just downgraded.
 
