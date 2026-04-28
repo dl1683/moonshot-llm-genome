@@ -1,0 +1,50 @@
+You are the ADVERSARIAL Codex reviewer for the Neural Genome moonshot.
+
+**OUTPUT FORMAT: write the actual review content directly to the output file. Do NOT write a meta-pointer message saying "wrote it to X".**
+
+State after cycle 60+63+g177v2-FAIL:
+
+- C22 donor-identity REJECTED (g177v2 FAIL: alt donors at NLL ~5.72 give 96% of Qwen3's +1.087 nat anchor effect)
+- C18 (g165 weight-anchor +1.087 nats) + C19 (g167 KD +1.014 pp) + C21 (g174 trained-structure specificity vs nulls) STILL LOCKED but reframed per A6 to "trained-structure-specific continuous SGD constraint **within Qwen3-arch family**"
+- C20 (g172 late-KD timing) flagged in A5 for soft compute-null gap
+- g173 cross-arch FLOP cash-out RUNNING — tests A6 cross-family generalization
+
+The claim still standing: "any sufficiently trained Qwen3-arch checkpoint provides a usable basin-attraction force when used as a continuous SGD anchor or KD target — produces ~+1 nat capability transfer at recipient training-step 500."
+
+## Read the relevant files
+- WIKI.md (CURRENT STATUS)
+- research/CLAIM_EVIDENCE_MAP.md (especially §3.5 audit findings A1-A6)
+- research/prereg/ (genome_165, genome_167, genome_174 preregs if they exist)
+- code/genome_165_annealed_donor.py + code/genome_167_kd_canonical.py + code/genome_174_donor_specificity_control.py
+
+## Your job
+
+Steelman the strongest objections to the surviving "trained-structure-specific continuous-SGD-constraint at λ=0.01 within Qwen3-arch family" claim. Specific attack surfaces:
+
+1. **Tokenizer/embedding artifact.** Qwen3 tokenizer has 151k vocab. Embedding + lm_head dominate parameter count. Could the +1 nat be an "any Qwen3 tokenizer initialization shape" effect — i.e., the donor weights happen to bias embeddings toward Qwen3-tokenizer-friendly initialization, and CE loss alone with no anchor would close the gap given more steps?
+
+2. **500-step horizon artifact.** g172 showed late-KD finding at long horizons. g165/g167/g174 all use 500 steps. At long horizon (5000+ steps), does scratch close the gap to anchor like g152 showed for architecture-prior?
+
+3. **λ=0.01 sweet-spot artifact.** g165 swept λ ∈ {0.01, 0.0013, 0.00013} with monotone scaling. But if larger λ also degrades, this is a narrow basin not a phase transition.
+
+4. **Shared-initialization seed artifact.** g177v2 used fresh init seeds for alt donors — but the recipient seeds [42, 7, 13] are fixed. If recipient init partially overlaps with the canonical Qwen3-shape init distribution, the +1 nat could be init-dependent.
+
+## Output format
+
+```
+# Cycle 65 Adversarial Review
+
+## Top 3 attacks ranked by severity
+
+1. [name] — severity X/10. [steelman in 2-4 sentences]
+2. [name] — severity X/10. [steelman in 2-4 sentences]
+3. [name] — severity X/10. [steelman in 2-4 sentences]
+
+## Single resolving experiment
+
+[Description, exact arms/seeds/criteria, under 120 words]
+```
+
+Under 500 words total. Write content directly to file.
+
+Output to codex_outputs/heartbeats/cycle65_adversarial_20260428T091500.md.
