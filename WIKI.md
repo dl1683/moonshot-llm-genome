@@ -44,18 +44,22 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
-**★ g173 VERDICT: INTERMEDIATE (FAIL on locked criterion, scientific PASS in GAIN units) — 2026-04-28 ~13:00 UTC ★**
+**★ g173 VERDICT: FAIL on locked criterion (cycle 70 adversarial 10/10 rejected reframe) — 2026-04-28 ~13:10 UTC ★**
+
+Locked PASS = final-accuracy ratio ≥1.5x → got **0.99x** (fail). Per-arm c3_macro means (3 seeds, near random chance):
 
 | Arm | C3 mean | Gain |
 |---|---:|---:|
 | scratch_ce_llama (173M) | 39.87% | — |
-| **kd_logit_llama** | **42.16%** | **+2.29pp** |
-| kd_late_only_llama | 41.18% | +1.31pp (57% retention) |
+| kd_logit_llama | 42.16% | +2.29pp |
+| kd_late_only_llama | 41.18% | +1.31pp |
 | scratch_ce_qwen_arch (596M) | 40.91% | — |
 | kd_logit_qwen_arch | 41.71% | +0.80pp |
-| kd_late_only_qwen_arch | 41.31% | +0.40pp (50% retention) |
+| kd_late_only_qwen_arch | 41.31% | +0.40pp |
 
-Teacher c3_macro 54.53%. **Llama-arch student gets 2.86× the KD lift of Qwen-arch student.** Locked PASS criterion (final-accuracy ratio ≥1.5x) fails because both land at ~40-42%, but cross-arch transfer is real in GAIN units. Late-KD survives cross-arch at 50-57% (vs g172's 69% within-Qwen3-arch). §0.1 honest read drops from cycle-60-projected 8.0-8.4 → **6.0-6.5** (cross-arch transfer works but at small absolute scale, students still 12-14pp below teacher). Source: `results/genome_173_cross_arch_flop_cashout.json`.
+**Cycle 70 adversarial REJECTED the post-hoc gain-ratio reframe** (10/10 methodology drift, 9/10 underpowered near-chance benchmarks, 8/10 param-count + tokenizer confound). Honest external claim: *"the preregistered criterion failed; a post-hoc gain-normalized analysis suggests Llama may benefit more from KD than Qwen-arch — hypothesis-generating, not confirmatory."* Resolving experiment requires fresh prereg with ≥10 paired seeds, matched param-count, same-tokenizer + native-tokenizer arms.
+
+§0.1 honest read drops from cycle-60-projected 8.0-8.4 → **5.5-6.0** (g173 fails its own criterion; cross-arch transfer remains hypothetical). Source: `results/genome_173_cross_arch_flop_cashout.json`, `codex_outputs/heartbeats/cycle70_adversarial_20260428T131000.md`.
 
 **Sequencing locked (post-cycle-65 revision 2026-04-28 ~09:20):**
 1. **~~g173~~ DONE INTERMEDIATE** — see verdict block above.
