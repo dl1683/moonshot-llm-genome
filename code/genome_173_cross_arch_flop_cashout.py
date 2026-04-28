@@ -39,15 +39,23 @@ Arms (6 x 3 seeds = 18 cells):
 Training:
   - 8192 C4 train windows, len 256
   - 1000 C4 validation windows, len 256
-  - 6000 steps, batch 8, lr 3e-4
+  - 3600 steps, batch 8, lr 3e-4
   - BF16 forward autocast, FP32 master weights
   - top-k KD with k=64, T=2.0, gamma=0.5
-  - late-KD arms run CE-only for steps 1-4000, then KD for steps 4001-6000
+  - late-KD arms run CE-only for steps 1-2400, then KD for steps 2401-3600
 
-End-task eval at step 6000:
+End-task eval at step 3600:
   - C4 validation NLL / top-1
   - HellaSwag / PIQA / Winogrande, 500 validation examples each
   - C3_macro = mean(task accuracies)
+
+ENVELOPE COMPLIANCE:
+  - 3600 steps/cell is 60% of the prior 6000-step recipe.
+  - Hard per-cell wall budget: 720s, covering scaled Qwen-arch timing plus
+    cross-arch Llama compile/microbatch slack.
+  - 6 arms x 3 seeds = 18 cells; 18 x 720s = 12960s.
+  - Shared setup / teacher reference / eager top-k cache budget: 900s once.
+  - Hard total: 13860s = 3.85h <= 14400s COMPUTE.md time budget.
 
 FLOP accounting
 ---------------
@@ -119,13 +127,19 @@ SEQ_LEN = 256
 MC_MAX_LENGTH = SEQ_LEN + 128
 TRAIN_BATCH_SIZE = 8
 EVAL_BATCH_SIZE = 8
-TRAIN_STEPS = 6000
+TRAIN_STEPS = 3600
 LR = 3e-4
 LR_WARMUP_STEPS = 200
 BETAS = (0.9, 0.95)
 WEIGHT_DECAY = 0.1
 GRAD_CLIP = 1.0
 LOG_EVERY = 1000
+
+WALL_CLOCK_LIMIT_S = 4 * 60 * 60
+EXPECTED_CELL_WALL_S = 660
+HARD_CELL_WALL_S = 720
+EXPECTED_SHARED_SETUP_CACHE_S = 600
+HARD_SHARED_SETUP_CACHE_S = 900
 
 N_TRAIN_WINDOWS = 8192
 N_C4_VAL_WINDOWS = 1000
@@ -135,7 +149,7 @@ KD_TOPK = 64
 KD_TEMP = 2.0
 KD_GAMMA = 0.5
 KD_FULL_START_STEP = 1
-KD_LATE_START_STEP = 4001
+KD_LATE_START_STEP = 2401
 N_BOOT = 10000
 
 C4_TRAIN_SEED = 167001
@@ -265,8 +279,8 @@ ARM_SPECS = [
         kd_end_step=TRAIN_STEPS,
         student=LLAMA_SPEC,
         description=(
-            "Llama-arch student trained CE-only for steps 1-4000, then CE + "
-            "top-k logit KD for steps 4001-6000."
+            "Llama-arch student trained CE-only for steps 1-2400, then CE + "
+            "top-k logit KD for steps 2401-3600."
         ),
     ),
     ArmSpec(
@@ -292,8 +306,8 @@ ARM_SPECS = [
         kd_end_step=TRAIN_STEPS,
         student=QWEN_SPEC,
         description=(
-            "Qwen3-arch student control trained CE-only for steps 1-4000, then "
-            "CE + top-k logit KD for steps 4001-6000."
+            "Qwen3-arch student control trained CE-only for steps 1-2400, then "
+            "CE + top-k logit KD for steps 2401-3600."
         ),
     ),
 ]
@@ -1593,6 +1607,14 @@ def load_resume_results(*, train_signature: str) -> dict[str, dict[str, Any]]:
                 continue
             if int(cell.get("kd_step_count", -1)) != arm.kd_step_count:
                 continue
+            train_log = cell.get("train_log")
+            if not isinstance(train_log, list) or not train_log:
+                continue
+            last_train_row = train_log[-1]
+            if not isinstance(last_train_row, dict):
+                continue
+            if int(last_train_row.get("step", -1)) != TRAIN_STEPS:
+                continue
             if "final_metrics" not in cell or "compute" not in cell:
                 continue
             resumed[arm.label][seed_key] = cell
@@ -1813,9 +1835,48 @@ def main():
                 "llama_late_kd_retention_vs_full_kd_lt": FAIL_MIN_LATE_RETENTION,
             },
             "compute_envelope": {
-                "expected_wall_hours": 5.5,
-                "soft_hours": 5.5,
-                "hard_hours": 6.5,
+                "expected_wall_hours": round(
+                    (
+                        len(ARM_SPECS) * len(SEEDS) * EXPECTED_CELL_WALL_S
+                        + EXPECTED_SHARED_SETUP_CACHE_S
+                    )
+                    / 3600.0,
+                    2,
+                ),
+                "soft_hours": 3.5,
+                "hard_hours": round(
+                    (
+                        len(ARM_SPECS) * len(SEEDS) * HARD_CELL_WALL_S
+                        + HARD_SHARED_SETUP_CACHE_S
+                    )
+                    / 3600.0,
+                    2,
+                ),
+                "budget_breakdown": {
+                    "wall_clock_limit_s": WALL_CLOCK_LIMIT_S,
+                    "train_steps_per_cell": TRAIN_STEPS,
+                    "arms": len(ARM_SPECS),
+                    "seeds": len(SEEDS),
+                    "cells": len(ARM_SPECS) * len(SEEDS),
+                    "expected_cell_wall_s": EXPECTED_CELL_WALL_S,
+                    "hard_cell_wall_s": HARD_CELL_WALL_S,
+                    "expected_cells_wall_s": len(ARM_SPECS) * len(SEEDS) * EXPECTED_CELL_WALL_S,
+                    "hard_cells_wall_s": len(ARM_SPECS) * len(SEEDS) * HARD_CELL_WALL_S,
+                    "expected_shared_setup_teacher_cache_s": EXPECTED_SHARED_SETUP_CACHE_S,
+                    "hard_shared_setup_teacher_cache_s": HARD_SHARED_SETUP_CACHE_S,
+                    "expected_total_s": (
+                        len(ARM_SPECS) * len(SEEDS) * EXPECTED_CELL_WALL_S
+                        + EXPECTED_SHARED_SETUP_CACHE_S
+                    ),
+                    "hard_total_s": (
+                        len(ARM_SPECS) * len(SEEDS) * HARD_CELL_WALL_S
+                        + HARD_SHARED_SETUP_CACHE_S
+                    ),
+                    "teacher_cache_policy": (
+                        "eager once before arm loop; prefer g167 cache hit, otherwise "
+                        "write one g173 cache and reuse across all KD arms"
+                    ),
+                },
                 "max_vram_gb": 22.0,
                 "checkpoint_resume": True,
             },
@@ -1823,8 +1884,9 @@ def main():
                 "Teacher cache train signature intentionally matches genome_167 so cached top-k logits can be reused.",
                 "Shared Qwen tokenizer means embedding / lm_head parameters dominate total student params; this is expected.",
                 "Matched-capability compute divides standalone total FLOPs by retention_vs_qwen_kd.",
-                "Late-KD arms use the same batch schedule and activate KD only on steps 4001-6000.",
+                f"Late-KD arms use the same batch schedule and activate KD only on steps {KD_LATE_START_STEP}-{TRAIN_STEPS}.",
                 "Standalone late-KD compute includes schedule-effective teacher-cache FLOPs; full-cache reuse is also logged.",
+                "Envelope fix keeps all 6 arms and all 3 seeds; only the per-cell step horizon is reduced.",
             ],
         },
         "data": data_meta,

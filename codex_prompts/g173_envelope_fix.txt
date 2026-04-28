@@ -1,0 +1,36 @@
+## Task
+Patch `code/genome_173_cross_arch_flop_cashout.py` to fit the 4h COMPUTE.md wall-clock envelope. Verify with `python -m py_compile`. Do NOT launch.
+
+## Context (read first)
+- `CLAUDE.md` §1.5 (envelope binding rule) + `COMPUTE.md` §6 + §9 (compliance checklist)
+- `code/genome_173_cross_arch_flop_cashout.py` (current state — declares `expected_wall_hours: 5.5, hard 6.5`, lines ~1815-1820)
+- `codex_outputs/heartbeats/cycle57_direction_review_20260428T053000.md` (g173 conditional on g177v2 PASS; cross-arch FLOP cash-out is the only credible 8.0-8.4 §0.1 uplift available without wall-power meter)
+- `codex_outputs/g173_revised_implementation_20260428T044500.md` (your previous design notes — 6 arms × 3 seeds with late-KD arms)
+- `code/genome_167_kd_canonical.py` (g167 cache reuse — already designed for sharing teacher cache across experiments)
+
+## Current envelope problem
+- Declared 5.5h expected, 6.5h hard — both breach 4h
+- 6 arms × 3 seeds × 6000 steps ~= 18 cells × ~18min = ~5.5h on Qwen3-arch student
+- Cross-arch Llama-arch student may be slower (different compile path, possibly different microbatch)
+
+## Allowed reductions (pick the recipe that survives the cross-arch claim)
+1. **Reduce per-arm steps** from 6000 to 3000-4000 if scratch_ce_qwen_arch reaches a defensible top-1 floor at the lower step count. Critical: cross-arch ratio must remain interpretable.
+2. **Cache teacher logits eagerly** (g167 cache pattern): precompute top-k=64 teacher logits over the entire C4 train set ONCE, reuse across all 6 arms. Should already be partial in the current design — verify it's fully shared.
+3. **Drop kd_late_only arms (2 of 6)** if the late-KD-cross-arch claim is not load-bearing. Cycle 54 advisor said late-KD cross-arch is "the most concrete eff-claim" — DO NOT drop unless absolutely necessary. Late-KD is 33% of full-KD compute, so its arms are cheap.
+4. **Reduce seeds from 3 to 2** ONLY if (1)+(2)+(3) cannot fit. Two seeds weakens paired-t inference; preferred only as last resort. State the power tradeoff explicitly.
+5. **Reduce C3_macro tasks** from 3 (HellaSwag/PIQA/Winogrande, 500 each) to 2 if eval is the bottleneck. Probably not the bottleneck.
+
+## Required output
+- Edit `code/genome_173_cross_arch_flop_cashout.py` in place
+- Update the `compute_envelope` block at line ~1815 with new soft/hard hours and a budget breakdown
+- Add ENVELOPE COMPLIANCE comment at top describing per-arm wallclock estimate × cell count × seeds, summing to ≤14400s
+- Verify `python -m py_compile`
+- Write notes to `codex_outputs/g173_envelope_fix_20260428T060500.md` summarizing changes + estimated wall-clock
+
+## Pass criteria preserved (DO NOT change)
+- Cross-arch transfer ratio (Llama-student kd_logit / Qwen-arch student kd_logit) ≥ FAIL_MIN_TRANSFER_RATIO
+- Late-KD retention vs full KD on Llama-arch ≥ FAIL_MIN_LATE_RETENTION
+- Statistical: paired-t CI on critical Δ excludes zero
+
+## End goal reminder (TIER-0)
+Per CLAUDE.md §0: efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient. g173 is the cross-architecture cash-out — it asks: does the donor-specific weight-anchor / KD transfer mechanism we locked at C18+C19+C21 generalize across architecture families? PASS = "yes, Qwen3 teacher → Llama-arch student delivers cross-arch capability per FLOP." This is the highest-§0.1-uplift experiment available without the wall-power meter (8.0-8.4 ceiling per cycle 57).
