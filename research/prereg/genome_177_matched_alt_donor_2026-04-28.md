@@ -97,3 +97,35 @@ The disjunction (`OR`) means matching Frobenius/NLL OR λ-normalization is suffi
 The undertraining gap (alt donor NLL ~5.0 vs Qwen3 ~3.55) remains as a documented limitation, not a confound — Qwen3 saw ~10T+ tokens at production training while alt donors see ~20M tokens. This compute-parity gap is impossible to close on single-machine RTX 5090. The g177v2 result, even with unmatched alt donors, is still a substantial improvement over g175 (which had Wikitext corpus mismatch + no dedup + no λ-norm + n=1).
 
 If the result PASSES with unmatched alt donors, the decomposition framing tightens: "Qwen3 advantage over best-achievable-on-our-hardware C4-trained Qwen3-arch alt donor is +X.X nats — the bulk of which is identity-attributable, with a ≤Y nats residual attributable to unmatched-compute." If it FAILS, donor-identity claim dies regardless of NLL parity.
+
+---
+
+## Addendum 2026-04-28 ~06:25 (Codex sanity-check verdict integrated)
+
+Codex sanity-check on the `--allow-unmatched-donors` decision (`codex_outputs/g177v2_unmatched_decision_20260428T062000.md`):
+
+- **Q1 verdict:** "Partly defensible, but the adversarial counter is valid." λ-normalization matches initial anchor-force scale only — does NOT make an undertrained donor equivalent to Qwen3. An adversarial reviewer can correctly attack: "donor at NLL ~5.3 plausibly contains less learned structure than Qwen3 at ~3.55, so any weaker downstream effect is undertrained-donor not donor-identity."
+- **Q2 verdict:** "Best defensibility per hour is (b) plot alt-donor NLL × Δ scatter, framed via (c) confound-decomposition language." Do NOT escalate to longer single-donor pretrain (weakens n=3 + may still not reach parity).
+
+**REFRAMED CLAIM (replaces the original "matched eval-NLL" framing):**
+
+g177v2 is no longer a "matched-condition donor-parity experiment." It is a **matched-corpus, force-normalized sensitivity probe** of donor identity. The cycle 55 OR-clause is satisfied procedurally; scientifically the experiment now answers a sharper question:
+
+> *Conditional on matched corpus + matched anchor-force + dedup, does the recipient capability gain Δ track alt-donor training quality (NLL on held-out C4)? If Δ is monotone in donor NLL across the 3 alt donors, undertraining is the dominant explanatory factor and Qwen3's Δ at NLL 3.55 would be predicted by the trend. If Δ-vs-NLL is flat or weak across alt donors at NLL ~5, the identity-specific residual at NLL 3.55 survives.*
+
+**Required post-hoc analysis (will run after main cells complete):**
+1. Compute per-donor (mean across 3 recipient seeds) Δ = anchor_X_donor_NLL - scratch_NLL.
+2. Plot Δ vs. donor heldout C4 NLL across {alt_1234, alt_5678, alt_9999, Qwen3}.
+3. Fit linear trend on the 3 alt donors. Test whether Qwen3's (NLL=~3.55, Δ=+1.087) lies above the 95% prediction interval of the fit extrapolated to NLL=3.55.
+4. If Qwen3 lies above PI: **identity-residual confirmed**, decomposition follows.
+5. If Qwen3 lies on or near the fit line: **undertraining dominates**, identity claim dies.
+
+**Updated PASS/WEAK PASS/FAIL criteria** (replaces the simple Δ ≥ +0.5 nats threshold from the original prereg):
+
+| Outcome | Decision |
+|---|---|
+| Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of alt-donor NLL×Δ fit | **PASS** → C22 re-locks with explicit confound-decomposition |
+| Δ(Qwen3 - best_alt) ≥ +0.5 nats but Qwen3 within PI | **WEAK PASS / CONFOUNDED** → identity claim partial; advisor on framing |
+| Δ(Qwen3 - best_alt) < +0.2 nats OR alt-donor Δ already explains Qwen3's gap | **FAIL** → C22 dies, narrative regresses to C21 |
+
+This is the cycle-57-cycle-55-cycle-codex-Q2 integrated verdict structure.

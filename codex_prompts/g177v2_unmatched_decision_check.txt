@@ -1,0 +1,22 @@
+## Quick design-check (under 250 words)
+
+g177v2 just relaunched with `--allow-unmatched-donors`. Question: is this defensible vs cycle 55 adversarial?
+
+## Reasoning chain
+
+1. Cycle 55 attack demanded: "match Qwen3 on held-out C4 loss AND Frobenius distance, OR normalize lambda per donor." Disjunctive.
+2. We chose the lambda-normalization branch. Empirically verified: `lambda_alt = lambda_qwen3 * sqrt(F²_qwen3 / F²_alt)` makes initial `||grad_anchor||` match exactly across donors.
+3. Empirical g177v2 first launch: alt-donor 1234 NLL trajectory `{12.1@0, 8.0@100, 6.85@500, 6.57@1000, 6.46@1500}`. Log-extrap predicts ~5.3 at step 10000. Reaching 3.6 needs ~220k steps = ~15h, OOE on RTX 5090. Strict NLL matching is computationally infeasible on our hardware.
+4. With `--allow-unmatched-donors`, alt donors save at NLL ~5.0-5.5 (whatever 10k steps produces). Main cells run anyway. Total wallclock ~3.5h.
+
+## Q1
+Is the argument "lambda-normalization satisfies cycle 55 OR-clause; NLL parity is computationally infeasible; we document the gap rather than fake it" defensible? Or does an adversarial reviewer correctly attack: "lambda-norm matches initial gradient force but NOT the donor's information content; an undertrained donor at NLL 5.3 simply has less information than Qwen3 at NLL 3.55, regardless of force matching."
+
+## Q2
+If Q1's adversarial counter is valid, what's the minimum-cost fix? Options:
+- (a) Pretrain ONE alt donor for 30000+ steps (single donor, weakens n=3 inference but reaches better NLL parity)
+- (b) Run main cells AND ALSO report each alt donor's NLL × Δ scatter — if Δ correlates inversely with alt NLL strongly, the residual is plausibly identity, not undertraining
+- (c) Accept the current design and frame the result as "best-achievable matched-corpus alt donors — undertraining residual is bounded by nats-of-NLL-gap and decomposed in result"
+- (d) something else
+
+Pick the move with highest defensibility per hour spent. Reply under 250 words.
