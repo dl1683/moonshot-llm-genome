@@ -1,0 +1,56 @@
+You are the ADVERSARIAL Codex reviewer for the Neural Genome moonshot.
+
+**OUTPUT FORMAT: write content directly to file. NO meta-pointer messages.**
+
+The new claim under attack: g173 INTERMEDIATE reframed as "cross-arch transfer works in GAIN units; Llama-arch student gets 2.86× more KD lift than Qwen-arch student."
+
+Per-arm c3_macro means (3 seeds [42,7,13], 3600 steps, Qwen3-0.6B teacher, c3_macro = mean(HellaSwag, PIQA, Winogrande)):
+
+| Arm | C3 mean | Gain vs scratch |
+|---|---:|---:|
+| scratch_ce_llama (173M) | 39.87% | — |
+| kd_logit_llama | 42.16% | +2.29pp |
+| kd_late_only_llama | 41.18% | +1.31pp |
+| scratch_ce_qwen_arch (596M) | 40.91% | — |
+| kd_logit_qwen_arch | 41.71% | +0.80pp |
+| kd_late_only_qwen_arch | 41.31% | +0.40pp |
+
+Teacher c3_macro: 54.53%. Random chance ≈25% on HellaSwag, 50% on PIQA, 50% on Winogrande.
+
+The locked PASS criterion (final-accuracy ratio ≥1.5x) FAILED. The reframe argues the GAIN ratio (2.86x) is the right metric.
+
+## Your job: KILL the reframe if you can
+
+Steelman the strongest objections:
+
+1. **Cherry-picked metric.** The prereg locked final-accuracy ratio. The "gain ratio" is post-hoc. A reviewer can correctly say: "you locked one metric, it failed, you switched to a different one that passes — which is exactly the kind of methodology DRIFT that makes results untrustworthy."
+
+2. **Near-random-chance noise floor.** Llama scratch 39.87%, Llama KD 42.16%. HellaSwag arm at HS=23-25% (essentially random). PIQA at 47-53% (just above random). Winogrande at 46-52% (just above random). The +2.29pp differences may be entirely within the random-chance noise band of these benchmarks at N=500.
+
+3. **Param-count confound.** Llama is 173M, Qwen-arch is 596M. The "Llama gets more KD lift" might be explained by smaller models having more headroom at this training horizon (3600 steps not enough for 596M model to absorb teacher info well). Confound: smaller-model-headroom, not cross-arch-transfer.
+
+4. **Tokenizer artifact echoes from cycle 65 A7.** Both students share the Qwen3 tokenizer (151k vocab). The tokenizer-init effect that g177v2 demonstrated as ~95% of the +1 nat anchor lift may also explain most of the KD lift here — meaning the "cross-arch transfer" is mostly tokenizer trained-init transferring between architectures (which is NOT what the §0.1 manifesto claim wants).
+
+5. **n=3 seeds with paired CIs not reported.** The verdict mentions retention=101.1%, transfer ratio=0.99x but no CIs. With 3 seeds and effects of ~0.5-2pp on benchmarks at noise floor, the paired-t CI almost certainly crosses zero on most pairwise comparisons.
+
+## Output
+
+```
+# Cycle 70 Adversarial Review (g173 INTERMEDIATE reframe)
+
+## Top 3 attacks ranked by severity
+
+1. [name] — severity X/10. [steelman 2-4 sentences]
+2. [name] — severity X/10. [steelman 2-4 sentences]
+3. [name] — severity X/10. [steelman 2-4 sentences]
+
+## Verdict on the reframe
+
+[Is the "cross-arch GAIN ratio 2.86x" framing defensible externally? Or is it post-hoc methodology drift? 3-4 sentences.]
+
+## Single resolving experiment
+
+[The experiment that would kill the strongest attack. Under 120 words.]
+```
+
+Under 500 words. Output to `codex_outputs/heartbeats/cycle70_adversarial_20260428T131000.md`.
