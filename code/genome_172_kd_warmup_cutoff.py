@@ -1,0 +1,1007 @@
+"""
+genome_172_kd_warmup_cutoff.py
+
+KD warmup-cutoff alternative-mechanism test from cycle 39 direction review Q5.
+
+Locked question
+---------------
+Do the genome 167 KD gains require a continuous KD constraint throughout SGD,
+or can early KD seed a durable capability transfer that survives CE-only
+continuation?
+
+Teacher:
+  - Qwen/Qwen3-0.6B (frozen)
+
+Student:
+  - Same minimal_3L no-MLP Llama-family student as genome 167
+  - Qwen3 tokenizer / vocab so KD is defined on one shared token space
+
+Arms:
+  - scratch_ce
+  - full_kd
+  - kd_warmup_then_ce_cutoff
+  - kd_late_only
+
+Data:
+  - Same as genome 167
+  - 8192 train windows from deduped C4 train
+  - 1000 eval windows from deduped C4 validation
+  - 1000 eval windows from Wikitext-103 validation
+  - fixed window length 256
+
+Training:
+  - seeds = [42, 7, 13]
+  - 6000 total steps
+  - batch size 8
+  - BF16 forward, FP32 recipient weights
+  - KD: top-k=64, T=2.0, gamma=0.5
+  - warmup-cutoff arm: KD for steps 1-2000, then CE-only for 2001-6000
+  - late-only arm: CE-only for steps 1-4000, then KD for 4001-6000
+
+Locked adjudication:
+  - INIT-SIGNAL PASS:
+      kd_warmup_then_ce_cutoff - scratch_ce on C4-val top1 >= +0.30 pp
+      and paired 95% CI excludes zero
+  - WASHOUT FAIL:
+      kd_warmup_then_ce_cutoff - scratch_ce <= +0.10 pp
+      or paired 95% CI crosses zero
+
+Secondary diagnostics:
+  - full_kd should remain consistent with genome 167's +1.014 pp C4 top1 gain
+  - kd_late_only vs full_kd indicates whether late KD is approximately
+    sufficient or whether full-duration KD matters
+
+Outputs:
+  - results/genome_172_kd_warmup_cutoff.json
+  - results/cache/genome_167_teacher_topk_cache_<train_hash>.pt
+"""
+from __future__ import annotations
+
+import gc
+import json
+import time
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+
+import numpy as np
+import torch
+import torch.nn.functional as F
+
+import genome_167_kd_canonical as g167
+
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT_PATH = ROOT / "results" / "genome_172_kd_warmup_cutoff.json"
+REFERENCE_G167_PATH = ROOT / "results" / "genome_167_kd_canonical.json"
+
+TEACHER_HF = g167.TEACHER_HF
+
+SEEDS = [42, 7, 13]
+SEQ_LEN = 256
+TRAIN_BATCH_SIZE = 8
+EVAL_BATCH_SIZE = 8
+TRAIN_STEPS = 6000
+LR = 3e-4
+LR_WARMUP_STEPS = 200
+BETAS = (0.9, 0.95)
+WEIGHT_DECAY = 0.1
+GRAD_CLIP = 1.0
+LOG_EVERY = 1000
+
+N_TRAIN_WINDOWS = 8192
+N_C4_VAL_WINDOWS = 1000
+N_WIKITEXT_VAL_WINDOWS = 1000
+
+KD_TOPK = 64
+KD_TEMP = 2.0
+KD_GAMMA = 0.5
+KD_WARMUP_CUTOFF_STEP = 2000
+KD_LATE_START_STEP = 4001
+N_BOOT = 10000
+
+C4_TRAIN_SEED = 167001
+C4_VAL_SEED = 167101
+WIKITEXT_VAL_SEED = 167201
+
+PASS_INIT_SIGNAL_TOP1_GAIN_PP = 0.30
+FAIL_WASHOUT_TOP1_GAIN_PP = 0.10
+DESCRIPTIVE_EQUIVALENCE_BAND_PP = 0.10
+
+DEFAULT_G167_REFERENCE = {
+    "source": "locked_fallback",
+    "c4_val_top1_delta_pp_mean": 1.0138562091503267,
+    "c4_val_top1_delta_pp_ci_95_lo": 0.9878431372549011,
+    "c4_val_top1_delta_pp_ci_95_hi": 1.0364705882352943,
+}
+
+DEVICE = g167.DEVICE
+FORWARD_DTYPE = g167.FORWARD_DTYPE
+
+
+@dataclass(frozen=True)
+class ArmSpec:
+    label: str
+    kd_mode: str
+    kd_start_step: int
+    kd_end_step: int
+    description: str
+
+    @property
+    def use_kd(self) -> bool:
+        return self.kd_start_step <= self.kd_end_step
+
+    @property
+    def kd_step_count(self) -> int:
+        if not self.use_kd:
+            return 0
+        return self.kd_end_step - self.kd_start_step + 1
+
+    def kd_active(self, step: int) -> bool:
+        return self.use_kd and self.kd_start_step <= step <= self.kd_end_step
+
+
+ARM_SPECS = [
+    ArmSpec(
+        label="scratch_ce",
+        kd_mode="none",
+        kd_start_step=1,
+        kd_end_step=0,
+        description="Scratch CE baseline from identical random initialization.",
+    ),
+    ArmSpec(
+        label="full_kd",
+        kd_mode="full",
+        kd_start_step=1,
+        kd_end_step=TRAIN_STEPS,
+        description="Genome 167 replication arm: CE plus top-k KD for all 6000 steps.",
+    ),
+    ArmSpec(
+        label="kd_warmup_then_ce_cutoff",
+        kd_mode="warmup_cutoff",
+        kd_start_step=1,
+        kd_end_step=KD_WARMUP_CUTOFF_STEP,
+        description=(
+            "KD for the first 2000 steps, then CE-only for the remaining 4000 "
+            "steps."
+        ),
+    ),
+    ArmSpec(
+        label="kd_late_only",
+        kd_mode="late_only",
+        kd_start_step=KD_LATE_START_STEP,
+        kd_end_step=TRAIN_STEPS,
+        description=(
+            "CE-only for the first 4000 steps, then KD for the final 2000 "
+            "steps."
+        ),
+    ),
+]
+
+
+def assert_shared_protocol() -> None:
+    shared_checks = {
+        "teacher_hf": (g167.TEACHER_HF, TEACHER_HF),
+        "seq_len": (g167.SEQ_LEN, SEQ_LEN),
+        "train_batch_size": (g167.TRAIN_BATCH_SIZE, TRAIN_BATCH_SIZE),
+        "eval_batch_size": (g167.EVAL_BATCH_SIZE, EVAL_BATCH_SIZE),
+        "train_steps": (g167.TRAIN_STEPS, TRAIN_STEPS),
+        "lr": (g167.LR, LR),
+        "lr_warmup_steps": (g167.LR_WARMUP_STEPS, LR_WARMUP_STEPS),
+        "betas": (tuple(g167.BETAS), BETAS),
+        "weight_decay": (g167.WEIGHT_DECAY, WEIGHT_DECAY),
+        "grad_clip": (g167.GRAD_CLIP, GRAD_CLIP),
+        "n_train_windows": (g167.N_TRAIN_WINDOWS, N_TRAIN_WINDOWS),
+        "n_c4_val_windows": (g167.N_C4_VAL_WINDOWS, N_C4_VAL_WINDOWS),
+        "n_wikitext_val_windows": (g167.N_WIKITEXT_VAL_WINDOWS, N_WIKITEXT_VAL_WINDOWS),
+        "kd_top_k": (g167.KD_TOPK, KD_TOPK),
+        "kd_temp": (g167.KD_TEMP, KD_TEMP),
+        "kd_gamma": (g167.KD_GAMMA, KD_GAMMA),
+        "c4_train_seed": (g167.C4_TRAIN_SEED, C4_TRAIN_SEED),
+        "c4_val_seed": (g167.C4_VAL_SEED, C4_VAL_SEED),
+        "wikitext_val_seed": (g167.WIKITEXT_VAL_SEED, WIKITEXT_VAL_SEED),
+    }
+    mismatches = [
+        f"{name}: g167={observed!r} g172_expected={expected!r}"
+        for name, (observed, expected) in shared_checks.items()
+        if observed != expected
+    ]
+    if mismatches:
+        raise RuntimeError(
+            "g167 helper protocol drift detected; g172 is locked to the canonical "
+            "g167 setup:\n  " + "\n  ".join(mismatches)
+        )
+
+
+def build_train_schedule(seed: int, n_examples: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    return rng.integers(
+        0,
+        n_examples,
+        size=(TRAIN_STEPS, TRAIN_BATCH_SIZE),
+        dtype=np.int64,
+    )
+
+
+def topk_kd_loss(
+    student_shift_logits: torch.Tensor,
+    teacher_topk_idx: torch.Tensor,
+    teacher_topk_logits: torch.Tensor,
+) -> torch.Tensor:
+    student_at_topk = student_shift_logits.gather(2, teacher_topk_idx)
+    student_log_probs = F.log_softmax(student_at_topk / KD_TEMP, dim=-1)
+    teacher_probs = F.softmax(teacher_topk_logits / KD_TEMP, dim=-1)
+    teacher_log_probs = torch.log(teacher_probs.clamp_min(1e-12))
+    kl = (teacher_probs * (teacher_log_probs - student_log_probs)).sum(dim=-1)
+    return kl.mean() * (KD_TEMP ** 2)
+
+
+def train_one_arm(
+    arm: ArmSpec,
+    *,
+    seed: int,
+    vocab_size: int,
+    train_ids: torch.Tensor,
+    train_mask: torch.Tensor,
+    c4_val_ids: torch.Tensor,
+    c4_val_mask: torch.Tensor,
+    wiki_val_ids: torch.Tensor,
+    wiki_val_mask: torch.Tensor,
+    train_schedule: np.ndarray,
+    teacher_cache: dict | None,
+) -> dict[str, object]:
+    g167.set_seed(seed)
+    model = g167.make_minimal_student(vocab_size=vocab_size, seed=seed)
+    optimizer = torch.optim.AdamW(
+        model.parameters(),
+        lr=LR,
+        betas=BETAS,
+        weight_decay=WEIGHT_DECAY,
+    )
+    n_total_params = sum(p.numel() for p in model.parameters())
+    n_trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    train_log = []
+    observed_kd_steps = 0
+    t0 = time.time()
+
+    print(
+        f"  {arm.label} seed={seed} params={n_total_params / 1e6:.2f}M "
+        f"kd_mode={arm.kd_mode} kd_steps={arm.kd_step_count}"
+    )
+
+    for step in range(1, TRAIN_STEPS + 1):
+        current_lr = g167.warmup_lr(step - 1, LR, LR_WARMUP_STEPS)
+        for group in optimizer.param_groups:
+            group["lr"] = current_lr
+
+        batch_indices = train_schedule[step - 1]
+        batch_index_tensor = torch.as_tensor(batch_indices, dtype=torch.long)
+        ids = train_ids[batch_index_tensor].to(DEVICE)
+        mask = train_mask[batch_index_tensor].to(DEVICE)
+        kd_active = arm.kd_active(step)
+
+        optimizer.zero_grad(set_to_none=True)
+        with g167.autocast_context():
+            logits = model(input_ids=ids, attention_mask=mask, use_cache=False).logits
+            ce_loss = g167.causal_ce_loss(logits, ids, mask)
+            kd_loss_value = None
+            if kd_active:
+                if teacher_cache is None:
+                    raise RuntimeError(f"teacher cache missing for KD-active arm={arm.label}")
+                batch_topk_idx = teacher_cache["topk_idx"][batch_index_tensor].to(
+                    DEVICE,
+                    dtype=torch.long,
+                )
+                batch_topk_logits = teacher_cache["topk_logits"][batch_index_tensor].to(
+                    DEVICE,
+                    dtype=torch.float32,
+                )
+                kd_loss_value = topk_kd_loss(
+                    logits[:, :-1].contiguous().float(),
+                    batch_topk_idx,
+                    batch_topk_logits,
+                )
+                total_loss = (1.0 - KD_GAMMA) * ce_loss + KD_GAMMA * kd_loss_value
+                observed_kd_steps += 1
+            else:
+                total_loss = ce_loss
+
+        if not torch.isfinite(total_loss):
+            raise RuntimeError(f"non-finite loss at step {step} arm={arm.label} seed={seed}")
+
+        total_loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
+        optimizer.step()
+
+        if step % LOG_EVERY == 0 or step == TRAIN_STEPS:
+            row = {
+                "step": step,
+                "lr": float(current_lr),
+                "phase": "kd" if kd_active else "ce_only",
+                "ce_loss": float(ce_loss.item()),
+                "kd_loss": float(kd_loss_value.item()) if kd_loss_value is not None else None,
+                "total_loss": float(total_loss.item()),
+                "elapsed_s": time.time() - t0,
+            }
+            train_log.append(row)
+            kd_text = "na" if row["kd_loss"] is None else f"{row['kd_loss']:.4f}"
+            print(
+                f"    step={step:5d} phase={row['phase']:7s} "
+                f"ce={row['ce_loss']:.4f} kd={kd_text} total={row['total_loss']:.4f} "
+                f"({row['elapsed_s']:.0f}s)"
+            )
+
+    if observed_kd_steps != arm.kd_step_count:
+        raise RuntimeError(
+            f"KD schedule mismatch for arm={arm.label}: observed {observed_kd_steps} "
+            f"active steps, expected {arm.kd_step_count}"
+        )
+
+    final_metrics = {
+        "c4_val": g167.evaluate_model(model, c4_val_ids, c4_val_mask),
+        "wikitext_val": g167.evaluate_model(model, wiki_val_ids, wiki_val_mask),
+    }
+    wallclock_s = time.time() - t0
+    print(
+        f"    final c4_val: nll={final_metrics['c4_val']['nll']:.4f} "
+        f"top1={100.0 * final_metrics['c4_val']['top1_acc']:.2f}%"
+    )
+    print(
+        f"    final wikitext_val: nll={final_metrics['wikitext_val']['nll']:.4f} "
+        f"top1={100.0 * final_metrics['wikitext_val']['top1_acc']:.2f}%"
+    )
+
+    payload = {
+        "seed": seed,
+        "arm_label": arm.label,
+        "description": arm.description,
+        "kd_mode": arm.kd_mode,
+        "kd_start_step": arm.kd_start_step if arm.use_kd else None,
+        "kd_end_step": arm.kd_end_step if arm.use_kd else None,
+        "kd_step_count": arm.kd_step_count,
+        "observed_kd_steps": observed_kd_steps,
+        "n_total_params": int(n_total_params),
+        "n_trainable_params": int(n_trainable_params),
+        "train_log": train_log,
+        "final_metrics": final_metrics,
+        "wallclock_s": wallclock_s,
+    }
+
+    del model, optimizer
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    return payload
+
+
+def paired_bootstrap_ci(
+    values: list[float],
+    *,
+    n_boot: int = N_BOOT,
+    seed: int = 0,
+) -> tuple[float, float]:
+    if len(values) < 2:
+        return float("nan"), float("nan")
+    arr = np.asarray(values, dtype=np.float64)
+    rng = np.random.default_rng(seed)
+    boot_means = np.empty(n_boot, dtype=np.float64)
+    for idx in range(n_boot):
+        sample = arr[rng.integers(0, len(arr), size=len(arr))]
+        boot_means[idx] = sample.mean()
+    return float(np.percentile(boot_means, 2.5)), float(np.percentile(boot_means, 97.5))
+
+
+def _metric_summary(values_by_seed: dict[str, float], *, seed: int) -> dict[str, object]:
+    values = [float(values_by_seed[str(s)]) for s in SEEDS]
+    ci_lo, ci_hi = paired_bootstrap_ci(values, seed=seed)
+    return {
+        "per_seed": values_by_seed,
+        "mean": float(np.mean(values)),
+        "std": float(np.std(values)),
+        "ci_95_lo": ci_lo,
+        "ci_95_hi": ci_hi,
+    }
+
+
+def arm_metric(results: dict, arm_label: str, seed: int, dataset: str, metric: str) -> float:
+    return float(results[arm_label][str(seed)]["final_metrics"][dataset][metric])
+
+
+def summarize_arm_final_metrics(results: dict) -> dict[str, dict[str, object]]:
+    summary = {}
+    seed_cursor = 172100
+    for arm in ARM_SPECS:
+        summary[arm.label] = {
+            "c4_val_top1_acc": _metric_summary(
+                {str(seed): arm_metric(results, arm.label, seed, "c4_val", "top1_acc") for seed in SEEDS},
+                seed=seed_cursor,
+            ),
+            "c4_val_nll": _metric_summary(
+                {str(seed): arm_metric(results, arm.label, seed, "c4_val", "nll") for seed in SEEDS},
+                seed=seed_cursor + 1,
+            ),
+            "wikitext_val_top1_acc": _metric_summary(
+                {
+                    str(seed): arm_metric(results, arm.label, seed, "wikitext_val", "top1_acc")
+                    for seed in SEEDS
+                },
+                seed=seed_cursor + 2,
+            ),
+            "wikitext_val_nll": _metric_summary(
+                {str(seed): arm_metric(results, arm.label, seed, "wikitext_val", "nll") for seed in SEEDS},
+                seed=seed_cursor + 3,
+            ),
+        }
+        seed_cursor += 10
+    return summary
+
+
+def summarize_pairwise(results: dict, better_arm: str, worse_arm: str, *, seed_base: int) -> dict[str, object]:
+    c4_top1_delta_pp = {}
+    c4_nll_gain = {}
+    wiki_top1_delta_pp = {}
+    wiki_nll_gain = {}
+
+    for seed in SEEDS:
+        seed_key = str(seed)
+        better_metrics = results[better_arm][seed_key]["final_metrics"]
+        worse_metrics = results[worse_arm][seed_key]["final_metrics"]
+
+        c4_top1_delta_pp[seed_key] = (
+            float(better_metrics["c4_val"]["top1_acc"]) - float(worse_metrics["c4_val"]["top1_acc"])
+        ) * 100.0
+        c4_nll_gain[seed_key] = (
+            float(worse_metrics["c4_val"]["nll"]) - float(better_metrics["c4_val"]["nll"])
+        )
+        wiki_top1_delta_pp[seed_key] = (
+            float(better_metrics["wikitext_val"]["top1_acc"])
+            - float(worse_metrics["wikitext_val"]["top1_acc"])
+        ) * 100.0
+        wiki_nll_gain[seed_key] = (
+            float(worse_metrics["wikitext_val"]["nll"]) - float(better_metrics["wikitext_val"]["nll"])
+        )
+
+    return {
+        "better_arm": better_arm,
+        "worse_arm": worse_arm,
+        "c4_val_top1_delta_pp": _metric_summary(c4_top1_delta_pp, seed=seed_base),
+        "c4_val_nll_gain": _metric_summary(c4_nll_gain, seed=seed_base + 1),
+        "wikitext_val_top1_delta_pp": _metric_summary(wiki_top1_delta_pp, seed=seed_base + 2),
+        "wikitext_val_nll_gain": _metric_summary(wiki_nll_gain, seed=seed_base + 3),
+        "positive_primary_effect_seeds": int(sum(float(c4_top1_delta_pp[str(s)]) > 0.0 for s in SEEDS)),
+    }
+
+
+def load_g167_reference() -> dict[str, object]:
+    if not REFERENCE_G167_PATH.exists():
+        return dict(DEFAULT_G167_REFERENCE)
+    try:
+        payload = json.loads(REFERENCE_G167_PATH.read_text(encoding="utf-8"))
+        metric = payload["summary"]["active_ingredient_analysis"]["c4_val_top1_delta_pp"]
+        return {
+            "source": str(REFERENCE_G167_PATH),
+            "c4_val_top1_delta_pp_mean": float(metric["mean"]),
+            "c4_val_top1_delta_pp_ci_95_lo": float(metric["ci_95_lo"]),
+            "c4_val_top1_delta_pp_ci_95_hi": float(metric["ci_95_hi"]),
+        }
+    except Exception as exc:
+        fallback = dict(DEFAULT_G167_REFERENCE)
+        fallback["source"] = f"locked_fallback_due_to_parse_error:{exc}"
+        return fallback
+
+
+def build_full_kd_sanity(full_kd_vs_scratch: dict[str, object], reference: dict[str, object]) -> dict[str, object]:
+    observed = full_kd_vs_scratch["c4_val_top1_delta_pp"]
+    obs_mean = float(observed["mean"])
+    obs_lo = float(observed["ci_95_lo"])
+    obs_hi = float(observed["ci_95_hi"])
+    ref_mean = float(reference["c4_val_top1_delta_pp_mean"])
+    ref_lo = float(reference["c4_val_top1_delta_pp_ci_95_lo"])
+    ref_hi = float(reference["c4_val_top1_delta_pp_ci_95_hi"])
+    ci_overlaps_reference_ci = not (obs_hi < ref_lo or obs_lo > ref_hi)
+    mean_gap_pp = obs_mean - ref_mean
+
+    if ci_overlaps_reference_ci:
+        status = "consistent_with_g167"
+        narrative = (
+            f"full_kd is consistent with the g167 reference band: observed C4 top1 "
+            f"delta={obs_mean:+.3f} pp with 95% CI [{obs_lo:+.3f}, {obs_hi:+.3f}] "
+            f"vs g167 {ref_mean:+.3f} pp [{ref_lo:+.3f}, {ref_hi:+.3f}]."
+        )
+    elif obs_hi < ref_lo:
+        status = "below_g167_reference"
+        narrative = (
+            f"full_kd under-shoots the g167 reference band: observed C4 top1 "
+            f"delta={obs_mean:+.3f} pp with 95% CI [{obs_lo:+.3f}, {obs_hi:+.3f}] "
+            f"vs g167 {ref_mean:+.3f} pp [{ref_lo:+.3f}, {ref_hi:+.3f}]."
+        )
+    else:
+        status = "above_g167_reference"
+        narrative = (
+            f"full_kd over-shoots the g167 reference band: observed C4 top1 "
+            f"delta={obs_mean:+.3f} pp with 95% CI [{obs_lo:+.3f}, {obs_hi:+.3f}] "
+            f"vs g167 {ref_mean:+.3f} pp [{ref_lo:+.3f}, {ref_hi:+.3f}]."
+        )
+
+    return {
+        "status": status,
+        "reference": reference,
+        "observed": observed,
+        "mean_gap_pp_vs_g167": mean_gap_pp,
+        "ci_overlaps_reference_ci": ci_overlaps_reference_ci,
+        "narrative": narrative,
+    }
+
+
+def build_mechanism_analysis(
+    *,
+    warmup_vs_scratch: dict[str, object],
+    late_vs_scratch: dict[str, object],
+    full_vs_late: dict[str, object],
+    late_vs_warmup: dict[str, object],
+) -> dict[str, object]:
+    warmup_primary = warmup_vs_scratch["c4_val_top1_delta_pp"]
+    warmup_mean = float(warmup_primary["mean"])
+    warmup_lo = float(warmup_primary["ci_95_lo"])
+    warmup_hi = float(warmup_primary["ci_95_hi"])
+    warmup_ci_crosses_zero = warmup_lo <= 0.0 <= warmup_hi
+
+    init_signal_pass = warmup_mean >= PASS_INIT_SIGNAL_TOP1_GAIN_PP and warmup_lo > 0.0
+    washout_fail = warmup_mean <= FAIL_WASHOUT_TOP1_GAIN_PP or warmup_ci_crosses_zero
+
+    if init_signal_pass:
+        status = "init_signal_pass"
+        narrative = (
+            f"Warmup-only KD retains a durable C4 top1 gain after 4000 CE-only "
+            f"steps: {warmup_mean:+.3f} pp with 95% CI [{warmup_lo:+.3f}, "
+            f"{warmup_hi:+.3f}]. This supports an init-signal mechanism rather "
+            "than a purely continuous-constraint law."
+        )
+    elif washout_fail:
+        status = "continuous_constraint_confirmed"
+        narrative = (
+            f"Warmup-only KD washes out by the locked criterion: C4 top1 delta "
+            f"vs scratch is {warmup_mean:+.3f} pp with 95% CI [{warmup_lo:+.3f}, "
+            f"{warmup_hi:+.3f}]. This supports the continuous-constraint law."
+        )
+    else:
+        status = "indeterminate_partial_retention"
+        narrative = (
+            f"Warmup-only KD retains a positive but non-canonical effect: C4 top1 "
+            f"delta vs scratch is {warmup_mean:+.3f} pp with 95% CI "
+            f"[{warmup_lo:+.3f}, {warmup_hi:+.3f}]. The result clears zero but "
+            f"misses the +{PASS_INIT_SIGNAL_TOP1_GAIN_PP:.2f} pp init-signal bar."
+        )
+
+    full_minus_late = full_vs_late["c4_val_top1_delta_pp"]
+    full_minus_late_mean = float(full_minus_late["mean"])
+    full_minus_late_lo = float(full_minus_late["ci_95_lo"])
+    full_minus_late_hi = float(full_minus_late["ci_95_hi"])
+
+    if abs(full_minus_late_mean) <= DESCRIPTIVE_EQUIVALENCE_BAND_PP:
+        timing_status = "late_kd_approximately_sufficient"
+        timing_narrative = (
+            f"Late KD is approximately sufficient by descriptive band: full_kd - "
+            f"kd_late_only on C4 top1 is {full_minus_late_mean:+.3f} pp "
+            f"(95% CI [{full_minus_late_lo:+.3f}, {full_minus_late_hi:+.3f}])."
+        )
+    elif full_minus_late_mean > DESCRIPTIVE_EQUIVALENCE_BAND_PP and full_minus_late_lo > 0.0:
+        timing_status = "full_duration_matters"
+        timing_narrative = (
+            f"Full-duration KD materially beats late-only KD on C4 top1: "
+            f"{full_minus_late_mean:+.3f} pp with 95% CI "
+            f"[{full_minus_late_lo:+.3f}, {full_minus_late_hi:+.3f}]."
+        )
+    else:
+        timing_status = "mixed_timing_dependence"
+        timing_narrative = (
+            f"Late-vs-full timing dependence is mixed: full_kd - kd_late_only on "
+            f"C4 top1 is {full_minus_late_mean:+.3f} pp with 95% CI "
+            f"[{full_minus_late_lo:+.3f}, {full_minus_late_hi:+.3f}]."
+        )
+
+    late_minus_warmup = late_vs_warmup["c4_val_top1_delta_pp"]
+    late_minus_warmup_mean = float(late_minus_warmup["mean"])
+    late_minus_warmup_lo = float(late_minus_warmup["ci_95_lo"])
+    late_minus_warmup_hi = float(late_minus_warmup["ci_95_hi"])
+
+    if late_minus_warmup_mean > DESCRIPTIVE_EQUIVALENCE_BAND_PP and late_minus_warmup_lo > 0.0:
+        late_vs_warmup_status = "late_beats_warmup"
+        late_vs_warmup_narrative = (
+            f"Late-only KD beats warmup-only KD on C4 top1 by "
+            f"{late_minus_warmup_mean:+.3f} pp with 95% CI "
+            f"[{late_minus_warmup_lo:+.3f}, {late_minus_warmup_hi:+.3f}], which "
+            "leans toward a continuous-constraint interpretation."
+        )
+    elif late_minus_warmup_mean < -DESCRIPTIVE_EQUIVALENCE_BAND_PP and late_minus_warmup_hi < 0.0:
+        late_vs_warmup_status = "warmup_beats_late"
+        late_vs_warmup_narrative = (
+            f"Warmup-only KD beats late-only KD on C4 top1 by "
+            f"{-late_minus_warmup_mean:+.3f} pp with 95% CI "
+            f"[{-late_minus_warmup_hi:+.3f}, {-late_minus_warmup_lo:+.3f}], which "
+            "leans toward early-seeding importance."
+        )
+    else:
+        late_vs_warmup_status = "late_and_warmup_are_mixed"
+        late_vs_warmup_narrative = (
+            f"Late-only vs warmup-only is mixed on C4 top1: "
+            f"{late_minus_warmup_mean:+.3f} pp with 95% CI "
+            f"[{late_minus_warmup_lo:+.3f}, {late_minus_warmup_hi:+.3f}]."
+        )
+
+    return {
+        "status": status,
+        "criteria": {
+            "init_signal_pass_mean_c4_top1_delta_pp_ge_0p30": warmup_mean >= PASS_INIT_SIGNAL_TOP1_GAIN_PP,
+            "init_signal_pass_c4_top1_ci_excludes_zero": warmup_lo > 0.0,
+            "washout_fail_mean_c4_top1_delta_pp_le_0p10": warmup_mean <= FAIL_WASHOUT_TOP1_GAIN_PP,
+            "washout_fail_c4_top1_ci_crosses_zero": warmup_ci_crosses_zero,
+        },
+        "warmup_vs_scratch": warmup_vs_scratch,
+        "late_vs_scratch": late_vs_scratch,
+        "full_vs_late": full_vs_late,
+        "late_vs_warmup": late_vs_warmup,
+        "timing_status": timing_status,
+        "late_vs_warmup_status": late_vs_warmup_status,
+        "narrative": narrative,
+        "timing_narrative": timing_narrative,
+        "late_vs_warmup_narrative": late_vs_warmup_narrative,
+    }
+
+
+def build_summary(results: dict, g167_reference: dict[str, object]) -> dict[str, object]:
+    arm_metrics = summarize_arm_final_metrics(results)
+    pairwise_vs_scratch = {
+        "full_kd": summarize_pairwise(results, "full_kd", "scratch_ce", seed_base=172201),
+        "kd_warmup_then_ce_cutoff": summarize_pairwise(
+            results,
+            "kd_warmup_then_ce_cutoff",
+            "scratch_ce",
+            seed_base=172211,
+        ),
+        "kd_late_only": summarize_pairwise(results, "kd_late_only", "scratch_ce", seed_base=172221),
+    }
+    cross_arm_comparisons = {
+        "full_kd_vs_kd_warmup_then_ce_cutoff": summarize_pairwise(
+            results,
+            "full_kd",
+            "kd_warmup_then_ce_cutoff",
+            seed_base=172301,
+        ),
+        "full_kd_vs_kd_late_only": summarize_pairwise(
+            results,
+            "full_kd",
+            "kd_late_only",
+            seed_base=172311,
+        ),
+        "kd_late_only_vs_kd_warmup_then_ce_cutoff": summarize_pairwise(
+            results,
+            "kd_late_only",
+            "kd_warmup_then_ce_cutoff",
+            seed_base=172321,
+        ),
+    }
+
+    full_kd_sanity = build_full_kd_sanity(pairwise_vs_scratch["full_kd"], g167_reference)
+    mechanism = build_mechanism_analysis(
+        warmup_vs_scratch=pairwise_vs_scratch["kd_warmup_then_ce_cutoff"],
+        late_vs_scratch=pairwise_vs_scratch["kd_late_only"],
+        full_vs_late=cross_arm_comparisons["full_kd_vs_kd_late_only"],
+        late_vs_warmup=cross_arm_comparisons["kd_late_only_vs_kd_warmup_then_ce_cutoff"],
+    )
+
+    warmup_primary = pairwise_vs_scratch["kd_warmup_then_ce_cutoff"]["c4_val_top1_delta_pp"]
+    warmup_mean = float(warmup_primary["mean"])
+    warmup_lo = float(warmup_primary["ci_95_lo"])
+    warmup_hi = float(warmup_primary["ci_95_hi"])
+
+    if mechanism["status"] == "init_signal_pass":
+        verdict = (
+            "PASS: warmup-only KD survives CE-only continuation. "
+            f"C4 top1 delta vs scratch={warmup_mean:+.3f} pp with 95% CI "
+            f"[{warmup_lo:+.3f}, {warmup_hi:+.3f}], supporting an init-signal "
+            "mechanism."
+        )
+    elif mechanism["status"] == "continuous_constraint_confirmed":
+        verdict = (
+            "FAIL: warmup-only KD washes out under CE-only continuation. "
+            f"C4 top1 delta vs scratch={warmup_mean:+.3f} pp with 95% CI "
+            f"[{warmup_lo:+.3f}, {warmup_hi:+.3f}], supporting the "
+            "continuous-constraint law."
+        )
+    else:
+        verdict = (
+            "MIXED: warmup-only KD retains a positive but sub-threshold effect. "
+            f"C4 top1 delta vs scratch={warmup_mean:+.3f} pp with 95% CI "
+            f"[{warmup_lo:+.3f}, {warmup_hi:+.3f}]."
+        )
+
+    if full_kd_sanity["status"] != "consistent_with_g167":
+        verdict += f" Full-KD sanity check={full_kd_sanity['status']}."
+
+    criteria = dict(mechanism["criteria"])
+    criteria["full_kd_sanity_ci_overlaps_g167_reference_ci"] = bool(full_kd_sanity["ci_overlaps_reference_ci"])
+
+    return {
+        "verdict": verdict,
+        "criteria": criteria,
+        "arm_final_metrics": arm_metrics,
+        "pairwise_vs_scratch": pairwise_vs_scratch,
+        "cross_arm_comparisons": cross_arm_comparisons,
+        "full_kd_sanity_check": full_kd_sanity,
+        "active_ingredient_analysis": {
+            "mechanism_test": mechanism,
+            "full_kd_sanity": full_kd_sanity["narrative"],
+            "timing_narrative": mechanism["timing_narrative"],
+            "late_vs_warmup_narrative": mechanism["late_vs_warmup_narrative"],
+        },
+    }
+
+
+def save_incremental(
+    *,
+    results: dict,
+    teacher_reference: dict,
+    data_meta: dict,
+    teacher_cache_meta: dict,
+    g167_reference: dict[str, object],
+    t_start: float,
+) -> None:
+    payload = {
+        "genome": 172,
+        "name": "kd_warmup_cutoff",
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "teacher_model_id": TEACHER_HF,
+        "results": results,
+        "teacher_reference": teacher_reference,
+        "data": data_meta,
+        "teacher_cache": teacher_cache_meta,
+        "g167_reference": g167_reference,
+        "elapsed_s": time.time() - t_start,
+        "incremental": True,
+    }
+    OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=True), encoding="utf-8")
+
+
+def print_arm_metric_table(arm_metrics: dict[str, dict[str, object]]) -> None:
+    print("\n=== ARM FINAL METRICS ===")
+    for arm in ARM_SPECS:
+        c4_top1 = float(arm_metrics[arm.label]["c4_val_top1_acc"]["mean"]) * 100.0
+        c4_nll = float(arm_metrics[arm.label]["c4_val_nll"]["mean"])
+        wiki_top1 = float(arm_metrics[arm.label]["wikitext_val_top1_acc"]["mean"]) * 100.0
+        wiki_nll = float(arm_metrics[arm.label]["wikitext_val_nll"]["mean"])
+        print(
+            f"  {arm.label}: C4 top1={c4_top1:.2f}% nll={c4_nll:.4f} | "
+            f"Wikitext top1={wiki_top1:.2f}% nll={wiki_nll:.4f}"
+        )
+
+
+def print_pairwise_metric(label: str, metric: dict[str, object], precision: int) -> None:
+    print(f"  {label}:")
+    for seed in SEEDS:
+        value = float(metric["per_seed"][str(seed)])
+        print(f"    seed {seed:>2d}: {value:+.{precision}f}")
+    print(
+        f"    mean: {float(metric['mean']):+.{precision}f}  "
+        f"95% CI [{float(metric['ci_95_lo']):+.{precision}f}, {float(metric['ci_95_hi']):+.{precision}f}]"
+    )
+
+
+def print_active_ingredient_summary(summary: dict[str, object]) -> None:
+    print_arm_metric_table(summary["arm_final_metrics"])
+
+    print("\n=== VS SCRATCH ===")
+    for label in ["full_kd", "kd_warmup_then_ce_cutoff", "kd_late_only"]:
+        pair = summary["pairwise_vs_scratch"][label]
+        print(f"  {label} - scratch_ce:")
+        print_pairwise_metric("C4-val top1 delta (pp)", pair["c4_val_top1_delta_pp"], 3)
+        print_pairwise_metric("C4-val NLL gain", pair["c4_val_nll_gain"], 4)
+        print(f"    positive primary seeds: {int(pair['positive_primary_effect_seeds'])}/{len(SEEDS)}")
+
+    print("\n=== CROSS-ARM TIMING ===")
+    for label in [
+        "full_kd_vs_kd_warmup_then_ce_cutoff",
+        "full_kd_vs_kd_late_only",
+        "kd_late_only_vs_kd_warmup_then_ce_cutoff",
+    ]:
+        pair = summary["cross_arm_comparisons"][label]
+        print(f"  {pair['better_arm']} - {pair['worse_arm']}:")
+        print_pairwise_metric("C4-val top1 delta (pp)", pair["c4_val_top1_delta_pp"], 3)
+
+    analysis = summary["active_ingredient_analysis"]
+    mechanism = analysis["mechanism_test"]
+    print("\n=== ACTIVE INGREDIENT ANALYSIS ===")
+    print(f"  status: {mechanism['status']}")
+    print(f"  {mechanism['narrative']}")
+    print(f"  {analysis['timing_narrative']}")
+    print(f"  {analysis['late_vs_warmup_narrative']}")
+    print(f"  {analysis['full_kd_sanity']}")
+
+
+def main() -> None:
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    g167.CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    assert_shared_protocol()
+
+    print("genome_172: KD warmup-cutoff alternative-mechanism test")
+    print(f"  teacher={TEACHER_HF}")
+    print(f"  device={DEVICE} forward_dtype={FORWARD_DTYPE} recipient_dtype=torch.float32")
+    print(f"  seeds={SEEDS} steps={TRAIN_STEPS} batch={TRAIN_BATCH_SIZE}")
+    print(
+        f"  train_windows={N_TRAIN_WINDOWS} c4_val_windows={N_C4_VAL_WINDOWS} "
+        f"wikitext_val_windows={N_WIKITEXT_VAL_WINDOWS} seq_len={SEQ_LEN}"
+    )
+    print(
+        f"  KD: topk={KD_TOPK} T={KD_TEMP} gamma={KD_GAMMA} "
+        f"warmup_cutoff={KD_WARMUP_CUTOFF_STEP} late_start={KD_LATE_START_STEP}"
+    )
+
+    t_start = time.time()
+    g167_reference = load_g167_reference()
+    tok = g167.load_tokenizer()
+    vocab_size = len(tok)
+    print(f"  tokenizer_vocab={vocab_size}")
+
+    train_ids, train_mask, train_meta = g167.load_c4_windows(
+        tok,
+        split="train",
+        seed=C4_TRAIN_SEED,
+        n_windows=N_TRAIN_WINDOWS,
+    )
+    train_hashes = g167.collect_13gram_hashes(train_ids, train_mask)
+    print(f"  train 13-gram hashes: {len(train_hashes)}")
+
+    c4_val_ids, c4_val_mask, c4_val_meta = g167.load_c4_windows(
+        tok,
+        split="validation",
+        seed=C4_VAL_SEED,
+        n_windows=N_C4_VAL_WINDOWS,
+        forbidden_hashes=train_hashes,
+    )
+    wiki_val_ids, wiki_val_mask, wiki_val_meta = g167.load_wikitext_windows(
+        tok,
+        split="validation",
+        seed=WIKITEXT_VAL_SEED,
+        n_windows=N_WIKITEXT_VAL_WINDOWS,
+        forbidden_hashes=train_hashes,
+    )
+
+    data_meta = {
+        "train": train_meta,
+        "c4_val": c4_val_meta,
+        "wikitext_val": wiki_val_meta,
+        "train_13gram_hash_count": len(train_hashes),
+    }
+
+    teacher, _ = g167.load_trained_teacher(tok)
+    teacher_reference = {
+        "c4_val": g167.evaluate_model(teacher, c4_val_ids, c4_val_mask),
+        "wikitext_val": g167.evaluate_model(teacher, wiki_val_ids, wiki_val_mask),
+    }
+    print(
+        f"  teacher c4_val: nll={teacher_reference['c4_val']['nll']:.4f} "
+        f"top1={100.0 * teacher_reference['c4_val']['top1_acc']:.2f}%"
+    )
+    print(
+        f"  teacher wikitext_val: nll={teacher_reference['wikitext_val']['nll']:.4f} "
+        f"top1={100.0 * teacher_reference['wikitext_val']['top1_acc']:.2f}%"
+    )
+
+    train_signature = g167.tensor_sha1(train_ids)
+    teacher_cache = g167.precompute_teacher_topk_cache(
+        teacher,
+        train_ids,
+        train_mask,
+        train_signature=train_signature,
+    )
+
+    del teacher
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    teacher_cache_meta = {
+        "path": teacher_cache["path"],
+        "cache_hit": teacher_cache["cache_hit"],
+        "estimated_bytes": teacher_cache["estimated_bytes"],
+        "estimated_gib": teacher_cache["estimated_bytes"] / (1024 ** 3),
+        "train_signature": train_signature,
+        "shared_with_genome_167": True,
+    }
+
+    results = {arm.label: {} for arm in ARM_SPECS}
+    print(f"\n=== Running {len(ARM_SPECS)} arms x {len(SEEDS)} seeds = {len(ARM_SPECS) * len(SEEDS)} cells ===")
+    print("=== Pairing rule: same seed -> same init and same batch schedule for all arms ===")
+
+    for seed in SEEDS:
+        train_schedule = build_train_schedule(seed, n_examples=int(train_ids.shape[0]))
+        for arm in ARM_SPECS:
+            print(f"\n--- arm={arm.label} seed={seed} ---")
+            payload = train_one_arm(
+                arm,
+                seed=seed,
+                vocab_size=vocab_size,
+                train_ids=train_ids,
+                train_mask=train_mask,
+                c4_val_ids=c4_val_ids,
+                c4_val_mask=c4_val_mask,
+                wiki_val_ids=wiki_val_ids,
+                wiki_val_mask=wiki_val_mask,
+                train_schedule=train_schedule,
+                teacher_cache=teacher_cache if arm.use_kd else None,
+            )
+            results[arm.label][str(seed)] = payload
+            save_incremental(
+                results=results,
+                teacher_reference=teacher_reference,
+                data_meta=data_meta,
+                teacher_cache_meta=teacher_cache_meta,
+                g167_reference=g167_reference,
+                t_start=t_start,
+            )
+
+    summary = build_summary(results, g167_reference)
+    print_active_ingredient_summary(summary)
+
+    out = {
+        "genome": 172,
+        "name": "kd_warmup_cutoff",
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "teacher_model_id": TEACHER_HF,
+        "student_family": "minimal_3L_noMLP_llama_qwen_vocab",
+        "device": DEVICE,
+        "forward_dtype": str(FORWARD_DTYPE),
+        "recipient_param_dtype": "torch.float32",
+        "config": {
+            "seeds": SEEDS,
+            "seq_len": SEQ_LEN,
+            "train_batch_size": TRAIN_BATCH_SIZE,
+            "eval_batch_size": EVAL_BATCH_SIZE,
+            "train_steps": TRAIN_STEPS,
+            "lr": LR,
+            "lr_warmup_steps": LR_WARMUP_STEPS,
+            "betas": list(BETAS),
+            "weight_decay": WEIGHT_DECAY,
+            "grad_clip": GRAD_CLIP,
+            "n_train_windows": N_TRAIN_WINDOWS,
+            "n_c4_val_windows": N_C4_VAL_WINDOWS,
+            "n_wikitext_val_windows": N_WIKITEXT_VAL_WINDOWS,
+            "kd_top_k": KD_TOPK,
+            "kd_temp": KD_TEMP,
+            "kd_gamma": KD_GAMMA,
+            "kd_warmup_cutoff_step": KD_WARMUP_CUTOFF_STEP,
+            "kd_late_start_step": KD_LATE_START_STEP,
+            "compute_envelope": {
+                "expected_wall_minutes": 84,
+                "soft_hours": 1.5,
+                "hard_hours": 2.0,
+                "max_vram_gb": 22.0,
+            },
+            "data_seeds": {
+                "c4_train": C4_TRAIN_SEED,
+                "c4_val": C4_VAL_SEED,
+                "wikitext_val": WIKITEXT_VAL_SEED,
+            },
+            "locked_thresholds": {
+                "init_signal_pass_c4_top1_delta_pp": PASS_INIT_SIGNAL_TOP1_GAIN_PP,
+                "washout_fail_c4_top1_delta_pp": FAIL_WASHOUT_TOP1_GAIN_PP,
+            },
+            "descriptive_equivalence_band_pp": DESCRIPTIVE_EQUIVALENCE_BAND_PP,
+            "reuses_genome_167_teacher_cache": True,
+        },
+        "data": data_meta,
+        "teacher_cache": teacher_cache_meta,
+        "teacher_reference": teacher_reference,
+        "g167_reference": g167_reference,
+        "results": results,
+        "summary": summary,
+        "verdict": summary["verdict"],
+        "elapsed_s": time.time() - t_start,
+    }
+    OUT_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=True), encoding="utf-8")
+    print(f"\n=== verdict: {summary['verdict']} ===")
+    print(f"Saved: {OUT_PATH} ({out['elapsed_s']:.1f}s)")
+
+
+if __name__ == "__main__":
+    main()
