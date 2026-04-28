@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-28 ~02:30 (added C20 g172 late-KD timing finding, C21 g174 donor-structure-specificity PART A; cycle 50 adversarial caveat: claim is trained-structure specificity, not yet donor-identity specificity — falsifying experiment with different trained donor queued).
+**Last updated.** 2026-04-28 ~05:30 (cycle 57: A5 matched-null desk audit added; C22 PROVISIONAL pending g177 RUNNING; C20 flagged for soft matched-compute-null gap kept at Level-0).
 
 ---
 
@@ -86,6 +86,15 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
 - **A2.** C4 eval slice is the next chunk of the same shuffled `allenai/c4` train stream as training data. No dedup audit. Could not verify offline; flag for hash-based dedup in g153/g156.
 - **A3.** C12's HellaSwag scoring uses separate context+ending tokenization then concatenation, which can distort boundary tokenization. Future capability-grade tests must use full-string tokenization on the entire HellaSwag validation set (not N=500).
 - **A4.** Verdict on the thesis as a flagship breakthrough claim per Codex (2026-04-26 adversarial audit): "**not worth publishing as a flagship claim now**" — at the time, was 4/10 §0.1. **UPDATED 2026-04-26 evening:** g152 returned AMBIGUOUS/attenuating (no crossover; gap shrinks 6× from peak to final, 95% CIs at final include zero). g156 returned PASS_TRANSPORT (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp; sharp inversion; signal dominates noise). Combined: §0.1 score moves to 6/10 — serious theory lead with cross-axis falsifiable evidence (compute attenuation + data-order inversion). **Closing the gap to "measured design law" requires g157 (η/δ probe) PASS — gated on next experiment.**
+- **A5. Matched-null desk audit (2026-04-28, cycle 57 direction review).** Per cycle 57 PASS-promotion rule: any claim using "specificity," "identity," "mechanism," "cash-out," or "transfer" must have a NAMED matched-null/control row before lock. Audit of current PASS claims:
+  - **C17 (g158c transport-demand): ✅ matched-null = short-context (Δ_32=−0.22pp [CI all negative]) is itself the sign-inversion control. Theory's input-side prediction is two-sided.**
+  - **C18 (g165 weight-anchor): ✅ matched-null via C21 PART A (permuted +0.128 nats / random −0.687 nats vs trained +1.087 nats; Δ vs best null +0.959 nats CI [+0.924, +1.029]).**
+  - **C19 (g167 KD canonical): ✅ matched-null via C21 PART B (uniform_target +0.05 pp vs trained +1.014 pp; Δ vs best null +0.981 pp CI [+0.908, +1.024]).**
+  - **C20 (g172 late-KD timing): ⚠️ SOFT GAP — comparator is full-KD baseline (g167's +1.014 pp), giving the "69% retention at 33% KD compute" efficiency framing. NO matched-compute-reallocation null exists: it is not yet measured whether scratch+2000_extra_non_KD_steps achieves comparable gain to late-KD's +0.700 pp. The "compute-efficient" framing is therefore conditional on the unmeasured assumption that non-KD step compute is not equivalently effective. Mitigation: keep C20 at Level-0 mechanism finding (already done); do NOT escalate to "compute-efficient transfer law" until matched-compute-budget control is run.**
+  - **C21 (g174 donor-structure specificity): ✅ self-validating; the experiment IS the matched-null study.**
+  - **C22-PROVISIONAL (g175→g177 donor-identity): ⏳ g177 RUNNING; the matched-null is exactly what g177 corrects (matched Frobenius distance + matched eval-NLL + matched corpus).**
+
+  **Audit verdict:** all locked PASSes have named matched-null comparators except C20, which has a soft gap that is bounded by keeping it at Level-0 framing. No GPU rerun required per cycle 57 direction (Q3); flagged here for future g172b matched-compute control if C20 is escalated.
 
 Path forward (status 2026-04-26 evening): g156 PASSed; g157 prereg+impl LOCKED, ready to launch when GPU frees. g158/g159/g160/g161 preregs all LOCKED, conditional on their gating. The empirical chain has a derivation backbone candidate; g157+ tests whether that backbone has an internal measurable quantity (η > δ^mlp). If g157 PASSes, §0.1 → 7-8/10 (theory has internal-quantity validation). If g157 KILLs, the mechanism is wrong but g156 PASS still stands as cross-axis empirical evidence.
 

@@ -124,33 +124,29 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
-**★ g175 PASS 2026-04-28 ~04:00 UTC: DONOR-IDENTITY specificity LOCKED ★★★ MAJOR**
+**★ g177 RUNNING 2026-04-28 ~05:25 UTC: matched-alt-donor falsifier on C4 ★ CRITICAL FOR C22**
 
-g175 alternative-donor falsifier closes cycle 50 adversarial caveat. Wall ~40 min total (12 min Wikitext-103 alt-donor pretrain + 28 min main 9 cells).
+Cycle 55 adversarial 9/10 attack (`codex_outputs/heartbeats/cycle55_adversarial_20260428T044500.md`) found g175 PASS confounded by (a) Frobenius distance mismatch (Qwen3 dist²=2.03M vs alt 1.27M = 79% anchor-gradient force), (b) under-training (alt loss=5.49 vs Qwen3 ~3.6), (c) corpus mismatch (alt=Wikitext, eval=C4). C22 DOWNGRADED to PROVISIONAL. **g177 launched** with matched fixes: 3 alt donors (seeds 1234/5678/9999) trained on C4 to match Qwen3 eval-NLL (~3.6 stop), per-donor λ normalization for matched anchor-gradient force. PASS = Δ(Qwen3-best_alt) ≥ +0.5 nats with CI excluding zero → C22 re-locks; FAIL = ≤+0.2 nats → fall back to C21 trained-structure specificity (narrative tightens to 7.5/10). Source: `code/genome_177_matched_alt_donor.py`, advisor `codex_outputs/g175_advisor_20260428T040000.md`.
+
+**★ Cycle 57 direction review desk audit (2026-04-28 ~05:30):** Per Q1, no blanket PASS-rerun — bounded matched-null desk audit instead. **A5 added to `research/CLAIM_EVIDENCE_MAP.md` §3.5.** Audit verdict: C17/C18/C19/C21 all have named matched-null comparators; C22 awaits g177; **C20 (g172 late-KD) flagged for soft matched-compute-null gap** (no scratch+2000_extra_non_KD_steps arm exists), kept at Level-0 framing — will not escalate to "compute-efficient transfer law" until g172b matched-compute control is run. Per Q3: budget bounded — finish g177 → run g173 only if g177 PASS or intermediate. **PASS-promotion rule locked**: any "specificity / identity / mechanism / cash-out / transfer" claim must have a named matched-null row before lock. Source: `codex_outputs/heartbeats/cycle57_direction_review_20260428T053000.md`.
+
+**★ ~~g175 PASS~~ → DOWNGRADED PROVISIONAL 2026-04-28 ~05:00 UTC: cycle 55 adversarial flagged 3 confounds**
 
 | Anchor target | Δ vs scratch (nats) | % of Qwen3 |
 |---|---:|---:|
 | **anchor_qwen3_donor** | **+1.087** [CI +1.006, +1.152] | 100% |
 | anchor_alternative_trained_donor (Wikitext-103 3000 steps) | +0.431 [CI +0.380, +0.458] | **40%** |
 
-Δ(Qwen3 - alt_trained) = **+0.656 nats** [CI +0.626, +0.694, excludes zero by wide margin]. Donor-identity specificity LOCKED.
+Δ(Qwen3 - alt_trained) = +0.656 nats [CI +0.626, +0.694] — **provisional only, NOT locked**: the alt-donor in g175 was undertrained (loss 5.49 vs Qwen3 ~3.6), Frobenius-mismatched (~79% anchor-gradient force), and corpus-mismatched (Wikitext vs C4 eval). The ~60% identity decomposition is arithmetic on a confounded comparator. **g177 is the matched-condition replacement**.
 
-**Four-layer null hierarchy now beaten** (combining g174 + g175):
+**Three-layer null hierarchy stands** (g174 only):
 1. Random init: -0.687 (HARMS)
 2. Permuted Qwen3 (g174): +0.128 (12%)
-3. Alt-trained Wikitext-pretrained (g175): +0.431 (40%)
-4. Qwen3 trained: +1.087 (100%)
+3. Qwen3 trained: +1.087 (100%)
 
-**Loose component decomposition** of the +1.087 nats:
-- ~12% generic trained-structure
-- ~28% generic "any trained-like model"
-- **~60% Qwen3-specific identity** ← the critical novel finding
+§0.1 ceiling: held at **7.5-7.9** until g177 lands. C18 + C19 + C21 form the locked donor-structure-specific weight-anchor / KD transfer mechanism; C22 donor-identity claim awaits g177.
 
-The active ingredient is NOT generic continuous regularization (g174 PART A killed), NOT generic dense supervision (g174 PART B killed), NOT generic trained-like weights (g175 killed). It IS the specific Qwen3-0.6B identity.
-
-§0.1 ceiling: 8.0 → **8.1**. C18 + C19 + C21 + C22 form a fully-validated donor-specific weight-anchor / KD transfer mechanism at canonical 3-seed scale.
-
-Source: `results/genome_175_alternative_donor_falsifier.json`.
+Source: `results/genome_175_alternative_donor_falsifier.json` (provisional); `code/genome_177_matched_alt_donor.py` (running).
 
 **★ g174 BOTH PARTS PASS 2026-04-28 ~03:00 UTC: trained-structure donor-specificity LOCKED on both weight-anchor AND KD axes ★★★ MAJOR**
 

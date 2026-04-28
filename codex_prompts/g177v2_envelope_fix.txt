@@ -1,0 +1,56 @@
+## Task
+Patch `code/genome_177_matched_alt_donor.py` to (a) fix SEV 8 eval-leakage, (b) bring total wall-clock within COMPUTE.md 4h envelope. Verify with `python -m py_compile`. Do NOT launch the run.
+
+## Context (read these first)
+- `CLAUDE.md` (project) §1.5 compute envelope binding rule
+- `COMPUTE.md` §9 compliance checklist
+- `codex_outputs/heartbeats/cycle55_adversarial_20260428T044500.md` (the 9/10 attack g177 must defeat)
+- `codex_outputs/heartbeats/cycle57_code_review_20260428T053000.md` (SEV 8 / SEV 7 / SEV 5 you wrote)
+- `codex_outputs/g177_implementation_20260428T050000.md` (your previous design notes)
+- `code/genome_177_matched_alt_donor.py` (current state — was running, stopped at alt-donor seed=1234 step ~1200, heldout_c4_nll=6.58)
+- `code/genome_167_kd_canonical.py` (reuse `collect_13gram_hashes` / `rolling_13gram_hashes` / `StreamingC4Batcher` interfaces)
+
+## Required fixes
+
+### SEV 8 — eval-leakage / corpus-overlap fix (BLOCKING)
+The cycle 57 review flagged: alt donors stream `allenai/c4:train` with different shuffle seeds (line ~756); recipient main training also uses C4 train (line ~1148). Streaming shuffle ≠ disjoint split. The C22 leakage confound must be killed.
+
+Apply the change you proposed yourself:
+1. After main_train tokens are materialized, call `g167.collect_13gram_hashes(main_train_ids, main_train_mask)` PLUS the same on the held-out eval window IDs. Combine into one set `forbidden_hashes`.
+2. Pass `forbidden_hashes` into `StreamingC4Batcher(...)` for ALL alt-donor pretrain streams.
+3. Inside `next_batch()` before `windows.append(window)`: reject windows that share any 13-gram with `forbidden_hashes`. Increment `overlap_rejects` counter.
+4. Save `overlap_rejects` counts per alt-donor in the result JSON for audit.
+
+Bonus: also dedup the alt-donor's eval stream against the recipient eval stream (same `forbidden_hashes` set works).
+
+### SEV 7 — wall-clock envelope fix (BLOCKING per CLAUDE.md §1.5)
+At ~0.25s/step, current design is `3 donors × 30000 steps = ~6.25 hr alt-donor pretrain alone`, plus recipient main 6 cells × 12000 steps × ~0.4s/step ≈ 8 hr. Total ~14 hr. **4h envelope binding.**
+
+Pick the recipe that survives the matched-NLL discipline within 4h:
+1. **Reduce alt-donor max steps** from 30000 to a number you justify (e.g. 18000 with stop-NLL still 3.6, or 30000 cap kept but stop-NLL relaxed to 3.8). Justify your choice — does Qwen3 reach 3.6 at 12k-18k? If not, keep stop NLL strict and accept that some alt donors save_unmatched.
+2. **Add a global pretrain wallclock budget** (e.g. `ALT_PRETRAIN_TOTAL_BUDGET_SEC = 8000`). After each donor finishes (success or unmatched), check elapsed; if next donor would exceed budget, abort and save what we have.
+3. **Reduce recipient main steps** if necessary. Current g165/g167/g174 used 12000 steps. Reduce to 8000 or 6000 IF AND ONLY IF the matched-null statistical power holds (n=3 seeds, paired-t CI on Δ ≥ +0.5 nats). Run a quick power calculation: with σ from g174 PART A (paired Δ trained-vs-permuted CI was [+0.029, +0.227], so σ ≈ 0.15), 3 seeds, target Δ = +0.5 nats, what step count keeps power ≥ 0.8?
+4. **Drop number of alt donors** from 3 to 2 only if (1)+(2)+(3) still cannot fit envelope. Two alt donors weakens the "3 same-arch falsifiers" claim — preferred only as last resort.
+
+Output the wall-clock estimate explicitly in the script header:
+```
+# Envelope budget: pretrain ~Xs/donor × 3 = Ys; recipient ~Zs/cell × 6 = Ws; total Vs (≤14400s).
+```
+
+### SEV 5 — stop-rule noise (NICE-TO-HAVE)
+Current stop rule fires on single eval. If easy: change to last-K=3 mean of `heldout_c4_nll`. Skip if it complicates the envelope.
+
+## Pass criteria preserved (DO NOT change)
+- PASS: Δ(Qwen3 - best_alt) ≥ +0.5 nats with paired-t 95% CI excluding zero
+- FAIL: ≤ +0.2 nats OR CI crosses zero
+- λ normalization matches `||g_init||` per donor (already correct: `lambda_alt = lambda_qwen3 * sqrt(qwen3_F2 / alt_F2)`)
+
+## Deliverable
+- Edit `code/genome_177_matched_alt_donor.py` in place
+- Add a `# ENVELOPE COMPLIANCE` comment block at the top with: target steps per donor, target wall-clock, justification
+- Verify `python -m py_compile code/genome_177_matched_alt_donor.py`
+- Write notes to `codex_outputs/g177v2_envelope_fix_20260428T060000.md` summarizing changes + estimated wall-clock
+- DO NOT launch the run
+
+## End goal reminder (TIER-0)
+Per CLAUDE.md §0: efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient. g177 is the falsifier that decides whether the donor-IDENTITY component of C22 is real or just confounded by Frobenius/eval/corpus mismatch. Get the envelope-compliant matched-condition test we can defend against external review.
