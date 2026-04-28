@@ -8,6 +8,10 @@ Cycle 42 direction review recommendation:
   Qwen teacher -> Llama-architecture student on C3_macro, with honest
   train+inference compute accounting.
 
+Cycle 54 / g175 revision:
+  Add late-KD-only arms to test whether the g172 late-KD efficiency result
+  survives cross-architecture transfer.
+
 Locked design
 -------------
 Teacher:
@@ -24,11 +28,13 @@ Tokenizer:
     single vocabulary. This inflates total parameter count because the shared
     vocab is 151,936 tokens, but it keeps the comparison well-posed.
 
-Arms (4 x 3 seeds = 12 cells):
+Arms (6 x 3 seeds = 18 cells):
   - scratch_ce_llama
   - kd_logit_llama
+  - kd_late_only_llama
   - scratch_ce_qwen_arch
   - kd_logit_qwen_arch
+  - kd_late_only_qwen_arch
 
 Training:
   - 8192 C4 train windows, len 256
@@ -36,6 +42,7 @@ Training:
   - 6000 steps, batch 8, lr 3e-4
   - BF16 forward autocast, FP32 master weights
   - top-k KD with k=64, T=2.0, gamma=0.5
+  - late-KD arms run CE-only for steps 1-4000, then KD for steps 4001-6000
 
 End-task eval at step 6000:
   - C4 validation NLL / top-1
@@ -53,6 +60,14 @@ For the matched-capability cash-out, we also report:
   matched_qwen_kd_compute = llama_kd_total_compute / retention_vs_qwen_kd
 where:
   retention_vs_qwen_kd = C3_llama_kd / C3_qwen_kd
+
+For the late-KD efficiency test, we report per-architecture:
+  late_kd_retention_vs_full_kd = C3_late_kd / C3_full_kd
+  kd_compute_fraction_vs_full_kd = active_kd_steps_late / active_kd_steps_full
+
+The cached teacher logits are still generated / reused via the shared g167 train
+signature. Standalone arm accounting includes both schedule-effective teacher
+compute and full-cache reuse diagnostics.
 
 Outputs:
   - results/genome_173_cross_arch_flop_cashout.json
@@ -119,6 +134,8 @@ N_C3_PER_TASK = 500
 KD_TOPK = 64
 KD_TEMP = 2.0
 KD_GAMMA = 0.5
+KD_FULL_START_STEP = 1
+KD_LATE_START_STEP = 4001
 N_BOOT = 10000
 
 C4_TRAIN_SEED = 167001
@@ -130,8 +147,11 @@ WINOGRANDE_SEED = 173403
 PASS_MIN_RETENTION = 0.75
 PASS_MAX_MATCHED_COMPUTE_FRACTION = 0.40
 PASS_MIN_TRANSFER_RATIO = 2.5
+PASS_MIN_LATE_RETENTION = 0.85
+PASS_MAX_LATE_KD_COMPUTE_FRACTION = 1.0 / 3.0
 FAIL_MIN_RETENTION = 0.50
 FAIL_MIN_TRANSFER_RATIO = 1.5
+FAIL_MIN_LATE_RETENTION = 0.70
 
 HASH_LEN = 13
 HASH_MULT = np.uint64(1099511628211)
@@ -167,9 +187,28 @@ class StudentSpec:
 @dataclass(frozen=True)
 class ArmSpec:
     label: str
-    use_kd: bool
+    kd_mode: str
+    kd_start_step: int
+    kd_end_step: int
     student: StudentSpec
     description: str
+
+    @property
+    def use_kd(self) -> bool:
+        return self.kd_start_step <= self.kd_end_step
+
+    @property
+    def kd_step_count(self) -> int:
+        if not self.use_kd:
+            return 0
+        return self.kd_end_step - self.kd_start_step + 1
+
+    @property
+    def kd_compute_fraction_vs_full_kd(self) -> float:
+        return float(self.kd_step_count / max(TRAIN_STEPS, 1))
+
+    def kd_active(self, step: int) -> bool:
+        return self.use_kd and self.kd_start_step <= step <= self.kd_end_step
 
 
 LLAMA_SPEC = StudentSpec(
@@ -205,27 +244,57 @@ QWEN_SPEC = StudentSpec(
 ARM_SPECS = [
     ArmSpec(
         label="scratch_ce_llama",
-        use_kd=False,
+        kd_mode="none",
+        kd_start_step=1,
+        kd_end_step=0,
         student=LLAMA_SPEC,
         description="Llama-arch student trained from scratch with CE only.",
     ),
     ArmSpec(
         label="kd_logit_llama",
-        use_kd=True,
+        kd_mode="full_logit",
+        kd_start_step=KD_FULL_START_STEP,
+        kd_end_step=TRAIN_STEPS,
         student=LLAMA_SPEC,
         description="Llama-arch student with CE + top-k logit KD from Qwen teacher.",
     ),
     ArmSpec(
+        label="kd_late_only_llama",
+        kd_mode="late_only",
+        kd_start_step=KD_LATE_START_STEP,
+        kd_end_step=TRAIN_STEPS,
+        student=LLAMA_SPEC,
+        description=(
+            "Llama-arch student trained CE-only for steps 1-4000, then CE + "
+            "top-k logit KD for steps 4001-6000."
+        ),
+    ),
+    ArmSpec(
         label="scratch_ce_qwen_arch",
-        use_kd=False,
+        kd_mode="none",
+        kd_start_step=1,
+        kd_end_step=0,
         student=QWEN_SPEC,
         description="Qwen3-arch student control trained from scratch with CE only.",
     ),
     ArmSpec(
         label="kd_logit_qwen_arch",
-        use_kd=True,
+        kd_mode="full_logit",
+        kd_start_step=KD_FULL_START_STEP,
+        kd_end_step=TRAIN_STEPS,
         student=QWEN_SPEC,
         description="Qwen3-arch student control with CE + top-k logit KD.",
+    ),
+    ArmSpec(
+        label="kd_late_only_qwen_arch",
+        kd_mode="late_only",
+        kd_start_step=KD_LATE_START_STEP,
+        kd_end_step=TRAIN_STEPS,
+        student=QWEN_SPEC,
+        description=(
+            "Qwen3-arch student control trained CE-only for steps 1-4000, then "
+            "CE + top-k logit KD for steps 4001-6000."
+        ),
     ),
 ]
 
@@ -820,14 +889,14 @@ def precompute_teacher_topk_cache(
     }
 
 
-def build_llama_student(vocab_size: int, seed: int):
+def build_llama_student(student: StudentSpec, *, vocab_size: int, seed: int):
     cfg = LlamaConfig(
         vocab_size=vocab_size,
-        hidden_size=LLAMA_SPEC.hidden_size,
-        num_hidden_layers=LLAMA_SPEC.num_hidden_layers,
-        num_attention_heads=LLAMA_SPEC.num_attention_heads,
-        num_key_value_heads=LLAMA_SPEC.num_key_value_heads,
-        intermediate_size=LLAMA_SPEC.intermediate_size,
+        hidden_size=student.hidden_size,
+        num_hidden_layers=student.num_hidden_layers,
+        num_attention_heads=student.num_attention_heads,
+        num_key_value_heads=student.num_key_value_heads,
+        intermediate_size=student.intermediate_size,
         max_position_embeddings=SEQ_LEN + 64,
         rms_norm_eps=1e-6,
         tie_word_embeddings=True,
@@ -841,18 +910,18 @@ def build_llama_student(vocab_size: int, seed: int):
     return model
 
 
-def build_qwen_student(vocab_size: int, seed: int):
+def build_qwen_student(student: StudentSpec, *, vocab_size: int, seed: int):
     cfg = Qwen3Config(
         vocab_size=vocab_size,
-        hidden_size=QWEN_SPEC.hidden_size,
-        intermediate_size=QWEN_SPEC.intermediate_size,
-        num_hidden_layers=QWEN_SPEC.num_hidden_layers,
-        num_attention_heads=QWEN_SPEC.num_attention_heads,
-        num_key_value_heads=QWEN_SPEC.num_key_value_heads,
-        head_dim=QWEN_SPEC.head_dim,
+        hidden_size=student.hidden_size,
+        intermediate_size=student.intermediate_size,
+        num_hidden_layers=student.num_hidden_layers,
+        num_attention_heads=student.num_attention_heads,
+        num_key_value_heads=student.num_key_value_heads,
+        head_dim=student.head_dim,
         max_position_embeddings=SEQ_LEN + 64,
-        max_window_layers=QWEN_SPEC.num_hidden_layers,
-        layer_types=["full_attention"] * QWEN_SPEC.num_hidden_layers,
+        max_window_layers=student.num_hidden_layers,
+        layer_types=["full_attention"] * student.num_hidden_layers,
         tie_word_embeddings=True,
         use_sliding_window=False,
         sliding_window=None,
@@ -872,9 +941,9 @@ def build_qwen_student(vocab_size: int, seed: int):
 
 def build_student(student: StudentSpec, *, vocab_size: int, seed: int):
     if student.architecture == "llama":
-        return build_llama_student(vocab_size, seed)
+        return build_llama_student(student, vocab_size=vocab_size, seed=seed)
     if student.architecture == "qwen3":
-        return build_qwen_student(vocab_size, seed)
+        return build_qwen_student(student, vocab_size=vocab_size, seed=seed)
     raise ValueError(f"unknown student architecture: {student.architecture}")
 
 
@@ -918,26 +987,39 @@ def compute_arm_flops(
     c3_eval_forward_tokens: int,
     teacher_cache_flops: int,
     use_kd: bool,
+    kd_step_count: int,
 ) -> dict[str, Any]:
     train_flops = estimate_train_flops(student_params)
     c4_eval_flops = estimate_eval_flops(student_params, eval_forward_tokens=c4_eval_forward_tokens)
     c3_eval_flops = estimate_eval_flops(student_params, eval_forward_tokens=c3_eval_forward_tokens)
     student_eval_flops = c4_eval_flops + c3_eval_flops
     program_contribution_flops = train_flops + student_eval_flops
-    standalone_total_flops = program_contribution_flops + (teacher_cache_flops if use_kd else 0)
+    kd_compute_fraction = float(kd_step_count / max(TRAIN_STEPS, 1)) if use_kd else 0.0
+    teacher_cache_flops_effective = int(round(teacher_cache_flops * kd_compute_fraction)) if use_kd else 0
+    teacher_cache_flops_full_reuse = int(teacher_cache_flops if use_kd else 0)
+    standalone_total_flops = program_contribution_flops + teacher_cache_flops_effective
+    standalone_full_cache_total_flops = program_contribution_flops + teacher_cache_flops_full_reuse
     return {
-        "teacher_cache_flops_included": int(teacher_cache_flops if use_kd else 0),
+        "kd_active_steps": int(kd_step_count),
+        "kd_compute_fraction_vs_full_kd": kd_compute_fraction,
+        "teacher_cache_flops_included": int(teacher_cache_flops_effective),
+        "teacher_cache_flops_effective_by_schedule": int(teacher_cache_flops_effective),
+        "teacher_cache_flops_full_cache_if_reused": int(teacher_cache_flops_full_reuse),
         "student_train_flops": int(train_flops),
         "student_eval_flops": int(student_eval_flops),
         "student_eval_c4_flops": int(c4_eval_flops),
         "student_eval_c3_flops": int(c3_eval_flops),
         "program_contribution_flops": int(program_contribution_flops),
         "standalone_total_flops": int(standalone_total_flops),
-        "teacher_cache_pflops_included": float((teacher_cache_flops if use_kd else 0) / 1e15),
+        "standalone_full_cache_total_flops": int(standalone_full_cache_total_flops),
+        "teacher_cache_pflops_included": float(teacher_cache_flops_effective / 1e15),
+        "teacher_cache_pflops_effective_by_schedule": float(teacher_cache_flops_effective / 1e15),
+        "teacher_cache_pflops_full_cache_if_reused": float(teacher_cache_flops_full_reuse / 1e15),
         "student_train_pflops": float(train_flops / 1e15),
         "student_eval_pflops": float(student_eval_flops / 1e15),
         "program_contribution_pflops": float(program_contribution_flops / 1e15),
         "standalone_total_pflops": float(standalone_total_flops / 1e15),
+        "standalone_full_cache_total_pflops": float(standalone_full_cache_total_flops / 1e15),
     }
 
 
@@ -968,11 +1050,13 @@ def train_one_arm(
     )
     param_info = count_model_parameters(model)
     train_log = []
+    observed_kd_steps = 0
     t0 = time.time()
 
     print(
         f"  {arm.label} seed={seed} arch={arm.student.architecture} "
-        f"params={param_info['total_params'] / 1e6:.2f}M use_kd={arm.use_kd}"
+        f"params={param_info['total_params'] / 1e6:.2f}M "
+        f"kd_mode={arm.kd_mode} kd_steps={arm.kd_step_count}"
     )
 
     for step in range(1, TRAIN_STEPS + 1):
@@ -984,13 +1068,14 @@ def train_one_arm(
         batch_index_tensor = torch.as_tensor(batch_indices, dtype=torch.long)
         ids = train_ids[batch_index_tensor].to(DEVICE)
         mask = train_mask[batch_index_tensor].to(DEVICE)
+        kd_active = arm.kd_active(step)
 
         optimizer.zero_grad(set_to_none=True)
         with autocast_context():
             logits = model(input_ids=ids, attention_mask=mask, use_cache=False).logits
             ce_loss = causal_ce_loss(logits, ids, mask)
             kd_loss_value = None
-            if arm.use_kd:
+            if kd_active:
                 if teacher_cache is None:
                     raise RuntimeError("teacher cache missing for KD arm")
                 batch_topk_idx = teacher_cache["topk_idx"][batch_index_tensor].to(
@@ -1007,6 +1092,7 @@ def train_one_arm(
                     batch_topk_logits,
                 )
                 total_loss = (1.0 - KD_GAMMA) * ce_loss + KD_GAMMA * kd_loss_value
+                observed_kd_steps += 1
             else:
                 total_loss = ce_loss
 
@@ -1021,6 +1107,7 @@ def train_one_arm(
             row = {
                 "step": int(step),
                 "lr": float(current_lr),
+                "phase": "kd" if kd_active else "ce_only",
                 "ce_loss": float(ce_loss.item()),
                 "kd_loss": float(kd_loss_value.item()) if kd_loss_value is not None else None,
                 "total_loss": float(total_loss.item()),
@@ -1033,6 +1120,12 @@ def train_one_arm(
                 f"kd={kd_text} total={row['total_loss']:.4f} ({row['elapsed_s']:.0f}s)"
             )
 
+    if observed_kd_steps != arm.kd_step_count:
+        raise RuntimeError(
+            f"KD schedule mismatch for arm={arm.label}: observed {observed_kd_steps} "
+            f"active steps, expected {arm.kd_step_count}"
+        )
+
     final_metrics = {
         "c4_val": evaluate_c4(model, c4_val_ids, c4_val_mask),
         "c3_val": evaluate_c3(model, c3_data, pad_token_id=pad_token_id),
@@ -1044,6 +1137,7 @@ def train_one_arm(
         c3_eval_forward_tokens=c3_eval_forward_tokens,
         teacher_cache_flops=teacher_cache_flops,
         use_kd=arm.use_kd,
+        kd_step_count=arm.kd_step_count,
     )
     print(
         f"    final c4_val: nll={final_metrics['c4_val']['nll']:.4f} "
@@ -1062,6 +1156,12 @@ def train_one_arm(
         "description": arm.description,
         "student": asdict(arm.student),
         "use_kd": bool(arm.use_kd),
+        "kd_mode": arm.kd_mode,
+        "kd_start_step": arm.kd_start_step if arm.use_kd else None,
+        "kd_end_step": arm.kd_end_step if arm.use_kd else None,
+        "kd_step_count": int(arm.kd_step_count),
+        "kd_compute_fraction_vs_full_kd": float(arm.kd_compute_fraction_vs_full_kd),
+        "observed_kd_steps": int(observed_kd_steps),
         "param_info": param_info,
         "train_log": train_log,
         "final_metrics": final_metrics,
@@ -1130,6 +1230,12 @@ def build_summary(
         arm_summary[arm.label] = {
             "description": arm.description,
             "student": asdict(arm.student),
+            "use_kd": arm.use_kd,
+            "kd_mode": arm.kd_mode,
+            "kd_start_step": arm.kd_start_step if arm.use_kd else None,
+            "kd_end_step": arm.kd_end_step if arm.use_kd else None,
+            "kd_step_count": int(arm.kd_step_count),
+            "kd_compute_fraction_vs_full_kd": float(arm.kd_compute_fraction_vs_full_kd),
             "c3_macro": _metric_summary(c3_by_seed, seed=173001 + len(arm.label)),
             "c4_val_nll": _metric_summary(c4_nll_by_seed, seed=173101 + len(arm.label)),
             "standalone_total_flops": _metric_summary(total_compute_by_seed, seed=173201 + len(arm.label)),
@@ -1144,32 +1250,135 @@ def build_summary(
             },
         }
 
-    retention_vs_qwen_by_seed = {}
-    retention_vs_teacher_by_seed = {}
-    llama_matched_compute_by_seed = {}
-    qwen_total_compute_by_seed = {}
-    matched_compute_fraction_by_seed = {}
-    transfer_ratio_by_seed = {}
-    llama_positive_direction_by_seed = {}
-    qwen_positive_direction_by_seed = {}
+    def c3_value(arm_label: str, seed_key: str) -> float:
+        return float(results[arm_label][seed_key]["final_metrics"]["c3_val"]["C3_macro"])
+
+    def standalone_flops(arm_label: str, seed_key: str) -> float:
+        return float(results[arm_label][seed_key]["compute"]["standalone_total_flops"])
+
+    def build_late_kd_comparison(
+        *,
+        family_label: str,
+        scratch_arm: str,
+        full_arm: str,
+        late_arm: str,
+        seed_base: int,
+    ) -> tuple[dict[str, Any], dict[str, bool], dict[str, float], dict[str, float]]:
+        late_retention_by_seed: dict[str, float] = {}
+        late_effect_retention_by_seed: dict[str, float] = {}
+        late_minus_full_by_seed: dict[str, float] = {}
+        late_minus_scratch_by_seed: dict[str, float] = {}
+        full_minus_scratch_by_seed: dict[str, float] = {}
+        kd_compute_fraction_by_seed: dict[str, float] = {}
+        late_positive_direction_by_seed: dict[str, bool] = {}
+        retention_ge_threshold_by_seed: dict[str, bool] = {}
+
+        for seed in SEEDS:
+            seed_key = str(seed)
+            scratch_c3 = c3_value(scratch_arm, seed_key)
+            full_c3 = c3_value(full_arm, seed_key)
+            late_c3 = c3_value(late_arm, seed_key)
+            full_gain = full_c3 - scratch_c3
+            late_gain = late_c3 - scratch_c3
+            late_retention = late_c3 / max(full_c3, 1e-12)
+            late_effect_retention = late_gain / max(full_gain, 1e-12)
+            kd_compute_fraction = float(results[late_arm][seed_key]["kd_compute_fraction_vs_full_kd"])
+
+            late_retention_by_seed[seed_key] = float(late_retention)
+            late_effect_retention_by_seed[seed_key] = float(late_effect_retention)
+            late_minus_full_by_seed[seed_key] = float(late_c3 - full_c3)
+            late_minus_scratch_by_seed[seed_key] = float(late_gain)
+            full_minus_scratch_by_seed[seed_key] = float(full_gain)
+            kd_compute_fraction_by_seed[seed_key] = float(kd_compute_fraction)
+            late_positive_direction_by_seed[seed_key] = bool(late_gain > 0.0)
+            retention_ge_threshold_by_seed[seed_key] = bool(late_retention >= PASS_MIN_LATE_RETENTION)
+
+        comparison = {
+            "family": family_label,
+            "scratch_arm": scratch_arm,
+            "full_kd_arm": full_arm,
+            "late_kd_arm": late_arm,
+            "late_c3_retention_vs_full_kd": _metric_summary(
+                late_retention_by_seed,
+                seed=seed_base,
+            ),
+            "late_effect_retention_vs_full_effect": _metric_summary(
+                late_effect_retention_by_seed,
+                seed=seed_base + 1,
+            ),
+            "late_minus_full_c3": _metric_summary(late_minus_full_by_seed, seed=seed_base + 2),
+            "late_minus_scratch_c3_gain": _metric_summary(
+                late_minus_scratch_by_seed,
+                seed=seed_base + 3,
+            ),
+            "full_minus_scratch_c3_gain": _metric_summary(
+                full_minus_scratch_by_seed,
+                seed=seed_base + 4,
+            ),
+            "kd_compute_fraction_vs_full_kd": _metric_summary(
+                kd_compute_fraction_by_seed,
+                seed=seed_base + 5,
+            ),
+            "late_positive_direction_vs_scratch": {
+                "per_seed": late_positive_direction_by_seed,
+                "all_positive": all(late_positive_direction_by_seed.values()),
+            },
+            "late_retention_ge_0p85": {
+                "per_seed": retention_ge_threshold_by_seed,
+                "all_ge_threshold": all(retention_ge_threshold_by_seed.values()),
+            },
+        }
+        return (
+            comparison,
+            late_positive_direction_by_seed,
+            late_retention_by_seed,
+            kd_compute_fraction_by_seed,
+        )
+
+    llama_late_comparison, llama_late_positive_by_seed, llama_late_retention_by_seed, llama_late_kd_fraction_by_seed = (
+        build_late_kd_comparison(
+            family_label="llama",
+            scratch_arm="scratch_ce_llama",
+            full_arm="kd_logit_llama",
+            late_arm="kd_late_only_llama",
+            seed_base=173601,
+        )
+    )
+    qwen_late_comparison, qwen_late_positive_by_seed, _, _ = build_late_kd_comparison(
+        family_label="qwen_arch",
+        scratch_arm="scratch_ce_qwen_arch",
+        full_arm="kd_logit_qwen_arch",
+        late_arm="kd_late_only_qwen_arch",
+        seed_base=173701,
+    )
+
+    retention_vs_qwen_by_seed: dict[str, float] = {}
+    retention_vs_teacher_by_seed: dict[str, float] = {}
+    llama_matched_compute_by_seed: dict[str, float] = {}
+    qwen_total_compute_by_seed: dict[str, float] = {}
+    matched_compute_fraction_by_seed: dict[str, float] = {}
+    transfer_ratio_by_seed: dict[str, float] = {}
+    llama_positive_direction_by_seed: dict[str, bool] = {}
+    qwen_positive_direction_by_seed: dict[str, bool] = {}
+    all_components_positive_by_seed: dict[str, bool] = {}
 
     teacher_c3 = float(teacher_reference["c3_val"]["C3_macro"])
     for seed in SEEDS:
         seed_key = str(seed)
-        llama_kd = results["kd_logit_llama"][seed_key]
-        qwen_kd = results["kd_logit_qwen_arch"][seed_key]
-        llama_scratch = results["scratch_ce_llama"][seed_key]
-        qwen_scratch = results["scratch_ce_qwen_arch"][seed_key]
-
-        llama_c3 = float(llama_kd["final_metrics"]["c3_val"]["C3_macro"])
-        qwen_c3 = float(qwen_kd["final_metrics"]["c3_val"]["C3_macro"])
-        llama_total = float(llama_kd["compute"]["standalone_total_flops"])
-        qwen_total = float(qwen_kd["compute"]["standalone_total_flops"])
+        llama_c3 = c3_value("kd_logit_llama", seed_key)
+        qwen_c3 = c3_value("kd_logit_qwen_arch", seed_key)
+        llama_scratch_c3 = c3_value("scratch_ce_llama", seed_key)
+        qwen_scratch_c3 = c3_value("scratch_ce_qwen_arch", seed_key)
+        llama_total = standalone_flops("kd_logit_llama", seed_key)
+        qwen_total = standalone_flops("kd_logit_qwen_arch", seed_key)
 
         retention_qwen = llama_c3 / max(qwen_c3, 1e-12)
         matched_compute = llama_total / max(retention_qwen, 1e-12)
         matched_fraction = matched_compute / max(qwen_total, 1.0)
         transfer_ratio = qwen_total / max(matched_compute, 1.0)
+
+        llama_positive = bool(llama_c3 > llama_scratch_c3)
+        qwen_positive = bool(qwen_c3 > qwen_scratch_c3)
 
         retention_vs_qwen_by_seed[seed_key] = float(retention_qwen)
         retention_vs_teacher_by_seed[seed_key] = float(llama_c3 / max(teacher_c3, 1e-12))
@@ -1177,44 +1386,68 @@ def build_summary(
         qwen_total_compute_by_seed[seed_key] = float(qwen_total)
         matched_compute_fraction_by_seed[seed_key] = float(matched_fraction)
         transfer_ratio_by_seed[seed_key] = float(transfer_ratio)
-        llama_positive_direction_by_seed[seed_key] = float(llama_c3 > float(llama_scratch["final_metrics"]["c3_val"]["C3_macro"]))
-        qwen_positive_direction_by_seed[seed_key] = float(qwen_c3 > float(qwen_scratch["final_metrics"]["c3_val"]["C3_macro"]))
+        llama_positive_direction_by_seed[seed_key] = llama_positive
+        qwen_positive_direction_by_seed[seed_key] = qwen_positive
+        all_components_positive_by_seed[seed_key] = bool(
+            llama_positive
+            and qwen_positive
+            and llama_late_positive_by_seed[seed_key]
+            and qwen_late_positive_by_seed[seed_key]
+        )
+
+    mean_retention = float(np.mean(list(retention_vs_qwen_by_seed.values())))
+    mean_transfer_ratio = float(np.mean(list(transfer_ratio_by_seed.values())))
+    mean_matched_fraction = float(np.mean(list(matched_compute_fraction_by_seed.values())))
+    mean_late_retention = float(np.mean(list(llama_late_retention_by_seed.values())))
+    mean_late_kd_fraction = float(np.mean(list(llama_late_kd_fraction_by_seed.values())))
 
     criteria = {
-        "llama_kd_retention_vs_qwen_kd_ge_0p75": float(np.mean(list(retention_vs_qwen_by_seed.values()))) >= PASS_MIN_RETENTION,
-        "matched_compute_fraction_le_0p40": float(np.mean(list(matched_compute_fraction_by_seed.values()))) <= PASS_MAX_MATCHED_COMPUTE_FRACTION,
-        "cross_arch_transfer_ratio_ge_2p5": float(np.mean(list(transfer_ratio_by_seed.values()))) >= PASS_MIN_TRANSFER_RATIO,
-        "all_llama_seeds_positive_direction_vs_scratch": all(bool(v) for v in llama_positive_direction_by_seed.values()),
+        "llama_kd_retention_vs_qwen_kd_ge_0p75": mean_retention >= PASS_MIN_RETENTION,
+        "cross_arch_transfer_ratio_ge_2p5": mean_transfer_ratio >= PASS_MIN_TRANSFER_RATIO,
+        "llama_late_kd_retention_vs_full_kd_ge_0p85": mean_late_retention >= PASS_MIN_LATE_RETENTION,
+        "llama_late_kd_compute_fraction_le_0p333": (
+            mean_late_kd_fraction <= PASS_MAX_LATE_KD_COMPUTE_FRACTION + 1e-12
+        ),
+        "all_seeds_positive_direction_on_each_component": all(all_components_positive_by_seed.values()),
+    }
+
+    diagnostic_checks = {
+        "matched_compute_fraction_le_0p40_equivalent_to_2p5x": (
+            mean_matched_fraction <= PASS_MAX_MATCHED_COMPUTE_FRACTION
+        ),
+        "all_llama_full_kd_seeds_positive_vs_scratch": all(llama_positive_direction_by_seed.values()),
+        "all_qwen_full_kd_seeds_positive_vs_scratch": all(qwen_positive_direction_by_seed.values()),
+        "all_llama_late_kd_seeds_positive_vs_scratch": all(llama_late_positive_by_seed.values()),
+        "all_qwen_late_kd_seeds_positive_vs_scratch": all(qwen_late_positive_by_seed.values()),
     }
 
     fail_conditions = {
-        "llama_kd_retention_vs_qwen_kd_lt_0p50": float(np.mean(list(retention_vs_qwen_by_seed.values()))) < FAIL_MIN_RETENTION,
-        "cross_arch_transfer_ratio_lt_1p5": float(np.mean(list(transfer_ratio_by_seed.values()))) < FAIL_MIN_TRANSFER_RATIO,
+        "llama_kd_retention_vs_qwen_kd_lt_0p50": mean_retention < FAIL_MIN_RETENTION,
+        "cross_arch_transfer_ratio_lt_1p5": mean_transfer_ratio < FAIL_MIN_TRANSFER_RATIO,
+        "llama_late_kd_retention_vs_full_kd_lt_0p70": mean_late_retention < FAIL_MIN_LATE_RETENTION,
     }
 
     if all(criteria.values()):
         verdict = (
-            "PASS: cross-architecture KD cash-out lands. "
-            f"Llama KD retains {100.0 * float(np.mean(list(retention_vs_qwen_by_seed.values()))):.1f}% "
-            f"of Qwen-arch KD C3_macro, matched-capability compute fraction="
-            f"{float(np.mean(list(matched_compute_fraction_by_seed.values()))):.3f}, "
-            f"transfer ratio={float(np.mean(list(transfer_ratio_by_seed.values()))):.2f}x."
+            "PASS: cross-architecture KD cash-out lands with late-KD efficiency. "
+            f"Llama KD retains {100.0 * mean_retention:.1f}% of Qwen-arch KD C3_macro, "
+            f"transfer ratio={mean_transfer_ratio:.2f}x, and Llama late-KD retains "
+            f"{100.0 * mean_late_retention:.1f}% of full-KD C3 at "
+            f"{100.0 * mean_late_kd_fraction:.1f}% KD compute."
         )
     elif any(fail_conditions.values()):
-        failed = [name for name, ok in fail_conditions.items() if ok]
+        failed = [name for name, failed in fail_conditions.items() if failed]
         verdict = (
-            "FAIL: cross-architecture KD cash-out misses the locked floor. "
-            f"Failed conditions: {', '.join(failed)}. "
-            f"Retention={100.0 * float(np.mean(list(retention_vs_qwen_by_seed.values()))):.1f}%, "
-            f"transfer ratio={float(np.mean(list(transfer_ratio_by_seed.values()))):.2f}x."
+            "FAIL: revised cross-architecture KD cash-out misses a locked floor. "
+            f"Failed conditions: {', '.join(failed)}. Retention={100.0 * mean_retention:.1f}%, "
+            f"transfer ratio={mean_transfer_ratio:.2f}x, late/full={100.0 * mean_late_retention:.1f}%."
         )
     else:
         missed = [name for name, ok in criteria.items() if not ok]
         verdict = (
-            "PARTIAL: cross-architecture KD is directional but below flagship cash-out. "
-            f"Missed pass checks: {', '.join(missed)}. "
-            f"Retention={100.0 * float(np.mean(list(retention_vs_qwen_by_seed.values()))):.1f}%, "
-            f"transfer ratio={float(np.mean(list(transfer_ratio_by_seed.values()))):.2f}x."
+            "PARTIAL: revised cross-architecture KD is directional but below the joint bar. "
+            f"Missed pass checks: {', '.join(missed)}. Retention={100.0 * mean_retention:.1f}%, "
+            f"transfer ratio={mean_transfer_ratio:.2f}x, late/full={100.0 * mean_late_retention:.1f}%."
         )
 
     full_program_flops = int(teacher_cache_meta["teacher_cache_flops"])
@@ -1232,6 +1465,7 @@ def build_summary(
     return {
         "verdict": verdict,
         "criteria": criteria,
+        "diagnostic_checks": diagnostic_checks,
         "fail_conditions": fail_conditions,
         "arm_summary": arm_summary,
         "teacher_reference_c3_macro": teacher_c3,
@@ -1249,24 +1483,47 @@ def build_summary(
             "transfer_ratio_compute_saved_at_matched_capability": _metric_summary(transfer_ratio_by_seed, seed=173506),
             "llama_positive_direction_vs_scratch": {
                 "per_seed": llama_positive_direction_by_seed,
-                "all_positive": all(bool(v) for v in llama_positive_direction_by_seed.values()),
+                "all_positive": all(llama_positive_direction_by_seed.values()),
             },
             "qwen_positive_direction_vs_scratch": {
                 "per_seed": qwen_positive_direction_by_seed,
-                "all_positive": all(bool(v) for v in qwen_positive_direction_by_seed.values()),
+                "all_positive": all(qwen_positive_direction_by_seed.values()),
             },
             "note": (
                 "Matched-capability compute is defined as arm_total_compute / retention_vs_qwen_kd. "
-                "This is the honest capability-normalized FLOP cash-out requested by cycle 42."
+                "For full-KD arms, arm_total_compute uses the same schedule-effective accounting as "
+                "the original cycle-42 cash-out."
             ),
+        },
+        "late_kd_vs_full_kd": {
+            "llama": llama_late_comparison,
+            "qwen_arch": qwen_late_comparison,
+            "hypothesis": (
+                "C20 upgrades from a same-family timing result to a general efficiency mechanism "
+                "if the Llama late-KD arm reaches at least 85% of full-KD C3 at 33% KD compute."
+            ),
+        },
+        "positive_direction_components": {
+            "all_components_positive_by_seed": all_components_positive_by_seed,
+            "all_components_all_seeds_positive": all(all_components_positive_by_seed.values()),
+            "components": {
+                "llama_full_kd_vs_scratch": llama_positive_direction_by_seed,
+                "qwen_full_kd_vs_scratch": qwen_positive_direction_by_seed,
+                "llama_late_kd_vs_scratch": llama_late_positive_by_seed,
+                "qwen_late_kd_vs_scratch": qwen_late_positive_by_seed,
+            },
         },
         "program_compute": {
             "teacher_cache_flops_once": int(teacher_cache_meta["teacher_cache_flops"]),
             "teacher_cache_pflops_once": float(teacher_cache_meta["teacher_cache_flops"] / 1e15),
-            "one_seed_4arm_panel_flops": int(one_seed_panel_flops),
-            "one_seed_4arm_panel_pflops": float(one_seed_panel_flops / 1e15),
-            "full_12_cell_program_flops": int(full_program_flops),
-            "full_12_cell_program_pflops": float(full_program_flops / 1e15),
+            "one_seed_panel_flops": int(one_seed_panel_flops),
+            "one_seed_panel_pflops": float(one_seed_panel_flops / 1e15),
+            "one_seed_6arm_panel_flops": int(one_seed_panel_flops),
+            "one_seed_6arm_panel_pflops": float(one_seed_panel_flops / 1e15),
+            "full_program_flops": int(full_program_flops),
+            "full_program_pflops": float(full_program_flops / 1e15),
+            "full_18_cell_program_flops": int(full_program_flops),
+            "full_18_cell_program_pflops": float(full_program_flops / 1e15),
         },
     }
 
@@ -1296,6 +1553,56 @@ def save_incremental(
     OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=True), encoding="utf-8")
 
 
+def load_resume_results(*, train_signature: str) -> dict[str, dict[str, Any]]:
+    resumed = {arm.label: {} for arm in ARM_SPECS}
+    if not OUT_PATH.exists():
+        return resumed
+
+    try:
+        payload = json.loads(OUT_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:
+        print(f"  resume ignored: could not read existing {OUT_PATH}: {exc}")
+        return resumed
+
+    if payload.get("genome") != 173 or payload.get("name") != "cross_arch_flop_cashout":
+        print("  resume ignored: existing output is not genome_173 cross_arch_flop_cashout")
+        return resumed
+
+    existing_signature = payload.get("teacher_cache", {}).get("train_signature")
+    if existing_signature != train_signature:
+        print("  resume ignored: existing output train_signature does not match current C4 train windows")
+        return resumed
+
+    old_results = payload.get("results", {})
+    if not isinstance(old_results, dict):
+        return resumed
+
+    resumed_cells = 0
+    for arm in ARM_SPECS:
+        old_arm_results = old_results.get(arm.label, {})
+        if not isinstance(old_arm_results, dict):
+            continue
+        for seed in SEEDS:
+            seed_key = str(seed)
+            cell = old_arm_results.get(seed_key)
+            if not isinstance(cell, dict):
+                continue
+            if cell.get("arm_label") != arm.label:
+                continue
+            if cell.get("kd_mode") != arm.kd_mode:
+                continue
+            if int(cell.get("kd_step_count", -1)) != arm.kd_step_count:
+                continue
+            if "final_metrics" not in cell or "compute" not in cell:
+                continue
+            resumed[arm.label][seed_key] = cell
+            resumed_cells += 1
+
+    if resumed_cells:
+        print(f"  resume: loaded {resumed_cells} completed revised g173 cells from {OUT_PATH}")
+    return resumed
+
+
 def main():
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -1307,6 +1614,10 @@ def main():
     print(
         f"  train_windows={N_TRAIN_WINDOWS} c4_val_windows={N_C4_VAL_WINDOWS} "
         f"c3_examples_per_task={N_C3_PER_TASK} seq_len={SEQ_LEN}"
+    )
+    print(
+        f"  arms={len(ARM_SPECS)} cells={len(ARM_SPECS) * len(SEEDS)} "
+        f"late_kd_steps={KD_LATE_START_STEP}-{TRAIN_STEPS}"
     )
 
     t_start = time.time()
@@ -1385,6 +1696,7 @@ def main():
         "path": teacher_cache["path"],
         "cache_hit": teacher_cache["cache_hit"],
         "cache_source": teacher_cache["cache_source"],
+        "shared_with_genome_167": bool(teacher_cache["cache_source"] == "genome_167"),
         "estimated_bytes": teacher_cache["estimated_bytes"],
         "estimated_gib": teacher_cache["estimated_bytes"] / (1024 ** 3),
         "train_signature": train_signature,
@@ -1393,13 +1705,16 @@ def main():
         "teacher_param_count": int(teacher_param_count),
     }
 
-    results = {arm.label: {} for arm in ARM_SPECS}
+    results = load_resume_results(train_signature=train_signature)
     print(f"\n=== Running {len(ARM_SPECS)} arms x {len(SEEDS)} seeds = {len(ARM_SPECS) * len(SEEDS)} cells ===")
     print("=== Pairing rule: same seed -> same batch schedule across scratch/KD and across architectures ===")
 
     for seed in SEEDS:
         train_schedule = build_train_schedule(seed, n_examples=int(train_ids.shape[0]))
         for arm in ARM_SPECS:
+            if str(seed) in results[arm.label]:
+                print(f"\n--- arm={arm.label} seed={seed}: already complete, skipping ---")
+                continue
             print(f"\n--- arm={arm.label} seed={seed} ---")
             payload = train_one_arm(
                 arm,
@@ -1458,6 +1773,9 @@ def main():
             "kd_top_k": KD_TOPK,
             "kd_temp": KD_TEMP,
             "kd_gamma": KD_GAMMA,
+            "kd_full_start_step": KD_FULL_START_STEP,
+            "kd_late_start_step": KD_LATE_START_STEP,
+            "kd_late_end_step": TRAIN_STEPS,
             "c4_train_seed": C4_TRAIN_SEED,
             "c4_val_seed": C4_VAL_SEED,
             "c3_eval_seeds": {
@@ -1469,30 +1787,44 @@ def main():
                 {
                     "label": arm.label,
                     "use_kd": arm.use_kd,
+                    "kd_mode": arm.kd_mode,
+                    "kd_start_step": arm.kd_start_step if arm.use_kd else None,
+                    "kd_end_step": arm.kd_end_step if arm.use_kd else None,
+                    "kd_step_count": arm.kd_step_count,
+                    "kd_compute_fraction_vs_full_kd": arm.kd_compute_fraction_vs_full_kd,
                     "description": arm.description,
                     "student": asdict(arm.student),
                 }
                 for arm in ARM_SPECS
             ],
-            "pass_criteria_locked_cycle42": {
+            "pass_criteria_revised_cycle54_g175": {
                 "llama_kd_retention_vs_qwen_kd_ge": PASS_MIN_RETENTION,
-                "matched_compute_fraction_le": PASS_MAX_MATCHED_COMPUTE_FRACTION,
                 "cross_arch_transfer_ratio_ge": PASS_MIN_TRANSFER_RATIO,
-                "all_llama_seeds_positive_direction": True,
+                "llama_late_kd_retention_vs_full_kd_ge": PASS_MIN_LATE_RETENTION,
+                "llama_late_kd_compute_fraction_le": PASS_MAX_LATE_KD_COMPUTE_FRACTION,
+                "all_seeds_positive_direction_on_each_component": True,
             },
-            "fail_floor_locked_cycle42": {
+            "diagnostic_thresholds": {
+                "matched_compute_fraction_le_equivalent_to_2p5x": PASS_MAX_MATCHED_COMPUTE_FRACTION,
+            },
+            "fail_floor_revised_cycle54_g175": {
                 "llama_kd_retention_vs_qwen_kd_lt": FAIL_MIN_RETENTION,
                 "cross_arch_transfer_ratio_lt": FAIL_MIN_TRANSFER_RATIO,
+                "llama_late_kd_retention_vs_full_kd_lt": FAIL_MIN_LATE_RETENTION,
             },
             "compute_envelope": {
-                "soft_hours": 3.5,
-                "hard_hours": 4.0,
+                "expected_wall_hours": 5.5,
+                "soft_hours": 5.5,
+                "hard_hours": 6.5,
                 "max_vram_gb": 22.0,
+                "checkpoint_resume": True,
             },
             "notes": [
                 "Teacher cache train signature intentionally matches genome_167 so cached top-k logits can be reused.",
                 "Shared Qwen tokenizer means embedding / lm_head parameters dominate total student params; this is expected.",
                 "Matched-capability compute divides standalone total FLOPs by retention_vs_qwen_kd.",
+                "Late-KD arms use the same batch schedule and activate KD only on steps 4001-6000.",
+                "Standalone late-KD compute includes schedule-effective teacher-cache FLOPs; full-cache reuse is also logged.",
             ],
         },
         "data": data_meta,
