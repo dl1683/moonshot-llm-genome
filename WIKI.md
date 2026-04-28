@@ -97,6 +97,25 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 1. **External AC wall-power meter** — only hard prerequisite gating g155 (8.2/10 PASS, the only direction that BREAKS the §0.1 ceiling). Yokogawa WT310E gold; Tasmota-flashed Sonoff Pow R3 / Shelly Plug S Plus practical. Without it the locked g155 prereg cannot execute honestly per the integrity bar (nvidia-smi proxy explicitly disallowed in the headline). Acquisition is the project's #1 procurement priority. Project memory: `project_wall_power_meter_unblocks_path_c.md`.
 
+## ★ NARRATIVE LOCK (Codex cycle 42 direction review, 2026-04-27)
+
+**Headline:** "Capability is not injected once; it is maintained by the training objective over time."
+
+**Refined theory framing:** "continuous donor-information-in-the-loss law" (NOT just "continuous anchor law" — the law generalizes across information-injection axes, weight-space and output-space tested so far).
+
+**Empirical chain locked at canonical scale:**
+- **g158c** identifies WHERE donor information matters: transport-demanded positions (long context).
+- **g165** shows one way it persists: continuous WEIGHT-SPACE constraint (+1.088 nats).
+- **g167** shows a SECOND independent way: continuous OUTPUT-SPACE constraint via top-k KD logits (+1.014 pp).
+- **g168** kills the alignment-loophole story: zero-step transplant + permutation/norm-refit doesn't transfer.
+- **g169** kills the temporary-scaffold story: decay activation scaffold doesn't leave residue.
+
+**§0.1 trajectory:** 7.9/10 with current locked findings. Path to ≥8.5:
+- **Cheaper than wall-power: capability-per-FLOP cash-out** — Qwen teacher → Llama-arch student on C3_macro (HellaSwag/PIQA/Winogrande) at significant FLOP savings, train+inference compute accounted honestly. Score 8.1-8.4 with strong ratio. Generality + cash-out in one move.
+- Wall-power version (g155) remains highest at 8.2/10 if procured.
+
+**Queue change locked:** g171 (attention-routing KD, 7.6/10) DEMOTED — core law already well supported by C18+C19+R9+R9b. After g170 + g172, next major experiment is the **cross-architecture FLOP cash-out (g173 placeholder)**.
+
 ---
 
 **★ STRATEGIC FINDING from cycle 22 Codex direction consult (2026-04-27):** Among the three post-g158c paths, **only Path C (g155 production distill + locked C3 TEI/kJ benchmark) breaks the §0.1 ceiling — Codex score 8.2/10**. Paths A (g162 capacity sweep, 6.8) and B (g158e endpoint seed expansion, 6.4) cap at workshop-grade. Path C is HARDWARE-BLOCKED on external AC wall-power meter (Yokogawa WT310E gold; logging smart plug practical). **Acquiring the wall-power meter is the highest-impact procurement action across the entire decision tree** — it unblocks the only experimental direction with a chance of producing a flagship-grade finding. Source: `codex_outputs/heartbeats/post_g158c_design_20260427T090500.md`.
@@ -104,6 +123,23 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 **★ STRONG EMPIRICAL FINDING from Codex data-mining consult + cycle 23/24 audit, CORRECTED cycle 27 (2026-04-27):** Extended to **n=7** across distinct donor mechanisms (ridge-grafted init, mean-shift init, trainable mean-shift, weight-space seed, rank30 adapter, frozen-attn glue, optimizer-state). Pattern: donor signal provides up to **+23 nats** of NLL advantage early, **washes out by step 4-2000** in 5/7 cases, mean final advantage -0.29 nats. **Codex cycle 27 SEV8 correction:** the comparators for g125 and g137 were wrong in the first pass; with proper comparators (matched_param_ctrl for g125, resume_reset for g137), the headline shifts: **1/7 mechanisms persists** — g125 frozen-attn glue at +0.07 nats (NOT g137 as originally claimed). g125's "persistence" is a degenerate special case: freezing donor weights = "always-on anchor" with decay rate zero. g137 optimizer-state, with correct comparator, shows the SAME washout pattern (1064: +0.046 → 4000: -0.0004). The annealed-donor hypothesis still motivated: g125 demonstrates that anchor-rate-zero is the only persistence mode currently known. Audit: `research/EARLY_HELP_META_AUDIT_2026-04-27.md`. Cycle 27 SEV8: `codex_outputs/heartbeats/cycle27_code_review_20260427T110500.md`.
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
+
+**★ g170 FAILED 2026-04-27 ~23:00 UTC: transport-gated KD does NOT beat uniform KD.**
+
+g170 transport-gated KD (4 arms × 3 seeds, 6000 steps). Best gated arm = position_gated_kd at **-0.436 pp** vs uniform [CI -0.569, -0.330]. All transport-aware weighting REDUCES capability transfer compared to uniform.
+
+| Arm | C4 top-1 |
+|---|---:|
+| uniform_kd | 16.67% |
+| position_gated_kd | 16.24% |
+| disagreement_gated_kd | 15.89% |
+| scratch_ce | 15.66% |
+
+**KD vs scratch sanity check reproduces g167:** uniform_kd vs scratch = +1.01 pp (within noise of g167's +1.014 pp).
+
+**Confirms cycle 39 prediction:** "the law is 'continuous supervision works,' not 'transport-aware KD works'." Transport demand axis (g158c PASS) does NOT amplify KD-axis signal.
+
+§0.1 ceiling unchanged: 7.9/10 with C18 + C19 still locked, R10 (transport gating dead) added. Source: `results/genome_170_transport_gated_kd.json`.
 
 **★ g167 PASSED 2026-04-27 ~21:25 UTC: KD logits transfer capability at canonical scale ★★ MAJOR**
 

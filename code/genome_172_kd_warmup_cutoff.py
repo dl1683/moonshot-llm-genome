@@ -547,7 +547,13 @@ def build_mechanism_analysis(
     warmup_ci_crosses_zero = warmup_lo <= 0.0 <= warmup_hi
 
     init_signal_pass = warmup_mean >= PASS_INIT_SIGNAL_TOP1_GAIN_PP and warmup_lo > 0.0
-    washout_fail = warmup_mean <= FAIL_WASHOUT_TOP1_GAIN_PP or warmup_ci_crosses_zero
+    # Codex cycle 42 SEV8 fix: separate "tied/inconclusive" from "washout".
+    # CI crossing zero is tied/inconclusive (cannot rule out either hypothesis).
+    # washout_fail requires mean <= +0.10pp AND CI does NOT cross zero — i.e., the
+    # CI is entirely below the +0.10pp bar. Otherwise we'd be claiming
+    # continuous-constraint confirmation from a noisy null, which overclaims.
+    tied_fail = warmup_ci_crosses_zero
+    washout_fail = (warmup_mean <= FAIL_WASHOUT_TOP1_GAIN_PP) and not tied_fail
 
     if init_signal_pass:
         status = "init_signal_pass"
@@ -557,12 +563,22 @@ def build_mechanism_analysis(
             f"{warmup_hi:+.3f}]. This supports an init-signal mechanism rather "
             "than a purely continuous-constraint law."
         )
+    elif tied_fail:
+        status = "tied_or_inconclusive"
+        narrative = (
+            f"Warmup-only KD is statistically tied with scratch: {warmup_mean:+.3f} pp "
+            f"with 95% CI [{warmup_lo:+.3f}, {warmup_hi:+.3f}]. "
+            "Misses the prereg init-signal bar but does NOT distinguish washout "
+            "from noise — neither continuous-constraint law nor init-signal hypothesis "
+            "is affirmatively confirmed."
+        )
     elif washout_fail:
         status = "continuous_constraint_confirmed"
         narrative = (
             f"Warmup-only KD washes out by the locked criterion: C4 top1 delta "
             f"vs scratch is {warmup_mean:+.3f} pp with 95% CI [{warmup_lo:+.3f}, "
-            f"{warmup_hi:+.3f}]. This supports the continuous-constraint law."
+            f"{warmup_hi:+.3f}]. CI is entirely below +{FAIL_WASHOUT_TOP1_GAIN_PP:.2f}pp "
+            "(no zero-crossing). This supports the continuous-constraint law."
         )
     else:
         status = "indeterminate_partial_retention"
