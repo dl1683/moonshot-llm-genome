@@ -1,0 +1,885 @@
+{
+  "genome": 169,
+  "name": "scaffold_swap_distillation",
+  "timestamp_utc": "2026-04-28T00:43:35.787669+00:00",
+  "model_id": "Qwen/Qwen3-0.6B",
+  "device": "cuda",
+  "forward_dtype": "torch.bfloat16",
+  "recipient_param_dtype": "torch.float32",
+  "config": {
+    "seeds": [
+      42,
+      7,
+      13
+    ],
+    "seq_len": 256,
+    "train_batch_size": 8,
+    "eval_batch_size": 8,
+    "train_steps": 500,
+    "eval_steps": [
+      0,
+      50,
+      250,
+      500
+    ],
+    "train_windows": 4000,
+    "n_c4_val_windows": 200,
+    "lr": 0.0003,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "c4_train_seed": 165,
+    "c4_val_seed": 1650,
+    "arm_specs": [
+      {
+        "label": "scaffold_step",
+        "schedule": "step",
+        "counts_for_verdict": true,
+        "description": "Hard donor scaffold for first 50 updates, then recipient alone."
+      },
+      {
+        "label": "scaffold_linear",
+        "schedule": "linear",
+        "counts_for_verdict": true,
+        "description": "Linearly annealed donor scaffold to zero by ~250 updates."
+      },
+      {
+        "label": "scaffold_exponential",
+        "schedule": "exponential",
+        "counts_for_verdict": true,
+        "description": "Exponentially decayed donor scaffold with tau=50 updates."
+      },
+      {
+        "label": "scratch_baseline",
+        "schedule": "constant_zero",
+        "counts_for_verdict": false,
+        "description": "Recipient-only scratch training control."
+      },
+      {
+        "label": "constant_full_upper_bound",
+        "schedule": "constant_full",
+        "counts_for_verdict": false,
+        "description": "Frozen donor-only upper bound; recipient never updated."
+      }
+    ],
+    "pass_advantage_nats": 0.5,
+    "fail_washout_nats": 0.2
+  },
+  "results": {
+    "scaffold_step": {
+      "42": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 12.117743225097657,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 11.748791980743409
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.668459911346435,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.057105870246888
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 7.124710063934327,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.341085159301758
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 450,
+          "scaffold_swap": 50,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "7": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 12.098993911743165,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 11.765053100585938
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.637766380310058,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.02682744026184
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 7.12330774307251,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.352396450042725
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 450,
+          "scaffold_swap": 50,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "13": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 11.971288146972656,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 11.806158924102784
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.614962902069092,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.05344046831131
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 7.179729537963867,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.35920993232727
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 450,
+          "scaffold_swap": 50,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      }
+    },
+    "scaffold_linear": {
+      "42": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.3711226272583,
+            "alpha_last_update": 0.804,
+            "mean_train_ce": 9.63812774658203
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.502990646362305,
+            "alpha_last_update": 0.0040000000000000036,
+            "mean_train_ce": 7.895460433959961
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.9401840972900395,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.169008947372436
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 250,
+          "scaffold_swap": 250,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "7": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.581529159545898,
+            "alpha_last_update": 0.804,
+            "mean_train_ce": 9.5976598072052
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.782627220153809,
+            "alpha_last_update": 0.0040000000000000036,
+            "mean_train_ce": 7.963887391090393
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 7.025980052947998,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.363187030792236
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 250,
+          "scaffold_swap": 250,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "13": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.199246864318848,
+            "alpha_last_update": 0.804,
+            "mean_train_ce": 10.026933088302613
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.443704433441162,
+            "alpha_last_update": 0.0040000000000000036,
+            "mean_train_ce": 7.867371342182159
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.9193716239929195,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.117889116287231
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 250,
+          "scaffold_swap": 250,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      }
+    },
+    "scaffold_exponential": {
+      "42": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.113753051757813,
+            "alpha_last_update": 0.37531109885139957,
+            "mean_train_ce": 9.055015649795532
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.272352695465088,
+            "alpha_last_update": 0.006874062557496249,
+            "mean_train_ce": 7.7458285093307495
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.838496227264404,
+            "alpha_last_update": 4.631706918080762e-05,
+            "mean_train_ce": 7.00625825881958
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 500,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "7": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.096760864257812,
+            "alpha_last_update": 0.37531109885139957,
+            "mean_train_ce": 9.096872243881226
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.398320827484131,
+            "alpha_last_update": 0.006874062557496249,
+            "mean_train_ce": 7.80515558719635
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.929076480865478,
+            "alpha_last_update": 4.631706918080762e-05,
+            "mean_train_ce": 7.136239627838135
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 500,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "13": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.073735847473145,
+            "alpha_last_update": 0.37531109885139957,
+            "mean_train_ce": 9.05616777420044
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.354767341613769,
+            "alpha_last_update": 0.006874062557496249,
+            "mean_train_ce": 7.804502348899842
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.855689888000488,
+            "alpha_last_update": 4.631706918080762e-05,
+            "mean_train_ce": 7.045222177505493
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 500,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      }
+    },
+    "scratch_baseline": {
+      "42": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.058856582641601,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.701868200302124
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.043760662078857,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.439395396709442
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.7431450462341305,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 6.860788681030273
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 500,
+          "scaffold_swap": 0,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "7": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.055576343536377,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.674255332946778
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.028738670349121,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.386778719425202
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.746576747894287,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 6.881777462005616
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 500,
+          "scaffold_swap": 0,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      },
+      "13": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 8.039820137023925,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 8.640065889358521
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 7.053824424743652,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 7.454170565605164
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 6.775195293426513,
+            "alpha_last_update": 0.0,
+            "mean_train_ce": 6.879600536346436
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 500,
+          "scaffold_swap": 0,
+          "donor_only": 0
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": null
+      }
+    },
+    "constant_full_upper_bound": {
+      "42": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.5789114904403685
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.5773553705215453
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 12.110631637573242,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.559334095001221
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 0,
+          "donor_only": 500
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": "constant_full_upper_bound uses donor-only scaffold CE and skips optimizer updates; recipient-only eval is reported for comparability."
+      },
+      "7": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.583488693237305
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.562505301237106
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 12.13548469543457,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.5702987079620363
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 0,
+          "donor_only": 500
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": "constant_full_upper_bound uses donor-only scaffold CE and skips optimizer updates; recipient-only eval is reported for comparability."
+      },
+      "13": {
+        "trajectory": [
+          {
+            "step": 0,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": null,
+            "mean_train_ce": null
+          },
+          {
+            "step": 50,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.5769729614257812
+          },
+          {
+            "step": 250,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.579911776781082
+          },
+          {
+            "step": 500,
+            "recipient_only_nll": 12.149715728759766,
+            "alpha_last_update": 1.0,
+            "mean_train_ce": 3.5576766510009765
+          }
+        ],
+        "mode_counts": {
+          "recipient_only": 0,
+          "scaffold_swap": 0,
+          "donor_only": 500
+        },
+        "n_trainable_params": 596049920,
+        "n_total_params": 596049920,
+        "note": "constant_full_upper_bound uses donor-only scaffold CE and skips optimizer updates; recipient-only eval is reported for comparability."
+      }
+    }
+  },
+  "summary": {
+    "verdict": "FAIL: all 3 decay schedules wash out below +0.2 nats or their 95% CI crosses zero after scaffold removal.",
+    "pass_arms": [],
+    "weak_arms": [],
+    "best_decay_arm": "scaffold_exponential",
+    "best_decay_final_advantage_nats": -0.11944850285847981,
+    "best_decay_step50_advantage_nats": -0.04333223342895565,
+    "best_decay_step250_advantage_nats": -0.29970570246378586,
+    "donor_reference_c4_nll": 3.6052703762054445,
+    "constant_full_excluded_from_pass": true,
+    "per_arm": {
+      "scaffold_step": {
+        "schedule": "step",
+        "counts_for_verdict": true,
+        "description": "Hard donor scaffold for first 50 updates, then recipient alone.",
+        "final_recipient_advantage_nats": {
+          "mean_advantage_nats": -0.3876100858052576,
+          "ci_95_lo": -0.40453424453735387,
+          "ci_95_hi": -0.3767309951782227,
+          "seed_deltas": [
+            -0.38156501770019613,
+            -0.3767309951782227,
+            -0.40453424453735387
+          ],
+          "n_seeds": 3
+        },
+        "advantage_by_step": {
+          "0": {
+            "mean_advantage_nats": 0.0,
+            "ci_95_lo": 0.0,
+            "ci_95_hi": 0.0,
+            "seed_deltas": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "n_seeds": 3
+          },
+          "50": {
+            "mean_advantage_nats": -4.0112574068705245,
+            "ci_95_lo": -4.058886642456056,
+            "ci_95_hi": -3.9314680099487305,
+            "seed_deltas": [
+              -4.058886642456056,
+              -4.043417568206788,
+              -3.9314680099487305
+            ],
+            "n_seeds": 3
+          },
+          "250": {
+            "mean_advantage_nats": -0.5982884788513182,
+            "ci_95_lo": -0.6246992492675778,
+            "ci_95_hi": -0.5611384773254393,
+            "seed_deltas": [
+              -0.6246992492675778,
+              -0.6090277099609374,
+              -0.5611384773254393
+            ],
+            "n_seeds": 3
+          },
+          "500": {
+            "mean_advantage_nats": -0.3876100858052576,
+            "ci_95_lo": -0.40453424453735387,
+            "ci_95_hi": -0.3767309951782227,
+            "seed_deltas": [
+              -0.38156501770019613,
+              -0.3767309951782227,
+              -0.40453424453735387
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "scaffold_linear": {
+        "schedule": "linear",
+        "counts_for_verdict": true,
+        "description": "Linearly annealed donor scaffold to zero by ~250 updates.",
+        "final_recipient_advantage_nats": {
+          "mean_advantage_nats": -0.20687289555867525,
+          "ci_95_lo": -0.2794033050537106,
+          "ci_95_hi": -0.1441763305664061,
+          "seed_deltas": [
+            -0.19703905105590902,
+            -0.2794033050537106,
+            -0.1441763305664061
+          ],
+          "n_seeds": 3
+        },
+        "advantage_by_step": {
+          "0": {
+            "mean_advantage_nats": 0.0,
+            "ci_95_lo": 0.0,
+            "ci_95_hi": 0.0,
+            "seed_deltas": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "n_seeds": 3
+          },
+          "50": {
+            "mean_advantage_nats": -0.33254852930704776,
+            "ci_95_lo": -0.5259528160095215,
+            "ci_95_hi": -0.1594267272949228,
+            "seed_deltas": [
+              -0.31226604461669893,
+              -0.5259528160095215,
+              -0.1594267272949228
+            ],
+            "n_seeds": 3
+          },
+          "250": {
+            "mean_advantage_nats": -0.534332847595215,
+            "ci_95_lo": -0.7538885498046879,
+            "ci_95_hi": -0.38988000869751005,
+            "seed_deltas": [
+              -0.4592299842834473,
+              -0.7538885498046879,
+              -0.38988000869751005
+            ],
+            "n_seeds": 3
+          },
+          "500": {
+            "mean_advantage_nats": -0.20687289555867525,
+            "ci_95_lo": -0.2794033050537106,
+            "ci_95_hi": -0.1441763305664061,
+            "seed_deltas": [
+              -0.19703905105590902,
+              -0.2794033050537106,
+              -0.1441763305664061
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "scaffold_exponential": {
+        "schedule": "exponential",
+        "counts_for_verdict": true,
+        "description": "Exponentially decayed donor scaffold with tau=50 updates.",
+        "final_recipient_advantage_nats": {
+          "mean_advantage_nats": -0.11944850285847981,
+          "ci_95_lo": -0.18249973297119126,
+          "ci_95_hi": -0.08049459457397479,
+          "seed_deltas": [
+            -0.0953511810302734,
+            -0.18249973297119126,
+            -0.08049459457397479
+          ],
+          "n_seeds": 3
+        },
+        "advantage_by_step": {
+          "0": {
+            "mean_advantage_nats": 0.0,
+            "ci_95_lo": 0.0,
+            "ci_95_hi": 0.0,
+            "seed_deltas": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "n_seeds": 3
+          },
+          "50": {
+            "mean_advantage_nats": -0.04333223342895565,
+            "ci_95_lo": -0.05489646911621193,
+            "ci_95_hi": -0.033915710449219816,
+            "seed_deltas": [
+              -0.05489646911621193,
+              -0.04118452072143519,
+              -0.033915710449219816
+            ],
+            "n_seeds": 3
+          },
+          "250": {
+            "mean_advantage_nats": -0.29970570246378586,
+            "ci_95_lo": -0.3695821571350102,
+            "ci_95_hi": -0.22859203338623058,
+            "seed_deltas": [
+              -0.22859203338623058,
+              -0.3695821571350102,
+              -0.30094291687011676
+            ],
+            "n_seeds": 3
+          },
+          "500": {
+            "mean_advantage_nats": -0.11944850285847981,
+            "ci_95_lo": -0.18249973297119126,
+            "ci_95_hi": -0.08049459457397479,
+            "seed_deltas": [
+              -0.0953511810302734,
+              -0.18249973297119126,
+              -0.08049459457397479
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "constant_full_upper_bound": {
+        "schedule": "constant_full",
+        "counts_for_verdict": false,
+        "description": "Frozen donor-only upper bound; recipient never updated.",
+        "final_recipient_advantage_nats": {
+          "mean_advantage_nats": -5.376971658070882,
+          "ci_95_lo": -5.388907947540283,
+          "ci_95_hi": -5.367486591339111,
+          "seed_deltas": [
+            -5.367486591339111,
+            -5.388907947540283,
+            -5.3745204353332525
+          ],
+          "n_seeds": 3
+        },
+        "advantage_by_step": {
+          "0": {
+            "mean_advantage_nats": 0.0,
+            "ci_95_lo": 0.0,
+            "ci_95_hi": 0.0,
+            "seed_deltas": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "n_seeds": 3
+          },
+          "50": {
+            "mean_advantage_nats": -4.080526332855225,
+            "ci_95_lo": -4.109895591735841,
+            "ci_95_hi": -4.051775054931641,
+            "seed_deltas": [
+              -4.051775054931641,
+              -4.079908351898194,
+              -4.109895591735841
+            ],
+            "n_seeds": 3
+          },
+          "250": {
+            "mean_advantage_nats": -5.089836101531983,
+            "ci_95_lo": -5.1067460250854495,
+            "ci_95_hi": -5.066870975494385,
+            "seed_deltas": [
+              -5.066870975494385,
+              -5.1067460250854495,
+              -5.095891304016114
+            ],
+            "n_seeds": 3
+          },
+          "500": {
+            "mean_advantage_nats": -5.376971658070882,
+            "ci_95_lo": -5.388907947540283,
+            "ci_95_hi": -5.367486591339111,
+            "seed_deltas": [
+              -5.367486591339111,
+              -5.388907947540283,
+              -5.3745204353332525
+            ],
+            "n_seeds": 3
+          }
+        }
+      }
+    },
+    "active_ingredient_analysis": "Even live donor scaffolding fails to leave a material recipient-only residue; scratch matches the scaffolded runs."
+  },
+  "verdict": "FAIL: all 3 decay schedules wash out below +0.2 nats or their 95% CI crosses zero after scaffold removal.",
+  "elapsed_s": 2203.3449926376343
+}

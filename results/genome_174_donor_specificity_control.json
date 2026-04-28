@@ -1,0 +1,3788 @@
+{
+  "genome": 174,
+  "name": "donor_specificity_control",
+  "timestamp_utc_started": "2026-04-28T04:56:45.925946+00:00",
+  "model_id": "Qwen/Qwen3-0.6B",
+  "teacher_model_id": "Qwen/Qwen3-0.6B",
+  "device": "cuda",
+  "forward_dtype": "torch.bfloat16",
+  "config": {
+    "seeds": [
+      42,
+      7,
+      13
+    ],
+    "part_a": {
+      "protocol_source": "genome_165_annealed_donor.py",
+      "steps": 500,
+      "batch_size": 8,
+      "seq_len": 256,
+      "lr": 0.0003,
+      "lambda_0": 0.01,
+      "schedule": "constant",
+      "reference_trained_gain_nats": 1.088,
+      "pass_margin_nats": 0.3
+    },
+    "part_b": {
+      "protocol_source": "genome_167_kd_canonical.py",
+      "student_family": "minimal_3L_noMLP_llama_qwen_vocab",
+      "steps": 6000,
+      "train_batch_size": 8,
+      "eval_batch_size": 8,
+      "seq_len": 256,
+      "lr": 0.0003,
+      "lr_warmup_steps": 200,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "n_train_windows": 8192,
+      "n_c4_val_windows": 1000,
+      "n_wikitext_val_windows": 1000,
+      "kd_top_k": 64,
+      "kd_temp": 2.0,
+      "kd_gamma": 0.5,
+      "reference_trained_gain_pp": 1.014,
+      "pass_margin_pp": 0.3
+    },
+    "null_80_fraction": 0.8,
+    "random_donor_seed": 174165001,
+    "permuted_donor_seed": 174165002,
+    "random_teacher_seed": 174167001,
+    "uniform_target_seed": 174167002
+  },
+  "part_a": {
+    "arms": [
+      {
+        "label": "scratch_baseline",
+        "target_kind": "none",
+        "lambda_0": 0.0,
+        "schedule": "constant",
+        "description": "No anchor; g165 scratch baseline."
+      },
+      {
+        "label": "anchor_trained_donor",
+        "target_kind": "trained",
+        "lambda_0": 0.01,
+        "schedule": "constant",
+        "description": "Constant Frobenius anchor to trained Qwen3-0.6B weights."
+      },
+      {
+        "label": "anchor_random_donor",
+        "target_kind": "random",
+        "lambda_0": 0.01,
+        "schedule": "constant",
+        "description": "Constant Frobenius anchor to random-init Qwen3-0.6B weights."
+      },
+      {
+        "label": "anchor_permuted_donor",
+        "target_kind": "permuted",
+        "lambda_0": 0.01,
+        "schedule": "constant",
+        "description": "Constant Frobenius anchor to layerwise hidden-dim-permuted trained Qwen3-0.6B weights."
+      }
+    ],
+    "results": {
+      "scratch_baseline": {
+        "42": {
+          "seed": 42,
+          "arm_label": "scratch_baseline",
+          "target_kind": "none",
+          "lambda_0": 0.0,
+          "schedule": "constant",
+          "description": "No anchor; g165 scratch baseline.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.12179288932987
+            },
+            {
+              "step": 25,
+              "nll": 6.5365970991597795
+            },
+            {
+              "step": 50,
+              "nll": 6.309084011984031
+            },
+            {
+              "step": 75,
+              "nll": 6.189901679728018
+            },
+            {
+              "step": 100,
+              "nll": 6.108025138742131
+            },
+            {
+              "step": 125,
+              "nll": 5.9486189153039515
+            },
+            {
+              "step": 150,
+              "nll": 5.848748651518958
+            },
+            {
+              "step": 175,
+              "nll": 5.759722322661139
+            },
+            {
+              "step": 200,
+              "nll": 5.723933967365977
+            },
+            {
+              "step": 225,
+              "nll": 5.668191235299303
+            },
+            {
+              "step": 250,
+              "nll": 5.791046396404279
+            },
+            {
+              "step": 275,
+              "nll": 5.727496330283397
+            },
+            {
+              "step": 300,
+              "nll": 5.683131183530898
+            },
+            {
+              "step": 325,
+              "nll": 5.6523866519938055
+            },
+            {
+              "step": 350,
+              "nll": 5.6183444800816025
+            },
+            {
+              "step": 375,
+              "nll": 5.5502872978387785
+            },
+            {
+              "step": 400,
+              "nll": 5.503689467434649
+            },
+            {
+              "step": 425,
+              "nll": 5.487126709856939
+            },
+            {
+              "step": 450,
+              "nll": 5.4552016568910195
+            },
+            {
+              "step": 475,
+              "nll": 5.581498680830128
+            },
+            {
+              "step": 500,
+              "nll": 5.5367563321233995
+            }
+          ],
+          "final_nll": 5.5367563321233995,
+          "initial_nll": 12.12179288932987
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "scratch_baseline",
+          "target_kind": "none",
+          "lambda_0": 0.0,
+          "schedule": "constant",
+          "description": "No anchor; g165 scratch baseline.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.041368999370368
+            },
+            {
+              "step": 25,
+              "nll": 7.386763473782117
+            },
+            {
+              "step": 50,
+              "nll": 6.324149653533328
+            },
+            {
+              "step": 75,
+              "nll": 6.251980657790786
+            },
+            {
+              "step": 100,
+              "nll": 6.148359506099571
+            },
+            {
+              "step": 125,
+              "nll": 6.028023678476824
+            },
+            {
+              "step": 150,
+              "nll": 5.885265197441557
+            },
+            {
+              "step": 175,
+              "nll": 5.805075909432695
+            },
+            {
+              "step": 200,
+              "nll": 5.726150664839868
+            },
+            {
+              "step": 225,
+              "nll": 5.694721150973415
+            },
+            {
+              "step": 250,
+              "nll": 5.718115563920779
+            },
+            {
+              "step": 275,
+              "nll": 5.765390174198704
+            },
+            {
+              "step": 300,
+              "nll": 5.67153182636791
+            },
+            {
+              "step": 325,
+              "nll": 5.616275050896619
+            },
+            {
+              "step": 350,
+              "nll": 5.637469348279413
+            },
+            {
+              "step": 375,
+              "nll": 5.549390520800124
+            },
+            {
+              "step": 400,
+              "nll": 5.527524468680045
+            },
+            {
+              "step": 425,
+              "nll": 5.492264321833183
+            },
+            {
+              "step": 450,
+              "nll": 5.462553835309796
+            },
+            {
+              "step": 475,
+              "nll": 5.5114472005165345
+            },
+            {
+              "step": 500,
+              "nll": 5.5450002815883375
+            }
+          ],
+          "final_nll": 5.5450002815883375,
+          "initial_nll": 12.041368999370368
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "scratch_baseline",
+          "target_kind": "none",
+          "lambda_0": 0.0,
+          "schedule": "constant",
+          "description": "No anchor; g165 scratch baseline.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.093245865824693
+            },
+            {
+              "step": 25,
+              "nll": 6.4075046772057584
+            },
+            {
+              "step": 50,
+              "nll": 6.2909799244311895
+            },
+            {
+              "step": 75,
+              "nll": 6.249152012328107
+            },
+            {
+              "step": 100,
+              "nll": 6.071085789817008
+            },
+            {
+              "step": 125,
+              "nll": 5.924262925759443
+            },
+            {
+              "step": 150,
+              "nll": 5.840897397227555
+            },
+            {
+              "step": 175,
+              "nll": 5.763745990221843
+            },
+            {
+              "step": 200,
+              "nll": 5.694081033151488
+            },
+            {
+              "step": 225,
+              "nll": 5.632800161009377
+            },
+            {
+              "step": 250,
+              "nll": 5.784960064045832
+            },
+            {
+              "step": 275,
+              "nll": 5.692337852692306
+            },
+            {
+              "step": 300,
+              "nll": 5.631172688163949
+            },
+            {
+              "step": 325,
+              "nll": 5.628471268967731
+            },
+            {
+              "step": 350,
+              "nll": 5.568268428996618
+            },
+            {
+              "step": 375,
+              "nll": 5.541551605079518
+            },
+            {
+              "step": 400,
+              "nll": 5.501638940027596
+            },
+            {
+              "step": 425,
+              "nll": 5.4810830829302635
+            },
+            {
+              "step": 450,
+              "nll": 5.4613683294674775
+            },
+            {
+              "step": 475,
+              "nll": 5.592075844721216
+            },
+            {
+              "step": 500,
+              "nll": 5.4473549233584535
+            }
+          ],
+          "final_nll": 5.4473549233584535,
+          "initial_nll": 12.093245865824693
+        }
+      },
+      "anchor_trained_donor": {
+        "42": {
+          "seed": 42,
+          "arm_label": "anchor_trained_donor",
+          "target_kind": "trained",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.12179288932987
+            },
+            {
+              "step": 25,
+              "nll": 8.312693461878112
+            },
+            {
+              "step": 50,
+              "nll": 6.525391517631771
+            },
+            {
+              "step": 75,
+              "nll": 6.3055565043599024
+            },
+            {
+              "step": 100,
+              "nll": 6.229791856185717
+            },
+            {
+              "step": 125,
+              "nll": 6.167964043258718
+            },
+            {
+              "step": 150,
+              "nll": 5.906985139317823
+            },
+            {
+              "step": 175,
+              "nll": 5.753672021357689
+            },
+            {
+              "step": 200,
+              "nll": 5.614360967516206
+            },
+            {
+              "step": 225,
+              "nll": 5.445723122453832
+            },
+            {
+              "step": 250,
+              "nll": 5.336224889646094
+            },
+            {
+              "step": 275,
+              "nll": 5.202457500104439
+            },
+            {
+              "step": 300,
+              "nll": 5.011137090364924
+            },
+            {
+              "step": 325,
+              "nll": 4.88614214354574
+            },
+            {
+              "step": 350,
+              "nll": 4.734712783499783
+            },
+            {
+              "step": 375,
+              "nll": 4.653113049213096
+            },
+            {
+              "step": 400,
+              "nll": 4.666641951237037
+            },
+            {
+              "step": 425,
+              "nll": 4.541768716619686
+            },
+            {
+              "step": 450,
+              "nll": 4.478016703538984
+            },
+            {
+              "step": 475,
+              "nll": 4.445345538458914
+            },
+            {
+              "step": 500,
+              "nll": 4.434593978787124
+            }
+          ],
+          "final_nll": 4.434593978787124,
+          "initial_nll": 12.12179288932987
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "anchor_trained_donor",
+          "target_kind": "trained",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.041368999370368
+            },
+            {
+              "step": 25,
+              "nll": 8.079820344095017
+            },
+            {
+              "step": 50,
+              "nll": 6.603675543453769
+            },
+            {
+              "step": 75,
+              "nll": 6.324456301724581
+            },
+            {
+              "step": 100,
+              "nll": 6.23837786313618
+            },
+            {
+              "step": 125,
+              "nll": 6.16662976355132
+            },
+            {
+              "step": 150,
+              "nll": 5.9201923615707015
+            },
+            {
+              "step": 175,
+              "nll": 5.751476202785265
+            },
+            {
+              "step": 200,
+              "nll": 5.5690573408352195
+            },
+            {
+              "step": 225,
+              "nll": 5.481846969592401
+            },
+            {
+              "step": 250,
+              "nll": 5.324136786654836
+            },
+            {
+              "step": 275,
+              "nll": 5.16393105550055
+            },
+            {
+              "step": 300,
+              "nll": 5.113814064347633
+            },
+            {
+              "step": 325,
+              "nll": 4.86646799781747
+            },
+            {
+              "step": 350,
+              "nll": 4.800959121175458
+            },
+            {
+              "step": 375,
+              "nll": 4.638888548242939
+            },
+            {
+              "step": 400,
+              "nll": 4.597984909444528
+            },
+            {
+              "step": 425,
+              "nll": 4.47485289445203
+            },
+            {
+              "step": 450,
+              "nll": 4.449527604119377
+            },
+            {
+              "step": 475,
+              "nll": 4.399301946908367
+            },
+            {
+              "step": 500,
+              "nll": 4.392887913481747
+            }
+          ],
+          "final_nll": 4.392887913481747,
+          "initial_nll": 12.041368999370368
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "anchor_trained_donor",
+          "target_kind": "trained",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.093245865824693
+            },
+            {
+              "step": 25,
+              "nll": 7.681518861999351
+            },
+            {
+              "step": 50,
+              "nll": 6.4490543960958195
+            },
+            {
+              "step": 75,
+              "nll": 6.277593148176593
+            },
+            {
+              "step": 100,
+              "nll": 6.230996326527811
+            },
+            {
+              "step": 125,
+              "nll": 6.160584378733688
+            },
+            {
+              "step": 150,
+              "nll": 5.911162076816737
+            },
+            {
+              "step": 175,
+              "nll": 5.718172489494731
+            },
+            {
+              "step": 200,
+              "nll": 5.533364091336801
+            },
+            {
+              "step": 225,
+              "nll": 5.416132797718804
+            },
+            {
+              "step": 250,
+              "nll": 5.346956987829355
+            },
+            {
+              "step": 275,
+              "nll": 5.164538240659445
+            },
+            {
+              "step": 300,
+              "nll": 4.9916993080047805
+            },
+            {
+              "step": 325,
+              "nll": 4.9301861972745025
+            },
+            {
+              "step": 350,
+              "nll": 4.802210221640722
+            },
+            {
+              "step": 375,
+              "nll": 4.662529870140907
+            },
+            {
+              "step": 400,
+              "nll": 4.73032522554191
+            },
+            {
+              "step": 425,
+              "nll": 4.539885064837252
+            },
+            {
+              "step": 450,
+              "nll": 4.431379769045317
+            },
+            {
+              "step": 475,
+              "nll": 4.435458594297183
+            },
+            {
+              "step": 500,
+              "nll": 4.441633267981167
+            }
+          ],
+          "final_nll": 4.441633267981167,
+          "initial_nll": 12.093245865824693
+        }
+      },
+      "anchor_random_donor": {
+        "42": {
+          "seed": 42,
+          "arm_label": "anchor_random_donor",
+          "target_kind": "random",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to random-init Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.12179288932987
+            },
+            {
+              "step": 25,
+              "nll": 8.19518689929568
+            },
+            {
+              "step": 50,
+              "nll": 6.818357698303185
+            },
+            {
+              "step": 75,
+              "nll": 6.613629719639647
+            },
+            {
+              "step": 100,
+              "nll": 6.5478815065972675
+            },
+            {
+              "step": 125,
+              "nll": 6.500808031337742
+            },
+            {
+              "step": 150,
+              "nll": 6.49052163794293
+            },
+            {
+              "step": 175,
+              "nll": 6.419842591817204
+            },
+            {
+              "step": 200,
+              "nll": 6.386554780151668
+            },
+            {
+              "step": 225,
+              "nll": 6.331662040504903
+            },
+            {
+              "step": 250,
+              "nll": 6.310388836606243
+            },
+            {
+              "step": 275,
+              "nll": 6.272673870942441
+            },
+            {
+              "step": 300,
+              "nll": 6.24375904653878
+            },
+            {
+              "step": 325,
+              "nll": 6.223551366463117
+            },
+            {
+              "step": 350,
+              "nll": 6.206244846783299
+            },
+            {
+              "step": 375,
+              "nll": 6.21001082521275
+            },
+            {
+              "step": 400,
+              "nll": 6.234665944723622
+            },
+            {
+              "step": 425,
+              "nll": 6.202995057550193
+            },
+            {
+              "step": 450,
+              "nll": 6.21835270917086
+            },
+            {
+              "step": 475,
+              "nll": 6.198595044730015
+            },
+            {
+              "step": 500,
+              "nll": 6.190610151430276
+            }
+          ],
+          "final_nll": 6.190610151430276,
+          "initial_nll": 12.12179288932987
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "anchor_random_donor",
+          "target_kind": "random",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to random-init Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.041368999370368
+            },
+            {
+              "step": 25,
+              "nll": 8.128020269934991
+            },
+            {
+              "step": 50,
+              "nll": 6.74502588489732
+            },
+            {
+              "step": 75,
+              "nll": 6.606323344288923
+            },
+            {
+              "step": 100,
+              "nll": 6.536759453353842
+            },
+            {
+              "step": 125,
+              "nll": 6.5378515716589005
+            },
+            {
+              "step": 150,
+              "nll": 6.505685217931754
+            },
+            {
+              "step": 175,
+              "nll": 6.429817409367603
+            },
+            {
+              "step": 200,
+              "nll": 6.390812419002001
+            },
+            {
+              "step": 225,
+              "nll": 6.36403143433203
+            },
+            {
+              "step": 250,
+              "nll": 6.290280609530533
+            },
+            {
+              "step": 275,
+              "nll": 6.3201999596295
+            },
+            {
+              "step": 300,
+              "nll": 6.23974637226186
+            },
+            {
+              "step": 325,
+              "nll": 6.237088076391151
+            },
+            {
+              "step": 350,
+              "nll": 6.236648003722102
+            },
+            {
+              "step": 375,
+              "nll": 6.218451558546525
+            },
+            {
+              "step": 400,
+              "nll": 6.220498512823578
+            },
+            {
+              "step": 425,
+              "nll": 6.222728966701029
+            },
+            {
+              "step": 450,
+              "nll": 6.203081125691651
+            },
+            {
+              "step": 475,
+              "nll": 6.179819515881183
+            },
+            {
+              "step": 500,
+              "nll": 6.210633666483024
+            }
+          ],
+          "final_nll": 6.210633666483024,
+          "initial_nll": 12.041368999370368
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "anchor_random_donor",
+          "target_kind": "random",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to random-init Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.093245865824693
+            },
+            {
+              "step": 25,
+              "nll": 7.615629066944878
+            },
+            {
+              "step": 50,
+              "nll": 6.722694130971579
+            },
+            {
+              "step": 75,
+              "nll": 6.559474015995784
+            },
+            {
+              "step": 100,
+              "nll": 6.534373618238597
+            },
+            {
+              "step": 125,
+              "nll": 6.482075430343931
+            },
+            {
+              "step": 150,
+              "nll": 6.439198825871111
+            },
+            {
+              "step": 175,
+              "nll": 6.407357945285185
+            },
+            {
+              "step": 200,
+              "nll": 6.416089815538436
+            },
+            {
+              "step": 225,
+              "nll": 6.334497083343866
+            },
+            {
+              "step": 250,
+              "nll": 6.293768503565586
+            },
+            {
+              "step": 275,
+              "nll": 6.253222802298698
+            },
+            {
+              "step": 300,
+              "nll": 6.245570553001919
+            },
+            {
+              "step": 325,
+              "nll": 6.212287562018151
+            },
+            {
+              "step": 350,
+              "nll": 6.218596343738887
+            },
+            {
+              "step": 375,
+              "nll": 6.219014395498688
+            },
+            {
+              "step": 400,
+              "nll": 6.226325013012423
+            },
+            {
+              "step": 425,
+              "nll": 6.232841013434656
+            },
+            {
+              "step": 450,
+              "nll": 6.198119026062501
+            },
+            {
+              "step": 475,
+              "nll": 6.206354947131292
+            },
+            {
+              "step": 500,
+              "nll": 6.189751925403792
+            }
+          ],
+          "final_nll": 6.189751925403792,
+          "initial_nll": 12.093245865824693
+        }
+      },
+      "anchor_permuted_donor": {
+        "42": {
+          "seed": 42,
+          "arm_label": "anchor_permuted_donor",
+          "target_kind": "permuted",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to layerwise hidden-dim-permuted trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.12179288932987
+            },
+            {
+              "step": 25,
+              "nll": 8.309406412174678
+            },
+            {
+              "step": 50,
+              "nll": 6.52552756223697
+            },
+            {
+              "step": 75,
+              "nll": 6.317437267572155
+            },
+            {
+              "step": 100,
+              "nll": 6.227683119380069
+            },
+            {
+              "step": 125,
+              "nll": 6.1662448171705275
+            },
+            {
+              "step": 150,
+              "nll": 5.902203723859107
+            },
+            {
+              "step": 175,
+              "nll": 5.777481951497772
+            },
+            {
+              "step": 200,
+              "nll": 5.641647197554115
+            },
+            {
+              "step": 225,
+              "nll": 5.546613835138132
+            },
+            {
+              "step": 250,
+              "nll": 5.54538715160697
+            },
+            {
+              "step": 275,
+              "nll": 5.472123274523558
+            },
+            {
+              "step": 300,
+              "nll": 5.452860250924754
+            },
+            {
+              "step": 325,
+              "nll": 5.445698931217613
+            },
+            {
+              "step": 350,
+              "nll": 5.417151642299114
+            },
+            {
+              "step": 375,
+              "nll": 5.376284306518292
+            },
+            {
+              "step": 400,
+              "nll": 5.439086911879411
+            },
+            {
+              "step": 425,
+              "nll": 5.388791794381442
+            },
+            {
+              "step": 450,
+              "nll": 5.394119207950141
+            },
+            {
+              "step": 475,
+              "nll": 5.397532562656204
+            },
+            {
+              "step": 500,
+              "nll": 5.358156078192188
+            }
+          ],
+          "final_nll": 5.358156078192188,
+          "initial_nll": 12.12179288932987
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "anchor_permuted_donor",
+          "target_kind": "permuted",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to layerwise hidden-dim-permuted trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.041368999370368
+            },
+            {
+              "step": 25,
+              "nll": 8.05653973317604
+            },
+            {
+              "step": 50,
+              "nll": 6.473189790896661
+            },
+            {
+              "step": 75,
+              "nll": 6.304642277046038
+            },
+            {
+              "step": 100,
+              "nll": 6.23454264717888
+            },
+            {
+              "step": 125,
+              "nll": 6.136224805059767
+            },
+            {
+              "step": 150,
+              "nll": 5.936568342058733
+            },
+            {
+              "step": 175,
+              "nll": 5.79181001353881
+            },
+            {
+              "step": 200,
+              "nll": 5.6657043383309995
+            },
+            {
+              "step": 225,
+              "nll": 5.603853703636711
+            },
+            {
+              "step": 250,
+              "nll": 5.522638847383317
+            },
+            {
+              "step": 275,
+              "nll": 5.492751828926007
+            },
+            {
+              "step": 300,
+              "nll": 5.492290519580683
+            },
+            {
+              "step": 325,
+              "nll": 5.451597949950119
+            },
+            {
+              "step": 350,
+              "nll": 5.439296785553779
+            },
+            {
+              "step": 375,
+              "nll": 5.40153532604198
+            },
+            {
+              "step": 400,
+              "nll": 5.461764648905689
+            },
+            {
+              "step": 425,
+              "nll": 5.390803835597293
+            },
+            {
+              "step": 450,
+              "nll": 5.377472478836686
+            },
+            {
+              "step": 475,
+              "nll": 5.374314297754846
+            },
+            {
+              "step": 500,
+              "nll": 5.422129197363326
+            }
+          ],
+          "final_nll": 5.422129197363326,
+          "initial_nll": 12.041368999370368
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "anchor_permuted_donor",
+          "target_kind": "permuted",
+          "lambda_0": 0.01,
+          "schedule": "constant",
+          "description": "Constant Frobenius anchor to layerwise hidden-dim-permuted trained Qwen3-0.6B weights.",
+          "trajectory": [
+            {
+              "step": 0,
+              "nll": 12.093245865824693
+            },
+            {
+              "step": 25,
+              "nll": 7.627106068062518
+            },
+            {
+              "step": 50,
+              "nll": 6.439152253179992
+            },
+            {
+              "step": 75,
+              "nll": 6.277606973179546
+            },
+            {
+              "step": 100,
+              "nll": 6.232083962697927
+            },
+            {
+              "step": 125,
+              "nll": 6.0507687487050585
+            },
+            {
+              "step": 150,
+              "nll": 5.895309961939975
+            },
+            {
+              "step": 175,
+              "nll": 5.727087490826053
+            },
+            {
+              "step": 200,
+              "nll": 5.611428071714073
+            },
+            {
+              "step": 225,
+              "nll": 5.553578879384428
+            },
+            {
+              "step": 250,
+              "nll": 5.508024227789201
+            },
+            {
+              "step": 275,
+              "nll": 5.50066480235244
+            },
+            {
+              "step": 300,
+              "nll": 5.44337890399638
+            },
+            {
+              "step": 325,
+              "nll": 5.437267747473645
+            },
+            {
+              "step": 350,
+              "nll": 5.425321859758407
+            },
+            {
+              "step": 375,
+              "nll": 5.3911222979980025
+            },
+            {
+              "step": 400,
+              "nll": 5.515889163167571
+            },
+            {
+              "step": 425,
+              "nll": 5.394651125467753
+            },
+            {
+              "step": 450,
+              "nll": 5.375924564495245
+            },
+            {
+              "step": 475,
+              "nll": 5.3751968248437505
+            },
+            {
+              "step": 500,
+              "nll": 5.366101089046967
+            }
+          ],
+          "final_nll": 5.366101089046967,
+          "initial_nll": 12.093245865824693
+        }
+      }
+    },
+    "target_npz": {
+      "anchor_random_donor": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\results\\genome_174_targets\\genome_174_anchor_random_donor_seed174165001.npz",
+        "exists": true,
+        "skipped_existing": false,
+        "size_bytes": 2384356062,
+        "sha1": "ef8a296cfaab5d8f8292a6dcab32e8c2b812d31f",
+        "metadata": {
+          "target_kind": "random",
+          "source_model_arch": "Qwen/Qwen3-0.6B",
+          "random_seed": 174165001,
+          "construction": "AutoModelForCausalLM.from_config random init via genome_165.load_random_init",
+          "format": "npz_state_arrays_v1",
+          "array_key_pattern": "arr_%05d",
+          "n_tensors": 310,
+          "n_params": 596049920,
+          "state_sha1": "ef8a296cfaab5d8f8292a6dcab32e8c2b812d31f",
+          "saved_utc": "2026-04-28T05:15:07.838453+00:00"
+        }
+      },
+      "anchor_permuted_donor": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\results\\genome_174_targets\\genome_174_anchor_permuted_donor_seed174165002.npz",
+        "exists": true,
+        "skipped_existing": false,
+        "size_bytes": 2384407062,
+        "sha1": "6d3dc188e7005c0b758ae8bda516d2fdaf5b13c6",
+        "metadata": {
+          "target_kind": "permuted",
+          "source_model": "Qwen/Qwen3-0.6B",
+          "source": "trained donor snapshot",
+          "seed": 174165002,
+          "hidden_size": 1024,
+          "permutation_keys": [
+            "global",
+            "layer_0",
+            "layer_1",
+            "layer_10",
+            "layer_11",
+            "layer_12",
+            "layer_13",
+            "layer_14",
+            "layer_15",
+            "layer_16",
+            "layer_17",
+            "layer_18",
+            "layer_19",
+            "layer_2",
+            "layer_20",
+            "layer_21",
+            "layer_22",
+            "layer_23",
+            "layer_24",
+            "layer_25",
+            "layer_26",
+            "layer_27",
+            "layer_3",
+            "layer_4",
+            "layer_5",
+            "layer_6",
+            "layer_7",
+            "layer_8",
+            "layer_9"
+          ],
+          "n_permutation_keys": 29,
+          "n_tensors_with_hidden_axis_permuted": 254,
+          "permutation_policy": "independent random permutation for each model.layers.N group; one global permutation for embeddings, lm_head, and non-layer tensors; applied to every parameter axis whose length equals hidden_size",
+          "applied_axes_by_param": {
+            "model.embed_tokens.weight": [
+              1
+            ],
+            "model.layers.0.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.0.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.0.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.0.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.0.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.0.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.0.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.0.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.0.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.1.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.1.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.1.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.1.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.1.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.1.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.1.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.1.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.1.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.2.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.2.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.2.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.2.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.2.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.2.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.2.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.2.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.2.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.3.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.3.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.3.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.3.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.3.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.3.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.3.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.3.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.3.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.4.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.4.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.4.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.4.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.4.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.4.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.4.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.4.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.4.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.5.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.5.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.5.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.5.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.5.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.5.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.5.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.5.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.5.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.6.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.6.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.6.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.6.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.6.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.6.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.6.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.6.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.6.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.7.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.7.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.7.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.7.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.7.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.7.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.7.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.7.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.7.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.8.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.8.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.8.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.8.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.8.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.8.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.8.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.8.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.8.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.9.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.9.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.9.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.9.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.9.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.9.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.9.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.9.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.9.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.10.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.10.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.10.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.10.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.10.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.10.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.10.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.10.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.10.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.11.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.11.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.11.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.11.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.11.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.11.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.11.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.11.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.11.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.12.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.12.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.12.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.12.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.12.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.12.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.12.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.12.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.12.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.13.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.13.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.13.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.13.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.13.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.13.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.13.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.13.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.13.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.14.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.14.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.14.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.14.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.14.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.14.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.14.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.14.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.14.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.15.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.15.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.15.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.15.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.15.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.15.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.15.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.15.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.15.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.16.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.16.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.16.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.16.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.16.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.16.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.16.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.16.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.16.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.17.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.17.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.17.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.17.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.17.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.17.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.17.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.17.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.17.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.18.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.18.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.18.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.18.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.18.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.18.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.18.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.18.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.18.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.19.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.19.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.19.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.19.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.19.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.19.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.19.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.19.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.19.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.20.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.20.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.20.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.20.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.20.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.20.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.20.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.20.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.20.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.21.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.21.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.21.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.21.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.21.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.21.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.21.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.21.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.21.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.22.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.22.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.22.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.22.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.22.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.22.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.22.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.22.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.22.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.23.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.23.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.23.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.23.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.23.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.23.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.23.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.23.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.23.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.24.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.24.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.24.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.24.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.24.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.24.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.24.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.24.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.24.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.25.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.25.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.25.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.25.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.25.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.25.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.25.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.25.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.25.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.26.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.26.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.26.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.26.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.26.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.26.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.26.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.26.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.26.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.layers.27.self_attn.q_proj.weight": [
+              1
+            ],
+            "model.layers.27.self_attn.k_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.27.self_attn.v_proj.weight": [
+              0,
+              1
+            ],
+            "model.layers.27.self_attn.o_proj.weight": [
+              0
+            ],
+            "model.layers.27.mlp.gate_proj.weight": [
+              1
+            ],
+            "model.layers.27.mlp.up_proj.weight": [
+              1
+            ],
+            "model.layers.27.mlp.down_proj.weight": [
+              0
+            ],
+            "model.layers.27.input_layernorm.weight": [
+              0
+            ],
+            "model.layers.27.post_attention_layernorm.weight": [
+              0
+            ],
+            "model.norm.weight": [
+              0
+            ]
+          },
+          "format": "npz_state_arrays_v1",
+          "array_key_pattern": "arr_%05d",
+          "n_tensors": 310,
+          "n_params": 596049920,
+          "state_sha1": "6d3dc188e7005c0b758ae8bda516d2fdaf5b13c6",
+          "saved_utc": "2026-04-28T05:24:55.589036+00:00"
+        }
+      }
+    },
+    "anchor_diagnostics": {
+      "anchor_trained_donor": {
+        "target_label": "anchor_trained_donor",
+        "lambda_0": 0.01,
+        "n_recipient_params": 596049920,
+        "by_seed": {
+          "42": {
+            "frobenius_sq_init_to_target": 2025253.0,
+            "frobenius_init_to_target": 1423.113839438012,
+            "anchor_grad_l2_at_lambda_0": 28.462276788760242,
+            "mean_sq_gap_per_recipient_param": 0.0033977909098620463
+          },
+          "7": {
+            "frobenius_sq_init_to_target": 2025322.75,
+            "frobenius_init_to_target": 1423.138345348055,
+            "anchor_grad_l2_at_lambda_0": 28.4627669069611,
+            "mean_sq_gap_per_recipient_param": 0.0033979079302619486
+          },
+          "13": {
+            "frobenius_sq_init_to_target": 2025275.875,
+            "frobenius_init_to_target": 1423.1218763689917,
+            "anchor_grad_l2_at_lambda_0": 28.462437527379834,
+            "mean_sq_gap_per_recipient_param": 0.0033978292875200787
+          }
+        },
+        "mean_frobenius_sq": 2025283.875,
+        "std_frobenius_sq": 29.031771389290043
+      },
+      "anchor_random_donor": {
+        "target_label": "anchor_random_donor",
+        "lambda_0": 0.01,
+        "n_recipient_params": 596049920,
+        "by_seed": {
+          "42": {
+            "frobenius_sq_init_to_target": 470710.03125,
+            "frobenius_init_to_target": 686.0831081217493,
+            "anchor_grad_l2_at_lambda_0": 13.721662162434987,
+            "mean_sq_gap_per_recipient_param": 0.0007897157863052813
+          },
+          "7": {
+            "frobenius_sq_init_to_target": 470743.03125,
+            "frobenius_init_to_target": 686.1071572648109,
+            "anchor_grad_l2_at_lambda_0": 13.722143145296219,
+            "mean_sq_gap_per_recipient_param": 0.0007897711507955576
+          },
+          "13": {
+            "frobenius_sq_init_to_target": 470735.5625,
+            "frobenius_init_to_target": 686.1017143980913,
+            "anchor_grad_l2_at_lambda_0": 13.722034287961826,
+            "mean_sq_gap_per_recipient_param": 0.000789758620385353
+          }
+        },
+        "mean_frobenius_sq": 470729.5416666667,
+        "std_frobenius_sq": 14.12887883074552
+      },
+      "anchor_permuted_donor": {
+        "target_label": "anchor_permuted_donor",
+        "lambda_0": 0.01,
+        "n_recipient_params": 596049920,
+        "by_seed": {
+          "42": {
+            "frobenius_sq_init_to_target": 2025288.0,
+            "frobenius_init_to_target": 1423.1261363631827,
+            "anchor_grad_l2_at_lambda_0": 28.462522727263654,
+            "mean_sq_gap_per_recipient_param": 0.003397849629775976
+          },
+          "7": {
+            "frobenius_sq_init_to_target": 2025270.5,
+            "frobenius_init_to_target": 1423.1199879138794,
+            "anchor_grad_l2_at_lambda_0": 28.462399758277588,
+            "mean_sq_gap_per_recipient_param": 0.003397820269819011
+          },
+          "13": {
+            "frobenius_sq_init_to_target": 2025250.875,
+            "frobenius_init_to_target": 1423.1130928355624,
+            "anchor_grad_l2_at_lambda_0": 28.462261856711248,
+            "mean_sq_gap_per_recipient_param": 0.003397787344724415
+          }
+        },
+        "mean_frobenius_sq": 2025269.7916666667,
+        "std_frobenius_sq": 15.164491602277854
+      }
+    },
+    "trained_anchor_param_count": 596049920,
+    "trained_anchor_norm_sq": 2075996.7826461792,
+    "data": {
+      "train_seed": 165,
+      "val_seed": 1650,
+      "n_train_texts": 1778,
+      "n_val_texts": 29,
+      "train_shape": [
+        1778,
+        256
+      ],
+      "val_shape": [
+        29,
+        256
+      ],
+      "seq_len": 256
+    }
+  },
+  "part_b": {
+    "arms": [
+      {
+        "label": "scratch_ce",
+        "target_kind": "none",
+        "description": "No KD; g167 scratch CE baseline."
+      },
+      {
+        "label": "kd_trained_teacher",
+        "target_kind": "trained",
+        "description": "CE plus top-k=64 KD with trained Qwen3-0.6B teacher."
+      },
+      {
+        "label": "kd_uniform_target",
+        "target_kind": "uniform",
+        "description": "CE plus top-k=64 KD with uniform target probabilities on teacher-free random supports."
+      },
+      {
+        "label": "kd_random_teacher",
+        "target_kind": "random",
+        "description": "CE plus top-k=64 KD with random-init Qwen3-0.6B teacher logits."
+      }
+    ],
+    "results": {
+      "scratch_ce": {
+        "42": {
+          "seed": 42,
+          "arm_label": "scratch_ce",
+          "target_kind": "none",
+          "description": "No KD; g167 scratch CE baseline.",
+          "use_kd": false,
+          "kd_step_count": 0,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.27887487411499,
+              "kd_loss": null,
+              "total_loss": 6.27887487411499,
+              "elapsed_s": 54.75402474403381
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.410026550292969,
+              "kd_loss": null,
+              "total_loss": 6.410026550292969,
+              "elapsed_s": 109.19869422912598
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.836650371551514,
+              "kd_loss": null,
+              "total_loss": 5.836650371551514,
+              "elapsed_s": 163.61085557937622
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.978797912597656,
+              "kd_loss": null,
+              "total_loss": 5.978797912597656,
+              "elapsed_s": 217.95613479614258
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.414289474487305,
+              "kd_loss": null,
+              "total_loss": 5.414289474487305,
+              "elapsed_s": 272.29809641838074
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.699174880981445,
+              "kd_loss": null,
+              "total_loss": 5.699174880981445,
+              "elapsed_s": 326.6325445175171
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.1441129404105395,
+              "top1_acc": 0.15709803921568627,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.024942807904412,
+              "top1_acc": 0.12850196078431372,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 331.9963912963867
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "scratch_ce",
+          "target_kind": "none",
+          "description": "No KD; g167 scratch CE baseline.",
+          "use_kd": false,
+          "kd_step_count": 0,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.6133012771606445,
+              "kd_loss": null,
+              "total_loss": 6.6133012771606445,
+              "elapsed_s": 54.76473641395569
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.062310218811035,
+              "kd_loss": null,
+              "total_loss": 6.062310218811035,
+              "elapsed_s": 109.13865041732788
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.3209099769592285,
+              "kd_loss": null,
+              "total_loss": 6.3209099769592285,
+              "elapsed_s": 163.93861031532288
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.932819843292236,
+              "kd_loss": null,
+              "total_loss": 5.932819843292236,
+              "elapsed_s": 219.06778764724731
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.6673102378845215,
+              "kd_loss": null,
+              "total_loss": 5.6673102378845215,
+              "elapsed_s": 274.62000799179077
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.840555667877197,
+              "kd_loss": null,
+              "total_loss": 5.840555667877197,
+              "elapsed_s": 330.01164507865906
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.141878971354167,
+              "top1_acc": 0.15614117647058823,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.079958153339461,
+              "top1_acc": 0.12136078431372549,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 335.50464367866516
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "scratch_ce",
+          "target_kind": "none",
+          "description": "No KD; g167 scratch CE baseline.",
+          "use_kd": false,
+          "kd_step_count": 0,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.715274810791016,
+              "kd_loss": null,
+              "total_loss": 6.715274810791016,
+              "elapsed_s": 54.514729261398315
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.092214584350586,
+              "kd_loss": null,
+              "total_loss": 6.092214584350586,
+              "elapsed_s": 109.1192889213562
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.7845845222473145,
+              "kd_loss": null,
+              "total_loss": 5.7845845222473145,
+              "elapsed_s": 163.99936842918396
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.957902431488037,
+              "kd_loss": null,
+              "total_loss": 5.957902431488037,
+              "elapsed_s": 218.4886474609375
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.666017532348633,
+              "kd_loss": null,
+              "total_loss": 5.666017532348633,
+              "elapsed_s": 273.0850191116333
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.59530782699585,
+              "kd_loss": null,
+              "total_loss": 5.59530782699585,
+              "elapsed_s": 328.0356342792511
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.140810091145833,
+              "top1_acc": 0.1565294117647059,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.0106998659620094,
+              "top1_acc": 0.12520392156862745,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 333.44620060920715
+        }
+      },
+      "kd_trained_teacher": {
+        "42": {
+          "seed": 42,
+          "arm_label": "kd_trained_teacher",
+          "target_kind": "trained",
+          "description": "CE plus top-k=64 KD with trained Qwen3-0.6B teacher.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.385807514190674,
+              "kd_loss": 2.2982945442199707,
+              "total_loss": 4.342051029205322,
+              "elapsed_s": 69.98461318016052
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.574278831481934,
+              "kd_loss": 2.3912899494171143,
+              "total_loss": 4.482784271240234,
+              "elapsed_s": 139.85514497756958
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.811920642852783,
+              "kd_loss": 2.3153815269470215,
+              "total_loss": 4.063651084899902,
+              "elapsed_s": 209.39640378952026
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.926350116729736,
+              "kd_loss": 1.9404492378234863,
+              "total_loss": 3.9333996772766113,
+              "elapsed_s": 279.01544713974
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.409793376922607,
+              "kd_loss": 1.8037399053573608,
+              "total_loss": 3.606766700744629,
+              "elapsed_s": 348.9252140522003
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.641523361206055,
+              "kd_loss": 1.973632574081421,
+              "total_loss": 3.8075780868530273,
+              "elapsed_s": 419.0473449230194
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 5.978777194393382,
+              "top1_acc": 0.16727058823529412,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 6.8387366000306375,
+              "top1_acc": 0.13856470588235295,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 424.5602147579193
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "kd_trained_teacher",
+          "target_kind": "trained",
+          "description": "CE plus top-k=64 KD with trained Qwen3-0.6B teacher.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.70692253112793,
+              "kd_loss": 2.374112606048584,
+              "total_loss": 4.540517807006836,
+              "elapsed_s": 70.46463203430176
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.149707794189453,
+              "kd_loss": 2.175396680831909,
+              "total_loss": 4.162552356719971,
+              "elapsed_s": 140.4591269493103
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.267907619476318,
+              "kd_loss": 2.1366283893585205,
+              "total_loss": 4.202268123626709,
+              "elapsed_s": 210.53703236579895
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.8575053215026855,
+              "kd_loss": 2.096067428588867,
+              "total_loss": 3.9767863750457764,
+              "elapsed_s": 280.7164931297302
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.664494514465332,
+              "kd_loss": 2.079197883605957,
+              "total_loss": 3.8718461990356445,
+              "elapsed_s": 350.75143551826477
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.858675003051758,
+              "kd_loss": 1.5834931135177612,
+              "total_loss": 3.7210841178894043,
+              "elapsed_s": 420.87032747268677
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.007515866268382,
+              "top1_acc": 0.16650588235294117,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 6.958589725030637,
+              "top1_acc": 0.13191764705882353,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 426.38384795188904
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "kd_trained_teacher",
+          "target_kind": "trained",
+          "description": "CE plus top-k=64 KD with trained Qwen3-0.6B teacher.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.808852672576904,
+              "kd_loss": 2.3754990100860596,
+              "total_loss": 4.5921759605407715,
+              "elapsed_s": 70.03780508041382
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.155643463134766,
+              "kd_loss": 2.250443696975708,
+              "total_loss": 4.203043460845947,
+              "elapsed_s": 140.03291130065918
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.8286848068237305,
+              "kd_loss": 1.7944762706756592,
+              "total_loss": 3.8115806579589844,
+              "elapsed_s": 210.04523992538452
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 5.891042232513428,
+              "kd_loss": 1.9126300811767578,
+              "total_loss": 3.9018361568450928,
+              "elapsed_s": 280.05674505233765
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.620214939117432,
+              "kd_loss": 1.7315798997879028,
+              "total_loss": 3.6758973598480225,
+              "elapsed_s": 350.07879757881165
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.502526760101318,
+              "kd_loss": 1.937098741531372,
+              "total_loss": 3.7198128700256348,
+              "elapsed_s": 420.0713562965393
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 5.983064962469363,
+              "top1_acc": 0.1664078431372549,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 6.865837507659314,
+              "top1_acc": 0.13318823529411764,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 425.5344388484955
+        }
+      },
+      "kd_uniform_target": {
+        "42": {
+          "seed": 42,
+          "arm_label": "kd_uniform_target",
+          "target_kind": "uniform",
+          "description": "CE plus top-k=64 KD with uniform target probabilities on teacher-free random supports.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.406769275665283,
+              "kd_loss": 0.09838177263736725,
+              "total_loss": 3.252575635910034,
+              "elapsed_s": 69.84925055503845
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.523350715637207,
+              "kd_loss": 0.10766911506652832,
+              "total_loss": 3.315509796142578,
+              "elapsed_s": 139.6592903137207
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.98320198059082,
+              "kd_loss": 0.0924009308218956,
+              "total_loss": 3.037801504135132,
+              "elapsed_s": 209.4037425518036
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.097850322723389,
+              "kd_loss": 0.09682124853134155,
+              "total_loss": 3.0973358154296875,
+              "elapsed_s": 279.15033054351807
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.530458450317383,
+              "kd_loss": 0.08334070444107056,
+              "total_loss": 2.8068995475769043,
+              "elapsed_s": 348.7455961704254
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.857833385467529,
+              "kd_loss": 0.09971389174461365,
+              "total_loss": 2.978773593902588,
+              "elapsed_s": 418.4189085960388
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.199583482689951,
+              "top1_acc": 0.1571686274509804,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.036779963235294,
+              "top1_acc": 0.12754117647058824,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 423.8581738471985
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "kd_uniform_target",
+          "target_kind": "uniform",
+          "description": "CE plus top-k=64 KD with uniform target probabilities on teacher-free random supports.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.671909332275391,
+              "kd_loss": 0.09433277696371078,
+              "total_loss": 3.3831210136413574,
+              "elapsed_s": 69.72358751296997
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.1818156242370605,
+              "kd_loss": 0.09645017981529236,
+              "total_loss": 3.1391329765319824,
+              "elapsed_s": 139.48928666114807
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.415509223937988,
+              "kd_loss": 0.09110261499881744,
+              "total_loss": 3.2533059120178223,
+              "elapsed_s": 209.21125650405884
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.0487236976623535,
+              "kd_loss": 0.10032200813293457,
+              "total_loss": 3.0745229721069336,
+              "elapsed_s": 278.8873927593231
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.774888515472412,
+              "kd_loss": 0.1052878275513649,
+              "total_loss": 2.9400882720947266,
+              "elapsed_s": 348.6307671070099
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.976841449737549,
+              "kd_loss": 0.09342161566019058,
+              "total_loss": 3.0351314544677734,
+              "elapsed_s": 418.3747982978821
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.203670381433824,
+              "top1_acc": 0.1562705882352941,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.0686421147365195,
+              "top1_acc": 0.12931764705882354,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 423.77482557296753
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "kd_uniform_target",
+          "target_kind": "uniform",
+          "description": "CE plus top-k=64 KD with uniform target probabilities on teacher-free random supports.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.798799514770508,
+              "kd_loss": 0.09386449307203293,
+              "total_loss": 3.4463319778442383,
+              "elapsed_s": 69.69147849082947
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.220573425292969,
+              "kd_loss": 0.09370656311511993,
+              "total_loss": 3.157140016555786,
+              "elapsed_s": 139.34747076034546
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 5.908492565155029,
+              "kd_loss": 0.10470891743898392,
+              "total_loss": 3.006600856781006,
+              "elapsed_s": 209.02252864837646
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.050274848937988,
+              "kd_loss": 0.09864843636751175,
+              "total_loss": 3.0744616985321045,
+              "elapsed_s": 278.69252943992615
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.8021368980407715,
+              "kd_loss": 0.08671555668115616,
+              "total_loss": 2.9444262981414795,
+              "elapsed_s": 348.33501148223877
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.691938400268555,
+              "kd_loss": 0.09804205596446991,
+              "total_loss": 2.8949902057647705,
+              "elapsed_s": 418.0139513015747
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.196247924325981,
+              "top1_acc": 0.15732549019607844,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.054268589154412,
+              "top1_acc": 0.12514901960784314,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 423.4622573852539
+        }
+      },
+      "kd_random_teacher": {
+        "42": {
+          "seed": 42,
+          "arm_label": "kd_random_teacher",
+          "target_kind": "random",
+          "description": "CE plus top-k=64 KD with random-init Qwen3-0.6B teacher logits.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.5547614097595215,
+              "kd_loss": 0.23950201272964478,
+              "total_loss": 3.3971316814422607,
+              "elapsed_s": 70.14399313926697
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.648635387420654,
+              "kd_loss": 0.3336291015148163,
+              "total_loss": 3.4911322593688965,
+              "elapsed_s": 139.85552597045898
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.040804386138916,
+              "kd_loss": 0.23424164950847626,
+              "total_loss": 3.1375229358673096,
+              "elapsed_s": 209.5891890525818
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.200706481933594,
+              "kd_loss": 0.17941315472126007,
+              "total_loss": 3.1900599002838135,
+              "elapsed_s": 279.38787817955017
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.606422424316406,
+              "kd_loss": 0.16929031908512115,
+              "total_loss": 2.8878564834594727,
+              "elapsed_s": 349.19094944000244
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.922391891479492,
+              "kd_loss": 0.21590058505535126,
+              "total_loss": 3.069146156311035,
+              "elapsed_s": 418.91574931144714
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.299885948988971,
+              "top1_acc": 0.15330980392156862,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.144884417126225,
+              "top1_acc": 0.12844705882352941,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 424.3269293308258
+        },
+        "7": {
+          "seed": 7,
+          "arm_label": "kd_random_teacher",
+          "target_kind": "random",
+          "description": "CE plus top-k=64 KD with random-init Qwen3-0.6B teacher logits.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.8796539306640625,
+              "kd_loss": 0.2508932650089264,
+              "total_loss": 3.5652735233306885,
+              "elapsed_s": 70.20546340942383
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.359780788421631,
+              "kd_loss": 0.23856833577156067,
+              "total_loss": 3.2991745471954346,
+              "elapsed_s": 140.237642288208
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.506260395050049,
+              "kd_loss": 0.3000418245792389,
+              "total_loss": 3.403151035308838,
+              "elapsed_s": 210.27093768119812
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.167068004608154,
+              "kd_loss": 0.3082984983921051,
+              "total_loss": 3.2376832962036133,
+              "elapsed_s": 280.3082435131073
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.91915225982666,
+              "kd_loss": 0.2719252109527588,
+              "total_loss": 3.09553861618042,
+              "elapsed_s": 350.30850481987
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 6.06549596786499,
+              "kd_loss": 0.24816203117370605,
+              "total_loss": 3.1568288803100586,
+              "elapsed_s": 420.3686490058899
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.3054165402879905,
+              "top1_acc": 0.15196078431372548,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.242050417432598,
+              "top1_acc": 0.12218039215686274,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 425.7674779891968
+        },
+        "13": {
+          "seed": 13,
+          "arm_label": "kd_random_teacher",
+          "target_kind": "random",
+          "description": "CE plus top-k=64 KD with random-init Qwen3-0.6B teacher logits.",
+          "use_kd": true,
+          "kd_step_count": 6000,
+          "n_total_params": 60013056,
+          "n_trainable_params": 60013056,
+          "train_log": [
+            {
+              "step": 1000,
+              "lr": 0.0003,
+              "ce_loss": 6.962831497192383,
+              "kd_loss": 0.39722275733947754,
+              "total_loss": 3.6800270080566406,
+              "elapsed_s": 70.0166347026825
+            },
+            {
+              "step": 2000,
+              "lr": 0.0003,
+              "ce_loss": 6.364651203155518,
+              "kd_loss": 0.31264159083366394,
+              "total_loss": 3.338646411895752,
+              "elapsed_s": 140.05500292778015
+            },
+            {
+              "step": 3000,
+              "lr": 0.0003,
+              "ce_loss": 6.044910907745361,
+              "kd_loss": 0.2436264455318451,
+              "total_loss": 3.144268751144409,
+              "elapsed_s": 210.00144743919373
+            },
+            {
+              "step": 4000,
+              "lr": 0.0003,
+              "ce_loss": 6.198664665222168,
+              "kd_loss": 0.31275591254234314,
+              "total_loss": 3.2557103633880615,
+              "elapsed_s": 280.03137016296387
+            },
+            {
+              "step": 5000,
+              "lr": 0.0003,
+              "ce_loss": 5.9040069580078125,
+              "kd_loss": 0.27569305896759033,
+              "total_loss": 3.0898499488830566,
+              "elapsed_s": 350.03439140319824
+            },
+            {
+              "step": 6000,
+              "lr": 0.0003,
+              "ce_loss": 5.816775798797607,
+              "kd_loss": 0.23745344579219818,
+              "total_loss": 3.0271146297454834,
+              "elapsed_s": 420.07213068008423
+            }
+          ],
+          "final_metrics": {
+            "c4_val": {
+              "nll": 6.297987779564951,
+              "top1_acc": 0.1518156862745098,
+              "n_tokens": 255000.0
+            },
+            "wikitext_val": {
+              "nll": 7.242535562193628,
+              "top1_acc": 0.12277647058823529,
+              "n_tokens": 255000.0
+            }
+          },
+          "wallclock_s": 425.49962973594666
+        }
+      }
+    },
+    "data": {
+      "train": {
+        "dataset_name": "allenai/c4",
+        "config_name": "en",
+        "split": "train",
+        "seed": 167001,
+        "n_windows": 8192,
+        "seq_len": 256,
+        "sampling": "document_random_window",
+        "prefix_dedup": true,
+        "forbidden_overlap_rejects": 0
+      },
+      "c4_val": {
+        "dataset_name": "allenai/c4",
+        "config_name": "en",
+        "split": "validation",
+        "seed": 167101,
+        "n_windows": 1000,
+        "seq_len": 256,
+        "sampling": "document_random_window",
+        "prefix_dedup": true,
+        "forbidden_overlap_rejects": 8
+      },
+      "wikitext_val": {
+        "dataset_name": "wikitext",
+        "config_name": "wikitext-103-raw-v1",
+        "split": "validation",
+        "seed": 167201,
+        "n_windows": 1000,
+        "seq_len": 256,
+        "sampling": "concatenated_nonoverlapping_windows",
+        "prefix_dedup": false,
+        "forbidden_overlap_rejects": 2,
+        "records_seen": 2437
+      },
+      "train_13gram_hash_count": 1989779
+    },
+    "teacher_reference": {
+      "c4_val": {
+        "nll": 3.565934451593137,
+        "top1_acc": 0.35179607843137256,
+        "n_tokens": 255000.0
+      },
+      "wikitext_val": {
+        "nll": 3.84012041015625,
+        "top1_acc": 0.3532549019607843,
+        "n_tokens": 255000.0
+      }
+    },
+    "cache_meta": {
+      "trained_teacher": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\results\\cache\\genome_167_teacher_topk_cache_e54a091b858fddeb.pt",
+        "cache_hit": true,
+        "estimated_bytes": 802160640,
+        "estimated_gib": 0.7470703125,
+        "train_signature": "e54a091b858fddeb1d449b256facc25407d2bb6b",
+        "shared_with_genome_167": true
+      },
+      "random_teacher": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\results\\cache\\genome_174_random_teacher_topk_cache_e54a091b858fddeb_seed174167001.pt",
+        "cache_hit": false,
+        "estimated_bytes": 802160640,
+        "estimated_gib": 0.7470703125,
+        "train_signature": "e54a091b858fddeb1d449b256facc25407d2bb6b",
+        "random_teacher_seed": 174167001,
+        "fresh_inference": true
+      },
+      "uniform_target": {
+        "target_kind": "uniform",
+        "support_policy": "teacher-free contiguous random support per train window and shifted position",
+        "uniform_target_seed": 174167002,
+        "top_k": 64,
+        "logits": "zeros generated on device at training time",
+        "topk_idx_shape": [
+          8192,
+          255,
+          64
+        ],
+        "estimated_idx_bytes": 534773760
+      }
+    },
+    "vocab_size": 151669,
+    "train_signature": "e54a091b858fddeb1d449b256facc25407d2bb6b"
+  },
+  "summary": {
+    "status": "pass",
+    "verdict": "PASS: donor-specificity locked in both matched-null factorials. Part A: PASS: trained donor anchor beats best non-trained anchor/null (anchor_permuted_donor) by +0.959 nats with 95% CI [+0.924, +1.029]. Part B: PASS: trained-teacher KD beats best non-trained KD/null (kd_uniform_target) by +0.981 pp C4 top1 with 95% CI [+0.908, +1.024].",
+    "part_a": {
+      "status": "pass",
+      "verdict": "PASS: trained donor anchor beats best non-trained anchor/null (anchor_permuted_donor) by +0.959 nats with 95% CI [+0.924, +1.029].",
+      "arm_final_nll": {
+        "scratch_baseline": {
+          "per_seed": {
+            "42": 5.5367563321233995,
+            "7": 5.5450002815883375,
+            "13": 5.4473549233584535
+          },
+          "mean": 5.509703845690063,
+          "std": 0.04421562139206732,
+          "ci_95_lo": 5.4473549233584535,
+          "ci_95_hi": 5.5450002815883375
+        },
+        "anchor_trained_donor": {
+          "per_seed": {
+            "42": 4.434593978787124,
+            "7": 4.392887913481747,
+            "13": 4.441633267981167
+          },
+          "mean": 4.4230383867500125,
+          "std": 0.021512417759899306,
+          "ci_95_lo": 4.392887913481747,
+          "ci_95_hi": 4.441633267981167
+        },
+        "anchor_random_donor": {
+          "per_seed": {
+            "42": 6.190610151430276,
+            "7": 6.210633666483024,
+            "13": 6.189751925403792
+          },
+          "mean": 6.1969985811056985,
+          "std": 0.009647825416931162,
+          "ci_95_lo": 6.189751925403793,
+          "ci_95_hi": 6.210633666483024
+        },
+        "anchor_permuted_donor": {
+          "per_seed": {
+            "42": 5.358156078192188,
+            "7": 5.422129197363326,
+            "13": 5.366101089046967
+          },
+          "mean": 5.382128788200827,
+          "std": 0.028469929741701518,
+          "ci_95_lo": 5.358156078192188,
+          "ci_95_hi": 5.422129197363326
+        }
+      },
+      "vs_scratch_final_nll_gain": {
+        "anchor_trained_donor": {
+          "per_seed": {
+            "42": 1.1021623533362757,
+            "7": 1.1521123681065903,
+            "13": 1.005721655377286
+          },
+          "mean": 1.0866654589400506,
+          "std": 0.06076004989735845,
+          "ci_95_lo": 1.005721655377286,
+          "ci_95_hi": 1.1521123681065903
+        },
+        "anchor_random_donor": {
+          "per_seed": {
+            "42": -0.6538538193068764,
+            "7": -0.6656333848946865,
+            "13": -0.7423970020453385
+          },
+          "mean": -0.6872947354156338,
+          "std": 0.03925883664567494,
+          "ci_95_lo": -0.7423970020453385,
+          "ci_95_hi": -0.6538538193068764
+        },
+        "anchor_permuted_donor": {
+          "per_seed": {
+            "42": 0.17860025393121148,
+            "7": 0.1228710842250118,
+            "13": 0.0812538343114868
+          },
+          "mean": 0.1275750574892367,
+          "std": 0.039880462021293805,
+          "ci_95_lo": 0.0812538343114868,
+          "ci_95_hi": 0.17860025393121148
+        }
+      },
+      "best_nontrained_label": "anchor_permuted_donor",
+      "trained_vs_best_nontrained_nll_gain": {
+        "per_seed": {
+          "42": 0.9235620994050642,
+          "7": 1.0292412838815785,
+          "13": 0.9244678210657993
+        },
+        "mean": 0.959090401450814,
+        "std": 0.049605542783664094,
+        "ci_95_lo": 0.9235620994050642,
+        "ci_95_hi": 1.0292412838815785
+      },
+      "per_seed_best_nontrained_margin_nats": {
+        "42": 0.9235620994050642,
+        "7": 1.0292412838815785,
+        "13": 0.9244678210657993
+      },
+      "positive_direction_seeds_vs_per_seed_best_nontrained": 3,
+      "null_80_flags": {
+        "anchor_random_donor": {
+          "effect_vs_scratch_nats": -0.6872947354156338,
+          "ge_80pct_observed_trained_effect": false,
+          "ge_80pct_reference_g165_effect": false
+        },
+        "anchor_permuted_donor": {
+          "effect_vs_scratch_nats": 0.1275750574892367,
+          "ge_80pct_observed_trained_effect": false,
+          "ge_80pct_reference_g165_effect": false
+        }
+      },
+      "observed_trained_effect_vs_scratch_nats": 1.0866654589400506,
+      "observed_null_80_threshold_nats": 0.8693323671520405,
+      "reference_null_80_threshold_nats": 0.8704000000000001,
+      "criteria": {
+        "trained_beats_best_nontrained_by_ge_0p30_nats": true,
+        "paired_bootstrap_ci_excludes_zero": true,
+        "all_three_seeds_positive_vs_per_seed_best_nontrained": true,
+        "no_matched_null_reaches_80pct_trained_effect": true,
+        "trained_effect_vs_scratch_positive": true
+      }
+    },
+    "part_b": {
+      "status": "pass",
+      "verdict": "PASS: trained-teacher KD beats best non-trained KD/null (kd_uniform_target) by +0.981 pp C4 top1 with 95% CI [+0.908, +1.024].",
+      "arm_final_metrics": {
+        "scratch_ce": {
+          "c4_val_top1_acc": {
+            "per_seed": {
+              "42": 0.15709803921568627,
+              "7": 0.15614117647058823,
+              "13": 0.1565294117647059
+            },
+            "mean": 0.1565895424836601,
+            "std": 0.0003929447423074524,
+            "ci_95_lo": 0.15614117647058823,
+            "ci_95_hi": 0.15709803921568627
+          },
+          "c4_val_nll": {
+            "per_seed": {
+              "42": 6.1441129404105395,
+              "7": 6.141878971354167,
+              "13": 6.140810091145833
+            },
+            "mean": 6.142267334303514,
+            "std": 0.0013760626564371533,
+            "ci_95_lo": 6.140810091145833,
+            "ci_95_hi": 6.1441129404105395
+          },
+          "wikitext_val_top1_acc": {
+            "per_seed": {
+              "42": 0.12850196078431372,
+              "7": 0.12136078431372549,
+              "13": 0.12520392156862745
+            },
+            "mean": 0.12502222222222223,
+            "std": 0.0029182027957156353,
+            "ci_95_lo": 0.12136078431372549,
+            "ci_95_hi": 0.12850196078431372
+          },
+          "wikitext_val_nll": {
+            "per_seed": {
+              "42": 7.024942807904412,
+              "7": 7.079958153339461,
+              "13": 7.0106998659620094
+            },
+            "mean": 7.038533609068627,
+            "std": 0.02986313222942666,
+            "ci_95_lo": 7.0106998659620094,
+            "ci_95_hi": 7.079958153339461
+          }
+        },
+        "kd_trained_teacher": {
+          "c4_val_top1_acc": {
+            "per_seed": {
+              "42": 0.16727058823529412,
+              "7": 0.16650588235294117,
+              "13": 0.1664078431372549
+            },
+            "mean": 0.1667281045751634,
+            "std": 0.00038567630044266505,
+            "ci_95_lo": 0.1664078431372549,
+            "ci_95_hi": 0.16727058823529414
+          },
+          "c4_val_nll": {
+            "per_seed": {
+              "42": 5.978777194393382,
+              "7": 6.007515866268382,
+              "13": 5.983064962469363
+            },
+            "mean": 5.989786007710376,
+            "std": 0.01265851892688699,
+            "ci_95_lo": 5.978777194393383,
+            "ci_95_hi": 6.007515866268382
+          },
+          "wikitext_val_top1_acc": {
+            "per_seed": {
+              "42": 0.13856470588235295,
+              "7": 0.13191764705882353,
+              "13": 0.13318823529411764
+            },
+            "mean": 0.13455686274509804,
+            "std": 0.002881053461906822,
+            "ci_95_lo": 0.13191764705882353,
+            "ci_95_hi": 0.13856470588235295
+          },
+          "wikitext_val_nll": {
+            "per_seed": {
+              "42": 6.8387366000306375,
+              "7": 6.958589725030637,
+              "13": 6.865837507659314
+            },
+            "mean": 6.8877212775735295,
+            "std": 0.051318401068298686,
+            "ci_95_lo": 6.838736600030638,
+            "ci_95_hi": 6.958589725030637
+          }
+        },
+        "kd_uniform_target": {
+          "c4_val_top1_acc": {
+            "per_seed": {
+              "42": 0.1571686274509804,
+              "7": 0.1562705882352941,
+              "13": 0.15732549019607844
+            },
+            "mean": 0.156921568627451,
+            "std": 0.00046474586849837567,
+            "ci_95_lo": 0.1562705882352941,
+            "ci_95_hi": 0.15732549019607844
+          },
+          "c4_val_nll": {
+            "per_seed": {
+              "42": 6.199583482689951,
+              "7": 6.203670381433824,
+              "13": 6.196247924325981
+            },
+            "mean": 6.199833929483252,
+            "std": 0.003035375877509405,
+            "ci_95_lo": 6.196247924325981,
+            "ci_95_hi": 6.203670381433824
+          },
+          "wikitext_val_top1_acc": {
+            "per_seed": {
+              "42": 0.12754117647058824,
+              "7": 0.12931764705882354,
+              "13": 0.12514901960784314
+            },
+            "mean": 0.12733594771241832,
+            "std": 0.001708011092597043,
+            "ci_95_lo": 0.12514901960784314,
+            "ci_95_hi": 0.12931764705882354
+          },
+          "wikitext_val_nll": {
+            "per_seed": {
+              "42": 7.036779963235294,
+              "7": 7.0686421147365195,
+              "13": 7.054268589154412
+            },
+            "mean": 7.053230222375408,
+            "std": 0.013028374898596264,
+            "ci_95_lo": 7.036779963235294,
+            "ci_95_hi": 7.0686421147365195
+          }
+        },
+        "kd_random_teacher": {
+          "c4_val_top1_acc": {
+            "per_seed": {
+              "42": 0.15330980392156862,
+              "7": 0.15196078431372548,
+              "13": 0.1518156862745098
+            },
+            "mean": 0.15236209150326796,
+            "std": 0.0006727468474332231,
+            "ci_95_lo": 0.1518156862745098,
+            "ci_95_hi": 0.15330980392156862
+          },
+          "c4_val_nll": {
+            "per_seed": {
+              "42": 6.299885948988971,
+              "7": 6.3054165402879905,
+              "13": 6.297987779564951
+            },
+            "mean": 6.301096756280638,
+            "std": 0.003151313185875335,
+            "ci_95_lo": 6.297987779564951,
+            "ci_95_hi": 6.3054165402879905
+          },
+          "wikitext_val_top1_acc": {
+            "per_seed": {
+              "42": 0.12844705882352941,
+              "7": 0.12218039215686274,
+              "13": 0.12277647058823529
+            },
+            "mean": 0.12446797385620915,
+            "std": 0.00282414178786553,
+            "ci_95_lo": 0.12218039215686276,
+            "ci_95_hi": 0.12844705882352941
+          },
+          "wikitext_val_nll": {
+            "per_seed": {
+              "42": 7.144884417126225,
+              "7": 7.242050417432598,
+              "13": 7.242535562193628
+            },
+            "mean": 7.20982346558415,
+            "std": 0.04591926866668887,
+            "ci_95_lo": 7.144884417126225,
+            "ci_95_hi": 7.242535562193628
+          }
+        }
+      },
+      "vs_scratch": {
+        "kd_trained_teacher": {
+          "better_arm": "kd_trained_teacher",
+          "worse_arm": "scratch_ce",
+          "c4_val_top1_delta_pp": {
+            "per_seed": {
+              "42": 1.0172549019607846,
+              "7": 1.0364705882352943,
+              "13": 0.9878431372549012
+            },
+            "mean": 1.0138562091503267,
+            "std": 0.0199970094735442,
+            "ci_95_lo": 0.9878431372549011,
+            "ci_95_hi": 1.0364705882352943
+          },
+          "c4_val_nll_gain": {
+            "per_seed": {
+              "42": 0.16533574601715717,
+              "7": 0.13436310508578497,
+              "13": 0.15774512867647061
+            },
+            "mean": 0.1524813265931376,
+            "std": 0.013180966854908731,
+            "ci_95_lo": 0.13436310508578497,
+            "ci_95_hi": 0.16533574601715717
+          },
+          "wikitext_val_top1_delta_pp": {
+            "per_seed": {
+              "42": 1.0062745098039227,
+              "7": 1.055686274509804,
+              "13": 0.7984313725490189
+            },
+            "mean": 0.953464052287582,
+            "std": 0.1114651798037612,
+            "ci_95_lo": 0.7984313725490187,
+            "ci_95_hi": 1.055686274509804
+          },
+          "wikitext_val_nll_gain": {
+            "per_seed": {
+              "42": 0.1862062078737745,
+              "7": 0.12136842830882344,
+              "13": 0.14486235830269578
+            },
+            "mean": 0.1508123314950979,
+            "std": 0.026802189593029206,
+            "ci_95_lo": 0.12136842830882344,
+            "ci_95_hi": 0.1862062078737745
+          },
+          "positive_primary_effect_seeds": 3
+        },
+        "kd_uniform_target": {
+          "better_arm": "kd_uniform_target",
+          "worse_arm": "scratch_ce",
+          "c4_val_top1_delta_pp": {
+            "per_seed": {
+              "42": 0.007058823529412783,
+              "7": 0.01294117647058779,
+              "13": 0.07960784313725544
+            },
+            "mean": 0.03320261437908534,
+            "std": 0.03290121032327647,
+            "ci_95_lo": 0.007058823529412783,
+            "ci_95_hi": 0.07960784313725544
+          },
+          "c4_val_nll_gain": {
+            "per_seed": {
+              "42": -0.05547054227941128,
+              "7": -0.06179141007965683,
+              "13": -0.0554378331801475
+            },
+            "mean": -0.057566595179738535,
+            "std": 0.0029874251092674394,
+            "ci_95_lo": -0.06179141007965683,
+            "ci_95_hi": -0.0554378331801475
+          },
+          "wikitext_val_top1_delta_pp": {
+            "per_seed": {
+              "42": -0.09607843137254823,
+              "7": 0.7956862745098048,
+              "13": -0.005490196078430931
+            },
+            "mean": 0.23137254901960855,
+            "std": 0.4007401840560323,
+            "ci_95_lo": -0.09607843137254823,
+            "ci_95_hi": 0.7956862745098047
+          },
+          "wikitext_val_nll_gain": {
+            "per_seed": {
+              "42": -0.011837155330882254,
+              "7": 0.01131603860294117,
+              "13": -0.04356872319240246
+            },
+            "mean": -0.014696613306781181,
+            "std": 0.02249765386686431,
+            "ci_95_lo": -0.04356872319240246,
+            "ci_95_hi": 0.01131603860294117
+          },
+          "positive_primary_effect_seeds": 3
+        },
+        "kd_random_teacher": {
+          "better_arm": "kd_random_teacher",
+          "worse_arm": "scratch_ce",
+          "c4_val_top1_delta_pp": {
+            "per_seed": {
+              "42": -0.3788235294117648,
+              "7": -0.418039215686275,
+              "13": -0.471372549019608
+            },
+            "mean": -0.42274509803921595,
+            "std": 0.03792922579518357,
+            "ci_95_lo": -0.47137254901960796,
+            "ci_95_hi": -0.3788235294117648
+          },
+          "c4_val_nll_gain": {
+            "per_seed": {
+              "42": -0.15577300857843124,
+              "7": -0.16353756893382343,
+              "13": -0.15717768841911806
+            },
+            "mean": -0.15882942197712424,
+            "std": 0.0033781915465837496,
+            "ci_95_lo": -0.16353756893382343,
+            "ci_95_hi": -0.15577300857843124
+          },
+          "wikitext_val_top1_delta_pp": {
+            "per_seed": {
+              "42": -0.005490196078430931,
+              "7": 0.08196078431372544,
+              "13": -0.2427450980392154
+            },
+            "mean": -0.05542483660130696,
+            "std": 0.13718255173736468,
+            "ci_95_lo": -0.2427450980392154,
+            "ci_95_hi": 0.08196078431372544
+          },
+          "wikitext_val_nll_gain": {
+            "per_seed": {
+              "42": -0.1199416092218133,
+              "7": -0.16209226409313704,
+              "13": -0.23183569623161837
+            },
+            "mean": -0.1712898565155229,
+            "std": 0.046141221315404476,
+            "ci_95_lo": -0.23183569623161837,
+            "ci_95_hi": -0.1199416092218133
+          },
+          "positive_primary_effect_seeds": 0
+        }
+      },
+      "best_nontrained_label": "kd_uniform_target",
+      "trained_vs_best_nontrained": {
+        "better_arm": "kd_trained_teacher",
+        "worse_arm": "kd_uniform_target",
+        "c4_val_top1_delta_pp": {
+          "per_seed": {
+            "42": 1.0101960784313717,
+            "7": 1.0235294117647065,
+            "13": 0.9082352941176458
+          },
+          "mean": 0.9806535947712413,
+          "std": 0.05149596842867326,
+          "ci_95_lo": 0.9082352941176458,
+          "ci_95_hi": 1.0235294117647065
+        },
+        "c4_val_nll_gain": {
+          "per_seed": {
+            "42": 0.22080628829656845,
+            "7": 0.1961545151654418,
+            "13": 0.21318296185661811
+          },
+          "mean": 0.21004792177287612,
+          "std": 0.010305300800142816,
+          "ci_95_lo": 0.1961545151654418,
+          "ci_95_hi": 0.22080628829656845
+        },
+        "wikitext_val_top1_delta_pp": {
+          "per_seed": {
+            "42": 1.102352941176471,
+            "7": 0.2599999999999991,
+            "13": 0.8039215686274498
+          },
+          "mean": 0.7220915032679733,
+          "std": 0.348723136671214,
+          "ci_95_lo": 0.2599999999999991,
+          "ci_95_hi": 1.102352941176471
+        },
+        "wikitext_val_nll_gain": {
+          "per_seed": {
+            "42": 0.19804336320465676,
+            "7": 0.11005238970588227,
+            "13": 0.18843108149509824
+          },
+          "mean": 0.16550894480187908,
+          "std": 0.03940956835805637,
+          "ci_95_lo": 0.11005238970588227,
+          "ci_95_hi": 0.19804336320465676
+        },
+        "positive_primary_effect_seeds": 3
+      },
+      "per_seed_best_nontrained_margin_pp": {
+        "42": 1.0101960784313717,
+        "7": 1.0235294117647065,
+        "13": 0.9082352941176458
+      },
+      "positive_direction_seeds_vs_per_seed_best_nontrained": 3,
+      "null_80_flags": {
+        "kd_uniform_target": {
+          "effect_vs_scratch_pp": 0.03320261437908534,
+          "ge_80pct_observed_trained_effect": false,
+          "ge_80pct_reference_g167_effect": false
+        },
+        "kd_random_teacher": {
+          "effect_vs_scratch_pp": -0.42274509803921595,
+          "ge_80pct_observed_trained_effect": false,
+          "ge_80pct_reference_g167_effect": false
+        }
+      },
+      "observed_trained_effect_vs_scratch_pp": 1.0138562091503267,
+      "observed_null_80_threshold_pp": 0.8110849673202614,
+      "reference_null_80_threshold_pp": 0.8112,
+      "criteria": {
+        "trained_beats_best_nontrained_by_ge_0p30_pp": true,
+        "paired_bootstrap_ci_excludes_zero": true,
+        "all_three_seeds_positive_vs_per_seed_best_nontrained": true,
+        "no_matched_null_reaches_80pct_trained_effect": true,
+        "trained_effect_vs_scratch_positive": true
+      }
+    }
+  },
+  "verdict": "PASS: donor-specificity locked in both matched-null factorials. Part A: PASS: trained donor anchor beats best non-trained anchor/null (anchor_permuted_donor) by +0.959 nats with 95% CI [+0.924, +1.029]. Part B: PASS: trained-teacher KD beats best non-trained KD/null (kd_uniform_target) by +0.981 pp C4 top1 with 95% CI [+0.908, +1.024].",
+  "timestamp_utc_last_write": "2026-04-28T07:04:11.722922+00:00",
+  "elapsed_s": 3832.512303829193,
+  "incremental": false
+}
