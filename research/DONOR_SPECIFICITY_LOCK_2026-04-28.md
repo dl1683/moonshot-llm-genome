@@ -74,6 +74,26 @@ If PART B FAILs (KD generic):
 2. **g173 cross-arch FLOP cash-out** — Codex's pre-existing pick, NOW UNBLOCKED by g174 PART A PASS (the cash-out narrative depends on donor-specificity being real)
 3. **g175 cross-architecture Frobenius anchor** (new candidate): apply g165 anchor between Qwen3-0.6B teacher and Llama-arch student. Basin-of-attraction predicts FAIL (no shared coordinates). If it does fail cleanly, the "weight-space donor-specificity" claim sharpens further with cross-arch falsification.
 
+## Cycle 50 adversarial caveat (added 2026-04-28 ~02:30)
+
+The cycle 50 adversarial Codex review (`codex_outputs/heartbeats/cycle50_adversarial_20260428T021500.md`, score 7/10) flagged that the claim above is **OVERSTATED in its current form**. Specifically:
+
+1. **"Random harm does NOT prove donor-specificity."** Random-donor anchor pulls recipient toward a random-noise basin = bad attractor. This proves "trained-like weight basin matters," NOT "Qwen3-specific donor information matters." The strongest-possible test would be: anchor to a **different trained model of the same shape** (e.g., a separately-trained Qwen3-0.6B-arch checkpoint). If THAT also gets ≥80% of true-donor's +1.087 nats, the active ingredient is "trained-like weights" not "Qwen3-specific identity." If it falls well below, donor-identity specificity is locked.
+
+2. **"500 steps is finite-budget, not asymptotic."** "Persistent" here = persistent through 500 SGD steps. At convergence (e.g., 5000+ steps), the +1.087 nats may shrink dramatically. The claim is bounded to early/mid training horizons, not full convergence.
+
+3. **"Generalization too broad."** Single architecture (Qwen3-0.6B), single dataset (C4), single matched-null λ=0.01. g165 also showed PASS at λ=0.0013, but the matched-null PART A only tested λ=0.01.
+
+4. **"Permuted donor +0.128 nats has paired t-CI [+0.029, +0.227]"** — above zero but tiny, n=3. The "12% of trained" descriptive ratio is real-but-modest. The embedding/lm_head permutation may not have been applied to vocab-rows (only hidden-axis), so token-specific embedding geometry is partly preserved → could explain some of the residue.
+
+## Refined claim (cycle 50-corrected)
+
+**Claim that survives adversarial:** at constant Frobenius anchor strength, capability transfer requires the anchor target to have meaningful **trained-like weight structure**. Random init (matched magnitude) HARMS; permutation-destroyed structure (matched magnitude) gives only 12% of trained's effect. Whether the active ingredient is **donor-identity-specific** (Qwen3 weights specifically) or **any trained model** is open until tested with a different trained donor.
+
+## Falsifying experiment queued (g175 candidate)
+
+Anchor a Qwen3-0.6B random-init recipient to a DIFFERENT trained Qwen3-0.6B-shape checkpoint (could be: a teacher checkpoint at an earlier training step, or a separately-fine-tuned variant). Same λ=0.01_constant, same protocol, 3 seeds. If the alternative trained donor gets ≥80% of Qwen3-0.6B trained's +1.087 nats → donor-identity specificity DIES; effect is generic "trained-like weights." If <50% → donor-identity specificity LOCKED.
+
 ## Provenance
 
 - Result: `results/genome_174_donor_specificity_control.json` (PART A complete)
