@@ -414,10 +414,14 @@ def scaffold_forward_logits(
         )
 
         # ScaffoldSwap mixes the donor's live computation directly into the
-        # residual stream. The donor branch is frozen/no-grad, so CE gradients
-        # only flow through the `(1 - alpha) * h_recipient` path while the donor
-        # acts as a decaying activation teacher.
-        mixed_hidden = alpha * donor_block_out + (1.0 - alpha) * recipient_block_out
+        # residual stream. Codex cycle 36 SEV9 fix 2026-04-27: original mix
+        # `alpha * donor + (1-alpha) * recipient` multiplied recipient gradient
+        # by (1-alpha) at every block boundary -> with 28 layers and alpha=0.5,
+        # earliest-layer recipient gradient scaled by 0.5^28 ~ 3.7e-9 (gradients
+        # essentially zero). Equivalent forward value but full recipient gradient:
+        #   r + alpha * (d - r).detach() = alpha*d + (1-alpha)*r at the value level,
+        #   but the gradient w.r.t. recipient params flows fully through r.
+        mixed_hidden = recipient_block_out + alpha * (donor_block_out - recipient_block_out).detach()
 
         donor_hidden = mixed_hidden
         recipient_hidden = mixed_hidden
