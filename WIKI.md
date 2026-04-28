@@ -26,7 +26,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
 
-**§0.1 ceiling:** **current-locked claims 7.5-7.9**, **forward-looking queue uplift 5.8/10** (cycle 60 direction). g177v2 cannot relock C22 (NLL × Δ scatter assumption-dominated with n=3 alt donors at NLL ~5.7-5.8 extrapolated 2.1 nats); g173 cross-arch is the real uplift candidate.
+**§0.1 ceiling:** **current-locked claims 7.5/10** (C22 REJECTED 2026-04-28 ~08:50 UTC), **forward-looking queue uplift 5.8/10** pending g173. C18+C19+C21 still locked. The "donor-identity" framing is dead; "trained-structure-specific continuous SGD constraint within Qwen3-arch family" is the honest framing.
+
+**★ g177v2 VERDICT: FAIL ★ (2026-04-28 ~08:50 UTC, wall ~2.92h)**
+
+3 alt donors on C4 (matched corpus, λ-normalized, 13-gram dedup'd) at NLL ~5.72 each give 95-96% of Qwen3's +1.087 nat anchor effect. Donor-identity-specific component is tiny: Qwen3-minus-best-alt = +0.038 nats [CI +0.018, +0.068]. Cycle 55 + cycle 60 adversarial A6 attacks confirmed: the active ingredient is "any sufficiently trained Qwen3-arch checkpoint" — NOT donor-identity. **C22 REJECTED.** Source: `results/genome_177_matched_alt_donor.json`, `research/CLAIM_EVIDENCE_MAP.md`.
+
+**g173 LAUNCHED** (cycle 63 direction Q1: regardless of g177v2 verdict). Tests cross-arch generalization → falsifies/confirms A6 same-family-basin attack at the cross-family level. ~3.85h ETA.
 
 **Cycle 60 limitations logged:**
 - A5 (cycle 57 desk audit): C20 late-KD has soft matched-compute-null gap; kept at Level-0.
