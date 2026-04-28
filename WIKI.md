@@ -24,7 +24,26 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ ACTIVE EXPERIMENT QUEUE (snapshot 2026-04-26 22:00) ⚡
+## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
+
+**§0.1 ceiling:** held at **7.5-7.9** until g177v2 verdict (was projected 8.1 with g175 PASS, retracted after cycle 55 9/10 attack).
+
+**Locked claims:** C17 (g158c transport-demand) + C18 (g165 weight-anchor) + C19 (g167 KD canonical) + C21 (g174 trained-structure specificity, both axes) — all matched-null backed.
+
+**Live falsifier:** g177v2 RUNNING (alt-donor seed=1234 pretrain, ~3.5h ETA, 13-gram dedup against recipient train+eval, per-donor λ normalization for matched anchor-gradient force, last-K=3 mean stop rule). Verdict decides whether C22 donor-IDENTITY locks or dies.
+
+**Queued post-g177v2:**
+- **PASS** → g173 cross-arch FLOP cash-out (envelope fix in flight; §0.1 → 8.0-8.4 if clean)
+- **FAIL** → narrative tightens to C21 trained-structure specificity, §0.1 → 7.5
+- **WEAK PASS** → advisor consult to decide whether to escalate
+
+**Hardware blocker:** wall-power meter for g155 (only honest 8.5+ path). Procurement priority #1.
+
+**Codex cadence:** cycle-3 dual review + cycle-5 adversarial + advisor on every experiment completion (per HEARTBEAT.md). Cycle 55 adversarial caught the g175 confound; cycle 57 code review caught g177 SEV 8/7 before the run wasted 6+ hours.
+
+---
+
+## ⚡ ACTIVE EXPERIMENT QUEUE (historical snapshot 2026-04-26 22:00 — kept as audit trail) ⚡
 
 **Decisive thesis state:** g156 PASS_TRANSPORT validates the prefix-information transport derivation route along the data-order axis (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp). g152 PARTIAL/AMBIGUOUS shows the win attenuates with compute (consistency-evidence for the theory's saturation prediction). §0.1 score: **6/10 currently**, projected **7-8/10** if g157+ chain validates internal mechanism.
 
