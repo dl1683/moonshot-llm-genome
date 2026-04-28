@@ -99,6 +99,28 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g167 PASSED 2026-04-27 ~21:25 UTC: KD logits transfer capability at canonical scale ★★ MAJOR**
+
+g167 KD canonical (top-k=64, T=2.0, gamma=0.5, 3 seeds, 6000 steps, minimal_3L 60M student). PASS at all locked thresholds:
+- mean (KD - scratch) C4 top-1 = **+1.014 pp** [CI +0.988, +1.036] (PASS threshold +0.40pp)
+- C4 NLL gain = **+0.153** (threshold +0.03) ✓
+- Wikitext NLL gain = **+0.151** (threshold +0.03) ✓
+- Positive seeds: **3/3** (threshold ≥ 2/3) ✓
+- Wall 40 min
+
+**SECOND INDEPENDENT TRANSFER MECHANISM VALIDATED.** g165 (weight-anchor constant λ) AND g167 (KD logits) both PASS at canonical 3-seed scale. Both apply continuous SGD constraint — neither uses decay or zero-step injection.
+
+**Theoretical synthesis updated:** the basin-of-attraction interpretation generalizes: continuous constraint on ANY relevant axis produces persistent transfer. Different axes:
+- Weight space (g165 Frobenius L2): +1.088 nats persistent
+- Output distribution (g167 KD top-k logits): +1.014 pp top-1 / +0.15 NLL
+
+What FAILS:
+- Decay schedules (any level — weight g165, activation g169)
+- Zero-step weight injection even with alignment (g168)
+- Hard cutoff (g165 attn_only_hardcut, g169 scaffold_step)
+
+§0.1 ceiling: 7.5 → 7.7 (with KD-axis confirmed as second working mechanism). Source: `results/genome_167_kd_canonical.json`.
+
 **★ g169 FAILED 2026-04-27 ~22:30 UTC: activation-level scaffold with decay is dead.**
 
 g169 ScaffoldSwap (mix donor activations into recipient forward at each block, h_mix = recipient + α(t)*(donor-recipient).detach() — gradient-preserving form per cycle 36 SEV9 fix). 5 arms × 3 seeds = 15 cells. Wall 36.7 min.
