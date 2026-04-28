@@ -1492,7 +1492,25 @@ def build_summary(payload: dict[str, Any]) -> dict[str, Any]:
 
     positive_direction_seeds = int(sum(float(value) > 0.0 for value in best_values.values()))
 
-    if (
+    # Cycle 60 SEV-7 gate: any unmatched alt donor downgrades verdict to
+    # SENSITIVITY_ONLY. Unmatched donors cannot relock or reject C22 under
+    # the original matched-parity rule; only the NLL x Delta scatter framing
+    # (separate post-hoc analysis) can produce a defensible identity verdict.
+    alt_match_status = {
+        label: payload.get("target_npz", {}).get(label, {}).get("metadata", {}).get("matched_target")
+        for label in ALT_ARM_LABELS
+    }
+    has_unmatched_alt = any(status is not True for status in alt_match_status.values())
+    if has_unmatched_alt:
+        status = "sensitivity_only_unmatched_alt_donors"
+        verdict = (
+            "SENSITIVITY_ONLY: one or more alternative donors missed the held-out C4 "
+            "NLL target, so this run cannot relock donor-identity specificity. "
+            f"Qwen3-minus-best-alt margin={margin_mean:+.3f} nats with 95% CI "
+            f"[{margin_lo:+.3f}, {margin_hi:+.3f}]; report as undertrained-alt "
+            "sensitivity unless an NLL x delta prediction-interval analysis is added."
+        )
+    elif (
         criteria["mean_qwen3_minus_best_alt_le_0p2_nats"]
         or criteria["paired_bootstrap_ci_crosses_zero"]
         or criteria["best_alt_gain_ge_80pct_reference_qwen3_gain"]
