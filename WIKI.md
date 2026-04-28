@@ -44,10 +44,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
-**Sequencing locked:**
-1. **g173 cross-arch FLOP cash-out** — launches IMMEDIATELY after g177v2 completes regardless of verdict. The only queued test that attacks A6 (single-family basin). 3.85h hard envelope.
-2. **g179 λ-sweep + Hessian/gradient-donor projection** — first-principles derivation test (NEW per cycle 63 Q2). Tests basin-of-attraction framework: NLL gain ≈ Σ[g_i·a_i − 0.5·h_i·a_i²] with a_i(λ)=λ/(h_i+λ)·z_i. λ ∈ {0.0003, 0.0013, 0.003, 0.01, 0.03} × 1-2 seeds. <4h. PASS = derivation backbone confirmed, the "distinctive move big labs won't publish" per CLAUDE.md §0.1. Order: AFTER g173 PASS (cycle 63: "g178 risks making a detailed map of a Qwen3-family basin" before cross-arch survives).
-3. **g178 layer-family C18 decomposition** — DEFERRED until g173 + g179 complete. Cycle 63: g178 is "explanatory, not decisive"; only worth running once basin-attack and derivation are passed. If g173 FAIL, redesign g178 as failure autopsy with cross-arch donors instead.
+**Sequencing locked (post-g177v2-FAIL revision per advisor 2026-04-28 ~08:50):**
+1. **g173 cross-arch FLOP cash-out** RUNNING — the A6 cross-architecture test. Even more necessary post-g177v2 FAIL: the story can no longer lean on donor identity, so it needs cross-arch functional transfer + FLOP cash-out. 3.85h hard envelope.
+2. **g180 Genome Forecast — early-checkpoint destiny predictor (NEW, advisor pick 8.6/10)** — biggest §0.1 uplift candidate. Use ≤3% training checkpoints + activation-spectrum/geometry features to predict final run quality better than early loss. Cross-arch from start (Qwen3/Llama/RWKV/Falcon-H1). Compute-saving claim is product-grade — diagnostic + efficiency double-aligned with CLAUDE.md §0.05/§0.1. Non-obvious pivot less likely to be subsumed by big-lab work. Order: AFTER g173 verdict.
+3. **g179 λ-sweep + Hessian projection** — first-principles derivation test (basin-of-attraction). Tests Δ_NLL ≈ Σ[g_i·a_i − 0.5·h_i·a_i²] with a_i(λ)=λ/(h_i+λ)·z_i. λ ∈ {0.0003, 0.0013, 0.003, 0.01, 0.03} × 1-2 seeds. <4h. Order: gates after g173+g180 if both PASS.
+4. **g178 layer-family C18 decomposition** — DEFERRED indefinitely. Within-family explanatory work; both advisor and cycle 63 say "maps a Qwen3-family basin" without decisive uplift. Reconsider only if g173+g180+g179 all stall.
+
+**g177v2 NLL × Δ scatter formal verdict (advisor 08:48):** Fit `Δ = 3.116 − 0.362·NLL`. At Qwen3 NLL=3.565, predicted Δ=+1.825, 95% PI = [-0.998, +4.648] (huge due to df=1, 3 alt donors clustered at NLL ~5.72). **Qwen3's observed +1.087 is INSIDE PI and even below the point estimate.** Identity-residual NOT confirmed. C22 fully REJECTED, not just downgraded.
 
 **Moat (cycle 63 Q3):** the adversarial negative-control discipline — "random-init recipient + continuous donor constraint + matched nulls + kill criteria, trained structure works as an active basin force during SGD while zero-step transplant and decay fail." Big labs optimize deployed transfer; they don't publish adversarial nulls.
 
