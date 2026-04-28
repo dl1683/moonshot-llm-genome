@@ -1,0 +1,75 @@
+You are Architecture Theorist + Competitive Analyst for the Neural Genome moonshot.
+
+**OUTPUT FORMAT: write content directly to file, no meta-pointer.**
+
+**This is a DESIGN GATE for g180 Genome Forecast.** Per advisor 8.6/10 score (`codex_outputs/g177v2_advisor_20260428T084828.md`): "early-checkpoint destiny predictor — use ≤3% training checkpoints + activation-spectrum/geometry features to predict final run quality, bad-run risk, or winner arm better than early loss alone. Cross-architecture from start using existing Qwen/Llama/RWKV-style logs plus cheap fresh runs."
+
+The advisor proposed it but didn't specify the design. **Your job is to specify it.**
+
+## Read first
+- `codex_outputs/g177v2_advisor_20260428T084828.md` (the proposal)
+- `WIKI.md` (CURRENT STATUS)
+- `code/genome_165_annealed_donor.py` + `code/genome_173_cross_arch_flop_cashout.py` (existing checkpoint logging patterns)
+- `results/genome_173_run.log` (live cells producing per-step training logs we could use)
+- Existing atlas measurement primitives in `research/MEASUREMENT_PRIMITIVES.md`
+
+## Q1: Features
+What activation-spectrum / geometry features should we extract at the early checkpoint? Candidates:
+- Singular value spectrum of last-layer hidden states (rate of decay)
+- TwoNN intrinsic dimensionality
+- Procrustes distance to a reference trained checkpoint
+- kNN-10 clustering coefficient (we already have this primitive)
+- Loss curvature (Hessian top-k eigenvalues)
+- Gradient-noise ratio
+- Layer-norm scale / variance ratios across layers
+
+Pick 5-8 features that span DIFFERENT geometric properties and that can be computed in ≤30s on a 500M-param model. Justify cross-architecture validity (do they work on Qwen/Llama/RWKV/Falcon-H1?).
+
+## Q2: Labels
+What's the training-outcome label we're predicting? Candidates:
+- Final C4 NLL (continuous)
+- Final C3_macro accuracy (continuous)
+- Final NLL beats baseline by >X (binary)
+- Arm-winner identity (categorical, e.g., g173 has 6 arms)
+
+Pick the label that gives a CLEAR product-grade claim (compute saving) without requiring labels we don't have.
+
+## Q3: Architecture span
+We have completed runs on Qwen3-arch (g165/g167/g172/g173/g174/g177/g177v2) and Llama-arch (g173 in flight). RWKV and Falcon-H1 results exist for atlas work but no recipient-training experiments. To make g180 cross-architectural, do we need fresh RWKV/Falcon-H1 recipient runs (compute cost!), or can we use existing logs?
+
+## Q4: Pass criteria
+Define the PASS threshold. Candidates:
+- "early features predict final NLL with R² ≥ 0.7 on held-out architectures"
+- "early features beat 'predict from early loss alone' baseline by ≥ 20% in MSE"
+- "early features identify the winning arm in g173 with ≥ 80% accuracy from step ≤ 200"
+
+Pick a criterion that is SHARP, defensible, and product-grade.
+
+## Q5: Envelope
+Estimate total compute. Use existing cells as data; minimize fresh runs. Should fit ≤4h envelope including feature extraction + regression fit.
+
+## Output
+
+```
+# g180 Genome Forecast Design Gate
+
+## Features (5-8 picks with justification)
+...
+
+## Labels (1 pick with justification)
+...
+
+## Architecture span (use of existing logs vs fresh runs)
+...
+
+## Pass criteria (sharp threshold)
+...
+
+## Envelope estimate
+...
+
+## Risks
+[1-2 things that could derail this]
+```
+
+Under 700 words. Output to `codex_outputs/heartbeats/cycle66_direction_review_20260428T093500.md`.

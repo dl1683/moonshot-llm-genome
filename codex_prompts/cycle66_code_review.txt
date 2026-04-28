@@ -1,0 +1,27 @@
+You are Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+**OUTPUT FORMAT: write the actual review content directly to the output file. NO meta-pointer messages.**
+
+This is a **deep pre-launch audit** of `code/genome_181a_tokenizer_isolation.py` (Codex-written 1120 lines, fresh today). g181a is the cycle 65 9/10 resolving experiment — if it has bugs, we waste 2.6h and a critical attack survives unanswered.
+
+## Specific concerns to verify
+
+1. **λ normalization correctness.** Per design: λ_3 = λ_full × √(F²_full / F²_embed) and λ_4 = λ_full × √(F²_full / F²_no_embed). Initial gradient ‖∇L_anchor‖ = 2λd where d = donor − init. So matched-grad-norm at init requires λ × d_subset = λ_full × d_full ⇒ λ_subset = λ_full × ‖d_full‖ / ‖d_subset‖ = λ_full × √(F²_full / F²_subset). Verify the script computes this correctly. Specifically check the SQRT — squared-distance ratio (not sqrt) was the bug Codex flagged in g177v2 cycle 57.
+
+2. **Parameter masking correctness.** `embed_lm_head_only_anchor` should anchor ONLY embed_tokens.weight + lm_head.weight (and NOT include them in any partial). `no_embed_lm_head_anchor` should be the EXACT complement. Verify masking logic uses parameter NAME matching, not index — Qwen3 model module ordering is not guaranteed stable. Verify tied weights handled (Qwen3-0.6B may tie embed and lm_head).
+
+3. **Frobenius² breakdown sanity.** Sum F²_embed + F²_no_embed should equal F²_full ± floating point noise (≤1e-6 relative error). If not, masking has overlap or gaps.
+
+4. **CE loss isolation.** All arms should use IDENTICAL CE loss path; only the anchor term differs. Verify scratch_ce has λ=0 on all anchors; full_anchor has λ=0.01 on all params; arm 3/4 use the masking.
+
+5. **Build summary verdict logic.** PASS / FAIL_TOKENIZER / INTERMEDIATE per the prereg. Verify FAIL_TOKENIZER triggers when arm 3 ≥ +0.5 AND arm 4 < +0.3. Verify "arm 4 minus arm 3 CI excludes zero" check uses paired bootstrap or paired-t.
+
+6. **Data overlap.** Should g181a use the SAME C4 train+eval seeds as g165 (for direct comparability)? Check what the script uses.
+
+7. **Wall-clock estimate.** Codex said ~10200s. Verify by counting: 4 arms × 3 seeds × 2000 steps × 0.4s = 9600s + overhead. If true wallclock will be >14400s, flag.
+
+8. **Resume support.** Does the script support per-cell resume on crash?
+
+For any severity ≥7 finding, give the EXACT line numbers + EXACT code change. Report under 600 words.
+
+Output to `codex_outputs/heartbeats/cycle66_code_review_20260428T093500.md`. Write content directly.
