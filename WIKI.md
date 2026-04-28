@@ -99,6 +99,34 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **★ STRATEGIC PIVOT 2026-04-27 (cycle 24 Codex direction review):** The §0 capability-transfer axis SHOULD REPLACE the architecture-prior axis as the primary research line. The architecture-prior chain (g138-g160) is now a feeder/cash-out branch, not the discovery branch. **First post-g158c GPU slot is LOCKED to the annealed-donor / decaying-anchor washout test (g165) — PASS=7.3/10**, higher than Path A (6.8) and B (6.4), and unlike Path C (8.2, hardware-blocked) g165 is RUNNABLE NOW.
 
+**★ g169 FAILED 2026-04-27 ~22:30 UTC: activation-level scaffold with decay is dead.**
+
+g169 ScaffoldSwap (mix donor activations into recipient forward at each block, h_mix = recipient + α(t)*(donor-recipient).detach() — gradient-preserving form per cycle 36 SEV9 fix). 5 arms × 3 seeds = 15 cells. Wall 36.7 min.
+
+| Arm | Mean Δ vs scratch (nats) |
+|---|---:|
+| scaffold_step | **-0.388** |
+| scaffold_linear | -0.207 |
+| scaffold_exponential | -0.119 (best decay) |
+| constant_full (no recipient training) | -5.38 (excluded from PASS) |
+
+**ALL 3 decay schedules WORSE than scratch.** No PASS arms, no WEAK arms.
+
+**Theoretical pattern across 4 experiments now LOCKED:**
+
+| Mechanism | Schedule | Outcome |
+|---|---|---|
+| Weight Frobenius anchor (g165) | constant λ | **PASS** at +1.088 nats |
+| Weight Frobenius anchor (g165) | decay (step/linear/exp) | **FAIL** |
+| Zero-step weight transplant (g168) | N/A (zero-step) | **FAIL** |
+| Activation scaffold (g169) | decay (step/linear/exp) | **FAIL** |
+
+**Active ingredient empirically locked:** **continuous optimization constraint during SGD**, not donor weights/activations as initialization or warm-up. Decay schedules wash out at every level tested (weight, activation). Zero-step weight injection has no effect even with full alignment.
+
+§0 implication: "cheap capability transfer" is achievable BUT requires ongoing donor-anchored regularization throughout training. NOT a one-shot warm-up + free training.
+
+Source: `results/genome_169_scaffold_swap_distillation.json`.
+
 **★ g168 FAILED 2026-04-27 ~20:50 UTC: zero-step alignment-based transfer is dead.**
 
 g168 re-basin + norm-refit zero-step transplant FAILed at all 4 transplant arms.
