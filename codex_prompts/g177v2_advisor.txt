@@ -1,0 +1,26 @@
+Read `results/genome_177_matched_alt_donor.json` (the actual numbers, not just the verdict label), `WIKI.md` (CURRENT STATUS block + cycle 60 limitations A5/A6), `research/CLAIM_EVIDENCE_MAP.md` (especially the C22 reframed row + A5 + A6 audit findings), `research/prereg/genome_177_matched_alt_donor_2026-04-28.md` (locked + 2 addenda — pass criteria are now NLL × Δ scatter PI, NOT raw margin), and the last 3 ledger entries in `experiments/ledger.jsonl`.
+
+The user wants POWERFUL next directions, not obvious follow-ups in the existing chain.
+
+## Specific tasks
+
+1. **Compute the NLL × Δ scatter analysis** the cycle 60 direction review demanded:
+   - Per-donor (NLL, Δ_mean) for {alt_1234, alt_5678, alt_9999, qwen3} where Δ = anchor_X_donor mean C4 NLL gain vs scratch
+   - Linear fit on the 3 alt donors. Extrapolate to Qwen3's NLL ~3.55. Compute 95% prediction interval.
+   - Verdict: does Qwen3's observed Δ lie above the upper PI? If yes → identity-residual confirmed. If no → undertraining-dominant.
+   - Express the result in a short table.
+
+2. **Score 5 candidate next-experiments by §0.1-uplift potential** (1-10):
+   - g173 cross-arch FLOP cash-out (envelope-fixed, ready to launch)
+   - g178 layer-family C18 decomposition (cheap-leverage scout, <1 GPU-hour)
+   - g177c (run g177v2 again with one intermediate-NLL donor at NLL ~4.5 via 30k pretrain steps OOE; would relock C22 if PASS; ~5h compute)
+   - g172b matched-compute null for C20 late-KD (per A5 audit; ~2h compute)
+   - One non-obvious candidate of YOUR choice that is NOT a continuation of the current chain — a sneaky high-leverage experiment we haven't considered
+
+3. **Pick the highest-leverage one.** Explain why it beats the obvious continuation. Consider:
+   - Available without wall-power meter
+   - Cycle 60 §0.1 ceiling 5.8/10 expected uplift — what beats this?
+   - Single-architecture limitation (A6) — does the candidate address it?
+   - g173 was already prioritized in cycle 60; is it still the right move given the new g177v2 numbers?
+
+Report under 600 words. Output to `codex_outputs/g177v2_advisor_<TIMESTAMP>.md`. Write the actual content of the advisor analysis to that file — do NOT write a meta-pointer message.
