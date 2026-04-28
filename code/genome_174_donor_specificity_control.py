@@ -844,6 +844,7 @@ def precompute_random_teacher_topk_cache(
     train_mask: torch.Tensor,
     *,
     train_signature: str,
+    vocab_size: int,
 ) -> dict[str, Any]:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_path = CACHE_DIR / (
@@ -865,13 +866,22 @@ def precompute_random_teacher_topk_cache(
     topk_logits = torch.empty((n_windows, n_pos, g167.KD_TOPK), dtype=torch.bfloat16)
     t0 = time.time()
 
+    # Crash fix 2026-04-28 (PART B kd_random_teacher CUDA scatter/gather OOB):
+    # Qwen3 tokenizer len(tok) is smaller than model.config.vocab_size (padded).
+    # Trained teacher learns to put zero/low mass on padding tokens; random
+    # teacher does NOT, so its topk can land in [vocab_size, model_vocab) which
+    # is out of bounds for the student's lm_head (which has dim = vocab_size).
+    # Mask logits above vocab_size to -inf before topk to keep indices in range.
     with torch.inference_mode():
         for start in range(0, n_windows, g167.TRAIN_BATCH_SIZE):
             ids = train_ids[start : start + g167.TRAIN_BATCH_SIZE].to(DEVICE)
             mask = train_mask[start : start + g167.TRAIN_BATCH_SIZE].to(DEVICE)
             with g167.autocast_context():
                 logits = teacher(input_ids=ids, attention_mask=mask, use_cache=False).logits
-            values, indices = logits[:, :-1].contiguous().float().topk(g167.KD_TOPK, dim=-1)
+            valid_logits = logits[:, :-1].contiguous().float()
+            if valid_logits.shape[-1] > vocab_size:
+                valid_logits[..., vocab_size:] = float("-inf")
+            values, indices = valid_logits.topk(g167.KD_TOPK, dim=-1)
             batch_n = ids.shape[0]
             topk_idx[start : start + batch_n] = indices.to(torch.int32).cpu()
             topk_logits[start : start + batch_n] = values.to(torch.bfloat16).cpu()
@@ -1300,6 +1310,7 @@ def run_part_b(payload: dict[str, Any], *, t_start: float) -> None:
         train_ids,
         train_mask,
         train_signature=train_signature,
+        vocab_size=vocab_size,
     )
     payload["part_b"]["cache_meta"]["random_teacher"] = {
         "path": random_cache["path"],
