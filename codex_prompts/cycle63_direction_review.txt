@@ -1,0 +1,38 @@
+You are Architecture Theorist + Competitive Analyst for the Neural Genome moonshot.
+
+**Cycle 60 direction review already covered g177v2 reframe + g173 unconditional + g178 layer-family.** This cycle 63 review is FORWARD-LOOKING from a DIFFERENT angle.
+
+## Question 1: g173 vs g178 sequencing
+
+Both are queued post-g177v2:
+- **g173** cross-arch FLOP cash-out: 6 arms × 3 seeds, 3.85h hard wall-clock. Tests cross-architecture (A6 same-family-basin attack from cycle 60 adversarial). §0.1 uplift if PASS: 8.0-8.4.
+- **g178** layer-family C18 decomposition: ~2h estimated. Tests "where donor structure lives" (attention-only / MLP-only / embed/head). Within-family scope. §0.1 uplift estimated 6.5-7.0.
+
+Sequencing options:
+(a) g173 first, then g178 (cycle 60's implicit recommendation)
+(b) g178 first, then g173 (cheap-leverage first)
+(c) g178 in parallel during g177v2 main cells (g177v2 finishes in ~25 min) — wait that doesn't work, GPU contention
+(d) Some other ordering
+
+Pick one with reasoning under 150 words.
+
+## Question 2: First-principles derivation status
+
+Per CLAUDE.md §0.1: "First-principles derivation of the trained-manifold invariant" is one of three distinctive moves big labs won't publish. Currently we have:
+- Empirical: continuous Frobenius weight-anchor produces persistent capability transfer at λ=0.01 (g165 +1.087 nats)
+- No derivation yet: WHY does λ=0.01 specifically? Why does Frobenius distance produce ~1 nat per unit donor structure?
+
+Sketch in 200 words: what mathematical framework would derive the relationship Δ_NLL ≈ f(λ, ‖θ_donor − θ_random‖)? Candidate frameworks:
+- Rate-distortion: donor parameters encode posterior distribution; anchor cost = KL bound
+- Basin-of-attraction (Anandkumar / Saxe): linear-network analogue with eigenvalue spectrum of anchor force
+- PAC-Bayesian: Frobenius distance bounds generalization gap of recipient
+
+Which framework is most likely to produce a falsifiable prediction we could test in <4 GPU-hours?
+
+## Question 3: Competitive landscape (forward 6 months)
+
+What papers would LIKELY appear at NeurIPS/ICLR/ICML 2026 that could SUBSUME or LEAPFROG our donor-anchor / KD transfer findings? Recent threads to check: "model souping" papers, "knowledge transfer" benchmarks, weight-init research, distillation efficiency papers.
+
+What's the moat we still have that the field is unlikely to cover? Be specific.
+
+Output content directly to file. Under 600 words total.

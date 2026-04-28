@@ -1,0 +1,29 @@
+You are Correctness Engineer + Anti-Entropy Engineer for the Neural Genome moonshot.
+
+**This is NOT another bug review of g177v2 (cycle 60 already did that — SEV 7 patched). This is an ANTI-ENTROPY pass.** The repo has been growing fast: ~30 genome_*.py scripts, ~25 result JSONs, 13GB results/, multiple research/ subdirs.
+
+Per CLAUDE.md §3 ("Codex is explicitly empowered to delete, merge, consolidate, rename. Deletion is a KPI."), audit the repo and propose AT MOST 5 concrete deletions/consolidations/merges. Be specific: full file path + reason.
+
+## Specific targets to consider
+
+1. **Stale code/genome_*.py scripts** — any whose result is REJECTED in CLAIM_EVIDENCE_MAP and whose code is no longer referenced by any other genome_*.py? Candidates per `research/CLAIM_EVIDENCE_MAP.md` §3 rejected list: R7 (g157, g157b), R8 (g160), R9/R9b (g168, g169), R10 (g170). Any of these import/reference each other?
+
+2. **results/cache/ files** — `genome_174_random_teacher_topk_cache_*.pt` (802MB) is for g174 PART B random-teacher experiment which is DONE. Still referenced by any code? If not, deletion saves 802MB.
+
+3. **results/genome_156_checkpoints/** (4.4GB) — g156 PASSed; intermediate checkpoints were for resume. Any path that still uses them? If not, delete.
+
+4. **results/genome_174_targets/** (4.5GB) and **results/genome_175_targets/** (2.3GB) — NPZ donor weights from g174 / g175. Still used by g177v2 (currently RUNNING) or other queued experiments?
+
+5. **research/ scratch documents** — any uppercase-snake-case .md that has been superseded by CLAIM_EVIDENCE_MAP / WIKI but is still cluttering the directory?
+
+6. **Duplicate functionality** — genome_167 / genome_172 / genome_174 / genome_177 all have similar KD / anchor scaffolding. Has the duplication crossed the threshold where extracting a shared `genome_kd_anchor_lib.py` would reduce entropy?
+
+For each proposal, rate severity: HIGH (≥1GB or significantly reduces complexity), MEDIUM (improves clarity), LOW (cosmetic).
+
+Output ONLY the deletion proposals, no preamble. Format:
+```
+1. [PATH] — [reason] — severity: HIGH/MEDIUM/LOW
+2. ...
+```
+
+Under 400 words. Output content directly to file (do not write a meta-pointer message).
