@@ -44,8 +44,21 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
+**★ g173 VERDICT: INTERMEDIATE (FAIL on locked criterion, scientific PASS in GAIN units) — 2026-04-28 ~13:00 UTC ★**
+
+| Arm | C3 mean | Gain |
+|---|---:|---:|
+| scratch_ce_llama (173M) | 39.87% | — |
+| **kd_logit_llama** | **42.16%** | **+2.29pp** |
+| kd_late_only_llama | 41.18% | +1.31pp (57% retention) |
+| scratch_ce_qwen_arch (596M) | 40.91% | — |
+| kd_logit_qwen_arch | 41.71% | +0.80pp |
+| kd_late_only_qwen_arch | 41.31% | +0.40pp (50% retention) |
+
+Teacher c3_macro 54.53%. **Llama-arch student gets 2.86× the KD lift of Qwen-arch student.** Locked PASS criterion (final-accuracy ratio ≥1.5x) fails because both land at ~40-42%, but cross-arch transfer is real in GAIN units. Late-KD survives cross-arch at 50-57% (vs g172's 69% within-Qwen3-arch). §0.1 honest read drops from cycle-60-projected 8.0-8.4 → **6.0-6.5** (cross-arch transfer works but at small absolute scale, students still 12-14pp below teacher). Source: `results/genome_173_cross_arch_flop_cashout.json`.
+
 **Sequencing locked (post-cycle-65 revision 2026-04-28 ~09:20):**
-1. **g173 cross-arch FLOP cash-out** RUNNING — A6 cross-architecture test. ~3.85h.
+1. **~~g173~~ DONE INTERMEDIATE** — see verdict block above.
 2. **g181a tokenizer-isolation control (NEW, cycle 65 9/10 attack)** — CRITICAL. Tests whether the surviving "+1 nat" claim is just Qwen3-tokenizer-prior. 4 arms × 3 seeds × 2000 steps = ~2.6h. Survives only if no_embed_lm_head_anchor retains ≥+0.5 nats AND beats embed-only by ≥+0.3 nats. **If FAIL → C18+C19+C21 collapse to "Qwen3-tokenizer init artifact."**
 3. **g181b long-horizon (cycle 65 8/10 attack)** — scratch + full_anchor × 3 seeds × 5000 steps = ~3.3h. Survives only if gap at step 5000 ≥+0.5 nats. **If FAIL → claim narrows to "short-horizon acceleration" only.** Order: AFTER g181a survives.
 4. **g180 Genome Forecast (advisor pick 8.6/10)** — biggest §0.1 uplift candidate. NEW direction: early-checkpoint destiny predictor. Cross-arch from start. **Order: gated on g181a+g181b survival.** If g181 series kills the transfer claim, g180 becomes the pivot anyway.

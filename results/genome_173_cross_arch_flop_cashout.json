@@ -1,0 +1,3154 @@
+{
+  "genome": 173,
+  "name": "cross_arch_flop_cashout",
+  "timestamp_utc": "2026-04-28T17:00:40.755334+00:00",
+  "teacher_model_id": "Qwen/Qwen3-0.6B",
+  "device": "cuda",
+  "forward_dtype": "torch.bfloat16",
+  "recipient_param_dtype": "torch.float32",
+  "config": {
+    "seeds": [
+      42,
+      7,
+      13
+    ],
+    "seq_len": 256,
+    "train_batch_size": 8,
+    "eval_batch_size": 8,
+    "train_steps": 3600,
+    "lr": 0.0003,
+    "lr_warmup_steps": 200,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.1,
+    "grad_clip": 1.0,
+    "n_train_windows": 8192,
+    "n_c4_val_windows": 1000,
+    "n_c3_per_task": 500,
+    "kd_top_k": 64,
+    "kd_temp": 2.0,
+    "kd_gamma": 0.5,
+    "kd_full_start_step": 1,
+    "kd_late_start_step": 2401,
+    "kd_late_end_step": 3600,
+    "c4_train_seed": 167001,
+    "c4_val_seed": 167101,
+    "c3_eval_seeds": {
+      "hellaswag": 173401,
+      "piqa": 173402,
+      "winogrande": 173403
+    },
+    "arm_specs": [
+      {
+        "label": "scratch_ce_llama",
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "description": "Llama-arch student trained from scratch with CE only.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        }
+      },
+      {
+        "label": "kd_logit_llama",
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "description": "Llama-arch student with CE + top-k logit KD from Qwen teacher.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        }
+      },
+      {
+        "label": "kd_late_only_llama",
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "description": "Llama-arch student trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        }
+      },
+      {
+        "label": "scratch_ce_qwen_arch",
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "description": "Qwen3-arch student control trained from scratch with CE only.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        }
+      },
+      {
+        "label": "kd_logit_qwen_arch",
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "description": "Qwen3-arch student control with CE + top-k logit KD.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        }
+      },
+      {
+        "label": "kd_late_only_qwen_arch",
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "description": "Qwen3-arch student control trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        }
+      }
+    ],
+    "pass_criteria_revised_cycle54_g175": {
+      "llama_kd_retention_vs_qwen_kd_ge": 0.75,
+      "cross_arch_transfer_ratio_ge": 2.5,
+      "llama_late_kd_retention_vs_full_kd_ge": 0.85,
+      "llama_late_kd_compute_fraction_le": 0.3333333333333333,
+      "all_seeds_positive_direction_on_each_component": true
+    },
+    "diagnostic_thresholds": {
+      "matched_compute_fraction_le_equivalent_to_2p5x": 0.4
+    },
+    "fail_floor_revised_cycle54_g175": {
+      "llama_kd_retention_vs_qwen_kd_lt": 0.5,
+      "cross_arch_transfer_ratio_lt": 1.5,
+      "llama_late_kd_retention_vs_full_kd_lt": 0.7
+    },
+    "compute_envelope": {
+      "expected_wall_hours": 3.47,
+      "soft_hours": 3.5,
+      "hard_hours": 3.85,
+      "budget_breakdown": {
+        "wall_clock_limit_s": 14400,
+        "train_steps_per_cell": 3600,
+        "arms": 6,
+        "seeds": 3,
+        "cells": 18,
+        "expected_cell_wall_s": 660,
+        "hard_cell_wall_s": 720,
+        "expected_cells_wall_s": 11880,
+        "hard_cells_wall_s": 12960,
+        "expected_shared_setup_teacher_cache_s": 600,
+        "hard_shared_setup_teacher_cache_s": 900,
+        "expected_total_s": 12480,
+        "hard_total_s": 13860,
+        "teacher_cache_policy": "eager once before arm loop; prefer g167 cache hit, otherwise write one g173 cache and reuse across all KD arms"
+      },
+      "max_vram_gb": 22.0,
+      "checkpoint_resume": true
+    },
+    "notes": [
+      "Teacher cache train signature intentionally matches genome_167 so cached top-k logits can be reused.",
+      "Shared Qwen tokenizer means embedding / lm_head parameters dominate total student params; this is expected.",
+      "Matched-capability compute divides standalone total FLOPs by retention_vs_qwen_kd.",
+      "Late-KD arms use the same batch schedule and activate KD only on steps 2401-3600.",
+      "Standalone late-KD compute includes schedule-effective teacher-cache FLOPs; full-cache reuse is also logged.",
+      "Envelope fix keeps all 6 arms and all 3 seeds; only the per-cell step horizon is reduced."
+    ]
+  },
+  "data": {
+    "train": {
+      "dataset_name": "allenai/c4",
+      "config_name": "en",
+      "split": "train",
+      "seed": 167001,
+      "n_windows": 8192,
+      "seq_len": 256,
+      "sampling": "document_random_window",
+      "prefix_dedup": true,
+      "forbidden_overlap_rejects": 0
+    },
+    "c4_val": {
+      "dataset_name": "allenai/c4",
+      "config_name": "en",
+      "split": "validation",
+      "seed": 167101,
+      "n_windows": 1000,
+      "seq_len": 256,
+      "sampling": "document_random_window",
+      "prefix_dedup": true,
+      "forbidden_overlap_rejects": 8
+    },
+    "train_13gram_hash_count": 1989779
+  },
+  "c3_eval_meta": {
+    "hellaswag": {
+      "n_items": 500,
+      "n_choices_total": 2000,
+      "forward_tokens": 162509
+    },
+    "piqa": {
+      "n_items": 500,
+      "n_choices_total": 1000,
+      "forward_tokens": 30987
+    },
+    "winogrande": {
+      "n_items": 500,
+      "n_choices_total": 1000,
+      "forward_tokens": 23053
+    }
+  },
+  "teacher_cache": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\results\\cache\\genome_167_teacher_topk_cache_e54a091b858fddeb.pt",
+    "cache_hit": true,
+    "cache_source": "genome_167",
+    "shared_with_genome_167": true,
+    "estimated_bytes": 802160640,
+    "estimated_gib": 0.7470703125,
+    "train_signature": "e54a091b858fddeb1d449b256facc25407d2bb6b",
+    "teacher_cache_flops": 2500014563655680,
+    "teacher_cache_pflops": 2.50001456365568,
+    "teacher_param_count": 596049920
+  },
+  "teacher_reference": {
+    "param_count": 596049920,
+    "c4_val": {
+      "nll": 3.565934451593137,
+      "top1_acc": 0.35179607843137256,
+      "n_tokens": 255000.0
+    },
+    "c3_val": {
+      "per_task": {
+        "hellaswag": 0.434,
+        "piqa": 0.662,
+        "winogrande": 0.54
+      },
+      "C3_macro": 0.5453333333333333,
+      "n_items_total": 1500,
+      "forward_tokens_measured": 216549
+    }
+  },
+  "results": {
+    "scratch_ce_llama": {
+      "42": {
+        "seed": 42,
+        "arm_label": "scratch_ce_llama",
+        "description": "Llama-arch student trained from scratch with CE only.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.057901859283447,
+            "kd_loss": null,
+            "total_loss": 6.057901859283447,
+            "elapsed_s": 107.77363419532776
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.112679958343506,
+            "kd_loss": null,
+            "total_loss": 6.112679958343506,
+            "elapsed_s": 215.61331701278687
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.299021244049072,
+            "kd_loss": null,
+            "total_loss": 5.299021244049072,
+            "elapsed_s": 323.32981610298157
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.563587188720703,
+            "kd_loss": null,
+            "total_loss": 5.563587188720703,
+            "elapsed_s": 387.9448173046112
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.0587055108762256,
+            "top1_acc": 0.16132549019607842,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.236,
+              "piqa": 0.494,
+              "winogrande": 0.462
+            },
+            "C3_macro": 0.3973333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 7821797649232896,
+          "standalone_full_cache_total_flops": 7821797649232896,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 7.821797649232896,
+          "standalone_full_cache_total_pflops": 7.821797649232896
+        },
+        "wallclock_s": 409.6987724304199
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "scratch_ce_llama",
+        "description": "Llama-arch student trained from scratch with CE only.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.301231384277344,
+            "kd_loss": null,
+            "total_loss": 6.301231384277344,
+            "elapsed_s": 107.52354526519775
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.725588321685791,
+            "kd_loss": null,
+            "total_loss": 5.725588321685791,
+            "elapsed_s": 215.04269528388977
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.908038139343262,
+            "kd_loss": null,
+            "total_loss": 5.908038139343262,
+            "elapsed_s": 323.0049910545349
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.7711029052734375,
+            "kd_loss": null,
+            "total_loss": 5.7711029052734375,
+            "elapsed_s": 388.23541021347046
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.047315973498774,
+            "top1_acc": 0.1610078431372549,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.234,
+              "piqa": 0.49,
+              "winogrande": 0.468
+            },
+            "C3_macro": 0.3973333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 7821797649232896,
+          "standalone_full_cache_total_flops": 7821797649232896,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 7.821797649232896,
+          "standalone_full_cache_total_pflops": 7.821797649232896
+        },
+        "wallclock_s": 409.97938323020935
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "scratch_ce_llama",
+        "description": "Llama-arch student trained from scratch with CE only.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.472444534301758,
+            "kd_loss": null,
+            "total_loss": 6.472444534301758,
+            "elapsed_s": 107.48787879943848
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.6840128898620605,
+            "kd_loss": null,
+            "total_loss": 5.6840128898620605,
+            "elapsed_s": 214.96148490905762
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.337673187255859,
+            "kd_loss": null,
+            "total_loss": 5.337673187255859,
+            "elapsed_s": 322.7125053405762
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.593602180480957,
+            "kd_loss": null,
+            "total_loss": 5.593602180480957,
+            "elapsed_s": 387.2591218948364
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.05226966528799,
+            "top1_acc": 0.1629921568627451,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.244,
+              "piqa": 0.492,
+              "winogrande": 0.468
+            },
+            "C3_macro": 0.4013333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 7821797649232896,
+          "standalone_full_cache_total_flops": 7821797649232896,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 7.821797649232896,
+          "standalone_full_cache_total_pflops": 7.821797649232896
+        },
+        "wallclock_s": 408.80656337738037
+      }
+    },
+    "kd_logit_llama": {
+      "42": {
+        "seed": 42,
+        "arm_label": "kd_logit_llama",
+        "description": "Llama-arch student with CE + top-k logit KD from Qwen teacher.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.067747116088867,
+            "kd_loss": 2.161437749862671,
+            "total_loss": 4.114592552185059,
+            "elapsed_s": 122.62557601928711
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.112998008728027,
+            "kd_loss": 2.1823182106018066,
+            "total_loss": 4.147658348083496,
+            "elapsed_s": 245.0077030658722
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.165104389190674,
+            "kd_loss": 1.8814939260482788,
+            "total_loss": 3.523299217224121,
+            "elapsed_s": 367.5869860649109
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.44673490524292,
+            "kd_loss": 1.815103530883789,
+            "total_loss": 3.6309192180633545,
+            "elapsed_s": 441.2117304801941
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.842090946691177,
+            "top1_acc": 0.17913333333333334,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.25,
+              "piqa": 0.528,
+              "winogrande": 0.51
+            },
+            "C3_macro": 0.42933333333333334,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 10321812212888576,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 10.321812212888576,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 462.88332867622375
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "kd_logit_llama",
+        "description": "Llama-arch student with CE + top-k logit KD from Qwen teacher.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.24110746383667,
+            "kd_loss": 2.247135639190674,
+            "total_loss": 4.244121551513672,
+            "elapsed_s": 122.6384027004242
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.730181694030762,
+            "kd_loss": 1.9504698514938354,
+            "total_loss": 3.8403258323669434,
+            "elapsed_s": 245.44837164878845
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.776824474334717,
+            "kd_loss": 1.7558157444000244,
+            "total_loss": 3.76632022857666,
+            "elapsed_s": 368.16435146331787
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.633470058441162,
+            "kd_loss": 1.6219720840454102,
+            "total_loss": 3.627721071243286,
+            "elapsed_s": 441.7460267543793
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.813002650122549,
+            "top1_acc": 0.17899607843137255,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.232,
+              "piqa": 0.524,
+              "winogrande": 0.488
+            },
+            "C3_macro": 0.4146666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 10321812212888576,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 10.321812212888576,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 463.38667273521423
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "kd_logit_llama",
+        "description": "Llama-arch student with CE + top-k logit KD from Qwen teacher.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.5116729736328125,
+            "kd_loss": 2.1905131340026855,
+            "total_loss": 4.351093292236328,
+            "elapsed_s": 122.91497945785522
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.674980640411377,
+            "kd_loss": 2.070010185241699,
+            "total_loss": 3.872495412826538,
+            "elapsed_s": 245.3680293560028
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.300103187561035,
+            "kd_loss": 1.5751807689666748,
+            "total_loss": 3.4376420974731445,
+            "elapsed_s": 367.73118138313293
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.4229841232299805,
+            "kd_loss": 1.9038430452346802,
+            "total_loss": 3.6634135246276855,
+            "elapsed_s": 441.23319578170776
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.8515320235906865,
+            "top1_acc": 0.17773333333333333,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.226,
+              "piqa": 0.538,
+              "winogrande": 0.498
+            },
+            "C3_macro": 0.4206666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 10321812212888576,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 10.321812212888576,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 463.08144092559814
+      }
+    },
+    "kd_late_only_llama": {
+      "42": {
+        "seed": 42,
+        "arm_label": "kd_late_only_llama",
+        "description": "Llama-arch student trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.057901859283447,
+            "kd_loss": null,
+            "total_loss": 6.057901859283447,
+            "elapsed_s": 107.49897503852844
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.112679958343506,
+            "kd_loss": null,
+            "total_loss": 6.112679958343506,
+            "elapsed_s": 215.06879448890686
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.401103973388672,
+            "kd_loss": 2.1273107528686523,
+            "total_loss": 3.764207363128662,
+            "elapsed_s": 331.47417736053467
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.529297828674316,
+            "kd_loss": 1.9525270462036133,
+            "total_loss": 3.740912437438965,
+            "elapsed_s": 405.0497040748596
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.936078626685049,
+            "top1_acc": 0.1714,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.248,
+              "piqa": 0.518,
+              "winogrande": 0.468
+            },
+            "C3_macro": 0.41133333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 8655135837118123,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 8.655135837118124,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 426.6811668872833
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "kd_late_only_llama",
+        "description": "Llama-arch student trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.301231384277344,
+            "kd_loss": null,
+            "total_loss": 6.301231384277344,
+            "elapsed_s": 107.5086579322815
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.725588321685791,
+            "kd_loss": null,
+            "total_loss": 5.725588321685791,
+            "elapsed_s": 214.86755204200745
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.956380367279053,
+            "kd_loss": 1.9421428442001343,
+            "total_loss": 3.9492616653442383,
+            "elapsed_s": 331.2383453845978
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.803574085235596,
+            "kd_loss": 1.7148730754852295,
+            "total_loss": 3.759223461151123,
+            "elapsed_s": 404.88554430007935
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.926902064185049,
+            "top1_acc": 0.17154901960784313,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.228,
+              "piqa": 0.52,
+              "winogrande": 0.49
+            },
+            "C3_macro": 0.4126666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 8655135837118123,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 8.655135837118124,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 426.51509261131287
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "kd_late_only_llama",
+        "description": "Llama-arch student trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 173117952,
+          "trainable_params": 173117952,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 56636160
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.472444534301758,
+            "kd_loss": null,
+            "total_loss": 6.472444534301758,
+            "elapsed_s": 107.21658968925476
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.6840128898620605,
+            "kd_loss": null,
+            "total_loss": 5.6840128898620605,
+            "elapsed_s": 214.3700020313263
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.4307332038879395,
+            "kd_loss": 1.7491484880447388,
+            "total_loss": 3.5899407863616943,
+            "elapsed_s": 330.5726923942566
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.535384178161621,
+            "kd_loss": 2.032170534133911,
+            "total_loss": 3.7837772369384766,
+            "elapsed_s": 404.1450991630554
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.9269079427083335,
+            "top1_acc": 0.17265098039215687,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.234,
+              "piqa": 0.52,
+              "winogrande": 0.48
+            },
+            "C3_macro": 0.41133333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7658184219033600,
+          "student_eval_flops": 163613430199296,
+          "student_eval_c4_flops": 88636391424000,
+          "student_eval_c3_flops": 74977038775296,
+          "program_contribution_flops": 7821797649232896,
+          "standalone_total_flops": 8655135837118123,
+          "standalone_full_cache_total_flops": 10321812212888576,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.6581842190336,
+          "student_eval_pflops": 0.163613430199296,
+          "program_contribution_pflops": 7.821797649232896,
+          "standalone_total_pflops": 8.655135837118124,
+          "standalone_full_cache_total_pflops": 10.321812212888576
+        },
+        "wallclock_s": 425.8301558494568
+      }
+    },
+    "scratch_ce_qwen_arch": {
+      "42": {
+        "seed": 42,
+        "arm_label": "scratch_ce_qwen_arch",
+        "description": "Qwen3-arch student control trained from scratch with CE only.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.005093097686768,
+            "kd_loss": null,
+            "total_loss": 6.005093097686768,
+            "elapsed_s": 108.92623209953308
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.075202465057373,
+            "kd_loss": null,
+            "total_loss": 6.075202465057373,
+            "elapsed_s": 217.70939421653748
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.205621719360352,
+            "kd_loss": null,
+            "total_loss": 5.205621719360352,
+            "elapsed_s": 326.5935468673706
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.4399189949035645,
+            "kd_loss": null,
+            "total_loss": 5.4399189949035645,
+            "elapsed_s": 392.0190815925598
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.042636086856618,
+            "top1_acc": 0.16334117647058824,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.234,
+              "piqa": 0.512,
+              "winogrande": 0.472
+            },
+            "C3_macro": 0.40599999999999997,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 7608648973048832,
+          "standalone_full_cache_total_flops": 7608648973048832,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 7.608648973048832,
+          "standalone_full_cache_total_pflops": 7.608648973048832
+        },
+        "wallclock_s": 416.3067820072174
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "scratch_ce_qwen_arch",
+        "description": "Qwen3-arch student control trained from scratch with CE only.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.287365913391113,
+            "kd_loss": null,
+            "total_loss": 6.287365913391113,
+            "elapsed_s": 108.73180508613586
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.698519706726074,
+            "kd_loss": null,
+            "total_loss": 5.698519706726074,
+            "elapsed_s": 217.4630889892578
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.806331634521484,
+            "kd_loss": null,
+            "total_loss": 5.806331634521484,
+            "elapsed_s": 326.5994472503662
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.599003791809082,
+            "kd_loss": null,
+            "total_loss": 5.599003791809082,
+            "elapsed_s": 391.89093232154846
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.00811107153799,
+            "top1_acc": 0.16650980392156864,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.234,
+              "piqa": 0.498,
+              "winogrande": 0.494
+            },
+            "C3_macro": 0.4086666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 7608648973048832,
+          "standalone_full_cache_total_flops": 7608648973048832,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 7.608648973048832,
+          "standalone_full_cache_total_pflops": 7.608648973048832
+        },
+        "wallclock_s": 416.24336981773376
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "scratch_ce_qwen_arch",
+        "description": "Qwen3-arch student control trained from scratch with CE only.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "observed_kd_steps": 0,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.419693946838379,
+            "kd_loss": null,
+            "total_loss": 6.419693946838379,
+            "elapsed_s": 109.3354856967926
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.608295917510986,
+            "kd_loss": null,
+            "total_loss": 5.608295917510986,
+            "elapsed_s": 219.287987947464
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.238901138305664,
+            "kd_loss": null,
+            "total_loss": 5.238901138305664,
+            "elapsed_s": 328.8289999961853
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.488265037536621,
+            "kd_loss": null,
+            "total_loss": 5.488265037536621,
+            "elapsed_s": 394.58777689933777
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 6.031472537530637,
+            "top1_acc": 0.16458823529411765,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.244,
+              "piqa": 0.478,
+              "winogrande": 0.516
+            },
+            "C3_macro": 0.4126666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 0,
+          "kd_compute_fraction_vs_full_kd": 0.0,
+          "teacher_cache_flops_included": 0,
+          "teacher_cache_flops_effective_by_schedule": 0,
+          "teacher_cache_flops_full_cache_if_reused": 0,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 7608648973048832,
+          "standalone_full_cache_total_flops": 7608648973048832,
+          "teacher_cache_pflops_included": 0.0,
+          "teacher_cache_pflops_effective_by_schedule": 0.0,
+          "teacher_cache_pflops_full_cache_if_reused": 0.0,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 7.608648973048832,
+          "standalone_full_cache_total_pflops": 7.608648973048832
+        },
+        "wallclock_s": 418.7249562740326
+      }
+    },
+    "kd_logit_qwen_arch": {
+      "42": {
+        "seed": 42,
+        "arm_label": "kd_logit_qwen_arch",
+        "description": "Qwen3-arch student control with CE + top-k logit KD.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.003362655639648,
+            "kd_loss": 2.105813503265381,
+            "total_loss": 4.054588317871094,
+            "elapsed_s": 126.19157528877258
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.022088050842285,
+            "kd_loss": 2.146284341812134,
+            "total_loss": 4.08418607711792,
+            "elapsed_s": 252.50294137001038
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.022997856140137,
+            "kd_loss": 1.7358028888702393,
+            "total_loss": 3.3794002532958984,
+            "elapsed_s": 378.7354681491852
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.335898399353027,
+            "kd_loss": 1.777559757232666,
+            "total_loss": 3.5567290782928467,
+            "elapsed_s": 454.5648910999298
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.7601976600796565,
+            "top1_acc": 0.18510980392156862,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.236,
+              "piqa": 0.52,
+              "winogrande": 0.516
+            },
+            "C3_macro": 0.424,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 10108663536704512,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 10.108663536704512,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 478.81093645095825
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "kd_logit_qwen_arch",
+        "description": "Qwen3-arch student control with CE + top-k logit KD.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.182626724243164,
+            "kd_loss": 2.2201168537139893,
+            "total_loss": 4.201371669769287,
+            "elapsed_s": 126.31281614303589
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.703488826751709,
+            "kd_loss": 1.8949615955352783,
+            "total_loss": 3.799225330352783,
+            "elapsed_s": 252.38192510604858
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.691598892211914,
+            "kd_loss": 1.6971864700317383,
+            "total_loss": 3.694392681121826,
+            "elapsed_s": 378.4388179779053
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.504186630249023,
+            "kd_loss": 1.5417262315750122,
+            "total_loss": 3.522956371307373,
+            "elapsed_s": 454.0137393474579
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.761199980851716,
+            "top1_acc": 0.1831764705882353,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.24,
+              "piqa": 0.522,
+              "winogrande": 0.498
+            },
+            "C3_macro": 0.42,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 10108663536704512,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 10.108663536704512,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 478.15411925315857
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "kd_logit_qwen_arch",
+        "description": "Qwen3-arch student control with CE + top-k logit KD.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "observed_kd_steps": 3600,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 6.427664279937744,
+            "kd_loss": 2.2010717391967773,
+            "total_loss": 4.31436824798584,
+            "elapsed_s": 126.68388199806213
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.546454429626465,
+            "kd_loss": 2.002366304397583,
+            "total_loss": 3.7744102478027344,
+            "elapsed_s": 255.33707308769226
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.2093963623046875,
+            "kd_loss": 1.5174310207366943,
+            "total_loss": 3.3634138107299805,
+            "elapsed_s": 382.6506197452545
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.172394275665283,
+            "kd_loss": 1.7267881631851196,
+            "total_loss": 3.4495911598205566,
+            "elapsed_s": 459.11117911338806
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.744994826133579,
+            "top1_acc": 0.18418431372549018,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.226,
+              "piqa": 0.494,
+              "winogrande": 0.502
+            },
+            "C3_macro": 0.4073333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 3600,
+          "kd_compute_fraction_vs_full_kd": 1.0,
+          "teacher_cache_flops_included": 2500014563655680,
+          "teacher_cache_flops_effective_by_schedule": 2500014563655680,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 10108663536704512,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 2.50001456365568,
+          "teacher_cache_pflops_effective_by_schedule": 2.50001456365568,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 10.108663536704512,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 483.2066056728363
+      }
+    },
+    "kd_late_only_qwen_arch": {
+      "42": {
+        "seed": 42,
+        "arm_label": "kd_late_only_qwen_arch",
+        "description": "Qwen3-arch student control trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.005093097686768,
+            "kd_loss": null,
+            "total_loss": 6.005093097686768,
+            "elapsed_s": 108.88249850273132
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.075202465057373,
+            "kd_loss": null,
+            "total_loss": 6.075202465057373,
+            "elapsed_s": 217.71402072906494
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.298876762390137,
+            "kd_loss": 2.0958526134490967,
+            "total_loss": 3.6973648071289062,
+            "elapsed_s": 336.8671214580536
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.445906162261963,
+            "kd_loss": 1.925735354423523,
+            "total_loss": 3.6858208179473877,
+            "elapsed_s": 412.60501313209534
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.901017995557598,
+            "top1_acc": 0.17478823529411766,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.226,
+              "piqa": 0.49,
+              "winogrande": 0.506
+            },
+            "C3_macro": 0.4073333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 8441987160934059,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 8.441987160934058,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 436.8129024505615
+      },
+      "7": {
+        "seed": 7,
+        "arm_label": "kd_late_only_qwen_arch",
+        "description": "Qwen3-arch student control trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.287365913391113,
+            "kd_loss": null,
+            "total_loss": 6.287365913391113,
+            "elapsed_s": 108.69643187522888
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.698519706726074,
+            "kd_loss": null,
+            "total_loss": 5.698519706726074,
+            "elapsed_s": 217.48530292510986
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.831326484680176,
+            "kd_loss": 1.8941556215286255,
+            "total_loss": 3.862740993499756,
+            "elapsed_s": 336.540424823761
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.646296501159668,
+            "kd_loss": 1.6617939472198486,
+            "total_loss": 3.6540451049804688,
+            "elapsed_s": 412.27029514312744
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.8365839652267155,
+            "top1_acc": 0.1774235294117647,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.232,
+              "piqa": 0.508,
+              "winogrande": 0.506
+            },
+            "C3_macro": 0.41533333333333333,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 8441987160934059,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 8.441987160934058,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 436.23251605033875
+      },
+      "13": {
+        "seed": 13,
+        "arm_label": "kd_late_only_qwen_arch",
+        "description": "Qwen3-arch student control trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "observed_kd_steps": 1200,
+        "param_info": {
+          "total_params": 168400384,
+          "trainable_params": 168400384,
+          "token_embedding_params": 116481792,
+          "non_embedding_params": 51918592
+        },
+        "train_log": [
+          {
+            "step": 1000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 6.419693946838379,
+            "kd_loss": null,
+            "total_loss": 6.419693946838379,
+            "elapsed_s": 110.39050078392029
+          },
+          {
+            "step": 2000,
+            "lr": 0.0003,
+            "phase": "ce_only",
+            "ce_loss": 5.608295917510986,
+            "kd_loss": null,
+            "total_loss": 5.608295917510986,
+            "elapsed_s": 221.79996871948242
+          },
+          {
+            "step": 3000,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.327118873596191,
+            "kd_loss": 1.681217074394226,
+            "total_loss": 3.5041680335998535,
+            "elapsed_s": 344.6609194278717
+          },
+          {
+            "step": 3600,
+            "lr": 0.0003,
+            "phase": "kd",
+            "ce_loss": 5.412717342376709,
+            "kd_loss": 1.9658161401748657,
+            "total_loss": 3.6892666816711426,
+            "elapsed_s": 422.36354780197144
+          }
+        ],
+        "final_metrics": {
+          "c4_val": {
+            "nll": 5.8680019990808825,
+            "top1_acc": 0.17601176470588234,
+            "n_tokens": 255000.0
+          },
+          "c3_val": {
+            "per_task": {
+              "hellaswag": 0.242,
+              "piqa": 0.518,
+              "winogrande": 0.49
+            },
+            "C3_macro": 0.4166666666666667,
+            "n_items_total": 1500,
+            "forward_tokens_measured": 216549
+          }
+        },
+        "compute": {
+          "kd_active_steps": 1200,
+          "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+          "teacher_cache_flops_included": 833338187885227,
+          "teacher_cache_flops_effective_by_schedule": 833338187885227,
+          "teacher_cache_flops_full_cache_if_reused": 2500014563655680,
+          "student_train_flops": 7449494106931200,
+          "student_eval_flops": 159154866117632,
+          "student_eval_c4_flops": 86220996608000,
+          "student_eval_c3_flops": 72933869509632,
+          "program_contribution_flops": 7608648973048832,
+          "standalone_total_flops": 8441987160934059,
+          "standalone_full_cache_total_flops": 10108663536704512,
+          "teacher_cache_pflops_included": 0.833338187885227,
+          "teacher_cache_pflops_effective_by_schedule": 0.833338187885227,
+          "teacher_cache_pflops_full_cache_if_reused": 2.50001456365568,
+          "student_train_pflops": 7.4494941069312,
+          "student_eval_pflops": 0.159154866117632,
+          "program_contribution_pflops": 7.608648973048832,
+          "standalone_total_pflops": 8.441987160934058,
+          "standalone_full_cache_total_pflops": 10.108663536704512
+        },
+        "wallclock_s": 451.88780975341797
+      }
+    }
+  },
+  "summary": {
+    "verdict": "FAIL: revised cross-architecture KD cash-out misses a locked floor. Failed conditions: cross_arch_transfer_ratio_lt_1p5. Retention=101.1%, transfer ratio=0.99x, late/full=97.7%.",
+    "criteria": {
+      "llama_kd_retention_vs_qwen_kd_ge_0p75": true,
+      "cross_arch_transfer_ratio_ge_2p5": false,
+      "llama_late_kd_retention_vs_full_kd_ge_0p85": true,
+      "llama_late_kd_compute_fraction_le_0p333": true,
+      "all_seeds_positive_direction_on_each_component": false
+    },
+    "diagnostic_checks": {
+      "matched_compute_fraction_le_0p40_equivalent_to_2p5x": false,
+      "all_llama_full_kd_seeds_positive_vs_scratch": true,
+      "all_qwen_full_kd_seeds_positive_vs_scratch": false,
+      "all_llama_late_kd_seeds_positive_vs_scratch": true,
+      "all_qwen_late_kd_seeds_positive_vs_scratch": true
+    },
+    "fail_conditions": {
+      "llama_kd_retention_vs_qwen_kd_lt_0p50": false,
+      "cross_arch_transfer_ratio_lt_1p5": true,
+      "llama_late_kd_retention_vs_full_kd_lt_0p70": false
+    },
+    "arm_summary": {
+      "scratch_ce_llama": {
+        "description": "Llama-arch student trained from scratch with CE only.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.3973333333333333,
+            "7": 0.3973333333333333,
+            "13": 0.4013333333333333
+          },
+          "mean": 0.39866666666666667,
+          "std": 0.0018856180831641283,
+          "ci_95_lo": 0.3973333333333333,
+          "ci_95_hi": 0.4013333333333333
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 6.0587055108762256,
+            "7": 6.047315973498774,
+            "13": 6.05226966528799
+          },
+          "mean": 6.05276371655433,
+          "std": 0.004662864313446485,
+          "ci_95_lo": 6.047315973498773,
+          "ci_95_hi": 6.0587055108762256
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 7821797649232896.0,
+            "7": 7821797649232896.0,
+            "13": 7821797649232896.0
+          },
+          "mean": 7821797649232896.0,
+          "std": 0.0,
+          "ci_95_lo": 7821797649232896.0,
+          "ci_95_hi": 7821797649232896.0
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 7.821797649232896,
+            "7": 7.821797649232896,
+            "13": 7.821797649232896
+          },
+          "mean": 7.821797649232896,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.236,
+              "7": 0.234,
+              "13": 0.244
+            },
+            "mean": 0.238,
+            "std": 0.004320493798938569,
+            "ci_95_lo": 0.234,
+            "ci_95_hi": 0.244
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.494,
+              "7": 0.49,
+              "13": 0.492
+            },
+            "mean": 0.492,
+            "std": 0.0016329931618554536,
+            "ci_95_lo": 0.49,
+            "ci_95_hi": 0.494
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.462,
+              "7": 0.468,
+              "13": 0.468
+            },
+            "mean": 0.466,
+            "std": 0.002828427124746193,
+            "ci_95_lo": 0.462,
+            "ci_95_hi": 0.468
+          }
+        }
+      },
+      "kd_logit_llama": {
+        "description": "Llama-arch student with CE + top-k logit KD from Qwen teacher.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.42933333333333334,
+            "7": 0.4146666666666667,
+            "13": 0.4206666666666667
+          },
+          "mean": 0.4215555555555556,
+          "std": 0.006020540970730693,
+          "ci_95_lo": 0.4146666666666667,
+          "ci_95_hi": 0.42933333333333334
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 5.842090946691177,
+            "7": 5.813002650122549,
+            "13": 5.8515320235906865
+          },
+          "mean": 5.835541873468137,
+          "std": 0.016397071385308607,
+          "ci_95_lo": 5.813002650122549,
+          "ci_95_hi": 5.8515320235906865
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 1.0321812212888576e+16,
+            "7": 1.0321812212888576e+16,
+            "13": 1.0321812212888576e+16
+          },
+          "mean": 1.0321812212888576e+16,
+          "std": 0.0,
+          "ci_95_lo": 1.0321812212888576e+16,
+          "ci_95_hi": 1.0321812212888576e+16
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 10.321812212888576,
+            "7": 10.321812212888576,
+            "13": 10.321812212888576
+          },
+          "mean": 10.321812212888576,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.25,
+              "7": 0.232,
+              "13": 0.226
+            },
+            "mean": 0.236,
+            "std": 0.010198039027185565,
+            "ci_95_lo": 0.226,
+            "ci_95_hi": 0.25
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.528,
+              "7": 0.524,
+              "13": 0.538
+            },
+            "mean": 0.53,
+            "std": 0.005887840577551903,
+            "ci_95_lo": 0.524,
+            "ci_95_hi": 0.538
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.51,
+              "7": 0.488,
+              "13": 0.498
+            },
+            "mean": 0.49866666666666665,
+            "std": 0.008993825042154702,
+            "ci_95_lo": 0.488,
+            "ci_95_hi": 0.51
+          }
+        }
+      },
+      "kd_late_only_llama": {
+        "description": "Llama-arch student trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "llama_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "llama",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 12,
+          "intermediate_size": 2048,
+          "head_dim": null,
+          "description": "Cross-family student: Llama block structure, random init, shared Qwen3 tokenizer / vocab so top-k KD is defined on one logit space."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.41133333333333333,
+            "7": 0.4126666666666667,
+            "13": 0.41133333333333333
+          },
+          "mean": 0.4117777777777778,
+          "std": 0.0006285393610547182,
+          "ci_95_lo": 0.41133333333333333,
+          "ci_95_hi": 0.4126666666666667
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 5.936078626685049,
+            "7": 5.926902064185049,
+            "13": 5.9269079427083335
+          },
+          "mean": 5.929962877859477,
+          "std": 0.00432448813251308,
+          "ci_95_lo": 5.926902064185049,
+          "ci_95_hi": 5.936078626685049
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 8655135837118123.0,
+            "7": 8655135837118123.0,
+            "13": 8655135837118123.0
+          },
+          "mean": 8655135837118123.0,
+          "std": 0.0,
+          "ci_95_lo": 8655135837118123.0,
+          "ci_95_hi": 8655135837118123.0
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 8.655135837118124,
+            "7": 8.655135837118124,
+            "13": 8.655135837118124
+          },
+          "mean": 8.655135837118124,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.248,
+              "7": 0.228,
+              "13": 0.234
+            },
+            "mean": 0.23666666666666666,
+            "std": 0.00837987005998435,
+            "ci_95_lo": 0.228,
+            "ci_95_hi": 0.248
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.518,
+              "7": 0.52,
+              "13": 0.52
+            },
+            "mean": 0.5193333333333333,
+            "std": 0.0009428090415820641,
+            "ci_95_lo": 0.518,
+            "ci_95_hi": 0.52
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.468,
+              "7": 0.49,
+              "13": 0.48
+            },
+            "mean": 0.47933333333333333,
+            "std": 0.008993825042154678,
+            "ci_95_lo": 0.468,
+            "ci_95_hi": 0.49
+          }
+        }
+      },
+      "scratch_ce_qwen_arch": {
+        "description": "Qwen3-arch student control trained from scratch with CE only.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": false,
+        "kd_mode": "none",
+        "kd_start_step": null,
+        "kd_end_step": null,
+        "kd_step_count": 0,
+        "kd_compute_fraction_vs_full_kd": 0.0,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.40599999999999997,
+            "7": 0.4086666666666667,
+            "13": 0.4126666666666667
+          },
+          "mean": 0.40911111111111115,
+          "std": 0.002739739556875117,
+          "ci_95_lo": 0.40599999999999997,
+          "ci_95_hi": 0.4126666666666667
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 6.042636086856618,
+            "7": 6.00811107153799,
+            "13": 6.031472537530637
+          },
+          "mean": 6.027406565308414,
+          "std": 0.01438502156809362,
+          "ci_95_lo": 6.00811107153799,
+          "ci_95_hi": 6.042636086856618
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 7608648973048832.0,
+            "7": 7608648973048832.0,
+            "13": 7608648973048832.0
+          },
+          "mean": 7608648973048832.0,
+          "std": 0.0,
+          "ci_95_lo": 7608648973048832.0,
+          "ci_95_hi": 7608648973048832.0
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 7.608648973048832,
+            "7": 7.608648973048832,
+            "13": 7.608648973048832
+          },
+          "mean": 7.608648973048832,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.234,
+              "7": 0.234,
+              "13": 0.244
+            },
+            "mean": 0.2373333333333333,
+            "std": 0.004714045207910308,
+            "ci_95_lo": 0.234,
+            "ci_95_hi": 0.244
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.512,
+              "7": 0.498,
+              "13": 0.478
+            },
+            "mean": 0.496,
+            "std": 0.013952299690970912,
+            "ci_95_lo": 0.478,
+            "ci_95_hi": 0.512
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.472,
+              "7": 0.494,
+              "13": 0.516
+            },
+            "mean": 0.494,
+            "std": 0.01796292478040999,
+            "ci_95_lo": 0.472,
+            "ci_95_hi": 0.516
+          }
+        }
+      },
+      "kd_logit_qwen_arch": {
+        "description": "Qwen3-arch student control with CE + top-k logit KD.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "full_logit",
+        "kd_start_step": 1,
+        "kd_end_step": 3600,
+        "kd_step_count": 3600,
+        "kd_compute_fraction_vs_full_kd": 1.0,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.424,
+            "7": 0.42,
+            "13": 0.4073333333333333
+          },
+          "mean": 0.41711111111111104,
+          "std": 0.007104163272509234,
+          "ci_95_lo": 0.4073333333333333,
+          "ci_95_hi": 0.424
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 5.7601976600796565,
+            "7": 5.761199980851716,
+            "13": 5.744994826133579
+          },
+          "mean": 5.755464155688316,
+          "std": 0.007414234405377007,
+          "ci_95_lo": 5.744994826133579,
+          "ci_95_hi": 5.761199980851717
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 1.0108663536704512e+16,
+            "7": 1.0108663536704512e+16,
+            "13": 1.0108663536704512e+16
+          },
+          "mean": 1.0108663536704512e+16,
+          "std": 0.0,
+          "ci_95_lo": 1.0108663536704512e+16,
+          "ci_95_hi": 1.0108663536704512e+16
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 10.108663536704512,
+            "7": 10.108663536704512,
+            "13": 10.108663536704512
+          },
+          "mean": 10.108663536704512,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.236,
+              "7": 0.24,
+              "13": 0.226
+            },
+            "mean": 0.23399999999999999,
+            "std": 0.00588784057755189,
+            "ci_95_lo": 0.226,
+            "ci_95_hi": 0.24
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.52,
+              "7": 0.522,
+              "13": 0.494
+            },
+            "mean": 0.512,
+            "std": 0.012754084313139338,
+            "ci_95_lo": 0.494,
+            "ci_95_hi": 0.522
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.516,
+              "7": 0.498,
+              "13": 0.502
+            },
+            "mean": 0.5053333333333333,
+            "std": 0.007717224601860157,
+            "ci_95_lo": 0.498,
+            "ci_95_hi": 0.516
+          }
+        }
+      },
+      "kd_late_only_qwen_arch": {
+        "description": "Qwen3-arch student control trained CE-only for steps 1-2400, then CE + top-k logit KD for steps 2401-3600.",
+        "student": {
+          "label": "qwen3_8L_768h_12a_2048ffn_qwen_vocab",
+          "architecture": "qwen3",
+          "hidden_size": 768,
+          "num_hidden_layers": 8,
+          "num_attention_heads": 12,
+          "num_key_value_heads": 6,
+          "intermediate_size": 2048,
+          "head_dim": 64,
+          "description": "Same-tokenizer Qwen3-family control student at comparable width/depth budget, used to isolate architecture-family effects from tokenizer and KD."
+        },
+        "use_kd": true,
+        "kd_mode": "late_only",
+        "kd_start_step": 2401,
+        "kd_end_step": 3600,
+        "kd_step_count": 1200,
+        "kd_compute_fraction_vs_full_kd": 0.3333333333333333,
+        "c3_macro": {
+          "per_seed": {
+            "42": 0.4073333333333333,
+            "7": 0.41533333333333333,
+            "13": 0.4166666666666667
+          },
+          "mean": 0.41311111111111115,
+          "std": 0.004121608220220322,
+          "ci_95_lo": 0.4073333333333333,
+          "ci_95_hi": 0.4166666666666667
+        },
+        "c4_val_nll": {
+          "per_seed": {
+            "42": 5.901017995557598,
+            "7": 5.8365839652267155,
+            "13": 5.8680019990808825
+          },
+          "mean": 5.868534653288399,
+          "std": 0.026307779033951765,
+          "ci_95_lo": 5.8365839652267155,
+          "ci_95_hi": 5.901017995557598
+        },
+        "standalone_total_flops": {
+          "per_seed": {
+            "42": 8441987160934059.0,
+            "7": 8441987160934059.0,
+            "13": 8441987160934059.0
+          },
+          "mean": 8441987160934059.0,
+          "std": 0.0,
+          "ci_95_lo": 8441987160934059.0,
+          "ci_95_hi": 8441987160934059.0
+        },
+        "standalone_total_pflops": {
+          "per_seed": {
+            "42": 8.441987160934058,
+            "7": 8.441987160934058,
+            "13": 8.441987160934058
+          },
+          "mean": 8.441987160934058,
+          "std": 0.0
+        },
+        "per_task": {
+          "hellaswag": {
+            "per_seed": {
+              "42": 0.226,
+              "7": 0.232,
+              "13": 0.242
+            },
+            "mean": 0.2333333333333333,
+            "std": 0.006599663291074437,
+            "ci_95_lo": 0.226,
+            "ci_95_hi": 0.242
+          },
+          "piqa": {
+            "per_seed": {
+              "42": 0.49,
+              "7": 0.508,
+              "13": 0.518
+            },
+            "mean": 0.5053333333333333,
+            "std": 0.011585431464655188,
+            "ci_95_lo": 0.49,
+            "ci_95_hi": 0.518
+          },
+          "winogrande": {
+            "per_seed": {
+              "42": 0.506,
+              "7": 0.506,
+              "13": 0.49
+            },
+            "mean": 0.5006666666666667,
+            "std": 0.007542472332656513,
+            "ci_95_lo": 0.49,
+            "ci_95_hi": 0.506
+          }
+        }
+      }
+    },
+    "teacher_reference_c3_macro": 0.5453333333333333,
+    "cross_arch_cashout": {
+      "retention_vs_qwen_kd": {
+        "per_seed": {
+          "42": 1.0125786163522013,
+          "7": 0.9873015873015873,
+          "13": 1.032733224222586
+        },
+        "mean": 1.0108711426254582,
+        "std": 0.018586644097774427,
+        "ci_95_lo": 0.9873015873015873,
+        "ci_95_hi": 1.032733224222586
+      },
+      "retention_vs_teacher": {
+        "per_seed": {
+          "42": 0.7872860635696821,
+          "7": 0.7603911980440098,
+          "13": 0.7713936430317849
+        },
+        "mean": 0.7730236348818256,
+        "std": 0.011040111804518369,
+        "ci_95_lo": 0.7603911980440098,
+        "ci_95_hi": 0.7872860635696822
+      },
+      "llama_matched_qwen_kd_compute_flops": {
+        "per_seed": {
+          "42": 1.0193590943163252e+16,
+          "7": 1.0454568640063992e+16,
+          "13": 9994654931972932.0
+        },
+        "mean": 1.0214271505066726e+16,
+        "std": 188327585079827.9,
+        "ci_95_lo": 9994654931972932.0,
+        "ci_95_hi": 1.0454568640063992e+16
+      },
+      "llama_matched_qwen_kd_compute_pflops": {
+        "per_seed": {
+          "42": 10.193590943163253,
+          "7": 10.454568640063991,
+          "13": 9.994654931972931
+        },
+        "mean": 10.214271505066726,
+        "std": 0.1883275850798279
+      },
+      "qwen_kd_total_compute_flops": {
+        "per_seed": {
+          "42": 1.0108663536704512e+16,
+          "7": 1.0108663536704512e+16,
+          "13": 1.0108663536704512e+16
+        },
+        "mean": 1.0108663536704512e+16,
+        "std": 0.0,
+        "ci_95_lo": 1.0108663536704512e+16,
+        "ci_95_hi": 1.0108663536704512e+16
+      },
+      "matched_compute_fraction_vs_qwen_kd": {
+        "per_seed": {
+          "42": 1.0084014475455008,
+          "7": 1.034218678077819,
+          "13": 0.9887216935930635
+        },
+        "mean": 1.010447273072128,
+        "std": 0.018630314917101674,
+        "ci_95_lo": 0.9887216935930635,
+        "ci_95_hi": 1.034218678077819
+      },
+      "transfer_ratio_compute_saved_at_matched_capability": {
+        "per_seed": {
+          "42": 0.9916685487055276,
+          "7": 0.9669134982734818,
+          "13": 1.0114069575695772
+        },
+        "mean": 0.9899963348495288,
+        "std": 0.018202824037649938,
+        "ci_95_lo": 0.9669134982734818,
+        "ci_95_hi": 1.0114069575695772
+      },
+      "llama_positive_direction_vs_scratch": {
+        "per_seed": {
+          "42": true,
+          "7": true,
+          "13": true
+        },
+        "all_positive": true
+      },
+      "qwen_positive_direction_vs_scratch": {
+        "per_seed": {
+          "42": true,
+          "7": true,
+          "13": false
+        },
+        "all_positive": false
+      },
+      "note": "Matched-capability compute is defined as arm_total_compute / retention_vs_qwen_kd. For full-KD arms, arm_total_compute uses the same schedule-effective accounting as the original cycle-42 cash-out."
+    },
+    "late_kd_vs_full_kd": {
+      "llama": {
+        "family": "llama",
+        "scratch_arm": "scratch_ce_llama",
+        "full_kd_arm": "kd_logit_llama",
+        "late_kd_arm": "kd_late_only_llama",
+        "late_c3_retention_vs_full_kd": {
+          "per_seed": {
+            "42": 0.9580745341614907,
+            "7": 0.9951768488745981,
+            "13": 0.9778129952456418
+          },
+          "mean": 0.9770214594272435,
+          "std": 0.01515729386536336,
+          "ci_95_lo": 0.9580745341614906,
+          "ci_95_hi": 0.9951768488745981
+        },
+        "late_effect_retention_vs_full_effect": {
+          "per_seed": {
+            "42": 0.4375,
+            "7": 0.8846153846153847,
+            "13": 0.5172413793103443
+          },
+          "mean": 0.6131189213085763,
+          "std": 0.19471760592313836,
+          "ci_95_lo": 0.4375,
+          "ci_95_hi": 0.8846153846153847
+        },
+        "late_minus_full_c3": {
+          "per_seed": {
+            "42": -0.018000000000000016,
+            "7": -0.0020000000000000018,
+            "13": -0.00933333333333336
+          },
+          "mean": -0.009777777777777793,
+          "std": 0.006539528430916522,
+          "ci_95_lo": -0.018000000000000016,
+          "ci_95_hi": -0.0020000000000000018
+        },
+        "late_minus_scratch_c3_gain": {
+          "per_seed": {
+            "42": 0.014000000000000012,
+            "7": 0.015333333333333365,
+            "13": 0.010000000000000009
+          },
+          "mean": 0.013111111111111129,
+          "std": 0.0022662308949301345,
+          "ci_95_lo": 0.010000000000000009,
+          "ci_95_hi": 0.015333333333333365
+        },
+        "full_minus_scratch_c3_gain": {
+          "per_seed": {
+            "42": 0.03200000000000003,
+            "7": 0.017333333333333367,
+            "13": 0.01933333333333337
+          },
+          "mean": 0.02288888888888892,
+          "std": 0.006494061864978868,
+          "ci_95_lo": 0.017333333333333367,
+          "ci_95_hi": 0.03200000000000003
+        },
+        "kd_compute_fraction_vs_full_kd": {
+          "per_seed": {
+            "42": 0.3333333333333333,
+            "7": 0.3333333333333333,
+            "13": 0.3333333333333333
+          },
+          "mean": 0.3333333333333333,
+          "std": 0.0,
+          "ci_95_lo": 0.3333333333333333,
+          "ci_95_hi": 0.3333333333333333
+        },
+        "late_positive_direction_vs_scratch": {
+          "per_seed": {
+            "42": true,
+            "7": true,
+            "13": true
+          },
+          "all_positive": true
+        },
+        "late_retention_ge_0p85": {
+          "per_seed": {
+            "42": true,
+            "7": true,
+            "13": true
+          },
+          "all_ge_threshold": true
+        }
+      },
+      "qwen_arch": {
+        "family": "qwen_arch",
+        "scratch_arm": "scratch_ce_qwen_arch",
+        "full_kd_arm": "kd_logit_qwen_arch",
+        "late_kd_arm": "kd_late_only_qwen_arch",
+        "late_c3_retention_vs_full_kd": {
+          "per_seed": {
+            "42": 0.960691823899371,
+            "7": 0.9888888888888889,
+            "13": 1.0229132569558101
+          },
+          "mean": 0.9908313232480234,
+          "std": 0.025438900281902824,
+          "ci_95_lo": 0.960691823899371,
+          "ci_95_hi": 1.0229132569558101
+        },
+        "late_effect_retention_vs_full_effect": {
+          "per_seed": {
+            "42": 0.0740740740740751,
+            "7": 0.5882352941176473,
+            "13": 4000000000.000004
+          },
+          "mean": 1333333333.5541043,
+          "std": 1885618083.0080206,
+          "ci_95_lo": 0.0740740740740751,
+          "ci_95_hi": 4000000000.000004
+        },
+        "late_minus_full_c3": {
+          "per_seed": {
+            "42": -0.016666666666666663,
+            "7": -0.004666666666666652,
+            "13": 0.00933333333333336
+          },
+          "mean": -0.003999999999999985,
+          "std": 0.010624918300339493,
+          "ci_95_lo": -0.016666666666666663,
+          "ci_95_hi": 0.00933333333333336
+        },
+        "late_minus_scratch_c3_gain": {
+          "per_seed": {
+            "42": 0.001333333333333353,
+            "7": 0.006666666666666654,
+            "13": 0.0040000000000000036
+          },
+          "mean": 0.0040000000000000036,
+          "std": 0.002177324215807256,
+          "ci_95_lo": 0.001333333333333353,
+          "ci_95_hi": 0.006666666666666654
+        },
+        "full_minus_scratch_c3_gain": {
+          "per_seed": {
+            "42": 0.018000000000000016,
+            "7": 0.011333333333333306,
+            "13": -0.005333333333333357
+          },
+          "mean": 0.007999999999999988,
+          "std": 0.009813067629253176,
+          "ci_95_lo": -0.005333333333333357,
+          "ci_95_hi": 0.018000000000000016
+        },
+        "kd_compute_fraction_vs_full_kd": {
+          "per_seed": {
+            "42": 0.3333333333333333,
+            "7": 0.3333333333333333,
+            "13": 0.3333333333333333
+          },
+          "mean": 0.3333333333333333,
+          "std": 0.0,
+          "ci_95_lo": 0.3333333333333333,
+          "ci_95_hi": 0.3333333333333333
+        },
+        "late_positive_direction_vs_scratch": {
+          "per_seed": {
+            "42": true,
+            "7": true,
+            "13": true
+          },
+          "all_positive": true
+        },
+        "late_retention_ge_0p85": {
+          "per_seed": {
+            "42": true,
+            "7": true,
+            "13": true
+          },
+          "all_ge_threshold": true
+        }
+      },
+      "hypothesis": "C20 upgrades from a same-family timing result to a general efficiency mechanism if the Llama late-KD arm reaches at least 85% of full-KD C3 at 33% KD compute."
+    },
+    "positive_direction_components": {
+      "all_components_positive_by_seed": {
+        "42": true,
+        "7": true,
+        "13": false
+      },
+      "all_components_all_seeds_positive": false,
+      "components": {
+        "llama_full_kd_vs_scratch": {
+          "42": true,
+          "7": true,
+          "13": true
+        },
+        "qwen_full_kd_vs_scratch": {
+          "42": true,
+          "7": true,
+          "13": false
+        },
+        "llama_late_kd_vs_scratch": {
+          "42": true,
+          "7": true,
+          "13": true
+        },
+        "qwen_late_kd_vs_scratch": {
+          "42": true,
+          "7": true,
+          "13": true
+        }
+      }
+    },
+    "program_compute": {
+      "teacher_cache_flops_once": 2500014563655680,
+      "teacher_cache_pflops_once": 2.50001456365568,
+      "one_seed_panel_flops": 48791354430500864,
+      "one_seed_panel_pflops": 48.79135443050087,
+      "one_seed_6arm_panel_flops": 48791354430500864,
+      "one_seed_6arm_panel_pflops": 48.79135443050087,
+      "full_program_flops": 141374034164191232,
+      "full_program_pflops": 141.37403416419124,
+      "full_18_cell_program_flops": 141374034164191232,
+      "full_18_cell_program_pflops": 141.37403416419124
+    }
+  },
+  "verdict": "FAIL: revised cross-architecture KD cash-out misses a locked floor. Failed conditions: cross_arch_transfer_ratio_lt_1p5. Retention=101.1%, transfer ratio=0.99x, late/full=97.7%.",
+  "elapsed_s": 1463.0632162094116
+}
