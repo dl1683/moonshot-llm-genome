@@ -1,0 +1,16 @@
+1. Q1: The four-experiment result in [research/TRANSFER_AXIS_FOUR_EXPERIMENT_SYNTHESIS_2026-04-27.md](</C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/research/TRANSFER_AXIS_FOUR_EXPERIMENT_SYNTHESIS_2026-04-27.md>) is not flagship by itself yet. It is a strong mechanism finding: persistent transfer requires an optimization-time constraint; zero-step injection and decay schedules die. That is above “cute workshop result,” but still below flagship because the headline is `+1.088 nats` in same-family training, not a cash-out like end-task capability, cross-arch generality, or `TEI/kJ`. What elevates it is the broader framing: not “continuous anchor law,” but “continuous donor-information-in-the-loss law.”
+
+2. Q2: Do not use KL-on-matched-inputs as the basin test. That is not another quadratic bowl on donor weight position; it is output-space supervision, i.e. the `g167` axis. If you want to test whether the weight-basin interpretation generalizes beyond Frobenius, use another weight-space metric such as layerwise-normalized L2 or a diagonal-Fisher/Mahalanobis anchor. KL is useful, but it tests the broader continuous-constraint law, not the weight-basin theory.
+
+3. Q3: `g167` is no longer “running” in the repo state. [results/genome_167_kd_canonical.json](</C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/results/genome_167_kd_canonical.json>) is timestamped `2026-04-28T01:25Z`, which is April 27, 2026 at 9:25 PM EDT, and it PASSed: `+1.014 pp` C4 top-1, `+0.1525` C4 NLL gain, `+0.1508` Wikitext NLL gain, `3/3` positive seeds. That raises the project to about `7.8/10` now, because you have two independent persistent transfer mechanisms: weight-space continuous anchor and output-space continuous KD. The `8.2/10` ceiling still belongs to `g155` once wall-power is real.
+
+4. Q4: I found no procurement progress artifact. Every repo reference still says the wall-power meter is unavailable and a hard prerequisite, including [WIKI.md](</C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/WIKI.md>). Yes, add it to a top-of-WIKI `BLOCKERS` section. Right now it is strategically more important than another speculative mechanism variant because it gates the only documented `8.2/10` path.
+
+5. Q5: Pre-commit the tree this way.
+- If `g170` beats uniform KD: transport demand modulates output-side transfer. Then run `g171` as localization, and if it also PASSes, pivot straight to `g155` with the best KD variant.
+- If `g170` ties uniform KD but `g167` stays strong: the law is “continuous supervision works,” not “transport-aware KD works.” Run `g171` once; if it FAILs, stop mechanism fishing and cash out `g155`.
+- If you want the true alternative-mechanism test, the current queue does not resolve it. You need one explicit `KD warmup cutoff` experiment after `g171`: early KD, then CE-only. Persistent win means a genuinely new init-like mechanism; washout means the same continuous-constraint law.
+
+Overall trajectory: `7.8/10`, with a credible route to `8.2/10` only through the energy benchmark.
+
+One concrete change: add a top-of-WIKI `BLOCKERS` section with `#1 external AC wall-power meter`, because that is the real competitive bottleneck now.

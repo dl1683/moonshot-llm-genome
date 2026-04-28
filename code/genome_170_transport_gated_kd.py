@@ -42,8 +42,12 @@ Transport gates:
   - position_gated:
       raw weight w(i) = (i / L)^2, then normalized to mean 1 over valid tokens
   - disagreement_gated:
-      raw weight w(i) = KL(teacher || student)_i, detached and normalized to
-      mean 1 over valid tokens
+      raw weight w(i) = top-k teacher-support KL(teacher || student)_i —
+      NOT full-vocab. Per Codex cycle 39 SEV8 labeling fix: student is
+      restricted to teacher's top-k support before log_softmax, so the gate
+      may understate disagreement when student puts mass outside teacher's
+      top-k. Functions correctly as a renormalized-shared-support gate.
+      Detached and normalized to mean 1 over valid tokens.
 
 PASS:
   - at least one transport-gated arm beats uniform KD by >= +0.40 pp C4-val
@@ -174,7 +178,8 @@ ARM_SPECS = [
         gate_mode="disagreement",
         description=(
             "Top-k KD with detached per-token disagreement gate proportional to "
-            "KL(teacher||student), normalized to unit mean."
+            "top-k teacher-support KL(teacher||student) (NOT full-vocab; student "
+            "renormalized inside teacher's top-k), normalized to unit mean."
         ),
     ),
 ]
