@@ -206,13 +206,12 @@ def _as_cell_spec(arm_spec: CellSpec | Mapping[str, Any]) -> CellSpec:
 
 
 def _to_numpy(x: Any) -> np.ndarray:
-    try:
-        import torch
-
-        if isinstance(x, torch.Tensor):
-            return x.detach().float().cpu().numpy()
-    except Exception:
-        pass
+    # Handle torch tensors (incl. CUDA tensors) via duck-typing first to avoid
+    # falling through to np.asarray on a device tensor.
+    cpu_fn = getattr(x, "cpu", None)
+    if callable(cpu_fn):
+        detached = x.detach() if hasattr(x, "detach") else x
+        return detached.float().cpu().numpy()
     return np.asarray(x)
 
 
