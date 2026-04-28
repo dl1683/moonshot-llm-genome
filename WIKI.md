@@ -26,7 +26,18 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
 
-**§0.1 ceiling:** **current-locked claims 7.5/10** (C22 REJECTED 2026-04-28 ~08:50 UTC), **forward-looking queue uplift 5.8/10** pending g173. C18+C19+C21 still locked. The "donor-identity" framing is dead; "trained-structure-specific continuous SGD constraint within Qwen3-arch family" is the honest framing.
+**§0.1 ceiling: 4-5/10** (g181a 2026-04-28 ~17:00 UTC: tokenizer-prior is the active ingredient; transfer-mechanism framing collapses). **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
+
+**★ g181a VERDICT: tokenizer-prior dominates (cycle 65 A7 9/10 attack CONFIRMED) — 2026-04-28 ~17:00 UTC ★**
+
+| Arm | C4 NLL gain vs scratch | CI |
+|---|---:|---:|
+| full_anchor | ~+0.99 nats (reproduces g165 +1.087) | — |
+| **embed_lm_head_only** (λ=0.0323, matched ‖∇L‖) | **+0.483 nats** | — |
+| **no_embed_lm_head** (λ=0.0105, matched ‖∇L‖) | **−0.439 nats (HARMS)** | — |
+| **no_embed − embed paired** | **−0.923 nats** | **[−1.055, −0.835] excludes 0 strongly negative** |
+
+The continuous SGD anchor on transformer block weights actively HURTS performance vs scratch. Only the embed+lm_head anchor delivers gain. The +1 nat "transfer mechanism" is essentially Qwen3-tokenizer trained-vocabulary initialization being held in place during recipient training. This is NOT what "neural genome transfer" should mean — it is a tokenizer-init prior. Source: `results/genome_181a_tokenizer_isolation.json`, cycle 65 adversarial `cycle65_adversarial_20260428T091500.md`.
 
 **★ g177v2 VERDICT: FAIL ★ (2026-04-28 ~08:50 UTC, wall ~2.92h)**
 
