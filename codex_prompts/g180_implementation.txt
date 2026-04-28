@@ -1,0 +1,53 @@
+## Task
+Write `code/genome_180_forecast.py` implementing the Genome Forecast / Diagnostic experiment per cycle 66 design gate + g181a advisor pivot. Verify with `python -m py_compile`. Do NOT launch.
+
+## Context (read first)
+- `CLAUDE.md` §0/§0.05/§0.1 + §1.5 envelope binding
+- `COMPUTE.md` §6/§9 (4h envelope)
+- `codex_outputs/heartbeats/cycle66_direction_review_20260428T093500.md` (full design gate spec)
+- `codex_outputs/g181a_next_direction_20260428.md` (advisor pivot — TOKENIZER/EMBED geometry is the active ingredient per g181a)
+- `WIKI.md` (CURRENT STATUS, pivot block)
+- Existing data: `results/genome_165_annealed_donor.json`, `results/genome_167_kd_canonical.json`, `results/genome_172_kd_warmup_cutoff.json`, `results/genome_174_donor_specificity_control.json`, `results/genome_177_matched_alt_donor.json`, `results/genome_173_cross_arch_flop_cashout.json`, `results/genome_181a_tokenizer_isolation.json` — these contain final NLLs/c3_macro per arm/seed
+- Existing checkpoint patterns in `code/genome_165_annealed_donor.py`, `code/genome_181a_tokenizer_isolation.py`
+
+## Design (cycle 66 spec + advisor refinement)
+
+**Concept:** at ≤3% training, extract tokenizer+embed geometry features and use them to predict final run quality (paired final C4 NLL gain vs scratch). Beat early-loss-only baseline by ≥25% MSE on held-out cells.
+
+**Features (8 picks per cycle 66):**
+1. Mid-layer spectral invariant: centered hidden-state SVD, tail slope α + participation ratio + sqrt(PR)·α
+2. Depth spectral drift: slope of #1 across early/mid/late blocks
+3. TwoNN intrinsic dimension on pooled hidden states
+4. kNN-10 clustering coefficient (existing primitive)
+5. **PCA-64 Procrustes/RSA distance to trained Qwen3 reference** (★ load-bearing per advisor — captures tokenizer/embed alignment)
+6. Gradient-noise scale (variance/mean² over 4 microbatches)
+7. Curvature proxy: top eigenvalue from 4-6 HVPs on loss (last-block + lm_head if full HVP exceeds 30s)
+8. Norm/variance depth ratios
+
+**Label:** paired final C4 NLL gain vs same-seed scratch baseline = `final_c4_nll(scratch) - final_c4_nll(arm)`.
+
+**Architecture span:** train on Qwen-family completed cells (g165/g167/g172/g174/g177/g177v2), test on g173 Llama-family cells. RWKV/Falcon-H1 only for feature-stability sanity, no labels.
+
+**Pass:** at ≤3% training compute, `early_loss + geometry` reduces held-out-family MSE by ≥25% versus `early_loss_only`, with paired bootstrap improvement above 0. Secondary actionability guard: must NOT recommend stop on any arm whose true final gain ≥+0.5 nats.
+
+**Envelope:** 2.0-2.8h hard cap 4h. Most labels from existing JSONs; for missing early checkpoints, replay only first ≤3% of exact cell with same seed/arm.
+
+## Required script structure
+
+1. `extract_features(model, probe_batch, layer_indices) -> dict[str, float]` — computes all 8 features
+2. `replay_early_checkpoint(arm_spec, target_steps) -> model_state` — loads + reruns first ≤3% if not in cache
+3. `compute_label(arm, seed, results_jsons) -> float` — extracts paired final NLL gain
+4. `fit_baseline(features, labels) -> sklearn.linear_model.Ridge` — early_loss only baseline
+5. `fit_full(features, labels) -> sklearn.linear_model.Ridge` — all features
+6. `evaluate_held_out(model, X_test, y_test) -> dict[str, float]` — MSE, R², bootstrap CI
+7. `build_summary(...) -> dict` with PASS/INTERMEDIATE/FAIL gating per pass criteria
+8. `main()` orchestrates feature extraction across all known cells, fits both models, evaluates, writes JSON
+
+## Deliverables
+1. `code/genome_180_forecast.py` (new file)
+2. `python -m py_compile code/genome_180_forecast.py`
+3. `codex_outputs/g180_implementation_20260428T172000.md` summarizing design + envelope estimate (write content directly, not meta-pointer)
+4. DO NOT launch
+
+## End goal reminder
+Per CLAUDE.md §0.1: distinctive moves big labs won't publish include "electricity-grade efficiency on a real task" and "falsification discipline." g180 delivers training-triage compute-savings + uses our negative findings as the mechanism. Practitioner-grade tool. ML-partner-legible.

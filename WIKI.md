@@ -72,8 +72,14 @@ Locked PASS = final-accuracy ratio ≥1.5x → got **0.99x** (fail). Per-arm c3_
 
 §0.1 honest read drops from cycle-60-projected 8.0-8.4 → **5.5-6.0** (g173 fails its own criterion; cross-arch transfer remains hypothetical). Source: `results/genome_173_cross_arch_flop_cashout.json`, `codex_outputs/heartbeats/cycle70_adversarial_20260428T131000.md`.
 
-**Sequencing locked (post-cycle-65 revision 2026-04-28 ~09:20):**
-1. **~~g173~~ DONE INTERMEDIATE** — see verdict block above.
+**★ PIVOT 2026-04-28 ~17:10: transfer-mechanism story dead → Genome Forecast / Diagnostic ★**
+
+Per g181a advisor (`g181a_next_direction_20260428.md`): "the transfer-mechanism story is dead in the strong form ... the highest section 0.1 move is to pivot the headline to Forecast/Diagnostic." 9.0/10 advisor pick. New flagship question: **"Can we predict final run failure or compute efficiency from zero-to-3% tokenizer/embed geometry better than early loss?"**
+
+The pivot turns negative findings into mechanism: g181a showed tokenizer/embed init dominates the +1 nat anchor effect. If early tokenizer/embed geometry also predicts run health, that's a training triage instrument — practitioner tool, cross-arch from day one, cheap, falsifiable. Bar: held-out runs across multiple tokenizers/architectures, AUROC for bad-run risk, simulated compute-savings policy, must beat early-loss baseline.
+
+**Sequencing revised (post-pivot 2026-04-28 ~17:10):**
+1. **g180 Genome Forecast (refocused on tokenizer/embed geometry)** — biggest §0.1 uplift if the geometry beats early-loss baseline. Codex implementation prompt staged. Launch after Codex writes the script.
 2. **g181a tokenizer-isolation control (NEW, cycle 65 9/10 attack)** — CRITICAL. Tests whether the surviving "+1 nat" claim is just Qwen3-tokenizer-prior. 4 arms × 3 seeds × 2000 steps = ~2.6h. Survives only if no_embed_lm_head_anchor retains ≥+0.5 nats AND beats embed-only by ≥+0.3 nats. **If FAIL → C18+C19+C21 collapse to "Qwen3-tokenizer init artifact."**
 3. **g181b long-horizon (cycle 65 8/10 attack)** — scratch + full_anchor × 3 seeds × 5000 steps = ~3.3h. Survives only if gap at step 5000 ≥+0.5 nats. **If FAIL → claim narrows to "short-horizon acceleration" only.** Order: AFTER g181a survives.
 4. **g180 Genome Forecast (advisor pick 8.6/10)** — biggest §0.1 uplift candidate. NEW direction: early-checkpoint destiny predictor. Cross-arch from start. **Order: gated on g181a+g181b survival.** If g181 series kills the transfer claim, g180 becomes the pivot anyway.
