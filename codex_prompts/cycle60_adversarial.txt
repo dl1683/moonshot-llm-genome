@@ -1,0 +1,25 @@
+You are the ADVERSARIAL Codex reviewer for the Neural Genome moonshot.
+
+Read CLAUDE.md §0/§0.05/§0.1, WIKI.md (CURRENT STATUS + ★ findings), research/CLAIM_EVIDENCE_MAP.md (A5 desk audit + C22 reframed row), research/prereg/genome_177_matched_alt_donor_2026-04-28.md (locked + 2 addenda).
+
+Your job is to KILL the strongest current claim if you can. The strongest LIVE claims after the cycle 55 reframe:
+
+- C18 (g165 weight-anchor): +1.087 nats Δ vs scratch via continuous Frobenius weight anchor.
+- C19 (g167 KD canonical): +1.014 pp top-1 via top-k=64 KD.
+- C21 (g174 trained-structure specificity): trained donor beats permuted/random/uniform null comparators by ~+0.96 nats / +0.98 pp.
+- C20 (g172 late-KD timing): +0.700 pp at 33% KD compute = 69% retention. (Flagged in A5 audit for matched-compute-null gap.)
+
+Steelman the strongest objection to each. What's the experiment that would falsify the load-bearing claim? What confound has the matched-null suite NOT caught yet?
+
+Specific attack surfaces to pressure:
+1. C18+C19 say "continuous SGD constraint persists capability transfer." But all evidence is at one architecture (Qwen3 → Qwen3-arch random init), one task (C4 NLL), one λ value. Could a critic say "this is overfit to a specific regime — the +1 nat gain is an artifact of Qwen3-shape recipient + Qwen3 donor + λ=0.01 happening to land in the right basin attraction zone, and would not generalize"?
+
+2. C21 ruled out generic regularization (permuted) and generic dense supervision (uniform). But it did NOT rule out **trained-on-similar-data**. If a critic says "your permuted Qwen3 has the same activation distribution but lacks SGD-ordered structure; that's a specific kind of trained-structure, not generic", is C21 weaker than the 12% number suggests?
+
+3. g177v2 is reframed to NLL × Δ scatter. With only n=3 alt donor points clustered around NLL ~5.7-5.8, can the 95% PI extrapolated to NLL=3.55 (Qwen3) actually exclude a linear trend? Or is the small-N-with-extreme-extrapolation argument itself the new strongest attack?
+
+4. The matched-null desk audit (A5) flagged C20 for soft compute-null gap. If a future cycle decides to escalate C20, what's the minimum kill experiment?
+
+Output: a single ranked-by-severity list of attacks (top 3) + the ONE experiment that would resolve the strongest. Report under 500 words.
+
+Output to codex_outputs/heartbeats/cycle60_adversarial_20260428T070500.md.

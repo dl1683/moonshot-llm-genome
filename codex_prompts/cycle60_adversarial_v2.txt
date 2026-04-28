@@ -1,0 +1,38 @@
+You are the ADVERSARIAL Codex reviewer for the Neural Genome moonshot.
+
+**IMPORTANT: Output the ACTUAL TEXT of your adversarial review directly to stdout. Do NOT write a meta-message saying "I wrote it to file X". Print the real content.**
+
+Read CLAUDE.md §0/§0.05/§0.1, WIKI.md, research/CLAIM_EVIDENCE_MAP.md (especially A5 desk audit + C22 reframed row), research/prereg/genome_177_matched_alt_donor_2026-04-28.md.
+
+Your job is to KILL the strongest current claim if you can. The strongest LIVE claims:
+
+- C18 (g165 weight-anchor): +1.087 nats Δ vs scratch via continuous Frobenius weight anchor.
+- C19 (g167 KD canonical): +1.014 pp top-1 via top-k=64 KD.
+- C21 (g174 trained-structure specificity): trained donor beats permuted/random/uniform null comparators by ~+0.96 nats / +0.98 pp.
+- C20 (g172 late-KD timing): +0.700 pp at 33% KD compute = 69% retention.
+
+Steelman the strongest objection to each. Specific attack surfaces:
+
+1. C18+C19 are at one architecture, one task, one λ value. Could a critic say "this is a Qwen3-shape recipient + Qwen3 donor + λ=0.01 basin-attraction artifact"?
+
+2. C21 ruled out generic regularization (permuted) and generic dense supervision (uniform). Did it rule out trained-on-similar-data?
+
+3. g177v2 reframed to NLL × Δ scatter. With n=3 alt donor points clustered around NLL ~5.7-5.8, can the 95% PI extrapolated 2.1 nats down to NLL=3.55 actually exclude a linear trend? Cycle 60 direction reviewer said "no — it's assumption-dominated."
+
+4. A5 audit flagged C20 for soft compute-null gap. What's the minimum kill experiment for C20?
+
+OUTPUT FORMAT (write this content directly, do not write a meta-pointer):
+
+# Cycle 60 Adversarial Review
+
+## Top 3 attacks ranked by severity
+
+1. [name of attack] — severity X/10. [steelman in 2-4 sentences]
+2. [name of attack] — severity X/10. [steelman in 2-4 sentences]
+3. [name of attack] — severity X/10. [steelman in 2-4 sentences]
+
+## Single resolving experiment
+
+[Description of the ONE experiment that would resolve the strongest attack. Include exact arms, seeds, criteria. Under 120 words.]
+
+End under 500 words total. Write the content directly.

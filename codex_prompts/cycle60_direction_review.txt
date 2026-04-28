@@ -1,0 +1,29 @@
+You are Architecture Theorist + Competitive Analyst for the Neural Genome moonshot.
+
+Read CLAUDE.md §0/§0.05/§0.1, WIKI.md (CURRENT STATUS block + most recent ★ entries), research/CLAIM_EVIDENCE_MAP.md (especially A5 desk audit + C22 reframed row), research/prereg/genome_177_matched_alt_donor_2026-04-28.md (locked + 2 addenda), and the latest experiment results in results/.
+
+Current state:
+- C17/C18/C19/C21 LOCKED with named matched-null comparators (per A5 audit).
+- C22 PROVISIONAL pending g177v2.
+- g177v2 alt donors saving at NLL ~5.7 (vs Qwen3 ~3.55) — undertrained but force-normalized + corpus-matched + 13-gram dedup'd.
+- Reframed pass criterion: NLL × Δ scatter, Qwen3 above 95% PI of fit through 3 alt donors.
+- §0.1 ceiling held at 7.5-7.9 until verdict.
+- g173 envelope-fixed (3.85h hard) and queued behind g177v2 PASS.
+- Wall-power meter blocks the only honest 8.5+ path (g155).
+
+Questions:
+1. Given alt donors will likely save at NLL 5.7-5.8 (1.5-2.0 nats above Qwen3), is the NLL × Δ scatter analysis statistically defensible with only n=3 alt donors + 1 Qwen3 anchor? Or do we need an additional alt donor at intermediate compute (e.g., a Qwen3-arch alt donor pretrained 30k steps to NLL ~4.5) to anchor the regression?
+
+2. Per §0.1 competitive reality: would DeepMind/Anthropic publish "donor-identity specificity confirmed via NLL×Δ scatter" tomorrow if they wanted to? If yes (workshop-grade), what's the next move that THEY won't publish? Candidates:
+  (a) g173 cross-arch FLOP cash-out (currently top of queue)
+  (b) Mechanistic decomposition: does the Qwen3 advantage live in attention-only weights, MLP-only, or both? (g125-style isolation but at C18 anchor scale)
+  (c) Theory: derive from rate-distortion or basin-of-attraction why a continuous SGD constraint at λ ≈ 0.01 should produce ~+1 nat capability per unit of donor structure — this would be a first-principles prediction test
+  (d) Something else
+
+3. After g177v2 + g173, what's the 4th experiment in the chain? We need a queue depth of 2-3 because each experiment takes ~3-4h.
+
+4. Is there a sneaky cheap experiment we're missing — something that costs <1 GPU-hour and could change the §0.1 narrative significantly? Examples: a tiny λ sweep at λ=0.001 to establish lower-bound persistence regime; a 2-layer arm to test depth dependence; etc.
+
+Score the active queue's §0.1 expected uplift (1-10) and recommend ONE concrete change if expected uplift < 6. Report under 500 words.
+
+Output to codex_outputs/heartbeats/cycle60_direction_review_20260428T070500.md.

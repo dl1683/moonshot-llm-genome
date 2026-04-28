@@ -1,0 +1,15 @@
+You are Correctness Engineer + Performance Engineer for the Neural Genome moonshot.
+
+Read CLAUDE.md, WIKI.md (especially the most recent activity ★ blocks at top), and any code/genome_*.py modified in the last 4 hours (use `git log --since='4 hours ago' --name-only`). Files that almost certainly changed: code/genome_177_matched_alt_donor.py (g177v2 envelope + 13-gram dedup), code/genome_173_cross_arch_flop_cashout.py (envelope reduction 6000→3600 steps).
+
+Audit for: bugs, edge cases, NaN risks, OOM risks, encoding issues (cp1252 on Windows like the g148/g156 Δ crash), silent-data-drop bugs (like g156 SEV-8), 13-gram hash collision risk, paired-seed inference correctness.
+
+Specific concerns to check:
+1. g177v2: does the forbidden_hashes set actually catch overlapping windows? Verify rolling_13gram_hashes covers all (seq_len-12) positions per window. With 328548 forbidden hashes (logged) and ~16k alt-donor windows × (256-12) positions/window = ~4M lookups per epoch, what's the false-positive rate from hash collisions? If non-trivial, recipe needs a SHA verify on overlap claim.
+2. g177v2: alt-donor at step 10000 saved unmatched at NLL 5.70 (1234) and tracking similar (5678 at step 6500 NLL ~5.93). With --allow-unmatched-donors set, will main_cells run correctly with 3 unmatched donor NPZs? Or does any path require matched_target=True to load?
+3. g173: late-KD KD_LATE_START_STEP changed 4001→2401 with TRAIN_STEPS 6000→3600. Does observed_kd_steps still equal arm.kd_step_count for late_only arms? RuntimeError in run_arm_cell will fire if mismatch.
+4. g173: tightened resume gating rejects cells whose train_log[-1].step != TRAIN_STEPS. If a previous 6000-step result file exists (it shouldn't, but check), would it crash gracefully or silently corrupt?
+
+For any severity ≥7 finding, give the exact code change. Report under 500 words. If clean, say so.
+
+Output goes to codex_outputs/heartbeats/cycle60_code_review_20260428T070500.md.
