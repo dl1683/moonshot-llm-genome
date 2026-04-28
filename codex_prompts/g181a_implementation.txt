@@ -1,0 +1,54 @@
+## Task
+Write `code/genome_181a_tokenizer_isolation.py` implementing the cycle 65 9/10 resolving experiment. Verify with `python -m py_compile`. Do NOT launch.
+
+## Context (read first)
+- `CLAUDE.md` §1.5 + `COMPUTE.md` §6/§9 (4h envelope binding)
+- `codex_outputs/heartbeats/cycle65_adversarial_20260428T091500.md` (the 9/10 attack you wrote)
+- `code/genome_165_annealed_donor.py` (canonical full-anchor implementation, λ=0.01, 500 steps; reuse PARAMS, BATCH_SIZE, SEQ_LEN, LR, BETAS, etc.)
+- `code/genome_174_donor_specificity_control.py` (matched-null pattern with multiple anchor variants — use as scaffold)
+
+## Design (envelope-fit)
+
+**Arms (4):**
+1. `scratch_ce` — no anchor, plain CE
+2. `full_anchor` — λ=0.01 anchor on ALL Qwen3 weights (reproduces g165)
+3. `embed_lm_head_only_anchor` — anchor ONLY on `model.embed_tokens.weight` and `model.lm_head.weight` (and tied weights if applicable). λ tuned so initial ‖∇L_anchor‖ matches arm 2's at step 0.
+4. `no_embed_lm_head_anchor` — anchor on ALL weights EXCEPT embed_tokens + lm_head. λ tuned same.
+
+**Per-arm λ normalization:**
+- Compute Frobenius² of donor − init for arm 2 (full = full Frobenius²).
+- For arm 3: F²_embed = sum of squared diffs over embed/lm_head only.
+- For arm 4: F²_no_embed = full − F²_embed.
+- λ_3 = λ_full × √(F²_full / F²_embed)
+- λ_4 = λ_full × √(F²_full / F²_no_embed)
+
+This makes initial anchor-gradient L2 norm equal across arms 2/3/4. Save λ values + Frobenius² breakdown in result JSON.
+
+**Training:**
+- 3 recipient seeds [42, 7, 13]
+- 2000 steps per cell (NOT 500, NOT 5000 — envelope target ~2.6h total)
+- Same C4 protocol as g165 (8192 train windows, 256 val, batch 8, seq 256, LR 3e-4, BF16/FP32)
+
+**Output JSON should include:**
+- per-arm × per-seed: final C4 NLL, gain vs scratch
+- λ values + Frobenius² breakdown
+- Codex SEV-7-style verdict gating
+
+**Pass criteria (write into build_summary):**
+- PASS: arm 4 (no_embed_lm_head) gain ≥ +0.5 nats vs scratch AND arm 4 beats arm 3 by ≥ +0.3 nats AND ≥3/3 seeds positive direction (arm 4 > arm 3) AND CI for "arm 4 minus arm 3" excludes zero.
+- FAIL_TOKENIZER: arm 3 (embed_only) ≥ +0.5 nats AND arm 4 < +0.3 nats — tokenizer artifact dominates.
+- INTERMEDIATE: anything else.
+
+**Envelope:**
+- 4 arms × 3 seeds × 2000 steps × ~0.4s/step = ~9600s (~2.7h)
+- Plus eval/setup overhead ~600s
+- Total ~10200s ≤ 14400s. Add ENVELOPE COMPLIANCE comment.
+
+## Deliverables
+1. Edit `code/genome_181a_tokenizer_isolation.py` (new file, follow `genome_<topic>_<variant>.py` convention)
+2. `python -m py_compile code/genome_181a_tokenizer_isolation.py`
+3. Write notes to `codex_outputs/g181a_implementation_20260428T093000.md` summarizing design + envelope estimate
+4. DO NOT launch the run
+
+## End goal reminder
+Per CLAUDE.md §0: efficient transfer of trained capabilities. g181a tests whether the +1 nat anchor effect is donor-information transfer or tokenizer-init prior. PASS preserves the transfer story; FAIL collapses it.
