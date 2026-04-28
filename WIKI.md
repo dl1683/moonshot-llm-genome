@@ -36,10 +36,16 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Live falsifier:** g177v2 RUNNING with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
 
-**Queued post-g177v2 (revised per cycle 60 direction review 2026-04-28 ~07:05):**
-- **g173 cross-arch FLOP cash-out** launches after g177v2 completes **regardless of verdict**. Cycle 60 direction: "remove the g177 PASS gate on g173 ... unless g177 shows alt donors fully match Qwen3 and undermines even the trained-structure framing, which current evidence does not suggest." g173 is the real §0.1 uplift, not g177v2.
-- **g178 layer-family C18 decomposition** is the cheap-leverage scout (likely <1 GPU-hour from g165 cell cost). Arms: full anchor vs attention-only vs MLP-only vs embed/head, per-subset force normalization. Discriminating: one subset recovers ≥60% of +1.087 nat anchor effect, another ≤20% — moves the story from "anchor works" to "where donor structure lives."
-- **g177v2 verdict reframed (cycle 60)**: NLL × Δ scatter with n=3 alt donors clustered at NLL ~5.7-5.8 cannot honestly relock C22 (extrapolating 2.1 nats down is assumption-dominated). Verdict reads as "Qwen3 exceeds local undertrained-alt trend" — sensitivity decomposition, NOT donor-identity confirmation. Full relock would need an intermediate-NLL alt donor (~4.3-4.7) — deferred to post-g173 if needed.
+**Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
+
+**Sequencing locked:**
+1. **g173 cross-arch FLOP cash-out** — launches IMMEDIATELY after g177v2 completes regardless of verdict. The only queued test that attacks A6 (single-family basin). 3.85h hard envelope.
+2. **g179 λ-sweep + Hessian/gradient-donor projection** — first-principles derivation test (NEW per cycle 63 Q2). Tests basin-of-attraction framework: NLL gain ≈ Σ[g_i·a_i − 0.5·h_i·a_i²] with a_i(λ)=λ/(h_i+λ)·z_i. λ ∈ {0.0003, 0.0013, 0.003, 0.01, 0.03} × 1-2 seeds. <4h. PASS = derivation backbone confirmed, the "distinctive move big labs won't publish" per CLAUDE.md §0.1. Order: AFTER g173 PASS (cycle 63: "g178 risks making a detailed map of a Qwen3-family basin" before cross-arch survives).
+3. **g178 layer-family C18 decomposition** — DEFERRED until g173 + g179 complete. Cycle 63: g178 is "explanatory, not decisive"; only worth running once basin-attack and derivation are passed. If g173 FAIL, redesign g178 as failure autopsy with cross-arch donors instead.
+
+**Moat (cycle 63 Q3):** the adversarial negative-control discipline — "random-init recipient + continuous donor constraint + matched nulls + kill criteria, trained structure works as an active basin force during SGD while zero-step transplant and decay fail." Big labs optimize deployed transfer; they don't publish adversarial nulls.
+
+**g177v2 verdict (cycle 60-63 reframed)**: NLL × Δ scatter with n=3 alt donors clustered at NLL ~5.72 cannot honestly relock C22. Verdict reads as "Qwen3 exceeds local undertrained-alt trend" — sensitivity decomposition. **Concerning early signal**: anchor_alt_donor_seed_1234 seed=42 step 425 reaching NLL 4.46 — if scratch ≈ 5.5, alt donor gives Δ ≈ +1.04 nats vs Qwen3's expected +1.087. Undertraining-dominant attack from cycle 60 may play out.
 
 **Hardware blocker:** wall-power meter for g155 (only honest 8.5+ path). Procurement priority #1.
 
