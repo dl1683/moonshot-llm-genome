@@ -30,7 +30,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Locked claims:** C17 (g158c transport-demand) + C18 (g165 weight-anchor) + C19 (g167 KD canonical) + C21 (g174 trained-structure specificity, both axes) — all matched-null backed.
 
-**Live falsifier:** g177v2 RUNNING (alt-donor seed=1234 pretrain, ~3.5h ETA, 13-gram dedup against recipient train+eval, per-donor λ normalization for matched anchor-gradient force, last-K=3 mean stop rule). Verdict decides whether C22 donor-IDENTITY locks or dies.
+**Live falsifier:** g177v2 RUNNING with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
 
 **Queued post-g177v2:**
 - **PASS** → g173 cross-arch FLOP cash-out (envelope fix in flight; §0.1 → 8.0-8.4 if clean)
