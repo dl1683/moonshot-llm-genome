@@ -27,6 +27,8 @@ where lambda_i are learnable mode speeds (eigenvalues of the NTK/Fisher at initi
 
 **Gap:** NTK linearization breaks for deep nets beyond early training. Need to argue that the geometry proxy survives nonlinear dynamics (or that 3% is early enough for linearization to hold).
 
+**Related work:** arXiv 2604.14500 uses Fisher Information Metric on MoE routing simplex to predict training failure (AUC=0.89 at 10% completion). Their Fisher approach is architecture-specific (routing geometry); ours would measure the Fisher/NTK of the representation space, which is architecture-agnostic. Validates that Fisher-based features carry strong predictive signal for training health.
+
 ---
 
 ## Route 2: Rate-Distortion (Water-Filling)
