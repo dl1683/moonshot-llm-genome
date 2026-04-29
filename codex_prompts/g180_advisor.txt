@@ -1,0 +1,27 @@
+Read `results/genome_180_forecast.json` (the actual numbers, not just the verdict label), `WIKI.md` CURRENT STATUS, `research/CLAIM_EVIDENCE_MAP.md`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` (DRAFT), `research/prereg/genome_182_tokenizer_prior_benchmark_2026-04-29.md` (DRAFT), and `codex_outputs/heartbeats/cycle72_direction_review_20260429T010000.md` (branch projections).
+
+g180 just completed. Forecast/Diagnostic experiment — predict final C4 NLL gain from ≤3% training geometry features (8 picks: spectral invariant, depth drift, TwoNN ID, kNN-10, PCA-64 Procrustes-to-Qwen3, gradient-noise, curvature, norm/variance). Train: Qwen-family completed cells. Test: g173 Llama-family cells. PASS = ≥25% MSE reduction over early-loss-only baseline with paired bootstrap CI > 0.
+
+The user wants POWERFUL next directions per the cycle 72 framing pivot.
+
+## Specific tasks
+
+1. **Read the actual MSE / R² / bootstrap CI numbers from the result JSON.** Report:
+   - Held-out (Llama-family) MSE for early-loss-only baseline
+   - Held-out MSE for full geometry+early-loss
+   - % MSE reduction
+   - Paired bootstrap 95% CI on the improvement
+   - Top 3 features by importance/coefficient
+   - Secondary actionability guard check (no-stop on arms with true gain ≥+0.5)
+
+2. **Pick the verdict label honestly:** PASS / WEAK PASS / FAIL per the prereg criteria.
+
+3. **If PASS:** validate the pre-staged g180b cross-tokenizer prereg DRAFT. Spec the 3 things Codex needs to lock: tokenizer arms (BERT/T5/Llama-native), Procrustes-reference choice (per-tokenizer or shared Qwen3), per-tokenizer probe-batch construction. Report under 200 words.
+
+4. **If WEAK PASS:** is g180b worth running, or pivot to g182 Tokenizer-Prior Benchmark? Report under 200 words.
+
+5. **If FAIL:** spec the g182 Tokenizer-Prior Compatibility Benchmark — which strategically-sparse cell subset (out of 4×5×3=60 factorial)? Pretrained refs vs fresh? Efficiency metric definition? Random-init scheme? Report under 250 words.
+
+6. **§0.1 score update for the realized branch.**
+
+Output content directly to `codex_outputs/g180_advisor_<TIMESTAMP>.md`. NO meta-pointer. Under 600 words total.
