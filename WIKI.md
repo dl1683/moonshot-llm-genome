@@ -694,7 +694,10 @@ Every deletion, merge, and rename. Demonstrates the repo is getting simpler, not
 | 2026-04-20 | Scaffolded | `moonshot-llm-genome/` | New home under AI Moonshots umbrella |
 | 2026-04-26 | Deleted | `code/genome_130_trajectory_scaling_law.py` + result JSON + run.log | Pythia-2.8b checkpoint aliasing meant all step* branches mapped to same file; experiment was skipped, never had a ledger entry. |
 | 2026-04-26 | Deleted | `code/genome_124_kd_logit_distillation.py` (untracked, never committed) | Dead duplicate of the now-canonical g154 distillation pipeline. |
-| 2026-04-29 | Deleted | 54 code files (genome_100–150) + 44 result JSONs (genome_110–150) | Pre-pivot experiments. Zero imports from any active code (g165+). Zero references in WIKI/EXPERIMENTS/prereg. The transfer-mechanism hypothesis they served was falsified by g177v2/g173/g181a. Total: −98 files. |
+| 2026-04-29 | Deleted | 54 code files (genome_100–150) + 44 result JSONs (genome_110–150) | Pre-pivot experiments with zero imports from active code (g165+). |
+| 2026-04-29 | Deleted | 15 code files (genome_087–099 + 161–162) | Pre-pivot era, zero WIKI refs (161/162) or pre-transfer-mechanism invariant exploration (087–099). |
+| 2026-04-29 | Deleted | 10 one-shot scripts (integrate_g*, make_*, assemble_paper, analysis_*) | Run-once verdict integrators; results already committed. |
+| 2026-04-29 | Deleted | 89 dead utility/probe/figure scripts (non-numbered genome_*.py) | Self-referencing cluster with zero active (g165+) imports except genome_primitives. Kept: genome_primitives, stimulus_banks, prereg_validator. Repo: 189→21 code files. |
 
 ---
 
