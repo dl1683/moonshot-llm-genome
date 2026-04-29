@@ -59,7 +59,9 @@ Run exactly three non-Qwen3 tokenizer arms:
 |---|---|---|---|
 | `bert_wordpiece` | `bert-base-uncased` | WordPiece | Qwen3-arch recipient with swapped tokenizer/vocab |
 | `t5_sentencepiece` | `google-t5/t5-small` | SentencePiece unigram | Qwen3-arch recipient with swapped tokenizer/vocab |
-| `llama3_bpe` | `meta-llama/Llama-3.2-3B` | Llama-3 BPE/tiktoken | Qwen3-arch recipient with swapped tokenizer/vocab |
+| `gpt2_bpe` | `gpt2` | GPT-2 BPE | Qwen3-arch recipient with swapped tokenizer/vocab |
+
+> **Substitution note (2026-04-29):** Original design specified `meta-llama/Llama-3.2-3B` but the HF token has expired for gated repos. GPT-2 substituted as the BPE arm: same vocabulary family (byte-pair encoding), freely accessible, 50257 vocab size. The scientific requirement (BPE tokenizer spanning a different vocabulary family than Qwen3's BPE) is preserved.
 
 **Architecture decision:** use Qwen3-architecture recipients with swapped tokenizers for the primary test. Do not run architecture-matched BERT, T5, or Llama recipients in g180b.
 
@@ -87,7 +89,7 @@ Tokenizer special-token handling:
 
 - `bert-base-uncased`: use `[SEP]` as EOS separator; use `[PAD]` as pad if padding is required; do not inject `[CLS]` into every training window.
 - `google-t5/t5-small`: use `</s>` as EOS separator and `<pad>` as pad.
-- `meta-llama/Llama-3.2-3B`: use native EOS; if pad is absent, set pad to EOS.
+- `gpt2`: use `<|endoftext|>` as EOS separator; pad is absent, set pad to EOS.
 
 ## Cell matrix
 
