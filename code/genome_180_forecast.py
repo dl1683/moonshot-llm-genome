@@ -591,7 +591,7 @@ def _last_block_lm_head_params(model: Any) -> list[Any]:
             continue
         include = "lm_head" in name
         if last_idx is not None:
-            include = include or f"layers.{last_idx}." in name or f"model.layers.{last_idx}." in name
+            include = include or f"layers.{last_idx}." in name or f"model.layers.{last_idx}." in name or f"transformer.h.{last_idx}." in name
         if include:
             params.append(param)
     if not params:
