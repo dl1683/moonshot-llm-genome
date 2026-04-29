@@ -1968,7 +1968,7 @@ def reanalyze_main():
             print_flush(f"\n  Within-arch z-scored LOAO saved")
 
         print_flush(f"\n--- Arm-controlled LOAO (Codex cycle 122) ---")
-        arm_ctrl = arm_controlled_loao(labeled)
+        arm_ctrl = arm_controlled_loao(labeled, all_cells=cells)
         if arm_ctrl:
             existing["arm_controlled_loao"] = arm_ctrl
             print_flush(f"\n  Arm-controlled LOAO saved")
@@ -2109,10 +2109,11 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
     return results
 
 
-def arm_controlled_loao(labeled: list[dict]) -> dict[str, Any]:
+def arm_controlled_loao(labeled: list[dict], all_cells: list[dict] | None = None) -> dict[str, Any]:
     """Codex cycle 122: tests that LOAO survives arm control.
 
     Without these, a positive LOAO is just 'KD detector wearing a forecasting badge.'
+    all_cells includes scratch cells (needed for pairwise delta test).
     """
     feat_names = MANIFOLD_ONLY_FEATURE_NAMES
     has_feats = all(
@@ -2124,13 +2125,13 @@ def arm_controlled_loao(labeled: list[dict]) -> dict[str, Any]:
 
     archs = sorted(set(c["arch"] for c in labeled))
     arms = sorted(set(c["arm"] for c in labeled))
-    if len(archs) < 2 or len(arms) < 2:
+    if len(archs) < 2:
         return {}
 
     results = {}
 
     # --- Test 1: Arm-demeaned LOAO ---
-    # Predict y - arm_mean. Positive R² means geometry captures MORE than arm identity.
+    # Predict y - group_mean. With one arm, this becomes architecture-demeaned.
     arm_arch_means = {}
     for arch in archs:
         for arm in arms:
@@ -2155,19 +2156,20 @@ def arm_controlled_loao(labeled: list[dict]) -> dict[str, Any]:
 
     # --- Test 2: Pairwise delta test ---
     # For matched seeds: Δfeatures(KD-scratch) predicts ΔNLL(KD-scratch)?
+    delta_source = all_cells if all_cells else labeled
     deltas_X, deltas_y = [], []
     for arch in archs:
-        scratch_by_seed = {c["seed"]: c for c in labeled
+        scratch_by_seed = {c["seed"]: c for c in delta_source
                           if c["arch"] == arch and c["arm"] == "scratch_ce"}
-        kd_cells = [c for c in labeled
+        kd_cells = [c for c in delta_source
                     if c["arch"] == arch and c["arm"] == "seq_kd_full"]
         for kd_c in kd_cells:
-            sc = scratch_by_seed.get(kd_c["seed"])
+            sc = scratch_by_seed.get(kd_c.get("seed"))
             if sc is None:
                 continue
             dx = [float(kd_c["features"].get(fn, 0)) - float(sc["features"].get(fn, 0))
                   for fn in feat_names]
-            dy = kd_c["label"] - sc["label"]
+            dy = kd_c.get("label", (sc["final_nll"] - kd_c["final_nll"]) / sc["final_nll"])
             deltas_X.append(dx)
             deltas_y.append(dy)
 
@@ -2780,7 +2782,7 @@ def main():
 
     route3 = route3_predictions(labeled, loao_results)
     arm_checks = arm_identity_diagnostics(labeled)
-    arm_ctrl = arm_controlled_loao(labeled)
+    arm_ctrl = arm_controlled_loao(labeled, all_cells=all_cells)
 
     total_time = time.time() - t_start
     final = {
