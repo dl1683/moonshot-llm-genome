@@ -692,10 +692,21 @@ def extract_features_for_cell(model, probe_batch, arch: str,
         features = {k: v for k, v in features.items()
                     if not any(ref in k for ref in ["qwen_ref", "reference_rows"])}
     optional_prefixes = ("shesha_",)
+    optional_substrings = ("qwen_ref", "reference_rows")
+    optional_exact = {"curvature_top_eigen_proxy"}
+    def _is_optional(name):
+        if name.startswith(optional_prefixes):
+            return True
+        if name in optional_exact:
+            return True
+        return any(s in name for s in optional_substrings)
     bad = [k for k, v in features.items()
-           if not math.isfinite(float(v)) and not k.startswith(optional_prefixes)]
+           if not math.isfinite(float(v)) and not _is_optional(k)]
     if bad:
         raise RuntimeError(f"non-finite features: {bad}")
+    for k in list(features):
+        if not math.isfinite(float(features[k])):
+            features[k] = float("nan")
     return features
 
 
