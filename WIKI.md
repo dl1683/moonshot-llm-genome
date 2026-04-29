@@ -26,7 +26,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
 
-**§0.1 ceiling: 4-5/10** (g181a 2026-04-28 ~17:00 UTC: tokenizer-prior is the active ingredient; transfer-mechanism framing collapses). **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
+**§0.1 ceiling: 4.0-4.5/10 honest baseline** (cycle 72 direction review 2026-04-29 ~01:00 UTC). Branch projections:
+- Pre-g180 / lower bound: **4.0/10** (publishable as disciplined negative-results + tokenizer-prior finding)
+- g180 PASS (≥25% held-out MSE reduction): **6.5-7.0/10** (Qwen-heavy ceiling)
+- g180 PASS + g180b cross-tokenizer PASS: **7.3-7.6/10** (then g180c at 1B+ = 8/10 attempt)
+- g180 FAIL: **3.2-3.8/10** (workshop-grade only)
+
+**Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
 
 **★ g181a VERDICT: tokenizer-prior dominates (cycle 65 A7 9/10 attack CONFIRMED) — 2026-04-28 ~17:00 UTC ★**
 
