@@ -1967,6 +1967,12 @@ def reanalyze_main():
             existing["within_arch_zscore_loao"] = zscore_results
             print_flush(f"\n  Within-arch z-scored LOAO saved")
 
+        print_flush(f"\n--- Arm-controlled LOAO (Codex cycle 122) ---")
+        arm_ctrl = arm_controlled_loao(labeled)
+        if arm_ctrl:
+            existing["arm_controlled_loao"] = arm_ctrl
+            print_flush(f"\n  Arm-controlled LOAO saved")
+
         save_incremental(OUT_PATH, existing)
         print_flush(f"Saved re-analysis to {OUT_PATH}")
 
@@ -2099,6 +2105,137 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
         print_flush(f"  Within-arm residual R2(LOO)={r2_resid:.3f} [{status}]")
     except Exception as e:
         print_flush(f"  Within-arm residual failed: {e}")
+
+    return results
+
+
+def arm_controlled_loao(labeled: list[dict]) -> dict[str, Any]:
+    """Codex cycle 122: tests that LOAO survives arm control.
+
+    Without these, a positive LOAO is just 'KD detector wearing a forecasting badge.'
+    """
+    feat_names = MANIFOLD_ONLY_FEATURE_NAMES
+    has_feats = all(
+        any(math.isfinite(float(c["features"].get(fn, float("nan")))) for fn in feat_names)
+        for c in labeled
+    )
+    if not has_feats:
+        return {}
+
+    archs = sorted(set(c["arch"] for c in labeled))
+    arms = sorted(set(c["arm"] for c in labeled))
+    if len(archs) < 2 or len(arms) < 2:
+        return {}
+
+    results = {}
+
+    # --- Test 1: Arm-demeaned LOAO ---
+    # Predict y - arm_mean. Positive R² means geometry captures MORE than arm identity.
+    arm_arch_means = {}
+    for arch in archs:
+        for arm in arms:
+            subset = [c for c in labeled if c["arch"] == arch and c["arm"] == arm]
+            if subset:
+                arm_arch_means[(arch, arm)] = np.mean([c["label"] for c in subset])
+
+    demeaned = []
+    for c in labeled:
+        key = (c["arch"], c["arm"])
+        if key in arm_arch_means:
+            demeaned.append({**c, "label": c["label"] - arm_arch_means[key]})
+    if len(demeaned) >= 10:
+        try:
+            res = loao_evaluate(demeaned, feat_names, "arm_demeaned_c_prime")
+            results["arm_demeaned_loao"] = res
+            for arch, fold in res["folds"].items():
+                print_flush(f"    arm_demeaned fold={arch}: R2={fold['geometry_r2']:.3f} "
+                            f"mse={fold['geometry_mse']:.6f}")
+        except Exception as e:
+            print_flush(f"    arm_demeaned failed: {e}")
+
+    # --- Test 2: Pairwise delta test ---
+    # For matched seeds: Δfeatures(KD-scratch) predicts ΔNLL(KD-scratch)?
+    deltas_X, deltas_y = [], []
+    for arch in archs:
+        scratch_by_seed = {c["seed"]: c for c in labeled
+                          if c["arch"] == arch and c["arm"] == "scratch_ce"}
+        kd_cells = [c for c in labeled
+                    if c["arch"] == arch and c["arm"] == "seq_kd_full"]
+        for kd_c in kd_cells:
+            sc = scratch_by_seed.get(kd_c["seed"])
+            if sc is None:
+                continue
+            dx = [float(kd_c["features"].get(fn, 0)) - float(sc["features"].get(fn, 0))
+                  for fn in feat_names]
+            dy = kd_c["label"] - sc["label"]
+            deltas_X.append(dx)
+            deltas_y.append(dy)
+
+    if len(deltas_X) >= 6:
+        dX = np.array(deltas_X)
+        dy_arr = np.array(deltas_y)
+        from sklearn.model_selection import LeaveOneOut as _LOO_D
+        loo_pred = np.zeros(len(dy_arr))
+        for tr, te in _LOO_D().split(dX):
+            mu, sd = dX[tr].mean(0), dX[tr].std(0)
+            sd[sd < 1e-12] = 1.0
+            ridge = fit_ridge_cv((dX[tr] - mu) / sd, dy_arr[tr])
+            loo_pred[te] = ridge.predict((dX[te] - mu) / sd)
+        ss_res = float(np.sum((dy_arr - loo_pred) ** 2))
+        ss_tot = float(np.sum((dy_arr - dy_arr.mean()) ** 2))
+        delta_r2 = 1 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
+        delta_corr = float(np.corrcoef(dy_arr, loo_pred)[0, 1]) if len(dy_arr) > 2 else float("nan")
+        results["pairwise_delta"] = {
+            "n_pairs": len(deltas_X),
+            "delta_loo_r2": delta_r2,
+            "delta_loo_corr": delta_corr,
+            "delta_label_std": float(np.std(dy_arr)),
+        }
+        print_flush(f"    pairwise_delta: n={len(deltas_X)} R2={delta_r2:.3f} corr={delta_corr:.3f}")
+
+    # --- Test 3: Within-arm permutation null ---
+    # Permute labels within (arch, arm) groups 200 times. Compute LOAO R² each time.
+    # If real LOAO R² > 95th percentile of null, geometry adds signal beyond arm.
+    try:
+        real_res = loao_evaluate(labeled, feat_names, "_perm_real")
+        real_r2s = [f["geometry_r2"] for f in real_res["folds"].values()]
+        real_mean_r2 = float(np.mean(real_r2s))
+
+        rng = np.random.RandomState(RANDOM_STATE)
+        null_r2s = []
+        for _ in range(200):
+            perm_labeled = []
+            for arch in archs:
+                for arm in arms:
+                    group = [c for c in labeled if c["arch"] == arch and c["arm"] == arm]
+                    if not group:
+                        continue
+                    perm_labels = rng.permutation([c["label"] for c in group])
+                    for c, pl in zip(group, perm_labels):
+                        perm_labeled.append({**c, "label": float(pl)})
+            try:
+                perm_res = loao_evaluate(perm_labeled, feat_names, "_perm_null")
+                perm_r2 = float(np.mean([f["geometry_r2"] for f in perm_res["folds"].values()]))
+                null_r2s.append(perm_r2)
+            except Exception:
+                pass
+
+        if null_r2s:
+            p95 = float(np.percentile(null_r2s, 95))
+            p_value = float(np.mean([1 for n in null_r2s if n >= real_mean_r2]))
+            results["within_arm_permutation"] = {
+                "real_mean_r2": real_mean_r2,
+                "null_95th_percentile": p95,
+                "null_mean": float(np.mean(null_r2s)),
+                "permutation_p_value": p_value,
+                "n_permutations": len(null_r2s),
+                "survives_permutation": real_mean_r2 > p95,
+            }
+            status = "PASS" if real_mean_r2 > p95 else "FAIL"
+            print_flush(f"    permutation test: real R2={real_mean_r2:.3f} "
+                        f"null_95={p95:.3f} p={p_value:.3f} [{status}]")
+    except Exception as e:
+        print_flush(f"    permutation test failed: {e}")
 
     return results
 
@@ -2643,6 +2780,7 @@ def main():
 
     route3 = route3_predictions(labeled, loao_results)
     arm_checks = arm_identity_diagnostics(labeled)
+    arm_ctrl = arm_controlled_loao(labeled)
 
     total_time = time.time() - t_start
     final = {
@@ -2656,6 +2794,7 @@ def main():
         "verdict": verdict,
         "route3_predictions": route3,
         "arm_identity_diagnostics": arm_checks,
+        "arm_controlled_loao": arm_ctrl,
         "total_wallclock_s": total_time,
         "status": "complete",
     }
