@@ -135,6 +135,8 @@ The pivot turns negative findings into mechanism: g181a showed tokenizer/embed i
 
 ## ⚡ ACTIVE EXPERIMENT QUEUE (historical snapshot 2026-04-26 22:00 — kept as audit trail) ⚡
 
+> **⚠ ANTI-ENTROPY NOTE (2026-04-29 cycle 77):** Code files genome_087–150 and non-numbered utility scripts were deleted in a major cleanup pass (189→21 code files). File references below (e.g., `code/genome_110_*.py`, `code/genome_genomeguard.py`, `GENOMEGUARD.md`, `NEURAL_GENOME.md`, `research/BREAKTHROUGH_SYNTHESIS.md`, `research/CURRENT_KNOWLEDGE.md`, `research/PREPRINT_DRAFT.md`) point to files that no longer exist. Historical context is preserved in git and `experiments/ledger.jsonl`. Only the CURRENT STATUS section above is authoritative.
+
 **Decisive thesis state:** g156 PASS_TRANSPORT validates the prefix-information transport derivation route along the data-order axis (Δ_nat=+0.56pp, Δ_shuf=−0.20pp, C=+0.76pp). g152 PARTIAL/AMBIGUOUS shows the win attenuates with compute (consistency-evidence for the theory's saturation prediction). §0.1 score: **6/10 currently**, projected **7-8/10** if g157+ chain validates internal mechanism.
 
 **g157 v2 PILOT: PILOT_KILL (22:10)** then **g157b PILOT: KILL_157b (22:55)** — both probe variants reject the η > δ^mlp criterion. Mechanism falsified.
