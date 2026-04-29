@@ -317,8 +317,8 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Pre-reg |
 |---|---|---|---|
-| `genome_181b` | RUNNING | Long-horizon attenuation (5000 steps, 4/6 cells done) | — |
-| `genome_180b` | QUEUED | Cross-tokenizer forecast (27 cells, launches after g181b) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
+| `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
+| `genome_180b` | RUNNING | Cross-tokenizer forecast (27 cells) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
 | `genome_182` | LOCKED | Blinded Training Triage Arena (72 cells, 2 archs, 9 baselines) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |

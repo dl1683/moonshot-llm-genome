@@ -48,11 +48,11 @@ Source: `code/genome_180b_cross_tokenizer.py`, `research/prereg/genome_180b_cros
 
 ---
 
-## 2026-04-29 — genome_181b_long_horizon — RUNNING (horizon attenuation control)
+## 2026-04-29 — genome_181b_long_horizon — PASS (horizon attenuation control)
 
-**Purpose.** Test whether the g181a embed_lm_head_only_anchor gain persists at 5000 steps (2.5× the 2000-step g181a horizon). 2 arms × 3 seeds × 5000 steps.
+**Purpose.** Test whether the g181a embed_lm_head_only_anchor gain persists at 5000 steps (2.5x the 2000-step g181a horizon). 2 arms x 3 seeds x 5000 steps.
 
-**Status.** RUNNING on GPU. PASS: gap ≥ +0.5 nats at step 5000. FAIL: gap < +0.3 nats.
+**Verdict.** **PASS** — 3-seed mean gap = +0.513 nats (threshold >= +0.5). CI [+0.486, +0.531]. Individual gaps: s42=+0.531, s7=+0.486, s13=+0.523. Wallclock: 7957s (~2.2h). Confirms g181a finding is not a transient early-training artifact. Validates embed_anchor arm for g182.
 
 Source: `code/genome_181b_long_horizon.py`, `results/genome_181b_long_horizon.json`.
 

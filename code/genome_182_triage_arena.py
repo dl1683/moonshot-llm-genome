@@ -302,10 +302,18 @@ def cross_arch_anchor_loss(
         for name, p in recipient.named_parameters():
             if name not in donor_embed_params:
                 continue
-            if p.shape != donor_embed_params[name].shape:
-                continue
-            total = total + ((p.to(torch.float32) - donor_embed_params[name]) ** 2).sum()
-            matched += 1
+            dp = donor_embed_params[name]
+            if p.shape == dp.shape:
+                total = total + ((p.to(torch.float32) - dp) ** 2).sum()
+                matched += 1
+            elif p.ndim == 2 and dp.ndim == 2 and p.shape[0] == dp.shape[0]:
+                min_dim = min(p.shape[1], dp.shape[1])
+                total = total + ((p.to(torch.float32)[:, :min_dim] - dp[:, :min_dim]) ** 2).sum()
+                matched += 1
+            elif p.ndim == 2 and dp.ndim == 2 and p.shape[1] == dp.shape[1]:
+                min_rows = min(p.shape[0], dp.shape[0])
+                total = total + ((p.to(torch.float32)[:min_rows] - dp[:min_rows]) ** 2).sum()
+                matched += 1
     elif arch == "gpt2" and shared_vocab_map is not None:
         recip_embed = None
         donor_embed = None
@@ -688,7 +696,10 @@ def train_cell(
         early_loss = float(ce.detach().float().cpu().item())
 
         if step in TRAJECTORY_STEPS or (smoke and step in [5, 10, 15, 20]):
-            traj_nll = evaluate_nll(model, pools["val_ids"], pools["val_mask"])
+            traj_subset = min(128, pools["val_ids"].shape[0])
+            traj_nll = evaluate_nll(
+                model, pools["val_ids"][:traj_subset], pools["val_mask"][:traj_subset]
+            )
             trajectory_losses[step] = traj_nll["nll"]
             model.train()
 
@@ -718,6 +729,8 @@ def train_cell(
         features = extract_features_for_cell(model, probe, arch)
 
     final_metrics = evaluate_nll(model, pools["val_ids"], pools["val_mask"])
+    if not math.isfinite(final_metrics["nll"]):
+        raise RuntimeError(f"non-finite final NLL cell={cell_id}: {final_metrics['nll']}")
     wallclock_s = time.time() - t_cell
 
     result = {
@@ -804,20 +817,28 @@ def fit_ridge_cv(X_train, y_train, alpha_grid=None):
     return model
 
 
-def feature_matrix(cells: list[dict], feature_names: list[str]) -> np.ndarray:
-    """Build (n_cells, n_features) matrix from cell dicts."""
+def feature_matrix(cells: list[dict], feature_names: list[str],
+                    impute_medians: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Build (n_cells, n_features) matrix from cell dicts.
+
+    Returns (X, medians) where medians can be passed to subsequent calls
+    for test-set imputation using train statistics only.
+    """
     X = np.zeros((len(cells), len(feature_names)), dtype=np.float64)
     for i, c in enumerate(cells):
         feats = c.get("features", {})
         for j, fname in enumerate(feature_names):
             val = feats.get(fname, float("nan"))
             X[i, j] = float(val) if val is not None else float("nan")
+    if impute_medians is None:
+        medians = np.nanmedian(X, axis=0)
+    else:
+        medians = impute_medians
     nan_mask = np.isnan(X)
     if nan_mask.any():
-        col_medians = np.nanmedian(X, axis=0)
         for j in range(X.shape[1]):
-            X[nan_mask[:, j], j] = col_medians[j] if np.isfinite(col_medians[j]) else 0.0
-    return X
+            X[nan_mask[:, j], j] = medians[j] if np.isfinite(medians[j]) else 0.0
+    return X, medians
 
 
 def standardize(X_train, X_test):
@@ -951,8 +972,8 @@ def loao_evaluate(
         y_train = np.array([c["label"] for c in train_cells], dtype=np.float64)
         y_test = np.array([c["label"] for c in test_cells], dtype=np.float64)
 
-        X_train_geo = feature_matrix(train_cells, geometry_feature_names)
-        X_test_geo = feature_matrix(test_cells, geometry_feature_names)
+        X_train_geo, train_medians = feature_matrix(train_cells, geometry_feature_names)
+        X_test_geo, _ = feature_matrix(test_cells, geometry_feature_names, impute_medians=train_medians)
         X_train_geo_s, X_test_geo_s = standardize(X_train_geo, X_test_geo)
 
         geo_model = fit_ridge_cv(X_train_geo_s, y_train)
@@ -1351,9 +1372,22 @@ def main():
                     "status": "running",
                 })
 
-    status_label = "partial" if hit_limit else "complete"
-    print_flush(f"\n=== {len(all_cells)} cells ({new_cells_trained} new). "
-                f"Status: {status_label}. Running analysis... ===")
+    if hit_limit:
+        print_flush(f"\n=== {len(all_cells)} cells ({new_cells_trained} new). "
+                    f"PARTIAL run (--max-cells={int(max_cells)}). Saving and exiting. ===")
+        save_incremental(OUT_PATH, {
+            "genome": "182",
+            "timestamp_utc": now_utc(),
+            "cells": all_cells,
+            "n_cells": len(all_cells),
+            "new_cells_trained": new_cells_trained,
+            "status": "partial",
+        })
+        print_flush(f"Saved partial: {OUT_PATH}")
+        return
+
+    print_flush(f"\n=== All {len(all_cells)} cells ({new_cells_trained} new). "
+                f"Running analysis... ===")
 
     labeled = compute_normalized_labels(all_cells)
     print_flush(f"    {len(labeled)} labeled cells (excluding scratch baselines)")
