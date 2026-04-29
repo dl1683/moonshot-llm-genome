@@ -38,7 +38,7 @@ Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/
 
 ---
 
-## 2026-04-29 — genome_180b_cross_tokenizer — QUEUED (cross-tokenizer forecast gate)
+## 2026-04-29 — genome_180b_cross_tokenizer — RUNNING (cross-tokenizer forecast gate)
 
 **Purpose.** Test whether g180's geometry-based forecast model trained on Qwen-tokenizer cells generalizes to held-out tokenizer cells. 27 cells = 3 tokenizers (BERT WordPiece, T5 SentencePiece, GPT-2 BPE) × 3 arms (scratch_ce, seq_kd_full, seq_kd_late_only) × 3 seeds. Qwen3-arch recipients with swapped tokenizer/vocab. Frozen g180 Ridge applied as-is.
 
