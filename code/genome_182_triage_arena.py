@@ -706,7 +706,7 @@ def extract_features_for_cell(model, probe_batch, arch: str,
         raise RuntimeError(f"non-finite features: {bad}")
     for k in list(features):
         if not math.isfinite(float(features[k])):
-            features[k] = float("nan")
+            features[k] = None
     return features
 
 
