@@ -14,7 +14,7 @@ The strong-form claim — *"transfer of trained capabilities from a trained mode
 
 **New framing (cycle 72 direction review):** pivot to **Forecast/Diagnostic** — *"the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed"*. Falsification-discipline becomes the integrity story, not the headline.
 
-**§0.1 honest baseline:** 4.0-4.5/10. Branch projections in `WIKI.md` CURRENT STATUS.
+**§0.1 honest baseline:** 5.0/10 (post g180 WEAK PASS — 61.6% MSE reduction for geometry forecast vs early-loss baseline, n=9 cross-family test cells). Branch projections in `WIKI.md` CURRENT STATUS.
 
 ---
 
