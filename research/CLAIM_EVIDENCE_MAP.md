@@ -113,6 +113,11 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
 
 Path forward (status 2026-04-26 evening): g156 PASSed; g157 prereg+impl LOCKED, ready to launch when GPU frees. g158/g159/g160/g161 preregs all LOCKED, conditional on their gating. The empirical chain has a derivation backbone candidate; g157+ tests whether that backbone has an internal measurable quantity (η > δ^mlp). If g157 PASSes, §0.1 → 7-8/10 (theory has internal-quantity validation). If g157 KILLs, the mechanism is wrong but g156 PASS still stands as cross-axis empirical evidence.
 
+## 3. Competitive Intelligence
+
+- **arxiv 2604.01025 (April 2026):** "Fast and Accurate Probing of In-Training LLMs' Downstream Performances." DIRECTLY competitive — uses internal representations during training to predict downstream performance on OLMo3-7B (AUROC >0.75). Their focus: probe-based in-training monitoring of a single architecture. Our distinctive angle for g182: (a) cross-architecture generalization via leave-one-arch-out CV, (b) adversarial baseline suite (9 baselines + combined telemetry), (c) pre-registered strict pass/fail criteria, (d) training triage focus (kill/continue decisions with compute savings). They demonstrate the general idea works; we need to show it generalizes across architectures and beats strong baselines.
+- **arxiv 2504.12491 (April 2025):** "Can Pre-training Indicators Reliably Predict Fine-tuning Outcomes of LLMs?" Tests whether pre-training metrics (loss, gradient norm, etc.) predict fine-tuning success. Relevant but different target: they predict fine-tuning outcomes from pre-training observables, while we predict final training NLL from early-training geometry. Their negative/mixed results for simple pre-training indicators strengthen our case for geometry-based features beyond scalar loss.
+
 ---
 
 ## 4. Audit rule

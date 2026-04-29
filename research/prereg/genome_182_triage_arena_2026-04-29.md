@@ -1,6 +1,6 @@
-# genome_182 — Blinded Training Triage Arena (DRAFT v3)
+# genome_182 — Blinded Training Triage Arena (LOCKED)
 
-**Status:** DRAFT v3 for Codex design gate. Not locked. Incorporates all Codex v1+v2 design-gate feedback.
+**Status:** LOCKED 2026-04-29. Codex design gate APPROVED (v3). Minor advisories addressed: smoke-test includes interrupt/resume verification, Ridge alpha grid predeclared [0.01–1000], wall-clock gate corrected to 4.2h/12-cell batch.
 
 ## Motivation
 
@@ -86,7 +86,7 @@ Both co-primary models must independently beat all baselines for PASS.
 
 - Leave-one-architecture-out cross-validation: train on Qwen3, test on GPT-2 (and vice versa)
 - Block-bootstrap by seed, preserving all arms per seed
-- Ridge scaling/alpha selection: pre-locked on train folds only (5-fold CV within train fold for alpha)
+- Ridge scaling/alpha selection: pre-locked on train folds only (5-fold CV within train fold for alpha); alpha grid = [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
 - Metrics: MSE, R², paired bootstrap CI, AUROC for bad-run detection, simulated kill/continue
 
 ### Pass/fail criteria (Codex-specified, strict)
@@ -103,7 +103,7 @@ Both co-primary models must independently beat all baselines for PASS.
 - [x] **Quantization:** BF16 training (models <100M, no quantization needed per CLAUDE.md rules)
 - [x] **Per-session wall clock:** 48 cells × 21 min/cell = ~17h staged, broken into ≤4h sessions with per-cell checkpoint/resume
 - [x] **Checkpoint/resume:** Incremental JSON writes after each cell; atomic file writes; resume from last completed cell
-- [x] **Smoke test:** 1 cell per architecture × 20 steps; validates tokenization, training loop, feature extraction, Ridge prediction; projected wall-clock gate at 3.75h per 12-cell batch
+- [x] **Smoke test:** 1 cell per architecture × 20 steps; validates tokenization, training loop, feature extraction, Ridge prediction, AND interrupt/resume (kill after 10 steps, resume, verify no data loss); projected wall-clock gate at 4.2h per 12-cell batch (12 × 21 min)
 
 ### Compute estimate
 
