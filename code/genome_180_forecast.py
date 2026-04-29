@@ -870,6 +870,11 @@ def build_known_cells(results_jsons: Mapping[str, dict[str, Any]]) -> list[CellS
     add_cells("g172", ("results",), "scratch_ce", 6000, "qwen_vocab_minimal_llama", "train", "minimal_kd_schedule")
     add_cells("g174", ("part_a", "results"), "scratch_baseline", 500, "qwen_anchor", "train", "qwen_anchor_nulls")
     add_cells("g174", ("part_b", "results"), "scratch_ce", 6000, "qwen_vocab_minimal_llama", "train", "minimal_kd_nulls")
+    # Filter out g174 PART B random_teacher cells: replay path triggers CUDA
+    # scatter-gather assert (random teacher topk indices land in padded vocab
+    # range, OOB on student lm_head). These cells are null controls; their
+    # forecast labels are not load-bearing. Drop to avoid context corruption.
+    cells = [c for c in cells if "kd_random_teacher" not in c.arm]
     add_cells("g177", ("results",), "scratch_baseline", 500, "qwen_anchor", "train", "qwen_anchor_alt_donor")
     add_cells("g181a", ("results",), "scratch_ce", 2000, "qwen_anchor", "train", "tokenizer_isolation")
 
@@ -1610,15 +1615,28 @@ def run_forecast(args: argparse.Namespace) -> dict[str, Any]:
         ref = _load_qwen_reference_geometry(probe_batch, layer_indices=[1, 14, 28])
         probe_batch.update(ref)
     rows: list[dict[str, Any]] = []
+    skipped: list[tuple[str, str]] = []
     for idx, spec in enumerate(cells, start=1):
         print(f"  [{idx:03d}/{len(cells):03d}] {spec.cell_id} target_steps={spec.target_steps}")
-        row = _extract_or_load_row(
-            spec,
-            results_jsons=results_jsons,
-            probe_batch=probe_batch,
-            force_replay=args.force_replay,
-            no_replay=args.no_replay,
-        )
+        try:
+            row = _extract_or_load_row(
+                spec,
+                results_jsons=results_jsons,
+                probe_batch=probe_batch,
+                force_replay=args.force_replay,
+                no_replay=args.no_replay,
+            )
+        except Exception as exc:
+            print(f"    SKIP cell {spec.cell_id}: {type(exc).__name__}: {str(exc)[:200]}")
+            skipped.append((spec.cell_id, f"{type(exc).__name__}: {str(exc)[:200]}"))
+            try:
+                import torch
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                    torch.cuda.synchronize()
+            except Exception:
+                pass
+            continue
         if row is not None:
             rows.append(row)
             if idx % 5 == 0:
