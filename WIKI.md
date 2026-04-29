@@ -26,22 +26,23 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 93) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 96) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
-- g182 Model B beats arm_mean + combined_telemetry: **8.3-8.6/10** (cross-Transformer-family geometry diagnostic)
+- g182 Model C (pure geometry) beats arm_mean + telemetry: **8.6-9.0/10** (geometry alone predicts training health)
+- g182 Model B beats arm_mean + combined_telemetry: **7.5-8.0/10** (confounded with telemetry — weaker claim)
 - g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
 - g182 partial (one fold or only Model A): **6.5-7.0/10**
 - g182 FAIL: **4.0-4.5/10** (geometry diagnostic is dead)
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
 
-**g182 Triage Arena RUNNING (cycle 93 restart).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug in teacher text generation — killed & restarted with 3 fixes (left-padding, NaN feature guard, grad clip error_if_nonfinite). Restart 12:51Z, teacher gen ~78 min, then 11 cells × ~21 min. ETA ~18:03Z. Qwen3=182.8M, GPT-2=83.0M. Codex advisor: 10-15% full PASS, 20-30% Model B signal.
+**g182 Triage Arena RUNNING (cycle 93 restart, cycle 96 code fixes).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug — killed & restarted with left-padding fix. Cycle 95 adversarial found 2 additional analysis-phase bugs: (1) S10 scratch label=0 leak in `compute_normalized_labels` — scratch rows included with deterministic label, inflating R²; (2) S9 Model B mixes geometry + telemetry features (early_loss, grad norms, curvature). **Fixes applied cycle 96:** scratch excluded from labeled set, added Model C (pure geometry: 10 features) and Model D (pure telemetry: 6 features) ablation. Training unaffected — fixes are analysis-phase only. Restart 12:51Z, teacher gen in progress (~48 min remaining). ETA ~18:03Z. Also: Shesha-residual-kill experiment proposed (attack #1) — compute Shesha features on same step-108 tensors, residualize against telemetry. Source: `codex_outputs/heartbeats/cycle95_adversarial_20260429.md`.
 
 **g184 pre-staging (cycle 94):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). Source: cycle 94 compatibility test.
 
-**Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
+**Cycle 95 adversarial (A13):** 6 attacks, 2× S10. (1) Shesha may erase moat — same-step geometry features from published library could match g182. (2) Scratch label=0 leak — FIXED cycle 96. (3) Model B not pure geometry — FIXED: added Model C/D ablation. (4) C23 narrows story to interface prior. (5) Umwelt = ceiling on cross-family claims. (6) Resolving: g182-Shesha Residual Kill experiment. Prior cycle 90 adversarial (A12) arm/protocol confound addressed by arm_mean baseline. Source: `codex_outputs/heartbeats/cycle95_adversarial_20260429.md`.
 
 **Competitive intel (cycle 93):** DIRECT COMPETITOR: "The Geometric Canary" (arXiv 2604.17698) — "Shesha" metric predicts steerability/drift from representational geometry (rho=0.89-0.97, 35-69 embedding models, detects drift before CKA in 73%). Code released (`shesha-geometry` on PyPI). Overlaps with our training-health pivot but focuses on POST-training steerability, not EARLY-training triage. Also: "Umwelt Representation Hypothesis" (2604.17960) directly challenges universality claims — modalities as local Umwelten, not converging to universal optimum. In-training probes competitor (2604.01025) achieves AUROC>0.75 on OLMo3-7B. Differentiator for g182: cross-architecture (Qwen3+GPT-2), pre-registered falsification discipline, early-stage geometry (not mid-training probes).
 

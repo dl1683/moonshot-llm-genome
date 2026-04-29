@@ -519,6 +519,28 @@ AGNOSTIC_FEATURE_NAMES = [
     "norm_param_early_late_ratio",
 ]
 
+PURE_GEOMETRY_FEATURE_NAMES = [
+    "mid_spectral_alpha",
+    "mid_participation_ratio",
+    "mid_sqrt_pr_alpha",
+    "depth_alpha_drift",
+    "depth_pr_drift",
+    "depth_sqrt_pr_alpha_drift",
+    "twonn_intrinsic_dim",
+    "knn10_clustering_coeff",
+    "hidden_norm_early_late_ratio",
+    "hidden_var_early_late_ratio",
+]
+
+PURE_TELEMETRY_FEATURE_NAMES = [
+    "early_loss",
+    "gradient_noise_scale",
+    "grad_norm_mean",
+    "grad_norm_var",
+    "curvature_top_eigen_proxy",
+    "norm_param_early_late_ratio",
+]
+
 QWEN_REF_FEATURE_NAMES = [
     "hidden_to_qwen_ref_pca64_procrustes_residual",
     "hidden_to_qwen_ref_pca64_rsa_distance",
@@ -794,6 +816,8 @@ def compute_normalized_labels(cells: list[dict]) -> list[dict]:
 
     labeled = []
     for c in cells:
+        if c["arm"] == "scratch_ce":
+            continue
         key = (c["arch"], c["seed"])
         if key not in scratch_by:
             continue
@@ -1423,12 +1447,14 @@ def main():
                 f"Running analysis... ===")
 
     labeled = compute_normalized_labels(all_cells)
-    print_flush(f"    {len(labeled)} labeled cells (excluding scratch baselines)")
+    print_flush(f"    {len(labeled)} labeled cells (scratch excluded, used as denominator)")
 
     loao_results = {}
     for model_label, feat_names in [
         ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
         ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
+        ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
     ]:
         print_flush(f"\n--- LOAO evaluation: {model_label} ({len(feat_names)} features) ---")
         result = loao_evaluate(labeled, feat_names, model_label)
