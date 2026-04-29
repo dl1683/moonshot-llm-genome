@@ -350,22 +350,33 @@ def cross_arch_anchor_loss(
 # ---------------------------------------------------------------------------
 
 def load_c4_pools(tok, n_train: int, n_val: int, seq_len: int) -> dict:
-    """Load and tokenize C4 data pools for training and validation."""
+    """Load and tokenize C4 data pools for training and validation.
+
+    Train data from C4 train split; val/probe from C4 validation split
+    to avoid prefix overlap with teacher-generated texts (Codex cycle 84 fix).
+    """
     from datasets import load_dataset
-    ds = load_dataset("allenai/c4", "en", split="train", streaming=True, trust_remote_code=True)
-    needed_texts = n_train + n_val + PROBE_WINDOWS + 512
-    texts = []
-    for item in ds:
-        texts.append(item["text"])
-        if len(texts) >= needed_texts:
+
+    ds_train = load_dataset("allenai/c4", "en", split="train", streaming=True, trust_remote_code=True)
+    train_texts = []
+    for item in ds_train:
+        train_texts.append(item["text"])
+        if len(train_texts) >= n_train + 512:
             break
-
     rng = np.random.default_rng(C4_TRAIN_SEED)
-    rng.shuffle(texts)
+    rng.shuffle(train_texts)
+    train_texts = train_texts[:n_train]
 
-    train_texts = texts[:n_train]
-    val_texts = texts[n_train:n_train + n_val]
-    probe_texts = texts[n_train + n_val:n_train + n_val + PROBE_WINDOWS]
+    ds_val = load_dataset("allenai/c4", "en", split="validation", streaming=True, trust_remote_code=True)
+    val_probe_texts = []
+    for item in ds_val:
+        val_probe_texts.append(item["text"])
+        if len(val_probe_texts) >= n_val + PROBE_WINDOWS + 128:
+            break
+    rng_val = np.random.default_rng(C4_TRAIN_SEED + 1)
+    rng_val.shuffle(val_probe_texts)
+    val_texts = val_probe_texts[:n_val]
+    probe_texts = val_probe_texts[n_val:n_val + PROBE_WINDOWS]
 
     def tokenize_batch(text_list, max_windows):
         all_ids = []
