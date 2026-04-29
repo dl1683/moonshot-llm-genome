@@ -137,6 +137,13 @@ PHASE2_ARCH_CONFIGS = {
     },
 }
 
+PHASE2_TEACHER_MODELS = {
+    "falcon_h1": "tiiuae/Falcon-H1-0.5B-Base",
+}
+PHASE2_ARMS = ["scratch_ce", "seq_kd_full"]
+FROZEN_BOOTSTRAP_N = 2000
+FROZEN_PERMUTATION_ITERS = 1000
+FROZEN_PASS_MSE_REDUCTION = 0.15
 
 ARM_LABELS = ["scratch_ce", "seq_kd_full", "embed_anchor"]
 
@@ -197,7 +204,9 @@ def causal_ce_loss(logits: torch.Tensor, labels: torch.Tensor,
 
 def make_model(arch: str, seed: int):
     set_seed(seed)
-    cfg_dict = ARCH_CONFIGS[arch]
+    cfg_dict = ARCH_CONFIGS.get(arch) or PHASE2_ARCH_CONFIGS.get(arch)
+    if cfg_dict is None:
+        raise ValueError(f"Unknown architecture: {arch}")
     arch_type = cfg_dict["type"]
 
     if arch_type == "qwen3":
@@ -1518,12 +1527,64 @@ def shesha_augment_main():
 # Frozen evaluation on Phase-2 architectures (g184)
 # ---------------------------------------------------------------------------
 
-def frozen_eval_main(phase2_arch: str, smoke: bool = False):
-    """Train Ridge on g182 cells, apply frozen to new Phase-2 architecture cells.
+def generate_phase2_teacher_texts(arch: str, n_texts: int) -> list[str]:
+    """Generate teacher texts from pre-trained model for a Phase-2 architecture."""
+    from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    Implements the g184 prereg: freeze Model C' (manifold-only 8 features),
-    run new-family cells, evaluate without refitting.
-    """
+    model_id = PHASE2_TEACHER_MODELS.get(arch)
+    if model_id is None:
+        raise ValueError(f"No teacher model for phase2 arch: {arch}")
+
+    print_flush(f"--- Generating Phase-2 teacher texts from {model_id} ---")
+    tok = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    if tok.pad_token_id is None:
+        tok.pad_token = tok.eos_token
+        tok.pad_token_id = tok.eos_token_id
+    tok.padding_side = "left"
+
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id, torch_dtype=torch.bfloat16, device_map=DEVICE
+    )
+    model.config.pad_token_id = tok.pad_token_id
+    model.eval()
+
+    from datasets import load_dataset
+    ds = load_dataset("allenai/c4", "en", split="train", streaming=True,
+                      trust_remote_code=True)
+    seed_texts = []
+    for item in ds:
+        seed_texts.append(item["text"][:200])
+        if len(seed_texts) >= n_texts + 64:
+            break
+
+    texts = []
+    batch_size = 8
+    for i in range(0, min(len(seed_texts), n_texts), batch_size):
+        batch = seed_texts[i:i + batch_size]
+        enc = tok(batch, truncation=True, max_length=64,
+                  padding=True, return_tensors="pt").to(DEVICE)
+        with torch.no_grad():
+            out = model.generate(
+                **enc, max_new_tokens=192, do_sample=True,
+                temperature=1.0, top_p=0.95, pad_token_id=tok.pad_token_id,
+            )
+        for seq in out:
+            texts.append(tok.decode(seq, skip_special_tokens=True))
+        if len(texts) >= n_texts:
+            break
+        if (i // batch_size) % 100 == 0 and i > 0:
+            print_flush(f"    teacher gen: {len(texts)}/{n_texts}")
+
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    print_flush(f"    teacher gen complete: {len(texts[:n_texts])} texts")
+    return texts[:n_texts]
+
+
+def frozen_eval_main(phase2_arch: str, smoke: bool = False):
+    """Train Ridge on g182 cells, apply frozen to new Phase-2 architecture cells."""
     if phase2_arch not in PHASE2_ARCH_CONFIGS:
         print_flush(f"ERROR: unknown phase2 arch '{phase2_arch}'. "
                     f"Available: {list(PHASE2_ARCH_CONFIGS.keys())}")
@@ -1534,14 +1595,263 @@ def frozen_eval_main(phase2_arch: str, smoke: bool = False):
         print_flush("ERROR: no g182 results found. Run main experiment first.")
         return
 
-    print_flush(f"=== Frozen Eval Mode: {phase2_arch} ===")
+    g184_out = ROOT / "results" / f"genome_184_{phase2_arch}_frozen.json"
+    g184_data = load_existing(g184_out) or {}
+
+    print_flush(f"=== g184 Frozen Eval: {phase2_arch} ===")
     print_flush(f"  g182 cells: {len(existing['cells'])}")
-    print_flush("  NOT YET IMPLEMENTED — stub for g184 pre-staging.")
-    print_flush("  Implementation gated on g182 stage 1 completion.")
-    raise NotImplementedError(
-        f"frozen_eval_main({phase2_arch}) is pre-staged. "
-        "Implement after g182 stage 1 results are analyzed."
-    )
+
+    # -------------------------------------------------------------------
+    # Phase 1: Train frozen Ridge models on ALL g182 labeled cells
+    # -------------------------------------------------------------------
+    print_flush("\n--- Phase 1: Training frozen Ridge on g182 cells ---")
+    g182_labeled = compute_normalized_labels(existing["cells"])
+    print_flush(f"  {len(g182_labeled)} labeled g182 cells (scratch excluded)")
+    y_g182 = np.array([c["label"] for c in g182_labeled], dtype=np.float64)
+
+    frozen_models = {}
+    for model_label, feat_names in [
+        ("model_c_prime_manifold_only", MANIFOLD_ONLY_FEATURE_NAMES),
+        ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
+    ]:
+        X_all, medians = feature_matrix(g182_labeled, feat_names)
+        mean_all = X_all.mean(axis=0)
+        std_all = X_all.std(axis=0)
+        std_all[std_all < 1e-12] = 1.0
+        X_all_s = (X_all - mean_all) / std_all
+
+        ridge = fit_ridge_cv(X_all_s, y_g182)
+        train_pred = ridge.predict(X_all_s)
+        train_mse = float(np.mean((y_g182 - train_pred) ** 2))
+        ss_tot = float(np.sum((y_g182 - y_g182.mean()) ** 2))
+        ss_res = float(np.sum((y_g182 - train_pred) ** 2))
+        train_r2 = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
+
+        frozen_models[model_label] = {
+            "feature_names": list(feat_names),
+            "alpha": ridge._selected_alpha,
+            "coef": ridge.coef_.tolist(),
+            "intercept": float(ridge.intercept_),
+            "impute_medians": medians.tolist(),
+            "std_mean": mean_all.tolist(),
+            "std_std": std_all.tolist(),
+            "n_train": len(g182_labeled),
+            "train_mse": train_mse,
+            "train_r2": train_r2,
+        }
+        weights = dict(zip(feat_names, [f"{w:.4f}" for w in ridge.coef_]))
+        print_flush(f"  {model_label}: alpha={ridge._selected_alpha} "
+                    f"train_mse={train_mse:.6f} R2={train_r2:.3f}")
+        print_flush(f"    weights: {weights}")
+
+    g184_data["frozen_models"] = frozen_models
+    save_incremental(g184_out, g184_data)
+
+    # -------------------------------------------------------------------
+    # Phase 2: Run Phase-2 architecture cells
+    # -------------------------------------------------------------------
+    print_flush(f"\n--- Phase 2: Running {phase2_arch} cells ---")
+    tok = get_tokenizer(phase2_arch)
+
+    print_flush("  Loading C4 data pools...")
+    pools = load_c4_pools(tok, N_TRAIN_WINDOWS, N_C4_VAL_WINDOWS, SEQ_LEN)
+
+    n_teacher = N_TRAIN_WINDOWS + 512
+    teacher_texts = generate_phase2_teacher_texts(phase2_arch, n_teacher)
+    teacher_enc = tok(teacher_texts, truncation=True, max_length=SEQ_LEN,
+                      padding="max_length", return_tensors="pt")
+    teacher_pools = {
+        "train_ids": teacher_enc["input_ids"][:N_TRAIN_WINDOWS],
+        "train_mask": teacher_enc["attention_mask"][:N_TRAIN_WINDOWS],
+    }
+
+    seeds = SEEDS[:2] if smoke else SEEDS
+    completed = {}
+    if "cells" in g184_data:
+        for c in g184_data["cells"]:
+            completed[c["cell_id"]] = c
+
+    to_run = []
+    for arm in PHASE2_ARMS:
+        for seed in seeds:
+            cid = f"{phase2_arch}_{arm}_s{seed}"
+            if cid not in completed:
+                to_run.append((arm, seed))
+
+    print_flush(f"  {len(completed)} done, {len(to_run)} to run")
+
+    for arm, seed in to_run:
+        try:
+            result = train_cell(
+                arch=phase2_arch, arm=arm, seed=seed, pools=pools,
+                teacher_pools=teacher_pools if arm == "seq_kd_full" else None,
+                donor_embed_params=None, shared_vocab_map=None,
+                qwen_ref_probe=None, smoke=smoke,
+            )
+            completed[result["cell_id"]] = result
+            g184_data["cells"] = list(completed.values())
+            save_incremental(g184_out, g184_data)
+        except Exception as e:
+            print_flush(f"  ERROR {phase2_arch}_{arm}_s{seed}: {e}")
+            import traceback; traceback.print_exc()
+            continue
+
+    all_cells = list(completed.values())
+    g184_data["cells"] = all_cells
+    print_flush(f"\n  Phase 2 complete: {len(all_cells)} cells")
+
+    # -------------------------------------------------------------------
+    # Phase 3: Frozen evaluation (no refitting)
+    # -------------------------------------------------------------------
+    print_flush("\n--- Phase 3: Frozen evaluation ---")
+    falcon_labeled = compute_normalized_labels(all_cells)
+    if not falcon_labeled:
+        print_flush("  ERROR: no labeled cells")
+        save_incremental(g184_out, g184_data)
+        return
+
+    y_test = np.array([c["label"] for c in falcon_labeled], dtype=np.float64)
+    test_seeds = np.array([c["seed"] for c in falcon_labeled])
+    ss_tot_test = float(np.sum((y_test - y_test.mean()) ** 2))
+    print_flush(f"  {len(falcon_labeled)} labeled Falcon cells, "
+                f"var(y)={np.var(y_test):.6f}")
+
+    eval_results = {}
+    for model_label, frozen in frozen_models.items():
+        feat_names = frozen["feature_names"]
+        has_feats = all(
+            math.isfinite(float(c["features"].get(fn, float("nan"))))
+            for c in falcon_labeled for fn in feat_names
+        )
+        if not has_feats:
+            print_flush(f"  SKIP {model_label}: missing features")
+            continue
+
+        X_test, _ = feature_matrix(
+            falcon_labeled, feat_names,
+            impute_medians=np.array(frozen["impute_medians"]),
+        )
+        X_test_s = (X_test - np.array(frozen["std_mean"])) / np.array(frozen["std_std"])
+
+        from sklearn.linear_model import Ridge
+        ridge = Ridge(alpha=frozen["alpha"])
+        ridge.coef_ = np.array(frozen["coef"])
+        ridge.intercept_ = frozen["intercept"]
+        ridge.n_features_in_ = len(feat_names)
+
+        geo_pred = ridge.predict(X_test_s)
+        geo_mse = float(np.mean((y_test - geo_pred) ** 2))
+        geo_r2 = 1.0 - float(np.sum((y_test - geo_pred) ** 2)) / ss_tot_test \
+            if ss_tot_test > 1e-12 else float("nan")
+
+        # Baselines: arm_mean + frozen Model D (if this isn't Model D itself)
+        baselines = {}
+        best_b_mse = float("inf")
+        best_b_name = None
+        best_b_pred = None
+
+        # arm_mean: per-arm average from Falcon cells
+        arm_pred = np.zeros(len(falcon_labeled), dtype=np.float64)
+        arm_means = {}
+        for a in PHASE2_ARMS:
+            vals = [c["label"] for c in falcon_labeled if c["arm"] == a]
+            arm_means[a] = float(np.mean(vals)) if vals else 0.0
+        for i, c in enumerate(falcon_labeled):
+            arm_pred[i] = arm_means.get(c["arm"], 0.0)
+        arm_mse = float(np.mean((y_test - arm_pred) ** 2))
+        baselines["arm_mean"] = {"mse": arm_mse}
+        if arm_mse < best_b_mse:
+            best_b_mse, best_b_name, best_b_pred = arm_mse, "arm_mean", arm_pred
+
+        # frozen Model D as telemetry baseline (if available and not self)
+        if model_label != "model_d_pure_telemetry" and \
+                "model_d_pure_telemetry" in frozen_models:
+            d_frozen = frozen_models["model_d_pure_telemetry"]
+            d_feats = d_frozen["feature_names"]
+            d_has = all(
+                math.isfinite(float(c["features"].get(fn, float("nan"))))
+                for c in falcon_labeled for fn in d_feats
+            )
+            if d_has:
+                X_d, _ = feature_matrix(
+                    falcon_labeled, d_feats,
+                    impute_medians=np.array(d_frozen["impute_medians"]),
+                )
+                X_d_s = (X_d - np.array(d_frozen["std_mean"])) / np.array(d_frozen["std_std"])
+                d_ridge = Ridge(alpha=d_frozen["alpha"])
+                d_ridge.coef_ = np.array(d_frozen["coef"])
+                d_ridge.intercept_ = d_frozen["intercept"]
+                d_ridge.n_features_in_ = len(d_feats)
+                d_pred = d_ridge.predict(X_d_s)
+                d_mse = float(np.mean((y_test - d_pred) ** 2))
+                baselines["frozen_telemetry"] = {"mse": d_mse}
+                if d_mse < best_b_mse:
+                    best_b_mse, best_b_name, best_b_pred = d_mse, "frozen_telemetry", d_pred
+
+        reduction = (best_b_mse - geo_mse) / best_b_mse \
+            if best_b_mse > 1e-12 else float("nan")
+
+        boot = paired_bootstrap_mse(
+            y_test, best_b_pred, geo_pred, test_seeds,
+            n_boot=FROZEN_BOOTSTRAP_N,
+        )
+
+        rng = np.random.default_rng(RANDOM_STATE + 184)
+        n_better = 0
+        for _ in range(FROZEN_PERMUTATION_ITERS):
+            perm = rng.permutation(len(X_test_s))
+            shuf_pred = ridge.predict(X_test_s[perm])
+            shuf_mse = float(np.mean((y_test - shuf_pred) ** 2))
+            if shuf_mse <= geo_mse:
+                n_better += 1
+        perm_p = float(n_better / FROZEN_PERMUTATION_ITERS)
+
+        auroc = bad_run_auroc(y_test, geo_pred, best_b_pred)
+        kill = simulated_kill(y_test, geo_pred, falcon_labeled)
+
+        passes = {
+            "mse_beats_baseline": geo_mse < best_b_mse,
+            "reduction_gte_15pct": reduction >= FROZEN_PASS_MSE_REDUCTION,
+            "ci_excludes_zero": boot["ci95_lo"] > 0,
+            "permutation_p_lte_05": perm_p <= 0.05,
+        }
+        verdict = "PASS" if all(passes.values()) else "FAIL"
+
+        eval_results[model_label] = {
+            "frozen_from": "g182",
+            "tested_on": phase2_arch,
+            "n_test": len(falcon_labeled),
+            "geometry_mse": geo_mse,
+            "geometry_r2": geo_r2,
+            "best_baseline_name": best_b_name,
+            "best_baseline_mse": best_b_mse,
+            "mse_reduction": reduction,
+            "bootstrap": boot,
+            "permutation_p": perm_p,
+            "auroc": auroc,
+            "kill": kill,
+            "baselines": baselines,
+            "pass_criteria": passes,
+            "verdict": verdict,
+        }
+        print_flush(f"\n  {model_label}: MSE={geo_mse:.6f} R2={geo_r2:.3f}")
+        print_flush(f"    best_base={best_b_name} MSE={best_b_mse:.6f} "
+                    f"reduction={reduction:.1%}")
+        print_flush(f"    boot_ci=[{boot['ci95_lo']:.6f}, {boot['ci95_hi']:.6f}] "
+                    f"perm_p={perm_p:.4f}")
+        print_flush(f"    *** {verdict} ***")
+
+    c_prime = eval_results.get("model_c_prime_manifold_only", {})
+    overall = "PASS" if c_prime.get("verdict") == "PASS" else "FAIL"
+
+    g184_data["frozen_eval"] = eval_results
+    g184_data["overall_verdict"] = overall
+    g184_data["timestamp"] = now_utc()
+    g184_data["prereg"] = "research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md"
+    save_incremental(g184_out, g184_data)
+    print_flush(f"\n*** g184 OVERALL: {overall} ***")
+    print_flush(f"  Saved to {g184_out}")
 
 
 # ---------------------------------------------------------------------------
