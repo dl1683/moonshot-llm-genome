@@ -1,6 +1,6 @@
 # Derivation: Early Geometry Predicts Training Health
 
-**Status:** SKELETON → DEEPENING (cycle 106, 2026-04-29). Three routes proposed by Codex Architecture Theorist. Route 3 has Verdict Matrix (cycle 105). Route 2 has formal feature-to-rate mapping + discriminators (cycle 106).
+**Status:** SKELETON → DEEPENING (cycle 111, 2026-04-29). Three routes proposed by Codex Architecture Theorist. Route 3 has Verdict Matrix (cycle 105). Route 2 has formal feature-to-rate mapping + discriminators (cycle 106). Route 3 has RMT theory anchor (cycle 111, arXiv 2604.18450).
 
 **Claim to derive:** At <= 3% of training, activation geometry features predict final run quality better than early loss alone.
 
@@ -129,6 +129,8 @@ Early training is symmetry breaking. By ~3%, the run has often chosen an order-p
 **Testable:** Cluster cells by step-108 geometry features. Verify that clusters map cleanly to final outcome bins (good/bad/waste). Loss-only clustering should be worse.
 
 **Connection to Shesha:** Shesha's RDM stability metrics measure one order parameter (geometric consistency). Our moat requires showing that MULTIPLE order parameters (spectral + rank + local geometry) contain signal beyond generic RDM stability.
+
+**Theory anchor: RMT of Early-Stopped Gradient Flow (arXiv 2604.18450, cycle 110).** First-principles derivation of early stopping as a transient spectral phase transition driven by covariance anisotropy. Under gradient flow on quadratic loss with anisotropic population covariance, the empirical spectral distribution of the weight matrix undergoes a BBP-like transition: outlier eigenvalues emerge and get reabsorbed as training progresses. This provides the missing analytical backbone for Route 3's basin-selection picture: g182 manifold features are empirical order parameters for exactly this BBP-like basin selection in nonlinear LLM training. If C' PASSES, cite this as first-principles support for why early geometry is predictive — the spectrum at 3% captures whether the run has undergone the productive phase transition (outlier emergence = trained basin) or not (bulk-only = random/collapsed basin). Per Codex cycle 111: this makes "spectral phase transition" less novel as a phrase but gives the analytical foundation we lacked.
 
 ---
 
