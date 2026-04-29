@@ -91,6 +91,17 @@ At step 108 (3% of training), for each cell:
 - [x] No cloud compute required
 - NOTE: 48 cells at ~20 min each = ~16h. Can batch in groups of 12 with checkpoint resume.
 
+## Confound analyses (pre-registered, Codex adversarial cycle 115)
+
+### C1: Arm-identity leakage
+The frozen Ridge was trained on g182's labeled cells (seq_kd_full only, scratch excluded as denominator). g185 applies it to BOTH scratch and kd cells. If C' manifold features encode arm identity (whether the run uses teacher KD), the Ridge may be a KD-benefit detector rather than a general training-health predictor. **Diagnostic:** run arm_identity_diagnostics() from g182 on the g185 cells. If C' features decode arm identity at AUROC > 0.75, the triage claim is weakened to "geometry predicts KD benefit" (still useful but narrower). **Additional analysis:** compare triage decisions within-arm — does the Ridge differentiate good vs. bad scratch runs and good vs. bad kd runs separately?
+
+### C2: Scratch cell handling
+Scratch cells have label = 0 by definition (self-referenced denominator). The triage threshold T_kill = P25 of g182 training labels (all non-scratch). If most labels are positive (kd helps), scratch cells will systematically fall below T_kill and be killed. **Diagnostic:** report triage decisions stratified by arm. If all scratch cells are killed and all kd cells are continued, triage is trivially equivalent to arm-identity decoding.
+
+### C3: Teacher-corpus compatibility as confound
+Qwen3-0.6B teacher texts may create a ceiling/floor: Qwen3 recipients benefit more from teacher text than GPT-2. If so, triage is detecting teacher/recipient tokenizer compatibility, not universal training health. **Diagnostic:** report C' predictions stratified by architecture. If Qwen3 cells are systematically predicted higher than GPT-2 cells, the signal is architecture-specific, not geometry-driven.
+
 ## What a null result means
 
 If H0 holds: geometry features predict training outcome with statistical significance (g182 PASS) but the signal-to-noise ratio at the individual-run level is too low for actionable triage decisions. The finding narrows to "population-level diagnostic" (like BMI predicting health outcomes — true statistically, useless for individual patients). The manifesto's "electricity-grade efficiency" claim would require either (a) better features, (b) more training time before triage, or (c) an ensemble/Bayesian approach instead of point prediction.

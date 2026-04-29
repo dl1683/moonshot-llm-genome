@@ -1,0 +1,11 @@
+1. **Highest severity: g185 has a train-test policy mismatch.** g182 stage 1 excludes scratch from labels, so C' is trained mostly/only on `seq_kd_full` gains over matched scratch, then g185 applies it to both `scratch_ce` and `seq_kd_full`. That is not general “training health”; it may be a KD-benefit detector. A frozen Ridge could fail on fresh scratch cells simply because scratch lies off the learned arm manifold.
+
+2. **Arm/method identity is still alive.** Even if C' uses “pure manifold” features, those features may encode whether the run is responding to Qwen teacher text, not whether the run will end well. If C' predicts arm above chance, the claim becomes “early geometry fingerprints protocol,” not actionable triage. Arm-mean/arm-label baselines help, but they do not kill residual arm leakage inside nonlinear manifold features.
+
+3. **12 seeds per condition is thin for LOAO.** In the staged 48-cell design, after scratch exclusion, each LOAO train fold can be only 12 labeled cells with 8 C' features. Ridge shrinkage can look stable while being coefficient-lucky. Seed-block bootstrap helps, but with 12 blocks it has poor tail resolution; CI > 0 is not strong evidence of prospective reliability.
+
+4. **Qwen3-0.6B teacher texts may trivialize the target.** The label may be dominated by whether Qwen-generated text is compatible with the recipient tokenizer/architecture. That creates a ceiling/floor: Qwen-ish recipients benefit, mismatched recipients do not. Then triage is easy because it is detecting teacher-corpus/interface compatibility, not a universal early health signal.
+
+5. **Frozen Ridge viability is unproven.** g185 is the right direction, but fresh seeds are not enough distribution shift. Same two architectures, same teacher, same C4, same 3600-step recipe means it tests interpolation over seeds, not operational deployment.
+
+**Resolver experiment:** freeze C' from g182, then run a blinded prospective 3x2x2 design: architectures `{Qwen3, GPT-2, Falcon-H1}`, arms `{scratch_ce, seq_kd_full}`, teachers `{Qwen3 teacher texts, non-Qwen native-family teacher or corpus-derived synthetic}` with fresh seeds. Require C' to beat arm/teacher/architecture labels, telemetry, and Shesha after residualizing labels against arm + teacher + architecture. If C' fails after residualization, the claim dies as method/interface leakage.

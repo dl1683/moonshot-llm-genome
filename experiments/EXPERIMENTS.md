@@ -48,6 +48,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Cycle 114 (mod-3 Codex review):** §A found SEV-8 resume cell-drop bug (partial `--max-cells` resume silently drops cells beyond iteration point — fixed: `all_cells` initialized from existing cells) + SEV-7 teacher cache validation incomplete in shesha/frozen_eval paths (fixed: `load_teacher_text_cache()` helper used everywhere). g185 prospective triage-to-action prereg DRAFT staged (9.0/10 per Codex cycle 111). Source: `codex_outputs/heartbeats/cycle114_correctness_perf_20260429.md`.
 
+**Cycle 115 (adversarial, mod-5):** Adversarial Codex identified 5 attacks on g182/g185 claims. Top-severity: g185 train-test policy mismatch (Ridge trained on kd-only cells, applied to scratch+kd). Also: arm-identity leakage via manifold features, thin LOAO (12 seeds, 8 features), teacher-corpus compatibility confound, frozen Ridge interpolation-only test. **Response:** added confound analyses C1-C3 to g185 prereg (arm-identity diagnostic, scratch cell stratification, architecture-stratified predictions). g182 itself is not threatened — adversarial attacks target the g185 *application* claim. Source: `codex_outputs/heartbeats/cycle115_adversarial_20260429.md`.
+
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
 ---
