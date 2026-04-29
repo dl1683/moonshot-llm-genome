@@ -1998,28 +1998,29 @@ def route3_predictions(
         if len(unique_archs) >= 2:
             unique_arms = sorted(set(arms))
             ks_results = {}
-            n_pass = 0
-            n_total = 0
+            arm_pass_counts = {}
             for arm in unique_arms:
                 mask_a0 = (archs == unique_archs[0]) & (arms == arm)
                 mask_a1 = (archs == unique_archs[1]) & (arms == arm)
                 if mask_a0.sum() < 3 or mask_a1.sum() < 3:
                     continue
+                arm_n_pass = 0
                 for j, fn in enumerate(feat_names):
                     stat, pval = stats.ks_2samp(X[mask_a0, j], X[mask_a1, j])
                     ks_results[f"{arm}_{fn}"] = {"ks_stat": float(stat), "p": float(pval)}
-                    n_total += 1
                     if pval > 0.1:
-                        n_pass += 1
+                        arm_n_pass += 1
+                arm_pass_counts[arm] = arm_n_pass
+            all_arms_pass = all(v >= 6 for v in arm_pass_counts.values()) if arm_pass_counts else False
             results["P3_cross_arch_alignment"] = {
-                "n_tests": n_total,
-                "n_pass_p_gt_01": n_pass,
-                "fraction_pass": float(n_pass / n_total) if n_total > 0 else 0.0,
-                "passes_threshold_6of8": n_pass >= 6,
+                "n_features": len(feat_names),
+                "per_arm_pass_counts": arm_pass_counts,
+                "all_arms_ge_6of8": all_arms_pass,
                 "per_feature": ks_results,
             }
-            print_flush(f"  P3 cross-arch alignment: {n_pass}/{n_total} features "
-                        f"p>0.1 {'PASS' if n_pass >= 6 else 'FAIL'}")
+            arm_str = " ".join(f"{a}={v}/8" for a, v in arm_pass_counts.items())
+            print_flush(f"  P3 cross-arch alignment: {arm_str} "
+                        f"{'PASS' if all_arms_pass else 'FAIL'}")
     except Exception as e:
         print_flush(f"  P3 failed: {e}")
 
