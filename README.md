@@ -1,10 +1,24 @@
 # Moonshot: The Neural Genome
 
-**A coordinate system for trained neural networks.**
+**Falsification-disciplined research on whether trained-model structure transfers between neural networks.**
 
 ---
 
-## 🔥 Landmark findings (2026-04-22)
+## ⚠ POST-PIVOT NOTICE (2026-04-29)
+
+The strong-form claim — *"transfer of trained capabilities from a trained model into an untrained model"* — was tested and **falsified** during the 2026-04-26 → 2026-04-29 experiment chain:
+
+- **C22 donor-identity** REJECTED (g177v2 FAIL): same-architecture C4-trained alt donors at undertrained NLL ~5.72 give **96% of Qwen3's anchor effect** — donor-identity-specific component ≈ 3.5%.
+- **Cross-architecture FLOP cash-out** FAILED locked criterion (g173: post-hoc gain-ratio reframe rejected by cycle 70 adversarial 10/10).
+- **Tokenizer-prior dominance** CONFIRMED (g181a): the +1 nat anchor effect is ~100% Qwen3-tokenizer/embed/lm_head trained-init held in place during recipient training. Anchoring transformer block weights at matched gradient force *actively HARMS* (−0.439 nats vs scratch).
+
+**New framing (cycle 72 direction review):** pivot to **Forecast/Diagnostic** — *"the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed"*. Falsification-discipline becomes the integrity story, not the headline.
+
+**§0.1 honest baseline:** 4.0-4.5/10. Branch projections in `WIKI.md` CURRENT STATUS.
+
+---
+
+## 🔥 Landmark findings (2026-04-22, pre-pivot — preserved as audit trail)
 
 **1. Candidate-8 spectral bridge** — a universal geometric identity of trained neural networks:
 
