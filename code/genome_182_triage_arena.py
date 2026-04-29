@@ -499,24 +499,24 @@ AGNOSTIC_FEATURE_NAMES = [
     "depth_sqrt_pr_alpha_drift",
     "twonn_intrinsic_dim",
     "knn10_clustering_coeff",
-    "grad_norm",
-    "grad_noise_ratio",
-    "grad_signal_to_noise",
+    "gradient_noise_scale",
+    "grad_norm_mean",
+    "grad_norm_var",
     "curvature_top_eigen_proxy",
-    "norm_var_depth_ratio_mean",
-    "norm_var_depth_ratio_std",
-    "norm_var_depth_ratio_max",
+    "hidden_norm_early_late_ratio",
+    "hidden_var_early_late_ratio",
+    "norm_param_early_late_ratio",
 ]
 
 QWEN_REF_FEATURE_NAMES = [
-    "hidden_to_qwen_ref_procrustes",
-    "hidden_to_qwen_ref_rsa",
-    "embed_to_qwen_ref_procrustes",
-    "embed_to_qwen_ref_rsa",
-    "lm_head_to_qwen_ref_procrustes",
-    "lm_head_to_qwen_ref_rsa",
-    "hidden_reference_rows_used",
+    "hidden_to_qwen_ref_pca64_procrustes_residual",
+    "hidden_to_qwen_ref_pca64_rsa_distance",
+    "embed_to_qwen_ref_pca64_procrustes_residual",
+    "embed_to_qwen_ref_pca64_rsa_distance",
+    "lm_head_to_qwen_ref_pca64_procrustes_residual",
+    "lm_head_to_qwen_ref_pca64_rsa_distance",
     "embed_reference_rows_used",
+    "lm_head_reference_rows_used",
 ]
 
 
@@ -882,9 +882,9 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
         X = np.zeros((n, 3), dtype=np.float64)
         for i, c in enumerate(cells):
             feats = c.get("features", {})
-            X[i, 0] = feats.get("grad_norm", float("nan"))
-            X[i, 1] = feats.get("grad_noise_ratio", float("nan"))
-            X[i, 2] = feats.get("grad_signal_to_noise", float("nan"))
+            X[i, 0] = feats.get("gradient_noise_scale", float("nan"))
+            X[i, 1] = feats.get("grad_norm_mean", float("nan"))
+            X[i, 2] = feats.get("grad_norm_var", float("nan"))
     elif baseline_type == "arm_labels":
         arms = ARM_LABELS
         X = np.zeros((n, len(arms)), dtype=np.float64)
