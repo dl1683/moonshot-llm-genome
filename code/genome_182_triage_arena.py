@@ -562,6 +562,17 @@ PURE_GEOMETRY_FEATURE_NAMES = [
     "hidden_var_early_late_ratio",
 ]
 
+MANIFOLD_ONLY_FEATURE_NAMES = [
+    "mid_spectral_alpha",
+    "mid_participation_ratio",
+    "mid_sqrt_pr_alpha",
+    "depth_alpha_drift",
+    "depth_pr_drift",
+    "depth_sqrt_pr_alpha_drift",
+    "twonn_intrinsic_dim",
+    "knn10_clustering_coeff",
+]
+
 PURE_TELEMETRY_FEATURE_NAMES = [
     "early_loss",
     "gradient_noise_scale",
@@ -1475,6 +1486,7 @@ def shesha_augment_main():
         ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
         ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
         ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_c_prime_manifold_only", MANIFOLD_ONLY_FEATURE_NAMES),
         ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
         ("model_e_shesha", SHESHA_FEATURE_NAMES),
     ]:
@@ -1526,6 +1538,7 @@ def reanalyze_main():
         ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
         ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
         ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_c_prime_manifold_only", MANIFOLD_ONLY_FEATURE_NAMES),
         ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
         ("model_e_shesha", SHESHA_FEATURE_NAMES),
     ]:
@@ -1752,6 +1765,7 @@ def main():
         ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
         ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
         ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_c_prime_manifold_only", MANIFOLD_ONLY_FEATURE_NAMES),
         ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
         ("model_e_shesha", SHESHA_FEATURE_NAMES),
     ]:

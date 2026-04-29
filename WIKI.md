@@ -26,11 +26,11 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 99) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 100) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
-- g182 Model C (pure geometry) beats arm_mean + telemetry: **8.6-9.0/10** (geometry alone predicts training health)
+- g182 Model C'/C (manifold-only/pure geometry) beats arm_mean + telemetry: **8.6-9.0/10** (geometry alone predicts training health)
 - g182 Model B beats arm_mean + combined_telemetry: **7.5-8.0/10** (confounded with telemetry — weaker claim)
 - g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
 - g182 partial (one fold or only Model A): **6.5-7.0/10**
@@ -38,7 +38,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
 
-**g182 Triage Arena RUNNING (cycle 93 restart, cycle 96 code fixes).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug — killed & restarted with left-padding fix. Cycle 95 adversarial found 2 additional analysis-phase bugs: (1) S10 scratch label=0 leak in `compute_normalized_labels` — scratch rows included with deterministic label, inflating R²; (2) S9 Model B mixes geometry + telemetry features (early_loss, grad norms, curvature). **Fixes applied cycle 96:** scratch excluded from labeled set, added Model C (pure geometry: 10 features) and Model D (pure telemetry: 6 features) ablation. Training unaffected — fixes are analysis-phase only. Restart 12:51Z, teacher gen in progress (~48 min remaining). ETA ~18:03Z. Also: Shesha-residual-kill experiment proposed (attack #1) — compute Shesha features on same step-108 tensors, residualize against telemetry. Source: `codex_outputs/heartbeats/cycle95_adversarial_20260429.md`.
+**g182 Triage Arena RUNNING (cycle 93 restart, cycle 96 code fixes).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug — killed & restarted with left-padding fix. Cycle 95 adversarial found 2 additional analysis-phase bugs: (1) S10 scratch label=0 leak in `compute_normalized_labels` — scratch rows included with deterministic label, inflating R²; (2) S9 Model B mixes geometry + telemetry features (early_loss, grad norms, curvature). **Fixes applied cycle 96:** scratch excluded from labeled set, added Model C (pure geometry: 10 features) and Model D (pure telemetry: 6 features) ablation. **Cycle 100 (A15):** adversarial found Model C includes norm/var ratios that proxy optimization health → added Model C' (MANIFOLD_ONLY, 8 pure manifold features: spectral+rank+drift+ID+kNN only, no norm/var). Also: S10 tokenizer-family recognition risk — LOAO may test "nearby tokenizer transfer" not true architecture-agnostic geometry; resolving experiment = g184 Falcon-H1 frozen-C no-refit. 7-model analysis now: A/B/C/C'/D/E. Training unaffected — all fixes are analysis-phase only. Restart 12:51Z, teacher gen in progress. Source: `codex_outputs/heartbeats/cycle100_adversarial_20260429.md`.
 
 **g184 pre-staging (cycle 94):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). Source: cycle 94 compatibility test.
 

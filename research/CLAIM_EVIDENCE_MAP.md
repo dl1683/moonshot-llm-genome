@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 ~14:00 UTC (cycle 99: g182 stage 1 in progress; 5-model analysis (A/B/C/D/E) with scratch exclusion fix, Shesha Model E, g184 Falcon-H1 pre-staged).
+**Last updated.** 2026-04-29 ~14:20 UTC (cycle 100: g182 stage 1 in progress; 7-model analysis (A/B/C/C'/D/E) — C' = manifold-only (8 features, no norm/var) per A15 adversarial; g184 Falcon-H1 pre-staged).
 
 ---
 
@@ -145,7 +145,16 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   4. **Model C includes norm/var ratios** (severity 8): hidden_norm_early_late_ratio and hidden_var_early_late_ratio are activation-magnitude features, not pure geometry. Noted: still architecture-agnostic activation features distinct from gradient/curvature telemetry.
   Source: `codex_outputs/heartbeats/cycle96_code_review_20260429.md`.
 
-Path forward (status 2026-04-29 cycle 99): g182 stage 1 IN PROGRESS (teacher gen ~78 min, started 12:51Z). 5-model analysis: A (full), B (reference-free), C (pure geometry — the §0.1 discriminator), D (pure telemetry), E (Shesha). Model C PASS + Shesha kill = 8.8-9.0/10. Next after g182: Shesha-residual-kill (--shesha-augment), then g184 Falcon-H1 (pre-staged). Theory backbone: 3 first-principles routes in `research/derivations/early_geometry_predicts_training_health.md`.
+- **A15. Cycle 100 adversarial — tokenizer-family recognition + Model C impurity + Ridge overfit (severity 10/10).** Six attacks:
+  1. **Tokenizer/interface-family recognition** (severity 10): Qwen3 and GPT-2 are both English decoder Transformers on C4. LOAO may test "nearby tokenizer transfer" not architecture-agnostic geometry. GPT-2 was the ONLY g180b tokenizer where geometry helped.
+  2. **Stage-1 arm_mean is weak** (severity 9): with scratch excluded, stage 1 has only seq_kd_full labeled rows; arm_mean becomes nearly constant.
+  3. **Model C includes norm/var ratios** (severity 9): hidden_norm_early_late_ratio and hidden_var_early_late_ratio proxy optimization health. FIXED: added Model C' (MANIFOLD_ONLY_FEATURE_NAMES, 8 pure manifold features, no norm/var).
+  4. **Ridge can manufacture a win** (severity 8): 12 rows, 10 features, 5-fold alpha CV — lucky shrinkage could beat weak baselines.
+  5. **12 seeds insufficient** (severity 8): seed-block bootstrap after feature/model/alpha selection is fragile for 9/10 claim.
+  6. **Tokenizer geometry as confound** (severity 8): g181a/g181b/g180b all point to lexical/interface compatibility, not universal training health.
+  **Resolving experiment:** g184 Tokenizer Residual Kill — freeze Model C after g182, drop norm/var, add Shesha + combined telemetry + arch/arm/teacher/corpus residual baselines, test no-refit on Falcon-H1 (third family). Source: `codex_outputs/heartbeats/cycle100_adversarial_20260429.md`.
+
+Path forward (status 2026-04-29 cycle 100): g182 stage 1 IN PROGRESS. 7-model analysis: A (full 24 feat), B (reference-free 16), C (pure geometry 10), C' (manifold-only 8 — no norm/var, per A15), D (pure telemetry 6), E (Shesha 3). Model C'/C PASS + Shesha kill = 8.8-9.0/10. A15 resolving experiment: g184 Falcon-H1 frozen-C no-refit on third family. Next: reanalyze when cells complete, then g184. Theory backbone: 3 first-principles routes in `research/derivations/early_geometry_predicts_training_health.md`.
 
 ## 3. Competitive Intelligence (updated cycle 93, 2026-04-29)
 
