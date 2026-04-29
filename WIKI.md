@@ -320,6 +320,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | RUNNING | Cross-tokenizer forecast (27 cells) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
 | `genome_182` | LOCKED | Blinded Training Triage Arena (72 cells, 2 archs, 9 baselines) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
+| `genome_183` | DRAFT | Corpus-derived init (8 arms × 3 seeds, gated on g182) | `research/prereg/genome_183_corpus_derived_init_2026-04-29.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
 
@@ -413,12 +414,15 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-29 cycle 78)*
+*(Updated 2026-04-29 cycle 80)*
 
 **Active:**
-1. **g181b long-horizon attenuation** — RUNNING (4/6 cells, PID 10580). 2-seed mean gap +0.508 nats. Verdict pending seed=13.
-2. **g180b cross-tokenizer forecast** — READY, launches after g181b. 27 cells, ~3h. `code/genome_180b_cross_tokenizer.py`.
-3. **g182 Blinded Training Triage Arena** — prereg LOCKED. Codex implementation design in progress. 72 cells, 2 architectures, 9 baselines. Implementation after g180b.
+1. **g180b cross-tokenizer forecast** — RUNNING (PID 48644, 0/27 rows, ~13% through). 27 cells, ~3.3h. `code/genome_180b_cross_tokenizer.py`.
+2. **g182 Blinded Training Triage Arena** — prereg LOCKED, implementation READY (`code/genome_182_triage_arena.py`). 72 cells, 2 architectures, 9 baselines. Launch after g180b completes.
+3. **g183 corpus-derived init** — DRAFT prereg pre-staged (`research/prereg/genome_183_corpus_derived_init_2026-04-29.md`). 24 cells, 8 arms. Gated on g182 Codex design gate.
+
+**Completed this session:**
+- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked. A8 resolved.
 
 **Queue (post-g182):**
 - g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter
