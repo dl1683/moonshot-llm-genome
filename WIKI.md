@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 88) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 90) ⚡
 
 **§0.1 honest score: 5.8-6.2/10** (per Codex direction review cycle 87). Branch projections:
 - Current (g180 WEAK PASS + g180b interim): **5.8-6.2/10** (important phenomenon, not validated diagnostic)
@@ -35,7 +35,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 - g182 partial (one fold or only Model A): **6.5-7.0/10**
 - g182 FAIL: **4.0-4.5/10** (geometry diagnostic is dead)
 
-**g180b RUNNING (16/27 cells):** BERT complete (9/9), T5 7/9, GPT-2 0/9. Cross-tokenizer KD universally harmful (BERT label -0.48, T5 -0.51). arm_mean CATASTROPHICALLY wrong: MSE 0.025 vs null 0.003 (predicts KD helps when it hurts). g180 frozen geometry Ridge MSE 0.013 (2x better than arm_mean but still 4x worse than null). kd_late_only features IDENTICAL to scratch at step 108 — geometry cannot distinguish them.
+**g180b RUNNING (21/27 cells):** BERT 9/9 done, T5 9/9 done, GPT-2 3/9 (s42 all arms done). Cross-tokenizer KD universally harmful across ALL 3 families — 100% negative labels (kd_full mean -0.49, kd_late mean -0.31). GPT-2 s42: scratch 6.24, kd_full 6.61 (label -0.38), kd_late 6.49 (label -0.25). arm_mean MSE 0.204 (catastrophic), null MSE ~0.002 (strong), frozen geometry Ridge MSE 0.013. kd_late_only features IDENTICAL to scratch at step 108.
+
+**Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
 
