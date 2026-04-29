@@ -26,6 +26,18 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-29 — genome_182_triage_arena — PREREG LOCKED (Blinded Training Triage Arena)
+
+**Purpose.** The §0.1=8.6 experiment. Cross-Transformer-family geometry diagnostic: 72 cells (2 architectures × 3 arms × 12 seeds) with leave-one-architecture-out CV. Tests whether early-training geometry features predict final C4 NLL gain better than 9 strong baselines + combined telemetry, across Qwen3-arch AND GPT-2-arch.
+
+**Status.** Prereg LOCKED after Codex design gate APPROVED (3 iterative reviews). Implementation gated on g180b + g181b completion. Two co-primary models: (A) full geometry (all 24 features), (B) reference-free geometry (drops Qwen3-ref Procrustes). Staged: 48 cells first (futility), expand to 72 if promising.
+
+**PASS:** Both co-primary models on both LOAO folds beat best baseline by ≥25% MSE reduction; CI>0; R²≥0.20; permutation p≤0.01; AUROC≥0.75. **§0.1:** PASS=8.6/10, +SSM=9.0/10, WEAK=6.5, FAIL=4.0.
+
+Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
+
+---
+
 ## 2026-04-29 — genome_180b_cross_tokenizer — QUEUED (cross-tokenizer forecast gate)
 
 **Purpose.** Test whether g180's geometry-based forecast model trained on Qwen-tokenizer cells generalizes to held-out tokenizer cells. 27 cells = 3 tokenizers (BERT WordPiece, T5 SentencePiece, GPT-2 BPE) × 3 arms (scratch_ce, seq_kd_full, seq_kd_late_only) × 3 seeds. Qwen3-arch recipients with swapped tokenizer/vocab. Frozen g180 Ridge applied as-is.
