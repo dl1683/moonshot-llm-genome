@@ -1203,13 +1203,20 @@ def simulated_kill(y_true, geo_pred, cells, kill_fraction=0.3):
 # Verdict
 # ---------------------------------------------------------------------------
 
+CO_PRIMARY_MODELS = {"model_a_full_geometry", "model_b_reference_free"}
+
+
 def compute_verdict(loao_results: dict) -> dict[str, Any]:
-    """Determine PASS / WEAK PASS / FAIL per prereg criteria."""
+    """Determine PASS / WEAK PASS / FAIL per prereg criteria.
+
+    Only co-primary models (A, B) gate the verdict. C/D/E are exploratory.
+    """
     all_pass = True
     any_weak = False
     details = {}
 
     for model_label, result in loao_results.items():
+        is_primary = model_label in CO_PRIMARY_MODELS
         folds = result["folds"]
         fold_pass = True
         fold_weak = False
@@ -1249,10 +1256,11 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
                 "shuffled_p": shuf_p,
             }
 
-        if not fold_pass:
-            all_pass = False
-        if fold_weak:
-            any_weak = True
+        if is_primary:
+            if not fold_pass:
+                all_pass = False
+            if fold_weak:
+                any_weak = True
 
     if all_pass:
         verdict = "PASS"
@@ -1302,34 +1310,43 @@ def shesha_augment_main():
     if not need_shesha:
         print_flush("  All cells already have Shesha features. Running analysis only.")
     else:
-        from transformers import AutoTokenizer
-        qwen_tok = AutoTokenizer.from_pretrained(ARCH_CONFIGS["qwen3"]["hf_id"], trust_remote_code=True)
-        gpt2_tok = AutoTokenizer.from_pretrained(ARCH_CONFIGS["gpt2"]["hf_id"])
-        if gpt2_tok.pad_token is None:
-            gpt2_tok.pad_token = gpt2_tok.eos_token
-        toks = {"qwen3": qwen_tok, "gpt2": gpt2_tok}
+        tok_qwen = get_tokenizer("qwen3")
+        tok_gpt2 = get_tokenizer("gpt2")
+        toks = {"qwen3": tok_qwen, "gpt2": tok_gpt2}
 
         pools_by_arch = {}
         for arch in ARCH_CONFIGS:
-            tok = toks[arch]
-            pools_by_arch[arch] = load_c4_pools(tok, N_TRAIN_WINDOWS, N_C4_VAL_WINDOWS, SEQ_LEN)
+            pools_by_arch[arch] = load_c4_pools(toks[arch], N_TRAIN_WINDOWS, N_C4_VAL_WINDOWS, SEQ_LEN)
 
-        teacher_pools = {}
-        for c in need_shesha:
-            if c["arm"] == "seq_kd_full" and c["arch"] not in teacher_pools:
-                print_flush(f"  NOTE: seq_kd_full cells need teacher texts for exact replay.")
-                print_flush(f"  Skipping seq_kd_full cells (Shesha from scratch/embed_anchor only).")
-                break
+        donor_embed = None
+        shared_vocab = None
+        has_anchor_cells = any(c["arm"] == "embed_anchor" for c in need_shesha)
+        if has_anchor_cells:
+            donor = load_qwen3_donor()
+            donor_embed = donor["embed_params"]
+            shared_vocab = donor["shared_vocab_map"]
 
+        teacher_pools_by_arch = {}
+        has_kd_cells = any(c["arm"] == "seq_kd_full" for c in need_shesha)
+        if has_kd_cells:
+            print_flush("  Regenerating teacher texts for seq_kd_full replay...")
+            teacher_texts = generate_teacher_texts(N_TRAIN_WINDOWS)
+            for arch in ARCH_CONFIGS:
+                tok = toks[arch]
+                enc_list = [tok(t, truncation=True, max_length=SEQ_LEN,
+                               padding="max_length", return_tensors="pt")
+                            for t in teacher_texts]
+                t_ids = torch.cat([e["input_ids"] for e in enc_list], dim=0)[:N_TRAIN_WINDOWS]
+                t_mask = torch.cat([e["attention_mask"] for e in enc_list], dim=0)[:N_TRAIN_WINDOWS]
+                teacher_pools_by_arch[arch] = {"train_ids": t_ids, "train_mask": t_mask}
+
+        feature_step = max(1, int(math.ceil(0.03 * TRAIN_STEPS)))
+        replayed = 0
         for i, c in enumerate(need_shesha):
             arch, arm, seed = c["arch"], c["arm"], c["seed"]
-            if arm == "seq_kd_full":
-                continue
-
             cell_id = c["cell_id"]
-            print_flush(f"\n  [{i+1}/{len(need_shesha)}] Replaying {cell_id} to step {max(1, int(math.ceil(0.03 * TRAIN_STEPS)))}...")
+            print_flush(f"\n  [{i+1}/{len(need_shesha)}] Replaying {cell_id} to step {feature_step}...")
 
-            feature_step = max(1, int(math.ceil(0.03 * TRAIN_STEPS)))
             set_seed(seed)
             model = make_model(arch, seed)
             optimizer = torch.optim.AdamW(
@@ -1341,8 +1358,15 @@ def shesha_augment_main():
             train_mask = pools["train_mask"]
             n_examples = train_ids.shape[0]
 
+            if arm == "seq_kd_full" and arch in teacher_pools_by_arch:
+                train_ids = teacher_pools_by_arch[arch]["train_ids"]
+                train_mask = teacher_pools_by_arch[arch]["train_mask"]
+                n_examples = train_ids.shape[0]
+
             rng = np.random.default_rng(seed)
             schedule = rng.integers(0, n_examples, size=(TRAIN_STEPS, TRAIN_BATCH_SIZE), dtype=np.int64)
+
+            anchor_lambda = 0.01 if (arm == "embed_anchor" and donor_embed is not None) else 0.0
 
             model.train()
             for step in range(1, feature_step + 1):
@@ -1356,7 +1380,11 @@ def shesha_augment_main():
                 with autocast_context():
                     logits = model(input_ids=ids, attention_mask=mask, use_cache=False).logits
                     ce = causal_ce_loss(logits, ids, mask)
-                ce.backward()
+                loss = ce
+                if anchor_lambda > 0:
+                    anchor = cross_arch_anchor_loss(model, donor_embed, arch, shared_vocab)
+                    loss = loss + anchor_lambda * anchor
+                loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
                 optimizer.step()
 
@@ -1373,6 +1401,7 @@ def shesha_augment_main():
             print_flush(f"    Shesha: {shesha_feats}")
 
             c["features"].update(shesha_feats)
+            replayed += 1
 
             del model, optimizer
             gc.collect()
