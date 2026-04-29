@@ -699,7 +699,7 @@ def extract_features_for_cell(model, probe_batch, arch: str,
                     if not any(ref in k for ref in ["qwen_ref", "reference_rows"])}
     optional_prefixes = ("shesha_",)
     optional_substrings = ("qwen_ref", "reference_rows")
-    optional_exact = {"curvature_top_eigen_proxy"}
+    optional_exact = {"curvature_top_eigen_proxy", "norm_param_early_late_ratio"}
     def _is_optional(name):
         if name.startswith(optional_prefixes):
             return True

@@ -674,7 +674,8 @@ def _norm_variance_depth_ratios(
 
     layer_norms: dict[int, list[float]] = {}
     for name, param in model.named_parameters():
-        if param.ndim != 1 or "norm" not in name.lower():
+        low = name.lower()
+        if param.ndim != 1 or not ("norm" in low or ".ln_" in low or ".ln." in low):
             continue
         match = None
         for pat in (r"model\.layers\.(\d+)\.", r"layers\.(\d+)\.", r"transformer\.h\.(\d+)\."):
