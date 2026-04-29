@@ -1326,6 +1326,57 @@ def exploratory_no_interface_eval(
         return {"error": f"{type(exc).__name__}: {str(exc)[:200]}"}
 
 
+_ROW_META_KEYS = frozenset({
+    "cell_id", "source", "arm", "seed", "tokenizer", "tokenizer_hf_id",
+    "family", "split", "protocol", "target_steps", "final_steps",
+    "label", "scratch_final_nll", "final_nll", "feature_source",
+    "pred_early_loss_only", "pred_geometry_plus_early_loss",
+    "residual_geometry_plus_early_loss",
+})
+_EARLY_LOSS_KEY = "early_loss_at_target_step"
+_PERM_N = 1000
+
+
+def shuffled_geometry_control(
+    g180_state: Mapping[str, Any],
+    rows: Sequence[Mapping[str, Any]],
+    y: np.ndarray,
+) -> dict[str, Any]:
+    if len(rows) < 4:
+        return {"note": "too few rows for permutation test"}
+    rng = np.random.default_rng(RANDOM_STATE)
+    real_pred = g180._predict(g180_state["full"], rows)
+    real_mse_val = float(np.mean((y - real_pred) ** 2))
+    geom_keys = [k for k in rows[0] if k not in _ROW_META_KEYS and k != _EARLY_LOSS_KEY]
+    perm_mses: list[float] = []
+    for _ in range(_PERM_N):
+        perm_rows = [dict(row) for row in rows]
+        perm_idx = rng.permutation(len(rows)).tolist()
+        for fk in geom_keys:
+            vals = [rows[i][fk] for i in perm_idx]
+            for j, row in enumerate(perm_rows):
+                row[fk] = vals[j]
+        try:
+            pf = g180._predict(g180_state["full"], perm_rows)
+            perm_mses.append(float(np.mean((y - pf) ** 2)))
+        except Exception:
+            continue
+    if not perm_mses:
+        return {"error": "all permutations failed"}
+    arr = np.asarray(perm_mses, dtype=np.float64)
+    return {
+        "note": "Permute geometry features (not early_loss) across rows; repredict with frozen Ridge. p < 0.05 means real geometry ordering is informative.",
+        "real_mse": real_mse_val,
+        "n_permutations": len(perm_mses),
+        "permuted_mse_mean": float(arr.mean()),
+        "permuted_mse_std": float(arr.std()),
+        "permuted_mse_p05": float(np.percentile(arr, 5)),
+        "permuted_mse_p95": float(np.percentile(arr, 95)),
+        "p_value_real_le_permuted": float(np.mean(arr <= real_mse_val)),
+        "geometry_feature_keys_permuted": geom_keys,
+    }
+
+
 def refresh_analysis(payload: dict[str, Any], g180_state: Mapping[str, Any]) -> None:
     rows = build_completed_rows(payload)
     payload["rows"] = rows
@@ -1447,6 +1498,9 @@ def refresh_analysis(payload: dict[str, Any], g180_state: Mapping[str, Any]) -> 
                 rows,
                 y,
                 pred_base,
+            ),
+            "shuffled_geometry_permutation_test": shuffled_geometry_control(
+                g180_state, rows, y
             ),
         },
     }
