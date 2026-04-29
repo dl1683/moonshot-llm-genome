@@ -22,17 +22,15 @@ from __future__ import annotations
 
 import argparse
 import gc
-import hashlib
 import json
 import math
 import os
 import sys
 import time
 from contextlib import nullcontext
-from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 import numpy as np
 import torch
@@ -53,7 +51,6 @@ SEQ_LEN = 256
 TRAIN_BATCH_SIZE = 8
 EVAL_BATCH_SIZE = 8
 TRAIN_STEPS = 3600
-FEATURE_STEP = 108  # 3% of 3600
 LR = 3e-4
 LR_WARMUP_STEPS = 200
 BETAS = (0.9, 0.95)
@@ -373,7 +370,7 @@ def load_c4_pools(tok, n_train: int, n_val: int, seq_len: int) -> dict:
         val_probe_texts.append(item["text"])
         if len(val_probe_texts) >= n_val + PROBE_WINDOWS + 128:
             break
-    rng_val = np.random.default_rng(C4_TRAIN_SEED + 1)
+    rng_val = np.random.default_rng(C4_VAL_SEED)
     rng_val.shuffle(val_probe_texts)
     val_texts = val_probe_texts[:n_val]
     probe_texts = val_probe_texts[n_val:n_val + PROBE_WINDOWS]
@@ -634,7 +631,6 @@ def train_cell(
     smoke: bool = False,
 ) -> dict[str, Any]:
     """Train one cell and return result dict with features + final NLL."""
-    tok = get_tokenizer(arch)
     train_steps = 20 if smoke else TRAIN_STEPS
     feature_step = max(1, int(math.ceil(0.03 * train_steps)))
 
