@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 78) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 80) ⚡
 
 **§0.1 ceiling: 5.0/10** (per Codex direction review cycle 75). Branch projections REVISED per adversarial A9 + Codex g182 design gate:
 - Current (g180 WEAK PASS): **5.0/10** (effective n=3, baseline too weak)
@@ -95,7 +95,7 @@ The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI 
 
 **Next:** g180b cross-tokenizer forecast (prereg LOCKED, implementation READY: `code/genome_180b_cross_tokenizer.py`). Design: `bert-base-uncased`, `google-t5/t5-small`, and `gpt2` tokenizers on swapped-tokenizer Qwen3-arch recipients; shared Qwen3 Procrustes reference; frozen g180 Ridge. 27 cells = 3 tok × 3 arms × 3 seeds, ~2.7-3.6h. Launch after g181b completes. If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
 
-**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). 4/6 cells done. 2-seed gap: seed=42 **+0.530**, seed=7 **+0.486**. Mean +0.508 (above +0.5 threshold). Missing: scratch_ce:13, anchor:13. Verdict pending.
+**g181b long-horizon attenuation PASS** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). All 6/6 cells complete. **Mean gap +0.513 nats** (per-seed: +0.531, +0.486, +0.523). Gap trajectory: +0.387@500, +0.481@2000, +0.502@3000, +0.518@4000, +0.513@5000 — stable plateau. **Resolves A8 (500-step horizon artifact).** Claim C23 locked. Source: `results/genome_181b_long_horizon.json`.
 
 **g180b ENHANCEMENTS (cycle 75):** shuffled-geometry permutation test (1000 iterations, p-value for real vs random feature ordering), trajectory loss logging at steps {20,40,60,80,108} for post-hoc trajectory-baseline analysis. Both address adversarial A9 attacks.
 

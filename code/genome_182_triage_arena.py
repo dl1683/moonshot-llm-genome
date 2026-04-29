@@ -651,6 +651,11 @@ def train_cell(
     rng = np.random.default_rng(seed)
     schedule = rng.integers(0, n_examples, size=(train_steps, TRAIN_BATCH_SIZE), dtype=np.int64)
 
+    anchor_lambda_constant = 0.0
+    if arm == "embed_anchor" and donor_embed_params is not None:
+        anchor_lambda_constant = 0.01
+        print_flush(f"    anchor: lambda={anchor_lambda_constant} (constant, no decay; matches g165)")
+
     initial_metrics = evaluate_nll(model, pools["val_ids"], pools["val_mask"])
     print_flush(f"    params={counts['n_total_params']/1e6:.2f}M "
                 f"step=0 c4_nll={initial_metrics['nll']:.4f}")
@@ -683,8 +688,7 @@ def train_cell(
             anchor = cross_arch_anchor_loss(
                 model, donor_embed_params, arch, shared_vocab_map
             )
-            anchor_lambda = 1.3e-3 * max(0.0, 1.0 - step / 50.0)
-            loss = loss + anchor_lambda * anchor
+            loss = loss + anchor_lambda_constant * anchor
 
         if not torch.isfinite(loss):
             raise RuntimeError(f"Non-finite loss at step {step} cell={cell_id}")
@@ -853,11 +857,11 @@ def standardize(X_train, X_test):
 # Baselines
 # ---------------------------------------------------------------------------
 
-def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
-    """Build feature matrix for a specific baseline type."""
+def _baseline_features_raw(cells: list[dict], baseline_type: str) -> np.ndarray:
+    """Build raw feature matrix (may contain NaN). No imputation."""
     n = len(cells)
     if baseline_type == "scalar_early_loss":
-        X = np.array([[c["early_loss"]] for c in cells], dtype=np.float64)
+        return np.array([[c["early_loss"]] for c in cells], dtype=np.float64)
     elif baseline_type == "trajectory":
         steps = TRAJECTORY_STEPS
         X = np.zeros((n, len(steps) + 2), dtype=np.float64)
@@ -871,13 +875,14 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
                 log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
                 nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
                 coeffs = np.polyfit(log_s, nll_v, 2)
-                X[i, -2] = coeffs[1]  # slope (linear term)
-                X[i, -1] = coeffs[0]  # curvature (quadratic term)
+                X[i, -2] = coeffs[1]
+                X[i, -1] = coeffs[0]
             elif len(valid_steps) >= 2:
                 log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
                 nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
                 X[i, -2] = np.polyfit(log_s, nll_v, 1)[0]
                 X[i, -1] = 0.0
+        return X
     elif baseline_type == "gradient_stats":
         X = np.zeros((n, 3), dtype=np.float64)
         for i, c in enumerate(cells):
@@ -885,18 +890,21 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
             X[i, 0] = feats.get("gradient_noise_scale", float("nan"))
             X[i, 1] = feats.get("grad_norm_mean", float("nan"))
             X[i, 2] = feats.get("grad_norm_var", float("nan"))
+        return X
     elif baseline_type == "arm_labels":
         arms = ARM_LABELS
         X = np.zeros((n, len(arms)), dtype=np.float64)
         for i, c in enumerate(cells):
             for j, a in enumerate(arms):
                 X[i, j] = 1.0 if c["arm"] == a else 0.0
+        return X
     elif baseline_type == "delayed_loss":
         X = np.zeros((n, 2), dtype=np.float64)
         for i, c in enumerate(cells):
             traj = c.get("trajectory_losses", {})
             X[i, 0] = traj.get(200, traj.get("200", float("nan")))
             X[i, 1] = traj.get(500, traj.get("500", float("nan")))
+        return X
     elif baseline_type == "within_arm_residual":
         arms = ARM_LABELS
         steps = TRAJECTORY_STEPS
@@ -920,20 +928,32 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
                 nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
                 X[i, -2] = np.polyfit(log_s, nll_v, 1)[0]
                 X[i, -1] = 0.0
+        return X
     elif baseline_type == "combined_telemetry":
-        parts = []
-        for bt in ["arm_labels", "trajectory", "gradient_stats", "delayed_loss"]:
-            parts.append(baseline_features(cells, bt))
-        X = np.hstack(parts)
+        parts = [_baseline_features_raw(cells, bt)
+                 for bt in ["arm_labels", "trajectory", "gradient_stats", "delayed_loss"]]
+        return np.hstack(parts)
     else:
         raise ValueError(f"Unknown baseline type: {baseline_type}")
 
+
+def baseline_features(cells: list[dict], baseline_type: str,
+                      impute_medians: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Build feature matrix with NaN imputation.
+
+    Returns (X, medians) where medians can be passed for test-set imputation
+    using train-only statistics.
+    """
+    X = _baseline_features_raw(cells, baseline_type)
+    if impute_medians is None:
+        medians = np.nanmedian(X, axis=0)
+    else:
+        medians = impute_medians
     nan_mask = np.isnan(X)
     if nan_mask.any():
-        col_med = np.nanmedian(X, axis=0)
         for j in range(X.shape[1]):
-            X[nan_mask[:, j], j] = col_med[j] if np.isfinite(col_med[j]) else 0.0
-    return X
+            X[nan_mask[:, j], j] = medians[j] if np.isfinite(medians[j]) else 0.0
+    return X, medians
 
 
 BASELINE_TYPES = [
@@ -990,8 +1010,8 @@ def loao_evaluate(
         best_baseline_pred = None
 
         for bt in BASELINE_TYPES:
-            X_train_b = baseline_features(train_cells, bt)
-            X_test_b = baseline_features(test_cells, bt)
+            X_train_b, train_b_medians = baseline_features(train_cells, bt)
+            X_test_b, _ = baseline_features(test_cells, bt, impute_medians=train_b_medians)
             X_train_b_s, X_test_b_s = standardize(X_train_b, X_test_b)
             b_model = fit_ridge_cv(X_train_b_s, y_train)
             b_pred = b_model.predict(X_test_b_s)
