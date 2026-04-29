@@ -4,6 +4,14 @@
 
 ---
 
+## ⚠ POST-PIVOT NOTICE (2026-04-29, cycle 72)
+
+The strong-form transfer claim — *"efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient"* — was tested via the g165 → g167 → g172 → g174 → g177 → g177v2 → g173 → g181a chain and **falsified on three independent axes**: donor-identity (g177v2), cross-architecture (g173), and internal-block-anchor mechanism (g181a). What survives is narrow: Qwen3-tokenizer/embed/lm_head trained-init prior held in place during recipient training. Anchoring transformer block weights at matched gradient force *actively HARMS* performance.
+
+**Pivoted framing (cycle 72 direction review):** *"the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed"* — Forecast/Diagnostic as the headline; falsification-discipline as the integrity story. The §1 below ("The Bet") and the original §0 wording are RETAINED here as historical record but no longer represent the active research line. See `WIKI.md` CURRENT STATUS for the live framing.
+
+---
+
 ## 0. The Competitive Reality
 
 **We are one independent researcher. DeepMind, Anthropic, OpenAI, Google, Meta publish representational-geometry papers monthly with more compute, more authors, and more review cycles than we can match.** "We measured X across N architectures, pre-registered it, it mostly held up" — that is the baseline product of those labs. If our output looks like that, we are invisible.
