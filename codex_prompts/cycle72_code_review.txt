@@ -1,0 +1,30 @@
+You are Anti-Entropy Code Engineer for the Neural Genome moonshot.
+
+**OUTPUT FORMAT: write content directly to file. NO meta-pointer.**
+
+**Context: post-pivot anti-entropy 2.0.** Cycle 63 already deleted 6 rejected scripts (R7/R8/R9/R9b/R10) + 4 legacy paper docs + ~7.5GB binary artifacts. Since then:
+- C22 donor-identity REJECTED (g177v2 FAIL)
+- g173 cross-arch FAIL on locked criterion (cycle 70 rejected reframe)
+- g181a CONFIRMED cycle 65 A7 tokenizer-prior dominance (the +1 nat anchor effect is mostly Qwen3-tokenizer-init, anchoring transformer blocks HARMS)
+
+The transfer-mechanism story line is dead. We pivoted to g180 Genome Forecast/Diagnostic.
+
+## Your job: identify what's now obsolete
+
+Audit the repo (CLAUDE.md §3 empowers Codex to delete) and propose AT MOST 6 concrete deletions/consolidations/merges. Be specific: full file path + reason. Severity HIGH (≥1GB or significantly reduces complexity) / MEDIUM (improves clarity) / LOW (cosmetic).
+
+## Specific targets to consider
+
+1. **Now-superseded scripts**: g175 (alternative donor falsifier, superseded by g177v2 which itself FAILed → both retired), g177 v1 (replaced by v2 but file kept its number after edits), g178 layer-family scaffold if pre-staged, g179 derivation if pre-staged, g181b long-horizon if pre-staged. Do any of these still have artifacts in code/ or pending preregs?
+
+2. **Now-irrelevant donor NPZ caches**: `results/cache/genome_167_teacher_topk_cache_*.pt` (~800MB) — only consumed by genome_167/172/174/177/177v2/181a, all complete. Still needed by g180? Check.
+
+3. **Pre-pivot research docs**: any `research/*.md` that still emphasizes "transfer mechanism" / "donor identity" framing, contradicting the post-g181a pivot? E.g., `research/DONOR_SPECIFICITY_LOCK_2026-04-28.md`, `research/TRANSFER_AXIS_FOUR_EXPERIMENT_SYNTHESIS_2026-04-27.md`, `research/programs/post_g156_pass_program.md`, `research/derivations/*.md`. Mark or merge.
+
+4. **Pre-pivot preregs**: `research/prereg/genome_165_*`, `genome_167*`, `genome_174*`, `genome_177*` — all reference a now-defunct framing. Should they get a "POST-PIVOT" addendum noting C18/C19/C21 narrowed scope, OR be moved to `research/prereg/archived/`?
+
+5. **Stale CLAIM_EVIDENCE_MAP entries**: are P-numbered (provisional) rows obsolete? P-numbers that should be promoted/demoted/deleted?
+
+6. **Duplicate functionality** still present: `code/genome_kd_anchor_lib.py` extraction proposal from cycle 63 was DEFERRED. Now g181a + g180 + (potentially) g181b would benefit. Is this the right time?
+
+For each proposal, justify in 1 sentence. Output ONLY the deletion proposals as numbered list. Under 400 words. Output to `codex_outputs/heartbeats/cycle72_code_review_20260429T010000.md`.
