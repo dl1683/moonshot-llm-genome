@@ -2154,33 +2154,49 @@ def route3_predictions(
     except Exception as e:
         print_flush(f"  P6 failed: {e}")
 
-    # D1: Route 2 vs Route 3 — continuous Ridge vs basin-mean predictor
+    # D1: Route 2 vs Route 3 — continuous Ridge vs basin-mean predictor (LOO MSE)
     try:
         from sklearn.cluster import KMeans as _KM
+        from sklearn.model_selection import LeaveOneOut as _LOO
+        from sklearn.linear_model import Ridge as _Ridge_D1
         mean_x = X.mean(axis=0); std_x = X.std(axis=0)
         std_x[std_x < 1e-12] = 1.0
         X_s = (X - mean_x) / std_x
         ridge_d1 = fit_ridge_cv(X_s, y)
-        mse_ridge = float(np.mean((y - ridge_d1.predict(X_s)) ** 2))
+        best_alpha_d1 = ridge_d1.alpha
+        loo_ridge_preds = np.zeros(len(y))
+        for tr_i, te_i in _LOO().split(X_s):
+            m = _Ridge_D1(alpha=best_alpha_d1).fit(X_s[tr_i], y[tr_i])
+            loo_ridge_preds[te_i] = m.predict(X_s[te_i])
+        mse_ridge = float(np.mean((y - loo_ridge_preds) ** 2))
         km3 = _KM(n_clusters=3, n_init=20, random_state=RANDOM_STATE).fit(X_s)
-        basin_means = np.array([y[km3.labels_ == k].mean() for k in range(3)])
-        pred_basin = basin_means[km3.labels_]
-        mse_basin = float(np.mean((y - pred_basin) ** 2))
+        loo_basin_preds = np.zeros(len(y))
+        for i in range(len(y)):
+            k = km3.labels_[i]
+            same_cluster = (km3.labels_ == k)
+            same_cluster[i] = False
+            if same_cluster.sum() > 0:
+                loo_basin_preds[i] = y[same_cluster].mean()
+            else:
+                loo_basin_preds[i] = y.mean()
+        mse_basin = float(np.mean((y - loo_basin_preds) ** 2))
         ridge_advantage = (mse_basin - mse_ridge) / mse_basin if mse_basin > 1e-12 else 0.0
         results["D1_continuous_vs_basin"] = {
-            "mse_ridge_continuous": mse_ridge,
-            "mse_basin_mean": mse_basin,
+            "mse_ridge_loo": mse_ridge,
+            "mse_basin_loo": mse_basin,
             "ridge_advantage_pct": float(ridge_advantage * 100),
             "favors_route2": ridge_advantage > 0.10,
         }
         verdict = "Route 2 (continuous)" if ridge_advantage > 0.10 else "Route 3 (basins)"
-        print_flush(f"  D1 continuous vs basin: ridge_mse={mse_ridge:.6f} "
-                    f"basin_mse={mse_basin:.6f} advantage={ridge_advantage:.1%} → {verdict}")
+        print_flush(f"  D1 continuous vs basin: ridge_loo={mse_ridge:.6f} "
+                    f"basin_loo={mse_basin:.6f} advantage={ridge_advantage:.1%} → {verdict}")
     except Exception as e:
         print_flush(f"  D1 failed: {e}")
 
-    # D2: Route 2 vs Route 3 — depth drifts add independent value?
+    # D2: Route 2 vs Route 3 — depth drifts add independent value? (LOO MSE)
     try:
+        from sklearn.linear_model import Ridge as _Ridge_D2
+        from sklearn.model_selection import LeaveOneOut as _LOO_D2
         no_drift_idx = [0, 1, 2, 6, 7]  # alpha, PR, sqrt_pr_alpha, ID, kNN
         X_no_drift = X[:, no_drift_idx]
         mean_nd = X_no_drift.mean(axis=0); std_nd = X_no_drift.std(axis=0)
@@ -2190,19 +2206,28 @@ def route3_predictions(
         std_all[std_all < 1e-12] = 1.0
         X_all_s = (X - mean_all) / std_all
         ridge_full = fit_ridge_cv(X_all_s, y)
-        mse_full = float(np.mean((y - ridge_full.predict(X_all_s)) ** 2))
+        alpha_full = ridge_full.alpha
         ridge_no_drift = fit_ridge_cv(X_nd_s, y)
-        mse_no_drift = float(np.mean((y - ridge_no_drift.predict(X_nd_s)) ** 2))
+        alpha_nd = ridge_no_drift.alpha
+        loo_full = np.zeros(len(y))
+        loo_nd = np.zeros(len(y))
+        for tr_i, te_i in _LOO_D2().split(X_all_s):
+            m_f = _Ridge_D2(alpha=alpha_full).fit(X_all_s[tr_i], y[tr_i])
+            loo_full[te_i] = m_f.predict(X_all_s[te_i])
+            m_n = _Ridge_D2(alpha=alpha_nd).fit(X_nd_s[tr_i], y[tr_i])
+            loo_nd[te_i] = m_n.predict(X_nd_s[te_i])
+        mse_full = float(np.mean((y - loo_full) ** 2))
+        mse_no_drift = float(np.mean((y - loo_nd) ** 2))
         drift_value = (mse_no_drift - mse_full) / mse_no_drift if mse_no_drift > 1e-12 else 0.0
         results["D2_depth_drift_value"] = {
-            "mse_all_8_features": mse_full,
-            "mse_5_no_drift": mse_no_drift,
+            "mse_all_8_loo": mse_full,
+            "mse_5_no_drift_loo": mse_no_drift,
             "drift_improvement_pct": float(drift_value * 100),
             "favors_route2": drift_value > 0.05,
         }
         verdict = "Route 2 (depth matters)" if drift_value > 0.05 else "Route 3 (basins only)"
-        print_flush(f"  D2 depth drift value: full_mse={mse_full:.6f} "
-                    f"no_drift_mse={mse_no_drift:.6f} drift_adds={drift_value:.1%} → {verdict}")
+        print_flush(f"  D2 depth drift value: full_loo={mse_full:.6f} "
+                    f"no_drift_loo={mse_no_drift:.6f} drift_adds={drift_value:.1%} → {verdict}")
     except Exception as e:
         print_flush(f"  D2 failed: {e}")
 

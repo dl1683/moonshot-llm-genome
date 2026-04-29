@@ -38,6 +38,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Cycle 102 fixes:** Stage 1 crashed at step 108 feature extraction (4 NaN features from tied-weight Qwen3 lm_head reference + curvature at random init). Fixed: (1) optional NaN handling for reference/curvature → None serialization, (2) tied-weight lm_head fallback to embed weight, (3) P3 Route 3 per-arm threshold fix, (4) UTF-8 file I/O + g184 teacher text caching (Codex SEV-8). Restarted.
 
+**Cycle 104-108 teacher gen debugging:** Stage 1 restarted but hit reproducible hang during teacher text generation (100% CPU, 0 I/O, zero progress) on 3 separate processes. Root-caused to HuggingFace `model.generate()` at full scale (1088 batches / 8704 texts), NOT a code bug — isolated 50-batch tests PASS. Workaround: run teacher gen as standalone pre-cache step; g182 detects `teacher_texts.json` cache and skips generation. **Cycle 108 code fixes:** (1) batch-1 progress logging for early visibility, (2) R3 permutation test (5000 iterations) replacing bare mean comparison. Cycle 108 mod-3 reviews completed (Claude-generated after 4/4 Codex timeouts): D1 is WEAK discriminator at n=24, D2 is BETTER; Route 2 water-filling novelty probably true; survival probability ~40-50% for C' PASS. Teacher gen pre-cache run in progress at cycle 109 (batch 50/1088, 1.1 texts/s, ETA ~120 min).
+
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
 ---
