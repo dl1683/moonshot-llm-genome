@@ -1515,6 +1515,36 @@ def shesha_augment_main():
 
 
 # ---------------------------------------------------------------------------
+# Frozen evaluation on Phase-2 architectures (g184)
+# ---------------------------------------------------------------------------
+
+def frozen_eval_main(phase2_arch: str, smoke: bool = False):
+    """Train Ridge on g182 cells, apply frozen to new Phase-2 architecture cells.
+
+    Implements the g184 prereg: freeze Model C' (manifold-only 8 features),
+    run new-family cells, evaluate without refitting.
+    """
+    if phase2_arch not in PHASE2_ARCH_CONFIGS:
+        print_flush(f"ERROR: unknown phase2 arch '{phase2_arch}'. "
+                    f"Available: {list(PHASE2_ARCH_CONFIGS.keys())}")
+        return
+
+    existing = load_existing(OUT_PATH)
+    if not existing or "cells" not in existing:
+        print_flush("ERROR: no g182 results found. Run main experiment first.")
+        return
+
+    print_flush(f"=== Frozen Eval Mode: {phase2_arch} ===")
+    print_flush(f"  g182 cells: {len(existing['cells'])}")
+    print_flush("  NOT YET IMPLEMENTED — stub for g184 pre-staging.")
+    print_flush("  Implementation gated on g182 stage 1 completion.")
+    raise NotImplementedError(
+        f"frozen_eval_main({phase2_arch}) is pre-staged. "
+        "Implement after g182 stage 1 results are analyzed."
+    )
+
+
+# ---------------------------------------------------------------------------
 # Re-analysis (uses saved cells, no training)
 # ---------------------------------------------------------------------------
 
@@ -1581,10 +1611,16 @@ def main():
                         help="Post-hoc: replay cells to step 108, add Shesha features, re-run analysis")
     parser.add_argument("--reanalyze", action="store_true",
                         help="Re-run 5-model LOAO analysis on saved cells (no training)")
+    parser.add_argument("--frozen-eval", type=str, default="",
+                        help="g184 mode: train frozen Ridge on g182 cells, run on PHASE2 arch "
+                        "(e.g., --frozen-eval falcon_h1). Requires g182 results to exist.")
     args = parser.parse_args()
 
     if args.reanalyze:
         reanalyze_main()
+        return
+    if args.frozen_eval:
+        frozen_eval_main(args.frozen_eval, smoke=args.smoke)
         return
     if args.shesha_augment:
         shesha_augment_main()
