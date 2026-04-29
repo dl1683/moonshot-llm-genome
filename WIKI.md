@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 102) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 104) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
@@ -38,7 +38,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
 
-**g182 Triage Arena RUNNING (cycle 102 restart after NaN fix).** Smoke PASS (12/12). Cycle 93 SEV-8 padding_side fixed. Cycle 96: scratch excluded from labeled set, added Model C/D ablation. Cycle 100 (A15): added Model C' (MANIFOLD_ONLY, 8 pure manifold features). **Cycle 102:** stage 1 crashed at step 108 feature extraction (4 NaN features: lm_head reference features from tied-weight Qwen3 + curvature at random init). Fixed: (1) optional NaN handling for reference/curvature features → None serialization, (2) tied-weight lm_head reference fallback to embed weight, (3) P3 Route 3 prediction per-arm threshold, (4) UTF-8 file I/O + g184 teacher text caching (Codex SEV-8). Restarted ~13:10Z, teacher gen in progress (~130 min). 7-model analysis: A/B/C/C'/D/E. Source: `codex_outputs/heartbeat_code_review_cycle102.md`.
+**g182 Triage Arena RUNNING (cycle 104 — third restart).** Smoke PASS (12/12). Cycle 93 SEV-8 padding_side fixed. Cycle 96: scratch excluded from labeled set, added Model C/D ablation. Cycle 100 (A15): added Model C' (MANIFOLD_ONLY, 8 pure manifold features). **Cycle 102:** 6 bug fixes (NaN handling, tied-weight lm_head, P3 per-arm threshold, UTF-8 I/O, teacher cache). **Cycle 104:** prior process died silently during teacher gen (~13:10Z–15:58Z, no error in log). Restarted ~15:58Z, teacher gen in progress (GPU 78%, ~60-90 min for 8704 texts). Added progress logging for teacher gen. 7-model analysis: A/B/C/C'/D/E. Source: `codex_outputs/heartbeats/cycle102_code_correctness_20260429.md`.
 
 **g184 pre-staging (cycle 94–101):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). **Cycle 101:** `frozen_eval_main()` fully implemented — Phase 1 (train frozen Ridge on g182 cells), Phase 2 (run 24 Falcon-H1 cells with native-tokenizer teacher), Phase 3 (frozen evaluation with bootstrap + permutation). Prereg: `research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md` (DRAFT, locks after g182 analysis). Ready to fire: `--frozen-eval falcon_h1` after g182 stage 1 completes.
 
@@ -154,7 +154,7 @@ The pivot turns negative findings into mechanism: g181a showed tokenizer/embed i
 
 ## ⚠️ BLOCKERS — surface for procurement / unblocking
 
-1. **External AC wall-power meter** — only hard prerequisite gating g155 (8.2/10 PASS, the only direction that BREAKS the §0.1 ceiling). Yokogawa WT310E gold; Tasmota-flashed Sonoff Pow R3 / Shelly Plug S Plus practical. Without it the locked g155 prereg cannot execute honestly per the integrity bar (nvidia-smi proxy explicitly disallowed in the headline). Acquisition is the project's #1 procurement priority. Project memory: `project_wall_power_meter_unblocks_path_c.md`.
+1. **External AC wall-power meter** — only hard prerequisite gating g155 (8.2/10 PASS, the only direction that BREAKS the §0.1 ceiling). Yokogawa WT310E gold; Tasmota-flashed Sonoff Pow R3 / Shelly Plug S Plus practical. Without it the locked g155 prereg cannot execute honestly per the integrity bar (nvidia-smi proxy explicitly disallowed in the headline). Acquisition is the project's #1 procurement priority.
 
 ## ★ NARRATIVE LOCK (Codex cycle 42, 2026-04-27 — PRE-PIVOT historical context)
 
@@ -220,7 +220,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
 | **Open pre-registrations** | **4 locked:** `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` (cross-tokenizer forecast), `research/prereg/genome_182_triage_arena_2026-04-29.md` (Blinded Training Triage Arena, §0.1=8.6), plus 2 atlas-era prereg from 2026-04-21 (superseded by post-pivot focus). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
-| **Active TL session** | ARCHIVED — `research/atlas_tl_session.md` deleted in anti-entropy; atlas work paused for Forecast/Diagnostic direction |
+| **Active TL session** | ARCHIVED — atlas TL session file deleted in anti-entropy (cycle 77); atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
 

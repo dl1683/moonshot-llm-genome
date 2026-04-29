@@ -475,6 +475,7 @@ def generate_teacher_texts(n_texts: int) -> list[str]:
 
     texts = []
     batch_size = 8
+    n_batches = (min(len(seed_texts), n_texts) + batch_size - 1) // batch_size
     for i in range(0, min(len(seed_texts), n_texts), batch_size):
         batch = seed_texts[i:i + batch_size]
         enc = tok(batch, truncation=True, max_length=64,
@@ -490,6 +491,9 @@ def generate_teacher_texts(n_texts: int) -> list[str]:
             )
         for seq in out:
             texts.append(tok.decode(seq, skip_special_tokens=True))
+        batch_num = i // batch_size + 1
+        if batch_num % 100 == 0 or batch_num == n_batches:
+            print_flush(f"    Teacher gen: {len(texts)}/{n_texts} texts ({batch_num}/{n_batches} batches)")
         if len(texts) >= n_texts:
             break
 
