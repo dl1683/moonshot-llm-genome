@@ -2001,12 +2001,14 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
             te_arm = arms[te_i[0]]
             te_arm_mean = arm_means_tr.get(te_arm, float(y_tr.mean()))
             loo_pred[te_i] = ridge.predict((X_te - mu) / sd) + te_arm_mean
-        y_arm_mean = np.array([y[(arms == arms[i])].mean() for i in range(len(y))])
-        y_resid_full = y - y_arm_mean
-        pred_resid = loo_pred - y_arm_mean
-        ss_res = float(np.sum((y_resid_full - pred_resid) ** 2))
-        ss_tot = float(np.sum((y_resid_full - y_resid_full.mean()) ** 2))
-        r2_resid = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
+        loo_arm_only = np.zeros(len(y))
+        for tr_i2, te_i2 in _LOO_A16().split(X):
+            te_a = arms[te_i2[0]]
+            am_tr = y[tr_i2][arms[tr_i2] == te_a]
+            loo_arm_only[te_i2] = float(am_tr.mean()) if len(am_tr) > 0 else float(y[tr_i2].mean())
+        ss_res = float(np.sum((y - loo_pred) ** 2))
+        ss_arm = float(np.sum((y - loo_arm_only) ** 2))
+        r2_resid = 1.0 - ss_res / ss_arm if ss_arm > 1e-12 else float("nan")
         results["within_arm_residual"] = {
             "r2_loo_after_arm_residualization": r2_resid,
             "geometry_adds_beyond_arm": r2_resid > 0.05,
