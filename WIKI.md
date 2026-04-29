@@ -26,12 +26,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29 ~07:30 UTC, cycle 75) ⚡
+## ⚡ CURRENT STATUS (2026-04-29 ~08:00 UTC, cycle 76) ⚡
 
-**§0.1 ceiling: 5.0/10** (per Codex direction review cycle 75). Branch projections REVISED per adversarial A9:
+**§0.1 ceiling: 5.0/10** (per Codex direction review cycle 75). Branch projections REVISED per adversarial A9 + Codex g182 design gate:
 - Current (g180 WEAK PASS): **5.0/10** (effective n=3, baseline too weak)
 - g180b cross-tokenizer PASS in Qwen-shell: **6.3-6.8/10** (tokenizer-perturbation robustness, NOT cross-arch)
-- g182 "Blinded Training Triage Arena" PASS: **9.0/10** (60+ cells, 2+ arch families, trajectory baselines)
+- g182 "Blinded Training Triage Arena" PASS (phase 1): **8.6/10** (72 cells, 2 Transformer families, strict Codex criteria)
+- g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
 - g180b FAIL: **4.0-4.5/10** (pivot to g182 tokenizer-prior benchmark → ceiling 4.5-5.0/10)
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
@@ -94,11 +95,15 @@ The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI 
 
 **Next:** g180b cross-tokenizer forecast (prereg LOCKED, implementation READY: `code/genome_180b_cross_tokenizer.py`). Design: `bert-base-uncased`, `google-t5/t5-small`, and `gpt2` tokenizers on swapped-tokenizer Qwen3-arch recipients; shared Qwen3 Procrustes reference; frozen g180 Ridge. 27 cells = 3 tok × 3 arms × 3 seeds, ~2.7-3.6h. Launch after g181b completes. If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
 
-**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). 1/6 cells done (scratch_ce seed=42, NLL=6.035). PASS: gap ≥ +0.5 nats at step 5000.
+**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). 2/6 cells done. seed=42 gap: **+0.530 nats at step 5000** — MONOTONICALLY INCREASING (+0.399→+0.461→+0.495→+0.522→+0.531). If 3-seed mean ≥+0.5 → PASS. PASS: gap ≥ +0.5 nats at step 5000.
 
 **g180b ENHANCEMENTS (cycle 75):** shuffled-geometry permutation test (1000 iterations, p-value for real vs random feature ordering), trajectory loss logging at steps {20,40,60,80,108} for post-hoc trajectory-baseline analysis. Both address adversarial A9 attacks.
 
-**Adversarial A9 (cycle 75, severity 9/10):** effective n=3 not n=9 (3 seeds × 3 arms); baseline too weak (scalar loss only, need trajectory); g180b = Qwen-shell tokenizer swap not cross-arch; big labs view as internal telemetry. Resolving: g182 "Blinded Training Triage Arena" (60+ cells, 2+ arch families, block-bootstrap, trajectory baselines). Source: `codex_outputs/heartbeats/cycle75_adversarial_20260429.md`, `codex_outputs/cycle75_direction_review_20260429.md`.
+**Adversarial A9 (cycle 75, severity 9/10):** effective n=3 not n=9 (3 seeds × 3 arms); baseline too weak (scalar loss only, need trajectory); g180b = Qwen-shell tokenizer swap not cross-arch; big labs view as internal telemetry. Resolving: g182 "Blinded Training Triage Arena" (72 cells, Qwen3+GPT-2 arch, 12 seeds, 5 baselines + combined telemetry, block-bootstrap). Source: `codex_outputs/heartbeats/cycle75_adversarial_20260429.md`, `codex_outputs/cycle75_direction_review_20260429.md`.
+
+**g182 Codex design gate (cycle 76): REQUIRES CHANGES → all 5 fixes applied in DRAFT v2.** Changes: (1) `seq_kd_late_only`→`embed_anchor` (visible at 3%), (2) fresh balanced matrix (no g180 row mixing), (3) combined telemetry baseline, (4) normalized labels, (5) pre-locked Ridge alpha. Staged execution: 48 cells first (futility), expand to 72 if promising. §0.1: 8.6/10 with fixes, 9.0 with phase 2 SSM. Source: `codex_outputs/g182_design_gate_20260429.md`, `research/prereg/genome_182_triage_arena_DRAFT.md`.
+
+**g180b blocker fixes (cycle 76):** (1) teacher-text vs C4-val 13-gram overlap check added + forbidden_hashes passed to teacher tokenization, (2) feature cache validation strengthened (checks target_step + genome version). Both from Codex correctness review. Source: `codex_outputs/g180b_correctness_perf_20260429.md`.
 
 Source: `results/genome_180_forecast.json`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
 

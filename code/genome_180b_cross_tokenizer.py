@@ -697,8 +697,16 @@ def build_tokenized_pools(
         teacher_texts,
         n_windows=n_train_windows,
         seq_len=SEQ_LEN,
+        forbidden_hashes=val_hashes,
         source_label=f"{spec.label}_qwen_teacher_text",
     )
+    teacher_val_overlap = len(
+        g167.collect_13gram_hashes(teacher_ids, teacher_mask).intersection(val_hashes)
+    )
+    if teacher_val_overlap != 0:
+        raise RuntimeError(
+            f"{spec.label}: teacher-text/val 13-gram overlap: {teacher_val_overlap}"
+        )
 
     probe_ids, probe_mask, probe_meta = windows_from_texts(
         tok,
@@ -800,13 +808,15 @@ def load_feature_cache(tokenizer_label: str, arm_label: str, seed: int) -> dict[
         payload = read_json(path)
     except Exception:
         return None
-    if (
+    if not (
         payload.get("tokenizer_label") == tokenizer_label
         and payload.get("arm_label") == arm_label
         and int(payload.get("seed", -1)) == int(seed)
+        and int(payload.get("target_step", -1)) == TARGET_STEP
+        and payload.get("genome") == "180b"
     ):
-        return payload
-    return None
+        return None
+    return payload
 
 
 def write_feature_cache(
