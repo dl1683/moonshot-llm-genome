@@ -156,7 +156,7 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
 
 Path forward (status 2026-04-29 cycle 100): g182 stage 1 IN PROGRESS. 7-model analysis: A (full 24 feat), B (reference-free 16), C (pure geometry 10), C' (manifold-only 8 — no norm/var, per A15), D (pure telemetry 6), E (Shesha 3). Model C'/C PASS + Shesha kill = 8.8-9.0/10. A15 resolving experiment: g184 Falcon-H1 frozen-C no-refit on third family. Next: reanalyze when cells complete, then g184. Theory backbone: 3 first-principles routes in `research/derivations/early_geometry_predicts_training_health.md`.
 
-## 3. Competitive Intelligence (updated cycle 93, 2026-04-29)
+## 3. Competitive Intelligence (updated cycle 100, 2026-04-29)
 
 **Gap our g182 exploits:** Early-training geometry as predictive feature (not post-training drift). Cross-architecture LOAO generalization (not single-arch). Pre-registered falsification discipline with strict kill criteria (no one else does this). "Triage at 3% training" is operationally differentiated from both scaling-law prediction and post-training monitoring.
 
@@ -166,6 +166,9 @@ Path forward (status 2026-04-29 cycle 100): g182 stage 1 IN PROGRESS. 7-model an
 - **arxiv 2604.18572 (April 2026):** "Back into Plato's Cave." Examines cross-modal representational convergence at scale. More data on the Platonic debate.
 - **arxiv 2604.13386 (April 2026):** "Linear Probe Accuracy Scales with Model Size." Multi-layer ensemble probes gain +29-78% AUROC. Validates multi-layer geometric probing but shows naive single-layer is brittle.
 
+- **arxiv 2604.14500 (April 2026):** **"Geometric Metrics for MoE Specialization."** Fisher Information Metric on routing simplex predicts MoE training failure at 10% completion (AUC=0.89). Fisher Specialization Index correlates r=0.91 with downstream. Architecture-specific (MoE routing only). Same "geometry predicts training health" thesis but different mechanism (routing geometry vs representation geometry). Our differentiator: cross-architecture general representations, not MoE-specific routing.
+- **arxiv 2604.20923 (April 2026):** "ILDR: Geometric Early Detection of Grokking." Inter/Intra-class Distance Ratio on penultimate layer predicts grokking 100-200 epochs early. Moderate overlap (geometric training health) but scoped to grokking, not general training.
+- **arxiv 2604.16431 (April 2026):** "Dimensional Criticality at Grokking." Effective cascade dimension D(t) crosses Gaussian baseline D=1 at generalization transition. Physics-framing. Low direct threat (grokking-specific).
 - **arxiv 2604.01025 (April 2026):** "Fast and Accurate Probing of In-Training LLMs' Downstream Performances." DIRECTLY competitive — uses internal representations during training to predict downstream performance on OLMo3-7B (AUROC >0.75). Single architecture, activation probes. Our distinctive angle: cross-architecture generalization, geometry not probes, pre-registered adversarial baselines.
 - **arxiv 2504.12491 (April 2025):** "Can Pre-training Indicators Reliably Predict Fine-tuning Outcomes?" Negative/mixed results for simple pre-training indicators (loss, grad norm) predicting fine-tuning success. Strengthens our case for geometry-based features beyond scalar loss.
 - **arxiv 2512.08894 (Dec 2025):** "Revisiting Scaling Properties of Downstream Metrics." Power law FLOPs→accuracy at macro scale. Complementary: we predict at micro (3% training, individual run) scale.

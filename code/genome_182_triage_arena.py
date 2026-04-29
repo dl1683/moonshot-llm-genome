@@ -134,7 +134,6 @@ PHASE2_ARCH_CONFIGS = {
         "vocab_size": 65024,
         "max_position_embeddings": SEQ_LEN + 64,
         "tie_word_embeddings": True,
-        "ssm_cfg": {"d_state": 16, "d_conv": 4, "expand": 2},
     },
 }
 
