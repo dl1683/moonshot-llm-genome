@@ -1962,8 +1962,68 @@ def reanalyze_main():
         if arm_checks:
             existing["arm_identity_diagnostics"] = arm_checks
 
+        zscore_results = within_arch_zscore_loao(labeled)
+        if zscore_results:
+            existing["within_arch_zscore_loao"] = zscore_results
+            print_flush(f"\n  Within-arch z-scored LOAO saved")
+
         save_incremental(OUT_PATH, existing)
         print_flush(f"Saved re-analysis to {OUT_PATH}")
+
+
+def within_arch_zscore_loao(labeled: list[dict]) -> dict[str, Any]:
+    """Salvage test: z-score features within each architecture before LOAO.
+
+    Per Codex cycle 121 recommendation: if raw cross-arch features don't overlap
+    (P3 falsified), within-arch normalization tests whether the RELATIVE geometry
+    position predicts outcome even if absolute values are architecture-specific.
+    """
+    archs = sorted(set(c["arch"] for c in labeled))
+    if len(archs) < 2:
+        return {}
+
+    results = {}
+    for model_label, feat_names in [
+        ("zscore_c_prime_manifold_only", MANIFOLD_ONLY_FEATURE_NAMES),
+        ("zscore_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+    ]:
+        has_feats = all(
+            any(math.isfinite(float(c["features"].get(fn, float("nan")))) for fn in feat_names)
+            for c in labeled
+        )
+        if not has_feats:
+            continue
+
+        arch_stats = {}
+        for arch in archs:
+            arch_cells = [c for c in labeled if c["arch"] == arch]
+            X_arch, _ = feature_matrix(arch_cells, feat_names)
+            arch_stats[arch] = {
+                "mean": X_arch.mean(axis=0),
+                "std": np.where(X_arch.std(axis=0) > 1e-12, X_arch.std(axis=0), 1.0),
+            }
+
+        z_labeled = []
+        for c in labeled:
+            stats = arch_stats[c["arch"]]
+            z_feats = {}
+            for j, fn in enumerate(feat_names):
+                raw = float(c["features"].get(fn, float("nan")))
+                z_feats[fn] = (raw - stats["mean"][j]) / stats["std"][j]
+            z_labeled.append({**c, "features": {**c["features"], **z_feats}})
+
+        try:
+            result = loao_evaluate(z_labeled, feat_names, model_label)
+            results[model_label] = result
+            for arch, fold in result["folds"].items():
+                print_flush(f"    {model_label} fold={arch}: "
+                            f"geo_mse={fold['geometry_mse']:.6f} "
+                            f"R2={fold['geometry_r2']:.3f} "
+                            f"reduction={fold['mse_reduction_vs_best']:.1%}")
+        except Exception as e:
+            print_flush(f"    {model_label} failed: {e}")
+
+    return results
 
 
 def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
