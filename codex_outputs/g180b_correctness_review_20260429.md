@@ -1,0 +1,28 @@
+**Findings**
+
+1. **Medium: feature-cache reuse is under-validated.** [genome_180b_cross_tokenizer.py](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:795>) only validates `tokenizer_label`, `arm_label`, and `seed`; [line 1150](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:1150>) then treats that as cell-complete. It does not validate `target_step`, probe raw-pool hash/order, Qwen reference model, feature extractor version, or train config. A stale cache could silently mix old features with new final NLLs, especially with `--force-rerun` but not `--force-features`.
+
+2. **Medium: the “frozen Ridge” rule is g180b-safe, but not artifact-frozen.** [Lines 1163-1173](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:1163>) refit Ridge models from `results/genome_180_forecast.json` train rows only. That enforces “no g180b rows in training,” but it does not load locked coefficients/medians/scales as an immutable artifact, despite prereg lines 23-30 requiring frozen coefficients/scaling.
+
+3. **Low/medium: feature caches do not preserve raw probe-pool identity as required.** The prereg says every feature cache should preserve raw-pool ID/order metadata ([prereg line 169](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/research/prereg/genome_180b_cross_tokenizer_2026-04-29.md:169>)). Cache payloads store `probe_meta` and `qwen_reference_model` only ([lines 934-945](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:934>)); the raw `probe` SHA is in pool metadata, but not in each feature cache.
+
+4. **Low: possible probe/eval overlap is not checked.** C4 validation is used for both final eval and probe pools with different seeds ([lines 418-430](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:418>)). Train/val 13-gram overlap is checked ([lines 680-693](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:680>)), but probe-vs-val is not. This is prereg-compatible, but it is still a leakage risk for forecast features.
+
+5. **Low: prereg has an internal stale contradiction.** The tokenizer table and substitution note correctly lock GPT-2 ([prereg lines 60-64](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/research/prereg/genome_180b_cross_tokenizer_2026-04-29.md:60>)), but the decision summary still says `meta-llama/Llama-3.2-3B` ([line 239](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/research/prereg/genome_180b_cross_tokenizer_2026-04-29.md:239>)). The code follows the GPT-2 version.
+
+**Checks**
+
+- Tokenizer arms: correct. Code uses `bert-base-uncased`, `google-t5/t5-small`, and `gpt2`; no meta-llama in implementation ([lines 137-155](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:137>)).
+
+- Sequence-level KD: mostly correct. Teacher text is generated deterministically with `do_sample=False` ([lines 601-610](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:601>)), retokenized per recipient tokenizer ([lines 695-701](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:695>)), and trained with causal CE via source selection ([lines 823-835](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:823>), [913-916](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:913>)). Caveat: decoded teacher text includes prefix plus continuation, not continuation-only ([lines 571-613](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:571>)).
+
+- Label computation: correct. It uses same-tokenizer, same-seed scratch NLL minus arm NLL, with scratch rows forced to `0.0` ([lines 1212-1226](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:1212>)).
+
+- Probe sharing: core construction is correct. The same raw probe text pool is tokenized separately under each tokenizer ([lines 703-709](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:703>)), matching prereg lines 154-168.
+
+- No-interface exploratory eval: correct. It removes `embed_to_qwen_ref_*`, `lm_head_to_qwen_ref_*`, and row-count features, then refits Ridge on original g180 train rows only ([lines 1284-1313](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:1284>)).
+
+- VRAM: I do **not** expect OOM on 24GB from teacher+student. The code unloads the Qwen3 teacher before student training ([lines 619-620](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:619>), [run order 1633-1651](<C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/code/genome_180b_cross_tokenizer.py:1633>)). Exact student sizes from the configured architecture are ~75.4M, 76.6M, and 90.5M params; GPT-2 is largest, with Adam-style train state around 1.35 GiB before activations/logits. This should fit under the 22GB compute ceiling. The smoke test does not measure VRAM and uses BERT, not the largest GPT-2 arm.
+
+`python -m py_compile` passed for both reviewed Python files. No files were edited. 
+
