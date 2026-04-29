@@ -26,11 +26,12 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29 ~07:00 UTC, cycle 73+) ⚡
+## ⚡ CURRENT STATUS (2026-04-29 ~07:30 UTC, cycle 75) ⚡
 
-**§0.1 ceiling: 5.0-5.3/10 honest baseline** (post g180 WEAK PASS, cycle 73 2026-04-29 ~06:40 UTC). Branch projections:
-- Current (g180 WEAK PASS): **5.0-5.3/10** (geometry signal real but CI marginal at n=9)
-- g180b cross-tokenizer PASS: **7.3-7.6/10** (then g180c at 1B+ = 8/10 attempt)
+**§0.1 ceiling: 5.0/10** (per Codex direction review cycle 75). Branch projections REVISED per adversarial A9:
+- Current (g180 WEAK PASS): **5.0/10** (effective n=3, baseline too weak)
+- g180b cross-tokenizer PASS in Qwen-shell: **6.3-6.8/10** (tokenizer-perturbation robustness, NOT cross-arch)
+- g182 "Blinded Training Triage Arena" PASS: **9.0/10** (60+ cells, 2+ arch families, trajectory baselines)
 - g180b FAIL: **4.0-4.5/10** (pivot to g182 tokenizer-prior benchmark → ceiling 4.5-5.0/10)
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
@@ -93,9 +94,13 @@ The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI 
 
 **Next:** g180b cross-tokenizer forecast (prereg LOCKED, implementation READY: `code/genome_180b_cross_tokenizer.py`). Design: `bert-base-uncased`, `google-t5/t5-small`, and `gpt2` tokenizers on swapped-tokenizer Qwen3-arch recipients; shared Qwen3 Procrustes reference; frozen g180 Ridge. 27 cells = 3 tok × 3 arms × 3 seeds, ~2.7-3.6h. Launch after g181b completes. If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
 
-**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). PASS: gap ≥ +0.5 nats at step 5000. Expected ~3.3h total.
+**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). 1/6 cells done (scratch_ce seed=42, NLL=6.035). PASS: gap ≥ +0.5 nats at step 5000.
 
-Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429T0640.md`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
+**g180b ENHANCEMENTS (cycle 75):** shuffled-geometry permutation test (1000 iterations, p-value for real vs random feature ordering), trajectory loss logging at steps {20,40,60,80,108} for post-hoc trajectory-baseline analysis. Both address adversarial A9 attacks.
+
+**Adversarial A9 (cycle 75, severity 9/10):** effective n=3 not n=9 (3 seeds × 3 arms); baseline too weak (scalar loss only, need trajectory); g180b = Qwen-shell tokenizer swap not cross-arch; big labs view as internal telemetry. Resolving: g182 "Blinded Training Triage Arena" (60+ cells, 2+ arch families, block-bootstrap, trajectory baselines). Source: `codex_outputs/heartbeats/cycle75_adversarial_20260429.md`, `codex_outputs/cycle75_direction_review_20260429.md`.
+
+Source: `results/genome_180_forecast.json`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
 
 **★ PIVOT 2026-04-28 ~17:10: transfer-mechanism story dead → Genome Forecast / Diagnostic ★**
 
