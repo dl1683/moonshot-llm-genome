@@ -26,14 +26,16 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 80) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 88) ⚡
 
-**§0.1 ceiling: 5.0/10** (per Codex direction review cycle 75). Branch projections REVISED per adversarial A9 + Codex g182 design gate:
-- Current (g180 WEAK PASS): **5.0/10** (effective n=3, baseline too weak)
-- g180b cross-tokenizer PASS in Qwen-shell: **6.3-6.8/10** (tokenizer-perturbation robustness, NOT cross-arch)
-- g182 "Blinded Training Triage Arena" PASS (phase 1): **8.6/10** (72 cells, 2 Transformer families, strict Codex criteria)
+**§0.1 honest score: 5.8-6.2/10** (per Codex direction review cycle 87). Branch projections:
+- Current (g180 WEAK PASS + g180b interim): **5.8-6.2/10** (important phenomenon, not validated diagnostic)
+- g182 Model B beats arm_mean + combined_telemetry: **8.3-8.6/10** (cross-Transformer-family geometry diagnostic)
 - g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
-- g180b FAIL: **4.0-4.5/10** (pivot to g182 tokenizer-prior benchmark → ceiling 4.5-5.0/10)
+- g182 partial (one fold or only Model A): **6.5-7.0/10**
+- g182 FAIL: **4.0-4.5/10** (geometry diagnostic is dead)
+
+**g180b RUNNING (16/27 cells):** BERT complete (9/9), T5 7/9, GPT-2 0/9. Cross-tokenizer KD universally harmful (BERT label -0.48, T5 -0.51). arm_mean CATASTROPHICALLY wrong: MSE 0.025 vs null 0.003 (predicts KD helps when it hurts). g180 frozen geometry Ridge MSE 0.013 (2x better than arm_mean but still 4x worse than null). kd_late_only features IDENTICAL to scratch at step 108 — geometry cannot distinguish them.
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
 
