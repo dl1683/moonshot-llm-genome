@@ -79,3 +79,11 @@ Route 2 (rate-distortion) connects most naturally to our manifesto (Intelligence
 Route 3 (stat-physics) is the most intuitive and directly testable (just cluster and compare).
 
 **Recommendation:** Start with Route 3 (easiest to validate on g182 data). If clustering works, formalize via Route 2. Route 1 for a subset of cells as theoretical anchor.
+
+---
+
+## Cross-Architecture Generalization Prediction (A15 resolver)
+
+**Why should geometry features transfer to unseen architectures?** Under Route 3, the basins (random / collapsed / trained-attractor) are properties of the DATA + LOSS LANDSCAPE, not the architecture. Any model training on C4 next-token-prediction faces the same phase transition — the order parameters (spectral alpha, PR, ID, depth drift) characterize WHERE in the landscape the run sits, not HOW the architecture got there. A Transformer reaches the trained basin via attention; an SSM reaches it via state space dynamics; but the basin geometry is the same because the data constraint is the same.
+
+**Testable prediction:** g184 frozen-C' (8 manifold features, trained on Qwen3+GPT-2) should predict Falcon-H1-0.5B (hybrid attention+SSM) training outcomes WITHOUT refitting, because the features measure basin identity, not architecture-specific structure. If this prediction fails, Route 3 is falsified as the mechanism (the basins would be architecture-dependent, not data-dependent).
