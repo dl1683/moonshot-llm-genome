@@ -1,5 +1,7 @@
 # Four-experiment synthesis: continuous optimization constraint as active ingredient
 
+> **POST-PIVOT NOTICE (2026-04-29, cycle 73).** This synthesis is historically accurate but its framing has been superseded by g181a's tokenizer-isolation result: the "continuous optimization constraint" active ingredient is specifically the Qwen3 tokenizer/embed/lm_head trained-init held in place during SGD — NOT transfer of internal transformer-block structure. Anchoring transformer blocks at matched gradient force HARMS performance by −0.439 nats (g181a). The continuous-constraint pattern still holds mechanistically, but the substrate it acts on is lexical, not structural.
+
 **Date.** 2026-04-27 evening, after g169 FAIL.
 **Status.** Pattern locked across 4 distinct experiments. Awaiting g167 (KD logits) for the 5th data point.
 

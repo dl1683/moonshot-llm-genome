@@ -1,5 +1,7 @@
 # Donor-specificity LOCKED at canonical scale (PART A)
 
+> **POST-PIVOT NOTICE (2026-04-29, cycle 73).** This document records the g174 donor-specificity finding which remains valid at the within-family-vs-null level (C21 PASS). However, two subsequent experiments NARROW its scope: (1) g177v2 FAIL showed alt donors give 96% of Qwen3's effect — donor *identity* specificity collapsed to ~3.5% (C22 REJECTED). (2) g181a showed the +1 nat effect is ~100% tokenizer/embed/lm_head trained-init; transformer block anchor HARMS. The donor-specificity finding survives as "trained-structure-vs-random/permuted specificity" but NOT as "Qwen3-identity-specific transfer."
+
 **Date.** 2026-04-28 (g174 PART A complete; PART B running for output-axis confirmation).
 **Status.** Cycle 45 adversarial attack (8/10) REFUTED for the weight-anchor axis. Continuous-anchor effect is donor-specific.
 
