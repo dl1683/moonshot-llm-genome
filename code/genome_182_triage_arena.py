@@ -688,7 +688,9 @@ def train_cell(
         early_loss = float(ce.detach().float().cpu().item())
 
         if step in TRAJECTORY_STEPS or (smoke and step in [5, 10, 15, 20]):
-            trajectory_losses[step] = early_loss
+            traj_nll = evaluate_nll(model, pools["val_ids"], pools["val_mask"])
+            trajectory_losses[step] = traj_nll["nll"]
+            model.train()
 
         if step == feature_step and features is None:
             probe = dict(pools["probe_batch"])
@@ -842,10 +844,19 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
             traj = c.get("trajectory_losses", {})
             for j, s in enumerate(steps):
                 X[i, j] = traj.get(s, traj.get(str(s), float("nan")))
-            vals = [X[i, j] for j in range(len(steps)) if np.isfinite(X[i, j])]
-            if len(vals) >= 2:
-                X[i, -2] = vals[-1] - vals[0]  # slope proxy
-                X[i, -1] = vals[-1] - 2 * vals[len(vals)//2] + vals[0]  # curvature proxy
+            valid_steps = [(s, X[i, j]) for j, s in enumerate(steps)
+                           if np.isfinite(X[i, j]) and s <= 108]
+            if len(valid_steps) >= 3:
+                log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
+                nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
+                coeffs = np.polyfit(log_s, nll_v, 2)
+                X[i, -2] = coeffs[1]  # slope (linear term)
+                X[i, -1] = coeffs[0]  # curvature (quadratic term)
+            elif len(valid_steps) >= 2:
+                log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
+                nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
+                X[i, -2] = np.polyfit(log_s, nll_v, 1)[0]
+                X[i, -1] = 0.0
     elif baseline_type == "gradient_stats":
         X = np.zeros((n, 3), dtype=np.float64)
         for i, c in enumerate(cells):
@@ -979,7 +990,8 @@ def loao_evaluate(
 
         mse_reduction = (best_baseline_mse - geo_mse) / best_baseline_mse if best_baseline_mse > 1e-12 else float("nan")
 
-        paired_boot = paired_bootstrap_mse(y_test, best_baseline_pred, geo_pred)
+        test_seed_ids = np.array([c["seed"] for c in test_cells])
+        paired_boot = paired_bootstrap_mse(y_test, best_baseline_pred, geo_pred, test_seed_ids)
 
         shuffled_p = shuffled_geometry_test(
             X_train_geo_s, X_test_geo_s, y_train, y_test, geo_mse
@@ -1012,13 +1024,21 @@ def loao_evaluate(
     }
 
 
-def paired_bootstrap_mse(y, pred_base, pred_geo, n_boot=BOOTSTRAP_N):
-    """Paired seed-block bootstrap for MSE improvement."""
+def paired_bootstrap_mse(y, pred_base, pred_geo, seed_ids, n_boot=BOOTSTRAP_N):
+    """Paired seed-block bootstrap for MSE improvement.
+
+    Samples by seed block (preserving all arms per seed) per prereg spec.
+    seed_ids: array of seed identifiers, one per cell.
+    """
     rng = np.random.default_rng(RANDOM_STATE + 7)
+    unique_seeds = np.unique(seed_ids)
+    n_seeds = len(unique_seeds)
+    seed_to_idx = {s: np.where(seed_ids == s)[0] for s in unique_seeds}
+
     deltas = np.empty(n_boot, dtype=np.float64)
-    n = len(y)
     for i in range(n_boot):
-        idx = rng.integers(0, n, size=n)
+        sampled_seeds = rng.choice(unique_seeds, size=n_seeds, replace=True)
+        idx = np.concatenate([seed_to_idx[s] for s in sampled_seeds])
         base_mse = np.mean((y[idx] - pred_base[idx]) ** 2)
         geo_mse = np.mean((y[idx] - pred_geo[idx]) ** 2)
         deltas[i] = base_mse - geo_mse
