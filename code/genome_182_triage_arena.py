@@ -2127,29 +2127,40 @@ def route3_predictions(
             print_flush(f"  P4 transfer asymmetry: ratio={asym:.3f} "
                         f"{'PASS' if asym < 0.5 else 'FAIL'}")
 
-    # P6: Landau nonlinearity test (quadratic features vs linear)
+    # P6: Landau nonlinearity test (quadratic features vs linear) — LOO MSE
     try:
         from sklearn.preprocessing import PolynomialFeatures
+        from sklearn.linear_model import Ridge as _Ridge_P6
+        from sklearn.model_selection import LeaveOneOut as _LOO_P6
         mean_x = X.mean(axis=0); std_x = X.std(axis=0)
         std_x[std_x < 1e-12] = 1.0
         X_s = (X - mean_x) / std_x
         poly = PolynomialFeatures(degree=2, include_bias=False, interaction_only=False)
         X_poly = poly.fit_transform(X_s)
         ridge_linear = fit_ridge_cv(X_s, y)
-        pred_linear = ridge_linear.predict(X_s)
-        mse_linear = float(np.mean((y - pred_linear) ** 2))
+        alpha_lin = ridge_linear.alpha
         ridge_poly = fit_ridge_cv(X_poly, y)
-        pred_poly = ridge_poly.predict(X_poly)
-        mse_poly = float(np.mean((y - pred_poly) ** 2))
+        alpha_poly = ridge_poly.alpha
+        loo_lin = np.zeros(len(y))
+        loo_poly = np.zeros(len(y))
+        for tr_i, te_i in _LOO_P6().split(X_s):
+            m_l = _Ridge_P6(alpha=alpha_lin).fit(X_s[tr_i], y[tr_i])
+            loo_lin[te_i] = m_l.predict(X_s[te_i])
+            X_poly_tr = poly.fit_transform(X_s[tr_i])
+            X_poly_te = poly.transform(X_s[te_i])
+            m_p = _Ridge_P6(alpha=alpha_poly).fit(X_poly_tr, y[tr_i])
+            loo_poly[te_i] = m_p.predict(X_poly_te)
+        mse_linear = float(np.mean((y - loo_lin) ** 2))
+        mse_poly = float(np.mean((y - loo_poly) ** 2))
         poly_improvement = (mse_linear - mse_poly) / mse_linear if mse_linear > 1e-12 else 0.0
         results["P6_landau_nonlinearity"] = {
-            "linear_mse": mse_linear,
-            "quadratic_mse": mse_poly,
+            "linear_mse_loo": mse_linear,
+            "quadratic_mse_loo": mse_poly,
             "improvement_pct": float(poly_improvement * 100),
             "nonlinear_significant": poly_improvement > 0.10,
         }
-        print_flush(f"  P6 Landau nonlinearity: linear_mse={mse_linear:.6f} "
-                    f"quad_mse={mse_poly:.6f} improvement={poly_improvement:.1%} "
+        print_flush(f"  P6 Landau nonlinearity: linear_loo={mse_linear:.6f} "
+                    f"quad_loo={mse_poly:.6f} improvement={poly_improvement:.1%} "
                     f"{'NONLINEAR' if poly_improvement > 0.10 else 'LINEAR OK'}")
     except Exception as e:
         print_flush(f"  P6 failed: {e}")
