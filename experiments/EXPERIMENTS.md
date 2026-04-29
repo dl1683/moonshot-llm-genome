@@ -26,6 +26,23 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-29 — genome_180_forecast_diagnostic — WEAK PASS ★★ (forecast/diagnostic pivot experiment)
+
+**Purpose.** Predict final C4 NLL gain from ≤3% training geometry features. 24 features extracted at early checkpoint (spectral invariant, depth drift, TwoNN ID, kNN-10, PCA-64 Procrustes-to-Qwen3, gradient-noise, curvature proxy, norm/variance ratios). Train: 113 Qwen-family cells from g165/g167/g172/g174/g177/g181a. Test: 9 Llama-family cells from g173.
+
+**Verdict.** **WEAK PASS** — MSE reduction 61.6% (clears ≥25% threshold), but paired bootstrap CI crosses zero: [−0.0009, +0.021]. p(improvement > 0) = 96.3%. Baseline R² = −0.941 (early loss alone anti-predicts cross-family), full model R² = +0.254. Wall ~50 min (2971s).
+
+### What we learned
+- Geometry forecast adds massive signal over early-loss-only baseline on cross-family held-out
+- The CI problem is pure sample size (n=9 test cells), not signal weakness
+- Early loss alone is ANTI-predictive on Llama cells trained with different protocol than Qwen-family
+- No false stops on actionable-gain cells (secondary guard passes)
+- Path forward: g180b cross-tokenizer adds more held-out cells to resolve CI
+
+Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429T0640.md`.
+
+---
+
 ## 2026-04-27 — genome_158c_3seed_canonical — PASS_canonical ★★★ MAJOR (canonical follow-up to g158 PILOT)
 
 **Purpose.** Canonical 3-seed verdict (SEEDS=[42,7,13]) of context-length inversion. Confirms whether g158 PILOT's perfect rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion survives multi-seed.

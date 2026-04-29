@@ -1,0 +1,35 @@
+Read `results/genome_173_cross_arch_flop_cashout.json` (the actual numbers, not just the verdict label), `WIKI.md`, `research/CLAIM_EVIDENCE_MAP.md` (cycle 60 A6 same-family, cycle 65 A7/A8 tokenizer/horizon), `research/prereg/genome_165_annealed_donor_2026-04-27.md`, and the last 3 ledger entries.
+
+g173 verdict label says FAIL but the per-arm c3_macro means tell a more nuanced story:
+
+| Arm | C3 mean | Gain vs scratch |
+|---|---:|---:|
+| scratch_ce_llama (173M) | 39.87% | — |
+| kd_logit_llama | 42.16% | **+2.29pp** |
+| kd_late_only_llama | 41.18% | +1.31pp (57% late-KD retention) |
+| scratch_ce_qwen_arch (596M) | 40.91% | — |
+| kd_logit_qwen_arch | 41.71% | **+0.80pp** |
+| kd_late_only_qwen_arch | 41.31% | +0.40pp (50% late-KD retention) |
+
+Teacher c3_macro: 54.53%.
+
+**Llama-arch student gets 2.86× the KD lift of Qwen-arch student in GAIN units.** The locked PASS criteria used final-accuracy ratios (retention=101.1%, transfer ratio=0.99x), which fail because both students land at ~40-42% with small absolute differences — but the underlying KD effect is much larger on Llama than Qwen-arch.
+
+The user wants POWERFUL next directions, not obvious follow-ups.
+
+## Specific tasks
+
+1. **Reframe verdict.** Is the honest read FAIL, INTERMEDIATE, or PASS-with-relabeled-metric? The locked criterion failed but the scientific cross-arch story landed. How should we report this externally? What's the cleanest framing?
+
+2. **Cross-arch transfer claim status.** Cycle 60 A6 attack said C18/C19/C21 may be "single-family basin." Does the +2.29pp Llama KD lift + 50-57% cross-arch late-KD retention REFUTE A6, or just weaken it? Note the absolute numbers are small — students are still 12-14pp below teacher.
+
+3. **Score 5 candidate next-experiments by §0.1 uplift potential** (1-10):
+   - g181a tokenizer-isolation (already LAUNCHED — cycle 65 9/10 attack survival, ~2.6h)
+   - g180 Genome Forecast (advisor pick from g177v2)
+   - g172b matched-compute null for C20
+   - g173b cross-arch with bigger margin (5000-step horizon, larger Llama, longer KD)
+   - One non-obvious candidate of YOUR choice
+
+4. **Pick the highest-leverage one.** Should we let g181a run first OR is there a better immediate move?
+
+Report under 600 words. Output to `codex_outputs/g173_advisor_<TIMESTAMP>.md`. Write actual content directly — no meta-pointer.

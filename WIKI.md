@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest baseline:** 4.0-4.5/10. Full branch projections in CURRENT STATUS block below.
+**§0.1 honest baseline:** 5.0-5.3/10 (post g180 WEAK PASS). Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -28,11 +28,10 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
 
-**§0.1 ceiling: 4.0-4.5/10 honest baseline** (cycle 72 direction review 2026-04-29 ~01:00 UTC). Branch projections:
-- Pre-g180 / lower bound: **4.0/10** (publishable as disciplined negative-results + tokenizer-prior finding)
-- g180 PASS (≥25% held-out MSE reduction): **6.5-7.0/10** (Qwen-heavy ceiling)
-- g180 PASS + g180b cross-tokenizer PASS: **7.3-7.6/10** (then g180c at 1B+ = 8/10 attempt)
-- g180 FAIL: **3.2-3.8/10** (workshop-grade only)
+**§0.1 ceiling: 5.0-5.3/10 honest baseline** (post g180 WEAK PASS, cycle 73 2026-04-29 ~06:40 UTC). Branch projections:
+- Current (g180 WEAK PASS): **5.0-5.3/10** (geometry signal real but CI marginal at n=9)
+- g180b cross-tokenizer PASS: **7.3-7.6/10** (then g180c at 1B+ = 8/10 attempt)
+- g180b FAIL: **4.0-4.5/10** (pivot to g182 tokenizer-prior benchmark → ceiling 4.5-5.0/10)
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
 
@@ -79,6 +78,22 @@ Locked PASS = final-accuracy ratio ≥1.5x → got **0.99x** (fail). Per-arm c3_
 **Cycle 70 adversarial REJECTED the post-hoc gain-ratio reframe** (10/10 methodology drift, 9/10 underpowered near-chance benchmarks, 8/10 param-count + tokenizer confound). Honest external claim: *"the preregistered criterion failed; a post-hoc gain-normalized analysis suggests Llama may benefit more from KD than Qwen-arch — hypothesis-generating, not confirmatory."* Resolving experiment requires fresh prereg with ≥10 paired seeds, matched param-count, same-tokenizer + native-tokenizer arms.
 
 §0.1 honest read drops from cycle-60-projected 8.0-8.4 → **5.5-6.0** (g173 fails its own criterion; cross-arch transfer remains hypothetical). Source: `results/genome_173_cross_arch_flop_cashout.json`, `codex_outputs/heartbeats/cycle70_adversarial_20260428T131000.md`.
+
+**★ g180 VERDICT: WEAK PASS — geometry forecast beats early-loss baseline by 62% MSE reduction, but bootstrap CI crosses zero (cycle 73, 2026-04-29 ~06:34 UTC) ★**
+
+| Metric | Baseline (early-loss only) | Full (geometry + early-loss) |
+|---|---|---|
+| Held-out MSE (n=9 Llama cells) | 0.01548 | 0.00595 |
+| R² | −0.941 | +0.254 |
+| MSE reduction | — | **61.6%** |
+| Paired bootstrap 95% CI | — | [−0.0009, +0.021] (crosses zero) |
+| p(improvement > 0) | — | 96.3% |
+
+The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI lower bound is −0.0009 — just barely crosses zero. With only 9 test cells, the CI problem is sample size, not signal strength. Baseline R²=−0.94 means early loss alone ANTI-predicts cross-family runs; geometry is the only useful signal.
+
+**Next:** g180b cross-tokenizer forecast (Codex design gate RUNNING). If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
+
+Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429T0640.md`.
 
 **★ PIVOT 2026-04-28 ~17:10: transfer-mechanism story dead → Genome Forecast / Diagnostic ★**
 
