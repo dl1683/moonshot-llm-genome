@@ -2206,6 +2206,82 @@ def route3_predictions(
     except Exception as e:
         print_flush(f"  D2 failed: {e}")
 
+    # R3: Depth drift direction (Route 2 — negative drifts = successive refinement)
+    try:
+        alpha_drift = X[:, 3]  # depth_alpha_drift
+        pr_drift = X[:, 4]  # depth_pr_drift
+        both_neg = (alpha_drift < 0) & (pr_drift < 0)
+        if both_neg.sum() >= 2 and (~both_neg).sum() >= 2:
+            mean_both_neg = float(y[both_neg].mean())
+            mean_not_both = float(y[~both_neg].mean())
+            results["R3_depth_drift_direction"] = {
+                "n_both_negative": int(both_neg.sum()),
+                "n_not_both_negative": int((~both_neg).sum()),
+                "mean_outcome_both_neg": mean_both_neg,
+                "mean_outcome_other": mean_not_both,
+                "successive_refinement_wins": mean_both_neg > mean_not_both,
+            }
+            verdict = "PASS (refining > not)" if mean_both_neg > mean_not_both else "FAIL"
+            print_flush(f"  R3 depth drift direction: both_neg={both_neg.sum()} "
+                        f"mean={mean_both_neg:.4f} vs other={mean_not_both:.4f} {verdict}")
+    except Exception as e:
+        print_flush(f"  R3 failed: {e}")
+
+    # R1: Spectral alpha sweet spot (concave relationship — Route 2 prediction)
+    try:
+        alpha_vals = X[:, 0]  # mid_spectral_alpha
+        alpha_s = (alpha_vals - alpha_vals.mean()) / (alpha_vals.std() + 1e-12)
+        X_alpha_quad = np.column_stack([alpha_s, alpha_s ** 2])
+        ridge_alpha_q = fit_ridge_cv(X_alpha_quad, y)
+        coefs = ridge_alpha_q.coef_
+        results["R1_alpha_sweet_spot"] = {
+            "linear_coef": float(coefs[0]),
+            "quadratic_coef": float(coefs[1]),
+            "concave": coefs[1] < 0,
+        }
+        shape = "CONCAVE (sweet spot)" if coefs[1] < 0 else "CONVEX (no sweet spot)"
+        print_flush(f"  R1 alpha sweet spot: linear={coefs[0]:.4f} "
+                    f"quadratic={coefs[1]:.4f} → {shape}")
+    except Exception as e:
+        print_flush(f"  R1 failed: {e}")
+
+    # P7b: Loss trajectory convergence (proxy for feature convergence)
+    try:
+        unique_archs = sorted(set(archs))
+        unique_arms = sorted(set(arms))
+        cv_step10, cv_step108 = [], []
+        for arch_val in unique_archs:
+            for arm_val in unique_arms:
+                mask = (archs == arch_val) & (arms == arm_val)
+                group_cells = [labeled[i] for i in range(len(labeled)) if mask[i]]
+                if len(group_cells) < 3:
+                    continue
+                losses_10 = [c.get("trajectory_losses", {}).get(10, float("nan"))
+                             for c in group_cells]
+                losses_108 = [c.get("trajectory_losses", {}).get(108, float("nan"))
+                              for c in group_cells]
+                losses_10 = [v for v in losses_10 if math.isfinite(v)]
+                losses_108 = [v for v in losses_108 if math.isfinite(v)]
+                if len(losses_10) >= 3 and len(losses_108) >= 3:
+                    m10, m108 = np.mean(losses_10), np.mean(losses_108)
+                    s10, s108 = np.std(losses_10), np.std(losses_108)
+                    if m10 > 1e-12 and m108 > 1e-12:
+                        cv_step10.append(s10 / m10)
+                        cv_step108.append(s108 / m108)
+        if cv_step10:
+            mean_cv10 = float(np.mean(cv_step10))
+            mean_cv108 = float(np.mean(cv_step108))
+            converged = mean_cv108 < mean_cv10
+            results["P7b_loss_trajectory_convergence"] = {
+                "mean_cv_step10": mean_cv10,
+                "mean_cv_step108": mean_cv108,
+                "converges": converged,
+            }
+            print_flush(f"  P7b loss convergence: CV(10)={mean_cv10:.4f} "
+                        f"CV(108)={mean_cv108:.4f} {'CONVERGES' if converged else 'DIVERGES'}")
+    except Exception as e:
+        print_flush(f"  P7b failed: {e}")
+
     return results
 
 

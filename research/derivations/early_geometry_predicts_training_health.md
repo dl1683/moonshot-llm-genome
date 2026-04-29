@@ -169,9 +169,11 @@ If Route 3 is correct, the g182 cells should exhibit specific structure:
 - If linear Ridge already captures all signal (quadratic adds <5% improvement), the underlying relationship is monotonic in the order parameters, consistent with being far from the critical point (deep in one basin)
 This is testable as a post-hoc analysis on g182 data without a new experiment — just add polynomial features to the Ridge. NOT pre-registered as a gating criterion; purely diagnostic for mechanism identification.
 
-**P7 (Feature trajectory convergence).** If basins are attractors, manifold features should converge during training: the variance of each feature across seeds within the same arm+arch should DECREASE from step 10 to step 108. Specifically, CV(feature) at step 108 should be < CV(feature) at step 10 for at least 6/8 features. This distinguishes "basins attract trajectories" from "random noise that happens to correlate with outcome." Testable on trajectory data already logged in g182 cells (TRAJECTORY_STEPS includes step 10 and 108).
+**P7 (Feature trajectory convergence).** If basins are attractors, manifold features should converge during training: the variance of each feature across seeds within the same arm+arch should DECREASE from step 10 to step 108. Specifically, CV(feature) at step 108 should be < CV(feature) at step 10 for at least 6/8 features. This distinguishes "basins attract trajectories" from "random noise that happens to correlate with outcome."
 
-These predictions are testable on g182 data (P1-P4, P6-P7) and g184 data (P5) without additional experiments. They can be evaluated as part of the `--reanalyze` pass after g182 cells complete.
+**Correction (cycle 106):** g182 extracts manifold features ONLY at step 108 (feature_step), not at step 10. TRAJECTORY_STEPS logs LOSSES at [10, 20, 40, 60, 80, 108, 200, 500] but not geometry features. P7 as stated is NOT directly testable on g182 data. **Proxy test (P7b):** CV(loss) across seeds within the same arm+arch should DECREASE from step 10 to step 108. This tests whether trajectories converge (basin attractor), though loss is a weaker signal than manifold geometry. A multi-step feature extraction (g182b or g184 extension) would test P7 directly.
+
+These predictions are testable on g182 data (P1-P4, P6, D1, D2, P7b-proxy) and g184 data (P5) without additional experiments. P7 (manifold-feature convergence) requires multi-step feature extraction not in g182. They can be evaluated as part of the `--reanalyze` pass after g182 cells complete.
 
 ---
 
