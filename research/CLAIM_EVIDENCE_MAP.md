@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 cycle 114. g182 teacher gen in progress (batch 775/1088, ~38 min ETA). All g182 analysis code Codex-verified clean (cycles 108-114). Cycle 114 Codex §A fixed SEV-8 (resume cell-drop) + SEV-7 (teacher cache validation). g185 prospective triage prereg DRAFT staged (9.0/10). 6-model analysis (A/B/C/C'/D/E). g184 frozen_eval_main Codex-verified (cycle 110). Route 3 predictions P1-P4+P6+D1+D2+P7b auto-tested in --reanalyze. Theory: Route 2 formal feature-to-rate mapping + 4 predictions (R1-R4) + 2 discriminators (D1/D2) in derivation doc. Route 3 RMT anchor (arXiv 2604.18450, cycle 111).
+**Last updated.** 2026-04-29 cycle 115. g182 teacher gen in progress (batch 775/1088, ~38 min ETA). All g182 analysis code Codex-verified clean (cycles 108-114). Cycle 114 Codex §A fixed SEV-8 (resume cell-drop) + SEV-7 (teacher cache validation). g185 prospective triage prereg DRAFT staged (9.0/10). 6-model analysis (A/B/C/C'/D/E). g184 frozen_eval_main Codex-verified (cycle 110). Route 3 predictions P1-P4+P6+D1+D2+P7b auto-tested in --reanalyze. Theory: Route 2 formal feature-to-rate mapping + 4 predictions (R1-R4) + 2 discriminators (D1/D2) in derivation doc. Route 3 RMT anchor (arXiv 2604.18450, cycle 111).
 
 ---
 
