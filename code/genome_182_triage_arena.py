@@ -1502,6 +1502,58 @@ def shesha_augment_main():
 
 
 # ---------------------------------------------------------------------------
+# Re-analysis (uses saved cells, no training)
+# ---------------------------------------------------------------------------
+
+def reanalyze_main():
+    """Re-run 5-model LOAO analysis on saved cells without retraining."""
+    print_flush("=== Re-analysis Mode (5-model LOAO on saved cells) ===")
+    existing = load_existing(OUT_PATH)
+    if not existing or "cells" not in existing:
+        print_flush("ERROR: no g182 results found. Run main experiment first.")
+        return
+
+    cells = existing["cells"]
+    print_flush(f"  {len(cells)} cells loaded")
+
+    labeled = compute_normalized_labels(cells)
+    print_flush(f"  {len(labeled)} labeled cells (scratch excluded)")
+
+    loao_results = {}
+    for model_label, feat_names in [
+        ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
+        ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
+        ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
+        ("model_e_shesha", SHESHA_FEATURE_NAMES),
+    ]:
+        has_feats = all(
+            any(math.isfinite(float(c["features"].get(fn, float("nan")))) for fn in feat_names)
+            for c in labeled
+        )
+        if not has_feats:
+            print_flush(f"\n  SKIP {model_label}: missing features for some cells")
+            continue
+        print_flush(f"\n--- LOAO evaluation: {model_label} ({len(feat_names)} features) ---")
+        result = loao_evaluate(labeled, feat_names, model_label)
+        loao_results[model_label] = result
+        for arch, fold in result["folds"].items():
+            print_flush(f"    fold={arch}: geo_mse={fold['geometry_mse']:.6f} "
+                        f"best_base={fold['best_baseline_name']}={fold['best_baseline_mse']:.6f} "
+                        f"reduction={fold['mse_reduction_vs_best']:.1%} "
+                        f"R2={fold['geometry_r2']:.3f}")
+
+    if loao_results:
+        verdict = compute_verdict(loao_results)
+        print_flush(f"\n*** VERDICT: {verdict['verdict']} ***")
+        existing["reanalysis_loao"] = loao_results
+        existing["reanalysis_verdict"] = verdict
+        existing["reanalysis_timestamp"] = now_utc()
+        save_incremental(OUT_PATH, existing)
+        print_flush(f"Saved re-analysis to {OUT_PATH}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1513,8 +1565,13 @@ def main():
                         help="Stop after N new cells (0=unlimited). For 4h session: ~11 cells.")
     parser.add_argument("--shesha-augment", action="store_true",
                         help="Post-hoc: replay cells to step 108, add Shesha features, re-run analysis")
+    parser.add_argument("--reanalyze", action="store_true",
+                        help="Re-run 5-model LOAO analysis on saved cells (no training)")
     args = parser.parse_args()
 
+    if args.reanalyze:
+        reanalyze_main()
+        return
     if args.shesha_augment:
         shesha_augment_main()
         return
