@@ -1983,8 +1983,10 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
     except Exception as e:
         print_flush(f"  Arm decodability failed: {e}")
 
-    # 2. Within-arm residualized Ridge: does geometry add signal beyond arm identity?
+    # 2. Within-arm residualized Ridge: does geometry add signal beyond arm identity? (LOO)
     try:
+        from sklearn.linear_model import Ridge as _Ridge_A16
+        from sklearn.model_selection import LeaveOneOut as _LOO_A16
         arm_means = {}
         for a in sorted(set(arms)):
             mask = arms == a
@@ -1995,16 +1997,20 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
         std_x[std_x < 1e-12] = 1.0
         X_s = (X - mean_x) / std_x
         ridge = fit_ridge_cv(X_s, y_resid)
-        pred = ridge.predict(X_s)
-        ss_res = float(np.sum((y_resid - pred) ** 2))
+        best_alpha = ridge.alpha
+        loo_pred = np.zeros(len(y_resid))
+        for tr_i, te_i in _LOO_A16().split(X_s):
+            m = _Ridge_A16(alpha=best_alpha).fit(X_s[tr_i], y_resid[tr_i])
+            loo_pred[te_i] = m.predict(X_s[te_i])
+        ss_res = float(np.sum((y_resid - loo_pred) ** 2))
         ss_tot = float(np.sum((y_resid - y_resid.mean()) ** 2))
         r2_resid = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
         results["within_arm_residual"] = {
-            "r2_after_arm_residualization": r2_resid,
+            "r2_loo_after_arm_residualization": r2_resid,
             "geometry_adds_beyond_arm": r2_resid > 0.05,
         }
         status = "geometry adds signal" if r2_resid > 0.05 else "arm explains most"
-        print_flush(f"  Within-arm residual R2={r2_resid:.3f} [{status}]")
+        print_flush(f"  Within-arm residual R2(LOO)={r2_resid:.3f} [{status}]")
     except Exception as e:
         print_flush(f"  Within-arm residual failed: {e}")
 
