@@ -1,6 +1,6 @@
 # Derivation: Early Geometry Predicts Training Health
 
-**Status:** SKELETON (cycle 96, 2026-04-29). Three routes proposed by Codex Architecture Theorist.
+**Status:** SKELETON → DEEPENING (cycle 106, 2026-04-29). Three routes proposed by Codex Architecture Theorist. Route 3 has Verdict Matrix (cycle 105). Route 2 has formal feature-to-rate mapping + discriminators (cycle 106).
 
 **Claim to derive:** At <= 3% of training, activation geometry features predict final run quality better than early loss alone.
 
@@ -50,6 +50,66 @@ where sigma_i^2 are source variances per mode and theta is the distortion thresh
 
 **Connection to Umwelt:** Different tokenizers define different source distributions. Cross-tokenizer transfer fails (g180b) because the optimal water-filling for one tokenizer's source distribution is suboptimal for another's. This is exactly the Umwelt Representation Hypothesis: alignment arises from overlapping ecological constraints.
 
+**Theoretical anchors from literature (cycle 106):**
+
+- **D'Amato, Lancia & Pezzulo (PLOS Comp Bio 2025):** Under rate-distortion constraints, optimal codes exhibit prototypization (clustering around centroids), specialization (rare categories get disproportionate capacity), and orthogonalization (class representations become mutually orthogonal at low capacity). These are the optimal solutions, not learned heuristics. Validates that RD theory makes specific, testable geometric predictions about learned representations. Orthogonalization rate across layers could be an additional diagnostic feature.
+
+- **"From SGD to Spectra" (ICML 2025):** Squared singular values of weight matrices under SGD follow Dyson Brownian motion with eigenvalue repulsion, yielding gamma-type stationary distributions with power-law tails. This gives the FIRST principled derivation of why mid_spectral_alpha is a meaningful quantity — the tail exponent reflects the equilibrium of SGD dynamics, not arbitrary power-law fitting. Connects Route 1 (Fisher/NTK eigenvalue spectrum) to Route 2 (rate allocation across modes): SGD naturally performs a stochastic analog of water-filling, spreading singular values to maximize effective rank under noise.
+
+- **Coverage principle (Chen et al., ICLR 2026):** The probability mass a pre-trained model places on high-quality responses is necessary and sufficient for post-training success. Coverage generalizes faster than cross-entropy. Potential extension: coverage at 3% of training could be an additional early-training diagnostic, complementary to manifold geometry features.
+
+- **No paper directly applies Shannon water-filling to neural representation learning (as of 2026-04).** The connection is implicit in the above work but has not been formalized. This is the specific novelty opportunity for Route 2.
+
+### Route 2 Formal Feature-to-Rate Mapping (cycle 106)
+
+Let h_l denote the hidden representation at layer l, with covariance Sigma_l = E[h_l h_l^T]. Let sigma_{l,1}^2 >= sigma_{l,2}^2 >= ... >= sigma_{l,d}^2 be the eigenvalues. Water-filling allocates rate to mode i iff sigma_{l,i}^2 > theta (the water level). At training step t, the allocation reflects what the model has learned to encode.
+
+**Feature → Rate-Distortion Quantity:**
+
+1. **mid_spectral_alpha** — The power-law exponent of the eigenvalue tail: sigma_i^2 ~ i^{-alpha}. Under water-filling, rate per mode R_i = max(0, 1/2 log(sigma_i^2/theta)). With a power-law spectrum, the total rate is R_total ~ integral from 1 to i_max of 1/2 log(i^{-alpha}/theta) di. Alpha controls the ALLOCATION SHARPNESS: high alpha → rate concentrated in few top modes (over-specialized); low alpha → rate spread across many modes (under-specialized). The optimal alpha for a given task depends on the source's true semantic dimensionality.
+
+2. **mid_participation_ratio** — PR = (sum sigma_i^2)^2 / sum sigma_i^4. This is exactly the EFFECTIVE NUMBER OF MODES receiving rate above the water level. PR proxies the count of active coding dimensions. In a water-filling interpretation: PR ~ |{i : sigma_i^2 > theta}|. Healthy training should have PR matching the intrinsic dimensionality of the semantic task.
+
+3. **mid_sqrt_pr_alpha** — sqrt(PR) * alpha. This composite captures the RATE CONCENTRATION: how much total rate is packed into how steep a spectrum. High sqrt_pr_alpha = many active modes but sharply decaying → healthy allocation where secondary modes are active but dominated by primary ones. Low = either few modes (collapsed) or flat spectrum (noise).
+
+4. **depth_alpha_drift** — Change in alpha across layers: alpha_deep - alpha_shallow. Under successive refinement (Cover & Thomas), an optimal multi-resolution code should progressively sharpen the spectrum with depth: each layer extracts finer-grained semantic modes. NEGATIVE drift (alpha increasing with depth) = progressive refinement (healthy). POSITIVE drift (alpha decreasing) = representation fragmenting or failing to compress (unhealthy).
+
+5. **depth_pr_drift** — Change in PR across layers. Under successive refinement, PR should DECREASE with depth: deeper layers encode higher-level abstractions in fewer dimensions. Positive drift (PR increasing with depth) = capacity expanding instead of compressing (waste).
+
+6. **depth_sqrt_pr_alpha_drift** — Change in the rate-concentration composite. Should stabilize or slightly decrease with depth if the code is well-structured.
+
+7. **twonn_intrinsic_dim** — Two-nearest-neighbor intrinsic dimensionality (Facco et al. 2017). This estimates the manifold dimensionality of the representation, which under rate-distortion theory is the SOURCE DIMENSIONALITY d_s that the model has learned to code for. d_s should be >> 1 (model found structure) but << d_model (model is compressing). Optimal d_s depends on the data: for C4 next-token, semantic dimensions should be on the order of 10-50.
+
+8. **knn10_clustering_coeff** — k=10 nearest-neighbor clustering coefficient. This measures LOCAL QUANTIZATION QUALITY: how regularly the representation tiles the manifold. High clustering = points form tight local clusters → well-quantized code with good packing. Low clustering = scattered points → noisy code with wasted capacity. Under rate-distortion: clustering ~ inverse of the average local distortion per coding cell.
+
+### Route 2 Quantitative Predictions (pre-registered alongside Route 3)
+
+**R1 (Spectral alpha sweet spot).** If water-filling is the mechanism, there exists an optimal alpha* for C4 next-token-prediction. Cells with mid_spectral_alpha closer to alpha* should have better final outcomes. The relationship outcome(alpha) should be CONCAVE (inverted-U), not monotonic. Testable: fit a quadratic alpha term in Ridge and check if the quadratic coefficient is negative and significant.
+
+**R2 (PR predicts outcome monotonically below saturation).** Higher PR = more active coding modes = better allocation, UP TO the point where PR exceeds the task's intrinsic dimensionality (noise modes get allocated rate). Prediction: in g182 data, partial correlation of PR with outcome (controlling for alpha) should be positive for PR < threshold and flat or negative above.
+
+**R3 (Depth drift direction is diagnostic).** Under successive refinement, depth_alpha_drift < 0 (alpha increases with depth) and depth_pr_drift < 0 (PR decreases with depth) are NECESSARY conditions for healthy training. Cells where both drifts are negative should systematically outperform cells where either is positive. Testable: partition cells by sign of depth drifts and compare mean outcomes.
+
+**R4 (ID should correlate with source complexity, not architecture).** Under rate-distortion, twonn_intrinsic_dim reflects the learned source dimensionality, which is DATA-dependent. Within the same arm, ID should be similar across Qwen3 and GPT-2. This overlaps with Route 3's P3 but for a DIFFERENT reason: Route 3 says "same basin" → same features; Route 2 says "same data" → same optimal source model → same ID.
+
+### Where Route 2 and Route 3 Make Different Predictions
+
+**Critical divergence: functional form of geometry→outcome.**
+
+- Route 3 (phase transition): predicts a STEP FUNCTION. Cells are in discrete basins. Geometry features identify the basin. Within-basin, features have no marginal predictive value. A classification model (basin label → outcome) should match or beat Ridge.
+
+- Route 2 (water-filling): predicts a SMOOTH, CONTINUOUS relationship. Better allocation → better outcome, with diminishing returns. Ridge should capture most of the signal. A classification model that discretizes into basins should LOSE information compared to continuous features.
+
+**Testable discriminator (D1):** Fit both (a) Ridge on continuous features and (b) k-means(k=3) + per-cluster-mean as predictor. If (a) beats (b) by >10% MSE, Route 2's continuous picture is better. If (b) ties or beats (a), Route 3's basin picture is better. This can be evaluated on g182 data without new experiments.
+
+**Critical divergence: depth drift causality.**
+
+- Route 3: depth drift is an ORDER PARAMETER — it identifies the basin but doesn't have causal predictive value beyond basin identity. Removing depth drifts from the feature set should not hurt much if basin-identity features (alpha, PR) remain.
+
+- Route 2: depth drift measures CODING EFFICIENCY across layers — it has independent predictive value beyond spectral features. Removing depth drifts should hurt significantly even when alpha and PR are present.
+
+**Testable discriminator (D2):** Compare Ridge with all 8 features vs Ridge with only features [0,1,2,6,7] (no depth drifts). If the 5-feature model matches the 8-feature model within noise, Route 3 is favored. If the 8-feature model wins by >5% MSE, Route 2 is favored.
+
 ---
 
 ## Route 3: Statistical Physics (Symmetry Breaking)
@@ -80,7 +140,7 @@ Route 2 (rate-distortion) connects most naturally to our manifesto (Intelligence
 
 Route 3 (stat-physics) is the most intuitive and directly testable (just cluster and compare).
 
-**Recommendation:** Start with Route 3 (easiest to validate on g182 data). If clustering works, formalize via Route 2. Route 1 for a subset of cells as theoretical anchor.
+**Recommendation:** Start with Route 3 (easiest to validate on g182 data). If clustering works, formalize via Route 2. Route 1 for a subset of cells as theoretical anchor. **Cycle 106 update:** Route 2 now has formal feature-to-rate mapping + 4 predictions (R1-R4) + 2 discriminators (D1, D2) that distinguish Route 2 from Route 3. Both discriminators implemented in g182 code. Critical divergence: Route 3 predicts step-function (basins); Route 2 predicts smooth continuous relationship. D1 tests this directly.
 
 ---
 

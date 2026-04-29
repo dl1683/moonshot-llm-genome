@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 cycle 104. g182 stage 1 IN PROGRESS (teacher gen restart after cycle 102 silent crash). 7-model analysis (A/B/C/C'/D/E). g184 frozen_eval_main IMPLEMENTED (cycle 101). Route 3 predictions P1-P4 auto-tested in --reanalyze. Competitive intel: arXiv 2604.15350 + 2604.22778 (Yi Liu spectral geometry) overlap spectral_alpha + depth_drift features but don't claim early-prediction.
+**Last updated.** 2026-04-29 cycle 106. g182 stage 1 IN PROGRESS (teacher gen alive PID 21900, GPU 22%/2.5GB). 7-model analysis (A/B/C/C'/D/E). g184 frozen_eval_main IMPLEMENTED (cycle 101). Route 3 predictions P1-P4+P6 auto-tested in --reanalyze. Route 2 vs 3 discriminators D1+D2 added to code (cycle 106). Theory: Route 2 formal feature-to-rate mapping + 4 predictions (R1-R4) in derivation doc. Competitive intel: arXiv 2604.15350 + 2604.22778 (Yi Liu spectral geometry) overlap spectral_alpha + depth_drift features but don't claim early-prediction.
 
 ---
 
@@ -187,6 +187,9 @@ Path forward (status 2026-04-29 cycle 100): g182 stage 1 IN PROGRESS. 7-model an
 - **arxiv 2602.11217 (Feb 2026):** "Magic Correlations." Tests whether pretrain accuracy rankings transfer to SFT. Within-family transfer dynamics.
 - **arxiv 2601.19831 (Jan 2026):** "Neural Neural Scaling Laws." Time-series extrapolation of accuracy trajectories + token-level val losses. 38% better than logistic scaling laws. Cross-architecture zero-shot transfer. Threat: data-driven trajectory prediction, not geometry, but solves adjacent problem.
 - **arxiv 2602.21669 (Feb 2026):** "DWA-KD: Cross-Tokenizer Knowledge Distillation." Entropy weighting + Soft DTW for cross-tokenizer KD. Directly relevant: they fix the cross-tokenizer KD problem we observe as diagnostic signal. If DWA-KD eliminates KD-hurts-on-wrong-tokenizer, our A11 resolver scenario changes.
+- **D'Amato, Lancia & Pezzulo (PLOS Comp Bio 2025):** "The Geometry of Efficient Codes." Under rate-distortion constraints, optimal codes exhibit prototypization + specialization + orthogonalization. **Learnable:** these are the OPTIMAL solutions, not heuristics — validates Route 2's water-filling interpretation of our manifold features. Orthogonalization rate across layers could be an additional diagnostic feature measuring progressive coding efficiency.
+- **"From SGD to Spectra" (ICML 2025):** Squared singular values under SGD follow Dyson Brownian motion with eigenvalue repulsion → gamma distributions with power-law tails. **Learnable:** first principled derivation of WHY spectral alpha is meaningful — the tail exponent reflects SGD equilibrium dynamics. SGD naturally performs stochastic water-filling. Connects Route 1 (Fisher/NTK) to Route 2 (rate-distortion).
+- **Chen et al. (ICLR 2026, Microsoft Research):** "The Coverage Principle." Pre-trained model's probability mass on high-quality responses is necessary and sufficient for post-training success. **Learnable:** coverage at early training checkpoints could complement manifold geometry as a training health predictor. Different signal type (output-space vs hidden-space).
 
 ---
 
