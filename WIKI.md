@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 104) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 105) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
@@ -46,7 +46,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Cycle 96 code review (A14):** S10 verdict gate fixed — compute_verdict was gating ALL models (C/D/E could fail and incorrectly make verdict FAIL). Now only co-primary A/B gate the verdict per prereg. Shesha augmentation bugs fixed (tokenizer loading, anchor loss replay, teacher text replay for seq_kd_full). Performance: C/D/E add ~66s to analysis (trivial vs training). Source: `codex_outputs/heartbeats/cycle96_code_review_20260429.md`.
 
-**Theory backbone (cycle 96):** First-principles derivation skeleton at `research/derivations/early_geometry_predicts_training_health.md` — 3 routes: (1) Fisher/NTK spectrum (geometry proxies for eigenvalue spectrum → learning speed), (2) Rate-distortion water-filling (geometry = coding allocation), (3) Stat-physics symmetry breaking (geometry = order parameters for basin selection at 3%). Route 3 most testable on g182 data. Source: Codex Architecture Theorist cycle 96.
+**Theory backbone (cycle 105):** Derivation at `research/derivations/early_geometry_predicts_training_health.md` — 3 routes: (1) Fisher/NTK, (2) Rate-distortion, (3) Stat-physics symmetry breaking (most testable). **Cycle 105:** Route 3 Verdict Matrix PRE-LOCKED (8 outcome scenarios with §0.1 scores, interpretation fixed before data arrives). Added P6 (Landau nonlinearity: quadratic features test) and A16 arm-identity diagnostics (arm decodability + within-arm residualized Ridge). Codex adversarial SEV-10: arm identity may masquerade as geometry. Source: `codex_outputs/heartbeats/cycle105_adversarial_20260429.md`, `codex_outputs/heartbeats/cycle105_direction_review_20260429.md`.
 
 **Competitive intel (cycle 93):** DIRECT COMPETITOR: "The Geometric Canary" (arXiv 2604.17698) — "Shesha" metric predicts steerability/drift from representational geometry (rho=0.89-0.97, 35-69 embedding models, detects drift before CKA in 73%). Code released (`shesha-geometry` on PyPI). Overlaps with our training-health pivot but focuses on POST-training steerability, not EARLY-training triage. Also: "Umwelt Representation Hypothesis" (2604.17960) directly challenges universality claims — modalities as local Umwelten, not converging to universal optimum. In-training probes competitor (2604.01025) achieves AUROC>0.75 on OLMo3-7B. Differentiator for g182: cross-architecture (Qwen3+GPT-2), pre-registered falsification discipline, early-stage geometry (not mid-training probes).
 
