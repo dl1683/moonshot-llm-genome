@@ -36,6 +36,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Cycle 101 additions:** (1) `frozen_eval_main()` fully implemented — trains frozen Ridge on g182, runs Falcon-H1 cells, evaluates without refitting. (2) Route 3 (stat-physics) quantitative predictions (P1-P4) auto-computed in `--reanalyze` mode. (3) g184 prereg corrected: model ID tiiuae/Falcon-H1-0.5B-Base (not -Deep), seeds range(12), baselines = arm_mean + frozen Model D.
 
+**Cycle 102 fixes:** Stage 1 crashed at step 108 feature extraction (4 NaN features from tied-weight Qwen3 lm_head reference + curvature at random init). Fixed: (1) optional NaN handling for reference/curvature → None serialization, (2) tied-weight lm_head fallback to embed weight, (3) P3 Route 3 per-arm threshold fix, (4) UTF-8 file I/O + g184 teacher text caching (Codex SEV-8). Restarted.
+
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
 ---
