@@ -419,10 +419,12 @@ def generate_teacher_texts(n_texts: int) -> list[str]:
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
         tok.pad_token_id = tok.eos_token_id
+    tok.padding_side = "left"
 
     model = AutoModelForCausalLM.from_pretrained(
         model_id, torch_dtype=torch.bfloat16, device_map=DEVICE
     )
+    model.config.pad_token_id = tok.pad_token_id
     model.eval()
 
     from datasets import load_dataset
@@ -446,6 +448,7 @@ def generate_teacher_texts(n_texts: int) -> list[str]:
                 do_sample=True,
                 temperature=1.0,
                 top_p=0.95,
+                pad_token_id=tok.pad_token_id,
             )
         for seq in out:
             texts.append(tok.decode(seq, skip_special_tokens=True))
@@ -611,6 +614,9 @@ def extract_features_for_cell(model, probe_batch, arch: str,
     if not include_qwen_ref:
         features = {k: v for k, v in features.items()
                     if not any(ref in k for ref in ["qwen_ref", "reference_rows"])}
+    bad = [k for k, v in features.items() if not math.isfinite(float(v))]
+    if bad:
+        raise RuntimeError(f"non-finite features: {bad}")
     return features
 
 
@@ -701,7 +707,7 @@ def train_cell(
             raise RuntimeError(f"Non-finite loss at step {step} cell={cell_id}")
 
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP, error_if_nonfinite=True)
         optimizer.step()
 
         early_loss = float(ce.detach().float().cpu().item())
@@ -1236,7 +1242,7 @@ def save_incremental(out_path: Path, data: dict):
     """Atomic incremental save."""
     tmp = out_path.with_suffix(".tmp")
     with open(tmp, "w") as f:
-        json.dump(data, f, indent=2, default=str)
+        json.dump(data, f, indent=2, default=str, allow_nan=False)
     tmp.replace(out_path)
 
 

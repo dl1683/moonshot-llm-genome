@@ -26,9 +26,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 91) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 93) ⚡
 
-**§0.1 honest score: 5.8-6.2/10** (per Codex direction review cycle 87). Branch projections:
+**§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
 - g182 Model B beats arm_mean + combined_telemetry: **8.3-8.6/10** (cross-Transformer-family geometry diagnostic)
 - g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
@@ -40,6 +40,8 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 **g182 Triage Arena RUNNING.** Smoke PASS (12/12 cells, all arms, both archs — pipeline validated). Full stage 1 launched: 48 cells (2 arch x 2 arms x 12 seeds), --max-cells 11 first batch (~4h). Qwen3 actual params=182.8M (prereg est 90.5M was wrong — 151K vocab dominates), GPT-2=83.0M. Codex advisor rates g182 success prob at 10-15% full PASS, 20-30% Model B signal.
 
 **Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
+
+**Competitive intel (cycle 93):** DIRECT COMPETITOR: "The Geometric Canary" (arXiv 2604.17698) — "Shesha" metric predicts steerability/drift from representational geometry (rho=0.89-0.97, 35-69 embedding models, detects drift before CKA in 73%). Code released (`shesha-geometry` on PyPI). Overlaps with our training-health pivot but focuses on POST-training steerability, not EARLY-training triage. Also: "Umwelt Representation Hypothesis" (2604.17960) directly challenges universality claims — modalities as local Umwelten, not converging to universal optimum. In-training probes competitor (2604.01025) achieves AUROC>0.75 on OLMo3-7B. Differentiator for g182: cross-architecture (Qwen3+GPT-2), pre-registered falsification discipline, early-stage geometry (not mid-training probes).
 
 **Framing pivot (cycle 72 Q2): from "efficient transfer of trained capabilities" → "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."** Forecast/Diagnostic is the new headline; falsification-discipline is the integrity story in the intro. The manifesto §0 wording overclaims against g177v2/g173/g181a and must be rewritten. **C18+C19+C21 dramatically narrowed**: the +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init; anchoring transformer blocks HARMS. C22 REJECTED 08:50. C18/C19/C21 SURVIVE only as "tokenizer-prior trained-init transfer at recipient initialization" — not as "neural genome transfer of internal structure."
 

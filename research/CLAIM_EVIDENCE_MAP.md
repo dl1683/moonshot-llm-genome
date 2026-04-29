@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 ~09:55 UTC (cycle 80: A10 adversarial integrated, g180 GPT-2 norm fix, g180b RUNNING).
+**Last updated.** 2026-04-29 ~13:00 UTC (cycle 93: competitive intel updated with Geometric Canary + Umwelt; g182 RUNNING stage 1).
 
 ---
 
@@ -131,9 +131,15 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
 
 Path forward (status 2026-04-29 cycle 91): g180b COMPLETE 27/27, FAIL — geometry forecast is tokenizer-specific, not universal. g182 Triage Arena is the §0.1 resolver: PASS → 8.3-8.6, FAIL → 4.0-4.5. Smoke test imminent, then full 72-cell run. A12 strict residualization variant addresses arm-identity confound.
 
-## 3. Competitive Intelligence (updated cycle 80, 2026-04-29)
+## 3. Competitive Intelligence (updated cycle 93, 2026-04-29)
 
-**Gap our g182 exploits:** No published work uses token/embedding interface geometry as the predictive feature. Everyone uses loss curves, scaling law extrapolation, or probe activations. Cross-architecture generalization is almost nonexistent. The "triage/diagnostic" framing (kill/continue decisions at 3% training) is operationally differentiated from the field's "scaling law prediction" frame.
+**Gap our g182 exploits:** Early-training geometry as predictive feature (not post-training drift). Cross-architecture LOAO generalization (not single-arch). Pre-registered falsification discipline with strict kill criteria (no one else does this). "Triage at 3% training" is operationally differentiated from both scaling-law prediction and post-training monitoring.
+
+**⚠ NEW THREAT (cycle 93):**
+- **arxiv 2604.17698 (April 2026):** **"The Geometric Canary."** DIRECT COMPETITOR. Uses representational geometry ("Shesha" metric) to predict model steerability and detect post-training drift. Supervised Shesha: rho=0.89-0.97 across 35-69 embedding models. Detects drift before CKA in 73% of models. Code released (`shesha-geometry` on PyPI). **Key difference from us:** they focus on POST-training steerability/drift detection (deployment monitoring), we focus on EARLY-training triage (3% of training budget). Their metric is supervised (requires labeled steerability data), ours is unsupervised geometry. They test embeddings, we test full training runs. But the conceptual overlap "geometry predicts training health" is direct. If g182 passes, we must cite Geometric Canary and differentiate on early-training + cross-architecture.
+- **arxiv 2604.17960 (April 2026):** **"The Umwelt Representation Hypothesis."** Directly challenges universality claims (Platonic Representation Hypothesis). Argues alignment arises from overlapping ecological constraints, not convergence to a universal optimum. Modalities as distinct "Umwelten" with local, partial alignment. Relevant because it provides theoretical grounding for WHY g180b failed cross-tokenizer: different tokenizers = different Umwelten. This SUPPORTS our pivot to architecture-explicit forecasting (g182) over universal geometry.
+- **arxiv 2604.18572 (April 2026):** "Back into Plato's Cave." Examines cross-modal representational convergence at scale. More data on the Platonic debate.
+- **arxiv 2604.13386 (April 2026):** "Linear Probe Accuracy Scales with Model Size." Multi-layer ensemble probes gain +29-78% AUROC. Validates multi-layer geometric probing but shows naive single-layer is brittle.
 
 - **arxiv 2604.01025 (April 2026):** "Fast and Accurate Probing of In-Training LLMs' Downstream Performances." DIRECTLY competitive — uses internal representations during training to predict downstream performance on OLMo3-7B (AUROC >0.75). Single architecture, activation probes. Our distinctive angle: cross-architecture generalization, geometry not probes, pre-registered adversarial baselines.
 - **arxiv 2504.12491 (April 2025):** "Can Pre-training Indicators Reliably Predict Fine-tuning Outcomes?" Negative/mixed results for simple pre-training indicators (loss, grad norm) predicting fine-tuning success. Strengthens our case for geometry-based features beyond scalar loss.
