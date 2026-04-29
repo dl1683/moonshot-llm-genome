@@ -38,13 +38,15 @@ Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/
 
 ---
 
-## 2026-04-29 — genome_180b_cross_tokenizer — RUNNING (cross-tokenizer forecast gate)
+## 2026-04-29 — genome_180b_cross_tokenizer — FAIL (cross-tokenizer forecast gate)
 
-**Purpose.** Test whether g180's geometry-based forecast model trained on Qwen-tokenizer cells generalizes to held-out tokenizer cells. 27 cells = 3 tokenizers (BERT WordPiece, T5 SentencePiece, GPT-2 BPE) × 3 arms (scratch_ce, seq_kd_full, seq_kd_late_only) × 3 seeds. Qwen3-arch recipients with swapped tokenizer/vocab. Frozen g180 Ridge applied as-is.
+**Purpose.** Test whether g180's geometry-based forecast model trained on Qwen-tokenizer cells generalizes to held-out tokenizer cells. 27 cells = 3 tokenizers (BERT WordPiece, T5 SentencePiece, GPT-2 BPE) x 3 arms (scratch_ce, seq_kd_full, seq_kd_late_only) x 3 seeds.
 
-**Status.** Implementation ready (`code/genome_180b_cross_tokenizer.py`). Prereg locked (`research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`). Launches after g181b completes.
+**Result.** FAIL. Frozen g180 geometry model is tokenizer-specific, not universal. MSE reduction -39.4% (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 +44.0%. Geometry wins ONLY on GPT-2 BPE (closest tokenizer to Qwen3). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families.
 
-Source: `code/genome_180b_cross_tokenizer.py`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
+**What we learned.** The g180 forecast model encodes tokenizer-family-specific geometric signatures, not architecture-universal patterns. Transfer correlates inversely with tokenizer distance from the training distribution (Qwen3). This confirms g181a's tokenizer-prior dominance finding and motivates g182's architecture-explicit design with residualized labels.
+
+Source: `code/genome_180b_cross_tokenizer.py`, `results/genome_180b_cross_tokenizer.json`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`.
 
 ---
 

@@ -26,16 +26,18 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 90) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 91) ⚡
 
 **§0.1 honest score: 5.8-6.2/10** (per Codex direction review cycle 87). Branch projections:
-- Current (g180 WEAK PASS + g180b interim): **5.8-6.2/10** (important phenomenon, not validated diagnostic)
+- Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
 - g182 Model B beats arm_mean + combined_telemetry: **8.3-8.6/10** (cross-Transformer-family geometry diagnostic)
 - g182 PASS + phase 2 SSM/hybrid: **9.0/10** (adds non-attention family)
 - g182 partial (one fold or only Model A): **6.5-7.0/10**
 - g182 FAIL: **4.0-4.5/10** (geometry diagnostic is dead)
 
-**g180b RUNNING (21/27 cells):** BERT 9/9 done, T5 9/9 done, GPT-2 3/9 (s42 all arms done). Cross-tokenizer KD universally harmful across ALL 3 families — 100% negative labels (kd_full mean -0.49, kd_late mean -0.31). GPT-2 s42: scratch 6.24, kd_full 6.61 (label -0.38), kd_late 6.49 (label -0.25). arm_mean MSE 0.204 (catastrophic), null MSE ~0.002 (strong), frozen geometry Ridge MSE 0.013. kd_late_only features IDENTICAL to scratch at step 108.
+**g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
+
+**g182 Triage Arena NEXT.** GPU free. Smoke test imminent, then full 72-cell run. This is the §0.1 = 8.6-9.0 play.
 
 **Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
 
@@ -97,7 +99,7 @@ Locked PASS = final-accuracy ratio ≥1.5x → got **0.99x** (fail). Per-arm c3_
 
 The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI lower bound is −0.0009 — just barely crosses zero. With only 9 test cells, the CI problem is sample size, not signal strength. Baseline R²=−0.94 means early loss alone ANTI-predicts cross-family runs; geometry is the only useful signal.
 
-**Next:** g180b cross-tokenizer forecast (prereg LOCKED, implementation READY: `code/genome_180b_cross_tokenizer.py`). Design: `bert-base-uncased`, `google-t5/t5-small`, and `gpt2` tokenizers on swapped-tokenizer Qwen3-arch recipients; shared Qwen3 Procrustes reference; frozen g180 Ridge. 27 cells = 3 tok × 3 arms × 3 seeds, ~2.7-3.6h. Launch after g181b completes. If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
+**g180b FAIL (cycle 91):** Frozen g180 geometry model is tokenizer-specific. MSE reduction -39.4% (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 +44.0% (wins only on closest tokenizer). Permutation p=0.999. P17 does NOT promote. Pivot to g182 Triage Arena (architecture-explicit, LOAO CV, 9 baselines).
 
 **g181b long-horizon attenuation PASS** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). All 6/6 cells complete. **Mean gap +0.513 nats** (per-seed: +0.531, +0.486, +0.523). Gap trajectory: +0.387@500, +0.481@2000, +0.502@3000, +0.518@4000, +0.513@5000 — stable plateau. **Resolves A8 (500-step horizon artifact).** Claim C23 locked. Source: `results/genome_181b_long_horizon.json`.
 
@@ -422,8 +424,8 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 *(Updated 2026-04-29 cycle 82)*
 
 **Active:**
-1. **g180b cross-tokenizer forecast** — RUNNING (PID 48644, teacher text generation in progress, 0/27 cells trained). 27 cells, ~3.3h total. `code/genome_180b_cross_tokenizer.py`.
-2. **g182 Blinded Training Triage Arena** — prereg LOCKED, implementation READY (`code/genome_182_triage_arena.py`). 72 cells, 2 architectures, 9 baselines. Launch after g180b completes.
+1. **g180b cross-tokenizer forecast** — COMPLETE, FAIL. 27/27 cells. `results/genome_180b_cross_tokenizer.json`.
+2. **g182 Blinded Training Triage Arena** — prereg LOCKED, implementation READY (`code/genome_182_triage_arena.py`). Smoke test next, then full 72-cell run. GPU free.
 3. **g183 corpus-derived init** — DRAFT prereg pre-staged (`research/prereg/genome_183_corpus_derived_init_2026-04-29.md`). 24 cells, 8 arms. Gated on g182 Codex design gate.
 
 **Completed this session:**
