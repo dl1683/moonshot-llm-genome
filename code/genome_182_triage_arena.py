@@ -1936,8 +1936,79 @@ def reanalyze_main():
             existing["route3_predictions"] = route3
             print_flush(f"\n  Route 3 predictions saved")
 
+        arm_checks = arm_identity_diagnostics(labeled)
+        if arm_checks:
+            existing["arm_identity_diagnostics"] = arm_checks
+
         save_incremental(OUT_PATH, existing)
         print_flush(f"Saved re-analysis to {OUT_PATH}")
+
+
+def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
+    """Adversarial check (A16 SEV-10): can manifold features decode arm identity?
+
+    If C' features can predict arm above chance, the Ridge may be learning
+    arm identity rather than genuine geometry.
+    """
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import cross_val_score
+
+    feat_names = MANIFOLD_ONLY_FEATURE_NAMES
+    X, _ = feature_matrix(labeled, feat_names)
+    y = np.array([c["label"] for c in labeled], dtype=np.float64)
+    arms = np.array([c["arm"] for c in labeled])
+    archs = np.array([c["arch"] for c in labeled])
+
+    results = {}
+
+    # 1. Arm decodability: can C' features predict arm above chance?
+    try:
+        unique_arms = sorted(set(arms))
+        arm_codes = np.array([unique_arms.index(a) for a in arms])
+        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
+        std_x[std_x < 1e-12] = 1.0
+        X_s = (X - mean_x) / std_x
+        clf = LogisticRegression(max_iter=1000, random_state=RANDOM_STATE)
+        scores = cross_val_score(clf, X_s, arm_codes, cv=min(5, len(arm_codes)),
+                                 scoring="accuracy")
+        chance = 1.0 / len(unique_arms)
+        mean_acc = float(scores.mean())
+        results["arm_decodability"] = {
+            "cv_accuracy": mean_acc,
+            "chance_level": chance,
+            "above_chance": mean_acc > chance + 0.10,
+        }
+        status = "WARNING: arm decodable" if mean_acc > chance + 0.10 else "OK"
+        print_flush(f"\n  Arm decodability: acc={mean_acc:.3f} chance={chance:.3f} [{status}]")
+    except Exception as e:
+        print_flush(f"  Arm decodability failed: {e}")
+
+    # 2. Within-arm residualized Ridge: does geometry add signal beyond arm identity?
+    try:
+        arm_means = {}
+        for a in sorted(set(arms)):
+            mask = arms == a
+            arm_means[a] = float(y[mask].mean()) if mask.sum() > 0 else 0.0
+        y_resid = np.array([y[i] - arm_means[arms[i]] for i in range(len(y))])
+
+        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
+        std_x[std_x < 1e-12] = 1.0
+        X_s = (X - mean_x) / std_x
+        ridge = fit_ridge_cv(X_s, y_resid)
+        pred = ridge.predict(X_s)
+        ss_res = float(np.sum((y_resid - pred) ** 2))
+        ss_tot = float(np.sum((y_resid - y_resid.mean()) ** 2))
+        r2_resid = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
+        results["within_arm_residual"] = {
+            "r2_after_arm_residualization": r2_resid,
+            "geometry_adds_beyond_arm": r2_resid > 0.05,
+        }
+        status = "geometry adds signal" if r2_resid > 0.05 else "arm explains most"
+        print_flush(f"  Within-arm residual R2={r2_resid:.3f} [{status}]")
+    except Exception as e:
+        print_flush(f"  Within-arm residual failed: {e}")
+
+    return results
 
 
 def route3_predictions(
@@ -2055,6 +2126,33 @@ def route3_predictions(
             }
             print_flush(f"  P4 transfer asymmetry: ratio={asym:.3f} "
                         f"{'PASS' if asym < 0.5 else 'FAIL'}")
+
+    # P6: Landau nonlinearity test (quadratic features vs linear)
+    try:
+        from sklearn.preprocessing import PolynomialFeatures
+        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
+        std_x[std_x < 1e-12] = 1.0
+        X_s = (X - mean_x) / std_x
+        poly = PolynomialFeatures(degree=2, include_bias=False, interaction_only=False)
+        X_poly = poly.fit_transform(X_s)
+        ridge_linear = fit_ridge_cv(X_s, y)
+        pred_linear = ridge_linear.predict(X_s)
+        mse_linear = float(np.mean((y - pred_linear) ** 2))
+        ridge_poly = fit_ridge_cv(X_poly, y)
+        pred_poly = ridge_poly.predict(X_poly)
+        mse_poly = float(np.mean((y - pred_poly) ** 2))
+        poly_improvement = (mse_linear - mse_poly) / mse_linear if mse_linear > 1e-12 else 0.0
+        results["P6_landau_nonlinearity"] = {
+            "linear_mse": mse_linear,
+            "quadratic_mse": mse_poly,
+            "improvement_pct": float(poly_improvement * 100),
+            "nonlinear_significant": poly_improvement > 0.10,
+        }
+        print_flush(f"  P6 Landau nonlinearity: linear_mse={mse_linear:.6f} "
+                    f"quad_mse={mse_poly:.6f} improvement={poly_improvement:.1%} "
+                    f"{'NONLINEAR' if poly_improvement > 0.10 else 'LINEAR OK'}")
+    except Exception as e:
+        print_flush(f"  P6 failed: {e}")
 
     return results
 

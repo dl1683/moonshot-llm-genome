@@ -104,4 +104,41 @@ If Route 3 is correct, the g182 cells should exhibit specific structure:
 
 **P5 (g184 transfer prediction).** Frozen C' trained on g182 (Qwen3+GPT-2) should predict Falcon-H1 outcomes with R² > 0 and MSE reduction ≥ 15% vs arm_mean. This is the A15 resolver. FAIL here kills Route 3.
 
-These predictions are testable on g182 data (P1-P4) and g184 data (P5) without additional experiments. They can be evaluated as part of the `--reanalyze` pass after g182 cells complete.
+**P6 (Landau-theory functional form).** In a mean-field Landau description of the training phase transition, the free energy near the critical point expands as F(φ) = a₀ + a₂φ² + a₄φ⁴ + ..., where φ is the order parameter (our manifold features). The equilibrium outcome (final NLL) depends on the order parameter through the equation of state ∂F/∂φ = 0, giving a relationship outcome ~ f(φ) that is generically nonlinear. If the true relationship is quadratic/nonlinear, then:
+- A Ridge model with φ² features (squared manifold terms + cross-products) should beat the linear Ridge by ≥10% MSE reduction on at least one LOAO fold
+- If linear Ridge already captures all signal (quadratic adds <5% improvement), the underlying relationship is monotonic in the order parameters, consistent with being far from the critical point (deep in one basin)
+This is testable as a post-hoc analysis on g182 data without a new experiment — just add polynomial features to the Ridge. NOT pre-registered as a gating criterion; purely diagnostic for mechanism identification.
+
+**P7 (Feature trajectory convergence).** If basins are attractors, manifold features should converge during training: the variance of each feature across seeds within the same arm+arch should DECREASE from step 10 to step 108. Specifically, CV(feature) at step 108 should be < CV(feature) at step 10 for at least 6/8 features. This distinguishes "basins attract trajectories" from "random noise that happens to correlate with outcome." Testable on trajectory data already logged in g182 cells (TRAJECTORY_STEPS includes step 10 and 108).
+
+These predictions are testable on g182 data (P1-P4, P6-P7) and g184 data (P5) without additional experiments. They can be evaluated as part of the `--reanalyze` pass after g182 cells complete.
+
+---
+
+## Route 3 Verdict Matrix (PRE-LOCKED before g182 results)
+
+**Written cycle 105 (2026-04-29) while g182 teacher gen is running. No cells have trained yet. This interpretation is locked before data arrives to prevent post-hoc narration.**
+
+### 1. C' PASS (manifold-only beats arm_mean + telemetry + Shesha, both LOAO folds)
+Route 3 SURVIVES. Claim: **pure manifold order parameters identify training basin at 3%, cross-architecture.** This is the headline finding. §0.1 → 8.6-9.0. Fire g184 Falcon-H1 immediately.
+
+### 2. C PASS but C' FAIL
+Route 3 WEAKENED. The norm/variance features in C but not C' are carrying the signal — this is optimization-health monitoring, not pure geometry/basin identification. Claim narrows to: "early activation statistics predict training health" (less distinctive, closer to what existing work does). §0.1 → 7.0-7.5.
+
+### 3. Combined telemetry baseline beats C/C'
+PIVOT. The signal is in ordinary training diagnostics (loss trajectory, gradient stats), not geometry. Do not frame as Neural Genome evidence. The geometry-as-instrument thesis is falsified for this application. §0.1 → 4.0-4.5. Redirect to pure theory (Route 1/2 derivations) or g155 energy efficiency.
+
+### 4. Shesha (Model E) ties or beats C/C'
+MOAT DIES. The result becomes replication/extension of the Geometric Canary (arXiv 2604.17698), not a distinctive moonshot finding. Honest framing: "we independently confirmed that representational geometry predicts training health, consistent with concurrent work by [Shesha authors]." Credit them. §0.1 → 5.0-6.0 (replication, not discovery).
+
+### 5. Only Model A or B pass (not C/C')
+Reference leakage or mixed-feature success. The Qwen3-reference features or the telemetry components of B are doing the work, not pure geometry. Cannot claim cross-architecture geometry diagnostic. §0.1 → 6.0-6.5.
+
+### 6. g182 PASS but P3/P4 FAIL
+The predictor works but Route 3's mechanism ("basins are data-dependent") is false. The features may be architecture-specific embeddings that happen to correlate with outcome within each family. LOAO transfer works because Qwen3 and GPT-2 are both English-decoder-Transformers, not because basins are universal. g184 becomes even MORE critical — if Falcon-H1 frozen-C' also fails, the "data-dependent basin" story is dead. §0.1 → 7.0-7.5 (tool works, theory wrong).
+
+### 7. g182 PASS + P3/P4 PASS + g184 frozen-C' PASS (>15% MSE reduction, R²>0, no refit)
+Route 3 CONFIRMED at 3-family level. Claim: **manifold geometry at 3% of training identifies data-dependent training basins that predict outcome, generalizing to unseen architecture families without refitting.** This is the flagship result. §0.1 → 9.0+.
+
+### 8. g182 PASS + g184 frozen-C' FAIL
+Tool works within Transformer family but doesn't generalize to hybrid-SSM. Basins may be architecture-class-dependent (Transformer basin ≠ SSM basin). Honest framing: cross-Transformer diagnostic. Still valuable but not universal. §0.1 → 8.0-8.5.
