@@ -1349,14 +1349,14 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
 def save_incremental(out_path: Path, data: dict):
     """Atomic incremental save."""
     tmp = out_path.with_suffix(".tmp")
-    with open(tmp, "w") as f:
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, default=str, allow_nan=False)
     tmp.replace(out_path)
 
 
 def load_existing(out_path: Path) -> dict | None:
     if out_path.exists():
-        with open(out_path) as f:
+        with open(out_path, encoding="utf-8") as f:
             return json.load(f)
     return None
 
@@ -1669,7 +1669,17 @@ def frozen_eval_main(phase2_arch: str, smoke: bool = False):
     pools = load_c4_pools(tok, N_TRAIN_WINDOWS, N_C4_VAL_WINDOWS, SEQ_LEN)
 
     n_teacher = N_TRAIN_WINDOWS + 512
-    teacher_texts = generate_phase2_teacher_texts(phase2_arch, n_teacher)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    teacher_cache_path = CACHE_DIR / f"teacher_texts_{phase2_arch}.json"
+    if teacher_cache_path.exists():
+        with open(teacher_cache_path, encoding="utf-8") as f:
+            teacher_texts = json.load(f)
+        print_flush(f"  Loaded {len(teacher_texts)} cached teacher texts for {phase2_arch}")
+    else:
+        teacher_texts = generate_phase2_teacher_texts(phase2_arch, n_teacher)
+        with open(teacher_cache_path, "w", encoding="utf-8") as f:
+            json.dump(teacher_texts, f, ensure_ascii=True)
+        print_flush(f"  Cached {len(teacher_texts)} teacher texts to {teacher_cache_path}")
     teacher_enc = tok(teacher_texts, truncation=True, max_length=SEQ_LEN,
                       padding="max_length", return_tensors="pt")
     teacher_pools = {
