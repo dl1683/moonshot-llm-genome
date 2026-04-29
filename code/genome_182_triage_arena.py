@@ -1367,6 +1367,17 @@ def load_existing(out_path: Path) -> dict | None:
     return None
 
 
+def load_teacher_text_cache(path: Path, expected: int) -> list[str]:
+    with open(path, encoding="utf-8") as f:
+        texts = json.load(f)
+    if not isinstance(texts, list) or len(texts) < expected or not all(isinstance(t, str) and t for t in texts[:expected]):
+        raise RuntimeError(
+            f"Teacher cache invalid at {path}: got {len(texts) if isinstance(texts, list) else type(texts).__name__}, "
+            f"expected >= {expected} non-empty strings"
+        )
+    return texts
+
+
 # ---------------------------------------------------------------------------
 # Shesha post-hoc augmentation
 # ---------------------------------------------------------------------------
@@ -1413,8 +1424,7 @@ def shesha_augment_main():
         if has_kd_cells:
             teacher_cache_path = CACHE_DIR / "teacher_texts.json"
             if teacher_cache_path.exists():
-                with open(teacher_cache_path, encoding="utf-8") as f:
-                    teacher_texts = json.load(f)
+                teacher_texts = load_teacher_text_cache(teacher_cache_path, N_TRAIN_WINDOWS + 512)
                 print_flush(f"  Loaded {len(teacher_texts)} cached teacher texts for replay")
             else:
                 raise RuntimeError(
@@ -1678,8 +1688,7 @@ def frozen_eval_main(phase2_arch: str, smoke: bool = False):
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     teacher_cache_path = CACHE_DIR / f"teacher_texts_{phase2_arch}.json"
     if teacher_cache_path.exists():
-        with open(teacher_cache_path, encoding="utf-8") as f:
-            teacher_texts = json.load(f)
+        teacher_texts = load_teacher_text_cache(teacher_cache_path, N_TRAIN_WINDOWS + 512)
         print_flush(f"  Loaded {len(teacher_texts)} cached teacher texts for {phase2_arch}")
     else:
         teacher_texts = generate_phase2_teacher_texts(phase2_arch, n_teacher)
@@ -2399,14 +2408,8 @@ def main():
     print_flush(f"\n--- Generating teacher texts for seq_kd_full arm ---")
     teacher_cache_path = CACHE_DIR / "teacher_texts.json"
     if teacher_cache_path.exists():
-        with open(teacher_cache_path, encoding="utf-8") as f:
-            teacher_texts = json.load(f)
         expected = 96 if args.smoke else N_TRAIN_WINDOWS + 512
-        if len(teacher_texts) < expected:
-            raise RuntimeError(
-                f"Teacher cache has {len(teacher_texts)} texts but expected >= {expected}. "
-                f"Cache may be corrupt from interrupted generation. Delete {teacher_cache_path} and retry."
-            )
+        teacher_texts = load_teacher_text_cache(teacher_cache_path, expected)
         print_flush(f"    Loaded {len(teacher_texts)} cached teacher texts")
     else:
         n_teacher = 96 if args.smoke else N_TRAIN_WINDOWS + 512
@@ -2421,7 +2424,8 @@ def main():
     print_flush(f"    Reference geometry loaded (hidden shape: "
                 f"{qwen_ref_probe.get('reference_hidden', np.array([])).shape})")
 
-    all_cells = []
+    existing_cells = list(existing["cells"]) if existing and "cells" in existing else []
+    all_cells = list(existing_cells)
     new_cells_trained = 0
     max_cells = args.max_cells if args.max_cells > 0 else float("inf")
     t_start = time.time()
@@ -2459,7 +2463,6 @@ def main():
             for seed in seeds:
                 cell_id = f"{arch}_{arm}_s{seed}"
                 if cell_id in completed_cells:
-                    all_cells.append(completed_cells[cell_id])
                     print_flush(f"  SKIP {cell_id} (already done)")
                     continue
 
@@ -2493,7 +2496,6 @@ def main():
             for seed in seeds:
                 cell_id = f"{arch}_embed_anchor_s{seed}"
                 if cell_id in completed_cells:
-                    all_cells.append(completed_cells[cell_id])
                     print_flush(f"  SKIP {cell_id} (already done)")
                     continue
 
