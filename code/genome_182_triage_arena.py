@@ -123,6 +123,21 @@ ARCH_CONFIGS = {
     },
 }
 
+PHASE2_ARCH_CONFIGS = {
+    "falcon_h1": {
+        "type": "falcon_h1",
+        "hidden_size": HIDDEN_DIM,
+        "num_hidden_layers": N_LAYERS,
+        "num_attention_heads": N_HEADS,
+        "num_key_value_heads": 4,
+        "intermediate_size": FFN_DIM,
+        "vocab_size": 65024,
+        "max_position_embeddings": SEQ_LEN + 64,
+        "tie_word_embeddings": True,
+        "ssm_cfg": {"d_state": 16, "d_conv": 4, "expand": 2},
+    },
+}
+
 
 ARM_LABELS = ["scratch_ce", "seq_kd_full", "embed_anchor"]
 
@@ -211,6 +226,19 @@ def make_model(arch: str, seed: int):
             tie_word_embeddings=cfg_dict["tie_word_embeddings"],
         )
         model = GPT2LMHeadModel(cfg).to(torch.bfloat16).to(DEVICE)
+    elif arch_type == "falcon_h1":
+        from transformers import FalconH1Config, FalconH1ForCausalLM
+        cfg = FalconH1Config(
+            hidden_size=cfg_dict["hidden_size"],
+            num_hidden_layers=cfg_dict["num_hidden_layers"],
+            num_attention_heads=cfg_dict["num_attention_heads"],
+            num_key_value_heads=cfg_dict["num_key_value_heads"],
+            intermediate_size=cfg_dict["intermediate_size"],
+            vocab_size=cfg_dict["vocab_size"],
+            max_position_embeddings=cfg_dict["max_position_embeddings"],
+            tie_word_embeddings=cfg_dict["tie_word_embeddings"],
+        )
+        model = FalconH1ForCausalLM(cfg).to(torch.bfloat16).to(DEVICE)
     else:
         raise ValueError(f"Unknown architecture type: {arch_type}")
     return model
@@ -222,6 +250,8 @@ def get_tokenizer(arch: str):
         tok = AutoTokenizer.from_pretrained("Qwen/Qwen3-0.6B", trust_remote_code=True)
     elif arch == "gpt2":
         tok = AutoTokenizer.from_pretrained("openai-community/gpt2")
+    elif arch == "falcon_h1":
+        tok = AutoTokenizer.from_pretrained("tiiuae/Falcon-H1-0.5B-Base", trust_remote_code=True)
     else:
         raise ValueError(f"Unknown arch: {arch}")
     if tok.pad_token_id is None:

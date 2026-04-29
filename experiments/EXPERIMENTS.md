@@ -30,9 +30,9 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Purpose.** The §0.1=8.6 experiment. Cross-Transformer-family geometry diagnostic: 72 cells (2 architectures x 3 arms x 12 seeds) with leave-one-architecture-out CV. Tests whether early-training geometry features predict final C4 NLL gain better than 9 strong baselines + combined telemetry, across Qwen3-arch AND GPT-2-arch.
 
-**Status.** Smoke test PASSED (12/12 cells). Full stage 1 RUNNING: --stage1-only --max-cells 11 (first 4h batch). Qwen3 actual=182.8M params (151K vocab), GPT-2=83.0M. Two co-primary models: (A) full geometry (all 24 features), (B) reference-free geometry (drops Qwen3-ref Procrustes). Staged: 48 cells first (futility), expand to 72 if promising.
+**Status.** Smoke PASSED (12/12). Full stage 1 RUNNING (restarted cycle 93 with 3 fixes: left-padding for teacher gen, NaN feature guard, grad clip error_if_nonfinite). Cycle 95 adversarial found analysis-phase bugs: scratch label=0 leak (fixed: scratch excluded from labeled set), Model B confounds geometry+telemetry (fixed: added Model C pure geometry + Model D pure telemetry ablation). Cycle 96 code review: S10 verdict gate fixed (only A/B gate verdict, C/D/E exploratory). Shesha competitive baseline integrated as Model E. Post-hoc `--shesha-augment` replay mode added. Qwen3=182.8M, GPT-2=83.0M. 5 analysis models: A (full geometry), B (reference-free), C (pure geometry, 10 features), D (pure telemetry, 6 features), E (Shesha, 3 features). Staged: 48 cells first (futility), expand to 72 if promising.
 
-**PASS:** Both co-primary models on both LOAO folds beat best baseline by ≥25% MSE reduction; CI>0; R²≥0.20; permutation p≤0.01; AUROC≥0.75. **§0.1:** PASS=8.6/10, +SSM=9.0/10, WEAK=6.5, FAIL=4.0.
+**PASS:** Both co-primary models (A, B) on both LOAO folds beat best baseline by >=25% MSE reduction; CI>0; R2>=0.20; permutation p<=0.01; AUROC>=0.75. **Revised §0.1 (cycle 96):** Model C PASS + Shesha kill=8.8-9.0, Model C PASS alone=8.1-8.5, Model B PASS only=5.8-6.5, FAIL=4.0-4.5.
 
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
