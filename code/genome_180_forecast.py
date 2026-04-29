@@ -676,7 +676,11 @@ def _norm_variance_depth_ratios(
     for name, param in model.named_parameters():
         if param.ndim != 1 or "norm" not in name.lower():
             continue
-        match = re.search(r"layers\.(\d+)\.", name)
+        match = None
+        for pat in (r"model\.layers\.(\d+)\.", r"layers\.(\d+)\.", r"transformer\.h\.(\d+)\."):
+            match = re.search(pat, name)
+            if match:
+                break
         if not match:
             continue
         idx = int(match.group(1))
