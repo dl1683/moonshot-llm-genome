@@ -121,10 +121,13 @@ Every mystery in this file has at minimum: a one-line phenomenon statement, a ca
 
 **Hypothesis.** The gap is a Level-2 family constant — a quantifiable geometric offset between vision-encoder-produced activations and language-encoder-produced activations. The *distance* is architecture-specific; the *existence* of a gap may be universal.
 
+**New context (2026-04-29):** The "Umwelt Representation Hypothesis" (arXiv 2604.17960, April 2026) directly addresses this mystery. It argues alignment arises from overlapping ecological constraints, not convergence to a universal optimum — modalities as distinct "Umwelten" with local, partial alignment. If correct, the modality gap is a *feature* of ecological specialization, not a failure of convergence. This supports our g180b finding (tokenizers = different Umwelten → geometry is tokenizer-specific) and our pivot to architecture-explicit forecasting (g182).
+
 **Priority actions:**
 1. Measure the gap in multiple joint encoders (CLIP, SigLIP, BLIP-2).
 2. Test whether the gap's magnitude correlates with a predictable architectural property.
 3. Test whether non-aligned bestiary systems exhibit analogous inter-class gaps (LLM activations vs. vision-encoder activations on matched stimuli).
+4. **(NEW)** Read and integrate the Umwelt Representation Hypothesis framing — does their "ecological constraint" explanation predict the modality gap's magnitude?
 
 ---
 
