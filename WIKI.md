@@ -37,7 +37,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
 
-**g182 Triage Arena RUNNING.** Smoke PASS (12/12 cells, all arms, both archs — pipeline validated). Full stage 1 launched: 48 cells (2 arch x 2 arms x 12 seeds), --max-cells 11 first batch (~4h). Qwen3 actual params=182.8M (prereg est 90.5M was wrong — 151K vocab dominates), GPT-2=83.0M. Codex advisor rates g182 success prob at 10-15% full PASS, 20-30% Model B signal.
+**g182 Triage Arena RUNNING (cycle 93 restart).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug in teacher text generation — killed & restarted with 3 fixes (left-padding, NaN feature guard, grad clip error_if_nonfinite). Restart 12:51Z, teacher gen ~78 min, then 11 cells × ~21 min. ETA ~18:03Z. Qwen3=182.8M, GPT-2=83.0M. Codex advisor: 10-15% full PASS, 20-30% Model B signal.
+
+**g184 pre-staging (cycle 94):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). Source: cycle 94 compatibility test.
 
 **Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
 
