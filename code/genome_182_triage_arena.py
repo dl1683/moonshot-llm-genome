@@ -666,6 +666,8 @@ def _load_qwen3_reference_geometry(qwen_tok) -> dict[str, Any]:
         if "lm_head" in name:
             ref_head = p.detach().float().cpu().numpy()[:g180.EMBED_MAX_ROWS]
             break
+    if ref_head is None and ref_embed is not None:
+        ref_head = ref_embed
 
     del ref_model
     gc.collect()
