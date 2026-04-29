@@ -46,6 +46,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Cycle 111 (mod-3 Codex review):** §A confirmed teacher cache path consistent + no race condition; added cache length validation. §B confirmed g182 still highest-leverage (9/10); RMT paper (arXiv 2604.18450) added as Route 3 theory anchor (BBP-like spectral phase transition). Strongest post-C'-PASS follow-up: prospective triage-to-action compute-savings (9.0/10). Source: `codex_outputs/heartbeats/cycle111_correctness_perf_20260429.md`, `codex_outputs/heartbeats/cycle111_architect_competitive_20260429.md`.
 
+**Cycle 114 (mod-3 Codex review):** §A found SEV-8 resume cell-drop bug (partial `--max-cells` resume silently drops cells beyond iteration point — fixed: `all_cells` initialized from existing cells) + SEV-7 teacher cache validation incomplete in shesha/frozen_eval paths (fixed: `load_teacher_text_cache()` helper used everywhere). g185 prospective triage-to-action prereg DRAFT staged (9.0/10 per Codex cycle 111). Source: `codex_outputs/heartbeats/cycle114_correctness_perf_20260429.md`.
+
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
 ---
