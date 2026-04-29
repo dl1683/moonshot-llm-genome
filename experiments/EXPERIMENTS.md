@@ -26,6 +26,26 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
+## 2026-04-29 — genome_180b_cross_tokenizer — QUEUED (cross-tokenizer forecast gate)
+
+**Purpose.** Test whether g180's geometry-based forecast model trained on Qwen-tokenizer cells generalizes to held-out tokenizer cells. 27 cells = 3 tokenizers (BERT WordPiece, T5 SentencePiece, GPT-2 BPE) × 3 arms (scratch_ce, seq_kd_full, seq_kd_late_only) × 3 seeds. Qwen3-arch recipients with swapped tokenizer/vocab. Frozen g180 Ridge applied as-is.
+
+**Status.** Implementation ready (`code/genome_180b_cross_tokenizer.py`). Prereg locked (`research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`). Launches after g181b completes.
+
+Source: `code/genome_180b_cross_tokenizer.py`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
+
+---
+
+## 2026-04-29 — genome_181b_long_horizon — RUNNING (horizon attenuation control)
+
+**Purpose.** Test whether the g181a embed_lm_head_only_anchor gain persists at 5000 steps (2.5× the 2000-step g181a horizon). 2 arms × 3 seeds × 5000 steps.
+
+**Status.** RUNNING on GPU. PASS: gap ≥ +0.5 nats at step 5000. FAIL: gap < +0.3 nats.
+
+Source: `code/genome_181b_long_horizon.py`, `results/genome_181b_long_horizon.json`.
+
+---
+
 ## 2026-04-29 — genome_180_forecast_diagnostic — WEAK PASS ★★ (forecast/diagnostic pivot experiment)
 
 **Purpose.** Predict final C4 NLL gain from ≤3% training geometry features. 24 features extracted at early checkpoint (spectral invariant, depth drift, TwoNN ID, kNN-10, PCA-64 Procrustes-to-Qwen3, gradient-noise, curvature proxy, norm/variance ratios). Train: 113 Qwen-family cells from g165/g167/g172/g174/g177/g181a. Test: 9 Llama-family cells from g173.

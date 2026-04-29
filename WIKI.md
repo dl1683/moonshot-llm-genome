@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-28 ~06:00 UTC, cycle 57+) ⚡
+## ⚡ CURRENT STATUS (2026-04-29 ~07:00 UTC, cycle 73+) ⚡
 
 **§0.1 ceiling: 5.0-5.3/10 honest baseline** (post g180 WEAK PASS, cycle 73 2026-04-29 ~06:40 UTC). Branch projections:
 - Current (g180 WEAK PASS): **5.0-5.3/10** (geometry signal real but CI marginal at n=9)
@@ -91,9 +91,11 @@ Locked PASS = final-accuracy ratio ≥1.5x → got **0.99x** (fail). Per-arm c3_
 
 The 25% MSE reduction threshold is cleared (61.6%), but the paired bootstrap CI lower bound is −0.0009 — just barely crosses zero. With only 9 test cells, the CI problem is sample size, not signal strength. Baseline R²=−0.94 means early loss alone ANTI-predicts cross-family runs; geometry is the only useful signal.
 
-**Next:** g180b cross-tokenizer forecast (Codex design gate RUNNING). If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
+**Next:** g180b cross-tokenizer forecast (prereg LOCKED, implementation READY: `code/genome_180b_cross_tokenizer.py`). Design: `bert-base-uncased`, `google-t5/t5-small`, and `gpt2` tokenizers on swapped-tokenizer Qwen3-arch recipients; shared Qwen3 Procrustes reference; frozen g180 Ridge. 27 cells = 3 tok × 3 arms × 3 seeds, ~2.7-3.6h. Launch after g181b completes. If g180b PASS → §0.1 = 7.3–7.6/10. If FAIL → pivot to g182 tokenizer-prior benchmark.
 
-Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429T0640.md`.
+**g181b long-horizon attenuation RUNNING** (embed_lm_head_only_anchor × 3 seeds + scratch × 3 seeds, 5000 steps each). PASS: gap ≥ +0.5 nats at step 5000. Expected ~3.3h total.
+
+Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429T0640.md`, `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md`, `codex_outputs/g180b_design_gate_20260429.md`.
 
 **★ PIVOT 2026-04-28 ~17:10: transfer-mechanism story dead → Genome Forecast / Diagnostic ★**
 
