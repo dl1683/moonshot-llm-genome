@@ -1983,27 +1983,29 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
     except Exception as e:
         print_flush(f"  Arm decodability failed: {e}")
 
-    # 2. Within-arm residualized Ridge: does geometry add signal beyond arm identity? (LOO)
+    # 2. Within-arm residualized Ridge: does geometry add signal beyond arm identity? (full LOO)
     try:
         from sklearn.linear_model import Ridge as _Ridge_A16
         from sklearn.model_selection import LeaveOneOut as _LOO_A16
-        arm_means = {}
-        for a in sorted(set(arms)):
-            mask = arms == a
-            arm_means[a] = float(y[mask].mean()) if mask.sum() > 0 else 0.0
-        y_resid = np.array([y[i] - arm_means[arms[i]] for i in range(len(y))])
-
-        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
-        std_x[std_x < 1e-12] = 1.0
-        X_s = (X - mean_x) / std_x
-        ridge = fit_ridge_cv(X_s, y_resid)
-        best_alpha = ridge.alpha
-        loo_pred = np.zeros(len(y_resid))
-        for tr_i, te_i in _LOO_A16().split(X_s):
-            m = _Ridge_A16(alpha=best_alpha).fit(X_s[tr_i], y_resid[tr_i])
-            loo_pred[te_i] = m.predict(X_s[te_i])
-        ss_res = float(np.sum((y_resid - loo_pred) ** 2))
-        ss_tot = float(np.sum((y_resid - y_resid.mean()) ** 2))
+        loo_pred = np.zeros(len(y))
+        for tr_i, te_i in _LOO_A16().split(X):
+            y_tr, arms_tr = y[tr_i], arms[tr_i]
+            arm_means_tr = {}
+            for a in sorted(set(arms_tr)):
+                arm_means_tr[a] = float(y_tr[arms_tr == a].mean())
+            y_resid_tr = np.array([y_tr[j] - arm_means_tr[arms_tr[j]] for j in range(len(y_tr))])
+            X_tr, X_te = X[tr_i], X[te_i]
+            mu, sd = X_tr.mean(axis=0), X_tr.std(axis=0)
+            sd[sd < 1e-12] = 1.0
+            ridge = fit_ridge_cv((X_tr - mu) / sd, y_resid_tr)
+            te_arm = arms[te_i[0]]
+            te_arm_mean = arm_means_tr.get(te_arm, float(y_tr.mean()))
+            loo_pred[te_i] = ridge.predict((X_te - mu) / sd) + te_arm_mean
+        y_arm_mean = np.array([y[(arms == arms[i])].mean() for i in range(len(y))])
+        y_resid_full = y - y_arm_mean
+        pred_resid = loo_pred - y_arm_mean
+        ss_res = float(np.sum((y_resid_full - pred_resid) ** 2))
+        ss_tot = float(np.sum((y_resid_full - y_resid_full.mean()) ** 2))
         r2_resid = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan")
         results["within_arm_residual"] = {
             "r2_loo_after_arm_residualization": r2_resid,
@@ -2133,29 +2135,26 @@ def route3_predictions(
             print_flush(f"  P4 transfer asymmetry: ratio={asym:.3f} "
                         f"{'PASS' if asym < 0.5 else 'FAIL'}")
 
-    # P6: Landau nonlinearity test (quadratic features vs linear) — LOO MSE
+    # P6: Landau nonlinearity test (quadratic features vs linear) — full LOO
     try:
         from sklearn.preprocessing import PolynomialFeatures
         from sklearn.linear_model import Ridge as _Ridge_P6
         from sklearn.model_selection import LeaveOneOut as _LOO_P6
-        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
-        std_x[std_x < 1e-12] = 1.0
-        X_s = (X - mean_x) / std_x
         poly = PolynomialFeatures(degree=2, include_bias=False, interaction_only=False)
-        X_poly = poly.fit_transform(X_s)
-        ridge_linear = fit_ridge_cv(X_s, y)
-        alpha_lin = ridge_linear.alpha
-        ridge_poly = fit_ridge_cv(X_poly, y)
-        alpha_poly = ridge_poly.alpha
         loo_lin = np.zeros(len(y))
         loo_poly = np.zeros(len(y))
-        for tr_i, te_i in _LOO_P6().split(X_s):
-            m_l = _Ridge_P6(alpha=alpha_lin).fit(X_s[tr_i], y[tr_i])
-            loo_lin[te_i] = m_l.predict(X_s[te_i])
-            X_poly_tr = poly.fit_transform(X_s[tr_i])
-            X_poly_te = poly.transform(X_s[te_i])
-            m_p = _Ridge_P6(alpha=alpha_poly).fit(X_poly_tr, y[tr_i])
-            loo_poly[te_i] = m_p.predict(X_poly_te)
+        for tr_i, te_i in _LOO_P6().split(X):
+            X_tr, X_te, y_tr = X[tr_i], X[te_i], y[tr_i]
+            mu, sd = X_tr.mean(axis=0), X_tr.std(axis=0)
+            sd[sd < 1e-12] = 1.0
+            X_tr_s = (X_tr - mu) / sd
+            X_te_s = (X_te - mu) / sd
+            ridge_l = fit_ridge_cv(X_tr_s, y_tr)
+            loo_lin[te_i] = ridge_l.predict(X_te_s)
+            X_poly_tr = poly.fit_transform(X_tr_s)
+            X_poly_te = poly.transform(X_te_s)
+            ridge_p = fit_ridge_cv(X_poly_tr, y_tr)
+            loo_poly[te_i] = ridge_p.predict(X_poly_te)
         mse_linear = float(np.mean((y - loo_lin) ** 2))
         mse_poly = float(np.mean((y - loo_poly) ** 2))
         poly_improvement = (mse_linear - mse_poly) / mse_linear if mse_linear > 1e-12 else 0.0
@@ -2171,31 +2170,26 @@ def route3_predictions(
     except Exception as e:
         print_flush(f"  P6 failed: {e}")
 
-    # D1: Route 2 vs Route 3 — continuous Ridge vs basin-mean predictor (LOO MSE)
+    # D1: Route 2 vs Route 3 — continuous Ridge vs basin-mean predictor (full LOO)
     try:
         from sklearn.cluster import KMeans as _KM
         from sklearn.model_selection import LeaveOneOut as _LOO
         from sklearn.linear_model import Ridge as _Ridge_D1
-        mean_x = X.mean(axis=0); std_x = X.std(axis=0)
-        std_x[std_x < 1e-12] = 1.0
-        X_s = (X - mean_x) / std_x
-        ridge_d1 = fit_ridge_cv(X_s, y)
-        best_alpha_d1 = ridge_d1.alpha
         loo_ridge_preds = np.zeros(len(y))
-        for tr_i, te_i in _LOO().split(X_s):
-            m = _Ridge_D1(alpha=best_alpha_d1).fit(X_s[tr_i], y[tr_i])
-            loo_ridge_preds[te_i] = m.predict(X_s[te_i])
-        mse_ridge = float(np.mean((y - loo_ridge_preds) ** 2))
-        km3 = _KM(n_clusters=3, n_init=20, random_state=RANDOM_STATE).fit(X_s)
         loo_basin_preds = np.zeros(len(y))
-        for i in range(len(y)):
-            k = km3.labels_[i]
-            same_cluster = (km3.labels_ == k)
-            same_cluster[i] = False
-            if same_cluster.sum() > 0:
-                loo_basin_preds[i] = y[same_cluster].mean()
-            else:
-                loo_basin_preds[i] = y.mean()
+        for tr_i, te_i in _LOO().split(X):
+            X_tr, X_te, y_tr = X[tr_i], X[te_i], y[tr_i]
+            mu, sd = X_tr.mean(axis=0), X_tr.std(axis=0)
+            sd[sd < 1e-12] = 1.0
+            X_tr_s = (X_tr - mu) / sd
+            X_te_s = (X_te - mu) / sd
+            ridge_d1 = fit_ridge_cv(X_tr_s, y_tr)
+            loo_ridge_preds[te_i] = ridge_d1.predict(X_te_s)
+            km3 = _KM(n_clusters=3, n_init=20, random_state=RANDOM_STATE).fit(X_tr_s)
+            te_label = km3.predict(X_te_s)[0]
+            cluster_y = y_tr[km3.labels_ == te_label]
+            loo_basin_preds[te_i] = float(cluster_y.mean()) if len(cluster_y) > 0 else float(y_tr.mean())
+        mse_ridge = float(np.mean((y - loo_ridge_preds) ** 2))
         mse_basin = float(np.mean((y - loo_basin_preds) ** 2))
         ridge_advantage = (mse_basin - mse_ridge) / mse_basin if mse_basin > 1e-12 else 0.0
         results["D1_continuous_vs_basin"] = {
@@ -2210,29 +2204,26 @@ def route3_predictions(
     except Exception as e:
         print_flush(f"  D1 failed: {e}")
 
-    # D2: Route 2 vs Route 3 — depth drifts add independent value? (LOO MSE)
+    # D2: Route 2 vs Route 3 — depth drifts add independent value? (full LOO)
     try:
         from sklearn.linear_model import Ridge as _Ridge_D2
         from sklearn.model_selection import LeaveOneOut as _LOO_D2
         no_drift_idx = [0, 1, 2, 6, 7]  # alpha, PR, sqrt_pr_alpha, ID, kNN
         X_no_drift = X[:, no_drift_idx]
-        mean_nd = X_no_drift.mean(axis=0); std_nd = X_no_drift.std(axis=0)
-        std_nd[std_nd < 1e-12] = 1.0
-        X_nd_s = (X_no_drift - mean_nd) / std_nd
-        mean_all = X.mean(axis=0); std_all = X.std(axis=0)
-        std_all[std_all < 1e-12] = 1.0
-        X_all_s = (X - mean_all) / std_all
-        ridge_full = fit_ridge_cv(X_all_s, y)
-        alpha_full = ridge_full.alpha
-        ridge_no_drift = fit_ridge_cv(X_nd_s, y)
-        alpha_nd = ridge_no_drift.alpha
         loo_full = np.zeros(len(y))
         loo_nd = np.zeros(len(y))
-        for tr_i, te_i in _LOO_D2().split(X_all_s):
-            m_f = _Ridge_D2(alpha=alpha_full).fit(X_all_s[tr_i], y[tr_i])
-            loo_full[te_i] = m_f.predict(X_all_s[te_i])
-            m_n = _Ridge_D2(alpha=alpha_nd).fit(X_nd_s[tr_i], y[tr_i])
-            loo_nd[te_i] = m_n.predict(X_nd_s[te_i])
+        for tr_i, te_i in _LOO_D2().split(X):
+            y_tr = y[tr_i]
+            X_f_tr, X_f_te = X[tr_i], X[te_i]
+            mu_f, sd_f = X_f_tr.mean(axis=0), X_f_tr.std(axis=0)
+            sd_f[sd_f < 1e-12] = 1.0
+            ridge_f = fit_ridge_cv((X_f_tr - mu_f) / sd_f, y_tr)
+            loo_full[te_i] = ridge_f.predict((X_f_te - mu_f) / sd_f)
+            X_n_tr, X_n_te = X_no_drift[tr_i], X_no_drift[te_i]
+            mu_n, sd_n = X_n_tr.mean(axis=0), X_n_tr.std(axis=0)
+            sd_n[sd_n < 1e-12] = 1.0
+            ridge_n = fit_ridge_cv((X_n_tr - mu_n) / sd_n, y_tr)
+            loo_nd[te_i] = ridge_n.predict((X_n_te - mu_n) / sd_n)
         mse_full = float(np.mean((y - loo_full) ** 2))
         mse_no_drift = float(np.mean((y - loo_nd) ** 2))
         drift_value = (mse_no_drift - mse_full) / mse_no_drift if mse_no_drift > 1e-12 else 0.0
