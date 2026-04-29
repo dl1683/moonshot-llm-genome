@@ -46,7 +46,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 | **no_embed_lm_head** (λ=0.0105, matched ‖∇L‖) | **−0.439 nats (HARMS)** | — |
 | **no_embed − embed paired** | **−0.923 nats** | **[−1.055, −0.835] excludes 0 strongly negative** |
 
-The continuous SGD anchor on transformer block weights actively HURTS performance vs scratch. Only the embed+lm_head anchor delivers gain. The +1 nat "transfer mechanism" is essentially Qwen3-tokenizer trained-vocabulary initialization being held in place during recipient training. This is NOT what "neural genome transfer" should mean — it is a tokenizer-init prior. Source: `results/genome_181a_tokenizer_isolation.json`, cycle 65 adversarial `cycle65_adversarial_20260428T091500.md`.
+The continuous SGD anchor on transformer block weights actively HURTS performance vs scratch. Only the embed+lm_head anchor delivers gain. The +1 nat "transfer mechanism" is essentially Qwen3-tokenizer trained-vocabulary initialization being held in place during recipient training. This is NOT what "neural genome transfer" should mean — it is a tokenizer-init prior. Source: `results/genome_181a_tokenizer_isolation.json`, cycle 65 adversarial `codex_outputs/heartbeats/cycle65_adversarial_20260428T091500.md`.
 
 **★ g177v2 VERDICT: FAIL ★ (2026-04-28 ~08:50 UTC, wall ~2.92h)**
 
@@ -60,7 +60,7 @@ The continuous SGD anchor on transformer block weights actively HURTS performanc
 
 **Locked claims:** C17 (g158c transport-demand) + C18 (g165 weight-anchor) + C19 (g167 KD canonical) + C21 (g174 trained-structure specificity, both axes) — all matched-null backed.
 
-**Live falsifier:** g177v2 RUNNING with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
+**Live falsifier:** g177v2 RUNNING with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`codex_outputs/g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
@@ -109,7 +109,7 @@ Source: `results/genome_180_forecast.json`, `research/prereg/genome_180b_cross_t
 
 **★ PIVOT 2026-04-28 ~17:10: transfer-mechanism story dead → Genome Forecast / Diagnostic ★**
 
-Per g181a advisor (`g181a_next_direction_20260428.md`): "the transfer-mechanism story is dead in the strong form ... the highest section 0.1 move is to pivot the headline to Forecast/Diagnostic." 9.0/10 advisor pick. New flagship question: **"Can we predict final run failure or compute efficiency from zero-to-3% tokenizer/embed geometry better than early loss?"**
+Per g181a advisor (`codex_outputs/g181a_next_direction_20260428.md`): "the transfer-mechanism story is dead in the strong form ... the highest section 0.1 move is to pivot the headline to Forecast/Diagnostic." 9.0/10 advisor pick. New flagship question: **"Can we predict final run failure or compute efficiency from zero-to-3% tokenizer/embed geometry better than early loss?"**
 
 The pivot turns negative findings into mechanism: g181a showed tokenizer/embed init dominates the +1 nat anchor effect. If early tokenizer/embed geometry also predicts run health, that's a training triage instrument — practitioner tool, cross-arch from day one, cheap, falsifiable. Bar: held-out runs across multiple tokenizers/architectures, AUROC for bad-run risk, simulated compute-savings policy, must beat early-loss baseline.
 
@@ -202,11 +202,11 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Gate-1 passed (🟡 coordinate)** | **1 CLEAN 🟡 + now 9-class extended**: kNN-10 clustering coefficient + power-law form `C(X,k)=c_0·k^p`, scope `(modality ∈ {text, vision}, stimulus_family ∈ {c4_clean.len256.v1, imagenet1k_val.v1}, pooling ∈ {seq_mean, cls_or_mean})` on **Qwen3-0.6B + RWKV-4-169M + DINOv2-small + DeepSeek-R1-Distill-Qwen-1.5B + Falcon-H1-0.5B + BERT-base + MiniLM-L6 + CLIP-ViT-B/32 + I-JEPA-ViT-H/14 + DiT-XL/2-256**. Prereg `research/prereg/genome_knn_k10_portability_2026-04-21.md` LOCKED. **Biology interim (genome_027, n=4/10 sessions)**: 100% pass rate at δ=0.10 vs DINOv2 band. |
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
-| **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `research/atlas_tl_session.md §1c`). H15 retired to governance rule `research/atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
-| **Open pre-registrations** | **4 locked:** `genome_180b_cross_tokenizer_2026-04-29.md` (cross-tokenizer forecast), `genome_182_triage_arena_2026-04-29.md` (Blinded Training Triage Arena, §0.1=8.6), plus 2 atlas-era prereg from 2026-04-21 (superseded by post-pivot focus). |
+| **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
+| **Open pre-registrations** | **4 locked:** `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` (cross-tokenizer forecast), `research/prereg/genome_182_triage_arena_2026-04-29.md` (Blinded Training Triage Arena, §0.1=8.6), plus 2 atlas-era prereg from 2026-04-21 (superseded by post-pivot focus). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
-| **Active TL session** | `research/atlas_tl_session.md` — deprioritized post-pivot; atlas work paused for Forecast/Diagnostic direction |
-| **Gate semantics** | LOCKED in `research/atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
+| **Active TL session** | ARCHIVED — `research/atlas_tl_session.md` deleted in anti-entropy; atlas work paused for Forecast/Diagnostic direction |
+| **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
 
 → Phase definitions: `README.md` §Status.
@@ -241,7 +241,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 ## 3. Measurement primitives status
 
-→ Full catalog: `research/MEASUREMENT_PRIMITIVES.md`. Gate semantics locked in `research/atlas_tl_session.md §2.5`.
+→ Full catalog: `research/MEASUREMENT_PRIMITIVES.md`. Gate semantics from pre-pivot atlas session (file deleted in anti-entropy).
 
 **Legend (four-tier per §2.5).** 🟢¹ Level-1 universal (Gate 2 passed) · 🟢² Level-2 family-local (Gate 1 on ≥5 classes + family constants) · 🟡 coordinate (Gate 1 on ≥3 classes, portability only, no universality claim) · ⚪ diagnostic (Level-0; class-local or fails semantic comparability) · ⚫ untested.
 
