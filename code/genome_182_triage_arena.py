@@ -886,11 +886,19 @@ def baseline_features(cells: list[dict], baseline_type: str) -> np.ndarray:
             traj = c.get("trajectory_losses", {})
             for j, s in enumerate(steps):
                 X[i, len(arms) + j] = traj.get(s, traj.get(str(s), float("nan")))
-            vals = [X[i, len(arms) + j] for j in range(len(steps))
-                    if np.isfinite(X[i, len(arms) + j])]
-            if len(vals) >= 2:
-                X[i, -2] = vals[-1] - vals[0]
-                X[i, -1] = vals[-1] - 2 * vals[len(vals)//2] + vals[0]
+            valid_steps = [(s, X[i, len(arms) + j]) for j, s in enumerate(steps)
+                           if np.isfinite(X[i, len(arms) + j]) and s <= 108]
+            if len(valid_steps) >= 3:
+                log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
+                nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
+                coeffs = np.polyfit(log_s, nll_v, 2)
+                X[i, -2] = coeffs[1]
+                X[i, -1] = coeffs[0]
+            elif len(valid_steps) >= 2:
+                log_s = np.log(np.array([v[0] for v in valid_steps], dtype=np.float64))
+                nll_v = np.array([v[1] for v in valid_steps], dtype=np.float64)
+                X[i, -2] = np.polyfit(log_s, nll_v, 1)[0]
+                X[i, -1] = 0.0
     elif baseline_type == "combined_telemetry":
         parts = []
         for bt in ["arm_labels", "trajectory", "gradient_stats", "delayed_loss"]:
@@ -1199,6 +1207,8 @@ def main():
     parser = argparse.ArgumentParser(description="g182 Blinded Training Triage Arena")
     parser.add_argument("--smoke", action="store_true", help="Smoke test (20 steps per cell)")
     parser.add_argument("--stage1-only", action="store_true", help="Run 48-cell stage only")
+    parser.add_argument("--max-cells", type=int, default=0,
+                        help="Stop after N new cells (0=unlimited). For 4h session: ~11 cells.")
     args = parser.parse_args()
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -1245,6 +1255,8 @@ def main():
                 f"{qwen_ref_probe.get('reference_hidden', np.array([])).shape})")
 
     all_cells = []
+    new_cells_trained = 0
+    max_cells = args.max_cells if args.max_cells > 0 else float("inf")
     t_start = time.time()
 
     arch_pools = {}
@@ -1266,12 +1278,17 @@ def main():
         teacher_mask = torch.cat([e["attention_mask"] for e in teacher_enc], dim=0)[:n_train]
         arch_teacher_pools[arch] = {"train_ids": teacher_ids, "train_mask": teacher_mask}
 
+    hit_limit = False
     for arch in archs:
+        if hit_limit:
+            break
         print_flush(f"\n=== Stage 1: {arch} (scratch_ce + seq_kd_full) ===")
         pools = arch_pools[arch]
         teacher_pools = arch_teacher_pools[arch]
 
         for arm in stage1_arms:
+            if hit_limit:
+                break
             for seed in seeds:
                 cell_id = f"{arch}_{arm}_s{seed}"
                 if cell_id in completed_cells:
@@ -1279,6 +1296,10 @@ def main():
                     print_flush(f"  SKIP {cell_id} (already done)")
                     continue
 
+                if new_cells_trained >= max_cells:
+                    print_flush(f"  MAX CELLS ({int(max_cells)}) reached, pausing.")
+                    hit_limit = True
+                    break
                 result = train_cell(
                     arch=arch, arm=arm, seed=seed,
                     pools=pools,
@@ -1287,6 +1308,7 @@ def main():
                     smoke=args.smoke,
                 )
                 all_cells.append(result)
+                new_cells_trained += 1
                 save_incremental(OUT_PATH, {
                     "genome": "182",
                     "timestamp_utc": now_utc(),
@@ -1294,8 +1316,10 @@ def main():
                     "status": "running",
                 })
 
-    if not args.stage1_only:
+    if not args.stage1_only and not hit_limit:
         for arch in archs:
+            if hit_limit:
+                break
             print_flush(f"\n=== Stage 2: {arch} (embed_anchor) ===")
             pools = arch_pools[arch]
 
@@ -1306,6 +1330,10 @@ def main():
                     print_flush(f"  SKIP {cell_id} (already done)")
                     continue
 
+                if new_cells_trained >= max_cells:
+                    print_flush(f"  MAX CELLS ({int(max_cells)}) reached, pausing.")
+                    hit_limit = True
+                    break
                 result = train_cell(
                     arch=arch, arm="embed_anchor", seed=seed,
                     pools=pools,
@@ -1315,6 +1343,7 @@ def main():
                     smoke=args.smoke,
                 )
                 all_cells.append(result)
+                new_cells_trained += 1
                 save_incremental(OUT_PATH, {
                     "genome": "182",
                     "timestamp_utc": now_utc(),
@@ -1322,7 +1351,9 @@ def main():
                     "status": "running",
                 })
 
-    print_flush(f"\n=== All {len(all_cells)} cells complete. Running analysis... ===")
+    status_label = "partial" if hit_limit else "complete"
+    print_flush(f"\n=== {len(all_cells)} cells ({new_cells_trained} new). "
+                f"Status: {status_label}. Running analysis... ===")
 
     labeled = compute_normalized_labels(all_cells)
     print_flush(f"    {len(labeled)} labeled cells (excluding scratch baselines)")
