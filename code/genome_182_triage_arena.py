@@ -2401,6 +2401,12 @@ def main():
     if teacher_cache_path.exists():
         with open(teacher_cache_path, encoding="utf-8") as f:
             teacher_texts = json.load(f)
+        expected = 96 if args.smoke else N_TRAIN_WINDOWS + 512
+        if len(teacher_texts) < expected:
+            raise RuntimeError(
+                f"Teacher cache has {len(teacher_texts)} texts but expected >= {expected}. "
+                f"Cache may be corrupt from interrupted generation. Delete {teacher_cache_path} and retry."
+            )
         print_flush(f"    Loaded {len(teacher_texts)} cached teacher texts")
     else:
         n_teacher = 96 if args.smoke else N_TRAIN_WINDOWS + 512
