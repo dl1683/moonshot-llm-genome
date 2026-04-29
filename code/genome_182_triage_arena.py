@@ -2222,7 +2222,7 @@ def arm_controlled_loao(labeled: list[dict]) -> dict[str, Any]:
 
         if null_r2s:
             p95 = float(np.percentile(null_r2s, 95))
-            p_value = float(np.mean([1 for n in null_r2s if n >= real_mean_r2]))
+            p_value = float(np.mean([n >= real_mean_r2 for n in null_r2s]))
             results["within_arm_permutation"] = {
                 "real_mean_r2": real_mean_r2,
                 "null_95th_percentile": p95,
