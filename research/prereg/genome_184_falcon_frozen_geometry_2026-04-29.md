@@ -19,7 +19,7 @@ Level-1 cross-architecture-family generalization (if PASS: 3 families tested —
 
 ## Systems tested
 
-- **Falcon-H1-0.5B** (tiiuae/Falcon-H1-0.5B-Deep): hybrid attention+SSM, 1024d/36L, native tokenizer, ~500M params. Verified Windows-compatible (cycle 94).
+- **Falcon-H1-0.5B** (tiiuae/Falcon-H1-0.5B-Base): hybrid attention+SSM, 1024d/36L, native tokenizer, ~500M params. Verified Windows-compatible (cycle 94). Cell models: from-scratch 768d/8L (~157M params, matches g182 cell dimensions). Teacher for seq_kd: the full pre-trained 0.5B model.
 
 ## Protocol
 
@@ -33,9 +33,9 @@ Level-1 cross-architecture-family generalization (if PASS: 3 families tested —
 
 ### Phase 2: Run Falcon-H1-0.5B cells
 
-- Arms: scratch_ce, seq_kd_full (teacher = pre-trained tiiuae/Falcon-H1-0.5B-Deep from HuggingFace; native-tokenizer teacher to avoid cross-tokenizer KD artifacts)
+- Arms: scratch_ce, seq_kd_full (teacher = pre-trained tiiuae/Falcon-H1-0.5B-Base from HuggingFace; native-tokenizer teacher to avoid cross-tokenizer KD artifacts)
 - NOTE: embed_anchor arm EXCLUDED — no Falcon-H1 donor available for embed anchoring. 2 arms x 12 seeds = 24 cells.
-- Seeds: 12 (same seed set as g182: 42, 7, 13, 101, 202, 303, 404, 505, 606, 707, 808, 909)
+- Seeds: 12 (same seed set as g182: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 — matches SEEDS=list(range(12)) in g182 code)
 - Training: identical protocol to g182 (3600 steps, AdamW, same LR/warmup/batch, feature extraction at step 108 = 3%)
 - Feature extraction: same 8 manifold features from mid-depth hidden states
 - Total cells: 24 (2 arms x 12 seeds)
@@ -45,7 +45,7 @@ Level-1 cross-architecture-family generalization (if PASS: 3 families tested —
 
 1. Apply frozen Ridge (from Phase 1) to Falcon-H1 cells — NO refitting
 2. Compute MSE, R2 against actual labels
-3. Compute baseline MSEs: arm_mean, combined_telemetry (early_loss + grad norms + curvature)
+3. Compute baseline MSEs: arm_mean (from Falcon cells), frozen Model D (6 pure-telemetry features from g182, no refit — apples-to-apples frozen comparison)
 4. Seed-block bootstrap (B=2000, blocks of 4 seeds) for 95% CI on MSE reduction vs best baseline
 5. Shuffled-feature permutation test (1000 iterations) for p-value
 
@@ -57,7 +57,7 @@ Level-1 cross-architecture-family generalization (if PASS: 3 families tested —
 
 ## PASS criteria (all must hold)
 
-1. Frozen C' (manifold-only) MSE < best_baseline_MSE (arm_mean OR combined_telemetry, whichever is lower)
+1. Frozen C' (manifold-only) MSE < best_baseline_MSE (arm_mean OR frozen Model D telemetry, whichever is lower)
 2. MSE reduction vs best baseline >= 15% (relaxed from g182's 25% since this is zero-shot generalization)
 3. Bootstrap 95% CI on MSE(best_baseline) - MSE(frozen_C') excludes zero (geometry is significantly better)
 4. Permutation p <= 0.05

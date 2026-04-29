@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 100) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 101) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
@@ -40,7 +40,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **g182 Triage Arena RUNNING (cycle 93 restart, cycle 96 code fixes).** Smoke PASS (12/12). Cycle 93 Codex code review found SEV-8 padding_side bug — killed & restarted with left-padding fix. Cycle 95 adversarial found 2 additional analysis-phase bugs: (1) S10 scratch label=0 leak in `compute_normalized_labels` — scratch rows included with deterministic label, inflating R²; (2) S9 Model B mixes geometry + telemetry features (early_loss, grad norms, curvature). **Fixes applied cycle 96:** scratch excluded from labeled set, added Model C (pure geometry: 10 features) and Model D (pure telemetry: 6 features) ablation. **Cycle 100 (A15):** adversarial found Model C includes norm/var ratios that proxy optimization health → added Model C' (MANIFOLD_ONLY, 8 pure manifold features: spectral+rank+drift+ID+kNN only, no norm/var). Also: S10 tokenizer-family recognition risk — LOAO may test "nearby tokenizer transfer" not true architecture-agnostic geometry; resolving experiment = g184 Falcon-H1 frozen-C no-refit. 7-model analysis now: A/B/C/C'/D/E. Training unaffected — all fixes are analysis-phase only. Restart 12:51Z, teacher gen in progress. Source: `codex_outputs/heartbeats/cycle100_adversarial_20260429.md`.
 
-**g184 pre-staging (cycle 94):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). Source: cycle 94 compatibility test.
+**g184 pre-staging (cycle 94–101):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). **Cycle 101:** `frozen_eval_main()` fully implemented — Phase 1 (train frozen Ridge on g182 cells), Phase 2 (run 24 Falcon-H1 cells with native-tokenizer teacher), Phase 3 (frozen evaluation with bootstrap + permutation). Prereg: `research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md` (DRAFT, locks after g182 analysis). Ready to fire: `--frozen-eval falcon_h1` after g182 stage 1 completes.
 
 **Cycle 95 adversarial (A13):** 6 attacks, 2× S10. (1) Shesha may erase moat — same-step geometry features from published library could match g182. (2) Scratch label=0 leak — FIXED cycle 96. (3) Model B not pure geometry — FIXED: added Model C/D ablation. (4) C23 narrows story to interface prior. (5) Umwelt = ceiling on cross-family claims. (6) Resolving: g182-Shesha Residual Kill experiment. Prior cycle 90 adversarial (A12) arm/protocol confound addressed by arm_mean baseline. Source: `codex_outputs/heartbeats/cycle95_adversarial_20260429.md`.
 
