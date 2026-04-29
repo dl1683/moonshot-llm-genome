@@ -1223,7 +1223,7 @@ def shuffled_geometry_test(X_train, X_test, y_train, y_test, real_mse,
         shuf_mse = float(np.mean((y_test - pred) ** 2))
         if shuf_mse <= real_mse:
             n_better += 1
-    return float(n_better / n_iter)
+    return float((n_better + 1) / (n_iter + 1))
 
 
 def bad_run_auroc(y_true, geo_pred, base_pred, threshold_quantile=0.3):
