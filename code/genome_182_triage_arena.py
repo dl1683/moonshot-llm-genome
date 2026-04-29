@@ -672,7 +672,9 @@ def extract_features_for_cell(model, probe_batch, arch: str,
     if not include_qwen_ref:
         features = {k: v for k, v in features.items()
                     if not any(ref in k for ref in ["qwen_ref", "reference_rows"])}
-    bad = [k for k, v in features.items() if not math.isfinite(float(v))]
+    optional_prefixes = ("shesha_",)
+    bad = [k for k, v in features.items()
+           if not math.isfinite(float(v)) and not k.startswith(optional_prefixes)]
     if bad:
         raise RuntimeError(f"non-finite features: {bad}")
     return features
