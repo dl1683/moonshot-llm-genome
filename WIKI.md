@@ -203,9 +203,9 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability (→ `research/atlas_tl_session.md §1c`). H15 retired to governance rule `research/atlas_tl_session.md §2.5.8` (modality-scope is policy, not falsifiable). |
-| **Open pre-registrations** | **2 locked:** `research/prereg/genome_id_portability_2026-04-21.md` (Gate-1 joint ID+PR+kNN — superseded by focused kNN prereg for promotion) and **`research/prereg/genome_knn_k10_portability_2026-04-21.md` (Gate-1 kNN-10 on Qwen3+RWKV+DINOv2, LOCKED 2026-04-21)**. Validator exits 0 on both. |
+| **Open pre-registrations** | **4 locked:** `genome_180b_cross_tokenizer_2026-04-29.md` (cross-tokenizer forecast), `genome_182_triage_arena_2026-04-29.md` (Blinded Training Triage Arena, §0.1=8.6), plus 2 atlas-era prereg from 2026-04-21 (superseded by post-pivot focus). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
-| **Active TL session** | `research/atlas_tl_session.md` — Phase 1-3 drafted; Codex Round 1 complete (8/10), Round 2 running (task `b3fwyis5j`) |
+| **Active TL session** | `research/atlas_tl_session.md` — deprioritized post-pivot; atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in `research/atlas_tl_session.md §2.5` (two-gate spec + prereg template) |
 | **Next phase trigger** | Phase 1 begins when TL session converges to blueprint AND a Gate-1 prereg is locked AND smoke test passes |
 
@@ -315,14 +315,15 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 → Running or queued. Full log: `experiments/EXPERIMENTS.md`. Raw: `experiments/ledger.jsonl`.
 
-| ID | Status | Purpose | Systems | Primitive | Pre-reg |
-|---|---|---|---|---|---|
-| `genome_001_smoke` | ✅ passed 2026-04-21 | First end-to-end pipeline verification | Qwen3-0.6B (trained, FP16) | ID + PR + kNN-clustering | `research/atlas_tl_session.md §3.7` strawman via prereg |
-| `genome_002_n500_c4` | ✅ passed 2026-04-21 | First real primitive values (n=500 C4, Qwen3, 2 depths) | Qwen3-0.6B | ID + PR + kNN-clustering | `research/prereg/genome_id_portability_2026-04-21.md` STAGED |
-| `genome_003_cross_arch_pilot` | ✅ passed 2026-04-21 (2/3 systems) | **FIRST CROSS-CLASS atlas data** — Qwen3 transformer vs RWKV linear-attention at matched depths on matched stimuli | Qwen3-0.6B + RWKV-4-169M (Falcon-H1 hybrid deferred) | ID + PR + kNN-clustering | STAGED |
-| `genome_004_neg_control` | ✅ passed 2026-04-21 | Trained vs untrained negative control — discriminates learned vs architectural geometry | Qwen3-0.6B trained + random-init; RWKV trained | ID + PR + kNN-clustering | STAGED |
-| `genome_005_cross_modal` | ✅ passed 2026-04-21 (3/4 systems — Falcon blocked) | **FIRST CROSS-MODAL atlas data** — 3 systems × 3 classes × 2 modalities (text + vision). Clustering coefficient agrees within 0.06 across all three. Strongest Level-1 universality candidate. | Qwen3-0.6B + RWKV-4-169M + DINOv2-small | ID + PR + kNN-clustering (k=5 + k=10) | STAGED |
-| `genome_006_stim_resample_g13` | ✅ executed 2026-04-21 | **FIRST formal Gate-1 G1.3 verdicts** — 3 seeds × 3 systems × 3 depths × 6 primitive-estimator cells. Strict δ=0.10: 3/18 pass. δ=0.20 sensitivity: kNN-k10 passes ALL 3 systems. kNN-k10 is the atlas's first 🟡 (δ-sensitive) Level-1 candidate. | Qwen3-0.6B + RWKV-4-169M + DINOv2-small | ID + PR + kNN clustering (equivalence criterion) | STAGED; scale to n=2000 for clean 🟡 at δ=0.10 |
+| ID | Status | Purpose | Pre-reg |
+|---|---|---|---|
+| `genome_181b` | RUNNING | Long-horizon attenuation (5000 steps, 4/6 cells done) | — |
+| `genome_180b` | QUEUED | Cross-tokenizer forecast (27 cells, launches after g181b) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
+| `genome_182` | LOCKED | Blinded Training Triage Arena (72 cells, 2 archs, 9 baselines) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
+| `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
+| `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
+
+Earlier experiments (g001-g177) documented in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`.
 
 ---
 
