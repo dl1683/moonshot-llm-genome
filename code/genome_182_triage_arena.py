@@ -541,6 +541,12 @@ PURE_TELEMETRY_FEATURE_NAMES = [
     "norm_param_early_late_ratio",
 ]
 
+SHESHA_FEATURE_NAMES = [
+    "shesha_feature_split",
+    "shesha_sample_split",
+    "shesha_anchor_stability",
+]
+
 QWEN_REF_FEATURE_NAMES = [
     "hidden_to_qwen_ref_pca64_procrustes_residual",
     "hidden_to_qwen_ref_pca64_rsa_distance",
@@ -1278,6 +1284,141 @@ def load_existing(out_path: Path) -> dict | None:
 
 
 # ---------------------------------------------------------------------------
+# Shesha post-hoc augmentation
+# ---------------------------------------------------------------------------
+
+def shesha_augment_main():
+    """Replay each cell to feature_step, extract Shesha features, re-run analysis."""
+    print_flush("=== Shesha Augmentation Mode ===")
+    existing = load_existing(OUT_PATH)
+    if not existing or "cells" not in existing:
+        print_flush("ERROR: no g182 results found. Run main experiment first.")
+        return
+
+    cells = existing["cells"]
+    need_shesha = [c for c in cells if "shesha_feature_split" not in c.get("features", {})]
+    print_flush(f"  {len(cells)} cells total, {len(need_shesha)} need Shesha features")
+
+    if not need_shesha:
+        print_flush("  All cells already have Shesha features. Running analysis only.")
+    else:
+        from transformers import AutoTokenizer
+        qwen_tok = AutoTokenizer.from_pretrained(ARCH_CONFIGS["qwen3"]["hf_id"], trust_remote_code=True)
+        gpt2_tok = AutoTokenizer.from_pretrained(ARCH_CONFIGS["gpt2"]["hf_id"])
+        if gpt2_tok.pad_token is None:
+            gpt2_tok.pad_token = gpt2_tok.eos_token
+        toks = {"qwen3": qwen_tok, "gpt2": gpt2_tok}
+
+        pools_by_arch = {}
+        for arch in ARCH_CONFIGS:
+            tok = toks[arch]
+            pools_by_arch[arch] = load_c4_pools(tok, N_TRAIN_WINDOWS, N_C4_VAL_WINDOWS, SEQ_LEN)
+
+        teacher_pools = {}
+        for c in need_shesha:
+            if c["arm"] == "seq_kd_full" and c["arch"] not in teacher_pools:
+                print_flush(f"  NOTE: seq_kd_full cells need teacher texts for exact replay.")
+                print_flush(f"  Skipping seq_kd_full cells (Shesha from scratch/embed_anchor only).")
+                break
+
+        for i, c in enumerate(need_shesha):
+            arch, arm, seed = c["arch"], c["arm"], c["seed"]
+            if arm == "seq_kd_full":
+                continue
+
+            cell_id = c["cell_id"]
+            print_flush(f"\n  [{i+1}/{len(need_shesha)}] Replaying {cell_id} to step {max(1, int(math.ceil(0.03 * TRAIN_STEPS)))}...")
+
+            feature_step = max(1, int(math.ceil(0.03 * TRAIN_STEPS)))
+            set_seed(seed)
+            model = make_model(arch, seed)
+            optimizer = torch.optim.AdamW(
+                model.parameters(), lr=LR, betas=BETAS, weight_decay=WEIGHT_DECAY,
+            )
+
+            pools = pools_by_arch[arch]
+            train_ids = pools["train_ids"]
+            train_mask = pools["train_mask"]
+            n_examples = train_ids.shape[0]
+
+            rng = np.random.default_rng(seed)
+            schedule = rng.integers(0, n_examples, size=(TRAIN_STEPS, TRAIN_BATCH_SIZE), dtype=np.int64)
+
+            model.train()
+            for step in range(1, feature_step + 1):
+                current_lr = warmup_lr(step - 1)
+                for group in optimizer.param_groups:
+                    group["lr"] = current_lr
+                batch_idx = torch.as_tensor(schedule[step - 1], dtype=torch.long)
+                ids = train_ids[batch_idx].to(DEVICE)
+                mask = train_mask[batch_idx].to(DEVICE)
+                optimizer.zero_grad(set_to_none=True)
+                with autocast_context():
+                    logits = model(input_ids=ids, attention_mask=mask, use_cache=False).logits
+                    ce = causal_ce_loss(logits, ids, mask)
+                ce.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
+                optimizer.step()
+
+            model.eval()
+            probe = dict(pools["probe_batch"])
+            probe["early_loss"] = 0.0
+            layer_indices = [1, 1 + N_LAYERS // 2, N_LAYERS]
+            hidden_states, attention_mask_out, _ = g180._model_hidden_states(model, probe)
+            chosen = g180._select_hidden_indices(len(hidden_states), layer_indices)
+            mid_idx = chosen[len(chosen) // 2]
+            mid = g180._hidden_cloud(hidden_states[mid_idx], attention_mask_out)
+
+            shesha_feats = g180._shesha_features(mid)
+            print_flush(f"    Shesha: {shesha_feats}")
+
+            c["features"].update(shesha_feats)
+
+            del model, optimizer
+            gc.collect()
+            torch.cuda.empty_cache()
+
+        existing["cells"] = cells
+        save_incremental(OUT_PATH, existing)
+        print_flush(f"\n  Saved augmented results to {OUT_PATH}")
+
+    labeled = compute_normalized_labels(cells)
+    print_flush(f"\n  {len(labeled)} labeled cells (scratch excluded)")
+
+    loao_results = {}
+    for model_label, feat_names in [
+        ("model_a_full_geometry", AGNOSTIC_FEATURE_NAMES + QWEN_REF_FEATURE_NAMES),
+        ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
+        ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
+        ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
+        ("model_e_shesha", SHESHA_FEATURE_NAMES),
+    ]:
+        has_feats = all(
+            any(math.isfinite(float(c["features"].get(fn, float("nan")))) for fn in feat_names)
+            for c in labeled
+        )
+        if not has_feats:
+            print_flush(f"\n  SKIP {model_label}: missing features for some cells")
+            continue
+        print_flush(f"\n--- LOAO evaluation: {model_label} ({len(feat_names)} features) ---")
+        result = loao_evaluate(labeled, feat_names, model_label)
+        loao_results[model_label] = result
+        for a, fold in result["folds"].items():
+            print_flush(f"    fold={a}: geo_mse={fold['geometry_mse']:.6f} "
+                        f"best_base={fold['best_baseline_name']}={fold['best_baseline_mse']:.6f} "
+                        f"reduction={fold['mse_reduction_vs_best']:.1%} "
+                        f"R2={fold['geometry_r2']:.3f}")
+
+    if loao_results:
+        verdict = compute_verdict(loao_results)
+        print_flush(f"\n*** VERDICT: {verdict['verdict']} ***")
+        existing["shesha_augmented_loao"] = loao_results
+        existing["shesha_augmented_verdict"] = verdict
+        save_incremental(OUT_PATH, existing)
+        print_flush(f"Saved augmented analysis to {OUT_PATH}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1287,7 +1428,13 @@ def main():
     parser.add_argument("--stage1-only", action="store_true", help="Run 48-cell stage only")
     parser.add_argument("--max-cells", type=int, default=0,
                         help="Stop after N new cells (0=unlimited). For 4h session: ~11 cells.")
+    parser.add_argument("--shesha-augment", action="store_true",
+                        help="Post-hoc: replay cells to step 108, add Shesha features, re-run analysis")
     args = parser.parse_args()
+
+    if args.shesha_augment:
+        shesha_augment_main()
+        return
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -1455,6 +1602,7 @@ def main():
         ("model_b_reference_free", AGNOSTIC_FEATURE_NAMES),
         ("model_c_pure_geometry", PURE_GEOMETRY_FEATURE_NAMES),
         ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
+        ("model_e_shesha", SHESHA_FEATURE_NAMES),
     ]:
         print_flush(f"\n--- LOAO evaluation: {model_label} ({len(feat_names)} features) ---")
         result = loao_evaluate(labeled, feat_names, model_label)

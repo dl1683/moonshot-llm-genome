@@ -700,6 +700,26 @@ def _norm_variance_depth_ratios(
     }
 
 
+def _shesha_features(X: np.ndarray) -> dict[str, float]:
+    """Compute Shesha geometry metrics for competitive baseline comparison."""
+    try:
+        import types, sys
+        if "shesha.bio" not in sys.modules:
+            sys.modules["shesha.bio"] = types.ModuleType("shesha.bio")
+        from shesha.core import feature_split, sample_split, anchor_stability
+        return {
+            "shesha_feature_split": float(feature_split(X)),
+            "shesha_sample_split": float(sample_split(X)),
+            "shesha_anchor_stability": float(anchor_stability(X)),
+        }
+    except Exception:
+        return {
+            "shesha_feature_split": float("nan"),
+            "shesha_sample_split": float("nan"),
+            "shesha_anchor_stability": float("nan"),
+        }
+
+
 def extract_features(model, probe_batch, layer_indices) -> dict[str, float]:
     """Compute the eight cycle-66 feature groups for one early checkpoint.
 
@@ -746,6 +766,7 @@ def extract_features(model, probe_batch, layer_indices) -> dict[str, float]:
     features.update(_gradient_noise_scale(model, probe_batch, n_microbatches=4))
     features["curvature_top_eigen_proxy"] = _curvature_top_eigen_proxy(model, probe_batch, n_iter=4, time_limit_s=30.0)
     features.update(_norm_variance_depth_ratios(hidden_by_idx, model))
+    features.update(_shesha_features(mid))
     return {key: _numeric_or_nan(value) for key, value in features.items()}
 
 
