@@ -42,7 +42,9 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **Cycle 109:** Codex (medium effort) caught data leakage in D1/D2/P6/A16 LOO implementations — scaling, alpha selection, and KMeans were using full dataset before LOO loop. Fixed: all now use per-fold train-only standardization, alpha CV, and KMeans. Codex verified clean on second pass.
 
-**Cycle 110:** Codex reviewed frozen_eval_main (ALL PASS — Ridge trained on g182 only, Falcon uses native tokenizer, no refit) + route3_predictions diagnostics (ALL CLEAN). All g182 analysis code now Codex-verified. Teacher gen pre-cache at batch 375/1088, ETA ~85 min. Source: `codex_outputs/heartbeats/cycle110_route3_diagnostics_20260429.md`.
+**Cycle 110:** Codex reviewed frozen_eval_main (ALL PASS — Ridge trained on g182 only, Falcon uses native tokenizer, no refit) + route3_predictions diagnostics (ALL CLEAN). All g182 analysis code now Codex-verified. Source: `codex_outputs/heartbeats/cycle110_route3_diagnostics_20260429.md`.
+
+**Cycle 111 (mod-3 Codex review):** §A confirmed teacher cache path consistent + no race condition; added cache length validation. §B confirmed g182 still highest-leverage (9/10); RMT paper (arXiv 2604.18450) added as Route 3 theory anchor (BBP-like spectral phase transition). Strongest post-C'-PASS follow-up: prospective triage-to-action compute-savings (9.0/10). Source: `codex_outputs/heartbeats/cycle111_correctness_perf_20260429.md`, `codex_outputs/heartbeats/cycle111_architect_competitive_20260429.md`.
 
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
