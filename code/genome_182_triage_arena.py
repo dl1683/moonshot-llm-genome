@@ -2562,6 +2562,13 @@ def main():
         ("model_d_pure_telemetry", PURE_TELEMETRY_FEATURE_NAMES),
         ("model_e_shesha", SHESHA_FEATURE_NAMES),
     ]:
+        has_feats = all(
+            any(math.isfinite(float(c["features"].get(fn, float("nan")))) for fn in feat_names)
+            for c in labeled
+        )
+        if not has_feats:
+            print_flush(f"\n  SKIP {model_label}: missing features for some cells")
+            continue
         print_flush(f"\n--- LOAO evaluation: {model_label} ({len(feat_names)} features) ---")
         result = loao_evaluate(labeled, feat_names, model_label)
         loao_results[model_label] = result
@@ -2574,6 +2581,9 @@ def main():
     verdict = compute_verdict(loao_results)
     print_flush(f"\n*** VERDICT: {verdict['verdict']} ***")
 
+    route3 = route3_predictions(labeled, loao_results)
+    arm_checks = arm_identity_diagnostics(labeled)
+
     total_time = time.time() - t_start
     final = {
         "genome": "182",
@@ -2584,6 +2594,8 @@ def main():
         "labeled_cells": len(labeled),
         "loao_results": loao_results,
         "verdict": verdict,
+        "route3_predictions": route3,
+        "arm_identity_diagnostics": arm_checks,
         "total_wallclock_s": total_time,
         "status": "complete",
     }
