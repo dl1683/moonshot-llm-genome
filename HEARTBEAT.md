@@ -43,7 +43,7 @@ Prompt: "You are Correctness Engineer + Performance Engineer for the Neural Geno
 codex exec --full-auto --skip-git-repo-check -C <PROJECT_DIR> -o codex_outputs/heartbeat_direction_review_<TIMESTAMP>.md "<PROMPT>"
 ```
 
-Prompt: "You are Architecture Theorist + Competitive Analyst for the Neural Genome moonshot. Read CLAUDE.md §0/§0.05/§0.1, WIKI.md, research/CLAIM_EVIDENCE_MAP.md, research/programs/post_g156_pass_program.md, and the latest experiment results in results/. Are we on the right breakthrough-axis trajectory or drifting into patch-old-chain work? Should the next queued experiment be reordered? Is there a higher-leverage move available given the most recent state? Score the active queue's §0.1 expected uplift (1-10) and recommend ONE concrete change if expected uplift < 6. Report under 400 words."
+Prompt: "You are Architecture Theorist + Competitive Analyst for the Neural Genome moonshot. Read CLAUDE.md §0/§0.05/§0.1, WIKI.md, research/CLAIM_EVIDENCE_MAP.md, and the latest experiment results in results/. Check research/prereg/ for locked experiment specs and experiments/EXPERIMENTS.md for recent verdicts. Are we on the right breakthrough-axis trajectory or drifting into patch-old-chain work? Should the next queued experiment be reordered? Is there a higher-leverage move available given the most recent state? Score the active queue's §0.1 expected uplift (1-10) and recommend ONE concrete change if expected uplift < 6. Report under 400 words."
 
 Both consults run in parallel via `run_in_background: true`. Their outputs are read on the FOLLOWING heartbeat (since Codex takes 5-15 min) and integrated.
 
