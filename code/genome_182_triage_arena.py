@@ -129,11 +129,11 @@ PHASE2_ARCH_CONFIGS = {
         "hidden_size": HIDDEN_DIM,
         "num_hidden_layers": N_LAYERS,
         "num_attention_heads": N_HEADS,
-        "num_key_value_heads": 4,
+        "num_key_value_heads": 2,
         "intermediate_size": FFN_DIM,
-        "vocab_size": 65024,
+        "vocab_size": 32784,
         "max_position_embeddings": SEQ_LEN + 64,
-        "tie_word_embeddings": True,
+        "tie_word_embeddings": False,
     },
 }
 

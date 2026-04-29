@@ -33,7 +33,8 @@ Level-1 cross-architecture-family generalization (if PASS: 3 families tested —
 
 ### Phase 2: Run Falcon-H1-0.5B cells
 
-- Arms: scratch_ce, seq_kd_full (teacher = Falcon-H1-0.5B at same checkpoint as Qwen3 teacher in g182)
+- Arms: scratch_ce, seq_kd_full (teacher = pre-trained tiiuae/Falcon-H1-0.5B-Deep from HuggingFace; native-tokenizer teacher to avoid cross-tokenizer KD artifacts)
+- NOTE: embed_anchor arm EXCLUDED — no Falcon-H1 donor available for embed anchoring. 2 arms x 12 seeds = 24 cells.
 - Seeds: 12 (same seed set as g182: 42, 7, 13, 101, 202, 303, 404, 505, 606, 707, 808, 909)
 - Training: identical protocol to g182 (3600 steps, AdamW, same LR/warmup/batch, feature extraction at step 108 = 3%)
 - Feature extraction: same 8 manifold features from mid-depth hidden states
