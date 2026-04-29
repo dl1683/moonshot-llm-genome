@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 ~09:30 UTC (cycle 80: C23 g181b PASS integrated, A8 resolved, g180b RUNNING 0/27 cells).
+**Last updated.** 2026-04-29 ~09:55 UTC (cycle 80: A10 adversarial integrated, g180 GPT-2 norm fix, g180b RUNNING).
 
 ---
 
@@ -111,6 +111,12 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   4. **Alternative explanation alive** (severity 7): tokenizer/interface signatures + regression-to-mean. g181a showed mechanism is tokenizer-prior; g180b might only show that fingerprint is stable.
   5. **Competitive positioning weak** (severity 6): big labs view this as internal telemetry, not a moonshot.
   **Resolving experiment:** 60+ cell holdout with ≥10 seeds per tokenizer/architecture, block-bootstrap, compare against early-loss trajectory + shuffled-geometry baselines. Source: `codex_outputs/heartbeats/cycle75_adversarial_20260429.md`.
+
+- **A10. Cycle 80 adversarial — arm-identity leakage + Qwen-shaped features (severity 8/10).** Three attacks:
+  1. **Seed/arm structure leakage** (severity 8): g180 scratch and late-KD cells have identical step-108 features by seed (same model weights at feature extraction). Ridge may learn "which arm is this" rather than geometric signal. g182's per-seed matched normalization (label = fractional gain vs own-seed scratch) + 12 seeds mitigate.
+  2. **24 features are Qwen-shaped** (severity 7): 8 of 24 features reference Qwen3 geometry (Procrustes/RSA). For LOAO, Qwen3-fold train → GPT-2-fold test uses Qwen-reference features that may fingerprint architecture, not geometry. g182's Model B (16 reference-free features) is the resolver — if Model B passes LOAO, signal is genuinely architecture-agnostic.
+  3. **g182 LOAO collapse risk** (severity 7): if combined_telemetry or arm_mean baselines tie/beat geometry, g180's claim dies. If only Model A passes but Model B fails, it's Qwen-reference leakage.
+  **Resolving experiment:** g182 as preregistered — both Model A and Model B must beat all 9 baselines in both LOAO folds. Model B is the critical test. Source: `codex_outputs/heartbeats/cycle80_adversarial_20260429.md`.
 
 Path forward (status 2026-04-26 evening): g156 PASSed; g157 prereg+impl LOCKED, ready to launch when GPU frees. g158/g159/g160/g161 preregs all LOCKED, conditional on their gating. The empirical chain has a derivation backbone candidate; g157+ tests whether that backbone has an internal measurable quantity (η > δ^mlp). If g157 PASSes, §0.1 → 7-8/10 (theory has internal-quantity validation). If g157 KILLs, the mechanism is wrong but g156 PASS still stands as cross-axis empirical evidence.
 
