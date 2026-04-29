@@ -1162,6 +1162,11 @@ def cell_done(payload: Mapping[str, Any], tokenizer_label: str, arm_label: str, 
     result = cell_result(payload, tokenizer_label, arm_label, seed)
     if not result or "final_nll" not in result:
         return False
+    try:
+        if not math.isfinite(float(result["final_nll"])):
+            return False
+    except (TypeError, ValueError):
+        return False
     cached = load_feature_cache(tokenizer_label, arm_label, seed)
     return cached is not None
 
@@ -1229,10 +1234,20 @@ def build_completed_rows(payload: Mapping[str, Any]) -> list[dict[str, Any]]:
             scratch = cell_result(payload, spec.label, "scratch_ce", seed)
             if scratch is None or "final_nll" not in scratch:
                 continue
-            scratch_nll = float(scratch["final_nll"])
+            try:
+                scratch_nll = float(scratch["final_nll"])
+                if not math.isfinite(scratch_nll):
+                    continue
+            except (TypeError, ValueError):
+                continue
             for arm in ARMS:
                 result = cell_result(payload, spec.label, arm.label, seed)
                 if result is None or "final_nll" not in result:
+                    continue
+                try:
+                    if not math.isfinite(float(result["final_nll"])):
+                        continue
+                except (TypeError, ValueError):
                     continue
                 features = load_features_for_row(spec.label, arm.label, seed)
                 if features is None:
