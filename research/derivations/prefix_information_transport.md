@@ -1,6 +1,6 @@
 # Prefix-Information Transport Principle
 
-**Status:** Derivation skeleton (not yet theorem-grade). Falsifiable.
+**Status:** ARCHIVED — eta mechanism REJECTED (R7 in CLAIM_EVIDENCE_MAP; g157+g157b KILL). Design-rule application REJECTED (R8; g160 PILOT_KILL). Empirical g156 PASS (data-order inversion) and g158c PASS (context-length inversion) stand as phenomenological observations but this derivation's proposed mechanism is falsified. Retained for audit trail.
 **Origin:** Codex first-principles consult, 2026-04-26.
 **Source:** `codex_outputs/first_principles_derivation.md`
 
