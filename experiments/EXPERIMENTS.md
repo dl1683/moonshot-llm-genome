@@ -34,6 +34,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 **PASS:** Both co-primary models (A, B) on both LOAO folds beat best baseline by >=25% MSE reduction; CI>0; R2>=0.20; permutation p<=0.01; AUROC>=0.75. **Revised §0.1 (cycle 100):** Model C'/C PASS + Shesha kill=8.8-9.0, Model C'/C PASS alone=8.1-8.5, Model B PASS only=5.8-6.5, FAIL=4.0-4.5. g184 (Falcon-H1 frozen-C' no-refit) is the A15 resolver for 3-family generalization.
 
+**Cycle 101 additions:** (1) `frozen_eval_main()` fully implemented — trains frozen Ridge on g182, runs Falcon-H1 cells, evaluates without refitting. (2) Route 3 (stat-physics) quantitative predictions (P1-P4) auto-computed in `--reanalyze` mode. (3) g184 prereg corrected: model ID tiiuae/Falcon-H1-0.5B-Base (not -Deep), seeds range(12), baselines = arm_mean + frozen Model D.
+
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
 ---
