@@ -136,6 +136,8 @@ Path forward (status 2026-04-26 evening): g156 PASSed; g157 prereg+impl LOCKED, 
 - **arxiv 2507.00885 (Jul 2025):** "Scaling Laws Are Unreliable for Downstream Tasks." Meta-analysis: only 39% of downstream tasks predictable via scaling laws. **This is an opportunity:** if scaling laws fail most of the time, a geometry-based signal that works cross-architecture would be a significant advance.
 - **arxiv 2602.09924 (Feb 2026, ICLR 2026 Workshop):** "LLMs Encode Their Failures." Linear probes on pre-generation activations predict per-instance success/failure. Partial cross-model probe transfer tested. Different target (per-instance not per-run).
 - **arxiv 2602.11217 (Feb 2026):** "Magic Correlations." Tests whether pretrain accuracy rankings transfer to SFT. Within-family transfer dynamics.
+- **arxiv 2601.19831 (Jan 2026):** "Neural Neural Scaling Laws." Time-series extrapolation of accuracy trajectories + token-level val losses. 38% better than logistic scaling laws. Cross-architecture zero-shot transfer. Threat: data-driven trajectory prediction, not geometry, but solves adjacent problem.
+- **arxiv 2602.21669 (Feb 2026):** "DWA-KD: Cross-Tokenizer Knowledge Distillation." Entropy weighting + Soft DTW for cross-tokenizer KD. Directly relevant: they fix the cross-tokenizer KD problem we observe as diagnostic signal. If DWA-KD eliminates KD-hurts-on-wrong-tokenizer, our A11 resolver scenario changes.
 
 ---
 
