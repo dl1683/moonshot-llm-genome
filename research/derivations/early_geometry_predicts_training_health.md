@@ -89,3 +89,19 @@ Route 3 (stat-physics) is the most intuitive and directly testable (just cluster
 **Why should geometry features transfer to unseen architectures?** Under Route 3, the basins (random / collapsed / trained-attractor) are properties of the DATA + LOSS LANDSCAPE, not the architecture. Any model training on C4 next-token-prediction faces the same phase transition — the order parameters (spectral alpha, PR, ID, depth drift) characterize WHERE in the landscape the run sits, not HOW the architecture got there. A Transformer reaches the trained basin via attention; an SSM reaches it via state space dynamics; but the basin geometry is the same because the data constraint is the same.
 
 **Testable prediction:** g184 frozen-C' (8 manifold features, trained on Qwen3+GPT-2) should predict Falcon-H1-0.5B (hybrid attention+SSM) training outcomes WITHOUT refitting, because the features measure basin identity, not architecture-specific structure. If this prediction fails, Route 3 is falsified as the mechanism (the basins would be architecture-dependent, not data-dependent).
+
+## Route 3 Quantitative Predictions for g182 Data (pre-registered)
+
+If Route 3 is correct, the g182 cells should exhibit specific structure:
+
+**P1 (Basin separation at 3%).** K-means clustering (k=3) on the 8 manifold features at step 108 should produce clusters that align with final-outcome terciles (good/mid/bad) measured by fractional gain. Adjusted Rand Index between geometry clusters and outcome terciles should exceed 0.15 (chance ARI=0). Loss-only clustering (k-means on early_loss alone) should have lower ARI.
+
+**P2 (Feature importance ordering).** Under Route 3, spectral alpha and participation ratio are the primary order parameters (they characterize the eigenvalue distribution most directly). In the Ridge model, |coef(spectral_alpha)| + |coef(participation_ratio)| should exceed the sum of all other 6 feature coefficients. If depth-drift features dominate instead, Route 2 (rate-distortion allocation across layers) is the better explanation.
+
+**P3 (Cross-architecture feature alignment).** If basins are data-dependent, the DISTRIBUTION of each manifold feature should be similar across Qwen3 and GPT-2 cells within the same arm. Two-sample KS test on each feature between architectures within the same arm should yield p > 0.1 for at least 6/8 features. If most features have p < 0.05, the features are architecture-specific (falsifies Route 3).
+
+**P4 (Frozen Ridge transfer asymmetry).** If geometry measures basin identity, the frozen Ridge transfer should be symmetric: train-on-Qwen3→test-on-GPT2 and train-on-GPT2→test-on-Qwen3 should yield similar MSE reductions. Asymmetry ratio |MSE_reduction_fold1 - MSE_reduction_fold2| / mean(MSE_reduction) < 0.5. Large asymmetry suggests the Ridge learns architecture-specific patterns, not universal basin structure.
+
+**P5 (g184 transfer prediction).** Frozen C' trained on g182 (Qwen3+GPT-2) should predict Falcon-H1 outcomes with R² > 0 and MSE reduction ≥ 15% vs arm_mean. This is the A15 resolver. FAIL here kills Route 3.
+
+These predictions are testable on g182 data (P1-P4) and g184 data (P5) without additional experiments. They can be evaluated as part of the `--reanalyze` pass after g182 cells complete.

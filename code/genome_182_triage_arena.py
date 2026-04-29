@@ -1903,8 +1903,132 @@ def reanalyze_main():
         existing["reanalysis_loao"] = loao_results
         existing["reanalysis_verdict"] = verdict
         existing["reanalysis_timestamp"] = now_utc()
+
+        route3 = route3_predictions(labeled, loao_results)
+        if route3:
+            existing["route3_predictions"] = route3
+            print_flush(f"\n  Route 3 predictions saved")
+
         save_incremental(OUT_PATH, existing)
         print_flush(f"Saved re-analysis to {OUT_PATH}")
+
+
+def route3_predictions(
+    labeled: list[dict], loao_results: dict
+) -> dict[str, Any]:
+    """Compute Route 3 (stat-physics) testable predictions on g182 data.
+
+    P1: Basin separation via K-means on manifold features vs outcome terciles.
+    P2: Feature importance ordering (spectral+PR vs rest).
+    P3: Cross-architecture feature alignment (KS tests).
+    P4: LOAO transfer asymmetry.
+    """
+    from scipy import stats
+    from sklearn.cluster import KMeans
+    from sklearn.metrics import adjusted_rand_score
+
+    feat_names = MANIFOLD_ONLY_FEATURE_NAMES
+    X, _ = feature_matrix(labeled, feat_names)
+    y = np.array([c["label"] for c in labeled], dtype=np.float64)
+    archs = np.array([c["arch"] for c in labeled])
+    arms = np.array([c["arm"] for c in labeled])
+
+    results = {}
+
+    # P1: Basin separation
+    try:
+        tercile_labels = np.digitize(y, np.quantile(y, [1/3, 2/3]))
+        km_geo = KMeans(n_clusters=3, n_init=20, random_state=RANDOM_STATE).fit(X)
+        ari_geo = float(adjusted_rand_score(tercile_labels, km_geo.labels_))
+        early_loss = np.array([[c["early_loss"]] for c in labeled], dtype=np.float64)
+        km_loss = KMeans(n_clusters=3, n_init=20, random_state=RANDOM_STATE).fit(early_loss)
+        ari_loss = float(adjusted_rand_score(tercile_labels, km_loss.labels_))
+        results["P1_basin_separation"] = {
+            "ari_geometry_clusters": ari_geo,
+            "ari_loss_clusters": ari_loss,
+            "geometry_beats_loss": ari_geo > ari_loss,
+            "passes_threshold_015": ari_geo > 0.15,
+        }
+        print_flush(f"\n  P1 basin separation: ARI(geo)={ari_geo:.3f} "
+                    f"ARI(loss)={ari_loss:.3f} {'PASS' if ari_geo > 0.15 else 'FAIL'}")
+    except Exception as e:
+        print_flush(f"  P1 failed: {e}")
+
+    # P2: Feature importance ordering
+    c_prime = loao_results.get("model_c_prime_manifold_only")
+    if c_prime:
+        try:
+            all_coefs = []
+            for arch_fold in c_prime["folds"].values():
+                pass  # coefficients not stored in LOAO results
+            # Refit on all data to get coefficients
+            mean_x = X.mean(axis=0); std_x = X.std(axis=0)
+            std_x[std_x < 1e-12] = 1.0
+            X_s = (X - mean_x) / std_x
+            ridge = fit_ridge_cv(X_s, y)
+            coefs = np.abs(ridge.coef_)
+            alpha_pr_sum = coefs[0] + coefs[1]  # spectral_alpha + participation_ratio
+            rest_sum = coefs[2:].sum()
+            results["P2_feature_importance"] = {
+                "alpha_pr_weight_sum": float(alpha_pr_sum),
+                "rest_weight_sum": float(rest_sum),
+                "alpha_pr_dominates": bool(alpha_pr_sum > rest_sum),
+                "feature_weights": dict(zip(feat_names, coefs.tolist())),
+            }
+            print_flush(f"  P2 feature importance: |alpha+PR|={alpha_pr_sum:.4f} "
+                        f"|rest|={rest_sum:.4f} "
+                        f"{'PASS (Route 3)' if alpha_pr_sum > rest_sum else 'FAIL (Route 2 likely)'}")
+        except Exception as e:
+            print_flush(f"  P2 failed: {e}")
+
+    # P3: Cross-architecture feature alignment
+    try:
+        unique_archs = sorted(set(archs))
+        if len(unique_archs) >= 2:
+            unique_arms = sorted(set(arms))
+            ks_results = {}
+            n_pass = 0
+            n_total = 0
+            for arm in unique_arms:
+                mask_a0 = (archs == unique_archs[0]) & (arms == arm)
+                mask_a1 = (archs == unique_archs[1]) & (arms == arm)
+                if mask_a0.sum() < 3 or mask_a1.sum() < 3:
+                    continue
+                for j, fn in enumerate(feat_names):
+                    stat, pval = stats.ks_2samp(X[mask_a0, j], X[mask_a1, j])
+                    ks_results[f"{arm}_{fn}"] = {"ks_stat": float(stat), "p": float(pval)}
+                    n_total += 1
+                    if pval > 0.1:
+                        n_pass += 1
+            results["P3_cross_arch_alignment"] = {
+                "n_tests": n_total,
+                "n_pass_p_gt_01": n_pass,
+                "fraction_pass": float(n_pass / n_total) if n_total > 0 else 0.0,
+                "passes_threshold_6of8": n_pass >= 6,
+                "per_feature": ks_results,
+            }
+            print_flush(f"  P3 cross-arch alignment: {n_pass}/{n_total} features "
+                        f"p>0.1 {'PASS' if n_pass >= 6 else 'FAIL'}")
+    except Exception as e:
+        print_flush(f"  P3 failed: {e}")
+
+    # P4: Transfer asymmetry
+    if c_prime and len(c_prime.get("folds", {})) >= 2:
+        folds = c_prime["folds"]
+        reductions = [f["mse_reduction_vs_best"] for f in folds.values()]
+        if len(reductions) == 2:
+            mean_red = np.mean(reductions)
+            asym = abs(reductions[0] - reductions[1]) / abs(mean_red) \
+                if abs(mean_red) > 1e-12 else float("inf")
+            results["P4_transfer_asymmetry"] = {
+                "fold_reductions": dict(zip(folds.keys(), reductions)),
+                "asymmetry_ratio": float(asym),
+                "passes_threshold_05": asym < 0.5,
+            }
+            print_flush(f"  P4 transfer asymmetry: ratio={asym:.3f} "
+                        f"{'PASS' if asym < 0.5 else 'FAIL'}")
+
+    return results
 
 
 # ---------------------------------------------------------------------------
