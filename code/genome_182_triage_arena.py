@@ -1292,6 +1292,14 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
             if fold_weak:
                 any_weak = True
 
+    missing_primary = CO_PRIMARY_MODELS - set(loao_results)
+    if missing_primary:
+        return {
+            "verdict": "FAIL",
+            "reason": f"missing co-primary models: {sorted(missing_primary)}",
+            "details": details,
+        }
+
     if all_pass:
         verdict = "PASS"
     elif any_weak:
@@ -1353,14 +1361,30 @@ def shesha_augment_main():
         has_anchor_cells = any(c["arm"] == "embed_anchor" for c in need_shesha)
         if has_anchor_cells:
             donor = load_qwen3_donor()
-            donor_embed = donor["embed_params"]
-            shared_vocab = donor["shared_vocab_map"]
+            donor_embed = snapshot_donor_embed_lm_head(donor)
+            tok_qwen_local = get_tokenizer("qwen3")
+            tok_gpt2_local = get_tokenizer("gpt2")
+            shared_vocab = build_shared_vocab_map(tok_qwen_local, tok_gpt2_local)
+            del donor
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
 
         teacher_pools_by_arch = {}
         has_kd_cells = any(c["arm"] == "seq_kd_full" for c in need_shesha)
         if has_kd_cells:
-            print_flush("  Regenerating teacher texts for seq_kd_full replay...")
-            teacher_texts = generate_teacher_texts(N_TRAIN_WINDOWS)
+            teacher_cache_path = CACHE_DIR / "teacher_texts.json"
+            if teacher_cache_path.exists():
+                with open(teacher_cache_path, encoding="utf-8") as f:
+                    teacher_texts = json.load(f)
+                print_flush(f"  Loaded {len(teacher_texts)} cached teacher texts for replay")
+            else:
+                raise RuntimeError(
+                    f"Teacher text cache not found at {teacher_cache_path}. "
+                    "Run main experiment first to generate and cache teacher texts. "
+                    "Regenerating would produce different texts (sampling-based), "
+                    "making Shesha features non-comparable."
+                )
             for arch in ARCH_CONFIGS:
                 tok = toks[arch]
                 enc_list = [tok(t, truncation=True, max_length=SEQ_LEN,
@@ -1529,9 +1553,18 @@ def main():
                 f"({100*len(shared_vocab_map)/gpt2_tok.vocab_size:.1f}% of GPT-2 vocab)")
 
     print_flush(f"\n--- Generating teacher texts for seq_kd_full arm ---")
-    n_teacher = 96 if args.smoke else N_TRAIN_WINDOWS + 512
-    teacher_texts = generate_teacher_texts(n_teacher)
-    print_flush(f"    Generated {len(teacher_texts)} teacher texts")
+    teacher_cache_path = CACHE_DIR / "teacher_texts.json"
+    if teacher_cache_path.exists():
+        with open(teacher_cache_path, encoding="utf-8") as f:
+            teacher_texts = json.load(f)
+        print_flush(f"    Loaded {len(teacher_texts)} cached teacher texts")
+    else:
+        n_teacher = 96 if args.smoke else N_TRAIN_WINDOWS + 512
+        teacher_texts = generate_teacher_texts(n_teacher)
+        teacher_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(teacher_cache_path, "w", encoding="utf-8") as f:
+            json.dump(teacher_texts, f)
+        print_flush(f"    Generated and cached {len(teacher_texts)} teacher texts")
 
     print_flush(f"\n--- Loading Qwen3 reference geometry for Model A features ---")
     qwen_ref_probe = _load_qwen3_reference_geometry(qwen_tok)

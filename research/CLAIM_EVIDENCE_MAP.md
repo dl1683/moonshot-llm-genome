@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-29 ~13:00 UTC (cycle 93: competitive intel updated with Geometric Canary + Umwelt; g182 RUNNING stage 1).
+**Last updated.** 2026-04-29 ~14:00 UTC (cycle 99: g182 stage 1 in progress; 5-model analysis (A/B/C/D/E) with scratch exclusion fix, Shesha Model E, g184 Falcon-H1 pre-staged).
 
 ---
 
@@ -129,7 +129,23 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   6. **C23 supports the objection, not the headline** (severity 6): persistent tokenizer/interface prior within Qwen-family narrows mechanism, doesn't validate general diagnostic.
   **Resolving experiment (strict variant):** residualize g182 labels against arm_mean; exclude arm IDs, early/delayed loss, gradients, and Qwen-reference features; use probe/eval-disjoint validation plus OOD labels; require reference-free pure-geometry residual LOAO to beat arm_mean and combined_telemetry by >25% MSE on both folds with seed-block CI > 0. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
 
-Path forward (status 2026-04-29 cycle 91): g180b COMPLETE 27/27, FAIL — geometry forecast is tokenizer-specific, not universal. g182 Triage Arena is the §0.1 resolver: PASS → 8.3-8.6, FAIL → 4.0-4.5. Smoke test imminent, then full 72-cell run. A12 strict residualization variant addresses arm-identity confound.
+- **A13. Cycle 95 adversarial — Shesha moat threat + scratch leak + Model B impurity (severity 10/10).** Six attacks:
+  1. **Shesha competitor may erase moat** (severity 10): shesha-geometry PyPI library (arXiv 2604.17698) computes RDM stability on same step-108 tensors. If Shesha features match or beat g182 geometry features, our differentiation dies. RESOLVED: integrated as Model E (3 Shesha features) in g182 5-model analysis + post-hoc --shesha-augment replay mode.
+  2. **Scratch label=0 leak** (severity 10): compute_normalized_labels included scratch cells with deterministic label=0, inflating R². FIXED cycle 96: scratch excluded from labeled set.
+  3. **Model B mixes geometry + telemetry** (severity 9): AGNOSTIC_FEATURE_NAMES included early_loss, grad norms, curvature. FIXED cycle 96: added Model C (10 pure geometry features) and Model D (6 pure telemetry features). Model C PASS is the critical discriminator.
+  4. **C23 narrows story** (severity 8): persistent tokenizer-prior within Qwen-family shrinks mechanism scope.
+  5. **Umwelt ceiling** (severity 7): different tokenizers = different Umwelten per arXiv 2604.17960, theoretical ceiling on cross-family claims.
+  6. **Resolving: Shesha Residual Kill** — compute Shesha features on same tensors, residualize against telemetry. If Shesha ties Model C, moat dies.
+  Source: `codex_outputs/heartbeats/cycle95_adversarial_20260429.md`.
+
+- **A14. Cycle 96 code review — verdict gate + Shesha augmentation bugs (severity 10/10).** Four findings:
+  1. **compute_verdict gated ALL 5 models** (severity 10): Model D failure could make verdict FAIL even when geometry passes. FIXED: CO_PRIMARY_MODELS = {A, B} only.
+  2. **Shesha augmentation tokenizer bug** (severity 9): used non-existent hf_id key. FIXED: uses get_tokenizer().
+  3. **Shesha augmentation missing anchor/teacher arms** (severity 9): embed_anchor replayed as plain CE; seq_kd_full skipped. FIXED: full arm-correct replay.
+  4. **Model C includes norm/var ratios** (severity 8): hidden_norm_early_late_ratio and hidden_var_early_late_ratio are activation-magnitude features, not pure geometry. Noted: still architecture-agnostic activation features distinct from gradient/curvature telemetry.
+  Source: `codex_outputs/heartbeats/cycle96_code_review_20260429.md`.
+
+Path forward (status 2026-04-29 cycle 99): g182 stage 1 IN PROGRESS (teacher gen ~78 min, started 12:51Z). 5-model analysis: A (full), B (reference-free), C (pure geometry — the §0.1 discriminator), D (pure telemetry), E (Shesha). Model C PASS + Shesha kill = 8.8-9.0/10. Next after g182: Shesha-residual-kill (--shesha-augment), then g184 Falcon-H1 (pre-staged). Theory backbone: 3 first-principles routes in `research/derivations/early_geometry_predicts_training_health.md`.
 
 ## 3. Competitive Intelligence (updated cycle 93, 2026-04-29)
 

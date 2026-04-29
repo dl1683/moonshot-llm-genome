@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## ⚡ CURRENT STATUS (2026-04-29, cycle 96) ⚡
+## ⚡ CURRENT STATUS (2026-04-29, cycle 99) ⚡
 
 **§0.1 honest score: 5.5-6.0/10** (post g180b FAIL). Branch projections:
 - Current (g180 WEAK PASS + g180b FAIL): **5.5-6.0/10** (geometry forecast tokenizer-specific, not universal)
@@ -334,7 +334,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 |---|---|---|---|
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
-| `genome_182` | **RUNNING** | Blinded Training Triage Arena (48 cells stage 1, 4 models incl. C/D ablation) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
+| `genome_182` | **RUNNING** | Blinded Training Triage Arena (48 cells stage 1, 5 models: A/B co-primary + C pure-geometry + D pure-telemetry + E Shesha) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_183` | DRAFT | Corpus-derived init (8 arms × 3 seeds, gated on g182) | `research/prereg/genome_183_corpus_derived_init_2026-04-29.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
