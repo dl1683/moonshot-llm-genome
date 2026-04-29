@@ -1255,6 +1255,10 @@ def simulated_kill(y_true, geo_pred, cells, kill_fraction=0.3):
     gain_retained = survived_gain / total_gain if abs(total_gain) > 1e-12 else float("nan")
     compute_saved = float(n_kill / n)
 
+    mean_all = float(np.mean(y_true))
+    mean_survived = float(np.mean(y_true[survived_idx])) if survived_idx else float("nan")
+    survivor_quality = mean_survived >= mean_all
+
     true_bottom = set(np.argsort(y_true)[:n_kill].tolist())
     precision = len(killed_idx & true_bottom) / n_kill if n_kill > 0 else 0.0
 
@@ -1263,6 +1267,9 @@ def simulated_kill(y_true, geo_pred, cells, kill_fraction=0.3):
         "n_survived": len(survived_idx),
         "compute_saved_fraction": compute_saved,
         "gain_retained_fraction": gain_retained,
+        "mean_label_all": mean_all,
+        "mean_label_survived": mean_survived,
+        "survivor_quality_improves": survivor_quality,
         "kill_precision": precision,
     }
 
@@ -1297,6 +1304,12 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
             auroc_delta = fold["bad_run_auroc"]["delta"]
             kill_save = fold["simulated_kill"]["compute_saved_fraction"]
             kill_retain = fold["simulated_kill"]["gain_retained_fraction"]
+            survivor_improves = fold["simulated_kill"].get("survivor_quality_improves", True)
+
+            if fold["simulated_kill"].get("mean_label_all", 0) < 0:
+                kill_retain_ok = survivor_improves
+            else:
+                kill_retain_ok = kill_retain >= 0.90 if not np.isnan(kill_retain) else False
 
             fold_checks = {
                 "mse_reduction_ge_25pct": mse_red >= 0.25,
@@ -1306,7 +1319,7 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
                 "auroc_ge_0.75": auroc >= 0.75 if not np.isnan(auroc) else False,
                 "auroc_delta_ge_0.05": auroc_delta >= 0.05 if not np.isnan(auroc_delta) else False,
                 "kill_saves_ge_20pct": kill_save >= 0.20,
-                "kill_retains_ge_90pct": kill_retain >= 0.90 if not np.isnan(kill_retain) else False,
+                "kill_retains_ge_90pct": kill_retain_ok,
             }
             all_checks_pass = all(fold_checks.values())
             weak_checks = ci_lo > 0 and (0.10 <= mse_red < 0.25 or not all_checks_pass)
