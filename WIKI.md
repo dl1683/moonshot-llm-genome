@@ -401,6 +401,7 @@ Every deletion, merge, and rename. Demonstrates the repo is getting simpler, not
 | 2026-04-29 | Deleted | 15 code files (genome_087–099 + 161–162) | Pre-pivot era, zero WIKI refs (161/162) or pre-transfer-mechanism invariant exploration (087–099). |
 | 2026-04-29 | Deleted | 10 one-shot scripts (integrate_g*, make_*, assemble_paper, analysis_*) | Run-once verdict integrators; results already committed. |
 | 2026-04-29 | Deleted | 89 dead utility/probe/figure scripts (non-numbered genome_*.py) | Self-referencing cluster with zero active (g165+) imports except genome_primitives. Kept: genome_primitives, stimulus_banks, prereg_validator. Repo: 189→21 code files. |
+| 2026-04-29 | Deleted | 9 orphaned pre-pivot scripts (g151-g159, stimulus_banks) | Import graph analysis: none imported by active chain (g165→g180→g182). stimulus_banks only imported by deleted files. Results preserved in git. Repo: 21→12 code files. |
 
 ---
 
