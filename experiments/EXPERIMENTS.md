@@ -75,6 +75,122 @@ Source: `results/genome_180_forecast.json`, `codex_outputs/g180_advisor_20260429
 
 ---
 
+## 2026-04-28 — genome_181a_tokenizer_isolation — CONFIRMED (tokenizer-prior dominance)
+
+**Purpose.** Cycle 65 adversarial A7 (severity 9/10) resolution: isolate whether the +1 nat anchor effect is donor-information-in-weights or tokenizer/embedding trained-init prior. 4 arms (full_anchor, embed_lm_head_only, no_embed_lm_head, scratch) × 3 seeds × 2000 steps, gradient-matched λ per arm.
+
+**Verdict.** **A7 CONFIRMED — tokenizer-prior dominates.** embed_lm_head_only gain = +0.483 nats; no_embed_lm_head = −0.439 nats (HARMS); paired difference = −0.923 nats [CI −1.055, −0.835]. The +1 nat effect is ~100% Qwen3-tokenizer+lm_head trained-init. Anchoring transformer blocks actively hurts.
+
+**What we learned:** C18/C19/C21 "neural genome transfer" framing collapses to "tokenizer-vocabulary initialization held in place during recipient training." Triggered the §0 pivot from transfer-mechanism to Forecast/Diagnostic.
+
+Source: `results/genome_181a_tokenizer_isolation.json`.
+
+---
+
+## 2026-04-28 — genome_173_cross_arch_flop_cashout — FAIL (cross-architecture KD)
+
+**Purpose.** Cycle 60+63 direction-locked cross-architecture KD cash-out: Qwen3 teacher → Llama-arch student (173M) vs Qwen3-arch student (596M). Tests A6 same-family-basin attack at cross-family level. 18 cells (3 arms × 3 seeds × 2 arch).
+
+**Verdict.** **FAIL** on locked criterion (transfer_ratio ≥1.5x → got 0.99x). Retention = 101.1%. Late-KD retention = 97.7%. Per-arm gains: Llama KD +2.29pp, Qwen-arch KD +0.80pp — gain-ratio 2.86× favors Llama but absolute accuracy near random chance (~40-42%).
+
+**What we learned:** Cross-architecture transfer does not yield FLOP-efficiency advantage at the locked criterion. Strong-sense "neural genome transfer" framing dead. Cycle 70 adversarial rejected post-hoc gain-ratio reframe (10/10 methodology drift).
+
+Source: `results/genome_173_cross_arch_flop_cashout.json`.
+
+---
+
+## 2026-04-28 — genome_177_matched_alt_donor — FAIL (donor-identity specificity)
+
+**Purpose.** Cycle 55+60 adversarial-driven matched-corpus + force-normalized + 13-gram-dedup'd donor-identity falsifier. 3 alt donors (same Qwen3-arch, different seeds, undertrained to NLL ~5.72) vs Qwen3-0.6B (NLL ~3.55). 5×3=15 cells.
+
+**Verdict.** **FAIL — C22 REJECTED.** Alt donors give 95-96% of Qwen3 anchor effect. Margin Qwen3-minus-best-alt = +0.038 nats [CI +0.018, +0.068]. Donor-identity component ≈ 3.5% of total +1.087 effect. Active ingredient: "any sufficiently trained Qwen3-arch checkpoint."
+
+**What we learned:** With all confounds eliminated (matched corpus, matched anchor force, 13-gram dedup), donor-identity claim collapses. A6 same-family-basin confirmed within Qwen3 family.
+
+Source: `results/genome_177_matched_alt_donor.json`.
+
+---
+
+## 2026-04-28 — genome_174_donor_specificity_control — PASS (two-axis matched-null)
+
+**Purpose.** Cycle 45 adversarial-driven control: test whether g165 weight-anchor and g167 KD effects are donor-structure-specific (vs generic regularization / generic supervision). Part A: trained vs permuted vs random donor weights. Part B: trained vs uniform logit targets. 3 seeds each.
+
+**Verdict.** **BOTH PARTS PASS.** Part A: trained +1.087 nats, permuted +0.128, random −0.687. Trained beats best null by +0.959 nats [CI +0.924, +1.029]. Part B: trained +1.014 pp top-1, uniform +0.05 pp. Trained beats best null by +0.981 pp [CI +0.908, +1.024].
+
+**What we learned:** C21 locked — trained-structure specificity confirmed on both weight-anchor and KD axes. Cycle 45 adversarial refuted.
+
+Source: `results/genome_174_donor_specificity_control.json`.
+
+---
+
+## 2026-04-28 — genome_172_kd_warmup_cutoff — PASS (late-KD timing finding)
+
+**Purpose.** Resolve "init-signal vs continuous-constraint" question from cycle 39. Warmup-only KD (steps 0-2000) vs late-only KD (steps 4001-6000) vs full KD. 3 seeds × 4 arms.
+
+**Verdict.** **PASS — late-KD captures 69% of full-KD at 33% compute.** kd_late_only = +0.700 pp [CI +0.659, +0.764] = 69% of g167's +1.014 pp. kd_warmup_only = +0.139 pp = 14% retention. Both mechanisms exist but continuous-constraint dominates.
+
+**What we learned:** C20 locked at Level-0. Donor anchoring works best during convergence, not initialization — recipient must be partially structured before donor signal resolves coherently.
+
+Source: `results/genome_172_kd_warmup_cutoff.json`.
+
+---
+
+## 2026-04-28 — genome_170_transport_gated_kd — FAIL (position-gated/disagreement-gated KD)
+
+**Purpose.** Test whether transport-aware token weighting beats uniform top-k KD. Position-gated (high transport-demand tokens get more weight) and disagreement-gated arms.
+
+**Verdict.** **FAIL — gated weighting hurts vs uniform KD.** Uniform KD reproduces g167 (+1.01pp vs scratch). Confirms cycle 39 prediction: continuous KD works generically, not via transport-aware token selection.
+
+Source: `results/genome_170_transport_gated_kd.json`.
+
+---
+
+## 2026-04-28 — genome_169_scaffold_swap_distillation — FAIL (activation scaffold)
+
+**Purpose.** ScaffoldSwap: mix donor activations into recipient forward path with α(t) decay. 3 decay schedules × 3 seeds.
+
+**Verdict.** **FAIL — all 3 decay schedules below +0.2 nats threshold; CI crosses zero.** Mirrors g165 decay-arm pattern at the activation level. Only continuous optimization constraint works; temporary scaffolding leaves no residue.
+
+Source: `results/genome_169_scaffold_swap_distillation.json`.
+
+---
+
+## 2026-04-27 — genome_168_rebasin_zero_step_transplant — FAIL (zero-step alignment)
+
+**Purpose.** Test zero-step capability transfer via weight alignment: identity, permutation-only, norm-refit-only, permutation+norm_refit. Closes the alignment-loophole branch from g117-g124.
+
+**Verdict.** **FAIL — best zero-step gain = +0.003 nats vs PASS threshold +0.8 nats.** Diagnostic: at step 50 with continued training, norm_refit_only shows +0.438 nats — same SGD-required pattern as g165.
+
+**What we learned:** R9 locked — zero-step capability transfer via weight injection is empirically dead. Donor weights need optimization to be useful.
+
+Source: `results/genome_168_rebasin_zero_step_transplant.json`.
+
+---
+
+## 2026-04-27 — genome_167_kd_canonical — PASS (KD as second transfer axis)
+
+**Purpose.** Canonical 3-seed scale-up of g154 KD smoke test. Top-k=64 logit KD from Qwen3 teacher to random-init recipient. 3 seeds [42,7,13].
+
+**Verdict.** **PASS_canonical.** Mean KD−scratch C4 top-1 = +1.014 pp [CI +0.988, +1.036]. NLL gain +0.153. Second independent persistent transfer mechanism (after g165 weight-anchor). Both apply continuous SGD constraint.
+
+**What we learned:** C19 locked — KD and weight-anchor are complementary transfer axes, both requiring continuous constraint during recipient training.
+
+Source: `results/genome_167_kd_canonical.json`.
+
+---
+
+## 2026-04-27 — genome_165_annealed_donor — PASS ★★ MAJOR (continuous anchor persistence law)
+
+**Purpose.** Cycle 24 strategic pivot — first §0-axis experiment. Tests continuous Frobenius weight-anchor from trained Qwen3 donor into random-init recipient at multiple λ values + decay schedules. 3 seeds [42,7,13].
+
+**Verdict.** **PASS_canonical.** Mean gain at λ_0=0.01 constant = +1.088 nats [CI +0.998, +1.159]. Monotone scaling: λ=0.01 (+1.088) > λ=0.0013 (+0.717) > λ=0.00013 (+0.274). All 12 decay-schedule arms FAILed. Active ingredient: continuous Frobenius constraint at constant rate during SGD.
+
+**What we learned:** C18 locked — continuous weight-anchor produces persistent capability transfer. The anchor must remain active; any decay rate washes out the effect. Combined with g125 (frozen attention), this establishes the §0 weight-anchor transfer axis.
+
+Source: `results/genome_165_annealed_donor.json`.
+
+---
+
 ## 2026-04-27 — genome_158c_3seed_canonical — PASS_canonical ★★★ MAJOR (canonical follow-up to g158 PILOT)
 
 **Purpose.** Canonical 3-seed verdict (SEEDS=[42,7,13]) of context-length inversion. Confirms whether g158 PILOT's perfect rho=+1.00 + Delta_256=+4.10pp + L=32 sign inversion survives multi-seed.

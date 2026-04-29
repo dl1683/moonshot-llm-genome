@@ -415,10 +415,10 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-29 cycle 80)*
+*(Updated 2026-04-29 cycle 82)*
 
 **Active:**
-1. **g180b cross-tokenizer forecast** — RUNNING (PID 48644, 0/27 rows, ~13% through). 27 cells, ~3.3h. `code/genome_180b_cross_tokenizer.py`.
+1. **g180b cross-tokenizer forecast** — RUNNING (PID 48644, teacher text generation in progress, 0/27 cells trained). 27 cells, ~3.3h total. `code/genome_180b_cross_tokenizer.py`.
 2. **g182 Blinded Training Triage Arena** — prereg LOCKED, implementation READY (`code/genome_182_triage_arena.py`). 72 cells, 2 architectures, 9 baselines. Launch after g180b completes.
 3. **g183 corpus-derived init** — DRAFT prereg pre-staged (`research/prereg/genome_183_corpus_derived_init_2026-04-29.md`). 24 cells, 8 arms. Gated on g182 Codex design gate.
 
