@@ -895,6 +895,8 @@ def train_cell(
     t_train = time.time()
     early_loss = float("nan")
     last_source = "none"
+    trajectory_checkpoints = {20, 40, 60, 80, target_step}
+    trajectory_losses: dict[int, float] = {}
     model.train()
 
     try:
@@ -924,6 +926,8 @@ def train_cell(
             torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
             optimizer.step()
             early_loss = float(ce_loss.detach().float().cpu().item())
+            if step in trajectory_checkpoints:
+                trajectory_losses[step] = early_loss
 
             if step == target_step and features is None:
                 t_feat = time.time()
@@ -1026,6 +1030,7 @@ def train_cell(
             "final_top1_acc": float(final_metrics["top1_acc"]),
             "last_training_source": last_source,
             "train_log": train_log,
+            "trajectory_losses": trajectory_losses,
             "feature_cache_path": feature_cache,
             "n_total_params": counts["n_total_params"],
             "n_trainable_params": counts["n_trainable_params"],
