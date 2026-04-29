@@ -578,13 +578,13 @@ def _load_qwen3_reference_geometry(qwen_tok) -> dict[str, Any]:
     ref_embed = None
     for name, p in ref_model.named_parameters():
         if "embed_tokens" in name:
-            ref_embed = p.float().cpu().numpy()[:g180.EMBED_MAX_ROWS]
+            ref_embed = p.detach().float().cpu().numpy()[:g180.EMBED_MAX_ROWS]
             break
 
     ref_head = None
     for name, p in ref_model.named_parameters():
         if "lm_head" in name:
-            ref_head = p.float().cpu().numpy()[:g180.EMBED_MAX_ROWS]
+            ref_head = p.detach().float().cpu().numpy()[:g180.EMBED_MAX_ROWS]
             break
 
     del ref_model
