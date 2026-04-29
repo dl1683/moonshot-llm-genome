@@ -37,7 +37,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Primary: geometry+early_loss MSE=0.323 vs early_loss_only MSE=0.232, reduction **-39.4%** (geometry HURTS). Per-tokenizer: BERT -42.9%, T5 -96.4%, GPT-2 **+44.0%** (geometry wins ONLY on closest tokenizer). Shuffled permutation p=0.999 (anti-informative). KD universally harmful across all 3 families. Confirms g181a tokenizer-prior dominance. Source: `results/genome_180b_cross_tokenizer.json`.
 
-**g182 Triage Arena NEXT.** GPU free. Smoke test imminent, then full 72-cell run. This is the §0.1 = 8.6-9.0 play.
+**g182 Triage Arena RUNNING.** Smoke PASS (12/12 cells, all arms, both archs — pipeline validated). Full stage 1 launched: 48 cells (2 arch x 2 arms x 12 seeds), --max-cells 11 first batch (~4h). Qwen3 actual params=182.8M (prereg est 90.5M was wrong — 151K vocab dominates), GPT-2=83.0M. Codex advisor rates g182 success prob at 10-15% full PASS, 20-30% Model B signal.
 
 **Cycle 90 adversarial (A12):** 6 attacks, sev-10 lead = arm/protocol identity confound (geometry may learn "which arm" not geometric signal). Strict resolving variant proposed: residualize labels against arm_mean, exclude arm IDs + Qwen-ref features, require reference-free geometry residual to beat baselines. Source: `codex_outputs/heartbeats/cycle90_adversarial_20260429.md`.
 
