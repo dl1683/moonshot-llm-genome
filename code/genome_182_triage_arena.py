@@ -492,7 +492,7 @@ def generate_teacher_texts(n_texts: int) -> list[str]:
         for seq in out:
             texts.append(tok.decode(seq, skip_special_tokens=True))
         batch_num = i // batch_size + 1
-        if batch_num % 100 == 0 or batch_num == n_batches:
+        if batch_num == 1 or batch_num % 50 == 0 or batch_num == n_batches:
             print_flush(f"    Teacher gen: {len(texts)}/{n_texts} texts ({batch_num}/{n_batches} batches)")
         if len(texts) >= n_texts:
             break
@@ -2214,16 +2214,30 @@ def route3_predictions(
         if both_neg.sum() >= 2 and (~both_neg).sum() >= 2:
             mean_both_neg = float(y[both_neg].mean())
             mean_not_both = float(y[~both_neg].mean())
+            obs_diff = mean_both_neg - mean_not_both
+            rng_r3 = np.random.default_rng(RANDOM_STATE)
+            n_perm = 5000
+            count_ge = 0
+            for _ in range(n_perm):
+                perm = rng_r3.permutation(len(y))
+                pm = y[perm[:int(both_neg.sum())]].mean() - y[perm[int(both_neg.sum()):]].mean()
+                if pm >= obs_diff:
+                    count_ge += 1
+            perm_p = (count_ge + 1) / (n_perm + 1)
             results["R3_depth_drift_direction"] = {
                 "n_both_negative": int(both_neg.sum()),
                 "n_not_both_negative": int((~both_neg).sum()),
                 "mean_outcome_both_neg": mean_both_neg,
                 "mean_outcome_other": mean_not_both,
-                "successive_refinement_wins": mean_both_neg > mean_not_both,
+                "observed_diff": float(obs_diff),
+                "permutation_p": float(perm_p),
+                "successive_refinement_wins": mean_both_neg > mean_not_both and perm_p < 0.10,
             }
-            verdict = "PASS (refining > not)" if mean_both_neg > mean_not_both else "FAIL"
+            sig = f"p={perm_p:.3f}" + (" *" if perm_p < 0.10 else "")
+            verdict = "PASS" if mean_both_neg > mean_not_both and perm_p < 0.10 else "FAIL"
             print_flush(f"  R3 depth drift direction: both_neg={both_neg.sum()} "
-                        f"mean={mean_both_neg:.4f} vs other={mean_not_both:.4f} {verdict}")
+                        f"mean={mean_both_neg:.4f} vs other={mean_not_both:.4f} "
+                        f"diff={obs_diff:.4f} {sig} {verdict}")
     except Exception as e:
         print_flush(f"  R3 failed: {e}")
 
