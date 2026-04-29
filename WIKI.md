@@ -8,13 +8,15 @@ Codex's Cross-System Auditor checks WIKI consistency at every PR gate. A commit 
 
 ---
 
-## THE END GOAL (every Codex review must know this)
+## THE END GOAL (POST-PIVOT 2026-04-29 cycle 72)
 
-**Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient.**
+**Live framing:** *"the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed."* Forecast/Diagnostic as the headline; falsification-discipline as the integrity story.
 
-Every experiment serves this. The atlas measures geometry. The invariants are the map. The destination is always: take a model that cannot do X, inject geometric structure from a model that can, and watch X emerge — cheaply, reproducibly, at scale. Surgical injection via identified critical subspace directions is the current path toward this goal.
+The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173 / g181a). Surviving locked findings: tokenizer-prior trained-init effect within Qwen3-arch family. The pivot turns g181a's negative result into the mechanism for a training-triage diagnostic.
 
-**Success threshold**: Even 50–60% capability transfer qualifies as a moonshot success IF it happens at near-zero cost (no gradient steps, seconds of compute). Cheap partial transfer >> expensive full recovery. Multi-donor ensemble surgery (injecting from several trained models) may unlock both higher transfer rates and implicit regularization benefits — worth exploring after single-donor baseline is established.
+**Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
+
+**§0.1 honest baseline:** 4.0-4.5/10. Full branch projections in CURRENT STATUS block below.
 
 ---
 
