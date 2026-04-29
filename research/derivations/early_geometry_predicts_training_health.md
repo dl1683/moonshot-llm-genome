@@ -206,3 +206,12 @@ Route 3 CONFIRMED at 3-family level. Claim: **manifold geometry at 3% of trainin
 
 ### 8. g182 PASS + g184 frozen-C' FAIL
 Tool works within Transformer family but doesn't generalize to hybrid-SSM. Basins may be architecture-class-dependent (Transformer basin ≠ SSM basin). Honest framing: cross-Transformer diagnostic. Still valuable but not universal. §0.1 → 8.0-8.5.
+
+### 9. C' PARTIAL PASS (one LOAO fold only) — added cycle 117
+C' beats baselines on one fold (e.g. train-Qwen3→test-GPT2) but fails on the other. This means geometry is informative in one direction but not symmetric. Cannot claim cross-architecture generalization — the predictor is family-specific. Investigate which direction fails: if GPT-2→Qwen3 fails, likely Qwen3 features carry more architecture-specific signal. §0.1 → 6.5-7.0.
+
+### 10. C' PASS but P1/D1/D2 contradict mechanism — added cycle 117
+C' passes the regression criteria (MSE, R², AUROC) but the mechanism diagnostics fail: D1 shows basin-mean beats continuous Ridge (Route 3 favored over Route 2, but basins don't separate cleanly per P1), or D2 shows depth drifts carry no marginal signal, or P1 ARI is near-zero despite good regression. This means the Ridge works as a black-box predictor but the theory (why it works) is wrong. Claim: "geometry predicts training health" (tool claim) but NOT "because of symmetry-breaking basins" (theory claim). §0.1 → 7.5-8.0.
+
+### 11. Inconclusive: operational failure — added cycle 117
+Cells fail to train (NaN, OOM, cache corruption), fewer than 40/48 cells complete, or systematic issues (e.g. all scratch cells have identical NLL, suggesting data loading bug). Cannot draw conclusions. Fix operational issues and re-run. §0.1 → unchanged from prior.
