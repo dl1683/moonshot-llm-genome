@@ -430,19 +430,22 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-29 cycle 82)*
+*(Updated 2026-04-29 cycle 111)*
 
 **Active:**
-1. **g180b cross-tokenizer forecast** — COMPLETE, FAIL. 27/27 cells. `results/genome_180b_cross_tokenizer.json`.
-2. **g182 Blinded Training Triage Arena** — prereg LOCKED, implementation READY (`code/genome_182_triage_arena.py`). Smoke test next, then full 72-cell run. GPU free.
-3. **g183 corpus-derived init** — DRAFT prereg pre-staged (`research/prereg/genome_183_corpus_derived_init_2026-04-29.md`). 24 cells, 8 arms. Gated on g182 Codex design gate.
+1. **g182 Blinded Training Triage Arena** — prereg LOCKED, code Codex-verified (cycles 109-111). Teacher gen in progress (PID 44380, batch 475/1088, ~74 min ETA). Stage 1 (48 cells) launches immediately after teacher gen. Analysis via `--reanalyze`. Source: `code/genome_182_triage_arena.py`.
+2. **g184 Falcon-H1 frozen geometry** — prereg DRAFT (`research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md`). 24 cells, frozen Ridge. GATED on g182 Model C' PASS. Ready to fire: `--frozen-eval falcon_h1`.
 
 **Completed this session:**
 - **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked. A8 resolved.
+- **g180b cross-tokenizer forecast** — FAIL. 27/27 cells. Geometry HURTS cross-tokenizer (-39.4%).
 
-**Queue (post-g182):**
-- g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter
-- Phase 2 SSM/hybrid for g182 — if phase 1 PASS
+**Queue (post-g182, prioritized by Codex cycle 111 §0.1 uplift scores):**
+1. g184 Falcon-H1 frozen eval — 8.5-9.0/10 (if Shesha residualized)
+2. g185 prospective triage-to-action compute-savings — 9.0/10 (convert prediction → electricity, §0.1 home-run). Design: freeze C' thresholds, start fresh pretraining runs, make irreversible decision at 3% (continue/stop/rescue), score by final quality per FLOP. GATED on g182 C' PASS.
+3. Shesha residual kill on g182 tensors — 8.5/10 (moat defense)
+4. g183 corpus-derived init — 5.5-7.0/10 (standalone/rescue arm)
+5. g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.
