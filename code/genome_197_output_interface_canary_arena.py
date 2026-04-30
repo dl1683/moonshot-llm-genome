@@ -315,9 +315,11 @@ def extract_geometry_features(
     top_q = max(1, n // 5)
     feats["freq_rare_norm_ratio"] = float(norms[freq_sorted[-top_q:]].mean() / norms[freq_sorted[:top_q]].mean()) if norms[freq_sorted[:top_q]].mean() > 1e-12 else float("nan")
 
-    # Angular features (subsample for speed)
+    # Angular features (deterministic random subsample for speed)
+    ang_rng = np.random.RandomState(12345)
     ang_n = min(2048, W_s.shape[0])
-    W_ang = W_s[:ang_n]
+    ang_idx = ang_rng.choice(W_s.shape[0], size=ang_n, replace=False) if W_s.shape[0] > ang_n else np.arange(W_s.shape[0])
+    W_ang = W_s[ang_idx]
     W_unit = W_ang / np.linalg.norm(W_ang, axis=1, keepdims=True).clip(min=1e-12)
     gram = W_unit @ W_unit.T
     np.fill_diagonal(gram, 0.0)
@@ -328,10 +330,12 @@ def extract_geometry_features(
     feats["gram_offdiag_fro"] = float(np.sqrt(np.sum(upper**2)))
     feats["angular_spread"] = float(np.arccos(np.clip(upper.mean(), -1, 1)))
 
-    # kNN features
+    # kNN features (deterministic random subsample)
     from sklearn.neighbors import NearestNeighbors
+    knn_rng = np.random.RandomState(54321)
     knn_n = min(4096, W_s.shape[0])
-    W_knn = W_s[:knn_n]
+    knn_idx = knn_rng.choice(W_s.shape[0], size=knn_n, replace=False) if W_s.shape[0] > knn_n else np.arange(W_s.shape[0])
+    W_knn = W_s[knn_idx]
     k = 10
     nn = NearestNeighbors(n_neighbors=k + 1, n_jobs=1).fit(W_knn)
     dists, idxs = nn.kneighbors(W_knn)
@@ -348,6 +352,34 @@ def extract_geometry_features(
     neigh_sets = [set(idxs[i, 1:].tolist()) for i in range(knn_n)]
     mutual = sum(1 for i in range(knn_n) for j in idxs[i, 1:] if i in neigh_sets[j])
     feats["mutual_nn_frac"] = float(mutual / (knn_n * k))
+
+    # kNN clustering coefficient (fraction of neighbor pairs that are mutual neighbors)
+    tri_count = 0
+    possible = 0
+    for i in range(knn_n):
+        nbrs = neigh_sets[i]
+        for a in nbrs:
+            for b in nbrs:
+                if a < b:
+                    possible += 1
+                    if b in neigh_sets[a]:
+                        tri_count += 1
+    feats["knn_clustering_coeff"] = float(tri_count / possible) if possible > 0 else float("nan")
+
+    # Frequency-bucket neighbor purity
+    knn_sample_freqs = token_freqs[row_sample_idx][:knn_n] if len(row_sample_idx) >= knn_n else token_freqs[row_sample_idx]
+    freq_ranks = np.argsort(-knn_sample_freqs)
+    bucket_size = max(1, knn_n // 5)
+    bucket_labels = np.zeros(knn_n, dtype=np.int32)
+    for b in range(5):
+        start = b * bucket_size
+        end = min((b + 1) * bucket_size, knn_n)
+        bucket_labels[freq_ranks[start:end]] = b
+    purity_sum = 0
+    for i in range(knn_n):
+        same_bucket = sum(1 for j in idxs[i, 1:] if j < knn_n and bucket_labels[j] == bucket_labels[i])
+        purity_sum += same_bucket / k
+    feats["freq_bucket_purity"] = float(purity_sum / knn_n)
 
     # Reference distances
     if trained_ref is not None:
@@ -375,10 +407,21 @@ def extract_geometry_features(
             feats["rsa_distance"] = float(1.0 - np.corrcoef(da, db)[0, 1])
         else:
             feats["rsa_distance"] = float("nan")
+        # Row-norm KL divergence to trained reference
+        ref_norms = np.linalg.norm(ref_s, axis=1)
+        n_bins = 50
+        all_norms = np.concatenate([norms, ref_norms])
+        bins = np.linspace(all_norms.min() - 1e-6, all_norms.max() + 1e-6, n_bins + 1)
+        p_hist = np.histogram(norms, bins=bins)[0].astype(np.float64) + 1
+        q_hist = np.histogram(ref_norms, bins=bins)[0].astype(np.float64) + 1
+        p_hist /= p_hist.sum()
+        q_hist /= q_hist.sum()
+        feats["norm_kl_to_trained"] = float(np.sum(p_hist * np.log(p_hist / q_hist)))
     else:
         feats["procrustes_residual"] = float("nan")
         feats["spectral_wasserstein"] = float("nan")
         feats["rsa_distance"] = float("nan")
+        feats["norm_kl_to_trained"] = float("nan")
 
     return feats
 
@@ -438,6 +481,7 @@ def train_cell(
     head_t = torch.from_numpy(lm_head_init).to(model.lm_head.weight.device, dtype=model.lm_head.weight.dtype)
     with torch.no_grad():
         model.lm_head.weight.copy_(head_t)
+    del head_t
 
     # Step-0 geometry features
     step0_W = model.lm_head.weight.detach().cpu().numpy().copy()
@@ -571,8 +615,9 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
                 "features": cell["geometry_features"],
             })
 
-    if len(rows) < 20:
-        return {"status": "insufficient_data", "n_rows": len(rows)}
+    if len(rows) != len(CONDITIONS) * len(SEEDS):
+        return {"status": "insufficient_data", "n_rows": len(rows),
+                "expected": len(CONDITIONS) * len(SEEDS)}
 
     def _safe_finite(v):
         return v is not None and isinstance(v, (int, float)) and math.isfinite(v)
@@ -589,10 +634,12 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     X_loss = np.zeros((n, 1), dtype=np.float64)
     y = np.zeros(n, dtype=np.float64)
     cond_labels = []
+    seed_labels = []
 
     for i, r in enumerate(rows):
         y[i] = r["final_nll"]
         cond_labels.append(r["condition"])
+        seed_labels.append(r["seed"])
         for j, k in enumerate(geom_keys):
             v = r["features"].get(k)
             X_geom[i, j] = float(v) if _safe_finite(v) else 0.0
@@ -615,6 +662,7 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     for held_out in unique_conds:
         train_mask = np.array([c != held_out for c in cond_labels])
         test_mask = ~train_mask
+        assert test_mask.sum() == len(SEEDS), f"Expected {len(SEEDS)} test rows for {held_out}, got {test_mask.sum()}"
 
         X_tr_g, X_te_g = X_geom[train_mask], X_geom[test_mask]
         X_tr_l, X_te_l = X_loss[train_mask], X_loss[test_mask]
@@ -673,12 +721,19 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     ci_lower = float(np.percentile(boot_reductions, 2.5))
     ci_upper = float(np.percentile(boot_reductions, 97.5))
 
-    # Permutation test
+    # Seed-stratified permutation test
+    unique_seeds = sorted(set(seed_labels))
+    seed_arr = np.array(seed_labels)
     perm_reductions = []
     n_perm = 1000
     for p in range(n_perm):
         perm_rng = np.random.RandomState(p)
-        X_perm = X_geom[perm_rng.permutation(n)]
+        perm_idx = np.arange(n)
+        for sd in unique_seeds:
+            mask = seed_arr == sd
+            within = np.where(mask)[0]
+            perm_idx[within] = within[perm_rng.permutation(len(within))]
+        X_perm = X_geom[perm_idx]
         perm_errors = []
         for held_out in unique_conds:
             train_mask = np.array([c != held_out for c in cond_labels])
@@ -693,7 +748,8 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
         perm_mse = float(np.mean(perm_errors))
         if loss_mse > 0:
             perm_reductions.append(1.0 - perm_mse / loss_mse)
-    perm_p = float(np.mean([1 for pr in perm_reductions if pr >= mse_reduction]) / n_perm)
+    exceedance = sum(1 for pr in perm_reductions if pr >= mse_reduction)
+    perm_p = float((exceedance + 1) / (n_perm + 1))
 
     # NLL range check
     nll_range = float(y.max() - y.min())
