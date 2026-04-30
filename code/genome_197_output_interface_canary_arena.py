@@ -258,6 +258,7 @@ def extract_geometry_features(
     row_sample_idx: np.ndarray,
     token_freqs: np.ndarray,
     trained_ref: np.ndarray | None = None,
+    scaffold_refs: dict[str, np.ndarray] | None = None,
 ) -> dict[str, float]:
     W_s = W[row_sample_idx].astype(np.float64)
     feats: dict[str, float] = {}
@@ -423,6 +424,15 @@ def extract_geometry_features(
         feats["rsa_distance"] = float("nan")
         feats["norm_kl_to_trained"] = float("nan")
 
+    # Scaffold distances
+    if scaffold_refs is not None:
+        for name, ref_arr in scaffold_refs.items():
+            ref_s = ref_arr[row_sample_idx].astype(np.float64)
+            feats[f"scaffold_fro_{name}"] = float(np.linalg.norm(W_s - ref_s, "fro"))
+    else:
+        for name in ["etf", "identity", "covariance"]:
+            feats[f"scaffold_fro_{name}"] = float("nan")
+
     return feats
 
 
@@ -466,6 +476,7 @@ def train_cell(
     token_freqs: np.ndarray,
     row_sample_idx: np.ndarray,
     trained_ref: np.ndarray | None,
+    scaffold_refs: dict[str, np.ndarray] | None = None,
     *,
     n_steps: int = TRAIN_STEPS,
 ) -> dict[str, Any]:
@@ -485,7 +496,7 @@ def train_cell(
 
     # Step-0 geometry features
     step0_W = model.lm_head.weight.detach().cpu().numpy().copy()
-    step0_feats = extract_geometry_features(step0_W, row_sample_idx, token_freqs, trained_ref)
+    step0_feats = extract_geometry_features(step0_W, row_sample_idx, token_freqs, trained_ref, scaffold_refs)
     step0_feats = {f"s0_{k}": v for k, v in step0_feats.items()}
 
     model.train()
@@ -529,7 +540,7 @@ def train_cell(
             print_flush(f"    eval step={step} val_nll={val_nll_50:.4f}")
 
             step50_W = model.lm_head.weight.detach().cpu().numpy().copy()
-            step50_feats = extract_geometry_features(step50_W, row_sample_idx, token_freqs, trained_ref)
+            step50_feats = extract_geometry_features(step50_W, row_sample_idx, token_freqs, trained_ref, scaffold_refs)
             step50_feats = {f"s50_{k}": v for k, v in step50_feats.items()}
 
             # Dynamics features
@@ -892,6 +903,13 @@ def main() -> None:
     row_sample_idx = np.sort(np.concatenate([freq_top, rand_pick]))
     print_flush(f"  Row sample: {len(row_sample_idx)} rows")
 
+    # Precompute scaffold references for distance features
+    scaffold_refs = {
+        "etf": build_neural_collapse_etf(scratch_fro, gpt2_vocab, embed_dim),
+        "identity": build_identity_axis(scratch_fro, gpt2_vocab, embed_dim, token_freqs),
+        "covariance": build_covariance_scaffold(trained_lm_head, matched_mask, scratch_fro, gpt2_vocab, embed_dim),
+    }
+
     # Build condition heads
     def get_head(cond: str, seed: int) -> np.ndarray:
         if cond == "trained_qwen3":
@@ -982,6 +1000,7 @@ def main() -> None:
                 token_freqs=token_freqs,
                 row_sample_idx=row_sample_idx,
                 trained_ref=trained_lm_head,
+                scaffold_refs=scaffold_refs,
                 n_steps=n_steps,
             )
             payload["results"][cond][key] = result
