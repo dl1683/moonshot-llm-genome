@@ -64,6 +64,25 @@ where sigma_i^2 are source variances per mode and theta is the distortion thresh
 
 - **g197 canary arena design (cycle 194):** g197 directly tests the Route 2 prediction. By constructing 10 deliberately varied lm_head initializations — from trained Qwen3 rows (expected healthy) through scaffolds and shuffles to anti-frequency-scaled random (expected doomed) — the arena creates a controlled gradient from optimal to pathological water-filling allocation. If Route 2 is correct, the spectral/angular/reference features of the lm_head at step 0 and step 50 should predict which cells converge well and which waste capacity. The leave-one-condition-out CV design tests whether geometry features generalize to unseen allocation regimes, which is exactly what a water-filling model should do (the same eigenvalue-to-rate mapping applies regardless of initial spectrum shape). PASS_CANARY would validate that output-interface geometry IS the water-filling allocation parameter.
 
+### Route 2 Fisher-Codebook Operator (cycle 198, Codex Architecture-Theorist)
+
+The cross-entropy gradient w.r.t. hidden states is `grad_h L = W_out^T (p - e_y)`, where p is the softmax prediction and e_y the one-hot target. Each row direction `w_y / ||w_y||` is the target gradient prototype for token y. This explains:
+- g194 (direction carries 95-97%): the direction IS the gradient signal; norms are temperature scaling.
+- g191 (content at exact-match): correct row content = correct gradient prototypes at matched positions.
+- g195 (output dominant): lm_head defines the Fisher metric; input embed is secondary.
+
+The natural diagnostic operator is the **output Fisher codebook matrix**:
+
+    M_W = C_h^{1/2} W_out^T (Diag(pi) - pi pi^T) W_out C_h^{1/2}
+
+where C_h is the hidden-state covariance and pi is the token frequency distribution. The eigenvalues of M_W control the effective learning rate per semantic mode. Under water-filling, the diagnostic becomes:
+
+    Phi(W) = sum_i log(1 + lambda_i / theta)
+
+where lambda_i are eigenvalues of M_W. Healthy heads maximize Phi(W); pathological heads (shuffled, anti-frequency) have collapsed or misaligned spectra.
+
+**g197 tests this indirectly** via spectral/angular/scaffold proxies. A future g199 could compute M_W eigenvalues directly and test whether they predict final NLL better than the proxy features. Expected §0.1 impact of the full derivation: +0.6 to +1.0 if the operator predicts feature rankings.
+
 ### Route 2 Formal Feature-to-Rate Mapping (cycle 106)
 
 Let h_l denote the hidden representation at layer l, with covariance Sigma_l = E[h_l h_l^T]. Let sigma_{l,1}^2 >= sigma_{l,2}^2 >= ... >= sigma_{l,d}^2 be the eigenvalues. Water-filling allocates rate to mode i iff sigma_{l,i}^2 > theta (the water level). At training step t, the allocation reflects what the model has learned to encode.
