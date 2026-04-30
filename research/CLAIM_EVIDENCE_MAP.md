@@ -189,7 +189,7 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   5. **Shallow/horizon/token-mass artifact** (severity 8): 8-layer/5000-step regime. g192 required. Also: if gain is concentrated in high-frequency shared tokens, narrative shrinks.
   Source: `codex_outputs/heartbeats/cycle165_adversarial_20260430.md`.
 
-Path forward (status 2026-04-30 cycle 196): **g195 PASS_OUTPUT_DOMINANT (15/15 cells). A18 SEV-10 #1 RESOLVED.** Output (lm_head) carries 65% of tied signal. §0.1 = 5.8/10. **g192 28-layer replication RUNNING (3/9 cells, scratch_ce arm done).** **g197 canary arena CODE COMPLETE (all Codex review fixes applied).** Queue: g192 → g197 (canary arena) → g196 (anchor-residue, gated on g192).
+Path forward (status 2026-04-30 cycle 200): **g195 PASS_OUTPUT_DOMINANT (15/15 cells). A18 SEV-10 #1 RESOLVED.** Output (lm_head) carries 65% of tied signal. §0.1 = 5.8/10. **g192 28-layer replication RUNNING (4/9 cells, matched_rows_only seed=42: +0.501 nats — STRONGER than 8-layer +0.465).** **g197 canary arena CODE COMPLETE (all Codex review fixes applied).** Queue: g192 → g197 (canary arena) → g196 (anchor-residue, gated on g192).
 
 ## 3. Competitive Intelligence (updated cycle 100, 2026-04-29)
 
