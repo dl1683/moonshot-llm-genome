@@ -1,6 +1,6 @@
 # Pre-registration: genome_185v2 Dose-Selection Optimization (Compute-Savings Demonstration)
 
-**STATUS:** DRAFT pre-staged 2026-04-30 cycle 133. **LOCKS only after g186 PASS verdict.** If g186 FAIL, this prereg is ARCHIVED.
+**STATUS:** ARCHIVED 2026-04-30 cycle 138. g186 FAIL triggered archive condition. This prereg was never locked.
 
 - Date: 2026-04-30
 - Trigger: Codex §B cycle 128 recommended formalizing "intervention susceptibility" — geometry estimates d(final_NLL)/d(alpha) — and demonstrating compute savings by selecting the optimal KD dose at 3% of training instead of running all doses.

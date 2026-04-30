@@ -26,14 +26,17 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 126)
+## CURRENT STATUS (2026-04-30, cycle 138)
 
-**§0.1 honest score: 4.8-5.0/10** (post g182 FAIL, Codex-validated cycle 124). Branch projections:
-- Current (g182 FAIL + pairwise delta R²=0.518): **4.8-5.0/10** (architecture-specific KD-impact diagnostic, not universal)
-- g186 dose-response PASS (geometry delta predicts KD dose-response): **~6.5/10** (causal intervention story)
-- g186 FAIL: **4.0/10** (Forecast direction retired or reduced to minor curiosity)
+**§0.1 honest score: 4.0/10** (post g186 FAIL, cycle 138). g186 was the decisive experiment for Forecast/Diagnostic -- FAIL on all criteria. Geometry at 3% of training does NOT predict KD dose-response beyond what alpha alone provides. arm_mean (memorized group means) R2=0.936 dominates everything.
 
-**g186 KD dose-response — RUNNING (cycle 125, 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell).** Prereg LOCKED. Smoke test passed. Additive KD loss: CE(C4) + alpha × CE(teacher_text), alpha in {0.0, 0.3, 0.7, 1.0, 2.0}. Primary: leave-two-seeds-out CV of seed-matched delta_geometry predicting delta_NLL. PASS gate: R²>=0.30, MSE reduction >=20% vs best non-geometry baseline, permutation p<=0.05, beats alpha-only. Expected ~100min total. Source: `code/genome_186_kd_dose_response.py`, `research/prereg/genome_186_dose_response_2026-04-29.md`.
+- g186 FAIL: **4.0/10** (Forecast direction in crisis -- geometry adds no continuous dose-prediction value)
+- g185v2 dose-selection: **ARCHIVED** (no g186 PASS to trigger)
+- Rescue directions: g183 corpus-derived init (5.5-7.0/10), or fresh pivot per Codex advisor
+
+**★ g186 VERDICT: FAIL — geometry does NOT predict KD dose-response (cycle 138, 2026-04-30) ★**
+
+60/60 cells complete. 48 seed-matched delta rows. FAIL on ALL criteria: pooled R2=0.022 (needs >=0.30), MSE reduction=-1416% vs arm_mean (needs >=+20%), permutation p=0.705 unconditioned / 1.000 conditioned (needs <=0.05), per-arch R2: Qwen3=-0.10, GPT-2=-8.73 (needs >=0.25). LOAO catastrophic: GPT-2=-1455, Qwen3=-6.18. arm_mean R2=0.936 dominates. D5 alpha decodability R2=0.364 -- geometry mostly just decodes alpha. Both archs show smooth concave dose-response peaking at alpha=1.0 (Route 2 shape) but geometry features fail to capture it. g185v2 ARCHIVED. Source: `results/genome_186_kd_dose_response.json`, `research/prereg/genome_186_dose_response_2026-04-29.md` LOCKED.
 
 **g182 Triage Arena — COMPLETE (48/48 cells) — FAIL.** ALL 6 LOAO models catastrophically fail (R²=-11 to -19). All baselines also fail. Within-arm label variance too small (std=0.002-0.003) for cross-architecture Ridge transfer. Z-scored LOAO: FAIL. Arm-demeaned LOAO: FAIL (R²~0). Permutation: FAIL (p=0.265). **ONE surviving signal: pairwise delta R²=0.518, corr=0.720 (n=24)** — within-architecture seed-matched geometric changes (scratch->KD) predict NLL changes. P3 FALSIFIED (0/8 features overlap cross-arch). D1/D2 favor Route 3 (basins). Route 3 universal basin language is DEAD. Codex advisor: "geometry of early causal intervention predicts whether that intervention helps/harms" is the remaining edge. Source: `results/genome_182_triage_arena.json`, `codex_outputs/heartbeats/cycle124_advisor_g182_final_20260429.md`.
 
@@ -217,7 +220,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
-| **Open pre-registrations** | **5 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, RUNNING), plus 2 atlas-era from 2026-04-21 (superseded). **1 SUPERSEDED:** g184 (Falcon frozen geometry, g182 FAIL invalidates premise). **3 DRAFT:** g183 corpus-derived init, g185 prospective triage (DEPRECATED — superseded by g185v2), g185v2 dose-selection optimization (pre-staged cycle 133, locks on g186 PASS). |
+| **Open pre-registrations** | **5 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, **FAIL**), plus 2 atlas-era from 2026-04-21 (superseded). **2 SUPERSEDED/ARCHIVED:** g184 (Falcon frozen geometry, g182 FAIL), g185v2 (dose-selection, g186 FAIL — ARCHIVED). **2 DRAFT:** g183 corpus-derived init (rescue arm, 6.4/10), g185 prospective triage (DEPRECATED). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
 | **Active TL session** | ARCHIVED — atlas TL session file deleted in anti-entropy (cycle 77); atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
@@ -331,7 +334,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Pre-reg |
 |---|---|---|---|
-| `genome_186` | **RUNNING** | KD dose-response (60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell) | `research/prereg/genome_186_dose_response_2026-04-29.md` |
+| `genome_186` | **FAIL** | KD dose-response (60 cells, pooled R2=0.022, arm_mean R2=0.936 dominates) | `research/prereg/genome_186_dose_response_2026-04-29.md` |
 | `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
@@ -430,23 +433,23 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 137)*
+*(Updated 2026-04-30 cycle 138)*
 
-**Active:**
-1. **g186 KD dose-response** -- RUNNING (51/60 cells at cycle 137). Prereg LOCKED. Qwen3 COMPLETE (30/30), GPT-2 at 21/30 (alpha=1.0 in progress). ETA ~18 min. Analysis code has 12 fixes (all Codex reviews + adversarial): 11 baselines, conditioned permutation, LOAO tertiary stress test, --max-cells guard, ASCII compliance. Early signal: both architectures show smooth concave dose-response (Route 2); GPT-2 benefits ~90% of Qwen3 at each dose. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`, then `--replay` for g185v2 C4 gate.
+**Just completed:**
+- **g186 KD dose-response** -- **FAIL** (60/60 cells, 48 delta rows). Geometry does NOT predict dose-response. arm_mean dominates (R2=0.936). §0.1 drops to 4.0/10. g185v2 ARCHIVED.
 
-**Completed this session:**
+**Previously completed this session:**
 - **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
 - **g184 Falcon frozen geometry** — SUPERSEDED (g182 FAIL invalidates premise).
 - **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked.
 - **g180b cross-tokenizer forecast** — FAIL. 27/27 cells. Geometry HURTS cross-tokenizer (-39.4%).
 
-**Queue (post-g186, prioritized by cycle 125 adversarial + cycle 128 §B):**
-1. If g186 PASS: **g185v2 dose-selection optimization** — geometry-selected KD dose at 3% saves ~80% compute vs brute-force dose search. Prereg DRAFT: `research/prereg/genome_185v2_dose_selection_optimization_2026-04-30.md`. Supersedes original g185 binary triage (deprecated, g182 FAIL). Codex §B cycle 128: "the strongest next theory move is to formalize intervention susceptibility."
-2. If g186 PASS: redesigned g184 variant using dose-response Ridge on third architecture family.
-3. Shesha residual kill on g186 tensors — moat defense (per cycle 125 adversarial S7).
-4. g183 corpus-derived init — 5.5-7.0/10 (standalone/rescue arm if g186 FAIL).
-5. g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter.
+**Queue (post-g186 FAIL, reprioritized by Codex advisor cycle 138):**
+1. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
+2. **g183 corpus-derived init** — 6.4/10 (best fireable rescue). Converts tokenizer-prior collapse into useful law. Prereg DRAFT: `research/prereg/genome_183_corpus_derived_init_2026-04-29.md`.
+3. **Fresh: KD compatibility law** — 6.1/10 (non-obvious). Model optimal KD dose from teacher/student/tokenizer/corpus stats, not geometry.
+4. **Cross-arch binary triage** — 5.6/10. Possible rescue but needs non-trivial protocol baselines.
+5. ~~g185v2 dose-selection~~ — **ARCHIVED** (g186 FAIL). ~~g184 redesigned~~ — **DEAD** (g186 FAIL).
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.

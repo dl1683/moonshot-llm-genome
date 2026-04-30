@@ -4,13 +4,15 @@
 
 ---
 
-## 2026-04-30 — genome_186_kd_dose_response — RUNNING (KD dose-response delta geometry)
+## 2026-04-30 — genome_186_kd_dose_response — FAIL (KD dose-response delta geometry)
 
 **Purpose.** Test whether seed-matched early geometry delta predicts the KD dose-response curve. Kill-or-promote for the Forecast direction. 60 cells = 2 architectures (Qwen3-arch, GPT-2-arch) x 5 KD doses (alpha=0.0, 0.3, 0.7, 1.0, 2.0) x 6 seeds, 1200 steps/cell. Additive KD loss: CE(C4) + alpha * CE(teacher_text).
 
-**Analysis.** 48 seed-matched delta rows. Primary: leave-two-seeds-out CV. 11 baselines: alpha-only, alpha_quad, delta_early_loss, arm_mean (CV), delta_telemetry (6 available features; curvature_top_eigen_proxy dropped), delta_shesha (3 features), combined_non_geometry (alpha+alpha²+early_loss+telemetry), combined_non_geometry_plus_arch, alpha_plus_arch, shuffled_geometry (1000 iters within arch), shuffled_geometry_cond (1000 iters within arch+alpha). Plus D4 scratch stability + D5 alpha decodability diagnostics. Verdict uses max(both permutation p-values). PASS: R2>=0.30, MSE reduction >=20% vs best baseline, permutation p<=0.05 (BOTH), beats alpha-only, per-arch R2>=0.25/no arch <0, bootstrap CI >0, not alpha=1.0-only, >=48 rows.
+**Analysis.** 48 seed-matched delta rows. Primary: leave-two-seeds-out CV. 11 baselines. PASS criteria: R2>=0.30, MSE reduction >=20% vs best baseline, permutation p<=0.05 (BOTH), beats alpha-only, per-arch R2>=0.25/no arch <0, bootstrap CI >0, not alpha=1.0-only, >=48 rows.
 
-**PASS -> §0.1 ~6.5 (causal intervention diagnostic). FAIL -> 4.0 (retire Forecast).**
+**VERDICT: FAIL on all criteria.** Pooled R2=0.022 (needs >=0.30). MSE reduction=-1416% vs arm_mean (needs >=+20%). Permutation p=0.705 unconditioned, 1.000 conditioned (needs <=0.05). Per-arch: Qwen3 R2=-0.10, GPT-2 R2=-8.73 (needs >=0.25). LOAO: GPT-2=-1455, Qwen3=-6.18. arm_mean (memorized group means) R2=0.936 dominates. alpha_quad R2=0.774. D5 alpha decodability R2=0.364 -- geometry mostly decodes alpha, not independent structure. Fold R2s: [0.497, 0.150, -0.568]. Both archs show smooth concave dose-response peaking at alpha=1.0 (Route 2 shape) but geometry features FAIL to capture it.
+
+**What we learned.** KD dose-response at 1200 steps is almost entirely determined by (architecture, alpha_dose) -- memorized group means explain 93.6% of variance. Geometry at 3% of training does NOT add signal beyond alpha for continuous dose prediction. The pairwise delta signal from g182 (R2=0.518 on binary KD vs scratch) does NOT generalize to multi-dose prediction. g185v2 dose-selection ARCHIVED. Forecast/Diagnostic direction score drops to 4.0/10.
 
 Source: `code/genome_186_kd_dose_response.py`, `research/prereg/genome_186_dose_response_2026-04-29.md` (LOCKED).
 
