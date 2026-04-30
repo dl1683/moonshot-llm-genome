@@ -461,6 +461,7 @@ def main() -> None:
 
     embed_hash = hashlib.sha256(compiled_embed.tobytes()).hexdigest()[:16]
 
+    payload: dict[str, Any] | None = None
     can_resume = False
     if not args.no_resume and run_out_path.exists():
         payload = json.loads(run_out_path.read_text(encoding="utf-8"))

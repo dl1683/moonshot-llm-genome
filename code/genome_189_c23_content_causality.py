@@ -6,13 +6,13 @@ FORMAT (norm/spectrum/frequency structure) rather than CONTENT (actual learned
 token relationships). This experiment resolves it with 5 matched controls.
 
 Arms (7 total, Qwen3-0.6B, same tokenizer, 6 seeds, 5000 steps):
-  1. scratch_ce — no anchor baseline
-  2. true_trained_anchor — real Qwen3 trained embed/lm_head
-  3. row_shuffled_anchor — globally permuted rows (destroys token identity)
-  4. freq_bucket_shuffle_anchor — rows shuffled within frequency quantiles
-  5. spectrum_preserving_random — random orthogonal x trained SVD spectrum
-  6. same_frobenius_gaussian — iid Gaussian, same Frobenius norm
-  7. anchor_to_initial — anchor toward independent random init
+  1. scratch_ce --no anchor baseline
+  2. true_trained_anchor --real Qwen3 trained embed/lm_head
+  3. row_shuffled_anchor --globally permuted rows (destroys token identity)
+  4. freq_bucket_shuffle_anchor --rows shuffled within frequency quantiles
+  5. spectrum_preserving_random --random orthogonal x trained SVD spectrum
+  6. same_frobenius_gaussian --iid Gaussian, same Frobenius norm
+  7. anchor_to_initial --anchor toward independent random init
 
 PASS_CONTENT: true_trained beats EVERY control by >=0.20 nats AND 5/6 seeds.
 FORMAT_FAIL: any control within 0.20 nats of true or beats true in >=2/6 seeds.

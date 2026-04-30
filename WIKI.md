@@ -26,9 +26,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 157)
+## CURRENT STATUS (2026-04-30, cycle 159)
 
-**§0.1 honest score: 3.5/10** (post-g188 FAIL/MIXED). Flow bridge FAIL (-0.119 HARMS), but direct_string_match +0.478 = 93.2% of g181b. First positive cross-tokenizer bridge. g191 running (7-arm decomposition of the +0.478 signal, SEV-8 bug fixed cycle 157: mask-copy init for affected arms). g193 token-row compiler pre-staged per Codex advisor+direction consensus. If g191 PASS_CONTENT → g193 fires next (before g192). If g193 PASS, §0.1 moves to ~5.5-6.0.
+**§0.1 honest score: 3.5/10** (post-g188 FAIL/MIXED). Flow bridge FAIL (-0.119 HARMS), but direct_string_match +0.478 = 93.2% of g181b. First positive cross-tokenizer bridge. g191 running (7-arm decomposition of the +0.478 signal, SEV-8 bug fixed cycle 157: mask-copy init for affected arms). **Cycle 159 interim: anchor_only=98% of signal (+0.468), init_only=19% (+0.092), matched_rows_only=97% (+0.465). The continuous anchor constraint IS the mechanism.** 12/21 cells done; remaining: unmatched_rows_only, row_shuffled_matched, frequency_bucket_shuffle. g193 token-row compiler pre-staged per Codex advisor+direction consensus. If g191 PASS_CONTENT → g193 fires next (before g192). If g193 PASS, §0.1 moves to ~5.5-6.0.
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
@@ -237,7 +237,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
-| **Open pre-registrations** | **6 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, **FAIL**), **g183 corpus-derived init (RUNNING, 6.4/10)**, plus 2 atlas-era from 2026-04-21 (superseded). **3 SUPERSEDED/ARCHIVED:** g183 2026-04-29 (SUPERSEDED by 2026-04-30 version), g184 (Falcon frozen geometry, g182 FAIL), g185v2 (dose-selection, g186 FAIL — ARCHIVED). **1 DEPRECATED:** g185 prospective triage. |
+| **Open pre-registrations** | **6 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, **FAIL**), g183 (corpus-derived init, **FAIL**), plus 2 atlas-era from 2026-04-21 (superseded). **2 RUNNING/STAGED:** g191 (string-match decomposition, RUNNING), g193 (token-row compiler, STAGED/DRAFT). **3 SUPERSEDED/ARCHIVED:** g183 2026-04-29 (SUPERSEDED by 2026-04-30 version), g184 (Falcon frozen geometry, g182 FAIL), g185v2 (dose-selection, g186 FAIL — ARCHIVED). **1 DEPRECATED:** g185 prospective triage. |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
 | **Active TL session** | ARCHIVED — atlas TL session file deleted in anti-entropy (cycle 77); atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
@@ -358,6 +358,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_183` | **FAIL** | Corpus-derived init: PPMI SVD HARMS. Init+anchor=-0.291, anchor-only=-0.445. Both toxic. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
 | `genome_191` | **RUNNING** | String-match decomposition: 7-arm decomposition of +0.478 signal (SEV-8 fixed cycle 157) | `research/prereg/genome_191_string_match_decomposition_2026-04-30.md` |
 | `genome_193` | **STAGED** | Token-row compiler: MLP predicts embedding rows from token features. Gated on g191. | `research/prereg/genome_193_token_row_compiler_2026-04-30.md` |
+| `genome_189` | **STAGED** | C23 content-causality controls (7 arms x 6 seeds, resolves A15 format-vs-content) | `research/prereg/genome_189_c23_content_causality_2026-04-30.md` |
 | `genome_188` | **FAIL/MIXED** | Tokenizer-flow bridge: OT HARMS -0.119, string-match +0.478 (93.2% of g181b) | `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
@@ -453,25 +454,19 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 150)*
+*(Updated 2026-04-30 cycle 159)*
 
 **Currently running:**
-- **g188 tokenizer-flow bridge** — RUNNING (6 arms × 3 seeds × 5000 steps). Three critical bugs fixed (SEV-10 anchor targeting, S9 anchor strength, S8 Sinkhorn reversal). ETA ~3-4h.
-
-**Completed this session:**
-- **g183 corpus-derived init** — **FAIL** (9/9 cells + confound check). PPMI SVD ACTIVELY HARMS. Init+anchor=-0.291 nats, anchor-only=-0.445 nats. Both modes independently toxic. Successive-refinement rung 1 DEAD.
-- **g186 KD dose-response** — FAIL (60/60 cells). Geometry does NOT predict dose-response. arm_mean dominates.
-- **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19.
-- **g180b cross-tokenizer forecast** — FAIL. Geometry HURTS cross-tokenizer (-39.4%).
-- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps. C23 locked.
+- **g191 string-match decomposition** — RUNNING (12/21 cells done). Anchor dominance confirmed: anchor_only 98% of signal, init_only 19%, matched_rows_only 97%. Remaining: unmatched_rows_only (in progress), row_shuffled_matched, frequency_bucket_shuffle. ETA ~45 min.
 
 **Queue (updated cycle 157, per Codex advisor + direction review):**
 1. **g191 string-match decomposition** — RUNNING. SEV-8 fixed. ~2h remaining.
 2. **g193 token-row compiler** — PRE-STAGED. Gated on g191 PASS_CONTENT. +2.4 §0.1 uplift. ~1.5h.
 3. **g192 28-layer string-match replication** — gated on g191 PASS_CONTENT. Resolves adversarial A16 #3. Prereg DRAFT. ~2h.
 4. **g190 decoder-conditioned relearning** — 7/10. DEFERRED until g191 clarifies mechanism.
-5. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
-6. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
+5. **g189 C23 content-causality controls** — STAGED. 7 arms × 6 seeds resolves A15 format-vs-content. 4.7h. Lower priority than cross-tokenizer thread.
+6. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
+7. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.
