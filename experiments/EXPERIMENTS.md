@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-04-30 — genome_191_string_match_decomposition — RUNNING (content vs format decomposition)
+
+**Purpose.** Decompose the g188 direct_string_match +0.478 nats signal into content vs format components. Resolves adversarial A16 attacks #1 (shared-vocab reuse), #4 (format vs content), #5 (frequency bias). 7 arms x 3 seeds x 5000 steps = 21 cells.
+
+**Arms:** scratch_ce, direct_init_only (full string-match init, no anchor), direct_anchor_only (random init, full string-match anchor), matched_rows_only (matched rows init+anchor with row-masked anchor), unmatched_rows_only (random init, unmatched-row anchor), row_shuffled_matched (shuffled matched rows, same mask), frequency_bucket_shuffle (freq-quintile shuffled, same mask).
+
+**Pass criteria.** PASS_CONTENT (all 5): P1: matched >= +0.35, P2: 3/3 seeds, P3: >= 70% of g188 string_match, P4: both shuffled <= +0.10, P5: matched beats both shuffled by >= +0.25. PASS_FORMAT (alt): row_shuffled >= +0.25.
+
+**VERDICT: RUNNING.** Smoke test PASS (cycle 154). Directional signals at 50 steps strongly favor PASS_CONTENT.
+
+Source: `code/genome_191_string_match_decomposition.py`, `research/prereg/genome_191_string_match_decomposition_2026-04-30.md` (LOCKED).
+
+---
+
 ## 2026-04-30 — genome_188_tokenizer_flow_bridge — FAIL / MIXED (cross-tokenizer OT embedding transfer)
 
 **Purpose.** Test whether Qwen3 trained embeddings can be transcoded into GPT-2 tokenizer space via sparse character-offset OT alignment, then used as an anchor prior for GPT-2-architecture training. Rung 2 of the successive-refinement ladder (after g183 killed rung 1). 6 arms x 3 seeds x 5000 steps = 18 cells.
