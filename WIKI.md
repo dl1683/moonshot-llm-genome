@@ -365,7 +365,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
 | `genome_183` | **FAIL** | Corpus-derived init: PPMI SVD HARMS. Init+anchor=-0.291, anchor-only=-0.445. Both toxic. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
 | `genome_191` | **PASS_CONTENT** | String-match decomposition: matched +0.465 (97%), shuffled -0.709 (HARMFUL), content IS mechanism | `research/prereg/genome_191_string_match_decomposition_2026-04-30.md` |
-| `genome_193` | **RUNNING** | Token-row compiler: MLP predicts embedding rows from token features. Prereg LOCKED. | `research/prereg/genome_193_token_row_compiler_2026-04-30.md` |
+| `genome_193` | **FAIL** | Token-row compiler: compiler cosine=0.194 (near-random). Byte-level features ≠ directions. Exact lexical identity only. | `research/prereg/genome_193_token_row_compiler_2026-04-30.md` |
 | `genome_189` | **STAGED** | C23 content-causality controls (7 arms x 6 seeds, resolves A15 format-vs-content) | `research/prereg/genome_189_c23_content_causality_2026-04-30.md` |
 | `genome_188` | **FAIL/MIXED** | Tokenizer-flow bridge: OT HARMS -0.119, string-match +0.478 (93.2% of g181b) | `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
