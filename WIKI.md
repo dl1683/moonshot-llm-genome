@@ -430,10 +430,10 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 133)*
+*(Updated 2026-04-30 cycle 137)*
 
 **Active:**
-1. **g186 KD dose-response** — RUNNING (26/60 cells at cycle 133). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Analysis code has 10 fixes (Codex cycle 126 + 129 + adversarial cycle 130): 11 baselines including conditioned permutation, strict telemetry filtering, combined_non_geometry_plus_arch. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`.
+1. **g186 KD dose-response** -- RUNNING (51/60 cells at cycle 137). Prereg LOCKED. Qwen3 COMPLETE (30/30), GPT-2 at 21/30 (alpha=1.0 in progress). ETA ~18 min. Analysis code has 12 fixes (all Codex reviews + adversarial): 11 baselines, conditioned permutation, LOAO tertiary stress test, --max-cells guard, ASCII compliance. Early signal: both architectures show smooth concave dose-response (Route 2); GPT-2 benefits ~90% of Qwen3 at each dose. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`, then `--replay` for g185v2 C4 gate.
 
 **Completed this session:**
 - **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
