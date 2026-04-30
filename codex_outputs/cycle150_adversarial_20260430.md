@@ -1,0 +1,11 @@
+1. **Sev 10: C23 is not proven transfer; it is proven anchored-interface usefulness.** g181b shows persistence, not content causality. The live null is not “scratch catches up,” it is “any matched embedding/head constraint with trained-like norm/spectrum/token-frequency structure works.” C23 lacks embed/head-only row-shuffle, spectrum-preserving, frequency-preserving, and same-distance random anchors at 5000 steps.
+
+   **Resolving experiment:** rerun g181b with 6+ seeds, same Qwen tokenizer/arch, 5000 steps: scratch, true trained embed/head anchor, row-shuffled trained embed/head, frequency-bucket row-shuffle, spectrum-preserving random orthogonal/null, anchor-to-initial, and Gaussian same Frobenius-distance. Match anchor-gradient L2 per seed. C23 survives as “content transfer” only if true trained beats every matched null by >=0.20 nats and 5/6 seeds.
+
+2. **Sev 9: codebook+decoder thesis is falsifiable, but current wording is loose.** It dies if architecture-aligned geometry is unnecessary: a content-destroyed but format-preserving embedding anchor matches true trained anchor, or a corpus/statistical/codebook method matches trained anchor after controlling norms and force. g183 killed naive PPMI, not all corpus-derived codebooks.
+
+3. **Sev 8: g188 tests a lower bar than the thesis.** It tests whether Qwen trained embeddings can be transcoded into GPT-2 tokenizer space inside a Qwen-style decoder. That is not “tokenizer=codebook, architecture=decoder” generally; it keeps decoder family fixed and only changes tokenizer. A PASS supports tokenizer-transcoding, not universal decoder compatibility.
+
+4. **Sev 8: g188 implementation weakens the prereg/design gate.** Result is currently INCOMPLETE. Code stage A omits the design-gate `random_plan_same_degrees` control, uses primary `init+anchor` before decomposition, and appears to normalize Frobenius but not explicitly per-arm initial anchor-gradient force. A PASS could still be norm/regularization.
+
+5. **Sev 7: g183 supports the objection more than it kills it.** PPMI SVD and anchor-only are toxic, but that says the naive corpus geometry is wrong. It does not prove trained embedding content is right; it may prove only that Qwen’s trained interface has the right optimization-compatible format.
