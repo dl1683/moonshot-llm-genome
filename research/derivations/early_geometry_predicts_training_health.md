@@ -229,3 +229,19 @@ C' passes the regression criteria (MSE, R², AUROC) but the mechanism diagnostic
 
 ### 11. Inconclusive: operational failure — added cycle 117
 Cells fail to train (NaN, OOM, cache corruption), fewer than 40/48 cells complete, or systematic issues (e.g. all scratch cells have identical NLL, suggesting data loading bug). Cannot draw conclusions. Fix operational issues and re-run. §0.1 → unchanged from prior.
+
+---
+
+## g182 ACTUAL OUTCOME (cycle 124, 2026-04-29)
+
+**Closest scenario: 3 (combined telemetry beats C/C'), but WORSE — ALL models fail including baselines.**
+
+The experiment was underpowered for cross-architecture transfer: within-arm label variance (std=0.002-0.003) was too small for any Ridge to learn a transferable mapping across architectures with completely non-overlapping feature distributions (P3 falsified, 0/8).
+
+**Actual results do not cleanly match any pre-locked scenario** because no scenario anticipated ALL models (including baselines) failing simultaneously. The root cause is not that geometry is uninformative — it is that the binary KD-vs-scratch design produces near-constant labels within each (arch, arm) group, making cross-architecture regression impossible at n=12 per fold.
+
+**Surviving signal (not anticipated in verdict matrix):** Pairwise delta R2=0.518 — seed-matched geometric changes (scratch->KD) predict NLL changes within each architecture. This is an architecture-specific causal-response diagnostic, not a universal basin predictor.
+
+**Verdict: §0.1 = 4.8-5.0/10.** Cross-architecture transfer is dead at this sample size/label variance. Route 3 universal basin language is dead. The remaining claim is: "early geometry of a causal intervention predicts whether that intervention helps or harms final training, within a fixed architecture." Codex-validated: `codex_outputs/heartbeats/cycle124_advisor_g182_final_20260429.md`.
+
+**Next: g186 balanced causal dose-response.** Multiple KD strengths create real within-arm label variance. Kill-or-promote: PASS -> §0.1 ~6.5; FAIL -> retire Forecast direction.
