@@ -234,6 +234,8 @@ def train_cell(
     train_mask: torch.Tensor,
     val_ids: torch.Tensor,
     val_mask: torch.Tensor,
+    *,
+    n_steps: int = TRAIN_STEPS,
 ) -> dict[str, Any]:
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -253,7 +255,7 @@ def train_cell(
         recipient.parameters(), lr=LR, betas=BETAS, weight_decay=WEIGHT_DECAY,
     )
     rng = np.random.default_rng(seed)
-    train_schedule = rng.integers(0, int(train_ids.shape[0]), size=(TRAIN_STEPS, BATCH_SIZE), dtype=np.int64)
+    train_schedule = rng.integers(0, int(train_ids.shape[0]), size=(n_steps, BATCH_SIZE), dtype=np.int64)
 
     trajectory = []
     initial_metrics = g181a.evaluate_nll(recipient, val_ids, val_mask)
@@ -262,7 +264,7 @@ def train_cell(
 
     t0 = time.time()
     recipient.train()
-    for step in range(1, TRAIN_STEPS + 1):
+    for step in range(1, n_steps + 1):
         batch_indices = train_schedule[step - 1]
         ids = train_ids[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
         mask = train_mask[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
@@ -287,9 +289,9 @@ def train_cell(
         torch.nn.utils.clip_grad_norm_(recipient.parameters(), GRAD_CLIP)
         optimizer.step()
 
-        if step % LOG_EVERY == 0 or step == TRAIN_STEPS:
+        if step % LOG_EVERY == 0 or step == n_steps:
             row = {"step": step, "ce_loss": float(ce_loss.item()), "elapsed_s": time.time() - t0}
-            if step % EVAL_EVERY == 0 or step == TRAIN_STEPS:
+            if step % EVAL_EVERY == 0 or step == n_steps:
                 row.update(g181a.evaluate_nll(recipient, val_ids, val_mask))
                 print_flush(f"    {arm_label} seed={seed} step={step} ce={row['ce_loss']:.4f} val_nll={row['nll']:.4f} ({row['elapsed_s']:.0f}s)")
             elif step % (LOG_EVERY * 5) == 0:
@@ -298,7 +300,7 @@ def train_cell(
 
     final_metrics = trajectory[-1]
     if "nll" not in final_metrics:
-        final_metrics = {"step": TRAIN_STEPS, **g181a.evaluate_nll(recipient, val_ids, val_mask)}
+        final_metrics = {"step": n_steps, **g181a.evaluate_nll(recipient, val_ids, val_mask)}
         trajectory.append(final_metrics)
 
     result = {
@@ -543,6 +545,7 @@ def main() -> None:
                 train_mask=train_mask,
                 val_ids=val_ids,
                 val_mask=val_mask,
+                n_steps=train_steps,
             )
             payload["results"][arm_label][key] = result
             save()

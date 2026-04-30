@@ -108,7 +108,7 @@ def autocast_context():
 
 # ---------- Phase 1: Relearn embed/lm_head on frozen decoder ----------
 
-def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, *, n_steps: int = PHASE1_STEPS) -> dict[str, Any]:
+def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, *, n_steps: int = PHASE1_STEPS, cache_path: Path = PHASE1_CACHE) -> dict[str, Any]:
     print_flush("\n=== Phase 1: Decoder-Conditioned Embedding Relearning ===")
 
     # Load trained Qwen3 decoder
@@ -224,8 +224,8 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, *, n_steps: i
 
     # Save relearned embeddings
     relearned_embed = model.model.embed_tokens.weight.detach().float().cpu().numpy()
-    PHASE1_CACHE.parent.mkdir(parents=True, exist_ok=True)
-    torch.save(torch.from_numpy(relearned_embed), PHASE1_CACHE)
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(torch.from_numpy(relearned_embed), cache_path)
 
     final_nll = trajectory[-1].get("nll", None)
     if final_nll is None:
@@ -249,7 +249,7 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, *, n_steps: i
     del model, optimizer
     cleanup_cuda()
 
-    print_flush(f"\n  Phase 1 done: NLL {init_nll['nll']:.4f} → {final_nll:.4f} ({time.time()-t0:.0f}s)")
+    print_flush(f"\n  Phase 1 done: NLL {init_nll['nll']:.4f} -> {final_nll:.4f} ({time.time()-t0:.0f}s)")
     print_flush(f"  Relearned embed: {relearned_embed.shape}, Fro={np.linalg.norm(relearned_embed, 'fro'):.1f}")
     return result
 
@@ -410,7 +410,11 @@ def compute_verdict(payload: dict[str, Any]) -> dict[str, Any]:
     ao_gains = [scratch_nlls[str(s)] - anchor_only_nlls[str(s)] for s in SEEDS]
     ao_mean = float(np.mean(ao_gains))
 
-    if mean_gain >= 0.257 and seeds_positive >= 3 and ao_mean >= 0.15:
+    anchor_only_harms = ao_mean < 0.0
+
+    if anchor_only_harms:
+        verdict = "FAIL"
+    elif mean_gain >= 0.257 and seeds_positive >= 3 and ao_mean >= 0.15:
         verdict = "STRONG_PASS"
     elif mean_gain >= 0.15 and seeds_positive >= 3:
         verdict = "PASS"
@@ -446,6 +450,8 @@ def main() -> None:
     phase1_steps = 50 if smoke else PHASE1_STEPS
     phase2_steps = 50 if smoke else PHASE2_STEPS
     seeds = [42] if smoke else SEEDS
+    run_out_path = OUT_PATH.with_name(OUT_PATH.stem + "_smoke.json") if smoke else OUT_PATH
+    phase1_cache = PHASE1_CACHE.with_name(PHASE1_CACHE.stem + "_smoke.pt") if smoke else PHASE1_CACHE
 
     print_flush(f"=== g190 Decoder-Conditioned Embedding Relearning ===")
     print_flush(f"  smoke={smoke}, phase1={phase1_steps}, phase2={phase2_steps}, seeds={seeds}")
@@ -469,8 +475,8 @@ def main() -> None:
     print_flush(f"  Train: {train_ids.shape}, Val: {val_ids.shape}")
 
     # Resume
-    if not args.no_resume and OUT_PATH.exists():
-        payload = json.loads(OUT_PATH.read_text(encoding="utf-8"))
+    if not args.no_resume and run_out_path.exists():
+        payload = json.loads(run_out_path.read_text(encoding="utf-8"))
     else:
         payload = {
             "genome": 190,
@@ -493,14 +499,14 @@ def main() -> None:
     def save():
         payload["timestamp_utc_last_write"] = now_utc()
         payload["elapsed_s"] = time.time() - t_start
-        tmp = OUT_PATH.with_suffix(OUT_PATH.suffix + ".tmp")
+        tmp = run_out_path.with_suffix(run_out_path.suffix + ".tmp")
         tmp.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
-        os.replace(tmp, OUT_PATH)
+        os.replace(tmp, run_out_path)
 
     # Phase 1
     if not args.phase2_only:
         if "final_nll" not in payload.get("phase1", {}):
-            payload["phase1"] = run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, n_steps=phase1_steps)
+            payload["phase1"] = run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, n_steps=phase1_steps, cache_path=phase1_cache)
             save()
         else:
             print_flush(f"\n  Phase 1 already done (NLL={payload['phase1']['final_nll']:.4f}), skipping")
@@ -511,8 +517,8 @@ def main() -> None:
         return
 
     # Load relearned embeddings
-    if PHASE1_CACHE.exists():
-        relearned_embed = torch.load(PHASE1_CACHE, weights_only=True).numpy()
+    if phase1_cache.exists():
+        relearned_embed = torch.load(phase1_cache, weights_only=True).numpy()
         print_flush(f"\n  Loaded relearned embed: {relearned_embed.shape}, Fro={np.linalg.norm(relearned_embed, 'fro'):.1f}")
     else:
         raise RuntimeError("Phase 1 cache not found — run Phase 1 first")
