@@ -4,29 +4,43 @@
 
 ---
 
-## 2026-04-30 — genome_192_28layer_replication — PRE-STAGED (full-depth Qwen3 replication)
+## 2026-04-30 — genome_197_output_interface_canary_arena — CODED (output-interface geometry predicts training health)
 
-**Purpose.** Test whether the 8-layer trained-token-row direction signal persists at full 28-layer Qwen3-0.6B depth (~492M params). If it does, the finding generalizes beyond shallow shells and §0.1 score moves from 5.8 to ~6.1.
+**Purpose.** Test whether step-0/step-50 lm_head geometry predicts final 5000-step NLL across 10 deliberately varied output-interface initializations, beating a scalar step-50 early-loss baseline. Motivated by g195 PASS_OUTPUT_DOMINANT: lm_head is the gradient generator. PASS_CANARY → §0.1 ~6.9.
 
-**Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Estimated peak VRAM ~8-10 GiB (within 22 GB envelope). 
+**Conditions:** trained_qwen3, frequency_scaled, orthogonal_scaffold, covariance_scaffold, identity_axis, neural_collapse_etf, random_gaussian, trained_random_directions, trained_shuffled, anti_frequency_scaled. 10 conditions x 3 seeds = 30 cells.
 
-**Status:** PRE-STAGED (code ready cycle 189, Codex §A confirmed launch-ready, prereg DRAFT — gated on g195).
+**Pass criteria.** PASS_CANARY: geometry Ridge MSE reduction >= 25% vs step-50 loss, CI lower > 0, R2 >= 0.35, permutation p <= 0.05, geometry beats loss in >= 8/10 conditions.
 
-Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (DRAFT).
+**Status:** CODED (cycle 194). Prereg LOCKED. Ready to launch after g192.
+
+Source: `code/genome_197_output_interface_canary_arena.py`, `research/prereg/genome_197_output_interface_canary_arena_2026-04-30.md` (LOCKED).
 
 ---
 
-## 2026-04-30 — genome_196_anchor_residue_factorial — PRE-STAGED (anchor persistence vs regularization)
+## 2026-04-30 — genome_192_28layer_replication — RUNNING (full-depth Qwen3 replication)
 
-**Purpose.** Resolve A18 SEV-10 #2: does the trained-row direction signal create a persistent optimization basin (residue), or does it only help as an active regularizer (anchor term in loss)? 10 arms x 3 seeds x 5000 steps = 30 cells. Includes cutoff (anchor removed at step 2000), late-start (anchor added at step 2000), scaffold controls (orthogonal QR / covariance noise), and init_only (no anchor, just initialization).
+**Purpose.** Test whether the 8-layer trained-token-row direction signal persists at full 28-layer Qwen3-0.6B depth (~492M params). If it does, the finding generalizes beyond shallow shells and §0.1 score moves from 5.8 to ~6.1.
+
+**Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Peak VRAM ~11.8 GiB (within 22 GB envelope). 
+
+**Status:** RUNNING (cycle 194, cell 1/9, scratch_ce seed=42 at step 2900/5000). Prereg LOCKED.
+
+Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (LOCKED).
+
+---
+
+## 2026-04-30 — genome_196_anchor_residue_factorial — LOCKED (anchor persistence vs regularization)
+
+**Purpose.** Resolve A18 SEV-10 #2: does the trained-row direction signal create a persistent optimization basin (residue), or does it only help as an active regularizer (anchor term in loss)? 10 arms x 3 seeds x 5000 steps = 30 cells. Surface = output (lm_head only), determined by g195 PASS_OUTPUT_DOMINANT.
 
 **Arms:** scratch, init_only, anchor_only_full, init_anchor_full, cutoff_50, cutoff_500, cutoff_2000, late_anchor_only_2000, orthogonal_scaffold_full, cov_scaffold_full.
 
-**Pass criteria.** PASS_RESIDUE: cutoff arms retain >= 80% of full-run signal at final step. FAIL_RESIDUE: cutoff arms lose > 50%. Scaffold controls must stay below +0.10 to confirm non-trivial geometry drives the signal.
+**Pass criteria.** PASS_RESIDUE: cutoff_2000 >= +0.20 nats, 3/3 seeds positive, residue_fraction >= 0.45, scaffold controls dead. PASS_REGULARIZATION: cutoff gains < +0.12, late anchor >= +0.20.
 
-**Status:** PRE-STAGED (code complete cycle 186, all Codex SEVs fixed cycle 190, prereg DRAFT — locks when g195 determines surface).
+**Status:** LOCKED (cycle 193, gated on g192 completion). PASS_RESIDUE → §0.1 ~6.5.
 
-Source: `code/genome_196_anchor_residue_factorial.py`, `research/prereg/genome_196_anchor_residue_factorial_2026-04-30.md` (DRAFT), `results/genome_196_anchor_residue_factorial.json` (not yet created).
+Source: `code/genome_196_anchor_residue_factorial.py`, `research/prereg/genome_196_anchor_residue_factorial_2026-04-30.md` (LOCKED).
 
 ---
 
