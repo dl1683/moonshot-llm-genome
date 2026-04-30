@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-04-30 — genome_186_kd_dose_response — RUNNING (KD dose-response delta geometry)
+
+**Purpose.** Test whether seed-matched early geometry delta predicts the KD dose-response curve. Kill-or-promote for the Forecast direction. 60 cells = 2 architectures (Qwen3-arch, GPT-2-arch) x 5 KD doses (alpha=0.0, 0.3, 0.7, 1.0, 2.0) x 6 seeds, 1200 steps/cell. Additive KD loss: CE(C4) + alpha * CE(teacher_text).
+
+**Analysis.** 48 seed-matched delta rows. Primary: leave-two-seeds-out CV. 8 baselines: alpha-only, alpha_quad, delta_early_loss, arm_mean, combined_non_geometry, alpha_plus_arch, shuffled_geometry (permutation), arm_mean (CV). PASS: R2>=0.30, MSE reduction >=20% vs best baseline, permutation p<=0.05, beats alpha-only, per-arch R2>=0.25/no arch <0, bootstrap CI >0.
+
+**PASS -> §0.1 ~6.5 (causal intervention diagnostic). FAIL -> 4.0 (retire Forecast).**
+
+Source: `code/genome_186_kd_dose_response.py`, `research/prereg/genome_186_dose_response_2026-04-29.md` (LOCKED).
+
+---
+
 ## 2026-04-22 session catch-up (genome_012 → genome_090, highlights only)
 
 Full ledger has 114 entries as of 2026-04-24; this doc details genome_000–011 then jumps to highlights. Per-experiment details live in `experiments/ledger.jsonl`. Major landings this session:
