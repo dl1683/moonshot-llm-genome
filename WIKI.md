@@ -26,19 +26,21 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 196)
+## CURRENT STATUS (2026-04-30, cycle 198)
 
 **§0.1 honest score: 5.8/10** (post-g195 PASS_OUTPUT_DOMINANT, cycle 193). **g195 PASS_OUTPUT_DOMINANT (15/15 cells, cycle 193).** Output (lm_head) carries 65% of tied signal (+0.362 nats), input (embed_tokens) 34% (+0.190 nats). Both = 99.3% of (input + output) = near-perfect additivity. Tied mean = +0.560. The lm_head geometry is the gradient generator. A18 SEV-10 #1 RESOLVED.
 
-**g192 28-layer replication RUNNING (cycle 195).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. 2/9 cells done: scratch_ce seed=42 NLL=5.831, seed=7 NLL=5.844. Cell 3 (scratch_ce seed=13) in progress.
+**g192 28-layer replication RUNNING (cycle 198, 4/9 cells).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only seed=42: NLL=5.330 → gap +0.501 nats (STRONGER than 8-layer +0.465).** Signal PERSISTS and AMPLIFIES at depth. Cell 5 (matched_rows_only seed=7) in progress. ~2h remaining.
 
-**g197 output-interface canary arena CODE COMPLETE (cycle 196).** All Codex code review findings resolved (SEV-10 through SEV-2). Seed-stratified permutation, out-of-fold R², NaN sanitization, Gaussian unmatched rows, scaffold distance features, kNN clustering, freq-bucket purity, norm KL, loss slope diagnostic. Prereg LOCKED. Adversarial review completed (5 attacks; ceiling 6.0-6.2 if unresolved, 6.8-7.1 if resolved). Queued next after g192.
+**g197 output-interface canary arena CODE COMPLETE (cycle 198).** All Codex code review findings resolved: cycle 195 (SEV-10 through SEV-2), cycle 198 §A (SEV-10 loss-slope leak, SEV-7 matched-row features, SEV-5 MAE wins, SEV-4 freq-bucket fix). Prereg LOCKED. Queued next after g192.
 
 **g196 anchor-residue factorial LOCKED (cycle 193).** surface=output (lm_head only). 10 arms x 3 seeds = 30 cells. Gated on g192 completion. PASS_RESIDUE → §0.1 ~6.5.
 
 **A18 remaining:** (1) ~~tied lm_head confound~~ → g195 RESOLVED (output dominant). (2) anchor dominance = regularization → g196 anchor-residue factorial. Ceiling ~6.1 if g192 depth pass; ~6.5 if g196 PASS_RESIDUE; ~6.9 if g197 PASS_CANARY.
 
-**Queue:** g192 (28-layer, RUNNING 2/9) -> g197 (canary arena, CODE COMPLETE) -> g196 (anchor-residue, gated on g192) -> g190 (DEFERRED).
+**Route 2 derivation deepened (cycle 198):** Codex Architecture-Theorist identifies Fisher-codebook operator M_W = C_h^{1/2} W_out^T (Diag(π) - ππ^T) W_out C_h^{1/2} as the correct theoretical object. g197 tests proxies; g199 would test the operator directly. Expected §0.1 from full derivation: +0.6-1.0.
+
+**Queue:** g192 (28-layer, RUNNING 4/9) -> g197 (canary arena, CODE COMPLETE) -> g196 (anchor-residue, gated on g192) -> g190 (DEFERRED).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
