@@ -251,6 +251,7 @@ def train_cell(
     n_train = train_ids.shape[0]
     trajectory = {}
     t0 = time.time()
+    cutoff_eval_steps = {50, 500, 2000}
 
     for step in range(1, n_steps + 1):
         idx = torch.randint(0, n_train, (g188.BATCH_SIZE,))
@@ -293,7 +294,9 @@ def train_cell(
         if step % LOG_EVERY == 0:
             print_flush(f"    step {step}/{n_steps} loss={loss.item():.4f}")
 
-        if step % EVAL_EVERY == 0 or step == n_steps:
+        do_eval = (step % EVAL_EVERY == 0 or step == n_steps
+                   or step in cutoff_eval_steps)
+        if do_eval:
             model.eval()
             with torch.no_grad():
                 val_nll = g188._eval_nll(model, val_ids, val_mask)
@@ -396,7 +399,7 @@ def compute_verdict(payload: dict[str, Any]) -> dict[str, Any]:
     ):
         verdict = "PASS_EARLY_WINDOW"
     else:
-        if max(init_mean, anchor_full_mean, cut2000_mean) < 0.10:
+        if not replication_gate and max(init_mean, anchor_full_mean, cut2000_mean) < 0.10:
             verdict = "FAIL_REPLICATION"
         elif late_mean < 0.10 and cut2000_mean < 0.10:
             verdict = "FAIL_TIMING_AMBIGUOUS"
@@ -574,7 +577,7 @@ def main() -> None:
         },
         "init_only": {
             "embed_init": primary_embed_init, "lm_head_init": primary_lm_head_init,
-            "anchor_target": None, "anchor_mask": None,
+            "anchor_target": None, "anchor_mask": matched_mask,
         },
         "anchor_only_full": {
             "embed_init": None, "lm_head_init": None,
@@ -612,7 +615,19 @@ def main() -> None:
 
     if not args.no_resume and run_out_path.exists():
         payload = json.loads(run_out_path.read_text(encoding="utf-8"))
+        prev_cfg = payload.get("config", {})
+        if (prev_cfg.get("surface") != surface
+                or prev_cfg.get("tied") != use_tied
+                or prev_cfg.get("train_steps") != n_steps
+                or prev_cfg.get("seeds") != seeds):
+            print_flush(f"  WARNING: resume config mismatch (prev surface={prev_cfg.get('surface')}, "
+                        f"tied={prev_cfg.get('tied')}, steps={prev_cfg.get('train_steps')}). "
+                        f"Starting fresh.")
+            payload = None
     else:
+        payload = None
+
+    if payload is None:
         payload = {
             "genome": 196,
             "name": "anchor_residue_factorial",
