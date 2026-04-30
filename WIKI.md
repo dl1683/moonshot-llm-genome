@@ -363,11 +363,11 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Pre-reg |
 |---|---|---|---|
-| `genome_197` | **CODED** | Output-interface canary arena: 10 lm_head conditions, step-0/50 geometry → final NLL prediction. PASS_CANARY → §0.1 ~6.9. | `research/prereg/genome_197_output_interface_canary_arena_2026-04-30.md` |
+| `genome_197` | **CODE COMPLETE** | Output-interface canary arena: 10 lm_head conditions, step-0/50 geometry → final NLL prediction. All Codex review fixes applied. PASS_CANARY → §0.1 ~6.9. | `research/prereg/genome_197_output_interface_canary_arena_2026-04-30.md` |
 | `genome_196` | **LOCKED** | Anchor-residue factorial: persistence vs regularization. surface=output. 10 arms x 3 seeds. Gated on g192. | `research/prereg/genome_196_anchor_residue_factorial_2026-04-30.md` |
 | `genome_195` | **PASS_OUTPUT_DOMINANT** | Untied input/output factorial: output 65%, input 34%, additivity 99.3%. A18 #1 RESOLVED. | `research/prereg/genome_195_untied_input_output_factorial_2026-04-30.md` |
 | `genome_194` | **PASS_DIRECTION** | Direction-vs-magnitude: correct directions with uniform norms recover 95-97% of signal. | `research/prereg/genome_194_scalar_direction_factorial_2026-04-30.md` |
-| `genome_192` | **RUNNING** | 28-layer replication: 1/9 cells (scratch_ce seed=42 at step 2500/5000). Prereg LOCKED. | `research/prereg/genome_192_28layer_replication_2026-04-30.md` |
+| `genome_192` | **RUNNING** | 28-layer replication: 4/9 cells. matched seed=42 +0.501 nats (stronger than 8-layer). Prereg LOCKED. | `research/prereg/genome_192_28layer_replication_2026-04-30.md` |
 | `genome_186` | **FAIL** | KD dose-response (60 cells, pooled R2=0.022, arm_mean R2=0.936 dominates) | `research/prereg/genome_186_dose_response_2026-04-29.md` |
 | `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
