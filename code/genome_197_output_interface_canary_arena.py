@@ -120,6 +120,7 @@ def build_frequency_scaled(
     trained_lm_head: np.ndarray, matched_mask: np.ndarray,
     token_freqs: np.ndarray, scratch_fro: float, gpt2_vocab: int, embed_dim: int,
 ) -> np.ndarray:
+    rng = np.random.RandomState(55555)
     dirs = _unit_directions(trained_lm_head)
     out = np.zeros((gpt2_vocab, embed_dim), dtype=np.float32)
     freq_norms = np.log1p(token_freqs[:gpt2_vocab]).astype(np.float32)
@@ -128,8 +129,8 @@ def build_frequency_scaled(
         if matched_mask[i]:
             out[i] = dirs[i] * freq_norms[i]
         else:
-            out[i] = np.random.randn(embed_dim).astype(np.float32)
-            out[i] = out[i] / max(np.linalg.norm(out[i]), 1e-12) * freq_norms[i]
+            rand_dir = rng.randn(embed_dim).astype(np.float32)
+            out[i] = rand_dir / max(np.linalg.norm(rand_dir), 1e-12) * freq_norms[i]
     return _rescale_to_fro(out, scratch_fro)
 
 
@@ -444,6 +445,9 @@ def train_cell(
 
     n_train = train_ids.shape[0]
     trajectory = {}
+    step50_feats: dict[str, float] = {}
+    delta_feats: dict[str, float] = {}
+    dynamics: dict[str, float] = {}
     t0 = time.time()
 
     for step in range(1, n_steps + 1):
