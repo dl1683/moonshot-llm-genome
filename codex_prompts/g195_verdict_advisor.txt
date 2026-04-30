@@ -1,0 +1,11 @@
+Read results/genome_195_untied_input_output_factorial.json (the actual numbers, not just the verdict label), WIKI.md, research/CLAIM_EVIDENCE_MAP.md, and the last 3 ledger entries in experiments/ledger.jsonl. Also read the g195 prereg at research/prereg/genome_195_untied_input_output_factorial_2026-04-30.md for the locked pass/fail criteria.
+
+g195 has completed 15/15 cells. Key emerging findings before you look at the data:
+- Output dominance: output_inject_anchor (lm_head only) gives ~78% of the tied signal while input_inject_anchor (embed_tokens only) gives ~41%.
+- Near-perfect additivity: both_inject_anchor ≈ input + output (99% of the sum).
+- both_inject_anchor EXCEEDS tied_reference by ~18% — untied both > tied.
+- Early super-additivity: at step 500, both/sum ≈ 120%; decays to 99% by convergence.
+
+The user wants POWERFUL next directions, not obvious follow-ups in the existing chain. Score 5 candidate next-experiments by section-0.1-uplift potential. The candidates should include at least 2 that are NOT obvious continuations of the current branch (g196 anchor-residue and g192 28-layer are the obvious ones). Pick the highest-leverage one and explain why it beats the obvious continuation. Report under 600 words.
+
+Critical context: section 0.1 end goal is "the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed." The output-dominance finding connects: lm_head geometry is the gradient generator (Press & Wolf 2017, logit lens, neural collapse) — it teaches the whole network what directions predictions should occupy. This makes output-interface geometry the natural primary diagnostic for training health.
