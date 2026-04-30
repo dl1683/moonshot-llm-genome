@@ -433,7 +433,7 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 *(Updated 2026-04-30 cycle 126)*
 
 **Active:**
-1. **g186 KD dose-response** — RUNNING (6/60 cells done, ~131s/cell, ETA ~2h). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze` (improved analysis code with all baselines/bootstrap/D5).
+1. **g186 KD dose-response** — RUNNING (22/60 cells at cycle 131). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Analysis code has 10 fixes (Codex cycle 126 + 129 + adversarial cycle 130): 11 baselines including conditioned permutation, strict telemetry filtering, combined_non_geometry_plus_arch. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`.
 
 **Completed this session:**
 - **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
