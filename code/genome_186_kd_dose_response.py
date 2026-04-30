@@ -739,6 +739,8 @@ def main():
     parser = argparse.ArgumentParser(description="g186 KD dose-response")
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--reanalyze", action="store_true")
+    parser.add_argument("--export-ridge", action="store_true",
+                        help="Export frozen Ridge artifact for g185v2")
     parser.add_argument("--max-cells", type=int, default=999)
     args = parser.parse_args()
 
@@ -755,6 +757,10 @@ def main():
     print_flush(f"    total cells: {len(archs) * len(doses) * len(seeds)}")
     if args.smoke:
         print_flush("    *** SMOKE TEST MODE ***")
+
+    if args.export_ridge:
+        export_frozen_ridge()
+        return
 
     if args.reanalyze:
         reanalyze_main()
@@ -858,6 +864,78 @@ def reanalyze_main():
         analysis = pairwise_dose_analysis(labeled, cells)
         existing["dose_analysis"] = analysis
         g182.save_incremental(OUT_PATH, existing)
+
+
+def export_frozen_ridge():
+    """Train Ridge on ALL g186 delta rows and export frozen artifact for g185v2."""
+    from sklearn.linear_model import RidgeCV
+
+    if not OUT_PATH.exists():
+        print_flush("No results file to export from")
+        return
+    with open(OUT_PATH, encoding="utf-8") as f:
+        existing = json.load(f)
+
+    cells = existing.get("cells", [])
+    labeled = compute_dose_labels(cells)
+    feat_names = list(g182.MANIFOLD_ONLY_FEATURE_NAMES)
+
+    scratch_by = {}
+    for c in cells:
+        if c["kd_alpha"] == 0.0:
+            scratch_by[(c["arch"], c["seed"])] = c
+
+    delta_X, delta_y, delta_meta = [], [], []
+    for c in labeled:
+        sc = scratch_by.get((c["arch"], c["seed"]))
+        if sc is None:
+            continue
+        c_feats = c.get("features") or {}
+        sc_feats = sc.get("features") or {}
+        if not c_feats or not sc_feats:
+            continue
+        dx = _safe_delta(c_feats, sc_feats, feat_names)
+        if dx is None:
+            continue
+        delta_X.append(dx)
+        delta_y.append(c["label"])
+        delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
+
+    if len(delta_X) < 20:
+        print_flush(f"Too few rows ({len(delta_X)}) to export reliable Ridge")
+        return
+
+    dX = np.array(delta_X)
+    dy = np.array(delta_y)
+
+    mu = dX.mean(0)
+    sd = dX.std(0)
+    sd[sd < 1e-12] = 1.0
+
+    ridge = RidgeCV(alphas=RIDGE_ALPHAS)
+    ridge.fit((dX - mu) / sd, dy)
+
+    artifact = {
+        "source": "genome_186_kd_dose_response",
+        "n_training_rows": len(delta_X),
+        "feature_names": feat_names,
+        "feature_means": mu.tolist(),
+        "feature_scales": sd.tolist(),
+        "ridge_coef": ridge.coef_.tolist(),
+        "ridge_intercept": float(ridge.intercept_),
+        "ridge_alpha": float(ridge.alpha_),
+        "training_r2": float(ridge.score((dX - mu) / sd, dy)),
+        "training_label_mean": float(dy.mean()),
+        "training_label_std": float(dy.std()),
+    }
+
+    out_path = ROOT / "results" / "genome_186_frozen_ridge.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(artifact, f, indent=2)
+    print_flush(f"Frozen Ridge exported to {out_path}")
+    print_flush(f"    n_rows={len(delta_X)} R2={artifact['training_r2']:.3f} "
+                f"alpha={artifact['ridge_alpha']:.1f}")
+    return artifact
 
 
 if __name__ == "__main__":
