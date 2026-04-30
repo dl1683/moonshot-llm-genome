@@ -6,9 +6,9 @@ Cycle 65 A8 long-horizon attenuation control.
 Question: Does the g181a embed-lm-head-only +0.483 nat gain persist at 5000 steps
 (2.5x the g181a 2000-step horizon), or does scratch CE close the gap?
 
-Arms (2 only — no_embed_lm_head already proven to HARM in g181a):
-  1. scratch_ce — baseline, no anchor
-  2. embed_lm_head_only_anchor — lambda gradient-matched to g181a full-anchor at step 0
+Arms (2 only --no_embed_lm_head already proven to HARM in g181a):
+  1. scratch_ce --baseline, no anchor
+  2. embed_lm_head_only_anchor --lambda gradient-matched to g181a full-anchor at step 0
 
 PASS: embed_lm_head_only gap at step 5000 >= +0.5 nats vs scratch
 FAIL: gap < +0.3 nats at step 5000
@@ -346,7 +346,7 @@ def build_summary(payload: dict[str, Any]) -> dict[str, Any]:
         verdict = f"PASS: embed_lm_head_only gap = {mean_gain:+.3f} nats at step {TRAIN_STEPS}, CI [{ci_lo:+.3f}, {ci_hi:+.3f}]. Persists beyond g181a's 2000-step horizon."
     elif mean_gain < FAIL_EMBED_GAIN_MAX_NATS:
         status = "FAIL"
-        verdict = f"FAIL: embed_lm_head_only gap = {mean_gain:+.3f} nats at step {TRAIN_STEPS} (< +0.3 threshold). Scratch CE catches up — effect is short-horizon only."
+        verdict = f"FAIL: embed_lm_head_only gap = {mean_gain:+.3f} nats at step {TRAIN_STEPS} (< +0.3 threshold). Scratch CE catches up --effect is short-horizon only."
     else:
         status = "INTERMEDIATE"
         verdict = f"INTERMEDIATE: embed_lm_head_only gap = {mean_gain:+.3f} nats at step {TRAIN_STEPS}, CI [{ci_lo:+.3f}, {ci_hi:+.3f}]."

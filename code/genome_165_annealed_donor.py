@@ -1,5 +1,5 @@
 """
-genome_165_annealed_donor.py — annealed donor / decaying-anchor washout test.
+genome_165_annealed_donor.py -- annealed donor / decaying-anchor washout test.
 
 Per cycle 24 strategic pivot in research/programs/post_g158c_decision_tree.md
 + research/EARLY_HELP_META_AUDIT_2026-04-27.md, this experiment tests whether a

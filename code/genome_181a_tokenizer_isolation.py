@@ -453,9 +453,9 @@ def compute_lambda_diagnostics(
         rel_err = abs(f2_full - f2_full_direct) / max(f2_full_direct, 1e-30)
         if rel_err > 1e-6:
             raise RuntimeError(
-                f"Frobenius² partition mismatch seed={seed}: "
+                f"Frobenius^2 partition mismatch seed={seed}: "
                 f"f2_embed+f2_no_embed={f2_full:.6f} vs f2_full_direct={f2_full_direct:.6f} "
-                f"rel_err={rel_err:.2e} > 1e-6 — masking has overlap or gap"
+                f"rel_err={rel_err:.2e} > 1e-6 -- masking has overlap or gap"
             )
         if f2_embed <= 0.0 or f2_no_embed <= 0.0:
             raise RuntimeError(

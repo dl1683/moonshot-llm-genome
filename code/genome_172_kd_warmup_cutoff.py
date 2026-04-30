@@ -549,7 +549,7 @@ def build_mechanism_analysis(
     init_signal_pass = warmup_mean >= PASS_INIT_SIGNAL_TOP1_GAIN_PP and warmup_lo > 0.0
     # Codex cycle 42 SEV8 fix: separate "tied/inconclusive" from "washout".
     # CI crossing zero is tied/inconclusive (cannot rule out either hypothesis).
-    # washout_fail requires mean <= +0.10pp AND CI does NOT cross zero — i.e., the
+    # washout_fail requires mean <= +0.10pp AND CI does NOT cross zero --i.e., the
     # CI is entirely below the +0.10pp bar. Otherwise we'd be claiming
     # continuous-constraint confirmation from a noisy null, which overclaims.
     tied_fail = warmup_ci_crosses_zero
@@ -569,7 +569,7 @@ def build_mechanism_analysis(
             f"Warmup-only KD is statistically tied with scratch: {warmup_mean:+.3f} pp "
             f"with 95% CI [{warmup_lo:+.3f}, {warmup_hi:+.3f}]. "
             "Misses the prereg init-signal bar but does NOT distinguish washout "
-            "from noise — neither continuous-constraint law nor init-signal hypothesis "
+            "from noise --neither continuous-constraint law nor init-signal hypothesis "
             "is affirmatively confirmed."
         )
     elif washout_fail:

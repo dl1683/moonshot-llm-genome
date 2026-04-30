@@ -2120,7 +2120,7 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
 
 
 def _fast_loao_r2(labeled: list[dict], feat_names: list[str], archs: list[str]) -> list[float]:
-    """Lightweight LOAO: returns per-fold R² without bootstrap/shuffled_p/AUROC."""
+    """Lightweight LOAO: returns per-fold R^2 without bootstrap/shuffled_p/AUROC."""
     r2s = []
     for test_arch in archs:
         train = [c for c in labeled if c["arch"] != test_arch]
