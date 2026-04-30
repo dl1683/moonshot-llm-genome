@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-04-30 — genome_188_tokenizer_flow_bridge — RUNNING (cross-tokenizer OT embedding transfer)
+
+**Purpose.** Test whether Qwen3 trained embeddings can be transcoded into GPT-2 tokenizer space via sparse character-offset OT alignment, then used as an anchor prior for GPT-2-architecture training. Rung 2 of the successive-refinement ladder (after g183 killed rung 1). 6 arms × 3 seeds × 5000 steps = 18 cells.
+
+**Arms:** scratch_ce, flow_bridge_init_anchor (OT-bridged Qwen3 trained embeddings), char_overlap_no_ot (raw character overlap without Sinkhorn), direct_string_match_anchor (exact string matching), flow_shuffled_qwen_rows (row-shuffled OT bridge — control), flow_random_source (random source embeddings through OT — control).
+
+**Pass criteria.** P1: flow_bridge mean NLL < scratch mean NLL by >= +0.12 nats. P2: flow_bridge beats all 4 controls. P3: flow_bridge beats scratch 3/3 seeds.
+
+**VERDICT: RUNNING.** Three critical bugs fixed pre-launch (cycle 150): (1) SEV-10 anchor targeting — stored param names not dummy model tensors, (2) S9 anchor strength — F.mse_loss mean reduction replaced with manual grad.add_ matching g181a/g183, (3) S8 Sinkhorn reversal — exp(-vals/...) replaced with vals/scale so high character overlap → high OT weight. ETA ~3-4h.
+
+Source: `code/genome_188_tokenizer_flow_bridge.py`, `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` (LOCKED).
+
+---
+
 ## 2026-04-30 — genome_183_corpus_derived_init — FAIL (corpus-derived interface prior)
 
 **Purpose.** Test whether PPMI co-occurrence + SVD from C4 corpus can replace a trained donor model's embed/lm_head as anchor target. Rescue experiment after g186 FAIL. Stage A: 3 arms (scratch_ce, trained_anchor, ppmi_svd_anchor) × 3 seeds = 9 cells, 5000 steps each. Stage B (conditional): 4 control arms × 3 seeds if ppmi_svd >= 0.15 nats vs scratch.
