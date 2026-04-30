@@ -8,7 +8,7 @@
 
 **Purpose.** Test whether seed-matched early geometry delta predicts the KD dose-response curve. Kill-or-promote for the Forecast direction. 60 cells = 2 architectures (Qwen3-arch, GPT-2-arch) x 5 KD doses (alpha=0.0, 0.3, 0.7, 1.0, 2.0) x 6 seeds, 1200 steps/cell. Additive KD loss: CE(C4) + alpha * CE(teacher_text).
 
-**Analysis.** 48 seed-matched delta rows. Primary: leave-two-seeds-out CV. 8 baselines: alpha-only, alpha_quad, delta_early_loss, arm_mean, combined_non_geometry, alpha_plus_arch, shuffled_geometry (permutation), arm_mean (CV). PASS: R2>=0.30, MSE reduction >=20% vs best baseline, permutation p<=0.05, beats alpha-only, per-arch R2>=0.25/no arch <0, bootstrap CI >0.
+**Analysis.** 48 seed-matched delta rows. Primary: leave-two-seeds-out CV. 10 baselines: alpha-only, alpha_quad, delta_early_loss, arm_mean (CV), delta_telemetry (7 features), delta_shesha (3 features), combined_non_geometry (alpha+alpha²+early_loss+telemetry), alpha_plus_arch, shuffled_geometry (1000 iters), plus D4 scratch stability + D5 alpha decodability diagnostics. PASS: R2>=0.30, MSE reduction >=20% vs best baseline, permutation p<=0.05, beats alpha-only, per-arch R2>=0.25/no arch <0, bootstrap CI >0, not alpha=1.0-only, >=48 rows.
 
 **PASS -> §0.1 ~6.5 (causal intervention diagnostic). FAIL -> 4.0 (retire Forecast).**
 

@@ -264,6 +264,32 @@ def _safe_delta(c_feats, sc_feats, names):
     return dx
 
 
+def _safe_delta_partial(c_feats, sc_feats, names):
+    """Compute feature delta, using 0.0 for features where either value is NaN."""
+    dx = []
+    for fn in names:
+        v_kd = float(c_feats.get(fn, float("nan")))
+        v_sc = float(sc_feats.get(fn, float("nan")))
+        if math.isfinite(v_kd) and math.isfinite(v_sc):
+            dx.append(v_kd - v_sc)
+        else:
+            dx.append(0.0)
+    return dx
+
+
+def _filter_available_features(cells, names, min_frac=0.25):
+    """Return subset of feature names that are finite in >= min_frac of cells."""
+    counts = {fn: 0 for fn in names}
+    for c in cells:
+        feats = c.get("features") or {}
+        for fn in names:
+            v = feats.get(fn)
+            if v is not None and math.isfinite(float(v)):
+                counts[fn] += 1
+    threshold = max(1, int(len(cells) * min_frac))
+    return [fn for fn in names if counts[fn] >= threshold]
+
+
 def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[str, Any]:
     """Primary analysis: seed-matched delta geometry predicts delta NLL."""
     from sklearn.linear_model import RidgeCV
@@ -275,6 +301,18 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     for c in all_cells:
         if c["kd_alpha"] == 0.0:
             scratch_by[(c["arch"], c["seed"])] = c
+
+    # Pre-filter feature lists to only features with finite values in enough cells
+    avail_tel = _filter_available_features(all_cells, TELEMETRY_FEAT_NAMES, min_frac=0.25)
+    avail_she = _filter_available_features(all_cells, SHESHA_FEAT_NAMES, min_frac=0.25)
+    dropped_tel = set(TELEMETRY_FEAT_NAMES) - set(avail_tel)
+    dropped_she = set(SHESHA_FEAT_NAMES) - set(avail_she)
+    if dropped_tel:
+        print_flush(f"    Dropped unavailable telemetry features: {sorted(dropped_tel)}")
+    if dropped_she:
+        print_flush(f"    Dropped unavailable shesha features: {sorted(dropped_she)}")
+    results["avail_telemetry_features"] = avail_tel
+    results["avail_shesha_features"] = avail_she
 
     # Build aligned delta arrays for geometry, telemetry, shesha, early_loss
     delta_X, delta_y, delta_meta = [], [], []
@@ -298,13 +336,11 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         delta_y.append(c["label"])
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
 
-        # Telemetry deltas (aligned with geometry rows)
-        dt = _safe_delta(c_feats, sc_feats, TELEMETRY_FEAT_NAMES)
-        delta_tel.append(dt if dt else [0.0] * len(TELEMETRY_FEAT_NAMES))
+        # Telemetry deltas — partial OK, zero for missing individual features
+        delta_tel.append(_safe_delta_partial(c_feats, sc_feats, avail_tel) if avail_tel else [])
 
-        # Shesha deltas (aligned)
-        ds = _safe_delta(c_feats, sc_feats, SHESHA_FEAT_NAMES)
-        delta_shesha.append(ds if ds else [0.0] * len(SHESHA_FEAT_NAMES))
+        # Shesha deltas — partial OK
+        delta_shesha.append(_safe_delta_partial(c_feats, sc_feats, avail_she) if avail_she else [])
 
         # Early loss delta (aligned)
         el_kd = float(c.get("early_loss", float("nan")))
@@ -389,10 +425,20 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         ("alpha_quad", alphas2),
         ("delta_early_loss", del_X),
         ("alpha_plus_arch", np.column_stack([alphas, arch_indicator])),
-        ("delta_telemetry", tel_X),
-        ("delta_shesha", she_X),
-        ("combined_non_geometry", np.column_stack([alphas, alphas**2, del_X, tel_X])),
     ]
+    if avail_tel:
+        baseline_specs.append(("delta_telemetry", tel_X))
+    else:
+        print_flush("    SKIP delta_telemetry baseline (no available features)")
+    if avail_she:
+        baseline_specs.append(("delta_shesha", she_X))
+    else:
+        print_flush("    SKIP delta_shesha baseline (no available features)")
+    # combined includes telemetry only if available
+    combined_parts = [alphas, alphas**2, del_X]
+    if avail_tel:
+        combined_parts.append(tel_X)
+    baseline_specs.append(("combined_non_geometry", np.column_stack(combined_parts)))
 
     for bname, bX in baseline_specs:
         bp, bm, br2 = _cv_ridge_baseline(bX, dy, delta_meta, seed_folds)
@@ -637,6 +683,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         and mse_reduction >= 0.10
         and results.get("geometry_beats_alpha_only", False)
         and not alpha_1_only
+        and not results.get("rows_below_prereg_minimum", False)
     )
     if passes_primary:
         verdict = "PASS"
