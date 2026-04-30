@@ -509,6 +509,8 @@ def train_cell(
     step50_feats: dict[str, float] = {}
     delta_feats: dict[str, float] = {}
     dynamics: dict[str, float] = {}
+    early_losses: dict[int, float] = {}
+    EARLY_EVAL_STEPS = {10, 25}
     t0 = time.time()
 
     for step in range(1, n_steps + 1):
@@ -530,6 +532,14 @@ def train_cell(
 
         if step % LOG_EVERY == 0:
             print_flush(f"    step {step}/{n_steps} loss={loss.item():.4f}")
+
+        if step in EARLY_EVAL_STEPS:
+            model.eval()
+            with torch.no_grad():
+                nll_early = g188._eval_nll(model, val_ids, val_mask)
+            early_losses[step] = float(nll_early)
+            trajectory[str(step)] = float(nll_early)
+            model.train()
 
         if step == FEATURE_STEP:
             # Step-50 geometry features
@@ -587,6 +597,16 @@ def train_cell(
     all_features.update(delta_feats)
     all_features.update(dynamics)
     all_features["early_loss_50"] = float(trajectory.get(str(FEATURE_STEP), float("nan")))
+
+    # Loss slope from steps 10/25/50 (diagnostic, not locked comparator)
+    early_losses[FEATURE_STEP] = float(trajectory.get(str(FEATURE_STEP), float("nan")))
+    slope_steps = sorted(early_losses.keys())
+    if len(slope_steps) >= 2 and all(math.isfinite(early_losses[s]) for s in slope_steps):
+        xs = np.array(slope_steps, dtype=np.float64)
+        ys = np.array([early_losses[s] for s in slope_steps], dtype=np.float64)
+        all_features["early_loss_slope"] = float(np.polyfit(xs, ys, deg=1)[0])
+    else:
+        all_features["early_loss_slope"] = float("nan")
 
     result = {
         "condition": condition,
