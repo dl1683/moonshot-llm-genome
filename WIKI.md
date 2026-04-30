@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest baseline:** 5.0-5.3/10 (post g180 WEAK PASS). Full branch projections in CURRENT STATUS block below.
+**§0.1 honest baseline:** 4.0/10 (post g186 FAIL, cycle 138). g183 corpus-derived init RUNNING — rescue attempt. Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -77,7 +77,7 @@ The continuous SGD anchor on transformer block weights actively HURTS performanc
 
 **Locked claims:** C17 (g158c transport-demand) + C18 (g165 weight-anchor) + C19 (g167 KD canonical) + C21 (g174 trained-structure specificity, both axes) — all matched-null backed.
 
-**Live falsifier:** g177v2 RUNNING with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`codex_outputs/g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
+**Completed falsifier:** g177v2 FAIL (C22 REJECTED) with `--allow-unmatched-donors` (alt-donor pretrain ~2.5h, then main 5×3=15 cells ~50min). Reframed per Codex sanity check (`codex_outputs/g177v2_unmatched_decision_20260428T062000.md`): NOT matched-condition parity (computationally infeasible at NLL 3.6 on RTX 5090) but **matched-corpus, force-normalized sensitivity probe**. Pass requires Δ(Qwen3 - best_alt) ≥ +0.5 nats AND Qwen3 above 95% PI of NLL×Δ fit extrapolated from 3 alt donors. If Qwen3 within PI → undertraining-dominant, claim dies. Active fixes vs g175: corpus parity + 13-gram dedup + per-donor λ normalization + n=3 same-arch.
 
 **Queued post-g177v2 (revised per cycle 63 direction review 2026-04-28 ~08:24):**
 
