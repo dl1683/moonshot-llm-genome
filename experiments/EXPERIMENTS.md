@@ -26,7 +26,7 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 
 ---
 
-## 2026-04-29 — genome_182_triage_arena — RUNNING (Blinded Training Triage Arena)
+## 2026-04-29 — genome_182_triage_arena — COMPLETE (FAIL)
 
 **Purpose.** The §0.1=8.6 experiment. Cross-Transformer-family geometry diagnostic: 72 cells (2 architectures x 3 arms x 12 seeds) with leave-one-architecture-out CV. Tests whether early-training geometry features predict final C4 NLL gain better than 9 strong baselines + combined telemetry, across Qwen3-arch AND GPT-2-arch.
 
@@ -49,6 +49,8 @@ Canonical findings: see `research/derivations/candidate_8_spectral_bridge.md`, `
 **Cycle 114 (mod-3 Codex review):** §A found SEV-8 resume cell-drop bug (partial `--max-cells` resume silently drops cells beyond iteration point — fixed: `all_cells` initialized from existing cells) + SEV-7 teacher cache validation incomplete in shesha/frozen_eval paths (fixed: `load_teacher_text_cache()` helper used everywhere). g185 prospective triage-to-action prereg DRAFT staged (9.0/10 per Codex cycle 111). Source: `codex_outputs/heartbeats/cycle114_correctness_perf_20260429.md`.
 
 **Cycle 115 (adversarial, mod-5):** Adversarial Codex identified 5 attacks on g182/g185 claims. Top-severity: g185 train-test policy mismatch (Ridge trained on kd-only cells, applied to scratch+kd). Also: arm-identity leakage via manifold features, thin LOAO (12 seeds, 8 features), teacher-corpus compatibility confound, frozen Ridge interpolation-only test. **Response:** added confound analyses C1-C3 to g185 prereg (arm-identity diagnostic, scratch cell stratification, architecture-stratified predictions). g182 itself is not threatened — adversarial attacks target the g185 *application* claim. Source: `codex_outputs/heartbeats/cycle115_adversarial_20260429.md`.
+
+**FINAL RESULTS (cycle 124).** 48/48 cells complete. **VERDICT: FAIL.** All 6 LOAO models catastrophically fail (R2=-11 to -19). All baselines also fail. Within-arm label variance too small (std=0.002-0.003) for cross-architecture Ridge transfer. Z-scored LOAO: FAIL. Arm-demeaned LOAO: FAIL (R2~0). Permutation null: FAIL (p=0.265). **ONE surviving signal:** pairwise delta R2=0.518, corr=0.720 (n=24) — within-architecture, seed-matched geometric changes from scratch->KD predict NLL changes. Route 3 predictions: P1 PASS, P2-P4 FAIL, P3 FALSIFIED (0/8 features overlap cross-arch). D1/D2 favor Route 3 (basins). **Section 0.1: 4.5-5.0/10** — geometry is an architecture-specific KD-impact diagnostic, not a universal training health predictor. Cross-architecture transfer is dead at this sample size. Pairwise delta finding needs dose-response replication (g186).
 
 Source: `research/prereg/genome_182_triage_arena_2026-04-29.md`, `codex_outputs/g182_design_gate_v3_20260429.md`.
 
