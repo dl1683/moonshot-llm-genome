@@ -443,6 +443,7 @@ def main() -> None:
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--no-resume", action="store_true")
     parser.add_argument("--surface", type=str, default=None,
+                        choices=["input", "output", "both", "tied"],
                         help="Override g195 surface: input/output/both/tied")
     parser.add_argument("--tied", action="store_true", default=False,
                         help="Force tied fallback branch")
@@ -457,6 +458,8 @@ def main() -> None:
     g195_path = ROOT / "results" / "genome_195_untied_input_output_factorial.json"
     surface = args.surface
     use_tied = args.tied
+    if surface == "tied":
+        use_tied = True
 
     if surface is None and not use_tied:
         if g195_path.exists():

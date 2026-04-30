@@ -4,6 +4,32 @@
 
 ---
 
+## 2026-04-30 — genome_192_28layer_replication — PRE-STAGED (full-depth Qwen3 replication)
+
+**Purpose.** Test whether the 8-layer trained-token-row direction signal persists at full 28-layer Qwen3-0.6B depth (~492M params). If it does, the finding generalizes beyond shallow shells and §0.1 score moves from 5.8 to ~6.1.
+
+**Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Estimated peak VRAM ~8-10 GiB (within 22 GB envelope). 
+
+**Status:** PRE-STAGED (code ready cycle 189, Codex §A confirmed launch-ready, prereg DRAFT — gated on g195).
+
+Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (DRAFT).
+
+---
+
+## 2026-04-30 — genome_196_anchor_residue_factorial — PRE-STAGED (anchor persistence vs regularization)
+
+**Purpose.** Resolve A18 SEV-10 #2: does the trained-row direction signal create a persistent optimization basin (residue), or does it only help as an active regularizer (anchor term in loss)? 10 arms x 3 seeds x 5000 steps = 30 cells. Includes cutoff (anchor removed at step 2000), late-start (anchor added at step 2000), scaffold controls (orthogonal QR / covariance noise), and init_only (no anchor, just initialization).
+
+**Arms:** init_anchor_full, init_anchor_cutoff, init_anchor_late, noinit_anchor_full, noinit_anchor_cutoff, noinit_anchor_late, init_only, scaffold_ortho_full, scaffold_cov_full, scratch.
+
+**Pass criteria.** PASS_RESIDUE: cutoff arms retain >= 80% of full-run signal at final step. FAIL_RESIDUE: cutoff arms lose > 50%. Scaffold controls must stay below +0.10 to confirm non-trivial geometry drives the signal.
+
+**Status:** PRE-STAGED (code complete cycle 186, all Codex SEVs fixed cycle 190, prereg DRAFT — locks when g195 determines surface).
+
+Source: `code/genome_196_anchor_residue_factorial.py`, `research/prereg/genome_196_anchor_residue_factorial_2026-04-30.md` (DRAFT), `results/genome_196_anchor_residue_factorial.json` (not yet created).
+
+---
+
 ## 2026-04-30 — genome_195_untied_input_output_factorial — RUNNING (untied input/output mechanism isolation)
 
 **Purpose.** Resolve A18 SEV-10 #1: with tie_word_embeddings=True, embed_tokens IS lm_head. The +0.465 nats signal may be output-logit geometry, not input embedding. This experiment unties the weights and tests each side independently. 5 arms x 3 seeds x 5000 steps = 15 cells.
