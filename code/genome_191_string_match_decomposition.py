@@ -170,6 +170,7 @@ def train_cell(
     val_mask: torch.Tensor,
     *,
     n_steps: int = TRAIN_STEPS,
+    custom_mask: np.ndarray | None = None,
 ) -> dict[str, Any]:
     """Train one cell with optional row-wise anchor masking."""
     torch.manual_seed(seed)
@@ -182,9 +183,17 @@ def train_cell(
             model.model.embed_tokens.weight.device,
             dtype=model.model.embed_tokens.weight.dtype,
         )
-        model.model.embed_tokens.weight.data.copy_(emb_t)
-        if hasattr(model, "lm_head") and not model.config.tie_word_embeddings:
-            model.lm_head.weight.data.copy_(emb_t)
+        with torch.no_grad():
+            if custom_mask is None:
+                model.model.embed_tokens.weight.copy_(emb_t)
+            else:
+                mask_t = torch.from_numpy(custom_mask).to(emb_t.device)
+                model.model.embed_tokens.weight[mask_t] = emb_t[mask_t]
+            if hasattr(model, "lm_head") and not model.config.tie_word_embeddings:
+                if custom_mask is None:
+                    model.lm_head.weight.copy_(emb_t)
+                else:
+                    model.lm_head.weight[mask_t] = emb_t[mask_t]
 
     anchor_target = None
     row_mask_t = None
@@ -212,6 +221,9 @@ def train_cell(
         with torch.amp.autocast("cuda", dtype=g188.FORWARD_DTYPE):
             out = model(input_ids=batch_ids, attention_mask=batch_mask, labels=batch_ids)
             loss = out.loss
+
+        if not torch.isfinite(loss):
+            raise RuntimeError(f"non-finite loss at step {step} arm={arm_label} seed={seed}")
 
         optimizer.zero_grad()
         loss.backward()
@@ -378,10 +390,10 @@ def main() -> None:
         "scratch_ce":              {"custom_embed": None,          "anchor_embed": None,          "anchor_mask": None},
         "direct_init_only":        {"custom_embed": full_embed,    "anchor_embed": None,          "anchor_mask": None},
         "direct_anchor_only":      {"custom_embed": None,          "anchor_embed": full_embed,    "anchor_mask": None},
-        "matched_rows_only":       {"custom_embed": matched_only,  "anchor_embed": matched_only,  "anchor_mask": matched_mask},
+        "matched_rows_only":       {"custom_embed": full_embed,    "anchor_embed": full_embed,    "anchor_mask": matched_mask, "custom_mask": matched_mask},
         "unmatched_rows_only":     {"custom_embed": None,          "anchor_embed": unmatched_only, "anchor_mask": ~matched_mask},
-        "row_shuffled_matched":    {"custom_embed": shuffled,      "anchor_embed": shuffled,      "anchor_mask": matched_mask},
-        "frequency_bucket_shuffle":{"custom_embed": freq_shuf,     "anchor_embed": freq_shuf,     "anchor_mask": matched_mask},
+        "row_shuffled_matched":    {"custom_embed": shuffled,      "anchor_embed": shuffled,      "anchor_mask": matched_mask, "custom_mask": matched_mask},
+        "frequency_bucket_shuffle":{"custom_embed": freq_shuf,     "anchor_embed": freq_shuf,     "anchor_mask": matched_mask, "custom_mask": matched_mask},
     }
 
     if not args.no_resume and run_out_path.exists():
@@ -410,7 +422,7 @@ def main() -> None:
         payload["timestamp_utc_last_write"] = now_utc()
         payload["elapsed_s"] = time.time() - t_start
         tmp = run_out_path.with_suffix(run_out_path.suffix + ".tmp")
-        tmp.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+        tmp.write_text(json.dumps(payload, indent=2, default=str, allow_nan=False), encoding="utf-8")
         os.replace(tmp, run_out_path)
 
     for arm_label in ARMS:
@@ -439,6 +451,7 @@ def main() -> None:
                 val_ids=val_ids,
                 val_mask=val_mask,
                 n_steps=n_steps,
+                custom_mask=cfg.get("custom_mask"),
             )
             payload["results"][arm_label][key] = result
             save()
