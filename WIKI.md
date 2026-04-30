@@ -350,7 +350,8 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
-| `genome_183` | **RUNNING** | Corpus-derived init Stage A (3 arms × 3 seeds, ~3.3h). Rescue after g186 FAIL. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
+| `genome_183` | **FAIL** | Corpus-derived init: PPMI SVD HARMS (-0.291 nats). Confound check (anchor-only, no init) running. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
+| `genome_188` | **STAGED** | Tokenizer-flow bridge: OT-based cross-tokenizer embedding transfer. Code ready, prereg LOCKED. | `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
 
@@ -445,23 +446,23 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 138)*
+*(Updated 2026-04-30 cycle 149)*
 
 **Just completed:**
-- **g186 KD dose-response** -- **FAIL** (60/60 cells, 48 delta rows). Geometry does NOT predict dose-response. arm_mean dominates (R2=0.936). §0.1 drops to 4.0/10. g185v2 ARCHIVED.
+- **g183 corpus-derived init** — **FAIL** (9/9 cells). PPMI SVD ACTIVELY HARMS (-0.291 nats). Recovery=-74.8%. Successive-refinement rung 1 DEAD. Confound check (ppmi_svd_anchor_no_init) running.
 
 **Previously completed this session:**
-- **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
-- **g184 Falcon frozen geometry** — SUPERSEDED (g182 FAIL invalidates premise).
-- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked.
-- **g180b cross-tokenizer forecast** — FAIL. 27/27 cells. Geometry HURTS cross-tokenizer (-39.4%).
+- **g186 KD dose-response** — FAIL (60/60 cells). Geometry does NOT predict dose-response. arm_mean dominates.
+- **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19.
+- **g180b cross-tokenizer forecast** — FAIL. Geometry HURTS cross-tokenizer (-39.4%).
+- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps. C23 locked.
 
-**Queue (post-g186 FAIL, reprioritized by Codex advisor cycle 138):**
+**Queue (post-g183 FAIL, reprioritized by Codex advisor cycle 148):**
 1. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
-2. **g183 corpus-derived init** — 6.4/10 (best fireable rescue). **RUNNING** Stage A (3 arms × 3 seeds, 5000 steps). Prereg LOCKED: `research/prereg/genome_183_corpus_derived_init_2026-04-30.md`.
-3. **Fresh: KD compatibility law** — 6.1/10 (non-obvious). Model optimal KD dose from teacher/student/tokenizer/corpus stats, not geometry.
-4. **Cross-arch binary triage** — 5.6/10. Possible rescue but needs non-trivial protocol baselines.
-5. ~~g185v2 dose-selection~~ — **ARCHIVED** (g186 FAIL). ~~g184 redesigned~~ — **DEAD** (g186 FAIL).
+2. **g188 tokenizer-flow bridge** — 6.4/10. Code ready, prereg LOCKED. OT-based cross-tokenizer embedding transfer. **NEXT TO LAUNCH** after confound check frees GPU.
+3. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
+4. **Fresh: KD compatibility law** — 6.1/10 (non-obvious). Model optimal KD dose from teacher/student/tokenizer/corpus stats.
+5. **Cross-arch binary triage** — 5.6/10. Possible rescue but needs non-trivial protocol baselines.
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.

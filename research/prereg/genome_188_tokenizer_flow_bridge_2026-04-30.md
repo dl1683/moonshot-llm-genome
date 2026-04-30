@@ -1,7 +1,7 @@
 # Pre-registration: genome_188 — Tokenizer-Flow Bridge
 
 **Date:** 2026-04-30
-**Status:** DRAFT (locks after Codex final review)
+**Status:** LOCKED (2026-04-30T08:10:00Z)
 **Design gate:** `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`
 
 ---

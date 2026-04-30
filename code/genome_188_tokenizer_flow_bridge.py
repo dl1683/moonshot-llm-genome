@@ -339,21 +339,26 @@ def make_gpt2_qwen3_model(tok_gpt2, seed: int):
     return model
 
 
-def build_custom_anchor_pairs(
-    model, custom_embed: np.ndarray,
-) -> list[tuple[torch.nn.Parameter, torch.Tensor]]:
-    """Create (param, target) pairs for embed_in + lm_head anchor."""
-    embed_w = model.model.embed_tokens.weight
-    lm_w = model.lm_head.weight
-    target = torch.from_numpy(custom_embed).to(embed_w.device, dtype=embed_w.dtype)
-    return [(embed_w, target.clone()), (lm_w, target.clone())]
+def build_anchor_targets(
+    custom_embed: np.ndarray,
+) -> list[tuple[str, torch.Tensor]]:
+    """Create (param_name, target) pairs for embed_in + lm_head anchor.
+
+    Returns parameter names so targets are resolved against the actual training
+    model, not a throwaway dummy.
+    """
+    target = torch.from_numpy(custom_embed).to(dtype=torch.float32)
+    return [
+        ("model.embed_tokens.weight", target.clone()),
+        ("lm_head.weight", target.clone()),
+    ]
 
 
 def train_cell(
     arm_label: str,
     seed: int,
     tok_gpt2,
-    anchor_pairs: list | None,
+    anchor_targets: list | None,
     anchor_lambda: float,
     custom_embed: np.ndarray | None,
     train_ids: torch.Tensor,
@@ -376,6 +381,15 @@ def train_cell(
         if hasattr(model, "lm_head") and not model.config.tie_word_embeddings:
             model.lm_head.weight.data.copy_(emb_t)
 
+    actual_anchor_pairs = []
+    if anchor_targets:
+        param_dict = dict(model.named_parameters())
+        for param_name, target_tensor in anchor_targets:
+            if param_name in param_dict and param_dict[param_name].shape == target_tensor.shape:
+                actual_anchor_pairs.append(
+                    (param_dict[param_name], target_tensor.to(DEVICE, dtype=param_dict[param_name].dtype))
+                )
+
     model.train()
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=LR, betas=BETAS, weight_decay=WEIGHT_DECAY,
@@ -394,10 +408,10 @@ def train_cell(
             out = model(input_ids=batch_ids, attention_mask=batch_mask, labels=batch_ids)
             loss = out.loss
 
-        if anchor_pairs:
+        if actual_anchor_pairs:
             anchor_loss = torch.tensor(0.0, device=DEVICE)
-            for param, target in anchor_pairs:
-                anchor_loss = anchor_loss + F.mse_loss(param, target.to(param.device, dtype=param.dtype))
+            for param, target in actual_anchor_pairs:
+                anchor_loss = anchor_loss + F.mse_loss(param, target)
             loss = loss + anchor_lambda * anchor_loss
 
         optimizer.zero_grad()
@@ -761,7 +775,7 @@ def main():
 
             print_flush(f"\n  === {arm_label} seed={seed} ===")
 
-            anchor_pairs = None
+            anchor_targets = None
             custom_embed = None
 
             if arm_label == "scratch_ce":
@@ -769,27 +783,18 @@ def main():
             elif arm_label == "flow_bridge_init_anchor":
                 emb = embed_map[arm_label]
                 custom_embed = emb
-                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
-                anchor_pairs = build_custom_anchor_pairs(dummy, emb)
-                del dummy
-                cleanup_cuda()
+                anchor_targets = build_anchor_targets(emb)
             elif arm_label == "flow_anchor_only":
                 emb = embed_map[arm_label]
                 custom_embed = None  # no init injection
-                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
-                anchor_pairs = build_custom_anchor_pairs(dummy, emb)
-                del dummy
-                cleanup_cuda()
+                anchor_targets = build_anchor_targets(emb)
             elif arm_label == "flow_init_only":
                 custom_embed = embed_map[arm_label]
-                anchor_pairs = None  # no anchor
+                anchor_targets = None  # no anchor
             elif arm_label in embed_map:
                 emb = embed_map[arm_label]
                 custom_embed = emb
-                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
-                anchor_pairs = build_custom_anchor_pairs(dummy, emb)
-                del dummy
-                cleanup_cuda()
+                anchor_targets = build_anchor_targets(emb)
             else:
                 print_flush(f"  WARNING: unknown arm {arm_label}, skipping")
                 continue
@@ -798,8 +803,8 @@ def main():
                 arm_label=arm_label,
                 seed=seed,
                 tok_gpt2=tok_gpt2,
-                anchor_pairs=anchor_pairs,
-                anchor_lambda=ANCHOR_LAMBDA if anchor_pairs else 0.0,
+                anchor_targets=anchor_targets,
+                anchor_lambda=ANCHOR_LAMBDA if anchor_targets else 0.0,
                 custom_embed=custom_embed,
                 train_ids=train_ids,
                 train_mask=train_mask,
