@@ -1365,11 +1365,21 @@ def compute_verdict(loao_results: dict) -> dict[str, Any]:
 # Checkpoint / resume
 # ---------------------------------------------------------------------------
 
+def _sanitize_nan(obj):
+    if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+        return None
+    if isinstance(obj, dict):
+        return {k: _sanitize_nan(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize_nan(v) for v in obj]
+    return obj
+
+
 def save_incremental(out_path: Path, data: dict):
     """Atomic incremental save."""
     tmp = out_path.with_suffix(".tmp")
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, default=str, allow_nan=False)
+        json.dump(_sanitize_nan(data), f, indent=2, default=str, allow_nan=False)
     tmp.replace(out_path)
 
 
@@ -2109,6 +2119,28 @@ def arm_identity_diagnostics(labeled: list[dict]) -> dict[str, Any]:
     return results
 
 
+def _fast_loao_r2(labeled: list[dict], feat_names: list[str], archs: list[str]) -> list[float]:
+    """Lightweight LOAO: returns per-fold R² without bootstrap/shuffled_p/AUROC."""
+    r2s = []
+    for test_arch in archs:
+        train = [c for c in labeled if c["arch"] != test_arch]
+        test = [c for c in labeled if c["arch"] == test_arch]
+        if len(train) < 3 or len(test) < 2:
+            continue
+        X_tr, _ = feature_matrix(train, feat_names)
+        y_tr = np.array([c["label"] for c in train], dtype=np.float64)
+        X_te, _ = feature_matrix(test, feat_names)
+        y_te = np.array([c["label"] for c in test], dtype=np.float64)
+        mu, sd = X_tr.mean(0), X_tr.std(0)
+        sd[sd < 1e-12] = 1.0
+        ridge = fit_ridge_cv((X_tr - mu) / sd, y_tr)
+        pred = ridge.predict((X_te - mu) / sd)
+        ss_res = float(np.sum((y_te - pred) ** 2))
+        ss_tot = float(np.sum((y_te - y_te.mean()) ** 2))
+        r2s.append(1 - ss_res / ss_tot if ss_tot > 1e-12 else float("nan"))
+    return r2s
+
+
 def arm_controlled_loao(labeled: list[dict], all_cells: list[dict] | None = None) -> dict[str, Any]:
     """Codex cycle 122: tests that LOAO survives arm control.
 
@@ -2197,10 +2229,9 @@ def arm_controlled_loao(labeled: list[dict], all_cells: list[dict] | None = None
 
     # --- Test 3: Within-arm permutation null ---
     # Permute labels within (arch, arm) groups 200 times. Compute LOAO R² each time.
-    # If real LOAO R² > 95th percentile of null, geometry adds signal beyond arm.
+    # Uses lightweight Ridge-only LOAO (no bootstrap/shuffled_p/AUROC) for speed.
     try:
-        real_res = loao_evaluate(labeled, feat_names, "_perm_real")
-        real_r2s = [f["geometry_r2"] for f in real_res["folds"].values()]
+        real_r2s = _fast_loao_r2(labeled, feat_names, archs)
         real_mean_r2 = float(np.mean(real_r2s))
 
         rng = np.random.RandomState(RANDOM_STATE)
@@ -2216,9 +2247,8 @@ def arm_controlled_loao(labeled: list[dict], all_cells: list[dict] | None = None
                     for c, pl in zip(group, perm_labels):
                         perm_labeled.append({**c, "label": float(pl)})
             try:
-                perm_res = loao_evaluate(perm_labeled, feat_names, "_perm_null")
-                perm_r2 = float(np.mean([f["geometry_r2"] for f in perm_res["folds"].values()]))
-                null_r2s.append(perm_r2)
+                perm_r2s = _fast_loao_r2(perm_labeled, feat_names, archs)
+                null_r2s.append(float(np.mean(perm_r2s)))
             except Exception:
                 pass
 
@@ -2423,7 +2453,7 @@ def route3_predictions(
         }
         verdict = "Route 2 (continuous)" if ridge_advantage > 0.10 else "Route 3 (basins)"
         print_flush(f"  D1 continuous vs basin: ridge_loo={mse_ridge:.6f} "
-                    f"basin_loo={mse_basin:.6f} advantage={ridge_advantage:.1%} → {verdict}")
+                    f"basin_loo={mse_basin:.6f} advantage={ridge_advantage:.1%} -> {verdict}")
     except Exception as e:
         print_flush(f"  D1 failed: {e}")
 
@@ -2458,7 +2488,7 @@ def route3_predictions(
         }
         verdict = "Route 2 (depth matters)" if drift_value > 0.05 else "Route 3 (basins only)"
         print_flush(f"  D2 depth drift value: full_loo={mse_full:.6f} "
-                    f"no_drift_loo={mse_no_drift:.6f} drift_adds={drift_value:.1%} → {verdict}")
+                    f"no_drift_loo={mse_no_drift:.6f} drift_adds={drift_value:.1%} -> {verdict}")
     except Exception as e:
         print_flush(f"  D2 failed: {e}")
 
@@ -2511,7 +2541,7 @@ def route3_predictions(
         }
         shape = "CONCAVE (sweet spot)" if coefs[1] < 0 else "CONVEX (no sweet spot)"
         print_flush(f"  R1 alpha sweet spot: linear={coefs[0]:.4f} "
-                    f"quadratic={coefs[1]:.4f} → {shape}")
+                    f"quadratic={coefs[1]:.4f} -> {shape}")
     except Exception as e:
         print_flush(f"  R1 failed: {e}")
 
