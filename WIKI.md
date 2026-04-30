@@ -40,7 +40,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT triggered. All 3 pass criteria FAIL. The interface prior is NOT about vocabulary statistics — it is architecture-specific geometric structure. PPMI SVD has the right semantic info but the WRONG geometric format. This is the "codebook + decoder" thesis: tokenizer = codebook, architecture = decoder. Corpus stats alone cannot produce architecture-aligned geometry. Source: `results/genome_183_corpus_derived_init.json`.
 
-- **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority, NOT g187, NOT Stage B. Confound check (ppmi_svd_anchor_no_init, 1 cell) worth running to isolate init vs anchor harm. §0.1 = 3.5/10.
+- **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority. Confound check COMPLETE: anchor-only (no init) NLL=6.901, gap=-0.445 nats (WORSE than init+anchor -0.230). PPMI SVD is independently toxic in BOTH modes. §0.1 = 3.5/10.
 - **g188 tokenizer-flow bridge:** Codex design gate APPROVED (sparse character-offset alignment + Sinkhorn, NOT dense OT). 8 arms, PASS >= +0.12 nats. Code + prereg staged. §0.1 movement potential: 6.4/10. Source: `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`.
 - **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
 - **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
@@ -350,7 +350,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
-| `genome_183` | **FAIL** | Corpus-derived init: PPMI SVD HARMS (-0.291 nats). Confound check (anchor-only, no init) running. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
+| `genome_183` | **FAIL** | Corpus-derived init: PPMI SVD HARMS. Init+anchor=-0.291, anchor-only=-0.445. Both toxic. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
 | `genome_188` | **STAGED** | Tokenizer-flow bridge: OT-based cross-tokenizer embedding transfer. Code ready, prereg LOCKED. | `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
