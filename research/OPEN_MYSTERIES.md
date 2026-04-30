@@ -179,9 +179,10 @@ Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.08
 **Priority actions:**
 1. ~~**g191 string-match decomposition (RUNNING)**~~ **PASS_CONTENT (cycle 160).** Signal IS trained semantic vectors at exact-string positions. Content confirmed, format killed.
 2. ~~**g193 token-row compiler (RUNNING)**~~ **FAIL (cycle 162).** Compiler cosine=0.194. Byte-level features ≠ embedding directions. Exact lexical identity only.
-3. **g194 scalar/direction factorial (LAUNCHING)** — resolves A17 SEV-10: decompose e_t = r_t * u_t. Is the signal directional content or per-token norms?
-4. **g192 28-layer replication (gated on g194)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell).
-3. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? (NOVEL gap)
+3. **g194 scalar/direction factorial (RUNNING, cycle 165)** — resolves A17 SEV-10: decompose e_t = r_t * u_t. Is the signal directional content or per-token norms? Smoke strongly favors PASS_DIRECTION.
+4. **g195 untied input/output factorial (PRE-STAGED)** — resolves A18 SEV-10 #1: with tied weights, embed_tokens IS lm_head. Is the signal input embedding or output logit geometry? Smoke: both_inject_anchor ≈ tied_reference.
+5. **g192 28-layer replication (PRE-STAGED, gated on g194)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell). Config fixed to match actual Qwen3-0.6B (Codex §A SEV-8).
+6. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? (NOVEL gap)
 3. ~~**Successive-refinement codebook ladder**~~ — **RUNG 1 DEAD (g183 FAIL), RUNG 2 DEAD (g188 flow_bridge FAIL).** PPMI SVD harms (-0.291). OT-bridged trained embeddings harm (-0.119). But direct string matching (+0.478) shows the signal IS in trained embedding content at exact-string-matched positions. g191 testing whether it's content vs format.
 4. **Architecture-conditioned compatibility law** — train per-arch with scratch normalization, test frozen on third arch.
 
