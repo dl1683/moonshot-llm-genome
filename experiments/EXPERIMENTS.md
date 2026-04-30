@@ -20,7 +20,7 @@ Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28
 
 **Purpose.** Resolve A18 SEV-10 #2: does the trained-row direction signal create a persistent optimization basin (residue), or does it only help as an active regularizer (anchor term in loss)? 10 arms x 3 seeds x 5000 steps = 30 cells. Includes cutoff (anchor removed at step 2000), late-start (anchor added at step 2000), scaffold controls (orthogonal QR / covariance noise), and init_only (no anchor, just initialization).
 
-**Arms:** init_anchor_full, init_anchor_cutoff, init_anchor_late, noinit_anchor_full, noinit_anchor_cutoff, noinit_anchor_late, init_only, scaffold_ortho_full, scaffold_cov_full, scratch.
+**Arms:** scratch, init_only, anchor_only_full, init_anchor_full, cutoff_50, cutoff_500, cutoff_2000, late_anchor_only_2000, orthogonal_scaffold_full, cov_scaffold_full.
 
 **Pass criteria.** PASS_RESIDUE: cutoff arms retain >= 80% of full-run signal at final step. FAIL_RESIDUE: cutoff arms lose > 50%. Scaffold controls must stay below +0.10 to confirm non-trivial geometry drives the signal.
 
