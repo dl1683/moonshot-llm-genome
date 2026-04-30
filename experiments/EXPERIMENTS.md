@@ -4,15 +4,17 @@
 
 ---
 
-## 2026-04-30 — genome_183_corpus_derived_init — RUNNING (corpus-derived interface prior)
+## 2026-04-30 — genome_183_corpus_derived_init — FAIL (corpus-derived interface prior)
 
 **Purpose.** Test whether PPMI co-occurrence + SVD from C4 corpus can replace a trained donor model's embed/lm_head as anchor target. Rescue experiment after g186 FAIL. Stage A: 3 arms (scratch_ce, trained_anchor, ppmi_svd_anchor) × 3 seeds = 9 cells, 5000 steps each. Stage B (conditional): 4 control arms × 3 seeds if ppmi_svd >= 0.15 nats vs scratch.
 
 **Pass criteria.** P1: ppmi_svd recovers >= 50% of +0.513 nat trained-anchor gap (>= 0.257 nats vs scratch). P2: ppmi_svd beats scratch 3/3 seeds. P3: ppmi_svd beats best non-corpus control by >= 0.10 nats.
 
-**Status.** Stage A RUNNING (6/9 cells done, ppmi_svd_anchor training). scratch_ce mean NLL=6.456. trained_anchor mean NLL=6.066, mean gap=+0.389 nats (76% of g181b +0.513, PASS P1 threshold +0.257). ppmi_svd_anchor cells in progress — THE make-or-break result.
+**VERDICT: FAIL on all criteria.** 9/9 cells complete. scratch mean NLL=6.456, trained mean NLL=6.066 (gap=+0.389 nats, 76% of g181b), ppmi_svd mean NLL=6.747 (gap=-0.291 nats, ACTIVE HARM). Per-seed ppmi gaps: seed 42=-0.230, seed 7=-0.343, seed 13=-0.302. Bootstrap 95% CI: [-0.343, -0.230] — entirely negative. Recovery=-74.8% (not -74.8% of the gap, but -74.8% times the gap — PPMI makes things WORSE by 75% of the magnitude that training makes them better). Stage B NOT triggered (gate requires >= +0.15 nats). P1=FAIL, P2=FAIL (0/3 seeds beat scratch), P3=FAIL.
 
-**Cycle 147 cross-arch forensic synthesis (parallel work).** 6 failed cross-arch experiments forensically analyzed. Finding: tokenizer = codebook, architecture = decoder. Cross-tokenizer KD actively HURTS (g180b: -0.37 to -0.54 nats). Within-family interface prior strong (+0.39-0.51 nats). Codex adversarial cycle 147: §0.1 = 3.8/10. See `research/OPEN_MYSTERIES.md` Mystery 8.
+**What we learned.** Corpus-derived co-occurrence statistics (PPMI SVD) have the WRONG geometric format for Qwen3 architecture internals. The interface prior is NOT about vocabulary statistics — it is about architecture-specific geometric structure that emerges during training. This is the "codebook + decoder" thesis: trained embeddings are shaped BY the architecture during training; PPMI SVD is shaped by corpus statistics alone. g183 kills rung 1 of the successive-refinement ladder: corpus → PPMI SVD → trained embed. Higher rungs (teacher-logit clusters, OT-bridged trained embeddings) may still work because they carry architecture-aligned geometry. §0.1 drops to 3.5/10. Next: confound check (ppmi_svd_anchor_no_init) then g188 tokenizer-flow bridge.
+
+**Confound note.** ppmi_svd arm has TWO interventions: (1) init injection + (2) anchor to PPMI SVD. trained_anchor has ONE: anchor only (random init). Confound check arm (ppmi_svd_anchor_no_init) tests anchor-only to isolate which intervention is the primary cause of harm.
 
 Source: `code/genome_183_corpus_derived_init.py`, `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` (LOCKED).
 

@@ -526,13 +526,21 @@ def main() -> None:
     parser.add_argument("--no-resume", action="store_true")
     parser.add_argument("--stage-b", action="store_true", help="Run Stage B arms")
     parser.add_argument("--smoke", action="store_true", help="Smoke test: 1 seed, 50 steps")
+    parser.add_argument("--confound-check", action="store_true",
+                        help="Run ppmi_svd_anchor_no_init (anchor-only, no weight injection) seed 42")
     args = parser.parse_args()
 
     smoke = args.smoke
     seeds = [42] if smoke else SEEDS
     train_steps = 50 if smoke else TRAIN_STEPS
 
-    arms_to_run = STAGE_A_ARMS if not args.stage_b else STAGE_B_ARMS
+    if args.confound_check:
+        arms_to_run = ["ppmi_svd_anchor_no_init"]
+        seeds = [42]
+    elif args.stage_b:
+        arms_to_run = STAGE_B_ARMS
+    else:
+        arms_to_run = STAGE_A_ARMS
 
     print_flush(f"=== genome_183 corpus-derived init ({now_utc()}) ===")
     print_flush(f"  model={g165._MODEL_ID}")
@@ -656,6 +664,17 @@ def main() -> None:
                 anchor_pairs = g181a.build_anchor_pairs(
                     g165.load_random_init(seed), donor_params_device, "embed_lm_head",
                 )
+                cleanup_cuda()
+                anchor_lam = ANCHOR_LAMBDA
+                custom_embed = None
+            elif arm_label == "ppmi_svd_anchor_no_init":
+                custom_embed_arr = embed_map.get("ppmi_svd_anchor")
+                if custom_embed_arr is None:
+                    print_flush(f"  WARNING: no ppmi_svd embed for confound check, skipping")
+                    continue
+                dummy_model = g165.load_random_init(seed)
+                anchor_pairs = build_custom_anchor_pairs(dummy_model, custom_embed_arr)
+                del dummy_model
                 cleanup_cuda()
                 anchor_lam = ANCHOR_LAMBDA
                 custom_embed = None

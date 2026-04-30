@@ -1,7 +1,7 @@
 # Pre-registration: genome_187 — Ultrametric Training Diagnostic
 
 **Date:** 2026-04-30
-**Status:** DRAFT (locks after Codex final review)
+**Status:** LOCKED (2026-04-30, post Codex design gate approval)
 **Design gate:** `codex_outputs/g187_ultrametric_design_gate_20260430.md`
 
 ---
@@ -12,7 +12,7 @@ Token embedding geometry becomes increasingly ultrametric (hierarchically struct
 
 ## Literature gap
 
-No published work measures ultrametric violation ratios on text LLM training checkpoints. Prior work: arXiv 2512.20926 measured on protein language models (ProtT5 ultrametricity=0.130 vs SeqVec=16.67). v-PuNNs (arXiv 2508.01010) achieve 99.96% on WordNet hierarchies using p-adic neural networks.
+No published work measures ultrametric violation ratios on text LLM training checkpoints. Prior work: arXiv 2512.20926 measured on protein language models (ProtT5 ultrametricity=0.130 vs SeqVec=16.67). v-PuNNs (arXiv 2508.01010) achieve 99.96% on WordNet hierarchies using p-adic neural networks. TIER (arXiv 2603.08159, KDD 2026) uses cophenetic correlation as a regularization loss for taxonomy-aligned embeddings (prescriptive, not descriptive). Zuniga-Galindo (arXiv 2601.19070) connects p-adic tree structures to DNN thermodynamic limits. Xu et al. (npj Complexity 2024) measure hierarchical structure in MLP weights via "order-rate" but not in token embeddings.
 
 ## Models
 

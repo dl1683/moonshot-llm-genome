@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest baseline:** 4.0/10 (post g186 FAIL, cycle 138). g183 corpus-derived init RUNNING — rescue attempt. Full branch projections in CURRENT STATUS block below.
+**§0.1 honest baseline:** 3.5/10 (post g183 FAIL, cycle 148). Corpus-derived PPMI SVD ACTIVELY HURTS (-0.291 nats). Successive-refinement rung 1 dead. Next: g188 tokenizer-flow bridge (6.4/10 per Codex if sparse approach). Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -26,14 +26,25 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 147)
+## CURRENT STATUS (2026-04-30, cycle 148)
 
-**§0.1 honest score: 3.8/10** (Codex adversarial cycle 147). Narrowed claim: "Qwen-family trained embed/lm_head interface priors help Qwen-family training under a continuous anchor." NOT universal geometry, NOT forecast/diagnostic.
+**§0.1 honest score: 3.5/10** (Codex advisor post-g183 FAIL). Narrowed claim: "Qwen-family trained embed/lm_head interface priors help Qwen-family training under a continuous anchor." NOT universal geometry, NOT forecast/diagnostic. Corpus-derived PPMI SVD is DEAD as a replacement for trained priors.
 
-- g183 corpus-derived init **RUNNING** (6/9 cells done, ppmi_svd_anchor training). trained_anchor reproduces at +0.389 nats (76% of g181b +0.513). ppmi_svd is THE make-or-break: if >=50% recovery, path to 5.5+.
-- **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors. Cross-tokenizer KD actively HURTS (-0.37 to -0.54 nats, g180b). Codex verdict: "strong-form cross-architecture transfer is fundamentally false in the current framing."
-- Path to 7+: (1) g183 ppmi_svd PASS, (2) cross-tokenizer OT bridge (ULD-inspired), (3) prospective policy scoring, (4) electricity-grade demo
-- g187 ultrametric diagnostic on Pythia: Codex-approved as measurement primitive (NOT §0.1 mover alone). Novel gap confirmed. Queued post-g183.
+**★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
+
+| Arm | Mean NLL | Gap vs scratch | CI |
+|---|---:|---:|---:|
+| scratch_ce | 6.456 | — | — |
+| trained_anchor | 6.066 | **+0.389** | — |
+| ppmi_svd_anchor | 6.747 | **-0.291 (HARMS)** | [-0.343, -0.230] |
+
+Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT triggered. All 3 pass criteria FAIL. The interface prior is NOT about vocabulary statistics — it is architecture-specific geometric structure. PPMI SVD has the right semantic info but the WRONG geometric format. This is the "codebook + decoder" thesis: tokenizer = codebook, architecture = decoder. Corpus stats alone cannot produce architecture-aligned geometry. Source: `results/genome_183_corpus_derived_init.json`.
+
+- **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority, NOT g187, NOT Stage B. Confound check (ppmi_svd_anchor_no_init, 1 cell) worth running to isolate init vs anchor harm. §0.1 = 3.5/10.
+- **g188 tokenizer-flow bridge:** Codex design gate APPROVED (sparse character-offset alignment + Sinkhorn, NOT dense OT). 8 arms, PASS >= +0.12 nats. Code + prereg staged. §0.1 movement potential: 6.4/10. Source: `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`.
+- **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
+- **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
+- Path to 7+: (1) g188 tokenizer-flow bridge PASS, (2) cross-tokenizer trained-embed transcoding law, (3) prospective policy scoring, (4) electricity-grade demo
 
 **★ g186 VERDICT: FAIL — geometry does NOT predict KD dose-response (cycle 138, 2026-04-30) ★**
 

@@ -1,0 +1,60 @@
+You are the Codex advisor for the Neural Genome moonshot project. Read CLAUDE.md, WIKI.md, and the files referenced below.
+
+SITUATION:
+g183 (corpus-derived interface prior) is 8/9 cells done. Verdict FAIL is MATHEMATICALLY CERTAIN — seed 13 cannot rescue.
+
+RESULTS (2/3 ppmi_svd seeds done, seed 13 still running):
+- scratch_ce mean NLL: 6.456 (3 seeds, std ~0.03)
+- trained_anchor mean NLL: 6.066, gap = +0.389 nats (76% of g181b +0.513) — PASS
+- ppmi_svd_anchor 2/3 mean NLL: 6.763, gap = -0.307 nats (-78.9% of trained gap — ACTIVE HARM)
+  - seed 42: NLL=6.708, gap=-0.230
+  - seed 7:  NLL=6.819, gap=-0.342 (WORSE than seed 42)
+- Even if seed 13 matched trained_anchor best (+0.513), mean ppmi gap = -0.034 (still negative)
+- Stage B NOT triggered (gate requires >= +0.15 nats)
+
+TRAJECTORY ANALYSIS (ppmi_svd/42 vs scratch/42):
+- Step 0: ppmi_svd NLL=31.47 vs scratch 12.13 (PPMI SVD init causes catastrophic initial NLL)
+- Step 100: 7.69 vs 7.50 (rapid recovery to -0.19 gap)
+- Step 500-3000: Gap GROWS from -0.24 to -0.43 (anchor actively pulls toward wrong geometry)
+- Step 5000: Gap narrows to -0.23 (partial recovery, still negative)
+
+trained_anchor/42 trajectory:
+- Step 0: 12.13 (SAME as scratch — anchor-only, no init injection)
+- Step 500+: Gap POSITIVE, peaks at +0.50 by step 3000
+
+DESIGN CONFOUND:
+ppmi_svd arm has TWO interventions: (1) PPMI SVD init injection (2) anchor to PPMI SVD
+trained_anchor has ONE: (1) anchor to trained (starts from random init)
+Cannot isolate which intervention is the primary cause of harm.
+
+KEY FAILURE INSIGHT:
+Corpus-derived co-occurrence statistics (PPMI SVD, Fro norm 311 vs trained 363) actively HURT training.
+The interface prior is NOT about vocabulary statistics — it is about architecture-specific geometric structure.
+PPMI SVD has the right semantic information but the WRONG geometric format for Qwen3 internals.
+This is the "codebook + decoder" thesis: trained embeddings are shaped BY the architecture during training.
+PPMI SVD is shaped by corpus statistics alone — wrong "language" for the architecture's decoder.
+
+CUMULATIVE FAILURE PATTERN:
+- g180b: Cross-tokenizer KD HURTS (-0.37 to -0.54 nats)
+- g181a: Transformer block anchor HURTS (-0.44 nats)
+- g182: Cross-arch geometry prediction FAILS (R2=-11 to -19)
+- g173: Cross-arch KD works but NO efficiency gain (1.01x)
+- g183: PPMI SVD anchor HURTS (-0.31 nats mean)
+- g186: Geometry does NOT predict KD dose-response (R2=0.022)
+
+WHAT'S READY:
+1. g187 ultrametric training diagnostic (code + prereg, Codex-approved, +0.1-0.3 for s0.1)
+2. Successive-refinement ladder concept (rung 1 FAILED)
+3. Tokenizer-flow bridge (OT-based cross-tokenizer init)
+4. Critical-period anchor sweep (test WHEN prior matters)
+5. Interface redundancy assay (test HOW ROBUST prior is to corruption)
+
+QUESTIONS:
+1. Given g183 FAIL, what is the highest-value next experiment to move s0.1 from 3.8 toward 7+?
+2. Should we run g183 Stage B controls anyway (shuffled_svd, frequency_anchor, random_structured, covariance_matched, spectral_matched) to understand WHY ppmi_svd hurts? Each is 3 seeds x 21 min = 63 min.
+3. Is the init-injection vs anchor-only confound worth isolating (1 extra cell, 21 min)?
+4. Does g183 FAIL kill the successive-refinement ladder, or do higher rungs (teacher-logit clusters) still have value?
+5. Score current s0.1 honestly after g183 FAIL.
+6. What is the most efficient path to a finding that big labs cannot/will not publish?
+
+Read results/genome_183_corpus_derived_init.json, codex_outputs/cross_disciplinary_pivot_20260430.md, codex_outputs/adversarial_cycle147_20260430.md for context.

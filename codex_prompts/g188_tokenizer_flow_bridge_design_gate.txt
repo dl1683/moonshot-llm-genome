@@ -1,0 +1,44 @@
+You are the Codex design gate reviewer for the Neural Genome moonshot. Read CLAUDE.md, WIKI.md, COMPUTE.md first.
+
+EXPERIMENT PROPOSAL: g188 Tokenizer-Flow Bridge
+
+MOTIVATION:
+g183 FAIL proved that corpus-derived PPMI SVD embeddings actively HURT training when used as anchor (-0.31 nats mean). Cross-tokenizer KD also HURTS (g180b: -0.37 to -0.54 nats). But within-family trained-anchor HELPS (+0.39 nats). The missing piece is a topology-aware bridge that maps trained embeddings from one tokenizer's codebook to another's.
+
+CORE IDEA:
+Instead of directly mapping tokens by string match (naive approach) or using raw co-occurrence statistics (PPMI SVD, which FAILED), use optimal transport on a bipartite token co-occurrence graph to create a soft mapping between tokenizer vocabularies. Then transfer trained embeddings through this mapping.
+
+PROPOSED APPROACH:
+1. Tokenize the same C4 corpus spans with both Qwen3 and GPT-2 tokenizers
+2. Build bipartite co-occurrence graph: for each text span, which Qwen3 tokens co-occur with which GPT-2 tokens (positional alignment via character offsets)
+3. Compute optimal transport plan between Qwen3 and GPT-2 token distributions
+4. For each GPT-2 token, compute barycentric embedding from mapped Qwen3 trained embeddings
+5. Use these "flow-bridged" embeddings as anchor target for a GPT-2-tokenizer Qwen3-arch model
+6. Compare with: scratch, trained Qwen3 anchor (within-family, reference ceiling), direct string-match anchor, random-flow anchor (same OT structure but random source embeddings)
+
+PASS CRITERIA (propose exact thresholds):
+- Recover >= 0.10 nats vs scratch (20% of g181b +0.513)
+- Beat direct string-match anchor by >= 0.05 nats (topology adds value)
+- Beat random-flow anchor in 3/3 seeds (the OT mapping carries real information)
+- Random-flow does not match flow-bridged (the source embedding quality matters)
+
+COMPUTE ENVELOPE (from COMPUTE.md):
+- VRAM budget: 22 GB
+- System RAM: 64 GB
+- Wall clock: <= 4h with checkpointing
+- OT computation on 50K x 50K token matrix could be RAM-heavy — need sparse OT or subset
+
+QUESTIONS FOR CODEX:
+1. Is the bipartite co-occurrence + OT approach sound? Are there better alternatives?
+2. What library for OT? POT (Python Optimal Transport) is standard. Sinkhorn divergence is faster than exact OT.
+3. Should we use character-offset alignment or just co-occurrence within the same sentence?
+4. What subset size is needed? Full 151K x 50K is too large. Top 10K x 10K?
+5. What are the pass/fail thresholds? Is 0.10 nats (20% of +0.513) the right bar?
+6. Score this experiment: s0.1 movement potential, Nobel/Turing, feasibility.
+7. Exact file spec (code, prereg, results).
+8. Are there published methods for cross-tokenizer embedding alignment we should reference? (ULD: arXiv 2402.12030, Wasserstein OT for cross-tokenizer KD)
+9. What controls are needed to isolate the OT contribution from other confounds?
+
+Reference prior art: ULD (Universal Logit Distillation, arXiv 2402.12030) uses Wasserstein OT for cross-tokenizer KD at the logit level. We're adapting this principle to the embedding level.
+
+Read results/genome_183_corpus_derived_init.json for g183 FAIL data. Read results/genome_180b_cross_tokenizer.json for cross-tokenizer KD FAIL data. Read codex_outputs/cross_disciplinary_pivot_20260430.md for the tokenizer-flow bridge concept.
