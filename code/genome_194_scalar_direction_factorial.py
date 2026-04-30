@@ -169,8 +169,9 @@ def compute_verdict(payload: dict[str, Any]) -> dict[str, Any]:
     both_pass = (
         cd_sn_mean >= 0.20
         and sd_cn_mean >= 0.20
-        and not (cd_sn_mean > 0.80 * full_mean and sd_cn_mean < 0.20 * full_mean)
-        and not (sd_cn_mean > 0.80 * full_mean and cd_sn_mean < 0.20 * full_mean)
+        and full_mean > 0.0
+        and cd_sn_mean <= 0.80 * full_mean
+        and sd_cn_mean <= 0.80 * full_mean
     )
 
     if direction_pass:
@@ -248,25 +249,27 @@ def main() -> None:
     norms, unit_dirs = decompose_rows(full_embed, matched_mask)
     n_matched = int(matched_mask.sum())
     matched_norms = norms[matched_mask]
+    matched_fro = float(np.linalg.norm(full_embed[matched_mask], "fro"))
     print_flush(f"  Matched: {n_matched}, norm range: [{matched_norms.min():.4f}, {matched_norms.max():.4f}], mean={matched_norms.mean():.4f}")
+    print_flush(f"  matched_fro={matched_fro:.2f}, trained_fro={trained_fro:.1f}")
 
     rng = np.random.default_rng(PERM_SEED)
 
     matched_only = g191.build_matched_rows_only(full_embed, matched_mask)
 
     cd_sn = build_correct_dir_shuffled_norm(unit_dirs, norms, matched_mask, rng)
-    cd_sn = g188.normalize_to_fro_norm(cd_sn, trained_fro)
+    cd_sn = g188.normalize_to_fro_norm(cd_sn, matched_fro)
 
     rng2 = np.random.default_rng(PERM_SEED + 1)
     sd_cn = build_shuffled_dir_correct_norm(unit_dirs, norms, matched_mask, rng2)
-    sd_cn = g188.normalize_to_fro_norm(sd_cn, trained_fro)
+    sd_cn = g188.normalize_to_fro_norm(sd_cn, matched_fro)
 
     rng3 = np.random.default_rng(PERM_SEED + 2)
     rd_cn = build_random_dir_correct_norm(norms, matched_mask, embed_dim, rng3)
-    rd_cn = g188.normalize_to_fro_norm(rd_cn, trained_fro)
+    rd_cn = g188.normalize_to_fro_norm(rd_cn, matched_fro)
 
     cd_un = build_correct_dir_uniform_norm(unit_dirs, norms, matched_mask)
-    cd_un = g188.normalize_to_fro_norm(cd_un, trained_fro)
+    cd_un = g188.normalize_to_fro_norm(cd_un, matched_fro)
 
     arm_configs = {
         "scratch_ce":                {"custom_embed": None,       "anchor_embed": None,       "anchor_mask": None},
@@ -291,6 +294,7 @@ def main() -> None:
                 "perm_seed": PERM_SEED,
                 "n_matched": n_matched,
                 "trained_fro": trained_fro,
+                "matched_fro": matched_fro,
                 "matched_norm_mean": float(matched_norms.mean()),
                 "matched_norm_std": float(matched_norms.std()),
             },
