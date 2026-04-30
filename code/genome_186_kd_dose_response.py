@@ -230,18 +230,32 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             scratch_by[(c["arch"], c["seed"])] = c
 
     delta_X, delta_y, delta_meta = [], [], []
+    skipped_feats = 0
     for c in labeled:
         sc = scratch_by.get((c["arch"], c["seed"]))
         if sc is None:
             continue
+        if not c.get("features") or not sc.get("features"):
+            skipped_feats += 1
+            continue
+        has_all = all(
+            math.isfinite(float(c["features"].get(fn, float("nan"))))
+            and math.isfinite(float(sc["features"].get(fn, float("nan"))))
+            for fn in feat_names
+        )
+        if not has_all:
+            skipped_feats += 1
+            continue
         dx = []
         for fn in feat_names:
-            v_kd = float(c["features"].get(fn, 0))
-            v_sc = float(sc["features"].get(fn, 0))
+            v_kd = float(c["features"][fn])
+            v_sc = float(sc["features"][fn])
             dx.append(v_kd - v_sc)
         delta_X.append(dx)
         delta_y.append(c["label"])
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
+    if skipped_feats:
+        print_flush(f"    WARNING: skipped {skipped_feats} rows with missing/nan features")
 
     if len(delta_X) < 10:
         return {"error": f"too few delta pairs: {len(delta_X)}"}
@@ -323,10 +337,12 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     delta_el = []
     for c in labeled:
         sc = scratch_by.get((c["arch"], c["seed"]))
-        if sc:
-            delta_el.append(c.get("early_loss", 0) - sc.get("early_loss", 0))
+        el_kd = c.get("early_loss", float("nan"))
+        el_sc = sc.get("early_loss", float("nan")) if sc else float("nan")
+        if math.isfinite(el_kd) and math.isfinite(el_sc):
+            delta_el.append(el_kd - el_sc)
         else:
-            delta_el.append(0)
+            delta_el.append(0.0)
     del_X = np.array(delta_el).reshape(-1, 1)
     b_preds = np.zeros(len(dy))
     b_mask = np.zeros(len(dy), dtype=bool)
@@ -346,17 +362,68 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
         baselines["delta_early_loss"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
 
-    # arm_mean baseline
-    arm_means = {}
-    for i, m in enumerate(delta_meta):
-        key = (m["arch"], m["alpha"])
-        arm_means.setdefault(key, []).append(dy[i])
-    for k in arm_means:
-        arm_means[k] = np.mean(arm_means[k])
-    am_preds = np.array([arm_means.get((m["arch"], m["alpha"]), 0) for m in delta_meta])
-    ss = float(np.sum((dy - am_preds) ** 2))
-    st = float(np.sum((dy - dy.mean()) ** 2))
-    baselines["arm_mean"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+    # arm_mean baseline (cross-validated per prereg)
+    am_preds = np.zeros(len(dy))
+    am_mask = np.zeros(len(dy), dtype=bool)
+    for fold_seeds in seed_folds:
+        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
+        test_m = ~train_m
+        train_means = {}
+        for i, m in enumerate(delta_meta):
+            if train_m[i]:
+                key = (m["arch"], m["alpha"])
+                train_means.setdefault(key, []).append(dy[i])
+        for k in train_means:
+            train_means[k] = np.mean(train_means[k])
+        for i, m in enumerate(delta_meta):
+            if test_m[i]:
+                am_preds[i] = train_means.get((m["arch"], m["alpha"]), dy[train_m].mean())
+                am_mask[i] = True
+    if am_mask.sum() > 2:
+        ss = float(np.sum((dy[am_mask] - am_preds[am_mask]) ** 2))
+        st = float(np.sum((dy[am_mask] - dy[am_mask].mean()) ** 2))
+        baselines["arm_mean"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+
+    # combined_non_geometry: alpha + alpha^2 + delta_early_loss
+    cng_X = np.column_stack([alphas, alphas**2, del_X])
+    cng_preds = np.zeros(len(dy))
+    cng_mask = np.zeros(len(dy), dtype=bool)
+    for fold_seeds in seed_folds:
+        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
+        test_m = ~train_m
+        if train_m.sum() < 4:
+            continue
+        mu, sd = cng_X[train_m].mean(0), cng_X[train_m].std(0)
+        sd[sd < 1e-12] = 1.0
+        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+        ridge.fit((cng_X[train_m] - mu) / sd, dy[train_m])
+        cng_preds[test_m] = ridge.predict((cng_X[test_m] - mu) / sd)
+        cng_mask |= test_m
+    if cng_mask.sum() > 2:
+        ss = float(np.sum((dy[cng_mask] - cng_preds[cng_mask]) ** 2))
+        st = float(np.sum((dy[cng_mask] - dy[cng_mask].mean()) ** 2))
+        baselines["combined_non_geometry"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+
+    # alpha_plus_arch baseline
+    arch_indicator = np.array([1.0 if m["arch"] == "qwen3" else 0.0 for m in delta_meta]).reshape(-1, 1)
+    apa_X = np.column_stack([alphas, arch_indicator])
+    apa_preds = np.zeros(len(dy))
+    apa_mask = np.zeros(len(dy), dtype=bool)
+    for fold_seeds in seed_folds:
+        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
+        test_m = ~train_m
+        if train_m.sum() < 2:
+            continue
+        mu, sd = apa_X[train_m].mean(0), apa_X[train_m].std(0)
+        sd[sd < 1e-12] = 1.0
+        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+        ridge.fit((apa_X[train_m] - mu) / sd, dy[train_m])
+        apa_preds[test_m] = ridge.predict((apa_X[test_m] - mu) / sd)
+        apa_mask |= test_m
+    if apa_mask.sum() > 2:
+        ss = float(np.sum((dy[apa_mask] - apa_preds[apa_mask]) ** 2))
+        st = float(np.sum((dy[apa_mask] - dy[apa_mask].mean()) ** 2))
+        baselines["alpha_plus_arch"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
 
     results["baselines"] = baselines
 
