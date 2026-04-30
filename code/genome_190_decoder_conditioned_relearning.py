@@ -108,7 +108,7 @@ def autocast_context():
 
 # ---------- Phase 1: Relearn embed/lm_head on frozen decoder ----------
 
-def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask) -> dict[str, Any]:
+def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, *, n_steps: int = PHASE1_STEPS) -> dict[str, Any]:
     print_flush("\n=== Phase 1: Decoder-Conditioned Embedding Relearning ===")
 
     # Load trained Qwen3 decoder
@@ -160,7 +160,7 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask) -> dict[str, 
     )
 
     rng = np.random.default_rng(190)
-    schedule = rng.integers(0, int(train_ids.shape[0]), size=(PHASE1_STEPS, BATCH_SIZE), dtype=np.int64)
+    schedule = rng.integers(0, int(train_ids.shape[0]), size=(n_steps, BATCH_SIZE), dtype=np.int64)
 
     trajectory = []
     checkpoints = {}
@@ -176,7 +176,7 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask) -> dict[str, 
     model.train()
     prev_embed = model.model.embed_tokens.weight.detach().float().clone()
 
-    for step in range(1, PHASE1_STEPS + 1):
+    for step in range(1, n_steps + 1):
         batch_indices = schedule[step - 1]
         ids = train_ids[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
         mask = train_mask[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
@@ -197,7 +197,7 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask) -> dict[str, 
 
         if step % LOG_EVERY == 0:
             row = {"step": step, "ce_loss": float(loss.item()), "elapsed_s": time.time() - t0}
-            if step % EVAL_EVERY == 0 or step == PHASE1_STEPS:
+            if step % EVAL_EVERY == 0 or step == n_steps:
                 model.eval()
                 with torch.no_grad():
                     metrics = g181a.evaluate_nll(model, val_ids, val_mask)
@@ -235,7 +235,7 @@ def run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask) -> dict[str, 
         final_nll = final_metrics["nll"]
 
     result = {
-        "phase1_steps": PHASE1_STEPS,
+        "phase1_steps": n_steps,
         "final_nll": float(final_nll),
         "initial_nll": float(init_nll["nll"]),
         "nll_improvement": float(init_nll["nll"]) - float(final_nll),
@@ -304,6 +304,8 @@ def train_phase2_cell(
     train_mask: torch.Tensor,
     val_ids: torch.Tensor,
     val_mask: torch.Tensor,
+    *,
+    n_steps: int = PHASE2_STEPS,
 ) -> dict[str, Any]:
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -329,7 +331,7 @@ def train_phase2_cell(
         model.parameters(), lr=LR, betas=BETAS, weight_decay=WEIGHT_DECAY,
     )
     rng = np.random.default_rng(seed)
-    schedule = rng.integers(0, int(train_ids.shape[0]), size=(PHASE2_STEPS, BATCH_SIZE), dtype=np.int64)
+    schedule = rng.integers(0, int(train_ids.shape[0]), size=(n_steps, BATCH_SIZE), dtype=np.int64)
 
     trajectory = []
     initial_metrics = g181a.evaluate_nll(model, val_ids, val_mask)
@@ -338,7 +340,7 @@ def train_phase2_cell(
 
     t0 = time.time()
     model.train()
-    for step in range(1, PHASE2_STEPS + 1):
+    for step in range(1, n_steps + 1):
         batch_indices = schedule[step - 1]
         ids = train_ids[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
         mask = train_mask[torch.as_tensor(batch_indices, dtype=torch.long)].to(DEVICE)
@@ -363,9 +365,9 @@ def train_phase2_cell(
         torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
         optimizer.step()
 
-        if step % LOG_EVERY == 0 or step == PHASE2_STEPS:
+        if step % LOG_EVERY == 0 or step == n_steps:
             row = {"step": step, "ce_loss": float(ce_loss.item()), "elapsed_s": time.time() - t0}
-            if step % EVAL_EVERY == 0 or step == PHASE2_STEPS:
+            if step % EVAL_EVERY == 0 or step == n_steps:
                 model.eval()
                 with torch.no_grad():
                     row.update(g181a.evaluate_nll(model, val_ids, val_mask))
@@ -498,7 +500,7 @@ def main() -> None:
     # Phase 1
     if not args.phase2_only:
         if "final_nll" not in payload.get("phase1", {}):
-            payload["phase1"] = run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask)
+            payload["phase1"] = run_phase1(tok_gpt2, train_ids, train_mask, val_ids, val_mask, n_steps=phase1_steps)
             save()
         else:
             print_flush(f"\n  Phase 1 already done (NLL={payload['phase1']['final_nll']:.4f}), skipping")
@@ -535,19 +537,19 @@ def main() -> None:
                 result = train_phase2_cell(
                     arm_label, seed, None, use_init=False, use_anchor=False,
                     tok_gpt2=tok_gpt2, train_ids=train_ids, train_mask=train_mask,
-                    val_ids=val_ids, val_mask=val_mask,
+                    val_ids=val_ids, val_mask=val_mask, n_steps=phase2_steps,
                 )
             elif arm_label == "relearned_init_anchor":
                 result = train_phase2_cell(
                     arm_label, seed, relearned_embed, use_init=True, use_anchor=True,
                     tok_gpt2=tok_gpt2, train_ids=train_ids, train_mask=train_mask,
-                    val_ids=val_ids, val_mask=val_mask,
+                    val_ids=val_ids, val_mask=val_mask, n_steps=phase2_steps,
                 )
             elif arm_label == "relearned_anchor_only":
                 result = train_phase2_cell(
                     arm_label, seed, relearned_embed, use_init=False, use_anchor=True,
                     tok_gpt2=tok_gpt2, train_ids=train_ids, train_mask=train_mask,
-                    val_ids=val_ids, val_mask=val_mask,
+                    val_ids=val_ids, val_mask=val_mask, n_steps=phase2_steps,
                 )
 
             payload["phase2_results"][arm_label][key] = result
