@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import gc
 import json
+import math
 import os
 import sys
 import time
@@ -207,6 +208,9 @@ def generate_all_rows(
     feat_t = torch.from_numpy(features).to(DEVICE)
     with torch.no_grad():
         pred = compiler(feat_t).cpu().numpy()
+    if not np.all(np.isfinite(pred)):
+        n_bad = np.sum(~np.isfinite(pred))
+        raise RuntimeError(f"compiler generated {n_bad} non-finite values out of {pred.size}")
     return g188.normalize_to_fro_norm(pred, target_fro)
 
 
@@ -281,6 +285,8 @@ def train_shell_cell(
             model.eval()
             with torch.no_grad():
                 val_nll = g188._eval_nll(model, val_ids, val_mask)
+            if not math.isfinite(val_nll):
+                raise RuntimeError(f"non-finite eval NLL at step {step} arm={arm_label} seed={seed}")
             trajectory[str(step)] = float(val_nll)
             print_flush(f"    eval step={step} val_nll={val_nll:.4f}")
             model.train()
@@ -288,6 +294,8 @@ def train_shell_cell(
     model.eval()
     with torch.no_grad():
         final_nll = g188._eval_nll(model, val_ids, val_mask)
+    if not math.isfinite(final_nll):
+        raise RuntimeError(f"non-finite final NLL arm={arm_label} seed={seed}")
 
     result = {
         "arm_label": arm_label,
