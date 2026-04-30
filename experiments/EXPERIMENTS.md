@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-04-30 — genome_183_corpus_derived_init — RUNNING (corpus-derived interface prior)
+
+**Purpose.** Test whether PPMI co-occurrence + SVD from C4 corpus can replace a trained donor model's embed/lm_head as anchor target. Rescue experiment after g186 FAIL. Stage A: 3 arms (scratch_ce, trained_anchor, ppmi_svd_anchor) × 3 seeds = 9 cells, 5000 steps each. Stage B (conditional): 4 control arms × 3 seeds if ppmi_svd >= 0.15 nats vs scratch.
+
+**Pass criteria.** P1: ppmi_svd recovers >= 50% of +0.513 nat trained-anchor gap (>= 0.257 nats vs scratch). P2: ppmi_svd beats scratch 3/3 seeds. P3: ppmi_svd beats best non-corpus control by >= 0.10 nats.
+
+**Status.** Stage A RUNNING. Preprocessing complete (PPMI 50K vocab, 885K nonzero, SVD to 1024d). Training cells in progress.
+
+Source: `code/genome_183_corpus_derived_init.py`, `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` (LOCKED).
+
+---
+
 ## 2026-04-30 — genome_186_kd_dose_response — FAIL (KD dose-response delta geometry)
 
 **Purpose.** Test whether seed-matched early geometry delta predicts the KD dose-response curve. Kill-or-promote for the Forecast direction. 60 cells = 2 architectures (Qwen3-arch, GPT-2-arch) x 5 KD doses (alpha=0.0, 0.3, 0.7, 1.0, 2.0) x 6 seeds, 1200 steps/cell. Additive KD loss: CE(C4) + alpha * CE(teacher_text).
