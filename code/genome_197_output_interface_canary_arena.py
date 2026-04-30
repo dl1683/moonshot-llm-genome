@@ -477,6 +477,7 @@ def train_cell(
     row_sample_idx: np.ndarray,
     trained_ref: np.ndarray | None,
     scaffold_refs: dict[str, np.ndarray] | None = None,
+    matched_row_idx: np.ndarray | None = None,
     *,
     n_steps: int = TRAIN_STEPS,
 ) -> dict[str, Any]:
@@ -498,6 +499,9 @@ def train_cell(
     step0_W = model.lm_head.weight.detach().cpu().numpy().copy()
     step0_feats = extract_geometry_features(step0_W, row_sample_idx, token_freqs, trained_ref, scaffold_refs)
     step0_feats = {f"s0_{k}": v for k, v in step0_feats.items()}
+    if matched_row_idx is not None:
+        step0_m = extract_geometry_features(step0_W, matched_row_idx, token_freqs, trained_ref, scaffold_refs)
+        step0_feats.update({f"s0_m_{k}": v for k, v in step0_m.items()})
 
     model.train()
     optimizer = torch.optim.AdamW(
@@ -552,6 +556,9 @@ def train_cell(
             step50_W = model.lm_head.weight.detach().cpu().numpy().copy()
             step50_feats = extract_geometry_features(step50_W, row_sample_idx, token_freqs, trained_ref, scaffold_refs)
             step50_feats = {f"s50_{k}": v for k, v in step50_feats.items()}
+            if matched_row_idx is not None:
+                step50_m = extract_geometry_features(step50_W, matched_row_idx, token_freqs, trained_ref, scaffold_refs)
+                step50_feats.update({f"s50_m_{k}": v for k, v in step50_m.items()})
 
             # Dynamics features
             update_vec = step50_W - step0_W
@@ -654,11 +661,12 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
         return v is not None and isinstance(v, (int, float)) and math.isfinite(v)
 
     # Build feature matrix (geometry only, no early_loss)
+    LOSS_KEYS = {"early_loss_50", "early_loss_slope"}
     all_feat_keys = sorted(set(
         k for r in rows for k in r["features"]
-        if k != "early_loss_50" and _safe_finite(r["features"].get(k))
+        if k not in LOSS_KEYS and _safe_finite(r["features"].get(k))
     ))
-    geom_keys = [k for k in all_feat_keys if k != "early_loss_50"]
+    geom_keys = [k for k in all_feat_keys if k not in LOSS_KEYS]
 
     n = len(rows)
     X_geom = np.zeros((n, len(geom_keys)), dtype=np.float64)
@@ -715,9 +723,11 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
 
         mse_g = float(np.mean((y_te - pred_g) ** 2))
         mse_l = float(np.mean((y_te - pred_l) ** 2))
+        mae_g = float(np.mean(np.abs(y_te - pred_g)))
+        mae_l = float(np.mean(np.abs(y_te - pred_l)))
         geom_errors.append(mse_g)
         loss_errors.append(mse_l)
-        if mse_g < mse_l:
+        if mae_g < mae_l:
             geom_wins += 1
 
     geom_mse = float(np.mean(geom_errors))
@@ -923,6 +933,12 @@ def main() -> None:
     row_sample_idx = np.sort(np.concatenate([freq_top, rand_pick]))
     print_flush(f"  Row sample: {len(row_sample_idx)} rows")
 
+    # Matched-row index for matched-only feature extraction (prereg §Features)
+    matched_all = np.where(matched_mask)[0]
+    matched_rng = np.random.RandomState(77777)
+    matched_row_idx = np.sort(matched_rng.choice(matched_all, size=min(8192, len(matched_all)), replace=False))
+    print_flush(f"  Matched row sample: {len(matched_row_idx)} rows")
+
     # Precompute scaffold references for distance features
     scaffold_refs = {
         "etf": build_neural_collapse_etf(scratch_fro, gpt2_vocab, embed_dim),
@@ -1021,6 +1037,7 @@ def main() -> None:
                 row_sample_idx=row_sample_idx,
                 trained_ref=trained_lm_head,
                 scaffold_refs=scaffold_refs,
+                matched_row_idx=matched_row_idx,
                 n_steps=n_steps,
             )
             payload["results"][cond][key] = result
