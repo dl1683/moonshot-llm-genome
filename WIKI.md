@@ -26,18 +26,18 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-29, cycle 124)
+## CURRENT STATUS (2026-04-30, cycle 125)
 
 **§0.1 honest score: 4.8-5.0/10** (post g182 FAIL, Codex-validated cycle 124). Branch projections:
 - Current (g182 FAIL + pairwise delta R²=0.518): **4.8-5.0/10** (architecture-specific KD-impact diagnostic, not universal)
 - g186 dose-response PASS (geometry delta predicts KD dose-response): **~6.5/10** (causal intervention story)
 - g186 FAIL: **4.0/10** (Forecast direction retired or reduced to minor curiosity)
 
+**g186 KD dose-response — RUNNING (cycle 125, 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell).** Prereg LOCKED. Smoke test passed. Additive KD loss: CE(C4) + alpha × CE(teacher_text), alpha in {0.0, 0.3, 0.7, 1.0, 2.0}. Primary: leave-two-seeds-out CV of seed-matched delta_geometry predicting delta_NLL. PASS gate: R²>=0.30, MSE reduction >=20% vs best non-geometry baseline, permutation p<=0.05, beats alpha-only. Expected ~100min total. Source: `code/genome_186_kd_dose_response.py`, `research/prereg/genome_186_dose_response_2026-04-29.md`.
+
 **g182 Triage Arena — COMPLETE (48/48 cells) — FAIL.** ALL 6 LOAO models catastrophically fail (R²=-11 to -19). All baselines also fail. Within-arm label variance too small (std=0.002-0.003) for cross-architecture Ridge transfer. Z-scored LOAO: FAIL. Arm-demeaned LOAO: FAIL (R²~0). Permutation: FAIL (p=0.265). **ONE surviving signal: pairwise delta R²=0.518, corr=0.720 (n=24)** — within-architecture seed-matched geometric changes (scratch->KD) predict NLL changes. P3 FALSIFIED (0/8 features overlap cross-arch). D1/D2 favor Route 3 (basins). Route 3 universal basin language is DEAD. Codex advisor: "geometry of early causal intervention predicts whether that intervention helps/harms" is the remaining edge. Source: `results/genome_182_triage_arena.json`, `codex_outputs/heartbeats/cycle124_advisor_g182_final_20260429.md`.
 
 **g180b COMPLETE (27/27 cells) — FAIL.** Frozen g180 geometry model is tokenizer-specific. Geometry HURTS (-39.4%). Wins ONLY on GPT-2 BPE (+44.0%). Source: `results/genome_180b_cross_tokenizer.json`.
-
-**NEXT: g186 balanced causal dose-response experiment.** Multiple KD strengths (alpha=0.3, 0.7, 1.0, 2.0) × 2 architectures × 6 seeds + scratch baseline. Primary: seed-matched delta_geometry(alpha) predicts delta_final_NLL(alpha). Baselines: delta_early_loss, delta_telemetry, delta_Shesha, alpha-only. Kill-or-promote: PASS -> §0.1 ~6.5; FAIL -> retire Forecast direction. Per Codex cycle 124 advisor.
 
 **g184 pre-staging (cycle 94–101):** SSM compatibility verified. Mamba-370M BLOCKED (requires Triton, Linux-only). **Falcon-H1-0.5B WORKS** on Windows (naive SSM fallback, 1024d/36L, output_hidden_states=37 layers). Granite-4.0-Tiny also loads (hybrid MoE, 1536d/40L). g184 third architecture = Falcon-H1-0.5B (hybrid attention+SSM). **Cycle 101:** `frozen_eval_main()` fully implemented — Phase 1 (train frozen Ridge on g182 cells), Phase 2 (run 24 Falcon-H1 cells with native-tokenizer teacher), Phase 3 (frozen evaluation with bootstrap + permutation). Prereg: `research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md` (DRAFT, locks after g182 analysis). Ready to fire: `--frozen-eval falcon_h1` after g182 stage 1 completes.
 

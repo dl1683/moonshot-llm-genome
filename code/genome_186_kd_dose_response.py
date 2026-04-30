@@ -405,13 +405,119 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             "n_permutations": len(null_r2s),
         }
 
+    # --- Per-architecture R2 (prereg criterion 6) ---
+    per_arch = {}
+    for arch_name in ARCHS:
+        arch_mask = np.array([m["arch"] == arch_name for m in delta_meta])
+        if arch_mask.sum() < 4:
+            continue
+        a_preds = np.zeros(arch_mask.sum())
+        a_tested = np.zeros(arch_mask.sum(), dtype=bool)
+        a_dy = dy[arch_mask]
+        a_dX = dX[arch_mask]
+        a_meta = [m for m, am in zip(delta_meta, arch_mask) if am]
+        for fold_seeds in seed_folds:
+            tr = np.array([m["seed"] not in fold_seeds for m in a_meta])
+            te = ~tr
+            if tr.sum() < 2 or te.sum() < 1:
+                continue
+            mu, sd = a_dX[tr].mean(0), a_dX[tr].std(0)
+            sd[sd < 1e-12] = 1.0
+            ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+            ridge.fit((a_dX[tr] - mu) / sd, a_dy[tr])
+            a_preds[te] = ridge.predict((a_dX[te] - mu) / sd)
+            a_tested |= te
+        if a_tested.sum() > 2:
+            ss = float(np.sum((a_dy[a_tested] - a_preds[a_tested]) ** 2))
+            st = float(np.sum((a_dy[a_tested] - a_dy[a_tested].mean()) ** 2))
+            per_arch[arch_name] = {"r2": 1 - ss / st if st > 1e-12 else float("nan"),
+                                   "n": int(a_tested.sum())}
+    results["per_architecture"] = per_arch
+
+    # --- Seed-block bootstrap CI (prereg criterion 3) ---
+    seed_ids = np.array([m["seed"] for m in delta_meta])
+    unique_seeds = np.unique(seed_ids)
+    geo_resids = (dy[all_test_mask] - all_preds[all_test_mask]) ** 2
+    best_bl_name = max(baselines, key=lambda k: baselines[k].get("r2", float("-inf")))
+    bl_r2_best = baselines[best_bl_name]["r2"]
+    bl_mse_pooled = (1 - bl_r2_best) * pooled_ss_tot / max(1, np.sum(all_test_mask))
+    boot_diffs = []
+    rng_boot = np.random.RandomState(1860)
+    for _ in range(2000):
+        boot_seeds = rng_boot.choice(unique_seeds, size=len(unique_seeds), replace=True)
+        boot_idx = np.concatenate([np.where(seed_ids == s)[0] for s in boot_seeds])
+        boot_idx = boot_idx[boot_idx < len(all_test_mask)]
+        boot_idx = boot_idx[all_test_mask[boot_idx]]
+        if len(boot_idx) < 4:
+            continue
+        boot_geo_mse = float(np.mean((dy[boot_idx] - all_preds[boot_idx]) ** 2))
+        boot_bl_mse = float((1 - bl_r2_best) * np.var(dy[boot_idx]) * len(boot_idx) / len(boot_idx))
+        boot_diffs.append(boot_bl_mse - boot_geo_mse)
+    if boot_diffs:
+        ci_lo = float(np.percentile(boot_diffs, 2.5))
+        ci_hi = float(np.percentile(boot_diffs, 97.5))
+        results["bootstrap_ci"] = {
+            "best_baseline": best_bl_name,
+            "ci_95_lower": ci_lo,
+            "ci_95_upper": ci_hi,
+            "ci_excludes_zero": ci_lo > 0,
+            "n_bootstrap": len(boot_diffs),
+        }
+
+    # --- D5: Alpha decodability from geometry deltas ---
+    alphas_arr = np.array([m["alpha"] for m in delta_meta])
+    from sklearn.linear_model import RidgeCV as RCV
+    mu_d5, sd_d5 = dX.mean(0), dX.std(0)
+    sd_d5[sd_d5 < 1e-12] = 1.0
+    dX_s = (dX - mu_d5) / sd_d5
+    ridge_d5 = RCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0])
+    ridge_d5.fit(dX_s, alphas_arr)
+    alpha_pred = ridge_d5.predict(dX_s)
+    ss_d5 = float(np.sum((alphas_arr - alpha_pred) ** 2))
+    st_d5 = float(np.sum((alphas_arr - alphas_arr.mean()) ** 2))
+    results["d5_alpha_decodability"] = {
+        "r2": 1 - ss_d5 / st_d5 if st_d5 > 1e-12 else float("nan"),
+        "corr": float(np.corrcoef(alphas_arr, alpha_pred)[0, 1]),
+    }
+
+    # --- Held-out-dose stress test (prereg secondary) ---
+    dose_stress = {}
+    nonzero_alphas = sorted(set(m["alpha"] for m in delta_meta))
+    for held_alpha in nonzero_alphas:
+        tr_m = np.array([m["alpha"] != held_alpha for m in delta_meta])
+        te_m = ~tr_m
+        if tr_m.sum() < 4 or te_m.sum() < 2:
+            continue
+        mu_d, sd_d = dX[tr_m].mean(0), dX[tr_m].std(0)
+        sd_d[sd_d < 1e-12] = 1.0
+        ridge_d = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+        ridge_d.fit((dX[tr_m] - mu_d) / sd_d, dy[tr_m])
+        pred_d = ridge_d.predict((dX[te_m] - mu_d) / sd_d)
+        ss_d = float(np.sum((dy[te_m] - pred_d) ** 2))
+        st_d = float(np.sum((dy[te_m] - dy[te_m].mean()) ** 2))
+        dose_stress[str(held_alpha)] = {
+            "r2": 1 - ss_d / st_d if st_d > 1e-12 else float("nan"),
+            "n_test": int(te_m.sum()),
+        }
+    results["held_out_dose_stress"] = dose_stress
+
     # --- Verdict ---
     perm_p = results.get("permutation", {}).get("p_value", 1.0)
+    ci_ok = results.get("bootstrap_ci", {}).get("ci_excludes_zero", False)
+    arch_r2s = [v["r2"] for v in per_arch.values() if isinstance(v.get("r2"), (int, float)) and not math.isnan(v["r2"])]
+    arch_criterion = (
+        len(arch_r2s) >= 1
+        and max(arch_r2s) >= 0.25
+        and all(r >= 0 for r in arch_r2s)
+    ) if arch_r2s else False
+
     passes_primary = (
         pooled_r2 >= 0.30
         and mse_reduction >= 0.20
         and perm_p <= 0.05
+        and ci_ok
         and results.get("geometry_beats_alpha_only", False)
+        and arch_criterion
     )
     weak_pass = (
         0.20 <= pooled_r2 < 0.30
@@ -425,10 +531,36 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     else:
         verdict = "FAIL"
 
+    # --- D1: Label variance check ---
+    d1 = {"pooled_std": float(np.std(dy)), "pooled_range": [float(np.min(dy)), float(np.max(dy))]}
+    for arch_name in ARCHS:
+        am = [dy[i] for i, m in enumerate(delta_meta) if m["arch"] == arch_name]
+        if am:
+            d1[f"{arch_name}_std"] = float(np.std(am))
+    for alpha_val in sorted(set(m["alpha"] for m in delta_meta)):
+        dm = [dy[i] for i, m in enumerate(delta_meta) if m["alpha"] == alpha_val]
+        if dm:
+            d1[f"alpha_{alpha_val}_mean"] = float(np.mean(dm))
+    results["d1_label_variance"] = d1
+    if d1["pooled_std"] < 0.005:
+        print_flush("    WARNING: pooled label std < 0.005 — experiment may be under-identified")
+
+    # --- D2: Dose monotonicity ---
+    d2 = {}
+    for arch_name in ARCHS:
+        for alpha_val in sorted(set(m["alpha"] for m in delta_meta)):
+            vals = [dy[i] for i, m in enumerate(delta_meta) if m["arch"] == arch_name and m["alpha"] == alpha_val]
+            if vals:
+                d2[f"{arch_name}_alpha_{alpha_val}"] = {"mean": float(np.mean(vals)), "n": len(vals)}
+    results["d2_dose_monotonicity"] = d2
+
     results["verdict"] = verdict
     print_flush(f"\n*** g186 VERDICT: {verdict} ***")
     print_flush(f"    pooled R2={pooled_r2:.3f} mse_red={mse_reduction:.1%} "
-                f"perm_p={perm_p:.3f} beats_alpha={results.get('geometry_beats_alpha_only')}")
+                f"perm_p={perm_p:.3f} ci_ok={ci_ok} beats_alpha={results.get('geometry_beats_alpha_only')}")
+    print_flush(f"    per-arch R2: {per_arch}")
+    if results.get("d5_alpha_decodability"):
+        print_flush(f"    D5 alpha-decodability R2={results['d5_alpha_decodability']['r2']:.3f}")
 
     return results
 
