@@ -765,6 +765,8 @@ def main():
     parser.add_argument("--reanalyze", action="store_true")
     parser.add_argument("--export-ridge", action="store_true",
                         help="Export frozen Ridge artifact for g185v2")
+    parser.add_argument("--replay", action="store_true",
+                        help="Run g185v2 offline dose-selection replay (C4 gate)")
     parser.add_argument("--max-cells", type=int, default=999)
     args = parser.parse_args()
 
@@ -784,6 +786,16 @@ def main():
 
     if args.export_ridge:
         export_frozen_ridge()
+        return
+
+    if args.replay:
+        result = offline_dose_selection_replay()
+        if result:
+            import json as _json
+            replay_path = ROOT / "results" / "genome_186_replay_gate.json"
+            with open(replay_path, "w", encoding="utf-8") as _f:
+                _json.dump(result, _f, indent=2)
+            print_flush(f"Replay results saved to {replay_path}")
         return
 
     if args.reanalyze:
