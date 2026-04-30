@@ -338,7 +338,7 @@ Any markdown file not in this table either feeds one of these or should be delet
 | `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
-| `genome_183` | DRAFT | Corpus-derived init (8 arms × 3 seeds, gated on g182) | `research/prereg/genome_183_corpus_derived_init_2026-04-29.md` |
+| `genome_183` | **RUNNING** | Corpus-derived init Stage A (3 arms × 3 seeds, ~3.3h). Rescue after g186 FAIL. | `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
 
