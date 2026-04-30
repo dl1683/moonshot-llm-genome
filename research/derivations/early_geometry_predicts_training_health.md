@@ -60,6 +60,8 @@ where sigma_i^2 are source variances per mode and theta is the distortion thresh
 
 - **No paper directly applies Shannon water-filling to neural representation learning (as of 2026-04).** The connection is implicit in the above work but has not been formalized. This is the specific novelty opportunity for Route 2.
 
+- **g195 output-dominance finding (cycle 193):** The lm_head (output classifier) carries 65% of the tied embedding signal (+0.362 vs +0.190 nats for input, additivity 99.3%). The lm_head defines the target coordinate system for the Fisher metric — it IS the codebook against which the network optimizes. Under Route 2, this means lm_head geometry directly determines the water-filling allocation: the output basis defines which modes receive rate. Early lm_head geometry is therefore the PRIMARY diagnostic signal, not hidden-state or input-embedding geometry. This shifts the Route 2 prediction: the diagnostic should focus on output-interface features (spectral properties of lm_head rows, angular coverage, ETF distance) rather than mid-layer activation features.
+
 ### Route 2 Formal Feature-to-Rate Mapping (cycle 106)
 
 Let h_l denote the hidden representation at layer l, with covariance Sigma_l = E[h_l h_l^T]. Let sigma_{l,1}^2 >= sigma_{l,2}^2 >= ... >= sigma_{l,d}^2 be the eigenvalues. Water-filling allocates rate to mode i iff sigma_{l,i}^2 > theta (the water level). At training step t, the allocation reflects what the model has learned to encode.
