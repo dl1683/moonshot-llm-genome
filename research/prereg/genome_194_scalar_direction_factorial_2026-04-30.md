@@ -1,6 +1,6 @@
 # Pre-registration: g194 Scalar/Direction Factorial
 
-**Status:** DRAFT (gating condition: g191 PASS_CONTENT satisfied; Codex §B cycle 162 recommends g194 as next)
+**Status:** LOCKED (locked 2026-04-30 cycle 162, Codex design gate passed with SEV-8 Fro fix applied)
 
 ## Motivation
 
@@ -29,7 +29,7 @@ Decompose each matched trained embedding row: e_t = r_t * u_t where r_t = ||e_t|
 | `random_dir_correct_norm` | random_unit_vector * r_t for matched rows | Same | Random directions, correct norms |
 | `correct_dir_uniform_norm` | u_t * mean(r) for matched rows | Same | Correct directions, uniform (mean) norm |
 
-All arms: 8-layer Qwen3-arch with GPT-2 tokenizer, 5000 steps, same data/eval as g191. Anchor lambda=0.01, masked to matched rows only. Unmatched rows: zero-filled (same as g191 matched_rows_only).
+All arms: 8-layer Qwen3-arch with GPT-2 tokenizer, 5000 steps, same data/eval as g191. Anchor lambda=0.01, masked to matched rows only. Unmatched rows: zero-filled (same as g191 matched_rows_only). **Frobenius normalization:** all factorial arms normalized to matched_fro (Fro norm of matched rows in full_embed), NOT trained_fro (full Qwen vocab Fro). This ensures all arms have the same matched-row energy as the full_match reference. Per Codex design gate (SEV-8 fix).
 
 ### Permutation details
 
