@@ -159,7 +159,15 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   6. **Tokenizer geometry as confound** (severity 8): g181a/g181b/g180b all point to lexical/interface compatibility, not universal training health.
   **Resolving experiment:** g184 Tokenizer Residual Kill — freeze Model C after g182, drop norm/var, add Shesha + combined telemetry + arch/arm/teacher/corpus residual baselines, test no-refit on Falcon-H1 (third family). Source: `codex_outputs/heartbeats/cycle100_adversarial_20260429.md`.
 
-Path forward (status 2026-04-30 cycle 125): **g182 COMPLETE — FAIL.** ALL models catastrophically negative on LOAO. Only surviving signal: pairwise delta R²=0.518 (within-arch seed-matched KD-scratch geometry changes predict NLL changes). **g186 dose-response RUNNING** — tests whether pairwise delta generalizes across 5 KD doses. PASS -> §0.1 ~6.5 (causal intervention diagnostic); FAIL -> 4.0 (retire Forecast). g184 Falcon-H1 frozen eval DEFERRED until g186 verdict. Theory: Route 3 (stat-physics basin selection) is the surviving first-principles candidate; Route 2 predictions D1/D2 were tested in g182 but discriminators are weak. Adversarial cycle 125: alpha-decodability (S8) added as D5 diagnostic in g186 analysis.
+- **A16. Cycle 155 adversarial — g188 direct_string_match overclaim (severity 10/10).** Five attacks:
+  1. **Shared-vocabulary pretrained-row reuse, not cross-tokenizer transfer** (severity 10): 84.1% exact overlap means mostly "same-token init." 16% unmatched rows mean-filled + Fro-rescaled. Effect not isolated to matched-row content yet.
+  2. **Decoder-conditioned geometry not established** (severity 9): Qwen3-shaped decoder. Result could be trained Qwen embedding rows as lexical priors under Qwen3 decoder, not tokenizer-transcoding law.
+  3. **8-layer/5000-step shallow-init regime** (severity 8): full 28-layer model may shrink effect. g181b proves persistence for same-tokenizer 8-layer, not cross-tokenizer full-model.
+  4. **Shuffled harm only proves row identity** (severity 8): -0.724 shows wrong rows toxic, but doesn't distinguish semantic content from frequency/norm/lookup-table effects.
+  5. **Frequency-weighted evaluation bias** (severity 7): frequent C4 mass may be concentrated in shared 84%, hiding unmatched-row irrelevance.
+  **Resolving:** g191 (attacks #1/#4/#5). 28-layer follow-up as g192 if g191 PASS_CONTENT (attack #3). g190 addresses attack #2. Source: `codex_outputs/cycle155_adversarial_20260430.md`.
+
+Path forward (status 2026-04-30 cycle 155): **g182 COMPLETE — FAIL.** ALL models catastrophically negative on LOAO. Only surviving signal: pairwise delta R²=0.518 (within-arch seed-matched KD-scratch geometry changes predict NLL changes). **g186 dose-response RUNNING** — tests whether pairwise delta generalizes across 5 KD doses. PASS -> §0.1 ~6.5 (causal intervention diagnostic); FAIL -> 4.0 (retire Forecast). g184 Falcon-H1 frozen eval DEFERRED until g186 verdict. Theory: Route 3 (stat-physics basin selection) is the surviving first-principles candidate; Route 2 predictions D1/D2 were tested in g182 but discriminators are weak. Adversarial cycle 125: alpha-decodability (S8) added as D5 diagnostic in g186 analysis.
 
 ## 3. Competitive Intelligence (updated cycle 100, 2026-04-29)
 
