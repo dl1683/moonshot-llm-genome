@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-04-30 — genome_195_untied_input_output_factorial — RUNNING (untied input/output mechanism isolation)
+
+**Purpose.** Resolve A18 SEV-10 #1: with tie_word_embeddings=True, embed_tokens IS lm_head. The +0.465 nats signal may be output-logit geometry, not input embedding. This experiment unties the weights and tests each side independently. 5 arms x 3 seeds x 5000 steps = 15 cells.
+
+**Arms:** scratch_untied (baseline), input_inject_anchor (trained embed_tokens only), output_inject_anchor (trained lm_head only), both_inject_anchor (both untied), tied_reference (tied comparison).
+
+**Pass criteria.** PASS_INPUT: input >= +0.30 AND output < +0.15. PASS_OUTPUT: output >= +0.30 AND input < +0.15. PASS_BOTH_NEEDED: both >= +0.30 AND neither alone > 80%. FAIL: max gain < +0.10.
+
+**Status:** RUNNING (launched cycle 180, gated on g194 PASS_DIRECTION).
+
+Source: `code/genome_195_untied_input_output_factorial.py`, `research/prereg/genome_195_untied_input_output_factorial_2026-04-30.md` (LOCKED), `results/genome_195_untied_input_output_factorial.json`.
+
+---
+
 ## 2026-04-30 — genome_194_scalar_direction_factorial — PASS_DIRECTION (scalar vs direction decomposition)
 
 **Purpose.** Decompose e_t = r_t * u_t to resolve A17 SEV-10 scalar-vs-direction confound. g191 PASS_CONTENT proved content matters, but row-shuffling destroys both norms and directions simultaneously. This factorial isolates which component carries the signal. 6 arms x 3 seeds x 5000 steps = 18 cells.
