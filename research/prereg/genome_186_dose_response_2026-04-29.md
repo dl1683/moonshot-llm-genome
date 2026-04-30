@@ -1,6 +1,6 @@
 # genome_186 - KD Dose-Response Delta Geometry Diagnostic
 
-**Status:** DRAFT prereg-ready. Locks before any g186 cell is run.
+**Status:** LOCKED (2026-04-30). Smoke test passed; full run begins.
 
 - Date: 2026-04-29
 - Trigger: g182 failed all preregistered cross-architecture prediction tests, but the seed-matched pairwise delta analysis survived: delta geometry predicted delta final NLL with R2 = 0.518, corr = 0.720, n = 24.
