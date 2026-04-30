@@ -277,8 +277,8 @@ def _safe_delta_partial(c_feats, sc_feats, names):
     return dx
 
 
-def _filter_available_features(cells, names, min_frac=0.25):
-    """Return subset of feature names that are finite in >= min_frac of cells."""
+def _filter_available_features(cells, names):
+    """Return subset of feature names that are finite in ALL cells (no imputation needed)."""
     counts = {fn: 0 for fn in names}
     for c in cells:
         feats = c.get("features") or {}
@@ -286,8 +286,8 @@ def _filter_available_features(cells, names, min_frac=0.25):
             v = feats.get(fn)
             if v is not None and math.isfinite(float(v)):
                 counts[fn] += 1
-    threshold = max(1, int(len(cells) * min_frac))
-    return [fn for fn in names if counts[fn] >= threshold]
+    n = len(cells)
+    return [fn for fn in names if counts[fn] == n]
 
 
 def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[str, Any]:
@@ -303,8 +303,8 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             scratch_by[(c["arch"], c["seed"])] = c
 
     # Pre-filter feature lists to only features with finite values in enough cells
-    avail_tel = _filter_available_features(all_cells, TELEMETRY_FEAT_NAMES, min_frac=0.25)
-    avail_she = _filter_available_features(all_cells, SHESHA_FEAT_NAMES, min_frac=0.25)
+    avail_tel = _filter_available_features(all_cells, TELEMETRY_FEAT_NAMES)
+    avail_she = _filter_available_features(all_cells, SHESHA_FEAT_NAMES)
     dropped_tel = set(TELEMETRY_FEAT_NAMES) - set(avail_tel)
     dropped_she = set(SHESHA_FEAT_NAMES) - set(avail_she)
     if dropped_tel:
@@ -439,6 +439,9 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     if avail_tel:
         combined_parts.append(tel_X)
     baseline_specs.append(("combined_non_geometry", np.column_stack(combined_parts)))
+    # strongest combined competitor: add arch indicator (adversarial attack #3)
+    combined_plus_arch = combined_parts + [arch_indicator]
+    baseline_specs.append(("combined_non_geometry_plus_arch", np.column_stack(combined_plus_arch)))
 
     for bname, bX in baseline_specs:
         bp, bm, br2 = _cv_ridge_baseline(bX, dy, delta_meta, seed_folds)
@@ -484,31 +487,44 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     results["mse_reduction_vs_best_baseline"] = mse_reduction
     results["best_baseline_name"] = best_bl_name
 
-    # FIX #4: Permutation test — shuffle geometry features (not labels), 1000 iterations
+    # Permutation test — two variants:
+    # (a) shuffle within architecture (original prereg spec)
+    # (b) shuffle within (arch, alpha) — adversarial-demanded: isolates geometry beyond dose
     rng = np.random.RandomState(186)
-    null_r2s = []
-    for _ in range(1000):
-        perm_dX = dX.copy()
-        for arch_name in ARCHS:
-            arch_mask = np.array([m["arch"] == arch_name for m in delta_meta])
-            perm_dX[arch_mask] = rng.permutation(perm_dX[arch_mask])
-        p_preds = np.zeros(len(dy))
-        p_mask = np.zeros(len(dy), dtype=bool)
-        for fold_seeds in seed_folds:
-            train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
-            test_m = ~train_m
-            if train_m.sum() < 4:
-                continue
-            mu, sd = perm_dX[train_m].mean(0), perm_dX[train_m].std(0)
-            sd[sd < 1e-12] = 1.0
-            ridge = RidgeCV(alphas=RIDGE_ALPHAS)
-            ridge.fit((perm_dX[train_m] - mu) / sd, dy[train_m])
-            p_preds[test_m] = ridge.predict((perm_dX[test_m] - mu) / sd)
-            p_mask |= test_m
-        if p_mask.sum() > 2:
-            ss = float(np.sum((dy[p_mask] - p_preds[p_mask]) ** 2))
-            st = float(np.sum((dy[p_mask] - dy[p_mask].mean()) ** 2))
-            null_r2s.append(1 - ss / st if st > 1e-12 else float("nan"))
+
+    def _run_permutation(n_iter, group_keys):
+        """Run permutation test shuffling geometry within specified groups."""
+        nr2s = []
+        for _ in range(n_iter):
+            perm_dX = dX.copy()
+            unique_keys = set(group_keys)
+            for gk in unique_keys:
+                gmask = np.array([k == gk for k in group_keys])
+                perm_dX[gmask] = rng.permutation(perm_dX[gmask])
+            p_preds = np.zeros(len(dy))
+            p_mask = np.zeros(len(dy), dtype=bool)
+            for fold_seeds in seed_folds:
+                train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
+                test_m = ~train_m
+                if train_m.sum() < 4:
+                    continue
+                mu, sd = perm_dX[train_m].mean(0), perm_dX[train_m].std(0)
+                sd[sd < 1e-12] = 1.0
+                ridge = RidgeCV(alphas=RIDGE_ALPHAS)
+                ridge.fit((perm_dX[train_m] - mu) / sd, dy[train_m])
+                p_preds[test_m] = ridge.predict((perm_dX[test_m] - mu) / sd)
+                p_mask |= test_m
+            if p_mask.sum() > 2:
+                ss = float(np.sum((dy[p_mask] - p_preds[p_mask]) ** 2))
+                st = float(np.sum((dy[p_mask] - dy[p_mask].mean()) ** 2))
+                nr2s.append(1 - ss / st if st > 1e-12 else float("nan"))
+        return nr2s
+
+    arch_keys = [m["arch"] for m in delta_meta]
+    arch_alpha_keys = [(m["arch"], m["alpha"]) for m in delta_meta]
+
+    null_r2s = _run_permutation(1000, arch_keys)
+    null_r2s_cond = _run_permutation(1000, arch_alpha_keys)
 
     if null_r2s:
         results["permutation"] = {
@@ -516,6 +532,13 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             "null_mean_r2": float(np.mean(null_r2s)),
             "null_95th": float(np.percentile(null_r2s, 95)),
             "n_permutations": len(null_r2s),
+        }
+    if null_r2s_cond:
+        results["permutation_cond_alpha"] = {
+            "p_value": float(np.mean([n >= pooled_r2 for n in null_r2s_cond])),
+            "null_mean_r2": float(np.mean(null_r2s_cond)),
+            "null_95th": float(np.percentile(null_r2s_cond, 95)),
+            "n_permutations": len(null_r2s_cond),
         }
 
     # --- Per-architecture R2 (prereg criterion 6) ---
@@ -656,7 +679,10 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     results["d4_scratch_stability"] = d4
 
     # --- Verdict ---
-    perm_p = results.get("permutation", {}).get("p_value", 1.0)
+    # Use the STRICTER conditioned permutation (within arch+alpha) for the verdict
+    perm_p_raw = results.get("permutation", {}).get("p_value", 1.0)
+    perm_p_cond = results.get("permutation_cond_alpha", {}).get("p_value", 1.0)
+    perm_p = max(perm_p_raw, perm_p_cond)  # must pass BOTH
     ci_ok = results.get("bootstrap_ci", {}).get("ci_excludes_zero", False)
     arch_r2s = [v["r2"] for v in per_arch.values()
                 if isinstance(v.get("r2"), (int, float)) and not math.isnan(v["r2"])]
