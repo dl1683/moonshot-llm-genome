@@ -4,7 +4,7 @@
 
 ---
 
-## 2026-04-30 — genome_193_token_row_compiler — STAGED (gated on g191 PASS_CONTENT)
+## 2026-04-30 — genome_193_token_row_compiler — RUNNING (g191 PASS_CONTENT satisfied)
 
 **Purpose.** Train a small MLP (258→1024→1024→1024) to predict Qwen3 trained embedding rows from token-level features (byte histogram, token length, log-frequency). Uses 42k exact string-matched GPT-2/Qwen3 token pairs as supervision (80/20 train/holdout). Evaluation: train GPT-2-tokenizer Qwen3-arch shell using ONLY compiler-generated rows (no copied target rows). Per Codex advisor + direction review consensus: highest-leverage next experiment (+2.4 §0.1 uplift). 4 arms x 3 seeds = 12 cells.
 
@@ -28,7 +28,7 @@ Source: `code/genome_189_c23_content_causality.py`, `research/prereg/genome_189_
 
 ---
 
-## 2026-04-30 — genome_191_string_match_decomposition — RUNNING (content vs format decomposition)
+## 2026-04-30 — genome_191_string_match_decomposition — PASS_CONTENT (content vs format decomposition)
 
 **Purpose.** Decompose the g188 direct_string_match +0.478 nats signal into content vs format components. Resolves adversarial A16 attacks #1 (shared-vocab reuse), #4 (format vs content), #5 (frequency bias). 7 arms x 3 seeds x 5000 steps = 21 cells.
 
@@ -36,9 +36,19 @@ Source: `code/genome_189_c23_content_causality.py`, `research/prereg/genome_189_
 
 **Pass criteria.** PASS_CONTENT (all 5): P1: matched >= +0.35, P2: 3/3 seeds, P3: >= 70% of g188 string_match, P4: both shuffled <= +0.10, P5: matched beats both shuffled by >= +0.25. PASS_FORMAT (alt): row_shuffled >= +0.25.
 
-**VERDICT: RUNNING.** Smoke test PASS (cycle 154). Directional signals at 50 steps strongly favor PASS_CONTENT.
+**VERDICT: PASS_CONTENT (cycle 160, 21/21 cells).** All 5 criteria satisfied with overwhelming margins:
+- P1: matched_rows_only gap +0.465 >= +0.35 ✅
+- P2: 3/3 seeds positive (+0.469, +0.465, +0.461) ✅
+- P3: 97.3% of g188 string_match signal >= 70% ✅
+- P4a: row_shuffled_matched gap -0.709 <= +0.10 ✅ (MASSIVELY HARMFUL)
+- P4b: freq_bucket_shuffle gap -0.625 <= +0.10 ✅ (HARMFUL)
+- P5: matched_rows - row_shuffled = +1.174 >= +0.25 ✅
 
-Source: `code/genome_191_string_match_decomposition.py`, `research/prereg/genome_191_string_match_decomposition_2026-04-30.md` (LOCKED).
+**Key finding:** The +0.478 nats signal is driven by CONTENT of trained embedding rows at exact-match positions, not by FORMAT properties (norm, spectrum, frequency structure). Shuffling the same rows to wrong positions makes training WORSE than scratch. The continuous anchor constraint is the mechanism (anchor_only +0.468 = 98% of signal; init_only +0.092 = 19%).
+
+**Adversarial (A17, cycle 160):** SEV-10: scalar-vs-direction confound remains open (row-shuffling destroys both scalars and directions). Resolving: g194 scalar/direction factorial.
+
+Source: `code/genome_191_string_match_decomposition.py`, `research/prereg/genome_191_string_match_decomposition_2026-04-30.md` (LOCKED). Result: `results/genome_191_string_match_decomposition.json`.
 
 ---
 

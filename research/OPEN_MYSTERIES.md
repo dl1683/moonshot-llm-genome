@@ -171,14 +171,15 @@ Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.08
 
 **Hypothesis landscape:**
 - **(a) Tokenizer imposes a codebook; architecture imposes a decoder.** Cross-arch fails because same codebook + different decoder = misaligned priors. Supported by g173 (shared tokenizer enables KD) + g180b (different tokenizer = toxic).
-- **(b) ~~A topology-aware bridge (ultrametric, OT diffusion, hierarchical wavelets) could map between codebooks.~~** **TESTED — OT bridge FAILS (g188: -0.119 HARMS). But direct string matching WORKS (+0.478 nats = 93.2% of within-family effect).** The signal is exact lexical token identity, not topological mapping. g191 decomposing whether it's content or format.
+- **(b) ~~A topology-aware bridge (ultrametric, OT diffusion, hierarchical wavelets) could map between codebooks.~~** **TESTED — OT bridge FAILS (g188: -0.119 HARMS). Direct string matching WORKS (+0.478 nats = 93.2% of within-family effect). g191 PASS_CONTENT (cycle 160): signal IS trained embedding row CONTENT at exact-match positions, NOT format.** matched_rows_only +0.465 (97%); shuffling same rows to wrong positions is MASSIVELY HARMFUL (-0.709). Anchor is 98% of mechanism. Next: g193 tests whether this content is learnable/generatable from token features (byte histogram + frequency), not merely copyable.
 - **(c) The interface geometry IS the fundamental invariant.** The training diagnostic pivot (predicting health from interface geometry) may be more productive than cross-arch transfer.
 
 **Why it matters.** This is the central finding of the Neural Genome project so far. Understanding WHY architectures impose different charts is either (i) a fundamental barrier to universal transfer (the finding itself becomes the contribution) or (ii) the key to designing architecture-agnostic representations.
 
 **Priority actions:**
-1. **g191 string-match decomposition (RUNNING)** — decompose +0.478 into content vs format. If PASS_CONTENT, the signal is trained semantic vectors at exact-string positions.
-2. **g192 28-layer replication (gated on g191)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell).
+1. ~~**g191 string-match decomposition (RUNNING)**~~ **PASS_CONTENT (cycle 160).** Signal IS trained semantic vectors at exact-string positions. Content confirmed, format killed.
+2. **g193 token-row compiler (RUNNING)** — test whether content is learnable from token features (byte histogram + freq), not merely copyable. PASS = compiler law; FAIL = exact lexical identity only.
+3. **g192 28-layer replication (gated on g193)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell).
 3. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? (NOVEL gap)
 3. ~~**Successive-refinement codebook ladder**~~ — **RUNG 1 DEAD (g183 FAIL), RUNG 2 DEAD (g188 flow_bridge FAIL).** PPMI SVD harms (-0.291). OT-bridged trained embeddings harm (-0.119). But direct string matching (+0.478) shows the signal IS in trained embedding content at exact-string-matched positions. g191 testing whether it's content vs format.
 4. **Architecture-conditioned compatibility law** — train per-arch with scratch normalization, test frozen on third arch.

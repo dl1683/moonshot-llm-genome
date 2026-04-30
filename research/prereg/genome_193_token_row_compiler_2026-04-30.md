@@ -1,6 +1,6 @@
 # Pre-registration: g193 Token-Row Compiler
 
-**Status:** DRAFT (not yet locked)
+**Status:** LOCKED (locked 2026-04-30 cycle 160, gating condition g191 PASS_CONTENT satisfied)
 **Date:** 2026-04-30
 **Depends on:** g191 PASS_CONTENT (gating condition)
 
