@@ -26,13 +26,14 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 138)
+## CURRENT STATUS (2026-04-30, cycle 147)
 
-**§0.1 honest score: 4.0/10** (post g186 FAIL, cycle 138). g186 was the decisive experiment for Forecast/Diagnostic -- FAIL on all criteria. Geometry at 3% of training does NOT predict KD dose-response beyond what alpha alone provides. arm_mean (memorized group means) R2=0.936 dominates everything.
+**§0.1 honest score: 3.8/10** (Codex adversarial cycle 147). Narrowed claim: "Qwen-family trained embed/lm_head interface priors help Qwen-family training under a continuous anchor." NOT universal geometry, NOT forecast/diagnostic.
 
-- g186 FAIL: **4.0/10** (Forecast direction in crisis -- geometry adds no continuous dose-prediction value)
-- g185v2 dose-selection: **ARCHIVED** (no g186 PASS to trigger)
-- Rescue directions: g183 corpus-derived init (5.5-7.0/10), or fresh pivot per Codex advisor
+- g183 corpus-derived init **RUNNING** (6/9 cells done, ppmi_svd_anchor training). trained_anchor reproduces at +0.389 nats (76% of g181b +0.513). ppmi_svd is THE make-or-break: if >=50% recovery, path to 5.5+.
+- **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors. Cross-tokenizer KD actively HURTS (-0.37 to -0.54 nats, g180b). Codex verdict: "strong-form cross-architecture transfer is fundamentally false in the current framing."
+- Path to 7+: (1) g183 ppmi_svd PASS, (2) cross-tokenizer OT bridge (ULD-inspired), (3) prospective policy scoring, (4) electricity-grade demo
+- g187 ultrametric diagnostic on Pythia: Codex-approved as measurement primitive (NOT §0.1 mover alone). Novel gap confirmed. Queued post-g183.
 
 **★ g186 VERDICT: FAIL — geometry does NOT predict KD dose-response (cycle 138, 2026-04-30) ★**
 

@@ -155,6 +155,37 @@ A new mystery enters this file only if:
 
 Codex's Cross-System Auditor reviews proposed additions. Mysteries that are actually just symptoms of deeper mysteries are merged, not duplicated.
 
+## Mystery 8 — Architecture-specific representational charts (GOLD MINE)
+
+**Phenomenon.** Every cross-architecture experiment fails (g173, g180b, g182, g186), while within-family effects are strong (g181b +0.513 nats, g183 +0.389 nats). Forensic analysis of 6 experiments reveals a clear hierarchy:
+
+1. **KD cross-arch with shared tokenizer works (g173: 101% retention) but provides ZERO efficiency gain** — soft-label signal is architecture-agnostic regularization, not structure transfer.
+2. **KD cross-tokenizer actively HURTS (g180b: -0.37 to -0.54 nats)** — wrong codebook = toxic signal.
+3. **Weight/embed transfer only works within-family** — geometry is incommensurable across architectures.
+4. **Transformer blocks without matching interface HARM (g181a: -0.44 nats)** — internal geometry is dependent on interface geometry.
+5. **Geometric features are architecture fingerprints, not invariant coordinates (g182: R^2 = -11 to -19)** — same feature name, different coordinate chart.
+
+Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.085, kNN10 0.645 vs 0.508, TwoNN ID 7.15 vs 11.18. These are NOT the same coordinate system.
+
+**Key insight (Codex cycle 147):** "The transferable object is an interface codebook plus decoder. Tokenizer defines the codebook. Architecture defines the decoder." Strong-form cross-architecture transfer is fundamentally false in the current framing.
+
+**Hypothesis landscape:**
+- **(a) Tokenizer imposes a codebook; architecture imposes a decoder.** Cross-arch fails because same codebook + different decoder = misaligned priors. Supported by g173 (shared tokenizer enables KD) + g180b (different tokenizer = toxic).
+- **(b) A topology-aware bridge (ultrametric, OT diffusion, hierarchical wavelets) could map between codebooks.** Untested. Codex recommends tokenizer-flow bridge experiment.
+- **(c) The interface geometry IS the fundamental invariant.** The training diagnostic pivot (predicting health from interface geometry) may be more productive than cross-arch transfer.
+
+**Why it matters.** This is the central finding of the Neural Genome project so far. Understanding WHY architectures impose different charts is either (i) a fundamental barrier to universal transfer (the finding itself becomes the contribution) or (ii) the key to designing architecture-agnostic representations.
+
+**Priority actions:**
+1. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? Does the rate predict training health? (NOVEL gap in literature)
+2. **Tokenizer-flow bridge** — use OT/diffusion on bipartite token co-occurrence graph to initialize cross-tokenizer embeddings. 20% recovery of within-family effect = meaningful.
+3. **Successive-refinement codebook ladder** — test unigram freq -> PPMI SVD -> trained embed as a codebook quality ladder. g183 is tier 1.
+4. **Architecture-conditioned compatibility law** — train per-arch with scratch normalization, test frozen on third arch.
+
+**Status.** 🔥 ACTIVE GOLD MINE. This pattern, if properly characterized, IS the contribution.
+
+---
+
 ## Scar flag
 
 A mystery becomes a **scar** (🩹) when three independent resolution attempts have failed. Scars are elevated: they become candidates for framework revision, not just more experiments. If a scar persists, the framework might be wrong, not the experiments.

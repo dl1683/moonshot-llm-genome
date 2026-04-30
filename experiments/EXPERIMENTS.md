@@ -10,7 +10,9 @@
 
 **Pass criteria.** P1: ppmi_svd recovers >= 50% of +0.513 nat trained-anchor gap (>= 0.257 nats vs scratch). P2: ppmi_svd beats scratch 3/3 seeds. P3: ppmi_svd beats best non-corpus control by >= 0.10 nats.
 
-**Status.** Stage A RUNNING. Preprocessing complete (PPMI 50K vocab, 885K nonzero, SVD to 1024d). Training cells in progress.
+**Status.** Stage A RUNNING (6/9 cells done, ppmi_svd_anchor training). scratch_ce mean NLL=6.456. trained_anchor mean NLL=6.066, mean gap=+0.389 nats (76% of g181b +0.513, PASS P1 threshold +0.257). ppmi_svd_anchor cells in progress — THE make-or-break result.
+
+**Cycle 147 cross-arch forensic synthesis (parallel work).** 6 failed cross-arch experiments forensically analyzed. Finding: tokenizer = codebook, architecture = decoder. Cross-tokenizer KD actively HURTS (g180b: -0.37 to -0.54 nats). Within-family interface prior strong (+0.39-0.51 nats). Codex adversarial cycle 147: §0.1 = 3.8/10. See `research/OPEN_MYSTERIES.md` Mystery 8.
 
 Source: `code/genome_183_corpus_derived_init.py`, `research/prereg/genome_183_corpus_derived_init_2026-04-30.md` (LOCKED).
 
