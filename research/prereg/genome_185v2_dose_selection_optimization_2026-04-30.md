@@ -69,30 +69,34 @@ At the feature step (3% of training), for each (arch, seed) pair:
 
 1. **Compute savings vs brute-force:** `(FLOPs_brute - FLOPs_geometry) / FLOPs_brute * 100`
    - Expected: ~80% (brute-force trains 5 doses; geometry probes 5 at 3% then trains 1).
-2. **Quality retention:** `mean_NLL_geometry / mean_NLL_oracle` (closer to 1.0 = better).
+2. **Improvement retention:** `(scratch_NLL - selected_NLL) / (scratch_NLL - oracle_NLL)` per (arch, seed), then averaged. 1.0 = oracle quality, 0.0 = no better than scratch. This is the correct metric since lower NLL is better (a simple NLL ratio is misleading per Codex adversarial cycle 135).
 3. **Dose-selection accuracy:** fraction of (arch, seed) pairs where geometry selects the actually-best dose.
-4. **Regret:** `mean(NLL_oracle - NLL_geometry_selected)` — how much worse geometry's pick is.
-5. **Geometry vs alpha-heuristic quality:** paired comparison of final NLLs.
-6. **Geometry vs population-mean quality:** paired comparison of final NLLs.
+4. **Regret:** `mean(oracle_NLL - geometry_selected_NLL)` — NLL gap between oracle's pick and geometry's pick. Negative = geometry picked a worse dose.
+5. **Geometry vs alpha-heuristic quality:** paired comparison of final NLLs across (arch, seed) pairs.
+6. **Geometry vs population-mean quality:** paired comparison of final NLLs across (arch, seed) pairs.
+7. **Selection entropy:** fraction of (arch, seed) pairs where geometry selects alpha=1.0. If >= 80%, geometry is not adding value over the alpha heuristic (Codex adversarial cycle 135 attack S10).
 
 ## PASS criteria (all must hold)
 
 1. Compute savings >= 75% vs brute-force (geometry selects 1 of 5 doses, plus 3% probing overhead).
-2. Quality retention >= 85% vs oracle (geometry doesn't consistently pick bad doses).
+2. Improvement retention >= 85% vs oracle (geometry doesn't consistently pick bad doses).
 3. Dose-selection accuracy >= 40% (better than random 25% across 4 nonzero doses).
 4. Geometry-select beats alpha-heuristic on mean final NLL (paired, p <= 0.10 one-sided).
 5. Geometry-select beats population-mean on mean final NLL (paired, p <= 0.10 one-sided).
+6. Selection entropy: geometry selects alpha=1.0 on < 80% of (arch, seed) pairs (not a trivial alpha-decoder).
 
 ## WEAK PASS criteria
 
-- Quality retention >= 75% vs oracle, but dose-selection accuracy < 40%.
+- Improvement retention >= 75% vs oracle, but dose-selection accuracy < 40%.
 - OR: geometry ties alpha-heuristic but beats population-mean.
+- Selection entropy must still be < 80% alpha=1.0 agreement.
 
 ## FAIL criteria
 
-- Quality retention < 70% vs oracle (geometry systematically picks bad doses).
+- Improvement retention < 70% vs oracle (geometry systematically picks bad doses).
 - Dose-selection accuracy <= 25% (no better than random).
 - Alpha-heuristic ties or beats geometry on quality AND compute.
+- Selection entropy >= 80% alpha=1.0 agreement (geometry is a trivial dose decoder).
 
 ## Confound analyses
 
@@ -104,6 +108,14 @@ If g186's Ridge was trained on data where one dose dominated (e.g., alpha=1.0 al
 
 ### C3: Seed generalization
 The frozen Ridge was trained on g186 seeds 0-5. g185v2 uses seeds 6-11. If the geometry signal is seed-specific (overfitting to g186's random initializations), the selector will fail. This is the primary test — same as g186's held-out-seed design.
+
+### C4: Offline replay gate (MANDATORY before launch, per Codex adversarial cycle 135)
+Before running g185v2 cells, run an offline counterfactual on g186 data using leave-two-seeds-out CV:
+- Freeze Ridge on 4 training seeds, predict held-out 2 seeds' dose responses.
+- For each held-out (arch, seed), select the dose with highest predicted delta_NLL.
+- Score improvement retention, regret, selection accuracy, and selection entropy.
+- Compare vs alpha-only selector (always pick alpha=1.0) and population-mean selector.
+- **LAUNCH GATE:** If offline improvement retention < 70% OR geometry selects alpha=1.0 >= 80% of the time OR alpha-only ties geometry on regret, ARCHIVE g185v2. Do not spend 60 cells on a selector that can't beat a trivial baseline even on training-distribution data.
 
 ## What a null result means
 

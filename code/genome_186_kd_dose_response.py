@@ -901,8 +901,15 @@ def export_frozen_ridge():
         delta_y.append(c["label"])
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
 
-    if len(delta_X) < 20:
-        print_flush(f"Too few rows ({len(delta_X)}) to export reliable Ridge")
+    if len(delta_X) < 48:
+        print_flush(f"Too few rows ({len(delta_X)}/48) — need full g186 data to export")
+        return
+
+    with open(OUT_PATH, encoding="utf-8") as fcheck:
+        check_data = json.load(fcheck)
+    verdict = (check_data.get("dose_analysis") or {}).get("verdict", "")
+    if verdict not in ("PASS", "WEAK PASS"):
+        print_flush(f"g186 verdict is '{verdict}', not PASS — frozen Ridge not scientifically valid")
         return
 
     dX = np.array(delta_X)
