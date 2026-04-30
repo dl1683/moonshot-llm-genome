@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest baseline:** 3.5/10 (post g183 FAIL, cycle 148). Corpus-derived PPMI SVD ACTIVELY HURTS (-0.291 nats). Successive-refinement rung 1 dead. Next: g188 tokenizer-flow bridge (6.4/10 per Codex if sparse approach). Full branch projections in CURRENT STATUS block below.
+**§0.1 honest score:** 5.2/10 (post g194 PASS_DIRECTION, cycle 180). Projected: 5.8 if g195 PASS_OUTPUT_DOMINANT, ~6.1 if g192 depth also passes, ~6.5 if g196 PASS_RESIDUE. Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 180)
+## CURRENT STATUS (2026-04-30, cycle 190)
 
 **§0.1 honest score: 5.2/10** (post-g194 PASS_DIRECTION, per Codex §B cycle 174). **g194 PASS_DIRECTION (18/18 cells, cycle 180).** Direction carries 95-97% of signal; norms irrelevant. cd_sn +0.442, cd_un +0.451, sd_cn -0.662, rd_cn -1.019. Resolves A17 SEV-10.
 
