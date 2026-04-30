@@ -178,7 +178,15 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   6. **8-layer/5000-step scope limit** (severity 6): g192 required for full-depth persistence.
   **Resolving:** scalar/direction factorial — decompose `e_t = r_t * u_t` (norm × direction). Arms: correct r + correct u, correct r + random u, shuffled r + correct u. Same mask, same anchor. PASS_CONTENT only if correct directions carry most of +0.465 while correct scalars with wrong directions stay near scratch. Source: `codex_outputs/heartbeats/cycle160_adversarial_review_20260430.md`.
 
-Path forward (status 2026-04-30 cycle 162): **g191 PASS_CONTENT (21/21 cells).** Content IS the mechanism. §0.1 = 4.5/10. **g193 FAIL (12/12 cells):** compiler cosine=0.194 (near-random directions). Byte-level features capture norms but NOT directional content. Kills +2.4 uplift path. **g194 scalar/direction factorial LAUNCHING:** resolves A17 SEV-10 (8/10 leverage per Codex §B). Prereg LOCKED. g192 28-layer gated on g194. g190 decoder-conditioned relearning DEFERRED.
+- **A18. Cycle 165 adversarial — tied lm_head confound + anchor dominance (severity 10+10).** Five attacks:
+  1. **Tied lm_head confound** (severity 10): `tie_word_embeddings=True` means embed_tokens IS lm_head. Injecting/anchoring embed_tokens simultaneously sets the output classifier basis. The +0.465 effect may be OUTPUT-LOGIT class-vector prior (trained Qwen3 logit geometry), not INPUT embedding/interface geometry. Resolver: untie embeddings and run input-only, output-only, both, and crossed arms. If output-only gets most of the gain, the "embedding interface" framing is wrong.
+  2. **Anchor dominance is regularization, not content transfer** (severity 10): anchor_only = 98% of signal. Effect may be continuous tether/regularization toward a well-conditioned basis, not transferable content. Resolver: for every g194 arm, split init_only/anchor_only/init+anchor + anchor_cutoff variants. Claim survives only if correct directions leave residue after anchor removal.
+  3. **"Direction" may mean well-conditioned angular scaffold** (severity 9): correct_dir_uniform_norm beating full_match in smoke implies stripping trained norms IMPROVES the pilot. Supports "some angular basis helps" not "trained semantic content." Resolver: compare trained directions against random orthogonal bases with same conditioning.
+  4. **Exact-string lookup table, not transcodable law** (severity 9): g193 FAIL + exact-match-only signal = uncompressible lookup table over shared tokens. Not a general interface law. Resolver: low-overlap tokenizers, semantic-neighbor transfers.
+  5. **Shallow/horizon/token-mass artifact** (severity 8): 8-layer/5000-step regime. g192 required. Also: if gain is concentrated in high-frequency shared tokens, narrative shrinks.
+  Source: `codex_outputs/heartbeats/cycle165_adversarial_20260430.md`.
+
+Path forward (status 2026-04-30 cycle 165): **g194 RUNNING (3/18 cells done).** Resolves A17 SEV-10 scalar/direction confound. g192 28-layer gated on g194 PASS. **A18 opens two new SEV-10s** (tied lm_head + anchor dominance) — these feed g195/g196 design after g194 completes. g193 FAIL (cycle 162). §0.1 = 4.5/10.
 
 ## 3. Competitive Intelligence (updated cycle 100, 2026-04-29)
 

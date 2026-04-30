@@ -82,13 +82,14 @@ def make_28layer_model(tok_gpt2, seed: int):
         hidden_size=1024,
         num_hidden_layers=NUM_LAYERS_28,
         num_attention_heads=16,
-        num_key_value_heads=4,
-        intermediate_size=2816,
+        num_key_value_heads=8,
+        intermediate_size=3072,
         max_position_embeddings=g188.SEQ_LEN + 64,
         rms_norm_eps=1e-6,
         tie_word_embeddings=True,
-        head_dim=64,
-        rope_theta=10000.0,
+        head_dim=128,
+        rope_theta=1000000.0,
+        use_cache=False,
     )
     model = Qwen3ForCausalLM(cfg).to(dtype=g188.FORWARD_DTYPE, device=DEVICE)
     model.config.pad_token_id = tok_gpt2.pad_token_id
@@ -231,7 +232,7 @@ def compute_verdict(payload: dict[str, Any]) -> dict[str, Any]:
 
     if matched_mean >= 0.20 and matched_all_positive and shuffled_harmful:
         verdict = "PASS_PERSISTENCE"
-    elif matched_mean >= 0.10 and matched_all_positive:
+    elif matched_mean >= 0.10 and matched_all_positive and matched_mean > shuffled_mean + 0.05:
         verdict = "PASS_ATTENUATION"
     else:
         verdict = "FAIL"

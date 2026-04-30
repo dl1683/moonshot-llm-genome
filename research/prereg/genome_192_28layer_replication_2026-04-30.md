@@ -28,15 +28,15 @@ All arms: **28-layer** Qwen3-arch with GPT-2 tokenizer, 5000 steps, same data/ev
 
 ### Model specification
 
-`Qwen3Config(vocab_size=50257, hidden_size=1024, num_hidden_layers=28, num_attention_heads=16, num_key_value_heads=4, intermediate_size=2816, max_position_embeddings=320, tie_word_embeddings=True, head_dim=64)`
+`Qwen3Config(vocab_size=50257, hidden_size=1024, num_hidden_layers=28, num_attention_heads=16, num_key_value_heads=8, intermediate_size=3072, max_position_embeddings=320, tie_word_embeddings=True, head_dim=128, rope_theta=1000000.0, use_cache=False)`
 
-Estimated VRAM: ~3.2 GB (well within 22 GB envelope).
+Matches actual Qwen3-0.6B config (except vocab_size=50257 for GPT-2 tokenizer). Estimated VRAM: ~4.0 GB (well within 22 GB envelope).
 
 ## Pass/Fail Criteria
 
 **PASS_PERSISTENCE:** matched_rows_only mean gain >= +0.20 nats vs scratch AND 3/3 seeds AND row_shuffled mean gain <= 0.0 nats (still harmful).
 
-**PASS_ATTENUATION:** matched_rows_only mean gain >= +0.10 but < +0.20 nats. Effect exists but is weaker at depth.
+**PASS_ATTENUATION:** matched_rows_only mean gain >= +0.10 but < +0.20 nats AND matched_mean > shuffled_mean + 0.05 nats. Effect exists but is weaker at depth.
 
 **FAIL:** matched_rows_only mean gain < +0.10 nats. Embedding init effect is a shallow artifact.
 

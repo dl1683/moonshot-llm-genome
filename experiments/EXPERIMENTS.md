@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-04-30 — genome_194_scalar_direction_factorial — RUNNING (scalar vs direction decomposition)
+
+**Purpose.** Decompose e_t = r_t * u_t to resolve A17 SEV-10 scalar-vs-direction confound. g191 PASS_CONTENT proved content matters, but row-shuffling destroys both norms and directions simultaneously. This factorial isolates which component carries the signal. 6 arms x 3 seeds x 5000 steps = 18 cells.
+
+**Arms:** scratch_ce (baseline), full_match (matched string-match init+anchor), correct_dir_shuffled_norm (correct unit directions, shuffled norms), shuffled_dir_correct_norm (shuffled directions, correct norms), random_dir_correct_norm (random directions, correct norms), correct_dir_uniform_norm (correct directions, uniform norm).
+
+**Pass criteria.** PASS_DIRECTION: cd_sn >= +0.30 AND (sd_cn or rd_cn) < +0.15. PASS_SCALAR: sd_cn >= +0.30 AND cd_un < +0.15. PASS_BOTH: neither alone > 80% of full_match. FAIL: no arm >= +0.10.
+
+**Design gate fixes applied:** SEV-8 Fro normalization (all factorial arms normalized to matched_fro=360.78, not trained_fro=363.3). SEV-6 PASS_BOTH logic corrected.
+
+**Status:** RUNNING (scratch_ce 2/3 complete; ~16 cells remaining, ETA ~1.8h).
+
+Source: `code/genome_194_scalar_direction_factorial.py`, `research/prereg/genome_194_scalar_direction_factorial_2026-04-30.md` (LOCKED).
+
+---
+
 ## 2026-04-30 — genome_193_token_row_compiler — FAIL (compiler cannot learn embedding directions)
 
 **Purpose.** Train a small MLP (258→1024→1024→1024) to predict Qwen3 trained embedding rows from token-level features (byte histogram, token length, log-frequency). Uses 42k exact string-matched GPT-2/Qwen3 token pairs as supervision (80/20 train/holdout). Evaluation: train GPT-2-tokenizer Qwen3-arch shell using ONLY compiler-generated rows (no copied target rows). 4 arms × 3 seeds = 12 cells.
