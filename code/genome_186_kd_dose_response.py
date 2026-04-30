@@ -216,10 +216,57 @@ def compute_dose_labels(cells: list[dict]) -> list[dict]:
     return labeled
 
 
+TELEMETRY_FEAT_NAMES = [
+    "grad_norm_mean", "grad_norm_var", "gradient_noise_scale",
+    "hidden_norm_early_late_ratio", "hidden_var_early_late_ratio",
+    "norm_param_early_late_ratio", "curvature_top_eigen_proxy",
+]
+SHESHA_FEAT_NAMES = [
+    "shesha_anchor_stability", "shesha_feature_split", "shesha_sample_split",
+]
+RIDGE_ALPHAS = [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
+
+
+def _cv_ridge_baseline(bX, dy, delta_meta, seed_folds, min_train=2):
+    """Run cross-validated Ridge on feature matrix bX, return (preds, mask, r2)."""
+    from sklearn.linear_model import RidgeCV
+    b_preds = np.zeros(len(dy))
+    b_mask = np.zeros(len(dy), dtype=bool)
+    for fold_seeds in seed_folds:
+        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
+        test_m = ~train_m
+        if train_m.sum() < max(min_train, bX.shape[1] + 1) or test_m.sum() < 1:
+            continue
+        mu, sd = bX[train_m].mean(0), bX[train_m].std(0)
+        sd[sd < 1e-12] = 1.0
+        ridge = RidgeCV(alphas=RIDGE_ALPHAS)
+        ridge.fit((bX[train_m] - mu) / sd, dy[train_m])
+        b_preds[test_m] = ridge.predict((bX[test_m] - mu) / sd)
+        b_mask |= test_m
+    if b_mask.sum() > 2:
+        ss = float(np.sum((dy[b_mask] - b_preds[b_mask]) ** 2))
+        st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
+        r2 = 1 - ss / st if st > 1e-12 else float("nan")
+    else:
+        r2 = float("nan")
+    return b_preds, b_mask, r2
+
+
+def _safe_delta(c_feats, sc_feats, names):
+    """Compute feature delta, returning None if any feature is missing/NaN."""
+    dx = []
+    for fn in names:
+        v_kd = float(c_feats.get(fn, float("nan")))
+        v_sc = float(sc_feats.get(fn, float("nan")))
+        if not (math.isfinite(v_kd) and math.isfinite(v_sc)):
+            return None
+        dx.append(v_kd - v_sc)
+    return dx
+
+
 def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[str, Any]:
     """Primary analysis: seed-matched delta geometry predicts delta NLL."""
     from sklearn.linear_model import RidgeCV
-    from sklearn.model_selection import LeaveOneOut
 
     feat_names = list(g182.MANIFOLD_ONLY_FEATURE_NAMES)
     results = {}
@@ -229,39 +276,60 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         if c["kd_alpha"] == 0.0:
             scratch_by[(c["arch"], c["seed"])] = c
 
+    # Build aligned delta arrays for geometry, telemetry, shesha, early_loss
     delta_X, delta_y, delta_meta = [], [], []
+    delta_tel, delta_shesha, delta_el = [], [], []
     skipped_feats = 0
+
     for c in labeled:
         sc = scratch_by.get((c["arch"], c["seed"]))
         if sc is None:
             continue
-        if not c.get("features") or not sc.get("features"):
+        c_feats = c.get("features") or {}
+        sc_feats = sc.get("features") or {}
+        if not c_feats or not sc_feats:
             skipped_feats += 1
             continue
-        has_all = all(
-            math.isfinite(float(c["features"].get(fn, float("nan"))))
-            and math.isfinite(float(sc["features"].get(fn, float("nan"))))
-            for fn in feat_names
-        )
-        if not has_all:
+        dx = _safe_delta(c_feats, sc_feats, feat_names)
+        if dx is None:
             skipped_feats += 1
             continue
-        dx = []
-        for fn in feat_names:
-            v_kd = float(c["features"][fn])
-            v_sc = float(sc["features"][fn])
-            dx.append(v_kd - v_sc)
         delta_X.append(dx)
         delta_y.append(c["label"])
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
+
+        # Telemetry deltas (aligned with geometry rows)
+        dt = _safe_delta(c_feats, sc_feats, TELEMETRY_FEAT_NAMES)
+        delta_tel.append(dt if dt else [0.0] * len(TELEMETRY_FEAT_NAMES))
+
+        # Shesha deltas (aligned)
+        ds = _safe_delta(c_feats, sc_feats, SHESHA_FEAT_NAMES)
+        delta_shesha.append(ds if ds else [0.0] * len(SHESHA_FEAT_NAMES))
+
+        # Early loss delta (aligned)
+        el_kd = float(c.get("early_loss", float("nan")))
+        el_sc = float(sc.get("early_loss", float("nan")))
+        if math.isfinite(el_kd) and math.isfinite(el_sc):
+            delta_el.append(el_kd - el_sc)
+        else:
+            delta_el.append(0.0)
+
     if skipped_feats:
         print_flush(f"    WARNING: skipped {skipped_feats} rows with missing/nan features")
 
-    if len(delta_X) < 10:
-        return {"error": f"too few delta pairs: {len(delta_X)}"}
+    # FIX #2: prereg requires 48 delta rows
+    if len(delta_X) < 48:
+        print_flush(f"    CRITICAL: only {len(delta_X)}/48 delta rows — below prereg minimum")
+        if len(delta_X) < 10:
+            return {"error": f"too few delta pairs: {len(delta_X)}", "n_pairs": len(delta_X)}
+    results["n_expected_pairs"] = 48
+    results["rows_below_prereg_minimum"] = len(delta_X) < 48
 
     dX = np.array(delta_X)
     dy = np.array(delta_y)
+    del_X = np.array(delta_el).reshape(-1, 1)
+    tel_X = np.array(delta_tel)
+    she_X = np.array(delta_shesha)
 
     results["n_pairs"] = len(delta_X)
     results["label_std"] = float(np.std(dy))
@@ -286,7 +354,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         mu, sd = X_tr.mean(0), X_tr.std(0)
         sd[sd < 1e-12] = 1.0
 
-        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+        ridge = RidgeCV(alphas=RIDGE_ALPHAS)
         ridge.fit((X_tr - mu) / sd, y_tr)
         pred = ridge.predict((X_te - mu) / sd)
         all_preds[test_mask] = pred
@@ -308,62 +376,29 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             if np.sum(all_test_mask) > 2 else float("nan"),
     }
 
-    # --- Baselines ---
+    # --- Baselines (all aligned with delta_meta, no misalignment possible) ---
     baselines = {}
     baseline_preds = {}
 
-    # alpha-only
     alphas = np.array([m["alpha"] for m in delta_meta]).reshape(-1, 1)
     alphas2 = np.column_stack([alphas, alphas**2])
-    for bname, bX in [("alpha_only", alphas), ("alpha_quad", alphas2)]:
-        b_preds = np.zeros(len(dy))
-        b_mask = np.zeros(len(dy), dtype=bool)
-        for fold_seeds in seed_folds:
-            train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
-            test_m = ~train_m
-            if train_m.sum() < 2 or test_m.sum() < 1:
-                continue
-            ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
-            mu, sd = bX[train_m].mean(0), bX[train_m].std(0)
-            sd[sd < 1e-12] = 1.0
-            ridge.fit((bX[train_m] - mu) / sd, dy[train_m])
-            b_preds[test_m] = ridge.predict((bX[test_m] - mu) / sd)
-            b_mask |= test_m
-        if b_mask.sum() > 2:
-            ss = float(np.sum((dy[b_mask] - b_preds[b_mask]) ** 2))
-            st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
-            baselines[bname] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
-            baseline_preds[bname] = b_preds.copy()
+    arch_indicator = np.array([1.0 if m["arch"] == "qwen3" else 0.0 for m in delta_meta]).reshape(-1, 1)
 
-    # delta_early_loss baseline
-    delta_el = []
-    for c in labeled:
-        sc = scratch_by.get((c["arch"], c["seed"]))
-        el_kd = c.get("early_loss", float("nan"))
-        el_sc = sc.get("early_loss", float("nan")) if sc else float("nan")
-        if math.isfinite(el_kd) and math.isfinite(el_sc):
-            delta_el.append(el_kd - el_sc)
-        else:
-            delta_el.append(0.0)
-    del_X = np.array(delta_el).reshape(-1, 1)
-    b_preds = np.zeros(len(dy))
-    b_mask = np.zeros(len(dy), dtype=bool)
-    for fold_seeds in seed_folds:
-        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
-        test_m = ~train_m
-        if train_m.sum() < 2:
-            continue
-        mu, sd = del_X[train_m].mean(0), del_X[train_m].std(0)
-        sd[sd < 1e-12] = 1.0
-        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
-        ridge.fit((del_X[train_m] - mu) / sd, dy[train_m])
-        b_preds[test_m] = ridge.predict((del_X[test_m] - mu) / sd)
-        b_mask |= test_m
-    if b_mask.sum() > 2:
-        ss = float(np.sum((dy[b_mask] - b_preds[b_mask]) ** 2))
-        st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
-        baselines["delta_early_loss"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
-        baseline_preds["delta_early_loss"] = b_preds.copy()
+    baseline_specs = [
+        ("alpha_only", alphas),
+        ("alpha_quad", alphas2),
+        ("delta_early_loss", del_X),
+        ("alpha_plus_arch", np.column_stack([alphas, arch_indicator])),
+        ("delta_telemetry", tel_X),
+        ("delta_shesha", she_X),
+        ("combined_non_geometry", np.column_stack([alphas, alphas**2, del_X, tel_X])),
+    ]
+
+    for bname, bX in baseline_specs:
+        bp, bm, br2 = _cv_ridge_baseline(bX, dy, delta_meta, seed_folds)
+        if not math.isnan(br2):
+            baselines[bname] = {"r2": br2}
+            baseline_preds[bname] = bp.copy()
 
     # arm_mean baseline (cross-validated per prereg)
     am_preds = np.zeros(len(dy))
@@ -377,10 +412,10 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
                 key = (m["arch"], m["alpha"])
                 train_means.setdefault(key, []).append(dy[i])
         for k in train_means:
-            train_means[k] = np.mean(train_means[k])
+            train_means[k] = float(np.mean(train_means[k]))
         for i, m in enumerate(delta_meta):
             if test_m[i]:
-                am_preds[i] = train_means.get((m["arch"], m["alpha"]), dy[train_m].mean())
+                am_preds[i] = train_means.get((m["arch"], m["alpha"]), float(dy[train_m].mean()))
                 am_mask[i] = True
     if am_mask.sum() > 2:
         ss = float(np.sum((dy[am_mask] - am_preds[am_mask]) ** 2))
@@ -388,86 +423,45 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         baselines["arm_mean"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
         baseline_preds["arm_mean"] = am_preds.copy()
 
-    # combined_non_geometry: alpha + alpha^2 + delta_early_loss
-    cng_X = np.column_stack([alphas, alphas**2, del_X])
-    cng_preds = np.zeros(len(dy))
-    cng_mask = np.zeros(len(dy), dtype=bool)
-    for fold_seeds in seed_folds:
-        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
-        test_m = ~train_m
-        if train_m.sum() < 4:
-            continue
-        mu, sd = cng_X[train_m].mean(0), cng_X[train_m].std(0)
-        sd[sd < 1e-12] = 1.0
-        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
-        ridge.fit((cng_X[train_m] - mu) / sd, dy[train_m])
-        cng_preds[test_m] = ridge.predict((cng_X[test_m] - mu) / sd)
-        cng_mask |= test_m
-    if cng_mask.sum() > 2:
-        ss = float(np.sum((dy[cng_mask] - cng_preds[cng_mask]) ** 2))
-        st = float(np.sum((dy[cng_mask] - dy[cng_mask].mean()) ** 2))
-        baselines["combined_non_geometry"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
-        baseline_preds["combined_non_geometry"] = cng_preds.copy()
-
-    # alpha_plus_arch baseline
-    arch_indicator = np.array([1.0 if m["arch"] == "qwen3" else 0.0 for m in delta_meta]).reshape(-1, 1)
-    apa_X = np.column_stack([alphas, arch_indicator])
-    apa_preds = np.zeros(len(dy))
-    apa_mask = np.zeros(len(dy), dtype=bool)
-    for fold_seeds in seed_folds:
-        train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
-        test_m = ~train_m
-        if train_m.sum() < 2:
-            continue
-        mu, sd = apa_X[train_m].mean(0), apa_X[train_m].std(0)
-        sd[sd < 1e-12] = 1.0
-        ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
-        ridge.fit((apa_X[train_m] - mu) / sd, dy[train_m])
-        apa_preds[test_m] = ridge.predict((apa_X[test_m] - mu) / sd)
-        apa_mask |= test_m
-    if apa_mask.sum() > 2:
-        ss = float(np.sum((dy[apa_mask] - apa_preds[apa_mask]) ** 2))
-        st = float(np.sum((dy[apa_mask] - dy[apa_mask].mean()) ** 2))
-        baselines["alpha_plus_arch"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
-        baseline_preds["alpha_plus_arch"] = apa_preds.copy()
-
     results["baselines"] = baselines
 
     # geometry beats alpha-only?
     alpha_r2 = baselines.get("alpha_only", {}).get("r2", float("nan"))
     results["geometry_beats_alpha_only"] = pooled_r2 > alpha_r2 if not math.isnan(alpha_r2) else None
 
-    # MSE reduction vs best baseline
+    # MSE reduction vs best non-geometry baseline
     geo_mse = pooled_ss_res / max(1, np.sum(all_test_mask))
-    best_bl_r2 = max((v.get("r2", float("-inf")) for v in baselines.values()), default=float("-inf"))
+    best_bl_name = max(baselines, key=lambda k: baselines[k].get("r2", float("-inf"))) if baselines else None
+    best_bl_r2 = baselines[best_bl_name]["r2"] if best_bl_name else float("-inf")
     best_bl_mse = (1 - best_bl_r2) * pooled_ss_tot / max(1, np.sum(all_test_mask)) if not math.isinf(best_bl_r2) else float("inf")
     mse_reduction = 1 - geo_mse / best_bl_mse if best_bl_mse > 1e-12 else float("nan")
     results["mse_reduction_vs_best_baseline"] = mse_reduction
+    results["best_baseline_name"] = best_bl_name
 
-    # --- Permutation test (500 iterations) ---
+    # FIX #4: Permutation test — shuffle geometry features (not labels), 1000 iterations
     rng = np.random.RandomState(186)
     null_r2s = []
-    for _ in range(500):
-        perm_dy = dy.copy()
+    for _ in range(1000):
+        perm_dX = dX.copy()
         for arch_name in ARCHS:
             arch_mask = np.array([m["arch"] == arch_name for m in delta_meta])
-            perm_dy[arch_mask] = rng.permutation(perm_dy[arch_mask])
-        p_preds = np.zeros(len(perm_dy))
-        p_mask = np.zeros(len(perm_dy), dtype=bool)
+            perm_dX[arch_mask] = rng.permutation(perm_dX[arch_mask])
+        p_preds = np.zeros(len(dy))
+        p_mask = np.zeros(len(dy), dtype=bool)
         for fold_seeds in seed_folds:
             train_m = np.array([m["seed"] not in fold_seeds for m in delta_meta])
             test_m = ~train_m
             if train_m.sum() < 4:
                 continue
-            mu, sd = dX[train_m].mean(0), dX[train_m].std(0)
+            mu, sd = perm_dX[train_m].mean(0), perm_dX[train_m].std(0)
             sd[sd < 1e-12] = 1.0
-            ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
-            ridge.fit((dX[train_m] - mu) / sd, perm_dy[train_m])
-            p_preds[test_m] = ridge.predict((dX[test_m] - mu) / sd)
+            ridge = RidgeCV(alphas=RIDGE_ALPHAS)
+            ridge.fit((perm_dX[train_m] - mu) / sd, dy[train_m])
+            p_preds[test_m] = ridge.predict((perm_dX[test_m] - mu) / sd)
             p_mask |= test_m
         if p_mask.sum() > 2:
-            ss = float(np.sum((perm_dy[p_mask] - p_preds[p_mask]) ** 2))
-            st = float(np.sum((perm_dy[p_mask] - perm_dy[p_mask].mean()) ** 2))
+            ss = float(np.sum((dy[p_mask] - p_preds[p_mask]) ** 2))
+            st = float(np.sum((dy[p_mask] - dy[p_mask].mean()) ** 2))
             null_r2s.append(1 - ss / st if st > 1e-12 else float("nan"))
 
     if null_r2s:
@@ -496,7 +490,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
                 continue
             mu, sd = a_dX[tr].mean(0), a_dX[tr].std(0)
             sd[sd < 1e-12] = 1.0
-            ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+            ridge = RidgeCV(alphas=RIDGE_ALPHAS)
             ridge.fit((a_dX[tr] - mu) / sd, a_dy[tr])
             a_preds[te] = ridge.predict((a_dX[te] - mu) / sd)
             a_tested |= te
@@ -510,8 +504,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     # --- Seed-block bootstrap CI (prereg criterion 3) ---
     seed_ids = np.array([m["seed"] for m in delta_meta])
     unique_seeds = np.unique(seed_ids)
-    best_bl_name = max(baselines, key=lambda k: baselines[k].get("r2", float("-inf")))
-    best_bl_preds_arr = baseline_preds.get(best_bl_name)
+    best_bl_preds_arr = baseline_preds.get(best_bl_name) if best_bl_name else None
     boot_diffs = []
     rng_boot = np.random.RandomState(1860)
     for _ in range(2000):
@@ -540,11 +533,10 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
 
     # --- D5: Alpha decodability from geometry deltas ---
     alphas_arr = np.array([m["alpha"] for m in delta_meta])
-    from sklearn.linear_model import RidgeCV as RCV
     mu_d5, sd_d5 = dX.mean(0), dX.std(0)
     sd_d5[sd_d5 < 1e-12] = 1.0
     dX_s = (dX - mu_d5) / sd_d5
-    ridge_d5 = RCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0])
+    ridge_d5 = RidgeCV(alphas=RIDGE_ALPHAS[:5])
     ridge_d5.fit(dX_s, alphas_arr)
     alpha_pred = ridge_d5.predict(dX_s)
     ss_d5 = float(np.sum((alphas_arr - alpha_pred) ** 2))
@@ -564,7 +556,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             continue
         mu_d, sd_d = dX[tr_m].mean(0), dX[tr_m].std(0)
         sd_d[sd_d < 1e-12] = 1.0
-        ridge_d = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0])
+        ridge_d = RidgeCV(alphas=RIDGE_ALPHAS)
         ridge_d.fit((dX[tr_m] - mu_d) / sd_d, dy[tr_m])
         pred_d = ridge_d.predict((dX[te_m] - mu_d) / sd_d)
         ss_d = float(np.sum((dy[te_m] - pred_d) ** 2))
@@ -575,35 +567,13 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         }
     results["held_out_dose_stress"] = dose_stress
 
-    # --- Verdict ---
-    perm_p = results.get("permutation", {}).get("p_value", 1.0)
-    ci_ok = results.get("bootstrap_ci", {}).get("ci_excludes_zero", False)
-    arch_r2s = [v["r2"] for v in per_arch.values() if isinstance(v.get("r2"), (int, float)) and not math.isnan(v["r2"])]
-    arch_criterion = (
-        len(arch_r2s) >= 1
-        and max(arch_r2s) >= 0.25
-        and all(r >= 0 for r in arch_r2s)
-    ) if arch_r2s else False
-
-    passes_primary = (
-        pooled_r2 >= 0.30
-        and mse_reduction >= 0.20
-        and perm_p <= 0.05
-        and ci_ok
-        and results.get("geometry_beats_alpha_only", False)
-        and arch_criterion
-    )
-    weak_pass = (
-        0.20 <= pooled_r2 < 0.30
-        and mse_reduction >= 0.10
-        and results.get("geometry_beats_alpha_only", False)
-    )
-    if passes_primary:
-        verdict = "PASS"
-    elif weak_pass:
-        verdict = "WEAK PASS"
-    else:
-        verdict = "FAIL"
+    # FIX #6: check if geometry only works for alpha=1.0
+    alpha_1_only = False
+    if dose_stress:
+        non_1_doses = [v for k, v in dose_stress.items() if k != "1.0"]
+        if non_1_doses and all(v["r2"] < 0 for v in non_1_doses):
+            alpha_1_only = True
+    results["alpha_1_only_flag"] = alpha_1_only
 
     # --- D1: Label variance check ---
     d1 = {"pooled_std": float(np.std(dy)), "pooled_range": [float(np.min(dy)), float(np.max(dy))]}
@@ -628,13 +598,66 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
                 d2[f"{arch_name}_alpha_{alpha_val}"] = {"mean": float(np.mean(vals)), "n": len(vals)}
     results["d2_dose_monotonicity"] = d2
 
+    # --- D4: Scratch denominator stability ---
+    d4 = {}
+    for arch_name in ARCHS:
+        scratch_nlls = [c["final_nll"] for c in all_cells
+                        if c["arch"] == arch_name and c["kd_alpha"] == 0.0
+                        and math.isfinite(c.get("final_nll", float("nan")))]
+        if scratch_nlls:
+            d4[f"{arch_name}_scratch_std"] = float(np.std(scratch_nlls))
+            d4[f"{arch_name}_scratch_mean"] = float(np.mean(scratch_nlls))
+    results["d4_scratch_stability"] = d4
+
+    # --- Verdict ---
+    perm_p = results.get("permutation", {}).get("p_value", 1.0)
+    ci_ok = results.get("bootstrap_ci", {}).get("ci_excludes_zero", False)
+    arch_r2s = [v["r2"] for v in per_arch.values()
+                if isinstance(v.get("r2"), (int, float)) and not math.isnan(v["r2"])]
+
+    # FIX #5: require BOTH architectures present and neither negative
+    arch_criterion = (
+        len(arch_r2s) == len(ARCHS)
+        and max(arch_r2s) >= 0.25
+        and all(r >= 0 for r in arch_r2s)
+    )
+
+    passes_primary = (
+        pooled_r2 >= 0.30
+        and mse_reduction >= 0.20
+        and perm_p <= 0.05
+        and ci_ok
+        and results.get("geometry_beats_alpha_only", False)
+        and arch_criterion
+        and not alpha_1_only
+        and not results.get("rows_below_prereg_minimum", False)
+    )
+    weak_pass = (
+        0.20 <= pooled_r2 < 0.30
+        and mse_reduction >= 0.10
+        and results.get("geometry_beats_alpha_only", False)
+        and not alpha_1_only
+    )
+    if passes_primary:
+        verdict = "PASS"
+    elif weak_pass:
+        verdict = "WEAK PASS"
+    else:
+        verdict = "FAIL"
+
     results["verdict"] = verdict
     print_flush(f"\n*** g186 VERDICT: {verdict} ***")
     print_flush(f"    pooled R2={pooled_r2:.3f} mse_red={mse_reduction:.1%} "
                 f"perm_p={perm_p:.3f} ci_ok={ci_ok} beats_alpha={results.get('geometry_beats_alpha_only')}")
     print_flush(f"    per-arch R2: {per_arch}")
+    bl_str = ", ".join(f"{k}={v['r2']:.3f}" for k, v in baselines.items())
+    print_flush(f"    baselines: {bl_str}")
     if results.get("d5_alpha_decodability"):
         print_flush(f"    D5 alpha-decodability R2={results['d5_alpha_decodability']['r2']:.3f}")
+    if alpha_1_only:
+        print_flush(f"    FAIL: geometry works only for alpha=1.0")
+    if results.get("rows_below_prereg_minimum"):
+        print_flush(f"    FAIL: only {results['n_pairs']}/48 rows (below prereg minimum)")
 
     return results
 
