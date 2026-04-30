@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 148)
+## CURRENT STATUS (2026-04-30, cycle 150)
 
 **§0.1 honest score: 3.5/10** (Codex advisor post-g183 FAIL). Narrowed claim: "Qwen-family trained embed/lm_head interface priors help Qwen-family training under a continuous anchor." NOT universal geometry, NOT forecast/diagnostic. Corpus-derived PPMI SVD is DEAD as a replacement for trained priors.
 
@@ -41,7 +41,8 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT triggered. All 3 pass criteria FAIL. The interface prior is NOT about vocabulary statistics — it is architecture-specific geometric structure. PPMI SVD has the right semantic info but the WRONG geometric format. This is the "codebook + decoder" thesis: tokenizer = codebook, architecture = decoder. Corpus stats alone cannot produce architecture-aligned geometry. Source: `results/genome_183_corpus_derived_init.json`.
 
 - **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority. Confound check COMPLETE: anchor-only (no init) NLL=6.901, gap=-0.445 nats (WORSE than init+anchor -0.230). PPMI SVD is independently toxic in BOTH modes. §0.1 = 3.5/10.
-- **g188 tokenizer-flow bridge:** Codex design gate APPROVED (sparse character-offset alignment + Sinkhorn, NOT dense OT). 8 arms, PASS >= +0.12 nats. Code + prereg staged. §0.1 movement potential: 6.4/10. Source: `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`.
+- **Cycle 150 adversarial (A15):** 5 attacks. SEV-10: C23 (+0.513 nats) not proven CONTENT transfer — could be FORMAT (norm/spectrum/structure). Needs row-shuffled, frequency-preserving, spectrum-preserving, and same-distance random controls at 5000 steps. SEV-9: codebook+decoder thesis loosely stated. SEV-8: g188 tests lower bar (decoder family fixed). SEV-8: g188 missing random_plan_same_degrees control. SEV-7: g183 proves corpus wrong, not that trained content is right. **Resolving: g188 includes flow_shuffled_qwen_rows + flow_random_source controls; full C23 resolution needs dedicated g189.** Source: `codex_outputs/cycle150_adversarial_20260430.md`.
+- **g188 tokenizer-flow bridge: RUNNING (cycle 150).** Codex design gate APPROVED. 6 arms × 3 seeds × 5000 steps. PASS >= +0.12 nats. §0.1 movement potential: 6.4/10. **Three critical bugs fixed pre-launch (cycle 150):** (1) SEV-10 anchor targeting — stored param names not dummy model tensors, (2) S9 anchor strength — replaced F.mse_loss (mean reduction, ~51M× too weak) with manual grad.add_ matching g181a/g183, (3) S8 Sinkhorn reversal — replaced exp(-vals/...) with vals/scale so high character overlap → high OT weight. Source: `codex_outputs/cycle150_code_review_20260430.md`, `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`.
 - **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
 - **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
 - Path to 7+: (1) g188 tokenizer-flow bridge PASS, (2) cross-tokenizer trained-embed transcoding law, (3) prospective policy scoring, (4) electricity-grade demo
@@ -446,20 +447,21 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 149)*
+*(Updated 2026-04-30 cycle 150)*
 
-**Just completed:**
-- **g183 corpus-derived init** — **FAIL** (9/9 cells). PPMI SVD ACTIVELY HARMS (-0.291 nats). Recovery=-74.8%. Successive-refinement rung 1 DEAD. Confound check (ppmi_svd_anchor_no_init) running.
+**Currently running:**
+- **g188 tokenizer-flow bridge** — RUNNING (6 arms × 3 seeds × 5000 steps). Three critical bugs fixed (SEV-10 anchor targeting, S9 anchor strength, S8 Sinkhorn reversal). ETA ~3-4h.
 
-**Previously completed this session:**
+**Completed this session:**
+- **g183 corpus-derived init** — **FAIL** (9/9 cells + confound check). PPMI SVD ACTIVELY HARMS. Init+anchor=-0.291 nats, anchor-only=-0.445 nats. Both modes independently toxic. Successive-refinement rung 1 DEAD.
 - **g186 KD dose-response** — FAIL (60/60 cells). Geometry does NOT predict dose-response. arm_mean dominates.
 - **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19.
 - **g180b cross-tokenizer forecast** — FAIL. Geometry HURTS cross-tokenizer (-39.4%).
 - **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps. C23 locked.
 
-**Queue (post-g183 FAIL, reprioritized by Codex advisor cycle 148):**
+**Queue (post-g188 launch, cycle 150):**
 1. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
-2. **g188 tokenizer-flow bridge** — 6.4/10. Code ready, prereg LOCKED. OT-based cross-tokenizer embedding transfer. **NEXT TO LAUNCH** after confound check frees GPU.
+2. **g189 C23 content-causality controls** — NEEDED (adversarial SEV-10). Row-shuffled + spectrum-preserving + frequency-preserving + same-distance random embed/head anchors at 5000 steps. Designs pending Codex gate.
 3. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
 4. **Fresh: KD compatibility law** — 6.1/10 (non-obvious). Model optimal KD dose from teacher/student/tokenizer/corpus stats.
 5. **Cross-arch binary triage** — 5.6/10. Possible rescue but needs non-trivial protocol baselines.
