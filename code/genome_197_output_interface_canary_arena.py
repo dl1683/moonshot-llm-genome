@@ -568,10 +568,13 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     if len(rows) < 20:
         return {"status": "insufficient_data", "n_rows": len(rows)}
 
+    def _safe_finite(v):
+        return v is not None and isinstance(v, (int, float)) and math.isfinite(v)
+
     # Build feature matrix (geometry only, no early_loss)
     all_feat_keys = sorted(set(
         k for r in rows for k in r["features"]
-        if k != "early_loss_50" and math.isfinite(r["features"].get(k, float("nan")))
+        if k != "early_loss_50" and _safe_finite(r["features"].get(k))
     ))
     geom_keys = [k for k in all_feat_keys if k != "early_loss_50"]
 
@@ -585,11 +588,10 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
         y[i] = r["final_nll"]
         cond_labels.append(r["condition"])
         for j, k in enumerate(geom_keys):
-            v = r["features"].get(k, float("nan"))
-            X_geom[i, j] = v if math.isfinite(v) else 0.0
-        X_loss[i, 0] = r["features"].get("early_loss_50", float("nan"))
-        if not math.isfinite(X_loss[i, 0]):
-            X_loss[i, 0] = 0.0
+            v = r["features"].get(k)
+            X_geom[i, j] = float(v) if _safe_finite(v) else 0.0
+        v_loss = r["features"].get("early_loss_50")
+        X_loss[i, 0] = float(v_loss) if _safe_finite(v_loss) else 0.0
 
     # NaN column filter
     valid_cols = np.all(np.isfinite(X_geom), axis=0)
@@ -637,14 +639,20 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     loss_mse = float(np.mean(loss_errors))
     mse_reduction = 1.0 - geom_mse / loss_mse if loss_mse > 0 else float("nan")
 
-    # Full-data R2
-    scaler_full = StandardScaler().fit(X_geom)
-    X_gs = scaler_full.transform(X_geom)
-    ridge_full = RidgeCV(alphas=alphas).fit(X_gs, y)
-    pred_full = ridge_full.predict(X_gs)
-    ss_res = float(np.sum((y - pred_full) ** 2))
+    # Out-of-fold R2 (using LOCO predictions, NOT in-sample)
+    oof_preds_g = np.full(n, np.nan)
+    for fold_idx, held_out in enumerate(unique_conds):
+        test_mask = np.array([c == held_out for c in cond_labels])
+        train_mask_f = ~test_mask
+        X_tr_g = X_geom[train_mask_f]
+        X_te_g = X_geom[test_mask]
+        y_tr_f = y[train_mask_f]
+        sc = StandardScaler().fit(X_tr_g)
+        ridge_oof = RidgeCV(alphas=alphas).fit(sc.transform(X_tr_g), y_tr_f)
+        oof_preds_g[test_mask] = ridge_oof.predict(sc.transform(X_te_g))
+    ss_res_oof = float(np.sum((y - oof_preds_g) ** 2))
     ss_tot = float(np.sum((y - y.mean()) ** 2))
-    r2_full = 1.0 - ss_res / ss_tot if ss_tot > 0 else float("nan")
+    r2_oof = 1.0 - ss_res_oof / ss_tot if ss_tot > 0 else float("nan")
 
     # Bootstrap CI on MSE reduction
     rng = np.random.RandomState(42)
@@ -687,7 +695,7 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     # Verdict
     if nll_range < 0.10:
         verdict = "FAIL_NO_SIGNAL"
-    elif mse_reduction >= 0.25 and ci_lower > 0 and r2_full >= 0.35 and perm_p <= 0.05 and geom_wins >= 8:
+    elif mse_reduction >= 0.25 and ci_lower > 0 and r2_oof >= 0.35 and perm_p <= 0.05 and geom_wins >= 8:
         verdict = "PASS_CANARY"
     elif mse_reduction >= 0.10 and ci_lower >= 0 and perm_p <= 0.10:
         verdict = "WEAK_PASS"
@@ -696,6 +704,38 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
     else:
         verdict = "AMBIGUOUS"
 
+    # Step-0-only ablation (addresses adversarial attack #4: step-50 dynamics leak)
+    s0_keys = [k for k in geom_keys if k.startswith("s0_")]
+    s0_geom_mse = float("nan")
+    if len(s0_keys) >= 3:
+        s0_col_idx = [geom_keys.index(k) for k in s0_keys]
+        X_s0 = X_geom[:, s0_col_idx]
+        s0_errors = []
+        for held_out in unique_conds:
+            train_mask_s = np.array([c != held_out for c in cond_labels])
+            test_mask_s = ~train_mask_s
+            sc_s0 = StandardScaler().fit(X_s0[train_mask_s])
+            r_s0 = RidgeCV(alphas=alphas).fit(sc_s0.transform(X_s0[train_mask_s]), y[train_mask_s])
+            pred_s0 = r_s0.predict(sc_s0.transform(X_s0[test_mask_s]))
+            s0_errors.append(float(np.mean((y[test_mask_s] - pred_s0) ** 2)))
+        s0_geom_mse = float(np.mean(s0_errors))
+
+    # Norm-only ablation (addresses adversarial attack #1: norm/condition decoding)
+    norm_keys = [k for k in geom_keys if "norm" in k.lower()]
+    norm_geom_mse = float("nan")
+    if len(norm_keys) >= 2:
+        norm_col_idx = [geom_keys.index(k) for k in norm_keys]
+        X_norm = X_geom[:, norm_col_idx]
+        norm_errors = []
+        for held_out in unique_conds:
+            train_mask_n = np.array([c != held_out for c in cond_labels])
+            test_mask_n = ~train_mask_n
+            sc_n = StandardScaler().fit(X_norm[train_mask_n])
+            r_n = RidgeCV(alphas=alphas).fit(sc_n.transform(X_norm[train_mask_n]), y[train_mask_n])
+            pred_n = r_n.predict(sc_n.transform(X_norm[test_mask_n]))
+            norm_errors.append(float(np.mean((y[test_mask_n] - pred_n) ** 2)))
+        norm_geom_mse = float(np.mean(norm_errors))
+
     return {
         "status": "complete",
         "verdict": verdict,
@@ -703,7 +743,7 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
         "loss_mse": loss_mse,
         "mse_reduction": mse_reduction,
         "mse_reduction_ci": [ci_lower, ci_upper],
-        "r2_full": r2_full,
+        "r2_oof": r2_oof,
         "perm_p": perm_p,
         "geom_wins": geom_wins,
         "n_conditions": len(unique_conds),
@@ -711,6 +751,8 @@ def run_prediction_analysis(payload: dict[str, Any]) -> dict[str, Any]:
         "nll_range": nll_range,
         "n_geom_features": len(geom_keys),
         "geom_feature_names": geom_keys,
+        "s0_only_mse": s0_geom_mse,
+        "norm_only_mse": norm_geom_mse,
     }
 
 
@@ -837,11 +879,20 @@ def main() -> None:
 
     t_start = time.time()
 
+    def _sanitize_nans(obj):
+        if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+            return None
+        if isinstance(obj, dict):
+            return {k: _sanitize_nans(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [_sanitize_nans(v) for v in obj]
+        return obj
+
     def save():
         payload["timestamp_utc_last_write"] = now_utc()
         payload["elapsed_s"] = time.time() - t_start
         tmp = run_out_path.with_suffix(run_out_path.suffix + ".tmp")
-        tmp.write_text(json.dumps(payload, indent=2, default=str, allow_nan=False), encoding="utf-8")
+        tmp.write_text(json.dumps(_sanitize_nans(payload), indent=2, default=str, allow_nan=False), encoding="utf-8")
         os.replace(tmp, run_out_path)
 
     for cond in conditions:
@@ -883,7 +934,7 @@ def main() -> None:
     save()
 
     print_flush(f"\n*** g197 VERDICT: {summary.get('verdict', '?')} ***")
-    for key in ["mse_reduction", "r2_full", "perm_p", "geom_wins", "nll_range"]:
+    for key in ["mse_reduction", "r2_oof", "perm_p", "geom_wins", "nll_range", "s0_only_mse", "norm_only_mse"]:
         if key in summary:
             print_flush(f"  {key}: {summary[key]}")
 
