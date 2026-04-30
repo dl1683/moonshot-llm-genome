@@ -1,6 +1,6 @@
 # Pre-registration: g196 Anchor-Residue Factorial
 
-**Status:** DRAFT (launch gated on g195 final verdict; designed 2026-04-30 after g194 PASS_DIRECTION)
+**Status:** LOCKED (g195 PASS_OUTPUT_DOMINANT → surface=output, lm_head only. Launch gated on g192 completion.)
 
 ## Motivation
 

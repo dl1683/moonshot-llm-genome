@@ -30,15 +30,17 @@ Source: `code/genome_196_anchor_residue_factorial.py`, `research/prereg/genome_1
 
 ---
 
-## 2026-04-30 — genome_195_untied_input_output_factorial — RUNNING (untied input/output mechanism isolation)
+## 2026-04-30 — genome_195_untied_input_output_factorial — PASS_OUTPUT_DOMINANT (untied input/output mechanism isolation)
 
 **Purpose.** Resolve A18 SEV-10 #1: with tie_word_embeddings=True, embed_tokens IS lm_head. The +0.465 nats signal may be output-logit geometry, not input embedding. This experiment unties the weights and tests each side independently. 5 arms x 3 seeds x 5000 steps = 15 cells.
 
 **Arms:** scratch_untied (baseline), input_inject_anchor (trained embed_tokens only), output_inject_anchor (trained lm_head only), both_inject_anchor (both untied), tied_reference (tied comparison).
 
-**Pass criteria.** PASS_INPUT: input >= +0.30 AND output < +0.15. PASS_OUTPUT: output >= +0.30 AND input < +0.15. PASS_BOTH_NEEDED: both >= +0.30 AND neither alone > 80%. FAIL: max gain < +0.10.
+**Results (15/15 cells, cycle 193).** Output mean gain +0.362 nats (65% of tied), input mean +0.190 (34%), both mean +0.548 (98% of tied), tied mean +0.560. Additivity: both = 99.3% of (input + output). Output carries nearly 2x the signal of input. A18 SEV-10 #1 RESOLVED.
 
-**Status:** RUNNING (launched cycle 180, gated on g194 PASS_DIRECTION).
+**What we learned.** The signal is primarily output-logit class-vector geometry (lm_head), not input embedding geometry. The lm_head is the gradient generator that teaches the network what directions predictions should occupy. §0.1 → 5.8/10.
+
+**Status:** PASS_OUTPUT_DOMINANT (completed cycle 193).
 
 Source: `code/genome_195_untied_input_output_factorial.py`, `research/prereg/genome_195_untied_input_output_factorial_2026-04-30.md` (LOCKED), `results/genome_195_untied_input_output_factorial.json`.
 

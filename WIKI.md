@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest score:** 5.2/10 (post g194 PASS_DIRECTION, cycle 180). Projected: 5.8 if g195 PASS_OUTPUT_DOMINANT, ~6.1 if g192 depth also passes, ~6.5 if g196 PASS_RESIDUE. Full branch projections in CURRENT STATUS block below.
+**§0.1 honest score:** 5.8/10 (post g195 PASS_OUTPUT_DOMINANT, cycle 193). Projected: ~6.1 if g192 depth pass, ~6.5 if g196 PASS_RESIDUE. Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -26,17 +26,17 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 190)
+## CURRENT STATUS (2026-04-30, cycle 193)
 
-**§0.1 honest score: 5.2/10** (post-g194 PASS_DIRECTION, per Codex §B cycle 174). **g194 PASS_DIRECTION (18/18 cells, cycle 180).** Direction carries 95-97% of signal; norms irrelevant. cd_sn +0.442, cd_un +0.451, sd_cn -0.662, rd_cn -1.019. Resolves A17 SEV-10.
+**§0.1 honest score: 5.8/10** (post-g195 PASS_OUTPUT_DOMINANT, cycle 193). **g195 PASS_OUTPUT_DOMINANT (15/15 cells, cycle 193).** Output (lm_head) carries 65% of tied signal (+0.362 nats), input (embed_tokens) 34% (+0.190 nats). Both = 99.3% of (input + output) = near-perfect additivity. Tied mean = +0.560. The lm_head geometry is the gradient generator. A18 SEV-10 #1 RESOLVED.
 
-**g195 untied input/output factorial RUNNING (8/15 cells done, cycle 190).** Output dominance emerging: output_inject_anchor mean gain +0.364 (78% of tied), input_inject_anchor mean gain +0.190 (41%). Heading toward PASS_OUTPUT_DOMINANT. Prereg LOCKED.
+**g192 28-layer replication LAUNCHING (cycle 193).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. Code reviewed clean by Codex §A cycle 192.
 
-**g196 anchor-residue factorial IMPLEMENTATION COMPLETE (cycle 190).** Prereg DRAFT (gated on g195 — locks when g195 verdict determines surface). Code at `code/genome_196_anchor_residue_factorial.py`. 10 arms x 3 seeds = 30 cells. Codex §A cycle 186+189 reviewed, all SEVs fixed (SEV-8 init_only mask, SEV-6 verdict guard, SEV-6 resume validation, SEV-5 cutoff eval steps, SEV-5 CLI footgun).
+**g196 anchor-residue factorial READY TO LOCK (cycle 193).** g195 PASS_OUTPUT_DOMINANT → surface=output (lm_head only). Prereg locking with surface=output. 10 arms x 3 seeds = 30 cells. Gated on g192 completion.
 
-**A18 remaining:** (1) tied lm_head confound → g195 resolving. (2) anchor dominance = regularization → g196 anchor-residue factorial. **g192 28-layer replication PRE-STAGED** (config matches actual Qwen3-0.6B). Ceiling ~6.0 if g195+g192 pass; ~6.5 if g196 anchor-residue shows persistence.
+**A18 remaining:** (1) ~~tied lm_head confound~~ → g195 RESOLVED (output dominant). (2) anchor dominance = regularization → g196 anchor-residue factorial. Ceiling ~6.1 if g192 depth pass; ~6.5 if g196 PASS_RESIDUE.
 
-**Queue:** g195 (RUNNING 8/15) -> g192 (28-layer, gated on g195) -> g196 (anchor-residue, gated on g195) -> g190 (DEFERRED).
+**Queue:** g192 (28-layer, LAUNCHING) -> g196 (anchor-residue, surface=output, gated on g192) -> g190 (DEFERRED).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 

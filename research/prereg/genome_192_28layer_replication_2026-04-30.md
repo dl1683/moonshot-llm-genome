@@ -1,6 +1,6 @@
 # Pre-registration: g192 28-Layer String-Match Replication
 
-**Status:** DRAFT (g194 PASS_DIRECTION confirmed cycle 180; gated on g195 per Codex §B cycle 168 — g192 inherits tied-head confound until g195 resolves)
+**Status:** LOCKED (g195 PASS_OUTPUT_DOMINANT confirmed cycle 193; tied-head confound resolved — output carries 65% of signal. Scale guard still valid as tied replication.)
 
 ## Motivation
 

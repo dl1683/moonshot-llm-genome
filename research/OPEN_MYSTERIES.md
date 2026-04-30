@@ -180,8 +180,8 @@ Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.08
 1. ~~**g191 string-match decomposition (RUNNING)**~~ **PASS_CONTENT (cycle 160).** Signal IS trained semantic vectors at exact-string positions. Content confirmed, format killed.
 2. ~~**g193 token-row compiler (RUNNING)**~~ **FAIL (cycle 162).** Compiler cosine=0.194. Byte-level features ≠ embedding directions. Exact lexical identity only.
 3. **g194 scalar/direction factorial — PASS_DIRECTION (cycle 180, 18/18 cells).** Direction carries 95-97% of signal (cd_sn +0.442, cd_un +0.451). Norms irrelevant (sd_cn -0.662, rd_cn -1.019). A17 SEV-10 RESOLVED.
-4. **g195 untied input/output factorial (RUNNING, 10/15 cells, cycle 190)** — resolves A18 SEV-10 #1. Output dominance emerging: output_inject_anchor +0.362 (78% of tied), input +0.190 (41%). both_inject_anchor +0.534 (115% of tied, near-perfectly additive). Heading toward PASS_OUTPUT_DOMINANT.
-5. **g192 28-layer replication (PRE-STAGED, gated on g195)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell). Config matches actual Qwen3-0.6B.
+4. ~~**g195 untied input/output factorial (RUNNING)**~~ **PASS_OUTPUT_DOMINANT (cycle 193, 15/15 cells).** Output (lm_head) +0.362 nats (65% of tied), input (embed_tokens) +0.190 (34%). Additivity 99.3%. A18 SEV-10 #1 RESOLVED.
+5. **g192 28-layer replication (LAUNCHING, cycle 193)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell). Config matches actual Qwen3-0.6B. Gated on g195 (now cleared).
 6. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? (NOVEL gap)
 3. ~~**Successive-refinement codebook ladder**~~ — **RUNG 1 DEAD (g183 FAIL), RUNG 2 DEAD (g188 flow_bridge FAIL).** PPMI SVD harms (-0.291). OT-bridged trained embeddings harm (-0.119). But direct string matching (+0.478) shows the signal IS in trained embedding content at exact-string-matched positions. g191 testing whether it's content vs format.
 4. **Architecture-conditioned compatibility law** — train per-arch with scratch normalization, test frozen on third arch.

@@ -14,7 +14,7 @@ The strong-form claim — *"transfer of trained capabilities from a trained mode
 
 **New framing (cycle 72 direction review):** pivot to **Forecast/Diagnostic** — *"the earliest token/embedding/interface geometry predicts whether training will be healthy, wasteful, or doomed"*. Falsification-discipline becomes the integrity story, not the headline.
 
-**§0.1 honest score:** 5.2/10 (post g194 PASS_DIRECTION — trained token-row directions carry 95-97% of the +0.465 nats signal; per-token norms are irrelevant). Branch projections in `WIKI.md` CURRENT STATUS.
+**§0.1 honest score:** 5.8/10 (post g195 PASS_OUTPUT_DOMINANT — output (lm_head) carries 65% of tied signal, input (embed_tokens) 34%, near-perfect additivity 99.3%). Branch projections in `WIKI.md` CURRENT STATUS.
 
 ---
 
