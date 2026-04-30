@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import hashlib
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -115,6 +117,7 @@ def train_compiler(
     train_ids: np.ndarray,
     holdout_ids: np.ndarray,
     seed: int,
+    n_epochs: int = COMPILER_EPOCHS,
 ) -> tuple[TokenRowCompiler, dict]:
     """Train the compiler on train_ids, evaluate on holdout_ids."""
     torch.manual_seed(seed)
@@ -122,7 +125,7 @@ def train_compiler(
 
     model = TokenRowCompiler().to(DEVICE)
     optimizer = torch.optim.AdamW(model.parameters(), lr=COMPILER_LR, weight_decay=1e-4)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, COMPILER_EPOCHS)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, n_epochs)
 
     feat_train = torch.from_numpy(features[train_ids]).to(DEVICE)
     tgt_train = torch.from_numpy(targets[train_ids]).to(DEVICE)
@@ -134,7 +137,7 @@ def train_compiler(
     patience = 0
     max_patience = 30
 
-    for epoch in range(COMPILER_EPOCHS):
+    for epoch in range(n_epochs):
         model.train()
         perm = torch.randperm(n_train, device=DEVICE)
         epoch_loss = 0.0
@@ -432,6 +435,7 @@ def main() -> None:
     print_flush("\n--- Training compiler ---")
     compiler, compiler_stats = train_compiler(
         features_matched, targets_matched, train_idx, holdout_idx, seed=193,
+        n_epochs=compiler_epochs,
     )
     print_flush(f"  Compiler done: holdout_mse={compiler_stats['final_holdout_mse']:.6f}, "
                 f"holdout_cosine={compiler_stats['final_holdout_cosine']:.4f}")
@@ -455,9 +459,20 @@ def main() -> None:
         "compiled_shuffled":     {"custom_embed": compiled_shuffled, "anchor_embed": compiled_shuffled},
     }
 
+    embed_hash = hashlib.sha256(compiled_embed.tobytes()).hexdigest()[:16]
+
+    can_resume = False
     if not args.no_resume and run_out_path.exists():
         payload = json.loads(run_out_path.read_text(encoding="utf-8"))
-    else:
+        old_hash = payload.get("config", {}).get("embed_hash", "")
+        if old_hash == embed_hash:
+            can_resume = True
+            print_flush(f"  Resume: embed_hash matches ({embed_hash})")
+        else:
+            print_flush(f"  Resume: embed_hash MISMATCH ({old_hash} vs {embed_hash}), starting fresh")
+            payload = None
+
+    if payload is None or not can_resume:
         payload = {
             "genome": 193,
             "name": "token_row_compiler",
@@ -471,6 +486,7 @@ def main() -> None:
                 "compiler_epochs": compiler_epochs,
                 "compiler_hidden": COMPILER_HIDDEN,
                 "trained_fro": trained_fro,
+                "embed_hash": embed_hash,
             },
             "compiler_stats": compiler_stats,
             "results": {},
