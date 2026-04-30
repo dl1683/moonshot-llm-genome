@@ -1,6 +1,6 @@
 # Pre-registration: genome_183 Corpus-Derived Interface Prior (Causal Interface-Prior Synthesis)
 
-**STATUS:** DRAFT pre-staged 2026-04-29 cycle 80. **LOCKS** after g182 Codex design gate (gates on g180b/g182 progress). Per Codex g181b advisor pick (#1 at +3.5-4.0 uplift).
+**STATUS:** SUPERSEDED by genome_183_corpus_derived_init_2026-04-30.md (revised per Codex design gate, staged A/B design, PPMI correction).
 
 - Date: 2026-04-29
 - Trigger: g181b advisor — "causal interface-prior synthesis" beats g182 continuation
