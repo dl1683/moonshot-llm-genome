@@ -1,6 +1,6 @@
 # Pre-registration: g197 Output-Interface Canary Arena
 
-**Status:** DRAFT. Motivated by g195 `PASS_OUTPUT_DOMINANT`: the lm_head carries about 65% of the tied interface signal and is the output-gradient generator.
+**Status:** LOCKED. Motivated by g195 `PASS_OUTPUT_DOMINANT`: the lm_head carries about 65% of the tied interface signal and is the output-gradient generator. Code: `code/genome_197_output_interface_canary_arena.py`.
 
 ## Motivation
 
