@@ -644,6 +644,27 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             alpha_1_only = True
     results["alpha_1_only_flag"] = alpha_1_only
 
+    # --- Held-out-architecture stress test (prereg tertiary) ---
+    arch_names = sorted(set(m["arch"] for m in delta_meta))
+    loao_stress = {}
+    for held_arch in arch_names:
+        tr_m = np.array([m["arch"] != held_arch for m in delta_meta])
+        te_m = ~tr_m
+        if tr_m.sum() < 4 or te_m.sum() < 2:
+            continue
+        mu_a, sd_a = dX[tr_m].mean(0), dX[tr_m].std(0)
+        sd_a[sd_a < 1e-12] = 1.0
+        ridge_a = RidgeCV(alphas=RIDGE_ALPHAS)
+        ridge_a.fit((dX[tr_m] - mu_a) / sd_a, dy[tr_m])
+        pred_a = ridge_a.predict((dX[te_m] - mu_a) / sd_a)
+        ss_a = float(np.sum((dy[te_m] - pred_a) ** 2))
+        st_a = float(np.sum((dy[te_m] - dy[te_m].mean()) ** 2))
+        loao_stress[held_arch] = {
+            "r2": 1 - ss_a / st_a if st_a > 1e-12 else float("nan"),
+            "n_test": int(te_m.sum()),
+        }
+    results["held_out_arch_stress"] = loao_stress
+
     # --- D1: Label variance check ---
     d1 = {"pooled_std": float(np.std(dy)), "pooled_range": [float(np.min(dy)), float(np.max(dy))]}
     for arch_name in ARCHS:
@@ -727,6 +748,9 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     print_flush(f"    baselines: {bl_str}")
     if results.get("d5_alpha_decodability"):
         print_flush(f"    D5 alpha-decodability R2={results['d5_alpha_decodability']['r2']:.3f}")
+    if results.get("held_out_arch_stress"):
+        loao_str = ", ".join(f"{k}={v['r2']:.3f}" for k, v in results["held_out_arch_stress"].items())
+        print_flush(f"    LOAO (tertiary): {loao_str}")
     if alpha_1_only:
         print_flush(f"    FAIL: geometry works only for alpha=1.0")
     if results.get("rows_below_prereg_minimum"):
