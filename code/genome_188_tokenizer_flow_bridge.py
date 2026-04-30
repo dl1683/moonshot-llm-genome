@@ -183,8 +183,10 @@ def sparse_sinkhorn_balance(
     cols = coo.col
     shape = coo.shape
 
-    vals = np.exp(-vals / (eps * vals.max() + 1e-12))
-    vals = np.maximum(vals, 1e-20)
+    scale = float(vals.max())
+    if not np.isfinite(scale) or scale <= 0.0:
+        raise RuntimeError("invalid alignment weights")
+    vals = np.maximum(vals / scale, 1e-20)
 
     for _ in range(n_iter):
         mat = sparse.coo_matrix((vals, (rows, cols)), shape=shape).tocsr()
@@ -408,14 +410,14 @@ def train_cell(
             out = model(input_ids=batch_ids, attention_mask=batch_mask, labels=batch_ids)
             loss = out.loss
 
-        if actual_anchor_pairs:
-            anchor_loss = torch.tensor(0.0, device=DEVICE)
-            for param, target in actual_anchor_pairs:
-                anchor_loss = anchor_loss + F.mse_loss(param, target)
-            loss = loss + anchor_lambda * anchor_loss
-
         optimizer.zero_grad()
         loss.backward()
+        if actual_anchor_pairs and anchor_lambda > 0.0:
+            with torch.no_grad():
+                coeff = 2.0 * anchor_lambda
+                for param, target in actual_anchor_pairs:
+                    if param.grad is not None:
+                        param.grad.add_(param.detach().to(target.dtype) - target, alpha=coeff)
         torch.nn.utils.clip_grad_norm_(model.parameters(), GRAD_CLIP)
         optimizer.step()
 
