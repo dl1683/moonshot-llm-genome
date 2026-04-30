@@ -16,6 +16,18 @@ Source: `code/genome_193_token_row_compiler.py`, `research/prereg/genome_193_tok
 
 ---
 
+## 2026-04-30 — genome_189_c23_content_causality — STAGED (format vs content for C23)
+
+**Purpose.** Resolve adversarial A15 (cycle 150 SEV-10): C23's +0.513 nats may be FORMAT (norm/spectrum/frequency structure) not CONTENT (learned token relationships). 7 arms x 6 seeds x 5000 steps = 42 cells. Five matched controls systematically isolate format vs content properties.
+
+**Arms:** scratch_ce, true_trained_anchor, row_shuffled_anchor, freq_bucket_shuffle_anchor, spectrum_preserving_random, same_frobenius_gaussian, anchor_to_initial.
+
+**Pass criteria.** PASS_CONTENT: true_trained beats EVERY control by >= +0.20 nats AND 5/6 seeds. FORMAT_FAIL: any control within 0.20 nats of true.
+
+Source: `code/genome_189_c23_content_causality.py`, `research/prereg/genome_189_c23_content_causality_2026-04-30.md` (DRAFT).
+
+---
+
 ## 2026-04-30 — genome_191_string_match_decomposition — RUNNING (content vs format decomposition)
 
 **Purpose.** Decompose the g188 direct_string_match +0.478 nats signal into content vs format components. Resolves adversarial A16 attacks #1 (shared-vocab reuse), #4 (format vs content), #5 (frequency bias). 7 arms x 3 seeds x 5000 steps = 21 cells.
