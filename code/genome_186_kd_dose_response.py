@@ -945,5 +945,171 @@ def export_frozen_ridge():
     return artifact
 
 
+def offline_dose_selection_replay():
+    """C4 gate: simulate g185v2 dose selection on g186 data via leave-two-seeds-out."""
+    from sklearn.linear_model import RidgeCV
+
+    if not OUT_PATH.exists():
+        print_flush("No results file for replay")
+        return None
+    with open(OUT_PATH, encoding="utf-8") as f:
+        existing = json.load(f)
+
+    cells = existing.get("cells", [])
+    feat_names = list(g182.MANIFOLD_ONLY_FEATURE_NAMES)
+
+    scratch_by = {}
+    for c in cells:
+        if c["kd_alpha"] == 0.0:
+            scratch_by[(c["arch"], c["seed"])] = c
+
+    # Build per-(arch, seed, alpha) lookup of features and final NLL
+    cell_lookup = {}
+    for c in cells:
+        key = (c["arch"], c["seed"], c["kd_alpha"])
+        cell_lookup[key] = c
+
+    seed_folds = [(0, 1), (2, 3), (4, 5)]
+    nonzero_alphas = [a for a in KD_ALPHAS if a > 0]
+
+    # For each fold, train Ridge on training seeds, then select dose for held-out seeds
+    selections = []  # list of dicts per (arch, seed)
+
+    for fold_seeds in seed_folds:
+        train_seeds = [s for s in SEEDS if s not in fold_seeds]
+        test_seeds = list(fold_seeds)
+
+        # Build training delta arrays
+        tr_X, tr_y = [], []
+        for arch in ARCHS:
+            for seed in train_seeds:
+                sc = scratch_by.get((arch, seed))
+                if sc is None:
+                    continue
+                sc_feats = sc.get("features") or {}
+                for alpha in nonzero_alphas:
+                    c = cell_lookup.get((arch, seed, alpha))
+                    if c is None:
+                        continue
+                    c_feats = c.get("features") or {}
+                    dx = _safe_delta(c_feats, sc_feats, feat_names)
+                    if dx is None:
+                        continue
+                    delta_nll = sc["final_nll"] - c["final_nll"]
+                    tr_X.append(dx)
+                    tr_y.append(delta_nll)
+
+        if len(tr_X) < 8:
+            continue
+
+        tr_X = np.array(tr_X)
+        tr_y = np.array(tr_y)
+        mu, sd = tr_X.mean(0), tr_X.std(0)
+        sd[sd < 1e-12] = 1.0
+
+        ridge = RidgeCV(alphas=RIDGE_ALPHAS)
+        ridge.fit((tr_X - mu) / sd, tr_y)
+
+        # Select dose for each test (arch, seed)
+        for arch in ARCHS:
+            for seed in test_seeds:
+                sc = scratch_by.get((arch, seed))
+                if sc is None:
+                    continue
+                sc_feats = sc.get("features") or {}
+                scratch_nll = sc["final_nll"]
+
+                best_pred, best_alpha = -float("inf"), nonzero_alphas[0]
+                preds_by_alpha = {}
+                for alpha in nonzero_alphas:
+                    c = cell_lookup.get((arch, seed, alpha))
+                    if c is None:
+                        continue
+                    c_feats = c.get("features") or {}
+                    dx = _safe_delta(c_feats, sc_feats, feat_names)
+                    if dx is None:
+                        continue
+                    pred = ridge.predict(((np.array(dx) - mu) / sd).reshape(1, -1))[0]
+                    preds_by_alpha[alpha] = float(pred)
+                    if pred > best_pred:
+                        best_pred = pred
+                        best_alpha = alpha
+
+                # Oracle: actually best dose
+                actual_nlls = {}
+                for alpha in nonzero_alphas:
+                    c = cell_lookup.get((arch, seed, alpha))
+                    if c:
+                        actual_nlls[alpha] = c["final_nll"]
+
+                if not actual_nlls:
+                    continue
+                oracle_alpha = min(actual_nlls, key=actual_nlls.get)
+                oracle_nll = actual_nlls[oracle_alpha]
+                selected_nll = actual_nlls.get(best_alpha, scratch_nll)
+
+                selections.append({
+                    "arch": arch, "seed": seed,
+                    "geometry_alpha": best_alpha,
+                    "oracle_alpha": oracle_alpha,
+                    "alpha_heuristic": 1.0,
+                    "scratch_nll": scratch_nll,
+                    "selected_nll": selected_nll,
+                    "oracle_nll": oracle_nll,
+                    "heuristic_nll": actual_nlls.get(1.0, scratch_nll),
+                })
+
+    if not selections:
+        print_flush("No selections made — data insufficient for replay")
+        return None
+
+    # Score policies
+    n = len(selections)
+    geo_correct = sum(1 for s in selections if s["geometry_alpha"] == s["oracle_alpha"])
+    geo_picks_1 = sum(1 for s in selections if s["geometry_alpha"] == 1.0)
+
+    improvement_retentions = []
+    regrets = []
+    for s in selections:
+        denom = s["scratch_nll"] - s["oracle_nll"]
+        if abs(denom) < 1e-8:
+            improvement_retentions.append(1.0)
+        else:
+            ir = (s["scratch_nll"] - s["selected_nll"]) / denom
+            improvement_retentions.append(ir)
+        regrets.append(s["oracle_nll"] - s["selected_nll"])
+
+    heuristic_regrets = [s["oracle_nll"] - s["heuristic_nll"] for s in selections]
+
+    result = {
+        "n_selections": n,
+        "dose_selection_accuracy": geo_correct / n,
+        "alpha_1_agreement": geo_picks_1 / n,
+        "mean_improvement_retention": float(np.mean(improvement_retentions)),
+        "mean_regret": float(np.mean(regrets)),
+        "mean_heuristic_regret": float(np.mean(heuristic_regrets)),
+        "geometry_beats_heuristic": float(np.mean(regrets)) > float(np.mean(heuristic_regrets)),
+        "selections": selections,
+    }
+
+    # Launch gate verdict
+    launch_ok = (
+        result["mean_improvement_retention"] >= 0.70
+        and result["alpha_1_agreement"] < 0.80
+        and result["geometry_beats_heuristic"]
+    )
+    result["launch_gate"] = "PASS" if launch_ok else "FAIL"
+
+    print_flush(f"\n*** g185v2 Offline Replay Gate: {result['launch_gate']} ***")
+    print_flush(f"    selections={n} accuracy={result['dose_selection_accuracy']:.1%} "
+                f"alpha=1.0 agreement={result['alpha_1_agreement']:.1%}")
+    print_flush(f"    improvement_retention={result['mean_improvement_retention']:.3f} "
+                f"regret={result['mean_regret']:.4f}")
+    print_flush(f"    heuristic_regret={result['mean_heuristic_regret']:.4f} "
+                f"geometry_beats={result['geometry_beats_heuristic']}")
+
+    return result
+
+
 if __name__ == "__main__":
     main()
