@@ -40,6 +40,7 @@ OUT_PATH = ROOT / "results" / "genome_186_kd_dose_response.json"
 SEEDS = list(range(6))
 KD_ALPHAS = [0.0, 0.3, 0.7, 1.0, 2.0]
 ARCHS = ["qwen3", "gpt2"]
+DOSE_TRAIN_STEPS = 1200  # prereg: ~90s/cell, shortened from g182's 3600
 
 print_flush = g182.print_flush
 now_utc = g182.now_utc
@@ -62,7 +63,7 @@ def train_one_cell_dose(
     smoke: bool = False,
 ) -> dict[str, Any]:
     """Train one cell with additive KD loss: CE(C4) + alpha * CE(teacher)."""
-    train_steps = 20 if smoke else g182.TRAIN_STEPS
+    train_steps = 20 if smoke else DOSE_TRAIN_STEPS
     feature_step = max(1, int(math.ceil(0.03 * train_steps)))
 
     arm_label = f"alpha_{kd_alpha:.1f}"
