@@ -368,7 +368,7 @@ def extract_geometry_features(
     feats["knn_clustering_coeff"] = float(tri_count / possible) if possible > 0 else float("nan")
 
     # Frequency-bucket neighbor purity
-    knn_sample_freqs = token_freqs[row_sample_idx][:knn_n] if len(row_sample_idx) >= knn_n else token_freqs[row_sample_idx]
+    knn_sample_freqs = token_freqs[row_sample_idx[knn_idx]]
     freq_ranks = np.argsort(-knn_sample_freqs)
     bucket_size = max(1, knn_n // 5)
     bucket_labels = np.zeros(knn_n, dtype=np.int32)
