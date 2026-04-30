@@ -336,10 +336,10 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         delta_y.append(c["label"])
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
 
-        # Telemetry deltas — partial OK, zero for missing individual features
+        # Telemetry deltas -- partial OK, zero for missing individual features
         delta_tel.append(_safe_delta_partial(c_feats, sc_feats, avail_tel) if avail_tel else [])
 
-        # Shesha deltas — partial OK
+        # Shesha deltas -- partial OK
         delta_shesha.append(_safe_delta_partial(c_feats, sc_feats, avail_she) if avail_she else [])
 
         # Early loss delta (aligned)
@@ -355,7 +355,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
 
     # FIX #2: prereg requires 48 delta rows
     if len(delta_X) < 48:
-        print_flush(f"    CRITICAL: only {len(delta_X)}/48 delta rows — below prereg minimum")
+        print_flush(f"    CRITICAL: only {len(delta_X)}/48 delta rows -- below prereg minimum")
         if len(delta_X) < 10:
             return {"error": f"too few delta pairs: {len(delta_X)}", "n_pairs": len(delta_X)}
     results["n_expected_pairs"] = 48
@@ -487,9 +487,9 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     results["mse_reduction_vs_best_baseline"] = mse_reduction
     results["best_baseline_name"] = best_bl_name
 
-    # Permutation test — two variants:
+    # Permutation test -- two variants:
     # (a) shuffle within architecture (original prereg spec)
-    # (b) shuffle within (arch, alpha) — adversarial-demanded: isolates geometry beyond dose
+    # (b) shuffle within (arch, alpha) -- adversarial-demanded: isolates geometry beyond dose
     rng = np.random.RandomState(186)
 
     def _run_permutation(n_iter, group_keys):
@@ -656,7 +656,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             d1[f"alpha_{alpha_val}_mean"] = float(np.mean(dm))
     results["d1_label_variance"] = d1
     if d1["pooled_std"] < 0.005:
-        print_flush("    WARNING: pooled label std < 0.005 — experiment may be under-identified")
+        print_flush("    WARNING: pooled label std < 0.005 -- experiment may be under-identified")
 
     # --- D2: Dose monotonicity ---
     d2 = {}
@@ -808,6 +808,7 @@ def main():
             t_mask = torch.cat([e["attention_mask"] for e in teacher_enc], dim=0)[:n_train]
             teacher_pools = {"train_ids": t_ids, "train_mask": t_mask}
 
+        stop_requested = False
         for alpha in doses:
             for seed in seeds:
                 cell_id = f"{arch}_alpha_{alpha:.1f}_s{seed}"
@@ -816,6 +817,7 @@ def main():
                     continue
                 if cells_run >= args.max_cells:
                     print_flush(f"    MAX CELLS reached ({args.max_cells})")
+                    stop_requested = True
                     break
 
                 result = train_one_cell_dose(
@@ -829,24 +831,30 @@ def main():
                 existing["cells"] = done_cells
                 existing["timestamp_utc"] = now_utc()
                 g182.save_incremental(OUT_PATH, existing)
+            if stop_requested:
+                break
 
         del pools, teacher_pools, tok
         gc.collect()
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
+        if stop_requested:
+            break
 
     # --- Analysis ---
+    expected_total = len(archs) * len(doses) * len(seeds)
+    run_complete = len({c["cell_id"] for c in done_cells}) >= expected_total
     all_cells = existing.get("cells", [])
     labeled = compute_dose_labels(all_cells)
     print_flush(f"\n=== Analysis: {len(labeled)} labeled cells ===")
 
-    if len(labeled) >= 10:
+    if run_complete and len(labeled) >= 10:
         analysis = pairwise_dose_analysis(labeled, all_cells)
         existing["dose_analysis"] = analysis
 
     total_time = time.time() - t_start
     existing["total_wallclock_s"] = total_time
-    existing["status"] = "completed"
+    existing["status"] = "completed" if run_complete else "running"
     g182.save_incremental(OUT_PATH, existing)
     print_flush(f"\nTotal wallclock: {total_time/3600:.1f}h")
 
@@ -902,14 +910,14 @@ def export_frozen_ridge():
         delta_meta.append({"arch": c["arch"], "seed": c["seed"], "alpha": c["kd_alpha"]})
 
     if len(delta_X) < 48:
-        print_flush(f"Too few rows ({len(delta_X)}/48) — need full g186 data to export")
+        print_flush(f"Too few rows ({len(delta_X)}/48) -- need full g186 data to export")
         return
 
     with open(OUT_PATH, encoding="utf-8") as fcheck:
         check_data = json.load(fcheck)
     verdict = (check_data.get("dose_analysis") or {}).get("verdict", "")
     if verdict not in ("PASS", "WEAK PASS"):
-        print_flush(f"g186 verdict is '{verdict}', not PASS — frozen Ridge not scientifically valid")
+        print_flush(f"g186 verdict is '{verdict}', not PASS -- frozen Ridge not scientifically valid")
         return
 
     dX = np.array(delta_X)
@@ -1060,7 +1068,7 @@ def offline_dose_selection_replay():
                 })
 
     if not selections:
-        print_flush("No selections made — data insufficient for replay")
+        print_flush("No selections made -- data insufficient for replay")
         return None
 
     # Score policies
