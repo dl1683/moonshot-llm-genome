@@ -306,6 +306,39 @@ def normalize_to_fro_norm(embeddings: np.ndarray, target_norm: float) -> np.ndar
 
 # ---------- Training ----------
 
+def make_gpt2_qwen3_model(tok_gpt2, seed: int):
+    """Create a Qwen3-arch model with GPT-2 vocab size, matching Qwen3-0.6B hidden_size."""
+    from transformers import Qwen3ForCausalLM
+    from transformers.models.qwen3.configuration_qwen3 import Qwen3Config
+
+    torch.manual_seed(seed)
+    cfg = Qwen3Config(
+        vocab_size=len(tok_gpt2),
+        hidden_size=1024,
+        num_hidden_layers=8,
+        num_attention_heads=16,
+        num_key_value_heads=4,
+        intermediate_size=2816,
+        max_position_embeddings=SEQ_LEN + 64,
+        rms_norm_eps=1e-6,
+        tie_word_embeddings=True,
+        head_dim=64,
+        rope_theta=10000.0,
+        use_cache=False,
+        bos_token_id=tok_gpt2.bos_token_id if tok_gpt2.bos_token_id is not None else tok_gpt2.eos_token_id,
+        eos_token_id=tok_gpt2.eos_token_id,
+        pad_token_id=tok_gpt2.pad_token_id if tok_gpt2.pad_token_id is not None else tok_gpt2.eos_token_id,
+    )
+    if hasattr(cfg, "_attn_implementation"):
+        cfg._attn_implementation = "eager"
+    model = Qwen3ForCausalLM(cfg)
+    model.tie_weights()
+    model.to(DEVICE)
+    if hasattr(model.config, "use_cache"):
+        model.config.use_cache = False
+    return model
+
+
 def build_custom_anchor_pairs(
     model, custom_embed: np.ndarray,
 ) -> list[tuple[torch.nn.Parameter, torch.Tensor]]:
@@ -319,6 +352,7 @@ def build_custom_anchor_pairs(
 def train_cell(
     arm_label: str,
     seed: int,
+    tok_gpt2,
     anchor_pairs: list | None,
     anchor_lambda: float,
     custom_embed: np.ndarray | None,
@@ -329,11 +363,11 @@ def train_cell(
     n_steps: int = TRAIN_STEPS,
     eval_every: int = EVAL_EVERY,
 ) -> dict[str, Any]:
-    """Train a single cell. Mirrors g183 train_cell."""
+    """Train a single cell with GPT-2-tokenizer Qwen3-arch model."""
     torch.manual_seed(seed)
     np.random.seed(seed)
 
-    model = g165.load_random_init(seed)
+    model = make_gpt2_qwen3_model(tok_gpt2, seed)
 
     if custom_embed is not None:
         emb_t = torch.from_numpy(custom_embed).to(model.model.embed_tokens.weight.device,
@@ -576,8 +610,11 @@ def main():
     from transformers import AutoTokenizer
     tok_qwen = AutoTokenizer.from_pretrained(QWEN_MODEL_ID, trust_remote_code=True)
     tok_gpt2 = AutoTokenizer.from_pretrained(GPT2_MODEL_ID)
+    if tok_gpt2.pad_token is None:
+        tok_gpt2.pad_token = tok_gpt2.eos_token
+        tok_gpt2.pad_token_id = tok_gpt2.eos_token_id
     qwen_vocab_size = tok_qwen.vocab_size
-    gpt2_vocab_size = tok_gpt2.vocab_size
+    gpt2_vocab_size = len(tok_gpt2)
     print_flush(f"  Qwen vocab: {qwen_vocab_size}, GPT-2 vocab: {gpt2_vocab_size}")
 
     # --- Step 2: Get trained Qwen3 embeddings ---
@@ -732,14 +769,14 @@ def main():
             elif arm_label == "flow_bridge_init_anchor":
                 emb = embed_map[arm_label]
                 custom_embed = emb
-                dummy = g165.load_random_init(seed)
+                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
                 anchor_pairs = build_custom_anchor_pairs(dummy, emb)
                 del dummy
                 cleanup_cuda()
             elif arm_label == "flow_anchor_only":
                 emb = embed_map[arm_label]
                 custom_embed = None  # no init injection
-                dummy = g165.load_random_init(seed)
+                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
                 anchor_pairs = build_custom_anchor_pairs(dummy, emb)
                 del dummy
                 cleanup_cuda()
@@ -749,7 +786,7 @@ def main():
             elif arm_label in embed_map:
                 emb = embed_map[arm_label]
                 custom_embed = emb
-                dummy = g165.load_random_init(seed)
+                dummy = make_gpt2_qwen3_model(tok_gpt2, seed)
                 anchor_pairs = build_custom_anchor_pairs(dummy, emb)
                 del dummy
                 cleanup_cuda()
@@ -760,6 +797,7 @@ def main():
             result = train_cell(
                 arm_label=arm_label,
                 seed=seed,
+                tok_gpt2=tok_gpt2,
                 anchor_pairs=anchor_pairs,
                 anchor_lambda=ANCHOR_LAMBDA if anchor_pairs else 0.0,
                 custom_embed=custom_embed,
