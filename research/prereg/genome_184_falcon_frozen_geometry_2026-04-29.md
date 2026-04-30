@@ -1,6 +1,6 @@
 # Pre-registration: genome_184 Falcon-H1 Frozen Geometry Generalization
 
-**STATUS:** DRAFT pre-staged 2026-04-29 cycle 100. **LOCKS** after g182 stage 1 analysis completes and Model C'/C Ridge is trained. Gates on g182 not being futility-stopped.
+**STATUS:** SUPERSEDED (2026-04-30 cycle 125). g182 FAIL — ALL LOAO models catastrophically negative (R2=-11 to -19). No useful frozen Ridge to test. Premise invalid. If g186 dose-response PASSES, a redesigned g184 variant using the dose-response Ridge could be considered.
 
 - Date: 2026-04-29
 - Trigger: A15 adversarial (cycle 100) — tokenizer-family recognition risk + Model C impurity resolved by frozen no-refit test on third architecture family

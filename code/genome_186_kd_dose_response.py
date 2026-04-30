@@ -310,6 +310,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
 
     # --- Baselines ---
     baselines = {}
+    baseline_preds = {}
 
     # alpha-only
     alphas = np.array([m["alpha"] for m in delta_meta]).reshape(-1, 1)
@@ -332,6 +333,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
             ss = float(np.sum((dy[b_mask] - b_preds[b_mask]) ** 2))
             st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
             baselines[bname] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+            baseline_preds[bname] = b_preds.copy()
 
     # delta_early_loss baseline
     delta_el = []
@@ -361,6 +363,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         ss = float(np.sum((dy[b_mask] - b_preds[b_mask]) ** 2))
         st = float(np.sum((dy[b_mask] - dy[b_mask].mean()) ** 2))
         baselines["delta_early_loss"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+        baseline_preds["delta_early_loss"] = b_preds.copy()
 
     # arm_mean baseline (cross-validated per prereg)
     am_preds = np.zeros(len(dy))
@@ -383,6 +386,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         ss = float(np.sum((dy[am_mask] - am_preds[am_mask]) ** 2))
         st = float(np.sum((dy[am_mask] - dy[am_mask].mean()) ** 2))
         baselines["arm_mean"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+        baseline_preds["arm_mean"] = am_preds.copy()
 
     # combined_non_geometry: alpha + alpha^2 + delta_early_loss
     cng_X = np.column_stack([alphas, alphas**2, del_X])
@@ -403,6 +407,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         ss = float(np.sum((dy[cng_mask] - cng_preds[cng_mask]) ** 2))
         st = float(np.sum((dy[cng_mask] - dy[cng_mask].mean()) ** 2))
         baselines["combined_non_geometry"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+        baseline_preds["combined_non_geometry"] = cng_preds.copy()
 
     # alpha_plus_arch baseline
     arch_indicator = np.array([1.0 if m["arch"] == "qwen3" else 0.0 for m in delta_meta]).reshape(-1, 1)
@@ -424,6 +429,7 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         ss = float(np.sum((dy[apa_mask] - apa_preds[apa_mask]) ** 2))
         st = float(np.sum((dy[apa_mask] - dy[apa_mask].mean()) ** 2))
         baselines["alpha_plus_arch"] = {"r2": 1 - ss / st if st > 1e-12 else float("nan")}
+        baseline_preds["alpha_plus_arch"] = apa_preds.copy()
 
     results["baselines"] = baselines
 
@@ -504,10 +510,8 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
     # --- Seed-block bootstrap CI (prereg criterion 3) ---
     seed_ids = np.array([m["seed"] for m in delta_meta])
     unique_seeds = np.unique(seed_ids)
-    geo_resids = (dy[all_test_mask] - all_preds[all_test_mask]) ** 2
     best_bl_name = max(baselines, key=lambda k: baselines[k].get("r2", float("-inf")))
-    bl_r2_best = baselines[best_bl_name]["r2"]
-    bl_mse_pooled = (1 - bl_r2_best) * pooled_ss_tot / max(1, np.sum(all_test_mask))
+    best_bl_preds_arr = baseline_preds.get(best_bl_name)
     boot_diffs = []
     rng_boot = np.random.RandomState(1860)
     for _ in range(2000):
@@ -518,7 +522,10 @@ def pairwise_dose_analysis(labeled: list[dict], all_cells: list[dict]) -> dict[s
         if len(boot_idx) < 4:
             continue
         boot_geo_mse = float(np.mean((dy[boot_idx] - all_preds[boot_idx]) ** 2))
-        boot_bl_mse = float((1 - bl_r2_best) * np.var(dy[boot_idx]) * len(boot_idx) / len(boot_idx))
+        if best_bl_preds_arr is not None:
+            boot_bl_mse = float(np.mean((dy[boot_idx] - best_bl_preds_arr[boot_idx]) ** 2))
+        else:
+            boot_bl_mse = float(np.var(dy[boot_idx]))
         boot_diffs.append(boot_bl_mse - boot_geo_mse)
     if boot_diffs:
         ci_lo = float(np.percentile(boot_diffs, 2.5))

@@ -26,7 +26,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 125)
+## CURRENT STATUS (2026-04-30, cycle 126)
 
 **§0.1 honest score: 4.8-5.0/10** (post g182 FAIL, Codex-validated cycle 124). Branch projections:
 - Current (g182 FAIL + pairwise delta R²=0.518): **4.8-5.0/10** (architecture-specific KD-impact diagnostic, not universal)
@@ -217,7 +217,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
-| **Open pre-registrations** | **4 locked:** `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` (cross-tokenizer forecast), `research/prereg/genome_182_triage_arena_2026-04-29.md` (Blinded Training Triage Arena, §0.1=8.6), plus 2 atlas-era prereg from 2026-04-21 (superseded by post-pivot focus). **3 DRAFT:** g183 corpus-derived init, g184 Falcon-H1 frozen geometry, g185 prospective triage (9.0/10). |
+| **Open pre-registrations** | **5 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, RUNNING), plus 2 atlas-era from 2026-04-21 (superseded). **1 SUPERSEDED:** g184 (Falcon frozen geometry, g182 FAIL invalidates premise). **2 DRAFT:** g183 corpus-derived init, g185 prospective triage (9.0/10). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
 | **Active TL session** | ARCHIVED — atlas TL session file deleted in anti-entropy (cycle 77); atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
@@ -331,9 +331,10 @@ Any markdown file not in this table either feeds one of these or should be delet
 
 | ID | Status | Purpose | Pre-reg |
 |---|---|---|---|
+| `genome_186` | **RUNNING** | KD dose-response (60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell) | `research/prereg/genome_186_dose_response_2026-04-29.md` |
+| `genome_182` | **FAIL** | Blinded Training Triage Arena (48 cells, ALL LOAO R²=-11 to -19; pairwise delta R²=0.518 survives) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_181b` | **PASS** | Long-horizon attenuation: +0.513 nats at 5000 steps | — |
 | `genome_180b` | **FAIL** | Cross-tokenizer forecast (27/27 cells, geometry tokenizer-specific) | `research/prereg/genome_180b_cross_tokenizer_2026-04-29.md` |
-| `genome_182` | **RUNNING** | Blinded Training Triage Arena (48 cells stage 1, 5 models: A/B co-primary + C pure-geometry + D pure-telemetry + E Shesha) | `research/prereg/genome_182_triage_arena_2026-04-29.md` |
 | `genome_183` | DRAFT | Corpus-derived init (8 arms × 3 seeds, gated on g182) | `research/prereg/genome_183_corpus_derived_init_2026-04-29.md` |
 | `genome_180` | WEAK PASS | Forecast/diagnostic (24 geometry features, MSE -61.6%) | — |
 | `genome_181a` | COMPLETED | Tokenizer isolation (embed anchor = tokenizer prior) | — |
@@ -429,22 +430,23 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-29 cycle 111)*
+*(Updated 2026-04-30 cycle 126)*
 
 **Active:**
-1. **g182 Blinded Training Triage Arena** — prereg LOCKED, code Codex-verified (cycles 109-111). Teacher gen in progress (PID 44380, batch 475/1088, ~74 min ETA). Stage 1 (48 cells) launches immediately after teacher gen. Analysis via `--reanalyze`. Source: `code/genome_182_triage_arena.py`.
-2. **g184 Falcon-H1 frozen geometry** — prereg DRAFT (`research/prereg/genome_184_falcon_frozen_geometry_2026-04-29.md`). 24 cells, frozen Ridge. GATED on g182 Model C' PASS. Ready to fire: `--frozen-eval falcon_h1`.
+1. **g186 KD dose-response** — RUNNING (6/60 cells done, ~131s/cell, ETA ~2h). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze` (improved analysis code with all baselines/bootstrap/D5).
 
 **Completed this session:**
-- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked. A8 resolved.
+- **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
+- **g184 Falcon frozen geometry** — SUPERSEDED (g182 FAIL invalidates premise).
+- **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked.
 - **g180b cross-tokenizer forecast** — FAIL. 27/27 cells. Geometry HURTS cross-tokenizer (-39.4%).
 
-**Queue (post-g182, prioritized by Codex cycle 111 §0.1 uplift scores):**
-1. g184 Falcon-H1 frozen eval — 8.5-9.0/10 (if Shesha residualized)
-2. g185 prospective triage-to-action compute-savings — 9.0/10 (convert prediction → electricity, §0.1 home-run). Prereg DRAFT: `research/prereg/genome_185_prospective_triage_2026-04-29.md`. Design: freeze C' thresholds from g182, run 48 fresh-seed cells, make irreversible triage decision at 3%, score by quality-per-FLOP vs always-continue and oracle. PASS=30% compute savings + 90% quality retention. GATED on g182 C' PASS.
-3. Shesha residual kill on g182 tensors — 8.5/10 (moat defense)
-4. g183 corpus-derived init — 5.5-7.0/10 (standalone/rescue arm)
-5. g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter
+**Queue (post-g186, prioritized by cycle 125 adversarial):**
+1. If g186 PASS: g185 prospective triage-to-action — 9.0/10 (convert prediction → electricity). Prereg DRAFT: `research/prereg/genome_185_prospective_triage_2026-04-29.md`.
+2. If g186 PASS: redesigned g184 variant using dose-response Ridge on third architecture family.
+3. Shesha residual kill on g186 tensors — moat defense (per cycle 125 adversarial S7).
+4. g183 corpus-derived init — 5.5-7.0/10 (standalone/rescue arm if g186 FAIL).
+5. g155 production distill + C3-TEI/kJ — HARDWARE-BLOCKED on wall-power meter.
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.
