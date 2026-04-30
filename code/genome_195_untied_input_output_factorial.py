@@ -154,7 +154,7 @@ def train_cell_untied(
     row_mask_t = None
     actual_lambda = 0.0
 
-    if anchor_lambda > 0.0:
+    if anchor_lambda > 0.0 and (anchor_embed is not None or anchor_lm_head is not None):
         actual_lambda = anchor_lambda
         if anchor_mask is not None:
             row_mask_t = torch.from_numpy(anchor_mask.astype(np.float32)).to(DEVICE).unsqueeze(1)
