@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-04-30 — genome_193_token_row_compiler — STAGED (gated on g191 PASS_CONTENT)
+
+**Purpose.** Train a small MLP (258→1024→1024→1024) to predict Qwen3 trained embedding rows from token-level features (byte histogram, token length, log-frequency). Uses 42k exact string-matched GPT-2/Qwen3 token pairs as supervision (80/20 train/holdout). Evaluation: train GPT-2-tokenizer Qwen3-arch shell using ONLY compiler-generated rows (no copied target rows). Per Codex advisor + direction review consensus: highest-leverage next experiment (+2.4 §0.1 uplift). 4 arms x 3 seeds = 12 cells.
+
+**Arms:** scratch_ce, compiled_init_anchor (compiler-generated init + anchor), compiled_init_only (init only), compiled_shuffled (row-permuted control).
+
+**Pass criteria.** PASS: compiled_init_anchor >= +0.30 nats vs scratch AND 3/3 seeds AND shuffled <= +0.10 AND gap >= +0.20. PARTIAL: compiled >= +0.15.
+
+Source: `code/genome_193_token_row_compiler.py`, `research/prereg/genome_193_token_row_compiler_2026-04-30.md` (DRAFT).
+
+---
+
 ## 2026-04-30 — genome_191_string_match_decomposition — RUNNING (content vs format decomposition)
 
 **Purpose.** Decompose the g188 direct_string_match +0.478 nats signal into content vs format components. Resolves adversarial A16 attacks #1 (shared-vocab reuse), #4 (format vs content), #5 (frequency bias). 7 arms x 3 seeds x 5000 steps = 21 cells.
