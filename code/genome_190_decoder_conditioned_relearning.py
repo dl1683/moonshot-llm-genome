@@ -287,7 +287,8 @@ def make_full_qwen3_gpt2(tok_gpt2, seed: int):
     from transformers import Qwen3ForCausalLM
     model = Qwen3ForCausalLM(cfg)
     model.tie_weights()
-    model.to(DEVICE)
+    model.to(device=DEVICE, dtype=FORWARD_DTYPE)
+    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     if hasattr(model.config, "use_cache"):
         model.config.use_cache = False
     return model
@@ -521,7 +522,7 @@ def main() -> None:
         relearned_embed = torch.load(phase1_cache, weights_only=True).numpy()
         print_flush(f"\n  Loaded relearned embed: {relearned_embed.shape}, Fro={np.linalg.norm(relearned_embed, 'fro'):.1f}")
     else:
-        raise RuntimeError("Phase 1 cache not found — run Phase 1 first")
+        raise RuntimeError("Phase 1 cache not found - run Phase 1 first")
 
     # Phase 2
     print_flush("\n=== Phase 2: Anchor Training ===")
