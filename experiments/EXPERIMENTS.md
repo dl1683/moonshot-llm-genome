@@ -12,7 +12,7 @@
 
 **Pass criteria.** PASS_CANARY: geometry Ridge MSE reduction >= 25% vs step-50 loss, CI lower > 0, R2 >= 0.35, permutation p <= 0.05, geometry beats loss in >= 8/10 conditions.
 
-**Status:** CODED (cycle 194). Prereg LOCKED. Ready to launch after g192.
+**Status:** CODE COMPLETE (cycle 196). All Codex code review findings resolved (SEV-10 through SEV-2). Prereg LOCKED. Ready to launch after g192.
 
 Source: `code/genome_197_output_interface_canary_arena.py`, `research/prereg/genome_197_output_interface_canary_arena_2026-04-30.md` (LOCKED).
 
@@ -24,7 +24,7 @@ Source: `code/genome_197_output_interface_canary_arena.py`, `research/prereg/gen
 
 **Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Peak VRAM ~11.8 GiB (within 22 GB envelope). 
 
-**Status:** RUNNING (cycle 194, cell 1/9, scratch_ce seed=42 at step 2900/5000). Prereg LOCKED.
+**Status:** RUNNING (cycle 196, 3/9 cells done: scratch_ce seeds 42/7/13 NLL=5.831/5.844/5.845). Now training anchor_trained arm. Prereg LOCKED.
 
 Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (LOCKED).
 
