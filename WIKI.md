@@ -26,9 +26,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 150)
+## CURRENT STATUS (2026-04-30, cycle 153)
 
-**§0.1 honest score: 3.5/10** (Codex advisor post-g183 FAIL). Narrowed claim: "Qwen-family trained embed/lm_head interface priors help Qwen-family training under a continuous anchor." NOT universal geometry, NOT forecast/diagnostic. Corpus-derived PPMI SVD is DEAD as a replacement for trained priors.
+**§0.1 honest score: 3.2/10** (Codex advisor cycle 152, post-g188 interim FAIL). All static cross-tokenizer bridges FAIL: PPMI SVD HARMS (-0.291), Sinkhorn OT HARMS (-0.119), char overlap attenuates to negative (-0.041). Codex: "Sinkhorn imposes the wrong conservation law — tokenizers are asymmetric frequency-skewed codebooks, not balanced distributions." Pivot to g190 decoder-conditioned relearning (7/10 potential per Codex advisor).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
@@ -42,7 +42,8 @@ Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT
 
 - **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority. Confound check COMPLETE: anchor-only (no init) NLL=6.901, gap=-0.445 nats (WORSE than init+anchor -0.230). PPMI SVD is independently toxic in BOTH modes. §0.1 = 3.5/10.
 - **Cycle 150 adversarial (A15):** 5 attacks. SEV-10: C23 (+0.513 nats) not proven CONTENT transfer — could be FORMAT (norm/spectrum/structure). Needs row-shuffled, frequency-preserving, spectrum-preserving, and same-distance random controls at 5000 steps. SEV-9: codebook+decoder thesis loosely stated. SEV-8: g188 tests lower bar (decoder family fixed). SEV-8: g188 missing random_plan_same_degrees control. SEV-7: g183 proves corpus wrong, not that trained content is right. **Resolving: g188 includes flow_shuffled_qwen_rows + flow_random_source controls; full C23 resolution needs dedicated g189.** Source: `codex_outputs/cycle150_adversarial_20260430.md`.
-- **g188 tokenizer-flow bridge: RUNNING (cycle 150).** Codex design gate APPROVED. 6 arms × 3 seeds × 5000 steps. PASS >= +0.12 nats. §0.1 movement potential: 6.4/10. **Three critical bugs fixed pre-launch (cycle 150):** (1) SEV-10 anchor targeting — stored param names not dummy model tensors, (2) S9 anchor strength — replaced F.mse_loss (mean reduction, ~51M× too weak) with manual grad.add_ matching g181a/g183, (3) S8 Sinkhorn reversal — replaced exp(-vals/...) with vals/scale so high character overlap → high OT weight. Source: `codex_outputs/cycle150_code_review_20260430.md`, `codex_outputs/g188_tokenizer_flow_bridge_design_gate_20260430.md`.
+- **g188 tokenizer-flow bridge: RUNNING (cycle 153, 9/18 cells done).** Interim FAIL trajectory: flow_bridge_init_anchor HARMS (-0.119 nats, all 3 seeds negative), char_overlap_no_ot attenuates to -0.041 nats (all 3 seeds negative). 3 control arms (direct_string_match, flow_shuffled, flow_random) still running. §0.1 = 3.2/10 per cycle 152 Codex advisor. **Three critical bugs fixed pre-launch (cycle 150):** S9 anchor ~51M× too weak, S8 Sinkhorn reversal, SEV-10 anchor targeting. Source: `results/genome_188_tokenizer_flow_bridge.json`.
+- **g190 decoder-conditioned relearning: PRE-STAGED (cycle 153).** Codex design gate APPROVED. Phase 1: freeze trained Qwen3-0.6B (28L), relearn GPT-2 embed/lm_head (2000 steps). Phase 2: 3 arms × 3 seeds × 5000 steps. PASS: +0.15 nats, 3/3 seeds. Total ~90 min. §0.1 movement: +0.8 to +1.2 on PASS (→ ~5.0-5.7). **Launches immediately after g188 completes.** Source: `code/genome_190_decoder_conditioned_relearning.py`, `research/prereg/genome_190_decoder_conditioned_relearning_2026-04-30.md`, `codex_outputs/g190_decoder_conditioned_relearning_design_gate_20260430.md`.
 - **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
 - **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
 - Path to 7+: (1) g188 tokenizer-flow bridge PASS, (2) cross-tokenizer trained-embed transcoding law, (3) prospective policy scoring, (4) electricity-grade demo

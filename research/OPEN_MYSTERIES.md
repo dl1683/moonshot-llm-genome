@@ -179,7 +179,7 @@ Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.08
 **Priority actions:**
 1. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? Does the rate predict training health? (NOVEL gap in literature)
 2. **Tokenizer-flow bridge** — use OT/diffusion on bipartite token co-occurrence graph to initialize cross-tokenizer embeddings. 20% recovery of within-family effect = meaningful.
-3. ~~**Successive-refinement codebook ladder**~~ — **RUNG 1 DEAD (g183 FAIL).** PPMI SVD actively HARMS (-0.291 nats). Corpus co-occurrence statistics have wrong geometric format. Higher rungs (teacher-logit clusters, OT-bridged trained embeddings) remain untested.
+3. ~~**Successive-refinement codebook ladder**~~ — **RUNG 1 DEAD (g183 FAIL).** PPMI SVD actively HARMS in BOTH modes: init+anchor = -0.291 nats, anchor-only = -0.445 nats (confound check, cycle 149). The anchor causes worse overfitting than init injection. Corpus co-occurrence statistics have wrong geometric format — toxic independently of application method. Higher rungs (teacher-logit clusters, OT-bridged trained embeddings) untested. **g188 tokenizer-flow bridge RUNNING** — tests OT-bridged trained embeddings (rung 2).
 4. **Architecture-conditioned compatibility law** — train per-arch with scratch normalization, test frozen on third arch.
 
 **Status.** 🔥 ACTIVE GOLD MINE. This pattern, if properly characterized, IS the contribution.
