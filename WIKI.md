@@ -217,7 +217,7 @@ No "update WIKI later." If the change exists in git, WIKI reflects it.
 | **Active mysteries** | 7 (unchanged; H11-H13 are hypotheses, not mysteries) |
 | **Scars (🩹)** | 0 |
 | **Active hypotheses (H-register)** | 14 — H1..H10 original + H11 Koopman + H12 stimulus-dominance + H13 quantization-stability + H14 subsample-stability. H15 retired to governance rule (modality-scope is policy, not falsifiable). Atlas TL session file deleted in anti-entropy; hypotheses are historical context from pre-pivot era. |
-| **Open pre-registrations** | **5 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, RUNNING), plus 2 atlas-era from 2026-04-21 (superseded). **1 SUPERSEDED:** g184 (Falcon frozen geometry, g182 FAIL invalidates premise). **2 DRAFT:** g183 corpus-derived init, g185 prospective triage (9.0/10). |
+| **Open pre-registrations** | **5 locked:** g180b (cross-tokenizer, FAIL), g182 (triage arena, FAIL), g186 (dose-response, RUNNING), plus 2 atlas-era from 2026-04-21 (superseded). **1 SUPERSEDED:** g184 (Falcon frozen geometry, g182 FAIL invalidates premise). **3 DRAFT:** g183 corpus-derived init, g185 prospective triage (DEPRECATED — superseded by g185v2), g185v2 dose-selection optimization (pre-staged cycle 133, locks on g186 PASS). |
 | **Phase-3 claims** | 0 (Gate-1 ≠ Level-1; v1 derivation FALSIFIED; empirical power law `C(X,k)=c_0·k^p` with **p=0.179±0.021 (CV 12.0%), R²>0.989 mean 0.997 across 27 cells (9 architectures × 3 depths × seeds)** stands as stronger-than-originally-claimed replacement. 2026-04-21 v2-derivation pilots RULED OUT 3 of 4 simple algebraic sketches: **framework A (fractal d_2/d_int) FALSIFIED** wrong-sign structurally (genome_024); **framework B (doubling-dim ratio) FALSIFIED** magnitude-absurd (genome_026); **framework C (heavy-tailed NN-degree) FALSIFIED** wrong-sign (genome_020). Only **framework D (rate-distortion) untested**. All 3 falsifications predict wrong sign or huge magnitude → v2 mechanism likely needs non-dimensional / information-theoretic / correction-to-leading-order class of argument. Pilot details: `research/derivations/power_law_v2_candidates.md`. **Separately (genome_028 negative control, 2026-04-21):** untrained-twin power-law exponents span `p ∈ [0.021, 0.355]` (16.9× spread) on 3 systems vs trained 1.1× spread → training is a CONVERGENCE operation toward the cross-arch universal, not an architectural constant. This is the strongest single manifesto-claim datum collected to date. |
 | **Active TL session** | ARCHIVED — atlas TL session file deleted in anti-entropy (cycle 77); atlas work paused for Forecast/Diagnostic direction |
 | **Gate semantics** | LOCKED in pre-pivot atlas session (gate spec retained in `research/MEASUREMENT_PRIMITIVES.md`) |
@@ -430,10 +430,10 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 126)*
+*(Updated 2026-04-30 cycle 133)*
 
 **Active:**
-1. **g186 KD dose-response** — RUNNING (22/60 cells at cycle 131). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Analysis code has 10 fixes (Codex cycle 126 + 129 + adversarial cycle 130): 11 baselines including conditioned permutation, strict telemetry filtering, combined_non_geometry_plus_arch. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`.
+1. **g186 KD dose-response** — RUNNING (26/60 cells at cycle 133). Prereg LOCKED. 60 cells: 2 arch × 5 doses × 6 seeds, 1200 steps/cell. Analysis code has 10 fixes (Codex cycle 126 + 129 + adversarial cycle 130): 11 baselines including conditioned permutation, strict telemetry filtering, combined_non_geometry_plus_arch. Source: `code/genome_186_kd_dose_response.py`. After training: run `--reanalyze`.
 
 **Completed this session:**
 - **g182 Blinded Training Triage Arena** — FAIL. ALL LOAO R²=-11 to -19. Pairwise delta R²=0.518 only survivor.
@@ -441,8 +441,8 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 - **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps (3-seed mean). C23 locked.
 - **g180b cross-tokenizer forecast** — FAIL. 27/27 cells. Geometry HURTS cross-tokenizer (-39.4%).
 
-**Queue (post-g186, prioritized by cycle 125 adversarial):**
-1. If g186 PASS: g185 prospective triage-to-action — 9.0/10 (convert prediction → electricity). Prereg DRAFT: `research/prereg/genome_185_prospective_triage_2026-04-29.md`.
+**Queue (post-g186, prioritized by cycle 125 adversarial + cycle 128 §B):**
+1. If g186 PASS: **g185v2 dose-selection optimization** — geometry-selected KD dose at 3% saves ~80% compute vs brute-force dose search. Prereg DRAFT: `research/prereg/genome_185v2_dose_selection_optimization_2026-04-30.md`. Supersedes original g185 binary triage (deprecated, g182 FAIL). Codex §B cycle 128: "the strongest next theory move is to formalize intervention susceptibility."
 2. If g186 PASS: redesigned g184 variant using dose-response Ridge on third architecture family.
 3. Shesha residual kill on g186 tensors — moat defense (per cycle 125 adversarial S7).
 4. g183 corpus-derived init — 5.5-7.0/10 (standalone/rescue arm if g186 FAIL).
