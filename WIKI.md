@@ -30,11 +30,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **§0.1 honest score: 5.2/10** (post-g194 PASS_DIRECTION, per Codex §B cycle 174). **g194 PASS_DIRECTION (18/18 cells, cycle 180).** Direction carries 95-97% of signal; norms irrelevant. cd_sn +0.442, cd_un +0.451, sd_cn -0.662, rd_cn -1.019. Resolves A17 SEV-10.
 
-**g195 untied input/output factorial LAUNCHING** (resolves A18 SEV-10 #1 tied lm_head confound). 5 arms × 3 seeds = 15 cells, ~1.75h. Prereg LOCKED. Code reviewed (Codex §A cycle 174: SEV-5 FIXED, SEV-4 noted interpretive only).
+**g195 untied input/output factorial RUNNING (4/15 cells done, cycle 186).** Early signal: input_inject_anchor seed=42 NLL=5.7397 = +0.176 gain (38% of tied +0.465). Input-only arm with untied weights gives partial signal; output arm and both arm results pending. Prereg LOCKED. Code reviewed (Codex §A cycle 174: SEV-5 FIXED, SEV-4 noted interpretive only).
+
+**g196 anchor-residue factorial IMPLEMENTATION COMPLETE (cycle 186).** Prereg LOCKED. Code at `code/genome_196_anchor_residue_factorial.py`. 10 arms x 3 seeds = 30 cells. Gated on g195 verdict (auto-reads g195 JSON to determine surface). Codex §A review cycle 186 pending.
 
 **A18 remaining:** (1) tied lm_head confound → g195 resolving. (2) anchor dominance = regularization → g196 anchor-residue factorial. **g192 28-layer replication PRE-STAGED** (config matches actual Qwen3-0.6B). Ceiling ~6.0 if g195+g192 pass; ~6.5 if g196 anchor-residue shows persistence.
 
-**Queue:** g195 (LAUNCHING) -> g192 (28-layer, gated on g195) -> g196 (anchor-residue) -> g190 (DEFERRED).
+**Queue:** g195 (RUNNING 4/15) -> g192 (28-layer, gated on g195) -> g196 (anchor-residue, gated on g195) -> g190 (DEFERRED).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
