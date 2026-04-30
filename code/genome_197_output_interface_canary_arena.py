@@ -104,15 +104,23 @@ def _rescale_to_fro(m: np.ndarray, target_fro: float) -> np.ndarray:
     return m * (target_fro / fro)
 
 
+def _fill_unmatched_gaussian(out: np.ndarray, matched_mask: np.ndarray,
+                             matched_norm_mean: float, rng_seed: int) -> None:
+    rng = np.random.RandomState(rng_seed)
+    unmatched_ids = np.where(~matched_mask[:out.shape[0]])[0]
+    for i in unmatched_ids:
+        v = rng.randn(out.shape[1]).astype(np.float32)
+        out[i] = v / max(np.linalg.norm(v), 1e-12) * matched_norm_mean
+
+
 def build_trained_qwen3(
     trained_lm_head: np.ndarray, matched_mask: np.ndarray,
     scratch_fro: float, gpt2_vocab: int, embed_dim: int,
 ) -> np.ndarray:
     out = np.zeros((gpt2_vocab, embed_dim), dtype=np.float32)
     out[matched_mask] = trained_lm_head[matched_mask]
-    if matched_mask.any():
-        mean_row = trained_lm_head[matched_mask].mean(axis=0)
-        out[~matched_mask] = mean_row
+    matched_norm_mean = float(_row_norms(trained_lm_head[matched_mask]).mean())
+    _fill_unmatched_gaussian(out, matched_mask, matched_norm_mean, 44444)
     return _rescale_to_fro(out, scratch_fro)
 
 
@@ -144,9 +152,8 @@ def build_orthogonal_scaffold(
     Q = Q.astype(np.float32)
     out = np.zeros((gpt2_vocab, embed_dim), dtype=np.float32)
     out[matched_mask] = trained_lm_head[matched_mask] @ Q
-    if matched_mask.any():
-        mean_row = out[matched_mask].mean(axis=0)
-        out[~matched_mask] = mean_row
+    matched_norm_mean = float(_row_norms(out[matched_mask]).mean())
+    _fill_unmatched_gaussian(out, matched_mask, matched_norm_mean, 44445)
     return _rescale_to_fro(out, scratch_fro)
 
 
@@ -226,9 +233,8 @@ def build_trained_shuffled(
     matched_rows = trained_lm_head[matched_ids].copy()
     perm = rng.permutation(len(matched_ids))
     out[matched_ids] = matched_rows[perm]
-    if matched_mask.any():
-        mean_row = matched_rows.mean(axis=0)
-        out[~matched_mask] = mean_row
+    matched_norm_mean = float(_row_norms(matched_rows).mean())
+    _fill_unmatched_gaussian(out, matched_mask, matched_norm_mean, seed + 44446)
     return _rescale_to_fro(out, scratch_fro)
 
 
