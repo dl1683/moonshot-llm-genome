@@ -179,7 +179,7 @@ Specific numbers: Qwen3 vs GPT-2 feature means: mid_spectral_alpha 0.666 vs 1.08
 **Priority actions:**
 1. ~~**g191 string-match decomposition (RUNNING)**~~ **PASS_CONTENT (cycle 160).** Signal IS trained semantic vectors at exact-string positions. Content confirmed, format killed.
 2. ~~**g193 token-row compiler (RUNNING)**~~ **FAIL (cycle 162).** Compiler cosine=0.194. Byte-level features ≠ embedding directions. Exact lexical identity only.
-3. **g194 scalar/direction factorial (RUNNING, cycle 165)** — resolves A17 SEV-10: decompose e_t = r_t * u_t. Is the signal directional content or per-token norms? Smoke strongly favors PASS_DIRECTION.
+3. **g194 scalar/direction factorial — PASS_DIRECTION (cycle 180, 18/18 cells).** Direction carries 95-97% of signal (cd_sn +0.442, cd_un +0.451). Norms irrelevant (sd_cn -0.662, rd_cn -1.019). A17 SEV-10 RESOLVED.
 4. **g195 untied input/output factorial (PRE-STAGED)** — resolves A18 SEV-10 #1: with tied weights, embed_tokens IS lm_head. Is the signal input embedding or output logit geometry? Smoke: both_inject_anchor ≈ tied_reference.
 5. **g192 28-layer replication (PRE-STAGED, gated on g194)** — test whether the signal persists in full 28-layer Qwen3 (not just 8-layer shell). Config fixed to match actual Qwen3-0.6B (Codex §A SEV-8).
 6. **g187 ultrametric diagnostic on Pythia checkpoints** — does embedding geometry become increasingly ultrametric during training? (NOVEL gap)

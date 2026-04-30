@@ -4,19 +4,24 @@
 
 ---
 
-## 2026-04-30 — genome_194_scalar_direction_factorial — RUNNING (scalar vs direction decomposition)
+## 2026-04-30 — genome_194_scalar_direction_factorial — PASS_DIRECTION (scalar vs direction decomposition)
 
 **Purpose.** Decompose e_t = r_t * u_t to resolve A17 SEV-10 scalar-vs-direction confound. g191 PASS_CONTENT proved content matters, but row-shuffling destroys both norms and directions simultaneously. This factorial isolates which component carries the signal. 6 arms x 3 seeds x 5000 steps = 18 cells.
 
-**Arms:** scratch_ce (baseline), full_match (matched string-match init+anchor), correct_dir_shuffled_norm (correct unit directions, shuffled norms), shuffled_dir_correct_norm (shuffled directions, correct norms), random_dir_correct_norm (random directions, correct norms), correct_dir_uniform_norm (correct directions, uniform norm).
+**Results (18/18 cells complete):**
 
-**Pass criteria.** PASS_DIRECTION: cd_sn >= +0.30 AND (sd_cn or rd_cn) < +0.15. PASS_SCALAR: sd_cn >= +0.30 AND cd_un < +0.15. PASS_BOTH: neither alone > 80% of full_match. FAIL: no arm >= +0.10.
+| Arm | Mean NLL | Mean Gap vs scratch | % of full_match |
+|-----|----------|---------------------|-----------------|
+| scratch_ce | 5.828 | — | — |
+| full_match | 5.363 | **+0.465** | 100% |
+| correct_dir_uniform_norm | 5.377 | **+0.451** | 96.9% |
+| correct_dir_shuffled_norm | 5.386 | **+0.442** | 95.1% |
+| shuffled_dir_correct_norm | 6.490 | **-0.662** | HARMFUL |
+| random_dir_correct_norm | 6.847 | **-1.019** | CATASTROPHIC |
 
-**Design gate fixes applied:** SEV-8 Fro normalization (all factorial arms normalized to matched_fro=360.78, not trained_fro=363.3). SEV-6 PASS_BOTH logic corrected.
+**Verdict: PASS_DIRECTION.** cd_sn mean +0.442 >= +0.30 ✅, rd_cn mean -1.019 < +0.15 ✅. All 3 seeds positive for direction arms, all 3 seeds negative for wrong-direction arms. Direction carries 95-97% of the signal; per-token norms are irrelevant. cd_un slightly outperforms cd_sn (+0.451 vs +0.442), confirming uniform norms match or beat trained norms. Random directions (-1.019) are worse than shuffled directions (-0.662), showing trained directions have global manifold validity even at wrong positions. Resolves A17 SEV-10. §0.1 → 5.2/10 (per Codex §B cycle 174).
 
-**Status:** RUNNING (scratch_ce 2/3 complete; ~16 cells remaining, ETA ~1.8h).
-
-Source: `code/genome_194_scalar_direction_factorial.py`, `research/prereg/genome_194_scalar_direction_factorial_2026-04-30.md` (LOCKED).
+Source: `code/genome_194_scalar_direction_factorial.py`, `research/prereg/genome_194_scalar_direction_factorial_2026-04-30.md` (LOCKED), `results/genome_194_scalar_direction_factorial.json`.
 
 ---
 

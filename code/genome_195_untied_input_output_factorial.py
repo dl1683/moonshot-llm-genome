@@ -273,8 +273,10 @@ def compute_verdict(payload: dict[str, Any]) -> dict[str, Any]:
         verdict = "PASS_INPUT_DOMINANT"
     elif output_mean >= 0.20 and output_mean > input_mean:
         verdict = "PASS_OUTPUT_DOMINANT"
-    else:
+    elif max(input_mean, output_mean, both_mean) < 0.10:
         verdict = "FAIL"
+    else:
+        verdict = "AMBIGUOUS_POSITIVE"
 
     return {
         "status": "complete",

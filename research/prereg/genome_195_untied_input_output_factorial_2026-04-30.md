@@ -1,6 +1,6 @@
 # Pre-registration: g195 Untied Input/Output Factorial
 
-**Status:** DRAFT (gated on g194 PASS_DIRECTION; resolves A18 SEV-10 #1 tied lm_head confound)
+**Status:** LOCKED (g194 PASS_DIRECTION confirmed cycle 180; resolves A18 SEV-10 #1 tied lm_head confound)
 
 ## Motivation
 
@@ -60,7 +60,7 @@ Level-3 (architecture-specific, within Qwen3 family). Mechanism isolation test.
 
 ## Compute Envelope
 
-- 8-layer Qwen3-arch, GPT-2 tokenizer, ~1.6 GB VRAM per cell
+- 8-layer Qwen3-arch, GPT-2 tokenizer, ~4.3 GB VRAM peak (untied both-anchor worst case)
 - 15 cells x ~7 min = ~1.75 hours total
 - Within COMPUTE.md 4h envelope
 
