@@ -26,9 +26,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 155)
+## CURRENT STATUS (2026-04-30, cycle 156)
 
-**§0.1 honest score: 3.2/10** (Codex advisor cycle 152, post-g188 interim FAIL). All static cross-tokenizer bridges FAIL: PPMI SVD HARMS (-0.291), Sinkhorn OT HARMS (-0.119), char overlap attenuates to negative (-0.041). Codex: "Sinkhorn imposes the wrong conservation law — tokenizers are asymmetric frequency-skewed codebooks, not balanced distributions." Pivot to g190 decoder-conditioned relearning (7/10 potential per Codex advisor).
+**§0.1 honest score: 3.5/10** (post-g188 FAIL/MIXED). Flow bridge FAIL (-0.119 HARMS), but direct_string_match +0.478 = 93.2% of g181b. First positive cross-tokenizer bridge. g191 running (7-arm decomposition of the +0.478 signal). If g191 PASS_CONTENT (matched-rows carry signal, shuffled don't), §0.1 moves to ~4.5-5.0; if g192 28-layer replication also PASS, ~5.5-6.0.
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
@@ -42,9 +42,9 @@ Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT
 
 - **Codex advisor (cycle 148):** tokenizer-flow bridge (g188) is highest priority. Confound check COMPLETE: anchor-only (no init) NLL=6.901, gap=-0.445 nats (WORSE than init+anchor -0.230). PPMI SVD is independently toxic in BOTH modes. §0.1 = 3.5/10.
 - **Cycle 150 adversarial (A15):** 5 attacks. SEV-10: C23 (+0.513 nats) not proven CONTENT transfer — could be FORMAT (norm/spectrum/structure). Needs row-shuffled, frequency-preserving, spectrum-preserving, and same-distance random controls at 5000 steps. SEV-9: codebook+decoder thesis loosely stated. SEV-8: g188 tests lower bar (decoder family fixed). SEV-8: g188 missing random_plan_same_degrees control. SEV-7: g183 proves corpus wrong, not that trained content is right. **Resolving: g188 includes flow_shuffled_qwen_rows + flow_random_source controls; full C23 resolution needs dedicated g189.** Source: `codex_outputs/cycle150_adversarial_20260430.md`.
-- **g188 tokenizer-flow bridge: RUNNING (cycle 155, 14/18 cells done).** **BREAKING: `direct_string_match` PASSES at +0.478 nats mean (3/3 seeds: +0.493, +0.463, +0.479) = 93.2% of g181b.** First positive cross-tokenizer bridge. flow_bridge (OT) HARMS -0.119, char_overlap -0.041. flow_shuffled seed 42 = -0.724 (catastrophic). 4 cells remaining (flow_shuffled seeds 7,13 + flow_random seeds 42,7,13). §0.1 = pending revaluation. Source: `results/genome_188_tokenizer_flow_bridge.json`.
+- **g188 tokenizer-flow bridge: FAIL / MIXED (cycle 156, 18/18 cells COMPLETE).** FAIL on all preregistered criteria (flow_bridge HARMS -0.119, CI [-0.122,-0.116]). **BREAKTHROUGH side finding: `direct_string_match` +0.478 nats (93.2% of g181b), 3/3 seeds.** Ordering: string_match +0.478 >> char_overlap -0.041 >> flow_bridge -0.119 >> flow_shuffled -0.715 >> flow_random -0.898. OT destroys signal; exact token-string copying preserves 93% of same-tokenizer effect. Source: `results/genome_188_tokenizer_flow_bridge.json`.
 - **Cycle 155 adversarial (A16):** 5 attacks on +0.478 claim. SEV-10: "shared-vocabulary pretrained-row reuse, not cross-tokenizer transfer" — 84% overlap means mostly same-token init. SEV-9: decoder-conditioned geometry not established (Qwen3 shell). SEV-8: 8-layer/5000-step may be shallow-init regime. SEV-8: shuffled harm only proves row identity, not content vs format. SEV-7: frequency-weighted evaluation bias. **g191 resolves attacks #1/#4/#5; attack #3 needs 28-layer follow-up (g192 candidate).** Source: `codex_outputs/cycle155_adversarial_20260430.md`.
-- **g191 string-match decomposition: PRE-STAGED (cycle 154).** Codex design gate APPROVED (8/10 uplift). 7 arms decomposing the +0.478 signal: init-only, anchor-only, matched-rows-only, unmatched-rows-only, row-shuffled, freq-bucket-shuffle. PASS_CONTENT: matched >= +0.35 AND shuffled <= +0.10. 8-layer shell, ~2.5h. **Launches immediately after g188 completes.** Source: `code/genome_191_string_match_decomposition.py`, `research/prereg/genome_191_string_match_decomposition_2026-04-30.md`.
+- **g191 string-match decomposition: RUNNING (cycle 156, launched after g188 completion).** Codex design gate APPROVED (8/10 uplift). 7 arms decomposing the +0.478 signal: scratch_ce, direct_init_only, direct_anchor_only, matched_rows_only, unmatched_rows_only, row_shuffled_matched, frequency_bucket_shuffle. PASS_CONTENT: matched >= +0.35 AND shuffled <= +0.10 AND gap >= +0.25. 8-layer shell, 3 seeds, 5000 steps, ~2.5h. Source: `code/genome_191_string_match_decomposition.py`, `research/prereg/genome_191_string_match_decomposition_2026-04-30.md`.
 - **g190 decoder-conditioned relearning: DEFERRED (cycle 154).** Per Codex cycle 153 direction review: g191 takes priority (8/10 vs 7/10). g190 redesigned to control for 84% exact-match overlap only after g191 clarifies the mechanism. Source: `code/genome_190_decoder_conditioned_relearning.py`.
 - **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
 - **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
@@ -462,12 +462,12 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 - **g180b cross-tokenizer forecast** — FAIL. Geometry HURTS cross-tokenizer (-39.4%).
 - **g181b long-horizon attenuation** — PASS. +0.513 nats at 5000 steps. C23 locked.
 
-**Queue (post-g188 launch, cycle 150):**
-1. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
-2. **g189 C23 content-causality controls** — NEEDED (adversarial SEV-10). Row-shuffled + spectrum-preserving + frequency-preserving + same-distance random embed/head anchors at 5000 steps. Designs pending Codex gate.
-3. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
-4. **Fresh: KD compatibility law** — 6.1/10 (non-obvious). Model optimal KD dose from teacher/student/tokenizer/corpus stats.
-5. **Cross-arch binary triage** — 5.6/10. Possible rescue but needs non-trivial protocol baselines.
+**Queue (post-g188, updated cycle 155):**
+1. **g191 string-match decomposition** — 8/10. 7 arms decomposing +0.478. Launches immediately after g188. ~2.5h. Code + prereg + design gate DONE.
+2. **g192 28-layer string-match replication** — gated on g191 PASS_CONTENT. Resolves adversarial A16 #3. Prereg DRAFT. ~2h.
+3. **g190 decoder-conditioned relearning** — 7/10. DEFERRED until g191 clarifies mechanism.
+4. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
+5. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.

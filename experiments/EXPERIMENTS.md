@@ -4,15 +4,30 @@
 
 ---
 
-## 2026-04-30 — genome_188_tokenizer_flow_bridge — RUNNING (cross-tokenizer OT embedding transfer)
+## 2026-04-30 — genome_188_tokenizer_flow_bridge — FAIL / MIXED (cross-tokenizer OT embedding transfer)
 
-**Purpose.** Test whether Qwen3 trained embeddings can be transcoded into GPT-2 tokenizer space via sparse character-offset OT alignment, then used as an anchor prior for GPT-2-architecture training. Rung 2 of the successive-refinement ladder (after g183 killed rung 1). 6 arms × 3 seeds × 5000 steps = 18 cells.
+**Purpose.** Test whether Qwen3 trained embeddings can be transcoded into GPT-2 tokenizer space via sparse character-offset OT alignment, then used as an anchor prior for GPT-2-architecture training. Rung 2 of the successive-refinement ladder (after g183 killed rung 1). 6 arms x 3 seeds x 5000 steps = 18 cells.
 
-**Arms:** scratch_ce, flow_bridge_init_anchor (OT-bridged Qwen3 trained embeddings), char_overlap_no_ot (raw character overlap without Sinkhorn), direct_string_match_anchor (exact string matching), flow_shuffled_qwen_rows (row-shuffled OT bridge — control), flow_random_source (random source embeddings through OT — control).
+**Arms:** scratch_ce, flow_bridge_init_anchor (OT-bridged), char_overlap_no_ot (raw character overlap), direct_string_match_anchor (exact string matching), flow_shuffled_qwen_rows (row-shuffled control), flow_random_source (random source control).
 
-**Pass criteria.** P1: flow_bridge mean NLL < scratch mean NLL by >= +0.12 nats. P2: flow_bridge beats all 4 controls. P3: flow_bridge beats scratch 3/3 seeds.
+**Pass criteria.** P1: flow_bridge >= +0.12 nats vs scratch AND 3/3 seeds. P2: beats char_overlap by >= +0.04. P3: beats string_match by >= +0.05. P4: beats both controls by >= +0.08 AND 3/3 seeds.
 
-**VERDICT: RUNNING.** Three critical bugs fixed pre-launch (cycle 150): (1) SEV-10 anchor targeting — stored param names not dummy model tensors, (2) S9 anchor strength — F.mse_loss mean reduction replaced with manual grad.add_ matching g181a/g183, (3) S8 Sinkhorn reversal — exp(-vals/...) replaced with vals/scale so high character overlap → high OT weight. ETA ~3-4h.
+**VERDICT: FAIL on all pre-registered criteria. BREAKTHROUGH side finding.**
+
+| Arm | Mean NLL | Gap vs scratch | Seeds positive |
+|---|---:|---:|---:|
+| scratch_ce | 5.828 | -- | -- |
+| **direct_string_match_anchor** | **5.350** | **+0.478** | **3/3** |
+| char_overlap_no_ot | 5.869 | -0.041 | 0/3 |
+| flow_bridge_init_anchor | 5.947 | -0.119 (HARMS) | 0/3 |
+| flow_shuffled_qwen_rows | 6.543 | -0.715 (CATASTROPHIC) | 0/3 |
+| flow_random_source | 6.726 | -0.898 (WORST) | 0/3 |
+
+P1=FAIL (flow_bridge HARMS -0.119, needs >= +0.12). P2=FAIL (flow worse than char_overlap). P3=FAIL (flow -0.598 nats worse than string_match). P4=FAIL. Stage B gate NOT reached. Bootstrap 95% CI for flow_gap: [-0.122, -0.116] entirely negative.
+
+**What we learned.** (1) The OT-based tokenizer bridge DESTROYS the signal -- Sinkhorn transport imposes wrong conservation laws on asymmetric frequency-skewed tokenizer codebooks. (2) **Direct string matching is the FIRST positive cross-tokenizer embedding transfer: +0.478 nats = 93.2% of g181b's within-family +0.513 nats.** 84% of GPT-2 tokens exactly match a Qwen3 token string; directly copying trained embedding rows for those tokens and mean-filling the rest recovers nearly all of the same-tokenizer effect. (3) Row identity is critical: shuffling rows with correct OT structure is catastrophic (-0.715), random source is worse (-0.898). (4) Character overlap without OT is near-zero (-0.041), showing the matched string-content is load-bearing, not the character similarity alone.
+
+**Adversarial (A16, cycle 155):** 5 attacks on +0.478. SEV-10: shared-vocabulary pretrained-row reuse, not transfer. Resolving: g191 string-match decomposition (content vs format).
 
 Source: `code/genome_188_tokenizer_flow_bridge.py`, `research/prereg/genome_188_tokenizer_flow_bridge_2026-04-30.md` (LOCKED).
 
