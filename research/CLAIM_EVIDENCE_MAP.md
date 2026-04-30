@@ -5,7 +5,7 @@ repo (README, MANIFESTO, WIKI, blog-style copy) maps to exactly one ledger
 entry + exactly one locked prereg. If a claim isn't in this table, it should
 either be in the table (add it + map it) or deleted (unsubstantiated).
 
-**Last updated.** 2026-04-30 cycle 160. g191 PASS_CONTENT (21/21 cells): matched_rows_only +0.465 (97% of +0.478), row_shuffled -0.709 (MASSIVELY HARMFUL), freq_bucket -0.625 (HARMFUL). Content IS the mechanism. g193 RUNNING. §0.1 = 4.5/10.
+**Last updated.** 2026-04-30 cycle 162. g191 PASS_CONTENT (21/21 cells). g193 FAIL (12/12 cells, compiler cosine=0.194): byte-level features capture norms but NOT directions. g194 scalar/direction factorial LAUNCHING (resolves A17 SEV-10). §0.1 = 4.5/10.
 
 ---
 
@@ -178,7 +178,7 @@ These are weaknesses in the C10-C13 chain identified by the Codex 2026-04-26 adv
   6. **8-layer/5000-step scope limit** (severity 6): g192 required for full-depth persistence.
   **Resolving:** scalar/direction factorial — decompose `e_t = r_t * u_t` (norm × direction). Arms: correct r + correct u, correct r + random u, shuffled r + correct u. Same mask, same anchor. PASS_CONTENT only if correct directions carry most of +0.465 while correct scalars with wrong directions stay near scratch. Source: `codex_outputs/heartbeats/cycle160_adversarial_review_20260430.md`.
 
-Path forward (status 2026-04-30 cycle 160): **g191 PASS_CONTENT (21/21 cells).** Content IS the mechanism. §0.1 = 4.5/10. **g193 RUNNING:** token-row compiler testing whether content is learnable/generatable from token features (PASS → compiler law, §0.1 → 5.5-6.0). g192 28-layer queued after g193. g194 scalar/direction factorial queued to resolve A17 SEV-10. g190 decoder-conditioned relearning DEFERRED.
+Path forward (status 2026-04-30 cycle 162): **g191 PASS_CONTENT (21/21 cells).** Content IS the mechanism. §0.1 = 4.5/10. **g193 FAIL (12/12 cells):** compiler cosine=0.194 (near-random directions). Byte-level features capture norms but NOT directional content. Kills +2.4 uplift path. **g194 scalar/direction factorial LAUNCHING:** resolves A17 SEV-10 (8/10 leverage per Codex §B). Prereg LOCKED. g192 28-layer gated on g194. g190 decoder-conditioned relearning DEFERRED.
 
 ## 3. Competitive Intelligence (updated cycle 100, 2026-04-29)
 

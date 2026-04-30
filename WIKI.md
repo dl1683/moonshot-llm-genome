@@ -26,9 +26,9 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 160)
+## CURRENT STATUS (2026-04-30, cycle 162)
 
-**§0.1 honest score: 4.5/10** (post-g191 PASS_CONTENT). g191 COMPLETE (21/21 cells): matched_rows_only +0.465 (97% of +0.478 signal), row_shuffled -0.709 (MASSIVELY HARMFUL), freq_bucket -0.625 (HARMFUL), unmatched -0.088 (HARMS). **Signal IS trained embedding row CONTENT at exact-match positions under continuous anchor, NOT format.** Anchor is 98% of mechanism, init is 19%. g193 token-row compiler RUNNING (gated on g191 PASS_CONTENT, now satisfied). If g193 PASS, §0.1 moves to ~5.5-6.0. **Adversarial A17 (cycle 160):** SEV-10 scalar-vs-direction confound open — resolving experiment: scalar/direction factorial (g194 candidate).
+**§0.1 honest score: 4.5/10** (post-g191 PASS_CONTENT, g193 FAIL does not lower). g191 COMPLETE (21/21 cells): matched_rows_only +0.465 (97% of +0.478 signal), row_shuffled -0.709 (MASSIVELY HARMFUL), freq_bucket -0.625 (HARMFUL), unmatched -0.088 (HARMS). **Signal IS trained embedding row CONTENT at exact-match positions under continuous anchor, NOT format.** Anchor is 98% of mechanism, init is 19%. **g193 FAIL (cycle 162, 12/12 cells):** compiler cosine=0.194 (near-random); byte-level features capture norms but NOT directions. Kills +2.4 uplift path. **g194 scalar/direction factorial NEXT** (Codex §B 8/10 leverage): resolves A17 SEV-10. Prereg LOCKED, code ready, smoke confirms direction signal.
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
@@ -45,7 +45,7 @@ Per-seed ppmi gaps: 42=-0.230, 7=-0.343, 13=-0.302. Recovery=-74.8%. Stage B NOT
 - **g188 tokenizer-flow bridge: FAIL / MIXED (cycle 156, 18/18 cells COMPLETE).** FAIL on all preregistered criteria (flow_bridge HARMS -0.119, CI [-0.122,-0.116]). **BREAKTHROUGH side finding: `direct_string_match` +0.478 nats (93.2% of g181b), 3/3 seeds.** Ordering: string_match +0.478 >> char_overlap -0.041 >> flow_bridge -0.119 >> flow_shuffled -0.715 >> flow_random -0.898. OT destroys signal; exact token-string copying preserves 93% of same-tokenizer effect. Source: `results/genome_188_tokenizer_flow_bridge.json`.
 - **Cycle 155 adversarial (A16):** 5 attacks on +0.478 claim. SEV-10: "shared-vocabulary pretrained-row reuse, not cross-tokenizer transfer" — 84% overlap means mostly same-token init. SEV-9: decoder-conditioned geometry not established (Qwen3 shell). SEV-8: 8-layer/5000-step may be shallow-init regime. SEV-8: shuffled harm only proves row identity, not content vs format. SEV-7: frequency-weighted evaluation bias. **g191 resolves attacks #1/#4/#5; attack #3 needs 28-layer follow-up (g192 candidate).** Source: `codex_outputs/cycle155_adversarial_20260430.md`.
 - **g191 string-match decomposition: PASS_CONTENT (cycle 160, 21/21 cells).** All 5 preregistered criteria satisfied with overwhelming margins. matched_rows_only +0.465 (97%), row_shuffled -0.709 (MASSIVELY HARMFUL), freq_bucket -0.625 (HARMFUL). Content IS the mechanism. Adversarial A17 (cycle 160): SEV-10 scalar-vs-direction confound open. Source: `results/genome_191_string_match_decomposition.json`, `codex_outputs/heartbeats/cycle160_adversarial_review_20260430.md`.
-- **g193 token-row compiler: RUNNING (cycle 160).** Prereg LOCKED. g191 PASS_CONTENT gating condition satisfied. Train MLP (258→1024→1024→1024) to predict Qwen3 embedding rows from token byte histogram + length + log-frequency. 42k exact string matches as supervision, 20% holdout. PASS bar: +0.30 nats over scratch, 3/3 seeds, shuffled <= +0.10. Per Codex advisor + direction review consensus: highest-leverage next experiment (+2.4 §0.1 uplift). Source: `code/genome_193_token_row_compiler.py`, `research/prereg/genome_193_token_row_compiler_2026-04-30.md` (LOCKED).
+- **g193 token-row compiler: FAIL (cycle 162, 12/12 cells).** Compiler holdout: MSE=0.000926, cosine=0.194 (near-random directions). compiled_init_anchor -0.187 (HARMS), compiled_init_only +0.070 (below +0.30 bar), compiled_shuffled -0.773 (MASSIVELY HARMFUL). Byte-level features capture norms but NOT directional content. Falsifies simple token-form compiler; does NOT falsify contextual/distributional compiler. §0.1 stays at 4.5/10. Source: `results/genome_193_token_row_compiler.json`.
 - **g190 decoder-conditioned relearning: DEFERRED (cycle 154).** Per Codex cycle 153 direction review: g191 takes priority (8/10 vs 7/10). g190 redesigned to control for 84% exact-match overlap only after g191 clarifies the mechanism. Source: `code/genome_190_decoder_conditioned_relearning.py`.
 - **g187 ultrametric diagnostic on Pythia:** Codex-approved, prereg LOCKED, code ready. Queued as background measurement (NOT §0.1 mover). Novel literature gap confirmed.
 - **Cycle 147 cross-arch forensic synthesis** (see `research/OPEN_MYSTERIES.md` Mystery 8): tokenizer = codebook, architecture = decoder. Cross-arch fails because same codebook + different decoder = misaligned priors.
@@ -454,17 +454,18 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 160)*
+*(Updated 2026-04-30 cycle 162)*
 
 **Currently running:**
-- **g193 token-row compiler** — RUNNING. Prereg LOCKED. 4 arms × 3 seeds = 12 cells. PASS bar: compiled_init_anchor >= +0.30 nats, 3/3 seeds, shuffled <= +0.10, gap >= +0.20. ETA ~1.5h.
+- **g194 scalar/direction factorial** — LAUNCHING. Prereg LOCKED, code ready, Codex design gate passed (Fro fix applied). 6 arms × 3 seeds = 18 cells. ETA ~2.1h.
 
-**Queue (updated cycle 160, per Codex advisor):**
+**Queue (updated cycle 162, per Codex §B direction review):**
 1. ~~**g191 string-match decomposition**~~ — **PASS_CONTENT (cycle 160).** Content IS the mechanism.
-2. **g193 token-row compiler** — RUNNING. +2.4 §0.1 uplift if PASS. ~1.5h.
-3. **g192 28-layer string-match replication** — gated on g193. Resolves adversarial A16 #3 (8-layer scope limit). Prereg DRAFT. ~2h.
-4. **g194 scalar/direction factorial** — NEW (Codex adversarial A17 cycle 160). Resolves SEV-10 scalar-vs-direction confound. Design gate needed.
-5. **g190 decoder-conditioned relearning** — 7/10. DEFERRED until g193 clarifies mechanism.
+2. ~~**g193 token-row compiler**~~ — **FAIL (cycle 162).** Compiler cosine=0.194. Kills +2.4 uplift path.
+3. **g194 scalar/direction factorial** — LAUNCHING. 8/10 leverage (Codex §B). Resolves A17 SEV-10 scalar-vs-direction confound. If PASS_DIRECTION, §0.1 moves toward ~5.0.
+4. **g192 28-layer string-match replication** — gated on g194 (per Codex §B). 6/10 leverage. Prereg DRAFT. ~2h.
+5. **g190 decoder-conditioned relearning** — 7/10. DEFERRED until string-match thread matures.
+6. **g189 C23 content-causality controls** — STAGED. Lower priority than scalar/direction thread.
 6. **g189 C23 content-causality controls** — STAGED. 7 arms × 6 seeds resolves A15 format-vs-content. 4.7h. Lower priority than cross-tokenizer thread.
 7. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
 8. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.

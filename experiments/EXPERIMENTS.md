@@ -4,15 +4,26 @@
 
 ---
 
-## 2026-04-30 — genome_193_token_row_compiler — RUNNING (g191 PASS_CONTENT satisfied)
+## 2026-04-30 — genome_193_token_row_compiler — FAIL (compiler cannot learn embedding directions)
 
-**Purpose.** Train a small MLP (258→1024→1024→1024) to predict Qwen3 trained embedding rows from token-level features (byte histogram, token length, log-frequency). Uses 42k exact string-matched GPT-2/Qwen3 token pairs as supervision (80/20 train/holdout). Evaluation: train GPT-2-tokenizer Qwen3-arch shell using ONLY compiler-generated rows (no copied target rows). Per Codex advisor + direction review consensus: highest-leverage next experiment (+2.4 §0.1 uplift). 4 arms x 3 seeds = 12 cells.
+**Purpose.** Train a small MLP (258→1024→1024→1024) to predict Qwen3 trained embedding rows from token-level features (byte histogram, token length, log-frequency). Uses 42k exact string-matched GPT-2/Qwen3 token pairs as supervision (80/20 train/holdout). Evaluation: train GPT-2-tokenizer Qwen3-arch shell using ONLY compiler-generated rows (no copied target rows). 4 arms × 3 seeds = 12 cells.
 
-**Arms:** scratch_ce, compiled_init_anchor (compiler-generated init + anchor), compiled_init_only (init only), compiled_shuffled (row-permuted control).
+**Results (12/12 cells complete):**
 
-**Pass criteria.** PASS: compiled_init_anchor >= +0.30 nats vs scratch AND 3/3 seeds AND shuffled <= +0.10 AND gap >= +0.20. PARTIAL: compiled >= +0.15.
+| Arm | Mean NLL | Gap vs scratch | Pass? |
+|---|---:|---:|---|
+| scratch_ce | 5.828 | — | baseline |
+| compiled_init_anchor | 6.015 | **-0.187 (HARMS)** | FAIL |
+| compiled_init_only | 5.759 | **+0.070** | below +0.30 bar |
+| compiled_shuffled | 6.601 | **-0.773 (MASSIVELY HARMFUL)** | control |
 
-Source: `code/genome_193_token_row_compiler.py`, `research/prereg/genome_193_token_row_compiler_2026-04-30.md` (DRAFT).
+**Compiler holdout:** MSE=0.000926, cosine=0.194 (near-random directions). Byte-level features capture norms but not directional content.
+
+**Key finding:** Trained embedding rows contain useful exact-string interface content (g191), but cheap token-form statistics cannot synthesize their directions. Strengthens "interface codebook + decoder" story. Falsifies byte histogram + length + log-frequency as a compiler; does NOT falsify every possible contextual/distributional compiler.
+
+**§0.1 impact:** Stays at 4.5/10 (kills +2.4 uplift path, does not lower existing score).
+
+Source: `results/genome_193_token_row_compiler.json`, `research/prereg/genome_193_token_row_compiler_2026-04-30.md` (LOCKED).
 
 ---
 
