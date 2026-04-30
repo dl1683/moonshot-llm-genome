@@ -1,6 +1,6 @@
 # Pre-registration: genome_185 Prospective Training Triage (Compute-Savings Demonstration)
 
-**STATUS:** DRAFT pre-staged 2026-04-29 cycle 114. **LOCKS** after g182 Model C' PASS verdict. Gates on g182 not being futility-stopped and frozen Ridge from g182 being available.
+**STATUS:** DRAFT pre-staged 2026-04-29 cycle 114. **NEEDS REDESIGN** (cycle 129): g182 FAILED — no frozen Ridge available. If g186 PASS, redesign as **dose-selection optimization**: use g186 dose-response Ridge to predict optimal KD dose at 3% of training, then demonstrate compute savings from not running all 5 doses (Codex §B cycle 128 recommendation: formalize "intervention susceptibility" — geometry estimates d(final_NLL)/d(alpha)).
 
 - Date: 2026-04-29
 - Trigger: Codex cycle 111 scored this 9.0/10 as the highest-leverage follow-up to g182 PASS — converts geometry prediction into electricity savings.
