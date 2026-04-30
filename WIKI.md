@@ -26,9 +26,13 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 ---
 
-## CURRENT STATUS (2026-04-30, cycle 162)
+## CURRENT STATUS (2026-04-30, cycle 165)
 
-**§0.1 honest score: 4.5/10** (post-g191 PASS_CONTENT, g193 FAIL does not lower). g191 COMPLETE (21/21 cells): matched_rows_only +0.465 (97% of +0.478 signal), row_shuffled -0.709 (MASSIVELY HARMFUL), freq_bucket -0.625 (HARMFUL), unmatched -0.088 (HARMS). **Signal IS trained embedding row CONTENT at exact-match positions under continuous anchor, NOT format.** Anchor is 98% of mechanism, init is 19%. **g193 FAIL (cycle 162, 12/12 cells):** compiler cosine=0.194 (near-random); byte-level features capture norms but NOT directions. Kills +2.4 uplift path. **g194 scalar/direction factorial NEXT** (Codex §B 8/10 leverage): resolves A17 SEV-10. Prereg LOCKED, code ready, smoke confirms direction signal.
+**§0.1 honest score: 4.5/10** (post-g191 PASS_CONTENT, g193 FAIL does not lower). **g194 scalar/direction factorial RUNNING (3/18 cells done, scratch_ce complete).** Resolves A17 SEV-10 scalar-vs-direction confound. Smoke strongly favors PASS_DIRECTION: correct_dir_shuffled_norm +0.341, shuffled_dir_correct_norm -0.236. Full run ETA ~1.5h remaining.
+
+**Cycle 165 Codex adversarial (A18):** Two new SEV-10s — (1) tied lm_head confound (embed_tokens IS lm_head; signal may be output-logit geometry, not input embedding), (2) anchor dominance = regularization not content. **g195 untied input/output factorial PRE-STAGED** (resolves A18 #1; smoke validates design: both_inject_anchor matches tied_reference). **g192 28-layer replication PRE-STAGED** (Codex §A SEV-8 config fix applied: now matches actual Qwen3-0.6B config). Both gated on g194 PASS.
+
+**Queue:** g194 (RUNNING) -> g192 (gated on g194) -> g195 (gated on g194) -> g190 (DEFERRED).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 
@@ -454,21 +458,21 @@ Kept for institutional memory. Do not resurrect without reading the retirement r
 
 ## 12. Next actions
 
-*(Updated 2026-04-30 cycle 162)*
+*(Updated 2026-04-30 cycle 165)*
 
 **Currently running:**
-- **g194 scalar/direction factorial** — LAUNCHING. Prereg LOCKED, code ready, Codex design gate passed (Fro fix applied). 6 arms × 3 seeds = 18 cells. ETA ~2.1h.
+- **g194 scalar/direction factorial** — RUNNING (3/18 cells: scratch_ce done, full_match seed=42 at step ~4000). Smoke strongly favors PASS_DIRECTION. ETA ~1.5h remaining.
 
-**Queue (updated cycle 162, per Codex §B direction review):**
-1. ~~**g191 string-match decomposition**~~ — **PASS_CONTENT (cycle 160).** Content IS the mechanism.
-2. ~~**g193 token-row compiler**~~ — **FAIL (cycle 162).** Compiler cosine=0.194. Kills +2.4 uplift path.
-3. **g194 scalar/direction factorial** — LAUNCHING. 8/10 leverage (Codex §B). Resolves A17 SEV-10 scalar-vs-direction confound. If PASS_DIRECTION, §0.1 moves toward ~5.0.
-4. **g192 28-layer string-match replication** — gated on g194 (per Codex §B). 6/10 leverage. Prereg DRAFT. ~2h.
-5. **g190 decoder-conditioned relearning** — 7/10. DEFERRED until string-match thread matures.
-6. **g189 C23 content-causality controls** — STAGED. Lower priority than scalar/direction thread.
-6. **g189 C23 content-causality controls** — STAGED. 7 arms × 6 seeds resolves A15 format-vs-content. 4.7h. Lower priority than cross-tokenizer thread.
-7. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
-8. **g187 ultrametric diagnostic** — background measurement (NOT §0.1 mover). Prereg LOCKED, code ready.
+**Queue (updated cycle 165):**
+1. ~~**g191 string-match decomposition**~~ — **PASS_CONTENT (cycle 160).**
+2. ~~**g193 token-row compiler**~~ — **FAIL (cycle 162).**
+3. **g194 scalar/direction factorial** — RUNNING. 8/10 leverage (Codex §B). Resolves A17 SEV-10.
+4. **g192 28-layer replication** — PRE-STAGED (code + prereg DRAFT). Codex §A SEV-8 config fix applied (actual Qwen3-0.6B config). Gated on g194.
+5. **g195 untied input/output factorial** — PRE-STAGED (code + prereg DRAFT). Resolves A18 SEV-10 #1 (tied lm_head confound). Smoke validates design. Gated on g194.
+6. **g190 decoder-conditioned relearning** — DEFERRED.
+7. **g189 C23 content-causality controls** — STAGED. Lower priority than scalar/direction thread.
+8. **g155 production distill + C3-TEI/kJ** — 8.2/10 (highest ceiling). HARDWARE-BLOCKED on wall-power meter.
+9. **g187 ultrametric diagnostic** — background measurement. Prereg LOCKED, code ready.
 
 **Historical (2026-04-22 era: genome_068–g087, GenomeGuard, candidate-8 bridge, grafting series):**
 Detailed in `experiments/EXPERIMENTS.md` and `experiments/ledger.jsonl`. Code deleted in cycle 77 anti-entropy pass.
