@@ -633,8 +633,8 @@ def main():
 
     # --- Step 2: Get trained Qwen3 embeddings ---
     print_flush("\n--- Loading trained Qwen3 embeddings ---")
-    trained_model = g165.load_trained_donor(tok_qwen)
-    trained_embed = trained_model.model.embed_tokens.weight.detach().cpu().numpy().copy()
+    trained_model, _ = g165.load_trained_donor(tok_qwen)
+    trained_embed = trained_model.model.embed_tokens.weight.detach().float().cpu().numpy().copy()
     embed_dim = trained_embed.shape[1]
     trained_fro_norm = float(np.linalg.norm(trained_embed))
     print_flush(f"  Trained embed: {trained_embed.shape}, Fro norm: {trained_fro_norm:.1f}")
