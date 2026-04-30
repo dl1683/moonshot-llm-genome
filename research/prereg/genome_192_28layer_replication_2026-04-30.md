@@ -1,6 +1,6 @@
 # Pre-registration: g192 28-Layer String-Match Replication
 
-**Status:** DRAFT (gated on g194 PASS_DIRECTION; per Codex §B cycle 162, 6/10 leverage)
+**Status:** DRAFT (g194 PASS_DIRECTION confirmed cycle 180; gated on g195 per Codex §B cycle 168 — g192 inherits tied-head confound until g195 resolves)
 
 ## Motivation
 
