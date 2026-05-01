@@ -597,6 +597,9 @@ def train_cell(
     model.eval()
     with torch.no_grad():
         final_nll = g188._eval_nll(model, val_ids, val_mask)
+    final_nll = float(final_nll)
+    if not math.isfinite(final_nll):
+        raise RuntimeError(f"non-finite final_val_nll cond={condition} seed={seed}")
 
     all_features = {}
     all_features.update(step0_feats)
@@ -933,7 +936,7 @@ def main() -> None:
     row_sample_idx = np.sort(np.concatenate([freq_top, rand_pick]))
     print_flush(f"  Row sample: {len(row_sample_idx)} rows")
 
-    # Matched-row index for matched-only feature extraction (prereg §Features)
+    # Matched-row index for matched-only feature extraction
     matched_all = np.where(matched_mask)[0]
     matched_rng = np.random.RandomState(77777)
     matched_row_idx = np.sort(matched_rng.choice(matched_all, size=min(8192, len(matched_all)), replace=False))
@@ -1018,7 +1021,8 @@ def main() -> None:
             key = str(seed)
             if key in payload["results"][cond] and not args.no_resume:
                 cell = payload["results"][cond][key]
-                if isinstance(cell, dict) and "final_val_nll" in cell:
+                v = cell.get("final_val_nll") if isinstance(cell, dict) else None
+                if isinstance(v, (int, float)) and math.isfinite(float(v)):
                     print_flush(f"\n  Skipping {cond}/seed={seed} (done)")
                     continue
 

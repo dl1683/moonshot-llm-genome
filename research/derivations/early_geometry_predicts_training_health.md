@@ -81,6 +81,8 @@ where C_h is the hidden-state covariance and pi is the token frequency distribut
 
 where lambda_i are eigenvalues of M_W. Healthy heads maximize Phi(W); pathological heads (shuffled, anti-frequency) have collapsed or misaligned spectra.
 
+**g192 depth-amplification (cycle 201):** 28-layer matched mean = +0.530 nats vs 8-layer +0.465 = 114% retention (amplification, not attenuation). Route 2 predicts this: each layer receives `W_out^T (p - e_y)` via backprop, so correct output directions propagate well-aligned gradients through ALL layers. More layers = more weight matrices that exploit the aligned codebook → compounding benefit. Testable prediction: effect at 4 layers should be weaker than at 8.
+
 **g197 tests this indirectly** via spectral/angular/scaffold proxies. A future g199 could compute M_W eigenvalues directly and test whether they predict final NLL better than the proxy features. Expected §0.1 impact of the full derivation: +0.6 to +1.0 if the operator predicts feature rankings.
 
 ### Route 2 Formal Feature-to-Rate Mapping (cycle 106)
