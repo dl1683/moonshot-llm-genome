@@ -104,13 +104,15 @@ Source: `results/genome_193_token_row_compiler.json`, `research/prereg/genome_19
 
 ---
 
-## 2026-04-30 — genome_189_c23_content_causality — STAGED (format vs content for C23)
+## 2026-04-30 — genome_189_c23_content_causality — ARCHIVED/SUPERSEDED (format vs content for C23)
 
 **Purpose.** Resolve adversarial A15 (cycle 150 SEV-10): C23's +0.513 nats may be FORMAT (norm/spectrum/frequency structure) not CONTENT (learned token relationships). 7 arms x 6 seeds x 5000 steps = 42 cells. Five matched controls systematically isolate format vs content properties.
 
 **Arms:** scratch_ce, true_trained_anchor, row_shuffled_anchor, freq_bucket_shuffle_anchor, spectrum_preserving_random, same_frobenius_gaussian, anchor_to_initial.
 
 **Pass criteria.** PASS_CONTENT: true_trained beats EVERY control by >= +0.20 nats AND 5/6 seeds. FORMAT_FAIL: any control within 0.20 nats of true.
+
+**SUPERSEDED by:** g191 PASS_CONTENT (matched_rows_only +0.465, row_shuffled -0.709 proves content) + g194 PASS_DIRECTION (direction carries 95-97% of signal). All 5 g189 control arms are subsumed by g191+g194's cleaner decomposition. Never run.
 
 Source: `code/genome_189_c23_content_causality.py`, `research/prereg/genome_189_c23_content_causality_2026-04-30.md` (DRAFT).
 
