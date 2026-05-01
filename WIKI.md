@@ -16,7 +16,7 @@ The strong-form transfer claim was tested and falsified on 3 axes (g177v2 / g173
 
 **Pre-pivot end goal (RETIRED 2026-04-29, retained as audit trail):** ~~"Efficient transfer of trained capabilities from a trained model directly into an untrained model, without retraining the recipient."~~ Falsified by g177v2 (donor identity 96% from undertrained alts) + g173 (cross-arch failed locked criterion) + g181a (tokenizer-prior dominates; transformer-block anchor HARMS).
 
-**§0.1 honest score:** 5.8/10 (post g195 PASS_OUTPUT_DOMINANT, cycle 193). Codex cycle 201 trajectory: **6.0 now → 6.1 g192 PASS → 6.8-7.0 g197 PASS_CANARY → 7.3+ g199 (direct M_W operator test)**. Full branch projections in CURRENT STATUS block below.
+**§0.1 honest score: 6.1/10** (post g192 PASS_PERSISTENCE, cycle 202). Codex cycle 201 trajectory: **6.1 now → 6.8-7.0 g197 PASS_CANARY → 7.3+ g199 (direct M_W operator test)**. Full branch projections in CURRENT STATUS block below.
 
 ---
 
@@ -30,7 +30,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **§0.1 honest score: 5.8/10** (post-g195 PASS_OUTPUT_DOMINANT, cycle 193). **g195 PASS_OUTPUT_DOMINANT (15/15 cells, cycle 193).** Output (lm_head) carries 65% of tied signal (+0.362 nats), input (embed_tokens) 34% (+0.190 nats). Both = 99.3% of (input + output) = near-perfect additivity. Tied mean = +0.560. The lm_head geometry is the gradient generator. A18 SEV-10 #1 RESOLVED.
 
-**g192 28-layer replication RUNNING (cycle 202, 7/9 cells).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only ALL 3 SEEDS: +0.501, +0.543, +0.547. Mean +0.530 nats.** **row_shuffled seed=42: NLL=6.653, gap=-0.822 nats (MASSIVELY HARMFUL).** Signal AMPLIFIES at depth AND shuffled control is toxic. ETA 2/3 shuffled cells remaining (~22:33 UTC).
+**★ g192 28-layer replication PASS_PERSISTENCE (cycle 202, 9/9 cells COMPLETE) ★** Signal AMPLIFIES at full 28-layer depth. matched_mean_gain=**+0.530** (ALL 3 seeds > 8-layer +0.465). shuffled_mean_gain=**-0.824** (MASSIVELY HARMFUL, worse than 8-layer -0.709). Resolves A16 #6 (scope limit) + A18 #5 (shallow artifact). §0.1 → 6.1/10. Source: `results/genome_192_28layer_replication.json`.
 
 **g197 output-interface canary arena CODE COMPLETE (cycle 198).** All Codex code review findings resolved: cycle 195 (SEV-10 through SEV-2), cycle 198 §A (SEV-10 loss-slope leak, SEV-7 matched-row features, SEV-5 MAE wins, SEV-4 freq-bucket fix). Prereg LOCKED. Queued next after g192.
 
@@ -40,7 +40,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **Route 2 derivation deepened (cycle 201):** Codex Architecture-Theorist identifies Fisher-codebook operator M_W = C_h^{1/2} W_out^T (Diag(π) - ππ^T) W_out C_h^{1/2} as the correct theoretical object. Testable prediction: Phi(W) = sum_i log(1 + mu_i/theta) from M_W spectrum should predict final NLL better than hand-built features. g197 tests proxies; **g199 (proposed cycle 201): direct M_W eigenspectrum vs final NLL, LOCO CV.** Depth scaling law: Delta(L) = Delta_max(1 - exp(-L/L_c)) — pre-register 4/8/16/28/40 sweep. Expected §0.1 from full derivation: +0.6-1.0.
 
-**Queue:** g192 (28-layer, RUNNING 6/9, matched arm DONE, thermal throttled ~40 min/cell) -> g197 (canary arena, CODE COMPLETE) -> g196 (anchor-residue, gated on g192) -> g199 (M_W eigenspectrum, proposed cycle 201) -> g190 (DEFERRED).
+**Queue:** g197 (canary arena, LAUNCHING NOW) -> g196 (anchor-residue, unlocked by g192 PASS) -> g199 (M_W eigenspectrum, proposed cycle 201) -> g190 (DEFERRED).
 
 **★ g183 VERDICT: FAIL — corpus-derived PPMI SVD ACTIVELY HURTS (cycle 148, 2026-04-30) ★**
 

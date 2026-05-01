@@ -24,7 +24,17 @@ Source: `code/genome_197_output_interface_canary_arena.py`, `research/prereg/gen
 
 **Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Peak VRAM ~11.8 GiB (within 22 GB envelope). 
 
-**Status:** RUNNING (cycle 202, 6/9 cells done, cell 7 at step 3900/5000). scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only ALL 3 SEEDS COMPLETE: seed=42 +0.501, seed=7 +0.543, seed=13 +0.547. Mean +0.530 nats — ALL stronger than 8-layer +0.465.** Signal AMPLIFIES at 28-layer depth. row_shuffled seed=42 in progress: val_nll at step 3500 = 6.718 (0.87 nats WORSE than scratch at same step = MASSIVELY HARMFUL). GPU thermally throttled to 59% clock (87°C), ~40 min/cell. ETA all 9 cells: ~22:30 UTC. Prereg LOCKED.
+**Status:** **PASS_PERSISTENCE (cycle 202, 9/9 cells COMPLETE).**
+
+| Arm | seed=42 | seed=7 | seed=13 | Mean |
+|-----|---------|--------|---------|------|
+| scratch_ce | 5.831 | 5.844 | 5.845 | 5.840 |
+| matched_rows_only | 5.330 | 5.301 | 5.298 | 5.310 |
+| row_shuffled | 6.653 | 6.679 | 6.659 | 6.664 |
+| **matched gain** | **+0.501** | **+0.543** | **+0.547** | **+0.530** |
+| **shuffled gain** | **-0.822** | **-0.835** | **-0.814** | **-0.824** |
+
+Signal AMPLIFIES at 28-layer depth (+0.530 vs 8-layer +0.465 = 114%). Shuffled control is even MORE harmful at depth (-0.824 vs 8-layer -0.709). Resolves A16 #6 + A18 #5. §0.1 → 6.1/10. Prereg LOCKED.
 
 Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (LOCKED).
 
