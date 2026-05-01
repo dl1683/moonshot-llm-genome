@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import gc
 import json
+import math
 import os
 import sys
 import time
@@ -344,7 +345,8 @@ def main() -> None:
             key = str(seed)
             if key in payload["results"][arm_label] and not args.no_resume:
                 cell = payload["results"][arm_label][key]
-                if isinstance(cell, dict) and "final_val_nll" in cell:
+                v = cell.get("final_val_nll") if isinstance(cell, dict) else None
+                if isinstance(v, (int, float)) and math.isfinite(float(v)):
                     print_flush(f"\n  Skipping {arm_label}/seed={seed} (done)")
                     continue
 
