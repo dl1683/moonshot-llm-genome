@@ -30,7 +30,7 @@ We are a CS / AI / math research group. End goal: **map the learning of every AI
 
 **§0.1 honest score: 5.8/10** (post-g195 PASS_OUTPUT_DOMINANT, cycle 193). **g195 PASS_OUTPUT_DOMINANT (15/15 cells, cycle 193).** Output (lm_head) carries 65% of tied signal (+0.362 nats), input (embed_tokens) 34% (+0.190 nats). Both = 99.3% of (input + output) = near-perfect additivity. Tied mean = +0.560. The lm_head geometry is the gradient generator. A18 SEV-10 #1 RESOLVED.
 
-**g192 28-layer replication RUNNING (cycle 201, 6/9 cells).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only ALL 3 SEEDS COMPLETE: seed=42 +0.501, seed=7 +0.543, seed=13 +0.547. Mean +0.530 nats — ALL stronger than 8-layer +0.465.** Signal AMPLIFIES at depth. row_shuffled arm in progress (cell 7). ~69 min to completion.
+**g192 28-layer replication RUNNING (cycle 202, 7/9 cells).** Tests whether 8-layer signal persists at full 28-layer Qwen3-0.6B depth. 3 arms x 3 seeds = 9 cells. Prereg LOCKED. scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only ALL 3 SEEDS: +0.501, +0.543, +0.547. Mean +0.530 nats.** **row_shuffled seed=42: NLL=6.653, gap=-0.822 nats (MASSIVELY HARMFUL).** Signal AMPLIFIES at depth AND shuffled control is toxic. ETA 2/3 shuffled cells remaining (~22:33 UTC).
 
 **g197 output-interface canary arena CODE COMPLETE (cycle 198).** All Codex code review findings resolved: cycle 195 (SEV-10 through SEV-2), cycle 198 §A (SEV-10 loss-slope leak, SEV-7 matched-row features, SEV-5 MAE wins, SEV-4 freq-bucket fix). Prereg LOCKED. Queued next after g192.
 
