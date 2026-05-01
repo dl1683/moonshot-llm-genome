@@ -24,7 +24,7 @@ Source: `code/genome_197_output_interface_canary_arena.py`, `research/prereg/gen
 
 **Config:** 28 layers, hidden=1024, heads=16, kv_heads=8, intermediate=3072, head_dim=128, rope_theta=1e6, tied weights. Peak VRAM ~11.8 GiB (within 22 GB envelope). 
 
-**Status:** RUNNING (cycle 200, 5/9 cells done). scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only: seed=42 NLL=5.330 (+0.501), seed=7 NLL=5.301 (+0.543).** Both seeds STRONGER than 8-layer +0.465. Signal persists and amplifies at 28-layer depth. Cell 6 in progress. Prereg LOCKED.
+**Status:** RUNNING (cycle 201, 6/9 cells done). scratch_ce: 42=5.831, 7=5.844, 13=5.845. **matched_rows_only ALL 3 SEEDS COMPLETE: seed=42 +0.501, seed=7 +0.543, seed=13 +0.547. Mean +0.530 nats — ALL stronger than 8-layer +0.465.** Signal AMPLIFIES at 28-layer depth. row_shuffled arm in progress. Prereg LOCKED.
 
 Source: `code/genome_192_28layer_replication.py`, `research/prereg/genome_192_28layer_replication_2026-04-30.md` (LOCKED).
 
