@@ -83,7 +83,13 @@ where lambda_i are eigenvalues of M_W. Healthy heads maximize Phi(W); pathologic
 
 **g192 depth-amplification (cycle 201):** 28-layer matched mean = +0.530 nats vs 8-layer +0.465 = 114% retention (amplification, not attenuation). Route 2 predicts this: each layer receives `W_out^T (p - e_y)` via backprop, so correct output directions propagate well-aligned gradients through ALL layers. More layers = more weight matrices that exploit the aligned codebook → compounding benefit. Testable prediction: effect at 4 layers should be weaker than at 8.
 
-**g197 tests this indirectly** via spectral/angular/scaffold proxies. A future g199 could compute M_W eigenvalues directly and test whether they predict final NLL better than the proxy features. Expected §0.1 impact of the full derivation: +0.6 to +1.0 if the operator predicts feature rankings.
+**Dual perspective — gradient bottleneck (Godey & Artzi, arXiv 2603.10145, Mar 2026):** The lm_head W_out projects D-dim hidden states to V-dim logits (D << V). Backprop through this rank-D layer compresses the V-dim loss gradient: everything in ker(W_out^T) is destroyed, suppressing 95-99% of gradient norm. Their analysis is the DUAL of M_W: **M_W captures what the output layer CAN propagate (Fisher range space); ker(W_out^T) captures what it CANNOT propagate (null space).** Together they fully characterize the output-interface bottleneck. Their finding that convergence degrades with V/D ratio validates that lm_head geometry at initialization determines training dynamics. No fix proposed — they diagnose only. Our g197/g199 line TESTS whether initial M_W geometry predicts the severity of this bottleneck.
+
+**Optimal anchor lambda (Codex cycle 201):** Cannot be derived from M_W spectrum alone. In a quadratic mode model, dz_i/dt = -eta[mu_i(z_i - z_i*) + lambda(z_i - a_i)], optimal lambda also needs delta_i = a_i - z_i* (anchor-target error per mode). Honest result: closed-form lambda requires spectrum PLUS an anchor-noise/alignment model.
+
+**Depth scaling law (Codex cycle 201):** 28-layer +0.530 vs 8-layer +0.465 = only +14% despite 3.5x depth → diminishing returns. Pre-registerable form: Delta(L) = Delta_max(1 - exp(-L/L_c)), or if water-filling: Delta(L) ~ sum_i log(1 + L*mu_i/theta) saturating against task/noise limits. Sweep 4/8/16/28/40 layers to distinguish exponential saturation from log growth.
+
+**g197 tests this indirectly** via spectral/angular/scaffold proxies. **g199 (proposed cycle 201): compute M_W eigenvalues directly and test whether Phi(W) predicts final NLL better than the proxy features, LOCO CV.** Also: isospectral wrong-codebook controls (same M_W spectrum, wrong token assignment) — if they fail while trained rows pass, the theory must include a supervised alignment term, not just Fisher spectrum. Expected §0.1 impact of the full derivation: +0.6 to +1.0 if the operator predicts feature rankings.
 
 ### Route 2 Formal Feature-to-Rate Mapping (cycle 106)
 
