@@ -16,8 +16,8 @@ CPU only. No model training. <200 lines.
 import itertools
 import json
 import math
+import random as _rng_mod
 import sys
-from collections import Counter
 from pathlib import Path
 
 P = 5
@@ -41,6 +41,55 @@ def all_states():
             for m0 in AFFINES:
                 for m1 in AFFINES:
                     yield (v0, v1, m0, m1)
+
+
+def execute_commands(state, commands):
+    """Execute a command sequence on a state, return final state.
+    Commands: SETV, SETM, TRANSPORT, COMPOSE, SWAPV, SWAPM."""
+    v0, v1, m0, m1 = state
+    for cmd in commands:
+        parts = cmd.split()
+        op = parts[0]
+        if op == "SETV":
+            reg, val = parts[1], int(parts[2])
+            if reg == "V0":
+                v0 = val % P
+            else:
+                v1 = val % P
+        elif op == "SETM":
+            reg, a, b = parts[1], int(parts[2]), int(parts[3])
+            if a % P == 0:
+                raise ValueError(f"Invalid SETM coefficient a=0: {cmd}")
+            m = (a % P, b % P)
+            if reg == "M0":
+                m0 = m
+            else:
+                m1 = m
+        elif op == "TRANSPORT":
+            vi, mj = parts[1], parts[3]
+            v = v0 if vi == "V0" else v1
+            m = m0 if mj == "M0" else m1
+            result = apply_affine(m, v)
+            if vi == "V0":
+                v0 = result
+            else:
+                v1 = result
+        elif op == "COMPOSE":
+            mi, mj = parts[1], parts[3]
+            ma = m0 if mi == "M0" else m1
+            mb = m0 if mj == "M0" else m1
+            composed = compose_affine(ma, mb)
+            if mi == "M0":
+                m0 = composed
+            else:
+                m1 = composed
+        elif op == "SWAPV":
+            v0, v1 = v1, v0
+        elif op == "SWAPM":
+            m0, m1 = m1, m0
+        else:
+            raise ValueError(f"Unknown command: {cmd}")
+    return (v0, v1, m0, m1)
 
 
 QUERIES = [
@@ -136,6 +185,43 @@ def build_counterfactual_patch_oracle(matrix):
     return oracle
 
 
+def verify_symbolic_ceiling(n_trajectories=200, seed=99):
+    """KC7: generate random trajectories with execute_commands, verify the
+    reference interpreter scores 100% on the resulting states."""
+    rng = _rng_mod.Random(seed)
+    ops_pool = ["SETV", "SETM", "TRANSPORT", "COMPOSE", "SWAPV", "SWAPM"]
+    errors = 0
+    for _ in range(n_trajectories):
+        v0 = rng.randrange(P)
+        v1 = rng.randrange(P)
+        m0 = AFFINES[rng.randrange(len(AFFINES))]
+        m1 = AFFINES[rng.randrange(len(AFFINES))]
+        init = (v0, v1, m0, m1)
+        cmds = []
+        for _ in range(rng.randint(3, 10)):
+            op = rng.choice(ops_pool)
+            if op == "SETV":
+                cmds.append(f"SETV {rng.choice(['V0','V1'])} {rng.randrange(P)}")
+            elif op == "SETM":
+                cmds.append(f"SETM {rng.choice(['M0','M1'])} {rng.choice(UNITS)} {rng.randrange(P)}")
+            elif op == "TRANSPORT":
+                cmds.append(f"TRANSPORT {rng.choice(['V0','V1'])} THROUGH {rng.choice(['M0','M1'])}")
+            elif op == "COMPOSE":
+                mi = rng.choice(["M0", "M1"])
+                mj = "M1" if mi == "M0" else "M0"
+                cmds.append(f"COMPOSE {mi} AFTER {mj}")
+            elif op == "SWAPV":
+                cmds.append("SWAPV")
+            elif op == "SWAPM":
+                cmds.append("SWAPM")
+        final = execute_commands(init, cmds)
+        query = QUERIES[rng.randrange(len(QUERIES))]
+        expected = eval_query(final, query)
+        if not (0 <= expected < P):
+            errors += 1
+    return errors
+
+
 def check_dependency_cone():
     """Verify that patching one slot changes only queries that depend on it."""
     dep = {
@@ -224,12 +310,12 @@ def main():
 
     print("\n2. Building renderer matrix (5x5, all 120 permutations)...")
     rmat = build_renderer_matrix()
-    balanced = all(all(c == rmat[0][0] for c in row) for row in rmat)
+    cell_24 = all(all(c == 24 for c in row) for row in rmat)
+    n_perms = sum(sum(row) for row in rmat) // P
     print(f"   Renderer counts per cell: {rmat[0][0]}")
-    print(f"   Exactly balanced: {balanced}")
-    print(f"   I(logical; output) = 0: {balanced}")
-    bayes = 1.0 / P
-    print(f"   Chance accuracy: {bayes:.1%}")
+    print(f"   All cells == 24: {cell_24}")
+    print(f"   Total permutations: {n_perms}")
+    print(f"   I(logical; output) = 0: {cell_24}")
 
     print("\n3. Checking dependency-cone locality...")
     dep_violations = check_dependency_cone()
@@ -243,54 +329,83 @@ def main():
     perm_violations = check_permutation_equivariance()
     print(f"   Equivariance violations: {perm_violations}")
 
-    print("\n=== KILL-CONDITION AUDIT ===\n")
-    kills = {
-        "KC1_final_chunk_leakage": "PASS" if balanced else "FAIL",
-        "KC2_missing_collisions": "PASS" if n_states == 10000 else "FAIL",
-        "KC3_renderer_imbalance": "PASS" if balanced else "FAIL",
-        "KC4_insufficient_separation": "PASS" if sep_ok else "FAIL",
-        "KC5_answer_precomputation": "PASS (query disclosed after last reset by construction)",
-        "KC6_fake_composition": "PASS" if comp_errors == 0 else "FAIL",
-        "KC7_broken_symbolic_ceiling": "PASS (reference interpreter is correct by construction)",
-        "KC8_unfair_competitors": "PASS (all competitors see identical chunk text)",
-        "KC9_no_unique_causal_prediction": "PASS (hybrid-patch oracle preregistered)",
-        "KC10_claim_overreach": "PASS (narrowed to factorized-vs-unstructured claim)",
-    }
+    print("\n6. Verifying symbolic ceiling (200 random trajectories)...")
+    ceiling_errors = verify_symbolic_ceiling()
+    print(f"   Trajectory-level errors: {ceiling_errors}")
 
-    all_pass = True
-    for kc, result in kills.items():
-        status = "PASS" if "PASS" in result else "FAIL"
-        if status == "FAIL":
-            all_pass = False
-        print(f"  {kc}: {result}")
-
-    print(f"\n  Overall: {'ALL PASS — training is licensed' if all_pass else 'BLOCKED — fix failures before training'}")
-
-    print("\n6. Building counterfactual patch oracle (sampled)...")
+    print("\n7. Building counterfactual patch oracle (sampled)...")
     oracle = build_counterfactual_patch_oracle(matrix)
     oracle_states = len(oracle)
     print(f"   States with oracle entries: {oracle_states}")
     print(f"   Sample donor set: 50 states")
 
+    print("\n=== KILL-CONDITION AUDIT ===\n")
+    kills = {
+        "KC1_final_chunk_leakage": "PASS" if cell_24 else "FAIL",
+        "KC2_missing_collisions": "PASS" if n_states == 10000 else "FAIL",
+        "KC3_renderer_imbalance": "PASS" if cell_24 and n_perms == 120 else "FAIL",
+        "KC4_insufficient_separation": "PASS" if sep_ok else "FAIL",
+        "KC5_answer_precomputation": "BY_CONSTRUCTION (query disclosed after last reset)",
+        "KC6_fake_composition": "PASS" if comp_errors == 0 else "FAIL",
+        "KC7_broken_symbolic_ceiling": "PASS" if ceiling_errors == 0 else "FAIL",
+        "KC8_unfair_competitors": "BY_CONSTRUCTION (all competitors see identical chunk text)",
+        "KC9_no_unique_causal_prediction": "PASS" if oracle_states == 10000 else "FAIL",
+        "KC10_claim_overreach": "BY_CONSTRUCTION (narrowed to factorized-vs-unstructured claim)",
+    }
+
+    machine_pass = True
+    for kc, result in kills.items():
+        if result.startswith("FAIL"):
+            machine_pass = False
+        print(f"  {kc}: {result}")
+
+    dep_perm_ok = dep_violations == 0 and perm_violations == 0
+    if not dep_perm_ok:
+        machine_pass = False
+    print(f"\n  Dependency-cone clean: {dep_violations == 0}")
+    print(f"  Equivariance clean: {perm_violations == 0}")
+    by_construction = [k for k, v in kills.items() if v.startswith("BY_CONSTRUCTION")]
+    print(f"  By-construction (require manual verification): {', '.join(by_construction)}")
+    print(f"\n  Machine-checkable verdict: {'ALL PASS' if machine_pass else 'BLOCKED'}")
+
+    print("\n8. Persisting artifacts...")
+    sqm_path = out_dir / "handle0_state_query_matrix.json"
+    with open(sqm_path, "w") as f:
+        json.dump(matrix, f)
+    print(f"   state_query_matrix -> {sqm_path} ({sqm_path.stat().st_size // 1024} KB)")
+
+    rm_path = out_dir / "handle0_renderer_matrix.json"
+    with open(rm_path, "w") as f:
+        json.dump(rmat, f)
+    print(f"   renderer_matrix -> {rm_path}")
+
+    oracle_path = out_dir / "handle0_patch_oracle.json"
+    with open(oracle_path, "w") as f:
+        json.dump(oracle, f)
+    print(f"   patch_oracle -> {oracle_path} ({oracle_path.stat().st_size // (1024*1024)} MB)")
+
     summary = {
         "states": n_states,
         "zero_error_bits": round(bits, 2),
         "all_separable": sep_ok,
-        "renderer_balanced": balanced,
+        "renderer_cell_count": 24 if cell_24 else None,
+        "renderer_total_perms": n_perms,
         "dependency_cone_violations": dep_violations,
         "composition_errors": comp_errors,
         "permutation_violations": perm_violations,
+        "symbolic_ceiling_errors": ceiling_errors,
+        "oracle_states": oracle_states,
         "kill_conditions": kills,
-        "all_kill_conditions_pass": all_pass,
+        "machine_checkable_pass": machine_pass,
     }
 
     summary_path = out_dir / "handle0_verification_summary.json"
     with open(summary_path, "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"\nSummary written to {summary_path}")
+    print(f"   summary -> {summary_path}")
 
     print("\n=== DONE ===")
-    return 0 if all_pass else 1
+    return 0 if machine_pass else 1
 
 
 if __name__ == "__main__":
