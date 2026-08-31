@@ -2,8 +2,14 @@
 
 Date: 2026-08-31
 
-Status: proposal deposit from closed Latent-Space-Reasoning program. Not a
-preregistration. Requires a full direction dialogue before any work begins.
+Status: **NO-GO as currently specified** (Codex direction review, 2026-08-31).
+Architecturally new but not yet a discriminating mechanism hypothesis. The
+dumbest explanation — an ordinary finite-state key-value store with an
+answer-sufficient code in an explicit slot — is not defeated by the current
+design. Conditional reconsideration after a HANDLE-0 admission packet
+demonstrates that the task requires private persistent state, defeats
+output-visible explanations, and distinguishes typed slots from a symbolic
+cache or generic recurrent controller. See "Codex ruling" section below.
 
 ## What HANDLE Is
 
@@ -87,6 +93,40 @@ Before any hidden-state work on HANDLE, the behavioral positive control must:
    the kill conditions, and the admission packet.
 3. Preregistration written to `research/prereg/`.
 4. Only then: implementation and behavioral positive control.
+
+## Codex ruling (2026-08-31)
+
+**NO-GO as currently specified.** Architecturally outside MC007–MC033 (yes),
+but not hidden-state-ready. Key objections:
+
+1. **Output-geometry shadow risk.** If slots are trained against the answer,
+   the likely result is output geometry relocated into a named bottleneck —
+   causal but not a state mechanism of independent interest.
+2. **Dumbest explanation not defeated.** An ordinary finite-state key-value
+   store whose training loss writes an answer-sufficient code into a slot,
+   with the decoder reading that code, explains every planned observation.
+3. **Kill condition is misguided.** Demanding "new mathematical vocabulary"
+   imports the failed LSR ambition. A reliable standard mechanism would
+   satisfy this project's question.
+4. **Task problem, not substrate problem.** The 24 bridge failures are a
+   correlated family of prompt-local vs. learned-memory arbitration tasks.
+   HANDLE will repeat the same failure if trained on another source-validity
+   or numeric-arbitration behavior.
+
+**Conditional path forward (HANDLE-0 admission packet):**
+1. Define the operational space (actions, observations, horizon).
+2. Choose a behavior that provably requires private cross-chunk state.
+3. Construct renderer-crossed counterfactual data (same final chunk, different
+   histories, counterbalanced output tokens).
+4. Specify competing hypotheses: symbolic cache, direct answer register,
+   generic recurrence, typed compositional slots.
+5. Demonstrate that planned observations can distinguish those hypotheses.
+6. Preregister behavior, nulls, holdouts, failure criteria, and later
+   intervention before training.
+
+**If HANDLE survives that audit:** use four slots, <1M-parameter controller,
+procedural cross-chunk task. Behavioral performance only first. Slot mechanism
+card is a separate, later gate.
 
 ## Source
 
