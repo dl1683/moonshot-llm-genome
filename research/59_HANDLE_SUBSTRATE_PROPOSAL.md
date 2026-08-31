@@ -1,0 +1,98 @@
+# HANDLE Substrate Proposal
+
+Date: 2026-08-31
+
+Status: proposal deposit from closed Latent-Space-Reasoning program. Not a
+preregistration. Requires a full direction dialogue before any work begins.
+
+## What HANDLE Is
+
+HANDLE (Handle-Addressable Neural Dynamics with Lawful Execution) is a
+co-trained module architecture that explicitly commits to typed state
+operations. It is a **materially new substrate class** relative to MC007–MC033
+(which were all prompt-based behavioral bridges on frozen models).
+
+Core design:
+- Frozen base model (e.g., Qwen3-0.6B-Base) with KV cache discarded after
+  every chunk.
+- A small (<15M parameter) trainable module with eight persistent entity slots.
+- Typed operations: READ, WRITE, COMPOSE, TRANSPORT.
+- The module must pass all three state gates (see §11 of the math agenda)
+  before any hidden-state work is licensed.
+
+## Why It Fits Here
+
+The POST_MC033 bridge closeout requires a "materially new substrate class" to
+reopen hidden-state work. HANDLE is materially outside the closed family
+because:
+
+1. **Not prompt-based.** MC007–MC033 attempted behavioral bridges through prompt
+   engineering on frozen models. HANDLE co-trains a module that must learn
+   explicit state operations.
+2. **Explicit commitments.** The module's operations are typed and predeclared —
+   not discovered post hoc from activations.
+3. **Three-gate contract.** A HANDLE state must be present (measurable),
+   addressable (intervention changes behavior), AND composable (two states
+   combine predictably). This is strictly stronger than the existing
+   signature → intervention → reliability contract.
+
+## What It Does NOT Inherit
+
+- No hidden-state license from LSR. HANDLE enters at its own behavioral
+  positive control.
+- No prior-art claim. The LSR program found no native latent mathematics;
+  HANDLE is a constructive response, not a continuation.
+- No claim that existing latent spaces contain undiscovered structure.
+
+## LSR Constraints That Apply (from §11 math agenda)
+
+1. **Transport-earned quotients.** If HANDLE claims two slot states are
+   equivalent, the equivalence must be demonstrated by a held-out intervention,
+   not by representation similarity.
+2. **Collision witnesses for absence.** Claiming a slot lacks a property requires
+   two inputs with the same slot state but different downstream behavior.
+3. **Cheapest-mechanism nulls.** Before attributing behavior to a HANDLE slot,
+   run the cheapest direct alternative (e.g., does the behavior follow from
+   the frozen model's existing KV-cache state without the module?).
+4. **Many operational latent spaces.** Specify which (actions, observations,
+   horizon) triple the HANDLE mechanism operates in.
+
+## Admission Requirements (per POST_MC033)
+
+Before any hidden-state work on HANDLE, the behavioral positive control must:
+- Show the module learns to READ and WRITE state correctly on training
+  entities/templates.
+- Show held-out generalization (new entities, new templates, new slot
+  assignments).
+- Pass branch, null, local, side-number, parseability, prompt-channel,
+  source-disjoint, and output/candidate controls together.
+- Include the cheapest-mechanism null: frozen model alone, with no module,
+  on the same task.
+
+## Kill Conditions
+
+- If eight slots reduce to a lookup table (identity mapping from input to
+  output), HANDLE is not a state mechanism.
+- If the module's learned operations reduce to linear systems, automata,
+  coalgebra, causal abstraction, or semiseparable matrices, stop — the
+  state is standard, not new.
+- If the behavioral positive control fails (training entities don't learn
+  typed operations), close without hidden-state work.
+
+## Next Steps (requires direction dialogue)
+
+1. A 2–3-round Codex direction dialogue in this repo's context, reading the
+   POST_MC033 closeout, the §11 math agenda deposit, and this proposal.
+2. Codex specifies: the exact training task, the positive-control design,
+   the kill conditions, and the admission packet.
+3. Preregistration written to `research/prereg/`.
+4. Only then: implementation and behavioral positive control.
+
+## Source
+
+Deposited from `Latent-Space-Reasoning/` (closed 2026-08-31, 50 audited
+experiments). The constructive insight: the reason the LSR program found no
+native latent mathematics is that no current architecture has
+fixed-dimensional, non-linear-algebraic, compositional, accessible state.
+HANDLE is the proposal to build one and test whether it requires new
+mathematical vocabulary.
