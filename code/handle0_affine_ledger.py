@@ -174,8 +174,8 @@ def check_dependency_cone():
 def check_composition_law():
     """Kill condition 6: COMPOSE and TRANSPORT are not replaceable by direct writes."""
     counter_examples = 0
-    for m0 in AFFINES[:5]:
-        for m1 in AFFINES[:5]:
+    for m0 in AFFINES:
+        for m1 in AFFINES:
             composed = compose_affine(m0, m1)
             for x in range(P):
                 if apply_affine(composed, x) != apply_affine(m0, apply_affine(m1, x)):
@@ -184,18 +184,25 @@ def check_composition_law():
 
 
 def check_permutation_equivariance():
-    """Verify V0<->V1 and M0<->M1 swaps permute answers correctly."""
+    """Verify V0<->V1 and M0<->M1 swaps permute answers correctly.
+    SWAPV permutation: [1,0,2,3,4,5,7,6,9,8,11,10,13,12]
+    SWAPM permutation: [0,1,4,5,2,3,8,9,6,7,12,13,10,11]"""
+    import random as _rng
+    swapv_perm = [1, 0, 2, 3, 4, 5, 7, 6, 9, 8, 11, 10, 13, 12]
+    swapm_perm = [0, 1, 4, 5, 2, 3, 8, 9, 6, 7, 12, 13, 10, 11]
     violations = 0
-    for s in list(all_states())[:500]:
+    _r = _rng.Random(2)
+    sample = _r.sample(list(all_states()), 500)
+    for s in sample:
         v0, v1, m0, m1 = s
-        swapv = (v1, v0, m0, m1)
-        swapm = (v0, v1, m1, m0)
         base = [eval_query(s, q) for q in QUERIES]
-        sv = [eval_query(swapv, q) for q in QUERIES]
-        sm = [eval_query(swapm, q) for q in QUERIES]
-        if sv[0] != base[1] or sv[1] != base[0]:
+        sv = [eval_query((v1, v0, m0, m1), q) for q in QUERIES]
+        sm = [eval_query((v0, v1, m1, m0), q) for q in QUERIES]
+        expected_sv = [base[i] for i in swapv_perm]
+        expected_sm = [base[i] for i in swapm_perm]
+        if sv != expected_sv:
             violations += 1
-        if sm[2] != base[4] or sm[3] != base[5]:
+        if sm != expected_sm:
             violations += 1
     return violations
 
