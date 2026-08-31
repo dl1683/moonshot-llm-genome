@@ -85,13 +85,21 @@ Before any hidden-state work on HANDLE, the behavioral positive control must:
 - If the behavioral positive control fails (training entities don't learn
   typed operations), close without hidden-state work.
 
-## Next Steps (requires direction dialogue)
+## Next Steps
 
-1. A 2–3-round Codex direction dialogue in this repo's context, reading the
-   POST_MC033 closeout, the §11 math agenda deposit, and this proposal.
-2. Codex specifies: the exact training task, the positive-control design,
-   the kill conditions, and the admission packet.
-3. Preregistration written to `research/prereg/`.
+**HANDLE-0 admission packet completed:** see
+[60_HANDLE_0_AFFINE_LEDGER_ADMISSION.md](60_HANDLE_0_AFFINE_LEDGER_ADMISSION.md).
+
+The Affine Ledger task (four-register machine over GF(5), 10,000 states, 13.29
+zero-error bits, exactly balanced renderer crossing) satisfies the admission
+requirements. Conditional admission under the narrower claim: HANDLE may learn
+a causally factorized state mechanism more reliably than an equally budgeted
+unstructured recurrent controller. Behavioral accuracy alone is a control result.
+
+Remaining gates before training:
+1. Implement the reference symbolic cache/interpreter (CPU, <200 lines Python).
+2. Verify kill conditions 1-10 from the admission packet pass.
+3. Write preregistration to `research/prereg/`.
 4. Only then: implementation and behavioral positive control.
 
 ## Codex ruling (2026-08-31)
