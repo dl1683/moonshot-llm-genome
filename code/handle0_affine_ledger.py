@@ -112,9 +112,11 @@ def build_renderer_matrix():
 def build_counterfactual_patch_oracle(matrix):
     """Artifact 3: for every state and every single-slot donor, compute the
     hybrid answer vector."""
+    import random as _rng
     states_list = list(all_states())
     oracle = {}
-    sample_donors = states_list[:50]  # sample for tractability in the audit
+    _r = _rng.Random(0)
+    sample_donors = _r.sample(states_list, 50)
 
     for s in states_list:
         v0, v1, m0, m1 = s
@@ -137,17 +139,21 @@ def build_counterfactual_patch_oracle(matrix):
 def check_dependency_cone():
     """Verify that patching one slot changes only queries that depend on it."""
     dep = {
-        "V0": {0, 6, 8, 10, 11, 12, 13},   # READ V0, APPLY M*/V0, COMPOSED/V0
-        "V1": {1, 7, 9, 10, 11, 12, 13},    # READ V1, APPLY M*/V1, COMPOSED/V1
-        "M0": {2, 3, 6, 7, 10, 11, 12, 13}, # EVAL M0, APPLY M0, COMPOSED
-        "M1": {4, 5, 8, 9, 10, 11, 12, 13}, # EVAL M1, APPLY M1, COMPOSED
+        "V0": {0, 6, 8, 10, 12},            # READ V0, APPLY M0/V0, M1/V0, COMPOSED */V0
+        "V1": {1, 7, 9, 11, 13},             # READ V1, APPLY M0/V1, M1/V1, COMPOSED */V1
+        "M0": {2, 3, 6, 7, 10, 11, 12, 13}, # EVAL M0, APPLY M0, all COMPOSED
+        "M1": {4, 5, 8, 9, 10, 11, 12, 13}, # EVAL M1, APPLY M1, all COMPOSED
     }
 
+    import random as _rng
     violations = 0
     states_list = list(all_states())
-    for s in states_list[:200]:
+    _r = _rng.Random(1)
+    base_sample = _r.sample(states_list, 200)
+    donor_sample = _r.sample(states_list, 20)
+    for s in base_sample:
         base = [eval_query(s, q) for q in QUERIES]
-        for donor in states_list[:20]:
+        for donor in donor_sample:
             v0, v1, m0, m1 = s
             dv0, dv1, dm0, dm1 = donor
             hybrids = {
