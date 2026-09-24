@@ -48,14 +48,12 @@ far-value ln 26, head L4-H1 95.1% ID-mass, control clean; e021).
 Debt: retrieval head is correlational n=1 — e038 causal lesion RUNNING;
 e035 task-anatomy RUNNING. Falsifier: L4-H1 lesion leaving copy intact.
 
-**C5 (M, frontier) — First-order selective forgetting is bounded.** Naive
-r=1.22 (corrected labels); exact projection reaches the 0.66-nat bar at
-flat r≈1.7 (train-B-symmetric r≈1.2-1.3); masked 1.8; one accidental
-partial-projection/implicit-Adam-anchor hybrid hit r=3-6 at mild dose
-(mechanism: projection-before-Adam ≠ projection-of-step). Debt: e003d
-(deliberate anchor to the bar) unrun. Falsifier/upgrader: e003d achieving
-r≥2 at the bar upgrades C5 to "selective forgetting requires implicit
-retain-anchoring"; failing leaves second-order/weight-surgery as the family.
+**C5 (CLOSED, negative) — First-order ascent cannot content-selectively
+forget.** At the 0.66-nat bar: naive r=1.23, projection r=1.43 (margin
+1.17×), and r vs train-B = 1.08 — memorization-symmetric damage; apparent
+selectivity was a measurement-axis artifact. The r≈5-6 head-start did not
+reproduce (chaotic event). Next family: weight surgery (e023) / second-
+order. MLP-5 energy-carrier confirmed causally along the way (e019).
 
 **Cross-cutting instruments validated:** decision depth, locality funnel,
 KL(L5‖L4), write/stream ratios, transplant R-bands, ΔW subspace atlas —
@@ -469,13 +467,15 @@ positions; decision-depth census at COPY positions; locality funnel
   despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
   interpretation.
 
-**CLAIM 5 FINAL NUMBERS (E003c, 2026-09-24T13:50Z):** exact projection
-reaches the 0.66-nat forgetting bar with r flat ≈ 1.57→1.75 (rising
-slightly); train-B collateral 1.32× val-B means memorization-symmetric
-selectivity is ~1.2-1.3. Best deliberate first-order selectivity at real
-forgetting ≈ 1.7; the accidental anchor-hybrid (3-6, mild dose) untested to
-the bar (e003d). MLP-5 energy-carrier CONFIRMED causally (E019: graceful
-α-scaling + zero=4×rotate; entropy non-monotone in α).
+**CLAIM 5 CLOSED (E003c full report, 2026-09-24T14:05Z): first-order ascent
+cannot content-selectively forget.** r at the 0.66-nat bar = 1.43 (2 seeds)
+vs 2.0 bar; step-matched naive 1.23 (margin 1.17×); **r vs train-B = 1.08**
+— memorization-symmetric damage, zero content selectivity; val_B
+"selectivity" was a measurement artifact. e003b's r≈6 head-start failed to
+reproduce against its own code+seed (chaotic event, not mechanism). Next
+family: weight surgery (e023) or second-order methods. MLP-5 energy-carrier
+causally confirmed (e019: zero 4× rotate; α=0.5 improves CE; removal
+spikes entropy +0.62).
 
 **CLAIM 5 — FINAL CORRECTED STATE (E003b full report + Review 3, 2026-09-24T13:50Z).**
 The registered instruments FAILED: exact projection peak r=1.455 (<1.5,

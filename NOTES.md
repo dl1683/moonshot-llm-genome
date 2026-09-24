@@ -11,28 +11,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## E003c + E019 — dose-to-bar and the MLP-5 thermostat (2026-09-24) — DONE
+## E003c + E019 — dose-to-bar and the MLP-5 thermostat (2026-09-24) — DONE (record corrected per full report)
 
-E003c (exact projection — the FAILING variant per the corrected record —
-pushed to the 0.66-nat forgetting bar, step-norm-matched naive control):
-- **Bar REACHED; r flat ≈ 1.57→1.75 across dose (slightly RISING).** Even
-  the best deliberate first-order instrument tops out near r≈1.7 to real
-  forgetting (naive 1.22; accidental anchor-hybrid 3-6 at mild dose only,
-  still untested to the bar — e003d remains).
-- **Measurement-axis asymmetry is real: train-B collateral runs 1.32×
-  val-B** — against memorization-symmetric collateral, r would be lower
-  (~1.2-1.3). Honest selectivity at the bar is modest, not dramatic.
+E003c (exact projection dosed to the 0.66-nat forgetting bar; 2 seeds +
+step-norm-matched naive control verified at ratio 0.99):
+- **DOWNGRADE FIRES.** r at the bar = 1.43/1.39 (needed ≥2.0); matched
+  naive = 1.23 — projection's entire reproducible margin is 1.17×. r(dose)
+  declines monotonically 1.52 → 1.41 → ~1.15 (the earlier 'flat ≈1.7'
+  quick-read was wrong; apparent r>1.5 recovery at high dose is ratios of
+  destroyed-model CEs).
+- **THE KILLER: r vs train-B at the bar = 1.08 ≈ naive.** A and B trained
+  memories are forgotten at IDENTICAL rates — zero content selectivity in
+  the memorization channel; the val_B 'selectivity' was a measurement-axis
+  artifact (held-out fluency text is more robust than any trained text).
+- **e003b's r≈5-6 head-start DOES NOT REPRODUCE** (agent re-ran e003b's own
+  code+seed: peak 1.455 vs recorded 6.128; s280 target matches bit-for-bit)
+  — a chaotic trajectory event, not an Adam-anchor mechanism. The
+  'accidental hybrid' story is dead too.
 
-E019 (MLP-5 thermostat): **ENERGY CARRIER CONFIRMED** — α-scaling graceful
-(α=0.5 and α=2 both within +0.15 CE) AND zero-costs-4x-rotate (R2 branch;
-the prompt's R1 direction was written backwards, the agent evaluated both
-honestly). MLP-5's magnitude matters, its direction barely; entropy is
-NOT monotone in α (slight uptick 1→2) — not a simple temperature dial.
+E019 (MLP-5 thermostat): **energy carrier CONFIRMED** — zero +0.60 vs
+rotate60 +0.15 (4×); α=0.5 slightly IMPROVES CE (−0.0065 — MLP-5 marginally
+over-writes); α=2 graceful (+0.12); zeroing spikes output entropy +0.62.
+Magnitude keeps the distribution sharp; direction worth ~¼ of presence.
 
-WHAT'S NEXT: e003d (deliberate anchor variant to the bar) is the last
-claim-5 instrument. e035/e038 dispatched. T010 mechanism card next
-thinking slot.
-
+WHAT'S NEXT: claim 5 closes as 'first-order ascent cannot content-
+selectively forget (r=1.08 memorization-symmetric)'. Next family: weight
+surgery (e023 entity-level embedding+lm_head rows — the genome-era
+inheritance) or second-order. Card C5 updated.
 ## E003b — targeted/projected ascent: registered instruments FAIL; an Adam-anchor accident soars (2026-09-24) — DONE (record corrected)
 
 WHAT WE DID: 300-step ascent arms with corrected labels (target = train-A
