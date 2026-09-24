@@ -15,6 +15,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E023 — surgical forgetting at entity granularity (2026-09-24) — DONE (pending agent full-report confirmation)
+
+WHAT WE DID: the full registered battery per scratch/e023_design.md — D1/D2
+granularity ladder, arms A/B/C, G0-G4 gates, frozen selectivity metrics.
+
+WHAT WE SAW (T011 written):
+- **The J-row scalpel: S_name = 573 (bar 5) at corpus cost +0.0008 nats**
+  — the program's first selective instrument, ~4907× less collateral than
+  entity-ascent at matched damage. Bar-2 erasure missed narrowly (acc
+  13.6% > 10%): surgery damages near-completely, does not fully erase.
+- D1 all-letters bomb confirmed (+0.38 CE). P2 refuted (collateral-vs-
+  overlap ρ=0.61; idiosyncratic per-name collateral). P3 confirmed (no
+  revive trigger; ascent catastrophic at the name bar: val +1.16, S_name
+  1.06). lm_head-row zero: NLL 2.04/acc 0.83 (write-side partial).
+- Card consequence: C6 drafted (entity knowledge in I/O row coordinates;
+  damage-vs-erase boundary open).
+
+WHAT'S NEXT: e018 (causal depth — instrument validation) + e042 (name-
+circuit atlas: the 13.6% residual + collateral idiosyncrasy) dispatched.
+
 ## E041 — ΔW ceiling null: PARTIAL ANCHORING (card C3 debt paid) (2026-09-24) — DONE
 
 WHAT WE DID: trained BDO = seed-42 init, different data order (corpus seed

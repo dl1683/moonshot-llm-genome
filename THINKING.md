@@ -7,7 +7,39 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T010 — MECHANISM CARD v1: the functional anatomy of a 2.7M char-transformer (2026-09-24T13:47Z)
+## T011 — Surgical forgetting WORKS at entity granularity (2026-09-24T15:02Z; pending agent full-report confirmation)
+
+**E023 verdicts (registered):**
+- **The J-row scalpel is the program's first selective instrument: S_name =
+  573 (bar 5) at corpus cost +0.0008 nats.** Zeroing one rare letter's
+  embedding+lm_head rows (384 params) drops JULIET accuracy 88%→13.6% with
+  essentially zero collateral — **4,907× less collateral than entity-ascent
+  at matched damage.** P1's formal confirmation missed only on the Bar-2
+  erasure bar (acc 13.6% > 10%): surgery DAMAGES the name near-completely
+  but does not fully erase it.
+- **D1 (all-six-letters) confirmed as a bomb** (+0.38 corpus CE — as
+  registered). Precision lives in the rare-letter core.
+- **P2 refuted (ρ=0.61 < 0.8):** collateral damage to other names does NOT
+  cleanly track letter overlap — name collateral structure is idiosyncratic
+  (LUCIO Δ8.5, ROMEO Δ2.5), not overlap-graded.
+- **P3 confirmed: entity-granular ascent stays dead.** No revive trigger
+  fired; at the +2.0-nat name bar, val CE is already +1.16 (catastrophic)
+  with S_name 1.06 — the ascent family is closed at every granularity.
+- Untied split preview: lm_head-row zero → NLL 2.04, acc 0.83 (the write
+  side carries real but partial damage; full split in metrics).
+
+**Card consequence — C6 drafted:** entity knowledge at this scale lives
+substantially in I/O row coordinates (rare-letter private rows), giving
+surgical selectivity ~500× beyond any first-order instrument; the
+damage-vs-erase boundary (13.6% residual) and the collateral idiosyncrasy
+(P2's failure) are the open edges. The residual is the e042 target: body
+circuits carrying the remainder.
+
+**Arc next:** e018 (instrument validation, Review-4 priority) + e042
+(name-circuit atlas: what carries the 13.6% residual and the idiosyncratic
+collateral) in parallel.
+
+## T010 — MECHANISM CARD v1: The functional anatomy of a 2.7M char-transformer (2026-09-24T13:47Z)
 
 The lab's first formal findings artifact (README: "a mechanism card another
 researcher could attack"). Every claim carries its evidence chain, known

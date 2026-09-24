@@ -877,6 +877,17 @@ def main():
             "spearman": rho, "o": dict(zip(P2A_CONTROLS, xs)),
             "d_nll": dict(zip(P2A_CONTROLS, ys)),
             "pass": bool(rho >= 0.8)}
+    if d2zb_res:
+        cens_d = {w: d2zb_res["census"][w]["nll"] - r1c_base[w]["nll"] for w in CENSUS}
+        nonj_d = {w: d2zb_res["d_nll"][w] for w in BATTERY
+                  if w not in ("JULIET", "JOHN", "PROSPERO")}
+        p2["letter_class_collateral"] = {
+            "rule": "after D2-zero-both: all 12 J-census words dNLL >= 1.0 while "
+                    "every non-J name takes <= 0.05",
+            "census_d_nll": cens_d, "min_census_d": min(cens_d.values()),
+            "nonj_d_nll": nonj_d, "max_abs_nonj_d": max(abs(v) for v in nonj_d.values()),
+            "pass": bool(min(cens_d.values()) >= 1.0
+                         and max(abs(v) for v in nonj_d.values()) <= 0.05)}
     lzw, wzw = cell_results.get("D2/zero/lm"), cell_results.get("D2/zero/wte")
     if lzw and wzw:
         jc_l = lzw["gen"]["total"]["counts"]["J_chars"] if "gen" in lzw else None
@@ -916,7 +927,9 @@ def main():
                        else "intermediate")}
 
     # P3
-    p3 = {"bar1_reached": bar1_reached, "at_bar1": cross}
+    p3 = {"bar1_reached": bar1_reached, "at_bar1": cross,
+          "r_interp_note": ("evals every 50 steps (registered); the Bar-1 crossing is "
+                            "interpolated on the s0->s50 segment")}
     if bar1_reached and cross.get("r_entity") is not None:
         p3["r_entity_ok"] = bool(cross["r_entity"] < 1.3)
         p3["s_name_ok"] = bool((not math.isinf(cross["s_name"])) and cross["s_name"] < 2)
