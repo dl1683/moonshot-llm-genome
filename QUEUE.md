@@ -17,7 +17,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e003b | corrected ascent instruments | DONE (superseded by e003c) | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
 | e013 | rare-token causal mask | SUPERSEDED | census found no concentrated rare-token heads; replaced by context-truncation design |
 | e014c | write-clamp training | PARKED (R2) | clamp ‖w‖ ≤ α·‖x_in‖ during training (or eval-time rescale L0/L5 writes ×{0.5,2,4}) — decisive test of "damage tracks write allocation" (P3 passed correlationally) |
-| e018 | causal depth | PARKED (R2) | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
+| e018 | causal depth | DONE (T012) | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
 | e014b.1 | replication seed | DONE (e030 slot) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |
 | e011c-ci | bootstrap CIs | DONE (e030 slot) | resample eval batches for e011c rotate/zero ratios (MLP-L1 ×2.95, MLP-L5 ×0.24 beyond noise?) |
 | e001–e003, e011a/b/c, e012, e014b | — | DONE | see NOTES.md |
