@@ -1,607 +1,112 @@
-# LLM Mechanisms Mega Project
+# Neural Dissection Lab
 
-Fresh rebuild. No old result is inherited as doctrine, evidence, or status.
+> Da Vinci opened corpses to understand anatomy. We open neural networks to
+> understand how they learn, what they store, and how they break. No thesis to
+> defend, no product to ship — dissection, curiosity first.
 
-## Question
+## Mission
 
-Can we find reliable control surfaces inside learned language systems?
+Train small neural networks (1M–100M parameters; sweet spot 1–10M), then:
 
-The useful ambition is narrow and hard:
+- **watch them learn** (loss landscapes, phase transitions, grokking, curriculum),
+- **see what they store** (which layers/heads/neurons hold what),
+- **make them forget** (selectively erase a skill; measure collateral damage),
+- **transplant their organs** (swap layers/heads/MLPs between nets),
+- **evolve them** (lineage and mutation instead of, or with, gradient descent),
+- **poke preloaded nets** and change behavior in *predicted* directions.
 
-> Map an internal signature, intervene on it, and prove whether the intervention works, fails, or only looked real because the controls were weak.
+The method is play: run hundreds of experiments, graph everything, follow
+anomalies, let the good questions emerge from the anatomy.
 
-## What Counts
+## Why small networks
 
-A mechanism only counts if it passes three gates:
+A 1–10M-param transformer trains in minutes on one RTX 5090 Laptop. Iteration
+is effectively free, experiments are disposable, and a dissection program lives
+or dies on iteration count. Anything over 100M params is out of scope.
 
-1. **Signature:** there is a measurable internal pattern tied to a concrete behavior.
-2. **Intervention:** steering, editing, training, or surgery changes behavior in the predicted direction.
-3. **Reliability:** nulls, holdouts, locality, fluency, robustness, side effects, and failure modes are documented.
+## History (tombstone commit `106aeff`, 2026-09-24)
 
-Failed interventions are first-class results. Pretty geometry without a causal intervention is only an instrument reading.
+Three prior programs live in git history below that commit:
 
-## Research Spine
+1. **Neural Genome** (Apr–May 2026): transplanting trained capability between
+   models. Strong-form transfer falsified; one real finding survived — *output
+   lm_head token-row directions are causal training coordinates*.
+2. **LLM control surfaces** (May–Jul 2026): MC001–MC033, KSQ001–015. 0 promoted
+   mechanism cards; 1 bounded card (attention-write mediation in Qwen3-1.7B).
+3. **HANDLE** (Aug 2026): private-state substrate proposal; NO-GO; task built,
+   never trained.
 
-- [Rebuild doctrine](research/00_REBUILD_DOCTRINE.md)
-- [2026 field and market map](research/01_FIELD_AND_MARKET_MAP_2026.md)
-- [Project portfolio](research/02_PROJECT_PORTFOLIO.md)
-- [Experiment roadmap](research/03_EXPERIMENT_ROADMAP.md)
-- [Math agenda](research/04_MATH_AGENDA.md)
-- [Mechanism card contract](research/05_MECHANISM_CARD_CONTRACT.md)
-- [Adversarial review](research/06_ADVERSARIAL_REVIEW.md)
-- [First target decision](research/07_FIRST_TARGET_DECISION.md)
-- [MC-001 preregistration](research/prereg/MC001_SYCOPHANCY_TRUTH_CONFLICT.md)
-- [MC-001 review rubric](research/reviews/MC001_REVIEW_RUBRIC.md)
-- [Artifact and budget standards](research/08_ARTIFACT_AND_BUDGET_STANDARDS.md)
-- [MC-001 prompt design](research/09_MC001_PROMPT_DESIGN.md)
-- [First stack decision](research/10_FIRST_STACK_DECISION.md)
-- [Method comparison matrix](research/11_METHOD_COMPARISON_MATRIX.md)
-- [Market and product thesis](research/12_MARKET_PRODUCT_THESIS.md)
-- [Long research program](research/13_LONG_RESEARCH_PROGRAM.md)
-- [Advanced math program](research/14_ADVANCED_MATH_PROGRAM.md)
-- [Open questions ledger](research/15_OPEN_QUESTIONS_LEDGER.md)
-- [Closure adversarial review](research/16_CLOSURE_ADVERSARIAL_REVIEW.md)
-- [Control surface verdict](research/17_CONTROL_SURFACE_VERDICT.md)
-- [Next stack decision](research/18_NEXT_STACK_DECISION.md)
-- [Gemma stack decision](research/19_GEMMA_STACK_DECISION.md)
-- [Control-surface atlas](research/20_CONTROL_SURFACE_ATLAS.md)
-- [Control-surface laws and gaps](research/21_CONTROL_SURFACE_LAWS_AND_GAPS.md)
-- [Control-surface artifact registry](research/22_ARTIFACT_REGISTRY.md)
-- [Control-surface comparison snapshot](research/23_CONTROL_SURFACE_COMPARISON.md)
-- [Control-surface law audit](research/24_CONTROL_SURFACE_LAW_AUDIT.md)
-- [Control-surface next experiment queue](research/25_CONTROL_SURFACE_NEXT_EXPERIMENT_QUEUE.md)
-- [Control-surface smoke diagnostics](research/26_CONTROL_SURFACE_SMOKE_DIAGNOSTICS.md)
-- [Control-surface bridge ladder](research/27_CONTROL_SURFACE_BRIDGE_LADDER.md)
-- [Control-surface mixture law](research/28_CONTROL_SURFACE_MIXTURE_LAW.md)
-- [Control-surface decision frontier](research/29_CONTROL_SURFACE_DECISION_FRONTIER.md)
-- [Control-surface route disposition](research/30_CONTROL_SURFACE_ROUTE_DISPOSITION.md)
-- [Control-surface transfer matrix](research/31_CONTROL_SURFACE_TRANSFER_MATRIX.md)
-- [Control-surface reliability matrix](research/32_CONTROL_SURFACE_RELIABILITY_MATRIX.md)
-- [Control-surface error taxonomy](research/33_CONTROL_SURFACE_ERROR_TAXONOMY.md)
-- [Control-surface gate geometry](research/34_CONTROL_SURFACE_GATE_GEOMETRY.md)
-- [Control-surface genome snapshot](research/35_CONTROL_SURFACE_GENOME_SNAPSHOT.md)
-- [Control-surface axis interactions](research/36_CONTROL_SURFACE_AXIS_INTERACTIONS.md)
-- [Control-surface coverage gaps](research/37_CONTROL_SURFACE_COVERAGE_GAPS.md)
-- [Control-surface gap closure plan](research/38_CONTROL_SURFACE_GAP_CLOSURE_PLAN.md)
-- [Control-surface offensive doctrine](research/39_CONTROL_SURFACE_OFFENSIVE_DOCTRINE.md)
-- [Control-surface compositional genome audit](research/40_CONTROL_SURFACE_COMPOSITIONAL_GENOME_AUDIT.md)
-- [Control-surface family matrix](research/41_CONTROL_SURFACE_FAMILY_MATRIX.md)
-- [Control-surface knowledge ladder](research/42_CONTROL_SURFACE_KNOWLEDGE_LADDER.md)
-- [Control-surface knowledge gap plan](research/43_CONTROL_SURFACE_KNOWLEDGE_GAP_PLAN.md)
-- [Control-surface knowledge substrate admission](research/44_CONTROL_SURFACE_KNOWLEDGE_SUBSTRATE_ADMISSION.md)
-- [Control-surface knowledge candidate queue](research/45_CONTROL_SURFACE_KNOWLEDGE_CANDIDATE_QUEUE.md)
-- [Control-surface knowledge first-run pack](research/46_CONTROL_SURFACE_KNOWLEDGE_FIRST_RUN_PACK.md)
-- [Control-surface knowledge first-run outcomes](research/47_CONTROL_SURFACE_KNOWLEDGE_FIRST_RUN_OUTCOMES.md)
-- [Control-surface knowledge failure topology](research/48_CONTROL_SURFACE_KNOWLEDGE_FAILURE_TOPOLOGY.md)
-- [Control-surface knowledge second-wave outcomes](research/49_CONTROL_SURFACE_KNOWLEDGE_SECOND_WAVE_OUTCOMES.md)
-- [Control-surface knowledge third-wave outcomes](research/50_CONTROL_SURFACE_KNOWLEDGE_THIRD_WAVE_OUTCOMES.md)
-- [Control-surface knowledge fourth-wave outcomes](research/51_CONTROL_SURFACE_KNOWLEDGE_FOURTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge fifth-wave outcomes](research/52_CONTROL_SURFACE_KNOWLEDGE_FIFTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge sixth-wave outcomes](research/53_CONTROL_SURFACE_KNOWLEDGE_SIXTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge seventh-wave outcomes](research/54_CONTROL_SURFACE_KNOWLEDGE_SEVENTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge eighth-wave outcomes](research/55_CONTROL_SURFACE_KNOWLEDGE_EIGHTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge ninth-wave outcomes](research/56_CONTROL_SURFACE_KNOWLEDGE_NINTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge tenth-wave outcomes](research/57_CONTROL_SURFACE_KNOWLEDGE_TENTH_WAVE_OUTCOMES.md)
-- [Control-surface knowledge eleventh-wave outcomes](research/58_CONTROL_SURFACE_KNOWLEDGE_ELEVENTH_WAVE_OUTCOMES.md)
-- [KSQ001 familiar-entity prior-counterbalance first-run status](research/cards/KSQ001_FAMILIAR_ENTITY_PRIOR_COUNTERBALANCE_FIRST_RUN_STATUS.md)
-- [KSQ001 familiar-entity prior-counterbalance first-run preregistration](research/prereg/KSQ001_FAMILIAR_ENTITY_PRIOR_COUNTERBALANCE_FIRST_RUN.md)
-- [KSQ001 familiar-prior parseability bound status](research/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND_STATUS.md)
-- [KSQ001 familiar-prior parseability bound preregistration](research/prereg/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND.md)
-- [KSQ002 familiar-entity source-rewrite equivalence first-run status](research/cards/KSQ002_FAMILIAR_ENTITY_SOURCE_REWRITE_EQUIVALENCE_FIRST_RUN_STATUS.md)
-- [KSQ002 familiar-entity source-rewrite equivalence first-run preregistration](research/prereg/KSQ002_FAMILIAR_ENTITY_SOURCE_REWRITE_EQUIVALENCE_FIRST_RUN.md)
-- [KSQ002 source-rewrite holdout repair status](research/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR_STATUS.md)
-- [KSQ002 source-rewrite holdout repair preregistration](research/prereg/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR.md)
-- [KSQ003 statusless evidence-aggregation first-run status](research/cards/KSQ003_BRIDGE_STATUSLESS_EVIDENCE_AGGREGATION_FIRST_RUN_STATUS.md)
-- [KSQ003 statusless evidence-aggregation first-run preregistration](research/prereg/KSQ003_BRIDGE_STATUSLESS_EVIDENCE_AGGREGATION_FIRST_RUN.md)
-- [KSQ003 evidence-sufficiency redesign status](research/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN_STATUS.md)
-- [KSQ003 evidence-sufficiency redesign preregistration](research/prereg/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN.md)
-- [KSQ004 bridge answer-interface minimal-pairs first-run status](research/cards/KSQ004_BRIDGE_ANSWER_INTERFACE_MINIMAL_PAIRS_FIRST_RUN_STATUS.md)
-- [KSQ004 bridge answer-interface minimal-pairs first-run preregistration](research/prereg/KSQ004_BRIDGE_ANSWER_INTERFACE_MINIMAL_PAIRS_FIRST_RUN.md)
-- [KSQ004 template-invariance adjudication status](research/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION_STATUS.md)
-- [KSQ004 template-invariance adjudication preregistration](research/prereg/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION.md)
-- [KSQ005 grounded-answerability first-run status](research/cards/KSQ005_UNCERTAINTY_GROUNDED_ANSWERABILITY_FIRST_RUN_STATUS.md)
-- [KSQ005 grounded-answerability first-run preregistration](research/prereg/KSQ005_UNCERTAINTY_GROUNDED_ANSWERABILITY_FIRST_RUN.md)
-- [KSQ006 context-support counterfactuals first-run status](research/cards/KSQ006_UNCERTAINTY_CONTEXT_SUPPORT_COUNTERFACTUALS_FIRST_RUN_STATUS.md)
-- [KSQ006 context-support counterfactuals first-run preregistration](research/prereg/KSQ006_UNCERTAINTY_CONTEXT_SUPPORT_COUNTERFACTUALS_FIRST_RUN.md)
-- [KSQ005/006 relation-evidence answerability status](research/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY_STATUS.md)
-- [KSQ005/006 relation-evidence answerability preregistration](research/prereg/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY.md)
-- [KSQ007 nonce-evidence answerability status](research/cards/KSQ007_NONCE_EVIDENCE_ANSWERABILITY_STATUS.md)
-- [KSQ007 nonce-evidence answerability preregistration](research/prereg/KSQ007_NONCE_EVIDENCE_ANSWERABILITY.md)
-- [KSQ007B claim-channel boundary status](research/cards/KSQ007_CLAIM_CHANNEL_BOUNDARY_STATUS.md)
-- [KSQ007B claim-channel boundary preregistration](research/prereg/KSQ007_CLAIM_CHANNEL_BOUNDARY.md)
-- [KSQ008 neutral-evidence channel repair status](research/cards/KSQ008_NEUTRAL_EVIDENCE_CHANNEL_REPAIR_STATUS.md)
-- [KSQ008 neutral-evidence channel repair preregistration](research/prereg/KSQ008_NEUTRAL_EVIDENCE_CHANNEL_REPAIR.md)
-- [KSQ009 schema-specific value lookup status](research/cards/KSQ009_SCHEMA_SPECIFIC_VALUE_LOOKUP_STATUS.md)
-- [KSQ009 schema-specific value lookup preregistration](research/prereg/KSQ009_SCHEMA_SPECIFIC_VALUE_LOOKUP.md)
-- [KSQ010 two-stage codebook value lookup status](research/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP_STATUS.md)
-- [KSQ010 two-stage codebook value lookup preregistration](research/prereg/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP.md)
-- [KSQ011 answer-for syntax ablation status](research/cards/KSQ011_ANSWER_FOR_SYNTAX_ABLATION_STATUS.md)
-- [KSQ011 answer-for syntax ablation preregistration](research/prereg/KSQ011_ANSWER_FOR_SYNTAX_ABLATION.md)
-- [KSQ012 function-assignment wrapper repair status](research/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR_STATUS.md)
-- [KSQ012 function-assignment wrapper repair preregistration](research/prereg/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR.md)
-- [KSQ013 nonfunction representation screen status](research/cards/KSQ013_NONFUNCTION_REPRESENTATION_SCREEN_STATUS.md)
-- [KSQ013 nonfunction representation screen preregistration](research/prereg/KSQ013_NONFUNCTION_REPRESENTATION_SCREEN.md)
-- [KSQ014 slash locality packet status](research/cards/KSQ014_SLASH_LOCALITY_PACKET_STATUS.md)
-- [KSQ014 slash locality packet preregistration](research/prereg/KSQ014_SLASH_LOCALITY_PACKET.md)
-- [KSQ015 catalog slash full-source packet status](research/cards/KSQ015_CATALOG_SLASH_FULL_SOURCE_PACKET_STATUS.md)
-- [KSQ015 catalog slash full-source packet preregistration](research/prereg/KSQ015_CATALOG_SLASH_FULL_SOURCE_PACKET.md)
-- [Transfer width probe MC005/MC003/MC004 preregistration](research/prereg/TRANSFER_WIDTH_PROBE_MC005_MC003_MC004.md)
-- [Singleton stage replication pack](research/prereg/SINGLETON_STAGE_REPLICATION_PACK.md)
-- [Machine-readable control-surface atlas](data/control_surface_atlas.json)
-- [Machine-readable control-surface law hypotheses](data/control_surface_law_hypotheses.json)
-- [Machine-readable control-surface law audit](data/control_surface_law_audit.json)
-- [Machine-readable control-surface next experiment queue](data/control_surface_next_experiment_queue.json)
-- [Machine-readable control-surface artifact index](data/control_surface_artifact_index.json)
-- [Machine-readable control-surface comparison](data/control_surface_comparison.json)
-- [Machine-readable control-surface smoke diagnostics](data/control_surface_smoke_diagnostics.json)
-- [Machine-readable control-surface bridge ladder](data/control_surface_bridge_ladder.json)
-- [Machine-readable control-surface mixture law](data/control_surface_mixture_law.json)
-- [Machine-readable control-surface decision frontier](data/control_surface_decision_frontier.json)
-- [Machine-readable KSQ001 familiar-entity prior-counterbalance first-run result](results/cards/KSQ001_FAMILIAR_ENTITY_PRIOR_COUNTERBALANCE/ksq001_familiar_entity_prior_counterbalance_first_run.json)
-- [Machine-readable KSQ001 familiar-entity prior-counterbalance 10-source smoke result](results/cards/KSQ001_FAMILIAR_ENTITY_PRIOR_COUNTERBALANCE/ksq001_familiar_entity_prior_counterbalance_smoke_limit10.json)
-- [Machine-readable KSQ001 familiar-entity prior-counterbalance full behavior result](results/cards/KSQ001_FAMILIAR_ENTITY_PRIOR_COUNTERBALANCE/ksq001_familiar_entity_prior_counterbalance_full_behavior.json)
-- [Machine-readable KSQ001 familiar-prior parseability bound full behavior](results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_full_behavior.json)
-- [Machine-readable KSQ002 familiar-entity source-rewrite equivalence first-run result](results/cards/KSQ002_FAMILIAR_ENTITY_SOURCE_REWRITE_EQUIVALENCE/ksq002_familiar_entity_source_rewrite_equivalence_first_run.json)
-- [Machine-readable KSQ002 familiar-entity source-rewrite equivalence 10-source smoke result](results/cards/KSQ002_FAMILIAR_ENTITY_SOURCE_REWRITE_EQUIVALENCE/ksq002_familiar_entity_source_rewrite_equivalence_smoke_limit10.json)
-- [Machine-readable KSQ002 familiar-entity source-rewrite equivalence full behavior result](results/cards/KSQ002_FAMILIAR_ENTITY_SOURCE_REWRITE_EQUIVALENCE/ksq002_familiar_entity_source_rewrite_equivalence_full_behavior.json)
-- [Machine-readable KSQ003 statusless evidence-aggregation first-run result](results/cards/KSQ003_BRIDGE_STATUSLESS_EVIDENCE_AGGREGATION/ksq003_bridge_statusless_evidence_aggregation_first_run.json)
-- [Machine-readable KSQ003 statusless evidence-aggregation 10-source smoke result](results/cards/KSQ003_BRIDGE_STATUSLESS_EVIDENCE_AGGREGATION/ksq003_bridge_statusless_evidence_aggregation_smoke_limit10.json)
-- [Machine-readable KSQ003 evidence-sufficiency redesign structural result](results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_first_run.json)
-- [Machine-readable KSQ003 evidence-sufficiency redesign 10-source smoke result](results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_smoke_limit10.json)
-- [Machine-readable KSQ003 evidence-sufficiency redesign full behavior](results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_full_behavior.json)
-- [Machine-readable KSQ004 bridge answer-interface minimal-pairs first-run result](results/cards/KSQ004_BRIDGE_ANSWER_INTERFACE_MINIMAL_PAIRS/ksq004_bridge_answer_interface_minimal_pairs_first_run.json)
-- [Machine-readable KSQ004 bridge answer-interface minimal-pairs 10-source smoke result](results/cards/KSQ004_BRIDGE_ANSWER_INTERFACE_MINIMAL_PAIRS/ksq004_bridge_answer_interface_minimal_pairs_smoke_limit10.json)
-- [Machine-readable KSQ004 bridge answer-interface minimal-pairs full behavior result](results/cards/KSQ004_BRIDGE_ANSWER_INTERFACE_MINIMAL_PAIRS/ksq004_bridge_answer_interface_minimal_pairs_full_behavior.json)
-- [Machine-readable KSQ005 grounded-answerability first-run result](results/cards/KSQ005_UNCERTAINTY_GROUNDED_ANSWERABILITY/ksq005_uncertainty_grounded_answerability_first_run.json)
-- [Machine-readable KSQ005 grounded-answerability 10-source smoke result](results/cards/KSQ005_UNCERTAINTY_GROUNDED_ANSWERABILITY/ksq005_uncertainty_grounded_answerability_smoke_limit10.json)
-- [Machine-readable KSQ006 context-support counterfactuals first-run result](results/cards/KSQ006_UNCERTAINTY_CONTEXT_SUPPORT_COUNTERFACTUALS/ksq006_uncertainty_context_support_counterfactuals_first_run.json)
-- [Machine-readable KSQ006 context-support counterfactuals 10-source smoke result](results/cards/KSQ006_UNCERTAINTY_CONTEXT_SUPPORT_COUNTERFACTUALS/ksq006_uncertainty_context_support_counterfactuals_smoke_limit10.json)
-- [Machine-readable KSQ005/006 relation-evidence answerability structural result](results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_first_run.json)
-- [Machine-readable KSQ005/006 relation-evidence answerability 10-source smoke result](results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_smoke_limit10.json)
-- [Machine-readable KSQ005/006 relation-evidence answerability full behavior](results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_full_behavior.json)
-- [Machine-readable KSQ007 nonce-evidence answerability structural result](results/cards/KSQ007_NONCE_EVIDENCE_ANSWERABILITY/ksq007_nonce_evidence_answerability_first_run.json)
-- [Machine-readable KSQ007 nonce-evidence answerability 10-source smoke result](results/cards/KSQ007_NONCE_EVIDENCE_ANSWERABILITY/ksq007_nonce_evidence_answerability_smoke_limit10.json)
-- [Machine-readable KSQ007B claim-channel boundary structural result](results/cards/KSQ007_CLAIM_CHANNEL_BOUNDARY/ksq007_claim_channel_boundary_first_run.json)
-- [Machine-readable KSQ007B claim-channel boundary 10-source smoke result](results/cards/KSQ007_CLAIM_CHANNEL_BOUNDARY/ksq007_claim_channel_boundary_smoke_limit10.json)
-- [Machine-readable KSQ008 neutral-evidence channel repair structural result](results/cards/KSQ008_NEUTRAL_EVIDENCE_CHANNEL_REPAIR/ksq008_neutral_evidence_channel_repair_first_run.json)
-- [Machine-readable KSQ008 neutral-evidence channel repair 10-source smoke result](results/cards/KSQ008_NEUTRAL_EVIDENCE_CHANNEL_REPAIR/ksq008_neutral_evidence_channel_repair_smoke_limit10.json)
-- [Machine-readable KSQ009 schema-specific value lookup structural result](results/cards/KSQ009_SCHEMA_SPECIFIC_VALUE_LOOKUP/ksq009_schema_specific_value_lookup_first_run.json)
-- [Machine-readable KSQ009 schema-specific value lookup 10-source smoke result](results/cards/KSQ009_SCHEMA_SPECIFIC_VALUE_LOOKUP/ksq009_schema_specific_value_lookup_smoke_limit10.json)
-- [Machine-readable KSQ010 two-stage codebook value lookup structural result](results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_first_run.json)
-- [Machine-readable KSQ010 two-stage codebook value lookup 10-source smoke result](results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_smoke_limit10.json)
-- [Machine-readable KSQ011 answer-for syntax ablation structural result](results/cards/KSQ011_ANSWER_FOR_SYNTAX_ABLATION/ksq011_answer_for_syntax_ablation_first_run.json)
-- [Machine-readable KSQ011 answer-for syntax ablation 10-source smoke result](results/cards/KSQ011_ANSWER_FOR_SYNTAX_ABLATION/ksq011_answer_for_syntax_ablation_smoke_limit10.json)
-- [Machine-readable KSQ012 function-assignment wrapper repair structural result](results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_first_run.json)
-- [Machine-readable KSQ012 function-assignment wrapper repair 10-source smoke result](results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_smoke_limit10.json)
-- [Machine-readable KSQ013 nonfunction representation screen structural result](results/cards/KSQ013_NONFUNCTION_REPRESENTATION_SCREEN/ksq013_nonfunction_representation_screen_first_run.json)
-- [Machine-readable KSQ013 nonfunction representation screen 10-source smoke result](results/cards/KSQ013_NONFUNCTION_REPRESENTATION_SCREEN/ksq013_nonfunction_representation_screen_smoke_limit10.json)
-- [Machine-readable KSQ014 slash locality packet structural result](results/cards/KSQ014_SLASH_LOCALITY_PACKET/ksq014_slash_locality_packet_first_run.json)
-- [Machine-readable KSQ014 slash locality packet 10-source smoke result](results/cards/KSQ014_SLASH_LOCALITY_PACKET/ksq014_slash_locality_packet_smoke_limit10.json)
-- [Machine-readable KSQ015 catalog slash full-source structural result](results/cards/KSQ015_CATALOG_SLASH_FULL_SOURCE_PACKET/ksq015_catalog_slash_full_source_first_run.json)
-- [Machine-readable KSQ015 catalog slash full-source full behavior result](results/cards/KSQ015_CATALOG_SLASH_FULL_SOURCE_PACKET/ksq015_catalog_slash_full_source_full_behavior.json)
-- [Machine-readable control-surface route disposition](data/control_surface_route_disposition.json)
-- [Machine-readable control-surface transfer matrix](data/control_surface_transfer_matrix.json)
-- [Machine-readable control-surface reliability matrix](data/control_surface_reliability_matrix.json)
-- [Machine-readable control-surface error taxonomy](data/control_surface_error_taxonomy.json)
-- [Machine-readable control-surface gate geometry](data/control_surface_gate_geometry.json)
-- [Machine-readable control-surface genome snapshot](data/control_surface_genome_snapshot.json)
-- [Machine-readable control-surface axis interactions](data/control_surface_axis_interactions.json)
-- [Machine-readable control-surface coverage gaps](data/control_surface_coverage_gaps.json)
-- [Machine-readable control-surface gap closure plan](data/control_surface_gap_closure_plan.json)
-- [Machine-readable control-surface offensive doctrine](data/control_surface_offensive_doctrine.json)
-- [Machine-readable control-surface compositional genome audit](data/control_surface_compositional_genome_audit.json)
-- [Machine-readable control-surface family matrix](data/control_surface_family_matrix.json)
-- [Machine-readable control-surface knowledge ladder](data/control_surface_knowledge_ladder.json)
-- [Machine-readable control-surface knowledge gap plan](data/control_surface_knowledge_gap_plan.json)
-- [Machine-readable control-surface knowledge substrate admission](data/control_surface_knowledge_substrate_admission.json)
-- [Machine-readable control-surface knowledge candidate queue](data/control_surface_knowledge_candidate_queue.json)
-- [Machine-readable control-surface knowledge first-run pack](data/control_surface_knowledge_first_run_pack.json)
-- [Machine-readable control-surface knowledge first-run outcomes](data/control_surface_knowledge_first_run_outcomes.json)
-- [Machine-readable control-surface knowledge failure topology](data/control_surface_knowledge_failure_topology.json)
-- [Machine-readable control-surface knowledge second-wave outcomes](data/control_surface_knowledge_second_wave_outcomes.json)
-- [Machine-readable control-surface knowledge third-wave outcomes](data/control_surface_knowledge_third_wave_outcomes.json)
-- [Machine-readable control-surface knowledge fourth-wave outcomes](data/control_surface_knowledge_fourth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge fifth-wave outcomes](data/control_surface_knowledge_fifth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge sixth-wave outcomes](data/control_surface_knowledge_sixth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge seventh-wave outcomes](data/control_surface_knowledge_seventh_wave_outcomes.json)
-- [Machine-readable control-surface knowledge eighth-wave outcomes](data/control_surface_knowledge_eighth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge ninth-wave outcomes](data/control_surface_knowledge_ninth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge tenth-wave outcomes](data/control_surface_knowledge_tenth_wave_outcomes.json)
-- [Machine-readable control-surface knowledge eleventh-wave outcomes](data/control_surface_knowledge_eleventh_wave_outcomes.json)
-- [Machine-readable KSQ002 source-rewrite holdout repair full behavior](results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_full_behavior.json)
-- [Machine-readable KSQ004 template-invariance adjudication full behavior](results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_full_behavior.json)
-- [Machine-readable transfer width probe MC005/MC003/MC004](data/transfer_width_probe_mc005_mc003_mc004.json)
-- [Machine-readable singleton stage replication pack](data/singleton_stage_replication_pack.json)
-- [Control-surface atlas validator](code/validate_control_surface_atlas.py)
-- [Control-surface artifact parser](code/control_surface_artifacts.py)
-- [Control-surface comparison builder](code/control_surface_comparison.py)
-- [Control-surface law audit builder](code/control_surface_law_audit.py)
-- [Control-surface next queue builder](code/control_surface_next_queue.py)
-- [Control-surface smoke diagnostics builder](code/control_surface_smoke_diagnostics.py)
-- [Control-surface bridge ladder builder](code/control_surface_bridge_ladder.py)
-- [Control-surface mixture law builder](code/control_surface_mixture_law.py)
-- [Control-surface decision frontier builder](code/control_surface_decision_frontier.py)
-- [Control-surface route disposition builder](code/control_surface_route_disposition.py)
-- [Control-surface transfer matrix builder](code/control_surface_transfer_matrix.py)
-- [Control-surface reliability matrix builder](code/control_surface_reliability_matrix.py)
-- [Control-surface error taxonomy builder](code/control_surface_error_taxonomy.py)
-- [Control-surface gate geometry builder](code/control_surface_gate_geometry.py)
-- [Control-surface genome snapshot builder](code/control_surface_genome_snapshot.py)
-- [Control-surface axis interactions builder](code/control_surface_axis_interactions.py)
-- [Control-surface coverage gaps builder](code/control_surface_coverage_gaps.py)
-- [Control-surface gap closure plan builder](code/control_surface_gap_closure_plan.py)
-- [Control-surface offensive doctrine builder](code/control_surface_offensive_doctrine.py)
-- [Control-surface compositional genome audit builder](code/control_surface_compositional_genome_audit.py)
-- [Control-surface family matrix builder](code/control_surface_family_matrix.py)
-- [Control-surface knowledge ladder builder](code/control_surface_knowledge_ladder.py)
-- [Control-surface knowledge gap plan builder](code/control_surface_knowledge_gap_plan.py)
-- [Control-surface knowledge substrate admission builder](code/control_surface_knowledge_substrate_admission.py)
-- [Control-surface knowledge candidate queue builder](code/control_surface_knowledge_candidate_queue.py)
-- [Control-surface knowledge first-run pack builder](code/control_surface_knowledge_first_run_pack.py)
-- [Control-surface knowledge first-run outcomes builder](code/control_surface_knowledge_first_run_outcomes.py)
-- [Control-surface knowledge failure topology builder](code/control_surface_knowledge_failure_topology.py)
-- [Control-surface knowledge second-wave outcomes builder](code/control_surface_knowledge_second_wave_outcomes.py)
-- [Control-surface knowledge third-wave outcomes builder](code/control_surface_knowledge_third_wave_outcomes.py)
-- [Control-surface knowledge fourth-wave outcomes builder](code/control_surface_knowledge_fourth_wave_outcomes.py)
-- [Control-surface knowledge fifth-wave outcomes builder](code/control_surface_knowledge_fifth_wave_outcomes.py)
-- [Control-surface knowledge sixth-wave outcomes builder](code/control_surface_knowledge_sixth_wave_outcomes.py)
-- [Control-surface knowledge seventh-wave outcomes builder](code/control_surface_knowledge_seventh_wave_outcomes.py)
-- [Control-surface knowledge eighth-wave outcomes builder](code/control_surface_knowledge_eighth_wave_outcomes.py)
-- [Control-surface knowledge ninth-wave outcomes builder](code/control_surface_knowledge_ninth_wave_outcomes.py)
-- [Control-surface knowledge tenth-wave outcomes builder](code/control_surface_knowledge_tenth_wave_outcomes.py)
-- [Control-surface knowledge eleventh-wave outcomes builder](code/control_surface_knowledge_eleventh_wave_outcomes.py)
-- [KSQ001 familiar-prior parseability bound runner](code/ksq001_familiar_prior_parseability_bound.py)
-- [KSQ002 source-rewrite holdout repair runner](code/ksq002_source_rewrite_holdout_repair.py)
-- [KSQ003 evidence-sufficiency redesign runner](code/ksq003_evidence_sufficiency_redesign.py)
-- [KSQ004 template-invariance adjudication runner](code/ksq004_template_invariance_adjudication.py)
-- [KSQ005/006 relation-evidence answerability runner](code/ksq005_006_relation_evidence_answerability_redesign.py)
-- [KSQ007 nonce-evidence answerability runner](code/ksq007_nonce_evidence_answerability_calibrator.py)
-- [KSQ007B claim-channel boundary runner](code/ksq007_claim_channel_boundary_audit.py)
-- [KSQ008 neutral-evidence channel repair runner](code/ksq008_neutral_evidence_channel_repair.py)
-- [KSQ009 schema-specific value lookup runner](code/ksq009_schema_specific_value_lookup.py)
-- [KSQ010 two-stage codebook value lookup runner](code/ksq010_two_stage_codebook_value_lookup.py)
-- [KSQ011 answer-for syntax ablation runner](code/ksq011_answer_for_syntax_ablation.py)
-- [KSQ012 function-assignment wrapper repair runner](code/ksq012_function_assignment_wrapper_repair.py)
-- [KSQ013 nonfunction representation screen runner](code/ksq013_nonfunction_representation_screen.py)
-- [KSQ014 slash locality packet runner](code/ksq014_slash_locality_packet.py)
-- [KSQ015 catalog slash full-source packet runner](code/ksq015_catalog_slash_full_source_packet.py)
-- [Transfer width probe MC005/MC003/MC004 builder](code/transfer_width_probe_mc005_mc003_mc004.py)
-- [Singleton stage replication pack builder](code/singleton_stage_replication_pack.py)
-- [MC007 semi-synthetic familiar-entity lookup preregistration](research/prereg/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP.md)
-- [MC007 semi-synthetic familiar-entity lookup status](research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_STATUS.md)
-- [MC007 semi-synthetic familiar-entity lookup V2 authority-dial status](research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V2_AUTHORITY_DIAL_STATUS.md)
-- [MC007 semi-synthetic familiar-entity lookup V3 parse-repair status](research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V3_PARSE_REPAIR_STATUS.md)
-- [MC007 semi-synthetic familiar-entity lookup V4 authority-interface status](research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V4_AUTHORITY_INTERFACE_STATUS.md)
-- [MC007 semi-synthetic familiar-entity lookup route closeout status](research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_ROUTE_CLOSEOUT_STATUS.md)
-- [MC008 symbolic fact-code arbitration preregistration](research/prereg/MC008_SYMBOLIC_FACT_CODE_ARBITRATION.md)
-- [MC008 symbolic fact-code arbitration behavior status](research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC008 symbolic fact-code arbitration V2 null-authority repair status](research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_V2_NULL_AUTHORITY_REPAIR_STATUS.md)
-- [MC008 symbolic fact-code arbitration route closeout status](research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_ROUTE_CLOSEOUT_STATUS.md)
-- [MC009 derived-code arbitration preregistration](research/prereg/MC009_DERIVED_CODE_ARBITRATION.md)
-- [MC009 derived-code arbitration smoke status](research/cards/MC009_DERIVED_CODE_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC010 two-hop fact-code arbitration preregistration](research/prereg/MC010_TWO_HOP_FACT_CODE_ARBITRATION.md)
-- [MC010 two-hop fact-code arbitration structural status](research/cards/MC010_TWO_HOP_FACT_CODE_ARBITRATION_STRUCTURAL_STATUS.md)
-- [MC010 two-hop fact-code arbitration behavior status](research/cards/MC010_TWO_HOP_FACT_CODE_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC010 two-hop fact-code arbitration scaffold](code/mc010_two_hop_fact_code_arbitration.py)
-- [MC011 atomic-number code arbitration preregistration](research/prereg/MC011_ATOMIC_NUMBER_CODE_ARBITRATION.md)
-- [MC011 atomic-number code arbitration behavior status](research/cards/MC011_ATOMIC_NUMBER_CODE_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC011 atomic-number code arbitration scaffold](code/mc011_atomic_number_code_arbitration.py)
-- [MC012 reliability-labeled numeric arbitration preregistration](research/prereg/MC012_RELIABILITY_LABELED_NUMERIC_ARBITRATION.md)
-- [MC012 reliability-labeled numeric arbitration behavior status](research/cards/MC012_RELIABILITY_LABELED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC012 reliability-labeled numeric arbitration scaffold](code/mc012_reliability_labeled_numeric_arbitration.py)
-- [MC013 status-channel ablation numeric arbitration preregistration](research/prereg/MC013_STATUS_CHANNEL_ABLATION_NUMERIC_ARBITRATION.md)
-- [MC013 status-channel ablation numeric arbitration behavior status](research/cards/MC013_STATUS_CHANNEL_ABLATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC013 status-channel ablation numeric arbitration scaffold](code/mc013_status_channel_ablation_numeric_arbitration.py)
-- [MC014 inferred-reliability numeric arbitration preregistration](research/prereg/MC014_INFERRED_RELIABILITY_NUMERIC_ARBITRATION.md)
-- [MC014 inferred-reliability numeric arbitration behavior status](research/cards/MC014_INFERRED_RELIABILITY_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC014 inferred-reliability numeric arbitration scaffold](code/mc014_inferred_reliability_numeric_arbitration.py)
-- [MC015 parity-gated numeric arbitration preregistration](research/prereg/MC015_PARITY_GATED_NUMERIC_ARBITRATION.md)
-- [MC015 parity-gated numeric arbitration behavior status](research/cards/MC015_PARITY_GATED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC015 parity-gated numeric arbitration scaffold](code/mc015_parity_gated_numeric_arbitration.py)
-- [MC016 alphabet-gated numeric arbitration preregistration](research/prereg/MC016_ALPHABET_GATED_NUMERIC_ARBITRATION.md)
-- [MC016 alphabet-gated numeric arbitration behavior status](research/cards/MC016_ALPHABET_GATED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md)
-- [MC016 alphabet-gated numeric arbitration scaffold](code/mc016_alphabet_gated_numeric_arbitration.py)
-- [MC031 statusless reliability bridge preregistration](research/prereg/MC031_STATUSLESS_RELIABILITY_BRIDGE.md)
-- [MC031 statusless reliability bridge smoke status](research/cards/MC031_STATUSLESS_RELIABILITY_BRIDGE_STATUS.md)
-- [MC031 statusless reliability bridge scaffold](code/mc031_statusless_reliability_bridge.py)
-- [MC032 post-checksum cross-table bridge preregistration](research/prereg/MC032_POST_CHECKSUM_BRIDGE.md)
-- [MC032 post-checksum cross-table bridge status](research/cards/MC032_POST_CHECKSUM_BRIDGE_STATUS.md)
-- [MC032 post-checksum cross-table bridge scaffold](code/mc032_post_checksum_bridge.py)
-- [MC033 fact-claim bridge closeout preregistration](research/prereg/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT.md)
-- [MC033 fact-claim bridge closeout status](research/cards/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT_STATUS.md)
-- [MC033 fact-claim bridge closeout scaffold](code/mc033_fact_claim_bridge_closeout.py)
-- [Post-MC033 bridge substrate closeout audit](research/cards/POST_MC033_BRIDGE_SUBSTRATE_CLOSEOUT_STATUS.md)
-- [Machine-readable post-MC033 bridge substrate closeout](data/post_mc033_bridge_closeout_audit.json)
-- [Post-MC033 bridge substrate closeout builder](code/post_mc033_bridge_closeout_audit.py)
-- [Gemma 2 2B smoke preregistration](research/prereg/MC001G_GEMMA2_2B_SMOKE.md)
-- [Gemma 2 2B logit smoke preregistration](research/prereg/MC001G_GEMMA2_2B_LOGIT_SMOKE.md)
-- [Gemma 2 2B smoke status](research/cards/MC001G_GEMMA2_2B_SMOKE_STATUS.md)
-- [Gemma 2 2B repair preregistration](research/prereg/MC001G_GEMMA2_2B_REPAIR.md)
-- [Gemma 2 2B repair status](research/cards/MC001G_GEMMA2_2B_REPAIR_STATUS.md)
-- [Gemma 2 2B dense discovery preregistration](research/prereg/MC001G_GEMMA2_2B_DISCOVERY.md)
-- [Gemma 2 2B dense discovery status](research/cards/MC001G_GEMMA2_2B_DISCOVERY_STATUS.md)
-- [Gemma 2 2B residualized discovery preregistration](research/prereg/MC001G_GEMMA2_2B_RESIDUALIZED_DISCOVERY.md)
-- [Gemma 2 2B residualized discovery status](research/cards/MC001G_GEMMA2_2B_RESIDUALIZED_DISCOVERY_STATUS.md)
-- [Gemma 2 2B pre-hint margin discovery preregistration](research/prereg/MC001G_GEMMA2_2B_PREHINT_MARGIN_DISCOVERY.md)
-- [Gemma 2 2B pre-hint margin discovery status](research/cards/MC001G_GEMMA2_2B_PREHINT_MARGIN_DISCOVERY_STATUS.md)
-- [Gemma 2 2B matched intervention preregistration](research/prereg/MC001G_GEMMA2_2B_INTERVENTION.md)
-- [Gemma 2 2B matched intervention status](research/cards/MC001G_GEMMA2_2B_INTERVENTION_STATUS.md)
-- [Gemma 2 2B activation patch preregistration](research/prereg/MC001G_GEMMA2_2B_ACTIVATION_PATCH.md)
-- [Gemma 2 2B activation patch status](research/cards/MC001G_GEMMA2_2B_ACTIVATION_PATCH_STATUS.md)
-- [Gemma 2 2B sparse discovery preregistration](research/prereg/MC001G_GEMMA2_2B_SPARSE_DISCOVERY.md)
-- [Gemma 2 2B sparse discovery status](research/cards/MC001G_GEMMA2_2B_SPARSE_DISCOVERY_STATUS.md)
-- [Gemma 2 2B repair expansion preregistration](research/prereg/MC001G_GEMMA2_2B_REPAIR_EXPANSION.md)
-- [Gemma 2 2B repair expansion status](research/cards/MC001G_GEMMA2_2B_REPAIR_EXPANSION_STATUS.md)
-- [Gemma 2 2B targeted repair preregistration](research/prereg/MC001G_GEMMA2_2B_TARGETED_REPAIR.md)
-- [Gemma 2 2B targeted repair V2 preregistration](research/prereg/MC001G_GEMMA2_2B_TARGETED_REPAIR_V2.md)
-- [Gemma 2 2B targeted repair status](research/cards/MC001G_GEMMA2_2B_TARGETED_REPAIR_STATUS.md)
-- [Gemma 2 2B format-control preregistration](research/prereg/MC001G_GEMMA2_2B_FORMAT_CONTROL.md)
-- [Gemma 2 2B format-control V2 preregistration](research/prereg/MC001G_GEMMA2_2B_FORMAT_CONTROL_V2.md)
-- [Gemma 2 2B format-control status](research/cards/MC001G_GEMMA2_2B_FORMAT_CONTROL_STATUS.md)
-- [Gemma 2 2B pairwise text preregistration](research/prereg/MC001G_GEMMA2_2B_PAIRWISE_TEXT.md)
-- [Gemma 2 2B pairwise text V2 preregistration](research/prereg/MC001G_GEMMA2_2B_PAIRWISE_TEXT_V2.md)
-- [Gemma 2 2B pairwise text status](research/cards/MC001G_GEMMA2_2B_PAIRWISE_TEXT_STATUS.md)
-- [Gemma 2 2B generated text preregistration](research/prereg/MC001G_GEMMA2_2B_GENERATED_TEXT.md)
-- [Gemma 2 2B generated text status](research/cards/MC001G_GEMMA2_2B_GENERATED_TEXT_STATUS.md)
-- [Gemma 2 2B generated text V2 preregistration](research/prereg/MC001G_GEMMA2_2B_GENERATED_TEXT_V2.md)
-- [Gemma 2 2B generated text V2 status](research/cards/MC001G_GEMMA2_2B_GENERATED_TEXT_V2_STATUS.md)
-- [MC002 known-unknown hallucination preregistration](research/prereg/MC002_KNOWN_UNKNOWN_HALLUCINATION.md)
-- [MC002 known-unknown hallucination status](research/cards/MC002_KNOWN_UNKNOWN_HALLUCINATION_STATUS.md)
-- [MC002 known-unknown chat-render preregistration](research/prereg/MC002_KNOWN_UNKNOWN_CHAT_RENDER.md)
-- [MC002 known-unknown chat-render status](research/cards/MC002_KNOWN_UNKNOWN_CHAT_RENDER_STATUS.md)
-- [MC002 known-unknown answer-scoring preregistration](research/prereg/MC002_KNOWN_UNKNOWN_ANSWER_SCORING.md)
-- [MC002 known-unknown answer-scoring status](research/cards/MC002_KNOWN_UNKNOWN_ANSWER_SCORING_STATUS.md)
-- [MC002 Gemma 2 2B IT chat preregistration](research/prereg/MC002_KNOWN_UNKNOWN_GEMMA2_2B_IT_CHAT.md)
-- [MC002 Gemma 2 2B IT chat status](research/cards/MC002_KNOWN_UNKNOWN_GEMMA2_2B_IT_CHAT_STATUS.md)
-- [MC002 pressure calibration preregistration](research/prereg/MC002_PRESSURE_CALIBRATION.md)
-- [MC002 pressure calibration status](research/cards/MC002_PRESSURE_CALIBRATION_STATUS.md)
-- [MC002B context-support preregistration](research/prereg/MC002B_CONTEXT_SUPPORT.md)
-- [MC002B context-support status](research/cards/MC002B_CONTEXT_SUPPORT_STATUS.md)
-- [MC003 delayed-copy preregistration](research/prereg/MC003_DELAYED_COPY.md)
-- [MC003 delayed-copy V2 preregistration](research/prereg/MC003_DELAYED_COPY_V2.md)
-- [MC003 delayed-copy status](research/cards/MC003_DELAYED_COPY_STATUS.md)
-- [MC003 delayed-copy signature preregistration](research/prereg/MC003_DELAYED_COPY_SIGNATURE.md)
-- [MC003 delayed-copy signature status](research/cards/MC003_DELAYED_COPY_SIGNATURE_STATUS.md)
-- [MC003 delayed-copy early signature preregistration](research/prereg/MC003_DELAYED_COPY_EARLY_SIGNATURE.md)
-- [MC003 delayed-copy early signature status](research/cards/MC003_DELAYED_COPY_EARLY_SIGNATURE_STATUS.md)
-- [MC003 delayed-copy V3 condition-balance preregistration](research/prereg/MC003_DELAYED_COPY_V3_CONDITION_BALANCE.md)
-- [MC003 delayed-copy V3 condition-balance status](research/cards/MC003_DELAYED_COPY_V3_CONDITION_BALANCE_STATUS.md)
-- [MC003 delayed-copy V3 signature preregistration](research/prereg/MC003_DELAYED_COPY_V3_SIGNATURE.md)
-- [MC003 delayed-copy V3 signature status](research/cards/MC003_DELAYED_COPY_V3_SIGNATURE_STATUS.md)
-- [MC004 in-context binding preregistration](research/prereg/MC004_IN_CONTEXT_BINDING.md)
-- [MC004 in-context binding status](research/cards/MC004_IN_CONTEXT_BINDING_STATUS.md)
-- [MC004 in-context binding V2 preregistration](research/prereg/MC004_IN_CONTEXT_BINDING_V2.md)
-- [MC004 in-context binding V2 status](research/cards/MC004_IN_CONTEXT_BINDING_V2_STATUS.md)
-- [MC004 in-context binding V2 signature preregistration](research/prereg/MC004_IN_CONTEXT_BINDING_V2_SIGNATURE.md)
-- [MC004 in-context binding V2 signature status](research/cards/MC004_IN_CONTEXT_BINDING_V2_SIGNATURE_STATUS.md)
-- [MC004 in-context binding V2 lead-time preregistration](research/prereg/MC004_IN_CONTEXT_BINDING_V2_LEADTIME.md)
-- [MC004 in-context binding V2 lead-time status](research/cards/MC004_IN_CONTEXT_BINDING_V2_LEADTIME_STATUS.md)
-- [MC005 associative lookup source-edge preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_SOURCE_EDGE.md)
-- [MC005 associative lookup source-edge status](research/cards/MC005_ASSOCIATIVE_LOOKUP_SOURCE_EDGE_STATUS.md)
-- [MC005 associative lookup band-localization preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_BAND_LOCALIZATION.md)
-- [MC005 associative lookup band-localization status](research/cards/MC005_ASSOCIATIVE_LOOKUP_BAND_LOCALIZATION_STATUS.md)
-- [MC005 associative lookup late-band V3 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_LATE_BAND_V3.md)
-- [MC005 associative lookup late-band V3 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_LATE_BAND_V3_STATUS.md)
-- [MC005 associative lookup reliability V4 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RELIABILITY_V4.md)
-- [MC005 associative lookup reliability V4 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RELIABILITY_V4_STATUS.md)
-- [MC005 associative lookup off-target null V5 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_OFFTARGET_NULL_V5.md)
-- [MC005 associative lookup off-target null V5 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_OFFTARGET_NULL_V5_STATUS.md)
-- [MC005 associative lookup same-grammar V6 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_SAME_GRAMMAR_V6.md)
-- [MC005 associative lookup same-grammar V6 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_SAME_GRAMMAR_V6_STATUS.md)
-- [MC005 associative lookup query-label V7 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_QUERY_LABEL_V7.md)
-- [MC005 associative lookup query-label V7 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_QUERY_LABEL_V7_STATUS.md)
-- [MC005 associative lookup final-marker V8 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_FINAL_MARKER_V8.md)
-- [MC005 associative lookup final-marker V8 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_FINAL_MARKER_V8_STATUS.md)
-- [MC005 associative lookup response-marker V9 preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V9.md)
-- [MC005 associative lookup response-marker V9 status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V9_STATUS.md)
-- [MC005 associative lookup response-marker V10 size-replication preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V10_SIZE_REPLICATION.md)
-- [MC005 associative lookup response-marker V10 size-replication status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V10_SIZE_REPLICATION_STATUS.md)
-- [MC005 associative lookup response-marker V11 weak-null diagnostic preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V11_WEAK_NULL_DIAGNOSTIC.md)
-- [MC005 associative lookup response-marker V11 weak-null diagnostic status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V11_WEAK_NULL_DIAGNOSTIC_STATUS.md)
-- [MC005 associative lookup response-marker V12 0.6B marker-specificity preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V12_0P6B_MARKER_SPECIFICITY.md)
-- [MC005 associative lookup response-marker V12 0.6B marker-specificity status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V12_0P6B_MARKER_SPECIFICITY_STATUS.md)
-- [MC005 associative lookup response-marker V13 long-context preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V13_LONG_CONTEXT.md)
-- [MC005 associative lookup response-marker V13 long-context status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V13_LONG_CONTEXT_STATUS.md)
-- [MC005 associative lookup response-marker V14 pair16 null diagnostic preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V14_PAIR16_NULL_DIAGNOSTIC.md)
-- [MC005 associative lookup response-marker V14 pair16 null diagnostic status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V14_PAIR16_NULL_DIAGNOSTIC_STATUS.md)
-- [MC005 associative lookup response-marker V15 fine-localization preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V15_FINE_LOCALIZATION.md)
-- [MC005 associative lookup response-marker V15 fine-localization status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V15_FINE_LOCALIZATION_STATUS.md)
-- [MC005 associative lookup response-marker V16 path-additivity preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V16_PATH_ADDITIVITY.md)
-- [MC005 associative lookup response-marker V16 path-additivity status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V16_PATH_ADDITIVITY_STATUS.md)
-- [MC005 associative lookup response-marker V17 L23-26 localization preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V17_L23_26_LOCALIZATION.md)
-- [MC005 associative lookup response-marker V17 L23-26 localization status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V17_L23_26_LOCALIZATION_STATUS.md)
-- [MC005 associative lookup response-marker V18 L23-26 decomposition preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V18_L23_26_DECOMPOSITION.md)
-- [MC005 associative lookup response-marker V18 L23-26 decomposition status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V18_L23_26_DECOMPOSITION_STATUS.md)
-- [MC005 associative lookup response-marker V19 L24-26 decomposition preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V19_L24_26_DECOMPOSITION.md)
-- [MC005 associative lookup response-marker V19 L24-26 decomposition status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V19_L24_26_DECOMPOSITION_STATUS.md)
-- [MC005 associative lookup response-marker V20 L24-26 interaction preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V20_L24_26_INTERACTION.md)
-- [MC005 associative lookup response-marker V20 L24-26 interaction status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V20_L24_26_INTERACTION_STATUS.md)
-- [MC005 associative lookup response-marker V21 L24-26 stress preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V21_L24_26_STRESS.md)
-- [MC005 associative lookup response-marker V21 L24-26 stress status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V21_L24_26_STRESS_STATUS.md)
-- [MC005 associative lookup response-marker V22 row-interaction preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V22_ROW_INTERACTION.md)
-- [MC005 associative lookup response-marker V22 row-interaction status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V22_ROW_INTERACTION_STATUS.md)
-- [MC005 associative lookup response-marker V23 row-heterogeneity preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V23_ROW_HETEROGENEITY.md)
-- [MC005 associative lookup response-marker V23 row-heterogeneity status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V23_ROW_HETEROGENEITY_STATUS.md)
-- [MC005 associative lookup response-marker V24 source-position causal preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V24_SOURCE_POSITION_CAUSAL.md)
-- [MC005 associative lookup response-marker V24 source-position causal status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V24_SOURCE_POSITION_CAUSAL_STATUS.md)
-- [MC005 associative lookup response-marker V25 factorial row-heterogeneity preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V25_FACTORIAL_ROW_HETEROGENEITY.md)
-- [MC005 associative lookup response-marker V25 factorial row-heterogeneity status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V25_FACTORIAL_ROW_HETEROGENEITY_STATUS.md)
-- [MC005 associative lookup response-marker V26 internal row-signature preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V26_INTERNAL_ROW_SIGNATURE.md)
-- [MC005 associative lookup response-marker V26 internal row-signature status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V26_INTERNAL_ROW_SIGNATURE_STATUS.md)
-- [MC005 associative lookup response-marker V27 signature-intervention preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V27_SIGNATURE_INTERVENTION.md)
-- [MC005 associative lookup response-marker V27 signature-intervention status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V27_SIGNATURE_INTERVENTION_STATUS.md)
-- [MC005 associative lookup response-marker V28 donor-replacement preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V28_DONOR_REPLACEMENT.md)
-- [MC005 associative lookup response-marker V28 donor-replacement status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V28_DONOR_REPLACEMENT_STATUS.md)
-- [MC005 associative lookup response-marker V29 attention-write replacement preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V29_ATTENTION_WRITE_REPLACEMENT.md)
-- [MC005 associative lookup response-marker V29 attention-write replacement status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V29_ATTENTION_WRITE_REPLACEMENT_STATUS.md)
-- [MC005 associative lookup response-marker V30 write-null sweep preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V30_WRITE_NULL_SWEEP.md)
-- [MC005 associative lookup response-marker V30 write-null sweep status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V30_WRITE_NULL_SWEEP_STATUS.md)
-- [MC005 associative lookup response-marker V31 margin-boundary preregistration](research/prereg/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V31_MARGIN_BOUNDARY.md)
-- [MC005 associative lookup response-marker V31 margin-boundary status](research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V31_MARGIN_BOUNDARY_STATUS.md)
-- [MC005 associative lookup bounded mechanism closeout status](research/cards/MC005_ASSOCIATIVE_LOOKUP_BOUNDED_MECHANISM_CLOSEOUT_STATUS.md)
-- [MC005 write-replacement closeout preregistration](research/prereg/MC005_WRITE_REPLACEMENT_CLOSEOUT.md)
-- [MC005 write-replacement closeout status](research/cards/MC005_WRITE_REPLACEMENT_CLOSEOUT_STATUS.md)
-- [MC005 write-replacement closeout audit runner](code/mc005_write_replacement_closeout_audit.py)
-- [MC005 reference specimen audit](research/cards/MC005_REFERENCE_SPECIMEN_AUDIT.md)
-- [Machine-readable MC005 reference specimen audit](data/mc005_reference_specimen_audit.json)
-- [MC005 reference specimen audit builder](code/mc005_reference_specimen_audit.py)
-- [MC006 parametric fact override smoke preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_SMOKE.md)
-- [MC006 parametric fact override smoke status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_SMOKE_STATUS.md)
-- [MC006 parametric fact override V2 repair preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V2_REPAIR.md)
-- [MC006 parametric fact override V2 repair status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V2_REPAIR_STATUS.md)
-- [MC006 parametric fact override V3 source-selected preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V3_SOURCE_SELECTED.md)
-- [MC006 parametric fact override V3 source-selected status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V3_SOURCE_SELECTED_STATUS.md)
-- [MC006 parametric fact override V4 source-selected hybrid preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V4_SOURCE_SELECTED_HYBRID.md)
-- [MC006 parametric fact override V4 source-selected hybrid status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V4_SOURCE_SELECTED_HYBRID_STATUS.md)
-- [MC006 parametric fact override V5 hidden-signature preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V5_SIGNATURE.md)
-- [MC006 parametric fact override V5 hidden-signature status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V5_SIGNATURE_STATUS.md)
-- [MC006 parametric fact override V6 condition-balanced preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V6_CONDITION_BALANCED.md)
-- [MC006 parametric fact override V6 condition-balanced status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V6_CONDITION_BALANCED_STATUS.md)
-- [MC006 parametric fact override V7 mode-gated preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V7_MODE_GATED.md)
-- [MC006 parametric fact override V7 mode-gated status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V7_MODE_GATED_STATUS.md)
-- [MC006 parametric fact override V8 generated-mode preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V8_GENERATED_MODE.md)
-- [MC006 parametric fact override V8 generated-mode status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V8_GENERATED_MODE_STATUS.md)
-- [MC006 parametric fact override V9 lenient-parse audit preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V9_LENIENT_PARSE_AUDIT.md)
-- [MC006 parametric fact override V9 lenient-parse audit status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V9_LENIENT_PARSE_AUDIT_STATUS.md)
-- [MC006 parametric fact override V10 chat-generated preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V10_CHAT_GENERATED.md)
-- [MC006 parametric fact override V10 chat-generated status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V10_CHAT_GENERATED_STATUS.md)
-- [MC006 parametric fact override V11 chat-signature preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V11_CHAT_SIGNATURE.md)
-- [MC006 parametric fact override V11 chat-signature status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V11_CHAT_SIGNATURE_STATUS.md)
-- [MC006 parametric fact override V12 real-after-fiction signature preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V12_REAL_AFTER_FICTION_SIGNATURE.md)
-- [MC006 parametric fact override V12 real-after-fiction signature status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V12_REAL_AFTER_FICTION_SIGNATURE_STATUS.md)
-- [MC006 parametric fact override V13 real-after-fiction generated preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V13_REAL_AFTER_FICTION_GENERATED.md)
-- [MC006 parametric fact override V13 real-after-fiction generated status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V13_REAL_AFTER_FICTION_GENERATED_STATUS.md)
-- [MC006 parametric fact override V14 parser-normalized preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V14_PARSER_NORMALIZED.md)
-- [MC006 parametric fact override V14 parser-normalized status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V14_PARSER_NORMALIZED_STATUS.md)
-- [MC006 parametric fact override V15 parser-normalized signature preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V15_PARSER_NORMALIZED_SIGNATURE.md)
-- [MC006 parametric fact override V15 parser-normalized signature status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V15_PARSER_NORMALIZED_SIGNATURE_STATUS.md)
-- [MC006 parametric fact override V16 pre-output position signature preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V16_PRE_OUTPUT_POSITION_SIGNATURE.md)
-- [MC006 parametric fact override V16 pre-output position signature status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V16_PRE_OUTPUT_POSITION_SIGNATURE_STATUS.md)
-- [MC006 parametric fact override V17 pre-output steering stress preregistration](research/prereg/MC006_PARAMETRIC_FACT_OVERRIDE_V17_PRE_OUTPUT_STEERING_STRESS.md)
-- [MC006 parametric fact override V17 pre-output steering stress status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V17_PRE_OUTPUT_STEERING_STRESS_STATUS.md)
-- [MC006 parametric fact override V18 margin-matched lead-time status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V18_MARGIN_MATCHED_LEADTIME_STATUS.md)
-- [MC006 parametric fact override V19 overlapping-margin table status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V19_OVERLAPPING_MARGIN_TABLE_STATUS.md)
-- [MC006 parametric fact override V20 strict-overlap selection audit status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V20_STRICT_OVERLAP_SELECTION_AUDIT_STATUS.md)
-- [MC006 parametric fact override V21 pair-matched lead-time status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V21_PAIR_MATCHED_LEADTIME_STATUS.md)
-- [MC006 parametric fact override V22 source/path lead-time curve status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V22_SOURCE_PATH_LEADTIME_CURVE_STATUS.md)
-- [MC006 parametric fact override V23 final-margin sign-barrier status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V23_FINAL_MARGIN_SIGN_BARRIER_STATUS.md)
-- [MC006 parametric fact override V24 delayed-city interface status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V24_DELAYED_CITY_INTERFACE_STATUS.md)
-- [MC006 parametric fact override V25 candidate-decoupled template status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V25_CANDIDATE_DECOUPLED_TEMPLATE_STATUS.md)
-- [MC006 parametric fact override V26 locked-coordinate transfer status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V26_LOCKED_COORDINATE_TRANSFER_STATUS.md)
-- [MC006 parametric fact override V27 expanded candidate-decoupled bank status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V27_EXPANDED_CANDIDATE_DECOUPLED_BANK_STATUS.md)
-- [MC006 parametric fact override V28 transfer-role repair bank status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V28_TRANSFER_ROLE_REPAIR_BANK_STATUS.md)
-- [MC006 parametric fact override delayed-city closeout status](research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_DELAYED_CITY_CLOSEOUT_STATUS.md)
-- [MC006 predecision frontier closeout preregistration](research/prereg/MC006_PREDECISION_FRONTIER_CLOSEOUT.md)
-- [MC006 predecision frontier closeout status](research/cards/MC006_PREDECISION_FRONTIER_CLOSEOUT_STATUS.md)
-- [MC006 predecision frontier closeout audit runner](code/mc006_predecision_frontier_closeout_audit.py)
-- [MC006 predecision frontier generated audit](research/cards/MC006_PREDECISION_FRONTIER_AUDIT.md)
-- [Machine-readable MC006 predecision frontier audit](data/mc006_predecision_frontier_audit.json)
-- [MC006 predecision frontier audit builder](code/mc006_predecision_frontier_audit.py)
-- [Qwen3-1.7B smoke status](research/cards/MC001B_QWEN3_1P7B_SMOKE_STATUS.md)
-- [Qwen3-1.7B controlled status](research/cards/MC001B_QWEN3_1P7B_CONTROLLED_STATUS.md)
-- [Qwen3-1.7B residualized preregistration](research/prereg/MC001B_QWEN3_1P7B_RESIDUALIZED.md)
-- [Qwen3-1.7B residualized status](research/cards/MC001B_QWEN3_1P7B_RESIDUALIZED_STATUS.md)
-- [Qwen3-0.6B smoke status](research/cards/MC001_QWEN3_0P6B_SMOKE_STATUS.md)
-- [Qwen3-0.6B controlled status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_STATUS.md)
-- [Qwen3-0.6B controlled v2 status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V2_STATUS.md)
-- [Qwen3-0.6B controlled v3 status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V3_STATUS.md)
-- [Qwen3-0.6B controlled v4 patch status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V4_PATCH_STATUS.md)
-- [Qwen3-0.6B controlled v5 prefill status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V5_PREFILL_STATUS.md)
-- [Qwen3-0.6B controlled v6 prefill controls status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V6_PREFILL_CONTROLS_STATUS.md)
-- [Qwen3-0.6B controlled v7 transport status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V7_TRANSPORT_STATUS.md)
-- [Qwen3-0.6B controlled v8 answer-prefix status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V8_ANSWER_PREFIX_STATUS.md)
-- [Qwen3-0.6B controlled v9 attention-source status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V9_ATTENTION_SOURCE_STATUS.md)
-- [Qwen3-0.6B controlled v10 head-localization status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V10_HEAD_LOCALIZATION_STATUS.md)
-- [Qwen3-0.6B controlled v11 layer-band source status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V11_LAYER_BAND_SOURCE_STATUS.md)
-- [Qwen3-0.6B controlled v12 input-mask semantics status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V12_INPUT_MASK_SEMANTICS_STATUS.md)
-- [Qwen3-0.6B controlled v13 layout-parity status](research/cards/MC001_QWEN3_0P6B_CONTROLLED_V13_LAYOUT_PARITY_STATUS.md)
-- [Qwen3-0.6B diagnostic control-surface card](research/cards/MC001_QWEN3_0P6B_DIAGNOSTIC_CONTROL_SURFACE.md)
-- [Qwen3-0.6B implementation closeout review](research/reviews/MC001_QWEN3_0P6B_IMPLEMENTATION_CLOSEOUT_REVIEW.md)
+Doctrine inherited from those eras: **a past result is a warning about
+experimental design, not evidence.** Two honesty reflexes survived (see Rules
+7). Everything else — preregistration courthouse, mechanism cards, adversarial
+review bureaucracy — was deliberately left behind. We are playing, not litigating.
 
-## First Milestone
+## Rules of the lab
 
-One mechanism card:
+1. **Play first.** Questions sharpen after looking. Boring hypotheses about
+   what to find are not required in advance.
+2. **One file per experiment:** `lab/eNNN_name.py`, self-contained, seeded,
+   runnable as `python lab/eNNN_name.py` from repo root.
+3. **Every run writes `runs/eNNN/`** with `metrics.json` and at least one PNG
+   graph. No graph, no experiment.
+4. **Every experiment gets a NOTES.md entry:** what we did / what we saw /
+   what's next. If it isn't written down, it didn't happen.
+5. **Commit constantly.** Small commits beat big ones. Git is the memory.
+6. **Never delete `runs/` or `data/`.** Disk is cheap; forgetting is expensive.
+7. **Honesty reflexes (not bureaucracy).** Before believing any internal-state
+   finding, ask: (a) do logits/behavior alone already predict it? (b) does
+   intervening on it actually change behavior? If not, it's a curiosity, not a
+   discovery.
+8. **Time budget:** any single experiment step ≤ ~30 min. If slower, shrink the
+   model or the data.
+9. **Parallel by default.** Keep the GPU busy with the main experiment AND run
+   1–3 background subagents (exploration, analysis, literature of the lab)
+   simultaneously. Multiple things move at once or the lab is underutilized.
+10. **Checkpoint everything.** `train_model` writes a resumable snapshot at
+    every eval point. Interrupted runs resume from checkpoint — never retrain
+    from scratch. A shutdown should cost minutes, not hours.
 
-> behavior -> internal signature -> intervention -> null baselines -> failure modes -> practical implication
+## Standing question source: neuro-ai-lab
 
-Current MC-001 status: Qwen3-0.6B has a real control surface, but no supported mechanism card. V9 showed strong hint-source dependence under coarse input-mask ablation: hard-bin hint-line masking reached 63/104 truth-following and hint-answer masking reached 50/104. V10 and V11 showed that this effect is not localized to a single head, single layer, or cumulative generation-query attention band; V11's best precise masks reached only 24/103 for the hint line and 22/103 for the hinted answer. V12 decomposed V9: V9-style input masking reached 63/103 hard-bin truth for the hint line and 49/103 for the hinted answer, while literal prompt rewrites nearly matched it at 57-60/103 for the hint line and 48-51/103 for the answer. Query-only masks stayed weak at 24/103 and 22/103. V13 then closed the layout/tokenization caveat: character-matched and token-count-matched neutral rewrites reached only 52/103, not a new mechanism-like result. Dense direction, dense prefill, cross-layer transport, dense answer-prefix steering, single-head/single-layer source localization, cumulative generation-query source masking, input-mask semantics, and layout parity are closed for MC-001 on Qwen3-0.6B. The closeout review says the v1-v13 series should now be treated as a failed-mechanism / diagnostic-control artifact.
+`C:\Users\devan\OneDrive\Desktop\Projects\neuro-ai-lab` (see
+`reference/NEURO_AI_LAB.md` for the distillation) is a sibling project whose
+brain/biology-inspired mechanisms are a permanent source of dissection
+questions: does a tiny ANN have an analogue of mechanism X? Can we install
+one? Would it make the net better or worse — and how would we *prove* the
+analogue is real rather than a metaphor? Every hourly review should re-mine
+it.
 
-Qwen3-1.7B reproduced a practical dense control surface, but the residualized mechanism rescue failed: raw `h21 alpha=0.50` improved wrong-hint truth from 113/180 to 154/180, while residualized `h21 alpha=0.50` dropped it to 103/180 and margin-only AUC stayed 1.000. Gemma 2 2B then failed the first behavior substrate gate for sparse/path work, but the repaired base-Gemma raw-logit gate passed: 42 clean items, minimum 8 clean items per answer letter, and a clear pressure slope from intermediate wrong hints to direct/high wrong hints. MC001G dense signature discovery found real hidden-state signal, but same-row margin was tautologically perfect under forced-choice labels. A pre-hint margin matched discovery pass selected 24 truth and 24 agreement rows matched on no-hint margin bins; the best simple direction reached 0.755 holdout AUC. The first matched dense intervention then failed: positive layer-14 steering changed zero matched-holdout labels, while sign-flip and wrong-layer controls each improved one row. A stronger activation-replacement gate also failed controls: layer-14 truth-donor replacement moved 2/7 held-out agreement rows to truth, but the agreement-donor control matched that effect and both caused 2/7 no-hint locality losses. Canonical Gemma Scope sparse discovery then failed promotion: the best layer-14 rank-1 sparse feature reached only 0.714 holdout AUC, below the dense direction, and shuffle nulls found stronger holdout features. The expanded repair bank improved the substrate to 76 clean items and 32 matched holdout rows, but it produced only 74 matched rows total and still lacked discovery coverage for holdout bin 3. Two targeted repair passes then increased matched rows to 120 and 128 respectively, but both still lacked exact discovery support for holdout bin 3, and V2 exposed a stronger answer-letter confound: A-correct rows supplied 45/64 matched agreement rows while C/D-correct rows supplied only 8/64. Option-position counterbalancing improved the controls, and expanded format-control V2 produced 174 strict source-disjoint matched rows, but it still failed the preregistered D-cell floor and exact strict holdout bin-letter coverage. Pairwise answer-text scoring then removed literal `A`/`B`/`C`/`D` outputs and expanded V2 produced 256 strict source-disjoint/order-matched rows with exact holdout bin-order coverage, but it failed pair-order balance: `cw` contributed 34/128 rows per strict label while `wc` contributed 94/128. Raw generated-answer text removed displayed choices entirely and produced 180 clean items plus 132 strict matched rows, but it failed weak-hint truth, single-word clean coverage, answer-shape dominance, and strict holdout-key coverage. Generated-text V2 repaired clean coverage to 252 items and strict matching to 172 rows, but still failed primary weak-hint truth (123 < 150), shape-matched volume (182 < 200), and strict holdout-key coverage. MC001G is now a repaired-substrate / matched-signature / failed-intervention / sparse-promotion-failed / format-control-failed / pairwise-interface-failed / generated-interface-failed result, not a mechanism card.
+## Cadence — the heartbeat system (this is how the lab never idles)
 
-MC002 moved to the next behavior family: known-answer versus unsupported nonce-entity hallucination. The first Gemma 2 2B raw-generation gate failed before hidden-state work: real-country clean sources passed (27 >= 24) and nonce pressure hallucination was present (24 >= 12), but only 1/40 nonce sources abstained cleanly under both neutral and cautious prompts, same-source nonce contrasts reached only 7 < 12, and real-country lure locality failed with only 10/40 lure rows still correct. MC002 is therefore a failed behavior substrate until the interface is repaired.
+One cron automation (every 10 min, `*/10 * * * *`) drives everything:
 
-The first MC002 repair changed only render mode from raw to chat-style prompts on the same base Gemma model and same 80 sources. It failed harder: clean real-country sources dropped from 27 to 6, clean nonce-country sources rose only from 1 to 2, same-source nonce contrasts dropped from 7 to 6, and real-country lure correctness fell from 10 to 0. MC002 should not use more base-Gemma render tweaks; the next repair should use calibrated answer-text scoring or an instruction-tuned model comparison.
+| Condition | What it does |
+|---|---|
+| every 10 min | **Heartbeat**: an experiment must be running or just finished; log results in NOTES.md; commit |
+| `last_review` > 60 min old | **Frontier review**: 3 parallel subagents (auditor / ideator / critic) review the notebook and queue, inject new ideas, retire stale lines; timestamped entry in REVIEWS.md; resets `last_review` |
+| `last_novelty` > 2 h old | **Novelty guarantee**: a genuinely new experiment line starts (not a continuation); resets `last_novelty` |
 
-The answer-text scoring repair preserved real factual preference better than chat rendering, but it still failed the behavior gate: clean real-country sources were 26, clean nonce-country sources stayed at 1, nonce pressure hallucination rose to 40/40, same-source nonce contrasts reached only 9, and real-country lure correctness reached only 15. Base-Gemma MC002 now has three failed interfaces. The next known-unknown attempt should change model class or task construction before any hidden-state discovery.
+All timestamps live in `STATE.json` (`last_heartbeat`, `last_review`, `last_novelty`).
+Any agent — scheduled or fresh — reads that file first and treats stale values as
+action items ("review overdue → run it now"). Only one automation exists per
+session; do not create more, the trigger logic above replaces a second clock.
 
-Gemma 2 2B IT chat reversed the failure mode rather than solving it: clean real-country sources rose to 36 and clean nonce-country sources rose to 40, but nonce pressure hallucination dropped to 1, same-source nonce contrasts dropped to 1, and real-country lure correctness was only 6. MC002 now needs calibrated pressure design before hidden-state signature discovery.
+## Repo map
 
-The MC002 pressure calibration kept the Gemma 2 2B IT clean baseline but failed to create a usable contrast. `guess_mild` and `guess_strong` produced zero nonce-country hallucinations, `city_required` produced only one, `lure_soft` reproduced the real-country locality failure, and `lure_strong` reached only six nonce contrasts with one holdout contrast while failing real-country lure-error controls. MC002 should now change task construction before any hidden-state work.
+```
+lab/        experiment code (one file per experiment; common.py = shared harness)
+runs/       outputs: runs/eNNN/metrics.json + PNGs + samples (never delete)
+data/       corpora
+NOTES.md    lab notebook (append-only, newest at top)
+QUEUE.md    experiment queue + idea parking lot (reviews feed this)
+REVIEWS.md  hourly frontier-review log (timestamped)
+STATE.json  machine-readable current state + cadence timestamps
+AGENTS.md   one-page resume protocol for any fresh agent/thread
+```
 
-MC002B reconstructed known-versus-unknown as exact support in reference notes versus unsupported near-neighbor names. The baseline improved to 39 clean supported sources and 35 clean unsupported sources, but pressure still failed: `similar_allowed` produced only one same-source unsupported contrast, `closest_required` produced zero and damaged supported locality, and `lure_check` became broad abstention. The known-unknown line remains behavior-gated.
+## Resume protocol (for a fresh agent, new thread, or post-compaction)
 
-MC003 opened the constrained-generation/planning branch with arbitrary delayed-copy code words. V1 found a strong pressure transition but failed correct-hint locality. V2 repaired the locality wording and passed the behavior gate: 40 clean baseline sources, 40 correct-hint target rows, 40 soft-wrong-hint target rows, and 35 `wrong_hint_pressure` contrasts with 12 in holdout. The first MC003 signature run found a layer-22 residual direction with 0.994 holdout AUC, above shuffled-label nulls and stable across target-order subgroups, but the first-token output-margin baseline reached 1.000 holdout AUC. The early-position follow-up selected `after_wait_newline` layer 14 and reached 0.997 holdout AUC while beating same-position output margin, but it failed the selected shuffled-label p95 control and did not beat the pressure/non-pressure condition-trace baseline. V3 repaired that behavior-table confound: `wrong_hint_balanced` produced 19 target-copying and 21 distractor-following rows inside one condition, with both labels in discovery, holdout, and holdout target-order subgroups. The condition-balanced signature then failed: selected `after_wait` layer 25 reached 0.994 discovery AUC but only 0.238 holdout AUC, below output margin and null controls. MC003 is therefore behavior-supported and failed-signature-only, not an intervention-ready mechanism.
-
-MC004 moved to nonce in-context entity/code binding. V1 showed the model could bind cleanly: neutral, cautious, and correct-hint rows were 40/40 target-correct, but wrong-hint pressure was too weak and produced at most 2/40 distractor-following rows. V2 changed the pressure to an original-reference-note versus later-update conflict and passed the behavior gate: `update_prefer_latest` produced 20 original-note answers, 19 update-following answers, and one other row, with both labels in discovery, holdout, and holdout target-order subgroups. The V2 signature then failed: selected `prompt_end` layer 20 reached 1.000 discovery AUC but only 0.738 holdout AUC, while same-position output margin reached 1.000 holdout AUC. The lead-time audit found a pre-update diagnostic signal at `after_question` layer 23 with 0.905 holdout AUC and weak same-stage output margin, but it failed the shuffled-label p95 and target-order subgroup controls. MC004 is therefore another behavior-supported and failed-signature result, not an intervention-ready mechanism.
-
-MC005 switched to a narrower associative lookup/source-edge behavior on Qwen3-1.7B. This produced the strongest positive path result so far: 41/48 clean key/value lookup rows, a selected source-value attention head at layer 16 head 14 with 1.000 discovery and holdout AUC, and a full-path target source-value mask that reduced holdout margin by -5.154 and flipped 11/13 target wins while the full-path distractor mask moved the margin upward. The first localization attempt failed because selected-layer locality did not hold: layer 25 target masking reduced holdout margin by -0.606, but the wrong-layer target mask was stronger at -0.913. The V2 band audit found a strong late-band diagnostic, but its preregistered selector chose `all_layers`, so V2 remained full-path control. V3 excluded `all_layers`, enlarged the row bank to 96 rows, added an arrow-layout holdout, and passed: `late_20_26` was selected on discovery, same-layout target masking reduced margin by -4.497 and flipped 10/18 target wins, layout-holdout target masking reduced margin by -5.375 and flipped 17/23, while distractor and random-value masks did not match the effect. V4 strengthened the reliability map: all 8 lookup atlas scenarios worked across pair counts 3/5/8, dash/arrow/sentence layouts, shifted lexicon, and greedy next-token readout. But the off-target null failed. V5 repaired the primary out-of-grammar nulls: 4/4 explicit-answer, no-reference, and non-lookup null scenarios were clean. V6 decomposed the same-grammar boundary: irrelevant source value, key, colon, and non-source control-value masks were clean in both V6 seeds, but a seed-17 final query-label control changed three target-win rows. V7 ran a 3-seed query-label sweep: all source/control arms stayed clean, but final-position arms did not, and arbitrary random-label surfaces often had invalid baselines. V8 found marker-specific clean surfaces: `Response:` and `Output:` were clean on all three seeds, while `Answer:` and `Result:` were not fully stable. V9 fixed `Response:` and passed a compact atlas: 6/6 lookup scenarios worked and 6/6 source-line/off-target/answer-absent null scenarios were clean across seeds 17, 23, and 31. V10 tested Qwen3-0.6B size replication: lookup replicated with 6/6 `works` labels, but the strict suite failed because one answer-absent null was `weak_null`. V11 reproduced the seed-23 first-32 weak-null pattern and expanded the answer-absent diagnostic to five 128-row seeds; only 1/5 full seeds was clean, so the 0.6B issue is a persistent answer-absent final-marker/control boundary. V12 compared `Response:`, `Output:`, `Answer:`, and `Result:` on Qwen3-0.6B; no marker was clean across five 128-row seeds, although `Output:` made all first-32 slices clean. V13 returned to Qwen3-1.7B and extended lookup/off-target reliability through pair count 16, but strict longer-context reliability failed on one pair16 answer-absent weak null. V14 reran only the answer-absent null with five seeds, 128 rows per seed, and pair counts 12/14/16; all 15 scenarios were clean, so the V13 pair16 weak null is now sample-fragile under the expanded diagnostic. V15 tested compact localization inside the late band: the selected upper-half-head path was directional and null-clean, but recovered only 38.9% of the full-band holdout effect, so compact localization failed. V16 showed why: the full-band effect is mixed-superadditive across head and layer partitions, and `slice_l23_26_all` became the next localization lead at -6.2678 mean delta. V17 confirmed that lead on fresh lookup/null seeds: layers 23-26 recovered 72.2% of full-band effect, beat smaller slices and source controls, and kept answer-absent nulls clean. V18 split the layers-23-26 block: `slice_l24_26_all` recovered 92.4% of the parent effect on disjoint holdout rows, beat source controls, remained the strongest selectable smaller path, and kept answer-absent nulls clean. V19 tried to split layers 24-26 further; `slice_l24_25_all` was source-specific, rank-stable, and null-clean, but recovered only 49.9% of the parent effect. V20 then confirmed why the parent block should remain intact: all leave-one-layer-out pairs recovered less than 60% of the parent, the single-layer sum was strongly superadditive, and parent answer-absent nulls stayed clean. V21 kept that block fixed and passed layout, shifted-lexicon, pair-count, source-control, and fresh answer-absent null stress. V22 tested row-level all-three structure: the parent replicated, source controls and nulls stayed clean, and 67 rows showed all-three margin structure, but those rows were only 26.5% of parent-effect rows against a 40% preregistered threshold. V23 explained part of that heterogeneity: target source position was the dominant contrast, with early positions near 0% all-three rows and several mid/late positions at 43.75%; high baseline-margin rows were also more all-three-like, while low-margin rows concentrated parent-only flips. V24 causally moved the same target pair between early and mid/late slots; directionally, all-three fraction rose from 0.1575 to 0.3175 and median best-pair share fell, but the shift failed the preregistered source-position causality thresholds. MC005 is now a narrow all-head layers-24-26 aggregate interaction control surface on Qwen3-1.7B with a passed compact `Response:` atlas, positive lookup evidence through pair count 20 on tested layouts, positive lookup/off-target evidence through pair count 16, expanded answer-absent null reliability through pair count 16, partial position-structured row-level all-three evidence below the promotion threshold, a failed single-factor source-position causal explanation, and a failed strict 0.6B size-replication gate.
-
-V25 crossed target source position with near/far distractor position while blocking value identity and stratifying by baseline margin. Parent/control/null checks passed, but the best-minus-worst all-three cell range was only 0.0469 against a 0.25 threshold, so simple prompt-layout factorial explanations for the row split are now also failed.
-
-V26 found a positive internal row signature for the same unresolved row split: a layer-20 target-source residual direction selected on seed 233 held out on seed 239 at AUC 0.7933, beating the best non-internal baseline at 0.5586 and the shuffled-selection null p95 at 0.6510. This upgraded MC005 with a real internal signature for row-level all-three structure, but still required causal intervention.
-
-V27 tested that intervention gate and failed it. Adding a +4.0-score residual delta on the V26 `l20_target_value` signature produced 43/128 all-three rows versus 44/128 with no intervention, and median best-pair share worsened from 0.6614 to 0.6700. Parent source controls and answer-absent residual nulls passed, so this is a clean negative causal test: the V26 signature remains predictive, but simple additive residual steering did not become reliable row control.
-
-V28 tested a stronger non-additive intervention: matched discovery-row donor activation replacement at layer 20. It also failed. Positive target donor replacement reduced baseline target wins from 128/128 to 106/128 and collapsed parent-effect rows from 128 to 3, so its nominal all-three fraction gain was a denominator artifact. Parent source controls failed and final-colon donor replacement broke both answer-absent null seeds. The V26 row signature is now predictive-only under both tested intervention families.
-
-V29 moved back to the supported parent surface and found the sharpest mechanism localization so far: replacing only the final-query self-attention output writes in layers 24-26 exactly reproduced the direct target source-mask effect on lookup holdout rows (-6.1978 mean delta and 11 target-win losses), while distractor and random write replacements matched the clean direct controls. Single-layer writes did not recover the effect. The strict reliability gate still failed because one answer-absent seed had a one-row non-source-control target-win gain, so V29 is a bounded attention-write mediation result, not a full mechanism card.
-
-V30 reran that answer-absent write-replacement null boundary with row-level audit. The V25 replay reproduced the V29 seed-251 `non_source_control_value` target-win gain, and the fresh 8-seed, 1,024-row sweep found three more strict row-change failures on seeds 263 and 283. All fresh arms stayed within the mean-delta tolerance, so the failure mode is not broad margin drift; it is low-margin null-row sign flips under write replacement. MC005 therefore has exact lookup mediation by layers-24-26 final-query attention writes, but not reliable strict answer-absent null locality.
-
-V31 tested whether that null boundary could be explained by a preregistered absolute baseline-margin cutoff of 0.5. The lookup write effect reproduced exactly, with 11 target-win losses all from rows with baseline margin greater than 2.0. The new fresh null panel found one more `non_source_control_value` target-win gain at baseline margin 0.0, and all fresh null arms remained mean-delta clean. But the imported V30 replay flip had absolute baseline margin 0.75, so the tight 0.5 explanation failed. The current MC005 write-surface verdict is now frozen bounded: high-margin lookup mediation with rare low-to-moderate-margin answer-absent null flips, not a full promoted mechanism card.
-
-MC006 opened a new behavior family closer to learned knowledge: real-world capital facts versus task-local context overwrites. The first Qwen3-1.7B candidate-scoring smoke failed the behavior substrate. True supporting context made 40/40 rows correct and explicit task-local overwrite was followed on 39/40 rows, but no-context truth was only 26/40, irrelevant-context truth was 27/40, and the `mistake_context` control selected the false override on 40/40 rows. The interface measures reference-line authority more than a clean parametric-fact/context-overwrite switch, so no hidden-state work should start from MC006 V1.
-
-MC006 V2 replaced the false reference line with a false-claim audit and a fictional codebook prompt. It still failed the full substrate: direct real-world truth was 25/40, true-context truth was 40/40, false-claim audit truth was 29/40 with override at the 8/40 ceiling, fictional override was 40/40, and `real_after_fiction` collapsed to 9/40 truth with 21/40 override selections. A narrower three-way lead exists with 23/40 clean direct/false-claim/fictional-override sources and 6 holdout sources, but the preregistered V2 gate failed and hidden-state discovery remains blocked for the full MC006 prompt suite.
-
-MC006 V3 source-selected those 23 V2-clean sources and tested prompt paraphrases. The real-world side passed under paraphrase, but the weakened fictional-code prompt failed with only 18/23 override selections and 17/23 clean contrasts. MC006 V4 then made one controlled change by restoring the stronger V2 fictional-codebook wording while keeping the V3 real-world paraphrases. V4 passed the narrow behavior substrate: direct truth 23/23, true-context truth 23/23, false-claim truth 22/23 with zero override, fictional override 23/23, clean contrasts 22/23, and original holdout clean contrasts 5/6. Hidden-state discovery may now proceed only on this source-selected, prompt-bounded V4 contract.
-
-MC006 V5 tested that V4 contract for a hidden-state signature and failed promotion. A final-prompt-token layer-0 direction reached 1.000 holdout AUC on V4-clean rows, and all 5 holdout sources had real-world mean score greater than fictional score. But output margin, prompt length, and prompt-format baselines also reached 1.000 holdout AUC, and shuffled-label selection p95 was 1.000. The V4 substrate therefore has a strong internal separation, but not a mechanism-grade hidden signature; the next MC006 signature repair must put both labels inside the same prompt family or otherwise control prompt shape before probing.
-
-MC006 V6 built that same-prompt-family repair as a behavior gate. The structural controls passed, including exact query-tag/expected-label balance across `A` and `B`, but behavior reliability failed: `balanced_real` selected the true capital on only 17/22 rows, `balanced_fictional` selected the override on 20/22, clean source contrasts reached only 15/22, and holdout clean contrasts reached 4/5. The diagnostic class was `real_query_failed`. MC006 therefore remains bounded to the prompt-specific V4 behavior substrate; no hidden-state discovery should proceed from V6.
-
-MC006 V7 removed the true capital from the prompt and used one prompt family with requested modes `REAL_WORLD_CAPITAL` and `FICTIONAL_CITY_CODE`. Structural checks passed and there were no true-capital prompt leaks, but behavior failed harder on the real-world side: `mode_real` selected true on only 8/22 rows, `mode_fictional` selected override on 22/22, clean contrasts reached 8/22, and holdout clean contrasts reached 1/5. The diagnostic class was `real_mode_failed`. The exposed fictional city line dominates this candidate-scored interface even under explicit real-world mode.
-
-MC006 V8 removed hidden candidate scoring and tested greedy generated answers under the same mode-gated prompt. Structural checks again passed, but strict parseability failed at 35/44 rows. Real-world mode was still weak: `mode_real` produced 6 strict true answers, 9 override answers, and 7 unparsed rows; `mode_fictional` produced 20 override answers and 2 unparsed rows. Clean contrasts were 6/22 and holdout clean contrasts were 1/5. The diagnostic class was `parseability_failed`, with real-world mode also below threshold. Candidate scoring is not the only blocker; raw generation adds format failures and still does not yield a same-prompt-family behavior substrate.
-
-MC006 V9 audited V8 offline with a preregistered lenient parser that accepts full candidate mentions anywhere in the generated suffix. Parseability improved from 35/44 to 41/44, but the behavior substrate still failed: `mode_real` reached only 11/22 true, `mode_fictional` reached 21/22 override, clean contrasts reached 10/22, and holdout clean contrasts reached 2/5. The diagnostic class was `real_mode_failed`. V8's strict parser was too narrow, but parser rescue alone does not recover same-prompt-family real-world behavior.
-
-MC006 V10 changed the rendering contract instead of the parser: Qwen3 chat-template generation, `enable_thinking=False`, and a strict system instruction to return exactly one city name. This repaired the generated-answer behavior substrate without listing true capitals in the prompt: strict parseability was 44/44, `mode_real` true answers reached 20/22, `mode_fictional` override answers reached 22/22, clean contrasts reached 20/22, and holdout clean contrasts reached 5/5. The diagnostic class was `chat_generated_v10_substrate_passed`. Hidden-state signature discovery may proceed only on this V10 table, and mechanism/intervention claims remain unmade.
-
-MC006 V11 tested that V10 table for a hidden-state signature and failed promotion. The selected final-prompt-token `layer_0` direction reached 1.000 holdout AUC and ordered all 5 holdout source pairs correctly, but output margin and the explicit requested-mode baseline also reached 1.000 holdout AUC, and shuffled-label selection p95 was 1.000. The diagnostic class was `requested_mode_confounded`. V10 remains a behavior substrate only; intervention should not start from the V11 signature.
-
-MC006 V12 moved to the matched V2 `real_after_fiction` prompt surface, where every row says the fictional codebook is not real-world geography and asks for the true capital. It found another perfect hidden classifier: selected `layer_7` reached 1.000 holdout AUC. But promotion failed because holdout balance was only 1 true versus 5 override rows, candidate-score margin and next-token output margin also reached 1.000 holdout AUC, and shuffled-label selection p95 was 1.000. The diagnostic class was `holdout_balance_failed`, with output/null confounds also active.
-
-MC006 V13 repaired the V12 label-source problem by generating answers on six matched `real_after_fiction` templates instead of using candidate-scored labels. Structural checks passed for 40 sources, 6 templates, 240 rows, no duplicate candidates, and no true-capital prompt leaks. Discovery/calibration selection chose `fake_mapping_warning`; holdout balance passed with 6 true and 2 override rows, but the selected template had only 29/40 binary rows against the 30/40 floor. The diagnostic class was `binary_volume_failed`. MC006 therefore still has no matched generated behavior table strong enough for hidden-state discovery.
-
-MC006 V14 showed that V13's one-row miss was a narrow parser-normalization issue: strict NFKD normalization changed only three rows, all from `unparsed` to first-line prefix matches, and only one in the selected template. The selected `fake_mapping_warning` table then passed with 30/40 binary rows, 15 non-holdout true, 7 non-holdout override, and holdout 6 true / 2 override. MC006 V15 tested the resulting table for a hidden signature. A `layer_16` final-prompt-token direction reached 1.000 discovery and holdout AUC, but candidate-score margin and next-token output margin also reached 1.000 holdout AUC. V16 moved the target earlier and selected `after_mapping_line/layer_4`, again with 1.000 discovery and holdout AUC. That early hidden signal beat same-position output margin, token controls, and shuffled-label p95, but candidate-score margin and final next-token output margin still reached 1.000 holdout AUC. V17 then tested simple additive residual steering on the V16 direction. Baseline reproduction was 8/8 on holdout, but holdout margin movement was weak, controls matched or exceeded it, and no generated label changed directionally. V18 reproduced the V16 early signal but found no true/override holdout overlap in candidate-score or final-output margins, and residualized hidden holdout AUC fell to 0.333. V19 expanded to a 400-row prompt bank and selected `separate_task_weak`, which improved behavior balance to 35/40 binary rows with 4/4 holdout true/override labels, but candidate and final-output margin ranges still failed strict overlap. V20 audited whether any subset of the V19 bank could rescue strict overlap; even pooled holdout final-output margins stayed separated. V21 ran the bounded approximate pair-matched diagnostic and found 28 holdout near-pairs, but candidate-score and final-output margins still reached 1.000 holdout pair accuracy while the selected pre-output hidden direction fell to 0.286. V22 mapped source/path and line-boundary lead-time positions; query-country and later pre-output monitors existed, but candidate-score and final-output margins still reached 1.000 holdout pair accuracy. V23 then diagnosed why strict final-margin overlap is the wrong default gate for this interface: final next-token margin sign predicted 257/257 V19 binary labels, while candidate-score margin had overlap. V24 changed the answer interface to delayed JSON city generation and broke the first-token city-margin sign barrier, but JSON-completion candidate scoring still reached 1.000 holdout AUC on the selected template. V25 found a candidate-score-decoupled delayed-city template, but the selected hidden monitor failed shuffled-label selected-search nulls. V26 locked the V25 `after_mapping_line/layer_10` coordinate and tested transfer to `separate_task_weak`; transfer holdout AUC was 0.500, below both a position-local output control and the fixed-coordinate train-label shuffle p95 at 0.833. V27 expanded to a 640-row predeclared source/transfer delayed-city bank. It found four candidate-decoupled templates and enough pooled binary/holdout volume, but only one transfer-role template passed, so the bank was not hidden-state-ready. V28 targeted transfer-role repair directly with 16 predeclared transfer templates and 640 rows. It found one transfer-ready template, `transfer_sandbox_mapping_then_geo`, with 35 binary rows, balanced 4/4 holdout labels, and JSON candidate-score holdout AUC 0.1875, but the gate required at least two transfer-ready templates. The delayed-city route is now formally closed as monitor-only: MC006 is behavior-supported and lead-time-monitor-supported, but additive steering, strict-overlap, approximate-pair, source/path final-margin-rescue, same-interface final-overlap row generation, delayed-city first-token repair, flexible candidate-decoupled hidden selection, locked-coordinate transfer, expanded transfer-bank construction, and direct transfer-role repair are blocked as promotion routes.
-
-MC007 V1-V4 is now formally closed as a diagnostic bridge. V1 remains the clean source-value baseline: familiar countries can collapse into prompt-local lookup keys under terse table authority. V2 remains the prior-pressure baseline: numeric authority can create real-prior/lure contrast without true-capital prompt leaks. V3 killed answer-slot and target-note parse repair. V4 killed explicit source labels as a proxy for generated city answers. The current MC007 route is not hidden-state-ready; future bridge work must change the behavior family or prompt contract materially rather than continue ordinary prompt-only repairs.
-
-MC008 V1-V2 is now closed as the first symbolic fact-code bridge diagnostic on Qwen3-1.7B. V1's `symbol_field` template repaired direct controls but failed nulls and conflict balance: synthetic lookup was 39/40 artificial-code rows, real-world symbol recall was 39/40 real-symbol rows, answer-absent null was only 30/40 `UNKNOWN`, and primary conflict was 176 artificial-code rows versus 8 real-symbol rows. V2's `membership_authority_split` repaired nulls and direct controls: synthetic lookup stayed 39/40, real-world symbol recall reached 40/40, and null reached 40/40 `UNKNOWN`. But V2 still failed the bridge: primary conflict was 220 artificial-code rows versus 2 real-symbol rows, with authority-0 producing only 1/40 real-symbol answers. MC008 is therefore not a probe substrate; the first symbolic route is closed.
-
-MC009 is now closed as the first derived-code bridge diagnostic. It removed the direct `entity -> artificial code` mapping that dominated MC008 by deriving the task-local answer from row position while the real answer stayed learned chemistry. The `membership_authority_split` smoke preserved direct controls: synthetic ordinal lookup, real-symbol recall, and answer-absent nulls were all 10/10. But the conflict bridge failed with primary conflict parseability at 47/60 and real/lure balance absent. A non-default `typed_slot_v2` repair created a balanced conflict surface, but only by breaking direct controls and making the answer channel prompt-visible. No hidden-state work is allowed from this route; the next bridge must change the conflict family materially rather than keep repairing row-code prompts.
-
-MC010 now closes the first two-hop fact-code bridge attempt as a diagnostic. It used `element -> nonce handle -> task code`, removing both MC008's direct entity-to-code row and MC009's row-position answer slot. The structural scaffold passed on 800 records, and the full generated behavior run reported output/candidate baselines, but the selected `neutral_contract` table failed before hidden-state work: synthetic two-hop lookup was 23/40 task-code answers, real-world memory control was 12/40 real-symbol answers with 28/40 unparsed, answer-absent null was exactly 36/40 `UNKNOWN`, and primary conflict was 229 task-code rows versus 0 real/lure-symbol rows. No MC010 probe or intervention is allowed.
-
-MC011 now closes the first numeric answer-interface bridge attempt as a diagnostic. It used prompt-local local lab numbers versus learned real-world atomic numbers, so both sides answered with short integers. The full generated behavior run selected `neutral_numeric` and reported output/candidate baselines. Direct controls all passed: synthetic numeric lookup, familiar element numeric lookup, real atomic-number recall, and answer-absent nulls were each 40/40. The bridge still failed before hidden-state work because primary conflict rows were 240/240 local-number answers and 0 atomic/lure-number answers. No MC011 probe or intervention is allowed.
-
-MC012 is the first clean mixed local-versus-learned bridge behavior table, but only as a prompt-visible diagnostic. The full generated behavior run selected `compact_reliability`: synthetic numeric lookup, familiar numeric lookup, real atomic-number recall, trusted-source conflict, and answer-absent null controls all passed at 40/40; untrusted-source conflict selected learned atomic numbers on 39/40 rows; and the primary conflict table contained 40 local-number rows, 39 atomic/lure-number rows, and one other-number row. The behavior table is source-disjoint, parseable, and baseline-reported, but the trusted/untrusted reliability label is visible in the prompt by design. MC012 is therefore `behavior_ready=true` and `signature_ready=false`; no hidden-state probe or intervention is allowed until a prompt-channel locality control removes, matches, or ablates that source-status channel.
-
-MC013 directly tested that prompt-channel locality repair and closed the simple ablation route. It kept the MC012 numeric source bank, added statused positive controls, and made the trusted/untrusted ablation prompts text-identical. The full generated behavior run selected `compact_status_ablation`: direct controls and nulls were clean, the statused positive control reproduced MC012 with 40/40 trusted local rows and 39/40 untrusted atomic rows, but the matched ablation conflict collapsed to 80/80 local-number rows and 0 atomic/lure-number rows. MC013 is therefore a diagnostic boundary: the next bridge must create local-versus-learned contrast without first assigning the answer rule through visible trusted/untrusted source-status text.
-
-MC014 tested the next repair: infer source validity from calibration rows instead of assigning it with explicit status labels. The full 560-row run selected `calibration_rule`. Direct controls and nulls stayed clean at 40/40 each, and primary prompts had no trusted/untrusted/reliable/unreliable/status lexemes, but calibration-inconsistent conflict rows still selected local numbers on 40/40 rows. The primary conflict collapsed to 80/80 local-number rows and 0 atomic/lure-number rows, with candidate/output margins reported. MC014 closes calibration-inferred reliability as a diagnostic route under this prompt contract.
-
-MC015 tested a learned factual gate instead of source reliability: the prompt-local table controls only when the queried element's hidden standard atomic-number parity matches the visible rule. The full 840-row run selected `parity_rule`. Direct controls and nulls were clean at 40/40 each, target/lure atomic numbers were hidden, status lexemes were absent, and expected local/atomic labels were balanced by split. But the gate was not followed: primary conflict expected correctness was 39/80, with 54 local-number rows, 24 atomic-number rows, 2 other-number rows, expected-local rows selecting local only 27/40, and expected-atomic rows selecting atomic only 12/40. MC015 closes parity-gated numeric arbitration as a diagnostic route before hidden-state work.
-
-MC016 tested whether a visible non-status operational gate can do what MC013-MC015 could not. The prompt-local table controlled only when the queried element's first-letter group matched the alphabet rule, while target/lure atomic numbers and status lexemes stayed absent. The full 1120-row run selected `alphabet_rule`. Direct controls and nulls were clean at 40/40 each, expected labels were balanced by split, and candidate/output margins were reported. But the primary conflict collapsed completely to local numbers: 80/80 local, 0 atomic/lure, expected correctness 40/80. Expected-local rows selected local 40/40; expected-atomic rows selected atomic 0/40. The stronger `feature_labeled_alphabet` template also failed to rescue the atomic side, with 61 local rows, 0 atomic rows, and 19 unparsed rows. MC016 closes visible non-status alphabet gating as another diagnostic route before hidden-state work.
+Read, in order: `README.md` → `STATE.json` → top of `NOTES.md` → `QUEUE.md`.
+Then either finish the experiment named in `STATE.json.current_experiment` or
+start the top of the queue. Follow the cadence rules. Commit. That's the whole
+job.
