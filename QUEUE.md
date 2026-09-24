@@ -10,7 +10,8 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 | e011a | write norms vs damage | DONE | H4 refuted: norms not monotone; damage/write falls 11× across attn layers; MLP-5 writes most, matters least |
 | e011b | L0 redundancy + orthogonal innovation | DONE | 7.6× superadditive head ensemble; same-norm noise > zero everywhere; stream 8.4× jump at L0 — see T003 |
 | e011c | matched-perturbation control | DONE | P1 refuted both ways: energy (not content) dominates; MLP-L1 direction-sensitive, MLP-L5 energy-carrier; bootstrap CIs pending |
-| e014b | stream-renorm training | READY | train fresh net with constant-norm residual stream at block inputs; T003-B predicts lesion map flattens |
+| e014b | stream-renorm training | DONE | P2 REFUTED at parity (val 1.610): front-loading survives renorm — functional, not geometric; MLP-0 keystone dissolved; late layers declined purchasable authority |
+| e013 | rare-token causal mask | READY (next) | mask the exact tokens L5 heads attend to (v002 positions); P1: KL(L5‖L4) collapses ≥50% with CE moving <0.05 (T005) |
 | e003b | corrected ascent instruments | READY | dense steps 0–30; projected + masked (top-k A-specific) ascent; target=train-A CE (memorization), collateral=val_B CE (labels fixed per critique) |
 | e011 | MLP-0 anatomy | READY | what does the keystone organ (+4.08 nat lesion) store? probe, ablate-then-finetune recovery cost |
 | e012 | decision-depth census | DONE | P2 confirmed (late-decided 3.04× more ablation damage), P3 confirmed (L5 calibrator, KL 1.03 nats), P1 refuted with sign flip (+0.32) |
@@ -35,7 +36,7 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 |---|---|---|---|
 | v001 | token journey | DONE | decision-depth observable discovered (T004); authority schedule visualized; polish: arrowheads + L0 headroom |
 | v006 | decision-depth passage map | READY (viz) | color every char of a passage by its decision depth — does depth cluster on names, line-ends, dialogue turns? |
-| v002 | attention atlas | READY | per-prompt 6×6 grid of head attention maps, annotated; find what attn-L5 actually attends to |
+| v002 | attention atlas | DONE | locality funnel (L0 uniform → L3 tight → L4/L5 re-broaden); L5 = rare-token re-globalizer (0.73 mass on 'O' matches in one head) |
 | v003 | write-space geometry | PARKED | PCA/dimensionality of each block's writes; overlap between blocks (who writes where) |
 | v004 | lesion atlas explorer | PARKED | combine e001 damage + e011b subsets + write norms into one annotated anatomy poster |
 | v005 | forgetting animation | PARKED | animate E003 ascent trajectories (Δtarget/Δcollateral + generated text decaying) |

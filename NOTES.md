@@ -9,25 +9,55 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## E014b — stream-renorm training: the decisive authority-schedule test (2026-09-24) — RUNNING
+## V002 — attention atlas: L5 is a rare-token re-globalizer (2026-09-24) — DONE
+
+WHAT WE DID: VISUALIZER subagent built lab/v002_attention_atlas.py: last-token
+attention of all 36 heads on a 96-token dialogue window; per-head entropy,
+distance profiles, attended-token surprisal; attention recomputation sanity-
+checked against the model's own output (4.8e-7). runs/v002/*.png.
+
+WHAT WE SAW:
+- **Locality funnel across depth:** attention entropy L0 4.51 (near-uniform)
+  → L3 1.64 (tightest; 50.7% mass at distance 4-16) → L4/L5 re-broaden.
+  Matches E012's decision-depth structure (local completion peaks mid-stack).
+- **L5 reads rare identity tokens far away:** local d1-3 mass collapses
+  0.234→0.060 (L4→L5) while ancient d65+ jumps 0.001→0.091 (~76×);
+  attended-token surprisal 4.28→4.81 bits at flat entropy. L5 head 1 puts
+  0.499+0.146+0.085 ≈ 0.73 of its mass on exact 'O' character matches.
+- This is the L5-calibrator mechanism: distant rare evidence reshapes the
+  distribution tail (KL ~1 nat) while local argmax was already settled
+  (ablation +0.03).
+
+WHAT'S NEXT: causal test (e013): mask exactly the rare tokens L5 heads
+attend to (positions recorded in runs/v002/metrics.json) — predict KL(L5‖L4)
+collapses while mean CE barely moves. See THINKING T005.
+
+## E014b — stream-renorm training: the decisive authority-schedule test (2026-09-24) — DONE
 
 WHAT WE DID: implemented scratch/e014b_design.md exactly — renorm arm pins
 every block-input stream to c=5.6 per token (hooks active train+eval), seed
 42, same budget; baseline arm reuses E001 weights; eval-only-renorm control;
 write/stream instrumentation; P2 criteria operationalized.
 
-WHAT WE SAW (interim):
-- **Eval-only renorm control: baseline CE 1.622 → 5.178 (+3.56 nats).** The
-  net's function DEPENDS on the depth-wise stream-norm profile at inference —
-  the geometry is load-bearing, not cosmetic.
-- Renorm-trained arm tracks the baseline loss curve closely (val 1.68 vs
-  1.67 at step 750) — parity gate likely to pass; a net can learn normally
-  under a constant-norm stream (consistent with nGPT prior art).
-- Lesion comparison + re-inflation observable + P2 verdict land in
-  runs/e014b/ when the run completes (~6 min) — next heartbeat harvests.
+WHAT WE SAW (FINAL):
+- **P2 REFUTED at full parity.** Renorm arm val 1.610 (BETTER than baseline
+  1.622; gate 1.7224). Lesion map stayed front-loaded: attn damage
+  [2.80, 1.69, 0.48, 0.81, 0.21, 0.03] (spread 2.77 vs baseline 2.37).
+  Front-loading is functional allocation, NOT stream-geometry.
+- **Anatomy is plastic:** baseline MLP-0 keystone (+4.08) dissolved (+0.10)
+  under renorm; attn-L0 grew MORE critical (+2.80) with 2.9× larger write
+  (7.8 vs 2.7); renorm MLP damage flipped late-heavy [0.10, 0.08, 0.23,
+  0.45, 0.78, 0.70]. Multiple anatomies reach the same function.
+- **Optimization declines late authority:** renorm caps the stream at
+  consumption points, not write size — L4/L5 COULD write big but deflated
+  (ρ 0.82, 0.70) while L1-L3 partially re-inflated (ρ 1.25-1.47; mean 1.10
+  < 1.3 criterion → not met).
+- **Norm profile is per-net load-bearing but task-optional:** eval-only
+  renorm on baseline +3.56 nats, yet renorm-trained learning is unimpaired.
 
-WHAT'S NEXT: P2 verdict (flatten criteria: spread ≤1.18, D'5 ≥ +0.10,
-D'0 < +2.00); re-inflation ρ ≥ 1.3 check; S1 (MLP-0 keystone survival).
+WHAT'S NEXT: T003 final resolution written (THINKING.md). Live questions:
+why do early layers hold the coarse work? Why do late MLPs write big-but-
+cheap (now LATE-heavy in renorm arm — the arrangement flipped)?
 
 ## V006 — decision-depth passage map (2026-09-24) — DONE
 

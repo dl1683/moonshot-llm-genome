@@ -88,8 +88,46 @@ truth is cleaner.** At matched perturbation energy (60° rotation, verified
   write/stream ratio (the geometric authority term) — checkable now from
   existing numbers.
 
-**PRIOR-ART STATUS (scratch/prior_art_authority_schedule.md, 2026-09-24):
-PARTIALLY-KNOWN.** Stream-norm growth is documented (TurnTrout 2023: ~1.045×/
+**T003 FINAL RESOLUTION (E014b, 2026-09-24T11:08Z): Reading B REFUTED at
+full parity — and the deeper finding is anatomical plasticity.**
+
+Facts: renorm arm (stream pinned to c=5.6 at every block input, train+eval)
+reached val 1.610 — BETTER than baseline 1.622, parity gate passed
+decisively. Lesion map under renorm: attn damage [2.80, 1.69, 0.48, 0.81,
+0.21, 0.03] — still strongly front-loaded (spread 2.77 vs baseline 2.37;
+D'5 +0.031 ≈ baseline 0.034). P2 criteria: REFUTED (parity ✓, D'0 ≥ 2.0,
+D'5 ≤ 0.05).
+
+1. **Front-loading is NOT caused by stream-norm geometry.** With the
+   norm-growth schedule deleted from the architecture, the network still
+   organizes early-critical/late-cheap structure. Front-loading is
+   functional allocation (early layers do the coarse work), not a
+   geometric artifact. The E011c energy-dominance result stands, but the
+   CAUSE of the energy allocation is learned task structure, not stream
+   growth.
+2. **Anatomy is plastic.** Baseline keystones MOVED: MLP-0's keystone role
+   (+4.08 nats) dissolved under renorm (+0.10) — plausibly because baseline
+   MLP-0 was bootstrapping the 0.67→5.7 norm jump, and renorm does that for
+   free. Attention-L0 became MORE critical (+2.80 vs +2.40) with a 2.9×
+   larger write (7.8 vs 2.7). Mid-stack reorganized (L2 damage halved, L3
+   doubled). Multiple anatomies reach the same function.
+3. **Optimization declines late authority even when purchasable.** Renorm
+   constrains stream norm at CONSUMPTION points, not write size — any layer
+   could still steer strongly by writing big (L0 does: 7.8). Yet L4-L5
+   writes DEFLATED (ρ 0.82, 0.70) while L1-L3 partially re-inflated
+   (ρ 1.25-1.47; mean 1.10 < 1.3 criterion → re-inflation hypothesis also
+   not met as stated). The network allocates authority where the work is.
+4. **The norm profile is per-net load-bearing but task-optional:** eval-only
+   renorm on baseline weights +3.56 nats (E014b control) vs renorm-trained
+   parity — a given net's wiring depends on its norm profile, but learning
+   does not require the canonical profile.
+
+Status of T003 after E014b: geometry-schedule story dead; live questions
+move to WHY early layers hold the coarse work (curriculum of abstraction?
+token-formation bottleneck at L0?) and WHY late MLPs write big-but-cheap
+(the MLP-L5 energy-carrier mystery persists and deepened — renorm MLP
+damage is now LATE-heavy [0.10, 0.08, 0.23, 0.45, 0.78, 0.70], the
+opposite arrangement from baseline). Stream-norm growth is documented (TurnTrout 2023: ~1.045×/
 layer in GPT-2-XL, "overshadowing not deletion", NO causal interventions);
 front-loaded criticality is widely observed (Gromov 2024, ShortGPT, BERT
 pruning) but always explained functionally, never geometrically; renorm
@@ -107,6 +145,47 @@ under renormalization, that alone shows optimization *wants* an authority
 schedule, independent of the lesion result.
 
 ---
+
+## T005 — The locality funnel and L5's rare-token re-globalization (2026-09-24T11:12Z)
+
+**Observed (V002 attention atlas):** attention locality has a depth profile —
+entropy L0 4.51 (near-uniform) → L3 1.64 (tightest, 50.7% mass at distance
+4-16) → L4/L5 re-broaden. L5 abandons the local window (d1-3 mass 0.234→
+0.060 vs L4) and reads RARE, FAR identity tokens (d65+ mass ×76; one head
+puts 0.73 of mass on exact 'O' matches; attended surprisal 4.28→4.81 bits at
+flat entropy). Sanity: recomputed attention matches model output to 4.8e-7.
+
+**The mechanism claim:** mid-stack layers solve local completion (where
+decision depths concentrate, E012); L5's job is re-globalization — pulling
+distant, low-frequency identity evidence (speaker, register, topic) to
+reshape the distribution tail. Explains the E012 paradox: KL(L5‖L4 readout)
+≈ 1 nat with +0.03 ablation CE — the calibration is tail-shaping, not
+argmax-flipping.
+
+**Hypotheses for why re-globalization is LATE:**
+- R1 (division of labor): local constraints resolve by mid-stack; the
+  remaining uncertainty (which valid continuation fits the far context) is
+  only resolvable by distant evidence, so it's the last thing computed.
+- R2 (cheap insurance): rare-token evidence mostly confirms an already-good
+  distribution — small CE value, large distributional effect.
+- R3 (interference avoidance): doing global reads early would contaminate
+  local completion; the funnel ordering is an architectural convention the
+  optimizer finds reliably.
+
+**Discriminating observations:**
+1. **Causal mask test (e013):** mask exactly the attended rare tokens
+   (positions recorded in runs/v002/metrics.json) → R-predictions below.
+2. Decision depth on positions right after rare identity tokens vs generic
+   positions (do rare tokens push decisions deeper?).
+3. Prompt without any rare identity tokens (generic prose) → does L4→L5
+   re-globalization shrink?
+
+**Registered predictions:**
+- P1: masking the v002-identified attended tokens reduces KL(L5‖L4 readout)
+  by ≥50% while mean CE moves <0.05 nats (tail-shaping, not argmax).
+- P2: positions following rare identity tokens have systematically deeper
+  decision depth (mean depth ≥ +1 vs generic positions).
+- P3: rare-free prompts shrink L5's distant-mass fraction by ≥ half.
 
 ## T004 — Decision depth: predictions form at different depths per token (2026-09-24T10:5xZ)
 
