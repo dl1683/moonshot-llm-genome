@@ -149,7 +149,8 @@ def mean_grad(model: TinyGPT, src: torch.Tensor, k: int, gen: torch.Generator) -
 
 def project_out(model: TinyGPT, u_params: list[torch.Tensor]) -> float:
     """Remove from the current gradient its component along u (UNIT norm).
-    Returns the removed cosine (dot with unit u)."""
+    Returns the removed dot(g, u) = |g|*cos — NOT normalized by |g| (ascent
+    gradients explode as CE grows), so |value| > 1 is expected."""
     dot = torch.zeros((), device=DEVICE)
     for p, up in zip(model.parameters(), u_params):
         if p.grad is not None:
@@ -238,8 +239,9 @@ def run_arm(base: TinyGPT, train_a, train_b, evals: dict, lr: float, mode: str, 
 
     diag = dict(mask_diag)
     if removed:
-        diag["mean_removed_cos"] = sum(removed) / len(removed)
-        diag["mean_removed_cos_last50"] = sum(removed[-50:]) / len(removed[-50:])
+        # raw dots, not cosines: |grad| explodes as CE grows (see project_out)
+        diag["mean_removed_dot"] = sum(removed) / len(removed)
+        diag["mean_removed_dot_last50"] = sum(removed[-50:]) / len(removed[-50:])
     return m, traj, diag
 
 

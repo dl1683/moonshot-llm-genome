@@ -9,30 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## E003b — targeted/projected ascent: PROJECTION WORKS (r≈5-6) (2026-09-24) — DONE
+## E003b — targeted/projected ascent: registered instruments FAIL; an Adam-anchor accident soars (2026-09-24) — DONE (record corrected)
 
-WHAT WE DID: from E001 checkpoint, 300-step ascent arms with critique-fixed
-labels (target = train-A memorization CE; collateral = val_B): naive (1e-6,
-1e-5), projected (ascent minus its component along the mean B-gradient
-direction, refreshed every 10 steps), masked (top-10% A-specificity weights
-only). runs/e003b/selectivity.png.
+WHAT WE DID: 300-step ascent arms with corrected labels (target = train-A
+memorization CE, baseline 1.018 vs val_B 1.681 — a 0.66-nat gap; collateral
+= val_B): naive anchors, exact projection (unit B-direction, 4-batch mean,
+refresh/10), top-10% masked, combined, plus an accidental variant
+(unnormalized B-direction = 70%-strength projection, kept for the record).
 
-WHAT WE SAW (registered verdicts resolved):
-- **PROJECTED ASCENT IS SELECTIVE: peak r = 4.84-6.13** (final Δtarget
-  +0.279 vs Δcollateral +0.090) — 3-4x above the registered 1.5 bar.
-  Forgetting CAN be aimed away from retained knowledge.
-- naive: r = 1.22 at both doses (replicates the morning's anti-selectivity
-  with corrected labels). masked: r = 1.84 (better than naive, below the
-  2.0 bar). masked+projected: degenerate (empty trajectory).
-- **Mechanistic bonus: the shared fluency substrate is LOW-DIMENSIONAL** —
-  projecting out ONE mean retain-direction rescues most of the selectivity.
-  T002's "shared substrate" now has a shape: mostly one direction.
+WHAT WE SAW (registered verdicts):
+- **Naive r = 1.22 (NOT 1.0)** — under corrected labels even plain ascent
+  is mildly selective; the old anti-selectivity constant was partly the
+  val_a mislabeling.
+- **Exact projection FAILS the 1.5 bar (peak 1.455, decays to 1.09)** —
+  removing the full first-order B-component converges to the naive
+  signature. Masked fails 2.0 (1.80); combined 1.93 (gentlest: +0.034
+  collateral at +0.064 target).
+- **The ACCIDENTAL 70%-projection soars (r 3.12-6.13, target +0.28 at
+  collateral +0.09).** Mechanism (agent's reading): through Adam's
+  sign-like updates, the residual B-component acts as a weak implicit
+  B-DESCENT anchor — projection-before-Adam ≠ projection-of-the-step.
+  This is E002's explicit retain-anchor, rediscovered implicitly at the
+  right dose.
+- Mean-level gradient cosine cos(g_A, g_B) = 0.799 vs batch-level 0.345 —
+  averaging collapses both onto the shared fluency direction.
 
-WHAT'S NEXT: T008 claim 5 amends to "selective first-order forgetting is
-possible via projection; naive/masked fail." Dose-response of projected
-ascent (how far can Δtarget go before r degrades?) is the natural follow-up
-(e003c). Review 3 due now.
-
+WHAT'S NEXT: e003d REGISTERED — deliberate partial projection + explicit
+small retain-descent term (the accidental winner made explicit), dose-to-
+the-0.66-bar, step-norm-matched naive control, train-B second collateral.
+NOTE: the running e003c uses the EXACT projection — interpret its
+projected arm knowing it is the failing variant.
 ## E031 — stream-facing matrix grafts: W_in is the violent one (2026-09-24) — DONE
 
 WHAT WE DID: host B received one matrix at a time from B43 (cross-seed,
