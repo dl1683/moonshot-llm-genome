@@ -120,8 +120,10 @@ debt, and falsifier. Scope: ONE architecture (6L/6H/192 pre-LN char-GPT,
 2.7M params), Shakespeare + synthetic variants, 6 trained nets (B, R, B43,
 R43, e021 task+control), ~5 GPU-hours, single lab.
 
-**C1 (H) — Function is staged; stages are the organism.** Pipeline:
-token-formation → local completion → late distribution-calibration; on
+**C1 (H, re-anchored T012) — Function is staged; decisions causally close
+mid-stack (L3/L4).** Lens-based depth evidence demoted to argmax-stability
+profile; causal depth is the instrument; cross-net causal invariance
+pending (e012d). Pipeline: token-formation → local completion → late distribution-calibration; on
 retrieval tasks a retrieval stage appears at L4. Evidence: depth-census
 invariance across 2 regimes × 2 seeds (4-net table, cross-seed 0.849 ≥
 cross-regime 0.828, e012/e012b/e012c); decision-depth class ordering
@@ -181,8 +183,13 @@ KL(L5‖L4), write/stream ratios, transplant R-bands, ΔW subspace atlas —
 with known lens caveats (mid-stack readouts anti-informative; argmax-stability
 robust).
 
-**Card debt summary (blocking v2):** ΔW ceiling null; e035/e038 verdicts;
-e003d; v008 multi-seed maps; e005s scaling ladder (gated on this card).
+**Card v2 debt summary (updated 15:35Z):** PAID: ΔW ceiling null (e041:
+partial anchoring); e035/e038 (retrieval resolved); claim-5 family (closed
+negative e003c; superseded by C6 surgical doctrine). OPEN: e012d (causal
+census × 4 nets — C1's remaining evidence debt); v008 multi-seed maps;
+e043 (install symmetry — memo in progress); e005s scaling ladder (gated on
+card v2 + e012d). INSTRUMENT NOTE (T012): lens-based depth demoted;
+causal depth is the depth instrument.
 
 
 ---
