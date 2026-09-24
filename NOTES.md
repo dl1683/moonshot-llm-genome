@@ -9,6 +9,44 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E014b — stream-renorm training: the decisive authority-schedule test (2026-09-24) — RUNNING
+
+WHAT WE DID: implemented scratch/e014b_design.md exactly — renorm arm pins
+every block-input stream to c=5.6 per token (hooks active train+eval), seed
+42, same budget; baseline arm reuses E001 weights; eval-only-renorm control;
+write/stream instrumentation; P2 criteria operationalized.
+
+WHAT WE SAW (interim):
+- **Eval-only renorm control: baseline CE 1.622 → 5.178 (+3.56 nats).** The
+  net's function DEPENDS on the depth-wise stream-norm profile at inference —
+  the geometry is load-bearing, not cosmetic.
+- Renorm-trained arm tracks the baseline loss curve closely (val 1.68 vs
+  1.67 at step 750) — parity gate likely to pass; a net can learn normally
+  under a constant-norm stream (consistent with nGPT prior art).
+- Lesion comparison + re-inflation observable + P2 verdict land in
+  runs/e014b/ when the run completes (~6 min) — next heartbeat harvests.
+
+WHAT'S NEXT: P2 verdict (flatten criteria: spread ≤1.18, D'5 ≥ +0.10,
+D'0 < +2.00); re-inflation ρ ≥ 1.3 check; S1 (MLP-0 keystone survival).
+
+## V006 — decision-depth passage map (2026-09-24) — DONE
+
+WHAT WE DID: colored 480 chars of held-out text by decision depth
+(runs/v006/depth_passage.png); profiled depth by character class.
+
+WHAT WE SAW:
+- **Letters decided LATE (uppercase 5.32, lowercase 5.15); structural chars
+  EARLY (newline 3.69, space 3.82); punct mid (4.52).** Depth tracks the
+  TYPE of discrimination — structural/syntactic decisions finish early,
+  lexical identity needs the deep pipeline (and L5's calibration).
+- 51% of positions finalize only at the L5 readout — consistent with E012's
+  L5-calibrator finding (it often settles the final argmax).
+- Zero positions decided at emb in this passage; top-1 acc 0.61.
+
+WHAT'S NEXT: depth clustering by position-in-line/speaker-turn; consider
+depth as a manipulable surface (can we force a position to decide late/early
+by context surgery?).
+
 ## E012 — decision-depth census (2026-09-24) — DONE
 
 WHAT WE DID: over 2000 held-out positions, decoded the last-token stream
