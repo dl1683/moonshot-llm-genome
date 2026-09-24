@@ -5,7 +5,8 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e003 | forgetting selectivity frontier | RUNNING | T002 discriminator suite: (1) grad cosine A↔B, (2) fine LR sweep trajectory (ΔA,ΔB), (3) dissimilar-content unlearning arm, (4) fluency-vs-content probes — NOT a blind grid |
+| e003 | forgetting selectivity frontier | DONE | P1 refuted (cos A-B 0.345), P2 confirmed (no selective LR), P3 refuted (French unlearning not selective either) — see NOTES.md |
+| e003b | transient-selectivity audit + repair | READY (pending T002 final) | read early trajectory steps for a selectivity window; if found: early-stop + fluency-anchor ascent; if not: weight-targeted (low-overlap) or second-order ascent |
 | e011a | write norms vs damage | DONE | H4 refuted: norms not monotone; damage/write falls 11× across attn layers; MLP-5 writes most, matters least |
 | e011 | MLP-0 anatomy | READY | what does the keystone organ (+4.08 nat lesion) store? probe, ablate-then-finetune recovery cost |
 | e012 | vestigial attention | READY | attn-L5 costs only +0.03 — vestigial or quietly specialized? read its attention patterns |

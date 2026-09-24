@@ -9,14 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## E003 — forgetting selectivity frontier (2026-09-24) — RUNNING
+## E003 — forgetting selectivity frontier (2026-09-24) — DONE
 
-WHAT WE DID: T002 discriminator suite, launched detached: (1) gradient cosine
-A↔B vs A↔French(Les Misérables), (2) fine LR ascent sweep trajectories
-(ΔA,ΔB) at 1e-6…3e-5, (3) implant-French-then-unlearn arm (selectivity for
-dissimilar content), (4) fluency-vs-content CE probes (A-unique/B-unique
-lines). Results land in runs/e003/ — next heartbeat harvests and THINKING.md
-gets the T002 resolution.
+WHAT WE DID: T002 discriminator suite: (1) gradient cosines (A↔B vs within-half
+vs A↔French), (2) LR ascent sweep 1e-6…3e-5 with (ΔA,ΔB) trajectories, (3)
+implant-French (400 steps, 5e-4) then ascend-on-French arm, (4) fluency-vs-
+content CE probes (A-unique/B-unique lines vs generic) after mild ascent.
+runs/e003/selectivity_frontier.png.
+
+WHAT WE SAW (all three registered predictions resolved):
+- **P1 REFUTED:** cos(A,B) = 0.345 ≈ within-half baselines (0.363/0.390);
+  French is 2.4× lower (0.144). Same-corpus halves are NOT gradient-parallel.
+- **P2 CONFIRMED:** no LR reaches ΔA ≥ 1 with ΔB ≤ 0.1. Even lr 1e-6 (the
+  gentle walk along grad_A itself) gives ΔA +0.29 / ΔB +0.27 at step 200 —
+  perfectly anti-selective.
+- **P3 REFUTED:** unlearning French also destroyed Shakespeare
+  (dissimilar_selective = false). Content distance does not rescue ascent.
+- Fluency probes: after "mild" ascent (1e-5×200) everything ≈ 24 nats
+  (random): A-unique 1.26→24.2, B-unique 1.35→24.0, generic 1.63→23.7.
+- **Unified story forming:** first-order ascent — any dose, any content —
+  destroys the shared fluency substrate first and content memories only with
+  it. Gradient geometry (P1) shows content IS distinguishable in gradient
+  space; the failure is that ascent trajectories do not follow it.
+
+WHAT'S NEXT: T002 final resolution (thinking, not running): read the early
+trajectory steps — was there ANY transient selectivity window (French rising
+faster in the first 25 steps) before collapse? If yes: early-stopped ascent +
+fluency-anchored objective is the repair hypothesis. If no: first-order
+methods are structurally dead here; next family = weight-targeted surgery
+(ascend only low-overlap weights) or second-order directions. Also reconcile
+with the independent critique (scratch/critique_T001_T002.md) when it lands.
 
 ## E011a — write norms vs lesion damage (2026-09-24) — DONE
 
