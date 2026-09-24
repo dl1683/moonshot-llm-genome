@@ -1,0 +1,1738 @@
+{
+  "card_failures": [
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC017/mc017_selector_token_numeric_behavior_20260701T115850.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC017",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "ATOMIC selector control collapsed to LOCAL",
+      "exported_diagnostics": [
+        "ANSWER_TOKEN_LOCAL_COLLAPSE",
+        "ATOMIC_SELECTOR_CONTROL_FAILED",
+        "NULL_SELECTOR_LOCAL_COLLAPSE"
+      ],
+      "failure_axes": [
+        "answer_token_collapse",
+        "atomic_selector_control_failed",
+        "answer_absent_null_failed",
+        "local_selector_prior"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Asking for LOCAL/ATOMIC source tokens creates its own behavior surface; the atomic-only selector control collapsed to LOCAL.",
+      "next_constraint": "Do not treat source-token answers as cleaner than numeric answers without neutral labels and null controls.",
+      "observed_failure_pattern": null,
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC017_SELECTOR_TOKEN_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "answer_absent_panel_unknown_at_least_90p",
+        "atomic_selector_control_atomic_at_least_90p",
+        "expected_atomic_conflict_atomic_selector_at_least_85p",
+        "holdout_conflict_atomic_at_least_4",
+        "holdout_conflict_label_balance_passed",
+        "non_holdout_conflict_atomic_at_least_10",
+        "non_holdout_conflict_label_balance_passed",
+        "primary_conflict_binary_rows_at_least_40",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Selector-token numeric arbitration"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC018/mc018_counterbalanced_selector_labels_behavior_20260701T121143.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC018",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "source-rule correctness near chance with order bias",
+      "exported_diagnostics": [
+        "NEUTRAL_SELECTOR_RULE_FAILED",
+        "FIRST_LISTED_CHOICE_BIAS",
+        "LOCAL_SOURCE_SALIENCE",
+        "ANSWER_ABSENT_SELECTOR_NULL_FAILED"
+      ],
+      "failure_axes": [
+        "neutral_label_rule_following_failed",
+        "answer_option_order_bias",
+        "definition_order_bias",
+        "local_source_salience",
+        "answer_absent_null_failed"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Neutral A/B labels repaired the worst LOCAL token collapse but left source-rule correctness near chance and exposed strong first-listed/local-source pressure.",
+      "next_constraint": "Any source-selector bridge must beat neutral label, definition-order, answer-option-order, and null controls.",
+      "observed_failure_pattern": "mixed_or_unresolved_selector_failure",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC018_COUNTERBALANCED_SELECTOR_LABELS_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "answer_absent_panel_unknown_at_least_90p",
+        "atomic_selector_control_atomic_at_least_90p",
+        "expected_atomic_conflict_atomic_at_least_85p",
+        "expected_local_conflict_local_at_least_85p",
+        "local_selector_control_local_at_least_90p",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Counterbalanced selector labels"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC019/mc019_row_code_numeric_behavior_20260701T122807.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC019",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "expected-atomic route weak despite clean nulls",
+      "exported_diagnostics": [
+        "ROW_CODE_RULE_FAILED",
+        "EXPECTED_ATOMIC_ROUTE_WEAK",
+        "ROW_CODE_CONTROLS_CLEAN_CONFLICT_FAILED"
+      ],
+      "failure_axes": [
+        "row_code_rule_following_failed",
+        "expected_atomic_route_weak",
+        "holdout_conflict_balance_failed"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Neutral row-local route codes repaired direct controls and nulls, but expected-atomic rows did not reliably follow the route rule.",
+      "next_constraint": "Do not accept clean route-code controls unless expected-atomic rows also follow the route rule under prompt-local table pressure.",
+      "observed_failure_pattern": "mixed_or_unresolved_row_code_failure",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC019_ROW_CODE_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "expected_atomic_conflict_atomic_at_least_85p",
+        "expected_local_conflict_local_at_least_85p",
+        "holdout_conflict_balance_passed",
+        "primary_conflict_binary_rows_at_least_40",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Row-code numeric arbitration"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC020/mc020_atomic_recall_table_pressure_behavior_20260701T123741.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC020",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "route-atomic branch collapsed toward local",
+      "exported_diagnostics": [
+        "DIRECT_ATOMIC_RECALL_SURVIVES_TABLE_PRESSURE",
+        "CONDITIONAL_ROUTE_ATOMIC_COLLAPSE",
+        "PROMPT_LOCAL_BRANCH_DOMINANCE"
+      ],
+      "failure_axes": [
+        "direct_atomic_recall_available",
+        "conditional_route_atomic_failed",
+        "prompt_local_branch_dominance"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Atomic recall survives local-row pressure under direct instructions; the failure appears when a conditional rule must route away from the local row.",
+      "next_constraint": "Optimize the arbitration contract, not basic atomic recall availability.",
+      "observed_failure_pattern": "route_rule_expected_atomic_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC020_ATOMIC_RECALL_TABLE_PRESSURE_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "route_atomic_at_least_85p"
+      ],
+      "title": "Atomic recall under table pressure"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC021/mc021_visible_vs_learned_arbitration_behavior_20260701T124555.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC021",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "visible-visible route weak, learned route weaker",
+      "exported_diagnostics": [
+        "GENERIC_VISIBLE_ROUTE_FAILED",
+        "LEARNED_BRANCH_ARBITRATION_WEAKER",
+        "ROUTE_CODE_SUBSTRATE_FAILED"
+      ],
+      "failure_axes": [
+        "generic_visible_route_instability",
+        "learned_branch_worse_than_visible",
+        "route_code_substrate_failed"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Route-code arbitration is already weak when both branches are prompt-visible; learned-memory branches amplify the weakness.",
+      "next_constraint": "Do not rely on opaque route codes as a clean arbitration substrate.",
+      "observed_failure_pattern": "generic_visible_route_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC021_VISIBLE_VS_LEARNED_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "learned_atomic_route_at_least_85p",
+        "learned_conflict_expected_correct_at_least_85p",
+        "visible_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Visible-versus-learned arbitration"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC022/mc022_explicit_branch_name_arbitration_behavior_20260701T125634.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC022",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "local-source salience and rule-order sensitivity remain",
+      "exported_diagnostics": [
+        "SEMANTIC_SOURCE_LABEL_SUBSTRATE_FAILED",
+        "RULE_ORDER_SENSITIVITY",
+        "LOCAL_SOURCE_SALIENCE",
+        "LEARNED_MEMORY_BRANCH_COLLAPSE"
+      ],
+      "failure_axes": [
+        "semantic_source_label_substrate_failed",
+        "rule_order_sensitivity",
+        "local_source_salience",
+        "learned_memory_branch_collapse"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Semantic answer-source names do not solve the route problem; nonlocal-first order can rescue visible-visible routing, but learned-memory routing remains weak.",
+      "next_constraint": "Any next bridge must beat semantic source-label, rule-order, local-salience, and learned-branch controls.",
+      "observed_failure_pattern": "explicit_visible_source_routing_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC022_EXPLICIT_BRANCH_NAME_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "learned_atomic_source_at_least_85p",
+        "learned_conflict_expected_correct_at_least_85p",
+        "visible_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Explicit branch-name arbitration"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC023/mc023_query_operation_numeric_arbitration_behavior_20260701T135542.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC023",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "operation-local and operation-atomic conflict branches below gate",
+      "exported_diagnostics": [
+        "QUERY_OPERATION_SUBSTRATE_FAILED",
+        "OPERATION_LOCAL_BRANCH_BELOW_GATE",
+        "OPERATION_ATOMIC_BRANCH_BELOW_GATE",
+        "QUERY_OPERATION_CONTROLS_CLEAN_CONFLICT_FAILED"
+      ],
+      "failure_axes": [
+        "query_operation_substrate_failed",
+        "operation_local_branch_below_gate",
+        "operation_atomic_branch_below_gate",
+        "direct_controls_clean_conflict_failed"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Query-level operation handles preserve direct controls and nulls, but both local and atomic operation-conflict branches remain below behavior-gate quality in the smoke run.",
+      "next_constraint": "Do not treat query-level operation handles as a clean bridge unless both local and atomic conflict branches exceed gate thresholds on full source-disjoint runs.",
+      "observed_failure_pattern": "operation_local_branch_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC023_QUERY_OPERATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "operation_atomic_conflict_at_least_85p",
+        "operation_local_conflict_at_least_85p"
+      ],
+      "title": "Query-operation numeric arbitration"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC024/mc024_fewshot_operation_numeric_arbitration_behavior_20260701T144033.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC024",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "query_operation_atomic_branch_failed",
+      "dominant_failure": "operation-atomic branch below gate with other-number leakage",
+      "exported_diagnostics": [
+        "FEWSHOT_OPERATION_ATOMIC_BRANCH_FAILED",
+        "WORKED_EXAMPLES_CONTROLS_CLEAN",
+        "WORKED_EXAMPLES_LOCAL_BRANCH_PASSED",
+        "OPERATION_ATOMIC_OTHER_NUMBER_LEAK"
+      ],
+      "failure_axes": [
+        "fewshot_operation_atomic_branch_failed",
+        "worked_examples_controls_clean",
+        "worked_examples_local_branch_passed",
+        "operation_atomic_other_number_leak"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Balanced worked examples repair the local operation branch and preserve all direct controls and nulls, but the learned atomic operation branch falls below gate on the full source-disjoint run.",
+      "next_constraint": "Do not advance query-operation arbitration to hidden-state work until the learned atomic branch clears full-source gates without other-number leakage.",
+      "observed_failure_pattern": "operation_atomic_branch_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC024_FEWSHOT_OPERATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "operation_atomic_conflict_at_least_85p"
+      ],
+      "title": "Few-shot query-operation numeric arbitration"
+    },
+    {
+      "all_controls_passed": false,
+      "artifact_path": "results/cards/MC025/mc025_choice_interface_operation_arbitration_behavior_20260701T145555.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC025",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "direct atomic control and answer-absent null failed under choice interface",
+      "exported_diagnostics": [
+        "CHOICE_INTERFACE_ATOMIC_CONTROL_FAILED",
+        "CHOICE_INTERFACE_ANSWER_ABSENT_NULL_FAILED",
+        "CHOICE_INTERFACE_ATOMIC_BRANCH_FAILED",
+        "PROMPT_VISIBLE_CHOICE_OPTIONS_NOT_SUBSTRATE"
+      ],
+      "failure_axes": [
+        "choice_interface_atomic_control_failed",
+        "choice_interface_answer_absent_null_failed",
+        "choice_interface_atomic_branch_failed",
+        "prompt_visible_choice_options_not_substrate"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Constrained A/B/C choices do not repair MC024. They preserve local lookup and local operation routing, but direct atomic control and answer-absent nulls fail while the atomic conflict branch collapses mostly to local choices.",
+      "next_constraint": "Do not treat prompt-visible candidate choices as a bridge repair unless direct atomic controls, nulls, and learned-branch conflict rows all pass together.",
+      "observed_failure_pattern": "choice_interface_smoke_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC025_CHOICE_INTERFACE_OPERATION_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "all_controls_passed",
+        "answer_absent_unknown_at_least_90p",
+        "atomic_control_at_least_85p",
+        "choice_operation_behavior_gate_passed",
+        "operation_atomic_choice_conflict_at_least_85p"
+      ],
+      "title": "Choice-interface operation arbitration"
+    },
+    {
+      "all_controls_passed": false,
+      "artifact_path": "results/cards/MC026/mc026_numeric_option_operation_arbitration_behavior_20260701T151215.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC026",
+      "claim_status": "smoke_blocked_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "direct atomic control abstains and operation-atomic branch remains below gate",
+      "exported_diagnostics": [
+        "NUMERIC_OPTION_ATOMIC_CONTROL_ABSTENTION",
+        "NUMERIC_OPTION_ATOMIC_BRANCH_FAILED",
+        "NUMERIC_OPTIONS_NULLS_CLEAN",
+        "PROMPT_VISIBLE_NUMERIC_OPTIONS_NOT_SUBSTRATE"
+      ],
+      "failure_axes": [
+        "numeric_option_atomic_control_abstention",
+        "numeric_option_atomic_branch_failed",
+        "numeric_options_nulls_clean",
+        "prompt_visible_numeric_options_not_substrate"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Returning the listed number rather than an A/B/C label restores nulls but does not repair the bridge: direct atomic control collapses to UNKNOWN and the learned atomic conflict branch remains weak.",
+      "next_constraint": "Do not treat prompt-visible numeric options as a bridge repair unless direct atomic controls and learned-branch conflict rows pass together.",
+      "observed_failure_pattern": "numeric_option_smoke_failed",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC026_NUMERIC_OPTION_OPERATION_ARBITRATION_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [
+        "all_controls_passed",
+        "atomic_control_at_least_85p",
+        "numeric_option_behavior_gate_passed",
+        "operation_atomic_option_conflict_at_least_85p"
+      ],
+      "title": "Numeric-option operation arbitration"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC027/mc027_answer_interface_sweep_behavior_20260701T154841.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC027",
+      "claim_status": "smoke_only_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "answer interfaces change behavior strongly and only the inherited bare-integer route survives smoke",
+      "exported_diagnostics": [
+        "ANSWER_INTERFACE_DISPERSION",
+        "BARE_INTEGER_SMOKE_ONLY_CANDIDATE",
+        "STRUCTURED_INTERFACES_BREAK_BEHAVIOR",
+        "FULL_SOURCE_BOUNDARY_INHERITED_FROM_MC024"
+      ],
+      "failure_axes": [
+        "answer_interface_dispersion",
+        "bare_integer_smoke_only_candidate",
+        "structured_interfaces_break_behavior",
+        "full_source_boundary_inherited_from_mc024"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Sweeping answer interfaces on the same operation substrate shows that bare integer answers are the only 10-source smoke survivor; prefix, JSON, A/B/C choice, and numeric-option interfaces each distort controls or learned-branch routing.",
+      "next_constraint": "Do not treat a structured output schema as neutral; any future interface change must be tested as its own behavior surface before hidden-state work.",
+      "observed_failure_pattern": "answer_interface_substrate_candidate",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC027_ANSWER_INTERFACE_SWEEP_BEHAVIOR_STATUS.md",
+      "substantive_failed_criteria": [],
+      "title": "Answer-interface sweep"
+    },
+    {
+      "all_controls_passed": true,
+      "artifact_path": "results/cards/MC028/mc028_bare_integer_full_source_boundary_behavior_20260701T160314.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC028",
+      "claim_status": "full_source_boundary_failed_not_atlas_row",
+      "diagnostic_class": "bare_integer_full_source_atomic_other_number_leak",
+      "dominant_failure": "full-source learned atomic branch below gate with other-number leakage",
+      "exported_diagnostics": [
+        "BARE_INTEGER_FULL_SOURCE_ATOMIC_BRANCH_FAILED",
+        "FULL_SOURCE_OTHER_NUMBER_LEAK",
+        "FULL_SOURCE_CONTROLS_CLEAN",
+        "SMOKE_TO_FULL_SOURCE_BOUNDARY"
+      ],
+      "failure_axes": [
+        "bare_integer_full_source_atomic_branch_failed",
+        "full_source_other_number_leak",
+        "full_source_controls_clean",
+        "smoke_to_full_source_boundary"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "MC027's bare-integer smoke survivor does not promote to a full-source bridge: controls and nulls remain clean, but operation-atomic rows fall below gate with substantial other-number leakage.",
+      "next_constraint": "Do not promote a 10-source bridge smoke to hidden-state work without full-source stress and other-number side-effect accounting.",
+      "observed_failure_pattern": "full_source_atomic_other_number_leak",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC028_BARE_INTEGER_FULL_SOURCE_BOUNDARY_STATUS.md",
+      "substantive_failed_criteria": [
+        "operation_atomic_conflict_at_least_85p",
+        "operation_atomic_other_number_leak_below_10p"
+      ],
+      "title": "Bare-integer full-source boundary"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC029/mc029_operation_leak_factorial_behavior_20260701T170417.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC029",
+      "claim_status": "full_source_factorial_failed_not_atlas_row",
+      "diagnostic_class": "operation_leak_factorial_branch_null_tradeoff",
+      "dominant_failure": "branch/null tradeoff after worked-example removal",
+      "exported_diagnostics": [
+        "WORKED_EXAMPLE_OUTPUT_LEAK",
+        "RULES_ONLY_ATOMIC_BRANCH_IMPROVES",
+        "RULES_ONLY_ANSWER_ABSENT_NULL_FAILS",
+        "QUERY_BEFORE_EXAMPLES_AMPLIFIES_EXAMPLE_LEAK",
+        "QUERY_ROW_LAST_REDUCES_OTHER_NUMBERS_BUT_LOCAL_COLLAPSES",
+        "FACTORIAL_BRANCH_NULL_TRADEOFF"
+      ],
+      "failure_axes": [
+        "worked_example_output_leak",
+        "rules_only_atomic_branch_improves",
+        "rules_only_answer_absent_null_fails",
+        "query_before_examples_amplifies_example_leak",
+        "query_row_last_reduces_other_numbers_but_local_collapses",
+        "factorial_branch_null_tradeoff"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Factorizing MC028's leak shows the branch can move without producing a bridge: removing numeric examples improves operation-atomic routing, but answer-absent nulls fail; putting the query before examples amplifies worked-example copying.",
+      "next_constraint": "Do not treat example removal, query reordering, or row-order changes as a bridge repair unless learned-branch, local-branch, and null gates all pass together.",
+      "observed_failure_pattern": "rules_only_improves_atomic_branch_but_nulls_fail",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC029_OPERATION_LEAK_FACTORIAL_STATUS.md",
+      "substantive_failed_criteria": [
+        "any_variant_behavior_gate_passed"
+      ],
+      "title": "Operation leak factorial"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC030/mc030_null_preserving_rules_repair_behavior_20260701T175942.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC030",
+      "claim_status": "full_source_guard_repair_failed_not_atlas_row",
+      "diagnostic_class": "null_preserving_rules_branch_null_tradeoff_persists",
+      "dominant_failure": "branch/null tradeoff persists under absence guards",
+      "exported_diagnostics": [
+        "RULES_ONLY_BRANCH_NULL_TRADEOFF_PERSISTS",
+        "ABSENCE_GUARDS_WORSEN_ANSWER_ABSENT_NULLS",
+        "GUARDED_QUERY_LAST_REDUCES_OTHER_NUMBERS_BUT_BRANCH_COLLAPSES",
+        "NUMERIC_LIST_MARKERS_CAN_LEAK_ATOMIC_TARGETS"
+      ],
+      "failure_axes": [
+        "rules_only_branch_null_tradeoff_persists",
+        "absence_guards_worsen_answer_absent_nulls",
+        "guarded_query_last_reduces_other_numbers_but_branch_collapses",
+        "numeric_list_marker_structural_confounds_avoided"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Explicit absence guards do not repair MC029's rules-only tradeoff. The unguarded baseline remains the best branch/null compromise; guards reduce some other-number leakage only by damaging nulls or collapsing learned atomic routing.",
+      "next_constraint": "Treat simple absence-guard repair as closed unless a materially different contract preserves operation-atomic routing and answer-absent nulls together.",
+      "observed_failure_pattern": "branch_preserved_null_not_repaired",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC030_NULL_PRESERVING_RULES_REPAIR_STATUS.md",
+      "substantive_failed_criteria": [
+        "any_variant_behavior_gate_passed"
+      ],
+      "title": "Null-preserving rules repair"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC031/mc031_statusless_reliability_bridge_smoke_20260701T185520.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC031",
+      "claim_status": "statusless_checksum_bridge_smoke_failed_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "statusless invalid-source branch collapses to local despite available atomic recall",
+      "exported_diagnostics": [
+        "STATUSLESS_CHECKSUM_INVALID_BRANCH_LOCAL_COLLAPSE",
+        "CHECKSUM_VALID_LOCAL_BRANCH_CLEAN",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "ATOMIC_OR_LURE_CONFLICT_SELECTION_ABSENT",
+        "SMOKE_ONLY_NO_CANDIDATE_OUTPUT_BASELINES"
+      ],
+      "failure_axes": [
+        "statusless_checksum_invalid_branch_collapses_to_local",
+        "checksum_valid_local_branch_clean",
+        "direct_controls_and_nulls_clean",
+        "atomic_or_lure_conflict_selection_absent",
+        "smoke_only_no_candidate_output_baselines"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "A statusless arithmetic-checksum rule can preserve direct local, atomic, valid-checksum, and answer-absent controls, but it does not route invalid-checksum rows to the learned atomic branch. The model selects local numbers on every selected invalid-checksum conflict.",
+      "next_constraint": "Do not treat statusless reliability cues as bridge repair unless invalid-source rows produce atomic/lure selections on source-disjoint holdout while local controls and answer-absent nulls stay clean.",
+      "observed_failure_pattern": null,
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC031_STATUSLESS_RELIABILITY_BRIDGE_STATUS.md",
+      "substantive_failed_criteria": [
+        "holdout_conflict_atomic_or_lure_at_least_4",
+        "holdout_conflict_label_balance_passed",
+        "invalid_conflict_atomic_at_least_85p",
+        "non_holdout_conflict_atomic_or_lure_at_least_10",
+        "non_holdout_conflict_label_balance_passed",
+        "primary_conflict_binary_rows_at_least_40",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Statusless reliability bridge"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC032/mc032_post_checksum_bridge_behavior_smoke_20260701T192315.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC032",
+      "claim_status": "post_checksum_crosstable_bridge_smoke_failed_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "statusless cross-table mismatch collapses toward the primary local number",
+      "exported_diagnostics": [
+        "POST_CHECKSUM_CROSSTABLE_LOCAL_COLLAPSE",
+        "CROSSTABLE_MATCH_BRANCH_BELOW_GATE",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "CROSSTABLE_SIDE_NUMBER_LEAK_ABSENT",
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED"
+      ],
+      "failure_axes": [
+        "post_checksum_crosstable_mismatch_local_collapse",
+        "cross_table_match_branch_below_gate",
+        "direct_controls_and_nulls_clean",
+        "side_number_leak_absent",
+        "candidate_output_baselines_reported"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "Replacing arithmetic checksum validity with cross-table consistency does not repair the bridge. Direct local lookup, direct atomic recall, and answer-absent nulls stay clean, but mismatch rows still avoid the learned atomic branch and mostly select primary local numbers.",
+      "next_constraint": "Treat the post-checksum bridge as failed unless one preregistered repair makes mismatch rows select learned atomic values while preserving local controls, nulls, side-number locality, source-disjoint holdout, and candidate/output margin reporting.",
+      "observed_failure_pattern": null,
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC032_POST_CHECKSUM_BRIDGE_STATUS.md",
+      "substantive_failed_criteria": [
+        "holdout_conflict_atomic_or_lure_at_least_4",
+        "holdout_conflict_label_balance_passed",
+        "holdout_conflict_local_at_least_4",
+        "match_conflict_local_at_least_85p",
+        "mismatch_conflict_atomic_at_least_85p",
+        "non_holdout_conflict_atomic_or_lure_at_least_10",
+        "non_holdout_conflict_label_balance_passed",
+        "primary_conflict_binary_rows_at_least_40",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Post-checksum cross-table bridge"
+    },
+    {
+      "all_controls_passed": null,
+      "artifact_path": "results/cards/MC033/mc033_fact_claim_bridge_behavior_smoke_20260701T194546.json",
+      "behavior_ready": false,
+      "bridge_disposition": "bridge_rung_closed_before_hidden_state",
+      "card_id": "MC033",
+      "claim_status": "post_mc032_fact_claim_bridge_smoke_failed_not_atlas_row",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "fact-claim validity does not produce stable local-versus-learned routing",
+      "exported_diagnostics": [
+        "FACT_CLAIM_MATCH_BRANCH_FAILED",
+        "FACT_CLAIM_MISMATCH_LOCAL_AND_CLAIM_LEAK",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED",
+        "POST_MC032_BRIDGE_ROUTE_CLOSED"
+      ],
+      "failure_axes": [
+        "fact_claim_match_branch_below_gate",
+        "fact_claim_mismatch_local_and_claim_leak",
+        "direct_controls_and_nulls_clean",
+        "candidate_output_baselines_reported",
+        "post_mc032_bridge_route_closed"
+      ],
+      "hidden_state_allowed": false,
+      "lesson": "A row-local fact claim checked against learned atomic memory does not repair the bridge. Direct controls and nulls stay clean, but the match branch often returns the atomic number and the mismatch branch mostly selects local or the wrong claimed number.",
+      "next_constraint": "Treat the post-MC032 bridge repair route as closed. Do not add another same-family reliability cue unless it is materially outside source labels, row codes, operations, examples, answer schemas, absence guards, checksum, cross-table consistency, and row-local fact claims.",
+      "observed_failure_pattern": null,
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT_STATUS.md",
+      "substantive_failed_criteria": [
+        "holdout_conflict_atomic_or_lure_at_least_4",
+        "holdout_conflict_label_balance_passed",
+        "holdout_conflict_local_at_least_4",
+        "match_conflict_local_at_least_85p",
+        "mismatch_claimed_number_below_10p",
+        "mismatch_conflict_atomic_at_least_85p",
+        "non_holdout_conflict_atomic_or_lure_at_least_10",
+        "non_holdout_conflict_label_balance_passed",
+        "non_holdout_conflict_local_at_least_10",
+        "primary_conflict_binary_rows_at_least_40",
+        "primary_conflict_expected_correct_at_least_85p"
+      ],
+      "title": "Fact-claim bridge closeout"
+    }
+  ],
+  "claim_boundary": {
+    "allowed": "The post-atlas bridge program has a typed failure map. MC028's full-source bare-integer failure is a learned-branch other-number leak, not a direct atomic recall failure or null failure. MC029 shows that factorized prompt changes move the branch/null/error axes without producing a valid bridge substrate. MC030 shows that simple absence guards do not repair that tradeoff. MC031 shows that a statusless checksum reliability cue can keep controls and nulls clean while invalid-source rows still collapse to local answers. MC032 shows that replacing checksum validity with cross-table consistency does not repair the learned branch; the mismatch branch still collapses toward local numbers without side-number leakage. MC033 closes the post-MC032 repair path: a learned-fact claim cue keeps controls and nulls clean but fails both match and mismatch routing.",
+    "forbidden": "This taxonomy does not establish a hidden signature, intervention, or mechanism card, and it does not make MC028, MC029, MC030, MC031, MC032, or MC033 behavior-ready."
+  },
+  "exported_diagnostic_counts": {
+    "ABSENCE_GUARDS_WORSEN_ANSWER_ABSENT_NULLS": 1,
+    "ANSWER_ABSENT_SELECTOR_NULL_FAILED": 1,
+    "ANSWER_INTERFACE_DISPERSION": 1,
+    "ANSWER_TOKEN_LOCAL_COLLAPSE": 1,
+    "ATOMIC_OR_LURE_CONFLICT_SELECTION_ABSENT": 1,
+    "ATOMIC_SELECTOR_CONTROL_FAILED": 1,
+    "BARE_INTEGER_FULL_SOURCE_ATOMIC_BRANCH_FAILED": 1,
+    "BARE_INTEGER_SMOKE_ONLY_CANDIDATE": 1,
+    "CANDIDATE_OUTPUT_BASELINES_REPORTED": 2,
+    "CHECKSUM_VALID_LOCAL_BRANCH_CLEAN": 1,
+    "CHOICE_INTERFACE_ANSWER_ABSENT_NULL_FAILED": 1,
+    "CHOICE_INTERFACE_ATOMIC_BRANCH_FAILED": 1,
+    "CHOICE_INTERFACE_ATOMIC_CONTROL_FAILED": 1,
+    "CONDITIONAL_ROUTE_ATOMIC_COLLAPSE": 1,
+    "CROSSTABLE_MATCH_BRANCH_BELOW_GATE": 1,
+    "CROSSTABLE_SIDE_NUMBER_LEAK_ABSENT": 1,
+    "DIRECT_ATOMIC_RECALL_SURVIVES_TABLE_PRESSURE": 1,
+    "DIRECT_CONTROLS_AND_NULLS_CLEAN": 3,
+    "EXPECTED_ATOMIC_ROUTE_WEAK": 1,
+    "FACTORIAL_BRANCH_NULL_TRADEOFF": 1,
+    "FACT_CLAIM_MATCH_BRANCH_FAILED": 1,
+    "FACT_CLAIM_MISMATCH_LOCAL_AND_CLAIM_LEAK": 1,
+    "FEWSHOT_OPERATION_ATOMIC_BRANCH_FAILED": 1,
+    "FIRST_LISTED_CHOICE_BIAS": 1,
+    "FULL_SOURCE_BOUNDARY_INHERITED_FROM_MC024": 1,
+    "FULL_SOURCE_CONTROLS_CLEAN": 1,
+    "FULL_SOURCE_OTHER_NUMBER_LEAK": 1,
+    "GENERIC_VISIBLE_ROUTE_FAILED": 1,
+    "GUARDED_QUERY_LAST_REDUCES_OTHER_NUMBERS_BUT_BRANCH_COLLAPSES": 1,
+    "LEARNED_BRANCH_ARBITRATION_WEAKER": 1,
+    "LEARNED_MEMORY_BRANCH_COLLAPSE": 1,
+    "LOCAL_SOURCE_SALIENCE": 2,
+    "NEUTRAL_SELECTOR_RULE_FAILED": 1,
+    "NULL_SELECTOR_LOCAL_COLLAPSE": 1,
+    "NUMERIC_LIST_MARKERS_CAN_LEAK_ATOMIC_TARGETS": 1,
+    "NUMERIC_OPTIONS_NULLS_CLEAN": 1,
+    "NUMERIC_OPTION_ATOMIC_BRANCH_FAILED": 1,
+    "NUMERIC_OPTION_ATOMIC_CONTROL_ABSTENTION": 1,
+    "OPERATION_ATOMIC_BRANCH_BELOW_GATE": 1,
+    "OPERATION_ATOMIC_OTHER_NUMBER_LEAK": 1,
+    "OPERATION_LOCAL_BRANCH_BELOW_GATE": 1,
+    "POST_CHECKSUM_CROSSTABLE_LOCAL_COLLAPSE": 1,
+    "POST_MC032_BRIDGE_ROUTE_CLOSED": 1,
+    "PROMPT_LOCAL_BRANCH_DOMINANCE": 1,
+    "PROMPT_VISIBLE_CHOICE_OPTIONS_NOT_SUBSTRATE": 1,
+    "PROMPT_VISIBLE_NUMERIC_OPTIONS_NOT_SUBSTRATE": 1,
+    "QUERY_BEFORE_EXAMPLES_AMPLIFIES_EXAMPLE_LEAK": 1,
+    "QUERY_OPERATION_CONTROLS_CLEAN_CONFLICT_FAILED": 1,
+    "QUERY_OPERATION_SUBSTRATE_FAILED": 1,
+    "QUERY_ROW_LAST_REDUCES_OTHER_NUMBERS_BUT_LOCAL_COLLAPSES": 1,
+    "ROUTE_CODE_SUBSTRATE_FAILED": 1,
+    "ROW_CODE_CONTROLS_CLEAN_CONFLICT_FAILED": 1,
+    "ROW_CODE_RULE_FAILED": 1,
+    "RULES_ONLY_ANSWER_ABSENT_NULL_FAILS": 1,
+    "RULES_ONLY_ATOMIC_BRANCH_IMPROVES": 1,
+    "RULES_ONLY_BRANCH_NULL_TRADEOFF_PERSISTS": 1,
+    "RULE_ORDER_SENSITIVITY": 1,
+    "SEMANTIC_SOURCE_LABEL_SUBSTRATE_FAILED": 1,
+    "SMOKE_ONLY_NO_CANDIDATE_OUTPUT_BASELINES": 1,
+    "SMOKE_TO_FULL_SOURCE_BOUNDARY": 1,
+    "STATUSLESS_CHECKSUM_INVALID_BRANCH_LOCAL_COLLAPSE": 1,
+    "STRUCTURED_INTERFACES_BREAK_BEHAVIOR": 1,
+    "WORKED_EXAMPLES_CONTROLS_CLEAN": 1,
+    "WORKED_EXAMPLES_LOCAL_BRANCH_PASSED": 1,
+    "WORKED_EXAMPLE_OUTPUT_LEAK": 1
+  },
+  "failure_axis_counts": {
+    "absence_guards_worsen_answer_absent_nulls": 1,
+    "answer_absent_null_failed": 2,
+    "answer_interface_dispersion": 1,
+    "answer_option_order_bias": 1,
+    "answer_token_collapse": 1,
+    "atomic_or_lure_conflict_selection_absent": 1,
+    "atomic_selector_control_failed": 1,
+    "bare_integer_full_source_atomic_branch_failed": 1,
+    "bare_integer_smoke_only_candidate": 1,
+    "candidate_output_baselines_reported": 2,
+    "checksum_valid_local_branch_clean": 1,
+    "choice_interface_answer_absent_null_failed": 1,
+    "choice_interface_atomic_branch_failed": 1,
+    "choice_interface_atomic_control_failed": 1,
+    "conditional_route_atomic_failed": 1,
+    "cross_table_match_branch_below_gate": 1,
+    "definition_order_bias": 1,
+    "direct_atomic_recall_available": 1,
+    "direct_controls_and_nulls_clean": 3,
+    "direct_controls_clean_conflict_failed": 1,
+    "expected_atomic_route_weak": 1,
+    "fact_claim_match_branch_below_gate": 1,
+    "fact_claim_mismatch_local_and_claim_leak": 1,
+    "factorial_branch_null_tradeoff": 1,
+    "fewshot_operation_atomic_branch_failed": 1,
+    "full_source_boundary_inherited_from_mc024": 1,
+    "full_source_controls_clean": 1,
+    "full_source_other_number_leak": 1,
+    "generic_visible_route_instability": 1,
+    "guarded_query_last_reduces_other_numbers_but_branch_collapses": 1,
+    "holdout_conflict_balance_failed": 1,
+    "learned_branch_worse_than_visible": 1,
+    "learned_memory_branch_collapse": 1,
+    "local_selector_prior": 1,
+    "local_source_salience": 2,
+    "neutral_label_rule_following_failed": 1,
+    "numeric_list_marker_structural_confounds_avoided": 1,
+    "numeric_option_atomic_branch_failed": 1,
+    "numeric_option_atomic_control_abstention": 1,
+    "numeric_options_nulls_clean": 1,
+    "operation_atomic_branch_below_gate": 1,
+    "operation_atomic_other_number_leak": 1,
+    "operation_local_branch_below_gate": 1,
+    "post_checksum_crosstable_mismatch_local_collapse": 1,
+    "post_mc032_bridge_route_closed": 1,
+    "prompt_local_branch_dominance": 1,
+    "prompt_visible_choice_options_not_substrate": 1,
+    "prompt_visible_numeric_options_not_substrate": 1,
+    "query_before_examples_amplifies_example_leak": 1,
+    "query_operation_substrate_failed": 1,
+    "query_row_last_reduces_other_numbers_but_local_collapses": 1,
+    "route_code_substrate_failed": 1,
+    "row_code_rule_following_failed": 1,
+    "rule_order_sensitivity": 1,
+    "rules_only_answer_absent_null_fails": 1,
+    "rules_only_atomic_branch_improves": 1,
+    "rules_only_branch_null_tradeoff_persists": 1,
+    "semantic_source_label_substrate_failed": 1,
+    "side_number_leak_absent": 1,
+    "smoke_only_no_candidate_output_baselines": 1,
+    "smoke_to_full_source_boundary": 1,
+    "statusless_checksum_invalid_branch_collapses_to_local": 1,
+    "structured_interfaces_break_behavior": 1,
+    "worked_example_output_leak": 1,
+    "worked_examples_controls_clean": 1,
+    "worked_examples_local_branch_passed": 1
+  },
+  "mc028_other_number_audit": {
+    "answer_absent_unknown_rate": 1.0,
+    "artifact_path": "results/cards/MC028/mc028_bare_integer_full_source_boundary_behavior_20260701T160314.json",
+    "direct_atomic_control_atomic_rate": 1.0,
+    "exclusive_bucket_counts": {
+      "bank_atomic_number": 8,
+      "bank_local_number": 3,
+      "off_bank_other_number": 6,
+      "prompt_local_row_number": 2,
+      "worked_example_output": 9
+    },
+    "interpretation": "The MC028 failure is not one generic local-copy error. Wrong answers split across worked-example outputs, other bank atomic facts, bank local numbers, prompt-local numbers, and off-bank periodic-like numbers while direct atomic recall and null controls remain clean.",
+    "operation_atomic_atomic_rate": 0.81875,
+    "operation_atomic_other_number_count": 28,
+    "operation_atomic_other_number_rate": 0.175,
+    "operation_atomic_rows": 160,
+    "operation_local_local_rate": 0.99375,
+    "overlap_counts": {
+      "bank_atomic_number": 17,
+      "bank_local_number": 5,
+      "double_expected_atomic": 2,
+      "expected_atomic_plus_10": 2,
+      "off_bank_other_number": 6,
+      "prompt_local_row_number": 2,
+      "worked_example_output": 9
+    },
+    "rows_by_exclusive_bucket": {
+      "bank_atomic_number": [
+        {
+          "element": "Oxygen",
+          "expected_atomic_number": "8",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_oxygen",
+          "local_number": "108",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_atomic_number",
+            "double_expected_atomic"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "16",
+          "source_id": "oxygen"
+        },
+        {
+          "element": "Oxygen",
+          "expected_atomic_number": "8",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_oxygen",
+          "local_number": "108",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_atomic_number",
+            "double_expected_atomic"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "16",
+          "source_id": "oxygen"
+        },
+        {
+          "element": "Fluorine",
+          "expected_atomic_number": "9",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_fluorine",
+          "local_number": "109",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_atomic_number",
+            "expected_atomic_plus_10"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "19",
+          "source_id": "fluorine"
+        },
+        {
+          "element": "Fluorine",
+          "expected_atomic_number": "9",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_fluorine",
+          "local_number": "109",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_atomic_number",
+            "expected_atomic_plus_10"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "19",
+          "source_id": "fluorine"
+        },
+        {
+          "element": "Neon",
+          "expected_atomic_number": "10",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_alpha_first_operation_atomic_interface_conflict_neon",
+          "local_number": "110",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "11",
+          "source_id": "neon"
+        },
+        {
+          "element": "Potassium",
+          "expected_atomic_number": "19",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_potassium",
+          "local_number": "119",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "47",
+          "source_id": "potassium"
+        },
+        {
+          "element": "Potassium",
+          "expected_atomic_number": "19",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_alpha_first_operation_atomic_interface_conflict_potassium",
+          "local_number": "119",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "47",
+          "source_id": "potassium"
+        },
+        {
+          "element": "Copper",
+          "expected_atomic_number": "29",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_copper",
+          "local_number": "128",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "30",
+          "source_id": "copper"
+        }
+      ],
+      "bank_local_number": [
+        {
+          "element": "Neon",
+          "expected_atomic_number": "10",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_neon",
+          "local_number": "110",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_local_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "118",
+          "source_id": "neon"
+        },
+        {
+          "element": "Neon",
+          "expected_atomic_number": "10",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_neon",
+          "local_number": "110",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "bank_local_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "118",
+          "source_id": "neon"
+        },
+        {
+          "element": "Bromine",
+          "expected_atomic_number": "35",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_bromine",
+          "local_number": "130",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "bank_local_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "127",
+          "source_id": "bromine"
+        }
+      ],
+      "off_bank_other_number": [
+        {
+          "element": "Potassium",
+          "expected_atomic_number": "19",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_potassium",
+          "local_number": "119",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "41",
+          "source_id": "potassium"
+        },
+        {
+          "element": "Copper",
+          "expected_atomic_number": "29",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_copper",
+          "local_number": "128",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "63",
+          "source_id": "copper"
+        },
+        {
+          "element": "Bromine",
+          "expected_atomic_number": "35",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_bromine",
+          "local_number": "130",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "81",
+          "source_id": "bromine"
+        },
+        {
+          "element": "Tungsten",
+          "expected_atomic_number": "74",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_tungsten",
+          "local_number": "135",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "186",
+          "source_id": "tungsten"
+        },
+        {
+          "element": "Platinum",
+          "expected_atomic_number": "78",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_alpha_first_operation_atomic_interface_conflict_platinum",
+          "local_number": "136",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "48",
+          "source_id": "platinum"
+        },
+        {
+          "element": "Platinum",
+          "expected_atomic_number": "78",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_platinum",
+          "local_number": "136",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "off_bank_other_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "49",
+          "source_id": "platinum"
+        }
+      ],
+      "prompt_local_row_number": [
+        {
+          "element": "Platinum",
+          "expected_atomic_number": "78",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_platinum",
+          "local_number": "136",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "prompt_local_row_number",
+            "bank_local_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "140",
+          "source_id": "platinum"
+        },
+        {
+          "element": "Platinum",
+          "expected_atomic_number": "78",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_platinum",
+          "local_number": "136",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "prompt_local_row_number",
+            "bank_local_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "140",
+          "source_id": "platinum"
+        }
+      ],
+      "worked_example_output": [
+        {
+          "element": "Iron",
+          "expected_atomic_number": "26",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_iron",
+          "local_number": "125",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "28",
+          "source_id": "iron"
+        },
+        {
+          "element": "Iron",
+          "expected_atomic_number": "26",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_iron",
+          "local_number": "125",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "28",
+          "source_id": "iron"
+        },
+        {
+          "element": "Iron",
+          "expected_atomic_number": "26",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_iron",
+          "local_number": "125",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "28",
+          "source_id": "iron"
+        },
+        {
+          "element": "Nickel",
+          "expected_atomic_number": "28",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_nickel",
+          "local_number": "127",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "30",
+          "source_id": "nickel"
+        },
+        {
+          "element": "Nickel",
+          "expected_atomic_number": "28",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_beta_first_operation_atomic_interface_conflict_nickel",
+          "local_number": "127",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "30",
+          "source_id": "nickel"
+        },
+        {
+          "element": "Nickel",
+          "expected_atomic_number": "28",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_alpha_first_operation_atomic_interface_conflict_nickel",
+          "local_number": "127",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "30",
+          "source_id": "nickel"
+        },
+        {
+          "element": "Nickel",
+          "expected_atomic_number": "28",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_nickel",
+          "local_number": "127",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "30",
+          "source_id": "nickel"
+        },
+        {
+          "element": "Gold",
+          "expected_atomic_number": "79",
+          "id": "MC028_bare_integer_alpha_local_beta_atomic_alpha_first_operation_atomic_interface_conflict_gold",
+          "local_number": "137",
+          "operation_assignment": "alpha_local_beta_atomic",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "alpha_first",
+          "selected_answer": "82",
+          "source_id": "gold"
+        },
+        {
+          "element": "Gold",
+          "expected_atomic_number": "79",
+          "id": "MC028_bare_integer_alpha_atomic_beta_local_beta_first_operation_atomic_interface_conflict_gold",
+          "local_number": "137",
+          "operation_assignment": "alpha_atomic_beta_local",
+          "overlap_labels": [
+            "worked_example_output",
+            "bank_atomic_number"
+          ],
+          "rule_order": "beta_first",
+          "selected_answer": "82",
+          "source_id": "gold"
+        }
+      ]
+    },
+    "rule_absent_unknown_rate": 1.0
+  },
+  "mc029_factorial_audit": {
+    "any_variant_behavior_gate_passed": false,
+    "artifact_path": "results/cards/MC029/mc029_operation_leak_factorial_behavior_20260701T170417.json",
+    "baseline_operation_atomic_rate": 0.7125,
+    "baseline_other_number_rate": 0.24375,
+    "baseline_worked_example_other_count": 7,
+    "interpretation": "MC029 shows factor movement, not substrate repair. Removing numeric examples improves the learned atomic branch enough to cross the atomic-rate threshold, but answer-absent null reliability collapses. Moving the query before examples preserves nulls while amplifying worked-example copying. Putting the query row last reduces other-number leakage but shifts errors into local-row selection.",
+    "label_examples_worked_example_other_count": 0,
+    "max_operation_atomic_rate": 0.875,
+    "max_operation_atomic_template": "rules_only",
+    "min_other_number_rate": 0.08125,
+    "min_other_number_template": "query_row_last",
+    "query_before_worked_example_other_count": 54,
+    "rules_only_answer_absent_unknown_rate": 0.80625,
+    "rules_only_operation_atomic_rate": 0.875,
+    "rules_only_other_number_rate": 0.1,
+    "structural_passed": true,
+    "variant_gate_by_template": {
+      "baseline_numeric_examples": false,
+      "label_examples_no_numbers": false,
+      "query_before_examples": false,
+      "query_row_last": false,
+      "rules_only": false
+    },
+    "variant_rows": [
+      {
+        "answer_absent_unknown_rate": 0.9875,
+        "operation_atomic_atomic_rate": 0.7125,
+        "operation_atomic_local_number_rate": 0.04375,
+        "operation_atomic_other_number_rate": 0.24375,
+        "operation_local_local_rate": 1.0,
+        "other_number_bucket_counts": {
+          "bank_atomic_number": 7,
+          "bank_local_number": 3,
+          "off_bank_other_number": 20,
+          "prompt_local_row_number": 2,
+          "worked_example_output": 7
+        },
+        "template": "baseline_numeric_examples",
+        "variant_gate_passed": false,
+        "worked_example_other_count": 7
+      },
+      {
+        "answer_absent_unknown_rate": 0.725,
+        "operation_atomic_atomic_rate": 0.8,
+        "operation_atomic_local_number_rate": 0.025,
+        "operation_atomic_other_number_rate": 0.175,
+        "operation_local_local_rate": 0.95,
+        "other_number_bucket_counts": {
+          "bank_atomic_number": 12,
+          "off_bank_other_number": 16
+        },
+        "template": "label_examples_no_numbers",
+        "variant_gate_passed": false,
+        "worked_example_other_count": 0
+      },
+      {
+        "answer_absent_unknown_rate": 0.80625,
+        "operation_atomic_atomic_rate": 0.875,
+        "operation_atomic_local_number_rate": 0.025,
+        "operation_atomic_other_number_rate": 0.1,
+        "operation_local_local_rate": 0.99375,
+        "other_number_bucket_counts": {
+          "bank_atomic_number": 11,
+          "off_bank_other_number": 5
+        },
+        "template": "rules_only",
+        "variant_gate_passed": false,
+        "worked_example_other_count": 0
+      },
+      {
+        "answer_absent_unknown_rate": 1.0,
+        "operation_atomic_atomic_rate": 0.25625,
+        "operation_atomic_local_number_rate": 0.29375,
+        "operation_atomic_other_number_rate": 0.45,
+        "operation_local_local_rate": 0.98125,
+        "other_number_bucket_counts": {
+          "bank_atomic_number": 9,
+          "off_bank_other_number": 5,
+          "prompt_local_row_number": 4,
+          "worked_example_output": 54
+        },
+        "template": "query_before_examples",
+        "variant_gate_passed": false,
+        "worked_example_other_count": 54
+      },
+      {
+        "answer_absent_unknown_rate": 0.9875,
+        "operation_atomic_atomic_rate": 0.6125,
+        "operation_atomic_local_number_rate": 0.2875,
+        "operation_atomic_other_number_rate": 0.08125,
+        "operation_local_local_rate": 0.925,
+        "other_number_bucket_counts": {
+          "bank_atomic_number": 1,
+          "bank_local_number": 1,
+          "off_bank_other_number": 5,
+          "worked_example_output": 6
+        },
+        "template": "query_row_last",
+        "variant_gate_passed": false,
+        "worked_example_other_count": 6
+      }
+    ]
+  },
+  "mc030_guard_audit": {
+    "any_variant_behavior_gate_passed": false,
+    "artifact_path": "results/cards/MC030/mc030_null_preserving_rules_repair_behavior_20260701T175942.json",
+    "baseline_answer_absent_unknown_rate": 0.80625,
+    "baseline_operation_atomic_rate": 0.875,
+    "baseline_other_number_rate": 0.1,
+    "interpretation": "MC030 shows that simple absence guards do not repair the MC029 rules-only tradeoff. The baseline remains the best branch/null compromise. Row-absence and decision-order guards worsen answer-absent nulls, and the query-last guard reduces other-number leakage only by collapsing learned atomic routing.",
+    "max_answer_absent_unknown_rate": 0.80625,
+    "max_answer_absent_unknown_template": "rules_only_baseline",
+    "max_operation_atomic_rate": 0.875,
+    "max_operation_atomic_template": "rules_only_baseline",
+    "min_other_number_rate": 0.05625,
+    "min_other_number_template": "decision_order_guard_query_last",
+    "min_other_number_template_operation_atomic_rate": 0.4875,
+    "structural_passed": true,
+    "variant_gate_by_template": {
+      "decision_order_guard_after_query": false,
+      "decision_order_guard_query_last": false,
+      "no_memory_for_absent_guard": false,
+      "row_absence_guard_before_rules": false,
+      "rules_only_baseline": false
+    },
+    "variant_rows": [
+      {
+        "answer_absent_other_number_rate": 0.06875,
+        "answer_absent_unknown_rate": 0.80625,
+        "operation_atomic_atomic_rate": 0.875,
+        "operation_atomic_other_number_rate": 0.1,
+        "operation_local_local_rate": 0.99375,
+        "operation_rule_absent_unknown_rate": 1.0,
+        "parseable_floor": 0.875,
+        "template": "rules_only_baseline",
+        "variant_gate_passed": false
+      },
+      {
+        "answer_absent_other_number_rate": 0.675,
+        "answer_absent_unknown_rate": 0.23125,
+        "operation_atomic_atomic_rate": 0.8625,
+        "operation_atomic_other_number_rate": 0.08125,
+        "operation_local_local_rate": 0.9,
+        "operation_rule_absent_unknown_rate": 0.275,
+        "parseable_floor": 1.0,
+        "template": "row_absence_guard_before_rules",
+        "variant_gate_passed": false
+      },
+      {
+        "answer_absent_other_number_rate": 0.525,
+        "answer_absent_unknown_rate": 0.43125,
+        "operation_atomic_atomic_rate": 0.7875,
+        "operation_atomic_other_number_rate": 0.0875,
+        "operation_local_local_rate": 1.0,
+        "operation_rule_absent_unknown_rate": 0.0125,
+        "parseable_floor": 1.0,
+        "template": "no_memory_for_absent_guard",
+        "variant_gate_passed": false
+      },
+      {
+        "answer_absent_other_number_rate": 0.5625,
+        "answer_absent_unknown_rate": 0.425,
+        "operation_atomic_atomic_rate": 0.86875,
+        "operation_atomic_other_number_rate": 0.1,
+        "operation_local_local_rate": 0.98125,
+        "operation_rule_absent_unknown_rate": 0.975,
+        "parseable_floor": 0.9875,
+        "template": "decision_order_guard_after_query",
+        "variant_gate_passed": false
+      },
+      {
+        "answer_absent_other_number_rate": 0.5625,
+        "answer_absent_unknown_rate": 0.425,
+        "operation_atomic_atomic_rate": 0.4875,
+        "operation_atomic_other_number_rate": 0.05625,
+        "operation_local_local_rate": 0.90625,
+        "operation_rule_absent_unknown_rate": 1.0,
+        "parseable_floor": 0.93125,
+        "template": "decision_order_guard_query_last",
+        "variant_gate_passed": false
+      }
+    ]
+  },
+  "mc031_checksum_audit": {
+    "answer_absent_unknown_rate": 1.0,
+    "artifact_path": "results/cards/MC031/mc031_statusless_reliability_bridge_smoke_20260701T185520.json",
+    "checksum_absent_local_rate": 1.0,
+    "familiar_lookup_local_rate": 1.0,
+    "interpretation": "MC031 isolates a statusless reliability-cue failure. Direct local lookup, familiar local lookup, direct atomic recall, valid-checksum local routing, and answer-absent nulls all survive smoke. The invalid checksum branch still selects local numbers on every selected row and never selects the atomic or lure value, so the bridge fails at source validity arbitration rather than recall or null behavior.",
+    "invalid_checksum_atomic_or_lure_rate": 0.0,
+    "invalid_checksum_atomic_rate": 0.0,
+    "invalid_checksum_local_rate": 1.0,
+    "invalid_checksum_lure_rate": 0.0,
+    "real_atomic_control_atomic_rate": 1.0,
+    "record_count": 210,
+    "selected_template": "arithmetic_checksum",
+    "smoke_only": true,
+    "structural_passed": true,
+    "substantive_failed_criteria": [
+      "holdout_conflict_atomic_or_lure_at_least_4",
+      "holdout_conflict_label_balance_passed",
+      "invalid_conflict_atomic_at_least_85p",
+      "non_holdout_conflict_atomic_or_lure_at_least_10",
+      "non_holdout_conflict_label_balance_passed",
+      "primary_conflict_binary_rows_at_least_40",
+      "primary_conflict_expected_correct_at_least_85p"
+    ],
+    "synthetic_lookup_local_rate": 1.0,
+    "valid_checksum_local_rate": 1.0
+  },
+  "mc032_crosstable_audit": {
+    "answer_absent_unknown_rate": 1.0,
+    "artifact_path": "results/cards/MC032/mc032_post_checksum_bridge_behavior_smoke_20260701T192315.json",
+    "crosscheck_absent_local_rate": 1.0,
+    "familiar_lookup_local_rate": 1.0,
+    "interpretation": "MC032 removes the checksum-specific explanation for MC031. The cue is cross-table consistency rather than arithmetic validity, and direct local lookup, familiar local lookup, direct atomic recall, and answer-absent nulls all survive smoke. The mismatch branch still never selects the atomic or lure value; it mostly selects the primary local number, with no side-number copying. The failure is therefore broader local-table dominance under statusless source-validity pressure.",
+    "match_conflict_local_rate": 0.8,
+    "match_conflict_other_number_rate": 0.2,
+    "mismatch_conflict_atomic_or_lure_rate": 0.0,
+    "mismatch_conflict_atomic_rate": 0.0,
+    "mismatch_conflict_local_rate": 0.7,
+    "mismatch_conflict_lure_rate": 0.0,
+    "mismatch_conflict_other_number_rate": 0.2,
+    "mismatch_conflict_side_number_rate": 0.0,
+    "mismatch_conflict_unknown_rate": 0.1,
+    "real_atomic_control_atomic_rate": 1.0,
+    "record_count": 210,
+    "selected_template": "mirror_registry",
+    "smoke_only": true,
+    "structural_passed": true,
+    "substantive_failed_criteria": [
+      "holdout_conflict_atomic_or_lure_at_least_4",
+      "holdout_conflict_label_balance_passed",
+      "holdout_conflict_local_at_least_4",
+      "match_conflict_local_at_least_85p",
+      "mismatch_conflict_atomic_at_least_85p",
+      "non_holdout_conflict_atomic_or_lure_at_least_10",
+      "non_holdout_conflict_label_balance_passed",
+      "primary_conflict_binary_rows_at_least_40",
+      "primary_conflict_expected_correct_at_least_85p"
+    ],
+    "synthetic_lookup_local_rate": 1.0
+  },
+  "mc033_fact_claim_audit": {
+    "answer_absent_unknown_rate": 1.0,
+    "artifact_path": "results/cards/MC033/mc033_fact_claim_bridge_behavior_smoke_20260701T194546.json",
+    "fact_claim_absent_local_rate": 1.0,
+    "familiar_lookup_local_rate": 1.0,
+    "interpretation": "MC033 closes the post-MC032 repair path. It replaces checksum and cross-table cues with a row-local standard-number claim checked against learned atomic memory. Direct local lookup, familiar local lookup, direct atomic recall, and answer-absent nulls all survive smoke. The rule does not: match rows often return the atomic number instead of the local number, while mismatch rows mostly split between the local number and the wrong claimed number. The bridge failure is therefore not repaired by making the validity cue a learned-fact comparison.",
+    "match_conflict_atomic_rate": 0.5,
+    "match_conflict_local_rate": 0.4,
+    "match_conflict_other_number_rate": 0.1,
+    "mismatch_conflict_atomic_or_lure_rate": 0.5,
+    "mismatch_conflict_atomic_rate": 0.1,
+    "mismatch_conflict_local_rate": 0.5,
+    "mismatch_conflict_lure_rate": 0.4,
+    "real_atomic_control_atomic_rate": 1.0,
+    "record_count": 210,
+    "selected_template": "memory_comparison",
+    "smoke_only": true,
+    "structural_passed": true,
+    "substantive_failed_criteria": [
+      "holdout_conflict_atomic_or_lure_at_least_4",
+      "holdout_conflict_label_balance_passed",
+      "holdout_conflict_local_at_least_4",
+      "match_conflict_local_at_least_85p",
+      "mismatch_claimed_number_below_10p",
+      "mismatch_conflict_atomic_at_least_85p",
+      "non_holdout_conflict_atomic_or_lure_at_least_10",
+      "non_holdout_conflict_label_balance_passed",
+      "non_holdout_conflict_local_at_least_10",
+      "primary_conflict_binary_rows_at_least_40",
+      "primary_conflict_expected_correct_at_least_85p"
+    ],
+    "synthetic_lookup_local_rate": 1.0
+  },
+  "next_experiment_pressure": [
+    "Treat simple absence-guard repair as closed for the current operation-leak route.",
+    "Treat wrong learned numbers as a distinct failure family from local-copy collapse and UNKNOWN abstention.",
+    "A future operation bridge must be materially different, not another local prompt guard around the same rules-only contract.",
+    "A future statusless reliability bridge must prove invalid-source routing, not just preserve direct controls and answer-absent nulls.",
+    "A future post-checksum bridge must beat MC032 by producing learned atomic/lure selections in mismatch rows without side-number leakage.",
+    "Treat the post-MC032 fact-claim repair route as closed unless a materially different non-bridge substrate is specified.",
+    "Keep answer-schema changes out of bridge promotion claims unless the schema is the experimental variable."
+  ],
+  "purpose": "Make post-atlas typed failures first-class evidence. This artifact does not promote smoke runs into atlas rows; it records why they died before hidden-state work.",
+  "refs": {
+    "bridge_ladder": "data/control_surface_bridge_ladder.json",
+    "mc028_behavior_artifact": "results/cards/MC028/mc028_bare_integer_full_source_boundary_behavior_20260701T160314.json",
+    "mc029_behavior_artifact": "results/cards/MC029/mc029_operation_leak_factorial_behavior_20260701T170417.json",
+    "mc030_behavior_artifact": "results/cards/MC030/mc030_null_preserving_rules_repair_behavior_20260701T175942.json",
+    "mc031_behavior_artifact": "results/cards/MC031/mc031_statusless_reliability_bridge_smoke_20260701T185520.json",
+    "mc032_behavior_artifact": "results/cards/MC032/mc032_post_checksum_bridge_behavior_smoke_20260701T192315.json",
+    "mc033_behavior_artifact": "results/cards/MC033/mc033_fact_claim_bridge_behavior_smoke_20260701T194546.json",
+    "route_disposition": "data/control_surface_route_disposition.json",
+    "smoke_diagnostics": "data/control_surface_smoke_diagnostics.json"
+  },
+  "schema_version": 1,
+  "source": "code/control_surface_error_taxonomy.py",
+  "substantive_failed_criteria_counts": {
+    "all_controls_passed": 2,
+    "answer_absent_panel_unknown_at_least_90p": 2,
+    "answer_absent_unknown_at_least_90p": 1,
+    "any_variant_behavior_gate_passed": 2,
+    "atomic_control_at_least_85p": 2,
+    "atomic_selector_control_atomic_at_least_90p": 2,
+    "choice_operation_behavior_gate_passed": 1,
+    "expected_atomic_conflict_atomic_at_least_85p": 2,
+    "expected_atomic_conflict_atomic_selector_at_least_85p": 1,
+    "expected_local_conflict_local_at_least_85p": 2,
+    "holdout_conflict_atomic_at_least_4": 1,
+    "holdout_conflict_atomic_or_lure_at_least_4": 3,
+    "holdout_conflict_balance_passed": 1,
+    "holdout_conflict_label_balance_passed": 4,
+    "holdout_conflict_local_at_least_4": 2,
+    "invalid_conflict_atomic_at_least_85p": 1,
+    "learned_atomic_route_at_least_85p": 1,
+    "learned_atomic_source_at_least_85p": 1,
+    "learned_conflict_expected_correct_at_least_85p": 2,
+    "local_selector_control_local_at_least_90p": 1,
+    "match_conflict_local_at_least_85p": 2,
+    "mismatch_claimed_number_below_10p": 1,
+    "mismatch_conflict_atomic_at_least_85p": 2,
+    "non_holdout_conflict_atomic_at_least_10": 1,
+    "non_holdout_conflict_atomic_or_lure_at_least_10": 3,
+    "non_holdout_conflict_label_balance_passed": 4,
+    "non_holdout_conflict_local_at_least_10": 1,
+    "numeric_option_behavior_gate_passed": 1,
+    "operation_atomic_choice_conflict_at_least_85p": 1,
+    "operation_atomic_conflict_at_least_85p": 3,
+    "operation_atomic_option_conflict_at_least_85p": 1,
+    "operation_atomic_other_number_leak_below_10p": 1,
+    "operation_local_conflict_at_least_85p": 1,
+    "primary_conflict_binary_rows_at_least_40": 5,
+    "primary_conflict_expected_correct_at_least_85p": 6,
+    "route_atomic_at_least_85p": 1,
+    "visible_conflict_expected_correct_at_least_85p": 2
+  },
+  "summary": {
+    "behavior_ready_count": 0,
+    "bridge_closed_before_hidden_state_count": 23,
+    "bridge_prompt_visible_positive_control_count": 1,
+    "bridge_rung_count": 24,
+    "hidden_state_allowed_count": 0,
+    "mc028_other_number_count": 28,
+    "mc028_other_number_exclusive_buckets": {
+      "bank_atomic_number": 8,
+      "bank_local_number": 3,
+      "off_bank_other_number": 6,
+      "prompt_local_row_number": 2,
+      "worked_example_output": 9
+    },
+    "mc028_other_number_rate": 0.175,
+    "mc029_min_other_number_rate": 0.08125,
+    "mc029_min_other_number_template": "query_row_last",
+    "mc029_query_before_worked_example_other_count": 54,
+    "mc029_rules_only_answer_absent_unknown_rate": 0.80625,
+    "mc029_rules_only_operation_atomic_rate": 0.875,
+    "mc030_baseline_answer_absent_unknown_rate": 0.80625,
+    "mc030_baseline_operation_atomic_rate": 0.875,
+    "mc030_min_other_number_rate": 0.05625,
+    "mc030_min_other_number_template": "decision_order_guard_query_last",
+    "mc030_min_other_number_template_operation_atomic_rate": 0.4875,
+    "mc031_answer_absent_unknown_rate": 1.0,
+    "mc031_invalid_checksum_atomic_or_lure_rate": 0.0,
+    "mc031_invalid_checksum_local_rate": 1.0,
+    "mc031_valid_checksum_local_rate": 1.0,
+    "mc032_match_conflict_local_rate": 0.8,
+    "mc032_mismatch_conflict_atomic_or_lure_rate": 0.0,
+    "mc032_mismatch_conflict_local_rate": 0.7,
+    "mc032_mismatch_conflict_side_number_rate": 0.0,
+    "mc033_match_conflict_atomic_rate": 0.5,
+    "mc033_match_conflict_local_rate": 0.4,
+    "mc033_mismatch_conflict_atomic_rate": 0.1,
+    "mc033_mismatch_conflict_local_rate": 0.5,
+    "mc033_mismatch_conflict_lure_rate": 0.4,
+    "smoke_card_count": 17,
+    "smoke_validation_check_count": 72,
+    "substantive_failed_criteria_counts": {
+      "all_controls_passed": 2,
+      "answer_absent_panel_unknown_at_least_90p": 2,
+      "answer_absent_unknown_at_least_90p": 1,
+      "any_variant_behavior_gate_passed": 2,
+      "atomic_control_at_least_85p": 2,
+      "atomic_selector_control_atomic_at_least_90p": 2,
+      "choice_operation_behavior_gate_passed": 1,
+      "expected_atomic_conflict_atomic_at_least_85p": 2,
+      "expected_atomic_conflict_atomic_selector_at_least_85p": 1,
+      "expected_local_conflict_local_at_least_85p": 2,
+      "holdout_conflict_atomic_at_least_4": 1,
+      "holdout_conflict_atomic_or_lure_at_least_4": 3,
+      "holdout_conflict_balance_passed": 1,
+      "holdout_conflict_label_balance_passed": 4,
+      "holdout_conflict_local_at_least_4": 2,
+      "invalid_conflict_atomic_at_least_85p": 1,
+      "learned_atomic_route_at_least_85p": 1,
+      "learned_atomic_source_at_least_85p": 1,
+      "learned_conflict_expected_correct_at_least_85p": 2,
+      "local_selector_control_local_at_least_90p": 1,
+      "match_conflict_local_at_least_85p": 2,
+      "mismatch_claimed_number_below_10p": 1,
+      "mismatch_conflict_atomic_at_least_85p": 2,
+      "non_holdout_conflict_atomic_at_least_10": 1,
+      "non_holdout_conflict_atomic_or_lure_at_least_10": 3,
+      "non_holdout_conflict_label_balance_passed": 4,
+      "non_holdout_conflict_local_at_least_10": 1,
+      "numeric_option_behavior_gate_passed": 1,
+      "operation_atomic_choice_conflict_at_least_85p": 1,
+      "operation_atomic_conflict_at_least_85p": 3,
+      "operation_atomic_option_conflict_at_least_85p": 1,
+      "operation_atomic_other_number_leak_below_10p": 1,
+      "operation_local_conflict_at_least_85p": 1,
+      "primary_conflict_binary_rows_at_least_40": 5,
+      "primary_conflict_expected_correct_at_least_85p": 6,
+      "route_atomic_at_least_85p": 1,
+      "visible_conflict_expected_correct_at_least_85p": 2
+    },
+    "top_exported_diagnostics": {
+      "ANSWER_ABSENT_SELECTOR_NULL_FAILED": 1,
+      "ANSWER_TOKEN_LOCAL_COLLAPSE": 1,
+      "ATOMIC_SELECTOR_CONTROL_FAILED": 1,
+      "CANDIDATE_OUTPUT_BASELINES_REPORTED": 2,
+      "DIRECT_CONTROLS_AND_NULLS_CLEAN": 3,
+      "EXPECTED_ATOMIC_ROUTE_WEAK": 1,
+      "FIRST_LISTED_CHOICE_BIAS": 1,
+      "LOCAL_SOURCE_SALIENCE": 2,
+      "NEUTRAL_SELECTOR_RULE_FAILED": 1,
+      "NULL_SELECTOR_LOCAL_COLLAPSE": 1,
+      "ROW_CODE_CONTROLS_CLEAN_CONFLICT_FAILED": 1,
+      "ROW_CODE_RULE_FAILED": 1
+    },
+    "top_failure_axes": {
+      "answer_absent_null_failed": 2,
+      "answer_option_order_bias": 1,
+      "answer_token_collapse": 1,
+      "atomic_selector_control_failed": 1,
+      "candidate_output_baselines_reported": 2,
+      "definition_order_bias": 1,
+      "direct_controls_and_nulls_clean": 3,
+      "expected_atomic_route_weak": 1,
+      "local_selector_prior": 1,
+      "local_source_salience": 2,
+      "neutral_label_rule_following_failed": 1,
+      "row_code_rule_following_failed": 1
+    }
+  },
+  "updated_at": "2026-07-01",
+  "validation_checks": [
+    {
+      "actual": 0,
+      "id": "all_smoke_cards_remain_pre_hidden_state",
+      "passed": true,
+      "predicate": "== 0",
+      "why": "The error taxonomy must not silently promote smoke diagnostics."
+    },
+    {
+      "actual": 17,
+      "id": "smoke_taxonomy_covers_mc017_to_mc033",
+      "passed": true,
+      "predicate": "== 17",
+      "why": "The taxonomy currently covers the MC017-MC033 bridge-smoke run set."
+    },
+    {
+      "actual": 24,
+      "id": "bridge_ladder_count_matches_taxonomy_scope",
+      "passed": true,
+      "predicate": "== 24",
+      "why": "The current bridge ladder spans MC010-MC033."
+    },
+    {
+      "actual": {
+        "bridge_rung_closed_before_hidden_state": 23,
+        "prompt_visible_positive_control": 1
+      },
+      "id": "bridge_dispositions_preserve_closed_before_hidden_state_majority",
+      "passed": true,
+      "predicate": "23 closed before hidden-state and 1 prompt-visible positive control",
+      "why": "MC012 is the only prompt-visible positive control; all other bridge rungs are closed before hidden-state work."
+    },
+    {
+      "actual": {
+        "bucket_total": 28,
+        "other_number_count": 28
+      },
+      "id": "mc028_other_number_bucket_total_matches_other_count",
+      "passed": true,
+      "predicate": "bucket_total == other_number_count == 28",
+      "why": "Every MC028 other-number row must be assigned one exclusive failure bucket."
+    },
+    {
+      "actual": {
+        "answer_absent_unknown_rate": 1.0,
+        "direct_atomic_control_atomic_rate": 1.0,
+        "operation_atomic_atomic_rate": 0.81875,
+        "rule_absent_unknown_rate": 1.0
+      },
+      "id": "mc028_atomic_branch_fails_while_controls_remain_clean",
+      "passed": true,
+      "predicate": "operation atomic < 0.85; direct atomic/null controls == 1.0",
+      "why": "MC028 is a learned-branch selection failure, not a direct-control or null failure."
+    },
+    {
+      "actual": {
+        "any_variant_behavior_gate_passed": false,
+        "min_other_number_rate": 0.08125,
+        "min_other_number_template": "query_row_last",
+        "query_before_worked_example_other_count": 54,
+        "rules_only_answer_absent_unknown_rate": 0.80625,
+        "rules_only_operation_atomic_rate": 0.875
+      },
+      "id": "mc029_factorial_moves_axes_without_repairing_substrate",
+      "passed": true,
+      "predicate": "no variant passes; rules-only atomic >= 0.85; rules-only answer-absent UNKNOWN < 0.90; query-before worked examples >= 50; query-row-last other-number < 0.10",
+      "why": "MC029 is a branch/null/example-leak tradeoff, not a repaired bridge substrate."
+    },
+    {
+      "actual": {
+        "any_variant_behavior_gate_passed": false,
+        "baseline_answer_absent_unknown_rate": 0.80625,
+        "baseline_operation_atomic_rate": 0.875,
+        "max_answer_absent_unknown_rate": 0.80625,
+        "max_answer_absent_unknown_template": "rules_only_baseline",
+        "min_other_number_rate": 0.05625,
+        "min_other_number_template": "decision_order_guard_query_last",
+        "min_other_number_template_operation_atomic_rate": 0.4875
+      },
+      "id": "mc030_absence_guards_do_not_repair_rules_only_tradeoff",
+      "passed": true,
+      "predicate": "no variant passes; baseline branch >= 0.85 but null < 0.90; best null remains below 0.90; query-last other-number < 0.10 with atomic branch < 0.50",
+      "why": "MC030 closes simple absence-guard repair for the MC029 rules-only branch/null tradeoff."
+    },
+    {
+      "actual": {
+        "answer_absent_unknown_rate": 1.0,
+        "invalid_checksum_atomic_or_lure_rate": 0.0,
+        "invalid_checksum_local_rate": 1.0,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0,
+        "valid_checksum_local_rate": 1.0
+      },
+      "id": "mc031_statusless_checksum_collapses_invalid_branch",
+      "passed": true,
+      "predicate": "controls/nulls == 1.0; valid checksum local >= 0.85; invalid checksum local == 1.0 and atomic/lure == 0.0",
+      "why": "MC031 is a statusless reliability-cue failure, not a direct-control or null failure."
+    },
+    {
+      "actual": {
+        "answer_absent_unknown_rate": 1.0,
+        "mismatch_conflict_atomic_or_lure_rate": 0.0,
+        "mismatch_conflict_local_rate": 0.7,
+        "mismatch_conflict_side_number_rate": 0.0,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0
+      },
+      "id": "mc032_crosstable_mismatch_collapses_toward_local",
+      "passed": true,
+      "predicate": "controls/nulls == 1.0; mismatch local >= 0.70; mismatch atomic/lure == 0.0 and side-number == 0.0",
+      "why": "MC032 is a statusless cross-table failure, not a direct-control, null, or side-number-copying failure."
+    },
+    {
+      "actual": {
+        "answer_absent_unknown_rate": 1.0,
+        "match_conflict_atomic_rate": 0.5,
+        "match_conflict_local_rate": 0.4,
+        "mismatch_conflict_atomic_rate": 0.1,
+        "mismatch_conflict_lure_rate": 0.4,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0
+      },
+      "id": "mc033_fact_claim_route_fails_both_branches",
+      "passed": true,
+      "predicate": "controls/nulls == 1.0; match local < 0.85; mismatch atomic < 0.85 and lure >= 0.40",
+      "why": "MC033 closes the post-MC032 repair route: learned-fact claim checking does not stabilize either branch."
+    }
+  ]
+}

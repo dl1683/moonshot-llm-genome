@@ -1,0 +1,1626 @@
+{
+  "schema_version": 1,
+  "purpose": "Cumulative bridge ladder for MC010-MC033, combining validated atlas rows and smoke diagnostics without promoting smoke results to atlas rows.",
+  "sources": {
+    "artifact_index": "data/control_surface_artifact_index.json",
+    "comparison": "data/control_surface_comparison.json",
+    "smoke_diagnostics": "data/control_surface_smoke_diagnostics.json"
+  },
+  "rungs": [
+    {
+      "card_id": "MC010",
+      "source": "atlas",
+      "row_id": "mc010_two_hop_fact_code_arbitration",
+      "title": "Two-hop symbolic indirection",
+      "contract_axis": "source_path",
+      "repair_attempt": "Remove direct entity-to-code rows with entity -> handle -> task-code indirection.",
+      "behavior_outcome": "failed_controls_and_conflict",
+      "claim_boundary": "Two-hop indirection did not create a behavior substrate.",
+      "dominant_failure": "synthetic and learned controls plus conflict contrast failed",
+      "prompt_channel": "no_status_channel",
+      "answer_interface": "symbolic_code",
+      "local_vs_learned_mixture": "absent",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "two_hop_synthetic_lookup_failed",
+      "evidence_path": "results/cards/MC010/mc010_two_hop_fact_code_behavior_20260701T085414.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "synthetic task-code rate",
+          "path": "artifact.metrics.panel.synthetic_two_hop_lookup.task_code_rate",
+          "value": 0.575
+        },
+        {
+          "label": "real memory symbol rate",
+          "path": "artifact.metrics.panel.real_world_memory_control.real_symbol_rate",
+          "value": 0.3
+        },
+        {
+          "label": "conflict task-code rate",
+          "path": "artifact.metrics.primary_conflict.task_code_rate",
+          "value": 0.9541666666666667
+        },
+        {
+          "label": "conflict learned-symbol rate",
+          "path": "artifact.metrics.primary_conflict.real_or_lure_symbol_rate",
+          "value": 0.0
+        }
+      ],
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "MC010_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+        "PROMPT_AUTHORITY_DIAL",
+        "TWO_HOP_CONFLICT_CONTRAST_ABSENT",
+        "TWO_HOP_REAL_MEMORY_CONTROL_FAILED",
+        "TWO_HOP_SYNTHETIC_LOOKUP_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC011",
+      "source": "atlas",
+      "row_id": "mc011_atomic_number_code_arbitration",
+      "title": "Same-format numeric answer interface",
+      "contract_axis": "answer_interface",
+      "repair_attempt": "Use integers for both prompt-local values and learned atomic facts.",
+      "behavior_outcome": "controls_clean_conflict_local_collapse",
+      "claim_boundary": "Answer-format repair is insufficient under prompt-local table authority.",
+      "dominant_failure": "numeric conflict collapsed to prompt-local values",
+      "prompt_channel": "no_status_channel",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "absent",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "numeric_conflict_contrast_absent",
+      "evidence_path": "results/cards/MC011/mc011_atomic_number_code_behavior_20260701T092147.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "synthetic local rate",
+          "path": "artifact.metrics.panel.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "real atomic control rate",
+          "path": "artifact.metrics.panel.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "null UNKNOWN rate",
+          "path": "artifact.metrics.panel.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "conflict local rate",
+          "path": "artifact.metrics.primary_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "conflict atomic rate",
+          "path": "artifact.metrics.primary_conflict.atomic_number_rate",
+          "value": 0.0
+        }
+      ],
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "MC011_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+        "NUMERIC_CONFLICT_CONTRAST_ABSENT",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "PROMPT_AUTHORITY_DIAL"
+      ]
+    },
+    {
+      "card_id": "MC012",
+      "source": "atlas",
+      "row_id": "mc012_reliability_labeled_numeric_arbitration",
+      "title": "Explicit reliability labels",
+      "contract_axis": "source_contract",
+      "repair_attempt": "Use visible trusted/untrusted source-status labels.",
+      "behavior_outcome": "behavior_ready_but_prompt_visible",
+      "claim_boundary": "Positive control only; source-status text carries the answer rule.",
+      "dominant_failure": "prompt-channel locality failed",
+      "prompt_channel": "visible_status_channel",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "clean_prompt_visible",
+      "hidden_state_allowed": false,
+      "behavior_ready": true,
+      "signature_ready": false,
+      "diagnostic_class": "reliability_prompt_channel_visible",
+      "evidence_path": "results/cards/MC012/mc012_reliability_labeled_numeric_behavior_20260701T094345.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "trusted local rate",
+          "path": "artifact.metrics.panel.trusted_source_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "untrusted atomic rate",
+          "path": "artifact.metrics.panel.untrusted_source_conflict.atomic_number_rate",
+          "value": 0.975
+        },
+        {
+          "label": "primary local rate",
+          "path": "artifact.metrics.primary_conflict.local_number_rate",
+          "value": 0.5
+        },
+        {
+          "label": "primary atomic rate",
+          "path": "artifact.metrics.primary_conflict.atomic_number_rate",
+          "value": 0.4875
+        },
+        {
+          "label": "prompt-channel locality gate",
+          "path": "artifact.metrics.criteria.prompt_channel_locality_gate_passed",
+          "value": false
+        }
+      ],
+      "diagnostics": [
+        "MC012_BEHAVIOR_READY_PROMPT_VISIBLE_BRIDGE",
+        "PROMPT_AUTHORITY_DIAL",
+        "RELIABILITY_BEHAVIOR_CONTRAST_PASSED",
+        "RELIABILITY_PROMPT_CHANNEL_VISIBLE"
+      ]
+    },
+    {
+      "card_id": "MC013",
+      "source": "atlas",
+      "row_id": "mc013_status_channel_ablation_numeric_arbitration",
+      "title": "Text-identical status-channel ablation",
+      "contract_axis": "prompt_channel_locality",
+      "repair_attempt": "Reproduce MC012 with status text, then ablate the visible status channel.",
+      "behavior_outcome": "positive_control_reproduced_ablation_collapsed",
+      "claim_boundary": "The contrast does not survive status-channel removal.",
+      "dominant_failure": "matched ablation collapsed to prompt-local values",
+      "prompt_channel": "status_channel_removed",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "statused_only",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "status_channel_ablation_collapsed_contrast",
+      "evidence_path": "results/cards/MC013/mc013_status_channel_ablation_numeric_behavior_20260701T100644.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "statused trusted local rate",
+          "path": "artifact.metrics.panel.statused_trusted_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "statused untrusted atomic rate",
+          "path": "artifact.metrics.panel.statused_untrusted_conflict.atomic_number_rate",
+          "value": 0.975
+        },
+        {
+          "label": "ablation local rate",
+          "path": "artifact.metrics.primary_ablation_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "ablation atomic rate",
+          "path": "artifact.metrics.primary_ablation_conflict.atomic_number_rate",
+          "value": 0.0
+        },
+        {
+          "label": "ablation prompts identical",
+          "path": "artifact.metrics.criteria.ablation_prompt_pairs_identical",
+          "value": true
+        }
+      ],
+      "diagnostics": [
+        "MC013_STATUS_ABLATION_FAILED_DIAGNOSTIC_BRIDGE",
+        "PROMPT_AUTHORITY_DIAL",
+        "STATUS_CHANNEL_ABLATION_COLLAPSED_CONTRAST",
+        "STATUS_CHANNEL_POSITIVE_CONTROL_REPRODUCED"
+      ]
+    },
+    {
+      "card_id": "MC014",
+      "source": "atlas",
+      "row_id": "mc014_inferred_reliability_numeric_arbitration",
+      "title": "Calibration-inferred reliability",
+      "contract_axis": "inferred_source_validity",
+      "repair_attempt": "Remove status labels and infer source validity from calibration rows.",
+      "behavior_outcome": "calibration_inference_collapsed",
+      "claim_boundary": "Calibration evidence did not overcome local table authority.",
+      "dominant_failure": "calibration-consistent and inconsistent rows both local",
+      "prompt_channel": "status_absent_calibration_visible",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "absent",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "calibration_inference_conflict_collapsed",
+      "evidence_path": "results/cards/MC014/mc014_inferred_reliability_numeric_behavior_20260701T103426.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "status lexemes absent",
+          "path": "artifact.metrics.criteria.visible_status_label_absent_by_design",
+          "value": true
+        },
+        {
+          "label": "consistent local rate",
+          "path": "artifact.metrics.panel.calibration_consistent_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "inconsistent atomic rate",
+          "path": "artifact.metrics.panel.calibration_inconsistent_conflict.atomic_number_rate",
+          "value": 0.0
+        },
+        {
+          "label": "primary local rate",
+          "path": "artifact.metrics.primary_conflict.local_number_rate",
+          "value": 1.0
+        }
+      ],
+      "diagnostics": [
+        "CALIBRATION_INFERENCE_CONFLICT_COLLAPSED",
+        "CALIBRATION_STATUS_LABEL_ABSENT",
+        "MC014_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "PROMPT_AUTHORITY_DIAL"
+      ]
+    },
+    {
+      "card_id": "MC015",
+      "source": "atlas",
+      "row_id": "mc015_parity_gated_numeric_arbitration",
+      "title": "Learned parity gate",
+      "contract_axis": "learned_fact_gate",
+      "repair_attempt": "Make the source rule depend on hidden learned atomic-number parity.",
+      "behavior_outcome": "mixed_outputs_wrong_rule",
+      "claim_boundary": "Mixed outputs are not enough when expected labels are not followed.",
+      "dominant_failure": "rule-aligned expected correctness failed",
+      "prompt_channel": "status_absent_learned_gate",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "mixed_wrong_rule",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "parity_expected_local_conflict_failed",
+      "evidence_path": "results/cards/MC015/mc015_parity_gated_numeric_behavior_20260701T110321.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "expected labels balanced",
+          "path": "artifact.metrics.criteria.primary_expected_labels_balanced_by_split",
+          "value": true
+        },
+        {
+          "label": "primary expected-correct rate",
+          "path": "artifact.metrics.primary_conflict.expected_correct_rate",
+          "value": 0.4875
+        },
+        {
+          "label": "expected-local local rate",
+          "path": "artifact.metrics.primary_conflict_expected_local.local_number_rate",
+          "value": 0.675
+        },
+        {
+          "label": "expected-atomic atomic rate",
+          "path": "artifact.metrics.primary_conflict_expected_atomic.atomic_number_rate",
+          "value": 0.3
+        }
+      ],
+      "diagnostics": [
+        "MC015_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "PARITY_GATE_LABELS_BALANCED",
+        "PARITY_GATE_NOT_FOLLOWED",
+        "PROMPT_AUTHORITY_DIAL"
+      ]
+    },
+    {
+      "card_id": "MC016",
+      "source": "atlas",
+      "row_id": "mc016_alphabet_gated_numeric_arbitration",
+      "title": "Visible non-status alphabet gate",
+      "contract_axis": "visible_nonstatus_gate",
+      "repair_attempt": "Use a visible first-letter rule instead of source-status labels.",
+      "behavior_outcome": "visible_gate_local_collapse",
+      "claim_boundary": "A visible non-status gate still collapses expected-atomic rows.",
+      "dominant_failure": "expected-atomic rows selected local",
+      "prompt_channel": "status_absent_visible_feature",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "absent",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "alphabet_expected_atomic_conflict_failed",
+      "evidence_path": "results/cards/MC016/mc016_alphabet_gated_numeric_behavior_20260701T113651.json",
+      "status_card_path": null,
+      "headline_metrics": [
+        {
+          "label": "expected labels balanced",
+          "path": "artifact.metrics.criteria.primary_expected_labels_balanced_by_split",
+          "value": true
+        },
+        {
+          "label": "primary local rate",
+          "path": "artifact.metrics.primary_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "expected-local local rate",
+          "path": "artifact.metrics.primary_conflict_expected_local.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "expected-atomic atomic rate",
+          "path": "artifact.metrics.primary_conflict_expected_atomic.atomic_number_rate",
+          "value": 0.0
+        }
+      ],
+      "diagnostics": [
+        "ALPHABET_GATE_LABELS_BALANCED",
+        "ALPHABET_GATE_LOCAL_COLLAPSE",
+        "FEATURE_LABEL_GATE_DID_NOT_RESCUE",
+        "MC016_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "PROMPT_AUTHORITY_DIAL"
+      ]
+    },
+    {
+      "card_id": "MC017",
+      "source": "smoke",
+      "row_id": null,
+      "title": "LOCAL/ATOMIC source-token answers",
+      "contract_axis": "source_answer_interface",
+      "repair_attempt": "Ask for source tokens before any numeric answer.",
+      "behavior_outcome": "answer_token_local_collapse",
+      "claim_boundary": "Source-token answers are themselves a confounded behavior surface.",
+      "dominant_failure": "ATOMIC selector control collapsed to LOCAL",
+      "prompt_channel": "source_token_answer",
+      "answer_interface": "source_token",
+      "local_vs_learned_mixture": "absent",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "smoke_only",
+      "evidence_path": "results/cards/MC017/mc017_selector_token_numeric_behavior_20260701T115850.json",
+      "status_card_path": "research/cards/MC017_SELECTOR_TOKEN_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "atomic selector atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.atomic_selector_control.atomic_selector_rate",
+          "value": 0.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 0.1
+        },
+        {
+          "label": "primary expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict.expected_correct_rate",
+          "value": 0.5
+        }
+      ],
+      "diagnostics": [
+        "ANSWER_TOKEN_LOCAL_COLLAPSE",
+        "ATOMIC_SELECTOR_CONTROL_FAILED",
+        "NULL_SELECTOR_LOCAL_COLLAPSE"
+      ]
+    },
+    {
+      "card_id": "MC018",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Neutral counterbalanced selector labels",
+      "contract_axis": "neutral_source_answer_interface",
+      "repair_attempt": "Replace LOCAL/ATOMIC answers with counterbalanced A/B labels.",
+      "behavior_outcome": "neutral_selector_rule_failed",
+      "claim_boundary": "Neutral labels expose first-listed-choice and local-source salience.",
+      "dominant_failure": "source-rule correctness near chance with order bias",
+      "prompt_channel": "neutral_label_answer",
+      "answer_interface": "choice_label",
+      "local_vs_learned_mixture": "mixed_wrong_rule",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "mixed_or_unresolved_selector_failure",
+      "evidence_path": "results/cards/MC018/mc018_counterbalanced_selector_labels_behavior_20260701T121143.json",
+      "status_card_path": "research/cards/MC018_COUNTERBALANCED_SELECTOR_LABELS_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "primary expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict.expected_correct_rate",
+          "value": 0.525
+        },
+        {
+          "label": "first-listed-choice rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict.first_listed_choice_rate",
+          "value": 0.7625
+        },
+        {
+          "label": "local-selector rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict.local_selector_rate",
+          "value": 0.6375
+        }
+      ],
+      "diagnostics": [
+        "ANSWER_ABSENT_SELECTOR_NULL_FAILED",
+        "FIRST_LISTED_CHOICE_BIAS",
+        "LOCAL_SOURCE_SALIENCE",
+        "NEUTRAL_SELECTOR_RULE_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC019",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Neutral row-code numeric answers",
+      "contract_axis": "row_local_route_code",
+      "repair_attempt": "Keep integer answers but attach neutral route codes to rows.",
+      "behavior_outcome": "row_code_conflict_failed",
+      "claim_boundary": "Clean controls and nulls do not imply expected-atomic routing.",
+      "dominant_failure": "expected-atomic route weak despite clean nulls",
+      "prompt_channel": "row_code",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "mixed_wrong_rule",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "mixed_or_unresolved_row_code_failure",
+      "evidence_path": "results/cards/MC019/mc019_row_code_numeric_behavior_20260701T122807.json",
+      "status_card_path": "research/cards/MC019_ROW_CODE_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "primary expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict.expected_correct_rate",
+          "value": 0.525
+        },
+        {
+          "label": "expected-atomic atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.primary_conflict_expected_atomic.atomic_number_rate",
+          "value": 0.4
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        }
+      ],
+      "diagnostics": [
+        "EXPECTED_ATOMIC_ROUTE_WEAK",
+        "ROW_CODE_CONTROLS_CLEAN_CONFLICT_FAILED",
+        "ROW_CODE_RULE_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC020",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Atomic recall table-pressure isolation",
+      "contract_axis": "atomic_recall_vs_routing",
+      "repair_attempt": "Separate direct atomic recall under local-row pressure from route-rule arbitration.",
+      "behavior_outcome": "direct_recall_passes_route_atomic_fails",
+      "claim_boundary": "The bottleneck is conditional arbitration, not basic atomic recall.",
+      "dominant_failure": "route-atomic branch collapsed toward local",
+      "prompt_channel": "route_code",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "asymmetric_route_failure",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "route_rule_expected_atomic_failed",
+      "evidence_path": "results/cards/MC020/mc020_atomic_recall_table_pressure_behavior_20260701T123741.json",
+      "status_card_path": "research/cards/MC020_ATOMIC_RECALL_TABLE_PRESSURE_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "query-row atomic control rate",
+          "path": "smoke.selected_metrics.panel_metrics.query_row_atomic_control.atomic_number_rate",
+          "value": 0.9
+        },
+        {
+          "label": "route-local local rate",
+          "path": "smoke.selected_metrics.panel_metrics.route_local_conflict.local_number_rate",
+          "value": 0.85
+        },
+        {
+          "label": "route-atomic atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.route_atomic_conflict.atomic_number_rate",
+          "value": 0.1
+        }
+      ],
+      "diagnostics": [
+        "CONDITIONAL_ROUTE_ATOMIC_COLLAPSE",
+        "DIRECT_ATOMIC_RECALL_SURVIVES_TABLE_PRESSURE",
+        "PROMPT_LOCAL_BRANCH_DOMINANCE"
+      ]
+    },
+    {
+      "card_id": "MC021",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Visible-versus-learned route-code arbitration",
+      "contract_axis": "visible_vs_learned_branch_routing",
+      "repair_attempt": "Test the same route-code grammar on visible-visible and visible-learned branches.",
+      "behavior_outcome": "route_code_unstable_even_visible",
+      "claim_boundary": "Opaque route codes are not a clean arbitration substrate.",
+      "dominant_failure": "visible-visible route weak, learned route weaker",
+      "prompt_channel": "route_code",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "asymmetric_route_failure",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "generic_visible_route_failed",
+      "evidence_path": "results/cards/MC021/mc021_visible_vs_learned_arbitration_behavior_20260701T124555.json",
+      "status_card_path": "research/cards/MC021_VISIBLE_VS_LEARNED_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "visible conflict expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.visible_conflict.expected_correct_rate",
+          "value": 0.725
+        },
+        {
+          "label": "learned conflict expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.learned_conflict.expected_correct_rate",
+          "value": 0.5
+        },
+        {
+          "label": "learned atomic-branch atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.route_learned_p_atomic_conflict.atomic_number_rate",
+          "value": 0.3
+        }
+      ],
+      "diagnostics": [
+        "GENERIC_VISIBLE_ROUTE_FAILED",
+        "LEARNED_BRANCH_ARBITRATION_WEAKER",
+        "ROUTE_CODE_SUBSTRATE_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC022",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Semantic branch-name arbitration",
+      "contract_axis": "semantic_branch_label_routing",
+      "repair_attempt": "Replace opaque route codes with LOCAL/REFERENCE/ATOMIC source labels.",
+      "behavior_outcome": "semantic_labels_rule_order_sensitive",
+      "claim_boundary": "Semantic labels do not solve learned-memory branch arbitration.",
+      "dominant_failure": "local-source salience and rule-order sensitivity remain",
+      "prompt_channel": "semantic_source_label",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "asymmetric_route_failure",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "explicit_visible_source_routing_failed",
+      "evidence_path": "results/cards/MC022/mc022_explicit_branch_name_arbitration_behavior_20260701T125634.json",
+      "status_card_path": "research/cards/MC022_EXPLICIT_BRANCH_NAME_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "visible conflict expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.visible_conflict.expected_correct_rate",
+          "value": 0.75
+        },
+        {
+          "label": "learned conflict expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.learned_conflict.expected_correct_rate",
+          "value": 0.6
+        },
+        {
+          "label": "ATOMIC-source atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.source_learned_atomic_conflict.atomic_number_rate",
+          "value": 0.25
+        },
+        {
+          "label": "nonlocal-first visible expected-correct rate",
+          "path": "smoke.selected_metrics.named_blocks.visible_conflict_by_rule_order.alternate_first.expected_correct_rate",
+          "value": 1.0
+        }
+      ],
+      "diagnostics": [
+        "LEARNED_MEMORY_BRANCH_COLLAPSE",
+        "LOCAL_SOURCE_SALIENCE",
+        "RULE_ORDER_SENSITIVITY",
+        "SEMANTIC_SOURCE_LABEL_SUBSTRATE_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC023",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Query-level operation arbitration",
+      "contract_axis": "query_operation_routing",
+      "repair_attempt": "Remove row-level source labels and use counterbalanced query operation handles.",
+      "behavior_outcome": "query_operation_conflict_below_gate",
+      "claim_boundary": "Query-level operation handles preserve controls and nulls but do not clear both conflict branches.",
+      "dominant_failure": "operation-local and operation-atomic conflict branches below gate",
+      "prompt_channel": "query_operation_code",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "mixed_below_gate",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "operation_local_branch_failed",
+      "evidence_path": "results/cards/MC023/mc023_query_operation_numeric_arbitration_behavior_20260701T135542.json",
+      "status_card_path": "research/cards/MC023_QUERY_OPERATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic local control rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "atomic control atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "operation-local local rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_local_conflict.local_number_rate",
+          "value": 0.775
+        },
+        {
+          "label": "operation-atomic atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_conflict.atomic_number_rate",
+          "value": 0.7
+        }
+      ],
+      "diagnostics": [
+        "OPERATION_ATOMIC_BRANCH_BELOW_GATE",
+        "OPERATION_LOCAL_BRANCH_BELOW_GATE",
+        "QUERY_OPERATION_CONTROLS_CLEAN_CONFLICT_FAILED",
+        "QUERY_OPERATION_SUBSTRATE_FAILED"
+      ]
+    },
+    {
+      "card_id": "MC024",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Few-shot query-operation arbitration",
+      "contract_axis": "fewshot_query_operation_routing",
+      "repair_attempt": "Add balanced worked examples to query operation handles.",
+      "behavior_outcome": "fewshot_operation_atomic_branch_failed",
+      "claim_boundary": "Worked examples repair local routing but not full-source learned atomic routing.",
+      "dominant_failure": "operation-atomic branch below gate with other-number leakage",
+      "prompt_channel": "query_operation_code_with_worked_examples",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "asymmetric_route_failure",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "operation_atomic_branch_failed",
+      "evidence_path": "results/cards/MC024/mc024_fewshot_operation_numeric_arbitration_behavior_20260701T144033.json",
+      "status_card_path": "research/cards/MC024_FEWSHOT_OPERATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic local control rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "atomic control atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "operation-local local rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_local_conflict.local_number_rate",
+          "value": 0.99375
+        },
+        {
+          "label": "operation-atomic atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_conflict.atomic_number_rate",
+          "value": 0.8125
+        },
+        {
+          "label": "operation-atomic other-number rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_conflict.other_number_rate",
+          "value": 0.16875
+        }
+      ],
+      "diagnostics": [
+        "FEWSHOT_OPERATION_ATOMIC_BRANCH_FAILED",
+        "OPERATION_ATOMIC_OTHER_NUMBER_LEAK",
+        "WORKED_EXAMPLES_CONTROLS_CLEAN",
+        "WORKED_EXAMPLES_LOCAL_BRANCH_PASSED"
+      ]
+    },
+    {
+      "card_id": "MC025",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Constrained choice operation arbitration",
+      "contract_axis": "choice_answer_interface",
+      "repair_attempt": "Constrain final answers to A/B/C options containing local number, atomic number, and UNKNOWN.",
+      "behavior_outcome": "choice_interface_controls_failed",
+      "claim_boundary": "Prompt-visible candidate choices break atomic controls and nulls while leaving learned conflict routing weak.",
+      "dominant_failure": "direct atomic control and answer-absent null failed under choice interface",
+      "prompt_channel": "prompt_visible_choice_options",
+      "answer_interface": "choice_label",
+      "local_vs_learned_mixture": "choice_interface_confounded",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "choice_interface_smoke_failed",
+      "evidence_path": "results/cards/MC025/mc025_choice_interface_operation_arbitration_behavior_20260701T145555.json",
+      "status_card_path": "research/cards/MC025_CHOICE_INTERFACE_OPERATION_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic choice local rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_choice_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "atomic choice control atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.atomic_choice_control.atomic_number_rate",
+          "value": 0.36666666666666664
+        },
+        {
+          "label": "answer-absent choice UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_choice_null.unknown_rate",
+          "value": 0.6916666666666667
+        },
+        {
+          "label": "operation-local choice local rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_local_choice_conflict.local_number_rate",
+          "value": 0.9083333333333333
+        },
+        {
+          "label": "operation-atomic choice atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_choice_conflict.atomic_number_rate",
+          "value": 0.15
+        }
+      ],
+      "diagnostics": [
+        "CHOICE_INTERFACE_ANSWER_ABSENT_NULL_FAILED",
+        "CHOICE_INTERFACE_ATOMIC_BRANCH_FAILED",
+        "CHOICE_INTERFACE_ATOMIC_CONTROL_FAILED",
+        "PROMPT_VISIBLE_CHOICE_OPTIONS_NOT_SUBSTRATE"
+      ]
+    },
+    {
+      "card_id": "MC026",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Prompt-visible numeric-option arbitration",
+      "contract_axis": "numeric_option_answer_interface",
+      "repair_attempt": "Show local number, atomic number, and UNKNOWN as allowed answers, but require returning the actual number or UNKNOWN.",
+      "behavior_outcome": "numeric_option_atomic_abstention_failed",
+      "claim_boundary": "Numeric options preserve nulls but turn direct atomic control into UNKNOWN and leave learned conflict routing weak.",
+      "dominant_failure": "direct atomic control abstains and operation-atomic branch remains below gate",
+      "prompt_channel": "prompt_visible_numeric_options",
+      "answer_interface": "integer_or_unknown_from_options",
+      "local_vs_learned_mixture": "numeric_option_confounded",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "numeric_option_smoke_failed",
+      "evidence_path": "results/cards/MC026/mc026_numeric_option_operation_arbitration_behavior_20260701T151215.json",
+      "status_card_path": "research/cards/MC026_NUMERIC_OPTION_OPERATION_ARBITRATION_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic option local rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_option_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "atomic option control atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.atomic_option_control.atomic_number_rate",
+          "value": 0.0
+        },
+        {
+          "label": "atomic option control UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.atomic_option_control.unknown_rate",
+          "value": 0.9666666666666667
+        },
+        {
+          "label": "answer-absent option UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_option_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "operation-local option local rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_local_option_conflict.local_number_rate",
+          "value": 0.925
+        },
+        {
+          "label": "operation-atomic option atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_option_conflict.atomic_number_rate",
+          "value": 0.15833333333333333
+        }
+      ],
+      "diagnostics": [
+        "NUMERIC_OPTIONS_NULLS_CLEAN",
+        "NUMERIC_OPTION_ATOMIC_BRANCH_FAILED",
+        "NUMERIC_OPTION_ATOMIC_CONTROL_ABSTENTION",
+        "PROMPT_VISIBLE_NUMERIC_OPTIONS_NOT_SUBSTRATE"
+      ]
+    },
+    {
+      "card_id": "MC027",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Answer-interface sweep",
+      "contract_axis": "answer_interface_law",
+      "repair_attempt": "Sweep bare integer, prefix, JSON, A/B/C, and numeric-option answer interfaces on one operation substrate.",
+      "behavior_outcome": "bare_integer_smoke_only_structured_interfaces_failed",
+      "claim_boundary": "Bare integer clears the 10-source smoke, but structured interfaces distort controls, nulls, or learned routing; MC024 remains the full-source boundary.",
+      "dominant_failure": "answer interfaces change behavior strongly and only the inherited bare-integer route survives smoke",
+      "prompt_channel": "answer_interface_sweep",
+      "answer_interface": "multi_interface",
+      "local_vs_learned_mixture": "interface_dependent_smoke_candidate",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "answer_interface_substrate_candidate",
+      "evidence_path": "results/cards/MC027/mc027_answer_interface_sweep_behavior_20260701T154841.json",
+      "status_card_path": "research/cards/MC027_ANSWER_INTERFACE_SWEEP_BEHAVIOR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "bare integer atomic control rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_atomic_control.bare_integer.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "bare integer operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_operation_atomic.bare_integer.atomic_number_rate",
+          "value": 0.95
+        },
+        {
+          "label": "answer-prefix operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_operation_atomic.answer_prefix.atomic_number_rate",
+          "value": 0.275
+        },
+        {
+          "label": "JSON answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_answer_absent.json_answer.unknown_rate",
+          "value": 0.075
+        },
+        {
+          "label": "letter-choice operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_operation_atomic.letter_choices.atomic_number_rate",
+          "value": 0.15833333333333333
+        },
+        {
+          "label": "numeric-option atomic control rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_atomic_control.numeric_options.atomic_number_rate",
+          "value": 0.0
+        },
+        {
+          "label": "numeric-option operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.interface_variant_operation_atomic.numeric_options.atomic_number_rate",
+          "value": 0.175
+        }
+      ],
+      "diagnostics": [
+        "ANSWER_INTERFACE_DISPERSION",
+        "BARE_INTEGER_SMOKE_ONLY_CANDIDATE",
+        "FULL_SOURCE_BOUNDARY_INHERITED_FROM_MC024",
+        "STRUCTURED_INTERFACES_BREAK_BEHAVIOR"
+      ]
+    },
+    {
+      "card_id": "MC028",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Bare-integer full-source boundary",
+      "contract_axis": "full_source_boundary",
+      "repair_attempt": "Run MC027's winning bare-integer answer interface on the full 40-source set.",
+      "behavior_outcome": "bare_integer_full_source_atomic_other_number_leak",
+      "claim_boundary": "The bare-integer smoke survivor fails full-source promotion: controls and nulls stay clean, but operation-atomic rows fall below gate with other-number leakage.",
+      "dominant_failure": "full-source learned atomic branch below gate with other-number leakage",
+      "prompt_channel": "bare_integer_full_source",
+      "answer_interface": "bare_integer",
+      "local_vs_learned_mixture": "full_source_boundary_failed",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "full_source_atomic_other_number_leak",
+      "evidence_path": "results/cards/MC028/mc028_bare_integer_full_source_boundary_behavior_20260701T160314.json",
+      "status_card_path": "research/cards/MC028_BARE_INTEGER_FULL_SOURCE_BOUNDARY_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "familiar lookup local rate",
+          "path": "smoke.selected_metrics.panel_metrics.familiar_interface_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "atomic control atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.atomic_interface_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_interface_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "operation-local local rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_local_interface_conflict.local_number_rate",
+          "value": 0.99375
+        },
+        {
+          "label": "operation-atomic atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_interface_conflict.atomic_number_rate",
+          "value": 0.81875
+        },
+        {
+          "label": "operation-atomic other-number rate",
+          "path": "smoke.selected_metrics.panel_metrics.operation_atomic_interface_conflict.other_number_rate",
+          "value": 0.175
+        }
+      ],
+      "diagnostics": [
+        "BARE_INTEGER_FULL_SOURCE_ATOMIC_BRANCH_FAILED",
+        "FULL_SOURCE_CONTROLS_CLEAN",
+        "FULL_SOURCE_OTHER_NUMBER_LEAK",
+        "SMOKE_TO_FULL_SOURCE_BOUNDARY"
+      ]
+    },
+    {
+      "card_id": "MC029",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Operation leak factorial",
+      "contract_axis": "factorized_leak_boundary",
+      "repair_attempt": "Factor MC028's other-number leak across numeric examples, label-only examples, rules-only, query-before-example ordering, and query-row-last table ordering.",
+      "behavior_outcome": "rules_only_improves_atomic_branch_but_nulls_fail",
+      "claim_boundary": "No variant passes the bridge gate. Rules-only improves operation-atomic routing to 0.875 and removes worked-example outputs, but answer-absent nulls fall to 0.806; query-before-examples amplifies other-number leakage.",
+      "dominant_failure": "branch/null tradeoff after worked-example removal",
+      "prompt_channel": "operation_factorial",
+      "answer_interface": "bare_integer",
+      "local_vs_learned_mixture": "factorial_branch_null_tradeoff",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "rules_only_improves_atomic_branch_but_nulls_fail",
+      "evidence_path": "results/cards/MC029/mc029_operation_leak_factorial_behavior_20260701T170417.json",
+      "status_card_path": "research/cards/MC029_OPERATION_LEAK_FACTORIAL_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "baseline operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.baseline_numeric_examples.atomic_number_rate",
+          "value": 0.7125
+        },
+        {
+          "label": "baseline other-number rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.baseline_numeric_examples.other_number_rate",
+          "value": 0.24375
+        },
+        {
+          "label": "rules-only operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.rules_only.atomic_number_rate",
+          "value": 0.875
+        },
+        {
+          "label": "rules-only answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_answer_absent.rules_only.unknown_rate",
+          "value": 0.80625
+        },
+        {
+          "label": "query-before operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.query_before_examples.atomic_number_rate",
+          "value": 0.25625
+        },
+        {
+          "label": "query-before other-number rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.query_before_examples.other_number_rate",
+          "value": 0.45
+        },
+        {
+          "label": "query-row-last other-number rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.query_row_last.other_number_rate",
+          "value": 0.08125
+        }
+      ],
+      "diagnostics": [
+        "FACTORIAL_BRANCH_NULL_TRADEOFF",
+        "QUERY_BEFORE_EXAMPLES_AMPLIFIES_EXAMPLE_LEAK",
+        "QUERY_ROW_LAST_REDUCES_OTHER_NUMBERS_BUT_LOCAL_COLLAPSES",
+        "RULES_ONLY_ANSWER_ABSENT_NULL_FAILS",
+        "RULES_ONLY_ATOMIC_BRANCH_IMPROVES",
+        "WORKED_EXAMPLE_OUTPUT_LEAK"
+      ]
+    },
+    {
+      "card_id": "MC030",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Null-preserving rules repair",
+      "contract_axis": "null_preserving_guard_repair",
+      "repair_attempt": "Add explicit absence guards to MC029's rules-only prompt while preserving full-source panels.",
+      "behavior_outcome": "absence_guards_worsen_nulls",
+      "claim_boundary": "No guard variant passes. The unguarded rules-only baseline remains the best branch/null compromise; guards either worsen nulls or collapse learned atomic routing.",
+      "dominant_failure": "branch/null tradeoff persists under absence guards",
+      "prompt_channel": "operation_absence_guard",
+      "answer_interface": "bare_integer",
+      "local_vs_learned_mixture": "guarded_branch_null_tradeoff",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "branch_preserved_null_not_repaired",
+      "evidence_path": "results/cards/MC030/mc030_null_preserving_rules_repair_behavior_20260701T175942.json",
+      "status_card_path": "research/cards/MC030_NULL_PRESERVING_RULES_REPAIR_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "baseline operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.rules_only_baseline.atomic_number_rate",
+          "value": 0.875
+        },
+        {
+          "label": "baseline answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_answer_absent.rules_only_baseline.unknown_rate",
+          "value": 0.80625
+        },
+        {
+          "label": "row-guard operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.row_absence_guard_before_rules.atomic_number_rate",
+          "value": 0.8625
+        },
+        {
+          "label": "row-guard answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_answer_absent.row_absence_guard_before_rules.unknown_rate",
+          "value": 0.23125
+        },
+        {
+          "label": "decision-order answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_answer_absent.decision_order_guard_after_query.unknown_rate",
+          "value": 0.425
+        },
+        {
+          "label": "query-last operation-atomic rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.decision_order_guard_query_last.atomic_number_rate",
+          "value": 0.4875
+        },
+        {
+          "label": "query-last other-number rate",
+          "path": "smoke.selected_metrics.named_blocks.variant_operation_atomic.decision_order_guard_query_last.other_number_rate",
+          "value": 0.05625
+        }
+      ],
+      "diagnostics": [
+        "ABSENCE_GUARDS_WORSEN_ANSWER_ABSENT_NULLS",
+        "GUARDED_QUERY_LAST_REDUCES_OTHER_NUMBERS_BUT_BRANCH_COLLAPSES",
+        "NUMERIC_LIST_MARKERS_CAN_LEAK_ATOMIC_TARGETS",
+        "RULES_ONLY_BRANCH_NULL_TRADEOFF_PERSISTS"
+      ]
+    },
+    {
+      "card_id": "MC031",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Statusless reliability bridge",
+      "contract_axis": "statusless_checksum_reliability",
+      "repair_attempt": "Replace visible status labels and operation examples with arithmetic checksum validity as a source-reliability cue.",
+      "behavior_outcome": "statusless_checksum_invalid_branch_local_collapse",
+      "claim_boundary": "Direct controls, valid-checksum local rows, and answer-absent nulls are clean in smoke, but invalid-checksum rows select local numbers on every selected conflict.",
+      "dominant_failure": "statusless invalid-source branch collapses to local despite available atomic recall",
+      "prompt_channel": "statusless_checksum_rule",
+      "answer_interface": "bare_integer",
+      "local_vs_learned_mixture": "statusless_reliability_local_collapse",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "smoke_only",
+      "evidence_path": "results/cards/MC031/mc031_statusless_reliability_bridge_smoke_20260701T185520.json",
+      "status_card_path": "research/cards/MC031_STATUSLESS_RELIABILITY_BRIDGE_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic lookup local rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "real atomic control rate",
+          "path": "smoke.selected_metrics.panel_metrics.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "valid-checksum local rate",
+          "path": "smoke.selected_metrics.panel_metrics.checksum_valid_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "invalid-checksum local rate",
+          "path": "smoke.selected_metrics.panel_metrics.checksum_invalid_conflict.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "invalid-checksum atomic/lure rate",
+          "path": "smoke.selected_metrics.panel_metrics.checksum_invalid_conflict.atomic_or_lure_number_rate",
+          "value": 0.0
+        }
+      ],
+      "diagnostics": [
+        "ATOMIC_OR_LURE_CONFLICT_SELECTION_ABSENT",
+        "CHECKSUM_VALID_LOCAL_BRANCH_CLEAN",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "SMOKE_ONLY_NO_CANDIDATE_OUTPUT_BASELINES",
+        "STATUSLESS_CHECKSUM_INVALID_BRANCH_LOCAL_COLLAPSE"
+      ]
+    },
+    {
+      "card_id": "MC032",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Post-checksum cross-table consistency",
+      "contract_axis": "statusless_cross_table_consistency",
+      "repair_attempt": "Replace arithmetic checksum validity with agreement between two neutral local tables.",
+      "behavior_outcome": "cross_table_mismatch_local_collapse",
+      "claim_boundary": "Direct controls, answer-absent nulls, and side-number locality are clean in smoke, but mismatch rows still avoid the learned atomic branch.",
+      "dominant_failure": "statusless cross-table mismatch collapses toward the primary local number",
+      "prompt_channel": "statusless_cross_table_rule",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "statusless_reliability_local_collapse",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "smoke_only",
+      "evidence_path": "results/cards/MC032/mc032_post_checksum_bridge_behavior_smoke_20260701T192315.json",
+      "status_card_path": "research/cards/MC032_POST_CHECKSUM_BRIDGE_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic lookup local rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "real atomic control rate",
+          "path": "smoke.selected_metrics.panel_metrics.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "match-conflict local rate",
+          "path": "smoke.selected_metrics.panel_metrics.crosscheck_match_conflict.local_number_rate",
+          "value": 0.8
+        },
+        {
+          "label": "mismatch-conflict local rate",
+          "path": "smoke.selected_metrics.panel_metrics.crosscheck_mismatch_conflict.local_number_rate",
+          "value": 0.7
+        },
+        {
+          "label": "mismatch-conflict atomic/lure rate",
+          "path": "smoke.selected_metrics.panel_metrics.crosscheck_mismatch_conflict.atomic_or_lure_number_rate",
+          "value": 0.0
+        },
+        {
+          "label": "mismatch side-number rate",
+          "path": "smoke.selected_metrics.panel_metrics.crosscheck_mismatch_conflict.side_number_rate",
+          "value": 0.0
+        }
+      ],
+      "diagnostics": [
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED",
+        "CROSSTABLE_MATCH_BRANCH_BELOW_GATE",
+        "CROSSTABLE_SIDE_NUMBER_LEAK_ABSENT",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "POST_CHECKSUM_CROSSTABLE_LOCAL_COLLAPSE"
+      ]
+    },
+    {
+      "card_id": "MC033",
+      "source": "smoke",
+      "row_id": null,
+      "title": "Row-local fact-claim comparison",
+      "contract_axis": "learned_fact_claim_validity",
+      "repair_attempt": "Replace checksum and cross-table cues with a row-local standard-number claim checked against learned atomic memory.",
+      "behavior_outcome": "fact_claim_match_and_mismatch_failed",
+      "claim_boundary": "Direct controls and answer-absent nulls are clean in smoke, but the match branch returns atomic answers too often and mismatch rows split between local and the wrong claimed number.",
+      "dominant_failure": "fact-claim validity does not produce stable local-versus-learned routing",
+      "prompt_channel": "statusless_fact_claim_rule",
+      "answer_interface": "integer",
+      "local_vs_learned_mixture": "statusless_reliability_local_and_claim_leak",
+      "hidden_state_allowed": false,
+      "behavior_ready": false,
+      "signature_ready": false,
+      "diagnostic_class": "smoke_only",
+      "evidence_path": "results/cards/MC033/mc033_fact_claim_bridge_behavior_smoke_20260701T194546.json",
+      "status_card_path": "research/cards/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT_STATUS.md",
+      "headline_metrics": [
+        {
+          "label": "synthetic lookup local rate",
+          "path": "smoke.selected_metrics.panel_metrics.synthetic_numeric_lookup.local_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "real atomic control rate",
+          "path": "smoke.selected_metrics.panel_metrics.real_world_atomic_number_control.atomic_number_rate",
+          "value": 1.0
+        },
+        {
+          "label": "answer-absent UNKNOWN rate",
+          "path": "smoke.selected_metrics.panel_metrics.answer_absent_null.unknown_rate",
+          "value": 1.0
+        },
+        {
+          "label": "match-conflict local rate",
+          "path": "smoke.selected_metrics.panel_metrics.fact_claim_match_conflict.local_number_rate",
+          "value": 0.4
+        },
+        {
+          "label": "match-conflict atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.fact_claim_match_conflict.atomic_number_rate",
+          "value": 0.5
+        },
+        {
+          "label": "mismatch-conflict atomic rate",
+          "path": "smoke.selected_metrics.panel_metrics.fact_claim_mismatch_conflict.atomic_number_rate",
+          "value": 0.1
+        },
+        {
+          "label": "mismatch-conflict local rate",
+          "path": "smoke.selected_metrics.panel_metrics.fact_claim_mismatch_conflict.local_number_rate",
+          "value": 0.5
+        },
+        {
+          "label": "mismatch claimed-number/lure rate",
+          "path": "smoke.selected_metrics.panel_metrics.fact_claim_mismatch_conflict.lure_atomic_number_rate",
+          "value": 0.4
+        }
+      ],
+      "diagnostics": [
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "FACT_CLAIM_MATCH_BRANCH_FAILED",
+        "FACT_CLAIM_MISMATCH_LOCAL_AND_CLAIM_LEAK",
+        "POST_MC032_BRIDGE_ROUTE_CLOSED"
+      ]
+    }
+  ],
+  "summary": {
+    "rung_count": 24,
+    "atlas_rung_count": 7,
+    "smoke_rung_count": 17,
+    "behavior_ready_count": 1,
+    "signature_ready_count": 0,
+    "hidden_state_allowed_count": 0,
+    "clean_unconfounded_bridge_count": 0,
+    "prompt_visible_positive_control_count": 1,
+    "behavior_outcome_counts": {
+      "absence_guards_worsen_nulls": 1,
+      "answer_token_local_collapse": 1,
+      "bare_integer_full_source_atomic_other_number_leak": 1,
+      "bare_integer_smoke_only_structured_interfaces_failed": 1,
+      "behavior_ready_but_prompt_visible": 1,
+      "calibration_inference_collapsed": 1,
+      "choice_interface_controls_failed": 1,
+      "controls_clean_conflict_local_collapse": 1,
+      "cross_table_mismatch_local_collapse": 1,
+      "direct_recall_passes_route_atomic_fails": 1,
+      "fact_claim_match_and_mismatch_failed": 1,
+      "failed_controls_and_conflict": 1,
+      "fewshot_operation_atomic_branch_failed": 1,
+      "mixed_outputs_wrong_rule": 1,
+      "neutral_selector_rule_failed": 1,
+      "numeric_option_atomic_abstention_failed": 1,
+      "positive_control_reproduced_ablation_collapsed": 1,
+      "query_operation_conflict_below_gate": 1,
+      "route_code_unstable_even_visible": 1,
+      "row_code_conflict_failed": 1,
+      "rules_only_improves_atomic_branch_but_nulls_fail": 1,
+      "semantic_labels_rule_order_sensitive": 1,
+      "statusless_checksum_invalid_branch_local_collapse": 1,
+      "visible_gate_local_collapse": 1
+    },
+    "contract_axis_counts": {
+      "answer_interface": 1,
+      "answer_interface_law": 1,
+      "atomic_recall_vs_routing": 1,
+      "choice_answer_interface": 1,
+      "factorized_leak_boundary": 1,
+      "fewshot_query_operation_routing": 1,
+      "full_source_boundary": 1,
+      "inferred_source_validity": 1,
+      "learned_fact_claim_validity": 1,
+      "learned_fact_gate": 1,
+      "neutral_source_answer_interface": 1,
+      "null_preserving_guard_repair": 1,
+      "numeric_option_answer_interface": 1,
+      "prompt_channel_locality": 1,
+      "query_operation_routing": 1,
+      "row_local_route_code": 1,
+      "semantic_branch_label_routing": 1,
+      "source_answer_interface": 1,
+      "source_contract": 1,
+      "source_path": 1,
+      "statusless_checksum_reliability": 1,
+      "statusless_cross_table_consistency": 1,
+      "visible_nonstatus_gate": 1,
+      "visible_vs_learned_branch_routing": 1
+    },
+    "local_vs_learned_mixture_counts": {
+      "absent": 5,
+      "asymmetric_route_failure": 4,
+      "choice_interface_confounded": 1,
+      "clean_prompt_visible": 1,
+      "factorial_branch_null_tradeoff": 1,
+      "full_source_boundary_failed": 1,
+      "guarded_branch_null_tradeoff": 1,
+      "interface_dependent_smoke_candidate": 1,
+      "mixed_below_gate": 1,
+      "mixed_wrong_rule": 3,
+      "numeric_option_confounded": 1,
+      "statused_only": 1,
+      "statusless_reliability_local_and_claim_leak": 1,
+      "statusless_reliability_local_collapse": 2
+    }
+  },
+  "validation_checks": [
+    {
+      "id": "no_bridge_rung_allows_hidden_state",
+      "card_id": "ALL",
+      "actual": 0,
+      "predicate": "== 0",
+      "passed": true,
+      "why": "The ladder is a behavior-substrate map, not a hidden-state promotion."
+    },
+    {
+      "id": "exactly_one_prompt_visible_positive_control",
+      "card_id": "ALL",
+      "actual": 1,
+      "predicate": "== 1",
+      "passed": true,
+      "why": "MC012 is the only bridge behavior-ready rung, and it is prompt-visible."
+    },
+    {
+      "id": "mc011_numeric_controls_but_conflict_local",
+      "card_id": "MC011",
+      "actual": {
+        "real_atomic_control": 1.0,
+        "conflict_local": 1.0,
+        "conflict_atomic": 0.0
+      },
+      "predicate": "real_atomic_control >= 0.85 and conflict_local == 1.0 and conflict_atomic == 0.0",
+      "passed": true,
+      "why": "Same-format numeric answers repair controls while conflict remains prompt-local."
+    },
+    {
+      "id": "mc012_prompt_visible_contrast_only",
+      "card_id": "MC012",
+      "actual": {
+        "trusted_local": 1.0,
+        "untrusted_atomic": 0.975,
+        "prompt_channel_locality_gate": false
+      },
+      "predicate": "trusted_local >= 0.85 and untrusted_atomic >= 0.85 and prompt_channel_locality_gate is false",
+      "passed": true,
+      "why": "The one clean bridge table is carried by visible source-status text."
+    },
+    {
+      "id": "mc013_status_ablation_kills_contrast",
+      "card_id": "MC013",
+      "actual": {
+        "statused_untrusted_atomic": 0.975,
+        "ablation_local": 1.0,
+        "ablation_atomic": 0.0
+      },
+      "predicate": "statused_untrusted_atomic >= 0.85 and ablation_local == 1.0 and ablation_atomic == 0.0",
+      "passed": true,
+      "why": "Removing the visible status channel collapses the learned branch."
+    },
+    {
+      "id": "mc016_visible_nonstatus_gate_collapses_atomic",
+      "card_id": "MC016",
+      "actual": {
+        "primary_local": 1.0,
+        "expected_atomic_atomic": 0.0
+      },
+      "predicate": "primary_local == 1.0 and expected_atomic_atomic == 0.0",
+      "passed": true,
+      "why": "A visible non-status gate still does not make expected-atomic rows work."
+    },
+    {
+      "id": "mc020_atomic_recall_not_bottleneck",
+      "card_id": "MC020",
+      "actual": {
+        "query_row_atomic": 0.9,
+        "route_atomic": 0.1
+      },
+      "predicate": "query_row_atomic >= 0.85 and route_atomic < 0.50",
+      "passed": true,
+      "why": "The bridge bottleneck is arbitration, not recall availability."
+    },
+    {
+      "id": "mc022_semantic_labels_not_enough",
+      "card_id": "MC022",
+      "actual": {
+        "nonlocal_first_visible": 1.0,
+        "atomic_source_atomic": 0.25
+      },
+      "predicate": "nonlocal_first_visible == 1.0 and atomic_source_atomic < 0.50",
+      "passed": true,
+      "why": "Semantic labels reveal rule-order sensitivity and do not solve learned-branch routing."
+    },
+    {
+      "id": "mc023_query_operation_controls_clean_but_conflict_below_gate",
+      "card_id": "MC023",
+      "actual": {
+        "synthetic_local": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "operation_local": 0.775,
+        "operation_atomic": 0.7
+      },
+      "predicate": "controls/nulls == 1.0 and both operation branches < 0.85",
+      "passed": true,
+      "why": "Query-level operation handles clean the controls but do not yet create a behavior-ready bridge."
+    },
+    {
+      "id": "mc024_fewshot_operations_repair_local_not_atomic",
+      "card_id": "MC024",
+      "actual": {
+        "synthetic_local": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "operation_local": 0.99375,
+        "operation_atomic": 0.8125,
+        "operation_atomic_other": 0.16875
+      },
+      "predicate": "controls/nulls == 1.0, local branch >= 0.85, atomic branch < 0.85, other-number leak >= 0.10",
+      "passed": true,
+      "why": "Balanced examples repair prompt-local routing but leave learned atomic routing below gate."
+    },
+    {
+      "id": "mc025_choice_interface_breaks_controls_and_atomic_branch",
+      "card_id": "MC025",
+      "actual": {
+        "synthetic_local": 1.0,
+        "atomic_control": 0.36666666666666664,
+        "answer_absent_unknown": 0.6916666666666667,
+        "operation_local": 0.9083333333333333,
+        "operation_atomic": 0.15
+      },
+      "predicate": "synthetic local == 1.0, atomic control < 0.85, answer-absent unknown < 0.90, local branch >= 0.85, atomic branch < 0.85",
+      "passed": true,
+      "why": "Constraining the output to prompt-visible choices introduces new control/null failures and does not rescue learned routing."
+    },
+    {
+      "id": "mc026_numeric_options_preserve_nulls_but_break_atomic_control",
+      "card_id": "MC026",
+      "actual": {
+        "synthetic_local": 1.0,
+        "atomic_control": 0.0,
+        "atomic_control_unknown": 0.9666666666666667,
+        "answer_absent_unknown": 1.0,
+        "operation_local": 0.925,
+        "operation_atomic": 0.15833333333333333
+      },
+      "predicate": "synthetic local == 1.0, atomic control == 0.0, atomic-control UNKNOWN >= 0.90, nulls == 1.0, local branch >= 0.85, atomic branch < 0.85",
+      "passed": true,
+      "why": "Numeric options avoid MC025's null failure but create atomic abstention and do not rescue learned routing."
+    },
+    {
+      "id": "mc027_answer_interface_sweep_bare_integer_only_smoke_survivor",
+      "card_id": "MC027",
+      "actual": {
+        "bare_atomic_control": 1.0,
+        "bare_operation_atomic": 0.95,
+        "prefix_operation_atomic": 0.275,
+        "json_answer_absent_unknown": 0.075,
+        "choice_operation_atomic": 0.15833333333333333,
+        "numeric_atomic_control": 0.0,
+        "numeric_operation_atomic": 0.175
+      },
+      "predicate": "bare integer passes smoke while structured/option interfaces fail controls, nulls, or learned branch",
+      "passed": true,
+      "why": "Answer format itself is a behavior surface; structured schemas are not neutral output repairs."
+    },
+    {
+      "id": "mc028_bare_integer_full_source_boundary_failed",
+      "card_id": "MC028",
+      "actual": {
+        "familiar_lookup": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "operation_local": 0.99375,
+        "operation_atomic": 0.81875,
+        "operation_atomic_other": 0.175
+      },
+      "predicate": "controls/nulls == 1.0, local branch >= 0.85, atomic branch < 0.85, other-number leak >= 0.10",
+      "passed": true,
+      "why": "The bare-integer smoke survivor fails full-source promotion at the learned atomic branch."
+    },
+    {
+      "id": "mc029_factorial_branch_null_tradeoff",
+      "card_id": "MC029",
+      "actual": {
+        "baseline_operation_atomic": 0.7125,
+        "baseline_other": 0.24375,
+        "rules_only_operation_atomic": 0.875,
+        "rules_only_answer_absent_unknown": 0.80625,
+        "query_before_operation_atomic": 0.25625,
+        "query_before_other": 0.45,
+        "query_row_last_other": 0.08125
+      },
+      "predicate": "rules-only improves atomic branch but fails nulls; query-before amplifies leak; query-row-last reduces other numbers without solving routing",
+      "passed": true,
+      "why": "Factorizing MC028 moves individual failure axes but does not create a complete bridge substrate."
+    },
+    {
+      "id": "mc030_absence_guard_repair_fails",
+      "card_id": "MC030",
+      "actual": {
+        "baseline_operation_atomic": 0.875,
+        "baseline_answer_absent_unknown": 0.80625,
+        "row_guard_operation_atomic": 0.8625,
+        "row_guard_answer_absent_unknown": 0.23125,
+        "decision_order_answer_absent_unknown": 0.425,
+        "query_last_operation_atomic": 0.4875,
+        "query_last_other": 0.05625
+      },
+      "predicate": "baseline branch holds but nulls fail; guards do not restore nulls; query-last reduces other leakage by collapsing branch",
+      "passed": true,
+      "why": "MC030 closes simple absence-guard repair for the MC029 rules-only tradeoff."
+    },
+    {
+      "id": "mc031_statusless_checksum_invalid_branch_collapses",
+      "card_id": "MC031",
+      "actual": {
+        "synthetic_lookup": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "valid_checksum_local": 1.0,
+        "invalid_checksum_local": 1.0,
+        "invalid_checksum_atomic_lure": 0.0
+      },
+      "predicate": "controls/nulls == 1.0, valid branch local >= 0.85, invalid branch local == 1.0 and atomic/lure == 0.0",
+      "passed": true,
+      "why": "MC031 shows statusless checksum reliability preserves controls but does not create learned-branch routing."
+    },
+    {
+      "id": "mc032_crosstable_mismatch_collapses_toward_local",
+      "card_id": "MC032",
+      "actual": {
+        "synthetic_lookup": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "mismatch_local": 0.7,
+        "mismatch_atomic_lure": 0.0,
+        "mismatch_side": 0.0
+      },
+      "predicate": "controls/nulls == 1.0, mismatch local >= 0.70, atomic/lure == 0.0, side-number == 0.0",
+      "passed": true,
+      "why": "MC032 shows that replacing checksum validity with cross-table consistency still does not create learned-branch routing."
+    },
+    {
+      "id": "mc033_fact_claim_route_fails_both_branches",
+      "card_id": "MC033",
+      "actual": {
+        "synthetic_lookup": 1.0,
+        "atomic_control": 1.0,
+        "answer_absent_unknown": 1.0,
+        "match_local": 0.4,
+        "match_atomic": 0.5,
+        "mismatch_atomic": 0.1,
+        "mismatch_local": 0.5,
+        "mismatch_lure": 0.4
+      },
+      "predicate": "controls/nulls == 1.0, match local < 0.85, mismatch atomic < 0.85, mismatch lure >= 0.40",
+      "passed": true,
+      "why": "MC033 closes the post-MC032 fact-claim repair: controls and nulls survive, but the routing rule does not."
+    }
+  ],
+  "allowed_claim": "Across MC010-MC033, the only clean local-versus-learned bridge contrast is MC012's prompt-visible status-label positive control; every attempted non-status or ablated repair remains blocked before hidden-state work. MC024 shows that balanced worked examples can repair the prompt-local branch while the learned atomic branch remains the limiting failure. MC025 shows that prompt-visible choice constraints add control and null failures rather than repairing that branch. MC026 shows that numeric option lists preserve nulls but turn direct atomic recall into UNKNOWN. MC027 shows that answer-interface format is itself a strong behavior surface: bare integer answers survive 10-source smoke, while prefix, JSON, choice, and numeric-option interfaces fail different gates. MC028 closes that survivor at full-source scale: controls and nulls stay clean, but the learned atomic branch falls below gate with other-number leakage. MC029 shows that removing numeric examples can improve the learned branch, but the resulting rules-only variant breaks answer-absent nulls; factor movement is not bridge repair. MC030 shows that explicit absence guards do not repair that tradeoff and can make answer-absent rows substantially worse. MC031 tests a materially different statusless checksum cue: direct controls and nulls stay clean, but invalid-checksum conflict rows still collapse to local answers. MC032 then replaces checksum validity with cross-table consistency and finds the same broader boundary: mismatch rows still avoid the learned atomic branch while side-number leakage stays absent. MC033 then tests row-local fact claims against learned atomic memory and closes the post-MC032 repair route: direct controls and nulls stay clean, but the match and mismatch branches do not implement stable routing.",
+  "forbidden_claim": "This ladder does not establish a hidden signature, causal intervention, or deployable knowledge-control mechanism."
+}

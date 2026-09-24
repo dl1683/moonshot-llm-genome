@@ -1,0 +1,427 @@
+{
+  "claim_boundary": {
+    "allowed_claim": "MC031-MC033 form a same-family statusless source-validity closure sequence: direct controls and answer-absent nulls can remain clean while learned/local bridge routing still fails under checksum, cross-table, and fact-claim cues.",
+    "claim_flags": {
+      "behavior_substrate_promoted": false,
+      "general_knowledge_control_claimed": false,
+      "hidden_signature_claimed": false,
+      "intervention_claimed": false,
+      "mechanism_claimed": false
+    },
+    "forbidden_claim": "This closeout does not claim a hidden signature, causal intervention, mechanism card, or general knowledge-control surface."
+  },
+  "closure_sequence": [
+    {
+      "behavior_outcome": "statusless_checksum_invalid_branch_local_collapse",
+      "behavior_ready": false,
+      "card_id": "MC031",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "statusless invalid-source branch collapses to local despite available atomic recall",
+      "evidence_path": "results/cards/MC031/mc031_statusless_reliability_bridge_smoke_20260701T185520.json",
+      "exported_diagnostics": [
+        "STATUSLESS_CHECKSUM_INVALID_BRANCH_LOCAL_COLLAPSE",
+        "CHECKSUM_VALID_LOCAL_BRANCH_CLEAN",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "ATOMIC_OR_LURE_CONFLICT_SELECTION_ABSENT",
+        "SMOKE_ONLY_NO_CANDIDATE_OUTPUT_BASELINES"
+      ],
+      "failure_axes": [
+        "statusless_checksum_invalid_branch_collapses_to_local",
+        "checksum_valid_local_branch_clean",
+        "direct_controls_and_nulls_clean",
+        "atomic_or_lure_conflict_selection_absent",
+        "smoke_only_no_candidate_output_baselines"
+      ],
+      "hidden_state_allowed": false,
+      "interpretation": "MC031 isolates a statusless reliability-cue failure. Direct local lookup, familiar local lookup, direct atomic recall, valid-checksum local routing, and answer-absent nulls all survive smoke. The invalid checksum branch still selects local numbers on every selected row and never selects the atomic or lure value, so the bridge fails at source validity arbitration rather than recall or null behavior.",
+      "local_vs_learned_mixture": "statusless_reliability_local_collapse",
+      "metrics": {
+        "answer_absent_unknown_rate": 1.0,
+        "invalid_checksum_atomic_or_lure_rate": 0.0,
+        "invalid_checksum_local_rate": 1.0,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0,
+        "valid_checksum_local_rate": 1.0
+      },
+      "repair_attempt": "Replace visible status labels and operation examples with arithmetic checksum validity as a source-reliability cue.",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC031_STATUSLESS_RELIABILITY_BRIDGE_STATUS.md",
+      "title": "Statusless reliability bridge"
+    },
+    {
+      "behavior_outcome": "cross_table_mismatch_local_collapse",
+      "behavior_ready": false,
+      "card_id": "MC032",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "statusless cross-table mismatch collapses toward the primary local number",
+      "evidence_path": "results/cards/MC032/mc032_post_checksum_bridge_behavior_smoke_20260701T192315.json",
+      "exported_diagnostics": [
+        "POST_CHECKSUM_CROSSTABLE_LOCAL_COLLAPSE",
+        "CROSSTABLE_MATCH_BRANCH_BELOW_GATE",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "CROSSTABLE_SIDE_NUMBER_LEAK_ABSENT",
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED"
+      ],
+      "failure_axes": [
+        "post_checksum_crosstable_mismatch_local_collapse",
+        "cross_table_match_branch_below_gate",
+        "direct_controls_and_nulls_clean",
+        "side_number_leak_absent",
+        "candidate_output_baselines_reported"
+      ],
+      "hidden_state_allowed": false,
+      "interpretation": "MC032 removes the checksum-specific explanation for MC031. The cue is cross-table consistency rather than arithmetic validity, and direct local lookup, familiar local lookup, direct atomic recall, and answer-absent nulls all survive smoke. The mismatch branch still never selects the atomic or lure value; it mostly selects the primary local number, with no side-number copying. The failure is therefore broader local-table dominance under statusless source-validity pressure.",
+      "local_vs_learned_mixture": "statusless_reliability_local_collapse",
+      "metrics": {
+        "answer_absent_unknown_rate": 1.0,
+        "match_conflict_local_rate": 0.8,
+        "mismatch_conflict_atomic_or_lure_rate": 0.0,
+        "mismatch_conflict_local_rate": 0.7,
+        "mismatch_conflict_side_number_rate": 0.0,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0
+      },
+      "repair_attempt": "Replace arithmetic checksum validity with agreement between two neutral local tables.",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC032_POST_CHECKSUM_BRIDGE_STATUS.md",
+      "title": "Post-checksum cross-table consistency"
+    },
+    {
+      "behavior_outcome": "fact_claim_match_and_mismatch_failed",
+      "behavior_ready": false,
+      "card_id": "MC033",
+      "diagnostic_class": "smoke_only",
+      "dominant_failure": "fact-claim validity does not produce stable local-versus-learned routing",
+      "evidence_path": "results/cards/MC033/mc033_fact_claim_bridge_behavior_smoke_20260701T194546.json",
+      "exported_diagnostics": [
+        "FACT_CLAIM_MATCH_BRANCH_FAILED",
+        "FACT_CLAIM_MISMATCH_LOCAL_AND_CLAIM_LEAK",
+        "DIRECT_CONTROLS_AND_NULLS_CLEAN",
+        "CANDIDATE_OUTPUT_BASELINES_REPORTED",
+        "POST_MC032_BRIDGE_ROUTE_CLOSED"
+      ],
+      "failure_axes": [
+        "fact_claim_match_branch_below_gate",
+        "fact_claim_mismatch_local_and_claim_leak",
+        "direct_controls_and_nulls_clean",
+        "candidate_output_baselines_reported",
+        "post_mc032_bridge_route_closed"
+      ],
+      "hidden_state_allowed": false,
+      "interpretation": "MC033 closes the post-MC032 repair path. It replaces checksum and cross-table cues with a row-local standard-number claim checked against learned atomic memory. Direct local lookup, familiar local lookup, direct atomic recall, and answer-absent nulls all survive smoke. The rule does not: match rows often return the atomic number instead of the local number, while mismatch rows mostly split between the local number and the wrong claimed number. The bridge failure is therefore not repaired by making the validity cue a learned-fact comparison.",
+      "local_vs_learned_mixture": "statusless_reliability_local_and_claim_leak",
+      "metrics": {
+        "answer_absent_unknown_rate": 1.0,
+        "match_conflict_atomic_rate": 0.5,
+        "match_conflict_local_rate": 0.4,
+        "mismatch_conflict_atomic_rate": 0.1,
+        "mismatch_conflict_local_rate": 0.5,
+        "mismatch_conflict_lure_rate": 0.4,
+        "real_atomic_control_atomic_rate": 1.0,
+        "synthetic_lookup_local_rate": 1.0
+      },
+      "repair_attempt": "Replace checksum and cross-table cues with a row-local standard-number claim checked against learned atomic memory.",
+      "signature_ready": false,
+      "status_card_path": "research/cards/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT_STATUS.md",
+      "title": "Row-local fact-claim comparison"
+    }
+  ],
+  "future_bridge_admission_rule": {
+    "allowed_output_classes": [
+      "promoted_mechanism_card",
+      "bounded_mechanism_card",
+      "failed_mechanism_card",
+      "diagnostic_note"
+    ],
+    "forbidden_same_family_moves": [
+      "Do not reopen source labels, row codes, query-operation handles, worked examples, constrained choices, numeric options, answer-interface sweeps, absence guards, arithmetic checksum cues, simple cross-table consistency cues, or row-local fact-claim cues.",
+      "Do not start probes on another behavior-substrate failure.",
+      "Do not call a prompt-visible positive control a knowledge mechanism."
+    ],
+    "hidden_state_license_rule": "Promote a future bridge substrate to hidden-state work only if it is materially outside MC007-MC033 and branch, null, local, side-number, parseability, prompt-channel, source-disjoint, and output/candidate controls pass together.",
+    "material_substrate_change_required": true,
+    "minimum_evidence_packet": [
+      "Record MC031-MC033 as a same-family bridge closure sequence.",
+      "Do not run hidden-state probes on MC031, MC032, or MC033.",
+      "Require any future bridge to be materially outside visible status labels, row codes, operation handles, worked examples, answer schemas, absence guards, checksum, cross-table consistency, and row-local fact claims.",
+      "If a future bridge is proposed, require MC012-level direct controls, conflict mixture, nulls, source-disjoint holdout, prompt-channel locality, and candidate/output baselines before hidden-state work."
+    ],
+    "same_family_route_status": "killed_after_mc033"
+  },
+  "purpose": "Close the same-family post-MC033 bridge-substrate route as a diagnostic family unless a future experiment changes substrate class and clears the full bridge admission packet.",
+  "recent_closed_rung_ids": [
+    "MC030",
+    "MC031",
+    "MC032",
+    "MC033"
+  ],
+  "same_family_sequence_ids": [
+    "MC031",
+    "MC032",
+    "MC033"
+  ],
+  "schema_version": 1,
+  "source_snapshot": {
+    "bridge_ladder_summary": {
+      "behavior_ready_count": 1,
+      "clean_unconfounded_bridge_count": 0,
+      "hidden_state_allowed_count": 0,
+      "rung_count": 24,
+      "signature_ready_count": 0,
+      "smoke_rung_count": 17
+    },
+    "error_taxonomy_summary": {
+      "bridge_closed_before_hidden_state_count": 23,
+      "bridge_rung_count": 24,
+      "hidden_state_allowed_count": 0,
+      "smoke_card_count": 17
+    },
+    "genome_bridge_shape": {
+      "active_constraints": [
+        "Do not reopen the MC028-MC030 operation-leak route through local prompt guards, example removal, query reordering, or answer-schema changes unless the branch, null, local, and side-number gates are all predeclared and pass together.",
+        "Do not reopen the MC031 statusless checksum route unless invalid-source rows produce learned atomic/lure selections while direct controls, answer-absent nulls, source-disjoint holdout, and margin baselines are all reported.",
+        "Do not reopen the MC032 cross-table consistency route unless mismatch rows produce learned atomic/lure selections without side-number copying while direct controls, answer-absent nulls, source-disjoint holdout, and margin baselines all pass together.",
+        "Do not reopen the MC033 fact-claim route unless both match and mismatch branches pass together without local collapse, claimed-number copying, null damage, or output/candidate-margin explanation.",
+        "Any new bridge must be materially different from source labels, row codes, query-operation handles, worked examples, constrained choices, numeric options, answer-interface sweeps, simple absence guards, and arithmetic checksum validity cues.",
+        "A future bridge item remains behavior-substrate work until it also reports candidate/output baselines; hidden-state work is still forbidden for all smoke rungs."
+      ],
+      "clean_unconfounded_bridge_count": 0,
+      "hidden_state_allowed_count": 0,
+      "recent_closed_rung_ids": [
+        "MC030",
+        "MC031",
+        "MC032",
+        "MC033"
+      ],
+      "rung_count": 24,
+      "smoke_rung_count": 17,
+      "terminal_stage_counts": {
+        "pre_signature_behavior_substrate": 23,
+        "pre_signature_prompt_channel_locality": 1
+      }
+    },
+    "smoke_diagnostics_summary": {
+      "behavior_ready_count": 0,
+      "card_count": 17,
+      "hidden_state_allowed_count": 0,
+      "signature_ready_count": 0
+    }
+  },
+  "sources": {
+    "bridge_ladder": "data/control_surface_bridge_ladder.json",
+    "error_taxonomy": "data/control_surface_error_taxonomy.json",
+    "genome_snapshot": "data/control_surface_genome_snapshot.json",
+    "offensive_doctrine": "data/control_surface_offensive_doctrine.json",
+    "smoke_diagnostics": "data/control_surface_smoke_diagnostics.json"
+  },
+  "summary": {
+    "bridge_rung_count": 24,
+    "clean_unconfounded_bridge_count": 0,
+    "hidden_state_allowed_count": 0,
+    "recent_closed_rung_ids": [
+      "MC030",
+      "MC031",
+      "MC032",
+      "MC033"
+    ],
+    "same_family_route_status": "killed_after_mc033",
+    "same_family_sequence_count": 3,
+    "same_family_sequence_ids": [
+      "MC031",
+      "MC032",
+      "MC033"
+    ],
+    "smoke_rung_count": 17
+  },
+  "validation_checks": [
+    {
+      "actual": "close_post_mc033_bridge_substrate_family",
+      "id": "work_order_contract_matches_post_mc033_closeout",
+      "passed": true,
+      "predicate": "== close_post_mc033_bridge_substrate_family",
+      "why": "The closeout must come from the offensive-doctrine bridge-substrate work order."
+    },
+    {
+      "actual": [
+        "MC031",
+        "MC032",
+        "MC033"
+      ],
+      "id": "same_family_sequence_recorded",
+      "passed": true,
+      "predicate": "== ['MC031', 'MC032', 'MC033']",
+      "why": "The closeout must record MC031-MC033 as the same-family source-validity sequence."
+    },
+    {
+      "actual": [
+        "MC030",
+        "MC031",
+        "MC032",
+        "MC033"
+      ],
+      "id": "recent_closed_bridge_rungs_preserved",
+      "passed": true,
+      "predicate": "== ['MC030', 'MC031', 'MC032', 'MC033']",
+      "why": "The generated snapshot must still treat MC030-MC033 as the recent bridge closure set."
+    },
+    {
+      "actual": {
+        "rung_count": 24,
+        "smoke_rung_count": 17
+      },
+      "id": "bridge_ladder_scope_preserved",
+      "passed": true,
+      "predicate": "24 rungs, 17 smoke rungs",
+      "why": "The closeout is scoped to the current MC010-MC033 bridge ladder."
+    },
+    {
+      "actual": {
+        "clean_unconfounded_bridge_count": 0,
+        "hidden_state_allowed_count": 0
+      },
+      "id": "no_bridge_hidden_state_or_clean_unconfounded_candidate",
+      "passed": true,
+      "predicate": "hidden_state_allowed == 0 and clean_unconfounded == 0",
+      "why": "A bridge-family closeout cannot license hidden-state work by accident."
+    },
+    {
+      "actual": 0,
+      "id": "smoke_layer_stays_pre_hidden_state",
+      "passed": true,
+      "predicate": "hidden_state_allowed_count == 0",
+      "why": "Smoke diagnostics remain behavior-substrate evidence, not mechanism evidence."
+    },
+    {
+      "actual": {
+        "invalid_checksum_atomic_or_lure_rate": 0.0,
+        "invalid_checksum_local_rate": 1.0
+      },
+      "id": "mc031_statusless_checksum_invalid_branch_collapses",
+      "passed": true,
+      "predicate": "invalid local == 1.0 and invalid atomic/lure == 0.0",
+      "why": "MC031 fails at source-validity arbitration despite clean direct controls and nulls."
+    },
+    {
+      "actual": {
+        "mismatch_conflict_atomic_or_lure_rate": 0.0,
+        "mismatch_conflict_local_rate": 0.7,
+        "mismatch_conflict_side_number_rate": 0.0
+      },
+      "id": "mc032_crosstable_mismatch_not_learned_branch",
+      "passed": true,
+      "predicate": "mismatch atomic/lure == 0.0, local >= 0.7, side == 0.0",
+      "why": "MC032 removes the checksum-specific explanation but still fails learned routing."
+    },
+    {
+      "actual": {
+        "match_conflict_local_rate": 0.4,
+        "mismatch_conflict_atomic_rate": 0.1,
+        "mismatch_conflict_lure_rate": 0.4
+      },
+      "id": "mc033_fact_claim_route_fails_both_branches",
+      "passed": true,
+      "predicate": "match local < 0.85, mismatch atomic < 0.85, lure >= 0.4",
+      "why": "MC033 does not repair routing by making the cue a learned-fact comparison."
+    },
+    {
+      "actual": {
+        "MC031": {
+          "answer_absent_unknown_rate": 1.0,
+          "real_atomic_control_atomic_rate": 1.0,
+          "synthetic_lookup_local_rate": 1.0
+        },
+        "MC032": {
+          "answer_absent_unknown_rate": 1.0,
+          "real_atomic_control_atomic_rate": 1.0,
+          "synthetic_lookup_local_rate": 1.0
+        },
+        "MC033": {
+          "answer_absent_unknown_rate": 1.0,
+          "real_atomic_control_atomic_rate": 1.0,
+          "synthetic_lookup_local_rate": 1.0
+        }
+      },
+      "id": "direct_controls_and_nulls_survive_same_family_smokes",
+      "passed": true,
+      "predicate": "all selected direct controls and answer-absent nulls == 1.0",
+      "why": "The family boundary is not just bad controls or broken null rows."
+    },
+    {
+      "actual": [
+        false,
+        false,
+        false
+      ],
+      "id": "same_family_rows_forbid_hidden_state_work",
+      "passed": true,
+      "predicate": "all hidden_state_allowed == false",
+      "why": "MC031-MC033 remain pre-signature bridge diagnostics."
+    },
+    {
+      "actual": [
+        [
+          "MC031",
+          false,
+          false,
+          false
+        ],
+        [
+          "MC032",
+          false,
+          false,
+          false
+        ],
+        [
+          "MC033",
+          false,
+          false,
+          false
+        ]
+      ],
+      "id": "same_family_rows_not_behavior_or_signature_ready",
+      "passed": true,
+      "predicate": "all behavior_ready/signature_ready/hidden_state_allowed == false",
+      "why": "The closeout must not promote failed behavior substrates."
+    },
+    {
+      "actual": {
+        "behavior_substrate_promoted": false,
+        "general_knowledge_control_claimed": false,
+        "hidden_signature_claimed": false,
+        "intervention_claimed": false,
+        "mechanism_claimed": false
+      },
+      "id": "claim_boundary_forbids_mechanism_claim",
+      "passed": true,
+      "predicate": "all mechanism claim flags false",
+      "why": "The artifact is a route closeout, not a mechanism card."
+    },
+    {
+      "actual": true,
+      "id": "future_bridge_requires_material_substrate_change",
+      "passed": true,
+      "predicate": "material_substrate_change_required == true",
+      "why": "Same-family source-validity wording repairs are killed after MC033."
+    }
+  ],
+  "work_order": {
+    "bound_rule": "Bound the current route as a bridge diagnostic family: direct controls and nulls can remain clean while learned branch routing fails across statusless source-validity cues.",
+    "containment_rule": "The surviving claim is a behavior-contract diagnostic about bridge failure modes; no hidden signature or mechanism claim is licensed.",
+    "export_rule": "Export POST_MC032_BRIDGE_ROUTE_CLOSED, FACT_CLAIM_MISMATCH_LOCAL_AND_CLAIM_LEAK, and STATUSLESS_SOURCE_VALIDITY_LOCAL_DOMINANCE as diagnostics.",
+    "first_artifact": "research/cards/MC033_FACT_CLAIM_BRIDGE_CLOSEOUT_STATUS.md",
+    "id": "close_post_mc033_bridge_substrate_family",
+    "iteration_budget": "Route closed after MC033 unless a new bridge substrate class is preregistered.",
+    "kill_rule": "Kill same-family repairs after MC033; do not add another source-validity cue unless it changes the substrate class, not just the wording of the reliability cue.",
+    "promotion_rule": "Promote a future bridge substrate to hidden-state work only if it is materially outside MC007-MC033 and branch, null, local, side-number, parseability, prompt-channel, source-disjoint, and output/candidate controls pass together.",
+    "target_gap_ids": [
+      "bridge_hidden_state_not_licensed",
+      "clean_intervention_absent",
+      "promoted_mechanism_absent",
+      "domain_coverage_knowledge_bridge_dominates_failures",
+      "full_reliability_absent",
+      "output_geometry_pressure_mixed"
+    ],
+    "track_type": "bridge_substrate",
+    "urgency": "immediate"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "diagnostic_chain": {
+    "chain_id": "answer_for_syntax_ablation_to_wrapper_repair",
+    "conclusion": "Simple wrapper or placement text does not reliably quarantine the function-assignment answer channel. Splitting function and value can make no-bridge controls abstain, but it does not reliably preserve bridge answering. The boundary is now a wrapper-control leak plus repair leak, not an exact syntax issue.",
+    "next_required_evidence": [
+      "Treat visible function-like assignment text as unsafe unless a wrapper control proves otherwise.",
+      "Search for a materially different nonfunction representation instead of adding more weak wrappers.",
+      "If split/masked variants are reused, require both bridge preservation and no-bridge abstention across full-source holdout before hidden-state screens."
+    ],
+    "source_question": "Can function-like assignment text remain visible in the prompt without activating the answer channel?",
+    "steps": [
+      {
+        "boundary": "exact bridge answers 9/10; raw answer_for reproduces 9/10; inactive/comment/fence/below-cut wrappers override 8/10 to 9/10; detached overrides 7/10; unrelated-entity answer_for overrides 6/10; assignment-only inactive leaks 8/10",
+        "outcome_id": "ksq012_function_assignment_wrapper_repair",
+        "result": "FUNCTION_ASSIGNMENT_WRAPPER_CONTROL_AND_REPAIR_LEAK",
+        "step": 1,
+        "test": "fixed tag_rows codebook bridge with raw, inactive, comment, fenced, below-cut, detached, masked, unrelated-entity, assignment-only, split-only, and query-only panels"
+      }
+    ]
+  },
+  "global_decision": {
+    "hidden_state_work_allowed": false,
+    "intervention_work_allowed": false,
+    "mechanism_claim_allowed": false,
+    "new_behavior_substrate_admitted": false,
+    "new_signature_screen_allowed": false,
+    "primary_boundary": "FUNCTION_ASSIGNMENT_WRAPPER_CONTROL_AND_REPAIR_LEAK",
+    "route_status": "eighth_wave_completed_as_wrapper_failure_diagnostic",
+    "secondary_boundary": "SPLIT_AND_MASKED_FORMS_PARTIAL_BUT_NOT_REPAIR"
+  },
+  "layer_id": "control_surface_knowledge_eighth_wave_outcomes",
+  "outcomes": [
+    {
+      "allowed_claim": "With the KSQ011 tag_rows bridge restored, exact bridge lookup answers 9/10 and raw answer_for reproduces the alternate 9/10. Simple wrappers do not quarantine the function-assignment channel: inactive block overrides 9/10, comment mark 8/10, fence 9/10, below-cut 9/10, detached function/value 7/10, and unrelated-entity answer_for 6/10. The assignment-only inactive control leaks the alternate 8/10, while split-assignment-only and query-only controls abstain 10/10.",
+      "artifact_paths": {
+        "prereg": "research/prereg/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR.md",
+        "runner": "code/ksq012_function_assignment_wrapper_repair.py",
+        "smoke_result": "results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_smoke_limit10.json",
+        "status_card": "research/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR_STATUS.md",
+        "structural_result": "results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_first_run.json"
+      },
+      "behavior_ready": false,
+      "candidate_id": "ksq012_function_assignment_wrapper_repair",
+      "card_id": "KSQ012",
+      "diagnostic_class": "function_assignment_wrapper_control_and_repair_leak",
+      "exported_diagnostic_class": "FUNCTION_ASSIGNMENT_WRAPPER_CONTROL_AND_REPAIR_LEAK",
+      "failed_criteria": [
+        "all_panels_passed",
+        "full_source_count_is_40",
+        "repair_panels_passed",
+        "source_disjoint_holdout_passed",
+        "wrapper_controls_passed"
+      ],
+      "failed_panels": [
+        "inactive_block_answer_for_alt",
+        "comment_mark_answer_for_alt",
+        "fenced_text_answer_for_alt",
+        "below_cut_answer_for_alt",
+        "detached_function_then_value_alt",
+        "masked_function_value_bank_alt",
+        "unrelated_entity_answer_for_alt",
+        "assignment_only_inactive_control"
+      ],
+      "forbidden_claims": [
+        "KSQ012 is behavior-ready.",
+        "KSQ012 licenses hidden-state probing, intervention, or mechanism claims.",
+        "Wrapper text reliably quarantines function-like assignment syntax."
+      ],
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "outcome_id": "ksq012_function_assignment_wrapper_repair",
+      "parent_card_id": "KSQ011",
+      "parent_outcome_id": "ksq011_answer_for_syntax_ablation",
+      "route_decision": "function_assignment_wrapper_repair_diagnostic",
+      "selected_template": "tag_rows",
+      "signature_screen_allowed": false,
+      "smoke": {
+        "assignment_only_inactive_control": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.1,
+          "control_abstain_rate": 0.1,
+          "control_reproduced_value_rate": 0.8,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 1,
+            "control_reproduced_value": 8,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 8.5375,
+          "mean_alternate_minus_abstain_logit": 4.73125,
+          "mean_target_minus_abstain_logit": -8.5375,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "below_cut_answer_for_alt": {
+          "adversary_alt_override_rate": 0.9,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "adversary_alt_overrode_bridge": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 4.65,
+          "mean_alternate_minus_abstain_logit": 6.46875,
+          "mean_target_minus_abstain_logit": -4.65,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "candidate_and_output_margins_reported": true,
+        "comment_mark_answer_for_alt": {
+          "adversary_alt_override_rate": 0.8,
+          "any_abstain_rate": 0.1,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "abstain": 1,
+            "adversary_alt_overrode_bridge": 8,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 4.625,
+          "mean_alternate_minus_abstain_logit": 4.05625,
+          "mean_target_minus_abstain_logit": -4.625,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "detached_function_then_value_alt": {
+          "adversary_alt_override_rate": 0.7,
+          "any_abstain_rate": 0.1,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.2,
+          "label_counts": {
+            "abstain": 1,
+            "adversary_alt_overrode_bridge": 7,
+            "evidence_answer": 2
+          },
+          "mean_abstain_minus_target_logit": 1.1625,
+          "mean_alternate_minus_abstain_logit": 1.6625,
+          "mean_target_minus_abstain_logit": -1.1625,
+          "parseable_rate": 1.0,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "exact_bridge": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.9,
+          "label_counts": {
+            "evidence_answer": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": -3.0375,
+          "mean_alternate_minus_abstain_logit": -10.271875,
+          "mean_target_minus_abstain_logit": 3.0375,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "fenced_text_answer_for_alt": {
+          "adversary_alt_override_rate": 0.9,
+          "any_abstain_rate": 0.1,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "abstain": 1,
+            "adversary_alt_overrode_bridge": 9
+          },
+          "mean_abstain_minus_target_logit": 4.74375,
+          "mean_alternate_minus_abstain_logit": 2.26875,
+          "mean_target_minus_abstain_logit": -4.74375,
+          "parseable_rate": 1.0,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "inactive_block_answer_for_alt": {
+          "adversary_alt_override_rate": 0.9,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "adversary_alt_overrode_bridge": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 1.7625,
+          "mean_alternate_minus_abstain_logit": 5.58125,
+          "mean_target_minus_abstain_logit": -1.7625,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "masked_function_value_bank_alt": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.6,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.3,
+          "label_counts": {
+            "abstain": 6,
+            "evidence_answer": 3,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 2.78125,
+          "mean_alternate_minus_abstain_logit": -6.85,
+          "mean_target_minus_abstain_logit": -2.78125,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "path": "results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_smoke_limit10.json",
+        "query_only_control": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 1.0,
+          "control_abstain_rate": 1.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 10
+          },
+          "mean_abstain_minus_target_logit": 10.446875,
+          "mean_alternate_minus_abstain_logit": -10.665625,
+          "mean_target_minus_abstain_logit": -10.446875,
+          "parseable_rate": 1.0,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "raw_answer_for_alt": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "raw_answer_channel_reproduced": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 3.9875,
+          "mean_alternate_minus_abstain_logit": 5.49375,
+          "mean_target_minus_abstain_logit": -3.9875,
+          "parseable_rate": 0.9,
+          "raw_answer_channel_reproduced_rate": 0.9
+        },
+        "record_count": 120,
+        "source_count": 10,
+        "split_assignment_only_control": {
+          "adversary_alt_override_rate": 0.0,
+          "any_abstain_rate": 1.0,
+          "control_abstain_rate": 1.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 10
+          },
+          "mean_abstain_minus_target_logit": 11.628125,
+          "mean_alternate_minus_abstain_logit": -6.99375,
+          "mean_target_minus_abstain_logit": -11.628125,
+          "parseable_rate": 1.0,
+          "raw_answer_channel_reproduced_rate": 0.0
+        },
+        "unrelated_entity_answer_for_alt": {
+          "adversary_alt_override_rate": 0.6,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.4,
+          "label_counts": {
+            "adversary_alt_overrode_bridge": 6,
+            "evidence_answer": 4
+          },
+          "mean_abstain_minus_target_logit": -0.925,
+          "mean_alternate_minus_abstain_logit": 2.1375,
+          "mean_target_minus_abstain_logit": 0.925,
+          "parseable_rate": 1.0,
+          "raw_answer_channel_reproduced_rate": 0.0
+        }
+      },
+      "status": "completed",
+      "structural": {
+        "panel_count": 12,
+        "path": "results/cards/KSQ012_FUNCTION_ASSIGNMENT_WRAPPER_REPAIR/ksq012_function_assignment_wrapper_repair_first_run.json",
+        "record_count": 480,
+        "source_count": 40,
+        "source_disjoint_holdout": true,
+        "template_count": 1
+      },
+      "track": "function_assignment_wrapper_repair",
+      "wave": "knowledge_eighth_wave"
+    }
+  ],
+  "schema_version": 1,
+  "source_layers": {
+    "knowledge_seventh_wave_outcomes": "data/control_surface_knowledge_seventh_wave_outcomes.json"
+  },
+  "summary": {
+    "behavior_ready_count": 0,
+    "completed_outcome_count": 1,
+    "diagnostic_class_counts": {
+      "function_assignment_wrapper_control_and_repair_leak": 1
+    },
+    "exported_diagnostic_class_counts": {
+      "FUNCTION_ASSIGNMENT_WRAPPER_CONTROL_AND_REPAIR_LEAK": 1
+    },
+    "hidden_state_claim_allowed_count": 0,
+    "intervention_allowed_count": 0,
+    "mechanism_claim_allowed_count": 0,
+    "outcome_count": 1,
+    "selected_template_counts": {
+      "tag_rows": 1
+    },
+    "signature_screen_allowed_count": 0,
+    "structural_passed_count": 1,
+    "total_smoke_rows": 120,
+    "total_structural_rows": 480
+  },
+  "updated_at": "2026-07-02"
+}

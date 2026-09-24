@@ -1,0 +1,273 @@
+{
+  "claim_boundary": {
+    "allowed_claim": "This packet makes singleton terminal-stage law replication testable by naming anchor rows, required new rows, minimum evidence, and kill rules for each target stage.",
+    "forbidden_claim": "This packet does not reduce the singleton count, does not promote any predictive law, and does not add mechanism evidence.",
+    "law_promotion_claimed": false
+  },
+  "purpose": "Pre-register targeted row additions that can promote, bound, or kill singleton terminal-stage laws in the control-surface atlas.",
+  "schema_version": 1,
+  "source_snapshot": {
+    "axis_evidence_level_counts": {
+      "broad": 29,
+      "singleton": 73,
+      "sparse": 9,
+      "supported": 12
+    },
+    "feature_count": 123,
+    "singleton_plus_sparse_count": 82,
+    "singleton_terminal_rows": [
+      "mc001g_gemma_truth_agreement",
+      "mc012_reliability_labeled_numeric_arbitration",
+      "mc005_associative_lookup"
+    ],
+    "singleton_terminal_stage_count": 3,
+    "singleton_terminal_stages": [
+      "intervention_failed",
+      "pre_signature_prompt_channel_locality",
+      "reliability_null_boundary"
+    ]
+  },
+  "sources": {
+    "axis_interactions": "data/control_surface_axis_interactions.json",
+    "coverage_gaps": "data/control_surface_coverage_gaps.json",
+    "gate_geometry": "data/control_surface_gate_geometry.json",
+    "offensive_doctrine": "data/control_surface_offensive_doctrine.json"
+  },
+  "stage_targets": [
+    {
+      "anchor_claim_boundary": "Kill or redesign the intervention family; do not promote behavior control as mechanism control.",
+      "anchor_row_id": "mc001g_gemma_truth_agreement",
+      "anchor_title": "MC001G Gemma truth/agreement",
+      "current_count": 1,
+      "replication_proposals": [
+        {
+          "kill_rule": "Do not count output-confounded or shuffle-fragile signals as intervention failures; those remain signature-stage failures.",
+          "material_difference": "A predecision monitor task outside truth/agreement where the signature beats output, shuffle, and subgroup controls before an intervention is attempted.",
+          "minimum_evidence": [
+            "behavior substrate passes",
+            "hidden signature survives holdout, shuffle, subgroup, same-stage output, and final-stage output controls",
+            "predeclared additive or patch intervention is attempted",
+            "intervention fails to move behavior in the predicted direction or creates side effects",
+            "failure is not reclassified as output-shadow or monitor-only"
+          ],
+          "promotion_rule": "Count as intervention_failed only if the signature gate passes first and the predicted intervention then fails.",
+          "proposal_id": "leadtime_signature_intervention_failure",
+          "target_stage_if_successful": "intervention_failed"
+        },
+        {
+          "kill_rule": "Kill the broad intervention-failed law if new rows die at behavior substrate, prompt channel, or output geometry instead.",
+          "material_difference": "A source-path or lookup-like task outside MC005 where a local path signature passes but the first causal intervention fails.",
+          "minimum_evidence": [
+            "source-disjoint behavior substrate passes",
+            "source-path signature beats deletion, neutral rewrite, query-only, and output/candidate controls",
+            "local intervention is predeclared before observing effect size",
+            "primary direction fails or side rows/null rows fail",
+            "failed route is not patched repeatedly before classification"
+          ],
+          "promotion_rule": "Count as a replication only if a real signature reaches the intervention gate and dies there.",
+          "proposal_id": "source_path_signature_intervention_failure",
+          "target_stage_if_successful": "intervention_failed"
+        }
+      ],
+      "required_new_rows": 2,
+      "singleton_feature_keys": [
+        "route_disposition:disposition=failed_intervention_or_mechanism_route",
+        "reliability_class:reliability_class=not_reliable_failed_intervention_route"
+      ],
+      "stage_bound_rule": "Bound the pattern if the new rows replicate only inside one behavior family, model family, or prompt contract.",
+      "stage_kill_rule": "Kill the broad law if two new rows under the same claimed predictor land in different terminal stages.",
+      "stage_promotion_rule": "Promote the stage pattern only when at least three materially distinct rows occupy the same terminal stage under the same claimed predictor family.",
+      "terminal_stage": "intervention_failed"
+    },
+    {
+      "anchor_claim_boundary": "Use as positive control only; remove or match the visible prompt channel before claiming a hidden surface.",
+      "anchor_row_id": "mc012_reliability_labeled_numeric_arbitration",
+      "anchor_title": "MC012 reliability-labeled numeric arbitration",
+      "current_count": 1,
+      "replication_proposals": [
+        {
+          "kill_rule": "Do not count it for this stage if the contrast fails before the prompt-channel control or if hidden-state work is needed to diagnose the failure.",
+          "material_difference": "Non-numeric source-authority task with the visible channel carried by source wording rather than trusted/untrusted labels.",
+          "minimum_evidence": [
+            "behavior contrast passes on source-disjoint holdout",
+            "direct local and learned controls pass",
+            "null rows pass",
+            "visible channel ablation or matching collapses the contrast",
+            "no hidden-state work is run after prompt-channel locality is shown"
+          ],
+          "promotion_rule": "Count as a replication only if the behavior contrast exists and the prompt-channel locality control explains it.",
+          "proposal_id": "prompt_channel_locality_non_numeric_authority",
+          "target_stage_if_successful": "pre_signature_prompt_channel_locality"
+        },
+        {
+          "kill_rule": "Kill the prompt-channel-locality law if a schema-neutral version preserves the contrast and licenses hidden-state work.",
+          "material_difference": "Answer-schema or instruction-channel authority task where the rule is visible through formatting rather than source status.",
+          "minimum_evidence": [
+            "same semantic task under at least two answer schemas",
+            "schema-visible positive control passes",
+            "schema-neutral or schema-matched control collapses the contrast",
+            "output/candidate baselines are reported",
+            "source-disjoint holdout remains balanced"
+          ],
+          "promotion_rule": "Count as a replication only if visible schema authority, not hidden state, carries the behavior.",
+          "proposal_id": "prompt_channel_locality_answer_schema_authority",
+          "target_stage_if_successful": "pre_signature_prompt_channel_locality"
+        }
+      ],
+      "required_new_rows": 2,
+      "singleton_feature_keys": [
+        "route_disposition:disposition=prompt_visible_positive_control",
+        "primary_blocker:primary_blocker=prompt_visible_positive_control",
+        "reliability_class:reliability_class=not_reliable_prompt_visible_positive_control",
+        "diagnostic:diagnostic=MC012_BEHAVIOR_READY_PROMPT_VISIBLE_BRIDGE",
+        "diagnostic:diagnostic=RELIABILITY_BEHAVIOR_CONTRAST_PASSED",
+        "diagnostic:diagnostic=RELIABILITY_PROMPT_CHANNEL_VISIBLE"
+      ],
+      "stage_bound_rule": "Bound the pattern if the new rows replicate only inside one behavior family, model family, or prompt contract.",
+      "stage_kill_rule": "Kill the broad law if two new rows under the same claimed predictor land in different terminal stages.",
+      "stage_promotion_rule": "Promote the stage pattern only when at least three materially distinct rows occupy the same terminal stage under the same claimed predictor family.",
+      "terminal_stage": "pre_signature_prompt_channel_locality"
+    },
+    {
+      "anchor_claim_boundary": "Freeze as bounded reference unless a materially different route repairs nulls, locality, robustness, and transfer.",
+      "anchor_row_id": "mc005_associative_lookup",
+      "anchor_title": "MC005 synthetic associative lookup",
+      "current_count": 1,
+      "replication_proposals": [
+        {
+          "kill_rule": "Do not count failed primary transfer as a reliability boundary; that is transfer-primary failure.",
+          "material_difference": "Non-Qwen or prompt-family transfer of the MC005 bounded reference, evaluated with null locality as a primary gate.",
+          "minimum_evidence": [
+            "answer-present primary effect reproduces",
+            "local or homologous intervention moves primary behavior",
+            "answer-absent null rows are stratified by margin",
+            "null flips or side effects persist after the planned transfer panel",
+            "transfer is bounded rather than promoted"
+          ],
+          "promotion_rule": "Count as a reliability-null-boundary replication only if primary intervention works but null locality blocks promotion.",
+          "proposal_id": "mc005_width_null_boundary_transfer",
+          "target_stage_if_successful": "reliability_null_boundary"
+        },
+        {
+          "kill_rule": "Kill the reliability-boundary law for this proposal if it dies at signature, intervention, transfer, or output geometry instead.",
+          "material_difference": "A second synthetic or semi-synthetic source-value task with a different answer interface and a predeclared local intervention.",
+          "minimum_evidence": [
+            "behavior table passes answer-present and answer-absent panels",
+            "internal/local path signature passes holdout and source controls",
+            "intervention moves answer-present rows in the predicted direction",
+            "answer-absent, side-row, robustness, or fluency gates remain bounded",
+            "ordinary repair budget is exhausted before classification"
+          ],
+          "promotion_rule": "Count as a replication only if the route reaches reliability after a successful primary intervention.",
+          "proposal_id": "new_synthetic_lookup_null_boundary",
+          "target_stage_if_successful": "reliability_null_boundary"
+        }
+      ],
+      "required_new_rows": 2,
+      "singleton_feature_keys": [
+        "route_disposition:disposition=bounded_mechanism_frozen",
+        "primary_blocker:primary_blocker=bounded_internal_causal_with_null_boundary",
+        "frontier_class:frontier_class=causal_surface_not_timing_frontier",
+        "reliability_class:reliability_class=bounded_reliability_reference",
+        "mixture_axis:causal_control=bounded",
+        "mixture_axis:local_internal_path=high",
+        "mixture_axis:output_geometry=medium",
+        "mixture_axis:source_token_dependence=dominant",
+        "pressure_class:pressure_class=internal_causal_surface",
+        "diagnostic:diagnostic=MC005_BOUNDED_ATTENTION_WRITE_MEDIATION",
+        "diagnostic:diagnostic=MODEL_SIZE_NULL_FRAGILITY",
+        "diagnostic:diagnostic=NULL_ROW_LOW_MARGIN_FLIP"
+      ],
+      "stage_bound_rule": "Bound the pattern if the new rows replicate only inside one behavior family, model family, or prompt contract.",
+      "stage_kill_rule": "Kill the broad law if two new rows under the same claimed predictor land in different terminal stages.",
+      "stage_promotion_rule": "Promote the stage pattern only when at least three materially distinct rows occupy the same terminal stage under the same claimed predictor family.",
+      "terminal_stage": "reliability_null_boundary"
+    }
+  ],
+  "summary": {
+    "proposal_count": 6,
+    "proposal_counts_by_stage": {
+      "intervention_failed": 2,
+      "pre_signature_prompt_channel_locality": 2,
+      "reliability_null_boundary": 2
+    },
+    "stage_target_count": 3,
+    "target_terminal_stages": [
+      "intervention_failed",
+      "pre_signature_prompt_channel_locality",
+      "reliability_null_boundary"
+    ]
+  },
+  "updated_at": "2026-07-01",
+  "validation_checks": [
+    {
+      "actual": "replicate_singleton_stage_laws",
+      "id": "work_order_contract_matches_singleton_pack",
+      "passed": true,
+      "predicate": "== replicate_singleton_stage_laws",
+      "why": "The pack must come from the offensive-doctrine law-replication contract."
+    },
+    {
+      "actual": [
+        "intervention_failed",
+        "pre_signature_prompt_channel_locality",
+        "reliability_null_boundary"
+      ],
+      "id": "target_terminal_stages_match_gap",
+      "passed": true,
+      "predicate": "== ['intervention_failed', 'pre_signature_prompt_channel_locality', 'reliability_null_boundary']",
+      "why": "The pack must target the current singleton terminal stages."
+    },
+    {
+      "actual": {
+        "intervention_failed": 2,
+        "pre_signature_prompt_channel_locality": 2,
+        "reliability_null_boundary": 2
+      },
+      "id": "each_stage_has_two_replication_proposals",
+      "passed": true,
+      "predicate": "empty missing_proposals",
+      "why": "The exit condition requires at least two additional rows per singleton stage."
+    },
+    {
+      "actual": [],
+      "id": "replication_proposals_have_decision_rules",
+      "passed": true,
+      "predicate": "empty list",
+      "why": "Every proposal must say what promotes it and what kills it."
+    },
+    {
+      "actual": false,
+      "id": "no_law_promotion_claimed_by_pack",
+      "passed": true,
+      "predicate": "law_promotion_claimed == false",
+      "why": "This packet is a preregistration, not new law evidence."
+    },
+    {
+      "actual": 3,
+      "id": "singleton_gap_preserved",
+      "passed": true,
+      "predicate": "singleton_terminal_stage_count == 3",
+      "why": "The pack must not pretend to have already reduced the singleton gap."
+    }
+  ],
+  "work_order": {
+    "bound_rule": "Bound if the feature is predictive inside one behavior family but mixed across families.",
+    "containment_rule": "Singleton features stay calibration labels, not predictive laws.",
+    "export_rule": "Export the surviving or killed feature into the axis interaction map with evidence_level preserved.",
+    "first_artifact": "research/prereg/SINGLETON_STAGE_REPLICATION_PACK.md",
+    "id": "replicate_singleton_stage_laws",
+    "iteration_budget": "Three targeted row additions before new law language is allowed.",
+    "kill_rule": "Kill a proposed law if two new rows land in different terminal stages under the same claimed predictor.",
+    "promotion_rule": "Promote a law only when a feature remains pure or nearly pure across at least three materially distinct rows.",
+    "target_gap_ids": [
+      "axis_rules_sparse_or_singleton_heavy",
+      "singleton_terminal_stage_evidence",
+      "output_geometry_pressure_mixed",
+      "domain_coverage_knowledge_bridge_dominates_failures",
+      "model_family_coverage_qwen_dominant"
+    ],
+    "track_type": "law_replication",
+    "urgency": "high"
+  }
+}

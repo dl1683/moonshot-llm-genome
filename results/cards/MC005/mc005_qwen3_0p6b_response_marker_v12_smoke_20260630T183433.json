@@ -1,0 +1,5128 @@
+{
+  "card_id": "MC005",
+  "run_type": "associative_lookup_response_marker_v12_0p6b_marker_specificity",
+  "model_id": "Qwen/Qwen3-0.6B",
+  "selected_band": "late_20_26",
+  "selected_layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "elapsed_s": 1.635774850845337,
+  "summary": {
+    "selected_band": "late_20_26",
+    "selected_layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "model_id": "Qwen/Qwen3-0.6B",
+    "seeds": [
+      17,
+      23,
+      31,
+      37,
+      41
+    ],
+    "markers": [
+      "response",
+      "output",
+      "answer",
+      "result"
+    ],
+    "row_count_per_marker_seed": 128,
+    "full_label_counts": {
+      "weak_null": 1
+    },
+    "first32_label_counts": {
+      "weak_null": 1
+    },
+    "marker_full_label_counts": {
+      "response": {
+        "weak_null": 1
+      }
+    },
+    "marker_first32_label_counts": {
+      "response": {
+        "weak_null": 1
+      }
+    },
+    "marker_clean_seed_counts": {
+      "response": 0,
+      "output": 0,
+      "answer": 0,
+      "result": 0
+    },
+    "all_seed_clean_markers": [],
+    "response_seed23_first32_v11_pattern_reproduced": true,
+    "response_seed23_first32_non_source_control_flip_count": 2,
+    "response_seed23_first32_non_source_control_all_flips_low_margin": true,
+    "diagnostic_class": "no_clean_marker"
+  },
+  "full_summaries": [
+    {
+      "scenario": {
+        "name": "answer_absent_response_null",
+        "mode": "null",
+        "seed": 23,
+        "marker": "response",
+        "marker_text": "Response",
+        "pair_count": 5,
+        "row_count": 32,
+        "arm_keys": [
+          "source_value",
+          "non_source_control_value",
+          "earlier_neutral_colon",
+          "final_label",
+          "final_colon"
+        ]
+      },
+      "rows": 32,
+      "baseline_clean_rows": 30,
+      "baseline_mean_margin": 4.970703125,
+      "baseline_greedy_counts": {
+        "target": 14,
+        "distractor": 0,
+        "other": 18
+      },
+      "arms": {
+        "source_value": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 30,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.96875,
+          "mean_delta": -0.001953125,
+          "min_delta": -0.5625,
+          "max_delta": 0.375,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 0,
+            "other": 18
+          },
+          "abs_target_win_change": 0,
+          "arm_label": "clean"
+        },
+        "non_source_control_value": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 32,
+          "target_win_loss": -2,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 2,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 5.009765625,
+          "mean_delta": 0.0390625,
+          "min_delta": -1.125,
+          "max_delta": 1.6875,
+          "greedy_counts": {
+            "target": 15,
+            "distractor": 0,
+            "other": 17
+          },
+          "abs_target_win_change": 2,
+          "arm_label": "weak"
+        },
+        "earlier_neutral_colon": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 31,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 1,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 5.0703125,
+          "mean_delta": 0.099609375,
+          "min_delta": -0.1875,
+          "max_delta": 0.3125,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 0,
+            "other": 18
+          },
+          "abs_target_win_change": 1,
+          "arm_label": "clean"
+        },
+        "final_label": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 30,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.775390625,
+          "mean_delta": -0.1953125,
+          "min_delta": -1.5,
+          "max_delta": 1.125,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 1,
+            "other": 17
+          },
+          "abs_target_win_change": 0,
+          "arm_label": "clean"
+        },
+        "final_colon": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 31,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 1,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.869140625,
+          "mean_delta": -0.1015625,
+          "min_delta": -2.25,
+          "max_delta": 1.25,
+          "greedy_counts": {
+            "target": 12,
+            "distractor": 0,
+            "other": 20
+          },
+          "abs_target_win_change": 1,
+          "arm_label": "clean"
+        }
+      },
+      "max_abs_mean_delta": 0.1953125,
+      "max_abs_target_win_loss": 2,
+      "label": "weak_null",
+      "baseline_floor": 24
+    }
+  ],
+  "first32_summaries": [
+    {
+      "scenario": {
+        "name": "answer_absent_response_null",
+        "mode": "null",
+        "seed": 23,
+        "marker": "response",
+        "marker_text": "Response",
+        "pair_count": 5,
+        "row_count": 32,
+        "arm_keys": [
+          "source_value",
+          "non_source_control_value",
+          "earlier_neutral_colon",
+          "final_label",
+          "final_colon"
+        ]
+      },
+      "rows": 32,
+      "baseline_clean_rows": 30,
+      "baseline_mean_margin": 4.970703125,
+      "baseline_greedy_counts": {
+        "target": 14,
+        "distractor": 0,
+        "other": 18
+      },
+      "arms": {
+        "source_value": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 30,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.96875,
+          "mean_delta": -0.001953125,
+          "min_delta": -0.5625,
+          "max_delta": 0.375,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 0,
+            "other": 18
+          },
+          "abs_target_win_change": 0,
+          "arm_label": "clean"
+        },
+        "non_source_control_value": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 32,
+          "target_win_loss": -2,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 2,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 5.009765625,
+          "mean_delta": 0.0390625,
+          "min_delta": -1.125,
+          "max_delta": 1.6875,
+          "greedy_counts": {
+            "target": 15,
+            "distractor": 0,
+            "other": 17
+          },
+          "abs_target_win_change": 2,
+          "arm_label": "weak"
+        },
+        "earlier_neutral_colon": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 31,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 1,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 5.0703125,
+          "mean_delta": 0.099609375,
+          "min_delta": -0.1875,
+          "max_delta": 0.3125,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 0,
+            "other": 18
+          },
+          "abs_target_win_change": 1,
+          "arm_label": "clean"
+        },
+        "final_label": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 30,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.775390625,
+          "mean_delta": -0.1953125,
+          "min_delta": -1.5,
+          "max_delta": 1.125,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 1,
+            "other": 17
+          },
+          "abs_target_win_change": 0,
+          "arm_label": "clean"
+        },
+        "final_colon": {
+          "n": 32,
+          "baseline_target_wins": 30,
+          "arm_target_wins": 31,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 1,
+          "baseline_mean_margin": 4.970703125,
+          "arm_mean_margin": 4.869140625,
+          "mean_delta": -0.1015625,
+          "min_delta": -2.25,
+          "max_delta": 1.25,
+          "greedy_counts": {
+            "target": 12,
+            "distractor": 0,
+            "other": 20
+          },
+          "abs_target_win_change": 1,
+          "arm_label": "clean"
+        }
+      },
+      "max_abs_mean_delta": 0.1953125,
+      "max_abs_target_win_loss": 2,
+      "label": "weak_null",
+      "baseline_floor": 24
+    }
+  ],
+  "row_diagnostic_summaries": {
+    "response": {
+      "23": {
+        "source_value": {
+          "row_count": 32,
+          "flip_count": 0,
+          "flip_type_counts": {
+            "none": 32
+          },
+          "low_margin_flip_count": 0,
+          "max_abs_baseline_margin_flip": null,
+          "flip_rows": []
+        },
+        "non_source_control_value": {
+          "row_count": 32,
+          "flip_count": 2,
+          "flip_type_counts": {
+            "none": 30,
+            "distractor_to_target": 2
+          },
+          "low_margin_flip_count": 2,
+          "max_abs_baseline_margin_flip": 1.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.625,
+              "delta": 0.625,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            },
+            {
+              "row_id": "mc005_v12_seed23_response_019",
+              "source_id": "seed23_response_019",
+              "target_value": "sailor",
+              "distractor_value": "island",
+              "control_value": "puzzle",
+              "source_focus_value": "ribbon",
+              "baseline_margin": -1.0,
+              "arm_margin": 0.6875,
+              "delta": 1.6875,
+              "baseline_abs_margin": 1.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            }
+          ]
+        },
+        "earlier_neutral_colon": {
+          "row_count": 32,
+          "flip_count": 1,
+          "flip_type_counts": {
+            "none": 31,
+            "distractor_to_target": 1
+          },
+          "low_margin_flip_count": 1,
+          "max_abs_baseline_margin_flip": 0.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.125,
+              "delta": 0.125,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            }
+          ]
+        },
+        "final_label": {
+          "row_count": 32,
+          "flip_count": 0,
+          "flip_type_counts": {
+            "none": 32
+          },
+          "low_margin_flip_count": 0,
+          "max_abs_baseline_margin_flip": null,
+          "flip_rows": []
+        },
+        "final_colon": {
+          "row_count": 32,
+          "flip_count": 1,
+          "flip_type_counts": {
+            "none": 31,
+            "distractor_to_target": 1
+          },
+          "low_margin_flip_count": 1,
+          "max_abs_baseline_margin_flip": 0.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.875,
+              "delta": 0.875,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "target",
+              "flip": "distractor_to_target"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "first32_row_diagnostic_summaries": {
+    "response": {
+      "23": {
+        "source_value": {
+          "row_count": 32,
+          "flip_count": 0,
+          "flip_type_counts": {
+            "none": 32
+          },
+          "low_margin_flip_count": 0,
+          "max_abs_baseline_margin_flip": null,
+          "flip_rows": []
+        },
+        "non_source_control_value": {
+          "row_count": 32,
+          "flip_count": 2,
+          "flip_type_counts": {
+            "none": 30,
+            "distractor_to_target": 2
+          },
+          "low_margin_flip_count": 2,
+          "max_abs_baseline_margin_flip": 1.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.625,
+              "delta": 0.625,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            },
+            {
+              "row_id": "mc005_v12_seed23_response_019",
+              "source_id": "seed23_response_019",
+              "target_value": "sailor",
+              "distractor_value": "island",
+              "control_value": "puzzle",
+              "source_focus_value": "ribbon",
+              "baseline_margin": -1.0,
+              "arm_margin": 0.6875,
+              "delta": 1.6875,
+              "baseline_abs_margin": 1.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            }
+          ]
+        },
+        "earlier_neutral_colon": {
+          "row_count": 32,
+          "flip_count": 1,
+          "flip_type_counts": {
+            "none": 31,
+            "distractor_to_target": 1
+          },
+          "low_margin_flip_count": 1,
+          "max_abs_baseline_margin_flip": 0.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.125,
+              "delta": 0.125,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "other",
+              "flip": "distractor_to_target"
+            }
+          ]
+        },
+        "final_label": {
+          "row_count": 32,
+          "flip_count": 0,
+          "flip_type_counts": {
+            "none": 32
+          },
+          "low_margin_flip_count": 0,
+          "max_abs_baseline_margin_flip": null,
+          "flip_rows": []
+        },
+        "final_colon": {
+          "row_count": 32,
+          "flip_count": 1,
+          "flip_type_counts": {
+            "none": 31,
+            "distractor_to_target": 1
+          },
+          "low_margin_flip_count": 1,
+          "max_abs_baseline_margin_flip": 0.0,
+          "flip_rows": [
+            {
+              "row_id": "mc005_v12_seed23_response_002",
+              "source_id": "seed23_response_002",
+              "target_value": "winter",
+              "distractor_value": "engine",
+              "control_value": "flame",
+              "source_focus_value": "glacier",
+              "baseline_margin": 0.0,
+              "arm_margin": 0.875,
+              "delta": 0.875,
+              "baseline_abs_margin": 0.0,
+              "baseline_target_wins": false,
+              "arm_target_wins": true,
+              "baseline_greedy_label": "other",
+              "arm_greedy_label": "target",
+              "flip": "distractor_to_target"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "row_diagnostic_details": {
+    "response": {
+      "23": {
+        "source_value": [
+          {
+            "row_id": "mc005_v12_seed23_response_000",
+            "source_id": "seed23_response_000",
+            "target_value": "velvet",
+            "distractor_value": "garden",
+            "control_value": "planet",
+            "source_focus_value": "pocket",
+            "baseline_margin": 7.0,
+            "arm_margin": 6.8125,
+            "delta": -0.1875,
+            "baseline_abs_margin": 7.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_001",
+            "source_id": "seed23_response_001",
+            "target_value": "dragon",
+            "distractor_value": "orange",
+            "control_value": "sailor",
+            "source_focus_value": "candle",
+            "baseline_margin": 4.3125,
+            "arm_margin": 4.25,
+            "delta": -0.0625,
+            "baseline_abs_margin": 4.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_002",
+            "source_id": "seed23_response_002",
+            "target_value": "winter",
+            "distractor_value": "engine",
+            "control_value": "flame",
+            "source_focus_value": "glacier",
+            "baseline_margin": 0.0,
+            "arm_margin": 0.0,
+            "delta": 0.0,
+            "baseline_abs_margin": 0.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_003",
+            "source_id": "seed23_response_003",
+            "target_value": "copper",
+            "distractor_value": "harbor",
+            "control_value": "marble",
+            "source_focus_value": "sailor",
+            "baseline_margin": 6.4375,
+            "arm_margin": 6.625,
+            "delta": 0.1875,
+            "baseline_abs_margin": 6.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_004",
+            "source_id": "seed23_response_004",
+            "target_value": "yellow",
+            "distractor_value": "planet",
+            "control_value": "hammer",
+            "source_focus_value": "school",
+            "baseline_margin": 9.3125,
+            "arm_margin": 9.1875,
+            "delta": -0.125,
+            "baseline_abs_margin": 9.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_005",
+            "source_id": "seed23_response_005",
+            "target_value": "pepper",
+            "distractor_value": "velvet",
+            "control_value": "button",
+            "source_focus_value": "river",
+            "baseline_margin": 6.25,
+            "arm_margin": 6.375,
+            "delta": 0.125,
+            "baseline_abs_margin": 6.25,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_006",
+            "source_id": "seed23_response_006",
+            "target_value": "mirror",
+            "distractor_value": "violet",
+            "control_value": "jungle",
+            "source_focus_value": "velvet",
+            "baseline_margin": 7.8125,
+            "arm_margin": 8.1875,
+            "delta": 0.375,
+            "baseline_abs_margin": 7.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_007",
+            "source_id": "seed23_response_007",
+            "target_value": "island",
+            "distractor_value": "orange",
+            "control_value": "thunder",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 6.5,
+            "arm_margin": 6.5,
+            "delta": 0.0,
+            "baseline_abs_margin": 6.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_008",
+            "source_id": "seed23_response_008",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "island",
+            "source_focus_value": "saddle",
+            "baseline_margin": 5.625,
+            "arm_margin": 5.6875,
+            "delta": 0.0625,
+            "baseline_abs_margin": 5.625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_009",
+            "source_id": "seed23_response_009",
+            "target_value": "bottle",
+            "distractor_value": "saddle",
+            "control_value": "silver",
+            "source_focus_value": "button",
+            "baseline_margin": 7.75,
+            "arm_margin": 7.75,
+            "delta": 0.0,
+            "baseline_abs_margin": 7.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_010",
+            "source_id": "seed23_response_010",
+            "target_value": "hammer",
+            "distractor_value": "river",
+            "control_value": "pocket",
+            "source_focus_value": "winter",
+            "baseline_margin": 9.0,
+            "arm_margin": 8.6875,
+            "delta": -0.3125,
+            "baseline_abs_margin": 9.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_011",
+            "source_id": "seed23_response_011",
+            "target_value": "anchor",
+            "distractor_value": "circle",
+            "control_value": "orange",
+            "source_focus_value": "ticket",
+            "baseline_margin": 3.0625,
+            "arm_margin": 3.1875,
+            "delta": 0.125,
+            "baseline_abs_margin": 3.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_012",
+            "source_id": "seed23_response_012",
+            "target_value": "sailor",
+            "distractor_value": "quartz",
+            "control_value": "lantern",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 4.0625,
+            "arm_margin": 4.25,
+            "delta": 0.1875,
+            "baseline_abs_margin": 4.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_013",
+            "source_id": "seed23_response_013",
+            "target_value": "fabric",
+            "distractor_value": "market",
+            "control_value": "harbor",
+            "source_focus_value": "orbit",
+            "baseline_margin": 7.5,
+            "arm_margin": 7.375,
+            "delta": -0.125,
+            "baseline_abs_margin": 7.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_014",
+            "source_id": "seed23_response_014",
+            "target_value": "pencil",
+            "distractor_value": "copper",
+            "control_value": "hammer",
+            "source_focus_value": "cotton",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.5,
+            "delta": 0.0625,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_015",
+            "source_id": "seed23_response_015",
+            "target_value": "flame",
+            "distractor_value": "basket",
+            "control_value": "violet",
+            "source_focus_value": "engine",
+            "baseline_margin": 2.1875,
+            "arm_margin": 1.75,
+            "delta": -0.4375,
+            "baseline_abs_margin": 2.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_016",
+            "source_id": "seed23_response_016",
+            "target_value": "temple",
+            "distractor_value": "basket",
+            "control_value": "garden",
+            "source_focus_value": "desert",
+            "baseline_margin": 1.3125,
+            "arm_margin": 1.625,
+            "delta": 0.3125,
+            "baseline_abs_margin": 1.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_017",
+            "source_id": "seed23_response_017",
+            "target_value": "hammer",
+            "distractor_value": "velvet",
+            "control_value": "jungle",
+            "source_focus_value": "magnet",
+            "baseline_margin": 4.125,
+            "arm_margin": 3.875,
+            "delta": -0.25,
+            "baseline_abs_margin": 4.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_018",
+            "source_id": "seed23_response_018",
+            "target_value": "jungle",
+            "distractor_value": "thunder",
+            "control_value": "marble",
+            "source_focus_value": "engine",
+            "baseline_margin": 4.8125,
+            "arm_margin": 5.0,
+            "delta": 0.1875,
+            "baseline_abs_margin": 4.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_019",
+            "source_id": "seed23_response_019",
+            "target_value": "sailor",
+            "distractor_value": "island",
+            "control_value": "puzzle",
+            "source_focus_value": "ribbon",
+            "baseline_margin": -1.0,
+            "arm_margin": -0.875,
+            "delta": 0.125,
+            "baseline_abs_margin": 1.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_020",
+            "source_id": "seed23_response_020",
+            "target_value": "sugar",
+            "distractor_value": "sailor",
+            "control_value": "winter",
+            "source_focus_value": "velvet",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.625,
+            "delta": 0.1875,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_021",
+            "source_id": "seed23_response_021",
+            "target_value": "sailor",
+            "distractor_value": "sugar",
+            "control_value": "fabric",
+            "source_focus_value": "ticket",
+            "baseline_margin": 1.0625,
+            "arm_margin": 1.0,
+            "delta": -0.0625,
+            "baseline_abs_margin": 1.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_022",
+            "source_id": "seed23_response_022",
+            "target_value": "ribbon",
+            "distractor_value": "candle",
+            "control_value": "garden",
+            "source_focus_value": "ladder",
+            "baseline_margin": 7.4375,
+            "arm_margin": 7.4375,
+            "delta": 0.0,
+            "baseline_abs_margin": 7.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_023",
+            "source_id": "seed23_response_023",
+            "target_value": "magnet",
+            "distractor_value": "camera",
+            "control_value": "ribbon",
+            "source_focus_value": "puzzle",
+            "baseline_margin": 2.125,
+            "arm_margin": 1.9375,
+            "delta": -0.1875,
+            "baseline_abs_margin": 2.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_024",
+            "source_id": "seed23_response_024",
+            "target_value": "bridge",
+            "distractor_value": "candle",
+            "control_value": "forest",
+            "source_focus_value": "walnut",
+            "baseline_margin": 5.0,
+            "arm_margin": 5.0625,
+            "delta": 0.0625,
+            "baseline_abs_margin": 5.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_025",
+            "source_id": "seed23_response_025",
+            "target_value": "candle",
+            "distractor_value": "pepper",
+            "control_value": "window",
+            "source_focus_value": "forest",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.5,
+            "delta": -0.1875,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_026",
+            "source_id": "seed23_response_026",
+            "target_value": "winter",
+            "distractor_value": "needle",
+            "control_value": "basket",
+            "source_focus_value": "camera",
+            "baseline_margin": 5.9375,
+            "arm_margin": 6.0,
+            "delta": 0.0625,
+            "baseline_abs_margin": 5.9375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_027",
+            "source_id": "seed23_response_027",
+            "target_value": "market",
+            "distractor_value": "glacier",
+            "control_value": "garden",
+            "source_focus_value": "school",
+            "baseline_margin": 7.0625,
+            "arm_margin": 7.25,
+            "delta": 0.1875,
+            "baseline_abs_margin": 7.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_028",
+            "source_id": "seed23_response_028",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "dragon",
+            "source_focus_value": "thunder",
+            "baseline_margin": 1.1875,
+            "arm_margin": 1.3125,
+            "delta": 0.125,
+            "baseline_abs_margin": 1.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_029",
+            "source_id": "seed23_response_029",
+            "target_value": "velvet",
+            "distractor_value": "button",
+            "control_value": "ribbon",
+            "source_focus_value": "bottle",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.9375,
+            "delta": 0.25,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_030",
+            "source_id": "seed23_response_030",
+            "target_value": "valley",
+            "distractor_value": "camera",
+            "control_value": "harbor",
+            "source_focus_value": "school",
+            "baseline_margin": 6.75,
+            "arm_margin": 6.1875,
+            "delta": -0.5625,
+            "baseline_abs_margin": 6.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_031",
+            "source_id": "seed23_response_031",
+            "target_value": "jungle",
+            "distractor_value": "ticket",
+            "control_value": "yogurt",
+            "source_focus_value": "pencil",
+            "baseline_margin": 4.1875,
+            "arm_margin": 4.0,
+            "delta": -0.1875,
+            "baseline_abs_margin": 4.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          }
+        ],
+        "non_source_control_value": [
+          {
+            "row_id": "mc005_v12_seed23_response_000",
+            "source_id": "seed23_response_000",
+            "target_value": "velvet",
+            "distractor_value": "garden",
+            "control_value": "planet",
+            "source_focus_value": "pocket",
+            "baseline_margin": 7.0,
+            "arm_margin": 6.875,
+            "delta": -0.125,
+            "baseline_abs_margin": 7.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_001",
+            "source_id": "seed23_response_001",
+            "target_value": "dragon",
+            "distractor_value": "orange",
+            "control_value": "sailor",
+            "source_focus_value": "candle",
+            "baseline_margin": 4.3125,
+            "arm_margin": 3.875,
+            "delta": -0.4375,
+            "baseline_abs_margin": 4.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_002",
+            "source_id": "seed23_response_002",
+            "target_value": "winter",
+            "distractor_value": "engine",
+            "control_value": "flame",
+            "source_focus_value": "glacier",
+            "baseline_margin": 0.0,
+            "arm_margin": 0.625,
+            "delta": 0.625,
+            "baseline_abs_margin": 0.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "distractor_to_target"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_003",
+            "source_id": "seed23_response_003",
+            "target_value": "copper",
+            "distractor_value": "harbor",
+            "control_value": "marble",
+            "source_focus_value": "sailor",
+            "baseline_margin": 6.4375,
+            "arm_margin": 6.8125,
+            "delta": 0.375,
+            "baseline_abs_margin": 6.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_004",
+            "source_id": "seed23_response_004",
+            "target_value": "yellow",
+            "distractor_value": "planet",
+            "control_value": "hammer",
+            "source_focus_value": "school",
+            "baseline_margin": 9.3125,
+            "arm_margin": 8.5,
+            "delta": -0.8125,
+            "baseline_abs_margin": 9.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_005",
+            "source_id": "seed23_response_005",
+            "target_value": "pepper",
+            "distractor_value": "velvet",
+            "control_value": "button",
+            "source_focus_value": "river",
+            "baseline_margin": 6.25,
+            "arm_margin": 6.3125,
+            "delta": 0.0625,
+            "baseline_abs_margin": 6.25,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_006",
+            "source_id": "seed23_response_006",
+            "target_value": "mirror",
+            "distractor_value": "violet",
+            "control_value": "jungle",
+            "source_focus_value": "velvet",
+            "baseline_margin": 7.8125,
+            "arm_margin": 7.6875,
+            "delta": -0.125,
+            "baseline_abs_margin": 7.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_007",
+            "source_id": "seed23_response_007",
+            "target_value": "island",
+            "distractor_value": "orange",
+            "control_value": "thunder",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 6.5,
+            "arm_margin": 6.1875,
+            "delta": -0.3125,
+            "baseline_abs_margin": 6.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_008",
+            "source_id": "seed23_response_008",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "island",
+            "source_focus_value": "saddle",
+            "baseline_margin": 5.625,
+            "arm_margin": 5.1875,
+            "delta": -0.4375,
+            "baseline_abs_margin": 5.625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_009",
+            "source_id": "seed23_response_009",
+            "target_value": "bottle",
+            "distractor_value": "saddle",
+            "control_value": "silver",
+            "source_focus_value": "button",
+            "baseline_margin": 7.75,
+            "arm_margin": 8.3125,
+            "delta": 0.5625,
+            "baseline_abs_margin": 7.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_010",
+            "source_id": "seed23_response_010",
+            "target_value": "hammer",
+            "distractor_value": "river",
+            "control_value": "pocket",
+            "source_focus_value": "winter",
+            "baseline_margin": 9.0,
+            "arm_margin": 8.5625,
+            "delta": -0.4375,
+            "baseline_abs_margin": 9.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_011",
+            "source_id": "seed23_response_011",
+            "target_value": "anchor",
+            "distractor_value": "circle",
+            "control_value": "orange",
+            "source_focus_value": "ticket",
+            "baseline_margin": 3.0625,
+            "arm_margin": 3.5,
+            "delta": 0.4375,
+            "baseline_abs_margin": 3.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_012",
+            "source_id": "seed23_response_012",
+            "target_value": "sailor",
+            "distractor_value": "quartz",
+            "control_value": "lantern",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 4.0625,
+            "arm_margin": 4.625,
+            "delta": 0.5625,
+            "baseline_abs_margin": 4.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_013",
+            "source_id": "seed23_response_013",
+            "target_value": "fabric",
+            "distractor_value": "market",
+            "control_value": "harbor",
+            "source_focus_value": "orbit",
+            "baseline_margin": 7.5,
+            "arm_margin": 7.4375,
+            "delta": -0.0625,
+            "baseline_abs_margin": 7.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_014",
+            "source_id": "seed23_response_014",
+            "target_value": "pencil",
+            "distractor_value": "copper",
+            "control_value": "hammer",
+            "source_focus_value": "cotton",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.8125,
+            "delta": 0.375,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_015",
+            "source_id": "seed23_response_015",
+            "target_value": "flame",
+            "distractor_value": "basket",
+            "control_value": "violet",
+            "source_focus_value": "engine",
+            "baseline_margin": 2.1875,
+            "arm_margin": 2.25,
+            "delta": 0.0625,
+            "baseline_abs_margin": 2.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_016",
+            "source_id": "seed23_response_016",
+            "target_value": "temple",
+            "distractor_value": "basket",
+            "control_value": "garden",
+            "source_focus_value": "desert",
+            "baseline_margin": 1.3125,
+            "arm_margin": 1.8125,
+            "delta": 0.5,
+            "baseline_abs_margin": 1.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_017",
+            "source_id": "seed23_response_017",
+            "target_value": "hammer",
+            "distractor_value": "velvet",
+            "control_value": "jungle",
+            "source_focus_value": "magnet",
+            "baseline_margin": 4.125,
+            "arm_margin": 4.375,
+            "delta": 0.25,
+            "baseline_abs_margin": 4.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_018",
+            "source_id": "seed23_response_018",
+            "target_value": "jungle",
+            "distractor_value": "thunder",
+            "control_value": "marble",
+            "source_focus_value": "engine",
+            "baseline_margin": 4.8125,
+            "arm_margin": 4.8125,
+            "delta": 0.0,
+            "baseline_abs_margin": 4.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_019",
+            "source_id": "seed23_response_019",
+            "target_value": "sailor",
+            "distractor_value": "island",
+            "control_value": "puzzle",
+            "source_focus_value": "ribbon",
+            "baseline_margin": -1.0,
+            "arm_margin": 0.6875,
+            "delta": 1.6875,
+            "baseline_abs_margin": 1.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "distractor_to_target"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_020",
+            "source_id": "seed23_response_020",
+            "target_value": "sugar",
+            "distractor_value": "sailor",
+            "control_value": "winter",
+            "source_focus_value": "velvet",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.25,
+            "delta": -0.1875,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_021",
+            "source_id": "seed23_response_021",
+            "target_value": "sailor",
+            "distractor_value": "sugar",
+            "control_value": "fabric",
+            "source_focus_value": "ticket",
+            "baseline_margin": 1.0625,
+            "arm_margin": 0.875,
+            "delta": -0.1875,
+            "baseline_abs_margin": 1.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_022",
+            "source_id": "seed23_response_022",
+            "target_value": "ribbon",
+            "distractor_value": "candle",
+            "control_value": "garden",
+            "source_focus_value": "ladder",
+            "baseline_margin": 7.4375,
+            "arm_margin": 7.25,
+            "delta": -0.1875,
+            "baseline_abs_margin": 7.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_023",
+            "source_id": "seed23_response_023",
+            "target_value": "magnet",
+            "distractor_value": "camera",
+            "control_value": "ribbon",
+            "source_focus_value": "puzzle",
+            "baseline_margin": 2.125,
+            "arm_margin": 2.3125,
+            "delta": 0.1875,
+            "baseline_abs_margin": 2.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_024",
+            "source_id": "seed23_response_024",
+            "target_value": "bridge",
+            "distractor_value": "candle",
+            "control_value": "forest",
+            "source_focus_value": "walnut",
+            "baseline_margin": 5.0,
+            "arm_margin": 4.9375,
+            "delta": -0.0625,
+            "baseline_abs_margin": 5.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_025",
+            "source_id": "seed23_response_025",
+            "target_value": "candle",
+            "distractor_value": "pepper",
+            "control_value": "window",
+            "source_focus_value": "forest",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.125,
+            "delta": -0.5625,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_026",
+            "source_id": "seed23_response_026",
+            "target_value": "winter",
+            "distractor_value": "needle",
+            "control_value": "basket",
+            "source_focus_value": "camera",
+            "baseline_margin": 5.9375,
+            "arm_margin": 5.75,
+            "delta": -0.1875,
+            "baseline_abs_margin": 5.9375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_027",
+            "source_id": "seed23_response_027",
+            "target_value": "market",
+            "distractor_value": "glacier",
+            "control_value": "garden",
+            "source_focus_value": "school",
+            "baseline_margin": 7.0625,
+            "arm_margin": 6.75,
+            "delta": -0.3125,
+            "baseline_abs_margin": 7.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_028",
+            "source_id": "seed23_response_028",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "dragon",
+            "source_focus_value": "thunder",
+            "baseline_margin": 1.1875,
+            "arm_margin": 1.5625,
+            "delta": 0.375,
+            "baseline_abs_margin": 1.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_029",
+            "source_id": "seed23_response_029",
+            "target_value": "velvet",
+            "distractor_value": "button",
+            "control_value": "ribbon",
+            "source_focus_value": "bottle",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.9375,
+            "delta": 0.25,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_030",
+            "source_id": "seed23_response_030",
+            "target_value": "valley",
+            "distractor_value": "camera",
+            "control_value": "harbor",
+            "source_focus_value": "school",
+            "baseline_margin": 6.75,
+            "arm_margin": 5.625,
+            "delta": -1.125,
+            "baseline_abs_margin": 6.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_031",
+            "source_id": "seed23_response_031",
+            "target_value": "jungle",
+            "distractor_value": "ticket",
+            "control_value": "yogurt",
+            "source_focus_value": "pencil",
+            "baseline_margin": 4.1875,
+            "arm_margin": 4.6875,
+            "delta": 0.5,
+            "baseline_abs_margin": 4.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          }
+        ],
+        "earlier_neutral_colon": [
+          {
+            "row_id": "mc005_v12_seed23_response_000",
+            "source_id": "seed23_response_000",
+            "target_value": "velvet",
+            "distractor_value": "garden",
+            "control_value": "planet",
+            "source_focus_value": "pocket",
+            "baseline_margin": 7.0,
+            "arm_margin": 7.0625,
+            "delta": 0.0625,
+            "baseline_abs_margin": 7.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_001",
+            "source_id": "seed23_response_001",
+            "target_value": "dragon",
+            "distractor_value": "orange",
+            "control_value": "sailor",
+            "source_focus_value": "candle",
+            "baseline_margin": 4.3125,
+            "arm_margin": 4.5,
+            "delta": 0.1875,
+            "baseline_abs_margin": 4.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_002",
+            "source_id": "seed23_response_002",
+            "target_value": "winter",
+            "distractor_value": "engine",
+            "control_value": "flame",
+            "source_focus_value": "glacier",
+            "baseline_margin": 0.0,
+            "arm_margin": 0.125,
+            "delta": 0.125,
+            "baseline_abs_margin": 0.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "distractor_to_target"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_003",
+            "source_id": "seed23_response_003",
+            "target_value": "copper",
+            "distractor_value": "harbor",
+            "control_value": "marble",
+            "source_focus_value": "sailor",
+            "baseline_margin": 6.4375,
+            "arm_margin": 6.375,
+            "delta": -0.0625,
+            "baseline_abs_margin": 6.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_004",
+            "source_id": "seed23_response_004",
+            "target_value": "yellow",
+            "distractor_value": "planet",
+            "control_value": "hammer",
+            "source_focus_value": "school",
+            "baseline_margin": 9.3125,
+            "arm_margin": 9.25,
+            "delta": -0.0625,
+            "baseline_abs_margin": 9.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_005",
+            "source_id": "seed23_response_005",
+            "target_value": "pepper",
+            "distractor_value": "velvet",
+            "control_value": "button",
+            "source_focus_value": "river",
+            "baseline_margin": 6.25,
+            "arm_margin": 6.375,
+            "delta": 0.125,
+            "baseline_abs_margin": 6.25,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_006",
+            "source_id": "seed23_response_006",
+            "target_value": "mirror",
+            "distractor_value": "violet",
+            "control_value": "jungle",
+            "source_focus_value": "velvet",
+            "baseline_margin": 7.8125,
+            "arm_margin": 7.75,
+            "delta": -0.0625,
+            "baseline_abs_margin": 7.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_007",
+            "source_id": "seed23_response_007",
+            "target_value": "island",
+            "distractor_value": "orange",
+            "control_value": "thunder",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 6.5,
+            "arm_margin": 6.5625,
+            "delta": 0.0625,
+            "baseline_abs_margin": 6.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_008",
+            "source_id": "seed23_response_008",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "island",
+            "source_focus_value": "saddle",
+            "baseline_margin": 5.625,
+            "arm_margin": 5.8125,
+            "delta": 0.1875,
+            "baseline_abs_margin": 5.625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_009",
+            "source_id": "seed23_response_009",
+            "target_value": "bottle",
+            "distractor_value": "saddle",
+            "control_value": "silver",
+            "source_focus_value": "button",
+            "baseline_margin": 7.75,
+            "arm_margin": 7.9375,
+            "delta": 0.1875,
+            "baseline_abs_margin": 7.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_010",
+            "source_id": "seed23_response_010",
+            "target_value": "hammer",
+            "distractor_value": "river",
+            "control_value": "pocket",
+            "source_focus_value": "winter",
+            "baseline_margin": 9.0,
+            "arm_margin": 8.8125,
+            "delta": -0.1875,
+            "baseline_abs_margin": 9.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_011",
+            "source_id": "seed23_response_011",
+            "target_value": "anchor",
+            "distractor_value": "circle",
+            "control_value": "orange",
+            "source_focus_value": "ticket",
+            "baseline_margin": 3.0625,
+            "arm_margin": 3.125,
+            "delta": 0.0625,
+            "baseline_abs_margin": 3.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_012",
+            "source_id": "seed23_response_012",
+            "target_value": "sailor",
+            "distractor_value": "quartz",
+            "control_value": "lantern",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 4.0625,
+            "arm_margin": 4.25,
+            "delta": 0.1875,
+            "baseline_abs_margin": 4.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_013",
+            "source_id": "seed23_response_013",
+            "target_value": "fabric",
+            "distractor_value": "market",
+            "control_value": "harbor",
+            "source_focus_value": "orbit",
+            "baseline_margin": 7.5,
+            "arm_margin": 7.5625,
+            "delta": 0.0625,
+            "baseline_abs_margin": 7.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_014",
+            "source_id": "seed23_response_014",
+            "target_value": "pencil",
+            "distractor_value": "copper",
+            "control_value": "hammer",
+            "source_focus_value": "cotton",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.5,
+            "delta": 0.0625,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_015",
+            "source_id": "seed23_response_015",
+            "target_value": "flame",
+            "distractor_value": "basket",
+            "control_value": "violet",
+            "source_focus_value": "engine",
+            "baseline_margin": 2.1875,
+            "arm_margin": 2.4375,
+            "delta": 0.25,
+            "baseline_abs_margin": 2.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_016",
+            "source_id": "seed23_response_016",
+            "target_value": "temple",
+            "distractor_value": "basket",
+            "control_value": "garden",
+            "source_focus_value": "desert",
+            "baseline_margin": 1.3125,
+            "arm_margin": 1.625,
+            "delta": 0.3125,
+            "baseline_abs_margin": 1.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_017",
+            "source_id": "seed23_response_017",
+            "target_value": "hammer",
+            "distractor_value": "velvet",
+            "control_value": "jungle",
+            "source_focus_value": "magnet",
+            "baseline_margin": 4.125,
+            "arm_margin": 4.125,
+            "delta": 0.0,
+            "baseline_abs_margin": 4.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_018",
+            "source_id": "seed23_response_018",
+            "target_value": "jungle",
+            "distractor_value": "thunder",
+            "control_value": "marble",
+            "source_focus_value": "engine",
+            "baseline_margin": 4.8125,
+            "arm_margin": 5.0,
+            "delta": 0.1875,
+            "baseline_abs_margin": 4.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_019",
+            "source_id": "seed23_response_019",
+            "target_value": "sailor",
+            "distractor_value": "island",
+            "control_value": "puzzle",
+            "source_focus_value": "ribbon",
+            "baseline_margin": -1.0,
+            "arm_margin": -0.875,
+            "delta": 0.125,
+            "baseline_abs_margin": 1.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_020",
+            "source_id": "seed23_response_020",
+            "target_value": "sugar",
+            "distractor_value": "sailor",
+            "control_value": "winter",
+            "source_focus_value": "velvet",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.5625,
+            "delta": 0.125,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_021",
+            "source_id": "seed23_response_021",
+            "target_value": "sailor",
+            "distractor_value": "sugar",
+            "control_value": "fabric",
+            "source_focus_value": "ticket",
+            "baseline_margin": 1.0625,
+            "arm_margin": 1.1875,
+            "delta": 0.125,
+            "baseline_abs_margin": 1.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_022",
+            "source_id": "seed23_response_022",
+            "target_value": "ribbon",
+            "distractor_value": "candle",
+            "control_value": "garden",
+            "source_focus_value": "ladder",
+            "baseline_margin": 7.4375,
+            "arm_margin": 7.625,
+            "delta": 0.1875,
+            "baseline_abs_margin": 7.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_023",
+            "source_id": "seed23_response_023",
+            "target_value": "magnet",
+            "distractor_value": "camera",
+            "control_value": "ribbon",
+            "source_focus_value": "puzzle",
+            "baseline_margin": 2.125,
+            "arm_margin": 2.125,
+            "delta": 0.0,
+            "baseline_abs_margin": 2.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_024",
+            "source_id": "seed23_response_024",
+            "target_value": "bridge",
+            "distractor_value": "candle",
+            "control_value": "forest",
+            "source_focus_value": "walnut",
+            "baseline_margin": 5.0,
+            "arm_margin": 5.3125,
+            "delta": 0.3125,
+            "baseline_abs_margin": 5.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_025",
+            "source_id": "seed23_response_025",
+            "target_value": "candle",
+            "distractor_value": "pepper",
+            "control_value": "window",
+            "source_focus_value": "forest",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.875,
+            "delta": 0.1875,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_026",
+            "source_id": "seed23_response_026",
+            "target_value": "winter",
+            "distractor_value": "needle",
+            "control_value": "basket",
+            "source_focus_value": "camera",
+            "baseline_margin": 5.9375,
+            "arm_margin": 6.0625,
+            "delta": 0.125,
+            "baseline_abs_margin": 5.9375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_027",
+            "source_id": "seed23_response_027",
+            "target_value": "market",
+            "distractor_value": "glacier",
+            "control_value": "garden",
+            "source_focus_value": "school",
+            "baseline_margin": 7.0625,
+            "arm_margin": 7.125,
+            "delta": 0.0625,
+            "baseline_abs_margin": 7.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_028",
+            "source_id": "seed23_response_028",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "dragon",
+            "source_focus_value": "thunder",
+            "baseline_margin": 1.1875,
+            "arm_margin": 1.4375,
+            "delta": 0.25,
+            "baseline_abs_margin": 1.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_029",
+            "source_id": "seed23_response_029",
+            "target_value": "velvet",
+            "distractor_value": "button",
+            "control_value": "ribbon",
+            "source_focus_value": "bottle",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.8125,
+            "delta": 0.125,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_030",
+            "source_id": "seed23_response_030",
+            "target_value": "valley",
+            "distractor_value": "camera",
+            "control_value": "harbor",
+            "source_focus_value": "school",
+            "baseline_margin": 6.75,
+            "arm_margin": 6.8125,
+            "delta": 0.0625,
+            "baseline_abs_margin": 6.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_031",
+            "source_id": "seed23_response_031",
+            "target_value": "jungle",
+            "distractor_value": "ticket",
+            "control_value": "yogurt",
+            "source_focus_value": "pencil",
+            "baseline_margin": 4.1875,
+            "arm_margin": 4.0,
+            "delta": -0.1875,
+            "baseline_abs_margin": 4.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          }
+        ],
+        "final_label": [
+          {
+            "row_id": "mc005_v12_seed23_response_000",
+            "source_id": "seed23_response_000",
+            "target_value": "velvet",
+            "distractor_value": "garden",
+            "control_value": "planet",
+            "source_focus_value": "pocket",
+            "baseline_margin": 7.0,
+            "arm_margin": 5.9375,
+            "delta": -1.0625,
+            "baseline_abs_margin": 7.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_001",
+            "source_id": "seed23_response_001",
+            "target_value": "dragon",
+            "distractor_value": "orange",
+            "control_value": "sailor",
+            "source_focus_value": "candle",
+            "baseline_margin": 4.3125,
+            "arm_margin": 4.0625,
+            "delta": -0.25,
+            "baseline_abs_margin": 4.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_002",
+            "source_id": "seed23_response_002",
+            "target_value": "winter",
+            "distractor_value": "engine",
+            "control_value": "flame",
+            "source_focus_value": "glacier",
+            "baseline_margin": 0.0,
+            "arm_margin": -0.375,
+            "delta": -0.375,
+            "baseline_abs_margin": 0.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "distractor",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_003",
+            "source_id": "seed23_response_003",
+            "target_value": "copper",
+            "distractor_value": "harbor",
+            "control_value": "marble",
+            "source_focus_value": "sailor",
+            "baseline_margin": 6.4375,
+            "arm_margin": 5.25,
+            "delta": -1.1875,
+            "baseline_abs_margin": 6.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_004",
+            "source_id": "seed23_response_004",
+            "target_value": "yellow",
+            "distractor_value": "planet",
+            "control_value": "hammer",
+            "source_focus_value": "school",
+            "baseline_margin": 9.3125,
+            "arm_margin": 9.25,
+            "delta": -0.0625,
+            "baseline_abs_margin": 9.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_005",
+            "source_id": "seed23_response_005",
+            "target_value": "pepper",
+            "distractor_value": "velvet",
+            "control_value": "button",
+            "source_focus_value": "river",
+            "baseline_margin": 6.25,
+            "arm_margin": 5.5625,
+            "delta": -0.6875,
+            "baseline_abs_margin": 6.25,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_006",
+            "source_id": "seed23_response_006",
+            "target_value": "mirror",
+            "distractor_value": "violet",
+            "control_value": "jungle",
+            "source_focus_value": "velvet",
+            "baseline_margin": 7.8125,
+            "arm_margin": 7.1875,
+            "delta": -0.625,
+            "baseline_abs_margin": 7.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_007",
+            "source_id": "seed23_response_007",
+            "target_value": "island",
+            "distractor_value": "orange",
+            "control_value": "thunder",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 6.5,
+            "arm_margin": 6.375,
+            "delta": -0.125,
+            "baseline_abs_margin": 6.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_008",
+            "source_id": "seed23_response_008",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "island",
+            "source_focus_value": "saddle",
+            "baseline_margin": 5.625,
+            "arm_margin": 5.25,
+            "delta": -0.375,
+            "baseline_abs_margin": 5.625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_009",
+            "source_id": "seed23_response_009",
+            "target_value": "bottle",
+            "distractor_value": "saddle",
+            "control_value": "silver",
+            "source_focus_value": "button",
+            "baseline_margin": 7.75,
+            "arm_margin": 7.1875,
+            "delta": -0.5625,
+            "baseline_abs_margin": 7.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_010",
+            "source_id": "seed23_response_010",
+            "target_value": "hammer",
+            "distractor_value": "river",
+            "control_value": "pocket",
+            "source_focus_value": "winter",
+            "baseline_margin": 9.0,
+            "arm_margin": 8.875,
+            "delta": -0.125,
+            "baseline_abs_margin": 9.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_011",
+            "source_id": "seed23_response_011",
+            "target_value": "anchor",
+            "distractor_value": "circle",
+            "control_value": "orange",
+            "source_focus_value": "ticket",
+            "baseline_margin": 3.0625,
+            "arm_margin": 3.8125,
+            "delta": 0.75,
+            "baseline_abs_margin": 3.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_012",
+            "source_id": "seed23_response_012",
+            "target_value": "sailor",
+            "distractor_value": "quartz",
+            "control_value": "lantern",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 4.0625,
+            "arm_margin": 4.6875,
+            "delta": 0.625,
+            "baseline_abs_margin": 4.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_013",
+            "source_id": "seed23_response_013",
+            "target_value": "fabric",
+            "distractor_value": "market",
+            "control_value": "harbor",
+            "source_focus_value": "orbit",
+            "baseline_margin": 7.5,
+            "arm_margin": 7.3125,
+            "delta": -0.1875,
+            "baseline_abs_margin": 7.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_014",
+            "source_id": "seed23_response_014",
+            "target_value": "pencil",
+            "distractor_value": "copper",
+            "control_value": "hammer",
+            "source_focus_value": "cotton",
+            "baseline_margin": 5.4375,
+            "arm_margin": 3.9375,
+            "delta": -1.5,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_015",
+            "source_id": "seed23_response_015",
+            "target_value": "flame",
+            "distractor_value": "basket",
+            "control_value": "violet",
+            "source_focus_value": "engine",
+            "baseline_margin": 2.1875,
+            "arm_margin": 2.25,
+            "delta": 0.0625,
+            "baseline_abs_margin": 2.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_016",
+            "source_id": "seed23_response_016",
+            "target_value": "temple",
+            "distractor_value": "basket",
+            "control_value": "garden",
+            "source_focus_value": "desert",
+            "baseline_margin": 1.3125,
+            "arm_margin": 1.375,
+            "delta": 0.0625,
+            "baseline_abs_margin": 1.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_017",
+            "source_id": "seed23_response_017",
+            "target_value": "hammer",
+            "distractor_value": "velvet",
+            "control_value": "jungle",
+            "source_focus_value": "magnet",
+            "baseline_margin": 4.125,
+            "arm_margin": 3.6875,
+            "delta": -0.4375,
+            "baseline_abs_margin": 4.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_018",
+            "source_id": "seed23_response_018",
+            "target_value": "jungle",
+            "distractor_value": "thunder",
+            "control_value": "marble",
+            "source_focus_value": "engine",
+            "baseline_margin": 4.8125,
+            "arm_margin": 5.0625,
+            "delta": 0.25,
+            "baseline_abs_margin": 4.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_019",
+            "source_id": "seed23_response_019",
+            "target_value": "sailor",
+            "distractor_value": "island",
+            "control_value": "puzzle",
+            "source_focus_value": "ribbon",
+            "baseline_margin": -1.0,
+            "arm_margin": -0.625,
+            "delta": 0.375,
+            "baseline_abs_margin": 1.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_020",
+            "source_id": "seed23_response_020",
+            "target_value": "sugar",
+            "distractor_value": "sailor",
+            "control_value": "winter",
+            "source_focus_value": "velvet",
+            "baseline_margin": 5.4375,
+            "arm_margin": 4.6875,
+            "delta": -0.75,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_021",
+            "source_id": "seed23_response_021",
+            "target_value": "sailor",
+            "distractor_value": "sugar",
+            "control_value": "fabric",
+            "source_focus_value": "ticket",
+            "baseline_margin": 1.0625,
+            "arm_margin": 2.1875,
+            "delta": 1.125,
+            "baseline_abs_margin": 1.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_022",
+            "source_id": "seed23_response_022",
+            "target_value": "ribbon",
+            "distractor_value": "candle",
+            "control_value": "garden",
+            "source_focus_value": "ladder",
+            "baseline_margin": 7.4375,
+            "arm_margin": 6.75,
+            "delta": -0.6875,
+            "baseline_abs_margin": 7.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_023",
+            "source_id": "seed23_response_023",
+            "target_value": "magnet",
+            "distractor_value": "camera",
+            "control_value": "ribbon",
+            "source_focus_value": "puzzle",
+            "baseline_margin": 2.125,
+            "arm_margin": 2.125,
+            "delta": 0.0,
+            "baseline_abs_margin": 2.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_024",
+            "source_id": "seed23_response_024",
+            "target_value": "bridge",
+            "distractor_value": "candle",
+            "control_value": "forest",
+            "source_focus_value": "walnut",
+            "baseline_margin": 5.0,
+            "arm_margin": 4.3125,
+            "delta": -0.6875,
+            "baseline_abs_margin": 5.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_025",
+            "source_id": "seed23_response_025",
+            "target_value": "candle",
+            "distractor_value": "pepper",
+            "control_value": "window",
+            "source_focus_value": "forest",
+            "baseline_margin": 5.6875,
+            "arm_margin": 6.1875,
+            "delta": 0.5,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_026",
+            "source_id": "seed23_response_026",
+            "target_value": "winter",
+            "distractor_value": "needle",
+            "control_value": "basket",
+            "source_focus_value": "camera",
+            "baseline_margin": 5.9375,
+            "arm_margin": 5.5625,
+            "delta": -0.375,
+            "baseline_abs_margin": 5.9375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_027",
+            "source_id": "seed23_response_027",
+            "target_value": "market",
+            "distractor_value": "glacier",
+            "control_value": "garden",
+            "source_focus_value": "school",
+            "baseline_margin": 7.0625,
+            "arm_margin": 7.5625,
+            "delta": 0.5,
+            "baseline_abs_margin": 7.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_028",
+            "source_id": "seed23_response_028",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "dragon",
+            "source_focus_value": "thunder",
+            "baseline_margin": 1.1875,
+            "arm_margin": 1.125,
+            "delta": -0.0625,
+            "baseline_abs_margin": 1.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_029",
+            "source_id": "seed23_response_029",
+            "target_value": "velvet",
+            "distractor_value": "button",
+            "control_value": "ribbon",
+            "source_focus_value": "bottle",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.4375,
+            "delta": -0.25,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_030",
+            "source_id": "seed23_response_030",
+            "target_value": "valley",
+            "distractor_value": "camera",
+            "control_value": "harbor",
+            "source_focus_value": "school",
+            "baseline_margin": 6.75,
+            "arm_margin": 6.125,
+            "delta": -0.625,
+            "baseline_abs_margin": 6.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_031",
+            "source_id": "seed23_response_031",
+            "target_value": "jungle",
+            "distractor_value": "ticket",
+            "control_value": "yogurt",
+            "source_focus_value": "pencil",
+            "baseline_margin": 4.1875,
+            "arm_margin": 4.6875,
+            "delta": 0.5,
+            "baseline_abs_margin": 4.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          }
+        ],
+        "final_colon": [
+          {
+            "row_id": "mc005_v12_seed23_response_000",
+            "source_id": "seed23_response_000",
+            "target_value": "velvet",
+            "distractor_value": "garden",
+            "control_value": "planet",
+            "source_focus_value": "pocket",
+            "baseline_margin": 7.0,
+            "arm_margin": 6.8125,
+            "delta": -0.1875,
+            "baseline_abs_margin": 7.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_001",
+            "source_id": "seed23_response_001",
+            "target_value": "dragon",
+            "distractor_value": "orange",
+            "control_value": "sailor",
+            "source_focus_value": "candle",
+            "baseline_margin": 4.3125,
+            "arm_margin": 4.8125,
+            "delta": 0.5,
+            "baseline_abs_margin": 4.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_002",
+            "source_id": "seed23_response_002",
+            "target_value": "winter",
+            "distractor_value": "engine",
+            "control_value": "flame",
+            "source_focus_value": "glacier",
+            "baseline_margin": 0.0,
+            "arm_margin": 0.875,
+            "delta": 0.875,
+            "baseline_abs_margin": 0.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "target",
+            "flip": "distractor_to_target"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_003",
+            "source_id": "seed23_response_003",
+            "target_value": "copper",
+            "distractor_value": "harbor",
+            "control_value": "marble",
+            "source_focus_value": "sailor",
+            "baseline_margin": 6.4375,
+            "arm_margin": 4.1875,
+            "delta": -2.25,
+            "baseline_abs_margin": 6.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_004",
+            "source_id": "seed23_response_004",
+            "target_value": "yellow",
+            "distractor_value": "planet",
+            "control_value": "hammer",
+            "source_focus_value": "school",
+            "baseline_margin": 9.3125,
+            "arm_margin": 8.9375,
+            "delta": -0.375,
+            "baseline_abs_margin": 9.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_005",
+            "source_id": "seed23_response_005",
+            "target_value": "pepper",
+            "distractor_value": "velvet",
+            "control_value": "button",
+            "source_focus_value": "river",
+            "baseline_margin": 6.25,
+            "arm_margin": 6.3125,
+            "delta": 0.0625,
+            "baseline_abs_margin": 6.25,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_006",
+            "source_id": "seed23_response_006",
+            "target_value": "mirror",
+            "distractor_value": "violet",
+            "control_value": "jungle",
+            "source_focus_value": "velvet",
+            "baseline_margin": 7.8125,
+            "arm_margin": 9.0625,
+            "delta": 1.25,
+            "baseline_abs_margin": 7.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_007",
+            "source_id": "seed23_response_007",
+            "target_value": "island",
+            "distractor_value": "orange",
+            "control_value": "thunder",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 6.5,
+            "arm_margin": 7.125,
+            "delta": 0.625,
+            "baseline_abs_margin": 6.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_008",
+            "source_id": "seed23_response_008",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "island",
+            "source_focus_value": "saddle",
+            "baseline_margin": 5.625,
+            "arm_margin": 5.0,
+            "delta": -0.625,
+            "baseline_abs_margin": 5.625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_009",
+            "source_id": "seed23_response_009",
+            "target_value": "bottle",
+            "distractor_value": "saddle",
+            "control_value": "silver",
+            "source_focus_value": "button",
+            "baseline_margin": 7.75,
+            "arm_margin": 7.75,
+            "delta": 0.0,
+            "baseline_abs_margin": 7.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_010",
+            "source_id": "seed23_response_010",
+            "target_value": "hammer",
+            "distractor_value": "river",
+            "control_value": "pocket",
+            "source_focus_value": "winter",
+            "baseline_margin": 9.0,
+            "arm_margin": 9.25,
+            "delta": 0.25,
+            "baseline_abs_margin": 9.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_011",
+            "source_id": "seed23_response_011",
+            "target_value": "anchor",
+            "distractor_value": "circle",
+            "control_value": "orange",
+            "source_focus_value": "ticket",
+            "baseline_margin": 3.0625,
+            "arm_margin": 3.25,
+            "delta": 0.1875,
+            "baseline_abs_margin": 3.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_012",
+            "source_id": "seed23_response_012",
+            "target_value": "sailor",
+            "distractor_value": "quartz",
+            "control_value": "lantern",
+            "source_focus_value": "ribbon",
+            "baseline_margin": 4.0625,
+            "arm_margin": 5.0,
+            "delta": 0.9375,
+            "baseline_abs_margin": 4.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_013",
+            "source_id": "seed23_response_013",
+            "target_value": "fabric",
+            "distractor_value": "market",
+            "control_value": "harbor",
+            "source_focus_value": "orbit",
+            "baseline_margin": 7.5,
+            "arm_margin": 6.4375,
+            "delta": -1.0625,
+            "baseline_abs_margin": 7.5,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_014",
+            "source_id": "seed23_response_014",
+            "target_value": "pencil",
+            "distractor_value": "copper",
+            "control_value": "hammer",
+            "source_focus_value": "cotton",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.375,
+            "delta": -0.0625,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_015",
+            "source_id": "seed23_response_015",
+            "target_value": "flame",
+            "distractor_value": "basket",
+            "control_value": "violet",
+            "source_focus_value": "engine",
+            "baseline_margin": 2.1875,
+            "arm_margin": 1.875,
+            "delta": -0.3125,
+            "baseline_abs_margin": 2.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_016",
+            "source_id": "seed23_response_016",
+            "target_value": "temple",
+            "distractor_value": "basket",
+            "control_value": "garden",
+            "source_focus_value": "desert",
+            "baseline_margin": 1.3125,
+            "arm_margin": 1.25,
+            "delta": -0.0625,
+            "baseline_abs_margin": 1.3125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_017",
+            "source_id": "seed23_response_017",
+            "target_value": "hammer",
+            "distractor_value": "velvet",
+            "control_value": "jungle",
+            "source_focus_value": "magnet",
+            "baseline_margin": 4.125,
+            "arm_margin": 4.25,
+            "delta": 0.125,
+            "baseline_abs_margin": 4.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_018",
+            "source_id": "seed23_response_018",
+            "target_value": "jungle",
+            "distractor_value": "thunder",
+            "control_value": "marble",
+            "source_focus_value": "engine",
+            "baseline_margin": 4.8125,
+            "arm_margin": 4.375,
+            "delta": -0.4375,
+            "baseline_abs_margin": 4.8125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_019",
+            "source_id": "seed23_response_019",
+            "target_value": "sailor",
+            "distractor_value": "island",
+            "control_value": "puzzle",
+            "source_focus_value": "ribbon",
+            "baseline_margin": -1.0,
+            "arm_margin": -1.375,
+            "delta": -0.375,
+            "baseline_abs_margin": 1.0,
+            "baseline_target_wins": false,
+            "arm_target_wins": false,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_020",
+            "source_id": "seed23_response_020",
+            "target_value": "sugar",
+            "distractor_value": "sailor",
+            "control_value": "winter",
+            "source_focus_value": "velvet",
+            "baseline_margin": 5.4375,
+            "arm_margin": 5.125,
+            "delta": -0.3125,
+            "baseline_abs_margin": 5.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_021",
+            "source_id": "seed23_response_021",
+            "target_value": "sailor",
+            "distractor_value": "sugar",
+            "control_value": "fabric",
+            "source_focus_value": "ticket",
+            "baseline_margin": 1.0625,
+            "arm_margin": 1.625,
+            "delta": 0.5625,
+            "baseline_abs_margin": 1.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_022",
+            "source_id": "seed23_response_022",
+            "target_value": "ribbon",
+            "distractor_value": "candle",
+            "control_value": "garden",
+            "source_focus_value": "ladder",
+            "baseline_margin": 7.4375,
+            "arm_margin": 7.5,
+            "delta": 0.0625,
+            "baseline_abs_margin": 7.4375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_023",
+            "source_id": "seed23_response_023",
+            "target_value": "magnet",
+            "distractor_value": "camera",
+            "control_value": "ribbon",
+            "source_focus_value": "puzzle",
+            "baseline_margin": 2.125,
+            "arm_margin": 1.375,
+            "delta": -0.75,
+            "baseline_abs_margin": 2.125,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_024",
+            "source_id": "seed23_response_024",
+            "target_value": "bridge",
+            "distractor_value": "candle",
+            "control_value": "forest",
+            "source_focus_value": "walnut",
+            "baseline_margin": 5.0,
+            "arm_margin": 5.6875,
+            "delta": 0.6875,
+            "baseline_abs_margin": 5.0,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_025",
+            "source_id": "seed23_response_025",
+            "target_value": "candle",
+            "distractor_value": "pepper",
+            "control_value": "window",
+            "source_focus_value": "forest",
+            "baseline_margin": 5.6875,
+            "arm_margin": 6.0625,
+            "delta": 0.375,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_026",
+            "source_id": "seed23_response_026",
+            "target_value": "winter",
+            "distractor_value": "needle",
+            "control_value": "basket",
+            "source_focus_value": "camera",
+            "baseline_margin": 5.9375,
+            "arm_margin": 5.5,
+            "delta": -0.4375,
+            "baseline_abs_margin": 5.9375,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_027",
+            "source_id": "seed23_response_027",
+            "target_value": "market",
+            "distractor_value": "glacier",
+            "control_value": "garden",
+            "source_focus_value": "school",
+            "baseline_margin": 7.0625,
+            "arm_margin": 7.25,
+            "delta": 0.1875,
+            "baseline_abs_margin": 7.0625,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_028",
+            "source_id": "seed23_response_028",
+            "target_value": "pencil",
+            "distractor_value": "engine",
+            "control_value": "dragon",
+            "source_focus_value": "thunder",
+            "baseline_margin": 1.1875,
+            "arm_margin": 0.8125,
+            "delta": -0.375,
+            "baseline_abs_margin": 1.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_029",
+            "source_id": "seed23_response_029",
+            "target_value": "velvet",
+            "distractor_value": "button",
+            "control_value": "ribbon",
+            "source_focus_value": "bottle",
+            "baseline_margin": 5.6875,
+            "arm_margin": 5.6875,
+            "delta": 0.0,
+            "baseline_abs_margin": 5.6875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_030",
+            "source_id": "seed23_response_030",
+            "target_value": "valley",
+            "distractor_value": "camera",
+            "control_value": "harbor",
+            "source_focus_value": "school",
+            "baseline_margin": 6.75,
+            "arm_margin": 6.4375,
+            "delta": -0.3125,
+            "baseline_abs_margin": 6.75,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "target",
+            "arm_greedy_label": "target",
+            "flip": "none"
+          },
+          {
+            "row_id": "mc005_v12_seed23_response_031",
+            "source_id": "seed23_response_031",
+            "target_value": "jungle",
+            "distractor_value": "ticket",
+            "control_value": "yogurt",
+            "source_focus_value": "pencil",
+            "baseline_margin": 4.1875,
+            "arm_margin": 2.1875,
+            "delta": -2.0,
+            "baseline_abs_margin": 4.1875,
+            "baseline_target_wins": true,
+            "arm_target_wins": true,
+            "baseline_greedy_label": "other",
+            "arm_greedy_label": "other",
+            "flip": "none"
+          }
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "mc005_v12_seed23_response_000",
+      "source_id": "seed23_response_000",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "yogurt",
+          "value": "pocket"
+        },
+        {
+          "key": "puzzle",
+          "value": "orbit"
+        },
+        {
+          "key": "desert",
+          "value": "camera"
+        },
+        {
+          "key": "window",
+          "value": "dragon"
+        },
+        {
+          "key": "hammer",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "velvet",
+      "distractor_value": "garden",
+      "source_focus_value": "pocket",
+      "control_value": "planet",
+      "target_token_id": 71326,
+      "distractor_token_id": 13551,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yogurt: pocket\n- puzzle: orbit\n- desert: camera\n- window: dragon\n- hammer: ribbon\nControl word: planet\nNeutral marker: ready\nRequired word: velvet\nDistractor word: garden\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_001",
+      "source_id": "seed23_response_001",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "winter"
+        },
+        {
+          "key": "circle",
+          "value": "candle"
+        },
+        {
+          "key": "jacket",
+          "value": "desert"
+        },
+        {
+          "key": "jungle",
+          "value": "engine"
+        },
+        {
+          "key": "ticket",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "dragon",
+      "distractor_value": "orange",
+      "source_focus_value": "candle",
+      "control_value": "sailor",
+      "target_token_id": 25105,
+      "distractor_token_id": 18575,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- copper: winter\n- circle: candle\n- jacket: desert\n- jungle: engine\n- ticket: walnut\nControl word: sailor\nNeutral marker: ready\nRequired word: dragon\nDistractor word: orange\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_002",
+      "source_id": "seed23_response_002",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "pencil",
+          "value": "button"
+        },
+        {
+          "key": "walnut",
+          "value": "mirror"
+        },
+        {
+          "key": "castle",
+          "value": "glacier"
+        },
+        {
+          "key": "camera",
+          "value": "jungle"
+        },
+        {
+          "key": "island",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "winter",
+      "distractor_value": "engine",
+      "source_focus_value": "glacier",
+      "control_value": "flame",
+      "target_token_id": 12406,
+      "distractor_token_id": 4712,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pencil: button\n- walnut: mirror\n- castle: glacier\n- camera: jungle\n- island: needle\nControl word: flame\nNeutral marker: ready\nRequired word: winter\nDistractor word: engine\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_003",
+      "source_id": "seed23_response_003",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "glacier"
+        },
+        {
+          "key": "valley",
+          "value": "camera"
+        },
+        {
+          "key": "orbit",
+          "value": "walnut"
+        },
+        {
+          "key": "hammer",
+          "value": "sailor"
+        },
+        {
+          "key": "garden",
+          "value": "candle"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "copper",
+      "distractor_value": "harbor",
+      "source_focus_value": "sailor",
+      "control_value": "marble",
+      "target_token_id": 23285,
+      "distractor_token_id": 56411,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bottle: glacier\n- valley: camera\n- orbit: walnut\n- hammer: sailor\n- garden: candle\nControl word: marble\nNeutral marker: ready\nRequired word: copper\nDistractor word: harbor\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_004",
+      "source_id": "seed23_response_004",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "orange",
+          "value": "sugar"
+        },
+        {
+          "key": "anchor",
+          "value": "pepper"
+        },
+        {
+          "key": "velvet",
+          "value": "walnut"
+        },
+        {
+          "key": "ladder",
+          "value": "lantern"
+        },
+        {
+          "key": "yogurt",
+          "value": "school"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "yellow",
+      "distractor_value": "planet",
+      "source_focus_value": "school",
+      "control_value": "hammer",
+      "target_token_id": 13753,
+      "distractor_token_id": 11580,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orange: sugar\n- anchor: pepper\n- velvet: walnut\n- ladder: lantern\n- yogurt: school\nControl word: hammer\nNeutral marker: ready\nRequired word: yellow\nDistractor word: planet\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_005",
+      "source_id": "seed23_response_005",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "needle",
+          "value": "river"
+        },
+        {
+          "key": "letter",
+          "value": "violet"
+        },
+        {
+          "key": "quartz",
+          "value": "window"
+        },
+        {
+          "key": "pocket",
+          "value": "harbor"
+        },
+        {
+          "key": "cotton",
+          "value": "silver"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "pepper",
+      "distractor_value": "velvet",
+      "source_focus_value": "river",
+      "control_value": "button",
+      "target_token_id": 24353,
+      "distractor_token_id": 71326,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- needle: river\n- letter: violet\n- quartz: window\n- pocket: harbor\n- cotton: silver\nControl word: button\nNeutral marker: ready\nRequired word: pepper\nDistractor word: velvet\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_006",
+      "source_id": "seed23_response_006",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "ladder",
+          "value": "silver"
+        },
+        {
+          "key": "castle",
+          "value": "velvet"
+        },
+        {
+          "key": "anchor",
+          "value": "pencil"
+        },
+        {
+          "key": "letter",
+          "value": "sugar"
+        },
+        {
+          "key": "island",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "mirror",
+      "distractor_value": "violet",
+      "source_focus_value": "velvet",
+      "control_value": "jungle",
+      "target_token_id": 17846,
+      "distractor_token_id": 79736,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- ladder: silver\n- castle: velvet\n- anchor: pencil\n- letter: sugar\n- island: ribbon\nControl word: jungle\nNeutral marker: ready\nRequired word: mirror\nDistractor word: violet\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_007",
+      "source_id": "seed23_response_007",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "harbor"
+        },
+        {
+          "key": "helmet",
+          "value": "needle"
+        },
+        {
+          "key": "pepper",
+          "value": "ribbon"
+        },
+        {
+          "key": "glacier",
+          "value": "dragon"
+        },
+        {
+          "key": "hammer",
+          "value": "garden"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "island",
+      "distractor_value": "orange",
+      "source_focus_value": "ribbon",
+      "control_value": "thunder",
+      "target_token_id": 12922,
+      "distractor_token_id": 18575,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- valley: harbor\n- helmet: needle\n- pepper: ribbon\n- glacier: dragon\n- hammer: garden\nControl word: thunder\nNeutral marker: ready\nRequired word: island\nDistractor word: orange\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_008",
+      "source_id": "seed23_response_008",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "temple",
+          "value": "ticket"
+        },
+        {
+          "key": "dragon",
+          "value": "bridge"
+        },
+        {
+          "key": "lantern",
+          "value": "desert"
+        },
+        {
+          "key": "bottle",
+          "value": "saddle"
+        },
+        {
+          "key": "jacket",
+          "value": "ladder"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "pencil",
+      "distractor_value": "engine",
+      "source_focus_value": "saddle",
+      "control_value": "island",
+      "target_token_id": 46118,
+      "distractor_token_id": 4712,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- temple: ticket\n- dragon: bridge\n- lantern: desert\n- bottle: saddle\n- jacket: ladder\nControl word: island\nNeutral marker: ready\nRequired word: pencil\nDistractor word: engine\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_009",
+      "source_id": "seed23_response_009",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "yellow",
+          "value": "candle"
+        },
+        {
+          "key": "ticket",
+          "value": "marble"
+        },
+        {
+          "key": "glacier",
+          "value": "garden"
+        },
+        {
+          "key": "window",
+          "value": "engine"
+        },
+        {
+          "key": "jungle",
+          "value": "button"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "bottle",
+      "distractor_value": "saddle",
+      "source_focus_value": "button",
+      "control_value": "silver",
+      "target_token_id": 16486,
+      "distractor_token_id": 60758,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yellow: candle\n- ticket: marble\n- glacier: garden\n- window: engine\n- jungle: button\nControl word: silver\nNeutral marker: ready\nRequired word: bottle\nDistractor word: saddle\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_010",
+      "source_id": "seed23_response_010",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "fabric",
+          "value": "winter"
+        },
+        {
+          "key": "mirror",
+          "value": "camera"
+        },
+        {
+          "key": "candle",
+          "value": "magnet"
+        },
+        {
+          "key": "window",
+          "value": "ribbon"
+        },
+        {
+          "key": "forest",
+          "value": "sailor"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "hammer",
+      "distractor_value": "river",
+      "source_focus_value": "winter",
+      "control_value": "pocket",
+      "target_token_id": 23457,
+      "distractor_token_id": 14796,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- fabric: winter\n- mirror: camera\n- candle: magnet\n- window: ribbon\n- forest: sailor\nControl word: pocket\nNeutral marker: ready\nRequired word: hammer\nDistractor word: river\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_011",
+      "source_id": "seed23_response_011",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "marble",
+          "value": "jungle"
+        },
+        {
+          "key": "sailor",
+          "value": "ticket"
+        },
+        {
+          "key": "engine",
+          "value": "bottle"
+        },
+        {
+          "key": "river",
+          "value": "flame"
+        },
+        {
+          "key": "pencil",
+          "value": "quartz"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "anchor",
+      "distractor_value": "circle",
+      "source_focus_value": "ticket",
+      "control_value": "orange",
+      "target_token_id": 17105,
+      "distractor_token_id": 12671,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- marble: jungle\n- sailor: ticket\n- engine: bottle\n- river: flame\n- pencil: quartz\nControl word: orange\nNeutral marker: ready\nRequired word: anchor\nDistractor word: circle\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_012",
+      "source_id": "seed23_response_012",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "island",
+          "value": "forest"
+        },
+        {
+          "key": "jungle",
+          "value": "planet"
+        },
+        {
+          "key": "market",
+          "value": "ribbon"
+        },
+        {
+          "key": "velvet",
+          "value": "silver"
+        },
+        {
+          "key": "winter",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "sailor",
+      "distractor_value": "quartz",
+      "source_focus_value": "ribbon",
+      "control_value": "lantern",
+      "target_token_id": 92537,
+      "distractor_token_id": 51155,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- island: forest\n- jungle: planet\n- market: ribbon\n- velvet: silver\n- winter: hammer\nControl word: lantern\nNeutral marker: ready\nRequired word: sailor\nDistractor word: quartz\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_013",
+      "source_id": "seed23_response_013",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "saddle",
+          "value": "sugar"
+        },
+        {
+          "key": "island",
+          "value": "pencil"
+        },
+        {
+          "key": "river",
+          "value": "basket"
+        },
+        {
+          "key": "walnut",
+          "value": "orbit"
+        },
+        {
+          "key": "castle",
+          "value": "forest"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "fabric",
+      "distractor_value": "market",
+      "source_focus_value": "orbit",
+      "control_value": "harbor",
+      "target_token_id": 13055,
+      "distractor_token_id": 3081,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- saddle: sugar\n- island: pencil\n- river: basket\n- walnut: orbit\n- castle: forest\nControl word: harbor\nNeutral marker: ready\nRequired word: fabric\nDistractor word: market\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_014",
+      "source_id": "seed23_response_014",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "ticket",
+          "value": "quartz"
+        },
+        {
+          "key": "flame",
+          "value": "glacier"
+        },
+        {
+          "key": "magnet",
+          "value": "ribbon"
+        },
+        {
+          "key": "violet",
+          "value": "camera"
+        },
+        {
+          "key": "yellow",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "pencil",
+      "distractor_value": "copper",
+      "source_focus_value": "cotton",
+      "control_value": "hammer",
+      "target_token_id": 46118,
+      "distractor_token_id": 23285,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- ticket: quartz\n- flame: glacier\n- magnet: ribbon\n- violet: camera\n- yellow: cotton\nControl word: hammer\nNeutral marker: ready\nRequired word: pencil\nDistractor word: copper\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_015",
+      "source_id": "seed23_response_015",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "yellow",
+          "value": "engine"
+        },
+        {
+          "key": "fabric",
+          "value": "desert"
+        },
+        {
+          "key": "copper",
+          "value": "harbor"
+        },
+        {
+          "key": "bottle",
+          "value": "sugar"
+        },
+        {
+          "key": "tunnel",
+          "value": "river"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "flame",
+      "distractor_value": "basket",
+      "source_focus_value": "engine",
+      "control_value": "violet",
+      "target_token_id": 34578,
+      "distractor_token_id": 14024,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yellow: engine\n- fabric: desert\n- copper: harbor\n- bottle: sugar\n- tunnel: river\nControl word: violet\nNeutral marker: ready\nRequired word: flame\nDistractor word: basket\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_016",
+      "source_id": "seed23_response_016",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "marble",
+          "value": "needle"
+        },
+        {
+          "key": "planet",
+          "value": "desert"
+        },
+        {
+          "key": "orange",
+          "value": "bridge"
+        },
+        {
+          "key": "flame",
+          "value": "yellow"
+        },
+        {
+          "key": "lantern",
+          "value": "mirror"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "temple",
+      "distractor_value": "basket",
+      "source_focus_value": "desert",
+      "control_value": "garden",
+      "target_token_id": 26752,
+      "distractor_token_id": 14024,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- marble: needle\n- planet: desert\n- orange: bridge\n- flame: yellow\n- lantern: mirror\nControl word: garden\nNeutral marker: ready\nRequired word: temple\nDistractor word: basket\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_017",
+      "source_id": "seed23_response_017",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "island"
+        },
+        {
+          "key": "circle",
+          "value": "puzzle"
+        },
+        {
+          "key": "pepper",
+          "value": "magnet"
+        },
+        {
+          "key": "candle",
+          "value": "engine"
+        },
+        {
+          "key": "orange",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "hammer",
+      "distractor_value": "velvet",
+      "source_focus_value": "magnet",
+      "control_value": "jungle",
+      "target_token_id": 23457,
+      "distractor_token_id": 71326,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- valley: island\n- circle: puzzle\n- pepper: magnet\n- candle: engine\n- orange: cotton\nControl word: jungle\nNeutral marker: ready\nRequired word: hammer\nDistractor word: velvet\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_018",
+      "source_id": "seed23_response_018",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "letter",
+          "value": "forest"
+        },
+        {
+          "key": "window",
+          "value": "yellow"
+        },
+        {
+          "key": "needle",
+          "value": "market"
+        },
+        {
+          "key": "winter",
+          "value": "engine"
+        },
+        {
+          "key": "cotton",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "jungle",
+      "distractor_value": "thunder",
+      "source_focus_value": "engine",
+      "control_value": "marble",
+      "target_token_id": 44420,
+      "distractor_token_id": 36843,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- letter: forest\n- window: yellow\n- needle: market\n- winter: engine\n- cotton: temple\nControl word: marble\nNeutral marker: ready\nRequired word: jungle\nDistractor word: thunder\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_019",
+      "source_id": "seed23_response_019",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "hammer",
+          "value": "window"
+        },
+        {
+          "key": "forest",
+          "value": "saddle"
+        },
+        {
+          "key": "yellow",
+          "value": "yogurt"
+        },
+        {
+          "key": "mirror",
+          "value": "camera"
+        },
+        {
+          "key": "lantern",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "sailor",
+      "distractor_value": "island",
+      "source_focus_value": "ribbon",
+      "control_value": "puzzle",
+      "target_token_id": 92537,
+      "distractor_token_id": 12922,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- hammer: window\n- forest: saddle\n- yellow: yogurt\n- mirror: camera\n- lantern: ribbon\nControl word: puzzle\nNeutral marker: ready\nRequired word: sailor\nDistractor word: island\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_020",
+      "source_id": "seed23_response_020",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "helmet",
+          "value": "velvet"
+        },
+        {
+          "key": "desert",
+          "value": "bridge"
+        },
+        {
+          "key": "flame",
+          "value": "violet"
+        },
+        {
+          "key": "castle",
+          "value": "river"
+        },
+        {
+          "key": "cotton",
+          "value": "jacket"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "sugar",
+      "distractor_value": "sailor",
+      "source_focus_value": "velvet",
+      "control_value": "winter",
+      "target_token_id": 13163,
+      "distractor_token_id": 92537,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- helmet: velvet\n- desert: bridge\n- flame: violet\n- castle: river\n- cotton: jacket\nControl word: winter\nNeutral marker: ready\nRequired word: sugar\nDistractor word: sailor\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_021",
+      "source_id": "seed23_response_021",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "forest",
+          "value": "candle"
+        },
+        {
+          "key": "camera",
+          "value": "ticket"
+        },
+        {
+          "key": "yellow",
+          "value": "orange"
+        },
+        {
+          "key": "saddle",
+          "value": "temple"
+        },
+        {
+          "key": "castle",
+          "value": "copper"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "sailor",
+      "distractor_value": "sugar",
+      "source_focus_value": "ticket",
+      "control_value": "fabric",
+      "target_token_id": 92537,
+      "distractor_token_id": 13163,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- forest: candle\n- camera: ticket\n- yellow: orange\n- saddle: temple\n- castle: copper\nControl word: fabric\nNeutral marker: ready\nRequired word: sailor\nDistractor word: sugar\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_022",
+      "source_id": "seed23_response_022",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "circle",
+          "value": "orange"
+        },
+        {
+          "key": "flame",
+          "value": "temple"
+        },
+        {
+          "key": "engine",
+          "value": "ladder"
+        },
+        {
+          "key": "planet",
+          "value": "marble"
+        },
+        {
+          "key": "letter",
+          "value": "tunnel"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "ribbon",
+      "distractor_value": "candle",
+      "source_focus_value": "ladder",
+      "control_value": "garden",
+      "target_token_id": 44567,
+      "distractor_token_id": 37799,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- circle: orange\n- flame: temple\n- engine: ladder\n- planet: marble\n- letter: tunnel\nControl word: garden\nNeutral marker: ready\nRequired word: ribbon\nDistractor word: candle\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_023",
+      "source_id": "seed23_response_023",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "candle"
+        },
+        {
+          "key": "velvet",
+          "value": "glacier"
+        },
+        {
+          "key": "dragon",
+          "value": "walnut"
+        },
+        {
+          "key": "valley",
+          "value": "puzzle"
+        },
+        {
+          "key": "pocket",
+          "value": "pepper"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "magnet",
+      "distractor_value": "camera",
+      "source_focus_value": "puzzle",
+      "control_value": "ribbon",
+      "target_token_id": 32197,
+      "distractor_token_id": 6249,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- copper: candle\n- velvet: glacier\n- dragon: walnut\n- valley: puzzle\n- pocket: pepper\nControl word: ribbon\nNeutral marker: ready\nRequired word: magnet\nDistractor word: camera\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_024",
+      "source_id": "seed23_response_024",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "castle",
+          "value": "saddle"
+        },
+        {
+          "key": "mirror",
+          "value": "school"
+        },
+        {
+          "key": "ladder",
+          "value": "yellow"
+        },
+        {
+          "key": "marble",
+          "value": "thunder"
+        },
+        {
+          "key": "winter",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "bridge",
+      "distractor_value": "candle",
+      "source_focus_value": "walnut",
+      "control_value": "forest",
+      "target_token_id": 14164,
+      "distractor_token_id": 37799,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- castle: saddle\n- mirror: school\n- ladder: yellow\n- marble: thunder\n- winter: walnut\nControl word: forest\nNeutral marker: ready\nRequired word: bridge\nDistractor word: candle\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_025",
+      "source_id": "seed23_response_025",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "market",
+          "value": "forest"
+        },
+        {
+          "key": "walnut",
+          "value": "circle"
+        },
+        {
+          "key": "planet",
+          "value": "flame"
+        },
+        {
+          "key": "camera",
+          "value": "jungle"
+        },
+        {
+          "key": "mirror",
+          "value": "marble"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "candle",
+      "distractor_value": "pepper",
+      "source_focus_value": "forest",
+      "control_value": "window",
+      "target_token_id": 37799,
+      "distractor_token_id": 24353,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- market: forest\n- walnut: circle\n- planet: flame\n- camera: jungle\n- mirror: marble\nControl word: window\nNeutral marker: ready\nRequired word: candle\nDistractor word: pepper\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_026",
+      "source_id": "seed23_response_026",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "orbit"
+        },
+        {
+          "key": "castle",
+          "value": "camera"
+        },
+        {
+          "key": "engine",
+          "value": "fabric"
+        },
+        {
+          "key": "forest",
+          "value": "rocket"
+        },
+        {
+          "key": "ticket",
+          "value": "glacier"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "winter",
+      "distractor_value": "needle",
+      "source_focus_value": "camera",
+      "control_value": "basket",
+      "target_token_id": 12406,
+      "distractor_token_id": 30309,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bottle: orbit\n- castle: camera\n- engine: fabric\n- forest: rocket\n- ticket: glacier\nControl word: basket\nNeutral marker: ready\nRequired word: winter\nDistractor word: needle\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_027",
+      "source_id": "seed23_response_027",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "helmet",
+          "value": "forest"
+        },
+        {
+          "key": "engine",
+          "value": "orbit"
+        },
+        {
+          "key": "lantern",
+          "value": "school"
+        },
+        {
+          "key": "pencil",
+          "value": "flame"
+        },
+        {
+          "key": "orange",
+          "value": "saddle"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 2,
+      "target_value": "market",
+      "distractor_value": "glacier",
+      "source_focus_value": "school",
+      "control_value": "garden",
+      "target_token_id": 3081,
+      "distractor_token_id": 93767,
+      "positions": {
+        "source_value": 16,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- helmet: forest\n- engine: orbit\n- lantern: school\n- pencil: flame\n- orange: saddle\nControl word: garden\nNeutral marker: ready\nRequired word: market\nDistractor word: glacier\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_028",
+      "source_id": "seed23_response_028",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "ticket",
+          "value": "garden"
+        },
+        {
+          "key": "magnet",
+          "value": "basket"
+        },
+        {
+          "key": "orbit",
+          "value": "valley"
+        },
+        {
+          "key": "yellow",
+          "value": "thunder"
+        },
+        {
+          "key": "planet",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 3,
+      "target_value": "pencil",
+      "distractor_value": "engine",
+      "source_focus_value": "thunder",
+      "control_value": "dragon",
+      "target_token_id": 46118,
+      "distractor_token_id": 4712,
+      "positions": {
+        "source_value": 21,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- ticket: garden\n- magnet: basket\n- orbit: valley\n- yellow: thunder\n- planet: winter\nControl word: dragon\nNeutral marker: ready\nRequired word: pencil\nDistractor word: engine\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_029",
+      "source_id": "seed23_response_029",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "camera",
+          "value": "jacket"
+        },
+        {
+          "key": "cotton",
+          "value": "desert"
+        },
+        {
+          "key": "forest",
+          "value": "helmet"
+        },
+        {
+          "key": "pocket",
+          "value": "sailor"
+        },
+        {
+          "key": "needle",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 4,
+      "target_value": "velvet",
+      "distractor_value": "button",
+      "source_focus_value": "bottle",
+      "control_value": "ribbon",
+      "target_token_id": 71326,
+      "distractor_token_id": 3137,
+      "positions": {
+        "source_value": 26,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- camera: jacket\n- cotton: desert\n- forest: helmet\n- pocket: sailor\n- needle: bottle\nControl word: ribbon\nNeutral marker: ready\nRequired word: velvet\nDistractor word: button\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_030",
+      "source_id": "seed23_response_030",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "bridge",
+          "value": "school"
+        },
+        {
+          "key": "rocket",
+          "value": "ribbon"
+        },
+        {
+          "key": "basket",
+          "value": "sailor"
+        },
+        {
+          "key": "saddle",
+          "value": "yellow"
+        },
+        {
+          "key": "copper",
+          "value": "magnet"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 0,
+      "target_value": "valley",
+      "distractor_value": "camera",
+      "source_focus_value": "school",
+      "control_value": "harbor",
+      "target_token_id": 33581,
+      "distractor_token_id": 6249,
+      "positions": {
+        "source_value": 6,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bridge: school\n- rocket: ribbon\n- basket: sailor\n- saddle: yellow\n- copper: magnet\nControl word: harbor\nNeutral marker: ready\nRequired word: valley\nDistractor word: camera\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    },
+    {
+      "id": "mc005_v12_seed23_response_031",
+      "source_id": "seed23_response_031",
+      "scenario": "answer_absent_response_null",
+      "seed": 23,
+      "split": "marker_specificity_v12",
+      "mode": "answer_absent_null",
+      "marker": "response",
+      "marker_text": "Response",
+      "pairs": [
+        {
+          "key": "velvet",
+          "value": "button"
+        },
+        {
+          "key": "ribbon",
+          "value": "pencil"
+        },
+        {
+          "key": "planet",
+          "value": "window"
+        },
+        {
+          "key": "mirror",
+          "value": "dragon"
+        },
+        {
+          "key": "sailor",
+          "value": "fabric"
+        }
+      ],
+      "pair_count": 5,
+      "source_focus_pair_index": 1,
+      "target_value": "jungle",
+      "distractor_value": "ticket",
+      "source_focus_value": "pencil",
+      "control_value": "yogurt",
+      "target_token_id": 44420,
+      "distractor_token_id": 11727,
+      "positions": {
+        "source_value": 11,
+        "non_source_control_value": 31,
+        "earlier_neutral_colon": 35,
+        "final_label": 59,
+        "final_colon": 60
+      },
+      "arm_keys": [
+        "source_value",
+        "non_source_control_value",
+        "earlier_neutral_colon",
+        "final_label",
+        "final_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- velvet: button\n- ribbon: pencil\n- planet: window\n- mirror: dragon\n- sailor: fabric\nControl word: yogurt\nNeutral marker: ready\nRequired word: jungle\nDistractor word: ticket\nWrite the required word after the final marker.\nResponse:",
+      "token_length": 61
+    }
+  ]
+}

@@ -1,0 +1,2105 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-01",
+  "doctrine_ref": "research/20_CONTROL_SURFACE_ATLAS.md",
+  "purpose": "Machine-readable snapshot of the small-LLM control-surface atlas. Rows are family-level claims, not mechanism-card promotions.",
+  "controlled_vocab": {
+    "lead_time_states": [
+      "not_reached",
+      "zero_lead_time",
+      "lead_time_output_shadow",
+      "lead_time_monitor_only",
+      "lead_time_causal_dirty",
+      "lead_time_causal_clean",
+      "not_primary_axis"
+    ],
+    "intervention_states": [
+      "not_allowed",
+      "not_tested",
+      "behavior_control_only",
+      "monitor_only",
+      "causal_dirty",
+      "causal_clean",
+      "failed"
+    ],
+    "verdict_classes": [
+      "promoted_mechanism_card",
+      "bounded_mechanism_card",
+      "failed_mechanism_card",
+      "diagnostic_note"
+    ],
+    "diagnostic_types": [
+      "BEHAVIOR_SUBSTRATE_FAILED",
+      "OUTPUT_MARGIN_CONFUND",
+      "CANDIDATE_SCORE_CONFUND",
+      "PROMPT_FORMAT_CONFUND",
+      "REQUESTED_MODE_CONFUND",
+      "SHUFFLED_SELECTION_OVERFIT",
+      "SOURCE_DELETION_NOT_CIRCUIT",
+      "PROMPT_REWRITE_EQUIVALENCE",
+      "LOCALITY_FAILED",
+      "NULL_ROW_LOW_MARGIN_FLIP",
+      "MODEL_SIZE_NULL_FRAGILITY",
+      "SIGNATURE_NOT_CAUSAL",
+      "SIDE_EFFECT_FAILED",
+      "GLOBAL_OUTPUT_CONFOUNDED_LEADTIME",
+      "GLOBAL_MARGIN_SEPARATION_BLOCKS_MATCHING",
+      "MARGIN_OVERLAP_TABLE_FAILED",
+      "STRICT_FINAL_MARGIN_OVERLAP_ABSENT",
+      "APPROXIMATE_PAIR_MATCHING_FAILED_MARGIN_BASELINES",
+      "SOURCE_PATH_FINAL_MARGIN_SHADOW",
+      "GREEDY_FINAL_MARGIN_SIGN_BARRIER",
+      "DELAYED_INTERFACE_CANDIDATE_SCORE_VISIBLE",
+      "CANDIDATE_DECOUPLED_SHUFFLE_OVERFIT",
+      "LOCKED_COORDINATE_TRANSFER_FAILED",
+      "EXPANDED_CANDIDATE_DECOUPLED_BANK_INSUFFICIENT",
+      "TRANSFER_ROLE_REPAIR_BANK_INSUFFICIENT",
+      "DELAYED_CITY_ROUTE_CLOSED_MONITOR_ONLY",
+      "CONTRAST_ABSENT",
+      "PROMPT_AUTHORITY_DIAL",
+      "PROMPT_CONTRACT_PARSEABILITY",
+      "SOURCE_DECLARATION_CITY_MISMATCH",
+      "MC005_BOUNDED_ATTENTION_WRITE_MEDIATION",
+      "MC007_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE",
+      "SYMBOLIC_NULL_CONTROL_FAILED",
+      "SYMBOLIC_CONFLICT_PARSEABILITY_FAILED",
+      "SYMBOLIC_CONFLICT_CONTRAST_WEAK",
+      "MC008_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE",
+      "DERIVED_CODE_CONTROL_CONFLICT_TRADEOFF",
+      "DERIVED_CODE_TYPED_SLOT_PROMPT_VISIBLE",
+      "MC009_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE",
+      "TWO_HOP_SYNTHETIC_LOOKUP_FAILED",
+      "TWO_HOP_REAL_MEMORY_CONTROL_FAILED",
+      "TWO_HOP_CONFLICT_CONTRAST_ABSENT",
+      "MC010_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+      "NUMERIC_DIRECT_CONTROLS_PASSED",
+      "NUMERIC_CONFLICT_CONTRAST_ABSENT",
+      "MC011_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+      "RELIABILITY_BEHAVIOR_CONTRAST_PASSED",
+      "RELIABILITY_PROMPT_CHANNEL_VISIBLE",
+      "MC012_BEHAVIOR_READY_PROMPT_VISIBLE_BRIDGE",
+      "STATUS_CHANNEL_POSITIVE_CONTROL_REPRODUCED",
+      "STATUS_CHANNEL_ABLATION_COLLAPSED_CONTRAST",
+      "MC013_STATUS_ABLATION_FAILED_DIAGNOSTIC_BRIDGE",
+      "CALIBRATION_STATUS_LABEL_ABSENT",
+      "CALIBRATION_INFERENCE_CONFLICT_COLLAPSED",
+      "MC014_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+      "PARITY_GATE_LABELS_BALANCED",
+      "PARITY_GATE_NOT_FOLLOWED",
+      "MC015_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE",
+      "ALPHABET_GATE_LABELS_BALANCED",
+      "ALPHABET_GATE_LOCAL_COLLAPSE",
+      "FEATURE_LABEL_GATE_DID_NOT_RESCUE",
+      "MC016_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+    ],
+    "mixture_values": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "dominant",
+      "behavior_only",
+      "bounded",
+      "failed",
+      "untested"
+    ]
+  },
+  "rows": [
+    {
+      "id": "mc001_qwen3_0p6b_truth_agreement",
+      "family": "MC001 Qwen3-0.6B truth/agreement",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "behavior_contract": "Objective multiple-choice truth-following versus wrong-hint user agreement under controlled prompt conditions.",
+      "behavior_gate": "passed_control_substrate",
+      "current_best_signal": "Raw h14 final-token truth-minus-agreement direction and broad hint-source dependence.",
+      "lead_time": {
+        "state": "zero_lead_time",
+        "summary": "No clean early mechanism signal survived; output margin and prompt/source-removal controls dominate the usable explanation."
+      },
+      "intervention": {
+        "state": "behavior_control_only",
+        "summary": "Raw h14 steering, prompt-prefill steering, and coarse hint-source removal move behavior, but dense/local mechanism routes fail controls."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "medium",
+        "source_token_dependence": "high",
+        "output_geometry": "dominant",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "low",
+        "causal_control": "behavior_only",
+        "null_locality": "bounded",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SOURCE_DELETION_NOT_CIRCUIT",
+        "PROMPT_REWRITE_EQUIVALENCE",
+        "LOCALITY_FAILED"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Failed mechanism / diagnostic control surface"
+      },
+      "allowed_claims": [
+        "Qwen3-0.6B wrong-hint agreement has behavior-control levers under this multiple-choice contract.",
+        "The strongest apparent levers are output-visible, source-token, or broad transport surfaces rather than a compact hidden mechanism."
+      ],
+      "forbidden_claims": [
+        "The h14 direction is a truth vector.",
+        "The hint-source effect is localized to a compact attention head, layer, or query path."
+      ],
+      "evidence": [
+        "research/cards/MC001_QWEN3_0P6B_DIAGNOSTIC_CONTROL_SURFACE.md",
+        "research/reviews/MC001_QWEN3_0P6B_IMPLEMENTATION_CLOSEOUT_REVIEW.md",
+        "results/cards/MC001/mc001_qwen3_0p6b_controlled_v3_20260629T205927.json",
+        "results/cards/MC001/mc001_qwen3_0p6b_controlled_v12_input_mask_semantics_20260629T235517.json",
+        "results/cards/MC001/mc001_qwen3_0p6b_controlled_v13_layout_parity_20260630T000706.json"
+      ],
+      "next_decision": "Closed as a broad 0.6B mechanism search; use as a diagnostic baseline for future families."
+    },
+    {
+      "id": "mc001b_qwen3_1p7b_truth_agreement",
+      "family": "MC001B Qwen3-1.7B truth/agreement",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Escalated wrong-hint truth/agreement control surface on a larger Qwen stack.",
+      "behavior_gate": "passed_control_substrate",
+      "current_best_signal": "Raw h21 steering improves truth-following, but residualized and margin-clean routes fail.",
+      "lead_time": {
+        "state": "lead_time_output_shadow",
+        "summary": "Useful dense signal tracks behavior but does not separate cleanly from output geometry."
+      },
+      "intervention": {
+        "state": "behavior_control_only",
+        "summary": "Raw dense steering works as behavior control; residualized mechanism rescue failed."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "medium",
+        "source_token_dependence": "medium",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "low",
+        "local_internal_path": "low",
+        "causal_control": "behavior_only",
+        "null_locality": "bounded",
+        "transfer": "low"
+      },
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SIGNATURE_NOT_CAUSAL"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Behavior control, mechanism blocked"
+      },
+      "allowed_claims": [
+        "The larger Qwen stack preserves behavior-control behavior on this family.",
+        "Residualized/margin-clean evidence does not support a mechanism-card claim."
+      ],
+      "forbidden_claims": [
+        "Qwen3-1.7B resolves the MC001 truth-vector problem.",
+        "Raw dense steering is mechanism control."
+      ],
+      "evidence": [
+        "research/cards/MC001B_QWEN3_1P7B_CONTROLLED_STATUS.md",
+        "research/cards/MC001B_QWEN3_1P7B_RESIDUALIZED_STATUS.md",
+        "results/cards/MC001B/mc001b_qwen3_1p7b_controlled_20260630T112935.json",
+        "results/cards/MC001B/mc001b_qwen3_1p7b_controlled_v3_20260630T114242.json"
+      ],
+      "next_decision": "Use as a scale comparison row, not as an active mechanism route."
+    },
+    {
+      "id": "mc001g_gemma_truth_agreement",
+      "family": "MC001G Gemma truth/agreement",
+      "models": [
+        "google/gemma-2-2b",
+        "google/gemma-2-2b-it"
+      ],
+      "behavior_contract": "Truth/agreement substrate repairs across logit, pairwise, generated, sparse, and intervention interfaces.",
+      "behavior_gate": "partially_repaired",
+      "current_best_signal": "Dense signals exist, but matched generated/pairwise repairs and sparse features fail promotion.",
+      "lead_time": {
+        "state": "lead_time_output_shadow",
+        "summary": "Interface and answer-letter/order effects dominate before a clean internal lead-time claim can be promoted."
+      },
+      "intervention": {
+        "state": "failed",
+        "summary": "Matched dense intervention and donor replacement failed controls."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "high",
+        "source_token_dependence": "medium",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "low",
+        "local_internal_path": "low",
+        "causal_control": "failed",
+        "null_locality": "bounded",
+        "transfer": "medium"
+      },
+      "diagnostics": [
+        "PROMPT_FORMAT_CONFUND",
+        "OUTPUT_MARGIN_CONFUND",
+        "SHUFFLED_SELECTION_OVERFIT",
+        "SIGNATURE_NOT_CAUSAL"
+      ],
+      "verdict": {
+        "class": "failed_mechanism_card",
+        "label": "Repaired-substrate / failed-intervention / sparse-promotion-failed"
+      },
+      "allowed_claims": [
+        "Gemma truth/agreement work is valuable as a behavior-interface and confound map.",
+        "Sparse and dense routes have not passed mechanism promotion."
+      ],
+      "forbidden_claims": [
+        "Gemma sparse features are promoted mechanism controls for this behavior.",
+        "Generated-answer repair solved the interface confound."
+      ],
+      "evidence": [
+        "research/cards/MC001G_GEMMA2_2B_GENERATED_TEXT_V2_STATUS.md",
+        "research/cards/MC001G_GEMMA2_2B_PAIRWISE_TEXT_STATUS.md",
+        "research/cards/MC001G_GEMMA2_2B_SPARSE_DISCOVERY_STATUS.md",
+        "research/cards/MC001G_GEMMA2_2B_INTERVENTION_STATUS.md",
+        "results/cards/MC001G/mc001g_gemma2_2b_generated_text_v2_smoke_gemma_generated_text_v2_20260630T144631.json",
+        "results/cards/MC001G/mc001g_gemma2_2b_pairwise_text_logit_raw_gemma_pairwise_text_20260630T135443.json",
+        "results/cards/MC001G/mc001g_gemma2_2b_repair_gemma_scope_sparse_discovery_20260630T125743.json",
+        "results/cards/MC001G/mc001g_gemma2_2b_repair_matched_layer14_intervention_20260630T123128.json"
+      ],
+      "next_decision": "Treat as a transfer/confound row unless a new prompt contract is preregistered."
+    },
+    {
+      "id": "mc002_known_unknown",
+      "family": "MC002 known/unknown",
+      "models": [
+        "Qwen/Qwen3-0.6B",
+        "google/gemma-2-2b-it"
+      ],
+      "behavior_contract": "Known country answer versus unsupported nonce abstention or hallucination.",
+      "behavior_gate": "failed",
+      "current_best_signal": "No stable behavior substrate.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work is blocked because labels do not yet define a reliable behavior."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention should be run until the behavior table passes."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "high",
+        "source_token_dependence": "untested",
+        "output_geometry": "untested",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "none",
+        "causal_control": "untested",
+        "null_locality": "untested",
+        "transfer": "low"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Behavior-gated diagnostic"
+      },
+      "allowed_claims": [
+        "The known/unknown family is currently a behavior-substrate failure, not an interpretability substrate."
+      ],
+      "forbidden_claims": [
+        "Known/unknown hallucination has an intervention-ready hidden signature in this repo."
+      ],
+      "evidence": [
+        "research/cards/MC002_KNOWN_UNKNOWN_HALLUCINATION_STATUS.md",
+        "research/cards/MC002_KNOWN_UNKNOWN_ANSWER_SCORING_STATUS.md",
+        "research/cards/MC002_KNOWN_UNKNOWN_GEMMA2_2B_IT_CHAT_STATUS.md",
+        "research/cards/MC002_PRESSURE_CALIBRATION_STATUS.md",
+        "results/cards/MC002/mc002_gemma2_2b_known_unknown_smoke_raw_20260630T150312.json",
+        "results/cards/MC002/mc002_gemma2_2b_known_unknown_scoring_score_raw_20260630T151556.json",
+        "results/cards/MC002/mc002_gemma2_2b_it_known_unknown_chat_smoke_chat_20260630T152146.json",
+        "results/cards/MC002/mc002_gemma2_2b_it_pressure_calibration_calibration_chat_20260630T153139.json"
+      ],
+      "next_decision": "Only revisit after a clean generated-answer behavior contract is designed."
+    },
+    {
+      "id": "mc002b_context_support",
+      "family": "MC002B context support",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "behavior_contract": "Supported note versus unsupported near-neighbor under lure/check pressure.",
+      "behavior_gate": "failed",
+      "current_best_signal": "Clean supported/unsupported baseline improved, but pressure contrast collapsed.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked at the behavior gate."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid without the pressure behavior contrast."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "untested",
+        "output_geometry": "untested",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "none",
+        "causal_control": "untested",
+        "null_locality": "untested",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Behavior-gated diagnostic"
+      },
+      "allowed_claims": [
+        "The support/unsupported contrast remains an interface-design problem."
+      ],
+      "forbidden_claims": [
+        "This family is ready for hidden-state probing."
+      ],
+      "evidence": [
+        "research/cards/MC002B_CONTEXT_SUPPORT_STATUS.md",
+        "results/cards/MC002B/mc002b_gemma2_2b_it_context_support_smoke_chat_20260630T154313.json"
+      ],
+      "next_decision": "Redesign pressure prompts before any signature search."
+    },
+    {
+      "id": "mc003_delayed_copy",
+      "family": "MC003 delayed copy",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "behavior_contract": "Arbitrary delayed-copy code word under wrong-hint pressure.",
+      "behavior_gate": "passed_then_rebalanced",
+      "current_best_signal": "V2 behavior passed; early after-wait-newline signal appeared, then failed shuffle/trace controls and V3 holdout.",
+      "lead_time": {
+        "state": "lead_time_output_shadow",
+        "summary": "Early signal was promising but collapsed under shuffled-selection and condition-trace controls."
+      },
+      "intervention": {
+        "state": "not_tested",
+        "summary": "No intervention is supported because the signature gate failed."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "high",
+        "source_token_dependence": "medium",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "low",
+        "local_internal_path": "none",
+        "causal_control": "untested",
+        "null_locality": "untested",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SHUFFLED_SELECTION_OVERFIT",
+        "PROMPT_FORMAT_CONFUND"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Behavior-supported, signature failed"
+      },
+      "allowed_claims": [
+        "Delayed copy has produced a useful lead-time failure mode.",
+        "Condition balancing can erase a tempting hidden signal."
+      ],
+      "forbidden_claims": [
+        "The early delayed-copy signature is causal.",
+        "The V2 hidden signal survives robust selection controls."
+      ],
+      "evidence": [
+        "research/cards/MC003_DELAYED_COPY_STATUS.md",
+        "research/cards/MC003_DELAYED_COPY_EARLY_SIGNATURE_STATUS.md",
+        "research/cards/MC003_DELAYED_COPY_V3_SIGNATURE_STATUS.md",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v2_smoke_chat_20260630T155437.json",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v2_early_signature_chat_20260630T160612.json",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v3_condition_balanced_signature_chat_20260630T162002.json"
+      ],
+      "next_decision": "Use as a lead-time confound case unless a new balanced behavior table is built."
+    },
+    {
+      "id": "mc004_in_context_binding",
+      "family": "MC004 in-context binding",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "behavior_contract": "Original note versus later update conflict for nonce in-context binding.",
+      "behavior_gate": "passed_v2",
+      "current_best_signal": "Pre-update after-question signal appeared but failed shuffled/subgroup controls.",
+      "lead_time": {
+        "state": "lead_time_monitor_only",
+        "summary": "This is one of the clearest pre-decision-frontier near misses, but robustness controls block promotion."
+      },
+      "intervention": {
+        "state": "not_tested",
+        "summary": "No intervention is supported because the lead-time signature did not survive reliability controls."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "medium",
+        "source_token_dependence": "medium",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "medium",
+        "local_internal_path": "low",
+        "causal_control": "untested",
+        "null_locality": "untested",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SHUFFLED_SELECTION_OVERFIT"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Behavior-supported, lead-time diagnostic failed promotion"
+      },
+      "allowed_claims": [
+        "In-context binding is a valuable lead-time testbed.",
+        "The current early signal is diagnostic, not mechanism-grade."
+      ],
+      "forbidden_claims": [
+        "The pre-update signal is a robust causal binding surface."
+      ],
+      "evidence": [
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_STATUS.md",
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_SIGNATURE_STATUS.md",
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_LEADTIME_STATUS.md",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_smoke_chat_20260630T163531.json",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_signature_chat_20260630T163803.json",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_leadtime_chat_20260630T164607.json"
+      ],
+      "next_decision": "Return only with subgroup/source-disjoint lead-time controls precommitted."
+    },
+    {
+      "id": "mc005_associative_lookup",
+      "family": "MC005 synthetic associative lookup",
+      "models": [
+        "Qwen/Qwen3-1.7B",
+        "Qwen/Qwen3-0.6B"
+      ],
+      "behavior_contract": "In-prompt key/value lookup with a Response: marker and answer-absent null rows.",
+      "behavior_gate": "passed",
+      "current_best_signal": "Source-value path through final-query attention writes in layers 24-26. V29 exactly reproduced the direct target source-mask lookup effect with final-query attention-write replacement; V30-V31 mapped the rare answer-absent null boundary. The route is now frozen as a bounded mechanism card.",
+      "lead_time": {
+        "state": "not_primary_axis",
+        "summary": "The central surface is source-path mediation rather than pre-output temporal lead-time."
+      },
+      "intervention": {
+        "state": "causal_dirty",
+        "summary": "Target source masking and layers-24-26 write replacement reproduce lookup effects, but strict answer-absent null locality fails on rare low-to-moderate-margin rows."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "medium",
+        "source_token_dependence": "dominant",
+        "output_geometry": "medium",
+        "lead_time_internal_signal": "low",
+        "local_internal_path": "high",
+        "causal_control": "bounded",
+        "null_locality": "bounded",
+        "transfer": "medium"
+      },
+      "diagnostics": [
+        "MC005_BOUNDED_ATTENTION_WRITE_MEDIATION",
+        "NULL_ROW_LOW_MARGIN_FLIP",
+        "MODEL_SIZE_NULL_FRAGILITY",
+        "SIGNATURE_NOT_CAUSAL"
+      ],
+      "verdict": {
+        "class": "bounded_mechanism_card",
+        "label": "Frozen bounded attention-write mediation card"
+      },
+      "allowed_claims": [
+        "MC005 is a frozen bounded mechanism card for Qwen3-1.7B associative lookup under the tested Response: contract.",
+        "Layers-24-26 final-query attention-write replacement is a real lookup mediation surface on high-margin lookup rows.",
+        "The intervention boundary includes rare answer-absent low-to-moderate-margin null flips.",
+        "Future MC005 work must be a materially different intervention, a matched transfer panel, or a comparative baseline rather than ordinary repair of the same route."
+      ],
+      "forbidden_claims": [
+        "MC005 is a fully promoted mechanism card.",
+        "MC005 should keep being repaired as if full promotion is one small tweak away.",
+        "The write-replacement null problem is fully explained by an absolute 0.5 margin cutoff.",
+        "The source-value surface transfers cleanly to smaller models without null fragility."
+      ],
+      "evidence": [
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V29_ATTENTION_WRITE_REPLACEMENT_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V30_WRITE_NULL_SWEEP_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V31_MARGIN_BOUNDARY_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_BOUNDED_MECHANISM_CLOSEOUT_STATUS.md",
+        "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v31_margin_boundary_20260630T220916.json"
+      ],
+      "next_decision": "Frozen as a bounded mechanism card. Do not continue ordinary repairs of this exact write-replacement route. Future MC005 work must be a materially different intervention with a preregistered null-locality rationale, a matched transfer panel with null reliability as a first-class gate, or a comparative baseline for a new bridge family."
+    },
+    {
+      "id": "mc006_parametric_fact_override",
+      "family": "MC006 capital-fact override",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Real capital answer versus fictional/task-local overwrite under a matched generated-answer contract.",
+      "behavior_gate": "passed_v14",
+      "current_best_signal": "V16 after_mapping_line/layer_4 pre-output direction with perfect holdout AUC, beating same-position output controls. V18 reproduced it but showed the V14 holdout has no margin overlap; V19 improved behavior balance but still failed strict overlap; V20 showed strict final-margin overlap is absent even in the pooled V19 bank; V21 showed approximate pair matching still leaves candidate/final margin baselines perfect on holdout. V22 mapped source/path and line-boundary monitors, but they remain final-margin-shadowed. V23 diagnosed the greedy final-margin sign barrier. V24 delayed JSON city generation broke the first-token barrier but remained JSON-candidate-score visible on the selected template. V25 found a candidate-score-decoupled delayed-city template, but hidden selection failed shuffled-label nulls. V26 locked the V25 coordinate and failed transfer to the only other candidate-decoupled delayed-city template. V27 expanded the bank and found enough source-side candidate-decoupled volume, but transfer-role coverage was insufficient. V28 directly repaired transfer-role prompts and found one clean transfer template, but not a behavior bank. The V14-V28 delayed-city route is now closed as monitor-only.",
+      "lead_time": {
+        "state": "lead_time_monitor_only",
+        "summary": "The family has real pre-output and source/path monitoring signals, but promotion remains blocked: simple additive steering failed, V18 found no global-margin overlap on V14, V19 near-missed strict overlap, V20 closed strict-overlap selection inside the V19 bank, V21 showed approximate 0.5z pair matching is too weak to neutralize margin baselines, V22 showed source/path monitors remain final-margin-shadowed, V23 showed final next-token margin sign is the greedy binary label boundary, V24 showed delayed city generation can still remain full-completion-candidate-score visible, V25 showed candidate-score decoupling can still fail shuffled-label selected-search nulls, V26 showed the V25 locked coordinate does not transfer across candidate-decoupled templates, V27 showed source-role candidate decoupling is easier than transfer-role coverage, V28 showed transfer-role decoupling is possible but not bank-stable, and the route is now formally monitor-only."
+      },
+      "intervention": {
+        "state": "failed",
+        "summary": "V17 additive steering on the V16 direction produced zero predicted-direction holdout label changes and did not beat controls."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "medium",
+        "source_token_dependence": "medium",
+        "output_geometry": "dominant",
+        "lead_time_internal_signal": "high",
+        "local_internal_path": "low",
+        "causal_control": "failed",
+        "null_locality": "bounded",
+        "transfer": "failed"
+      },
+      "diagnostics": [
+        "CANDIDATE_SCORE_CONFUND",
+        "OUTPUT_MARGIN_CONFUND",
+        "GLOBAL_OUTPUT_CONFOUNDED_LEADTIME",
+        "GLOBAL_MARGIN_SEPARATION_BLOCKS_MATCHING",
+        "MARGIN_OVERLAP_TABLE_FAILED",
+        "STRICT_FINAL_MARGIN_OVERLAP_ABSENT",
+        "APPROXIMATE_PAIR_MATCHING_FAILED_MARGIN_BASELINES",
+        "SOURCE_PATH_FINAL_MARGIN_SHADOW",
+        "GREEDY_FINAL_MARGIN_SIGN_BARRIER",
+        "DELAYED_INTERFACE_CANDIDATE_SCORE_VISIBLE",
+        "CANDIDATE_DECOUPLED_SHUFFLE_OVERFIT",
+        "LOCKED_COORDINATE_TRANSFER_FAILED",
+        "EXPANDED_CANDIDATE_DECOUPLED_BANK_INSUFFICIENT",
+        "TRANSFER_ROLE_REPAIR_BANK_INSUFFICIENT",
+        "DELAYED_CITY_ROUTE_CLOSED_MONITOR_ONLY",
+        "SIGNATURE_NOT_CAUSAL"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Knowledge-like behavior supported; intervention blocked"
+      },
+      "allowed_claims": [
+        "V14 supplies a matched generated-answer MC006 behavior substrate.",
+        "V16 supplies a lead-time monitoring signal before the same-position output margin fully catches up.",
+        "V17 kills simple additive residual steering from that V16 direction.",
+        "V18 shows the current V14 table is globally margin-separated on holdout, so margin-matched promotion is blocked by row geometry.",
+        "V19 shows a broader prompt bank can produce a balanced 35/40 binary table with 4/4 holdout labels, but strict candidate/final margin overlap still fails.",
+        "V20 shows no strict final-output overlap exists even in the pooled V19 binary bank.",
+        "V21 shows the bounded approximate pair-matched diagnostic is still explained by margin baselines: candidate-score and final-output margins reached 1.000 holdout pair accuracy while the selected hidden direction fell to 0.286.",
+        "V22 shows source/path and later pre-output lead-time monitors exist, but final candidate-score and final-output margins still perfectly order holdout pairs.",
+        "V23 shows strict final-output margin overlap is malformed as a default gate for the current greedy generated-answer interface because final margin sign predicts binary labels.",
+        "V24 shows delayed JSON city generation breaks the first-token city-margin sign barrier, but JSON-completion candidate-score holdout AUC still reaches 1.000 and beats the selected hidden monitor.",
+        "V25 shows the V24 bank contains a candidate-score-decoupled delayed-city template, but the selected hidden monitor still fails shuffled-label selected-search nulls.",
+        "V26 shows the V25 locked coordinate reproduces weakly on its source template but fails transfer to the other candidate-decoupled delayed-city template.",
+        "V27 shows an expanded delayed-city bank can find four candidate-decoupled templates, 138 pooled binary rows, and balanced pooled holdout labels at 14 true / 14 override, but only one transfer-role template passed.",
+        "V28 shows direct transfer-role repair can find one clean transfer template, transfer_sandbox_mapping_then_geo, with 35 binary rows, 4/4 holdout labels, and JSON candidate-score holdout AUC 0.1875, but not a repair bank.",
+        "The delayed-city MC006 route is closed as monitor-only after V14-V28 blocked the ordinary promotion routes."
+      ],
+      "forbidden_claims": [
+        "MC006 has a promoted knowledge mechanism.",
+        "The V16 direction is a simple additive control vector.",
+        "Perfect final-token hidden AUC is meaningful after candidate-score and final-output controls match it.",
+        "The current V14 row set can adjudicate margin-matched MC006 causality.",
+        "The V19 selected prompt bank is ready for hidden-state probing or intervention.",
+        "Matched-template or per-source selection can rescue strict overlap inside the existing V19 bank.",
+        "Approximate V19/V20 pair matching neutralizes candidate-score or final-output baselines.",
+        "Source/path probing inside the current MC006 bank neutralizes final candidate-score or final-output baselines.",
+        "More prompt variants under the same greedy binary first-token interface are likely to rescue strict final-margin overlap.",
+        "V23 means final-output controls can be ignored.",
+        "V24 means delayed answer wrappers remove output/candidate visibility from MC006.",
+        "V25 promotes a hidden MC006 signature or supports intervention.",
+        "Candidate-score decoupling alone is sufficient for MC006 mechanism promotion.",
+        "The V25 after_mapping_line/layer_10 monitor is a reliable knowledge-control surface.",
+        "The V25 coordinate transfers across candidate-decoupled delayed-city templates.",
+        "V27 supports hidden-state probing or intervention.",
+        "The V27 expanded bank is transfer-ready.",
+        "V28 supports hidden-state probing or intervention.",
+        "One transfer-ready template repairs the MC006 source/transfer behavior bank.",
+        "Ordinary delayed-city transfer-template repair remains a live mechanism-promotion route."
+      ],
+      "evidence": [
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V14_PARSER_NORMALIZED_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V16_PRE_OUTPUT_POSITION_SIGNATURE_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V17_PRE_OUTPUT_STEERING_STRESS_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V18_MARGIN_MATCHED_LEADTIME_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V19_OVERLAPPING_MARGIN_TABLE_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V20_STRICT_OVERLAP_SELECTION_AUDIT_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V21_PAIR_MATCHED_LEADTIME_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V22_SOURCE_PATH_LEADTIME_CURVE_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V23_FINAL_MARGIN_SIGN_BARRIER_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V24_DELAYED_CITY_INTERFACE_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V25_CANDIDATE_DECOUPLED_TEMPLATE_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V26_LOCKED_COORDINATE_TRANSFER_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V27_EXPANDED_CANDIDATE_DECOUPLED_BANK_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_V28_TRANSFER_ROLE_REPAIR_BANK_STATUS.md",
+        "research/cards/MC006_PARAMETRIC_FACT_OVERRIDE_DELAYED_CITY_CLOSEOUT_STATUS.md",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v14_parser_normalized_20260701T000538.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v16_pre_output_position_signature_20260701T002113.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v17_pre_output_steering_stress_20260701T003620.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v18_margin_matched_leadtime_20260701T022343.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v19_overlapping_margin_table_20260701T023921.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v20_strict_overlap_selection_audit_20260701T025043.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v21_pair_matched_leadtime_20260701T030507.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v22_source_path_leadtime_curve_20260701T032420.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v23_final_margin_sign_barrier_20260701T033829.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v24_delayed_city_interface_20260701T040731.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v25_candidate_decoupled_template_20260701T041843.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v26_locked_coordinate_transfer_20260701T043334.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v27_expanded_candidate_decoupled_bank_20260701T045409.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v28_transfer_role_repair_bank_20260701T051821.json"
+      ],
+      "next_decision": "Do not continue approximate pair matching, source/path final-margin rescue, same-interface strict final-overlap row generation, delayed-city first-token repair, flexible hidden selection on the small V25 candidate-decoupled table, locked-coordinate transfer from the V25 coordinate, source-side-only expanded bank construction, or ordinary transfer-role repair under the current delayed-city prompt family as a promotion route. The delayed-city route is closed as monitor-only; future MC006 work must be a materially different known-confounded causal stress test or a materially different behavior family."
+    },
+    {
+      "id": "mc007_semi_synthetic_familiar_entity_lookup",
+      "family": "MC007 semi-synthetic familiar-entity lookup",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Familiar country names and synthetic keys mapped to artificial prompt-local task cities, with answer-absent null rows.",
+      "behavior_gate": "v1_source_value_passed_v2_authority_dial_contrast_v3_parse_repair_failed_v4_authority_interface_control_failed",
+      "current_best_signal": "V2 numeric authority dial created the best prior-pressure contrast. V3 answer-slot/target-note parse repair failed. V4 authority-source fields created structure but failed controls and source-city consistency. The V1-V4 route is now closed as a diagnostic bridge, not a mechanism-promotion route.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked and the current route is closed: V1 lacked contrast, V2 created contrast only in a parse-fragile behavior table, V3 showed answer-slot strictness does not repair the target-note conflict panel, and V4 showed explicit source labels do not stay coupled to city answers or controls."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid until MC007 produces a parseable, balanced, source-disjoint artificial-versus-real contrast table."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "CONTRAST_ABSENT",
+        "PROMPT_AUTHORITY_DIAL",
+        "PROMPT_CONTRACT_PARSEABILITY",
+        "SOURCE_DECLARATION_CITY_MISMATCH",
+        "MC007_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "First bridge route closed as diagnostic; new bridge family required"
+      },
+      "allowed_claims": [
+        "Under the selected terse lookup contract, familiar country names can behave as prompt-local lookup keys for artificial values.",
+        "The MC007 V1 bridge table is closer to source-value lookup behavior than factual override behavior at the generated-answer surface.",
+        "MC007 V2 shows that explicit real-world question pressure can move generated labels and candidate margins toward real-prior/lure answers without true-capital prompt leaks.",
+        "MC007 V2 is a prompt-authority and parseability diagnostic, not a signature substrate.",
+        "MC007 V3 shows that stricter answer-slot prompting and target-only/compact task notes do not by themselves produce a parseable, balanced familiar-entity conflict substrate.",
+        "MC007 V4 shows that explicit source declarations are not reliable substitutes for city-answer behavior because source labels, city fields, and control panels decouple.",
+        "The current MC007 V1-V4 route is closed as a diagnostic bridge; future bridge work needs a materially different behavior family or prompt contract."
+      ],
+      "forbidden_claims": [
+        "MC007 V1 is a mechanism-card candidate.",
+        "MC007 V1 is ready for hidden-state probing.",
+        "MC007 V1 proves a general knowledge-control surface.",
+        "MC007 V2 is ready for hidden-state probing.",
+        "The MC007 V2 authority dial proves causal control over factual recall.",
+        "MC007 V3 is ready for hidden-state probing.",
+        "Stricter answer-slot prompting solves the MC007 behavior substrate.",
+        "MC007 V4 is ready for hidden-state probing.",
+        "The V4 source label is a valid proxy for generated city behavior.",
+        "Another ordinary MC007 prompt-only repair remains a live mechanism-promotion route."
+      ],
+      "evidence": [
+        "research/prereg/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP.md",
+        "research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_STATUS.md",
+        "research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V2_AUTHORITY_DIAL_STATUS.md",
+        "research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V3_PARSE_REPAIR_STATUS.md",
+        "research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_V4_AUTHORITY_INTERFACE_STATUS.md",
+        "research/cards/MC007_SEMI_SYNTHETIC_FAMILIAR_ENTITY_LOOKUP_ROUTE_CLOSEOUT_STATUS.md",
+        "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_behavior_20260701T010554.json",
+        "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v2_authority_dial_20260701T012155.json",
+        "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v3_parse_repair_20260701T013926.json",
+        "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v4_authority_interface_20260701T020837.json"
+      ],
+      "next_decision": "Do not probe V3 or V4, and do not continue ordinary prompt-only repairs inside the current MC007 route. Use V1 as the source-value baseline and V2 as the prior-pressure baseline; the next bridge attempt must be a materially different behavior family or prompt contract."
+    },
+    {
+      "id": "mc008_symbolic_fact_code_arbitration",
+      "family": "MC008 symbolic fact-code arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Chemical element names mapped either to prompt-local artificial symbol-like task codes or to learned real-world chemical symbols, with generated one/two-letter code answers and answer-absent null rows.",
+      "behavior_gate": "v1_direct_controls_passed_null_failed_v2_null_repaired_conflict_contrast_absent_route_closed",
+      "current_best_signal": "V1 selected symbol_field and repaired direct controls but failed null reliability and conflict balance. V2 selected membership_authority_split, repaired null reliability, preserved synthetic lookup and real-symbol recall, and still failed because primary conflict rows remained overwhelmingly artificial-code outputs.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked and the first symbolic route is closed: V1 failed null reliability and conflict balance; V2 repaired nulls but did not produce source-disjoint artificial-versus-real conflict balance."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC008 V1-V2. The route never produced a hidden-state-ready artificial-versus-real behavior table."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "untested",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "failed",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "SYMBOLIC_NULL_CONTROL_FAILED",
+        "SYMBOLIC_CONFLICT_CONTRAST_WEAK",
+        "SYMBOLIC_CONFLICT_PARSEABILITY_FAILED",
+        "MC008_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE",
+        "PROMPT_AUTHORITY_DIAL",
+        "PROMPT_CONTRACT_PARSEABILITY",
+        "BEHAVIOR_SUBSTRATE_FAILED"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "First symbolic bridge route closed as diagnostic; compact codes repair controls but not conflict balance"
+      },
+      "allowed_claims": [
+        "MC008 V1-V2 produced structurally clean symbolic-code behavior runs with no true-symbol prompt leaks and source-disjoint splits.",
+        "Compact symbolic generated answers can make synthetic task-code lookup and real-world chemical-symbol recall clean on Qwen3-1.7B.",
+        "The V2 table-membership repair fixed answer-absent null reliability: 40/40 null rows were UNKNOWN.",
+        "The first symbolic route still failed because primary conflict rows remained table-dominant: V2 had 220 artificial-code rows, 2 real-symbol rows, and 0 lure-symbol rows across 240 primary conflict rows."
+      ],
+      "forbidden_claims": [
+        "MC008 is ready for hidden-state probing.",
+        "MC008 found a symbolic knowledge-control surface.",
+        "MC008 supports intervention or steering.",
+        "Compact symbolic outputs solved the bridge between synthetic lookup and factual memory.",
+        "The authority dial is causal control over learned chemical-symbol memory.",
+        "Another ordinary prompt-only MC008 repair remains a live mechanism-promotion route."
+      ],
+      "evidence": [
+        "research/prereg/MC008_SYMBOLIC_FACT_CODE_ARBITRATION.md",
+        "research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_BEHAVIOR_STATUS.md",
+        "research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_V2_NULL_AUTHORITY_REPAIR_STATUS.md",
+        "research/cards/MC008_SYMBOLIC_FACT_CODE_ARBITRATION_ROUTE_CLOSEOUT_STATUS.md",
+        "results/cards/MC008/mc008_qwen3_1p7b_symbolic_fact_code_arbitration_behavior_20260701T061006.json",
+        "results/cards/MC008/mc008_qwen3_1p7b_symbolic_fact_code_arbitration_v2_null_authority_repair_20260701T062249.json"
+      ],
+      "next_decision": "Do not probe MC008 V1-V2 and do not continue ordinary prompt-only repairs inside this symbolic route. The next bridge attempt must change the behavior family, answer representation, conflict construction, source visibility, or evaluation interface materially."
+    },
+    {
+      "id": "mc009_derived_code_arbitration",
+      "family": "MC009 derived-code arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Chemical element names mapped either to prompt-local row-position-derived task codes or to learned real-world chemical symbols, with generated short-code answers and answer-absent null rows.",
+      "behavior_gate": "smoke_only_controls_clean_under_membership_typed_slot_balances_conflict_but_breaks_controls_route_closed",
+      "current_best_signal": "Membership-style prompts remove direct entity-to-code source-value rows and preserve synthetic ordinal lookup, real-symbol recall, and null controls in a 10-source smoke, but conflict rows remain table-dominant and below parseability/balance gates. A typed-slot V2 construction creates balanced conflict labels but breaks synthetic/null controls and is prompt-visible by construction.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The route never produced a behavior table that simultaneously preserves controls, primary-conflict parseability, and source-disjoint derived-versus-real balance."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC009 smoke artifacts. Membership prompts fail conflict balance, and typed slots create conflict only by making the source channel visible in the prompt while breaking controls."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "dominant",
+        "source_token_dependence": "high",
+        "output_geometry": "untested",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "PROMPT_AUTHORITY_DIAL",
+        "PROMPT_CONTRACT_PARSEABILITY",
+        "DERIVED_CODE_CONTROL_CONFLICT_TRADEOFF",
+        "DERIVED_CODE_TYPED_SLOT_PROMPT_VISIBLE",
+        "MC009_ROUTE_CLOSED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "First derived-code bridge route closed as diagnostic; direct source-value removal preserves controls but not a clean bridge"
+      },
+      "allowed_claims": [
+        "MC009 removes direct entity-to-code source-value rows while keeping structural, prompt-leak, row-position, null, split, and parseability audits.",
+        "The 10-source membership smoke preserves direct controls: synthetic ordinal lookup, real-symbol recall, and answer-absent nulls are each 10/10.",
+        "The 10-source membership smoke still fails as a bridge because primary conflict parseability is 47/60 and real/lure conflict balance fails.",
+        "The typed-slot V2 smoke creates source-disjoint derived-versus-real conflict balance, but only by making answer type prompt-visible and by breaking synthetic/null controls.",
+        "The first MC009 route is a diagnostic about the control/conflict tradeoff, not a hidden-state substrate."
+      ],
+      "forbidden_claims": [
+        "MC009 is ready for hidden-state probing.",
+        "MC009 supports intervention or steering.",
+        "MC009 found a derived-code knowledge-control surface.",
+        "Removing direct entity-to-code source-value rows solves the synthetic-to-factual bridge.",
+        "Typed source slots are evidence for an internal mechanism rather than prompt-visible behavior control.",
+        "The smoke artifacts prove the full 40-source MC009 behavior gate."
+      ],
+      "evidence": [
+        "research/prereg/MC009_DERIVED_CODE_ARBITRATION.md",
+        "research/cards/MC009_DERIVED_CODE_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T064442.json",
+        "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T065157.json",
+        "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T065345.json",
+        "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T065442.json",
+        "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T070111.json"
+      ],
+      "next_decision": "Do not probe MC009 smoke artifacts and do not continue ordinary format repairs inside the first derived-code route. The next bridge attempt must change the conflict family more materially than row-code derivation or typed answer slots, or the project should move to a different bridge family."
+    },
+    {
+      "id": "mc010_two_hop_fact_code_arbitration",
+      "family": "MC010 two-hop fact-code arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Chemical element names or synthetic keys map to nonce handles, and handles map to prompt-local task codes; these two-hop task codes compete with learned real-world chemical symbols under generated short-token answers and answer-absent null rows.",
+      "behavior_gate": "full_40_source_behavior_gate_failed_before_hidden_state_work",
+      "current_best_signal": "The full 800-row generated behavior run selected neutral_contract and reported output/candidate baselines. Familiar entity two-hop lookup passed at 38/40 task-code answers and answer-absent null reached the 36/40 UNKNOWN threshold, but synthetic two-hop lookup was only 23/40 task-code answers, real-world memory control was only 12/40 real-symbol answers with 28/40 unparsed, and primary conflict was 229 task-code rows versus 0 real/lure-symbol rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The behavior table did not simultaneously preserve synthetic lookup, real-symbol recall, answer-absent nulls, and source-disjoint task-code-versus-real conflict balance."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC010. The route failed the generated-answer behavior gate before any hidden signature search."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "PROMPT_AUTHORITY_DIAL",
+        "TWO_HOP_SYNTHETIC_LOOKUP_FAILED",
+        "TWO_HOP_REAL_MEMORY_CONTROL_FAILED",
+        "TWO_HOP_CONFLICT_CONTRAST_ABSENT",
+        "MC010_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Two-hop bridge failed generated behavior: familiar lookup and nulls can work, but synthetic lookup, real memory, and conflict balance do not coexist"
+      },
+      "allowed_claims": [
+        "MC010 produced a structurally clean two-hop prompt bank with source-disjoint discovery/calibration/holdout splits.",
+        "The full generated behavior run reports output and candidate baselines before hidden-state work.",
+        "Familiar element names can follow the two-hop handle path under the selected template.",
+        "The selected template reaches the answer-absent null threshold but still emits wrong task codes on 4/40 null rows.",
+        "MC010 is a diagnostic showing that two-hop indirection does not by itself produce a clean synthetic-to-factual bridge on Qwen3-1.7B."
+      ],
+      "forbidden_claims": [
+        "MC010 is ready for hidden-state probing.",
+        "MC010 supports intervention or steering.",
+        "MC010 found a knowledge-control surface.",
+        "Two-hop source paths solve the MC008/MC009 table-dominance boundary.",
+        "The primary conflict contains a real-versus-task bridge suitable for mechanism discovery.",
+        "The output/candidate margins are downstream evidence for a hidden mechanism."
+      ],
+      "evidence": [
+        "research/prereg/MC010_TWO_HOP_FACT_CODE_ARBITRATION.md",
+        "research/cards/MC010_TWO_HOP_FACT_CODE_ARBITRATION_STRUCTURAL_STATUS.md",
+        "research/cards/MC010_TWO_HOP_FACT_CODE_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC010/mc010_two_hop_fact_code_behavior_20260701T085414.json"
+      ],
+      "next_decision": "Do not probe MC010 and do not continue ordinary two-hop prompt repairs inside this route. The bridge line needs a materially different answer interface or task construction that makes real-symbol generation parseable while preserving source-local lookup and produces real/lure conflict rows before any hidden-state work."
+    },
+    {
+      "id": "mc011_atomic_number_code_arbitration",
+      "family": "MC011 atomic-number code arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Synthetic keys or familiar chemical element names map to prompt-local local lab numbers, while the same elements also have learned atomic numbers. The answer interface is always a short integer or UNKNOWN, so prompt-local values and learned facts share the same output type.",
+      "behavior_gate": "full_40_source_behavior_gate_failed_before_hidden_state_work",
+      "current_best_signal": "The full 800-row generated behavior run selected neutral_numeric and reported output/candidate baselines. Direct controls were clean: synthetic numeric lookup, familiar entity numeric lookup, real atomic-number recall, and answer-absent nulls were each 40/40 on the selected template. The primary conflict then collapsed completely to the prompt-local table: 240/240 local-number rows and 0 atomic/lure-number rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The numeric answer interface repaired direct controls but did not produce any learned-fact-versus-local-number conflict mixture."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC011. The route failed the generated-answer behavior gate because source-disjoint conflict balance was absent."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "medium",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "BEHAVIOR_SUBSTRATE_FAILED",
+        "PROMPT_AUTHORITY_DIAL",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "NUMERIC_CONFLICT_CONTRAST_ABSENT",
+        "MC011_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Numeric bridge failed generated behavior: same-format integer answers repaired controls but conflict rows stayed entirely prompt-local"
+      },
+      "allowed_claims": [
+        "MC011 produced a structurally clean numeric bridge with source-disjoint discovery/calibration/holdout splits.",
+        "The selected numeric template passed all four direct controls: synthetic lookup, familiar lookup, real atomic-number recall, and answer-absent nulls.",
+        "Using the same integer answer type for prompt-local values and learned atomic facts repairs the control-side failures seen in MC010.",
+        "The selected primary conflict remained completely table-dominant, with 240 local-number rows and 0 atomic/lure-number rows.",
+        "MC011 is a diagnostic showing that answer-format repair is insufficient when prompt-local authority determines all conflict rows."
+      ],
+      "forbidden_claims": [
+        "MC011 is ready for hidden-state probing.",
+        "MC011 supports intervention or steering.",
+        "MC011 found a knowledge-control surface.",
+        "Same-format numeric outputs solve the prompt-local table-dominance boundary.",
+        "The primary conflict contains a learned-fact-versus-local-number bridge suitable for mechanism discovery."
+      ],
+      "evidence": [
+        "research/prereg/MC011_ATOMIC_NUMBER_CODE_ARBITRATION.md",
+        "research/cards/MC011_ATOMIC_NUMBER_CODE_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC011/mc011_atomic_number_code_behavior_20260701T092147.json"
+      ],
+      "next_decision": "Do not probe MC011 and do not continue ordinary answer-format repairs inside this route. The next bridge must create real conflict mixture by changing the source/evaluation contract, weakening prompt-local authority, or moving to a task where learned facts compete before the table fully determines the answer."
+    },
+    {
+      "id": "mc012_reliability_labeled_numeric_arbitration",
+      "family": "MC012 reliability-labeled numeric arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Prompt-local local lab numbers compete with learned atomic numbers under explicit source-status labels: trusted local sources should control with the local number, while untrusted local notes should be ignored in favor of the standard atomic number.",
+      "behavior_gate": "behavior_contrast_passed_prompt_channel_visible",
+      "current_best_signal": "The full 560-row generated behavior run selected compact_reliability and reported output/candidate baselines. Direct controls were clean: synthetic lookup, familiar lookup, real atomic-number recall, and answer-absent nulls were each 40/40. The selected primary conflict was balanced enough for behavior but prompt-channel visible: 40 local-number rows, 39 atomic-number rows, 1 other-number row, and 79/80 binary conflict rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The behavior contrast passed only through visible source-status text, so the current route is a prompt-channel diagnostic rather than a pre-decision internal surface."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC012. The behavior table is clean enough to diagnose prompt-channel control, but not clean enough to search for an internal mechanism."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "PROMPT_AUTHORITY_DIAL",
+        "RELIABILITY_BEHAVIOR_CONTRAST_PASSED",
+        "RELIABILITY_PROMPT_CHANNEL_VISIBLE",
+        "MC012_BEHAVIOR_READY_PROMPT_VISIBLE_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Reliability-labeled numeric bridge is behavior-ready but prompt-channel visible; hidden-state work remains blocked"
+      },
+      "allowed_claims": [
+        "MC012 produced a structurally clean reliability-labeled numeric bridge with source-disjoint discovery/calibration/holdout splits.",
+        "The selected template passed direct controls, nulls, source-disjoint conflict balance, and candidate/output margin reporting.",
+        "Explicit source-status text can manufacture a clean local-versus-learned numeric behavior mixture.",
+        "MC012 is behavior-ready only as a diagnostic prompt-channel table, not as a hidden-signature substrate."
+      ],
+      "forbidden_claims": [
+        "MC012 is a mechanism card.",
+        "MC012 is ready for hidden-state probing.",
+        "MC012 supports intervention or steering.",
+        "MC012 found an internal knowledge-control surface.",
+        "The source-reliability contrast is internal rather than prompt-visible."
+      ],
+      "evidence": [
+        "research/prereg/MC012_RELIABILITY_LABELED_NUMERIC_ARBITRATION.md",
+        "research/cards/MC012_RELIABILITY_LABELED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC012/mc012_reliability_labeled_numeric_behavior_20260701T094345.json"
+      ],
+      "next_decision": "Do not probe MC012. The next bridge must keep the clean direct controls and mixed labels while removing, matching, or ablating the visible source-status channel so prompt text alone cannot explain the local-versus-learned split."
+    },
+    {
+      "id": "mc013_status_channel_ablation_numeric_arbitration",
+      "family": "MC013 status-channel ablation numeric arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Prompt-local local lab numbers compete with learned atomic numbers after the MC012 trusted/untrusted source-status cue is either visible as a positive control or removed in text-identical matched ablation prompts.",
+      "behavior_gate": "failed_status_channel_ablation",
+      "current_best_signal": "The full 640-row run selected compact_status_ablation. Direct controls, nulls, and the statused positive control passed: synthetic lookup 40/40 local, familiar lookup 40/40 local, real atomic-number recall 40/40 atomic, null 40/40 UNKNOWN, statused trusted 40/40 local, and statused untrusted 39/40 atomic. The matched ablation prompts were text-identical across trusted/untrusted labels, and the ablated primary conflict collapsed to 80/80 local-number rows and 0 atomic/lure-number rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. Removing the visible source-status channel destroys the learned-fact side of the MC012 contrast, so there is no behavior substrate to probe."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC013. The matched ablation route failed the behavior/locality gate before signature search."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "PROMPT_AUTHORITY_DIAL",
+        "STATUS_CHANNEL_POSITIVE_CONTROL_REPRODUCED",
+        "STATUS_CHANNEL_ABLATION_COLLAPSED_CONTRAST",
+        "MC013_STATUS_ABLATION_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Status-channel ablation reproduces MC012 positive controls but collapses the ablated conflict to prompt-local answers"
+      },
+      "allowed_claims": [
+        "MC013 structurally matched the ablated trusted and untrusted conflict prompts exactly while preserving source-disjoint discovery/calibration/holdout splits.",
+        "The selected template reproduced the MC012-style statused positive control: trusted status selected local numbers, untrusted status selected learned atomic numbers, and direct controls/nulls stayed clean.",
+        "When the visible source-status channel was removed, the ablated primary conflict collapsed to 80 local-number rows and 0 atomic/lure-number rows.",
+        "MC013 is a diagnostic showing that the MC012 mixed behavior depends on the visible source-status channel under this prompt contract."
+      ],
+      "forbidden_claims": [
+        "MC013 is a mechanism card.",
+        "MC013 is ready for hidden-state probing.",
+        "MC013 supports intervention or steering.",
+        "MC013 found an internal knowledge-control surface.",
+        "The MC012 reliability contrast survives source-status ablation."
+      ],
+      "evidence": [
+        "research/prereg/MC013_STATUS_CHANNEL_ABLATION_NUMERIC_ARBITRATION.md",
+        "research/cards/MC013_STATUS_CHANNEL_ABLATION_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC013/mc013_status_channel_ablation_numeric_behavior_20260701T100644.json"
+      ],
+      "next_decision": "Do not probe MC013. The next bridge must create a local-versus-learned contrast without a visible source-status cue, not merely ablate the cue after using it to define the labels."
+    },
+    {
+      "id": "mc014_inferred_reliability_numeric_arbitration",
+      "family": "MC014 inferred-reliability numeric arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Prompt-local local lab numbers compete with learned atomic numbers. The model must infer whether the local table controls from calibration rows whose reported atomic numbers either match or contradict standard chemistry; no trusted/untrusted/reliable/unreliable source-status label is present in the primary prompts.",
+      "behavior_gate": "failed_calibration_inference_conflict",
+      "current_best_signal": "The full 560-row generated behavior run selected calibration_rule. Direct controls and nulls were clean: synthetic local-number lookup, familiar local-number lookup, real atomic-number recall, and answer-absent UNKNOWN rows were each 40/40. Primary prompts had no explicit status lexemes and hid the target and lure atomic numbers. The calibration-consistent conflict was 40/40 local, but calibration-inconsistent conflict was also 40/40 local. The selected primary conflict therefore collapsed to 80 local-number rows and 0 atomic/lure-number rows despite candidate/output margin reporting; candidate local-minus-atomic mean logprob was positive on conflict rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The source-status label was absent, but the behavior table did not create the required local-versus-learned contrast."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC014. The inferred-calibration route failed the behavior gate before signature search."
+      },
+      "mixture_profile": {
+        "prompt_authority": "dominant",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "PROMPT_AUTHORITY_DIAL",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "CALIBRATION_STATUS_LABEL_ABSENT",
+        "CALIBRATION_INFERENCE_CONFLICT_COLLAPSED",
+        "MC014_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Inferred calibration removes explicit status labels but the conflict still collapses to prompt-local local-number answers"
+      },
+      "allowed_claims": [
+        "MC014 structurally removed explicit trusted/untrusted/reliable/unreliable/status labels from primary conflict prompts while preserving source-disjoint discovery/calibration/holdout splits.",
+        "The selected template passed direct numeric controls and answer-absent nulls: synthetic lookup, familiar lookup, real atomic-number recall, and UNKNOWN null rows were each 40/40.",
+        "Calibration consistency by itself did not create a local-versus-learned bridge under this prompt contract: both consistent and inconsistent conflict rows selected local numbers.",
+        "MC014 is a diagnostic showing that removing the source-status label is not sufficient when the prompt-local table remains the dominant answer surface."
+      ],
+      "forbidden_claims": [
+        "MC014 is a mechanism card.",
+        "MC014 is ready for hidden-state probing.",
+        "MC014 supports intervention or steering.",
+        "MC014 found an internal knowledge-control surface.",
+        "Calibration-inferred source validity creates a clean learned-fact side under this prompt contract."
+      ],
+      "evidence": [
+        "research/prereg/MC014_INFERRED_RELIABILITY_NUMERIC_ARBITRATION.md",
+        "research/cards/MC014_INFERRED_RELIABILITY_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC014/mc014_inferred_reliability_numeric_behavior_20260701T103426.json"
+      ],
+      "next_decision": "Do not probe MC014. The next bridge must either weaken prompt-local table dominance without visible status labels or move to a different source/evaluation contract where learned facts compete before the local table determines the answer."
+    },
+    {
+      "id": "mc015_parity_gated_numeric_arbitration",
+      "family": "MC015 parity-gated numeric arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Prompt-local local lab numbers compete with learned atomic numbers. The target atomic number is hidden in primary conflict prompts, no trusted/untrusted/reliable/unreliable/status lexeme is present, and the local table controls only when the queried element standard atomic-number parity matches the visible rule.",
+      "behavior_gate": "failed_parity_gate_rule_following",
+      "current_best_signal": "The full 840-row generated behavior run selected parity_rule. Structural audit passed: target and lure atomic numbers were hidden in conflict prompts, status lexemes were absent, and expected local versus expected atomic labels were balanced by split. Direct controls and nulls were perfect at 40/40 each for synthetic local lookup, familiar local lookup, real atomic-number recall, and answer-absent UNKNOWN. Primary conflict rows were parseable and mixed, with 54 local-number rows, 24 atomic-number rows, and 2 other-number rows, but the intended learned parity gate was not followed: expected correctness was 39/80, expected-local rows selected local only 27/40, and expected-atomic rows selected atomic only 12/40. Candidate/output margins were reported; candidate local-minus-atomic mean logprob was positive on selected primary conflict rows.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. The behavior table created mixed local and atomic outputs without visible status labels, but those outputs did not track the intended learned parity gate."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC015. The parity-gated route failed the behavior rule-following gate before signature search."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "PROMPT_AUTHORITY_DIAL",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "PARITY_GATE_LABELS_BALANCED",
+        "PARITY_GATE_NOT_FOLLOWED",
+        "MC015_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Learned parity gate produced mixed outputs but did not control the local-versus-atomic answer rule"
+      },
+      "allowed_claims": [
+        "MC015 structurally removed explicit source-status labels from primary conflict prompts while hiding target and lure atomic numbers.",
+        "The selected template passed direct numeric controls and answer-absent nulls: synthetic lookup, familiar lookup, real atomic-number recall, and UNKNOWN null rows were each 40/40.",
+        "MC015 produced mixed local and atomic conflict outputs under source-disjoint splits, unlike the complete local collapse in MC014.",
+        "The mixed outputs did not implement the intended learned parity gate: expected-label correctness was only 39/80 and expected-atomic rows selected atomic numbers only 12/40.",
+        "Balanced expected labels and parseable mixed outputs are not sufficient behavior substrate evidence unless the rule-aligned labels are correct."
+      ],
+      "forbidden_claims": [
+        "MC015 is a mechanism card.",
+        "MC015 is ready for hidden-state probing.",
+        "MC015 supports intervention or steering.",
+        "MC015 found an internal knowledge-control surface.",
+        "Mixed local/atomic outputs alone prove a clean learned-fact gate."
+      ],
+      "evidence": [
+        "research/prereg/MC015_PARITY_GATED_NUMERIC_ARBITRATION.md",
+        "research/cards/MC015_PARITY_GATED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC015/mc015_parity_gated_numeric_behavior_20260701T110321.json"
+      ],
+      "next_decision": "Do not probe MC015. The next bridge must validate rule-aligned learned-fact gating, not merely mixed local/atomic outputs, before hidden-state work is allowed."
+    },
+    {
+      "id": "mc016_alphabet_gated_numeric_arbitration",
+      "family": "MC016 alphabet-gated numeric arbitration",
+      "models": [
+        "Qwen/Qwen3-1.7B"
+      ],
+      "behavior_contract": "Prompt-local local lab numbers compete with learned atomic numbers. The target atomic number is hidden in primary conflict prompts, no trusted/untrusted/reliable/unreliable/status lexeme is present, and the local table controls only when a visible non-status alphabetic gate says the queried element first-letter range controls.",
+      "behavior_gate": "failed_alphabet_gate_expected_atomic_collapse",
+      "current_best_signal": "The full 1120-row generated behavior run selected alphabet_rule. Structural audit passed: target and lure atomic numbers were hidden in conflict prompts, status lexemes were absent, and expected local versus expected atomic labels were balanced by split. Direct controls and nulls were perfect at 40/40 each for synthetic local lookup, familiar local lookup, real atomic-number recall, and answer-absent UNKNOWN. Primary conflict rows were parseable but collapsed completely to local numbers: 80 local-number rows, 0 atomic/lure rows, and expected correctness 40/80. Expected-local rows selected local 40/40; expected-atomic rows selected atomic 0/40 and local 40/40. The stronger feature_labeled_alphabet template did not rescue the atomic side: it produced 61 local rows, 0 atomic rows, and 19 unparsed rows on primary conflict. Candidate/output margins were reported.",
+      "lead_time": {
+        "state": "not_reached",
+        "summary": "Hidden-state work remains blocked. MC016 shows that a visible non-status alphabetic gate did not overcome prompt-local table dominance under this numeric bridge contract."
+      },
+      "intervention": {
+        "state": "not_allowed",
+        "summary": "No intervention is valid on MC016. The alphabet-gated route failed the expected-atomic behavior gate before signature search."
+      },
+      "mixture_profile": {
+        "prompt_authority": "high",
+        "prompt_format": "high",
+        "source_token_dependence": "high",
+        "output_geometry": "high",
+        "lead_time_internal_signal": "none",
+        "local_internal_path": "untested",
+        "causal_control": "untested",
+        "null_locality": "behavior_only",
+        "transfer": "untested"
+      },
+      "diagnostics": [
+        "PROMPT_AUTHORITY_DIAL",
+        "NUMERIC_DIRECT_CONTROLS_PASSED",
+        "ALPHABET_GATE_LABELS_BALANCED",
+        "ALPHABET_GATE_LOCAL_COLLAPSE",
+        "FEATURE_LABEL_GATE_DID_NOT_RESCUE",
+        "MC016_BEHAVIOR_GATE_FAILED_DIAGNOSTIC_BRIDGE"
+      ],
+      "verdict": {
+        "class": "diagnostic_note",
+        "label": "Visible non-status alphabet gate failed to control the local-versus-atomic answer rule"
+      },
+      "allowed_claims": [
+        "MC016 structurally removed explicit source-status labels from primary conflict prompts while hiding target and lure atomic numbers.",
+        "The selected template passed direct numeric controls and answer-absent nulls: synthetic lookup, familiar lookup, real atomic-number recall, and UNKNOWN null rows were each 40/40.",
+        "MC016 balanced expected local and expected atomic labels by split, but selected primary conflict outputs collapsed to 80/80 local-number rows.",
+        "Expected-local rows selected local 40/40, while expected-atomic rows selected atomic 0/40 and local 40/40.",
+        "A visible non-status alphabetic feature channel was not enough to reproduce MC012-style local-versus-learned contrast under this prompt-local table contract."
+      ],
+      "forbidden_claims": [
+        "MC016 is a mechanism card.",
+        "MC016 is ready for hidden-state probing.",
+        "MC016 supports intervention or steering.",
+        "MC016 found an internal knowledge-control surface.",
+        "Removing trusted/untrusted/status labels is enough to get a clean prompt-visible gate."
+      ],
+      "evidence": [
+        "research/prereg/MC016_ALPHABET_GATED_NUMERIC_ARBITRATION.md",
+        "research/cards/MC016_ALPHABET_GATED_NUMERIC_ARBITRATION_BEHAVIOR_STATUS.md",
+        "results/cards/MC016/mc016_alphabet_gated_numeric_behavior_20260701T113651.json"
+      ],
+      "next_decision": "Do not probe MC016. The next bridge must change the answer-interface or source-contract pressure, because visible non-status alphabet gates still leave expected-atomic rows dominated by the local table."
+    }
+  ],
+  "artifact_assertions": [
+    {
+      "path": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v31_margin_boundary_20260630T220916.json",
+      "checks": {
+        "summary.diagnostic_class": "null_boundary_broad",
+        "summary.passed": false,
+        "summary.criteria.v31_lookup_target_effect_reproduced": true,
+        "summary.criteria.v30_imported_flips_abs_margin_le_0p5": false
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v14_parser_normalized_20260701T000538.json",
+      "checks": {
+        "summary.diagnostic_class": "parser_normalized_generated_substrate_passed",
+        "summary.passed": true
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v16_pre_output_position_signature_20260701T002113.json",
+      "checks": {
+        "summary.diagnostic_class": "leadtime_signal_supported_but_output_global_confounded",
+        "summary.passed": false,
+        "summary.selected_pre_output_candidate.position": "after_mapping_line",
+        "summary.selected_pre_output_candidate.layer": 4,
+        "summary.selected_pre_output_candidate.holdout_auc": 1.0,
+        "summary.global_baseline_results.candidate_score_margin.holdout_auc": 1.0,
+        "summary.leadtime_criteria.selected_hidden_beats_same_position_output_by_0p02": true
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v17_pre_output_steering_stress_20260701T003620.json",
+      "checks": {
+        "summary.diagnostic_class": "intervention_failed",
+        "summary.passed": false,
+        "summary.causal_stress_supported": false,
+        "summary.baseline_reproduction.matches": 8,
+        "summary.baseline_reproduction.total": 8
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v18_margin_matched_leadtime_20260701T022343.json",
+      "checks": {
+        "summary.diagnostic_class": "global_margin_separation_blocks_matching",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.selected_pre_output_reproduced": true,
+        "summary.criteria.candidate_margin_holdout_overlap_exists": false,
+        "summary.criteria.final_output_margin_holdout_overlap_exists": false,
+        "summary.criteria.residualized_hidden_beats_0p85_after_both_global_margins": false,
+        "summary.selected_pre_output_candidate.name": "after_mapping_line/layer_4",
+        "summary.selected_pre_output_candidate.holdout_auc": 1.0,
+        "summary.scalar_baseline_results.candidate_score_margin.holdout_auc": 1.0,
+        "summary.scalar_baseline_results.final_next_token_output_margin.holdout_auc": 1.0,
+        "summary.residualized_hidden_results.hidden_residual_after_candidate_and_final_output.holdout_auc": 0.3333333333333333,
+        "summary.margin_audits.candidate_score_margin.z_range_by_split.holdout.overlap_exists": false,
+        "summary.margin_audits.final_next_token_output_margin.z_range_by_split.holdout.overlap_exists": false
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v19_overlapping_margin_table_20260701T023921.json",
+      "checks": {
+        "summary.diagnostic_class": "non_holdout_candidate_margin_overlap_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.selection.selected_template": "separate_task_weak",
+        "summary.selected_template_summary.binary_count": 35,
+        "summary.selected_template_summary.non_holdout_true": 11,
+        "summary.selected_template_summary.non_holdout_override": 16,
+        "summary.selected_template_summary.holdout_true": 4,
+        "summary.selected_template_summary.holdout_override": 4,
+        "summary.criteria.selected_binary_rows_at_least_30": true,
+        "summary.criteria.selected_non_holdout_true_at_least_6": true,
+        "summary.criteria.selected_non_holdout_override_at_least_6": true,
+        "summary.criteria.selected_non_holdout_candidate_margin_overlap": false,
+        "summary.criteria.selected_non_holdout_final_margin_overlap": false,
+        "summary.criteria.selected_holdout_candidate_margin_overlap": false,
+        "summary.criteria.selected_holdout_final_margin_overlap": false,
+        "summary.criteria.selected_holdout_candidate_pairs_at_0p5z": true,
+        "summary.criteria.selected_holdout_final_pairs_at_0p5z": true
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v20_strict_overlap_selection_audit_20260701T025043.json",
+      "checks": {
+        "summary.diagnostic_class": "strict_final_margin_overlap_absent",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.pair_matched_diagnostic_ready": true,
+        "summary.binary_row_count": 257,
+        "summary.criteria.source_artifact_valid": true,
+        "summary.criteria.pooled_non_holdout_candidate_overlap": true,
+        "summary.criteria.pooled_non_holdout_final_overlap": false,
+        "summary.criteria.pooled_holdout_candidate_overlap": false,
+        "summary.criteria.pooled_holdout_final_overlap": false,
+        "summary.criteria.any_single_template_full_gate_passed": false,
+        "summary.criteria.any_template_non_holdout_final_overlap": false,
+        "summary.criteria.any_template_holdout_final_overlap": false,
+        "summary.criteria.pooled_holdout_joint_pairs_at_0p5z": true,
+        "summary.criteria.selected_holdout_joint_pairs_at_0p5z": true,
+        "summary.pooled_audit.by_split.holdout.margins.final_next_token_margin.z_separation_gap": 0.06121169819666328,
+        "summary.pooled_audit.by_split.holdout.joint_margin_pairs.z_le_0p5.pairs": 28,
+        "summary.selected_template_audit.by_split.holdout.joint_margin_pairs.z_le_0p5.pairs": 3
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v21_pair_matched_leadtime_20260701T030507.json",
+      "checks": {
+        "summary.diagnostic_class": "approximate_pair_matching_failed_margin_baselines",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.diagnostic_supported": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.strict_final_margin_overlap_absent": true,
+        "summary.criteria.pair_matched_diagnostic_ready": true,
+        "summary.criteria.non_holdout_pair_count_at_least_20": true,
+        "summary.criteria.holdout_pair_count_at_least_20": true,
+        "summary.criteria.candidate_and_final_margin_holdout_pair_accuracy_at_most_0p65": false,
+        "summary.criteria.selected_hidden_holdout_pair_accuracy_at_least_0p65": false,
+        "summary.pair_summaries.non_holdout.pairs": 451,
+        "summary.pair_summaries.holdout.pairs": 28,
+        "summary.selected_pre_output_candidate.name": "after_mapping_line/layer_14",
+        "summary.selected_pre_output_candidate.pair_accuracy_by_split.non_holdout": 0.917960088691796,
+        "summary.selected_pre_output_candidate.pair_accuracy_by_split.holdout": 0.2857142857142857,
+        "summary.scalar_baseline_results.candidate_score_margin.pair_accuracy_by_split.holdout": 1.0,
+        "summary.scalar_baseline_results.v19_final_next_token_margin.pair_accuracy_by_split.holdout": 1.0,
+        "summary.scalar_baseline_results.final_prompt_next_token_output_margin.pair_accuracy_by_split.holdout": 1.0
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v22_source_path_leadtime_curve_20260701T032420.json",
+      "checks": {
+        "summary.diagnostic_class": "source_path_final_margin_shadow",
+        "summary.passed": false,
+        "summary.diagnostic_supported": true,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.position_mapping_complete": true,
+        "summary.criteria.curve_any_hidden_holdout_supported": true,
+        "summary.criteria.curve_any_hidden_beats_same_position_output_by_0p05": true,
+        "summary.criteria.curve_any_hidden_beats_candidate_and_final_margins_by_0p05": false,
+        "summary.mapping_summary.attempted_rows": 257,
+        "summary.mapping_summary.mapped_rows": 257,
+        "summary.pair_summaries.non_holdout.pairs": 451,
+        "summary.pair_summaries.holdout.pairs": 28,
+        "summary.selected_by_non_holdout_auc.name": "question_country_token/layer_22",
+        "summary.selected_by_non_holdout_auc.auc_by_split.holdout": 0.8317460317460318,
+        "summary.selected_by_non_holdout_auc.pair_accuracy_by_split.holdout": 0.7142857142857143,
+        "summary.position_baseline_results.question_country_token.next_token_output_margin.pair_accuracy_by_split.holdout": 0.6785714285714286,
+        "summary.per_position_curve.after_question_line.best_by_non_holdout_auc.name": "after_question_line/layer_22",
+        "summary.per_position_curve.after_question_line.best_by_non_holdout_auc.pair_accuracy_by_split.holdout": 0.8928571428571429,
+        "summary.position_baseline_results.after_question_line.next_token_output_margin.pair_accuracy_by_split.holdout": 0.7142857142857143,
+        "summary.global_baseline_results.candidate_score_margin.pair_accuracy_by_split.holdout": 1.0,
+        "summary.global_baseline_results.v19_final_next_token_margin.pair_accuracy_by_split.holdout": 1.0,
+        "summary.global_baseline_results.final_prompt_next_token_output_margin.pair_accuracy_by_split.holdout": 1.0
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v23_final_margin_sign_barrier_20260701T033829.json",
+      "checks": {
+        "summary.diagnostic_class": "greedy_final_margin_sign_barrier",
+        "summary.diagnostic_supported": true,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.v18_final_sign_barrier": true,
+        "summary.criteria.v19_final_sign_barrier": true,
+        "summary.criteria.v19_selected_final_sign_barrier": true,
+        "summary.criteria.v19_final_raw_overlap_exists": false,
+        "summary.criteria.v19_candidate_raw_overlap_exists": true,
+        "summary.margin_audits.v18_v14_selected_final_next_token_margin.by_split.all.sign_prediction_accuracy": 1.0,
+        "summary.margin_audits.v18_v14_selected_final_next_token_margin.by_split.all.raw_overlap_exists": false,
+        "summary.margin_audits.v18_v14_selected_final_next_token_margin.by_split.all.raw_gap": 1.5,
+        "summary.margin_audits.v19_all_binary_final_next_token_margin.by_split.all.row_count": 257,
+        "summary.margin_audits.v19_all_binary_final_next_token_margin.by_split.all.sign_prediction_accuracy": 1.0,
+        "summary.margin_audits.v19_all_binary_final_next_token_margin.by_split.all.raw_overlap_exists": false,
+        "summary.margin_audits.v19_all_binary_final_next_token_margin.by_split.all.raw_gap": 0.375,
+        "summary.margin_audits.v19_all_binary_candidate_score_margin.by_split.all.sign_prediction_accuracy": 0.953307392996109,
+        "summary.margin_audits.v19_all_binary_candidate_score_margin.by_split.all.raw_overlap_exists": true,
+        "summary.token_alignments.v14_selected_template.aligned_rows": 30,
+        "summary.token_alignments.v14_selected_template.checked_rows": 30,
+        "summary.token_alignments.v19_selected_template.aligned_rows": 35,
+        "summary.token_alignments.v19_selected_template.checked_rows": 35,
+        "summary.token_alignments.v19_all_binary.aligned_rows": 255,
+        "summary.token_alignments.v19_all_binary.checked_rows": 257
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v24_delayed_city_interface_20260701T040731.json",
+      "checks": {
+        "summary.diagnostic_class": "delayed_city_interface_decouples_first_token_margin",
+        "summary.behavior_ready": true,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.selected_binary_rows_at_least_30": true,
+        "summary.criteria.selected_non_holdout_true_at_least_6": true,
+        "summary.criteria.selected_non_holdout_override_at_least_6": true,
+        "summary.criteria.selected_holdout_true_at_least_2": true,
+        "summary.criteria.selected_holdout_override_at_least_2": true,
+        "summary.criteria.selected_first_token_city_rate_at_most_0p1": true,
+        "summary.criteria.selected_final_city_margin_not_sign_barrier": true,
+        "summary.criteria.selected_final_city_margin_overlap_exists": true,
+        "summary.selection.selected_template": "game_code_then_geo",
+        "summary.selection.selection_key": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          8
+        ],
+        "summary.selected_template_summary.binary_count": 31,
+        "summary.selected_template_summary.label_counts.true_answer": 10,
+        "summary.selected_template_summary.label_counts.override_answer": 21,
+        "summary.selected_template_summary.holdout_label_counts.true_answer": 2,
+        "summary.selected_template_summary.holdout_label_counts.override_answer": 4,
+        "summary.selected_template_summary.selected_city_first_token_rate": 0.0,
+        "summary.selected_template_summary.margin_audits.final_next_token_city_margin.by_split.all.sign_prediction_accuracy": 0.5161290322580645,
+        "summary.selected_template_summary.margin_audits.final_next_token_city_margin.by_split.all.raw_overlap_exists": true,
+        "summary.selected_template_summary.margin_audits.city_candidate_score_margin.by_split.all.sign_prediction_accuracy": 0.6451612903225806,
+        "summary.selected_template_summary.margin_audits.city_candidate_score_margin.by_split.all.raw_overlap_exists": true,
+        "summary.selected_template_summary.margin_audits.json_candidate_score_margin.by_split.all.sign_prediction_accuracy": 0.7419354838709677,
+        "summary.selected_template_summary.margin_audits.json_candidate_score_margin.by_split.all.raw_overlap_exists": true,
+        "hidden_screen.ran": true,
+        "hidden_screen.selected_hidden.name": "after_mapping_line/layer_0",
+        "hidden_screen.selected_hidden.discovery_auc": 1.0,
+        "hidden_screen.selected_hidden.holdout_auc": 0.875,
+        "hidden_screen.best_control_holdout_auc": 1.0,
+        "hidden_screen.global_baselines.json_candidate_score_margin.holdout_auc": 1.0,
+        "hidden_screen.signature_gate": false
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v25_candidate_decoupled_template_20260701T041843.json",
+      "checks": {
+        "summary.diagnostic_class": "candidate_decoupled_hidden_shuffle_overfit",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.v24_source_valid": true,
+        "summary.criteria.candidate_decoupled_template_found": true,
+        "summary.criteria.selected_template_behavior_ready": true,
+        "summary.criteria.selected_json_candidate_holdout_auc_not_perfect": true,
+        "summary.criteria.hidden_screen_ran": true,
+        "summary.criteria.hidden_beats_candidate_controls": true,
+        "summary.criteria.hidden_beats_shuffle_null": false,
+        "summary.selection.selected_template": "untrusted_note_real",
+        "summary.selected_template_summary.binary_count": 37,
+        "summary.selected_template_summary.label_counts.true_answer": 24,
+        "summary.selected_template_summary.label_counts.override_answer": 13,
+        "summary.selected_template_summary.holdout_label_counts.true_answer": 4,
+        "summary.selected_template_summary.holdout_label_counts.override_answer": 3,
+        "summary.selected_template_summary.auc_audits.json_candidate_score_margin.holdout.auc": 0.3333333333333333,
+        "hidden_screen.ran": true,
+        "hidden_screen.selected_hidden.name": "after_mapping_line/layer_10",
+        "hidden_screen.selected_hidden.discovery_auc": 1.0,
+        "hidden_screen.selected_hidden.holdout_auc": 1.0,
+        "hidden_screen.best_control_holdout_auc": 0.5,
+        "hidden_screen.global_baselines.json_candidate_score_margin.holdout_auc": 0.3333333333333333,
+        "hidden_screen.shuffled_selection_null.holdout_auc_p95": 1.0,
+        "hidden_screen.signature_gate": false
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v26_locked_coordinate_transfer_20260701T043334.json",
+      "checks": {
+        "summary.diagnostic_class": "locked_coordinate_transfer_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.v24_source_valid": true,
+        "summary.criteria.v25_source_valid": true,
+        "summary.criteria.source_template_candidate_decoupled_ready": true,
+        "summary.criteria.transfer_template_found": true,
+        "summary.criteria.source_holdout_reproduced": true,
+        "summary.criteria.all_transfer_hidden_auc_at_least_0p75": false,
+        "summary.criteria.all_transfer_hidden_beats_controls": false,
+        "summary.criteria.all_transfer_hidden_beats_shuffle_null": false,
+        "summary.locked_coordinate.name": "after_mapping_line/layer_10",
+        "summary.source_template": "untrusted_note_real",
+        "summary.transfer_templates": [
+          "separate_task_weak"
+        ],
+        "source_fit.source_train.auc": 1.0,
+        "source_fit.source_train.row_count": 30,
+        "source_fit.source_holdout.auc": 0.75,
+        "source_fit.source_holdout.row_count": 7,
+        "transfer_reports.separate_task_weak.hidden_holdout.auc": 0.5,
+        "transfer_reports.separate_task_weak.best_control_holdout_auc": 0.8333333333333334,
+        "transfer_reports.separate_task_weak.controls.after_mapping_line_next_token_city_margin.holdout.auc": 0.8333333333333334,
+        "transfer_reports.separate_task_weak.train_label_shuffle_null.eval_auc_p95": 0.8333333333333334
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v27_expanded_candidate_decoupled_bank_20260701T045409.json",
+      "checks": {
+        "summary.diagnostic_class": "expanded_candidate_decoupled_bank_insufficient",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.candidate_decoupled_templates_at_least_4": true,
+        "summary.criteria.source_ready_templates_at_least_2": true,
+        "summary.criteria.transfer_ready_templates_at_least_2": false,
+        "summary.criteria.pooled_binary_rows_at_least_120": true,
+        "summary.criteria.pooled_holdout_true_at_least_8": true,
+        "summary.criteria.pooled_holdout_override_at_least_8": true,
+        "summary.pooled_ready_summary.ready_template_count": 4,
+        "summary.pooled_ready_summary.source_ready_count": 3,
+        "summary.pooled_ready_summary.transfer_ready_count": 1,
+        "summary.pooled_ready_summary.pooled_binary_rows": 138,
+        "summary.pooled_ready_summary.pooled_holdout_label_counts.true_answer": 14,
+        "summary.pooled_ready_summary.pooled_holdout_label_counts.override_answer": 14,
+        "summary.by_template.source_unverified_note_check.candidate_decoupled_ready": true,
+        "summary.by_template.source_mistaken_source.candidate_decoupled_ready": true,
+        "summary.by_template.transfer_separate_task_weak_v24.candidate_decoupled_ready": true,
+        "summary.by_template.transfer_game_code_real_json.auc_audits.json_candidate_score_margin.holdout.auc": 1.0,
+        "summary.by_template.transfer_puzzle_lookup_then_geo.auc_audits.json_candidate_score_margin.holdout.auc": 1.0
+      }
+    },
+    {
+      "path": "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v28_transfer_role_repair_bank_20260701T051821.json",
+      "checks": {
+        "summary.diagnostic_class": "transfer_role_repair_bank_insufficient",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.source_artifacts_valid": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.any_transfer_candidate_decoupled_template": true,
+        "summary.criteria.transfer_ready_templates_at_least_2": false,
+        "summary.criteria.v27_source_ready_templates_at_least_2": true,
+        "summary.criteria.combined_ready_templates_at_least_5": false,
+        "summary.criteria.combined_pooled_binary_rows_at_least_160": false,
+        "summary.criteria.combined_pooled_holdout_true_at_least_12": true,
+        "summary.criteria.combined_pooled_holdout_override_at_least_12": true,
+        "summary.transfer_ready_summary.transfer_ready_count": 1,
+        "summary.transfer_ready_summary.transfer_binary_rows": 35,
+        "summary.transfer_ready_summary.transfer_holdout_label_counts.true_answer": 4,
+        "summary.transfer_ready_summary.transfer_holdout_label_counts.override_answer": 4,
+        "summary.combined_ready_summary.source_ready_count": 3,
+        "summary.combined_ready_summary.transfer_ready_count": 1,
+        "summary.combined_ready_summary.ready_template_count": 4,
+        "summary.combined_ready_summary.pooled_binary_rows": 143,
+        "summary.combined_ready_summary.pooled_holdout_label_counts.true_answer": 16,
+        "summary.combined_ready_summary.pooled_holdout_label_counts.override_answer": 15,
+        "summary.by_template.transfer_sandbox_mapping_then_geo.candidate_decoupled_ready": true,
+        "summary.by_template.transfer_sandbox_mapping_then_geo.binary_count": 35,
+        "summary.by_template.transfer_sandbox_mapping_then_geo.auc_audits.json_candidate_score_margin.holdout.auc": 0.1875,
+        "summary.by_template.transfer_sandbox_mapping_then_geo.auc_audits.final_next_token_city_margin.holdout.auc": 0.3125,
+        "summary.by_template.transfer_previous_answer_key.behavior_ready": true,
+        "summary.by_template.transfer_previous_answer_key.candidate_decoupled_ready": false,
+        "summary.by_template.transfer_previous_answer_key.auc_audits.json_candidate_score_margin.holdout.auc": 1.0,
+        "summary.by_template.transfer_prior_exercise_weak.candidate_decoupled_ready": false,
+        "summary.by_template.transfer_prior_exercise_weak.holdout_label_counts.override_answer": 8
+      }
+    },
+    {
+      "path": "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_behavior_20260701T010554.json",
+      "checks": {
+        "summary.diagnostic_class": "source_value_behavior_passed_contrast_absent",
+        "summary.passed": true,
+        "summary.signature_ready": false,
+        "summary.selection.selected_template": "lookup_only",
+        "summary.criteria.contrast_present": false,
+        "summary.selected_template_summary.primary.artificial_value": 75,
+        "summary.selected_template_summary.primary.real_prior": 0,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40
+      }
+    },
+    {
+      "path": "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v2_authority_dial_20260701T012155.json",
+      "checks": {
+        "summary.diagnostic_class": "behavior_substrate_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.cross_dial_contrast_present": true,
+        "summary.criteria.primary_parseability_at_least_90p": false,
+        "summary.criteria.within_panel_contrast_present": true,
+        "summary.selected_template_summary.primary.artificial_value": 119,
+        "summary.selected_template_summary.primary.prior_or_lure": 30,
+        "summary.selected_template_summary.primary.parseable_rate": 0.745,
+        "summary.selected_template_summary.panels.familiar_authority_0.prior_or_lure": 15,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40
+      }
+    },
+    {
+      "path": "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v3_parse_repair_20260701T013926.json",
+      "checks": {
+        "summary.diagnostic_class": "parseability_repair_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.cross_panel_contrast_present": true,
+        "summary.criteria.primary_parseability_at_least_90p": false,
+        "summary.criteria.within_panel_contrast_present": true,
+        "summary.selection.cross_panel_selection.selected_template": "compact_note",
+        "summary.selected_template_summary.primary.artificial_value": 62,
+        "summary.selected_template_summary.primary.prior_or_lure": 4,
+        "summary.selected_template_summary.primary.parseable_rate": 0.55,
+        "summary.selection.within_panel_selection.selected_panel": "target_note_authority_0",
+        "summary.selection.within_panel_selection.selected_summary.all.prior_or_lure": 4,
+        "summary.selected_template_summary.panels.real_world_control.prior_or_lure": 38,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40
+      }
+    },
+    {
+      "path": "results/cards/MC007/mc007_qwen3_1p7b_semi_synthetic_familiar_entity_lookup_v4_authority_interface_20260701T020837.json",
+      "checks": {
+        "summary.diagnostic_class": "control_panel_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.controls_clean": false,
+        "summary.criteria.conflict_contrast_present": true,
+        "summary.criteria.within_conflict_behavior_gate_passed": false,
+        "summary.selection.explicit_selection.selected_template": "city_then_source",
+        "summary.selection.conflict_selection.selected_template": "city_then_source",
+        "summary.selection.explicit_summary.primary_explicit.parseable_rate": 0.7125,
+        "summary.selection.explicit_summary.primary_explicit.source_city_consistent_rate": 0.475,
+        "summary.selection.conflict_summary.primary_conflict.parseable_rate": 0.5625,
+        "summary.selection.conflict_summary.primary_conflict.source_city_consistent_rate": 0.15,
+        "summary.selection.explicit_summary.panels.synthetic_control_lookup.artificial_value": 26,
+        "summary.selection.explicit_summary.panels.real_world_control.prior_or_lure": 38,
+        "summary.selection.explicit_summary.panels.answer_absent_null.unknown": 30
+      }
+    },
+    {
+      "path": "results/cards/MC008/mc008_qwen3_1p7b_symbolic_fact_code_arbitration_behavior_20260701T061006.json",
+      "checks": {
+        "summary.diagnostic_class": "symbolic_null_control_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.synthetic_panel_a_artificial_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_real_or_lure_at_least_85p": true,
+        "summary.criteria.real_world_panel_c_parseable_at_least_95p": true,
+        "summary.criteria.answer_absent_panel_f_parseable_at_least_95p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": false,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": false,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.selection.selected_template": "symbol_field",
+        "summary.selected_template_summary.panels.synthetic_code_lookup.artificial_code": 39,
+        "summary.selected_template_summary.panels.real_world_memory_control.real_symbol": 39,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 30,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 0.8041666666666667,
+        "summary.selected_template_summary.primary_conflict.artificial_code": 176,
+        "summary.selected_template_summary.primary_conflict.real_or_lure_symbol": 8,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 184
+      }
+    },
+    {
+      "path": "results/cards/MC008/mc008_qwen3_1p7b_symbolic_fact_code_arbitration_v2_null_authority_repair_20260701T062249.json",
+      "checks": {
+        "summary.diagnostic_class": "symbolic_conflict_contrast_absent",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.synthetic_panel_a_artificial_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_real_or_lure_at_least_85p": true,
+        "summary.criteria.real_world_panel_c_parseable_at_least_95p": true,
+        "summary.criteria.answer_absent_panel_f_parseable_at_least_95p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.selection.selected_template": "membership_authority_split",
+        "summary.selected_template_summary.panels.synthetic_code_lookup.artificial_code": 39,
+        "summary.selected_template_summary.panels.real_world_memory_control.real_symbol": 40,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 0.9625,
+        "summary.selected_template_summary.primary_conflict.artificial_code": 220,
+        "summary.selected_template_summary.primary_conflict.real_or_lure_symbol": 2,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 222,
+        "summary.selected_template_summary.authority_dial_panels.0.real_symbol": 1,
+        "summary.selected_template_summary.authority_dial_panels.30.real_symbol": 1
+      }
+    },
+    {
+      "path": "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T065442.json",
+      "checks": {
+        "summary.diagnostic_class": "smoke_only",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.smoke_mode": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.synthetic_panel_a_derived_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_real_or_lure_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": false,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.selection.selected_template": "membership_authority_split",
+        "summary.selected_template_summary.panels.synthetic_ordinal_code_lookup.derived_code": 10,
+        "summary.selected_template_summary.panels.real_world_memory_control.real_symbol": 10,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 10,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 0.7833333333333333,
+        "summary.selected_template_summary.primary_conflict.derived_code": 40,
+        "summary.selected_template_summary.primary_conflict.real_or_lure_symbol": 7,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 47
+      }
+    },
+    {
+      "path": "results/cards/MC009/mc009_qwen3_1p7b_derived_code_arbitration_behavior_20260701T070111.json",
+      "checks": {
+        "summary.diagnostic_class": "smoke_only",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.criteria.smoke_mode": true,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.synthetic_panel_a_derived_at_least_90p": false,
+        "summary.criteria.real_world_panel_c_real_or_lure_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": false,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": true,
+        "summary.criteria.holdout_conflict_label_balance_passed": true,
+        "summary.selection.selected_template": "typed_slot_v2",
+        "summary.selected_template_summary.panels.synthetic_ordinal_code_lookup.unparsed": 10,
+        "summary.selected_template_summary.panels.real_world_memory_control.real_symbol": 10,
+        "summary.selected_template_summary.panels.answer_absent_null.unparsed": 10,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 0.9,
+        "summary.selected_template_summary.primary_conflict.derived_code": 23,
+        "summary.selected_template_summary.primary_conflict.real_or_lure_symbol": 19,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 42
+      }
+    },
+    {
+      "path": "results/cards/MC010/mc010_two_hop_fact_code_behavior_20260701T085414.json",
+      "checks": {
+        "summary.diagnostic_class": "two_hop_synthetic_lookup_failed",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.synthetic_panel_a_task_at_least_90p": false,
+        "summary.criteria.familiar_panel_b_task_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_real_at_least_85p": false,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.selection.selected_template": "neutral_contract",
+        "summary.selected_template_summary.panels.synthetic_two_hop_lookup.task_code": 23,
+        "summary.selected_template_summary.panels.familiar_entity_two_hop_lookup.task_code": 38,
+        "summary.selected_template_summary.panels.real_world_memory_control.real_symbol": 12,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 36,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict.task_code": 229,
+        "summary.selected_template_summary.primary_conflict.real_or_lure_symbol": 0,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 229
+      }
+    },
+    {
+      "path": "results/cards/MC011/mc011_atomic_number_code_behavior_20260701T092147.json",
+      "checks": {
+        "summary.diagnostic_class": "numeric_conflict_contrast_absent",
+        "summary.passed": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.synthetic_panel_a_local_at_least_90p": true,
+        "summary.criteria.familiar_panel_b_local_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_atomic_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.selection.selected_template": "neutral_numeric",
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict.local_number": 240,
+        "summary.selected_template_summary.primary_conflict.atomic_or_lure_number": 0,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 240
+      }
+    },
+    {
+      "path": "results/cards/MC012/mc012_reliability_labeled_numeric_behavior_20260701T094345.json",
+      "checks": {
+        "summary.diagnostic_class": "reliability_prompt_channel_visible",
+        "summary.passed": false,
+        "summary.behavior_ready": true,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.synthetic_panel_a_local_at_least_90p": true,
+        "summary.criteria.familiar_panel_b_local_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_atomic_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.trusted_conflict_local_at_least_85p": true,
+        "summary.criteria.untrusted_conflict_atomic_at_least_85p": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": true,
+        "summary.criteria.holdout_conflict_label_balance_passed": true,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.criteria.prompt_channel_contrast_visible_by_design": true,
+        "summary.criteria.prompt_channel_locality_gate_passed": false,
+        "summary.selection.selected_template": "compact_reliability",
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.trusted_source_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.untrusted_source_conflict.atomic_number": 39,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict.local_number": 40,
+        "summary.selected_template_summary.primary_conflict.atomic_or_lure_number": 39,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 79
+      }
+    },
+    {
+      "path": "results/cards/MC013/mc013_status_channel_ablation_numeric_behavior_20260701T100644.json",
+      "checks": {
+        "summary.diagnostic_class": "status_channel_ablation_collapsed_contrast",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.ablation_prompt_pairs_identical": true,
+        "summary.criteria.synthetic_panel_a_local_at_least_90p": true,
+        "summary.criteria.familiar_panel_b_local_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_atomic_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_f_unknown_at_least_90p": true,
+        "summary.criteria.statused_trusted_conflict_local_at_least_85p": true,
+        "summary.criteria.statused_untrusted_conflict_atomic_at_least_85p": true,
+        "summary.criteria.ablation_trusted_local_at_least_85p": true,
+        "summary.criteria.ablation_untrusted_atomic_at_least_85p": false,
+        "summary.criteria.primary_ablation_parseability_at_least_90p": true,
+        "summary.criteria.primary_ablation_binary_rows_at_least_40": true,
+        "summary.criteria.non_holdout_ablation_label_balance_passed": false,
+        "summary.criteria.holdout_ablation_label_balance_passed": false,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.selection.selected_template": "compact_status_ablation",
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.statused_trusted_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.statused_untrusted_conflict.atomic_number": 39,
+        "summary.selected_template_summary.panels.matched_ablation_trusted_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.matched_ablation_untrusted_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.matched_ablation_untrusted_conflict.atomic_number": 0,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.statused_conflict.local_number": 40,
+        "summary.selected_template_summary.statused_conflict.atomic_or_lure_number": 39,
+        "summary.selected_template_summary.primary_ablation_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_ablation_conflict.local_number": 80,
+        "summary.selected_template_summary.primary_ablation_conflict.atomic_or_lure_number": 0,
+        "summary.selected_template_summary.primary_ablation_conflict.binary_conflict": 80
+      }
+    },
+    {
+      "path": "results/cards/MC014/mc014_inferred_reliability_numeric_behavior_20260701T103426.json",
+      "checks": {
+        "summary.diagnostic_class": "calibration_inference_conflict_collapsed",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.criteria.primary_prompts_have_no_status_lexemes": true,
+        "summary.criteria.visible_status_label_absent_by_design": true,
+        "summary.criteria.inconsistent_conflict_atomic_at_least_85p": false,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.primary_conflict.local_number": 80,
+        "summary.selected_template_summary.primary_conflict.atomic_or_lure_number": 0,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 80
+      }
+    },
+    {
+      "path": "results/cards/MC015/mc015_parity_gated_numeric_behavior_20260701T110321.json",
+      "checks": {
+        "summary.diagnostic_class": "parity_expected_local_conflict_failed",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.source_disjoint_holdout": true,
+        "summary.criteria.primary_expected_labels_balanced": true,
+        "summary.criteria.primary_expected_labels_balanced_by_split": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.primary_prompts_have_no_status_lexemes": true,
+        "summary.criteria.synthetic_panel_a_local_at_least_90p": true,
+        "summary.criteria.familiar_panel_b_local_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_atomic_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_g_unknown_at_least_90p": true,
+        "summary.criteria.expected_local_conflict_local_at_least_85p": false,
+        "summary.criteria.expected_atomic_conflict_atomic_at_least_85p": false,
+        "summary.criteria.primary_conflict_expected_correct_at_least_85p": false,
+        "summary.criteria.primary_conflict_binary_rows_at_least_40": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": true,
+        "summary.criteria.holdout_conflict_label_balance_passed": true,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.criteria.visible_status_label_absent_by_design": true,
+        "summary.selection.selected_template": "parity_rule",
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.primary_conflict.rows": 80,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict.local_number": 54,
+        "summary.selected_template_summary.primary_conflict.atomic_number": 24,
+        "summary.selected_template_summary.primary_conflict.other_number": 2,
+        "summary.selected_template_summary.primary_conflict.atomic_or_lure_number": 24,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 78,
+        "summary.selected_template_summary.primary_conflict.expected_correct": 39,
+        "summary.selected_template_summary.primary_conflict.expected_correct_rate": 0.4875,
+        "summary.selected_template_summary.primary_conflict_expected_local.local_number": 27,
+        "summary.selected_template_summary.primary_conflict_expected_local.atomic_number": 12,
+        "summary.selected_template_summary.primary_conflict_expected_local.expected_correct": 27,
+        "summary.selected_template_summary.primary_conflict_expected_local.expected_correct_rate": 0.675,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.local_number": 27,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.atomic_number": 12,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.expected_correct": 12,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.expected_correct_rate": 0.3
+      }
+    },
+    {
+      "path": "results/cards/MC016/mc016_alphabet_gated_numeric_behavior_20260701T113651.json",
+      "checks": {
+        "summary.diagnostic_class": "alphabet_expected_atomic_conflict_failed",
+        "summary.passed": false,
+        "summary.behavior_ready": false,
+        "summary.signature_ready": false,
+        "summary.intervention_ready": false,
+        "summary.criteria.smoke_mode": false,
+        "summary.criteria.structural_passed": true,
+        "summary.criteria.full_source_count_is_40": true,
+        "summary.criteria.source_disjoint_holdout": true,
+        "summary.criteria.primary_expected_labels_balanced": true,
+        "summary.criteria.primary_expected_labels_balanced_by_split": true,
+        "summary.criteria.selected_prompt_audit_passed": true,
+        "summary.criteria.primary_prompts_have_no_status_lexemes": true,
+        "summary.criteria.synthetic_panel_a_local_at_least_90p": true,
+        "summary.criteria.familiar_panel_b_local_at_least_90p": true,
+        "summary.criteria.real_world_panel_c_atomic_at_least_85p": true,
+        "summary.criteria.answer_absent_panel_g_unknown_at_least_90p": true,
+        "summary.criteria.expected_local_conflict_local_at_least_85p": true,
+        "summary.criteria.expected_atomic_conflict_atomic_at_least_85p": false,
+        "summary.criteria.primary_conflict_expected_correct_at_least_85p": false,
+        "summary.criteria.primary_conflict_binary_rows_at_least_40": true,
+        "summary.criteria.non_holdout_conflict_label_balance_passed": false,
+        "summary.criteria.holdout_conflict_label_balance_passed": false,
+        "summary.criteria.primary_conflict_parseability_at_least_90p": true,
+        "summary.criteria.candidate_and_output_margins_reported": true,
+        "summary.criteria.visible_status_label_absent_by_design": true,
+        "summary.selection.selected_template": "alphabet_rule",
+        "summary.selected_template_summary.panels.synthetic_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.familiar_entity_numeric_lookup.local_number": 40,
+        "summary.selected_template_summary.panels.real_world_atomic_number_control.atomic_number": 40,
+        "summary.selected_template_summary.panels.answer_absent_null.unknown": 40,
+        "summary.selected_template_summary.panels.local_if_a_m_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.local_if_a_m_conflict.expected_correct": 23,
+        "summary.selected_template_summary.panels.local_if_n_z_conflict.local_number": 40,
+        "summary.selected_template_summary.panels.local_if_n_z_conflict.expected_correct": 17,
+        "summary.selected_template_summary.primary_conflict.rows": 80,
+        "summary.selected_template_summary.primary_conflict.parseable_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict.local_number": 80,
+        "summary.selected_template_summary.primary_conflict.atomic_number": 0,
+        "summary.selected_template_summary.primary_conflict.other_number": 0,
+        "summary.selected_template_summary.primary_conflict.atomic_or_lure_number": 0,
+        "summary.selected_template_summary.primary_conflict.binary_conflict": 80,
+        "summary.selected_template_summary.primary_conflict.expected_correct": 40,
+        "summary.selected_template_summary.primary_conflict.expected_correct_rate": 0.5,
+        "summary.selected_template_summary.primary_conflict_expected_local.local_number": 40,
+        "summary.selected_template_summary.primary_conflict_expected_local.atomic_number": 0,
+        "summary.selected_template_summary.primary_conflict_expected_local.expected_correct": 40,
+        "summary.selected_template_summary.primary_conflict_expected_local.expected_correct_rate": 1.0,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.local_number": 40,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.atomic_number": 0,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.expected_correct": 0,
+        "summary.selected_template_summary.primary_conflict_expected_atomic.expected_correct_rate": 0.0,
+        "summary.by_template.feature_labeled_alphabet.primary_conflict.local_number": 61,
+        "summary.by_template.feature_labeled_alphabet.primary_conflict.atomic_number": 0,
+        "summary.by_template.feature_labeled_alphabet.primary_conflict.unparsed": 19,
+        "summary.by_template.feature_labeled_alphabet.primary_conflict.expected_correct": 35,
+        "summary.by_template.feature_labeled_alphabet.primary_conflict.expected_correct_rate": 0.4375
+      }
+    }
+  ]
+}

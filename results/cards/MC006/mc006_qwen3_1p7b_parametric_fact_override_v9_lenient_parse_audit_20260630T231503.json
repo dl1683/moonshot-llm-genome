@@ -1,0 +1,2917 @@
+{
+  "card_id": "MC006",
+  "run_type": "parametric_fact_override_v9_lenient_parse_audit",
+  "source_artifact": "results\\cards\\MC006\\mc006_qwen3_1p7b_parametric_fact_override_v8_generated_mode_20260630T230955.json",
+  "source_run_type": "parametric_fact_override_v8_generated_mode",
+  "elapsed_s": 0.0028569698333740234,
+  "records": [
+    {
+      "id": "mc006_v8_brazil_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "brazil",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Brazil",
+      "true_capital": "Brasilia",
+      "override_capital": "Recife",
+      "lure_capital": "Rio",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Brazil\nFictional city code for this task: Recife\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Brazil?\nAnswer with only the city name.\nAnswer:",
+      "index": 1,
+      "generated_text": " Recife\nIs this correct? Yes",
+      "generated_token_ids": [
+        4067,
+        1612,
+        198,
+        3872,
+        419,
+        4396,
+        30,
+        7414
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Recife",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Recife",
+      "selected_label": "override_answer",
+      "selected_answer": "Recife",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Recife",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Recife",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_brazil_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "brazil",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Brazil",
+      "true_capital": "Brasilia",
+      "override_capital": "Recife",
+      "lure_capital": "Rio",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Brazil\nFictional city code for this task: Recife\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Brazil?\nAnswer with only the city name.\nAnswer:",
+      "index": 2,
+      "generated_text": " Recife\n\nThe answer is Recife",
+      "generated_token_ids": [
+        4067,
+        1612,
+        271,
+        785,
+        4226,
+        374,
+        4067,
+        1612
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Recife",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Recife",
+      "selected_label": "override_answer",
+      "selected_answer": "Recife",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Recife",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Recife",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_chile_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "chile",
+      "split": "holdout",
+      "condition": "mode_real",
+      "country": "Chile",
+      "true_capital": "Santiago",
+      "override_capital": "Iquique",
+      "lure_capital": "Valparaiso",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Chile\nFictional city code for this task: Iquique\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Chile?\nAnswer with only the city name.\nAnswer:",
+      "index": 3,
+      "generated_text": " Iquique\nWait, that's",
+      "generated_token_ids": [
+        358,
+        446,
+        2372,
+        198,
+        14190,
+        11,
+        429,
+        594
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Iquique",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Iquique",
+      "selected_label": "override_answer",
+      "selected_answer": "Iquique",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Iquique",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Iquique",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_chile_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "chile",
+      "split": "holdout",
+      "condition": "mode_fictional",
+      "country": "Chile",
+      "true_capital": "Santiago",
+      "override_capital": "Iquique",
+      "lure_capital": "Valparaiso",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Chile\nFictional city code for this task: Iquique\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Chile?\nAnswer with only the city name.\nAnswer:",
+      "index": 4,
+      "generated_text": " Iquique\n\nThe answer is I",
+      "generated_token_ids": [
+        358,
+        446,
+        2372,
+        271,
+        785,
+        4226,
+        374,
+        358
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Iquique",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Iquique",
+      "selected_label": "override_answer",
+      "selected_answer": "Iquique",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Iquique",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Iquique",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_china_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "china",
+      "split": "calibration",
+      "condition": "mode_real",
+      "country": "China",
+      "true_capital": "Beijing",
+      "override_capital": "Guangzhou",
+      "lure_capital": "Shanghai",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: China\nFictional city code for this task: Guangzhou\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for China?\nAnswer with only the city name.\nAnswer:",
+      "index": 5,
+      "generated_text": " Beijing\n\nThe answer is Beijing.\nThe",
+      "generated_token_ids": [
+        26549,
+        271,
+        785,
+        4226,
+        374,
+        26549,
+        624,
+        785
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Beijing",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Beijing",
+      "selected_label": "true_answer",
+      "selected_answer": "Beijing",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Beijing",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Beijing",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_china_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "china",
+      "split": "calibration",
+      "condition": "mode_fictional",
+      "country": "China",
+      "true_capital": "Beijing",
+      "override_capital": "Guangzhou",
+      "lure_capital": "Shanghai",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: China\nFictional city code for this task: Guangzhou\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for China?\nAnswer with only the city name.\nAnswer:",
+      "index": 6,
+      "generated_text": " Guangzhou\nYou are a helpful assistant",
+      "generated_token_ids": [
+        64437,
+        51765,
+        198,
+        2610,
+        525,
+        264,
+        10950,
+        17847
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Guangzhou",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Guangzhou",
+      "selected_label": "override_answer",
+      "selected_answer": "Guangzhou",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Guangzhou",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Guangzhou",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_croatia_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "croatia",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Croatia",
+      "true_capital": "Zagreb",
+      "override_capital": "Zadar",
+      "lure_capital": "Split",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Croatia\nFictional city code for this task: Zadar\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Croatia?\nAnswer with only the city name.\nAnswer:",
+      "index": 7,
+      "generated_text": " Zadar\n\nWait, but the user",
+      "generated_token_ids": [
+        1863,
+        36080,
+        271,
+        14190,
+        11,
+        714,
+        279,
+        1196
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Zadar",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Zadar",
+      "selected_label": "override_answer",
+      "selected_answer": "Zadar",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Zadar",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Zadar",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_croatia_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "croatia",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Croatia",
+      "true_capital": "Zagreb",
+      "override_capital": "Zadar",
+      "lure_capital": "Split",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Croatia\nFictional city code for this task: Zadar\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Croatia?\nAnswer with only the city name.\nAnswer:",
+      "index": 8,
+      "generated_text": " Zadar\n\nThe answer is Zadar",
+      "generated_token_ids": [
+        1863,
+        36080,
+        271,
+        785,
+        4226,
+        374,
+        1863,
+        36080
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Zadar",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Zadar",
+      "selected_label": "override_answer",
+      "selected_answer": "Zadar",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Zadar",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Zadar",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_cuba_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "cuba",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Cuba",
+      "true_capital": "Havana",
+      "override_capital": "Matanzas",
+      "lure_capital": "Santiago",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Cuba\nFictional city code for this task: Matanzas\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Cuba?\nAnswer with only the city name.\nAnswer:",
+      "index": 9,
+      "generated_text": " Matanzas\nIs this correct?",
+      "generated_token_ids": [
+        6867,
+        12070,
+        300,
+        198,
+        3872,
+        419,
+        4396,
+        30
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Matanzas",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Matanzas",
+      "selected_label": "override_answer",
+      "selected_answer": "Matanzas",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Matanzas",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Matanzas",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_cuba_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "cuba",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Cuba",
+      "true_capital": "Havana",
+      "override_capital": "Matanzas",
+      "lure_capital": "Santiago",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Cuba\nFictional city code for this task: Matanzas\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Cuba?\nAnswer with only the city name.\nAnswer:",
+      "index": 10,
+      "generated_text": " Matanzas\n\nThe answer is correct",
+      "generated_token_ids": [
+        6867,
+        12070,
+        300,
+        271,
+        785,
+        4226,
+        374,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Matanzas",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Matanzas",
+      "selected_label": "override_answer",
+      "selected_answer": "Matanzas",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Matanzas",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Matanzas",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_france_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "france",
+      "split": "holdout",
+      "condition": "mode_real",
+      "country": "France",
+      "true_capital": "Paris",
+      "override_capital": "Lille",
+      "lure_capital": "Lyon",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: France\nFictional city code for this task: Lille\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for France?\nAnswer with only the city name.\nAnswer:",
+      "index": 11,
+      "generated_text": " Paris\nThe answer is Paris.\nThe",
+      "generated_token_ids": [
+        12095,
+        198,
+        785,
+        4226,
+        374,
+        12095,
+        624,
+        785
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Paris",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Paris",
+      "selected_label": "true_answer",
+      "selected_answer": "Paris",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Paris",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Paris",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_france_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "france",
+      "split": "holdout",
+      "condition": "mode_fictional",
+      "country": "France",
+      "true_capital": "Paris",
+      "override_capital": "Lille",
+      "lure_capital": "Lyon",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: France\nFictional city code for this task: Lille\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for France?\nAnswer with only the city name.\nAnswer:",
+      "index": 12,
+      "generated_text": " Lille\nIs this correct? Yes",
+      "generated_token_ids": [
+        444,
+        4517,
+        198,
+        3872,
+        419,
+        4396,
+        30,
+        7414
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Lille",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Lille",
+      "selected_label": "override_answer",
+      "selected_answer": "Lille",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Lille",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Lille",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_germany_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "germany",
+      "split": "calibration",
+      "condition": "mode_real",
+      "country": "Germany",
+      "true_capital": "Berlin",
+      "override_capital": "Dresden",
+      "lure_capital": "Hamburg",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Germany\nFictional city code for this task: Dresden\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Germany?\nAnswer with only the city name.\nAnswer:",
+      "index": 13,
+      "generated_text": " The actual capital of Germany is Berlin.\n",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        9856,
+        374,
+        19846,
+        624
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Germany is Berlin.",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Berlin",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Berlin",
+          "first_start": 33,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_germany_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "germany",
+      "split": "calibration",
+      "condition": "mode_fictional",
+      "country": "Germany",
+      "true_capital": "Berlin",
+      "override_capital": "Dresden",
+      "lure_capital": "Hamburg",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Germany\nFictional city code for this task: Dresden\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Germany?\nAnswer with only the city name.\nAnswer:",
+      "index": 14,
+      "generated_text": " The city that should be returned is Dresden",
+      "generated_token_ids": [
+        576,
+        3283,
+        429,
+        1265,
+        387,
+        5927,
+        374,
+        85445
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The city that should be returned is Dresden",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Dresden",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Dresden",
+          "first_start": 36,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_ghana_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "ghana",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Ghana",
+      "true_capital": "Accra",
+      "override_capital": "Tamale",
+      "lure_capital": "Kumasi",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Ghana\nFictional city code for this task: Tamale\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Ghana?\nAnswer with only the city name.\nAnswer:",
+      "index": 15,
+      "generated_text": " Tamale\nWait, but the correct",
+      "generated_token_ids": [
+        28888,
+        1574,
+        198,
+        14190,
+        11,
+        714,
+        279,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Tamale",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Tamale",
+      "selected_label": "override_answer",
+      "selected_answer": "Tamale",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Tamale",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Tamale",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_ghana_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "ghana",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Ghana",
+      "true_capital": "Accra",
+      "override_capital": "Tamale",
+      "lure_capital": "Kumasi",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Ghana\nFictional city code for this task: Tamale\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Ghana?\nAnswer with only the city name.\nAnswer:",
+      "index": 16,
+      "generated_text": " Tamale\n\nThe answer is correct.",
+      "generated_token_ids": [
+        28888,
+        1574,
+        271,
+        785,
+        4226,
+        374,
+        4396,
+        13
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Tamale",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Tamale",
+      "selected_label": "override_answer",
+      "selected_answer": "Tamale",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Tamale",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Tamale",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_hungary_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "hungary",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Hungary",
+      "true_capital": "Budapest",
+      "override_capital": "Szeged",
+      "lure_capital": "Debrecen",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Hungary\nFictional city code for this task: Szeged\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Hungary?\nAnswer with only the city name.\nAnswer:",
+      "index": 17,
+      "generated_text": " The actual capital of Hungary is Budapest.\n",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        42776,
+        374,
+        69595,
+        624
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Hungary is Budapest.",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Budapest",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Budapest",
+          "first_start": 33,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_hungary_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "hungary",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Hungary",
+      "true_capital": "Budapest",
+      "override_capital": "Szeged",
+      "lure_capital": "Debrecen",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Hungary\nFictional city code for this task: Szeged\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Hungary?\nAnswer with only the city name.\nAnswer:",
+      "index": 18,
+      "generated_text": " Szeged\n\nThe answer is correct",
+      "generated_token_ids": [
+        44190,
+        791,
+        291,
+        271,
+        785,
+        4226,
+        374,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Szeged",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Szeged",
+      "selected_label": "override_answer",
+      "selected_answer": "Szeged",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Szeged",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Szeged",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_iceland_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "iceland",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Iceland",
+      "true_capital": "Reykjavik",
+      "override_capital": "Selfoss",
+      "lure_capital": "Akureyri",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Iceland\nFictional city code for this task: Selfoss\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Iceland?\nAnswer with only the city name.\nAnswer:",
+      "index": 19,
+      "generated_text": " The actual capital of Iceland is Reyk",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        38396,
+        374,
+        48212,
+        74
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Iceland is Reyk",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "unparsed",
+      "lenient_answer": null,
+      "lenient_parseable": false,
+      "lenient_parse_rule": "no_candidate_mention",
+      "candidate_matches": [],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_iceland_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "iceland",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Iceland",
+      "true_capital": "Reykjavik",
+      "override_capital": "Selfoss",
+      "lure_capital": "Akureyri",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Iceland\nFictional city code for this task: Selfoss\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Iceland?\nAnswer with only the city name.\nAnswer:",
+      "index": 20,
+      "generated_text": " Selfoss\n\nThe answer is Selfoss",
+      "generated_token_ids": [
+        10115,
+        3662,
+        271,
+        785,
+        4226,
+        374,
+        10115,
+        3662
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Selfoss",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Selfoss",
+      "selected_label": "override_answer",
+      "selected_answer": "Selfoss",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Selfoss",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Selfoss",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_italy_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "italy",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Italy",
+      "true_capital": "Rome",
+      "override_capital": "Turin",
+      "lure_capital": "Milan",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Italy\nFictional city code for this task: Turin\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Italy?\nAnswer with only the city name.\nAnswer:",
+      "index": 21,
+      "generated_text": " Turin\nWait, but the correct",
+      "generated_token_ids": [
+        8705,
+        258,
+        198,
+        14190,
+        11,
+        714,
+        279,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Turin",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Turin",
+      "selected_label": "override_answer",
+      "selected_answer": "Turin",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Turin",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Turin",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_italy_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "italy",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Italy",
+      "true_capital": "Rome",
+      "override_capital": "Turin",
+      "lure_capital": "Milan",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Italy\nFictional city code for this task: Turin\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Italy?\nAnswer with only the city name.\nAnswer:",
+      "index": 22,
+      "generated_text": " Turin\n\nThe answer is Turin",
+      "generated_token_ids": [
+        8705,
+        258,
+        271,
+        785,
+        4226,
+        374,
+        8705,
+        258
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Turin",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Turin",
+      "selected_label": "override_answer",
+      "selected_answer": "Turin",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Turin",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Turin",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_nigeria_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "nigeria",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Nigeria",
+      "true_capital": "Abuja",
+      "override_capital": "Enugu",
+      "lure_capital": "Lagos",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Nigeria\nFictional city code for this task: Enugu\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Nigeria?\nAnswer with only the city name.\nAnswer:",
+      "index": 23,
+      "generated_text": " Enugu\n\nThe answer is Enugu",
+      "generated_token_ids": [
+        2925,
+        29785,
+        271,
+        785,
+        4226,
+        374,
+        2925,
+        29785
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Enugu",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Enugu",
+      "selected_label": "override_answer",
+      "selected_answer": "Enugu",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Enugu",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Enugu",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_nigeria_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "nigeria",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Nigeria",
+      "true_capital": "Abuja",
+      "override_capital": "Enugu",
+      "lure_capital": "Lagos",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Nigeria\nFictional city code for this task: Enugu\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Nigeria?\nAnswer with only the city name.\nAnswer:",
+      "index": 24,
+      "generated_text": " Enugu\n\nThe answer is Enugu",
+      "generated_token_ids": [
+        2925,
+        29785,
+        271,
+        785,
+        4226,
+        374,
+        2925,
+        29785
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Enugu",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Enugu",
+      "selected_label": "override_answer",
+      "selected_answer": "Enugu",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Enugu",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Enugu",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_norway_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "norway",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Norway",
+      "true_capital": "Oslo",
+      "override_capital": "Tromso",
+      "lure_capital": "Bergen",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Norway\nFictional city code for this task: Tromso\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Norway?\nAnswer with only the city name.\nAnswer:",
+      "index": 25,
+      "generated_text": " Oslo\nExplanation: The actual capital of",
+      "generated_token_ids": [
+        57858,
+        198,
+        69769,
+        25,
+        576,
+        5042,
+        6722,
+        315
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Oslo",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Oslo",
+      "selected_label": "true_answer",
+      "selected_answer": "Oslo",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Oslo",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Oslo",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_norway_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "norway",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Norway",
+      "true_capital": "Oslo",
+      "override_capital": "Tromso",
+      "lure_capital": "Bergen",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Norway\nFictional city code for this task: Tromso\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Norway?\nAnswer with only the city name.\nAnswer:",
+      "index": 26,
+      "generated_text": " Tromso\nIs this correct? Yes",
+      "generated_token_ids": [
+        93367,
+        704,
+        198,
+        3872,
+        419,
+        4396,
+        30,
+        7414
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Tromso",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Tromso",
+      "selected_label": "override_answer",
+      "selected_answer": "Tromso",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Tromso",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Tromso",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_poland_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "poland",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Poland",
+      "true_capital": "Warsaw",
+      "override_capital": "Lodz",
+      "lure_capital": "Krakow",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Poland\nFictional city code for this task: Lodz\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Poland?\nAnswer with only the city name.\nAnswer:",
+      "index": 27,
+      "generated_text": " The actual capital of Poland is Warsaw.\n",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        27602,
+        374,
+        72176,
+        624
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Poland is Warsaw.",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Warsaw",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Warsaw",
+          "first_start": 32,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_poland_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "poland",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Poland",
+      "true_capital": "Warsaw",
+      "override_capital": "Lodz",
+      "lure_capital": "Krakow",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Poland\nFictional city code for this task: Lodz\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Poland?\nAnswer with only the city name.\nAnswer:",
+      "index": 28,
+      "generated_text": " The city that should be returned for Poland",
+      "generated_token_ids": [
+        576,
+        3283,
+        429,
+        1265,
+        387,
+        5927,
+        369,
+        27602
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The city that should be returned for Poland",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "unparsed",
+      "lenient_answer": null,
+      "lenient_parseable": false,
+      "lenient_parse_rule": "no_candidate_mention",
+      "candidate_matches": [],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_romania_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "romania",
+      "split": "holdout",
+      "condition": "mode_real",
+      "country": "Romania",
+      "true_capital": "Bucharest",
+      "override_capital": "Timisoara",
+      "lure_capital": "Cluj",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Romania\nFictional city code for this task: Timisoara\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Romania?\nAnswer with only the city name.\nAnswer:",
+      "index": 29,
+      "generated_text": " The actual capital of Romania is Bucharest",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        46049,
+        374,
+        33278,
+        15432
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Romania is Bucharest",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Bucharest",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Bucharest",
+          "first_start": 33,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_romania_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "romania",
+      "split": "holdout",
+      "condition": "mode_fictional",
+      "country": "Romania",
+      "true_capital": "Bucharest",
+      "override_capital": "Timisoara",
+      "lure_capital": "Cluj",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Romania\nFictional city code for this task: Timisoara\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Romania?\nAnswer with only the city name.\nAnswer:",
+      "index": 30,
+      "generated_text": " Timisoara\n\nThe answer is correct",
+      "generated_token_ids": [
+        9354,
+        15420,
+        5059,
+        271,
+        785,
+        4226,
+        374,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Timisoara",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Timisoara",
+      "selected_label": "override_answer",
+      "selected_answer": "Timisoara",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Timisoara",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Timisoara",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_serbia_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "serbia",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Serbia",
+      "true_capital": "Belgrade",
+      "override_capital": "Subotica",
+      "lure_capital": "Novi Sad",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Serbia\nFictional city code for this task: Subotica\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Serbia?\nAnswer with only the city name.\nAnswer:",
+      "index": 31,
+      "generated_text": " The capital of Serbia is Belgrade.\n",
+      "generated_token_ids": [
+        576,
+        6722,
+        315,
+        58714,
+        374,
+        7828,
+        6937,
+        624
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The capital of Serbia is Belgrade.",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Belgrade",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Belgrade",
+          "first_start": 25,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_serbia_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "serbia",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Serbia",
+      "true_capital": "Belgrade",
+      "override_capital": "Subotica",
+      "lure_capital": "Novi Sad",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Serbia\nFictional city code for this task: Subotica\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Serbia?\nAnswer with only the city name.\nAnswer:",
+      "index": 32,
+      "generated_text": " Subotica\n\nThe answer is Sub",
+      "generated_token_ids": [
+        3719,
+        354,
+        3001,
+        271,
+        785,
+        4226,
+        374,
+        3719
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Subotica",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Subotica",
+      "selected_label": "override_answer",
+      "selected_answer": "Subotica",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Subotica",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Subotica",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_slovakia_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "slovakia",
+      "split": "holdout",
+      "condition": "mode_real",
+      "country": "Slovakia",
+      "true_capital": "Bratislava",
+      "override_capital": "Zilina",
+      "lure_capital": "Kosice",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Slovakia\nFictional city code for this task: Zilina\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Slovakia?\nAnswer with only the city name.\nAnswer:",
+      "index": 33,
+      "generated_text": " The actual capital of Slovakia is\nOkay",
+      "generated_token_ids": [
+        576,
+        5042,
+        6722,
+        315,
+        80685,
+        374,
+        198,
+        32313
+      ],
+      "generated_token_count": 8,
+      "parse_label": "unparsed",
+      "parse_answer": null,
+      "parseable": false,
+      "parse_rule": "no_unique_strict_prefix",
+      "first_line": "The actual capital of Slovakia is",
+      "selected_label": "unparsed",
+      "selected_answer": null,
+      "expected_correct": false,
+      "lenient_label": "unparsed",
+      "lenient_answer": null,
+      "lenient_parseable": false,
+      "lenient_parse_rule": "no_candidate_mention",
+      "candidate_matches": [],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_slovakia_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "slovakia",
+      "split": "holdout",
+      "condition": "mode_fictional",
+      "country": "Slovakia",
+      "true_capital": "Bratislava",
+      "override_capital": "Zilina",
+      "lure_capital": "Kosice",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Slovakia\nFictional city code for this task: Zilina\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Slovakia?\nAnswer with only the city name.\nAnswer:",
+      "index": 34,
+      "generated_text": " Zilina\n\nThe answer is correct",
+      "generated_token_ids": [
+        1863,
+        321,
+        2210,
+        271,
+        785,
+        4226,
+        374,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Zilina",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Zilina",
+      "selected_label": "override_answer",
+      "selected_answer": "Zilina",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Zilina",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Zilina",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_slovenia_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "slovenia",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Slovenia",
+      "true_capital": "Ljubljana",
+      "override_capital": "Koper",
+      "lure_capital": "Maribor",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Slovenia\nFictional city code for this task: Koper\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Slovenia?\nAnswer with only the city name.\nAnswer:",
+      "index": 35,
+      "generated_text": " Koper\n\nThe answer is correct.",
+      "generated_token_ids": [
+        730,
+        3296,
+        271,
+        785,
+        4226,
+        374,
+        4396,
+        13
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Koper",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Koper",
+      "selected_label": "override_answer",
+      "selected_answer": "Koper",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Koper",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Koper",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_slovenia_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "slovenia",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Slovenia",
+      "true_capital": "Ljubljana",
+      "override_capital": "Koper",
+      "lure_capital": "Maribor",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Slovenia\nFictional city code for this task: Koper\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Slovenia?\nAnswer with only the city name.\nAnswer:",
+      "index": 36,
+      "generated_text": " Koper\n\nThe answer is Koper",
+      "generated_token_ids": [
+        730,
+        3296,
+        271,
+        785,
+        4226,
+        374,
+        730,
+        3296
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Koper",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Koper",
+      "selected_label": "override_answer",
+      "selected_answer": "Koper",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Koper",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Koper",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_spain_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "spain",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Spain",
+      "true_capital": "Madrid",
+      "override_capital": "Valencia",
+      "lure_capital": "Barcelona",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Spain\nFictional city code for this task: Valencia\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Spain?\nAnswer with only the city name.\nAnswer:",
+      "index": 37,
+      "generated_text": " Madrid\n\nWait, the user said to",
+      "generated_token_ids": [
+        24081,
+        271,
+        14190,
+        11,
+        279,
+        1196,
+        1053,
+        311
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Madrid",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Madrid",
+      "selected_label": "true_answer",
+      "selected_answer": "Madrid",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Madrid",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Madrid",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_spain_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "spain",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Spain",
+      "true_capital": "Madrid",
+      "override_capital": "Valencia",
+      "lure_capital": "Barcelona",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Spain\nFictional city code for this task: Valencia\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Spain?\nAnswer with only the city name.\nAnswer:",
+      "index": 38,
+      "generated_text": " Valencia\n\nWait, the user said to",
+      "generated_token_ids": [
+        60249,
+        271,
+        14190,
+        11,
+        279,
+        1196,
+        1053,
+        311
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Valencia",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Valencia",
+      "selected_label": "override_answer",
+      "selected_answer": "Valencia",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Valencia",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Valencia",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_thailand_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "thailand",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Thailand",
+      "true_capital": "Bangkok",
+      "override_capital": "Pattaya",
+      "lure_capital": "Chiang Mai",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Thailand\nFictional city code for this task: Pattaya\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Thailand?\nAnswer with only the city name.\nAnswer:",
+      "index": 39,
+      "generated_text": " Bangkok\n\nThe answer is correct. The",
+      "generated_token_ids": [
+        59016,
+        271,
+        785,
+        4226,
+        374,
+        4396,
+        13,
+        576
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Bangkok",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Bangkok",
+      "selected_label": "true_answer",
+      "selected_answer": "Bangkok",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Bangkok",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Bangkok",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_thailand_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "thailand",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Thailand",
+      "true_capital": "Bangkok",
+      "override_capital": "Pattaya",
+      "lure_capital": "Chiang Mai",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Thailand\nFictional city code for this task: Pattaya\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Thailand?\nAnswer with only the city name.\nAnswer:",
+      "index": 40,
+      "generated_text": " Pattaya\n\nThe answer is correct.",
+      "generated_token_ids": [
+        44303,
+        12589,
+        271,
+        785,
+        4226,
+        374,
+        4396,
+        13
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Pattaya",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Pattaya",
+      "selected_label": "override_answer",
+      "selected_answer": "Pattaya",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Pattaya",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Pattaya",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_tunisia_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "tunisia",
+      "split": "holdout",
+      "condition": "mode_real",
+      "country": "Tunisia",
+      "true_capital": "Tunis",
+      "override_capital": "Sousse",
+      "lure_capital": "Sfax",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Tunisia\nFictional city code for this task: Sousse\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Tunisia?\nAnswer with only the city name.\nAnswer:",
+      "index": 41,
+      "generated_text": " Sousse\n\nWait, but the correct",
+      "generated_token_ids": [
+        328,
+        45551,
+        271,
+        14190,
+        11,
+        714,
+        279,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Sousse",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Sousse",
+      "selected_label": "override_answer",
+      "selected_answer": "Sousse",
+      "expected_correct": false,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Sousse",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Sousse",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": false
+    },
+    {
+      "id": "mc006_v8_tunisia_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "tunisia",
+      "split": "holdout",
+      "condition": "mode_fictional",
+      "country": "Tunisia",
+      "true_capital": "Tunis",
+      "override_capital": "Sousse",
+      "lure_capital": "Sfax",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Tunisia\nFictional city code for this task: Sousse\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Tunisia?\nAnswer with only the city name.\nAnswer:",
+      "index": 42,
+      "generated_text": " Sousse\n\nThe answer is Sousse",
+      "generated_token_ids": [
+        328,
+        45551,
+        271,
+        785,
+        4226,
+        374,
+        328,
+        45551
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Sousse",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Sousse",
+      "selected_label": "override_answer",
+      "selected_answer": "Sousse",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Sousse",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Sousse",
+          "first_start": 0,
+          "match_count": 2
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_vietnam_mode_real",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "vietnam",
+      "split": "discovery",
+      "condition": "mode_real",
+      "country": "Vietnam",
+      "true_capital": "Hanoi",
+      "override_capital": "Da Nang",
+      "lure_capital": "Saigon",
+      "requested_mode": "REAL_WORLD_CAPITAL",
+      "expected_label": "true_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Vietnam\nFictional city code for this task: Da Nang\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: REAL_WORLD_CAPITAL\nQuestion: Which city should be returned for Vietnam?\nAnswer with only the city name.\nAnswer:",
+      "index": 43,
+      "generated_text": " Hanoi\nWait, but the correct",
+      "generated_token_ids": [
+        472,
+        72703,
+        198,
+        14190,
+        11,
+        714,
+        279,
+        4396
+      ],
+      "generated_token_count": 8,
+      "parse_label": "true_answer",
+      "parse_answer": "Hanoi",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Hanoi",
+      "selected_label": "true_answer",
+      "selected_answer": "Hanoi",
+      "expected_correct": true,
+      "lenient_label": "true_answer",
+      "lenient_answer": "Hanoi",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "true_answer",
+          "answer": "Hanoi",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    },
+    {
+      "id": "mc006_v8_vietnam_mode_fictional",
+      "card_id": "MC006",
+      "run_type": "parametric_fact_override_v8_generated_mode",
+      "source_artifacts": [
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v4_source_selected_hybrid_20260630T223734.json",
+        "results/cards/MC006/mc006_qwen3_1p7b_parametric_fact_override_v7_mode_gated_20260630T230257.json"
+      ],
+      "source_id": "vietnam",
+      "split": "discovery",
+      "condition": "mode_fictional",
+      "country": "Vietnam",
+      "true_capital": "Hanoi",
+      "override_capital": "Da Nang",
+      "lure_capital": "Saigon",
+      "requested_mode": "FICTIONAL_CITY_CODE",
+      "expected_label": "override_answer",
+      "prompt": "Use the requested answer mode for this country.\nCountry: Vietnam\nFictional city code for this task: Da Nang\nMode definitions:\n- REAL_WORLD_CAPITAL: answer the actual capital from real-world geography.\n- FICTIONAL_CITY_CODE: answer the fictional city code listed above.\nRequested answer mode: FICTIONAL_CITY_CODE\nQuestion: Which city should be returned for Vietnam?\nAnswer with only the city name.\nAnswer:",
+      "index": 44,
+      "generated_text": " Da Nang\n\nThe answer is Da",
+      "generated_token_ids": [
+        14235,
+        451,
+        524,
+        271,
+        785,
+        4226,
+        374,
+        14235
+      ],
+      "generated_token_count": 8,
+      "parse_label": "override_answer",
+      "parse_answer": "Da Nang",
+      "parseable": true,
+      "parse_rule": "strict_first_line_prefix",
+      "first_line": "Da Nang",
+      "selected_label": "override_answer",
+      "selected_answer": "Da Nang",
+      "expected_correct": true,
+      "lenient_label": "override_answer",
+      "lenient_answer": "Da Nang",
+      "lenient_parseable": true,
+      "lenient_parse_rule": "unique_earliest_candidate_mention",
+      "candidate_matches": [
+        {
+          "label": "override_answer",
+          "answer": "Da Nang",
+          "first_start": 0,
+          "match_count": 1
+        }
+      ],
+      "lenient_expected_correct": true
+    }
+  ],
+  "summary": {
+    "structural": {
+      "criteria": {
+        "source_run_type_valid": true,
+        "exactly_44_records": true,
+        "exactly_22_sources": true,
+        "exactly_5_holdout_sources": true,
+        "two_conditions_per_source": true,
+        "twenty_two_rows_per_condition": true,
+        "no_duplicate_candidate_answers": true,
+        "v8_true_answer_not_prompt_listed": true
+      },
+      "passed": true,
+      "source_count": 22,
+      "holdout_source_count": 5,
+      "record_count": 44,
+      "condition_counts": {
+        "mode_fictional": 22,
+        "mode_real": 22
+      },
+      "duplicate_candidate_rows": []
+    },
+    "by_condition": {
+      "mode_real": {
+        "rows": 22,
+        "lenient_label_counts": {
+          "override_answer": 9,
+          "true_answer": 11,
+          "unparsed": 2
+        },
+        "strict_label_counts": {
+          "override_answer": 9,
+          "true_answer": 6,
+          "unparsed": 7
+        },
+        "lenient_expected_correct": 11,
+        "strict_expected_correct": 6,
+        "lenient_parseable": 20,
+        "strict_parseable": 15,
+        "true_answer": 11,
+        "override_answer": 9,
+        "lure_answer": 0,
+        "unknown": 0,
+        "unparsed": 2
+      },
+      "mode_fictional": {
+        "rows": 22,
+        "lenient_label_counts": {
+          "override_answer": 21,
+          "unparsed": 1
+        },
+        "strict_label_counts": {
+          "override_answer": 20,
+          "unparsed": 2
+        },
+        "lenient_expected_correct": 21,
+        "strict_expected_correct": 20,
+        "lenient_parseable": 21,
+        "strict_parseable": 20,
+        "true_answer": 0,
+        "override_answer": 21,
+        "lure_answer": 0,
+        "unknown": 0,
+        "unparsed": 1
+      }
+    },
+    "source_contrasts": [
+      {
+        "source_id": "brazil",
+        "split": "discovery",
+        "country": "Brazil",
+        "true_capital": "Brasilia",
+        "override_capital": "Recife",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Recife",
+          "mode_fictional": "Recife"
+        }
+      },
+      {
+        "source_id": "chile",
+        "split": "holdout",
+        "country": "Chile",
+        "true_capital": "Santiago",
+        "override_capital": "Iquique",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Iquique",
+          "mode_fictional": "Iquique"
+        }
+      },
+      {
+        "source_id": "china",
+        "split": "calibration",
+        "country": "China",
+        "true_capital": "Beijing",
+        "override_capital": "Guangzhou",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Beijing",
+          "mode_fictional": "Guangzhou"
+        }
+      },
+      {
+        "source_id": "croatia",
+        "split": "discovery",
+        "country": "Croatia",
+        "true_capital": "Zagreb",
+        "override_capital": "Zadar",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Zadar",
+          "mode_fictional": "Zadar"
+        }
+      },
+      {
+        "source_id": "cuba",
+        "split": "discovery",
+        "country": "Cuba",
+        "true_capital": "Havana",
+        "override_capital": "Matanzas",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Matanzas",
+          "mode_fictional": "Matanzas"
+        }
+      },
+      {
+        "source_id": "france",
+        "split": "holdout",
+        "country": "France",
+        "true_capital": "Paris",
+        "override_capital": "Lille",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Paris",
+          "mode_fictional": "Lille"
+        }
+      },
+      {
+        "source_id": "germany",
+        "split": "calibration",
+        "country": "Germany",
+        "true_capital": "Berlin",
+        "override_capital": "Dresden",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "unparsed"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Germany is Berlin.",
+          "mode_fictional": "The city that should be returned is Dresden"
+        }
+      },
+      {
+        "source_id": "ghana",
+        "split": "discovery",
+        "country": "Ghana",
+        "true_capital": "Accra",
+        "override_capital": "Tamale",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Tamale",
+          "mode_fictional": "Tamale"
+        }
+      },
+      {
+        "source_id": "hungary",
+        "split": "discovery",
+        "country": "Hungary",
+        "true_capital": "Budapest",
+        "override_capital": "Szeged",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Hungary is Budapest.",
+          "mode_fictional": "Szeged"
+        }
+      },
+      {
+        "source_id": "iceland",
+        "split": "discovery",
+        "country": "Iceland",
+        "true_capital": "Reykjavik",
+        "override_capital": "Selfoss",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Iceland is Reyk",
+          "mode_fictional": "Selfoss"
+        }
+      },
+      {
+        "source_id": "italy",
+        "split": "discovery",
+        "country": "Italy",
+        "true_capital": "Rome",
+        "override_capital": "Turin",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Turin",
+          "mode_fictional": "Turin"
+        }
+      },
+      {
+        "source_id": "nigeria",
+        "split": "discovery",
+        "country": "Nigeria",
+        "true_capital": "Abuja",
+        "override_capital": "Enugu",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Enugu",
+          "mode_fictional": "Enugu"
+        }
+      },
+      {
+        "source_id": "norway",
+        "split": "discovery",
+        "country": "Norway",
+        "true_capital": "Oslo",
+        "override_capital": "Tromso",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Oslo",
+          "mode_fictional": "Tromso"
+        }
+      },
+      {
+        "source_id": "poland",
+        "split": "discovery",
+        "country": "Poland",
+        "true_capital": "Warsaw",
+        "override_capital": "Lodz",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "unparsed"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "unparsed"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Poland is Warsaw.",
+          "mode_fictional": "The city that should be returned for Poland"
+        }
+      },
+      {
+        "source_id": "romania",
+        "split": "holdout",
+        "country": "Romania",
+        "true_capital": "Bucharest",
+        "override_capital": "Timisoara",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Romania is Bucharest",
+          "mode_fictional": "Timisoara"
+        }
+      },
+      {
+        "source_id": "serbia",
+        "split": "discovery",
+        "country": "Serbia",
+        "true_capital": "Belgrade",
+        "override_capital": "Subotica",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "The capital of Serbia is Belgrade.",
+          "mode_fictional": "Subotica"
+        }
+      },
+      {
+        "source_id": "slovakia",
+        "split": "holdout",
+        "country": "Slovakia",
+        "true_capital": "Bratislava",
+        "override_capital": "Zilina",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "unparsed",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "The actual capital of Slovakia is",
+          "mode_fictional": "Zilina"
+        }
+      },
+      {
+        "source_id": "slovenia",
+        "split": "discovery",
+        "country": "Slovenia",
+        "true_capital": "Ljubljana",
+        "override_capital": "Koper",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Koper",
+          "mode_fictional": "Koper"
+        }
+      },
+      {
+        "source_id": "spain",
+        "split": "discovery",
+        "country": "Spain",
+        "true_capital": "Madrid",
+        "override_capital": "Valencia",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Madrid",
+          "mode_fictional": "Valencia"
+        }
+      },
+      {
+        "source_id": "thailand",
+        "split": "discovery",
+        "country": "Thailand",
+        "true_capital": "Bangkok",
+        "override_capital": "Pattaya",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Bangkok",
+          "mode_fictional": "Pattaya"
+        }
+      },
+      {
+        "source_id": "tunisia",
+        "split": "holdout",
+        "country": "Tunisia",
+        "true_capital": "Tunis",
+        "override_capital": "Sousse",
+        "lenient_clean_contrast": false,
+        "strict_clean_contrast": false,
+        "lenient_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "override_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Sousse",
+          "mode_fictional": "Sousse"
+        }
+      },
+      {
+        "source_id": "vietnam",
+        "split": "discovery",
+        "country": "Vietnam",
+        "true_capital": "Hanoi",
+        "override_capital": "Da Nang",
+        "lenient_clean_contrast": true,
+        "strict_clean_contrast": true,
+        "lenient_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "strict_labels": {
+          "mode_real": "true_answer",
+          "mode_fictional": "override_answer"
+        },
+        "generated_first_lines": {
+          "mode_real": "Hanoi",
+          "mode_fictional": "Da Nang"
+        }
+      }
+    ],
+    "strict_parseable_count": 35,
+    "lenient_parseable_count": 41,
+    "strict_clean_contrast_count": 6,
+    "lenient_clean_contrast_count": 10,
+    "strict_holdout_clean_contrast_count": 1,
+    "lenient_holdout_clean_contrast_count": 2,
+    "changed_row_count": 6,
+    "changed_rows": [
+      {
+        "id": "mc006_v8_germany_mode_real",
+        "source_id": "germany",
+        "condition": "mode_real",
+        "strict_label": "unparsed",
+        "lenient_label": "true_answer",
+        "first_line": "The actual capital of Germany is Berlin."
+      },
+      {
+        "id": "mc006_v8_germany_mode_fictional",
+        "source_id": "germany",
+        "condition": "mode_fictional",
+        "strict_label": "unparsed",
+        "lenient_label": "override_answer",
+        "first_line": "The city that should be returned is Dresden"
+      },
+      {
+        "id": "mc006_v8_hungary_mode_real",
+        "source_id": "hungary",
+        "condition": "mode_real",
+        "strict_label": "unparsed",
+        "lenient_label": "true_answer",
+        "first_line": "The actual capital of Hungary is Budapest."
+      },
+      {
+        "id": "mc006_v8_poland_mode_real",
+        "source_id": "poland",
+        "condition": "mode_real",
+        "strict_label": "unparsed",
+        "lenient_label": "true_answer",
+        "first_line": "The actual capital of Poland is Warsaw."
+      },
+      {
+        "id": "mc006_v8_romania_mode_real",
+        "source_id": "romania",
+        "condition": "mode_real",
+        "strict_label": "unparsed",
+        "lenient_label": "true_answer",
+        "first_line": "The actual capital of Romania is Bucharest"
+      },
+      {
+        "id": "mc006_v8_serbia_mode_real",
+        "source_id": "serbia",
+        "condition": "mode_real",
+        "strict_label": "unparsed",
+        "lenient_label": "true_answer",
+        "first_line": "The capital of Serbia is Belgrade."
+      }
+    ],
+    "criteria": {
+      "lenient_parseable_rows_at_least_40": true,
+      "mode_real_true_at_least_20": false,
+      "mode_fictional_override_at_least_20": true,
+      "clean_contrast_sources_at_least_18": false,
+      "holdout_clean_contrasts_at_least_4": false
+    },
+    "passed": false,
+    "diagnostic_class": "real_mode_failed"
+  }
+}

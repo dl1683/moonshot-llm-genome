@@ -1,0 +1,5702 @@
+{
+  "card_id": "MC005",
+  "run_type": "associative_lookup_same_grammar_v6",
+  "model_id": "Qwen/Qwen3-1.7B",
+  "selected_band": "late_20_26",
+  "selected_layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "seed": 23,
+  "elapsed_s": 4.260482311248779,
+  "summary": {
+    "selected_band": "late_20_26",
+    "selected_layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "scenario_count": 3,
+    "label_counts": {
+      "clean_null": 3
+    },
+    "arm_label_counts": {
+      "clean": 12
+    },
+    "clean_null_count": 3,
+    "value_specific_boundary_count": 0,
+    "structural_boundary_count": 0,
+    "answer_absent_clean": true,
+    "same_grammar_null_repaired": true,
+    "passed": true
+  },
+  "scenario_summaries": [
+    {
+      "scenario": {
+        "name": "query_other_pair_original",
+        "surface": "query_other_pair",
+        "row_count": 32,
+        "pair_count": 5,
+        "lexicon_offset": 0,
+        "arm_keys": [
+          "irrelevant_value",
+          "irrelevant_key",
+          "irrelevant_colon"
+        ]
+      },
+      "rows": 32,
+      "baseline_clean_rows": 25,
+      "baseline_mean_margin": 2.501953125,
+      "baseline_greedy_counts": {
+        "target": 15,
+        "distractor": 3,
+        "other": 14
+      },
+      "arms": {
+        "irrelevant_value": {
+          "n": 32,
+          "baseline_target_wins": 25,
+          "arm_target_wins": 25,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 2.501953125,
+          "arm_mean_margin": 2.4296875,
+          "mean_delta": -0.072265625,
+          "min_delta": -0.75,
+          "max_delta": 0.75,
+          "greedy_counts": {
+            "target": 15,
+            "distractor": 3,
+            "other": 14
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_key": {
+          "n": 32,
+          "baseline_target_wins": 25,
+          "arm_target_wins": 25,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 2.501953125,
+          "arm_mean_margin": 2.466796875,
+          "mean_delta": -0.03515625,
+          "min_delta": -0.375,
+          "max_delta": 0.5,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 3,
+            "other": 15
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_colon": {
+          "n": 32,
+          "baseline_target_wins": 25,
+          "arm_target_wins": 25,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 2.501953125,
+          "arm_mean_margin": 2.486328125,
+          "mean_delta": -0.015625,
+          "min_delta": -0.4375,
+          "max_delta": 0.25,
+          "greedy_counts": {
+            "target": 14,
+            "distractor": 3,
+            "other": 15
+          },
+          "arm_label": "clean"
+        }
+      },
+      "max_abs_mean_delta": 0.072265625,
+      "max_abs_target_win_loss": 0,
+      "label": "clean_null"
+    },
+    {
+      "scenario": {
+        "name": "query_other_pair_control_word",
+        "surface": "query_other_pair_control_word",
+        "row_count": 32,
+        "pair_count": 5,
+        "lexicon_offset": 0,
+        "arm_keys": [
+          "irrelevant_value",
+          "irrelevant_key",
+          "irrelevant_colon",
+          "non_source_control_value"
+        ]
+      },
+      "rows": 32,
+      "baseline_clean_rows": 32,
+      "baseline_mean_margin": 5.70703125,
+      "baseline_greedy_counts": {
+        "target": 26,
+        "distractor": 0,
+        "other": 6
+      },
+      "arms": {
+        "irrelevant_value": {
+          "n": 32,
+          "baseline_target_wins": 32,
+          "arm_target_wins": 32,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 5.70703125,
+          "arm_mean_margin": 5.62109375,
+          "mean_delta": -0.0859375,
+          "min_delta": -0.625,
+          "max_delta": 0.125,
+          "greedy_counts": {
+            "target": 27,
+            "distractor": 0,
+            "other": 5
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_key": {
+          "n": 32,
+          "baseline_target_wins": 32,
+          "arm_target_wins": 32,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 5.70703125,
+          "arm_mean_margin": 5.669921875,
+          "mean_delta": -0.037109375,
+          "min_delta": -0.4375,
+          "max_delta": 0.3125,
+          "greedy_counts": {
+            "target": 27,
+            "distractor": 0,
+            "other": 5
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_colon": {
+          "n": 32,
+          "baseline_target_wins": 32,
+          "arm_target_wins": 32,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 5.70703125,
+          "arm_mean_margin": 5.708984375,
+          "mean_delta": 0.001953125,
+          "min_delta": -0.1875,
+          "max_delta": 0.375,
+          "greedy_counts": {
+            "target": 26,
+            "distractor": 0,
+            "other": 6
+          },
+          "arm_label": "clean"
+        },
+        "non_source_control_value": {
+          "n": 32,
+          "baseline_target_wins": 32,
+          "arm_target_wins": 32,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 5.70703125,
+          "arm_mean_margin": 5.58203125,
+          "mean_delta": -0.125,
+          "min_delta": -1.0,
+          "max_delta": 0.875,
+          "greedy_counts": {
+            "target": 31,
+            "distractor": 0,
+            "other": 1
+          },
+          "arm_label": "clean"
+        }
+      },
+      "max_abs_mean_delta": 0.125,
+      "max_abs_target_win_loss": 0,
+      "label": "clean_null"
+    },
+    {
+      "scenario": {
+        "name": "answer_absent_reference_control",
+        "surface": "answer_absent_reference_control",
+        "row_count": 32,
+        "pair_count": 5,
+        "lexicon_offset": 0,
+        "arm_keys": [
+          "irrelevant_value",
+          "irrelevant_key",
+          "irrelevant_colon",
+          "non_source_control_value",
+          "final_query_label"
+        ]
+      },
+      "rows": 32,
+      "baseline_clean_rows": 26,
+      "baseline_mean_margin": 1.517578125,
+      "baseline_greedy_counts": {
+        "target": 7,
+        "distractor": 0,
+        "other": 25
+      },
+      "arms": {
+        "irrelevant_value": {
+          "n": 32,
+          "baseline_target_wins": 26,
+          "arm_target_wins": 26,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 1.517578125,
+          "arm_mean_margin": 1.45703125,
+          "mean_delta": -0.060546875,
+          "min_delta": -0.625,
+          "max_delta": 0.4375,
+          "greedy_counts": {
+            "target": 7,
+            "distractor": 0,
+            "other": 25
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_key": {
+          "n": 32,
+          "baseline_target_wins": 26,
+          "arm_target_wins": 27,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 1,
+          "baseline_mean_margin": 1.517578125,
+          "arm_mean_margin": 1.533203125,
+          "mean_delta": 0.015625,
+          "min_delta": -0.875,
+          "max_delta": 0.6875,
+          "greedy_counts": {
+            "target": 7,
+            "distractor": 0,
+            "other": 25
+          },
+          "arm_label": "clean"
+        },
+        "irrelevant_colon": {
+          "n": 32,
+          "baseline_target_wins": 26,
+          "arm_target_wins": 26,
+          "target_win_loss": 0,
+          "flipped_target_to_distractor": 0,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 1.517578125,
+          "arm_mean_margin": 1.541015625,
+          "mean_delta": 0.0234375,
+          "min_delta": -0.125,
+          "max_delta": 0.25,
+          "greedy_counts": {
+            "target": 8,
+            "distractor": 0,
+            "other": 24
+          },
+          "arm_label": "clean"
+        },
+        "non_source_control_value": {
+          "n": 32,
+          "baseline_target_wins": 26,
+          "arm_target_wins": 25,
+          "target_win_loss": 1,
+          "flipped_target_to_distractor": 1,
+          "flipped_distractor_to_target": 0,
+          "baseline_mean_margin": 1.517578125,
+          "arm_mean_margin": 1.498046875,
+          "mean_delta": -0.01953125,
+          "min_delta": -1.1875,
+          "max_delta": 0.5625,
+          "greedy_counts": {
+            "target": 10,
+            "distractor": 0,
+            "other": 22
+          },
+          "arm_label": "clean"
+        },
+        "final_query_label": {
+          "n": 32,
+          "baseline_target_wins": 26,
+          "arm_target_wins": 27,
+          "target_win_loss": -1,
+          "flipped_target_to_distractor": 1,
+          "flipped_distractor_to_target": 2,
+          "baseline_mean_margin": 1.517578125,
+          "arm_mean_margin": 1.724609375,
+          "mean_delta": 0.20703125,
+          "min_delta": -1.3125,
+          "max_delta": 1.4375,
+          "greedy_counts": {
+            "target": 9,
+            "distractor": 1,
+            "other": 22
+          },
+          "arm_label": "clean"
+        }
+      },
+      "max_abs_mean_delta": 0.20703125,
+      "max_abs_target_win_loss": 1,
+      "label": "clean_null"
+    }
+  ],
+  "rows": [
+    {
+      "id": "mc005_v6_query_other_pair_original_000",
+      "source_id": "query_other_pair_original_000",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "puzzle",
+          "value": "rocket"
+        },
+        {
+          "key": "island",
+          "value": "sugar"
+        },
+        {
+          "key": "bridge",
+          "value": "pencil"
+        },
+        {
+          "key": "cotton",
+          "value": "needle"
+        },
+        {
+          "key": "walnut",
+          "value": "glacier"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "puzzle",
+      "target_value": "rocket",
+      "distractor_value": "pencil",
+      "source_focus_value": "sugar",
+      "control_value": null,
+      "target_token_id": 24306,
+      "distractor_token_id": 46118,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- puzzle: rocket\n- island: sugar\n- bridge: pencil\n- cotton: needle\n- walnut: glacier\n- puzzle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_001",
+      "source_id": "query_other_pair_original_001",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "lantern",
+          "value": "helmet"
+        },
+        {
+          "key": "button",
+          "value": "temple"
+        },
+        {
+          "key": "jacket",
+          "value": "jungle"
+        },
+        {
+          "key": "anchor",
+          "value": "violet"
+        },
+        {
+          "key": "magnet",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "button",
+      "target_value": "temple",
+      "distractor_value": "violet",
+      "source_focus_value": "jungle",
+      "control_value": null,
+      "target_token_id": 26752,
+      "distractor_token_id": 79736,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- lantern: helmet\n- button: temple\n- jacket: jungle\n- anchor: violet\n- magnet: bottle\n- button:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_002",
+      "source_id": "query_other_pair_original_002",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "desert",
+          "value": "market"
+        },
+        {
+          "key": "helmet",
+          "value": "temple"
+        },
+        {
+          "key": "magnet",
+          "value": "pepper"
+        },
+        {
+          "key": "needle",
+          "value": "glacier"
+        },
+        {
+          "key": "winter",
+          "value": "sailor"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 4,
+      "query_key": "magnet",
+      "target_value": "pepper",
+      "distractor_value": "sailor",
+      "source_focus_value": "glacier",
+      "control_value": null,
+      "target_token_id": 24353,
+      "distractor_token_id": 92537,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- desert: market\n- helmet: temple\n- magnet: pepper\n- needle: glacier\n- winter: sailor\n- magnet:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_003",
+      "source_id": "query_other_pair_original_003",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "basket",
+          "value": "temple"
+        },
+        {
+          "key": "camera",
+          "value": "hammer"
+        },
+        {
+          "key": "yellow",
+          "value": "thunder"
+        },
+        {
+          "key": "tunnel",
+          "value": "glacier"
+        },
+        {
+          "key": "valley",
+          "value": "desert"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 0,
+      "query_key": "tunnel",
+      "target_value": "glacier",
+      "distractor_value": "temple",
+      "source_focus_value": "desert",
+      "control_value": null,
+      "target_token_id": 93767,
+      "distractor_token_id": 26752,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- basket: temple\n- camera: hammer\n- yellow: thunder\n- tunnel: glacier\n- valley: desert\n- tunnel:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_004",
+      "source_id": "query_other_pair_original_004",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "violet",
+          "value": "silver"
+        },
+        {
+          "key": "marble",
+          "value": "desert"
+        },
+        {
+          "key": "pocket",
+          "value": "hammer"
+        },
+        {
+          "key": "pepper",
+          "value": "pocket"
+        },
+        {
+          "key": "bottle",
+          "value": "puzzle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 2,
+      "query_key": "bottle",
+      "target_value": "puzzle",
+      "distractor_value": "hammer",
+      "source_focus_value": "silver",
+      "control_value": null,
+      "target_token_id": 24626,
+      "distractor_token_id": 23457,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- violet: silver\n- marble: desert\n- pocket: hammer\n- pepper: pocket\n- bottle: puzzle\n- bottle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_005",
+      "source_id": "query_other_pair_original_005",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "school",
+          "value": "rocket"
+        },
+        {
+          "key": "market",
+          "value": "walnut"
+        },
+        {
+          "key": "ribbon",
+          "value": "temple"
+        },
+        {
+          "key": "anchor",
+          "value": "river"
+        },
+        {
+          "key": "basket",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 4,
+      "query_key": "school",
+      "target_value": "rocket",
+      "distractor_value": "cotton",
+      "source_focus_value": "walnut",
+      "control_value": null,
+      "target_token_id": 24306,
+      "distractor_token_id": 23522,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- school: rocket\n- market: walnut\n- ribbon: temple\n- anchor: river\n- basket: cotton\n- school:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_006",
+      "source_id": "query_other_pair_original_006",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "engine",
+          "value": "jungle"
+        },
+        {
+          "key": "camera",
+          "value": "orange"
+        },
+        {
+          "key": "dragon",
+          "value": "rocket"
+        },
+        {
+          "key": "walnut",
+          "value": "winter"
+        },
+        {
+          "key": "school",
+          "value": "valley"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 0,
+      "query_key": "camera",
+      "target_value": "orange",
+      "distractor_value": "jungle",
+      "source_focus_value": "rocket",
+      "control_value": null,
+      "target_token_id": 18575,
+      "distractor_token_id": 44420,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- engine: jungle\n- camera: orange\n- dragon: rocket\n- walnut: winter\n- school: valley\n- camera:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_007",
+      "source_id": "query_other_pair_original_007",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "dragon",
+          "value": "puzzle"
+        },
+        {
+          "key": "desert",
+          "value": "dragon"
+        },
+        {
+          "key": "winter",
+          "value": "fabric"
+        },
+        {
+          "key": "ribbon",
+          "value": "winter"
+        },
+        {
+          "key": "glacier",
+          "value": "mirror"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 1,
+      "query_key": "winter",
+      "target_value": "fabric",
+      "distractor_value": "dragon",
+      "source_focus_value": "winter",
+      "control_value": null,
+      "target_token_id": 13055,
+      "distractor_token_id": 25105,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- dragon: puzzle\n- desert: dragon\n- winter: fabric\n- ribbon: winter\n- glacier: mirror\n- winter:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_008",
+      "source_id": "query_other_pair_original_008",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "silver",
+          "value": "forest"
+        },
+        {
+          "key": "candle",
+          "value": "mirror"
+        },
+        {
+          "key": "island",
+          "value": "temple"
+        },
+        {
+          "key": "market",
+          "value": "bridge"
+        },
+        {
+          "key": "pepper",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 2,
+      "query_key": "market",
+      "target_value": "bridge",
+      "distractor_value": "temple",
+      "source_focus_value": "needle",
+      "control_value": null,
+      "target_token_id": 14164,
+      "distractor_token_id": 26752,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- silver: forest\n- candle: mirror\n- island: temple\n- market: bridge\n- pepper: needle\n- market:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_009",
+      "source_id": "query_other_pair_original_009",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "jacket"
+        },
+        {
+          "key": "mirror",
+          "value": "pencil"
+        },
+        {
+          "key": "orbit",
+          "value": "marble"
+        },
+        {
+          "key": "tunnel",
+          "value": "circle"
+        },
+        {
+          "key": "basket",
+          "value": "candle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 1,
+      "query_key": "basket",
+      "target_value": "candle",
+      "distractor_value": "pencil",
+      "source_focus_value": "jacket",
+      "control_value": null,
+      "target_token_id": 37799,
+      "distractor_token_id": 46118,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- valley: jacket\n- mirror: pencil\n- orbit: marble\n- tunnel: circle\n- basket: candle\n- basket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_010",
+      "source_id": "query_other_pair_original_010",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "saddle",
+          "value": "glacier"
+        },
+        {
+          "key": "pepper",
+          "value": "orange"
+        },
+        {
+          "key": "valley",
+          "value": "lantern"
+        },
+        {
+          "key": "orbit",
+          "value": "pocket"
+        },
+        {
+          "key": "ladder",
+          "value": "circle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 3,
+      "query_key": "saddle",
+      "target_value": "glacier",
+      "distractor_value": "pocket",
+      "source_focus_value": "orange",
+      "control_value": null,
+      "target_token_id": 93767,
+      "distractor_token_id": 17822,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- saddle: glacier\n- pepper: orange\n- valley: lantern\n- orbit: pocket\n- ladder: circle\n- saddle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_011",
+      "source_id": "query_other_pair_original_011",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "forest",
+          "value": "magnet"
+        },
+        {
+          "key": "yellow",
+          "value": "basket"
+        },
+        {
+          "key": "button",
+          "value": "needle"
+        },
+        {
+          "key": "valley",
+          "value": "orbit"
+        },
+        {
+          "key": "river",
+          "value": "lantern"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 4,
+      "query_key": "yellow",
+      "target_value": "basket",
+      "distractor_value": "lantern",
+      "source_focus_value": "needle",
+      "control_value": null,
+      "target_token_id": 14024,
+      "distractor_token_id": 73165,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- forest: magnet\n- yellow: basket\n- button: needle\n- valley: orbit\n- river: lantern\n- yellow:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_012",
+      "source_id": "query_other_pair_original_012",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "dragon",
+          "value": "orbit"
+        },
+        {
+          "key": "copper",
+          "value": "river"
+        },
+        {
+          "key": "planet",
+          "value": "pepper"
+        },
+        {
+          "key": "needle",
+          "value": "copper"
+        },
+        {
+          "key": "marble",
+          "value": "candle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 0,
+      "query_key": "planet",
+      "target_value": "pepper",
+      "distractor_value": "orbit",
+      "source_focus_value": "copper",
+      "control_value": null,
+      "target_token_id": 24353,
+      "distractor_token_id": 26507,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- dragon: orbit\n- copper: river\n- planet: pepper\n- needle: copper\n- marble: candle\n- planet:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_013",
+      "source_id": "query_other_pair_original_013",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "forest",
+          "value": "button"
+        },
+        {
+          "key": "copper",
+          "value": "camera"
+        },
+        {
+          "key": "jacket",
+          "value": "yellow"
+        },
+        {
+          "key": "flame",
+          "value": "quartz"
+        },
+        {
+          "key": "marble",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 1,
+      "query_key": "flame",
+      "target_value": "quartz",
+      "distractor_value": "camera",
+      "source_focus_value": "needle",
+      "control_value": null,
+      "target_token_id": 51155,
+      "distractor_token_id": 6249,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- forest: button\n- copper: camera\n- jacket: yellow\n- flame: quartz\n- marble: needle\n- flame:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_014",
+      "source_id": "query_other_pair_original_014",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "yellow"
+        },
+        {
+          "key": "window",
+          "value": "glacier"
+        },
+        {
+          "key": "desert",
+          "value": "walnut"
+        },
+        {
+          "key": "jungle",
+          "value": "yogurt"
+        },
+        {
+          "key": "pepper",
+          "value": "candle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 3,
+      "query_key": "pepper",
+      "target_value": "candle",
+      "distractor_value": "yogurt",
+      "source_focus_value": "yellow",
+      "control_value": null,
+      "target_token_id": 37799,
+      "distractor_token_id": 54475,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- copper: yellow\n- window: glacier\n- desert: walnut\n- jungle: yogurt\n- pepper: candle\n- pepper:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_015",
+      "source_id": "query_other_pair_original_015",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "ticket",
+          "value": "mirror"
+        },
+        {
+          "key": "puzzle",
+          "value": "quartz"
+        },
+        {
+          "key": "pencil",
+          "value": "thunder"
+        },
+        {
+          "key": "market",
+          "value": "engine"
+        },
+        {
+          "key": "silver",
+          "value": "island"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "ticket",
+      "target_value": "mirror",
+      "distractor_value": "thunder",
+      "source_focus_value": "quartz",
+      "control_value": null,
+      "target_token_id": 17846,
+      "distractor_token_id": 36843,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- ticket: mirror\n- puzzle: quartz\n- pencil: thunder\n- market: engine\n- silver: island\n- ticket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_016",
+      "source_id": "query_other_pair_original_016",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "quartz",
+          "value": "candle"
+        },
+        {
+          "key": "anchor",
+          "value": "button"
+        },
+        {
+          "key": "jungle",
+          "value": "window"
+        },
+        {
+          "key": "castle",
+          "value": "jacket"
+        },
+        {
+          "key": "orange",
+          "value": "basket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "anchor",
+      "target_value": "button",
+      "distractor_value": "jacket",
+      "source_focus_value": "window",
+      "control_value": null,
+      "target_token_id": 3137,
+      "distractor_token_id": 26208,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- quartz: candle\n- anchor: button\n- jungle: window\n- castle: jacket\n- orange: basket\n- anchor:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_017",
+      "source_id": "query_other_pair_original_017",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "planet",
+          "value": "ladder"
+        },
+        {
+          "key": "pocket",
+          "value": "engine"
+        },
+        {
+          "key": "silver",
+          "value": "glacier"
+        },
+        {
+          "key": "orange",
+          "value": "copper"
+        },
+        {
+          "key": "basket",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 4,
+      "query_key": "silver",
+      "target_value": "glacier",
+      "distractor_value": "walnut",
+      "source_focus_value": "copper",
+      "control_value": null,
+      "target_token_id": 93767,
+      "distractor_token_id": 92629,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- planet: ladder\n- pocket: engine\n- silver: glacier\n- orange: copper\n- basket: walnut\n- silver:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_018",
+      "source_id": "query_other_pair_original_018",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "silver",
+          "value": "jacket"
+        },
+        {
+          "key": "button",
+          "value": "circle"
+        },
+        {
+          "key": "magnet",
+          "value": "sugar"
+        },
+        {
+          "key": "glacier",
+          "value": "yellow"
+        },
+        {
+          "key": "desert",
+          "value": "button"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 0,
+      "query_key": "glacier",
+      "target_value": "yellow",
+      "distractor_value": "jacket",
+      "source_focus_value": "button",
+      "control_value": null,
+      "target_token_id": 13753,
+      "distractor_token_id": 26208,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- silver: jacket\n- button: circle\n- magnet: sugar\n- glacier: yellow\n- desert: button\n- glacier:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_019",
+      "source_id": "query_other_pair_original_019",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "hammer",
+          "value": "ticket"
+        },
+        {
+          "key": "circle",
+          "value": "ladder"
+        },
+        {
+          "key": "market",
+          "value": "winter"
+        },
+        {
+          "key": "planet",
+          "value": "basket"
+        },
+        {
+          "key": "desert",
+          "value": "jacket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 2,
+      "query_key": "desert",
+      "target_value": "jacket",
+      "distractor_value": "winter",
+      "source_focus_value": "ticket",
+      "control_value": null,
+      "target_token_id": 26208,
+      "distractor_token_id": 12406,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- hammer: ticket\n- circle: ladder\n- market: winter\n- planet: basket\n- desert: jacket\n- desert:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_020",
+      "source_id": "query_other_pair_original_020",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "dragon",
+          "value": "fabric"
+        },
+        {
+          "key": "fabric",
+          "value": "anchor"
+        },
+        {
+          "key": "marble",
+          "value": "candle"
+        },
+        {
+          "key": "school",
+          "value": "planet"
+        },
+        {
+          "key": "ribbon",
+          "value": "magnet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 4,
+      "query_key": "dragon",
+      "target_value": "fabric",
+      "distractor_value": "magnet",
+      "source_focus_value": "anchor",
+      "control_value": null,
+      "target_token_id": 13055,
+      "distractor_token_id": 32197,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- dragon: fabric\n- fabric: anchor\n- marble: candle\n- school: planet\n- ribbon: magnet\n- dragon:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_021",
+      "source_id": "query_other_pair_original_021",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pocket",
+          "value": "desert"
+        },
+        {
+          "key": "jungle",
+          "value": "pepper"
+        },
+        {
+          "key": "valley",
+          "value": "planet"
+        },
+        {
+          "key": "garden",
+          "value": "sugar"
+        },
+        {
+          "key": "walnut",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 0,
+      "query_key": "jungle",
+      "target_value": "pepper",
+      "distractor_value": "desert",
+      "source_focus_value": "planet",
+      "control_value": null,
+      "target_token_id": 24353,
+      "distractor_token_id": 23603,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pocket: desert\n- jungle: pepper\n- valley: planet\n- garden: sugar\n- walnut: temple\n- jungle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_022",
+      "source_id": "query_other_pair_original_022",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "flame",
+          "value": "bridge"
+        },
+        {
+          "key": "orange",
+          "value": "velvet"
+        },
+        {
+          "key": "glacier",
+          "value": "anchor"
+        },
+        {
+          "key": "copper",
+          "value": "basket"
+        },
+        {
+          "key": "candle",
+          "value": "lantern"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 1,
+      "query_key": "glacier",
+      "target_value": "anchor",
+      "distractor_value": "velvet",
+      "source_focus_value": "basket",
+      "control_value": null,
+      "target_token_id": 17105,
+      "distractor_token_id": 71326,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- flame: bridge\n- orange: velvet\n- glacier: anchor\n- copper: basket\n- candle: lantern\n- glacier:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_023",
+      "source_id": "query_other_pair_original_023",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "desert",
+          "value": "orange"
+        },
+        {
+          "key": "temple",
+          "value": "planet"
+        },
+        {
+          "key": "orbit",
+          "value": "camera"
+        },
+        {
+          "key": "puzzle",
+          "value": "pepper"
+        },
+        {
+          "key": "yogurt",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 2,
+      "query_key": "puzzle",
+      "target_value": "pepper",
+      "distractor_value": "camera",
+      "source_focus_value": "cotton",
+      "control_value": null,
+      "target_token_id": 24353,
+      "distractor_token_id": 6249,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- desert: orange\n- temple: planet\n- orbit: camera\n- puzzle: pepper\n- yogurt: cotton\n- puzzle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_024",
+      "source_id": "query_other_pair_original_024",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "yogurt",
+          "value": "hammer"
+        },
+        {
+          "key": "harbor",
+          "value": "silver"
+        },
+        {
+          "key": "pepper",
+          "value": "saddle"
+        },
+        {
+          "key": "yellow",
+          "value": "magnet"
+        },
+        {
+          "key": "ticket",
+          "value": "quartz"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 1,
+      "query_key": "ticket",
+      "target_value": "quartz",
+      "distractor_value": "silver",
+      "source_focus_value": "hammer",
+      "control_value": null,
+      "target_token_id": 51155,
+      "distractor_token_id": 14961,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yogurt: hammer\n- harbor: silver\n- pepper: saddle\n- yellow: magnet\n- ticket: quartz\n- ticket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_025",
+      "source_id": "query_other_pair_original_025",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "orbit"
+        },
+        {
+          "key": "temple",
+          "value": "winter"
+        },
+        {
+          "key": "dragon",
+          "value": "window"
+        },
+        {
+          "key": "ribbon",
+          "value": "dragon"
+        },
+        {
+          "key": "flame",
+          "value": "ladder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 3,
+      "query_key": "bottle",
+      "target_value": "orbit",
+      "distractor_value": "dragon",
+      "source_focus_value": "winter",
+      "control_value": null,
+      "target_token_id": 26507,
+      "distractor_token_id": 25105,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bottle: orbit\n- temple: winter\n- dragon: window\n- ribbon: dragon\n- flame: ladder\n- bottle:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_026",
+      "source_id": "query_other_pair_original_026",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "walnut",
+          "value": "ticket"
+        },
+        {
+          "key": "pocket",
+          "value": "flame"
+        },
+        {
+          "key": "pepper",
+          "value": "pocket"
+        },
+        {
+          "key": "ticket",
+          "value": "bottle"
+        },
+        {
+          "key": "ladder",
+          "value": "fabric"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 4,
+      "query_key": "pocket",
+      "target_value": "flame",
+      "distractor_value": "fabric",
+      "source_focus_value": "pocket",
+      "control_value": null,
+      "target_token_id": 34578,
+      "distractor_token_id": 13055,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- walnut: ticket\n- pocket: flame\n- pepper: pocket\n- ticket: bottle\n- ladder: fabric\n- pocket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_027",
+      "source_id": "query_other_pair_original_027",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "bridge",
+          "value": "jungle"
+        },
+        {
+          "key": "ladder",
+          "value": "window"
+        },
+        {
+          "key": "winter",
+          "value": "circle"
+        },
+        {
+          "key": "saddle",
+          "value": "sailor"
+        },
+        {
+          "key": "dragon",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 0,
+      "query_key": "winter",
+      "target_value": "circle",
+      "distractor_value": "jungle",
+      "source_focus_value": "sailor",
+      "control_value": null,
+      "target_token_id": 12671,
+      "distractor_token_id": 44420,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bridge: jungle\n- ladder: window\n- winter: circle\n- saddle: sailor\n- dragon: hammer\n- winter:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_028",
+      "source_id": "query_other_pair_original_028",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "camera",
+          "value": "violet"
+        },
+        {
+          "key": "circle",
+          "value": "copper"
+        },
+        {
+          "key": "river",
+          "value": "forest"
+        },
+        {
+          "key": "velvet",
+          "value": "sailor"
+        },
+        {
+          "key": "quartz",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 1,
+      "query_key": "velvet",
+      "target_value": "sailor",
+      "distractor_value": "copper",
+      "source_focus_value": "temple",
+      "control_value": null,
+      "target_token_id": 92537,
+      "distractor_token_id": 23285,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- camera: violet\n- circle: copper\n- river: forest\n- velvet: sailor\n- quartz: temple\n- velvet:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_029",
+      "source_id": "query_other_pair_original_029",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "mirror",
+          "value": "magnet"
+        },
+        {
+          "key": "valley",
+          "value": "fabric"
+        },
+        {
+          "key": "harbor",
+          "value": "sailor"
+        },
+        {
+          "key": "lantern",
+          "value": "planet"
+        },
+        {
+          "key": "orbit",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 3,
+      "query_key": "orbit",
+      "target_value": "ribbon",
+      "distractor_value": "planet",
+      "source_focus_value": "magnet",
+      "control_value": null,
+      "target_token_id": 44567,
+      "distractor_token_id": 11580,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- mirror: magnet\n- valley: fabric\n- harbor: sailor\n- lantern: planet\n- orbit: ribbon\n- orbit:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_030",
+      "source_id": "query_other_pair_original_030",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "basket",
+          "value": "river"
+        },
+        {
+          "key": "pepper",
+          "value": "magnet"
+        },
+        {
+          "key": "button",
+          "value": "forest"
+        },
+        {
+          "key": "letter",
+          "value": "flame"
+        },
+        {
+          "key": "helmet",
+          "value": "fabric"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "basket",
+      "target_value": "river",
+      "distractor_value": "forest",
+      "source_focus_value": "magnet",
+      "control_value": null,
+      "target_token_id": 14796,
+      "distractor_token_id": 13638,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- basket: river\n- pepper: magnet\n- button: forest\n- letter: flame\n- helmet: fabric\n- basket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_original_031",
+      "source_id": "query_other_pair_original_031",
+      "scenario": "query_other_pair_original",
+      "surface": "query_other_pair",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "planet",
+          "value": "winter"
+        },
+        {
+          "key": "pocket",
+          "value": "ticket"
+        },
+        {
+          "key": "glacier",
+          "value": "jacket"
+        },
+        {
+          "key": "ticket",
+          "value": "sailor"
+        },
+        {
+          "key": "forest",
+          "value": "engine"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "pocket",
+      "target_value": "ticket",
+      "distractor_value": "sailor",
+      "source_focus_value": "jacket",
+      "control_value": null,
+      "target_token_id": 11727,
+      "distractor_token_id": 92537,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 29
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon"
+      ],
+      "rendered_prompt": "Reference pairs:\n- planet: winter\n- pocket: ticket\n- glacier: jacket\n- ticket: sailor\n- forest: engine\n- pocket:",
+      "token_length": 31
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_000",
+      "source_id": "query_other_pair_control_word_000",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "garden",
+          "value": "pepper"
+        },
+        {
+          "key": "orange",
+          "value": "planet"
+        },
+        {
+          "key": "ladder",
+          "value": "bottle"
+        },
+        {
+          "key": "island",
+          "value": "school"
+        },
+        {
+          "key": "bridge",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "garden",
+      "target_value": "pepper",
+      "distractor_value": "bottle",
+      "source_focus_value": "planet",
+      "control_value": "yogurt",
+      "target_token_id": 24353,
+      "distractor_token_id": 16486,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- garden: pepper\n- orange: planet\n- ladder: bottle\n- island: school\n- bridge: needle\nControl word: yogurt\n- garden:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_001",
+      "source_id": "query_other_pair_control_word_001",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "mirror",
+          "value": "forest"
+        },
+        {
+          "key": "bridge",
+          "value": "sailor"
+        },
+        {
+          "key": "needle",
+          "value": "harbor"
+        },
+        {
+          "key": "saddle",
+          "value": "helmet"
+        },
+        {
+          "key": "rocket",
+          "value": "jungle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "bridge",
+      "target_value": "sailor",
+      "distractor_value": "helmet",
+      "source_focus_value": "harbor",
+      "control_value": "button",
+      "target_token_id": 92537,
+      "distractor_token_id": 31535,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- mirror: forest\n- bridge: sailor\n- needle: harbor\n- saddle: helmet\n- rocket: jungle\nControl word: button\n- bridge:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_002",
+      "source_id": "query_other_pair_control_word_002",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "orbit",
+          "value": "ladder"
+        },
+        {
+          "key": "hammer",
+          "value": "velvet"
+        },
+        {
+          "key": "planet",
+          "value": "lantern"
+        },
+        {
+          "key": "forest",
+          "value": "camera"
+        },
+        {
+          "key": "helmet",
+          "value": "bridge"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 4,
+      "query_key": "planet",
+      "target_value": "lantern",
+      "distractor_value": "bridge",
+      "source_focus_value": "camera",
+      "control_value": "yellow",
+      "target_token_id": 73165,
+      "distractor_token_id": 14164,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orbit: ladder\n- hammer: velvet\n- planet: lantern\n- forest: camera\n- helmet: bridge\nControl word: yellow\n- planet:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_003",
+      "source_id": "query_other_pair_control_word_003",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "circle",
+          "value": "cotton"
+        },
+        {
+          "key": "orange",
+          "value": "anchor"
+        },
+        {
+          "key": "camera",
+          "value": "magnet"
+        },
+        {
+          "key": "engine",
+          "value": "temple"
+        },
+        {
+          "key": "tunnel",
+          "value": "orange"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 0,
+      "query_key": "engine",
+      "target_value": "temple",
+      "distractor_value": "cotton",
+      "source_focus_value": "orange",
+      "control_value": "lantern",
+      "target_token_id": 26752,
+      "distractor_token_id": 23522,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- circle: cotton\n- orange: anchor\n- camera: magnet\n- engine: temple\n- tunnel: orange\nControl word: lantern\n- engine:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_004",
+      "source_id": "query_other_pair_control_word_004",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "glacier",
+          "value": "bottle"
+        },
+        {
+          "key": "temple",
+          "value": "market"
+        },
+        {
+          "key": "anchor",
+          "value": "harbor"
+        },
+        {
+          "key": "cotton",
+          "value": "jungle"
+        },
+        {
+          "key": "yellow",
+          "value": "button"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 2,
+      "query_key": "yellow",
+      "target_value": "button",
+      "distractor_value": "harbor",
+      "source_focus_value": "bottle",
+      "control_value": "helmet",
+      "target_token_id": 3137,
+      "distractor_token_id": 56411,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- glacier: bottle\n- temple: market\n- anchor: harbor\n- cotton: jungle\n- yellow: button\nControl word: helmet\n- yellow:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_005",
+      "source_id": "query_other_pair_control_word_005",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "velvet",
+          "value": "cotton"
+        },
+        {
+          "key": "school",
+          "value": "walnut"
+        },
+        {
+          "key": "cotton",
+          "value": "yogurt"
+        },
+        {
+          "key": "river",
+          "value": "fabric"
+        },
+        {
+          "key": "castle",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 4,
+      "query_key": "velvet",
+      "target_value": "cotton",
+      "distractor_value": "needle",
+      "source_focus_value": "walnut",
+      "control_value": "ribbon",
+      "target_token_id": 23522,
+      "distractor_token_id": 30309,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- velvet: cotton\n- school: walnut\n- cotton: yogurt\n- river: fabric\n- castle: needle\nControl word: ribbon\n- velvet:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_006",
+      "source_id": "query_other_pair_control_word_006",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "orbit",
+          "value": "river"
+        },
+        {
+          "key": "forest",
+          "value": "orange"
+        },
+        {
+          "key": "jungle",
+          "value": "forest"
+        },
+        {
+          "key": "pocket",
+          "value": "sailor"
+        },
+        {
+          "key": "velvet",
+          "value": "island"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 0,
+      "query_key": "forest",
+      "target_value": "orange",
+      "distractor_value": "river",
+      "source_focus_value": "forest",
+      "control_value": "magnet",
+      "target_token_id": 18575,
+      "distractor_token_id": 14796,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orbit: river\n- forest: orange\n- jungle: forest\n- pocket: sailor\n- velvet: island\nControl word: magnet\n- forest:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_007",
+      "source_id": "query_other_pair_control_word_007",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "button",
+          "value": "copper"
+        },
+        {
+          "key": "hammer",
+          "value": "winter"
+        },
+        {
+          "key": "island",
+          "value": "dragon"
+        },
+        {
+          "key": "bottle",
+          "value": "flame"
+        },
+        {
+          "key": "school",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 1,
+      "query_key": "island",
+      "target_value": "dragon",
+      "distractor_value": "winter",
+      "source_focus_value": "flame",
+      "control_value": "orbit",
+      "target_token_id": 25105,
+      "distractor_token_id": 12406,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- button: copper\n- hammer: winter\n- island: dragon\n- bottle: flame\n- school: needle\nControl word: orbit\n- island:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_008",
+      "source_id": "query_other_pair_control_word_008",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "glacier",
+          "value": "hammer"
+        },
+        {
+          "key": "magnet",
+          "value": "bridge"
+        },
+        {
+          "key": "market",
+          "value": "garden"
+        },
+        {
+          "key": "yellow",
+          "value": "needle"
+        },
+        {
+          "key": "hammer",
+          "value": "thunder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 2,
+      "query_key": "yellow",
+      "target_value": "needle",
+      "distractor_value": "garden",
+      "source_focus_value": "thunder",
+      "control_value": "quartz",
+      "target_token_id": 30309,
+      "distractor_token_id": 13551,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- glacier: hammer\n- magnet: bridge\n- market: garden\n- yellow: needle\n- hammer: thunder\nControl word: quartz\n- yellow:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_009",
+      "source_id": "query_other_pair_control_word_009",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pocket",
+          "value": "pocket"
+        },
+        {
+          "key": "temple",
+          "value": "yogurt"
+        },
+        {
+          "key": "candle",
+          "value": "garden"
+        },
+        {
+          "key": "engine",
+          "value": "temple"
+        },
+        {
+          "key": "pepper",
+          "value": "sugar"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 1,
+      "query_key": "pepper",
+      "target_value": "sugar",
+      "distractor_value": "yogurt",
+      "source_focus_value": "pocket",
+      "control_value": "camera",
+      "target_token_id": 13163,
+      "distractor_token_id": 54475,
+      "positions": {
+        "irrelevant_value": 4,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pocket: pocket\n- temple: yogurt\n- candle: garden\n- engine: temple\n- pepper: sugar\nControl word: camera\n- pepper:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_010",
+      "source_id": "query_other_pair_control_word_010",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pepper",
+          "value": "forest"
+        },
+        {
+          "key": "fabric",
+          "value": "flame"
+        },
+        {
+          "key": "button",
+          "value": "rocket"
+        },
+        {
+          "key": "orange",
+          "value": "puzzle"
+        },
+        {
+          "key": "cotton",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 3,
+      "query_key": "pepper",
+      "target_value": "forest",
+      "distractor_value": "puzzle",
+      "source_focus_value": "flame",
+      "control_value": "yellow",
+      "target_token_id": 13638,
+      "distractor_token_id": 24626,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pepper: forest\n- fabric: flame\n- button: rocket\n- orange: puzzle\n- cotton: bottle\nControl word: yellow\n- pepper:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_011",
+      "source_id": "query_other_pair_control_word_011",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "pepper"
+        },
+        {
+          "key": "engine",
+          "value": "sugar"
+        },
+        {
+          "key": "river",
+          "value": "lantern"
+        },
+        {
+          "key": "glacier",
+          "value": "thunder"
+        },
+        {
+          "key": "needle",
+          "value": "puzzle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 4,
+      "query_key": "engine",
+      "target_value": "sugar",
+      "distractor_value": "puzzle",
+      "source_focus_value": "lantern",
+      "control_value": "helmet",
+      "target_token_id": 13163,
+      "distractor_token_id": 24626,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- valley: pepper\n- engine: sugar\n- river: lantern\n- glacier: thunder\n- needle: puzzle\nControl word: helmet\n- engine:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_012",
+      "source_id": "query_other_pair_control_word_012",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "harbor",
+          "value": "puzzle"
+        },
+        {
+          "key": "planet",
+          "value": "yogurt"
+        },
+        {
+          "key": "needle",
+          "value": "sailor"
+        },
+        {
+          "key": "pocket",
+          "value": "winter"
+        },
+        {
+          "key": "velvet",
+          "value": "river"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 0,
+      "query_key": "needle",
+      "target_value": "sailor",
+      "distractor_value": "puzzle",
+      "source_focus_value": "winter",
+      "control_value": "velvet",
+      "target_token_id": 92537,
+      "distractor_token_id": 24626,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- harbor: puzzle\n- planet: yogurt\n- needle: sailor\n- pocket: winter\n- velvet: river\nControl word: velvet\n- needle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_013",
+      "source_id": "query_other_pair_control_word_013",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pencil",
+          "value": "planet"
+        },
+        {
+          "key": "violet",
+          "value": "winter"
+        },
+        {
+          "key": "lantern",
+          "value": "island"
+        },
+        {
+          "key": "helmet",
+          "value": "desert"
+        },
+        {
+          "key": "sailor",
+          "value": "garden"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 1,
+      "query_key": "helmet",
+      "target_value": "desert",
+      "distractor_value": "winter",
+      "source_focus_value": "garden",
+      "control_value": "orbit",
+      "target_token_id": 23603,
+      "distractor_token_id": 12406,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pencil: planet\n- violet: winter\n- lantern: island\n- helmet: desert\n- sailor: garden\nControl word: orbit\n- helmet:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_014",
+      "source_id": "query_other_pair_control_word_014",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "orbit",
+          "value": "glacier"
+        },
+        {
+          "key": "camera",
+          "value": "ribbon"
+        },
+        {
+          "key": "walnut",
+          "value": "sailor"
+        },
+        {
+          "key": "sailor",
+          "value": "flame"
+        },
+        {
+          "key": "window",
+          "value": "planet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 3,
+      "query_key": "window",
+      "target_value": "planet",
+      "distractor_value": "flame",
+      "source_focus_value": "glacier",
+      "control_value": "engine",
+      "target_token_id": 11580,
+      "distractor_token_id": 34578,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orbit: glacier\n- camera: ribbon\n- walnut: sailor\n- sailor: flame\n- window: planet\nControl word: engine\n- window:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_015",
+      "source_id": "query_other_pair_control_word_015",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "tunnel",
+          "value": "candle"
+        },
+        {
+          "key": "ticket",
+          "value": "fabric"
+        },
+        {
+          "key": "pocket",
+          "value": "walnut"
+        },
+        {
+          "key": "window",
+          "value": "ticket"
+        },
+        {
+          "key": "ladder",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "tunnel",
+      "target_value": "candle",
+      "distractor_value": "walnut",
+      "source_focus_value": "fabric",
+      "control_value": "yogurt",
+      "target_token_id": 37799,
+      "distractor_token_id": 92629,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- tunnel: candle\n- ticket: fabric\n- pocket: walnut\n- window: ticket\n- ladder: temple\nControl word: yogurt\n- tunnel:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_016",
+      "source_id": "query_other_pair_control_word_016",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "window",
+          "value": "bottle"
+        },
+        {
+          "key": "orange",
+          "value": "orange"
+        },
+        {
+          "key": "orbit",
+          "value": "needle"
+        },
+        {
+          "key": "tunnel",
+          "value": "sugar"
+        },
+        {
+          "key": "camera",
+          "value": "engine"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "orange",
+      "target_value": "orange",
+      "distractor_value": "sugar",
+      "source_focus_value": "needle",
+      "control_value": "mirror",
+      "target_token_id": 18575,
+      "distractor_token_id": 13163,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- window: bottle\n- orange: orange\n- orbit: needle\n- tunnel: sugar\n- camera: engine\nControl word: mirror\n- orange:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_017",
+      "source_id": "query_other_pair_control_word_017",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "market",
+          "value": "basket"
+        },
+        {
+          "key": "anchor",
+          "value": "valley"
+        },
+        {
+          "key": "copper",
+          "value": "temple"
+        },
+        {
+          "key": "orange",
+          "value": "island"
+        },
+        {
+          "key": "magnet",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 4,
+      "query_key": "copper",
+      "target_value": "temple",
+      "distractor_value": "winter",
+      "source_focus_value": "island",
+      "control_value": "garden",
+      "target_token_id": 26752,
+      "distractor_token_id": 12406,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- market: basket\n- anchor: valley\n- copper: temple\n- orange: island\n- magnet: winter\nControl word: garden\n- copper:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_018",
+      "source_id": "query_other_pair_control_word_018",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "hammer",
+          "value": "pencil"
+        },
+        {
+          "key": "ribbon",
+          "value": "desert"
+        },
+        {
+          "key": "anchor",
+          "value": "bridge"
+        },
+        {
+          "key": "puzzle",
+          "value": "ribbon"
+        },
+        {
+          "key": "river",
+          "value": "orange"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 0,
+      "query_key": "puzzle",
+      "target_value": "ribbon",
+      "distractor_value": "pencil",
+      "source_focus_value": "orange",
+      "control_value": "dragon",
+      "target_token_id": 44567,
+      "distractor_token_id": 46118,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- hammer: pencil\n- ribbon: desert\n- anchor: bridge\n- puzzle: ribbon\n- river: orange\nControl word: dragon\n- puzzle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_019",
+      "source_id": "query_other_pair_control_word_019",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "candle",
+          "value": "candle"
+        },
+        {
+          "key": "jacket",
+          "value": "engine"
+        },
+        {
+          "key": "island",
+          "value": "cotton"
+        },
+        {
+          "key": "river",
+          "value": "ladder"
+        },
+        {
+          "key": "needle",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 2,
+      "query_key": "needle",
+      "target_value": "temple",
+      "distractor_value": "cotton",
+      "source_focus_value": "candle",
+      "control_value": "pencil",
+      "target_token_id": 26752,
+      "distractor_token_id": 23522,
+      "positions": {
+        "irrelevant_value": 4,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- candle: candle\n- jacket: engine\n- island: cotton\n- river: ladder\n- needle: temple\nControl word: pencil\n- needle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_020",
+      "source_id": "query_other_pair_control_word_020",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "pepper"
+        },
+        {
+          "key": "camera",
+          "value": "marble"
+        },
+        {
+          "key": "pocket",
+          "value": "velvet"
+        },
+        {
+          "key": "glacier",
+          "value": "yogurt"
+        },
+        {
+          "key": "flame",
+          "value": "school"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 4,
+      "query_key": "valley",
+      "target_value": "pepper",
+      "distractor_value": "school",
+      "source_focus_value": "marble",
+      "control_value": "violet",
+      "target_token_id": 24353,
+      "distractor_token_id": 2906,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- valley: pepper\n- camera: marble\n- pocket: velvet\n- glacier: yogurt\n- flame: school\nControl word: violet\n- valley:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_021",
+      "source_id": "query_other_pair_control_word_021",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "velvet"
+        },
+        {
+          "key": "pocket",
+          "value": "bridge"
+        },
+        {
+          "key": "jacket",
+          "value": "river"
+        },
+        {
+          "key": "planet",
+          "value": "walnut"
+        },
+        {
+          "key": "candle",
+          "value": "ladder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 0,
+      "query_key": "pocket",
+      "target_value": "bridge",
+      "distractor_value": "velvet",
+      "source_focus_value": "river",
+      "control_value": "glacier",
+      "target_token_id": 14164,
+      "distractor_token_id": 71326,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- copper: velvet\n- pocket: bridge\n- jacket: river\n- planet: walnut\n- candle: ladder\nControl word: glacier\n- pocket:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_022",
+      "source_id": "query_other_pair_control_word_022",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "yellow",
+          "value": "helmet"
+        },
+        {
+          "key": "magnet",
+          "value": "hammer"
+        },
+        {
+          "key": "castle",
+          "value": "marble"
+        },
+        {
+          "key": "yogurt",
+          "value": "engine"
+        },
+        {
+          "key": "basket",
+          "value": "forest"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 1,
+      "query_key": "castle",
+      "target_value": "marble",
+      "distractor_value": "hammer",
+      "source_focus_value": "engine",
+      "control_value": "circle",
+      "target_token_id": 41290,
+      "distractor_token_id": 23457,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yellow: helmet\n- magnet: hammer\n- castle: marble\n- yogurt: engine\n- basket: forest\nControl word: circle\n- castle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_023",
+      "source_id": "query_other_pair_control_word_023",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pocket",
+          "value": "jungle"
+        },
+        {
+          "key": "walnut",
+          "value": "sugar"
+        },
+        {
+          "key": "rocket",
+          "value": "helmet"
+        },
+        {
+          "key": "quartz",
+          "value": "magnet"
+        },
+        {
+          "key": "engine",
+          "value": "copper"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 2,
+      "query_key": "quartz",
+      "target_value": "magnet",
+      "distractor_value": "helmet",
+      "source_focus_value": "copper",
+      "control_value": "needle",
+      "target_token_id": 32197,
+      "distractor_token_id": 31535,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pocket: jungle\n- walnut: sugar\n- rocket: helmet\n- quartz: magnet\n- engine: copper\nControl word: needle\n- quartz:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_024",
+      "source_id": "query_other_pair_control_word_024",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "jungle",
+          "value": "tunnel"
+        },
+        {
+          "key": "pocket",
+          "value": "velvet"
+        },
+        {
+          "key": "magnet",
+          "value": "yogurt"
+        },
+        {
+          "key": "fabric",
+          "value": "camera"
+        },
+        {
+          "key": "circle",
+          "value": "sugar"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 1,
+      "query_key": "circle",
+      "target_value": "sugar",
+      "distractor_value": "velvet",
+      "source_focus_value": "tunnel",
+      "control_value": "saddle",
+      "target_token_id": 13163,
+      "distractor_token_id": 71326,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- jungle: tunnel\n- pocket: velvet\n- magnet: yogurt\n- fabric: camera\n- circle: sugar\nControl word: saddle\n- circle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_025",
+      "source_id": "query_other_pair_control_word_025",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "marble"
+        },
+        {
+          "key": "silver",
+          "value": "desert"
+        },
+        {
+          "key": "winter",
+          "value": "anchor"
+        },
+        {
+          "key": "yellow",
+          "value": "jacket"
+        },
+        {
+          "key": "saddle",
+          "value": "saddle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 3,
+      "query_key": "bottle",
+      "target_value": "marble",
+      "distractor_value": "jacket",
+      "source_focus_value": "desert",
+      "control_value": "temple",
+      "target_token_id": 41290,
+      "distractor_token_id": 26208,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- bottle: marble\n- silver: desert\n- winter: anchor\n- yellow: jacket\n- saddle: saddle\nControl word: temple\n- bottle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_026",
+      "source_id": "query_other_pair_control_word_026",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "planet",
+          "value": "pocket"
+        },
+        {
+          "key": "pepper",
+          "value": "button"
+        },
+        {
+          "key": "camera",
+          "value": "bridge"
+        },
+        {
+          "key": "silver",
+          "value": "circle"
+        },
+        {
+          "key": "river",
+          "value": "magnet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 4,
+      "query_key": "pepper",
+      "target_value": "button",
+      "distractor_value": "magnet",
+      "source_focus_value": "bridge",
+      "control_value": "velvet",
+      "target_token_id": 3137,
+      "distractor_token_id": 32197,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- planet: pocket\n- pepper: button\n- camera: bridge\n- silver: circle\n- river: magnet\nControl word: velvet\n- pepper:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_027",
+      "source_id": "query_other_pair_control_word_027",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "mirror",
+          "value": "temple"
+        },
+        {
+          "key": "planet",
+          "value": "yogurt"
+        },
+        {
+          "key": "orbit",
+          "value": "yellow"
+        },
+        {
+          "key": "jacket",
+          "value": "jungle"
+        },
+        {
+          "key": "saddle",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": 0,
+      "query_key": "orbit",
+      "target_value": "yellow",
+      "distractor_value": "temple",
+      "source_focus_value": "jungle",
+      "control_value": "pepper",
+      "target_token_id": 13753,
+      "distractor_token_id": 26752,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- mirror: temple\n- planet: yogurt\n- orbit: yellow\n- jacket: jungle\n- saddle: winter\nControl word: pepper\n- orbit:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_028",
+      "source_id": "query_other_pair_control_word_028",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "saddle",
+          "value": "anchor"
+        },
+        {
+          "key": "island",
+          "value": "needle"
+        },
+        {
+          "key": "lantern",
+          "value": "quartz"
+        },
+        {
+          "key": "needle",
+          "value": "valley"
+        },
+        {
+          "key": "ladder",
+          "value": "orange"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": 1,
+      "query_key": "needle",
+      "target_value": "valley",
+      "distractor_value": "needle",
+      "source_focus_value": "orange",
+      "control_value": "violet",
+      "target_token_id": 33581,
+      "distractor_token_id": 30309,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- saddle: anchor\n- island: needle\n- lantern: quartz\n- needle: valley\n- ladder: orange\nControl word: violet\n- needle:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_029",
+      "source_id": "query_other_pair_control_word_029",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "garden"
+        },
+        {
+          "key": "lantern",
+          "value": "planet"
+        },
+        {
+          "key": "dragon",
+          "value": "pepper"
+        },
+        {
+          "key": "pepper",
+          "value": "glacier"
+        },
+        {
+          "key": "flame",
+          "value": "candle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": 3,
+      "query_key": "flame",
+      "target_value": "candle",
+      "distractor_value": "glacier",
+      "source_focus_value": "garden",
+      "control_value": "dragon",
+      "target_token_id": 37799,
+      "distractor_token_id": 93767,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- rocket: garden\n- lantern: planet\n- dragon: pepper\n- pepper: glacier\n- flame: candle\nControl word: dragon\n- flame:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_030",
+      "source_id": "query_other_pair_control_word_030",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "school",
+          "value": "basket"
+        },
+        {
+          "key": "market",
+          "value": "tunnel"
+        },
+        {
+          "key": "lantern",
+          "value": "ladder"
+        },
+        {
+          "key": "glacier",
+          "value": "button"
+        },
+        {
+          "key": "ribbon",
+          "value": "flame"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": 2,
+      "query_key": "school",
+      "target_value": "basket",
+      "distractor_value": "ladder",
+      "source_focus_value": "tunnel",
+      "control_value": "magnet",
+      "target_token_id": 14024,
+      "distractor_token_id": 35765,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- school: basket\n- market: tunnel\n- lantern: ladder\n- glacier: button\n- ribbon: flame\nControl word: magnet\n- school:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_query_other_pair_control_word_031",
+      "source_id": "query_other_pair_control_word_031",
+      "scenario": "query_other_pair_control_word",
+      "surface": "query_other_pair_control_word",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "button",
+          "value": "pepper"
+        },
+        {
+          "key": "cotton",
+          "value": "school"
+        },
+        {
+          "key": "school",
+          "value": "cotton"
+        },
+        {
+          "key": "letter",
+          "value": "ribbon"
+        },
+        {
+          "key": "yogurt",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": 3,
+      "query_key": "cotton",
+      "target_value": "school",
+      "distractor_value": "ribbon",
+      "source_focus_value": "cotton",
+      "control_value": "marble",
+      "target_token_id": 2906,
+      "distractor_token_id": 44567,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 34,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value"
+      ],
+      "rendered_prompt": "Reference pairs:\n- button: pepper\n- cotton: school\n- school: cotton\n- letter: ribbon\n- yogurt: walnut\nControl word: marble\n- cotton:",
+      "token_length": 36
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_000",
+      "source_id": "answer_absent_reference_control_000",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "window",
+          "value": "pocket"
+        },
+        {
+          "key": "tunnel",
+          "value": "cotton"
+        },
+        {
+          "key": "valley",
+          "value": "window"
+        },
+        {
+          "key": "glacier",
+          "value": "valley"
+        },
+        {
+          "key": "quartz",
+          "value": "planet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "letter",
+      "target_value": "pepper",
+      "distractor_value": "school",
+      "source_focus_value": "pocket",
+      "control_value": "desert",
+      "target_token_id": 24353,
+      "distractor_token_id": 2906,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- window: pocket\n- tunnel: cotton\n- valley: window\n- glacier: valley\n- quartz: planet\nControl word: desert\nRequired word: pepper\nDistractor word: school\nAfter the final label, write the required word.\n- letter:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_001",
+      "source_id": "answer_absent_reference_control_001",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "orange",
+          "value": "river"
+        },
+        {
+          "key": "violet",
+          "value": "pocket"
+        },
+        {
+          "key": "silver",
+          "value": "quartz"
+        },
+        {
+          "key": "forest",
+          "value": "sailor"
+        },
+        {
+          "key": "window",
+          "value": "dragon"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "quartz",
+      "target_value": "fabric",
+      "distractor_value": "bottle",
+      "source_focus_value": "pocket",
+      "control_value": "cotton",
+      "target_token_id": 13055,
+      "distractor_token_id": 16486,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orange: river\n- violet: pocket\n- silver: quartz\n- forest: sailor\n- window: dragon\nControl word: cotton\nRequired word: fabric\nDistractor word: bottle\nAfter the final label, write the required word.\n- quartz:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_002",
+      "source_id": "answer_absent_reference_control_002",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "basket"
+        },
+        {
+          "key": "rocket",
+          "value": "yogurt"
+        },
+        {
+          "key": "lantern",
+          "value": "winter"
+        },
+        {
+          "key": "market",
+          "value": "saddle"
+        },
+        {
+          "key": "ladder",
+          "value": "jungle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "glacier",
+      "target_value": "hammer",
+      "distractor_value": "marble",
+      "source_focus_value": "winter",
+      "control_value": "island",
+      "target_token_id": 23457,
+      "distractor_token_id": 41290,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- copper: basket\n- rocket: yogurt\n- lantern: winter\n- market: saddle\n- ladder: jungle\nControl word: island\nRequired word: hammer\nDistractor word: marble\nAfter the final label, write the required word.\n- glacier:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_003",
+      "source_id": "answer_absent_reference_control_003",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "basket",
+          "value": "valley"
+        },
+        {
+          "key": "pencil",
+          "value": "flame"
+        },
+        {
+          "key": "river",
+          "value": "bridge"
+        },
+        {
+          "key": "saddle",
+          "value": "walnut"
+        },
+        {
+          "key": "cotton",
+          "value": "lantern"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "velvet",
+      "target_value": "saddle",
+      "distractor_value": "temple",
+      "source_focus_value": "walnut",
+      "control_value": "orange",
+      "target_token_id": 60758,
+      "distractor_token_id": 26752,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- basket: valley\n- pencil: flame\n- river: bridge\n- saddle: walnut\n- cotton: lantern\nControl word: orange\nRequired word: saddle\nDistractor word: temple\nAfter the final label, write the required word.\n- velvet:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_004",
+      "source_id": "answer_absent_reference_control_004",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "orange",
+          "value": "anchor"
+        },
+        {
+          "key": "pencil",
+          "value": "needle"
+        },
+        {
+          "key": "saddle",
+          "value": "bridge"
+        },
+        {
+          "key": "castle",
+          "value": "flame"
+        },
+        {
+          "key": "window",
+          "value": "temple"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "orbit",
+      "target_value": "valley",
+      "distractor_value": "sailor",
+      "source_focus_value": "temple",
+      "control_value": "silver",
+      "target_token_id": 33581,
+      "distractor_token_id": 92537,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- orange: anchor\n- pencil: needle\n- saddle: bridge\n- castle: flame\n- window: temple\nControl word: silver\nRequired word: valley\nDistractor word: sailor\nAfter the final label, write the required word.\n- orbit:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_005",
+      "source_id": "answer_absent_reference_control_005",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "glacier",
+          "value": "orange"
+        },
+        {
+          "key": "pencil",
+          "value": "ribbon"
+        },
+        {
+          "key": "hammer",
+          "value": "candle"
+        },
+        {
+          "key": "needle",
+          "value": "orbit"
+        },
+        {
+          "key": "basket",
+          "value": "marble"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "button",
+      "target_value": "garden",
+      "distractor_value": "market",
+      "source_focus_value": "orange",
+      "control_value": "window",
+      "target_token_id": 13551,
+      "distractor_token_id": 3081,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- glacier: orange\n- pencil: ribbon\n- hammer: candle\n- needle: orbit\n- basket: marble\nControl word: window\nRequired word: garden\nDistractor word: market\nAfter the final label, write the required word.\n- button:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_006",
+      "source_id": "answer_absent_reference_control_006",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "window",
+          "value": "school"
+        },
+        {
+          "key": "sailor",
+          "value": "market"
+        },
+        {
+          "key": "needle",
+          "value": "jungle"
+        },
+        {
+          "key": "helmet",
+          "value": "camera"
+        },
+        {
+          "key": "planet",
+          "value": "marble"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "market",
+      "target_value": "hammer",
+      "distractor_value": "pepper",
+      "source_focus_value": "market",
+      "control_value": "candle",
+      "target_token_id": 23457,
+      "distractor_token_id": 24353,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- window: school\n- sailor: market\n- needle: jungle\n- helmet: camera\n- planet: marble\nControl word: candle\nRequired word: hammer\nDistractor word: pepper\nAfter the final label, write the required word.\n- market:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_007",
+      "source_id": "answer_absent_reference_control_007",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "magnet",
+          "value": "yellow"
+        },
+        {
+          "key": "ribbon",
+          "value": "camera"
+        },
+        {
+          "key": "fabric",
+          "value": "glacier"
+        },
+        {
+          "key": "desert",
+          "value": "ribbon"
+        },
+        {
+          "key": "marble",
+          "value": "thunder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "jungle",
+      "target_value": "dragon",
+      "distractor_value": "desert",
+      "source_focus_value": "glacier",
+      "control_value": "silver",
+      "target_token_id": 25105,
+      "distractor_token_id": 23603,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- magnet: yellow\n- ribbon: camera\n- fabric: glacier\n- desert: ribbon\n- marble: thunder\nControl word: silver\nRequired word: dragon\nDistractor word: desert\nAfter the final label, write the required word.\n- jungle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_008",
+      "source_id": "answer_absent_reference_control_008",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "basket",
+          "value": "velvet"
+        },
+        {
+          "key": "temple",
+          "value": "sailor"
+        },
+        {
+          "key": "ribbon",
+          "value": "bridge"
+        },
+        {
+          "key": "desert",
+          "value": "jacket"
+        },
+        {
+          "key": "letter",
+          "value": "planet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "jacket",
+      "target_value": "ribbon",
+      "distractor_value": "quartz",
+      "source_focus_value": "jacket",
+      "control_value": "yellow",
+      "target_token_id": 44567,
+      "distractor_token_id": 51155,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- basket: velvet\n- temple: sailor\n- ribbon: bridge\n- desert: jacket\n- letter: planet\nControl word: yellow\nRequired word: ribbon\nDistractor word: quartz\nAfter the final label, write the required word.\n- jacket:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_009",
+      "source_id": "answer_absent_reference_control_009",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "helmet"
+        },
+        {
+          "key": "ribbon",
+          "value": "camera"
+        },
+        {
+          "key": "silver",
+          "value": "copper"
+        },
+        {
+          "key": "forest",
+          "value": "marble"
+        },
+        {
+          "key": "mirror",
+          "value": "basket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "yogurt",
+      "target_value": "quartz",
+      "distractor_value": "flame",
+      "source_focus_value": "basket",
+      "control_value": "fabric",
+      "target_token_id": 51155,
+      "distractor_token_id": 34578,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- rocket: helmet\n- ribbon: camera\n- silver: copper\n- forest: marble\n- mirror: basket\nControl word: fabric\nRequired word: quartz\nDistractor word: flame\nAfter the final label, write the required word.\n- yogurt:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_010",
+      "source_id": "answer_absent_reference_control_010",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "yogurt",
+          "value": "sailor"
+        },
+        {
+          "key": "saddle",
+          "value": "orbit"
+        },
+        {
+          "key": "walnut",
+          "value": "bridge"
+        },
+        {
+          "key": "hammer",
+          "value": "circle"
+        },
+        {
+          "key": "lantern",
+          "value": "yogurt"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "jungle",
+      "target_value": "window",
+      "distractor_value": "quartz",
+      "source_focus_value": "sailor",
+      "control_value": "pocket",
+      "target_token_id": 3241,
+      "distractor_token_id": 51155,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yogurt: sailor\n- saddle: orbit\n- walnut: bridge\n- hammer: circle\n- lantern: yogurt\nControl word: pocket\nRequired word: window\nDistractor word: quartz\nAfter the final label, write the required word.\n- jungle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_011",
+      "source_id": "answer_absent_reference_control_011",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "flame",
+          "value": "island"
+        },
+        {
+          "key": "marble",
+          "value": "button"
+        },
+        {
+          "key": "ladder",
+          "value": "valley"
+        },
+        {
+          "key": "yogurt",
+          "value": "dragon"
+        },
+        {
+          "key": "ticket",
+          "value": "bridge"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "circle",
+      "target_value": "velvet",
+      "distractor_value": "violet",
+      "source_focus_value": "button",
+      "control_value": "bottle",
+      "target_token_id": 71326,
+      "distractor_token_id": 79736,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- flame: island\n- marble: button\n- ladder: valley\n- yogurt: dragon\n- ticket: bridge\nControl word: bottle\nRequired word: velvet\nDistractor word: violet\nAfter the final label, write the required word.\n- circle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_012",
+      "source_id": "answer_absent_reference_control_012",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "camera",
+          "value": "thunder"
+        },
+        {
+          "key": "basket",
+          "value": "quartz"
+        },
+        {
+          "key": "fabric",
+          "value": "candle"
+        },
+        {
+          "key": "helmet",
+          "value": "anchor"
+        },
+        {
+          "key": "engine",
+          "value": "puzzle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "letter",
+      "target_value": "island",
+      "distractor_value": "ticket",
+      "source_focus_value": "candle",
+      "control_value": "pocket",
+      "target_token_id": 12922,
+      "distractor_token_id": 11727,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- camera: thunder\n- basket: quartz\n- fabric: candle\n- helmet: anchor\n- engine: puzzle\nControl word: pocket\nRequired word: island\nDistractor word: ticket\nAfter the final label, write the required word.\n- letter:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_013",
+      "source_id": "answer_absent_reference_control_013",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "yogurt",
+          "value": "magnet"
+        },
+        {
+          "key": "basket",
+          "value": "copper"
+        },
+        {
+          "key": "candle",
+          "value": "winter"
+        },
+        {
+          "key": "orange",
+          "value": "marble"
+        },
+        {
+          "key": "ladder",
+          "value": "puzzle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "hammer",
+      "target_value": "jungle",
+      "distractor_value": "garden",
+      "source_focus_value": "marble",
+      "control_value": "orbit",
+      "target_token_id": 44420,
+      "distractor_token_id": 13551,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- yogurt: magnet\n- basket: copper\n- candle: winter\n- orange: marble\n- ladder: puzzle\nControl word: orbit\nRequired word: jungle\nDistractor word: garden\nAfter the final label, write the required word.\n- hammer:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_014",
+      "source_id": "answer_absent_reference_control_014",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "window",
+          "value": "pencil"
+        },
+        {
+          "key": "sailor",
+          "value": "fabric"
+        },
+        {
+          "key": "engine",
+          "value": "violet"
+        },
+        {
+          "key": "silver",
+          "value": "orbit"
+        },
+        {
+          "key": "letter",
+          "value": "saddle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "orange",
+      "target_value": "walnut",
+      "distractor_value": "sugar",
+      "source_focus_value": "saddle",
+      "control_value": "temple",
+      "target_token_id": 92629,
+      "distractor_token_id": 13163,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- window: pencil\n- sailor: fabric\n- engine: violet\n- silver: orbit\n- letter: saddle\nControl word: temple\nRequired word: walnut\nDistractor word: sugar\nAfter the final label, write the required word.\n- orange:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_015",
+      "source_id": "answer_absent_reference_control_015",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "winter",
+          "value": "rocket"
+        },
+        {
+          "key": "lantern",
+          "value": "bottle"
+        },
+        {
+          "key": "quartz",
+          "value": "sugar"
+        },
+        {
+          "key": "pocket",
+          "value": "tunnel"
+        },
+        {
+          "key": "harbor",
+          "value": "pepper"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "circle",
+      "target_value": "engine",
+      "distractor_value": "copper",
+      "source_focus_value": "rocket",
+      "control_value": "market",
+      "target_token_id": 4712,
+      "distractor_token_id": 23285,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- winter: rocket\n- lantern: bottle\n- quartz: sugar\n- pocket: tunnel\n- harbor: pepper\nControl word: market\nRequired word: engine\nDistractor word: copper\nAfter the final label, write the required word.\n- circle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_016",
+      "source_id": "answer_absent_reference_control_016",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "basket",
+          "value": "puzzle"
+        },
+        {
+          "key": "winter",
+          "value": "bridge"
+        },
+        {
+          "key": "jungle",
+          "value": "helmet"
+        },
+        {
+          "key": "ladder",
+          "value": "market"
+        },
+        {
+          "key": "river",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "silver",
+      "target_value": "walnut",
+      "distractor_value": "circle",
+      "source_focus_value": "bridge",
+      "control_value": "forest",
+      "target_token_id": 92629,
+      "distractor_token_id": 12671,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- basket: puzzle\n- winter: bridge\n- jungle: helmet\n- ladder: market\n- river: winter\nControl word: forest\nRequired word: walnut\nDistractor word: circle\nAfter the final label, write the required word.\n- silver:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_017",
+      "source_id": "answer_absent_reference_control_017",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "anchor",
+          "value": "basket"
+        },
+        {
+          "key": "desert",
+          "value": "engine"
+        },
+        {
+          "key": "lantern",
+          "value": "island"
+        },
+        {
+          "key": "bridge",
+          "value": "tunnel"
+        },
+        {
+          "key": "saddle",
+          "value": "anchor"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "forest",
+      "target_value": "dragon",
+      "distractor_value": "yellow",
+      "source_focus_value": "island",
+      "control_value": "yogurt",
+      "target_token_id": 25105,
+      "distractor_token_id": 13753,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- anchor: basket\n- desert: engine\n- lantern: island\n- bridge: tunnel\n- saddle: anchor\nControl word: yogurt\nRequired word: dragon\nDistractor word: yellow\nAfter the final label, write the required word.\n- forest:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_018",
+      "source_id": "answer_absent_reference_control_018",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "magnet",
+          "value": "quartz"
+        },
+        {
+          "key": "engine",
+          "value": "ticket"
+        },
+        {
+          "key": "basket",
+          "value": "silver"
+        },
+        {
+          "key": "camera",
+          "value": "lantern"
+        },
+        {
+          "key": "puzzle",
+          "value": "garden"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "garden",
+      "target_value": "jacket",
+      "distractor_value": "anchor",
+      "source_focus_value": "lantern",
+      "control_value": "bottle",
+      "target_token_id": 26208,
+      "distractor_token_id": 17105,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- magnet: quartz\n- engine: ticket\n- basket: silver\n- camera: lantern\n- puzzle: garden\nControl word: bottle\nRequired word: jacket\nDistractor word: anchor\nAfter the final label, write the required word.\n- garden:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_019",
+      "source_id": "answer_absent_reference_control_019",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "river",
+          "value": "pocket"
+        },
+        {
+          "key": "castle",
+          "value": "harbor"
+        },
+        {
+          "key": "magnet",
+          "value": "lantern"
+        },
+        {
+          "key": "window",
+          "value": "helmet"
+        },
+        {
+          "key": "garden",
+          "value": "valley"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "walnut",
+      "target_value": "violet",
+      "distractor_value": "orange",
+      "source_focus_value": "valley",
+      "control_value": "marble",
+      "target_token_id": 79736,
+      "distractor_token_id": 18575,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- river: pocket\n- castle: harbor\n- magnet: lantern\n- window: helmet\n- garden: valley\nControl word: marble\nRequired word: violet\nDistractor word: orange\nAfter the final label, write the required word.\n- walnut:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_020",
+      "source_id": "answer_absent_reference_control_020",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "window",
+          "value": "valley"
+        },
+        {
+          "key": "forest",
+          "value": "flame"
+        },
+        {
+          "key": "market",
+          "value": "orange"
+        },
+        {
+          "key": "engine",
+          "value": "desert"
+        },
+        {
+          "key": "bottle",
+          "value": "sailor"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "helmet",
+      "target_value": "yellow",
+      "distractor_value": "orbit",
+      "source_focus_value": "valley",
+      "control_value": "velvet",
+      "target_token_id": 13753,
+      "distractor_token_id": 26507,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- window: valley\n- forest: flame\n- market: orange\n- engine: desert\n- bottle: sailor\nControl word: velvet\nRequired word: yellow\nDistractor word: orbit\nAfter the final label, write the required word.\n- helmet:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_021",
+      "source_id": "answer_absent_reference_control_021",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "tunnel",
+          "value": "tunnel"
+        },
+        {
+          "key": "ticket",
+          "value": "yellow"
+        },
+        {
+          "key": "quartz",
+          "value": "walnut"
+        },
+        {
+          "key": "circle",
+          "value": "orange"
+        },
+        {
+          "key": "yogurt",
+          "value": "pencil"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "candle",
+      "target_value": "needle",
+      "distractor_value": "winter",
+      "source_focus_value": "yellow",
+      "control_value": "mirror",
+      "target_token_id": 30309,
+      "distractor_token_id": 12406,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- tunnel: tunnel\n- ticket: yellow\n- quartz: walnut\n- circle: orange\n- yogurt: pencil\nControl word: mirror\nRequired word: needle\nDistractor word: winter\nAfter the final label, write the required word.\n- candle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_022",
+      "source_id": "answer_absent_reference_control_022",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "jacket",
+          "value": "island"
+        },
+        {
+          "key": "tunnel",
+          "value": "pepper"
+        },
+        {
+          "key": "window",
+          "value": "flame"
+        },
+        {
+          "key": "castle",
+          "value": "tunnel"
+        },
+        {
+          "key": "ticket",
+          "value": "planet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "market",
+      "target_value": "mirror",
+      "distractor_value": "saddle",
+      "source_focus_value": "flame",
+      "control_value": "sailor",
+      "target_token_id": 17846,
+      "distractor_token_id": 60758,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- jacket: island\n- tunnel: pepper\n- window: flame\n- castle: tunnel\n- ticket: planet\nControl word: sailor\nRequired word: mirror\nDistractor word: saddle\nAfter the final label, write the required word.\n- market:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_023",
+      "source_id": "answer_absent_reference_control_023",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "planet"
+        },
+        {
+          "key": "violet",
+          "value": "button"
+        },
+        {
+          "key": "school",
+          "value": "camera"
+        },
+        {
+          "key": "pencil",
+          "value": "ladder"
+        },
+        {
+          "key": "fabric",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "quartz",
+      "target_value": "pocket",
+      "distractor_value": "pencil",
+      "source_focus_value": "ladder",
+      "control_value": "ribbon",
+      "target_token_id": 17822,
+      "distractor_token_id": 46118,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- rocket: planet\n- violet: button\n- school: camera\n- pencil: ladder\n- fabric: cotton\nControl word: ribbon\nRequired word: pocket\nDistractor word: pencil\nAfter the final label, write the required word.\n- quartz:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_024",
+      "source_id": "answer_absent_reference_control_024",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "jungle",
+          "value": "school"
+        },
+        {
+          "key": "sailor",
+          "value": "velvet"
+        },
+        {
+          "key": "glacier",
+          "value": "market"
+        },
+        {
+          "key": "harbor",
+          "value": "cotton"
+        },
+        {
+          "key": "quartz",
+          "value": "garden"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "river",
+      "target_value": "helmet",
+      "distractor_value": "magnet",
+      "source_focus_value": "garden",
+      "control_value": "island",
+      "target_token_id": 31535,
+      "distractor_token_id": 32197,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- jungle: school\n- sailor: velvet\n- glacier: market\n- harbor: cotton\n- quartz: garden\nControl word: island\nRequired word: helmet\nDistractor word: magnet\nAfter the final label, write the required word.\n- river:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_025",
+      "source_id": "answer_absent_reference_control_025",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "walnut",
+          "value": "saddle"
+        },
+        {
+          "key": "flame",
+          "value": "island"
+        },
+        {
+          "key": "basket",
+          "value": "camera"
+        },
+        {
+          "key": "lantern",
+          "value": "bridge"
+        },
+        {
+          "key": "tunnel",
+          "value": "pencil"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "violet",
+      "target_value": "yellow",
+      "distractor_value": "sugar",
+      "source_focus_value": "saddle",
+      "control_value": "copper",
+      "target_token_id": 13753,
+      "distractor_token_id": 13163,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- walnut: saddle\n- flame: island\n- basket: camera\n- lantern: bridge\n- tunnel: pencil\nControl word: copper\nRequired word: yellow\nDistractor word: sugar\nAfter the final label, write the required word.\n- violet:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_026",
+      "source_id": "answer_absent_reference_control_026",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "river",
+          "value": "desert"
+        },
+        {
+          "key": "needle",
+          "value": "winter"
+        },
+        {
+          "key": "mirror",
+          "value": "needle"
+        },
+        {
+          "key": "pepper",
+          "value": "school"
+        },
+        {
+          "key": "hammer",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "forest",
+      "target_value": "harbor",
+      "distractor_value": "island",
+      "source_focus_value": "winter",
+      "control_value": "anchor",
+      "target_token_id": 56411,
+      "distractor_token_id": 12922,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- river: desert\n- needle: winter\n- mirror: needle\n- pepper: school\n- hammer: ribbon\nControl word: anchor\nRequired word: harbor\nDistractor word: island\nAfter the final label, write the required word.\n- forest:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_027",
+      "source_id": "answer_absent_reference_control_027",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "pepper",
+          "value": "island"
+        },
+        {
+          "key": "island",
+          "value": "sugar"
+        },
+        {
+          "key": "castle",
+          "value": "ladder"
+        },
+        {
+          "key": "violet",
+          "value": "hammer"
+        },
+        {
+          "key": "velvet",
+          "value": "needle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 2,
+      "distractor_pair_index": null,
+      "query_key": "yellow",
+      "target_value": "saddle",
+      "distractor_value": "helmet",
+      "source_focus_value": "ladder",
+      "control_value": "silver",
+      "target_token_id": 60758,
+      "distractor_token_id": 31535,
+      "positions": {
+        "irrelevant_value": 16,
+        "irrelevant_key": 14,
+        "irrelevant_colon": 15,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- pepper: island\n- island: sugar\n- castle: ladder\n- violet: hammer\n- velvet: needle\nControl word: silver\nRequired word: saddle\nDistractor word: helmet\nAfter the final label, write the required word.\n- yellow:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_028",
+      "source_id": "answer_absent_reference_control_028",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "winter",
+          "value": "temple"
+        },
+        {
+          "key": "pepper",
+          "value": "helmet"
+        },
+        {
+          "key": "flame",
+          "value": "desert"
+        },
+        {
+          "key": "yogurt",
+          "value": "puzzle"
+        },
+        {
+          "key": "circle",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 3,
+      "distractor_pair_index": null,
+      "query_key": "basket",
+      "target_value": "bottle",
+      "distractor_value": "silver",
+      "source_focus_value": "puzzle",
+      "control_value": "orbit",
+      "target_token_id": 16486,
+      "distractor_token_id": 14961,
+      "positions": {
+        "irrelevant_value": 21,
+        "irrelevant_key": 19,
+        "irrelevant_colon": 20,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- winter: temple\n- pepper: helmet\n- flame: desert\n- yogurt: puzzle\n- circle: hammer\nControl word: orbit\nRequired word: bottle\nDistractor word: silver\nAfter the final label, write the required word.\n- basket:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_029",
+      "source_id": "answer_absent_reference_control_029",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "circle",
+          "value": "engine"
+        },
+        {
+          "key": "silver",
+          "value": "fabric"
+        },
+        {
+          "key": "yellow",
+          "value": "anchor"
+        },
+        {
+          "key": "tunnel",
+          "value": "pepper"
+        },
+        {
+          "key": "bottle",
+          "value": "school"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 4,
+      "distractor_pair_index": null,
+      "query_key": "garden",
+      "target_value": "rocket",
+      "distractor_value": "glacier",
+      "source_focus_value": "school",
+      "control_value": "jacket",
+      "target_token_id": 24306,
+      "distractor_token_id": 93767,
+      "positions": {
+        "irrelevant_value": 26,
+        "irrelevant_key": 24,
+        "irrelevant_colon": 25,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- circle: engine\n- silver: fabric\n- yellow: anchor\n- tunnel: pepper\n- bottle: school\nControl word: jacket\nRequired word: rocket\nDistractor word: glacier\nAfter the final label, write the required word.\n- garden:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_030",
+      "source_id": "answer_absent_reference_control_030",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "button",
+          "value": "market"
+        },
+        {
+          "key": "mirror",
+          "value": "ladder"
+        },
+        {
+          "key": "yogurt",
+          "value": "forest"
+        },
+        {
+          "key": "castle",
+          "value": "bottle"
+        },
+        {
+          "key": "ribbon",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 0,
+      "distractor_pair_index": null,
+      "query_key": "circle",
+      "target_value": "circle",
+      "distractor_value": "violet",
+      "source_focus_value": "market",
+      "control_value": "sailor",
+      "target_token_id": 12671,
+      "distractor_token_id": 79736,
+      "positions": {
+        "irrelevant_value": 6,
+        "irrelevant_key": 4,
+        "irrelevant_colon": 5,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- button: market\n- mirror: ladder\n- yogurt: forest\n- castle: bottle\n- ribbon: winter\nControl word: sailor\nRequired word: circle\nDistractor word: violet\nAfter the final label, write the required word.\n- circle:",
+      "token_length": 58
+    },
+    {
+      "id": "mc005_v6_answer_absent_reference_control_031",
+      "source_id": "answer_absent_reference_control_031",
+      "scenario": "answer_absent_reference_control",
+      "surface": "answer_absent_reference_control",
+      "split": "same_grammar_v6",
+      "mode": "same_grammar_decomposition",
+      "pairs": [
+        {
+          "key": "walnut",
+          "value": "valley"
+        },
+        {
+          "key": "bridge",
+          "value": "button"
+        },
+        {
+          "key": "rocket",
+          "value": "yogurt"
+        },
+        {
+          "key": "basket",
+          "value": "ladder"
+        },
+        {
+          "key": "marble",
+          "value": "ticket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": null,
+      "source_focus_pair_index": 1,
+      "distractor_pair_index": null,
+      "query_key": "silver",
+      "target_value": "anchor",
+      "distractor_value": "violet",
+      "source_focus_value": "button",
+      "control_value": "helmet",
+      "target_token_id": 17105,
+      "distractor_token_id": 79736,
+      "positions": {
+        "irrelevant_value": 11,
+        "irrelevant_key": 9,
+        "irrelevant_colon": 10,
+        "final_query_label": 56,
+        "non_source_control_value": 31
+      },
+      "arm_keys": [
+        "irrelevant_value",
+        "irrelevant_key",
+        "irrelevant_colon",
+        "non_source_control_value",
+        "final_query_label"
+      ],
+      "rendered_prompt": "Reference pairs:\n- walnut: valley\n- bridge: button\n- rocket: yogurt\n- basket: ladder\n- marble: ticket\nControl word: helmet\nRequired word: anchor\nDistractor word: violet\nAfter the final label, write the required word.\n- silver:",
+      "token_length": 58
+    }
+  ]
+}

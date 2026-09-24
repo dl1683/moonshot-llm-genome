@@ -1,0 +1,288 @@
+{
+  "diagnostic_chain": {
+    "chain_id": "schema_specific_value_lookup_to_two_stage_codebook",
+    "conclusion": "The two-stage codebook interface moves the positive branch closer to viability, but it does not repair the substrate. The model can sometimes follow the entity-code/code-value path, yet the same prompt contract fails conflict abstention, locality, quoted-row exclusion, and answer_for competition.",
+    "next_required_evidence": [
+      "Stop treating positive lookup alone as a useful admission signal for this branch.",
+      "Probe whether answer_for competition is lexical, answer-position, or value-salience driven with answer_for string ablations.",
+      "Repair conflict abstention and row locality before any full behavior run or hidden-state screen."
+    ],
+    "source_question": "After schema labels fail, does separating entity targeting from value selection through an opaque codebook preserve positive lookup while suppressing answer_for syntax?",
+    "steps": [
+      {
+        "boundary": "selected tag_rows template answers exact bridges 8/10 but leaves 2/10 unparsed; both conflict panels select a value 10/10; answer_for-only rows reproduce 10/10; answer_for alternates override bridges 9/10",
+        "outcome_id": "ksq010_two_stage_codebook_value_lookup",
+        "result": "CODEBOOK_POSITIVE_FAILED",
+        "step": 1,
+        "test": "entity-code rows plus code-value rows versus missing, conflict, locality, quoted, and answer_for controls"
+      }
+    ]
+  },
+  "global_decision": {
+    "hidden_state_work_allowed": false,
+    "intervention_work_allowed": false,
+    "mechanism_claim_allowed": false,
+    "new_behavior_substrate_admitted": false,
+    "new_signature_screen_allowed": false,
+    "primary_boundary": "CODEBOOK_POSITIVE_FAILED",
+    "route_status": "sixth_wave_completed_as_failed_repair",
+    "secondary_boundary": "ANSWER_FOR_COMPETES_WITH_CODEBOOK_BRIDGE"
+  },
+  "layer_id": "control_surface_knowledge_sixth_wave_outcomes",
+  "outcomes": [
+    {
+      "allowed_claim": "The two-stage codebook interface improves positive lookup relative to KSQ009 under the selected tag_rows template, but it still fails the behavior gate: exact bridges answer 8/10 with 2/10 unparsed, conflicts select values 10/10, counted answer_for rows reproduce 10/10, and answer_for alternates override bridges 9/10.",
+      "artifact_paths": {
+        "prereg": "research/prereg/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP.md",
+        "runner": "code/ksq010_two_stage_codebook_value_lookup.py",
+        "smoke_result": "results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_smoke_limit10.json",
+        "status_card": "research/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP_STATUS.md",
+        "structural_result": "results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_first_run.json"
+      },
+      "behavior_ready": false,
+      "candidate_id": "ksq010_two_stage_codebook_value_lookup",
+      "card_id": "KSQ010",
+      "diagnostic_class": "codebook_positive_failed",
+      "exported_diagnostic_class": "CODEBOOK_POSITIVE_FAILED",
+      "failed_criteria": [
+        "abstain_controls_passed",
+        "all_panels_passed",
+        "answer_for_controls_passed",
+        "bridge_vs_answer_for_alt_passed",
+        "codebook_locality_controls_passed",
+        "exact_codebook_bridge_passed",
+        "full_source_count_is_40",
+        "source_disjoint_holdout_passed"
+      ],
+      "failed_panels": [
+        "exact_codebook_bridge",
+        "missing_code_value",
+        "conflicting_entity_codes",
+        "conflicting_code_values",
+        "uncounted_entity_code",
+        "uncounted_code_value",
+        "quoted_bridge_rows",
+        "counted_answer_for_only",
+        "bridge_vs_answer_for_alt"
+      ],
+      "forbidden_claims": [
+        "KSQ010 is behavior-ready.",
+        "KSQ010 licenses hidden-state probing, intervention, or mechanism claims.",
+        "Separating entity-code and code-value rows is sufficient to suppress answer_for syntax."
+      ],
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "outcome_id": "ksq010_two_stage_codebook_value_lookup",
+      "parent_card_id": "KSQ009",
+      "parent_outcome_id": "ksq009_schema_specific_value_lookup",
+      "route_decision": "two_stage_codebook_diagnostic",
+      "selected_template": "tag_rows",
+      "signature_screen_allowed": false,
+      "smoke": {
+        "bridge_vs_answer_for_alt": {
+          "answer_for_alt_override_rate": 0.9,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "answer_for_alt_overrode_bridge": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 5.725,
+          "mean_target_minus_abstain_logit": -5.725,
+          "parseable_rate": 0.9
+        },
+        "candidate_and_output_margins_reported": true,
+        "conflicting_code_values": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 1.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "conflict_value_selected": 10
+          },
+          "mean_abstain_minus_target_logit": -1.275,
+          "mean_target_minus_abstain_logit": 1.275,
+          "parseable_rate": 1.0
+        },
+        "conflicting_entity_codes": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 1.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "conflict_value_selected": 10
+          },
+          "mean_abstain_minus_target_logit": -0.2125,
+          "mean_target_minus_abstain_logit": 0.2125,
+          "parseable_rate": 1.0
+        },
+        "counted_answer_for_only": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 1.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "counted_answer_for_reproduced": 10
+          },
+          "mean_abstain_minus_target_logit": -5.1875,
+          "mean_target_minus_abstain_logit": 5.1875,
+          "parseable_rate": 1.0
+        },
+        "exact_codebook_bridge": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.8,
+          "label_counts": {
+            "evidence_answer": 8,
+            "unparsed": 2
+          },
+          "mean_abstain_minus_target_logit": -3.2,
+          "mean_target_minus_abstain_logit": 3.2,
+          "parseable_rate": 0.8
+        },
+        "missing_code_value": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "unparsed": 10
+          },
+          "mean_abstain_minus_target_logit": 8.759375,
+          "mean_target_minus_abstain_logit": -8.759375,
+          "parseable_rate": 0.0
+        },
+        "missing_entity_code": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.9,
+          "control_abstain_rate": 0.9,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 9,
+            "unparsed": 1
+          },
+          "mean_abstain_minus_target_logit": 7.825,
+          "mean_target_minus_abstain_logit": -7.825,
+          "parseable_rate": 0.9
+        },
+        "path": "results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_smoke_limit10.json",
+        "query_only_control": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 1.0,
+          "control_abstain_rate": 1.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 10
+          },
+          "mean_abstain_minus_target_logit": 10.028125,
+          "mean_target_minus_abstain_logit": -10.028125,
+          "parseable_rate": 1.0
+        },
+        "quoted_bridge_rows": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.3,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "quoted_bridge_reproduced": 3,
+            "unparsed": 7
+          },
+          "mean_abstain_minus_target_logit": -0.4125,
+          "mean_target_minus_abstain_logit": 0.4125,
+          "parseable_rate": 0.3
+        },
+        "record_count": 360,
+        "source_count": 10,
+        "uncounted_code_value": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.4,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "uncounted_code_value_reproduced": 4,
+            "unparsed": 6
+          },
+          "mean_abstain_minus_target_logit": -1.7125,
+          "mean_target_minus_abstain_logit": 1.7125,
+          "parseable_rate": 0.4
+        },
+        "uncounted_entity_code": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 0.0,
+          "control_abstain_rate": 0.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "unparsed": 10
+          },
+          "mean_abstain_minus_target_logit": 4.9,
+          "mean_target_minus_abstain_logit": -4.9,
+          "parseable_rate": 0.0
+        },
+        "unrelated_entity_code": {
+          "answer_for_alt_override_rate": 0.0,
+          "any_abstain_rate": 1.0,
+          "control_abstain_rate": 1.0,
+          "control_reproduced_value_rate": 0.0,
+          "evidence_answer_rate": 0.0,
+          "label_counts": {
+            "control_abstain": 10
+          },
+          "mean_abstain_minus_target_logit": 7.69375,
+          "mean_target_minus_abstain_logit": -7.69375,
+          "parseable_rate": 1.0
+        }
+      },
+      "status": "completed",
+      "structural": {
+        "panel_count": 12,
+        "path": "results/cards/KSQ010_TWO_STAGE_CODEBOOK_VALUE_LOOKUP/ksq010_two_stage_codebook_value_lookup_first_run.json",
+        "record_count": 1440,
+        "source_count": 40,
+        "source_disjoint_holdout": true,
+        "template_count": 3
+      },
+      "track": "two_stage_codebook_value_lookup",
+      "wave": "knowledge_sixth_wave"
+    }
+  ],
+  "schema_version": 1,
+  "source_layers": {
+    "knowledge_fifth_wave_outcomes": "data/control_surface_knowledge_fifth_wave_outcomes.json"
+  },
+  "summary": {
+    "behavior_ready_count": 0,
+    "completed_outcome_count": 1,
+    "diagnostic_class_counts": {
+      "codebook_positive_failed": 1
+    },
+    "exported_diagnostic_class_counts": {
+      "CODEBOOK_POSITIVE_FAILED": 1
+    },
+    "hidden_state_claim_allowed_count": 0,
+    "intervention_allowed_count": 0,
+    "mechanism_claim_allowed_count": 0,
+    "outcome_count": 1,
+    "selected_template_counts": {
+      "tag_rows": 1
+    },
+    "signature_screen_allowed_count": 0,
+    "structural_passed_count": 1,
+    "total_smoke_rows": 360,
+    "total_structural_rows": 1440
+  },
+  "updated_at": "2026-07-02"
+}

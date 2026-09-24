@@ -1,0 +1,1057 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-02",
+  "purpose": "Record second-wave outcomes against the generated knowledge failure topology so completed work orders become auditable route decisions.",
+  "sources": {
+    "knowledge_failure_topology": "data/control_surface_knowledge_failure_topology.json",
+    "ksq001_parseability_bound_full_behavior": "results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_full_behavior.json",
+    "ksq002_repair_full_behavior": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_full_behavior.json",
+    "ksq003_evidence_sufficiency_full_behavior": "results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_full_behavior.json",
+    "ksq004_template_adjudication_full_behavior": "results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_full_behavior.json",
+    "ksq005006_relation_answerability_full_behavior": "results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_full_behavior.json"
+  },
+  "summary": {
+    "outcome_count": 5,
+    "completed_work_order_count": 5,
+    "pending_work_order_count": 0,
+    "behavior_ready_count": 1,
+    "signature_screen_allowed_count": 1,
+    "hidden_state_claim_allowed_count": 0,
+    "intervention_allowed_count": 0,
+    "killed_route_count": 3,
+    "route_decision_counts": {
+      "admit_behavior_substrate_only": 1,
+      "bound_evidence_sufficiency_without_hidden_state": 1,
+      "closeout_familiar_prior_parseability_tradeoff": 1,
+      "kill_current_uncertainty_route": 1,
+      "kill_ordinary_source_rewrite_repair": 1
+    },
+    "verdict_counts": {
+      "evidence_sufficiency_learned_branch_failed": 1,
+      "parseability_repair_failed": 1,
+      "relation_evidence_unknown_nonce_failed": 1,
+      "source_rewrite_repair_broke_locality_controls": 1,
+      "template_invariant_bridge_behavior": 1
+    },
+    "exported_diagnostic_class_counts": {
+      "FAMILIAR_PRIOR_MIXTURE_PARSEABILITY_TRADEOFF": 1,
+      "RELATION_EVIDENCE_ANSWERABILITY_BOUNDARY": 1,
+      "SOURCE_REWRITE_REPAIR_LOCALITY_REGRESSION": 1,
+      "STATUSLESS_EVIDENCE_SUFFICIENCY_BOUNDARY": 1,
+      "TEMPLATE_INVARIANT_BRIDGE_BEHAVIOR": 1
+    },
+    "pending_work_orders": []
+  },
+  "outcome_rows": [
+    {
+      "work_order_id": "bound_ksq001_familiar_prior_parseability",
+      "candidate_id": "ksq001_familiar_entity_prior_counterbalance",
+      "repair_id": "ksq001_familiar_prior_parseability_bound",
+      "priority": "medium",
+      "track": "bounded_repair_or_closeout",
+      "status": "completed",
+      "route_decision": "closeout_familiar_prior_parseability_tradeoff",
+      "repair_verdict": "parseability_repair_failed",
+      "diagnostic_class": "familiar_entity_conflict_parseability_failed",
+      "exported_diagnostic_class": "FAMILIAR_PRIOR_MIXTURE_PARSEABILITY_TRADEOFF",
+      "promotion_rule_passed": false,
+      "kill_rule_triggered": true,
+      "behavior_ready": false,
+      "signature_screen_allowed": false,
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "failed_criteria": [
+        "primary_parseability_at_least_90p"
+      ],
+      "passing_templates": [],
+      "collapse_mode": null,
+      "full_behavior": {
+        "path": "results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_full_behavior.json",
+        "record_count": 480,
+        "source_count": 40,
+        "selected_template": "compact_original_replay",
+        "candidate_and_output_margins_reported": true,
+        "parseability_delta_vs_first_run_compact": 0.0,
+        "first_run_compact_primary_parseability": 0.6,
+        "selected_primary": {
+          "label_counts": {
+            "artificial_value": 18,
+            "real_prior": 2,
+            "unknown": 4,
+            "unparsed": 16
+          },
+          "parseable_rate": 0.6,
+          "artificial_value_rate": 0.45,
+          "prior_or_lure_rate": 0.05,
+          "unknown_rate": 0.1,
+          "unparsed_rate": 0.4
+        },
+        "template_gates": {
+          "compact_original_replay": {
+            "passed": false,
+            "criteria": {
+              "source_local_artificial_control_passed": true,
+              "semantic_prior_direct_control_passed": true,
+              "answer_absent_null_passed": true,
+              "primary_parseability_passed": false,
+              "semantic_prior_competition_present": true,
+              "no_branch_collapse": true,
+              "holdout_mixture_present": true
+            },
+            "collapse_mode": null,
+            "primary_parseable_rate": 0.6,
+            "primary_artificial_rate": 0.45,
+            "primary_prior_or_lure_rate": 0.05,
+            "primary_unknown_rate": 0.1,
+            "primary_label_counts": {
+              "artificial_value": 18,
+              "real_prior": 2,
+              "unknown": 4,
+              "unparsed": 16
+            },
+            "holdout_label_counts": {
+              "artificial_value": 4,
+              "real_prior": 2,
+              "unknown": 1,
+              "unparsed": 1
+            },
+            "local_artificial_rate": 1.0,
+            "prior_direct_real_prior_rate": 0.95,
+            "null_unknown_rate": 0.95
+          },
+          "compact_begin_city": {
+            "passed": false,
+            "criteria": {
+              "source_local_artificial_control_passed": true,
+              "semantic_prior_direct_control_passed": true,
+              "answer_absent_null_passed": false,
+              "primary_parseability_passed": false,
+              "semantic_prior_competition_present": false,
+              "no_branch_collapse": true,
+              "holdout_mixture_present": false
+            },
+            "collapse_mode": null,
+            "primary_parseable_rate": 0.825,
+            "primary_artificial_rate": 0.525,
+            "primary_prior_or_lure_rate": 0.0,
+            "primary_unknown_rate": 0.3,
+            "primary_label_counts": {
+              "artificial_value": 21,
+              "unknown": 12,
+              "unparsed": 7
+            },
+            "holdout_label_counts": {
+              "artificial_value": 6,
+              "unknown": 1,
+              "unparsed": 1
+            },
+            "local_artificial_rate": 1.0,
+            "prior_direct_real_prior_rate": 0.8,
+            "null_unknown_rate": 0.65
+          },
+          "compact_city_name_first": {
+            "passed": false,
+            "criteria": {
+              "source_local_artificial_control_passed": true,
+              "semantic_prior_direct_control_passed": false,
+              "answer_absent_null_passed": false,
+              "primary_parseability_passed": false,
+              "semantic_prior_competition_present": false,
+              "no_branch_collapse": true,
+              "holdout_mixture_present": false
+            },
+            "collapse_mode": null,
+            "primary_parseable_rate": 0.875,
+            "primary_artificial_rate": 0.075,
+            "primary_prior_or_lure_rate": 0.0,
+            "primary_unknown_rate": 0.8,
+            "primary_label_counts": {
+              "artificial_value": 3,
+              "unknown": 32,
+              "unparsed": 5
+            },
+            "holdout_label_counts": {
+              "unknown": 8
+            },
+            "local_artificial_rate": 0.975,
+            "prior_direct_real_prior_rate": 0.125,
+            "null_unknown_rate": 0.575
+          }
+        }
+      },
+      "artifact_paths": {
+        "runner": "code/ksq001_familiar_prior_parseability_bound.py",
+        "prereg": "research/prereg/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND.md",
+        "status_card": "research/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND_STATUS.md",
+        "structural_result": "results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_first_run.json",
+        "smoke_result": "results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_smoke_limit10.json",
+        "full_behavior_result": "results/cards/KSQ001_FAMILIAR_PRIOR_PARSEABILITY_BOUND/ksq001_familiar_prior_parseability_bound_full_behavior.json"
+      },
+      "allowed_claim": "KSQ001 familiar-prior parseability repair was adjudicated with a compact replay and two softer answer-shape variants. The 10-source contrast candidate did not scale: the full selected compact replay kept the original 24/40 parseable conflict distribution and no template passed the full gate.",
+      "forbidden_claim": "KSQ001 is not behavior-ready, does not license hidden-state search, and does not show a familiar-prior or learned-memory control surface.",
+      "insight": "The familiar-prior mixture is scale-fragile and answer-shape sensitive. Softer answer formatting can improve parseability on some rows, but it removes the prior branch or pushes rows toward UNKNOWN rather than producing a clean behavior substrate."
+    },
+    {
+      "work_order_id": "repair_ksq002_source_rewrite_holdout",
+      "candidate_id": "ksq002_familiar_entity_source_rewrite_equivalence",
+      "repair_id": "ksq002_source_rewrite_holdout_repair",
+      "priority": "immediate",
+      "track": "narrow_repair",
+      "status": "completed",
+      "route_decision": "kill_ordinary_source_rewrite_repair",
+      "repair_verdict": "source_rewrite_repair_broke_locality_controls",
+      "diagnostic_class": "source_rewrite_baseline_lookup_failed",
+      "exported_diagnostic_class": "SOURCE_REWRITE_REPAIR_LOCALITY_REGRESSION",
+      "promotion_rule_passed": false,
+      "kill_rule_triggered": true,
+      "behavior_ready": false,
+      "signature_screen_allowed": false,
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "failed_criteria": [
+        "baseline_source_value_lookup_passed",
+        "neutral_rewrite_lookup_passed",
+        "source_deletion_passed"
+      ],
+      "full_behavior": {
+        "path": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_full_behavior.json",
+        "record_count": 240,
+        "source_count": 40,
+        "selected_template": "city_field_rewrite",
+        "rewrite_delta_from_baseline": 0.25,
+        "candidate_and_output_margins_reported": true,
+        "panels": {
+          "baseline_source_value_lookup": {
+            "label_counts": {
+              "artificial_value": 30,
+              "unparsed": 10
+            },
+            "parseable_rate": 0.75,
+            "artificial_value_rate": 0.75,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "neutral_rewrite_lookup": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "source_deletion": {
+            "label_counts": {
+              "unknown": 10,
+              "unparsed": 30
+            },
+            "parseable_rate": 0.25,
+            "artificial_value_rate": 0.0,
+            "unknown_rate": 0.25,
+            "prior_or_lure_rate": 0.0
+          },
+          "query_only_control": {
+            "label_counts": {
+              "lure_value": 7,
+              "real_prior": 13,
+              "unparsed": 20
+            },
+            "parseable_rate": 0.5,
+            "artificial_value_rate": 0.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.5
+          },
+          "source_disjoint_rewrite_holdout": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "rewrite_output_geometry_audit": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          }
+        },
+        "source_disjoint_rewrite_holdout": {
+          "rows": 16,
+          "label_counts": {
+            "artificial_value": 16
+          },
+          "parseable_rate": 1.0,
+          "artificial_value_rate": 1.0
+        }
+      },
+      "artifact_paths": {
+        "runner": "code/ksq002_source_rewrite_holdout_repair.py",
+        "prereg": "research/prereg/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR.md",
+        "status_card": "research/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR_STATUS.md",
+        "structural_result": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_first_run.json",
+        "smoke_result": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_smoke_limit10.json",
+        "full_behavior_result": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_full_behavior.json"
+      },
+      "allowed_claim": "The city-field answer-channel repair made neutral rewrite and source-disjoint rewrite holdout lookup perfect in the full run, but it degraded baseline lookup and broke answer-absent source deletion locality. Ordinary KSQ002 source-rewrite repair is killed.",
+      "forbidden_claim": "The repair does not make KSQ002 behavior-ready, does not license hidden-state search, and does not show a source-channel mechanism.",
+      "insight": "For this familiar-entity source-rewrite substrate, improving the answer channel can strengthen prompt-present rewrite behavior while weakening baseline and null behavior. The control surface is coupled to the answer interface, not a clean source-channel variable."
+    },
+    {
+      "work_order_id": "redesign_statusless_bridge_substrate",
+      "candidate_id": "ksq003_bridge_statusless_evidence_aggregation",
+      "redesign_id": "ksq003_evidence_sufficiency_redesign",
+      "priority": "medium",
+      "track": "material_redesign",
+      "status": "completed",
+      "route_decision": "bound_evidence_sufficiency_without_hidden_state",
+      "redesign_verdict": "evidence_sufficiency_learned_branch_failed",
+      "diagnostic_class": "evidence_sufficiency_learned_branch_failed",
+      "exported_diagnostic_class": "STATUSLESS_EVIDENCE_SUFFICIENCY_BOUNDARY",
+      "promotion_rule_passed": false,
+      "kill_rule_triggered": false,
+      "behavior_ready": false,
+      "signature_screen_allowed": false,
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "failed_criteria": [
+        "complete_identity_conflict_atomic_passed",
+        "contradictory_identity_unknown_passed",
+        "single_feature_ablation_unknown_passed",
+        "holdout_complete_identity_atomic_passed"
+      ],
+      "full_behavior": {
+        "path": "results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_full_behavior.json",
+        "record_count": 840,
+        "source_count": 40,
+        "selected_template": "compact_identity",
+        "candidate_and_output_margins_reported": true,
+        "selected_primary_conflict": {
+          "label_counts": {
+            "atomic_number": 13,
+            "unknown": 27
+          },
+          "parseable_rate": 1.0,
+          "atomic_number_rate": 0.325,
+          "local_number_rate": 0.0,
+          "unknown_rate": 0.675
+        },
+        "selected_null_stress": {
+          "label_counts": {
+            "atomic_number": 41,
+            "local_number": 5,
+            "other_number": 5,
+            "unknown": 66,
+            "unparsed": 3
+          },
+          "parseable_rate": 0.975,
+          "unknown_rate": 0.55,
+          "local_number_rate": 0.041666666666666664,
+          "atomic_number_rate": 0.3416666666666667
+        },
+        "template_gates": {
+          "identity_packet": {
+            "complete_identity_atomic_rate": 1.0,
+            "complete_identity_local_rate": 0.0,
+            "contradictory_identity_unknown_rate": 0.025,
+            "symbol_only_unknown_rate": 0.0,
+            "initial_only_unknown_rate": 0.0,
+            "answer_absent_unknown_rate": 1.0,
+            "null_stress_unknown_rate": 0.008333333333333333,
+            "holdout_complete_identity_atomic_rate": 1.0
+          },
+          "observation_gate": {
+            "complete_identity_atomic_rate": 0.725,
+            "complete_identity_local_rate": 0.2,
+            "contradictory_identity_unknown_rate": 0.15,
+            "symbol_only_unknown_rate": 0.0,
+            "initial_only_unknown_rate": 0.0,
+            "answer_absent_unknown_rate": 1.0,
+            "null_stress_unknown_rate": 0.05,
+            "holdout_complete_identity_atomic_rate": 0.625
+          },
+          "compact_identity": {
+            "complete_identity_atomic_rate": 0.325,
+            "complete_identity_local_rate": 0.0,
+            "contradictory_identity_unknown_rate": 0.65,
+            "symbol_only_unknown_rate": 0.8,
+            "initial_only_unknown_rate": 0.2,
+            "answer_absent_unknown_rate": 0.95,
+            "null_stress_unknown_rate": 0.55,
+            "holdout_complete_identity_atomic_rate": 0.125
+          }
+        }
+      },
+      "artifact_paths": {
+        "runner": "code/ksq003_evidence_sufficiency_redesign.py",
+        "prereg": "research/prereg/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN.md",
+        "status_card": "research/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN_STATUS.md",
+        "structural_result": "results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_first_run.json",
+        "smoke_result": "results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_smoke_limit10.json",
+        "full_behavior_result": "results/cards/KSQ003_EVIDENCE_SUFFICIENCY_REDESIGN/ksq003_evidence_sufficiency_redesign_full_behavior.json"
+      },
+      "allowed_claim": "KSQ003 evidence-sufficiency redesign removed the original local-table dominance pattern but did not create a behavior-ready bridge. Direct local lookup, direct learned recall, answer-absent nulls, source split, prompt audit, and candidate/output reporting passed; complete-evidence learned routing and null-stress rejection did not pass together.",
+      "forbidden_claim": "KSQ003 remains hidden-state-disallowed. The redesign does not license a signature screen, intervention, mechanism card, or internal knowledge-control claim.",
+      "insight": "The second KSQ003 design changes the failure type. The original statusless evidence route collapsed mismatch and ablation rows to local lab numbers; the redesign mostly suppresses local intrusion, but exposes an evidence-sufficiency tradeoff. The identity-packet template gets 40/40 complete-evidence atomic answers while failing null stress almost completely. The compact template gets better UNKNOWN behavior but only 13/40 complete-evidence atomic answers. Statusless evidence can suppress the local table or activate learned recall, but this design cannot do both reliably."
+    },
+    {
+      "work_order_id": "adjudicate_ksq004_template_invariance",
+      "candidate_id": "ksq004_bridge_answer_interface_minimal_pairs",
+      "adjudication_id": "ksq004_template_invariance_adjudication",
+      "priority": "high",
+      "track": "template_boundary",
+      "status": "completed",
+      "route_decision": "admit_behavior_substrate_only",
+      "adjudication_verdict": "template_invariant_bridge_behavior",
+      "diagnostic_class": "bridge_answer_interface_behavior_ready",
+      "exported_diagnostic_class": "TEMPLATE_INVARIANT_BRIDGE_BEHAVIOR",
+      "promotion_rule_passed": true,
+      "kill_rule_triggered": false,
+      "behavior_ready": true,
+      "signature_screen_allowed": true,
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "passing_templates": [
+        "question_form",
+        "relation_key_form"
+      ],
+      "non_question_passing_templates": [
+        "relation_key_form"
+      ],
+      "failed_templates": [
+        "neutral_sentence_form"
+      ],
+      "full_behavior": {
+        "path": "results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_full_behavior.json",
+        "record_count": 1080,
+        "source_count": 40,
+        "selected_template": "relation_key_form",
+        "candidate_and_output_margins_reported": true,
+        "template_gates": {
+          "question_form": {
+            "passed": true,
+            "criteria": {
+              "matched_minimal_pairs_passed": true,
+              "local_learned_direct_controls_passed": true,
+              "minimal_pair_conflict_passed": true,
+              "side_answer_leakage_passed": true,
+              "null_and_holdout_passed": true,
+              "candidate_and_output_margins_reported": true
+            },
+            "conflict_expected_correct_rate": 0.85,
+            "conflict_parseable_rate": 1.0,
+            "atomic_branch_atomic_rate": 0.7,
+            "local_branch_local_rate": 1.0,
+            "holdout_expected_correct_rate": 0.875,
+            "null_unknown_rate": 1.0,
+            "side_answer_rate": 0.0,
+            "conflict_label_counts": {
+              "atomic_number": 28,
+              "local_number": 44,
+              "other_number": 8
+            }
+          },
+          "neutral_sentence_form": {
+            "passed": false,
+            "criteria": {
+              "matched_minimal_pairs_passed": true,
+              "local_learned_direct_controls_passed": true,
+              "minimal_pair_conflict_passed": false,
+              "side_answer_leakage_passed": true,
+              "null_and_holdout_passed": true,
+              "candidate_and_output_margins_reported": true
+            },
+            "conflict_expected_correct_rate": 0.675,
+            "conflict_parseable_rate": 0.95,
+            "atomic_branch_atomic_rate": 0.525,
+            "local_branch_local_rate": 0.825,
+            "holdout_expected_correct_rate": 0.75,
+            "null_unknown_rate": 0.925,
+            "side_answer_rate": 0.0,
+            "conflict_label_counts": {
+              "atomic_number": 21,
+              "local_number": 51,
+              "other_number": 1,
+              "unknown": 3,
+              "unparsed": 4
+            }
+          },
+          "relation_key_form": {
+            "passed": true,
+            "criteria": {
+              "matched_minimal_pairs_passed": true,
+              "local_learned_direct_controls_passed": true,
+              "minimal_pair_conflict_passed": true,
+              "side_answer_leakage_passed": true,
+              "null_and_holdout_passed": true,
+              "candidate_and_output_margins_reported": true
+            },
+            "conflict_expected_correct_rate": 0.975,
+            "conflict_parseable_rate": 1.0,
+            "atomic_branch_atomic_rate": 0.95,
+            "local_branch_local_rate": 1.0,
+            "holdout_expected_correct_rate": 0.875,
+            "null_unknown_rate": 1.0,
+            "side_answer_rate": 0.0,
+            "conflict_label_counts": {
+              "atomic_number": 38,
+              "local_number": 40,
+              "other_number": 2
+            }
+          }
+        }
+      },
+      "artifact_paths": {
+        "runner": "code/ksq004_template_invariance_adjudication.py",
+        "prereg": "research/prereg/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION.md",
+        "status_card": "research/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION_STATUS.md",
+        "structural_result": "results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_first_run.json",
+        "smoke_result": "results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_smoke_limit10.json",
+        "full_behavior_result": "results/cards/KSQ004_TEMPLATE_INVARIANCE_ADJUDICATION/ksq004_template_invariance_adjudication_full_behavior.json"
+      },
+      "allowed_claim": "KSQ004 template-invariance adjudication found a behavior-ready bridge substrate across two predeclared templates: question_form and relation_key_form. neutral_sentence_form still fails conflict routing, so the result is a bounded behavior substrate, not a general bridge mechanism.",
+      "forbidden_claim": "KSQ004 does not yet have a hidden-state signature, intervention, or mechanism card. The result only licenses a later signature screen under the admitted behavior substrate.",
+      "insight": "The first-run template fragility was too coarse: compact underscore format collapsed expected-atomic rows, but a relation-key form with the same bare numeric answer channel generalized the bridge. The control surface is answer-interface and relation-format dependent."
+    },
+    {
+      "work_order_id": "redesign_real_uncertainty_answerability",
+      "candidate_id": "ksq005_006_relation_evidence_answerability",
+      "redesign_id": "ksq005_006_relation_evidence_answerability_redesign",
+      "priority": "medium",
+      "track": "material_redesign",
+      "status": "completed",
+      "route_decision": "kill_current_uncertainty_route",
+      "redesign_verdict": "relation_evidence_unknown_nonce_failed",
+      "diagnostic_class": "relation_evidence_unknown_nonce_failed",
+      "exported_diagnostic_class": "RELATION_EVIDENCE_ANSWERABILITY_BOUNDARY",
+      "promotion_rule_passed": false,
+      "kill_rule_triggered": true,
+      "behavior_ready": false,
+      "signature_screen_allowed": false,
+      "hidden_state_claim_allowed": false,
+      "intervention_allowed": false,
+      "mechanism_claim_allowed": false,
+      "failed_criteria": [
+        "unknown_nonce_absent_rows_passed",
+        "unsupported_relation_rows_passed",
+        "contradictory_relation_rows_passed",
+        "claim_only_and_mention_only_controls_passed",
+        "source_disjoint_answerability_holdout_passed"
+      ],
+      "full_behavior": {
+        "path": "results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_full_behavior.json",
+        "record_count": 840,
+        "source_count": 40,
+        "selected_template": "compact_relation",
+        "candidate_and_output_margins_reported": true,
+        "panels": {
+          "known_factual_direct": {
+            "label_counts": {
+              "known_correct": 39,
+              "known_wrong_candidate": 1
+            },
+            "parseable_rate": 1.0,
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.0,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 0.0,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.0
+          },
+          "supported_relation_rows": {
+            "label_counts": {
+              "supported_answer": 40
+            },
+            "parseable_rate": 1.0,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 1.0,
+            "abstain_rate": 0.0,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 0.0,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.0
+          },
+          "unknown_nonce_absent_rows": {
+            "label_counts": {
+              "abstain": 27,
+              "unparsed": 13
+            },
+            "parseable_rate": 0.675,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.675,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 0.0,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.0
+          },
+          "unsupported_relation_rows": {
+            "label_counts": {
+              "abstain": 28,
+              "unparsed": 2,
+              "unsupported_answer": 10
+            },
+            "parseable_rate": 0.95,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.7,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 0.0,
+            "unsupported_answer_rate": 0.25,
+            "prior_or_true_answer_rate": 0.0
+          },
+          "contradictory_relation_rows": {
+            "label_counts": {
+              "abstain": 2,
+              "prior_or_true_answer": 38
+            },
+            "parseable_rate": 1.0,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.05,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 0.0,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.95
+          },
+          "claim_only_control": {
+            "label_counts": {
+              "claim_only_reproduced_supported": 40
+            },
+            "parseable_rate": 1.0,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.0,
+            "control_abstain_rate": 0.0,
+            "control_reproduced_supported_rate": 1.0,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.0
+          },
+          "mention_only_control": {
+            "label_counts": {
+              "control_abstain": 1,
+              "mention_only_reproduced_supported": 39
+            },
+            "parseable_rate": 1.0,
+            "known_correct_rate": 0.0,
+            "supported_answer_rate": 0.0,
+            "abstain_rate": 0.0,
+            "control_abstain_rate": 0.025,
+            "control_reproduced_supported_rate": 0.975,
+            "unsupported_answer_rate": 0.0,
+            "prior_or_true_answer_rate": 0.0
+          }
+        },
+        "controls": {
+          "label_counts": {
+            "claim_only_reproduced_supported": 40,
+            "control_abstain": 1,
+            "mention_only_reproduced_supported": 39
+          },
+          "control_abstain_rate": 0.0125,
+          "control_reproduced_supported_rate": 0.9875
+        },
+        "template_gates": {
+          "relation_rows": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 0.275,
+            "unknown_nonce_abstain_rate": 1.0,
+            "unsupported_abstain_rate": 1.0,
+            "contradiction_abstain_rate": 1.0,
+            "control_abstain_rate": 0.825,
+            "control_reproduced_supported_rate": 0.175
+          },
+          "ledger_form": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 1.0,
+            "unknown_nonce_abstain_rate": 0.375,
+            "unsupported_abstain_rate": 0.375,
+            "contradiction_abstain_rate": 0.125,
+            "control_abstain_rate": 0.0375,
+            "control_reproduced_supported_rate": 0.9625
+          },
+          "compact_relation": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 1.0,
+            "unknown_nonce_abstain_rate": 0.675,
+            "unsupported_abstain_rate": 0.7,
+            "contradiction_abstain_rate": 0.05,
+            "control_abstain_rate": 0.0125,
+            "control_reproduced_supported_rate": 0.9875
+          }
+        }
+      },
+      "artifact_paths": {
+        "runner": "code/ksq005_006_relation_evidence_answerability_redesign.py",
+        "prereg": "research/prereg/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY.md",
+        "status_card": "research/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY_STATUS.md",
+        "structural_result": "results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_first_run.json",
+        "smoke_result": "results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_smoke_limit10.json",
+        "full_behavior_result": "results/cards/KSQ005_006_RELATION_EVIDENCE_ANSWERABILITY/ksq005_006_relation_evidence_answerability_full_behavior.json"
+      },
+      "allowed_claim": "The KSQ005/KSQ006 relation-evidence redesign passed structural audit and preserved known/direct plus supported relation answers under the selected compact relation contract, but it failed unknown nonce, unsupported relation, contradiction, and claim/mention controls. The current real-uncertainty route is killed rather than admitted.",
+      "forbidden_claim": "The redesign does not make KSQ005/KSQ006 behavior-ready, does not license hidden-state search, and does not show uncertainty, refusal, context-support, or knowledge-control mechanisms.",
+      "insight": "A formal relation grammar separates two failure modes. The compact contract answers known facts and exact `REL capital_of` rows, but claim-only and mention-only controls still reproduce the capital on 79/80 rows and contradiction rows choose the true capital on 38/40 rows. The stricter relation_rows template protects controls and abstains on unknown/unsupported/contradictory rows, but answers only 11/40 supported relation rows. The model can use a visible relation grammar either as an answer trigger or as an abstention guard, but this route cannot make both roles stable together."
+    }
+  ],
+  "validation_checks": [
+    {
+      "id": "executed_work_orders_exist_in_topology",
+      "predicate": "completed work orders are subset of topology work orders",
+      "actual": [
+        "adjudicate_ksq004_template_invariance",
+        "bound_ksq001_familiar_prior_parseability",
+        "redesign_real_uncertainty_answerability",
+        "redesign_statusless_bridge_substrate",
+        "repair_ksq002_source_rewrite_holdout"
+      ],
+      "passed": true,
+      "why": "Second-wave outcomes must close predeclared topology work orders."
+    },
+    {
+      "id": "all_second_wave_artifacts_exist",
+      "predicate": "empty list",
+      "actual": [],
+      "passed": true,
+      "why": "The outcome row must point to concrete runner, prereg, status, and result artifacts."
+    },
+    {
+      "id": "ksq001_parseability_tradeoff_closed",
+      "predicate": "full selected compact replay stays at 0.600 parseability and admits no behavior substrate",
+      "actual": {
+        "route_decision": "closeout_familiar_prior_parseability_tradeoff",
+        "behavior_ready": false,
+        "signature_screen_allowed": false,
+        "selected_primary": {
+          "label_counts": {
+            "artificial_value": 18,
+            "real_prior": 2,
+            "unknown": 4,
+            "unparsed": 16
+          },
+          "parseable_rate": 0.6,
+          "artificial_value_rate": 0.45,
+          "prior_or_lure_rate": 0.05,
+          "unknown_rate": 0.1,
+          "unparsed_rate": 0.4
+        },
+        "passing_templates": []
+      },
+      "passed": true,
+      "why": "The KSQ001 second-wave result is a closeout of ordinary parseability repair, not a behavior admission."
+    },
+    {
+      "id": "repair_full_scope_preserved",
+      "predicate": "source_count == 40 and record_count == 240",
+      "actual": {
+        "path": "results/cards/KSQ002_SOURCE_REWRITE_HOLDOUT_REPAIR/ksq002_source_rewrite_holdout_repair_full_behavior.json",
+        "record_count": 240,
+        "source_count": 40,
+        "selected_template": "city_field_rewrite",
+        "rewrite_delta_from_baseline": 0.25,
+        "candidate_and_output_margins_reported": true,
+        "panels": {
+          "baseline_source_value_lookup": {
+            "label_counts": {
+              "artificial_value": 30,
+              "unparsed": 10
+            },
+            "parseable_rate": 0.75,
+            "artificial_value_rate": 0.75,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "neutral_rewrite_lookup": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "source_deletion": {
+            "label_counts": {
+              "unknown": 10,
+              "unparsed": 30
+            },
+            "parseable_rate": 0.25,
+            "artificial_value_rate": 0.0,
+            "unknown_rate": 0.25,
+            "prior_or_lure_rate": 0.0
+          },
+          "query_only_control": {
+            "label_counts": {
+              "lure_value": 7,
+              "real_prior": 13,
+              "unparsed": 20
+            },
+            "parseable_rate": 0.5,
+            "artificial_value_rate": 0.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.5
+          },
+          "source_disjoint_rewrite_holdout": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          },
+          "rewrite_output_geometry_audit": {
+            "label_counts": {
+              "artificial_value": 40
+            },
+            "parseable_rate": 1.0,
+            "artificial_value_rate": 1.0,
+            "unknown_rate": 0.0,
+            "prior_or_lure_rate": 0.0
+          }
+        },
+        "source_disjoint_rewrite_holdout": {
+          "rows": 16,
+          "label_counts": {
+            "artificial_value": 16
+          },
+          "parseable_rate": 1.0,
+          "artificial_value_rate": 1.0
+        }
+      },
+      "passed": true,
+      "why": "The repair must keep the full 40-source scope and all six panels for one fixed template."
+    },
+    {
+      "id": "holdout_fixed_but_locality_failed",
+      "predicate": "holdout parseability == 1.0 and source_deletion_passed is failed",
+      "actual": {
+        "holdout_parseability": 1.0,
+        "failed_criteria": [
+          "baseline_source_value_lookup_passed",
+          "neutral_rewrite_lookup_passed",
+          "source_deletion_passed"
+        ]
+      },
+      "passed": true,
+      "why": "The scientific result is the tradeoff: repair succeeds on the named holdout but fails locality."
+    },
+    {
+      "id": "ksq004_template_invariance_admitted",
+      "predicate": "question_form and relation_key_form pass; neutral_sentence_form fails",
+      "actual": {
+        "question_form": {
+          "passed": true,
+          "criteria": {
+            "matched_minimal_pairs_passed": true,
+            "local_learned_direct_controls_passed": true,
+            "minimal_pair_conflict_passed": true,
+            "side_answer_leakage_passed": true,
+            "null_and_holdout_passed": true,
+            "candidate_and_output_margins_reported": true
+          },
+          "conflict_expected_correct_rate": 0.85,
+          "conflict_parseable_rate": 1.0,
+          "atomic_branch_atomic_rate": 0.7,
+          "local_branch_local_rate": 1.0,
+          "holdout_expected_correct_rate": 0.875,
+          "null_unknown_rate": 1.0,
+          "side_answer_rate": 0.0,
+          "conflict_label_counts": {
+            "atomic_number": 28,
+            "local_number": 44,
+            "other_number": 8
+          }
+        },
+        "neutral_sentence_form": {
+          "passed": false,
+          "criteria": {
+            "matched_minimal_pairs_passed": true,
+            "local_learned_direct_controls_passed": true,
+            "minimal_pair_conflict_passed": false,
+            "side_answer_leakage_passed": true,
+            "null_and_holdout_passed": true,
+            "candidate_and_output_margins_reported": true
+          },
+          "conflict_expected_correct_rate": 0.675,
+          "conflict_parseable_rate": 0.95,
+          "atomic_branch_atomic_rate": 0.525,
+          "local_branch_local_rate": 0.825,
+          "holdout_expected_correct_rate": 0.75,
+          "null_unknown_rate": 0.925,
+          "side_answer_rate": 0.0,
+          "conflict_label_counts": {
+            "atomic_number": 21,
+            "local_number": 51,
+            "other_number": 1,
+            "unknown": 3,
+            "unparsed": 4
+          }
+        },
+        "relation_key_form": {
+          "passed": true,
+          "criteria": {
+            "matched_minimal_pairs_passed": true,
+            "local_learned_direct_controls_passed": true,
+            "minimal_pair_conflict_passed": true,
+            "side_answer_leakage_passed": true,
+            "null_and_holdout_passed": true,
+            "candidate_and_output_margins_reported": true
+          },
+          "conflict_expected_correct_rate": 0.975,
+          "conflict_parseable_rate": 1.0,
+          "atomic_branch_atomic_rate": 0.95,
+          "local_branch_local_rate": 1.0,
+          "holdout_expected_correct_rate": 0.875,
+          "null_unknown_rate": 1.0,
+          "side_answer_rate": 0.0,
+          "conflict_label_counts": {
+            "atomic_number": 38,
+            "local_number": 40,
+            "other_number": 2
+          }
+        }
+      },
+      "passed": true,
+      "why": "The KSQ004 adjudication must admit only the bounded two-template behavior substrate observed in the full result."
+    },
+    {
+      "id": "ksq003_evidence_sufficiency_boundary_recorded",
+      "predicate": "full 40-source redesign suppresses local dominance but fails learned/null joint gate",
+      "actual": {
+        "route_decision": "bound_evidence_sufficiency_without_hidden_state",
+        "behavior_ready": false,
+        "selected_template": "compact_identity",
+        "selected_primary": {
+          "label_counts": {
+            "atomic_number": 13,
+            "unknown": 27
+          },
+          "parseable_rate": 1.0,
+          "atomic_number_rate": 0.325,
+          "local_number_rate": 0.0,
+          "unknown_rate": 0.675
+        },
+        "selected_null_stress": {
+          "label_counts": {
+            "atomic_number": 41,
+            "local_number": 5,
+            "other_number": 5,
+            "unknown": 66,
+            "unparsed": 3
+          },
+          "parseable_rate": 0.975,
+          "unknown_rate": 0.55,
+          "local_number_rate": 0.041666666666666664,
+          "atomic_number_rate": 0.3416666666666667
+        },
+        "template_gates": {
+          "identity_packet": {
+            "complete_identity_atomic_rate": 1.0,
+            "complete_identity_local_rate": 0.0,
+            "contradictory_identity_unknown_rate": 0.025,
+            "symbol_only_unknown_rate": 0.0,
+            "initial_only_unknown_rate": 0.0,
+            "answer_absent_unknown_rate": 1.0,
+            "null_stress_unknown_rate": 0.008333333333333333,
+            "holdout_complete_identity_atomic_rate": 1.0
+          },
+          "observation_gate": {
+            "complete_identity_atomic_rate": 0.725,
+            "complete_identity_local_rate": 0.2,
+            "contradictory_identity_unknown_rate": 0.15,
+            "symbol_only_unknown_rate": 0.0,
+            "initial_only_unknown_rate": 0.0,
+            "answer_absent_unknown_rate": 1.0,
+            "null_stress_unknown_rate": 0.05,
+            "holdout_complete_identity_atomic_rate": 0.625
+          },
+          "compact_identity": {
+            "complete_identity_atomic_rate": 0.325,
+            "complete_identity_local_rate": 0.0,
+            "contradictory_identity_unknown_rate": 0.65,
+            "symbol_only_unknown_rate": 0.8,
+            "initial_only_unknown_rate": 0.2,
+            "answer_absent_unknown_rate": 0.95,
+            "null_stress_unknown_rate": 0.55,
+            "holdout_complete_identity_atomic_rate": 0.125
+          }
+        }
+      },
+      "passed": true,
+      "why": "The KSQ003 redesign is a new sufficiency-boundary diagnostic, not a hidden-state-ready bridge and not a repeat of local-table dominance."
+    },
+    {
+      "id": "ksq005006_relation_answerability_route_killed",
+      "predicate": "selected compact relation passes supported answers but fails unknown/control gates",
+      "actual": {
+        "route_decision": "kill_current_uncertainty_route",
+        "behavior_ready": false,
+        "selected_template": "compact_relation",
+        "template_gates": {
+          "relation_rows": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 0.275,
+            "unknown_nonce_abstain_rate": 1.0,
+            "unsupported_abstain_rate": 1.0,
+            "contradiction_abstain_rate": 1.0,
+            "control_abstain_rate": 0.825,
+            "control_reproduced_supported_rate": 0.175
+          },
+          "ledger_form": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 1.0,
+            "unknown_nonce_abstain_rate": 0.375,
+            "unsupported_abstain_rate": 0.375,
+            "contradiction_abstain_rate": 0.125,
+            "control_abstain_rate": 0.0375,
+            "control_reproduced_supported_rate": 0.9625
+          },
+          "compact_relation": {
+            "known_correct_rate": 0.975,
+            "supported_answer_rate": 1.0,
+            "unknown_nonce_abstain_rate": 0.675,
+            "unsupported_abstain_rate": 0.7,
+            "contradiction_abstain_rate": 0.05,
+            "control_abstain_rate": 0.0125,
+            "control_reproduced_supported_rate": 0.9875
+          }
+        },
+        "controls": {
+          "label_counts": {
+            "claim_only_reproduced_supported": 40,
+            "control_abstain": 1,
+            "mention_only_reproduced_supported": 39
+          },
+          "control_abstain_rate": 0.0125,
+          "control_reproduced_supported_rate": 0.9875
+        }
+      },
+      "passed": true,
+      "why": "The real-uncertainty redesign must close as a relation-evidence tradeoff, not as a behavior substrate."
+    },
+    {
+      "id": "no_second_wave_hidden_or_intervention_claims",
+      "predicate": "hidden_state_claim_allowed_count == 0 and intervention_allowed_count == 0",
+      "actual": {
+        "behavior_ready_count": 1,
+        "signature_screen_allowed_count": 1,
+        "hidden_state_claim_allowed_count": 0,
+        "intervention_allowed_count": 0
+      },
+      "passed": true,
+      "why": "A behavior admission may license a later signature screen, but not a hidden-state claim or intervention."
+    }
+  ],
+  "allowed_claim": "All five second-wave KSQ work orders have been executed: KSQ001 familiar-prior parseability repair was closed as a scale-fragile tradeoff, KSQ002 ordinary source-rewrite repair was killed by locality regression, KSQ003 evidence-sufficiency redesign exposed a statusless evidence boundary without admitting hidden-state work, KSQ004 template-invariance adjudication admitted a bounded behavior substrate and a later signature screen, and KSQ005/KSQ006 relation-evidence answerability killed the current real-uncertainty route.",
+  "forbidden_claim": "The second-wave layer does not promote any knowledge-control surface, hidden-state claim, intervention, or internal mechanism claim."
+}

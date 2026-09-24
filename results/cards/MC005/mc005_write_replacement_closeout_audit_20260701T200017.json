@@ -1,0 +1,119 @@
+{
+  "allowed_claim": "MC005 remains a bounded mechanism card: layers 24-26 final-query attention writes exactly mediate the tested high-margin associative lookup effect, but strict answer-absent null locality blocks promotion.",
+  "card_id": "MC005",
+  "created_at": "2026-07-01T20:00:17",
+  "criteria": {
+    "alternative_local_intervention_family_not_promotable": true,
+    "alternative_local_intervention_family_tested": true,
+    "artifact_sentinels_valid": true,
+    "bounded_gate_passed": true,
+    "lookup_losses_high_margin": true,
+    "lookup_write_effect_exact": true,
+    "null_boundary_reproduced": true,
+    "promotion_gate_passed": false,
+    "strict_answer_absent_nulls_clean": false,
+    "write_source_controls_pass": true
+  },
+  "decision": {
+    "bounded_mechanism_preserved": true,
+    "full_promotion_allowed": false,
+    "hidden_state_or_new_intervention_allowed": false,
+    "route_status": "bounded_frozen_not_promoted",
+    "same_write_route_closed": true,
+    "verdict": "bounded_mechanism_card"
+  },
+  "decision_rules": {
+    "bound_rule_result": "passed: high-margin lookup mediation remains exact while rare low-to-moderate-margin null flips persist",
+    "containment_rule_result": "allowed claim is source-visible associative lookup mediation in Qwen3-1.7B under the tested Response contract",
+    "export_rule_result": "export NULL_ROW_LOW_MARGIN_FLIP, MODEL_SIZE_NULL_FRAGILITY, and ATTENTION_WRITE_MEDIATION_BOUNDED",
+    "kill_rule_result": "kill exact write-replacement promotion attempts unless a materially new intervention family is preregistered",
+    "promotion_rule_result": "failed: lookup mediation is exact and source controls pass, but strict answer-absent null locality fails"
+  },
+  "evidence": {
+    "alternative_intervention_family": {
+      "v27_additive_residual": {
+        "diagnostic_class": "plus_target_no_row_effect",
+        "passed": false,
+        "plus_target_all_three_fraction_gain_at_least_0p10": false,
+        "residual_nulls_clean": true
+      },
+      "v28_donor_replacement": {
+        "diagnostic_class": "source_control_failed",
+        "passed": false,
+        "positive_parent_source_controls_pass": false,
+        "positive_target_all_three_fraction_gain_at_least_0p10": true,
+        "replacement_nulls_clean": false
+      }
+    },
+    "write_replacement_family": {
+      "v29_attention_write": {
+        "diagnostic_class": "null_failed",
+        "passed": false,
+        "target_write_delta_recovery_vs_direct": 1.0,
+        "target_write_win_loss_recovery_vs_direct": 1.0,
+        "write_nulls_clean": false,
+        "write_source_controls_pass": true
+      },
+      "v30_null_sweep": {
+        "diagnostic_class": "fresh_write_null_failed",
+        "fresh_no_large_mean_delta": true,
+        "fresh_no_target_win_change": false,
+        "panels": {
+          "fresh_128": {
+            "changed_row_count": 3,
+            "clean_seed_count": 6,
+            "row_count": 1024,
+            "seed_count": 8
+          },
+          "v25_replay_96": {
+            "changed_row_count": 1,
+            "clean_seed_count": 1,
+            "row_count": 192,
+            "seed_count": 2
+          }
+        }
+      },
+      "v31_margin_boundary": {
+        "combined_null_flip_count": 5,
+        "combined_null_flip_margin_bands": {
+          "0p25_0p5": 0,
+          "0p5_1": 1,
+          "1_2": 0,
+          "gt_2": 0,
+          "le_0p25": 4
+        },
+        "diagnostic_class": "null_boundary_broad",
+        "lookup_loss_margin_bands": {
+          "0p25_0p5": 0,
+          "0p5_1": 0,
+          "1_2": 0,
+          "gt_2": 11,
+          "le_0p25": 0
+        },
+        "lookup_target_win_loss": 11,
+        "lookup_target_write_mean_delta": -6.19775390625,
+        "v30_imported_flips_abs_margin_le_0p5": false,
+        "v31_fresh_null_mean_deltas_within_0p25": true
+      }
+    }
+  },
+  "forbidden_claim": "This audit does not promote MC005, does not license another same-route write-replacement repair loop, and does not generalize the surface to factual knowledge or other model sizes.",
+  "model_id": "Qwen/Qwen3-1.7B",
+  "run_type": "mc005_write_replacement_closeout_audit",
+  "schema_version": 1,
+  "source_paths": {
+    "v27": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v27_signature_intervention_20260630T212004.json",
+    "v28": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v28_donor_replacement_20260630T213704.json",
+    "v29": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v29_attention_write_replacement_20260630T214645.json",
+    "v30": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v30_write_null_sweep_20260630T215937.json",
+    "v31": "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v31_margin_boundary_20260630T220916.json"
+  },
+  "source_sha256": {
+    "v27": "830914646f67105d5ee9532f0319adf6a8026ed0d17d758d7a425335c56bb605",
+    "v28": "ab0b92f89c3cfcb384d8014bf15c3e2a9d269dfe4569f640d13c1bd183668c06",
+    "v29": "c90bbd9a65fdd3866ef4e19e787d7c93b7faa693a89ddd0f843e58829097804b",
+    "v30": "fab8f176ff5fd8a618529315bc547070555073ea9ab0c55e6db4c18683c13543",
+    "v31": "bd5e0e04bc6abd760256a7100e7c618b3fe8fe4fdfc4405f7808347f193947ff"
+  },
+  "validation_errors": []
+}

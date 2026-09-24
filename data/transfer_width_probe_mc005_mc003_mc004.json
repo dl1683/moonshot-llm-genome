@@ -1,0 +1,372 @@
+{
+  "claim_boundary": {
+    "allowed_claim": "This packet makes transfer measurable by requiring primary effect, null locality, side rows, prompt robustness, and diagnostic baselines before any transfer field may improve.",
+    "forbidden_claim": "This packet does not prove MC005 transfers, does not license MC003 or MC004 interventions, and does not reduce the current count of zero transfer-ready mechanisms.",
+    "transfer_success_claimed": false
+  },
+  "probe_panels": [
+    {
+      "bound_rule": "Bound if the answer-present primary effect reproduces but the intervention is broader, weaker, or not locally homologous.",
+      "failure_exports": [
+        "TRANSFER_PRIMARY_FAILED"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_transfer_matrix.json",
+        "data/control_surface_gate_geometry.json"
+      ],
+      "id": "mc005_gemma_primary_lookup_effect",
+      "kill_rule": "Kill transfer for the MC005 write surface if the primary lookup effect itself fails on two non-Qwen or prompt-family targets.",
+      "panel_type": "primary_effect",
+      "purpose": "Replicate the MC005 answer-present lookup behavior and intervention direction on a non-Qwen target.",
+      "required_measurements": [
+        "answer-present lookup accuracy on source-disjoint holdout",
+        "source-value source-mask or homologous local intervention effect",
+        "target versus distractor source-row specificity",
+        "late-band coordinate mapping stated by fractional depth, not copied layer numbers"
+      ],
+      "row_id": "mc005_associative_lookup",
+      "success_rule": "Pass only if the non-Qwen target preserves high answer-present lookup accuracy and the local intervention moves behavior in the MC005-predicted direction without relying on Qwen layer numbers."
+    },
+    {
+      "bound_rule": "Bound if answer-present lookup transfers but answer-absent null flips recur, especially in low-to-moderate-margin rows.",
+      "failure_exports": [
+        "TRANSFER_PRIMARY_BEFORE_RELIABILITY",
+        "NULL_ROW_LOW_MARGIN_FLIP_REPLICATES_UNDER_WIDTH"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_reliability_matrix.json",
+        "data/control_surface_transfer_matrix.json"
+      ],
+      "id": "mc005_gemma_answer_absent_null_locality",
+      "kill_rule": "Kill a transfer-success claim immediately if null flips are averaged away or reported without margin strata.",
+      "panel_type": "null_locality",
+      "purpose": "Test whether answer-absent rows remain stable under the same transfer intervention.",
+      "required_measurements": [
+        "answer-absent null rows stratified by target-model margin",
+        "off-target null flips under intervention",
+        "low-margin and high-margin null strata reported separately",
+        "comparison against no-intervention, source-deletion, and neutral-rewrite controls"
+      ],
+      "row_id": "mc005_associative_lookup",
+      "success_rule": "Pass only if answer-absent null flips stay below the predeclared trivial threshold across strata, holdouts, and intervention variants."
+    },
+    {
+      "bound_rule": "Bound if the primary effect survives but robustness or side-row locality fails.",
+      "failure_exports": [
+        "TRANSFER_PRIMARY_BEFORE_RELIABILITY",
+        "TRANSFER_SIDE_EFFECT_BOUNDARY"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_reliability_matrix.json",
+        "data/control_surface_coverage_gaps.json"
+      ],
+      "id": "mc005_gemma_side_rows_and_prompt_robustness",
+      "kill_rule": "Kill transfer-ready status if side rows or prompt variants fail while the primary effect appears clean.",
+      "panel_type": "side_effects",
+      "purpose": "Measure whether prompt robustness and side rows transfer with the primary effect.",
+      "required_measurements": [
+        "layout, lexicon, pair-count, and long-context prompt variants",
+        "query-only path comparison",
+        "neutral rewrite comparison",
+        "side-row value and distractor-row effects",
+        "fluency or parseability side effects"
+      ],
+      "row_id": "mc005_associative_lookup",
+      "success_rule": "Pass only if primary effect, side rows, prompt variants, and fluency remain within predefined tolerances together."
+    },
+    {
+      "bound_rule": "Bound if transfer exists only under the original Response: contract.",
+      "failure_exports": [
+        "PROMPT_CONTRACT_TRANSFER_FRAGILITY"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_transfer_matrix.json",
+        "data/control_surface_coverage_gaps.json"
+      ],
+      "id": "mc005_gemma_prompt_robustness",
+      "kill_rule": "Kill broad transfer language if one prompt contract carries the entire result.",
+      "panel_type": "prompt_robustness",
+      "purpose": "Keep MC005 transfer from becoming a single-format replication.",
+      "required_measurements": [
+        "same grammar as source Qwen panel",
+        "Response-marker variant",
+        "neutral marker variant",
+        "source-disjoint prompt-family holdout"
+      ],
+      "row_id": "mc005_associative_lookup",
+      "success_rule": "Pass only if the effect survives the preregistered prompt-family holdouts without changing the claim boundary."
+    },
+    {
+      "bound_rule": "If a stronger signal appears, it remains bounded until it beats same-stage and final-stage baselines and earns an intervention plan.",
+      "failure_exports": [
+        "OUTPUT_SHADOW_REPLICATES_UNDER_WIDTH"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_decision_frontier.json",
+        "data/control_surface_axis_interactions.json"
+      ],
+      "id": "mc003_delayed_copy_output_shadow_baseline",
+      "kill_rule": "Kill any transfer interpretation if the MC003 signal is reported without output/candidate baselines.",
+      "panel_type": "output_shadow_baseline",
+      "purpose": "Use MC003 as a negative widening control for lead-time-looking output shadows.",
+      "required_measurements": [
+        "behavior table balance",
+        "same-stage output margin baseline",
+        "final output or candidate margin baseline",
+        "shuffled-label selection null",
+        "source-disjoint holdout"
+      ],
+      "row_id": "mc003_delayed_copy",
+      "success_rule": "This panel is not expected to promote. It passes as a diagnostic baseline if output/candidate or shuffle controls still explain the signal."
+    },
+    {
+      "bound_rule": "Bound as monitor-only if the lead-time signal exists but remains fragile under subgroup or final-stage controls.",
+      "failure_exports": [
+        "PREDECISION_MONITOR_NO_LEVER_REPLICATES"
+      ],
+      "generated_layer_if_moves": [
+        "data/control_surface_decision_frontier.json",
+        "data/control_surface_route_disposition.json"
+      ],
+      "id": "mc004_binding_monitor_only_baseline",
+      "kill_rule": "Kill any lever claim if the signal is predictive but fails shuffle, subgroup, or output/candidate controls.",
+      "panel_type": "monitor_only_baseline",
+      "purpose": "Use MC004 as the predecision-monitor baseline for transfer-width interpretation.",
+      "required_measurements": [
+        "pre-update or pre-answer coordinate selected before final answer",
+        "subgroup robustness",
+        "source-disjoint holdout",
+        "shuffled-label selection null",
+        "same-stage and final-stage output/candidate controls"
+      ],
+      "row_id": "mc004_in_context_binding",
+      "success_rule": "This panel only opens a future intervention route if the monitor beats subgroup, shuffle, same-stage, and final-stage controls."
+    }
+  ],
+  "purpose": "Pre-register the first width-transfer probe: MC005 as the bounded reference specimen, MC003 as an output-shadow diagnostic baseline, and MC004 as a predecision monitor-only diagnostic baseline.",
+  "row_roles": [
+    {
+      "diagnostics": [
+        "MC005_BOUNDED_ATTENTION_WRITE_MEDIATION",
+        "NULL_ROW_LOW_MARGIN_FLIP",
+        "MODEL_SIZE_NULL_FRAGILITY",
+        "SIGNATURE_NOT_CAUSAL"
+      ],
+      "evidence": [
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V29_ATTENTION_WRITE_REPLACEMENT_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V30_WRITE_NULL_SWEEP_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V31_MARGIN_BOUNDARY_STATUS.md",
+        "research/cards/MC005_ASSOCIATIVE_LOOKUP_BOUNDED_MECHANISM_CLOSEOUT_STATUS.md",
+        "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v31_margin_boundary_20260630T220916.json"
+      ],
+      "expected_failure_to_measure": "TRANSFER_PRIMARY_BEFORE_RELIABILITY",
+      "family": "MC005 synthetic associative lookup",
+      "intervention_state": "causal_dirty",
+      "lead_time_state": "not_primary_axis",
+      "models": [
+        "Qwen/Qwen3-1.7B",
+        "Qwen/Qwen3-0.6B"
+      ],
+      "null_locality": "bounded",
+      "probe_role": "bounded_reference_surface",
+      "route_disposition": "bounded_mechanism_frozen",
+      "row_id": "mc005_associative_lookup",
+      "transfer_class": "bounded_transfer_fragile_reference",
+      "transfer_question": "Does source-value lookup mediation transfer with null locality, side rows, source-disjoint holdouts, and prompt robustness, or does the primary effect appear before reliability?",
+      "transfer_value": "medium",
+      "verdict": "bounded_mechanism_card"
+    },
+    {
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SHUFFLED_SELECTION_OVERFIT",
+        "PROMPT_FORMAT_CONFUND"
+      ],
+      "evidence": [
+        "research/cards/MC003_DELAYED_COPY_STATUS.md",
+        "research/cards/MC003_DELAYED_COPY_EARLY_SIGNATURE_STATUS.md",
+        "research/cards/MC003_DELAYED_COPY_V3_SIGNATURE_STATUS.md",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v2_smoke_chat_20260630T155437.json",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v2_early_signature_chat_20260630T160612.json",
+        "results/cards/MC003/mc003_gemma2_2b_it_delayed_copy_v3_condition_balanced_signature_chat_20260630T162002.json"
+      ],
+      "expected_failure_to_measure": "OUTPUT_SHADOW_REPLICATES_UNDER_WIDTH",
+      "family": "MC003 delayed copy",
+      "intervention_state": "not_tested",
+      "lead_time_state": "lead_time_output_shadow",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "null_locality": "untested",
+      "probe_role": "output_shadow_diagnostic_baseline",
+      "route_disposition": "output_shadow_diagnostic_baseline",
+      "row_id": "mc003_delayed_copy",
+      "transfer_class": "output_shadow_widening_baseline",
+      "transfer_question": "Does a delayed-copy lead-time-looking signal remain an output shadow under the same transfer harness?",
+      "transfer_value": "untested",
+      "verdict": "diagnostic_note"
+    },
+    {
+      "diagnostics": [
+        "OUTPUT_MARGIN_CONFUND",
+        "SHUFFLED_SELECTION_OVERFIT"
+      ],
+      "evidence": [
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_STATUS.md",
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_SIGNATURE_STATUS.md",
+        "research/cards/MC004_IN_CONTEXT_BINDING_V2_LEADTIME_STATUS.md",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_smoke_chat_20260630T163531.json",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_signature_chat_20260630T163803.json",
+        "results/cards/MC004/mc004_gemma2_2b_it_in_context_binding_v2_leadtime_chat_20260630T164607.json"
+      ],
+      "expected_failure_to_measure": "PREDECISION_MONITOR_NO_LEVER_REPLICATES",
+      "family": "MC004 in-context binding",
+      "intervention_state": "not_tested",
+      "lead_time_state": "lead_time_monitor_only",
+      "models": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "null_locality": "untested",
+      "probe_role": "predecision_monitor_diagnostic_baseline",
+      "route_disposition": "monitor_only_conditional_revisit",
+      "row_id": "mc004_in_context_binding",
+      "transfer_class": "conditional_widening_requires_new_controls",
+      "transfer_question": "Does an in-context-binding predecision monitor transfer as a monitor-only surface without becoming a lever?",
+      "transfer_value": "untested",
+      "verdict": "diagnostic_note"
+    }
+  ],
+  "schema_version": 1,
+  "sources": {
+    "atlas": "data/control_surface_atlas.json",
+    "offensive_doctrine": "data/control_surface_offensive_doctrine.json",
+    "transfer_matrix": "data/control_surface_transfer_matrix.json"
+  },
+  "target_models": {
+    "primary_non_qwen_targets": [
+      "google/gemma-2-2b-it",
+      "google/gemma-2-2b"
+    ],
+    "source_models_from_rows": {
+      "mc003_delayed_copy": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "mc004_in_context_binding": [
+        "Qwen/Qwen3-0.6B"
+      ],
+      "mc005_associative_lookup": [
+        "Qwen/Qwen3-1.7B",
+        "Qwen/Qwen3-0.6B"
+      ]
+    },
+    "why_non_qwen": "The transfer matrix already records Qwen-dominant evidence; the first width probe must test a materially comparable non-Qwen model family before any small-model generalization claim."
+  },
+  "updated_at": "2026-07-01",
+  "validation_checks": [
+    {
+      "actual": "run_width_transfer_probe",
+      "id": "work_order_contract_matches_transfer_probe",
+      "passed": true,
+      "predicate": "== run_width_transfer_probe",
+      "why": "The packet must be generated from the offensive-doctrine widening contract."
+    },
+    {
+      "actual": [
+        "mc005_associative_lookup",
+        "mc003_delayed_copy",
+        "mc004_in_context_binding"
+      ],
+      "id": "target_rows_are_reference_and_diagnostics",
+      "passed": true,
+      "predicate": "== ['mc005_associative_lookup', 'mc003_delayed_copy', 'mc004_in_context_binding']",
+      "why": "The probe must include one bounded reference row and two diagnostic rows."
+    },
+    {
+      "actual": {
+        "diagnostics": [
+          "MC005_BOUNDED_ATTENTION_WRITE_MEDIATION",
+          "NULL_ROW_LOW_MARGIN_FLIP",
+          "MODEL_SIZE_NULL_FRAGILITY",
+          "SIGNATURE_NOT_CAUSAL"
+        ],
+        "evidence": [
+          "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V29_ATTENTION_WRITE_REPLACEMENT_STATUS.md",
+          "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V30_WRITE_NULL_SWEEP_STATUS.md",
+          "research/cards/MC005_ASSOCIATIVE_LOOKUP_RESPONSE_MARKER_V31_MARGIN_BOUNDARY_STATUS.md",
+          "research/cards/MC005_ASSOCIATIVE_LOOKUP_BOUNDED_MECHANISM_CLOSEOUT_STATUS.md",
+          "results/cards/MC005/mc005_qwen3_1p7b_response_marker_v31_margin_boundary_20260630T220916.json"
+        ],
+        "expected_failure_to_measure": "TRANSFER_PRIMARY_BEFORE_RELIABILITY",
+        "family": "MC005 synthetic associative lookup",
+        "intervention_state": "causal_dirty",
+        "lead_time_state": "not_primary_axis",
+        "models": [
+          "Qwen/Qwen3-1.7B",
+          "Qwen/Qwen3-0.6B"
+        ],
+        "null_locality": "bounded",
+        "probe_role": "bounded_reference_surface",
+        "route_disposition": "bounded_mechanism_frozen",
+        "row_id": "mc005_associative_lookup",
+        "transfer_class": "bounded_transfer_fragile_reference",
+        "transfer_question": "Does source-value lookup mediation transfer with null locality, side rows, source-disjoint holdouts, and prompt robustness, or does the primary effect appear before reliability?",
+        "transfer_value": "medium",
+        "verdict": "bounded_mechanism_card"
+      },
+      "id": "bounded_reference_is_mc005",
+      "passed": true,
+      "predicate": "mc005 verdict bounded_mechanism_card",
+      "why": "The transfer probe needs a bounded mechanism-like source specimen."
+    },
+    {
+      "actual": [
+        "google/gemma-2-2b-it",
+        "google/gemma-2-2b"
+      ],
+      "id": "non_qwen_target_is_predeclared",
+      "passed": true,
+      "predicate": "at least one non-Qwen target",
+      "why": "Qwen-only widening cannot support small-model generalization."
+    },
+    {
+      "actual": [],
+      "id": "required_panel_types_present",
+      "passed": true,
+      "predicate": "empty missing_panel_types",
+      "why": "Transfer must measure primary effect, nulls, side rows, prompt robustness, and diagnostic baselines."
+    },
+    {
+      "actual": [],
+      "id": "all_panels_have_decision_fields",
+      "passed": true,
+      "predicate": "empty list",
+      "why": "Every panel must be promotable, bounded, killed, or exported."
+    },
+    {
+      "actual": false,
+      "id": "no_transfer_success_claimed_by_prereg",
+      "passed": true,
+      "predicate": "transfer_success_claimed == false",
+      "why": "This is a preregistered probe packet, not a result."
+    }
+  ],
+  "work_order": {
+    "bound_rule": "Bound if primary effects reproduce but null locality, side rows, or prompt robustness fail.",
+    "containment_rule": "A primary-effect replication is not a transferred mechanism unless reliability and null fields move beyond bounded.",
+    "export_rule": "Export TRANSFER_PRIMARY_BEFORE_RELIABILITY or TRANSFER_PRIMARY_FAILED as the widening diagnostic.",
+    "first_artifact": "research/prereg/TRANSFER_WIDTH_PROBE_MC005_MC003_MC004.md",
+    "id": "run_width_transfer_probe",
+    "iteration_budget": "One bounded/reference row plus one diagnostic row before more deepening.",
+    "kill_rule": "Kill the transfer route for a surface if two model-family or prompt-family tests reproduce the same reliability failure.",
+    "promotion_rule": "Promote a transfer claim only if primary effect, null locality, side effects, prompt-contract robustness, and holdouts all transfer.",
+    "target_gap_ids": [
+      "transfer_ready_mechanism_absent",
+      "model_family_coverage_qwen_dominant",
+      "full_reliability_absent",
+      "mc005_singleton_internal_causal_reference",
+      "axis_rules_sparse_or_singleton_heavy"
+    ],
+    "track_type": "widening_probe",
+    "urgency": "immediate"
+  }
+}

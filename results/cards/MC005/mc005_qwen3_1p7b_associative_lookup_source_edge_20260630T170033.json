@@ -1,0 +1,7018 @@
+{
+  "card_id": "MC005",
+  "run_type": "associative_lookup_source_edge",
+  "model_id": "Qwen/Qwen3-1.7B",
+  "row_count": 48,
+  "pair_count": 5,
+  "seed": 5,
+  "shuffle_iterations": 100,
+  "elapsed_s": 7.38053822517395,
+  "summary": {
+    "model_behavior": {
+      "rows": 48,
+      "target_wins": 41,
+      "target_win_rate": 0.8541666666666666,
+      "clean_rows": 41,
+      "clean_target_wins": 41,
+      "discovery_clean_rows": 28,
+      "holdout_clean_rows": 13,
+      "pair_count": 5
+    },
+    "selected_attention_head": {
+      "layer": 16,
+      "head": 14,
+      "discovery_auc": 1.0,
+      "holdout_auc": 1.0,
+      "mean_discovery_score": 0.4407437395836626
+    },
+    "selected_attention_head_subgroups": {
+      "target_before_distractor_true": {
+        "n": 14,
+        "positive_count": 7,
+        "negative_count": 7,
+        "auc": 1.0
+      },
+      "target_before_distractor_false": {
+        "n": 12,
+        "positive_count": 6,
+        "negative_count": 6,
+        "auc": 1.0
+      },
+      "query_pair_low_half_true": {
+        "n": 16,
+        "positive_count": 8,
+        "negative_count": 8,
+        "auc": 1.0
+      },
+      "query_pair_low_half_false": {
+        "n": 10,
+        "positive_count": 5,
+        "negative_count": 5,
+        "auc": 1.0
+      }
+    },
+    "attention_shuffle_selection_null": {
+      "iterations": 100,
+      "auc_p95": 0.9112426035502958,
+      "auc_max": 1.0,
+      "selected_counts_top5": [
+        [
+          "l1_h15",
+          4
+        ],
+        [
+          "l4_h2",
+          3
+        ],
+        [
+          "l13_h0",
+          2
+        ],
+        [
+          "l22_h3",
+          2
+        ],
+        [
+          "l2_h7",
+          2
+        ]
+      ]
+    },
+    "selected_causal_layer": {
+      "layer": 25,
+      "n": 28,
+      "baseline_target_wins": 28,
+      "arm_target_wins": 25,
+      "target_win_loss": 3,
+      "flipped_target_to_distractor": 3,
+      "flipped_distractor_to_target": 0,
+      "baseline_mean_margin": 3.0714285714285716,
+      "arm_mean_margin": 2.1875,
+      "mean_delta": -0.8839285714285714,
+      "min_delta": -2.625,
+      "max_delta": 0.6875
+    },
+    "intervention_holdout_arms": {
+      "selected_layer_target_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 11,
+        "target_win_loss": 2,
+        "flipped_target_to_distractor": 2,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 2.1634615384615383,
+        "mean_delta": -0.6057692307692307,
+        "min_delta": -2.4375,
+        "max_delta": 0.25
+      },
+      "selected_layer_distractor_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 13,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 3.1971153846153846,
+        "mean_delta": 0.42788461538461536,
+        "min_delta": -0.125,
+        "max_delta": 1.375
+      },
+      "selected_layer_random_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 13,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 2.7115384615384617,
+        "mean_delta": -0.057692307692307696,
+        "min_delta": -0.125,
+        "max_delta": 0.1875
+      },
+      "wrong_layer_target_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 10,
+        "target_win_loss": 3,
+        "flipped_target_to_distractor": 3,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 1.8557692307692308,
+        "mean_delta": -0.9134615384615384,
+        "min_delta": -1.875,
+        "max_delta": -0.125
+      },
+      "selected_head_target_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 12,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 2.6009615384615383,
+        "mean_delta": -0.16826923076923078,
+        "min_delta": -1.0625,
+        "max_delta": 0.125
+      },
+      "full_path_target_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 2,
+        "target_win_loss": 11,
+        "flipped_target_to_distractor": 11,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": -2.3846153846153846,
+        "mean_delta": -5.153846153846154,
+        "min_delta": -8.625,
+        "max_delta": -2.375
+      },
+      "full_path_distractor_value": {
+        "n": 13,
+        "baseline_target_wins": 13,
+        "arm_target_wins": 13,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 2.769230769230769,
+        "arm_mean_margin": 4.721153846153846,
+        "mean_delta": 1.9519230769230769,
+        "min_delta": -0.375,
+        "max_delta": 4.75
+      }
+    },
+    "criteria": {
+      "behavior_clean_rows_at_least_36": true,
+      "behavior_holdout_clean_rows_at_least_12": true,
+      "behavior_clean_rate_at_least_0_75": true,
+      "signature_holdout_auc_at_least_0_85": true,
+      "signature_above_shuffle_p95_by_0_05": true,
+      "signature_subgroup_aucs_at_least_0_75": true,
+      "selected_layer_target_mask_reduces_margin_by_0_25": true,
+      "selected_layer_target_mask_beats_distractor_by_0_25": true,
+      "selected_layer_target_mask_beats_random_by_0_25": true,
+      "selected_layer_target_mask_beats_wrong_layer_by_0_25": false,
+      "selected_layer_target_mask_causes_target_win_loss": true,
+      "full_path_target_mask_beats_distractor_by_0_50": true
+    },
+    "behavior_gate_passed": true,
+    "signature_gate_passed": true,
+    "selected_layer_intervention_gate_passed": false,
+    "full_path_intervention_diagnostic_passed": true,
+    "selected_head_intervention_mean_delta": -0.16826923076923078,
+    "passed": false
+  },
+  "rows": [
+    {
+      "id": "mc005_row_000",
+      "source_id": "lookup_000",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "needle"
+        },
+        {
+          "key": "basket",
+          "value": "pencil"
+        },
+        {
+          "key": "needle",
+          "value": "sailor"
+        },
+        {
+          "key": "button",
+          "value": "ribbon"
+        },
+        {
+          "key": "yogurt",
+          "value": "forest"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 1,
+      "random_value_index": 2,
+      "query_key": "bottle",
+      "target_value": "needle",
+      "distractor_value": "pencil",
+      "random_value": "sailor",
+      "target_token_id": 30309,
+      "distractor_token_id": 46118,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 11,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- bottle: needle\n- basket: pencil\n- needle: sailor\n- button: ribbon\n- yogurt: forest\n- bottle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.75,
+        "distractor_logit": 16.5,
+        "target_minus_distractor_margin": 1.25,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_001",
+      "source_id": "lookup_001",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "fabric",
+          "value": "flame"
+        },
+        {
+          "key": "desert",
+          "value": "helmet"
+        },
+        {
+          "key": "quartz",
+          "value": "walnut"
+        },
+        {
+          "key": "planet",
+          "value": "violet"
+        },
+        {
+          "key": "engine",
+          "value": "saddle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 3,
+      "random_value_index": 2,
+      "query_key": "desert",
+      "target_value": "helmet",
+      "distractor_value": "violet",
+      "random_value": "walnut",
+      "target_token_id": 31535,
+      "distractor_token_id": 79736,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 21,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- fabric: flame\n- desert: helmet\n- quartz: walnut\n- planet: violet\n- engine: saddle\n- desert:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.625,
+        "distractor_logit": 16.0,
+        "target_minus_distractor_margin": 0.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_002",
+      "source_id": "lookup_002",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "yellow",
+          "value": "dragon"
+        },
+        {
+          "key": "anchor",
+          "value": "sailor"
+        },
+        {
+          "key": "glacier",
+          "value": "marble"
+        },
+        {
+          "key": "valley",
+          "value": "puzzle"
+        },
+        {
+          "key": "temple",
+          "value": "rocket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 0,
+      "random_value_index": 4,
+      "query_key": "glacier",
+      "target_value": "marble",
+      "distractor_value": "dragon",
+      "random_value": "rocket",
+      "target_token_id": 41290,
+      "distractor_token_id": 25105,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 6,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- yellow: dragon\n- anchor: sailor\n- glacier: marble\n- valley: puzzle\n- temple: rocket\n- glacier:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.375,
+        "distractor_logit": 17.25,
+        "target_minus_distractor_margin": 0.125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_003",
+      "source_id": "lookup_003",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "helmet",
+          "value": "orange"
+        },
+        {
+          "key": "jungle",
+          "value": "pocket"
+        },
+        {
+          "key": "quartz",
+          "value": "island"
+        },
+        {
+          "key": "jacket",
+          "value": "helmet"
+        },
+        {
+          "key": "camera",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 2,
+      "random_value_index": 0,
+      "query_key": "jacket",
+      "target_value": "helmet",
+      "distractor_value": "island",
+      "random_value": "orange",
+      "target_token_id": 31535,
+      "distractor_token_id": 12922,
+      "positions": {
+        "target_value": 4,
+        "distractor_value": 16,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- helmet: orange\n- jungle: pocket\n- quartz: island\n- jacket: helmet\n- camera: hammer\n- jacket:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.125,
+        "distractor_logit": 17.625,
+        "target_minus_distractor_margin": -0.5,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_004",
+      "source_id": "lookup_004",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "pocket",
+          "value": "velvet"
+        },
+        {
+          "key": "jungle",
+          "value": "saddle"
+        },
+        {
+          "key": "island",
+          "value": "thunder"
+        },
+        {
+          "key": "violet",
+          "value": "magnet"
+        },
+        {
+          "key": "jacket",
+          "value": "winter"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 0,
+      "random_value_index": 2,
+      "query_key": "jacket",
+      "target_value": "winter",
+      "distractor_value": "velvet",
+      "random_value": "thunder",
+      "target_token_id": 12406,
+      "distractor_token_id": 71326,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 6,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- pocket: velvet\n- jungle: saddle\n- island: thunder\n- violet: magnet\n- jacket: winter\n- jacket:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.125,
+        "distractor_logit": 17.625,
+        "target_minus_distractor_margin": 2.5,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_005",
+      "source_id": "lookup_005",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "yogurt"
+        },
+        {
+          "key": "planet",
+          "value": "ladder"
+        },
+        {
+          "key": "cotton",
+          "value": "glacier"
+        },
+        {
+          "key": "yogurt",
+          "value": "jungle"
+        },
+        {
+          "key": "basket",
+          "value": "rocket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 2,
+      "random_value_index": 4,
+      "query_key": "valley",
+      "target_value": "yogurt",
+      "distractor_value": "glacier",
+      "random_value": "rocket",
+      "target_token_id": 54475,
+      "distractor_token_id": 93767,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 16,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- valley: yogurt\n- planet: ladder\n- cotton: glacier\n- yogurt: jungle\n- basket: rocket\n- valley:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.125,
+        "distractor_logit": 20.25,
+        "target_minus_distractor_margin": -4.125,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_006",
+      "source_id": "lookup_006",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "glacier",
+          "value": "violet"
+        },
+        {
+          "key": "letter",
+          "value": "cotton"
+        },
+        {
+          "key": "river",
+          "value": "flame"
+        },
+        {
+          "key": "island",
+          "value": "helmet"
+        },
+        {
+          "key": "puzzle",
+          "value": "button"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 4,
+      "random_value_index": 0,
+      "query_key": "letter",
+      "target_value": "cotton",
+      "distractor_value": "button",
+      "random_value": "violet",
+      "target_token_id": 23522,
+      "distractor_token_id": 3137,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 26,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- glacier: violet\n- letter: cotton\n- river: flame\n- island: helmet\n- puzzle: button\n- letter:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 15.75,
+        "distractor_logit": 15.4375,
+        "target_minus_distractor_margin": 0.3125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_007",
+      "source_id": "lookup_007",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "fabric",
+          "value": "mirror"
+        },
+        {
+          "key": "ticket",
+          "value": "thunder"
+        },
+        {
+          "key": "orange",
+          "value": "forest"
+        },
+        {
+          "key": "glacier",
+          "value": "puzzle"
+        },
+        {
+          "key": "river",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 1,
+      "random_value_index": 3,
+      "query_key": "orange",
+      "target_value": "forest",
+      "distractor_value": "thunder",
+      "random_value": "puzzle",
+      "target_token_id": 13638,
+      "distractor_token_id": 36843,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 11,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- fabric: mirror\n- ticket: thunder\n- orange: forest\n- glacier: puzzle\n- river: bottle\n- orange:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.75,
+        "distractor_logit": 15.875,
+        "target_minus_distractor_margin": 3.875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_008",
+      "source_id": "lookup_008",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "island",
+          "value": "ladder"
+        },
+        {
+          "key": "harbor",
+          "value": "forest"
+        },
+        {
+          "key": "temple",
+          "value": "window"
+        },
+        {
+          "key": "pencil",
+          "value": "winter"
+        },
+        {
+          "key": "window",
+          "value": "bridge"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 4,
+      "random_value_index": 2,
+      "query_key": "pencil",
+      "target_value": "winter",
+      "distractor_value": "bridge",
+      "random_value": "window",
+      "target_token_id": 12406,
+      "distractor_token_id": 14164,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 26,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- island: ladder\n- harbor: forest\n- temple: window\n- pencil: winter\n- window: bridge\n- pencil:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.75,
+        "distractor_logit": 15.5,
+        "target_minus_distractor_margin": 4.25,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_009",
+      "source_id": "lookup_009",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "garden",
+          "value": "thunder"
+        },
+        {
+          "key": "valley",
+          "value": "anchor"
+        },
+        {
+          "key": "jacket",
+          "value": "bridge"
+        },
+        {
+          "key": "fabric",
+          "value": "ticket"
+        },
+        {
+          "key": "mirror",
+          "value": "market"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 1,
+      "random_value_index": 0,
+      "query_key": "mirror",
+      "target_value": "market",
+      "distractor_value": "anchor",
+      "random_value": "thunder",
+      "target_token_id": 3081,
+      "distractor_token_id": 17105,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 11,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- garden: thunder\n- valley: anchor\n- jacket: bridge\n- fabric: ticket\n- mirror: market\n- mirror:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.25,
+        "distractor_logit": 12.75,
+        "target_minus_distractor_margin": 7.5,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_010",
+      "source_id": "lookup_010",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "flame",
+          "value": "violet"
+        },
+        {
+          "key": "winter",
+          "value": "saddle"
+        },
+        {
+          "key": "dragon",
+          "value": "market"
+        },
+        {
+          "key": "puzzle",
+          "value": "cotton"
+        },
+        {
+          "key": "bottle",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 3,
+      "random_value_index": 2,
+      "query_key": "flame",
+      "target_value": "violet",
+      "distractor_value": "cotton",
+      "random_value": "market",
+      "target_token_id": 79736,
+      "distractor_token_id": 23522,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 21,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- flame: violet\n- winter: saddle\n- dragon: market\n- puzzle: cotton\n- bottle: bottle\n- flame:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.5,
+        "distractor_logit": 15.9375,
+        "target_minus_distractor_margin": 3.5625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_011",
+      "source_id": "lookup_011",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "pepper",
+          "value": "walnut"
+        },
+        {
+          "key": "fabric",
+          "value": "forest"
+        },
+        {
+          "key": "winter",
+          "value": "lantern"
+        },
+        {
+          "key": "silver",
+          "value": "hammer"
+        },
+        {
+          "key": "harbor",
+          "value": "jungle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 0,
+      "random_value_index": 4,
+      "query_key": "fabric",
+      "target_value": "forest",
+      "distractor_value": "walnut",
+      "random_value": "jungle",
+      "target_token_id": 13638,
+      "distractor_token_id": 92629,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 6,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- pepper: walnut\n- fabric: forest\n- winter: lantern\n- silver: hammer\n- harbor: jungle\n- fabric:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.25,
+        "distractor_logit": 11.875,
+        "target_minus_distractor_margin": 5.375,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_012",
+      "source_id": "lookup_012",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "market",
+          "value": "helmet"
+        },
+        {
+          "key": "anchor",
+          "value": "cotton"
+        },
+        {
+          "key": "river",
+          "value": "market"
+        },
+        {
+          "key": "fabric",
+          "value": "yellow"
+        },
+        {
+          "key": "orbit",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 3,
+      "random_value_index": 0,
+      "query_key": "river",
+      "target_value": "market",
+      "distractor_value": "yellow",
+      "random_value": "helmet",
+      "target_token_id": 3081,
+      "distractor_token_id": 13753,
+      "positions": {
+        "target_value": 4,
+        "distractor_value": 21,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- market: helmet\n- anchor: cotton\n- river: market\n- fabric: yellow\n- orbit: walnut\n- river:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.375,
+        "distractor_logit": 18.75,
+        "target_minus_distractor_margin": -1.375,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_013",
+      "source_id": "lookup_013",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "candle",
+          "value": "valley"
+        },
+        {
+          "key": "castle",
+          "value": "jacket"
+        },
+        {
+          "key": "forest",
+          "value": "school"
+        },
+        {
+          "key": "school",
+          "value": "temple"
+        },
+        {
+          "key": "silver",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 0,
+      "random_value_index": 2,
+      "query_key": "school",
+      "target_value": "temple",
+      "distractor_value": "valley",
+      "random_value": "school",
+      "target_token_id": 26752,
+      "distractor_token_id": 33581,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 6,
+        "random_value": 16,
+        "final_query_key": 19
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- candle: valley\n- castle: jacket\n- forest: school\n- school: temple\n- silver: hammer\n- school:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.5,
+        "distractor_logit": 17.5,
+        "target_minus_distractor_margin": 1.0,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_014",
+      "source_id": "lookup_014",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "letter",
+          "value": "marble"
+        },
+        {
+          "key": "mirror",
+          "value": "forest"
+        },
+        {
+          "key": "pencil",
+          "value": "puzzle"
+        },
+        {
+          "key": "jacket",
+          "value": "candle"
+        },
+        {
+          "key": "yogurt",
+          "value": "island"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 2,
+      "random_value_index": 3,
+      "query_key": "yogurt",
+      "target_value": "island",
+      "distractor_value": "puzzle",
+      "random_value": "candle",
+      "target_token_id": 12922,
+      "distractor_token_id": 24626,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 16,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- letter: marble\n- mirror: forest\n- pencil: puzzle\n- jacket: candle\n- yogurt: island\n- yogurt:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.625,
+        "distractor_logit": 16.625,
+        "target_minus_distractor_margin": 3.0,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_015",
+      "source_id": "lookup_015",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "market",
+          "value": "anchor"
+        },
+        {
+          "key": "river",
+          "value": "window"
+        },
+        {
+          "key": "sailor",
+          "value": "jacket"
+        },
+        {
+          "key": "rocket",
+          "value": "copper"
+        },
+        {
+          "key": "forest",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 4,
+      "random_value_index": 1,
+      "query_key": "market",
+      "target_value": "anchor",
+      "distractor_value": "bottle",
+      "random_value": "window",
+      "target_token_id": 17105,
+      "distractor_token_id": 16486,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 26,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- market: anchor\n- river: window\n- sailor: jacket\n- rocket: copper\n- forest: bottle\n- market:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.0,
+        "distractor_logit": 15.6875,
+        "target_minus_distractor_margin": 0.3125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_016",
+      "source_id": "lookup_016",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "garden",
+          "value": "flame"
+        },
+        {
+          "key": "yellow",
+          "value": "garden"
+        },
+        {
+          "key": "basket",
+          "value": "harbor"
+        },
+        {
+          "key": "dragon",
+          "value": "puzzle"
+        },
+        {
+          "key": "river",
+          "value": "forest"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 2,
+      "random_value_index": 3,
+      "query_key": "yellow",
+      "target_value": "garden",
+      "distractor_value": "harbor",
+      "random_value": "puzzle",
+      "target_token_id": 13551,
+      "distractor_token_id": 56411,
+      "positions": {
+        "target_value": 4,
+        "distractor_value": 16,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- garden: flame\n- yellow: garden\n- basket: harbor\n- dragon: puzzle\n- river: forest\n- yellow:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.75,
+        "distractor_logit": 21.125,
+        "target_minus_distractor_margin": -0.375,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_017",
+      "source_id": "lookup_017",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "desert",
+          "value": "ticket"
+        },
+        {
+          "key": "flame",
+          "value": "yellow"
+        },
+        {
+          "key": "needle",
+          "value": "market"
+        },
+        {
+          "key": "river",
+          "value": "garden"
+        },
+        {
+          "key": "magnet",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 4,
+      "random_value_index": 3,
+      "query_key": "needle",
+      "target_value": "market",
+      "distractor_value": "cotton",
+      "random_value": "garden",
+      "target_token_id": 3081,
+      "distractor_token_id": 23522,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 26,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- desert: ticket\n- flame: yellow\n- needle: market\n- river: garden\n- magnet: cotton\n- needle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.125,
+        "distractor_logit": 18.25,
+        "target_minus_distractor_margin": 0.875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_018",
+      "source_id": "lookup_018",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "orbit",
+          "value": "harbor"
+        },
+        {
+          "key": "dragon",
+          "value": "circle"
+        },
+        {
+          "key": "velvet",
+          "value": "walnut"
+        },
+        {
+          "key": "silver",
+          "value": "engine"
+        },
+        {
+          "key": "letter",
+          "value": "river"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 1,
+      "random_value_index": 0,
+      "query_key": "silver",
+      "target_value": "engine",
+      "distractor_value": "circle",
+      "random_value": "harbor",
+      "target_token_id": 4712,
+      "distractor_token_id": 12671,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 11,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- orbit: harbor\n- dragon: circle\n- velvet: walnut\n- silver: engine\n- letter: river\n- silver:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.625,
+        "distractor_logit": 17.0,
+        "target_minus_distractor_margin": 3.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_019",
+      "source_id": "lookup_019",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "puzzle",
+          "value": "cotton"
+        },
+        {
+          "key": "bridge",
+          "value": "needle"
+        },
+        {
+          "key": "harbor",
+          "value": "button"
+        },
+        {
+          "key": "fabric",
+          "value": "winter"
+        },
+        {
+          "key": "velvet",
+          "value": "thunder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 3,
+      "random_value_index": 1,
+      "query_key": "velvet",
+      "target_value": "thunder",
+      "distractor_value": "winter",
+      "random_value": "needle",
+      "target_token_id": 36843,
+      "distractor_token_id": 12406,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 21,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- puzzle: cotton\n- bridge: needle\n- harbor: button\n- fabric: winter\n- velvet: thunder\n- velvet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.875,
+        "distractor_logit": 20.625,
+        "target_minus_distractor_margin": -0.75,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_020",
+      "source_id": "lookup_020",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "letter",
+          "value": "thunder"
+        },
+        {
+          "key": "bottle",
+          "value": "harbor"
+        },
+        {
+          "key": "winter",
+          "value": "valley"
+        },
+        {
+          "key": "island",
+          "value": "sailor"
+        },
+        {
+          "key": "castle",
+          "value": "hammer"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 1,
+      "random_value_index": 4,
+      "query_key": "letter",
+      "target_value": "thunder",
+      "distractor_value": "harbor",
+      "random_value": "hammer",
+      "target_token_id": 36843,
+      "distractor_token_id": 56411,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 11,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- letter: thunder\n- bottle: harbor\n- winter: valley\n- island: sailor\n- castle: hammer\n- letter:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.75,
+        "distractor_logit": 17.0,
+        "target_minus_distractor_margin": 1.75,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_021",
+      "source_id": "lookup_021",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "silver",
+          "value": "tunnel"
+        },
+        {
+          "key": "temple",
+          "value": "saddle"
+        },
+        {
+          "key": "desert",
+          "value": "garden"
+        },
+        {
+          "key": "pencil",
+          "value": "helmet"
+        },
+        {
+          "key": "puzzle",
+          "value": "valley"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 3,
+      "random_value_index": 0,
+      "query_key": "temple",
+      "target_value": "saddle",
+      "distractor_value": "helmet",
+      "random_value": "tunnel",
+      "target_token_id": 60758,
+      "distractor_token_id": 31535,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 21,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- silver: tunnel\n- temple: saddle\n- desert: garden\n- pencil: helmet\n- puzzle: valley\n- temple:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.75,
+        "distractor_logit": 14.125,
+        "target_minus_distractor_margin": 3.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_022",
+      "source_id": "lookup_022",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "orbit",
+          "value": "garden"
+        },
+        {
+          "key": "candle",
+          "value": "ladder"
+        },
+        {
+          "key": "sailor",
+          "value": "basket"
+        },
+        {
+          "key": "orange",
+          "value": "sugar"
+        },
+        {
+          "key": "ticket",
+          "value": "pencil"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 0,
+      "random_value_index": 3,
+      "query_key": "sailor",
+      "target_value": "basket",
+      "distractor_value": "garden",
+      "random_value": "sugar",
+      "target_token_id": 14024,
+      "distractor_token_id": 13551,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 6,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- orbit: garden\n- candle: ladder\n- sailor: basket\n- orange: sugar\n- ticket: pencil\n- sailor:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 21.375,
+        "distractor_logit": 17.625,
+        "target_minus_distractor_margin": 3.75,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_023",
+      "source_id": "lookup_023",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "jacket",
+          "value": "river"
+        },
+        {
+          "key": "velvet",
+          "value": "velvet"
+        },
+        {
+          "key": "pocket",
+          "value": "orange"
+        },
+        {
+          "key": "copper",
+          "value": "fabric"
+        },
+        {
+          "key": "school",
+          "value": "circle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 2,
+      "random_value_index": 4,
+      "query_key": "copper",
+      "target_value": "fabric",
+      "distractor_value": "orange",
+      "random_value": "circle",
+      "target_token_id": 13055,
+      "distractor_token_id": 18575,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 16,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- jacket: river\n- velvet: velvet\n- pocket: orange\n- copper: fabric\n- school: circle\n- copper:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.875,
+        "distractor_logit": 17.625,
+        "target_minus_distractor_margin": 1.25,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_024",
+      "source_id": "lookup_024",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "valley",
+          "value": "river"
+        },
+        {
+          "key": "island",
+          "value": "yellow"
+        },
+        {
+          "key": "market",
+          "value": "helmet"
+        },
+        {
+          "key": "rocket",
+          "value": "harbor"
+        },
+        {
+          "key": "pencil",
+          "value": "engine"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 0,
+      "random_value_index": 1,
+      "query_key": "pencil",
+      "target_value": "engine",
+      "distractor_value": "river",
+      "random_value": "yellow",
+      "target_token_id": 4712,
+      "distractor_token_id": 14796,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 6,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- valley: river\n- island: yellow\n- market: helmet\n- rocket: harbor\n- pencil: engine\n- pencil:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.625,
+        "distractor_logit": 16.375,
+        "target_minus_distractor_margin": 0.25,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_025",
+      "source_id": "lookup_025",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "violet",
+          "value": "camera"
+        },
+        {
+          "key": "temple",
+          "value": "copper"
+        },
+        {
+          "key": "basket",
+          "value": "marble"
+        },
+        {
+          "key": "pepper",
+          "value": "orange"
+        },
+        {
+          "key": "copper",
+          "value": "bottle"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 2,
+      "random_value_index": 3,
+      "query_key": "violet",
+      "target_value": "camera",
+      "distractor_value": "marble",
+      "random_value": "orange",
+      "target_token_id": 6249,
+      "distractor_token_id": 41290,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 16,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- violet: camera\n- temple: copper\n- basket: marble\n- pepper: orange\n- copper: bottle\n- violet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.5,
+        "distractor_logit": 18.0,
+        "target_minus_distractor_margin": 0.5,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_026",
+      "source_id": "lookup_026",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "dragon",
+          "value": "market"
+        },
+        {
+          "key": "temple",
+          "value": "orbit"
+        },
+        {
+          "key": "harbor",
+          "value": "silver"
+        },
+        {
+          "key": "needle",
+          "value": "island"
+        },
+        {
+          "key": "walnut",
+          "value": "garden"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 4,
+      "random_value_index": 3,
+      "query_key": "temple",
+      "target_value": "orbit",
+      "distractor_value": "garden",
+      "random_value": "island",
+      "target_token_id": 26507,
+      "distractor_token_id": 13551,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 26,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- dragon: market\n- temple: orbit\n- harbor: silver\n- needle: island\n- walnut: garden\n- temple:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.25,
+        "distractor_logit": 18.375,
+        "target_minus_distractor_margin": 1.875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_027",
+      "source_id": "lookup_027",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "tunnel",
+          "value": "basket"
+        },
+        {
+          "key": "pocket",
+          "value": "jacket"
+        },
+        {
+          "key": "rocket",
+          "value": "river"
+        },
+        {
+          "key": "flame",
+          "value": "sugar"
+        },
+        {
+          "key": "helmet",
+          "value": "ticket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 1,
+      "random_value_index": 0,
+      "query_key": "rocket",
+      "target_value": "river",
+      "distractor_value": "jacket",
+      "random_value": "basket",
+      "target_token_id": 14796,
+      "distractor_token_id": 26208,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 11,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- tunnel: basket\n- pocket: jacket\n- rocket: river\n- flame: sugar\n- helmet: ticket\n- rocket:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.75,
+        "distractor_logit": 12.625,
+        "target_minus_distractor_margin": 7.125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_028",
+      "source_id": "lookup_028",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "tunnel",
+          "value": "jacket"
+        },
+        {
+          "key": "walnut",
+          "value": "lantern"
+        },
+        {
+          "key": "forest",
+          "value": "planet"
+        },
+        {
+          "key": "velvet",
+          "value": "bridge"
+        },
+        {
+          "key": "lantern",
+          "value": "magnet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 4,
+      "random_value_index": 1,
+      "query_key": "velvet",
+      "target_value": "bridge",
+      "distractor_value": "magnet",
+      "random_value": "lantern",
+      "target_token_id": 14164,
+      "distractor_token_id": 32197,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 26,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- tunnel: jacket\n- walnut: lantern\n- forest: planet\n- velvet: bridge\n- lantern: magnet\n- velvet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.75,
+        "distractor_logit": 14.625,
+        "target_minus_distractor_margin": 5.125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_029",
+      "source_id": "lookup_029",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "glacier",
+          "value": "thunder"
+        },
+        {
+          "key": "cotton",
+          "value": "forest"
+        },
+        {
+          "key": "hammer",
+          "value": "bridge"
+        },
+        {
+          "key": "temple",
+          "value": "velvet"
+        },
+        {
+          "key": "pocket",
+          "value": "planet"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 1,
+      "random_value_index": 3,
+      "query_key": "pocket",
+      "target_value": "planet",
+      "distractor_value": "forest",
+      "random_value": "velvet",
+      "target_token_id": 11580,
+      "distractor_token_id": 13638,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 11,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- glacier: thunder\n- cotton: forest\n- hammer: bridge\n- temple: velvet\n- pocket: planet\n- pocket:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 22.875,
+        "distractor_logit": 14.6875,
+        "target_minus_distractor_margin": 8.1875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_030",
+      "source_id": "lookup_030",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "magnet",
+          "value": "market"
+        },
+        {
+          "key": "fabric",
+          "value": "tunnel"
+        },
+        {
+          "key": "forest",
+          "value": "glacier"
+        },
+        {
+          "key": "anchor",
+          "value": "puzzle"
+        },
+        {
+          "key": "cotton",
+          "value": "orange"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 3,
+      "random_value_index": 1,
+      "query_key": "magnet",
+      "target_value": "market",
+      "distractor_value": "puzzle",
+      "random_value": "tunnel",
+      "target_token_id": 3081,
+      "distractor_token_id": 24626,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 21,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- magnet: market\n- fabric: tunnel\n- forest: glacier\n- anchor: puzzle\n- cotton: orange\n- magnet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.875,
+        "distractor_logit": 18.5,
+        "target_minus_distractor_margin": 0.375,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_031",
+      "source_id": "lookup_031",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "pepper",
+          "value": "saddle"
+        },
+        {
+          "key": "jungle",
+          "value": "quartz"
+        },
+        {
+          "key": "school",
+          "value": "dragon"
+        },
+        {
+          "key": "valley",
+          "value": "valley"
+        },
+        {
+          "key": "copper",
+          "value": "river"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 0,
+      "random_value_index": 3,
+      "query_key": "jungle",
+      "target_value": "quartz",
+      "distractor_value": "saddle",
+      "random_value": "valley",
+      "target_token_id": 51155,
+      "distractor_token_id": 60758,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 6,
+        "random_value": 19,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- pepper: saddle\n- jungle: quartz\n- school: dragon\n- valley: valley\n- copper: river\n- jungle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.0,
+        "distractor_logit": 13.125,
+        "target_minus_distractor_margin": 6.875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_032",
+      "source_id": "lookup_032",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "letter",
+          "value": "glacier"
+        },
+        {
+          "key": "fabric",
+          "value": "school"
+        },
+        {
+          "key": "river",
+          "value": "window"
+        },
+        {
+          "key": "silver",
+          "value": "orange"
+        },
+        {
+          "key": "ribbon",
+          "value": "fabric"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 3,
+      "random_value_index": 4,
+      "query_key": "river",
+      "target_value": "window",
+      "distractor_value": "orange",
+      "random_value": "fabric",
+      "target_token_id": 3241,
+      "distractor_token_id": 18575,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 21,
+        "random_value": 9,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- letter: glacier\n- fabric: school\n- river: window\n- silver: orange\n- ribbon: fabric\n- river:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.5,
+        "distractor_logit": 16.25,
+        "target_minus_distractor_margin": 4.25,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_033",
+      "source_id": "lookup_033",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "lantern",
+          "value": "jacket"
+        },
+        {
+          "key": "harbor",
+          "value": "orbit"
+        },
+        {
+          "key": "basket",
+          "value": "river"
+        },
+        {
+          "key": "marble",
+          "value": "cotton"
+        },
+        {
+          "key": "jacket",
+          "value": "ladder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 0,
+      "random_value_index": 1,
+      "query_key": "marble",
+      "target_value": "cotton",
+      "distractor_value": "jacket",
+      "random_value": "orbit",
+      "target_token_id": 23522,
+      "distractor_token_id": 26208,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 6,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- lantern: jacket\n- harbor: orbit\n- basket: river\n- marble: cotton\n- jacket: ladder\n- marble:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.875,
+        "distractor_logit": 13.125,
+        "target_minus_distractor_margin": 4.75,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_034",
+      "source_id": "lookup_034",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "needle",
+          "value": "walnut"
+        },
+        {
+          "key": "river",
+          "value": "basket"
+        },
+        {
+          "key": "winter",
+          "value": "puzzle"
+        },
+        {
+          "key": "violet",
+          "value": "rocket"
+        },
+        {
+          "key": "desert",
+          "value": "forest"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 2,
+      "random_value_index": 1,
+      "query_key": "desert",
+      "target_value": "forest",
+      "distractor_value": "puzzle",
+      "random_value": "basket",
+      "target_token_id": 13638,
+      "distractor_token_id": 24626,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 16,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- needle: walnut\n- river: basket\n- winter: puzzle\n- violet: rocket\n- desert: forest\n- desert:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 14.3125,
+        "distractor_logit": 13.3125,
+        "target_minus_distractor_margin": 1.0,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_035",
+      "source_id": "lookup_035",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "market",
+          "value": "pocket"
+        },
+        {
+          "key": "planet",
+          "value": "tunnel"
+        },
+        {
+          "key": "mirror",
+          "value": "fabric"
+        },
+        {
+          "key": "basket",
+          "value": "needle"
+        },
+        {
+          "key": "pocket",
+          "value": "ribbon"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 4,
+      "random_value_index": 3,
+      "query_key": "market",
+      "target_value": "pocket",
+      "distractor_value": "ribbon",
+      "random_value": "needle",
+      "target_token_id": 17822,
+      "distractor_token_id": 44567,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 26,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- market: pocket\n- planet: tunnel\n- mirror: fabric\n- basket: needle\n- pocket: ribbon\n- market:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.75,
+        "distractor_logit": 18.375,
+        "target_minus_distractor_margin": -1.625,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_036",
+      "source_id": "lookup_036",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "yogurt"
+        },
+        {
+          "key": "bottle",
+          "value": "jungle"
+        },
+        {
+          "key": "temple",
+          "value": "desert"
+        },
+        {
+          "key": "tunnel",
+          "value": "ticket"
+        },
+        {
+          "key": "ribbon",
+          "value": "walnut"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 2,
+      "random_value_index": 0,
+      "query_key": "bottle",
+      "target_value": "jungle",
+      "distractor_value": "desert",
+      "random_value": "yogurt",
+      "target_token_id": 44420,
+      "distractor_token_id": 23603,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 16,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- rocket: yogurt\n- bottle: jungle\n- temple: desert\n- tunnel: ticket\n- ribbon: walnut\n- bottle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.375,
+        "distractor_logit": 16.75,
+        "target_minus_distractor_margin": 1.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_037",
+      "source_id": "lookup_037",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "engine",
+          "value": "garden"
+        },
+        {
+          "key": "garden",
+          "value": "cotton"
+        },
+        {
+          "key": "copper",
+          "value": "forest"
+        },
+        {
+          "key": "rocket",
+          "value": "velvet"
+        },
+        {
+          "key": "needle",
+          "value": "quartz"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 4,
+      "random_value_index": 1,
+      "query_key": "copper",
+      "target_value": "forest",
+      "distractor_value": "quartz",
+      "random_value": "cotton",
+      "target_token_id": 13638,
+      "distractor_token_id": 51155,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 26,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- engine: garden\n- garden: cotton\n- copper: forest\n- rocket: velvet\n- needle: quartz\n- copper:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.0,
+        "distractor_logit": 18.25,
+        "target_minus_distractor_margin": 0.75,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_038",
+      "source_id": "lookup_038",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "quartz",
+          "value": "river"
+        },
+        {
+          "key": "candle",
+          "value": "violet"
+        },
+        {
+          "key": "ladder",
+          "value": "bridge"
+        },
+        {
+          "key": "velvet",
+          "value": "cotton"
+        },
+        {
+          "key": "flame",
+          "value": "yogurt"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 1,
+      "random_value_index": 4,
+      "query_key": "velvet",
+      "target_value": "cotton",
+      "distractor_value": "violet",
+      "random_value": "yogurt",
+      "target_token_id": 23522,
+      "distractor_token_id": 79736,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 11,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- quartz: river\n- candle: violet\n- ladder: bridge\n- velvet: cotton\n- flame: yogurt\n- velvet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 18.375,
+        "distractor_logit": 15.875,
+        "target_minus_distractor_margin": 2.5,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_039",
+      "source_id": "lookup_039",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "engine",
+          "value": "flame"
+        },
+        {
+          "key": "window",
+          "value": "silver"
+        },
+        {
+          "key": "fabric",
+          "value": "orbit"
+        },
+        {
+          "key": "market",
+          "value": "planet"
+        },
+        {
+          "key": "ribbon",
+          "value": "valley"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 3,
+      "random_value_index": 0,
+      "query_key": "ribbon",
+      "target_value": "valley",
+      "distractor_value": "planet",
+      "random_value": "flame",
+      "target_token_id": 33581,
+      "distractor_token_id": 11580,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 21,
+        "random_value": 6,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- engine: flame\n- window: silver\n- fabric: orbit\n- market: planet\n- ribbon: valley\n- ribbon:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.375,
+        "distractor_logit": 16.75,
+        "target_minus_distractor_margin": 3.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_040",
+      "source_id": "lookup_040",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "saddle",
+          "value": "river"
+        },
+        {
+          "key": "basket",
+          "value": "pepper"
+        },
+        {
+          "key": "island",
+          "value": "rocket"
+        },
+        {
+          "key": "magnet",
+          "value": "dragon"
+        },
+        {
+          "key": "lantern",
+          "value": "camera"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 1,
+      "random_value_index": 3,
+      "query_key": "saddle",
+      "target_value": "river",
+      "distractor_value": "pepper",
+      "random_value": "dragon",
+      "target_token_id": 14796,
+      "distractor_token_id": 24353,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 11,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- saddle: river\n- basket: pepper\n- island: rocket\n- magnet: dragon\n- lantern: camera\n- saddle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.625,
+        "distractor_logit": 15.8125,
+        "target_minus_distractor_margin": 3.8125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_041",
+      "source_id": "lookup_041",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "copper",
+          "value": "puzzle"
+        },
+        {
+          "key": "harbor",
+          "value": "window"
+        },
+        {
+          "key": "bridge",
+          "value": "lantern"
+        },
+        {
+          "key": "castle",
+          "value": "pencil"
+        },
+        {
+          "key": "camera",
+          "value": "ticket"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 3,
+      "random_value_index": 4,
+      "query_key": "harbor",
+      "target_value": "window",
+      "distractor_value": "pencil",
+      "random_value": "ticket",
+      "target_token_id": 3241,
+      "distractor_token_id": 46118,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 21,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- copper: puzzle\n- harbor: window\n- bridge: lantern\n- castle: pencil\n- camera: ticket\n- harbor:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 20.375,
+        "distractor_logit": 16.5,
+        "target_minus_distractor_margin": 3.875,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_042",
+      "source_id": "lookup_042",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "lantern",
+          "value": "school"
+        },
+        {
+          "key": "fabric",
+          "value": "ribbon"
+        },
+        {
+          "key": "hammer",
+          "value": "pencil"
+        },
+        {
+          "key": "glacier",
+          "value": "bottle"
+        },
+        {
+          "key": "needle",
+          "value": "thunder"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 0,
+      "random_value_index": 1,
+      "query_key": "hammer",
+      "target_value": "pencil",
+      "distractor_value": "school",
+      "random_value": "ribbon",
+      "target_token_id": 46118,
+      "distractor_token_id": 2906,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 6,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- lantern: school\n- fabric: ribbon\n- hammer: pencil\n- glacier: bottle\n- needle: thunder\n- hammer:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.875,
+        "distractor_logit": 17.75,
+        "target_minus_distractor_margin": -0.875,
+        "target_wins": false
+      },
+      "clean": false
+    },
+    {
+      "id": "mc005_row_043",
+      "source_id": "lookup_043",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "sailor"
+        },
+        {
+          "key": "needle",
+          "value": "pocket"
+        },
+        {
+          "key": "ladder",
+          "value": "rocket"
+        },
+        {
+          "key": "letter",
+          "value": "orange"
+        },
+        {
+          "key": "basket",
+          "value": "island"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 3,
+      "distractor_pair_index": 2,
+      "random_value_index": 1,
+      "query_key": "letter",
+      "target_value": "orange",
+      "distractor_value": "rocket",
+      "random_value": "pocket",
+      "target_token_id": 18575,
+      "distractor_token_id": 24306,
+      "positions": {
+        "target_value": 21,
+        "distractor_value": 4,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- rocket: sailor\n- needle: pocket\n- ladder: rocket\n- letter: orange\n- basket: island\n- letter:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.5,
+        "distractor_logit": 16.5,
+        "target_minus_distractor_margin": 3.0,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_044",
+      "source_id": "lookup_044",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "mirror",
+          "value": "candle"
+        },
+        {
+          "key": "pepper",
+          "value": "walnut"
+        },
+        {
+          "key": "silver",
+          "value": "temple"
+        },
+        {
+          "key": "violet",
+          "value": "bridge"
+        },
+        {
+          "key": "needle",
+          "value": "cotton"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 4,
+      "distractor_pair_index": 0,
+      "random_value_index": 3,
+      "query_key": "needle",
+      "target_value": "cotton",
+      "distractor_value": "candle",
+      "random_value": "bridge",
+      "target_token_id": 23522,
+      "distractor_token_id": 37799,
+      "positions": {
+        "target_value": 26,
+        "distractor_value": 6,
+        "random_value": 21,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": false,
+      "rendered_prompt": "Reference pairs:\n- mirror: candle\n- pepper: walnut\n- silver: temple\n- violet: bridge\n- needle: cotton\n- needle:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 16.5,
+        "distractor_logit": 14.4375,
+        "target_minus_distractor_margin": 2.0625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_045",
+      "source_id": "lookup_045",
+      "split": "holdout",
+      "pairs": [
+        {
+          "key": "rocket",
+          "value": "forest"
+        },
+        {
+          "key": "mirror",
+          "value": "engine"
+        },
+        {
+          "key": "velvet",
+          "value": "sugar"
+        },
+        {
+          "key": "desert",
+          "value": "planet"
+        },
+        {
+          "key": "pepper",
+          "value": "bridge"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 0,
+      "distractor_pair_index": 2,
+      "random_value_index": 1,
+      "query_key": "rocket",
+      "target_value": "forest",
+      "distractor_value": "sugar",
+      "random_value": "engine",
+      "target_token_id": 13638,
+      "distractor_token_id": 13163,
+      "positions": {
+        "target_value": 6,
+        "distractor_value": 16,
+        "random_value": 11,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- rocket: forest\n- mirror: engine\n- velvet: sugar\n- desert: planet\n- pepper: bridge\n- rocket:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.125,
+        "distractor_logit": 15.5,
+        "target_minus_distractor_margin": 1.625,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_046",
+      "source_id": "lookup_046",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "bottle",
+          "value": "thunder"
+        },
+        {
+          "key": "planet",
+          "value": "silver"
+        },
+        {
+          "key": "harbor",
+          "value": "winter"
+        },
+        {
+          "key": "sailor",
+          "value": "hammer"
+        },
+        {
+          "key": "needle",
+          "value": "button"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 1,
+      "distractor_pair_index": 4,
+      "random_value_index": 2,
+      "query_key": "planet",
+      "target_value": "silver",
+      "distractor_value": "button",
+      "random_value": "winter",
+      "target_token_id": 14961,
+      "distractor_token_id": 3137,
+      "positions": {
+        "target_value": 11,
+        "distractor_value": 26,
+        "random_value": 16,
+        "final_query_key": 29
+      },
+      "target_before_distractor": true,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- bottle: thunder\n- planet: silver\n- harbor: winter\n- sailor: hammer\n- needle: button\n- planet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 19.0,
+        "distractor_logit": 10.6875,
+        "target_minus_distractor_margin": 8.3125,
+        "target_wins": true
+      },
+      "clean": true
+    },
+    {
+      "id": "mc005_row_047",
+      "source_id": "lookup_047",
+      "split": "discovery",
+      "pairs": [
+        {
+          "key": "marble",
+          "value": "bottle"
+        },
+        {
+          "key": "hammer",
+          "value": "jungle"
+        },
+        {
+          "key": "magnet",
+          "value": "camera"
+        },
+        {
+          "key": "puzzle",
+          "value": "engine"
+        },
+        {
+          "key": "bridge",
+          "value": "market"
+        }
+      ],
+      "pair_count": 5,
+      "query_pair_index": 2,
+      "distractor_pair_index": 1,
+      "random_value_index": 4,
+      "query_key": "magnet",
+      "target_value": "camera",
+      "distractor_value": "jungle",
+      "random_value": "market",
+      "target_token_id": 6249,
+      "distractor_token_id": 44420,
+      "positions": {
+        "target_value": 16,
+        "distractor_value": 11,
+        "random_value": 26,
+        "final_query_key": 29
+      },
+      "target_before_distractor": false,
+      "query_pair_low_half": true,
+      "rendered_prompt": "Reference pairs:\n- marble: bottle\n- hammer: jungle\n- magnet: camera\n- puzzle: engine\n- bridge: market\n- magnet:",
+      "token_length": 31,
+      "baseline": {
+        "target_logit": 17.25,
+        "distractor_logit": 15.3125,
+        "target_minus_distractor_margin": 1.9375,
+        "target_wins": true
+      },
+      "clean": true
+    }
+  ],
+  "candidate_records": [
+    {
+      "row_id": "mc005_row_000",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_000",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_001",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_001",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_002",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_002",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_004",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_004",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_006",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_006",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_007",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_007",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_008",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_008",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_009",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_009",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_010",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_010",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_011",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_011",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_013",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_013",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_014",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_014",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_015",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_015",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_017",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_017",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_018",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_018",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_020",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_020",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_021",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_021",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_022",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_022",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_023",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_023",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_024",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_024",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_025",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_025",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_026",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_026",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_027",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_027",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_028",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_028",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_029",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_029",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_030",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_030",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_031",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_031",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_032",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_032",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_033",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_033",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_034",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_034",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_036",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_036",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_037",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_037",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_038",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_038",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_039",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_039",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_040",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_040",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_041",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_041",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_043",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_043",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_044",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_044",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": false
+    },
+    {
+      "row_id": "mc005_row_045",
+      "split": "holdout",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_045",
+      "split": "holdout",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_046",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_046",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": true,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_047",
+      "split": "discovery",
+      "candidate": "target_value",
+      "label": 1,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    },
+    {
+      "row_id": "mc005_row_047",
+      "split": "discovery",
+      "candidate": "distractor_value",
+      "label": 0,
+      "target_before_distractor": false,
+      "query_pair_low_half": true
+    }
+  ],
+  "attention_selection": {
+    "selected": {
+      "layer": 16,
+      "head": 14,
+      "discovery_auc": 1.0,
+      "holdout_auc": 1.0,
+      "mean_discovery_score": 0.4407437395836626
+    },
+    "layer_head_results": [
+      {
+        "layer": 0,
+        "head": 0,
+        "discovery_auc": 0.45153061224489793,
+        "holdout_auc": 0.6301775147928994,
+        "mean_discovery_score": 0.0011070466467312404
+      },
+      {
+        "layer": 0,
+        "head": 1,
+        "discovery_auc": 0.5102040816326531,
+        "holdout_auc": 0.39644970414201186,
+        "mean_discovery_score": 0.003326134789468987
+      },
+      {
+        "layer": 0,
+        "head": 2,
+        "discovery_auc": 0.5573979591836735,
+        "holdout_auc": 0.42011834319526625,
+        "mean_discovery_score": 0.0008638394730431693
+      },
+      {
+        "layer": 0,
+        "head": 3,
+        "discovery_auc": 0.5210459183673469,
+        "holdout_auc": 0.5295857988165681,
+        "mean_discovery_score": 0.0001528717777026551
+      },
+      {
+        "layer": 0,
+        "head": 4,
+        "discovery_auc": 0.5522959183673469,
+        "holdout_auc": 0.4349112426035503,
+        "mean_discovery_score": 0.00012150712843452181
+      },
+      {
+        "layer": 0,
+        "head": 5,
+        "discovery_auc": 0.6237244897959183,
+        "holdout_auc": 0.40828402366863903,
+        "mean_discovery_score": 0.0001528289701257433
+      },
+      {
+        "layer": 0,
+        "head": 6,
+        "discovery_auc": 0.48341836734693877,
+        "holdout_auc": 0.4171597633136095,
+        "mean_discovery_score": 0.010465894426618303
+      },
+      {
+        "layer": 0,
+        "head": 7,
+        "discovery_auc": 0.41581632653061223,
+        "holdout_auc": 0.650887573964497,
+        "mean_discovery_score": 0.00040015152522495816
+      },
+      {
+        "layer": 0,
+        "head": 8,
+        "discovery_auc": 0.5491071428571429,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.005613395145961216
+      },
+      {
+        "layer": 0,
+        "head": 9,
+        "discovery_auc": 0.48341836734693877,
+        "holdout_auc": 0.40828402366863903,
+        "mean_discovery_score": 0.0007577389478683472
+      },
+      {
+        "layer": 0,
+        "head": 10,
+        "discovery_auc": 0.5159438775510204,
+        "holdout_auc": 0.5591715976331361,
+        "mean_discovery_score": 0.01247814723423549
+      },
+      {
+        "layer": 0,
+        "head": 11,
+        "discovery_auc": 0.5038265306122449,
+        "holdout_auc": 0.5088757396449705,
+        "mean_discovery_score": 0.01941408429827009
+      },
+      {
+        "layer": 0,
+        "head": 12,
+        "discovery_auc": 0.514030612244898,
+        "holdout_auc": 0.5946745562130178,
+        "mean_discovery_score": 0.00012058658259255546
+      },
+      {
+        "layer": 0,
+        "head": 13,
+        "discovery_auc": 0.5567602040816326,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.001402606223044651
+      },
+      {
+        "layer": 0,
+        "head": 14,
+        "discovery_auc": 0.42091836734693877,
+        "holdout_auc": 0.41124260355029585,
+        "mean_discovery_score": 0.0021544013704572406
+      },
+      {
+        "layer": 0,
+        "head": 15,
+        "discovery_auc": 0.5223214285714286,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.002507079392671585
+      },
+      {
+        "layer": 1,
+        "head": 0,
+        "discovery_auc": 0.5063775510204082,
+        "holdout_auc": 0.7100591715976331,
+        "mean_discovery_score": 0.002218757356916155
+      },
+      {
+        "layer": 1,
+        "head": 1,
+        "discovery_auc": 0.5471938775510204,
+        "holdout_auc": 0.621301775147929,
+        "mean_discovery_score": 0.005277820995875767
+      },
+      {
+        "layer": 1,
+        "head": 2,
+        "discovery_auc": 0.5478316326530612,
+        "holdout_auc": 0.514792899408284,
+        "mean_discovery_score": 0.007851521951254523
+      },
+      {
+        "layer": 1,
+        "head": 3,
+        "discovery_auc": 0.5529336734693877,
+        "holdout_auc": 0.41124260355029585,
+        "mean_discovery_score": 0.0003908585224832807
+      },
+      {
+        "layer": 1,
+        "head": 4,
+        "discovery_auc": 0.517219387755102,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.024054391043526784
+      },
+      {
+        "layer": 1,
+        "head": 5,
+        "discovery_auc": 0.4674744897959184,
+        "holdout_auc": 0.5798816568047337,
+        "mean_discovery_score": 0.026271275111607144
+      },
+      {
+        "layer": 1,
+        "head": 6,
+        "discovery_auc": 0.5363520408163265,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.0016922269548688615
+      },
+      {
+        "layer": 1,
+        "head": 7,
+        "discovery_auc": 0.5695153061224489,
+        "holdout_auc": 0.4378698224852071,
+        "mean_discovery_score": 0.0008723033326012748
+      },
+      {
+        "layer": 1,
+        "head": 8,
+        "discovery_auc": 0.5070153061224489,
+        "holdout_auc": 0.33727810650887574,
+        "mean_discovery_score": 0.0004501896245138986
+      },
+      {
+        "layer": 1,
+        "head": 9,
+        "discovery_auc": 0.5197704081632653,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.0079716614314488
+      },
+      {
+        "layer": 1,
+        "head": 10,
+        "discovery_auc": 0.5899234693877551,
+        "holdout_auc": 0.6094674556213018,
+        "mean_discovery_score": 0.13256181989397323
+      },
+      {
+        "layer": 1,
+        "head": 11,
+        "discovery_auc": 0.4419642857142857,
+        "holdout_auc": 0.5976331360946746,
+        "mean_discovery_score": 0.013758489063807897
+      },
+      {
+        "layer": 1,
+        "head": 12,
+        "discovery_auc": 0.48214285714285715,
+        "holdout_auc": 0.48520710059171596,
+        "mean_discovery_score": 0.03272083827427456
+      },
+      {
+        "layer": 1,
+        "head": 13,
+        "discovery_auc": 0.46237244897959184,
+        "holdout_auc": 0.6420118343195266,
+        "mean_discovery_score": 0.049731663295200894
+      },
+      {
+        "layer": 1,
+        "head": 14,
+        "discovery_auc": 0.5605867346938775,
+        "holdout_auc": 0.4378698224852071,
+        "mean_discovery_score": 0.009204353604997908
+      },
+      {
+        "layer": 1,
+        "head": 15,
+        "discovery_auc": 0.6670918367346939,
+        "holdout_auc": 0.4260355029585799,
+        "mean_discovery_score": 6.095856276390675e-06
+      },
+      {
+        "layer": 2,
+        "head": 0,
+        "discovery_auc": 0.5165816326530612,
+        "holdout_auc": 0.5059171597633136,
+        "mean_discovery_score": 0.004992067813873291
+      },
+      {
+        "layer": 2,
+        "head": 1,
+        "discovery_auc": 0.5044642857142857,
+        "holdout_auc": 0.514792899408284,
+        "mean_discovery_score": 0.014450992856706892
+      },
+      {
+        "layer": 2,
+        "head": 2,
+        "discovery_auc": 0.5688775510204082,
+        "holdout_auc": 0.47337278106508873,
+        "mean_discovery_score": 3.1397694588771886e-05
+      },
+      {
+        "layer": 2,
+        "head": 3,
+        "discovery_auc": 0.5650510204081632,
+        "holdout_auc": 0.4230769230769231,
+        "mean_discovery_score": 1.7543955306921687e-05
+      },
+      {
+        "layer": 2,
+        "head": 4,
+        "discovery_auc": 0.5420918367346939,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.0005193437848772321
+      },
+      {
+        "layer": 2,
+        "head": 5,
+        "discovery_auc": 0.47512755102040816,
+        "holdout_auc": 0.5680473372781065,
+        "mean_discovery_score": 0.0007905364036560059
+      },
+      {
+        "layer": 2,
+        "head": 6,
+        "discovery_auc": 0.4094387755102041,
+        "holdout_auc": 0.5739644970414202,
+        "mean_discovery_score": 0.03313282557896206
+      },
+      {
+        "layer": 2,
+        "head": 7,
+        "discovery_auc": 0.35586734693877553,
+        "holdout_auc": 0.3343195266272189,
+        "mean_discovery_score": 0.008847594261169434
+      },
+      {
+        "layer": 2,
+        "head": 8,
+        "discovery_auc": 0.5070153061224489,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.001199379563331604
+      },
+      {
+        "layer": 2,
+        "head": 9,
+        "discovery_auc": 0.4477040816326531,
+        "holdout_auc": 0.5857988165680473,
+        "mean_discovery_score": 0.0009268948010035924
+      },
+      {
+        "layer": 2,
+        "head": 10,
+        "discovery_auc": 0.5739795918367347,
+        "holdout_auc": 0.3905325443786982,
+        "mean_discovery_score": 0.0002243508185659136
+      },
+      {
+        "layer": 2,
+        "head": 11,
+        "discovery_auc": 0.5586734693877551,
+        "holdout_auc": 0.4940828402366864,
+        "mean_discovery_score": 6.420920336885112e-06
+      },
+      {
+        "layer": 2,
+        "head": 12,
+        "discovery_auc": 0.5338010204081632,
+        "holdout_auc": 0.39349112426035504,
+        "mean_discovery_score": 0.00013580705438341414
+      },
+      {
+        "layer": 2,
+        "head": 13,
+        "discovery_auc": 0.4700255102040816,
+        "holdout_auc": 0.5591715976331361,
+        "mean_discovery_score": 0.010093416486467634
+      },
+      {
+        "layer": 2,
+        "head": 14,
+        "discovery_auc": 0.47130102040816324,
+        "holdout_auc": 0.40828402366863903,
+        "mean_discovery_score": 0.0065272194998604914
+      },
+      {
+        "layer": 2,
+        "head": 15,
+        "discovery_auc": 0.42857142857142855,
+        "holdout_auc": 0.4940828402366864,
+        "mean_discovery_score": 0.01850836617606027
+      },
+      {
+        "layer": 3,
+        "head": 0,
+        "discovery_auc": 0.5306122448979592,
+        "holdout_auc": 0.4467455621301775,
+        "mean_discovery_score": 0.016036714826311384
+      },
+      {
+        "layer": 3,
+        "head": 1,
+        "discovery_auc": 0.610969387755102,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.0027990000588553293
+      },
+      {
+        "layer": 3,
+        "head": 2,
+        "discovery_auc": 0.46364795918367346,
+        "holdout_auc": 0.6538461538461539,
+        "mean_discovery_score": 0.018923350742885044
+      },
+      {
+        "layer": 3,
+        "head": 3,
+        "discovery_auc": 0.5943877551020408,
+        "holdout_auc": 0.4911242603550296,
+        "mean_discovery_score": 0.0017033134187970842
+      },
+      {
+        "layer": 3,
+        "head": 4,
+        "discovery_auc": 0.5695153061224489,
+        "holdout_auc": 0.514792899408284,
+        "mean_discovery_score": 6.630481688521936e-05
+      },
+      {
+        "layer": 3,
+        "head": 5,
+        "discovery_auc": 0.5102040816326531,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 0.0006372502871922084
+      },
+      {
+        "layer": 3,
+        "head": 6,
+        "discovery_auc": 0.4942602040816326,
+        "holdout_auc": 0.40532544378698226,
+        "mean_discovery_score": 0.00015463254281452725
+      },
+      {
+        "layer": 3,
+        "head": 7,
+        "discovery_auc": 0.4260204081632653,
+        "holdout_auc": 0.40828402366863903,
+        "mean_discovery_score": 0.0025254317692347933
+      },
+      {
+        "layer": 3,
+        "head": 8,
+        "discovery_auc": 0.6288265306122449,
+        "holdout_auc": 0.6005917159763313,
+        "mean_discovery_score": 0.0006336708153997149
+      },
+      {
+        "layer": 3,
+        "head": 9,
+        "discovery_auc": 0.45153061224489793,
+        "holdout_auc": 0.4970414201183432,
+        "mean_discovery_score": 0.00012277598891939436
+      },
+      {
+        "layer": 3,
+        "head": 10,
+        "discovery_auc": 0.8903061224489796,
+        "holdout_auc": 0.863905325443787,
+        "mean_discovery_score": 0.2631775992257254
+      },
+      {
+        "layer": 3,
+        "head": 11,
+        "discovery_auc": 0.8864795918367347,
+        "holdout_auc": 0.834319526627219,
+        "mean_discovery_score": 0.013729478631700789
+      },
+      {
+        "layer": 3,
+        "head": 12,
+        "discovery_auc": 0.46938775510204084,
+        "holdout_auc": 0.606508875739645,
+        "mean_discovery_score": 0.014622279575892858
+      },
+      {
+        "layer": 3,
+        "head": 13,
+        "discovery_auc": 0.6645408163265306,
+        "holdout_auc": 0.48520710059171596,
+        "mean_discovery_score": 0.057323455810546875
+      },
+      {
+        "layer": 3,
+        "head": 14,
+        "discovery_auc": 0.6084183673469388,
+        "holdout_auc": 0.42011834319526625,
+        "mean_discovery_score": 0.07751192365373884
+      },
+      {
+        "layer": 3,
+        "head": 15,
+        "discovery_auc": 0.5191326530612245,
+        "holdout_auc": 0.34911242603550297,
+        "mean_discovery_score": 0.002730028969900949
+      },
+      {
+        "layer": 4,
+        "head": 0,
+        "discovery_auc": 0.5975765306122449,
+        "holdout_auc": 0.3609467455621302,
+        "mean_discovery_score": 0.019863673618861606
+      },
+      {
+        "layer": 4,
+        "head": 1,
+        "discovery_auc": 0.5554846938775511,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.01905359540666853
+      },
+      {
+        "layer": 4,
+        "head": 2,
+        "discovery_auc": 0.5618622448979592,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 0.0005377573626382011
+      },
+      {
+        "layer": 4,
+        "head": 3,
+        "discovery_auc": 0.5031887755102041,
+        "holdout_auc": 0.4556213017751479,
+        "mean_discovery_score": 0.00015221057193619863
+      },
+      {
+        "layer": 4,
+        "head": 4,
+        "discovery_auc": 0.46237244897959184,
+        "holdout_auc": 0.5591715976331361,
+        "mean_discovery_score": 0.0007980891636439732
+      },
+      {
+        "layer": 4,
+        "head": 5,
+        "discovery_auc": 0.44005102040816324,
+        "holdout_auc": 0.6420118343195266,
+        "mean_discovery_score": 0.00321613039289202
+      },
+      {
+        "layer": 4,
+        "head": 6,
+        "discovery_auc": 0.5038265306122449,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.000813807759966169
+      },
+      {
+        "layer": 4,
+        "head": 7,
+        "discovery_auc": 0.5561224489795918,
+        "holdout_auc": 0.5295857988165681,
+        "mean_discovery_score": 0.0005305781960487366
+      },
+      {
+        "layer": 4,
+        "head": 8,
+        "discovery_auc": 0.49808673469387754,
+        "holdout_auc": 0.621301775147929,
+        "mean_discovery_score": 0.01087045669555664
+      },
+      {
+        "layer": 4,
+        "head": 9,
+        "discovery_auc": 0.49489795918367346,
+        "holdout_auc": 0.2485207100591716,
+        "mean_discovery_score": 4.215804593903678e-05
+      },
+      {
+        "layer": 4,
+        "head": 10,
+        "discovery_auc": 0.49744897959183676,
+        "holdout_auc": 0.3727810650887574,
+        "mean_discovery_score": 0.002151880945478167
+      },
+      {
+        "layer": 4,
+        "head": 11,
+        "discovery_auc": 0.4872448979591837,
+        "holdout_auc": 0.4556213017751479,
+        "mean_discovery_score": 0.008428096771240234
+      },
+      {
+        "layer": 4,
+        "head": 12,
+        "discovery_auc": 0.5491071428571429,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.00971221923828125
+      },
+      {
+        "layer": 4,
+        "head": 13,
+        "discovery_auc": 0.6007653061224489,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 0.000213748642376491
+      },
+      {
+        "layer": 4,
+        "head": 14,
+        "discovery_auc": 0.4362244897959184,
+        "holdout_auc": 0.7603550295857988,
+        "mean_discovery_score": 0.0012613705226353236
+      },
+      {
+        "layer": 4,
+        "head": 15,
+        "discovery_auc": 0.5695153061224489,
+        "holdout_auc": 0.5562130177514792,
+        "mean_discovery_score": 0.0017238748925072806
+      },
+      {
+        "layer": 5,
+        "head": 0,
+        "discovery_auc": 0.5146683673469388,
+        "holdout_auc": 0.5710059171597633,
+        "mean_discovery_score": 0.00021820076342139925
+      },
+      {
+        "layer": 5,
+        "head": 1,
+        "discovery_auc": 0.5714285714285714,
+        "holdout_auc": 0.5325443786982249,
+        "mean_discovery_score": 0.0009394197591713496
+      },
+      {
+        "layer": 5,
+        "head": 2,
+        "discovery_auc": 0.46237244897959184,
+        "holdout_auc": 0.378698224852071,
+        "mean_discovery_score": 7.698472057070051e-05
+      },
+      {
+        "layer": 5,
+        "head": 3,
+        "discovery_auc": 0.48596938775510207,
+        "holdout_auc": 0.34911242603550297,
+        "mean_discovery_score": 0.0008956406797681536
+      },
+      {
+        "layer": 5,
+        "head": 4,
+        "discovery_auc": 0.5529336734693877,
+        "holdout_auc": 0.5414201183431953,
+        "mean_discovery_score": 0.005698612758091518
+      },
+      {
+        "layer": 5,
+        "head": 5,
+        "discovery_auc": 0.4968112244897959,
+        "holdout_auc": 0.39644970414201186,
+        "mean_discovery_score": 0.0065070561000279015
+      },
+      {
+        "layer": 5,
+        "head": 6,
+        "discovery_auc": 0.5637755102040817,
+        "holdout_auc": 0.5,
+        "mean_discovery_score": 0.0003206506371498108
+      },
+      {
+        "layer": 5,
+        "head": 7,
+        "discovery_auc": 0.5835459183673469,
+        "holdout_auc": 0.5177514792899408,
+        "mean_discovery_score": 0.0003429778984614781
+      },
+      {
+        "layer": 5,
+        "head": 8,
+        "discovery_auc": 0.5618622448979592,
+        "holdout_auc": 0.5769230769230769,
+        "mean_discovery_score": 0.009128025599888392
+      },
+      {
+        "layer": 5,
+        "head": 9,
+        "discovery_auc": 0.5051020408163265,
+        "holdout_auc": 0.5236686390532544,
+        "mean_discovery_score": 0.0005763024091720581
+      },
+      {
+        "layer": 5,
+        "head": 10,
+        "discovery_auc": 0.5771683673469388,
+        "holdout_auc": 0.5325443786982249,
+        "mean_discovery_score": 0.0026187896728515625
+      },
+      {
+        "layer": 5,
+        "head": 11,
+        "discovery_auc": 0.48660714285714285,
+        "holdout_auc": 0.47928994082840237,
+        "mean_discovery_score": 0.0011151411703654698
+      },
+      {
+        "layer": 5,
+        "head": 12,
+        "discovery_auc": 0.5338010204081632,
+        "holdout_auc": 0.3668639053254438,
+        "mean_discovery_score": 0.001095277922494071
+      },
+      {
+        "layer": 5,
+        "head": 13,
+        "discovery_auc": 0.5063775510204082,
+        "holdout_auc": 0.4467455621301775,
+        "mean_discovery_score": 0.002786695957183838
+      },
+      {
+        "layer": 5,
+        "head": 14,
+        "discovery_auc": 0.5395408163265306,
+        "holdout_auc": 0.4408284023668639,
+        "mean_discovery_score": 0.0011212868349892752
+      },
+      {
+        "layer": 5,
+        "head": 15,
+        "discovery_auc": 0.5599489795918368,
+        "holdout_auc": 0.4289940828402367,
+        "mean_discovery_score": 0.0008885775293622698
+      },
+      {
+        "layer": 6,
+        "head": 0,
+        "discovery_auc": 0.4789540816326531,
+        "holdout_auc": 0.5650887573964497,
+        "mean_discovery_score": 0.0028333195618220736
+      },
+      {
+        "layer": 6,
+        "head": 1,
+        "discovery_auc": 0.46619897959183676,
+        "holdout_auc": 0.5976331360946746,
+        "mean_discovery_score": 0.0008261076041630336
+      },
+      {
+        "layer": 6,
+        "head": 2,
+        "discovery_auc": 0.6020408163265306,
+        "holdout_auc": 0.4230769230769231,
+        "mean_discovery_score": 0.002605829920087542
+      },
+      {
+        "layer": 6,
+        "head": 3,
+        "discovery_auc": 0.4585459183673469,
+        "holdout_auc": 0.47928994082840237,
+        "mean_discovery_score": 0.00023807053055082048
+      },
+      {
+        "layer": 6,
+        "head": 4,
+        "discovery_auc": 0.5669642857142857,
+        "holdout_auc": 0.5680473372781065,
+        "mean_discovery_score": 0.0006715080567768642
+      },
+      {
+        "layer": 6,
+        "head": 5,
+        "discovery_auc": 0.5025510204081632,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.0009082385471888951
+      },
+      {
+        "layer": 6,
+        "head": 6,
+        "discovery_auc": 0.8405612244897959,
+        "holdout_auc": 0.8284023668639053,
+        "mean_discovery_score": 0.0027722713961598595
+      },
+      {
+        "layer": 6,
+        "head": 7,
+        "discovery_auc": 0.9030612244897959,
+        "holdout_auc": 0.8461538461538461,
+        "mean_discovery_score": 5.849646287987247e-05
+      },
+      {
+        "layer": 6,
+        "head": 8,
+        "discovery_auc": 0.32589285714285715,
+        "holdout_auc": 0.6686390532544378,
+        "mean_discovery_score": 0.00039414209978921074
+      },
+      {
+        "layer": 6,
+        "head": 9,
+        "discovery_auc": 0.41709183673469385,
+        "holdout_auc": 0.5473372781065089,
+        "mean_discovery_score": 0.0002896381275994437
+      },
+      {
+        "layer": 6,
+        "head": 10,
+        "discovery_auc": 0.9081632653061225,
+        "holdout_auc": 0.9171597633136095,
+        "mean_discovery_score": 0.00819173880985805
+      },
+      {
+        "layer": 6,
+        "head": 11,
+        "discovery_auc": 0.8883928571428571,
+        "holdout_auc": 0.9260355029585798,
+        "mean_discovery_score": 0.17123235974993026
+      },
+      {
+        "layer": 6,
+        "head": 12,
+        "discovery_auc": 0.6709183673469388,
+        "holdout_auc": 0.6568047337278107,
+        "mean_discovery_score": 0.0007748369659696307
+      },
+      {
+        "layer": 6,
+        "head": 13,
+        "discovery_auc": 0.4362244897959184,
+        "holdout_auc": 0.4970414201183432,
+        "mean_discovery_score": 0.00015469447576573918
+      },
+      {
+        "layer": 6,
+        "head": 14,
+        "discovery_auc": 0.4789540816326531,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.0038391181400844027
+      },
+      {
+        "layer": 6,
+        "head": 15,
+        "discovery_auc": 0.5019132653061225,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.004455362047467913
+      },
+      {
+        "layer": 7,
+        "head": 0,
+        "discovery_auc": 0.6211734693877551,
+        "holdout_auc": 0.6035502958579881,
+        "mean_discovery_score": 0.015807288033621653
+      },
+      {
+        "layer": 7,
+        "head": 1,
+        "discovery_auc": 0.5548469387755102,
+        "holdout_auc": 0.5088757396449705,
+        "mean_discovery_score": 0.004632038729531425
+      },
+      {
+        "layer": 7,
+        "head": 2,
+        "discovery_auc": 0.5095663265306123,
+        "holdout_auc": 0.48520710059171596,
+        "mean_discovery_score": 0.0015114444707121169
+      },
+      {
+        "layer": 7,
+        "head": 3,
+        "discovery_auc": 0.576530612244898,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.0011388791192855155
+      },
+      {
+        "layer": 7,
+        "head": 4,
+        "discovery_auc": 0.461734693877551,
+        "holdout_auc": 0.5502958579881657,
+        "mean_discovery_score": 0.004597663879394531
+      },
+      {
+        "layer": 7,
+        "head": 5,
+        "discovery_auc": 0.6141581632653061,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.024899891444614956
+      },
+      {
+        "layer": 7,
+        "head": 6,
+        "discovery_auc": 0.46237244897959184,
+        "holdout_auc": 0.40532544378698226,
+        "mean_discovery_score": 0.00410510812486921
+      },
+      {
+        "layer": 7,
+        "head": 7,
+        "discovery_auc": 0.30994897959183676,
+        "holdout_auc": 0.48520710059171596,
+        "mean_discovery_score": 0.0005022633288587843
+      },
+      {
+        "layer": 7,
+        "head": 8,
+        "discovery_auc": 0.59375,
+        "holdout_auc": 0.4911242603550296,
+        "mean_discovery_score": 0.00015293081690158163
+      },
+      {
+        "layer": 7,
+        "head": 9,
+        "discovery_auc": 0.5605867346938775,
+        "holdout_auc": 0.47337278106508873,
+        "mean_discovery_score": 6.607361137866974e-05
+      },
+      {
+        "layer": 7,
+        "head": 10,
+        "discovery_auc": 0.5395408163265306,
+        "holdout_auc": 0.4556213017751479,
+        "mean_discovery_score": 0.0050586674894605365
+      },
+      {
+        "layer": 7,
+        "head": 11,
+        "discovery_auc": 0.6128826530612245,
+        "holdout_auc": 0.5857988165680473,
+        "mean_discovery_score": 0.004440537520817348
+      },
+      {
+        "layer": 7,
+        "head": 12,
+        "discovery_auc": 0.5274234693877551,
+        "holdout_auc": 0.5088757396449705,
+        "mean_discovery_score": 0.018984522138323103
+      },
+      {
+        "layer": 7,
+        "head": 13,
+        "discovery_auc": 0.44260204081632654,
+        "holdout_auc": 0.4319526627218935,
+        "mean_discovery_score": 0.006090845380510602
+      },
+      {
+        "layer": 7,
+        "head": 14,
+        "discovery_auc": 0.6434948979591837,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.02734865461077009
+      },
+      {
+        "layer": 7,
+        "head": 15,
+        "discovery_auc": 0.6192602040816326,
+        "holdout_auc": 0.5532544378698225,
+        "mean_discovery_score": 0.01859583173479353
+      },
+      {
+        "layer": 8,
+        "head": 0,
+        "discovery_auc": 0.4719387755102041,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.0021215975284576416
+      },
+      {
+        "layer": 8,
+        "head": 1,
+        "discovery_auc": 0.5427295918367347,
+        "holdout_auc": 0.4437869822485207,
+        "mean_discovery_score": 0.0010259619780949184
+      },
+      {
+        "layer": 8,
+        "head": 2,
+        "discovery_auc": 0.45918367346938777,
+        "holdout_auc": 0.636094674556213,
+        "mean_discovery_score": 0.0044117144175938195
+      },
+      {
+        "layer": 8,
+        "head": 3,
+        "discovery_auc": 0.6836734693877551,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.011908667428152902
+      },
+      {
+        "layer": 8,
+        "head": 4,
+        "discovery_auc": 0.9853316326530612,
+        "holdout_auc": 0.9940828402366864,
+        "mean_discovery_score": 0.024660741644246236
+      },
+      {
+        "layer": 8,
+        "head": 5,
+        "discovery_auc": 0.9738520408163265,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.017828998821122304
+      },
+      {
+        "layer": 8,
+        "head": 6,
+        "discovery_auc": 0.5612244897959183,
+        "holdout_auc": 0.5355029585798816,
+        "mean_discovery_score": 0.004167148045131138
+      },
+      {
+        "layer": 8,
+        "head": 7,
+        "discovery_auc": 0.7933673469387755,
+        "holdout_auc": 0.6745562130177515,
+        "mean_discovery_score": 0.06274466003690447
+      },
+      {
+        "layer": 8,
+        "head": 8,
+        "discovery_auc": 0.475765306122449,
+        "holdout_auc": 0.727810650887574,
+        "mean_discovery_score": 0.0019063353538513184
+      },
+      {
+        "layer": 8,
+        "head": 9,
+        "discovery_auc": 0.5420918367346939,
+        "holdout_auc": 0.6153846153846154,
+        "mean_discovery_score": 0.00015961591686521257
+      },
+      {
+        "layer": 8,
+        "head": 10,
+        "discovery_auc": 0.6996173469387755,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.007897377014160156
+      },
+      {
+        "layer": 8,
+        "head": 11,
+        "discovery_auc": 0.6256377551020408,
+        "holdout_auc": 0.6153846153846154,
+        "mean_discovery_score": 0.0029253619057791574
+      },
+      {
+        "layer": 8,
+        "head": 12,
+        "discovery_auc": 0.7461734693877551,
+        "holdout_auc": 0.9378698224852071,
+        "mean_discovery_score": 0.0032552991594587055
+      },
+      {
+        "layer": 8,
+        "head": 13,
+        "discovery_auc": 0.8112244897959183,
+        "holdout_auc": 0.8875739644970414,
+        "mean_discovery_score": 0.0030862241983413696
+      },
+      {
+        "layer": 8,
+        "head": 14,
+        "discovery_auc": 0.6377551020408163,
+        "holdout_auc": 0.7869822485207101,
+        "mean_discovery_score": 0.009903771536690848
+      },
+      {
+        "layer": 8,
+        "head": 15,
+        "discovery_auc": 0.5286989795918368,
+        "holdout_auc": 0.5414201183431953,
+        "mean_discovery_score": 0.011552810668945312
+      },
+      {
+        "layer": 9,
+        "head": 0,
+        "discovery_auc": 0.7130102040816326,
+        "holdout_auc": 0.6568047337278107,
+        "mean_discovery_score": 0.0040591614586966375
+      },
+      {
+        "layer": 9,
+        "head": 1,
+        "discovery_auc": 0.5471938775510204,
+        "holdout_auc": 0.514792899408284,
+        "mean_discovery_score": 0.005772624697004046
+      },
+      {
+        "layer": 9,
+        "head": 2,
+        "discovery_auc": 0.7066326530612245,
+        "holdout_auc": 0.6597633136094675,
+        "mean_discovery_score": 0.003790693623679025
+      },
+      {
+        "layer": 9,
+        "head": 3,
+        "discovery_auc": 0.6358418367346939,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.0009090474673679896
+      },
+      {
+        "layer": 9,
+        "head": 4,
+        "discovery_auc": 0.7085459183673469,
+        "holdout_auc": 0.7041420118343196,
+        "mean_discovery_score": 0.003231278487614223
+      },
+      {
+        "layer": 9,
+        "head": 5,
+        "discovery_auc": 0.704719387755102,
+        "holdout_auc": 0.727810650887574,
+        "mean_discovery_score": 0.033633640834263394
+      },
+      {
+        "layer": 9,
+        "head": 6,
+        "discovery_auc": 0.5656887755102041,
+        "holdout_auc": 0.5857988165680473,
+        "mean_discovery_score": 0.008768762860979353
+      },
+      {
+        "layer": 9,
+        "head": 7,
+        "discovery_auc": 0.4375,
+        "holdout_auc": 0.6804733727810651,
+        "mean_discovery_score": 0.0006172688943999154
+      },
+      {
+        "layer": 9,
+        "head": 8,
+        "discovery_auc": 0.6039540816326531,
+        "holdout_auc": 0.48520710059171596,
+        "mean_discovery_score": 0.007708225931440081
+      },
+      {
+        "layer": 9,
+        "head": 9,
+        "discovery_auc": 0.5911989795918368,
+        "holdout_auc": 0.514792899408284,
+        "mean_discovery_score": 0.0007283496005194527
+      },
+      {
+        "layer": 9,
+        "head": 10,
+        "discovery_auc": 0.5204081632653061,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.00015121991080897196
+      },
+      {
+        "layer": 9,
+        "head": 11,
+        "discovery_auc": 0.4024234693877551,
+        "holdout_auc": 0.46153846153846156,
+        "mean_discovery_score": 0.00038796769721167427
+      },
+      {
+        "layer": 9,
+        "head": 12,
+        "discovery_auc": 0.6709183673469388,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.006506017276218959
+      },
+      {
+        "layer": 9,
+        "head": 13,
+        "discovery_auc": 0.6096938775510204,
+        "holdout_auc": 0.5828402366863905,
+        "mean_discovery_score": 0.011092049734933036
+      },
+      {
+        "layer": 9,
+        "head": 14,
+        "discovery_auc": 0.6160714285714286,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.0008942655154636928
+      },
+      {
+        "layer": 9,
+        "head": 15,
+        "discovery_auc": 0.5102040816326531,
+        "holdout_auc": 0.4230769230769231,
+        "mean_discovery_score": 0.0007813189710889544
+      },
+      {
+        "layer": 10,
+        "head": 0,
+        "discovery_auc": 0.5255102040816326,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.002085821969168527
+      },
+      {
+        "layer": 10,
+        "head": 1,
+        "discovery_auc": 0.5950255102040817,
+        "holdout_auc": 0.47041420118343197,
+        "mean_discovery_score": 0.004653453826904297
+      },
+      {
+        "layer": 10,
+        "head": 2,
+        "discovery_auc": 0.5956632653061225,
+        "holdout_auc": 0.6804733727810651,
+        "mean_discovery_score": 0.010012660707746233
+      },
+      {
+        "layer": 10,
+        "head": 3,
+        "discovery_auc": 0.6855867346938775,
+        "holdout_auc": 0.7988165680473372,
+        "mean_discovery_score": 0.013806751796177455
+      },
+      {
+        "layer": 10,
+        "head": 4,
+        "discovery_auc": 0.6039540816326531,
+        "holdout_auc": 0.7159763313609467,
+        "mean_discovery_score": 0.004127246992928641
+      },
+      {
+        "layer": 10,
+        "head": 5,
+        "discovery_auc": 0.47831632653061223,
+        "holdout_auc": 0.4349112426035503,
+        "mean_discovery_score": 0.00576707295009068
+      },
+      {
+        "layer": 10,
+        "head": 6,
+        "discovery_auc": 0.4375,
+        "holdout_auc": 0.7810650887573964,
+        "mean_discovery_score": 0.0038639988218035016
+      },
+      {
+        "layer": 10,
+        "head": 7,
+        "discovery_auc": 0.6785714285714286,
+        "holdout_auc": 0.4408284023668639,
+        "mean_discovery_score": 0.006409100123814174
+      },
+      {
+        "layer": 10,
+        "head": 8,
+        "discovery_auc": 0.5478316326530612,
+        "holdout_auc": 0.4940828402366864,
+        "mean_discovery_score": 0.00011010640966040748
+      },
+      {
+        "layer": 10,
+        "head": 9,
+        "discovery_auc": 0.548469387755102,
+        "holdout_auc": 0.6301775147928994,
+        "mean_discovery_score": 0.000584334135055542
+      },
+      {
+        "layer": 10,
+        "head": 10,
+        "discovery_auc": 0.49808673469387754,
+        "holdout_auc": 0.7248520710059172,
+        "mean_discovery_score": 0.0010825310434613908
+      },
+      {
+        "layer": 10,
+        "head": 11,
+        "discovery_auc": 0.6294642857142857,
+        "holdout_auc": 0.621301775147929,
+        "mean_discovery_score": 0.010932786124093192
+      },
+      {
+        "layer": 10,
+        "head": 12,
+        "discovery_auc": 0.5969387755102041,
+        "holdout_auc": 0.5857988165680473,
+        "mean_discovery_score": 0.0007289978010313851
+      },
+      {
+        "layer": 10,
+        "head": 13,
+        "discovery_auc": 0.5420918367346939,
+        "holdout_auc": 0.7071005917159763,
+        "mean_discovery_score": 0.000522121787071228
+      },
+      {
+        "layer": 10,
+        "head": 14,
+        "discovery_auc": 0.6122448979591837,
+        "holdout_auc": 0.6301775147928994,
+        "mean_discovery_score": 0.010351146970476423
+      },
+      {
+        "layer": 10,
+        "head": 15,
+        "discovery_auc": 0.5548469387755102,
+        "holdout_auc": 0.5857988165680473,
+        "mean_discovery_score": 0.0026087164878845215
+      },
+      {
+        "layer": 11,
+        "head": 0,
+        "discovery_auc": 0.7117346938775511,
+        "holdout_auc": 0.7218934911242604,
+        "mean_discovery_score": 0.002624860831669399
+      },
+      {
+        "layer": 11,
+        "head": 1,
+        "discovery_auc": 0.5905612244897959,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.0003806714583853526
+      },
+      {
+        "layer": 11,
+        "head": 2,
+        "discovery_auc": 0.5631377551020408,
+        "holdout_auc": 0.5562130177514792,
+        "mean_discovery_score": 0.0005025648528576962
+      },
+      {
+        "layer": 11,
+        "head": 3,
+        "discovery_auc": 0.5229591836734694,
+        "holdout_auc": 0.4911242603550296,
+        "mean_discovery_score": 0.0001581461900579078
+      },
+      {
+        "layer": 11,
+        "head": 4,
+        "discovery_auc": 0.5988520408163265,
+        "holdout_auc": 0.6568047337278107,
+        "mean_discovery_score": 0.0007182679006031581
+      },
+      {
+        "layer": 11,
+        "head": 5,
+        "discovery_auc": 0.71875,
+        "holdout_auc": 0.6597633136094675,
+        "mean_discovery_score": 0.003307572432926723
+      },
+      {
+        "layer": 11,
+        "head": 6,
+        "discovery_auc": 0.6160714285714286,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.00021679872380835668
+      },
+      {
+        "layer": 11,
+        "head": 7,
+        "discovery_auc": 0.7149234693877551,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.001169256865978241
+      },
+      {
+        "layer": 11,
+        "head": 8,
+        "discovery_auc": 0.5746173469387755,
+        "holdout_auc": 0.4940828402366864,
+        "mean_discovery_score": 0.008538382393973214
+      },
+      {
+        "layer": 11,
+        "head": 9,
+        "discovery_auc": 0.6651785714285714,
+        "holdout_auc": 0.5798816568047337,
+        "mean_discovery_score": 0.0002467301008956773
+      },
+      {
+        "layer": 11,
+        "head": 10,
+        "discovery_auc": 0.6173469387755102,
+        "holdout_auc": 0.5798816568047337,
+        "mean_discovery_score": 0.0041490112032209125
+      },
+      {
+        "layer": 11,
+        "head": 11,
+        "discovery_auc": 0.47066326530612246,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.0036309526434966494
+      },
+      {
+        "layer": 11,
+        "head": 12,
+        "discovery_auc": 0.8048469387755102,
+        "holdout_auc": 0.8994082840236687,
+        "mean_discovery_score": 0.007424388613019671
+      },
+      {
+        "layer": 11,
+        "head": 13,
+        "discovery_auc": 0.7213010204081632,
+        "holdout_auc": 0.8165680473372781,
+        "mean_discovery_score": 0.0004218234680593014
+      },
+      {
+        "layer": 11,
+        "head": 14,
+        "discovery_auc": 0.5803571428571429,
+        "holdout_auc": 0.6597633136094675,
+        "mean_discovery_score": 0.0005379528405943087
+      },
+      {
+        "layer": 11,
+        "head": 15,
+        "discovery_auc": 0.5204081632653061,
+        "holdout_auc": 0.6863905325443787,
+        "mean_discovery_score": 0.0005681143541421209
+      },
+      {
+        "layer": 12,
+        "head": 0,
+        "discovery_auc": 0.9910714285714286,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.2444298267364502
+      },
+      {
+        "layer": 12,
+        "head": 1,
+        "discovery_auc": 0.6160714285714286,
+        "holdout_auc": 0.7366863905325444,
+        "mean_discovery_score": 0.0038952146257672992
+      },
+      {
+        "layer": 12,
+        "head": 2,
+        "discovery_auc": 0.5950255102040817,
+        "holdout_auc": 0.5295857988165681,
+        "mean_discovery_score": 0.004401730639593942
+      },
+      {
+        "layer": 12,
+        "head": 3,
+        "discovery_auc": 0.6141581632653061,
+        "holdout_auc": 0.4911242603550296,
+        "mean_discovery_score": 0.010894685983657837
+      },
+      {
+        "layer": 12,
+        "head": 4,
+        "discovery_auc": 0.5822704081632653,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.005462050437927246
+      },
+      {
+        "layer": 12,
+        "head": 5,
+        "discovery_auc": 0.6058673469387755,
+        "holdout_auc": 0.6449704142011834,
+        "mean_discovery_score": 0.003180022750582014
+      },
+      {
+        "layer": 12,
+        "head": 6,
+        "discovery_auc": 0.7614795918367347,
+        "holdout_auc": 0.7514792899408284,
+        "mean_discovery_score": 0.008399418422154017
+      },
+      {
+        "layer": 12,
+        "head": 7,
+        "discovery_auc": 0.49362244897959184,
+        "holdout_auc": 0.45857988165680474,
+        "mean_discovery_score": 0.023397718157087053
+      },
+      {
+        "layer": 12,
+        "head": 8,
+        "discovery_auc": 0.607780612244898,
+        "holdout_auc": 0.7396449704142012,
+        "mean_discovery_score": 0.004811900002615792
+      },
+      {
+        "layer": 12,
+        "head": 9,
+        "discovery_auc": 0.6492346938775511,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.016052654811314175
+      },
+      {
+        "layer": 12,
+        "head": 10,
+        "discovery_auc": 0.4177295918367347,
+        "holdout_auc": 0.5118343195266272,
+        "mean_discovery_score": 0.00018407582371894802
+      },
+      {
+        "layer": 12,
+        "head": 11,
+        "discovery_auc": 0.4094387755102041,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 5.290865997916886e-05
+      },
+      {
+        "layer": 12,
+        "head": 12,
+        "discovery_auc": 0.5580357142857143,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.0021966525486537387
+      },
+      {
+        "layer": 12,
+        "head": 13,
+        "discovery_auc": 0.6084183673469388,
+        "holdout_auc": 0.5739644970414202,
+        "mean_discovery_score": 0.008300270353044783
+      },
+      {
+        "layer": 12,
+        "head": 14,
+        "discovery_auc": 0.7544642857142857,
+        "holdout_auc": 0.7633136094674556,
+        "mean_discovery_score": 0.004267959190266473
+      },
+      {
+        "layer": 12,
+        "head": 15,
+        "discovery_auc": 0.6670918367346939,
+        "holdout_auc": 0.6094674556213018,
+        "mean_discovery_score": 0.00451430252620152
+      },
+      {
+        "layer": 13,
+        "head": 0,
+        "discovery_auc": 0.6753826530612245,
+        "holdout_auc": 0.30177514792899407,
+        "mean_discovery_score": 0.0015358499118259975
+      },
+      {
+        "layer": 13,
+        "head": 1,
+        "discovery_auc": 0.6058673469387755,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.008629015513828822
+      },
+      {
+        "layer": 13,
+        "head": 2,
+        "discovery_auc": 0.7684948979591837,
+        "holdout_auc": 0.6863905325443787,
+        "mean_discovery_score": 0.027103866849626814
+      },
+      {
+        "layer": 13,
+        "head": 3,
+        "discovery_auc": 0.6479591836734694,
+        "holdout_auc": 0.650887573964497,
+        "mean_discovery_score": 0.0024726869804518564
+      },
+      {
+        "layer": 13,
+        "head": 4,
+        "discovery_auc": 0.8233418367346939,
+        "holdout_auc": 0.8875739644970414,
+        "mean_discovery_score": 0.020372697285243442
+      },
+      {
+        "layer": 13,
+        "head": 5,
+        "discovery_auc": 0.6836734693877551,
+        "holdout_auc": 0.6449704142011834,
+        "mean_discovery_score": 0.0129168587071555
+      },
+      {
+        "layer": 13,
+        "head": 6,
+        "discovery_auc": 0.9017857142857143,
+        "holdout_auc": 0.9763313609467456,
+        "mean_discovery_score": 0.026968779308455332
+      },
+      {
+        "layer": 13,
+        "head": 7,
+        "discovery_auc": 0.9387755102040817,
+        "holdout_auc": 0.8047337278106509,
+        "mean_discovery_score": 0.03505556924002511
+      },
+      {
+        "layer": 13,
+        "head": 8,
+        "discovery_auc": 0.49489795918367346,
+        "holdout_auc": 0.5088757396449705,
+        "mean_discovery_score": 0.0013775812195880072
+      },
+      {
+        "layer": 13,
+        "head": 9,
+        "discovery_auc": 0.6945153061224489,
+        "holdout_auc": 0.757396449704142,
+        "mean_discovery_score": 0.0014353266784123012
+      },
+      {
+        "layer": 13,
+        "head": 10,
+        "discovery_auc": 0.48214285714285715,
+        "holdout_auc": 0.6745562130177515,
+        "mean_discovery_score": 0.0005240573414734431
+      },
+      {
+        "layer": 13,
+        "head": 11,
+        "discovery_auc": 0.6894132653061225,
+        "holdout_auc": 0.7988165680473372,
+        "mean_discovery_score": 0.01154940468924386
+      },
+      {
+        "layer": 13,
+        "head": 12,
+        "discovery_auc": 0.4119897959183674,
+        "holdout_auc": 0.46153846153846156,
+        "mean_discovery_score": 0.0013261746082987105
+      },
+      {
+        "layer": 13,
+        "head": 13,
+        "discovery_auc": 0.5,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.0007654256852609771
+      },
+      {
+        "layer": 13,
+        "head": 14,
+        "discovery_auc": 0.9362244897959183,
+        "holdout_auc": 0.9940828402366864,
+        "mean_discovery_score": 0.015952025141034807
+      },
+      {
+        "layer": 13,
+        "head": 15,
+        "discovery_auc": 0.9438775510204082,
+        "holdout_auc": 0.9230769230769231,
+        "mean_discovery_score": 0.017295990671430315
+      },
+      {
+        "layer": 14,
+        "head": 0,
+        "discovery_auc": 0.6479591836734694,
+        "holdout_auc": 0.5325443786982249,
+        "mean_discovery_score": 0.014150074550083705
+      },
+      {
+        "layer": 14,
+        "head": 1,
+        "discovery_auc": 0.5880102040816326,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.006141866956438337
+      },
+      {
+        "layer": 14,
+        "head": 2,
+        "discovery_auc": 0.5663265306122449,
+        "holdout_auc": 0.378698224852071,
+        "mean_discovery_score": 0.0034057412828717914
+      },
+      {
+        "layer": 14,
+        "head": 3,
+        "discovery_auc": 0.5089285714285714,
+        "holdout_auc": 0.35798816568047337,
+        "mean_discovery_score": 0.003893954413277762
+      },
+      {
+        "layer": 14,
+        "head": 4,
+        "discovery_auc": 0.4604591836734694,
+        "holdout_auc": 0.44970414201183434,
+        "mean_discovery_score": 0.000985673495701381
+      },
+      {
+        "layer": 14,
+        "head": 5,
+        "discovery_auc": 0.7659438775510204,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.0047806331089564735
+      },
+      {
+        "layer": 14,
+        "head": 6,
+        "discovery_auc": 0.9936224489795918,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.13702222279139928
+      },
+      {
+        "layer": 14,
+        "head": 7,
+        "discovery_auc": 0.9553571428571429,
+        "holdout_auc": 0.9881656804733728,
+        "mean_discovery_score": 0.03591373988560268
+      },
+      {
+        "layer": 14,
+        "head": 8,
+        "discovery_auc": 0.6332908163265306,
+        "holdout_auc": 0.6035502958579881,
+        "mean_discovery_score": 0.001244491764477321
+      },
+      {
+        "layer": 14,
+        "head": 9,
+        "discovery_auc": 0.5599489795918368,
+        "holdout_auc": 0.6094674556213018,
+        "mean_discovery_score": 0.003086934132235391
+      },
+      {
+        "layer": 14,
+        "head": 10,
+        "discovery_auc": 0.6326530612244898,
+        "holdout_auc": 0.5266272189349113,
+        "mean_discovery_score": 0.007537790707179478
+      },
+      {
+        "layer": 14,
+        "head": 11,
+        "discovery_auc": 0.5841836734693877,
+        "holdout_auc": 0.5207100591715976,
+        "mean_discovery_score": 0.010793140956333705
+      },
+      {
+        "layer": 14,
+        "head": 12,
+        "discovery_auc": 0.8730867346938775,
+        "holdout_auc": 0.7662721893491125,
+        "mean_discovery_score": 0.014855248587472098
+      },
+      {
+        "layer": 14,
+        "head": 13,
+        "discovery_auc": 0.8450255102040817,
+        "holdout_auc": 0.7692307692307693,
+        "mean_discovery_score": 0.015038149697440011
+      },
+      {
+        "layer": 14,
+        "head": 14,
+        "discovery_auc": 0.6811224489795918,
+        "holdout_auc": 0.7633136094674556,
+        "mean_discovery_score": 0.004751056432723999
+      },
+      {
+        "layer": 14,
+        "head": 15,
+        "discovery_auc": 0.7761479591836735,
+        "holdout_auc": 0.9023668639053254,
+        "mean_discovery_score": 0.013976361070360457
+      },
+      {
+        "layer": 15,
+        "head": 0,
+        "discovery_auc": 0.6192602040816326,
+        "holdout_auc": 0.5118343195266272,
+        "mean_discovery_score": 0.0033634049551827566
+      },
+      {
+        "layer": 15,
+        "head": 1,
+        "discovery_auc": 0.5924744897959183,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.0009151526859828404
+      },
+      {
+        "layer": 15,
+        "head": 2,
+        "discovery_auc": 0.9323979591836735,
+        "holdout_auc": 0.8165680473372781,
+        "mean_discovery_score": 0.05403552736554827
+      },
+      {
+        "layer": 15,
+        "head": 3,
+        "discovery_auc": 0.6014030612244898,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 1.8939741754106114e-05
+      },
+      {
+        "layer": 15,
+        "head": 4,
+        "discovery_auc": 0.6122448979591837,
+        "holdout_auc": 0.5621301775147929,
+        "mean_discovery_score": 0.005613786833626884
+      },
+      {
+        "layer": 15,
+        "head": 5,
+        "discovery_auc": 0.5503826530612245,
+        "holdout_auc": 0.5562130177514792,
+        "mean_discovery_score": 0.005479412419455392
+      },
+      {
+        "layer": 15,
+        "head": 6,
+        "discovery_auc": 0.5714285714285714,
+        "holdout_auc": 0.5088757396449705,
+        "mean_discovery_score": 0.02499253409249442
+      },
+      {
+        "layer": 15,
+        "head": 7,
+        "discovery_auc": 0.5554846938775511,
+        "holdout_auc": 0.5502958579881657,
+        "mean_discovery_score": 0.01038186890738351
+      },
+      {
+        "layer": 15,
+        "head": 8,
+        "discovery_auc": 0.5771683673469388,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 0.009399822780064173
+      },
+      {
+        "layer": 15,
+        "head": 9,
+        "discovery_auc": 0.7876275510204082,
+        "holdout_auc": 0.7544378698224852,
+        "mean_discovery_score": 0.025186129978724887
+      },
+      {
+        "layer": 15,
+        "head": 10,
+        "discovery_auc": 0.5580357142857143,
+        "holdout_auc": 0.47337278106508873,
+        "mean_discovery_score": 0.004855360303606305
+      },
+      {
+        "layer": 15,
+        "head": 11,
+        "discovery_auc": 0.6441326530612245,
+        "holdout_auc": 0.742603550295858,
+        "mean_discovery_score": 0.00988142830984933
+      },
+      {
+        "layer": 15,
+        "head": 12,
+        "discovery_auc": 0.5535714285714286,
+        "holdout_auc": 0.6715976331360947,
+        "mean_discovery_score": 0.0009650627949408122
+      },
+      {
+        "layer": 15,
+        "head": 13,
+        "discovery_auc": 0.49744897959183676,
+        "holdout_auc": 0.5177514792899408,
+        "mean_discovery_score": 0.000666331233722823
+      },
+      {
+        "layer": 15,
+        "head": 14,
+        "discovery_auc": 0.47767857142857145,
+        "holdout_auc": 0.5976331360946746,
+        "mean_discovery_score": 0.007009778703962054
+      },
+      {
+        "layer": 15,
+        "head": 15,
+        "discovery_auc": 0.6485969387755102,
+        "holdout_auc": 0.5118343195266272,
+        "mean_discovery_score": 0.040086065019880025
+      },
+      {
+        "layer": 16,
+        "head": 0,
+        "discovery_auc": 0.6288265306122449,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.0009859842913491385
+      },
+      {
+        "layer": 16,
+        "head": 1,
+        "discovery_auc": 0.6179846938775511,
+        "holdout_auc": 0.7928994082840237,
+        "mean_discovery_score": 0.0020706398146493094
+      },
+      {
+        "layer": 16,
+        "head": 2,
+        "discovery_auc": 0.5338010204081632,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.001336216926574707
+      },
+      {
+        "layer": 16,
+        "head": 3,
+        "discovery_auc": 0.6957908163265306,
+        "holdout_auc": 0.8224852071005917,
+        "mean_discovery_score": 0.07668740408761161
+      },
+      {
+        "layer": 16,
+        "head": 4,
+        "discovery_auc": 0.607780612244898,
+        "holdout_auc": 0.7455621301775148,
+        "mean_discovery_score": 0.014741012028285436
+      },
+      {
+        "layer": 16,
+        "head": 5,
+        "discovery_auc": 0.6683673469387755,
+        "holdout_auc": 0.7899408284023669,
+        "mean_discovery_score": 0.003149526459830148
+      },
+      {
+        "layer": 16,
+        "head": 6,
+        "discovery_auc": 0.9936224489795918,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.04878507341657366
+      },
+      {
+        "layer": 16,
+        "head": 7,
+        "discovery_auc": 1.0,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.29510389055524555
+      },
+      {
+        "layer": 16,
+        "head": 8,
+        "discovery_auc": 0.9477040816326531,
+        "holdout_auc": 0.9881656804733728,
+        "mean_discovery_score": 0.014624744653701782
+      },
+      {
+        "layer": 16,
+        "head": 9,
+        "discovery_auc": 0.9668367346938775,
+        "holdout_auc": 0.9792899408284024,
+        "mean_discovery_score": 0.02635659490312849
+      },
+      {
+        "layer": 16,
+        "head": 10,
+        "discovery_auc": 0.6096938775510204,
+        "holdout_auc": 0.7307692307692307,
+        "mean_discovery_score": 0.20938597406659806
+      },
+      {
+        "layer": 16,
+        "head": 11,
+        "discovery_auc": 0.4764030612244898,
+        "holdout_auc": 0.3757396449704142,
+        "mean_discovery_score": 0.04252461024693081
+      },
+      {
+        "layer": 16,
+        "head": 12,
+        "discovery_auc": 0.9094387755102041,
+        "holdout_auc": 0.8047337278106509,
+        "mean_discovery_score": 0.02047429765973772
+      },
+      {
+        "layer": 16,
+        "head": 13,
+        "discovery_auc": 0.9024234693877551,
+        "holdout_auc": 0.9526627218934911,
+        "mean_discovery_score": 0.00479914660432509
+      },
+      {
+        "layer": 16,
+        "head": 14,
+        "discovery_auc": 1.0,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.4407437395836626
+      },
+      {
+        "layer": 16,
+        "head": 15,
+        "discovery_auc": 0.9948979591836735,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.04520266396658761
+      },
+      {
+        "layer": 17,
+        "head": 0,
+        "discovery_auc": 0.9974489795918368,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.14522009236471994
+      },
+      {
+        "layer": 17,
+        "head": 1,
+        "discovery_auc": 0.9987244897959183,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.051543780735560825
+      },
+      {
+        "layer": 17,
+        "head": 2,
+        "discovery_auc": 0.9693877551020408,
+        "holdout_auc": 0.9053254437869822,
+        "mean_discovery_score": 0.16256046295166016
+      },
+      {
+        "layer": 17,
+        "head": 3,
+        "discovery_auc": 0.9897959183673469,
+        "holdout_auc": 0.9940828402366864,
+        "mean_discovery_score": 0.05721282958984375
+      },
+      {
+        "layer": 17,
+        "head": 4,
+        "discovery_auc": 0.5656887755102041,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.00416913628578186
+      },
+      {
+        "layer": 17,
+        "head": 5,
+        "discovery_auc": 0.48596938775510207,
+        "holdout_auc": 0.5976331360946746,
+        "mean_discovery_score": 0.0007482788392475673
+      },
+      {
+        "layer": 17,
+        "head": 6,
+        "discovery_auc": 0.4017857142857143,
+        "holdout_auc": 0.6390532544378699,
+        "mean_discovery_score": 0.004632396357400077
+      },
+      {
+        "layer": 17,
+        "head": 7,
+        "discovery_auc": 0.5165816326530612,
+        "holdout_auc": 0.6153846153846154,
+        "mean_discovery_score": 0.01952416556222098
+      },
+      {
+        "layer": 17,
+        "head": 8,
+        "discovery_auc": 0.9145408163265306,
+        "holdout_auc": 0.9230769230769231,
+        "mean_discovery_score": 0.011252965245928084
+      },
+      {
+        "layer": 17,
+        "head": 9,
+        "discovery_auc": 0.9413265306122449,
+        "holdout_auc": 0.9378698224852071,
+        "mean_discovery_score": 0.033789362226213725
+      },
+      {
+        "layer": 17,
+        "head": 10,
+        "discovery_auc": 0.9681122448979592,
+        "holdout_auc": 0.9822485207100592,
+        "mean_discovery_score": 0.041595322745186944
+      },
+      {
+        "layer": 17,
+        "head": 11,
+        "discovery_auc": 0.9974489795918368,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.07239886692592076
+      },
+      {
+        "layer": 17,
+        "head": 12,
+        "discovery_auc": 0.9885204081632653,
+        "holdout_auc": 0.9940828402366864,
+        "mean_discovery_score": 0.05816173553466797
+      },
+      {
+        "layer": 17,
+        "head": 13,
+        "discovery_auc": 0.9534438775510204,
+        "holdout_auc": 0.9497041420118343,
+        "mean_discovery_score": 0.041637420654296875
+      },
+      {
+        "layer": 17,
+        "head": 14,
+        "discovery_auc": 0.607780612244898,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.02474634987967355
+      },
+      {
+        "layer": 17,
+        "head": 15,
+        "discovery_auc": 0.5529336734693877,
+        "holdout_auc": 0.6124260355029586,
+        "mean_discovery_score": 0.009687696184430803
+      },
+      {
+        "layer": 18,
+        "head": 0,
+        "discovery_auc": 0.5497448979591837,
+        "holdout_auc": 0.4408284023668639,
+        "mean_discovery_score": 0.00962271009172712
+      },
+      {
+        "layer": 18,
+        "head": 1,
+        "discovery_auc": 0.5389030612244898,
+        "holdout_auc": 0.28402366863905326,
+        "mean_discovery_score": 0.06653104509626116
+      },
+      {
+        "layer": 18,
+        "head": 2,
+        "discovery_auc": 0.9036989795918368,
+        "holdout_auc": 0.7514792899408284,
+        "mean_discovery_score": 0.05963189261300223
+      },
+      {
+        "layer": 18,
+        "head": 3,
+        "discovery_auc": 0.9917091836734694,
+        "holdout_auc": 0.9940828402366864,
+        "mean_discovery_score": 0.1404721396309989
+      },
+      {
+        "layer": 18,
+        "head": 4,
+        "discovery_auc": 0.7863520408163265,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.028945650373186384
+      },
+      {
+        "layer": 18,
+        "head": 5,
+        "discovery_auc": 0.7882653061224489,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.07322093418666295
+      },
+      {
+        "layer": 18,
+        "head": 6,
+        "discovery_auc": 0.8239795918367347,
+        "holdout_auc": 0.7692307692307693,
+        "mean_discovery_score": 0.019195216042654856
+      },
+      {
+        "layer": 18,
+        "head": 7,
+        "discovery_auc": 0.7206632653061225,
+        "holdout_auc": 0.621301775147929,
+        "mean_discovery_score": 0.021463939121791294
+      },
+      {
+        "layer": 18,
+        "head": 8,
+        "discovery_auc": 0.5663265306122449,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.014392784663609095
+      },
+      {
+        "layer": 18,
+        "head": 9,
+        "discovery_auc": 0.48086734693877553,
+        "holdout_auc": 0.6153846153846154,
+        "mean_discovery_score": 0.0009815743459122522
+      },
+      {
+        "layer": 18,
+        "head": 10,
+        "discovery_auc": 0.7525510204081632,
+        "holdout_auc": 0.7218934911242604,
+        "mean_discovery_score": 0.07837459019252233
+      },
+      {
+        "layer": 18,
+        "head": 11,
+        "discovery_auc": 0.8552295918367347,
+        "holdout_auc": 0.7928994082840237,
+        "mean_discovery_score": 0.026096888950892856
+      },
+      {
+        "layer": 18,
+        "head": 12,
+        "discovery_auc": 0.6135204081632653,
+        "holdout_auc": 0.6094674556213018,
+        "mean_discovery_score": 0.028508867536272322
+      },
+      {
+        "layer": 18,
+        "head": 13,
+        "discovery_auc": 0.7991071428571429,
+        "holdout_auc": 0.6568047337278107,
+        "mean_discovery_score": 0.13188770839146205
+      },
+      {
+        "layer": 18,
+        "head": 14,
+        "discovery_auc": 0.7034438775510204,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.00154326217515128
+      },
+      {
+        "layer": 18,
+        "head": 15,
+        "discovery_auc": 0.8405612244897959,
+        "holdout_auc": 0.834319526627219,
+        "mean_discovery_score": 0.031029769352504184
+      },
+      {
+        "layer": 19,
+        "head": 0,
+        "discovery_auc": 0.5293367346938775,
+        "holdout_auc": 0.7544378698224852,
+        "mean_discovery_score": 0.08501761300223214
+      },
+      {
+        "layer": 19,
+        "head": 1,
+        "discovery_auc": 0.6511479591836735,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.030172075544084822
+      },
+      {
+        "layer": 19,
+        "head": 2,
+        "discovery_auc": 0.8418367346938775,
+        "holdout_auc": 0.8816568047337278,
+        "mean_discovery_score": 0.10324655260358538
+      },
+      {
+        "layer": 19,
+        "head": 3,
+        "discovery_auc": 0.7155612244897959,
+        "holdout_auc": 0.6804733727810651,
+        "mean_discovery_score": 0.10146032060895648
+      },
+      {
+        "layer": 19,
+        "head": 4,
+        "discovery_auc": 0.9910714285714286,
+        "holdout_auc": 0.9763313609467456,
+        "mean_discovery_score": 0.0015744460480553763
+      },
+      {
+        "layer": 19,
+        "head": 5,
+        "discovery_auc": 1.0,
+        "holdout_auc": 0.9556213017751479,
+        "mean_discovery_score": 0.049140521458217075
+      },
+      {
+        "layer": 19,
+        "head": 6,
+        "discovery_auc": 0.7098214285714286,
+        "holdout_auc": 0.7869822485207101,
+        "mean_discovery_score": 0.01584693363734654
+      },
+      {
+        "layer": 19,
+        "head": 7,
+        "discovery_auc": 0.8386479591836735,
+        "holdout_auc": 0.8224852071005917,
+        "mean_discovery_score": 0.016235079084123884
+      },
+      {
+        "layer": 19,
+        "head": 8,
+        "discovery_auc": 0.9285714285714286,
+        "holdout_auc": 0.9289940828402367,
+        "mean_discovery_score": 0.1818695068359375
+      },
+      {
+        "layer": 19,
+        "head": 9,
+        "discovery_auc": 0.860969387755102,
+        "holdout_auc": 0.8076923076923077,
+        "mean_discovery_score": 0.18480355398995535
+      },
+      {
+        "layer": 19,
+        "head": 10,
+        "discovery_auc": 0.5280612244897959,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.001412819538797651
+      },
+      {
+        "layer": 19,
+        "head": 11,
+        "discovery_auc": 0.47959183673469385,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.0013221874833106995
+      },
+      {
+        "layer": 19,
+        "head": 12,
+        "discovery_auc": 0.9107142857142857,
+        "holdout_auc": 0.9674556213017751,
+        "mean_discovery_score": 0.03139182499476841
+      },
+      {
+        "layer": 19,
+        "head": 13,
+        "discovery_auc": 0.8775510204081632,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.043040956769670756
+      },
+      {
+        "layer": 19,
+        "head": 14,
+        "discovery_auc": 0.49043367346938777,
+        "holdout_auc": 0.46745562130177515,
+        "mean_discovery_score": 0.0033426284790039062
+      },
+      {
+        "layer": 19,
+        "head": 15,
+        "discovery_auc": 0.6186224489795918,
+        "holdout_auc": 0.47633136094674555,
+        "mean_discovery_score": 0.025887625558035716
+      },
+      {
+        "layer": 20,
+        "head": 0,
+        "discovery_auc": 0.5567602040816326,
+        "holdout_auc": 0.34023668639053256,
+        "mean_discovery_score": 8.041917213371821e-05
+      },
+      {
+        "layer": 20,
+        "head": 1,
+        "discovery_auc": 0.5153061224489796,
+        "holdout_auc": 0.5532544378698225,
+        "mean_discovery_score": 0.000607907772064209
+      },
+      {
+        "layer": 20,
+        "head": 2,
+        "discovery_auc": 0.6294642857142857,
+        "holdout_auc": 0.7100591715976331,
+        "mean_discovery_score": 0.0007095932960510254
+      },
+      {
+        "layer": 20,
+        "head": 3,
+        "discovery_auc": 0.7646683673469388,
+        "holdout_auc": 0.9053254437869822,
+        "mean_discovery_score": 0.0005456826516560145
+      },
+      {
+        "layer": 20,
+        "head": 4,
+        "discovery_auc": 0.9464285714285714,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.07448060171944755
+      },
+      {
+        "layer": 20,
+        "head": 5,
+        "discovery_auc": 0.8507653061224489,
+        "holdout_auc": 0.834319526627219,
+        "mean_discovery_score": 0.04556165422712054
+      },
+      {
+        "layer": 20,
+        "head": 6,
+        "discovery_auc": 0.9821428571428571,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.11828531537737165
+      },
+      {
+        "layer": 20,
+        "head": 7,
+        "discovery_auc": 0.9579081632653061,
+        "holdout_auc": 0.9408284023668639,
+        "mean_discovery_score": 0.045749391828264506
+      },
+      {
+        "layer": 20,
+        "head": 8,
+        "discovery_auc": 0.7895408163265306,
+        "holdout_auc": 0.8994082840236687,
+        "mean_discovery_score": 0.005385705402919224
+      },
+      {
+        "layer": 20,
+        "head": 9,
+        "discovery_auc": 0.6715561224489796,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.0002767134990010943
+      },
+      {
+        "layer": 20,
+        "head": 10,
+        "discovery_auc": 0.6894132653061225,
+        "holdout_auc": 0.5443786982248521,
+        "mean_discovery_score": 0.05304772513253348
+      },
+      {
+        "layer": 20,
+        "head": 11,
+        "discovery_auc": 0.7410714285714286,
+        "holdout_auc": 0.6568047337278107,
+        "mean_discovery_score": 0.011211940220424108
+      },
+      {
+        "layer": 20,
+        "head": 12,
+        "discovery_auc": 0.8832908163265306,
+        "holdout_auc": 0.9674556213017751,
+        "mean_discovery_score": 0.052242279052734375
+      },
+      {
+        "layer": 20,
+        "head": 13,
+        "discovery_auc": 0.7684948979591837,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.02728979928152902
+      },
+      {
+        "layer": 20,
+        "head": 14,
+        "discovery_auc": 0.9100765306122449,
+        "holdout_auc": 0.9467455621301775,
+        "mean_discovery_score": 0.0359649658203125
+      },
+      {
+        "layer": 20,
+        "head": 15,
+        "discovery_auc": 0.8864795918367347,
+        "holdout_auc": 0.9822485207100592,
+        "mean_discovery_score": 0.012033190046037947
+      },
+      {
+        "layer": 21,
+        "head": 0,
+        "discovery_auc": 0.9821428571428571,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.0400543212890625
+      },
+      {
+        "layer": 21,
+        "head": 1,
+        "discovery_auc": 0.9489795918367347,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.0380622318812779
+      },
+      {
+        "layer": 21,
+        "head": 2,
+        "discovery_auc": 0.5752551020408163,
+        "holdout_auc": 0.5798816568047337,
+        "mean_discovery_score": 0.006697825023106166
+      },
+      {
+        "layer": 21,
+        "head": 3,
+        "discovery_auc": 0.6428571428571429,
+        "holdout_auc": 0.6686390532544378,
+        "mean_discovery_score": 0.0009382622582571847
+      },
+      {
+        "layer": 21,
+        "head": 4,
+        "discovery_auc": 0.7295918367346939,
+        "holdout_auc": 0.8017751479289941,
+        "mean_discovery_score": 0.04489844185965402
+      },
+      {
+        "layer": 21,
+        "head": 5,
+        "discovery_auc": 0.7302295918367347,
+        "holdout_auc": 0.650887573964497,
+        "mean_discovery_score": 0.01717431204659598
+      },
+      {
+        "layer": 21,
+        "head": 6,
+        "discovery_auc": 0.7366071428571429,
+        "holdout_auc": 0.8165680473372781,
+        "mean_discovery_score": 0.00844015393938337
+      },
+      {
+        "layer": 21,
+        "head": 7,
+        "discovery_auc": 0.7040816326530612,
+        "holdout_auc": 0.5887573964497042,
+        "mean_discovery_score": 0.0019407612936837332
+      },
+      {
+        "layer": 21,
+        "head": 8,
+        "discovery_auc": 0.9987244897959183,
+        "holdout_auc": 0.9408284023668639,
+        "mean_discovery_score": 0.05781071526663644
+      },
+      {
+        "layer": 21,
+        "head": 9,
+        "discovery_auc": 0.9897959183673469,
+        "holdout_auc": 0.8964497041420119,
+        "mean_discovery_score": 0.01731729507446289
+      },
+      {
+        "layer": 21,
+        "head": 10,
+        "discovery_auc": 0.8303571428571429,
+        "holdout_auc": 0.7869822485207101,
+        "mean_discovery_score": 0.0013942292758396693
+      },
+      {
+        "layer": 21,
+        "head": 11,
+        "discovery_auc": 0.7417091836734694,
+        "holdout_auc": 0.7514792899408284,
+        "mean_discovery_score": 0.03785542079380581
+      },
+      {
+        "layer": 21,
+        "head": 12,
+        "discovery_auc": 0.8118622448979592,
+        "holdout_auc": 0.8816568047337278,
+        "mean_discovery_score": 0.015953132084437778
+      },
+      {
+        "layer": 21,
+        "head": 13,
+        "discovery_auc": 0.9190051020408163,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.05757250104631696
+      },
+      {
+        "layer": 21,
+        "head": 14,
+        "discovery_auc": 0.9151785714285714,
+        "holdout_auc": 0.9526627218934911,
+        "mean_discovery_score": 0.01632227216448103
+      },
+      {
+        "layer": 21,
+        "head": 15,
+        "discovery_auc": 0.9413265306122449,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.06381280081612724
+      },
+      {
+        "layer": 22,
+        "head": 0,
+        "discovery_auc": 0.5440051020408163,
+        "holdout_auc": 0.2988165680473373,
+        "mean_discovery_score": 0.005795001983642578
+      },
+      {
+        "layer": 22,
+        "head": 1,
+        "discovery_auc": 0.6052295918367347,
+        "holdout_auc": 0.27514792899408286,
+        "mean_discovery_score": 0.010507311139787947
+      },
+      {
+        "layer": 22,
+        "head": 2,
+        "discovery_auc": 0.4802295918367347,
+        "holdout_auc": 0.4230769230769231,
+        "mean_discovery_score": 0.022063119070870534
+      },
+      {
+        "layer": 22,
+        "head": 3,
+        "discovery_auc": 0.43941326530612246,
+        "holdout_auc": 0.33136094674556216,
+        "mean_discovery_score": 0.0043621063232421875
+      },
+      {
+        "layer": 22,
+        "head": 4,
+        "discovery_auc": 0.8469387755102041,
+        "holdout_auc": 0.8106508875739645,
+        "mean_discovery_score": 0.01619986125401088
+      },
+      {
+        "layer": 22,
+        "head": 5,
+        "discovery_auc": 0.8660714285714286,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.00987417357308524
+      },
+      {
+        "layer": 22,
+        "head": 6,
+        "discovery_auc": 0.7142857142857143,
+        "holdout_auc": 0.6597633136094675,
+        "mean_discovery_score": 0.035614013671875
+      },
+      {
+        "layer": 22,
+        "head": 7,
+        "discovery_auc": 0.9802295918367347,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.11385890415736608
+      },
+      {
+        "layer": 22,
+        "head": 8,
+        "discovery_auc": 0.9968112244897959,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.14318629673549108
+      },
+      {
+        "layer": 22,
+        "head": 9,
+        "discovery_auc": 0.9158163265306123,
+        "holdout_auc": 0.9792899408284024,
+        "mean_discovery_score": 0.034747532435825894
+      },
+      {
+        "layer": 22,
+        "head": 10,
+        "discovery_auc": 0.7455357142857143,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.049725123814174106
+      },
+      {
+        "layer": 22,
+        "head": 11,
+        "discovery_auc": 0.7034438775510204,
+        "holdout_auc": 0.8106508875739645,
+        "mean_discovery_score": 0.011373673166547502
+      },
+      {
+        "layer": 22,
+        "head": 12,
+        "discovery_auc": 0.8169642857142857,
+        "holdout_auc": 0.9881656804733728,
+        "mean_discovery_score": 0.015304020472935267
+      },
+      {
+        "layer": 22,
+        "head": 13,
+        "discovery_auc": 0.8137755102040817,
+        "holdout_auc": 0.9763313609467456,
+        "mean_discovery_score": 0.002155848911830357
+      },
+      {
+        "layer": 22,
+        "head": 14,
+        "discovery_auc": 0.8207908163265306,
+        "holdout_auc": 0.7189349112426036,
+        "mean_discovery_score": 0.021320819854736328
+      },
+      {
+        "layer": 22,
+        "head": 15,
+        "discovery_auc": 0.5478316326530612,
+        "holdout_auc": 0.5591715976331361,
+        "mean_discovery_score": 0.0353325435093471
+      },
+      {
+        "layer": 23,
+        "head": 0,
+        "discovery_auc": 0.7085459183673469,
+        "holdout_auc": 0.7071005917159763,
+        "mean_discovery_score": 0.016936983380998884
+      },
+      {
+        "layer": 23,
+        "head": 1,
+        "discovery_auc": 0.7889030612244898,
+        "holdout_auc": 0.863905325443787,
+        "mean_discovery_score": 0.017549651009695872
+      },
+      {
+        "layer": 23,
+        "head": 2,
+        "discovery_auc": 0.5809948979591837,
+        "holdout_auc": 0.39644970414201186,
+        "mean_discovery_score": 0.001043421881539481
+      },
+      {
+        "layer": 23,
+        "head": 3,
+        "discovery_auc": 0.5994897959183674,
+        "holdout_auc": 0.5562130177514792,
+        "mean_discovery_score": 0.010133496352604457
+      },
+      {
+        "layer": 23,
+        "head": 4,
+        "discovery_auc": 0.7608418367346939,
+        "holdout_auc": 0.8994082840236687,
+        "mean_discovery_score": 0.018417630876813616
+      },
+      {
+        "layer": 23,
+        "head": 5,
+        "discovery_auc": 0.6556122448979592,
+        "holdout_auc": 0.7662721893491125,
+        "mean_discovery_score": 0.012154817581176758
+      },
+      {
+        "layer": 23,
+        "head": 6,
+        "discovery_auc": 0.9183673469387755,
+        "holdout_auc": 0.9349112426035503,
+        "mean_discovery_score": 0.009076144014086043
+      },
+      {
+        "layer": 23,
+        "head": 7,
+        "discovery_auc": 0.7927295918367347,
+        "holdout_auc": 0.7337278106508875,
+        "mean_discovery_score": 0.007937567574637277
+      },
+      {
+        "layer": 23,
+        "head": 8,
+        "discovery_auc": 0.5720663265306123,
+        "holdout_auc": 0.636094674556213,
+        "mean_discovery_score": 0.0020937323570251465
+      },
+      {
+        "layer": 23,
+        "head": 9,
+        "discovery_auc": 0.6256377551020408,
+        "holdout_auc": 0.5355029585798816,
+        "mean_discovery_score": 0.018650599888392856
+      },
+      {
+        "layer": 23,
+        "head": 10,
+        "discovery_auc": 0.8061224489795918,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.01306710924421038
+      },
+      {
+        "layer": 23,
+        "head": 11,
+        "discovery_auc": 0.8003826530612245,
+        "holdout_auc": 0.7781065088757396,
+        "mean_discovery_score": 0.06424876621791295
+      },
+      {
+        "layer": 23,
+        "head": 12,
+        "discovery_auc": 0.7716836734693877,
+        "holdout_auc": 0.7810650887573964,
+        "mean_discovery_score": 0.0019392456327165877
+      },
+      {
+        "layer": 23,
+        "head": 13,
+        "discovery_auc": 0.7193877551020408,
+        "holdout_auc": 0.727810650887574,
+        "mean_discovery_score": 0.004782404218401227
+      },
+      {
+        "layer": 23,
+        "head": 14,
+        "discovery_auc": 0.9170918367346939,
+        "holdout_auc": 0.8846153846153846,
+        "mean_discovery_score": 0.0797898428780692
+      },
+      {
+        "layer": 23,
+        "head": 15,
+        "discovery_auc": 0.9005102040816326,
+        "holdout_auc": 0.9822485207100592,
+        "mean_discovery_score": 0.03134781973702567
+      },
+      {
+        "layer": 24,
+        "head": 0,
+        "discovery_auc": 0.5746173469387755,
+        "holdout_auc": 0.5710059171597633,
+        "mean_discovery_score": 0.004459483282906669
+      },
+      {
+        "layer": 24,
+        "head": 1,
+        "discovery_auc": 0.5612244897959183,
+        "holdout_auc": 0.5029585798816568,
+        "mean_discovery_score": 0.0005667539579527718
+      },
+      {
+        "layer": 24,
+        "head": 2,
+        "discovery_auc": 0.6511479591836735,
+        "holdout_auc": 0.46449704142011833,
+        "mean_discovery_score": 0.003486292702811105
+      },
+      {
+        "layer": 24,
+        "head": 3,
+        "discovery_auc": 0.5216836734693877,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.00030109286308288574
+      },
+      {
+        "layer": 24,
+        "head": 4,
+        "discovery_auc": 0.767219387755102,
+        "holdout_auc": 0.6272189349112426,
+        "mean_discovery_score": 0.005521161215645927
+      },
+      {
+        "layer": 24,
+        "head": 5,
+        "discovery_auc": 0.8794642857142857,
+        "holdout_auc": 0.9023668639053254,
+        "mean_discovery_score": 0.016585350036621094
+      },
+      {
+        "layer": 24,
+        "head": 6,
+        "discovery_auc": 0.579719387755102,
+        "holdout_auc": 0.757396449704142,
+        "mean_discovery_score": 0.06803444453648158
+      },
+      {
+        "layer": 24,
+        "head": 7,
+        "discovery_auc": 0.6639030612244898,
+        "holdout_auc": 0.8609467455621301,
+        "mean_discovery_score": 0.028491905757359097
+      },
+      {
+        "layer": 24,
+        "head": 8,
+        "discovery_auc": 0.6045918367346939,
+        "holdout_auc": 0.4467455621301775,
+        "mean_discovery_score": 0.0010051663432802474
+      },
+      {
+        "layer": 24,
+        "head": 9,
+        "discovery_auc": 0.48660714285714285,
+        "holdout_auc": 0.7514792899408284,
+        "mean_discovery_score": 0.015954698835100447
+      },
+      {
+        "layer": 24,
+        "head": 10,
+        "discovery_auc": 0.7895408163265306,
+        "holdout_auc": 0.863905325443787,
+        "mean_discovery_score": 0.023610728127615794
+      },
+      {
+        "layer": 24,
+        "head": 11,
+        "discovery_auc": 0.7429846938775511,
+        "holdout_auc": 0.7869822485207101,
+        "mean_discovery_score": 0.028193746294294084
+      },
+      {
+        "layer": 24,
+        "head": 12,
+        "discovery_auc": 0.8852040816326531,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.010379655020577567
+      },
+      {
+        "layer": 24,
+        "head": 13,
+        "discovery_auc": 0.8329081632653061,
+        "holdout_auc": 0.8313609467455622,
+        "mean_discovery_score": 0.03844247545514788
+      },
+      {
+        "layer": 24,
+        "head": 14,
+        "discovery_auc": 0.6823979591836735,
+        "holdout_auc": 0.8875739644970414,
+        "mean_discovery_score": 0.02015655381338937
+      },
+      {
+        "layer": 24,
+        "head": 15,
+        "discovery_auc": 0.7602040816326531,
+        "holdout_auc": 0.9023668639053254,
+        "mean_discovery_score": 0.010877609252929688
+      },
+      {
+        "layer": 25,
+        "head": 0,
+        "discovery_auc": 0.6957908163265306,
+        "holdout_auc": 0.650887573964497,
+        "mean_discovery_score": 0.03463796206883022
+      },
+      {
+        "layer": 25,
+        "head": 1,
+        "discovery_auc": 0.5440051020408163,
+        "holdout_auc": 0.621301775147929,
+        "mean_discovery_score": 0.0030598981039864676
+      },
+      {
+        "layer": 25,
+        "head": 2,
+        "discovery_auc": 0.5746173469387755,
+        "holdout_auc": 0.591715976331361,
+        "mean_discovery_score": 0.012319496699741908
+      },
+      {
+        "layer": 25,
+        "head": 3,
+        "discovery_auc": 0.6160714285714286,
+        "holdout_auc": 0.5118343195266272,
+        "mean_discovery_score": 0.005438600267682757
+      },
+      {
+        "layer": 25,
+        "head": 4,
+        "discovery_auc": 0.6281887755102041,
+        "holdout_auc": 0.6124260355029586,
+        "mean_discovery_score": 0.03380496161324637
+      },
+      {
+        "layer": 25,
+        "head": 5,
+        "discovery_auc": 0.45216836734693877,
+        "holdout_auc": 0.5384615384615384,
+        "mean_discovery_score": 0.035941549709865024
+      },
+      {
+        "layer": 25,
+        "head": 6,
+        "discovery_auc": 0.7423469387755102,
+        "holdout_auc": 0.7899408284023669,
+        "mean_discovery_score": 0.02709688459123884
+      },
+      {
+        "layer": 25,
+        "head": 7,
+        "discovery_auc": 0.6454081632653061,
+        "holdout_auc": 0.6745562130177515,
+        "mean_discovery_score": 0.016122000558035716
+      },
+      {
+        "layer": 25,
+        "head": 8,
+        "discovery_auc": 0.8705357142857143,
+        "holdout_auc": 0.9733727810650887,
+        "mean_discovery_score": 0.038280487060546875
+      },
+      {
+        "layer": 25,
+        "head": 9,
+        "discovery_auc": 0.9323979591836735,
+        "holdout_auc": 1.0,
+        "mean_discovery_score": 0.031057885714939663
+      },
+      {
+        "layer": 25,
+        "head": 10,
+        "discovery_auc": 0.6122448979591837,
+        "holdout_auc": 0.8875739644970414,
+        "mean_discovery_score": 0.0244661739894322
+      },
+      {
+        "layer": 25,
+        "head": 11,
+        "discovery_auc": 0.5854591836734694,
+        "holdout_auc": 0.9289940828402367,
+        "mean_discovery_score": 0.019470010484967912
+      },
+      {
+        "layer": 25,
+        "head": 12,
+        "discovery_auc": 0.7538265306122449,
+        "holdout_auc": 0.9467455621301775,
+        "mean_discovery_score": 0.03534589494977679
+      },
+      {
+        "layer": 25,
+        "head": 13,
+        "discovery_auc": 0.7850765306122449,
+        "holdout_auc": 0.8461538461538461,
+        "mean_discovery_score": 0.06985010419573102
+      },
+      {
+        "layer": 25,
+        "head": 14,
+        "discovery_auc": 0.6466836734693877,
+        "holdout_auc": 0.8757396449704142,
+        "mean_discovery_score": 0.01989732469831194
+      },
+      {
+        "layer": 25,
+        "head": 15,
+        "discovery_auc": 0.6811224489795918,
+        "holdout_auc": 0.6449704142011834,
+        "mean_discovery_score": 0.006201505661010742
+      },
+      {
+        "layer": 26,
+        "head": 0,
+        "discovery_auc": 0.6517857142857143,
+        "holdout_auc": 0.8846153846153846,
+        "mean_discovery_score": 0.03948020935058594
+      },
+      {
+        "layer": 26,
+        "head": 1,
+        "discovery_auc": 0.8380102040816326,
+        "holdout_auc": 0.8224852071005917,
+        "mean_discovery_score": 0.05189323425292969
+      },
+      {
+        "layer": 26,
+        "head": 2,
+        "discovery_auc": 0.7818877551020408,
+        "holdout_auc": 0.7396449704142012,
+        "mean_discovery_score": 0.016287531171526228
+      },
+      {
+        "layer": 26,
+        "head": 3,
+        "discovery_auc": 0.8826530612244898,
+        "holdout_auc": 0.7988165680473372,
+        "mean_discovery_score": 0.03379740033830915
+      },
+      {
+        "layer": 26,
+        "head": 4,
+        "discovery_auc": 0.7480867346938775,
+        "holdout_auc": 0.727810650887574,
+        "mean_discovery_score": 0.03375516619001116
+      },
+      {
+        "layer": 26,
+        "head": 5,
+        "discovery_auc": 0.7946428571428571,
+        "holdout_auc": 0.8668639053254438,
+        "mean_discovery_score": 0.022738865443638394
+      },
+      {
+        "layer": 26,
+        "head": 6,
+        "discovery_auc": 0.5873724489795918,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.00447007587977818
+      },
+      {
+        "layer": 26,
+        "head": 7,
+        "discovery_auc": 0.7799744897959183,
+        "holdout_auc": 0.7041420118343196,
+        "mean_discovery_score": 0.06312247685023717
+      },
+      {
+        "layer": 26,
+        "head": 8,
+        "discovery_auc": 0.6849489795918368,
+        "holdout_auc": 0.8816568047337278,
+        "mean_discovery_score": 0.013322728020804269
+      },
+      {
+        "layer": 26,
+        "head": 9,
+        "discovery_auc": 0.6836734693877551,
+        "holdout_auc": 0.6153846153846154,
+        "mean_discovery_score": 0.00013040698000362942
+      },
+      {
+        "layer": 26,
+        "head": 10,
+        "discovery_auc": 0.5586734693877551,
+        "holdout_auc": 0.6420118343195266,
+        "mean_discovery_score": 0.00369436400277274
+      },
+      {
+        "layer": 26,
+        "head": 11,
+        "discovery_auc": 0.6747448979591837,
+        "holdout_auc": 0.7455621301775148,
+        "mean_discovery_score": 0.011438471930367606
+      },
+      {
+        "layer": 26,
+        "head": 12,
+        "discovery_auc": 0.4451530612244898,
+        "holdout_auc": 0.6923076923076923,
+        "mean_discovery_score": 0.0008628240653446742
+      },
+      {
+        "layer": 26,
+        "head": 13,
+        "discovery_auc": 0.5044642857142857,
+        "holdout_auc": 0.636094674556213,
+        "mean_discovery_score": 0.004052809306553432
+      },
+      {
+        "layer": 26,
+        "head": 14,
+        "discovery_auc": 0.6658163265306123,
+        "holdout_auc": 0.5680473372781065,
+        "mean_discovery_score": 0.050212042672293525
+      },
+      {
+        "layer": 26,
+        "head": 15,
+        "discovery_auc": 0.7308673469387755,
+        "holdout_auc": 0.9112426035502958,
+        "mean_discovery_score": 0.04302978515625
+      },
+      {
+        "layer": 27,
+        "head": 0,
+        "discovery_auc": 0.48533163265306123,
+        "holdout_auc": 0.5828402366863905,
+        "mean_discovery_score": 0.0004507388387407575
+      },
+      {
+        "layer": 27,
+        "head": 1,
+        "discovery_auc": 0.5841836734693877,
+        "holdout_auc": 0.5532544378698225,
+        "mean_discovery_score": 0.0011065261704581125
+      },
+      {
+        "layer": 27,
+        "head": 2,
+        "discovery_auc": 0.4961734693877551,
+        "holdout_auc": 0.5355029585798816,
+        "mean_discovery_score": 0.0023322531155177523
+      },
+      {
+        "layer": 27,
+        "head": 3,
+        "discovery_auc": 0.5286989795918368,
+        "holdout_auc": 0.6627218934911243,
+        "mean_discovery_score": 0.00035097556454794746
+      },
+      {
+        "layer": 27,
+        "head": 4,
+        "discovery_auc": 0.5758928571428571,
+        "holdout_auc": 0.6331360946745562,
+        "mean_discovery_score": 0.0037818806512015207
+      },
+      {
+        "layer": 27,
+        "head": 5,
+        "discovery_auc": 0.5982142857142857,
+        "holdout_auc": 0.5680473372781065,
+        "mean_discovery_score": 0.0017439297267368861
+      },
+      {
+        "layer": 27,
+        "head": 6,
+        "discovery_auc": 0.6288265306122449,
+        "holdout_auc": 0.7071005917159763,
+        "mean_discovery_score": 0.0044422149658203125
+      },
+      {
+        "layer": 27,
+        "head": 7,
+        "discovery_auc": 0.642219387755102,
+        "holdout_auc": 0.6686390532544378,
+        "mean_discovery_score": 0.041637693132672994
+      },
+      {
+        "layer": 27,
+        "head": 8,
+        "discovery_auc": 0.5605867346938775,
+        "holdout_auc": 0.46153846153846156,
+        "mean_discovery_score": 0.0009392159325735909
+      },
+      {
+        "layer": 27,
+        "head": 9,
+        "discovery_auc": 0.5669642857142857,
+        "holdout_auc": 0.6035502958579881,
+        "mean_discovery_score": 0.022137233189174106
+      },
+      {
+        "layer": 27,
+        "head": 10,
+        "discovery_auc": 0.48788265306122447,
+        "holdout_auc": 0.4911242603550296,
+        "mean_discovery_score": 0.0006604109491620745
+      },
+      {
+        "layer": 27,
+        "head": 11,
+        "discovery_auc": 0.3788265306122449,
+        "holdout_auc": 0.5621301775147929,
+        "mean_discovery_score": 0.0006699136325291225
+      },
+      {
+        "layer": 27,
+        "head": 12,
+        "discovery_auc": 0.6237244897959183,
+        "holdout_auc": 0.4260355029585799,
+        "mean_discovery_score": 0.01947157723563058
+      },
+      {
+        "layer": 27,
+        "head": 13,
+        "discovery_auc": 0.6071428571428571,
+        "holdout_auc": 0.7396449704142012,
+        "mean_discovery_score": 0.02219656535557338
+      },
+      {
+        "layer": 27,
+        "head": 14,
+        "discovery_auc": 0.5440051020408163,
+        "holdout_auc": 0.5976331360946746,
+        "mean_discovery_score": 0.010108402797154017
+      },
+      {
+        "layer": 27,
+        "head": 15,
+        "discovery_auc": 0.5535714285714286,
+        "holdout_auc": 0.7130177514792899,
+        "mean_discovery_score": 0.021950244903564453
+      }
+    ]
+  },
+  "causal_layer_selection": {
+    "selected": {
+      "layer": 25,
+      "n": 28,
+      "baseline_target_wins": 28,
+      "arm_target_wins": 25,
+      "target_win_loss": 3,
+      "flipped_target_to_distractor": 3,
+      "flipped_distractor_to_target": 0,
+      "baseline_mean_margin": 3.0714285714285716,
+      "arm_mean_margin": 2.1875,
+      "mean_delta": -0.8839285714285714,
+      "min_delta": -2.625,
+      "max_delta": 0.6875
+    },
+    "layer_results": [
+      {
+        "layer": 0,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.9955357142857144,
+        "mean_delta": -0.07589285714285714,
+        "min_delta": -0.6875,
+        "max_delta": 0.25
+      },
+      {
+        "layer": 1,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.046875,
+        "mean_delta": -0.024553571428571428,
+        "min_delta": -0.75,
+        "max_delta": 0.25
+      },
+      {
+        "layer": 2,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.997767857142857,
+        "mean_delta": -0.07366071428571429,
+        "min_delta": -0.75,
+        "max_delta": 0.25
+      },
+      {
+        "layer": 3,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0580357142857144,
+        "mean_delta": -0.013392857142857142,
+        "min_delta": -0.625,
+        "max_delta": 0.5
+      },
+      {
+        "layer": 4,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0580357142857144,
+        "mean_delta": -0.013392857142857142,
+        "min_delta": -0.625,
+        "max_delta": 0.375
+      },
+      {
+        "layer": 5,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.049107142857143,
+        "mean_delta": -0.022321428571428572,
+        "min_delta": -0.75,
+        "max_delta": 0.375
+      },
+      {
+        "layer": 6,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.015625,
+        "mean_delta": -0.05580357142857143,
+        "min_delta": -0.625,
+        "max_delta": 0.3125
+      },
+      {
+        "layer": 7,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.046875,
+        "mean_delta": -0.024553571428571428,
+        "min_delta": -0.875,
+        "max_delta": 0.25
+      },
+      {
+        "layer": 8,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0736607142857144,
+        "mean_delta": 0.002232142857142857,
+        "min_delta": -0.625,
+        "max_delta": 0.3125
+      },
+      {
+        "layer": 9,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0424107142857144,
+        "mean_delta": -0.029017857142857144,
+        "min_delta": -1.0,
+        "max_delta": 0.375
+      },
+      {
+        "layer": 10,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0267857142857144,
+        "mean_delta": -0.044642857142857144,
+        "min_delta": -0.75,
+        "max_delta": 0.25
+      },
+      {
+        "layer": 11,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0625,
+        "mean_delta": -0.008928571428571428,
+        "min_delta": -0.5,
+        "max_delta": 0.3125
+      },
+      {
+        "layer": 12,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 28,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.029017857142857,
+        "mean_delta": -0.04241071428571429,
+        "min_delta": -0.875,
+        "max_delta": 0.625
+      },
+      {
+        "layer": 13,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0066964285714284,
+        "mean_delta": -0.06473214285714286,
+        "min_delta": -1.125,
+        "max_delta": 0.3125
+      },
+      {
+        "layer": 14,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 26,
+        "target_win_loss": 2,
+        "flipped_target_to_distractor": 2,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.752232142857143,
+        "mean_delta": -0.31919642857142855,
+        "min_delta": -1.0,
+        "max_delta": 0.1875
+      },
+      {
+        "layer": 15,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0691964285714284,
+        "mean_delta": -0.002232142857142857,
+        "min_delta": -1.0,
+        "max_delta": 0.375
+      },
+      {
+        "layer": 16,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.3482142857142856,
+        "mean_delta": 0.2767857142857143,
+        "min_delta": -1.0625,
+        "max_delta": 2.5
+      },
+      {
+        "layer": 17,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 26,
+        "target_win_loss": 2,
+        "flipped_target_to_distractor": 2,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.955357142857143,
+        "mean_delta": -0.11607142857142858,
+        "min_delta": -0.9375,
+        "max_delta": 0.625
+      },
+      {
+        "layer": 18,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.283482142857143,
+        "mean_delta": 0.21205357142857142,
+        "min_delta": -0.625,
+        "max_delta": 0.75
+      },
+      {
+        "layer": 19,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 25,
+        "target_win_loss": 3,
+        "flipped_target_to_distractor": 3,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.796875,
+        "mean_delta": -0.27455357142857145,
+        "min_delta": -1.75,
+        "max_delta": 0.8125
+      },
+      {
+        "layer": 20,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 25,
+        "target_win_loss": 3,
+        "flipped_target_to_distractor": 3,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.5982142857142856,
+        "mean_delta": -0.4732142857142857,
+        "min_delta": -1.0,
+        "max_delta": 0.125
+      },
+      {
+        "layer": 21,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 24,
+        "target_win_loss": 4,
+        "flipped_target_to_distractor": 4,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.4129464285714284,
+        "mean_delta": -0.6584821428571429,
+        "min_delta": -1.125,
+        "max_delta": -0.125
+      },
+      {
+        "layer": 22,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 28,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 4.607142857142857,
+        "mean_delta": 1.5357142857142858,
+        "min_delta": -0.0625,
+        "max_delta": 3.25
+      },
+      {
+        "layer": 23,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 28,
+        "target_win_loss": 0,
+        "flipped_target_to_distractor": 0,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.0625,
+        "mean_delta": -0.008928571428571428,
+        "min_delta": -0.75,
+        "max_delta": 0.625
+      },
+      {
+        "layer": 24,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 26,
+        "target_win_loss": 2,
+        "flipped_target_to_distractor": 2,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.7700892857142856,
+        "mean_delta": -0.3013392857142857,
+        "min_delta": -1.125,
+        "max_delta": 0.3125
+      },
+      {
+        "layer": 25,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 25,
+        "target_win_loss": 3,
+        "flipped_target_to_distractor": 3,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.1875,
+        "mean_delta": -0.8839285714285714,
+        "min_delta": -2.625,
+        "max_delta": 0.6875
+      },
+      {
+        "layer": 26,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 24,
+        "target_win_loss": 4,
+        "flipped_target_to_distractor": 4,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 2.484375,
+        "mean_delta": -0.5870535714285714,
+        "min_delta": -2.625,
+        "max_delta": 1.875
+      },
+      {
+        "layer": 27,
+        "n": 28,
+        "baseline_target_wins": 28,
+        "arm_target_wins": 27,
+        "target_win_loss": 1,
+        "flipped_target_to_distractor": 1,
+        "flipped_distractor_to_target": 0,
+        "baseline_mean_margin": 3.0714285714285716,
+        "arm_mean_margin": 3.03125,
+        "mean_delta": -0.04017857142857143,
+        "min_delta": -0.75,
+        "max_delta": 0.1875
+      }
+    ]
+  }
+}
