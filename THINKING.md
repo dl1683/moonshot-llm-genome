@@ -285,6 +285,32 @@ organisms; lesion maps are their current addresses.**
   (v008 multi-seed phylogeny) test whether whole-organ degeneracy respects
   anatomy boundaries.
 
+**T007 CLOSED (E013d, 2026-09-24T12:12Z): no specific far-context retrieval;
+far context acts through bulk statistics.** P1 refuted (+0.22σ < 0.5; 91% of
+hurt positions have NO divergent repeat — repetition interference dead). P2
+refuted informatively: shuffled-far makes hurt WORSE (−2.26 vs −1.68) while
+gains survive (+1.50 vs +1.60) — gains are shuffle-robust (statistical:
+char mix/length), and incoherent far text destabilizes more than real far
+text. Combined with E013 (L5 calibration local; far attention idle): this
+model's long-range behavior is bulk-statistics + noise, not information
+retrieval. Long-range claims must be re-tested on tasks that provably
+require retrieval (copy spans; e021 task-swap).
+
+**T006 P3 RESOLVED (E028, 2026-09-24T12:12Z): REFUTED IN REVERSE — organs
+are anatomy-portable; incompatibility follows the SEED.** Median
+cross/within ρ = 0.874 (0/8 cells ≥2; cross ≤ within in 6/8; paired CIs
+negative in 8/8). B and R share seed-42 init; B43 differs only by seed —
+and same-anatomy-different-seed grafts are the violent ones (L3-mlp: within
++1.99 vs cross +0.65). **Organ compatibility tracks initialization lineage
+more than training regime** — organs co-adapt to the shared init subspace,
+not to the regime's scheduling. Keystone asymmetry confirmed both ways
+(B's MLP-0 → R host R=7.95 worst interference; R's quiet MLP-0 → B host
+inert). Trained-foreign tissue misleads more than random tissue (S3) —
+interference is content-specific. NEW REGISTERED (e029): the clean 2×2
+seed(42/43) × regime(base/renorm) transplant matrix; prediction: the seed
+axis dominates the regime axis (ρ_regime ≈ 1, ρ_seed ≫ 1). T006/PL2
+(stages over anatomy) now has its causal support.
+
 ## T007 — Far context is a double-edged sword: the bimodal far-value distribution (2026-09-24T11:55Z)
 
 **Observed (E013c, 2000 positions):** far-value = CE(16 ctx) − CE(256 ctx)

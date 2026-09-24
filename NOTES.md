@@ -9,6 +9,61 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E028 — cross-anatomy transplant: P3 REFUTED reversed — organs are portable; incompatibility follows SEED (2026-09-24) — DONE
+
+WHAT WE DID: implemented scratch/e028_transplant_design.md (background agent):
+MLP/attn organ swaps at L0/L2/L3/L5; hosts: baseline-B (seed 42) with
+donors B43 (same anatomy, seed 43) and R (renorm anatomy, SAME seed 42);
+C0 bitwise self-transplant gate (exactly 0.0 ✓); renorm liveness ✓; R =
+ΔCE_transplant/ΔCE_ablation. runs/e028/*.png.
+
+WHAT WE SAW:
+- **P3 REFUTED in reverse: cross-anatomy swaps cost LESS than same-anatomy
+  different-seed swaps** (median ρ = cross/within = 0.874; ρ≥2 in 0/8;
+  cross ≤ within in 6/8; paired CI excludes 0 negatively in 8/8).
+  L3-mlp: within +1.99 nats vs cross +0.65 (ρ=0.32). **Organ compatibility
+  tracks initialization lineage (B and R share seed 42) more than training
+  regime** — the two anatomies differ in scheduling/addresses, not organ
+  mechanics. Supports T006/PL2 (stages) over PL3.
+- **S1 keystone asymmetry confirmed both ways:** B's keystone MLP-0 → R host
+  = worst interference anywhere (R=7.95); R's near-dead MLP-0 → B host ≈
+  inert (+4.20 ≈ B's own ablation 4.08) — quietness transfers even when
+  function doesn't.
+- **S3 failed informatively:** trained foreign tissue misleads MORE than
+  random tissue (lottery R=1.14 vs cross R=7.95 at L0-mlp) — interference
+  is content-specific, not off-manifold energy.
+- Prefix 0..3 cross strongly SUBadditive (+2.83 vs 8.92 summed) — host
+  layers compensate for whole foreign prefixes.
+
+WHAT'S NEXT: e029 — the clean 2×2: seed(42/43) × regime(base/renorm)
+transplant matrix to isolate the compatibility axis (init lineage vs
+regime); T006 P4 (v008 phylogeny) gains a new question: do lesion maps
+cluster by seed or by regime?
+
+## E013d — interference audit: both T007 stories dead; far context acts through bulk statistics (2026-09-24) — DONE
+
+WHAT WE DID: divergent-continuation n-gram proximity for loser positions
+(P1); shuffled-far context collapse test (P2). Same 2000 positions as
+E013c.
+
+WHAT WE SAW:
+- **P1 REFUTED (effect +0.22σ < 0.5):** 91% of hurt positions have NO
+  divergent repeat (≥4 chars) in far context at all — the
+  repetition-interference story (H1) is dead in its simple form.
+- **P2 REFUTED, informatively:** shuffled-far makes the hurt population
+  WORSE (bottom decile −2.26 vs −1.68) while the gain tail survives nearly
+  intact (+1.50 vs +1.60). Real far gains are shuffle-ROBUST (statistical,
+  not informational); incoherent far text destabilizes MORE than real far
+  text.
+- **Net conclusion (T007 closed): this 2.7M char model shows no evidence of
+  SPECIFIC far-context information retrieval — far context acts through
+  bulk statistics (char mix / length) and can destabilize predictions when
+  incoherent.** Consistent with E013's finding that L5's far attention is
+  idle grazing.
+
+WHAT'S NEXT: closed. If long-range retrieval is wanted, it must be tested
+on a task that provably requires it (copy-span probes, e021 task-swap).
+
 ## E013c — far-value tail: far context is a double-edged sword (2026-09-24) — DONE
 
 WHAT WE DID: per-position far-value = CE(16-ctx) − CE(256-ctx) over 2000
