@@ -78,6 +78,21 @@ DEVIATIONS / SPEC-GAP FILLS (none of the tasked cells dropped):
      atlas hooks would zero L3H5 by construction in every atlas cell).
   8. No NOTES/THINKING/QUEUE/STATE edits; no git commit (operator instruction).
 
+SHAKEDOWN POSTMORTEM (2026-09-24, Review 6 diagnosis; this rerun is the
+REAL run):
+  The first e044 dispatch was launched with E044_SMOKE=1 still set, so the
+  shakedown branch ran: EXPOSE_STEPS=6, EVAL_STEPS=[1,2,4,6], ARMS=[a,b]
+  only (9.4s total). Consequences: every steps_to_bar null (no arm can
+  reach bar in 6 steps) and P2 'confirmed' spuriously — cos_lm read 0.316
+  on a J row of norm 0.0026 vs original 1.299 (0.2% regrowth): cosine of
+  a near-zero vector is pure numerical noise. The harness gates G0/G2/G5/
+  G6 all passed, so only the budget was wrong. FIX (this run): smoke
+  false (default branch: 400 steps, dense evals, all five arms a/a2/b/
+  b2/c) PLUS a metric-validity guard (COS_MIN_NORM_FRAC=0.25): a row's
+  cos counts toward the P1/P2 direction test only after the row regrows
+  to >= 25% of its original norm; raw cos and regrowth fractions are
+  reported alongside. Registered prediction texts unchanged.
+
 Run: python lab/e044_scar_tissue.py   (requires runs/checkpoints/{e001.pt,
 e023_d2_zero_both.pt}; cross-references runs/{e023,e042,e043}/metrics.json)
 E044_SMOKE=1 runs a reduced shakedown (separate log lines, no new dirs).
@@ -123,6 +138,9 @@ PATCH_LAYER, PATCH_HEAD = 3, 5          # e042's two-factor head: L3H5
 
 BAR_NLL, BAR_ACC = 1.0, 0.8             # tasking bar (see deviation 4)
 GUARD_CE = 0.10
+COS_MIN_NORM_FRAC = 0.25                # Review-6 guard: cos is noise on a
+                                        # near-zero regrown row; it only counts
+                                        # once norm >= 25% of the original row
 
 BATTERY = ["JULIET", "JOHN", "ROMEO", "GLOUCESTER", "MENENIUS",
            "CORIOLANUS", "ISABELLA", "LUCIO", "PETRUCHIO", "PROSPERO"]
@@ -802,8 +820,22 @@ def main():
     sa = bars["a"]["spliced"]["step"]
     sb = bars["b"]["spliced"]["step"]
     ratio = (sa / sb) if (sa is not None and sb is not None) else None
-    cos_final = max(abs(a_final["rows"].get("cos_wte", 0.0)),
-                    abs(a_final["rows"].get("cos_lm", 0.0)))
+    # Review-6 validity guard: a regrown row's cos only counts once the row
+    # has regrown to >= COS_MIN_NORM_FRAC of its original norm (cos of a
+    # near-zero vector is numerical noise — the shakedown's false P2).
+    raw_cos = max(abs(a_final["rows"].get("cos_wte", 0.0)),
+                  abs(a_final["rows"].get("cos_lm", 0.0)))
+    ow, ol = float(orig_j_rows[0].norm()), float(orig_j_rows[1].norm())
+    regrow = {"wte_frac": a_final["rows"]["wte_norm"] / ow,
+              "lm_frac": a_final["rows"]["lm_norm"] / ol}
+    cos_cands = []
+    if regrow["wte_frac"] >= COS_MIN_NORM_FRAC:
+        cos_cands.append(abs(a_final["rows"].get("cos_wte", 0.0)))
+    if regrow["lm_frac"] >= COS_MIN_NORM_FRAC:
+        cos_cands.append(abs(a_final["rows"].get("cos_lm", 0.0)))
+    cos_final = max(cos_cands) if cos_cands else 0.0
+    cos_meta = {"raw_cos_max": raw_cos, "guard_min_norm_frac": COS_MIN_NORM_FRAC,
+                "regrowth_frac": regrow, "rows_passing_guard": len(cos_cands)}
     sa2 = bars.get("a2", {}).get("spliced", {}).get("step") if "a2" in bars else None
     sb2 = bars.get("b2", {}).get("spliced", {}).get("step") if "b2" in bars else None
 
@@ -820,10 +852,11 @@ def main():
     inc_max = max((v for k, v in inc_at_bar.items() if not k.startswith("JOHN")),
                   default=None)
     p1 = {"ratio": ratio, "within_25pct": bool(ratio is not None and 0.75 <= ratio <= 1.25),
-          "cos_max_final": cos_final, "cos_le_0.3": bool(cos_final <= 0.3),
+          "cos_max_final": cos_final, "cos_le_0.3": bool(cos_final <= 0.3), "cos_meta": cos_meta,
           "confirmed": bool(ratio is not None and 0.75 <= ratio <= 1.25 and cos_final <= 0.3)}
     p2 = {"ratio": ratio, "steps_cheaper_25pct": bool(ratio is not None and ratio <= 0.75),
           "cos_max_final": cos_final, "rows_regrow_cos_gt_0.3": bool(cos_final > 0.3),
+          "cos_meta": cos_meta,
           "confirmed": bool((ratio is not None and ratio <= 0.75) or cos_final > 0.3)}
     p3 = {"incumbent_dnll_at_bar": inc_at_bar, "incumbent_abs_max_nonJ": inc_max,
           "bar": 0.10, "confirmed": bool(inc_max is not None and inc_max < 0.10)}
