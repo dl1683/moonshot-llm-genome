@@ -9,6 +9,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E011c — matched-perturbation control: geometry vs meaning (2026-09-24) — DONE
+
+WHAT WE DID: replaced each attention/MLP write w with a 60°-rotated w′
+(‖w′−w‖ = ‖w‖ exactly, verified 1.0000) — same perturbation energy as
+zeroing, destroyed content. Three-rung ladder: zero vs rotate60 vs
+same-norm-random (√2 energy). runs/e011c/geometry_ladder.png.
+
+WHAT WE SAW:
+- **P1 refuted both ways; energy is the dominant factor.** Damage ranks
+  {zero ≈ rotate} < {random} across components — at matched energy, most
+  blocks tolerate scrambled writes as well as or better than removal.
+  The lesion map is mostly about HOW MUCH a block moves the stream
+  (authority schedule), not what it says.
+- **Exceptions:** MLP-L1 direction-sensitive (rotate ×2.95 zero); attn-L0
+  mildly (×1.38); MLP-L5 is an ENERGY CARRIER (zero +0.59 vs rotate +0.14 —
+  its magnitude matters, its direction barely).
+- Caveat: single-run ratios 0.7–1.2 need bootstrap CIs; only the three
+  exceptions look safely beyond noise.
+
+WHAT'S NEXT: bootstrap CIs on rotate/zero ratios (cheap); e014b
+stream-renorm training stays the decisive test of the authority schedule;
+e012 decision-depth census queued.
+
 ## V001 — token journey visualization (2026-09-24) — DONE
 
 WHAT WE DID: first artifact of the standing VISUALIZER thread: one forward

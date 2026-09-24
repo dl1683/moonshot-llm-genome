@@ -58,15 +58,53 @@ calibrated to the write's DIRECTION (content matters, and actively).
    dominance drops). If the map stays front-loaded without stream growth,
    learning, not architecture, owns the front-loading.
 
-**Registered predictions:**
-- P1 (e011c): attention L0-L1 matched-perturbation damage ≈ zero damage
-  (geometry-dominated); MLP L1-L5 matched-perturbation damage > 1.3× zero
-  damage (content-dominated).
+**P1 RESOLVED (E011c, 2026-09-24T10:45Z): REFUTED in both parts — and the
+truth is cleaner.** At matched perturbation energy (60° rotation, verified
+‖w′−w‖=‖w‖=1.0000), rotate-damage vs zero-damage: attn [1.38, 0.74, 0.89,
+0.87, 0.71, 1.17]; mlp [0.80, **2.95**, 1.20, 0.70, 0.47, **0.24**].
+
+- **Dominant factor = perturbation ENERGY, not content:** across all 12
+  components, damage ranks {zero ≈ rotate60} < {random ≈ √2·energy}. Most
+  blocks tolerate scrambled content about as well as — or better than —
+  removal. This STRENGTHENS Reading B (authority schedule): what matters
+  most is how much a block can move the stream, i.e., the geometric
+  schedule, not the specific meaning of its write.
+- **Three real exceptions (content-sensitive or energy-carrier):** MLP-L1 is
+  direction-sensitive (×2.95); attn-L0 mildly direction-sensitive (×1.38);
+  MLP-L5 is an ENERGY CARRIER — zero costs +0.59 but rotate only +0.14, so
+  its value is mostly magnitude in the stream, not information. (Connects to
+  E011a: MLP-L5 writes the largest residual and matters least per unit.)
+- **Caveat before over-reading:** single damage estimates over 20 eval
+  batches; ratios 0.7–1.2 may be within noise. Needed observation (cheap):
+  bootstrap CIs over eval batches for the rotate/zero ratios; only MLP-L1,
+  attn-L0, MLP-L5 look safely beyond noise.
+- **The decisive test of Reading B remains e014b** (stream-renorm training).
+  P2 prediction unchanged.
+
+**Still-registered predictions (T003):**
 - P2 (e014b): stream-renormalized training flattens the attention damage
   profile by ≥50% (L5 damage rises well above +0.03; L0 falls below +2.0).
 - P3: damage-per-write across attention layers correlates ≥0.8 with
   write/stream ratio (the geometric authority term) — checkable now from
   existing numbers.
+
+**PRIOR-ART STATUS (scratch/prior_art_authority_schedule.md, 2026-09-24):
+PARTIALLY-KNOWN.** Stream-norm growth is documented (TurnTrout 2023: ~1.045×/
+layer in GPT-2-XL, "overshadowing not deletion", NO causal interventions);
+front-loaded criticality is widely observed (Gromov 2024, ShortGPT, BERT
+pruning) but always explained functionally, never geometrically; renorm
+training exists (nGPT trains unit-norm streams, post-LN literally renorms)
+but nobody has measured depth-wise lesion profiles under it. **Our
+contribution claim: the write/stream→damage link + the causal flattening
+test.** Falsifier on record: Pythia/GPT-Neo streams SHRINK with depth
+(schedule is regime-dependent), and Gromov/Nepal suggest importance profiles
+can be sticky across training interventions.
+**e014b design upgrades from the check:** (a) add a post-LN arm alongside the
+renorm arm; (b) verify the renormed net reaches comparable loss before
+comparing lesion maps (else the comparison is confounded); (c) LOG the
+renormed net's learned write/stream ratios — if training RE-INFLATES writes
+under renormalization, that alone shows optimization *wants* an authority
+schedule, independent of the lesion result.
 
 ---
 
