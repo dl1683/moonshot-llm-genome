@@ -25,6 +25,24 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E046 — C6 replication: two-factor erasure does NOT replicate (2026-09-24) — DONE
+
+WHAT WE DID: the two-factor recipe on B43 + BDO (own-head and B's-recipe
+cells, 4 total), full honesty battery (train + uniform-floor contexts,
+J-census, incumbents, corpus CE).
+
+WHAT WE SAW (T016): no Bar-2 anywhere — JULIET stays 13-17% after row-zero
++ top-head lesion on both nets; B's L3H5 transfers as predicted-NO. Row
+surgery alone (the address half) replicates exactly (13-17% band at
+~+0.001 CE, class-exact). C6 DEMOTED: general cheap DAMAGER; complete
+erasure was B-specific luck.
+
+WHAT'S NEXT: Review 6 (overdue) must weigh a replication sweep of the
+card's positive claims vs new arcs — the pattern of
+positive-claims-die/negative-claims-hold is now itself the biggest fact.
+
 ## E043 — install a name: ASYMMETRIC-CHEAP-REMOVE confirmed (2026-09-24) — DONE (audited from raw metrics)
 
 WHAT WE DID: the registered install battery per scratch/e043_design.md —

@@ -65,6 +65,12 @@ DEVIATIONS / SPEC-GAP FILLS:
      D2-conditioned atlas is the discovery instrument.
   6. No NOTES/THINKING/QUEUE/STATE edits; no git commit (operator
      instruction).
+  7. SUPPLEMENTARY cells (not in the registered 4-cell set, added after the
+     smoke showed the single-head recipe failing on both hosts): D2 + that
+     net's own top BLOCK (attn/mlp sublayer) under the same content rule —
+     distinguishes "residual distributed across heads" from "residual needs
+     the block" (on B, e042's D2+1b block cell also reached Bar-2). They are
+     tagged "-supp" everywhere and never replace the registered readouts.
 
 Run: python lab/e046_c6_replication.py   (requires runs/checkpoints/{e028_b43,e041_bdo}.pt;
 runs/e042/metrics.json loaded opportunistically for B's reference row).
@@ -486,13 +492,11 @@ def main():
               f"B's L3H5 here: {dict(head_rank)['L3H5']:+.3f} | top block {block_rank[0]}", flush=True)
 
         # two-factor cells
-        cells = {}
-        recipes = [("own", own_top)] if own_top == B_HEAD else [("own", own_top), ("b_L3H5", B_HEAD)]
-        for tag, head in recipes:
-            with pos_lesion(d2net, [("head", head[0], head[1])]) as st:
+        def score_cell(specs, tag, label):
+            with pos_lesion(d2net, specs) as st:
                 r = eval_all(d2net, state=st)
             cell = {
-                "head": f"L{head[0]}H{head[1]}", "mask_rule": "full (J..JULIE)",
+                "head": label, "mask_rule": "full (J..JULIE)",
                 "juliet_train": {"nll": r["train_bat"]["JULIET"]["nll"],
                                  "acc": r["train_bat"]["JULIET"]["acc"],
                                  "per_pos_acc": r["train_bat"]["JULIET"]["per_pos_acc"]},
@@ -523,16 +527,27 @@ def main():
             cell["julius_extra"] = cell["census_extra_vs_d2"].get("Julius")
             cell["leak_flag"] = bool(cell["julius_extra"] is not None
                                      and cell["julius_extra"] > LEAK_BAR)
-            cells[tag] = cell
-            print(f"{stamp()} cell {tag:7s} [{cell['head']}] JULIET train "
+            print(f"{stamp()} cell {tag:14s} [{label}] JULIET train "
                   f"{cell['juliet_train']['nll']:6.2f}/{cell['juliet_train']['acc']:.4f} "
                   f"unif {cell['juliet_unif']['nll']:6.2f}/{cell['juliet_unif']['acc']:.4f} "
                   f"dCE {cell['dce_val_content']:+.5f} (posrule {cell['dce_val_position']:+.5f}) "
                   f"Julius extra {cell['julius_extra']:+.3f} leak={int(cell['leak_flag'])} "
                   f"bar2 {int(cell['bar2_train'])}/{int(cell['bar2_unif'])}", flush=True)
+            return cell
+
+        cells = {}
+        recipes = [("own", own_top)] if own_top == B_HEAD else [("own", own_top), ("b_L3H5", B_HEAD)]
+        for tag, head in recipes:
+            cells[tag] = score_cell([("head", head[0], head[1])], tag, f"L{head[0]}H{head[1]}")
+        # supplementary (deviation 7): own-top BLOCK under the same rule
+        tb = block_rank[0][0]                     # e.g. "L1A" or "L1M"
+        tb_kind = "attn" if tb.endswith("A") else "mlp"
+        cells["own-block-supp"] = score_cell([(tb_kind, int(tb[1]), None)],
+                                             "own-block-supp", tb)
         if own_top == B_HEAD:
             cells["b_L3H5"] = dict(cells["own"], note="cells coincide: own-top == L3H5")
             print(f"{stamp()} NOTE: own-top == B's L3H5 on {net_name}; cells coincide", flush=True)
+        best = min(cells, key=lambda k: cells[k]["juliet_train"]["acc"])
 
         nets[net_name] = {
             "ckpt": str(ckpt), "gates": gates, "base": base, "d2": d2, "G2": G2,
@@ -543,6 +558,12 @@ def main():
                          "own_top": own_top_name, "own_top_dce": head_rank[0][1],
                          "l3h5_dce": dict(head_rank)["L3H5"]},
             "cells": cells,
+            "best_cell": {"tag": best, "head": cells[best]["head"],
+                          "juliet_acc_train": cells[best]["juliet_train"]["acc"],
+                          "juliet_acc_unif": cells[best]["juliet_unif"]["acc"],
+                          "bar2_train": cells[best]["bar2_train"],
+                          "bar2_unif": cells[best]["bar2_unif"],
+                          "cost_ok": cells[best]["cost_ok"]},
         }
 
     # ------------------------------------------------------------- verdicts
@@ -563,6 +584,7 @@ def main():
             else "TRAIN-ONLY (Bar-2 on train battery, uniform battery retains knowledge)"
             if va[net_name]["replicates"] and not own["bar2_unif"]
             else "FAIL (no Bar-2 with in-run head)")
+        va[net_name]["best_cell"] = N["best_cell"]
         vb[net_name] = {
             "bar2_train": bl["bar2_train"], "bar2_unif": bl["bar2_unif"],
             "juliet_acc_train": bl["juliet_train"]["acc"],
@@ -659,13 +681,15 @@ def main():
     ax.set_title(f"J-census prefix-leak (R5 missing observation)\n{vc['verdict'].split(':')[0]}")
 
     ax = axes[1, 0]
-    labels, accs_t, accs_u, cols = [], [], [], []
-    for net_name in ("B43", "BDO"):
-        for tag in ("own", "b_L3H5"):
-            cell = nets[net_name]["cells"][tag]
-            labels.append(f"{net_name}\n{tag}\n{cell['head']}")
-            accs_t.append(cell["juliet_train"]["acc"])
-            accs_u.append(cell["juliet_unif"]["acc"])
+    cellsel = [("B43", "own"), ("B43", "b_L3H5"), ("B43", "own-block-supp"),
+               ("BDO", "own"), ("BDO", "b_L3H5"), ("BDO", "own-block-supp")]
+    labels, accs_t, accs_u = [], [], []
+    for net_name, tag in cellsel:
+        cell = nets[net_name]["cells"][tag]
+        star = "*" if tag == "own-block-supp" else ""
+        labels.append(f"{net_name}\n{tag.replace('-supp','')}{star}\n{cell['head']}")
+        accs_t.append(cell["juliet_train"]["acc"])
+        accs_u.append(cell["juliet_unif"]["acc"])
     x = range(len(labels))
     ax.bar([i - 0.18 for i in x], accs_t, 0.36, color="navy", label="train battery")
     ax.bar([i + 0.18 for i in x], accs_u, 0.36, color="darkorange", label="uniform-floor battery")
@@ -674,20 +698,19 @@ def main():
                label=f"D2 alone (B43) {nets['B43']['d2']['train_bat']['JULIET']['acc']:.3f}")
     ax.set_xticks(list(x)); ax.set_xticklabels(labels, fontsize=7)
     ax.set_ylabel("JULIET acc"); ax.set_ylim(0, 1.0)
-    ax.legend(fontsize=7)
-    ax.set_title(f"(a) replication / (b) transfer — {a_all}; transfer: {b_all}")
+    ax.legend(fontsize=7, loc="upper right")
+    ax.set_title(f"(a) replication / (b) transfer — {a_all}; transfer: {b_all}\n"
+                 f"(* = supplementary block cell; B ref acc 0.0013)")
 
     ax = axes[1, 1]
-    for ci, (net_name, tag) in enumerate([("B43", "own"), ("B43", "b_L3H5"),
-                                          ("BDO", "own"), ("BDO", "b_L3H5")]):
+    for ci, (net_name, tag) in enumerate(cellsel):
         cell = nets[net_name]["cells"][tag]
         ax.bar(ci - 0.25, cell["dce_val_content"], 0.24, color="seagreen", label="val (content rule)" if ci == 0 else None)
         ax.bar(ci, cell["dce_julwin"], 0.24, color="olivedrab", label="JULIET windows" if ci == 0 else None)
         ax.bar(ci + 0.25, cell["dce_val_position"], 0.24, color="gray", label="val (position rule)" if ci == 0 else None)
     ax.axhline(COST_BAR, color="k", ls="--", lw=1, label=f"cost bar +{COST_BAR}")
-    ax.set_xticks(range(4))
-    ax.set_xticklabels([f"{n}-{t}\n{nets[n]['cells'][t]['head']}" for n, t in
-                        [("B43", "own"), ("B43", "b_L3H5"), ("BDO", "own"), ("BDO", "b_L3H5")]], fontsize=7)
+    ax.set_xticks(range(len(cellsel)))
+    ax.set_xticklabels([f"{n}-{t}\n{nets[n]['cells'][t]['head']}" for n, t in cellsel], fontsize=6.5)
     ax.set_ylabel("corpus dCE vs base (nats)")
     ax.legend(fontsize=7)
     ax.set_title("two-factor corpus cost")
@@ -718,6 +741,9 @@ def main():
               f"(differs from B's L3H5: {v['differs_from_B_L3H5']}) -> {v['verdict']} "
               f"[train acc {v['juliet_acc_train']:.4f}, uniform acc {v['juliet_acc_unif']:.4f}, "
               f"dCE {v['dce_val_content']:+.5f}]")
+        bc = v["best_cell"]
+        print(f"      best cell overall: {bc['tag']} [{bc['head']}] acc {bc['juliet_acc_train']:.4f} "
+              f"(bar2 {int(bc['bar2_train'])}/{int(bc['bar2_unif'])}, cost_ok {int(bc['cost_ok'])})")
     print(f"(b) B's L3H5 TRANSPLANT: {b_all}")
     for net_name, v in vb.items():
         print(f"    {net_name}: {v['verdict']} [acc {v['juliet_acc_train']:.4f}; "
@@ -725,7 +751,7 @@ def main():
               f"(expected: {v['expected']})")
     print(f"(c) CONTENT-RULE LEAK: {vc['verdict']}")
     for net_name in ("B43", "BDO"):
-        for tag in ("own", "b_L3H5"):
+        for tag in ("own", "b_L3H5", "own-block-supp"):
             cell = nets[net_name]["cells"][tag]
             print(f"    {net_name}/{tag}: Julius extra {cell['julius_extra']:+.3f} nats "
                   f"(leak {int(cell['leak_flag'])}); extras "

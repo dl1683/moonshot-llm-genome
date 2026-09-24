@@ -7,6 +7,30 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T016 — C6 DEMOTED: two-factor erasure does not replicate (E046, 2026-09-24T23:28Z)
+
+**The replication verdict (2 hosts, 4 cells, full honesty battery):**
+- **Neither the in-run-discovered head (B43: L4H4; BDO: L3H1) nor B's
+  L3H5 recipe reaches Bar-2 on any other net** — JULIET stays at 13-17%
+  accuracy after row-zero + top-head lesion (B43 own-head 15.7%,
+  uniform-floor 15.1%; BDO 13.9/16.4%). B's specific recipe transfers as
+  predicted-NO (its site is inert in B43: −0.14).
+- **What DOES replicate:** row surgery alone damages to the same 13-17%
+  band at ~+0.001 corpus cost, class-exact — on every net. The ADDRESS
+  half of the doctrine is general; the "one body head" COMPLETION was a
+  B-specific coincidence.
+- **C6 demoted to:** "entity-row surgery is a general, cheap, class-exact
+  DAMAGER (~500× selectivity); COMPLETE erasure was achieved once (B,
+  rows+L3H5) but the second factor did not generalize — the residual after
+  address-burning is net-specific in structure."
+- **Pattern note for the card:** the day's positive mechanism claims are
+  systematically dying under replication/audit (rare-token heads, stage
+  invariance, now two-factor erasure) while its NEGATIVE claims (ascent
+  fails, no far retrieval on natural data, install-not-surgical) hold
+  everywhere. The asymmetry-laws survive; the mechanism-stories don't.
+  The Review-6 panel must weigh a REPLICATION SWEEP of remaining positive
+  claims vs new arcs.
+
 ## T015 — Edit asymmetry law (E043; audited 21:30Z, AMENDED by full report 22:05Z)
 
 **AMENDMENT (full report):** the earlier "exposure installs transiently then
