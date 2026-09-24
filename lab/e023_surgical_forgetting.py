@@ -49,6 +49,11 @@ DEVIATIONS / SPEC-GAP FILLS (all registered cells present, none dropped):
     QUEUE/STATE edits in this run). No git commit.
  8. Registered runtime fallbacks implemented as time-triggered paths; whether
     each fired is recorded in metrics.timing.
+ 9. G4: the registered [10,16] PROSPERO range was calibrated on a design-MP
+    probe that turned out context-construction-sensitive; under the registered
+    battery (val occurrences, local val ctx 120) the anchor reads ~ln65
+    (uniform floor = zero knowledge). Recorded as failed-with-explanation;
+    all anchor USES (no-knowledge reference, ascent early-stop 13.2) unaffected.
 
 Run: python lab/e023_surgical_forgetting.py   (requires runs/checkpoints/e001.pt)
 E023_SMOKE=1 runs a fast end-to-end shakedown (separate outputs, not the
@@ -490,8 +495,18 @@ def main():
           f"{r1_base['PROSPERO']['nll']:.2f}  val_all {ce_base['val_all']:.4f}", flush=True)
 
     G4 = {"prospero_nll": r1_base["PROSPERO"]["nll"],
+          "prospero_acc": r1_base["PROSPERO"]["acc"],
           "pass": bool(10.0 <= r1_base["PROSPERO"]["nll"] <= 16.0)}
     print(f"{stamp()} G4 PROSPERO anchor NLL {G4['prospero_nll']:.2f} -> {G4['pass']}", flush=True)
+    if not G4["pass"]:
+        G4["note"] = ("FAILED against the registered [10,16] range, but the anchor's "
+                      "SUBSTANCE holds: 0 train occurrences, acc 0.31, NLL ~ ln65=4.17 "
+                      "(uniform floor = zero knowledge). The design's MP 13.23 was "
+                      "context-construction-sensitive (diagnosed 2026-09-24: after a "
+                      "confident train mid-sentence context the same name reads 9.0 "
+                      "nats/char, after a speaker-slot context 4.4; the registered "
+                      "battery uses LOCAL val contexts where the model is already "
+                      "uncertain on unseen Tempest text).")
 
     # R4 row geometry (descriptive)
     span_d2 = [c for c in uppercase if c != "J"]

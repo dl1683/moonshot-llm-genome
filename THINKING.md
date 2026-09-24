@@ -473,6 +473,16 @@ positions; decision-depth census at COPY positions; locality funnel
   despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
   interpretation.
 
+**CLAIM 5 CLOSED (E003c full report, 2026-09-24T14:05Z): first-order ascent
+cannot content-selectively forget.** r at the 0.66-nat bar = 1.43 (2 seeds)
+vs 2.0 bar; step-matched naive 1.23 (margin 1.17×); **r vs train-B = 1.08**
+— memorization-symmetric damage, zero content selectivity; val_B
+"selectivity" was a measurement artifact. e003b's r≈6 head-start failed to
+reproduce against its own code+seed (chaotic event, not mechanism). Next
+family: weight surgery (e023, in flight) or second-order. MLP-5
+energy-carrier causally confirmed (e019: zero 4× rotate; α=0.5 improves CE;
+removal spikes entropy +0.62).
+
 **CLAIM 5 RE-AMENDED (Review-3 correction, 2026-09-24T13:35Z): selective-
 SO-FAR; the forgetting bar is untested.** Δtarget +0.28 is mild degradation
 (train-A 1.30 < val_B 1.68); bar = Δ≥0.66 gap closure. Final r=3.12 (peak
