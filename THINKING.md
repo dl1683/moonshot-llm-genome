@@ -190,6 +190,23 @@ measure KL(L5‖L4). Registered: KL shrinks ≥50% with truncated context (L5's
 reshaping draws on far information); if unchanged, L5's calibration is
 locally derived and "re-globalization" is epiphenomenal attention shape.
 
+**T005 CLOSED (E013 truncation, 2026-09-24T12:05Z): L5's calibration is
+LOCAL; far attention is idle grazing.** KL(L5‖L4 readout) barely moves under
+256→16 truncation (0.997→0.928, −6.9% vs registered ≥50%); flip rate
+unchanged (49→52%). Combined with the census (shape real, no rare-token
+selectivity) the full honest picture: **L5 reshapes the output distribution
+using LOCAL information, while attending diffusely far for nothing.** The
+sharper corpus fact underneath: **16-token sufficiency** — next-char CE at
+1.648 (full) vs 1.644 (16 tokens): at char level on Shakespeare, far context
+has ≈ zero marginal value for this 2.7M net. Consequences: (a) T004's D2
+(integration-of-range) is refuted — late decisions are deep LEXICAL
+computation; (b) any "long-range" mechanism claim at this scale must first
+show far context matters at its positions (follow-up: per-position far-value
+tail — uniform ≈0, or a rare-position minority carrying all of it?);
+(c) mid-stack readouts are anti-informative (depth-2 CE 5.19 > unigram 4.17)
+— absolute mid-stream distribution claims need a tuned lens; argmax-stability
+claims are robust.
+
 ## T006 — Anatomical plasticity: what actually persists when the organs move? (2026-09-24T11:21Z)
 
 **Observed (E014b, single seed — replication debt registered):** under

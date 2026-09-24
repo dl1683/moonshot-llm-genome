@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E013 — context truncation: L5's calibration is LOCAL; far context is worth ~0 (2026-09-24) — DONE
+
+WHAT WE DID: same 300 held-out windows at full-256 vs last-16 tokens; measured
+KL(L5‖L4 readout), L4→L5 argmax-flip rate, and per-position CE.
+
+WHAT WE SAW:
+- **Registered prediction REFUTED:** KL 0.997 → 0.928 (−6.9%, predicted
+  ≥50%). L5's distribution reshaping does NOT depend on far context; the
+  census's diffuse far attention is idle grazing, not evidence gathering.
+  "Re-globalization" is epiphenomenal attention shape.
+- **16-token sufficiency (the bigger finding):** CE full-256 1.648 vs
+  trunc-16 1.644 — far context adds ≈ NOTHING to next-char prediction on
+  Shakespeare at this scale. Depth ≠ range: late decisions (T004) are deep
+  lexical computation, not long-range integration; D2 is refuted.
+- Flip rate 49.3% → 52.0% (unchanged): L5's argmax work is local too.
+- BUG (found + fixed): double-softmax CE (probs fed to F.cross_entropy)
+  inflated the first run's CE to 3.73; verified E012 unaffected (its CEs
+  came from forward logits).
+- BONUS (from the debug check): the depth-CE readout ladder is
+  anti-informative mid-stack — [4.62, 4.70, **5.19**, 3.99, 3.45, 2.50,
+  1.74]: depth-2 readouts are WORSE than unigram (4.17). Absolute mid-stream
+  distributions are not lens-aligned (needs a tuned lens); argmax-stability
+  claims are order-robust and unaffected.
+
+WHAT'S NEXT: far-value TAIL distribution (per-position full−trunc ΔCE): is
+the ≈0 average uniform, or do a few positions (after rare names?) carry all
+the far-context value? e028 transplant running in background.
+
 ## E013a — attention census over 200 prompts (2026-09-24) — DONE
 
 WHAT WE DID: all 36 heads' last-token attention across 200 held-out

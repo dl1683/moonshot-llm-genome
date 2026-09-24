@@ -7,7 +7,8 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | id | experiment | status | one-liner |
 |---|---|---|---|
 | e013a | attention census | DONE | funnel replicates at scale (far-mass U 0.80→0.09→0.54); L5 abandons local in 82.5% of prompts; rare-token story DEAD (0 concentrated heads, flat surprisal) |
-| e013 | context-truncation calibration test | READY | redesigned: last-16 vs full-96 context → KL(L5‖L4 readout); does L5's calibration depend on far context? (registered: KL shrinks ≥50%) |
+| e013 | context-truncation calibration test | DONE | REFUTED: L5 calibration is local (KL −6.9%); 16-token sufficiency — far context worth ≈0 nats at char level; mid-stack readouts anti-informative |
+| e013c | far-value tail distribution | READY | per-position (full−trunc) ΔCE: uniform ≈0 or rare far-dependent positions? gates any future long-range claim |
 | e028 | cross-anatomy transplant | READY | design memo complete (scratch/e028_transplant_design.md): C0 self-transplant gate, seed-43 within-control, R=transplant/ablation bands; tests T006 P3 |
 | e019 | MLP-5 thermostat | READY | scale MLP-5 write by α∈{0,.5,1,2} + rotate; entropy/top-k/CE response — direct causal test of the energy-carrier claim (eval-only, minutes) |
 | e003b | corrected ascent instruments | READY | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
