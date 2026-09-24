@@ -102,8 +102,10 @@ C_HEAD = e021["attention_census"]["best_head"]
 LAD = e041["ladder"]
 D_LADDER = [
     ("B vs B\nsame init · same order", LAD["same_init_same_order"]["value"], "#08306b"),
-    ("B vs BDO\nsame init · diff order\n(CEILING)", LAD["same_init_diff_order"]["value"], "#4c72b0"),
-    ("B vs R\nsame init · diff regime", LAD["same_init_diff_regime"]["pooled_same_init"], "#dd8452"),
+    ("B vs BDO\nsame init · diff order", LAD["same_init_diff_order"]["value"], "#4c72b0"),
+    (f"B vs R, B43 vs R43\nsame init · diff regime\n(pooled; B↔R alone "
+     f"{LAD['same_init_diff_regime']['value']:.3f})",
+     LAD["same_init_diff_regime"]["pooled_same_init"], "#dd8452"),
     ("B vs B43, …\ndiff init · (FLOOR)", LAD["diff_init"]["value"], "#b0b0b0"),
 ]
 D_ORGAN = e041["dw_ceiling"]["per_organ"]
@@ -115,12 +117,17 @@ gs = fig.add_gridspec(2, 2, hspace=0.38, wspace=0.20,
 LAYERS = np.arange(6)
 
 
-def panel_title(ax, claim, headline, sub):
+def panel_title(ax, claim, headline, sub, foot=None):
     """Bold claim title well above the axes; small italic subtitle just above."""
     ax.set_title(f"{claim} — {headline}", loc="left", fontsize=13.5,
                  fontweight="bold", pad=30)
     ax.text(1.0, 1.004, sub, transform=ax.transAxes, ha="right", va="bottom",
             fontsize=8.2, style="italic", color="#444444")
+    if foot:  # v010.1: small caveat line stacked just above the subtitle
+        ax.annotate(foot, xy=(1.0, 1.004), xycoords="axes fraction",
+                    xytext=(0, 11.5), textcoords="offset points",
+                    ha="right", va="bottom", fontsize=7.4, style="italic",
+                    color="#777777")
 
 
 # ================================================================ panel A (C2)
@@ -143,7 +150,9 @@ for ax, kind, dmg_idx in ((axA1, "attention blocks", 2), (axA2, "MLP blocks", 3)
 axA1.set_ylabel("zero-ablation damage  (Δval CE, nats)", fontsize=9.5)
 axA1.set_ylim(0, 7.3)
 panel_title(axA1, "A · C2", "One function, three anatomies",
-            "organs move; early attention stays critical")
+            "organs move; early attention stays critical",
+            foot="cross-corpus nats; task net is a different function "
+                 "(see e035 two-profiles)")
 axA1.annotate("MLP-0 keystone:\nB +4.08, task +4.90", xy=(0.24, 4.97), xytext=(0.5, 7.08),
               ha="left", va="top", fontsize=9, fontweight="bold", color="#333333",
               arrowprops=dict(arrowstyle="->", lw=1.4, color="#333333"))
@@ -239,8 +248,11 @@ vals = [v for _l, v, _c in D_LADDER]
 cols = [c for _l, _v, c in D_LADDER]
 axD.bar(np.arange(4), vals, color=cols, alpha=0.93, width=0.60)
 for i, v in enumerate(vals):
-    axD.text(i, v + 0.03, f"{v:.3f}", ha="center", va="bottom", fontsize=12,
-             fontweight="bold", path_effects=PE)
+    # v010.1: "= CEILING" rides the 0.534 (B vs BDO, same-init diff-ORDER) bar —
+    # NOT the 0.152 regime bar (that flag was Review 4's catch).
+    axD.text(i, v + 0.03, f"{v:.3f}" + ("  = CEILING" if i == 1 else ""),
+             ha="center", va="bottom", fontsize=12, fontweight="bold",
+             path_effects=PE)
 axD.axhline(0.0, color="k", lw=0.9)
 axD.set_xticks(np.arange(4), [l for l, _v, _c in D_LADDER], fontsize=8.6)
 axD.set_ylabel("cos(ΔW_A, ΔW_B)   organ motion", fontsize=9.5)
