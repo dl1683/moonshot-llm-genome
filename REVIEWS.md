@@ -9,6 +9,41 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 5 — full panel (2026-09-24T20:52Z; post-pause, 6h overdue)
+
+### INTERPRETER (accepted)
+1. **T013's "one body head" is seed-fragile:** e043's memo measured L3H5 =
+   -0.02 in B43 — only the L0-MLP BLOCK is invariant. C6 degrades to "rows
+   + a seed-specific head found by in-run atlas" until replicated (e046
+   registered: B43/BDO D2-analog + J-census + uniform-floor battery).
+   Prefix-leak (JULIUS/Jove touched by the content rule) unmeasured in e042.
+2. **T012's "uncorrelated" needs scoping:** pairing over-samples
+   flip-capable positions; check within the lens=6 subset; direction robust.
+3. **e043 asymmetry may be guard-artifact** (removal dose-free since J is
+   0.016% of tokens; install dose-bound); symmetry control = alpha-scaled
+   row-zero dose ladder. Donor-ceiling + bar-miscalibration confounds named.
+
+### IDEATOR — evening program adopted:
+e012d FIRST (gates everything) -> [e043 audit slot] -> e044 scar -> v011
+edit film -> e024 reconsolidation (L4-H1 noise during retrieval) -> e036
+head transplant across lineage ladder -> e040 graft-evolution -> e005s
+scaling capstone (tests C1-causal + C6 together; gated on e012d + e044).
+
+### CRITIC (applied, with one write-block failure caught by the new
+integrity rule and re-applied in verified steps):
+- Ledgers intact post-pause (14 T-headers, 5->6 reviews, ~30 notes).
+- Fixed: untracked e043_install.py committed; STATE last_review stale
+  since R4; T009 bin-label synced; E023 header de-staled; queue refreshed
+  (e043/e044/e012d/e046 rows added).
+- **Biggest unaudited risk: the T011-T013-C6 chain is single-run and
+  agent-reported while steering the evening. ADOPTED: when e043 lands, the
+  next slot is an AUDIT (re-derive S_name/0.0013 from runs/ metrics)
+  before e044 dispatches.**
+- Day ratio 30/70 — audit slots mandated.
+
+---
 ## Review 4 — full panel (2026-09-24T14:50Z) [RESTORED 15:47Z: the original
 write block failed on a syntax error before executing; commit c049c3c's
 message wrongly claimed it]

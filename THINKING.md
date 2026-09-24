@@ -535,7 +535,7 @@ Retrieval is task-elicited, not architecturally absent.**
 - P3: dedicated retrieval head L4-H1 (95.1% mass on the ID nonce; control
   15%). The idle-grazing signature was a property of the corpus, not the
   architecture.
-- P4: NEW decision mode — 88.3% of COPY decisions at L4 (Shakespeare 8.0%;
+- P4: NEW decision mode — 88.3% of COPY decisions at L4 (Shakespeare ~21% at L4; the earlier "8.0%" was the L3 bin — R5 sync;
   JS 0.265), one layer earlier than Shakespeare's L5 mode: retrieval
   completes before final calibration. Claim 1 (stages) intact and enriched:
   the pipeline reorganizes around task demands; stage membership is

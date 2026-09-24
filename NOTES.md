@@ -59,7 +59,7 @@ WHAT WE SAW (verdict (b), T012 written):
 WHAT'S NEXT: C1 re-anchored (T012); e012d debt registered (causal census on
 the other 3 nets — is CAUSAL depth the invariant?). e042 still building.
 
-## E023 — surgical forgetting at entity granularity (2026-09-24) — DONE (pending agent full-report confirmation)
+## E023 — surgical forgetting at entity granularity (2026-09-24) — DONE (confirmed by full report 15:12Z)
 
 WHAT WE DID: the full registered battery per scratch/e023_design.md — D1/D2
 granularity ladder, arms A/B/C, G0-G4 gates, frozen selectivity metrics.
