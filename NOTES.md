@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E003 — forgetting selectivity frontier (2026-09-24) — RUNNING
+
+WHAT WE DID: T002 discriminator suite, launched detached: (1) gradient cosine
+A↔B vs A↔French(Les Misérables), (2) fine LR ascent sweep trajectories
+(ΔA,ΔB) at 1e-6…3e-5, (3) implant-French-then-unlearn arm (selectivity for
+dissimilar content), (4) fluency-vs-content CE probes (A-unique/B-unique
+lines). Results land in runs/e003/ — next heartbeat harvests and THINKING.md
+gets the T002 resolution.
+
+## E011a — write norms vs lesion damage (2026-09-24) — DONE
+
+WHAT WE DID: measured mean residual write norms (per token) of every
+attention/MLP block on val batches; compared to E001 lesion damage (T001
+discriminator 1, zero training).
+
+WHAT WE SAW:
+- **H4 (write-norm confound) REFUTED.** Attention write norms are NOT
+  monotone in depth ([2.72, 2.49, 3.31, 2.73, 2.39, 1.93] — layer 2 writes
+  the most), yet damage still falls monotonically. Damage per unit write:
+  attn [0.88, 0.70, 0.32, 0.14, 0.08, 0.02] — an 11× efficiency gradient.
+  The front-loading is information architecture, not geometry.
+- MLP write norms RISE with depth (1.82 → 5.64); MLP-5 writes the largest
+  residual in the net yet ablation costs only +0.59 nats. Late MLPs write
+  large, dispensable content — new open anomaly (for whom/what is it
+  writing?). MLP-0 damage-per-write (0.95) is 5-10× any other MLP.
+- Registered prediction "write norms will not decline monotonically" was
+  CONFIRMED — first register-then-run success of the discipline.
+
+WHAT'S NEXT: T001's remaining discriminators: mean-replace ablations and
+LN-only recalibration (H2, off-manifold artifact) — e011 proper. And the new
+anomaly: what does MLP-5 write? (logit-lens on its output direction space).
+
+---
+
 ## 2026-09-24 — The pivot (context entry)
 
 After three programs (neural genome transplants, LLM control surfaces,

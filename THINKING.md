@@ -37,8 +37,15 @@ writes" — a geometry fact wearing an anatomy costume.
 specialized; importance might migrate up with longer training.
 
 **Discriminating observations (cheap → expensive):**
-1. Measure per-block residual write norms (no training). If write norm tracks
-   damage, H4 gains weight; if not, H4 weakens.
+1. ~~Measure per-block residual write norms~~ **DONE (E011a, 2026-09-24): H4
+   REFUTED as the explanation.** Write norms per token: attn [2.72, 2.49,
+   3.31, 2.73, 2.39, 1.93] — NOT monotone (L2 writes the most!); mlp [4.32,
+   1.82, 2.27, 2.73, 3.36, 5.64] — RISES with depth. Yet damage/write-norm
+   still falls 11× across attention layers [0.88 → 0.02]. The front-loading
+   is information architecture, not residual scale. New anomaly for the list:
+   MLP-5 writes the largest residual in the net (5.64/token) yet costs only
+   +0.59 nats to ablate — late MLPs write large, dispensable content. (What
+   is it writing, and for whom?)
 2. Mean-replace instead of zero (keep block's mean activation): if damage
    collapses, H2 (miscalibration) explains much of the lesion map.
 3. Ablate-then-recalibrate: freeze everything, fine-tune ONLY LayerNorm
@@ -102,6 +109,21 @@ for same-corpus halves); no lr in the sweep achieves ΔA ≥ 1 with ΔB ≤ 0.1;
 selectivity WILL appear for the dissimilar splice. If these hold, the real
 research question shifts from "how to unlearn" to "what is the content-
 distance dependence of achievable selectivity" — a curve, not a method.
+
+**INTERIM RESOLUTION (E003, 2026-09-24, partial):** Prediction 1 REFUTED —
+cos(A,B) = **0.345**, barely below within-half baselines (0.363 / 0.390);
+dissimilar French is far lower (0.144). Same-corpus halves are NOT
+gradient-parallel. Yet anti-selectivity persists even at lr 1e-6 (ΔA +0.29 vs
+ΔB +0.27 at step 200 — a gentle walk along grad_A itself damages B equally).
+**H2 must be restated:** the shared damage substrate is NOT first-order
+gradient alignment. Candidate restatement: the model sits at a trained
+minimum where ANY weight motion raises loss broadly (shared fluency
+substrate), so first-order ascent cannot be content-selective regardless of
+gradient geometry; content-selective forgetting must exploit higher-order
+structure (curvature, or second-order/Hessian directions), or must target
+weights by specificity rather than by gradient. Arms 3-4 of E003
+(dissimilar-content ascent; fluency-vs-content CE) will adjudicate between
+"fluency collapses first" (H3) and "content-distance dependence" (revised H2).
 
 **Design consequence:** e003 is redesigned around these discriminators
 (gradient cosine + dissimilar-content arm + fluency/content split + fine LR
