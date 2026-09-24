@@ -7,6 +7,34 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 4 — full panel (2026-09-24T14:50Z) [RESTORED 15:47Z: the original
+write block failed on a syntax error before executing; commit c049c3c's
+message wrongly claimed it]
+
+Panel: INTERPRETER + IDEATOR + CRITIC.
+
+### CRITICAL (CRITIC): THINKING.md had LOST six cards to string-surgery at
+c315374 — RESTORED from git 0c21722; EDIT RULE added (anchored edits only).
+
+### INTERPRETER (accepted)
+1. Depth-census instrument is the load-bearing uncertainty -> e018 deparked
+   as afternoon-first (instrument validation).
+2. C3 ceiling bias runs UP (verdict survives, 3.5x margin); step-matched
+   ceiling replicates queued.
+3. C4 reworded: 'redundant second channel' (joint lesion pending).
+4. v010 poster: CEILING-label + cross-corpus caveat -> v010.1 (DONE).
+
+### IDEATOR (adopted): afternoon arc = 'Can we EDIT the organism?'
+T011 gate -> e042 atlas -> e043 install -> e044 scar -> e024 reconsolidation
+-> e036 head transplant -> e040 graft-evolution. e005s gated.
+
+### CRITIC (applied): queue truth pass; ratio 26/74 -> mandated thinking
+blocks; checkpoints 241MB noted.
+
+---
+
 ## Review 3 — full panel (2026-09-24T13:35Z)
 
 Panel: INTERPRETER + IDEATOR + CRITIC. Reviewed: E021, V009(+amendment),

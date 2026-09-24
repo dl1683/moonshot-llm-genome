@@ -13,13 +13,13 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e013d | interference audit | DONE | P1+P2 refuted: no repeat interference (91% no divergent match); gains shuffle-robust, incoherent far hurts MORE — far context = bulk statistics, T007 closed |
 | e029 | seed × regime transplant matrix | DONE | ΔW-alignment CONFIRMED (same-init +0.152 vs diff-init ≈0.000 — orthogonal training motion); seed dominance is MLP-specific (ρ 2-3.6), attention portable; R-host MLP-L0 regime-dominant |
 | e028 | cross-anatomy transplant | DONE | P3 REFUTED REVERSED (ρ=0.874): organs portable; incompatibility follows seed/init lineage; keystone asymmetry both ways; trained-foreign > random interference |
-| e019 | MLP-5 thermostat | READY | scale MLP-5 write by α∈{0,.5,1,2} + rotate; entropy/top-k/CE response — direct causal test of the energy-carrier claim (eval-only, minutes) |
-| e003b | corrected ascent instruments | READY | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
+| e019 | MLP-5 thermostat | DONE | scale MLP-5 write by α∈{0,.5,1,2} + rotate; entropy/top-k/CE response — direct causal test of the energy-carrier claim (eval-only, minutes) |
+| e003b | corrected ascent instruments | DONE (superseded by e003c) | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
 | e013 | rare-token causal mask | SUPERSEDED | census found no concentrated rare-token heads; replaced by context-truncation design |
 | e014c | write-clamp training | PARKED (R2) | clamp ‖w‖ ≤ α·‖x_in‖ during training (or eval-time rescale L0/L5 writes ×{0.5,2,4}) — decisive test of "damage tracks write allocation" (P3 passed correlationally) |
 | e018 | causal depth | PARKED (R2) | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
-| e014b.1 | replication seed | READY (debt) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |
-| e011c-ci | bootstrap CIs | READY (debt) | resample eval batches for e011c rotate/zero ratios (MLP-L1 ×2.95, MLP-L5 ×0.24 beyond noise?) |
+| e014b.1 | replication seed | DONE (e030 slot) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |
+| e011c-ci | bootstrap CIs | DONE (e030 slot) | resample eval batches for e011c rotate/zero ratios (MLP-L1 ×2.95, MLP-L5 ×0.24 beyond noise?) |
 | e001–e003, e011a/b/c, e012, e014b | — | DONE | see NOTES.md |
 | e027 | predict-and-poke | PARKED | (was e013 collision) pick a direction that should flip a behavior, poke it, score prediction vs surprise |
 | e004–e011, e015, e016 | — | PARKED | no live-hypothesis discrimination; e011 refolded into e019 |
@@ -29,6 +29,8 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | id | viz | status | one-liner |
 |---|---|---|---|
 | v001 | token journey | DONE | decision-depth observable discovered (T004); authority schedule visualized |
+| v009 | dw-portability atlas | DONE |
+| v010 | self-portrait | DONE (v010.1 labels verified) |
 | v002 | attention atlas | DONE | locality funnel (L0→L3→L4/L5); L5 local-abandonment real, rarity = one head (Review 1) |
 | v006 | decision-depth passage map | DONE | letters late / structural chars early; 51% finalize at L5 |
 | v007 | funnel film | PARKED | animation through depth: distance histograms + rare-token spotlight on dialogue |
@@ -39,15 +41,12 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 ## Parking lot (raw ideas, unranked)
 
-- e035 task-net anatomy (R3 top): eval-only on e021 ckpts — lesion map, off-COPY depth census, ΔW atlas vs Shakespeare nets
-- e038 L4-H1 causal lesion: zero the retrieval head at COPY; do decisions migrate to L5 or collapse?
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
 - e036 retrieval-head transplant: does L4-H1 carry its decision mode into another net?
 - v010 synthesis poster: three tasks × {lesion, depth, write schedule, funnel} — the lab's first self-portrait
 - e039 reconsolidation on the task net (retrieval-gated labilization with a real circuit)
 - e040 graft-evolution: select lineages by graft damage; is init-anchoring evolvable?
 - e005s mini-ladder 0.7M/2.7M/8M × 2 seeds (GATED on mechanism card T010)
-- ΔW ceiling null: same-init different-data-order replicate (~200s train) — scales the +0.152 alignment
 - e031-alternative control: spectrum-matched random W_out (LN-statistics rescue test)
 - e023 entity-granularity forgetting; e024/e026 bio/evolution raw ideas
 
