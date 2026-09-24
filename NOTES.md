@@ -11,6 +11,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E035 + E038 — task-net anatomy + causal head lesion (2026-09-24) — DONE
+
+E035 (eval-only on the e021 task net):
+- **Q1: allocation NOT reorganized; lesion maps are blind to task circuits.**
+  Attn damage [3.03, 2.04, 0.64, 0.45, 0.24, 0.03] vs Shakespeare [2.40,
+  1.74, 1.06, 0.38, 0.19, 0.03] — no L4 spike (COPY is ~5% of tokens, so
+  the whole L4-attn block costs +0.24 corpus nats while ONE head inside it
+  costs +1.67 at COPY positions). Position-resolved instruments are
+  mandatory for task-elicited circuits. MLP-0 keystone even larger (4.90).
+- **Q2: ONE net holds TWO stage profiles.** JS(filler, Shakespeare) = 0.010
+  (filler pipeline ≈ Shakespeare's; L5 61.9%) vs JS(filler, COPY) = 0.272
+  (COPY at L4, 88.3%). Profiles are selected per-position, not a global
+  rewiring. Control net's filler census also Shakespeare-like.
+- **Q3: init-anchoring task-independent — slightly STRONGER than the B↔R
+  band** (W_in 0.622 vs 0.531; W_out 0.313 vs 0.261). Growing a retrieval
+  circuit did not pull the net off the shared init trajectory.
+
+E038 (causal lesion of retrieval head L4-H1):
+- **Registered collapse verdict: NOT-CAUSAL (42% acc drop, bar >50%) — the
+  dedicated-head reading dies; retrieval is a redundant cooperative fan.**
+  Boundary reading: zeroing one head of 36 takes COPY CE 0.007→1.681
+  (+1.674 = 51.3% of the distance to chance) and accuracy 99.96%→58.0%
+  (15× chance; residual uniform across nonce positions) with PERFECT
+  locality (filler CE −0.0006; whole-corpus +0.056). L4-H1 is causally the
+  single largest retrieval channel — about half the nonce information —
+  the other half in a distributed backup. E011b's cooperative-fan doctrine,
+  now at the retrieval layer. Control head: nothing moves.
+
+WHAT'S NEXT: card v2 updates (C4 language, C1 two-profile refinement, C3
+task-independence) folded next edit. Review due ~14:35Z.
+
 ## E003c + E019 — dose-to-bar and the MLP-5 thermostat (2026-09-24) — DONE (record corrected per full report)
 
 E003c (exact projection dosed to the 0.66-nat forgetting bar; 2 seeds +

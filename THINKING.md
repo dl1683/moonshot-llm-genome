@@ -45,8 +45,13 @@ is task-elicited, not architectural.** Shakespeare: L5 calibration local
 far-value bimodal but structure-insensitive (gains shuffle-robust, hurts
 shuffle-amplified; e013a/c/d). Task: noiseless retrieval (CE 0.007,
 far-value ln 26, head L4-H1 95.1% ID-mass, control clean; e021).
-Debt: retrieval head is correlational n=1 — e038 causal lesion RUNNING;
-e035 task-anatomy RUNNING. Falsifier: L4-H1 lesion leaving copy intact.
+RESOLVED (e035/e038): L4-H1 is causally the LARGEST retrieval channel
+(~51% of distance-to-chance) inside a REDUNDANT cooperative fan (copy
+survives at 58%=15× chance with perfect locality) — not a dedicated organ.
+One net holds TWO stage profiles (JS(filler,Shakespeare)=0.010 vs
+JS(filler,COPY)=0.272), selected per-position. Lesion maps are blind to
+task circuits (COPY ~5% of tokens). Init-anchoring is task-independent
+(slightly stronger than B↔R).
 
 **C5 (CLOSED, negative) — First-order ascent cannot content-selectively
 forget.** At the 0.66-nat bar: naive r=1.23, projection r=1.43 (margin
