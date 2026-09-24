@@ -27,6 +27,25 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E047 — positive-claims replication sweep: card v3's gate (2026-09-24) — DONE
+
+WHAT WE DID: 3 surviving positives × 5 nets (references near-bit-exact;
+renorm liveness asserted; uniform-floor batteries).
+
+WHAT WE SAW (T017 = card v3):
+- **L5-calibrator SURVIVES 5/5** (KL 0.91-1.08, ablation ≤0.046) → first
+  positive at H under the min-nets rule.
+- **MLP-5 energy carrier SURVIVES 5/5** (zero/rotate 0.25-0.34, graceful
+  α everywhere) → H.
+- **Shared-L0 name machine DIES as stated** (2/5, seed-42 only) →
+  distributional form: L0 BLOCK top-1 in 20/20 cells; sublayer allocation
+  is a lineage lottery.
+
+WHAT'S NEXT: card v3 declared (T017 preamble). Night program continues
+(e048 expression gap next; e044 rerun in flight).
+
 ## E046 — C6 replication: two-factor erasure does NOT replicate (2026-09-24) — DONE
 
 WHAT WE DID: the two-factor recipe on B43 + BDO (own-head and B's-recipe

@@ -7,6 +7,35 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T017 — CARD v3: the replication sweep's three stamps (E047, 2026-09-24T23:55Z)
+
+**The gate inputs (5 nets each, reference reproductions near-bit-exact,
+renorm-liveness asserted):**
+1. **L5-CALIBRATOR: SURVIVES 5/5 → enters C-card at H** (first positive to
+   earn it under the min-nets rule). KL(L5‖L4) 0.91-1.08 nats at ablation
+   cost ≤ +0.046 in every anatomy — big reshaping, near-zero removal cost,
+   universal. THE most robust mechanism finding of the day.
+2. **MLP-5 ENERGY CARRIER: SURVIVES 5/5 → H.** Zero/rotate ratio 0.25-0.34
+   (zero costs 3-4× direction-scramble at matched energy), graceful
+   α-scaling in all 10 cells. Late MLP magnitude is load-bearing
+   everywhere; its direction barely.
+3. **SHARED-L0 NAME MACHINE: DIES AS STATED (2/5 — only the seed-42
+   lineage; renorm nets pushed it to L0-attn with L0-MLP dissolved).**
+   Post-hoc salvage (flagged unregistered): the L0 BLOCK (either sublayer)
+   is the top-1 name-completion block in **20/20 net×name cells** —
+   "L0-block = universal early-local name machinery; attn-vs-MLP
+   allocation is a lineage lottery" (consistent with e014b's keystone
+   dissolution). Enters card v3 in distributional form.
+
+**CARD v3 PREAMBLE (adopted):** laws-not-mechanisms; min-nets-per-claim
+(H requires ≥3); mechanism claims stated as distributions with their
+ensemble spread. The card's claims after v3: C1 qualitative causal gate
+(scoped) + L5-calibrator (H); C2 plastic anatomy + energy-carrier (H);
+C3 partial anchoring ladder (causal); C4 retrieval task-elicited, L4-H1
+dominant-in-one-net (sample); C5 ascent-fails (universal negative);
+C6 address-surgery general damager / completion net-specific;
+C7 edit asymmetry: removal surgical / install plastic / expression third.
+
 ## T016 — C6 DEMOTED: two-factor erasure does not replicate (E046, 2026-09-24T23:28Z)
 
 **The replication verdict (2 hosts, 4 cells, full honesty battery):**
