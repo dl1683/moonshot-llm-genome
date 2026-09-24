@@ -9,6 +9,26 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E013c — far-value tail: far context is a double-edged sword (2026-09-24) — DONE
+
+WHAT WE DID: per-position far-value = CE(16-ctx) − CE(256-ctx) over 2000
+held-out positions; distribution, tails, correlation with local difficulty;
+top/bottom context examples.
+
+WHAT WE SAW:
+- **Bimodal, not average-zero:** 30.6% of positions gain ≥+0.15 nats (top
+  decile +1.60, p99 +2.96); 28.2% LOSE ≥0.15 (bottom decile −1.68).
+  "16-token sufficiency" hid a tug-of-war.
+- P1, P2 confirmed; P3 refuted (ρ=0.133 — far-value tracks the position,
+  not its local difficulty).
+- Top gainers = locally-ambiguous rare continuations resolved by far context
+  ("the carp"→T, "ere "→s). Losers = far context actively misleading
+  (candidate mechanism: interference from earlier similar n-grams with
+  different continuations — T007/H1).
+
+WHAT'S NEXT: T007 discriminators — divergent-continuation n-gram proximity
+for losers; shuffled-far context collapse test. e028 running in background.
+
 ## E013 — context truncation: L5's calibration is LOCAL; far context is worth ~0 (2026-09-24) — DONE
 
 WHAT WE DID: same 300 held-out windows at full-256 vs last-16 tokens; measured

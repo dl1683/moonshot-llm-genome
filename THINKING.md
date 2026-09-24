@@ -285,6 +285,49 @@ organisms; lesion maps are their current addresses.**
   (v008 multi-seed phylogeny) test whether whole-organ degeneracy respects
   anatomy boundaries.
 
+## T007 — Far context is a double-edged sword: the bimodal far-value distribution (2026-09-24T11:55Z)
+
+**Observed (E013c, 2000 positions):** far-value = CE(16 ctx) − CE(256 ctx)
+has mean ≈ 0 but is NOT concentrated there: **30.6% of positions gain ≥ 0.15
+nats** (top decile mean **+1.60**; p99 +2.96) while **28.2% LOSE ≥ 0.15**
+(bottom decile −1.68). "16-token sufficiency" was an average hiding a
+tug-of-war. P1+P2 confirmed (tail exists and is heavy); P3 refuted (far-value
+does NOT simply track local difficulty, ρ=0.133 — it tracks something about
+the POSITION, not its hardness).
+
+Top gainers: locally-ambiguous rare continuations ("the carp" → "T",
+"ere " → "s", "Thus in pl" → "e") — far context disambiguates (or the model
+memorized the passage).
+
+**Hypotheses for the two populations:**
+- **G1 (disambiguation):** gainers are positions whose local window is
+  consistent with multiple distinct continuations present in the corpus;
+  only far context (or memorized uniqueness) picks the right one.
+- **H1 (interference):** losers are positions where the far context contains
+  an earlier similar n-gram whose CONTINUATION differs (repetition priming
+  pulls the prediction toward the wrong repeated pattern — Shakespeare
+  repeats phrases with variations). Far context misleads via induction-like
+  copying.
+- **H2 (noise/settling):** losers are just positions where the model's
+  long-context representations are miscalibrated — no specific interfering
+  pattern exists.
+
+**Discriminating observations:**
+1. For loser positions, search the far context for max n-gram similarity
+   (longest common suffix-match with a different following char). H1
+   predicts losers have systematically closer divergent-continuation
+   matches than neutral positions.
+2. Shuffled-far context (destroy far structure, keep length): both tails
+   collapse toward 0 if structure-driven (H1+G1); a surviving tail is
+   length/artifact-driven (H2).
+
+**Registered predictions:**
+- P1: loser positions have a closer divergent-continuation n-gram in far
+  context than neutral positions (effect ≥ 0.5σ).
+- P2: shuffled-far context collapses BOTH tails substantially (bottom-decile
+  mean rises from −1.68 to ≥ −0.5 AND top-decile falls from +1.60 to ≤ +1.0)
+  — structure drives both; either tail surviving implicates H2 for it.
+
 ## T005 — The locality funnel and L5's rare-token re-globalization (2026-09-24T11:12Z)
 
 **Observed (V002 attention atlas):** attention locality has a depth profile —

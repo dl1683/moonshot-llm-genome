@@ -8,7 +8,8 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 |---|---|---|---|
 | e013a | attention census | DONE | funnel replicates at scale (far-mass U 0.80→0.09→0.54); L5 abandons local in 82.5% of prompts; rare-token story DEAD (0 concentrated heads, flat surprisal) |
 | e013 | context-truncation calibration test | DONE | REFUTED: L5 calibration is local (KL −6.9%); 16-token sufficiency — far context worth ≈0 nats at char level; mid-stack readouts anti-informative |
-| e013c | far-value tail distribution | READY | per-position (full−trunc) ΔCE: uniform ≈0 or rare far-dependent positions? gates any future long-range claim |
+| e013c | far-value tail | DONE | bimodal: 30.6% gain (decile +1.60), 28.2% HURT (decile −1.68) — far context is a double-edged sword; T007 written |
+| e013d | interference audit | READY (next) | T007 discriminators: divergent-continuation n-gram proximity for losers; shuffled-far collapse test |
 | e028 | cross-anatomy transplant | READY | design memo complete (scratch/e028_transplant_design.md): C0 self-transplant gate, seed-43 within-control, R=transplant/ablation bands; tests T006 P3 |
 | e019 | MLP-5 thermostat | READY | scale MLP-5 write by α∈{0,.5,1,2} + rotate; entropy/top-k/CE response — direct causal test of the energy-carrier claim (eval-only, minutes) |
 | e003b | corrected ascent instruments | READY | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
