@@ -8,6 +8,10 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 | e003 | forgetting selectivity frontier | DONE | P1 refuted (cos A-B 0.345), P2 confirmed (no selective LR), P3 refuted (French unlearning not selective either) — see NOTES.md |
 | e003b | transient-selectivity audit + repair | READY (pending T002 final) | read early trajectory steps for a selectivity window; if found: early-stop + fluency-anchor ascent; if not: weight-targeted (low-overlap) or second-order ascent |
 | e011a | write norms vs damage | DONE | H4 refuted: norms not monotone; damage/write falls 11× across attn layers; MLP-5 writes most, matters least |
+| e011b | L0 redundancy + orthogonal innovation | DONE | 7.6× superadditive head ensemble; same-norm noise > zero everywhere; stream 8.4× jump at L0 — see T003 |
+| e011c | matched-perturbation control | READY (next) | 60°-rotated writes (‖w′−w‖=‖w‖): damage≈zero → geometry; damage≫zero → content. Settles T003 B vs C |
+| e014b | stream-renorm training | READY | train fresh net with constant-norm residual stream at block inputs; T003-B predicts lesion map flattens |
+| e003b | corrected ascent instruments | READY | dense steps 0–30; projected + masked (top-k A-specific) ascent; target=train-A CE (memorization), collateral=val_B CE (labels fixed per critique) |
 | e011 | MLP-0 anatomy | READY | what does the keystone organ (+4.08 nat lesion) store? probe, ablate-then-finetune recovery cost |
 | e012 | vestigial attention | READY | attn-L5 costs only +0.03 — vestigial or quietly specialized? read its attention patterns |
 | e001 | lesion map | DONE | see NOTES.md — front-loaded attention, keystone MLP-0, 16/48 dispensable |

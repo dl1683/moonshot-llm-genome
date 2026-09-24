@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E011b — L0 redundancy sweep + orthogonal-innovation control (2026-09-24) — DONE
+
+WHAT WE DID: eval-only discriminators from the critique harvest: (1) all 63
+L0 head-subset lesions; (2) same-norm random replacements of every attention/
+MLP write (orthogonal-innovation control); (3) residual-stream norm profile at
+block inputs. runs/e011b/redundancy_ortho.png.
+
+WHAT WE SAW:
+- **L0 heads are a cooperative ensemble with graceful degradation:** singles
+  mean +0.05 nats (one slightly negative), yet all-6 = +2.40. Sum of singles
+  0.317 vs joint 2.403 = 7.6× superadditivity. Keeping 1 of 6 heads still
+  leaves 94% of full-ablation damage. Hook implementation validated exactly
+  (all-6 head-zero 2.403 ≈ block-zero 2.401).
+- **Same-norm random writes hurt more than zeroing** everywhere — attn L0
+  +3.66 vs +2.40; MLP L1 0.82 vs 0.15 (5.4×). Ratios exceed the √2
+  perturbation-scale prediction for MLPs and late attention → downstream is
+  calibrated to write direction, not just magnitude.
+- **Stream norm:** 0.67 at block 0 → 8.4× jump → plateau ~5.5. Write/stream
+  ratio falls ~12× L0→L5.
+- Emerging mechanism (see THINKING T003): the residual stream's norm growth
+  may SCHEDULE each block's angular authority — front-loaded lesion maps
+  could be partly architecture, not learning.
+
+WHAT'S NEXT: e011c matched-perturbation control (60°-rotated writes) settles
+geometry-vs-content per component; e014b stream-renorm training tests the
+authority-schedule hypothesis directly. e003b (corrected ascent instruments)
+still queued.
+
 ## E003 — forgetting selectivity frontier (2026-09-24) — DONE
 
 WHAT WE DID: T002 discriminator suite: (1) gradient cosines (A↔B vs within-half

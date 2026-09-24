@@ -9,6 +9,122 @@ interpretation entry, the next heartbeat thinks instead of runs.
 
 ---
 
+## T003 — What E011b says about authority, redundancy, and geometry (2026-09-24T10:4xZ)
+
+**Observed (E011b, eval-only):**
+1. **L0 head subsets:** singles mean +0.05 (max +0.165, one slightly
+   negative); damage by subset size 1→6: 0.05, 0.36, 1.01, 1.77, 2.27, 2.40.
+   Sum of singles 0.317 vs all-6 2.403 = **7.6× superadditivity**. Internal
+   validation: all-6 head-zero (2.403) ≈ whole-block zero (2.401) — the hook
+   implementation is exact (closes critique #8).
+2. **Orthogonal-innovation:** same-norm random writes damage MORE than zeroing
+   everywhere: attn [3.66 vs 2.40, 2.41 vs 1.74, 1.78 vs 1.06, 0.78 vs 0.38,
+   0.38 vs 0.19, 0.10 vs 0.03]; mlp [4.44 vs 4.08, **0.82 vs 0.15**, 0.72 vs
+   0.27, 0.84 vs 0.47, 0.89 vs 0.60, 1.00 vs 0.59].
+3. **Stream norms at block inputs:** [0.67, 5.66, 6.14, 5.12, 5.20, 5.62] —
+   an 8.4× jump at block 0, then a plateau.
+
+**Reading A — cooperative ensemble, not backups (finding 1):** L0's heads are
+a graceful-degradation fan: each is nearly dispensable alone, but damage grows
+steeply with subset size (keep 1 head → 94% of full-ablation damage). They
+are small parallel contributions, not redundant copies of each other.
+Single-lesion anatomy maps CANNOT see this; joint criticality is ~7.6× the
+sum of marginal criticalities.
+
+**Reading B — the authority-schedule hypothesis (findings 2+3, the big one):**
+downstream blocks read LN(x), which is scale-invariant — what a write can
+change is the ANGULAR position of LN(x), bounded by ~‖w‖/‖x‖. The stream
+grows 8.4× at block 0 and then plateaus, so **write-norm/stream-norm falls
+~12× from L0 to L5** (attn-L0 writes 4× its incoming stream; attn-L5 writes
+0.34×). Under this reading the front-loaded lesion map is partly ARCHITECTURE,
+not learning: layer 0 structurally holds the most authority per parameter,
+late blocks are architecturally incapable of large angular moves. The network
+schedules authority by stream growth.
+
+**Reading C — noise poisons more than absence (finding 2):** zeroing removes
+information; a same-norm random write injects misinformation. Perturbation
+norms differ only by ~√2, but observed zero→random ratios run 1.4× (attn L0-L1
+≈ pure geometry) to 5.4× (MLP L1: 0.15→0.82) — far beyond √2 for MLPs and
+late attention. Where the ratio exceeds √2, downstream computation is
+calibrated to the write's DIRECTION (content matters, and actively).
+
+**Discriminating observations:**
+1. **Matched-perturbation control (e011c, minutes):** replace write w by w′
+   rotated exactly 60° so ‖w′−w‖ = ‖w‖ = perturbation of zeroing. If damage
+   ≈ zero-damage → geometry; if ≫ → content. Settles B vs C per component.
+2. **Authority-schedule intervention (e014b, the real test of B):** train a
+   fresh net with the stream renormalized to constant norm at every block
+   input (hook). B predicts the lesion map flattens (late damage rises, L0
+   dominance drops). If the map stays front-loaded without stream growth,
+   learning, not architecture, owns the front-loading.
+
+**Registered predictions:**
+- P1 (e011c): attention L0-L1 matched-perturbation damage ≈ zero damage
+  (geometry-dominated); MLP L1-L5 matched-perturbation damage > 1.3× zero
+  damage (content-dominated).
+- P2 (e014b): stream-renormalized training flattens the attention damage
+  profile by ≥50% (L5 damage rises well above +0.03; L0 falls below +2.0).
+- P3: damage-per-write across attention layers correlates ≥0.8 with
+  write/stream ratio (the geometric authority term) — checkable now from
+  existing numbers.
+
+---
+
+## T001/T002 AMENDMENTS — adversarial critique harvest (2026-09-24T10:2xZ)
+
+Full critique: `scratch/critique_T001_T002.md`. Corrections accepted (append-
+only; original entries above stand as written, amended here):
+
+**T002 amendments:**
+1. **EVAL LABELING BUG (serious):** `val_a` = corpus 90–95% and `val_b` =
+   95–100% — BOTH are late-corpus (B-side) text. The model trained on all of
+   0–90%, so A-side held-out text never existed. Consequences: the
+   "collateral runs ahead of target" claim is RETRACTED (it was also a grid
+   artifact: interpolated ΔB at ΔA=1.0 was 0.93, behind); the r(t)≈1.0 result
+   measures damage uniformity across two B-side sets, NOT target-vs-
+   collateral. What survives untouched: total collateral collapse (held-out
+   text CE exploded at every dose) and no-selective-operating-point. What was
+   never measured: target-side damage. → e003b must use train-A CE
+   (memorization readout) as the target metric, val_B as collateral.
+2. **"≈ random" WRONG:** final CE ≈ 27 nats vs ln(65) = 4.17 — the model went
+   6.6× PAST random into actively anti-informative predictions. Ascent
+   doesn't randomize the net; it inverts it. (Worth its own question: what
+   does the model systematically over-predict post-ascent?)
+3. Probe names mislabeled (PROSPERO lives in the val region, never trained;
+   ROMEO straddles the A/B boundary) — generation probes were not A/B-valid.
+4. French was filtered to the 65-char vocab (accents stripped) — the
+   dissimilar arm is "accent-stripped French", still valid as dissimilar
+   content, but note it.
+5. Standing after amendment: first-order ascent produces TOTAL collateral
+   damage; gradient space separates same-corpus vs French (frequency caveat:
+   the separation may be unigram-frequency distance, not content — normalize
+   out the unigram-gradient component before trusting it as "content").
+
+**T001 amendments:**
+6. **H4 weakened, not refuted:** E011a measured ABSOLUTE write norms, but the
+   residual stream grows ~0.39 → ~10.7 across depth, so RELATIVE perturbation
+   (write/stream) still falls ~40× with depth. The geometry confound survives
+   in relative form. New discriminator: **orthogonal-innovation control** —
+   replace each block's write with a same-norm random vector; if damage ≈
+   zero-ablation damage, scale/geometry explains it; if damage is much
+   different, content structure matters.
+7. **The real E001 finding is redundancy (underweighted):** all 36 single-head
+   damages sum to 2.10 < attn-L0 alone (2.40); within-L0 heads are ~7.6×
+   superadditive. Cumulative ablation should target L0's heads, not L4+L5.
+8. Arithmetic fix: damage-per-write falls 51.9× (0.882→0.017), not 11×; MLP
+   write norms are U-shaped (4.32→1.82→5.64), not monotone; the efficiency
+   front-loading is ATTENTION-specific (MLP damage-per-norm rises L1→L4).
+9. Single-lesion damage is MARGINAL contribution, not counterfactual
+   necessity (redundant routes hide behind each other).
+10. Global caveats: single seed everywhere; truncated training schedule
+    (240 s cap; "converged" means "budget-converged"); e003b/e011b should
+    carry at least one replication seed.
+
+**Revised discriminating queue:** e011b (eval-only, minutes): L0 head-subset
+redundancy sweep + orthogonal-innovation control + stream-norm profile.
+e003b (corrected ascent instruments): dense steps 0–30; projected ascent;
+masked ascent — target metric = train-A CE, collateral = val_B CE.
+
 ## T001 — What does the E001 lesion map actually show? (2026-09-24)
 
 **Observed:** attention damage strictly monotone with depth (L0 +2.40 → L5
@@ -110,20 +226,43 @@ selectivity WILL appear for the dissimilar splice. If these hold, the real
 research question shifts from "how to unlearn" to "what is the content-
 distance dependence of achievable selectivity" — a curve, not a method.
 
-**INTERIM RESOLUTION (E003, 2026-09-24, partial):** Prediction 1 REFUTED —
-cos(A,B) = **0.345**, barely below within-half baselines (0.363 / 0.390);
-dissimilar French is far lower (0.144). Same-corpus halves are NOT
-gradient-parallel. Yet anti-selectivity persists even at lr 1e-6 (ΔA +0.29 vs
-ΔB +0.27 at step 200 — a gentle walk along grad_A itself damages B equally).
-**H2 must be restated:** the shared damage substrate is NOT first-order
-gradient alignment. Candidate restatement: the model sits at a trained
-minimum where ANY weight motion raises loss broadly (shared fluency
-substrate), so first-order ascent cannot be content-selective regardless of
-gradient geometry; content-selective forgetting must exploit higher-order
-structure (curvature, or second-order/Hessian directions), or must target
-weights by specificity rather than by gradient. Arms 3-4 of E003
-(dissimilar-content ascent; fluency-vs-content CE) will adjudicate between
-"fluency collapses first" (H3) and "content-distance dependence" (revised H2).
+**FINAL RESOLUTION (E003 trajectory audit, 2026-09-24T10:20Z):** No transient
+selectivity window exists. r(t) = Δtarget/Δcollateral over the full
+trajectories:
+
+- LR sweep (same-corpus): r peaks at **1.09** during gentle ascent (lr 1e-6/3e-6
+  early steps) and DECAYS to 1.01–1.02 as damage grows.
+- Dissimilar arm (French): r ≈ **1.02–1.05 at every point** from step 25 on.
+- Implant context: teaching French (400 steps) itself cost Shakespeare +0.44
+  nats — interference is bidirectional; the substrate was never clean.
+
+**Hypothesis verdicts (T002):**
+- H1 dose pathology — **DEAD**: anti-selective at every lr; r is
+  dose-independent.
+- H2 gradient parallelism (as stated) — **DEAD** (cos 0.345).
+- H2′ shared-fluency-substrate dominates — **STRONGLY SUPPORTED**: ~97% of
+  ascent damage is content-independent. This is the surviving mechanism claim:
+  *in a converged small LM, first-order ascent cannot produce content-
+  selective forgetting; the walk immediately enters the shared fluency
+  subspace.*
+- H3 measurement axis — **superseded** by the r(t) analysis (the shared
+  component IS the fluency substrate; measuring it separately changes nothing).
+- H4 wrong instrument — **THE LIVE ONE**: gradient space separates content
+  (0.345 same-corpus vs 0.144 French) but uniform optimizer steps don't
+  exploit that. Two candidate instruments: (a) *projected ascent* — step along
+  g_A minus its component along the mean B-gradient direction; (b) *masked
+  ascent* — step only on weights with high A-specificity (|g_A| high, |g_B|
+  low).
+
+**Registered predictions (e003b):**
+- P1: projected ascent lifts r to ≥ 1.5 at gentle doses. If r stays ≤ 1.2
+  even with the B-direction projected out, the fluency subspace is
+  HIGH-DIMENSIONAL and first-order selective forgetting is impossible in this
+  regime — a small law worth stating precisely.
+- P2: masked ascent (top ~10% A-specific weights) lifts r to ≥ 2.
+- P3: the sub-25-step window (dense sampling, every 5 steps) also shows r
+  ≤ 1.2 (i.e., the shared-subspace entry is immediate, not a fast transient
+  we missed).
 
 **Design consequence:** e003 is redesigned around these discriminators
 (gradient cosine + dissimilar-content arm + fluency/content split + fine LR
