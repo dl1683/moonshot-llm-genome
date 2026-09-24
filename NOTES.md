@@ -9,6 +9,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E003b — targeted/projected ascent: PROJECTION WORKS (r≈5-6) (2026-09-24) — DONE
+
+WHAT WE DID: from E001 checkpoint, 300-step ascent arms with critique-fixed
+labels (target = train-A memorization CE; collateral = val_B): naive (1e-6,
+1e-5), projected (ascent minus its component along the mean B-gradient
+direction, refreshed every 10 steps), masked (top-10% A-specificity weights
+only). runs/e003b/selectivity.png.
+
+WHAT WE SAW (registered verdicts resolved):
+- **PROJECTED ASCENT IS SELECTIVE: peak r = 4.84-6.13** (final Δtarget
+  +0.279 vs Δcollateral +0.090) — 3-4x above the registered 1.5 bar.
+  Forgetting CAN be aimed away from retained knowledge.
+- naive: r = 1.22 at both doses (replicates the morning's anti-selectivity
+  with corrected labels). masked: r = 1.84 (better than naive, below the
+  2.0 bar). masked+projected: degenerate (empty trajectory).
+- **Mechanistic bonus: the shared fluency substrate is LOW-DIMENSIONAL** —
+  projecting out ONE mean retain-direction rescues most of the selectivity.
+  T002's "shared substrate" now has a shape: mostly one direction.
+
+WHAT'S NEXT: T008 claim 5 amends to "selective first-order forgetting is
+possible via projection; naive/masked fail." Dose-response of projected
+ascent (how far can Δtarget go before r degrades?) is the natural follow-up
+(e003c). Review 3 due now.
+
 ## E031 — stream-facing matrix grafts: W_in is the violent one (2026-09-24) — DONE
 
 WHAT WE DID: host B received one matrix at a time from B43 (cross-seed,

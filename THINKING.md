@@ -400,6 +400,16 @@ positions; decision-depth census at COPY positions; locality funnel
   despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
   interpretation.
 
+**T008 CLAIM 5 AMENDED (E003b, 2026-09-24T13:28Z): selective first-order
+forgetting is POSSIBLE — via projection.** Corrected-labels test: naive
+ascent r=1.22 (anti-selective, replicated); masked r=1.84; **projected
+ascent r=4.84-6.13** (Δtarget +0.28 at Δcollateral +0.09). Removing the
+single mean retain-gradient direction aims the damage at the target —
+implying the shared fluency substrate is largely ONE-DIMENSIONAL in
+gradient space. Claim 5 final form: "naive and masked ascent cannot
+selectively forget; projected ascent can (r≈5); the shared damage substrate
+is low-dimensional."
+
 ## T008 — The anatomy of a 2.7M char transformer: first synthesis (2026-09-24T12:06Z)
 
 Assembling the morning's dissections into one picture. Confidence: H
