@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E029 — seed×regime 2×2 transplant + ΔW alignment: mechanism CONFIRMED (2026-09-24) — DONE
+
+WHAT WE DID: trained R43 (seed-43 renorm, parity PASS val 1.5596), then the
+full 2×2 matrix (54 cells, 3 hosts × 6 organs, paired bootstrap CIs, C0
+bitwise gates clean) + the ΔW-alignment observable: cos(ΔW_donor, ΔW_host),
+ΔW = W_trained − W_init(seed). runs/e029/*.png.
+
+WHAT WE SAW:
+- **Mechanism CONFIRMED decisively: same-init pairs mean cos(ΔW) = +0.152;
+  different-init pairs ≈ 0.000 (max |cos| = 0.017 across 24 pairs).**
+  Training motion from different inits lives in almost perfectly ORTHOGONAL
+  parameter subspaces — organs refine init-anchored directions.
+- **Seed dominance is ORGAN-TYPE SPECIFIC:** MLP organs show strong seed
+  dominance (ρ = dCE(seed)/dCE(regime) 2.0-3.6 at L3/L5 across all hosts;
+  e028's violent cell replicates exactly: +1.990 vs +0.646); attention
+  organs are axis-insensitive (ρ 0.54-1.29 — portable either way). The one
+  regime-dominant organ: R-host MLP-L0 (keystone asymmetry pinned to the
+  regime axis, R=7.95 vs 1.49).
+- Both-axes changes are SUB-additive (median 0.49) — the two interference
+  modes overlap.
+- All-cell median ρ 1.007 (L0 cells saturate at the ablation ceiling;
+  ratio-of-medians 2.48) — the registered "seed dominates everywhere"
+  prediction refines to "MLP organs are seed-anchored; attention organs are
+  portable."
+
+WHAT'S NEXT: T008 claim 3 upgraded + refined. Open: why are attention organs
+portable across inits while MLP organs are not? (candidate: attention reads
+stream directions shared by all adequate solutions; MLP writes into
+seed-specific subspaces.)
+
 ## E028 — cross-anatomy transplant: P3 REFUTED reversed — organs are portable; incompatibility follows SEED (2026-09-24) — DONE
 
 WHAT WE DID: implemented scratch/e028_transplant_design.md (background agent):

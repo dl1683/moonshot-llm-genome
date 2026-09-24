@@ -296,20 +296,18 @@ model's long-range behavior is bulk-statistics + noise, not information
 retrieval. Long-range claims must be re-tested on tasks that provably
 require retrieval (copy spans; e021 task-swap).
 
-**T006 P3 RESOLVED (E028, 2026-09-24T12:12Z): REFUTED IN REVERSE — organs
-are anatomy-portable; incompatibility follows the SEED.** Median
-cross/within ρ = 0.874 (0/8 cells ≥2; cross ≤ within in 6/8; paired CIs
-negative in 8/8). B and R share seed-42 init; B43 differs only by seed —
-and same-anatomy-different-seed grafts are the violent ones (L3-mlp: within
-+1.99 vs cross +0.65). **Organ compatibility tracks initialization lineage
-more than training regime** — organs co-adapt to the shared init subspace,
-not to the regime's scheduling. Keystone asymmetry confirmed both ways
-(B's MLP-0 → R host R=7.95 worst interference; R's quiet MLP-0 → B host
-inert). Trained-foreign tissue misleads more than random tissue (S3) —
-interference is content-specific. NEW REGISTERED (e029): the clean 2×2
-seed(42/43) × regime(base/renorm) transplant matrix; prediction: the seed
-axis dominates the regime axis (ρ_regime ≈ 1, ρ_seed ≫ 1). T006/PL2
-(stages over anatomy) now has its causal support.
+**T006 P3 RESOLUTION AMENDED (E029, 2026-09-24T12:16Z): mechanism CONFIRMED,
+claim refined.** ΔW-alignment is decisive: same-init organ pairs cos = +0.152,
+different-init ≈ 0.000 (max |cos| 0.017) — **training motion from different
+inits is almost perfectly orthogonal in parameter space**; organs refine
+init-anchored directions. Seed dominance is organ-type specific: **MLP organs
+are seed-anchored (ρ 2.0-3.6), attention organs are portable across both
+axes** (ρ 0.54-1.29); the one regime-dominant organ is R-host MLP-L0 (the
+keystone asymmetry). T008 claim 3 upgraded to H (mechanism confirmed) and
+rewritten: "MLP-organ compatibility follows initialization lineage; attention
+organs are anatomy- and init-portable." New open question: why? Candidate:
+attention READS stream directions that all adequate solutions share; MLPs
+WRITE into seed-specific subspaces.
 
 ## T008 — The anatomy of a 2.7M char transformer: first synthesis (2026-09-24T12:06Z)
 
