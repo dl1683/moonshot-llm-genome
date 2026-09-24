@@ -1,0 +1,126 @@
+{
+  "experiment": "e012c_seed_deconfound",
+  "n_positions": 2000,
+  "sampling": "seed-12, identical to e012",
+  "nets": {
+    "B": {
+      "seed": 42,
+      "regime": "base",
+      "ckpt": "e001.pt",
+      "val_ce": 1.622391394774119,
+      "depth_histogram": [
+        1.0,
+        158.0,
+        46.0,
+        132.0,
+        160.0,
+        419.0,
+        1084.0
+      ],
+      "spearman_depth_entropy": 0.3222793638706207
+    },
+    "R": {
+      "seed": 42,
+      "regime": "renorm",
+      "ckpt": "e014b.pt",
+      "val_ce": 1.6099902311960856,
+      "depth_histogram": [
+        6.0,
+        20.0,
+        10.0,
+        10.0,
+        348.0,
+        524.0,
+        1082.0
+      ],
+      "spearman_depth_entropy": 0.3443688452243805
+    },
+    "B43": {
+      "seed": 43,
+      "regime": "base",
+      "ckpt": "e028_b43.pt",
+      "val_ce": 1.5695625305175782,
+      "depth_histogram": [
+        1,
+        161,
+        72,
+        101,
+        199,
+        439,
+        1027
+      ],
+      "spearman_depth_entropy": 0.3231036365032196,
+      "l5_finalization": 1027,
+      "class_mean_depth": {
+        "newline": 3.866,
+        "space": 3.791,
+        "uppercase": 5.483,
+        "lowercase": 5.112,
+        "punct": 4.596
+      }
+    },
+    "R43": {
+      "seed": 43,
+      "regime": "renorm",
+      "ckpt": "e029_r43.pt",
+      "val_ce": 1.559572164217631,
+      "depth_histogram": [
+        17,
+        4,
+        3,
+        52,
+        200,
+        636,
+        1088
+      ],
+      "spearman_depth_entropy": 0.32613614201545715,
+      "l5_finalization": 1088,
+      "class_mean_depth": {
+        "newline": 4.098,
+        "space": 4.728,
+        "uppercase": 5.542,
+        "lowercase": 5.537,
+        "punct": 5.064
+      }
+    }
+  },
+  "hist_correlation_4x4": {
+    "B|B": 0.8571429252624512,
+    "B|R": 0.8218098878860474,
+    "B|B43": 0.8549202680587769,
+    "B|R43": 0.8258464932441711,
+    "R|B": 0.8218098878860474,
+    "R|R": 0.8571428656578064,
+    "R|B43": 0.8333706259727478,
+    "R|R43": 0.8422605395317078,
+    "B43|B": 0.8549202680587769,
+    "B43|R": 0.8333706259727478,
+    "B43|B43": 0.8571428060531616,
+    "B43|R43": 0.8336154818534851,
+    "R43|B": 0.8258464932441711,
+    "R43|R": 0.8422605395317078,
+    "R43|B43": 0.8336154818534851,
+    "R43|R43": 0.8571429252624512
+  },
+  "cross_seed_same_regime": {
+    "B|B43": 0.8549202680587769,
+    "R|R43": 0.8422605395317078
+  },
+  "cross_regime_same_seed": {
+    "B|R": 0.8218098878860474,
+    "B43|R43": 0.8336154818534851
+  },
+  "both_axes_different": {
+    "B|R43": 0.8258464932441711,
+    "B43|R": 0.8333706259727478
+  },
+  "mean_cross_seed": 0.8485904037952423,
+  "mean_cross_regime": 0.8277126848697662,
+  "seed_clustering_delta": -0.020877718925476074,
+  "registered_verdict": {
+    "rule": "claim 1 init-independent iff min(corr(B,B43), corr(R,R43)) >= 0.8 AND corr(B43,R43) >= 0.8 (e012b bar applied to both axes)",
+    "seed_axis_pass": true,
+    "regime_axis_pass_seed43": true,
+    "claim1_init_independent": true
+  }
+}

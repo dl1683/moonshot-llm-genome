@@ -322,6 +322,50 @@ WRITE into seed-specific subspaces.
   regime-dominant). Solid at L0/L3 only. ΔW gap (+0.155) lacks a
   same-init/data-order-replicate ceiling null — registered as needed.
 
+**T008 DEBT RESOLUTION (e012c + e014b.1 + e011c-ci, 2026-09-24T12:40Z):
+claims 1 and 2 upgraded to H.**
+- **Claim 1 RESTORED at H (init-independent):** 4-net depth-histogram table —
+  cross-seed same-regime (B–B43 0.855, R–R43 0.842; mean 0.849) ≥
+  cross-regime same-seed (B–R 0.822, B43–R43 0.834; mean 0.828); no seed
+  clustering (delta −0.021). Supporting invariants replicate in both new
+  nets (L5-finalization 1027/1088; Spearman +0.323/+0.326; class ordering
+  letters > punct > structural). Stages are the organism — across seeds AND
+  regimes.
+- **Claim 2 REPLICATED (second renorm seed R43):** keystone dissolution
+  (MLP-0 +0.21 vs B +4.08), late-heavy MLP flip (trend ρ +0.74), attention
+  front-load (spread 2.56), and a THIRD independent rebuild of the declining
+  write schedule (6.27→0.96 into the pinned stream).
+- **e011c exceptions all real:** attn-L0 1.38±0.006, MLP-L1 3.03±0.044,
+  MLP-L5 0.25±0.009 — beyond noise by 20-100× sd.
+
+## T009 — e021 registration: does a retrieval-required task break the no-retrieval picture? (2026-09-24T12:40Z)
+
+**Design (adopted from Review-2 ideator):** synthetic corpus (~1MB) of
+documents: "ID: [5-char uppercase nonce] … Shakespeare filler (>16 tokens)
+… COPY: [nonce repeated]". Retrieval is provably required at COPY positions
+(nonce is >16 tokens back, unpredictable without the ID). Control corpus:
+same shape, nonces shuffled at COPY (cue uncorrelated). Train fresh 2.7M
+nets on each (252s cap, ckpt, parity-style val gates); readouts: copy
+accuracy at nonce positions; far-value (CE full-256 vs trunc-16) at COPY
+positions; decision-depth census at COPY positions; locality funnel
+(e013a-style mini-census) on the task net.
+
+**Registered predictions:**
+- P1 (learnability): task net reaches ≥80% next-char accuracy on nonce
+  positions at COPY. If not: capacity/budget limit — informative negative.
+- P2 (retrieval exists when required): far-value at COPY positions ≥ +1.0
+  nat, and the control net shows ≈0. **If confirmed, T008 claim 4 narrows
+  to "no retrieval on natural char data at this scale" — NOT an
+  architectural limit.**
+- P3 (mechanism): attention at COPY positions CONCENTRATES on the ID nonce
+  positions (local mass collapses; a real retrieval head appears — the
+  Shakespeare L5 idle-grazing signature should be gone).
+- P4 (stages): if a new "retrieval depth mode" appears at COPY positions
+  (decisions later than any Shakespeare position), the stage picture gains
+  a task-dependent member; if depth profile is byte-identical to Shakespeare
+  despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
+  interpretation.
+
 ## T008 — The anatomy of a 2.7M char transformer: first synthesis (2026-09-24T12:06Z)
 
 Assembling the morning's dissections into one picture. Confidence: H

@@ -9,6 +9,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E030 debt slot — claims 1+2 upgraded to H; e011c CIs clean (2026-09-24) — DONE
+
+WHAT WE DID: one eval-only slot on existing checkpoints (background agent,
+21.7s compute after setup): e012c 4-net depth-census table; e014b.1 R43
+lesion-map replication; e011c bootstrap CIs.
+
+WHAT WE SAW:
+- **Claim 1 (stages) RESTORED at H:** cross-seed same-regime histogram
+  correlation (0.849 mean) ≥ cross-regime same-seed (0.828); all six pairs
+  in 0.822-0.855; invariants replicate in both seed-43 nets (L5-finalization
+  1027/1088; depth-entropy Spearman; class ordering). Stages are
+  init-independent AND regime-independent.
+- **Claim 2 (plastic anatomy) REPLICATED on R43:** keystone dissolution
+  (+0.21 vs B +4.08), late-heavy MLP flip (ρ +0.74), attn front-load, third
+  independent rebuild of the declining write schedule.
+- **e011c exceptions all real:** attn-L0 1.38±0.006, MLP-L1 3.03±0.044,
+  MLP-L5 0.25±0.009 — 20-100× beyond sd.
+
+WHAT'S NEXT: T009/e021 (retrieval-required task) REGISTERED and running in
+background — P1-P4 break-conditions for T008 claims 1 and 4.
+
 ## E029 — seed×regime 2×2 transplant + ΔW alignment: mechanism CONFIRMED (2026-09-24) — DONE
 
 WHAT WE DID: trained R43 (seed-43 renorm, parity PASS val 1.5596), then the

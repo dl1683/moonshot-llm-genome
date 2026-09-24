@@ -1,0 +1,161 @@
+{
+  "experiment": "e011c_ci_bootstrap",
+  "model": "B (e001, seed 42)",
+  "protocol": "5 variants x (fresh batch seed, fresh rotation seed); zero and rotate paired on identical batches; 20 batches each; beyond-noise iff |mean-1| > 2sd",
+  "cells": {
+    "attn-L0": {
+      "variants": [
+        {
+          "batch_seed": 1401,
+          "rot_seed": 7101,
+          "zero": 2.3822,
+          "rotate": 3.288,
+          "ratio": 1.38
+        },
+        {
+          "batch_seed": 1402,
+          "rot_seed": 7102,
+          "zero": 2.3902,
+          "rotate": 3.3116,
+          "ratio": 1.385
+        },
+        {
+          "batch_seed": 1403,
+          "rot_seed": 7103,
+          "zero": 2.3996,
+          "rotate": 3.2974,
+          "ratio": 1.374
+        },
+        {
+          "batch_seed": 1404,
+          "rot_seed": 7104,
+          "zero": 2.3743,
+          "rotate": 3.294,
+          "ratio": 1.387
+        },
+        {
+          "batch_seed": 1405,
+          "rot_seed": 7105,
+          "zero": 2.4219,
+          "rotate": 3.3265,
+          "ratio": 1.374
+        }
+      ],
+      "ratio_mean": 1.38,
+      "ratio_sd": 0.006,
+      "anchor_original_protocol": {
+        "rotate": 3.3092,
+        "ratio_vs_e001_zero": 1.378,
+        "e011c_reported_ratio": 1.38
+      },
+      "beyond_noise_2sd": true,
+      "reading": "direction-sensitive (>1)"
+    },
+    "mlp-L1": {
+      "variants": [
+        {
+          "batch_seed": 1401,
+          "rot_seed": 7101,
+          "zero": 0.15,
+          "rotate": 0.4513,
+          "ratio": 3.008
+        },
+        {
+          "batch_seed": 1402,
+          "rot_seed": 7102,
+          "zero": 0.1442,
+          "rotate": 0.4479,
+          "ratio": 3.105
+        },
+        {
+          "batch_seed": 1403,
+          "rot_seed": 7103,
+          "zero": 0.151,
+          "rotate": 0.4569,
+          "ratio": 3.025
+        },
+        {
+          "batch_seed": 1404,
+          "rot_seed": 7104,
+          "zero": 0.1447,
+          "rotate": 0.4339,
+          "ratio": 2.998
+        },
+        {
+          "batch_seed": 1405,
+          "rot_seed": 7105,
+          "zero": 0.1527,
+          "rotate": 0.4591,
+          "ratio": 3.006
+        }
+      ],
+      "ratio_mean": 3.028,
+      "ratio_sd": 0.044,
+      "anchor_original_protocol": {
+        "rotate": 0.4458,
+        "ratio_vs_e001_zero": 2.962,
+        "e011c_reported_ratio": 2.95
+      },
+      "beyond_noise_2sd": true,
+      "reading": "direction-sensitive (>1)"
+    },
+    "mlp-L5": {
+      "variants": [
+        {
+          "batch_seed": 1401,
+          "rot_seed": 7101,
+          "zero": 0.5966,
+          "rotate": 0.152,
+          "ratio": 0.255
+        },
+        {
+          "batch_seed": 1402,
+          "rot_seed": 7102,
+          "zero": 0.596,
+          "rotate": 0.1527,
+          "ratio": 0.256
+        },
+        {
+          "batch_seed": 1403,
+          "rot_seed": 7103,
+          "zero": 0.6005,
+          "rotate": 0.156,
+          "ratio": 0.26
+        },
+        {
+          "batch_seed": 1404,
+          "rot_seed": 7104,
+          "zero": 0.5822,
+          "rotate": 0.138,
+          "ratio": 0.237
+        },
+        {
+          "batch_seed": 1405,
+          "rot_seed": 7105,
+          "zero": 0.6073,
+          "rotate": 0.1553,
+          "ratio": 0.256
+        }
+      ],
+      "ratio_mean": 0.253,
+      "ratio_sd": 0.009,
+      "anchor_original_protocol": {
+        "rotate": 0.1449,
+        "ratio_vs_e001_zero": 0.245,
+        "e011c_reported_ratio": 0.24
+      },
+      "beyond_noise_2sd": true,
+      "reading": "energy-carrier (<1)"
+    }
+  },
+  "survive_ci": {
+    "attn-L0": true,
+    "mlp-L1": true,
+    "mlp-L5": true
+  },
+  "e011c_reported_ratios": {
+    "attn-L0": 1.38,
+    "mlp-L1": 2.95,
+    "mlp-L5": 0.24
+  }
+}
