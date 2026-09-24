@@ -479,7 +479,7 @@ def main():
     log("P0: batteries (e023 ctx-120 cap 125; e043 install-set construction)")
     bat_nat = build_name_bat(train_ids, train_text, stoi, "JULIET", cap=125)
     assert bat_nat["n"] == 125
-    inc_bats = {}
+    inc_bats = {"JULIET": bat_nat}
     for w in BATTERY:
         if w == "JULIET":
             continue
@@ -519,6 +519,7 @@ def main():
         f"JULIET post {BLOCK - PRE - 6}, ZEPHYRA post {BLOCK - PRE - 7}")
 
     vx, vy = fixed_blocks(val_ids, BLOCK, N_BLOCKS, CE_SEED)
+    gx, gy = fixed_blocks(val_ids, BLOCK, 400, CE_SEED)   # e023 convention for gate CEs
 
     # ---------------------------------------------------------------- erased net + gates
     log("G2/G5/G6: erased-net reconstruction and patch verification")
@@ -550,8 +551,8 @@ def main():
     erased.load_state_dict(er_sd)
 
     r_d2 = eval_bat44(erased, bat_nat["seq"], 6, CTX - 1)
-    ce_base_B = ce44(B, vx, vy)
-    ce_d2_nopatch = ce44(erased, vx, vy)
+    ce_base_B = ce44(B, gx, gy)
+    ce_d2_nopatch = ce44(erased, gx, gy)
     G5 = {"nll": r_d2["nll"], "acc": r_d2["acc"], "ref": E023_D2_JULIET,
           "dce": ce_d2_nopatch - ce_base_B, "dce_ref": E023_D2_DCE,
           "pass": bool(abs(r_d2["nll"] - E023_D2_JULIET[0]) <= 0.002
@@ -571,7 +572,7 @@ def main():
     fires_match = bool(torch.equal(my_fires.cpu(), txt_fires))
     pst, ph = install_patch(erased)
     r_d2p = eval_bat44(erased, bat_nat["seq"], 6, CTX - 1, patch_state=pst)
-    ce_d2p = ce44(erased, vx, vy, patch_state=pst)
+    ce_d2p = ce44(erased, gx, gy, patch_state=pst)
     G6 = {"fires_bit_identical_to_e042_text_rule": fires_match,
           "juliet_nll": r_d2p["nll"], "juliet_acc": r_d2p["acc"],
           "ref": E042_D2P_JULIET, "dce_content": ce_d2p - ce_base_B,
@@ -683,8 +684,6 @@ def main():
                            "acc": r_sp["acc"] if r_sp else None,
                            "dce_at_bar": (rec_sp["ce"] - results[arm]["traj"][0]["ce"])
                            if rec_sp else None}}
-        if "nat_patchon" in results[arm]["traj"][1] if len(results[arm]["traj"]) > 1 else False:
-            pass
         for key in ("nat_patchon", "nat_patchoff", "spliced_patchoff"):
             if key in results[arm]["traj"][0] or (results[arm]["traj"] and key in results[arm]["traj"][-1]):
                 s_, r_, rec_ = bar_scan(results[arm]["traj"], key)
@@ -810,7 +809,8 @@ def main():
 
     # P3: incumbent collateral at (a)'s bar step vs erased-net step-0
     step0_a = results["a"]["traj"][0]
-    bar_rec_a = next((r for r in results["a"]["traj"] if r["step"] == sa), None) if sa else None
+    bar_rec_a = (next((r for r in results["a"]["traj"] if r["step"] == sa), None)
+                 if sa is not None else None)
     inc_at_bar = {}
     if bar_rec_a:
         for w_ in NON_J_INCUMBENTS:
