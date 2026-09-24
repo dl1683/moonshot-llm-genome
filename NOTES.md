@@ -19,6 +19,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E042 — name-circuit atlas + two-factor erasure (2026-09-24) — DONE
+
+WHAT WE DID: position-resolved lesion atlas (36 heads + 12 blocks) at name
+positions for JULIET/JOHN/ROMEO/LUCIO; residual atlas under D2; two-factor
+erasure cells. All 6 gates pass; e023 numbers reproduced exactly.
+
+WHAT WE SAW (T013):
+- **Two-factor erasure works:** D2 + L3H5@JULIET-prefix → acc 0.0013,
+  NLL ≥ ln65, corpus +0.00083 nats, S_name 1,937. Complete selective
+  forgetting achieved.
+- **Shared name machinery:** L0H3 #1 head for ALL names; L0-MLP #1 block;
+  JULIET~LUCIO atlas correlation 0.965. Collateral idiosyncrasy lives in
+  row space, not circuits.
+- **Dissociation:** post-D2 residual (13.6%, all at position 3) rides
+  mid-network machinery (L3H5, L1-attn), NOT the healthy L0 circuit.
+
+WHAT'S NEXT: C6 finalized. e043 (INSTALL a name) now cleanly defined:
+rows + which body. Review ~15:50Z.
+
 ## E018 — causal depth: the lens is UNCORRELATED with causal depth (2026-09-24) — DONE
 
 WHAT WE DID: activation-patching causal depth over 1536 positions

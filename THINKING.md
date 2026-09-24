@@ -7,6 +7,28 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T013 — Two-factor surgical erasure; name circuits are shared (E042, 2026-09-24T15:35Z)
+
+**The arc's first phase closes with a complete answer:**
+- **Two-factor surgery ERASES:** D2 row-zero + head L3H5 zeroed at
+  JULIET-prefix positions → accuracy 0.136 → 0.0013, NLL ≥ ln65 (Bar-2
+  met), total corpus cost +0.00083 nats, collateral ROMEO +0.014 / LUCIO
+  −0.004 → **S_name = 1,937** (573 for rows alone). The patch adds ~1e-5
+  over D2 alone; content-triggering (vs position-rule +0.0023 / block-rule
+  +0.074) is what keeps it cheap.
+- **Name completion is SHARED early-local machinery:** head L0H3 is #1 for
+  all four names (+1.5–2.2 nats each; 34% of JULIET's positive head mass,
+  top-3 = 60%); L0-MLP is the #1 block for all (+7.0–7.7); JULIET~LUCIO
+  head atlases near-proportional (Pearson 0.965). e023's collateral
+  idiosyncrasy therefore lives in ROW/INPUT space, not circuit overlap.
+- **Dissociation:** the healthy circuit (L0) is NOT what carries the
+  post-D2 residual — the 13.6% rides mid-network machinery (L3H5 +0.88,
+  L1-attn +2.62 under D2), all concentrated at position 3 ("?UL→I").
+- **C6 finalized:** selective forgetting = rows (the index) + one body
+  head (the residual transition); erasure-complete, collateral ~1e-3 nats,
+  class-exact boundaries. The subtractive half of "edit the organism" is
+  done; e043 (INSTALL) is now cleanly defined: rows + which body?
+
 ## T012 — Instrument verdict: the depth lens is UNCORRELATED with causal depth; C1 re-anchored (E018, 2026-09-24T15:20Z)
 
 **Verdict (b) fired, decisively.** Activation-patching causal depth
