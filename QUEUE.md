@@ -5,7 +5,7 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e003 | forgetting selectivity frontier | READY (next) | sweep ascent LR × steps × retain weight; unlearn ONE play not half; is ANY operating point selective? (E002 follow-up) |
+| e003 | forgetting selectivity frontier | READY (next) | T002 discriminator suite: (1) grad cosine A↔B, (2) fine LR sweep trajectory (ΔA,ΔB), (3) dissimilar-content unlearning arm, (4) fluency-vs-content probes — NOT a blind grid |
 | e011 | MLP-0 anatomy | READY | what does the keystone organ (+4.08 nat lesion) store? probe, ablate-then-finetune recovery cost |
 | e012 | vestigial attention | READY | attn-L5 costs only +0.03 — vestigial or quietly specialized? read its attention patterns |
 | e001 | lesion map | DONE | see NOTES.md — front-loaded attention, keystone MLP-0, 16/48 dispensable |

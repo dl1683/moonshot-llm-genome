@@ -43,6 +43,12 @@ review bureaucracy — was deliberately left behind. We are playing, not litigat
 
 ## Rules of the lab
 
+0. **80% thinking, 20% doing.** Results are cheap; wrong conclusions are
+   expensive. Every result gets a THINKING.md entry — multiple alternative
+   explanations, discriminating observations, registered predictions — BEFORE
+   the next experiment builds on it. **No interpretation, no next experiment.**
+   An idle GPU during thinking is the lab working correctly. When in doubt,
+   think more and run less; the queue can wait, understanding compounds.
 1. **Play first.** Questions sharpen after looking. Boring hypotheses about
    what to find are not required in advance.
 2. **One file per experiment:** `lab/eNNN_name.py`, self-contained, seeded,
@@ -90,6 +96,12 @@ All timestamps live in `STATE.json` (`last_heartbeat`, `last_review`, `last_nove
 Any agent — scheduled or fresh — reads that file first and treats stale values as
 action items ("review overdue → run it now"). Only one automation exists per
 session; do not create more, the trigger logic above replaces a second clock.
+
+The cadence is subordinate to Rule 0: heartbeats may spend their turn
+thinking (writing THINKING.md) instead of launching runs, and the GPU staying
+idle while an interpretation is pending is correct behavior, not a failure.
+The measure of a good session is insight per experiment, not experiments per
+hour.
 
 ## Repo map
 

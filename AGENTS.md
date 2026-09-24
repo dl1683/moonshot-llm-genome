@@ -6,14 +6,19 @@ conversation history to operate.
 
 ## Read in this order (5 minutes)
 
-1. `README.md` — mission, rules, cadence. The constitution.
+1. `README.md` — mission, rules (especially Rule 0: 80% thinking / 20% doing),
+   cadence. The constitution.
 2. `STATE.json` — what is running now, and the cadence timestamps
    (`last_heartbeat`, `last_review`, `last_novelty`). If any timestamp is
    stale (>15 min heartbeat / >75 min review / >2 h novelty), treat that as
    your first action item.
 3. `NOTES.md` (top entries) — what was just done and what it showed.
-4. `QUEUE.md` — what to do next.
-5. `REVIEWS.md` (last entry) — the most recent frontier-review decisions.
+4. `THINKING.md` (top entries) — the interpretation journal. GATE: if the
+   latest result in NOTES.md has no THINKING.md entry (≥2 alternative
+   explanations + discriminating observation + registered prediction), your
+   job is to WRITE THAT ENTRY (think!) before starting any new experiment.
+5. `QUEUE.md` — what to do next.
+6. `REVIEWS.md` (last entry) — the most recent frontier-review decisions.
 
 ## Then do exactly one of these
 
