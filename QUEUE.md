@@ -6,10 +6,12 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e013a | attention census | READY (NEXT) | 200-prompt all-head atlas census (far-mass, surprisal, char-match structure; with/without h1) — gates e013; kills or confirms the vocative-artifact worry |
+| e013a | attention census | DONE | funnel replicates at scale (far-mass U 0.80→0.09→0.54); L5 abandons local in 82.5% of prompts; rare-token story DEAD (0 concentrated heads, flat surprisal) |
+| e013 | context-truncation calibration test | READY | redesigned: last-16 vs full-96 context → KL(L5‖L4 readout); does L5's calibration depend on far context? (registered: KL shrinks ≥50%) |
+| e028 | cross-anatomy transplant | READY | design memo complete (scratch/e028_transplant_design.md): C0 self-transplant gate, seed-43 within-control, R=transplant/ablation bands; tests T006 P3 |
 | e019 | MLP-5 thermostat | READY | scale MLP-5 write by α∈{0,.5,1,2} + rotate; entropy/top-k/CE response — direct causal test of the energy-carrier claim (eval-only, minutes) |
 | e003b | corrected ascent instruments | READY | projected + masked (top-k A-specific) ascent, dense steps 0–30; target=train-A CE, collateral=val_B CE (labels fixed per critique) |
-| e013 | rare-token causal mask | GATED (on e013a) | mask the tokens L5 heads attend to; P1: KL(L5‖L4) collapses ≥50% with CE <0.05 (T005, weakened) |
+| e013 | rare-token causal mask | SUPERSEDED | census found no concentrated rare-token heads; replaced by context-truncation design |
 | e014c | write-clamp training | READY | clamp ‖w‖ ≤ α·‖x_in‖ during training (or eval-time rescale L0/L5 writes ×{0.5,2,4}) — decisive test of "damage tracks write allocation" (P3 passed correlationally) |
 | e018 | causal depth | READY | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
 | e014b.1 | replication seed | READY (debt) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |

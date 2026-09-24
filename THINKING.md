@@ -176,6 +176,20 @@ schedule, independent of the lesion result.
    CAUSAL depth (activation patching from counterfactual contexts; the
    shallowest depth where splicing switches the final decision).
 
+**T005 FINAL ADJUDICATION (E013a census, 2026-09-24T11:47Z): L5 is a
+DIFFUSE re-globalizer — the rare-token framing is dead.** Across 200
+prompts, all 36 heads: the locality funnel replicates (far-mass U-shape
+0.80 → 0.09 at L2 → 0.54 at L5; local-mass peaks at L2 0.42); L5 abandons
+the local window in **82.5%** of prompts (criterion 70%). But attended-token
+surprisal is flat across ALL layers (~5 bits) and **zero** heads show
+consistent distant-concentration — v002's 'O'-matching head was a one-prompt
+artifact, exactly as Review 1 suspected. The causal question shifts: does
+L5's calibration (KL(L5‖L4 readout) ≈ 1 nat) actually DEPEND on far context?
+**e013 REDESIGNED as context truncation:** last-16 vs full-96 contexts →
+measure KL(L5‖L4). Registered: KL shrinks ≥50% with truncated context (L5's
+reshaping draws on far information); if unchanged, L5's calibration is
+locally derived and "re-globalization" is epiphenomenal attention shape.
+
 ## T006 — Anatomical plasticity: what actually persists when the organs move? (2026-09-24T11:21Z)
 
 **Observed (E014b, single seed — replication debt registered):** under

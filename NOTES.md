@@ -9,6 +9,25 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E013a — attention census over 200 prompts (2026-09-24) — DONE
+
+WHAT WE DID: all 36 heads' last-token attention across 200 held-out
+prompts: local/far mass, attended-token surprisal, distant concentration.
+Adjudicates T005 (Review 1 required this before any causal spend).
+
+WHAT WE SAW:
+- **The locality funnel replicates at scale:** far-mass U-shape
+  [L0 0.80, L1 0.23, L2 0.09, L3 0.10, L4 0.23, L5 0.54]; local-mass peaks
+  at L2 (0.42). L5 abandons the local window in 82.5% of prompts.
+- **The rare-token story is DEAD:** attended surprisal flat (~5 bits) at
+  every layer; ZERO heads with consistent distant-concentration. v002's
+  'O'-head was a one-prompt artifact — Review 1's suspicion confirmed.
+- Final T005 form: L5 = diffuse re-globalizer. e013 redesigned as context
+  truncation (does L5's calibration KL depend on far context?).
+
+WHAT'S NEXT: e013-redesigned (truncation, minutes); e028 transplant (design
+memo ready at scratch/e028_transplant_design.md — T006 P3); e019 thermostat.
+
 ## E012b — renorm-anatomy census: the function persists (2026-09-24) — DONE
 
 WHAT WE DID: reran the decision-depth census + angular-displacement profile
