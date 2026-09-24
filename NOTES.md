@@ -17,6 +17,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E018 — causal depth: the lens is UNCORRELATED with causal depth (2026-09-24) — DONE
+
+WHAT WE DID: activation-patching causal depth over 1536 positions
+(counterfactual last-position stream spliced at each depth; sanity gates:
+self-patch exact, post-L5 patch flips 100%).
+
+WHAT WE SAW (verdict (b), T012 written):
+- **Spearman(causal, lens) = −0.009** — per-position UNCORRELATED. The
+  lens's depth ordering carries no causal-decision information.
+- Causal mode depth 3 (mean 2.95 vs lens 4.86); the lens's 53% "decided at
+  L5" mass has no causal counterpart — L5 flips are RECALIBRATION
+  (convergent with L5-the-calibrator from every other instrument).
+- Genuine point-of-no-return exists mid-stack (monotone flip curve, 77%
+  suffix-monotone); 15.4% distributed decisions; shallow patches → third
+  tokens (73% at d0), deep patches → the counterfactual answer.
+
+WHAT'S NEXT: C1 re-anchored (T012); e012d debt registered (causal census on
+the other 3 nets — is CAUSAL depth the invariant?). e042 still building.
+
 ## E023 — surgical forgetting at entity granularity (2026-09-24) — DONE (pending agent full-report confirmation)
 
 WHAT WE DID: the full registered battery per scratch/e023_design.md — D1/D2

@@ -7,6 +7,34 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T012 — Instrument verdict: the depth lens is UNCORRELATED with causal depth; C1 re-anchored (E018, 2026-09-24T15:20Z)
+
+**Verdict (b) fired, decisively.** Activation-patching causal depth
+(1536 positions, sanity-gated: self-patches exact; post-L5 patch flips
+100%):
+- **Spearman(causal, lens) = −0.009 — the instruments are per-position
+  UNCORRELATED**, not merely biased. The lens's argmax-stability ordering
+  carries no causal-decision information.
+- Causal mode = depth 3 (entering L3); mean 2.95 vs lens 4.86. The lens's
+  dominant "decided at L5" mass (53%) has no causal counterpart: **late L5
+  flips are RECALIBRATION, not decision** — convergent with every other
+  instrument's account of L5-the-calibrator.
+- Real point-of-no-return structure exists: monotone flip curve
+  [0.14→0.78], 77% of flippers suffix-monotone; 15.4% of positions flip
+  under NO single patch (distributed decisions); shallow patches mostly
+  yield THIRD tokens (73% at d0 → 21% at d5) — early streams disrupt,
+  mid-stack streams determine.
+
+**C1 RE-ANCHORED (T010 card amended):** "staged function" survives — with
+a genuine causal commitment point mid-stack (L3/L4) — but ALL lens-based
+depth evidence (the 4-net census invariance 0.82-0.85, the L5-finalization
+modes, the class ordering) is DEMOTED to "argmax-stability profile" and
+inherits the by-construction replication risk Review 4 named. NEW DEBT
+(e012d): run the CAUSAL census on B43/R/R43 — is CAUSAL depth the
+cross-net invariant? Until then C1's evidence chain rests on e018's single
+net. e021's L4 retrieval mode remains safe (independently established by
+the L4-H1 causal lesion).
+
 ## T011 — Surgical forgetting WORKS at entity granularity (2026-09-24T15:02Z; CONFIRMED by full report 15:12Z with refinements)
 
 **FULL-REPORT REFINEMENTS (15:12Z):**
