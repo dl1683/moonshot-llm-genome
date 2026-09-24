@@ -45,6 +45,18 @@ DEVIATIONS (noted per protocol):
     how proj_norm10 is obtained; probe and main projected run share the
     deterministic path so their step-10 norms agree exactly).
 
+POST-RUN REPRODUCIBILITY FINDING (folded into metrics.json, 2026-09-24):
+  this run's seed is 31415; it showed NO r>=2 head-start (peak 1.52). A
+  replication on e003b's original seed 27182 (800 steps) and a re-run of
+  e003b's own unmodified run_arm at seed 27182 BOTH give the same fast
+  trajectory (mutually bit-identical, e.g. s280 target 16.7069) with peak r
+  1.46-1.73 — NOT the recorded gentle r~5-6 walk of runs/e003b. The e003b
+  head-start trajectory is therefore NON-REPRODUCIBLE (chaotic ascent /
+  nondeterministic kernels); the reliable behavior of projected ascent is
+  the one characterized here. Verdict (a) below uses the INTERPOLATED r(dose)
+  curve for the "collapses below 1.5 before the bar" test (discrete eval
+  points alone can straddle the collapse between samples).
+
 Run: python lab/e003c_projected_dose_response.py   (requires E001 checkpoint)
 """
 import copy
@@ -236,6 +248,22 @@ def min_r_before(traj, r_traj, base, t_key, level):
     return min(vals) if vals else None
 
 
+def r_below_dose(traj, r_traj, base, t_key, r_bar, level):
+    """First dose where the PIECEWISE-LINEAR r(dose) interpolant crosses
+    below r_bar, searching only doses < level. None if it never does."""
+    pts = sorted((p[t_key] - base[t_key], r) for p, r in zip(traj, r_traj)
+                 if r is not None)
+    for (d0, r0), (d1, r1) in zip(pts, pts[1:]):
+        hi_d = min(d1, level)
+        if d0 >= level:
+            break
+        if r0 < r_bar:
+            return d0
+        if r1 < r_bar and hi_d > d0:
+            return d0 + (r0 - r_bar) / max(r0 - r1, 1e-9) * (hi_d - d0)
+    return None
+
+
 def dose_curve_shape(traj, r_traj, base):
     """(c): classify r(dose). Split valid points at the median dose."""
     pts = [(p["target"] - base["target"], r) for p, r in zip(traj, r_traj) if r is not None]
@@ -326,6 +354,7 @@ def main():
     r_gap_p_trainB = r_at_target(traj_p, "target", "train_B", base_ce, gap)
     r_gap_n = r_at_target(traj_n, "target", "val_B", base_ce, gap)
     min_r_before_bar = min_r_before(traj_p, r_p_valB, base_ce, "target", gap)
+    collapse_dose = r_below_dose(traj_p, r_p_valB, base_ce, "target", 1.5, gap)
     shape = dose_curve_shape(traj_p, r_p_valB, base_ce)
 
     dtB_at_gap = r_at_target(traj_p, "target", "train_B", base_ce, gap)  # for ratio below
@@ -333,7 +362,8 @@ def main():
     trainB_coll_at_gap = gap / dtB_at_gap if dtB_at_gap else None
 
     verdict_a = ("UPGRADE (r>=2 at bar)" if (reached_p and r_gap_p is not None and r_gap_p >= 2.0)
-                 else "DOWNGRADE (r<1.5 before bar)" if (min_r_before_bar is not None and min_r_before_bar < 1.5)
+                 else "DOWNGRADE (r collapses below 1.5 before the bar)"
+                 if collapse_dose is not None
                  else "INTERMEDIATE" if reached_p
                  else "BAR NOT REACHED — selective-so-far persists, still untested to the bar")
 
@@ -351,6 +381,7 @@ def main():
         "r_at_gap": {"projected_vs_valB": r_gap_p, "projected_vs_trainB": r_gap_p_trainB,
                      "naive_vs_valB": r_gap_n},
         "min_r_before_bar_projected": min_r_before_bar,
+        "collapse_below_1.5_dose_projected": collapse_dose,
         "final_deltas": {
             "projected": {k: traj_p[-1][k] - base_ce[k] for k in base_ce},
             "naive": {k: traj_n[-1][k] - base_ce[k] for k in base_ce},

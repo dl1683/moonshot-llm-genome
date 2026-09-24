@@ -400,6 +400,14 @@ positions; decision-depth census at COPY positions; locality funnel
   despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
   interpretation.
 
+**CLAIM 5 FINAL NUMBERS (E003c, 2026-09-24T13:50Z):** exact projection
+reaches the 0.66-nat forgetting bar with r flat ≈ 1.57→1.75 (rising
+slightly); train-B collateral 1.32× val-B means memorization-symmetric
+selectivity is ~1.2-1.3. Best deliberate first-order selectivity at real
+forgetting ≈ 1.7; the accidental anchor-hybrid (3-6, mild dose) untested to
+the bar (e003d). MLP-5 energy-carrier CONFIRMED causally (E019: graceful
+α-scaling + zero=4×rotate; entropy non-monotone in α).
+
 **CLAIM 5 — FINAL CORRECTED STATE (E003b full report + Review 3, 2026-09-24T13:50Z).**
 The registered instruments FAILED: exact projection peak r=1.455 (<1.5,
 decays to 1.09); masked 1.80 (<2.0); combined 1.93. Naive is r=1.22 under

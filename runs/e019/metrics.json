@@ -1,0 +1,74 @@
+{
+  "experiment": "e019_mlp5_thermostat",
+  "n_eval_blocks": 400,
+  "eval_seed": 606,
+  "rotation_sanity_ratio": 1.0,
+  "conditions": {
+    "baseline": {
+      "ce": 1.6116123247146605,
+      "entropy": 1.111703724861145,
+      "top1_prob": 0.646837477684021,
+      "top5_mass": 0.9054399538040161
+    },
+    "alpha=1(identity-hook)": {
+      "ce": 1.6116123247146605,
+      "entropy": 1.111703724861145,
+      "top1_prob": 0.646837477684021,
+      "top5_mass": 0.9054399538040161
+    },
+    "alpha=0.0": {
+      "ce": 2.2133786869049072,
+      "entropy": 1.7274008369445801,
+      "top1_prob": 0.48929335832595827,
+      "top5_mass": 0.840090012550354
+    },
+    "alpha=0.5": {
+      "ce": 1.6050682640075684,
+      "entropy": 1.2023581600189208,
+      "top1_prob": 0.6230508184432983,
+      "top5_mass": 0.9020767259597778
+    },
+    "alpha=2.0": {
+      "ce": 1.7364135265350342,
+      "entropy": 1.1212288379669189,
+      "top1_prob": 0.6446944904327393,
+      "top5_mass": 0.9025180697441101
+    },
+    "rotate60@alpha=1": {
+      "ce": 1.7622151470184326,
+      "entropy": 1.4452166843414307,
+      "top1_prob": 0.5635234880447387,
+      "top5_mass": 0.8764308643341064
+    }
+  },
+  "damage_dce": {
+    "alpha=1(identity-hook)": 0.0,
+    "alpha=0.0": 0.6017663621902467,
+    "alpha=0.5": -0.006544060707092125,
+    "alpha=2.0": 0.12480120182037369,
+    "rotate60@alpha=1": 0.1506028223037721
+  },
+  "verdicts": {
+    "hook_sanity_identity_matches_baseline": true,
+    "graceful_alpha_within_+0.15": {
+      "alpha=0.5": true,
+      "alpha=2.0": true
+    },
+    "rotate_over_zero": 0.25026793082222737,
+    "R1_as_written_rotate_>2x_zero": false,
+    "R2_e011c_consistent_zero_>2x_rotate": true,
+    "entropy_monotone_in_alpha": false,
+    "entropy_uptick_alpha1_to_2": 0.009525113105773864,
+    "energy_carrier_confirmed (graceful AND R2)": true,
+    "as_written_rule_confirmed (graceful AND R1)": false
+  },
+  "registered_rule_verbatim": "CE(a=0.5) and CE(a=2) within +0.15 of baseline AND rotate(a=1) costs >2x zero-ablation -> energy>direction",
+  "deviation_note": "the >2x inequality is evaluated both as written (R1) and in its e011c-consistent form zero>2x-rotate (R2); see module docstring",
+  "config": {
+    "vocab": 65,
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256
+  }
+}

@@ -140,11 +140,12 @@ def main():
     dmg = {k: v["ce"] - base["ce"] for k, v in conditions.items() if k != "baseline"}
     zero_d = dmg["alpha=0.0"]
     rot_d = dmg["rotate60@alpha=1"]
-    graceful = {f"alpha={a}": dmg[f"alpha={a}"] <= GRACEFUL_TOL for a in ALPHAS if a != 1.0}
+    graceful = {f"alpha={a}": dmg[f"alpha={a}"] <= GRACEFUL_TOL for a in (0.5, 2.0)}
     R1_as_written = rot_d > RATIO_BAR * zero_d
     R2_e011c_consistent = zero_d > RATIO_BAR * rot_d
     ent_monotone = all(conditions[f"alpha={a}"]["entropy"] <= conditions[f"alpha={b}"]["entropy"] + 1e-4
                        for a, b in zip([0.0, 0.5, 1.0], [0.5, 1.0, 2.0]))
+    ent_uptick_2 = conditions["alpha=2.0"]["entropy"] - conditions["alpha=1(identity-hook)"]["entropy"]
     verdict = {
         "hook_sanity_identity_matches_baseline": abs(hook_identity["ce"] - base["ce"]) < 1e-4,
         "graceful_alpha_within_+0.15": graceful,
@@ -152,6 +153,7 @@ def main():
         "R1_as_written_rotate_>2x_zero": R1_as_written,
         "R2_e011c_consistent_zero_>2x_rotate": R2_e011c_consistent,
         "entropy_monotone_in_alpha": ent_monotone,
+        "entropy_uptick_alpha1_to_2": ent_uptick_2,
         "energy_carrier_confirmed (graceful AND R2)": all(graceful.values()) and R2_e011c_consistent,
         "as_written_rule_confirmed (graceful AND R1)": all(graceful.values()) and R1_as_written,
     }

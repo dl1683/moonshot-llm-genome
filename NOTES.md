@@ -9,6 +9,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E003c + E019 — dose-to-bar and the MLP-5 thermostat (2026-09-24) — DONE
+
+E003c (exact projection — the FAILING variant per the corrected record —
+pushed to the 0.66-nat forgetting bar, step-norm-matched naive control):
+- **Bar REACHED; r flat ≈ 1.57→1.75 across dose (slightly RISING).** Even
+  the best deliberate first-order instrument tops out near r≈1.7 to real
+  forgetting (naive 1.22; accidental anchor-hybrid 3-6 at mild dose only,
+  still untested to the bar — e003d remains).
+- **Measurement-axis asymmetry is real: train-B collateral runs 1.32×
+  val-B** — against memorization-symmetric collateral, r would be lower
+  (~1.2-1.3). Honest selectivity at the bar is modest, not dramatic.
+
+E019 (MLP-5 thermostat): **ENERGY CARRIER CONFIRMED** — α-scaling graceful
+(α=0.5 and α=2 both within +0.15 CE) AND zero-costs-4x-rotate (R2 branch;
+the prompt's R1 direction was written backwards, the agent evaluated both
+honestly). MLP-5's magnitude matters, its direction barely; entropy is
+NOT monotone in α (slight uptick 1→2) — not a simple temperature dial.
+
+WHAT'S NEXT: e003d (deliberate anchor variant to the bar) is the last
+claim-5 instrument. e035/e038 dispatched. T010 mechanism card next
+thinking slot.
+
 ## E003b — targeted/projected ascent: registered instruments FAIL; an Adam-anchor accident soars (2026-09-24) — DONE (record corrected)
 
 WHAT WE DID: 300-step ascent arms with corrected labels (target = train-A
