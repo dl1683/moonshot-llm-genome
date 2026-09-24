@@ -156,6 +156,24 @@ just how much each layer matters on average.
 appeared the moment the prediction was drawn through depth. Exactly the
 user's representation principle: seeing → noticing → manipulating.
 
+**T004 RESOLVED (E012, 2026-09-24T10:55Z): 2 of 3 predictions confirmed.**
+- **P2 CONFIRMED (the construct earns its keep):** late-decided positions
+  (depth ≥4) suffer 3.04× more ΔCE under attn-L4+L5 ablation (0.328 vs
+  0.108). Decision depth is a per-position predictor of lesion
+  vulnerability — anatomy is token-local, not just corpus-average.
+- **P3 CONFIRMED: L5 is a calibrator.** KL(L5-readout ‖ L4-readout) mean
+  1.03 nats vs +0.03 mean ablation CE. "Vestigial L5" is dead: L5 reshapes
+  the output distribution massively; argmax and mean-CE are blind to its
+  work. Open question: what does it calibrate toward (temperature? tail
+  mass? position-conditioned rare-token boosts?).
+- **P1 REFUTED with sign flip (ρ=+0.32):** late decisions ↔ HIGHER entropy.
+  D1 was backwards: constrained positions are trivially decided at emb/L0;
+  open contexts recruit deeper integration. The interesting quantity is not
+  "constraint → early" but "integration demand → late."
+- Lens caveat on all readout claims: mid-network ln_f+lm_head decoding is a
+  heuristic; argmax-stability claims are robust to it, absolute KL values
+  are not.
+
 ## T001/T002 AMENDMENTS — adversarial critique harvest (2026-09-24T10:2xZ)
 
 Full critique: `scratch/critique_T001_T002.md`. Corrections accepted (append-

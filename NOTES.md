@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E012 — decision-depth census (2026-09-24) — DONE
+
+WHAT WE DID: over 2000 held-out positions, decoded the last-token stream
+(ln_f+lm_head lens) at every depth; decision depth = shallowest depth whose
+top-1 survives to the end. Correlated depth with final entropy (P1); split
+positions early(≤2)/late(≥4) and measured per-position ΔCE under joint
+attn-L4+L5 zero-ablation (P2); measured KL between L5 and L4 readout
+distributions (P3). runs/e012/decision_depth.png.
+
+WHAT WE SAW (2 confirmed, 1 refuted):
+- **P2 CONFIRMED — decision depth predicts per-position vulnerability:**
+  late-decided positions suffer 3.04× more ablation damage than early-decided
+  (ΔCE 0.328 vs 0.108). Per-token anatomy is real; corpus-averaged lesion
+  maps hide it.
+- **P3 CONFIRMED strongly — L5 is a calibrator, not vestigial:** KL between
+  L5 and L4 readout distributions averages 1.03 nats (median 0.70), yet
+  zeroing L5 costs only +0.03 mean CE. L5 reshapes the output distribution
+  massively in ways argmax and mean-CE cannot see. (Caveat: mid-network lens
+  is heuristic.)
+- **P1 REFUTED with sign flip:** Spearman(depth, entropy) = +0.32, not
+  ≤ −0.4. Late decisions associate with HIGHER entropy — open contexts need
+  deeper integration; constrained positions are decided at emb/L0. D1 was
+  backwards.
+- All 2000 positions eventually stable (no chronic wobble).
+
+WHAT'S NEXT: viz — color a passage by per-token decision depth (v006): does
+depth cluster structurally (names? line-ends? dialogue turns)? Think — if
+L5 calibrates, what does it calibrate TOWARD (temperature? rare-token boost?
+top-k shape?)? e014b design memo incoming from background agent.
+
 ## E011c — matched-perturbation control: geometry vs meaning (2026-09-24) — DONE
 
 WHAT WE DID: replaced each attention/MLP write w with a 60°-rotated w′
