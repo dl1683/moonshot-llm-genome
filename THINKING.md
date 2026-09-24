@@ -176,6 +176,84 @@ schedule, independent of the lesion result.
    CAUSAL depth (activation patching from counterfactual contexts; the
    shallowest depth where splicing switches the final decision).
 
+## T006 — Anatomical plasticity: what actually persists when the organs move? (2026-09-24T11:21Z)
+
+**Observed (E014b, single seed — replication debt registered):** under
+constant-norm streams the lesion anatomy reorganized while the function did
+not: renorm arm reached BETTER val loss, yet MLP-0's keystone role dissolved
+(+4.08→+0.10 nats), attention-L0 strengthened (+2.40→+2.80), and the MLP
+damage profile INVERTED to late-heavy [0.10, 0.08, 0.23, 0.45, 0.78, 0.70].
+Write allocation rebuilt a 9.3× declining schedule whose rank order matches
+damage exactly (T003 P3, ρ=1.0). Eval-only renorm on baseline: +3.56 nats —
+each anatomy presumes its own geometry.
+
+**The question:** when the organs move, does anything stay put? Four layers
+of "what persists":
+
+- **PL1 — role migration (organs follow necessity):** baseline MLP-0's
+  keystone role was largely "norm bootstrapper" (writing 4.3 into a 0.67
+  stream); when the architecture does that for free, the organ's importance
+  collapses. Prediction: in the renorm arm, MLP-0's write barely STEERS —
+  its angular displacement per token should be far below baseline's.
+- **PL2 — functional invariants (the stages persist, organs don't):** both
+  anatomies implement the same pipeline — early token-formation, mid-stack
+  local completion, late global calibration (the E012 decision-depth profile
+  and the V002 locality funnel). Prediction: the renorm arm's decision-depth
+  census ≈ baseline's — same depth modes, same letters-late/structure-early
+  class ordering.
+- **PL3 — anatomy-level degeneracy:** the neuro-ai-lab degeneracy concept
+  scaled from routes to whole organ arrangements. Prediction: cross-anatomy
+  transplants (baseline organ into renorm net, and vice versa) fail much
+  harder than same-anatomy swaps — organs are interchangeable within an
+  anatomy (E011b head redundancy) but not across anatomies.
+- **PL4 — regime clustering:** optimization pressure + constraints choose
+  the organ assignment; assignment is regime-dependent more than
+  seed-dependent. Test deferred to v008 (multi-seed lesion-map phylogeny).
+
+**Why this matters for the lab's identity:** if PL2 holds, the correct
+dissection units are FUNCTIONAL STAGES (measured by decision depth, locality,
+calibration KL), with lesion maps as implementation detail — the instruments
+we built this morning (E012, V002) would be measuring the real organs, and
+"which layer does X" is the wrong question; "which stage does X, and where
+did it land this time" is the right one.
+
+**Discriminating observations (cheap → expensive):**
+1. **e012b (minutes, eval-only):** rerun the decision-depth census + angular
+   profile on the renorm checkpoint (hooks active). Tests P1+P2 at once.
+2. **e028 transplant (design memo queued):** within- vs cross-anatomy organ
+   swaps at matched sites. Tests P3.
+3. **v008 (later):** multi-seed lesion-map embedding. Tests P4.
+
+**Registered predictions:**
+- P1: renorm-arm MLP-0 angular displacement ≤ ⅓ of baseline's.
+- P2: renorm depth histogram matches baseline's (bin-wise correlation
+  ≥ 0.8; identical class ordering: letters > punct > newline ≈ space).
+- P3: cross-anatomy swaps cost ≥ 2× same-anatomy swap damage.
+**T006 PARTIAL RESOLUTION (E012b, 2026-09-24T11:32Z): stages are the
+organisms; lesion maps are their current addresses.**
+
+- **P2 CONFIRMED (corr 0.822):** the renorm anatomy reproduces the baseline
+  functional profile almost exactly — L5-finalization mode identical (1084
+  vs 1082 of 2000 positions), same L1 dip, same depth↔entropy relation
+  (Spearman +0.344 vs +0.322). The pipeline (early token-formation →
+  mid-stack local completion → late finalization) is the INVARIANT; where
+  exactly the mid-stack work sits (baseline spreads L0-L4 [158,46,132,160];
+  renorm concentrates L3-L4 [348,524]) is implementation detail.
+- **P1 missed the strict threshold, direction strong:** block-0 angular
+  displacement 0.746 → 0.288 (ratio 0.386 vs predicted ≤0.33); ALL layers'
+  angular displacement roughly halved in the renorm anatomy (calmer net).
+  Since renorm attn-L0 grew MORE important, MLP-0's own angular role shrank
+  further than the block total indicates. PL1 (norm-bootstrapper role)
+  supported, threshold pedantically missed.
+- **Lab-identity consequence adopted:** the primary dissection instruments
+  are now decision depth, locality, and calibration KL (they measure the
+  invariants); lesion maps are secondary (they measure where the stages
+  currently live in THIS net). "Which layer does X" is deprecated in favor
+  of "which stage does X, and where did it land this time."
+- Open: P3 (cross-anatomy transplant, e028 design memo in progress) and P4
+  (v008 multi-seed phylogeny) test whether whole-organ degeneracy respects
+  anatomy boundaries.
+
 ## T005 — The locality funnel and L5's rare-token re-globalization (2026-09-24T11:12Z)
 
 **Observed (V002 attention atlas):** attention locality has a depth profile —

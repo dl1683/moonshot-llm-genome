@@ -9,6 +9,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E012b — renorm-anatomy census: the function persists (2026-09-24) — DONE
+
+WHAT WE DID: reran the decision-depth census + angular-displacement profile
+on the E014b renorm checkpoint (hooks active). T006 P1+P2 discriminators.
+
+WHAT WE SAW:
+- **P2 CONFIRMED (histogram corr 0.822):** two different anatomies, one
+  functional profile — L5-finalization 1084/2000 vs 1082/2000, same L1 dip,
+  same depth↔entropy Spearman (+0.344 vs +0.322). Mid-stack timing
+  reshuffled (baseline spreads early; renorm concentrates L3-L4) but the
+  pipeline shape held.
+- **P1 near-miss (0.386 vs ≤0.33 threshold), direction strong:** block-0
+  angular displacement 0.746→0.288; every layer's angular displacement
+  roughly halved in the renorm anatomy.
+- Adopted as lab doctrine: decision depth / locality / calibration KL are
+  the primary anatomy instruments (invariants); lesion maps are the
+  secondary "where do the stages live this time" instrument.
+
+WHAT'S NEXT: e028 transplant (P3 — design memo in progress in background);
+e013a census; e019 MLP-5 thermostat.
+
 ## V002 — attention atlas: L5 is a rare-token re-globalizer (2026-09-24) — DONE
 
 WHAT WE DID: VISUALIZER subagent built lab/v002_attention_atlas.py: last-token
