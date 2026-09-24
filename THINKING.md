@@ -309,6 +309,19 @@ organs are anatomy- and init-portable." New open question: why? Candidate:
 attention READS stream directions that all adequate solutions share; MLPs
 WRITE into seed-specific subspaces.
 
+**T008 REVIEW-2 AMENDMENTS (2026-09-24T12:26Z):**
+- **Claim 1 → M (downgraded):** the two anatomies compared (B, R) share
+  seed 42; e029 showed same-init nets share ΔW directions — stage
+  invariance was never tested across seeds. e012c (census on B43/R43,
+  running) de-confounds: cross-seED histogram match restores H;
+  seed-clustering keeps it init-bound.
+- **Claim 3 sub-claim "attention portable" flagged:** MLP ΔW alignment
+  (.26/.10/.20) exceeds attention's (.21/.06/.08) — cosine cannot mediate
+  the organ-type difference; portability may partly be small-denominator
+  artifact (late-attn ablation refs 0.016-0.034; R-host L5-attn is
+  regime-dominant). Solid at L0/L3 only. ΔW gap (+0.155) lacks a
+  same-init/data-order-replicate ceiling null — registered as needed.
+
 ## T008 — The anatomy of a 2.7M char transformer: first synthesis (2026-09-24T12:06Z)
 
 Assembling the morning's dissections into one picture. Confidence: H
