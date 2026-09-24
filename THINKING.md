@@ -70,6 +70,54 @@ calibrated to the write's DIRECTION (content matters, and actively).
 
 ---
 
+## T004 — Decision depth: predictions form at different depths per token (2026-09-24T10:5xZ)
+
+**Observed (V001 token journey, logit lens through depth):**
+- "…torches to burn " → top-1 walk: emb `:`(.16) → `s` → `m` → `i` → **L3
+  `t`(.69)** → L4 `t`(.63) → L5 `t`(.33). Decision at L3; L5 DEGRADES top-1
+  confidence by half.
+- "To be, or not to " → `\n` → `d` → `d` → `l` → `m` → **L4 `b`(.22)** → L5
+  `b`(.23). The correct answer only exists from L4 on.
+- Authority panel: L0 write/stream ≈ 8.5 vs ≈ 1 for L1–L5; angular
+  displacement 0.7 at L0 vs 0.2–0.3 later (T003's schedule, now visible).
+
+**The new observable:** *decision depth* — the shallowest readout depth whose
+top-1 equals the final top-1 and remains stable. It varies per token/context.
+This gives per-position anatomy: WHERE a specific prediction gets made, not
+just how much each layer matters on average.
+
+**Hypotheses:**
+- D1: decision depth tracks constraint strength — strongly constrained
+  continuations (low next-token entropy) are decided early; open contexts
+  wait for later integration.
+- D2: late decision = longer-range integration required (position attends
+  far back only in later layers).
+- D3: L5's confidence drop (prompt 1) is refinement — probability mass
+  spreading over multiple valid continuations — not degradation; L5 may be a
+  "distribution sharpener" whose ablation cost hides in averaged CE.
+
+**Discriminating observations:**
+1. Measure decision depth over ~2000 val positions; correlate with final
+   next-token entropy (D1) and with attention-distance statistics (D2).
+2. Split positions by decision depth (≤2 vs ≥4) and measure per-split CE
+   increase under L4+L5 zero-ablation (D1/D3: late-decided positions should
+   suffer more if late layers carry real function).
+3. L5-refinement test (D3): compare full next-token DISTRIBUTIONS (KL, not
+   CE) at L4 vs L5 readouts — if L5 sharpens/plattens distributions without
+   changing argmax, its role is calibration.
+
+**Registered predictions:**
+- P1: decision depth and final entropy correlate ρ ≤ −0.4.
+- P2: positions with decision depth ≥4 suffer ≥2× larger L4+L5-ablation CE
+  increase than positions decided at ≤2.
+- P3: L5 readout changes distribution shape (KL > 0.05 nats vs L4 readout)
+  even where argmax is stable — L5 is not dead weight, it is a calibrator
+  whose average ablation cost (+0.03) understates its per-token role.
+
+**Visualization dividend:** this concept existed in none of our numbers; it
+appeared the moment the prediction was drawn through depth. Exactly the
+user's representation principle: seeing → noticing → manipulating.
+
 ## T001/T002 AMENDMENTS — adversarial critique harvest (2026-09-24T10:2xZ)
 
 Full critique: `scratch/critique_T001_T002.md`. Corrections accepted (append-

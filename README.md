@@ -14,6 +14,12 @@ Train small neural networks (1M–100M parameters; sweet spot 1–10M), then:
 - **transplant their organs** (swap layers/heads/MLPs between nets),
 - **evolve them** (lineage and mutation instead of, or with, gradient descent),
 - **poke preloaded nets** and change behavior in *predicted* directions.
+- **SEE the system** (standing VISUALIZER thread): representations and
+  visualizations are discovery instruments — the right picture reveals
+  structure that metrics hide, and what can be represented can be
+  manipulated. Token journeys, attention maps, lesion atlases, write-space
+  geometry, prediction evolution through depth. Every review cycle includes
+  visualization thinking; `lab/vNNN_*.py` + `runs/vNNN/` are the viz series.
 
 The method is play: run hundreds of experiments, graph everything, follow
 anomalies, let the good questions emerge from the anatomy.

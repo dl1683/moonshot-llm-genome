@@ -9,6 +9,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## V001 — token journey visualization (2026-09-24) — DONE
+
+WHAT WE DID: first artifact of the standing VISUALIZER thread: one forward
+pass per prompt, three panels — logit lens through depth (final LN+head
+applied to the last token's stream after emb and each block), PCA-2D token
+trajectory with write arrows, per-layer angular authority (1−cos and
+write/stream). runs/v001/token_journey.png.
+
+WHAT WE SAW:
+- **New observable: decision depth.** "…torches to burn " is decided at L3
+  (top-1 `t`, p 0.69) and L5 HALVES its confidence (0.69→0.33); "To be, or
+  not to " only surfaces the correct `b` at L4. Predictions form at
+  different depths per token — T004 written with hypotheses D1-D3 and three
+  registered predictions.
+- Authority panel makes T003 visible: L0 write/stream ≈ 8.5 vs ≈ 1 later;
+  angular displacement 0.7 (L0) vs 0.2-0.3 (later).
+
+WHAT'S NEXT: e012 redesigned → measure decision depth over ~2000 val
+positions; correlate with next-token entropy and L4/L5 ablation damage
+(T004 discriminators). Viz polish backlog: arrowheads on trajectory, L0 bar
+headroom in panel 3 (v001.1).
+
 ## E011b — L0 redundancy sweep + orthogonal-innovation control (2026-09-24) — DONE
 
 WHAT WE DID: eval-only discriminators from the critique harvest: (1) all 63

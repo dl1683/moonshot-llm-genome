@@ -13,7 +13,7 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 | e014b | stream-renorm training | READY | train fresh net with constant-norm residual stream at block inputs; T003-B predicts lesion map flattens |
 | e003b | corrected ascent instruments | READY | dense steps 0–30; projected + masked (top-k A-specific) ascent; target=train-A CE (memorization), collateral=val_B CE (labels fixed per critique) |
 | e011 | MLP-0 anatomy | READY | what does the keystone organ (+4.08 nat lesion) store? probe, ablate-then-finetune recovery cost |
-| e012 | vestigial attention | READY | attn-L5 costs only +0.03 — vestigial or quietly specialized? read its attention patterns |
+| e012 | decision-depth census | READY | measure decision depth over ~2000 val positions; test T004 D1-D3 (entropy correlation, L4/L5 ablation split, L5-as-calibrator KL) |
 | e001 | lesion map | DONE | see NOTES.md — front-loaded attention, keystone MLP-0, 16/48 dispensable |
 | e002 | forgetting pilot | DONE | see NOTES.md — ascent is anti-selective at lr 2e-5; anchor slows but doesn't save |
 | e004 | organ transplant | READY | train two nets on two corpora; swap layers/MLPs/heads; what transfers? |
@@ -28,6 +28,16 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 | e015 | variable-depth training | READY | sample active layer-count during training; does it make the net robust to layer-drop/early exit? (NEURO_AI_LAB #6; pairs with E001 dead-late-attention) |
 | e016 | reconsolidation vs real-EWC | READY | retrieval-gated labilize→reconsolidate vs properly-tuned EWC on sequential tasks (NEURO_AI_LAB #4) |
 | e017 | sleep cycles | PARKED | periodic NREM-prune + REM-noisy-replay phases; forgetting/generalization at matched compute (NEURO_AI_LAB #5) |
+
+## Visualization thread (`lab/vNNN_*`, standing — see README VISUALIZER)
+
+| id | viz | status | one-liner |
+|---|---|---|---|
+| v001 | token journey | DONE | decision-depth observable discovered (T004); authority schedule visualized; polish: arrowheads + L0 headroom |
+| v002 | attention atlas | READY | per-prompt 6×6 grid of head attention maps, annotated; find what attn-L5 actually attends to |
+| v003 | write-space geometry | PARKED | PCA/dimensionality of each block's writes; overlap between blocks (who writes where) |
+| v004 | lesion atlas explorer | PARKED | combine e001 damage + e011b subsets + write norms into one annotated anatomy poster |
+| v005 | forgetting animation | PARKED | animate E003 ascent trajectories (Δtarget/Δcollateral + generated text decaying) |
 
 ## Parking lot (raw ideas, unranked)
 
