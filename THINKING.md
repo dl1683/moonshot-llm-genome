@@ -355,14 +355,22 @@ Retrieval is task-elicited, not architecturally absent.**
   the pipeline reorganizes around task demands; stage membership is
   task-dependent, stage *existence* is not.
 
-**T008 claim-3 mechanism note (V009, 2026-09-24T13:02Z): candidate
-REFUTED in reverse.** ΔW subspace atlas: same/diff-seed alignment gap is
-largest on the READ side (W_in 0.260, c_attn 0.235) and smallest for W_out
-(0.091; stream-writer subspaces most shared). **Reading directions are
-seed-private; writing directions converge into the common residual
-stream.** e031 REGISTERED with flipped prediction: grafting W_in alone
-across seeds will be violent; W_out alone mild. If confirmed, seed-anchored
-MLP grafts are read-path incompatibilities.
+**T008 claim-3 mechanism note — AMENDED (V009 full report, 2026-09-24T13:10Z):
+the seed-anchored object is the residual-STREAM basis itself.** Right-singular
+(input-space) gaps: reads W_in +0.260 / c_attn +0.235 vs W_out-right +0.091
+(which initially suggested "reads private, writes shared"). But the
+left-singular (stream-space) supplement REVERSES the second half: **W_out-left
+gap +0.267 (same 0.562 / diff 0.295) vs c_proj-left +0.071 — MLP stream-writes
+are 3.8× more init-anchored than attention's**, matching e029's transplant ρ
+(MLP L3/L5 3.08/2.27 vs attn 0.93/1.29); W_in-right peaks at L5 (0.661) where
+MLP grafts are most seed-dominant. And diff-seed alignment sits AT the random
+floor everywhere (excess ≤ +0.04) — attention portability is NOT shared
+subspaces; it is weak anchoring (c_proj barely anchored on both sides).
+Refined mechanism: every stream-FACING interface (reads and MLP writes) is
+init-anchored; MLP hidden space is barely anchored; c_proj is the
+insensitivity exception. **e031 RE-REGISTERED: individual-matrix grafts at
+L3/L5 — W_in and W_out each predicted VIOLENT (stream-facing); c_proj
+predicted MILDEST of the four.**
 
 ## T009 — e021 registration: does a retrieval-required task break the no-retrieval picture? (2026-09-24T12:40Z)
 

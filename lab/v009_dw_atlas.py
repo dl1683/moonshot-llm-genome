@@ -244,7 +244,7 @@ gs_main = fig.add_gridspec(2, 1, height_ratios=[24, 8.0], hspace=0.30,
                            left=0.085, right=0.885, top=0.905, bottom=0.05)
 gs_top = gs_main[0].subgridspec(1, 5, width_ratios=[1.05, 1.05, 0.42, 0.7, 0.16],
                                 wspace=0.05)
-gs_bot = gs_main[1].subgridspec(1, 2, width_ratios=[3.1, 1.5], wspace=0.06)
+gs_bot = gs_main[1].subgridspec(1, 2, width_ratios=[2.9, 1.7], wspace=0.08)
 axA = fig.add_subplot(gs_top[0, 0])
 pe = [pe_mod.withStroke(linewidth=1.4, foreground="black")]  # readable on any bg
 axB = fig.add_subplot(gs_top[0, 1], sharey=axA)
@@ -291,7 +291,7 @@ for i, (s, l) in enumerate(ROWS):
                  color=("#ffcc80" if rho >= 1.5 else "#e0e0e0"), path_effects=pe)
     axR.text(0, i, f"{vb_:.2f}", ha="center", va="center", fontsize=6,
              color="black", path_effects=pe)
-    axD.text(0, i, f"{fro_mean[(s, l)]:.1f}", ha="center", va="center", fontsize=5.5,
+    axD.text(0, i, f"{fro_mean[(s, l)]:.1f}", ha="center", va="center", fontsize=5.9,
              color="white", path_effects=pe)
 
 axA.set_title("A · same-seed pairs\n(B–R s42, B43–R43 s43)", fontsize=9.5)
@@ -333,7 +333,7 @@ txt = ("diff-seed excess over random baseline:\n" +
        f"transplant ρ median L3/L5: attn "
        f"{statistics.mean([rho_med['L3|attn'], rho_med['L5|attn']]):.2f} | mlp "
        f"{statistics.mean([rho_med['L3|mlp'], rho_med['L5|mlp']]):.2f}")
-axT.text(0.0, 0.97, txt, ha="left", va="top", fontsize=7.8, family="monospace",
+axT.text(0.015, 0.98, txt, ha="left", va="top", fontsize=7.6, family="monospace",
          bbox=dict(boxstyle="round,pad=0.5", fc="#f5f5f5", ec="#999999"))
 
 fig.suptitle("V009 ΔW atlas — top-16 input-space change subspaces per organ sublayer "

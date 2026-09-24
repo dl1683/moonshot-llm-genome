@@ -41,7 +41,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 - v009 ΔW-subspace portability atlas (R2 ideator): SVD per organ, cross-seed principal angles overlaid with transplant ρ
 - e030 Procrustes graft: re-express donor MLP ΔW in host init subspace before grafting
-- e031 READ/WRITE-path split (REGISTERED, flipped): graft W_in alone across seeds (predict VIOLENT) vs W_out alone (predict MILD) — v009 says reads are seed-private
+- e031 stream-facing matrix grafts (REGISTERED v2): graft each matrix (W_in/W_out/c_attn/c_proj) across seeds at L3/L5 — W_in AND W_out predicted VIOLENT (stream-facing), c_proj mildest — stream-basis mechanism
 - e032 MLP-5 per-token census: write norm vs entropy/decision depth (energy pump or ballast?)
 - e033 write-equalizer (bio/homeostasis): train with equal-norm MLP writes; who absorbs the energy?
 - e034 graft-evolution: lineage selected by cross-seed graft damage; does selection erode init-anchoring?

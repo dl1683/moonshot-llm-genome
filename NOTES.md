@@ -20,11 +20,13 @@ WHAT WE SAW:
   gap is largest on the READ side (W_in 0.260, c_attn 0.235) and smallest
   for MLP W_out (0.091). Diff-seed alignment ≈ random for all reads
   (excess ~0.003); W_out keeps a small positive excess (+0.036).
-- **Reading direction is seed-private; writing directions converge** into
-  the shared 192-d residual stream all nets must use. Stream-writer
-  (left-singular) subspaces are the most cross-seed-aligned.
-- Prediction FLIPPED for e031 (graft organ halves across seeds): W_in alone
-  should be violent, W_out alone mild — the registered discriminator.
+- **AMENDED after full report: the seed-anchored object is the residual-
+  STREAM basis.** MLP stream-writes (W_out-LEFT gap +0.267) are 3.8x more
+  init-anchored than attention's (c_proj-left +0.071) — matching e029's
+  transplant rho. Diff-seed alignment is at the random floor EVERYWHERE
+  (excess <= +0.04): attention portability = weak anchoring, not shared
+  subspaces. e031 re-registered: W_in and W_out grafts each VIOLENT
+  (stream-facing); c_proj mildest.
 
 ## E021 — task-swap: retrieval exists when required; new L4 decision mode (2026-09-24) — DONE
 
