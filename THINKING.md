@@ -311,6 +311,62 @@ seed(42/43) × regime(base/renorm) transplant matrix; prediction: the seed
 axis dominates the regime axis (ρ_regime ≈ 1, ρ_seed ≫ 1). T006/PL2
 (stages over anatomy) now has its causal support.
 
+## T008 — The anatomy of a 2.7M char transformer: first synthesis (2026-09-24T12:06Z)
+
+Assembling the morning's dissections into one picture. Confidence: H
+(replicated/causal), M (single decisive test), L (suggestive).
+
+**1. Function is staged; stages are the organism (H).** Early token-formation
+→ mid-stack local completion → late distribution calibration. Invariant
+across two anatomies (E012b, depth-histogram corr 0.822; L5-finalization
+1084 vs 1082/2000). Instruments: decision depth, locality funnel, KL(L5‖L4).
+Lesion maps report where stages landed THIS net, nothing more (E014b:
+keystone dissolved under renorm with parity loss).
+
+**2. Anatomy is plastic; allocation follows function (M).** The renorm net
+rebuilt a declining write-allocation schedule (write/c rank-order = damage
+rank-order, ρ=1.0) without stream growth. Damage tracks write ENERGY, not
+content (E011c ladder), and the network declines authority it doesn't need
+(L4/L5 write deflation under renorm). Where does the energy go? Late MLPs
+write big-but-cheap (MLP-5 energy carrier: zero +0.59 vs rotate +0.14) —
+open question.
+
+**3. Organ compatibility follows initialization lineage, not regime (M;
+mechanism test running).** Cross-anatomy same-seed grafts land mildly
+(ρ=0.874), same-anatomy different-seed grafts violently (+1.99 vs +0.65 at
+L3-mlp). Hypothesis: organs refine init-anchored subspaces (ΔW alignment
+observable in e029). Trained-foreign tissue misleads more than random
+tissue — interference is content-specific (E028).
+
+**4. There is no long-range information retrieval at this scale (H for this
+model).** L5's calibration is local (E013: KL −6.9% under truncation); far
+attention is idle grazing (E013a census); far-value is bimodal but both
+tails are structure-insensitive — gains shuffle-robust (bulk statistics),
+hurts shuffle-amplified (destabilization; E013d). Depth = lexical
+discrimination demand, not range (T004 P1 sign-flip + E013).
+
+**5. First-order forgetting is impossible at every granularity tested (M).**
+Ascent destroys the shared fluency substrate first (r ≈ 1.0x at all doses,
+all content distances; T002). Untested instruments: weight-targeted/
+projected ascent (e003b READY); entity-granularity embedding surgery (e023).
+
+**The frame's falsifiers (what would break this picture):**
+- A task that provably requires far retrieval where this model succeeds
+  (e021 task-swap) — would break claim 4.
+- Stage structure failing at other scales/corpora (the whole picture is ONE
+  architecture, ONE corpus, ONE scale — the frame's biggest limitation;
+  scaling ladder e004/e005 re-motivated by synthesis, not by novelty).
+- e029 contradicting init-lineage (would demote claim 3 to correlation).
+
+**Replication debt (blocking upgrades to H):** e014b.1 (plasticity seed),
+e011c CIs, multi-seed lesion maps (v008 phylogeny would settle claims 1-2
+at once).
+
+**Top-3 next by expected information:** (1) e021 task-swap — does the stage
+picture survive a copy-task (where far retrieval IS required)? tests claims
+1+4 jointly; (2) v008 anatomy phylogeny — settle 1-2 with seeds; (3) e003b
+targeted ascent — last clean instrument on claim 5.
+
 ## T007 — Far context is a double-edged sword: the bimodal far-value distribution (2026-09-24T11:55Z)
 
 **Observed (E013c, 2000 positions):** far-value = CE(16 ctx) − CE(256 ctx)
