@@ -7,7 +7,30 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T011 — Surgical forgetting WORKS at entity granularity (2026-09-24T15:02Z; pending agent full-report confirmation)
+## T011 — Surgical forgetting WORKS at entity granularity (2026-09-24T15:02Z; CONFIRMED by full report 15:12Z with refinements)
+
+**FULL-REPORT REFINEMENTS (15:12Z):**
+1. **Collateral correction — the scalpel is even cleaner than first
+   recorded:** under D2, ALL 12 J-class words take ΔNLL ≥ 1.46 while EVERY
+   non-J name moves ≤ 0.037. The "idiosyncratic collateral" (LUCIO 8.5)
+   belongs to the D1 BOMB (LUCIO shares L,U,I with its six-letter set),
+   not the scalpel. Collateral is perfectly letter-class-graded under the
+   scalpel — overlap-o was simply the wrong predictor.
+2. **Untied split (P2b passes):** wte-zero (READ row) 5.79 NLL/0.19 acc ≫
+   lm-zero (WRITE row) 2.04/0.83 — reading carries the completion; but
+   lm-zero keeps battery accuracy while erasing 'J' from GENERATION
+   entirely (0 J-chars) — the write row controls expression.
+3. **Third registered outcome fired:** S_letter ≈ 1 from BOTH instruments
+   (surgery 0.99, ascent 1.13) — entity identity cannot be split from its
+   letter class at char level; identity lives in body transitions the rows
+   index. (e042's body atlas is exactly the next cut.)
+4. **Ascent converges on the same coordinate** (logit-J 10.0 → −1.5) —
+   both families target the same substrate; ascent just burns the corpus
+   around it (+1.16 val vs surgery's +0.0008 scaled). C5 stays closed;
+   the ΔCE≤0.10 guard correctly blocked the false r=1.73 revival.
+5. G4 caveat logged: PROSPERO's unmemorized anchor is
+   context-construction-sensitive (13.2 vs 4.46≈floor) — re-measure
+   anchors with the uniform-floor method going forward.
 
 **E023 verdicts (registered):**
 - **The J-row scalpel is the program's first selective instrument: S_name =
