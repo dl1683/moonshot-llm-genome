@@ -21,6 +21,26 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E012d — 4-net causal census: C1's strong form is dead (2026-09-24) — DONE
+
+WHAT WE DID: the e018 causal-depth protocol on B43/R/R43 (B reproduced
+exactly); cross-net histogram correlations + the lens=6 scoping check.
+
+WHAT WE SAW (T014):
+- **Causal depth is NOT cross-net invariant:** seed axis 0.735, regime
+  axis 0.500 (B43-R43 collapse) vs the 0.8 bar; mode slides 3->4->4->5
+  across B/B43/R/R43; renorm shifts mass deeper. The lens census's
+  0.82-0.85 was the by-construction artifact.
+- **T012's demotion total:** the lens=6 bin (52.7% of positions) selects
+  causally indistinguishable positions.
+- C1 final: qualitative mid-stack causal gate in every net; quantitative
+  depth non-invariant. e005s readout re-scoped to the qualitative gate.
+
+WHAT'S NEXT: card C1 updated. e043 still running; audit slot next when it
+lands. Evening program continues (e044 scar gated).
+
 ## E042 — name-circuit atlas + two-factor erasure (2026-09-24) — DONE
 
 WHAT WE DID: position-resolved lesion atlas (36 heads + 12 blocks) at name

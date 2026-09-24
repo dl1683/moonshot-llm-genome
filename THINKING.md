@@ -7,6 +7,32 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T014 — C1 resolved: cross-net causal invariance is NEGATIVE; what survives is qualitative (E012d, 2026-09-24T21:20Z)
+
+**The 4-net causal census (protocol identical to e018; B reproduced
+exactly):**
+- Cross-net causal-histogram correlations: seed axis 0.735/0.799, regime
+  axis 0.753/**0.500** (B43↔R43 collapse) — ALL below the registered 0.8
+  bar; instrument reliability ceiling 0.83-0.85, so these are real
+  failures. The causal mode SLIDES with seed+regime (B 3 → B43 4 → R 4 →
+  R43 5); renorm nets shift mass deeper (d5: 250→423). The lens census's
+  0.82-0.85 "invariance" was exactly the by-construction artifact R4
+  feared — the causal truth moves where the lens cannot see.
+- **T012's demotion is TOTAL:** within the lens=6 subset (52.7% of
+  positions), causal depth is statistically indistinguishable from
+  elsewhere (mean 2.94 vs 2.96; proportional histograms). The lens's
+  dominant bin selects causally random positions.
+- **C1's final honest form:** every net examined has a causal commitment
+  point mid-stack with suffix-monotone flip curves (qualitative
+  universal); the DEPTH of that commitment is seed- and regime-dependent
+  (quantitative non-invariance). "Stages are the organism" in its strong
+  cross-net form is DEAD; what survives: "a mid-stack causal gate exists
+  in every anatomy, at a depth the anatomy's history chooses."
+- Card v2 consequence: C1 → scoped qualitative (single architecture
+  family; cross-net depth non-invariance affirmative). e005s scaling
+  ladder's C1 readout re-scoped accordingly (test the QUALITATIVE gate's
+  existence, not depth invariance).
+
 ## T013 — Two-factor surgical erasure; name circuits are shared (E042, 2026-09-24T15:35Z)
 
 **The arc's first phase closes with a complete answer:**
