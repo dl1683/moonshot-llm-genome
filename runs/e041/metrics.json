@@ -1,0 +1,103 @@
+{
+  "experiment": "e041_ceiling_null",
+  "date": "2026-09-24T14:13:42Z",
+  "device": "cuda",
+  "task": "T010 C3 debt: dW ceiling null (same-init / diff-data-order replicate)",
+  "config": {
+    "vocab": 65,
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256
+  },
+  "arms": {
+    "B": {
+      "init_seed": 42,
+      "batch_seed": 1337,
+      "ckpt": "e001.pt",
+      "ce_30batch": 1.622391394774119,
+      "ref": 1.622391394774119
+    },
+    "BDO": {
+      "init_seed": 42,
+      "batch_seed": 7777,
+      "ckpt": "e041_bdo.pt",
+      "steps": 1983,
+      "ce_30batch": 1.595102643966675,
+      "parity_gate": 1.7224,
+      "parity_gate_pass": true,
+      "ce_delta_vs_B": -0.027288750807444195,
+      "train_config": "steps 4000, lr 1e-3, bs 64, cap 252 s, corpus CharCorpus(seed=7777) => ONLY batch order differs"
+    }
+  },
+  "init_gate": "BDO init bitwise == init42 (set_seed(42); TinyGPT(cfg)); batch order changed via corpus.seed=7777 (train_model's torch.Generator is seeded from corpus.seed)",
+  "eval_protocol": "30 fixed deterministic val batches, generator seeded from corpus seed 1337 (e029 per_batch_losses); identical batches for B and BDO",
+  "dw_ceiling": {
+    "rule": "cos((W_B - W_init42), (W_BDO - W_init42)) per organ, flattened float32; organs = e029 surgery units (attn: c_attn+c_proj; mlp: fc weights+biases) at L0/L3/L5",
+    "per_organ": {
+      "L0|attn": {
+        "cos_dW_B_vs_BDO": 0.7247473001480103,
+        "norm_dW_B": 6.22506046295166,
+        "norm_dW_BDO": 6.281912326812744,
+        "norm_ratio_BDO_over_B": 1.009132742881775
+      },
+      "L0|mlp": {
+        "cos_dW_B_vs_BDO": 0.7891350388526917,
+        "norm_dW_B": 8.656710624694824,
+        "norm_dW_BDO": 8.676072120666504,
+        "norm_ratio_BDO_over_B": 1.0022366046905518
+      },
+      "L3|attn": {
+        "cos_dW_B_vs_BDO": 0.5348271727561951,
+        "norm_dW_B": 13.533058166503906,
+        "norm_dW_BDO": 13.405115127563477,
+        "norm_ratio_BDO_over_B": 0.9905458688735962
+      },
+      "L3|mlp": {
+        "cos_dW_B_vs_BDO": 0.35556644201278687,
+        "norm_dW_B": 16.924453735351562,
+        "norm_dW_BDO": 16.684701919555664,
+        "norm_ratio_BDO_over_B": 0.985834002494812
+      },
+      "L5|attn": {
+        "cos_dW_B_vs_BDO": 0.3351454734802246,
+        "norm_dW_B": 15.1276216506958,
+        "norm_dW_BDO": 14.846035957336426,
+        "norm_ratio_BDO_over_B": 0.9813860058784485
+      },
+      "L5|mlp": {
+        "cos_dW_B_vs_BDO": 0.4626418948173523,
+        "norm_dW_B": 20.327943801879883,
+        "norm_dW_BDO": 19.840099334716797,
+        "norm_ratio_BDO_over_B": 0.9760012626647949
+      }
+    },
+    "mean": 0.5336772203445435
+  },
+  "ladder": {
+    "same_init_same_order": {
+      "value": 1.0,
+      "basis": "trivial: B vs B, identical tensors (computed identity check 1.000000)"
+    },
+    "same_init_diff_order": {
+      "value": 0.5336772203445435,
+      "basis": "B vs BDO (this run)"
+    },
+    "same_init_diff_regime": {
+      "value": 0.14120009914040565,
+      "basis": "B<->R (e029)",
+      "pooled_same_init": 0.1521627058585485
+    },
+    "diff_init": {
+      "value": -0.0023707472646492533,
+      "basis": "pooled 4 diff-init pairs (e029)"
+    }
+  },
+  "ladder_source": "runs/e029/metrics.json",
+  "fraction_regime_over_ceiling": 0.26457958810617116,
+  "verdict": "PARTIAL ANCHORING \u2014 ceiling >= 0.5: the B<->R 0.15 alignment is a small fraction (0.26) of the same-init alignment the data allows",
+  "verdict_rule": "ceiling >= 0.5 -> anchoring PARTIAL (B<->R is a small fraction of possible same-init alignment); ceiling ~ 0.2 with B<->R 0.15-0.25 -> anchoring TOTAL (B<->R essentially at ceiling)",
+  "timing_s": {
+    "total": 258.3
+  }
+}

@@ -32,7 +32,11 @@ motion from different inits is near-orthogonal (cos≈0.000 vs same-init
 +0.15); stream-FACING matrices (W_in reads, W_out writes) are the violent
 grafts, W_in dominant (e031: L5 W_in alone +3.28 > whole organ +1.46 —
 donor W_out partially rescues); attention matrices are mild (c_attn
-mildest). Debt: ΔW ceiling null (same-init/diff-data-order) unrun;
+mildest). Debt PAID (e041): alignment ladder complete — 1.0 → 0.534 (same-init
+diff-order CEILING) → 0.152 (same-init diff-regime) → 0.000 (diff-init).
+PARTIAL ANCHORING: regime change exceeds batch-order noise 3.6×, yet
+same-init stays far above the floor; early organs order-robust, depth
+erodes. Former debt line (superseded): ΔW ceiling null unrun —
 e031 LN-statistics alternative unexcluded; "attention portable" is
 weak-anchoring, NOT shared subspaces (v009).
 Falsifier: e030 Procrustes-style basis-realignment rescuing cross-seed

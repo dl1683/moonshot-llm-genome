@@ -13,6 +13,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E041 — ΔW ceiling null: PARTIAL ANCHORING (card C3 debt paid) (2026-09-24) — DONE
+
+WHAT WE DID: trained BDO = seed-42 init, different data order (corpus seed
+7777 changes every batch; init bitwise-verified identical); computed the
+ΔW-alignment ceiling cos(ΔW_B, ΔW_BDO) with the e029 protocol.
+
+WHAT WE SAW:
+- **The full ladder: 1.0 (same everything) → 0.534 (same init, diff data
+  order = CEILING) → 0.141-0.152 (same init, diff regime, B↔R) → −0.002
+  (diff init).** Verdict: PARTIAL ANCHORING — the regime change moves a net
+  well beyond batch-order noise (0.15 is only 0.26× the ceiling), yet
+  same-init anchoring remains far above the diff-init floor.
+- Per-organ ceiling: early organs order-robust (L0-attn 0.73, L0-mlp 0.79),
+  depth erodes alignment (L5 0.34-0.46) — deep layers are where both order
+  noise AND regime pressure act.
+- BDO val 1.595 (parity PASS; batch order alone shifts final CE by −0.03 —
+  data order is a real training variable). Motion magnitudes identical
+  (‖ΔW‖ ratio 0.98-1.01) — only directions differ.
+
+WHAT'S NEXT: card C3 updated (ceiling paid). e023 design memo in progress.
+Review ~14:35Z.
+
 ## E035 + E038 — task-net anatomy + causal head lesion (2026-09-24) — DONE
 
 E035 (eval-only on the e021 task net):
