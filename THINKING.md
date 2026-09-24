@@ -7,6 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T018 — Scar tissue: erasure burns the address, not the attractor (E044, 2026-09-25T00:15Z)
+
+**The real run (smoke:false, 350s, 5 arms, all gates; shakedown root cause:
+E044_SMOKE=1 env leftover — postmortem in the script; new COS_MIN_NORM
+validity guard):**
+- **The scar is ANATOMICAL, not kinetic.** Re-learning JULIET is 2.08×
+  SLOWER than fresh install (P2's speed leg falsified in reverse) — but
+  the zeroed wte_J row re-grows along its ORIGINAL direction (cos +0.760,
+  monotone, 58% norm regrowth at s400) while a fresh name lands orthogonal
+  (0.278). **The body remembers the direction; the address re-grows into
+  its old groove.** Step decomposition pins the entire 2× tax on address
+  regrowth (a=b2=25 exactly; the L3H5 patch costs zero extra steps).
+- **The new route is genuinely new — and the old head becomes an
+  ANTI-carrier:** post-relearning atlas correlates only 0.21 with the
+  original; L3H5 flips carrier→anti-carrier (+0.88 → −2.03: zeroing it now
+  IMPROVES the memory by 2 nats). The natural battery still rides L0H3/L0
+  (0.60) — the shared machine persists (e043/e047 law).
+- **Re-erasibility degraded ~3×:** re-applying D2+patch to the re-trained
+  net leaves 44.5% accuracy (vs 0.13% originally) at +0.021 CE — the
+  re-learned memory is partially SURGICAL-PROOF (less address-dependent,
+  more distributed).
+- P3 failed at bar (incumbents +0.135 vs 0.10; corpus only +0.013; JOHN
+  actually improved −3.16 — re-learning repaired D2's J-class collateral).
+
+**C7 refined — the edit law, final:** removal burns the address cheaply
+but leaves the attractor; installation re-grows the address along the old
+groove (if one existed) while building a NEW route that is harder to
+surgically remove than the original — erasure is not just incomplete at
+the attractor level; it is partially irreversible at the coordinate level
+(the second memory won't fit the first memory's surgical key). Address,
+ability, expression — and now history.
+
 ## T017 — CARD v3: the replication sweep's three stamps (E047, 2026-09-24T23:55Z)
 
 **The gate inputs (5 nets each, reference reproductions near-bit-exact,

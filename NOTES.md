@@ -29,6 +29,25 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E044 — scar tissue (REAL run): erasure burns the address, not the attractor (2026-09-25) — DONE
+
+WHAT WE DID: full 5-arm battery (re-install vs fresh vs patch-controls,
+400 steps each); root cause of the earlier shakedown = E044_SMOKE=1 env
+leftover; new COS_MIN_NORM validity guard.
+
+WHAT WE SAW (T018): re-learn is 2.08x SLOWER but the address re-grows
+along its ORIGINAL direction (cos 0.760 vs fresh 0.278) — the attractor
+survived erasure; the new route is new (atlas rho 0.21; L3H5 flips
+carrier->ANTI-carrier, -2.03); the re-learned memory is ~3x more
+surgical-RESISTANT (44.5% vs 0.13% under the same D2+patch). P3 failed at
+bar (incumbents +0.135). JOHN improved (re-learning repaired J-class
+collateral).
+
+WHAT'S NEXT: C7 final: address/ability/expression/history. Night program:
+e048 expression gap next.
+
 ## E047 — positive-claims replication sweep: card v3's gate (2026-09-24) — DONE
 
 WHAT WE DID: 3 surviving positives × 5 nets (references near-bit-exact;
