@@ -1,0 +1,246 @@
+{
+  "experiment": "v010_self_portrait",
+  "date": "2026-09-24T14:46Z",
+  "device": "cpu",
+  "poster": "runs\\v010\\self_portrait.png",
+  "panels": {
+    "A_C2_one_function_three_anatomies": {
+      "x": "layer L0..L5; zero-ablation damage = \u0394val CE (nats)",
+      "nets": {
+        "B": {
+          "label": "B  (Shakespeare, e001)",
+          "val_ce": 1.622391394774119,
+          "attn_damage": [
+            2.4010302821795144,
+            1.7372984766960142,
+            1.0627772212028503,
+            0.37890928586324035,
+            0.19311420122782397,
+            0.03353847662607823
+          ],
+          "mlp_damage": [
+            4.079049940903982,
+            0.15049700736999516,
+            0.2652580897013346,
+            0.4670207858085633,
+            0.5986512223879497,
+            0.5920616507530214
+          ]
+        },
+        "R": {
+          "label": "R  (stream-renorm, e014b)",
+          "val_ce": 1.6099902311960856,
+          "attn_damage": [
+            2.7991,
+            1.6929,
+            0.4841,
+            0.8118,
+            0.2069,
+            0.0308
+          ],
+          "mlp_damage": [
+            0.0968,
+            0.0833,
+            0.2279,
+            0.4513,
+            0.7806,
+            0.7044
+          ]
+        },
+        "Task": {
+          "label": "Task  (ID\u2192COPY, e035)",
+          "val_ce": 1.4318429072697958,
+          "attn_damage": [
+            3.029214898745219,
+            2.043369690577189,
+            0.6382843176523845,
+            0.4518361965815225,
+            0.24013833602269474,
+            0.026225312550862467
+          ],
+          "mlp_damage": [
+            4.896326359113058,
+            0.42153635819753,
+            0.43103003104527793,
+            0.6743125955263771,
+            0.6547994613647461,
+            0.7082994063695272
+          ]
+        }
+      },
+      "mlp0_keystone": {
+        "B": 4.079,
+        "R": 0.097,
+        "task": 4.896
+      },
+      "attn_L5_max": 0.03353847662607823,
+      "renorm_write_over_c": [
+        1.3973035714285715,
+        0.5831964285714286,
+        0.38971428571428574,
+        0.5614464285714286,
+        0.3112142857142857,
+        0.15033928571428573
+      ],
+      "write_damage_rank_order_rho": 1.0,
+      "sources": [
+        "runs/e001/metrics.json",
+        "runs/e014b/metrics.json",
+        "runs/e035/metrics.json"
+      ]
+    },
+    "B_C1_decision_depth": {
+      "bins": [
+        "emb",
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "histograms": {
+        "Shakespeare  (e012, n=2000)": [
+          0.0005,
+          0.079,
+          0.023,
+          0.066,
+          0.08,
+          0.2095,
+          0.542
+        ],
+        "Renorm  (e012b, n=2000)": [
+          0.003,
+          0.01,
+          0.005,
+          0.005,
+          0.174,
+          0.262,
+          0.541
+        ],
+        "Task filler  (e035, n=1000)": [
+          0.0,
+          0.025,
+          0.035,
+          0.05,
+          0.074,
+          0.197,
+          0.619
+        ],
+        "Task COPY  (e021, n=1000)": [
+          0.0,
+          0.0,
+          0.003,
+          0.001,
+          0.033,
+          0.883,
+          0.08
+        ]
+      },
+      "frac_at_L4": {
+        "Shakespeare  (e012, n=2000)": 0.2095,
+        "Renorm  (e012b, n=2000)": 0.262,
+        "Task filler  (e035, n=1000)": 0.197,
+        "Task COPY  (e021, n=1000)": 0.883
+      },
+      "frac_at_L5": {
+        "Shakespeare  (e012, n=2000)": 0.542,
+        "Renorm  (e012b, n=2000)": 0.541,
+        "Task filler  (e035, n=1000)": 0.619,
+        "Task COPY  (e021, n=1000)": 0.08
+      },
+      "copy_L4_mode": 0.883,
+      "shakespeare_L4": 0.2095,
+      "note": "bin convention [emb, L0..L5] per e012/e021 batched_snapshots (index 5 = L4 readout). T009/E021 notes cite Shakespeare '8.0% at L4' \u2014 that is the L3 bin (index 4); at L4 Shakespeare is 20.95%. Poster annotations use the histograms directly.",
+      "renorm_vs_baseline_hist_corr": 0.8218098878860474,
+      "js_filler_vs_shakespeare": 0.010145267471671104,
+      "js_filler_vs_copy": 0.2715388536453247,
+      "sources": [
+        "runs/e012/metrics.json",
+        "runs/e012b/metrics.json",
+        "runs/e035/metrics.json",
+        "runs/e021/metrics.json"
+      ]
+    },
+    "C_C4_locality_funnel": {
+      "far_mass": [
+        0.7979509234428406,
+        0.23054476082324982,
+        0.09260257333517075,
+        0.09510443359613419,
+        0.22742310166358948,
+        0.5390690565109253
+      ],
+      "local_mass": [
+        0.03662049025297165,
+        0.257119745016098,
+        0.4215584397315979,
+        0.3818621337413788,
+        0.2958839535713196,
+        0.10599561780691147
+      ],
+      "task_id_mass": [
+        0.016774991527199745,
+        4.88777504870086e-06,
+        0.0021825977601110935,
+        0.12518909573554993,
+        0.36408188939094543,
+        0.03898398205637932
+      ],
+      "control_id_mass": [
+        0.01690276712179184,
+        2.0870945718343137e-06,
+        0.001634109066799283,
+        0.01877490244805813,
+        0.06072920560836792,
+        0.01564379222691059
+      ],
+      "best_head": {
+        "layer": 4,
+        "head": 1,
+        "id_mass": 0.9513476490974426,
+        "control_same_head": 0.15009227395057678
+      },
+      "frac_prompts_L5_abandons_local": 0.824999988079071,
+      "sources": [
+        "runs/e013a/metrics.json",
+        "runs/e021/metrics.json"
+      ]
+    },
+    "D_C3_anchoring_ladder": {
+      "ladder": [
+        {
+          "step": "B vs B same init \u00b7 same order",
+          "cos_dw": 1.0
+        },
+        {
+          "step": "B vs BDO same init \u00b7 diff order (CEILING)",
+          "cos_dw": 0.5336772203445435
+        },
+        {
+          "step": "B vs R same init \u00b7 diff regime",
+          "cos_dw": 0.1521627058585485
+        },
+        {
+          "step": "B vs B43, \u2026 diff init \u00b7 (FLOOR)",
+          "cos_dw": -0.0023707472646492533
+        }
+      ],
+      "same_init_diff_regime_B_vs_R_specific": 0.14120009914040565,
+      "per_organ_ceiling": {
+        "L0|attn": 0.7247473001480103,
+        "L0|mlp": 0.7891350388526917,
+        "L3|attn": 0.5348271727561951,
+        "L3|mlp": 0.35556644201278687,
+        "L5|attn": 0.3351454734802246,
+        "L5|mlp": 0.4626418948173523
+      },
+      "fraction_regime_over_ceiling": 0.26457958810617116,
+      "verdict": "PARTIAL ANCHORING \u2014 ceiling >= 0.5: the B<->R 0.15 alignment is a small fraction (0.26) of the same-init alignment the data allows",
+      "sources": [
+        "runs/e041/metrics.json",
+        "runs/e029/metrics.json"
+      ]
+    }
+  }
+}
