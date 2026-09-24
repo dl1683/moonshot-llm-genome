@@ -1,3 +1,72 @@
+---
+
+## T010 — MECHANISM CARD v1: the functional anatomy of a 2.7M char-transformer (2026-09-24T13:47Z)
+
+The lab's first formal findings artifact (README: "a mechanism card another
+researcher could attack"). Every claim carries its evidence chain, known
+debt, and falsifier. Scope: ONE architecture (6L/6H/192 pre-LN char-GPT,
+2.7M params), Shakespeare + synthetic variants, 6 trained nets (B, R, B43,
+R43, e021 task+control), ~5 GPU-hours, single lab.
+
+**C1 (H) — Function is staged; stages are the organism.** Pipeline:
+token-formation → local completion → late distribution-calibration; on
+retrieval tasks a retrieval stage appears at L4. Evidence: depth-census
+invariance across 2 regimes × 2 seeds (4-net table, cross-seed 0.849 ≥
+cross-regime 0.828, e012/e012b/e012c); decision-depth class ordering
+(letters>structural) in all 6 nets; task-dependent L4 mode (e021).
+Debt: single architecture/corpus family; v008 multi-seed lesion maps.
+Falsifier: stage structure failing at other scales or on far-retrieval
+natural data (e005s ladder, gated on this card).
+
+**C2 (H) — Anatomy is plastic; damage tracks write allocation.** Lesion
+maps reorganize under constraints (keystone dissolved +4.08→+0.10; MLP
+profile inverted) with parity-or-better loss; replicated on R43; write/c
+rank-order = damage rank-order (ρ=1.0); damage tracks perturbation ENERGY
+not content (e011c ladder, CIs clean); MLP-5 is an energy carrier (e019
+causal: graceful α, zero=4×rotate). Debt: e014c write-clamp parked.
+Falsifier: write-clamp training leaving lesion maps unchanged.
+
+**C3 (H) — The seed-anchored object is the residual-stream basis.** Organ
+graft compatibility follows init lineage, not regime (e028/e029 2×2); ΔW
+motion from different inits is near-orthogonal (cos≈0.000 vs same-init
++0.15); stream-FACING matrices (W_in reads, W_out writes) are the violent
+grafts, W_in dominant (e031: L5 W_in alone +3.28 > whole organ +1.46 —
+donor W_out partially rescues); attention matrices are mild (c_attn
+mildest). Debt: ΔW ceiling null (same-init/diff-data-order) unrun;
+e031 LN-statistics alternative unexcluded; "attention portable" is
+weak-anchoring, NOT shared subspaces (v009).
+Falsifier: e030 Procrustes-style basis-realignment rescuing cross-seed
+grafts would confirm basis-geometry (upgrade); spectrum-matched W_out
+control rescuing e031's pair effect would demote the coherence reading.
+
+**C4 (H, scoped) — No far-context retrieval on natural char data; retrieval
+is task-elicited, not architectural.** Shakespeare: L5 calibration local
+(KL −6.9% under truncation), far attention idle (200-prompt census),
+far-value bimodal but structure-insensitive (gains shuffle-robust, hurts
+shuffle-amplified; e013a/c/d). Task: noiseless retrieval (CE 0.007,
+far-value ln 26, head L4-H1 95.1% ID-mass, control clean; e021).
+Debt: retrieval head is correlational n=1 — e038 causal lesion RUNNING;
+e035 task-anatomy RUNNING. Falsifier: L4-H1 lesion leaving copy intact.
+
+**C5 (M, frontier) — First-order selective forgetting is bounded.** Naive
+r=1.22 (corrected labels); exact projection reaches the 0.66-nat bar at
+flat r≈1.7 (train-B-symmetric r≈1.2-1.3); masked 1.8; one accidental
+partial-projection/implicit-Adam-anchor hybrid hit r=3-6 at mild dose
+(mechanism: projection-before-Adam ≠ projection-of-step). Debt: e003d
+(deliberate anchor to the bar) unrun. Falsifier/upgrader: e003d achieving
+r≥2 at the bar upgrades C5 to "selective forgetting requires implicit
+retain-anchoring"; failing leaves second-order/weight-surgery as the family.
+
+**Cross-cutting instruments validated:** decision depth, locality funnel,
+KL(L5‖L4), write/stream ratios, transplant R-bands, ΔW subspace atlas —
+with known lens caveats (mid-stack readouts anti-informative; argmax-stability
+robust).
+
+**Card debt summary (blocking v2):** ΔW ceiling null; e035/e038 verdicts;
+e003d; v008 multi-seed maps; e005s scaling ladder (gated on this card).
+
+---
+
 # Thinking Journal — the 80%
 
 The lab's operating ratio is 80% thinking / 20% doing. Every result gets an
