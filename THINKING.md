@@ -7,6 +7,34 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T015 — Edit asymmetry: removal is surgical, installation is not (E043, 2026-09-24T21:30Z; audited from raw metrics, agent report pending)
+
+**Verdict (registered, all three arms): ASYMMETRIC-CHEAP-REMOVE.**
+- **No surgical arm reaches Bar-I1 at the guard** (best cell A/both/copy:
+  NLL 6.43, acc 0.055 vs bar [≤4.17, ≥0.5, ≤+0.10]) — copying donor rows
+  (even same-init BDO rows that transplant cleanly) does NOT install
+  knowledge. Bar-I2 unreachable everywhere ("barI2_reachers": []).
+- **The exposure route works transiently then decays:** NLL 0.197 at step
+  25 (near-perfect install!) with corpus CE climbing monotonically after
+  step 100 (3.24 → 5.19 by step 1000) — knowledge installed by exposure
+  erodes the host unless supported; the INTERPRETER's guard-artifact
+  reading was half right (the asymmetry is real AND the guard binds only
+  installs — removal's "dose" is free because J is 0.016% of tokens).
+- **The shared machinery survives untouched:** L0H3 remains top-1 for
+  JULIET in the best guarded cells (atlas Spearman 0.9997) — installing
+  does not disturb incumbents' circuits; P3 confirmed.
+- **The interpretation (the day's closing structural finding):** rows
+  carry the ADDRESS; the body carries the ABILITY TO USE it. You can
+  remove a memory by burning its address (cheap, exact); you cannot write
+  one without teaching the circuit to read it (exposure = training, with
+  its forgetting cost). Editing the organism is fundamentally asymmetric
+  because reading-skill is distributed and address is concentrated.
+
+**Card consequence:** C7 drafted — the edit asymmetry law. e044 (scar
+tissue) now tests the law's prediction for RE-learning: after erasure,
+re-install should ALSO need exposure (no dormant-row shortcut) unless scar
+tissue remains.
+
 ## T014 — C1 resolved: cross-net causal invariance is NEGATIVE; what survives is qualitative (E012d, 2026-09-24T21:20Z)
 
 **The 4-net causal census (protocol identical to e018; B reproduced

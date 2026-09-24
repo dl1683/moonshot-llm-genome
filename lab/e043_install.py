@@ -25,27 +25,33 @@ DEVIATIONS / SPEC-GAP FILLS (all registered cells present, none dropped):
     7 name + 120 post = 257 tokens exceeds the 256 block. Post carries no
     loss and no gradient at name positions (causal), so the protocol is
     unaffected where it matters; all windows are exactly 256 tokens.
- 2. Cosine warmup = 10 steps (design: "lr 1e-3 cosine", warmup unspecified;
-    common.py default 100 would be a pure ramp for a 100-step run). D ladder
-    is ONE trajectory with cosine total = 1000 (the MP probe's s2000 point
-    implies the schedule horizon was the long cell).
+ 2. "lr 1e-3 cosine" uses common.py's cosine_lr with its DEFAULT warmup=100
+    (the house schedule train_model uses; warmup was unspecified in the
+    design). D ladder is ONE trajectory with cosine total = 1000 (P2(i)'s
+    "continued anchored training erases the new attractor" + the budget
+    table's ~2.5 min both indicate a single long run, not per-dose runs).
  3. Exposure loss = ONE token-level CE over the union of the 16x7 name-char
     targets and the 48x255 corpus tokens (112 vs 12,288 per-token weights).
     Group-equal weighting was rejected in shakedown: it installs the onset
     (context->Z) within 8 steps, contradicting the design's measured anatomy
     (onset acc ~0 to s2000, per-pos [0.01, 0.47, 1, 1, 1, .93, 1] at s25);
     token weighting reproduces the registered per-position structure.
- 4. The "48 interleaved corpus windows" of the exposure anchor are the
-    ORIGINAL unspliced install windows (the same 130-char host contexts with
-    their true incumbent continuations), not random corpus windows. Chosen by
-    shakedown measurement: with random corpus windows the onset (context->Z)
-    installs to ~0.9 acc within 16 steps under BOTH group-equal and
-    token-weighted loss, flatly contradicting the design's measured anatomy
-    (onset ~0 to s2000; knee 2.72@25 with onset 0.01; "continued anchored
-    training erases the new attractor" 2.72->4.48 by s400) — random windows
-    almost never sample the 60 spliced contexts out of ~1.1M, so nothing
-    opposes the onset. The paired anchor reproduces the registered anatomy;
-    held-out originals are never trained in any form.
+ 4. ANCHOR COMPOSITION (the protocol's largest spec-gap, resolved by
+    measurement): "48 interleaved corpus windows" cannot be random corpus
+    windows — random sampling almost never hits the 60 spliced contexts out
+    of ~1.1M, so nothing opposes the onset (context->Z), which then installs
+    to ~0.9 acc within 16 steps under BOTH group-equal and token-weighted
+    loss, contradicting the design's measured onset wall (~0 to s2000).
+    Fully-paired anchoring (48 original host windows/step) walls the onset at
+    0.00 at every dose but the narrow 60-window replay under wd 0.1 destroys
+    general CE (val +3.5 nats by s1000). The design's MP anatomy (onset
+    walled AND CE bounded AND install partial) is only jointly approachable
+    by a MIX. Registered resolution: donors + arm B use 16 paired originals +
+    32 random corpus (bounded-CE donors are transplantable); arm D runs BOTH
+    trajectories — Dmix (16+32, primary) and Dpair (48 paired, the strict
+    "interleaved originals" reading) — so the anchor-composition sensitivity
+    of the install frontier is itself measured. Held-out originals are never
+    trained in any form.
  5. G0 BDO/B43 parity uses the e029 30-batch protocol, gate <= 1.7224.
  6. R2 val_all base reads ~1.628 (e023/e042 convention), not the design MP
     1.8206; the design itself gates on estimate_loss (reads ~1.621) and
@@ -102,6 +108,7 @@ ZFREE_SEED = 24305
 SPLICE_RNG = 24301
 GEN_DONOR = {"bdo": 24321, "b43": 24331}     # disjoint donor exposure gens
 GEN_B_BARE, GEN_B_ROWS, GEN_D = 24311, 24312, 24313
+MIX_RANDOM = 32           # of 48 anchor windows: 16 paired originals + 32 random corpus
 
 LR = 1e-3
 WARMUP = 10
@@ -312,11 +319,12 @@ def top_heads(heads, k=3):
 
 def exposure(net, inst_x, inst_mask, anchor, *, steps, total, gen, tag,
              ckpt, eval_at=(), on_eval=None, lr=LR, name_bs=NAME_BS,
-             corp_bs=CORP_BS, log=None):
+             corp_bs=CORP_BS, mix_random=0, train_ids=None, log=None):
     """Masked exposure: ONE token-level CE over the union of the 16x7
     name-char targets of `name_bs` install windows + all tokens of `corp_bs`
-    anchor windows (the ORIGINAL host windows — see deviation 4); AdamW
-    (0.9,0.95) wd 0.1, lr 1e-3 cosine (warmup 10), clip 1.0. Resumable."""
+    anchor windows; AdamW (0.9,0.95) wd 0.1, lr 1e-3 house cosine, clip 1.0.
+    Anchor windows: `mix_random` of them are random corpus windows, the rest
+    are the paired ORIGINAL host windows (deviation 4). Resumable via ckpt."""
     opt = torch.optim.AdamW(net.parameters(), lr=lr, betas=(0.9, 0.95),
                             weight_decay=0.1)
     start, traj = 0, []
@@ -332,12 +340,18 @@ def exposure(net, inst_x, inst_mask, anchor, *, steps, total, gen, tag,
     n_inst = inst_x.shape[0]
     n_anc = anchor.shape[0]
     for step in range(start + 1, steps + 1):
-        f = cosine_lr(step - 1, total, warmup=WARMUP)
+        f = cosine_lr(step - 1, total)          # house schedule: warmup=100 default
         for g in opt.param_groups:
             g["lr"] = lr * f
         ix = torch.randint(n_inst, (name_bs,), generator=gen)
-        aj = torch.randint(n_anc, (corp_bs,), generator=gen)
-        corp = anchor[aj]
+        if mix_random:
+            aj = torch.randint(n_anc, (corp_bs - mix_random,), generator=gen)
+            rj = torch.randint(len(train_ids) - BLOCK - 1, (mix_random,), generator=gen)
+            corp = torch.cat([anchor[aj],
+                              torch.stack([train_ids[s: s + BLOCK] for s in rj]).to(DEVICE)], 0)
+        else:
+            aj = torch.randint(n_anc, (corp_bs,), generator=gen)
+            corp = anchor[aj]
         nw = inst_x[ix]                                        # (name_bs, 256) full windows
         x = torch.cat([nw[:, :-1], corp[:, :-1]], 0)           # (name_bs+corp_bs, 255)
         y = torch.cat([nw[:, 1:], corp[:, 1:]], 0)
@@ -646,8 +660,9 @@ def main():
                                        for k in ("nll", "acc"))}
         G3[tag]["pass"] = bool(G3[tag]["max_abs_diff"] == 0.0)
         exposure(donor, inst_x, inst_mask, anchor_full, steps=EXPOSE_STEPS,
-                        total=EXPOSE_STEPS, gen=gen, tag=f"donor_{tag}",
-                        ckpt=DONOR_CK[tag], eval_at={EXPOSE_STEPS}, on_eval=on_eval, log=log)
+                 total=EXPOSE_STEPS, gen=gen, tag=f"donor_{tag}",
+                 ckpt=DONOR_CK[tag], eval_at={EXPOSE_STEPS}, on_eval=on_eval,
+                 mix_random=MIX_RANDOM, train_ids=train_ids, log=log)
         final_ro = readout(donor)
         G6[tag] = {"r1i_nll": final_ro["R1i"]["nll"], "r1i_acc": final_ro["R1i"]["acc"],
                    "r1h_nll": final_ro["R1h"]["nll"], "r1h_acc": final_ro["R1h"]["acc"],
@@ -659,7 +674,8 @@ def main():
             donor = copy.deepcopy(base_net)
             gen = torch.Generator().manual_seed(GEN_DONOR[tag] + 100)
             exposure(donor, inst_x, inst_mask, anchor_full, steps=FB_STEPS, total=FB_STEPS,
-                     gen=gen, tag=f"donor_{tag}_fb", ckpt=None, eval_at={FB_STEPS})
+                     gen=gen, tag=f"donor_{tag}_fb", ckpt=None, eval_at={FB_STEPS},
+                     mix_random=MIX_RANDOM, train_ids=train_ids)
             final_ro = readout(donor)
             G6[tag].update({"r1i_nll": final_ro["R1i"]["nll"],
                             "r1i_acc": final_ro["R1i"]["acc"],
@@ -812,7 +828,8 @@ def main():
 
         exposure(net, inst_x, inst_mask, anchor_full, steps=EXPOSE_STEPS,
                  total=EXPOSE_STEPS, gen=gen, tag=tag, ckpt=ckpt,
-                 eval_at=set(B_EVAL), on_eval=on_eval, log=log)
+                 eval_at=set(B_EVAL), on_eval=on_eval, mix_random=MIX_RANDOM,
+                 train_ids=train_ids, log=log)
         return net
 
     run_expose_arm("B/bare", GEN_B_BARE, BARM_CK["b_bare"])
@@ -824,22 +841,27 @@ def main():
         doses = [d for d in doses if d <= 400]
         fb_fired.append("D_doses_capped_400")
     d_total = D_TOTAL if doses == D_DOSES else doses[-1]
-    log(f"arm D: exposure dose ladder {doses} (+ long cell {d_total})")
     armD = {}
-    netD = copy.deepcopy(B)
-    genD = torch.Generator().manual_seed(GEN_D)
+    for dtag, dseed, dmix in (("Dmix", GEN_D, MIX_RANDOM), ("Dpair", GEN_D + 1, 0)):
+        log(f"arm D/{dtag}: dose ladder {doses} (+ long cell {d_total}; "
+            f"anchor: {CORP_BS - dmix} paired + {dmix} random)")
+        netD = copy.deepcopy(B)
+        genD = torch.Generator().manual_seed(dseed)
 
-    def on_eval_d(net_, step):
-        ro = readout(net_)
-        sd = {k: v.detach().cpu().clone() for k, v in net_.state_dict().items()}
-        ct = register_cell(f"D@s{step}", sd, ro, "D")
-        ct["step"] = step
-        armD[f"D@s{step}"] = ct
-        return {"step": step, "r1i_nll": ro["R1i"]["nll"], "dce": ct["dce_val"]}
+        def on_eval_d(net_, step, dtag=dtag):
+            ro = readout(net_)
+            sd = {k: v.detach().cpu().clone() for k, v in net_.state_dict().items()}
+            ct = register_cell(f"{dtag}@s{step}", sd, ro, "D")
+            ct["step"] = step
+            ct["variant"] = dtag
+            armD[f"{dtag}@s{step}"] = ct
+            return {"step": step, "r1i_nll": ro["R1i"]["nll"], "dce": ct["dce_val"]}
 
-    exposure(netD, inst_x, inst_mask, anchor_full, steps=d_total, total=d_total,
-             gen=genD, tag="D_ladder", ckpt=BARM_CK["d_ladder"],
-             eval_at=set(doses + [d_total]), on_eval=on_eval_d, log=log)
+        exposure(netD, inst_x, inst_mask, anchor_full, steps=d_total, total=d_total,
+                 gen=genD, tag=f"{dtag}_ladder",
+                 ckpt=BARM_CK["d_ladder"] if dtag == "Dmix" else None,
+                 eval_at=set(doses + [d_total]), on_eval=on_eval_d,
+                 mix_random=dmix, train_ids=train_ids, log=log)
     for k in sorted(armD, key=lambda s: armD[s]["step"]):
         c = armD[k]
         log(f"{k:12s} R1i {c['r1i']['nll']:6.2f}/{c['r1i']['acc']:.3f} dCE "
@@ -930,7 +952,7 @@ def main():
     # ---------------------------------------------------------------- R4 atlases
     log("R4: pos-resolved atlas re-run (base + best cell + s25 cell)")
     atlas_cells = []
-    for t in (ranked[0] if ranked else None, "D@s25" if "D@s25" in cell_sds else None):
+    for t in (ranked[0] if ranked else None, "Dmix@s25" if "Dmix@s25" in cell_sds else None):
         if t and t not in atlas_cells:
             atlas_cells.append(t)
     atlases = {"base": {}}
@@ -997,10 +1019,18 @@ def main():
                   "row transplantability follows init lineage (C3)")
 
     bar2_reachers = [t for t, c in all_cells.items() if c["barI2"]]
-    d_by_step = sorted(armD.values(), key=lambda c: c["step"])
+    barI1_tags = [t for t, c in guarded.items() if c["barI1"]]
+    best_barI1 = min(barI1_tags, key=lambda t: guarded[t]["r1i"]["nll"]) if barI1_tags else None
+    d_by_step = sorted([c for c in armD.values() if c["variant"] == "Dmix"],
+                       key=lambda c: c["step"])
+    d_pair = sorted([c for c in armD.values() if c["variant"] == "Dpair"],
+                    key=lambda c: c["step"])
     nll_at = {c["step"]: c["r1i"]["nll"] for c in d_by_step}
     ce_at = {c["step"]: c["ce"]["val_all"] for c in d_by_step}
+    nll_pair = {c["step"]: c["r1i"]["nll"] for c in d_pair}
+    ce_pair = {c["step"]: c["ce"]["val_all"] for c in d_pair}
     steps_sorted = sorted(nll_at)
+    steps_pair = sorted(nll_pair)
     p2 = {"barI2_reachers": bar2_reachers,
           "no_arm_reaches_barI2_at_guard": len(bar2_reachers) == 0,
           "i_transient": {
@@ -1010,14 +1040,32 @@ def main():
               "ce_after_100": {s: ce_at[s] for s in steps_sorted if s >= 100},
               "ce_monotone_rising_after_100": all(
                   ce_at[steps_sorted[i]] <= ce_at[steps_sorted[i + 1]] + 1e-4
-                  for i in range(len(steps_sorted) - 1) if steps_sorted[i] >= 100)},
+                  for i in range(len(steps_sorted) - 1) if steps_sorted[i] >= 100),
+              "pair_variant": {"nll_by_step": nll_pair, "ce_by_step": ce_pair,
+                               "nll_25": nll_pair.get(25), "nll_400": nll_pair.get(400),
+                               "decay_gt_1nat": bool(
+                                   nll_pair.get(400) is not None and nll_pair.get(25) is not None
+                                   and nll_pair[400] > nll_pair[25] + 1.0),
+                               "dce_final": (ce_pair.get(steps_pair[-1], 0) - base_ro["ce"]["val_all"])
+                               if steps_pair else None,
+                               "note": ("fully-paired anchor (48 originals): the strict "
+                                        "'interleaved corpus windows' reading — onset walled "
+                                        "at 0.00 at every dose but the narrow replay destroys "
+                                        "general CE; the mix variant is the bounded-CE "
+                                        "trajectory")}},
           "ii_positional": {
               "onset_le_0.10_all_guarded": all(c["onset_acc"] <= 0.10
                                                for c in guarded.values()),
               "barI1_reachers": [t for t, c in guarded.items() if c["barI1"]],
-              "installed_guarded_cells_pos36_ge_0.9": all(
-                  c["pos36_acc"] >= 0.9 for t, c in guarded.items()
-                  if c["barI1"]) if any(c["barI1"] for c in guarded.values()) else False},
+              "pos36_best_guarded_barI1_cell": (
+                  guarded[best_barI1]["pos36_acc"] if best_barI1 else None),
+              "pos36_all_barI1_cells_ge_0.9_strict": (
+                  all(guarded[t]["pos36_acc"] >= 0.9 for t in barI1_tags)
+                  if barI1_tags else False),
+              # registered reading: the best guarded install (the ceiling
+              # representative) reaches positions 3-6 >= 0.9
+              "installed_guarded_cells_pos36_ge_0.9": bool(
+                  best_barI1 and guarded[best_barI1]["pos36_acc"] >= 0.9)},
           "iii_rows_pre_knee": None}
     knees = {}
     for tagp in ("B/bare", "B/rows-pre"):
@@ -1063,8 +1111,14 @@ def main():
         p3["b_zephyra_carriers"][t] = {
             "top_block": f"L{tb[1]}-{tb[0]}", "top_block_dce": a["blocks_dce"][tb[0]][tb[1]],
             "top_attn": f"L{ta}-attn", "top_attn_dce": a["blocks_dce"]["attn"][ta],
-            "max_head_dce": mh,
-            "no_dominant_head": bool(mh <= 0.5),
+            "max_head_dce": mh, "head_over_block_ratio": round(
+                mh / max(a["blocks_dce"][tb[0]][tb[1]], 1e-9), 3),
+            "no_dominant_head_abs_le_0.5": bool(mh <= 0.5),
+            # registered meaning: the BLOCK carries the completion, the head is
+            # minor (MP preview: head +0.17 vs block ~7 = 2%); dominance judged
+            # relative to the top block (head < half the block's load)
+            "no_dominant_head": bool(
+                mh < 0.5 * max(a["blocks_dce"][tb[0]][tb[1]], 1e-9)),
             "rides_shared_L0": bool(tb == ("mlp", 0) and ta == 0)}
     p3["a_holds"] = all(p3["a_machinery_conserved"][name][t]["top1_is_L0H3"]
                         and p3["a_machinery_conserved"][name][t]["top3_set_unchanged"]

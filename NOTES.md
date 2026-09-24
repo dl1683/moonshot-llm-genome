@@ -23,6 +23,25 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E043 — install a name: ASYMMETRIC-CHEAP-REMOVE confirmed (2026-09-24) — DONE (audited from raw metrics)
+
+WHAT WE DID: the registered install battery per scratch/e043_design.md —
+rows-only arms (BDO same-init donor; wte/lm/both x copy/delta), exposure
+ladder, L0-MLP block graft, direct-training ceiling; gates G0-G6.
+
+WHAT WE SAW (T015):
+- **No surgical install reaches Bar-I1 at the guard** (best: NLL 6.43 /
+  acc 0.055 vs bar 4.17/0.5); Bar-I2 unreachable in every arm.
+- **Exposure installs transiently (NLL 0.197 at step 25) then decays**
+  (corpus CE 3.24->5.19 by step 1000).
+- **Shared machinery conserved** (L0H3 top-1, atlas 0.9997).
+- Interpretation: address is concentrated (rows, removable); usage-ability
+  is distributed (body, needs training). Edit asymmetry law (C7).
+
+WHAT'S NEXT: e044 scar tissue tests the law's re-learning prediction.
+
 ## E012d — 4-net causal census: C1's strong form is dead (2026-09-24) — DONE
 
 WHAT WE DID: the e018 causal-depth protocol on B43/R/R43 (B reproduced
