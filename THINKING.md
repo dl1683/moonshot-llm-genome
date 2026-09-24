@@ -338,6 +338,32 @@ claims 1 and 2 upgraded to H.**
 - **e011c exceptions all real:** attn-L0 1.38±0.006, MLP-L1 3.03±0.044,
   MLP-L5 0.25±0.009 — beyond noise by 20-100× sd.
 
+**T009 RESOLVED (E021, 2026-09-24T13:02Z): all four predictions landed.
+Retrieval is task-elicited, not architecturally absent.**
+- P1: 100% copy accuracy (control 4.1%); CE at COPY 0.007 nats — the copy
+  is noiseless at 2.7M params.
+- P2: far-value +3.269 ≈ ln 26 at COPY (control −0.002). **T008 claim 4
+  AMENDED (stays H, narrowed scope): "no far-context retrieval on natural
+  char data at this scale." When the task demands retrieval, this exact
+  architecture delivers it exactly.**
+- P3: dedicated retrieval head L4-H1 (95.1% mass on the ID nonce; control
+  15%). The idle-grazing signature was a property of the corpus, not the
+  architecture.
+- P4: NEW decision mode — 88.3% of COPY decisions at L4 (Shakespeare 8.0%;
+  JS 0.265), one layer earlier than Shakespeare's L5 mode: retrieval
+  completes before final calibration. Claim 1 (stages) intact and enriched:
+  the pipeline reorganizes around task demands; stage membership is
+  task-dependent, stage *existence* is not.
+
+**T008 claim-3 mechanism note (V009, 2026-09-24T13:02Z): candidate
+REFUTED in reverse.** ΔW subspace atlas: same/diff-seed alignment gap is
+largest on the READ side (W_in 0.260, c_attn 0.235) and smallest for W_out
+(0.091; stream-writer subspaces most shared). **Reading directions are
+seed-private; writing directions converge into the common residual
+stream.** e031 REGISTERED with flipped prediction: grafting W_in alone
+across seeds will be violent; W_out alone mild. If confirmed, seed-anchored
+MLP grafts are read-path incompatibilities.
+
 ## T009 — e021 registration: does a retrieval-required task break the no-retrieval picture? (2026-09-24T12:40Z)
 
 **Design (adopted from Review-2 ideator):** synthetic corpus (~1MB) of

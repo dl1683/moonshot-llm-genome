@@ -9,6 +9,50 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## V009 — ΔW portability atlas: reads are seed-anchored, writes converge (2026-09-24) — DONE
+
+WHAT WE DID (VISUALIZER agent, CPU-only): top-16 singular subspaces of every
+organ's ΔW across the 4 nets; same-seed vs diff-seed subspace alignment
+(random baseline 0.289); sanity vs e029 exact. runs/v009/dw_atlas.png.
+
+WHAT WE SAW:
+- **Candidate mechanism REFUTED in reverse:** the same/diff-seed alignment
+  gap is largest on the READ side (W_in 0.260, c_attn 0.235) and smallest
+  for MLP W_out (0.091). Diff-seed alignment ≈ random for all reads
+  (excess ~0.003); W_out keeps a small positive excess (+0.036).
+- **Reading direction is seed-private; writing directions converge** into
+  the shared 192-d residual stream all nets must use. Stream-writer
+  (left-singular) subspaces are the most cross-seed-aligned.
+- Prediction FLIPPED for e031 (graft organ halves across seeds): W_in alone
+  should be violent, W_out alone mild — the registered discriminator.
+
+## E021 — task-swap: retrieval exists when required; new L4 decision mode (2026-09-24) — DONE
+
+WHAT WE DID (T009 registered design, background agent): retrieval-required
+corpus (10.7k docs, ID→COPY gap ≥37 chars) + shuffled-nonce control; two
+fresh nets (val: task 1.432, control 1.552); copy accuracy, far-value at
+COPY, depth census at COPY, attention ID-mass. runs/e021/*.png.
+
+WHAT WE SAW (all four registered predictions resolved):
+- **P1 CONFIRMED: 100% copy accuracy** (2500 held-out nonce chars; chance
+  3.8%; control net 4.1%). CE at COPY positions 0.007 nats — noiseless.
+- **P2 CONFIRMED: far-value at COPY +3.269 nats ≈ ln 26** (control
+  −0.002). The full nonce information is retrieved from far context.
+  **T008 claim 4 NARROWS: "no retrieval on natural char data at this
+  scale" — not an architectural limit.**
+- **P3 CONFIRMED: a dedicated retrieval head.** L4-H1 puts 95.1% of its
+  attention mass on the 5 ID nonce chars (control same head 15.0%);
+  layer-mean ID-mass peaks L4 (0.364 vs 0.061); local mass collapses
+  (0.038/0.042 vs Shakespeare L5 0.106).
+- **P4 = NEW-MODE:** 88.3% of COPY decisions at L4 vs 8.0% on Shakespeare
+  (JS divergence 0.265). A sharply concentrated task-dependent decision
+  mode — at L4, one layer EARLIER than Shakespeare's L5-centered profile:
+  retrieval completes before final calibration. The stage picture gains a
+  task-dependent member; stages remain the organism (claim 1 intact).
+
+WHAT'S NEXT: e031 write/read-path split grafts (v009-flipped prediction);
+e003b targeted ascent still queued. Review ~13:26Z gets this full ledger.
+
 ## E030 debt slot — claims 1+2 upgraded to H; e011c CIs clean (2026-09-24) — DONE
 
 WHAT WE DID: one eval-only slot on existing checkpoints (background agent,

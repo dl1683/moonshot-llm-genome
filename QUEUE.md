@@ -6,6 +6,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
+| e021 | task-swap retrieval | DONE | all 4 predictions: 100% copy, far-value ln26, retrieval head L4-H1 95.1% ID-mass, new L4 decision mode (88.3%) — claim 4 narrowed |
 | e013a | attention census | DONE | funnel replicates at scale (far-mass U 0.80→0.09→0.54); L5 abandons local in 82.5% of prompts; rare-token story DEAD (0 concentrated heads, flat surprisal) |
 | e013 | context-truncation calibration test | DONE | REFUTED: L5 calibration is local (KL −6.9%); 16-token sufficiency — far context worth ≈0 nats at char level; mid-stack readouts anti-informative |
 | e013c | far-value tail | DONE | bimodal: 30.6% gain (decile +1.60), 28.2% HURT (decile −1.68) — far context is a double-edged sword; T007 written |
@@ -40,7 +41,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 - v009 ΔW-subspace portability atlas (R2 ideator): SVD per organ, cross-seed principal angles overlaid with transplant ρ
 - e030 Procrustes graft: re-express donor MLP ΔW in host init subspace before grafting
-- e031 write-path split: graft MLP W_in vs W_out separately — is seed-anchoring literally the write half?
+- e031 READ/WRITE-path split (REGISTERED, flipped): graft W_in alone across seeds (predict VIOLENT) vs W_out alone (predict MILD) — v009 says reads are seed-private
 - e032 MLP-5 per-token census: write norm vs entropy/decision depth (energy pump or ballast?)
 - e033 write-equalizer (bio/homeostasis): train with equal-norm MLP writes; who absorbs the energy?
 - e034 graft-evolution: lineage selected by cross-seed graft damage; does selection erode init-anchoring?
