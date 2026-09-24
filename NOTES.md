@@ -9,6 +9,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E031 — stream-facing matrix grafts: W_in is the violent one (2026-09-24) — DONE
+
+WHAT WE DID: host B received one matrix at a time from B43 (cross-seed,
+same regime) at L3/L5: W_in, W_out, c_attn, c_proj + full-organ references.
+Registered v2 predictions (v009-corrected stream-basis mechanism).
+
+WHAT WE SAW (P1 CONFIRMED, P2 REFUTED):
+- **P1 CONFIRMED: both stream-facing MLP matrices are violent.** L3: W_in
+  +1.186 + W_out +0.795 ≈ full-mlp +1.907 (near-additive). L5: W_in +3.284
+  — MORE violent alone than the whole organ (+1.46): donor W_out partially
+  RESCUES donor W_in (the pair is internally coherent; the host punishes a
+  foreign read more than a foreign read+matching-write).
+- **P2 REFUTED:** c_attn is the mildest at both sites (L3 +0.397 vs c_proj
+  +0.506; L5 +0.044 vs +0.068) — the weak-anchoring functional exception is
+  the attention QUERY/KEY side, not c_proj. Attention portability is
+  carried by both its matrices being mild.
+- The seed-anchored object is confirmed as the STREAM-FACING interface, with
+  the read half (W_in) dominant.
+
+WHAT'S NEXT: T008 claim-3 mechanism now causally supported. e003b targeted
+ascent remains the last open instrument (claim 5). Review 13:26Z.
+
 ## V009 — ΔW portability atlas: reads are seed-anchored, writes converge (2026-09-24) — DONE
 
 WHAT WE DID (VISUALIZER agent, CPU-only): top-16 singular subspaces of every
