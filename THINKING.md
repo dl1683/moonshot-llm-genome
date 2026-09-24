@@ -146,6 +146,36 @@ schedule, independent of the lesion result.
 
 ---
 
+**REVIEW 1 AMENDMENTS (2026-09-24T11:20Z, INTERPRETER findings — accepted):**
+
+1. **T005 WEAKENED.** The "rare-token" signal is ONE head of 36 (L5.h1
+   surprisal 6.89 bits; other five L5 heads 4.39 vs L4's 4.28 — below the
+   script's own 0.15-bit "rarer" threshold). Re-broadening is +0.13 nats,
+   below v002's own "similarly spread" criterion. The ×76 distant jump is a
+   ratio of tiny masses, and 62% of L5's non-local mass is mid-range
+   (d17-64), not ancient. The 'O'-matching may be a dialogue-vocative
+   artifact of a single prompt containing ≥3 'O's. **What survives: L5
+   abandons the local d1-3 window (0.234→0.060).** The rare-token framing
+   is a hypothesis, not a finding — e013 (causal mask) is GATED on e013a,
+   a 200-prompt all-head attention census, so we don't spend causal budget
+   on a mechanism that may exist in one head of one prompt.
+2. **T003/E014b "functional, not geometric" was OVER-CLAIMED.** Renorm
+   pinned block inputs, never write norms — angular authority was never
+   capped. The un-refuted live hypothesis: **damage tracks the write/stream
+   allocation itself.** P3 now EVALUATED (was pending): renorm-arm attn
+   write/c [1.40, 0.58, 0.39, 0.56, 0.31, 0.15] vs damage [2.80, 1.69,
+   0.48, 0.81, 0.21, 0.03] — identical rank order (ρ=1.0). The network
+   REBUILT a 9.3× declining write-allocation schedule under renorm, and
+   front-loading strengthened. Decisive test now queued as **e014c
+   write-clamp** (pre-named in the design memo's failure table): clamp
+   ‖w‖ ≤ α·‖x_in‖ during training, or eval-time rescale L0/L5 writes by
+   k∈{0.5, 2, 4} and measure damage.
+3. **T004 depth-6 is definitionally the L5 argmax flip** (depth=6 ⟺
+   top1(L4-readout) ≠ top1(L5-readout)) — the "54% finalize at L5" stat
+   partially RESTATES the calibrator observation. Upgrade queued as e018:
+   CAUSAL depth (activation patching from counterfactual contexts; the
+   shallowest depth where splicing switches the final decision).
+
 ## T005 — The locality funnel and L5's rare-token re-globalization (2026-09-24T11:12Z)
 
 **Observed (V002 attention atlas):** attention locality has a depth profile —
