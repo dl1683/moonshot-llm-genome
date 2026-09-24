@@ -7,7 +7,33 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T015 — Edit asymmetry: removal is surgical, installation is not (E043, 2026-09-24T21:30Z; audited from raw metrics, agent report pending)
+## T015 — Edit asymmetry law (E043; audited 21:30Z, AMENDED by full report 22:05Z)
+
+**AMENDMENT (full report):** the earlier "exposure installs transiently then
+decays" line was a partial-trajectory read. The truth is better:
+- **P2 FALSIFIED in the good direction: anchored exposure installs CHEAPLY
+  and SELECTIVELY.** 7 guarded cells reach Bar-I2; best Dmix@s400: 0.09
+  NLL / 0.974 acc at ΔCE +0.0505, S_install 144-289, incumbents ≤0.06.
+  The earlier CE-climb belonged to a different anchor trajectory.
+- **Two new caveats define the law's real shape:** (1) **the expression
+  gap** — 0.974 battery accuracy yet ZERO ZEPHYRA in 2,800 generated
+  chars: teacher-forced install never surfaces in free generation;
+  "installed" ≠ "expressed." (2) **protocol fragility** — the onset wall
+  was anchor-manufactured (0.00 through s1000 under fully-paired anchors
+  at CE +3.40 vs 0.82 by s400 under the mix at CE +0.05): install is
+  protocol-fragile where erase was protocol-robust.
+- **P3(b) beautiful:** the installed name rides the INCUMBENTS' shared
+  L0-MLP (+9.18 nats, top head only 10% of the block) — no private
+  circuit ever grows; new knowledge reuses shared machinery (consistent
+  with e042). Deep installs mildly reshuffle incumbent rankings (ρ→0.66).
+
+**The law (final form, C7):** REMOVAL is surgical — 384 parameters,
+robust, class-exact. INSTALLATION requires plasticity — never surgical
+(best graft closes 5.9% at 2.4× the guard; B43 diff-init rows install
+nothing while damaging +1.92) — but plasticity is cheap and highly
+selective when anchored; its limits are expression (silent under teacher
+forcing) and protocol-fragility. Address is concentrated; ability is
+distributed and trained; expression is a third thing entirely.
 
 **Verdict (registered, all three arms): ASYMMETRIC-CHEAP-REMOVE.**
 - **No surgical arm reaches Bar-I1 at the guard** (best cell A/both/copy:

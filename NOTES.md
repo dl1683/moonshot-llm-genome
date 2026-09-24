@@ -34,8 +34,11 @@ ladder, L0-MLP block graft, direct-training ceiling; gates G0-G6.
 WHAT WE SAW (T015):
 - **No surgical install reaches Bar-I1 at the guard** (best: NLL 6.43 /
   acc 0.055 vs bar 4.17/0.5); Bar-I2 unreachable in every arm.
-- **Exposure installs transiently (NLL 0.197 at step 25) then decays**
-  (corpus CE 3.24->5.19 by step 1000).
+- **AMENDED by full report: anchored exposure installs CHEAPLY** — 7
+  guarded cells reach Bar-I2; best 0.09 NLL / 0.974 acc at +0.05 CE,
+  S_install 144-289 (the earlier decay read was a partial trajectory).
+  New caveats: the EXPRESSION GAP (0 ZEPHYRA in 2,800 generated chars at
+  97% battery acc) and PROTOCOL FRAGILITY (onset wall anchor-manufactured).
 - **Shared machinery conserved** (L0H3 top-1, atlas 0.9997).
 - Interpretation: address is concentrated (rows, removable); usage-ability
   is distributed (body, needs training). Edit asymmetry law (C7).
