@@ -11,6 +11,40 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 6 — meta-panel (2026-09-24T23:45Z; 2.6h overdue, self-flagged)
+
+### THE META-VERDICT (both, and the day contains the proof)
+(c): the pattern is a discovery about the SYSTEM and the METHOD.
+- Method: every dead positive was n=1 discovered-in-run; every multi-net
+  replicated claim survived in scoped form. ADOPTED: min-nets-per-claim —
+  positives enter H only after >=3 nets (7 checkpoints exist).
+- System: "the LAWS are ensemble properties; the MECHANISMS are samples."
+  Small nets are a degenerate ensemble — WHICH component carries a
+  function is a seed lottery; THAT the coarse allocation exists is forced.
+  Card v3 rewrites mechanism claims as DISTRIBUTIONS (C6 demotion is the
+  template: universal address-half, net-specific completion-half).
+
+### e044 DIAGNOSIS: never ran — smoke:true, 9.4s, step-6 trajectories.
+The P2 'confirmed' flag is a FALSE POSITIVE (cos of a near-zero vector).
+Harness gates all passed (bit-exact e023/e042 reproductions). RERUN for
+real. (e046's 'smoke:true' flag with full battery = inconsistent flag
+convention — fix.) E044 had no NOTES entry because there was nothing to
+record — the waiting discipline was correct.
+
+### Integrity: T001-T016 present (17 headers); reviews 6; notes 29 (E044
+explained). Queue drift fixed below. e046 numbers verified against metrics.
+
+### NIGHT PROGRAM (adopted):
+e047 replication sweep (3 positives x 4 nets, eval-only) -> CARD v3 GATE ->
+e048 expression-gap boundary -> e044 REAL rerun -> e049 retrieval
+dose-response (refrain corpora) -> e040 re-scoped (structure readouts only)
+-> e033 write-equalizer -> e005s minimal capstone (gated on card v3).
+v011 edit film re-cut around the asymmetry law. e036 head-transplant
+DROPPED (e046 already showed heads don't transfer; predictable negative).
+
+---
 ## Review 5 — full panel (2026-09-24T20:52Z; post-pause, 6h overdue)
 
 ### INTERPRETER (accepted)

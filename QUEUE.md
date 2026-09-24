@@ -18,10 +18,10 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e013 | rare-token causal mask | SUPERSEDED | census found no concentrated rare-token heads; replaced by context-truncation design |
 | e014c | write-clamp training | PARKED (R2) | clamp ‖w‖ ≤ α·‖x_in‖ during training (or eval-time rescale L0/L5 writes ×{0.5,2,4}) — decisive test of "damage tracks write allocation" (P3 passed correlationally) |
 | e018 | causal depth | DONE (T012) | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
-| e012d | causal census × 4 nets | READY (NEXT — evening #1; gates e005s) | causal-depth census on B43/R/R43: is CAUSAL depth the cross-net invariant? (C1's remaining evidence) |
-| e043 | install a name | RUNNING (scratch/e043_design.md) | ZEPHYRA install; BDO same-init donor; expected ASYMMETRIC-CHEAP-REMOVE |
+| e012d | causal census × 4 nets | DONE (T014) | causal-depth census on B43/R/R43: is CAUSAL depth the cross-net invariant? (C1's remaining evidence) |
+| e043 | install a name | DONE (T015 amended) | ASYMMETRIC-CHEAP-REMOVE; expression gap; protocol-fragile install |
 | e044 | scar tissue | READY (gated on e043 + audit) | post-erasure re-exposure: does the row regrow or the name return via body routes? |
-| e046 | C6 replication on B43/BDO | READY | R5 missing observation: D2-analog + in-run top residual head + J-census collateral + uniform-floor battery |
+| e046 | C6 replication | DONE (T016: C6 demoted) | two-factor erasure does NOT replicate; address-half general | R5 missing observation: D2-analog + in-run top residual head + J-census collateral + uniform-floor battery |
 | e014b.1 | replication seed | DONE (e030 slot) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |
 | e011c-ci | bootstrap CIs | DONE (e030 slot) | resample eval batches for e011c rotate/zero ratios (MLP-L1 ×2.95, MLP-L5 ×0.24 beyond noise?) |
 | e001–e003, e011a/b/c, e012, e014b | — | DONE | see NOTES.md |
@@ -42,6 +42,19 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | v003 | write-space geometry | PARKED | PCA/dimensionality of each block's writes |
 | v004 | lesion atlas explorer | PARKED | composite anatomy poster |
 | v005 | forgetting animation | PARKED | animate ascent trajectories + generation decay |
+
+## Night program (R6, gated)
+
+| id | item | status | what |
+|---|---|---|---|
+| e047 | replication sweep | RUNNING | 3 surviving positives (L5-calibrator, MLP-5 carrier, shared-L0 machine) × 4 nets, eval-only — card v3 gate |
+| e044 | scar tissue (REAL rerun) | RUNNING | the smoke file never ran; full battery now |
+| e048 | expression-gap boundary | READY | does installed-but-silent ever express? exposure dose, prompt-seeding, temperature |
+| e049 | retrieval dose-response | READY | refrain corpora at p∈{0,5,20,60}% — where does far-retrieval appear on naturalistic data? |
+| e040 | graft-evolution re-scoped | READY | structure readouts only (alignment, rho drift) — no circuit claims |
+| e033 | write-equalizer | READY | homeostasis at structure level; who absorbs the energy |
+| e005s | minimal scaling capstone | GATED (card v3) | 0.7M/8M × 2 seeds; qualitative readouts only |
+| v011 | edit film (re-cut) | PARKED | the asymmetry law, with the expression gap visible |
 
 ## Parking lot (raw ideas, unranked)
 
