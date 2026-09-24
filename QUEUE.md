@@ -39,16 +39,23 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 ## Parking lot (raw ideas, unranked)
 
-- v009 ΔW-subspace portability atlas (R2 ideator): SVD per organ, cross-seed principal angles overlaid with transplant ρ
-- e030 Procrustes graft: re-express donor MLP ΔW in host init subspace before grafting
-- e031 stream-facing matrix grafts (REGISTERED v2): graft each matrix (W_in/W_out/c_attn/c_proj) across seeds at L3/L5 — W_in AND W_out predicted VIOLENT (stream-facing), c_proj mildest — stream-basis mechanism
+- e035 task-net anatomy (R3 top): eval-only on e021 ckpts — lesion map, off-COPY depth census, ΔW atlas vs Shakespeare nets
+- e038 L4-H1 causal lesion: zero the retrieval head at COPY; do decisions migrate to L5 or collapse?
+- e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
+- e036 retrieval-head transplant: does L4-H1 carry its decision mode into another net?
+- v010 synthesis poster: three tasks × {lesion, depth, write schedule, funnel} — the lab's first self-portrait
+- e039 reconsolidation on the task net (retrieval-gated labilization with a real circuit)
+- e040 graft-evolution: select lineages by graft damage; is init-anchoring evolvable?
+- e005s mini-ladder 0.7M/2.7M/8M × 2 seeds (GATED on mechanism card T010)
+- ΔW ceiling null: same-init different-data-order replicate (~200s train) — scales the +0.152 alignment
+- e031-alternative control: spectrum-matched random W_out (LN-statistics rescue test)
+- e023 entity-granularity forgetting; e024/e026 bio/evolution raw ideas
+
 - e032 MLP-5 per-token census: write norm vs entropy/decision depth (energy pump or ballast?)
 - e033 write-equalizer (bio/homeostasis): train with equal-norm MLP writes; who absorbs the energy?
 - e034 graft-evolution: lineage selected by cross-seed graft damage; does selection erode init-anchoring?
 
-- e020 context surgery: duplicate/delete the distant rare token; depth + KL response (R1 vs R2)
 - e021 task-swap: copy-task vs word-shuffled vs Shakespeare — is front-loading task-dependent?
-- e022 frequency chase: make 'O' common (or rare-ify a common char), re-run atlas
 - e023 entity-granularity forgetting: anchored ascent on one name's windows vs embedding+lm_head row surgery
 - e024 reconsolidation window (bio-analogue): retrieval-gated labilization then matched-dose noise vs control
 - e026 selection-on-depth (evolution): lineages selected under L5-ablated loss; is depth selectable?

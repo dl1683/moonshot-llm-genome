@@ -7,6 +7,48 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 3 — full panel (2026-09-24T13:35Z)
+
+Panel: INTERPRETER + IDEATOR + CRITIC. Reviewed: E021, V009(+amendment),
+E030 debt, E031, E003b.
+
+### INTERPRETER (accepted — corrections applied)
+1. **E003b overread:** Δtarget +0.28 nats is mild degradation, NOT
+   forgetting (train-A 1.30 still below val_B's own 1.68); bar = gap
+   closure Δ≥0.66 (or unigram 4.17). Peak r=6.13 was a tiny-denominator
+   point; final r=3.12. "One-dimensional substrate" premature (r halves as
+   dose triples). Claim 5 re-amended: "selective-so-far; bar untested."
+2. e021 retrieval head is correlational n=1 ("dedicated" overstates;
+   other heads carry mass). Causal lesion queued (e038).
+3. e031 pair-coherence has an unexcluded alternative (LN-statistics
+   rescue; needs spectrum-matched W_out control — registered).
+4. Missing observation = ONE dose-response run to the bar with
+   step-norm-matched naive + train-B collateral → DISPATCHED (e003c).
+
+### CRITIC (applied)
+- 80/2 eroding: 4 experiments vs 0 new full T-entries this hour (amendments
+  only). Mechanism card mandated as next THINKING slot.
+- e019 zombie row (READY 2h) → folded into the dispatched slot.
+- ΔW ceiling-null was silently dropped → restored to queue.
+- DELETED from parking lot (premises dead or decorative): e020, e022, e027,
+  v003, v004, v005, v007. e031/v009 removed from lot (DONE).
+- Doc drift fixed (STATE); THINKING ordering rule adopted (chronological,
+  newest-first — apply at next edit).
+
+### IDEATOR harvest
+e035 task-net anatomy (eval-only, top pick); e038 L4-H1 causal lesion;
+e037 forget-then-graft (juxtapose the two deepest mechanisms); e036
+retrieval-head transplant; e003c fluency-direction anatomy (folded into
+e003c); v010 synthesis poster ("three tasks, one pipeline"); e039
+reconsolidation w/ real retrieval circuit; e040 graft-evolution; e005s
+mini-ladder (gated on the mechanism card).
+
+### Decisions
+1. e003c + e019 DISPATCHED (one background slot).
+2. Next: e035/e038 (e021 follow-up), then the MECHANISM CARD (T010) as the
+   thinking slot, then e005s if the card holds.
+
+---
 ## Review 2 — full panel (2026-09-24T12:26Z)
 
 Panel: INTERPRETER + IDEATOR + CRITIC. State reviewed: T006-T008, E012b-E029.

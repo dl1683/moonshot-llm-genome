@@ -400,6 +400,13 @@ positions; decision-depth census at COPY positions; locality funnel
   despite retrieval, stages are corpus-trivial — a serious blow to claim 1's
   interpretation.
 
+**CLAIM 5 RE-AMENDED (Review-3 correction, 2026-09-24T13:35Z): selective-
+SO-FAR; the forgetting bar is untested.** Δtarget +0.28 is mild degradation
+(train-A 1.30 < val_B 1.68); bar = Δ≥0.66 gap closure. Final r=3.12 (peak
+6.13 was a tiny-denominator point); r halves as dose triples — substrate
+dimensionality open. e003c (dose-to-bar + step-norm-matched naive +
+train-B collateral) will settle it. Original note follows.
+
 **T008 CLAIM 5 AMENDED (E003b, 2026-09-24T13:28Z): selective first-order
 forgetting is POSSIBLE — via projection.** Corrected-labels test: naive
 ascent r=1.22 (anti-selective, replicated); masked r=1.84; **projected

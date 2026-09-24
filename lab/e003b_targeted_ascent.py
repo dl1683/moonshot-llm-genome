@@ -17,9 +17,11 @@ batch 32x256, 300 steps, eval every 20 — optimizer identical to e003's
 ascent_track so the naive arms are true replication anchors):
   1. naive-1e-6 / naive-1e-5 : plain gradient ascent on A (anchors).
   2. projected-1e-5 : step along g_A minus its projection onto the mean
-     B-gradient direction u_B (mean over 4 B-batches; u_B recomputed every 10
-     steps). Projection applied to the raw gradient before Adam's per-
-     coordinate normalization.
+     B-gradient direction u_B (mean over 4 B-batches, UNIT-normalized; u_B
+     recomputed every 10 steps). Projection applied to the raw gradient
+     before Adam's per-coordinate normalization. Variant
+     "projected-rawscale-1e-5" = run-1 accident kept for the record (see
+     FIX LOG below).
   3. masked-1e-5 : rank weights by specificity s_i = |mean g_A,i| /
      (|mean g_B,i| + eps) over 8 A-batches and 8 B-batches; ascent only on the
      top-10% mask (grad zeroed elsewhere).
@@ -146,8 +148,8 @@ def mean_grad(model: TinyGPT, src: torch.Tensor, k: int, gen: torch.Generator) -
 
 
 def project_out(model: TinyGPT, u_params: list[torch.Tensor]) -> float:
-    """Remove from the current gradient its component along u (unit norm).
-    Returns the cosine removed (dot with unit u)."""
+    """Remove from the current gradient its component along u (UNIT norm).
+    Returns the removed cosine (dot with unit u)."""
     dot = torch.zeros((), device=DEVICE)
     for p, up in zip(model.parameters(), u_params):
         if p.grad is not None:
@@ -156,6 +158,16 @@ def project_out(model: TinyGPT, u_params: list[torch.Tensor]) -> float:
         if p.grad is not None:
             p.grad.add_(-dot * up)
     return float(dot.item())
+
+
+def b_direction(m: TinyGPT, train_b, gen: torch.Generator, unit: bool) -> list[torch.Tensor]:
+    """Mean B-gradient direction as per-param tensors; unit=True normalizes
+    (the registered projection); unit=False keeps the raw mean gradient scale
+    (run-1 accident: removes |u|^2 ~ 0.7x of the true component)."""
+    flat = mean_grad(m, train_b, B_DIR_BATCHES, gen)
+    if unit:
+        flat = flat / (flat.norm() + 1e-12)
+    return split_flat(flat, m)
 
 
 def apply_mask(model: TinyGPT, mask_params: list[torch.Tensor]) -> None:
@@ -174,7 +186,9 @@ def run_arm(base: TinyGPT, train_a, train_b, evals: dict, lr: float, mode: str, 
 
     u_params = None
     if mode in ("projected", "combined"):
-        u_params = split_flat(mean_grad(m, train_b, B_DIR_BATCHES, gen), m)
+        u_params = b_direction(m, train_b, gen, unit=True)
+    elif mode == "projected-raw":
+        u_params = b_direction(m, train_b, gen, unit=False)
 
     mask_params = None
     mask_diag = {}
@@ -209,13 +223,13 @@ def run_arm(base: TinyGPT, train_a, train_b, evals: dict, lr: float, mode: str, 
                   flush=True)
         if step == STEPS:
             break
-        if mode in ("projected", "combined") and step % B_DIR_REFRESH == 0:
-            u_params = split_flat(mean_grad(m, train_b, B_DIR_BATCHES, gen), m)
+        if mode in ("projected", "combined", "projected-raw") and step % B_DIR_REFRESH == 0:
+            u_params = b_direction(m, train_b, gen, unit=(mode != "projected-raw"))
         zero_grads(m)
         xa, ya = batch_from(train_a, m.cfg.block_size, BATCH, gen)
         _, loss_a = m(xa, ya)
         (-loss_a).backward()                      # ascent on A
-        if mode in ("projected", "combined"):
+        if mode in ("projected", "combined", "projected-raw"):
             removed.append(project_out(m, u_params))  # cosine along u_B removed
         if mode in ("masked", "combined"):
             apply_mask(m, mask_params)
@@ -289,6 +303,7 @@ def main():
         ("naive-1e-6", 1e-6, "naive"),
         ("naive-1e-5", 1e-5, "naive"),
         ("projected-1e-5", 1e-5, "projected"),
+        ("projected-rawscale-1e-5", 1e-5, "projected-raw"),
         ("masked-1e-5", 1e-5, "masked"),
         ("masked+projected-1e-5", 1e-5, "combined"),
     ]
@@ -327,7 +342,8 @@ def main():
     # ---- graphs ----
     fig, axes = plt.subplots(1, 2, figsize=(13, 4.8))
     colors = {"naive-1e-6": "tab:gray", "naive-1e-5": "black", "projected-1e-5": "crimson",
-              "masked-1e-5": "seagreen", "masked+projected-1e-5": "purple"}
+              "projected-rawscale-1e-5": "salmon", "masked-1e-5": "seagreen",
+              "masked+projected-1e-5": "purple"}
     for tag, res in results.items():
         st = [p["step"] for p, r in zip(res["traj"], res["r_vs_valB"]) if r is not None]
         rv = [r for r in res["r_vs_valB"] if r is not None]
