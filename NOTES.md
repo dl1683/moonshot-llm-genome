@@ -31,6 +31,24 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E048 — expression gap: teacher-forcing-bound, at every dose (2026-09-25) — DONE
+
+WHAT WE DID: dose x3, seeding (induction route), temperature x3, greedy
+diagnostic on the installed cell; battery + free-generation readouts at
+every arm.
+
+WHAT WE SAW (T019): expression = 0 in ALL arms while battery holds
+0.92-0.96. P1 confirmed (teacher-forcing-bound); P2/P3 refuted (no
+threshold, no dose response). C7 final: address / ability / expression /
+history — four separable faculties; install-by-teacher-forcing is
+constitutionally silent. Doctrine: continuation batteries are not evidence
+of usable knowledge; free generation is the honesty check.
+
+WHAT'S NEXT: night program continues (e049 retrieval dose-response;
+e040/e032/e005s gated). Review due.
+
 ## E044 — scar tissue (REAL run): erasure burns the address, not the attractor (2026-09-25) — DONE
 
 WHAT WE DID: full 5-arm battery (re-install vs fresh vs patch-controls,

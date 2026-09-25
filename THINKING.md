@@ -7,6 +7,29 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T019 — Expression is teacher-forcing-bound (E048, 2026-09-25T00:55Z)
+
+**P1 CONFIRMED, absolutely:** expression count = 0 across ALL arms —
+unseeded, seeded (induction route), greedy diagnostic, T ∈ {0.7, 1.0,
+1.3}, and dose × {400, 800, 1600} steps — while battery accuracy holds
+0.92-0.96 throughout. P2 (prior threshold) refuted: neither seeding nor
+temperature unlocks a single occurrence. P3 (dose quantity) refuted: no
+monotone expression growth; more exposure does not help.
+
+**C7 FINAL — the edit law, complete:** there are FOUR separable faculties:
+ADDRESS (rows — surgically removable, attractor-surviving), ABILITY
+(distributed body usage — train-only), EXPRESSION (free-generation
+surfacing — requires free-generation-shaped exposure; teacher-forced
+install never confers it at any dose), and HISTORY (the re-learned memory
+differs from the original in route and surgical-resistance). An exposure
+protocol that never shows the name in FREE contexts installs answer-
+knowledge that is constitutionally silent.
+
+**Lab-doctrine note:** this is also a warning about the battery method
+itself — continuation-battery accuracy is NOT evidence of usable
+knowledge; free-generation probes are the honesty check for any install
+claim, at any dose.
+
 ## T018 — Scar tissue: erasure burns the address, not the attractor (E044, 2026-09-25T00:15Z)
 
 **The real run (smoke:false, 350s, 5 arms, all gates; shakedown root cause:
