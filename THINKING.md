@@ -7,6 +7,33 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T034 — E056b resolves the circularity: the rescue is a GLOBAL state property, and the claim splits honestly (2026-09-25T22:50Z)
+
+**The registered circularity-killer ran at 24 floor-prior non-onset
+positions (base p(Z) median 6.8e-8; all ≥16 chars from any name span;
+trajectory-identity gate bit-exact):**
+- **The d4 rescue fires ANYWHERE:** site-mean 0.324 ≥ 0.30, AUC 1.000,
+  shuffled 1.2e-7, base-net twin 0.007. The d* rule re-fires at d4
+  off-onset — the selection-circularity caveat is RESOLVED (moot
+  direction). Per-position: 14/24 donors ≥0.30, 24/24 best-single-donor
+  ≥0.30, mid-window > deep gradient.
+- **The claim SPLITS (the paper wording changes):** (a) onset-specific:
+  the sub-argmax prior (0.17-0.23 vs 1e-7 floor) and the NATURAL
+  free-run expression failure + wpe-130 knife-edge governing natural
+  readout; (b) position-GENERAL, knowledge-specific: the d≥4 state
+  write installs expression anywhere — a portable address injection,
+  not an un-blocking of site-suppressed representation.
+- **T033's e055 full-report enrichment (also now in):** A-rev symmetric
+  suppression (off-geometry states actively KILL battery readout
+  0.775→0.08); mean-donor "relay direction" beats every individual
+  donor (d5 0.912 vs 0.494 — averaging denoises toward the address
+  direction, the own-state-vs-direction contrast for the paper);
+  one-shot ≈ held (the write survives the model's own dynamics).
+- **The paper draft's spine is written (scratch/day3_paper_draft.md)**
+  with limitations carrying the caveats verbatim; e056b's resolution
+  now upgrades it: circularity killed, claim split, submission gate
+  OPEN.
+
 ## T033 — E055: causal state-carried suppression at depth 4 (2026-09-25T22:15Z) [AUDIT 22:30Z: P1 SURVIVES STRONG — d4 rescue 0.374 is ~60x its base-net twin (0.0062); pad-shifted donors cap 0.133 (position-cue leak excluded); one-shot semantics genuine (25/32 vs base 6/32); P3 held with margin (9/10 deep sites, ratios 4.6-76x). CAVEATS: quote d4 not d5 (base-net d5 is 23% of installed — the shakier leg); terminal sites are pseudo-replicated (t=120 recurs); d*=4 is terminal-carried — deep-only stratum would give d*=5, outside {2,3,4}; ALL 21 sites are gap-selected onsets (selection circularity OPEN); downstream Z-words partly onset-flip + mechanical completion. FOLLOW-UP REGISTERED (e056b): re-run R1 depth curve at ~24 random NON-onset positions from cached trajectories — d*=4 surviving there kills the circularity (minutes, no training).]
 
 **The full 24-site depth-survival run (all gates pass; shuffled

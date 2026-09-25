@@ -57,6 +57,20 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E056b — the circularity killer: rescue is position-general (2026-09-25) — DONE
+
+WHAT WE DID: the d4-rescue donors transplanted at 24 floor-prior
+non-onset positions (trajectory-identity verified).
+
+WHAT WE SAW (T034): the rescue fires ANYWHERE (0.324 site-mean, AUC
+1.000, shuffled ~0) — circularity resolved moot; the claim SPLITS:
+onset-specific sub-argmax knowledge + natural wpe-130 knife-edge;
+position-general knowledge-specific d≥4 state injection. Plus e055
+full-report: A-rev symmetric suppression; mean-donor relay direction
+beats all individuals. Paper draft spine written; submission gate open.
+
 ## E055 — the suppression localizer: causal, state-carried, depth-4 (2026-09-25) — DONE
 
 WHAT WE DID: 24-site depth-survival transplant (TF-state at the onset
