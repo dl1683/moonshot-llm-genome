@@ -17,12 +17,12 @@ Run: python lab/e033_write_equalizer.py
 """
 import torch
 
-from common import (DEVICE, REPO, Cfg, CharCorpus, TinyGPT, estimate_loss,
+from common import (DEVICE, REPO, Cfg, CharCorpus, TinyGPT, cooldown, estimate_loss,
                     lesion_loss, plot_history, run_dir, save_json, set_seed,
                     train_model)
 import json
 
-BASE_CKPT = REPO / "runs" / "checkpoints" / "e001.pt"
+BASE_CKPT = REPO / "runs" / "checkpoints" / "e005s_small.pt"  # 0.84M — compute envelope
 TRAIN_CKPT = REPO / "runs" / "checkpoints" / "e033.train.pt"
 FINAL_CKPT = REPO / "runs" / "checkpoints" / "e033.pt"
 N_EVAL = 30
@@ -64,7 +64,7 @@ def main():
     set_seed(42)
     rd = run_dir("e033")
     corpus = CharCorpus(REPO / "data" / "input.txt", seed=1337)
-    cfg = Cfg(vocab=corpus.vocab_size, n_layer=6, n_head=6, n_embd=192, block_size=256)
+    cfg = Cfg(vocab=corpus.vocab_size, n_layer=4, n_head=4, n_embd=128, block_size=256)  # 0.84M
 
     base = TinyGPT(cfg).to(DEVICE)
     base.load_state_dict(torch.load(BASE_CKPT, map_location=DEVICE, weights_only=True))
@@ -84,8 +84,9 @@ def main():
     equal_target = sum(targets) / len(targets)
     print(f"equalized write target: {equal_target:.2f} (mean of baseline layer norms)")
     hooks = register_equalizer(eq, equal_target)
-    history = train_model(eq, corpus, steps=4000, lr=1e-3, batch_size=64,
-                          max_seconds=252.0, ckpt=TRAIN_CKPT)
+    cooldown(90)  # thermal block (envelope rule)
+    history = train_model(eq, corpus, steps=4000, lr=1e-3, batch_size=32,
+                          max_seconds=180.0, ckpt=TRAIN_CKPT)
     eq_val = estimate_loss(eq, corpus, "val", n_batches=N_EVAL)
     torch.save(eq.state_dict(), FINAL_CKPT)
     e_attn = [lesion_loss(eq, corpus, "attn", i, n_batches=N_EVAL) - eq_val for i in range(cfg.n_layer)]
