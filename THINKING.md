@@ -35,6 +35,17 @@ its interfaces (T016), and NOT evolvable under standard selection (this).
 Gradient descent writes it once; neither surgery, training regime, nor
 selection rewrites it.
 
+**T024 PRE-REGISTERED FOLLOW-UP (e050, registered before the audit lands):**
+the directed-mutation control. P2-FROZEN conflates "selection can't see
+the basis" with "random mutation can't reach it." e050: same lineage
+protocol BUT mutate ONLY the stream-facing matrices (W_in/W_out rows,
+σ matched to e040) — if selection now responds (damage −25%+), the basis
+was selectable but unreachable by global noise (verdict flips to
+REACHABILITY-LIMITED); if still frozen, the basis is genuinely invisible
+to selection (FROZEN holds at its strongest). Also registered: the
+host-side-LN confound check — correlate per-member damage with the
+e031-style LN-statistics distance to REF (not just ΔW alignment).
+
 ## T023 — Write-equalizer: the energy schedule is decorative (E033, 2026-09-25T16:30Z; 0.84M, single net)
 
 **Verdicts: P1 parity TRUE (1.5147 < baseline 1.537 — equalized MLP writes
