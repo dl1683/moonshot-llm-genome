@@ -7,7 +7,36 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T031 — E053b: the onset invariance was quantization; fine onsets are 36/24 (NOT invariant) (2026-09-25T20:50Z)
+## T031 — E053b FULL: "63" was pure bin quantization; the real curve is a sharp recent spike + dead old end (2026-09-25T21:10Z)
+
+**Supersedes the 2-cell partial below.** All 5 cells fine-fitted (B=4;
+bitwise reproduction of e053's stored sweep):
+- **Fine a*: 7 / 25 / 35 / 182 / 32** (0.84M/2.7M/10M/d400/d800) —
+  0/5 within 63±12. The "63" was a handful of strong recent positions
+  pulling the 193-255 bin average over threshold. The real shape: a
+  SHARP live spike in the last ~4-15 positions (dCE 0.3-6.7 nats) +
+  scattered weak-live + a dead old end (ages 240-255: dCE <= 0.015
+  INCLUDING the sink) + 13-20% of positions where lesion HELPS
+  (dCE <= -0.01 — negative-utility cache entries).
+- **Exposure INVERTS the registered prediction:** a* 182→32→25 and
+  live-fraction 0.68→0.17→0.13 as training goes 400→800→4000 steps —
+  TRAINING SHRINKS THE LIVE WINDOW. The undertrained net uses its whole
+  cache; the trained net uses only a recent spike.
+- **Identity broken with SIGN FLIPS** (trained: live > a*/255;
+  undertrained: live < a*/255). Two-plus statistics, genuinely.
+- Scale axis: 7→25→35 monotone but CIs overlap — weak trend at best.
+- Registered decider for absolute-vs-proportional: the Phase-2 ctx-512
+  cell (a*(512) ≈ a*(256) tokens ⇒ absolute; ≈ frac×512 ⇒
+  proportional). T030's "0.84M fine-fit 73" note was memory error
+  (the stored fine cell was mid_2.7M = 86) — corrected.
+- **THE PUBLISHABLE CURVE (honest form):** a char-LM's KV cache at
+  ctx-256 is ~85-95% dead weight; utility concentrates in a ~4-15
+  position recent spike; ~15% of entries have NEGATIVE utility
+  (lesion helps); training collapses the live window. Sink dead at
+  generation. This reframes cache pruning: the win isn't finding
+  "the useful old entries" — it's that almost nothing old is useful.
+
+## T031-partial — superseded 2-cell read (2026-09-25T20:50Z)
 
 **The remediation's verdict (partial run — smoke-flagged, 2 of 5 cells;
 exposure cells not yet done):**
