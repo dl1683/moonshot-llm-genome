@@ -106,8 +106,8 @@ def main():
     for b0 in range(0, 300, 64):
         xb = xs[b0:b0+64]
         last = batched_snapshots(eq, xb)
-        p4 = F.softmax(eq.lm_head(eq.ln_f(last[5])), dim=-1)
-        p6 = F.softmax(eq.lm_head(eq.ln_f(last[6])), dim=-1)
+        p4 = F.softmax(eq.lm_head(eq.ln_f(last[cfg.n_layer - 1])), dim=-1)
+        p6 = F.softmax(eq.lm_head(eq.ln_f(last[cfg.n_layer])), dim=-1)
         kls.append(float((p6 * (p6 / (p4 + 1e-12)).log()).sum(-1).mean()))
     kl_eq = sum(kls) / len(kls)
     print(f"equalized KL(L5||L4) {kl_eq:.3f} (P3 bar >= 0.5)")
