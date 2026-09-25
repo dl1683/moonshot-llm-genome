@@ -60,7 +60,9 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 WHAT WE DID: fine-grid onset fitting on the cache-timeline cells (no
 bin-edge fallback), bootstrap CIs, identity test.
 
-WHAT WE SAW (T031 FULL, 5 cells, B=4): fine a* = 7/25/35/182/32 — 0/5
+RECONCILED vs final e053 metrics: registered-threshold a* = 73/86/4 and 3→21→86 across exposure (GROWS 28.7x, the registered direction); the shrink claim was a sign-based statistic — OPEN CONFLICT documented, ctx-512 + more seqs to resolve. Shape claims robust: spike+plateau, sink dead 5/5, 32% negative-utility old positions at 10M.
+
+Superseded partial read: fine a* = 7/25/35/182/32 — 0/5
 near "63"; the curve is a sharp recent spike (~4-15 positions, dCE
 0.3-6.7) + dead old end (240-255: dCE <= 0.015, sink included) + 13-20%
 NEGATIVE-utility entries (lesion helps); exposure INVERTS the prediction

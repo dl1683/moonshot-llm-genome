@@ -669,10 +669,12 @@ def main():
             primacy = float(sweep_v[:, 1:17].mean())
             plateau = float(sweep_v[:, 224:255].mean())
             sink_dce = float(sweep_v[:, 0].mean())
-            fp_block = dict(positions=list(range(T_TOTAL - 1)), age=list(age_axis),
-                            vzero_dce_mean=sweep_v.mean(0).tolist(),
+            fp_block = dict(ordering="index i = cache age i+1 (1=youngest, "
+                                     "255=sink); position = 254 - i",
+                            age=list(age_axis),
+                            vzero_dce_mean=dce_age.mean(0).tolist(),
                             vzero_ci=[ci_lo.tolist(), ci_hi.tolist()],
-                            kdrop_dce_mean=(np.stack(sweeps_k).mean(0).tolist()
+                            kdrop_dce_mean=(np.stack(sweeps_k)[:, ::-1].mean(0).tolist()
                                             if len(sweeps_k) == len(seqs) else None))
         else:
             naive_a = robust_a = a_star = onset_age_binned(fbp["vzero"].mean(0))
@@ -683,7 +685,11 @@ def main():
         bin_v = fbp["vzero"].mean(0)
         monotone = float(np.mean(np.diff(bin_v[1:]) > 0))
         p3_cls, p3_nums = classify_p3(tl[:, :, 0].mean(0), steps_axis)
-        eq_gap = float(np.abs(fbp["both"] - fbp["kdrop"]).max())
+        # equivalence: exact for every bin NOT containing the last context
+        # position (K-drop preserves the query row's diagonal, so bins that
+        # contain position 254 differ by design — reported separately)
+        eq_gap = float(np.abs(fbp["both"][:, :-1] - fbp["kdrop"][:, :-1]).max())
+        eq_gap_lastbin = float(np.abs(fbp["both"][:, -1] - fbp["kdrop"][:, -1]).max())
 
         results[name] = dict(
             ckpt=str(ckpt), arch=dict(**arch, block_size=256, vocab=65),
@@ -716,6 +722,7 @@ def main():
                          primacy_bump=primacy, recent_plateau=plateau,
                          primacy_ratio=(primacy / plateau) if (plateau and plateau > 0) else None,
                          monotone_frac=monotone, equivalence_gap=eq_gap,
+                         equivalence_gap_lastbin=eq_gap_lastbin,
                          bin_vzero_final=bin_v.tolist()),
             sample_text_first160=corp.decode(torch.tensor(seqs[0]["text"][:160])),
         )

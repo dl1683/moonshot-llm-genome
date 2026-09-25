@@ -7,7 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T031 — E053b FULL: "63" was pure bin quantization; the real curve is a sharp recent spike + dead old end (2026-09-25T21:10Z)
+## T031 — RECONCILED against the FINAL e053 metrics (2026-09-25T21:40Z)
+
+**The reconciliation (the agent itself flagged the conflict):** e053's
+final corrected metrics (its adaptive-protocol supplement) give the
+REGISTERED-threshold onsets: a* = 73/86/4 (small/mid/large) and
+3→21→86 across exposure (400→800→4000) — **exposure GROWS the live
+window 28.7×, exactly the registered prediction's direction.** The
+e053b "training shrinks" claim rested on a sign-based live-frac
+statistic under CPU-throttled conditions; the registered-threshold a*
+in the final metrics is the authoritative read. What BOTH agree on and
+what survives every instrument:
+- **"63" was bin quantization; the curve is a last-~7-token SPIKE (+0.4
+  to +3.2 nats/position) + shoulder (17-32) + near-zero plateau.**
+- **Sink dead at generation in 5/5 cells** (never load-bearing; DECAYs,
+  sometimes sign-flipping).
+- **Old cache is actively harmful where the model is big or
+  undertrained** (10M: 32% of old positions ≤ −0.01 — lesion IMPROVES;
+  the 10M has the SHORTEST live window, 4 tokens).
+- **K-drop vs V-zero dissociation at recent entries** (9.6 vs 1.9 nats):
+  renormalization shock vs content removal are different lesions.
+- Exposure direction: the registered a* says GROWS (3→86); e053b's
+  sign-based frac says shrinks — flagged as an OPEN CONFLICT between
+  statistics, resolved only by the ctx-512 cell + more sequences
+  (n=2-8 with wide CIs throughout).
+
+**Honest publishable core (post-reconciliation):** spike+plateau shape;
+sink dead; negative-utility old entries at scale; onset
+instrument-dependent (3-86 range) with the conflict documented. This is
+still the first causal per-position cache-utility curve — but its
+invariance claims are DEAD in all forms; the shape claims are strong.
+
+## T031-superceded — E053b read (2026-09-25T21:10Z)
 
 **Supersedes the 2-cell partial below.** All 5 cells fine-fitted (B=4;
 bitwise reproduction of e053's stored sweep):
