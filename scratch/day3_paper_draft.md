@@ -596,14 +596,14 @@ the adjacent literatures carry.
       classics (Ranzato / Scheduled Sampling / Professor Forcing)
       replacing the unconfirmable Bridge-Garden / EGz8InJz6F items.
       References section added at end.
-- [ ] Decide d4-vs-d5 primary framing stays (audit says quote d4).
-- [ ] Scope-soften every "first"/"zero" claim per T028 wording.
+- [x] Decide d4-vs-d5 primary framing stays (audit says quote d4).
+- [x] Scope-soften every "first"/"zero" claim per T028 wording.
 - [x] Scar clause resolved 2026-09-25: e044b replicated the
       address-direction core on B43 (cos 0.728 vs 0.243 fresh-from-zero,
       2.99×; re-learn 2.92× slower) → the scar clause is now n=2;
       route-flip/key-resistance sub-readouts stay n=1-flagged in 5.2 and
       Limitations.
-- [ ] d6 readout-dominated caveat: e056b confirms d6 = donor readout
+- [x] d6 readout-dominated caveat: e056b confirms d6 = donor readout
       (0.715 = donor p_z mean) — keep d6 out of causal claims.
 
 ---
