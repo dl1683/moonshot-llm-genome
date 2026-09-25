@@ -299,47 +299,6 @@ def g0_check(net, window: torch.Tensor) -> float:
     return float((p0 - p1).abs().max().item())
 
 
-@torch.no_grad()
-def static_control(net, corp, ch: int):
-    gen = torch.Generator().manual_seed(SEED_STATIC)
-    ix = torch.randint(len(corp.val) - T_TOTAL - 1, (N_STATIC,), generator=gen)
-    out = {k: np.full(len(BINS), np.nan) for k in ("vzero", "kdrop")}
-    n_win = 0
-    for w0 in range(0, N_STATIC, 4):                      # 4 windows x 13 rows
-        specs = []
-        wins = []
-        for w in range(w0, min(w0 + 4, N_STATIC)):
-            win = corp.val[ix[w]:ix[w] + T_TOTAL]
-            wins.append(win)
-        rows_per_win = 1 + 2 * len(BINS)
-        idxs = torch.stack([w[:T_TOTAL - 1] for w in wins for _ in range(rows_per_win)])
-        vz = torch.zeros(idxs.shape[0], T_TOTAL - 1, dtype=torch.bool)
-        kd = torch.zeros_like(vz)
-        for wi in range(len(wins)):
-            base = wi * rows_per_win
-            for bi in range(len(BINS)):
-                ps = bin_positions(bi, T_TOTAL - 1)
-                vz[base + 1 + bi, ps] = True
-                kd[base + 1 + len(BINS) + bi, ps] = True
-        logits = manual_logits(net, idxs, vz, kd, None, chunk=ch)
-        lp = torch.log_softmax(logits.float(), -1)
-        acc = {k: np.zeros(len(BINS)) for k in out}
-        for wi, win in enumerate(wins):
-            base = wi * rows_per_win
-            tgt = int(win[T_TOTAL - 1])
-            ce = -float(lp[base, tgt])
-            for bi in range(len(BINS)):
-                acc["vzero"][bi] += ce + float(lp[base + 1 + bi, tgt])
-                acc["kdrop"][bi] += ce + float(lp[base + 1 + len(BINS) + bi, tgt])
-        for k in out:
-            out[k] = out[k] + acc[k] / len(wins)
-        n_win += len(wins)
-    for k in out:
-        out[k] /= max(1, n_win // 4) if False else 1      # already averaged per chunk below
-    # accumulate properly across chunks
-    return out, n_win
-
-
 def onset_age(dce_by_age: np.ndarray, k: int = A_STAR_K, thresh: float = THRESH):
     """dce_by_age: ages ascending (1=youngest ... 255=oldest/sink).
     Returns (naive, robust): youngest age whose mean dCE < thresh; robust
@@ -351,8 +310,7 @@ def onset_age(dce_by_age: np.ndarray, k: int = A_STAR_K, thresh: float = THRESH)
         return naive, None
     ma = np.convolve(m, np.ones(k) / k, mode="valid")
     ok = ma < thresh
-    sustained = ok & np.concatenate([ok[1:].cummin(), [False]])  # ok[i] and all after within k
-    # first index where window [i, i+k-1] all below
+    # first index i (scanning from the end) whose k-length run is fully below
     run = 0
     robust_i = None
     for i in range(len(ok) - 1, -1, -1):
@@ -537,8 +495,9 @@ def main():
         primacy_ratio={n: results[n]["derived"]["primacy_ratio"] for n in results},
         monotone_frac={n: results[n]["derived"]["monotone_frac"] for n in results},
     )
-    p1["pass"] = bool(p1["sink_dead_count"] >= 3 and min(p1["primacy_ratio"].values()) is not None
-                      and all((r is None) or (r <= 0.25) for r in p1["primacy_ratio"].values())
+    ratios = [r for r in p1["primacy_ratio"].values() if r is not None]
+    p1["pass"] = bool(p1["sink_dead_count"] >= 3 and ratios
+                      and all(r <= 0.25 for r in ratios)
                       and all(results[n]["derived"]["monotone_frac"] >= 0.75 for n in results))
     p2 = dict(scale_fractions={n: fr.get(n) for n in sc},
               scale_invariant=p2_scale_ok, scale_maxmin_ratio=p2_scale_ratio,
