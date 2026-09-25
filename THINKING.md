@@ -7,6 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T032 — E055 design probes: the expression gap is POSITIONAL binding + a d1-peak/d2-crash suppression structure (2026-09-25T21:55Z)
+
+**The design's measured probes (before the run — these are findings):**
+- **T019's open edge RESOLVED: the address binding is POSITIONAL
+  (wpe-130).** A one-char context shift (129/131) collapses p(Z)
+  0.556→0.12 and kills argmax; left-padding with content fixed
+  collapses identically. Not content — position.
+- **e048's zero-expression was OFF-GEOMETRY, not suppressed:**
+  generating FROM battery geometry expresses (greedy 49/60 full ZEPHYRA;
+  sampled 10/7,200 chars). The install DID work — the earlier probe was
+  10 positions off.
+- **The sub-argmax prior, explicitly measured:** at the onset-choice
+  position Z sits rank-2 (p 0.167-0.234 vs argmax E 0.68-0.78); deep
+  sites rank-3 (p 0.004-0.007 vs floor 2e-8) — the knowledge is
+  present, sub-argmax, everywhere.
+- **The mini-transplant already rescues:** battery-TF state written at
+  the free-run onset position lifts p(Z) 0.004→0.716 across depths
+  (d3 0.105 / d4 0.238 / d5 0.398 / d6 0.716) while shuffled writes sit
+  at ~0-0.03 (AUC 1.0). P1 (state-rescue) is effectively pre-confirmed;
+  the run's remaining job is the full 24-site curve + the depth
+  structure.
+- **NOVEL STRUCTURE — the d1-peak/d2-crash:** off-geometry sites show
+  the address SURVIVING block-0 output (d1 peak), DESTROYED across
+  blocks 1→2 (crash), then RE-EMERGING d4+. The suppression has a
+  mid-stack locus — exactly the P3 signature, found in the probe.
+- Completion itself is invulnerable (TF-completion given 'Z' ≈ 1.00);
+  the whole gap lives at the ONSET CHOICE.
+
+**e055 proper registered:** 24-site depth-survival, one-shot vs held
+write semantics, R1/R2/R3 readouts, A-rev symmetry + pad-shifted donor
+leak control, direct800 + e001 reference curves. Dispatch now.
+
 ## T031 — RECONCILED against the FINAL e053 metrics (2026-09-25T21:40Z)
 
 **The reconciliation (the agent itself flagged the conflict):** e053's
