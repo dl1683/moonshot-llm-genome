@@ -28,7 +28,7 @@ while never producing it in free generation. We dissect this elicitation
 failure in a 2.7M-parameter character-level transformer into four faculties —
 address, ability, expression, and history — using registered, causally
 controlled experiments. Installed knowledge (92–97% continuation-battery
-accuracy) never surfaces in free generation (0 of 2,800 characters) across
+accuracy) never surfaces in free generation outside the install geometry (0 of 2,800 chars off-geometry; 49/60 full expressions from battery geometry) across
 dose, temperature, and seeding arms. The installed address is bound to
 training position, not content: a one-character context shift collapses
 expression probability (0.556→0.12), and the correct token persists

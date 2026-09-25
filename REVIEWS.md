@@ -29,6 +29,23 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 15 — close-of-arc panel (2026-09-26T00:15Z)
+
+### PAPER AUDIT: fold verified real (abstract/3c-3d/5.4/Lim5/Risk3 all
+carry T035). Residuals fixed in this pass: geometry-scoping added to
+the abstract's zero-expression claim; mean-donor contrast flagged as
+the ONE unfolded R14 item (noted in the draft's open checklist —
+folds with the citations pass). Checklist 5/6 open; citations = the
+hard blocker.
+### CLOSEOUT: DAY_THREE_REPORT to be written by the parent (the
+read-only panel cannot commit files). Scar-replication deferred (flag
+is non-load-bearing; R14 ranked it below the landed slot).
+### Integrity: 40 T-headers; reviews 15 (this); 51 notes; queue truth
+restored (e055/e056b/e056c/e064 rows added).
+
+---
 ## Review 14 — day-three audit (2026-09-25T23:00Z)
 
 ### T034 AUDIT: the claim-split's second leg is NOT yet separated from

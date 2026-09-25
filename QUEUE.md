@@ -63,6 +63,10 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | experiment | what |
 |---|---|---|
+| e055 | suppression localizer | DONE (T033/T035) | causal d4 rescue at onsets; transient off-onset; claim-split final |
+| e056b | circularity killer | DONE (T034) | rescue position-general (R1); knowledge-specific |
+| e056c | downstream check | DONE (T035) | LOUD LOGIT PASTE off-onset; claim-split final |
+| e064 | gate stress test | DONE (T030) | unification KILLED |
 | e053 | cache utility timeline | DONE (T030: live-frac ~25% invariant, onset ~63 invariant, sink dead) | per-position K/V patch-lesion; when does non-sink cache become dead weight? (nobody has this curve) |
 | e054 | context-rot anatomy | KV-recall trained at 512, swept to 2048; positional-vs-content patching of the retrieval path |
 | e055 | suppression localizer | transplant teacher-forced residual states at the divergence token into free-running; localize where known answers die |
