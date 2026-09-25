@@ -5,7 +5,7 @@ Question: when does a cached K/V entry become dead weight during generation?
 Per-position CAUSAL utility over cache age — the curve nobody has published
 at any scale (sinks are known; the age timeline is not).
 
-Protocol (Phase 1, 100% CPU, G4):
+Protocol (Phase 1, 100% CPU, G4 — e050 may be running concurrently):
 - Cells: scale axis {e005s_small 0.84M / e001 2.7M @4000 / e005s_large 10M}
   x exposure axis {e048_direct400 / e048_direct800 / e001@4000} (2.7M arch;
   lineage caveat registered in the design: different runs, same arch family).
@@ -17,14 +17,21 @@ Protocol (Phase 1, 100% CPU, G4):
   V-zero(pos)  = wipe cached content at all layers        [primary]
   K-drop(pos)  = softmax column -inf, DIAGONAL PRESERVED   [secondary, G3]
   both         = entry deletion (equivalence: both ~= K-drop)
-- Per step: binned dCE of the actually-sampled token, bins
-  {p0, 1-16, 17-64, 65-128, 129-192, 193-255}.
-- Final step (t=255): full per-position sweep (V-zero + K-drop), per-layer
-  V-zero decomposition, binned {vzero, kdrop, both}.
-- Static teacher-forced control: same bins on 64 real-text windows.
-- Derived: onset age a* (youngest cache age with mean per-position dCE <
-  0.01 nats; naive + 5-pt-sustained robust), junk fraction (dCE <= -0.01:
-  lesion HELPS), primacy/recency structure.
+- Per measured step: binned dCE of the actually-sampled token, bins
+  {p0, 1-16, 17-64, 65-128, 129-192, 193-255} + a last-64 recency row (G2).
+- Final step (t=255, target = position 255): per-position sweep (V-zero
+  primary + K-drop), per-layer V-zero decomposition (scale cells), binned
+  {vzero, kdrop, both}.
+- Static teacher-forced control: same bins on real-text windows.
+- ADAPTIVE PROTOCOL: e050's CPU assay shares this machine and slows forwards
+  up to ~25x vs the design's calibration. Per cell we MEASURE the batched
+  forward cost and fit (n_seq, timeline stride, sweep detail) to the budget,
+  using the design's registered fallbacks (4 seqs / every-2nd-step timeline /
+  binned 10M sweep). The chosen protocol is recorded per cell in metrics.json.
+
+Derived: onset age a* (youngest cache age with mean per-position dCE <
+0.01 nats; naive + 5-pt-sustained robust; binned fallback if no fine sweep),
+junk fraction (dCE <= -0.01: lesion HELPS), primacy/recency structure.
 
 Registered predictions (from the design, REVISED after the CPU probes):
 - P1 shape: per-position utility at T=256 monotone in recency + weak primacy
@@ -39,15 +46,16 @@ Registered predictions (from the design, REVISED after the CPU probes):
   else old entries are dead-but-harmless (pure evictability).
 
 Gates: G0 manual == SDPA (max prob dev < 1e-4); G1 ckpt val CE within known
-anchors (small 1.5581+-0.03, e001 1.6224+-0.03); G2 newest-bin V-zero dCE >
-+0.5 whenever that bin has >= 32 filled positions; G3 K-drop diagonal -> no
-NaN (any NaN skipped+counted); G4 no GPU (enforced via CUDA_VISIBLE_DEVICES
-before torch import), no training, no new automations.
+anchors (small 1.5581+-0.03, e001 1.6224+-0.03); G2 last-64 recency V-zero
+dCE > +0.5 at every measured step (bin-based count also recorded); G3 K-drop
+diagonal -> no NaN (any NaN skipped+counted); G4 no GPU (CUDA hidden +
+is_available patched before common import), no training, no new automations.
 
 Run:   python lab/e053_cache_timeline.py
-Smoke: E053_SMOKE=1 python lab/e053_cache_timeline.py  (2 seqs, quick)
+Smoke: E053_SMOKE=1 python lab/e053_cache_timeline.py
 Outputs: runs/e053/metrics.json + runs/e053/e053_utility_timeline.png
-Budget <= 15 min CPU. No NOTES/THINKING/QUEUE/STATE edits here; no commit.
+Budget <= 15 min CPU wall (adaptive under e050 contention). No
+NOTES/THINKING/QUEUE/STATE edits here; no commit.
 """
 from __future__ import annotations
 
@@ -56,7 +64,7 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # G4: Phase 1 is 100% CPU (set pre-torch)
 import torch
 
-# this torch dev build reports is_available()==True even with an empty
+# this torch build reports is_available()==True even with an empty
 # CUDA_VISIBLE_DEVICES (device_count 0); force CPU so common.DEVICE=="cpu"
 torch.cuda.is_available = lambda: False
 torch.cuda.device_count = lambda: 0
@@ -80,28 +88,28 @@ from common import REPO, Cfg, CharCorpus, TinyGPT, estimate_loss, run_dir, save_
 
 # ------------------------------------------------------------------ constants
 SMOKE = os.environ.get("E053_SMOKE") == "1"
-N_SEQ = 2 if SMOKE else 8
+MAX_SEQ = 2 if SMOKE else 8
 PROMPT_TOK = 64
 T_TOTAL = 256                     # wpe=256 hard limit (design §1)
 TEMP, TOPK = 0.8, 40
 SEED_PROMPT, SEED_SAMPLE, SEED_STATIC = 202, 7, 203
-N_STATIC = 8 if SMOKE else 64
+N_STATIC = 8 if SMOKE else 24
 BINS = [(0, 0), (1, 16), (17, 64), (65, 128), (129, 192), (193, 255)]
 BIN_NAMES = ["p0", "1-16", "17-64", "65-128", "129-192", "193-255"]
 THRESH = 0.01                     # dead-weight threshold (nats)
 A_STAR_K = 5                       # sustained window for robust onset
-BUDGET_S = 840.0                   # soft guard (14 min)
-THREADS = 8                        # leave CPU headroom for e050's CPU assay
+BUDGET_S = 60 if SMOKE else 840.0   # soft guard (14 min)
+THREADS = 8                        # measured best under e050 contention
 torch.set_num_threads(THREADS)
 
 CK = REPO / "runs" / "checkpoints"
 CELLS = [
-    # name, ckpt, arch overrides, axis tag, training steps (exposure axis)
-    ("small_0.84M", CK / "e005s_small.pt", dict(n_layer=4, n_head=4, n_embd=128), "scale", None),
-    ("mid_2.7M",    CK / "e001.pt",        dict(n_layer=6, n_head=6, n_embd=192), "scale+exposure", 4000),
-    ("large_10M",   CK / "e005s_large.pt", dict(n_layer=8, n_head=8, n_embd=320), "scale", None),
-    ("exp_d400",    CK / "e048_direct400.pt", dict(n_layer=6, n_head=6, n_embd=192), "exposure", 400),
-    ("exp_d800",    CK / "e048_direct800.pt", dict(n_layer=6, n_head=6, n_embd=192), "exposure", 800),
+    # name, ckpt, arch overrides, axis tag, training steps, budget weight
+    ("small_0.84M", CK / "e005s_small.pt", dict(n_layer=4, n_head=4, n_embd=128), "scale", None, 1.2),
+    ("large_10M",   CK / "e005s_large.pt", dict(n_layer=8, n_head=8, n_embd=320), "scale", None, 1.5),
+    ("mid_2.7M",    CK / "e001.pt",        dict(n_layer=6, n_head=6, n_embd=192), "scale+exposure", 4000, 1.2),
+    ("exp_d400",    CK / "e048_direct400.pt", dict(n_layer=6, n_head=6, n_embd=192), "exposure", 400, 1.0),
+    ("exp_d800",    CK / "e048_direct800.pt", dict(n_layer=6, n_head=6, n_embd=192), "exposure", 800, 1.0),
 ]
 ANCHORS = {"small_0.84M": (1.5581, 0.03), "mid_2.7M": (1.622391, 0.03)}
 CHUNK = {4: 255, 6: 96, 8: 48}     # sweep batch chunk by n_head (memory guard)
@@ -193,65 +201,106 @@ def boot_ci(X, n: int = 1000, seed: int = 0):
     return np.percentile(means, 2.5, axis=0), np.percentile(means, 97.5, axis=0)
 
 
+# --------------------------------------------------------- adaptive protocol
+
+def fit_protocol(t7: float, share: float, L: int, is_scale: bool) -> dict:
+    """Fit (n_seq, stride, sweep detail) to the cell's wall-time share.
+
+    Cost model (measured): a B=7 batched forward costs t7; a B=1 clean
+    forward ~0.4*t7; a full 255-position sweep ~8*t7 per kind; per-layer
+    decomposition L*t7; binned sweeps ~1*t7. Priority: n_seq (registered
+    aggregation unit) > sweep detail > timeline stride, per the design's
+    fallback ordering.
+    """
+    SW = 8.0 * t7
+    SB = 1.0 * t7
+    for n_seq in (8, 6, 4, 2):
+        if n_seq > MAX_SEQ:
+            continue
+        for v_full, k_full in ((True, True), (True, False), (False, False)):
+            for per_layer in ((is_scale and not SMOKE), False):
+                fixed = n_seq * ((SW if v_full else SB) + (SW if k_full else SB)
+                                 + (L * t7 if per_layer else 0) + 3 * SB)
+                for stride in (1, 2, 4, 8):
+                    tl = n_seq * t7 * (0.4 * 192 + 0.6 * 192 / stride)
+                    if fixed + tl <= 1.15 * share:
+                        return dict(n_seq=n_seq, stride=stride, v_sweep_full=v_full,
+                                    k_sweep_full=k_full, per_layer=per_layer,
+                                    est_s=fixed + tl, t7=t7)
+    return dict(n_seq=min(2, MAX_SEQ), stride=8, v_sweep_full=False, k_sweep_full=False,
+                per_layer=False, est_s=None, t7=t7)
+
+
 # ----------------------------------------------------------------- per-sequence
 
 @torch.no_grad()
 def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: int,
-                 with_per_layer: bool = True):
+                 stride: int = 1, v_sweep_full: bool = True, k_sweep_full: bool = True,
+                 per_layer: bool = True):
     """Free-run one 64->256 sequence, fixed anchor; returns measurement dict."""
     n_steps = T_TOTAL - PROMPT_TOK
     L = net.cfg.n_layer
     idx = prompt.clone()
     tl = np.full((n_steps, len(BINS)), np.nan)      # per-step binned V-zero dCE
+    rec64 = np.full(n_steps, np.nan)                # last-64 recency lesion (G2)
     nan_count = 0
     g2_viol = 0
+    g2_bins_viol = 0
     for si, t in enumerate(range(PROMPT_TOK, T_TOTAL)):
         ctx = idx[:t]
-        # batch: row0 clean (sampling), rows 1..: binned V-zero lesions
+        measure = ((t - PROMPT_TOK) % stride == 0) or (t == T_TOTAL - 1)
+        # rows: 0 clean (sampling) | 1.. binned V-zero | last: last-64 recency
         rows, cols = [], []
-        for bi in range(len(BINS)):
-            ps = bin_positions(bi, t)
-            if ps:
-                rows.append(ps)
-                cols.append(bi)
-        N = 1 + len(rows)
+        if measure:
+            for bi in range(len(BINS)):
+                ps = bin_positions(bi, t)
+                if ps:
+                    rows.append(ps)
+                    cols.append(bi)
+        N = 1 + len(rows) + (1 if measure else 0)
         idxs = ctx[None].repeat(N, 1)
         vz = torch.zeros(N, t, dtype=torch.bool)
         for r, ps in enumerate(rows, start=1):
             vz[r, ps] = True
+        if measure:
+            vz[N - 1, max(0, t - 64):t] = True      # G2 recency row
         logits = manual_logits(net, idxs, vz, None, None, chunk=ch)
         if bool(torch.isnan(logits).any()):
             nan_count += int(torch.isnan(logits).any(-1).sum())
             logits = torch.nan_to_num(logits, nan=0.0)
         tok, ce_clean = sample_and_ce(logits[0], gen)
-        lg = torch.log_softmax(logits[1:].float(), -1)
-        for r, bi in enumerate(cols):
-            tl[si, bi] = -ce_clean - float(lg[r, tok])      # dCE = log(p_clean/p_les) > 0 hurts
-            # G2: newest bin with >=32 filled positions must hurt (> +0.5)
-        newest = None
-        for bi in reversed(range(len(BINS))):
-            ps = bin_positions(bi, t)
-            if len(ps) >= 32:
-                newest = bi
-                break
-        if newest is not None and tl[si, newest] <= 0.5:
-            g2_viol += 1
+        if measure:
+            lg = torch.log_softmax(logits[1:].float(), -1)
+            dce = -ce_clean - lg[:, tok].numpy()    # dCE = log(p_clean/p_les)
+            for r, bi in enumerate(cols):
+                tl[si, bi] = dce[r]
+            rec64[si] = dce[-1]
+            if rec64[si] <= 0.5:
+                g2_viol += 1
+            newest = None
+            for bi in reversed(range(len(BINS))):
+                if len(bin_positions(bi, t)) >= 32:
+                    newest = bi
+                    break
+            if newest is not None and tl[si, newest] <= 0.5:
+                g2_bins_viol += 1
         idx = torch.cat([idx, torch.tensor([tok])])
     # ---- final step (t=255, target = position 255): full measurements
     ctx, tgt = idx[:T_TOTAL - 1], int(idx[T_TOTAL - 1])
     t_ctx = ctx.shape[0]
     ce_clean = float(-math.log(max(torch.softmax(
         manual_logits(net, ctx[None], None, None, chunk=ch)[0], -1)[tgt].item(), 1e-12)))
-    # full per-position sweep: V-zero and K-drop
     P = t_ctx
-    eye = torch.eye(P, dtype=torch.bool)
     idxs = ctx[None].repeat(P, 1)
-    sweep_v = -ce_clean - torch.gather(
-        torch.log_softmax(manual_logits(net, idxs, eye, None, None, chunk=ch).float(), -1),
-        1, torch.full((P, 1), tgt)).squeeze(1).numpy()
-    sweep_k = -ce_clean - torch.gather(
-        torch.log_softmax(manual_logits(net, idxs, None, eye, None, chunk=ch).float(), -1),
-        1, torch.full((P, 1), tgt)).squeeze(1).numpy()
+    sweep_v = sweep_k = None
+    if v_sweep_full:
+        eye = torch.eye(P, dtype=torch.bool)
+        lp = torch.log_softmax(manual_logits(net, idxs, eye, None, None, chunk=ch).float(), -1)
+        sweep_v = (-ce_clean - lp[torch.arange(P), tgt]).numpy()
+    if k_sweep_full:
+        eye = torch.eye(P, dtype=torch.bool)
+        lp = torch.log_softmax(manual_logits(net, idxs, None, eye, None, chunk=ch).float(), -1)
+        sweep_k = (-ce_clean - lp[torch.arange(P), tgt]).numpy()
     # final bins: vzero / kdrop / both
     fb = {}
     for kind in ("vzero", "kdrop", "both"):
@@ -267,8 +316,8 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
         lg = torch.log_softmax(manual_logits(net, idxs, vz, kd, None, chunk=ch).float(), -1)
         fb[kind] = -ce_clean - lg[torch.arange(len(BINS)), tgt].numpy()
     # per-layer V-zero decomposition (final step)
-    per_layer = np.full((L, len(BINS)), np.nan)
-    if with_per_layer:
+    per_layer_m = np.full((L, len(BINS)), np.nan)
+    if per_layer:
         for li in range(L):
             idxs = ctx[None].repeat(len(BINS), 1)
             vz = torch.zeros(len(BINS), t_ctx, dtype=torch.bool)
@@ -276,10 +325,10 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
                 vz[bi, bin_positions(bi, t_ctx)] = True
             lg = torch.log_softmax(
                 manual_logits(net, idxs, vz, None, layers={li}, chunk=ch).float(), -1)
-            per_layer[li] = -ce_clean - lg[torch.arange(len(BINS)), tgt].numpy()
-    return dict(tl=tl, sweep_v=sweep_v, sweep_k=sweep_k, final_bins=fb,
-                per_layer=per_layer, nan_count=nan_count, g2_viol=g2_viol,
-                text=idx.tolist())
+            per_layer_m[li] = -ce_clean - lg[torch.arange(len(BINS)), tgt].numpy()
+    return dict(tl=tl, rec64=rec64, sweep_v=sweep_v, sweep_k=sweep_k, final_bins=fb,
+                per_layer=per_layer_m, nan_count=nan_count, g2_viol=g2_viol,
+                g2_bins_viol=g2_bins_viol, text=idx.tolist())
 
 
 # ------------------------------------------------------------------- per-cell
@@ -304,10 +353,56 @@ def g0_check(net, window: torch.Tensor) -> float:
     return float((p0 - p1).abs().max().item())
 
 
+@torch.no_grad()
+def measure_t7(net, ch: int) -> float:
+    """Time one B=7 batched manual forward at T=192 (median of 3)."""
+    idx = torch.randint(65, (192,))
+    idxs = idx[None].repeat(7, 1)
+    vz = torch.zeros(7, 192, dtype=torch.bool)
+    vz[1:, 10:20] = True
+    ts = []
+    for _ in range(4):
+        t0 = time.time()
+        manual_logits(net, idxs, vz, None, None, chunk=ch)
+        ts.append(time.time() - t0)
+    return float(sorted(ts)[1])
+
+
+@torch.no_grad()
+def static_control(net, corp, ch: int):
+    gen = torch.Generator().manual_seed(SEED_STATIC)
+    ix = torch.randint(len(corp.val) - T_TOTAL - 1, (N_STATIC,), generator=gen)
+    accv = np.zeros(len(BINS))
+    acck = np.zeros(len(BINS))
+    nw = 0
+    for w0 in range(0, N_STATIC, 4):
+        wins = [corp.val[ix[w]:ix[w] + T_TOTAL] for w in range(w0, min(w0 + 4, N_STATIC))]
+        rows = 1 + 2 * len(BINS)
+        idxs = torch.stack([w[:T_TOTAL - 1] for w in wins for _ in range(rows)])
+        vz = torch.zeros(idxs.shape[0], T_TOTAL - 1, dtype=torch.bool)
+        kd = torch.zeros_like(vz)
+        for wi in range(len(wins)):
+            base = wi * rows
+            for bi in range(len(BINS)):
+                ps = bin_positions(bi, T_TOTAL - 1)
+                vz[base + 1 + bi, ps] = True
+                kd[base + 1 + len(BINS) + bi, ps] = True
+        lp = torch.log_softmax(manual_logits(net, idxs, vz, kd, None, ch).float(), -1)
+        for wi, win in enumerate(wins):
+            base = wi * rows
+            tgt = int(win[T_TOTAL - 1])
+            ce = -float(lp[base, tgt])
+            for bi in range(len(BINS)):
+                accv[bi] += -ce - float(lp[base + 1 + bi, tgt])
+                acck[bi] += -ce - float(lp[base + 1 + len(BINS) + bi, tgt])
+        nw += len(wins)
+    return accv / nw, acck / nw
+
+
 def onset_age(dce_by_age: np.ndarray, k: int = A_STAR_K, thresh: float = THRESH):
     """dce_by_age: ages ascending (1=youngest ... 255=oldest/sink).
     Returns (naive, robust): youngest age whose mean dCE < thresh; robust
-    requires the k-point moving mean to stay < thresh for k consecutive ages."""
+    requires a k-length run of 5-pt moving-mean values below thresh."""
     m = np.asarray(dce_by_age, float)
     below = m < thresh
     naive = int(np.argmax(below)) + 1 if below.any() else None
@@ -315,9 +410,7 @@ def onset_age(dce_by_age: np.ndarray, k: int = A_STAR_K, thresh: float = THRESH)
         return naive, None
     ma = np.convolve(m, np.ones(k) / k, mode="valid")
     ok = ma < thresh
-    # first index i (scanning from the end) whose k-length run is fully below
-    run = 0
-    robust_i = None
+    run, robust_i = 0, None
     for i in range(len(ok) - 1, -1, -1):
         run = run + 1 if ok[i] else 0
         if run >= k:
@@ -326,13 +419,30 @@ def onset_age(dce_by_age: np.ndarray, k: int = A_STAR_K, thresh: float = THRESH)
     return naive, robust
 
 
+def onset_age_binned(bin_totals: np.ndarray) -> int | None:
+    """Coarse a* when only binned final data exists: per-position utility of
+    the oldest still-live bin bounds the onset (age ~ 255 - bin_lo)."""
+    perpos = []
+    for bi in range(1, len(BINS)):
+        n = len(bin_positions(bi, T_TOTAL - 1))
+        perpos.append((bi, bin_totals[bi] / n if n else float("nan")))
+    live = [bi for bi, v in perpos if v >= THRESH]
+    if not live:
+        return None
+    bi_oldest = max(live)
+    return 255 - BINS[bi_oldest][0] + 1
+
+
 def classify_p3(traj: np.ndarray, steps: np.ndarray):
-    init = float(np.nanmean(traj[:10]))
-    mid = float(np.nanmean(traj[np.abs(steps - 160) <= 8]))
-    fin = float(np.nanmean(traj[-10:]))
-    if init <= 1e-9:
+    init_m = steps < 80                      # early generation (stride-proof)
+    init = float(np.nanmean(traj[init_m])) if init_m.any() else float("nan")
+    midm = np.abs(steps - 160) <= 16
+    mid = float(np.nanmean(traj[midm])) if midm.any() else float("nan")
+    fin_m = steps >= 240
+    fin = float(np.nanmean(traj[fin_m])) if fin_m.any() else float("nan")
+    if not (init == init) or init <= 1e-9:
         cls = "FLAT"
-    elif mid < 0.2 * init:
+    elif mid == mid and mid < 0.2 * init:
         cls = "DECAY"
     elif fin > 1.1 * init:
         cls = "GROW"
@@ -351,21 +461,27 @@ def main():
     corp = CharCorpus(REPO / "data" / "input.txt")
     assert corp.vocab_size == 65
 
-    # fixed prompts (seed 202)
     gen_p = torch.Generator().manual_seed(SEED_PROMPT)
-    ix = torch.randint(len(corp.val) - PROMPT_TOK - 1, (N_SEQ,), generator=gen_p)
+    ix = torch.randint(len(corp.val) - PROMPT_TOK - 1, (MAX_SEQ,), generator=gen_p)
     prompts = [corp.val[i:i + PROMPT_TOK] for i in ix]
     g0_window = corp.val[corp.seed % (len(corp.val) - T_TOTAL - 1):][:T_TOTAL]
 
     results, gates = {}, dict(
-        G0={}, G1={}, G2_violations=0, G3_nan=0, G4_cpu_only=True,
-        threads=THREADS, smoke=SMOKE)
+        G0={}, G1={}, G2_last64_violations=0, G2_bin_violations=0, G3_nan=0,
+        G4_cpu_only=True, threads=THREADS, smoke=SMOKE)
     skipped = []
+    exposure_clamp = None       # exposure-axis cells share n_seq (paired P2)
+    pending = list(CELLS)
 
-    for name, ckpt, arch, axis, steps_trained in CELLS:
-        if elapsed() > BUDGET_S:
+    while pending:
+        name, ckpt, arch, axis, steps_trained, weight = pending[0]
+        R = BUDGET_S - elapsed()
+        wsum = sum(w for *_, w in pending)
+        share = max(30.0, R * weight / wsum)
+        if R < 60 and not SMOKE and len(results) >= 3:
             skipped.append(name)
-            log(f"SKIP {name}: budget guard")
+            pending.pop(0)
+            log(f"SKIP {name}: budget guard ({R:.0f}s left)")
             continue
         net = load_cell(name, ckpt, arch)
         ch = CHUNK[net.cfg.n_head]
@@ -377,90 +493,94 @@ def main():
             gates["G1"][name] = dict(val_ce=val_ce, anchor=a, ok=abs(val_ce - a) <= tol)
         else:
             gates["G1"][name] = dict(val_ce=val_ce, anchor=None, ok=None)
-        log(f"{name}: G0 prob-dev {dev0:.2e} | val CE {val_ce:.4f} | "
-            f"steps={steps_trained} | axis={axis}")
+        t7 = measure_t7(net, ch)
+        proto = fit_protocol(t7, share, net.cfg.n_layer, axis.startswith("scale"))
+        if axis == "exposure" and exposure_clamp is not None:
+            proto["n_seq"] = min(proto["n_seq"], exposure_clamp)
+        if axis == "scale+exposure":
+            exposure_clamp = proto["n_seq"]
+        est = proto["est_s"]
+        log(f"{name}: G0 {dev0:.2e} | val CE {val_ce:.4f} | t7 {t7*1000:.0f}ms "
+            f"share {share:.0f}s -> n_seq={proto['n_seq']} stride={proto['stride']} "
+            f"vfull={proto['v_sweep_full']} kfull={proto['k_sweep_full']} "
+            f"perlayer={proto['per_layer']} (est {est:.0f}s)" if est is not None else
+            f"{name}: G0 {dev0:.2e} | val CE {val_ce:.4f} | t7 {t7*1000:.0f}ms "
+            f"share {share:.0f}s -> MINIMAL PROTOCOL {proto}")
 
         gen_s = torch.Generator().manual_seed(SEED_SAMPLE)   # paired across cells
         seqs = []
-        for si, pr in enumerate(prompts):
-            per_layer = (not SMOKE) and (elapsed() < BUDGET_S * 0.9)
-            r = run_sequence(net, pr, gen_s, ch, with_per_layer=per_layer)
+        for si in range(proto["n_seq"]):
+            r = run_sequence(net, prompts[si], gen_s, ch,
+                             stride=proto["stride"], v_sweep_full=proto["v_sweep_full"],
+                             k_sweep_full=proto["k_sweep_full"], per_layer=proto["per_layer"])
             seqs.append(r)
             gates["G3_nan"] += r["nan_count"]
-            gates["G2_violations"] += r["g2_viol"]
-            log(f"  {name} seq{si}: g2viol={r['g2_viol']} nan={r['nan_count']} "
-                f"recency-bin dCE(final)={np.nanmean([s['final_bins']['vzero'][5] for s in seqs[:si+1]]):+.3f}")
+            gates["G2_last64_violations"] += r["g2_viol"]
+            gates["G2_bin_violations"] += r["g2_bins_viol"]
+            log(f"  {name} seq{si}: last64(final)={r['rec64'][-1]:+.2f} "
+                f"rec-bin(final)={r['final_bins']['vzero'][5]:+.2f} "
+                f"sink(final)={r['tl'][-1,0]:+.3f} g2viol={r['g2_viol']} nan={r['nan_count']}")
 
-        # static teacher-forced control
-        st_v, st_k = None, None
-        if elapsed() < BUDGET_S * 0.95:
-            gen_st = torch.Generator().manual_seed(SEED_STATIC)
-            ix2 = torch.randint(len(corp.val) - T_TOTAL - 1, (N_STATIC,), generator=gen_st)
-            accv = np.zeros(len(BINS)); acck = np.zeros(len(BINS)); nw = 0
-            for w0 in range(0, N_STATIC, 4):
-                wins = [corp.val[ix2[w]:ix2[w] + T_TOTAL] for w in range(w0, min(w0 + 4, N_STATIC))]
-                rows = 1 + 2 * len(BINS)
-                idxs = torch.stack([w[:T_TOTAL - 1] for w in wins for _ in range(rows)])
-                vz = torch.zeros(idxs.shape[0], T_TOTAL - 1, dtype=torch.bool)
-                kd = torch.zeros_like(vz)
-                for wi in range(len(wins)):
-                    base = wi * rows
-                    for bi in range(len(BINS)):
-                        ps = bin_positions(bi, T_TOTAL - 1)
-                        vz[base + 1 + bi, ps] = True
-                        kd[base + 1 + len(BINS) + bi, ps] = True
-                lp = torch.log_softmax(manual_logits(net, idxs, vz, kd, None, ch).float(), -1)
-                for wi, win in enumerate(wins):
-                    base = wi * rows
-                    tgt = int(win[T_TOTAL - 1])
-                    ce = -float(lp[base, tgt])
-                    for bi in range(len(BINS)):
-                        accv[bi] += -ce - float(lp[base + 1 + bi, tgt])
-                        acck[bi] += -ce - float(lp[base + 1 + len(BINS) + bi, tgt])
-                nw += len(wins)
-            st_v, st_k = accv / nw, acck / nw
-        else:
-            skipped.append(f"{name}:static")
+        # static teacher-forced control (optional under budget)
+        st_v = st_k = None
+        if elapsed() < BUDGET_S * 0.92 and not SMOKE:
+            st_v, st_k = static_control(net, corp, ch)
 
         # ---- aggregate
         tl = np.stack([s["tl"] for s in seqs])                       # (S, steps, bins)
         steps_axis = np.arange(PROMPT_TOK, T_TOTAL)
-        sweep_v = np.stack([s["sweep_v"] for s in seqs])             # (S, 255) pos 0..254
-        sweep_k = np.stack([s["sweep_k"] for s in seqs])
         fbp = {k: np.stack([s["final_bins"][k] for s in seqs]) for k in ("vzero", "kdrop", "both")}
         per_layer = np.stack([s["per_layer"] for s in seqs])         # (S, L, bins)
-        age_axis = np.arange(1, T_TOTAL)                             # age of pos p = 255-p
-        dce_age = sweep_v[:, ::-1]                                   # young(1) -> old(255)
-        mean_age = dce_age.mean(0)
-        ci_lo, ci_hi = boot_ci(dce_age)
-        naive_a, robust_a = onset_age(mean_age)
-        a_star = robust_a if robust_a is not None else naive_a
-        junk_all = float((sweep_v <= -THRESH).mean())
-        if a_star is not None:
-            old = dce_age[:, a_star:]                                # ages > a_star
-            junk_old = float((old <= -THRESH).mean())
+        sweeps_v = [s["sweep_v"] for s in seqs if s["sweep_v"] is not None]
+        sweeps_k = [s["sweep_k"] for s in seqs if s["sweep_k"] is not None]
+        fine = len(sweeps_v) == len(seqs)
+        if fine:
+            sweep_v = np.stack(sweeps_v)                             # (S, 255)
+            age_axis = np.arange(1, T_TOTAL)                         # age of pos p = 255-p
+            dce_age = sweep_v[:, ::-1]                               # young(1) -> old(255)
+            mean_age = dce_age.mean(0)
+            ci_lo, ci_hi = boot_ci(dce_age)
+            naive_a, robust_a = onset_age(mean_age)
+            a_star = robust_a if robust_a is not None else naive_a
+            junk_all = float((sweep_v <= -THRESH).mean())
+            if a_star is not None:
+                junk_old = float((dce_age[:, a_star:] <= -THRESH).mean())
+            else:
+                junk_old = None
+            primacy = float(sweep_v[:, 1:17].mean())
+            plateau = float(sweep_v[:, 224:255].mean())
+            sink_dce = float(sweep_v[:, 0].mean())
+            fp_block = dict(positions=list(range(T_TOTAL - 1)), age=list(age_axis),
+                            vzero_dce_mean=sweep_v.mean(0).tolist(),
+                            vzero_ci=[ci_lo.tolist(), ci_hi.tolist()],
+                            kdrop_dce_mean=(np.stack(sweeps_k).mean(0).tolist()
+                                            if len(sweeps_k) == len(seqs) else None))
         else:
-            junk_old = None
-        primacy = float(sweep_v[:, 1:17].mean())
-        plateau = float(sweep_v[:, 224:255].mean())                  # youngest 31 pos
+            naive_a = robust_a = a_star = onset_age_binned(fbp["vzero"].mean(0))
+            junk_all = junk_old = None
+            primacy = plateau = sink_dce = None
+            fp_block = dict(positions=None, age=None, vzero_dce_mean=None,
+                            vzero_ci=None, kdrop_dce_mean=None)
         bin_v = fbp["vzero"].mean(0)
-        monotone = float(np.mean(np.diff(bin_v[1:]) > 0))            # 4 pairs, utility rising w/ recency
+        monotone = float(np.mean(np.diff(bin_v[1:]) > 0))
         p3_cls, p3_nums = classify_p3(tl[:, :, 0].mean(0), steps_axis)
         eq_gap = float(np.abs(fbp["both"] - fbp["kdrop"]).max())
 
         results[name] = dict(
             ckpt=str(ckpt), arch=dict(**arch, block_size=256, vocab=65),
             axis=axis, steps_trained=steps_trained, val_ce=val_ce,
+            protocol=dict(n_seq=proto["n_seq"], stride=proto["stride"],
+                          v_sweep_full=proto["v_sweep_full"],
+                          k_sweep_full=proto["k_sweep_full"],
+                          per_layer=proto["per_layer"], t7_s=t7, share_s=share,
+                          est_s=proto["est_s"], fine_sweep=fine),
             timeline=dict(steps=steps_axis.tolist(), bins=BIN_NAMES,
-                          vzero_dce_mean=tl.mean(0).tolist()),
+                          vzero_dce_mean=tl.mean(0).tolist(),
+                          last64_mean=np.stack([s["rec64"] for s in seqs]).mean(0).tolist()),
             sink_traj=dict(mean=tl[:, :, 0].mean(0).tolist(),
                            ci=[boot_ci(tl[:, :, 0])[0].tolist(), boot_ci(tl[:, :, 0])[1].tolist()],
-                          p3_class=p3_cls, p3_numbers=p3_nums),
-            final_profile=dict(positions=list(range(T_TOTAL - 1)),
-                               age=list(age_axis),
-                               vzero_dce_mean=sweep_v.mean(0).tolist(),
-                               vzero_ci=[ci_lo.tolist(), ci_hi.tolist()],
-                               kdrop_dce_mean=sweep_k.mean(0).tolist()),
+                           p3_class=p3_cls, p3_numbers=p3_nums),
+            final_profile=fp_block,
             final_bins={k: dict(mean=v.mean(0).tolist(),
                                 ci=[boot_ci(v)[0].tolist(), boot_ci(v)[1].tolist()])
                         for k, v in fbp.items()},
@@ -468,19 +588,22 @@ def main():
                                  ci=[boot_ci(per_layer)[0].tolist(), boot_ci(per_layer)[1].tolist()]),
             static_control=dict(vzero=st_v.tolist() if st_v is not None else None,
                                 kdrop=st_k.tolist() if st_k is not None else None,
-                                n_windows=N_STATIC),
+                                n_windows=N_STATIC if st_v is not None else 0),
             derived=dict(a_star_naive=naive_a, a_star_robust=robust_a, a_star=a_star,
+                         a_star_binned_fallback=not fine,
                          a_star_frac=(a_star / (T_TOTAL - 1)) if a_star else None,
                          junk_frac_all=junk_all, junk_frac_beyond_ast=junk_old,
-                         sink_dce_final=float(sweep_v[:, 0].mean()),
+                         sink_dce_final=sink_dce,
                          primacy_bump=primacy, recent_plateau=plateau,
-                         primacy_ratio=(primacy / plateau) if plateau > 0 else None,
+                         primacy_ratio=(primacy / plateau) if (plateau and plateau > 0) else None,
                          monotone_frac=monotone, equivalence_gap=eq_gap,
                          bin_vzero_final=bin_v.tolist()),
             sample_text_first160=corp.decode(torch.tensor(seqs[0]["text"][:160])),
         )
-        log(f"{name} DONE a*={a_star} naive={naive_a} robust={robust_a} "
-            f"sink_final={sweep_v[:, 0].mean():+.4f} p3={p3_cls} junk_old={junk_old}")
+        log(f"{name} DONE a*={a_star}{'(binned)' if not fine else ''} "
+            f"sink_final={sink_dce if sink_dce is None else round(sink_dce, 4)} "
+            f"p3={p3_cls} junk_old={junk_old}")
+        pending.pop(0)
 
     # ---------------------------------------------------------------- verdicts
     sc = [n for n in results if results[n]["axis"].startswith("scale")]
@@ -488,27 +611,28 @@ def main():
     fr = {n: results[n]["derived"]["a_star_frac"] for n in results
           if results[n]["derived"]["a_star_frac"] is not None}
     scale_f = [fr[n] for n in sc if n in fr]
-    p2_scale_ok = (len(scale_f) == len(sc)) and (max(scale_f) / min(scale_f) <= 1.5) \
-        if scale_f else None
     p2_scale_ratio = (max(scale_f) / min(scale_f)) if len(scale_f) == len(sc) and scale_f else None
+    p2_scale_ok = bool(p2_scale_ratio is not None and p2_scale_ratio <= 1.5)
     p2_exp_ratio = (fr.get("mid_2.7M") / fr.get("exp_d400")
                     if fr.get("exp_d400") not in (None, 0) and fr.get("mid_2.7M") else None)
-    sink_dce = {n: results[n]["derived"]["sink_dce_final"] for n in results}
+    sink_dce = {n: results[n]["derived"]["sink_dce_final"] for n in results
+                if results[n]["derived"]["sink_dce_final"] is not None}
+    ratios = [r for r in (results[n]["derived"]["primacy_ratio"] for n in results)
+              if r is not None]
     p1 = dict(
         sink_dead_count=int(sum(1 for v in sink_dce.values() if v < 0.05)),
         sink_loadbearing=[n for n, v in sink_dce.items() if v >= 0.3],
+        sink_dce_final=sink_dce,
         primacy_ratio={n: results[n]["derived"]["primacy_ratio"] for n in results},
         monotone_frac={n: results[n]["derived"]["monotone_frac"] for n in results},
     )
-    ratios = [r for r in p1["primacy_ratio"].values() if r is not None]
-    p1["pass"] = bool(p1["sink_dead_count"] >= 3 and ratios
-                      and all(r <= 0.25 for r in ratios)
+    p1["pass"] = bool(p1["sink_dead_count"] >= 3 and ratios and all(r <= 0.25 for r in ratios)
                       and all(results[n]["derived"]["monotone_frac"] >= 0.75 for n in results))
     p2 = dict(scale_fractions={n: fr.get(n) for n in sc},
               scale_invariant=p2_scale_ok, scale_maxmin_ratio=p2_scale_ratio,
-              exposure_a_star={n: results[n]["derived"]["a_star"] for n, _ in ex},
+              exposure_a_star={n: results[n]["derived"]["a_star"] for n, _ in ex if n in results},
               exposure_growth_ratio=p2_exp_ratio,
-              pass_=bool(p2_scale_ok and p2_exp_ratio is not None and p2_exp_ratio >= 1.5))
+              **{"pass": bool(p2_scale_ok and p2_exp_ratio is not None and p2_exp_ratio >= 1.5)})
     p3 = dict(per_cell={n: results[n]["sink_traj"]["p3_class"] for n in results},
               numbers={n: results[n]["sink_traj"]["p3_numbers"] for n in results},
               sign_flip={n: results[n]["sink_traj"]["p3_numbers"]["sign_flip"] for n in results})
@@ -517,24 +641,25 @@ def main():
     p4 = dict(junk_beyond_ast_per_cell={n: results[n]["derived"]["junk_frac_beyond_ast"]
                                         for n in results},
               pooled=float(np.mean(junk)) if junk else None,
-              pass_=bool(junk and np.mean(junk) >= 0.05))
+              **{"pass": bool(junk and np.mean(junk) >= 0.05)})
 
     metrics = dict(
         experiment="e053_cache_timeline", phase=1,
         started=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        wall_s=elapsed(), smoke=SMOKE, n_seq=N_SEQ, bins=BIN_NAMES,
+        wall_s=elapsed(), smoke=SMOKE, n_seq_max=MAX_SEQ, bins=BIN_NAMES,
         seeds=dict(prompts=SEED_PROMPT, sampling=SEED_SAMPLE, static=SEED_STATIC),
         protocol=dict(prompt_tokens=PROMPT_TOK, t_total=T_TOTAL, temp=TEMP, topk=TOPK,
-                      fixed_anchor=True, threshold=THRESH, a_star_window=A_STAR_K),
+                      fixed_anchor=True, threshold=THRESH, a_star_window=A_STAR_K,
+                      adaptive="per-cell fit under e050 CPU contention; registered "
+                               "fallbacks (seqs/stride/binned sweep) per design §5"),
         gates=gates, skipped=skipped, cells=results,
         verdicts=dict(P1_shape=p1, P2_onset=p2, P3_sink=p3, P4_junk=p4),
     )
     save_json(out_dir / "metrics.json", metrics)
     log(f"metrics.json written ({len(results)} cells, skipped={skipped})")
-
-    # ------------------------------------------------------------------- plot
-    plot(out_dir / "e053_utility_timeline.png", results)
-    log(f"plot written; total wall {elapsed():.0f}s")
+    if results:
+        plot(out_dir / "e053_utility_timeline.png", results)
+        log(f"plot written; total wall {elapsed():.0f}s")
 
 
 # ---------------------------------------------------------------------- plot
@@ -542,88 +667,128 @@ def main():
 def plot(path: Path, R: dict):
     names = list(R)
     fig = plt.figure(figsize=(19, 12.5))
-    gs = fig.add_gridspec(3, 6, hspace=0.42, wspace=0.42)
+    gs = fig.add_gridspec(3, 6, hspace=0.45, wspace=0.45)
     colors = {"small_0.84M": "tab:blue", "mid_2.7M": "tab:green", "large_10M": "tab:red",
               "exp_d400": "tab:orange", "exp_d800": "tab:purple"}
 
     # row 1: THE curve — per-position V-zero dCE vs cache age, one panel per cell + overlay
-    for i, n in enumerate(names):
+    order = [c[0] for c in CELLS if c[0] in R]
+    for i, n in enumerate(order[:5]):
         ax = fig.add_subplot(gs[0, i])
         fp = R[n]["final_profile"]
-        age = np.asarray(fp["age"]); m = np.asarray(fp["vzero_dce_mean"])
-        lo, hi = np.asarray(fp["vzero_ci"][0]), np.asarray(fp["vzero_ci"][1])
-        ax.fill_between(age, lo, hi, alpha=0.25, color=colors[n])
-        ax.plot(age, m, lw=1.4, color=colors[n])
-        ax.axhline(0, color="k", lw=0.6); ax.axhline(THRESH, color="gray", ls=":", lw=0.8)
-        a = R[n]["derived"]["a_star"]
-        if a: ax.axvline(a, color=colors[n], ls="--", lw=1)
-        ax.set_title(f"{n}\na*={a} (dash)", fontsize=9)
-        ax.set_xlabel("cache age (tokens)"); ax.set_ylabel("V-zero dCE (nats)")
-        ax.set_xlim(0, 256)
+        if fp["age"] is not None:
+            age = np.asarray(fp["age"])
+            m = np.asarray(fp["vzero_dce_mean"])
+            lo, hi = np.asarray(fp["vzero_ci"][0]), np.asarray(fp["vzero_ci"][1])
+            ax.fill_between(age, lo, hi, alpha=0.25, color=colors[n])
+            ax.plot(age, m, lw=1.4, color=colors[n])
+            ax.axhline(0, color="k", lw=0.6)
+            ax.axhline(THRESH, color="gray", ls=":", lw=0.8)
+            a = R[n]["derived"]["a_star"]
+            if a:
+                ax.axvline(a, color=colors[n], ls="--", lw=1)
+            ax.set_ylabel("V-zero dCE (nats)")
+            ax.set_xlim(0, 256)
+        else:  # binned fallback: per-position utility from bin totals
+            bv = np.asarray(R[n]["derived"]["bin_vzero_final"])[1:]
+            cnt = np.array([len(bin_positions(b, T_TOTAL - 1)) for b in range(1, 6)])
+            ax.bar(range(5), bv / cnt, color=colors[n], alpha=0.6)
+            ax.set_xticks(range(5), BIN_NAMES[1:], fontsize=7)
+            ax.set_ylabel("per-position dCE (binned)", fontsize=8)
+            a = R[n]["derived"]["a_star"]
+        pr = R[n]["protocol"]
+        ax.set_title(f"{n}\na*={a}"
+                     f"{' (binned)' if R[n]['derived']['a_star_binned_fallback'] else ''}"
+                     f"  n={pr['n_seq']} stride={pr['stride']}", fontsize=9)
+        ax.set_xlabel("cache age (tokens)" if fp["age"] is not None else "position bin")
     ax = fig.add_subplot(gs[0, 5])
-    for n in names:
+    for n in order:
         fp = R[n]["final_profile"]
+        if fp["age"] is None:
+            continue
         ax.plot(fp["age"], fp["vzero_dce_mean"], lw=1.3, color=colors[n],
                 ls="--" if R[n]["axis"] == "exposure" else "-", label=n)
-    ax.axhline(0, color="k", lw=0.6); ax.axhline(THRESH, color="gray", ls=":", lw=0.8)
-    ax.legend(fontsize=7); ax.set_title("overlay (solid=scale, dash=exposure)", fontsize=9)
-    ax.set_xlabel("cache age (tokens)"); ax.set_xlim(0, 256)
+    ax.axhline(0, color="k", lw=0.6)
+    ax.axhline(THRESH, color="gray", ls=":", lw=0.8)
+    ax.legend(fontsize=7)
+    ax.set_title("overlay (solid=scale, dash=exposure)", fontsize=9)
+    ax.set_xlabel("cache age (tokens)")
+    ax.set_xlim(0, 256)
 
     # row 2: age x step heatmap (primary + largest), sink trajectory (P3)
-    for j, n in enumerate([x for x in ("small_0.84M", "large_10M") if x in R][:2]):
+    hm = [x for x in ("small_0.84M", "large_10M") if x in R]
+    for j, n in enumerate(hm[:2]):
         ax = fig.add_subplot(gs[1, 2 * j:2 * j + 2])
-        tl = np.asarray(R[n]["timeline"]["vzero_dce_mean"])     # (steps, bins)
+        tl = np.asarray(R[n]["timeline"]["vzero_dce_mean"])
         M = np.ma.masked_invalid(tl.T)
-        vmax = np.nanpercentile(tl, 98)
+        vmax = max(float(np.nanpercentile(tl, 98)), 0.1)
         im = ax.imshow(M, aspect="auto", origin="lower", cmap="magma",
-                       extent=[64, 256, -0.5, 5.5], vmin=0, vmax=max(vmax, 0.1))
+                       extent=[64, 256, -0.5, 5.5], vmin=0, vmax=vmax)
         ax.set_yticks(range(6), BIN_NAMES)
-        ax.set_xlabel("generation step t"); ax.set_title(f"age-bin x step dCE — {n}", fontsize=9)
+        ax.set_xlabel("generation step t")
+        ax.set_title(f"age-bin x step dCE — {n}", fontsize=9)
         plt.colorbar(im, ax=ax, label="dCE (nats)")
     ax = fig.add_subplot(gs[1, 4:6])
-    for n in names:
+    for n in order:
         st = R[n]["sink_traj"]
         steps = np.asarray(R[n]["timeline"]["steps"])
         ax.plot(steps, st["mean"], color=colors[n],
-                ls="--" if R[n]["axis"] == "exposure" else "-", lw=1.2, label=f"{n}:{st['p3_class']}")
+                ls="--" if R[n]["axis"] == "exposure" else "-", lw=1.2,
+                label=f"{n}:{st['p3_class']}")
     ax.axhline(0, color="k", lw=0.8)
-    ax.set_xlabel("generation step t"); ax.set_ylabel("sink (pos 0) V-zero dCE")
-    ax.set_title("P3 — sink utility timeline", fontsize=9); ax.legend(fontsize=7)
+    ax.set_xlabel("generation step t")
+    ax.set_ylabel("sink (pos 0) V-zero dCE")
+    ax.set_title("P3 — sink utility timeline", fontsize=9)
+    ax.legend(fontsize=7)
 
-    # row 3: per-layer decomposition (scale cell with most old-bin structure), onset ages, static vs free
-    sc = [n for n in R if R[n]["axis"].startswith("scale")]
-    pick = max(sc, key=lambda n: float(np.nanmax(np.asarray(R[n]["per_layer_vzero"]["mean"])[:, 3])))
-    ax = fig.add_subplot(gs[2, 0:2])
-    pl = np.asarray(R[pick]["per_layer_vzero"]["mean"])
-    M = np.ma.masked_invalid(pl)
-    im = ax.imshow(M, aspect="auto", cmap="viridis")
-    ax.set_xticks(range(6), BIN_NAMES); ax.set_ylabel("layer")
-    ax.set_title(f"per-layer V-zero dCE — {pick}", fontsize=9)
-    plt.colorbar(im, ax=ax, label="dCE (nats)")
+    # row 3: per-layer decomposition, onset ages, static vs free
+    sc = [n for n in R if R[n]["axis"].startswith("scale") and
+          not np.all(np.isnan(np.asarray(R[n]["per_layer_vzero"]["mean"])))]
+    if sc:
+        pick = max(sc, key=lambda n: float(
+            np.nanmax(np.asarray(R[n]["per_layer_vzero"]["mean"])[:, 3])))
+        ax = fig.add_subplot(gs[2, 0:2])
+        pl = np.asarray(R[pick]["per_layer_vzero"]["mean"])
+        M = np.ma.masked_invalid(pl)
+        im = ax.imshow(M, aspect="auto", cmap="viridis")
+        ax.set_xticks(range(6), BIN_NAMES)
+        ax.set_ylabel("layer")
+        ax.set_title(f"per-layer V-zero dCE — {pick}", fontsize=9)
+        plt.colorbar(im, ax=ax, label="dCE (nats)")
     ax = fig.add_subplot(gs[2, 2:4])
     xs, ys, cs = [], [], []
-    for n in names:
+    for n in order:
         a = R[n]["derived"]["a_star"]
         if a:
-            xs.append(n); ys.append(a); cs.append(colors[n])
+            xs.append(n)
+            ys.append(a)
+            cs.append(colors[n])
     ax.bar(xs, ys, color=cs)
     ax.set_ylabel("onset age a* (tokens)")
     ax.set_title("P2 — dead-weight onset (scale vs exposure)", fontsize=9)
     ax.tick_params(axis="x", rotation=30)
     ax = fig.add_subplot(gs[2, 4:6])
-    for n in names:
+    for n in order:
         stf = R[n]["static_control"]["vzero"]
         fr = R[n]["derived"]["bin_vzero_final"]
-        if stf is None: continue
-        ax.scatter(np.abs(stf[1:]), np.abs(fr[1:]), color=colors[n], label=n, s=28)
+        if stf is None:
+            continue
+        ax.scatter(np.abs(stf[1:]) + 1e-6, np.abs(fr[1:]) + 1e-6, color=colors[n],
+                   label=n, s=28)
     lim = [1e-4, 10]
-    ax.plot(lim, lim, "k--", lw=0.8); ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlim(*lim); ax.set_ylim(*lim)
-    ax.set_xlabel("|static (real text) bin dCE|"); ax.set_ylabel("|free-run final bin dCE|")
-    ax.set_title("self-generated vs real context aging", fontsize=9); ax.legend(fontsize=7)
+    ax.plot(lim, lim, "k--", lw=0.8)
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlim(*lim)
+    ax.set_ylim(*lim)
+    ax.set_xlabel("|static (real text) bin dCE|")
+    ax.set_ylabel("|free-run final bin dCE|")
+    ax.set_title("self-generated vs real context aging", fontsize=9)
+    ax.legend(fontsize=7)
 
     fig.suptitle("E053 — cache utility timeline: per-position causal dCE of V-zero lesions "
-                 "during fixed-anchor generation (8 seeded seqs, T=256)", fontsize=12)
+                 "during fixed-anchor generation (seeded seqs, T=256, adaptive n/stride "
+                 "under e050 CPU contention)", fontsize=12)
     fig.savefig(path, dpi=130)
     plt.close(fig)
 

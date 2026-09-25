@@ -49,6 +49,22 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E058 — geometry-site anatomy: the causal-gate region carries the anchor (2026-09-25) — DONE
+
+WHAT WE DID: per-site r(damage, geometry) across 11 ckpts at 0.84M + 12
+B/B43 grafts at 2.7M; R-ladders by site; all instrument gates bitwise.
+
+WHAT WE SAW (T029): A-residualized geometry replicates at depth (partial
+r 0.92-0.96); interference peaks SLIDE with each host's causal gate (B
+L3, B43 L4); L0 shows complete criticality/basis-specificity dissociation
+(self-ablation +4.08 yet cross-seed R=1.03); anti-alignment exactly at
+the rejection zone. The anchor lives in the causal-gate region.
+
+WHAT'S NEXT: e053 (cache timeline) still computing; then interpretation
+block before new dispatches per the critic's ratio flag.
+
 ## E050 — directed-mutation lineage: VISIBILITY-LIMITED (2026-09-25) — DONE
 
 WHAT WE DID: the e040 protocol with mutation restricted to stream-facing

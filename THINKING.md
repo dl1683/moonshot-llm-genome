@@ -7,6 +7,35 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T029 — E058: the geometry zone is the causal-gate region; L0 criticality and basis-specificity fully dissociate (2026-09-25T19:05Z)
+
+**Verdict MIXED-as-registered but the structure is sharp:**
+- **H-none REFUTED — the geometry signal replicates hard at 2.7M once
+  A-residualized:** pooled partial r(D, align | A) = +0.916, r(D, W-space |
+  A) = +0.963. T026's "regress on A, read the residual" prescription
+  recovers a near-perfect geometry signal at depth.
+- **H-depth REFUTED — interference peaks slide with the host's causal
+  gate** (B peaks L3, B43 peaks L4 — each AT its measured causal mode
+  from e018/e012d; the pre-gate site is the close flank). Structure
+  lives in the causal-gate REGION, not at a fixed depth.
+- **0.84M site rows:** L2(pre-gate) is the only geometry site (r 0.747/
+  0.680); L3(gate) is pure organ-load (r_align 0.07); L0/L1 nothing.
+- **THE cross-scale discovery — criticality ≠ basis-specificity:** L0 is
+  the most damage-ccritical organ at 2.7M (self-ablation +4.08) yet a
+  cross-seed L0 organ plugs in almost CLEANLY (R 1.03-1.13 — the e028
+  inert band). Complete dissociation: what makes an organ vital to its
+  host says nothing about whether a foreign copy of it will be rejected.
+  And at the interference-peak sites (L3/L4), cross-seed dW is slightly
+  ANTI-aligned (cos −0.013) — the rejection zone is where solutions
+  actively diverge.
+- Caveat: 2.7M geometry values are direction-symmetric (6 levels × 2
+  hosts) — replication rests on partial-r + gate-tracking jointly.
+
+**Card consequence:** L3 (anchoring) gains its WHERE — the init-anchored
+interface is anatomically localized to the causal-gate region, and the
+anchor's strength tracks the gate's position, unifying the transplant
+ladder with the causal census.
+
 ## T028 — Expression-gap prior art: our lane confirmed with scope fixes (2026-09-25T18:50Z)
 
 **The researcher's scan (scratch/expression_gap_lit.md):**

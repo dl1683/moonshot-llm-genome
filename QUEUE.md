@@ -71,7 +71,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | experiment | what |
 |---|---|---|
-| e058 | geometry-site anatomy | RUNNING | zero-GPU per-site r(align-dist, damage) x 11 ckpts + 2.7M replication — why L2 but not L3? |
+| e058 | geometry-site anatomy | DONE (T029) | zero-GPU per-site r(align-dist, damage) x 11 ckpts + 2.7M replication — why L2 but not L3? |
 | e059 | winner differencing | zero-GPU ΔW audit of e040 winners vs unselected sibs — what did compatibility-without-alignment exploit? |
 | e063 | load homeostasis | zero-GPU A-setpoint tracking across the 11 ckpts — is organ-reliance a defended init-anchored trait? |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
