@@ -9,6 +9,21 @@ interpretation entry, the next heartbeat thinks instead of runs.
 
 ## T024 — Lineage verdict: init-anchoring is FROZEN under selection (E040, 2026-09-25T16:55Z)
 
+**FULL-REPORT AMENDMENT (17:05Z): "weak-but-real," not literally frozen.**
+The agent's final numbers: D fell monotonically 2.625→2.533→2.479 (−5.6%,
+CI excluding 0 — heritable, directionally responsive) but missed the −25%
+bar 4.5×; R only −2.9% (organ-devaluation throttled by design); alignment
+shifted +0.0015 against a 0.42 ceiling — **compatibility moved with ZERO
+donor-alignment drift** (a dynamic dissociation complementing e029/e041's
+static ladder: selection exploited interface/robustness, NOT
+toward-donor motion). Strict reading: P2 fired on the "<10%" disjunct
+while "CI includes 0" is false. **T024 restated: the basis is
+WEAKLY-EVOLVABLE (−5.6%/2 gens) but selection walks a nearly-flat
+landscape that does not pass through donor alignment — effectively frozen
+at any practical selection strength.** Reverse-graft confirms asymmetry
+(REF←winner: +2.80/+2.54). e050 (directed mutation) now discriminates
+REACHABILITY vs VISIBILITY precisely.
+
 **The evolution thread's first result: P2-FROZEN.** Eleven step-matched
 0.84M trainings, two selection events, thermal-disciplined (envelope
 compliant; status complete):
