@@ -51,7 +51,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e044 | scar tissue | DONE (T018, n=1 flag) | the smoke file never ran; full battery now |
 | e048 | expression-gap boundary | DONE (T019 + geometry refinement) | does installed-but-silent ever express? exposure dose, prompt-seeding, temperature |
 | e049 | retrieval dose-response | DONE (T021) | refrain corpora at p∈{0,5,20,60}% — where does far-retrieval appear on naturalistic data? |
-| e040 | graft-evolution | RUNNING (T022 registered; serial trainings + thermal blocks) | structure readouts only (alignment, rho drift) — no circuit claims |
+| e040 | graft-evolution | DONE (T024: P2-FROZEN — basis invisible to selection) | structure readouts only (alignment, rho drift) — no circuit claims |
 | e033 | write-equalizer | DONE (T023, 0.84M n=1) | homeostasis at structure level; who absorbs the energy |
 | e005s | minimal scaling capstone | DONE (T020, steps-confound flagged) | 0.7M/8M × 2 seeds; qualitative readouts only |
 | v011 | edit film (re-cut) | DONE | six-frame L7 strip, all numbers from metrics, n=1 flags boxed | the asymmetry law, with the expression gap visible |

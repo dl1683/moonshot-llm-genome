@@ -43,6 +43,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E040 — graft-evolution lineage: init-anchoring is FROZEN (2026-09-25) — DONE
+
+WHAT WE DID: 11 step-matched 0.84M trainings (seed-42 family wildtype + 3
+mutants; fixed REF donor organs; 2 selection events x 3 children;
+selection on cross-seed MLP graft damage with parity + organ-band gates;
+thermal blocks throughout).
+
+WHAT WE SAW (T024): **P2-FROZEN.** Damage fell only 7.3% over two
+generations (P1 bar: 25%); R fell 2.2%; REF-alignment stayed at the floor
+(0.001 -> 0.006 vs a 0.53 ceiling). CIs exclude zero — a real trickle,
+not noise — but selection cannot see the stream basis at this regime.
+The degeneration-route did not fire. C3 complete: the basis is
+init-anchored, partial, interface-specific, and not evolvable under
+standard selection.
+
+WHAT'S NEXT: day-two report's last slot fills; the day-two arc is
+complete. The lab's three stories (anatomy, editing, evolution) all have
+first data.
+
 ## V012 — portrait v2: the 48-hour self-portrait (2026-09-25) — DONE
 
 WHAT WE DID: v010's four panels refreshed with post-audit numbers (C1

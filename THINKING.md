@@ -7,6 +7,34 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T024 — Lineage verdict: init-anchoring is FROZEN under selection (E040, 2026-09-25T16:55Z)
+
+**The evolution thread's first result: P2-FROZEN.** Eleven step-matched
+0.84M trainings, two selection events, thermal-disciplined (envelope
+compliant; status complete):
+- Graft damage moved only −7.3% from gen-0 to gen-2 (D 2.625 → 2.435;
+  ratio 0.927 — the P1 bar was −25%); R moved −2.2% (0.978). Both
+  contrasts' CIs exclude zero (real drift) but are an order of magnitude
+  too small: **selection produced a trickle, not a response.**
+- Alignment to the REF donor stayed at the floor (0.001 → 0.006 — a
+  +0.005 shift against a 0.53 ceiling); the selection pressure could not
+  pull the stream basis toward the donor's.
+- **C3 gains its selection answer: the init-anchored stream basis is
+  effectively invisible to lineage selection at this population size,
+  mutation rate, and generation count.** The degeneracy-route (P3) did
+  not fire either — compatibility and alignment did NOT dissociate; both
+  stayed put.
+- Scope: n=1 donor, n=3 founders, 2 generations, σ_mut=0.005 (G7 never
+  escalated — gen-0 spread exceeded 3× CI). A larger population or
+  stronger mutation might respond; this design measured the standard
+  regime and found it frozen.
+
+**The edit-arc's bookend:** the lab now knows the stream basis is
+init-anchored (T003), partially (T-e041: ceiling 0.53), net-specific in
+its interfaces (T016), and NOT evolvable under standard selection (this).
+Gradient descent writes it once; neither surgery, training regime, nor
+selection rewrites it.
+
 ## T023 — Write-equalizer: the energy schedule is decorative (E033, 2026-09-25T16:30Z; 0.84M, single net)
 
 **Verdicts: P1 parity TRUE (1.5147 < baseline 1.537 — equalized MLP writes

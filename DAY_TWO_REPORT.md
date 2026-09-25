@@ -108,13 +108,17 @@ the integrity rules (verify-in-place; never trust a commit message) and
 added push discipline (112-commit backlog synced). The meta-law held all
 day: every positive that died was n=1; every survivor was replicated.
 
-## 10. Open at close of day two
+## 10. Close of day two: the evolution thread's first answer (T024)
 
-e040 (is init-anchoring evolvable under lineage selection?) — RUNNING,
-registered P1-P3 (T022). The 2.7M write-equalizer (schedule-necessity at
-depth). Content-vs-position binding in the expression gap. The e046-grade
-replication of the scar findings. Whether the day-one report's five open
-edges are now three.
+**e040: P2-FROZEN.** Two generations of selection on cross-seed graft
+compatibility moved damage only −7.3% (bar: −25%) and left REF-alignment
+at the floor — the init-anchored stream basis is invisible to standard
+lineage selection at this regime. Together with e028/e029/e031/e041,
+the basis is now characterized end-to-end: written once by gradient
+descent at initialization, partially conserved under training (ceiling
+0.53), interface-specific (stream-facing matrices), and not evolvable.
+Still open: the 2.7M write-equalizer, content-vs-position binding in the
+expression gap, e046-grade scar replication.
 
 ---
 
