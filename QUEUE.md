@@ -56,11 +56,14 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e005s | minimal scaling capstone | DONE (T020, steps-confound flagged) | 0.7M/8M × 2 seeds; qualitative readouts only |
 | v011 | edit film (re-cut) | DONE | six-frame L7 strip, all numbers from metrics, n=1 flags boxed | the asymmetry law, with the expression gap visible |
 
+| e050 | directed-mutation lineage | DONE (T027) | VISIBILITY-LIMITED: random-vs-directed trickle identity (−3.5/−3.6%) — FROZEN at full strength |
+| e052 | LN/geometry reanalysis | DONE (T026) | damage tracks organ-reliance r=0.807; LN excluded; L2 geometry residue real |
+
 ## Day-three frontier candidates (T025; all reuse existing tooling)
 
 | id | experiment | what |
 |---|---|---|
-| e053 | cache utility timeline | per-position K/V patch-lesion over 4k-token generation; when does non-sink cache become dead weight? (nobody has this curve) |
+| e053 | cache utility timeline | RUNNING (CPU Phase 1) | per-position K/V patch-lesion; when does non-sink cache become dead weight? (nobody has this curve) |
 | e054 | context-rot anatomy | KV-recall trained at 512, swept to 2048; positional-vs-content patching of the retrieval path |
 | e055 | suppression localizer | transplant teacher-forced residual states at the divergence token into free-running; localize where known answers die |
 
@@ -68,7 +71,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | experiment | what |
 |---|---|---|
-| e058 | geometry-site anatomy | zero-GPU per-site r(align-dist, damage) across sites x 11 ckpts + 2.7M/10M replication — why does L2 carry basis-structure but L3 doesn't? |
+| e058 | geometry-site anatomy | RUNNING | zero-GPU per-site r(align-dist, damage) x 11 ckpts + 2.7M replication — why L2 but not L3? |
 | e059 | winner differencing | zero-GPU ΔW audit of e040 winners vs unselected sibs — what did compatibility-without-alignment exploit? |
 | e063 | load homeostasis | zero-GPU A-setpoint tracking across the 11 ckpts — is organ-reliance a defended init-anchored trait? |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
