@@ -13,8 +13,7 @@ interpretation entry, the next heartbeat thinks instead of runs.
 unseeded, seeded (induction route), greedy diagnostic, T ∈ {0.7, 1.0,
 1.3}, and dose × {400, 800, 1600} steps — while battery accuracy holds
 0.92-0.96 throughout. P2 (prior threshold) refuted: neither seeding nor
-temperature unlocks a single occurrence. P3 (dose quantity) refuted: no
-monotone expression growth; more exposure does not help.
+temperature unlocks a single occurrence. P3 (dose quantity) refuted: no monotone expression growth — R7 THIN-EVIDENCE flag: dose generation cells were bit-identical across s400-1600 (batteries differed); the no-dose-response conclusion rests on one probe shape.
 
 **C7 FINAL — the edit law, complete:** there are FOUR separable faculties:
 ADDRESS (rows — surgically removable, attractor-surviving), ABILITY
@@ -30,7 +29,21 @@ itself — continuation-battery accuracy is NOT evidence of usable
 knowledge; free-generation probes are the honesty check for any install
 claim, at any dose.
 
-## T018 — Scar tissue: erasure burns the address, not the attractor (E044, 2026-09-25T00:15Z)
+**FULL-REPORT REFINEMENT (01:05Z):** the expression failure DECOMPOSES —
+(a) **geometry binding:** the installed address fires only in the trained
+continuation window (p(Z) 0.556 in battery geometry → 0.0898 at the same
+terminal text in a 120-char free prompt → 1.7e-6 in uniform contexts;
+deleting the 10 oldest context chars collapses it 6×); (b) **sub-argmax
+prior:** even where prior exists it never wins argmax. The single
+expression event of the day (1 in ~30-35k chars across 13-14 cells (R7: denominator bookkeeping imprecise; direction unaffected)) came
+from the DIRECT-TRAINED control at its home slots (p(Z) 0.27 there,
+argmax 25%) — natural learning puts the name in the free-generation
+prior; install does not, at any dose. Uniform-floor battery shows the
+install at 0.286 vs 0.974 host-trained (40× floor, 3.4× below claim —
+battery-overfit partial; the direct net shows the same floor shape, so
+part is CORRECT slot-gating). Open edge: content-vs-position binding.
+
+## T018 — Scar tissue: erasure burns the address, not the attractor (E044, 2026-09-25T00:15Z) [R7 FLAG: n=1, single net — the history clause's numbers await replication]
 
 **The real run (smoke:false, 350s, 5 arms, all gates; shakedown root cause:
 E044_SMOKE=1 env leftover — postmortem in the script; new COS_MIN_NORM

@@ -47,9 +47,9 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
 | id | item | status | what |
 |---|---|---|---|
-| e047 | replication sweep | RUNNING | 3 surviving positives (L5-calibrator, MLP-5 carrier, shared-L0 machine) × 4 nets, eval-only — card v3 gate |
-| e044 | scar tissue (REAL rerun) | RUNNING | the smoke file never ran; full battery now |
-| e048 | expression-gap boundary | READY | does installed-but-silent ever express? exposure dose, prompt-seeding, temperature |
+| e047 | replication sweep | DONE (T017) | 3 surviving positives (L5-calibrator, MLP-5 carrier, shared-L0 machine) × 4 nets, eval-only — card v3 gate |
+| e044 | scar tissue | DONE (T018, n=1 flag) | the smoke file never ran; full battery now |
+| e048 | expression-gap boundary | DONE (T019 + geometry refinement) | does installed-but-silent ever express? exposure dose, prompt-seeding, temperature |
 | e049 | retrieval dose-response | READY | refrain corpora at p∈{0,5,20,60}% — where does far-retrieval appear on naturalistic data? |
 | e040 | graft-evolution re-scoped | READY | structure readouts only (alignment, rho drift) — no circuit claims |
 | e033 | write-equalizer | READY | homeostasis at structure level; who absorbs the energy |
