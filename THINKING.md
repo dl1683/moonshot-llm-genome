@@ -7,7 +7,7 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T034 — E056b resolves the circularity: the rescue is a GLOBAL state property, and the claim splits honestly (2026-09-25T22:50Z)
+## T034 — E056b resolves the circularity [R14 flag: R1-only — the position-general leg not yet distinguished from loud-logit paste; e056b+R2 registered as the discriminator]: the rescue is a GLOBAL state property, and the claim splits honestly (2026-09-25T22:50Z)
 
 **The registered circularity-killer ran at 24 floor-prior non-onset
 positions (base p(Z) median 6.8e-8; all ≥16 chars from any name span;

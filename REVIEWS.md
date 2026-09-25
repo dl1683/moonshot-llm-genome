@@ -27,6 +27,26 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 14 — day-three audit (2026-09-25T23:00Z)
+
+### T034 AUDIT: the claim-split's second leg is NOT yet separated from
+"loud Z-logit paste" — e056b has R1 only (next-token p(Z)); no
+downstream-expression or argmax-flip readouts at non-onset positions.
+Knowledge-specificity IS established (base-net twin 44x below; shuffled
+1e-7). OPEN SLOT: e056b+R2 (post-write free-run Z-word counts) —
+recurrent Z-words = address installed; single blip = logit paste.
+### KILL-RISK UPDATE: Risk 3 (prior-art/"just steering") SHARPENED —
+the mean-donor relay (0.912) is methodologically YOPO-style; the draft's
+pre-emptive answer needs the own-state-vs-mean-donor contrast folded in.
+### DISPATCH RANK: (a) non-onset downstream >> (b) scar-replication >
+(c) RMU cell. Dispatching (a).
+### Integrity: 38 T-headers; reviews 14 (this); drift fixed in this pass
+(STATE stamps; e056b local-time-as-Z noted; paper-draft abstract/5.4
+stale pending the T034 fold — queued).
+
+---
 ## Review 13 — post-expansion panel (2026-09-25T20:05Z)
 
 ### AUDIT: E053's a*=63 is bin-quantized in 4/5 cells (fallback edge);
