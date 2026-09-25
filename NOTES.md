@@ -37,6 +37,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E049 — the retrieval threshold (2026-09-25) — DONE
+
+WHAT WE DID: refrain corpora at p ∈ {0,5,20,60}% (24-32-char verbatim
+refrains in Shakespeare filler), 4 fresh 2.7M nets + a 10M arm at p5;
+far-value / accuracy / retrieval-head readouts at refrain AND ordinary
+positions.
+
+WHAT WE SAW (T021): threshold ≤5% (refuted-low), GRADED not sharp, ZERO
+leak (compartmentalized), 10M 1.87x more sensitive (weak support). THE
+FLIP: far context HURTS at p0 (−2.24 nats, T007's interference) and turns
+net-positive by p5 — far-value is a tug-of-war flipped by ~200 refrain
+events. Retrieval heads form discretely in the LATE-ATTENTION slot (L5 at
+6 layers, L7 at 8) — preferred depth, not preferred density. Cross-talk
+at 60%.
+
+WHAT'S NEXT: L4's arc complete (no-retrieval → scale erosion → threshold
+mapped). Overnight program: e040 graft-evolution re-scoped remains; then
+session review.
+
 ## E005s — the scaling capstone (0.84M / 2.7M / 10M) (2026-09-25) — DONE
 
 WHAT WE DID: two new nets (4L/4H/128d = 0.84M; 8L/8H/320d = 9.98M), same

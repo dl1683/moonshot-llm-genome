@@ -195,8 +195,15 @@ def train_net(corpus_path, ckpt_final, ckpt_train, tag, cfg_kw, cap_s):
     model = TinyGPT(Cfg(vocab=corpus.vocab_size, block_size=CTX, **cfg_kw)).to(DEVICE)
     if ckpt_final.exists():
         model.load_state_dict(torch.load(ckpt_final, map_location=DEVICE, weights_only=True))
+        tmeta = None
+        if ckpt_train.exists():  # recover training metadata from the resume ckpt
+            st = torch.load(ckpt_train, map_location="cpu", weights_only=False)
+            hist = st.get("history") or []
+            if hist:
+                tmeta = {"steps": hist[-1]["step"], "val_loss": hist[-1]["val_loss"],
+                         "cap_s": cap_s, "recovered_from": ckpt_train.name}
         log(f"{tag}: final ckpt found ({model.num_params():,} params), skipping training")
-        return model, corpus, None
+        return model, corpus, tmeta
     log(f"{tag}: training {model.num_params():,} params (cap {cap_s:.0f}s)")
     hist = train_model(model, corpus, steps=4000, lr=1e-3, batch_size=64,
                        max_seconds=cap_s, ckpt=ckpt_train)
@@ -495,8 +502,8 @@ def main():
     lbl = lambda p: f"{p}%"
 
     ax = axes[0, 0]
-    own_y = [readouts[f"s27_p{p}"]["own"]["fv_prefix_k123"] for p in xs]
-    sh_y = [readouts[f"s27_p{p}"]["shared"]["fv_prefix_k123"] for p in xs]
+    own_y = [readouts[f"s27_p{p}"]["own"].get("fv_prefix_k123", float("nan")) for p in xs]
+    sh_y = [readouts[f"s27_p{p}"]["shared"].get("fv_prefix_k123", float("nan")) for p in xs]
     ax.plot(xs, own_y, "o-", color="steelblue", label="2.7M own-val")
     ax.plot(xs, sh_y, "s--", color="seagreen", label="2.7M shared p60 probes")
     ax.axhline(base_fv, color="gray", ls=":", label=f"p0 baseline {base_fv:+.3f}")
@@ -505,14 +512,15 @@ def main():
         ax.plot([readouts_10m["level"]], [readouts_10m["own"]["fv_prefix_k123"]], "*",
                 color="purple", ms=16, label=f"10M p={readouts_10m['level']}%")
     for x, y in zip(xs, own_y):
-        ax.annotate(f"{y:+.2f}", (x, y), textcoords="offset points", xytext=(0, 8), fontsize=8)
+        if y == y:  # skip NaN (p0 has no refrain events)
+            ax.annotate(f"{y:+.2f}", (x, y), textcoords="offset points", xytext=(0, 8), fontsize=8)
     ax.set_xlabel("refrain density p (%)"); ax.set_ylabel("far-value at completions (nats)")
     ax.set_title(f"(a) far-value vs density — P1: {P1_label} / P2: {verdicts['P2_sharp_threshold']}")
     ax.legend(fontsize=8)
 
     ax = axes[0, 1]
-    acc_y = [readouts[f"s27_p{p}"]["own"]["acc_prefix_k123"] for p in xs]
-    acc_s = [readouts[f"s27_p{p}"]["shared"]["acc_prefix_k123"] for p in xs]
+    acc_y = [readouts[f"s27_p{p}"]["own"].get("acc_prefix_k123", float("nan")) for p in xs]
+    acc_s = [readouts[f"s27_p{p}"]["shared"].get("acc_prefix_k123", float("nan")) for p in xs]
     ax.plot(xs, acc_y, "o-", color="steelblue", label="2.7M own-val")
     ax.plot(xs, acc_s, "s--", color="seagreen", label="2.7M shared")
     ax.axhline(0.5, color="crimson", ls="--", label="acc bar 0.5")
@@ -520,7 +528,8 @@ def main():
         ax.plot([readouts_10m["level"]], [readouts_10m["own"]["acc_prefix_k123"]], "*",
                 color="purple", ms=16, label=f"10M p={readouts_10m['level']}%")
     for x, y in zip(xs, acc_y):
-        ax.annotate(f"{y:.2f}", (x, y), textcoords="offset points", xytext=(0, 8), fontsize=8)
+        if y == y:
+            ax.annotate(f"{y:.2f}", (x, y), textcoords="offset points", xytext=(0, 8), fontsize=8)
     ax.set_xlabel("refrain density p (%)"); ax.set_ylabel("completion accuracy (k=1..3)")
     ax.set_title("(b) refrain-completion accuracy vs density")
     ax.legend(fontsize=8)

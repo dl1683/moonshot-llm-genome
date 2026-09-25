@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T021 — The retrieval threshold: interference flips to retrieval at ≤5% refrain density (E049, 2026-09-25T04:30Z)
+
+**Four refrain-density nets + a 10M arm, registered P1-P4:**
+- **P1 REFUTED-LOW (threshold ≤5%):** retrieval is already net-positive at
+  the lowest nonzero density (+0.22 far-value, 0.62 acc at p5; the
+  stricter shared-probe view puts it 5-20%). Even MORE sensitive than
+  registered.
+- **P2 REFUTED — GRADED, not sharp:** +0.22 → +0.81 → +0.89 (adjacent
+  ratios 3.68× then 1.10×). No order-of-magnitude jump.
+- **P3 HOLDS — retrieval is compartmentalized:** zero positive leak into
+  ordinary text at any density.
+- **P4 WEAK-SUPPORT:** the 10M net is 1.87× more retrieval-sensitive at
+  p5 (wall-matched caveat) — consistent with T020's scale erosion.
+- **THE FLIP (the arc's closing finding):** at p=0, far context HURTS
+  completions by −2.24 nats (T007's interference, corpus-overfit
+  amplified); ~200 refrain events (~20 exposures/pair) cancel a full nat
+  of interference and turn on net-positive retrieval. **Far-value is a
+  tug-of-war whose balance flips near the bottom of the density grid** —
+  T007's bimodal hurt-population was the negative side of this same coin.
+- **Behavior grades; anatomy is lumpy:** far-value rises smoothly but the
+  retrieval HEAD appears discretely — absent at p5, real at p20 (L5H3),
+  stronger at p60 (L5H1, 8.4× refrain-mass over control) — ALWAYS in the
+  late-attention slot (L5 at 6 layers; L7 in the 8-layer 10M). The
+  circuit has a preferred DEPTH, not a preferred density.
+- Cross-talk at 60% (acc non-monotone 0.62/0.87/0.77); value concentrated
+  at the first content char (10M uniquely flat — deeper-copying
+  signature).
+
+**L4's complete arc:** no retrieval on natural data (morning) → margin
+erodes with scale (capstone) → the threshold is graded, low (≤5%),
+compartmentalized, and flips from net interference (T007's other half).
+The "no retrieval" law was one point on a curve whose shape is now
+mapped.
+
 ## T020 — The scale capstone: the laws hold, sharpened (E005s, 2026-09-25T02:40Z)
 
 **0.84M / 2.7M / 10M, frozen readouts, P1-P4 registered before training:**
