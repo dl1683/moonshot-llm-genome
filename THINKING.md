@@ -7,6 +7,31 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T026 — E052: the assay measured organ-reliance, not basis-fit (2026-09-25T17:45Z)
+
+**Zero-GPU reanalysis, bitwise-exact reproduction of e040.** The
+correlation table (n=10 hosts): damage tracks OWN-ORGAN LOAD A at
+r=+0.807 (p=0.005); LN-distance +0.513; alignment-distance +0.543;
+W-space +0.410. OLS: beta_A 0.716 vs beta_LN 0.273 (ΔR² of LN over A
+alone: 0.066).
+
+**Verdicts:**
+- **WRONG-TRAIT (LN calibration): EXCLUDED** — the e031 alternative is
+  dead at the registered bar.
+- **The constructive reading ALSO loses:** the assay's damage readout is
+  dominated by host-side organ criticality, not foreign-organ basis fit.
+  e040's 5.6% trickle was selection on organ-reliance ratios — consistent
+  with the host-specific reverse-graft asymmetry.
+- **FROZEN survives, reinterpreted:** random mutation cannot generate
+  basis variation (founders: damage varied, alignment didn't — T024), AND
+  the standard graft-damage trait cannot even see basis-fit through the
+  organ-load dominant. **Any future compatibility selection must regress
+  D on A and select on the residual** (registered method note).
+- Per-site nuance (secondary, uncorrected): a real L2-localized geometry
+  signal exists (align r=0.747 at L2; nothing at L3) — diluted by the
+  aggregate trait. The e050 directed-mutation arm's readout should be
+  site-L2-weighted or A-residualized.
+
 ## T025 — The frontier scan: three unpublished curves in our lane (2026-09-25T17:25Z)
 
 **The research agent's findings (scratch/frontier_research_20260925.md):

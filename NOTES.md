@@ -45,6 +45,22 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E052 — LN/geometry reanalysis: damage tracks organ-reliance (2026-09-25) — DONE
+
+WHAT WE DID: zero-GPU regression of e040's 11-checkpoint graft damage on
+four predictors (own-ablation A, LN-distance, dW-alignment, W-space),
+bitwise-exact reproduction.
+
+WHAT WE SAW (T026): A dominates (r=0.807); LN excluded (ΔR²=0.066);
+geometry aggregate weak but a real L2-localized signal (r=0.747).
+FROZEN survives reinterpreted — the trait measured organ-reliance, and
+future compatibility selection must use A-residualized damage.
+
+WHAT'S NEXT: e050 (directed mutation) should read out A-residualized or
+L2-weighted — method note registered before its results land.
+
 ## E040 — graft-evolution lineage: init-anchoring is FROZEN (2026-09-25) — DONE
 
 WHAT WE DID: 11 step-matched 0.84M trainings (seed-42 family wildtype + 3
