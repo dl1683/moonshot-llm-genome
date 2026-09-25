@@ -7,6 +7,31 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T025 — The frontier scan: three unpublished curves in our lane (2026-09-25T17:25Z)
+
+**The research agent's findings (scratch/frontier_research_20260925.md):
+our strongest results are frontier-novel** — the four-faculty edit law and
+row surgery have no counterpart (Guo ICML-2025 and the RMU-obfuscation
+thread confirm first-order unlearning fails, but nobody separates
+address/ability/expression/history); E040's basis-frozenness-under-
+selection fills a gap MMC/lottery/universality work left open. Three
+candidates where NOBODY has the curve at any scale:
+
+- **A — CACHE UTILITY TIMELINE (e053):** per-position K/V patch-lesion
+  over a long generation in the 0.84M net. Sinks proven universal (Gu,
+  ICLR-2025; KVSink COLM-2025) but dead-weight onset never causally
+  measured. Prediction: utility collapses onto sink + recency window.
+- **B — CONTEXT-ROT ANATOMY (e054):** train KV-recall at ctx-512, sweep
+  to 2048, patch positional vs content components (extends T021).
+  Prediction: position-addressing degrades first.
+- **C — WHERE A KNOWN ANSWER DIES (e055):** transplant teacher-forced
+  residual states at the divergence token into free-running (extends the
+  expression-gap). If behavior flips, knowledge was present-but-suppressed
+  and transplant depth LOCALIZES the suppression. The expression gap has
+  zero interventional studies anywhere (Orgad ICLR-2025 is probe-level).
+
+All three reuse existing tooling; A is the cheapest and least explored.
+
 ## T024 — Lineage verdict: init-anchoring is FROZEN under selection (E040, 2026-09-25T16:55Z)
 
 **AUDIT FLAGS (17:15Z, applied before e050 reads out):** (1) the headline

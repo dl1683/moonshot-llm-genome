@@ -56,6 +56,14 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e005s | minimal scaling capstone | DONE (T020, steps-confound flagged) | 0.7M/8M × 2 seeds; qualitative readouts only |
 | v011 | edit film (re-cut) | DONE | six-frame L7 strip, all numbers from metrics, n=1 flags boxed | the asymmetry law, with the expression gap visible |
 
+## Day-three frontier candidates (T025; all reuse existing tooling)
+
+| id | experiment | what |
+|---|---|---|
+| e053 | cache utility timeline | per-position K/V patch-lesion over 4k-token generation; when does non-sink cache become dead weight? (nobody has this curve) |
+| e054 | context-rot anatomy | KV-recall trained at 512, swept to 2048; positional-vs-content patching of the retrieval path |
+| e055 | suppression localizer | transplant teacher-forced residual states at the divergence token into free-running; localize where known answers die |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
