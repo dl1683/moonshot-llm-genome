@@ -19,6 +19,15 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 10 — patrol (2026-09-25T03:42Z; integrity audit during hold)
+
+Counts: THINKING 22; REVIEWS 10; tree clean; timestamps sane. Stragglers:
+none — zero content drift since R8; confound flags verified in-place.
+Wake-the-panel: NO. Hold intact; e040 awaits the user.
+
+---
 ## Review 9 — patrol (2026-09-25T02:36Z; single-agent integrity audit during the consolidation hold)
 
 Counts: THINKING 22 T-headers; REVIEWS 9; tree clean; STATE timestamps
