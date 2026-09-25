@@ -64,6 +64,18 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e054 | context-rot anatomy | KV-recall trained at 512, swept to 2048; positional-vs-content patching of the retrieval path |
 | e055 | suppression localizer | transplant teacher-forced residual states at the divergence token into free-running; localize where known answers die |
 
+## Day-three wave 2 (ideator harvest, T026 openings; zero-GPU first)
+
+| id | experiment | what |
+|---|---|---|
+| e058 | geometry-site anatomy | zero-GPU per-site r(align-dist, damage) across sites x 11 ckpts + 2.7M/10M replication — why does L2 carry basis-structure but L3 doesn't? |
+| e059 | winner differencing | zero-GPU ΔW audit of e040 winners vs unselected sibs — what did compatibility-without-alignment exploit? |
+| e063 | load homeostasis | zero-GPU A-setpoint tracking across the 11 ckpts — is organ-reliance a defended init-anchored trait? |
+| e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
+| e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
+| e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |
+| e061 | calibration rescue | scalar/gain nudges at e055's suppression depth vs full transplant |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis

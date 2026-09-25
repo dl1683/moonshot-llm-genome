@@ -31,7 +31,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # Keep >=15% GPU headroom; thermal guard pauses launches when hot.
 MAX_MODEL_PARAMS_DEFAULT = 1_000_000
 MAX_MODEL_PARAMS_CEILING = 5_000_000
-GPU_UTIL_CEIL = 85          # percent
+GPU_UTIL_CEIL = 85          # percent — hard: user cap is 90%, keep under
 GPU_TEMP_CEIL = 80          # deg C — no new launches above this
 GPU_IDLE_TEMP_TARGET = 65   # deg C — wait for cooldown to here when hot
 
