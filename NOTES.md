@@ -60,12 +60,15 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 WHAT WE DID: fine-grid onset fitting on the cache-timeline cells (no
 bin-edge fallback), bootstrap CIs, identity test.
 
-WHAT WE SAW (T031): fine onsets 36 (0.84M) vs 24 (2.7M) — 1.5x scale
-ratio, NOT invariant; the a*/window identity broken (5-6 pt gaps);
-absolute-vs-proportional still undecidable at ctx-256. T030's
-"onset~63 invariant" RETRACTED; publishable core narrows to sink-dead +
-live-fraction + non-monotone structure with onset scale-dependent.
-Exposure cells + ctx-512 remain for the full curve.
+WHAT WE SAW (T031 FULL, 5 cells, B=4): fine a* = 7/25/35/182/32 — 0/5
+near "63"; the curve is a sharp recent spike (~4-15 positions, dCE
+0.3-6.7) + dead old end (240-255: dCE <= 0.015, sink included) + 13-20%
+NEGATIVE-utility entries (lesion helps); exposure INVERTS the prediction
+(training SHRINKS the live window: live-frac 0.68→0.17→0.13 across
+400→800→4000 steps); identity broken with sign flips. Honest publishable
+core: ~85-95% of the ctx-256 cache is dead weight; sink dead at
+generation; training collapses the live window. ctx-512 = the registered
+absolute-vs-proportional decider.
 
 ## E064 + E053 — the stress test kills the unification; the timeline lands (2026-09-25) — DONE
 
