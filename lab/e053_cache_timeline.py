@@ -69,6 +69,7 @@ import torch
 torch.cuda.is_available = lambda: False
 torch.cuda.device_count = lambda: 0
 
+import json
 import math
 import sys
 import time
@@ -540,6 +541,19 @@ def classify_p3(traj: np.ndarray, steps: np.ndarray):
 def main():
     assert torch.cuda.device_count() == 0, "G4 violated: CUDA device visible"
     out_dir = run_dir("e053")
+    # supplement mode: E053_APPEND=1 E053_CELLS="exp_d800,mid_2.7M" re-runs
+    # selected cells and MERGES into the existing metrics.json (protocol per
+    # cell is recorded; gates accumulate; verdicts recomputed on the merge).
+    append = os.environ.get("E053_APPEND") == "1"
+    only = [s.strip() for s in os.environ.get("E053_CELLS", "").split(",") if s.strip()]
+    prev_metrics = None
+    if append:
+        p = out_dir / "metrics.json"
+        if p.exists():
+            prev_metrics = json.loads(p.read_text(encoding="utf-8"))
+    global BUDGET_S
+    if append:
+        BUDGET_S = float(os.environ.get("E053_BUDGET_S", "420"))
     corp = CharCorpus(REPO / "data" / "input.txt")
     assert corp.vocab_size == 65
 
@@ -552,11 +566,22 @@ def main():
         G0={}, G0b={}, G1={}, G2_last64_violations=0, G2_bin_violations=0, G3_nan=0,
         G4_cpu_only=True, threads=THREADS, smoke=SMOKE)
     skipped = []
+    if prev_metrics is not None:      # merge previous pass (append mode)
+        results = prev_metrics.get("cells", {})
+        pg = prev_metrics.get("gates", {})
+        for gk in ("G0", "G0b", "G1"):
+            gates[gk] = dict(pg.get(gk, {}))
+        for gk in ("G2_last64_violations", "G2_bin_violations", "G3_nan"):
+            gates[gk] = pg.get(gk, 0)
+        skipped = [s for s in prev_metrics.get("skipped", []) if s not in only]
     exposure_clamp = None       # exposure-axis cells share n_seq (paired P2)
     pending = list(CELLS)
 
     while pending:
         name, ckpt, arch, axis, steps_trained, weight = pending[0]
+        if only and name not in only:
+            pending.pop(0)
+            continue
         R = BUDGET_S - elapsed()
         wsum = sum(w for *_, w in pending)
         share = max(30.0, R * weight / wsum)
@@ -739,13 +764,18 @@ def main():
 
     metrics = dict(
         experiment="e053_cache_timeline", phase=1,
-        started=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        wall_s=elapsed(), smoke=SMOKE, n_seq_max=MAX_SEQ, bins=BIN_NAMES,
+        started=(prev_metrics or {}).get("started") or
+        datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        wall_s=elapsed() + (prev_metrics or {}).get("wall_s", 0),
+        wall_s_this_pass=elapsed(),
+        smoke=SMOKE, n_seq_max=MAX_SEQ, bins=BIN_NAMES,
         seeds=dict(prompts=SEED_PROMPT, sampling=SEED_SAMPLE, static=SEED_STATIC),
         protocol=dict(prompt_tokens=PROMPT_TOK, t_total=T_TOTAL, temp=TEMP, topk=TOPK,
                       fixed_anchor=True, threshold=THRESH, a_star_window=A_STAR_K,
-                      adaptive="per-cell fit under e050 CPU contention; registered "
-                               "fallbacks (seqs/stride/binned sweep) per design §5"),
+                      adaptive="per-cell fit under CPU power-state fluctuation "
+                               "(~15-25x slower than design calibration); registered "
+                               "fallbacks (seqs/stride/binned sweep) per design §5; "
+                               "append passes merge, gate counters accumulate"),
         gates=gates, skipped=skipped, cells=results,
         verdicts=dict(P1_shape=p1, P2_onset=p2, P3_sink=p3, P4_junk=p4),
     )
