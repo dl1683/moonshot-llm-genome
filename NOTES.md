@@ -51,6 +51,22 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E064 + E053 — the stress test kills the unification; the timeline lands (2026-09-25) — DONE
+
+E064 (gate stress): **KILLED** — R43's ladder peaks L3 with its gate at
+L5 (and R peaks L0 with its gate at L4): the mid-stack interference peak
+is shared-method idiosyncrasy, not gate-tracking. T029's unification
+dead; two-mid-stack-phenomena residue recorded.
+
+E053 (cache utility timeline, 25.7 min, 5 cells): sink DEAD at
+generation (0.007 dCE); utility NOT clean recency (25-50% non-monotone
+positions); **live fraction scale-invariant ~25%; onset age ~63
+invariant across scale AND exposure** (the grows-with-exposure
+prediction refuted); sink-cost decays at 0.84M/10M, flat at 2.7M. First
+causal per-position utility curve — prunable-cache numbers.
+
 ## E058 — geometry-site anatomy: the causal-gate region carries the anchor (2026-09-25) — DONE
 
 WHAT WE DID: per-site r(damage, geometry) across 11 ckpts at 0.84M + 12

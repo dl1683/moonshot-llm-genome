@@ -7,7 +7,36 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T029 — E058: the geometry zone is the causal-gate region? [DOWNGRADED TO SUGGESTIVE by interpreter audit 19:20Z]
+## T030 — E064 kills the gate unification; E053's timeline lands (2026-09-25T19:45Z)
+
+**E064 VERDICT: KILLED.** R43's R-ladder peaks at L3 (mid-stack) while its
+measured causal gate is L5 — the interference peak tracks mid-stack
+idiosyncrasy shared by both methods, not the host's gate. Secondary: R
+(gate L4) peaks at L0. T029's unification is dead; what survives is the
+honest residue: the geometry-sensitive zone is mid-stack across hosts,
+and the causal gate is mid-stack across hosts — two mid-stack phenomena
+that need NOT be the same phenomenon. Card L3 reverts to pre-T029 state
+plus the e058 replication residue (A-residualized geometry is real and
+mid-stack-concentrated).
+
+**E053 — the cache utility timeline (25.7 min, all cells):**
+- **P1 (shape) REFUTED in the design's revised form:** sink confirmed
+  dead (sink lesion dCE 0.0069 final — nothing); utility is NOT clean
+  monotone-recency either (monotone_frac 0.5-0.75); there IS structure
+  beyond recency+sink at all scales.
+- **P2 (onset): scale-INVARIANT live fraction (0.247-0.286, ratio 1.16)
+  and exposure-invariant onset age (a*=63 at every exposure) — the
+  registered "grows with exposure" prediction REFUTED.** The dead-weight
+  onset age is remarkably stable: ~63 positions across all five cells.
+- **P3 (sink trajectory): mixed by scale** — the 0.84M and 10M nets
+  show sink-lesion cost DECAYING over generation (10M sign-flips);
+  the 2.7M-family cells are FLAT. Sink accumulation is not universal.
+- **The publishable core: the first causal per-position utility curve —
+  live fraction ~25% at all scales, onset age ~63 invariant, sink dead
+  at generation, deviations from monotone recency at 25-50% of
+  positions.** Someone pruning caches now has numbers.
+
+## T029 — E058: the geometry zone is the causal-gate region? [DOWNGRADED TO SUGGESTIVE by interpreter audit 19:20Z — now KILLED by E064]
 
 **AUDIT FINDINGS (applied in place):** (1) The peaks are shallow (10%
 margins; B43's ladder is bimodal — L2 3.82 nearly ties L4 4.24 and

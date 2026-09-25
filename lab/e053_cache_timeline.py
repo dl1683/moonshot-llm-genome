@@ -99,7 +99,7 @@ BIN_NAMES = ["p0", "1-16", "17-64", "65-128", "129-192", "193-255"]
 THRESH = 0.01                     # dead-weight threshold (nats)
 A_STAR_K = 5                       # sustained window for robust onset
 BUDGET_S = 60 if SMOKE else 840.0   # soft guard (14 min)
-THREADS = 8                        # measured best under e050 contention
+THREADS = 12                       # measured best solo (24 oversubscribes)
 torch.set_num_threads(THREADS)
 
 CK = REPO / "runs" / "checkpoints"
@@ -201,19 +201,77 @@ def boot_ci(X, n: int = 1000, seed: int = 0):
     return np.percentile(means, 2.5, axis=0), np.percentile(means, 97.5, axis=0)
 
 
+# ------------------------------------------------------- incremental decoding
+
+@torch.no_grad()
+def prefill(net: TinyGPT, idx: torch.Tensor):
+    """Manual prefill of the prompt; returns last-position logits (V,) and the
+    per-layer KV cache [(k, v)] each (1, H, T, d). Exact same math as
+    _manual_chunk (no lesion)."""
+    T = idx.shape[0]
+    x = net.wte(idx[None]) + net.wpe(torch.arange(T))[None]
+    H = net.cfg.n_head
+    causal = torch.triu(torch.ones(T, T, dtype=torch.bool), diagonal=1)
+    kv = []
+    for blk in net.h:
+        xh = blk.ln1(x)
+        qkv = blk.attn.c_attn(xh)
+        C = qkv.shape[-1] // 3
+        d = C // H
+        q, k, v = qkv.split(C, dim=2)
+        q = q.view(1, T, H, d).transpose(1, 2)
+        k = k.view(1, T, H, d).transpose(1, 2)
+        v = v.view(1, T, H, d).transpose(1, 2)
+        att = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(d))
+        att = att.masked_fill(causal, float("-inf"))
+        y = (torch.softmax(att, -1) @ v).transpose(1, 2).reshape(1, T, C)
+        x = x + blk.attn.c_proj(y)
+        x = x + blk.mlp(blk.ln2(x))
+        kv.append((k, v))
+    return net.lm_head(net.ln_f(x[0, -1])), kv          # (V,)
+
+
+@torch.no_grad()
+def decode_step(net: TinyGPT, tok: int, pos: int, kv: list):
+    """Incremental decode of one token at position pos; extends kv in place.
+    Returns next-position logits (V,)."""
+    x = net.wte(torch.tensor([tok])) + net.wpe(torch.tensor([pos]))
+    H = net.cfg.n_head
+    for li, blk in enumerate(net.h):
+        xh = blk.ln1(x)
+        qkv = blk.attn.c_attn(xh)
+        C = qkv.shape[-1] // 3
+        d = C // H
+        q, k, v = qkv.split(C, dim=1)               # x is (1, C) here
+        q = q.view(1, 1, H, d).transpose(1, 2)
+        k = k.view(1, 1, H, d).transpose(1, 2)
+        v = v.view(1, 1, H, d).transpose(1, 2)
+        kp, vp = kv[li]
+        k = torch.cat([kp, k], dim=2)
+        v = torch.cat([vp, v], dim=2)
+        kv[li] = (k, v)
+        att = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(d))   # (1,H,1,t+1)
+        y = (torch.softmax(att, -1) @ v).transpose(1, 2).reshape(1, C)
+        x = x + blk.attn.c_proj(y)
+        x = x + blk.mlp(blk.ln2(x))
+    return net.lm_head(net.ln_f(x[0]))                  # (V,)
+
+
 # --------------------------------------------------------- adaptive protocol
 
-def fit_protocol(t7: float, share: float, L: int, is_scale: bool) -> dict:
+def fit_protocol(t7: float, c_dec: float, share: float, L: int, is_scale: bool) -> dict:
     """Fit (n_seq, stride, sweep detail) to the cell's wall-time share.
 
-    Cost model (measured): a B=7 batched forward costs t7; a B=1 clean
-    forward ~0.4*t7; a full 255-position sweep ~8*t7 per kind; per-layer
-    decomposition L*t7; binned sweeps ~1*t7. Priority: n_seq (registered
-    aggregation unit) > sweep detail > timeline stride, per the design's
-    fallback ordering.
+    Cost model (measured): clean generation runs on the incremental KV-cache
+    decoder (~c_dec*t7 per step); lesion batches cost ~t7 per measured step
+    (B~8); a full 255-position sweep ~8*t7 per kind (batch amortization);
+    per-layer decomposition L*t7; binned sweeps ~1*t7. Priority: n_seq
+    (registered aggregation unit) > sweep detail > timeline stride, per the
+    design's fallback ordering.
     """
     SW = 8.0 * t7
     SB = 1.0 * t7
+    DEC = 192 * c_dec * t7
     for n_seq in (8, 6, 4, 2):
         if n_seq > MAX_SEQ:
             continue
@@ -222,7 +280,7 @@ def fit_protocol(t7: float, share: float, L: int, is_scale: bool) -> dict:
                 fixed = n_seq * ((SW if v_full else SB) + (SW if k_full else SB)
                                  + (L * t7 if per_layer else 0) + 3 * SB)
                 for stride in (1, 2, 4, 8):
-                    tl = n_seq * t7 * (0.4 * 192 + 0.6 * 192 / stride)
+                    tl = n_seq * (DEC + (192 / stride) * t7)
                     if fixed + tl <= 1.15 * share:
                         return dict(n_seq=n_seq, stride=stride, v_sweep_full=v_full,
                                     k_sweep_full=k_full, per_layer=per_layer,
@@ -237,7 +295,13 @@ def fit_protocol(t7: float, share: float, L: int, is_scale: bool) -> dict:
 def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: int,
                  stride: int = 1, v_sweep_full: bool = True, k_sweep_full: bool = True,
                  per_layer: bool = True):
-    """Free-run one 64->256 sequence, fixed anchor; returns measurement dict."""
+    """Free-run one 64->256 sequence, fixed anchor.
+
+    Clean generation runs on the incremental KV-cache decoder (exact same
+    math as the full forward; G0b checks prob agreement); lesions are exact
+    full-context batched manual forwards compared on the actually-sampled
+    token.
+    """
     n_steps = T_TOTAL - PROMPT_TOK
     L = net.cfg.n_layer
     idx = prompt.clone()
@@ -246,31 +310,29 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
     nan_count = 0
     g2_viol = 0
     g2_bins_viol = 0
+    logits, kv = prefill(net, idx)                  # predicts position 64
     for si, t in enumerate(range(PROMPT_TOK, T_TOTAL)):
         ctx = idx[:t]
+        tok, ce_clean = sample_and_ce(logits, gen)
         measure = ((t - PROMPT_TOK) % stride == 0) or (t == T_TOTAL - 1)
-        # rows: 0 clean (sampling) | 1.. binned V-zero | last: last-64 recency
-        rows, cols = [], []
         if measure:
+            rows, cols = [], []
             for bi in range(len(BINS)):
                 ps = bin_positions(bi, t)
                 if ps:
                     rows.append(ps)
                     cols.append(bi)
-        N = 1 + len(rows) + (1 if measure else 0)
-        idxs = ctx[None].repeat(N, 1)
-        vz = torch.zeros(N, t, dtype=torch.bool)
-        for r, ps in enumerate(rows, start=1):
-            vz[r, ps] = True
-        if measure:
+            N = len(rows) + 1
+            idxs = ctx[None].repeat(N, 1)
+            vz = torch.zeros(N, t, dtype=torch.bool)
+            for r, ps in enumerate(rows):
+                vz[r, ps] = True
             vz[N - 1, max(0, t - 64):t] = True      # G2 recency row
-        logits = manual_logits(net, idxs, vz, None, None, chunk=ch)
-        if bool(torch.isnan(logits).any()):
-            nan_count += int(torch.isnan(logits).any(-1).sum())
-            logits = torch.nan_to_num(logits, nan=0.0)
-        tok, ce_clean = sample_and_ce(logits[0], gen)
-        if measure:
-            lg = torch.log_softmax(logits[1:].float(), -1)
+            les = manual_logits(net, idxs, vz, None, None, chunk=ch)
+            if bool(torch.isnan(les).any()):
+                nan_count += int(torch.isnan(les).any(-1).sum())
+                les = torch.nan_to_num(les, nan=0.0)
+            lg = torch.log_softmax(les.float(), -1)
             dce = -ce_clean - lg[:, tok].numpy()    # dCE = log(p_clean/p_les)
             for r, bi in enumerate(cols):
                 tl[si, bi] = dce[r]
@@ -285,11 +347,13 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
             if newest is not None and tl[si, newest] <= 0.5:
                 g2_bins_viol += 1
         idx = torch.cat([idx, torch.tensor([tok])])
+        if t < T_TOTAL - 1:
+            logits = decode_step(net, tok, t, kv)
     # ---- final step (t=255, target = position 255): full measurements
     ctx, tgt = idx[:T_TOTAL - 1], int(idx[T_TOTAL - 1])
     t_ctx = ctx.shape[0]
-    ce_clean = float(-math.log(max(torch.softmax(
-        manual_logits(net, ctx[None], None, None, chunk=ch)[0], -1)[tgt].item(), 1e-12)))
+    p_clean = torch.softmax(logits, -1)
+    ce_clean = float(-math.log(max(p_clean[tgt].item(), 1e-12)))
     P = t_ctx
     idxs = ctx[None].repeat(P, 1)
     sweep_v = sweep_k = None
@@ -354,10 +418,11 @@ def g0_check(net, window: torch.Tensor) -> float:
 
 
 @torch.no_grad()
-def measure_t7(net, ch: int) -> float:
-    """Time one B=7 batched manual forward at T=192 (median of 3)."""
-    idx = torch.randint(65, (192,))
-    idxs = idx[None].repeat(7, 1)
+def measure_t7(net, ch: int, window: torch.Tensor):
+    """Measure batched-forward cost (t7), incremental-decode cost ratio
+    (c_dec = t_dec/t7), and G0b: incremental-decode vs full-forward
+    max probability deviation."""
+    idxs = window[:192][None].repeat(7, 1)
     vz = torch.zeros(7, 192, dtype=torch.bool)
     vz[1:, 10:20] = True
     ts = []
@@ -365,7 +430,18 @@ def measure_t7(net, ch: int) -> float:
         t0 = time.time()
         manual_logits(net, idxs, vz, None, None, chunk=ch)
         ts.append(time.time() - t0)
-    return float(sorted(ts)[1])
+    t7 = float(sorted(ts)[1])
+    _, kv = prefill(net, window[:128])
+    ts2 = []
+    lg = None
+    for p in range(128, 133):
+        t0 = time.time()
+        lg = decode_step(net, int(window[p]), p, kv)
+        ts2.append(time.time() - t0)
+    full = manual_logits(net, window[:133][None], None, None, chunk=1)[0]
+    p0 = torch.softmax(lg, -1)
+    p1 = torch.softmax(full, -1)
+    return t7, float(sorted(ts2)[2]) / t7, float((p0 - p1).abs().max().item())
 
 
 @torch.no_grad()
@@ -467,7 +543,7 @@ def main():
     g0_window = corp.val[corp.seed % (len(corp.val) - T_TOTAL - 1):][:T_TOTAL]
 
     results, gates = {}, dict(
-        G0={}, G1={}, G2_last64_violations=0, G2_bin_violations=0, G3_nan=0,
+        G0={}, G0b={}, G1={}, G2_last64_violations=0, G2_bin_violations=0, G3_nan=0,
         G4_cpu_only=True, threads=THREADS, smoke=SMOKE)
     skipped = []
     exposure_clamp = None       # exposure-axis cells share n_seq (paired P2)
@@ -493,27 +569,36 @@ def main():
             gates["G1"][name] = dict(val_ce=val_ce, anchor=a, ok=abs(val_ce - a) <= tol)
         else:
             gates["G1"][name] = dict(val_ce=val_ce, anchor=None, ok=None)
-        t7 = measure_t7(net, ch)
-        proto = fit_protocol(t7, share, net.cfg.n_layer, axis.startswith("scale"))
+        t7, c_dec, g0b = measure_t7(net, ch, g0_window)
+        gates["G0b"][name] = g0b
+        proto = fit_protocol(t7, c_dec, share, net.cfg.n_layer, axis.startswith("scale"))
         if axis == "exposure" and exposure_clamp is not None:
             proto["n_seq"] = min(proto["n_seq"], exposure_clamp)
         if axis == "scale+exposure":
             exposure_clamp = proto["n_seq"]
         est = proto["est_s"]
-        log(f"{name}: G0 {dev0:.2e} | val CE {val_ce:.4f} | t7 {t7*1000:.0f}ms "
-            f"share {share:.0f}s -> n_seq={proto['n_seq']} stride={proto['stride']} "
+        log(f"{name}: G0 {dev0:.2e} G0b {g0b:.2e} | val CE {val_ce:.4f} | "
+            f"t7 {t7*1000:.0f}ms c_dec {c_dec:.3f} | share {share:.0f}s -> "
+            f"n_seq={proto['n_seq']} stride={proto['stride']} "
             f"vfull={proto['v_sweep_full']} kfull={proto['k_sweep_full']} "
-            f"perlayer={proto['per_layer']} (est {est:.0f}s)" if est is not None else
-            f"{name}: G0 {dev0:.2e} | val CE {val_ce:.4f} | t7 {t7*1000:.0f}ms "
-            f"share {share:.0f}s -> MINIMAL PROTOCOL {proto}")
+            f"perlayer={proto['per_layer']}" + (f" (est {est:.0f}s)" if est is not None else
+                                                " MINIMAL"))
 
         gen_s = torch.Generator().manual_seed(SEED_SAMPLE)   # paired across cells
         seqs = []
+        cell_t0 = elapsed()
         for si in range(proto["n_seq"]):
             r = run_sequence(net, prompts[si], gen_s, ch,
                              stride=proto["stride"], v_sweep_full=proto["v_sweep_full"],
                              k_sweep_full=proto["k_sweep_full"], per_layer=proto["per_layer"])
             seqs.append(r)
+            done = si + 1
+            proj = (elapsed() - cell_t0) / done * (proto["n_seq"] - done)
+            if (done >= 2 and si + 1 < proto["n_seq"]
+                    and elapsed() + proj > BUDGET_S * 0.95):
+                log(f"  {name}: pace guard -> stopping at {done} seqs "
+                    f"(proj +{proj:.0f}s over budget)")
+                break
             gates["G3_nan"] += r["nan_count"]
             gates["G2_last64_violations"] += r["g2_viol"]
             gates["G2_bin_violations"] += r["g2_bins_viol"]
@@ -572,8 +657,8 @@ def main():
             protocol=dict(n_seq=proto["n_seq"], stride=proto["stride"],
                           v_sweep_full=proto["v_sweep_full"],
                           k_sweep_full=proto["k_sweep_full"],
-                          per_layer=proto["per_layer"], t7_s=t7, share_s=share,
-                          est_s=proto["est_s"], fine_sweep=fine),
+                          per_layer=proto["per_layer"], t7_s=t7, c_dec=c_dec,
+                          share_s=share, est_s=proto["est_s"], fine_sweep=fine),
             timeline=dict(steps=steps_axis.tolist(), bins=BIN_NAMES,
                           vzero_dce_mean=tl.mean(0).tolist(),
                           last64_mean=np.stack([s["rec64"] for s in seqs]).mean(0).tolist()),
