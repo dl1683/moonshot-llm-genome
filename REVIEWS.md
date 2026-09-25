@@ -17,6 +17,16 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 9 — patrol (2026-09-25T02:36Z; single-agent integrity audit during the consolidation hold)
+
+Counts: THINKING 22 T-headers; REVIEWS 9; tree clean; STATE timestamps
+sane. Stragglers: none — all E049/R8 files verified on disk; confound
+flags confirmed in-place. Wake-the-panel: NO — zero results postdate
+Review 8; hold intact; e040 awaits the user.
+
+---
 ## Review 8 — overnight audit (2026-09-25T01:35Z server)
 
 ### Batch audit: T018 clean (n=1 carried); T019 P3 RELABELED (dose arms
