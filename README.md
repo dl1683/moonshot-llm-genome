@@ -30,6 +30,42 @@ A 1–10M-param transformer trains in minutes on one RTX 5090 Laptop. Iteration
 is effectively free, experiments are disposable, and a dissection program lives
 or dies on iteration count. Anything over 100M params is out of scope.
 
+## What we have learned (day one + two; see DAY_ONE_REPORT.md and THINKING.md)
+
+The lab's first 48 hours produced seven graded laws about a 2.7M char
+transformer — each with its evidence chain, replication stamps, and known
+confounds (card v3, THINKING.md T010-T023):
+
+1. **A mid-stack causal gate exists in every anatomy** — its depth varies
+   with seed, regime, and architecture budget (T012/T014/T020).
+2. **Anatomy is plastic; damage tracks energy** — lesion maps reorganize
+   under constraint at parity loss; the late-MLP energy carrier replicates
+   5/5 nets; the growing write schedule itself is decorative (T023: an
+   equalized-write net learns BETTER).
+3. **The residual-stream basis is init-anchored** — the alignment ladder
+   1.0 → 0.53 → 0.15 → 0.00; stream-facing matrices are the violent
+   grafts (T003/T006/e029/e031/e041).
+4. **Far-retrieval is task-elicited, not architectural** — none on natural
+   data; a ≤5%-density refrain flips interference into retrieval; the
+   retrieval head forms discretely in the late-attention slot (T021).
+5. **First-order ascent cannot selectively forget** (r=1.08
+   memorization-symmetric at the bar; every granularity tested).
+6. **Entity knowledge is address-plus-body** — 384-parameter row surgery
+   damages a name at S_name 573 for +0.0008 nats; complete erasure was
+   net-specific luck (T016).
+7. **The edit law: address, ability, expression, history** — removal is
+   surgical, installation is plastic-but-never-surgical, expression needs
+   free-shaped exposure (teacher-forced install is constitutionally
+   silent), and re-learned memories differ in route and surgical
+   resistance (T015/T018/T019).
+
+**The meta-law:** the laws are ensemble properties; the mechanisms are
+samples. Small nets are degenerate ensembles — WHICH component carries a
+function is a seed lottery; THAT the coarse allocation exists is forced.
+Method: mechanism claims enter the card at H only after ≥3 nets.
+
+In progress: e040 (is init-anchoring evolvable under lineage selection?).
+
 ## History (tombstone commit `106aeff`, 2026-09-24)
 
 Three prior programs live in git history below that commit:

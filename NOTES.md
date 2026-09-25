@@ -39,6 +39,23 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E033 — write-equalizer: the energy schedule is decorative (2026-09-25) — DONE
+
+WHAT WE DID: fresh 0.84M net with every MLP write renormalized to one
+uniform norm (1.64; hooks train+eval); baseline lesion map + equalized
+lesion map + calibrator KL. Envelope-compliant (batch 32, cooldown).
+
+WHAT WE SAW (T023): P1 parity TRUE (1.5147 < baseline 1.537 — BETTER);
+P2 energy-migrates FALSE (attention unchanged; MLP damage rose/flatten);
+P3 calibrator survives TRUE (KL 1.176). The late-MLP energy carrier is
+real but the growing schedule is an allocable habit — the net defends
+the coarse allocation, not the write norms. 0.84M-scoped, single net.
+
+WHAT'S NEXT: e040 lineage RUNNING (11 step-matched trainings, thermal
+blocks). README updated with the day-one/two results summary.
+
 ## E049 — the retrieval threshold (2026-09-25) — DONE
 
 WHAT WE DID: refrain corpora at p ∈ {0,5,20,60}% (24-32-char verbatim

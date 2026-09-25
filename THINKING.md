@@ -7,6 +7,27 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T023 — Write-equalizer: the energy schedule is decorative (E033, 2026-09-25T16:30Z; 0.84M, single net)
+
+**Verdicts: P1 parity TRUE (1.5147 < baseline 1.537 — equalized MLP writes
+learn BETTER); P2 energy-migrates FALSE; P3 calibrator survives TRUE (KL
+1.176).**
+- Forcing every MLP write to one uniform norm changed almost nothing that
+  matters: attention damage unchanged ([2.48,2.06,1.37,0.30] vs [2.84,
+  2.16,1.29,0.26]); MLP damage ROSE mid-stack and flattened ([3.06,2.44,
+  1.76,0.97] vs [2.95,1.55,1.60,1.22]); front-loading intact; the
+  calibrator untouched.
+- **L2 refinement (0.84M-scoped): the late-MLP energy CARRIER is real
+  (e047: 5/5) but the growing SCHEDULE is an allocable habit, not a
+  necessity.** The energy does not "migrate" anywhere when equalized — the
+  organs simply become uniformly important. Homeostasis bio-analogue
+  resolved: the network has no vital energy budget to defend at this
+  scale; it defends the coarse allocation (front-loading, calibrator),
+  not the write norms.
+- Caveats: single net, 4 layers, ≤1M envelope. The 2.7M equalizer never
+  completed (pre-envelope buggy run) — schedule-necessity at larger depth
+  remains open.
+
 ## T022 — e040 pre-run gate: is init-anchoring evolvable? (registered per scratch/e040_design.md, 2026-09-25T16:15Z)
 
 The lineage experiment's design is measured and gated (memo: cross-seed
