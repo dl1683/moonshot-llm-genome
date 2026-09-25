@@ -7,6 +7,27 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T022 — e040 pre-run gate: is init-anchoring evolvable? (registered per scratch/e040_design.md, 2026-09-25T16:15Z)
+
+The lineage experiment's design is measured and gated (memo: cross-seed
+graft damage +0.82/+1.99 nats at L2/L3 MLP — 3-4× own-ablation; alignment
+rungs 0.42/0.36 → 0.09/0.11 → 0.00 at exactly the violent sites;
+selectable resolution ~0.06 nats with 2-3% noise). Lineage: 0.84M
+genotypes from the seed-42 family (wildtype + 3 mutants at σ=25% init
+std), fixed REF donor organs, 2 selection events × 3 children, STEP-MATCHED
+4000 steps each, R = graft/own-ablation with parity + organ-band + G7
+escalation guards. REGISTERED:
+- **P1 (evolvable):** damage and R both −25% by gen-2, CI excludes 0, all
+  gates held → init-anchoring is under selectable control; e040b (second
+  REF) fires, never a re-roll.
+- **P2 (frozen):** <10% response or CI spans 0 with alignment flat →
+  selection cannot see the stream basis; C3 gains "frozen under selection."
+- **P3 (degeneration-route):** ΔW-alignment to REF rises ≥+0.05 without
+  damage falling → compatibility ≠ alignment (they dissociate).
+Scope caveats: n=1 donor, n=3 founders, single site pair. Budget 23.8 min
+serial with cooldowns — the envelope's first big run, reviewed pre-launch
+per standing instruction.
+
 ## T021 — The retrieval threshold (E049, 2026-09-25T04:30Z) [R8 scoping: corpora 620KB ~75 epochs; the p0 net is off-parity (val 2.82) so the −2.24 interference magnitude is partly net-quality artifact — the FLIP's SIGN is real, magnitude confounded; '≤5%' rests on one n=20-events cell (shared-probe view: 5-20%); late-attention-slot preference firm for the 2.7M series only — suggestive for 10M (1.42x contrast, 491 steps).]
 
 **Four refrain-density nets + a 10M arm, registered P1-P4:**
