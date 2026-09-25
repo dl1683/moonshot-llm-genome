@@ -36,19 +36,24 @@ The lab's first 48 hours produced seven graded laws about a 2.7M char
 transformer — each with its evidence chain, replication stamps, and known
 confounds (card v3, THINKING.md T010-T023):
 
-1. **A mid-stack causal gate exists in every anatomy** — its depth varies
-   with seed, regime, and architecture budget (T012/T014/T020).
+1. **A causal gate exists in every net tested ≥6 layers** (failed the
+   strict criterion at 4L, where the mode is the final block); its depth
+   varies with seed, regime, and architecture budget (T012/T014/T020).
 2. **Anatomy is plastic; damage tracks energy** — lesion maps reorganize
    under constraint at parity loss; the late-MLP energy carrier replicates
-   5/5 nets; the growing write schedule itself is decorative (T023: an
-   equalized-write net learns BETTER).
+   5/5 nets. [0.84M, n=1, T023: an equalized-write net passes parity
+   (1.515 vs 1.537) with attention/calibrator unchanged — schedule
+   possibly decorative, unreplicated.]
 3. **The residual-stream basis is init-anchored** — the alignment ladder
    1.0 → 0.53 → 0.15 → 0.00; stream-facing matrices are the violent
    grafts (T003/T006/e029/e031/e041).
 4. **Far-retrieval is task-elicited, not architectural** — none on natural
-   data; a ≤5%-density refrain flips interference into retrieval; the
-   retrieval head forms discretely in the late-attention slot (T021).
-5. **First-order ascent cannot selectively forget** (r=1.08
+   data; a refrain-density threshold (5-20% by the strict shared-probe
+   read; R8-flagged: the p0 interference magnitude is partly net-quality
+   artifact) flips interference into retrieval; retrieval heads form
+   discretely in the late-attention slot (2.7M series; 10M leg
+   suggestive).
+5. **First-order ascent cannot selectively forget** (r=1.09
    memorization-symmetric at the bar; every granularity tested).
 6. **Entity knowledge is address-plus-body** — 384-parameter row surgery
    damages a name at S_name 573 for +0.0008 nats; complete erasure was

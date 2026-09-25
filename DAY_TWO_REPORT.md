@@ -57,8 +57,9 @@ Direction survives; the multipliers carry a steps-confound caveat
 ## 5. The retrieval threshold (T021)
 
 Refrain-density corpora map the boundary where "no far retrieval on
-natural data" breaks: **≤5% refrain density flips far context from net
-interference (−2.24 nats) to net retrieval** — graded, not sharp;
+natural data" breaks: a refrain-density threshold (≤5% own-probe; 5–20% shared-probe)
+flips far context from net interference (−2.24 nats; R8-flagged partly
+net-quality artifact) to net retrieval — graded, not sharp;
 compartmentalized (zero leak into ordinary text at any density); retrieval
 heads form DISCRETELY, always in the late-attention slot (L5 at 6 layers,
 L7 at 8). Day one's T007 "far context can mislead" population was the
@@ -84,7 +85,7 @@ negative side of this same tug-of-war.
 
 ## 7. The write-equalizer (T023)
 
-Forcing uniform MLP write norms: parity IMPROVES (1.5147 vs 1.537),
+Forcing uniform MLP write norms: parity passes (1.5147 vs 1.537; n=1, no CI),
 attention untouched, calibrator intact, MLP damage flattens and rises.
 **The energy carrier is real but the schedule is decorative** — the
 network defends its coarse allocation, not its write norms. (0.84M-scoped.)

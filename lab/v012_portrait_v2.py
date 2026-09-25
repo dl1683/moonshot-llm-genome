@@ -215,7 +215,7 @@ for ax, kind, dmg_idx in ((axA1, "attention blocks", 2), (axA2, "MLP blocks", 3)
         for x, v in zip(xs, dmg):
             if v >= 0.9:
                 ax.text(x, v + 0.07, f"{v:.1f}", ha="center", va="bottom",
-                        fontsize=7.0, color=col, path_effects=PE)
+                        fontsize=6.7, color=col, path_effects=PE)
     ax.set_xticks(LAYERS, [f"L{l}" for l in LAYERS], fontsize=9.5)
     ax.set_xlabel(kind, fontsize=10)
     ax.spines[["top", "right"]].set_visible(False)
@@ -236,22 +236,17 @@ axA1.annotate("L5 attention ≈ dead weight\nin every anatomy (≤ +0.03)", xy=(
 axA2.annotate("MLP profile INVERTS\nto late-heavy in R", xy=(5.24, 0.72), xytext=(2.35, 3.3),
               ha="left", va="center", fontsize=8.2, color=C_R,
               arrowprops=dict(arrowstyle="->", lw=1.1, color=C_R))
-axA2.text(0.985, 0.70,
+axA2.text(0.985, 0.995,
           f"DAY-2 STAMPS\n"
-          f"• scale (e005s): front-loading INTENSIFIES —\n"
-          f"  attn-L0/last  {FL_SMALL:.0f}× (0.84M) → {FL_B:.0f}× (2.7M) → "
-          f"{FL_LARGE:.0f}× (10M);\n"
-          f"  at 10M the 3 deepest attn blocks cost ≤0.04 each,\n"
+          f"• front-loading INTENSIFIES with scale (e005s): attn-L0/last\n"
+          f"  {FL_SMALL:.0f}× (0.84M) → {FL_B:.0f}× (2.7M) → {FL_LARGE:.0f}× (10M); at 10M the\n"
           f"  MLP-0 keystone sharpens ({MLP0_10M:.2f}; rest ≤{MLP_REST_10M:.2f})\n"
-          f"• equalized writes (e033, 0.84M, 1 net): all MLP write norms\n"
-          f"  pinned equal → val {EQ_EQ:.4f} BEATS baseline {EQ_BASE:.4f};\n"
-          f"  MLP damage flattens [{EQ_MLP_B[0]:.2f},{EQ_MLP_B[1]:.2f},"
-          f"{EQ_MLP_B[2]:.2f},{EQ_MLP_B[3]:.2f}]→[{EQ_MLP_E[0]:.2f},"
-          f"{EQ_MLP_E[1]:.2f},{EQ_MLP_E[2]:.2f},{EQ_MLP_E[3]:.2f}],\n"
-          f"  L5-calibrator untouched (KL {EQ_KL:.2f}) — the schedule is decorative\n"
-          f"• replicates 5/5 nets (e047): MLP-5 energy carrier\n"
-          f"  (rotate/zero 0.25–0.34) · L5-calibrator (KL 0.91–1.08)",
-          transform=axA2.transAxes, ha="right", va="top", fontsize=7.1, linespacing=1.35,
+          f"• write-equalizer (e033, 1 net): all MLP write norms pinned\n"
+          f"  equal → val {EQ_EQ:.4f} BEATS baseline {EQ_BASE:.4f}; damage\n"
+          f"  flattens, calibrator untouched (KL {EQ_KL:.2f}) — the schedule\n"
+          f"  is decorative (energy carrier still replicates 5/5, e047)",
+          transform=axA2.transAxes, ha="right", va="top", fontsize=7.0,
+          linespacing=1.35,
           bbox=dict(boxstyle="round,pad=0.45", fc="#fbfbfb", ec="#bbbbbb"))
 handles = [Patch(fc=col, alpha=0.92, label=f"{name} · val {v:.3f}")
            for name, col, _a, _m, v in A_NETS]
@@ -272,15 +267,19 @@ for name, col, hist, mode in B_NETS:
     axB1.plot(mode, f[mode] * 100, "o", ms=11, mfc="none", mec=col, mew=2.2, zorder=5)
 axB1.annotate("the mode SLIDES with seed + regime:\nB 3 → B43 4 → R 4 → R43 5\n"
               "(renorm pushes mass deeper: d5 share 250→423)",
-              xy=(5, B_HIST_FRAC["R43"][5] * 100 - 1.2), xytext=(0.6, 30.5),
-              ha="left", va="top", fontsize=8.0, color="#333333",
+              xy=(5, B_HIST_FRAC["R43"][5] * 100 - 1.2), xytext=(1.0, 6.5),
+              ha="left", va="bottom", fontsize=8.0, color="#333333",
               arrowprops=dict(arrowstyle="->", lw=1.2, color="#333333"))
 axB1.text(0.03, 0.70,
           f"NON-INVARIANCE (e012d): hist corr\n"
           f"seed axis {B_XSEED['B|B43']:.2f}/{B_XSEED['R|R43']:.2f} ·\n"
           f"regime axis {B_XREGIME['B|R']:.2f}/{B_XREGIME['B43|R43']:.2f} —\n"
-          f"all below the 0.8 bar, vs instrument\nceiling {B_CEIL:.2f}–{B_CEIL_MAX:.2f}",
-          transform=axB1.transAxes, fontsize=7.4, va="top",
+          f"all below the 0.8 bar, vs instrument\n"
+          f"ceiling {B_CEIL:.2f}–{B_CEIL_MAX:.2f}\n"
+          f"flip curves suffix-monotone\n"
+          f"{min(B_SUFFMON.values())*100:.0f}–{max(B_SUFFMON.values())*100:.0f}% "
+          f"(B {B_FLIPCURVE[0]:.2f}→{B_FLIPCURVE[-1]:.2f})",
+          transform=axB1.transAxes, fontsize=7.2, va="top",
           bbox=dict(boxstyle="round,pad=0.4", fc="#fdf3f3", ec=C_COPY, lw=0.9))
 axB1.set_xticks(xb, [f"d{d}" for d in xb], fontsize=9.0)
 axB1.set_xlabel("counterfactual patch depth (causal decision point)", fontsize=9.0)
@@ -306,19 +305,17 @@ axB2.set_ylabel("relative commitment depth  mode/(L−1)", fontsize=9.0)
 axB2.set_ylim(-0.33, 1.25)
 axB2.set_xlim(-0.55, 2.55)
 axB2.spines[["top", "right"]].set_visible(False)
-axB2.text(0.5, 1.00,
-          "depth budget slides the gate (e005s);\n4L has no 'mid' — 46% commit at the\n"
-          "final block; distributed decisions\ncollapse 26% → 15% → 7%",
-          transform=axB2.transAxes, ha="center", va="top", fontsize=7.6,
-          bbox=dict(boxstyle="round,pad=0.4", fc="#f5f5f5", ec="#bbbbbb"))
+axB2.text(0.985, 0.99,
+          "depth budget slides the gate (e005s)\n"
+          "4L has no mid: 46% at the FINAL block\n"
+          "distributed collapse 26% → 15% → 7%\n"
+          "R8: steps confound (4000/2226/1086)",
+          transform=axB2.transAxes, ha="right", va="top", fontsize=7.0,
+          bbox=dict(boxstyle="round,pad=0.35", fc="#f5f5f5", ec="#bbbbbb"))
 panel_title(axB1, "B · C1", "The causal gate: universal, depth NOT invariant",
             "re-anchored T012/T014: lens histograms were an argmax-stability artifact",
-            foot=f"ρ(causal, lens) = {B_SPEARMAN:+.3f} (e018) — lens demoted; task-COPY L4 "
-                 f"retrieval mode survives (L4-H1 causal lesion, e021). "
-                 f"R8: e005s steps confound (4000/2226/1086 steps anti-correlate with scale); "
-                 f"flip curves suffix-monotone "
-                 f"{min(B_SUFFMON.values())*100:.0f}–{max(B_SUFFMON.values())*100:.0f}% "
-                 f"(B {B_FLIPCURVE[0]:.2f}→{B_FLIPCURVE[-1]:.2f})")
+            foot=f"ρ(causal, lens) = {B_SPEARMAN:+.3f} (e018) — lens demoted; task-COPY L4 mode "
+                 f"survives (L4-H1 causal lesion, e021)")
 
 # ================================================================ panel C (C4)
 axC = fig.add_subplot(gs[1, 0])
@@ -394,7 +391,7 @@ axD.text(0.985, 0.86,
          bbox=dict(boxstyle="round,pad=0.45", fc="#f5f5f5", ec="#bbbbbb"))
 
 # ================================================================ panel E (C4')
-gsE = gs[2, 0].subgridspec(2, 1, height_ratios=[3.2, 1.0], hspace=0.10)
+gsE = gs[2, 0].subgridspec(2, 1, height_ratios=[3.0, 1.0], hspace=0.50)
 axE = fig.add_subplot(gsE[0, 0])
 xE = np.arange(4)
 axE.axvspan(-0.45, 1.45, color="#e8c34e", alpha=0.14, zorder=0)
@@ -408,7 +405,7 @@ for x, v in zip(xE, E_FV):
              path_effects=PE)
 axE.axhline(0, color="k", lw=1.1, zorder=1)
 axE.set_xticks(xE, [f"p{l}\n({ev} events)" for l, ev in zip(E_LEVELS, E_EVTS)],
-               fontsize=9.0)
+               fontsize=8.5)
 axE.set_ylabel("far-value at refrain prefix  (nats, k=1–3)", fontsize=9.5)
 axE.set_ylim(-3.0, 1.6)
 axE.set_xlim(-0.55, 3.55)
@@ -419,7 +416,7 @@ axE.annotate("THE FLIP: at p=0 far context HURTS\n(−2.24, T007 interference); 
              color="#333333",
              arrowprops=dict(arrowstyle="->", lw=1.3, color="#a08020"),
              bbox=dict(boxstyle="round,pad=0.4", fc="#fdf9ec", ec="#c9a227"))
-axE.text(0.985, 0.97,
+axE.text(0.99, 0.50,
          f"GRADED, not sharp (P2 refuted): +{E_FV[1]:.2f} → +{E_FV[2]:.2f} → "
          f"+{E_FV[3]:.2f}\n"
          f"adjacent ratios {E_RATIOS['5->20']:.2f}× then {E_RATIOS['20->60']:.2f}×\n"
@@ -441,10 +438,10 @@ axE2.spines[["top"]].set_visible(False)
 axE2.legend(loc="upper left", fontsize=7.6, framealpha=0.95)
 panel_title(axE, "E · C4′  NEW", "The retrieval threshold",
             "T021 (e049): refrain density vs far-value — the flip and the head",
-            foot="p0 bar hatched = shared-probe view (0 own events) on an off-parity net "
-                 f"(val {E_VAL[0]:.2f} vs {E_VAL[1]:.2f}) — interference MAGNITUDE confounded, "
-                 "sign real; '≤5%' rests on one n=20-events cell (shared-probe view: 5–20%); "
-                 "10M arm 1.87× more sensitive at p5 but only 491 steps (weak)")
+            foot="p0 bar hatched = shared-probe view (0 own events) on an off-parity net\n"
+                 f"(val {E_VAL[0]:.2f} vs {E_VAL[1]:.2f}) — interference MAGNITUDE confounded, sign real;\n"
+                 "'≤5%' rests on one n=20-events cell (shared-probe view: 5–20%); 10M arm 1.87×\n"
+                 "more sensitive at p5 but only 491 steps (weak support)")
 axH = fig.add_subplot(gsE[1, 0])
 axH.axis("off")
 axH.text(0.0, 0.92, "best head\n(refrain/control mass)", fontsize=7.6,
@@ -456,15 +453,15 @@ head_txt = [
     (f"{E_HEADS[3]['layer']}H{E_HEADS[3]['head']} · {E_HEAD_RATIO[3]:.2f}×", "strongest", C_ID),
 ]
 for i, (t1, t2, col) in enumerate(head_txt):
-    axH.text(0.235 + i * 0.19, 0.95, t1, fontsize=8.6, ha="center", va="top",
+    axH.text(0.235 + i * 0.19, 0.97, t1, fontsize=8.6, ha="center", va="top",
              fontweight="bold", color=col,
              bbox=dict(boxstyle="round,pad=0.35", fc="#ffffff", ec=col, lw=1.1))
-    axH.text(0.235 + i * 0.19, 0.38, t2, fontsize=7.2, ha="center", va="top",
+    axH.text(0.235 + i * 0.19, 0.46, t2, fontsize=7.2, ha="center", va="top",
              color=col)
-axH.text(0.995, 0.95,
+axH.text(0.995, 0.0,
          "behavior grades; anatomy is lumpy — the head forms DISCRETELY,\n"
          "always in the last attention block (L5 at 6 layers; L7 in the 8-layer 10M)",
-         fontsize=7.4, ha="right", va="top", color="#333333", style="italic")
+         fontsize=7.4, ha="right", va="bottom", color="#333333", style="italic")
 
 # ================================================================ panel F (C7)
 axF = fig.add_subplot(gs[2, 1])
@@ -495,7 +492,7 @@ BOXES = [
      f"• uniform-floor {F_HB['uniform_acc_std']:.3f} vs {F_HB['host_acc_std']:.3f} host —\n"
      f"  battery acc ≠ usable knowledge"),
     (0.501, 0.02, 0.487, 0.465, "#fdf0f0", C_COPY,
-     "4 · HISTORY — scar tissue (re-learned ≠ original)",
+     "4 · HISTORY — scar (re-learned ≠ original)",
      f"• re-learn {F_V2['ratio']:.2f}× SLOWER, yet the zeroed row re-grows\n"
      f"  along its ORIGINAL direction (cos {F_SCAR['cos_wte']:.2f};\n"
      f"  {F_V2['cos_meta']['regrowth_frac']['wte_frac']*100:.0f}% norm regrowth); fresh name 0.28\n"
@@ -514,11 +511,11 @@ for x, y, wbox, hbox, fc, ec, title, body in BOXES:
              fontweight="bold", color=ec, transform=axF.transAxes, va="top")
     axF.text(x + 0.016, y + hbox - 0.105, body, fontsize=7.5,
              transform=axF.transAxes, va="top", linespacing=1.42, zorder=2)
-axF.text(0.501 + 0.487 - 0.016, 0.02 + 0.465 - 0.035,
+axF.text(0.501 + 0.487 - 0.014, 0.02 + 0.014,
          "[ n=1 — single net, R7: numbers await replication ]",
-         fontsize=7.6, fontweight="bold", color=C_COPY, ha="right", va="top",
+         fontsize=7.6, fontweight="bold", color=C_COPY, ha="right", va="bottom",
          transform=axF.transAxes, bbox=FLAG_BX, zorder=3)
-axF.text(0.501 + 0.016, 0.02 + 0.028,
+axF.text(0.501 + 0.016, 0.515 + 0.030,
          "[ protocol-fragile: onset wall was anchor-manufactured (T015) ]",
          fontsize=7.2, color="#8b4444", ha="left", va="bottom",
          transform=axF.transAxes, zorder=3)

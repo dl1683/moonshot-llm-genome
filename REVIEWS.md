@@ -23,6 +23,22 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 12 — day-two audit (2026-09-25T16:40Z; combined panel, e040 mid-run)
+
+### T023 audit: numbers exact; three soft overreads fixed — "learns BETTER"
+→ "passes parity" (0.023-nat gap, n=1, no CI); "damage flattens" →
+mid-stack rose/L3 fell (spread widened); attention L0 -13% noted.
+### Doc drift fixed: README law 2 de-launders the e033 result (n=1/0.84M
+scope restored); law 4 restores T021's R8 flags; law 1 scoped to ≥6L
+(4L failed strict); r=1.09; DAY_TWO "parity passes" + threshold
+shared-probe range. Queue truth: e040 RUNNING, e033 DONE.
+### Integrity: 24 T-headers, 12 reviews, 35 notes. Process: hand-written
+stamps drifted (T023 future-dated 18 min) — future stamps derive from
+`date -u` at write time.
+
+---
 ## Review 11 — patrol (2026-09-25T04:42Z; self-audit, no agent: ledger
 unchanged since R8, threshold functionally crossed, prior two patrol
 audits clean)

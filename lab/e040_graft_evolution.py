@@ -720,7 +720,10 @@ def main():
         log(f"  REF base CE {REF_REC['base_ce']:.4f} (G3 band {REF_BAND}: "
             f"{'PASS' if g3 else 'FLAG'})")
 
-    cooldown_with(ref_assay, "e040_ref")
+    if ref["fresh"]:
+        cooldown_with(ref_assay, "e040_ref")
+    else:
+        ref_assay()
     REF_DW = {s: dw_vec(REF_SD, ref_init, mlp_keys(s)) for s in SITES}
     REF_RAW = {s: raw_vec(REF_SD, mlp_keys(s)) for s in SITES}
 
@@ -813,8 +816,9 @@ def main():
     if STATUS["wall_violated"] or len(included(MEMBERS[1])) < 2:
         return finish(rd, partial=True)
     stats1 = cohort_stats(MEMBERS[1])
-    log(f"gen-1: D mean {stats1['D_mean']:.4f} R mean {stats1['R_mean']:.3f} "
-        f"align {stats1['align_mean']:+.4f}")
+    if stats1.get("n"):
+        log(f"gen-1: D mean {stats1['D_mean']:.4f} R mean {stats1['R_mean']:.3f} "
+            f"align {stats1['align_mean']:+.4f}")
 
     run_generation(2, MEMBERS[1])
     if STATUS["parked"]:
@@ -823,9 +827,10 @@ def main():
         return abort(rd, "gen-2: >1 member excluded (G5)")
     assign_eligibility(MEMBERS[2], w_rec)
     stats2 = cohort_stats(MEMBERS[2])
-    log(f"gen-2: D mean {stats2['D_mean']:.4f} R mean {stats2['R_mean']:.3f} "
-        f"align {stats2['align_mean']:+.4f}")
-    return finish(rd, partial=bool(STATUS["wall_violated"]))
+    if stats2.get("n"):
+        log(f"gen-2: D mean {stats2['D_mean']:.4f} R mean {stats2['R_mean']:.3f} "
+            f"align {stats2['align_mean']:+.4f}")
+    return finish(rd, partial=bool(STATUS["wall_violated"] or not stats2.get("n")))
 
 
 if __name__ == "__main__":
