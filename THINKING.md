@@ -7,7 +7,34 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T029 — E058: the geometry zone is the causal-gate region; L0 criticality and basis-specificity fully dissociate (2026-09-25T19:05Z)
+## T029 — E058: the geometry zone is the causal-gate region? [DOWNGRADED TO SUGGESTIVE by interpreter audit 19:20Z]
+
+**AUDIT FINDINGS (applied in place):** (1) The peaks are shallow (10%
+margins; B43's ladder is bimodal — L2 3.82 nearly ties L4 4.24 and
+exceeds its pre-gate L3). (2) "Peaks AT the gate" was a THIRD,
+unregistered hypothesis after H-role and H-depth both failed the
+registered rules — garden-of-forking-paths; with gate∪pre-gate∪flank
+covering ~3 of 6 sites, a smooth mid-stack ladder passes per host by
+coin flip, and the two gates are adjacent. (3) The pooled partial r is
+pseudo-replicated (6 distinct geometry values × 2 hosts; effective n≈6).
+(4) Circularity risk made visible: raw damage and organ-load BOTH peak
+at L0; the mid-stack "interference peak" exists only in the D/A ratio —
+both instruments may track one shared factor (mid-stack
+seed-idiosyncrasy) rather than a "gate," and T014's ±1-layer gate error
+makes "peak AT gate" nearly unfalsifiable for adjacent gates. (5) L0
+dissociation has a mundane reading (T013's shared machinery; embedding-
+dominated, nearly seed-determined map).
+
+**HONEST STATE: suggestive, not established.** The registered stress
+test (e064): run the graft ladder on R and R43 (gates at modes 4 and 5 —
+R43's far from mid-stack), no training needed. Registered prediction:
+R43's R-ladder peaks L5 if the unification is real; a mid-stack peak
+with a measured L5 gate kills it via shared-method bias. Free pre-step:
+bootstrap CIs on B/B43 peak location from existing metrics.
+
+Original entry follows.
+
+## T029-original — E058 findings (2026-09-25T19:05Z)
 
 **Verdict MIXED-as-registered but the structure is sharp:**
 - **H-none REFUTED — the geometry signal replicates hard at 2.7M once
