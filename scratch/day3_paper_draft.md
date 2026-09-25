@@ -1,11 +1,13 @@
 # Paper Skeleton — P-A submission draft, Day 3 (STRATEGIST, 2026-09-25)
 
 Status: SKELETON for the actual submission-shaped draft, per novelty_inventory
-P-A "double-down" verdict and the completed expression-gap arc (T028-T033).
+P-A "double-down" verdict and the completed expression-gap arc (T028-T035).
 Not the day report. Every quantitative claim below is traceable to a run
-(e023/e042/e043/e044/e048/e053/e055) or an audit annotation; every caveat is
-carried verbatim from the T033 audit into Limitations. Target venue class:
-mech-interp workshop → main conference.
+(e023/e042/e043/e044/e048/e053/e055/e056b/e056c) or an audit annotation; every
+caveat is carried verbatim from the T033 audit into Limitations, with the
+circularity item resolved by e056b and refined by e056c (T034/T035) into the
+3c/3d claim-split. Target venue class: mech-interp workshop → main
+conference.
 
 ---
 
@@ -19,7 +21,7 @@ Knowledge That Cannot Surface**
 (subtitle option: *The four faculties of installed knowledge in a 2.7M
 character transformer*)
 
-## Abstract (150 words)
+## Abstract (~175 words)
 
 Language models can score near-perfectly on continuation tests of a fact
 while never producing it in free generation. We dissect this elicitation
@@ -30,14 +32,18 @@ accuracy) never surfaces in free generation (0 of 2,800 characters) across
 dose, temperature, and seeding arms. The installed address is bound to
 training position, not content: a one-character context shift collapses
 expression probability (0.556→0.12), and the correct token persists
-sub-argmax throughout. Transplanting the model's own teacher-forced residual
-states at divergence tokens causally rescues expression (p 0.374 vs shuffled
-0.000) with a mid-stack threshold at depth 4 of 6 and a
-destruction–re-emergence structure (block-0 peak, block-2 crash). Findings
-are from a single model family of ≤2.7M parameters; terminal sites are
-pseudo-replicated and site-selection circularity is under active control.
+sub-argmax throughout. At the bound position, transplanting the model's own
+teacher-forced residual state durably rescues expression (p 0.374 vs
+shuffled 0.000; one-shot rescue that propagates to generated text), with a
+mid-stack threshold at depth 4 of 6 and a destruction–re-emergence
+structure (block-0 peak, block-2 crash). At non-onset positions the same
+write is a transient logit artifact — floor by +2 tokens, zero recurrent
+Z-words in 288 continuations: the knowledge is position-bound, and so are
+its suppression and rescue. Findings are from a single model family of
+≤2.7M parameters; terminal sites are pseudo-replicated.
 
-*(Word count: ~148. The honesty sentence is load-bearing; do not trim it.)*
+*(Word count: ~175. The honesty sentences are load-bearing; do not trim
+them.)*
 
 ---
 
@@ -121,14 +127,27 @@ depth structure (5.4) → adjacent cache-utility context (5.5).
    49/60) — the install worked; the probe was wrong. The correct token is
    sub-argmax everywhere (rank-2, p 0.167–0.234 at onset; rank-3,
    p 0.004–0.007 at deep sites vs floor 2e-8).
-3. **Causal state-rescue at depth 4** — transplanting the model's own
-   teacher-forced residual state at the free-run divergence token rescues
-   expression: p(Z) 0.374 (d4) / 0.494 (d5) vs shuffled donors ≈ 0.000
-   everywhere; the rescue is ~60× its base-net-twin control (0.0062);
-   pad-shifted donors cap at 0.133 (position-cue leak excluded); one-shot
-   semantics genuine (25/32 vs base 6/32); 32 downstream Z-word rows show
-   rescued states propagate to *generated* text, not just next-token
-   probability. The interventional factual-recall study Orgad et al. lack.
+3. **Causal state-rescue at depth 4 — split by the e056b/e056c
+   discriminator into two claims:**
+   - **3c (position-specific durable rescue at onset sites):** transplanting
+     the model's own teacher-forced residual state at the free-run divergence
+     token (an install-geometry onset) rescues expression *durably*: p(Z)
+     0.374 (d4) / 0.494 (d5) vs shuffled donors ≈ 0.000 everywhere; the
+     rescue is ~60× its base-net-twin control (0.0062); pad-shifted donors
+     cap at 0.133 (position-cue leak excluded); one-shot semantics genuine
+     (25/32 vs base 6/32) — the write survives the model's own dynamics; 32
+     downstream Z-word rows show rescued states propagate to *generated*
+     text, not just next-token probability. The interventional
+     factual-recall study Orgad et al. lack.
+   - **3d (the transient-injection negative at non-onset positions — itself
+     a finding):** the same d4 write at 24 random non-onset positions blips
+     p(Z) to 0.509 (argmax flips 24/24) then reverts to the control floor by
+     +2 tokens (median 3.3e-6 vs floor 6.8e-7); ZERO recurrent Z-words in
+     288 donor continuations — the only ZEPHYRA-like outputs are offset-0
+     speaker-tag completions that die at the colon. The write is
+     knowledge-specific (first-Z 49/96 donor rows vs 0/96 shuffled and
+     0/96 base) yet cannot steer even 2 tokens ahead: an address, not a
+     general steering direction.
 4. **The d1-peak/d2-crash destruction–re-emergence structure** — at
    off-geometry sites the address survives block-0 output (d1 peak), is
    destroyed across blocks 1→2 (crash), and becomes re-injectable from
@@ -201,9 +220,10 @@ error-type AUCs of 0.59–0.68 as the reviewers' target).
 Every headline claim passed through in-place audit annotations (REVIEWS.md
 + THINKING.md audit brackets): the e043 battery-vs-expression amendment, the
 e046 replication demotion of the two-factor erasure, the T032 off-geometry
-correction, the T033 22:30Z audit of e055, and the registered e056b
-circularity control (in flight). The paper reports post-audit numbers with
-the caveats attached, not the pre-audit headlines.
+correction, the T033 22:30Z audit of e055, the registered e056b
+circularity control (landed: resolved), and the e056c loud-logit-paste
+discriminator that split the rescue claim (T034/T035). The paper reports
+post-audit numbers with the caveats attached, not the pre-audit headlines.
 
 ---
 
@@ -268,7 +288,7 @@ the caveats attached, not the pre-audit headlines.
   d5 0.398 / d6 0.716) with shuffled writes at ~0–0.03 (AUC 1.0) — the
   full run's job was the 24-site curve and the depth structure.
 
-## 5.4 Causal state-rescue and the depth structure (e055; audit chain: T033 22:30Z, e056b pending)
+## 5.4 Causal state-rescue and the depth structure (e055; audit chain: T033 22:30Z; follow-ups e056b/e056c landed)
 
 - **P1 confirmed — state-rescue:** 24-site depth-survival transplant;
   TF-state at the onset position rescues p(Z) to 0.374 (d4) and 0.494 (d5)
@@ -290,11 +310,29 @@ the caveats attached, not the pre-audit headlines.
 - **The causal story, paper-grade:** installed knowledge exists as a
   position-bound (wpe-130) sub-argmax address; free-run destroys it across
   blocks 1→2; a teacher-forced state at the onset position from depth ≥4
-  restores expression; shuffled states do nothing. Elicitation failure is
-  real, localized, and state-carried.
-- **Registered follow-up (e056b, in flight):** depth curve at ~24 random
-  NON-onset positions from cached trajectories — d*=4 surviving there kills
-  the selection-circularity objection (minutes, no training).
+  restores expression durably; shuffled states do nothing; and the same
+  write at non-onset positions is a transient logit blip, not a steering
+  direction (e056c). Elicitation failure is real, localized,
+  position-specific, and state-carried.
+- **Follow-up landed (e056b, T034): circularity RESOLVED.** The same depth
+  curve at 24 random NON-onset floor-prior positions from cached
+  trajectories: the d4 rescue fires anywhere (site-mean 0.324 ≥ 0.30,
+  AUC 1.000; shuffled 1.2e-7; base-net twin 0.007) — d*=4 is not a
+  property of gap-selected sites.
+- **Discriminator landed (e056c, T035): off-position firing is a LOUD LOGIT
+  PASTE.** Under the frozen R14 rule, the non-onset "rescue" is a one-token
+  Z-logit crank: p(Z) 0.509 at +1 (argmax flips 24/24, flip-to-Z 0.46) →
+  control floor by +2 (median 3.3e-6 vs floor 6.8e-7) → 5.1e-6 at +10;
+  zero recurrent Z-words in 288 donor continuations (the only
+  ZEPHYRA-like outputs are 6 offset-0 speaker-tag completions that die at
+  the colon); knowledge-specific (first-Z 49/96 donor rows vs 0/96
+  shuffled and 0/96 base). The durable rescue is position-specific to
+  onset sites; the off-position write is transient injection, not
+  steering.
+- **Persistence curve (Fig 5, runs/e056c/persistence_curve.png):** mean
+  p(Z) vs continuation offset per arm — the donor-write blip at +1
+  collapsing onto the shuffled/base floor by +2 and flat through +10 — is
+  the visual form of the 3d transient-injection negative.
 
 ## 5.5 Adjacent context: what the free-running stream actually uses (e053/e053b; audits T030/T031)
 
@@ -327,10 +365,17 @@ the caveats attached, not the pre-audit headlines.
 3. **Terminal sites are pseudo-replicated:** "t=120 recurs."
 4. **d* = 4 is terminal-carried:** "deep-only stratum would give d*=5,
    outside {2,3,4}." The depth claim is scoped to the mixed-site curve.
-5. **Selection circularity OPEN:** "ALL 21 sites are gap-selected onsets."
-   The rescue could in principle be a property of gap-selected positions
-   rather than of suppression generally; e056b (random non-onset positions)
-   is the registered kill-test, in flight at submission-draft time.
+5. **Selection circularity RESOLVED by e056b, refined by e056c:** the
+   registered kill-test ran the d4 write at 24 random non-onset floor-prior
+   positions (base p(Z) median 6.8e-8; trajectory-identity gate bit-exact)
+   — the rescue fires anywhere (site-mean 0.324 ≥ 0.30, AUC 1.000;
+   shuffled 1.2e-7; base-net twin 0.007), so d*=4 is not a property of
+   gap-selected sites. e056c's frozen-rule discriminator then showed the
+   off-onset firing is a transient logit blip (floor by +2; zero recurrent
+   Z-words in 288 continuations). The original T033 caveat — "ALL 21 sites
+   are gap-selected onsets" — remains true of e055's sites; the claims are
+   now scoped: durable rescue at onset sites, transient injection at
+   non-onset positions.
 6. **Downstream Z-words "partly onset-flip + mechanical completion"** —
    R2/R3 expression evidence is supportive, not load-bearing; R1 is the
    primary readout.
@@ -373,11 +418,15 @@ sites that show the gap, then showed they show the gap"
 sites share t=120; the deep-only stratum moves d* to 5; the base-net d5
 control is itself 23% of installed.
 
-**Pre-emptive answer:** (a) e056b is REGISTERED and cheap: the same depth
-curve at ~24 random non-onset positions from cached trajectories; d*=4
-surviving there converts the site-selection objection into a robustness
-result, and the paper holds submission until it lands (minutes, no
-training). (b) The circularity structure is disclosed in Limitations
+**Pre-emptive answer:** (a) e056b RAN and resolved it: the same depth
+curve at 24 random non-onset positions from cached trajectories — the
+rescue fires anywhere (site-mean 0.324, AUC 1.000, shuffled 1.2e-7),
+converting the site-selection objection into a robustness result; e056c
+then discriminated what firing-off-onset means (transient logit blip, not
+address installation — floor by +2, zero recurrent Z-words in 288
+continuations), which is why the durable-rescue claim is scoped to onset
+sites in the claim-split. (b) The circularity structure is disclosed in
+Limitations
 verbatim, with the pseudo-replication and terminal-carried d* caveats —
 we quote d4 (the strong leg, 60× its own base-net twin) and scope the
 depth claim to the mixed-site curve. (c) The pad-shifted control already
@@ -401,12 +450,18 @@ no prior work connects TF/free-run *state* differences to *knowledge
 expression at a named token*, and none measures where in depth the
 knowledge stops being expressible — we own that specific claim, scoped per
 T028 to "factual-recall expression / own-state transplant." (b) YOPO,
-Yan & Jia, ITI, DoLa are cited in the intro as the adjacent wall: YOPO
-injects a *learned direction* in the *abstention* domain for *elicitation*;
-we transplant the model's *own teacher-forced states* in the *factual-recall*
-domain for *suppression-depth localization*; DoLa assumes late-layer
-pollution and never measures where knowledge dies — we provide the
-measurement its layer choice lacks. (c) "Probes already showed it" is
+Yan & Jia, ITI, DoLa are cited in the intro as the adjacent wall — and the
+YOPO collision dissolves on our own negative result: YOPO injects a
+*learned direction* in the *abstention* domain for *elicitation* — a
+general steering vector. Our d4 write is NOT a general steering direction,
+and we demonstrate that ourselves: at non-onset positions it fails to
+steer even 2 tokens ahead (p(Z) 0.509 at +1 → control floor by +2; zero
+recurrent Z-words in 288 continuations; e056c). What we demonstrate is
+position-specific suppression and position-specific rescue at the
+install-geometry onset — the model's *own teacher-forced states* in the
+*factual-recall* domain for *suppression-depth localization*. DoLa assumes
+late-layer pollution and never measures where knowledge dies — we provide
+the measurement its layer choice lacks. (c) "Probes already showed it" is
 exactly our point: the entire prior record is read-only (Orgad's probes
 are explicitly diagnostic; their interventional-looking result is
 post-hoc *selection among resamples*, not a write); the causal question —
@@ -429,19 +484,26 @@ the adjacent literatures carry.
   annotated; inset d*/6 across sites.
 - Fig 4: the four-faculty schema with per-faculty evidence table
   (run → metric → n → caveat).
+- Fig 5 (from runs/e056c/persistence_curve.png): the persistence curve —
+  mean p(Z) vs continuation offset per arm; donor-write blip at +1
+  collapsing onto the shuffled/base floor by +2, flat through +10 (the 3d
+  transient-injection negative).
 - Table 1: e055 controls summary (rescue ratios, CIs).
-- Table 2: limitations ledger (claim → caveat → kill-test → status incl.
-  e056b).
+- Table 2: limitations ledger (claim → caveat → kill-test → status:
+  e056b resolved, e056c refined).
 - Appendix: registered predictions verbatim (design memos), audit
   annotations, reproducibility (all runs/, metrics.json + figures in git).
 
 # Submission checklist (pre-flight)
 
-- [ ] e056b lands and is folded into 5.4 + Limitations (circularity OPEN →
-      resolved-or-scoped).
+- [x] e056b/e056c landed and folded into 5.4 + Limitations + abstract +
+      contributions (circularity OPEN → resolved by e056b; refined by e056c
+      into the 3c/3d claim-split; persistence curve = Fig 5).
 - [ ] Verify search-level citations before camera-ready (Truth is
       Universal; Knowing Before Saying; TruthPrInt; Sarkar; Yang) — lit-scan
       flags these as unverified.
 - [ ] Decide d4-vs-d5 primary framing stays (audit says quote d4).
 - [ ] Scope-soften every "first"/"zero" claim per T028 wording.
 - [ ] Scar clause: keep n=1 flag visible or cut to footnote.
+- [ ] d6 readout-dominated caveat: e056b confirms d6 = donor readout
+      (0.715 = donor p_z mean) — keep d6 out of causal claims.
