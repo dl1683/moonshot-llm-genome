@@ -7,7 +7,7 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T027 — E050: directed mutation doesn't help either — FROZEN at full strength (2026-09-25T18:20Z)
+## T027 — E050: directed mutation doesn't help either — FROZEN at full strength (2026-09-25T18:20Z) [full-report enriched 18:30Z: the KEY contrast — random mutation gave −3.52% at its first selection event, directed gave −3.63%: IDENTICAL trickle despite 100% of ε on the graft-interface matrices and abundant founder spread (0.213 nats >> 3×CI). The limiter is selection's VIEW, not mutation's reach — the cleanest statement of VISIBILITY-LIMITED. LN-confound re-dead at n=7 (r=0.251, p=0.59); damage trickles on axes neither LN nor alignment explains. Wall 16.7 min, thermal-disciplined.]
 
 **The reachability test:** same lineage protocol, mutation restricted to
 the stream-facing matrices (W_in/W_out). Verdict conditions: D fell only
