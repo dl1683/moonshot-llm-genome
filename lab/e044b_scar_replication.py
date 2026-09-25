@@ -555,8 +555,7 @@ def main():
         if s_ is not None:
             ax.axvline(s_, color=style[arm][0], lw=0.7, alpha=0.5)
     ax.set_xlabel("exposure step"); ax.set_ylabel("name NLL (install battery)")
-    ax.set_title(f"steps-to-bar: re-learn (a) {sa} vs fresh (b) {sb}"
-                 f" — ratio {ratio if ratio else 'n/a'} (e044: 25/12 = 2.08)")
+    ax.set_title(f"steps-to-bar: a {sa} vs b {sb} (ratio {ratio:.2f}; e044 2.08)")
     ax.legend(fontsize=7)
     ax = axes[1]
     for arm in ("a", "b2"):
@@ -583,13 +582,13 @@ def main():
                 marker=mk, ms=3.5, color=col, label=f"{arm} cos(wte_{which}, orig wte_{which})")
     ax.axhline(SCAR_COS_BAR, color="purple", ls=":", lw=1, label="registered bar 0.5")
     ax.set_xlabel("exposure step"); ax.set_ylabel("cos(regrown wte row, B43 original)")
-    ax.set_title(f"the scar: final cos a {cos_a_wte:+.3f} vs fresh b2 {cos_b2_wte:+.3f} "
-                 f"(e044: 0.760 vs 0.278)\n"
-                 f"verdict: {'REPLICATES (n=2)' if verdict['SCAR_REPLICATES'] else 'seed-specific'}")
+    ax.set_title(f"final cos: a {cos_a_wte:+.3f} vs fresh b2 {cos_b2_wte:+.3f} "
+                 f"(e044: 0.760 vs 0.278)")
     ax.legend(fontsize=7)
     fig.suptitle("E044b — scar replication on B43 (seed 43): does the burned address "
-                 "regrow along its original direction?")
-    fig.tight_layout()
+                 "regrow along its original direction? — "
+                 f"VERDICT: {'REPLICATES (n=2)' if verdict['SCAR_REPLICATES'] else 'SEED-SPECIFIC'}")
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(rd / "scar_replication.png", dpi=130)
     plt.close(fig)
 

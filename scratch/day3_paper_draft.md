@@ -133,8 +133,10 @@ depth structure (5.4) → adjacent cache-utility context (5.5).
    (teacher-forcing-bound; battery 92–96% with zero free-generation
    occurrence across dose ×3, temperature ×3, seeding) / HISTORY (re-learned
    memory regrows the original address direction, cos 0.760 vs 0.278 fresh,
-   and is ~3× more surgical-resistant; n=1, flagged). With surgical evidence
-   from e023/e042/e043/e044/e048.
+   replicated at a second seed on the B43 net — e044b: cos 0.728 vs 0.243,
+   2.99×; re-learn 2.92× slower — and ~3× more surgical-resistant; the
+   route-flip/key-resistance sub-readouts remain n=1, flagged). With
+   surgical evidence from e023/e042/e043/e044/e044b/e048.
 2. **Positional (wpe) binding of installed knowledge** — the installed
    address is bound to an absolute position (wpe-130), not content: one-char
    shift 129→131 collapses p(Z) 0.556→0.12 and kills argmax; left-padding at
@@ -310,12 +312,15 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   0.92–0.96. No threshold, no dose response (P2/P3 refuted). Doctrine:
   continuation batteries are not evidence of usable knowledge; batteries
   overstate install 3.4×.
-- e044 (history faculty, supporting, n=1 flagged): re-learning after
-  erasure is 2.08× slower but regrows the original address direction
-  (cos 0.760 vs 0.278 fresh); the new route is genuinely new (atlas ρ 0.21;
-  the old carrier head flips to anti-carrier, −2.03) and the re-learned
-  memory is ~3× more resistant to the original surgical key (44.5% vs
-  0.13% under D2+patch).
+- e044 + e044b (history faculty, supporting; address-direction core n=2):
+  re-learning after erasure is 2.08× slower but regrows the original
+  address direction (cos 0.760 vs 0.278 fresh); e044b replicates the core
+  on the B43 net (seed 43, same frozen install set and Dmix exposure,
+  D2-only, compact): cos 0.728 vs 0.243 fresh-from-zero (2.99×, registered
+  prediction met) with re-learn 2.92× slower (35 vs 12 steps; e044: 25 vs
+  12). The new-route (atlas ρ 0.21; old carrier head flips to
+  anti-carrier, −2.03) and key-resistance (44.5% vs 0.13% under D2+patch)
+  sub-readouts remain n=1.
 - Positioning (editing side effects): RippleEdits (Cohen et al., TACL
   2024, arXiv:2307.12976) shows edits ripple into related facts; MQuAKE
   (Zhong et al., EMNLP 2023, arXiv:2305.14795; the ICLR 2025
@@ -443,8 +448,14 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
    R2/R3 expression evidence is supportive, not load-bearing; R1 is the
    primary readout.
 7. **n=1 items carried as flagged context, not claims:** the history/scar
-   clause (e044, single net), the two-factor complete erasure (e046
-   demotion), battery overstatement quantified in one protocol.
+   clause's ADDRESS-DIRECTION core is now n=2 across seeds (e044 seed-e001
+   net: cos 0.760 vs 0.278 fresh, re-learn 2.08× slower; e044b on the
+   seed-43 B43 net, same frozen install set and Dmix protocol, D2-only:
+   cos 0.728 vs 0.243 fresh-from-zero, re-learn 2.92× slower — registered
+   prediction cos > 0.5 AND > 2× fresh met at both seeds), while its
+   route-flip and key-resistance sub-readouts stay n=1; the two-factor
+   complete erasure (e046 demotion) and the battery-overstatement
+   quantification remain n=1.
 8. **Scale-invariance of the address surgery** carries the steps-confound
    caveat (4000/2226/1086 steps anti-correlated with scale).
 9. **Terminology scope:** "zero interventional studies" claims are scoped
@@ -587,7 +598,11 @@ the adjacent literatures carry.
       References section added at end.
 - [ ] Decide d4-vs-d5 primary framing stays (audit says quote d4).
 - [ ] Scope-soften every "first"/"zero" claim per T028 wording.
-- [ ] Scar clause: keep n=1 flag visible or cut to footnote.
+- [x] Scar clause resolved 2026-09-25: e044b replicated the
+      address-direction core on B43 (cos 0.728 vs 0.243 fresh-from-zero,
+      2.99×; re-learn 2.92× slower) → the scar clause is now n=2;
+      route-flip/key-resistance sub-readouts stay n=1-flagged in 5.2 and
+      Limitations.
 - [ ] d6 readout-dominated caveat: e056b confirms d6 = donor readout
       (0.715 = donor p_z mean) — keep d6 out of causal claims.
 
