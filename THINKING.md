@@ -7,6 +7,18 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T036 — E044b: the scar REPLICATES at seed 43 (2026-09-26T01:00Z)
+
+**All three registered conditions pass on B43:** re-learned J-rows regrow
+at cos 0.728 to B43's originals (> 0.5); fresh-name cos 0.000 raw /
+0.341 guarded (re-learn > 2× fresh under the norm-validity guard);
+re-learn is 2.92× slower than fresh (35 vs 12 steps; e044's seed-42 was
+2.08×). The e044 cross-reference reproduces its original numbers
+bit-level (0.760/0.278). **The attractor-survives-erasure finding is
+now n=2 across seeds — the paper's last n=1 flag clears.** The history
+clause of the edit law is replicated: erasure burns the address, the
+groove survives, re-learning refills it.
+
 ## T035 — E056c: LOUD LOGIT PASTE — the claim-split's leg-2 reframes as transient injection (2026-09-25T23:30Z)
 
 **The registered discriminator's verdict (R14 rule frozen pre-run):**

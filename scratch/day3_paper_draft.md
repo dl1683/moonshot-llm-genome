@@ -165,6 +165,19 @@ depth structure (5.4) → adjacent cache-utility context (5.5).
      knowledge-specific (first-Z 49/96 donor rows vs 0/96 shuffled and
      0/96 base) yet cannot steer even 2 tokens ahead: an address, not a
      general steering direction.
+   - **3e (donor construction: own-state vs relay-direction — the YOPO
+     contrast run in-house):** averaging the onset-site donor states into a
+     single mean-donor "relay direction" beats every individual donor at
+     the rescue peak (d5: 0.912 vs 0.494 individual-donor mean; best
+     single donor 0.826) — averaging denoises toward the address
+     direction. The intervention therefore has two arms: the own-state
+     transplant (one specific state at one named token — the conservative
+     arm, and our primary claim) and the mean-donor relay direction (the
+     YOPO-adjacent arm, a difference-of-means-style direction in the
+     spirit of Luo et al.'s relay steering, arXiv:2608.14465). e056c binds
+     both: away from onset positions neither construction steers beyond
+     +2 tokens — durable rescue is position-bound whichever donor you
+     build.
 4. **The d1-peak/d2-crash destruction–re-emergence structure** — at
    off-geometry sites the address survives block-0 output (d1 peak), is
    destroyed across blocks 1→2 (crash), and becomes re-injectable from
