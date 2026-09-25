@@ -7,7 +7,9 @@ Not the day report. Every quantitative claim below is traceable to a run
 caveat is carried verbatim from the T033 audit into Limitations, with the
 circularity item resolved by e056b and refined by e056c (T034/T035) into the
 3c/3d claim-split. Target venue class: mech-interp workshop → main
-conference.
+conference. Citations pass applied 2026-09-25: the 29-entry verified
+bibliography (scratch/paper_bibliography.md) is wired in-text and
+reproduced in References; six camera-ready citation fixes applied.
 
 ---
 
@@ -66,30 +68,45 @@ them.)*
     states impute economic facts better than the model's own text outputs;
     they coin the term **"elicitation failure,"** which we adopt (the term is
     unclaimed for this use).
-  - **You Only Pass Once (arXiv:2608.14465)** — the closest prior in the
-    adjacent domain: on Qwen2.5-7B sufficiency detection, the residual
+  - **Luo, Chu, He, Wang, Qin, Wu & Chen, "You Only Pass Once: Answering
+    and Abstaining Together in a Single Forward Pass of a Frozen Language
+    Model" (arXiv:2608.14465)** [YOPO] — the closest prior in the adjacent
+    domain: on Qwen2.5-1.5B/3B/7B sufficiency detection, the residual
     stream encodes "context is sufficient" while generation fabricates
     anyway; a learned difference-of-means direction separates 124/125, and
     "relay steering" pushes the internal verdict into speech (fidelity 1.0),
-    with causal onset at layer 19 and overwrite interference at mid-stack.
-    **Domain: abstention, not factual recall; method: learned direction, not
+    with causal onset at layer 19 and overwrite interference at mid-stack
+    (the layer-19 and 124/125 specifics are v1 numbers). **Domain:
+    abstention, not factual recall; method: learned direction, not
     own-state transplant; goal: elicitation, not depth-localizing
     suppression.** We cite them proactively and scope accordingly.
 - The unclaimed question: *where, in depth, does installed factual knowledge
   stop being expressible — and is it destroyed, or suppressed?* No
   interventional study of factual-recall expression exists (lit-scan
   verdict, softened from "zero interventional studies anywhere" per T028).
-  Neighbors to cite-and-distinguish: Yan & Jia EMNLP-25 (promote-then-suppress
-  circuits exist for enumeration repetition), ITI/DoLa/contrastive-decoding
-  (all *assume* late-layer pollution of early-layer facts; none measure
-  where knowledge dies; DoLa's layer choice is per-token automatic, not
-  anatomical), FAR AI probe-evasion (probe-visible knowledge can be driven
-  deeper, not deleted — matters for our "the knowledge is really in there"
-  claim).
+  Neighbors to cite-and-distinguish: Yan & Jia (EMNLP 2025 Main,
+  arXiv:2502.20475; promote-then-suppress circuits exist for enumeration
+  repetition); ITI (Li et al., NeurIPS 2023, arXiv:2306.03341), DoLa
+  (Chuang et al., ICLR 2024, arXiv:2309.03883), and contrastive decoding
+  (Li et al., ACL 2023, arXiv:2210.15097) — all *assume* late-layer
+  pollution of early-layer facts; none measure where knowledge dies; DoLa's
+  layer choice is per-token automatic, not anatomical. (The published
+  contrastive-decoding critique — "The Mirage of Performance Gains,"
+  arXiv:2504.10020 — targets *MLLM object hallucination* and attributes
+  the gains to MCQ-format artifacts; it is adjacent to, not a rebuttal of,
+  DoLa. The "assumes, never measures" point is ours.) Bürger, Hamprecht &
+  Nadler (NeurIPS 2024, arXiv:2407.12831; "Truth is Universal" — a truth
+  direction supports robust lie detection even in models instructed to
+  lie: probe-level and read-only; we do not read it as a claim that RLHF
+  widens the elicitation gap). Cundy & Gleave (FAR AI), "Preference
+  Learning with Lie Detectors can Induce Honesty or Evasion"
+  (arXiv:2505.13787; NeurIPS 2025 — training against probes yields
+  evasion: probe-visible knowledge is driven underground, not deleted —
+  matters for our "the knowledge is really in there" claim).
 
 ## 2.2 Why a 2.7M char-LM
 
-- The gap is behavioral and reproduces at 7B (Orgad, YOPO); what is missing
+- The gap is behavioral and reproduces at 1.5B–8B (Orgad; YOPO); what is missing
   is not scale but *controls*: shuffled donors, base-net twins, pad-shifted
   position cues, one-shot-vs-held write semantics, full depth-survival
   curves per site. At 2.7M/6 layers these are minutes-per-cell, so the
@@ -198,7 +215,12 @@ error-type AUCs of 0.59–0.68 as the reviewers' target).
 - Continuation battery (teacher-forced NLL/acc on the installed fact) vs
   **free-generation probe** (occurrences of the installed token/name in
   sampled text). Batteries alone overstate install by 3.4×; free
-  generation is the check.
+  generation is the check. (External control: probes themselves disagree —
+  Zhao et al., "Do We Know What LLMs Don't Know? A Study of Consistency in
+  Knowledge Probing," arXiv:2505.21701, preprint, no venue listed, report
+  intra-method probe agreement ~40% and cross-method consistency as low as
+  7% — our battery-vs-generation split is the instrument-disagreement
+  check, moved upstream of any probe claim.)
 - Sub-argmax rank/prior logging at every diagnostic position; completion
   given the first token measured separately (TF-completion given 'Z' ≈ 1.00
   — the entire gap lives at the onset choice).
@@ -207,7 +229,8 @@ error-type AUCs of 0.59–0.68 as the reviewers' target).
 
 - Own-state transplant: teacher-forced residual stream at the onset
   (divergence) position written into the free run, swept over depth d1–d6,
-  24 sites; one-shot and held write semantics.
+  24 sites; one-shot and held write semantics (patching methodology and
+  metrics per Heimersheim & Nanda, arXiv:2309.16042).
 - Controls, all pre-registered: shuffled donors (distributional null),
   base-net donors (the uninstalled twin — separates "knowledge" from
   "generic state"), pad-shifted donors (position-cue leak), A-rev
@@ -246,6 +269,19 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   (B43 L4H4 vs BDO L3H1 — a seed lottery); the address half survives 5/5
   nets and 3 scales. The paper claims the address half as the replicated
   faculty; the two-factor recipe is reported as n=1.
+- Positioning (unlearning framing): representation-level unlearning — RMU
+  ("Representation Misdirection," introduced with the WMDP benchmark, Li et
+  al., arXiv:2403.03218) and mechanistic localization for robust
+  unlearning/editing (Guo et al., ICML 2025, arXiv:2410.12949) — and the
+  full-stack microscope evaluation of unlearning methods and metrics (Fan
+  et al., arXiv:2510.07626: unlearning must be checked for
+  latent-knowledge recovery, because representation-level methods
+  obfuscate rather than delete) frame the exact choice this section
+  instantiates at toy scale: hide in representation vs remove parameters.
+  The address surgery above is the parametric leg; the
+  battery-vs-free-generation split is a two-instrument latent-recovery
+  check. Big-lab counterpart: knowledge localization for capability
+  removal (Shilov et al., arXiv:2512.05648).
 
 ## 5.2 Installation is cheap — and constitutionally silent (e043, e048)
 
@@ -267,6 +303,15 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   the old carrier head flips to anti-carrier, −2.03) and the re-learned
   memory is ~3× more resistant to the original surgical key (44.5% vs
   0.13% under D2+patch).
+- Positioning (editing side effects): RippleEdits (Cohen et al., TACL
+  2024, arXiv:2307.12976) shows edits ripple into related facts; MQuAKE
+  (Zhong et al., EMNLP 2023, arXiv:2305.14795; the ICLR 2025
+  MQuAKE-Remastered is a separate follow-up) shows edits fail to
+  propagate multi-hop. The expression zero is the limiting case on the
+  propagation axis — an installed fact that fails to surface in free
+  generation *at all* (0 of 2,800 chars at 97% battery accuracy) — and
+  both benchmarks, being query-based, sit on the battery side of the
+  battery-vs-generation split, the side e048 shows overstates.
 
 ## 5.3 The gap is positional; the zero was off-geometry (T032 design probes; audits of e048)
 
@@ -336,6 +381,11 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
 
 ## 5.5 Adjacent context: what the free-running stream actually uses (e053/e053b; audits T030/T031)
 
+- Context: sink-emergence work asks where attention sinks live (Gu et al.,
+  ICLR 2025, arXiv:2410.10781) and how to preserve them in quantized
+  caches (KVSink, COLM 2025, arXiv:2508.04257); we ask the inverse,
+  generation-time question — what does free generation actually *use* —
+  and answer it causally, per position.
 - First causal per-position KV-cache utility curve: last-~7-token spike
   (+0.4 to +3.2 nats/position) + shoulder (17–32) + near-zero plateau;
   ~85–95% of the ctx-256 cache is dead weight at generation.
@@ -444,9 +494,17 @@ textbook; relay steering already intervened; probes already showed it"
 "YOPO/ITI/DoLa are the interventions"; "this is just probe-vs-output gap,
 Buckmann said it."
 
-**Pre-emptive answer:** (a) Exposure-bias literature is behavioral or
-theoretical (self-recovery, concavity theory, distillation attribution);
-no prior work connects TF/free-run *state* differences to *knowledge
+**Pre-emptive answer:** (a) The exposure-bias classics — Ranzato et al.
+(ICLR 2016, arXiv:1511.06732; named the train/test mismatch), Bengio et
+al.'s Scheduled Sampling (NeurIPS 2015, arXiv:1506.03099), and Professor
+Forcing (Lamb et al., NIPS 2016, arXiv:1610.09038) — are behavioral or
+training-side: they document the TF/free-run mismatch and train around
+it. Professor Forcing is the closest state-level prior, and we
+distinguish on two axes: they train an adversarial discriminator to match
+TF/free-run *state distributions* in aggregate; we transplant one
+*specific state at a named token* and show it carries one *specific
+installed fact* (durable rescue at onset sites, transient elsewhere). No
+prior work connects TF/free-run *state* differences to *knowledge
 expression at a named token*, and none measures where in depth the
 knowledge stops being expressible — we own that specific claim, scoped per
 T028 to "factual-recall expression / own-state transplant." (b) YOPO,
@@ -499,11 +557,117 @@ the adjacent literatures carry.
 - [x] e056b/e056c landed and folded into 5.4 + Limitations + abstract +
       contributions (circularity OPEN → resolved by e056b; refined by e056c
       into the 3c/3d claim-split; persistence curve = Fig 5).
-- [ ] Verify search-level citations before camera-ready (Truth is
-      Universal; Knowing Before Saying; TruthPrInt; Sarkar; Yang) — lit-scan
-      flags these as unverified.
+- [x] Verify search-level citations — done 2026-09-25 via the 29-entry
+      verified bibliography (scratch/paper_bibliography.md; every entry
+      live-checked against arXiv/OpenReview/ACL Anthology). Bürger "Truth
+      is Universal" → Bürger, Hamprecht & Nadler, NeurIPS 2024,
+      arXiv:2407.12831 (attribution fixed; RLHF-widening gloss dropped);
+      Afzal "Knowing Before Saying" → Findings of ACL 2025,
+      arXiv:2505.24362; TruthPrInt → CVPR 2025, arXiv:2503.10602; Sarkar
+      → EMNLP 2025 Main, arXiv:2505.16411; Yang → ICLR 2025, OpenReview
+      Bjq4W7P2Us. Also applied: FAR AI title → "…can Induce Honesty or
+      Evasion" (arXiv:2505.13787); YOPO full title + Qwen2.5-1.5B/3B/7B;
+      "Do We Know" as arXiv-only (2505.21701); Contrastive Decoding ID
+      2210.15097; MQuAKE = EMNLP 2023 original; Risk-3 exposure-bias
+      classics (Ranzato / Scheduled Sampling / Professor Forcing)
+      replacing the unconfirmable Bridge-Garden / EGz8InJz6F items.
+      References section added at end.
 - [ ] Decide d4-vs-d5 primary framing stays (audit says quote d4).
 - [ ] Scope-soften every "first"/"zero" claim per T028 wording.
 - [ ] Scar clause: keep n=1 flag visible or cut to footnote.
 - [ ] d6 readout-dominated caveat: e056b confirms d6 = donor readout
       (0.715 = donor p_z mean) — keep d6 out of causal claims.
+
+---
+
+# References
+
+Verified citation set (29 entries), live-checked against
+arXiv/OpenReview/ACL Anthology on 2026-09-25; source of truth:
+scratch/paper_bibliography.md. Bracketed notes flag metadata still to
+pull at camera-ready.
+
+1. Orgad, Toker, Gekhman, Reichart, Szpektor, Kotek, Belinkov. "LLMs Know
+   More Than They Show: On the Intrinsic Representation of LLM
+   Hallucinations." ICLR 2025. arXiv:2410.02707.
+2. Buckmann, Nguyen, Hill. "Revealing economic facts: LLMs know more than
+   they say." arXiv:2505.08662 (2025). [preprint]
+3. Luo, Chu, He, Wang, Qin, Wu, Chen. "You Only Pass Once: Answering and
+   Abstaining Together in a Single Forward Pass of a Frozen Language
+   Model." arXiv:2608.14465 (2026). [preprint; Luo and Chu equal
+   contribution]
+4. Tianyi Lorena Yan and Jia. "Promote, Suppress, Iterate: How Language
+   Models Answer One-to-Many Factual Queries." EMNLP 2025 (Main).
+   arXiv:2502.20475.
+5. Gu, Pang, Du, Liu, Guo, Pai, Bai, Jiao. "When Attention Sink Emerges
+   in Language Models: An Empirical View." ICLR 2025. arXiv:2410.10781.
+6. "KVSink: Understanding and Enhancing the Preservation of Attention
+   Sinks in KV Cache Quantization for LLMs." COLM 2025. arXiv:2508.04257.
+   [author list to pull at camera-ready]
+7. Guo, Syed, Sheshadri, Ewart, Dziugaite. "Mechanistic Unlearning:
+   Robust Knowledge Unlearning and Editing via Mechanistic Localization."
+   ICML 2025. arXiv:2410.12949.
+8. Modarressi et al. "NoLiMa: Long-Context Evaluation Beyond Literal
+   Matching." ICML 2025. arXiv:2502.05167.
+9. Li, Patel, et al. "Inference-Time Intervention: Eliciting Truthful
+   Answers from a Language Model." NeurIPS 2023. arXiv:2306.03341.
+10. Chuang, Xie, Luo, Kim, Glass, He. "DoLa: Decoding by Contrasting
+    Layers Improves Factuality in Large Language Models." ICLR 2024.
+    arXiv:2309.03883.
+11. Li, Holtzman, Fried, Liang, Eisner, Hashimoto, Zettlemoyer, Liang.
+    "Contrastive Decoding: Open-ended Text Generation as Optimization."
+    ACL 2023. arXiv:2210.15097.
+12. Heimersheim and Nanda. "Towards Best Practices of Activation Patching
+    in Language Models: Metrics and Methods." arXiv:2309.16042.
+13. Bürger, Hamprecht, Nadler. "Truth is Universal: Robust Detection of
+    Lies in LLMs." NeurIPS 2024. arXiv:2407.12831.
+14. Afzal, Matthes, Chechik, Ziser. "Knowing Before Saying: LLM
+    Representations Encode Information About Chain-of-Thought Success
+    Before Completion." Findings of ACL 2025. arXiv:2505.24362.
+15. Cundy and Gleave (FAR AI). "Preference Learning with Lie Detectors
+    can Induce Honesty or Evasion." arXiv:2505.13787 (2025); NeurIPS
+    2025.
+16. Duan et al. "TruthPrInt: Mitigating Large Vision-Language Models
+    Object Hallucination via Latent Truthful-Guided Pre-Intervention."
+    CVPR 2025. arXiv:2503.10602.
+17. Yang et al. "Understanding and Mitigating Hallucination in Large
+    Vision-Language Models via Modular Attribution and Intervention."
+    ICLR 2025. OpenReview Bjq4W7P2Us. [arXiv mirror to pull at
+    camera-ready]
+18. Sarkar, Che, Gavin, Beerel, Kundu. "Mitigating Hallucinations in
+    Vision-Language Models through Image-Guided Head Suppression."
+    EMNLP 2025 (Main). arXiv:2505.16411.
+19. Zhao, Köksal, Modarressi, Hedderich, Schütze. "Do We Know What LLMs
+    Don't Know? A Study of Consistency in Knowledge Probing."
+    arXiv:2505.21701 (2025). [preprint; no venue listed]
+20. Miao et al. "Correctness-Optimized Residual Activation Lens (CORAL):
+    Transferrable and Calibration-Aware Inference-Time Steering."
+    arXiv:2602.06022 (2026).
+21. "The Mirage of Performance Gains: Why Contrastive Decoding Fails to
+    Mitigate Object Hallucinations in MLLMs?" arXiv:2504.10020 (2025).
+    [authors to pull at camera-ready; scope: MLLM object hallucination]
+22. Li, Pan, Gopal, Yue, ... Hendrycks (56 authors). "The WMDP Benchmark:
+    Measuring and Reducing Malicious Use With Unlearning."
+    arXiv:2403.03218 (2024). [origin of RMU; venue not asserted — check
+    proceedings at camera-ready]
+23. Fan, Wang, Huang, Pal, Liu, et al. "LLM Unlearning Under the
+    Microscope: A Full-Stack View on Methods and Metrics."
+    arXiv:2510.07626 (2025).
+24. Shilov, Cloud, Gema, Goldman-Wetzler, Panickssery, Sleight, et al.
+    (Anthropic). "Beyond Data Filtering: Knowledge Localization for
+    Capability Removal in LLMs." arXiv:2512.05648 (2025).
+25. Cohen, Biran, Yoran, Globerson, Geva. "Evaluating the Ripple Effects
+    of Knowledge Editing in Language Models." TACL 12:283–298 (2024).
+    arXiv:2307.12976.
+26. Zhong, Wu, Manning, Potts, Liang. "MQuAKE: Assessing Knowledge
+    Editing in Language Models via Multi-Hop Questions." EMNLP 2023.
+    arXiv:2305.14795. [MQuAKE-Remastered, ICLR 2025, is a separate
+    follow-up paper]
+27. Ranzato, Chopra, Auli, Zaremba. "Sequence Level Training with
+    Recurrent Neural Networks." ICLR 2016. arXiv:1511.06732.
+28. Bengio, Vinyals, Jaitly, Shazeer. "Scheduled Sampling for Sequence
+    Prediction with Recurrent Neural Networks." NeurIPS 2015.
+    arXiv:1506.03099.
+29. Lamb, Goyal, Zhang, Zhang, Courville, Bengio. "Professor Forcing: A
+    New Algorithm for Training Recurrent Networks." NIPS 2016.
+    arXiv:1610.09038.
