@@ -9,6 +9,21 @@ interpretation entry, the next heartbeat thinks instead of runs.
 
 ## T024 — Lineage verdict: init-anchoring is FROZEN under selection (E040, 2026-09-25T16:55Z)
 
+**AUDIT FLAGS (17:15Z, applied before e050 reads out):** (1) the headline
+"-7.3%, D 2.435" quoted the selected-two mean; the registered all-member
+contrast is −5.5% (2.625→2.479). (2) The trickle is one member: excluding
+g2a, gen-2 vs gen-0 is −2.3%; the CI bootstraps batches, not lineages
+(n=1 lineage, non-independent members). (3) G0 anchor FAILED (1.5240 vs
+1.5581±0.03 — batch-size effect). (4) G7 gated on D (spread 0.115) but the
+SELECTED index R had gen-0 spread 0.058, under the 0.06 bar — σ never
+escalated though it should have. (5) D~0.8-correlates with own-organ load;
+reverse-graft host-specific; **e031's LN-statistics alternative is the
+LEADING unexcluded reading** → e052 dispatched (zero-GPU LN-distance
+regression on the 11 checkpoints; verdict rules registered in its brief).
+T024 now reads: "P2 proves global-noise-at-this-σ cannot generate basis
+variation (founders: damage varied, alignment didn't); FROZEN's
+selection-side claim awaits e052 + e050."
+
 **FULL-REPORT AMENDMENT (17:05Z): "weak-but-real," not literally frozen.**
 The agent's final numbers: D fell monotonically 2.625→2.533→2.479 (−5.6%,
 CI excluding 0 — heritable, directionally responsive) but missed the −25%
