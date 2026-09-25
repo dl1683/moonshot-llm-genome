@@ -13,6 +13,24 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 7 — closeout (2026-09-25T01:15Z)
+
+### AUDIT: T019 refinement verified against metrics (all numbers
+re-derivable); flags applied — T018 n=1; T019-P3 thin-evidence (dose
+generation cells bit-identical); denominator bookkeeping noted.
+
+### THE CLOSEOUT CALL: (b) adopted — DAY-ONE REPORT written
+(DAY_ONE_REPORT.md) as the lab's first deliverable per the README
+contract; e005s readouts frozen against card v3; e005s dispatches as the
+overnight/next-session opening act. v011 edit-film re-cut remains queued.
+
+### Integrity: 20 T-headers, 7 reviews, 36+ notes; queue truth passed.
+Novelty: satisfied (4 new lines in 90 min); due ~02:55Z — e005s or formal
+day-close before then.
+
+---
 ## Review 6 — meta-panel (2026-09-24T23:45Z; 2.6h overdue, self-flagged)
 
 ### THE META-VERDICT (both, and the day contains the proof)
