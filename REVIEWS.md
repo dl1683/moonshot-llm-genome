@@ -21,6 +21,17 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 11 — patrol (2026-09-25T04:42Z; self-audit, no agent: ledger
+unchanged since R8, threshold functionally crossed, prior two patrol
+audits clean)
+
+Checks run directly: tree clean (0); THINKING/REVIEWS/NOTES counts
+unchanged since R10's verified audit; no new results, no stragglers, no
+drift. Wake-the-panel: no. Hold intact; e040 awaits the user.
+
+---
 ## Review 10 — patrol (2026-09-25T03:42Z; integrity audit during hold)
 
 Counts: THINKING 22; REVIEWS 10; tree clean; timestamps sane. Stragglers:
