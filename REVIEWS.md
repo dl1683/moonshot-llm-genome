@@ -31,6 +31,16 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 16 — patrol (2026-09-26T00:45Z; audit during hold)
+
+Counts: 41 T-headers; 16 reviews; tree clean; timestamps sane. Paper
+spot-check: 3 stale unchecked boxes found (body already did all three)
+— FIXED in this pass; checklist now visibly closed. No other drift.
+Wake-the-panel: no.
+
+---
 ## Review 15 — close-of-arc panel (2026-09-26T00:15Z)
 
 ### PAPER AUDIT: fold verified real (abstract/3c-3d/5.4/Lim5/Risk3 all
