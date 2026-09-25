@@ -41,6 +41,18 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## V012 — portrait v2: the 48-hour self-portrait (2026-09-25) — DONE
+
+WHAT WE DID: v010's four panels refreshed with post-audit numbers (C1
+re-anchored to the causal census + its non-invariance) + two new panels:
+the retrieval-threshold curve (T021 flip from interference) and the
+four-box edit law (T015/T018/T019, n=1 flags boxed). CPU-only.
+
+WHAT WE SAW: the lab's third flagship artifact — one figure that carries
+the whole 48-hour story with its confound flags visible.
+
 ## E033 — write-equalizer: the energy schedule is decorative (2026-09-25) — DONE
 
 WHAT WE DID: fresh 0.84M net with every MLP write renormalized to one

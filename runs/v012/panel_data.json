@@ -1,0 +1,489 @@
+{
+  "experiment": "v012_portrait_v2",
+  "date": "2026-09-25T16:22Z",
+  "device": "cpu",
+  "poster": "runs\\v012\\portrait_v2.png",
+  "panels": {
+    "A_C2_anatomies_stamped": {
+      "nets": {
+        "B": {
+          "val_ce": 1.622391394774119,
+          "attn_damage": [
+            2.4010302821795144,
+            1.7372984766960142,
+            1.0627772212028503,
+            0.37890928586324035,
+            0.19311420122782397,
+            0.03353847662607823
+          ],
+          "mlp_damage": [
+            4.079049940903982,
+            0.15049700736999516,
+            0.2652580897013346,
+            0.4670207858085633,
+            0.5986512223879497,
+            0.5920616507530214
+          ]
+        },
+        "R": {
+          "val_ce": 1.6099902311960856,
+          "attn_damage": [
+            2.7991,
+            1.6929,
+            0.4841,
+            0.8118,
+            0.2069,
+            0.0308
+          ],
+          "mlp_damage": [
+            0.0968,
+            0.0833,
+            0.2279,
+            0.4513,
+            0.7806,
+            0.7044
+          ]
+        },
+        "Task": {
+          "val_ce": 1.4318429072697958,
+          "attn_damage": [
+            3.029214898745219,
+            2.043369690577189,
+            0.6382843176523845,
+            0.4518361965815225,
+            0.24013833602269474,
+            0.026225312550862467
+          ],
+          "mlp_damage": [
+            4.896326359113058,
+            0.42153635819753,
+            0.43103003104527793,
+            0.6743125955263771,
+            0.6547994613647461,
+            0.7082994063695272
+          ]
+        }
+      },
+      "scale_front_loading_attn_l0_over_last": {
+        "0.84M_4L": 11.15536254925815,
+        "2.7M_6L": 71.59032024467581,
+        "10M_8L": 116.42783499876988
+      },
+      "mlp0_keystone_10M": 3.4032532374064126,
+      "mlp_rest_max_10M": 0.14333038330078107,
+      "e033_equalizer": {
+        "baseline_val": 1.5373092611630759,
+        "equalized_val": 1.5146932522455852,
+        "baseline_mlp": [
+          2.954152794679006,
+          1.5532823999722798,
+          1.598451284567515,
+          1.215264284610748
+        ],
+        "equalized_mlp": [
+          3.0620045900344848,
+          2.4425366083780924,
+          1.7579373836517336,
+          0.9707822243372597
+        ],
+        "kl_l5_l4_equalized": 1.1764411687850953,
+        "flags": [
+          "single net, 4L, <=1M envelope"
+        ]
+      },
+      "e047_replication": {
+        "mlp5_energy_carrier": "5/5",
+        "rotate_over_zero": "0.25-0.34",
+        "l5_calibrator": "5/5, KL 0.91-1.08"
+      },
+      "sources": [
+        "runs/e001/metrics.json",
+        "runs/e014b/metrics.json",
+        "runs/e035/metrics.json",
+        "runs/e005s/metrics.json",
+        "runs/e033/metrics.json",
+        "runs/e047/metrics.json"
+      ]
+    },
+    "B_C1_causal_gate_reanchored": {
+      "replaces": "v010 lens depth-histogram invariance claim (T012/T014: instrument artifact)",
+      "causal_hist_frac_d0_d5": {
+        "B": [
+          0.1646153846153846,
+          0.024615384615384615,
+          0.13230769230769232,
+          0.24923076923076923,
+          0.23692307692307693,
+          0.19230769230769232
+        ],
+        "B43": [
+          0.17231434751261715,
+          0.02595529920692141,
+          0.18240807498197548,
+          0.21557317952415284,
+          0.24152847873107425,
+          0.16222062004325882
+        ],
+        "R": [
+          0.16051243406179352,
+          0.008289374529012811,
+          0.11906556141672947,
+          0.1816126601356443,
+          0.2773172569706104,
+          0.2532027128862095
+        ],
+        "R43": [
+          0.16998468606431852,
+          0.008422664624808576,
+          0.08575803981623277,
+          0.17534456355283307,
+          0.23660030627871362,
+          0.3238897396630934
+        ]
+      },
+      "modes": {
+        "B": 3,
+        "B43": 4,
+        "R": 4,
+        "R43": 5
+      },
+      "spearman_causal_vs_lens": -0.009141779504716396,
+      "flip_curve_B": [
+        0.1393229216337204,
+        0.1399739533662796,
+        0.2024739533662796,
+        0.39453125,
+        0.595703125,
+        0.7760416865348816
+      ],
+      "cross_net_hist_corr": {
+        "seed_axis": {
+          "B|B43": 0.7348355054855347,
+          "R|R43": 0.7992018461227417,
+          "min": 0.7348355054855347
+        },
+        "regime_axis": {
+          "B|R": 0.7530493140220642,
+          "B43|R43": 0.5001833438873291,
+          "min": 0.5001833438873291
+        },
+        "instrument_ceiling": [
+          0.8308624029159546,
+          0.8508800268173218
+        ]
+      },
+      "depth_budget_slide": [
+        {
+          "net": "4L \u00b7 0.84M\n(4000 steps)",
+          "relative_mode": 1.0,
+          "no_single_flip": 0.2604166567325592,
+          "modal_share": 0.4577464759349823,
+          "strict_gate_pass": false
+        },
+        {
+          "net": "6L \u00b7 2.7M (B)\n(2226 steps)",
+          "relative_mode": 0.6,
+          "no_single_flip": 0.1536458283662796,
+          "modal_share": null,
+          "strict_gate_pass": true
+        },
+        {
+          "net": "8L \u00b7 10M\n(1086 steps)",
+          "relative_mode": 0.2857142857142857,
+          "no_single_flip": 0.072265625,
+          "modal_share": null,
+          "strict_gate_pass": true
+        }
+      ],
+      "suffix_monotone": {
+        "4L/0.84M": 0.8336267471313477,
+        "6L/2.7M": 0.7699999809265137,
+        "8L/10M": 0.7431579232215881
+      },
+      "flags": [
+        "R8 steps confound: 4000/2226/1086 steps anti-correlate with scale; LARGE stopped mid-cosine",
+        "4L failed the strict registered gate criterion (mode at final block)"
+      ],
+      "sources": [
+        "runs/e012d/metrics.json",
+        "runs/e018/metrics.json",
+        "runs/e005s/metrics.json"
+      ]
+    },
+    "C_C4_locality_funnel_plus_erosion": {
+      "far_mass": [
+        0.7979509234428406,
+        0.23054476082324982,
+        0.09260257333517075,
+        0.09510443359613419,
+        0.22742310166358948,
+        0.5390690565109253
+      ],
+      "local_mass": [
+        0.03662049025297165,
+        0.257119745016098,
+        0.4215584397315979,
+        0.3818621337413788,
+        0.2958839535713196,
+        0.10599561780691147
+      ],
+      "task_id_mass": [
+        0.016774991527199745,
+        4.88777504870086e-06,
+        0.0021825977601110935,
+        0.12518909573554993,
+        0.36408188939094543,
+        0.03898398205637932
+      ],
+      "control_id_mass": [
+        0.01690276712179184,
+        2.0870945718343137e-06,
+        0.001634109066799283,
+        0.01877490244805813,
+        0.06072920560836792,
+        0.01564379222691059
+      ],
+      "best_head": {
+        "layer": 4,
+        "head": 1,
+        "id_mass": 0.9513476490974426,
+        "control_same_head": 0.15009227395057678
+      },
+      "scale_far_value_mean": {
+        "0.84M": 0.020531566813588142,
+        "2.7M": -0.0009958973387256265,
+        "10M": 0.03484759107232094
+      },
+      "p99_small_large": [
+        1.5367177724838257,
+        2.281190872192383
+      ],
+      "sources": [
+        "runs/e013a/metrics.json",
+        "runs/e021/metrics.json",
+        "runs/e005s/metrics.json"
+      ]
+    },
+    "D_C3_anchoring_ladder": {
+      "ladder": [
+        {
+          "step": "B vs B same init \u00b7 same order",
+          "cos_dw": 1.0
+        },
+        {
+          "step": "B vs BDO same init \u00b7 diff order",
+          "cos_dw": 0.5336772203445435
+        },
+        {
+          "step": "B vs R, B43 vs R43 same init \u00b7 diff regime (pooled; B\u2194R alone 0.141)",
+          "cos_dw": 0.1521627058585485
+        },
+        {
+          "step": "B vs B43, \u2026 diff init \u00b7 (FLOOR)",
+          "cos_dw": -0.0023707472646492533
+        }
+      ],
+      "fraction_regime_over_ceiling": 0.26457958810617116,
+      "verdict": "PARTIAL ANCHORING \u2014 ceiling >= 0.5: the B<->R 0.15 alignment is a small fraction (0.26) of the same-init alignment the data allows",
+      "note": "unchanged since e041; e040 lineage test registered (T022)",
+      "sources": [
+        "runs/e041/metrics.json",
+        "runs/e029/metrics.json"
+      ]
+    },
+    "E_retrieval_threshold_NEW": {
+      "levels_pct": [
+        0,
+        5,
+        20,
+        60
+      ],
+      "far_value_prefix_k123": {
+        "0": -2.2395708560943604,
+        "5": 0.21975763142108917,
+        "20": 0.8083413243293762,
+        "60": 0.8895382285118103
+      },
+      "acc_prefix_k123": {
+        "0": 0.2340824007987976,
+        "5": 0.6166666746139526,
+        "20": 0.8666666746139526,
+        "60": 0.7734082341194153
+      },
+      "events": {
+        "0": 0,
+        "5": 200,
+        "20": 729,
+        "60": 1772
+      },
+      "val_losses": {
+        "0": 2.8183724085489907,
+        "5": 1.6311653057734172,
+        "20": 1.6228333512941997,
+        "60": 1.5328101416428883
+      },
+      "adjacent_ratios": {
+        "5->20": 3.68,
+        "20->60": 1.1
+      },
+      "non_refrain_far_value_means": {
+        "0": -0.9764971733093262,
+        "5": -0.027884941548109055,
+        "20": 0.007269446738064289,
+        "60": -0.057549070566892624
+      },
+      "best_heads": [
+        {
+          "level": 0,
+          "layer": 0,
+          "head": 4,
+          "refrain_mass": 0.12029318511486053,
+          "control_mass": 0.11993984878063202,
+          "ratio": 1.0029459461373407
+        },
+        {
+          "level": 5,
+          "layer": 0,
+          "head": 4,
+          "refrain_mass": 0.1304275244474411,
+          "control_mass": 0.09049676358699799,
+          "ratio": 1.441239656289544
+        },
+        {
+          "level": 20,
+          "layer": 5,
+          "head": 3,
+          "refrain_mass": 0.15802009403705597,
+          "control_mass": 0.04420695826411247,
+          "ratio": 3.5745525193787833
+        },
+        {
+          "level": 60,
+          "layer": 5,
+          "head": 1,
+          "refrain_mass": 0.2531968355178833,
+          "control_mass": 0.03047034703195095,
+          "ratio": 8.309614434400213
+        }
+      ],
+      "verdicts": {
+        "P1_retrieval_between_5_and_60": "REFUTED-LOW (threshold <= 5%)",
+        "P2_sharp_threshold": "GRADED",
+        "P2_adjacent_ratios": {
+          "5->20": 3.68,
+          "20->60": 1.1
+        },
+        "P3_no_leak_non_refrain": true,
+        "P3_means": {
+          "0": -0.9764971733093262,
+          "5": -0.027884941548109055,
+          "20": 0.007269446738064289,
+          "60": -0.057549070566892624
+        },
+        "P4_threshold_lower_at_10M": "WEAK-SUPPORT (weak proxy: 10M/2.7M fv ratio at p=5: 1.87)",
+        "p_star_2_7M": 5,
+        "retrieval_shown_by_level": {
+          "5": true,
+          "20": true,
+          "60": true
+        },
+        "fv_prefix_own": {
+          "5": 0.21975763142108917,
+          "20": 0.8083413243293762,
+          "60": 0.8895382285118103
+        },
+        "fv_prefix_baseline_p0_shared": -2.2395708560943604
+      },
+      "flags": [
+        "p0 = shared-probe view (0 own events), net off-parity (val 2.82): interference magnitude confounded, sign real",
+        "'<=5%' rests on one n=20-events cell; shared-probe view 5-20%",
+        "10M arm wall-matched only 491 steps (P4 weak-support)",
+        "corpora 620KB ~75 epochs"
+      ],
+      "sources": [
+        "runs/e049/metrics.json"
+      ]
+    },
+    "F_edit_law_NEW": {
+      "address": {
+        "params": 384,
+        "s_name_rows": 573.4247729343184,
+        "s_name_rows_plus_patch": 1936.9423310495579,
+        "s_name_0.84M": 1293.1704118069185,
+        "s_name_10M": 332.29902643920383,
+        "e046_rows_alone_acc_band": [
+          0.15733332931995392,
+          0.13866665959358215
+        ],
+        "note": "general damager; complete erasure once, second factor net-specific"
+      },
+      "ability": {
+        "best_graft_gap_closed": 0.032797282369854505,
+        "diff_init": {
+          "gap_closed": 0.0020169974531453563,
+          "zclass_mean_dnll": 1.9170188205316663,
+          "fails_both_ways": true
+        },
+        "best_install": {
+          "cell": "Dmix@s400",
+          "nll": 0.09032101184129715,
+          "acc": 0.973809540271759,
+          "dce": 0.05053009986877455,
+          "s_install": 144.13565696833626
+        },
+        "incumbent_atlas_spearman": 0.905019305019305,
+        "flags": [
+          "protocol-fragile: onset wall anchor-manufactured"
+        ]
+      },
+      "expression": {
+        "zephyra_in_2800_chars": 0,
+        "zero_across": {
+          "repro_unseeded": 0,
+          "repro_seeded": 0,
+          "repro_T0.7": 0,
+          "repro_T1.0": 0,
+          "repro_T1.3": 0,
+          "dose@s400": 0,
+          "dose@s800": 0,
+          "dose@s1600": 0
+        },
+        "p_z_battery": 0.5563081502914429,
+        "p_z_free_prompt": 0.08980618417263031,
+        "p_z_uniform": 1.7109754253397114e-06,
+        "uniform_floor_acc": 0.2857142984867096,
+        "host_acc": 0.973809540271759,
+        "flags": [
+          "R8: dose legs bit-identical \u2014 instrument suspect; dose-response open"
+        ]
+      },
+      "history": {
+        "relearn_slower_ratio": 2.0833333333333335,
+        "row_regrow_cos_wte": 0.7600888609886169,
+        "wte_regrowth_frac": 0.5854950299422124,
+        "fresh_name_cos": 0.2776569724082947,
+        "route_corr_orig_vs_relearned": 0.20514800514800516,
+        "l3h5_orig_dce": 0.8785839080810547,
+        "l3h5_relearned_dce": -2.0299291610717773,
+        "reerase_acc": 0.445333331823349,
+        "reerase_dce": 0.020825562477111648,
+        "flags": [
+          "n=1 \u2014 single net, awaits replication (R7)"
+        ]
+      },
+      "thinking_refs": [
+        "T015",
+        "T018",
+        "T019"
+      ],
+      "sources": [
+        "runs/e042/metrics.json",
+        "runs/e043/metrics.json",
+        "runs/e044/metrics.json",
+        "runs/e046/metrics.json",
+        "runs/e048/metrics.json",
+        "runs/e005s/metrics.json"
+      ]
+    }
+  }
+}
