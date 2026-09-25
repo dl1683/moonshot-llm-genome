@@ -7,7 +7,7 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T033 — E055: the suppression is causal, state-carried, and lives at depth 4 (2026-09-25T22:15Z)
+## T033 — E055: causal state-carried suppression at depth 4 (2026-09-25T22:15Z) [AUDIT 22:30Z: P1 SURVIVES STRONG — d4 rescue 0.374 is ~60x its base-net twin (0.0062); pad-shifted donors cap 0.133 (position-cue leak excluded); one-shot semantics genuine (25/32 vs base 6/32); P3 held with margin (9/10 deep sites, ratios 4.6-76x). CAVEATS: quote d4 not d5 (base-net d5 is 23% of installed — the shakier leg); terminal sites are pseudo-replicated (t=120 recurs); d*=4 is terminal-carried — deep-only stratum would give d*=5, outside {2,3,4}; ALL 21 sites are gap-selected onsets (selection circularity OPEN); downstream Z-words partly onset-flip + mechanical completion. FOLLOW-UP REGISTERED (e056b): re-run R1 depth curve at ~24 random NON-onset positions from cached trajectories — d*=4 surviving there kills the circularity (minutes, no training).]
 
 **The full 24-site depth-survival run (all gates pass; shuffled
 controls ≈ 0.000 everywhere):**
