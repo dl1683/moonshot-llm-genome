@@ -259,7 +259,8 @@ def decode_step(net: TinyGPT, tok: int, pos: int, kv: list):
 
 # --------------------------------------------------------- adaptive protocol
 
-def fit_protocol(t7: float, c_dec: float, share: float, L: int, is_scale: bool) -> dict:
+def fit_protocol(t7: float, c_dec: float, share: float, L: int, is_scale: bool,
+                 pin_v_full: bool = False) -> dict:
     """Fit (n_seq, stride, sweep detail) to the cell's wall-time share.
 
     Cost model (measured): clean generation runs on the incremental KV-cache
@@ -267,7 +268,10 @@ def fit_protocol(t7: float, c_dec: float, share: float, L: int, is_scale: bool) 
     (B~8); a full 255-position sweep ~8*t7 per kind (batch amortization);
     per-layer decomposition L*t7; binned sweeps ~1*t7. Priority: n_seq
     (registered aggregation unit) > sweep detail > timeline stride, per the
-    design's fallback ordering.
+    design's fallback ordering — except exposure-axis cells PIN the full
+    V-sweep (their a* comparison needs per-position resolution).
+    Acceptance targets 0.95x share: t7 is measured in one power state and
+    the machine fluctuates ~3x between states (pace guard trims remainder).
     """
     SW = 8.0 * t7
     SB = 1.0 * t7
@@ -276,12 +280,14 @@ def fit_protocol(t7: float, c_dec: float, share: float, L: int, is_scale: bool) 
         if n_seq > MAX_SEQ:
             continue
         for v_full, k_full in ((True, True), (True, False), (False, False)):
+            if pin_v_full and not v_full:
+                continue
             for per_layer in ((is_scale and not SMOKE), False):
                 fixed = n_seq * ((SW if v_full else SB) + (SW if k_full else SB)
                                  + (L * t7 if per_layer else 0) + 3 * SB)
                 for stride in (1, 2, 4, 8):
                     tl = n_seq * (DEC + (192 / stride) * t7)
-                    if fixed + tl <= 1.15 * share:
+                    if fixed + tl <= 0.95 * share:
                         return dict(n_seq=n_seq, stride=stride, v_sweep_full=v_full,
                                     k_sweep_full=k_full, per_layer=per_layer,
                                     est_s=fixed + tl, t7=t7)
@@ -571,7 +577,8 @@ def main():
             gates["G1"][name] = dict(val_ce=val_ce, anchor=None, ok=None)
         t7, c_dec, g0b = measure_t7(net, ch, g0_window)
         gates["G0b"][name] = g0b
-        proto = fit_protocol(t7, c_dec, share, net.cfg.n_layer, axis.startswith("scale"))
+        proto = fit_protocol(t7, c_dec, share, net.cfg.n_layer, axis.startswith("scale"),
+                             pin_v_full=("exposure" in axis))
         if axis == "exposure" and exposure_clamp is not None:
             proto["n_seq"] = min(proto["n_seq"], exposure_clamp)
         if axis == "scale+exposure":
@@ -593,11 +600,13 @@ def main():
                              k_sweep_full=proto["k_sweep_full"], per_layer=proto["per_layer"])
             seqs.append(r)
             done = si + 1
-            proj = (elapsed() - cell_t0) / done * (proto["n_seq"] - done)
+            cell_elapsed = elapsed() - cell_t0
+            proj = cell_elapsed / done * (proto["n_seq"] - done)
             if (done >= 2 and si + 1 < proto["n_seq"]
-                    and elapsed() + proj > BUDGET_S * 0.95):
+                    and (cell_elapsed + proj > 1.35 * share
+                         or elapsed() + proj > BUDGET_S * 0.95)):
                 log(f"  {name}: pace guard -> stopping at {done} seqs "
-                    f"(proj +{proj:.0f}s over budget)")
+                    f"(cell {cell_elapsed:.0f}s, proj +{proj:.0f}s vs share {share:.0f}s)")
                 break
             gates["G3_nan"] += r["nan_count"]
             gates["G2_last64_violations"] += r["g2_viol"]

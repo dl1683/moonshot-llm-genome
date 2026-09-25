@@ -53,6 +53,20 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E053b — fine-onset remediation: the invariance was quantization (2026-09-25) — DONE (2-cell partial, honest smoke flag)
+
+WHAT WE DID: fine-grid onset fitting on the cache-timeline cells (no
+bin-edge fallback), bootstrap CIs, identity test.
+
+WHAT WE SAW (T031): fine onsets 36 (0.84M) vs 24 (2.7M) — 1.5x scale
+ratio, NOT invariant; the a*/window identity broken (5-6 pt gaps);
+absolute-vs-proportional still undecidable at ctx-256. T030's
+"onset~63 invariant" RETRACTED; publishable core narrows to sink-dead +
+live-fraction + non-monotone structure with onset scale-dependent.
+Exposure cells + ctx-512 remain for the full curve.
+
 ## E064 + E053 — the stress test kills the unification; the timeline lands (2026-09-25) — DONE
 
 E064 (gate stress): **KILLED** — R43's ladder peaks L3 with its gate at

@@ -7,6 +7,27 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T031 — E053b: the onset invariance was quantization; fine onsets are 36/24 (NOT invariant) (2026-09-25T20:50Z)
+
+**The remediation's verdict (partial run — smoke-flagged, 2 of 5 cells;
+exposure cells not yet done):**
+- **DE-QUANTIZATION CONFIRMED: the fallback a*=63 was an artifact.** Fine
+  -fit onsets: 0.84M a*=36 [CI 9-36], 2.7M a*=24 [CI 6-24] — a 1.5×
+  scale RATIO, NOT the invariant the fallback suggested. Smaller nets
+  hold cache entries live LONGER.
+- **The one-statistic identity BROKEN:** a*/255 (0.14/0.09) vs
+  live-fraction (0.19/0.16) diverge by 5-6 points per cell with
+  bootstrap CIs — they are related but distinct statistics after fine
+  fitting.
+- **Honest scope:** this is a 2-cell partial (the agent's smoke flag is
+  honest; exposure cells pending); CIs are wide (per-seq sweeps are
+  noisy); absolute-vs-proportional remains undecidable at ctx-256. The
+  paper-grade claim is now "fine onset varies with scale (1.5× over
+  3×); exact curve pending exposure cells + ctx-512."
+- **Card effect:** T030's "onset~63 invariant" headline is RETRACTED;
+  the publishable core narrows to sink-dead + live-fraction ~15-29% +
+  non-monotone structure, with onset scale-dependent.
+
 ## T030 — E064 kills the gate unification; E053's timeline lands (2026-09-25T19:45Z) [R13 flags 20:05Z: E053's a*=63 is BIN-QUANTIZED in 4/5 cells (fallback edge 17-64 minus 1; only 0.84M fine-fit 73); a*/255 == live-fraction — ONE statistic not two; absolute-vs-proportional undecidable without a ctx-512 cell. E064's raw-D nuance: D peaks AT R's gate L4 and R43's pre-gate — the R=D/A instrument died (tiny-denominator pathologies), not necessarily the phenomenon; resurrection requires a NEW registered instrument.]
 
 **E064 VERDICT: KILLED** (bootstrap 100% stable on both hosts; R43's
