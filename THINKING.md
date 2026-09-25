@@ -7,6 +7,33 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T035 — E056c: LOUD LOGIT PASTE — the claim-split's leg-2 reframes as transient injection (2026-09-25T23:30Z)
+
+**The registered discriminator's verdict (R14 rule frozen pre-run):**
+- **At non-onset positions the d4 write is a one-token Z-logit crank.**
+  p(Z) 0.509 at +1 with argmax flips at 24/24 — then a sharp cliff:
+  4.5e-4 at +2, 5.1e-6 at +10 (indistinguishable from floor). ZERO
+  recurrent Z-words in 288 donor continuations; the only "ZEPHYRA-like"
+  outputs are 6 offset-0 "ZEPHY:" speaker-tag completions that die at
+  the colon. Knowledge-specific (shuffled/base: 0 first-Z in 96 each vs
+  donor 49/96) but transient.
+- **T034's claim-split AMENDED to its final form:** (a) onset-specific:
+  sub-argmax knowledge + the wpe-130 knife-edge governing NATURAL
+  free-run expression (untouched); (b) the d≥4 state write at ONSET
+  sites rescues durably (e055's one-shot ≈ held, 32 downstream rows) —
+  genuine suppression-unblocking THERE; (c) at non-onset positions the
+  same write is a transient logit crank — the address is not portable;
+  expression requires the position. The paper's honest summary: **the
+  knowledge is position-bound; suppression is real at the bound
+  position; the transplant "rescue" outside it was a logit artifact.**
+- **The paper draft folds this immediately** (abstract + contributions
+  3c + kill-risk 3's answer all update): the YOPO-collision risk
+  *shrinks* — our d4 write is NOT a general steering direction (it
+  fails to steer 2 tokens ahead); what we actually demonstrate is
+  position-specific suppression with position-specific rescue.
+
+## T034-superceded header [R14 flag already noted R1-only; now resolved]
+
 ## T034 — E056b resolves the circularity [R14 flag: R1-only — the position-general leg not yet distinguished from loud-logit paste; e056b+R2 registered as the discriminator]: the rescue is a GLOBAL state property, and the claim splits honestly (2026-09-25T22:50Z)
 
 **The registered circularity-killer ran at 24 floor-prior non-onset

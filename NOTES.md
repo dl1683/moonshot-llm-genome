@@ -59,6 +59,21 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E056c — downstream check: LOUD LOGIT PASTE at non-onset (2026-09-25) — DONE
+
+WHAT WE DID: the R14-registered discriminator — free-run continuations
+after one-shot d4 writes at the 24 non-onset positions; persistence
+curves; 480 continuations total.
+
+WHAT WE SAW (T035): the rescue is TRANSIENT off-onset — p(Z) 0.509 at
++1, floor by +2, zero recurrent Z-words (only 6 offset-0 "ZEPHY:" tag
+  completions). Knowledge-specific but not portable. Claim-split final:
+position-bound knowledge; real suppression at the bound position;
+durable rescue there (e055); logit artifact elsewhere. The YOPO
+collision risk shrinks — our write fails to steer even 2 tokens ahead.
+
 ## E056b — the circularity killer: rescue is position-general (2026-09-25) — DONE
 
 WHAT WE DID: the d4-rescue donors transplanted at 24 floor-prior
