@@ -7,6 +7,34 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T028 — Expression-gap prior art: our lane confirmed with scope fixes (2026-09-25T18:50Z)
+
+**The researcher's scan (scratch/expression_gap_lit.md):**
+- **Orgad ICLR-25 is probe-only** (their "internally-right-but-generates-
+  wrong" cell IS our gap, untested causally anywhere); their error-type
+  AUCs are weak (0.59-0.68) — pre-register our discrimination metric.
+- **e055's transplant is unpublished WITH A SCOPE FIX:** "zero
+  interventional studies" → "zero interventional studies of *factual-
+  recall* expression." Closest prior: "You Only Pass Once" (2608.14465) —
+  relay steering flips silently-encoded knowledge into speech in the
+  ABSTENTION domain; different method (learned direction vs own-state
+  transplant), different goal (elicitation vs suppression-depth
+  localization). Cite proactively.
+- **Unclaimed territories we can own:** (a) the sub-argmax-persistent
+  prior (correct token rank-2+ in free run while winning under teacher
+  forcing — no one has measured this); (b) TF/free-run STATE comparison
+  at a named token (zero prior); (c) the depth-survival/localization
+  curve for suppression. Adopt Buckmann's term "elicitation failure."
+- Yan & Jia EMNLP-25 found a promote-then-suppress circuit for
+  enumeration repetition — the strongest "suppression circuits exist"
+  motivation cite. ITI/DoLa/CD all assume-but-never-measure where
+  knowledge dies.
+
+**e055 registration sharpened by this scan:** pre-register the
+discrimination metric; measure the sub-argmax prior explicitly; cite
+YOPO-2608 + Yan-Jia; claim "factual-recall elicitation failure, causally
+localized."
+
 ## T027 — E050: directed mutation doesn't help either — FROZEN at full strength (2026-09-25T18:20Z) [full-report enriched 18:30Z: the KEY contrast — random mutation gave −3.52% at its first selection event, directed gave −3.63%: IDENTICAL trickle despite 100% of ε on the graft-interface matrices and abundant founder spread (0.213 nats >> 3×CI). The limiter is selection's VIEW, not mutation's reach — the cleanest statement of VISIBILITY-LIMITED. LN-confound re-dead at n=7 (r=0.251, p=0.59); damage trickles on axes neither LN nor alignment explains. Wall 16.7 min, thermal-disciplined.]
 
 **The reachability test:** same lineage protocol, mutation restricted to

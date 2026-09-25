@@ -147,7 +147,7 @@ def per_batch_losses_cpu(model, corpus, n_batches: int = N_EVAL) -> list[float]:
     for _ in range(n_batches):
         ix = torch.randint(len(src) - cfg.block_size - 1, (16,), generator=gen)
         x = torch.stack([src[i: i + cfg.block_size] for i in ix])
-        y = torch.stack([src[i + 1: i + cfg.block_size] for i in ix])
+        y = torch.stack([src[i + 1: i + 1 + cfg.block_size] for i in ix])
         _, loss = model(x, y)
         losses.append(float(loss.item()))
     model.train()
