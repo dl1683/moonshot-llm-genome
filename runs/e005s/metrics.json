@@ -1,0 +1,516 @@
+{
+  "experiment": "e005s_scaling",
+  "date": "2026-09-24T20:29:05Z",
+  "seed": 42,
+  "smoke": false,
+  "registered": "P1-P4 in lab/e005s_scaling.py header (written before the run)",
+  "params_verified": {
+    "small": 840704,
+    "large": 9977600,
+    "B_reference": 2739072,
+    "note": "dims as specified verify to 0.84M / 9.98M, ~20-25% over the ~0.7M / ~8M labels; dims were the frozen spec"
+  },
+  "training": {
+    "protocol": "train_model steps=4000 lr=1e-3 batch=64 cosine, seed 42",
+    "small": {
+      "steps": 4000,
+      "budget_s": 252.0,
+      "prior_segment_s": 0.0,
+      "final_val_loss": 1.5581,
+      "note": "recovered from runs/e005s_run.log segment 1: full 4000-step cosine completed in 62.9s of the 252s cap; in-memory meta lost to the common.py resume crash before metrics were written"
+    },
+    "large": {
+      "steps": 1086,
+      "budget_s": 146.8,
+      "prior_segment_s": 253.2,
+      "final_val_loss": 1.578879326581955
+    }
+  },
+  "nets": {
+    "small": {
+      "params": 840704,
+      "config": {
+        "vocab": 65,
+        "n_layer": 4,
+        "n_head": 4,
+        "n_embd": 128,
+        "block_size": 256
+      },
+      "train": {
+        "steps": 4000,
+        "budget_s": 252.0,
+        "prior_segment_s": 0.0,
+        "final_val_loss": 1.5581,
+        "note": "recovered from runs/e005s_run.log segment 1: full 4000-step cosine completed in 62.9s of the 252s cap; in-memory meta lost to the common.py resume crash before metrics were written"
+      },
+      "l1_gate": {
+        "flip_curve_per_depth": [
+          0.14453125,
+          0.1490885466337204,
+          0.3235677182674408,
+          0.6764323115348816
+        ],
+        "causal_hist_d0_dLm1": [
+          222.0,
+          65.0,
+          329.0,
+          520.0
+        ],
+        "causal_mode": 3,
+        "modal_share": 0.4577464759349823,
+        "no_single_depth_flip_fraction": 0.2604166567325592,
+        "suffix_monotone_flip_fraction": 0.8336267471313477,
+        "min_consecutive_flip_diff": 0.004557296633720398,
+        "n_flippers": 1136,
+        "gate_exists": false
+      },
+      "l2_front_loading": {
+        "baseline_val_loss": 1.5373092611630759,
+        "attn_block_damage": [
+          2.839174830913544,
+          2.1570263346036276,
+          1.2861730297406513,
+          0.2545121073722838
+        ],
+        "mlp_block_damage": [
+          2.954152794679006,
+          1.5532823999722798,
+          1.598451284567515,
+          1.215264284610748
+        ],
+        "attn_l0_over_last": 11.15536254925815
+      },
+      "l4_far_value": {
+        "far_value_mean": 0.020531566813588142,
+        "far_value_median": 0.0027782092802226543,
+        "frac_ge_015": 0.25,
+        "p99": 1.5367177724838257,
+        "n_positions": 2000
+      },
+      "l6_row_surgery": {
+        "g2_confinement": {
+          "rows_changed": {
+            "wte.weight": [
+              22
+            ],
+            "lm_head.weight": [
+              22
+            ]
+          },
+          "n_elements_changed": 256,
+          "expected_elements": 256,
+          "confined_to_full_rows": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "baseline": {
+          "JULIET": {
+            "nll": 0.4720515012741089,
+            "acc": 0.8560000061988831,
+            "n": 125
+          },
+          "JOHN": {
+            "nll": 1.0545265674591064,
+            "acc": 0.7121212482452393,
+            "n": 33
+          },
+          "ROMEO": {
+            "nll": 0.45697614550590515,
+            "acc": 0.8511999845504761,
+            "n": 125
+          },
+          "GLOUCESTER": {
+            "nll": 0.2115790992975235,
+            "acc": 0.94159996509552,
+            "n": 125
+          },
+          "MENENIUS": {
+            "nll": 0.3265670835971832,
+            "acc": 0.8870000243186951,
+            "n": 125
+          },
+          "CORIOLANUS": {
+            "nll": 0.23838859796524048,
+            "acc": 0.9447999596595764,
+            "n": 125
+          },
+          "ISABELLA": {
+            "nll": 0.3077107071876526,
+            "acc": 0.9130000472068787,
+            "n": 125
+          },
+          "LUCIO": {
+            "nll": 0.5644880533218384,
+            "acc": 0.776576578617096,
+            "n": 111
+          },
+          "PETRUCHIO": {
+            "nll": 0.5378026366233826,
+            "acc": 0.8095237612724304,
+            "n": 21
+          }
+        },
+        "surgery": {
+          "JULIET": {
+            "nll": 6.415404796600342,
+            "acc": 0.1666666716337204
+          },
+          "JOHN": {
+            "nll": 6.594357013702393,
+            "acc": 0.10606060922145844
+          },
+          "ROMEO": {
+            "nll": 0.4733966588973999,
+            "acc": 0.8479999899864197
+          },
+          "GLOUCESTER": {
+            "nll": 0.20978930592536926,
+            "acc": 0.94159996509552
+          },
+          "MENENIUS": {
+            "nll": 0.3253038823604584,
+            "acc": 0.8860000371932983
+          },
+          "CORIOLANUS": {
+            "nll": 0.23754574358463287,
+            "acc": 0.9447999596595764
+          },
+          "ISABELLA": {
+            "nll": 0.306564599275589,
+            "acc": 0.9130000472068787
+          },
+          "LUCIO": {
+            "nll": 0.5598726868629456,
+            "acc": 0.7801802158355713
+          },
+          "PETRUCHIO": {
+            "nll": 0.5342972874641418,
+            "acc": 0.8095237612724304
+          }
+        },
+        "d_nll": {
+          "JULIET": 5.943353295326233,
+          "JOHN": 5.539830446243286,
+          "ROMEO": 0.01642051339149475,
+          "GLOUCESTER": -0.0017897933721542358,
+          "MENENIUS": -0.0012632012367248535,
+          "CORIOLANUS": -0.000842854380607605,
+          "ISABELLA": -0.0011461079120635986,
+          "LUCIO": -0.004615366458892822,
+          "PETRUCHIO": -0.0035053491592407227
+        },
+        "d_ce_val_all": 0.0005291509628297941,
+        "s_name": 1293.1704118069185,
+        "s_letter": 1.0728402887053317,
+        "census_d_nll": {
+          "JULIET": 5.943353295326233,
+          "Juliet": 5.2115267515182495,
+          "JOHN": 5.539830446243286,
+          "John": 6.328560948371887,
+          "Jove": 1.7681653499603271,
+          "Jack": 1.648355484008789,
+          "Jesu": 3.915660858154297,
+          "Justice": 3.4405198097229004,
+          "Jupiter": 3.0904181003570557,
+          "Join": 2.7778024673461914,
+          "Juno": 2.3230204582214355,
+          "Julius": 4.8564006090164185
+        },
+        "class_exact": {
+          "max_abs_nonj_d_nll": 0.01642051339149475,
+          "min_census_d_nll": 1.648355484008789
+        },
+        "cheap": true,
+        "p4_s_name_ge_bar": true
+      }
+    },
+    "large": {
+      "params": 9977600,
+      "config": {
+        "vocab": 65,
+        "n_layer": 8,
+        "n_head": 8,
+        "n_embd": 320,
+        "block_size": 256
+      },
+      "train": {
+        "steps": 1086,
+        "budget_s": 146.8,
+        "prior_segment_s": 253.2,
+        "final_val_loss": 1.578879326581955
+      },
+      "l1_gate": {
+        "flip_curve_per_depth": [
+          0.1393229216337204,
+          0.1393229216337204,
+          0.2897135317325592,
+          0.4563802182674408,
+          0.5755208134651184,
+          0.7076823115348816,
+          0.7936198115348816,
+          0.861328125
+        ],
+        "causal_hist_d0_dLm1": [
+          214.0,
+          24.0,
+          294.0,
+          294.0,
+          210.0,
+          181.0,
+          119.0,
+          89.0
+        ],
+        "causal_mode": 2,
+        "modal_share": 0.2063157856464386,
+        "no_single_depth_flip_fraction": 0.072265625,
+        "suffix_monotone_flip_fraction": 0.7431579232215881,
+        "min_consecutive_flip_diff": 0.0,
+        "n_flippers": 1425,
+        "gate_exists": true
+      },
+      "l2_front_loading": {
+        "baseline_val_loss": 1.5616513252258302,
+        "attn_block_damage": [
+          2.07852296034495,
+          1.2959717353185018,
+          0.39520452022552477,
+          0.16101363897323595,
+          0.10666234493255611,
+          0.041763909657796194,
+          0.026585495471954212,
+          0.01785245736440011
+        ],
+        "mlp_block_damage": [
+          3.4032532374064126,
+          0.04750252962112422,
+          0.10811395645141597,
+          0.14333038330078107,
+          0.12050220171610504,
+          0.11427403291066485,
+          0.10116511980692544,
+          0.13410466114679953
+        ],
+        "attn_l0_over_last": 116.42783499876988
+      },
+      "l4_far_value": {
+        "far_value_mean": 0.03484759107232094,
+        "far_value_median": 0.007716592401266098,
+        "frac_ge_015": 0.3174999952316284,
+        "p99": 2.281190872192383,
+        "n_positions": 2000
+      },
+      "l6_row_surgery": {
+        "g2_confinement": {
+          "rows_changed": {
+            "wte.weight": [
+              22
+            ],
+            "lm_head.weight": [
+              22
+            ]
+          },
+          "n_elements_changed": 640,
+          "expected_elements": 640,
+          "confined_to_full_rows": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "baseline": {
+          "JULIET": {
+            "nll": 0.35565853118896484,
+            "acc": 0.8866666555404663,
+            "n": 125
+          },
+          "JOHN": {
+            "nll": 1.1594290733337402,
+            "acc": 0.6439394354820251,
+            "n": 33
+          },
+          "ROMEO": {
+            "nll": 0.36553874611854553,
+            "acc": 0.876800000667572,
+            "n": 125
+          },
+          "GLOUCESTER": {
+            "nll": 0.1569247990846634,
+            "acc": 0.9503999948501587,
+            "n": 125
+          },
+          "MENENIUS": {
+            "nll": 0.2670789659023285,
+            "acc": 0.9080000519752502,
+            "n": 125
+          },
+          "CORIOLANUS": {
+            "nll": 0.2275557518005371,
+            "acc": 0.9303999543190002,
+            "n": 125
+          },
+          "ISABELLA": {
+            "nll": 0.19002604484558105,
+            "acc": 0.9470000267028809,
+            "n": 125
+          },
+          "LUCIO": {
+            "nll": 0.5469483733177185,
+            "acc": 0.8180180191993713,
+            "n": 111
+          },
+          "PETRUCHIO": {
+            "nll": 0.40091586112976074,
+            "acc": 0.8835978507995605,
+            "n": 21
+          }
+        },
+        "surgery": {
+          "JULIET": {
+            "nll": 6.9325127601623535,
+            "acc": 0.06399999558925629
+          },
+          "JOHN": {
+            "nll": 7.283775806427002,
+            "acc": 0.03787878900766373
+          },
+          "ROMEO": {
+            "nll": 0.42742934823036194,
+            "acc": 0.8575999736785889
+          },
+          "GLOUCESTER": {
+            "nll": 0.15505298972129822,
+            "acc": 0.9503999948501587
+          },
+          "MENENIUS": {
+            "nll": 0.2658486068248749,
+            "acc": 0.9080000519752502
+          },
+          "CORIOLANUS": {
+            "nll": 0.22691288590431213,
+            "acc": 0.9303999543190002
+          },
+          "ISABELLA": {
+            "nll": 0.18892325460910797,
+            "acc": 0.9470000267028809
+          },
+          "LUCIO": {
+            "nll": 0.5473785996437073,
+            "acc": 0.816216230392456
+          },
+          "PETRUCHIO": {
+            "nll": 0.39923739433288574,
+            "acc": 0.8835978507995605
+          }
+        },
+        "d_nll": {
+          "JULIET": 6.576854228973389,
+          "JOHN": 6.124346733093262,
+          "ROMEO": 0.061890602111816406,
+          "GLOUCESTER": -0.0018718093633651733,
+          "MENENIUS": -0.0012303590774536133,
+          "CORIOLANUS": -0.0006428658962249756,
+          "ISABELLA": -0.0011027902364730835,
+          "LUCIO": 0.00043022632598876953,
+          "PETRUCHIO": -0.001678466796875
+        },
+        "d_ce_val_all": 0.0004688072204588334,
+        "s_name": 332.29902643920383,
+        "s_letter": 1.073886655279489,
+        "census_d_nll": {
+          "JULIET": 6.576854228973389,
+          "Juliet": 4.432729125022888,
+          "JOHN": 6.124346733093262,
+          "John": 6.649118185043335,
+          "Jove": 1.4057424068450928,
+          "Jack": 1.8135604858398438,
+          "Jesu": 3.407844066619873,
+          "Justice": 3.4076966047286987,
+          "Jupiter": 3.6672059297561646,
+          "Join": 3.6983044147491455,
+          "Juno": 1.3734450340270996,
+          "Julius": 4.558282494544983
+        },
+        "class_exact": {
+          "max_abs_nonj_d_nll": 0.061890602111816406,
+          "min_census_d_nll": 1.3734450340270996
+        },
+        "cheap": true,
+        "p4_s_name_ge_bar": true
+      }
+    }
+  },
+  "B_reference_loaded": {
+    "l1": {
+      "flip_curve_per_depth": [
+        0.1393229216337204,
+        0.1399739533662796,
+        0.2024739533662796,
+        0.39453125,
+        0.595703125,
+        0.7760416865348816
+      ],
+      "causal_mode": 3,
+      "suffix_monotone_flip_fraction": 0.7699999809265137,
+      "no_single_depth_flip_fraction": 0.1536458283662796,
+      "causal_hist_d0_d5": [
+        214.0,
+        32.0,
+        172.0,
+        324.0,
+        308.0,
+        250.0
+      ],
+      "n_layer": 6
+    },
+    "l2": {
+      "attn_block_damage": [
+        2.4010302821795144,
+        1.7372984766960142,
+        1.0627772212028503,
+        0.37890928586324035,
+        0.19311420122782397,
+        0.03353847662607823
+      ],
+      "mlp_block_damage": [
+        4.079049940903982,
+        0.15049700736999516,
+        0.2652580897013346,
+        0.4670207858085633,
+        0.5986512223879497,
+        0.5920616507530214
+      ],
+      "baseline_val_loss": 1.622391394774119,
+      "params": 2739072,
+      "n_layer": 6
+    },
+    "l4": {
+      "far_value_mean": -0.0009958973387256265,
+      "frac_ge_015": 0.30550000071525574
+    },
+    "l6": {
+      "juliet_base_nll": 0.4098820686340332,
+      "juliet_base_acc": 0.8826666474342346,
+      "juliet_surg_nll": 7.378818511962891,
+      "juliet_surg_acc": 0.13599999248981476,
+      "d_ce_val_all": 0.0008219718933106801,
+      "s_name": 573.4247729343184,
+      "s_letter": 0.9929685681752116,
+      "n_elements": 384
+    }
+  },
+  "verdicts": {
+    "P1_gate_exists_small": false,
+    "P1_gate_exists_large": true,
+    "P1_holds": false,
+    "P2_front_loading_small": true,
+    "P2_front_loading_large": true,
+    "P2_holds": true,
+    "P3_far_value_small": true,
+    "P3_far_value_large": true,
+    "P3_holds": true,
+    "P4_sname_bar": 3.69,
+    "P4_naive_reference": 1.23,
+    "P4_row_surgery_small": true,
+    "P4_row_surgery_large": true,
+    "P4_holds": true
+  },
+  "timing_s": 219.2
+}

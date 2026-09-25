@@ -213,7 +213,10 @@ def train_model(
     history, start_step = [], 0
     gen = torch.Generator().manual_seed(corpus.seed)
     if ckpt is not None and Path(ckpt).exists():
-        state = torch.load(ckpt, map_location=DEVICE, weights_only=False)
+        # map_location="cpu": model/opt state is copied to the right device by
+        # load_state_dict, and the CPU RNG gen_state must STAY a CPU ByteTensor
+        # (map_location=DEVICE corrupts Generator.set_state with a TypeError).
+        state = torch.load(ckpt, map_location="cpu", weights_only=False)
         model.load_state_dict(state["model"])
         opt.load_state_dict(state["opt"])
         sched.load_state_dict(state["sched"])

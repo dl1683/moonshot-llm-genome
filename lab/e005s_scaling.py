@@ -43,8 +43,9 @@ REGISTERED BEFORE ANY RUN (frozen):
      class-exact = max|dNLL| over non-J battery names <= 0.05 AND every
      J-census word dNLL >= 1.0; cheap = dCE(val-All) <= 0.01 nats.
 
-Registered fallback: if LARGE's 252s cap ends below step 1000, resume once
-for +148s (total 400s wall). Everything else runs as registered.
+Registered fallback: if LARGE's 252s cap ends below step 1000, training may
+extend to a 400s wall total (implemented as a budget carried across ckpt
+resumes). Everything else runs as registered.
 
 Run: python lab/e005s_scaling.py   (B checkpoint + runs/ references required)
 Outputs: runs/e005s/{metrics.json, scaling_readouts.png}. smoke: false.
@@ -406,7 +407,8 @@ def load_b_ref():
 
 # ------------------------------------------------------------------ main
 
-def train_net(tag: str, cfg_kw: dict, corpus, cap_s: float, extend_s: float = 0.0):
+def train_net(tag: str, cfg_kw: dict, corpus, cap_s: float, total_s: float | None = None):
+    """252s cap; LARGE may extend to total_s=400 across ckpt resumes."""
     ckpt_final = CKPT_DIR / f"e005s_{tag}.pt"
     ckpt_train = CKPT_DIR / f"e005s_{tag}.train.pt"
     set_seed(SEED)
@@ -416,21 +418,23 @@ def train_net(tag: str, cfg_kw: dict, corpus, cap_s: float, extend_s: float = 0.
         model.load_state_dict(torch.load(ckpt_final, map_location=DEVICE, weights_only=True))
         log(f"{tag}: checkpoint found ({n_params:,} params), skipping training")
         return model, n_params, None
-    log(f"{tag}: training {n_params:,} params (cap {cap_s:.0f}s, seed {SEED})")
+    prior = 0.0
+    if ckpt_train.exists():
+        st = torch.load(ckpt_train, map_location="cpu", weights_only=False)
+        hist_prev = st.get("history") or []
+        # elapsed_s is per-call wall time; a single prior segment => its total
+        prior = float(hist_prev[-1]["elapsed_s"]) if hist_prev else 0.0
+    budget = cap_s if (total_s is None or prior <= 0.0) else max(60.0, total_s - prior)
+    log(f"{tag}: training {n_params:,} params (budget {budget:.0f}s, seed {SEED}, "
+        f"prior segment {prior:.0f}s)")
     hist = train_model(model, corpus, steps=4000, lr=1e-3, batch_size=64,
-                       max_seconds=cap_s, ckpt=ckpt_train)
+                       max_seconds=budget, ckpt=ckpt_train)
     steps_done = hist[-1]["step"]
-    extended = False
-    if extend_s and steps_done < 4000 and steps_done < 1000:
-        log(f"{tag}: registered fallback — only step {steps_done}, extending +{extend_s:.0f}s")
-        hist = train_model(model, corpus, steps=4000, lr=1e-3, batch_size=64,
-                           max_seconds=extend_s, ckpt=ckpt_train)
-        steps_done = hist[-1]["step"]
-        extended = True
     torch.save(model.state_dict(), ckpt_final)
-    log(f"{tag}: trained to step {steps_done} (extended={extended}), "
+    log(f"{tag}: trained to step {steps_done} (budget {budget:.0f}s), "
         f"val {hist[-1]['val_loss']:.4f}")
-    return model, n_params, {"steps": steps_done, "extended": extended,
+    return model, n_params, {"steps": steps_done, "budget_s": budget,
+                             "prior_segment_s": prior,
                              "final_val_loss": hist[-1]["val_loss"]}
 
 
@@ -444,8 +448,8 @@ def main():
     train_meta = {}
     params = {}
     for tag, cfg_kw in NETS.items():
-        cap, ext = (252.0, 0.0) if tag == "small" else (252.0, 148.0)
-        model, n_params, tmeta = train_net(tag, cfg_kw, corpus, cap, ext)
+        cap, total = (252.0, None) if tag == "small" else (252.0, 400.0)
+        model, n_params, tmeta = train_net(tag, cfg_kw, corpus, cap, total)
         model.eval()
         train_meta[tag] = tmeta
         params[tag] = n_params

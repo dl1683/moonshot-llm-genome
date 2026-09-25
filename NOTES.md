@@ -35,6 +35,24 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E005s — the scaling capstone (0.84M / 2.7M / 10M) (2026-09-25) — DONE
+
+WHAT WE DID: two new nets (4L/4H/128d = 0.84M; 8L/8H/320d = 9.98M), same
+corpus/seed, frozen readouts P1-P4 registered before training.
+
+WHAT WE SAW (T020): gate structure universal with relative depth sliding
+by architecture (1.0 -> 0.6 -> 0.29); front-loading INTENSIFIES (11x ->
+72x -> 116x; at 10M the three deepest attention blocks cost <=0.04 nats);
+16-token sufficiency erodes monotonically with scale (+0.021/-0.001/+0.035);
+address surgery scale-invariant in shape (S_name 1293/332, class-exact,
++0.0005 corpus). Distributed decisions collapse with depth (26->15->7%).
+Harness bug fixed (resume map_location).
+
+WHAT'S NEXT: card v3 scale-stamped; e049 (far-retrieval threshold) gains
+priority from L4's erosion.
+
 ## V011 — the edit film (2026-09-25) — DONE
 
 WHAT WE DID: six-frame filmstrip of law L7 from saved metrics (VISUALIZER

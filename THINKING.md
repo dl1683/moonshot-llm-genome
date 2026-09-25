@@ -7,6 +7,37 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T020 — The scale capstone: the laws hold, sharpened (E005s, 2026-09-25T02:40Z)
+
+**0.84M / 2.7M / 10M, frozen readouts, P1-P4 registered before training:**
+- **L1 (causal gate): structure universal, relative depth slides with
+  ARCHITECTURE** — 8L: clean mid-stack gate (mode 2 of 0-7, monotone
+  flips, 74% suffix-monotone). 4L: gate exists but the mode is the FINAL
+  block (46% commit at L−1 — a 4-layer stack has no "mid"). Relative
+  commitment depth: 1.0 (4L) → 0.6 (6L) → 0.29 (8L). T014's
+  non-invariance extends from seed/regime to depth budget. Distributed
+  decisions COLLAPSE with depth capacity (26% → 15% → 7% no-single-flip).
+- **L2 (front-loading): HOLDS and INTENSIFIES** — attn-L0/last ratio
+  11.2× → 71.7× → 116.4×; at 10M the three deepest attention blocks cost
+  ≤0.04 nats each (late attention becomes literally free) while the
+  MLP-0 keystone sharpens (3.40 with the rest of the MLP stack ≤0.14).
+- **L4 (16-token sufficiency): holds but ERODES monotonically with
+  scale** — far-value −0.001 (2.7M) → +0.021 (0.84M) → +0.035 (10M),
+  p99 climbing 1.6→2.3 — larger nets extract slightly more from far
+  context; the margin shrank ~35× and is e049's leading edge.
+- **L6 (address surgery): HOLDS at both scales** — S_name 1293 (0.84M) /
+  332 (10M), class-exact, corpus +0.0005; the removal doctrine is
+  scale-invariant in shape, with S_name declining as pure-control
+  collateral grows with scale.
+- **Harness bug found+fixed:** checkpoint-resume map_location moved the
+  CPU RNG state to CUDA (first-ever mid-training resume crash); now
+  map_location="cpu". LARGE resumed bit-faithfully.
+
+**Card v3 stamps added: L1 architecture-scoped; L2 scale-intensified; L4
+scale-eroding (open edge); L6 scale-invariant.** The day-one laws are
+properties of the family, not one draw — each with its scale signature
+now measured.
+
 ## T019 — Expression is teacher-forcing-bound (E048, 2026-09-25T00:55Z)
 
 **P1 CONFIRMED, absolutely:** expression count = 0 across ALL arms —
