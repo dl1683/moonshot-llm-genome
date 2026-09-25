@@ -26,6 +26,45 @@ import torch.nn.functional as F
 REPO = Path(__file__).resolve().parents[1]
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+# ---- Compute envelope (2026-09-25: system shutdown from GPU power/heat) ----
+# Models <=1M params by default; 5M absolute ceiling and only with cause.
+# Keep >=15% GPU headroom; thermal guard pauses launches when hot.
+MAX_MODEL_PARAMS_DEFAULT = 1_000_000
+MAX_MODEL_PARAMS_CEILING = 5_000_000
+GPU_UTIL_CEIL = 85          # percent
+GPU_TEMP_CEIL = 80          # deg C — no new launches above this
+GPU_IDLE_TEMP_TARGET = 65   # deg C — wait for cooldown to here when hot
+
+
+def gpu_status() -> dict:
+    """util%, mem_used_mb, mem_total_mb, temp_c, power_w via nvidia-smi."""
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total,"
+             "temperature.gpu,power.draw", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=10).stdout.strip()
+        u, mu, mt, t, p = [float(x) for x in out.split(",")]
+        return {"util": u, "mem_used": mu, "mem_total": mt, "temp": t, "power": p}
+    except Exception:
+        return {"util": 0, "mem_used": 0, "mem_total": 0, "temp": 0, "power": 0}
+
+
+def gpu_ok() -> bool:
+    s = gpu_status()
+    ok = s["util"] <= GPU_UTIL_CEIL and s["temp"] <= GPU_TEMP_CEIL and \
+        (s["mem_total"] == 0 or s["mem_used"] <= 0.85 * s["mem_total"])
+    if not ok:
+        print(f"[gpu_guard] HOLD: {s}")
+    return ok
+
+
+def cooldown(seconds: float = 60.0) -> None:
+    """Thermal cooldown block between training runs."""
+    print(f"[thermal] cooldown {seconds:.0f}s (temp {gpu_status()['temp']:.0f}C)")
+    time.sleep(seconds)
+
+
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")

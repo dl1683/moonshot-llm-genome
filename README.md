@@ -71,6 +71,13 @@ review bureaucracy — was deliberately left behind. We are playing, not litigat
    discovery.
 8. **Time budget:** any single experiment step ≤ ~30 min. If slower, shrink the
    model or the data.
+9. **Compute envelope (2026-09-25 shutdown incident — permanent):** models
+   ≤1M params by default (5M absolute ceiling, only with explicit cause).
+   Keep ≥15% GPU headroom (util ≤85%, memory ≤85%). Check
+   `lab/common.py: gpu_status()/gpu_ok()` BEFORE any launch; insert
+   `cooldown(60–120s)` between training runs; no concurrent GPU jobs.
+   Prefer batch 32 and ≤180s training caps. Thermal guard: no new launches
+   above 80°C; wait for ≤65°C when heat-soaked.
 9. **Parallel by default.** Keep the GPU busy with the main experiment AND run
    1–3 background subagents (exploration, analysis, literature of the lab)
    simultaneously. Multiple things move at once or the lab is underutilized.
