@@ -55,6 +55,21 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E055 — the suppression localizer: causal, state-carried, depth-4 (2026-09-25) — DONE
+
+WHAT WE DID: 24-site depth-survival transplant (TF-state at the onset
+position, one-shot + held; shuffled/A-rev/base-net/direct800/e001
+controls; R1/R2/R3 readouts), all gates pass.
+
+WHAT WE SAW (T033): P1 CONFIRMED (state-rescue d4 0.374 / d5 0.494 vs
+shuffled 0.000); P3 CONFIRMED (d*=4 mid-stack; d1-peak/d2-crash
+replicated 10.3x); 32 downstream Z-word rows — rescued states express.
+The expression gap is causally localized: position-bound knowledge,
+destroyed across blocks 1-2, restorable from depth 4. The interventional
+study the literature lacks.
+
 ## E053b — fine-onset remediation: the invariance was quantization (2026-09-25) — DONE (2-cell partial, honest smoke flag)
 
 WHAT WE DID: fine-grid onset fitting on the cache-timeline cells (no

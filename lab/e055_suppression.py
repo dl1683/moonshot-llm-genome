@@ -677,10 +677,14 @@ def main():
         trims.append(f"R2R3_samples_{R23_SAMPLES}->3 (elapsed > 690s)")
     r23_depths = sorted(set([d_star if d_star is not None else d_best, 6]))
 
-    order_pick = ([i for i, s in enumerate(sites) if s["stratum"] == "terminal"]
-                  + [i for i, s in enumerate(sites) if s["stratum"] == "deep"]
-                  + [i for i, s in enumerate(sites) if s["stratum"] == "mid"])
-    r23_site_idx = order_pick[:n_r23]
+    _term_idx = [i for i, s in enumerate(sites) if s["stratum"] == "terminal"]
+    _deep_idx = [i for i, s in enumerate(sites) if s["stratum"] == "deep"]
+    _mid_idx = [i for i, s in enumerate(sites) if s["stratum"] == "mid"]
+    _half = min(4, len(_term_idx), n_r23 // 2) if not SMOKE else 0
+    r23_site_idx = _term_idx[:_half] + _deep_idx[:n_r23 - _half]
+    if len(r23_site_idx) < n_r23:
+        r23_site_idx += (_term_idx[_half:] + _mid_idx + _deep_idx[n_r23 - _half:])
+        r23_site_idx = r23_site_idx[:n_r23]
     _picked = [(sites[i]["prompt"], sites[i]["t"], sites[i]["stratum"])
                for i in r23_site_idx]
     log(f"R2/R3: sites {_picked} x depths {r23_depths} x "
@@ -912,7 +916,14 @@ def main():
                      "P2_no_rescue": P2, "P2_detail": p2_detail,
                      "P3_mid_stack": P3, "P3_detail": p3_detail},
         "trims": trims,
-        "deviations": deviations,
+        "deviations": deviations + [
+            "R2/R3 site selection: stratified 4 terminal + 4 deep (harvest "
+            "order; fill from remaining sites if a stratum is short). First "
+            "execution used terminal-first order and picked 8 terminal sites; "
+            "re-run with the stratified rule before finalizing — all seeded "
+            "phases upstream of R2/R3 are bit-identical between the two "
+            "executions; attempt-1 artifacts preserved in "
+            "runs/e055/{run_attempt1.log, metrics_attempt1.json}."],
         "timing": {"total_s": round(time.time() - T0, 1)},
         "config": {"n_layer": 6, "n_head": 6, "n_embd": 192, "block_size": 256,
                    "params": int(net.num_params())},

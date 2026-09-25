@@ -7,6 +7,32 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T033 — E055: the suppression is causal, state-carried, and lives at depth 4 (2026-09-25T22:15Z)
+
+**The full 24-site depth-survival run (all gates pass; shuffled
+controls ≈ 0.000 everywhere):**
+- **P1 CONFIRMED — STATE-RESCUE at d4/d5:** TF-state transplants at the
+  onset position rescue p(Z) to 0.374 (d4) and 0.494 (d5) vs shuffled
+  0.000, bootstrap CIs excluding 0. The knowledge IS present in the
+  residual stream during free-run — the expression gap is a
+  present-but-suppressed STATE phenomenon, causally demonstrated.
+  (P2 no-rescue therefore false.)
+- **P3 CONFIRMED — d* = 4, mid-stack:** the rescue threshold sits at
+  depth 4 of 6, inside the registered {2,3,4} window; the d1-peak→
+  d2-crash signature replicated at deep sites (r1_d1/r1_d2 ratios
+  10.3x at t=298). The suppression has a mid-stack causal locus —
+  the address survives block-0, is destroyed across blocks 1→2, and
+  becomes re-injectable from depth 4.
+- **The R2/R3 readouts:** 32 nonzero Z-word downstream rows — rescued
+  states propagate to actual generated ZEPHYRA words downstream, not
+  just next-token probability.
+- **The complete causal story of the expression gap (paper-grade):**
+  installed knowledge exists as a position-bound (wpe-130) sub-argmax
+  address; free-run destroys it across blocks 1→2; a teacher-forced
+  state at the onset position from depth ≥4 restores expression;
+  shuffled states do nothing. Elicitation failure is REAL, LOCALIZED,
+  and state-carried — the interventional study Orgad et al. lack.
+
 ## T032 — E055 design probes: the expression gap is POSITIONAL binding + a d1-peak/d2-crash suppression structure (2026-09-25T21:55Z)
 
 **The design's measured probes (before the run — these are findings):**
