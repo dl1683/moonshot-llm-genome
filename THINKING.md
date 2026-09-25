@@ -7,7 +7,7 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T021 — The retrieval threshold: interference flips to retrieval at ≤5% refrain density (E049, 2026-09-25T04:30Z)
+## T021 — The retrieval threshold (E049, 2026-09-25T04:30Z) [R8 scoping: corpora 620KB ~75 epochs; the p0 net is off-parity (val 2.82) so the −2.24 interference magnitude is partly net-quality artifact — the FLIP's SIGN is real, magnitude confounded; '≤5%' rests on one n=20-events cell (shared-probe view: 5-20%); late-attention-slot preference firm for the 2.7M series only — suggestive for 10M (1.42x contrast, 491 steps).]
 
 **Four refrain-density nets + a 10M arm, registered P1-P4:**
 - **P1 REFUTED-LOW (threshold ≤5%):** retrieval is already net-positive at
@@ -41,7 +41,7 @@ compartmentalized, and flips from net interference (T007's other half).
 The "no retrieval" law was one point on a curve whose shape is now
 mapped.
 
-## T020 — The scale capstone: the laws hold, sharpened (E005s, 2026-09-25T02:40Z)
+## T020 — The scale capstone: the laws hold, sharpened (E005s, 2026-09-25T02:40Z) [R8: steps-confound caveat — 4000/2226/1086 steps anti-correlate with scale; LARGE stopped mid-cosine; the 11/72/116x multipliers and ~35x erosion could be steps trends — DIRECTIONS survive, magnitudes confounded. P1 at 4L FAILED the strict registered criterion (mode at final block) — held at 6L/8L only.]
 
 **0.84M / 2.7M / 10M, frozen readouts, P1-P4 registered before training:**
 - **L1 (causal gate): structure universal, relative depth slides with
@@ -78,7 +78,7 @@ now measured.
 unseeded, seeded (induction route), greedy diagnostic, T ∈ {0.7, 1.0,
 1.3}, and dose × {400, 800, 1600} steps — while battery accuracy holds
 0.92-0.96 throughout. P2 (prior threshold) refuted: neither seeding nor
-temperature unlocks a single occurrence. P3 (dose quantity) refuted: no monotone expression growth — R7 THIN-EVIDENCE flag: dose generation cells were bit-identical across s400-1600 (batteries differed); the no-dose-response conclusion rests on one probe shape.
+temperature unlocks a single occurrence. R8 RELABEL: P3's dose legs were BIT-IDENTICAL across s400-1600 (dose_probes AND generations) — same-checkpoint readout, INSTRUMENT SUSPECT; dose-response is OPEN, not refuted. P1 (zero expression) survives independently (its arms vary-verified).
 
 **C7 FINAL — the edit law, complete:** there are FOUR separable faculties:
 ADDRESS (rows — surgically removable, attractor-surviving), ABILITY

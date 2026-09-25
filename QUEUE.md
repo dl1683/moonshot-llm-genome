@@ -20,7 +20,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e018 | causal depth | DONE (T012) | activation-patching depth: shallowest d where splicing a counterfactual context switches the decision — upgrades T004 past the depth-6/L5 circularity |
 | e012d | causal census × 4 nets | DONE (T014) | causal-depth census on B43/R/R43: is CAUSAL depth the cross-net invariant? (C1's remaining evidence) |
 | e043 | install a name | DONE (T015 amended) | ASYMMETRIC-CHEAP-REMOVE; expression gap; protocol-fragile install |
-| e044 | scar tissue | READY (gated on e043 + audit) | post-erasure re-exposure: does the row regrow or the name return via body routes? |
+| e044 | scar tissue | DONE (T018) | post-erasure re-exposure: does the row regrow or the name return via body routes? |
 | e046 | C6 replication | DONE (T016: C6 demoted) | two-factor erasure does NOT replicate; address-half general | R5 missing observation: D2-analog + in-run top residual head + J-census collateral + uniform-floor battery |
 | e014b.1 | replication seed | DONE (e030 slot) | second seed for the renorm-plasticity result (anatomy plasticity is single-seed) |
 | e011c-ci | bootstrap CIs | DONE (e030 slot) | resample eval batches for e011c rotate/zero ratios (MLP-L1 ×2.95, MLP-L5 ×0.24 beyond noise?) |
@@ -50,10 +50,10 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e047 | replication sweep | DONE (T017) | 3 surviving positives (L5-calibrator, MLP-5 carrier, shared-L0 machine) × 4 nets, eval-only — card v3 gate |
 | e044 | scar tissue | DONE (T018, n=1 flag) | the smoke file never ran; full battery now |
 | e048 | expression-gap boundary | DONE (T019 + geometry refinement) | does installed-but-silent ever express? exposure dose, prompt-seeding, temperature |
-| e049 | retrieval dose-response | READY | refrain corpora at p∈{0,5,20,60}% — where does far-retrieval appear on naturalistic data? |
-| e040 | graft-evolution re-scoped | READY | structure readouts only (alignment, rho drift) — no circuit claims |
+| e049 | retrieval dose-response | DONE (T021) | refrain corpora at p∈{0,5,20,60}% — where does far-retrieval appear on naturalistic data? |
+| e040 | graft-evolution re-scoped | DAY-TWO OPENER (step-matched protocol per T020's lesson; design with user) | structure readouts only (alignment, rho drift) — no circuit claims |
 | e033 | write-equalizer | READY | homeostasis at structure level; who absorbs the energy |
-| e005s | minimal scaling capstone | GATED (card v3) | 0.7M/8M × 2 seeds; qualitative readouts only |
+| e005s | minimal scaling capstone | DONE (T020, steps-confound flagged) | 0.7M/8M × 2 seeds; qualitative readouts only |
 | v011 | edit film (re-cut) | DONE | six-frame L7 strip, all numbers from metrics, n=1 flags boxed | the asymmetry law, with the expression gap visible |
 
 ## Parking lot (raw ideas, unranked)

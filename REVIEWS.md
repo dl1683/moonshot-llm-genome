@@ -15,6 +15,29 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 8 — overnight audit (2026-09-25T01:35Z server)
+
+### Batch audit: T018 clean (n=1 carried); T019 P3 RELABELED (dose arms
+bit-identical = instrument suspect; dose-response OPEN; P1 survives);
+T020 directions survive but MULTIPLIERS steps-confounded (4000/2226/1086;
+P1 at 4L formally failed the strict criterion — restated); T021 flip's
+SIGN real, magnitude confounded (off-parity p0 net; n=20 cell; 10M leg
+suggestive). All flags applied in-place.
+
+### Report: DAY_ONE_REPORT untouched (already carries T018/T019); T020/
+T021 fold into the day-two report ("2 of 5 open edges closed overnight").
+
+### The close: CONSOLIDATION, not e040 — the steps lesson rewrites e040's
+protocol (step-matched lineages, designed with the user); heartbeat
+idles on patrol until the user returns.
+
+### Integrity: 21 T-headers; 8 reviews; 34 notes; queue truth restored
+(e044/e049/e005s DONE rows fixed). Clock skew noted: STATE stamps ran
+~3h ahead of server — server time adopted going forward.
+
+---
 ## Review 7 — closeout (2026-09-25T01:15Z)
 
 ### AUDIT: T019 refinement verified against metrics (all numbers
