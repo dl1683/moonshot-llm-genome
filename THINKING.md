@@ -7,8 +7,14 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T030 — E064 kills the gate unification; E053's timeline lands (2026-09-25T19:45Z)
+## T030 — E064 kills the gate unification; E053's timeline lands (2026-09-25T19:45Z) [R13 flags 20:05Z: E053's a*=63 is BIN-QUANTIZED in 4/5 cells (fallback edge 17-64 minus 1; only 0.84M fine-fit 73); a*/255 == live-fraction — ONE statistic not two; absolute-vs-proportional undecidable without a ctx-512 cell. E064's raw-D nuance: D peaks AT R's gate L4 and R43's pre-gate — the R=D/A instrument died (tiny-denominator pathologies), not necessarily the phenomenon; resurrection requires a NEW registered instrument.]
 
+**E064 VERDICT: KILLED** (bootstrap 100% stable on both hosts; R43's
+L3 peak CI [6.74,7.04] cleanly excludes its L5 gate; R's L0 peak is a
+ratio pathology — own-ablation 0.096 denominator. Full-report nuance:
+raw-D ladders DO peak at/near the gates (R: L4 exactly; R43: pre-gate
+L4) — the D/A normalization injected the mid-stack structure. Any
+resurrection needs a new registered instrument, not a reinterpretation.)
 **E064 VERDICT: KILLED.** R43's R-ladder peaks at L3 (mid-stack) while its
 measured causal gate is L5 — the interference peak tracks mid-stack
 idiosyncrasy shared by both methods, not the host's gate. Secondary: R

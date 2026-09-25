@@ -25,6 +25,25 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 13 — post-expansion panel (2026-09-25T20:05Z)
+
+### AUDIT: E053's a*=63 is bin-quantized in 4/5 cells (fallback edge);
+a*/255 == live-fraction — one statistic not two; absolute-vs-proportional
+undecidable without ctx-512. E064 procedurally fair (registered rule;
+CIs clean); raw-D nuance recorded (D/A instrument died, not necessarily
+the phenomenon).
+### NOVELTY RE-RANK: cache-timeline UP to co-#1 (only 3-scale-measured
+candidate; one ctx-sweep from submission-grade). Four-faculties #1 on
+novelty. Basis-frozenness #3 (needs e060 + second lineage).
+### NEXT DISPATCH: GPU → e055 suppression localizer (strategist's
+double-down; T028-sharpened; upgrades two FRONTIER-NOVEL rows). CPU →
+e053b remediation (fine-fit a* on all cells; expose the a*/window
+identity before anyone quotes "63").
+### Integrity: 32 T-headers; this is Review 13; STATE clock refreshed.
+
+---
 ## Review 12 — day-two audit (2026-09-25T16:40Z; combined panel, e040 mid-run)
 
 ### T023 audit: numbers exact; three soft overreads fixed — "learns BETTER"
