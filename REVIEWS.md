@@ -33,6 +33,15 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 17 — patrol (2026-09-26T01:35Z)
+
+Counts: 41 T-headers; 17 reviews; tree clean; origin synced. Drift: none
+(quiet heartbeats only; one cosmetic stamp note resolved by this refresh).
+Wake-the-panel: no. Hold intact.
+
+---
 ## Review 16 — patrol (2026-09-26T00:45Z; audit during hold)
 
 Counts: 41 T-headers; 16 reviews; tree clean; timestamps sane. Paper
