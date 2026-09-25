@@ -47,6 +47,19 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## E050 — directed-mutation lineage: VISIBILITY-LIMITED (2026-09-25) — DONE
+
+WHAT WE DID: the e040 protocol with mutation restricted to stream-facing
+matrices (W_in/W_out) — the reachability-vs-visibility discriminator
+registered in T024.
+
+WHAT WE SAW (T027): D fell only -3.6% (bar -25%), alignment flat, gates
+clean. Even directed-at-the-basis mutation gives selection nothing to
+work with through the graft-damage trait. FROZEN holds at its strongest;
+e060 (A-residualized index) is the last escape hatch.
+
 ## E052 — LN/geometry reanalysis: damage tracks organ-reliance (2026-09-25) — DONE
 
 WHAT WE DID: zero-GPU regression of e040's 11-checkpoint graft damage on

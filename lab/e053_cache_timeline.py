@@ -54,6 +54,12 @@ from __future__ import annotations
 import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # G4: Phase 1 is 100% CPU (set pre-torch)
+import torch
+
+# this torch dev build reports is_available()==True even with an empty
+# CUDA_VISIBLE_DEVICES (device_count 0); force CPU so common.DEVICE=="cpu"
+torch.cuda.is_available = lambda: False
+torch.cuda.device_count = lambda: 0
 
 import math
 import sys
@@ -62,7 +68,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
-import torch
 import torch.nn.functional as F
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -221,7 +226,7 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
         tok, ce_clean = sample_and_ce(logits[0], gen)
         lg = torch.log_softmax(logits[1:].float(), -1)
         for r, bi in enumerate(cols):
-            tl[si, bi] = ce_clean + float(lg[r, tok])
+            tl[si, bi] = -ce_clean - float(lg[r, tok])      # dCE = log(p_clean/p_les) > 0 hurts
             # G2: newest bin with >=32 filled positions must hurt (> +0.5)
         newest = None
         for bi in reversed(range(len(BINS))):
@@ -241,10 +246,10 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
     P = t_ctx
     eye = torch.eye(P, dtype=torch.bool)
     idxs = ctx[None].repeat(P, 1)
-    sweep_v = ce_clean + torch.gather(
+    sweep_v = -ce_clean - torch.gather(
         torch.log_softmax(manual_logits(net, idxs, eye, None, None, chunk=ch).float(), -1),
         1, torch.full((P, 1), tgt)).squeeze(1).numpy()
-    sweep_k = ce_clean + torch.gather(
+    sweep_k = -ce_clean - torch.gather(
         torch.log_softmax(manual_logits(net, idxs, None, eye, None, chunk=ch).float(), -1),
         1, torch.full((P, 1), tgt)).squeeze(1).numpy()
     # final bins: vzero / kdrop / both
@@ -260,7 +265,7 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
             if kind in ("kdrop", "both"):
                 kd[bi, ps] = True
         lg = torch.log_softmax(manual_logits(net, idxs, vz, kd, None, chunk=ch).float(), -1)
-        fb[kind] = ce_clean + lg[torch.arange(len(BINS)), tgt].numpy()
+        fb[kind] = -ce_clean - lg[torch.arange(len(BINS)), tgt].numpy()
     # per-layer V-zero decomposition (final step)
     per_layer = np.full((L, len(BINS)), np.nan)
     if with_per_layer:
@@ -271,7 +276,7 @@ def run_sequence(net: TinyGPT, prompt: torch.Tensor, gen: torch.Generator, ch: i
                 vz[bi, bin_positions(bi, t_ctx)] = True
             lg = torch.log_softmax(
                 manual_logits(net, idxs, vz, None, layers={li}, chunk=ch).float(), -1)
-            per_layer[li] = ce_clean + lg[torch.arange(len(BINS)), tgt].numpy()
+            per_layer[li] = -ce_clean - lg[torch.arange(len(BINS)), tgt].numpy()
     return dict(tl=tl, sweep_v=sweep_v, sweep_k=sweep_k, final_bins=fb,
                 per_layer=per_layer, nan_count=nan_count, g2_viol=g2_viol,
                 text=idx.tolist())
@@ -292,7 +297,7 @@ def load_cell(name: str, ckpt: Path, arch: dict):
 @torch.no_grad()
 def g0_check(net, window: torch.Tensor) -> float:
     idx = window[:256][None]
-    _, sdpa_logits = net(idx)
+    sdpa_logits, _ = net(idx)
     man = manual_logits(net, idx, None, None, chunk=1)[0]
     p0 = torch.softmax(man, -1)
     p1 = torch.softmax(sdpa_logits[0, -1].float(), -1)
@@ -341,7 +346,7 @@ def classify_p3(traj: np.ndarray, steps: np.ndarray):
 # --------------------------------------------------------------------- main
 
 def main():
-    assert not torch.cuda.is_available(), "G4 violated: CUDA visible"
+    assert torch.cuda.device_count() == 0, "G4 violated: CUDA device visible"
     out_dir = run_dir("e053")
     corp = CharCorpus(REPO / "data" / "input.txt")
     assert corp.vocab_size == 65
@@ -410,8 +415,8 @@ def main():
                     tgt = int(win[T_TOTAL - 1])
                     ce = -float(lp[base, tgt])
                     for bi in range(len(BINS)):
-                        accv[bi] += ce + float(lp[base + 1 + bi, tgt])
-                        acck[bi] += ce + float(lp[base + 1 + len(BINS) + bi, tgt])
+                        accv[bi] += -ce - float(lp[base + 1 + bi, tgt])
+                        acck[bi] += -ce - float(lp[base + 1 + len(BINS) + bi, tgt])
                 nw += len(wins)
             st_v, st_k = accv / nw, acck / nw
         else:

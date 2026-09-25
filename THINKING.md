@@ -7,6 +7,26 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T027 — E050: directed mutation doesn't help either — FROZEN at full strength (2026-09-25T18:20Z)
+
+**The reachability test:** same lineage protocol, mutation restricted to
+the stream-facing matrices (W_in/W_out). Verdict conditions: D fell only
+−3.6% (2.616 → 2.521, ratio 0.964) with R at −1.5%; alignment shift
+−0.00007 (flat); all gates eligible; contrast CI excludes 0.
+
+**Verdict: VISIBILITY-LIMITED — FROZEN holds at its strongest.** Even
+when mutation is directed AT the basis interface, selection on graft
+damage cannot pump alignment or meaningfully reduce damage (−3.6% vs the
+−25% bar; weaker than e040's undirected −5.5%, within the organ-reliance
+noise T026 identified). Combined chain (T024+T026+T027): random mutation
+can't generate basis variation; directed mutation can't make selection
+see it through the organ-load dominant; and the assay itself measures
+organ-reliance primarily. **The stream basis is written once at init and
+effectively closed to evolution at this scale — the strongest form of
+the claim the three-run chain can support.** The remaining escape hatch:
+e060 (A-residualized selection index) — if even that fails, the story is
+complete.
+
 ## T026 — E052: the assay measured organ-reliance, not basis-fit (2026-09-25T17:45Z)
 
 **Zero-GPU reanalysis, bitwise-exact reproduction of e040.** The
