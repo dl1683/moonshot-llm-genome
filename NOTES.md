@@ -33,6 +33,20 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+---
+
+## V011 — the edit film (2026-09-25) — DONE
+
+WHAT WE DID: six-frame filmstrip of law L7 from saved metrics (VISUALIZER
+agent, CPU-only). runs/v011/edit_film.png.
+
+WHAT WE SAW: baseline → address burn (S_name 573, real burned-net
+generation) → complete erasure (n=1 boxed) → cheap install beside the
+expression collapse (p(Z) 0.556→1.7e-6 log bars; "0 × ZEPHYRA in 2,800
+chars"; the installed net opens ELIZABETH) → the scar (groove cos 0.760
+vs 0.278; anti-carrier flip; 44.5% key-resistance, n=1) → the four-box
+law. The lab's second user-facing artifact.
+
 ## E048 — expression gap: teacher-forcing-bound, at every dose (2026-09-25) — DONE
 
 WHAT WE DID: dose x3, seeding (induction route), temperature x3, greedy

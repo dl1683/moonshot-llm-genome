@@ -54,7 +54,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e040 | graft-evolution re-scoped | READY | structure readouts only (alignment, rho drift) — no circuit claims |
 | e033 | write-equalizer | READY | homeostasis at structure level; who absorbs the energy |
 | e005s | minimal scaling capstone | GATED (card v3) | 0.7M/8M × 2 seeds; qualitative readouts only |
-| v011 | edit film (re-cut) | PARKED | the asymmetry law, with the expression gap visible |
+| v011 | edit film (re-cut) | DONE | six-frame L7 strip, all numbers from metrics, n=1 flags boxed | the asymmetry law, with the expression gap visible |
 
 ## Parking lot (raw ideas, unranked)
 
