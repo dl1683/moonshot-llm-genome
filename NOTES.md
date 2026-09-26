@@ -61,6 +61,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E063 — load homeostasis: H-EMERGENT — organ-reliance is a universal template (2026-09-26) — DONE
+
+WHAT WE DID: own-organ load A tracked across cohorts (2.7M/6L: B vs BDO
+[same init, diff order] vs B43 [diff init] + exposure arms; 0.84M/4L:
+all-11 e040 lineage + e005s + e033), bootstrap noise floor, profile
+correlations. CPU-only. Premise corrected en route: e041_bdo/e048 are
+2.7M trainstates.
+
+WHAT WE SAW (T041): H-EMERGENT at the registered ladder. Ladder: noise
+0.014 | ORDER 0.063 | INIT 0.054 | exposure max 0.162 (base-CE confound
+flagged). Profile shape r = +1.000 across order AND init — the
+allocation template (L0 ~4 nats, L1 trough ~0.15, monotone rise to
+~0.6) is universal. H-setpoint DEAD (order moves A more than fresh
+init, 1.17×; replicate rung 0.336 beats init 3×). e033's energy
+constraint is the biggest single mover (and even it keeps the shape).
+
+WHAT'S NEXT: mechanically explains T024's trickle and T040's H-nothing
+— A has no heritable variance to select; what scatter exists regenerates
+through training noise. T041 registers the task-swap discriminator
+(e063b, zero-GPU) and the e060 prediction (A-residualized selection
+should move the e059 interface family instead).
+
+---
+
 ## E059 — winner differencing: H-NOTHING at the bars; interface family is a second predictor (2026-09-26) — DONE
 
 WHAT WE DID: zero-GPU ΔW audit of e040 lineage winners ({g1a,g1c}+children

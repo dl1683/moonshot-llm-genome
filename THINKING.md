@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T041 — E063: organ-reliance is a universal emergent template — selection had nothing to select (2026-09-26T11:15Z)
+
+**Registered verdict: H-EMERGENT.** The A ladder: noise 0.014 << INIT
+0.054 ≈ ORDER 0.063 < exposure 0.162 (confounded by base-CE degradation
+in the arms — reads as "not rigidly defended under shifted-data
+training," weaker evidence). Profile shape r = +1.000 across init AND
+data order: the allocation template (L0 huge ~4.1, L1 trough ~0.15,
+monotone rise ~0.6 at depth) is a universal of this architecture+task,
+not a member trait. The replicate rung (0.336, same init/protocol,
+different training run) beats init identity 3× — training stochasticity
+is the ONLY meaningful A-variance source.
+
+**This closes T040's question with a third answer:** not H-a (invisible
+to R) and not H-b (defended setpoint) — there was no heritable signal
+to see or defend. e040's selection could only act on ~0.05–0.2 nats of
+regenerating scatter: T024's trickle (−5.6%/2 gens) and T040's
+H-nothing are the same mechanical fact. T027's VISIBILITY-LIMITED gets
+its root cause: the basis isn't invisible — it's near-FROZEN because
+the thing selection would need to vary (organ-reliance) is pinned by
+the task's error structure. e033 remains the exception that proves the
+rule: only the energy constraint reshapes allocation (0.351 vs
+baseline — biggest mover of any manipulation), and even it preserves
+the front-loaded shape (T023 consistent).
+
+**Why is the template universal — two explanations:**
+- **H-i TASK-PINNED:** the char-LM error structure fixes where capacity
+  must sit (L0 input formation, deep calibration); any competent
+  optimizer lands there. Template tracks the TASK, not the optimizer.
+- **H-ii OPTIMIZER-ATTRACTOR:** SGD's basin on this arch is that deep —
+  the template is the attractor; corpus details don't matter.
+**Registered discriminator (e063b, zero-GPU, existing checkpoints):**
+the e021 task-swap nets (copy-task vs word-shuffled vs Shakespeare,
+same arch) — H-i predicts the template SHAPE changes with task (copy
+task should re-weight); H-ii predicts the same shape regardless of
+corpus. Shape = the L0-peak/trough/rise profile correlation vs B.
+
+**Bearing on the queue:** e060 (A-residualized damage selection) now has
+a sharpened registered prediction — with A nearly variance-free,
+residualized-D selection must act on the e059 interface family (W_out
+row-norms/shapes, the one A-independent heritable predictor found);
+if e060's lineages move NEITHER A-residual structure nor the interface
+family, selection on graft damage is fully noise-limited and the
+IMMUNOLOGY program pivots to engineered tolerance (P2 phase 2)
+outright.
+
 ## T040 — E059: selection moved nothing first-order — why didn't organ-reliance respond? (2026-09-26T10:20Z)
 
 **Registered verdict: H-nothing.** Winners vs unselected sibs show no
