@@ -790,7 +790,13 @@ pull at camera-ready.
 38. Arora, Del Corro, et al. "Learning to Crowdsource Fallacies /
     imitation-learning error accumulation." AAAI 2022.
     arXiv:2110.05978. [behavioral prior for Claim 2]
-- [ ] VERIFY-OR-DROP: "Frozen Transformers are Even More Universal
-      Computers" (researcher could not verify on arXiv — possible
-      search-hallucination; check manually before citing; do not cite
-      unverified).
+- [x] Citation VERIFIED 2026-09-26: the rumored title maps to
+      Giannou et al., "Looped Transformers are Universal Computers"
+      (arXiv:2308.02852) — programs weights + uses positional
+      embeddings as instruction pointers. Cited as ref 39 in the
+      Claim-1 perimeter (distinguished: they PROGRAM a looped net;
+      we LOCALIZE an installed memory's address row).
+39. Giannou, Rajput, et al. "Looped Transformers are Universal
+    Computers." arXiv:2308.02852 (2023). [positional embeddings as
+    instruction pointers in programmed looped nets — build-side;
+    distinguished from our row-level causal localization]
