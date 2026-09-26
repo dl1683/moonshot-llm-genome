@@ -55,6 +55,14 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 28 — patrol (2026-09-26T08:25Z; self-audit: ledger unchanged
+since R27, tree clean, quiet heartbeats only)
+
+Counts stand: 41 T-headers; 28 reviews. Wake-the-panel: no. Hold intact.
+
+---
 ## Review 27 — patrol (2026-09-26T07:55Z; self-audit: ledger unchanged
 since R26, tree clean, quiet heartbeats only)
 
