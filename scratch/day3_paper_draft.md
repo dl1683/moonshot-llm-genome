@@ -337,6 +337,23 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   argmax; left-padding with content fixed collapses identically → **wpe-130
   positional binding, not content binding** (resolves T019's open
   content-vs-position edge).
+- **Closest prior and the perimeter (post-scan wording, per
+  scratch/positional_binding_lit.md):** binding IDs (Feng & Steinhardt),
+  position-index vectors (Smolensky et al.), and Ordering-ID subspaces
+  (Dai et al.) establish content-independent positional indices for
+  *in-context* binding — but at *learned-weights* granularity nobody has
+  measured knowledge bound to one absolute position embedding, and no
+  prior runs the matched-vs-shifted *state-transplant* assay (ROME anchors
+  fact recall to the last subject token implicitly and never shifts it;
+  Wu et al. treat the residual stream as addressable memory for ICL
+  programs, not installed facts). Against the field's position-INVARIANT
+  default — function vectors (Todd et al.) port across positions — our
+  installed knowledge is position-BOUND: the inversion is the claim.
+  Framing note vs long-context work: this is an absolute/associative-
+  address failure, not a relative-distance decay (NoLiMa's
+  needle-in-last-2K control already excludes distance binding as the
+  explanation there; our one-char shift at fixed distance-to-end is the
+  complementary dissociation).
 - The e048 zero-expression was an artifact of probing 10 positions off the
   install geometry: generating FROM battery geometry expresses (greedy
   49/60 full ZEPHYRA; sampled 10/7,200 chars — the sampled-vs-greedy
@@ -703,3 +720,18 @@ pull at camera-ready.
 29. Lamb, Goyal, Zhang, Zhang, Courville, Bengio. "Professor Forcing: A
     New Algorithm for Training Recurrent Networks." NIPS 2016.
     arXiv:1610.09038.
+30. Feng, Steinhardt. "How Do Language Models Bind Entities in
+    Context?" ICLR 2023. arXiv:2310.17191.
+31. Smolensky, McCoy, Lin, Farnadi, Murty, Prabhumoye, et al. "Positional
+    Description Matters: Solving Mathematical Word Problems via
+    Positional Descriptions in Vector Space." arXiv:2410.17498 (2024).
+32. Dai, Gutierrez, Yang, Peng, Li. "Ordering IDs: Ordering Vector as
+    Circuits!" arXiv:2409.05448 (2024).
+33. Todd, Li, Arnold, Rajeswaran, Zettlemoyer, Schmidt. "Function
+    Vectors in Large Language Models." EMNLP 2024 Findings.
+    arXiv:2310.15213.
+34. Meng, Bau, Andonian, Belinkov. "Locating and Editing Factual
+    Associations in GPT." NeurIPS 2022. arXiv:2202.05262 (ROME).
+35. Wu, Geiger, Millière. "The Residual Stream as a Memory: Analyzing
+    and Manipulating In-Context Symbolic Programs." arXiv:2505.20896
+    (2025).
