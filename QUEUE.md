@@ -94,7 +94,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e066 | close the loop (P1) | DONE (T038: TWO-OBJECTS, cos 0.094) + e066b in-place rows (GRADED, swap 0.46/zero 0.27 from 0.72) | relay is a circuit-shaped third thing, not the row; address = distributed conjunction w/ wpe-row concentration |
 | e067 | address census (P1) | DONE (T042: ROW 0 top anchor — window-anchored conjunction; bimodal rows 0+129 (53%) + micro-carpet; NOT sparse, dense-cluster refuted) |
 | e071 | row-0 generalization (T042) | READY (CPU, minutes) | row-0 intervention × {install-60, held-30, uniform} × {installed, base} — window-key vs generic-start + row-129 held-30 secondary |
-| e068 | rebinding surgery (P1) | READY (eval-only) | copy wpe-130 row to position k / two-row swaps — durable expression at k ⇒ portable row; failure ⇒ downstream distributed key |
+| e068 | rebinding surgery (P1) | GATED on e071 (row-0 nature decides design) | rebinding must test BOTH anchors: copy rows {0,129} to a new window position k / anchor swaps — durable expression at k ⇒ portable row pair; failure ⇒ downstream distributed key |
 | e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | — | P3 settle + junk split | UNGATED (e053c verdict in: ABSOLUTE, T039) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |
