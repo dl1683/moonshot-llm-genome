@@ -41,6 +41,30 @@ day's three headline findings — each one a simplification.
    hurt. The classical TF/free-run mismatch now has a physical
    address: the poison sits in the entries the run itself wrote.
 
+## Post-skeleton developments (12:00-12:10Z)
+
+- **The crossmatch exists (T046/e062):** pre-graft stream-cosine at
+  graft-input depths predicts graft damage at partial r(D|A) = −0.976
+  (204 pairs), with a usable instrument (graft-if cos ≥ 0.4459, AUC
+  0.919) that transfers across scale. Critic-reframed: the headline is
+  the INSTRUMENT, not the near-tautological mechanism; kinship and
+  in-sample-threshold fixes registered (e076).
+- **The pruning kill (T048/e075):** source-aware pruning FAILS its
+  registered bars (+0.26 nats) and drives generation into a
+  self-consistent off-manifold attractor — static lesion utility does
+  not predict generation-time prunability. The free-run-honesty
+  principle now has causal teeth. e080 (prune-vs-replace) running.
+- **Claim A's final form (e077):** TRAINING-BUILDS — the allocation
+  template is a fast training-dynamics emergent (by ~10³ steps), not
+  init-carried; trained-vs-trained shape-rs survive the permutation
+  null at the 99th pct while untrained "shapes" are quantified noise.
+- **The single-row claim is n=2 (e078):** the dose install replicates
+  the pattern (row-129-alone > pair-copy again; rebind 60-71%).
+- **Critic audit cycled through:** claim A downgraded then resolved;
+  B reworded to partial necessity/sufficiency + n=2; C and D flagged
+  with registered fixes (e079, e076-extended). Paper/README reworded
+  within minutes of each verdict.
+
 ## Supporting results (all registered, all harvested)
 
 - T037 synthesis card + both file-tension discriminators closed (one
