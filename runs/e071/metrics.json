@@ -1105,6 +1105,86 @@
       "kl_base_pert": 0.01489207986742258
     }
   },
+  "control_row": {
+    "row": 60,
+    "note": "interpretive control for the KL lens; NOT part of the registered design",
+    "cells": {
+      "installed__install60__mean": {
+        "pert_pz": 0.5537539482116699,
+        "drop": 0.0025547822316487334,
+        "kl_control_pert": 0.00010377507715020329
+      },
+      "installed__install60__zero": {
+        "pert_pz": 0.5533510086437067,
+        "drop": 0.0029577217996119565,
+        "kl_control_pert": 6.441493314923719e-05
+      },
+      "installed__held30__mean": {
+        "pert_pz": 0.42479984854968883,
+        "drop": 0.003909505903720856,
+        "kl_control_pert": 0.00029366364469751716
+      },
+      "installed__held30__zero": {
+        "pert_pz": 0.4253674425029506,
+        "drop": 0.0033419119504590755,
+        "kl_control_pert": 0.00012377269740682095
+      },
+      "installed__uniform60__mean": {
+        "pert_pz": 1.7845621651281507e-06,
+        "drop": 1.1535654970371923e-08,
+        "kl_control_pert": 0.0003989055403508246
+      },
+      "installed__uniform60__zero": {
+        "pert_pz": 1.7822633050929477e-06,
+        "drop": 1.3834515005574885e-08,
+        "kl_control_pert": 0.000152386084664613
+      },
+      "base__install60__mean": {
+        "pert_pz": 1.3452028868243815e-05,
+        "drop": -6.806985529313677e-08,
+        "kl_control_pert": 0.00026011999580077827
+      },
+      "base__install60__zero": {
+        "pert_pz": 1.3188210223328648e-05,
+        "drop": 1.9574878962203002e-07,
+        "kl_control_pert": 0.00015162884665187448
+      },
+      "base__held30__mean": {
+        "pert_pz": 1.4464628316090966e-05,
+        "drop": 3.271509967817103e-07,
+        "kl_control_pert": 0.00022654068015981466
+      },
+      "base__held30__zero": {
+        "pert_pz": 1.4314293897162619e-05,
+        "drop": 4.774854157100578e-07,
+        "kl_control_pert": 0.00015640142373740673
+      },
+      "base__uniform60__mean": {
+        "pert_pz": 1.2624304131436033e-06,
+        "drop": 4.102566537241936e-08,
+        "kl_control_pert": 0.00045726780081167817
+      },
+      "base__uniform60__zero": {
+        "pert_pz": 1.265383881113418e-06,
+        "drop": 3.807219740260466e-08,
+        "kl_control_pert": 0.0002723792858887464
+      }
+    }
+  },
+  "kl_ratio_row0_over_control": {
+    "installed__install60__mean": 69035.91551299617,
+    "installed__install60__zero": 89303.41262657542,
+    "installed__held30__mean": 21566.924682409855,
+    "installed__held30__zero": 37972.10358593373,
+    "installed__uniform60__mean": 9455.471819726563,
+    "installed__uniform60__zero": 17084.820624200478,
+    "base__install60__mean": 18787.316510203178,
+    "base__install60__zero": 24172.35913398027,
+    "base__held30__mean": 19460.88808451982,
+    "base__held30__zero": 21054.889949816818,
+    "base__uniform60__mean": 8511.858986244688,
+    "base__uniform60__zero": 11293.236178983363
+  },
   "null_check_neverfed_rows_mean_arm": {
     "160": 0.0,
     "200": 0.0,
@@ -1122,6 +1202,7 @@
       "base/held30",
       "base/uniform60"
     ],
+    "floor_caveat": "uniform and all base-net legs are floor-limited (base p(Z) < 0.05): 'small' there is uninformative, not confirmatory",
     "secondary_row129_held30": "row-129 on held-30: drop mean-arm 0.199 / zero-arm 0.282 (install-60: 0.240 / 0.342; held base p(Z) 0.429)"
   },
   "references": {
@@ -1132,6 +1213,6 @@
     "e048_held30_base_pz_installed": 0.42871,
     "e048_uniform60_base_pz_installed": 0.0
   },
-  "elapsed_s": 85.5,
+  "elapsed_s": 204.6,
   "cpu_threads": 16
 }

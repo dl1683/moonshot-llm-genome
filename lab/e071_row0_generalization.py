@@ -421,23 +421,32 @@ def main():
     ax.legend(fontsize=8)
 
     ax = axes[2]
-    for k, (n, a) in enumerate([("installed", "mean"), ("installed", "zero"),
-                                ("base", "mean"), ("base", "zero")]):
-        vals = [cells[(n, b)]["arms"][a]["kl_base_pert"] for b in bts]
-        ax.bar(xs + (k - 1.5) * bw, np.clip(vals, 1e-9, None), bw,
-               color=colors[(n, a)], label=f"{n} net, {a} arm",
+    ctrl_colors = {("installed", "mean"): "lightpink", ("base", "mean"): "gainsboro"}
+    kl_specs = [("installed", "mean", False), ("installed", "zero", False),
+                ("base", "mean", False), ("base", "zero", False),
+                ("installed", "mean", True), ("base", "mean", True)]
+    for k, (n, a, is_ctrl) in enumerate(kl_specs):
+        off = (k - 2.5) * bw * 0.92
+        vals = [control[(n, b, a)]["kl_control_pert"] if is_ctrl
+                else cells[(n, b)]["arms"][a]["kl_base_pert"] for b in bts]
+        ax.bar(xs + off, np.clip(vals, 1e-9, None), bw * 0.92,
+               color=ctrl_colors[(n, a)] if is_ctrl else colors[(n, a)],
+               hatch="//" if is_ctrl else None,
+               label=(f"row-{CONTROL_ROW} ctrl, {n}, {a}" if is_ctrl
+                      else f"{n} net, {a} arm"),
                edgecolor="k", linewidth=0.4)
-        for x, v in zip(xs + (k - 1.5) * bw, vals):
+        for x, v in zip(xs + off, vals):
             ax.text(x, max(v, 1e-5) * 1.25, f"{v:.3f}", ha="center",
-                    fontsize=6.5, rotation=90, va="bottom")
+                    fontsize=6, rotation=90, va="bottom")
     ax.set_yscale("log")
-    ax.set_ylim(1e-6, 1e2)
+    ax.set_ylim(1e-6, 3e2)
     ax.set_xticks(xs)
     ax.set_xticklabels(bts)
-    ax.set_ylabel("mean KL(base || row-0-perturbed), next-char (log)")
+    ax.set_ylabel("mean KL(base || perturbed), next-char (log)")
     ax.set_title("SECONDARY (NOT registered, floor-free): full-distribution\n"
-                 "row-0 effect — the honest uniform/base-leg lens")
-    ax.legend(fontsize=7)
+                 f"row-0 effect vs row-{CONTROL_ROW} control — honest "
+                 "uniform/base-leg lens")
+    ax.legend(fontsize=6.5, ncols=2)
 
     fig.suptitle(f"e071 T042 row-0 generalization discriminator — "
                  f"VERDICT: {verdict}\n{sec129}", fontsize=11)

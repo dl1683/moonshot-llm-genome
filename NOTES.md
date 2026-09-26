@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E084 — READ-KERNEL census: KERNEL = SHADOW (r 0.918) — the rule opens what the CE curves measure (2026-09-26) — DONE
+
+WHAT WE DID: 200 margin-stratified decision points × 80 entries × 3
+intervention types (48,000 cells, suffix-window speed path with
+exactness gate); flip census + taxonomy + correlation vs stored
+dCE-load; all gates pass.
+
+WHAT WE SAW (T050): battery flip rate 6.4% (dynamic range; kill
+dead). PRIMARY r(flip-rate, dCE-load) = 0.918 [0.867, 0.940] ≥ the
+0.8 bar — KERNEL EQUALS SHADOW: the argmax rule opens what the
+CE-shadow says; the dissociation branch did NOT fire (the paper's
+shadow-based cache claims stand validated at the rule level). Band
+rates: young 1-10 pooled 31% / mid 3.8% / old 0.6% — the kernel is
+young-heavy like the spike. Taxonomy: flips go to the runner-up
+~48-55%, top-5 ~21-25%, OUTSIDE top-5 ~24-27% — the rule can be
+pushed far. V-swap donor-continuation hits: 48.
+
+WHAT'S NEXT: T050 registers the two open textures (outside-top-5
+escapes; donor-continuation hits); the read-policy program proceeds
+to the rule's DYNAMICS (e087's RIF adjudication feeds it).
+
+---
+
 ## E081b — RIF replication: REVERSED — RIF IS PRESENT, asymmetric, n=2 (2026-09-26) — DONE
 
 WHAT WE DID: the T049 discriminator on e048_repro with a tight sham

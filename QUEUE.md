@@ -122,7 +122,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e087 | RIF two-rig adjudication (T049 conflict) | READY (CPU, eval-only) | both rigs x both nets x B=96, anagram + Z-bearing controls every leg; meta-bar: real-name > anagram by 0.05+ CI-excluding-0 under BOTH rigs BOTH nets, else 'string-level induction only' |
 | e082 | cross-seed row-129 transplant (ideator #1) | READY (needs one 100-step install on B43; then eval-only) | "a one-row organ" — seed-42 address row into seed-43 install; A2 p(Z)>=0.30 = portable organ; + crossmatch-cosine overlay + T043 Z-rank rider |
 | e083 | canalization cycle 3 (ideator #2) | READY (~100 steps total) | T037's registered monotone-closure prediction; ratio >=1 AND cos >=0.6 or canalization falsified |
-| e084 | READ-KERNEL census (ideator #3) | READY (eval-only CPU) | argmax-flip census 200 decision points x {V-zero,K-drop,V-counterfactual} x mag — the first direct read-policy measurement; flip-rate/dCE-load r >= 0.8 |
+| e084 | READ-KERNEL census | DONE (T050: KERNEL=SHADOW r 0.918 — dissociation dead, shadow claims validated; young-band 31% flips; 24-27% escapes outside top-5; 48 donor-continuation hits) |
 | e085 | anchor-description probe (ideator #4) | READY (eval-only CPU) | jackknife removal cost regressed on {PCA proj, readership, surprisal, drift-align, age}; readership partial r >= 0.35 |
 
 ## Parking lot (raw ideas, unranked)

@@ -119,6 +119,37 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T050 — E084: the read kernel equals its shadow — the first direct read-policy measurement (2026-09-26 ~14:35Z)
+
+**Verdict: KERNEL = SHADOW.** r(flip-rate(age), dCE-load(age)) =
+0.918 [0.867, 0.940] over 48,000 intervention cells — the argmax
+rule opens what the CE curves measure. The registered dissociation
+branch did NOT fire: everything the lab's shadow instruments
+(per-position lesion dCE) claimed about cache utility is a faithful
+picture of the actual decision rule, not an artifact. The paper's
+5.5 stands validated at the rule level.
+
+**Kernel structure:** flip rates 31% (ages 1-10) / 3.8% (11-60) /
+0.6% (61-511) — the rule's openable surface is the young band,
+matching the spike. **Taxonomy (the new object):** when a flip
+happens, the runner-up wins only ~half (48-55% across types);
+~21-25% go elsewhere in the top-5; ~24-27% ESCAPE THE TOP-5 — the
+rule has long tail vulnerability, not just rank-2 fragility. And
+the V-swap arm produced 48 donor-continuation hits — cases where
+the counterfactual donor's actual next token wins outright.
+
+**Two open textures (registered, next probes):**
+- **H-tail:** the outside-top-5 escapes concentrate on specific
+  coordinates (predictable from entry content?) or are diffuse
+  noise? Discriminator: escape-rate per age × the escaping token's
+  identity census.
+- **H-donor-voice:** the 48 donor-continuation hits — do they
+  cluster on decisions where the run and donor diverge
+  stylistically (the anchor's complement)? Rides the next P3 run.
+**Bearing on the RIF conflict (T049):** the kernel's young-heavy
+concentration + the bigram-induction findings both live in the same
+young band — e087's adjudication now has a structural prior.
+
 ## T049 — E081: the RIF null — reads are pure (at this resolution) (2026-09-26 ~14:05Z)
 
 **Verdict: NULL.** Prompt-only elicitation of one installed fact does
