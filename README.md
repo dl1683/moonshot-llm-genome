@@ -138,11 +138,19 @@ it.
 
 ## Cadence — the heartbeat system (this is how the lab never idles)
 
-One cron automation (every 10 min, `*/10 * * * *`) drives everything:
+One cron automation (every 10 min, `*/10 * * * *`) drives everything.
+**The heartbeat's core purpose is a FLEET-LIVENESS CHECK**: every
+heartbeat verifies that background agents are actively working — either
+experiment executors or thinking/review/visualization subagents
+(interpreter / ideator / researcher / critic / visualizer angles). A
+heartbeat that finds zero agents running and dispatches none is a FAILED
+heartbeat, even if the ledgers are clean. The live roster is recorded in
+`STATE.json.current_experiment` every heartbeat. GPU idling is fine —
+thinking agents are work too.
 
 | Condition | What it does |
 |---|---|
-| every 10 min | **Heartbeat**: an experiment must be running or just finished; log results in NOTES.md; commit |
+| every 10 min | **Heartbeat = fleet check**: enumerate running agents; if the fleet is empty, dispatch immediately (top READY experiment, or interpreter/ideator/researcher/visualizer/critic on the freshest material); harvest anything that landed; log results in NOTES.md; commit |
 | `last_review` > 60 min old | **Frontier review**: 3 parallel subagents (auditor / ideator / critic) review the notebook and queue, inject new ideas, retire stale lines; timestamped entry in REVIEWS.md; resets `last_review` |
 | `last_novelty` > 2 h old | **Novelty guarantee**: a genuinely new experiment line starts (not a continuation); resets `last_novelty` |
 

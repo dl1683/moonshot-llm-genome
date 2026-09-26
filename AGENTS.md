@@ -20,8 +20,15 @@ conversation history to operate.
 5. `QUEUE.md` — what to do next.
 6. `REVIEWS.md` (last entry) — the most recent frontier-review decisions.
 
-## Then do exactly one of these
+## Then do exactly one of these (fleet check first, always)
 
+- **FLEET CHECK (every entry into the lab):** are background agents
+  currently working — experiment executors and/or thinking agents
+  (interpreter / ideator / researcher / critic / visualizer)? If the
+  fleet is empty, DISPATCH before doing anything else: the top READY
+  experiment from QUEUE.md, or an insight angle on the freshest
+  THINKING.md cards. Ending a turn with zero agents running is a failure
+  state — the heartbeat exists to prevent exactly that.
 - **An experiment is running** (fresh lock/mtime in `runs/`) → let it finish,
   then record results in NOTES.md and commit.
 - **Nothing is running** → start the top READY experiment from QUEUE.md, or the
@@ -34,10 +41,12 @@ conversation history to operate.
 
 - One file per experiment in `lab/`, outputs in `runs/eNNN/` with metrics.json
   + PNG graph. NOTES.md entry for every experiment.
-- Models ≤100M params; prefer 1–10M; single steps ≤30 min.
+- Models ≤1M params by default (5M absolute ceiling, only with explicit
+  cause); single training runs ≤180 s; GPU envelope via `lab/common.py`
+  (`gpu_ok()`, cooldowns, NO concurrent GPU jobs).
 - Never delete `runs/` or `data/`.
-- Commit constantly (git is the lab's memory).
+- Commit constantly AND push (`git push origin main`) — git is the lab's memory.
 - Honesty reflex before believing a finding: do logits/behavior alone predict
   it? does intervening change behavior?
-- Do not create new automations; the two crons (heartbeat, hourly review)
-  already exist. Just do the work.
+- Do not create new automations; the single heartbeat cron handles everything
+  (fleet check + harvest + review + novelty triggers). Just do the work.
