@@ -61,6 +61,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E071 — row-0 generalization: H-WINDOW-KEY clean sweep (2026-09-26) — DONE
+
+WHAT WE DID: row-0 intervention (mean/zero arms) × {install-60,
+held-30, uniform-60} × {installed, base} + row-129 secondary + never-fed
+null check (rows 160/200/240: exact 0.0).
+
+WHAT WE SAW (T042 outcome): row-0 drop on held-30 = 0.428→0.0009 —
+the window-key generalizes to UNTRAINED install-family windows;
+uniform and base cells floor-limited (no name to erase). Secondary:
+row-129 ALSO generalizes (held-30 drop 0.199/0.282 vs install-60
+0.240/0.342 — ~83% strength). Honest nuance: the KL column shows row 0
+is generically load-bearing too (base-net KL 3.3-4.9 nats) — generic
+importance + specific key-role coexist; the registered binary was
+coarse and the data gives the conjunction.
+
+WHAT'S NEXT: e068 ungated with the pair-design ({0,129} anchor copy to
+a new window position). Window-TYPE recognizer confirmed (not
+exact-window memory).
+
+---
+
 ## E067 — address census: ROW 0 is the top anchor — window-anchored conjunction, bimodal + carpet (2026-09-26) — DONE
 
 WHAT WE DID: full 256-row wpe perturbation census (row←mean arm + zero

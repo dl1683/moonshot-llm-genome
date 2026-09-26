@@ -19,6 +19,25 @@ attractor. The only known shape-mover remains e033's energy constraint.
 PARKED: what architecture change (depth/head-count) would break the
 attractor — a day-5 candidate if P2 needs it.
 
+**Discriminator OUTCOME (e071, ~10:05Z): H-WINDOW-KEY — clean sweep.**
+Row-0 perturbation erases the name on held-30 windows the net NEVER
+trained on (0.429→0.0009 mean-arm; KL 6.3) and leaves uniform/base
+cells at floor (nothing to erase; null rows exact 0.0). Secondary:
+row-129 generalizes to held-30 as well (drop 0.199 vs 0.240 on the
+trained 60 — ~83% strength): BOTH anchors are window-TYPE recognizers,
+not exact-window memories. NUANCE the registered binary missed: the KL
+column shows row 0 is generically load-bearing even on the base net
+(3.3-4.9 nats damage) — generic importance and install-key role
+COEXIST. T042's H-window-key stands with the conjunction refinement.
+**e068 ungated:** the rebinding design tests copying the anchor PAIR
+{0,129} to a new window position k — held-30 generalization predicts
+the pair is what matters, not the trained coordinates per se.
+REGISTERED PREDICTION for e068: pair-copy to a shifted window
+(k, k+129) restores partial expression at the new geometry (p(Z)
+≥ 0.2 on install-type windows evaluated at the shifted geometry);
+single-row copies (0 alone or 129 alone) fail (p(Z) < 0.05) — the
+conjunction is the unit.
+
 ## T042 — E067: the address is a window-anchored conjunction — row 0 is the top anchor (2026-09-26 ~10:15Z)
 
 **Verdict: NOT SPARSE at the registered rule, and the registered
