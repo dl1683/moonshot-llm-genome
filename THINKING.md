@@ -192,6 +192,24 @@ lab kept circling.** Five constructs, each unifying 3+ independent results:
 grows-vs-shrinks conflict — both predicted to dissolve under a
 "training concentrates utility" reframe (check max/mean dCE vs steps).
 
+**Discriminator (b) OUTCOME (2026-09-26T10:40Z, runs/e053/
+concentration_reanalysis.json): the conflict dissolves under
+steps-reindexing — but with a SIGN CORRECTION to this card.**
+r(a\*, steps) = +0.819 across the 5 cells (vs the confounded scale
+reading); the clean same-net exposure axis is strictly monotone:
+a\* = 3 (400 steps) → 21 (800) → 86 (full). Training WIDENS the live
+window (longer useful-history reach), it does not shrink it — T037's
+literal "live cache window shrinking" phrasing above is WRONG and is
+corrected to: exposure GROWS the window while the e053b/T031 onset
+instrument-conflict stands separately. The apparent scale trend was the
+e005s ladder's steps-confound run in reverse (bigger nets got fewer
+steps, hence tighter windows). Canalization survives only in the weaker
+form: the long-range read, once grown, is another locked-in structure
+(predictable from T024-style selection-blindness). Spike magnitude
+tracks window size (r = 0.867). Caveats: n=5 mixed axes, ladder
+anti-correlation by design; discriminator (a) (10M junk conflict)
+remains open.
+
 **Registered bearing on e066 (running next):** construct 1 predicts the
 e056b relay direction at d5 carries a wpe-130 row component — raises
 confidence in the pre-registered |cos| ≥ 0.4 loop-close outcome.
