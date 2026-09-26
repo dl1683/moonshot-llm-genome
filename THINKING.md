@@ -119,6 +119,51 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T052 — E065: obfuscation redefined — the RMU loss closes the rescue channel (2026-09-26 ~16:00Z)
+
+**The registered inversion FAILED honestly** — no arm shows
+rescuable-but-reverting. What the data show instead is a NEW
+obfuscation signature: **R1 rescue-channel closure.** The plain
+retain-only fine-tune leaves the knowledge transplant-rescuable at
+d5 (0.345, shuffled bars passed); adding the RMU loss closes that
+channel (0.007; R5 = MIXED-NEGATIVE: d4 −0.127 [−0.154,−0.099],
+d5 −0.342 [−0.367,−0.319]) — the representation-level loss removes
+state-carried address access MORE thoroughly than generic
+fine-tuning. Same suppressed behavior; the causal rescuability is
+gone.
+
+**The relearn column collapses the old story:** ALL gradient
+removals revert within 12-16 steps (cos in the groove; wte_Z
+untouched by RMU at cos +1.00 — the suppression lives elsewhere) —
+at toy scale the 2025 "RMU reverts fast" finding replicates
+wholesale; only ascent is slow (75 steps) and it is disqualified by
+R4 (net destroyed, CE +11.4). The transplant instrument, not the
+relearn battery, discriminates at this scale. Surgery's e044b
+relearn scar did NOT replicate here (1.33×, cos regrowth invalid
+under the 25% guard) — battery-dependent, flagged.
+
+**THE THREE-READOUT DISSOCIATION (paper-grade):** surgery leaves
+the deep linear probe INTACT (0.74@d6) while killing all rescue;
+RMU kills BOTH probe (0.49 chance) and rescue; retain-only kills
+the probe while KEEPING rescue. PROBE, TRANSPLANT, and GENERATION
+readouts measure three different things — an Orgad-instrument
+caveat for any elicitation-failure claim. **The irony:** the only
+arm with the classic obfuscation signature (rescuable-but-
+suppressed, trivially reversible) is the RETAIN-ONLY control —
+generic fine-tuning is the "hider" at toy scale; the RMU loss is
+the thorough remover.
+
+**Two explanations for the rescue-channel closure, discriminated
+by e091 (dispatched):** (a) H-redirect — RMU repurposed the d4/d5
+state channel (the knowledge no longer lives in transplantable
+states; its frozen probe reads 0.49); (b) H-readout-gate — the
+states still carry it but the receiving circuitry gates them.
+e091 transplants the NO-REMOVAL donor state INTO the RMU net: if
+reverse-rescue fails too ⇒ gate (b); if reverse works while forward
+fails ⇒ redirect (a). The R2 probe-vs-rescue dissociation (0.49 vs
+0.007 on the same net) is itself a paper-grade fact: knowing-that
+survives in probe space while state-transfer dies.
+
 ## T051 — E085: the anchor is not an entry property — P3 pivots to sequence level (2026-09-26 ~15:25Z)
 
 **Verdict: BETWEEN kill and partial — no property describes the
