@@ -181,8 +181,23 @@ suppressed, trivially reversible) is the RETAIN-ONLY control —
 generic fine-tuning is the "hider" at toy scale; the RMU loss is
 the thorough remover.
 
+**E091 CLOSE-OUT (~16:30Z): H-READOUT-GATE fires.** The RMU net
+refuses even good no-removal states (reverse-rescue ~45x under bar
+at every depth, shuffled flat) — the channel closed at RECEPTION.
+HONEST RIDERS: the Y-cell shows the RMU net's own d5 state still
+carries a half-strength trace (0.362 into the intact net) — the
+loss did NOT evacuate the store, it sealed the gate; and the RMU
+net's free-run onset geometry itself died (0/22,400 chars) — the
+expression channel went with it. **Final form of the day's
+unlearning story: RMU obfuscates at the READOUT GATE (knowledge
+trace survives, reception sealed, expression geometry dead);
+retain-only leaves the gate open (rescuable); surgery removes the
+row but not the probe trace; ascent destroys. Four removals, four
+different causal signatures — the three-readout dissociation now
+has its mechanism table.**
+
 **Two explanations for the rescue-channel closure, discriminated
-by e091 (dispatched):** (a) H-redirect — RMU repurposed the d4/d5
+by e091 (resolved — gate):** (a) H-redirect — RMU repurposed the d4/d5
 state channel (the knowledge no longer lives in transplantable
 states; its frozen probe reads 0.49); (b) H-readout-gate — the
 states still carry it but the receiving circuitry gates them.

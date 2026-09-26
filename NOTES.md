@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E091 — reverse-transplant: H-READOUT-GATE — the RMU net refuses even good states (2026-09-26) — DONE
+
+WHAT WE DID: bit-exact RMU/retain replicas (e065 recipe, all
+curves reproduced); the reverse sweep (no-removal donors → RMU net
+at net0 onset sites, d0-d6, shuffled controls) + two report-only
+cells.
+
+WHAT WE SAW (T052 close): reverse-rescue FAILS everywhere — every
+d<=5 site-mean ~45x under the 0.30 bar (max 0.0067) while
+retain-only sits at 0.345 on the same sites: the RMU net won't
+RECEIVE even good states. H-READOUT-GATE fires. RIDERS: (Y) RMU
+states → intact net rescue at d5 = 0.362 (half the self-level) —
+partial carriage SURVIVES in the RMU net's own d5 state; the
+closure is at reception, not state-erasure. (Fallback) the RMU
+net's own onset geometry DIED (0 host onsets in 22,400 chars) —
+the expression channel itself was killed by the loss.
+
+WHAT'S NEXT: T052 closes: the RMU loss seals the receiving circuit
+while the knowledge's d5 trace survives — obfuscation at the gate,
+not the store.
+
+---
+
 ## E082 — cross-seed transplant: BASIS-PRIVATE — the address row dies at the seed boundary; crossmatch instrument validated (2026-09-26) — DONE
 
 WHAT WE DID: e043 install verbatim on B43 (GATE-0 pass, p(Z) 0.320,
