@@ -96,6 +96,29 @@ a\* instability replicating under bootstrap resampling of sequences
 window-invariant); the a\* statistic carries a B=4 fragility flag
 alongside the eval-window qualifier.
 
+**AGENT TEXTURE (protocol-identity gates all pass — e069 reproduced
+bit-for-bit): three upgrades to the card above.**
+1. **The window-start mass is a LAYER CANCELLATION:** L0 grew 2.28×
+   (0.0070→0.0159, 3/4 seqs >1.8×) while L3 collapsed to 0.085× — the
+   total (0.76) masks an H-wpe-domain component fire at layer 0 alone.
+2. **K/V DISSOCIATION (the mechanism-level find):** window-start under
+   eval-256: V-zero +0.699 vs K-drop +0.021 — a pure VALUE read at
+   ~0.1% attention mass, the OPPOSITE of the anchor/sink signature
+   (K≫V). Age-4 FLIPS V≫K (512: +0.91/+0.25) → K>V (256: +0.06/+0.26):
+   the shoulder's VALUE read is what died with the re-coding (wpe
+   507→251), not its routing.
+3. **Native-slice HALF-fire:** the boundary resurrection IS specific
+   to re-indexing mid-sequence content into row 0 (dead at the true
+   sequence start: V −0.079); but the inflated robust a\* is NOT
+   truncation-specific — the native 256 window also inflates (a\*=13,
+   CE 1.06 vs 0.46: harder early-generation targets plausibly push
+   more ages over the 0.01-nat threshold).
+**BANDED READING (refines the registered hypotheses):** the TAIL haze
+(ages 6-17) looks threshold-like (instrument); the SHOULDER collapse
+(ages 4-5) looks value-read-like (mechanism). e072's V-norm + B=16
+measurements discriminate exactly this split. The mechanism money is
+on CODE-SENSITIVE VALUE READERS, not mass re-routing.
+
 ## T043 — E068: destruction weight and portability dissociate — row 129 is the address, row 0 is scaffolding (2026-09-26 ~10:20Z)
 
 **Registered outcome: MIXED — PORTABLE-PAIR fires (0.35-0.38 at the
