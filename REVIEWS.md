@@ -35,6 +35,15 @@ then append an entry here and update STATE.json.
 
 ---
 
+---
+
+## Review 18 — patrol (2026-09-26T02:35Z)
+
+Counts: 41 T-headers; 18 reviews; tree clean; timestamps monotonic.
+Drift: none (quiet heartbeats only). Wake-the-panel: no. Hold intact;
+paper submission-ready; queue holds RMU/ctx-512/e054 for next session.
+
+---
 ## Review 17 — patrol (2026-09-26T01:35Z)
 
 Counts: 41 T-headers; 17 reviews; tree clean; origin synced. Drift: none
