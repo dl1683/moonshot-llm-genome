@@ -120,7 +120,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e081b | RIF replication cell | DONE (T049 amendment: NULL REVERSED — RIF present asymmetric n=2; scramble texture was noise) |
 | e086 | frequency-flip install (T049) | DEAD (premise was fact-level RIF — killed by e087) |
 | e087 | RIF two-rig adjudication | DONE (T049 FINAL: string-level induction only — rig conflict dissolved at B=96; ZABMOTHIC control kills name-identity; reads pure at fact level; e086 dead) |
-| e082 | cross-seed row-129 transplant (ideator #1) | READY (needs one 100-step install on B43; then eval-only) | "a one-row organ" — seed-42 address row into seed-43 install; A2 p(Z)>=0.30 = portable organ; + crossmatch-cosine overlay + T043 Z-rank rider |
+| e082 | cross-seed row-129 transplant | DONE (T053: BASIS-PRIVATE — structure universal, code seed-specific; crossmatch validated on a one-row graft; T043 rider resolved) |
 | e083 | canalization cycle 3 (ideator #2) | READY (~100 steps total) | T037's registered monotone-closure prediction; ratio >=1 AND cos >=0.6 or canalization falsified |
 | e084 | READ-KERNEL census | DONE (T050: KERNEL=SHADOW r 0.918 — dissociation dead, shadow claims validated; young-band 31% flips; 24-27% escapes outside top-5; 48 donor-continuation hits) |
 | e085 | anchor-description probe | DONE (T051: anchor not entry-describable — no property fires; T048 rider r(static,dyn)=-0.004; anchors more run-specific) |

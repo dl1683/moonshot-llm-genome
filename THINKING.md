@@ -119,6 +119,34 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T053 — E082: the address is basis-private — structure universal, code seed-specific (2026-09-26 ~16:20Z)
+
+**Verdict: BASIS-PRIVATE.** The seed-42 wpe-129 address row does
+not transplant into the seed-43 install: donor-overwrite lands at
+destruction level (0.198 ≈ own-destroyed 0.195 ≈ mean-control
+0.191; donor-specific information +0.007). Yet GATE-1 showed the
+BIMODAL CENSUS replicates at seed 43 (row 0 0.318 / row 129 0.096
+— same structure, same coordinates). **The two-seed picture: the
+address's STRUCTURE (which rows matter) is universal; its CODE
+(what those rows contain) is seed-private.** A coordinate-system
+law with private encodings — T037's coordinate-keyed memory,
+sharpened: keys shared, values orthogonal (row-cos 0.059).
+
+**INSTRUMENT VALIDATION (quiet triumph):** the e062 crossmatch
+correctly rejected this one-row graft (cos 0.059 << 0.4459) and the
+graft indeed failed — the instrument screens at single-organ
+granularity, closing the loop from T046's out-of-sample validation
+to a live pre-screened-and-rejected case.
+
+**T043 free rider resolved:** the 0.13 no-copy plateau is
+sub-argmax residue (rank-2 Z) — option (b) of the registered
+tension. **P1's final state:** the address is a real, single,
+load-bearing row (n=2 within-family), universal in coordinate
+structure across seeds, private in code, untransplantable across
+the seed boundary, and predictable-by-instrument (crossmatch) even
+at one-row granularity. The "one-row organ" metaphor dies — organs
+are transplantable; this is a one-row KEY, cut for one lock.
+
 ## T052 — E065: obfuscation redefined — the RMU loss closes the rescue channel (2026-09-26 ~16:00Z)
 
 **The registered inversion FAILED honestly** — no arm shows

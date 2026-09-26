@@ -1,0 +1,90 @@
+{
+  "experiment": "e082_cross_seed_transplant",
+  "date": "2026-09-26T16:04:51Z",
+  "smoke": true,
+  "registered": {
+    "organizing_question": "does the seed-42 install's wpe-129 address row TRANSPLANT into a seed-43 host's own install \u2014 a one-row organ, or basis-private code?",
+    "gate0": "e043 exposure verbatim on B43 (100 steps, seed 24331, 16+32 anchor mix); pass: install60 p(Z) >= 0.20 AND R1i NLL <= 4.5; 2x-steps patience = one fresh 200-step trajectory; else PARK",
+    "gate1": "census rows {0,1,122-135,250-255}, row<-mean (+zero top rows) on install-60; pass: 129 in top-3 by p(Z) drop; r* retarget branch if the host binds a different row",
+    "arms": {
+      "A0": "host-intact reference",
+      "A1": "own-row destroy (zero + mean, in place)",
+      "A2": "DONOR OVERWRITE wpe[r*] <- donor wpe[129] (primary)",
+      "A3": "adjacent-slot add wpe[r*+1] <- donor wpe[129] (readout at k=1 shift)",
+      "A4": "sham: delete host row, re-copy host row (bitwise A0)",
+      "A5": "wpe[r*] <- mean(donor wpe rows)",
+      "A6": "donor PAIR: wpe[0] <- donor 0 AND wpe[r*] <- donor 129 (task-named pair-with-row0 overlay)"
+    },
+    "bars": {
+      "primary": "A2 install60 p(Z) >= 0.30 => PORTABLE; < 0.30 with own-GATE-1 passed => BASIS-PRIVATE",
+      "secondary": "crossmatch (0.4459 rule at d2/d3) matches the transplant outcome direction",
+      "tertiary": "A1 drops install60 p(Z) by >= half (knife-edge replicates at seed 43)"
+    },
+    "kills": {
+      "gate0": "install fails within 2x steps-to-bar -> PARK (protocol fragility across seeds, T015)",
+      "gate1": "no single-row concentration at seed 43 -> P1 phase-2 halts; seed-42 scope flag on claim B",
+      "a2_sham": "A2 ~= plateau (donor indistinguishable from sham/no-copy) -> closes negative at n=1 pair, STOP"
+    },
+    "free_rider": "k=10 rebound geometry: Z's rank at the plateau/rebound \u2014 rank-2 plateau => sub-argmax residue (b); rank>5 => content-row co-adaptation (a)"
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "n_held": 30
+  },
+  "gate0": {
+    "device": "cuda",
+    "gpu_double_poll_pass": true,
+    "n_gpu_polls": 1,
+    "steps": 8,
+    "seed": 24331,
+    "ckpt": "e082_b43_install_smoke.pt",
+    "traj": [
+      {
+        "step": 4,
+        "install60_pz": 1.145589802812689e-05,
+        "held30_pz": 9.315606143900368e-06,
+        "r1i_nll": 4.208556652069092,
+        "r1i_acc": 0.34047621488571167,
+        "onset_acc": 0.0,
+        "pos36_acc": 0.38750001043081284
+      },
+      {
+        "step": 8,
+        "install60_pz": 0.0005198316848918694,
+        "held30_pz": 0.00055913608590951,
+        "r1i_nll": 1.5162019729614258,
+        "r1i_acc": 0.7904762029647827,
+        "onset_acc": 0.0,
+        "pos36_acc": 0.9291667193174362
+      }
+    ],
+    "install_runtime_s": 11.3,
+    "pz_floor": 0.2,
+    "r1i_max": 4.5,
+    "patience_branch": null,
+    "final": {
+      "step": 8,
+      "install60_pz": 0.0005198316848918694,
+      "held30_pz": 0.00055913608590951,
+      "r1i_nll": 1.5162019729614258,
+      "r1i_acc": 0.7904762029647827,
+      "onset_acc": 0.0,
+      "pos36_acc": 0.9291667193174362
+    },
+    "pass": false,
+    "kill": "GATE 0 FAIL \u2014 install did not take within 2x e043's steps-to-bar on seed 43. REGISTERED KILL: PARK (protocol fragility across seeds, T015); do not ad-hoc tune. Partial metrics written; arms NOT run."
+  },
+  "protocol_identity_vs_e043_donor_b43": null,
+  "gate1": null,
+  "arms": null,
+  "crossmatch": null,
+  "rebound_free_rider": null,
+  "bars": null,
+  "verdict": "GATE 0 FAIL \u2014 install did not take within 2x e043's steps-to-bar on seed 43. REGISTERED KILL: PARK (protocol fragility across seeds, T015); do not ad-hoc tune. Partial metrics written; arms NOT run.",
+  "timing_s": 131.5
+}

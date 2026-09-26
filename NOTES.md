@@ -61,6 +61,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E082 — cross-seed transplant: BASIS-PRIVATE — the address row dies at the seed boundary; crossmatch instrument validated (2026-09-26) — DONE
+
+WHAT WE DID: e043 install verbatim on B43 (GATE-0 pass, p(Z) 0.320,
+protocol-identical to the prior donor artifact), seed-43 census
+(GATE-1 pass — bimodal 0/129 replicates: row 0 0.318, row 129
+0.096), then the 6-arm transplant battery with crossmatch overlay.
+
+WHAT WE SAW (T043 amendment): A2 donor-overwrite 0.198 < 0.30 =
+BASIS-PRIVATE — A2 ≈ own-destroyed (0.195) ≈ donor-mean (0.191);
+A2−A5 = +0.007 (the donor row carries no donor-specific
+information; it acts as any foreign row). T043's n=2 portability
+was within-family luck. SECONDARY: crossmatch cos(d2,d3) 0.059 <<
+rule 0.4459 → REJECT — and the graft indeed failed: the e062
+instrument correctly screens even a one-row organ (row-cos
+donor129~host129 +0.059: the two address codes are basis-
+orthogonal). T043 free rider resolved: (b) sub-argmax residue
+(plateau-with-rank-2, Z the runner-up). Honest: knife-edge soft at
+seed 43 (39% drop; lower base 0.32); batch-64 kept for protocol
+identity (documented deviation from the brief).
+
+WHAT'S NEXT: P1 phase-2 closes — the address is real, universal in
+structure (bimodal census at both seeds), but seed-private in code.
+
+---
+
 ## E065 — RMU-vs-surgery head-to-head: classic inversion FAILED; RMU closes the rescue channel specifically (2026-09-26) — DONE
 
 WHAT WE DID: the critic-hardened 5-arm design (RMU grid + surgery D2
