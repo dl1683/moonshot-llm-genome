@@ -77,7 +77,9 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 |---|---|---|
 | e058 | geometry-site anatomy | DONE (T029) | zero-GPU per-site r(align-dist, damage) x 11 ckpts + 2.7M replication — why L2 but not L3? |
 | e059 | winner differencing | DONE (T040: H-nothing at bars; interface family = second damage predictor, partial r −0.654; trickle = single-lineage artifact) |
-| e063 | load homeostasis | DONE (T041: H-EMERGENT — universal template, r=+1.000 across init+order; no heritable A-variance; e063b task-swap discriminator registered) |
+| e063 | load homeostasis | DONE (T041: H-EMERGENT — universal template, r=+1.000 across init+order; no heritable A-variance) |
+| e063b | task-swap discriminator | DONE (T041 amendment: H-ii optimizer-attractor — copy-net shape r=+0.998; magnitudes task-weighted, shape corpus-invariant) |
+| e070 | attention-mass discriminator (T039-amend) | READY (CPU, minutes) | eval-256 vs 512 attention mass + K/V at window-start/ages 4-5; ratios: ≥2.0 start + ≤0.75 age4 ⇒ H-wpe-domain; [0.9,1.1] ⇒ H-instrument; >1.1 uniform ⇒ H-redistribute |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
 | e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
 | e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |

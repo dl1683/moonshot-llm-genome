@@ -61,6 +61,26 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E063b — task-swap discriminator: H-ii OPTIMIZER-ATTRACTOR (2026-09-26) — DONE
+
+WHAT WE DID: A-profiles on the e021 family (copy-task net: far-retrieval
+learned, +3.27 far-value, 99.96% copy acc; + its control net as bonus
+third), own-corpus val, e063 machinery verbatim, B anchor bitwise.
+
+WHAT WE SAW (T041 amendment): copy-net shape r = +0.998 vs B template
+(control +0.998 too); H-i's registered r < 0.5 prediction decisively
+failed. The L0-huge/trough/rise template is corpus-invariant — an
+optimizer/architecture attractor, not task-pinned. Nuance: the task
+re-weights MAGNITUDES (mean |ΔA| 0.27, uniform elevation, L1 trough
+partially filled 0.42 vs 0.15 — Spearman dips to +0.83 barely at bar);
+shape is preserved, scale is not.
+
+WHAT'S NEXT: T041 closes (template = attractor). Remaining open: what
+WOULD move the shape — e033's energy constraint is the only known
+mover; depth/architecture sweep parked.
+
+---
+
 ## E069 — T039 onset discriminators: H1 circuit-horizon DECISIVE; D1 surprise — eval-window-sensitive (2026-09-26) — DONE
 
 WHAT WE DID: the two T039-registered eval-only discriminators on the

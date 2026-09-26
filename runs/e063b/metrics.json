@@ -1,0 +1,151 @@
+{
+  "experiment": "e063b_task_swap",
+  "registered_in": "T041 (2026-09-26T11:15Z)",
+  "date": "2026-09-26T09:50:44Z",
+  "status": "complete",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES=-1; common.DEVICE=cpu)",
+  "question": "is the universal organ-reliance template task-pinned (H-i: shape changes with task) or an optimizer-attractor (H-ii: same shape regardless of corpus)?",
+  "protocol": {
+    "A": "dCE of zeroing own mlp organ, mean over 15 fixed val batches from EACH net's own corpus val tail (corpus seed 1337) \u2014 e063 machinery reused verbatim",
+    "shape": "Pearson r of the 6-site A profile vs the B (e001 Shakespeare) template re-measured in-process",
+    "registered_rules": {
+      "H-i": "r < 0.5 for at least the copy-task net",
+      "H-ii": "r >= 0.8 everywhere"
+    },
+    "supportive": [
+      "spearman rho",
+      "pearson r over sites 1-5 (L0 magnitude dominates the 6-point r)",
+      "mean |dA| vs e063 noise floor 0.0142"
+    ],
+    "n_eval_batches": 15,
+    "n_boot": 2000
+  },
+  "instrument_gates": {
+    "B_remeasure_vs_e063_cache_mean_dA": 1.1666593617102686e-13,
+    "B_cache_se_mean": 0.014798693763830714,
+    "gate_B_matches_e063_cache(<=3se)": true,
+    "gate_B_base_ce_matches_e063(<0.05)": true,
+    "gate_task_base_ce_matches_e021(<0.10)": true,
+    "gate_control_base_ce_matches_e021(<0.10)": true,
+    "arch_all": "6L/6H/192d block256, vocab 65 \u2014 identical to B cohort",
+    "checkpoint_reality": "no word-shuffled net exists; e021 family = task (step 1980) + control (step 913, wall-clock-capped ~half exposure)"
+  },
+  "checkpoints": {
+    "B_e001": {
+      "group": "anchor",
+      "note": "B template: Shakespeare char-LM (e001, init42/order1337)",
+      "base_ce": 1.6343892574310304,
+      "A_by_site": {
+        "0": 4.079657411575317,
+        "1": 0.15235294500986735,
+        "2": 0.2660760561625163,
+        "3": 0.4587578614552816,
+        "4": 0.5932433764139812,
+        "5": 0.5844108581542968
+      },
+      "bootstrap_se": {
+        "0": 0.04241007754254047,
+        "1": 0.004947139125580957,
+        "2": 0.006886085108418278,
+        "3": 0.007462882892407038,
+        "4": 0.010776002345552392,
+        "5": 0.0163099751275599
+      }
+    },
+    "e021_task": {
+      "group": "copy-task",
+      "note": "task net: ID->COPY nonce retrieval required (step 1980, copy acc .9996, far-val +3.27)",
+      "base_ce": 1.4444363196690877,
+      "A_by_site": {
+        "0": 4.881114840507507,
+        "1": 0.4200888633728027,
+        "2": 0.42977227369944254,
+        "3": 0.6720466375350952,
+        "4": 0.6530901511510213,
+        "5": 0.7081748565038045
+      },
+      "bootstrap_se": {
+        "0": 0.0138079674390374,
+        "1": 0.0051781127209180365,
+        "2": 0.00473458370590326,
+        "3": 0.007035512353669391,
+        "4": 0.008133917865358099,
+        "5": 0.01005214451549882
+      }
+    },
+    "e021_control": {
+      "group": "control",
+      "note": "control net: byte-identical corpus, COPY cue uncorrelated (step 913, far-val ~0)",
+      "base_ce": 1.553113039334615,
+      "A_by_site": {
+        "0": 3.776433825492859,
+        "1": 0.18851450284322102,
+        "2": 0.17755589485168458,
+        "3": 0.2976600488026937,
+        "4": 0.3415370066960653,
+        "5": 0.4464456081390381
+      },
+      "bootstrap_se": {
+        "0": 0.011398899491551895,
+        "1": 0.002367591097070936,
+        "2": 0.0022973704470065047,
+        "3": 0.0023620331346767736,
+        "4": 0.0024817455547791563,
+        "5": 0.004908790309417217
+      }
+    }
+  },
+  "shape_vs_B_template": {
+    "B_e001": {
+      "pearson_r_all_sites": 0.9999999999999999,
+      "spearman_rho_all_sites": 1.0,
+      "pearson_r_sites1_5_excl_L0": 1.0,
+      "mean_abs_dA": 0.0,
+      "profile": {
+        "0": 4.079657411575317,
+        "1": 0.15235294500986735,
+        "2": 0.2660760561625163,
+        "3": 0.4587578614552816,
+        "4": 0.5932433764139812,
+        "5": 0.5844108581542968
+      }
+    },
+    "e021_task": {
+      "pearson_r_all_sites": 0.9984781936061922,
+      "spearman_rho_all_sites": 0.8285714285714287,
+      "pearson_r_sites1_5_excl_L0": 0.9401354725712708,
+      "mean_abs_dA": 0.2716315189997356,
+      "profile": {
+        "0": 4.881114840507507,
+        "1": 0.4200888633728027,
+        "2": 0.42977227369944254,
+        "3": 0.6720466375350952,
+        "4": 0.6530901511510213,
+        "5": 0.7081748565038045
+      }
+    },
+    "e021_control": {
+      "pearson_r_all_sites": 0.9981630556987714,
+      "spearman_rho_all_sites": 0.8857142857142858,
+      "pearson_r_sites1_5_excl_L0": 0.9055905699558209,
+      "mean_abs_dA": 0.16311245626873433,
+      "profile": {
+        "0": 3.776433825492859,
+        "1": 0.18851450284322102,
+        "2": 0.17755589485168458,
+        "3": 0.2976600488026937,
+        "4": 0.3415370066960653,
+        "5": 0.4464456081390381
+      }
+    }
+  },
+  "e021_task_references": {
+    "val_ce_task_30batch": 1.4318429072697958,
+    "val_ce_control_30batch": 1.551924721399943,
+    "copy_acc_task": 0.9995999932289124,
+    "far_value_task": 3.268735647201538,
+    "far_value_control": -0.0018345688004046679
+  },
+  "verdict": "H-ii OPTIMIZER-ATTRACTOR \u2014 every task-swap net keeps the template (task r = +0.998, control r = +0.998, both >= 0.8); corpus/task details don't reshape organ-reliance",
+  "timing_s": 373.2
+}

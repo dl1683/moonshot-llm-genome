@@ -7,6 +7,18 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+**Registered discrimination OUTCOME (e063b, ~09:57Z): H-ii
+OPTIMIZER-ATTRACTOR — H-i decisively failed.** The e021 copy-task net
+(far-retrieval genuinely learned: +3.27 far-value, 99.96% copy acc;
+control net as third) reproduces the template at shape r = +0.998
+against B, on its own corpus. The template is corpus-invariant in
+SHAPE; the task re-weights MAGNITUDES only (mean |ΔA| 0.27, uniform
+elevation, L1 trough partially filled — Spearman +0.83, barely at the
+bar). T041 closes: organ-reliance is an optimizer/architecture
+attractor. The only known shape-mover remains e033's energy constraint.
+PARKED: what architecture change (depth/head-count) would break the
+attractor — a day-5 candidate if P2 needs it.
+
 ## T041 — E063: organ-reliance is a universal emergent template — selection had nothing to select (2026-09-26T11:15Z)
 
 **Registered verdict: H-EMERGENT.** The A ladder: noise 0.014 << INIT
@@ -86,6 +98,50 @@ restoring force. e063's setpoint-vs-drift verdict lands this hour.
 **P2 bearing:** the interface family is the cheap pre-graft crossmatch
 predictor candidate (e062 should test W_out rowmean FIRST, before
 stream-cosine — it is A-independent signal).
+
+**INTERPRETER PASS (scratch/interpretation_t039amendment.md, 2026-09-26
+~09:55Z) — two decisive facts the card missed, both same-token/same-age
+from runs/e069/metrics.json:**
+- The shoulder COLLAPSED under truncation: ages 4-5 went 0.91/0.32 →
+  0.06/0.13 nats (not merely "tail inflated" — reshaped).
+- A SECOND live spike at the truncated window's START: age-255 token at
+  wpe row 0 = +0.699 nats (vs +0.005 dead at row 256 in the full window;
+  +0.043 in the abspos control) — a partial 2×2 that only the
+  conjunction "row 0 + far-half absent" satisfies.
+
+**Hypothesis re-ranking (registered outcomes):** H-redistribute in its
+plain form is FALSIFIED — softmax renormalization scales survivors
+proportionally and cannot raise age-1 (+0.97) while dropping age-4
+(−0.85); it survives only as a contributory term for ages 6-17. The new
+leader is **H-wpe-domain / positional-reshape**: re-indexing puts late
+content in mid-window position codes — the shoulder read is
+absolute-code-sensitive, the age-1-3 read is band-agnostic, and row 0
+becomes a live anchor; one mechanism explains all three movements
+(consistent with T038/e066b graded row-specific codes; the abspos CE
+6.31 proves non-translation-invariance). H-instrument is a multiplier
+on it, not a rival. H-competition/backup-loss (conditional marginal
+cost) explains the D2 amplification: it is 80-100% in the lesioned
+branch with the clean branch invariant.
+
+**D2 reframing verdict: switch — but NOT to interference-removal**
+(falsified by the card's own manipulation check: scrambling far context
+RAISED clean CE 0.453→0.617, so far context was net-POSITIVE here; the
+old-entry interference budget of −0.01..−0.05 nats cannot buy +1.76
+nats of amplification). Correct frame: **conditional-redundancy /
+floor-loss** — far context ≈0 average value (e013) but large
+conditional backup value (e013c's 30.6% gainers); destroy the floor and
+the same young-spike lesion crashes harder. "Leaning" stays only as
+registered fallback if attention mass actually migrates at ages 1-2.
+
+**Registered discriminator (e070, CPU minutes, e053c ckpt verbatim):**
+per-position attention-received mass of the final query (per layer×head)
+at ages 1-20 + ages 4-5 + the window-start token, eval-256 vs eval-512,
+with K-drop/V-zero at age 4, 5, and window-start. NUMBERS: window-start
+mass ratio ≥2.0 AND age-4 ratio ≤0.75 ⇒ H-wpe-domain; all ratios in
+[0.9,1.1] ⇒ H-instrument (tail); uniform ratios >1.1 ⇒ H-redistribute
+(contributory). Free secondary: a\* on the native positions-0-255 slice
+(in-distribution) — ~6 with a dead window start kills any
+window-fraction residue.
 
 ## T039-amendment — E069: spike is circuit, onset statistic is eval-window-sensitive (2026-09-26T09:50Z)
 
