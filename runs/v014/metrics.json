@@ -1,0 +1,89 @@
+{
+  "viz": "v014_crossmatch_grid",
+  "date": "2026-09-26T12:40:38Z",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES masked; zero-GPU analysis)",
+  "source": {
+    "run": "e062",
+    "thinking": "T046",
+    "n_pairs": 204,
+    "n_hosts": 18,
+    "n_donors": 12
+  },
+  "decision_rule": {
+    "predictor": "P2: mean token-cosine of host/donor residual streams at graft-input depths (d2,d3), 2-batch probe",
+    "threshold": 0.4459490031003952,
+    "in_sample": true,
+    "auc": 0.9186851211072664,
+    "youden_J": 0.6568627450980392,
+    "n_pass_cells": 123,
+    "n_fail_cells": 81
+  },
+  "correlation": {
+    "raw_r_D": -0.9398831039030182,
+    "partial_r_given_A": -0.9760618984682669,
+    "ci95_hostcluster": [
+      -0.983842131896601,
+      -0.962811064838978
+    ]
+  },
+  "label_definition": {
+    "rule": "D > median(D) over all scale-A pairs",
+    "median_D": 1.4127746979395548,
+    "n_pos": 102,
+    "n_neg": 102
+  },
+  "grid": {
+    "cells_measured": 204,
+    "cells_self_excluded": 12,
+    "aggregation": "mean over measurements per (host,donor)",
+    "max_measurements_per_cell": 1,
+    "count_annotations_shown": false
+  },
+  "at_threshold": {
+    "mean_D_pass": 1.2875926365374224,
+    "mean_D_fail": 1.9436135537339825,
+    "confusion": {
+      "pass_compatible": 95,
+      "fail_compatible": 7,
+      "pass_damaging": 28,
+      "fail_damaging": 74
+    },
+    "tpr": 0.9313725490196079,
+    "fpr": 0.27450980392156865
+  },
+  "kinship": {
+    "family_of": {
+      "e040_ref": "ancestor (e040_ref)",
+      "e040_w": "w lineage",
+      "e040_m1": "m lineage",
+      "e040_m2": "m lineage",
+      "e040_m3": "m lineage",
+      "e040_g1a": "g lineage",
+      "e040_g1b": "g lineage",
+      "e040_g1c": "g lineage",
+      "e040_g2a": "g lineage",
+      "e040_g2b": "g lineage",
+      "e040_g2c": "g lineage",
+      "e005s_small": "fresh seed (e005)",
+      "e050_m1": "e050 directed-mutation (hosts only)",
+      "e050_m2": "e050 directed-mutation (hosts only)",
+      "e050_m3": "e050 directed-mutation (hosts only)",
+      "e050_g1a": "e050 directed-mutation (hosts only)",
+      "e050_g1b": "e050 directed-mutation (hosts only)",
+      "e050_g1c": "e050 directed-mutation (hosts only)"
+    },
+    "donor_family_counts": {
+      "ancestor (e040_ref)": 1,
+      "w lineage": 1,
+      "m lineage": 3,
+      "g lineage": 6,
+      "fresh seed (e005)": 1
+    },
+    "caveat": "11/12 donors are e040 seed-42 kin; host-cluster bootstrap does not absorb donor redundancy \u2014 CI anti-conservative (REVIEWS CLAIM D)"
+  },
+  "outputs": {
+    "figure": "runs/v014/crossmatch_grid.png",
+    "metrics": "runs/v014/metrics.json"
+  },
+  "timing_s": 0.9
+}
