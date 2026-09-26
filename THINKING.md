@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T039 — E053c: the utility onset is ABSOLUTE — a fixed ~6-token horizon, not a window fraction (2026-09-26T10:05Z)
+
+**Registered verdict: ABSOLUTE, clear.** Doubling the window 256→512
+(matched tokens-per-step, matched family) left a\* at 6 (CI [4,8]) vs 7 —
+the onset fraction halved. The load-bearing spike is the same handful of
+most-recent entries regardless of window size. Exposure bias runs
+AGAINST the verdict (78% schedule; e053b says less training → larger
+a\*), so it is conservative. T031's open conflict (absolute vs
+proportional) resolves ABSOLUTE for the matched 0.84M-class pair; the
+dead cross-scale invariance claims (PB3) stay dead, and the widened
+identity-audit failure (9.3% of old positions lesion-HELPFUL, scatter to
+age 499) keeps "structure beyond recency" alive in the plateau.
+
+**Explanations for the absolute horizon:**
+- **H1 CIRCUIT HORIZON:** the decision circuit reads a fixed number of
+  recent positions (induction-head/local integration window) set by
+  circuit structure — window-independent by construction.
+- **H2 STATISTICAL HORIZON:** char-level local redundancy (n-gram
+  predictiveness) has a fixed effective length ~5-6; the spike tracks
+  the corpus statistics, not the circuit.
+- **H3 TRAINING-EXPOSURE ARTIFACT:** the horizon grows with training
+  tokens (e053b's exposure axis) — mostly excluded already by the
+  conservative-bias argument, but not at matched exposure.
+
+**Registered discriminator (eval-only, minutes):** truncate the SAME
+e053c net to eval-context 256 and re-run the onset fit. H1+H2 both
+predict a\*(eval-256) ≈ 6 (within [4,8]) — but H2 further predicts the
+age-1..5 SPIKE MAGNITUDES scale with local n-gram statistics only:
+evaluate on SHUFFLED-char prompts (destroys n-gram structure, keeps
+recency): H2 predicts the spike collapses; H1 predicts it survives
+(attenuated) because the circuit reads positions, not statistics.
+**Prediction: shuffled-char spike retains ≥30% of normal magnitude at
+ages 1-2 ⇒ H1; collapses to ≤10% ⇒ H2.**
+
+**Paper bearing:** cache-truncation claims → "a fixed-token horizon
+(~6-7 recent entries at 0.84M-class), window-invariant across 256→512"
++ keep the T031 plateau caveat verbatim.
+
 ## T038 — E066: the relay is not the row — coordinate-keying lives in the circuit, not the deep state (2026-09-26T09:35Z)
 
 **Registered verdict: TWO-OBJECTS.** |cos(relay_d5, wpe[130])| = 0.094

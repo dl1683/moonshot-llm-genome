@@ -61,6 +61,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E053c — ctx-512 onset decider: ABSOLUTE verdict (2026-09-26) — DONE
+
+WHAT WE DID: trained 4L/4H/128d/wpe-512 = 873k params (seed 42,
+tokens-per-step matched to the e005s comparator; 180s cap hit at
+3133/4000 steps = 78% exposure), then the e053b fine-onset machinery
+verbatim (same seeds/rules, 511-position V-zero sweep, 1000× bootstrap).
+GPU envelope respected (88°C peak → cooldown + re-check before eval).
+
+WHAT WE SAW (T039): **a\*(512) = 6, CI [4,8], naive=robust=6** —
+overlaps the ABSOLUTE window [5,13], entirely below PROPORTIONAL
+[10.0,26.1]. Onset fraction HALVED (0.012 vs 0.027). Spike shape
+preserved (ages 1–5: +1.7/+4.5/+2.3/+0.9/+0.3 nats; ≤0.007 after age
+6). Val CE 1.5227 (beats both anchors). Gates G0b/G0-dev pass
+(1.8e-06 / 1.6e-05). Honest caveats: 78% exposure biases AGAINST this
+verdict (e053b: less training → larger a*, yet 6 ≤ 7); B=4 spread 3–8;
+identity audit stays broken and widened (9.3% of positions
+lesion-helpful, scattered to age 499) — plateau ≠ pure recency noise.
+
+WHAT'S NEXT: paper cache-truncation claims restated window-invariantly
+(fixed-token horizon). P3 junk-split now ungated (GPU free after
+cooldown). Registered T039 discriminator: eval-window truncation on the
+SAME net (a* at eval-256 on the e053c net) to separate circuit-horizon
+from statistical-horizon readings.
+
+---
+
 ## E066b — in-place row-129 interventions: the address is GRADED, not row-pure (2026-09-26) — DONE
 
 WHAT WE DID: T038's H1-vs-H2 discriminator — in-place wpe-row-129
