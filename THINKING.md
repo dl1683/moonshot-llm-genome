@@ -176,6 +176,19 @@ rise predicts diffuse independent contributions (the null view).
 This is P3's capstone measurement — the anchor's dose-response
 law.**
 
+**E089 CONFIRMATION (~15:50Z): MASS-ACTION WINS DECISIVELY — both
+threshold clauses fire (0.034 < 0.25; 3.35 > 3.0), linear excluded
+(CI entirely below its window). Near-flat through k=32, convex break
+64→128→200 (+0.20/+0.68/+2.15). Variance collapses past the break
+(CV 7.2→0.23; all draws positive at k>=128): WHICH entries doesn't
+matter, only HOW MANY. THE ANCHOR'S DOSE-RESPONSE LAW IS
+THRESHOLD-SHAPED — removal cost is a function of mass. T051 closes
+with its registered confirmation; P3's arc is complete (junk is
+self-generated → anchors the run as mass → threshold law). Texture:
+the K=1 continuous schedule is ~8x e075's K=32 lumps — schedule
+matters as much as mass (a registered e090 question if P3
+continues: dose vs schedule decomposition).**
+
 ## T050 — E084: the read kernel equals its shadow — the first direct read-policy measurement (2026-09-26 ~14:35Z)
 
 **Verdict: KERNEL = SHADOW.** r(flip-rate(age), dCE-load(age)) =

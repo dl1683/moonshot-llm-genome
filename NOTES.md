@@ -61,6 +61,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E089 — mass-response curve: MASS-ACTION confirmed — the anchor's dose-response law is threshold-shaped (2026-09-26) — DONE
+
+WHAT WE DID: removal cost vs k (random subsets, 10 draws per k,
+e088's matched-stream instrument + progressive age-97-crossing
+adaptation). 58 s CPU, all gates pass (4,527 fired columns exact).
+
+WHAT WE SAW (T051 final): both threshold clauses FIRE —
+cost(32)/cost(200) = 0.034 < 0.25; cost(128)/cost(64) = 3.35 > 3.0;
+LINEAR excluded (cost(64)/cost(200) CI entirely below the 0.32
+window). Curve: near-flat (CIs straddle 0) through k=32, convex
+break 64→128→200 (+0.20 → +0.68 → +2.15). Variance collapses in
+CV/sign terms past the break (CV 7.2 → 0.23; all draws positive at
+k>=128) — WHICH entries doesn't matter, only HOW MANY. Texture: the
+K=1 continuous schedule is ~8x more destructive than e075's K=32
+lumps (full off-manifold collapse at k=200); 13 unremovable
+p=414 draws tallied; mild exposure confound (Spearman -0.30) below
+the break region.
+
+WHAT'S NEXT: T051 closes with its registered confirmation — P3's
+arc complete: junk is self-generated, anchors the run as MASS, and
+obeys a threshold dose-response law.
+
+---
+
 ## E085 — anchor description: the anchor resists per-entry description (2026-09-26) — DONE
 
 WHAT WE DID: 100 anchor + 50 young entries × 5 properties → jackknife
