@@ -103,6 +103,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e076 | cosine mechanism discriminator (T046) | READY (reanalysis, minutes) | partial cosine on write/stream norms — alignment survives vs magnitude collapses |
 | e075 | source-aware pruning (P3 step 1) | DONE (T048: KILL — +0.26 nats, off-manifold attractor; static junk dynamically load-bearing) |
 | e078 | dose-net rebinding rerun (T047) | DONE (REPLICATED n=2 — row129-alone > pair again; rebind 60-71%; old-bar MIXED stable) |
+| e079 | B=16 junk-split resample | DONE (claim C net-dependent: 10M robust anchor; 2.7M fires registered-mapping; e053c battery-difficulty-dependent; concentration clears 18.6%) |
 | e080 | prune-vs-replace (T048) | DONE (close-out: honest MIXED — noise≈vzero (presence dead), promptcopy recovers 3/4 but misses bar; anchor is RUN-SPECIFIC trajectory content; attractor in all arms) |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
