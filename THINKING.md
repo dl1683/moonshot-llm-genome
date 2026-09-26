@@ -210,6 +210,19 @@ tracks window size (r = 0.867). Caveats: n=5 mixed axes, ladder
 anti-correlation by design; discriminator (a) (10M junk conflict)
 remains open.
 
+**Discriminator (a) OUTCOME (2026-09-26T10:55Z): resolved as a
+PSEUDO-CONFLICT.** The "10M far-value rises" (T021/e049's fresh 10M arm,
+1.87× refrain sensitivity) and "negative-utility worsens" (e053's 10M
+ladder cell, 32% junk) are DIFFERENT nets under DIFFERENT instruments
+(refrain far-value vs KV lesion dCE) — no shared net, no logical
+contradiction to dissolve. The correct joint statement: stronger
+long-range reads come with more interference-prone old entries
+(strength-with-interference, not conflict). **Registered within-net
+prediction for the P3 program:** in ONE net, far-context value and
+old-entry junk-frac correlate POSITIVELY (both are the same
+under-selective long-range read); a negative within-net correlation
+would revive a real conflict. Testable on the next P3 run.
+
 **Registered bearing on e066 (running next):** construct 1 predicts the
 e056b relay direction at d5 carries a wpe-130 row component — raises
 confidence in the pre-registered |cos| ≥ 0.4 loop-close outcome.
