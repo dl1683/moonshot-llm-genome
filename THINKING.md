@@ -50,6 +50,41 @@ REGISTERED PREDICTION for e068: pair-copy to a shifted window
 single-row copies (0 alone or 129 alone) fail (p(Z) < 0.05) — the
 conjunction is the unit.
 
+## T045 — E073: cache junk is SELF-GENERATED — entry-level exposure bias, 4/4 (2026-09-26 ~11:00Z)
+
+**Registered verdict: H-SLEEPER fires 4/4.** Negative-utility cache
+entries concentrate in the free run's OWN tokens (generated-old junk
+0.085-0.367) while corpus-prompt entries are almost never
+lesion-helpful (0-4 of 63 per net). The 10M cell is extreme: 36.7%
+generated-old junk with NEGATIVE mean dCE — removing its own older
+generations IMPROVES it on average. H-inverse (the e013c-era
+far-context-poison reading) is dead at the entry level: corpus text
+does not poison; self-generated text does.
+
+**This is the exposure-bias claim made entry-level and causal.** The
+classics (Ranzato/Scheduled-Sampling/Professor-Forcing) document the
+TF/free-run mismatch behaviorally; we can now say WHERE the poison
+sits in the free-running stream: in the cache entries the run itself
+wrote. Direct bridge for the paper's Risk-3 defense and the strongest
+P3 (CACHE WEATHER) motivator: pruning "junk" ≈ removing the model's
+own accumulated exposure bias, mid-generation.
+
+**Confound, registered before it's raised:** entry AGE and SOURCE
+correlate by design (prompt = oldest 64). Two explanations:
+- **H-source (sleeper, strict):** self-generation is the poison —
+  drift/error accumulation in the run's own outputs.
+- **H-age-statistics:** old-AND-generated entries are simply the
+  least-informative band (any low-information entry drifts negative).
+**Discriminator (e074, eval-only, minutes):** the shuffled-prompt
+control — replace prompt entries with shuffled chars (destroys
+corpus statistics, keeps age+count). H-source predicts junk stays in
+the GENERATED band (prompt-shuffling creates no new junk); H-age-stat
+predicts junk redistributes toward whichever band is
+information-poor (shuffled prompt should GO negative). Secondary:
+within the generated band, junk vs generation-ORDER (early vs late
+generations at matched age) — H-source predicts late-generation
+entries (more drift) junk more.
+
 ## T044 — E070: the tail inflates without attention moving — value-side or threshold; and the cross-thread prediction dies (2026-09-26 ~10:25Z)
 
 **Registered outcome: NO CLAUSE FIRES — the three-hypothesis space

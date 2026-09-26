@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E073 — junk-split reanalysis: the sleeper hypothesis fires 4/4 — cache junk is self-generated (2026-09-26) — DONE
+
+WHAT WE DID: zero-GPU stratification of negative-utility cache entries
+by SOURCE (generated vs prompt) across the four e053-family profiles
+(prompt = oldest 64 corpus entries; generated = the free run's own
+tokens; threshold −0.01 nats; beyond-onset restriction on the
+generated side).
+
+WHAT WE SAW (T045): generated-old junk 0.101 / 0.085 / 0.367 / 0.100
+(small/mid/10M/ctx-512) vs prompt junk 0.000 / 0.032 / 0.000 / 0.063.
+H-sleeper FIRES 4/4; H-inverse (far-context poison) dead. The 10M is
+extreme: 36.7% of its beyond-onset generated entries are
+lesion-HELPFUL and their mean dCE is negative, while all 63 prompt
+entries are positive-utility. In both ctx-512 and 10M, generated-old
+mean dCE < 0.
+
+WHAT'S NEXT: T045 registers the age-vs-source discrimination (entries'
+age and source correlate by design; shuffled-prompt control) and the
+paper bridge (entry-level exposure bias — the free run poisons its own
+cache).
+
+---
+
 ## E068 — pair-rebinding: MIXED — the portable unit is ROW 129 ALONE (2026-09-26) — DONE
 
 WHAT WE DID: wpe-row surgery on shifted install windows: pair-copy

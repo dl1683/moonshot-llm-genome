@@ -98,7 +98,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e068 | rebinding surgery (P1) | DONE (T043: MIXED — portable unit is ROW 129 ALONE, pair ≈ 129-only; row-0 = scaffolding; destruction-vs-portability dissociate) |
 | e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
-| — | P3 settle + junk split | UNGATED (e053c verdict in: ABSOLUTE, T039) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |
+| e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
+| e074 | shuffled-prompt junk control (T045) | READY (CPU, minutes) | age-vs-source discrimination + generation-order secondary |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
 ## Parking lot (raw ideas, unranked)
