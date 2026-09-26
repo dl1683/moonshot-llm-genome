@@ -124,7 +124,9 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e083 | canalization cycle 3 (ideator #2) | READY (~100 steps total) | T037's registered monotone-closure prediction; ratio >=1 AND cos >=0.6 or canalization falsified |
 | e084 | READ-KERNEL census | DONE (T050: KERNEL=SHADOW r 0.918 — dissociation dead, shadow claims validated; young-band 31% flips; 24-27% escapes outside top-5; 48 donor-continuation hits) |
 | e085 | anchor-description probe | DONE (T051: anchor not entry-describable — no property fires; T048 rider r(static,dyn)=-0.004; anchors more run-specific) |
-| e088 | pair-level anchor probe (T051) | READY (CPU, eval-only) | pair-removal super-additivity vs sum-of-singles — interaction structure vs sequence-level |
+| e088 | pair-level anchor probe | DONE (T051: SUB-ADDITIVE 0.464 — interactions killed; anchor is MASS-ACTION) |
+| e089 | mass-response curve | DONE (T051 FINAL: MASS-ACTION confirmed — both threshold clauses fire; variance collapse; threshold dose-response law) |
+| e090 | dose-vs-schedule decomposition | PARKED | K=1 continuous removal ~8x K=32 lumps — mass vs removal-schedule |
 
 ## Parking lot (raw ideas, unranked)
 
