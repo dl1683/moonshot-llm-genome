@@ -61,6 +61,26 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E066b — in-place row-129 interventions: the address is GRADED, not row-pure (2026-09-26) — DONE
+
+WHAT WE DID: T038's H1-vs-H2 discriminator — in-place wpe-row-129
+interventions on the 6 donor contexts (swap←130 / zero / mean-row vs
+normal), p(Z) readout + d5 Δstate alignment vs relay. 29 s CPU.
+Predictions registered in-script before compute.
+
+WHAT WE SAW (T038 update): MIXED/NEITHER at the registered bars —
+swap 0.462, zero 0.272, mean-row 0.434 (from 0.715): the row is
+PARTIALLY load-bearing in place. Δstates anti-align with relay_d5
+(−0.21…−0.26): breaking the address REDUCES relay content (pro-circuit
+flavor, moderate). Per-donor spread 0.68→0.23 under swap — contexts
+differ in how self-sufficient their content is (conjunction view).
+
+WHAT'S NEXT: e067 address census — full single-row perturbation sweep
+maps this partial-weight structure; e066/e066b justify it (the address
+is distributed but wpe-row-concentrated).
+
+---
+
 ## E066 — close the loop: relay direction vs wpe address row = TWO OBJECTS (2026-09-26) — DONE
 
 WHAT WE DID: P1-COORDINATE ramp step 1 (ideator-registered, T037-refined).

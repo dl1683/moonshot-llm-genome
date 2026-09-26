@@ -59,6 +59,21 @@ above, still open — natural P1 micro-step before/alongside e067).
 INPUT-side representation (wpe rows + early stream), where the coordinate
 code demonstrably lives; mid-stack states are post-address objects.
 
+**e066b OUTCOME (in-place row-129 interventions, predictions registered
+in-script): MIXED/NEITHER at the bars — and that is the informative
+result.** Swap-row129←130: p(Z) 0.462; zero: 0.272; mean-row: 0.434
+(from 0.715). The row is PARTIALLY load-bearing: real causal weight at
+the decision position (zeroing costs 0.44 nats of probability mass) but
+not the whole address. The d5 Δstates ANTI-align with relay_d5 (−0.21 to
+−0.26, short of |0.30|): perturbing the position row reduces relay-
+direction content — evidence the circuit feeds row→relay, at moderate
+strength. Per-donor spread under swap (0.68 vs 0.23) says contexts vary
+in content self-sufficiency — the conjunction (position × content) view,
+again graded. T037-#5 echo: the module-ontology dies one more time; the
+address is a distributed conjunction with wpe-row concentration.
+**H1 stands as leading-but-softened: circuit-address with graded row
+weight. H2 (pure rotation) dead in its strong form.**
+
 ## T037 — SYNTHESIS: coordinate-keyed memory, canalization, and the read policy (2026-09-26T09:20Z)
 
 **The deep-insight pass (scratch/deep_insights_20260926.md) named what the
