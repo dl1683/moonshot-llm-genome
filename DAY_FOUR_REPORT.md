@@ -95,6 +95,19 @@ day's three headline findings — each one a simplification.
   (ascent mask indexing, dCE baseline, kill-pair early-stop) before
   any data was collected.
 
+## The handoff to day 5 (the idea pipeline working end-to-end)
+
+The user opened two standing idea sources — `Projects/Market
+Reports/Open Exploration` and `Projects/_meta` — and the EXPLORER
+angle now mines them every session. Day-4's close fed both sources
+into the queue as registered experiments e081-e085: the RIF probe
+(does reading write?), the cross-seed row-129 transplant ("a one-row
+organ"), canalization cycle 3 (T037's registered prediction),
+the READ-KERNEL census (the first direct read-policy measurement),
+and the anchor-description probe. Key synergy: _meta's
+"state-over-output" principle is this lab's free-run-honesty finding
+— the lab supplies its seventh instantiation plus the mechanism.
+
 ## Open (registered discriminators in flight)
 
 - e074: shuffled-prompt junk control (age-vs-source confound on T045).
