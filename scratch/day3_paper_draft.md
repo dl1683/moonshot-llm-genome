@@ -337,6 +337,16 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   argmax; left-padding with content fixed collapses identically → **wpe-130
   positional binding, not content binding** (resolves T019's open
   content-vs-position edge).
+- **Day-4 refinement (n=1, single install, flagged):** a full 256-row
+  wpe census + rebinding surgery localizes the address to a SINGLE
+  portable row — wpe-129, the decision-position code: copying it alone
+  to a shifted window's decision position restores ~70% of expression
+  (0.40 vs 0.56 unshifted; pair-with-row-0 adds nothing); its in-place
+  perturbation is surgically name-targeted (KL 0.2–0.5) while the
+  heavier-perturbing row 0 (window start) is generic scaffolding (KL
+  2.6–7.2, distribution-wide; the name dies as collateral). The
+  address is necessary (knife-edge), sufficient (~70% rebind), and
+  single-row.
 - **Closest prior and the perimeter (post-scan wording, per
   scratch/positional_binding_lit.md):** binding IDs (Feng & Steinhardt),
   position-index vectors (Smolensky et al.), and Ordering-ID subspaces
