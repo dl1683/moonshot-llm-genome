@@ -146,6 +146,21 @@ the counterfactual donor's actual next token wins outright.
 - **H-donor-voice:** the 48 donor-continuation hits — do they
   cluster on decisions where the run and donor diverge
   stylistically (the anchor's complement)? Rides the next P3 run.
+**AGENT TEXTURE (all gates pass; two dispatcher-sanctioned tractability
+cuts documented):** (a) HONEST NUANCE — Spearman = −0.13 overall:
+the shadow nails the young spike (r = 0.96 on ages 1-10) but does
+NOT rank-order the rule's residual 0.3-1% old-entry opening — a
+TAIL-LEVEL shadow misreport, below the registered dissociation bar
+but real: shadow-based claims about the plateau's fine structure
+carry this flag. (b) SPARSE-OPEN: per-decision opened-coordinate
+medians are 3-4 of 80 — the rule opens a handful of coordinates per
+decision, not a dense average. (c) CONTENT-FOLLOWING: V-swap flips
+land on the donor run's actual next token 8.8% vs 2.0% chance — a
+real but partial content read at the decision level. Winners are
+ordinary high-frequency letters (no exotic attractor token). Root
+cause found en route: 12 torch threads spin-thrash this contended
+box — 8 threads is the sweet spot (documented for future rigs).
+
 **Bearing on the RIF conflict (T049):** the kernel's young-heavy
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
