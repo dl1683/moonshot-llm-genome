@@ -7,6 +7,55 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T037 — SYNTHESIS: coordinate-keyed memory, canalization, and the read policy (2026-09-26T09:20Z)
+
+**The deep-insight pass (scratch/deep_insights_20260926.md) named what the
+lab kept circling.** Five constructs, each unifying 3+ independent results:
+
+1. **COORDINATE-KEYED MEMORY (the unnamed finding, found 5×):** wpe-130
+   positional binding (T032), init-anchoring ladder 1.0/0.53/0.15/0.00
+   (e028/e041), entity-row surgery (T011), cache recency spike with dead
+   sink (T031), scar groove (T018/T036) — one phenomenon in five
+   coordinate systems (parameter-basis, sequence-position, vocab-row,
+   recency, row-direction). LAW REFINEMENT: content-addressability is
+   PURCHASED by exposure (COPY bought L4-H1; refrain ≥5% flipped
+   interference→retrieval, T021); coordinate-addressability is the default.
+   Nothing symbolic ever crossed a seed boundary — only statistics did.
+2. **CANALIZATION** (Waddington, never before used here): basis written
+   once at init and invisible to selection AND directed mutation
+   (T024/T027); live window shrinking as training concentrates utility;
+   expression needing free-run-shaped exposure at any dose (T019); the net
+   DECLINING purchasable late authority under renorm (T003). Channel
+   deepens as it narrows. REGISTERED PREDICTION (falsifiable): a third
+   erase/re-learn cycle is SLOWER and more surgical-proof than the second
+   — monotone closure, never oscillation.
+3. **WRITE-ONCE CORE, LIGHT SURFACE:** every working non-gradient write
+   was subtraction or matched-coordinate replacement; none ever ADDED
+   function. Free-run dynamics is the only witness that never lied
+   (dynamic viability = state-level free-run honesty check).
+4. **THE SOVEREIGN MIDDLE:** all cross-net variability co-locates
+   mid-stack (gate interior in every net but sliding, T014/T020; address
+   death across blocks 1→2; geometry-sensitivity peak mid-stack r=0.916,
+   T029; ΔW anti-aligned exactly at L3/L4). The ends carry the task; the
+   middle is where each run exercises sovereignty. Late-attention SLOT
+   conserved even when the filling head is a lottery.
+5. **THE READ POLICY (the unified question):** every killed hypothesis
+   was categorical; every survivor graded. No modules, no conductor, one
+   write interface (the training distribution). The one component never
+   directly edited: the per-position rule deciding which stored coordinate
+   is opened and which candidate wins argmax. The four edit-law faculties
+   are its shadow (address=what it reads, ability=its training cost,
+   expression=its verdict, history=its canal).
+
+**Standing discriminators surfaced from file tensions (zero-GPU, queued):**
+(a) 10M far-value-rises-while-negative-utility-worsens conflict; (b) e053
+grows-vs-shrinks conflict — both predicted to dissolve under a
+"training concentrates utility" reframe (check max/mean dCE vs steps).
+
+**Registered bearing on e066 (running next):** construct 1 predicts the
+e056b relay direction at d5 carries a wpe-130 row component — raises
+confidence in the pre-registered |cos| ≥ 0.4 loop-close outcome.
+
 ## T036 — E044b: the scar REPLICATES at seed 43 (2026-09-26T01:00Z)
 
 **All three registered conditions pass on B43:** re-learned J-rows regrow
