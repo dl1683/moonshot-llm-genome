@@ -461,10 +461,11 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   new junk there (0.024) while the generated band stays junky; within
   it, late-generation entries junk 5.5x more than early (0.169 vs
   0.031) — drift accumulates over the run. Net-dependence (e079,
-  B=16 resample): the split holds in propagated CIs on the 2.7M and
-  10M cells (the 10M is the anchor: 0.367 vs 0.000); the ctx-512
-  cell's weaker contrast is B-4-grade and does not survive resampling
-  (CI straddles zero) — claim the split where the effect is large.
+  B=16 resample): the 10M cell is the robust anchor (0.372 vs 0.000,
+  diff CI excludes 0 even under worst-case bounds); 2.7M fires under
+  the registered mapping; the ctx-512 cell's weaker contrast does not
+  survive a mixed-difficulty B=16 battery (hard sequences flood both
+  bands) — claim the split where the effect is large.
 - Onset resolved (e053c + e069): the a\* statistic is ABSOLUTE, not
   proportional — doubling the window 256→512 (tokens-per-step matched)
   leaves a\* = 6 CI [4,8] (onset fraction halves); reindexed by training
