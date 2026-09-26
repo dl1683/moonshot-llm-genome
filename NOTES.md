@@ -61,6 +61,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E081 — RIF probe: NULL — reads are pure (dose net; instrument caveat) (2026-09-26) — DONE
+
+WHAT WE DID: proposal P-A (explorer harvest) — prompt-only elicitation
+of one installed name, then the neighbor name's expression at its own
+geometry; 4 arms + scramble control; dose net primary.
+
+WHAT WE SAW (T049): no RIF — cross-name suppression did not fire the
+registered bars. The placebo gate itself failed (sham moved 0.044 /
+0.021 vs the <0.01 flat requirement) — the instrument is noisier
+than designed, so the null is directional. Report-only texture: the
+scramble control's EL→FL direction shows +0.094 [0.011, 0.178]
+(unexplained, flag for the replication cell). Answer to P-A as
+measured: reading does not write at this resolution.
+
+WHAT'S NEXT: T049 registers the purity-vs-coarse-instrument split;
+the e048_repro cell is the natural replication (unrun — this was the
+dose-net pass). Positive bearing on e084: the read census is
+non-reactive — measuring the rule won't contaminate it.
+
+---
+
 ## E076 — cosine mechanism + critic fixes: alignment survives; instrument out-of-sample-robust; NOT cosine-specific (2026-09-26) — DONE
 
 WHAT WE DID: three-part reanalysis on the 204 cached pairs, every

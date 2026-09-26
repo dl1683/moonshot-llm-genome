@@ -119,6 +119,32 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T049 — E081: the RIF null — reads are pure (at this resolution) (2026-09-26 ~14:05Z)
+
+**Verdict: NULL.** Prompt-only elicitation of one installed fact does
+not suppress its coordinate neighbor's expression — the registered
+RIF bars did not fire on the dose net. P-A's answer as measured:
+READING DOES NOT WRITE at this instrument's resolution.
+
+**Two explanations for the null, discriminated by one cheap cell:**
+- **H-pure (takes the verdict):** the read policy is genuinely
+  non-reactive — eliciting an address opens it without leaving a
+  trace on neighboring addresses. Consistent with T038's picture of
+  a circuit that reads codes without modifying them.
+- **H-coarse (instrument):** the placebo gate FAILED (sham moved
+  0.044/0.021 vs the <0.01 design) — a noisy instrument cannot
+  certify purity; RIF effects below ~0.04 would be invisible.
+**Registered discriminator (e081b, minutes, eval-only):** the
+e048_repro cell (unrun — this was dose-only) with a tight sham
+(3x windows, per-window paired deltas). H-pure predicts the null
+replicates with a flat sham; H-coarse predicts the sham moves again
+(instrument artifact dominates). The unexplained scramble texture
+(EL-to-FL +0.094 [0.011,0.178], report-only) gets one look there too.
+**Positive bearing on e084 (running):** if reads are pure, the
+read-kernel census is NON-REACTIVE — measuring the rule does not
+contaminate it. The read-policy program's foundation is cleaner
+either way.
+
 ## T048 — E075: static junk is dynamically load-bearing — the free-run-honesty principle gets causal teeth (2026-09-26 ~12:20Z)
 
 **Registered KILL fires: source-aware pruning FAILS.** V-zeroing the

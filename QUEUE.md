@@ -116,7 +116,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | P-B | coherence-gap dose ladder | READY (e080 rig, eval-only) | mid-generation corruption at eps 0.05..1.0 — NON-monotone per-nat damage (small doses drift permanently, large re-enter a coherent basin): canalization made causal; first structural description of the trajectory anchor |
 | P-E | consolidation cycle law | READY (3 erase/re-learn cycles, <=180s/arm) | discharges T037's registered third-cycle prediction (monotone closure) vs interleaved-replay consolidation — canalization stands or takes its second haircut |
 | — | synergy: state-over-output | noted | _meta's principle (6 instantiations) = our free-run honesty; lab supplies the 7th + mechanism; e062 crossmatch is the cash-out of _meta's Forecast/Diagnostic pivot |
-| e081 | RIF probe (P-A) | RUNNING (agent dispatched 13:22Z) | does reading write? cross-name suppression >= 0.05 sham-flat |
+| e081 | RIF probe (P-A) | DONE (T049: NULL — reads are pure at this resolution; placebo gate noisy 0.044; repro cell unrun) |
+| e081b | RIF replication cell | READY (eval-only, minutes) | e048_repro + tight sham — H-pure vs H-coarse instrument split; + the EL-to-FL scramble texture |
 | e082 | cross-seed row-129 transplant (ideator #1) | READY (needs one 100-step install on B43; then eval-only) | "a one-row organ" — seed-42 address row into seed-43 install; A2 p(Z)>=0.30 = portable organ; + crossmatch-cosine overlay + T043 Z-rank rider |
 | e083 | canalization cycle 3 (ideator #2) | READY (~100 steps total) | T037's registered monotone-closure prediction; ratio >=1 AND cos >=0.6 or canalization falsified |
 | e084 | READ-KERNEL census (ideator #3) | READY (eval-only CPU) | argmax-flip census 200 decision points x {V-zero,K-drop,V-counterfactual} x mag — the first direct read-policy measurement; flip-rate/dCE-load r >= 0.8 |
