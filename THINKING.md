@@ -93,6 +93,43 @@ utility SIGN with content (baseline −0.066 → shuffled +0.027) — the
 start anchor's sign is content-dependent, a separate micro-physics
 from the band result.
 
+## T046 — E062: the crossmatch exists — pre-graft stream-cosine at graft-input depths (2026-09-26 ~11:50Z)
+
+**Verdict: P2 WINS the cheap crossmatch, decisively.** Partial
+r(D|A) = −0.976 (host-cluster CI [−0.984, −0.963]) over 204 pairs /
+18 hosts; the decision rule "graft only if cos_graftinput ≥ 0.4459"
+runs at AUC 0.919 (Youden J 0.657). The R34-mandated first candidate
+(W_out rowmean) carried a real signal (partial r −0.204) but is
+chance-grade as a decision rule (AUC 0.533) — T040's interface family
+matters but does not screen. Scale-B secondary: the cosine predictor
+transfers at partial r −0.997 (2.7M, n=6 directional, no bars
+claimed). A itself predicts nothing across pairs (r 0.080) — the
+T041 story holds: organ-reliance doesn't vary, so it can't screen;
+GEOMETRY does.
+
+**Why does stream-cosine at the graft-input depths predict damage so
+well — two explanations:**
+- **H-basis-alignment:** the cosine measures the donor's write
+  direction relative to the host stream's init-anchored basis
+  (e029/e040's ladder). Damage = misalignment of interface geometry.
+  The e040 FROZEN finding becomes practical: selection couldn't move
+  the basis, but we can MEASURE it cheaply and pre-screen.
+- **H-magnitude-proxy:** cosine proxies write-mass mismatch (bigger
+  writes both hurt more and align worse).
+**Registered discriminator (e076, reanalysis, minutes):** partial the
+cosine on donor write-norms + host stream-norms — H-alignment
+predicts r survives (|r| ≥ 0.8); H-magnitude predicts it collapses.
+**Registered prediction for P2 phase-2:** trained-tolerance arms
+(e068-analogue fine-tunes) RAISE the crossmatch cosine toward the
+0.4459 threshold — tolerance training is visible to the instrument.
+If tolerance raises D-compatibility without raising cosine, the
+instrument and the mechanism diverge (would itself be a finding).
+
+**Bearing:** P2 IMMUNOLOGY now has (a) a screening instrument, (b) a
+threshold, (c) a transfer hint across scale. The crossmatch grid
+(6×6 hosts × donors with the rule overlaid) is the v014 visualization
+and the next registration.
+
 ## T045 — E073: cache junk is SELF-GENERATED — entry-level exposure bias, 4/4 (2026-09-26 ~11:00Z)
 
 **Registered verdict: H-SLEEPER fires 4/4.** Negative-utility cache

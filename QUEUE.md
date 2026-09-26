@@ -83,7 +83,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e072 | value-side vs threshold | DONE (T044 close-out: BOTH fire — per-norm value efficiency +11% load/unit with magnitudes down; a* B-fragility: 18→7 at B=16) |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
 | e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
-| e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |
+| e062 | subspace-cosine predictor | DONE (T046: P2 WINS — partial r(D|A) −0.976, rule cos≥0.4459 AUC 0.919; W_out rowmean chance-grade; scale-B transfers −0.997) |
 | e061 | calibration rescue | scalar/gain nudges at e055's suppression depth vs full transplant |
 
 ## Day-4 programs (ideator harvest 2026-09-26; memo: scratch/post_paper_programs.md)
@@ -100,6 +100,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
 | e074 | shuffled-prompt junk control | DONE (T045 close-out: H-SOURCE strict — no new junk from shuffled prompts 0.024; late-gen 0.169 vs early 0.031 = 5.5x drift gradient) |
+| e076 | cosine mechanism discriminator (T046) | READY (reanalysis, minutes) | partial cosine on write/stream norms — alignment survives vs magnitude collapses |
 | e075 | source-aware pruning (P3 step 1) | READY (design: scratch/e075_design.md; CPU) | A-self-prune vs A-prompt-prune placebo vs none — frozen bars in memo |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 

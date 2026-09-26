@@ -61,6 +61,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E062 — crossmatch predictor: P2 stream-cosine WINS (partial r −0.976; AUC 0.919) (2026-09-26) — DONE
+
+WHAT WE DID: 204 graft pairs (18 hosts, e040/e058/e059 machinery
+reproduced bitwise), predictors tested in the R34-mandated order:
+W_out rowmean first, pre-graft stream-cosine at graft-input depths
+second; partial r given organ-load A; host-cluster CIs; ROC.
+
+WHAT WE SAW (T046): P1 (W_out rowmean) FAILS as a decision rule —
+partial r −0.204 (real signal) but AUC 0.533 (chance). P2
+(stream-cosine) WINS decisively: partial r(D|A) = −0.976, host-cluster
+CI [−0.984, −0.963]; decision rule "graft only if cos ≥ 0.4459" at
+AUC 0.919, Youden J 0.657. Scale-B secondary: transfers at partial
+r −0.997 (2.7M, n=6 directional, no bars). A itself predicts nothing
+across pairs (r 0.080 — consistent with T041's variance-free A).
+
+WHAT'S NEXT: T046 registers the mechanism question (basis-alignment
+vs magnitude-proxy) + the tolerance-transfer prediction. P2
+IMMUNOLOGY has its screening instrument; crossmatch table (v014)
+buildable.
+
+---
+
 ## E074 — shuffled-prompt junk control: H-SOURCE fires — the poison is self-generation (2026-09-26) — DONE
 
 WHAT WE DID: replaced prompt entries with shuffled chars (93% slots
