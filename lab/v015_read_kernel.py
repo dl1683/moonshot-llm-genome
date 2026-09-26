@@ -135,22 +135,24 @@ ax.tick_params(axis="y", colors=C_KERN)
 axs.tick_params(axis="y", colors=C_SHADOW)
 ax.grid(alpha=0.22, which="both")
 
-# annotations: verdict (top), young band + peak (left), tail flag (mid),
-# kill bar (bottom) — positioned to clear the curves, legend and inset
-ax.text(1.02, 1.13, f"KERNEL = SHADOW:  r = {R_PRIM:.3f} "
-        f"[{R_CI[0]:.3f}, {R_CI[1]:.3f}]  (Pearson, n = 64 age points)",
-        fontsize=9.5, color="black", fontweight="bold", va="top")
-ax.text(9.4, 0.70, f"young band 1-10:\nr = {R_YOUNG:.3f}\n"
+# annotations: young band + peak (upper left, clear of the spike markers),
+# tail flag (mid-left, below the legend, clear of the inset), kill bar
+ax.text(9.4, 1.10, f"young band 1-10:\nr = {R_YOUNG:.3f}\n"
         f"peak @ age 2:\n82% flip | 4.47 nats", fontsize=7.5,
         color=C_SHADOW, ha="right", va="top", fontweight="bold")
 ax.text(380, 1.45e-3, f"kill bar {KILL:.1%}", fontsize=7, color="k",
         ha="right", va="bottom")
-ax.text(11.5, 0.36, "TAIL — shadow misreport zone (age > 10):\n"
-        "shadow dCE ~ 0 (±0.07 nats) while the rule\n"
-        f"still opens {BANDS['mid_11_60']['pooled']:.1%} (mid) / "
-        f"{BANDS['old_61_511']['pooled']:.1%} (old) of cells\n"
-        f"Spearman(rank) = {RHO:.2f} — rank agreement fails",
-        fontsize=6.8, color="#7a5b1e", va="top")
+# tail flag: parked in the empty low band of the shaded region (below the
+# mid-curve markers, above the kill bar) so it annotates the tail at tail
+# height without covering any data
+ax.text(10.8, 0.0055, "TAIL — shadow misreport zone (age > 10):\n"
+        "shadow dCE ~ 0 (±0.07 nats) while the\n"
+        f"rule still opens {BANDS['mid_11_60']['pooled']:.1%} (mid) / "
+        f"{BANDS['old_61_511']['pooled']:.1%} (old)\n"
+        f"Spearman(rank) = {RHO:.2f} — rank order fails",
+        fontsize=6.8, color="#7a5b1e", va="top",
+        bbox=dict(facecolor="white", edgecolor="#d9c08a", alpha=0.88,
+                  pad=2.8))
 
 # inset: the 64 correlation points themselves — tight line (young) + flat
 # cloud at dCE~0 (tail): the r = 0.918 structure in one glance
@@ -169,17 +171,29 @@ axi.legend(fontsize=5.6, loc="upper left", framealpha=0.92,
            handletextpad=0.3, borderpad=0.4)
 axi.grid(alpha=0.25)
 
-# main-panel legend (composed: kernel + shadow live on twin axes)
+# main-panel legend (composed: kernel + shadow live on twin axes) — compact
+# labels, upper-middle, clear of the spike (left), the inset (right) and the
+# tail text (below)
 h1, l1 = ax.get_legend_handles_labels()
 h2, l2 = axs.get_legend_handles_labels()
-ax.legend(h1 + h2, l1 + l2, fontsize=6.9, loc="upper left",
-          bbox_to_anchor=(0.365, 0.99), framealpha=0.94)
+LEG_LBL = {"V-zero flip rate — THE KERNEL (the rule)": "V-zero flip rate (the rule)",
+           "V-zero flip rate, 95% bootstrap CI": "95% bootstrap CI",
+           "pooled (3 types)": "pooled across types",
+           "old ages, pooled bins (at bin mids)": "old bins at mids (pooled)",
+           "stored dCE-load(age) — THE SHADOW (e053c, nats)":
+               "stored dCE = the shadow (nats)"}
+h = h1 + h2
+l = [LEG_LBL.get(x, x) for x in l1 + l2]
+ax.legend(h, l, fontsize=6.6, loc="upper left",
+          bbox_to_anchor=(0.385, 0.995), framealpha=0.94,
+          handlelength=1.6, borderpad=0.5, labelspacing=0.32)
 ax.set_title("(a) THE READ KERNEL vs ITS SHADOW — flip-rate(age) over stored "
              "dCE-load(age)\n"
-             f"the argmax rule opens what the CE curves measure  "
-             f"(bands: young {BANDS['young_1_10']['pooled']:.0%} / mid "
-             f"{BANDS['mid_11_60']['pooled']:.1%} / old "
-             f"{BANDS['old_61_511']['pooled']:.1%} pooled)", fontsize=10,
+             f"KERNEL = SHADOW: r = {R_PRIM:.3f} [{R_CI[0]:.3f}, "
+             f"{R_CI[1]:.3f}] (Pearson, n = 64) >= 0.8 registered bar\n"
+             f"bands (pooled): young 1-10 {BANDS['young_1_10']['pooled']:.0%}"
+             f" / mid {BANDS['mid_11_60']['pooled']:.1%} / old "
+             f"{BANDS['old_61_511']['pooled']:.1%}", fontsize=9.8,
              loc="left")
 
 # ====================================================== (b) SPARSE-OPEN

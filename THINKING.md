@@ -122,7 +122,7 @@ instrument-novelty (registered with e076).
 ## T050 — E084: the read kernel equals its shadow — the first direct read-policy measurement (2026-09-26 ~14:35Z)
 
 **Verdict: KERNEL = SHADOW.** r(flip-rate(age), dCE-load(age)) =
-0.918 [0.867, 0.940] over 48,000 intervention cells — the argmax
+0.918 [0.867, 0.940] over 24,000 intervention cells (200→100 decision-point cut documented) — the argmax
 rule opens what the CE curves measure. The registered dissociation
 branch did NOT fire: everything the lab's shadow instruments
 (per-position lesion dCE) claimed about cache utility is a faithful
