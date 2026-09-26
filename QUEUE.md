@@ -129,6 +129,17 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e090 | dose-vs-schedule decomposition | PARKED | K=1 continuous removal ~8x K=32 lumps — mass vs removal-schedule |
 | e091 | reverse-transplant discriminator | DONE (T052 close: H-READOUT-GATE — refuses good states; d5 carriage survives 0.362; onset geometry dead) |
 
+## Next wave (ideator 2026-09-26 ~16:30Z; memo: scratch/next_wave_programs.md)
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e092 | READOUT-GATE CENSUS | READY (eval-only CPU) | component-swap on the RMU net — necessity (restore-into-RMU) + sufficiency (poison-into-intact); one component localizes vs distributed |
+| e095 | T050 texture probes | READY (analysis on saved cells) | H-tail escape identities + H-donor-voice clustering — discharges both registered flags |
+| e083 | canalization cycle 3 | READY (~100 steps) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
+| e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
+| e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |
+| e096 | coherence-gap dose ladder | READY (CPU, e080 rig) | eps 0.05-1.0 mid-run corruption — U-shape predicted by the threshold law; monotone kills |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
