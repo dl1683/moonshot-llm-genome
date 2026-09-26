@@ -346,7 +346,12 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   heavier-perturbing row 0 (window start) is generic scaffolding (KL
   2.6–7.2, distribution-wide; the name dies as collateral). The
   address is necessary (knife-edge), sufficient (~70% rebind), and
-  single-row.
+  single-row. **Post-scan perimeter (scratch/day4_claims_lit.md):** no
+  per-row positional-embedding causal edit found 2023-2026 (nearest is
+  TAPE's content-vs-position framing, build-only); scoped to learned
+  absolute PEs; distinguished from ROME-family MLP edits, prompt tuning
+  (runtime vectors, no necessity/sufficiency bars), and attention-sink
+  cache tricks.
 - **Closest prior and the perimeter (post-scan wording, per
   scratch/positional_binding_lit.md):** binding IDs (Feng & Steinhardt),
   position-index vectors (Smolensky et al.), and Ordering-ID subspaces
@@ -439,7 +444,16 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
 - Sink dead at generation in 5/5 cells (sink-lesion dCE 0.0069; decays,
   sometimes sign-flips).
 - Negative-utility entries: 13–20% of positions (32% of old positions at
-  10M) — lesion IMPROVES the model.
+  10M) — lesion IMPROVES the model. **Day-4 source split (e073, 4/4
+  nets, flagged n=1-family): the lesion-helpful entries concentrate in
+  the model's OWN generated tokens (up to 36.7% beyond-onset at 10M,
+  negative mean dCE) while corpus-prompt entries almost never hurt.**
+  Positioning (post-scan): the behavioral phenomenon is established —
+  hallucination snowballing (Zhang & Press, ICML 2024) and
+  imitation-learning error accumulation (Arora et al., AAAI 2022) —
+  but neither localizes where the poison sits; the entry-level lesion
+  account and the prune-by-source implication are the new part: an
+  ENTRY-LEVEL account of exposure bias.
 - Onset resolved (e053c + e069): the a\* statistic is ABSOLUTE, not
   proportional — doubling the window 256→512 (tokens-per-step matched)
   leaves a\* = 6 CI [4,8] (onset fraction halves); reindexed by training
@@ -756,3 +770,15 @@ pull at camera-ready.
 35. Wu, Geiger, Millière. "The Residual Stream as a Memory: Analyzing
     and Manipulating In-Context Symbolic Programs." arXiv:2505.20896
     (2025).
+36. He, Dai, et al. "TAPE: Learning Position-Ready Token Embeddings."
+    ICML 2025. arXiv:2501.00712. [content-vs-position addressing
+    framing; no row-level causality]
+37. Zhang, Press. "How Language Model Hallucinations Can Snowball."
+    ICML 2024. arXiv:2305.13534. [behavioral prior for Claim 2]
+38. Arora, Del Corro, et al. "Learning to Crowdsource Fallacies /
+    imitation-learning error accumulation." AAAI 2022.
+    arXiv:2110.05978. [behavioral prior for Claim 2]
+- [ ] VERIFY-OR-DROP: "Frozen Transformers are Even More Universal
+      Computers" (researcher could not verify on arXiv — possible
+      search-hallucination; check manually before citing; do not cite
+      unverified).
