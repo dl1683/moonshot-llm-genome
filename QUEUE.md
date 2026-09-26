@@ -127,6 +127,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e088 | pair-level anchor probe | DONE (T051: SUB-ADDITIVE 0.464 — interactions killed; anchor is MASS-ACTION) |
 | e089 | mass-response curve | DONE (T051 FINAL: MASS-ACTION confirmed — both threshold clauses fire; variance collapse; threshold dose-response law) |
 | e090 | dose-vs-schedule decomposition | PARKED | K=1 continuous removal ~8x K=32 lumps — mass vs removal-schedule |
+| e091 | reverse-transplant discriminator (T052) | READY (CPU, minutes) | no-removal donor state into RMU net — H-redirect vs H-readout-gate for the rescue-channel closure |
 
 ## Parking lot (raw ideas, unranked)
 
