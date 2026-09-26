@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E081b — RIF replication: REVERSED — RIF IS PRESENT, asymmetric, n=2 (2026-09-26) — DONE
+
+WHAT WE DID: the T049 discriminator on e048_repro with a tight sham
+(B=96 paired half-splits + 200 random-split robustness); gates clean
+(Z-drift 5.3e-08).
+
+WHAT WE SAW (T049 amendment): the e081 NULL DOES NOT REPLICATE —
+cross EL→FL FIRES on repro (+0.083, t-CI [+0.035,+0.132], boot CI
+excludes 0, 79% of 29 windows suppressed, placebo gate passes at
+tight resolution); dose was +0.076 marginal in the SAME direction.
+The reverse (FL→EL) is FACILITATORY in both nets (repro −0.026;
+dose −0.043 significant). The ASYMMETRY (majority-name read
+suppresses minority neighbor; minority read facilitates majority) is
+present at n=2. Scramble texture dead on repro (+0.003 — dose's
++0.094 was sampling noise). Sham floor: EL 0.013 / FL 0.028-0.043 —
+not flat, not cleanly >0.04.
+
+WHAT'S NEXT: T049 closes INTERMEDIATE→finding: reads write
+asymmetrically. e086 registered: frequency-flip install (41 FL / 19
+EL) — predicts the asymmetry follows the frequency ratio.
+
+---
+
 ## E081 — RIF probe: NULL — reads are pure (dose net; instrument caveat) (2026-09-26) — DONE
 
 WHAT WE DID: proposal P-A (explorer harvest) — prompt-only elicitation

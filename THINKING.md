@@ -140,6 +140,26 @@ e048_repro cell (unrun — this was dose-only) with a tight sham
 replicates with a flat sham; H-coarse predicts the sham moves again
 (instrument artifact dominates). The unexplained scramble texture
 (EL-to-FL +0.094 [0.011,0.178], report-only) gets one look there too.
+**AMENDMENT (e081b, ~14:25Z): THE NULL DOES NOT REPLICATE — RIF IS
+PRESENT, asymmetric, n=2.** On e048_repro the EL→FL direction fires
+cleanly (+0.083, CIs exclude 0, 79% of windows, tight placebo passes);
+dose was +0.076 marginal in the same direction. The reverse (FL→EL) is
+FACILITATORY in both nets. So: reading the MAJORITY name (EL, 41
+windows) suppresses the MINORITY neighbor; reading the minority
+FACILITATES the majority. The scramble texture was noise (dead on
+repro). Sham floor 0.013-0.043 — the effect is 2-3x the floor with CIs
+excluding zero: not instrument noise, but purity is also not certifiable
+at fine resolution. **T049 closes INTERMEDIATE→FINDING: READS WRITE,
+ASYMMETRICALLY.** The read policy has dynamical side effects that
+depend on which address you open — the P-A question's answer is the
+interesting branch.** Registered discriminator (e086, GPU-gated behind
+e065/e082): frequency-flip install (41 FL / 19 EL windows) —
+H-frequency-competition predicts the asymmetry FLIPS with the ratio;
+H-row-specific predicts it stays EL→FL regardless. e084's non-reactivity
+assumption is now qualified: the census measures a rule whose use has
+asymmetric side effects of ~0.08 on neighbor addresses — noted in its
+interpretation when it lands.
+
 **Positive bearing on e084 (running):** if reads are pure, the
 read-kernel census is NON-REACTIVE — measuring the rule does not
 contaminate it. The read-policy program's foundation is cleaner
