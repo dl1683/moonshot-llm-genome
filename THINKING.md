@@ -79,11 +79,19 @@ generated band: late-generation junk 0.169 vs early 0.031 (5.5×) —
 drift ACCUMULATES over the run, exactly the exposure-bias signature.
 Minor flag: clean CE slightly fell under shuffled prompts (−0.037,
 driven by one sequence) — noted, does not touch the registered bars.
-**T045 final statement: the free-running model's cache poison is its
+**final statement: the free-running model's cache poison is its
 own accumulated generation drift — entry-level exposure bias,
 confound-free, 4/4 nets + control.** P3's pruning-by-source
 implication now stands on clean ground. Paper 5.5's day-4 bullet
 upgrades from "flagged n=1-family" to "control-confirmed (e074)".
+AGENT ADDENDA (gates all pass; e073 replica bit-exact 1.4e-17): the
+drift gradient holds in BOTH frames (shuffled early/late
+0.016/0.189 vs baseline 0.031/0.169); honest miss recorded at G6
+(clean CE registered "expected to rise", fell −0.037 on one seq —
+bars unaffected); bonus texture: sequence-start position 0 flips
+utility SIGN with content (baseline −0.066 → shuffled +0.027) — the
+start anchor's sign is content-dependent, a separate micro-physics
+from the band result.
 
 ## T045 — E073: cache junk is SELF-GENERATED — entry-level exposure bias, 4/4 (2026-09-26 ~11:00Z)
 
