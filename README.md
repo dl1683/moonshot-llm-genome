@@ -30,9 +30,9 @@ A 1–10M-param transformer trains in minutes on one RTX 5090 Laptop. Iteration
 is effectively free, experiments are disposable, and a dissection program lives
 or dies on iteration count. Anything over 100M params is out of scope.
 
-## What we have learned (day one + two; see DAY_ONE_REPORT.md and THINKING.md)
+## What we have learned (days 1–4; see the DAY reports and THINKING.md)
 
-The lab's first 48 hours produced seven graded laws about a 2.7M char
+The lab's first days produced seven graded laws about a 2.7M char
 transformer — each with its evidence chain, replication stamps, and known
 confounds (card v3, THINKING.md T010-T023):
 
@@ -69,7 +69,39 @@ samples. Small nets are degenerate ensembles — WHICH component carries a
 function is a seed lottery; THAT the coarse allocation exists is forced.
 Method: mechanism claims enter the card at H only after ≥3 nets.
 
-In progress: e040 (is init-anchoring evolvable under lineage selection?).
+**Day-4 laws (T037–T041, single-family unless stamped):**
+
+8. **Organ-reliance is a universal emergent template** — the per-organ
+   load allocation profile (input-block peak, trough, monotone rise) is
+   invariant across init, data order, and lineage selection
+   (profile-shape r = +1.000; T041/e063). Lineage selection had nothing
+   to select: the e040 "trickle" and e059's H-nothing share this root
+   cause. Only an energy constraint (e033) reshapes it, and even then
+   the shape survives.
+9. **Knowledge is coordinate-keyed by default; content-addressing is
+   purchased** — installed facts bind to positions/wpe rows (the wpe-130
+   knife-edge), init bases, and vocab rows; content-addressed retrieval
+   appears only where exposure paid for it (COPY task, refrain density
+   ≥5%). Nothing symbolic ever crossed a seed boundary (T037). Refinement
+   (T038/e066-e066b): the address is a graded conjunction — the wpe row
+   carries partial in-place causal weight (zero row-129: p(Z)
+   0.72→0.27) — and the deep relay state is a circuit-shaped third
+   thing, not the row and not the answer direction.
+10. **The recent-token cache spike is circuit, not statistics** —
+   shuffled-char contexts leave the ages-1-2 spike at 128% of normal
+   (e069/T039-amendment); the ~6-token spike horizon is window- and
+   statistics-invariant, while the a\* onset statistic's tail is
+   eval-window-sensitive and the onset grows with training exposure
+   (r(a\*, steps) = +0.82; exposure axis 3→21→86).
+
+**The unified question (T037):** no modules, no conductor, one write
+interface (the training distribution) — the component never directly
+edited is the *read policy*: the per-position rule deciding which stored
+coordinate is opened and which candidate wins argmax. The four edit-law
+faculties are its shadow.
+
+In progress: e065 (RMU-vs-surgery unlearning head-to-head), e067
+(address census), P1–P4 program arcs (scratch/post_paper_programs.md).
 
 ## History (tombstone commit `106aeff`, 2026-09-24)
 
