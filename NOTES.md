@@ -61,6 +61,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E075 — source-aware pruning: KILL fires — static junk is dynamically load-bearing (2026-09-26) — DONE
+
+WHAT WE DID: the T045 intervention test per frozen design — 4 arms
+(none / self-prune V-zero age>96 / prompt-placebo / both), B=8,
+permanent mid-run pruning every K=32 steps, all 7 gates pass
+(battery-A identity vs e069; arms token-identical through pos 164;
+prune counts exact).
+
+WHAT WE SAW (T048): A-self-prune costs +0.2619 nats (CI [+0.10,
++0.45]; 7/8 sequences worse) — 5× the kill bar; R2 fluency fails
+(entropy +29%); R3 violated: pruned arms LOSE the onset entirely
+(live_frac 1.000, everything above threshold). KEY TEXTURE: the
+clean-judge check shows pruned tails self-score as fine but cost 6.40
+nats under the clean net — pruning drives generation into a
+self-consistent off-manifold attractor. The junk census inverts after
+pruned generation: the once-harmless prompt band turns junk-heavy
+(0.375).
+
+WHAT'S NEXT: T048 registers the mechanism (dynamic-load vs
+content-anchoring; e080 prune-vs-replace discriminator). Paper 5.5
+carries the boundary: eval-time lesion utility ≠ generation-time
+prunability.
+
+---
+
 ## E062 — crossmatch predictor: P2 stream-cosine WINS (partial r −0.976; AUC 0.919) (2026-09-26) — DONE
 
 WHAT WE DID: 204 graft pairs (18 hosts, e040/e058/e059 machinery

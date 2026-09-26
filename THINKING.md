@@ -41,6 +41,8 @@ name-address conjunction — the anchor is net-family-general, its
 p(Z)-address consequence is install-window-specific (held-30 counts
 as install-type: generalization is by window family, not exact
 trained windows).
+**n=2 STAMP (e078, dose install):** the pattern REPLICATES — row129-alone exceeds pair-copy at both k (0.302 vs 0.294; 0.294 vs 0.285), row0-only ≈ no-copy, reverse-context null identical, old-bar MIXED verdict stable. Rebind strength is install-dependent: ~60% (dose) vs ~70% (repro); bases 0.50/0.30 vs 0.56/0.43. The single-portable-row claim is now n=2 installs (same family/seed; cross-seed remains open for P1 phase-2).
+
 **e068 ungated:** the rebinding design tests copying the anchor PAIR
 {0,129} to a new window position k — held-30 generalization predicts
 the pair is what matters, not the trained coordinates per se.
@@ -109,6 +111,41 @@ doesn't create diversity); the threshold is in-sample; and the
 winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
+
+## T048 — E075: static junk is dynamically load-bearing — the free-run-honesty principle gets causal teeth (2026-09-26 ~12:20Z)
+
+**Registered KILL fires: source-aware pruning FAILS.** V-zeroing the
+run's own age>96 entries mid-generation costs +0.262 nats (CI
+[+0.10,+0.45], 7/8 sequences worse), destroys fluency (entropy +29%),
+and — the R3 violation that explains everything — the pruned arms
+LOSE the utility onset entirely (live_frac 1.000: every age above
+threshold). The clean-judge check is the mechanism: pruned tails
+SELF-score as fine but cost 6.40 nats under the clean net — pruning
+drives generation into a self-consistent OFF-MANIFOLD ATTRACTOR, and
+the junk census inverts behind it (the once-harmless prompt band
+turns junk-heavy, 0.375).
+
+**The principle, now causal:** eval-time lesion utility (single
+teacher-forced read) does NOT predict generation-time prunability.
+Entries whose removal "helps" one read are load-bearing for
+free-running dynamics. This is T037-#3 ("the only witness that never
+lied is free-run dynamics") upgraded from observation to intervention:
+acting on static-utility logic actively poisons the run. Paper 5.5
+boundary sentence added.
+
+**Why is static junk dynamically load-bearing — two explanations:**
+- **H-statistics-scaffold:** the old entries' PRESENCE (norms,
+  attention-distribution mass) maintains generation-time statistics;
+  removing them shifts LN/attention context → distribution drift →
+  attractor. Predicts: NORM-MATCHED NOISE replacement costs far less
+  than V-zero (presence matters, content doesn't).
+- **H-content-anchoring:** the run's own older outputs are
+  self-anchors for style/state continuity. Predicts: PROMPT-CONTENT
+  replacement preserves fluency; noise fails like zeroing.
+**Registered discriminator (e080, CPU, same rig):** three replacement
+arms at the same prune events — V-zero (known: +0.26) / norm-matched
+noise / prompt-copy. Also carries the attractor census (clean-judge +
+junk inversion) as readouts.
 
 ## T047 — CRITIC AUDIT of day-4 claims A-D: one overclaim downgraded, three flagged with cheap fixes (2026-09-26 ~12:05Z)
 
