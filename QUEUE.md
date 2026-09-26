@@ -80,7 +80,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e063 | load homeostasis | DONE (T041: H-EMERGENT — universal template, r=+1.000 across init+order; no heritable A-variance) |
 | e063b | task-swap discriminator | DONE (T041 amendment: H-ii optimizer-attractor — copy-net shape r=+0.998; magnitudes task-weighted, shape corpus-invariant) |
 | e070 | attention-mass discriminator | DONE (T044: NO CLAUSE — young-age mass window-invariant 1.006; mid-far gains 1.44>renorm; native a*=13; cross-thread window-start prediction REFUTED) |
-| e072 | value-side vs threshold (T044) | READY (CPU, minutes) | V-norms at ages 4-17 across windows + B=16 bootstrap of a* — H-value-side vs H-threshold |
+| e072 | value-side vs threshold | DONE (T044 close-out: BOTH fire — per-norm value efficiency +11% load/unit with magnitudes down; a* B-fragility: 18→7 at B=16) |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
 | e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
 | e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |

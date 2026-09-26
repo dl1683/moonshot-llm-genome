@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E072 — value-vs-threshold: BOTH fire — per-norm value efficiency + a* B-fragility (2026-09-26) — DONE
+
+WHAT WE DID: V-vector norms + post-attention residual-write norms at
+ages 4-17 across windows (same tokens); B=16 bootstrap of a* on
+eval-256 (+ eval-512 secondary). Protocol replica bit-exact.
+
+WHAT WE SAW (T044 close-out): V-norm ratio 0.887 [0.876,0.910] —
+outside [0.9,1.1], H-value-side fires BY THE FROZEN ORDERING, but the
+sign is DOWN: magnitudes shrank ~11% while lesion dCE grew (residual
+write −23%) — load PER UNIT value-norm increased (specificity, not
+magnitude). H-threshold ALSO fires: B=16 a* = 7 [4,13] (was 18 [7,30]
+at B=4); the B=4 window contrast (6 vs 18) collapses to (6 vs 7);
+resamples land 20% at 6, 24% at 12-24. Confound flagged: fresh-12
+battery is harder (CE 1.499 vs 0.459); ages-6-17 haze at B=16 is dead
+(−0.0013).
+
+WHAT'S NEXT: T044 closes — surviving story: attention-invariant,
+magnitude-invariant load redistribution inside the value pathway
+(per-norm efficiency) + a standing B-fragility flag on the a*
+statistic. Paper 5.5 qualifier updated accordingly.
+
+---
+
 ## E073 — junk-split reanalysis: the sleeper hypothesis fires 4/4 — cache junk is self-generated (2026-09-26) — DONE
 
 WHAT WE DID: zero-GPU stratification of negative-utility cache entries

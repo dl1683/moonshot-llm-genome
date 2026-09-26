@@ -448,10 +448,13 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   (e069): window-invariant (ages 1–3 unchanged under eval truncation)
   and statistics-invariant (shuffled-char contexts: ages-1–2 retention
   128% — the circuit reads recent positions, not n-gram statistics).
-  Qualifier: a\* is eval-window-sensitive in its tail — truncating the
-  eval window to 256 inflates mid-recent liveness (a\* → 18) with clean
-  CE unchanged; claim the fixed ~6-token spike horizon, not "a\* is a
-  window-independent constant."
+  Qualifier (revised per e072): the a\* tail sensitivity is largely
+  B-fragility — at B=16 the eval-256 a\* is 7 [4,13] vs 6 [4,14] at
+  full window (the B=4 contrast of 18 was 2-sequence instrument
+  noise); a real but small value-pathway reorganization accompanies
+  truncation (V-norms −11% with lesion cost up: per-norm load rises).
+  Claim the fixed ~6-token spike horizon; treat the a\* tail statistic
+  as B-fragile.
 - Framing link: suppression of installed facts and dead cache entries are
   two readings of the same instrument — causal per-position intervention in
   the free-running stream.

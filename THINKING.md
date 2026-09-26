@@ -50,6 +50,24 @@ REGISTERED PREDICTION for e068: pair-copy to a shifted window
 single-row copies (0 alone or 129 alone) fail (p(Z) < 0.05) — the
 conjunction is the unit.
 
+**CLOSE-OUT (e072, ~11:05Z): BOTH registered clauses fire — a compound
+outcome the clause space didn't anticipate.** (1) H-value-side fires
+by the frozen ordering (V-norm ratio 0.887 [0.876,0.910], CI excludes
+1.0) but with a SIGN CORRECTION: value magnitudes and the ages-4-17
+residual write SHRANK (~11%/~23%) while lesion dCE grew — causal load
+PER UNIT value-norm increased. The change is alignment/specificity
+inside the value pathway, not magnitude. (2) H-threshold also fires:
+B=16 collapses eval-256 a\* from 18 [7,30] to 7 [4,13] — the window
+contrast (6 vs 18) becomes (6 vs 7); the elevation was 2-of-4-sequence
+fragility. CONFOUND (agent-flagged): the fresh-12 battery is harder
+(CE 1.499 vs 0.459), so B=16 mixes sequence-count with
+battery-difficulty; the ages-6-17 haze at B=16 is dead (−0.0013 nats).
+**T044 closes with the surviving story: an attention-invariant,
+magnitude-invariant load redistribution inside the value pathway
+(per-norm efficiency), plus a standing B-fragility flag on the a\*
+statistic — D1's "18" was mostly instrument; the shoulder's value-read
+death (K/V flip) stands as the real mechanism.**
+
 ## T045 — E073: cache junk is SELF-GENERATED — entry-level exposure bias, 4/4 (2026-09-26 ~11:00Z)
 
 **Registered verdict: H-SLEEPER fires 4/4.** Negative-utility cache
