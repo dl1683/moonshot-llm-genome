@@ -119,6 +119,42 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T051 — E085: the anchor is not an entry property — P3 pivots to sequence level (2026-09-26 ~15:25Z)
+
+**Verdict: BETWEEN kill and partial — no property describes the
+anchor on the dynamic witness.** Readership +0.089 (bar 0.35);
+every property |r| ≤ 0.10 on the dynamic arm alone (which would
+kill); the registered kill is blocked only by static-arm estimates
+(readership 0.341 all-150, PCA 0.281 anchors) with CIs straddling
+everything at B=8. The surprisal liar-control passes on the primary
+outcome — no false story told — with an honest short-horizon
+texture (surprisal tops the +8 window at +0.184, CI excluding 0:
+"hard tokens" matter briefly, then stop).
+
+**The riders are the substance:** (1) T048 replicated at entry
+granularity — r(static cost, dynamic cost) = −0.004, sign-agreement
+26%: static lesion utility has ZERO correlation with dynamic
+load-bearingness, per entry. The static-shadow and the dynamic
+anchor are different objects at this resolution. (2) Anchors'
+drift-alignment is lower than young entries' (0.342 vs 0.495) —
+anchor values are more run-specific (descriptive support: the
+anchor is made of the run's own drift). (3) The T037-a rider's
+position-level −0.62 is mechanically anti-coupled (mean vs
+below-threshold fraction near threshold); the unbiased per-entry
+reading is +0.035 — null-positive, consistent with the registered
+prediction (no conflict revival).
+
+**Interpretation (two views, discriminated next):** the anchor is
+either (a) SEQUENCE-level — a property of the run's trajectory as a
+whole (its attractor basin), not of any entry — or (b) entry-level
+but in a property family we did not measure (e.g., entry-PAIR
+interactions, temporal-delta patterns). **Registered discriminator
+(e088, CPU): pair-level probe — removal cost of entry PAIRS vs the
+sum of singles across the anchor band; super-additivity
+(pair > 1.5× sum) ⇒ interaction structure (view b); additivity
+⇒ sequence-level (view a) and P3 proceeds to basin-level
+descriptors (run-PCA distance to attractor, drift entropy).**
+
 ## T050 — E084: the read kernel equals its shadow — the first direct read-policy measurement (2026-09-26 ~14:35Z)
 
 **Verdict: KERNEL = SHADOW.** r(flip-rate(age), dCE-load(age)) =

@@ -61,6 +61,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E085 — anchor description: the anchor resists per-entry description (2026-09-26) — DONE
+
+WHAT WE DID: 100 anchor + 50 young entries × 5 properties → jackknife
+removal cost (static AND free-run clean-judged, matched-stream);
+surprisal liar-control; all gates pass (protocol identity vs e080
+1.2e-07). 177 s CPU.
+
+WHAT WE SAW (T051): NO bar fires cleanly — readership +0.089 on the
+dynamic witness (bar 0.35); surprisal liar-control passes on the
+primary (a short-horizon hard-tokens texture appears at +8 window,
+honestly recorded); the kill is blocked only by the static arm
+(readership 0.341 all-150, PCA 0.281 anchors) — the dynamic arm
+alone would kill (all |r| ≤ 0.10). Honest verdict: BETWEEN kill and
+partial; B=8 CI width is the fragility flag. RIDERS: T048
+replicated at entry level — r(static, dynamic) = −0.004, sign-agree
+26%; drift-alignment lower for anchors (0.342) than young (0.495) —
+anchor values are more run-specific (descriptive T048 support).
+T037-a rider: position-level −0.62 is MECHANICALLY ANTI-COUPLED
+(mean vs below-threshold fraction); the less-biased per-entry
+reading +0.035 — null-positive, matching the registered prediction.
+
+WHAT'S NEXT: T051 registers the sequence-level pivot (P3's next
+step) — the anchor is not an entry property.
+
+---
+
 ## E087 — RIF adjudication: STRING-LEVEL INDUCTION ONLY — reads are pure at the fact level; T049 closes (2026-09-26) — DONE
 
 WHAT WE DID: both rigs × both nets × B=96, arms {real ELIZABETH,
