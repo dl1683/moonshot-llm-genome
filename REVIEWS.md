@@ -67,6 +67,35 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 37 — from dispatches (2026-09-26T14:07Z real; covering 13:05–14:07Z)
+
+Angles this window, all real dispatches: IDEATOR (day-5 programs,
+harvested ~13:37Z — e081-e085 registered with bars/kills); EXPLORER
+harvest folded to queue; interpretive work embedded in T049 (the RIF
+null's H-pure/H-coarse split + e081b discriminator); the citation
+verification (Giannou 2308.02852) done direct. No critic this window
+— the last critic cycle (T047) is fully discharged through
+e077/e078/e079/e076; next critic due when e084/e065 land (their
+verdicts will warrant adversarial passes).
+
+Results since R36: T049 (RIF NULL — reads pure at resolution;
+e081b replication dispatched); day-5 queue e081-e085 complete; the
+5-min dispatch-first cron adopted; DAY_FOUR_REPORT handoff section.
+
+In flight: e081b (replication + scramble-texture check), e084
+(read-kernel census, smoke phase), e065 (RMU arms + R5 contrast,
+thermal-managed).
+
+Decisions: (1) e082 (cross-seed transplant) is the next GPU slot
+after e065; (2) e084's dissociation branch, if it fires, gets an
+immediate critic pass (it would undercut every CE-shadow-based cache
+claim); (3) ambient thermal soak is now an operational constant —
+GPU work is opportunistic, CPU-side is the default lane.
+
+Integrity: commits pushed through 7f0ec0c.
+
+---
+
 ## Review 36 — from dispatches (2026-09-26T13:05Z real; covering 11:55–13:05Z)
 
 Angles this window, all real dispatches: RESEARCHER ×2 (day-4 claims
