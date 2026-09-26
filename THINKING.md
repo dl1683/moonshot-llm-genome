@@ -50,7 +50,90 @@ REGISTERED PREDICTION for e068: pair-copy to a shifted window
 single-row copies (0 alone or 129 alone) fail (p(Z) < 0.05) — the
 conjunction is the unit.
 
+## T044 — E070: the tail inflates without attention moving — value-side or threshold; and the cross-thread prediction dies (2026-09-26 ~10:25Z)
+
+**Registered outcome: NO CLAUSE FIRES — the three-hypothesis space
+(H-wpe-domain / H-instrument / H-redistribute) was jointly
+insufficient.** What the data shows instead:
+- Young-ages attention mass is window-INVARIANT (1.006 [0.97,1.03];
+  age4 0.98; age5 1.03) — attention did not migrate onto the tail or
+  the window start (start 0.76 [0.38,2.41], not ≥2).
+- Mid-far ages 21-255 GAIN 1.44 [1.35,1.54] — beyond pure softmax
+  renorm (1.265): genuine restructuring, but it lands MID-FAR, not
+  where the liveness grew.
+- Native-positions-0-255 slice: a\* = 13 [6,24], NOT ~6 — window
+  length per se shifts the onset (6 full-512 → 13 native-256 → 18
+  truncated-256: a monotone length/truncation ladder).
+- Therefore the ages-4-17 liveness grew with UNCHANGED attention and
+  unchanged clean CE.
+
+**CROSS-THREAD REFUTATION (important for T042):** the registered
+prediction that e070's window-start attention ratio would come back
+large is REFUTED (0.76, huge CI). The interpreter's window-start
+lesion spike (cache thread) and e067's row-0 address anchor are NOT
+the same attention phenomenon — row 0's causal weight (e067/e071) is
+not carried by final-query attention to the start position. Two
+different mechanisms live at the same coordinate.
+
+**Explanations for attention-invariant liveness growth:**
+- **H-value-side:** truncation changes the value/read pathway — the
+  same attention mass carries more causal load because V-vectors (or
+  their post-LN readout) at ages 4-17 respond to the shorter window's
+  residual-scale context.
+- **H-threshold-artifact:** the dCE haze (0.01-0.06 nats) crosses the
+  5-pt robust rule at the margin; per-seq heterogeneity (2 of 4
+  sequences drive a\*) plus B=4 makes a\* fragile — an instrument
+  property, not a load property. (Supported by: per-seq a\* spread
+  [8,26,30,7] in D1.)
+**Registered discriminator (e072, CPU minutes):** compare V-vector
+norms AND the same-attention reweighted lesion (scale the eval-512
+V-lesion effect by the exact mass ratio ~1.0 → predicts NO change;
+measure the residual). H-value-side predicts V-norm drift at ages
+4-17 between windows; H-threshold predicts stable V-norms with the
+a\* instability replicating under bootstrap resampling of sequences
+(more sequences, B=16, would pull CI off the 5-pt rule's edge).
+**Bearing:** the paper's 5.5 qualifier stands unchanged (spike
+window-invariant); the a\* statistic carries a B=4 fragility flag
+alongside the eval-window qualifier.
+
+## T043 — E068: destruction weight and portability dissociate — row 129 is the address, row 0 is scaffolding (2026-09-26 ~10:20Z)
+
+**Registered outcome: MIXED — PORTABLE-PAIR fires (0.35-0.38 at the
+new geometry, ~70% of unshifted expression, generalizes to held-30),
+CONJUNCTION-UNIT fails: row 129 ALONE equals the pair (0.397 vs 0.384
+at k=10); row 0 alone sits at the no-copy baseline (0.141 ≈ 0.145).**
+The T032 knife-edge partial-collapse replicates (no-copy shift →
+0.13-0.15 plateau). Reverse-context control: anchors without content
+alignment are INERT (Δ −0.003) — duplicate mid-window anchors do
+nothing; expression needs the (content, anchor) alignment.
+
+**The dissociation, KL-calibrated (using e071's KL lens):** row 0's
+in-place perturbation costs KL 2.6-7.2 nats (distribution-wide
+destruction — the name dies as COLLATERAL of a broken model); row
+129's costs KL 0.20-0.51 (surgical, name-targeted). So the census
+drop-metric CONFLATED two channels: generic load-bearing (row 0) and
+address-carrying (row 129). REFINEMENT OF T042: the "window-anchored
+conjunction" reading is DEAD — **row 129 is the address; row 0 is
+generic scaffolding the install sits on.** The address is a SINGLE
+portable row whose in-place code is necessary (knife-edge) and
+sufficient (rebinding at k+129 restores 70%): the simplest address
+object the lab has found.
+**Remaining tension to register:** why does row-129-copy restore only
+~70%, and why does the no-copy shift retain a 0.13 plateau (not
+floor)? Candidates: (a) content-row co-adaptation — the address row's
+effect is partly mediated by content at rows 0-128 (now shifted);
+(b) the 0.13 plateau is sub-argmax residue (rank-2 Z, the T032-era
+prior). Discriminator: at the rebound geometry, measure Z's RANK —
+plateau-with-rank-2 supports (b); plateau-with-rank>5 supports (a).
+Free with the next P1 run.
+
 ## T042 — E067: the address is a window-anchored conjunction — row 0 is the top anchor (2026-09-26 ~10:15Z)
+
+**[SUPERSEDED IN PART by T043: the conjunction reading is dead — the
+census drop-metric conflated generic load-bearing (row 0, KL 2.6-7.2
+distribution-wide) with address-carrying (row 129, KL 0.2-0.5
+surgical). Row 129 is the address; row 0 is scaffolding. e071's
+generalization findings stand.]**
 
 **Verdict: NOT SPARSE at the registered rule, and the registered
 dense-cluster branch is refuted too.** The real structure: bimodal

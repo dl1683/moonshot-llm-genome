@@ -79,7 +79,8 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e059 | winner differencing | DONE (T040: H-nothing at bars; interface family = second damage predictor, partial r −0.654; trickle = single-lineage artifact) |
 | e063 | load homeostasis | DONE (T041: H-EMERGENT — universal template, r=+1.000 across init+order; no heritable A-variance) |
 | e063b | task-swap discriminator | DONE (T041 amendment: H-ii optimizer-attractor — copy-net shape r=+0.998; magnitudes task-weighted, shape corpus-invariant) |
-| e070 | attention-mass discriminator (T039-amend) | READY (CPU, minutes) | eval-256 vs 512 attention mass + K/V at window-start/ages 4-5; ratios: ≥2.0 start + ≤0.75 age4 ⇒ H-wpe-domain; [0.9,1.1] ⇒ H-instrument; >1.1 uniform ⇒ H-redistribute |
+| e070 | attention-mass discriminator | DONE (T044: NO CLAUSE — young-age mass window-invariant 1.006; mid-far gains 1.44>renorm; native a*=13; cross-thread window-start prediction REFUTED) |
+| e072 | value-side vs threshold (T044) | READY (CPU, minutes) | V-norms at ages 4-17 across windows + B=16 bootstrap of a* — H-value-side vs H-threshold |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
 | e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
 | e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |
@@ -94,7 +95,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e066 | close the loop (P1) | DONE (T038: TWO-OBJECTS, cos 0.094) + e066b in-place rows (GRADED, swap 0.46/zero 0.27 from 0.72) | relay is a circuit-shaped third thing, not the row; address = distributed conjunction w/ wpe-row concentration |
 | e067 | address census (P1) | DONE (T042: ROW 0 top anchor — window-anchored conjunction; bimodal rows 0+129 (53%) + micro-carpet; NOT sparse, dense-cluster refuted) |
 | e071 | row-0 generalization (T042) | DONE (H-WINDOW-KEY sweep; both anchors generalize to held-30; generic+key coexist per KL) |
-| e068 | rebinding surgery (P1) | READY (ungated by e071; pair-design + prediction registered in T042) | copy anchor PAIR {0,129} to shifted window (k,k+129); registered: pair-copy p(Z)≥0.2 at new geometry, single-row <0.05 — the conjunction is the unit |
+| e068 | rebinding surgery (P1) | DONE (T043: MIXED — portable unit is ROW 129 ALONE, pair ≈ 129-only; row-0 = scaffolding; destruction-vs-portability dissociate) |
 | e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | — | P3 settle + junk split | UNGATED (e053c verdict in: ABSOLUTE, T039) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |

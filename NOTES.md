@@ -61,6 +61,47 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E068 — pair-rebinding: MIXED — the portable unit is ROW 129 ALONE (2026-09-26) — DONE
+
+WHAT WE DID: wpe-row surgery on shifted install windows: pair-copy
+(k,k+129)←(0,129), single-row controls, no-copy shift, reverse-context;
+k ∈ {10,20}; install-60 + held-30 batteries. Restore checks bitwise.
+
+WHAT WE SAW (T043): PORTABLE-PAIR bar fires (0.35-0.38 install-60 /
+0.24-0.27 held-30 at new geometry, ~70% of unshifted) — but
+CONJUNCTION-UNIT bar FAILS: row-129-ALONE equals the pair (0.397 vs
+0.384); row-0-only sits at the no-copy baseline (0.14 ≈ 0.145).
+No-copy shift only partially collapses (0.13-0.15 = T032 plateau).
+Reverse-context: anchors alone at old geometry are inert (Δ −0.003) —
+expression needs (content, anchor) ALIGNMENT.
+
+WHAT'S NEXT: T043 registers the dissociation reading (destruction
+weight vs portability) and the KL-calibrated refinement of T042.
+
+---
+
+## E070 — attention-mass discriminator: NO CLAUSE FIRES — the registered space was jointly insufficient (2026-09-26) — DONE
+
+WHAT WE DID: per-layer×head attention-received mass (final query) at
+ages 1-20 / 4 / 5 / window-start / 21-255, eval-256 vs eval-512, same
+sequences; K/V lesion probes; native-positions-0-255 slice a*.
+
+WHAT WE SAW (T044): ages1-20 ratio 1.006 [0.97,1.03]; age4 0.98; age5
+1.03 — young-age attention is WINDOW-INVARIANT. Window-start 0.76
+[0.38,2.41] — not ≥2. Mid-far ages 21-255 gain 1.44 [1.35,1.54],
+EXCEEDING pure softmax renorm (1.265): real restructuring, landing
+mid-far. Native-slice a* = 13 [6,24] ≠ 6 — window length per se shifts
+the onset. NONE of the three registered hypotheses fires cleanly: the
+ages-4-17 tail liveness grew with UNCHANGED attention mass and
+unchanged clean CE.
+
+WHAT'S NEXT: T044 registers the value-side vs threshold hypotheses;
+the T042 cross-prediction (window-start mass large) is REFUTED — the
+cache-thread and address-thread window-start objects are NOT the same
+attention phenomenon.
+
+---
+
 ## E071 — row-0 generalization: H-WINDOW-KEY clean sweep (2026-09-26) — DONE
 
 WHAT WE DID: row-0 intervention (mean/zero arms) × {install-60,
