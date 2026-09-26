@@ -67,6 +67,36 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 38 — from dispatches (2026-09-26T15:12Z real; covering 14:07–15:12Z)
+
+Angles, all real dispatches: INTERPRETER-grade close-outs on every
+card; RESEARCHER (read-kernel claims — kernel=shadow strongest
+claimable, verdicts folded); VISUALIZER (v015 read-kernel figure,
+collision-audited); the RIF arc's e087 adjudication doubles as the
+window's critic (its ZABMOTHIC control killed the name-identity
+reading of e081b's own result).
+
+Results since R37: T050 (KERNEL=SHADOW r 0.918; tail misreport
+flag; sparse-open 3-4/80; content-following 8.8%; novelty verdicts);
+T049 closed through its FULL arc — null (e081) → apparent reversal
+(e081b) → registered conflict → two-rig adjudication (e087):
+STRING-LEVEL INDUCTION ONLY, reads pure at fact level, rig conflict
+was B=32 resample luck, e086 dead; v015 delivered; cell-count
+correction enforced (48k→24k); e065 passed its 6-smoke gauntlet and
+started the full run.
+
+In flight: e085 (anchor description), e065 (full 5-arm + R5).
+
+Decisions: (1) e082 (cross-seed row-129 transplant) remains the
+next GPU slot; (2) the RIF arc becomes the lab's canonical
+methods-story for conflict resolution — cite in the paper's methods
+appendix if reviewers probe; (3) day-5's remaining CPU queue is
+thin — next ideator/explorer pass due when e085 lands.
+
+Integrity: commits pushed through e0b0c8d; T-section count 60+.
+
+---
+
 ## Review 37 — from dispatches (2026-09-26T14:07Z real; covering 13:05–14:07Z)
 
 Angles this window, all real dispatches: IDEATOR (day-5 programs,
