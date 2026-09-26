@@ -345,8 +345,11 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   perturbation is surgically name-targeted (KL 0.2–0.5) while the
   heavier-perturbing row 0 (window start) is generic scaffolding (KL
   2.6–7.2, distribution-wide; the name dies as collateral). The
-  address is necessary (knife-edge), sufficient (~70% rebind), and
-  single-row. **Post-scan perimeter (scratch/day4_claims_lit.md):** no
+  address is the single most load-bearing portable row: ~70% rebind
+  by copying it alone (partial sufficiency; a 0.13 plateau remains
+  without any copy), partial necessity (row ablation retains ~0.32 of
+  the 0.556 expression — the knife-edge belongs to the shift, not the
+  row). **Post-scan perimeter (scratch/day4_claims_lit.md):** no
   per-row positional-embedding causal edit found 2023-2026 (nearest is
   TAPE's content-vs-position framing, build-only); scoped to learned
   absolute PEs; distinguished from ROME-family MLP edits, prompt tuning

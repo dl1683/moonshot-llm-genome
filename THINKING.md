@@ -110,6 +110,51 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T047 — CRITIC AUDIT of day-4 claims A-D: one overclaim downgraded, three flagged with cheap fixes (2026-09-26 ~12:05Z)
+
+**CLAIM A (universal template) — OVERCLAIMED as headlined; downgraded.**
+The r=+1.000 is a 6-point L0-dominated Pearson; the honest statistic
+(sites 1-5) is r 0.906-0.940 with NO null distribution — any
+L0-huge/mildly-rising profile scores ~0.9 by construction. Sharper:
+the e021 CONTROL net (913 steps, task-incompetent, far-val ≈ 0) still
+shows r=+0.998 — a template present in a half-exposed net that never
+learned its task is evidence for an INIT/ARCHITECTURAL PRIOR, not an
+"optimizer attractor." RETITLE (T041 amendment): architecture/init
+prior, candidate. The variance ladder (D_init 0.054 << replicate
+0.336 — "nothing to select") SURVIVES the audit; that part stands.
+**Fix registered (e077, CPU minutes): untrained-init A profile +
+permutation null for shape-r.** If the untrained net matches the
+template, the prior is confirmed init-side.
+
+**CLAIM B (single-row address) — SOLID-WITH-FLAGS; reworded.**
+"Necessary" overshoots: row-129 ablation leaves p(Z) ≈ 0.32 — over
+half the expression survives without it (the knife-edge belongs to
+the SHIFT, not the row). "Sufficient" is partial: 71% rebind with a
+0.13 no-copy plateau. REWORD (T043 amendment + paper + README law 9):
+"~70% rebind, partial necessity — the single most load-bearing
+portable row." **Fix registered (e078, eval-only minutes): rerun the
+e068 battery on e048_dose.pt — n=2 installs, zero training.**
+
+**CLAIM C (self-generated junk) — SOLID-WITH-FLAGS.** The −0.01 rule
+carves a tail off a broad haze (gen-band mean dCE −0.0013; 39-48% of
+entries negative — the e072 threshold pattern again); per-seq
+concentration heavy (one sequence carries 57% of late-band junk);
+the shuffle control rules out "info-poor old band" but NOT
+"net-flavored text" (generated n-grams are the net's own style).
+**Fix registered (e079, CPU): B=16 resample of the junk split on ≥2
+nets — kills threshold-artifact and per-seq flags together if
+fractions hold.**
+
+**CLAIM D (crossmatch) — SOLID-WITH-FLAGS; headline reframed.**
+11/12 donors are seed-42 kin; donor-redundancy is NOT absorbed by the
+host-cluster bootstrap → CI likely anti-conservative. Threshold
+in-sample. "Similar nets graft well" is near-tautological as
+MECHANISM; the defensible headline is the INSTRUMENT: a cheap 2-batch
+pre-graft probe at AUC 0.919. **Fix registered (folded into e076):
+split-sample threshold (fit half, report out-of-sample AUC) +
+leave-one-lineage-out CI + the dW-alignment comparison already
+specified.**
+
 ## T046 — E062: the crossmatch exists — pre-graft stream-cosine at graft-input depths (2026-09-26 ~11:50Z)
 
 **Verdict: P2 WINS the cheap crossmatch, decisively.** Partial
