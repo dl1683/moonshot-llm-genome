@@ -61,6 +61,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E087 — RIF adjudication: STRING-LEVEL INDUCTION ONLY — reads are pure at the fact level; T049 closes (2026-09-26) — DONE
+
+WHAT WE DID: both rigs × both nets × B=96, arms {real ELIZABETH,
+sham, anagram ZIBLETHEA, Z-control ZABMOTHIC}; meta-gap statistic
+(real − anagram) sham-free by construction; all instrument gates
+pass (Z-drift 1.9e-07/5.3e-08; batched-runner equivalence exact).
+
+WHAT WE SAW (T049 final): meta-bar fires on 2 of 4 legs (both repro
+legs: gap +0.078/+0.089, CIs excluding 0, 97% windows) but FAILS on
+both dose legs (facilitation, real ≈ anagram) → STRING-LEVEL
+INDUCTION ONLY. THE RIG CONFLICT DISSOLVED: at B=96 both rigs agree
+everywhere (repro real +0.090/+0.090) — the e081-vs-e081b
+discrepancy was B=32 resample luck. THE DECISIVE CONTROL: the
+meaningless Z-bearing ZABMOTHIC suppresses FL as much as the real
+name on repro (gaps +0.004/+0.013, CIs crossing 0) while the
+anagram is dead — the apparent suppression is carried by fine
+string statistics, not name/fact identity. Exactly e081's
+character-level decomposition.
+
+WHAT'S NEXT: T049 closes — reads do NOT write at the fact level.
+The e086 frequency-flip is DEAD (its premise was the fact-level
+reading). e084's non-reactivity stands restored at the rule level.
+
+---
+
 ## E084 — READ-KERNEL census: KERNEL = SHADOW (r 0.918) — the rule opens what the CE curves measure (2026-09-26) — DONE
 
 WHAT WE DID: 200 margin-stratified decision points × 80 entries × 3

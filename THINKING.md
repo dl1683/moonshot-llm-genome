@@ -182,6 +182,20 @@ READING DOES NOT WRITE at this instrument's resolution.
 - **H-coarse (instrument):** the placebo gate FAILED (sham moved
   0.044/0.021 vs the <0.01 design) — a noisy instrument cannot
   certify purity; RIF effects below ~0.04 would be invisible.
+**FINAL CLOSE (e087 adjudication, ~14:55Z): STRING-LEVEL INDUCTION
+ONLY — reads are pure at the fact level; T049 closes.** The rig
+conflict dissolved at B=96 (both rigs agree everywhere — the
+discrepancy was B=32 resample luck); the meta-bar fired on both
+repro legs (+0.078/+0.089) but failed on both dose legs
+(facilitation, real ≈ anagram). The decisive control: meaningless
+Z-bearing ZABMOTHIC suppresses FL as much as the real name on repro
+while the anagram sits dead — the apparent suppression is fine
+string statistics, not fact identity. **Methodological gem: the
+three-step arc (null → apparent reversal → registered adjudication
+with a semantic-decomposition control) resolved a two-rig conflict
+without a coin flip.** e086 is DEAD (premise was fact-level RIF);
+e084's rule-level non-reactivity stands.
+
 **Registered discriminator (e081b, minutes, eval-only):** the
 e048_repro cell (unrun — this was dose-only) with a tight sham
 (3x windows, per-window paired deltas). H-pure predicts the null

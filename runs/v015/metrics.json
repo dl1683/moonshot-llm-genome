@@ -1,0 +1,85 @@
+{
+  "viz": "v015_read_kernel",
+  "date": "2026-09-26T14:46:13Z",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES masked; zero-GPU analysis)",
+  "source": {
+    "run": "e084",
+    "thinking": "T050",
+    "metrics": "runs/e084/metrics.json",
+    "n_cells_run_file": 24000,
+    "note": "T050/NOTES say 48,000 cells; run file records 24,000 (100 dps x 80 x 3) \u2014 figure follows the run file"
+  },
+  "verdict": {
+    "r_primary": 0.9176292724119974,
+    "ci95": [
+      0.86743369940711,
+      0.9400349973250837
+    ],
+    "bar": 0.8,
+    "fires": "KERNEL_EQUALS_SHADOW",
+    "battery_flip_rate": 0.06420833333333334,
+    "n_flips": 1541
+  },
+  "main_panel": {
+    "spearman_tail_flag": -0.13333333333333333,
+    "young_1_10_r": 0.9614745595909218,
+    "bands_pooled": {
+      "young_1_10": 0.30966666666666665,
+      "mid_11_60": 0.03833333333333333,
+      "old_61_511": 0.006166666666666667
+    },
+    "ci_floor_log_axis": 0.0005,
+    "old_bins_at_mids": [
+      80.5,
+      150.5,
+      275.5,
+      431.0
+    ]
+  },
+  "panels": {
+    "sparse_open": {
+      "per_type_median": {
+        "vzero": 3.0,
+        "kdrop": 2.5,
+        "vswap": 4.0
+      },
+      "any_type_median": 5.0,
+      "le5_fraction": {
+        "vzero": 0.75,
+        "kdrop": 0.84,
+        "vswap": 0.72
+      }
+    },
+    "taxonomy": {
+      "vzero": {
+        "n_flips": 573,
+        "runner_up": 0.5148342059336823,
+        "top5": 0.22164048865619546,
+        "outside_top5": 0.26352530541012215
+      },
+      "kdrop": {
+        "n_flips": 425,
+        "runner_up": 0.5529411764705883,
+        "top5": 0.20941176470588235,
+        "outside_top5": 0.2376470588235294
+      },
+      "vswap": {
+        "n_flips": 543,
+        "runner_up": 0.47882136279926335,
+        "top5": 0.2523020257826888,
+        "outside_top5": 0.26887661141804786
+      }
+    },
+    "content_following": {
+      "hit_rate": 0.08839779005524862,
+      "chance": 0.02,
+      "hits": 48,
+      "n_vswap_flips": 543
+    }
+  },
+  "outputs": {
+    "figure": "runs/v015/read_kernel.png",
+    "metrics": "runs/v015/metrics.json"
+  },
+  "timing_s": 0.7
+}
