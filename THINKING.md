@@ -152,7 +152,30 @@ excluding zero: not instrument noise, but purity is also not certifiable
 at fine resolution. **T049 closes INTERMEDIATE→FINDING: READS WRITE,
 ASYMMETRICALLY.** The read policy has dynamical side effects that
 depend on which address you open — the P-A question's answer is the
-interesting branch.** Registered discriminator (e086, GPU-gated behind
+interesting branch.**
+
+**CONFLICT REGISTERED (e081 formal report, ~14:35Z — supersedes the
+strength of the amendment above):** e081's own dual-net run (B=32,
+different rig: 112-token prefix + canonical probe) found the SAME
+EL-to-FL cell on repro at +0.046, CI CROSSING 0 (sub-bar), and its
+control decomposition shows the present modulations are
+CHARACTER-LEVEL, not fact-level: FLORIZEL ends in 'EL' (bigram
+priming — the FL-to-EL facilitation vanishes under the LFEORZIL
+anagram), and ANY Z-bearing string boosts the collapsed install
+(read-FL boosts Z more than read-Z on dose). Its sham floor:
+plus/minus 0.04-0.06 on name slots — the noise sits AT the effect
+size. **Honest state: CONFLICTED at the cell level — e081b's rig
+fires (+0.083, CIs excluding 0, anagram-dead on repro); e081's rig
+does not (+0.046 sub-bar, anagram-matches on dose). T049's verdict
+is neither 'pure' nor 'reads write' — UNRESOLVED pending
+adjudication.** Registered (e087, CPU, eval-only): both rigs, both
+nets, B=96, anagram + Z-bearing controls on every leg; meta-bar:
+the EL-to-FL real-name effect exceeds its anagram by 0.05+ with CI
+excluding 0 under BOTH rigs on BOTH nets — anything less and the
+verdict is 'string-level induction only' (the e081 reading). The
+e086 frequency-flip stays registered behind it.
+
+Registered discriminator (e086, GPU-gated behind
 e065/e082): frequency-flip install (41 FL / 19 EL windows) —
 H-frequency-competition predicts the asymmetry FLIPS with the ratio;
 H-row-specific predicts it stays EL→FL regardless. e084's non-reactivity
