@@ -43,6 +43,18 @@ at input produces a d5 Δstate that DOES align with relay_d5 (the circuit
 re-encodes position into the deep state); if that also fails, H2 is dead
 and coordinate-keying is purely circuit-side (H1+H3 joint).
 
+**Discriminator OUTCOME (run after registration, commit e719666):**
+|cos(relay_d5, W_U[Z])| = 0.098 (LN-attributed variant 0.100; max over
+all 65 vocab rows 0.266 @ '$', Z rank 12) → **H3 REFUTED** at the
+registered bar. The relay is not answer-shaped either. Standing
+picture: the deep relay is a THIRD THING — content-shaped, knowledge-
+specific, position-portable for the immediate readout yet transient
+off-position — i.e. a mid-stack FEATURE the read policy consumes, not a
+row-like object in any obvious basis (position, token, or unembedding).
+H1 (circuit-address) is now the leading explanation; H2 (rotated basis)
+survives only via the wpe-129→130 row-swap Δstate check (registered
+above, still open — natural P1 micro-step before/alongside e067).
+
 **Bearing on P1:** the "address atlas" (e067 census) should target the
 INPUT-side representation (wpe rows + early stream), where the coordinate
 code demonstrably lives; mid-stack states are post-address objects.
