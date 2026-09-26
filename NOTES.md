@@ -61,6 +61,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E069 — T039 onset discriminators: H1 circuit-horizon DECISIVE; D1 surprise — eval-window-sensitive (2026-09-26) — DONE
+
+WHAT WE DID: the two T039-registered eval-only discriminators on the
+frozen e053c net (CPU, 282 s, gates G0b/G1/G2/G3 all pass; a*(512)
+reproduces 6 [4,8] bitwise).
+
+WHAT WE SAW (T039 amendment): **D2 = H1 CIRCUIT-HORIZON, decisive** —
+shuffled-char contexts (n-gram statistics destroyed, recency kept) leave
+the ages-1-2 spike at 128% of normal (bar: ≥30% H1 / ≤10% H2; CI
+[0.98, 1.70], per-seq 0.68-1.95). The recent-token spike is circuit
+structure, not corpus statistics. **D1 = EVAL-WINDOW-SENSITIVE
+(surprise, recorded as-is)** — the SAME net + sequences truncated to
+eval-256 give a\* = 18 (CI [7,30]), outside the registered [4,8];
+absolute-position-indexed variant gives 12. The horizon is absolute
+w.r.t. the TRAINED window (e053c's cross-window verdict stands) but
+shifts under eval-window truncation.
+
+WHAT'S NEXT: T039 amendment card registers the D1 interpretation
+question (attention re-anchoring vs instrument reference-shift);
+e053c's window-invariant truncation claim needs the eval-window
+qualifier in the paper.
+
+---
+
 ## E063 — load homeostasis: H-EMERGENT — organ-reliance is a universal template (2026-09-26) — DONE
 
 WHAT WE DID: own-organ load A tracked across cohorts (2.7M/6L: B vs BDO

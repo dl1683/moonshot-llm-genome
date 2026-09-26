@@ -87,6 +87,50 @@ restoring force. e063's setpoint-vs-drift verdict lands this hour.
 predictor candidate (e062 should test W_out rowmean FIRST, before
 stream-cosine — it is A-independent signal).
 
+## T039-amendment — E069: spike is circuit, onset statistic is eval-window-sensitive (2026-09-26T09:50Z)
+
+**D2 verdict (registered): H1 CIRCUIT-HORIZON — decisive.** Destroying
+n-gram statistics (shuffled-char older half; 1897/2044 slots moved, ages
+1–8 + target intact) leaves the ages-1-2 spike at **128%** of normal
+(bar ≥30% H1 / ≤10% H2; CI [98%,170%]). The spike AMPLIFIED: with
+distant context scrambled the net leans harder on recent positions.
+Honest caveat (agent's): the stressor raised clean CE only ~0.16 nats —
+the registered criterion fired via amplification, a weak test of the
+"spike scales with statistics" clause.
+
+**D1 verdict (registered): the SURPRISE branch — eval-window-sensitive.**
+Same net, same sequences, eval-256: a\* = 18 CI [7,30] vs 6 [4,8].
+ANATOMY: the young spike is unchanged (ages 1–3: 2.72/4.89/2.35 vs
+1.74/4.47/2.32 nats); what moved is the residual tail — ages 4–17 hover
+at +0.01..0.06 nats instead of going dead. Clean CE virtually unchanged
+(0.453→0.459): truncation costs no accuracy yet makes mid-recent
+positions measurably more lesion-load-bearing. The absolute-position
+variant (wpe 256..510) is off-distribution (CE 6.31 > uniform 4.17) —
+the re-indexed window is the valid probe; both land outside [4,8].
+
+**Net claim split (paper bearing):** "fixed ~6-token spike horizon"
+SURVIVES (window-invariant, statistics-invariant); "a\* is a pure
+window-independent constant" does NOT — residual mid-age liveness grows
+when the window shrinks. e053c's truncation claim carries the qualifier.
+
+**Two explanations for the tail inflation (registered):**
+- **H-redistribute:** with fewer positions available, attention mass
+  that read far positions re-anchors onto mid-recent ones — causal-load
+  reallocation (the attention-level echo of e063's universal-template
+  allocation story). Unchanged clean CE is consistent: the load moves,
+  the function doesn't.
+- **H-instrument:** the "dead tail" judgment at 512 depends on the
+  full-window reference distribution; truncation shifts the V-zero
+  baseline and the threshold crossing moves without any real load
+  change.
+**Discriminating observation (registered, eval-only):** per-position
+attention-received mass at ages 4–17 under eval-256 vs eval-512 on the
+same sequences. H-redistribute predicts the mass GROWS under truncation;
+H-instrument predicts no attention change (only the lesion-sensitivity
+statistic moves). Also: K-drop vs V-zero dissociation in the tail —
+H-redistribute predicts the inflation is V-side (value read), not
+K-side.
+
 ## T039 — E053c: the utility onset is ABSOLUTE — a fixed ~6-token horizon, not a window fraction (2026-09-26T10:05Z)
 
 **Registered verdict: ABSOLUTE, clear.** Doubling the window 256→512
