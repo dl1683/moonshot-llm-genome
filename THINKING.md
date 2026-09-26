@@ -19,6 +19,47 @@ attractor. The only known shape-mover remains e033's energy constraint.
 PARKED: what architecture change (depth/head-count) would break the
 attractor — a day-5 candidate if P2 needs it.
 
+## T042 — E067: the address is a window-anchored conjunction — row 0 is the top anchor (2026-09-26 ~10:15Z)
+
+**Verdict: NOT SPARSE at the registered rule, and the registered
+dense-cluster branch is refuted too.** The real structure: bimodal
+hotspots at rows 0 and 129 (53% two-row mass; smear at 123-128; a
+~240-row micro-carpet at ~0.002 each that breaks the 80% rule — the
+rule did not anticipate a sensitivity carpet). ROW 0 — the window
+START — is the single most load-bearing wpe row: perturbing it alone
+erases the install (p(Z) 0.556→0.0014; dose-net replicates). T038's H1
+(circuit-address) extends: the read circuit anchors at BOTH window
+ends — a window-anchored conjunction (start-key × address-row).
+
+**Cross-thread convergence (registered before e070 reports):** the
+interpreter's second live spike sits exactly at the truncated window's
+start (wpe row 0, +0.699 nats, T039-amendment); e067 independently
+finds row 0 is the top install anchor. PREDICTION for e070 (running):
+the window-start attention-mass ratio will be LARGE (H-wpe-domain's
+≥2.0 fires) — the same object seen from the cache thread.
+
+**Why does row 0 dominate — two explanations:**
+- **H-window-key:** the install protocol revisited the same 60 windows
+  at ~112 name-targets/step — position 0 became a high-precision
+  window-recognition key; the circuit first verifies "we are in an
+  install window" at the start, then reads 129 for the address.
+- **H-generic-start:** window-start anchoring is a general circuit
+  feature of this net family (sink-adjacent); row 0 matters for ANY
+  context, install or not.
+**Registered discriminator (e071, eval-only minutes):** row-0
+intervention × {install-60, held-30, uniform-random batteries} ×
+{installed net, base e001 net}. H-window-key: big drop on install-60
+AND held-30 (install-type windows), small on uniform, small everywhere
+on the base net. H-generic-start: big drop everywhere including base
+net and uniform battery. **Secondary readout:** row-129's drop on
+held-30 (does the address row generalize beyond the trained windows?).
+**Honesty caveats:** the census battery IS the trained windows — the
+row-0 effect may be exact-window recognition rather than a portable
+address; e071 exists to answer exactly this. The relay picture: row 0
+anti-aligns with relay_d5 (−0.724, strongest) — row 0's causal channel
+is NOT the e056b relay; the install has (at least) two distinct
+state-level carriers.
+
 ## T041 — E063: organ-reliance is a universal emergent template — selection had nothing to select (2026-09-26T11:15Z)
 
 **Registered verdict: H-EMERGENT.** The A ladder: noise 0.014 << INIT

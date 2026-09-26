@@ -61,6 +61,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E067 — address census: ROW 0 is the top anchor — window-anchored conjunction, bimodal + carpet (2026-09-26) — DONE
+
+WHAT WE DID: full 256-row wpe perturbation census (row←mean arm + zero
+arm for top rows) × install-60 battery, replicated on the 4×-dose
+install net; d5 Δstate vs relay for top-5 rows. 19 min CPU; protocol
+rebuild bit-exact (0.55631).
+
+WHAT WE SAW (T042): NOT SPARSE at the registered 80% rule (45-48 rows
+needed) but the registered dense-cluster picture is ALSO refuted — the
+mass is BIMODAL HOTSPOTS at rows 0 and 129 (two-row mass 53%) + local
+smear 123-128 + a generic micro-carpet (~240 rows × ~0.002, which
+breaks the 80% rule). ROW 0 is the single most load-bearing row:
+perturbing it alone erases the install (p(Z) 0.556→0.0014; zero-arm
+0.546; dose net replicates 0.493). Rows 130-255 exactly 0.0 (sanity).
+Secondary: high-weight rows do NOT feed one relay (mean pairwise |cos|
+0.216); row 0's Δ anti-aligns with relay_d5 at −0.724 (strongest).
+
+WHAT'S NEXT: T042 registers e071 (row-0 generalization: held-30 +
+uniform batteries × base-net control — window-key vs generic-start).
+e070 (running) measures the same window-start object from the cache
+side. e068 rebinding design must include row 0.
+
+---
+
 ## E063b — task-swap discriminator: H-ii OPTIMIZER-ATTRACTOR (2026-09-26) — DONE
 
 WHAT WE DID: A-profiles on the e021 family (copy-task net: far-retrieval
