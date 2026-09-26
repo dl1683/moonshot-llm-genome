@@ -61,6 +61,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E080 — prune-vs-replace: honest MIXED — neither presence nor prompt-content rescues; the anchor is run-specific (2026-09-26) — DONE
+
+WHAT WE DID: the T048 discriminator on the e075 rig — A-noise
+(norm-matched, verified 7e-07) vs A-promptcopy vs the known A-vzero
+(bit-for-bit drift check, dev 0.0). B=8, same prune events.
+
+WHAT WE SAW (T048 close-out): H-statistics-scaffold DEAD (noise
++0.287 ≈ vzero +0.262 — presence is not load-bearing).
+H-content-anchoring MISSES its bar (promptcopy +0.0688 > +0.05, CI
+straddles) but recovers ~3/4 of the cost and beats noise by +0.218.
+The attractor signature fires in ALL THREE arms (clean-judge gap
+5.0-5.4 nats; onset lost everywhere) — even promptcopy, whose
+self-scored fluency nearly recovers, free-runs off-manifold by the
+clean judge. promptcopy's young spike GROWS 2.5x (ages1-5 4.4-6.0 vs
+1.4-2.4). Junk inversion full under vzero/noise (0.375), partial
+under promptcopy (0.125).
+
+WHAT'S NEXT: T048 closes: neither presence nor generic content —
+the generation anchor is RUN-SPECIFIC trajectory content. Free-run
+honesty reconfirmed as the only reliable witness. Registered: the
+natural completion is a self-copy arm (reinsert the run's OWN pruned
+contents — trivially circular, so instead the P3 line pivots to
+describing the anchor, not replacing it).
+
+---
+
 ## E077 — untrained-init profile: TRAINING-BUILDS — the template is a fast training-dynamics emergent (2026-09-26) — DONE
 
 WHAT WE DID: A-profiles on 6 untrained inits (2.7M/6L seeds 42/43/777

@@ -147,6 +147,29 @@ arms at the same prune events — V-zero (known: +0.26) / norm-matched
 noise / prompt-copy. Also carries the attractor census (clean-judge +
 junk inversion) as readouts.
 
+**CLOSE-OUT (e080, ~12:35Z): honest MIXED — both registered hypotheses
+fail their bars, and the texture points beyond both.** H-statistics-
+scaffold is DEAD: norm-matched noise costs +0.287 ≈ V-zero's +0.262
+(presence is not the load-bearing property; per-(layer,b,head) norm
+preservation verified 7e-07, content-cos at chance 0.143).
+H-content-anchoring misses its first conjunct: prompt-copy lands at
++0.0688 (0.019 over the cheap bar, CI straddling) while beating noise
+by +0.218 — real content recovers ~3/4 of the cost, but PROMPT
+content is not enough. **The attractor signature fires in all three
+arms** (clean-judge gap 5.0-5.4 nats; onset lost; even promptcopy —
+whose self-scored fluency nearly recovers — free-runs off-manifold by
+the clean judge), and promptcopy's young spike GROWS 2.5× (young
+entries become MORE load-bearing after a prompt-anchored run).
+**T048 final statement: the generation anchor is RUN-SPECIFIC
+trajectory content** — the cache does not store substitutable
+information; it stores where the run has been. Neither deletion,
+noise, nor borrowed content restores it (a self-copy arm would be
+circular by construction). P3 pivots from replacement to DESCRIPTION
+of the anchor. The free-run-honesty principle (self-score fine /
+clean-judge off-manifold) is reconfirmed as the only reliable
+witness — now in its third independent appearance (T037 #3, e075,
+e080).
+
 ## T047 — CRITIC AUDIT of day-4 claims A-D: one overclaim downgraded, three flagged with cheap fixes (2026-09-26 ~12:05Z)
 
 **CLAIM A (universal template) — OVERCLAIMED as headlined; downgraded.**
