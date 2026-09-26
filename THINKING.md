@@ -28,7 +28,19 @@ trained 60 — ~83% strength): BOTH anchors are window-TYPE recognizers,
 not exact-window memories. NUANCE the registered binary missed: the KL
 column shows row 0 is generically load-bearing even on the base net
 (3.3-4.9 nats damage) — generic importance and install-key role
-COEXIST. T042's H-window-key stands with the conjunction refinement.
+COEXIST — now CONTROL-CALIBRATED (e071 agent secondary): mid-window
+row-60 perturbation gives KL ~1e-4 while row 0 gives 2.6-7.2 nats on
+EVERY battery × BOTH nets (ratios 8,500-89,000×) — row 0 is uniquely
+load-bearing for the whole next-char distribution, not merely
+name-related. HONESTY: 4 of 6 registered cells were floor-limited
+(base p(Z) < 0.05) — the absolute-drop negative legs are
+uninformative, not confirmatory; the KL lens carried the generic leg.
+SYNTHESIS (one sentence): row 0 is a generic high-leverage
+window-start anchor that the install RECRUITED into the
+name-address conjunction — the anchor is net-family-general, its
+p(Z)-address consequence is install-window-specific (held-30 counts
+as install-type: generalization is by window family, not exact
+trained windows).
 **e068 ungated:** the rebinding design tests copying the anchor PAIR
 {0,129} to a new window position k — held-30 generalization predicts
 the pair is what matters, not the trained coordinates per se.
