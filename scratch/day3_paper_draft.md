@@ -600,6 +600,8 @@ prior work connects TF/free-run *state* differences to *knowledge
 expression at a named token*, and none measures where in depth the
 knowledge stops being expressible — we own that specific claim, scoped per
 T028 to "factual-recall expression / own-state transplant." (b) YOPO,
+**Instruments caveat (day-4 addition):** our own head-to-head found PROBE, TRANSPLANT, and GENERATION readouts measure three different things — surgery leaves the deep probe intact while killing all rescue; an RMU-analogue kills both while a plain retain-only fine-tune kills the probe but keeps rescue (e065/e091, n=1 flagged). Any elicitation-failure claim that relies on a single readout inherits this caveat, including Orgad's probe-only evidence.
+
 Yan & Jia, ITI, DoLa are cited in the intro as the adjacent wall — and the
 YOPO collision dissolves on our own negative result: YOPO injects a
 *learned direction* in the *abstention* domain for *elicitation* — a
