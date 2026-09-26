@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E059 — winner differencing: H-NOTHING at the bars; interface family is a second predictor (2026-09-26) — DONE
+
+WHAT WE DID: zero-GPU ΔW audit of e040 lineage winners ({g1a,g1c}+children
+vs unselected sibs), 8 axes, bootstrap CIs, gates clean (repro 8.7e-08,
+REF self-graft 0, organ-band verbatim). 8.4 min CPU.
+
+WHAT WE SAW (T040): no consistent winner signature at the registered bar
+(|r| ≥ r(D,A)=0.807). A did NOT move (H-load's directional claim fails).
+What winners DID: LN→closer to donor REF (weak), W_out row-norms +2.5%
+with shape→REF, W_in erank→AWAY from REF. Sharpest: D itself is
+inconsistent as a winner property (E1 −0.05 vs E2 +0.10); the gen-2
+trickle was carried by the children — single-lineage artifact at
+parameter level. SECOND PREDICTOR FOUND: interface-scale family
+(W_out row-norm mean partial r(D|A) = −0.654 p=.040) — genuine
+damage axis beyond organ-reliance, but not what selection changed.
+
+WHAT'S NEXT: e063 (running) discriminates WHY A didn't move — defended
+setpoint (canalization) vs invisible-to-R; T040 registers the
+prediction. Interface family → P2 IMMUNOLOGY crossmatch predictor
+candidate (e062).
+
+---
+
 ## E053c — ctx-512 onset decider: ABSOLUTE verdict (2026-09-26) — DONE
 
 WHAT WE DID: trained 4L/4H/128d/wpe-512 = 873k params (seed 42,

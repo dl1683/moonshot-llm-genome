@@ -7,6 +7,41 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T040 — E059: selection moved nothing first-order — why didn't organ-reliance respond? (2026-09-26T10:20Z)
+
+**Registered verdict: H-nothing.** Winners vs unselected sibs show no
+signature at the bar |r| ≥ r(D,A) = 0.807. The strongest damage
+predictor (own-organ load A, T026) REPLICATES bitwise but selection did
+NOT move it. What moved is second-order and donor-ward: LN-distance to
+REF down (weak, under-predicts damage), W_out row-norms up with shape→
+REF, W_in erank away from REF. D itself is event-inconsistent (E1
+winners had HIGHER D than rejected g1b; the trickle rode one child
+lineage) — the e040 "trickle" is a single-lineage artifact at parameter
+level, matching the T024 audit's one-member flag.
+
+**The new fact:** the interface-scale family (W_in/W_out row norms,
+eranks, shapes) is a genuine SECOND damage predictor — W_out row-norm
+mean partial r(D | A-resid) = −0.654 (p=.040), i.e. partially
+independent of organ-reliance. Damage tracks TWO families: how much the
+host leans on the grafted organ (A), and the output-interface write
+scale/shape. Neither is what selection optimized.
+
+**Why didn't A move — two explanations, discriminated by e063 (running):**
+- **H-a INVISIBLE:** R (graft damage) is insensitive to A at the margin —
+  the reward can't see load reallocation, so it can't select it.
+  T024/T027's visibility-limited story at the reward level.
+- **H-b CANALIZED (T037 #2):** A is an init-anchored, defended setpoint;
+  the net actively corrects deviations. Organ-reliance as homeostatic
+  trait, not passive drift.
+**Registered discrimination (e063's longitudinal cells):** H-b predicts
+ACTIVE correction — induced A-deviations DECAY back over continued
+training (detectable recovery dynamics in the BDO/dose checkpoints);
+H-a predicts PASSIVE absence — no correction dynamic, ΔA wanders without
+restoring force. e063's setpoint-vs-drift verdict lands this hour.
+**P2 bearing:** the interface family is the cheap pre-graft crossmatch
+predictor candidate (e062 should test W_out rowmean FIRST, before
+stream-cosine — it is A-independent signal).
+
 ## T039 — E053c: the utility onset is ABSOLUTE — a fixed ~6-token horizon, not a window fraction (2026-09-26T10:05Z)
 
 **Registered verdict: ABSOLUTE, clear.** Doubling the window 256→512

@@ -76,7 +76,7 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | id | experiment | what |
 |---|---|---|
 | e058 | geometry-site anatomy | DONE (T029) | zero-GPU per-site r(align-dist, damage) x 11 ckpts + 2.7M replication — why L2 but not L3? |
-| e059 | winner differencing | zero-GPU ΔW audit of e040 winners vs unselected sibs — what did compatibility-without-alignment exploit? |
+| e059 | winner differencing | DONE (T040: H-nothing at bars; interface family = second damage predictor, partial r −0.654; trickle = single-lineage artifact) |
 | e063 | load homeostasis | zero-GPU A-setpoint tracking across the 11 ckpts — is organ-reliance a defended init-anchored trait? |
 | e056 | healed-host graft | ablate L3-MLP, heal to parity, graft donor — host-fragile-organ vs donor-basis-fit |
 | e060 | residual-selection lineage | e040 rerun with A-residualized damage (T026's method note) |
@@ -89,12 +89,13 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e066 | close the loop (P1) | READY (zero-GPU, minutes) | cos(e056b mean-donor relay dir at d5, wpe-130 row) from cached trajectories — registered: \|cos\| ≥ 0.4 closes position-row→state-direction loop; ≈0 = two distinct "addresses" |
+| e066 | close the loop (P1) | DONE (T038: TWO-OBJECTS, cos 0.094) + e066b in-place rows (GRADED, swap 0.46/zero 0.27 from 0.72) | relay is a circuit-shaped third thing, not the row; address = distributed conjunction w/ wpe-row concentration |
 | e067 | address census (P1) | READY (eval-only) | single-row wpe perturbation × install battery, 0.84M + 2.7M — sparse (≤5 rows carry ≥80%) vs dense code |
 | e068 | rebinding surgery (P1) | READY (eval-only) | copy wpe-130 row to position k / two-row swaps — durable expression at k ⇒ portable row; failure ⇒ downstream distributed key |
-| e065 | RMU-vs-surgery head-to-head | DESIGN (critic reviewing) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; GPU-gated behind e053c |
+| e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
-| — | P3 settle + junk split | GATED (e053c verdict) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |
+| — | P3 settle + junk split | UNGATED (e053c verdict in: ABSOLUTE, T039) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |
+| e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
 ## Parking lot (raw ideas, unranked)
 
