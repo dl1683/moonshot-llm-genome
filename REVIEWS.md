@@ -67,6 +67,36 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 35 — from dispatches + live audit (2026-09-26T11:55Z real; covering 10:45–11:55Z)
+
+Angles this window: RESEARCHER (day-4 claims lit scan, landed 11:04Z —
+Claim 1 NOVEL, Claim 2 PARTIALLY KNOWN with entry-level localization
+ours); interpretive work embedded in every T-card close-out (each
+carried ≥2 hypotheses + registered discriminator); CRITIC dispatched
+NOW on the day's four headline claims (A universal template, B
+single-row address, C self-generated junk, D crossmatch) — audit
+lands next beat and its verdicts gate paper/README wording.
+
+Results since R34: T045 closed strict (e074: shuffled-prompt control,
+drift gradient both frames); T046 opened-and-textured (e062:
+crossmatch partial r −0.976, AUC 0.919, scale-B transfer; T040
+retro-clarified — its signal was donor-conditioned); e075
+(source-pruning intervention) executing; DAY_FOUR_REPORT skeleton;
+e075 design + e076 registered.
+
+Environment: user's game ENDED ~11:50Z — GPU free; e065's thermal
+pre-wait auto-resumes (no dispatch needed); P1 phase-2 row-129
+cross-seed transplant queued behind e065's GPU usage.
+
+Decisions: (1) paper wording for claims A-D waits for the critic
+verdicts; (2) e076 (cosine mechanism + dW-alignment comparison) is
+the next CPU dispatch; (3) novelty clock fresh (11:04Z researcher).
+
+Integrity: T-section headers continuous; commits pushed through
+2f7e951.
+
+---
+
 ## Review 34 — from live fleet dispatches (2026-09-26T10:45Z real; covering 09:05–10:45Z)
 
 Angles covered by actual dispatches this window (per fleet-check doctrine):
