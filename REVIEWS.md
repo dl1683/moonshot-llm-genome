@@ -67,6 +67,38 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 36 — from dispatches (2026-09-26T13:05Z real; covering 11:55–13:05Z)
+
+Angles this window, all real dispatches: RESEARCHER ×2 (day-4 claims
+scan 11:04Z; trajectory-anchor scan ~13:00Z — GENUINELY NOVEL as a
+conjunction, StreamingLLM-opposite-sign rebuttal recorded);
+VISUALIZER (v014 crossmatch grid — rule frames visibly concentrate
+low-damage; kinship strips; NaN-guard caught); CRITIC verdicts
+processed to completion via e077 (claim A final: TRAINING-BUILDS) and
+e078 (claim B n=2).
+
+Results since R35: T047 audit folded; e077 settled claim A with the
+permutation-null calibration (trained shape-rs survive at 99th pct);
+e078 replicated the single-row pattern; e080 closed T048 (the anchor
+is run-specific trajectory content — noise=vzero, promptcopy 3/4);
+e075's kill + e080's close-out give the free-run-honesty principle
+its causal form; paper boundary + positioning sentences landed;
+README laws final-reworded; v014 delivered.
+
+In flight: e079 (B=16 junk resample), e065 (RMU 5-arm — livelock
+resolved by relaxing its over-tight 75C gate to the envelope's 80C;
+smoke-5 iterating).
+
+Decisions: (1) GPT-2-small external check for the anchor claim is
+PARKED (GPU cost, out of envelope-philosophy for now — revisit if the
+paper's reviewers demand external validity); (2) e076-extended is the
+last CPU queue item before day-4 wrap; (3) DAY_FOUR_REPORT gets its
+final extension when e065/e079 land.
+
+Integrity: commits pushed through 793503f.
+
+---
+
 ## Review 35 — from dispatches + live audit (2026-09-26T11:55Z real; covering 10:45–11:55Z)
 
 Angles this window: RESEARCHER (day-4 claims lit scan, landed 11:04Z —

@@ -170,6 +170,21 @@ clean-judge off-manifold) is reconfirmed as the only reliable
 witness — now in its third independent appearance (T037 #3, e075,
 e080).
 
+**NOVELTY VERDICT (scratch/trajectory_anchor_lit.md, ~13:05Z):
+GENUINELY NOVEL as a conjunction.** No 2018-2026 prior claims
+"self-history is load-bearing in a run-specific, content-specific way
+that static utility does not predict." Nearest priors each fail a
+discriminating feature: StreamingLLM (same intervention family,
+evicts earliest-not-middle, concludes POSITION-not-content — the
+opposite); Wang et al. 2502.15208 (attractor cycles, but
+paraphrase-entered, no lesion, no judge dissociation); Zhang & Press
+(same object, opposite sign — error-source only); Panickssery/Ackman
+(self-recognition, eval-time only); Braverman/Arora (entropy
+amplification, no deletion arms). Reviewer-collapse rebuttals
+recorded in the memo. OUR flagged caveats: single net family, B=8,
+clean-judge-is-another-net; cheapest external check = vzero-vs-noise
+arms on GPT-2-small (parked — GPU cost).
+
 ## T047 — CRITIC AUDIT of day-4 claims A-D: one overclaim downgraded, three flagged with cheap fixes (2026-09-26 ~12:05Z)
 
 **CLAIM A (universal template) — OVERCLAIMED as headlined; downgraded.**

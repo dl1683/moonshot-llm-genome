@@ -456,7 +456,7 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   imitation-learning error accumulation (Arora et al., AAAI 2022) —
   but neither localizes where the poison sits; the entry-level lesion
   account and the prune-by-source implication are the new part: an
-  ENTRY-LEVEL account of exposure bias. **Boundary (e075, registered kill): static lesion utility does NOT predict generation-time prunability — V-zeroing the self-generated dead band mid-run costs +0.26 nats and drives generation into a self-consistent off-manifold attractor (clean-net judged 6.4 nats; the once-harmless prompt band turns junk-heavy behind it). Description ≠ intervention license.** Control-confirmed (e074):
+  ENTRY-LEVEL account of exposure bias. **Boundary (e075, registered kill): static lesion utility does NOT predict generation-time prunability — V-zeroing the self-generated dead band mid-run costs +0.26 nats and drives generation into a self-consistent off-manifold attractor (clean-net judged 6.4 nats; the once-harmless prompt band turns junk-heavy behind it). Description ≠ intervention license.** Post-scan positioning (scratch/trajectory_anchor_lit.md): the trajectory-anchor conjunction is unclaimed in 2018-2026 — the nearest intervention family (StreamingLLM) evicts earliest-not-middle tokens and concludes position-not-content (the opposite sign); the snowball line treats self-history as error-source only; attractor-dynamics work lacks the lesion and the self-vs-clean judge dissociation. Control-confirmed (e074):
   shuffling the prompt band destroys corpus statistics yet creates no
   new junk there (0.024) while the generated band stays junky; within
   it, late-generation entries junk 5.5x more than early (0.169 vs
