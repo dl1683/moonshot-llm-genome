@@ -237,6 +237,21 @@ split-sample threshold (fit half, report out-of-sample AUC) +
 leave-one-lineage-out CI + the dW-alignment comparison already
 specified.**
 
+**CLOSE-OUT (e076, ~13:25Z): all three questions answered.** (1)
+H-basis-alignment SURVIVES every magnitude control — partial r
+−0.982 (strengthened from −0.976 by the partialing); caveat: in-situ
+write-mass shares variance (partial → −0.86 at the strongest
+control, still over bar). (2) The INSTRUMENT is out-of-sample robust
+— OOS AUC 0.885/median 0.919, 100% of resplits ≥ 0.85, LOO-lineage
+and LOO-donor CIs tight: the kinship worry is answered. (3) NOT
+cosine-specific (honest negative): dW-alignment (e052/e059 axis) is
+near-equivalent — partial −0.942, AUC 0.940 (a better classifier);
+the cosine probe's residual claim is PRACTICALITY: 2 batches, no
+init-lineage knowledge. **Claim D final: the crossmatch signal is
+real, robust, and two-instrument measurable; deploy the cosine
+probe.** The T046 tolerance-transfer prediction (P2 phase-2) stands
+unchanged.
+
 ## T046 — E062: the crossmatch exists — pre-graft stream-cosine at graft-input depths (2026-09-26 ~11:50Z)
 
 **Verdict: P2 WINS the cheap crossmatch, decisively.** Partial

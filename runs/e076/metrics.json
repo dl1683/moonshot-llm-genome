@@ -1,0 +1,413 @@
+{
+  "experiment": "e076_cosine_mechanism",
+  "date": "2026-09-26T13:13:32Z",
+  "status": "complete",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES masked; zero-GPU analysis)",
+  "question": "T046: does the e062 cosine crossmatch measure basis ALIGNMENT or write MAGNITUDE? T047 claim-D fixes: does the 0.919 AUC survive an out-of-sample threshold, and does the cheap cosine beat e059's dW-alignment axis?",
+  "registered_bars": {
+    "part1": "|partial r(D, P2 | A + donor write-norms + host stream-norms)| >= 0.8 -> H-basis-alignment; < 0.5 -> H-magnitude-proxy (collapse)",
+    "part2": "out-of-sample AUC >= 0.85 (Youden threshold fit on stratified train half) -> instrument survives",
+    "part3": "|partial r(D, P2 | A)| - |partial r(D, dWcos | A)| >= 0.1 -> instrument-novel"
+  },
+  "data": "runs/e062 metrics.json pair table (204 pairs, cached D/A/cosines) + checkpoints; streams/norms/dW recomputed and gated against e062/e059/e050 recordings",
+  "gates": {
+    "pairs_from_e062_cache": 204,
+    "e062_partial_reproduced": true,
+    "stream_cosine_max_abs_diff": 0.0,
+    "donor_axes_max_abs_diff": 0.0,
+    "e059_align_dist_max_abs_diff": 0.0,
+    "e050_dw_cos_max_abs_diff": 5.587935447692871e-09
+  },
+  "covariates": {
+    "A": "host own-organ ablation dCE (e062 cache)",
+    "donor_wout_rowmean_sites": "donor W_out row-norm mean, sites (checkpoint, e062 axis)",
+    "donor_win_rowmean_sites": "donor W_in row-norm mean, sites (checkpoint, e062 axis)",
+    "host_streamnorm_d2_d3": "host mean token ||stream|| at graft-input depths (2-batch probe)",
+    "donor_write_own": "donor MLP write norm on OWN exact graft input",
+    "donor_write_insitu": "donor MLP write norm on HOST's exact graft input (true post-graft write mass)"
+  },
+  "part1": {
+    "waterfall": [
+      {
+        "step": "raw r(D, P2)",
+        "n_covariates": 0,
+        "partial_r": -0.9398831039030179,
+        "ci95_fisher": [
+          -0.954040645749605,
+          -0.9215395176834292
+        ],
+        "p": 1.4368272973557912e-134
+      },
+      {
+        "step": "+ A",
+        "n_covariates": 1,
+        "partial_r": -0.9760618984682669,
+        "ci95_fisher": [
+          -0.9817917203983504,
+          -0.9685576103319523
+        ],
+        "p": 7.39530463113041e-215
+      },
+      {
+        "step": "+ donor W_out rowmean",
+        "n_covariates": 2,
+        "partial_r": -0.9801514972648577,
+        "ci95_fisher": [
+          -0.9849202439306823,
+          -0.9738945396380644
+        ],
+        "p": 2.3305923321131714e-232
+      },
+      {
+        "step": "+ donor W_in rowmean",
+        "n_covariates": 3,
+        "partial_r": -0.9801908644535673,
+        "ci95_fisher": [
+          -0.9849606104659486,
+          -0.9739282614540259
+        ],
+        "p": 2.084539939304602e-231
+      },
+      {
+        "step": "+ host stream-norm d2",
+        "n_covariates": 4,
+        "partial_r": -0.9797337606031876,
+        "ci95_fisher": [
+          -0.9846234123026933,
+          -0.973310142957108
+        ],
+        "p": 5.608673191966972e-228
+      },
+      {
+        "step": "+ host stream-norm d3 (FULL)",
+        "n_covariates": 5,
+        "partial_r": -0.9821975285142867,
+        "ci95_fisher": [
+          -0.9865062671007699,
+          -0.9765292048461491
+        ],
+        "p": 7.408935868955388e-240
+      }
+    ],
+    "partial_r_full": -0.9821975285142867,
+    "partial_r_full_ci95_fisher": [
+      -0.9865062671007699,
+      -0.9765292048461491
+    ],
+    "partial_r_full_ci95_hostcluster": [
+      -0.988365069322576,
+      -0.9746518483922435
+    ],
+    "partial_r_full_ci95_donorcluster": [
+      -0.9879768975831329,
+      -0.9641070763445333
+    ],
+    "sensitivities": {
+      "norms_only_no_A": -0.9754744441519608,
+      "plus_functional_own_and_insitu": -0.8611620390143095,
+      "functional_replacing_rowmeans": -0.8624230088191551,
+      "insitu_write_only": -0.8653545307525056,
+      "donor_norms_only_given_A": -0.9801908644535673,
+      "host_norms_only_given_A": -0.9775573528582546,
+      "corr_D_insitu_write": 0.9022151449502912,
+      "corr_D_host_streamnorm": -0.262214420004415,
+      "corr_P2_insitu_write": -0.9054090174235836,
+      "corr_P2_host_streamnorm": 0.027157542646223776
+    },
+    "verdict": "H-BASIS-ALIGNMENT SURVIVES: |partial r| after partialing on donor write-norms + host stream-norms = 0.982 >= 0.8 \u2014 the cosine carries direction information beyond write mass"
+  },
+  "part2": {
+    "split": "50/50 stratified by host lineage (18 strata); label = D > median(D_train); Youden on train only",
+    "primary_split": {
+      "threshold": 0.4578491151332855,
+      "j_train": 0.7450980392156862,
+      "auc_test": 0.8848379629629629,
+      "j_test": 0.5439814814814814,
+      "n_train": 102,
+      "n_test": 102,
+      "n_pos_test": 48,
+      "label_median": 1.4194835980733234
+    },
+    "resplits": {
+      "n_resplits": 200,
+      "auc_test_median": 0.9193737214394181,
+      "auc_test_p2.5_p97.5": [
+        0.8867838199673841,
+        0.9561177507836991
+      ],
+      "auc_test_min": 0.8688588007736944,
+      "j_test_median": 0.6105088389870998,
+      "j_test_p2.5_p97.5": [
+        0.5005524020393441,
+        0.7474301410693114
+      ],
+      "threshold_median": 0.4575272500514984,
+      "threshold_p2.5_p97.5": [
+        0.4374670833349228,
+        0.49387205168604853
+      ],
+      "frac_auc_ge_0.85": 1.0
+    },
+    "insample_reference": {
+      "auc": 0.9186851211072664,
+      "youden_threshold": 0.4459490031003952,
+      "youden_J": 0.6568627450980392,
+      "label_rule": "D > median(D) over all scale-A pairs"
+    },
+    "leave_one_host_lineage_out": [
+      {
+        "left_out_host": "e040_ref",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9687205592838579,
+        "partial_r_full": -0.9800413383952774
+      },
+      {
+        "left_out_host": "e040_w",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.975246567830763,
+        "partial_r_full": -0.9816724088547033
+      },
+      {
+        "left_out_host": "e005s_small",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9803456763291699,
+        "partial_r_full": -0.9850040557750115
+      },
+      {
+        "left_out_host": "e040_m1",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9759998849954055,
+        "partial_r_full": -0.9818206391986206
+      },
+      {
+        "left_out_host": "e040_m2",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9758966138677608,
+        "partial_r_full": -0.9819090427713212
+      },
+      {
+        "left_out_host": "e040_m3",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.975912272959265,
+        "partial_r_full": -0.9817395618642045
+      },
+      {
+        "left_out_host": "e040_g1a",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9761524665229806,
+        "partial_r_full": -0.9817095211197403
+      },
+      {
+        "left_out_host": "e040_g1b",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9760973926881608,
+        "partial_r_full": -0.9816761595238741
+      },
+      {
+        "left_out_host": "e040_g1c",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9768302888256037,
+        "partial_r_full": -0.9829282711788069
+      },
+      {
+        "left_out_host": "e040_g2a",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9792413030423506,
+        "partial_r_full": -0.9845161155506832
+      },
+      {
+        "left_out_host": "e040_g2b",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.976792014184445,
+        "partial_r_full": -0.9828913370283703
+      },
+      {
+        "left_out_host": "e040_g2c",
+        "n_pairs": 193,
+        "partial_r_given_A": -0.9765856224784892,
+        "partial_r_full": -0.982163490582123
+      },
+      {
+        "left_out_host": "e050_m1",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.9753680037021306,
+        "partial_r_full": -0.9813932052684081
+      },
+      {
+        "left_out_host": "e050_m2",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.975401544808282,
+        "partial_r_full": -0.9817546612292687
+      },
+      {
+        "left_out_host": "e050_m3",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.9759344570409172,
+        "partial_r_full": -0.9820199426194661
+      },
+      {
+        "left_out_host": "e050_g1a",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.9764823136757896,
+        "partial_r_full": -0.9821869373649919
+      },
+      {
+        "left_out_host": "e050_g1b",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.9761675511456589,
+        "partial_r_full": -0.9824711812359472
+      },
+      {
+        "left_out_host": "e050_g1c",
+        "n_pairs": 192,
+        "partial_r_given_A": -0.9757477680846833,
+        "partial_r_full": -0.9813687914156753
+      }
+    ],
+    "lolo_summary": {
+      "partial_r_given_A_min_max": [
+        -0.9803456763291699,
+        -0.9687205592838579
+      ],
+      "partial_r_full_min_max": [
+        -0.9850040557750115,
+        -0.9800413383952774
+      ],
+      "n_folds": 18
+    },
+    "leave_one_donor_out": [
+      {
+        "left_out_donor": "e040_ref",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9657222651163895,
+        "partial_r_full": -0.9675872211483478
+      },
+      {
+        "left_out_donor": "e040_w",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9746813948888245,
+        "partial_r_full": -0.982785597883531
+      },
+      {
+        "left_out_donor": "e005s_small",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9788674545934636,
+        "partial_r_full": -0.9822512683536826
+      },
+      {
+        "left_out_donor": "e040_m1",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.975829237696968,
+        "partial_r_full": -0.982157259448129
+      },
+      {
+        "left_out_donor": "e040_m2",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9763999690418097,
+        "partial_r_full": -0.9833207015847482
+      },
+      {
+        "left_out_donor": "e040_m3",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9758580071182408,
+        "partial_r_full": -0.9821732007046603
+      },
+      {
+        "left_out_donor": "e040_g1a",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9773420897567712,
+        "partial_r_full": -0.9833511807933006
+      },
+      {
+        "left_out_donor": "e040_g1b",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.976199675936564,
+        "partial_r_full": -0.9822909686418146
+      },
+      {
+        "left_out_donor": "e040_g1c",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9764107752181089,
+        "partial_r_full": -0.9833381425732556
+      },
+      {
+        "left_out_donor": "e040_g2a",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9773972636207664,
+        "partial_r_full": -0.9827450033559754
+      },
+      {
+        "left_out_donor": "e040_g2b",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.976414683179016,
+        "partial_r_full": -0.982937946026771
+      },
+      {
+        "left_out_donor": "e040_g2c",
+        "n_pairs": 187,
+        "partial_r_given_A": -0.9780478411176018,
+        "partial_r_full": -0.9829614502212718
+      }
+    ],
+    "lodo_summary": {
+      "partial_r_given_A_min_max": [
+        -0.9788674545934636,
+        -0.9657222651163895
+      ],
+      "partial_r_full_min_max": [
+        -0.9833511807933006,
+        -0.9675872211483478
+      ],
+      "n_folds": 12
+    },
+    "verdict": "out-of-sample AUC = 0.885 (primary split), median 0.919 over 200 resplits [2.5th pct 0.887]; out-of-sample J = 0.544 (median 0.611). INSTRUMENT SURVIVES the registered 0.85 bar (primary split AND resplit 2.5th pct)"
+  },
+  "part3": {
+    "predictor": "dWcos(host, donor) = mean_{s in 2,3} cos(dW_host_s, dW_donor_s); dW = trained - rebuilt init over mlp_keys(s) (e052/e059 verbatim)",
+    "r_D": -0.9002774497061503,
+    "p_r": 6.799918094256069e-75,
+    "partial_r_given_A": -0.9424764912841307,
+    "partial_ci95_fisher": [
+      -0.9560665838040346,
+      -0.9248440444344974
+    ],
+    "partial_ci95_hostcluster": [
+      -0.9567385497362972,
+      -0.9346568882527886
+    ],
+    "partial_ci95_donorcluster": [
+      -0.967381686385942,
+      -0.9036518342430464
+    ],
+    "partial_r_full_covariates": -0.9533609981945949,
+    "auc": 0.9400230680507498,
+    "youden_threshold": 0.16180235147476196,
+    "youden_J": 0.7647058823529411,
+    "e059_recorded_reference": {
+      "align_dist_r_D_n10": 0.5427209414875936,
+      "note": "e059: r(D, 1 - cos(dW_member, dW_REF)) over 10 members, fixed REF donor"
+    },
+    "comparison": {
+      "partial_r_P2_given_A": -0.9760618984682669,
+      "partial_r_dW_given_A": -0.9424764912841307,
+      "abs_margin": 0.03358540718413616,
+      "auc_P2": 0.9186851211072664,
+      "auc_dW": 0.9400230680507498,
+      "auc_P1_reference": 0.532871972318339,
+      "partial_r_P1_reference": -0.2039287911334084
+    },
+    "verdict": "|partial r| P2 0.976 vs dW 0.942: margin +0.034 -> NOT novel at the 0.1 bar"
+  },
+  "verdicts": {
+    "part1_mechanism": "H-BASIS-ALIGNMENT SURVIVES: |partial r| after partialing on donor write-norms + host stream-norms = 0.982 >= 0.8 \u2014 the cosine carries direction information beyond write mass",
+    "part1_partial_full": -0.9821975285142867,
+    "part1_bar": "|partial r| >= 0.8 alignment; < 0.5 magnitude",
+    "part2_oos": "out-of-sample AUC = 0.885 (primary split), median 0.919 over 200 resplits [2.5th pct 0.887]; out-of-sample J = 0.544 (median 0.611). INSTRUMENT SURVIVES the registered 0.85 bar (primary split AND resplit 2.5th pct)",
+    "part2_primary_auc_test": 0.8848379629629629,
+    "part2_bar": "out-of-sample AUC >= 0.85",
+    "part3_dw": "|partial r| P2 0.976 vs dW 0.942: margin +0.034 -> NOT novel at the 0.1 bar",
+    "part3_margin": 0.03358540718413616,
+    "part3_bar": "|partial r(P2)| - |partial r(dW)| >= 0.1"
+  },
+  "timing_s": 21.9
+}

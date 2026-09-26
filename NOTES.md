@@ -61,6 +61,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E076 — cosine mechanism + critic fixes: alignment survives; instrument out-of-sample-robust; NOT cosine-specific (2026-09-26) — DONE
+
+WHAT WE DID: three-part reanalysis on the 204 cached pairs, every
+instrument reproduced bitwise (e062 cosines, e059 align, e050 dw_cos
+to 5.6e-09). 22 s CPU.
+
+WHAT WE SAW (T046 close-out): (1) H-basis-alignment SURVIVES —
+partial r −0.982 after partialing on A + donor W_out/W_in row-norms +
+host stream-norms (strengthens from −0.976); honest caveat: in-situ
+donor write-mass correlates 0.902 with D and shares variance
+(dropping partial to −0.86, still over the 0.8 bar). (2) INSTRUMENT
+SURVIVES: out-of-sample AUC 0.885 (resplit median 0.919, 100% of 200
+splits ≥ 0.85); leave-one-lineage-out partial r ∈ [−0.980, −0.969];
+leave-one-donor-out [−0.979, −0.966]. (3) NOT COSINE-SPECIFIC
+(honest negative): the e052/e059 dW-alignment axis is near-
+equivalent (partial −0.942, AUC 0.940 — beats the cosine as a
+classifier); the cosine's residual advantage is practicality — a
+2-batch probe, no init-lineage knowledge.
+
+WHAT'S NEXT: T046 closes. Claim D headline: the crossmatch signal is
+real, out-of-sample robust, and measurable by either instrument —
+the cosine probe is the cheap deployment. P2 proceeds with it.
+
+---
+
 ## E079 — junk-split B=16 resample: claim C is NET-DEPENDENT (2026-09-26) — DONE
 
 WHAT WE DID: B=16 regeneration on e053c (e072 seed-family extension)

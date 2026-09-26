@@ -100,7 +100,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
 | e074 | shuffled-prompt junk control | DONE (T045 close-out: H-SOURCE strict — no new junk from shuffled prompts 0.024; late-gen 0.169 vs early 0.031 = 5.5x drift gradient) |
-| e076 | cosine mechanism discriminator (T046) | READY (reanalysis, minutes) | partial cosine on write/stream norms — alignment survives vs magnitude collapses |
+| e076 | cosine mechanism + critic fixes | DONE (T046 close-out: alignment survives −0.982; OOS AUC 0.885/0.919 median, LOO robust; NOT cosine-specific — dW near-equivalent, cosine wins on practicality) |
 | e075 | source-aware pruning (P3 step 1) | DONE (T048: KILL — +0.26 nats, off-manifold attractor; static junk dynamically load-bearing) |
 | e078 | dose-net rebinding rerun (T047) | DONE (REPLICATED n=2 — row129-alone > pair again; rebind 60-71%; old-bar MIXED stable) |
 | e079 | B=16 junk-split resample | DONE (claim C net-dependent: 10M robust anchor; 2.7M fires registered-mapping; e053c battery-difficulty-dependent; concentration clears 18.6%) |
