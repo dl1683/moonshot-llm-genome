@@ -83,6 +83,19 @@ prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 | e062 | subspace-cosine predictor | pre-graft stream-cosine as cheap compatibility predictor |
 | e061 | calibration rescue | scalar/gain nudges at e055's suppression depth vs full transplant |
 
+## Day-4 programs (ideator harvest 2026-09-26; memo: scratch/post_paper_programs.md)
+
+P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wildcard, gated on P1 census). Numbering fixed: e065 = RMU-vs-surgery head-to-head (design: scratch/e065_rmu_headtohead_design.md, under critic review); ideator's P1 ramp renumbered below.
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e066 | close the loop (P1) | READY (zero-GPU, minutes) | cos(e056b mean-donor relay dir at d5, wpe-130 row) from cached trajectories — registered: \|cos\| ≥ 0.4 closes position-row→state-direction loop; ≈0 = two distinct "addresses" |
+| e067 | address census (P1) | READY (eval-only) | single-row wpe perturbation × install battery, 0.84M + 2.7M — sparse (≤5 rows carry ≥80%) vs dense code |
+| e068 | rebinding surgery (P1) | READY (eval-only) | copy wpe-130 row to position k / two-row swaps — durable expression at k ⇒ portable row; failure ⇒ downstream distributed key |
+| e065 | RMU-vs-surgery head-to-head | DESIGN (critic reviewing) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; GPU-gated behind e053c |
+| — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
+| — | P3 settle + junk split | GATED (e053c verdict) | mass-stealers vs poison; sleeper hypothesis: self-generated entries dominate hurt set |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
