@@ -187,8 +187,8 @@ depth structure (5.4) → adjacent cache-utility context (5.5).
    (d*=4 of 6, inside the registered {2,3,4} window; d1/d2 ratios 4.6–76×
    at 9/10 deep sites).
 5. **The negative-utility cache findings as adjacent context** — the same
-   free-run causal apparatus yields the first per-position causal KV-cache
-   utility curve: spike+plateau shape (~85–95% of ctx-256 cache is dead
+   free-run causal apparatus yields, to our knowledge, the first
+   per-position causal KV-cache utility curve: spike+plateau shape (~85–95% of ctx-256 cache is dead
    weight), sink dead at generation 5/5, 13–20% (32% at 10M) of old entries
    have *negative* utility (lesion improves), onset instrument-dependent
    (registered-threshold a* = 3–86; open conflict between statistics
@@ -404,7 +404,9 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   caches (KVSink, COLM 2025, arXiv:2508.04257); we ask the inverse,
   generation-time question — what does free generation actually *use* —
   and answer it causally, per position.
-- First causal per-position KV-cache utility curve: last-~7-token spike
+- Per-position causal KV-cache utility curve (to our knowledge the first:
+   the COLM-25 KVSink line characterizes sinks, not causal per-position
+   read utility during free generation): last-~7-token spike
   (+0.4 to +3.2 nats/position) + shoulder (17–32) + near-zero plateau;
   ~85–95% of the ctx-256 cache is dead weight at generation.
 - Sink dead at generation in 5/5 cells (sink-lesion dCE 0.0069; decays,
@@ -460,7 +462,9 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
    caveat (4000/2226/1086 steps anti-correlated with scale).
 9. **Terminology scope:** "zero interventional studies" claims are scoped
    to *factual-recall expression* / *own-state transplant* (per T028;
-   YOPO is interventional in the abstention domain).
+   YOPO is interventional in the abstention domain). "First per-position
+   causal KV-cache utility curve" is scoped to free generation at toy
+   scale and hedged to our knowledge.
 
 ---
 
