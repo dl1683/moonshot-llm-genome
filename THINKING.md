@@ -161,6 +161,8 @@ ordinary high-frequency letters (no exotic attractor token). Root
 cause found en route: 12 torch threads spin-thrash this contended
 box — 8 threads is the sweet spot (documented for future rigs).
 
+**NOVELTY VERDICTS (scratch/read_kernel_lit.md, ~14:50Z):** (1) kernel-equals-shadow CLAIMABLE — strongest; no prior quantifies argmax-flip vs dCE agreement, and loss-saturation work PREDICTS the tail divergence (Spearman flag strengthens, not weakens). (2) sparse-open CLAIMABLE with framing care — precedented regime (contextual sparsity, retrieval heads), new granularity (3-4 of 80 explicit memory entries per decision). (3) flip taxonomy CLAIMABLE — destination distribution tabulated nowhere. (4) content-following WEAKEST — interchange-intervention logic (cite Geiger et al. + Todd et al.; preempt the Sutter causal-abstraction critique by keeping the alignment map fixed); only the 8.8%-vs-2% rate at entry granularity is new.
+
 **Bearing on the RIF conflict (T049):** the kernel's young-heavy
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
