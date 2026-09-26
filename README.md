@@ -175,7 +175,7 @@ it.
 
 ## Cadence — the heartbeat system (this is how the lab never idles)
 
-One cron automation (every 10 min, `*/10 * * * *`) drives everything.
+One cron automation (every 5 min, `*/5 * * * *`) drives everything — DISPATCH FIRST: the heartbeat's opening act is starting subagents if none run.
 **The heartbeat's core purpose is a FLEET-LIVENESS CHECK**: every
 heartbeat verifies that background agents are actively working — either
 experiment executors or thinking/review/visualization subagents
@@ -187,7 +187,7 @@ thinking agents are work too.
 
 | Condition | What it does |
 |---|---|
-| every 10 min | **Heartbeat = fleet check**: enumerate running agents; if the fleet is empty, dispatch immediately (top READY experiment, or interpreter/ideator/researcher/visualizer/critic on the freshest material); harvest anything that landed; log results in NOTES.md; commit |
+| every 5 min | **Heartbeat = fleet check**: enumerate running agents; if the fleet is empty, dispatch immediately (top READY experiment, or interpreter/ideator/researcher/visualizer/critic on the freshest material); harvest anything that landed; log results in NOTES.md; commit |
 | `last_review` > 60 min old | **Frontier review**: 3 parallel subagents (auditor / ideator / critic) review the notebook and queue, inject new ideas, retire stale lines; timestamped entry in REVIEWS.md; resets `last_review` |
 | `last_novelty` > 2 h old | **Novelty guarantee**: a genuinely new experiment line starts (not a continuation); resets `last_novelty` |
 
@@ -195,6 +195,8 @@ All timestamps live in `STATE.json` (`last_heartbeat`, `last_review`, `last_nove
 Any agent — scheduled or fresh — reads that file first and treats stale values as
 action items ("review overdue → run it now"). Only one automation exists per
 session; do not create more, the trigger logic above replaces a second clock.
+
+Standing idea sources (EXPLORER angle mines these every session): `Projects/Market Reports/Open Exploration` and `Projects/_meta` — concepts there become dissection questions.
 
 The cadence is subordinate to Rule 0: heartbeats may spend their turn
 thinking (writing THINKING.md) instead of launching runs, and the GPU staying
