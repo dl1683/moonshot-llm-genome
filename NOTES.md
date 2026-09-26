@@ -89,7 +89,7 @@ reading). e084's non-reactivity stands restored at the rule level.
 ## E084 — READ-KERNEL census: KERNEL = SHADOW (r 0.918) — the rule opens what the CE curves measure (2026-09-26) — DONE
 
 WHAT WE DID: 200 margin-stratified decision points × 80 entries × 3
-intervention types (48,000 cells, suffix-window speed path with
+intervention types (24,000 cells after the documented 200-to-100 cut; suffix-window speed path with
 exactness gate); flip census + taxonomy + correlation vs stored
 dCE-load; all gates pass.
 
