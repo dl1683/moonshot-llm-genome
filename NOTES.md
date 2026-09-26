@@ -61,6 +61,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E077 — untrained-init profile: TRAINING-BUILDS — the template is a fast training-dynamics emergent (2026-09-26) — DONE
+
+WHAT WE DID: A-profiles on 6 untrained inits (2.7M/6L seeds 42/43/777
+primary + 0.84M/4L support) + a 2000-draw permutation null for
+shape-r (shuffled site-orderings + matched-marginal gaussians);
+e063 machinery verbatim.
+
+WHAT WE SAW (T041 final stamp): untrained |A| ≤ 0.061 nats at every
+site of every seed (vs trained 0.15-4.08) — NO organ load exists at
+init; sites-1-5 r median −0.33, deep inside the null; the full-profile
+~0.9s were the quantified L0-domination artifact (null 95th pct
++0.984). CALIBRATION: T041's trained-vs-trained shape-rs SURVIVE —
+sites-1-5 recompute to +0.993/+0.983 at the 99.0-99.4th pct. Sanity:
+untrained CEs within +0.067 of ln(65).
+
+WHAT'S NEXT: T041 final phrasing: the universal allocation template
+is a FAST TRAINING-DYNAMICS EMERGENT (present by ~10³ steps — the
+e021 913-step control had it; not init-carried; invariant thereafter).
+Variance-ladder story unchanged.
+
+---
+
 ## E075 — source-aware pruning: KILL fires — static junk is dynamically load-bearing (2026-09-26) — DONE
 
 WHAT WE DID: the T045 intervention test per frozen design — 4 arms

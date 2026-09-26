@@ -71,8 +71,9 @@ Method: mechanism claims enter the card at H only after ≥3 nets.
 
 **Day-4 laws (T037–T041, single-family unless stamped):**
 
-8. **Organ-reliance is a universal allocation template (architecture/
-   init-prior candidate, critic-reframed T047)** — the per-organ
+8. **Organ-reliance is a universal allocation template — a fast
+   training-dynamics emergent (e077-final: built by ~10³ steps, not
+   init-carried; trained-vs-trained shape-r at the 99th pct of null)** — the per-organ
    load allocation profile (input-block peak, trough, monotone rise) is
    invariant across init, data order, and lineage selection
    (profile-shape r = +1.000, sites-1-5 r 0.91-0.94; T041/e063) and

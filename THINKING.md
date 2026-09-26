@@ -16,8 +16,8 @@ SHAPE; the task re-weights MAGNITUDES only (mean |ΔA| 0.27, uniform
 elevation, L1 trough partially filled — Spearman +0.83, barely at the
 bar). T041 closes: organ-reliance is an optimizer/architecture
 attractor. The only known shape-mover remains e033's energy constraint.
-PARKED: what architecture change (depth/head-count) would break the
-attractor — a day-5 candidate if P2 needs it.
+**FINAL STAMP (e077/T047): TRAINING-BUILDS — a fast training-dynamics emergent.** Init carries NO template (untrained |A| ≤ 0.061 vs trained 0.15-4.08; sites-1-5 r deep in null); the full-profile ~0.9s were the quantified L0 artifact (null 95th pct +0.984); the trained-vs-trained shape-rs SURVIVE the null at 99.0-99.4th pct. Template: built within ~10³ steps (the 913-step control had it), invariant thereafter. Neither init-carried nor merely 'attractor' — a FAST EMERGENT.
+PARKED: architecture-breaker sweep stays parked (day-5 candidate).
 
 **Discriminator OUTCOME (e071, ~10:05Z): H-WINDOW-KEY — clean sweep.**
 Row-0 perturbation erases the name on held-30 windows the net NEVER

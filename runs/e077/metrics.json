@@ -1,0 +1,290 @@
+{
+  "experiment": "e077_untrained_profile",
+  "date": "2026-09-26T12:09:42Z",
+  "status": "complete",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES=-1; common.DEVICE=cpu)",
+  "question": "does an UNTRAINED net already show the organ-allocation template (T047 claim-A fix), and what does a permutation null say the day's shape-r numbers are worth?",
+  "protocol": {
+    "A": "dCE of zeroing own mlp organ, mean over 15 fixed val batches (e052 protocol, corpus seed 1337) \u2014 e063 machinery verbatim",
+    "untrained": "fresh inits seeds 42/43/777, no training steps",
+    "primary_family": "2.7M = 6L/6H/192d vs B template (e001)",
+    "supportive_family": "0.84M = 4L/4H/128d vs e040_w template",
+    "n_eval_batches": 15,
+    "n_boot": 2000,
+    "n_null": 2000,
+    "null_families": {
+      "shuffle": "random site-permutation of trained profiles (marginals exact)",
+      "gaussian": "iid draws, mean/std matched to the pooled trained A-values"
+    },
+    "registered_rules": {
+      "init_side": "untrained r >= 0.9",
+      "training_builds": "untrained r < 0.5",
+      "partial": "between"
+    }
+  },
+  "trained_templates_from_e063": {
+    "B_e001": {
+      "0": 4.079657411575317,
+      "1": 0.15235294500986735,
+      "2": 0.2660760561625163,
+      "3": 0.4587578614552816,
+      "4": 0.5932433764139812,
+      "5": 0.5844108581542968
+    },
+    "A_e040_w": {
+      "0": 2.733818022410075,
+      "1": 0.8155406792958577,
+      "2": 1.2010762850443522,
+      "3": 1.1783083915710448
+    }
+  },
+  "sanity_readout3_base_ce": {
+    "ln65": 4.174387269895637,
+    "B_seed42": {
+      "base_ce": 4.241123549143473,
+      "ln65": 4.174387269895637,
+      "delta": 0.0667362792478361,
+      "in_e046_band": true
+    },
+    "B_seed43": {
+      "base_ce": 4.1716948509216305,
+      "ln65": 4.174387269895637,
+      "delta": -0.0026924189740062943,
+      "in_e046_band": true
+    },
+    "B_seed777": {
+      "base_ce": 4.215420055389404,
+      "ln65": 4.174387269895637,
+      "delta": 0.04103278549376732,
+      "in_e046_band": true
+    },
+    "A_seed42": {
+      "base_ce": 4.233989524841308,
+      "ln65": 4.174387269895637,
+      "delta": 0.05960225494567162,
+      "in_e046_band": true
+    },
+    "A_seed43": {
+      "base_ce": 4.213206958770752,
+      "ln65": 4.174387269895637,
+      "delta": 0.03881968887511533,
+      "in_e046_band": true
+    },
+    "A_seed777": {
+      "base_ce": 4.220328648885091,
+      "ln65": 4.174387269895637,
+      "delta": 0.04594137898945405,
+      "in_e046_band": true
+    }
+  },
+  "untrained_nets": {
+    "B_seed42": {
+      "seed": 42,
+      "params": 2739072,
+      "base_ce": 4.241123549143473,
+      "A_by_site": {
+        "0": 0.009218724568684895,
+        "1": 0.008789126078287761,
+        "2": -0.019289652506510418,
+        "3": -0.02860368092854818,
+        "4": -0.012634563446044921,
+        "5": -0.003339417775472005
+      },
+      "bootstrap_se": {
+        "0": 0.0015582822887702016,
+        "1": 0.0011104469585738533,
+        "2": 0.000812462158049818,
+        "3": 0.0006656763754234714,
+        "4": 0.00040395073569611284,
+        "5": 0.0004071694339586215
+      },
+      "shape_r_full": 0.503447852139291,
+      "shape_r_sans_L0": -0.3299341773929527
+    },
+    "B_seed43": {
+      "seed": 43,
+      "params": 2739072,
+      "base_ce": 4.1716948509216305,
+      "A_by_site": {
+        "0": 0.040372276306152345,
+        "1": -0.008650652567545573,
+        "2": -0.0014340400695800782,
+        "3": 0.00282742182413737,
+        "4": -0.006031068166097006,
+        "5": -0.012326558430989584
+      },
+      "bootstrap_se": {
+        "0": 0.0027701346270789075,
+        "1": 0.0013132752577140118,
+        "2": 0.0006341004952958563,
+        "3": 0.0005738021595325038,
+        "4": 0.0005660228317855308,
+        "5": 0.0005072699796759068
+      },
+      "shape_r_full": 0.9502014566067769,
+      "shape_r_sans_L0": -0.14078686884715177
+    },
+    "B_seed777": {
+      "seed": 777,
+      "params": 2739072,
+      "base_ce": 4.215420055389404,
+      "A_by_site": {
+        "0": 0.061000855763753255,
+        "1": 0.01231555938720703,
+        "2": -0.007051722208658854,
+        "3": -0.002848911285400391,
+        "4": -0.016616694132486978,
+        "5": 0.0045607566833496095
+      },
+      "bootstrap_se": {
+        "0": 0.0024583225402405673,
+        "1": 0.0014343151303672348,
+        "2": 0.0007264091591202124,
+        "3": 0.0005731884888695993,
+        "4": 0.0006661539249665468,
+        "5": 0.00046571964095739585
+      },
+      "shape_r_full": 0.905202442297917,
+      "shape_r_sans_L0": -0.5243735446977673
+    },
+    "A_seed42": {
+      "seed": 42,
+      "params": 840704,
+      "base_ce": 4.233989524841308,
+      "A_by_site": {
+        "0": 0.020492140452067056,
+        "1": -0.020216051737467447,
+        "2": 0.0002747217814127604,
+        "3": -0.014985020955403645
+      },
+      "bootstrap_se": {
+        "0": 0.0010041173971876943,
+        "1": 0.0007904853835965182,
+        "2": 0.0005543914173412772,
+        "3": 0.0006202175395859873
+      },
+      "shape_r_full": 0.9328060785442872,
+      "shape_r_sans_L0": 0.7341798405014963
+    },
+    "A_seed43": {
+      "seed": 43,
+      "params": 840704,
+      "base_ce": 4.213206958770752,
+      "A_by_site": {
+        "0": 0.010840066274007161,
+        "1": -0.0015178680419921874,
+        "2": 0.0030839920043945314,
+        "3": 0.005842240651448568
+      },
+      "bootstrap_se": {
+        "0": 0.0011161563742193763,
+        "1": 0.0007195535578602696,
+        "2": 0.00046460844875165756,
+        "3": 0.0005380639749010038
+      },
+      "shape_r_full": 0.9023024229823913,
+      "shape_r_sans_L0": 0.9078677007022226
+    },
+    "A_seed777": {
+      "seed": 777,
+      "params": 840704,
+      "base_ce": 4.220328648885091,
+      "A_by_site": {
+        "0": -0.024326324462890625,
+        "1": -0.017525577545166017,
+        "2": 0.006381861368815104,
+        "3": -0.0005806922912597656
+      },
+      "bootstrap_se": {
+        "0": 0.0011694148626042358,
+        "1": 0.0007836028953178656,
+        "2": 0.0004512113129654738,
+        "3": 0.0004074691867255402
+      },
+      "shape_r_full": -0.5563113532668725,
+      "shape_r_sans_L0": 0.9726552300765251
+    }
+  },
+  "null_shape_r": {
+    "B": {
+      "full": {
+        "n_draws": 2000,
+        "p95": 0.9838128375242131,
+        "p95_shuffle": 0.9892043026294295,
+        "p95_gaussian": 0.7530587299081722,
+        "max": 0.9995021595599943,
+        "observed_pct_rank": {
+          "seed42": 84.85000000000001,
+          "seed43": 92.05,
+          "seed777": 91.75
+        }
+      },
+      "sans_L0": {
+        "n_draws": 2000,
+        "p95": 0.8521464978153229,
+        "p95_shuffle": 0.889379289626256,
+        "p95_gaussian": 0.7763507421840213,
+        "max": 1.0,
+        "observed_pct_rank": {
+          "seed42": 28.299999999999997,
+          "seed43": 38.5,
+          "seed777": 15.9
+        }
+      }
+    },
+    "A": {
+      "full": {
+        "n_draws": 2000,
+        "p95": 0.9638382664617927,
+        "p95_shuffle": 0.9996647026943625,
+        "p95_gaussian": 0.9163170436225124,
+        "max": 1.0,
+        "observed_pct_rank": {
+          "seed42": 87.85,
+          "seed43": 84.95,
+          "seed777": 15.049999999999999
+        }
+      },
+      "sans_L0": {
+        "n_draws": 2000,
+        "p95": 0.9996726692098199,
+        "p95_shuffle": 1.0,
+        "p95_gaussian": 0.9873220375407664,
+        "max": 1.0,
+        "observed_pct_rank": {
+          "seed42": 72.95,
+          "seed43": 77.4,
+          "seed777": 80.2
+        }
+      }
+    }
+  },
+  "t041_calibration_recomputed": {
+    "B_vs_BDO_full": 0.9997303116534365,
+    "B_vs_B43_full": 0.9995021595599943,
+    "B_vs_BDO_sans_L0": 0.993347103377731,
+    "B_vs_B43_sans_L0": 0.9825955821098962,
+    "null_pct_rank": {
+      "B_vs_BDO_full": 100.0,
+      "B_vs_B43_full": 99.95,
+      "B_vs_BDO_sans_L0": 99.4,
+      "B_vs_B43_sans_L0": 99.0
+    }
+  },
+  "primary_summary_B": {
+    "median_r_full": 0.905202442297917,
+    "median_r_sans_L0": -0.3299341773929527,
+    "null_p95_full": 0.9838128375242131,
+    "null_p95_sans_L0": 0.8521464978153229,
+    "null_pct_rank_full": 91.75,
+    "verdict_full_rule": "INIT-SIDE",
+    "verdict_sans_L0_rule": "TRAINING-BUILDS",
+    "clears_null_full": false,
+    "clears_null_sans_L0": false,
+    "max_abs_A_untrained_all_seeds_sites": 0.061000855763753255,
+    "max_abs_A_trained_template": 4.079657411575317,
+    "min_abs_A_trained_template": 0.15235294500986735
+  },
+  "verdict": "TRAINING-BUILDS \u2014 the template is NOT in the init (fired by the honest sites-1-5 statistic). Honest sites-1-5: median r -0.330 < 0.5, inside its null (95th pct +0.852). Full-profile median r +0.905 nominally touches the 0.9 branch but sits INSIDE its own null (92th pct vs 95th pct +0.984) \u2014 the T047 L0-domination artifact, now quantified: any profile whose largest value lands at L0 scores ~0.9. Decisive magnitude fact: untrained |A| <= 0.061 nats at EVERY site of every seed vs trained 0.15-4.08 \u2014 no organ reliance exists at init; training builds the entire load profile (magnitudes AND trough/rise shape). Variance-ladder story survives; the T047 'architecture/init prior' candidate DIES (consistent with e021's 913-step task-incompetent control already showing r=+0.998: the template is built early in training, not carried by the init weights)",
+  "timing_s": 66.3
+}
