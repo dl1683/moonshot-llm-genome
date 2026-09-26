@@ -453,7 +453,11 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   imitation-learning error accumulation (Arora et al., AAAI 2022) —
   but neither localizes where the poison sits; the entry-level lesion
   account and the prune-by-source implication are the new part: an
-  ENTRY-LEVEL account of exposure bias.
+  ENTRY-LEVEL account of exposure bias. Control-confirmed (e074):
+  shuffling the prompt band destroys corpus statistics yet creates no
+  new junk there (0.024) while the generated band stays junky; within
+  it, late-generation entries junk 5.5x more than early (0.169 vs
+  0.031) — drift accumulates over the run.
 - Onset resolved (e053c + e069): the a\* statistic is ABSOLUTE, not
   proportional — doubling the window 256→512 (tokens-per-step matched)
   leaves a\* = 6 CI [4,8] (onset fraction halves); reindexed by training

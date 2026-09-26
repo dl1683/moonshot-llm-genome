@@ -99,7 +99,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
-| e074 | shuffled-prompt junk control (T045) | READY (CPU, minutes) | age-vs-source discrimination + generation-order secondary |
+| e074 | shuffled-prompt junk control | DONE (T045 close-out: H-SOURCE strict — no new junk from shuffled prompts 0.024; late-gen 0.169 vs early 0.031 = 5.5x drift gradient) |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
 ## Parking lot (raw ideas, unranked)

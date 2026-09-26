@@ -68,6 +68,23 @@ magnitude-invariant load redistribution inside the value pathway
 statistic — D1's "18" was mostly instrument; the shoulder's value-read
 death (K/V flip) stands as the real mechanism.**
 
+**CLOSE-OUT (e074, ~11:15Z): H-SOURCE fires strict — the confound is
+dead.** Shuffling the prompt band (93% of slots moved, corpus
+statistics destroyed) created NO new junk there (0.024, CI
+[0.008,0.040]; max 0.048 — under the 0.05 bar) while the generated
+band stayed junky (0.102 vs baseline 0.0995). Age, count, and
+recency alone do not make an old band go negative. The
+generation-order gradient replicates the mechanism inside the
+generated band: late-generation junk 0.169 vs early 0.031 (5.5×) —
+drift ACCUMULATES over the run, exactly the exposure-bias signature.
+Minor flag: clean CE slightly fell under shuffled prompts (−0.037,
+driven by one sequence) — noted, does not touch the registered bars.
+**T045 final statement: the free-running model's cache poison is its
+own accumulated generation drift — entry-level exposure bias,
+confound-free, 4/4 nets + control.** P3's pruning-by-source
+implication now stands on clean ground. Paper 5.5's day-4 bullet
+upgrades from "flagged n=1-family" to "control-confirmed (e074)".
+
 ## T045 — E073: cache junk is SELF-GENERATED — entry-level exposure bias, 4/4 (2026-09-26 ~11:00Z)
 
 **Registered verdict: H-SLEEPER fires 4/4.** Negative-utility cache

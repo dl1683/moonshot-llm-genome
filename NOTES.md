@@ -61,6 +61,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E074 — shuffled-prompt junk control: H-SOURCE fires — the poison is self-generation (2026-09-26) — DONE
+
+WHAT WE DID: replaced prompt entries with shuffled chars (93% slots
+moved; corpus statistics destroyed, age/count/recency kept), re-ran
+the V-zero sweep on the same sequences + generation-order secondary.
+
+WHAT WE SAW (T045 close-out): shuffled-prompt-band junk 0.024 (CI
+[0.008, 0.040]; max-over-seqs 0.048) — ≤ the 0.05 H-source bar;
+destroying corpus statistics created NO new junk in the prompt band.
+Generated band stays junky (0.102 vs baseline 0.0995). Secondary
+(base run): generation-order gradient CONFIRMED — late-generation
+junk 0.169 vs early 0.031 (5.5×). Age+count+recency alone do not
+make an old band go negative. Manipulation note: clean CE slightly
+FELL with shuffled prompts (−0.037, one seq −0.147) — flagged,
+secondary.
+
+WHAT'S NEXT: T045 closes strict — cache junk = accumulated
+self-generation drift (exposure bias at entry level, now
+confound-free). P3 program proceeds to pruning-by-source design.
+
+---
+
 ## E072 — value-vs-threshold: BOTH fire — per-norm value efficiency + a* B-fragility (2026-09-26) — DONE
 
 WHAT WE DID: V-vector norms + post-attention residual-write norms at
