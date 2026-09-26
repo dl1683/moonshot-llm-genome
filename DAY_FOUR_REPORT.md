@@ -95,6 +95,34 @@ day's three headline findings — each one a simplification.
   (ascent mask indexing, dCE baseline, kill-pair early-stop) before
   any data was collected.
 
+## The closing arcs (T049-T053, ~14:00-16:30Z)
+
+- **T049 (the RIF arc):** null → apparent reversal → registered
+  two-rig adjudication → STRING-LEVEL INDUCTION ONLY. Reads are
+  pure at the fact level; the apparent cross-name suppression was
+  fine string statistics (the meaningless ZABMOTHIC control
+  suppressed as much as the real name). The lab's canonical
+  methods-story for resolving internal disagreement.
+- **T050 (the read kernel):** KERNEL = SHADOW (r 0.918) — the
+  argmax rule opens what the CE curves measure; tail misreport
+  flagged (Spearman −0.13); the rule opens 3-4 of 80 coordinates
+  per decision; strongest claimable per the novelty scan.
+- **T051 (the anchor):** not an entry property, not a pair property
+  (sub-additive 0.464) — MASS-ACTION with a confirmed threshold
+  dose-response law (both clauses fired; variance collapse: which
+  entries doesn't matter, only how many).
+- **T052 (unlearning):** the classic obfuscation inversion failed
+  honestly; what the data show instead: RMU seals the READOUT GATE
+  (refuses even good states, 45x under bar) while the knowledge's
+  d5 trace survives (0.362) and the expression geometry dies.
+  FOUR removals, FOUR causal signatures. The three-readout
+  dissociation (probe/transplant/generation measure different
+  things) is paper-grade.
+- **T053 (the address):** BASIS-PRIVATE — structure universal
+  across seeds (bimodal census replicates), code orthogonal
+  (row-cos 0.059): a one-row KEY cut for one lock. The crossmatch
+  instrument correctly pre-screened and rejected the one-row graft.
+
 ## The handoff to day 5 (the idea pipeline working end-to-end)
 
 The user opened two standing idea sources — `Projects/Market
