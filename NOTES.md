@@ -61,6 +61,27 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E079 — junk-split B=16 resample: claim C is NET-DEPENDENT (2026-09-26) — DONE
+
+WHAT WE DID: B=16 regeneration on e053c (e072 seed-family extension)
++ propagated B=16-equivalent CIs for the e053 2.7M/10M stored
+profiles; paired-bootstrap CIs; concentration census.
+
+WHAT WE SAW (T045 addendum): bar 1 FAILS on e053c — gen-old junk
+0.114 vs prompt 0.099 (ratio 1.14, diff CI straddles 0, p-hold 0.29;
+the fresh-12 harder-battery confound from e072 recurs). bar 2 FIRES
+on BOTH mid_2.7M and large_10M (propagated CIs hold the contrast —
+the 10M carries the strongest original signal 0.367 vs 0.000).
+Concentration flag CLEARS at B=16 (max single-seq share 18.6% <
+40% bar). Honest close: the source split is real where the effect is
+large (2.7M/10M), B-4-only on the ctx-512 net.
+
+WHAT'S NEXT: paper 5.5 wording gains the net-dependence precision;
+critic claim-C flags resolved (threshold flag downgraded to
+net-dependence; concentration flag cleared).
+
+---
+
 ## E080 — prune-vs-replace: honest MIXED — neither presence nor prompt-content rescues; the anchor is run-specific (2026-09-26) — DONE
 
 WHAT WE DID: the T048 discriminator on the e075 rig — A-noise

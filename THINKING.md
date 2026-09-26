@@ -95,6 +95,13 @@ utility SIGN with content (baseline −0.066 → shuffled +0.027) — the
 start anchor's sign is content-dependent, a separate micro-physics
 from the band result.
 
+**B=16 REFINEMENT (e079, ~13:10Z): claim C is NET-DEPENDENT.** e053c's
+own contrast fails resampling (0.114 vs 0.099, CI straddles 0 — the
+harder-fresh-battery confound recurs) while the 2.7M and 10M propagated
+CIs hold it (the 10M's 0.367-vs-0.000 remains the anchor cell);
+per-seq concentration CLEARS (max 18.6%). Paper wording: the source
+split holds on the e053 family; the ctx-512 cell is B-4-grade.
+
 **AGENT TEXTURE (gates all pass; e059/e058 reproduced bitwise):**
 (a) **RETRO-CLARIFICATION OF T040:** e059's interface-family partial
 (−0.654) was DONOR-CONDITIONED — within the frozen cross-init donor
