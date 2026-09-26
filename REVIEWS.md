@@ -67,6 +67,52 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 34 — from live fleet dispatches (2026-09-26T10:45Z real; covering 09:05–10:45Z)
+
+Angles covered by actual dispatches this window (per fleet-check doctrine):
+- **INTERPRETER:** the T039-amendment pass (scratch/
+  interpretation_t039amendment.md) — mined two missed facts from stored
+  e069 curves (shoulder collapse; window-start second spike), falsified
+  plain H-redistribute, installed H-wpe-domain, reframed D2 to
+  conditional-redundancy/floor-loss, and specified the e070
+  discriminator with registered numbers. Harvested into T039-amendment.
+- **CRITIC:** e065 design review (SOUND-WITH-FIXES, all 6 fixes folded:
+  expression-gap no-removal control, retain-only arm, norm-matched α,
+  explicit R1-R4 bars, required depth grid, honest 40-min cost) +
+  e065's own smoke-self-critique (3 bugs caught: ascent mask indexing,
+  dCE baseline reference, kill-pair early-stop).
+- **IDEATOR:** post-paper programs P1-P4 (scratch/post_paper_programs.md,
+  harvested ~09:16Z with novelty stamp) — P1 COORDINATE now mid-execution.
+
+Results since R33 (all registered, all harvested): T037 synthesis +
+both file-tension discriminators closed (one with sign correction);
+T038 e066/e066b (TWO-OBJECTS; graded row weight); T039 + amendment
+(ABSOLUTE onset; spike circuit-not-statistics; eval-window-sensitive
+tail); T040/T041 + e063b (organ-reliance = universal optimizer-
+attractor — lineage nulls root-caused); T042→T043 (census → row 129
+is THE address, single portable row; row 0 = scaffolding; conjunction
+reading killed and superseded on-card); T044 (no attention clause
+fires; K/V dissociation points to code-sensitive value readers;
+banded threshold-vs-value reading, e072 discriminating).
+
+Queue state: P1 phase-1 census CLOSED (e066-e071); e072 running;
+e065 parked (user's game owns GPU — thermal-correct). Next tier:
+P1 phase-2 (position-jitter install dose-response; wpe-row transplant
+across seeds — now sharpened by T043 to row-129-only transplant),
+P3 junk-split (ungated, CPU-runnable — good fit while GPU is
+user-occupied), P2 ramp continues via e062 promotion decision.
+
+Decisions: (1) promote P3 junk-split to next CPU dispatch when e072
+lands; (2) e062 crossmatch predictor should test W_out rowmean FIRST
+(T040's finding: A-independent signal) before stream-cosine; (3) T043's
+70%-rebind residual tension — free discriminator rides the next P1 run;
+(4) GPU discipline: no lab GPU work while user's game holds the GPU.
+
+Integrity: 50 T-section headers verified; E-entries continuous; all
+commits pushed through 925f61c.
+
+---
+
 ## Review 33 — patrol (2026-09-26T10:45Z; self-audit: ledger unchanged
 since R32, tree clean, quiet heartbeats only)
 
