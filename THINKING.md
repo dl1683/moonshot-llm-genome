@@ -93,6 +93,23 @@ utility SIGN with content (baseline −0.066 → shuffled +0.027) — the
 start anchor's sign is content-dependent, a separate micro-physics
 from the band result.
 
+**AGENT TEXTURE (gates all pass; e059/e058 reproduced bitwise):**
+(a) **RETRO-CLARIFICATION OF T040:** e059's interface-family partial
+(−0.654) was DONOR-CONDITIONED — within the frozen cross-init donor
+column it holds (−0.706), but across varying donors host W_out scale
+is chance (AUC 0.533; host-level r −0.355, CI includes 0). The same
+collapse hits A itself (+0.807 → +0.080 across pairs): T026/T040's
+predictors were "damage given a VIOLENT donor," not general
+crossmatch instruments. (b) The P2 signal is WHOLE-NET
+representational proximity — all five depths work equally
+(per-depth partial −0.955…−0.979), not graft-site-specific geometry.
+(c) Honesty caveats: the 204-pair pool is kinship-structured (18
+lineages, many siblings; cluster bootstrap respects dependence but
+doesn't create diversity); the threshold is in-sample; and the
+winning mechanism is "net similarity" — its edge over e052's
+dW-alignment axis (r +0.543) must be checked before claiming
+instrument-novelty (registered with e076).
+
 ## T046 — E062: the crossmatch exists — pre-graft stream-cosine at graft-input depths (2026-09-26 ~11:50Z)
 
 **Verdict: P2 WINS the cheap crossmatch, decisively.** Partial
