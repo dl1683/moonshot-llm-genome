@@ -430,10 +430,18 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   sometimes sign-flips).
 - Negative-utility entries: 13–20% of positions (32% of old positions at
   10M) — lesion IMPROVES the model.
-- Onset is instrument-dependent (registered-threshold a* = 73/86/4 across
-  scales; 3→21→86 across exposure = grows 28.7×, the registered direction;
-  the sign-based shrink statistic conflicts — documented as an OPEN
-  conflict, ctx-512 cell is the registered decider).
+- Onset resolved (e053c + e069): the a\* statistic is ABSOLUTE, not
+  proportional — doubling the window 256→512 (tokens-per-step matched)
+  leaves a\* = 6 CI [4,8] (onset fraction halves); reindexed by training
+  steps the old "conflict" dissolves (r(a\*, steps) = +0.82; same-net
+  exposure axis monotone 3→21→86). Two invariances of the SPIKE itself
+  (e069): window-invariant (ages 1–3 unchanged under eval truncation)
+  and statistics-invariant (shuffled-char contexts: ages-1–2 retention
+  128% — the circuit reads recent positions, not n-gram statistics).
+  Qualifier: a\* is eval-window-sensitive in its tail — truncating the
+  eval window to 256 inflates mid-recent liveness (a\* → 18) with clean
+  CE unchanged; claim the fixed ~6-token spike horizon, not "a\* is a
+  window-independent constant."
 - Framing link: suppression of installed facts and dead cache entries are
   two readings of the same instrument — causal per-position intervention in
   the free-running stream.
