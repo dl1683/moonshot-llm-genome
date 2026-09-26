@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E065 — RMU-vs-surgery head-to-head: classic inversion FAILED; RMU closes the rescue channel specifically (2026-09-26) — DONE
+
+WHAT WE DID: the critic-hardened 5-arm design (RMU grid + surgery D2
++ ascent + retain-only + no-removal; R1 transplant sweeps with e055
+bars; R2 probe-only per T015; R3 relearn; R4 collateral; R5 the
+RMU-minus-retain contrast). Full run after 6 smoke passes.
+
+WHAT WE SAW (T052): the registered H-obfuscation inversion FAILED —
+no arm is rescuable-but-reverting. Actual: ALL gradient removals
+revert fast (RMU 12 steps, surgery 16, retain-only 12 — cos stays in
+the groove 0.998; ascent reverts SLOW 75 but wrecks the net CE+11.4).
+R1: RMU unrescuable (0.007), surgery unrescuable (0.0003),
+retain-only RESCUABLE at d5 (0.345). R5 NOT VOID: RMU-minus-retain
+deltas NEGATIVE at d1-d3 (CIs excluding 0) — the RMU loss
+specifically closes the transplant-rescuable channel beyond generic
+fine-tune scar. R4: RMU entropy drift +9% (flag); surgery/ascent
+bands per design.
+
+WHAT'S NEXT: T052 registers the reframe (obfuscation as
+rescue-channel closure, not probe-generation gap) + the follow-ups.
+
+---
+
 ## E089 — mass-response curve: MASS-ACTION confirmed — the anchor's dose-response law is threshold-shaped (2026-09-26) — DONE
 
 WHAT WE DID: removal cost vs k (random subsets, 10 draws per k,
