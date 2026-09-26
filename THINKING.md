@@ -155,6 +155,27 @@ sum of singles across the anchor band; super-additivity
 ⇒ sequence-level (view a) and P3 proceeds to basin-level
 descriptors (run-PCA distance to attractor, drift entropy).**
 
+**E088 CLOSE (the discriminator ran): NO bar fires — the texture is
+SUB-ADDITIVE (median ratio 0.464, cluster CI [0.024, 0.500], max
+1.0; aggregate 0.641; 21/40 negative denominators — 14 pairs had a
+facilitative single; no distance decay).** View b (pair
+interactions) is killed decisively — harder than entry-properties
+were. Combined with e085 (single removals near-null, mean +0.0006)
+and e075 (whole-band removal +0.26): **THE ANCHOR IS MASS-ACTION —
+many individually-redundant entries that only matter in aggregate.**
+No critical entry, no critical pair, no measurable single-entry
+property; remove the mass and the run collapses into the
+off-manifold attractor. Directionally consistent with view a
+(basin) with SATURATION structure: interventions saturate rather
+than compound. **Registered next (e089, CPU): the mass-response
+curve — removal cost vs NUMBER of entries removed (random subsets
+of size k ∈ 2..200 from the anchor band, 10 draws each):
+mass-action predicts a threshold-shaped rise (near-flat then
+breaking toward the e075 +0.26 as k approaches the band); a linear
+rise predicts diffuse independent contributions (the null view).
+This is P3's capstone measurement — the anchor's dose-response
+law.**
+
 ## T050 — E084: the read kernel equals its shadow — the first direct read-policy measurement (2026-09-26 ~14:35Z)
 
 **Verdict: KERNEL = SHADOW.** r(flip-rate(age), dCE-load(age)) =
