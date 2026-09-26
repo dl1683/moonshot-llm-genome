@@ -349,7 +349,7 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   by copying it alone (partial sufficiency; a 0.13 plateau remains
   without any copy), partial necessity (row ablation retains ~0.32 of
   the 0.556 expression — the knife-edge belongs to the shift, not the
-  row). **Post-scan perimeter (scratch/day4_claims_lit.md):** no
+  row), **n=2 installs** (e078 dose-net replication: same pattern; rebind 60-71%, install-dependent). **Post-scan perimeter (scratch/day4_claims_lit.md):** no
   per-row positional-embedding causal edit found 2023-2026 (nearest is
   TAPE's content-vs-position framing, build-only); scoped to learned
   absolute PEs; distinguished from ROME-family MLP edits, prompt tuning
@@ -456,7 +456,7 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   imitation-learning error accumulation (Arora et al., AAAI 2022) —
   but neither localizes where the poison sits; the entry-level lesion
   account and the prune-by-source implication are the new part: an
-  ENTRY-LEVEL account of exposure bias. Control-confirmed (e074):
+  ENTRY-LEVEL account of exposure bias. **Boundary (e075, registered kill): static lesion utility does NOT predict generation-time prunability — V-zeroing the self-generated dead band mid-run costs +0.26 nats and drives generation into a self-consistent off-manifold attractor (clean-net judged 6.4 nats; the once-harmless prompt band turns junk-heavy behind it). Description ≠ intervention license.** Control-confirmed (e074):
   shuffling the prompt band destroys corpus statistics yet creates no
   new junk there (0.024) while the generated band stays junky; within
   it, late-generation entries junk 5.5x more than early (0.169 vs

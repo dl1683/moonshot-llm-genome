@@ -101,7 +101,9 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
 | e074 | shuffled-prompt junk control | DONE (T045 close-out: H-SOURCE strict — no new junk from shuffled prompts 0.024; late-gen 0.169 vs early 0.031 = 5.5x drift gradient) |
 | e076 | cosine mechanism discriminator (T046) | READY (reanalysis, minutes) | partial cosine on write/stream norms — alignment survives vs magnitude collapses |
-| e075 | source-aware pruning (P3 step 1) | READY (design: scratch/e075_design.md; CPU) | A-self-prune vs A-prompt-prune placebo vs none — frozen bars in memo |
+| e075 | source-aware pruning (P3 step 1) | DONE (T048: KILL — +0.26 nats, off-manifold attractor; static junk dynamically load-bearing) |
+| e078 | dose-net rebinding rerun (T047) | DONE (REPLICATED n=2 — row129-alone > pair again; rebind 60-71%; old-bar MIXED stable) |
+| e080 | prune-vs-replace (T048) | READY (CPU, same rig) | V-zero (known) vs norm-matched noise vs prompt-copy — statistics-scaffold vs content-anchoring |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
 ## Parking lot (raw ideas, unranked)
