@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T038 — E066: the relay is not the row — coordinate-keying lives in the circuit, not the deep state (2026-09-26T09:35Z)
+
+**Registered verdict: TWO-OBJECTS.** |cos(relay_d5, wpe[130])| = 0.094
+(bar ≥0.4 closes; ≤0.15 distinct; null sd 0.072). The T037 construct-1
+hunch (deep relay carries the position row) is REFUTED at depth. What the
+sweep adds: d0 cos 0.507 @ row 129 — the position row IS the dominant
+shared component of donor states at input (partly by averaging mechanics:
+content cancels across donors, the shared wpe[129] survives) — and this
+alignment decays monotonically-ish through the stack to noise at d5. The
+delta relay (minus shuffled-mean) also fails (0.113). Not a token
+direction either (wte max 0.15 @ ' ').
+
+**Three explanations, discriminated by one seconds-cheap check:**
+
+- **H1 CIRCUIT-ADDRESS:** the binding lives in WHICH downstream weights
+  read a state (position-conditioned circuitry grown around wpe-129/130
+  during install), not in the state vector's alignment. The relay is
+  content-shaped; its position-specificity is conferred by the receiving
+  circuit (fits e056b R1 position-generality of the IMMEDIATE readout +
+  T035's off-position transience: the exploiting circuit is local).
+- **H2 ROTATED BASIS (measurement limit):** the wpe component survives
+  at d5 but LN/attn have rotated it; raw cosine is basis-naive.
+- **H3 ANSWER-SHAPED RELAY:** the relay is not an address at all — it is
+  the COMPUTED ANSWER (Z-ward readout content). The address was consumed
+  at input; what the transplant delivers is downstream product. Fits the
+  logit-paste phenomenology (T035) suspiciously well.
+
+**Registered discriminator (frozen before running):**
+cos(relay_d5, ln_f(W_U[Z-row]) direction, i.e. the Z-unembedding readout
+direction mapped into residual space). H3 predicts |cos| ≥ 0.3
+(answer-shaped); H1/H2 predict ≤ 0.15 (address/circuit-shaped or
+rotated). H2 additionally predicts: perturbing wpe[129]→[130] row swap
+at input produces a d5 Δstate that DOES align with relay_d5 (the circuit
+re-encodes position into the deep state); if that also fails, H2 is dead
+and coordinate-keying is purely circuit-side (H1+H3 joint).
+
+**Bearing on P1:** the "address atlas" (e067 census) should target the
+INPUT-side representation (wpe rows + early stream), where the coordinate
+code demonstrably lives; mid-stack states are post-address objects.
+
 ## T037 — SYNTHESIS: coordinate-keyed memory, canalization, and the read policy (2026-09-26T09:20Z)
 
 **The deep-insight pass (scratch/deep_insights_20260926.md) named what the

@@ -61,6 +61,29 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## E066 — close the loop: relay direction vs wpe address row = TWO OBJECTS (2026-09-26) — DONE
+
+WHAT WE DID: P1-COORDINATE ramp step 1 (ideator-registered, T037-refined).
+Exact e055 protocol rebuild on e048_repro; mean-donor relay per depth
+d0–d6; cosine sweep against all 256 wpe rows; delta-relay (minus shuffled
+family), wte sweep + adjacent-row controls. 14 s CPU.
+
+WHAT WE SAW (T038): registered metric |cos(relay_d5, wpe[130])| = 0.094
+→ TWO-OBJECTS verdict (bar: ≥0.4 closes, ≤0.15 = distinct; null sd 0.072,
+mean |row~row130| baseline 0.237). Depth profile: d0 cos 0.507 @ row 129
+(decision position; partly mechanical — shared wpe survives donor
+averaging), decaying through the stack to noise at d5 (max anywhere 0.121
+@ row 152; rank of row 130 = 19). Delta variant 0.113 — same verdict.
+wte control max 0.15 @ ' '. The T037 construct-1 optimism is REFUTED at
+depth: the deep relay that rescues p(Z) at 0.912 is NOT the position row
+itself.
+
+WHAT'S NEXT: T038 discriminator — is the relay ANSWER-shaped (cos vs
+Z-unembedding row) or circuit-address-shaped? Registered in T038; then
+e067 address census (is the input-side code sparse?).
+
+---
+
 ## E056c — downstream check: LOUD LOGIT PASTE at non-onset (2026-09-25) — DONE
 
 WHAT WE DID: the R14-registered discriminator — free-run continuations
