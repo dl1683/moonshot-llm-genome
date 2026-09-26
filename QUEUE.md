@@ -107,6 +107,16 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e080 | prune-vs-replace (T048) | DONE (close-out: honest MIXED — noise≈vzero (presence dead), promptcopy recovers 3/4 but misses bar; anchor is RUN-SPECIFIC trajectory content; attractor in all arms) |
 | e053c | ctx-512 onset decider | DONE (T039) | ABSOLUTE: a*(512)=6 CI[4,8], onset fraction halved; window-invariant truncation claims |
 
+## Day-5 candidates (explorer harvest 2026-09-26; memo: scratch/explorations_harvest_20260926.md)
+
+16 table-grade ideas mined from Open Exploration + _meta; top proposals:
+| id | proposal | status | one-liner |
+|---|---|---|---|
+| P-A | RIF at our scale (reading writes) | READY (rides e078 pass, eval-only) | prompt-only elicitation of fact-1 suppresses neighbor fact-2's expression (>=0.05, sham-flat) — the read policy has dynamical side effects |
+| P-B | coherence-gap dose ladder | READY (e080 rig, eval-only) | mid-generation corruption at eps 0.05..1.0 — NON-monotone per-nat damage (small doses drift permanently, large re-enter a coherent basin): canalization made causal; first structural description of the trajectory anchor |
+| P-E | consolidation cycle law | READY (3 erase/re-learn cycles, <=180s/arm) | discharges T037's registered third-cycle prediction (monotone closure) vs interleaved-replay consolidation — canalization stands or takes its second haircut |
+| — | synergy: state-over-output | noted | _meta's principle (6 instantiations) = our free-run honesty; lab supplies the 7th + mechanism; e062 crossmatch is the cash-out of _meta's Forecast/Diagnostic pivot |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
