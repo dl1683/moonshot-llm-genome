@@ -84,6 +84,24 @@ not the store.
 
 ---
 
+## E108 — distance-ladder anchor: SHARP FAMILY — the anchor runs binary self-recognition (2026-09-28) — DONE
+
+WHAT WE DID: the W002-earned distance ladder (sibling / intended-
+middle / copy-net), x-axis MEASURED (stream-cos per rung); all 10
+gates pass; both controls replicate bit-identically.
+
+WHAT WE SAW (T060): the intended ~0.53 middle never existed —
+W002's 0.53 was e029's ΔW ladder, not stream-cos; every
+differently-trained net sits at the stream-cos floor (0.016-0.033).
+SHARP FAMILY: middle collapsed like foreign (+4.40 vs +5.09;
+sibling +0.027 healthy). V-cos is a TWO-CLUSTER STEP: 0.403 (self)
+vs ~0.14 (any other). THE SHARPEST DECOMPOSITION: the middle
+donor's OUTPUT is nearly sibling-like (JS 0.041 vs foreign 0.138)
+YET IT COLLAPSES — output-similarity does not save you; the anchor
+reads INTERNAL V-geometry, not behavior.
+
+---
+
 ## E107 — value-side probe: ROUTING-ONLY STANDS — and content is ORTHOGONAL to readout (2026-09-27) — DONE
 
 WHAT WE DID: V-content match (entry's c_proj V-write vs the

@@ -452,6 +452,37 @@ the fast store, exactly the aging-hippocampus picture. Whether
 that's poetry or mechanism is what e083 (cycle-3) will help
 decide, whenever thinking demands it run.
 
+## T060 — E108: the anchor is binary self-recognition — the bilinear unification resolves as metaphor, cleanly (2026-09-28 ~00:35Z)
+
+**SHARP FAMILY fires against the pre-registered both-ways reading
+— and the second branch's follow-up is already answered by the
+data: the text-axis key is not a graded statistic but a STEP.**
+V-cos: 0.403 (self) vs 0.141 / 0.138 (any differently-trained net)
+— two clusters, no middle. And the decomposition that matters:
+the middle donor BEHAVES almost identically to the sibling (JS
+0.041) yet collapses. **The anchor does not read what the donor
+says; it reads what the donor IS — internal V-geometry, generator
+identity.** The immunology echo at its sharpest: this is self/non-
+self discrimination, MHC-style — binary, protein-geometry-based
+(the V-manifold as the net's MHC), indifferent to behavior.
+
+**W002 resolves:** crossmatch (graded, predicts graft damage) and
+anchor-family (binary, self-recognition) are DIFFERENT instruments
+measuring different things — basis-matching vs identity-matching.
+Graft tolerance is a graded compatibility; anchor membership is a
+step-function of trained-weight identity. P2 and P3 remain distinct
+programs with distinct laws; the "one bilinear form" was a metaphor
+that died usefully — it forced the middle rung, which produced the
+step law and the output-vs-internal dissociation.
+
+**Registered next (e111, demanded by T060's own question): what IS
+the binary marker in V-space?** PCA/low-dim structure of the
+recipient's own V-manifold: does the 0.40/0.14 split reduce to a
+small principal subspace (a "self-signature")? If the self/other
+classification completes in k dims, the anchor's identity check has
+a mechanism; the JS-dissociation says it must be internal, and
+internal means findable.
+
 ## T059 — E107 + the orthogonal-content principle: the architecture FORCES routing-only selection (2026-09-27 ~23:30Z)
 
 **ROUTING-ONLY stands decisively** — and the reason is now visible:
