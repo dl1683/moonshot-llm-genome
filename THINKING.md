@@ -388,6 +388,8 @@ Maybe because LayerNorm downstream makes amplitude cheap to
 reconstruct but direction expensive — is LN the REASON direction
 is the invariant? (Delightful test, someday: a norm-free variant.)
 
+**REFINEMENT (worked through on paper while e108 runs): LN doesn't rescue small writes — it just keeps the total bounded, and that EXPLAINS the magnitude floor.** Mechanism: attention output = Σ p_i V_i enters the residual stream; LN normalizes the STREAM TOTAL per position. If every anchor V is 0.1x, the attention block's output is 0.1x, but the stream total (MLP writes, other blocks, positional sum) is unchanged — so after LN, the anchor's SHARE of the normalized stream shrinks tenfold. The e102 floor (damage below ~0.1-0.56 retention) is a SIGNAL-TO-NOISE floor in the post-LN stream, not an amplitude detector. And this explains why 0.559x was healthy while 0.10x collapsed: the anchor survives as long as its direction keeps a viable share. PAPER-PREDICTION (e110, someday, cheap): the floor MOVES with the anchor's stream-share — scale the OTHER contributions down (or the anchor count up) and the per-entry floor drops; the floor is per-FIELD, not per-entry. This also quietly re-derives the mass law: more entries = more share = each can be quieter. The threshold law and the magnitude floor may be the SAME floor.
+
 **2. The read is attention; the gate is the last MLP; the anchor
 is a field. Three different nouns for three different programs —
 but the SAME stack keeps appearing: early routing (L1/L2) decides
