@@ -84,6 +84,27 @@ not the store.
 
 ---
 
+## E100 — read prediction: THE READ IS ATTENTION-ADDRESSED — T037's unified question answers to the routing (2026-09-27) — DONE
+
+WHAT WE DID: query-side features (attention mass, q-k cosine over
+the 80 candidates) vs ground-truth opened sets (bit-identical to
+e084 — G5 matched 100/100 per-DP opened-set sizes); pooled pair-
+weighted AUCs, 1000-DP bootstrap.
+
+WHAT WE SAW (T054): ATTENTION-ADDRESSED fires — attention-mass AUC
+0.907 [0.886, 0.931]; q-k cosine 0.882 (same band). The opened
+coordinates ARE the attended ones: precision@1 0.724 (10x chance);
+46% of opened in the attention top-5 (chance 6%). Layer structure:
+L1/L2 mass alone 0.897 (best single head L1H1 0.898); L0 near chance
+(0.64) — the addressing signal is COMPLETE BY MID-DEPTH. Rank-sum
+combo adds nothing: address = routing.
+
+WHAT'S NEXT: the residual is the registered next object — the ~10%
+AUC gap and the few per-DP failures (min 0.405): where and why does
+attention mispredict the read?
+
+---
+
 ## E097 — stratification: POSITION ASYMMETRY, but RECENCY-weighted not sink-weighted — the law gets its gradient (2026-09-27) — DONE
 
 WHAT WE DID: position-stratified removal at k=128 (primary) and k=64

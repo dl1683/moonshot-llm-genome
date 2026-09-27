@@ -142,7 +142,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e097 | sink-asymmetry | DONE (T051 amendment: POSITION ASYMMETRY RECENCY-weighted — new third 2.84x, old cheapest; sink prior INVERTED; exposure neutralized) |
 | e103 | contiguous-interleaved decomposition | READY (CPU) | is the stratification elevation recency or locality — matched-recency contiguous vs interleaved subsets |
 | e099 | attractor identity (Rule-11) | RUNNING | do all collapsed runs converge to ONE terminal distribution (net property) or perturbation-specific basins? cross-arm KL grid |
-| e100 | read prediction (Rule-11) | RUNNING | can attention mass / q-k cosine predict WHICH 3-4 coordinates open? AUC>=0.85 unifies read=attention; <=0.6 = hidden rule |
+| e100 | read prediction | DONE (T054: ATTENTION-ADDRESSED AUC 0.907 — opened=attended; L1/L2 sufficient; address= routing) |
+| e104 | failing-DP census (T054 residual) | READY (CPU) | the ~10% AUC gap and min-0.405 DPs — measurement blur vs second channel vs layer-late override |
 | e101 | adversarial mass-action subsets (falsification) | READY (CPU) | pick the k=128 subset the net itself values most (top readership/attention) — does the threshold break earlier? Kill-attempt on the which-irrelevance law |
 | e102 | direction-vs-magnitude decomposition (T051 deepener) | READY (CPU, e096 rig) | replace anchor entries with (a) correct-norm random directions (e080 redo) vs (b) correct-direction zero-norm unit vectors vs (c) scaled originals 0.1x — which factor carries the anchor: direction, magnitude, or presence? |
 | e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |

@@ -119,6 +119,38 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T054 — E100: the read is attention-addressed — the unified question's first-order answer (2026-09-27 ~21:45Z)
+
+**ATTENTION-ADDRESSED fires decisively: AUC 0.907 [0.886, 0.931].**
+The query state predicts which coordinates the read policy opens —
+the opened set IS the attended set (precision@1 10x chance; 46% of
+opened in the attention top-5 vs 6% chance). **T037's unified
+question ("what is the read policy?") answers, first-order, to: THE
+ROUTING WE ALREADY MEASURE.** The read policy is not a hidden rule
+sitting behind attention — it is attention's sparse opening of a
+handful of coordinates (T050's 3-4/80), now predictable from the
+query side. Layer structure sharpens it: L0 near chance, L1/L2
+sufficient (0.897) — the address is decided by mid-depth, before
+the decision layers; q-k cosine carries the same signal (the key
+IS the address). Combining features adds nothing: there is one
+signal, not two.
+
+**The residual is now the interesting object (registered e104):**
+~10% AUC headroom and the few per-DP failures (min 0.405, 1% of
+DPs below 0.5). Candidates: (a) measurement blur (the census's
+opened-set ground truth is itself interventional-threshold); (b)
+genuine second channel (non-attention reads at specific decisions
+— margin-structure covariate from e084 can localize them);
+(c) layer-late overrides (the deep-head corrections T037-#4 placed
+mid-stack). Discriminator: the failing-DP census — do failures
+cluster at specific margins/positions/layer-profiles or scatter?
+
+**Program bearing:** P1's coordinate program now has its mechanism
+spine — coordinate-keyed memory (T037) + one-row address (T053) +
+attention-addressed read (T054): the net ATTENDS to its own
+address rows to read its own writes. The loop from T037's "read
+policy" question to mechanism took one day.
+
 ## T053-NOVELTY (same scan): PARTIALLY KNOWN — address-universality + instrument claimable. Shared-structure/private-basis is a genre (git re-basin, model stitching, relative reps, cross-model steering 2025-26) but all concern hidden units/layers; nobody shows the same EMBEDDING-ROW address carrying a fact across seeds with orthogonal code — wpe rows are position-indexed, beyond re-basin's permutation story. Rebuttal to 'trivial from permutation symmetry': address AGREEMENT is a positive result, not a default. REGISTERED UPGRADE (e098): n=5-10 seeds to graduate from anecdote to law. Cross-claim synergy: B's private code explains A's no-individual-identity entries; A's redundant mass explains why a one-row key suffices.
 
 ## T053 — E082: the address is basis-private — structure universal, code seed-specific (2026-09-26 ~16:20Z)
