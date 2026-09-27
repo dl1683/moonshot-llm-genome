@@ -210,6 +210,19 @@ session; do not create more, the trigger logic above replaces a second clock.
 
 Standing idea sources (EXPLORER angle mines these every session): `Projects/Market Reports/Open Exploration` and `Projects/_meta` — concepts there become dissection questions.
 
+## Rule 0 amended — thinking is movement (the user's standing directive, 2026-09-27)
+
+80% thinking / 20% doing, and THINKING COUNTS AS DOING. A session
+of interpretation, synthesis, wonder, or savoring results is
+movement — often the most valuable kind. Random execution without
+interpretation is drift, not dissection. The lab's cadence enforces
+this: think first, then one deliberate act; if the last three beats
+were all execution, the next must be interpretation. WONDER CARDS
+(W-series in THINKING.md) are first-class: questions asked for
+curiosity and joy, no bars, no kills. The measure is
+insight-per-experiment and joy-per-insight — not
+experiments-per-hour. TAKE JOY IN THE DISSECTION.
+
 ## Rule 11 — interesting-first, falsify-first (the user's standing directive)
 
 The lab has infinite networks, infinite patience, and infinite time.
