@@ -386,7 +386,9 @@ holds 0.779 even at the failing stratum (the registered <0.6
 assumption was wrong); L3H0 leads the late features but without CI
 separation; late deviates from early in 5/6 strata without
 explaining the failures. The read's residual stays OPEN — neither
-two-channel nor single-channel. Registered next (e107): the
+two-channel nor single-channel. **AGENT RIDERS (directional): late is a WEAKER SHADOW, never a rescue.** L3-minus-L1L2 is negative in every stratum (succeeding −0.086, CI excluding 0); early >= late at every margin quartile; NO crossing; the delta channel at/below chance; late tracks early CLOSEST exactly at the failing stratum (the only |diff| <= 0.05 with CI including 0). Early routing remains the single best predictor even where it fails. **e107's registration is RE-AIMED off the routing-mass family: value-side/content features (the opened entries' V-content similarity to the query's predicted token) and margin-conditional non-attention reads — the honest candidates.**
+
+Registered next (e107): the
 dp27-style deep-dive — per-DP layer-resolved AUC trajectories
 across ALL failing DPs (not pooled): does each failure have its own
 inverting layer, or is there a shared signature pooling hides?
