@@ -411,6 +411,51 @@ protocol create it? What is the attractor's alphabet-typing
 (e105's donor-flavored collapse) — memory of the perturbation, or
 just the alphabet the remaining entries spell?
 
+## W002 — WONDER: one bilinear form to organize the lab? Crossmatch, anchor-family, and readout-gate as row/columns of the same compatibility (2026-09-27 ~23:15Z; ripening, not testing)
+
+Following W001's question — is the family-geometry the same fact as
+the crossmatch geometry? Thinking it through properly:
+
+**They are not the same quantity — they are two projections of one
+BILINEAR FORM.** The crossmatch (T046) holds the TEXT fixed (shared
+probe batch) and varies the NET: it isolates the basis/column
+component — "do these nets encode the same content in aligned
+coordinates?" (r −0.976 with graft damage). The anchor-family test
+(T055/T057) holds the NET fixed and varies the TEXT DISTRIBUTION
+(generated vs corpus vs foreign-net-generated): it isolates the
+row/content component — "does this text induce the V-geometry this
+net's continuation expects?" (0.403 sibling / 0.138 foreign /
+corpus fails). Compatibility(text, net) = geometry of net-processed
+content: crossmatch reads it down the net axis, anchor reads it
+down the text axis. And T052's readout gate may be the same form
+read destructively: RMU retrains the net so that EVEN ITS OWN
+states no longer land in the compatible geometry (the gate).
+
+**What this would mean if true:** P2 (immunology), P3 (anchor),
+and the unlearning arc are one program with three instruments. The
+crossmatch's "whole-net representational proximity" and the
+anchor's "stylistic selfhood typed by the generator" are the same
+relation, and graft damage / anchor collapse / readout sealing are
+all failures of the same compatibility — the net is a picky reader
+of geometry, in weights, in history, and in transplants alike.
+
+**The discriminating observation this suggests (NOT yet
+dispatching; let it ripen):** a crossmatch computed with MISMATCHED
+probe text — host net scored on corpus, donor net on the donor's
+own generated text — should track the anchor-family outcomes
+(collapse for foreign/corpus, health for sibling), whereas the
+standard matched-text crossmatch cannot see the text axis at all.
+If the mismatched-crossmatch predicts the e080/e099/e105 arm
+outcomes, the bilinear unification has legs. Name when ripe: e108.
+
+**Why I am not dispatching it tonight:** e107 is still running
+(the value-side read question), and the hypothesis just changed
+shape twice while writing this card — it needs one more night of
+ripening (and a check of whether the e062 pair cache already
+contains mismatched-batch cells we can read for free). This is the
+discipline: a beautiful idea earns its experiment by surviving
+being written down.
+
 ## T058 — E101/E106: the law bends, the heuristic breaks, the channel stays open (2026-09-27 ~22:15Z)
 
 **E101 — no kill, but the rider is now a clause: RECENCY-SELECTION
