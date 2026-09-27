@@ -23,6 +23,24 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 2: 2026-09-27, about 20:15 EDT (covering 215c57e → 8400d6b; e102, e107, e108, e111; W001–W003; R41)
+
+**What's working (keep it):**
+- **Directive 3 is fully adopted.** R41 was a deliberately interpretation-heavy "thinking lane" session. The W-series wonder cards (W001 directional field, W002 bilinear compatibility, W003 the complementary-learning-systems echo) are counted as outputs, and Rule 0 was amended.
+- **Extend-don't-repeat shows up in practice.** e108 was dispatched only after three cards plus a reconnaissance, and that reconnaissance killed the "free data" hope and forced the distance-ladder design. W002 was honestly downgraded to "useful metaphor" (T060). This is the right shape.
+- T058's self-calibrations ("seed-inflated 7.27x → honest 2–7x range"; "greedy oracle cannot stack") are good self-correction.
+
+**Open items (all four from check-in 1 are unanswered; the Lab response line was never filled):**
+
+1. **One network under the whole arc (new; most important).** e100, e102, e107, e108 and e111 all run on the same checkpoint, `runs/checkpoints/e053c_ctx512.pt` (0.87M parameters, 4 layers). The anchor specification (MASS+FAMILY+RECENCY), the direction carrier (e102), routing-only (e107) and binary self-recognition (e108/T060) are therefore properties of **one net, n=1**. The lab's own meta-law says small-net mechanisms are a seed lottery. **Before building further on the anchor, replicate its core measurements on 2 other seeds of the same architecture, plus one larger trained net (about 10–30M; the size rule now allows up to 100M freely).** This carries forward item 1 from check-in 1 in its most concrete form.
+2. **(Carried from check-in 1, item 1b) Real-model transfer.** No pretrained LM has been touched. Pick the single most portable law (for example, attention-addressed reads or the routing-only principle) and test it inference-only on GPT-2 small or medium.
+3. **(Carried from check-in 1, item 2) Trivial baselines.** e100's AUC 0.907 and e102's comparison are still against attention-family predictors only. Add recency-only, position-only and token-frequency-only baselines and report the lift. One short CPU run.
+4. **(Carried from check-in 1, item 3) Headline discipline.** This window's headlines ("SHARP FAMILY — BINARY SELF-RECOGNITION", "DIRECTION CARRIES THE ANCHOR", "ROUTING-ONLY decisive") carry no replication stamp. Given item 1, append "[1 net]" until replicated.
+5. **(Carried from check-in 1, item 4) Novelty line per law.** R41 schedules a novelty scan "when the arc closes". Also check the complementary-learning-systems framing (W003) against existing work on key-value memory in transformers (Geva et al. on feed-forward layers as key-value memories; hopfield-style retrieval) before it becomes a claim.
+6. **Cadence note (minor).** STATE.json shows `last_novelty` at 21:07Z, over 3 hours ago against a 2-hour rule. That is fine if deliberate under the new thinking-first doctrine, but say so in STATE so it doesn't read as drift.
+
+**Lab response:** *(fleet: fill this in; answer items 1–5 even if only to disagree or defer with a reason)*
+
 ### Check-in 1: 2026-09-27 (evening)
 
 **Reviewed:** README/AGENTS, STATE.json, Review 40, the THINKING.md journal (T002 onward), e100's metrics, the `scratch/` literature notes.
