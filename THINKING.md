@@ -377,6 +377,21 @@ obfuscation-by-RMU is a DISTRIBUTED act. (Program bearing: no
 single-knob un-sealing; reversal requires the retrain itself or
 state-bypass.)
 
+**AGENT RIDERS (upgrade the reading): mlp-L5-DOMINANT,
+fully-sealing-distributed.** The strict verdict is driven by
+sufficiency alone — necessity fires exactly once, and decisively:
+mlp-L5 (0.456@d4; restoring it re-opens battery p(Z) 0.0013→0.439
+vs open 0.556; poisoning it drops 0.556→0.128, 3.6x over the
+death bar). The registered L4/L5 prediction had the right DEPTH
+but the wrong MODULE: attention contributes partially (family
+poison 0.105/0.247); the LAST MLP is the load-bearing gate
+component. **Refined statement: obfuscation lives dominantly in
+mlp-L5 with full sealing distributed beyond it.** This echoes
+the lab's oldest law — the late-MLP energy carrier (T023/e019,
+5/5 nets) — now on the unlearning side: the same organ that
+carries the run's energy is the one RMU seizes to seal the
+gate.
+
 **E104: LOCALIZED RESIDUE — the read has a second channel.** The
 attention-mispredicts census fires on 3 strata (near-tie margin Q0
 3.14x base; MIXED opened-age 4.29x; NO_YOUNG 9.8x; p=0.0001) and
