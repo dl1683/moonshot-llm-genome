@@ -499,6 +499,8 @@ addressing (where), routing+recency selection (which), and a
 7-dimensional signature check (whose) — three cheap verifications
 standing in for what looked like deep memory.
 
+**AGENT SHARPENING — the reading is EXCLUSION, not signature-miss:** sibling occupies the recipient's subspace at the null's 100th percentile at EVERY k (0.841 vs own-in-sample 0.837 at k=8 — held-out same-net rows are indistinguishable from the net's own run); middle/foreign sit AT/BELOW the isotropic null (0th percentiles; zero excess over chance) — other nets' V-manifolds contribute NOTHING to the recipient's axes. The mean mode alone carries 21.7%. Pairwise-cos separates self from k=2 (0.724 vs 0.644/0.634). **So e112's stakes sharpened: forging means entering a subspace that the actual outputs of every other trained net are excluded from — not merely missing, but locked out.**
+
 **The forgery question (e112 — EARNED, dispatched):** if selfhood
 is a 7-dim lock, hand-craft the key. Project foreign/corpus
 V-vectors onto the recipient's top-7 subspace (keeping norms) —
