@@ -1,5 +1,9 @@
 # Neural Dissection Lab
 
+> **Every agent: read [`SUPERVISOR.md`](SUPERVISOR.md) first.** It holds Devansh's standing
+> directives (extend, don't repeat; the 10M-parameter ceiling; thinking as first-class
+> fleet work) and the supervisor's open items, which you must act on or answer.
+
 > Da Vinci opened corpses to understand anatomy. We open neural networks to
 > understand how they learn, what they store, and how they break. No thesis to
 > defend, no product to ship — dissection, curiosity first.
@@ -143,6 +147,11 @@ review bureaucracy — was deliberately left behind. We are playing, not litigat
    what's next. If it isn't written down, it didn't happen.
 5. **Commit constantly.** Small commits beat big ones. Git is the memory.
 6. **Never delete `runs/` or `data/`.** Disk is cheap; forgetting is expensive.
+6b. **Extend, don't repeat (Devansh's top rule).** Before any experiment or thinking
+   entry, search NOTES/THINKING/REVIEWS, `runs/`, `scratch/` and the prior eras in git
+   history (below tombstone `106aeff`). Every design names what it builds on and what
+   is new. Re-running an answered question is allowed only as a named
+   falsification or replication attempt.
 7. **Honesty reflexes (not bureaucracy).** Before believing any internal-state
    finding, ask: (a) do logits/behavior alone already predict it? (b) does
    intervening on it actually change behavior? If not, it's a curiosity, not a
@@ -150,7 +159,7 @@ review bureaucracy — was deliberately left behind. We are playing, not litigat
 8. **Time budget:** any single experiment step ≤ ~30 min. If slower, shrink the
    model or the data.
 9. **Compute envelope (2026-09-25 shutdown incident — permanent):** models
-   ≤1M params by default (5M absolute ceiling, only with explicit cause).
+   ≤10M params (raised from 1M/5M by Devansh, 2026-09-27).
    Keep ≥15% GPU headroom (util ≤85%, memory ≤85%). Check
    `lab/common.py: gpu_status()/gpu_ok()` BEFORE any launch; insert
    `cooldown(60–120s)` between training runs; no concurrent GPU jobs.
@@ -183,7 +192,10 @@ experiment executors or thinking/review/visualization subagents
 heartbeat that finds zero agents running and dispatches none is a FAILED
 heartbeat, even if the ledgers are clean. The live roster is recorded in
 `STATE.json.current_experiment` every heartbeat. GPU idling is fine —
-thinking agents are work too.
+thinking agents are work too. When no experiment is worth running, the fleet
+*thinks* (interpretation, critique, ideation, literature, visualisation,
+cross-linking old results); running agents constantly is the design, and depth of
+understanding, not verdict count, is the measure.
 
 | Condition | What it does |
 |---|---|

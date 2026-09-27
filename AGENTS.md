@@ -6,6 +6,8 @@ conversation history to operate.
 
 ## Read in this order (5 minutes)
 
+0. `SUPERVISOR.md`: Devansh's standing directives and the supervisor's open
+   items. **Mandatory, every entry.** Act on or answer every open item.
 1. `README.md` — mission, rules (especially Rule 0: 80% thinking / 20% doing),
    cadence. The constitution.
 2. `STATE.json` — what is running now, and the cadence timestamps
@@ -39,10 +41,12 @@ conversation history to operate.
 
 ## Hard rules
 
+- **Extend, don't repeat:** search existing notes, runs, scratch and prior-era git
+  history first; every design cites what it builds on and states what is new.
+
 - One file per experiment in `lab/`, outputs in `runs/eNNN/` with metrics.json
   + PNG graph. NOTES.md entry for every experiment.
-- Models ≤1M params by default (5M absolute ceiling, only with explicit
-  cause); single training runs ≤180 s; GPU envelope via `lab/common.py`
+- Models ≤10M params (raised 2026-09-27; GPU guards unchanged); single training runs ≤180 s; GPU envelope via `lab/common.py`
   (`gpu_ok()`, cooldowns, NO concurrent GPU jobs).
 - Never delete `runs/` or `data/`.
 - Commit constantly AND push (`git push origin main`) — git is the lab's memory.
