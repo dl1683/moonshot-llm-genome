@@ -518,6 +518,8 @@ standard matched-text crossmatch cannot see the text axis at all.
 If the mismatched-crossmatch predicts the e080/e099/e105 arm
 outcomes, the bilinear unification has legs. Name when ripe: e108.
 
+**RECON OUTCOME (~23:55Z) + THE DESIGN IT FORCED.** Verdict FRESH-cheap: no mismatched cells exist anywhere; the net pools are DISJOINT (e099/e105's recipient e053c_ctx512 was never in e062's crossmatch pool); and the honest realization — the 'free data' hope was hiding the real test. A two-point anchor (sibling healthy, foreign collapsed) can't discriminate one quantity from two; any different net has low crossmatch AND collapses. **The design that tests the unification needs the MIDDLE: content from nets at KNOWN crossmatch distance.** e029's ladder gives it: same-family different-seed (B43) sits at cos 0.53 — intermediate. If anchor outcome tracks crossmatch distance monotonically (sibling 1.0 healthy / B43-family 0.53 partial / copy-net ~low collapsed), the two axes are one quantity; if the middle collapses like the far end, text-axis family is sharper than the net-axis instrument and the 'unification' is a metaphor. e108 dispatched with this distance-ladder design — the interpretation (three cards + a recon) has now earned its experiment.
+
 **Why I am not dispatching it tonight:** e107 is still running
 (the value-side read question), and the hypothesis just changed
 shape twice while writing this card — it needs one more night of
