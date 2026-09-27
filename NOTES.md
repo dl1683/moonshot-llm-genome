@@ -84,6 +84,27 @@ not the store.
 
 ---
 
+## E095 — T050 texture probes: BOTH flags close as noise — the read-kernel card stands final (2026-09-27) — DONE
+
+WHAT WE DID: bit-exact census re-run (e084 machinery verbatim, all
+replication gates pass incl. 48/48 donor hits) + the two registered
+probes: escape-destination concentration and donor-voice divergence
+tracking.
+
+WHAT WE SAW (T050 final): H-tail NOISE — top escape destination 't'
+at 1.71x marginal (bar 3x); the Monte-Carlo guard shows iid draws
+from the battery marginal concentrate to 15.9% max-share, so the
+observed 11.3% is BELOW the null's own best case (p=0.997) — escape
+destinations are just the battery's ordinary frequencies. H-donor-
+voice NOISE — the 48 hits sit at the 33rd divergence percentile
+(bar 70), slightly BELOW median on all three measures (opposite
+direction, too small and post-hoc to promote).
+
+WHAT'S NEXT: T050 stands FINAL — kernel=shadow with the
+tail-misreport flag as a permanent caveat; no tail model.
+
+---
+
 ## E082 — cross-seed transplant: BASIS-PRIVATE — the address row dies at the seed boundary; crossmatch instrument validated (2026-09-26) — DONE
 
 WHAT WE DID: e043 install verbatim on B43 (GATE-0 pass, p(Z) 0.320,

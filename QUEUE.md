@@ -134,7 +134,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | id | experiment | status | one-liner |
 |---|---|---|---|
 | e092 | READOUT-GATE CENSUS | READY (eval-only CPU) | component-swap on the RMU net — necessity (restore-into-RMU) + sufficiency (poison-into-intact); one component localizes vs distributed |
-| e095 | T050 texture probes | READY (analysis on saved cells) | H-tail escape identities + H-donor-voice clustering — discharges both registered flags |
+| e095 | T050 texture probes | DONE (both flags NOISE — escapes diffuse below MC-null; donor hits 33rd pctile vs 70 bar; T050 final) |
 | e083 | canalization cycle 3 | READY (~100 steps) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
 | e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |

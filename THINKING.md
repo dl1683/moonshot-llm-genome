@@ -325,6 +325,8 @@ box — 8 threads is the sweet spot (documented for future rigs).
 
 **NOVELTY VERDICTS (scratch/read_kernel_lit.md, ~14:50Z):** (1) kernel-equals-shadow CLAIMABLE — strongest; no prior quantifies argmax-flip vs dCE agreement, and loss-saturation work PREDICTS the tail divergence (Spearman flag strengthens, not weakens). (2) sparse-open CLAIMABLE with framing care — precedented regime (contextual sparsity, retrieval heads), new granularity (3-4 of 80 explicit memory entries per decision). (3) flip taxonomy CLAIMABLE — destination distribution tabulated nowhere. (4) content-following WEAKEST — interchange-intervention logic (cite Geiger et al. + Todd et al.; preempt the Sutter causal-abstraction critique by keeping the alignment map fixed); only the 8.8%-vs-2% rate at entry granularity is new.
 
+**E095 FINAL CLOSE (~21:20Z): both texture flags are NOISE.** H-tail: top escape destination 1.71x marginal vs the 3x bar — and the Monte-Carlo guard proves the flat-uniform intuition vacuous (iid battery-marginal draws concentrate to 15.9% max-share; observed 11.3% is below the null's own best case, p=0.997). H-donor-voice: the 48 hits sit at the 33rd divergence percentile (bar 70), slightly BELOW median on all three measures — opposite the registered direction, too small and post-hoc to promote. **T050 stands final: kernel=shadow, tail-misreport flag permanent, no tail model.** Methodological gem: the MC-null guard belongs in every future concentration claim.
+
 **Bearing on the RIF conflict (T049):** the kernel's young-heavy
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
