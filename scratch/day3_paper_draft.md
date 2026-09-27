@@ -460,7 +460,23 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   shuffling the prompt band destroys corpus statistics yet creates no
   new junk there (0.024) while the generated band stays junky; within
   it, late-generation entries junk 5.5x more than early (0.169 vs
-  0.031) — drift accumulates over the run. Net-dependence (e079,
+  0.031) — drift accumulates over the run.
+
+  **Day-5 anchor specification (e096-e112, flagged toy-scale):** the
+  self-generated cache's sustaining role obeys three laws, each found by
+  falsifying its predecessor's simpler form — MASS (nonzero entries; a
+  threshold count-law; corruption-free to full norm), FAMILY (V-geometry
+  typed by the trained weights: a BINARY self/other step, cos 0.40 vs
+  0.14, with behaviorally near-identical donors rejected and the
+  self-signature subspace EXCLUDED to other nets), and RECENCY (2-7x
+  multiplier, opposite the sink prior; the eviction literature's
+  importance heuristic was the WORST selector tested). DIRECTION is the
+  carrier (unit-norm originals anchor; norm-correct random directions
+  collapse), and the identity check is holographic — forged 7-dim
+  signature keys fail. Positioning vs 2605.25459 (their on-policy
+  entropy channel cannot reject JS-0.041 donors) and vs the sink canon
+  (no prior derives the count threshold from normalization
+  arithmetic). Net-dependence (e079,
   B=16 resample): the 10M cell is the robust anchor (0.372 vs 0.000,
   diff CI excludes 0 even under worst-case bounds); 2.7M fires under
   the registered mapping; the ctx-512 cell's weaker contrast does not
@@ -802,3 +818,13 @@ pull at camera-ready.
     Computers." arXiv:2308.02852 (2023). [positional embeddings as
     instruction pointers in programmed looped nets — build-side;
     distinguished from our row-level causal localization]
+40. Asvin, Lindsey. "Self-Recognition in Language Models." arXiv:2605.25459
+    (2026). [on-policy recognition via entropy gap — behavioral channel]
+41. Zhou et al. "CoSur: Contrastive Output-Signature Regularization."
+    arXiv:2508.14408 (2025). [engineered self-signature subspace]
+42. Barbero et al. "Round and Round We Go: What Makes Rotary Positional
+    Encodings Useful?" arXiv:2504.02732 (2025). [normalization-arithmetic
+    argument style in the sink canon]
+43. Timkey & van Schijndel. "A Rogue Dimension: Inside-Out."
+    arXiv:2109.04404 (2021). [rogue-dimension confound — cited for our
+    standardization control]
