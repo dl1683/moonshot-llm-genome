@@ -67,6 +67,35 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 39 — from dispatches (2026-09-27T21:15Z; covering the quota window + resume)
+
+ANGLES, all real dispatches: VISUALIZER x2 (v016 final — six layout
+defects fixed AND the agent overrode the coordinator's wrong 0.84M
+footnote with the config-sourced 2.7M, disclosed); RESEARCHER
+(mass-action/key novelty — both PARTIALLY-KNOWN claimable with
+reframing; r~0 falsifies importance-scores in-regime); EXPERIMENT
+close-outs e095 (both T050 texture flags NOISE via MC-null guard).
+
+EVENTS: quota exhaustion ~2026-09-26 late UTC -> cron went
+quota-guarded direct-work; user restored early -> fleet resumed;
+cron restored to */5 dispatch-first + resilience clause per user.
+Day-4 closed through T053 before the window; next-wave (e092-e098)
+queued during it.
+
+IN FLIGHT: e096 (canalization dose-curve), e097 (stratification
+hedge), e092 (gate census — dispatched this beat).
+
+DECISIONS: (1) e098 (seed-ladder, GPU) is the next GPU slot — it
+graduates the address-universality law from n=2 anecdote; (2) the
+MC-null guard from e095 enters the methods appendix; (3) the
+user-asked synthesis (what the dissection has taught) is on record
+in-conversation — fold its five-defensible-findings framing into
+DAY_FOUR_REPORT's summary at next extension.
+
+Integrity: commits pushed through c1ade8c.
+
+---
+
 ## Review 38 — from dispatches (2026-09-26T15:12Z real; covering 14:07–15:12Z)
 
 Angles, all real dispatches: INTERPRETER-grade close-outs on every
