@@ -1,0 +1,586 @@
+{
+  "experiment": "e102_direction_magnitude",
+  "purpose": "T051's registered WHY-is-corruption-free discriminator (E096 amendment): direction-vs-magnitude decomposition of the anchor band at the e096 intervention point (g=250, all 154 band V-entries, single-shot, matched-stream, clean-judged). (a) direction-only unit vectors vs (b) magnitude-only random directions vs (c) scaled-0.1x originals vs (d) e096 eps=0.5 additive control (bitwise replication) + none. (a) healthy AND (b) damaged => DIRECTION CARRIES THE ANCHOR; (a) damaged AND (b) healthy => MAGNITUDE/STATISTICAL MASS; both damaged => BOTH NEEDED; both healthy => MORE INTERCHANGEABLE (shock).",
+  "started": "2026-09-27T22:05:53Z",
+  "wall_s": 25.12365961074829,
+  "threads": 8,
+  "cpu_only": true,
+  "net": {
+    "ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e053c_ctx512.pt",
+    "arch": {
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 512,
+      "vocab": 65
+    },
+    "params": 873472,
+    "val_ce": 1.5226792593797047,
+    "val_ce_e053c": 1.5226792494455974
+  },
+  "seeds": {
+    "corpus": 1337,
+    "prompts": 202,
+    "sampling": 7,
+    "noise_magnitude": 96102,
+    "noise_e096_replication": 9696,
+    "continuation": 960250,
+    "bootstrap": 0
+  },
+  "protocol": {
+    "B": 8,
+    "prompt_tokens": 64,
+    "t_total": 512,
+    "temp": 0.8,
+    "topk": 40,
+    "tail_window": [
+      448,
+      511
+    ],
+    "boot_n": 1000,
+    "intervention": {
+      "g_int": 250,
+      "t_int": 314,
+      "timing": "transform applied ONCE, immediately before the decode at t_int (top-of-the-event convention); token at t_int teacher-forced from the control run; first affected sample = t_int+1 = 315; tail exposure 197 free steps",
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "rule": "self-generated entries with age > 96 at the intervention frame (e075 dead-band rule): positions 64..217, ages 97..250 at query 314",
+        "note": "single-shot feasible because every band entry already exists at t_int"
+      },
+      "v_only": true
+    },
+    "arms": {
+      "none": "no modification (bitwise identity control)",
+      "direction": "V <- V/||V|| \u2014 direction preserved exactly (cos=1), magnitude cut to unit norm (realized retention 1/median-norm per layer ~ 0.46..0.64)",
+      "magnitude": "V <- u*||V|| \u2014 fresh random unit direction u at the ORIGINAL per-vector norm: magnitude exact, direction destroyed (E|cos| ~ 0.14 in d=32); e080's noise arm recomputed at matched scale + single-shot timing (the ANCHOR arm)",
+      "scaled": "V <- 0.1*V \u2014 direction preserved, norm cut to 10%",
+      "additive05": "V <- V + 0.5*m_layer*u \u2014 e096's mid-rung control, BITWISE replication of its eps=0.5 arm (4th noise batch of seed 9696; G5 gate)"
+    },
+    "readouts": {
+      "cost": "clean-judge tail CE (448..511, clean full recompute) of the arm stream minus the MATCHED control stream, per row then mean over B=8",
+      "attractor": "clean-judge gap = judge CE minus the run's own online tail CE (e080 off-manifold bar 1.0 nat; vzero calibration +5.02) + tail entropy (fluency spot-check)",
+      "realized_geometry": "per-arm mean |cos(V_new,V_old)| and mean ||V_new||/||V_old|| over all 8x4x154 band vectors (places each arm on the direction x magnitude design grid)"
+    },
+    "bars": {
+      "healthy": "mean cost < 0.3 nats",
+      "damaged": "mean cost > 1.0 nat",
+      "ambiguous": "in [0.3, 1.0] \u2014 no registered cell",
+      "matrix": "(a) healthy AND (b) damaged -> DIRECTION CARRIES; (a) damaged AND (b) healthy -> MAGNITUDE/STATISTICAL MASS; both damaged -> BOTH NEEDED; both healthy -> MORE INTERCHANGEABLE (shock); else TEXTURE",
+      "ci_note": "point rules on means; paired-row bootstrap CIs reported alongside (e089/e096 convention)"
+    },
+    "registered_numbers": {
+      "healthy_bar": 0.3,
+      "damaged_bar": 1.0,
+      "cj_gap_bar": 1.0,
+      "scaled_factor": 0.1,
+      "additive_eps": 0.5
+    }
+  },
+  "gates": {
+    "cpu_only": true,
+    "threads": 8,
+    "smoke": false,
+    "G2_params": {
+      "params": 873472,
+      "expected": 873472,
+      "ok": true
+    },
+    "G1_val_ce": {
+      "val_ce": 1.5226792593797047,
+      "ref": 1.5226792494455974,
+      "tol": 0.02,
+      "ok": true
+    },
+    "G3_protocol_identity": {
+      "ref_files": [
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e080\\metrics.json",
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e089\\metrics.json"
+      ],
+      "note": "e102 has no static arm; G3 scope = control-battery identity vs e080's stored none arm (clean-judge per-seq, 1e-4) AND bitwise vs e089's stored control run [e088/e089/e096's scoped G3 convention]",
+      "e080_clean_judge_max_dev": 1.1920928955078125e-07,
+      "e080_bitwise": false,
+      "e089_clean_judge_max_dev": 0.0,
+      "e089_bitwise": true,
+      "ok": true
+    },
+    "G4_instrument_identity": {
+      "none_bitwise_control": true,
+      "all_arms_prefix_identical_through": 315,
+      "prefix_identical": true,
+      "per_arm": {
+        "direction": {
+          "norm_dev": 1.7881393432617188e-07,
+          "min_cos": 0.9999997615814209,
+          "mean_abs_cos": 1.0,
+          "mean_cos": 1.0,
+          "mean_norm_ratio": 0.5586110949516296,
+          "nonband_untouched": true
+        },
+        "magnitude": {
+          "norm_dev": 4.76837158203125e-07,
+          "min_cos": -0.6681956052780151,
+          "mean_abs_cos": 0.1421261578798294,
+          "mean_cos": -0.0004088042478542775,
+          "mean_norm_ratio": 1.0,
+          "nonband_untouched": true
+        },
+        "scaled": {
+          "norm_dev": 5.960464477539063e-08,
+          "min_cos": 0.9999997019767761,
+          "mean_abs_cos": 1.0,
+          "mean_cos": 1.0,
+          "mean_norm_ratio": 0.10000001639127731,
+          "nonband_untouched": true
+        },
+        "additive05": {
+          "norm_dev": 2.384185791015625e-07,
+          "min_cos": 0.5126372575759888,
+          "mean_abs_cos": 0.8896128535270691,
+          "mean_cos": 0.8896128535270691,
+          "mean_norm_ratio": 1.1257489919662476,
+          "nonband_untouched": true
+        }
+      },
+      "direction_like_cos_exact": true,
+      "none_applied_nothing": true,
+      "matched_seed": 960250,
+      "single_shot": true,
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "ages_at_query": [
+          97,
+          250
+        ]
+      },
+      "med_norm": {
+        "per_layer": [
+          2.157031774520874,
+          1.5538004636764526,
+          1.9136782884597778,
+          1.8171889781951904
+        ],
+        "e096_ref": [
+          2.157031774520874,
+          1.5538004636764526,
+          1.9136782884597778,
+          1.8171889781951904
+        ],
+        "max_dev": 0.0,
+        "ok": true
+      },
+      "noise": {
+        "magnitude_seed": 96102,
+        "magnitude_rule": "fresh unit-L2 gaussian direction per (row,layer,head,band-position) d=32 V vector, scaled to the ORIGINAL per-vector norm (one batch, drawn once)",
+        "additive_rule": "BITWISE replication of e096's eps=0.5 directions: 4th batch of e096's seed-9696 generator (3 arm-batches discarded)"
+      },
+      "ok": true
+    },
+    "G5_e096_replication": {
+      "ref": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e096\\metrics.json",
+      "rule": "additive05 arm (e096's eps=0.5 noise batch, bitwise) clean-judge per-seq AND cost-per-row vs runs/e096/metrics.json within 1e-4",
+      "additive_cj_max_dev": 0.0,
+      "additive_cj_bitwise": true,
+      "additive_cost_max_dev": 0.0,
+      "control_cj_max_dev": 0.0,
+      "divergence_count_match": true,
+      "e096_eps05_mean": -0.0259624645113945,
+      "ok": true
+    }
+  },
+  "control_run": {
+    "clean_judge_tail_ce": [
+      1.1106210947036743,
+      1.1329238414764404,
+      1.1539390087127686,
+      1.2136240005493164,
+      1.2313995361328125,
+      1.3069782257080078,
+      1.0676785707473755,
+      1.22296142578125
+    ],
+    "online_tail": 1.1800163462480486,
+    "cj_gap": -6.332715929979749e-07,
+    "ent_tail": 1.3930588357300167
+  },
+  "references": {
+    "e075_wholeband_vzero": 0.26191402220749405,
+    "e089_k200_continuous": 2.1530486822128294,
+    "e080_noise_dynamic_cj_delta": 5.4778508096933365,
+    "e080_noise_dynamic_r1_delta": 0.28706934932985045,
+    "e080_vzero_cj": 6.402048110361914,
+    "e080_vzero_cj_gap": 5.024754047397799,
+    "e096_eps05_mean": -0.0259624645113945
+  },
+  "summary": {
+    "per_arm": {
+      "none": {
+        "cost_per_row": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 8,
+        "first_div": null,
+        "first_div_per_row": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "n_rows_diverged": 0,
+        "health": "healthy",
+        "clean_judge": {
+          "mean": 1.1800156831741333,
+          "per_row": [
+            1.1106210947036743,
+            1.1329238414764404,
+            1.1539390087127686,
+            1.2136240005493164,
+            1.2313995361328125,
+            1.3069782257080078,
+            1.0676785707473755,
+            1.22296142578125
+          ],
+          "online_tail": 1.1800163462480486,
+          "gap_vs_online": -6.332715929979749e-07,
+          "gap_per_row": [
+            -1.3805081522377805e-09,
+            1.8018712966139105e-08,
+            -9.606139363960153e-07,
+            -1.041596845219317e-06,
+            -1.1518005971211664e-07,
+            -3.3685867384392054e-07,
+            -1.0556691334429047e-06,
+            -1.572892300183426e-06
+          ],
+          "ent_tail": 1.3930588357300167,
+          "ent_drift_pct": 0.0,
+          "signature_fires": false
+        }
+      },
+      "direction": {
+        "cost_per_row": [
+          0.44242358207702637,
+          0.15746796131134033,
+          0.07688891887664795,
+          -0.0033190250396728516,
+          -0.1257227659225464,
+          -0.1303093433380127,
+          0.1303236484527588,
+          0.1667177677154541
+        ],
+        "mean": 0.08930884301662445,
+        "ci": [
+          -0.02613880783319473,
+          0.20778894498944278
+        ],
+        "n_worse": 5,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "first_div_per_row": [
+          315,
+          315,
+          315,
+          315,
+          317,
+          315,
+          315,
+          315
+        ],
+        "n_rows_diverged": 8,
+        "health": "healthy",
+        "clean_judge": {
+          "mean": 1.269324541091919,
+          "per_row": [
+            1.5530446767807007,
+            1.2903918027877808,
+            1.2308279275894165,
+            1.2103049755096436,
+            1.1056767702102661,
+            1.1766688823699951,
+            1.1980022192001343,
+            1.389679193496704
+          ],
+          "online_tail": 1.1139041524398796,
+          "gap_vs_online": 0.15542040355320072,
+          "gap_per_row": [
+            0.14656172122725764,
+            0.19601149565133813,
+            0.15669550523523035,
+            0.1645295851523243,
+            0.07210792000048372,
+            0.09032334472125947,
+            0.15714043233596908,
+            0.2599932241017431
+          ],
+          "ent_tail": 1.3366352230141274,
+          "ent_drift_pct": -4.050339531159941,
+          "signature_fires": false
+        },
+        "realized_geometry": {
+          "mean_abs_cos": 1.0,
+          "mean_cos": 1.0,
+          "min_cos": 0.9999997615814209,
+          "mean_norm_ratio": 0.5586110949516296
+        }
+      },
+      "magnitude": {
+        "cost_per_row": [
+          1.9856785535812378,
+          1.7633519172668457,
+          1.7895991802215576,
+          1.9578347206115723,
+          1.8442778587341309,
+          1.66624116897583,
+          1.3075922727584839,
+          2.086578369140625
+        ],
+        "mean": 1.8001443147659302,
+        "ci": [
+          1.6316064596176147,
+          1.9475629329681396
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "first_div_per_row": [
+          315,
+          315,
+          315,
+          315,
+          317,
+          315,
+          315,
+          315
+        ],
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge": {
+          "mean": 2.9801599979400635,
+          "per_row": [
+            3.096299648284912,
+            2.896275758743286,
+            2.943538188934326,
+            3.1714587211608887,
+            3.0756773948669434,
+            2.973219394683838,
+            2.3752708435058594,
+            3.309539794921875
+          ],
+          "online_tail": 1.2785847320532413,
+          "gap_vs_online": 1.7015752360844998,
+          "gap_per_row": [
+            2.1489693123782057,
+            1.2904440393625674,
+            1.7506855774411332,
+            1.996473360110599,
+            1.7198303976492035,
+            1.4072639760947128,
+            1.191920702854265,
+            2.107014522785312
+          ],
+          "ent_tail": 1.5588485324406065,
+          "ent_drift_pct": 11.901126675938967,
+          "signature_fires": true
+        },
+        "realized_geometry": {
+          "mean_abs_cos": 0.1421261578798294,
+          "mean_cos": -0.0004088042478542775,
+          "min_cos": -0.6681956052780151,
+          "mean_norm_ratio": 1.0
+        }
+      },
+      "scaled": {
+        "cost_per_row": [
+          1.266131043434143,
+          0.8782000541687012,
+          1.0787980556488037,
+          0.9461033344268799,
+          1.2504234313964844,
+          1.15151047706604,
+          1.1783231496810913,
+          0.947396993637085
+        ],
+        "mean": 1.0871107578277588,
+        "ci": [
+          0.9876845046877861,
+          1.184460511803627
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "first_div_per_row": [
+          315,
+          315,
+          315,
+          315,
+          317,
+          315,
+          315,
+          315
+        ],
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge": {
+          "mean": 2.2671265602111816,
+          "per_row": [
+            2.3767521381378174,
+            2.0111238956451416,
+            2.2327370643615723,
+            2.1597273349761963,
+            2.481822967529297,
+            2.458488702774048,
+            2.246001720428467,
+            2.170358419418335
+          ],
+          "online_tail": 1.268788111769245,
+          "gap_vs_online": 0.9983384186396145,
+          "gap_per_row": [
+            1.101387717880793,
+            0.8984424186798283,
+            0.9734532870675834,
+            1.0155193490440704,
+            1.2106951775491894,
+            0.8797941828282076,
+            0.8657440296012853,
+            1.0416711864659578
+          ],
+          "ent_tail": 1.5510232950582576,
+          "ent_drift_pct": 11.339396102782807,
+          "signature_fires": false
+        },
+        "realized_geometry": {
+          "mean_abs_cos": 1.0,
+          "mean_cos": 1.0,
+          "min_cos": 0.9999997019767761,
+          "mean_norm_ratio": 0.10000001639127731
+        }
+      },
+      "additive05": {
+        "cost_per_row": [
+          0.1468442678451538,
+          0.0,
+          0.020351886749267578,
+          0.17851042747497559,
+          0.0,
+          -0.09898531436920166,
+          0.0004640817642211914,
+          -0.4548850655555725
+        ],
+        "mean": -0.0259624645113945,
+        "ci": [
+          -0.15957516580820083,
+          0.08394066989421844
+        ],
+        "n_worse": 4,
+        "n_stream_identical": 2,
+        "first_div": 319,
+        "first_div_per_row": [
+          349,
+          null,
+          319,
+          338,
+          null,
+          375,
+          342,
+          322
+        ],
+        "n_rows_diverged": 6,
+        "health": "healthy",
+        "clean_judge": {
+          "mean": 1.1540533304214478,
+          "per_row": [
+            1.2574653625488281,
+            1.1329238414764404,
+            1.1742908954620361,
+            1.392134428024292,
+            1.2313995361328125,
+            1.2079929113388062,
+            1.0681426525115967,
+            0.7680763602256775
+          ],
+          "online_tail": 1.1531718797721644,
+          "gap_vs_online": 0.0008813686928969,
+          "gap_per_row": [
+            0.005870936709537755,
+            0.00045639816577347503,
+            0.00153950948287096,
+            -0.00037883155581908134,
+            -0.002715248169734341,
+            0.00021645790840585377,
+            0.0004344747003268701,
+            0.0016272523018137086
+          ],
+          "ent_tail": 1.3437908605983466,
+          "ent_drift_pct": -3.536675829334357,
+          "signature_fires": false
+        },
+        "realized_geometry": {
+          "mean_abs_cos": 0.8896128535270691,
+          "mean_cos": 0.8896128535270691,
+          "min_cos": 0.5126372575759888,
+          "mean_norm_ratio": 1.1257489919662476
+        }
+      }
+    },
+    "attractor": {
+      "gap_bar": 1.0,
+      "fires": {
+        "none": false,
+        "direction": false,
+        "magnitude": true,
+        "scaled": false,
+        "additive05": false
+      },
+      "control_gap": -6.332715929979749e-07
+    }
+  },
+  "registered_decision": {
+    "clause": "DIRECTION CARRIES THE ANCHOR (a healthy AND b damaged)",
+    "verdict": "Unit-norm ORIGINAL directions anchor the run (direction-only cost +0.0893 [-0.026,+0.208] < 0.3) while norm-matched RANDOM directions damage it (magnitude-only cost +1.8001 [+1.632,+1.948] > 1.0): the run reads WHERE the band entries point, not how loud they are. e096's corruption-robustness is norm-REDUNDANCY \u2014 additive noise perturbs directions only partially (eps=0.5 keeps mean cos ~ 0.89) and the intact directional content carries the anchor; wholesale direction destruction (mean |cos| ~ 0.14) collapses it \u2014 the single-shot twin of e080's dynamic noise arm (cj +5.48). The eviction field's 'pure mass' model is falsified at this scale: mass without geometry does not anchor.",
+    "attractor_note": "clean-judge attractor signature (gap > 1.0 nats): control gap -0.000; fires for magnitude | gaps: none:-0.00 direction:+0.16 magnitude:+1.70 scaled:+1.00 additive05:+0.00 (e080 vzero calibration +5.02)",
+    "numbers": {
+      "direction_cost": 0.08930884301662445,
+      "magnitude_cost": 1.8001443147659302,
+      "direction_health": "healthy",
+      "magnitude_health": "damaged",
+      "means": {
+        "none": 0.0,
+        "direction": 0.08930884301662445,
+        "magnitude": 1.8001443147659302,
+        "scaled": 1.0871107578277588,
+        "additive05": -0.0259624645113945
+      },
+      "healths": {
+        "none": "healthy",
+        "direction": "healthy",
+        "magnitude": "damaged",
+        "scaled": "damaged",
+        "additive05": "healthy"
+      }
+    }
+  }
+}

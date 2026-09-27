@@ -148,7 +148,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e100 | read prediction | DONE (T054: ATTENTION-ADDRESSED AUC 0.907 — opened=attended; L1/L2 sufficient; address= routing) |
 | e104 | failing-DP census | DONE (T056: LOCALIZED REAL RESIDUE — near-tie/mixed-age strata 3-10x base, p=1e-4; blur refuted; second-channel candidate) |
 | e101 | adversarial subsets | DONE (T058: no kill; recency-selection 2-7x — law's 3rd revision; top-readership WORST selector 0.40x — eviction heuristic falsified) |
-| e102 | direction-vs-magnitude decomposition (T051 deepener) | READY (CPU, e096 rig) | replace anchor entries with (a) correct-norm random directions (e080 redo) vs (b) correct-direction zero-norm unit vectors vs (c) scaled originals 0.1x — which factor carries the anchor: direction, magnitude, or presence? |
+| e102 | direction-vs-magnitude | DONE (W001/T051 completion: DIRECTION CARRIES THE ANCHOR — unit-norm anchors, norm-random collapses; magnitude floor 10-56%; the anchor is a directional field) |
 | e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |
 
 ## Parking lot (raw ideas, unranked)

@@ -84,6 +84,25 @@ not the store.
 
 ---
 
+## E102 — direction-vs-magnitude: DIRECTION CARRIES THE ANCHOR — the specification finds its carrier (2026-09-27) — DONE
+
+WHAT WE DID: the decomposition arms at g=250 (unit-norm originals /
+exact-norm random directions / 0.1x originals / eps=0.5 additive
+control — bitwise replication of e096); all gates pass incl. the
+new G5 rig-vs-shipped-artifact check.
+
+WHAT WE SAW (T051 completion): (a) direction-only HEALTHY (+0.09,
+CI includes 0 — unit-norm originals anchor fine at realized 0.559
+retention) while (b) magnitude-only COLLAPSES (+1.80, cj-gap
++1.70). The run reads WHERE entries point, not how loud. Rider:
+arm (c) true-0.1x IS damaged (+1.09) — direction necessary,
+magnitude floor between 10% and ~56%: not entirely redundant, just
+deeply secondary. e096's corruption-robustness = norm-redundancy
+(additive noise keeps cos 0.89). The "pure statistical mass" model
+falsified: mass without geometry anchors nothing.
+
+---
+
 ## E101 + E106 — adversarial subsets: no kill but recency-selection is strong, readership-selection fails; second channel unconfirmed (2026-09-27) — DONE
 
 E101 (adversarial): MIXED/TEXTURE — no CI-backed kill of the

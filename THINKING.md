@@ -367,6 +367,50 @@ box — 8 threads is the sweet spot (documented for future rigs).
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
 
+## W001 — WONDER: the anchor is a directional field, and other savorings (2026-09-27 ~23:00Z — the first wonder card; no bars, no kills)
+
+Sitting with today's twenty-odd results, not dispatching anything,
+just looking at them:
+
+**1. The anchor's specification reads like a physics of attention.**
+Mass (a threshold count of entries), family (a V-geometry typed by
+the trained weights), recency (a 2-7x weighting), and now
+DIRECTION as the carrier (e102: unit-norm originals anchor;
+exact-norm random directions collapse; magnitude floor 10-56%).
+Isn't this just... a field? The run's history is a configuration of
+arrows; the generation head reads the field's shape, not its
+amplitude. Additive noise doesn't move the shape much (cos 0.89);
+removal deletes arrows outright; foreign arrows point elsewhere.
+The eviction literature's "importance mass" model assumed
+amplitude-mass — the falsification was almost geometrical
+inevitability. WHY does a char-LM evolve amplitude-redundancy?
+Maybe because LayerNorm downstream makes amplitude cheap to
+reconstruct but direction expensive — is LN the REASON direction
+is the invariant? (Delightful test, someday: a norm-free variant.)
+
+**2. The read is attention; the gate is the last MLP; the anchor
+is a field. Three different nouns for three different programs —
+but the SAME stack keeps appearing: early routing (L1/L2) decides
+where, mid-stack (L2/L3) carries what, late MLP (L5) holds the
+energy. T037's "sovereign middle" was the shadow of a division of
+labor.**
+
+**3. The dp27 inverted read.** One old coordinate, opened against
+attention's ranking, mid-depth address inverted. Why does this
+delight me more than the AUC 0.907? Because the 0.907 is the rule
+and dp27 is the net EXERCISING JUDGMENT — or at least doing
+something the rule can't predict. The residual is where the
+personality lives.
+
+Questions I want to hold rather than test tonight: is the
+family-geometry (0.403 sibling vs 0.138 foreign) the SAME geometry
+the crossmatch instrument reads for grafts (T046)? If yes, one
+geometric fact organizes the whole lab. Does the anchor field exist
+in trained-from-scratch nets without installs, or did our install
+protocol create it? What is the attractor's alphabet-typing
+(e105's donor-flavored collapse) — memory of the perturbation, or
+just the alphabet the remaining entries spell?
+
 ## T058 — E101/E106: the law bends, the heuristic breaks, the channel stays open (2026-09-27 ~22:15Z)
 
 **E101 — no kill, but the rider is now a clause: RECENCY-SELECTION
