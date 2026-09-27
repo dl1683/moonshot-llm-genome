@@ -139,7 +139,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
 | e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |
 | e096 | coherence-gap dose ladder | DONE (T051 amendment: REMOVAL-fragile, CORRUPTION-robust — no damage at any eps; anchor = nonzero content-bearing entries) |
-| e097 | sink-asymmetry in anchor band (T051 hedge) | READY (CPU, reanalysis) | do anchor-band entries near the sink/positions-0-10 carry more mass — the which-irrelevance boundary |
+| e097 | sink-asymmetry | DONE (T051 amendment: POSITION ASYMMETRY RECENCY-weighted — new third 2.84x, old cheapest; sink prior INVERTED; exposure neutralized) |
+| e103 | contiguous-interleaved decomposition | READY (CPU) | is the stratification elevation recency or locality — matched-recency contiguous vs interleaved subsets |
 | e099 | attractor identity (Rule-11) | RUNNING | do all collapsed runs converge to ONE terminal distribution (net property) or perturbation-specific basins? cross-arm KL grid |
 | e100 | read prediction (Rule-11) | RUNNING | can attention mass / q-k cosine predict WHICH 3-4 coordinates open? AUC>=0.85 unifies read=attention; <=0.6 = hidden rule |
 | e101 | adversarial mass-action subsets (falsification) | READY (CPU) | pick the k=128 subset the net itself values most (top readership/attention) — does the threshold break earlier? Kill-attempt on the which-irrelevance law |

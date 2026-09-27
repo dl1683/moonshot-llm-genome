@@ -84,6 +84,29 @@ not the store.
 
 ---
 
+## E097 — stratification: POSITION ASYMMETRY, but RECENCY-weighted not sink-weighted — the law gets its gradient (2026-09-27) — DONE
+
+WHAT WE DID: position-stratified removal at k=128 (primary) and k=64
+(secondary), thirds of the anchor band vs fresh uniform controls; all
+gates pass; uniform replication consistent with e089 (+0.580 vs
++0.683).
+
+WHAT WE SAW (T051 amendment): monotone-in-recency ordering at k=128 —
+new third 2.84x, mid 2.02x, old 1.76x uniform; at k=64, old/mid cost
+LESS than uniform (0.54x/0.62x) with only the new third elevated
+(2.23x). The registered sink hypothesis INVERTED: the KV-eviction
+sink prior points the wrong way — recent self-generated entries carry
+the disproportionate mass. Exposure confound neutralized (the k=64
+new arm has 3x LESS exposure yet 2.2x the cost — the gradient runs
+AGAINST exposure). Rider: contiguous-third concentration itself costs
+more than interleaved removal (local redundancy pools).
+
+WHAT'S NEXT: the law refines to "mass dominates, recency modulates
+(2-3x), sink-side cheapest"; registered follow-up (e103): contiguous-
+interleaved decomposition — local-pool vs pure-recency.
+
+---
+
 ## E096 — coherence-gap ladder: hypothesis killed at premise — the anchor is REMOVAL-fragile, CORRUPTION-robust (2026-09-27) — DONE
 
 WHAT WE DID: single-shot additive corruption of all 154 extant
