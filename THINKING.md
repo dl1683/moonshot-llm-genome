@@ -411,6 +411,37 @@ protocol create it? What is the attractor's alphabet-typing
 (e105's donor-flavored collapse) — memory of the perturbation, or
 just the alphabet the remaining entries spell?
 
+## T059 — E107 + the orthogonal-content principle: the architecture FORCES routing-only selection (2026-09-27 ~23:30Z)
+
+**ROUTING-ONLY stands decisively** — and the reason is now visible:
+**entry V-content is orthogonal to output readout directions**
+(mean |cos| 0.033, third independent echo of T038/T057). If content
+carries no per-decision value signal (because V-writes point
+orthogonal to where logits are read), then there is NOTHING for a
+value-side selector to select on — **selection MUST be
+routing+recency; the architecture leaves no alternative.** The read
+policy = WHERE (attention) + HOW RECENT (age), and WHAT arrives is
+whatever directional content the field holds.
+
+**The two-scale picture (this is the day's closing synthesis):**
+per-DECISION, the read is coordinate-routing — selection without
+inspection. At the FIELD scale, the anchor is content-geometric —
+family-typed V-directions that sustain generation. These are not in
+tension: the decision-level selector never looks at content
+BECAUSE content is orthogonal to its readout; the field-level
+geometry matters through a different channel entirely (the residual
+stream's directional statistics, not per-token logits). Selection
+is discrete and coordinate-based; sustaining is continuous and
+geometry-based. A memory system that addresses by coordinates and
+sustains by fields.
+
+**The read-residual question effectively closes:** age alone equals
+attention at the failing stratum — the "failures" are where
+attention and the age prior disagree, and neither is wrong; they
+are two shadows of the same routing-only rule measured against a
+threshold-noisy ground truth. dp27 remains the one genuine
+inversion, now framed as the personality, not the pattern.
+
 ## W002 — WONDER: one bilinear form to organize the lab? Crossmatch, anchor-family, and readout-gate as row/columns of the same compatibility (2026-09-27 ~23:15Z; ripening, not testing)
 
 Following W001's question — is the family-geometry the same fact as

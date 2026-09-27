@@ -84,6 +84,25 @@ not the store.
 
 ---
 
+## E107 — value-side probe: ROUTING-ONLY STANDS — and content is ORTHOGONAL to readout (2026-09-27) — DONE
+
+WHAT WE DID: V-content match (entry's c_proj V-write vs the
+decision's top-2 readout directions via ln_f) + age-weighted
+variants, per stratum, vs the attention baseline; all identity
+gates bit-exact.
+
+WHAT WE SAW (T058 close): every content variant at CHANCE in every
+stratum (0.44-0.58); paired content-minus-attention at failing
+−0.33. ROUTING-ONLY decisive. TEXTURE: age ALONE matches full
+attention at the failing stratum (0.779 vs 0.788, diff CI
+[−0.03,+0.02]) — the read's predictability = attention mass + age
+prior, nothing value-side. Content |cos| tiny (0.033): entry
+V-writes near-ORTHOGONAL to readout directions — third independent
+echo of T038 (relay not answer-shaped) and T057 (V-family
+geometry).
+
+---
+
 ## E102 — direction-vs-magnitude: DIRECTION CARRIES THE ANCHOR — the specification finds its carrier (2026-09-27) — DONE
 
 WHAT WE DID: the decomposition arms at g=250 (unit-norm originals /

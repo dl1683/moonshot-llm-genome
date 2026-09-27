@@ -135,7 +135,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 |---|---|---|---|
 | e092 | READOUT-GATE CENSUS | DONE (T056: H-GATE-DISTRIBUTED — no component passes both bars; mlp-L5 necessity-only; the gate is the retrain) |
 | e106 | second-channel census | DONE (T058: MIXED — two-channel unconfirmed, single-channel fails; residual open; e107 per-DP layer trajectories registered) |
-| e107 | beyond-routing residual probe | READY (CPU, re-aimed) | value-side features (opened entries' V-content vs query's predicted token; content-similarity ranking) + margin-conditional non-attention reads — leave the routing-mass family per e106's riders |
+| e107 | value-side probe | DONE (T059: ROUTING-ONLY decisive; content ⊥ readout (0.033) — architecture forces routing+age selection; read-residual closes as attention-vs-age disagreement) |
 | e095 | T050 texture probes | DONE (both flags NOISE — escapes diffuse below MC-null; donor hits 33rd pctile vs 70 bar; T050 final) |
 | e083 | canalization cycle 3 | READY (~100 steps) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
