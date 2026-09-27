@@ -177,5 +177,5 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 Reviews promote at most 1-3 items to READY; ideas that discriminate live
 hypotheses (THINKING.md) outrank new topics. Replication debt outranks new
 lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor | DONE (T060: SHARP FAMILY — binary self-recognition; V-cos two-cluster step 0.40/0.14; output-near-identical donor still collapses — internal geometry, not behavior) |
-| e111 | V-manifold self-signature | READY (CPU, PCA analysis) | does the 0.40/0.14 self/other split reduce to a low-dim principal subspace of the recipient's V-manifold? |
+| e111 | V-manifold self-signature | DONE (T061: k*=7 — selfhood is a 7-dim readout; top-1 PC 11.7x; the fixed-point stamp found) |
 

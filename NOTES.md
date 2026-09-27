@@ -84,6 +84,21 @@ not the store.
 
 ---
 
+## E111 — V-manifold self-signature: k* = 7 — selfhood is a seven-dimension readout (2026-09-28) — DONE
+
+WHAT WE DID: PCA of the recipient's own anchor-band V-manifold;
+donor V-sets projected onto top-k; energy-fraction curves + null
+(97 same-norm Gaussians); all determinism pins respected.
+
+WHAT WE SAW (T061): LOW-DIM SELF-SIGNATURE fires — the 2x
+sibling/foreign energy separation holds at k=7 with the null below
+both (foreign sits at the 98th percentile of the null). Top-1 PC
+alone: 11.7x ratio. The fixed-point stamp (W004) is essentially
+SEVEN DIMENSIONS — arguably one dominant direction plus six
+correctors — in a 32-d per-head space.
+
+---
+
 ## E108 — distance-ladder anchor: SHARP FAMILY — the anchor runs binary self-recognition (2026-09-28) — DONE
 
 WHAT WE DID: the W002-earned distance ladder (sibling / intended-

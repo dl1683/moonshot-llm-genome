@@ -485,6 +485,31 @@ the signature subspace by hand — if the run accepts them,
 selfhood is a k-dim lock pickable; that would be e112, someday,
 and it would say the net's self is shallower than it acts.)
 
+## T061 — E111: the self is seven dimensions — and now it can be tested for forgery (2026-09-28 ~01:10Z)
+
+**k\* = 7.** The sibling/foreign energy separation in the
+recipient's V-manifold principal subspace fires at seven
+dimensions with the null far below; the FIRST principal component
+alone carries 11.7x. **W004's fixed-point stamp is a 7-dim readout
+in a 32-d space** — the net verifies its own identity every token
+against what is, geometrically, a hair. Combined with T059's
+orthogonal-content principle (selection never inspects content)
+and T060's binary step, the architecture is now: coordinate
+addressing (where), routing+recency selection (which), and a
+7-dimensional signature check (whose) — three cheap verifications
+standing in for what looked like deep memory.
+
+**The forgery question (e112 — EARNED, dispatched):** if selfhood
+is a 7-dim lock, hand-craft the key. Project foreign/corpus
+V-vectors onto the recipient's top-7 subspace (keeping norms) —
+vectors that are NOT the net's output in any other respect but
+carry the signature. If the run accepts them (healthy gap), self
+is exactly as shallow as k=7 suggests — pickable; if it rejects,
+the anchor reads beyond the signature (higher-order joint
+statistics) and self is deeper than its own stamp. Either answer
+completes the arc: W004 asked whether a fixed point can be forged;
+e112 is the test.
+
 ## T060 — E108: the anchor is binary self-recognition — the bilinear unification resolves as metaphor, cleanly (2026-09-28 ~00:35Z)
 
 **SHARP FAMILY fires against the pre-registered both-ways reading
