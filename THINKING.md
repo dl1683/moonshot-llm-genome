@@ -119,6 +119,8 @@ winning mechanism is "net similarity" — its edge over e052's
 dW-alignment axis (r +0.543) must be checked before claiming
 instrument-novelty (registered with e076).
 
+## T053-NOVELTY (same scan): PARTIALLY KNOWN — address-universality + instrument claimable. Shared-structure/private-basis is a genre (git re-basin, model stitching, relative reps, cross-model steering 2025-26) but all concern hidden units/layers; nobody shows the same EMBEDDING-ROW address carrying a fact across seeds with orthogonal code — wpe rows are position-indexed, beyond re-basin's permutation story. Rebuttal to 'trivial from permutation symmetry': address AGREEMENT is a positive result, not a default. REGISTERED UPGRADE (e098): n=5-10 seeds to graduate from anecdote to law. Cross-claim synergy: B's private code explains A's no-individual-identity entries; A's redundant mass explains why a one-row key suffices.
+
 ## T053 — E082: the address is basis-private — structure universal, code seed-specific (2026-09-26 ~16:20Z)
 
 **Verdict: BASIS-PRIVATE.** The seed-42 wpe-129 address row does
@@ -263,6 +265,8 @@ breaking toward the e075 +0.26 as k approaches the band); a linear
 rise predicts diffuse independent contributions (the null view).
 This is P3's capstone measurement — the anchor's dose-response
 law.**
+
+**NOVELTY VERDICT (scratch/massaction_key_lit.md): PARTIALLY KNOWN — claimable with reframing.** Flat-then-cliff budget curves are known (StreamingLLM/H2O/LLMLingua) but every prior sells the OPPOSITE pole on 'which' (specific tokens carry the load); no prior dose-responds a SELF-GENERATED cache in FREE-RUNNING generation, and the r≈0 static-vs-dynamic result directly falsifies the importance-score premise of the KV-eviction literature in this regime. HEDGE: scope to 1-10M; registered follow-up (e097): sink-position asymmetry inside the anchor band before claiming full which-irrelevance.
 
 **E089 CONFIRMATION (~15:50Z): MASS-ACTION WINS DECISIVELY — both
 threshold clauses fire (0.034 < 0.25; 3.35 > 3.0), linear excluded

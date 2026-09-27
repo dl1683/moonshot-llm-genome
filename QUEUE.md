@@ -139,6 +139,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
 | e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |
 | e096 | coherence-gap dose ladder | READY (CPU, e080 rig) | eps 0.05-1.0 mid-run corruption — U-shape predicted by the threshold law; monotone kills |
+| e097 | sink-asymmetry in anchor band (T051 hedge) | READY (CPU, reanalysis) | do anchor-band entries near the sink/positions-0-10 carry more mass — the which-irrelevance boundary |
+| e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |
 
 ## Parking lot (raw ideas, unranked)
 
