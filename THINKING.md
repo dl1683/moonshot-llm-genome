@@ -504,6 +504,8 @@ coordinates, sustains by directional fields, verifies by
 holographic self-checks — and can, with distributed experience,
 hand the first to the second.**
 
+**AGENT CORRECTION (the registered verdict is more cautious than the first fold — this amendment supersedes the framing above):** the pre-registered delta-read fired TRAINING-MASS-SIGNAL (rescue_b = +0.221 also clears the +0.15 bar — matched extra steps alone produce above-baseline expression), and the 0.909-vs-0.436 geometry-0 contrast, while the sharpest measured dissociation, is NOT a registered bar. The honest registered verdict: **PARTIAL SYSTEMS CONSOLIDATION, address-level only** — jittered replay bought ceiling expression at every geometry (through the deleted row; generalizing to held-30 at 0.65-0.73; new address rows grown at 121/125/133/137, cos 0.76-0.85 — a re-addressing component), locked replay only at its trained coordinate; and **D0129 (full scaffold loss) kills all arms — CLS is half-right: the fact escapes the single address but still needs SOME positional index.** The one-row law's boundary is: dies-with-row is conditional on replay distribution; lives-without-any-index is not achievable by replay in this regime.
+
 **Honesty ledger:** the registered bars were mis-calibrated
 against the pre-T043 strong form (collapse <=0.05 never reachable
 when partial necessity floors at ~0.2) — flagged as a bar-design
