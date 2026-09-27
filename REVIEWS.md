@@ -67,6 +67,36 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 40 — from dispatches (2026-09-27T22:25Z; covering 21:15–22:25Z — Rule-11 window)
+
+ANGLES, all real dispatches: experiments closed the full second
+wave. RESULTS THIS WINDOW (one hour, eight verdicts): e096
+(REMOVAL-fragile CORRUPTION-robust — canalization killed at
+premise); e097 (sink prior INVERTED — recency-weighted asymmetry);
+e100 (THE READ IS ATTENTION-ADDRESSED AUC 0.907 — T037's unified
+question's first-order answer); e099 (ONE broad attractor,
+fluent-but-wrong; T048 REVISED to net-family-specific); e092
+(mlp-L5-DOMINANT gate, sealing distributed — the T023 late-MLP
+energy carrier reappears as RMU's seizure target); e104 (residue
+REAL and localized; dp27 named — old-quiet inverted read); e105
+(FAMILY = TRAINED WEIGHTS; anchor spec complete: MASS+FAMILY+
+RECENCY). Rule 11 codified and exercised; ideator's next wave
+fully consumed; e098 (seed ladder) holds the GPU slot.
+
+IN FLIGHT: e101 (adversarial mass), e106 (second channel), e102
+(direction-vs-magnitude — dispatched this beat).
+
+DECISIONS: (1) the anchor's three-law specification and the
+attention-addressed read are the two headline candidates of the
+day-5 arc — schedule a novelty scan when e101/e102/e106 close the
+loop; (2) dp27-type inverted reads deserve a census across nets if
+e106 confirms the channel; (3) the paper's 5.5 gains the anchor
+specification paragraph at next extension.
+
+Integrity: commits pushed through dc9af7a.
+
+---
+
 ## Review 39 — from dispatches (2026-09-27T21:15Z; covering the quota window + resume)
 
 ANGLES, all real dispatches: VISUALIZER x2 (v016 final — six layout
