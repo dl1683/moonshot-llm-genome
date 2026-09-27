@@ -27,11 +27,12 @@ REPO = Path(__file__).resolve().parents[1]
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # ---- Compute envelope (2026-09-25: system shutdown from GPU power/heat) ----
-# Models <=10M params (raised from 1M/5M by Devansh, 2026-09-27; see SUPERVISOR.md).
+# Model size (Devansh, 2026-09-27; see SUPERVISOR.md): use the SMALLEST model that answers
+# the question; up to 100M freely; up to 500M with a stated reason in the design.
 # GPU headroom/thermal guards below are unchanged and still binding.
 # Keep >=15% GPU headroom; thermal guard pauses launches when hot.
-MAX_MODEL_PARAMS_DEFAULT = 10_000_000
-MAX_MODEL_PARAMS_CEILING = 10_000_000
+MAX_MODEL_PARAMS_DEFAULT = 100_000_000
+MAX_MODEL_PARAMS_CEILING = 500_000_000
 GPU_UTIL_CEIL = 85          # percent — hard: user cap is 90%, keep under
 GPU_TEMP_CEIL = 80          # deg C — no new launches above this
 GPU_IDLE_TEMP_TARGET = 65   # deg C — wait for cooldown to here when hot

@@ -1,7 +1,7 @@
 # Neural Dissection Lab
 
 > **Every agent: read [`SUPERVISOR.md`](SUPERVISOR.md) first.** It holds Devansh's standing
-> directives (extend, don't repeat; the 10M-parameter ceiling; thinking as first-class
+> directives (extend, don't repeat; model-size rules (small first, up to 500M); thinking as first-class
 > fleet work) and the supervisor's open items, which you must act on or answer.
 
 > Da Vinci opened corpses to understand anatomy. We open neural networks to
@@ -159,7 +159,7 @@ review bureaucracy — was deliberately left behind. We are playing, not litigat
 8. **Time budget:** any single experiment step ≤ ~30 min. If slower, shrink the
    model or the data.
 9. **Compute envelope (2026-09-25 shutdown incident — permanent):** models
-   ≤10M params (raised from 1M/5M by Devansh, 2026-09-27).
+   smallest model that answers the question; up to 100M freely, up to 500M with a stated reason (Devansh, 2026-09-27).
    Keep ≥15% GPU headroom (util ≤85%, memory ≤85%). Check
    `lab/common.py: gpu_status()/gpu_ok()` BEFORE any launch; insert
    `cooldown(60–120s)` between training runs; no concurrent GPU jobs.

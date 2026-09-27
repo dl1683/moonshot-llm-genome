@@ -46,7 +46,7 @@ conversation history to operate.
 
 - One file per experiment in `lab/`, outputs in `runs/eNNN/` with metrics.json
   + PNG graph. NOTES.md entry for every experiment.
-- Models ≤10M params (raised 2026-09-27; GPU guards unchanged); single training runs ≤180 s; GPU envelope via `lab/common.py`
+- Models: smallest model that answers the question; up to 100M freely, up to 500M with a stated reason (Devansh, 2026-09-27); GPU guards unchanged; single training runs ≤180 s; GPU envelope via `lab/common.py`
   (`gpu_ok()`, cooldowns, NO concurrent GPU jobs).
 - Never delete `runs/` or `data/`.
 - Commit constantly AND push (`git push origin main`) — git is the lab's memory.
