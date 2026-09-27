@@ -511,6 +511,32 @@ the one property our interventions could not fake. The
 architecture: coordinate addressing (where), routing+recency
 selection (which), and an unfakeable process-check (whose).
 
+## T063 — NOVELTY POSITIONING: the session's three claims all have claimable cores (2026-09-28 ~02:00Z)
+
+**The scan (scratch/selfrecognition_lit.md):** (A) binary self-
+recognition — behavioral recognition EXISTS (Asvin & Lindsey
+2605.25459: 3-4x entropy gap on-policy; CoSur 2508.14408 engineers
+a self-signature subspace) — but the intrinsic per-token binary
+GEOMETRY test in a free-running PRETRAINED net, the JS-0.041 donor
+rejection (their entropy channel provably can't), and the below-
+isotropic-null EXCLUSION are unclaimed. Collapse risk: rogue-
+dimension artifact (Timkey) — rebuttal: standardization control +
+e112's causal subspace intervention (partly done). (B) the fixed-
+point anchor — the enaction framing is 2605.25459's; unclaimed:
+generation as an ongoing IN-RUN fixed-point predicate with
+collapse as failure. Collapse risk: exposure-bias relabel —
+rebuttal: SIGN INVERSION (their self-history snowballs harm; ours
+is load-bearing) + dose-response predictions. (C) the LN floor —
+the style is the sink canon's (Barbero, Gu); unclaimed: any
+QUANTITATIVE derivation of the count-threshold from normalization
+arithmetic, and the direction/magnitude causal dissociation.
+Rebuttal: the napkin predicts the NUMBER (k* 64-128 of ~350) and
+its parameter dependence — three falsifiable registrations no sink
+paper makes. **Cross-claim: no single prior contains any two of
+the three; they compose into one story.** Standing to-dos: GPT-2-
+small replication (parked); standardization control (cheap);
+must-cites 2605.25459 / 2508.14408 / 2504.02732 into the paper.
+
 ## T061 — E111: the self is seven dimensions — and now it can be tested for forgery (2026-09-28 ~01:10Z)
 
 **k\* = 7.** The sibling/foreign energy separation in the
