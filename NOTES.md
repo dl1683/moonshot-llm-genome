@@ -84,6 +84,28 @@ not the store.
 
 ---
 
+## E112 — signature forgery: NOT FORGEABLE — self is deeper than its 7-dim stamp (2026-09-28) — DONE
+
+WHAT WE DID: forged keys (corpus/foreign V projected into the
+recipient's top-7 stamp, norms kept) + the inverse (sibling V with
+the stamp projected OFF); all 6 gates pass; every control
+replicates (sibling -0.078 healthy; corpus +1.68 collapsed;
+e111's basis bit-identical, k*=7 re-confirmed).
+
+WHAT WE SAW (T062): FORGEABLE fails — both forged keys collapse
+(+1.56, +3.09). SIGNATURE-NECESSARY fires — removing the stamp
+from genuine self-content kills it (+1.51). THE CLEANEST
+DISSOCIATION: forged-full sits at event-time V-cos 0.353 — inside
+the near-sibling zone — yet collapses: the anchor reads neither
+the pooled subspace nor the pooled V-cos. And corpus V already
+carries 0.753 stamp energy (the stamp is largely the shared common
+mode): residence never discriminated. Forging on foreign clay made
+it WORSE (+3.09 vs +2.41 verbatim). Caveat: stamp-destruction
+jointly removes 81% of sibling energy — necessity shown jointly
+with energy; sufficiency cleanly refuted.
+
+---
+
 ## E111 — V-manifold self-signature: k* = 7 — selfhood is a seven-dimension readout (2026-09-28) — DONE
 
 WHAT WE DID: PCA of the recipient's own anchor-band V-manifold;

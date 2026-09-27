@@ -178,4 +178,5 @@ Reviews promote at most 1-3 items to READY; ideas that discriminate live
 hypotheses (THINKING.md) outrank new topics. Replication debt outranks new
 lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor | DONE (T060: SHARP FAMILY — binary self-recognition; V-cos two-cluster step 0.40/0.14; output-near-identical donor still collapses — internal geometry, not behavior) |
 | e111 | V-manifold self-signature | DONE (T061: k*=7 — selfhood is a 7-dim readout; top-1 PC 11.7x; the fixed-point stamp found) |
+| e112 | signature forgery | DONE (T062: NOT FORGEABLE — stamp necessary not sufficient; the anchor reads full joint V-structure holographically; identity is process not summary) |
 

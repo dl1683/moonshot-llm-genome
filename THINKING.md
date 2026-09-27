@@ -485,6 +485,32 @@ the signature subspace by hand — if the run accepts them,
 selfhood is a k-dim lock pickable; that would be e112, someday,
 and it would say the net's self is shallower than it acts.)
 
+## T062 — E112: the self is holographic — the stamp is its shadow, not its key (2026-09-28 ~01:35Z)
+
+**SIGNATURE-NECESSARY, NOT FORGEABLE.** The forgery chain closes:
+pooled subspace occupancy fails to admit (forged keys collapse),
+pooled V-cos fails to admit (0.353 "sibling-zone" vectors
+collapse), and stamp-removal kills genuine self. **The anchor's
+identity check reads the full JOINT structure of the V-manifold —
+correlations among the vectors, not any summary statistic of
+them.** Like a hologram: every pooled projection (energy,
+subspace, mean-cos) misses the pattern; only the whole
+interference structure passes. The 7-dim stamp is the shadow self-
+statistics cast on the principal axes — the shadow is necessary
+(remove it, die) but nothing like sufficient (cast it onto
+anything else, still die). Self-recognition is DEEP in the
+precise sense: its key is the generative process itself, not any
+finite-dimensional sketch of its output. **W004's answer: the
+fixed point cannot be picked. Identity is process, not summary.**
+
+**The arc's full statement (T060->T062):** the run verifies
+itself every token by a binary, exclusionary, holographic check on
+its own V-geometry — rejecting behaviorally identical donors,
+locked-out foreign manifolds, and forged stamps alike. Selfhood is
+the one property our interventions could not fake. The
+architecture: coordinate addressing (where), routing+recency
+selection (which), and an unfakeable process-check (whose).
+
 ## T061 — E111: the self is seven dimensions — and now it can be tested for forgery (2026-09-28 ~01:10Z)
 
 **k\* = 7.** The sibling/foreign energy separation in the
