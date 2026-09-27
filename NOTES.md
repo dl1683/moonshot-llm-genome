@@ -84,6 +84,31 @@ not the store.
 
 ---
 
+## E099 — attractor identity: ONE broad off-manifold attractor; the anchor is NET-FAMILY-specific, not run-specific (2026-09-27) — DONE
+
+WHAT WE DID: 5 arms (none/vzero/noise/promptcopy/randomize — the new
+arm swaps in ANOTHER RUN's generated entries); terminal SKL grid +
+within-arm nulls; collapse gate via clean-judge. All gates pass
+(e080 drift 1.8e-6; token-identical prefixes).
+
+WHAT WE SAW (T048 correction): MIXED-universal — the universal KL
+clause PASSES with room (collapsed cross-arm SKL 0.10-0.31 vs
+within-arm floor 0.43: collapsed arms are MORE similar to each
+other than sequences within one arm; top-5 terminal tokens shared
+4/5 with near-tied fifths) — ONE broad off-manifold attractor. And
+it is NOT degenerate: entropy 3.51-3.61 > corpus 3.31, ~53/65
+distinct tokens — fluent-but-wrong, matching self-score-fine/
+clean-judge-6-nats. THE RIDER THAT CORRECTS T048: randomize (other
+run's GENERATED entries) does NOT collapse (+0.027) while
+promptcopy (corpus text) collapses (+5.33) — the anchor tracks
+GENERATED-TEXT STATISTICS at the net-family level, not run identity.
+
+WHAT'S NEXT: T048's final statement is revised: the run needs
+entries that look like what THIS NET would generate — its own, or a
+sibling's. The anchor is stylistic selfhood, family-typed.
+
+---
+
 ## E100 — read prediction: THE READ IS ATTENTION-ADDRESSED — T037's unified question answers to the routing (2026-09-27) — DONE
 
 WHAT WE DID: query-side features (attention mass, q-k cosine over

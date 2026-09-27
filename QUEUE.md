@@ -141,7 +141,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e096 | coherence-gap dose ladder | DONE (T051 amendment: REMOVAL-fragile, CORRUPTION-robust — no damage at any eps; anchor = nonzero content-bearing entries) |
 | e097 | sink-asymmetry | DONE (T051 amendment: POSITION ASYMMETRY RECENCY-weighted — new third 2.84x, old cheapest; sink prior INVERTED; exposure neutralized) |
 | e103 | contiguous-interleaved decomposition | READY (CPU) | is the stratification elevation recency or locality — matched-recency contiguous vs interleaved subsets |
-| e099 | attractor identity (Rule-11) | RUNNING | do all collapsed runs converge to ONE terminal distribution (net property) or perturbation-specific basins? cross-arm KL grid |
+| e099 | attractor identity | DONE (T055: ONE broad attractor, fluent-but-wrong; T048 REVISED — anchor is NET-FAMILY-specific: sibling-run entries healthy, corpus collapses) |
+| e105 | cross-family anchor test (T055) | READY (CPU) | differently-TRAINED net's generated entries (copy-task net outputs) as the anchor — does collapse track the generator's family? |
 | e100 | read prediction | DONE (T054: ATTENTION-ADDRESSED AUC 0.907 — opened=attended; L1/L2 sufficient; address= routing) |
 | e104 | failing-DP census (T054 residual) | READY (CPU) | the ~10% AUC gap and min-0.405 DPs — measurement blur vs second channel vs layer-late override |
 | e101 | adversarial mass-action subsets (falsification) | READY (CPU) | pick the k=128 subset the net itself values most (top readership/attention) — does the threshold break earlier? Kill-attempt on the which-irrelevance law |

@@ -367,6 +367,34 @@ box — 8 threads is the sweet spot (documented for future rigs).
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
 
+## T055 — E099: one broad attractor, and the anchor is net-family-specific — T048 REVISED (2026-09-27 ~21:55Z)
+
+**MIXED-universal: ONE broad off-manifold attractor.** Every
+collapsed pair sits at 0.2-0.7x the WITHIN-ARM floor (cross-arm SKL
+0.10-0.31 vs floor 0.43 — collapsed arms resemble each other more
+than co-arm sequences do); 4/5 shared top terminal tokens with
+near-tied fifths. The attractor is not a degenerate loop: entropy
+ABOVE corpus, ~53/65 distinct tokens, corpus-KL only 0.40-0.53 —
+fluent-but-wrong, the distribution-level face of self-scored-
+fine/clean-judged-6-nats.
+
+**THE CORRECTION (rider, decisive): A-randomize — another run's
+GENERATED entries substituted for the whole anchor band — does NOT
+collapse (+0.027) while promptcopy (corpus text) collapses (+5.33).**
+T048's "run-specific trajectory content" was WRONG at the
+individual level: the run does not need ITS OWN history — it needs
+history with THIS NET'S generated-text statistics. **The anchor is
+NET-FAMILY-SPECIFIC: stylistic selfhood, typed by the generator.**
+Combined with e096 (additive corruption free): the anchor's entries
+must be (a) nonzero and (b) net-generated-shaped — identity,
+accuracy, and even self-authorship are not required. The e080
+promptcopy damage is now fully explained: corpus text is the wrong
+FAMILY, not the wrong run. **Registered (e105): the family test at
+strength — cross-NET-family anchors (a differently-TRAINED net's
+generated entries: the e063b copy-task net's outputs) should
+collapse where same-family siblings don't — the family boundary's
+sharpest form.**
+
 ## T049 — E081: the RIF null — reads are pure (at this resolution) (2026-09-26 ~14:05Z)
 
 **Verdict: NULL.** Prompt-only elicitation of one installed fact does
