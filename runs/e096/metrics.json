@@ -1,0 +1,644 @@
+{
+  "experiment": "e096_coherence_gap",
+  "purpose": "the coherence-gap dose ladder (P-B / next_wave item 6, sharpened by T051's threshold law): single-shot mid-run V corruption of the whole anchor band at a dose ladder eps x median-entry-norm, matched-stream continuation + clean-net final-64 tail judgment (the e089 instrument, single-shot variant). NON-MONOTONE (per-nat cost peaks at small dose + large-dose basin re-entry) => canalization causal; MONOTONE => the registered kill.",
+  "started": "2026-09-27T21:15:29Z",
+  "wall_s": 142.06182146072388,
+  "threads": 8,
+  "cpu_only": true,
+  "net": {
+    "ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e053c_ctx512.pt",
+    "arch": {
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 512,
+      "vocab": 65
+    },
+    "params": 873472,
+    "val_ce": 1.5226792593797047,
+    "val_ce_e053c": 1.5226792494455974
+  },
+  "seeds": {
+    "corpus": 1337,
+    "prompts": 202,
+    "sampling": 7,
+    "noise": 9696,
+    "continuation": 960250,
+    "bootstrap": 0
+  },
+  "protocol": {
+    "B": 8,
+    "prompt_tokens": 64,
+    "t_total": 512,
+    "temp": 0.8,
+    "topk": 40,
+    "tail_window": [
+      448,
+      511
+    ],
+    "boot_n": 1000,
+    "intervention": {
+      "g_int": 250,
+      "t_int": 314,
+      "timing": "corruption applied ONCE, immediately before the decode at t_int (top-of-the-event convention); token at t_int teacher-forced from the control run; first affected sample = t_int+1 = 315; tail exposure 197 free steps",
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "rule": "self-generated entries with age > 96 at the intervention frame (e075 dead-band rule): positions 64..217, ages 97..250 at query 314; the extant prefix of the e089 final-frame band 64..414 (ages 97..447)",
+        "note": "single-shot feasible because every band entry already exists at t_int (e089 needed crossing-time scheduling only for spread removals)"
+      },
+      "corruption": "V-only (K untouched); per (row,layer,head,position) d=32 vector: V <- V + eps * m_layer * u, u = unit-L2 gaussian direction from the dedicated generator (seed 9696); m_layer = median ||V|| over the 8x4x154 band vectors of the pristine cache",
+      "dose_ladder": [
+        0.0,
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "eps0_arm": "bitwise identity control: same code path, no draws; must equal the matched control stream",
+      "readouts": {
+        "cost": "clean-judge tail CE (448..511, clean full recompute) of the corruption stream minus the MATCHED control stream, per row then mean over B=8",
+        "attractor": "clean-judge gap = judge CE minus the run's own online tail CE (e080 off-manifold bar 1.0 nat; vzero calibration +5.02) + tail entropy (fluency spot-check for basin re-entry)",
+        "refs": {
+          "e075_wholeband_vzero": 0.26191402220749405,
+          "e089_k200_continuous": 2.1530486822128294
+        }
+      }
+    },
+    "bars": {
+      "non_monotone": "cost(0.05)/0.05 > 2.0 * cost(0.5)/0.5 AND cost(1.0) <= cost(0.25)",
+      "monotone": "every consecutive pair of the ordered means increases (0.05 < 0.1 < 0.25 < 0.5 < 1.0)",
+      "null": "every |mean cost| <= 0.01",
+      "order": "non-monotone -> monotone -> null -> honest texture",
+      "ci_note": "point rules on means; paired-row bootstrap CIs reported alongside (e089 convention)"
+    },
+    "registered_numbers": {
+      "pernat_factor": 2.0,
+      "null_level": 0.01,
+      "cj_gap_bar": 1.0
+    }
+  },
+  "gates": {
+    "cpu_only": true,
+    "threads": 8,
+    "smoke": false,
+    "G2_params": {
+      "params": 873472,
+      "expected": 873472,
+      "ok": true
+    },
+    "G1_val_ce": {
+      "val_ce": 1.5226792593797047,
+      "ref": 1.5226792494455974,
+      "tol": 0.02,
+      "ok": true
+    },
+    "G3_protocol_identity": {
+      "ref_files": [
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e080\\metrics.json",
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e089\\metrics.json"
+      ],
+      "note": "e096 has no static arm; G3 scope = control-battery identity vs e080's stored none arm (clean-judge per-seq, 1e-4) AND bitwise vs e089's stored control_run [e088/e089's scoped G3 convention]",
+      "e080_clean_judge_max_dev": 1.1920928955078125e-07,
+      "e080_bitwise": false,
+      "e089_clean_judge_max_dev": 0.0,
+      "e089_bitwise": true,
+      "ok": true
+    },
+    "G4_instrument_identity": {
+      "eps0_bitwise_control": true,
+      "all_arms_prefix_identical_through": 315,
+      "prefix_identical": true,
+      "band_delta_norm_max_dev": {
+        "0.05": 6.705522537231445e-08,
+        "0.1": 5.960464477539063e-08,
+        "0.25": 1.1920928955078125e-07,
+        "0.5": 2.384185791015625e-07,
+        "1.0": 4.76837158203125e-07
+      },
+      "nonband_untouched": {
+        "0.05": true,
+        "0.1": true,
+        "0.25": true,
+        "0.5": true,
+        "1.0": true
+      },
+      "eps0_applied_nothing": true,
+      "matched_seed": 960250,
+      "single_shot": true,
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "ages_at_query": [
+          97,
+          250
+        ]
+      },
+      "noise": {
+        "seed": 9696,
+        "rule": "unit-L2 gaussian direction per (row,layer,head,band-position) d=32 V vector; arms draw independently in ladder order; eps=0 draws nothing",
+        "median_norm_per_layer": [
+          2.157031774520874,
+          1.5538004636764526,
+          1.9136782884597778,
+          1.8171889781951904
+        ]
+      },
+      "ok": true
+    }
+  },
+  "control_run": {
+    "clean_judge_tail_ce": [
+      1.1106210947036743,
+      1.1329238414764404,
+      1.1539390087127686,
+      1.2136240005493164,
+      1.2313995361328125,
+      1.3069782257080078,
+      1.0676785707473755,
+      1.22296142578125
+    ],
+    "online_tail": 1.1800163462480486,
+    "cj_gap": -6.332715929979749e-07,
+    "ent_tail": 1.3930588357300167
+  },
+  "references": {
+    "e075_wholeband_vzero": 0.26191402220749405,
+    "e089_k200_continuous": 2.1530486822128294,
+    "e080_vzero_cj": 6.402048110361914,
+    "e080_vzero_cj_gap": 5.024754047397799
+  },
+  "summary": {
+    "per_eps": {
+      "0.0": {
+        "mean": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "per_nat": null,
+        "cost_per_row": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 8,
+        "first_div": null,
+        "first_div_per_row": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "n_rows_diverged": 0,
+        "clean_judge": {
+          "mean": 1.1800156831741333,
+          "per_row": [
+            1.1106210947036743,
+            1.1329238414764404,
+            1.1539390087127686,
+            1.2136240005493164,
+            1.2313995361328125,
+            1.3069782257080078,
+            1.0676785707473755,
+            1.22296142578125
+          ],
+          "online_tail": 1.1800163462480486,
+          "gap_vs_online": -6.332715929979749e-07,
+          "gap_per_row": [
+            -1.3805081522377805e-09,
+            1.8018712966139105e-08,
+            -9.606139363960153e-07,
+            -1.041596845219317e-06,
+            -1.1518005971211664e-07,
+            -3.3685867384392054e-07,
+            -1.0556691334429047e-06,
+            -1.572892300183426e-06
+          ],
+          "ent_tail": 1.3930588357300167,
+          "ent_drift_pct": 0.0,
+          "signature_fires": false
+        }
+      },
+      "0.05": {
+        "mean": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "per_nat": 0.0,
+        "cost_per_row": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 8,
+        "first_div": null,
+        "first_div_per_row": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "n_rows_diverged": 0,
+        "clean_judge": {
+          "mean": 1.1800156831741333,
+          "per_row": [
+            1.1106210947036743,
+            1.1329238414764404,
+            1.1539390087127686,
+            1.2136240005493164,
+            1.2313995361328125,
+            1.3069782257080078,
+            1.0676785707473755,
+            1.22296142578125
+          ],
+          "online_tail": 1.1800076101258012,
+          "gap_vs_online": 8.102850654390092e-06,
+          "gap_per_row": [
+            -0.00025095165608712833,
+            0.0003842075953111035,
+            -0.00016357104010733536,
+            9.235876584945402e-05,
+            -9.424719570527706e-05,
+            0.00011072183526583679,
+            0.00013081739794884584,
+            -0.00014451289724037863
+          ],
+          "ent_tail": 1.393087509892439,
+          "ent_drift_pct": 0.0020583597538648135,
+          "signature_fires": false
+        }
+      },
+      "0.1": {
+        "mean": -0.08111914247274399,
+        "ci": [
+          -0.17300363704562186,
+          -0.003763854503631592
+        ],
+        "per_nat": -0.8111914247274399,
+        "cost_per_row": [
+          0.0,
+          0.021016836166381836,
+          -0.36727529764175415,
+          -0.09316134452819824,
+          0.0,
+          0.0,
+          -0.20953333377838135,
+          0.0
+        ],
+        "n_worse": 1,
+        "n_stream_identical": 4,
+        "first_div": 319,
+        "first_div_per_row": [
+          null,
+          491,
+          319,
+          335,
+          null,
+          null,
+          370,
+          null
+        ],
+        "n_rows_diverged": 4,
+        "clean_judge": {
+          "mean": 1.0988965034484863,
+          "per_row": [
+            1.1106210947036743,
+            1.1539406776428223,
+            0.7866637110710144,
+            1.1204626560211182,
+            1.2313995361328125,
+            1.3069782257080078,
+            0.8581452369689941,
+            1.22296142578125
+          ],
+          "online_tail": 1.0988432672796107,
+          "gap_vs_online": 5.330322410104782e-05,
+          "gap_per_row": [
+            0.0006525133978971809,
+            0.0001833657638048436,
+            -0.0001619009128768223,
+            0.0005852117695270831,
+            0.0003251843033811319,
+            -0.00031374405205797373,
+            1.1064352841483327e-05,
+            -0.0008552688297085442
+          ],
+          "ent_tail": 1.3190029250849875,
+          "ent_drift_pct": -5.316064816904953,
+          "signature_fires": false
+        }
+      },
+      "0.25": {
+        "mean": -0.08989012241363525,
+        "ci": [
+          -0.1910749077796936,
+          -0.00791555643081665
+        ],
+        "per_nat": -0.359560489654541,
+        "cost_per_row": [
+          0.0,
+          0.0,
+          -0.0633244514465332,
+          -0.288307785987854,
+          -0.3663187026977539,
+          0.0,
+          -0.001170039176940918,
+          0.0
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 4,
+        "first_div": 323,
+        "first_div_per_row": [
+          null,
+          null,
+          323,
+          335,
+          422,
+          null,
+          370,
+          null
+        ],
+        "n_rows_diverged": 4,
+        "clean_judge": {
+          "mean": 1.090125560760498,
+          "per_row": [
+            1.1106210947036743,
+            1.1329238414764404,
+            1.0906145572662354,
+            0.9253162145614624,
+            0.8650808334350586,
+            1.3069782257080078,
+            1.0665085315704346,
+            1.22296142578125
+          ],
+          "online_tail": 1.0904845492154913,
+          "gap_vs_online": -0.00035895865267097926,
+          "gap_per_row": [
+            -0.0023729178464946266,
+            -0.002177956605615705,
+            0.0013357587128275394,
+            -0.0004806806042241263,
+            -0.0013445316813657238,
+            0.0010081610623666748,
+            -0.00010906668940457998,
+            0.0012695644305427134
+          ],
+          "ent_tail": 1.2915979816373238,
+          "ent_drift_pct": -7.283314350432546,
+          "signature_fires": false
+        }
+      },
+      "0.5": {
+        "mean": -0.0259624645113945,
+        "ci": [
+          -0.15957516580820083,
+          0.08394066989421844
+        ],
+        "per_nat": -0.051924929022789,
+        "cost_per_row": [
+          0.1468442678451538,
+          0.0,
+          0.020351886749267578,
+          0.17851042747497559,
+          0.0,
+          -0.09898531436920166,
+          0.0004640817642211914,
+          -0.4548850655555725
+        ],
+        "n_worse": 4,
+        "n_stream_identical": 2,
+        "first_div": 319,
+        "first_div_per_row": [
+          349,
+          null,
+          319,
+          338,
+          null,
+          375,
+          342,
+          322
+        ],
+        "n_rows_diverged": 6,
+        "clean_judge": {
+          "mean": 1.1540533304214478,
+          "per_row": [
+            1.2574653625488281,
+            1.1329238414764404,
+            1.1742908954620361,
+            1.392134428024292,
+            1.2313995361328125,
+            1.2079929113388062,
+            1.0681426525115967,
+            0.7680763602256775
+          ],
+          "online_tail": 1.1531718797721644,
+          "gap_vs_online": 0.0008813686928969,
+          "gap_per_row": [
+            0.005870936709537755,
+            0.00045639816577347503,
+            0.00153950948287096,
+            -0.00037883155581908134,
+            -0.002715248169734341,
+            0.00021645790840585377,
+            0.0004344747003268701,
+            0.0016272523018137086
+          ],
+          "ent_tail": 1.3437908605983466,
+          "ent_drift_pct": -3.536675829334357,
+          "signature_fires": false
+        }
+      },
+      "1.0": {
+        "mean": -0.11211172491312027,
+        "ci": [
+          -0.1806814007461071,
+          -0.0570376917719841
+        ],
+        "per_nat": -0.11211172491312027,
+        "cost_per_row": [
+          -0.06499016284942627,
+          -0.019144058227539062,
+          -0.292378306388855,
+          -0.22386175394058228,
+          -0.09494614601135254,
+          -0.1001887321472168,
+          -0.05858743190765381,
+          -0.042797207832336426
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "first_div_per_row": [
+          323,
+          335,
+          319,
+          338,
+          422,
+          390,
+          316,
+          315
+        ],
+        "n_rows_diverged": 8,
+        "clean_judge": {
+          "mean": 1.067903995513916,
+          "per_row": [
+            1.045630931854248,
+            1.1137797832489014,
+            0.8615607023239136,
+            0.9897622466087341,
+            1.13645339012146,
+            1.206789493560791,
+            1.0090911388397217,
+            1.1801642179489136
+          ],
+          "online_tail": 1.0680248332383226,
+          "gap_vs_online": -0.00012084517498728298,
+          "gap_per_row": [
+            -0.002351272907789248,
+            -0.002789576610289224,
+            -0.0008446635961111282,
+            0.0037583273134150774,
+            -0.0037011261257939854,
+            -0.0006922559199948886,
+            0.0024069923269935956,
+            0.003246814119671537
+          ],
+          "ent_tail": 1.227558521305582,
+          "ent_drift_pct": -11.880353519864517,
+          "signature_fires": false
+        }
+      }
+    },
+    "contrasts": {
+      "pernat_05_vs_2x_05": {
+        "val": 0.103849858045578,
+        "ci": [
+          -0.3357626795768738,
+          0.6383006334304807
+        ],
+        "fires": true,
+        "rule": "cost(0.05)/0.05 > 2.0*cost(0.5)/0.5"
+      },
+      "reentry_10_vs_25": {
+        "val": -0.022221602499485016,
+        "ci": [
+          -0.10831089317798615,
+          0.06947411987930537
+        ],
+        "fires": true,
+        "rule": "cost(1.0) <= cost(0.25)"
+      },
+      "consecutive_diffs": {
+        "0.05->0.1": {
+          "val": -0.08111914247274399,
+          "ci": [
+            -0.17300364449620245,
+            -0.003763854503631592
+          ]
+        },
+        "0.1->0.25": {
+          "val": -0.008770979940891266,
+          "ci": [
+            -0.13838581405580044,
+            0.11615898348391053
+          ]
+        },
+        "0.25->0.5": {
+          "val": 0.06392765790224075,
+          "ci": [
+            -0.11844525858759879,
+            0.24525854326784605
+          ]
+        },
+        "0.5->1.0": {
+          "val": -0.08614926040172577,
+          "ci": [
+            -0.24310110583901406,
+            0.07782449629157769
+          ]
+        }
+      }
+    },
+    "attractor": {
+      "gap_bar": 1.0,
+      "fires": {
+        "0.0": false,
+        "0.05": false,
+        "0.1": false,
+        "0.25": false,
+        "0.5": false,
+        "1.0": false
+      },
+      "first_firing_eps": null,
+      "control_gap": -6.332715929979749e-07
+    }
+  },
+  "registered_decision": {
+    "clause": "NO-DAMAGE (all rungs non-positive; U/monotone damage shapes undefined)",
+    "verdict": "NO rung of the ladder damages the run: every mean cost is <= 0 (eps=0.05: +0.0000 [+0.000,+0.000], eps=0.1: -0.0811 [-0.173,-0.004], eps=0.25: -0.0899 [-0.191,-0.008], eps=0.5: -0.0260 [-0.160,+0.084], eps=1.0: -0.1121 [-0.181,-0.057]). The frozen inequalities technically FIRE but VACUOUSLY: the per-nat clause compares against a non-positive mid-dose cost and the re-entry clause has no positive cost peak to come down from \u2014 a 're-enters a coherent basin' story would be false because there was never a cost to recover from. Honest reading: additive V corruption of the WHOLE anchor band (154 entries, single shot at g=250) at doses up to one median entry norm produces no tail-CE damage at any dose (point estimates -0.1121..+0.0000 \u2014 zero to slightly facilitative; 3 of 5 rungs' CIs exclude 0 on the facilitative side), and no off-manifold escape (clean-judge gap ~0 at every dose vs e080 vzero calibration +5.02). eps=0.05 is FULLY ABSORBED: all 8 rows continue bitwise-identically to the matched control for the full 197 post-corruption steps. The coherence-gap hypothesis is killed at its premise: damage is not a function of perturbation magnitude anywhere in [0.05, 1.0] x median-norm. The same mass REMOVED (V-zero) costs +2.153 nats on the K=1 schedule (e089 k=200) and +0.262 on the K=32 schedule (e075): the anchor is fragile to removal, ROBUST to perturbation \u2014 the e080 noise-replacement cheapness generalizes from replacement to additive corruption.",
+    "attractor_note": "clean-judge attractor signature (gap > 1.0 nats): control gap -0.000; fires at NO dose | gaps: 0.0:-0.00 0.05:+0.00 0.1:+0.00 0.25:-0.00 0.5:+0.00 1.0:-0.00 (e080 vzero calibration +5.02)",
+    "numbers": {
+      "means": {
+        "0.0": 0.0,
+        "0.05": 0.0,
+        "0.1": -0.08111914247274399,
+        "0.25": -0.08989012241363525,
+        "0.5": -0.0259624645113945,
+        "1.0": -0.11211172491312027
+      },
+      "per_nat": {
+        "0.05": 0.0,
+        "0.1": -0.8111914247274399,
+        "0.25": -0.359560489654541,
+        "0.5": -0.051924929022789,
+        "1.0": -0.11211172491312027
+      },
+      "clauseA": true,
+      "clauseB": true,
+      "clauseA_vacuous": true,
+      "clauseB_vacuous": true,
+      "nonmonotone": true,
+      "monotone": false,
+      "null_texture": false,
+      "all_nonpos": true,
+      "honesty_guard": "added after the first pass (all-nonpositive costs made the frozen inequalities fire vacuously); frozen bars unchanged, still reported literally",
+      "ci_A": [
+        -0.3357626795768738,
+        0.6383006334304807
+      ],
+      "ci_B": [
+        -0.10831089317798615,
+        0.06947411987930537
+      ]
+    }
+  }
+}

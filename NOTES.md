@@ -84,6 +84,30 @@ not the store.
 
 ---
 
+## E096 — coherence-gap ladder: hypothesis killed at premise — the anchor is REMOVAL-fragile, CORRUPTION-robust (2026-09-27) — DONE
+
+WHAT WE DID: single-shot additive corruption of all 154 extant
+anchor-band V-entries at g=250, eps in {0.05..1.0} x median-norm,
+matched-stream, clean-judged; all 4 gates pass (eps=0 bitwise;
+band deltas exactly eps x norm).
+
+WHAT WE SAW (T051 amendment): NO-DAMAGE at every dose — eps=0.05
+fully absorbed (0/8 rows diverge, 197 identical steps); mid doses
+slightly FACILITATIVE (3/5 rungs' CIs exclude 0 on the negative
+side); the off-manifold clean-judge gap appears at NO dose (vs
+e080-vzero calibration +5.02). The registered U-shape and kill
+both fail vacuously; an honesty guard (added after pass 1 exposed
+the case) prevented the false "coherent-basin re-entry" story.
+Incidental: stream divergence is dose-LEAKY (2/8 rows never diverge
+even at eps=0.5).
+
+WHAT'S NEXT: the mass-action law sharpens — the anchor's mass is
+NONZERO CONTENT-BEARING ENTRIES, not their exact values (additive
+noise leaves them functional; deletion or direction-replacement —
+e080's norm-matched swap — kills). Canalization-continuity killed.
+
+---
+
 ## E095 — T050 texture probes: BOTH flags close as noise — the read-kernel card stands final (2026-09-27) — DONE
 
 WHAT WE DID: bit-exact census re-run (e084 machinery verbatim, all
