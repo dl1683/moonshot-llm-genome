@@ -367,6 +367,30 @@ box — 8 threads is the sweet spot (documented for future rigs).
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
 
+## T058 — E101/E106: the law bends, the heuristic breaks, the channel stays open (2026-09-27 ~22:15Z)
+
+**E101 — no kill, but the rider is now a clause: RECENCY-SELECTION
+IS 2-7x.** The mass-action threshold survives every adversarial arm
+(no CI-backed exceedance), but greedy-recency at k=64 delivers
+7.27x random-at-same-k damage — taking the newest entries is worth
+roughly double their count. **Refined law (third revision): mass
+dominates; recency is a strong multiplier (selection can buy ~2x
+effective mass); sink-side and top-readership selection buy
+NOTHING.** The sharpest literature falsification yet: top-readership
+(the importance-score heuristic behind H2O/eviction) is the WORST
+arm (0.40x) — the field's own selection tool fails at the task it
+was built for, in the regime where it claims to work.
+
+**E106 — MIXED: the second channel is unconfirmed.** Early routing
+holds 0.779 even at the failing stratum (the registered <0.6
+assumption was wrong); L3H0 leads the late features but without CI
+separation; late deviates from early in 5/6 strata without
+explaining the failures. The read's residual stays OPEN — neither
+two-channel nor single-channel. Registered next (e107): the
+dp27-style deep-dive — per-DP layer-resolved AUC trajectories
+across ALL failing DPs (not pooled): does each failure have its own
+inverting layer, or is there a shared signature pooling hides?
+
 ## T057 — E105: the anchor's family is the trained weights — the specification completes (2026-09-27 ~22:20Z)
 
 **FAMILY = TRAINED WEIGHTS fires.** A differently-trained net's

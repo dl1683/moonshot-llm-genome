@@ -84,6 +84,24 @@ not the store.
 
 ---
 
+## E101 + E106 — adversarial subsets: no kill but recency-selection is strong, readership-selection fails; second channel unconfirmed (2026-09-27) — DONE
+
+E101 (adversarial): MIXED/TEXTURE — no CI-backed kill of the
+mass-action law, but the law-stands clauses fail too: greedy-recency
+at k=64 costs 7.27x random-at-same-k (arm 0.684 vs 0.094) and
+k=128-recency (+1.585) exceeds the random k=128 band — taking the
+newest entries buys roughly double mass-impact. TOP-READERSHIP (the
+eviction literature's importance heuristic) is the WORST selector
+(0.40x) — the field's own tool fails at what it is designed for.
+Greedy oracle k=16: +0.066 (near-nothing).
+
+E106 (second channel): MIXED — two-channel bar fails (early AUC at
+the failing stratum is 0.779, not < 0.6; L3H0 best late feature,
+CIs not separated); single-channel also fails (late deviates from
+early in 5/6 strata). The residual stays open, honestly.
+
+---
+
 ## E105 — cross-family anchor: FAMILY = THE TRAINED WEIGHTS — the anchor's specification completes (2026-09-27) — DONE
 
 WHAT WE DID: the copy-net's own competent generated text as anchor
