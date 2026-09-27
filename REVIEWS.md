@@ -67,6 +67,39 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 41 — the thinking-lane session (2026-09-27T~00:10Z; covering 22:25–00:10Z)
+
+THE DOCTRINE SHIFT (user-directed, twice refined): thinking is
+movement -> both lanes always. Cron rewritten to BOTH-LANES (10-min,
+think-first, wonder cards first-class, fleet 1-3, no queue-inertia);
+Rule 0 amended in README (insight-per-experiment, joy-per-insight).
+
+RESULTS: e102 (DIRECTION CARRIES THE ANCHOR — the spec finds its
+carrier; magnitude floor 10-56%); e107 (ROUTING-ONLY decisive;
+content ⊥ readout — the architecture forces coordinate selection);
+T059's two-scale synthesis (discrete coordinate addressing /
+continuous geometric sustaining).
+
+THINKING (the session's first deliberately interpretation-heavy
+window): W001 (the anchor as directional field; LN-as-reason
+hypothesis; division of labor; dp27's personality); W002 (the
+bilinear compatibility unification — crossmatch = net axis, family
+= text axis; ripened through a recon that killed the free-data
+hope and forced the distance-ladder design); W003 (the CLS echo —
+coordinate index + geometric store; e109 consolidation head-to-head
+named). e108 dispatched only after three cards + recon earned it.
+
+IN FLIGHT: e108 (distance-ladder anchor).
+DECISIONS: (1) e109 waits for e108's frame (one-quantity vs
+two-keys changes what consolidation would even mean); (2) the
+W-series is now a first-class output — count them in reviews; (3)
+novelty scan for the two-scale/orthogonal-content synthesis when
+the arc closes.
+
+Integrity: commits pushed through b0a7483.
+
+---
+
 ## Review 40 — from dispatches (2026-09-27T22:25Z; covering 21:15–22:25Z — Rule-11 window)
 
 ANGLES, all real dispatches: experiments closed the full second
