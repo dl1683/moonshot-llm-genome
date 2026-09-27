@@ -84,6 +84,28 @@ not the store.
 
 ---
 
+## E105 — cross-family anchor: FAMILY = THE TRAINED WEIGHTS — the anchor's specification completes (2026-09-27) — DONE
+
+WHAT WE DID: the copy-net's own competent generated text as anchor
+content vs sibling-run vs corpus controls; all gates pass (five
+legacy arms bit-identical to e099; both controls replicate exactly).
+
+WHAT WE SAW (T055 close): cross-family text COLLAPSES (+5.094
+[4.62, 5.70]; terminal KL joins the collapsed cluster; sibling
++0.0275 healthy; corpus +5.33 collapsed). The donor was competent
+(tail CE 0.86-0.89) — collapse tracks FAMILY not quality. Riders:
+the collapsed tail drifts toward the donor's alphabet (uppercase
+nonce letters; its own basin); MECHANISTIC TRACE — donor V vectors
+near-orthogonal to the recipient's own (mean |cos| 0.138 vs 0.403
+for sibling entries) and ~1.3x larger-normed: the family signal
+lives in V-vector GEOMETRY.
+
+WHAT'S NEXT: the anchor's full specification: MASS (nonzero,
+threshold law; e089/e096) + FAMILY (trained-weights-typed geometry;
+e099/e105) + RECENCY (2-3x modulation; e097).
+
+---
+
 ## E092 + E104 — the gate is DISTRIBUTED; the read residual is REAL and localized (2026-09-27) — DONE
 
 E092 (gate census): H-GATE-DISTRIBUTED — no single component passes

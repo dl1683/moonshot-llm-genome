@@ -367,6 +367,31 @@ box — 8 threads is the sweet spot (documented for future rigs).
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
 
+## T057 — E105: the anchor's family is the trained weights — the specification completes (2026-09-27 ~22:20Z)
+
+**FAMILY = TRAINED WEIGHTS fires.** A differently-trained net's
+COMPETENT generated text (tail CE 0.87) collapses the run (+5.09,
+collapsed-cluster membership) where the same-trained net's sibling
+entries anchor it for free (+0.0275). Run-identity was already out
+(e099); net-competence is now out too — **the anchor reads the
+generator's IDENTITY, and that identity is carried in V-vector
+GEOMETRY: foreign Vs sit near-orthogonal to the recipient's own
+(0.138 vs 0.403 sibling) at ~1.3x norm.** The collapsed cross-family
+tail drifts toward the donor's alphabet (uppercase nonce letters)
+in its own basin — the attractor is broad but alphabet-typed at the
+margin.
+
+**THE ANCHOR'S COMPLETE SPECIFICATION (three laws):**
+1. MASS — nonzero content-bearing entries; threshold dose-response
+in count (e089); corruption-free to full norm (e096).
+2. FAMILY — the entries' V-geometry must match the trained weights'
+own output geometry: siblings pass, foreign nets and corpus fail
+(e099/e105).
+3. RECENCY — recent entries carry 2-3x the mass (e097), opposite
+the sink prior.
+Each law was found by falsifying its predecessor's simpler form —
+the specification is the residue of five kill-attempts.
+
 ## T056 — E092/E104: distributed gate; localized real residual — the second channel lives at near-ties (2026-09-27 ~22:05Z)
 
 **E092: H-GATE-DISTRIBUTED.** The RMU readout-gate is not a
