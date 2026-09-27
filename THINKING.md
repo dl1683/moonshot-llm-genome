@@ -485,6 +485,34 @@ the signature subspace by hand — if the run accepts them,
 selfhood is a k-dim lock pickable; that would be e112, someday,
 and it would say the net's self is shallower than it acts.)
 
+## T064 — E109: consolidation confirmed — the coordinate law gets its boundary and CLS gets its char-LM (2026-09-28 ~02:20Z)
+
+**W003's prediction is CONFIRMED: replay at varied positions
+transfers the fact to a position-independent store.** Through the
+deleted coordinate itself: 0.909 (jittered) vs 0.215 (baseline) —
+the fact survives losing its index, IF it was replayed across
+positions. And the diversity control matters: matched-budget
+position-LOCKED replay reaches only 0.436 — half the effect — so
+this is not mere training mass: **the transfer requires the
+content to appear at multiple addresses**, exactly the
+complementary-learning-systems story (hippocampal index ->
+neocortical store requires varied retrieval contexts). The
+coordinate-keyed law now has its full boundary: one-shot installs
+are index-dependent; distributed replay releases them. **The
+five-day arc closes into one sentence: the net addresses by
+coordinates, sustains by directional fields, verifies by
+holographic self-checks — and can, with distributed experience,
+hand the first to the second.**
+
+**Honesty ledger:** the registered bars were mis-calibrated
+against the pre-T043 strong form (collapse <=0.05 never reachable
+when partial necessity floors at ~0.2) — flagged as a bar-design
+lesson: bars must track the CURRENT law revision, not the original.
+The d0+129 secondary says the scar-scarcity structure survives
+(both-rows-dead kills everything). The tolerance-induction frame
+(W004) also resolves: jittered replay taught the fixed-point check
+to accept the content WITHOUT its original coordinate key.
+
 ## T062 — E112: the self is holographic — the stamp is its shadow, not its key (2026-09-28 ~01:35Z)
 
 **SIGNATURE-NECESSARY, NOT FORGEABLE.** The forgery chain closes:

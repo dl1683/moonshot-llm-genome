@@ -84,6 +84,28 @@ not the store.
 
 ---
 
+## E109 — consolidation: CONFIRMED — jittered replay makes the fact survive row-deletion (2026-09-28) — DONE
+
+WHAT WE DID: the W003 head-to-head — jittered replay (offsets
+-8..+8, 300 steps) vs position-locked replay (matched budget) vs
+baseline; then row-deletion (d129 registered; d0+129 secondary);
+battery at all geometries. All gates pass (battery reproduces
+0.5563 pre-training).
+
+WHAT WE SAW (T064): the registered bars MISFIRED on calibration —
+the collapse bar (c<=0.05) was set against the dead strong-form
+one-row law; T043's partial necessity (~0.32) means c lands at
+0.215 and the bar never fires (honest flag). THE DATA ARE
+DECISIVE ANYWAY: post-d129 at original geometry (through the
+deleted coordinate) — jittered 0.909 vs locked 0.436 vs baseline
+0.215; at best trained geometry — 0.992 vs 0.436. Position
+DIVERSITY doubles matched training-mass. Deleting row 0 AND 129
+kills all arms (secondary: one-row-scarcity stands). The agent's
+delta-branch read TRAINING_MASS_SIGNAL; the geom0 comparison says
+diversity dominates — recorded both, interpretation below.
+
+---
+
 ## E112 — signature forgery: NOT FORGEABLE — self is deeper than its 7-dim stamp (2026-09-28) — DONE
 
 WHAT WE DID: forged keys (corpus/foreign V projected into the
