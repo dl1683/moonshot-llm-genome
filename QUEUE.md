@@ -140,6 +140,9 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |
 | e096 | coherence-gap dose ladder | READY (CPU, e080 rig) | eps 0.05-1.0 mid-run corruption — U-shape predicted by the threshold law; monotone kills |
 | e097 | sink-asymmetry in anchor band (T051 hedge) | READY (CPU, reanalysis) | do anchor-band entries near the sink/positions-0-10 carry more mass — the which-irrelevance boundary |
+| e099 | attractor identity (Rule-11) | RUNNING | do all collapsed runs converge to ONE terminal distribution (net property) or perturbation-specific basins? cross-arm KL grid |
+| e100 | read prediction (Rule-11) | RUNNING | can attention mass / q-k cosine predict WHICH 3-4 coordinates open? AUC>=0.85 unifies read=attention; <=0.6 = hidden rule |
+| e101 | adversarial mass-action subsets (falsification) | READY (CPU) | pick the k=128 subset the net itself values most (top readership/attention) — does the threshold break earlier? Kill-attempt on the which-irrelevance law |
 | e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |
 
 ## Parking lot (raw ideas, unranked)
