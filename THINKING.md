@@ -485,6 +485,35 @@ the signature subspace by hand — if the run accepts them,
 selfhood is a k-dim lock pickable; that would be e112, someday,
 and it would say the net's self is shallower than it acts.)
 
+## W005 — WONDER: is coordinate-binding a developmental stage? The e112/e113 mirror (2026-09-28 ~02:50Z)
+
+Noticing a symmetry while e113 runs: e112 asked whether the SELF-
+key can be faked (no — holographic); e113 asks whether the FACT
+can escape the address system. They mirror: one tests the
+verifier's depth, the other the prisoner's escape. And the two
+outcomes would mean opposite things about the T037 trichotomy:
+
+- If e113 says BODY-STORED: the coordinate/field/hologram
+  trichotomy is a DEVELOPMENTAL SEQUENCE — facts start address-
+  bound (one-shot install), and distributed experience graduates
+  them toward field-storage. The read policy's coordinate
+  addressing (T054/T059) would be a stage of learning, not a
+  permanent architecture. A net as a developing memory system —
+  hippocampus-to-cortex not just as analogy but as an actual
+  trajectory inside one set of weights.
+- If e113 says ADDRESS-MIGRATED: "consolidation" is address-
+  SPREADING — redundancy across five rows instead of one — which
+  unifies with the mass-action law (redundant mass across
+  entries!), the corruption-robustness (redundant norm), and the
+  holographic self (redundant joint structure). The whole lab,
+  one sentence: REDUNDANCY IS THE NET'S ANSWER TO EVERYTHING.
+  Damage control by multiplication, never by relocation.
+
+Both are beautiful; the data will choose. That's the joy of this
+particular dissection — every question the lab asks lately turns
+out to be a mirror of an earlier one, and the mirrors are
+converging on a single object seen from different angles.
+
 ## T064 — E109: consolidation confirmed — the coordinate law gets its boundary and CLS gets its char-LM (2026-09-28 ~02:20Z)
 
 **W003's prediction is CONFIRMED: replay at varied positions
