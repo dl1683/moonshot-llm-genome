@@ -198,6 +198,17 @@ session; do not create more, the trigger logic above replaces a second clock.
 
 Standing idea sources (EXPLORER angle mines these every session): `Projects/Market Reports/Open Exploration` and `Projects/_meta` — concepts there become dissection questions.
 
+## Rule 11 — interesting-first, falsify-first (the user's standing directive)
+
+The lab has infinite networks, infinite patience, and infinite time.
+Always pick the MOST INTERESTING thing to dissect (however
+"interesting" is judged — depth, surprise, unification power — but
+think interesting FIRST, foremost, always). When a finding lands,
+immediately try to FALSIFY it (adversarial subsets, alternative
+theories, discriminating observations) before trusting it. Go
+deeper: every answered question must open a deeper one. Push the
+dissection in different directions rather than polishing one.
+
 The cadence is subordinate to Rule 0: heartbeats may spend their turn
 thinking (writing THINKING.md) instead of launching runs, and the GPU staying
 idle while an interpretation is pending is correct behavior, not a failure.
