@@ -426,6 +426,8 @@ decisions whose opened set spans ages, attention mispredicts
 genuinely. **Reading: near-tie decisions read by a different rule —
 the second channel is plausibly the LATE-layer correction (T037-#4
 mid-stack sovereignty) acting exactly where the margin is thin.**
+**AGENT RIDERS (named): dp27 is the strict core — a genuine OLD-QUIET INVERTED READ: single stable flip at age 199, attention rank 48/80, per-layer AUCs L0 0.873 / L1 0.177 / L2 0.089 / L3 0.494 — the MID-DEPTH ADDRESS INVERTS for this old coordinate (content-carrying in e084: vz 1, kd 5, vs 11). The powered band is near-tie x mixed-age (Jaccard 0.67 — same DPs). HEADROOM DECOMPOSITION: threshold noise ~half (clean-label pooled 0.9612 at eps 0.20, +0.054); layer choice ~0 (L0-exclusion −0.0007; the registered L1L2-rescue prediction was wrong — no DP is rescued). Registered L3-prediction note for e106 (running): dp27's late layer is 0.494 and L2 inverts — the late-correction story must survive this case or name its boundary.**
+
 Registered (e106): the second-channel census — for the failing-DP
 stratum only, recompute prediction from L3-only mass and from
 late-head (L3H*) patterns: if late-layer mass predicts where
