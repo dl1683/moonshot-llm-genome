@@ -133,7 +133,8 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e092 | READOUT-GATE CENSUS | READY (eval-only CPU) | component-swap on the RMU net — necessity (restore-into-RMU) + sufficiency (poison-into-intact); one component localizes vs distributed |
+| e092 | READOUT-GATE CENSUS | DONE (T056: H-GATE-DISTRIBUTED — no component passes both bars; mlp-L5 necessity-only; the gate is the retrain) |
+| e106 | second-channel census (T056) | READY (CPU) | failing-DP stratum only: L3-only mass + late-head patterns vs L1/L2 — two-channel read (early routing + late correction) confirmed with names |
 | e095 | T050 texture probes | DONE (both flags NOISE — escapes diffuse below MC-null; donor hits 33rd pctile vs 70 bar; T050 final) |
 | e083 | canalization cycle 3 | READY (~100 steps) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
@@ -144,7 +145,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e099 | attractor identity | DONE (T055: ONE broad attractor, fluent-but-wrong; T048 REVISED — anchor is NET-FAMILY-specific: sibling-run entries healthy, corpus collapses) |
 | e105 | cross-family anchor test (T055) | READY (CPU) | differently-TRAINED net's generated entries (copy-task net outputs) as the anchor — does collapse track the generator's family? |
 | e100 | read prediction | DONE (T054: ATTENTION-ADDRESSED AUC 0.907 — opened=attended; L1/L2 sufficient; address= routing) |
-| e104 | failing-DP census (T054 residual) | READY (CPU) | the ~10% AUC gap and min-0.405 DPs — measurement blur vs second channel vs layer-late override |
+| e104 | failing-DP census | DONE (T056: LOCALIZED REAL RESIDUE — near-tie/mixed-age strata 3-10x base, p=1e-4; blur refuted; second-channel candidate) |
 | e101 | adversarial mass-action subsets (falsification) | READY (CPU) | pick the k=128 subset the net itself values most (top readership/attention) — does the threshold break earlier? Kill-attempt on the which-irrelevance law |
 | e102 | direction-vs-magnitude decomposition (T051 deepener) | READY (CPU, e096 rig) | replace anchor entries with (a) correct-norm random directions (e080 redo) vs (b) correct-direction zero-norm unit vectors vs (c) scaled originals 0.1x — which factor carries the anchor: direction, magnitude, or presence? |
 | e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |

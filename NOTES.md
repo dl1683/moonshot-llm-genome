@@ -84,6 +84,24 @@ not the store.
 
 ---
 
+## E092 + E104 — the gate is DISTRIBUTED; the read residual is REAL and localized (2026-09-27) — DONE
+
+E092 (gate census): H-GATE-DISTRIBUTED — no single component passes
+necessity+sufficiency while the full-swap brackets pass (instrument
+valid). mlp-L5 is necessity-only (restoring it alone does not
+reopen the gate). The RMU sealing is distributed across the retrain
+— the gate is the net, not a bottleneck.
+
+E104 (failing-DP census): LOCALIZED RESIDUE — 3 strata fire >= 3x
+base (near-tie margins Q0 3.14x; MIXED opened-age profile 4.29x;
+NO_YOUNG 9.8x; permutation p=0.0001). Threshold-blur REFUTED
+(failing labels stable; median blur-frac 0.494 vs 0; only 2/10
+recover on label-dropping). The ~10% read-prediction failures are
+GENUINE misalignment — a second channel at near-tie decisions with
+mixed-age opens.
+
+---
+
 ## E099 — attractor identity: ONE broad off-manifold attractor; the anchor is NET-FAMILY-specific, not run-specific (2026-09-27) — DONE
 
 WHAT WE DID: 5 arms (none/vzero/noise/promptcopy/randomize — the new

@@ -1,0 +1,1005 @@
+{
+  "experiment": "e104_failing_dp_census",
+  "purpose": "FAILING-DP CENSUS (T054's registered residual, QUEUE e104): rebuild e100's features and per-DP AUCs bit-identically (G5 gates vs e084 flips_vz and e100 stored AUCs), then stratify failing decision points \u2014 PRIMARY POWERED BAND = bottom-decile per-DP attention-mass AUC (the literal <0.7 / <0.5 bands hold 1/98 DPs in e100's stored table; POWER GATE registered) \u2014 by (a) margin quartile, (b) opened-set size, (c) opened-age profile, (d) layer profile (L1/L2-only recompute), (e) candidate-attention entropy. BARS: >=2 strata at >=3x base with Wilson CI excluding base AND permutation p<0.05 => LOCALIZED RESIDUE; else MEASUREMENT BLUR. Mechanism: per-entry flip gaps from the same V-zero call => blur_frac + clean-label AUC recovery. Secondary: pooled AUC L0-excluded / L1L2-only / per-layer / clean-label + adaptive-k precision = layer-choice vs threshold headroom.",
+  "started": "2026-09-27T21:44:10Z",
+  "wall_s": 12.879729509353638,
+  "threads": 8,
+  "cpu_only": true,
+  "smoke": true,
+  "net": {
+    "ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e053c_ctx512.pt",
+    "arch": {
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 512,
+      "vocab": 65
+    },
+    "params": 873472,
+    "val_ce": 1.5226792593797047,
+    "val_ce_e053c": 1.5226792494455974
+  },
+  "seeds": {
+    "corpus": 1337,
+    "battery_A": {
+      "prompts": 202,
+      "sampling": 7
+    },
+    "battery_X": {
+      "prompts": 302,
+      "sampling": 17
+    },
+    "stratification": 2084,
+    "old_ages": 9000,
+    "bootstrap": 0,
+    "permutation": 0
+  },
+  "protocol": {
+    "n_decision_points": 8,
+    "per_quartile": 2,
+    "q_range": [
+      96,
+      158
+    ],
+    "n_entries": 80,
+    "failure_bands": {
+      "powered_decile": {
+        "frac": 0.1,
+        "n_fail": 1,
+        "cut_auc": 0.5081845238095238
+      },
+      "literal_lt_0p7": [
+        1,
+        2
+      ],
+      "strict_lt_0p5": [],
+      "power_gate": "literal bands hold 1/98 in e100's stored table \u2014 clustering bars run on the powered band"
+    },
+    "ground_truth": "V-zero flip at the e084 bars + per-entry flip gap g_r = max_{c!=t1} lg_int[c] - lg_int[t1] from the same call; near-threshold iff |g_r| < eps",
+    "eps_grid": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "eps_primary": 0.1,
+    "entropy_quartile_edges": [
+      0.8047578483819962,
+      0.8092417120933533,
+      0.8247060626745224
+    ],
+    "n_valid_dp": 8,
+    "n_zero_opened_dp": 0
+  },
+  "gates": {
+    "cpu_only": true,
+    "threads": 8,
+    "smoke": true,
+    "G2_params": {
+      "params": 873472,
+      "expected": 873472,
+      "ok": true
+    },
+    "G1_val_ce": {
+      "val_ce": 1.5226792593797047,
+      "ref": 1.5226792494455974,
+      "tol": 0.02,
+      "ok": true
+    },
+    "G0b_kvs_vs_full": {
+      "max_prob_dev": 1.0281801223754883e-06,
+      "ok": true
+    },
+    "G8_feature_forward_identity": {
+      "dp": 0,
+      "max_logit_dev": 0.0,
+      "tol": 0.0001,
+      "ok": true
+    },
+    "G5_e084_identity": {
+      "skipped": true,
+      "reason": "smoke battery"
+    },
+    "G5_e100_auc_identity": {
+      "skipped": true,
+      "reason": "smoke"
+    }
+  },
+  "ground_truth": {
+    "opened_per_dp_median": 3.0,
+    "total_opened_cells": 51,
+    "n_valid_dp": 8,
+    "n_zero_opened_dp": 0,
+    "pooled_full_auc": 0.7493129770992366,
+    "e100_reference": 0.9069704732371578
+  },
+  "auc": {
+    "pooled": {
+      "full": 0.7493129770992366,
+      "L0_excluded": 0.7447328244274809,
+      "L1L2_only": 0.7370992366412213,
+      "clean": {
+        "0.05": 0.8930022573363431,
+        "0.10": 0.9102473498233216,
+        "0.20": 0.9110690633869442
+      },
+      "L0ex_clean": 0.8404697592483852
+    },
+    "ci": {
+      "full": [
+        0.5828578629032258,
+        0.9588353637266788
+      ],
+      "L0_excluded": [
+        0.5739868951612903,
+        0.9592978877297498
+      ],
+      "L1L2_only": [
+        0.5644706738768719,
+        0.9544859494609266
+      ]
+    },
+    "per_layer": {
+      "L0": [
+        0.5825954198473283,
+        3275
+      ],
+      "L1": [
+        0.7395419847328244,
+        3275
+      ],
+      "L2": [
+        0.7413740458015268,
+        3275
+      ],
+      "L3": [
+        0.7044274809160306,
+        3275
+      ]
+    },
+    "headroom_decomposition": {
+      "layer_choice_gain": -0.004580152671755711,
+      "layer_L12_gain": -0.012213740458015265,
+      "threshold_gain": 0.16093437272408495,
+      "combined_L0ex_clean_gain": 0.09115678214914857,
+      "clean_by_eps": {
+        "0.05": 0.8930022573363431,
+        "0.10": 0.9102473498233216,
+        "0.20": 0.9110690633869442
+      }
+    }
+  },
+  "adaptive_k": {
+    "precision": {
+      "full": {
+        "mean": 0.38913690476190477,
+        "median": 0.4375
+      },
+      "L0ex": {
+        "mean": 0.38913690476190477,
+        "median": 0.4375
+      },
+      "L12": {
+        "mean": 0.5528273809523809,
+        "median": 0.5208333333333333
+      }
+    },
+    "jaccard": {
+      "full": {
+        "mean": 0.2705128205128205
+      },
+      "L0ex": {
+        "mean": 0.2705128205128205
+      },
+      "L12": {
+        "mean": 0.4607905982905983
+      }
+    }
+  },
+  "census": {
+    "base_rate": 0.125,
+    "n_fail": 1,
+    "fail_dps": [
+      1
+    ],
+    "fail_cut_auc": 0.5081845238095238,
+    "strict_core_dps": [],
+    "strata": [
+      {
+        "family": "a_margin_quartile",
+        "stratum": "Q0",
+        "n": 2,
+        "n_fail": 1,
+        "fail_rate": 0.5,
+        "rate_vs_base": 4.0,
+        "wilson_ci": [
+          0.09453120573423074,
+          0.9054687942657693
+        ],
+        "fires": false
+      },
+      {
+        "family": "a_margin_quartile",
+        "stratum": "Q1",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "a_margin_quartile",
+        "stratum": "Q2",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "a_margin_quartile",
+        "stratum": "Q3",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "b_opened_size",
+        "stratum": "1",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "b_opened_size",
+        "stratum": "2",
+        "n": 1,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.7934506856227626
+        ],
+        "fires": false
+      },
+      {
+        "family": "b_opened_size",
+        "stratum": "3-4",
+        "n": 3,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ],
+        "fires": false
+      },
+      {
+        "family": "b_opened_size",
+        "stratum": "5+",
+        "n": 2,
+        "n_fail": 1,
+        "fail_rate": 0.5,
+        "rate_vs_base": 4.0,
+        "wilson_ci": [
+          0.09453120573423074,
+          0.9054687942657693
+        ],
+        "fires": false
+      },
+      {
+        "family": "c_opened_age_profile",
+        "stratum": "YOUNG_HEAVY",
+        "n": 6,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "fires": false
+      },
+      {
+        "family": "c_opened_age_profile",
+        "stratum": "MIXED",
+        "n": 1,
+        "n_fail": 1,
+        "fail_rate": 1.0,
+        "rate_vs_base": 8.0,
+        "wilson_ci": [
+          0.20654931437723745,
+          1.0
+        ],
+        "fires": true
+      },
+      {
+        "family": "c_opened_age_profile",
+        "stratum": "NO_YOUNG",
+        "n": 1,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.7934506856227626
+        ],
+        "fires": false
+      },
+      {
+        "family": "d_layer_profile",
+        "stratum": "L1L2_RESCUED",
+        "n": 0,
+        "n_fail": 0,
+        "fail_rate": NaN,
+        "rate_vs_base": NaN,
+        "wilson_ci": [
+          NaN,
+          NaN
+        ],
+        "fires": false
+      },
+      {
+        "family": "d_layer_profile",
+        "stratum": "NOT_RESCUED",
+        "n": 8,
+        "n_fail": 1,
+        "fail_rate": 0.125,
+        "rate_vs_base": 1.0,
+        "wilson_ci": [
+          0.02241749145005667,
+          0.4708881822128535
+        ],
+        "fires": false
+      },
+      {
+        "family": "e_attention_entropy",
+        "stratum": "EH0",
+        "n": 2,
+        "n_fail": 1,
+        "fail_rate": 0.5,
+        "rate_vs_base": 4.0,
+        "wilson_ci": [
+          0.09453120573423074,
+          0.9054687942657693
+        ],
+        "fires": false
+      },
+      {
+        "family": "e_attention_entropy",
+        "stratum": "EH1",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "e_attention_entropy",
+        "stratum": "EH2",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      },
+      {
+        "family": "e_attention_entropy",
+        "stratum": "EH3",
+        "n": 2,
+        "n_fail": 0,
+        "fail_rate": 0.0,
+        "rate_vs_base": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.6576197724933469
+        ],
+        "fires": false
+      }
+    ],
+    "n_firing_strata": 1,
+    "permutation_p": 0.3688,
+    "firing_overlap": [],
+    "mechanism": {
+      "blur_frac_failing_median": 0.8125,
+      "blur_frac_nonfailing_median": 0.0,
+      "n_failing_recovered_above_085": 0,
+      "blur_confirmed": false,
+      "label_stable": true
+    },
+    "strict_core_anatomy": [
+      {
+        "dp": 1,
+        "b": 3,
+        "q": 108,
+        "quartile": 0,
+        "margin": 0.030717849731445312,
+        "auc_full": 0.5081845238095238,
+        "n_opened": 24,
+        "entropy_norm": 0.8006360530853271,
+        "blur_frac": 0.8125,
+        "opened_ages": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9,
+          12,
+          13,
+          25,
+          26,
+          29,
+          42,
+          45,
+          48,
+          49,
+          51,
+          54,
+          59,
+          109,
+          88,
+          103,
+          77,
+          102,
+          108
+        ],
+        "opened_gaps": [
+          6.520712852478027,
+          4.929676532745361,
+          6.902276039123535,
+          0.9763598442077637,
+          0.16512489318847656,
+          0.05464887619018555,
+          0.12743711471557617,
+          0.08824539184570312,
+          0.1219949722290039,
+          0.011162757873535156,
+          0.025175094604492188,
+          0.05694866180419922,
+          0.009814739227294922,
+          0.01714468002319336,
+          0.03796958923339844,
+          0.011559009552001953,
+          0.04194307327270508,
+          0.017181396484375,
+          3.831164836883545,
+          0.018138408660888672,
+          0.02226543426513672,
+          0.01210784912109375,
+          0.030612945556640625,
+          0.004665851593017578
+        ],
+        "opened_ranks_full": [
+          2.0,
+          1.0,
+          4.0,
+          6.0,
+          9.0,
+          10.0,
+          14.0,
+          11.0,
+          22.0,
+          27.0,
+          47.0,
+          39.0,
+          53.0,
+          62.0,
+          51.0,
+          65.0,
+          26.0,
+          71.0,
+          74.0,
+          76.0,
+          77.0,
+          80.0,
+          64.0,
+          70.0
+        ],
+        "opened_ranks_L12": 0.484375
+      },
+      {
+        "dp": 2,
+        "b": 2,
+        "q": 131,
+        "quartile": 1,
+        "margin": 1.7021608352661133,
+        "auc_full": 0.6666666666666666,
+        "n_opened": 3,
+        "entropy_norm": 0.8105526566505432,
+        "blur_frac": 0.0125,
+        "opened_ages": [
+          2,
+          3,
+          132
+        ],
+        "opened_gaps": [
+          14.044520378112793,
+          0.04842185974121094,
+          1.8390498161315918
+        ],
+        "opened_ranks_full": [
+          1.0,
+          5.0,
+          77.0
+        ],
+        "opened_ranks_L12": 0.670995670995671
+      }
+    ]
+  },
+  "per_decision_point": [
+    {
+      "dp": 0,
+      "b": 2,
+      "q": 134,
+      "quartile": 0,
+      "margin": 0.13668489456176758,
+      "t1": 52,
+      "n_opened": 14,
+      "entropy_norm": 0.8061317801475525,
+      "opened_ages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        14,
+        20,
+        24,
+        26,
+        29,
+        41
+      ],
+      "opened_gaps": [
+        6.827871799468994,
+        7.21346378326416,
+        3.391698122024536,
+        2.3224380016326904,
+        3.4610280990600586,
+        5.1789140701293945,
+        0.7767429351806641,
+        0.17672300338745117,
+        0.40196943283081055,
+        0.13208436965942383,
+        0.6793508529663086,
+        0.05312061309814453,
+        0.054505348205566406,
+        0.09053277969360352
+      ],
+      "auc_full": 0.920995670995671,
+      "auc_L0ex": 0.922077922077922,
+      "auc_L12": 0.9166666666666666,
+      "auc_layer": [
+        0.6158008658008658,
+        0.9296536796536796,
+        0.8777056277056277,
+        0.8354978354978355
+      ],
+      "young_frac_opened": 0.5714285714285714,
+      "auc_clean@0.05": 0.916256157635468,
+      "auc_clean@0.10": 0.9324009324009324,
+      "auc_clean@0.20": 0.9316239316239316,
+      "auc_L0ex_clean": 0.9324009324009324,
+      "blur_frac": {
+        "0.05": 0.1,
+        "0.10": 0.375,
+        "0.20": 0.725
+      },
+      "opened_ranks_full": [
+        3.0,
+        2.0,
+        4.0,
+        1.0,
+        6.0,
+        8.0,
+        7.0,
+        16.0,
+        25.0,
+        27.0,
+        5.0,
+        23.0,
+        31.0,
+        20.0
+      ]
+    },
+    {
+      "dp": 1,
+      "b": 3,
+      "q": 108,
+      "quartile": 0,
+      "margin": 0.030717849731445312,
+      "t1": 41,
+      "n_opened": 24,
+      "entropy_norm": 0.8006360530853271,
+      "opened_ages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        12,
+        13,
+        25,
+        26,
+        29,
+        42,
+        45,
+        48,
+        49,
+        51,
+        54,
+        59,
+        109,
+        88,
+        103,
+        77,
+        102,
+        108
+      ],
+      "opened_gaps": [
+        6.520712852478027,
+        4.929676532745361,
+        6.902276039123535,
+        0.9763598442077637,
+        0.16512489318847656,
+        0.05464887619018555,
+        0.12743711471557617,
+        0.08824539184570312,
+        0.1219949722290039,
+        0.011162757873535156,
+        0.025175094604492188,
+        0.05694866180419922,
+        0.009814739227294922,
+        0.01714468002319336,
+        0.03796958923339844,
+        0.011559009552001953,
+        0.04194307327270508,
+        0.017181396484375,
+        3.831164836883545,
+        0.018138408660888672,
+        0.02226543426513672,
+        0.01210784912109375,
+        0.030612945556640625,
+        0.004665851593017578
+      ],
+      "auc_full": 0.5081845238095238,
+      "auc_L0ex": 0.49776785714285715,
+      "auc_L12": 0.484375,
+      "auc_layer": [
+        0.5773809523809523,
+        0.4895833333333333,
+        0.5252976190476191,
+        0.5029761904761905
+      ],
+      "young_frac_opened": 0.25,
+      "auc_clean@0.05": 0.8202959830866807,
+      "auc_clean@0.10": 0.75,
+      "auc_clean@0.20": 0.8,
+      "auc_L0ex_clean": 0.75,
+      "blur_frac": {
+        "0.05": 0.325,
+        "0.10": 0.8125,
+        "0.20": 0.9125
+      },
+      "opened_ranks_full": [
+        2.0,
+        1.0,
+        4.0,
+        6.0,
+        9.0,
+        10.0,
+        14.0,
+        11.0,
+        22.0,
+        27.0,
+        47.0,
+        39.0,
+        53.0,
+        62.0,
+        51.0,
+        65.0,
+        26.0,
+        71.0,
+        74.0,
+        76.0,
+        77.0,
+        80.0,
+        64.0,
+        70.0
+      ]
+    },
+    {
+      "dp": 2,
+      "b": 2,
+      "q": 131,
+      "quartile": 1,
+      "margin": 1.7021608352661133,
+      "t1": 1,
+      "n_opened": 3,
+      "entropy_norm": 0.8105526566505432,
+      "opened_ages": [
+        2,
+        3,
+        132
+      ],
+      "opened_gaps": [
+        14.044520378112793,
+        0.04842185974121094,
+        1.8390498161315918
+      ],
+      "auc_full": 0.6666666666666666,
+      "auc_L0ex": 0.658008658008658,
+      "auc_L12": 0.670995670995671,
+      "auc_layer": [
+        0.5454545454545454,
+        0.6883116883116883,
+        0.6623376623376623,
+        0.5670995670995671
+      ],
+      "young_frac_opened": 0.6666666666666666,
+      "auc_clean@0.05": 0.5194805194805194,
+      "auc_clean@0.10": 0.5194805194805194,
+      "auc_clean@0.20": 0.5194805194805194,
+      "auc_L0ex_clean": 0.5064935064935064,
+      "blur_frac": {
+        "0.05": 0.0125,
+        "0.10": 0.0125,
+        "0.20": 0.0125
+      },
+      "opened_ranks_full": [
+        1.0,
+        5.0,
+        77.0
+      ]
+    },
+    {
+      "dp": 3,
+      "b": 2,
+      "q": 137,
+      "quartile": 1,
+      "margin": 0.5901942253112793,
+      "t1": 1,
+      "n_opened": 2,
+      "entropy_norm": 0.83453369140625,
+      "opened_ages": [
+        2,
+        3
+      ],
+      "opened_gaps": [
+        2.1252870559692383,
+        1.9464259147644043
+      ],
+      "auc_full": 0.9807692307692307,
+      "auc_L0ex": 0.9807692307692307,
+      "auc_L12": 1.0,
+      "auc_layer": [
+        0.5897435897435898,
+        0.9871794871794872,
+        0.9807692307692307,
+        0.8589743589743589
+      ],
+      "young_frac_opened": 1.0,
+      "auc_clean@0.05": 0.9807692307692307,
+      "auc_clean@0.10": 0.9807692307692307,
+      "auc_clean@0.20": 0.9807692307692307,
+      "auc_L0ex_clean": 0.9807692307692307,
+      "blur_frac": {
+        "0.05": 0.0,
+        "0.10": 0.0,
+        "0.20": 0.0
+      },
+      "opened_ranks_full": [
+        2.0,
+        4.0
+      ]
+    },
+    {
+      "dp": 4,
+      "b": 0,
+      "q": 158,
+      "quartile": 2,
+      "margin": 2.947577476501465,
+      "t1": 46,
+      "n_opened": 1,
+      "entropy_norm": 0.8235750198364258,
+      "opened_ages": [
+        2
+      ],
+      "opened_gaps": [
+        7.422595500946045
+      ],
+      "auc_full": 0.9873417721518988,
+      "auc_L0ex": 0.9873417721518988,
+      "auc_L12": 0.9873417721518988,
+      "auc_layer": [
+        0.20253164556962025,
+        1.0,
+        0.9620253164556962,
+        0.9367088607594937
+      ],
+      "young_frac_opened": 1.0,
+      "auc_clean@0.05": 0.9873417721518988,
+      "auc_clean@0.10": 0.9873417721518988,
+      "auc_clean@0.20": 0.9873417721518988,
+      "auc_L0ex_clean": 0.9873417721518988,
+      "blur_frac": {
+        "0.05": 0.0,
+        "0.10": 0.0,
+        "0.20": 0.0
+      },
+      "opened_ranks_full": [
+        2.0
+      ]
+    },
+    {
+      "dp": 5,
+      "b": 0,
+      "q": 143,
+      "quartile": 2,
+      "margin": 3.5399842262268066,
+      "t1": 1,
+      "n_opened": 3,
+      "entropy_norm": 0.8079307675361633,
+      "opened_ages": [
+        1,
+        2,
+        3
+      ],
+      "opened_gaps": [
+        11.649903297424316,
+        11.663304328918457,
+        1.640073299407959
+      ],
+      "auc_full": 0.9913419913419913,
+      "auc_L0ex": 0.9913419913419913,
+      "auc_L12": 0.974025974025974,
+      "auc_layer": [
+        0.2987012987012987,
+        0.9826839826839827,
+        0.9696969696969697,
+        0.987012987012987
+      ],
+      "young_frac_opened": 1.0,
+      "auc_clean@0.05": 0.9913419913419913,
+      "auc_clean@0.10": 0.9913419913419913,
+      "auc_clean@0.20": 0.9913419913419913,
+      "auc_L0ex_clean": 0.9913419913419913,
+      "blur_frac": {
+        "0.05": 0.0,
+        "0.10": 0.0,
+        "0.20": 0.0
+      },
+      "opened_ranks_full": [
+        4.0,
+        1.0,
+        3.0
+      ]
+    },
+    {
+      "dp": 6,
+      "b": 0,
+      "q": 134,
+      "quartile": 3,
+      "margin": 7.9338836669921875,
+      "t1": 17,
+      "n_opened": 1,
+      "entropy_norm": 0.8280991911888123,
+      "opened_ages": [
+        3
+      ],
+      "opened_gaps": [
+        0.9742021560668945
+      ],
+      "auc_full": 0.9873417721518988,
+      "auc_L0ex": 0.9873417721518988,
+      "auc_L12": 1.0,
+      "auc_layer": [
+        0.6835443037974683,
+        1.0,
+        0.9746835443037974,
+        0.8734177215189873
+      ],
+      "young_frac_opened": 1.0,
+      "auc_clean@0.05": 0.9873417721518988,
+      "auc_clean@0.10": 0.9873417721518988,
+      "auc_clean@0.20": 0.9873417721518988,
+      "auc_L0ex_clean": 0.9873417721518988,
+      "blur_frac": {
+        "0.05": 0.0,
+        "0.10": 0.0,
+        "0.20": 0.0
+      },
+      "opened_ranks_full": [
+        2.0
+      ]
+    },
+    {
+      "dp": 7,
+      "b": 2,
+      "q": 110,
+      "quartile": 3,
+      "margin": 7.075428485870361,
+      "t1": 0,
+      "n_opened": 3,
+      "entropy_norm": 0.7267782688140869,
+      "opened_ages": [
+        16,
+        17,
+        18
+      ],
+      "opened_gaps": [
+        5.140592575073242,
+        5.627356052398682,
+        3.312490463256836
+      ],
+      "auc_full": 0.987012987012987,
+      "auc_L0ex": 0.987012987012987,
+      "auc_L12": 0.9653679653679653,
+      "auc_layer": [
+        0.8917748917748918,
+        0.8961038961038961,
+        0.987012987012987,
+        0.9653679653679653
+      ],
+      "young_frac_opened": 0.0,
+      "auc_clean@0.05": 0.987012987012987,
+      "auc_clean@0.10": 0.987012987012987,
+      "auc_clean@0.20": 0.987012987012987,
+      "auc_L0ex_clean": 0.987012987012987,
+      "blur_frac": {
+        "0.05": 0.0,
+        "0.10": 0.0,
+        "0.20": 0.0
+      },
+      "opened_ranks_full": [
+        2.0,
+        3.0,
+        4.0
+      ]
+    }
+  ],
+  "registered_decision": {
+    "frozen_bars": {
+      "localized": ">= 2 strata at >= 3x base, Wilson CI excluding base, permutation p < 0.05 (powered decile band)",
+      "measurement_blur": "else (scatter at base rates)",
+      "mechanism": "blur: failing median blur_frac >= 2x non-failing AND >= 5/1 failing DPs >= 0.85 AUC after dropping near-threshold labels; else LABEL-STABLE"
+    },
+    "n_firing_strata": 1,
+    "permutation_p": 0.3688,
+    "fires": "MEASUREMENT_BLUR",
+    "verdict": "MEASUREMENT BLUR: only 1 stratum(a) fire (bar 2; permutation p=0.3688) \u2014 failures scatter at base rates; the residual is interventional-threshold noise in the ground truth; the T054 unification stands clean at its resolution. | Threshold-noise component NOT confirmed (blur med 0.812 vs 0.000; 0/1 recover >= 0.85) \u2014 failing cells are LABEL-STABLE: genuine misalignment (second-channel candidate). [POWER CAVEAT: powered band holds n=1 failures.]"
+  }
+}

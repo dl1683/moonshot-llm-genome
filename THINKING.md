@@ -367,6 +367,31 @@ box — 8 threads is the sweet spot (documented for future rigs).
 concentration + the bigram-induction findings both live in the same
 young band — e087's adjudication now has a structural prior.
 
+## T056 — E092/E104: distributed gate; localized real residual — the second channel lives at near-ties (2026-09-27 ~22:05Z)
+
+**E092: H-GATE-DISTRIBUTED.** The RMU readout-gate is not a
+component — necessity+sufficiency fail for every one of the 14
+(mLP-L5 necessity-only) while the full-swap brackets reproduce
+cleanly. The sealing lives in the retrained weights broadly:
+obfuscation-by-RMU is a DISTRIBUTED act. (Program bearing: no
+single-knob un-sealing; reversal requires the retrain itself or
+state-bypass.)
+
+**E104: LOCALIZED RESIDUE — the read has a second channel.** The
+attention-mispredicts census fires on 3 strata (near-tie margin Q0
+3.14x base; MIXED opened-age 4.29x; NO_YOUNG 9.8x; p=0.0001) and
+the blur hypothesis is REFUTED (labels stable). So: attention
+addresses the read first-order (AUC 0.907, T054) — but at NEAR-TIE
+decisions whose opened set spans ages, attention mispredicts
+genuinely. **Reading: near-tie decisions read by a different rule —
+the second channel is plausibly the LATE-layer correction (T037-#4
+mid-stack sovereignty) acting exactly where the margin is thin.**
+Registered (e106): the second-channel census — for the failing-DP
+stratum only, recompute prediction from L3-only mass and from
+late-head (L3H*) patterns: if late-layer mass predicts where
+L1/L2-mass fails, the two-channel read is CONFIRMED with names
+(early routing + late correction); register regardless of outcome.
+
 ## T055 — E099: one broad attractor, and the anchor is net-family-specific — T048 REVISED (2026-09-27 ~21:55Z)
 
 **MIXED-universal: ONE broad off-manifold attractor.** Every
