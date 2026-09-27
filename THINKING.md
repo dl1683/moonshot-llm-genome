@@ -411,6 +411,45 @@ protocol create it? What is the attractor's alphabet-typing
 (e105's donor-flavored collapse) — memory of the perturbation, or
 just the alphabet the remaining entries spell?
 
+## W003 — WONDER: the two-scale memory is complementary learning systems, damped down (2026-09-27 ~23:45Z)
+
+Sitting with T059's closing picture — discrete coordinate
+addressing per decision, continuous geometric sustaining at the
+field scale — and realizing what it echoes: **McClelland,
+McNaughton & Nadel's complementary learning systems.** The
+hippocampus indexes episodic memories by COORDINATES (place cells,
+time cells — sparse, fast, one-shot); the neocortex stores content
+as DISTRIBUTED GEOMETRY (slow, statistical, interference-prone).
+Our 2.7M char-LM has a damped-down version of exactly this
+division: the install taught a coordinate index in ONE exposure
+(the one-row key, e068/e078), while the content lives in the
+trained weights' V-geometry that types the whole family (T057) —
+the slow statistical store. Address = hippocampal; sustain =
+neocortical. Even the RATES match: the index forms in ~100
+training steps; the sustaining geometry took the full ~2200.
+
+**What the analogy predicts that we have NOT tested — and this is
+the delicious part — is systems consolidation:** in the biology,
+after enough replay, memories become retrievable WITHOUT the
+hippocampal index (lesion tolerated). Our analog: re-expose the
+installed fact at JITTERED positions (mass replay across many
+coordinates), then DELETE row-129 — does expression survive
+without the index? CLS predicts YES (the fact transfers to the
+geometric store); the coordinate-keyed law as stated predicts NO
+(one-row necessity). This is a genuine head-to-head between our
+own law and fifty years of memory theory, runnable in one ≤180s
+fine-tune + eval. Named on paper: e109 (consolidation test) —
+NOT dispatched; it ripens beside W002's e108. The lab's bio-analogy
+source (neuro-ai-lab) asked for exactly this kind of thing: not
+"X is like a hippocampus" but "X's analogy makes a falsifiable
+prediction ours alone can test."
+
+Second, smaller echo: the scar (e044/e044b) is then the index
+leaving a trace in the geometry — canalization as sclerosis of
+the fast store, exactly the aging-hippocampus picture. Whether
+that's poetry or mechanism is what e083 (cycle-3) will help
+decide, whenever thinking demands it run.
+
 ## T059 — E107 + the orthogonal-content principle: the architecture FORCES routing-only selection (2026-09-27 ~23:30Z)
 
 **ROUTING-ONLY stands decisively** — and the reason is now visible:
