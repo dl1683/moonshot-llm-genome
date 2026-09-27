@@ -1,0 +1,98 @@
+{
+  "viz": "v016_unlearning_signatures",
+  "date": "2026-09-27T20:52:01Z",
+  "device": "cpu-only (CUDA_VISIBLE_DEVICES masked; zero-GPU analysis)",
+  "source": {
+    "e065": "runs/e065/metrics.json",
+    "e091": "runs/e091/metrics.json",
+    "thinking": "T052"
+  },
+  "matrix": {
+    "no_removal": {
+      "R1_rescue_max_tf_d5": 0.4936093758673422,
+      "R1_rescuable_depths": [
+        4,
+        5
+      ],
+      "R2_probe_d45": 0.5333333350718021,
+      "R2_probe_d6": 0.7083333373069763,
+      "R3_steps_to_bar": null,
+      "R3_cos_wte_final": null,
+      "R4_dce_r": 0.0,
+      "R4_band": "~0",
+      "battery_pz": 0.5563086867332458
+    },
+    "rmu": {
+      "R1_rescue_max_tf_d5": 0.006745207944717665,
+      "R1_rescuable_depths": [],
+      "R2_probe_d45": 0.4916666686534882,
+      "R2_probe_d6": 0.4916666716337204,
+      "R3_steps_to_bar": 12,
+      "R3_cos_wte_final": 0.9979027509689331,
+      "R4_dce_r": -0.1626439094543457,
+      "R4_band": "~0",
+      "battery_pz": 0.001269130501896143
+    },
+    "surgery": {
+      "R1_rescue_max_tf_d5": 0.0003434599475929821,
+      "R1_rescuable_depths": [],
+      "R2_probe_d45": 0.5625000022351742,
+      "R2_probe_d6": 0.7416666686534882,
+      "R3_steps_to_bar": 16,
+      "R3_cos_wte_final": 0.5535269975662231,
+      "R4_dce_r": -0.001651763916015625,
+      "R4_band": "~0",
+      "battery_pz": 2.8637421110033756e-06
+    },
+    "ascent": {
+      "R1_rescue_max_tf_d5": 2.6869992087005285e-09,
+      "R1_rescuable_depths": [],
+      "R2_probe_d45": 0.5000000044703483,
+      "R2_probe_d6": 0.5166666671633721,
+      "R3_steps_to_bar": 75,
+      "R3_cos_wte_final": 0.9898863434791565,
+      "R4_dce_r": 11.403660655021667,
+      "R4_band": "FAILS",
+      "battery_pz": 6.179925602993095e-23
+    },
+    "retain_only": {
+      "R1_rescue_max_tf_d5": 0.34508626005198395,
+      "R1_rescuable_depths": [
+        5
+      ],
+      "R2_probe_d45": 0.5000000044703483,
+      "R2_probe_d6": 0.6583333432674408,
+      "R3_steps_to_bar": 12,
+      "R3_cos_wte_final": 0.9973520636558533,
+      "R4_dce_r": -0.14747929573059082,
+      "R4_band": "~0",
+      "battery_pz": 0.002173192333430052
+    }
+  },
+  "e091_callout": {
+    "hypothesis_fired": "H_READOUT_GATE",
+    "reverse_bar": 0.3,
+    "reverse_max_tf_d5": 0.006745207944717665,
+    "under_bar_ratio": 44.47601948801849,
+    "under_bar_rounded": 45,
+    "ycell_d5_rmu_into_intact": 0.3617270439863205,
+    "onset_geometry": "0/22400 chars"
+  },
+  "scale": {
+    "params": 2739072,
+    "desc": "2.74M/6L char-LM (6L/6H/192d, ctx 256)",
+    "note": "brief said '0.84M' but both e065 and e091 configs read 2,739,072 (6L/6H/192d) \u2014 the config number is what the figure prints; the 0.84M family (840,704) is the e005s small cfg, a different net"
+  },
+  "footnotes": [
+    "scale: 2.74M/6L char-LM (6L/6H/192d, ctx 256), params 2,739,072 verbatim (brief said 0.84M; configs read 2,739,072)",
+    "n=1 per condition (R3 protocol-flagged; e091 replica gates pass)",
+    "R2 probe-only: free-run Z-rate 0.0/kchar all arms; behavioral axis = battery p(Z) log",
+    "row scales: R1 log 1e-9..0.55 bar 0.30; R2 0.48..0.58 chance 0.50; R3 0..80 fast<=50; R4 +/-.25 vcenter 0 (ascent +11.40 clipped, hatched)",
+    "rescue vs elicitation: same rank order, different verdicts (retain-only 0.345 rescuable vs 0.0022 dead)"
+  ],
+  "outputs": {
+    "figure": "runs/v016/unlearning_signatures.png",
+    "metrics": "runs/v016/metrics.json"
+  },
+  "timing_s": 0.4
+}
