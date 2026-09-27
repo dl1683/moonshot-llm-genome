@@ -376,7 +376,7 @@ IS 2-7x.** The mass-action threshold survives every adversarial arm
 roughly double their count. **Refined law (third revision): mass
 dominates; recency is a strong multiplier (selection can buy ~2x
 effective mass); sink-side and top-readership selection buy
-NOTHING.** The sharpest literature falsification yet: top-readership
+NOTHING.** **Calibrations (agent-reported): the 7.27x is seed-inflated** (a low seed-101 random draw; kill-bar robust, same-k ratios not — treat recency-selection as ~2-7x with the honest range); **the greedy oracle cannot stack damage** (+0.066 at k=16 — e088's sub-additivity re-emerging under adversarial construction); **readership points OLD** (Spearman mass-vs-position −0.44, only 7/64 overlap with the recency block — the eviction heuristic selects the wrong END, not just the wrong entries). The sharpest literature falsification yet: top-readership
 (the importance-score heuristic behind H2O/eviction) is the WORST
 arm (0.40x) — the field's own selection tool fails at the task it
 was built for, in the regime where it claims to work.

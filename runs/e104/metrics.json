@@ -1,8 +1,8 @@
 {
   "experiment": "e104_failing_dp_census",
   "purpose": "FAILING-DP CENSUS (T054's registered residual, QUEUE e104): rebuild e100's features and per-DP AUCs bit-identically (G5 gates vs e084 flips_vz and e100 stored AUCs), then stratify failing decision points \u2014 PRIMARY POWERED BAND = bottom-decile per-DP attention-mass AUC (the literal <0.7 / <0.5 bands hold 1/98 DPs in e100's stored table; POWER GATE registered) \u2014 by (a) margin quartile, (b) opened-set size, (c) opened-age profile, (d) layer profile (L1/L2-only recompute), (e) candidate-attention entropy. BARS: >=2 strata at >=3x base with Wilson CI excluding base AND permutation p<0.05 => LOCALIZED RESIDUE; else MEASUREMENT BLUR. Mechanism: per-entry flip gaps from the same V-zero call => blur_frac + clean-label AUC recovery. Secondary: pooled AUC L0-excluded / L1L2-only / per-layer / clean-label + adaptive-k precision = layer-choice vs threshold headroom.",
-  "started": "2026-09-27T21:48:02Z",
-  "wall_s": 88.70205688476562,
+  "started": "2026-09-27T21:51:24Z",
+  "wall_s": 110.41778826713562,
   "threads": 8,
   "cpu_only": true,
   "smoke": false,
@@ -127,7 +127,7 @@
       "clean": {
         "0.05": 0.9377056139233789,
         "0.10": 0.9495273536079387,
-        "0.20": NaN
+        "0.20": 0.9612154696132597
       },
       "L0ex_clean": 0.8934448410261372
     },
@@ -171,7 +171,7 @@
       "clean_by_eps": {
         "0.05": 0.9377056139233789,
         "0.10": 0.9495273536079387,
-        "0.20": NaN
+        "0.20": 0.9612154696132597
       }
     }
   },
@@ -446,6 +446,13 @@
     ],
     "n_firing_strata": 3,
     "permutation_p": 0.0001,
+    "permutation_p_ge2": 0.0033,
+    "permutation_null_hist": [
+      8782,
+      1185,
+      32,
+      1
+    ],
     "firing_overlap": [
       {
         "a": "a_margin_quartile:Q0",
@@ -468,7 +475,95 @@
       "blur_frac_nonfailing_median": 0.0,
       "n_failing_recovered_above_085": 2,
       "blur_confirmed": false,
-      "label_stable": true
+      "label_stable": true,
+      "detail": {
+        "note": "descriptive (registered rule above is the bar): label_stable = failing DP with blur_frac < 0.25",
+        "n_failing_label_stable": 3,
+        "n_failing_full_recovery_dauct_ge_0p1": 2,
+        "n_failing_worsen_after_clean": 6,
+        "per_failing_dp": [
+          {
+            "dp": 0,
+            "auc_full": 0.8082966687617851,
+            "auc_clean": 0.6323529411764706,
+            "blur_frac": 0.6875,
+            "n_opened": 37,
+            "label_stable": false
+          },
+          {
+            "dp": 1,
+            "auc_full": 0.7236842105263158,
+            "auc_clean": 0.6358024691358025,
+            "blur_frac": 0.2875,
+            "n_opened": 4,
+            "label_stable": false
+          },
+          {
+            "dp": 3,
+            "auc_full": 0.8163030998851895,
+            "auc_clean": 0.9893617021276596,
+            "blur_frac": 0.3375,
+            "n_opened": 13,
+            "label_stable": false
+          },
+          {
+            "dp": 9,
+            "auc_full": 0.8106060606060606,
+            "auc_clean": 0.74375,
+            "blur_frac": 0.65,
+            "n_opened": 36,
+            "label_stable": false
+          },
+          {
+            "dp": 10,
+            "auc_full": 0.7012987012987013,
+            "auc_clean": 0.9473684210526315,
+            "blur_frac": 0.025,
+            "n_opened": 3,
+            "label_stable": true
+          },
+          {
+            "dp": 11,
+            "auc_full": 0.8433333333333334,
+            "auc_clean": 0.6307692307692307,
+            "blur_frac": 0.7125,
+            "n_opened": 20,
+            "label_stable": false
+          },
+          {
+            "dp": 12,
+            "auc_full": 0.7186520376175548,
+            "auc_clean": 0.40476190476190477,
+            "blur_frac": 0.7625,
+            "n_opened": 22,
+            "label_stable": false
+          },
+          {
+            "dp": 13,
+            "auc_full": 0.8166666666666667,
+            "auc_clean": 0.679144385026738,
+            "blur_frac": 0.65,
+            "n_opened": 20,
+            "label_stable": false
+          },
+          {
+            "dp": 27,
+            "auc_full": 0.4050632911392405,
+            "auc_clean": 0.41025641025641024,
+            "blur_frac": 0.0125,
+            "n_opened": 1,
+            "label_stable": true
+          },
+          {
+            "dp": 48,
+            "auc_full": 0.7201565557729941,
+            "auc_clean": 0.725,
+            "blur_frac": 0.0375,
+            "n_opened": 7,
+            "label_stable": true
+          }
+        ]
+      }
     },
     "strict_core_anatomy": [
       {

@@ -1281,22 +1281,26 @@ def plot(path: Path, M: dict):
     # ---- panel 5: readership prior texture (what selection had to work with)
     rt = S["readership_texture"]
     for r in range(B):
-        ax5.scatter([r], [rt["min_top64"][r]], color="tab:orange", s=40)
+        ax5.scatter([r], [rt["min_top64"][r]], color="tab:orange", s=40,
+                    label="top-64 min(S)" if r == 0 else None)
         ax5.scatter([r], [rt["min_top128"][r]], color="tab:orange", s=80,
-                    marker="s", alpha=0.6)
-    ax5.axhline(P1_MAX, color="k", ls=":", lw=1.2,
-                label=f"exposure floor min <= {P1_MAX}")
-    ax5.axhline(ANCHOR_POS[0], color="gray", lw=0.6)
+                    marker="s", alpha=0.6,
+                    label="top-128 min(S)" if r == 0 else None)
+    ax5.axhline(ANCHOR_POS[0], color="gray", lw=0.6,
+                label=f"band floor {ANCHOR_POS[0]}")
     ax5.set_xlabel("run")
     ax5.set_ylabel("min(S) of the readership top-k")
     ax5.set_xticks(range(B))
     ov64 = np.mean(rt["overlap_with_recency_block"]["64"])
     ov128 = np.mean(rt["overlap_with_recency_block"]["128"])
     spr = np.nanmean(rt["spearman_mass_pos_per_run"]["64"])
-    ax5.set_title("E101-5 — the readership prior: top-k minima per run; "
-                  f"overlap with the recency block {ov64:.0f}/64, "
-                  f"{ov128:.0f}/128; Spearman(mass,pos) {spr:+.2f} "
-                  "(prior agreement texture)", fontsize=9)
+    ax5.set_ylim(56, 100)                  # data lives at 64..76; the 350
+    # exposure floor is >4x above every observed minimum — note, don't plot
+    ax5.set_title("E101-5 — the readership prior: top-k minima per run "
+                  "(ALL at the band floor 64..76, far below the 350 "
+                  f"exposure floor); overlap with the recency block "
+                  f"{ov64:.0f}/64, {ov128:.0f}/128; Spearman(mass,pos) "
+                  f"{spr:+.2f} (prior agreement texture)", fontsize=9)
     ax5.legend(fontsize=9)
 
     # ---- panel 6: the registered decision

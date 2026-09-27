@@ -889,6 +889,24 @@ def main():
     blur_confirmed = bool(med_f >= BLUR_FRAC_RATIO * med_n
                           and n_recovered >= BLUR_RECOVER_COUNT)
 
+    # ---- descriptive mechanism detail (NOT a bar; the registered binary
+    #      rule above stands — this quantifies the blur/stable MIX honestly)
+    blur_detail = []
+    for r in valid_recs:
+        if r["dp"] in fail_dps:
+            blur_detail.append(dict(
+                dp=r["dp"], auc_full=r["auc_full"],
+                auc_clean=r[f"auc_clean@{EPS_PRIMARY_KEY}"],
+                blur_frac=r["blur_frac"][EPS_PRIMARY_KEY],
+                n_opened=r["n_opened"],
+                label_stable=bool(r["blur_frac"][EPS_PRIMARY_KEY] < 0.25)))
+    n_stable = sum(1 for d in blur_detail if d["label_stable"])
+    n_full_recover = sum(1 for d in blur_detail
+                         if np.isfinite(d["auc_clean"])
+                         and d["auc_clean"] - d["auc_full"] >= 0.1)
+    n_worsen = sum(1 for d in blur_detail if np.isfinite(d["auc_clean"])
+                   and d["auc_clean"] < d["auc_full"])
+
     # ---- strict-core anatomy (the literal <0.7 / <0.5 band members)
     anatomy = []
     for r in per_dp:
@@ -1032,13 +1050,22 @@ def main():
             strict_core_dps=sorted(strict_dps),
             strata=strata_tbl,
             n_firing_strata=obs_fire, permutation_p=perm_p,
+            permutation_p_ge2=perm_p_ge2,
+            permutation_null_hist=null_hist,
             firing_overlap=overlap,
             mechanism=dict(
                 blur_frac_failing_median=med_f,
                 blur_frac_nonfailing_median=med_n,
                 n_failing_recovered_above_085=n_recovered,
                 blur_confirmed=blur_confirmed,
-                label_stable=bool(not blur_confirmed)),
+                label_stable=bool(not blur_confirmed),
+                detail=dict(
+                    note="descriptive (registered rule above is the bar): "
+                         "label_stable = failing DP with blur_frac < 0.25",
+                    n_failing_label_stable=n_stable,
+                    n_failing_full_recovery_dauct_ge_0p1=n_full_recover,
+                    n_failing_worsen_after_clean=n_worsen,
+                    per_failing_dp=blur_detail)),
             strict_core_anatomy=anatomy),
         per_decision_point=per_dp,
         registered_decision=dict(
