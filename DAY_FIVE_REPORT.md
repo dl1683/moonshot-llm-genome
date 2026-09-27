@@ -55,6 +55,23 @@ pre-registered both-ways reading; the MC-null guard; honesty
 guards refusing vacuous verdicts (e096); agents overriding the
 coordinator's wrong footnote (v016).
 
+## The closing result (e109, landed post-draft)
+
+**CONSOLIDATION CONFIRMED** — the W003 head-to-head resolved in
+memory theory's favor: replay at jittered positions makes the
+installed fact survive deleting its address row (0.909 through the
+deleted coordinate vs 0.215 baseline), and position DIVERSITY
+beats matched training-mass two-fold (0.909 vs 0.436). The
+coordinate-keyed law has its boundary: one-shot installs are
+index-dependent; distributed replay releases them into the
+position-independent store. Complementary learning systems, in a
+2.7M char-LM, with the control that matters.
+
+**The five-day arc in one sentence: the net addresses by
+coordinates, sustains by directional fields, verifies by
+holographic self-checks — and can, with distributed experience,
+hand the first to the second.**
+
 ## Open (ripening, not running)
 
 e109 (CLS consolidation — the one-row law vs fifty years of
