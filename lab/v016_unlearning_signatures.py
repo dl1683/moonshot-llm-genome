@@ -107,11 +107,12 @@ def f_batt(v: float) -> str:
 # ---------------------------------------------------------------- figure
 fig = plt.figure(figsize=(17.0, 11.0))
 outer = GridSpec(2, 2, figure=fig, width_ratios=[1.72, 1.0],
-                 hspace=0.16, wspace=0.16,
-                 left=0.032, right=0.985, top=0.865, bottom=0.028)
+                 hspace=0.20, wspace=0.16,
+                 left=0.032, right=0.985, top=0.865, bottom=0.028,
+                 height_ratios=[1.0, 0.44])
 
 gleft = GridSpecFromSubplotSpec(2, 1, subplot_spec=outer[:, 0],
-                                height_ratios=[1.0, 0.30], hspace=0.06)
+                                height_ratios=[1.0, 0.12], hspace=0.06)
 axm = fig.add_subplot(gleft[0, 0])
 
 ROWS = ["R1  TRANSPLANT-RESCUE", "R2  LINEAR PROBE",
@@ -279,8 +280,8 @@ callout = (
     "evacuate the store — it sealed the gate. And the RMU net's free-run "
     f"onset geometry died too ({ONSET_BANK}/{ONSET_CHARS:,} chars)."
 )
-axm.annotate(callout, xy=(1.0, 3.54), xytext=(1.05, 4.57),
-             ha="center", va="top", fontsize=6.6, linespacing=1.42,
+axm.annotate(callout, xy=(1.0, 3.54), xytext=(1.05, 4.58),
+             ha="center", va="bottom", fontsize=6.6, linespacing=1.42,
              color="#4a235a",
              bbox=dict(boxstyle="round,pad=0.45", facecolor="#f7eefc",
                        edgecolor=ARM_COLOR["rmu"], lw=1.8),
@@ -307,18 +308,14 @@ def norm01(vals, log=False):
 AXES = [
     dict(name="PROBE\nacc @d6", vals=probe_vals, y=norm01(probe_vals),
          fmt=lambda v: f"{v:.3f}", marks=[(0.50, "chance")],
-         mval=lambda t: (t - min(probe_vals)) / (max(probe_vals) - min(probe_vals)),
-         rank="1 SURG  2 NONE  3 RETAIN  4 ASCENT  5 RMU"),
+         mval=lambda t: (t - min(probe_vals)) / (max(probe_vals) - min(probe_vals))),
     dict(name="TRANSPLANT-RESCUE\nmax TF d<=5", vals=resc_vals,
          y=norm01(resc_vals, log=True), fmt=f_r1,
          marks=[(BAR, "bar .30")],
          mval=lambda t: (np.log10(t) - np.log10(min(resc_vals)))
-         / (np.log10(max(resc_vals)) - np.log10(min(resc_vals))),
-         rank="1 NONE  2 RETAIN  3 RMU  4 SURG  5 ASCENT"),
+         / (np.log10(max(resc_vals)) - np.log10(min(resc_vals)))),
     dict(name="ELICITATION p(Z)\nbattery (log)", vals=batt_vals,
-         y=norm01(batt_vals, log=True), fmt=f_batt, marks=[],
-         mval=None,
-         rank="1 NONE  2 RETAIN  3 RMU  4 SURG  5 ASCENT"),
+         y=norm01(batt_vals, log=True), fmt=f_batt, marks=[], mval=None),
 ]
 XS = [0, 1, 2]
 
@@ -332,8 +329,6 @@ for k, ax_ in enumerate(AXES):
                  va="center", ha="left")
     axp.text(XS[k], 1.07, ax_["name"], ha="center", va="bottom", fontsize=7.6,
              fontweight="bold", color="#1a1a1a", linespacing=1.3)
-    axp.text(XS[k], -0.10, ax_["rank"], ha="center", va="top", fontsize=5.8,
-             color="#555555")
 
 for idx, a in enumerate(ARMS):
     ys = [AXES[k]["y"][idx] for k in range(3)]
@@ -342,20 +337,31 @@ for idx, a in enumerate(ARMS):
              alpha=0.95, zorder=3,
              marker="o", ms=5.5, mec="white", mew=0.8,
              label=ARM_SHORT[a])
-    for k in range(3):
-        dy = 0.035 if a != "no_removal" else 0.055
-        axp.text(XS[k] + 0.055, ys[k] + dy, AXES[k]["fmt"](AXES[k]["vals"][idx]),
-                 fontsize=5.6, color=ARM_COLOR[a], rotation=90,
-                 ha="left", va="bottom", zorder=4)
+
+# orderings + values beneath the panel (three instruments, three rankings)
+def order_line(vals, fmt):
+    order = sorted(range(len(ARMS)), key=lambda i: -vals[i])
+    return " > ".join(f"{ARM_SHORT[ARMS[i]]} {fmt(vals[i])}" for i in order)
+
+
+ORDER_LINES = [
+    "probe @d6 : " + order_line(probe_vals, lambda v: f"{v:.3f}"),
+    "rescue    : " + order_line(resc_vals, f_r1),
+    "p(Z) log  : " + order_line(batt_vals, f_batt),
+]
+for r, line in enumerate(ORDER_LINES):
+    axp.text(1.0, -0.125 - 0.115 * r, line, ha="center", va="top",
+             fontsize=5.5, family="monospace", color="#333333", zorder=4)
 
 axp.set_xlim(-0.52, 2.60)
-axp.set_ylim(-0.30, 1.34)
+axp.set_ylim(-0.62, 1.34)
 axp.set_xticks([])
 axp.set_yticks([])
 for s in axp.spines.values():
     s.set_visible(False)
-axp.legend(fontsize=6.4, loc="lower left", framealpha=0.95, ncol=1,
-           title="arm", title_fontsize=6.6)
+axp.legend(fontsize=6.2, loc="upper center", bbox_to_anchor=(0.5, -0.42),
+           frameon=False, ncol=5, columnspacing=1.3, handletextpad=0.4,
+           handlelength=1.6)
 axp.set_title("SIDE — the three-readout dissociation: probe crowns surgery; "
               "rescue crowns retain-only;\nelicitation crowns only the intact "
               "net — RMU: probe 0.492 yet rescue 0.007 on the SAME net",
@@ -366,30 +372,30 @@ axn = fig.add_subplot(outer[1, 1])
 axn.axis("off")
 notes = (
     "honesty footnotes\n"
-    f"[0] scale: {SCALE_STR} — params\n"
-    f"    {PARAMS:,} verbatim from the e065/e091 configs; toy-scale causal\n"
-    "    signatures, not production-scale claims.\n"
-    "[1] n = 1 net per condition (e048_repro install; R3 protocol itself\n"
+    f"[0] scale: {SCALE_STR}; params {PARAMS:,} verbatim from the e065/e091\n"
+    "    configs — the brief's '0.84M' is the e005s small cfg, a different\n"
+    "    net. Toy-scale causal signatures, not production-scale claims.\n"
+    "[1] n = 1 net per condition (e048_repro install; the R3 protocol itself\n"
     "    flags n=1) — single-seed evidence. e091 replicated the RMU and\n"
     "    retain cells bit-close (gates G_RMU_REPLICA / G_R1_REPRO pass).\n"
-    "[2] R2 ran in PROBE-ONLY mode: free-run ZEPHYRA rate was 0.0/kchar\n"
-    "    in ALL five arms (2,800 chars each), so the behavioral axis uses\n"
-    "    the prompted elicitation battery p(Z), log scale (e091 free-run\n"
-    "    onset harvest: RMU 0/22,400 chars — expression geometry dead).\n"
-    "[3] scales: R1 = max site-mean transplant TF over d<=5 (rescuable\n"
+    "[2] R2 ran PROBE-ONLY: free-run ZEPHYRA rate 0.0/kchar in ALL five\n"
+    "    arms (2,800 chars each), so the behavioral axis uses the prompted\n"
+    "    elicitation battery p(Z), log scale (e091 free-run onset harvest:\n"
+    "    RMU 0/22,400 chars — expression geometry dead).\n"
+    "[3] scales: R1 = max site-mean transplant TF over d<=5 (rescuable:\n"
     "    bar 0.30 AND shuffled <= 0.05 AND site-bootstrap CI excludes 0);\n"
     "    R2 = linear probe acc, chance 0.50; R3 = steps to relearn bar\n"
     "    NLL<=1.0 & acc>=0.80, cap 300, fast<=50; R4 = dCE_R vs the\n"
     "    no-removal net. Every number lifted verbatim from\n"
-    "    runs/e065/metrics.json + runs/e091/metrics.json (CPU-only).\n"
+    "    runs/e065/metrics.json + runs/e091/metrics.json (CPU-only build).\n"
     "[4] rescue and elicitation share rank order but NOT verdicts:\n"
     "    retain-only is rescuable (0.345) yet behaviorally dead (0.0022,\n"
-    "    ~256x below control) — the Orgad-instrument caveat.\n"
-    "    *surgery R3 cos 'invalid': <25% norm regrowth under the e044 guard."
+    "    ~256x below control) — the Orgad-instrument caveat. *surgery R3\n"
+    "    cos 'invalid': <25% norm regrowth under the e044 guard."
 )
-axn.text(0.012, 0.985, notes, fontsize=6.8, va="top", ha="left",
-         family="monospace", color="#222222", linespacing=1.42,
-         bbox=dict(boxstyle="round,pad=0.5", facecolor="#fbfbfb",
+axn.text(0.010, 0.99, notes, fontsize=6.0, va="top", ha="left",
+         family="monospace", color="#222222", linespacing=1.34,
+         bbox=dict(boxstyle="round,pad=0.45", facecolor="#fbfbfb",
                    edgecolor="#bbbbbb", lw=0.8))
 
 # ---------------------------------------------------------------- title
