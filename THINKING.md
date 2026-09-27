@@ -452,6 +452,39 @@ the fast store, exactly the aging-hippocampus picture. Whether
 that's poetry or mechanism is what e083 (cycle-3) will help
 decide, whenever thinking demands it run.
 
+## W004 — WONDER: self is a fixed point — the anchor as self-consistency verification (2026-09-28 ~00:50Z)
+
+Pushing T060's MHC echo one more turn, and it INVERTS in a
+delightful way. The thymus LEARNS self-tolerance (negative
+selection: delete T-cells that react to self). The net never
+learned anything of the sort — during training it only ever saw
+CORPUS text, never its own generations. So how did its own
+generated-text geometry become "self"? **By construction, not
+selection: the generator involuntarily stamps its outputs.** X is
+self iff X looks like what my weights produce — identity is a
+fixed-point property, not a learned classifier.
+
+And the promptcopy arm (e099/e108) is what proves the stamp is
+JOINT, not one-sided: corpus tokens pushed through the recipient's
+own forward pass get recipient-computed V-vectors — my weights
+alone — and they STILL collapse. So the stamp lives on the
+product (my weights × the token statistics my weights generate).
+**The anchor is a self-consistency check: is my history a fixed
+point of my own dynamics?** The healthy run sits in the basin
+where its own outputs re-enter as self-typed inputs; collapse is
+the failure of that loop. This reframes the attractor (T055) as
+the SELF-CONSISTENT manifold, and the off-manifold collapse as
+self-inconsistency detection. Generation is the net checking
+itself against itself, every token.
+
+E111's interpretation-in-advance, sharpened by this: whatever
+low-dim self-signature exists, it is the FIXED-POINT STAMP — and
+if e111 finds small k, the follow-up question becomes almost
+philosophical: can a fixed point be forged? (Craft V-vectors in
+the signature subspace by hand — if the run accepts them,
+selfhood is a k-dim lock pickable; that would be e112, someday,
+and it would say the net's self is shallower than it acts.)
+
 ## T060 — E108: the anchor is binary self-recognition — the bilinear unification resolves as metaphor, cleanly (2026-09-28 ~00:35Z)
 
 **SHARP FAMILY fires against the pre-registered both-ways reading
