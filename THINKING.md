@@ -1231,6 +1231,45 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W015 — WONDER: does the self survive losing its pivot? Connecting the two arcs (2026-09-28 ~08:18Z)
+
+The memory arc and the self arc have never touched
+mechanistically. The self-recognition machinery (binary
+self/other step 0.40-vs-0.14; k*=7 signature subspace; exclusion
+of foreign nets; unfakeable — T060-T062) is measured through the
+anchor's V-structure reads, but nobody has asked WHICH LAYER
+computes it — and the week just built exactly the instruments to
+ask: the fact is ROUTED through row-0 presence (e141) with
+direction-independence; the LM is direction-dependent; the
+memory tenant and the language tenant keep separate insurance
+policies (W014). THE DISSOCIATION MATRIX (savor, three
+interventions x three functions): interventions = row-0
+presence-removal / row-0 direction-scramble / fact-specific-head
+ablation; functions = fact expression / SELF-RECOGNITION (the
+self/other binary + k*=7 occupancy) / LM corpus CE. The fact's
+row is known (dies, survives, dies). The LM's row is known
+(dies, dies, cheap). THE SELF'S ROW IS THE OPEN CELL AND THE
+INTERESTING ONE: if self-recognition collapses under
+presence-removal, the self is ROUTED — identity rides the same
+pivot as memory, and W004's "self is a fixed point" becomes
+"self is a fixed point OF the routed read" — the lab's two
+deepest findings fuse into one substrate. If the self survives
+presence-removal but dies under direction-scramble, the self is
+computed UPSTREAM (at the V-manifold source) with the LM's
+robustness class — identity is older than the route, a
+constitutional layer the routing merely consults. If the self
+dies under fact-specific-head ablation, self and fact share
+readout machinery (the self is one tenant among tenants).
+PREDICTED SAVOR: the middle branch — the unfakeable check reads
+V-STRUCTURE, and V-structure is direction; presence never carried
+structure. The self should be direction-typed like the LM but
+presence-independent unlike the fact. If so, the lab earns a
+three-layer stack in one run: constitutional self (direction,
+upstream), routed memory (presence, downstream), and the
+language function straddling both — and the unlearning
+implication sharpens: you can evict a memory without touching
+the self, but never scramble directions without both.
+
 ## W014 — WONDER: the memory layer is a semi-independent tenant — it dies to what the corpus ignores and ignores what the corpus dies to (2026-09-28 ~08:00Z)
 
 E141's CE dissociation, savored properly: direction-scrambling
