@@ -575,6 +575,35 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T102 — E152R: the dwell dies, the brake lives — and the disuse frame absorbs the wreckage (2026-09-28 ~15:00Z)
+
+The replication did its job: the session's most-quoted texture
+(the dwell, the 8-16 cliff) is trajectory-specific — three
+seeds, three shapes, timings spanning an order of magnitude.
+What the replication CONFIRMS is better: the conversion is
+INVARIANT (3/3 complete by s300) and the brake overshoot is
+REAL (3/3 seeds, deepening with later cliffs, always released).
+Under T101's disuse frame, both fall into place: the conversion
+is a WASHOUT RACE (ordinary gradient flow vs the re-teach, on
+each trajectory's luck — hence seed-dependent timing but
+invariant outcome), and the brake overshoot is the old address
+RESISTING at maximum exactly when the washout is winning —
+suppression peaks at maximum competition (the negative-
+posterior reading, now n=3). THE STRADDLE CELL (locked@band
+0.26-0.55 across seeds/devices) also dissolves into the frame:
+home-locking sometimes loses the race, sometimes wins it — an
+unstable cell, not a gate leg. T097's two-factor gate is now
+SUGGESTIVE ONLY (novel-site + zero-variance is where the race
+is usually lost fastest; e165's ladder remains the axis test).
+
+FOR THE PAPER: the mixed-state sentence softens to "a
+mid-conversion state holding both natures was OBSERVED (one
+seed) but is not a timescale law; conversion completes at all
+seeds within 300 steps"; the brake overshoot enters as an n=3
+finding. W018's four fates lose their timing claims (already
+barred from paper text). The [n=1] markers on T094 clear —
+resolved NEGATIVE for the dwell, POSITIVE for the overshoot.
+
 ## T101 — E161: disuse, and the reframing it forces — consolidation as gradient-resistance acquisition (2026-09-28 ~14:45Z)
 
 The fork resolves DISUSE cleanly, and the honest consequence is

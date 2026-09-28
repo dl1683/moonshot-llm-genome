@@ -69,10 +69,11 @@ read-coupling despite sink adjacency; proximity piggybacking dead).
 zero-vs-any error-position variance (±1 suffices; no width trend);
 the types are phases of one substrate, with conversions demonstrated in
 both directions across the lineage (same-net reversibility is e155's
-queued cell) — and the conversion PASSES THROUGH A MIXED STATE: the cliff
-fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
-genuine at 67x control AND >=50% geometry retention) before separation
-completes (e152) [e158 COMMITTED PASS-2: TEXTURE — closure requires the CONJUNCTION novelty x zero-variance (jitter@novel OPEN 0.789, locked@home MID 0.458 straddling, locked@novel SHUT 0.102); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: graft formation is NOT SUFFICIENT for closure (a home graft formed with the door open — n=1, the straddling cell); novelty is a candidate variable (e165); carriage undetermined (e161/e173) — [e166's row-null was an instrument tautology, withdrawn]; e154 landed TEXTURE with a confound: F1 ANNIHILATED under a protocol whose anchors contradict it — 'globally' awaits e170 (anchor-neutral rerun); the riders (N2 spares F2; F2 diffuse) strengthen claims 3-4 now]. (3) SPLIT CUSTODY: the converted memory's
+queued cell) — and conversion completes at ALL seeds within 300 steps
+(e152R, n=3) with seed-dependent trajectories (a washout race); a
+mid-conversion state holding both natures was OBSERVED (one seed: site-store
+66.8x the 2x-control bar, geometry retention 0.56) but is not a timescale
+law; the brake overshoot replicates 3/3 (e152R) [e158 COMMITTED PASS-2: TEXTURE — closure requires the CONJUNCTION novelty x zero-variance (jitter@novel OPEN 0.789, locked@home MID 0.458 straddling, locked@novel SHUT 0.102); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: graft formation is NOT SUFFICIENT for closure (a home graft formed with the door open — n=1, the straddling cell); novelty is a candidate variable (e165); carriage undetermined (e161/e173) — [e166's row-null was an instrument tautology, withdrawn]; e154 landed TEXTURE with a confound: F1 ANNIHILATED under a protocol whose anchors contradict it — 'globally' awaits e170 (anchor-neutral rerun); the riders (N2 spares F2; F2 diffuse) strengthen claims 3-4 now]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism
 damage, only readers die) while its READOUT consolidates into a small

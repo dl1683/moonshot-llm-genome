@@ -63,6 +63,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E152R — the dwell re-seeds: DWELL-SEED-DEPENDENT — the dwell dies at n=3; the brake overshoot survives 3/3; the straddle cell is unstable (2026-09-28 ~15:00Z) — DONE
+
+WHAT WE DID: two full conversion traces (seeds 10903/10904) +
+the 10/12/14/16 insert (folded into 10903's trajectory) + the
+straddle settler (locked@band at seeds 10905/10906); 57.5 min
+GPU (gate-checked per training, never parked); all gates
+bit-exact.
+
+WHAT WE SAW (T102): DWELL-REPLICATES does NOT fire — the cliff
+brackets are 8->16 / 16->32 / 128->300 across seeds; shelf
+minima 0.538/0.213/0.854; T094's "8-16-step cliff" and "~50-
+step dwell" are TRAJECTORY-SPECIFIC TEXTURE. WHAT SURVIVES 3/3:
+(1) the CONVERSION itself (final <= 0.27 at every seed — the
+door always closes by s300); (2) the BRAKE OVERSHOOT (A(129)
+deepens below -0.35 mid-conversion in 3/3, deepening further
+with later cliffs; released by s300 — now a real n=3
+phenomenon). THE INSERT: the door stays fully open through s16
+on 10903 (1.036 at s12) — timing seed-dependence at fine
+granularity. THE STRADDLE SETTLER (outside its fork):
+locked@band = 0.261/0.317 at new seeds vs 0.546 CPU / 0.458 GPU
+— the cell SPANS OPEN-TO-SHUT across seeds; home-locking alone
+CAN shut the door at some seeds; T097's two-factor gate
+WEAKENED on its home leg (the honest reading: an UNSTABLE
+cell, not a SHUT cell). UNDER THE DISUSE FRAME (T101): the
+conversion timing is a WASHOUT RACE — when ordinary gradient
+flow happens to beat the re-teach on a given trajectory; the
+robust brake overshoot is the surviving mechanism signal.
+Honesty: no device mixing this run (all GPU) but the seed-10902
+baseline was CPU — cross-experiment drift priced; sequential
+trajectories (n=3 over paths); one lineage; texture cells not
+re-run (bars only).
+
+---
+
 ## E161 — the freeze-cell: DISUSE/GENERIC-PRESSURE — the door closes with NO fact teaching; the ENTIRE fact dissolves under ordinary gradient flow (2026-09-28 ~14:45Z) — DONE
 
 WHAT WE DID: 300 steps of plain-corpus continuation from the s32
