@@ -67,6 +67,41 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 53.5 — the missing R53 entry (recorded retroactively per R54: R53's content went to the day report's session-closing ledger and commits; the review log owed this stub) (2026-09-28T19:55Z actual)
+
+R53 was the session-closing audit: PASS With Defects; the closing ledger into
+DAY_SIX_REPORT; the paper's stale clauses propagated; the T112 displacement
+figures corrected (2.5/5 L2 measured); the e157 collision renamed e186; stamps set.
+
+## Review 54 — the unit regression (2026-09-28T22:45Z; combined auditor-critic; e179 running through it)
+
+### AUDITOR-CRITIC — PASS WITH DEFECTS
+All four folds verified number-for-number (e175 100/100/100; e163 0.275/0.725 vs
+0.932; e185c 10/8/0 classes; e180 -1.16/R^2 0.975/0.565 censored).
+1. (HIGH) THE BASIN UNIT REGRESSION: "5e-3" re-asserted as parameter displacement
+   in T119, the skeleton's mechanism paragraph, and e179's registration — a
+   3-order regression of R53's own correction (e185's measured 2.489 L2 at kill).
+   FIXED everywhere: ~2.5-5 L2 over 2.7M params (RMS ~1.5e-3/coordinate).
+2. (MED) The abstract's "at any lr tested" contradicted its own rate-law
+   parenthetical — FIXED to the horizon-qualified form.
+3. (MED) The skeleton's stale status/blockers header — T118's blockers-zero
+   verdict stands; the header now says so.
+4. (LOW) The power-law exponent's grid-legal band [1.1, 1.5] quoted alongside
+   the stored -1.16 (conservative edge); T117's "<=0.2%" tightened to median.
+5. CRITIC: e163's licensing SURVIVES its disclosed circularity (the wpe-share
+   and carrier-on-arm_b's-battery legs carry it; the paper must cite the wpe
+   share as ground truth); e175's NO-SAVINGS survives at the registered
+   threshold with "archive empty" bounded by the substrate confound; the
+   REMAINING INVERTERS: e182 (GPT-2), a third-family wash, e185's noise
+   replicates, the 1e-5 horizon, e179's own bars — everything else extends.
+6. STATUS: QUEUE's e179 row fixed to RUNNING; R53's stub recorded above.
+
+### Decisions
+1. All fixes applied before this entry. 2. The assembly may proceed on the
+corrected forms. 3. Fleet: e179.
+
+---
+
 ## Review 52 — the sparse grid (2026-09-28T18:45Z; covering 17:30–18:45Z; e157 running through it)
 
 ### AUDITOR — PASS WITH DEFECTS (all numbers clean)

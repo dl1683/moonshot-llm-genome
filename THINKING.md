@@ -681,15 +681,17 @@ enter the discussion in this n=3 form.
 The kinetics extension lands the quantitative replacement for
 the demoted rhetoric: t* ~ lr^-1.16 across a 100x lr range
 (R^2 0.975), with lr x t* roughly constant (2-6e-3) — the wash
-is DISPLACEMENT-LIMITED to first order. THE BASIN HAS A WIDTH,
-and it is ~5e-3 in parameter space; at lr 1e-5 the fact still
-lives at +300 (62% expressed). LR-IMMUNE dies — there is no
+is DISPLACEMENT-LIMITED to first order. THE BASIN HAS A WIDTH — measured
+~2.5-5 L2 over 2.7M params (per-coordinate RMS ~1.5e-3) [R54:
+the 5e-3 figure was a 3-order regression of R53's correction —
+the lr x t* product is a different, dimensionless currency]; at
+lr 1e-5 the fact still lives at +300 (62% expressed). LR-IMMUNE dies — there is no
 intrinsic two-step fragility; there is a basin the optimizer
 must walk out of, and the walk's speed is the lr. THE PAPER'S
 FINAL MECHANISM PARAGRAPH: "memory in these networks has a
-narrow robustness basin (~5e-3 displacement); continued
+narrow robustness basin (~2.5-5 L2 over 2.7M params; RMS ~1.5e-3/coordinate); continued
 optimization exits it — the exit rate is the learning rate
-(t* ~ lr^-1.16); what corpus direction adds is not the exit
+(t* ~ lr^-1.1..-1.4 across grid-legal fits; the stored -1.16 conservative); what corpus direction adds is not the exit
 but the surgery (the fact dies, the organism recovers)". The
 +10 pumps at both gentle lrs echo e184's coin-flip texture.
 FOR W019: the field-facing line's FINAL form — "these memories
