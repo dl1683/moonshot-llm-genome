@@ -63,37 +63,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
-## E158 — the 2x2 completion: SITE-INDEPENDENT — closure requires NOVELTY *and* zero-variance together; the geometry door closes exactly when a NOVEL graft forms (2026-09-28 ~12:40Z) — DONE
-
-WHAT WE DID: the two completing cells from the consolidated
-root — (a) JITTER@183 (e151's protocol with ±8 position jitter
-around the new site), (b) LOCKED@BAND (zero-variance at the
-home position); the 2x2 completed with the known cells (jitter@
-band = the root itself; locked@183 = e151).
-
-WHAT WE SAW (T097): SITE-INDEPENDENT fires — the two-factor
-gate. (a) jitter@183: door OPEN (g-12 0.505 >= 0.5) — variance
-at a NOVEL site does not close (and per e143/e142, variance
-prevents graft formation). (b) locked@band: door OPEN (0.546) —
-zero-variance at HOME is harmless. Only locked@NOVEL-site
-shuts (e151: 0.102). NEITHER registered simple law holds
-(PHASE-BY-VARIANCE and CLOSURE-BY-PLACEMENT both fail). THE
-UNIFYING READING: THE GEOMETRY DOOR CLOSES WHEN AND ONLY WHEN A
-NOVEL GRAFT FORMS — variance anywhere prevents the graft (door
-stays open); zero-variance at home re-trains the existing
-structure (door stays open); zero-variance at a novel site
-BUILDS a competing graft and the geometry-general access comes
-down with it. Graft formation and door closure are ONE EVENT.
-Open question (in the metrics' site census): did locked@band
-RE-FORM a band graft (weakly) — the home-graft caveat; and the
-novelty axis is unexplored (e165: locked at graded distances
-from home). Honesty: single seed/lineage; jitter@183's 0.505
-sits 0.005 above the open bar (razor-thin — the honest read is
-"at-or-near the boundary", and the arm's site census shows how
-much graft tried to form); the b-arm's 0.546 carries e119-L's
-budget-convention lineage.
+## E158 — the 2x2 completion: TEXTURE (two-pass disclosure) — closure requires the CONJUNCTION novel-site x zero-variance; committed pass: jitter@183 OPEN 0.789, locked@band MID 0.458 (straddling)
+[SUPERSEDES the 12:40Z fold, which used pass-1 CPU metrics (0.505/0.546 -> SITE-INDEPENDENT) while the agent re-ran on the freed GPU; the COMMITTED pass-2 (e9c4855, device-homogeneous with e151) reads TEXTURE — no bar fired cleanly. PROCESS RULE BORN: fold on the agent's completion notification, not early on-disk metrics]
+WHAT WE SAW (T097, committed pass): CLOSURE-BY-PLACEMENT dead
+(jitter@183: 0.789 OPEN — new-site teaching WITH variance does
+not close). PHASE-BY-VARIANCE's b-clause dead (locked@band:
+0.458 MID — degrades but does not shut; the cell STRADDLES the
+0.5 bar across passes (0.546 CPU / 0.458 GPU) — scatter beyond
+e152's ~0.03 cross-device bound; second seed owed before
+canonizing b's label). ROBUST ACROSS PASSES: neither factor
+alone closes; both degrade to ~50% of root 0.916; the only SHUT
+cell is locked@183 — CLOSURE REQUIRES THE CONJUNCTION. DWELL
+ANSWER: NO — the mixed state does not persist under variance
+(site-store ~100x weaker under jitter: +0.0006 vs +0.0731).
+TEXTURE GEM — THE MEMORY EMIGRATES: under jitter@183 the
+home-geometry readout COLLAPSES (g0 0.785 -> 0.145) while the
+novel doors stay open — the readout abandons its home for the
+new territory. The brake OVERSHOOTS under jitter (A -0.132 ->
+-0.610). Arm b re-sites without closing (home graft +0.0105,
+A flips +0.072, sink coupling retained 0.802).
 
 ---
+
 
 ## E125a — the inverted knife: NO-SITE-KNIFE — an asymmetry of EXISTENCE; the generalizing memory is the removable one (2026-09-28 ~12:30Z) — DONE
 

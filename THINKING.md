@@ -577,6 +577,15 @@ directly and eval-only.
 
 ## T097 — [CORRECTED per R48 critic — the headline was contradicted by e158's own unread census: locked@band DID re-form a home graft (row 129: brake -0.132 -> content +0.057, site_pos TRUE, peak 129) while the door stayed OPEN; TWO grafts, different door outcomes — the operative variable is SITE NOVELTY (or occupied-slot history), NOT graft formation; 'one event two faces' is FALSE as written] E158: the two-factor gate — closure requires novelty AND zero-variance (2026-09-28 ~12:40Z)
 
+PASS-2 UPDATE (~13:30Z — the agent's committed GPU pass supersedes
+the folded CPU numbers): jitter@183 OPEN 0.789 (clean, not
+razor-thin); locked@band MID 0.458 (straddles the bar across
+passes — second seed owed); the CONJUNCTION reading is robust
+across both passes. THE MEMORY EMIGRATES (new texture): under
+jitter@183 the home-geometry readout collapses (0.785 -> 0.145)
+while novel doors stay open — variance moves the readout's home.
+PROCESS RULE: fold on completion notification, not early metrics.
+
 THE HONEST RESTATEMENT: home-site and novel-site grafts dissociate
 from door closure. The registered verdict (SITE-INDEPENDENT: the
 two-factor gate on novelty+zero-variance) STANDS — it was the
