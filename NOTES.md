@@ -119,6 +119,44 @@ report-only.
 
 ---
 
+## E139 — row-0 universality: HYBRID (site-dominant two-door) — row 0 is NOT universal; row 0 routes, the site stores (2026-09-28 ~08:15Z) — DONE
+
+WHAT WE DID: five probes on the splice arms + consolidated
+reference; arm-c regenerated (the one permitted training, 300
+steps); all gates bit-exact (|d|=0.0 vs e131 tables); 1059s CPU.
+
+WHAT WE SAW (T082): both splice arms HYBRID with the site
+dominant — D-row-0 -24.8%/-27.5% (below the -50% universal bar),
+D-183 -54.4%/-30.9% (below the -80% site-locked bar), both doors
+together -78%/-62% (super-additive). Row-183 CONTENT-POSITIVE
+(strength 0.455/0.271, ~1000x control band — the only strong
+content row in the census); row-0 content test NULL on both arms.
+GENERALIZATION (e131's honesty note d closed): both arms
+generalize — novel train contexts 0.597/0.708, val-split
+0.591/0.699, held-out fact segments 0.620/0.683 — real facts,
+not window memorization; training-geometry premium ~0.3 (e131's
+0.989 overstated strength; the training read AND generalization
+were both true). BRAKE ABSENT on splice arms (row-129 replacement
+~0) vs the consolidated line's -0.11/-0.13 — the brake is a
+re-keying scar of the jitter road and does not reach across
+homes (corroborates T078). CONSOLIDATED REFERENCE (report-only):
+the jitter-road net reads p(Z)=0.660 at the 183-geometry it
+NEVER trained, row-0-keyed there (drops +0.657/+0.551, ratio
+0.84) — row 0 is a position-invariant readout route for the fact
+that re-keyed to it. ARM-C RIDER: RIDER-NULL — genuine decay,
+not instrument blindness: the dreams' 34 ZEPHYRAs sit at
+x-col 130 (33/34; read position 129 = the OLD address — dreams
+are never position-diverse); p(Z)@onset 0.230 BELOW the base's
+0.391 at the same positions (dream replay actively ERODED the
+fact there); consolidated nothing anywhere readable. T076's
+error-compass survives its last open edge; e120's arm-c verdict
+stands un-revised. Honesty: exposure spans excluded exactly;
+D-row-0's CE +1.28 bounded by row-1 control (negligible
+scaffold); ~25% drop is row-0-specific but NOT content (the
+content test says not) — processing gate, not store.
+
+---
+
 ## E141 — sink-key mechanism battery: ROLE-ROUTED (presence-only) — "re-keyed to row 0" formally dead; the noun is row-0 sink-routed (2026-09-28 ~08:05Z) — DONE
 
 WHAT WE DID: five probes (install-restore t-surgery, presence-

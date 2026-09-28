@@ -575,6 +575,55 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T082 — E139: two memory types — ROUTED vs SITE-STORED — and the dreams that dream in coordinates (2026-09-28 ~08:15Z)
+
+The taxonomy completes, and it is cleaner than any card
+predicted. The splice arms (error at a fixed novel site) produce
+SITE-STORED memories: row-183 content-positive at ~1000x
+controls, D-183 kills half, row-0 NULL by content test — and
+these memories GENERALIZE to novel contexts and val-split
+(0.6-0.7) despite being site-stored. The jitter road (error
+position-varied) produces ROUTED memories: row-0 presence-
+keyed (e141), reading at geometries never trained (0.660 at the
+183-geometry, ratio 0.84 row-0 drops) — position-invariant
+access to body-stored content (e133: 84.5% head residue). ROW 0
+ROUTES; THE SITE STORES. The two doors compose super-additively
+in the splice arms (D-row-0+183: -78%/-62%) — a splice memory is
+mostly site-read with a weak routed tail (-25%).
+
+CONSEQUENCES: (1) T075's provisional marker RESOLVES — the
+retirement stands (the 'position diversity ingredient' framing is
+dead; the splice arms learned, stored, and generalized at their
+error site), and the credit for what position diversity ACTUALLY
+does moves fully to T079: diversity decides WHICH TYPE of memory
+forms (routed vs site-stored) by deciding which features are
+invariant across the error windows. (2) The brake's scope is now
+precise: a scar of RE-ROUTING (absent on splice arms, present on
+the jitter line — deleting the old address only helps a memory
+that moved its route). (3) W011's savor (a) resolves PARTIAL:
+site-stored facts DO generalize across CONTEXTS — what was never
+tested is novel-GEOMETRY for the splice arms (fact shifted off
+183); the routed fact generalizes across geometries (0.660 at
+never-trained 183). Novel-geometry-for-site-stored is the one
+missing cell in the taxonomy; prediction: it fails or degrades
+steeply (a site-stored read needs its site), which would make
+geometry-independence the ROUTED type's exclusive property.
+
+THE DREAMS THAT DREAM IN COORDINATES (the arm-c rider, the
+day's best savor): 33 of 34 dream ZEPHYRAs sit at x-col 130 —
+read position 129, the OLD ADDRESS. The net's spontaneous
+replay visits its fact in the fact's own coordinates; dreams are
+never position-diverse. Under T079 this is exactly why verbatim
+dream replay cannot consolidate (zero position variance -> the
+positional key keeps the credit -> nothing re-routes), and the
+rider adds the sharper number: dream replay left the fact BELOW
+base at the dream positions (0.230 vs 0.391) — replay without
+error doesn't just fail to consolidate, it ERODES. T074's dream
+verdict stands; T076's compass survives its last open edge; and
+e136's surprisal prediction now has a mechanism to explain the
+500x: dreams protect by SLOWING EROSION at the address they
+never leave, not by moving anything.
+
 ## T081 — E141: presence, not content — the fact routes through row 0 EXISTING (2026-09-28 ~08:05Z)
 
 The R44 critic's crack is confirmed and sharpened beyond it.
@@ -881,7 +930,7 @@ loss not logged) — this is the arm-level proxy. The decisive
 version rides e131's regenerated arms: log per-context fact-span
 loss, rank-correlate with per-context consolidation.
 
-## T075 — [RETIRED-PROVISIONAL per R44 critic: retirement announced on probe-1 (learning-at-183) before the D-183 graduation cell; e139 adjudicates] E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 05:52Z; header clock repaired per R44 audit)
+## T075 — [RETIRED, RESOLVED by e139/T082: the splice arms learned, stored (row-183 content ~1000x), and generalized (0.6-0.7) at their error site — retirement stands; what position diversity actually does (choose routed vs site-stored) belongs to T079] E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 05:52Z; header clock repaired per R44 audit)
 
 **SIGNAL-IN-CONTEXTS INSUFFICIENT, decisively** — and the
 discrimination is airtight because arm (d) carries the same
