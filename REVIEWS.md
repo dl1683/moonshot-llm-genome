@@ -82,11 +82,18 @@ Context: E120/T075/W008 freshest; e119 (migration head-to-head) dispatched at
   W008's adapter family implies; e019 energy-carrier held via the e011c rule.
 - 2 stale READY rows (e065, e083) marked; combined-heading false positives
   cleared (E035+E038, E092+E104, E101+E106 covered).
-- NEW audit finding: NO model weights are persisted anywhere in the repo
-  (only an unrelated e055 scratch cache). The critic's "eval-only on existing
-  checkpoints" discriminator is therefore NOT free — nets must be regenerated
-  (deterministic recipes exist). Process fix adopted: every future experiment
-  saves phase-boundary checkpoints under runs/eNNN/ckpts/ (small, loadable).
+- AUDIT FINDING, CORRECTED BY ERRATUM (~07:25Z): the lead's original claim
+  "NO model weights are persisted anywhere" was WRONG — the search was
+  under-scoped (find -maxdepth 2 + never reading .gitignore). In fact
+  runs/checkpoints/ holds 102 phase checkpoints (convention: eNNN_<phase>.pt,
+  gitignored so commits never show them). The OPERATIVE finding stands,
+  narrower: the consolidation arc (e109–e121) saved NO nets — the newest
+  checkpoint is e117's, and no e109/e113/e120/e121 arm net exists. So the
+  critic's discriminator still required regenerating the arc's fine-tunes,
+  but from existing roots (e120's cited base e082_b43_install.pt IS there;
+  e044 zephyra installs for the older line). Process fix, reframed: restore
+  the OLD convention (runs/checkpoints/eNNN_*.pt) for every future
+  experiment — e131 was mid-dispatch and was corrected by message.
 
 ### IDEATOR (full 7-experiment list folded into QUEUE as e132–e138)
 Top pick: the wiring trace (kernel-motion x brake x self-acceptance at dense
