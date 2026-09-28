@@ -194,6 +194,26 @@ invariance; e125's heads-ordering). The audit also repaired three
 orphaned runs from earlier days (E019/E078/E088) and caught the
 checkpoint-inventory misconception (102 nets on disk, gitignored).
 
+## The session's meta-lesson (written ~14:25Z, with the fleet computing)
+
+In ~9 hours: ~30 experiments, 7 frontier reviews, 25
+interpretation cards (T076-T100), 10 wonder cards, four process
+rules born — and three instruments caught reading the wrong
+coordinate, one headline falsified by its own run's census, one
+zero that was a tautology. The pattern underneath: the honesty
+machinery caught EVERY overreach, but always one review late.
+The first fold strengthens; the correction lands within the
+hour. The bias is structural (flattering-direction narration is
+what interpretation IS under pressure), so the fix is not
+better first-folds — it is faster correction loops, and that is
+what happened: the review cadence compressed from ~60 to ~30
+minutes across the session, the correction targets moved from
+verdicts to the narration layer above them, and the checklists
+moved from post-hoc rules to pre-dispatch gates (the
+battery-geometry check). The lab's real product today is not
+the four-layer model — it is a demonstrated protocol for being
+wrong quickly at the frontier's speed.
+
 ## Verification coda (updated ~11:50Z)
 
 Every load-bearing number traces to runs/eNNN/metrics.json —
