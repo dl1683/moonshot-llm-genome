@@ -575,6 +575,36 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T105 — E176: the net has no archive — activity-dependent memory, and the two-step collapse (2026-09-28 ~15:20Z)
+
+The decisive control returned the vertiginous answer: the
+CONSOLIDATED fact washes out as fast as the dwell-phase one —
+g-12 0.916 -> 0.088 in TWO plain-corpus steps, the whole
+anatomy (sink coupling, brake, deletion tolerance, held
+generalization) dissolving together at healthy CE. THE
+CLASSICAL CONSOLIDATION STORY IS DEAD IN THESE NETS: no
+gradient-resistance was ever acquired; the anchor banks in
+every training the lab ever ran were quietly rehearsing the
+fact, and removing rehearsal removes the memory. FOR THE
+PAPER (arguably its strongest single claim): MEMORY IN THESE
+NETWORKS IS ACTIVITY-DEPENDENT — there is no archive, only
+what is currently being reminded; the consolidated state's
+specialness (geometry-general access) is a property of the
+READOUT the rehearsal maintains, not of hardened storage. THE
+REMAINING QUESTIONS, sharpened: (1) e178 (the rider, mandatory)
+— does restoring the root's MLP+LN class into the washed net
+rescue the fact? Rescue => washout is the located rewrite
+(e173) bidirectionally, and class-surgery restoration gains
+its second demo; no-rescue => the washout destroyed something
+the class-restore cannot rebuild (the two-step collapse
+suggests the wash is fast and total). (2) e177 — is e125a's
+deep site-store the ONE wash-resistant thing (a true archive:
+knife-proof AND wash-proof), or does it too dissolve (the
+resistance axis empty everywhere)? THE CLOSING SENTENCE,
+final form: the net does not store its memories; it PRACTICES
+them — remove the practice and even the most consolidated
+fact is gone in two steps, while the organism sails on.
+
 ## T104 — E173: the closure has an address — the MLP+LN stream, and surgery CAN reopen what training shut (2026-09-28 ~15:25Z)
 
 The partition gives the day's mechanism story its anchor: the

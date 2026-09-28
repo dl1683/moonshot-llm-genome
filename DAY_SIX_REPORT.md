@@ -168,7 +168,16 @@ dreams-at-address savor (bounded, pending the randomized census).
 
 ## The day's closing sentence
 
-The net is born with one memory organ — the omnipresent row — and
+FINAL UPDATE (e176, the day's last inversion): the net does not
+STORE its memories — it PRACTICES them. Freeze the rehearsal and
+the most consolidated fact dissolves in two plain-corpus steps at
+healthy CE; every past fine-tune's anchor bank was the memory's
+secret life-support. The classical consolidation story (resistance
+acquisition) is dead here; what survives of 'consolidation' is the
+readout's geometry-generality — a property of the access the
+rehearsal maintains, not of hardened storage. [e177/e178: is the
+deep site-store the one true archive? can class-surgery restore
+the washed?] || The net is born with one memory organ — the omnipresent row — and
 protocols decide whether to graft a second: error chooses where
 content lands, variance chooses whether it hardens into a graft
 or rides the organ's health, and consolidation is the movement

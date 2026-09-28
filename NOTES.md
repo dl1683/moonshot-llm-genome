@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E176 — freeze the root: USE-IT-OR-LOSE-IT — the consolidated fact dissolves in TWO steps; there is no archive, only rehearsal (2026-09-28 ~15:20Z) — DONE
+
+WHAT WE DID: e161's protocol verbatim on the FULLY-consolidated
+root (stream-matched: same seed, same draw sequence — only the
+starting net differs); all gates PASS; zero name leakage.
+
+WHAT WE SAW (T105): the consolidated fact DISSOLVES exactly
+like the dwell peak — g-12 0.916 -> 0.088 after TWO steps ->
+0.001 at +300; held30, row-0 sink (0.732 -> -0.0005), brake,
+D-all all to floor TOGETHER; CE healthy throughout (1.61-1.66).
+NOTHING SURVIVES. The classical story — consolidation =
+acquiring gradient-resistance — DIES: the consolidated memory
+has no more wash-resistance than the unconsolidated one. EVERY
+PAST FINE-TUNE'S ANCHOR BANK WAS REHEARSING THE FACT: the lab's
+own protocol was the memory's life-support, and this is the
+first time it was ever turned off. THE READING MAP'S RIDER IS
+MANDATORY (e178, queued): restore the root's MLP+LN class into
+the washed net — rescue would confirm washout = the located
+MLP+LN rewrite (e173) operating bidirectionally. THE REMAINING
+RESISTANCE QUESTION: e177 (wash the site-endpoint) — if it too
+washes, the resistance axis is EMPTY for every memory type and
+"memory" in these nets means "currently-being-trained"; if it
+survives, the deep site-store is the one true archive. Honesty:
+single seed but stream-matched vs e161; one distribution (hot
+AdamW lr 1e-3 — the 2-step collapse dominates, but gentler
+regimes untested); one consolidation schedule; the root had
+already survived supervised fine-tunes whose anchors were,
+per this result, rehearsing it.
+
+---
+
 ## E173 — the closure partition: MLP-LN-CARRIES — the closure is a LOCATED weight rewrite; the door is reopenable by class surgery (2026-09-28 ~15:25Z) — DONE
 
 WHAT WE DID: class-by-class restores (MLP+LN / attention /
