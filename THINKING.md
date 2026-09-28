@@ -730,6 +730,36 @@ rewrites to the resistance axis); DISSOLVES => even
 past fine-tune was quietly maintaining the fact — every
 'experiment' was also a rehearsal).
 
+READING MAPS FOR THE RUNNING FLEET (registered ~15:50Z, all
+before data):
+- e174 (dose + rehearsal): the rehearsal arm was already live
+  at 0.994 — REHEARSAL-RESOLVES is firing; the fold's open
+  question is the DOSE side (WIN-WIN vs ALL-OR-NOTHING — is
+  capacity a dial or a cliff?). If ALL-OR-NOTHING fires WITH
+  rehearsal rescuing: the paper's capacity paragraph becomes
+  "one fact wide without rehearsal; cohabitation IS rehearsal"
+  — the two facts coexist only by interleaving, which under the
+  extinction-bounded frame reads as: the second install's
+  windows extinguish the first UNLESS the first keeps being
+  shown. Cohabitation = maintenance, not storage.
+- e176N (the neutral wash): NEUTRAL-DISSOLVES => the
+  activity-dependence noun survives its confound (W019
+  un-bounds); NEUTRAL-SURVIVES => extinction was the killer —
+  the honest headline stays the interim form and e182's GPT-2
+  wash becomes the question "does the field's own organism
+  survive ITS name-deleted streams?"; the lr rider prices the
+  optimizer-shock reading; arm (C) prices the gain story.
+- e177 (site wash): its fold WAITS on e176N (both stream and
+  frame). TRUE-ARCHIVE + NEUTRAL-DISSOLVES would be the
+  strangest combination — a knife-proof, wash-proof store that
+  the sink-coupled type lacks; SCRATCH + NEUTRAL-SURVIVES
+  would mean BOTH types survive neutral streams and ALL washes
+  were extinction (the resistance question reopens entire).
+- e175 (savings triple): the NEGATIVE-SAVINGS branch is now
+  doubly loaded — a surviving scar slowing re-teach would
+  confirm T106's brake-co-localization as FUNCTIONAL
+  interference, not just arithmetic.
+
 E176 READING MAP (registered ~14:50Z, before its data — with
 the T104 connection): if the root DISSOLVES under plain corpus,
 the cheap rider that must run is the e173 INSTRIMENT in reverse
