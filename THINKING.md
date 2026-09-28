@@ -676,6 +676,29 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T120 — E179: the resurrection economy — nine events, one revival, a sawtooth (2026-09-28 ~23:00Z)
+
+The rehearsal law returns the session's last great texture:
+maintenance is CHEAP BEYOND EXPECTATION (nine replay batches
+per 300 wash steps suffice — the whole anatomy intact at
+r=1/32) but NOT a dial (non-monotone in r; no pump; a
+resurrect-and-oscillate sawtooth whose +300 endpoints ride
+cycle phase). THE DEEPEST FINDING: ONE REPLAY RESURRECTS THE
+DEAD — a fact killed to 0.033 at +2 returns to 0.686 by +50,
+EIGHTEEN wash steps after a single replay event. The re-taught
+state is far more wash-resistant than the consolidated root
+ever was — re-entry into the basin is cheap and STICKY, even
+though staying in it was impossible. THE INTEGRATION: the
+basin law (exit is displacement-limited; the corpus exits it)
+meets its complement (re-entry is event-limited; ONE directed
+event restores residence that outlasts many exits). Memory in
+these nets is not a state — it is a RHYTHM: exit cheaply,
+re-enter on reminder, oscillate. FOR THE PAPER: the kinetics
+pair completes (exit law + re-entry economy); the practical
+paragraph sharpens — rehearsal does not prevent forgetting; it
+makes forgetting irrelevant (9 reminders per 300 steps keep
+the fact whole through washes that kill it 100x over).
+
 ## T119 — E180: the rate law — survival is displacement-limited, and the gentle regime forgives (2026-09-28 ~21:55Z)
 
 The kinetics extension lands the quantitative replacement for

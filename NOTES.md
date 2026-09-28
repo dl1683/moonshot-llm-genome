@@ -225,6 +225,37 @@ slightly from the mixed run (float path); the convergence at
 
 ---
 
+## E179 — the rehearsal-frequency law: TEXTURE + NO-PUMP — NINE replay events suffice; one replay RESURRECTS the dead; the curve is a non-monotone sawtooth (2026-09-28 ~23:00Z) — DONE
+
+WHAT WE DID: the neutral wash with F1-replay at r in {1/32,
+1/8, 1/4} (the stored r=0 wash and r=1/2 endpoints bracket);
+three mid-run thermal migrations recorded; the r=0 replicate
+reproduced the stored trace to 4.4e-6.
+
+WHAT WE SAW (T120): no threshold and no gradient — the ladder
+is NON-MONOTONE (sparse r=1/32 MAINTAINS 0.699 at +300 with
+the whole anatomy intact; the DENSER 1/8 and 1/4 miss by
+0.074/0.025; the pump does not fit, R^2 0.015). MAINTENANCE
+NEEDS <= 9 REPLAY BATCHES PER 300 WASH STEPS (r* <= 1/32 at
+the registered resolution). THE HEADLINERS: (1) ONE REPLAY
+EVENT RESURRECTS THE +2-DEAD FACT (0.033 -> 0.686 by +50,
+18 wash steps AFTER the single replay at +32) — the re-taught
+state is far more wash-resistant than the consolidated root;
+(2) the resurrect-and-oscillate SAWTOOTH — the +300 endpoints
+sit at different cycle phases (co-reported means, no phase
+shopping). THE INTEGRATION WITH THE BASIN LAW: rehearsal does
+not hold the net IN the basin — it re-enters it CHEAPLY after
+each exit (one event's re-entry outlasts 18+ subsequent wash
+steps). T107's capacity formula stays dead (this curve is its
+counterexample); the maintenance budget stands at ~9 events —
+astonishingly small, not a smooth dial. Honesty: single seed
+per rate, unreplicated; the maintain-failures sit inside the
+sawtooth's amplitude; one pre-main bars correction recorded
+(the first draft was structurally unfireable); the 1/2
+endpoint stream-mismatched (conservative floor).
+
+---
+
 ## E180 — the wash-rate law: LR-SCALED — a power law t* ~ lr^-1.16; at lr 1e-5 the fact still lives at +300 (2026-09-28 ~21:55Z) — DONE
 
 WHAT WE DID: the neutral wash at lr 3e-5 and 1e-5 (GPU-gated,
