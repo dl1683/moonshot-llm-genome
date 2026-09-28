@@ -514,6 +514,31 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T075 — E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 ~10:10Z)
+
+**SIGNAL-IN-CONTEXTS INSUFFICIENT, decisively** — and the
+discrimination is airtight because arm (d) carries the same
+budget, same line, same signal strength, and clears the bar 5/5
+through total address deletion (0.69-0.72: e113's body-stored
+replicates on this line). **The operative ingredient in every
+successful consolidation is POSITION DIVERSITY — the reorganization
+of the fact across coordinates — not teaching signal (splicing the
+fact at a fixed novel address fails), not self-context (corpus
+beats self by CI separation; more name-signal LOST to less).**
+The reversal against W004's prediction is total: the self is not
+merely absent from learning; self-contexts are actively the WORST
+performing surroundings (0.023, on par with signal-free dreams)
+— plausibly because dream-statistics text makes the splice read
+as "already-consolidated," reducing gradient pressure at the
+field. The migration needs the ROAD: the fact must TRAVEL to
+consolidate. A fixed-address teach-in (row 183 grew +0.16 but
+stayed address-locked) creates a new address-bound instance, not
+a field fact. Consolidation = the fact's history of being read
+from many places, not its repetition from one. The P5 program's
+head-to-head (e119) now has its mechanism hypothesis: jitter and
+deletion both force multi-address reads; the plate viz will show
+whether the two roads build the same field or different ones.
+
 ## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 ~09:20Z)
 
 **NO DREAM CONSOLIDATION** — and the negative is decisive because

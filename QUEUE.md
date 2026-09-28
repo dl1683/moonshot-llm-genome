@@ -156,7 +156,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | id | experiment | status | one-liner |
 |---|---|---|---|
 | e121 | the dreams probe | DONE (T074: NO DREAM CONSOLIDATION — dreams carried the fact and slowed forgetting 500x but never graduated; W004's self = verification boundary not training gate) |
-| e120 | tier-1 fallback (fact-in-own-contexts) | READY | the e121-registered next rung — does a teaching signal in self-contexts consolidate? |
+| e120 | fact-in-contexts | DONE (T075: SIGNAL-IN-CONTEXTS INSUFFICIENT — position diversity is the ingredient; corpus-ctx > self-ctx (CI); e113 body-stored replicates 5/5) |
 | e119 | migration head-to-head (P5 road 1v2) | READY | jittered-replay twins vs deletion-pressure twins — same field or different stores? the migration plate viz |
 | e122 | self-at-distance (P6) | READY | does the anchor accept the same net's field from another run/window — generator-self vs episode-self |
 | e123 | self-drift curve (P6) | READY | identity half-life across checkpoints; doubles as P5's rekeying probe |

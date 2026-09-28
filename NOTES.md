@@ -84,6 +84,25 @@ not the store.
 
 ---
 
+## E120 — fact in contexts: SIGNAL-IN-CONTEXTS INSUFFICIENT — position diversity is the operative ingredient (2026-09-28) — DONE
+
+WHAT WE DID: the signal x context decomposition — fact-spliced
+into self-dream contexts vs corpus contexts vs verbatim dreams vs
+jitter replay, matched budgets, deletion batteries; e121's arm (c)
+bit-reproduced (max diff 0.0 over 30 cells).
+
+WHAT WE SAW (T075): bar 3 — neither splice arm reaches 0.20
+anywhere (0.023/0.098); jitter clears 5/5 THROUGH deletion
+(0.694/0.720 — e113's BODY-STORED replicates on the B43 line).
+DIRECTION REVERSED vs W004: corpus-contexts BEAT self-contexts by
+CI separation; self-spliced = verbatim dreams; arm (a) carried
+MORE name signal and still lost. All three full-mask arms fell
+BELOW the base's own floor — the fine-tune erases more field
+expression than the signal repairs. wpe row 183 grew (+0.16) but
+stayed address-locked (battery never reads 183).
+
+---
+
 ## E121 — the dreams probe: NO DREAM CONSOLIDATION — verbatim dreams slow forgetting 500x but never graduate (2026-09-28) — DONE
 
 WHAT WE DID: matched 300-step fine-tunes on own-dreams / twin-
