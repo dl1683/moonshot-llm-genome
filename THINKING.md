@@ -1071,6 +1071,30 @@ at the 129-read holds; but perm kills short-horizon reads
 dependent. The tenant's insurance-policy metaphor gains a clause:
 the fact ignores the pivot's direction ONLY from far away.
 
+MAP UPDATE under the corrected frame (~13:00Z — registered
+before e154/e166 data): with graft-formation demoted and the
+DISUSE alternative live, the running fleet's outcomes re-read:
+- e166 (inverse event): DOOR-RESTORES => COMPETITIVE INHIBITION
+  (the novel-site structure actively suppresses the door) — the
+  strongest mechanism reading. DOOR-STAYS-SHUT is now AMBIGUOUS
+  between destructive rewrite and DISUSE-DECAY (removing the
+  graft cannot restore an unused pathway) — e161's freeze-cell
+  becomes the unique separator.
+- e154 (two facts): GLOBAL-PHASE (F1's door closes under F2's
+  novel-site teaching) is consistent with BOTH competitive and
+  disuse (any off-F1-distribution training may disuse the ±12
+  reads); PER-MEMORY (F1 survives) would kill the disuse
+  reading's simplest form and support per-fact protection.
+  Neither alone separates the mechanisms; the FREEZE-CELL
+  (plain corpus, NO fact teaching) remains disuse's unique test
+  — e161 re-registers AFTER e166's verdict, per the R48
+  ideator's honesty note.
+- The three-way fork for the fold: COMPETITIVE (e166 restores +
+  e154 global + e161 open-under-no-teaching) / REWRITE (e166
+  shut + e161 shut-under-no-teaching) / DISUSE (e166 shut +
+  e161 shut + the door re-openable by F1-variance retraining
+  alone — e155's cell answers this last clause).
+
 E158 + E125a READING MAPS (registered ~11:48Z, before their
 data — both mid-compute):
 
