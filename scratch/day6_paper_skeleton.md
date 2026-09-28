@@ -28,7 +28,7 @@ masking all attention to position 0 spares the fact at CE +0.03 while
 sub-threshold row-0 norm poisons every read (threshold in (0.07, 0.15));
 consolidation moves the
     memory's dependence into coupling with the sink (e159's double
-    dissociation; READ- vs MASS-coupled fork pending e162: equal organism damage, only the read-coupled memory dies;
+    dissociation; RESOLVED MIXED by e162: BOTH channels kill, each sufficient — functional dependence on the sink's dual role (supplier + guarantor): equal organism damage, only the read-coupled memory dies;
     the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
 RESOLVED by e160: the surgical surface EXISTS — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.

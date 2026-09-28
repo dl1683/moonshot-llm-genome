@@ -63,6 +63,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E162 — the READ-vs-MASS fork: MIXED — the poison is a TWO-EDGED weapon, each channel independently sufficient (2026-09-28 ~12:15Z) — DONE
+
+WHAT WE DID: the two discriminating cells + the starvation
+measurement; 186s CPU; all gates bit-tight (incl. cross-run
+reproduction of e159's mass profile).
+
+WHAT WE SAW (T095): (i) VALUE-RESTORE-UNDER-POISON HEALS
+COMPLETELY — poisoned key/query geometry kept, clean values at
+key 0: retention x1.000 @ g-12, x1.002 @ g0, CE cost -0.0004
+(restoring value content alone erases the ENTIRE organism
+damage; power audit: the poison changes v0 by 1.13x its own
+norm — the cell had full power). (ii) MASS-INFLATE-ON-HEALTHY
+KILLS — healthy row 0, bias swept to the exact absorber dose
+(1.6927): x0.036 @ g-12, x0.301 @ g0, CE +0.572, monotone
+dose-response (b=3.0: x0.347; b=4.0: x0.005). (iii) Both modes
+coexist in real poison: band queries' key-0 mass explodes
+~60x while band keys lose ~23% relative mass. THE NOUN'S FULL
+FORM: the memory depends on the sink's DUAL ROLE — what it
+SUPPLIES (content read off the pivot) and what it SPARES (the
+allocation the absorber would steal); either corruption alone
+kills. Honesty: the value-transplant restores the full channel
+(not a minimal patch); the bias matches total dose not the
+per-layer profile (a sufficiency test); single net.
+
+---
+
 ## E152 — the conversion time-trace: TRANSIENT-TWO-DOOR — the cliff has a DWELL TIME; e151's P-b was EARLY, not wrong (2026-09-28 ~11:25Z) — DONE
 
 WHAT WE DID: six-checkpoint sequential trace (8/16/32/64/128/300)

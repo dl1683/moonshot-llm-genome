@@ -575,7 +575,31 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T094 — E152: the dwell time — the phase transition passes through a MIXED state, and the brake overshoots before it releases (2026-09-28 ~11:25Z)
+## T095 — E162: two edges, one pivot — the memory depends on what the sink supplies AND what it spares (2026-09-28 ~12:15Z)
+
+The fork resolves as MIXED, and the resolution is better than
+either branch: the poison kills through BOTH channels, EACH
+INDIVIDUALLY SUFFICIENT. Restoring healthy values under a
+poisoned key erases ALL damage (retention x1.000, CE -0.0004 —
+the corruption is carried by the content read off the pivot;
+power: the poison moves v0 by 1.13x its norm); inflating the
+absorber on a healthy row kills just as dead (x0.036 @ g-12 at
+the matched dose, monotone) — the corruption is equally carried
+by the allocation the absorber steals. The sink holds a DUAL
+role for the consolidated memory: SUPPLIER of read content and
+GUARANTOR of the attention budget. T093's READ-coupled noun was
+half the story — full form: functional dependence on the sink's
+dual role, each component separately lethal when broken. FOR
+THE PAPER: the mechanism sentence becomes the two-channel form;
+e159's double dissociation gains its mechanism completion; T092's
+layer 4 = functional dependence (supply + allocation).
+
+## T094 — [R47: n=1 TRAJECTORY — the dwell and brake overshoot carry [n=1] until e152R's 3 seeds; the s16->s32 bounce is the sole substance of CLEAN's failure] E152: the dwell time — the phase transition passes through a MIXED state, and the brake overshoots before it releases (2026-09-28 ~11:25Z)
+
+FREE RE-READ (R47 critic, no compute — from e152's own metrics):
+at s32, mask-retention 0.979 while ladder@0.07 kills to 0.19 —
+the shelf's ~0.5 IS route survival, not sink health; the dwell
+verdict SURVIVES the clean dial.
 
 TRANSIENT-TWO-DOOR resolves T088's fork in the gentlest
 possible way: the cliff is real AND the two-door state exists —
