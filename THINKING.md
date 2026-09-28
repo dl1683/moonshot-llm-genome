@@ -607,6 +607,31 @@ switches ON novel-geometry expression that is sink-coupled
 (caveated). FAR-ROUTED-TAIL's fire (x0.069) says e143's FAR
 boundary case resolves toward coupling.
 
+MECHANISM NOTE (the negative-posterior hypothesis, worked on
+paper ~09:38Z): why does variance make the address key go
+NEGATIVE (a brake) rather than merely shrink? Because once the
+fact appears at other rows, the address key's firing ANTI-
+correlates with the fact's presence there — when the fact sits
+at 121, a read keyed on 129 carries other content; the address
+becomes a below-prior predictor, and suppressing it sharpens the
+attention budget. The pure Bayesian form predicts brake
+MAGNITUDE tracks the miss-rate (w=1 misses 2/3; w=64 misses
+~127/128 -> much stronger brake) — but the data show a plateau
+(-0.03..-0.13, no width trend): suppression SATURATES once the
+key is unreliable at all. The cliff again, now inside the brake:
+demotion is all-or-none, not graded. Signature already visible
+in e147's A-column; no new compute needed to see it.
+
+READING FORK FOR e151 (pre-registered before its report): if
+TWO-DOOR-ADDITION fires, the cliff is PER-MEMORY — each fact's
+type is decided by its own training variance, and one net holds
+mixed types. If ROUTE-OVERWRITES fires, the cliff is PER-NET —
+any zero-variance teaching collapses geometry-generalization
+globally, implying a shared substrate the locked re-teach
+destroys. SITE-REJECTED would mean the geometry-general
+structure absorbs zero-variance teaching without growing a site
+— the cliff ran once and cannot run again on this net.
+
 FOR THE PAPER: claim 2's switch upgrades from 'error-position
 variance' to 'a binary cliff at zero-vs-any variance' — simpler
 to state, stronger to show (one figure, two rungs). The
