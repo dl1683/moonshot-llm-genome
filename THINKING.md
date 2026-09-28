@@ -619,7 +619,7 @@ the lab's own >=3 rule stands. FOR THE EPITAPH: the
 parenthetical's "3.84% still unexamined" clears — it was
 examined, and it was innocent.
 
-## T110 — [R11 BOUNDS: the null is GRID-LIMITED (crossing in (30,100] for all three — real savings invisible at this resolution); the naive control's substrate confound (install-unfamiliar, +0.2 CE first-contact) unexcluded; the late INVERSION (naive > washed at 100/300) unaccounted — 'the paradigm split in two' WITHDRAWN from paper reach; discriminating cells named (a different-nonce re-teach; a yoked e001 control)] E175: no savings at the threshold (bounded) — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
+## T110 — [R51 BOUNDS: the null is GRID-LIMITED (crossing in (30,100] for all three — real savings invisible at this resolution); the naive control's substrate confound (install-unfamiliar, +0.2 CE first-contact) unexcluded; the late INVERSION (naive > washed at 100/300) unaccounted — 'the paradigm split in two' WITHDRAWN from paper reach; discriminating cells named (a different-nonce re-teach; a yoked e001 control)] E175: no savings at the threshold (bounded) — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
 
 The Ebbinghaus test returned its cleanest modern form: the
 washed net re-learns at exactly the naive price at the
@@ -659,7 +659,7 @@ THE 60% RESTORE-IN-TO-+50: e178's half-fact is real but
 partially wash-depth-inflated — the interface story and the
 depth story share the credit.
 
-## T108 — [R11 BOUND: the 4-24x gradient is INSIDE demonstrated within-type variability (the root swings 10x under one lr knob; the dwell spreads 37x across seeds) — 'worth a panel' WITHDRAWN; the defensible piece is the 5.5x dwell-vs-root contrast (same lineage, stream-matched); per-type seeds at matched lr/stream before any ordering] E177 (bounded): knife-proof is not wash-proof (2026-09-28 ~16:15Z)
+## T108 — [R51 BOUND: the 4-24x gradient is INSIDE demonstrated within-type variability (the root swings 10x under one lr knob; the dwell spreads 37x across seeds) — 'worth a panel' WITHDRAWN; the defensible piece is the 5.5x dwell-vs-root contrast (same lineage, stream-matched); per-type seeds at matched lr/stream before any ordering] E177 (bounded): knife-proof is not wash-proof (2026-09-28 ~16:15Z)
 
 Under the extinction-grade stream, the deep site-store washes —
 W019's predicted savor held — but with a DECAY GRADIENT (4-24x
