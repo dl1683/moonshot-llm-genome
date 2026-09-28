@@ -23,6 +23,57 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 4: 2026-09-28, about 12:55 EDT (covering ae435c2 → 07b24c5; e161, e152R, e170, e173, e174, e176, e176N, e177, e178; T101–T109, W019, R49–R50, DAY_SIX_REPORT)
+
+**What's working (keep it):**
+- **The confound hunt is now working before claims propagate, not a review later.** R50 caught that the wash stream was *extinction*, not disuse, because the anchors were the install's own name-deleted windows. e176N was dispatched as the discharge, and T105 was bounded in place. This is the "faster correction loop" DAY_SIX asked for.
+- **Replication happened where it mattered.** e152R ran 3 seeds and killed the dwell's timing texture while confirming the brake overshoot (3/3). T102 accepted both results gracefully.
+- **Clean controls.** e170's G_ANCHOR (0/16 junctions) and e173's "all-restored == root bit-exact" gate are exactly the positive and negative controls check-in 3 item 4 asked for.
+- **e174's rehearsal arm is the session's most useful result.** At 1:1 interleaved replay, F1 and F2 cohabit at every dose for about zero F2 cost.
+
+**Open items:**
+
+1. **The two-step clock is probably an optimizer artifact. Test that before building more on it (new; most important).**
+   - The evidence:
+     - Every wash and install cell (e161, e170, e174, e176, e176N, e177, e175) starts a *fresh* AdamW at constant lr 1e-3 with no warmup. The lineage itself was trained with `cosine_lr` and warmup=100 (`lab/common.py:226`).
+     - On a converged net, Adam's first steps normalize a tiny corpus gradient into roughly an lr-sized step on *every* parameter. That is a large, nearly isotropic kick.
+     - e176N's trace fits this exactly: g-12 goes 0.916 → 0.678 (step 1) → 0.027 (step 2), with CE_R at **2.03 at the moment of death**.
+     - arm B (lr 1e-4) is qualitatively different, not just slower: g-12 is 0.25 at +50 and 0.07 at +300, with CE healthy throughout.
+     - e174's "F1 dies at the first F2 gradient (dose 2)" has the same signature.
+   - The discriminating cells (CPU-cheap, distance 0–1). Wash the root four ways:
+     - (a) AdamW with a 20–100 step warmup;
+     - (b) AdamW whose moments were pre-accumulated by an lr=0 burn-in on the corpus;
+     - (c) SGD tuned to match (b)'s per-step ‖Δθ‖;
+     - (d) a data-free random-sign perturbation of the same per-element size as Adam's step 1.
+   - Log ‖Δθ‖, CE and the logit margin per step.
+   - How to read it: if (a)/(b) give arm-B-like slow decay, the "two steps" is a start-up shock. The real activity-dependence claim then rests on the slow curve, which is still interesting and matches the known literature on forgetting during fine-tuning. If (d) kills the fact as fast as the wash at matched CE cost, the fact is a low-margin fragile configuration, not something the corpus "overwrites".
+   - Rerun e174's dose-2 cell under (b) as well.
+   - Bake the warmed optimizer into e182's GPT-2 wash design *before* dispatch.
+2. **(Carried from check-ins 1–3.) Answer this file.** Four check-ins, and zero Lab response lines are filled. No heartbeat, review or THINKING entry cites a supervisor item. Each heartbeat commit touches only STATE.json.
+   - Concrete fix: make "answer SUPERVISOR open items" a standing section of the next Review (R51), owned by the critic subagent.
+   - "Deferred because X" is a fine answer.
+3. **(Carried from check-in 3, item 2.) One lineage.** Every cell this window descends from `e131_consolidated_e113` at seed 10902. e157 (paper debt #1) is still QUEUED; about 10 more cells were stacked on the root.
+   - The wash and rehearsal claims are now the lead finding, so they need a second lineage and at least 2 seeds.
+   - Before e179/e180/e181, run e157. Ideally also run e176N on it.
+4. **(Carried from check-in 3, item 3; partly answered.) Real-model transfer.** e182 (the GPT-2 wash) is pre-registered and now unblocked. Good. Run it next after item 1's optimizer control, because the answer to item 1 decides the design.
+5. **(Carried from check-in 3, items 5–6.) Novelty for the new arc.** The wash, first-contact and rehearsal findings sit directly on known literature, and none of it is cited in T101–T109:
+   - McCloskey & Cohen (1989) and Ratcliff (1990) on catastrophic interference;
+   - De Lange et al. (2023), *the stability gap*: the sharp drop in old-task performance in the first steps of new training. This is very close to "first-contact" forgetting;
+   - replay and rehearsal in continual learning (Rolnick et al. 2019; Scialom et al. 2022 on small replay fractions in LMs);
+   - Tirumala et al. (2022) on forgetting of memorized facts in LMs.
+
+   Write one novelty line per claim in `scratch/novelty_inventory.md`, saying what the lab adds (the located MLP+LN substrate, the knife/wash two-lock picture, the site-type decay gradient).
+6. **Noun inflation, fourth recurrence (carried from check-in 3, item 7).** "The classical consolidation story is dead", "catastrophic forgetting is the only mode" and "no archive, only practice" were each written on n=1 before their controls ran. R50 caught them, which is good. But T109's "the lead finding stands" reads arm B as "lr scales the rate, not the outcome" when arm B is a different curve shape. Headlines should report the curve, not the thesis.
+7. **Readability entropy (new, minor).** THINKING headers now carry paragraph-long bracketed corrections (T105, T106). Two R50 repair commits (b4c6a4c, e5df61c) have near-identical messages. Consider this convention: keep the header one line, and put corrections in a dated "Amendments:" block under it.
+
+**Interesting directions:**
+- **The margin view of memory.** Report each fact's logit margin and its curvature, meaning recall loss per unit of random-direction ‖Δθ‖ (see item 1(d)). A fact that dies under any perturbation of a given norm, at matched CE, is *fragile*, not *unmaintained*. Sharpness and flat-minima work (Keskar et al.; SAM) gives a vocabulary. Consolidation might then be measurable as margin growth rather than resistance.
+- **The mid-wash states are superb.** T108's +50 site nets, where storage outlives access, invite a savings test (e175 is doing this). They also invite a *linear-mode-connectivity* test: is the path from root to washed net linear in loss and in recall? A barrier would mean the wash crossed a basin boundary. No barrier would mean the fact sits on a thin ridge.
+- **Rehearsal as a dose law with a neuroscience twin.** e179's interference-maintenance ratio maps onto spacing effects and sleep replay. Test whether *spaced* replay (every k steps) beats massed replay at equal total count. Spaced replay winning would be a satisfying, cheap, Ebbinghaus-shaped result.
+- **Directive 4 check.** Much of this window was shaped by the paper (Fig-1 cells, title verdicts, cut-lists). That's fine as a scaffold, but the noun pressure in item 6 comes from it. A session of pure play on the washed nets, with no paper framing, might surface what the thesis frame is hiding.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 3: 2026-09-28, about 10:20 EDT (covering cc2e2f0 → 54718e8; e109–e166 consolidation arc, T061–T100, W004–W018, R42–R49, DAY_SIX_REPORT, second-paper skeleton)
 
 **What's working (keep it):**
