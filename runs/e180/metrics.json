@@ -1,0 +1,1501 @@
+{
+  "experiment": "e180_wash_rate",
+  "date": "2026-09-28T21:39:58Z",
+  "registration": "QUEUE row e180 dispatched ~21:20Z (commit 24de6e1, GPU); the bars were registered in the dispatch mission text and are frozen VERBATIM in the module docstring before compute; adjudicated against exactly that \u2014 no bar shopping",
+  "registered_prediction": {
+    "lr_scaled": "LR-SCALED fires if: survival time grows monotonically as lr shrinks (no under-bar by +300 at 1e-5, or late) \u2014 wash is optimization-rate-limited; the basin-width reading holds; the paper's 'continued training' gets its rate qualifier.",
+    "lr_immune": "LR-IMMUNE fires if: under-bar by +50 even at 1e-5 \u2014 intrinsic fragility; the two-step death is lr-invariant in outcome.",
+    "texture": "No bar shopping; texture (partial survival at 1e-5) => TEXTURE with the curve.",
+    "operationalizations": "g-12 = absolute install-60 battery mean p(Z) at ctx offset -12 (e176's convention); survival time t*(lr) = FIRST measured checkpoint step on the cell's own grid with g-12 <= 0.27 (bracket co-reported; t* is the fit's point estimate); LR-IMMUNE = the 1e-5 cell's first-under in {2,10,50}; LR-SCALED's 1e-5 clause = first-under None or in {100,200,300} (disjoint from LR-IMMUNE by construction); monotone = WEAK growth of t* across {1e-3->2, 1e-4->50, 3e-5->t*(3e-5), 1e-5->t*(1e-5)} with a never-crossing cell contributing t* > 300 (300 as a lower bound); adjudication order LR-IMMUNE -> LR-SCALED -> TEXTURE; five-point curve = {1e-3 neutral (e176n armA, t*=2), 1e-3 original (e176 smoke fine grid, t*=2), 1e-4 original (e176n armB, t*=50 COARSE upper bound), 3e-5 neutral (new), 1e-5 neutral (new)}; neutral-only fit co-reported (the stored half mixes streams); fit reported not bar-adjudicated; a censored cell fitted twice (t*:=300 marked CENSORED, and complete-cases-only).",
+    "registration": "QUEUE row e180 dispatched ~21:20Z (commit 24de6e1) registered the bars in the mission text; this docstring freezes them verbatim before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does survival time to under-bar grow as lr shrinks (wash = optimization-rate-limited; the basin-width reading priced as a law) or does the two-step death persist even at 1e-5 (intrinsic fragility)?",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.00e-10)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cells": {
+    "lr3e5": {
+      "desc": "e176n arm A's NEUTRAL protocol VERBATIM at lr 3e-05 (only the lr differs; seed 10902 = arm A's draw sequence)",
+      "ckpt_steps": [
+        2,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "steps_ran": 300,
+      "seed": 10902,
+      "lr": 3e-05,
+      "traj": [
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.9335058927536011,
+          "g0_mean_pz": 0.768858015537262,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.3192126750946045,
+          "ce_r": 1.658044695854187,
+          "elapsed_s": 3.1
+        },
+        {
+          "step": 10,
+          "g_m12_mean_pz": 0.9540653228759766,
+          "g0_mean_pz": 0.7493189573287964,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2141717672348022,
+          "ce_r": 1.6491230726242065,
+          "elapsed_s": 7.1
+        },
+        {
+          "step": 50,
+          "g_m12_mean_pz": 0.8177298307418823,
+          "g0_mean_pz": 0.6097030639648438,
+          "frac_argmax_z": 0.95,
+          "corpus_ce": 1.0552762746810913,
+          "ce_r": 1.6807878017425537,
+          "elapsed_s": 10.4
+        },
+        {
+          "step": 100,
+          "g_m12_mean_pz": 0.5365921258926392,
+          "g0_mean_pz": 0.5117257833480835,
+          "frac_argmax_z": 0.43333333333333335,
+          "corpus_ce": 0.9233689308166504,
+          "ce_r": 1.7059648036956787,
+          "elapsed_s": 59.2
+        },
+        {
+          "step": 200,
+          "g_m12_mean_pz": 0.26429376006126404,
+          "g0_mean_pz": 0.4471507966518402,
+          "frac_argmax_z": 0.26666666666666666,
+          "corpus_ce": 0.7271974682807922,
+          "ce_r": 1.7017964124679565,
+          "elapsed_s": 221.2
+        },
+        {
+          "step": 300,
+          "g_m12_mean_pz": 0.19464744627475739,
+          "g0_mean_pz": 0.3788890242576599,
+          "frac_argmax_z": 0.23333333333333334,
+          "corpus_ce": 0.6577633023262024,
+          "ce_r": 1.6677687168121338,
+          "elapsed_s": 358.3
+        }
+      ],
+      "trace": [
+        {
+          "freeze_steps": 0,
+          "gm12": 0.9155886769294739,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "retention_vs_root_gm12": 1.0
+        },
+        {
+          "freeze_steps": 2,
+          "gm12": 0.9335058927536011,
+          "g0": 0.768858015537262,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.3192126750946045,
+          "ce_r": 1.658044695854187,
+          "retention_vs_root_gm12": 1.0195690666295858,
+          "elapsed_s": 3.1
+        },
+        {
+          "freeze_steps": 10,
+          "gm12": 0.9540653228759766,
+          "g0": 0.7493189573287964,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2141717672348022,
+          "ce_r": 1.6491230726242065,
+          "retention_vs_root_gm12": 1.0420239425366622,
+          "elapsed_s": 7.1
+        },
+        {
+          "freeze_steps": 50,
+          "gm12": 0.8177298307418823,
+          "g0": 0.6097030639648438,
+          "frac_argmax_z": 0.95,
+          "corpus_ce": 1.0552762746810913,
+          "ce_r": 1.6807878017425537,
+          "retention_vs_root_gm12": 0.8931192044491291,
+          "elapsed_s": 10.4
+        },
+        {
+          "freeze_steps": 100,
+          "gm12": 0.5365921258926392,
+          "g0": 0.5117257833480835,
+          "frac_argmax_z": 0.43333333333333335,
+          "corpus_ce": 0.9233689308166504,
+          "ce_r": 1.7059648036956787,
+          "retention_vs_root_gm12": 0.5860624311040621,
+          "elapsed_s": 59.2
+        },
+        {
+          "freeze_steps": 200,
+          "gm12": 0.26429376006126404,
+          "g0": 0.4471507966518402,
+          "frac_argmax_z": 0.26666666666666666,
+          "corpus_ce": 0.7271974682807922,
+          "ce_r": 1.7017964124679565,
+          "retention_vs_root_gm12": 0.288659926363006,
+          "elapsed_s": 221.2
+        },
+        {
+          "freeze_steps": 300,
+          "gm12": 0.19464744627475739,
+          "g0": 0.3788890242576599,
+          "gp12": 0.30531808733940125,
+          "held30_gm12": 0.027839425951242447,
+          "held30_g0": 0.29594528675079346,
+          "ce_r": 1.6677687168121338,
+          "site_read_onset": 0.28467613458633423,
+          "site_read_span": 0.897288978099823,
+          "A129": -0.03205229314965735,
+          "row0_strength": 0.3736098465494782,
+          "dall_g0": 0.36793458461761475,
+          "d183_g0": 0.3788890242576599,
+          "d183_gm12": 0.19464744627475739,
+          "corpus_ce": 0.6577633023262024,
+          "retention_vs_root_gm12": 0.21259267526934555
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cpu",
+      "time_cap_s": 1800.0,
+      "batteries_full": {
+        "tag": "lr3e5_full",
+        "base": {
+          "-12": {
+            "mean_pz": 0.19464744627475739,
+            "median_pz": 0.04721011593937874,
+            "std_pz": 0.2828980088233948,
+            "frac_pz_ge_0.5": 0.15000000596046448,
+            "frac_argmax_z": 0.23333333333333334
+          },
+          "0": {
+            "mean_pz": 0.3788890242576599,
+            "median_pz": 0.3370518386363983,
+            "std_pz": 0.32802870869636536,
+            "frac_pz_ge_0.5": 0.3499999940395355,
+            "frac_argmax_z": 0.38333333333333336
+          },
+          "12": {
+            "mean_pz": 0.30531808733940125,
+            "median_pz": 0.1964069902896881,
+            "std_pz": 0.275022029876709,
+            "frac_pz_ge_0.5": 0.25,
+            "frac_argmax_z": 0.2833333333333333
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.027839425951242447,
+            "median_pz": 0.014051301404833794,
+            "std_pz": 0.05187402293086052,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.03333333333333333
+          },
+          "0": {
+            "mean_pz": 0.29594528675079346,
+            "median_pz": 0.29635167121887207,
+            "std_pz": 0.22649960219860077,
+            "frac_pz_ge_0.5": 0.23333333432674408,
+            "frac_argmax_z": 0.3
+          },
+          "12": {
+            "mean_pz": 0.10140745341777802,
+            "median_pz": 0.11272037774324417,
+            "std_pz": 0.08291570842266083,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.03333333333333333
+          }
+        },
+        "ce_r": 1.6677687168121338,
+        "site_read": {
+          "pz_onset_mean": 0.28467613458633423,
+          "pz_onset_median": 0.15670301020145416,
+          "pz_onset_frac_ge_0.5": 0.18333333730697632,
+          "pname_mean_over7": 0.897288978099823,
+          "pname_frac_ge_0.5": 0.8833333253860474,
+          "per_position_mean": [
+            0.2846761461192121,
+            0.9993359198172888,
+            0.998642306526502,
+            0.9996935109297435,
+            0.9991896380980809,
+            0.9997055610020955,
+            0.9997793386379877
+          ]
+        },
+        "census_old": {
+          "base_readout": 0.3788890070306176,
+          "rows": {
+            "0": {
+              "mean": 0.37852110412852846,
+              "zero": 0.3736098465494782,
+              "ratio": 0.9870251419921289,
+              "strength": 0.3736098465494782,
+              "content": true
+            },
+            "1": {
+              "mean": 0.01511703619204735,
+              "zero": -0.001338226699590439,
+              "ratio": -0.0885244093213485,
+              "strength": -0.001338226699590439,
+              "content": false
+            },
+            "2": {
+              "mean": -0.0003218660465790779,
+              "zero": 0.0007638791760352093,
+              "ratio": -0.4213572730829911,
+              "strength": -0.0003218660465790779,
+              "content": false
+            },
+            "3": {
+              "mean": 0.01009546393324856,
+              "zero": 0.0059073864955280775,
+              "ratio": 0.5851525531256268,
+              "strength": 0.0059073864955280775,
+              "content": true
+            },
+            "4": {
+              "mean": 0.006284231801934492,
+              "zero": 0.00413731865798278,
+              "ratio": 0.6583650616944426,
+              "strength": 0.00413731865798278,
+              "content": true
+            },
+            "5": {
+              "mean": 0.005748845294874627,
+              "zero": 0.005193640674163669,
+              "ratio": 0.9034232802879649,
+              "strength": 0.005193640674163669,
+              "content": true
+            },
+            "6": {
+              "mean": 0.0018486188215320332,
+              "zero": 0.001219415990635797,
+              "ratio": 0.6596362519046585,
+              "strength": 0.001219415990635797,
+              "content": true
+            },
+            "60": {
+              "mean": 0.002523162276096058,
+              "zero": 0.0012358527453519286,
+              "ratio": 0.4898031161372987,
+              "strength": 0.0012358527453519286,
+              "content": false
+            },
+            "100": {
+              "mean": -0.001030378730259407,
+              "zero": 0.0024598518102720845,
+              "ratio": -0.4188783755007732,
+              "strength": -0.001030378730259407,
+              "content": false
+            },
+            "118": {
+              "mean": 0.003188451960886629,
+              "zero": 0.009791987040807748,
+              "ratio": 0.32561848249991265,
+              "strength": 0.003188451960886629,
+              "content": false
+            },
+            "119": {
+              "mean": 0.004293176323699299,
+              "zero": 0.011613750708784232,
+              "ratio": 0.36966320625877497,
+              "strength": 0.004293176323699299,
+              "content": false
+            },
+            "120": {
+              "mean": 0.0036625787004596067,
+              "zero": 0.011948008263910515,
+              "ratio": 0.3065430337475232,
+              "strength": 0.0036625787004596067,
+              "content": false
+            },
+            "121": {
+              "mean": -0.004799847836450988,
+              "zero": 0.009530219943917506,
+              "ratio": -0.5036450223286195,
+              "strength": -0.004799847836450988,
+              "content": false
+            },
+            "122": {
+              "mean": 0.0016006415491574555,
+              "zero": 0.01358676423357491,
+              "ratio": 0.11780888529750393,
+              "strength": 0.0016006415491574555,
+              "content": false
+            },
+            "123": {
+              "mean": 0.023625154090647527,
+              "zero": 0.03300461387286002,
+              "ratio": 0.7158136793133245,
+              "strength": 0.023625154090647527,
+              "content": true
+            },
+            "124": {
+              "mean": -0.0087970367404826,
+              "zero": -0.02603027058745888,
+              "ratio": 0.0,
+              "strength": -0.02603027058745888,
+              "content": false
+            },
+            "125": {
+              "mean": 0.03871111515448622,
+              "zero": 0.029930491881774934,
+              "ratio": 0.7731756567159057,
+              "strength": 0.029930491881774934,
+              "content": true
+            },
+            "126": {
+              "mean": 0.012647090292254415,
+              "zero": 0.022395779376286895,
+              "ratio": 0.564708647989514,
+              "strength": 0.012647090292254415,
+              "content": true
+            },
+            "127": {
+              "mean": -0.038512124684348226,
+              "zero": -0.02655430587789548,
+              "ratio": 0.0,
+              "strength": -0.038512124684348226,
+              "content": false
+            },
+            "128": {
+              "mean": -0.0006449122755535774,
+              "zero": -0.005391165317754076,
+              "ratio": 0.0,
+              "strength": -0.005391165317754076,
+              "content": false
+            },
+            "129": {
+              "mean": 0.007011861884287429,
+              "zero": -0.03205229314965735,
+              "ratio": -4.571152951754785,
+              "strength": -0.03205229314965735,
+              "content": false
+            }
+          }
+        },
+        "old_band": {
+          "base_pz": 0.3788890070306176,
+          "row0_strength": 0.3736098465494782,
+          "A129": -0.03205229314965735,
+          "band121_129_max": 0.029930491881774934
+        },
+        "del_table": {
+          "d_all": {
+            "g0": 0.36793458461761475
+          },
+          "d183": {
+            "g0": 0.3788890242576599,
+            "gm12": 0.19464744627475739
+          }
+        }
+      },
+      "cells_full": {
+        "gm12": 0.19464744627475739,
+        "g0": 0.3788890242576599,
+        "gp12": 0.30531808733940125,
+        "held30_gm12": 0.027839425951242447,
+        "held30_g0": 0.29594528675079346,
+        "ce_r": 1.6677687168121338,
+        "site_read_onset": 0.28467613458633423,
+        "site_read_span": 0.897288978099823,
+        "A129": -0.03205229314965735,
+        "row0_strength": 0.3736098465494782,
+        "dall_g0": 0.36793458461761475,
+        "d183_g0": 0.3788890242576599,
+        "d183_gm12": 0.19464744627475739
+      }
+    },
+    "lr1e5": {
+      "desc": "e176n arm A's NEUTRAL protocol VERBATIM at lr 1e-05 (only the lr differs; seed 10902 = arm A's draw sequence)",
+      "ckpt_steps": [
+        2,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "steps_ran": 300,
+      "seed": 10902,
+      "lr": 1e-05,
+      "traj": [
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.9232620596885681,
+          "g0_mean_pz": 0.7793123722076416,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.325658917427063,
+          "ce_r": 1.6611945629119873,
+          "elapsed_s": 3.5
+        },
+        {
+          "step": 10,
+          "g_m12_mean_pz": 0.941867470741272,
+          "g0_mean_pz": 0.7699665427207947,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2660164833068848,
+          "ce_r": 1.6539825201034546,
+          "elapsed_s": 5.2
+        },
+        {
+          "step": 50,
+          "g_m12_mean_pz": 0.9478141069412231,
+          "g0_mean_pz": 0.7200786471366882,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2028895616531372,
+          "ce_r": 1.6510944366455078,
+          "elapsed_s": 8.1
+        },
+        {
+          "step": 100,
+          "g_m12_mean_pz": 0.9214107394218445,
+          "g0_mean_pz": 0.664496123790741,
+          "frac_argmax_z": 0.9833333333333333,
+          "corpus_ce": 1.1359599828720093,
+          "ce_r": 1.664408564567566,
+          "elapsed_s": 10.6
+        },
+        {
+          "step": 200,
+          "g_m12_mean_pz": 0.7708187103271484,
+          "g0_mean_pz": 0.5588409304618835,
+          "frac_argmax_z": 0.9166666666666666,
+          "corpus_ce": 1.020493507385254,
+          "ce_r": 1.6960567235946655,
+          "elapsed_s": 16.8
+        },
+        {
+          "step": 300,
+          "g_m12_mean_pz": 0.565449059009552,
+          "g0_mean_pz": 0.4822644591331482,
+          "frac_argmax_z": 0.65,
+          "corpus_ce": 0.9111893773078918,
+          "ce_r": 1.7149769067764282,
+          "elapsed_s": 70.2
+        }
+      ],
+      "trace": [
+        {
+          "freeze_steps": 0,
+          "gm12": 0.9155886769294739,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "retention_vs_root_gm12": 1.0
+        },
+        {
+          "freeze_steps": 2,
+          "gm12": 0.9232620596885681,
+          "g0": 0.7793123722076416,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.325658917427063,
+          "ce_r": 1.6611945629119873,
+          "retention_vs_root_gm12": 1.0083808187589516,
+          "elapsed_s": 3.5
+        },
+        {
+          "freeze_steps": 10,
+          "gm12": 0.941867470741272,
+          "g0": 0.7699665427207947,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2660164833068848,
+          "ce_r": 1.6539825201034546,
+          "retention_vs_root_gm12": 1.0287015277427052,
+          "elapsed_s": 5.2
+        },
+        {
+          "freeze_steps": 50,
+          "gm12": 0.9478141069412231,
+          "g0": 0.7200786471366882,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.2028895616531372,
+          "ce_r": 1.6510944366455078,
+          "retention_vs_root_gm12": 1.0351964051366611,
+          "elapsed_s": 8.1
+        },
+        {
+          "freeze_steps": 100,
+          "gm12": 0.9214107394218445,
+          "g0": 0.664496123790741,
+          "frac_argmax_z": 0.9833333333333333,
+          "corpus_ce": 1.1359599828720093,
+          "ce_r": 1.664408564567566,
+          "retention_vs_root_gm12": 1.0063588188004853,
+          "elapsed_s": 10.6
+        },
+        {
+          "freeze_steps": 200,
+          "gm12": 0.7708187103271484,
+          "g0": 0.5588409304618835,
+          "frac_argmax_z": 0.9166666666666666,
+          "corpus_ce": 1.020493507385254,
+          "ce_r": 1.6960567235946655,
+          "retention_vs_root_gm12": 0.8418831837372354,
+          "elapsed_s": 16.8
+        },
+        {
+          "freeze_steps": 300,
+          "gm12": 0.565449059009552,
+          "g0": 0.4822644591331482,
+          "gp12": 0.7143647074699402,
+          "held30_gm12": 0.3675605356693268,
+          "held30_g0": 0.4837142527103424,
+          "ce_r": 1.7149769067764282,
+          "site_read_onset": 0.6476094126701355,
+          "site_read_span": 0.9489015340805054,
+          "A129": -0.14728483021608552,
+          "row0_strength": 0.45832929934524225,
+          "dall_g0": 0.6198240518569946,
+          "d183_g0": 0.4822644591331482,
+          "d183_gm12": 0.565449059009552,
+          "corpus_ce": 0.9111893773078918,
+          "retention_vs_root_gm12": 0.6175797858333579
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cpu",
+      "time_cap_s": 1800.0,
+      "batteries_full": {
+        "tag": "lr1e5_full",
+        "base": {
+          "-12": {
+            "mean_pz": 0.565449059009552,
+            "median_pz": 0.5140447616577148,
+            "std_pz": 0.2466149777173996,
+            "frac_pz_ge_0.5": 0.6000000238418579,
+            "frac_argmax_z": 0.65
+          },
+          "0": {
+            "mean_pz": 0.4822644591331482,
+            "median_pz": 0.5363717079162598,
+            "std_pz": 0.35404855012893677,
+            "frac_pz_ge_0.5": 0.550000011920929,
+            "frac_argmax_z": 0.55
+          },
+          "12": {
+            "mean_pz": 0.7143647074699402,
+            "median_pz": 0.7697844505310059,
+            "std_pz": 0.20719169080257416,
+            "frac_pz_ge_0.5": 0.8333333134651184,
+            "frac_argmax_z": 0.8333333333333334
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.3675605356693268,
+            "median_pz": 0.3978945314884186,
+            "std_pz": 0.24825863540172577,
+            "frac_pz_ge_0.5": 0.4333333373069763,
+            "frac_argmax_z": 0.5
+          },
+          "0": {
+            "mean_pz": 0.4837142527103424,
+            "median_pz": 0.49415192008018494,
+            "std_pz": 0.29020845890045166,
+            "frac_pz_ge_0.5": 0.5,
+            "frac_argmax_z": 0.5
+          },
+          "12": {
+            "mean_pz": 0.5287402272224426,
+            "median_pz": 0.669029712677002,
+            "std_pz": 0.33109912276268005,
+            "frac_pz_ge_0.5": 0.6666666865348816,
+            "frac_argmax_z": 0.7
+          }
+        },
+        "ce_r": 1.7149769067764282,
+        "site_read": {
+          "pz_onset_mean": 0.6476094126701355,
+          "pz_onset_median": 0.685653030872345,
+          "pz_onset_frac_ge_0.5": 0.7166666388511658,
+          "pname_mean_over7": 0.9489015340805054,
+          "pname_frac_ge_0.5": 0.9595237970352173,
+          "per_position_mean": [
+            0.6476093557973702,
+            0.9994114329417546,
+            0.9979068865378697,
+            0.9995811671018601,
+            0.9985777576764424,
+            0.9998342712720235,
+            0.9993895332018534
+          ]
+        },
+        "census_old": {
+          "base_readout": 0.48226445308537225,
+          "rows": {
+            "0": {
+              "mean": 0.48184369930819176,
+              "zero": 0.45832929934524225,
+              "ratio": 0.9511991129141869,
+              "strength": 0.45832929934524225,
+              "content": true
+            },
+            "1": {
+              "mean": -0.012267154614285847,
+              "zero": -0.007417144525485697,
+              "ratio": 0.0,
+              "strength": -0.012267154614285847,
+              "content": false
+            },
+            "2": {
+              "mean": -0.004404556890949596,
+              "zero": -0.00298741815204262,
+              "ratio": 0.0,
+              "strength": -0.004404556890949596,
+              "content": false
+            },
+            "3": {
+              "mean": -0.001175640783427856,
+              "zero": -0.000891242207338383,
+              "ratio": 0.0,
+              "strength": -0.001175640783427856,
+              "content": false
+            },
+            "4": {
+              "mean": 0.0012445210110551552,
+              "zero": 0.00025214315780131,
+              "ratio": 0.2026025720429845,
+              "strength": 0.00025214315780131,
+              "content": false
+            },
+            "5": {
+              "mean": -0.0003934417152777203,
+              "zero": 0.0008775285930217591,
+              "ratio": -0.4483520177079456,
+              "strength": -0.0003934417152777203,
+              "content": false
+            },
+            "6": {
+              "mean": -0.004122893408445294,
+              "zero": -0.002632212186775451,
+              "ratio": 0.0,
+              "strength": -0.004122893408445294,
+              "content": false
+            },
+            "60": {
+              "mean": 0.0022406615646711203,
+              "zero": 0.002183888922445476,
+              "ratio": 0.9746625536311294,
+              "strength": 0.002183888922445476,
+              "content": true
+            },
+            "100": {
+              "mean": 0.0013878696423489933,
+              "zero": 0.004000951513686846,
+              "ratio": 0.34688489415611096,
+              "strength": 0.0013878696423489933,
+              "content": false
+            },
+            "118": {
+              "mean": 0.0037589676610271794,
+              "zero": 0.00812841576698703,
+              "ratio": 0.46244775965987783,
+              "strength": 0.0037589676610271794,
+              "content": false
+            },
+            "119": {
+              "mean": 0.0038783923169831147,
+              "zero": 0.008835534699028369,
+              "ratio": 0.4389538889377703,
+              "strength": 0.0038783923169831147,
+              "content": false
+            },
+            "120": {
+              "mean": 0.003533462033374235,
+              "zero": 0.009731905052710044,
+              "ratio": 0.3630802000467803,
+              "strength": 0.003533462033374235,
+              "content": false
+            },
+            "121": {
+              "mean": -0.005640806987260771,
+              "zero": 0.009608937037410226,
+              "ratio": -0.5870375636035041,
+              "strength": -0.005640806987260771,
+              "content": false
+            },
+            "122": {
+              "mean": 0.0010632272421692845,
+              "zero": 0.01587772640050389,
+              "ratio": 0.06696344396862403,
+              "strength": 0.0010632272421692845,
+              "content": false
+            },
+            "123": {
+              "mean": 0.0066584599999866545,
+              "zero": 0.02222367388797769,
+              "ratio": 0.29961112791475364,
+              "strength": 0.0066584599999866545,
+              "content": false
+            },
+            "124": {
+              "mean": -0.07340577987100305,
+              "zero": -0.10304815711375948,
+              "ratio": 0.0,
+              "strength": -0.10304815711375948,
+              "content": false
+            },
+            "125": {
+              "mean": -0.0041103241965174675,
+              "zero": 0.008364062123776772,
+              "ratio": -0.4914267894822212,
+              "strength": -0.0041103241965174675,
+              "content": false
+            },
+            "126": {
+              "mean": 0.007492033555172417,
+              "zero": 0.016102358233183622,
+              "ratio": 0.46527554825683165,
+              "strength": 0.007492033555172417,
+              "content": false
+            },
+            "127": {
+              "mean": -0.02599806609020261,
+              "zero": -0.01353853339775618,
+              "ratio": 0.0,
+              "strength": -0.02599806609020261,
+              "content": false
+            },
+            "128": {
+              "mean": -0.016704228029508716,
+              "zero": -0.007791585319985916,
+              "ratio": 0.0,
+              "strength": -0.016704228029508716,
+              "content": false
+            },
+            "129": {
+              "mean": -0.09512223905767314,
+              "zero": -0.14728483021608552,
+              "ratio": 0.0,
+              "strength": -0.14728483021608552,
+              "content": false
+            }
+          }
+        },
+        "old_band": {
+          "base_pz": 0.48226445308537225,
+          "row0_strength": 0.45832929934524225,
+          "A129": -0.14728483021608552,
+          "band121_129_max": 0.007492033555172417
+        },
+        "del_table": {
+          "d_all": {
+            "g0": 0.6198240518569946
+          },
+          "d183": {
+            "g0": 0.4822644591331482,
+            "gm12": 0.565449059009552
+          }
+        }
+      },
+      "cells_full": {
+        "gm12": 0.565449059009552,
+        "g0": 0.4822644591331482,
+        "gp12": 0.7143647074699402,
+        "held30_gm12": 0.3675605356693268,
+        "held30_g0": 0.4837142527103424,
+        "ce_r": 1.7149769067764282,
+        "site_read_onset": 0.6476094126701355,
+        "site_read_span": 0.9489015340805054,
+        "A129": -0.14728483021608552,
+        "row0_strength": 0.45832929934524225,
+        "dall_g0": 0.6198240518569946,
+        "d183_g0": 0.4822644591331482,
+        "d183_gm12": 0.565449059009552
+      }
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "stream": "e176n arm A's NEUTRAL protocol VERBATIM: e170's neutral bank (seed 170), batch 32 = 16 neutral anchors + 16 random corpus windows, full-token CE, AdamW (0.9,0.95) wd 0.1 constant lr clip 1.0, seed 10902; ONLY the lr differs across cells",
+    "measure_dial": "e176n's measure() (minus the 183-span census \u2014 e178's recorded deviation)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A / e184's bank)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 0,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "budget_identical_to_e176n_armA": true,
+      "rng_stream_identical_to_e176n_armA": true,
+      "rng_note": "finetune_freeze verbatim; draw shapes/moduli identical (n_anc=16, len(train_ids)); seed 10902 \u2014 the same aj/rj sequences as e176n arm A; ONLY the lr differs",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows are e161/e176 VERBATIM and unfiltered \u2014 identical background, not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772222270098,
+        "dall_g0": 0.9047248959541321
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772227270097,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [],
+      "diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0,
+        "A129": 0.0,
+        "row0_strength": -4.99999930347883e-10,
+        "dall_g0": 0.0
+      },
+      "max_abs_diff": 4.99999930347883e-10,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_DRAWFREE": {
+      "lr3e5": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "lr1e5": {
+        "zeph_violations": 0,
+        "pass": true
+      }
+    },
+    "G_SURG": {
+      "root__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "root__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "lr3e5_full__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "lr3e5_full__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "lr1e5_full__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "lr1e5_full__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    }
+  },
+  "stored_refs": {
+    "e176n_armA": {
+      "source": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 9.0e-10)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 9.000000744663339e-10
+    },
+    "e176n_armB": {
+      "source": "runs/e176n/metrics.json armB_lr1e4 (armB_lr1e4.traj (steps>0); embedded copy verified, max|diff| 5.4e-14)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 5.399847236020605e-14
+    },
+    "e176_main": {
+      "source": "runs/e176/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 0.0
+    },
+    "e176_smoke": {
+      "source": "runs/e176_smoke/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "survival_curve": {
+    "bar": 0.27,
+    "points": {
+      "1e-3_neutral_e176n_armA": {
+        "lr": 0.001,
+        "t_star": 2,
+        "bracket": "(1, 2]",
+        "gm12_at_t": 0.027077054604887962,
+        "grid": [
+          1,
+          2,
+          4,
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 9.0e-10)",
+        "stream": "neutral",
+        "coarse": false,
+        "censored": false,
+        "lr_times_t_star": 0.002
+      },
+      "1e-3_original_e176_smoke": {
+        "lr": 0.001,
+        "t_star": 2,
+        "bracket": "(0, 2]",
+        "gm12_at_t": 0.08816977590322495,
+        "grid": [
+          2,
+          4
+        ],
+        "provenance": "runs/e176_smoke/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+        "stream": "original",
+        "coarse": false,
+        "note": "the smoke run is the ONLY fine-step trajectory the original stream has (e176n docstring's attribution); the main run's coarse grid alone would say t*=50",
+        "censored": false,
+        "lr_times_t_star": 0.002
+      },
+      "1e-4_original_e176n_armB": {
+        "lr": 0.0001,
+        "t_star": 50,
+        "bracket": "(0, 50]",
+        "gm12_at_t": 0.24797283113002777,
+        "grid": [
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "embedded verbatim copy (runs/e176n/metrics.json armB_lr1e4)",
+        "stream": "original",
+        "coarse": true,
+        "note": "COARSE grid {50,...}: t*=50 is an UPPER bound on the true survival time",
+        "censored": false,
+        "lr_times_t_star": 0.005
+      },
+      "3e-5_neutral_e180": {
+        "lr": 3e-05,
+        "t_star": 200,
+        "bracket": "(100, 200]",
+        "gm12_at_t": 0.26429376006126404,
+        "grid": [
+          2,
+          10,
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "this run",
+        "stream": "neutral",
+        "coarse": false,
+        "device": "cpu",
+        "censored": false,
+        "lr_times_t_star": 0.006
+      },
+      "1e-5_neutral_e180": {
+        "lr": 1e-05,
+        "t_star": null,
+        "bracket": "(+300, inf) \u2014 no crossing by +300",
+        "gm12_at_t": null,
+        "grid": [
+          2,
+          10,
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "this run",
+        "stream": "neutral",
+        "coarse": false,
+        "device": "cpu",
+        "censored": true,
+        "t_fit": 300,
+        "lr_times_t_star": "> 0.003"
+      }
+    },
+    "five_point_order": [
+      "1e-3_neutral_e176n_armA",
+      "1e-3_original_e176_smoke",
+      "1e-4_original_e176n_armB",
+      "3e-5_neutral_e180",
+      "1e-5_neutral_e180"
+    ],
+    "fit_five_point": {
+      "n": 5,
+      "slope_alpha": -1.1629163304792651,
+      "slope_convention": "slope of log10(t*) on log10(lr); the exponent of the power law is its ABSOLUTE value (t* grows as lr shrinks)",
+      "alpha_exponent": 1.1629163304792651,
+      "intercept_log10": -3.124858652961086,
+      "log_lr_range": [
+        -5.0,
+        -3.0
+      ],
+      "r2": 0.9753440190287211,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.0001,
+          "t_used": 50,
+          "censored": false
+        },
+        {
+          "lr": 3e-05,
+          "t_used": 200,
+          "censored": false
+        },
+        {
+          "lr": 1e-05,
+          "t_used": 300,
+          "censored": true
+        }
+      ],
+      "form": "t* ~ 0.00075 * lr^-1.16"
+    },
+    "fit_neutral_only": {
+      "n": 3,
+      "slope_alpha": -1.1428410678761496,
+      "slope_convention": "slope of log10(t*) on log10(lr); the exponent of the power law is its ABSOLUTE value (t* grows as lr shrinks)",
+      "alpha_exponent": 1.1428410678761496,
+      "intercept_log10": -3.07749295736403,
+      "log_lr_range": [
+        -5.0,
+        -3.0
+      ],
+      "r2": 0.975395355435725,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 3e-05,
+          "t_used": 200,
+          "censored": false
+        },
+        {
+          "lr": 1e-05,
+          "t_used": 300,
+          "censored": true
+        }
+      ],
+      "form": "t* ~ 0.000837 * lr^-1.14"
+    },
+    "fit_complete_cases": {
+      "n": 4,
+      "slope_alpha": -1.3313903539289262,
+      "slope_convention": "slope of log10(t*) on log10(lr); the exponent of the power law is its ABSOLUTE value (t* grows as lr shrinks)",
+      "alpha_exponent": 1.3313903539289262,
+      "intercept_log10": -3.683390170354425,
+      "log_lr_range": [
+        -4.522878745280337,
+        -3.0
+      ],
+      "r2": 0.9984329417950414,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.0001,
+          "t_used": 50,
+          "censored": false
+        },
+        {
+          "lr": 3e-05,
+          "t_used": 200,
+          "censored": false
+        }
+      ],
+      "form": "t* ~ 0.000207 * lr^-1.33"
+    },
+    "censoring": "the 1e-5 cell never crossed by +300: fitted twice \u2014 t*:=300 (marked CENSORED) and complete-cases-only",
+    "displacement_products_note": "lr x t* per point (constant product <=> alpha ~ 1 <=> the wash is DISPLACEMENT-limited \u2014 T112's basin-width reading priced as a law; T112's measured anchors: 2@1e-3 ~ 2.5e-3, 50@1e-4 ~ 5e-3"
+  },
+  "adjudication": {
+    "bar": 0.27,
+    "survival_times": {
+      "1e-3 (both stored cells)": 2,
+      "1e-4 (stored, coarse upper bound)": 50,
+      "3e-5 (new)": 200,
+      "1e-5 (new)": null
+    },
+    "monotone_growth_as_lr_shrinks": true,
+    "first_under_1e5": null,
+    "clause_1e5_late_or_none": true,
+    "clause_1e5_under_by_50": false,
+    "LR_IMMUNE_fires": false,
+    "LR_SCALED_fires": true,
+    "verdict": "LR-SCALED",
+    "near_bar_flags": [
+      {
+        "cell": "lr3e5",
+        "step": 200,
+        "gm12": 0.26429376006126404,
+        "note": "read within 0.05 of the 0.27 bar \u2014 timing at this checkpoint is device/float sensitive"
+      }
+    ],
+    "order": "LR-IMMUNE -> LR-SCALED -> TEXTURE (clauses disjoint by construction on the 1e-5 first-under; no bar shopping)",
+    "clause_text": "survival grows monotonically as lr shrinks (2 -> 50 -> 200 -> >300 (never by +300 \u2014 censored)) and the 1e-5 cell is late-or-never: the wash is optimization-rate-limited (activity-dependence as a RATE law); the basin-width reading holds; the paper's 'continued training' gets its rate qualifier."
+  },
+  "compute": {
+    "train_device_policy": "GPU allowed (park-once, quick check + mid-run guard); cooldown 90s around each training; per-training cap 1800s",
+    "gpu_parked": false,
+    "park_reason": null,
+    "device_events": [
+      {
+        "tag": "lr3e5",
+        "step": 75,
+        "event": "MID-RUN MIGRATION",
+        "status": {
+          "util": 51.0,
+          "mem_used": 1104.0,
+          "mem_total": 24463.0,
+          "temp": 83.0,
+          "power": 66.29
+        },
+        "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + optimizer state moved to CPU; training finishes on CPU (e184/e152 precedent)"
+      },
+      {
+        "tag": "lr1e5",
+        "step": 275,
+        "event": "MID-RUN MIGRATION",
+        "status": {
+          "util": 29.0,
+          "mem_used": 1104.0,
+          "mem_total": 24463.0,
+          "temp": 81.0,
+          "power": 97.56
+        },
+        "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + optimizer state moved to CPU; training finishes on CPU (e184/e152 precedent)"
+      }
+    ],
+    "torch_threads": 8,
+    "cells_devices": {
+      "lr3e5": {
+        "initial": "cuda",
+        "final": "cpu"
+      },
+      "lr1e5": {
+        "initial": "cuda",
+        "final": "cpu"
+      }
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "GPU ALLOWED by dispatch (idle 0%/69C at dispatch; e184's policy verbatim): strict pre-training quick check per training (gpu_ok() gates: util <= 85, temp <= 80 C, mem <= 85% of total; double-poll 5 s apart), PARK-ONCE to CPU on failure; mid-run contention guard polls every 25 steps and migrates net + optimizer state to CPU on mem/temp breach, finishing there (any mixing recorded per cell in device_events).",
+    "GPU float nondeterminism: the stored 1e-3/1e-4 references ran CPU; if the new cells run GPU (or park mid-run), devices mix ACROSS lr points \u2014 recorded per cell. The bars live at order-of-magnitude step separations (2 vs 50 vs 100+), which float noise cannot move; any read within 0.05 of the 0.27 bar is FLAGGED, not smoothed.",
+    "The five-point curve's stored half mixes streams (1e-3 original + 1e-4 original vs the new neutral cells): both 1e-3 cells agree at t*=2, and the stream-homogeneous neutral-only fit is co-reported \u2014 the composition choice is a texture-level record, not a bar.",
+    "The 1e-4 point is COARSE (grid {50,100,200,300}): its t*=50 is an UPPER bound on the true survival time; the new cells' early grid {2,10} resolves the gentle regime better than that stored cell.",
+    "finetune_freeze carries e184's device parameter + mid-run guard, with the lr a per-call parameter (e176n's own parameterization); the per-step arithmetic and the CPU-generator RNG draw sequence are unchanged \u2014 at seed 10902 both new cells draw the SAME aj/rj sequences as e176n arm A; only lr differs.",
+    "Light in-run evals at every checkpoint; ONE full dial at +300 per cell (e176n arm B's rider convention); the wash-rate question is answered by the g-12 trajectory, the full dial is the anatomy co-report.",
+    "Nets are the mandated 2.7M e131_consolidated line (the dispatch's '<=1M family' note is an envelope statement; e143/e151/e152/e158/e176n/e184 precedent \u2014 every gate reference lives on this line).",
+    "Eval thread count is 8 (e152R/e143/e184 convention) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance.",
+    "Single seed (10902), one trajectory per lr cell, one root lineage, n=1 per cell \u2014 point estimates until replicated (e184's seed lottery lives in the tail, not the clock, but the gentle regime is unreplicated).",
+    "Smoke mode trims: 4-step trainings, checkpoints {2,4}, lean measures, no cooldowns, no adjudication; nothing adjudicated.",
+    "Record refresh after the main run (provenance honesty): verify_ref's auto-routing compared the e176n file's trace_armA layout against arm B's embedded copy, marking the armB reference verified=False \u2014 an artifact (the embedded arm-B numbers match the file's armB_lr1e4.traj exactly); fixed by the explicit layout='armB' route, and loglog_fit's raw slope key gained the unambiguous alpha_exponent + slope_convention fields. The armB provenance record and the three fit records in runs/e180/metrics.json were refreshed with these identical patched code paths \u2014 no measured value, trajectory, checkpoint, or adjudication was touched."
+  ],
+  "ckpt_inventory": {
+    "e180_neutral_lr3e5": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5.pt",
+      "desc": "e131_consolidated_e113 + 300-step NEUTRAL-anchor plain-corpus freeze at lr 3e-05 (the wash-rate law), seed 10902",
+      "steps": 300,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr3e5_s2": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr3e5_s10": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5_s10.pt",
+      "desc": "e131_consolidated_e113 + 10-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 10,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr3e5_s50": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5_s50.pt",
+      "desc": "e131_consolidated_e113 + 50-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 50,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr3e5_s100": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5_s100.pt",
+      "desc": "e131_consolidated_e113 + 100-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 100,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr3e5_s200": {
+      "path": "runs/checkpoints/e180_neutral_lr3e5_s200.pt",
+      "desc": "e131_consolidated_e113 + 200-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 200,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5.pt",
+      "desc": "e131_consolidated_e113 + 300-step NEUTRAL-anchor plain-corpus freeze at lr 1e-05 (the wash-rate law), seed 10902",
+      "steps": 300,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5_s2": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5_s10": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5_s10.pt",
+      "desc": "e131_consolidated_e113 + 10-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 10,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5_s50": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5_s50.pt",
+      "desc": "e131_consolidated_e113 + 50-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 50,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5_s100": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5_s100.pt",
+      "desc": "e131_consolidated_e113 + 100-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 100,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e180_neutral_lr1e5_s200": {
+      "path": "runs/checkpoints/e180_neutral_lr1e5_s200.pt",
+      "desc": "e131_consolidated_e113 + 200-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 200,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "elapsed_s": 894.2
+}
