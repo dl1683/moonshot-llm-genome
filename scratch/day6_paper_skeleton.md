@@ -15,7 +15,7 @@ We dissect memory consolidation in 0.84-2.7M-parameter char-LMs with
 pre-registered interventions and deletion batteries. Four findings. (1)
 A fact consolidates where its training error is placed — shown causally by
 steering: error locked at positions 5-13 builds a site-store there, with no
-routing despite sink adjacency. (2) Two memory types follow: SITE-STORED
+routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
 (content concentrated at a row, context-general, geometry-bound) and ROUTED
 (readout keyed to the omnipresent row's presence, geometry-general,
 deletion-tolerant) — switched by the error's position-variance. (3) Content

@@ -95,11 +95,14 @@ committed before the data existed.
    position-varied road NEGATES the address key: R -0.21 vs
    L +0.33); and L-CYCLED retired "erasure digs in" outright
    (locked cycles thin identically — cycle damage, not erasure).
-   e143 then WON invariance's last causal stand (COMPASS-CAUSAL),
-   and the width ladder (e147) is measuring the law's
-   dose-response — whether address-key death and route birth
-   CO-ONSET at a critical jitter width — as this report's final
-   open cell, alongside e150's flat-CE verdict. The memory layer is a
+   e143 then WON invariance's causal stand, and e147's ladder
+   found the final form: a CLIFF, not a dose — ANY position
+   variance (even ±1) kills the address key (+0.327 → −0.029)
+   and births novel-geometry expression (0.071 → 0.696) within
+   300 steps, with no width trend above w=1. The type decision
+   is binary at zero-vs-any; locked replay actively CONTRACTS
+   the memory's reach below the untrained root. e150's verdict
+   closed the last open cell the same hour. The memory layer is a
    semi-independent tenant of the LM (W014): it dies to
    presence-removal and ignores direction — the corpus's exact
    opposite — making head-level attack the only promising

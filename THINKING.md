@@ -575,6 +575,46 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T087 — E147: the cliff — variance is a SWITCH, not a dial; the type decision is binary at zero-vs-any (2026-09-28 ~09:50Z)
+
+The registered graded law did not fire; what landed is cleaner:
+THE MEMORY TYPE IS DECIDED BY A CLIFF. A(w) at w=1 is already
+negative (-0.029 vs L's +0.327) and never trends with width;
+NR(w) onsets at w=1 (0.696 vs L's 0.071) and plateaus. ANY
+position variance — the name moving across as few as three read
+rows — is sufficient and (within 300 steps) saturated. T079's
+invariance law returns in STEP-FUNCTION form: variance doesn't
+GRADE the competition; it OPENS it. The biology echo sharpens:
+systems consolidation in the literature is discussed as graded
+transfer; here the DECISION to transfer is all-or-none at the
+moment the positional key stops being perfectly predictive.
+
+THE ROADS DIVERGE IN OPPOSITE DIRECTIONS FROM THE FIRST RUNG:
+locked replay strengthens the trained-geometry key (+0.327)
+while ERODING novel-geometry expression below the untrained root
+(0.071 vs 0.166) — massed replay doesn't just fail to
+consolidate; it actively CONTRACTS the memory's reach.
+Variance-replay does the exact opposite on both dials. Two
+opposite developmental trajectories from one binary switch.
+
+E150'S CAVEAT APPLIED: NR is now read as sink-HEALTH dependence
+(poisoning semantics), and NR is bounded by g-12 expression
+existence — the cliff's NR-side conflates 'expresses at novel
+geometry' with 'depends on sink health there.' The A-side
+(address-key death at w=1) is clean of both caveats. The honest
+composite: variance switches OFF the address key (clean) and
+switches ON novel-geometry expression that is sink-coupled
+(caveated). FAR-ROUTED-TAIL's fire (x0.069) says e143's FAR
+boundary case resolves toward coupling.
+
+FOR THE PAPER: claim 2's switch upgrades from 'error-position
+variance' to 'a binary cliff at zero-vs-any variance' — simpler
+to state, stronger to show (one figure, two rungs). The
+mechanism hunt for WHAT variance does (why does one moved
+window cancel the address key?) reopens at the head level
+(e133's L0H3 class) with the P-b cell (one net, both types) as
+the taxonomy's last structural confound — dispatched next.
+
 ## T086 — E150: the route was never information — sink-HEALTH, poisoning, and the removable-to-irremovable reframe (2026-09-28 ~09:35Z)
 
 The reading map's ALL-KILLS-WRECK branch fired, and the

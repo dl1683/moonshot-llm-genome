@@ -63,6 +63,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E147 — the width ladder: TEXTURE (a CLIFF, not a dose) — any variance switches the memory type; the address key dies at w=1, never gradually (2026-09-28 ~09:50Z) — DONE
+
+WHAT WE DID: six width arms (w in {1,2,4,16,32,64}) from the
+e048_repro root + free endpoints (w0=L, w8=R + a replicate, NEAR,
+FAR, root); co-measured A(w) (row-129 address-key delta) and
+NR(w) (d_r0 drop at g-12 + g+12); gates bit-exact; 1003s.
+
+WHAT WE SAW (T087): INVARIANCE-CAUSAL did NOT fire as registered
+(monotone clause: Spearman -0.381 vs bar <= -0.8; sensitivity
+ladders all >= -0.38). DEAD-AGAIN no (A range 0.460).
+SEED-COVERAGE no (NR(32)/NR(64) above onset bar — no collapse;
+T079-pure fails mildly at 0.67x without W010's cliff). THE
+TEXTURE IS THE FINDING: A CLIFF, NOT A DOSE — A(w): L +0.327,
+w1 -0.029, then a mildly negative plateau (-0.03..-0.13, no
+width trend); NR(w): L 0.071, w1 0.696, plateau 0.6-0.9. ANY
+position variance (even +-1, name confined to rows 128-130)
+kills the address key and births novel-geometry expression
+within 300 steps — co-onset at the ladder's resolution limit,
+STEP-FUNCTION form. SECONDARY: locked replay erodes NR BELOW
+root (0.071 vs 0.166) while strengthening A (+0.327) — the roads
+diverge in OPPOSITE directions from the first rung of variance.
+FREE CELL FIRES: FAR-ROUTED-TAIL — e143_far's 0.205 g-12 tail
+collapses under d_r0 (x0.069): FAR's hybrid tail was row-0-
+coupled, not the band field (T084 item 3 resolved). Honesty:
+single lineage; NR bounded by each arm's g-12 expression
+(existence-confound; ratio forms co-reported, x0.004-0.023 for
+all w>=1); NR now carries e150's POISONING semantics (sink-health
+dependence, not information routing); L's 150-step budget
+bracketed by sensitivity ladders; e143_jitter vs e119_r300 the
+one clean replicate (A -0.1324/-0.1325).
+
+---
+
 ## E150 — the flat-CE route test: ALL-KILLS-WRECK — 'routed' was never information flow; the kill is POISONING, and the reframe activates (2026-09-28 ~09:35Z) — DONE
 
 WHAT WE DID: five probes, CE on every cell, mask instrument gated
