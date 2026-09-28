@@ -599,6 +599,25 @@ rewrites to the resistance axis); DISSOLVES => even
 past fine-tune was quietly maintaining the fact — every
 'experiment' was also a rehearsal).
 
+DERIVATION (the resistance matrix — the frame's completion
+table, ~14:40Z): two resistance axes, two memory types, half
+the cells known. KNIFE axis: sink-coupled = KILLABLE (e160,
+flat CE); site-endpoint = UNKILLABLE (e125a, all CE). WASH
+axis: dwell-phase = WASHABLE (e161, <50 steps); consolidated
+root = e176 PENDING; site-endpoint = NEVER TESTED. THE
+GORGEOUS POSSIBILITY: if e176 lands SURVIVES, the two types
+are DOUBLY COMPLEMENTARY — each resistant along exactly one
+axis (sink-coupled: wash-proof but knife-killable; site-
+stored: knife-proof but wash-?) — and unlearning becomes a
+two-lock problem where each memory type has a different
+exploitable lock. The missing cell (e177, queued): wash the
+SITE-ENDPOINT (plain corpus on e151_twodoor's 300-step state
+or arm_b) — WASH-RESISTANT would complete the complementarity;
+WASHABLE would make site-stores look like scratch memory
+(cheap, local, erasable by drift) and consolidate the
+hierarchy: scratch -> resistant-under-training -> (maybe)
+doubly-hardened. e176 + e177 together finish the table.
+
 FOR THE PAPER: claim 2's phase language converts to the
 resistance axis (phases -> degrees of washout-resistance; the
 cliff survives as the ACCESS-building fact; e151 re-reads as
