@@ -539,6 +539,21 @@ head-to-head (e119) now has its mechanism hypothesis: jitter and
 deletion both force multi-address reads; the plate viz will show
 whether the two roads build the same field or different ones.
 
+AMENDMENT (registered before the R43 critic reports — honesty
+reflex): THE SPACING CONFOUND. Jittered replay is not only
+position-diverse — it is also SPACED (reads distributed across the
+fine-tune with intervening corpus), while e109's locked control
+(rescue_b, +0.221) was a matched-mass CONTIGUOUS block at one
+address. Spacing alone is a live alternative theory: consolidation
+could key on the read distribution IN TIME, not in position.
+DISCRIMINATOR (cheap; rides as a free arm in the next replay
+experiment): a spaced-locked arm — same single address, same mass,
+reads interleaved with corpus across the whole schedule. If
+spaced-locked consolidates like jitter, position diversity DIES and
+spacing inherits the claim. If spaced-locked stays address-locked
+(the e120 signature: row grows, battery never reads through it),
+T075 survives its strongest attack. Designed on paper; ripening.
+
 ## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 ~09:20Z)
 
 **NO DREAM CONSOLIDATION** — and the negative is decisive because
@@ -791,6 +806,35 @@ motionless kernel, the field lives somewhere other than the
 readout kernel and W008's mechanism dies while the phenotype
 survives. Cheap first probe: kernel-motion trace during a single
 jitter schedule (eval-only checkpoints, one run).
+
+REFINEMENT (second beat of ripening, ~06:20Z): "wire the adapters"
+hides a fork nobody has discriminated. PASSIVE TOLERANCE: the
+grown rows (cos 0.76-0.85 to the original address) may be born
+INSIDE the routing head's existing match basin — no attention
+weight change needed; the adapter is pure geometry and two-step
+consolidation collapses to one (grow within tolerance). ACTIVE
+WIRING: the K-side of the routing head must itself drift toward
+the new rows during jitter — a real weight change, and the two
+steps are genuinely two. DISCRIMINATOR — the ROW-TRANSPLANT TEST:
+take a net with the fact installed but NEVER jittered; surgically
+write a synthetic grown row (original address row scaled/noised to
+the e109 cos band, or transplant a real grown row from the e109
+checkpoint) into a fresh WPE position; run the deletion battery.
+Fact reads through the transplanted row => passive tolerance
+(adapters are geometry, transplantable like organs). Battery blind
+to the transplanted row => active wiring exists and does not
+travel with geometry alone (the wiring lives in the head's
+K-weights; "unconnected adapter" is the default fate of any row
+that merely RESEMBLES the address — which is exactly what e120's
+row 183 looks like in this frame). Sharpening free: e119's
+grown-row census (running now) reports R-road's row cos on the
+twin line — the transplant dosage curve. ECHO worth savoring:
+e111's forging FAILED for the self-signature (the k*=7 subspace
+did not survive transplantation). If fact-routing transplants but
+self-signature does not, the lab earns a clean dissociation:
+GEOMETRY TRANSPLANTS FOR ROUTING, SUBSPACE DOES NOT TRANSPLANT
+FOR VERIFICATION — addresses are plug-in organs, selves are
+grown-in tissue. Ripening; dispatch when e119's census lands.
 
 ## W007 — WONDER: why 54? The derivation program for the share constant (2026-09-28 ~04:30Z)
 
