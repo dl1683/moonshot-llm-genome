@@ -63,6 +63,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E174 — the dose ladder + rehearsal: ALL-OR-NOTHING + REHEARSAL-RESOLVES — capacity is a MAINTENANCE BUDGET, not storage; cohabitation doubles it at ~zero cost (2026-09-28 ~16:05Z) — DONE
+
+WHAT WE DID: arm A = e170's neutral install bit-exact with
+in-run dose checkpoints (25/50/75/150/300; G_REPRO 0.0); arm B
+= 1:1 interleaved F2-install/F1-replay (600 steps, matched 300
+F2 batches).
+
+WHAT WE SAW (T107): the dose cliff — F1 <= 0.2 at EVERY
+graft-forming dose (0.785 -> 0.023 at dose 25 already; 0.0000
+at 300); WIN-WIN never fires; smoke texture: F1 dead at F2-
+dose TWO (first-contact-fast — any-F2-gradient-triggered, not
+formation-gated). REHEARSAL-RESOLVES CLEANLY: at dose 25 (arm
+A's kill point), arm B holds F1 at 0.921 WITH the graft formed
+(F2 onset 0.844, census positive) — GENUINE COHABITATION at
+every matched dose, F2's rate unimpaired (0.971 vs 0.994). THE
+ONE-FACT LIMIT IS A MAINTENANCE BUDGET, NOT STORAGE: interleaved
+replay doubles capacity at ~zero cost to F2 — T101's
+life-support channel confirmed and quantified. FOR THE PAPER:
+the capacity paragraph = "one fact wide without rehearsal;
+cohabitation IS rehearsal" (the reading map's predicted form,
+now licensed); the e171 cell stays dead (F1 survives only
+under interleaving, so no per-fact-door object exists at any
+protocol). PRACTICAL: a dataloader that interleaves old facts
+during new installs costs ~nothing and saves everything — the
+catastrophic-forgetting mitigation the field already knows,
+here given its mechanism (extinction-avoidance, not
+storage-capacity). Honesty: dose = step-count proxy; arm B
+doubles optimizer steps (its F2-onset column rules out
+rescue-by-slowdown); single seed/lineage.
+
+---
+
 ## E178 — the reverse class-restore: TEXTURE — ~42% of expression returns with ~90% of structure (site-span 93%, brake co-carried 91% — the GAIN-ATTENUATION candidate; e176N arm C discriminates); the wash's layer signature flat vs the conversion's banded (2026-09-28 ~15:40Z) — DONE (bounded)
 
 WHAT WE DID: e173's instrument in reverse — the root's MLP+LN

@@ -575,6 +575,27 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T107 — E174: the maintenance budget — rehearsal doubles capacity for free, and forgetting is first-contact (2026-09-28 ~16:05Z)
+
+The two arms compose into the day's cleanest practical finding
+and its sharpest mechanistic texture: (1) WITHOUT rehearsal,
+the dose curve is a cliff — F1 dies at the first F2 gradient
+(dose TWO in the smoke: 0.0009), not at graft formation, not
+at budget exhaustion — ANY second-fact gradient kills. The
+extinction-bounded frame sharpens: the kill is not the stream
+or the graft — it is the FIRST INTERFERENCE EVENT. (2) WITH
+1:1 rehearsal, cohabitation is total at every dose (F1 0.92+
+alongside F2's formed graft, both near-full) — the one-fact
+limit was never storage; it was MAINTENANCE. Capacity =
+1/rehearsal-fraction. THE FIELD PARAGRAPH: interleaving during
+installs costs ~nothing and saves everything — the known
+mitigation, here given its mechanism. FOR W012: the bandwidth
+reading dies its final death — the "share constant" was always
+measuring a rehearsal-maintained occupancy, not a capacity.
+FOR e179 (the frequency law): the registered question sharpens
+to the interference-maintenance ratio — how much replay per
+unit of interference (not per step) keeps the tenant alive.
+
 ## T106 — [R50 CORRECTIONS: (1) 'the brake survives the wash' is FALSE as written — the wash killed it with everything else (A129 -> -0.0006); it returns only CO-CARRIED by the restored class — 'resurrected', not 'surviving' (T105's NOTHING-SURVIVES stands); (2) the 'coherent half-fact' omitted site_read_span (93%) and A129 (91%) from the dial list — full structure at ~90% with expression at ~42% is the GAIN-ATTENUATION signature; e176N's arm (C) (restore-into-+50) discriminates] E178: the class-restore returns ~42% of expression with ~90% of structure — bounded (2026-09-28 ~15:40Z)
 
 The rider returned the nuanced answer: restoring the MLP+LN
