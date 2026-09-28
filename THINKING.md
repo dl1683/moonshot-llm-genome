@@ -514,6 +514,53 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T078 — E119: the two roads run in OPPOSITE directions — jitter migrates (re-keys to row 0), erasure digs in (tightens the address) (2026-09-28 ~07:20Z)
+
+Read against T077's frame, e119's AMBIGUOUS becomes decisive in
+interpretation: R (jitter) survives D-all at 0.769 — exactly what
+a row-0-keyed fact does (D-all never touches row 0; e131 showed
+the e113-line jitter fact is row-0-keyed); E (erasure) falls to
+0.190 and its field-only residue THINS toward zero with more
+cycles (0.190->0.013->0.001). The roads are not two routes to
+one store: JITTER IS MIGRATION; ERASURE IS ANTI-MIGRATION — each
+erase cycle strips field residue and re-tightens the address
+binding. T073's reading of e083 ("completion migrates onto
+position-keyed machinery" as consolidation-by-erasure) is
+INVERTED by its own head-to-head: what migrated was nothing; what
+happened was address-dependence deepening under stress. W003's
+complementary-systems analogy narrows to its replay half only —
+the biological echo of lesion-induced recovery does not hold here
+at matched expression.
+
+THE BRAKE IS A RE-KEYING SCAR, NOT A CONSOLIDATION UNIVERSAL:
+deleting the original address FEEDS R (+0.210 — the moved-out
+tenant's lease, T077) but SUPPRESSES E (-0.267) and L (-0.509).
+The agent's confound note is exactly right: L (locked replay, no
+erasure) brakes like E, so the sign tracks POSITION-DIVERSITY
+(jitter), not erasure. e115's dimmer — measured on the jitter
+line — generalizes to re-keyed facts only; a fact that never
+moved keeps its address as a crutch, and deleting the crutch
+collapses it. Brake sign is therefore a DIAGNOSTIC: + means
+moved, - means still living there.
+
+ALL THREE PRE-REGISTRATIONS FIRED as written (06:48Z, before the
+battery): the discipline paid — P3's expression/store-depth
+dissociation is now the sharpest single number-line in the arc
+(recovering expression, vanishing store). TEXTURE ECHO: E's
+high-row drift (220-254) overlaps e131's census row-249 — high-row
+drift is a real shared texture of anchor relearn, not noise.
+OPEN EDGES: (i) E@c1 is one relearn at matched expression — a
+mass-matched E (300 mixed steps, no erase) would separate
+erasure-per-se from relearn-texture (the L arm partially covers
+this; L's D-all was not reported — cheap rider); (ii) does E ALSO
+row-0-key at its address-tightened endpoint? (e140: row-0
+content test on e119's saved E checkpoints — eval-only, nets on
+disk); (iii) R@300's overshoot (0.776) vs R@150's match — does
+row-0 key strength grow with jitter dose (same e140 rider on
+R@150 vs R@300)? The wiring trace (e132) demotes to optional:
+row-0 growth across checkpoints answers its kernel question more
+directly and eval-only.
+
 ## T077 — E131: the fact never left the positional system — it re-keyed to ROW 0, and 'failed' consolidations were instrument blindness (2026-09-28 ~07:05Z)
 
 The R43 critic's most-damaging assumption was the right one, and
