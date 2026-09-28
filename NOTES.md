@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E183 — the filtered stream: STILL-DISSOLVES — the last residue discharged; the activity-dependence noun goes UNBOUNDED (2026-09-28 ~17:45Z) — DONE
+
+WHAT WE DID: e176N arm A with the random half FILTERED of
+host-junction windows (grep at draw time; 162/4962 rejections =
+3.26% realized vs the 3.84% expected; 0 post-hoc leaks); all
+gates bit-level.
+
+WHAT WE SAW (T111): STILL-DISSOLVES — the filtered stream kills
+on the SAME two-step clock (g-12 0.916 -> 0.803 (+1) -> 0.040
+(+2) -> floor), kinetics indistinguishable from the neutral
+stream; the whole anatomy together; CE-at-dissolution honestly
+reported (1.99). BACKGROUND-CARRIED did not fire — removing the
+~184 junction windows changed nothing material. THE NOUN GOES
+UNBOUNDED [seed clause stands]: no memory state tested retains
+expression under continued training — on ANY stream composition
+run (extinction / neutral / filtered), at any lr tested, with
+the fact's windows absent. THE HONEST FORM (the paper's):
+bounded by one seed (timing is trajectory-specific — but the
+DISSOLUTION is invariant across three stream compositions, two
+lrs, and every memory type: the robust fact). W019's bar eases
+to [seeds owed] — the residue clause clears. THE EPITAPH's
+parenthetical updates: "one seed" remains; "3.84% of a window
+still unexamined" CLEARS (examined: it was not the killer).
+Honesty: 7 left-edge straddle windows remain (host-tails, no
+junction signal — counted); ordinary corpus pressure at lr 1e-3
+is the mechanism under test (unfilterable without emptying the
+stream); single seed; the filtered arm is a RNG sibling, not a
+paired-draw twin (the anchor half gated bit-identical).
+
+---
+
 ## E175 — the savings triple: NO-SAVINGS — the washed net re-learns at the naive price; no fast recovery under the persistent clamp (2026-09-28 ~17:05Z) — DONE
 
 WHAT WE DID: identical HOME-site locked re-teaches (grid 10/30/

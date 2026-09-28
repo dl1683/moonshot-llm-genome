@@ -575,6 +575,29 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T111 — E183: the noun unbound — dissolution is stream-invariant; only its timing is a lottery (2026-09-28 ~17:45Z)
+
+The last gate opened: with the host-junction background
+filtered (3.26% realized rejection), the consolidated fact
+still dies on the same two-step clock, kinetics
+indistinguishable from the neutral stream. ACROSS THE SESSION:
+three stream compositions (extinction, neutral, filtered), two
+lrs, every memory type (sink-coupled, dwell, site-stored) —
+DISSOLUTION is invariant; only the RATE varies (the lr knob,
+the seed lottery, the type gradient inside its own noise).
+THE PAPER'S FINAL LEAD FINDING, unbounded save the seed clause:
+no memory state tested retains expression under continued
+training without the fact's windows. The mechanism candidate
+is now the barest possible: ORDINARY CORPUS GRADIENT FLOW at
+lr 1e-3 — the stream's own pressure, not any fact-adjacent
+signal. THE DISCRIMINATOR THE HONEST FORM STILL OWES: a gentler
+regime's curve (the wash-rate law's lr 1e-5 leg) and seeds —
+the dissolution's invariance makes the seed question CHEAPER
+than feared (three streams already triangulate the noise), but
+the lab's own >=3 rule stands. FOR THE EPITAPH: the
+parenthetical's "3.84% still unexamined" clears — it was
+examined, and it was innocent.
+
 ## T110 — [R11 BOUNDS: the null is GRID-LIMITED (crossing in (30,100] for all three — real savings invisible at this resolution); the naive control's substrate confound (install-unfamiliar, +0.2 CE first-contact) unexcluded; the late INVERSION (naive > washed at 100/300) unaccounted — 'the paradigm split in two' WITHDRAWN from paper reach; discriminating cells named (a different-nonce re-teach; a yoked e001 control)] E175: no savings at the threshold (bounded) — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
 
 The Ebbinghaus test returned its cleanest modern form: the
@@ -2510,7 +2533,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W019 — WONDER [R50 bar RATIFIED with T109's easing: n=1 + e183 owed (the seeds clause restored per R51 — the eased bar must not drop it); 'implemented'/'architectural fact' stay withdrawn; the field-facing line stays out of paper text until e183 + seeds] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
+## W019 — WONDER [e183 cleared the residue: the noun is unbounded save SEEDS; 'implemented'/'architectural fact' stay withdrawn (the >=3 rule); the field-facing line may enter the DISCUSSION in bounded form — the honest sentence: every memory state tested dissolved under continued training on every stream composition run, at every lr tested, with the fact's windows absent] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
 
 The biology echo completes its long arc by INVERTING: the lab's
 nets do not implement the classic two-system story (fast
