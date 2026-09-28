@@ -67,7 +67,7 @@ then append an entry here and update STATE.json.
 
 ---
 
-## Review 43 — the re-keying ambush (2026-09-28T06:55Z; covering 05:50–06:55Z; e119 dispatched mid-review, RUNNING)
+## Review 43 — the re-keying ambush (2026-09-28T06:10Z; covering 05:50–06:10Z; e119 dispatched mid-review, RUNNING; timestamps in this window repaired 06:30Z after a clock drift)
 
 Context: E120/T075/W008 freshest; e119 (migration head-to-head) dispatched at
 05:50Z and running on GPU through this review.
@@ -82,7 +82,7 @@ Context: E120/T075/W008 freshest; e119 (migration head-to-head) dispatched at
   W008's adapter family implies; e019 energy-carrier held via the e011c rule.
 - 2 stale READY rows (e065, e083) marked; combined-heading false positives
   cleared (E035+E038, E092+E104, E101+E106 covered).
-- AUDIT FINDING, CORRECTED BY ERRATUM (~07:25Z): the lead's original claim
+- AUDIT FINDING, CORRECTED BY ERRATUM (~06:25Z): the lead's original claim
   "NO model weights are persisted anywhere" was WRONG — the search was
   under-scoped (find -maxdepth 2 + never reading .gitignore). In fact
   runs/checkpoints/ holds 102 phase checkpoints (convention: eNNN_<phase>.pt,

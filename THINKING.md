@@ -514,7 +514,7 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
-## T076 — the critic's error-location theory taken straight: consolidation follows the error — and road E is its stress test (2026-09-28 ~07:10Z)
+## T076 — the critic's error-location theory taken straight: consolidation follows the error — and road E is its stress test (2026-09-28 ~06:12Z)
 
 The R43 critic meant ERROR-LOCATION as an attack on T075; taken
 straight it is the lab's first unifying theory of WHERE
@@ -559,7 +559,7 @@ loss — has slope > 0, predicting the corpus>self gap is
 loss-texture, not self-vs-corpus identity.
 
 RIDER RESULT (zero compute — e120's sitting logs, arm-level proxy,
-~07:35Z): LOSS-TEXTURE SUPPORTED, weakly. ce_r trajectories: arm b
+~06:22Z): LOSS-TEXTURE SUPPORTED, weakly. ce_r trajectories: arm b
 (corpus) ran consistently ABOVE arm a (self) through the early
 window — 1.7996 vs 1.7763 at step 50, 1.7578 vs 1.7369 at 100,
 1.7496 vs 1.7004 at 150, crossing only at ~200 — i.e. the same
@@ -621,7 +621,7 @@ spacing inherits the claim. If spaced-locked stays address-locked
 (the e120 signature: row grows, battery never reads through it),
 T075 survives its strongest attack. Designed on paper; ripening.
 
-SECOND AMENDMENT (R43 critic — accepted, ~06:55Z): the ERROR-LOCATION
+SECOND AMENDMENT (R43 critic — accepted, ~06:10Z): the ERROR-LOCATION
 counter-theory plus two confounds now bound this card. (1) The deletion
 battery reads only the 121–137 band; the splice arms' training error lived
 at row 183, which no instrument has ever read — "failed to consolidate" is
@@ -858,7 +858,42 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W009 — WONDER: the population frame — every instrument returns overlap, and discreteness is the metaphor's artifact (2026-09-28 ~07:10Z)
+## W010 — WONDER: seed-and-amplify — consolidation as amplification of existing expression, not construction from nothing (2026-09-28 ~06:30Z)
+
+The T076 rider's trajectory savor pulled a thread: splice arms
+WANDER (0.108-0.020-0.151-0.016, no trend) while jitter CLIMBS
+from its first checkpoint (0.697 at step 50). Under error-location
+alone, both arms place error on the fact; the difference is WHERE
+the error lands relative to EXISTING EXPRESSION. Jitter re-teaches
+inside install windows the net already expresses — error lands on
+SEEDED supports and amplifies them (expression -> captured error ->
+growth: positive feedback). The splice teaches at row 183 where
+nothing is readable — error lands on a seedless site, and each
+batch's differing contexts pull the row in different directions:
+wandering. FIVE observations, one mechanism: (1) jitter climbs
+(seeded band); (2) locked replay partly works (+0.221: the one
+original seed, amplified); (3) splice at seedless 183 fails and
+wanders; (4) dreams carry the fact but consolidate nothing —
+carried content at novel positions = seeds WITHOUT error; (5) road
+E (deletion) destroys the seed and the net regrows from the
+population's residual overlap (e088's redundancy) — necessity as
+the road when amplification has nothing to amplify. The mechanism
+reframes the ingredient question: position diversity was never the
+cause — it is HOW ERROR FINDS ALL THE SEEDS. PREDICTED SAVORS
+(falsifiers in disguise): (a) far-jitter at ±64 — seedless
+positions — should WANDER like splice, not climb (the critic's
+missing control, now with a mechanism behind it); (b) a tiny
+pre-seed at 183 (mini-install) followed by the identical splice
+fine-tune should CLIMB — turning e120's failure into e138's
+head-start done surgically; (c) climb onset should track seed
+strength (pre-seed dose vs steps-to-liftoff, monotone); (d) road
+E's regrowth rate should track residual overlap mass after erase
+(e083's cycle-weakening is the downward arm). If (a) climbs
+anyway, seed-and-amplify dies and pure error-location stands; if
+(b) still wanders, the seed must be BAND-MEMBERSHIP, not
+expression-anywhere — a sharper noun than either card has.
+
+## W009 — WONDER: the population frame — every instrument returns overlap, and discreteness is the metaphor's artifact (2026-09-28 ~06:12Z)
 
 Three instruments in three languages said the same thing this
 week. e088's pair-anchor factorial came back SUB-additive (median
