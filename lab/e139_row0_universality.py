@@ -747,6 +747,16 @@ def main():
         occs = find_name_occ(pool_c_x, itos)
         rider["n_dream_occurrences"] = len(occs)
         rider["onset_cols"] = [c for _, c in occs]
+        hist: dict[int, int] = {}
+        for _, c in occs:
+            hist[c] = hist.get(c, 0) + 1
+        rider["onset_col_histogram"] = {str(k): v for k, v in sorted(hist.items())}
+        rider["onset_position_note"] = (
+            "dream ZEPHYRA onsets concentrate at x-col 130 (the host-"
+            "continuation slot: the 130-char prompts end exactly at host-name "
+            "positions, so the net dreams its name as the FIRST continuation "
+            "token) — read position c-1 = 129 = the OLD address row, i.e. "
+            "the dream positions are NOT position-diverse")
         read_c = read_at_occurrences(net_c, pool_c_x, occs, zid)
         read_base = read_at_occurrences(net_b43, pool_c_x, occs, zid)
         gen = bool(read_c["pz_onset_mean"] >= 0.5 and
@@ -812,10 +822,7 @@ def main():
             f"D-183 kill {d183_kill:+.1%} | row0 content-2x {row0_pos} -> {v}")
 
     vs = {v["arm_verdict"] for v in adjudication["per_arm"].values()}
-    if len(vs) == 1:
-        verdict = vs.pop()
-    else:
-        verdict = "TEXTURE"
+    verdict = next(iter(vs)) if len(vs) == 1 else "TEXTURE"
     adjudication["verdict"] = verdict
     adjudication["arms_agree"] = len(vs) == 1
     log("=" * 78)
