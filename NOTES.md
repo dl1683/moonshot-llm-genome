@@ -119,6 +119,44 @@ report-only.
 
 ---
 
+## E141 — sink-key mechanism battery: ROLE-ROUTED (presence-only) — "re-keyed to row 0" formally dead; the noun is row-0 sink-routed (2026-09-28 ~08:05Z) — DONE
+
+WHAT WE DID: five probes (install-restore t-surgery, presence-
+vs-content scramble, rows-2-7 + norm-matched scaffold hardening,
+d_r0 at novel geometry g-12 on both R nets, gate-vs-source
+interpolation) on gated nets; 87s CPU; all artifact gates
+bit-exact.
+
+WHAT WE SAW (T081): ROLE-ROUTED, 3 corroborating votes to 0.
+(1) INSTALL-RESTORE: removing the ENTIRE consolidation delta
+from wpe[0] costs nothing (t=1 x0.999, CE +0.0002); direction-
+scramble (norm-preserving permutation) RAISES fact expression to
+0.817 while costing +0.70 CE; only removal-class kills (zero
+0.053; mean-replace 0.001 — mean-row norm 0.066 = near-removal);
+half-norm survives, double-norm slightly helps. (2) PRESENCE-KEY:
+front-window scramble HELPS (0.858 vs mid-control 0.804, base
+0.785) — scrambling the sink-region content improves the fact
+read. (3) SINK-UNIQUENESS hardened: rows 2-7 + norm-matched
+random all cheap (max CE +0.017); only row 0 wrecks (+1.40/+2.00).
+(4) NOVEL-GEOMETRY COLLAPSE: d_r0 at g-12 x0.014 on R@150 AND
+R@300 — W011's missing cell filled: the generalization itself
+routes through row 0's presence (content-keyed alternative dies).
+(5) NO-COLLAPSE curve: neither SOURCE-GRADED nor GATE-THRESHOLD
+can fire (nothing is lost on the path; the flat-curve R^2 trap
+documented before adjudication). MECHANISM: row 0 is the net's
+attention-sink pivot (2nd-largest row norm); the consolidated
+fact's READOUT WEIGHTS route through row 0 EXISTING — presence,
+not content, not direction. SAVOR: the corpus-CE dissociation
+(direction-scramble: fact intact, CE +0.70) — the fact's route
+is more presence-robust than the net's general LM function.
+Honesty: single-seed line for probes 1-3 (probe 4 adds two
+independently-trained R nets, agreeing); t-curve probes one path
+but perm + norm riders make the surviving manifold >=2-parameter
+wide; scramble leakage bounded by matched control + the sign of
+the effect.
+
+---
+
 ## E133 — field anatomy census: TEXTURE — the fact is BODY-stored everywhere; what differs is the READ ROUTE (2026-09-28 ~07:45Z) — DONE
 
 WHAT WE DID: per-organ causal ablation sweep (MLPs by layer,

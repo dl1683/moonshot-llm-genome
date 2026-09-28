@@ -575,6 +575,56 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T081 — E141: presence, not content — the fact routes through row 0 EXISTING (2026-09-28 ~08:05Z)
+
+The R44 critic's crack is confirmed and sharpened beyond it.
+"Re-keyed to row 0" is formally dead: removing the entire
+consolidation delta from wpe[0] costs NOTHING (x0.999, CE flat),
+and even scrambling row 0's DIRECTION leaves the fact intact
+(0.817, +6%) while degrading the corpus (+0.70 CE). What kills
+is only REMOVAL (zero/mean/near-removal) — and rows 2-7 plus a
+norm-matched random row are all cheap. The noun, corrected: the
+consolidated fact is ROW-0 SINK-ROUTED — its readout weights
+need the pivot to EXIST (norm >= ~0.38 suffices), not to say
+anything. Three consequences:
+
+(1) T077's second amendment CONFIRMED and SHARPENED: the
+migration wrote nothing into the destination row; everything it
+wrote lives in readout weights (e133: heads 84.5% of the
+fact-specific residue). The "moved out" metaphor reduces to: the
+read policy stopped keying on position 129 and started keying on
+presence-at-the-pivot + content — W013's protagonist with its
+mechanism completed.
+
+(2) W011's omnipresence survives in sharpened form — OMNIPRESENCE
+OF PRESENCE: the g-12 collapse (x0.014, both R nets) kills the
+content-keyed alternative; geometry-independence is literally
+routed through the one row that exists in every context, and
+what it contributes is BEING THERE (its norm as the pivot), not
+its content. The bio-echo sharpens absurdly and beautifully: the
+schematic memory's "cortex" is the fact that position zero
+exists.
+
+(3) THE CE DISSOCIATION is the new savor: direction-scrambling
+row 0 costs the corpus +0.70 nats but HELPS the fact (+6%) —
+the fact's route is more presence-robust than the net's own
+language function. A memory that survives what cripples the
+net's general machinery: the route's independence from the
+pivot's content is exactly what makes it geometry-general. Also
+noted: scrambling the sink-region content IMPROVES the read —
+the pivot's content is, if anything, competition for the route.
+
+REMAINING OPEN: the route's anatomical finish (e133's L0H3 +
+value-channel population) has no e141 cell confirming it
+directly; the natural completion is W013's POLICY TRANSPLANT
+with a presence-preserving twist — transplant the consolidated
+net's readout deltas onto the install net and test whether
+presence-keying alone converts address-reads into deletion-
+tolerant reads. And e140's question survives REWORDED: does the
+ROUTE's row-0 DEPENDENCE grow with jitter dose and stay flat
+under locked/erase? (The e131 content test measures presence-
+necessity — still the right dial, renamed.)
+
 ## T080 — E133: content is everywhere, routes are the difference — the read-policy frame's first direct support (2026-09-28 ~07:45Z)
 
 The anatomy census returned TEXTURE as registered, but the
@@ -1225,6 +1275,11 @@ not build the row-0 key from nothing — it PROMOTED the
 already-largest seed. Error-location said WHERE error
 consolidates; W011 says WHERE the key GOES when the error is
 everywhere: to the row that is always attended.
+RESOLUTION (e141, ~08:05Z): the content-keyed alternative is
+DEAD — d_r0 at g-12 collapses x0.014 on both R nets; and the hub
+is not row 0's content either (direction-scramble spares the
+fact): the hub is the pivot's PRESENCE. Omnipresence of
+presence. Prior amendment retained below for the record.
 AMENDMENT (R44 critic): the CONTENT-KEYED alternative is alive —
 e116's un-killed residue (readout keys on content, routing
 perpendicular) gives geometry-independence with no row-0
