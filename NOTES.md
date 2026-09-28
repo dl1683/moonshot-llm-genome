@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E173 — the closure partition: MLP-LN-CARRIES — the closure is a LOCATED weight rewrite; the door is reopenable by class surgery (2026-09-28 ~15:25Z) — DONE
+
+WHAT WE DID: class-by-class restores (MLP+LN / attention /
+full-wpe / io; graded per-layer MLP+LN) with the DOOR LADDER
+(nested wpe-row visibility 0-141/0-171/0-183/0-195 — the
+tautology fix applied prospectively) and e166's exact surgery
+re-run as the gated control; all-restored gate HELD BIT-EXACT.
+
+WHAT WE SAW (T104): MLP+LN restore alone reopens the door —
+g-12 0.102 -> 0.782 (83.6% of the root's 0.916; CE +0.073),
+graft INTACT and still read (site 0.998, census site_pos TRUE),
+brake returns (-0.255); the reopened door is GEOMETRY-GENERAL
+on the ladder (0.879/0.998/0.826). Attention: nothing (-2.5%).
+Full-wpe: nothing, kills the site read. e166's row surgery
+re-run: +0.0000 confirmed AS THE TAUTOLOGY (the control gate).
+GRADED LAYERS: a mid-late band carries it (L2 0.21 / L3 0.295
+peak / L4 0.26; no single layer reaches the bar) — matching
+e153's late-skewed MLP delta. THE LADDER's OWN FINDING: the
+twodoor net is POSITION-LOCKED at its site (long-12/+12 ~0.2
+vs long0 0.998) while root and the restored net are geometry-
+general — the ladder sees the same phase switch. THE STRONG
+"UNREOPENABLE-BY-SURGERY" DIES: doors ARE reopenable — by
+CLASS-level MLP+LN surgery (not rows [tautological null], not
+heads [e153 sub-bar]). Honesty: single seed/lineage; class-in-
+isolation cannot exclude context-incompatibility for the null
+classes (they also carry nothing on the ladder); the reopen's
+CE +0.073 is cheap not free; graded reads are diagnostics
+without bars.
+
+---
+
 ## E170 — the anchor-neutral install: OVERWRITE-REAL — the anchors did NOT do it; capacity is one fact wide (2026-09-28 ~15:10Z) — DONE
 
 WHAT WE DID: e154's MIRABEL install verbatim with NEUTRAL

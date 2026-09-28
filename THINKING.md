@@ -575,6 +575,35 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T104 — E173: the closure has an address — the MLP+LN stream, and surgery CAN reopen what training shut (2026-09-28 ~15:25Z)
+
+The partition gives the day's mechanism story its anchor: the
+closure is a LOCATED WEIGHT REWRITE in the MLP+LN class (67%
+of the conversion's delta energy; a mid-late band L2-L4 with
+L3 peaking) — and restoring that class alone reopens the
+geometry door to 84% of ceiling, cheaply, with the graft
+untouched and the brake restored. THREE CONSEQUENCES:
+
+(1) THE ASYMMETRY TRIPLET REWRITES: doors open by training,
+are killed by head surgery, and ARE reopenable — but only by
+class-level MLP+LN surgery (rows: tautological null; heads:
+sub-bar). The write-once core (T037) holds for FUNCTIONAL
+ADDITION by surgery but not for RESTORATION of prior function:
+restoring a whole weight class is restoration, not creation.
+
+(2) THE DISUSE CONNECTION (T101): the washout (e161) and the
+closure (e173) live in the SAME substrate — the MLP+LN stream
+state. Continued training of ANY kind rewrites it; the rewrite
+closes geometry access; restoring the pre-conversion state
+restores it. The modulatory stream is where a memory's ACCESS
+lives and dies. The four-layer model's layer-3 (phase) gets
+its physical substrate: the MLP+LN mid-late band.
+
+(3) THE PRACTICAL UNLEARNING LESSON inverts once more: to
+remove a consolidated memory — kill the readout heads (e160);
+to RESTORE a washed-out one — restore the MLP+LN class (e173).
+Two locks, two keys, both now demonstrated [n=1 each].
+
 ## T103 — E170: the hard answer — one fact wide; the follow-up is the budget axis (2026-09-28 ~15:10Z)
 
 OVERWRITE-REAL, and cleaner than the confounded run: with the
