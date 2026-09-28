@@ -193,12 +193,22 @@ invariance; e125's heads-ordering). The audit also repaired three
 orphaned runs from earlier days (E019/E078/E088) and caught the
 checkpoint-inventory misconception (102 nets on disk, gitignored).
 
-## Verification coda
+## Verification coda (updated ~11:50Z)
 
-Every load-bearing number traces to runs/eNNN/metrics.json
-(R44 auditor, number-by-number). The one geography error (E119's
-cross-geometry pair 0.709-vs-0.071) is corrected in NOTES to the
-matched pair (0.663 vs 0.071). Single-lineage caveats stand where
+Every load-bearing number traces to runs/eNNN/metrics.json —
+audited number-by-number three times this session (R44, R46, R47
+auditors; the R47 pass independently re-derived the 10.8x
+absorber). Corrections on record: E119's geography pair (0.709-
+vs-0.071 -> matched 0.663 vs 0.071); the +6%->+4.1% perm spare;
+the "67x" provenance (66.8x bar-mean across dwell peaks); the
+E160 attribution fix (N2-zero 66.9% kills; 67.3% was E2-mean).
+Open provisional markers: READ-vs-MASS (e162), the intro's first
+sentence (e163), variance-vs-placement (e158), global-vs-self
+(e154), dwell n=1 (e152R), lineage replication (e157). The
+flattering-direction bias was caught twice (R46, R47) and now
+has structural counter-measures (bounding cells queued with
+every strengthening fold; the no-narrativized-text and ONE-CLOCK
+rules). Single-lineage caveats stand where
 noted (probes 1-3 one seed; probe 4 two independent nets). Both
 open cells have since landed: e140 killed T079's law on its
 registered dial; e143's COMPASS-CAUSAL revived invariance
