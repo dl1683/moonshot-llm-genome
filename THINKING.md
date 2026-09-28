@@ -530,9 +530,20 @@ net has its own share constant; the mechanism that sets the VALUE
 is unidentified. (The e110 "54" loses its headline status — it is
 e053c's value, the first sample of a wide distribution.) If a
 cross-net predictor is ever wanted, the candidates worth one more
-probe are stream-norm growth or the anchor's own attention share —
-but no further probing on the current axis; the maturity question
-closes as ANSWERED-NEGATIVE.
+probe are stream-norm growth or the anchor's own attention share.
+**CORRECTION (agent provenance supersedes the reading above): the
+maturity DIRECTION IS SUPPORTED — the curve is monotone increasing
+in training amount** (31.4/42.2 @2000 → 54.4 @3133-truncated →
+77.4+ @3133-completed; W007's growth direction). What fails is the
+POINT prediction (77 ≠ 54), with a named confound: e053c's 3133
+was a wall-clock-TRUNCATED 4000-cosine while s4309 ran a COMPLETED
+cosine — nominally equal steps, different effective exposure. Revised
+mature statement: **the share constant carries a real maturity trend
+(monotone with training amount) plus wide per-net scatter; the FORM
+is the law; the value is trend-plus-fingerprint. Maturity closes
+DIRECTION-YES, POINT-NO** (the earlier "closed negative" was too
+strong). This net's k=64 pure-removal cost (2.5-3x its siblings')
+corroborates the harder-leaning anchor.
 
 ## T069 — E116: graduation denied — the address is family-graded, not universal-concentrated (2026-09-28 ~06:00Z)
 

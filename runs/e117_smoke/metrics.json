@@ -1,0 +1,418 @@
+{
+  "experiment": "e117_maturity_point",
+  "purpose": "T068-M2/W007 discriminator: ONE fresh seed (4309) at EXACTLY 3133 steps (e053c recipe) + e043 install + the e110 mini-grid on the install's free-run anchor. The share constant r*k at 3133 decides MATURITY (54 reproduces; exposure-driven) vs SEED-DRIFT (the siblings' 31-42; the 54 was e053c's idiosyncrasy).",
+  "started": "2026-09-28T02:06:41Z",
+  "wall_s": 30.6,
+  "smoke": true,
+  "threads": 8,
+  "registered": {
+    "maturity_bar": "products r*_cont(k) x k within [40.5, 67.5] (+-25% of 54; the tasking's operative phrasing '>= 40.5 at both k') at BOTH ks => MATURITY CONFIRMED (constant is exposure-driven per W007; seed excluded)",
+    "seed_drift_bar": "products <= 38 at BOTH ks (the 2000-step siblings' +-25% neighborhood; pooled product mean 36.8, band [27.6, 46.0] drawn for texture) => SEED-DRIFT (maturity excluded; the 54 is e053c's idiosyncrasy; W007 needs revision)",
+    "between_bar": "between / mixed (incl. off-grid columns) => report texture honestly; off-grid-low reads toward seed-drift (flagged); off-grid-high cannot fire MATURITY",
+    "m2_net_rule": "the INSTALL net if its gate passes and its free-run anchor is healthy (control-continuation clean-judge tail CE <= 2.5); else the BASE net, flagged",
+    "instrument_gates": "6 cells x 2 families (e098 transform fired-dict + e110-G4 prefix bit-identity) = 12 sub-gates; the tasking's '12/12' was e098's 2 nets x 6 cells \u2014 same machinery, one net here"
+  },
+  "seed": 4309,
+  "config": {
+    "base_recipe": "e053c: 4L/4H/128d block-512, corpus 1337, batch 4, lr 1e-3, cosine, 40 steps (COMPLETED schedule; e098 deviation-2 convention), 30s cap/launch",
+    "install_recipe": "e043 exposure VERBATIM; e082 GATE-0 bars + 200-step patience",
+    "m2_grid": {
+      "k": [
+        64,
+        128
+      ],
+      "r": [
+        0.25,
+        0.56,
+        1.0
+      ],
+      "draws": 1,
+      "B": 2,
+      "subset_seed": 110,
+      "subset_provenance": "e110's exact RNG stream (k,d,row) \u2014 k=64/128 subsets bitwise e110's/e098's",
+      "intervention": {
+        "g_int": 250,
+        "t_int": 314,
+        "band": [
+          64,
+          217
+        ],
+        "n_band": 154
+      },
+      "continuation_seed": 960250,
+      "judge_tail": [
+        448,
+        511
+      ]
+    }
+  },
+  "base": {
+    "seed": 4309,
+    "params": 873472,
+    "steps_target": 40,
+    "steps_done": 40,
+    "val_ce": 3.0894452333450317,
+    "expectation_vce": 1.52,
+    "e053c_vce": 1.5226792494455974,
+    "siblings_vce": "1.626-1.654 (e098 @2000)",
+    "plausible": false,
+    "wall_s": 1.2,
+    "device": "cuda",
+    "launches": 1,
+    "cap_s": 30.0,
+    "batch": 4,
+    "ckpt": "e117_base_s4309_smoke.pt",
+    "history": [
+      {
+        "step": 10,
+        "train_loss": 3.8338823318481445,
+        "val_loss": 3.808483044306437
+      },
+      {
+        "step": 20,
+        "train_loss": 3.6287152767181396,
+        "val_loss": 3.6019348899523416
+      },
+      {
+        "step": 30,
+        "train_loss": 3.3053736686706543,
+        "val_loss": 3.3210957249005637
+      },
+      {
+        "step": 40,
+        "train_loss": 3.093282699584961,
+        "val_loss": 3.0894452730814614
+      }
+    ],
+    "gpu": {
+      "device": "cuda",
+      "n_polls": 1,
+      "last": {
+        "util": 0.0,
+        "mem_used": 0.0,
+        "mem_total": 24463.0,
+        "temp": 64.0,
+        "power": 24.02
+      }
+    }
+  },
+  "install": {
+    "protocol": "e043 exposure VERBATIM (100 steps, 16+48 mix, lr 1e-3, token-weighted masked loss)",
+    "gen_seed": 4309,
+    "steps": 8,
+    "traj": [
+      {
+        "step": 4,
+        "install60_pz": 0.00764526961526523,
+        "install60_argmax": 0.0,
+        "held30_pz": 0.007657873087252179,
+        "r1i_nll": 4.397799015045166,
+        "r1i_acc": 0.0,
+        "onset_acc": 0.0,
+        "pos36_acc": 0.0
+      },
+      {
+        "step": 8,
+        "install60_pz": 0.007786803948692978,
+        "install60_argmax": 0.0,
+        "held30_pz": 0.007812655329083403,
+        "r1i_nll": 4.135502338409424,
+        "r1i_acc": 0.0,
+        "onset_acc": 0.0,
+        "pos36_acc": 0.0
+      }
+    ],
+    "final": {
+      "step": 8,
+      "install60_pz": 0.007786803948692978,
+      "install60_argmax": 0.0,
+      "held30_pz": 0.007812655329083403,
+      "r1i_nll": 4.135502338409424,
+      "r1i_acc": 0.0,
+      "onset_acc": 0.0,
+      "pos36_acc": 0.0
+    },
+    "gate_pass": false,
+    "patience_used": false,
+    "bars": {
+      "pz_floor": 0.2,
+      "r1i_max": 4.5
+    },
+    "wall_s": 1.2,
+    "device": "cuda",
+    "under_180s": true,
+    "gpu": {
+      "device": "cuda",
+      "n_polls": 1
+    }
+  },
+  "m2_which": "base",
+  "m2": {
+    "which": "base",
+    "control_tail_cj": 3.366112232208252,
+    "control_online_tail": 3.3661120461941807,
+    "control_anchor_ok": false,
+    "control_not_applied": true,
+    "rstar": {
+      "64": {
+        "cont_value": null,
+        "cont_status": "off-grid-low",
+        "product": null,
+        "product_ci": [
+          "nan",
+          "nan"
+        ],
+        "in_maturity_band": null,
+        "le_seed_bar": null,
+        "in_siblings_pm25": null,
+        "col_means": {
+          "0.25": 0.028139829635620117,
+          "0.56": 0.028362154960632324,
+          "1.0": -0.028156042098999023
+        }
+      },
+      "128": {
+        "cont_value": null,
+        "cont_status": "off-grid-low",
+        "product": null,
+        "product_ci": [
+          "nan",
+          "nan"
+        ],
+        "in_maturity_band": null,
+        "le_seed_bar": null,
+        "in_siblings_pm25": null,
+        "col_means": {
+          "0.25": 0.028461575508117676,
+          "0.56": -0.05917835235595703,
+          "1.0": -0.029747366905212402
+        }
+      }
+    },
+    "per_cell": {
+      "k=64,r=0.25": {
+        "cost_per_row": [
+          -0.08092594146728516,
+          0.1372056007385254
+        ],
+        "mean": 0.028139829635620117,
+        "ci": [
+          -0.08092594146728516,
+          0.1372056007385254
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      },
+      "k=64,r=0.56": {
+        "cost_per_row": [
+          -0.08086013793945312,
+          0.13758444786071777
+        ],
+        "mean": 0.028362154960632324,
+        "ci": [
+          -0.08086013793945312,
+          0.13758444786071777
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      },
+      "k=64,r=1.0": {
+        "cost_per_row": [
+          -0.08127522468566895,
+          0.0249631404876709
+        ],
+        "mean": -0.028156042098999023,
+        "ci": [
+          -0.08127522468566895,
+          0.0249631404876709
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      },
+      "k=128,r=0.25": {
+        "cost_per_row": [
+          -0.08066129684448242,
+          0.13758444786071777
+        ],
+        "mean": 0.028461575508117676,
+        "ci": [
+          -0.08066129684448242,
+          0.13758444786071777
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      },
+      "k=128,r=0.56": {
+        "cost_per_row": [
+          -0.0812075138092041,
+          -0.03714919090270996
+        ],
+        "mean": -0.05917835235595703,
+        "ci": [
+          -0.0812075138092041,
+          -0.03714919090270996
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      },
+      "k=128,r=1.0": {
+        "cost_per_row": [
+          -0.04081320762634277,
+          -0.01868152618408203
+        ],
+        "mean": -0.029747366905212402,
+        "ci": [
+          -0.04081320762634277,
+          -0.01868152618408203
+        ],
+        "health": "healthy",
+        "instrument_transform_ok": true,
+        "instrument_prefix_identical": true,
+        "instrument_ok": true
+      }
+    },
+    "instrument_subgates_ok": "12/12",
+    "instrument_all_ok": true
+  },
+  "decision": {
+    "products": {
+      "64": null,
+      "128": null
+    },
+    "product_status": {
+      "64": "off-grid-low",
+      "128": "off-grid-low"
+    },
+    "net_constant": null,
+    "bars": {
+      "maturity": [
+        40.5,
+        67.5
+      ],
+      "seed_drift_edge": 38.0,
+      "siblings_pm25": [
+        27.6015,
+        46.0025
+      ]
+    },
+    "per_product": {
+      "64": {
+        "in_maturity_band": null,
+        "le_seed_bar": null,
+        "in_siblings_pm25": null
+      },
+      "128": {
+        "in_maturity_band": null,
+        "le_seed_bar": null,
+        "in_siblings_pm25": null
+      }
+    },
+    "clause": "BETWEEN / MIXED",
+    "verdict": "products r*k = None / None land between the bars \u2014 honest texture: k=64: off-grid-low (off-grid); k=128: off-grid-low (off-grid). Off-grid columns: ['64', '128'].",
+    "registered": {
+      "maturity_bar": "products r*_cont(k) x k within [40.5, 67.5] (+-25% of 54; the tasking's operative phrasing '>= 40.5 at both k') at BOTH ks => MATURITY CONFIRMED (constant is exposure-driven per W007; seed excluded)",
+      "seed_drift_bar": "products <= 38 at BOTH ks (the 2000-step siblings' +-25% neighborhood; pooled product mean 36.8, band [27.6, 46.0] drawn for texture) => SEED-DRIFT (maturity excluded; the 54 is e053c's idiosyncrasy; W007 needs revision)",
+      "between_bar": "between / mixed (incl. off-grid columns) => report texture honestly; off-grid-low reads toward seed-drift (flagged); off-grid-high cannot fire MATURITY",
+      "m2_net_rule": "the INSTALL net if its gate passes and its free-run anchor is healthy (control-continuation clean-judge tail CE <= 2.5); else the BASE net, flagged",
+      "instrument_gates": "6 cells x 2 families (e098 transform fired-dict + e110-G4 prefix bit-identity) = 12 sub-gates; the tasking's '12/12' was e098's 2 nets x 6 cells \u2014 same machinery, one net here"
+    }
+  },
+  "references": {
+    "e098_ladder_points": [
+      {
+        "seed": 4305,
+        "which": "install",
+        "steps": 2000,
+        "val_ce": 1.6445075869560242,
+        "products": {
+          "64": 29.939220311276475,
+          "128": 32.92990502862341
+        },
+        "product_ci": [
+          17.253421424058946,
+          60.29778981626852
+        ],
+        "net_constant": 31.43456266994994
+      },
+      {
+        "seed": 4306,
+        "which": "install",
+        "steps": 2000,
+        "val_ce": 1.635150323311488,
+        "products": {
+          "64": 45.95480875916778,
+          "128": 38.387736330462
+        },
+        "product_ci": [
+          32.77069626343267,
+          57.59097417760525
+        ],
+        "net_constant": 42.17127254481489
+      }
+    ],
+    "e098_pooled_product_mean": 36.80291760738241,
+    "e053c_point": {
+      "seed": 42,
+      "which": "e053c_ctx512 (the 54)",
+      "steps": 3133,
+      "val_ce": 1.5226792593797047,
+      "products": {
+        "64": 53.27201053942213,
+        "128": 55.451515084192756,
+        "154": 53.22625091295185
+      },
+      "net_constant": 54.361762811807445
+    }
+  },
+  "gates": {
+    "splice_protocol": {
+      "mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "base_params": {
+      "n": 873472,
+      "expected": 873472,
+      "pass": true
+    },
+    "base_steps_exact": {
+      "steps_done": 40,
+      "target": 40,
+      "pass": true
+    },
+    "base_val_ce_plausible": {
+      "val_ce": 3.0894452333450317,
+      "bar": 1.7,
+      "pass": false
+    },
+    "install_gate": {
+      "pass": false,
+      "bars": {
+        "pz_floor": 0.2,
+        "r1i_max": 4.5
+      }
+    },
+    "install_under_180s": {
+      "wall_s": 1.2,
+      "pass": true
+    },
+    "m2_control_not_applied": true,
+    "m2_instrument_subgates": "12/12",
+    "m2_instrument_all_ok": true
+  },
+  "deviations": [
+    "M2: used the BASE net (install did not provide a healthy free-run anchor or failed its gate)"
+  ]
+}
