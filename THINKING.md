@@ -708,7 +708,11 @@ converge to the same floor by 300. The seed lottery in these
 nets is real but FINITE: it decides how fast the wreckage
 settles, not where it settles. THE ASYMMETRY-OF-EXISTENCE'S
 REPPLICATION DEBT IS DISCHARGED on this dial: the tail claim
-is now n=3 seeds x 2 device protocols. FOR THE PAPER: the
+is now n=3 seeds x 2 device protocols [the agent's final report
+adds: the same-seed device ratios sit at <=0.2% — two orders
+below the 1.8-2.4x seed separation; the confound was immaterial
+in size, not just policy; and the CPU re-run is itself a second
+independent trajectory confirming the ordering]. FOR THE PAPER: the
 conversion-observability caveat gains its footnote ("device
 migration at s175/s275 in the original run; the ordering
 reproduces CPU-only").
