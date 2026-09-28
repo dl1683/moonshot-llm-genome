@@ -781,6 +781,27 @@ at the 129-read holds; but perm kills short-horizon reads
 dependent. The tenant's insurance-policy metaphor gains a clause:
 the fact ignores the pivot's direction ONLY from far away.
 
+E160 READING MAP (registered ~10:39Z, before its data — the
+critic's one-cell-away experiment):
+- FLAT-CE-FACT-KILL (head-set >=60% at <= +0.35 CE): the
+  surgical surface EXISTS. Claim 4 composes: consolidation moves
+  DEPENDENCE into organism-critical coordinates (the sink, whose
+  corruption is fatal) while the READOUT consolidates into a
+  small attackable head-set — row surgery cannot remove the
+  memory without organism death, head surgery can. The unlearning
+  ordering (heads > route >> band) graduates from prediction to
+  capability; Fig 2 gains its killer point; e125's remaining
+  design work is pricing collateral on the winning set.
+- NEAR-MISS-CONFIRMED (best 40-60%): the frontier stays open;
+  the paper reports the dose-response; claim 4 keeps the
+  'corruption-fatal; surgically-attackable unknown' form.
+- WRECK-ONLY (every >=60% cell at CE >= +0.70): the reframe
+  holds bounded; the noun architecture survives; claim 4 as
+  written. NOTE the bias-check question (R46's checklist): a
+  WRECK-ONLY fold must ask whether it BOUNDS the claim (safe)
+  or STRENGTHENS it (watch: 'irremovable' language creeping
+  back beyond the corruption-fatal form).
+
 E153 READING MAP (registered ~10:18Z, before its data):
 - PHASE-IN-HEADS would be the first NON-GRADIENT PHASE EDIT in
   lab history — T037's write-once-core claim ('no working
