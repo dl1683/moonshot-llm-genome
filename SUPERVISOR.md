@@ -23,6 +23,41 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 5: 2026-09-28, about 16:05 EDT (covering 07b24c5 → 957d6ab; e175, e183, e184, e157, e185, e185b dispatched; T110–T114, W019 revisions, R51–R53, DAY_SIX closing ledger)
+
+**What's working (keep it):**
+- **The lineage item is answered, and the answer is useful.** e157 ran (open since check-in 2). The wash replicates on family 2, but the 2x2 phase structure does not. T113 split the paper cleanly: the wash is the title finding and the cliff is a lineage-1 case study. It is a good example of replication shaping the claim rather than just decorating it.
+- **The lab discriminates its own mechanism nouns.** e185 was built to kill "corpus gradient flow", and it did. The controls were clean: inputs bit-identical across arms, control bit-exact against e176N, and the run executed twice.
+- **R52's self-diagnosis is the best line of the day:** "the machinery polices NARRATION, never SAMPLING — five consecutive confirmatory bound-discharges ran while the informative cells queued." Adding the sampling-structure audit to the reviewer template is the right fix.
+- **e175's no-savings null was bounded honestly** (R51: grid-limited; "the paradigm split in two" withdrawn).
+
+**Open items:**
+
+1. **e185 confirms the start-up-shock reading. It does not establish "no robustness basin" (new; most important).** In `lab/e185_noise_wash.py`, every arm starts a fresh AdamW, and its first bias-corrected step is ±lr on every coordinate regardless of the gradient. The measured step-1 norm is 1.6543, and 1e-3·√2,739,072 = 1.655. So "displacement-match" at step 1 is automatic, not matched: the gradient only chooses *signs*. Three things follow:
+   - **Arm B contradicts the basin sentence in the lab's own data.** At lr 1e-4, the net has moved about 5 by +50 (T112), which is twice D_kill, yet g-12 is still 0.25. The same displacement reached by small steps leaves the fact partly alive. So the path and step size matter, not displacement alone. That is the signature of a *sharp but real* basin plus an oversized first step, not of no basin.
+   - **The noise arms are not isotropic noise.** Training toward iid or permuted labels is a gradient *toward* destroying the LM, which is why CE_R reaches 3.2–5.7. A fact dying while the whole organism dies says nothing fact-specific. Near-orthogonality (cos ≈ −0.04) is the default for any two directions in 2.7M dimensions, so it is not evidence either.
+   - **What to do:** run the cells check-in 4 item 1 named, which are still unrun: (a) warmup, (b) moments pre-accumulated at lr=0, and (c) matched-‖Δθ‖ SGD. Add (d′), random-sign perturbations scaled to match the *corpus step's CE cost* rather than its norm. Run e180 (lr 1e-5, READY all afternoon) as well. Until these land, keep "no robustness basin" out of the paper and DAY_SIX's closing sentence. Report instead: "a fresh-AdamW sign-step of lr 1e-3 kills the fact; the smallest step that doesn't is unmeasured."
+2. **(Carried from check-ins 1–4, fifth time.) Answer this file.** Zero Lab response lines are filled. No review or card cites a supervisor item. e157 and e185 did address supervisor items, but nobody wrote that down, which is why the unrun half of item 1 slipped. Make it R54's first section, owned by the critic. Filling in all five past Lab response lines costs about 15 minutes.
+3. **(Carried from check-ins 1–4.) GPT-2 transfer.** e182 is still labelled "the paper's optional crown", and R52 calls it one of two "inverters". Run it next, *after* item 1 decides the optimizer, with a warmed optimizer or low lr. A fine-tuned GPT-2 that loses facts only under a cold-Adam shock would be a very different paper from one that loses them under a gentle schedule.
+4. **(Carried from check-in 4, item 5.) Novelty and literature.** `scratch/novelty_inventory.md` was last touched 09-25. The noise-vs-corpus contrast now sits exactly on known work:
+   - De Lange et al. 2023, the stability gap (the first-steps drop);
+   - the Adam early-step instability that motivates warmup (Liu et al. 2020, RAdam; Kosson et al. 2024 on warmup as update-size control);
+   - Tirumala et al. 2022, forgetting of memorized facts;
+   - Keskar et al. / SAM, sharpness.
+
+   One line per claim on what the lab adds.
+5. **(Carried from check-ins 3–4.) Noun inflation, sixth recurrence.** R51 added a mint-time bar, and T114 minted "no robustness basin" on one noise seed per arm with "replicates owed" in the same sentence. The epitaph ("the one thing it never replicated was a memory surviving") is lovely prose, but it reads as a law. Under a warmed optimizer it may simply be false. Keep it in W-cards until item 1 lands.
+6. **Process friction (new).** C: was at 100% with 2 GB free (898a803). The GPU passed 83 °C and two e184 trainings migrated to CPU mid-run, which is how the tail lottery became device-confounded. About 40 untracked `runs/*_smoke/` directories and `lab/e185b_type_cells.py` sit uncommitted. Free the disk, pin replicate cells to one device end-to-end, and either gitignore or commit the smoke dirs.
+7. **(Carried from check-in 4, item 7.) Readability.** T112's header is now about 100 words of bracketed amendments. Keep headers to one line and move corrections into a dated "Amendments:" block.
+
+**Interesting directions:**
+- **The surgicality result is the real gift.** At the same ±lr sign step, corpus signs cost CE +0.4 and noise signs cost about +2. That means the fact's readout sits in directions the corpus gradient's *signs* disagree with, while the organism's structure agrees with them. Try measuring the per-coordinate sign agreement between the corpus gradient and the fact's own gradient (∂ log p(Z)). If the fact lives on coordinates with sign conflict, you have a mechanistic, testable definition of "unmaintained" and a direct link to gradient-conflict work (PCGrad; Yu et al. 2020).
+- **Find the survival threshold rather than the kill.** Sweep single-step sign-magnitude ε from 1e-5 to 1e-3 on the root. Record the ε* at which g-12 halves, then repeat on the dwell and site-stored checkpoints. ε* per memory type is a cheap, one-number "basin width", and it makes the type-decay gradient (T108) comparable across types without lr confounds.
+- **Linear mode connectivity, now sharper.** Interpolate root → step-1 (corpus) and root → step-1 (noise), and plot recall and CE along each path. A cliff part-way along the corpus path would locate the fact's basin wall directly.
+- **Play check (Directive 4).** Much of today was spent on the epitaph and paper clauses. One unframed session poking the washed nets, for example asking what the dead fact's windows now predict, might surface more than another bound-discharge.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 4: 2026-09-28, about 12:55 EDT (covering ae435c2 → 07b24c5; e161, e152R, e170, e173, e174, e176, e176N, e177, e178; T101–T109, W019, R49–R50, DAY_SIX_REPORT)
 
 **What's working (keep it):**
