@@ -2093,6 +2093,38 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W018 — WONDER: the four fates — a complete little phase diagram of what teaching does to a memory (2026-09-28 ~13:10Z; from e158's pass-2 textures)
+
+The 2x2's four cells now read as four FATES, not four
+measurements: HOME x VARIANCE = REMAIN (the consolidated status
+quo — door open at home and abroad); HOME x LOCKED = RE-GRAFT
+(a home site-store re-forms, the door sags to MID, the brake
+releases — settling back in); NOVEL x VARIANCE = EMIGRATE (the
+home readout COLLAPSES 0.785 -> 0.145 while novel doors open —
+the memory moves through the door and abandons its old home;
+the brake overshoots hardest at -0.610, the old address
+fighting the departure); NOVEL x LOCKED = BURY (the graft
+forms, the door SHUTS — the memory is entombed at its new
+address, reachable only there). Two binary variables — the
+site's novelty and the teaching's variance — generate the four
+things one can do to a memory: keep it, re-root it, move it,
+or entomb it. SAVOR: the biological arc completes —
+install=encode, consolidation=reorganize, and now the four
+fates map onto the classical memory operations (maintenance,
+reconsolidation-at-home, migration/update, and
+context-bound storage). PREDICTED SAVORS: (a) EMIGRATION should
+be reversible by home-variance retraining (the emigre's home
+readout revives — e155's cell, now with a sharper readout:
+does the revived home readout come back at the OLD strength or
+re-built?); (b) BURIAL's entombed memory should be re-excavable
+by variance-at-183 (jitter the buried site — does the tomb
+become a door?); (c) the four fates' brake signatures should be
+distinct and monotone in "distance from remaining" (0 -> +0.07
+-> -0.13 -> -0.61 ordering across remain/re-graft/bury/emigrate
+is already half-observed). If (b) fails — if entombed memories
+cannot be re-varianced into travelers — the four fates are not
+a phase diagram but a one-way ratchet with three exits.
+
 ## W017 — WONDER: [R48 MINIMAL RESTATEMENT: variance-trained readouts recruit fewer heads with heavier top-load; killability tracks circuit COMPLEMENTARITY (the top-loaded head L0H3 is DISPENSABLE — the kill set is ranks 2-3), which concentration neither predicts nor explains; the coding-removability link is OPEN pending e154/e169; keep out of paper text beyond the operative top-load form] variance concentrates the top of the load distribution (2026-09-28 ~12:28Z)
 
 The session's four biggest asymmetries compose into one
