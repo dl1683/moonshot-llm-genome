@@ -240,6 +240,19 @@ idle while an interpretation is pending is correct behavior, not a failure.
 The measure of a good session is insight per experiment, not experiments per
 hour.
 
+## Rule 12 — instrument-geometry (added 2026-09-28 after two bites in one day)
+
+Every necessity/deletion/readout instrument must state its GEOMETRY
+(trained vs novel) and, where cheap, report at BOTH. The lab was
+bitten twice by geometry-blind instruments in one morning: E120's
+band-battery declared "consolidation failure" while the splice arms
+expressed at 0.99 at the unread 183-geometry (e131 probe 1); e140's
+row-0 dial at trained geometries saturated (twin rel 0.98 — sink-load,
+not routing) and killed a law on a dial that measured something else
+(T083). A verdict is only as good as the set of geometries its
+instrument reads. Battery design check before dispatch: WHERE can the
+putative store express, and does the instrument read there?
+
 ## Repo map
 
 ```
