@@ -84,6 +84,25 @@ not the store.
 
 ---
 
+## E083 — canalization cycle-3: MIXED with oscillation — the groove persists but does NOT deepen; the erase weakens (2026-09-28) — DONE
+
+WHAT WE DID: three full erase->re-learn cycles on the B43 install
+line (e044b machinery verbatim; instruments bit-exact); two
+protocol findings fixed en route (blowup gate re-based; battery
+chaining reverted) — all documented.
+
+WHAT WE SAW (T073): steps 20 -> 10 -> 9 (c3/c2 = 0.90, between
+bars); cos 0.599/0.525/0.518 (between bars); OSCILLATION FLAG
+FIRES as registered (both successors faster). THE MECHANISM: the
+re-learn does NOT accelerate — the ERASE damages less each cycle
+(post-erase NLL 2.724 -> 1.441 -> 1.369): the completion
+migrates off the erased rows onto position-keyed machinery. The
+groove PERSISTS (regrows along the original direction, cos ~0.52-
+0.60 through three erasures) but does not DEEPEN. Strike cost
+constant +0.06-0.08 nats (no trend, no sign flip).
+
+---
+
 ## E118 — standardization control: SURVIVES — rogue-dimension confound excluded (2026-09-28) — DONE
 
 WHAT WE DID: per-dim z-scoring over pooled own+donor V-sets (both

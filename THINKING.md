@@ -514,6 +514,30 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T073 — E083: canalization's strong form dies — the groove persists, the erase weakens, the memory migrates (2026-09-28 ~08:20Z)
+
+**MIXED with the oscillation flag fired** — and the texture is
+the finding. Steps 20→10→9, but the acceleration is NOT the
+re-learn getting faster: it is the ERASE getting weaker (post-
+erase NLL 2.724 → 1.441 → 1.369). Across three erasures, the
+completion migrates OFF the address rows onto position-keyed
+machinery — which is e113's consolidation story (T065) seen from
+the deletion side: the more the fact lives in the field, the less
+its row-erasure hurts. The groove itself persists (regrowth along
+the original direction, cos ~0.52-0.60, no deepening, no decay);
+surgical-proofness flat. **The strong canalization prediction —
+monotone closure, each cycle slower and more resistant — is
+DEAD.** The weak form survives: the address direction is a stable
+attractor of re-learning (three erasures, same groove), which was
+always the scar's core (T018/T036). W003's "sclerosis" metaphor
+overreached: the fast store does not stiffen; it GETS LESS
+NECESSARY. Canalization as a program prior is retired; the T037
+registered prediction resolves NEGATIVE-with-persisting-groove.
+
+**The books balance:** with e083, every registered prediction in
+the THINKING ledger has now been run. The lab's claims each carry
+verdict, replication, control, or named-confound status.
+
 ## T072 — E118: the family geometry is shape, not scale — the claims harden (2026-09-28 ~07:50Z)
 
 **SURVIVES: rogue-dimension confound EXCLUDED.** Post-z sibling/
