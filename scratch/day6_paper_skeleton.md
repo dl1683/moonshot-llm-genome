@@ -22,10 +22,13 @@ deletion-tolerant) — switched by the error's position-variance. (3) Content
 never moves: all states store in body organs and fact-specific heads;
 "migration" is read-policy re-routing, the destination row carrying no
 written key (install-restore is a no-op; direction-scramble spares the fact
-while costing the LM 0.70 nats). (4) [pending e150] the memory layer's
-failure modes are opposite the LM's — presence-typed vs direction-typed —
-making head-level ablation the only surgical unlearning surface, with the
-old address a suppressive brake after routing. All corrections in the arc
+while costing the LM 0.70 nats). (4) sink-coupling and the
+removable-to-irremovable movement (e150): no flat-CE fact-kill exists —
+masking all attention to position 0 spares the fact at CE +0.03 while
+sub-threshold row-0 norm poisons every read (threshold in (0.07, 0.15));
+consolidation moves the memory's dependence from surgically-deletable
+tissue into organism-critical tissue. L0H3-zero (58.6% drop at CE +0.21)
+is the leading fact-circuit candidate for the surgical-unlearning surface. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
 
 ## Contributions (numbered)

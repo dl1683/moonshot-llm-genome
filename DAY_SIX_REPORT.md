@@ -41,12 +41,16 @@ committed before the data existed.
    largest seed), and the ADDRESS itself was protocol-made
    (direct/natural-exposure installs carry row 129 at NULL; the
    five-day address story was a property of the masked-replay
-   protocol). BOUND (R45 critic, held open): every fact-killing
-   intervention in the row-0 plane sits at CE +0.70 to +4.44 —
-   no flat-CE fact-kill exists yet, so 'routed' vs 'dies when the
-   net dies' is not fully separated until e150's cells land; the
-   install-restore probe was also a no-op by norm (the presence
-   conclusion rests on the perm/halfnorm/mean riders).
+   protocol). RESOLVED by e150 (T086): ALL-KILLS-WRECK — and the
+   mechanism underneath is POISONING, not routing: masking all
+   attention to position 0 spares the fact at CE +0.03, while
+   sub-threshold row-0 norm corrupts every read (threshold in
+   (0.07, 0.15)). 'Routed' becomes SINK-COUPLED — the memory
+   requires the organism-critical coordinate's HEALTH. The day's
+   final reframe, pre-registered before the data: consolidation
+   is a movement from the REMOVABLE to the IRREMOVABLE — the
+   graft was surgically deletable; the consolidated memory rides
+   essential tissue. Arguably the point of consolidation.
 
 3. **Two memory types: ROUTED vs SITE-STORED (T082; e139) —
    bounded twice since.** Row 0 routes; the site stores — but the

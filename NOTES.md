@@ -63,6 +63,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E150 — the flat-CE route test: ALL-KILLS-WRECK — 'routed' was never information flow; the kill is POISONING, and the reframe activates (2026-09-28 ~09:35Z) — DONE
+
+WHAT WE DID: five probes, CE on every cell, mask instrument gated
+bit-exact vs the standard forward; 57s CPU.
+
+WHAT WE SAW (T086): ALL-KILLS-WRECK fires — all 4 killing cells
+cost CE >= +0.70 (norm0@g0 93.2% @ +1.40; norm0@g-12 98.8% @
++1.40; norm0.07@g-12 84.2% @ +0.84; perm@col12 95.8% @ +0.705).
+FLAT-CE-ROUTE does not fire (0/23 bar-eligible cells). THE
+MECHANISM UNDERNEATH: the forced-off-sink mask (all attentional
+access to position 0 blocked) SPARES the fact at the flattest CE
+of any row-0-plane intervention ever measured (retention x1.009-
+1.030 @ +0.03, all three net types incl. controls) — d_r0's kill
+was never information flow from row 0. Coherent reading: a
+low-norm wpe[0] leaves key 0 as a VALUE-LESS MASS ABSORBER that
+corrupts downstream reads (poisoning); masking refunds the mass.
+The presence threshold lands in (0.07, 0.15) — far sharper than
+e141's (0.066, 0.382); pre-mask sink attention mass at the read
+position is only ~0.007/layer. PRESENCE-AT-NOVEL fails by 0.8pt:
+perm@g-12 costs 16-21% (x0.79-0.84) — the fact MILDLY consults
+row-0's direction at novel geometry (unlike +4.1% spare at g0);
+and P4's col-12 control DIED under perm (x0.042) — short-horizon
+reads consult row-0's direction, the 129-read does not (read-
+horizon texture). DIRECTION-CONSULTED does not fire: fact-at-
+position-0 scramble IMPROVES the fact (x1.589, weak 0.23 base) —
+W014 survives its control. L0H3-zero: 58.6% drop at CE +0.21 —
+NEAR-MISS, 1.4pts under the kill bar, report-only; top-3-mean
+joint x0.068 @ +0.71 (post-hoc rider). Honesty: mask is off-
+distribution but CE +0.03 prices generic damage ~0 and the
+site-stored control survives (x0.995); single-seed cells; P4
+power-limited (base 0.23).
+
+---
+
 ## E142 — row-0 at birth: ROW-0-ALWAYS — there was never an address-only phase, and the address itself was protocol-made (2026-09-28 ~09:30Z) — DONE
 
 WHAT WE DID: row-0 content census (e131 instrument, within-net

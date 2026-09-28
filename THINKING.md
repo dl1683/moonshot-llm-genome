@@ -575,6 +575,64 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T086 — E150: the route was never information — sink-HEALTH, poisoning, and the removable-to-irremovable reframe (2026-09-28 ~09:35Z)
+
+The reading map's ALL-KILLS-WRECK branch fired, and the
+pre-registered reframe is the fold — but e150 added a MECHANISM
+the map did not anticipate:
+
+**(1) THE ROUTE WAS NEVER INFORMATION FLOW.** Blocking ALL
+attentional access to position 0 (the mask) spares the fact at
+CE +0.03 — across all three net types. What kills under wpe[0]
+removal is POISONING: below-norm row 0 becomes a value-less mass
+absorber that corrupts every downstream read (the sink's health,
+not its signal). The threshold is sharp: norm 0.07 kills (CE
++0.84), 0.15 survives (CE +0.31). The pre-mask sink attention at
+the fact's read position is ~0.007/layer — the 'route' carried
+essentially no fact traffic. T081/T082 are HARD-BOUNDED as
+registered: 'routed through row-0 presence' is now SINK-HEALTH
+DEPENDENCE — the memory requires the organism-critical
+coordinate to be intact, the way any organ requires the blood
+supply.
+
+**(2) THE REFRAME, ACTIVATED WITH MECHANISM: consolidation is a
+movement from the REMOVABLE to the IRREMOVABLE — into machinery
+whose integrity is organism-critical.** The graft (row 129) was
+surgically deletable at zero collateral; the consolidated memory
+rides the sink whose poisoning wrecks everything. This is not a
+retreat from the day's findings; it is their synthesis: jitter
+moves the memory's dependence from editable tissue into
+essential tissue — the OPPOSITE of surgical memory, and arguably
+the point of consolidation (why replay-based systems consolidation
+would produce trauma-resistant memory).
+
+**(3) WHAT SURVIVES OF THE TAXONOMY:** the TYPES are real but
+renamed — SITE-STORED vs SINK-COUPLED (was 'routed'): the type
+differences (novel-geometry 0.914 vs 0.002; D-all tolerance; the
+brake sign) stand on e139/e143's cells; the CARRIER of the
+sink-coupled type's geometry-generalization is now most plausibly
+the fact-specific HEADS (e133's 84.5% residue) reading content —
+the content-keyed alternative W011 buried gets its revenge. The
+L0H3-zero near-miss (58.6% at CE +0.21, 1.4pts under bar) is the
+leading candidate for the true fact-circuit — one cell away from
+the flat-CE kill the frame wanted.
+
+**(4) W014 SURVIVES ITS CONTROL, WITH TEXTURE:** fact-at-position-
+0 scramble IMPROVES the fact (x1.589); direction-insensitivity
+at the 129-read holds; but perm kills short-horizon reads
+(col-12 control x0.042) — direction-consultation is READ-HORIZON
+dependent. The tenant's insurance-policy metaphor gains a clause:
+the fact ignores the pivot's direction ONLY from far away.
+
+STANDING QUESTIONS: e147 (in flight) now measures the SWITCH
+between types without a route mechanism to explain it — if
+INVARIANCE-CAUSAL fires, the switch is real and the mechanism
+hunt reopens at the head level; e146's matrix gains sharper
+probes (mask vs poison vs perm columns — the self's row can now
+distinguish health-dependence from information-dependence); the
+P-b cell (one net, both types) rises in priority as the
+taxonomy's last confound.
+
 ## READING MAP — registered before e147/e150 report (2026-09-28 ~09:08Z; both mid-compute, no data read)
 
 The two running experiments carry the frame's two load-bearing
@@ -1549,7 +1607,7 @@ language function straddling both — and the unlearning
 implication sharpens: you can evict a memory without touching
 the self, but never scramble directions without both.
 
-## W014 — WONDER: the memory layer is a semi-independent tenant [R45 caveat: the never-consults null is alive — the fact never occupies position 0, so direction-scramble trivially spares an unconsulted direction; the fact-at-position-0 control (e150) decides] (2026-09-28 ~08:00Z)
+## W014 — WONDER: the memory layer is a semi-independent tenant [e150: SURVIVED its control (fact-at-position-0 scramble improves the fact x1.589); texture added — direction-consultation is read-horizon-dependent (short-horizon reads die under perm, the 129-read does not); R45 caveat — the fact never occupies position 0, so direction-scramble trivially spares an unconsulted direction; the fact-at-position-0 control (e150) decides] (2026-09-28 ~08:00Z)
 
 E141's CE dissociation, savored properly: direction-scrambling
 row 0 costs the corpus +0.70 nats but SPARES the fact (+4%);
