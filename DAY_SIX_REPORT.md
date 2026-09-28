@@ -211,8 +211,10 @@ checkpoint-inventory misconception (102 nets on disk, gitignored).
 "Everything these networks remembered, they remembered only
 while being reminded — every store we washed dissolved, every
 archive we sought was practice in disguise (three seeds, three
-streams; the last 3.84% examined and found innocent) — and the only
-memory the session ever replicated was its own corrections."
+streams; the last 3.84% examined and found innocent) — and what the session
+replicated 3-for-3 were brakes, conversions, clocks, and
+deaths; the one thing it never replicated was a memory
+surviving."
 
 ## The session's meta-lesson (written ~14:25Z, with the fleet computing)
 

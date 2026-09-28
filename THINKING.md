@@ -575,17 +575,13 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T112 — E184: the evidence completes — and the last textures are the strangest (2026-09-28 ~18:10Z)
+## T112 — [R52 VERDICT: the finding stands at its bars; the notation did not — the grid is SIX CELLS + one n=3 column (already corrected to the sparse-union form by the auditor); 'all types' rides an inference no run discharged (neutral-stream dwell/site cells owed); the seeds are WASH draws on ONE organism (the clause's 'no seed' reads organism-level — wrong); the tail lottery is DEVICE-confounded at the comparison points; the mechanism noun undiscriminated from generic two-step optimizer fragility (the noise-gradient cell owed); 'FULLY EVIDENCED' relabeled 'fully evidenced within the registered grid'] E184: the evidence completes (bounded by R52) — and the last textures are the strangest (2026-09-28 ~18:10Z)
 
 n=3 across seeds, all dissolving in the same (1,2] bracket. The
 lead finding's evidence structure is now: 3 streams x 2 lrs x 3
 seeds x every memory type — dissolution universal, the clock
 replicating, the lottery confined to depth and tail. THE
-STRANGE TEXTURES the replicate added: (1) seed 10903's read
-STRENGTHENED above the root at +1 (0.9415 vs 0.9156) before
-collapsing — the first gradient step can PUMP the memory it is
-about to kill (a last-gasp? a transient alignment? worth one
-paragraph, not a program); (2) the tail lottery (10904's 2-34x
+STRANGE TEXTURES the replicate added: (1) seed 10903's +1 read (0.9415) sits ~1.3 SEM above the root (battery std 0.152/60 windows) — STATISTICALLY INDISTINGUISHABLE FROM UNCHANGED [R52: the pump paragraph demoted; 1/3 seeds 'pumping' is the coin-flip first step's expected frequency; the clock itself is optimizer-shaped (2 steps at 1e-3 ~ 2e-3 displacement; 50 at 1e-4 ~ 5e-3 — a basin-width statement, not a memory constant); (2) the tail lottery (10904's 2-34x
 slower tail) — the AFTER-death decay is where seeds differ,
 which is consistent with the wash destroying the load-bearing
 structure fast and the wreckage settling at seed-dependent
