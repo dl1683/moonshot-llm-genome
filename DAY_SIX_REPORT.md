@@ -1,6 +1,6 @@
 # Day Six Report — the day of the correction: presence, routes, and the noun that had to die
 
-Covers the 2026-09-28 session 05:00–08:10Z+ (E119-E121 folds, E131,
+Covers the 2026-09-28 session 05:00–09:45Z+ (E119-E121 folds, E131-E143, E140-E142,
 E133, E139, E141; T075-T082; W008 corrected, W009-W014; R43-R44).
 The day began with a wrong headline (E120's "signal-in-contexts
 insufficiency") and ended with a corrected noun for the lab's central
@@ -10,15 +10,18 @@ committed before the data existed.
 
 ## The five findings of the session
 
-1. **The fact consolidates where its error is placed (T076; the
-   E120 inversion).** E120's splice arms "failed to consolidate" —
-   except they hadn't: e131's 183-geometry read found them at
-   0.989/0.988, consolidated at full strength at the address the
-   battery never read. The R43 critic's error-location theory,
-   promoted to T076, is the lab's consolidation-law candidate:
-   error placement is the compass. The position-diversity
-   "ingredient" retired (resolved cleanly by e139/T082); what
-   diversity actually does belongs to finding 5.
+1. **The fact consolidates where its error is placed — now
+   CAUSAL (T076 -> T084; the E120 inversion, then e143).** E120's
+   splice arms "failed to consolidate" — except they hadn't:
+   e131's 183-geometry read found them at 0.989/0.988, at the
+   address the battery never read (the R43 critic's error-location
+   theory, caught before the proving data existed). e143 then made
+   the compass causal: parking the fact's error at positions 5-13
+   (zero diversity, sink-adjacent) built a site-store AT 5-13 with
+   row-0 at baseline — choose the error's site, choose the store's
+   site; proximity piggybacking dead. The position-diversity
+   "ingredient" retired; what diversity actually does (choose
+   routed vs site-stored) belongs to finding 5.
 
 2. **The noun, corrected: row-0 SINK-ROUTED, presence-only (T077 →
    T081; e131 → e141).** What survived D-all was never
@@ -32,9 +35,27 @@ committed before the data existed.
    under row-0 deletion. The migration wrote nothing in the
    destination row — everything lives in readout weights (e133:
    fact-specific residue 84.5% heads (locality-filtered, report-only table)).
+   And e142's census made it HISTORY: ROW-0-ALWAYS — 13/13 nets,
+   every dose — there was never an address-only phase, W011's
+   savor promoted to LAW (consolidation = share-growth of the
+   largest seed), and the ADDRESS itself was protocol-made
+   (direct/natural-exposure installs carry row 129 at NULL; the
+   five-day address story was a property of the masked-replay
+   protocol). BOUND (R45 critic, held open): every fact-killing
+   intervention in the row-0 plane sits at CE +0.70 to +4.44 —
+   no flat-CE fact-kill exists yet, so 'routed' vs 'dies when the
+   net dies' is not fully separated until e150's cells land; the
+   install-restore probe was also a no-op by norm (the presence
+   conclusion rests on the perm/halfnorm/mean riders).
 
-3. **Two memory types: ROUTED vs SITE-STORED (T082; e139).** Row 0
-   routes; the site stores. Splice-road memories are site-stored
+3. **Two memory types: ROUTED vs SITE-STORED (T082; e139) —
+   bounded twice since.** Row 0 routes; the site stores — but the
+   discriminator crosses net lineages and trained-vs-novel status
+   (no single net holds both types yet), and T085's history
+   rewrite reframes the site itself as protocol-sculpted (locked
+   replay grows a site; natural placement grows row 0). The type
+   claim stands on e139's cells and e141's novel-geometry collapse,
+   pending e147's width ladder and e150's flat-CE test. Splice-road memories are site-stored
    (row-183 content 250-5900x controls) yet generalize across
    contexts (0.6-0.7 novel+val); jitter-road memories are routed
    and generalize across GEOMETRIES (0.660 at a never-trained
@@ -70,7 +91,11 @@ committed before the data existed.
    position-varied road NEGATES the address key: R -0.21 vs
    L +0.33); and L-CYCLED retired "erasure digs in" outright
    (locked cycles thin identically — cycle damage, not erasure).
-   e143 carries invariance's last causal stand. The memory layer is a
+   e143 then WON invariance's last causal stand (COMPASS-CAUSAL),
+   and the width ladder (e147) is measuring the law's
+   dose-response — whether address-key death and route birth
+   CO-ONSET at a critical jitter width — as this report's final
+   open cell, alongside e150's flat-CE verdict. The memory layer is a
    semi-independent tenant of the LM (W014): it dies to
    presence-removal and ignores direction — the corpus's exact
    opposite — making head-level attack the only promising

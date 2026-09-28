@@ -104,7 +104,11 @@ NEAR (fact locked at positions 5-13, zero diversity), FAR
 clean; 427s.
 
 WHAT WE SAW (T084): COMPASS-CAUSAL fires — NEAR consolidates
-SITE-STORED at 5-13 (site strength 0.280) with row-0 presence
+SITE-STORED at 5-13 (final report: NEAR FULLY address-bound — novel g-12
+0.002, D-all 0.003, no routed tail; FAR site-stored at r137 +0.238,
+not routed: novel 0.205, D-all 0.156; JITTER reference reproduced
+0.722/0.903/0.914; instrument hardened post-first-pass — onset-only
+readout had masked non-onset site rows, bars unchanged) (site strength 0.278 final-hardened) with row-0 presence
 at/below install baseline (0.232 vs midpoint 0.634; PIGGY bar
 1.091 — proximity piggybacking DEAD). The error-placement
 compass is now CAUSAL: choose the error's site, choose the
