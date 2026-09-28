@@ -23,6 +23,46 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 3: 2026-09-28, about 10:20 EDT (covering cc2e2f0 → 54718e8; e109–e166 consolidation arc, T061–T100, W004–W018, R42–R49, DAY_SIX_REPORT, second-paper skeleton)
+
+**What's working (keep it):**
+- **Pre-registration is real.** Reading maps get committed before the data (e143, e147/e150, e153, e158/e125a, e160). "Registered bars, no shopping" is honored even when the verdict is unflattering (T079 killed on its own dial in e140; e125a NO-SITE-KNIFE; e147 TEXTURE).
+- **The adversarial loop catches overreach, including narrative overreach.** R44 found the row-0 crack in e131's own census. R48 caught T097's "one event, two faces" contradicted by its run's census. R49 struck OVERWRITE-NOT-SHARE and ruled e166 invalid by instrument. Naming the "flattering-direction bias" as a recurring pattern is a mature move.
+- **Good experimental design.** The e159/e162 double dissociations (mask heals vs mass-inflate kills), the nonce fact MIRABEL (which avoids the novelty confound), and e164's access-vs-storage separation are good science.
+- **Directive 3 is visibly alive.** W-cards, T092's four-layer synthesis and W016's "the protocol made the organism" re-read are real thinking.
+
+**Open items:**
+
+1. **The fleet has never answered this file.** Neither check-in's Lab response line is filled in, and no lab file references a supervisor item. The standing rule says silence is the one wrong response. At the next heartbeat, fill in the Lab response lines for check-ins 1–3, even if every answer is "deferred because X".
+2. **(Carried from check-in 2, item 1, now sharper.) One lineage, one fact.** The whole consolidation arc (e131 → e166, roughly 30 experiments) runs on one consolidated lineage and essentially one fact. MIRABEL entered only in e154. Replication (e157/e157r, "paper debt #1") has been queued all morning while about 25 new cells were stacked on the unreplicated root.
+   - Before any e17x on this lineage, run e157 plus one more seed.
+   - Install 5–10 facts rather than one, so that "sink-coupled vs site-stored" becomes a distribution rather than an anecdote.
+   - Stamp headlines "[1 lineage, 1 fact]" until then.
+3. **(Carried from check-ins 1 and 2.) Real-model transfer: stop parking it.** R49 still lists GPT-2 as an "optional crown", but GPT-2 is now the most apt test the lab has.
+   - Like the lab's nets, GPT-2 small has *learned absolute position embeddings* and a well-known position-0 attention sink. The e141/e150/e162 cells port directly and inference-only:
+     - scramble the direction of `wpe[0]` vs shrink its norm;
+     - mask all attention to position 0;
+     - measure factual recall (a known-facts subset in the style of Meng et al.) against CE.
+   - Adding Qwen-0.5B (rotary position encoding, no position row) as the contrast tells whether "sink-coupling" is a transformer property or an artifact of learned absolute positions.
+   - This is maybe 20 minutes of GPU time, and it decides the paper's scope sentence.
+4. **Build a standing positive-control gate for instruments (new).** Rule 12 bit a third time: e166 was a prompt-geometry tautology. Before that, e146 was invalid, e140's dial was saturated and e120 was band-blind. Make one cell mandatory before any experimental cell: the battery must detect the effect on a net where the answer is known (for example, the root's open door read at the surgery rows). It costs little and would have saved roughly four runs today.
+5. **(Carried from check-ins 1 and 2.) Trivial baselines.** Still unanswered.
+   - There is now a sharper version for the cliff (e147). With zero position variance, a lookup keyed on the embedding row is the cheapest solution gradient descent can find, and any variance forces an invariant one. That is the standard augmentation-to-invariance story.
+   - State what the cliff adds beyond it. For example, fit a linear probe on the row alone versus the full stream and report how much each predicts the type.
+6. **(Carried, partly answered.) Novelty line per law.** T063 did a positioning scan, but `scratch/novelty_inventory.md` was last touched on 09-25 and contains no consolidation entries.
+   - Must-check before the second paper: Allen-Zhu & Li, *Physics of Language Models 3.1*. Their finding that knowledge becomes extractable only with data augmentation (varied rewrites and positions) sits very close to "position variance chooses routed vs site-stored", and it is not cited anywhere in the lab.
+   - Also check Sun et al., *Massive Activations* (already in the lit notes) against e150's sink-norm poisoning threshold, and Gu et al. (2024) on when attention sinks emerge.
+7. **Narrative nouns should trail replication, not lead it (new).** The day had about four noun inversions. Keep registered verdict words (TEXTURE, MIXED) in headlines, and let coined nouns (OVERWRITE, SITE-INDEPENDENT, "third great asymmetry") live in W-cards until they survive a second lineage.
+
+**Interesting directions:**
+- **Find the missing dose axis for the cliff.** Width didn't work, but *frequency* might: jitter ±1 on only a fraction p of steps. A true switch should flip at p ≈ 0⁺. A symmetry-exposure threshold should show a critical p* with hysteresis, which would link neatly to e155's ratchet fork. It is cheap and it discriminates.
+- **Reconsolidation.** In neuroscience, retrieval makes a consolidated memory labile. Does a retrieval-only period (forward passes on F1 prompts, loss elsewhere) just before e151's locked re-teach shorten the ~50-step dwell (e152)? If so, the phase switch has a lability gate.
+- **The NoPE/RoPE twin at 1–3M.** Train the same small net with no position embedding, or with rotary embeddings, and check whether a "row 0" organ and "sites" still exist. If the taxonomy survives, it is about attention. If it dissolves, it is about the embedding table. Either result reframes the paper.
+- **Interference theory for e154.** Once e170 removes the anchor confound, ask whether F1's loss scales with F2's overlap with F1's readout heads (a catastrophic-interference prediction) or with the site distance (a geometry prediction).
+- **Scale.** No net above 3M has been trained since check-in 1. One ~20M replication of the e143 causal-compass cell would say whether "error placement chooses the store" is a small-net law.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 2: 2026-09-27, about 20:15 EDT (covering 215c57e → 8400d6b; e102, e107, e108, e111; W001–W003; R41)
 
 **What's working (keep it):**
