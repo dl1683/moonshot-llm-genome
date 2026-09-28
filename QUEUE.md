@@ -166,10 +166,10 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e137 | RMU rewiring speed (bridges edit-law x consolidation) | QUEUED | restoration <=150 steps with 121-137 band retained (adapters dormant, not dead); falsified if >=250 steps or band regrows from <0.05 |
 | e138 | adapter head-start (e120's row-183 net vs fresh twin, identical jitter) | QUEUED | head-start: pre-grown adapter wires in <=60% of fresh steps; within 10% => wiring is everything, mass-growth not the bottleneck |
 | e119 | migration head-to-head (P5 road 1v2) | READY | jittered-replay twins vs deletion-pressure twins — same field or different stores? the migration plate viz |
-| e122 | self-at-distance (P6) | READY | does the anchor accept the same net's field from another run/window — generator-self vs episode-self |
-| e123 | self-drift curve (P6) | READY | identity half-life across checkpoints; doubles as P5's rekeying probe |
-| e125 | attack the graduated fact (P7) | READY | what removes a field-stored fact — segregated ~54 units or woven into self? |
-| e128 | inversion census (P8) | READY | dp27 promoted to census — do read-rule inversions cluster into a second mode? per-net rate as a fingerprint |
+| e122 | self-at-distance (P6) | READY | does the anchor accept the same net's field from another run/window — generator-self vs episode-self. [R43 bar pre-committed: same-run-different-window MUST stay healthy; if it also collapses, the self/episode framing dies — the anchor is content-specific — and the card must say so] |
+| e123 | self-drift curve (P6) | READY | identity half-life across checkpoints; doubles as P5's rekeying probe. [R43 bar pre-committed: anchor-acceptance(t, delta) must decay DIFFERENTLY (slower or different shape) than trivial output-similarity JS between checkpoint samples — rule 7a control; if they coincide the card reads 'identity drift = behavior drift'] |
+| e125 | attack the graduated fact (P7) | READY | what removes a field-stored fact — segregated ~54 units or woven into self? [R43 bar pre-committed: collateral-matched specificity required — compare removability against the PRE-consolidation fact's removability (e043 asymmetry) at matched collateral damage; otherwise it is a ceiling measurement] |
+| e128 | inversion census (P8) | READY | dp27 promoted to census — do read-rule inversions cluster into a second mode? per-net rate as a fingerprint. [R43 bar pre-committed: e095 Monte-Carlo null guard on apparent clustering — a diffuse distribution reads as 'a second mode' by eye] |
 
 ## Parking lot (raw ideas, unranked)
 
