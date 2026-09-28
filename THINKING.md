@@ -1785,6 +1785,23 @@ a sharper question: does adding F2 push the product BACK toward
 54 (renormalization ceiling) or UP past 102 (bandwidth grew with
 the route)?
 
+SECOND AMENDMENT (post-T086/T087, ~09:58Z — THE ANOMALY
+DISSOLVES AS INSTRUMENT MISMATCH): the share law's k-grid prices
+BAND-row mass — a GRAFT instrument (the site-store's dose-
+response; e110 measured site-stored installs). But T086 says the
+R arm's memory is SINK-COUPLED with content in heads (e133: band
+carries ~0 fact-specific content) — so reading its "share" off
+the band grid measures deletion-of-nearly-irrelevant-rows
+texture, not memory mass. THE 54 PRICES THE GRAFT, NOT THE ORGAN.
+Consequences: (a) W012's bandwidth reading is RE-AIMED — the
+sink's capacity, if it exists, needs a HEAD-ORGAN dose-response
+instrument (fact-specific head ablation grids), not a row grid;
+(b) e134's two-fact design must measure share only on SITE-STORED
+facts (or first build the head-grid instrument); (c) the
+within-net constancy T066 found lives in the graft's statistics —
+it is a law of protocol-made stores, one more entry in W016's
+ledger of graft-properties mistaken for organ-properties.
+
 ## W011 — WONDER: the sink as the consolidator's destination — universality by OMNIPRESENCE (2026-09-28 ~07:10Z)
 
 Why row 0? Of all 256 wpe rows, the jitter-migrated fact keyed to
