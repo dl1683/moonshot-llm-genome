@@ -514,6 +514,30 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T066 — E110: the share constant — the lab's first dimensionless number (2026-09-28 ~04:00Z)
+
+**The share law is quantified: r\*(k)·k ≈ 54.** Across a 2.4x
+range of field sizes, the total retained anchor mass at the
+collapse boundary is ~54 entries-equivalent (products 53.3/55.5/
+53.2, CIs overlapping, flat-null P=0.002). **The count-threshold
+law (e089) and the magnitude floor (e102) are ONE boundary seen
+from two axes, and it has a constant.** W001's paper derivation —
+LN normalizes the stream total, the anchor survives on its SHARE —
+now predicts a number, and the number is 54. The sink canon has
+argued in this style; nobody has produced the constant. Combined
+with T065 (memories graduate into the field-store), the mature
+memory's governing law is complete: a graduated fact is sustained
+by ~54 units of retained directional field mass, robust to how
+that mass is split between count and amplitude. (The constant's
+parameter dependence — d_model, depth, stream-norm growth — is
+the falsifiable cross-net prediction now standing; the seed ladder
+e098 doubles as its first replication.)
+
+Ledger honesty: the tasking's literal Bar-3 inequality inverted
+its own lead sentence — my slip in the dispatch; the agent caught
+it pre-compute, registered it, and adjudicated the direction the
+physics states. That is the culture working.
+
 ## W006 — WONDER: why does the address become a brake? Three mechanisms for the mature memory's inhibitor (2026-09-28 ~03:30Z)
 
 e113's strangest gift: after consolidation, deleting the address

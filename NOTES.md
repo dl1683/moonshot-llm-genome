@@ -84,6 +84,26 @@ not the store.
 
 ---
 
+## E110 — per-field floor: THE SHARE LAW — r*(k)*k ~= 54, one constant (2026-09-28) — DONE
+
+WHAT WE DID: retention r x field-size k crossed grid (4x4, e102
+rig, G5 cell replicates e102 bitwise); continuous 0.3-crossing
+thresholds with bootstrap CIs.
+
+WHAT WE SAW (T066): SHARE-LAW SHIFT fires (r*(154) < r*(64),
+P=0.999; r*(32) off-grid-high, P=0.998); flat per-entry null
+fails (P=0.002). THE CONSTANT: r*(k)*k = 53.3 / 55.5 / 53.2 —
+max/min 1.04 with CI overlap. Total retained field mass at the
+collapse boundary is ~54 entries-equivalent across a 2.4x range of
+k. W001's "same floor" is now a number. e102's floor refined to
+continuous ~0.35. Honest riders: k=32 partly removal-limited; the
+tasking's Bar-3 literal inequality was inverted vs its own lead
+sentence (dispatcher slip — the agent registered the slip pre-
+compute and adjudicated the W001-direction reading, which is what
+fires).
+
+---
+
 ## E113 — all-addresses deletion: BODY-STORED — the fact left the address system (2026-09-28) — DONE
 
 WHAT WE DID: rebuilt e109's consolidated net bit-exactly (post-none

@@ -1,0 +1,1069 @@
+{
+  "experiment": "e110_field_floor",
+  "purpose": "W001-REFINEMENT paper-prediction: the e102 magnitude floor is a post-LayerNorm stream-SHARE (signal-to-noise), not a per-entry amplitude detector \u2014 so the floor should be PER-FIELD (move with the field's total share, i.e. with entry count), not per-entry. Crossed design: retention r x field size k at the e102 intervention point (g=250, band 64..217, single-shot, matched-stream, clean-judged); kept k-subset scaled to r, band complement V-zeroed. Bars: r* shifts DOWN with k (share law) vs flat (per-entry floor); secondary r*(k)*k ~ const.",
+  "started": "2026-09-28T00:21:11Z",
+  "wall_s": 67.84815192222595,
+  "threads": 8,
+  "cpu_only": true,
+  "net": {
+    "ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e053c_ctx512.pt",
+    "arch": {
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 512,
+      "vocab": 65
+    },
+    "params": 873472,
+    "val_ce": 1.5226792593797047,
+    "val_ce_e053c": 1.5226792494455974
+  },
+  "seeds": {
+    "corpus": 1337,
+    "prompts": 202,
+    "sampling": 7,
+    "subsets": 110,
+    "continuation": 960250,
+    "bootstrap": 0
+  },
+  "protocol": {
+    "B": 8,
+    "prompt_tokens": 64,
+    "t_total": 512,
+    "temp": 0.8,
+    "topk": 40,
+    "tail_window": [
+      448,
+      511
+    ],
+    "boot_n": 1000,
+    "grid": {
+      "k": [
+        32,
+        64,
+        128,
+        154
+      ],
+      "r": [
+        0.1,
+        0.25,
+        0.56,
+        1.0
+      ],
+      "draws_per_cell": 3,
+      "rule": "cell (k,r): random k-subset of the 154-entry band scaled to retention r (V<-r*V, cos=1); band complement V-zeroed (removal); subsets keyed (k,d,row) REUSED across r (paired r-ladder); k=154 deterministic"
+    },
+    "intervention": {
+      "g_int": 250,
+      "t_int": 314,
+      "timing": "single-shot, immediately before the decode at t_int (e096/e102 top-of-the-event); token at t_int teacher-forced; first affected sample = 315",
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "rule": "self-generated entries with age > 96 at the frame (e075 rule): positions 64..217"
+      },
+      "v_only": true
+    },
+    "readouts": {
+      "cost": "clean-judge tail CE (448..511) of the cell stream minus the MATCHED control stream, per row (mean over the row's draws) then mean over B=8",
+      "attractor": "judge CE minus own online tail CE (e080 bar 1.0 nat) \u2014 secondary/descriptive",
+      "removal_column": "the r=1.0 column is pure removal at single-shot timing; e089's stored per-k means overlaid as reference (different band/timing, no gate)"
+    },
+    "bars": {
+      "healthy": "mean cost < 0.3 nats",
+      "damaged": "mean cost > 1.0 nat",
+      "ambiguous": "in [0.3, 1.0]",
+      "bar1_share_law": "r*(154) < r*(64) AND r*(32) >= r*(64) (strict when both on-grid; both-off-high = honest tie), each ordering with bootstrap P >= 0.95",
+      "bar2_flat": "all on-grid r*(k) equal (>=2 ks on-grid)",
+      "bar3_literal_tasking": "tasking text 'r*(64) < r*(154) and r*(32) > r*(64)' \u2014 first inequality inverts the stated direction; reported, flagged, both readings evaluated",
+      "bar4_share_product": "r*_cont(k)*k ~ constant (max/min <= 2.0 AND pairwise CI overlap) \u2014 descriptive",
+      "null": "fixed per-entry floor: r* flat in k"
+    }
+  },
+  "gates": {
+    "cpu_only": true,
+    "threads": 8,
+    "smoke": false,
+    "G2_params": {
+      "params": 873472,
+      "expected": 873472,
+      "ok": true
+    },
+    "G1_val_ce": {
+      "val_ce": 1.5226792593797047,
+      "ref": 1.5226792494455974,
+      "tol": 0.02,
+      "ok": true
+    },
+    "G3_protocol_identity": {
+      "ref_files": [
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e080\\metrics.json",
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e102\\metrics.json"
+      ],
+      "note": "e110 has no static arm; G3 scope = control-battery identity vs e080's stored none arm (clean-judge per-seq, 1e-4) AND vs e102's stored control continuation (continuation-level twin; e102's scoped G3 convention)",
+      "e080_clean_judge_max_dev": 1.1920928955078125e-07,
+      "e080_bitwise": false,
+      "ok": true,
+      "e102_control_max_dev": 0.0,
+      "e102_bitwise": true
+    },
+    "G4_instrument_identity": {
+      "cells": {
+        "k=32,r=0.1": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 5.960464477539063e-08,
+          "min_cos": 0.9999997615814209,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            32
+          ],
+          "n_removed": [
+            122
+          ],
+          "ok": true
+        },
+        "k=32,r=0.25": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            32
+          ],
+          "n_removed": [
+            122
+          ],
+          "ok": true
+        },
+        "k=32,r=0.56": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 2.384185791015625e-07,
+          "min_cos": 0.9999996423721313,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            32
+          ],
+          "n_removed": [
+            122
+          ],
+          "ok": true
+        },
+        "k=32,r=1.0": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            32
+          ],
+          "n_removed": [
+            122
+          ],
+          "ok": true
+        },
+        "k=64,r=0.1": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 5.960464477539063e-08,
+          "min_cos": 0.9999997615814209,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            64
+          ],
+          "n_removed": [
+            90
+          ],
+          "ok": true
+        },
+        "k=64,r=0.25": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            64
+          ],
+          "n_removed": [
+            90
+          ],
+          "ok": true
+        },
+        "k=64,r=0.56": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 2.384185791015625e-07,
+          "min_cos": 0.9999996423721313,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            64
+          ],
+          "n_removed": [
+            90
+          ],
+          "ok": true
+        },
+        "k=64,r=1.0": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            64
+          ],
+          "n_removed": [
+            90
+          ],
+          "ok": true
+        },
+        "k=128,r=0.1": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 5.960464477539063e-08,
+          "min_cos": 0.9999997019767761,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            128
+          ],
+          "n_removed": [
+            26
+          ],
+          "ok": true
+        },
+        "k=128,r=0.25": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            128
+          ],
+          "n_removed": [
+            26
+          ],
+          "ok": true
+        },
+        "k=128,r=0.56": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 2.384185791015625e-07,
+          "min_cos": 0.9999996423721313,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            128
+          ],
+          "n_removed": [
+            26
+          ],
+          "ok": true
+        },
+        "k=128,r=1.0": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            128
+          ],
+          "n_removed": [
+            26
+          ],
+          "ok": true
+        },
+        "k=154,r=0.1": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 5.960464477539063e-08,
+          "min_cos": 0.9999997019767761,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            154
+          ],
+          "n_removed": [
+            0
+          ],
+          "ok": true
+        },
+        "k=154,r=0.25": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 0.0,
+          "min_cos": 0.9999998807907104,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            154
+          ],
+          "n_removed": [
+            0
+          ],
+          "ok": true
+        },
+        "k=154,r=0.56": {
+          "prefix_identical": true,
+          "applied": true,
+          "norm_dev": 2.384185791015625e-07,
+          "min_cos": 0.9999996423721313,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [
+            154
+          ],
+          "n_removed": [
+            0
+          ],
+          "ok": true
+        },
+        "k=154,r=1.0": {
+          "prefix_identical": true,
+          "applied": false,
+          "norm_dev": 0.0,
+          "min_cos": 1.0,
+          "removed_zero": true,
+          "nonband_untouched": true,
+          "n_kept": [],
+          "n_removed": [],
+          "ok": true
+        }
+      },
+      "control_is_identity_cell": true,
+      "control_applied_nothing": true,
+      "matched_seed": 960250,
+      "single_shot": true,
+      "band": {
+        "positions": [
+          64,
+          217
+        ],
+        "n": 154,
+        "ages_at_query": [
+          97,
+          250
+        ]
+      },
+      "subsets": {
+        "seed": 110,
+        "order": "(k, draw, row); rng.choice(band, size=k, replace=False); D=3; reused across r",
+        "per_cell": 24
+      },
+      "med_norm": {
+        "per_layer": [
+          2.157031774520874,
+          1.5538004636764526,
+          1.9136782884597778,
+          1.8171889781951904
+        ],
+        "e102_ref": [
+          2.157031774520874,
+          1.5538004636764526,
+          1.9136782884597778,
+          1.8171889781951904
+        ],
+        "max_dev": 0.0,
+        "ok": true
+      },
+      "ok": true
+    },
+    "G5_e102_replication": {
+      "ref": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e102\\metrics.json",
+      "rule": "the (k=154, r=0.1) cell's clean-judge per-seq AND cost-per-row vs runs/e102/metrics.json scaled arm within 1e-4",
+      "cell_cj_max_dev": 0.0,
+      "cell_cj_bitwise": true,
+      "cell_cost_max_dev": 0.0,
+      "cell_mean": 1.0871107578277588,
+      "e102_scaled_mean": 1.0871107578277588,
+      "ok": true
+    }
+  },
+  "control_run": {
+    "clean_judge_tail_ce": [
+      1.1106210947036743,
+      1.1329238414764404,
+      1.1539390087127686,
+      1.2136240005493164,
+      1.2313995361328125,
+      1.3069782257080078,
+      1.0676785707473755,
+      1.22296142578125
+    ],
+    "online_tail": 1.1800163462480489,
+    "ent_tail": 1.3930588357300167
+  },
+  "references": {
+    "e102_scaled_mean": 1.0871107578277588,
+    "e089_per_k": {
+      "2": 0.08226563930511474,
+      "4": -0.027383482456207274,
+      "8": 0.020256125926971437,
+      "16": -0.02622449994087219,
+      "32": 0.07229923605918884,
+      "64": 0.20412075519561768,
+      "128": 0.6830332159996033,
+      "200": 2.1530486822128294
+    }
+  },
+  "summary": {
+    "per_cell": {
+      "k=32,r=0.1": {
+        "cost_per_row": [
+          1.6265062093734741,
+          1.4011878967285156,
+          1.6153957843780518,
+          1.5406925678253174,
+          1.0446016788482666,
+          1.046828031539917,
+          1.8556052446365356,
+          2.2176787853240967
+        ],
+        "mean": 1.5435620546340942,
+        "ci": [
+          1.3033557742834092,
+          1.8013642251491546
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.7235777378082275,
+        "online_tail": 1.2857231426695142,
+        "ent_tail": 1.5270749002550776,
+        "n_draws": 3,
+        "draw_spread_max": 0.4157712459564209,
+        "cj_gap_vs_online": 1.4378545951387134,
+        "signature_fires": true
+      },
+      "k=32,r=0.25": {
+        "cost_per_row": [
+          1.3293040990829468,
+          1.138700246810913,
+          1.4832537174224854,
+          1.558462381362915,
+          1.0979766845703125,
+          1.159806251525879,
+          1.6791220903396606,
+          1.2035596370697021
+        ],
+        "mean": 1.331273078918457,
+        "ci": [
+          1.1975907385349274,
+          1.4707154035568237
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.51128888130188,
+        "online_tail": 1.2716463288168047,
+        "ent_tail": 1.5845686031510315,
+        "n_draws": 3,
+        "draw_spread_max": 0.40013694763183594,
+        "cj_gap_vs_online": 1.2396425524850752,
+        "signature_fires": true
+      },
+      "k=32,r=0.56": {
+        "cost_per_row": [
+          1.1980692148208618,
+          0.8889033794403076,
+          1.0701792240142822,
+          0.8784005641937256,
+          0.9998891353607178,
+          0.8066892623901367,
+          1.2371050119400024,
+          1.302577018737793
+        ],
+        "mean": 1.0477266311645508,
+        "ci": [
+          0.9370249196887016,
+          1.1698440343141556
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.2277424335479736,
+        "online_tail": 1.2715989163665133,
+        "ent_tail": 1.5254209590211758,
+        "n_draws": 3,
+        "draw_spread_max": 0.5233917236328125,
+        "cj_gap_vs_online": 0.9561435171814603,
+        "signature_fires": false
+      },
+      "k=32,r=1.0": {
+        "cost_per_row": [
+          0.5634187459945679,
+          1.042571783065796,
+          0.625956654548645,
+          0.8297901153564453,
+          0.45913851261138916,
+          0.39007437229156494,
+          0.9439424276351929,
+          0.4248676300048828
+        ],
+        "mean": 0.6599700450897217,
+        "ci": [
+          0.5099683821201324,
+          0.8283733308315275
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "ambiguous",
+        "clean_judge_mean": 1.8399858474731445,
+        "online_tail": 1.1730709024874466,
+        "ent_tail": 1.4438759099598428,
+        "n_draws": 3,
+        "draw_spread_max": 0.7870736122131348,
+        "cj_gap_vs_online": 0.6669149449856979,
+        "signature_fires": false
+      },
+      "k=64,r=0.1": {
+        "cost_per_row": [
+          1.1910535097122192,
+          1.2484488487243652,
+          1.2944421768188477,
+          1.188720464706421,
+          1.1297016143798828,
+          1.1075365543365479,
+          1.83126699924469,
+          1.4986960887908936
+        ],
+        "mean": 1.3112332820892334,
+        "ci": [
+          1.1823064625263213,
+          1.4761822938919067
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.4912490844726562,
+        "online_tail": 1.2226636645135074,
+        "ent_tail": 1.522014547291595,
+        "n_draws": 3,
+        "draw_spread_max": 0.4173743724822998,
+        "cj_gap_vs_online": 1.2685854199591489,
+        "signature_fires": true
+      },
+      "k=64,r=0.25": {
+        "cost_per_row": [
+          1.3937379121780396,
+          0.8787710666656494,
+          1.225266933441162,
+          0.9859592914581299,
+          1.2504234313964844,
+          0.9806861877441406,
+          1.0707517862319946,
+          1.1997625827789307
+        ],
+        "mean": 1.1231698989868164,
+        "ci": [
+          1.009761968255043,
+          1.2366692781448365
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.30318546295166,
+        "online_tail": 1.2551621076942325,
+        "ent_tail": 1.5255039019909116,
+        "n_draws": 3,
+        "draw_spread_max": 0.43424713611602783,
+        "cj_gap_vs_online": 1.0480233552574276,
+        "signature_fires": true
+      },
+      "k=64,r=0.56": {
+        "cost_per_row": [
+          0.7211160659790039,
+          0.8413068056106567,
+          0.4521634578704834,
+          0.5946483612060547,
+          0.5620737075805664,
+          0.2563220262527466,
+          0.7334578037261963,
+          0.45265376567840576
+        ],
+        "mean": 0.576717734336853,
+        "ci": [
+          0.46222810447216034,
+          0.6875039607286453
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "ambiguous",
+        "clean_judge_mean": 1.7567334175109863,
+        "online_tail": 1.2416441594318803,
+        "ent_tail": 1.5026391431454915,
+        "n_draws": 3,
+        "draw_spread_max": 0.34100914001464844,
+        "cj_gap_vs_online": 0.515089258079106,
+        "signature_fires": false
+      },
+      "k=64,r=1.0": {
+        "cost_per_row": [
+          0.43020570278167725,
+          0.2486875057220459,
+          0.09405887126922607,
+          0.1596393585205078,
+          -0.006218314170837402,
+          0.01806652545928955,
+          0.21059739589691162,
+          0.22020375728607178
+        ],
+        "mean": 0.17190510034561157,
+        "ci": [
+          0.08032691478729248,
+          0.26188039779663086
+        ],
+        "n_worse": 7,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "healthy",
+        "clean_judge_mean": 1.3519208431243896,
+        "online_tail": 1.180575118328989,
+        "ent_tail": 1.4220382874708168,
+        "n_draws": 3,
+        "draw_spread_max": 0.3163394331932068,
+        "cj_gap_vs_online": 0.17134572479540067,
+        "signature_fires": false
+      },
+      "k=128,r=0.1": {
+        "cost_per_row": [
+          1.4557157754898071,
+          0.9593143463134766,
+          1.3751988410949707,
+          1.0152819156646729,
+          1.1243345737457275,
+          1.0202562808990479,
+          1.0747090578079224,
+          1.226140022277832
+        ],
+        "mean": 1.1563687324523926,
+        "ci": [
+          1.04482741355896,
+          1.269626921415329
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.3363845348358154,
+        "online_tail": 1.2567060049642185,
+        "ent_tail": 1.5163586790677073,
+        "n_draws": 3,
+        "draw_spread_max": 0.6060478687286377,
+        "cj_gap_vs_online": 1.079678529871597,
+        "signature_fires": true
+      },
+      "k=128,r=0.25": {
+        "cost_per_row": [
+          0.6624196767807007,
+          0.7905228137969971,
+          0.6577776670455933,
+          0.7109898328781128,
+          0.8957197666168213,
+          0.6424188613891602,
+          0.740565299987793,
+          0.5467668771743774
+        ],
+        "mean": 0.7058976292610168,
+        "ci": [
+          0.6412577733397484,
+          0.7733864828944206
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "ambiguous",
+        "clean_judge_mean": 1.885913372039795,
+        "online_tail": 1.1995864958186462,
+        "ent_tail": 1.4788879931003673,
+        "n_draws": 3,
+        "draw_spread_max": 1.0391225814819336,
+        "cj_gap_vs_online": 0.6863268762211487,
+        "signature_fires": false
+      },
+      "k=128,r=0.56": {
+        "cost_per_row": [
+          0.17832159996032715,
+          0.09642016887664795,
+          0.12187302112579346,
+          0.01571953296661377,
+          0.1898355484008789,
+          -0.01180410385131836,
+          0.17056965827941895,
+          0.12287509441375732
+        ],
+        "mean": 0.11047631502151489,
+        "ci": [
+          0.0640469592064619,
+          0.1574457734823227
+        ],
+        "n_worse": 7,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "healthy",
+        "clean_judge_mean": 1.290492057800293,
+        "online_tail": 1.1415640851063997,
+        "ent_tail": 1.3586978062206374,
+        "n_draws": 3,
+        "draw_spread_max": 0.24605333805084229,
+        "cj_gap_vs_online": 0.14892797269389324,
+        "signature_fires": false
+      },
+      "k=128,r=1.0": {
+        "cost_per_row": [
+          -0.02069687843322754,
+          -0.0487900972366333,
+          -0.12229037284851074,
+          -0.1565924882888794,
+          -0.05931961536407471,
+          -0.30728286504745483,
+          0.12024426460266113,
+          -0.12820792198181152
+        ],
+        "mean": -0.09036699682474136,
+        "ci": [
+          -0.16510289423167707,
+          -0.019338537007570274
+        ],
+        "n_worse": 1,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "healthy",
+        "clean_judge_mean": 1.089648723602295,
+        "online_tail": 1.0768451598065492,
+        "ent_tail": 1.3183127650728845,
+        "n_draws": 3,
+        "draw_spread_max": 0.2418205738067627,
+        "cj_gap_vs_online": 0.012803563795745765,
+        "signature_fires": false
+      },
+      "k=154,r=0.1": {
+        "cost_per_row": [
+          1.266131043434143,
+          0.8782000541687012,
+          1.0787980556488037,
+          0.9461033344268799,
+          1.2504234313964844,
+          1.15151047706604,
+          1.1783231496810913,
+          0.947396993637085
+        ],
+        "mean": 1.0871107578277588,
+        "ci": [
+          0.9876845046877861,
+          1.184460511803627
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "damaged",
+        "clean_judge_mean": 2.2671265602111816,
+        "online_tail": 1.268788111769245,
+        "ent_tail": 1.5510232950582576,
+        "n_draws": 1,
+        "draw_spread_max": 0.0,
+        "cj_gap_vs_online": 0.9983384484419366,
+        "signature_fires": false
+      },
+      "k=154,r=0.25": {
+        "cost_per_row": [
+          0.42127764225006104,
+          0.2008059024810791,
+          0.6980000734329224,
+          0.3108440637588501,
+          0.15046989917755127,
+          0.45182645320892334,
+          1.0109392404556274,
+          0.3799905776977539
+        ],
+        "mean": 0.45301923155784607,
+        "ci": [
+          0.2970660626888275,
+          0.6321058928966522
+        ],
+        "n_worse": 8,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "ambiguous",
+        "clean_judge_mean": 1.6330349445343018,
+        "online_tail": 1.1779192641415128,
+        "ent_tail": 1.4100916194747697,
+        "n_draws": 1,
+        "draw_spread_max": 0.0,
+        "cj_gap_vs_online": 0.45511568039278893,
+        "signature_fires": false
+      },
+      "k=154,r=0.56": {
+        "cost_per_row": [
+          0.03733062744140625,
+          0.41690361499786377,
+          0.14251470565795898,
+          0.0038459300994873047,
+          -0.12638497352600098,
+          0.05005490779876709,
+          0.27301597595214844,
+          -0.2211986780166626
+        ],
+        "mean": 0.07201026380062103,
+        "ci": [
+          -0.06336966715753078,
+          0.20536716170608996
+        ],
+        "n_worse": 6,
+        "n_stream_identical": 0,
+        "first_div": 315,
+        "n_rows_diverged": 8,
+        "health": "healthy",
+        "clean_judge_mean": 1.2520259618759155,
+        "online_tail": 1.165591128078199,
+        "ent_tail": 1.3571203522158157,
+        "n_draws": 1,
+        "draw_spread_max": 0.0,
+        "cj_gap_vs_online": 0.08643483379771655,
+        "signature_fires": false
+      },
+      "k=154,r=1.0": {
+        "cost_per_row": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "n_worse": 0,
+        "n_stream_identical": 8,
+        "first_div": null,
+        "n_rows_diverged": 0,
+        "health": "healthy",
+        "clean_judge_mean": 1.1800156831741333,
+        "online_tail": 1.1800163462480489,
+        "ent_tail": 1.3930588357300167,
+        "n_draws": 1,
+        "draw_spread_max": 0.0,
+        "cj_gap_vs_online": -6.630739155522036e-07,
+        "signature_fires": false
+      }
+    },
+    "col_means": {
+      "k=32": {
+        "0.1": 1.5435620546340942,
+        "0.25": 1.331273078918457,
+        "0.56": 1.0477266311645508,
+        "1.0": 0.6599700450897217
+      },
+      "k=64": {
+        "0.1": 1.3112332820892334,
+        "0.25": 1.1231698989868164,
+        "0.56": 0.576717734336853,
+        "1.0": 0.17190510034561157
+      },
+      "k=128": {
+        "0.1": 1.1563687324523926,
+        "0.25": 0.7058976292610168,
+        "0.56": 0.11047631502151489,
+        "1.0": -0.09036699682474136
+      },
+      "k=154": {
+        "0.1": 1.0871107578277588,
+        "0.25": 0.45301923155784607,
+        "0.56": 0.07201026380062103,
+        "1.0": 0.0
+      }
+    },
+    "rstar": {
+      "32": {
+        "code": 4,
+        "value": null,
+        "status": "off-grid-high (no healthy cell)",
+        "cont_value": null,
+        "cont_status": "off-grid-high",
+        "product": null
+      },
+      "64": {
+        "code": 3,
+        "value": 1.0,
+        "status": "on-grid",
+        "cont_value": 0.8323751646784708,
+        "cont_status": "interp",
+        "product": 53.27201053942213
+      },
+      "128": {
+        "code": 2,
+        "value": 0.56,
+        "status": "on-grid",
+        "cont_value": 0.4332149615952559,
+        "cont_status": "interp",
+        "product": 55.451515084192756
+      },
+      "154": {
+        "code": 2,
+        "value": 0.56,
+        "status": "on-grid",
+        "cont_value": 0.34562500592825873,
+        "cont_status": "interp",
+        "product": 53.22625091295185
+      }
+    },
+    "rstar_ci": {
+      "32": {
+        "grid": [
+          4.0,
+          4.0
+        ],
+        "cont": [
+          NaN,
+          NaN
+        ],
+        "product": [
+          NaN,
+          NaN
+        ]
+      },
+      "64": {
+        "grid": [
+          3.0,
+          3.0
+        ],
+        "cont": [
+          0.7216071550992765,
+          0.9393455792477605
+        ],
+        "product": [
+          46.1828579263537,
+          60.11811707185667
+        ]
+      },
+      "128": {
+        "grid": [
+          2.0,
+          2.0
+        ],
+        "cont": [
+          0.40985636148285365,
+          0.459793172214915
+        ],
+        "product": [
+          52.46161426980527,
+          58.85352604350912
+        ]
+      },
+      "154": {
+        "grid": [
+          1.0,
+          2.0
+        ],
+        "cont": [
+          0.24918833593531056,
+          0.4497217250179015
+        ],
+        "product": [
+          38.375003734037826,
+          69.25714565275683
+        ]
+      }
+    },
+    "ordering": {
+      "P_r154_lt_r64": 0.999,
+      "P_r32_gt_r64": 0.998,
+      "P_flat": 0.002,
+      "both_offhigh_32_64": false,
+      "literal_tasking_pair": false,
+      "flat_point": false
+    },
+    "product": {
+      "constant": true,
+      "report": "products {64: 53.3, 128: 55.5, 154: 53.2} | max/min 1.04 | pairwise CI overlap True",
+      "values": {
+        "32": null,
+        "64": 53.27201053942213,
+        "128": 55.451515084192756,
+        "154": 53.22625091295185
+      }
+    },
+    "attractor": {
+      "gap_bar": 1.0,
+      "fires": {
+        "k=32,r=0.1": true,
+        "k=32,r=0.25": true,
+        "k=32,r=0.56": false,
+        "k=32,r=1.0": false,
+        "k=64,r=0.1": true,
+        "k=64,r=0.25": true,
+        "k=64,r=0.56": false,
+        "k=64,r=1.0": false,
+        "k=128,r=0.1": true,
+        "k=128,r=0.25": false,
+        "k=128,r=0.56": false,
+        "k=128,r=1.0": false,
+        "k=154,r=0.1": false,
+        "k=154,r=0.25": false,
+        "k=154,r=0.56": false,
+        "k=154,r=1.0": false
+      }
+    }
+  },
+  "registered_decision": {
+    "clause": "SHARE-LAW SHIFT FIRES (W001 direction): r* moves DOWN with k \u2014 the floor is PER-FIELD",
+    "verdict": "The minimum healthy retention falls as the field grows (k=32: r*=off-grid-high (no healthy cell) | k=64: r*=1.0 | k=128: r*=0.56 | k=154: r*=0.56): more entries = more post-LN stream-share = each entry can be quieter, exactly W001's refinement. The magnitude floor is not a per-entry amplitude detector \u2014 it is the field's signal-to-noise share in the normalized stream. Secondary (the share law proper): r**(k) x k at the threshold products {64: 53.3, 128: 55.5, 154: 53.2} | max/min 1.04 | pairwise CI overlap True. Removal rider: the r=1.0 column (pure removal, single-shot) costs k=32:+0.660 k=64:+0.172 k=128:-0.090 k=154:+0.000 \u2014 any small-k rise in r* must be read against this removal offset (bar 4 separates them).",
+    "r_table": {
+      "32": "off-grid-high (no healthy cell)",
+      "64": 1.0,
+      "128": 0.56,
+      "154": 0.56
+    },
+    "bars": {
+      "bar1_share_law": true,
+      "bar2_flat": false,
+      "bar3_literal": false,
+      "bar4_product_constant": true
+    }
+  }
+}
