@@ -63,6 +63,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E161 — the freeze-cell: DISUSE/GENERIC-PRESSURE — the door closes with NO fact teaching; the ENTIRE fact dissolves under ordinary gradient flow (2026-09-28 ~14:45Z) — DONE
+
+WHAT WE DID: 300 steps of plain-corpus continuation from the s32
+dwell peak (zero name leakage verified at draw time); full dial
+trajectory; gates bit-near.
+
+WHAT WE SAW (T101): DISUSE fires CLEAN — g-12: 0.513 -> 0.040 at
++50 -> 0.0036 at +300 (128x under the bar; no fact teaching, no
+graft, no anchors). COMPETITIVE dead (g never near 0.7);
+DWELL-PERSISTS dead. THE BIGGER TEXTURE: this is NOT selective
+door closure — the ENTIRE fact expression dissolves (g0, g+12,
+the functional site read 0.965 -> 0.012, the brake -0.373 ->
++0.001, the row-0 sink 0.101 -> 0.002) while CE stays healthy
+(1.61-1.69). THE DWELL-PHASE MEMORY IS NOT YET INCORRIGIBLE:
+plain gradient flow washes it out in <50 steps — where e125a's
+300-step endpoint site-memory survived everything. CONSOLIDATION
+= GRADIENT-RESISTANCE ACQUISITION (the s32->s300 axis), and the
+e151 'conversion' re-reads as: F1 washing out (as any
+unconsolidated memory does under continued training) WHILE the
+re-taught fact builds its graft. The 'phase switch' was
+substantially FORGETTING + NEW LEARNING. THE MISSING CONTROL
+(e176, queued): freeze the FULLY-CONSOLIDATED ROOT on plain
+corpus — if the root's fact survives, consolidation really is
+resistance-acquisition (the CLS story, licensed); if it too
+dissolves, even 'consolidated' is use-it-or-lose-it and the
+edifice reframes again. Honesty: single seed/trajectory; the
+collapse margin (128x) dwarfs the known scatter; one
+distribution tested (the anchor+random stream); s32 starting
+point is one point on one trajectory.
+
+---
+
 ## E154 — two facts, one door: TEXTURE [noun OVERWRITE-NOT-SHARE struck per R49 — anchor-confounded]; F1 annihilated (not door-closed) under a protocol whose anchors contradict it (2026-09-28 ~14:00Z) — DONE
 
 WHAT WE DID: 300-step locked install of a NONCE fact (MIRABEL,

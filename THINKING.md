@@ -575,6 +575,40 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T101 — E161: disuse, and the reframing it forces — consolidation as gradient-resistance acquisition (2026-09-28 ~14:45Z)
+
+The fork resolves DISUSE cleanly, and the honest consequence is
+the day's largest reframing since the tautology: THE CONVERSION
+WAS SUBSTANTIALLY FORGETTING. The dwell-phase memory washes out
+under plain corpus in <50 steps — all geometries, the site, the
+brake, the sink together — while the organism stays healthy.
+There was no switch thrown by teaching; there was an
+UNCONSOLIDATED memory being washed by ordinary optimization
+pressure while a new one was trained in. What remains genuinely
+switch-like: e147's cliff (variance builds geometry-general
+access that locked training does not) and e125a's endpoint
+incorrigibility. The unified honest story: memories lie on a
+GRADIENT-RESISTANCE axis — fresh installs and dwell-phase
+memories wash out under any continued training; deep
+site-stores (e125a's endpoint) and (pending e176) consolidated
+memories resist. THE DECISIVE CONTROL (e176): freeze the
+FULLY-CONSOLIDATED ROOT. SURVIVES => consolidation IS
+resistance-acquisition (CLS licensed, the paper's claim 2
+rewrites to the resistance axis); DISSOLVES => even
+'consolidated' is use-it-or-lose-it (the anchor half of every
+past fine-tune was quietly maintaining the fact — every
+'experiment' was also a rehearsal).
+
+FOR THE PAPER: claim 2's phase language converts to the
+resistance axis (phases -> degrees of washout-resistance; the
+cliff survives as the ACCESS-building fact; e151 re-reads as
+washout-plus-rebuilding). The abstract's "bidirectionally
+switchable" dies its final death here — the closing direction
+was forgetting. THE SAVOR: every memory the lab ever trained
+was being secretly rehearsed by the anchor banks in every
+subsequent fine-tune — the lab's own protocol was the memory's
+life-support, and e161 is the first time anyone turned it off.
+
 ## T100 — [R49: the headline noun OVERWRITE-NOT-SHARE STRUCK — it asserts the capacity mechanism the run's own text says it cannot separate (the anchor-contradiction confound); the verdict TEXTURE was correct-by-registration; the F1-side rider readings are floor-ratio artifacts (base 0.0017, leak ~5e-4) — only the F2-side riders stand (N2 spares F2; F2 diffuse)] E154: F1 annihilated under an anchor-confounded protocol (2026-09-28 ~14:00Z)
 
 The two-facts cell returned the strongest possible outcome with
