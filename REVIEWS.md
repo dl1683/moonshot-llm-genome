@@ -67,6 +67,38 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 42 — the graduation-and-verification window (2026-09-28T02:50Z; covering 00:10–02:50Z)
+
+ANGLES, all real dispatches: the thinking-lane doctrine produced
+its longest earned-chains yet. RESULTS: e109 (consolidation, T064
+corrected to TRAINING-MASS delta-rule / partial address-level);
+e110 (THE SHARE CONSTANT r*k~54, T066); e111 (k*=7 self-signature
++ EXCLUSION reading); e112 (NOT FORGEABLE — holographic self,
+T062); e113 (BODY-STORED — developmental sequence, T065); e114
+(brake signatures all NULL — coordinate-local fourth story, T067);
+e098 (dual mandate: structure 6/6, share-form n=3 value drift,
+T068); e116 (graduation denied 3/6; row-0 duality, T069 +
+replication-confirmed); e117 (maturity DIRECTION-YES POINT-NO,
+trend+fingerprint, T070 corrected); e115 (coordinate-local SAFE —
+brake sign flips, address = dimmer switch, T071). Wonder cards
+W005-W007 (the mirror; why-54 derivation program). Paper folds:
+anchor-spec paragraph, refs 40-43, share-law footnote.
+
+IN FLIGHT: e118 (standardization control — the T063 rogue-dimension
+rebuttal).
+DECISIONS: (1) the maturity axis is closed (direction-yes point-no
+— no more constant-chasing on the current axis); (2) the paper
+claims its within-net share-law constancy only; (3) e083 (cycle-3)
+is the last standing registered prediction — dispatch only when
+thinking demands; (4) DAY_FIVE_REPORT takes the T069-T071 addendum
+at the next natural fold.
+
+Integrity: commits pushed through d93d3c4; both heartbeat-folds
+this window caught and corrected dispatcher overclaims (T064, T070)
+— the honesty reflex now catches in both directions.
+
+---
+
 ## Review 41 — the thinking-lane session (2026-09-27T~00:10Z; covering 22:25–00:10Z)
 
 THE DOCTRINE SHIFT (user-directed, twice refined): thinking is
