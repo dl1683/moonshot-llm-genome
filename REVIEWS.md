@@ -67,6 +67,58 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 50 — the extinction confound (2026-09-28T16:10Z; covering 14:35–16:10Z; e174/e177/e175/e176N running through it)
+
+### AUDITOR — ISSUES FOUND; numbers otherwise verified clean
+(1) HIGH: the flagship "two steps" lives only in runs/e176_smoke, propagated
+un-attributed through five ledger locations (fixed — attributed everywhere);
+(2) HIGH: E178's "flat vs banded layer signature" conflated raw Fro norms
+(near-identical between wash and conversion) with functional graded restore —
+the real contrast is functional (0.0175 vs 0.295; fixed); (3) e175's stamp led
+its dispatch (ledger-lag class); (4) claim-2's FINAL had dropped the seed
+markers (restored via the critic's bounded form); (5) E178 lacked its honesty
+paragraph; (6) 128x->74x and the 66.8x provenance fixed; (7) the marker sweep
+otherwise CLEAN; all six metrics' dates true UTC.
+
+### IDEATOR — the endgame plan
+Fig-1 designed cell-by-cell ("the life and death of a memory": wash / half-fact
+/ two-signatures / capacity+rehearsal / knife / located-rewrite + the
+lifecycle DAG). e175 expanded to THE SAVINGS TRIPLE (Ebbinghaus; the
+negative-savings branch = the scar interfering) — dispatched. e179 (rehearsal-
+frequency law) + e180 (wash-rate law — the lr confound discharge) registered.
+e181/e182 (admission curve / THE GPT-2 WASH) gated on e177. Staleness: e171
+dead-as-designed; e155R owes a savings control; e169 upgraded to 3
+trajectories. LIVE SIGNAL: e174's rehearsal arm holding F1 at 0.994 while F2
+installs.
+
+### CRITIC — CRITICAL finding accepted in full
+1. THE WASH WAS EXTINCTION, NOT DISUSE: the freeze stream's anchor bank used
+   the install's OWN name-deleted windows (16/32 per batch at the teaching
+   junction) — the same unlearning-by-contradiction channel e170 removed for
+   the install side; nobody removed it for the wash side. e176N DISPATCHED
+   (neutral anchors + the lr rider + restore-into-+50) BEFORE e177's fold.
+2. "Two steps at healthy CE" splices clocks: CE was 2.000 AT step 2 (a
+   concussion); the healthy numbers are post-recovery.
+3. T106's "the brake survives" corrected to CO-CARRIED by the restored class;
+   the half-fact bounded (site-span 93% = the gain-attenuation candidate).
+4. W019 barred (W018's exact bar) + its gate violation noted (written before
+   its T-card); the unconditional list had REGROWN on n=1 — withdrawn.
+5. The symmetric over-bound: USE-IT-OR-LOSE-IT asserts the mechanism the run
+   cannot isolate — bounded to the interim honest form.
+6. THE TITLE VERDICT: activity-dependence is the discussion's lead finding,
+   NOT the title claim — the title belongs to the structure that survived
+   replication (the compass and the cliff).
+7. The honest interim headline: "no memory state tested retains expression
+   under the exact contexts that taught it, shown once, without the name."
+
+### Decisions
+1. e176N is the gate on e177's fold (and on the W019/e182 branches). 2. All
+repairs applied before this entry. 3. The paper-layer sweep now includes the
+closing sentences and the flagship numbers' provenance (smoke vs main).
+4. Fleet: e174 + e177 + e175 + e176N.
+
+---
+
 ## Review 49 — the tautology at 183 (2026-09-28T14:35Z; covering 13:15–14:35Z; e152R/e161/e170/e173 running through it)
 
 ### AUDITOR — ISSUES FOUND; all numbers verified clean, defects = propagation
