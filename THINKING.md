@@ -575,6 +575,46 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T092 — SYNTHESIS: the four-layer model of a consolidated memory (2026-09-28 ~10:50Z; the day's circuit story, complete enough to draw)
+
+T090 + T091 + T086 + T085 compose into a layered anatomy — four
+layers, each discovered by its own intervention class:
+
+LAYER 1 — CONTENT (body organs): the fact's substance lives in
+MLPs and general machinery in every phase (e133; additivity
+fails — a population). Intervention class: nothing removes it
+cleanly; it is substrate.
+
+LAYER 2 — READOUT (the head circuit): a small complementary set
+(N2-class {L1H0,L0H0} + L0H3; one suppressor + route suppliers)
+carries access — killable by head surgery at flat CE, and the
+knife is TYPE-SELECTIVE (spares site-stored facts; e160).
+Intervention class: surgical removal.
+
+LAYER 3 — PHASE (the stream state): a distributed MLP-heavy
+order parameter above the circuit — switched only by training
+(variance opens the geometry door at ANY width; zero-variance
+re-teaching closes it); transplant-rigid when open (e147/e151/
+e153). Intervention class: re-training only; surgery cannot
+create access (T037's write-once core).
+
+LAYER 4 — DEPENDENCE (the sink): row 0's NORM as the organism-
+critical coordinate — corruption poisons every read (threshold
+(0.07,0.15)); no information route exists (the mask spares;
+e150) [e159 decides the coupled-vs-organism bound]. Intervention
+class: norm-poisoning — effective and indiscriminate.
+
+The paper's model figure: four stacked layers with the
+intervention arrows that touch each (ablation, head surgery,
+re-training, poisoning) and the two phases as horizontal states
+of layers 2-3. What each queued cell fills: e158 = whether
+layer-3 switching keys on variance per se; e159 = whether layer
+4 is memory-coupled or organism-shared; e154 = whether layer 3
+is one global state or per-fact; e157 = whether the layers
+replicate across families. The BRAKE lives between layers 2-3
+(the old address's negative posterior — a phase-state; e149
+prices its location).
+
 ## T091 — E153: doors open by training and resist surgery — the phase is a distributed, MLP-heavy state with a partial head signature (2026-09-28 ~11:05Z)
 
 The reading map's PHASE-DISTRIBUTED branch fired in substance
