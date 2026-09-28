@@ -675,6 +675,21 @@ rewrites to the resistance axis); DISSOLVES => even
 past fine-tune was quietly maintaining the fact — every
 'experiment' was also a rehearsal).
 
+E176 READING MAP (registered ~14:50Z, before its data — with
+the T104 connection): if the root DISSOLVES under plain corpus,
+the cheap rider that must run is the e173 INSTRIMENT in reverse
+— restore the root's MLP+LN class into the washed net: if THAT
+rescues the fact, washout and closure are confirmed as ONE
+mechanism (the located MLP+LN rewrite) operating in both
+directions, and "restoration-by-class-surgery" gains its second
+demonstration. If the root SURVIVES, the resistance axis is
+real and the follow-up is e177 (wash the site-endpoint) plus
+the resistance matrix's completion. Either way, e176's fold
+must also report the 129-band content census: does the
+consolidated fact's ADDRESS-store decay before or with its
+access? (Decay-before would mean the sink-coupled access
+outlives its own graft — a dissociation worth having.)
+
 DERIVATION (the resistance matrix — the frame's completion
 table, ~14:40Z): two resistance axes, two memory types, half
 the cells known. KNIFE axis: sink-coupled = KILLABLE (e160,
