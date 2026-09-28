@@ -67,6 +67,45 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 52 — the sparse grid (2026-09-28T18:45Z; covering 17:30–18:45Z; e157 running through it)
+
+### AUDITOR — PASS WITH DEFECTS (all numbers clean)
+The cross-product notation overstated the grid (~18 implied vs 6-8 run) — corrected to the
+honest sparse-union form; the ANY-SURVIVOR stat relabeled (per-seed minimum, not max); the
+R11->R51 label typos; the e157 ID collision absorbed; STATE's stale fleet line (which invited
+double-dispatch). Everything else verified clean: the filter, the trajectories, the device
+events, true-UTC dates, the epitaph's git-sequenced numbers.
+
+### CRITIC — the verdict: PASS WITH DEFECTS at the finding's bars
+1. (HIGH) THE GRID: six cells + one n=3 column; "all types" rides an inference no run
+   discharged (neutral-stream dwell/site owed — e185b queued); the seeds are WASH draws on
+   ONE organism; "2 lrs" only on extinction. Fix applied: the coverage matrix inline.
+2. (MED) THE PUMP DEMOTED: +1.3 SEM = unchanged; the clock is optimizer-shaped (a basin-width
+   statement, not a memory constant); the mechanism noun ("corpus gradient flow")
+   undiscriminated from generic two-step fragility — e185 (the noise-gradient wash) queued
+   as the missing discriminator.
+3. (LOW/MED) THE TAIL LOTTERY device-confounded at its comparison points — e185c (CPU-only
+   re-run) queued.
+4. (LOW/MED) THE EPITAPH's second clause was FALSE by the session's own replications
+   (brake 3/3, conversion 3/3, clock 3/3, dissolution n=3) — corrected: the session
+   replicated brakes, conversions, clocks, and deaths; the one thing it never replicated
+   was a memory SURVIVING.
+5. THE REMAINING PROGRAM's true structure: e157 (lineage) and e182 (GPT-2) are the two
+   INVERTERS; e180 a qualifier; e179/e163 extensions; e185 the mechanism's discriminator.
+6. THE SESSION'S SHAPE: the machinery polices NARRATION, never SAMPLING — five consecutive
+   confirmatory bound-discharges ran while the informative cells queued; no review flagged
+   the cross-product borrow or the missing noise control. The confound lives one layer
+   above the data, where no current rule reaches. The momentum is real but has not
+   fabricated anything: it sparse-gridified a dense-sounding clause.
+VERDICT: the label reads "fully evidenced within the registered grid," the mechanism
+demoted to candidate, the discriminator named.
+
+### Decisions
+1. e185/e185b/e185c queued as the pre-quotation debts. 2. The epitaph corrected. 3. The
+sampling-structure audit joins the reviewer template (below the noun audit). 4. Fleet: e157.
+
+---
+
 ## Review 51 — the mint-time bar (2026-09-28T17:30Z; covering 16:10–17:30Z; e183 running through it)
 
 ### AUDITOR — PASS WITH DEFECTS (numbers all clean; hygiene repaired)
