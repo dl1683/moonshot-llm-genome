@@ -185,4 +185,4 @@ lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor |
 | e115 | graded field ablation (M3 resurrection check) | READY (CPU) | give S3 dynamic range before the coordinate-local story is safe |
 
 | e116 | re-barred census | DONE (T069: 3/6 — graduation denied; row-0 duality exposed; final form: structure 6/6, concentration family-dependent) |
-| e117 | maturity curve of the share constant | READY (GPU, one 3133-step seed) | exposure-matched replication — split seed vs maturity for the constant's drift |
+| e117 | maturity point | DONE (T070: BETWEEN — constant is a per-net idiosyncrasy, 31/42/54/77 non-monotone in steps and CE; the FORM is the law; maturity question closed negative) |

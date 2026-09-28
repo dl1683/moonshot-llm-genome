@@ -514,6 +514,26 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T070 — E117: the share constant is a per-net idiosyncrasy — the law is the FORM, n=4 (2026-09-28 ~06:45Z)
+
+**BETWEEN/MIXED, and the texture is the answer: the constant is a
+DISTRIBUTION.** The exposure-matched fresh seed produced 77.4 —
+above the maturity band and every prior value. Across four nets:
+31, 42, 54, 77 (2.5x range), non-monotone in training steps AND
+in val-CE. **The within-net constancy (r*k flat across k) remains
+the law at n=4; the across-net VALUE is a high-variance per-net
+parameter** — like a fingerprint, not a universal. W007's
+derivation program is HONESTLY DOWNGRADED: the LN-share mechanism
+may still govern the within-net boundary, but no cross-net
+predictor (steps, CE) has survived n=4. The mature statement: each
+net has its own share constant; the mechanism that sets the VALUE
+is unidentified. (The e110 "54" loses its headline status — it is
+e053c's value, the first sample of a wide distribution.) If a
+cross-net predictor is ever wanted, the candidates worth one more
+probe are stream-norm growth or the anchor's own attention share —
+but no further probing on the current axis; the maturity question
+closes as ANSWERED-NEGATIVE.
+
 ## T069 — E116: graduation denied — the address is family-graded, not universal-concentrated (2026-09-28 ~06:00Z)
 
 **STRUCTURE-STRONG, CONCENTRATION-MIXED at 3/6.** The re-bar did

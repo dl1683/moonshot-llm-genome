@@ -84,6 +84,20 @@ not the store.
 
 ---
 
+## E117 — maturity discriminator: BETWEEN — the constant is a DISTRIBUTION, not a maturity point (2026-09-28) — DONE
+
+WHAT WE DID: seed 4309 at exactly e053c's 3133-step recipe (base
+val-CE 1.5378 — between the siblings' 1.63-1.65 and e053c's
+1.5227); install + the e110 mini-grid, 12/12 identity gates.
+
+WHAT WE SAW (T070): k=128 product 77.4 — ABOVE the maturity band
+[40.5, 67.5]; k=64 off-grid-high. Neither bar fires. Plotting the
+four nets: steps 2000→31/42, 3133→54 (e053c) AND 77 (s4309) —
+the constant is non-monotone in BOTH steps and val-CE. W007's
+clean maturity prediction (matched exposure ⇒ ~54) FAILS.
+
+---
+
 ## E116 — re-barred census: STRUCTURE-STRONG, CONCENTRATION-MIXED — graduation denied, stays descriptive (2026-09-28) — DONE
 
 WHAT WE DID: the re-barred statistic (content-tested rows, top
