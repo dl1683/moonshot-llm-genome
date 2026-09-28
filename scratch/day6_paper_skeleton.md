@@ -27,8 +27,8 @@ removable-to-irremovable movement (e150): no flat-CE fact-kill exists —
 masking all attention to position 0 spares the fact at CE +0.03 while
 sub-threshold row-0 norm poisons every read (threshold in (0.07, 0.15));
 consolidation moves the
-    memory's dependence into READ-coupledness with the sink (e159's double
-    dissociation: equal organism damage, only the read-coupled memory dies;
+    memory's dependence into coupling with the sink (e159's double
+    dissociation; READ- vs MASS-coupled fork pending e162: equal organism damage, only the read-coupled memory dies;
     the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
 RESOLVED by e160: the surgical surface EXISTS — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
@@ -46,7 +46,10 @@ story that inverts several intuitions.
 The lab's organisms are born with ONE memory organ: the omnipresent
 row (the attention-sink coordinate) carries every naturally-placed
 association from the first exposure (13/13 install checkpoints, five
-seeds of the fresh family at rel 1.000). The "addresses" an earlier
+seeds of the fresh family at rel 1.000) [PROVISIONAL per R47: sits on
+the trained-geometry dial T083 declared saturating; the licensing cell
+(e163: the same dial on arm_b, 7% row-0-share — reads ~1.0 => collapse
+to truism; 0.7-0.8 => stands) is queued]. The "addresses" an earlier
 arc of this lab dissected — positional keys with mass laws and family
 typing — are PROTOCOL-MADE GRAFTS: they form when a masked-replay
 protocol pins a fact's position, and do not form under natural

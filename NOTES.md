@@ -166,7 +166,8 @@ zero mode). Random-4 scatter: no kills at CE +0.07-0.13 — the
 kills are COORDINATE-SPECIFIC. SUPERADDITIVE: E2-mean 81.3% vs
 33.6% summed singles — complementary heads (one suppressor +
 route suppliers). THE DISSOCIATION (the paper figure): the same
-coordinates kill the INSTALL-PHASE fact too (67.3% @ +0.32 — a
+coordinates kill the INSTALL-PHASE fact too (N2-zero 66.9% @ +0.299;
+the 67.3% @ +0.32 cell is E2-mean — attribution fixed per R47) — a
 SHARED readout circuit, not a consolidation scar) while the
 SITE-STORED fact survives same-coordinate surgery (<= 10.6% @
 +0.25; only N4 reaches 30.8% at wreck-adjacent +0.89). HEAD
