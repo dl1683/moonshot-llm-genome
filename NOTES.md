@@ -74,7 +74,7 @@ WHAT WE SAW (T094): TRANSIENT-TWO-DOOR fires — the cliff runs
 between 8 and 16 steps (g-12: 0.990 -> 0.447), then DWELLS on a
 ~0.5 shelf through step 64 (checkpoints {8, 32, 64} hold BOTH
 doors: site clears e151's content bar — genuine, row-183-local,
-67x control, site read p_Z 0.962 — AND g-12 >= 0.5) before the
+66.8x bar-mean across dwell peaks (89x at s8; derivation per R47 audit), site read p_Z 0.962 — AND g-12 >= 0.5) before the
 final descent (300: 0.139). CLEAN failed (non-monotone bounce
 s16->s32; Spearman -0.60); DELAYED failed. TEXTURES: the A(129)
 brake OVERSHOOTS mid-conversion (-0.132 -> -0.466 @s128) before

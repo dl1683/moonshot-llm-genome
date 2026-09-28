@@ -787,7 +787,7 @@ cost x0.79 @ +0.70 — direction-scramble outcomes vary by draw;
 the +4.1% spare was ONE draw, and any perm-based claim carries
 this until multi-draw CIs exist.
 
-## T088 — E151: the cliff is PER-NET — memory type is a global phase of one substrate, and the transition runs BOTH WAYS (2026-09-28 ~10:10Z)
+## T088 — [AMENDED per R47: e152 found the conversion passes a ~50-step mixed state (T094) — the 'per-net' reading is itself pending e158 (variance-vs-placement) and e154 (global-vs-self, same-fact confound); 'at ANY site' below is untested beyond 183] E151: the cliff is PER-NET — memory type is a global phase of one substrate, and the transition runs BOTH WAYS (2026-09-28 ~10:10Z)
 
 The committed prediction failed honestly and the failure is the
 day's cleanest structural statement: ONE locked re-teach
