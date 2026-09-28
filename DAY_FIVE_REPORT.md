@@ -72,6 +72,23 @@ coordinates, sustains by directional fields, verifies by
 holographic self-checks — and can, with distributed experience,
 hand the first to the second.**
 
+## The true closing result (e113, the e109 follow-through)
+
+**BODY-STORED.** Zeroing ALL five of the consolidated fact's
+address rows (row 0 intact) costs almost nothing (0.89-0.93 at
+every geometry; held-30 generalizes) — and the e109 D0129 collapse
+was window-scaffold loss, not address loss. **The coordinate/
+field/hologram trichotomy is a developmental SEQUENCE: one-shot
+learning is coordinate-bound; distributed replay graduates facts
+into field-storage.** The address row even becomes mildly
+SUPPRESSIVE at its own coordinate — during consolidation the
+address stops being the fact's home and becomes its brake. CLS
+fully right, at every level tested. The five-day arc's sentence,
+final form: *the net addresses by coordinates, sustains by
+directional fields, verifies by holographic self-checks — and
+distributed experience moves memories from the first to the
+second, where the address becomes a brake rather than a home.*
+
 ## Open (ripening, not running)
 
 e109 (CLS consolidation — the one-row law vs fifty years of
