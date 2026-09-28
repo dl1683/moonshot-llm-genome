@@ -2510,7 +2510,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W019 — WONDER [R50: BARRED FROM PAPER TEXT — W018's exact bar applies: n=1, one stream (whose composition contradicted its own description), one seed; the card was ALSO written BEFORE its T-card (a gate violation noted); 'implemented' and 'architectural fact' withdrawn; the field-facing line cut until e176N + seeds] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
+## W019 — WONDER [R50 bar RATIFIED with T109's easing: n=1 + e183 owed (the seeds clause restored per R51 — the eased bar must not drop it); 'implemented'/'architectural fact' stay withdrawn; the field-facing line stays out of paper text until e183 + seeds] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
 
 The biology echo completes its long arc by INVERTING: the lab's
 nets do not implement the classic two-system story (fast
