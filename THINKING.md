@@ -594,7 +594,23 @@ repair): run the SAME matrix on the e111 HOME lineage's nets
 B43 under matched conventions, reading (a) strengthens and
 self-recognition joins the family-typed physics; if it fails
 both, the battery's conventions need recalibration and W015
-stays parked. W015 marked; e156 BLOCKED.
+stays parked. W015 marked; e156 BLOCKED. THREE TEXTURES from the final report
+(~10:55Z): (1) this lineage's anchor readout is GRADED BY CONTENT
+PLAUSIBILITY, not binary by generator identity — foreign and even
+ancestral V splice in at ~zero cost (gaps +0.018/+0.057, healthy)
+while plausible-but-wrong corpus V costs +0.766: the B43 line's
+'self-check' is a PLAUSIBILITY GATE. If e146b confirms the home
+lineage still gates by identity, the lab earns a lineage-level
+dissociation: some families verify IDENTITY, some verify
+PLAUSIBILITY. (2) The geometric occupancy separation survives
+EVERY intervention (3.0-5.5x across all cells, including the
+perm wreck at CE +2.05) — the SELF-INDEPENDENT pattern at the
+geometry level, unlicensed by the failed functional instrument.
+(3) PERM DRAW-DEPENDENCE CAVEAT (touches T081/W014): a second
+perm draw killed the fact (x0.000 @ CE +2.05) where e141's draw
+cost x0.79 @ +0.70 — direction-scramble outcomes vary by draw;
+the +4.1% spare was ONE draw, and any perm-based claim carries
+this until multi-draw CIs exist.
 
 ## T088 — E151: the cliff is PER-NET — memory type is a global phase of one substrate, and the transition runs BOTH WAYS (2026-09-28 ~10:10Z)
 
