@@ -575,6 +575,26 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T115 — E185b: the grid closes — no type survives; the honest cross at +100 (2026-09-28 ~20:15Z)
+
+The last grid gap returns the direction-confirming texture: no
+memory type survives the neutral stream — the site crosses at
++100 (its extinction run's checkpoint), the dwell at +1 (FASTER
+than its extinction run — the neutral stream kills the
+unconsolidated state on the first gradient step, the family
+pattern). THE PAPER'S FINAL GRID FORM: every memory state
+tested (sink-coupled x2 families, dwell, site-stored) dissolved
+under continued training on every stream composition run
+(extinction, neutral, filtered), at both lrs, all wash-seeds —
+with the honest-cross timing at +50-to-+100 (not a uniform
+two-step across types; the two-step clock is the ROOT's; the
+site type takes ~100, the dwell collapses on step 1). THE
+SITE'S 0.35@+50: 0.08 over the bar, single seed — a replicate
+is the one cheap cell that would tighten the cross to +50; not
+load-bearing (no direction that matters is at stake). THE
+SESSION'S GRID, CLOSED: the lead finding stands complete within
+its registered axes, the honest form intact.
+
 ## T114 — E185: no robustness basin — and the corpus's one gift is surgicality, not direction (2026-09-28 ~19:40Z)
 
 The discriminator killed the mechanism noun and bought

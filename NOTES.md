@@ -63,6 +63,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E185b — the neutral type cells: TEXTURE — no survivor on any type; the honest cross lands at +100 (not +50); the dwell collapses FASTER on neutral (2026-09-28 ~20:15Z) — DONE
+
+WHAT WE DID: e176N arm A verbatim on the site type (e151_twodoor)
+and the dwell peak (e152_steps32); gates bit-reproducible; the
+extinction priors loaded for the four-way overlay.
+
+WHAT WE SAW (T115): TEXTURE — BOTH-DISSOLVE fails by 0.08 (the
+site's +50 onset 0.3496 vs the 0.27 bar; it crosses at +100 —
+the SAME checkpoint as its extinction run); EITHER-SURVIVES
+never close (no type retains >= 0.5 past +50). NO MEMORY TYPE
+SURVIVES NEUTRAL STREAMS — "all types" is false in no direction
+that matters; the by-+50 form is not earned (the honest cross
+lands at +100). THE DWELL COLLAPSES FASTER ON NEUTRAL (first
+under bar at +1 vs its extinction run's +50 — the neutral
+stream kills the dwell peak on the first gradient step, joining
+the family-level first-step pattern). The site's fine texture:
+onset holds >= 0.5 through +4 then falls; CE transients are the
+family signature. Honesty: single seed (the site's 0.35@+50 is
+0.08 over — a replicate could close or widen it); the dwell
+peak is itself n=1 as an object; both nets lineage-1 (the site
+cell bounded until a second family runs it).
+
+---
+
 ## E185 — the noise-gradient wash: NOISE-KILLS — the mechanism noun DIES; the kill is generic optimizer fragility, not corpus-directed (2026-09-28 ~19:40Z) — DONE
 
 WHAT WE DID: two noise arms (iid labels; permuted targets) at
