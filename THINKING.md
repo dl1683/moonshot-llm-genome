@@ -760,6 +760,30 @@ training — same prediction as (1), same contradiction. (3)
 TWO-FACTOR LUCK: R's row-0 growth was a seed-promotion accident
 (W011's (c)) not requiring invariance at all.
 
+PRE-REGISTRATION FOR e143 (BEFORE its dispatch, ~07:58Z — the
+fork nobody has discriminated): PROXIMITY-VS-INVARIANCE. T079
+says routing forms when the positional key LOSES the credit
+competition (position varies across error windows). The
+alternative the taxonomy (T082) makes live: PROXIMITY — error
+parked NEXT TO the omnipresent row may piggyback its routing
+without any position diversity (every read of the fact at
+positions 5-13 co-occurs with maximal row-0 participation in the
+same attention window). e143's NEAR arm (fact locked at positions
+5-13, no diversity) vs FAR (locked at ~137) vs JITTER (known
+routed reference) adjudicates: COMPASS-CAUSAL fires if NEAR
+consolidates site-stored at 5-13 (site content-positive, row-0
+dependence at install baseline) — invariance is necessary for
+routing, T079 survives its strongest attack; PROXIMITY-PIGGYBACK
+fires if NEAR becomes row-0-routed (presence-dependence >= 2x
+install baseline) while FAR stays site-stored — proximity
+inherits the route and T079's invariance clause dies (W011's
+mechanism wins); UNIFORM if NEAR ~= FAR everywhere. Prediction
+committed: COMPASS-CAUSAL (the e139 dream-rider showed zero
+variance consolidates nothing; e120's fixed-183 splice stayed
+site-stored FAR from the sink — but NEAR was never run, and
+proximity is the one cell that could still rescue a weaker
+invariance law). Registered before data; no shopping after.
+
 DISCRIMINATING OBSERVATION (already queued as e140, eval-only on
 saved nets — no new compute needed): row-0 content strength
 across twin-start / L@150 / R@150 / R@300. CREDIT-ASSIGNMENT
