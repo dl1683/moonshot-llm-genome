@@ -575,6 +575,36 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T099 — E166: zero of the closure — the third great asymmetry, and the fork narrows honestly (2026-09-28 ~13:50Z)
+
+The inverse event returned the cleanest zero the session has
+produced: deleting the graft rows kills the graft and moves the
+geometry door by +0.0000 — not small, ZERO. Whatever closes the
+door, it is not the wpe graft, not actively, not even a little.
+Combined with the corrected T097 (home graft + open door) and
+the head ablations pushing the door only down: THE CLOSURE IS
+SOMEWHERE ELSE — in the 66.5% MLP/LN delta the knife cannot
+reach, or in disuse-decay of the ±12 pathway. The fork:
+REWRITE (the conversion rewrote the readout's stream state) vs
+DISUSE (the pathway decayed for lack of use) — e161's freeze
+cell separates them (does the door close under PLAIN CORPUS,
+no fact teaching at all?); a gradient re-teach-the-restore cell
+would test MLP/LN carriage directly.
+
+THE THIRD GREAT ASYMMETRY, stated: doors OPEN by training
+(variance), are KILLED by surgery (N2), and CANNOT BE REOPENED
+by surgery (graft removal = +0.0000; transplants nudge to 1/3
+bar at best). T037's write-once core now covers all three
+directions: no non-gradient write adds function, and no
+gradient-built access can be surgically restored once lost.
+FOR THE PAPER: claim 2 says "accompanies" (licensed); the
+asymmetry triplet joins split custody and the asymmetry of
+existence as the third exhibit of the unlearning section. FOR
+W018: the BURY fate is not surgically reversible via the tomb's
+rows — re-excavation, if possible at all, is a TRAINING
+operation (variance at the buried site); the four fates remain
+a phase diagram only if training can move between them.
+
 ## T098 — E164: access severed, substance intact — the four-layer model earns its figure, and the MLP is the organism-priced organ (2026-09-28 ~13:35Z)
 
 The R47 critic's circularity charge is answered: each layer is

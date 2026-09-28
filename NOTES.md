@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E166 — the inverse event: DOOR-STAYS-SHUT — the graft rows carry exactly ZERO of the closure; the third great asymmetry lands (2026-09-28 ~13:50Z) — DONE
+
+WHAT WE DID: 29 CE-priced cells — row restore (3 modes), head
+ablations (reader3/N2, both modes), joints, root ceiling +
+jitter specificity controls; the agent caught stale pass-1
+metrics itself and re-gated on the committed pass-2 (the
+FOLD-ON-NOTIFICATION lesson, applied prospectively by an agent).
+
+WHAT WE SAW (T099): DOOR-STAYS-SHUT — the clean graft deletion
+(wpe[183:189] := root) KILLED the graft (site onset 0.998 ->
+0.599) and moved the door by +0.0000 (g-12 0.1021, dCE -0.0000;
+zero/mean modes identical). THE GRAFT ROWS CARRY EXACTLY ZERO
+OF THE DOOR'S CLOSURE. Head ablations push the door DOWN
+(reader3-zero 0.0041; N2-zero 0.0554); joints == head singles
+(rows contribute nothing once heads ablated — clean
+sub-additivity). Controls: root ceiling behaves (the knife
+works there: N2-zero 0.0378); jitter specificity confirms
+no-restore where no graft formed. THE READING: the closure is
+NOT active competitive inhibition by the wpe graft — the third
+great asymmetry: doors open by training, are killed by surgery,
+and cannot be REOPENED by surgery (T037's write-once core
+extended to re-opening; T091 bounded on the removal side). THE
+HONEST FORK-NARROWING: the conversion's delta is 66.5% MLPs/LNs
+(e153) that this surgery cannot touch — STAYS-SHUT cannot
+separate 'destructively rewritten' from 'inhibition carried in
+the stream state'; the REWRITE-vs-DISUSE fork stays open for
+e161's freeze-cell, and a gradient re-teach-the-restore cell
+(discriminating MLP/LN carriage) is named. Single lineage/seed.
+
+---
+
 ## E164 — the post-kill census: SUBSTANCE-SURVIVES + MLP-WRECK-ONLY — the knife severed ACCESS not STORAGE; the four-layer model's circularity is broken (2026-09-28 ~13:35Z) — DONE
 
 WHAT WE DID: the N2-killed state rebuilt in-memory (bit-exact vs
