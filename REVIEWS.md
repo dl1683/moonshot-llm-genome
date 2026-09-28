@@ -67,6 +67,75 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 45 — the flat-CE ultimatum (2026-09-28T09:20Z; covering 07:40–09:20Z; e142 + e143 + e147 running through it)
+
+### AUDITOR — ISSUES FOUND (2 significant, 3 minor), ALL REPAIRED IN-BEAT
+40+ number traces verified across e133/e139/e140/e141. Significant: (1) the
+T082 addendum's pre-registration is NOT git-verifiable (first appearance
+08:31Z postdates the data commit 08:28Z) — downgraded in T083 to
+asserted-unproven (mitigant: it failed and was recorded); (2) e143 complete
+on disk but uncommitted (agent's completion notice never arrived) — committed
+this beat. Minor: '+6%' was actually +4.1% (fixed in all five spots); W013
+asserted the dead T079 clause (marker added); NOTES newest-first order broken
+by late folds (E091/E119 relocated). Positive: e143's proximity-vs-invariance
+pre-registration IS git-verified (cc9fc8d 07:58:34Z precedes all compute).
+
+### IDEATOR — 7 candidates; e147 (width ladder) dispatched with bars
+pre-registered in T084; route-vs-scar surgery (e149), dream-topology census
+with randomized harvest (e148 — the 130-char prompt confound), e146
+sharpened (4th outcome SELF-INDEPENDENT + dose columns + novel-geometry
+primary), e145 promoted (replication backbone), e136 redesigned (position x
+source 2x2). Second-paper structure registered: 4 claims + the ROAD->TYPE
+plate; missing for submission = replication seeds (e145), the width
+dose-response (e147), dream confound discharge (e148).
+
+### CRITIC — the sharpest attack of the day; accepted in full
+1. (HIGH) TAXONOMY CONFOUNDED: the routed-vs-site-stored discriminator
+   crosses net lineages AND trained-vs-novel status; no single net holds
+   both types (P-b unrun; splice-at-novel-geometry under D-r0 missing);
+   'two memory types' may be 'two training protocols' until e147/e150 land.
+2. (HIGH) THE FLAT-CE ULTIMATUM (the frame-breaking assumption): the lab
+   owns NO row-0-plane intervention that kills the fact without wrecking the
+   LM — every killing cell sits at CE +0.70 to +4.44. 'Routed through row-0
+   presence' and 'dies whenever the net dies' are observationally equivalent
+   except the perm spare, which is itself indistinguishable from 'the fact
+   never consults row-0's direction.' Cures named, cheap: perm@novel-geometry,
+   forced-off-sink mask, L0H3-class head ablation (the only flat-CE
+   fact-kill candidate, 0.46 drop at 0.21 CE). -> e150 DISPATCHED.
+3. (MED) T081's install-restore was a NO-OP BY NORM (0.7640 vs 0.7695, 0.7%
+   change — the probe had no power against the norm-key hypothesis); the
+   presence conclusion survives on the RIDERS (perm +4.1%, halfnorm, mean)
+   not the registered primary. Norm threshold lives in (0.066, 0.382)
+   unmeasured -> norm ladder in e150. T081 amended.
+4. (MED) W014's tenant framing has a never-consults null (the fact never
+   occupies position 0; scramble trivially spares an unconsulted direction)
+   -> fact-at-position-0 control in e150. W014 amended.
+5. (HIGH for the claim) DREAMS: the harvest note CONCEDES the artifact —
+   130-char prompts ending at host-name positions make name-first
+   continuations land at col-130 BY CONSTRUCTION. 'Visits its fact in its
+   own coordinates' unsupported; erosion number (paired base) stands. e148
+   must run before the claim travels. DAY_SIX already bounded.
+6. T075 GOALPOST NOTE (attack 7b, accepted): the retirement quietly
+   redefined 'consolidation' from deletion-survival (the original E120 bar,
+   which the splice arms still FAIL at their site: D-183 -54%/-31%) to
+   learns-and-generalizes. Stated as such in T075's marker now.
+7. R44 adjudication otherwise faithful; the g-12 cell became e141's
+   strongest result; the saturation-immunization risk (2a) is acknowledged
+   in T083's downgrade.
+
+### Decisions
+1. e150 — THE FLAT-CE ROUTE TEST — dispatched (CPU eval-only): perm@g-12 +
+   perm@g0; forced-off-sink attention mask; L0H3-class head ablation;
+   fact-at-position-0 scramble; norm ladder (0.07/0.15/0.25/0.35). It alone
+   decides whether 'routed' is a memory property or a wreck artifact.
+2. Ledger amendments applied BEFORE dispatch (gate held): T081 (no-op-by-
+   norm + riders), T082 (catastrophe-regime confound), W014 (never-consults
+   null), T075 (goalpost statement).
+3. NOTES ordering restored; e143 artifacts in version control.
+4. Fleet through this window: e142 (CPU) + e147 (GPU) + e150 (CPU).
+
+---
+
 ## Review 44 — the sink-role counterattack (2026-09-28T07:40Z; covering 06:10–07:40Z; e139 + e133 running throughout)
 
 ### AUDITOR — VERDICT: ISSUES FOUND (no fabrication; every headline number

@@ -61,63 +61,7 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## E091 — reverse-transplant: H-READOUT-GATE — the RMU net refuses even good states (2026-09-26) — DONE
 
-WHAT WE DID: bit-exact RMU/retain replicas (e065 recipe, all
-curves reproduced); the reverse sweep (no-removal donors → RMU net
-at net0 onset sites, d0-d6, shuffled controls) + two report-only
-cells.
-
-WHAT WE SAW (T052 close): reverse-rescue FAILS everywhere — every
-d<=5 site-mean ~45x under the 0.30 bar (max 0.0067) while
-retain-only sits at 0.345 on the same sites: the RMU net won't
-RECEIVE even good states. H-READOUT-GATE fires. RIDERS: (Y) RMU
-states → intact net rescue at d5 = 0.362 (half the self-level) —
-partial carriage SURVIVES in the RMU net's own d5 state; the
-closure is at reception, not state-erasure. (Fallback) the RMU
-net's own onset geometry DIED (0 host onsets in 22,400 chars) —
-the expression channel itself was killed by the loss.
-
-WHAT'S NEXT: T052 closes: the RMU loss seals the receiving circuit
-while the knowledge's d5 trace survives — obfuscation at the gate,
-not the store.
-
----
-
-## E119 — migration head-to-head: AMBIGUOUS (1 of 2), leaning DIFFERENT-STORES — jitter re-keys, erasure TIGHTENS the address (2026-09-28 ~07:20Z) — DONE
-
-WHAT WE DID: twin installs, same fact, matched final expression
-(R@150 0.5597 vs E@c1 0.5606, gap 0.0009; both dials the
-pre-registered freedom); full comparative battery; locked-replay
-free-rider arm; 7 phase nets saved runs/checkpoints/e119_*.pt.
-
-WHAT WE SAW (T078): verdict AMBIGUOUS as registered — one clean
-dissociation ((c) brake: R +0.210 [+0.153,+0.279] FEEDS vs E -0.267
-[-0.297,-0.240] SUPPRESSES, both CI-separated; L brakes -0.509
-like E), near-misses on the same side (D-all R 0.769 vs E 0.190 —
-E sits 0.01 under the 0.20 bar; held-30-under-D-all 0.663 vs
-0.071 at MATCHED g+0 (R44 audit correction — the first fold paired R's
-cross-geometry max 0.709@g-8 against E's g+0; R@g-8 vs E@g-8 is
-0.709 vs 0.021); novel geometry g-12 R 0.813 vs E 0.092; share E off-grid).
-Census: R grows 10 decision-band rows, E grows 2 (+ generic
-high-row drift 220-254 — overlapping e131's row-249 census find).
-PRE-REGISTRATIONS ALL FIRED (registered ~06:48Z before the
-battery): P1 R-beats-E on deletion survival (3/3 geometries);
-P2 E-scatters/R-concentrates (2 vs 10 band rows); P3 store-thins-
-while-expression-recovers (field-only residue 0.190->0.013->0.001
-monotone across cycles while cycle-ENDs go 0.347->0.425) — MORE
-ERASE CYCLES MADE THE FACT MORE ADDRESS-BOUND, NOT LESS, the
-opposite of T073's migration reading. e083's protocol transferred
-cleanly to the e048_repro line (no vacuous erases). Honesty: E@c1
-= one 300-step relearn vs R@150 mixed-position steps (matched
-expression, different training mass); L's brake shows the R/E
-brake difference is confounded with position-diversity, not
-erasure per se; E's dall cell is threshold-fragile (0.01 under
-bar); census growth-rule fires on generic anchor drift (the
-band-restricted view is informative); V-typing mild (~0.30-0.36),
-report-only.
-
----
 
 ## E143 — error-placement steering: COMPASS-CAUSAL — the committed prediction holds; invariance survives its observational death by intervention (2026-09-28 ~09:00Z) — DONE
 
@@ -300,6 +244,40 @@ shows the two kills unchanged).
 
 ---
 
+## E119 — migration head-to-head: AMBIGUOUS (1 of 2), leaning DIFFERENT-STORES — jitter re-keys, erasure TIGHTENS the address (2026-09-28 ~07:20Z) — DONE
+
+WHAT WE DID: twin installs, same fact, matched final expression
+(R@150 0.5597 vs E@c1 0.5606, gap 0.0009; both dials the
+pre-registered freedom); full comparative battery; locked-replay
+free-rider arm; 7 phase nets saved runs/checkpoints/e119_*.pt.
+
+WHAT WE SAW (T078): verdict AMBIGUOUS as registered — one clean
+dissociation ((c) brake: R +0.210 [+0.153,+0.279] FEEDS vs E -0.267
+[-0.297,-0.240] SUPPRESSES, both CI-separated; L brakes -0.509
+like E), near-misses on the same side (D-all R 0.769 vs E 0.190 —
+E sits 0.01 under the 0.20 bar; held-30-under-D-all 0.663 vs
+0.071 at MATCHED g+0 (R44 audit correction — the first fold paired R's
+cross-geometry max 0.709@g-8 against E's g+0; R@g-8 vs E@g-8 is
+0.709 vs 0.021); novel geometry g-12 R 0.813 vs E 0.092; share E off-grid).
+Census: R grows 10 decision-band rows, E grows 2 (+ generic
+high-row drift 220-254 — overlapping e131's row-249 census find).
+PRE-REGISTRATIONS ALL FIRED (registered ~06:48Z before the
+battery): P1 R-beats-E on deletion survival (3/3 geometries);
+P2 E-scatters/R-concentrates (2 vs 10 band rows); P3 store-thins-
+while-expression-recovers (field-only residue 0.190->0.013->0.001
+monotone across cycles while cycle-ENDs go 0.347->0.425) — MORE
+ERASE CYCLES MADE THE FACT MORE ADDRESS-BOUND, NOT LESS, the
+opposite of T073's migration reading. e083's protocol transferred
+cleanly to the e048_repro line (no vacuous erases). Honesty: E@c1
+= one 300-step relearn vs R@150 mixed-position steps (matched
+expression, different training mass); L's brake shows the R/E
+brake difference is confounded with position-diversity, not
+erasure per se; E's dall cell is threshold-fragile (0.01 under
+bar); census growth-rule fires on generic anchor drift (the
+band-restricted view is informative); V-typing mild (~0.30-0.36),
+report-only.
+
+---
 ## E131 — the re-keying census: RE-KEYED — the key is ROW 0, and the e120 splice arms never failed (2026-09-28 ~07:05Z) — DONE
 
 WHAT WE DID: R43 critic's discriminator, as dispatched. Nets
@@ -868,6 +846,28 @@ rescue-channel closure, not probe-generation gap) + the follow-ups.
 
 ---
 
+## E091 — reverse-transplant: H-READOUT-GATE — the RMU net refuses even good states (2026-09-26) — DONE
+
+WHAT WE DID: bit-exact RMU/retain replicas (e065 recipe, all
+curves reproduced); the reverse sweep (no-removal donors → RMU net
+at net0 onset sites, d0-d6, shuffled controls) + two report-only
+cells.
+
+WHAT WE SAW (T052 close): reverse-rescue FAILS everywhere — every
+d<=5 site-mean ~45x under the 0.30 bar (max 0.0067) while
+retain-only sits at 0.345 on the same sites: the RMU net won't
+RECEIVE even good states. H-READOUT-GATE fires. RIDERS: (Y) RMU
+states → intact net rescue at d5 = 0.362 (half the self-level) —
+partial carriage SURVIVES in the RMU net's own d5 state; the
+closure is at reception, not state-erasure. (Fallback) the RMU
+net's own onset geometry DIED (0 host onsets in 22,400 chars) —
+the expression channel itself was killed by the loss.
+
+WHAT'S NEXT: T052 closes: the RMU loss seals the receiving circuit
+while the knowledge's d5 trace survives — obfuscation at the gate,
+not the store.
+
+---
 ## E089 — mass-response curve: MASS-ACTION confirmed — the anchor's dose-response law is threshold-shaped (2026-09-26) — DONE
 
 WHAT WE DID: removal cost vs k (random subsets, 10 draws per k,

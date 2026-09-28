@@ -681,6 +681,23 @@ geometry, where the sink carries everything; it shows only where
 the memory must travel. What you measure WHERE matters more than
 what you measure.
 
+SECOND AMENDMENT (R45 critic — accepted, ~09:20Z): THE
+CATASTROPHE-REGIME CONFOUND. The lab owns NO row-0-plane
+intervention that kills the fact at flat CE — every killing cell
+sits at CE +0.70 to +4.44 (zero 1.40, mean 2.00, d_r0@g-12 1.36).
+'Routed through row-0 presence' and 'dies whenever the net dies'
+are observationally equivalent in every measured cell except the
+direction-perm spare — which is itself indistinguishable from
+'the fact never consults row-0's direction' (its onset never sits
+at position 0; no head is sink-adjacent >= 0.25). ALSO: the
+taxonomy's discriminator crosses lineages and trained-vs-novel
+status (no single net holds both types; P-b and splice-at-novel-
+geometry unrun) — 'two memory types' vs 'two training protocols'
+hangs on e147 + e150. The cures are dispatched as e150: perm at
+novel geometry, forced-off-sink, L0H3-class head ablation (the
+only flat-CE fact-kill candidate), fact-at-position-0, norm
+ladder. Until e150 lands, ROUTED carries this bound explicitly.
+
 STANDING: e143 (in flight) now carries the invariance question's
 last causal stand — NEAR vs FAR decides whether position-variance
 is necessary for routing by INTERVENTION rather than census. If
@@ -800,6 +817,16 @@ net's general machinery: the route's independence from the
 pivot's content is exactly what makes it geometry-general. Also
 noted: scrambling the sink-region content IMPROVES the read —
 the pivot's content is, if anything, competition for the route.
+
+PROBE-POWER AMENDMENT (R45 critic — accepted): the install-restore
+t-curve was a NO-OP BY NORM (consolidated 0.7640 vs install 0.7695
+— a 0.7% norm change; the probe had no power against norm-keying).
+The presence conclusion stands on the RIDERS — direction-perm
+(+4.1%, norm kept, direction destroyed), halfnorm (0.382
+survives), mean-replace (0.066 norm, kills) — not on the
+registered primary probe; the '3 corroborating votes' count
+included the no-op. The norm threshold lives somewhere in (0.066,
+0.382), unmeasured until e150's ladder.
 
 REMAINING OPEN: the route's anatomical finish (e133's L0H3 +
 value-channel population) has no e141 cell confirming it
@@ -1092,7 +1119,7 @@ loss not logged) — this is the arm-level proxy. The decisive
 version rides e131's regenerated arms: log per-context fact-span
 loss, rank-correlate with per-context consolidation.
 
-## T075 — [RETIRED, RESOLVED by e139/T082: the splice arms learned, stored (row-183 content ~1000x), and generalized (0.6-0.7) at their error site — retirement stands; what position diversity actually does (choose routed vs site-stored) belongs to T079] E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 05:52Z; header clock repaired per R44 audit)
+## T075 — [RETIRED, RESOLVED by e139/T082 — GOALPOST NOTE (R45): retirement REDEFINED consolidation from deletion-survival (E120's original bar, which the splice arms still FAIL at their site: D-183 -54%/-31%) to learns-and-generalizes; the redefinition is now stated, not silent. What position diversity does (choose routed vs site-stored) belongs to T079's revived form] E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 05:52Z; header clock repaired per R44 audit)
 
 **SIGNAL-IN-CONTEXTS INSUFFICIENT, decisively** — and the
 discrimination is airtight because arm (d) carries the same
@@ -1408,7 +1435,7 @@ language function straddling both — and the unlearning
 implication sharpens: you can evict a memory without touching
 the self, but never scramble directions without both.
 
-## W014 — WONDER: the memory layer is a semi-independent tenant — it dies to what the corpus ignores and ignores what the corpus dies to (2026-09-28 ~08:00Z)
+## W014 — WONDER: the memory layer is a semi-independent tenant [R45 caveat: the never-consults null is alive — the fact never occupies position 0, so direction-scramble trivially spares an unconsulted direction; the fact-at-position-0 control (e150) decides] (2026-09-28 ~08:00Z)
 
 E141's CE dissociation, savored properly: direction-scrambling
 row 0 costs the corpus +0.70 nats but SPARES the fact (+4%);
