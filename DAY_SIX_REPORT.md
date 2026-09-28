@@ -149,10 +149,12 @@ The net is born with one memory organ — the omnipresent row — and
 protocols decide whether to graft a second: error chooses where
 content lands, variance chooses whether it hardens into a graft
 or rides the organ's health, and consolidation is the movement
-from the removable into machinery whose CORRUPTION is
-organism-fatal — whether its readout is surgically attackable
-is the open frontier (the L0H3 head-ablation near-miss, 58.6%
-at CE +0.21, is one cell from deciding it). Postscript (e151): the
+from the removable into an architecture of split custody: the
+DEPENDENCE moved into organism-critical coordinates (the sink,
+whose corruption is fatal) while the READOUT consolidated into
+a small head-set that surgery CAN remove (e160: {L1H0,L0H0}
+kills the memory at CE +0.25 — and spares the site-stored fact
+under the same knife: the surgery is type-selective). Postscript (e151): the
 types are PHASES, not subsystems — one locked re-teach converted
 the sink-coupled memory to site-stored (g-12 0.916 -> 0.102) at
 improved CE, closing the geometry door globally [R46 critic: n=1 same-fact

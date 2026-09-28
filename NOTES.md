@@ -63,6 +63,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E160 — the head-set escalation: FLAT-CE-FACT-KILL — the surgical surface EXISTS, and it is TYPE-SELECTIVE (2026-09-28 ~10:50Z) — DONE
+
+WHAT WE DID: graded head-set escalation (singles through E4 +
+no-L0H3 sets N2-N4, zero and mean-replace, random-4 scatter,
+install + site-stored control columns); gates bit-exact incl.
+L0H3-zero reproducing e150's anchor exactly.
+
+WHAT WE SAW (T090): FLAT-CE-FACT-KILL fires. THE KILL IS N2
+{L1H0, L0H0} — WITHOUT the 'fact-specific' L0H3 — in BOTH modes
+at the lowest CE: 79.4%/70.7% g0 drop @ +0.245/+0.28 (NLL3
++0.26). L0H3 is not necessary (its singleton: 58.6% @ +0.21,
+zero mode). Random-4 scatter: no kills at CE +0.07-0.13 — the
+kills are COORDINATE-SPECIFIC. SUPERADDITIVE: E2-mean 81.3% vs
+33.6% summed singles — complementary heads (one suppressor +
+route suppliers). THE DISSOCIATION (the paper figure): the same
+coordinates kill the INSTALL-PHASE fact too (67.3% @ +0.32 — a
+SHARED readout circuit, not a consolidation scar) while the
+SITE-STORED fact survives same-coordinate surgery (<= 10.6% @
++0.25; only N4 reaches 30.8% at wreck-adjacent +0.89). HEAD
+SURGERY DISSOCIATES THE MEMORY TYPES. Honesty: strongly
+superadditive (no kill hidden behind sub-additivity); mean-mode
+flips L0H3 alone 12->59% — every claim names its mode, kills
+corroborated across modes; single lineage (e157 owes the
+replication); g-12 fragile under random sets too (the
+pre-registered primary is g0 where the random null is clean);
+CE and NLL3 agree in sign on every cell.
+
+---
+
 ## E146 — the dissociation matrix: INSTRUMENT-INVALID — the self/other battery does not transfer to this line (2026-09-28 ~10:25Z) — DONE (null)
 
 WHAT WE DID: the full intervention x function matrix (mask /

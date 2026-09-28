@@ -575,6 +575,46 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T090 — E160: the surgical surface exists — row-surgery cannot, head-surgery can, and the knife knows the type (2026-09-28 ~10:50Z)
+
+The R46 critic's coin landed on the paper's best figure, and
+the result composes the day better than the reading map's best
+branch:
+
+(1) THE COMPOSED CLAIM: consolidation moves DEPENDENCE into
+organism-critical coordinates (the sink, whose corruption is
+fatal — e150) while the READOUT consolidates into a small
+attackable head-set (e160: N2 kills at CE +0.25). Row surgery
+cannot remove the memory without organism death; head surgery
+can, at priced collateral. The removable-to-irremovable sentence
+completes: the memory moved from row-removable tissue into
+head-attackable circuitry behind an unremovable coordinate.
+
+(2) THE KNIFE KNOWS THE TYPE: the same N2 coordinates kill the
+install-phase fact (67%) but SPARE the site-stored fact (<=
+10.6%). Head surgery is TYPE-SELECTIVE — the two memory phases
+(and the install state) share a readout circuit that the
+site-stored memory does not use. This is the cleanest
+single-figure dissociation the taxonomy has: not deletion
+hierarchies, not geometry cells — one knife, two outcomes.
+
+(3) L0H3 DEMOTED, N2 PROMOTED: the 'fact-specific' head was the
+symptom, not the circuit — {L1H0, L0H0} (neither fact-specific
+by e133's table) carries the kill at lower cost. STRONG
+SUPERADDITIVITY (81% vs 34% summed): the circuit is COMPLEMENTARY
+— consistent with one suppressor + route suppliers — a
+two-component motif worth naming in the paper.
+
+(4) W014's ordering graduates: heads > route >> band is now a
+DEMONSTRATED capability with collateral prices (NLL3 +0.26), and
+e125's design collapses to pricing the N2-class surface on the
+phase battery. The bias-check (R46's checklist): this fold
+STRENGTHENS a claim — the flipped question is asked: the cell
+that would flip it is the site-stored circuit's OWN kill set
+(does a symmetric site-stored-killing head-set exist at flat
+CE? — queued as e125's first arm), and the lineage replication
+(e157).
+
 ## T089 — E146: the self-instrument does not travel — and that is data (2026-09-28 ~10:25Z)
 
 The dissociation matrix could not run: the e111-lineage self/
