@@ -41,3 +41,15 @@ Today produced a mechanistic story with unusual methodological strength:
 Blocked on: e139 (universality + generalization cells), e133 (route-vs-
 substrate), e140 (credit-assignment adjudication), R44 critic (attacks on
 row-0 content vs position-role). Skeleton after those land.
+
+## Addendum (2026-09-28 ~09:00Z, post-T085): P-A framing pass owed.
+
+The draft's numbers survive, but T085 (ROW-0-ALWAYS; address =
+protocol-made graft) reframes the LANGUAGE: 'the address faculty'
+(abstract, intro, 5.1-5.3) should become 'protocol-sculpted
+addressability' wherever it is stated as a net property rather
+than a protocol product — the experiments themselves (masked-
+replay installs) are unaffected, their interpretation's noun is
+not. One careful pass over abstract + intro + section 5 headers
+when the second-paper skeleton settles (both papers share the
+noun).

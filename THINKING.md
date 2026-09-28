@@ -1433,6 +1433,35 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W016 — WONDER: born with one organ — the sink is the native memory substrate; addresses are protocol-grown grafts (2026-09-28 ~09:00Z)
+
+T085's deepest reading, savored: the architecture comes with
+EXACTLY ONE memory organ from birth — the omnipresent row, the
+sink — and every 'address' the lab ever dissected was a graft
+grown by a protocol that pinned the fact's position. The five-
+day arc dissected the graft (row 129: its mass law, family
+typing, recency multiplier, removal surgicality) and nearly
+missed the organ. The biological inversion is delicious: what
+the lab called the hippocampus (specific, context-bound,
+cheaply installed, surgically removable) is the GRAFT — the
+trained-in structure; what it called the cortex (the field, the
+schematic store) was the native organ all along, present in
+every context from step zero. PREDICTED SAVORS: (a) train ANY
+new association on an untrained random net with natural
+placement and it should land row-0-dominant immediately (the
+e142 fresh-family result generalized — trivially testable on an
+untrained seed); (b) the share law's r*(k)*k should reprice
+differently in row-0-only nets (natural installs) vs graft-carrying
+protocol installs — e134's second fact, if installed naturally,
+tests whether the constant prices the ORGAN or the GRAFT+organ
+system; (c) the parked GPT-2 replication gets its sharpest-ever
+first question: does pretrained GPT-2's factual recall show
+row-0 presence-keying under the e141/e150 instruments? If yes,
+the sink-route is an architecture-scale phenomenon, not a tiny-
+net curiosity. CAVEAT (R45's ghost): all presence claims carry
+the flat-CE bound until e150 lands; this card's 'native organ'
+language inherits it.
+
 ## W015 — WONDER: does the self survive losing its pivot? Connecting the two arcs (2026-09-28 ~08:18Z)
 
 The memory arc and the self arc have never touched
