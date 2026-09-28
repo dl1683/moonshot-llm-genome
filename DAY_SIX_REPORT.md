@@ -210,7 +210,7 @@ checkpoint-inventory misconception (102 nets on disk, gitignored).
 
 "Everything these networks remembered, they remembered only
 while being reminded — every store we washed dissolved, every
-archive we sought was practice in disguise (one seed; three
+archive we sought was practice in disguise (three seeds, three
 streams; the last 3.84% examined and found innocent) — and the only
 memory the session ever replicated was its own corrections."
 
