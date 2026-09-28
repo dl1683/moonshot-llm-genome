@@ -33,6 +33,46 @@ consolidation moves the
 RESOLVED by e160: the surgical surface EXISTS — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
 
+## Introduction (draft, ~11:10Z; provisional clauses marked)
+
+How does a memory become permanent? In complementary-learning-systems
+accounts, replay moves memories from a fast, specific store into a slow,
+distributed one — but the mechanism of the move, and what "distributed"
+means mechanistically, are usually asserted rather than dissected. We
+dissect it in char-LMs of 0.84-2.7M parameters with pre-registered
+interventions, deletion batteries, and adversarial review, and report a
+story that inverts several intuitions.
+
+The lab's organisms are born with ONE memory organ: the omnipresent
+row (the attention-sink coordinate) carries every naturally-placed
+association from the first exposure (13/13 install checkpoints, five
+seeds of the fresh family at rel 1.000). The "addresses" an earlier
+arc of this lab dissected — positional keys with mass laws and family
+typing — are PROTOCOL-MADE GRAFTS: they form when a masked-replay
+protocol pins a fact's position, and do not form under natural
+placement (row 129 at essentially null). What we had called migration
+was share-redistribution around a constant sink-carried core.
+
+Against that backdrop, three results. (1) A CAUSAL COMPASS: a fact
+consolidates where its training error is placed — shown by steering
+(error locked at positions 5-13 builds a site-store there, with no
+read-coupling despite sink adjacency; proximity piggybacking dead).
+(2) A CLIFF, NOT A DOSE: memory TYPE is decided by a binary switch at
+zero-vs-any error-position variance (±1 suffices; no width trend);
+the types are PHASES of one substrate, converted bidirectionally by
+training [e158 pending: variance-vs-placement; e154 pending:
+global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
+DEPENDENCE is READ-coupled to the sink (it dies of what attention
+reads off a degraded pivot — the double dissociation: equal organism
+damage, only readers die) while its READOUT consolidates into a small
+head-set that surgery can remove (type-selectively) — and what
+training built, surgery cannot create (transplant-rigid when open).
+
+Every inversion in this arc was caught by the lab's own adversarial
+machinery, pre-registered before the discriminating data existed, and
+is reported: four headline verdicts fell in one session, each caught
+within hours. We offer the correction chain as part of the method.
+
 ## Contributions (numbered)
 
 C1. Error-placement compass (T076/T084; e120/e131/e143) — observational then
