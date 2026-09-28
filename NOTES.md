@@ -84,6 +84,40 @@ not the store.
 
 ---
 
+## E131 — the re-keying census: RE-KEYED — the key is ROW 0, and the e120 splice arms never failed (2026-09-28 ~07:05Z) — DONE
+
+WHAT WE DID: R43 critic's discriminator, as dispatched. Nets
+regenerated bit-exactly from gated roots (G_E120/G_E113 max diff
+0.0 vs stored tables; e082_b43_install + e048_repro loaded, e044
+scar line inspected and rejected); CPU-only, 1538s; phase nets
+saved runs/checkpoints/e131_*.pt. Four probes.
+
+WHAT WE SAW (T077): all three RE-KEYED conditions fire.
+(1) ROW-0 CONTENT TEST: post-consolidation strength 0.732 — ABOVE
+its install-phase 0.545, 380x the max control row (0.0019); the
+ONLY content-positive row in the census; the whole 121-137 band
+including 129 sits at ~0, and row-129 replacement RAISES p(Z)
+(the e115 brake, now with the new home identified). (2) BAND-
+MINUS-ROW-0: D-all reproduces e113 exactly (0.906); +row-0
+collapses expression to 0.024 (-97%); scaffold-matched D-all+ROW-1
+survives untouched (0.908). (3) CENSUS (weakest): worst OOB row
+249 merely matches row 129's own delta — conditions 1+2 carry the
+verdict. PROBE 1 (183-geometry read): both splice arms express
+the fact at address 183 — p(Z) 0.989 (self) / 0.988 (corpus),
+frac p>=0.5 = 1.000 over 840 name-char reads — vs band 0.015-0.035
+and base pre-ft 0.061/0.066. E120's SIGNAL-IN-CONTEXTS
+INSUFFICIENT was INSTRUMENT BLINDNESS: the arms consolidated
+exactly where their training error lived, at an address no battery
+read. T076's error-location wins outright. Honesty bounds: row-0
+collapse has a scaffold component (CE_R +1.40) but two independent
+controls bound it (mean-replacement arm kills identically; row-1
+control null); necessity != storage (row 0 may be the ROUTE, with
+content in body weights — e133's question); probe 1 is a
+training-geometry read (learning-at-183 proven, novel-context
+generalization at 183 untested -> e139).
+
+---
+
 ## E120 — fact in contexts: SIGNAL-IN-CONTEXTS INSUFFICIENT — position diversity is the operative ingredient (2026-09-28) — DONE
 
 WHAT WE DID: the signal x context decomposition — fact-spliced

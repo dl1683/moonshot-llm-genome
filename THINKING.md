@@ -514,6 +514,72 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T077 — E131: the fact never left the positional system — it re-keyed to ROW 0, and 'failed' consolidations were instrument blindness (2026-09-28 ~07:05Z)
+
+The R43 critic's most-damaging assumption was the right one, and
+the discriminator settled it in one run. Three inversions, in
+order of severity:
+
+**(1) THE MIGRATION'S DESTINATION IS ROW 0, NOT 'THE BODY'.**
+Post-consolidation, row 0 is the only content-positive wpe row
+(strength 0.732 — ABOVE its install-phase 0.545: consolidation
+STRENGTHENED the row-0 key), the band is content-null, and D-all+
+row-0 collapses expression -97% while the scaffold-matched row-1
+control survives. e113's BODY-STORED verdict is DEAD on this line:
+what survived D-all was a row-0-keyed fact. W005's terminal
+'coordinate-independent' stage inverts — the fact never became
+coordinate-free; it changed coordinates (129 -> 0) and AMPLIFIED
+there. The e115 brake completes the story with a home: the OLD
+address (129) suppresses, the NEW key (0) carries — the brake is
+the moved-out tenant's old lease. HONESTY: row 0's necessity is
+proven, its sufficiency is not — the agent's bound stands (row 0
+may be the readout GATE with content in body weights; the census's
+diffuse OOB texture is consistent with a distributed content
+store behind a row-0 door). e133's anatomy census and e139's
+universality probe now arbitrate route-vs-substrate.
+
+**(2) E120'S VERDICT WAS INSTRUMENT BLINDNESS — T075 RETIRED.**
+Both splice arms express the fact at 0.989/0.988 at the
+183-geometry — they consolidated exactly where their error lived,
+at full strength, in an address the battery never read. The
+'signal-in-contexts insufficiency' never happened; the position-
+diversity ingredient RETIRES with it. What ACTUALLY differed
+between e120's arms: WHERE each arm's error sat (a/b/c: full-
+column CE at 183; d: name-only mask in the band) — a contrast the
+critic flagged and the verdict ignored. T076's error-location is
+now the lab's consolidation law candidate: THE FACT CONSOLIDATES
+WHERE ITS ERROR IS PLACED. Its own open edges: (i) arm c (verbatim
+dreams, low error everywhere) still consolidated nothing in the
+band — but nobody read arm c at its dream positions; its verdict
+is ALSO unproven blindness until read (e139 rider); (ii) road E
+consolidates with no fact-error at all — error-OR-necessity
+still live for the erase road; e119's battery adjudicates.
+
+**(3) W010 SEED-AND-AMPLIFY IS KILLED by probe 1.** A seedless
+site 54 rows from the band climbed to 0.99 expression — error
+alone suffices; there was nothing to amplify at 183 and nothing
+wanders once read at its own geometry. The card dies cleanly and
+gratefully (it took one run). W009 POPULATION FRAME is BOUNDED,
+not dead: the band's texture is genuinely overlapping/diffuse
+(census), but row 0 is a discrete hub — the population language
+survives for the band, dies for the key. The lab's nouns after
+e131: a row-0 KEY, a brake at the old address, a diffuse content
+population behind the key, and error-placement as the
+consolidation compass.
+
+STANDING PRE-REGISTRATIONS: W010's P1/P2/P3 vs e119 are MOOT as
+written (they assumed R-vs-E differences around a field concept
+that just collapsed; P2's census comparison survives as texture).
+Adjudicate honestly when e119 lands: the interesting question it
+now carries is whether the ERASE road also ends row-0-keyed (if
+yes: row 0 is the universal attractor of consolidation; if no:
+the roads genuinely differ). NEXT DISCRIMINATOR (e139, dispatched
+this beat): row-0 UNIVERSALITY — test the 183-consolidated splice
+arms' dependence on row 0. Row-0-keyed too => row 0 is the
+universal readout key (and e120's arms 'failed' only the battery,
+not biology). Site-locked at 183 => re-keying to 0 is a property
+of the JITTER road alone, and the roads truly diverge.
+
 ## T076 — the critic's error-location theory taken straight: consolidation follows the error — and road E is its stress test (2026-09-28 ~06:12Z)
 
 The R43 critic meant ERROR-LOCATION as an attack on T075; taken
@@ -892,6 +958,13 @@ E's regrowth rate should track residual overlap mass after erase
 anyway, seed-and-amplify dies and pure error-location stands; if
 (b) still wanders, the seed must be BAND-MEMBERSHIP, not
 expression-anywhere — a sharper noun than either card has.
+
+KILLED BY E131 PROBE 1 (~07:05Z): the splice arms climbed to
+0.989/0.988 at seedless row 183 — error alone suffices; the
+trajectory 'wandering' was the band-geometry readout of a fact
+that lived at 183. Card closed. (P1/P2/P3 below were registered
+in good faith against the then-current frame; they adjudicate as
+written when e119 lands, P2 alone likely still informative.)
 
 REGISTERED BEFORE E119'S REPORT (2026-09-28 ~06:48Z — the battery
 is mid-rerun; only the calibration numbers are known: R@150 pz
