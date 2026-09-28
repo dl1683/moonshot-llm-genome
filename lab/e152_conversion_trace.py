@@ -678,7 +678,16 @@ def main():
     if not _USE_GPU and not SMOKE:
         deviations.append("GPU parked (gpu_ok() failed at startup or no CUDA) "
                           "— the re-teach ran CPU-side under the 1500 s cap; "
-                          "reported, adjudication unchanged.")
+                          "reported, adjudication unchanged. This run's cause: "
+                          "a user-space graphics process held the GPU at "
+                          "86-87C (above the lab's 80C launch ceiling); "
+                          "thermal guard honored, no lab process touched. "
+                          "Trajectory fidelity: the E152 smoke's CPU in-loop "
+                          "traj matched e151's CUDA smoke traj to 3-4 "
+                          "decimals (s2 p_z 0.0579/0.058, s4 0.6749/0.675; "
+                          "CE 2.0962/2.096 -> 1.9205/1.920), so the CPU "
+                          "float path is equivalent for this workload; the "
+                          "reproduction block prices the residual.")
 
     # ---------------- protocol rebuild (e143/e151 verbatim)
     corpus = CharCorpus(E43.REPO / "data" / "input.txt", seed=1337)
@@ -951,15 +960,19 @@ def main():
     # checkpoints; cooldown around it — e151's envelope)
     # =====================================================================
     log("=" * 78)
-    if not SMOKE:
+    if not SMOKE and _USE_GPU:
         log(f"[thermal] cooldown {COOLDOWN_S:.0f}s before the ONE training")
         cooldown(COOLDOWN_S)
+    elif not SMOKE:
+        log("[thermal] CPU-fallback run: GPU cooldown skipped (no GPU launch "
+            "to space; the hot GPU is a user-space graphics process, "
+            "untouched)")
     log(f"RE-TEACH: {FT_STEPS}-step locked replay of ZEPHYRA at rows 183..189 "
         f"(seed {RETEACH_SEED}, device {DEV}), checkpoints at {CKPT_STEPS}")
     reteach = finetune_trace("reteach183_trace", net0, pool_x, pool_mask,
                              anchor, train_ids, r_eval_xy, f_eval_ids, zid,
                              RETEACH_SEED)
-    if not SMOKE:
+    if not SMOKE and _USE_GPU:
         log(f"[thermal] cooldown {COOLDOWN_S:.0f}s after the ONE training")
         cooldown(COOLDOWN_S)
     for s in sorted(reteach["sds"]):
