@@ -575,7 +575,7 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T110 — E175: no savings at the threshold — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
+## T110 — [R11 BOUNDS: the null is GRID-LIMITED (crossing in (30,100] for all three — real savings invisible at this resolution); the naive control's substrate confound (install-unfamiliar, +0.2 CE first-contact) unexcluded; the late INVERSION (naive > washed at 100/300) unaccounted — 'the paradigm split in two' WITHDRAWN from paper reach; discriminating cells named (a different-nonce re-teach; a yoked e001 control)] E175: no savings at the threshold (bounded) — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
 
 The Ebbinghaus test returned its cleanest modern form: the
 washed net re-learns at exactly the naive price at the
@@ -615,7 +615,7 @@ THE 60% RESTORE-IN-TO-+50: e178's half-fact is real but
 partially wash-depth-inflated — the interface story and the
 depth story share the credit.
 
-## T108 — E177 (bounded): knife-proof is not wash-proof — and the mid-wash states are the new gold (2026-09-28 ~16:15Z)
+## T108 — [R11 BOUND: the 4-24x gradient is INSIDE demonstrated within-type variability (the root swings 10x under one lr knob; the dwell spreads 37x across seeds) — 'worth a panel' WITHDRAWN; the defensible piece is the 5.5x dwell-vs-root contrast (same lineage, stream-matched); per-type seeds at matched lr/stream before any ordering] E177 (bounded): knife-proof is not wash-proof (2026-09-28 ~16:15Z)
 
 Under the extinction-grade stream, the deep site-store washes —
 W019's predicted savor held — but with a DECAY GRADIENT (4-24x
@@ -637,7 +637,7 @@ the entire wash story becomes extinction-specific and the
 resistance question reopens with the decay gradient as its
 first datum.
 
-## T107 — E174: the maintenance budget — rehearsal doubles capacity for free, and forgetting is first-contact (2026-09-28 ~16:05Z)
+## T107 — [R51 DEMOTIONS: 'any-F2-gradient-triggered' WITHDRAWN (the wash channel alone kills — e176N's fact-free stream, same clock); the smoke/main adjudication CONFLICT (smoke: REHEARSAL-FAILS with an eviction transient at t~4-8 even under rehearsal; main: RESOLVES at the coarse grid — 'cohabitation at every dose' is grid-limited); 'capacity = 1/rehearsal-fraction' STRUCK from the paper (a formula from one fraction + a degenerate zero, one seed); the surviving form: REHEARSAL MAINTAINS (direction, two independent protocols)] E174: the maintenance budget (bounded) — rehearsal doubles capacity for free, and forgetting is first-contact (2026-09-28 ~16:05Z)
 
 The two arms compose into the day's cleanest practical finding
 and its sharpest mechanistic texture: (1) WITHOUT rehearsal,

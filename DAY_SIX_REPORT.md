@@ -206,6 +206,14 @@ invariance; e125's heads-ordering). The audit also repaired three
 orphaned runs from earlier days (E019/E078/E088) and caught the
 checkpoint-inventory misconception (102 nets on disk, gitignored).
 
+## The epitaph (R51's final line, adopted)
+
+"Everything these networks remembered, they remembered only
+while being reminded — every store we washed dissolved, every
+archive we sought was practice in disguise (one seed, two
+streams, and 3.84% of a window still unexamined) — and the only
+memory the session ever replicated was its own corrections."
+
 ## The session's meta-lesson (written ~14:25Z, with the fleet computing)
 
 In ~9 hours: ~30 experiments, 7 frontier reviews, 25
