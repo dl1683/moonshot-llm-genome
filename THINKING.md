@@ -575,6 +575,44 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T091 — E153: doors open by training and resist surgery — the phase is a distributed, MLP-heavy state with a partial head signature (2026-09-28 ~11:05Z)
+
+The reading map's PHASE-DISTRIBUTED branch fired in substance
+(though not its letter — five arms move g-12 > 20%, so "no
+head-set moves it" is false; the honest form: NO head-set
+SWITCHES it). Three structural facts:
+
+(1) T037's WRITE-ONCE CORE SURVIVES ITS SHARPEST TEST: no
+non-gradient write added function — the best transplant
+(reader_K3, the re-grown L3H4-class reader + the content heads)
+recovers under half the geometry door, and random swaps move the
+fragile net comparably. Surgery cannot open what training opens.
+The e160 result completes the asymmetry: surgery CAN destroy the
+readout (N2 kills at flat CE) but cannot CREATE access. The edit
+law holds: subtraction works, addition doesn't.
+
+(2) ASYMMETRIC RIGIDITY is the new texture: the OPEN door
+(geometry phase) is transplant-immovable — once wired by
+variance training, access resists surgery; the SHUT door
+(site phase) is fragile. Rigidity tracks the phase, not the
+heads: consolidation, once achieved, is surgically stable —
+another sense in which it is a movement into essential tissue.
+
+(3) THE ORDER PARAMETER'S SHAPE: MLP-heavy (66.5% of delta
+energy), late-layer-skewed, with a partial head signature (the
+re-grown positional reader + content heads — the SAME heads that
+kill the fact in e160's N2/E2 sets appear in the best reopening
+arm). One circuit, three roles: it carries the readout (killable
+— e160), partially carries re-opening (transplantable to a
+third — e153), and partially carries the brake. The phase itself
+sits above it, in the stream.
+
+FOR THE PAPER: Fig 4 becomes the asymmetry figure (doors: opened
+by training, killed by head surgery, immovable by transplant);
+claim 2's mechanism section states the distributed order
+parameter honestly. The e158 cell (jitter@183) still decides
+variance-vs-placement before any of this travels.
+
 ## T090 — E160: the surgical surface exists — row-surgery cannot, head-surgery can, and the knife knows the type (2026-09-28 ~10:50Z)
 
 The R46 critic's coin landed on the paper's best figure, and

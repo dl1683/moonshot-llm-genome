@@ -63,6 +63,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E153 — phase-switch surgery: TEXTURE — the order parameter is DISTRIBUTED (MLP-heavy), not any small head set; the geometry door is transplant-RIGID (2026-09-28 ~11:05Z) — DONE
+
+WHAT WE DID: wiring diff + K-by-K head transplants (fact /
+reader / mover / random classes, K=1/3/6) both directions
+between the two phase nets; every cell CE-priced (all |dCE| <=
+0.024 — nothing is wreckage); gates bit-exact.
+
+WHAT WE SAW (T091): PHASE-IN-HEADS no (best reopen g-12 0.151 vs
+bar 0.45 — the reader_K3 arm {L3H5,L0H3,L1H0}, +47.5%; rand_K6
+also +32% — the site-phase net is fragile, movement not
+specific). PHASE-DISTRIBUTED no as written (>20% movers exist —
+head identity matters, partially). THE STORY: the 300 locked
+steps' delta lives in MLPs (66.5% of ||d||^2) and late heads
+(all six L5 heads top movers) — but transplanting the biggest
+movers moves the door <4%; the door-movers (the RE-GROWN
+POSITIONAL READER L3H5 — the L3H4-class namesake, one slot from
+the twin's own — plus L0H3/L1H0 content heads) are mid-ranked
+deltas that reopen under half the distance and never cross the
+bar. ASYMMETRIC RIGIDITY: the open geometry door is transplant-
+immovable (nothing closes it, best -9.1%); the shut door is
+nudgable to ~1/3 of the bar. The reader set partially carries
+the BRAKE both ways (A +0.005 -> -0.027; -0.132 -> -0.068 at
+K6). Honesty: parameter-swap path dependence (donor heads land
+in foreign LN contexts, deltas 0.40-0.71 — nulls conflate
+'phase not in heads' with 'head off-manifold'; mitigated by
+no-op/random controls and near-zero CE); single lineage, one
+conversion draw.
+
+---
+
 ## E160 — the head-set escalation: FLAT-CE-FACT-KILL — the surgical surface EXISTS, and it is TYPE-SELECTIVE (2026-09-28 ~10:50Z) — DONE
 
 WHAT WE DID: graded head-set escalation (singles through E4 +
