@@ -63,6 +63,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E151 — the P-b cell: ROUTE-OVERWRITES — the cliff is PER-NET; locked re-teaching converts the memory to site-only and closes the geometry door GLOBALLY (2026-09-28 ~10:10Z) — DONE
+
+WHAT WE DID: one GPU re-teach (e143's locked-replay protocol,
+300 steps) of the consolidated net's fact at read rows 183-189;
+full before/after battery; root gated bit-exact.
+
+WHAT WE SAW (T088): the committed TWO-DOOR prediction FAILED;
+T087's fork resolves PER-NET. Before -> after: the 183 SITE
+GREW (row-183 strength -0.007 -> +0.512, ratio 0.96; D-183 now
+kills half: 0.998 -> 0.486) while THE ROUTE DOOR CLOSED (g-12
+0.916 -> 0.102; g+12 0.948 -> 0.121; D-all 0.905 -> 0.098; the
+brake vanished: A -0.132 -> +0.005; row-0 S 0.732 -> 0.106 with
+base collapsed alongside, rel ~0.99). NOT WRECKAGE: CE_R IMPROVED
+(1.6635 -> 1.6490); mask spares both nets (x1.00/x1.06 @ +0.04 —
+e150 replicated); ladder poisons both (0.07 kills @ +0.99). THE
+TRANSIENCE CLUE: the 8-step smoke retained g-12 at 0.99 — the
+conversion is budget-dependent, living somewhere in 8-300 steps;
+a transient two-door state may exist before the cliff re-runs.
+Honesty: single seed/lineage (n=1 fork verdict); 300-step budget
+matches the original consolidation but the conversion point is
+unlocated; FAR-class placement confound (184-token pre-context)
+entangled with locked-variance exactly as e143's FAR; site bar
+weak at this readout (controls ~0) — growth carried by absolute
+census + D-183 necessity.
+
+---
+
 ## E147 — the width ladder: TEXTURE (a CLIFF, not a dose) — any variance switches the memory type; the address key dies at w=1, never gradually (2026-09-28 ~09:50Z) — DONE
 
 WHAT WE DID: six width arms (w in {1,2,4,16,32,64}) from the

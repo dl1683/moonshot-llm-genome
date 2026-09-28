@@ -575,6 +575,51 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T088 — E151: the cliff is PER-NET — memory type is a global phase of one substrate, and the transition runs BOTH WAYS (2026-09-28 ~10:10Z)
+
+The committed prediction failed honestly and the failure is the
+day's cleanest structural statement: ONE locked re-teach
+converted a sink-coupled, geometry-general, deletion-tolerant
+memory into a site-stored, geometry-bound one — growing the new
+site (+0.512) while closing the geometry door EVERYWHERE (g-12
+0.916 -> 0.102, D-all 0.905 -> 0.098) and dissolving the brake
+(-0.132 -> +0.005), at IMPROVED corpus CE. Consequences:
+
+(1) THE TYPES ARE PHASES, NOT SUBSYSTEMS. "Two memory types"
+becomes "two phases of one memory system" — the taxonomy's
+lineage confound (R45's attack) resolves the strong way: one
+net, both phases, bidirectionally switchable (variance opens the
+geometry door and kills the graft; zero-variance re-teaching
+grows a graft and closes the door). For the paper this is
+STRONGER than two-doors would have been: a reversible phase
+transition, cliff both ways, at fixed wiring — the read policy
+(W013's protagonist) is the order parameter.
+
+(2) WHY GLOBAL? The geometry-generalization cannot be a property
+of one fact's private circuit (a private circuit would survive
+another fact's locked training); it must live in a SHARED state
+— the net's read configuration as a whole. Locked replay at ANY
+site drags the global policy back toward position-keyed reading.
+The 8-step smoke (g-12 still 0.99) says the drag has a TIMESCALE
+— the conversion lives somewhere in 8-300 steps.
+
+(3) THE TRANSIENT: if a two-door state exists mid-conversion,
+the P-b prediction is not wrong but EARLY — doors add
+transiently, then the zero-variance training consolidates the
+graft and the shared state abandons the geometry door. The
+TIME-TRACE (g-12 retention vs re-teach steps, 8/16/32/64/128/300
+— dispatched as e152) locates the conversion point and tests
+whether the transient is real: monotone decay (no plateau) =>
+clean conversion; a plateau with both doors followed by decay =>
+the transient two-door state exists and the cliff has a dwell
+time.
+
+(4) THE BRAKE VANISHES WITH THE PHASE: A(129) -0.132 -> +0.005 —
+the negative posterior (T087's mechanism note) is not a permanent
+scar but a STATE of the variance phase; re-locking releases it.
+e149's anti-alignment prediction sharpens accordingly: the
+anti-alignment should exist only in the variance phase.
+
 ## T087 — E147: the cliff — variance is a SWITCH, not a dial; the type decision is binary at zero-vs-any (2026-09-28 ~09:50Z)
 
 The registered graded law did not fire; what landed is cleaner:
