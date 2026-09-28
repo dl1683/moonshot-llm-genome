@@ -137,9 +137,7 @@ brake returns (-0.255); the reopened door is GEOMETRY-GENERAL
 on the ladder (0.879/0.998/0.826). Attention: nothing (-2.5%).
 Full-wpe: nothing, kills the site read. e166's row surgery
 re-run: +0.0000 confirmed AS THE TAUTOLOGY (the control gate).
-GRADED LAYERS: a mid-late band carries it (L2 0.21 / L3 0.295
-peak / L4 0.26; no single layer reaches the bar) — matching
-e153's late-skewed MLP delta. THE LADDER's OWN FINDING: the
+GRADED LAYERS (functional): a mid-late band carries it (L2 0.21 / L3 0.295 peak / L4 0.26; no single layer reaches the bar). THE LADDER's OWN FINDING: the
 twodoor net is POSITION-LOCKED at its site (long-12/+12 ~0.2
 vs long0 0.998) while root and the restored net are geometry-
 general — the ladder sees the same phase switch. THE STRONG
@@ -220,7 +218,7 @@ dwell peak (zero name leakage verified at draw time); full dial
 trajectory; gates bit-near.
 
 WHAT WE SAW (T101): DISUSE fires CLEAN — g-12: 0.513 -> 0.040 at
-+50 -> 0.0036 at +300 (128x under the bar; no fact teaching, no
++50 -> 0.0036 at +300 (74x under the 0.27 bar [R50 arithmetic fix; 128x was vs the start]; no fact teaching, no
 graft, no anchors). COMPETITIVE dead (g never near 0.7);
 DWELL-PERSISTS dead. THE BIGGER TEXTURE: this is NOT selective
 door closure — the ENTIRE fact expression dissolves (g0, g+12,
