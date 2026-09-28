@@ -688,9 +688,13 @@ PROCESS RULE: fold on completion notification, not early metrics.
 
 [PASS-1 RESIDUE LABELED per R49: the verdict label and razor-thin paragraphs below predate the committed pass-2 — the current form is in the PASS-2 UPDATE above; committed: TEXTURE, a=0.789 clean-OPEN, b=0.458 MID-straddling. Number fix: the home-graft content is +0.072 (old-census), not +0.057 (a pass-1 value).]
 THE HONEST RESTATEMENT: home-site and novel-site grafts dissociate
-from door closure. The registered verdict (SITE-INDEPENDENT: the
-two-factor gate on novelty+zero-variance) STANDS — it was the
-pre-committed cell and the metrics' own adjudication. What falls
+from door closure. [R49: STRUCK — the committed pass-2 adjudication is
+TEXTURE; the CONJUNCTION composite is robust across passes, but
+no registered bar fired cleanly. Also: novelty-as-operative-
+variable is itself over-minted from two n=1 cells, one
+straddling — honest form: graft formation is NOT SUFFICIENT for
+closure (home graft, door open); novelty is a CANDIDATE
+variable, e165 pending.] What falls
 is the MECHANISM STORY layered on top: 'graft formation closes
 the door' must read 'NOVEL-SITE teaching closes the door, with
 or without a graft.' The novelty axis (distance-from-home vs
