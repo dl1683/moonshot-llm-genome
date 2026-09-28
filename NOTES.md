@@ -84,6 +84,24 @@ not the store.
 
 ---
 
+## E114 — brake signatures: all three mechanisms NULL — the brake is coordinate-local, a fourth story (2026-09-28) — DONE
+
+WHAT WE DID: the three W006 signatures on the bit-exact rebuilt
+consolidated net (brake replicates +0.132 [0.065,0.207]; 67%
+positive); manual-vs-net attention dev 2e-6.
+
+WHAT WE SAW (T067): S1 routing-mass r=-0.104 NULL (held-30
+anti-signed); S2 field-strength r=+103 NULL (addr-mass/field-mass
+are exact complements r=-1.000 — one discriminator, zero on the
+primary); S3 no suppression-without-field (ADDR_ONLY 2.1e-5 =
+NEITHER 1.9e-5). FOURTH-STORY raw material: the brake is
+install-specific (held-30 shows ANTI-brake -0.079), geometry-
+specific (+4/+8 geometries ~0), and lives where the address
+coordinate IS the decision row's own residual state at its
+trained geometry.
+
+---
+
 ## E110 — per-field floor: THE SHARE LAW — r*(k)*k ~= 54, one constant (2026-09-28) — DONE
 
 WHAT WE DID: retention r x field-size k crossed grid (4x4, e102

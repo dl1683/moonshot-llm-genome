@@ -514,6 +514,30 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T067 — E114: the brake is coordinate-local state modulation — the content-interaction frame dies (2026-09-28 ~05:00Z)
+
+**All three W006 mechanisms killed.** Not routing dilution (null;
+held-30 anti-signed), not carrier crosstalk (null; the two
+"masses" are exact complements — one discriminator, landing on
+zero), not a field-independent inhibitor (no suppression without
+the field). What remains is sharper than any of them: **the brake
+exists ONLY at the original geometry, ONLY on trained contexts,
+and is strongest where the field expresses weakest** — it lives in
+the decision row's own coordinate-specific state where the address
+sits in the residual stream itself. The fourth story (named, not
+yet tested): during replay, the net learned a coordinate-local
+modulation — the address row's state at its own coordinate
+slightly reshapes the decision there (perhaps a learned
+"this-was-installed-here" tag), a fixture of the training
+geometry rather than a content interaction. W006's bio-echo
+survives in refined form: not wholesale inhibitory maturation but
+**synapse-location-specific modulation** — the biological
+counterpart being per-synapse rather than per-pathway inhibition.
+Registered follow-up (e115, ripening): graded (not whole-band)
+field ablation to give S3 dynamic range — the one caveat the agent
+flagged — before the fourth story is safe from resurrection of
+M3.
+
 ## T066 — E110: the share constant — the lab's first dimensionless number (2026-09-28 ~04:00Z)
 
 **The share law is quantified: r\*(k)·k ≈ 54.** Across a 2.4x
