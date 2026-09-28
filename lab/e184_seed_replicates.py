@@ -107,6 +107,7 @@ import json
 import os
 import random
 import sys
+import textwrap
 import time
 from pathlib import Path
 
@@ -1387,7 +1388,7 @@ def plot(path, per_seed, cond, verdict, clause, clock_replicates,
     ax.set_ylabel("mean p(Z) (symlog)")
     ax.legend(fontsize=7.2, loc="lower left")
     ax.set_title(f"the two-step clock across seeds — replicates: "
-                 f"{clock_replicates} (steps-to-under-bar "
+                 f"{clock_replicates} (under-bar "
                  + ", ".join(f"{k}:+{seed_table[k]['steps_to_under_bar']}"
                              for k in sorted(seed_table)) + ")", fontsize=9.5)
 
@@ -1418,7 +1419,8 @@ def plot(path, per_seed, cond, verdict, clause, clock_replicates,
             g50 = g300 = "  n/a "
         ub = r["steps_to_under_bar"]
         ax.text(0.02, ytxt,
-                f"  {k}  {r['device'][:10]:<10}  {g1}  {g2}  {g4}  {g50}  "
+                f"  {k}  {r['device'].split(' ')[0]:<10}  {g1}  {g2}  {g4}  "
+                f"{g50}  "
                 f"{g300}   +{ub if ub is not None else '-':<6}  "
                 f"{str(r['DISSOLVES']):<7}  {str(r['SURVIVES']):<5}",
                 fontsize=7.2, va="top", family="monospace",
@@ -1432,17 +1434,18 @@ def plot(path, per_seed, cond, verdict, clause, clock_replicates,
     for k in sorted(ceD):
         c = ceD[k]
         if c.get("dissolved"):
+            ibce = c['in_batch_corpus_ce']
             ax.text(0.02, ytxt,
-                    f"  seed {k} CE-at-dissolution +{c['step']}: "
-                    f"g-12 {c['gm12']:.4f}, CE_R {c['ce_r']:.3f}, in-batch "
-                    f"{c['in_batch_corpus_ce'] if c['in_batch_corpus_ce'] is not None else float('nan'):.3f}",
+                    f"  seed {k} under-bar +{c['step']}: g-12 {c['gm12']:.4f},"
+                    f" CE_R {c['ce_r']:.3f}"
+                    + (f", in-batch CE {ibce:.3f}" if ibce is not None else ""),
                     fontsize=7.0, va="top", family="monospace")
             ytxt -= 0.028
     ytxt -= 0.015
     ax.text(0.02, ytxt, f"E184 VERDICT: {verdict}", fontsize=9.0, va="top",
             family="monospace", weight="bold", color="darkred")
     ytxt -= 0.038
-    for wd in [clause[i:i + 88] for i in range(0, len(clause), 88)]:
+    for wd in textwrap.wrap(clause, width=84, break_long_words=False):
         ax.text(0.02, ytxt, f"  {wd}", fontsize=6.8, va="top",
                 family="monospace")
         ytxt -= 0.027
