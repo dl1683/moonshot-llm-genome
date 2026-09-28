@@ -734,6 +734,24 @@ at the 129-read holds; but perm kills short-horizon reads
 dependent. The tenant's insurance-policy metaphor gains a clause:
 the fact ignores the pivot's direction ONLY from far away.
 
+E153 READING MAP (registered ~10:18Z, before its data):
+- PHASE-IN-HEADS would be the first NON-GRADIENT PHASE EDIT in
+  lab history — T037's write-once-core claim ('no working
+  non-gradient write ever ADDED function') faces its sharpest
+  test: a head transplant that reopens the geometry door adds a
+  FUNCTION (geometry-general reading) by surgery. If it fires,
+  W013's never-edited component (the read policy) gains its edit
+  interface, e125's unlearning ordering gets its mechanism, and
+  the paper gets Fig 4. If it fires only in the CLOSING
+  direction (e151->consolidated transplants close the door) but
+  never opening, that asymmetry is itself the finding — doors
+  close by surgery but open only by training (a ratchet).
+- PHASE-DISTRIBUTED re-aims the noun: the read 'policy' becomes
+  a global MODULATOR (LN/MLP-stream state), not a routing
+  circuit — e135's LN-causality variant gains the sharpest
+  question it has ever had (does the LN state carry the phase?),
+  and W013's protagonist changes substrate.
+
 STANDING QUESTIONS: e147 (in flight) now measures the SWITCH
 between types without a route mechanism to explain it — if
 INVARIANCE-CAUSAL fires, the switch is real and the mechanism
