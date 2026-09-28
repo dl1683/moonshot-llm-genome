@@ -84,6 +84,27 @@ not the store.
 
 ---
 
+## E121 — the dreams probe: NO DREAM CONSOLIDATION — verbatim dreams slow forgetting 500x but never graduate (2026-09-28) — DONE
+
+WHAT WE DID: matched 300-step fine-tunes on own-dreams / twin-
+dreams / no-exposure text; D129 + D-all-addresses deletion
+batteries; G_INST bit-matches e082's reference; all deviations
+pre-registered.
+
+WHAT WE SAW (T074): bar 4 fires — own-dreams collapse post-
+deletion (max 0.045 <= 0.05). TEXTURE 1: the dreams CARRIED the
+fact (34 ZEPHYRA in 15,120 own-dream chars — this line dreams
+the name, unlike e048's silent seed-42) and still did not
+consolidate it. TEXTURE 2: dream replay slows forgetting ~500x
+(0.04-0.07 vs corpus-only 0.0001) — name tokens in self-generated
+contexts resist decay — but never approach the 0.20 bar and die
+under address deletion. Own-vs-twin: point estimates favor own
+but CIs overlap and the trend tracks name-rate, not
+self-specificity. WPE 121-137 band inflated in ALL arms (generic
+fine-tune effect).
+
+---
+
 ## E083 — canalization cycle-3: MIXED with oscillation — the groove persists but does NOT deepen; the erase weakens (2026-09-28) — DONE
 
 WHAT WE DID: three full erase->re-learn cycles on the B43 install

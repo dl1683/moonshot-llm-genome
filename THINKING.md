@@ -514,6 +514,26 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 ~09:20Z)
+
+**NO DREAM CONSOLIDATION** — and the negative is decisive because
+the covariate came back live: this install line DREAMS THE NAME
+(22.5 ZEPHYRA per 10k own-dream chars, unlike the silent seed-42
+line), so the dreams carried the fact — and still did not
+graduate it. Dream replay slows forgetting ~500x over corpus-only
+exposure (0.04-0.07 vs 0.0001) — self-generated name-contexts
+resist decay — but the fact dies under address deletion like the
+unconsolidated base. **W004's fixed point does NOT reach into
+learning: the self is a verification boundary, not a training
+gate.** The most beautiful discrimination in the data: own-vs-twin
+point estimates favor own (0.025 vs 0.014 post) but track NAME-
+RATE, not self-specificity — content, not identity, is what
+dreams carry. The third road to the field is closed; the two open
+roads (jitter e109, deletion pressure e083) both carry an
+explicit reorganization signal that verbatim replay lacks. The
+e120-registered tier-1 fallback (fact spliced into own contexts)
+is the natural next rung — registered, not urgent.
+
 ## T073 — E083: canalization's strong form dies — the groove persists, the erase weakens, the memory migrates (2026-09-28 ~08:20Z)
 
 **MIXED with the oscillation flag fired** — and the texture is
