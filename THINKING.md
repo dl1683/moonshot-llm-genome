@@ -575,6 +575,45 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T100 — E154: overwrite, not share — and the anchors may have done it (2026-09-28 ~14:00Z)
+
+The two-facts cell returned the strongest possible outcome with
+the most important confound: F1 annihilated everywhere (not
+merely door-closed — the registered GLOBAL-PHASE clause could
+not fire because its own premise, an untouched F1, was
+destroyed), F2's graft formed, CE improved, and the damage is
+F1-SPECIFIC. Three readings:
+
+(1) NO SECOND-FACT CAPACITY AT THIS BUDGET: the shared
+substrate was overwritten. If confirmed by the confound-free
+rerun, the "one door" question dissolves into "one FACT at a
+time" — the consolidated net cannot hold a second locked-installed
+fact without demolishing the first. W012's bandwidth reading
+gets its answer the hard way: the bandwidth is ~one fact wide,
+and installing into it costs the tenant everything.
+
+(2) THE ANCHOR-CONTRADICTION CONFOUND (the agent's catch, now
+the load-bearing caveat): the protocol's incumbent-continuation
+anchors are an ANTI-F1 signal — 8 paired contradiction anchors
+per batch, 300 steps. F1's demolition may be textbook
+unlearning-by-contradiction through the anchor channel, with
+the graft an innocent bystander. THE DISCHARGE CELL (e170):
+the identical F2 install with NEUTRAL anchors (plain corpus,
+no incumbent-continuation windows) — if F1 survives, the
+demolition was the anchors (and the two-facts question REOPENS
+with per-fact doors); if F1 still dies, the overwrite is real
+and capacity is one fact.
+
+(3) THE RIDERS ARE CLEAN GOLD: the knife's circuit-selectivity
+replicates on a FRESH site-stored fact (F2 -3.1% under N2) and
+W017's coding prediction confirms out-of-sample (F2 diffuse:
+top-1 0.139, 28/36 heads — the locked-trained signature on a
+second fact, third data point on the concentration law).
+
+FOR THE PAPER: claim 2's "globally" must await e170 (the
+demolition's channel is unsettled); the riders strengthen
+claims 3-4 as-is.
+
 ## T099 — E166: zero of the closure — the third great asymmetry, and the fork narrows honestly (2026-09-28 ~13:50Z)
 
 The inverse event returned the cleanest zero the session has

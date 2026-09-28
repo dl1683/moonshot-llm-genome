@@ -63,6 +63,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E154 — two facts, one door: TEXTURE — OVERWRITE, NOT SHARE; F1 annihilated (not door-closed) under a protocol whose anchors contradict it (2026-09-28 ~14:00Z) — DONE
+
+WHAT WE DID: 300-step locked install of a NONCE fact (MIRABEL,
+zero corpus occurrences — the novelty confound avoided) at rows
+63-69 into the consolidated net; full F1/F2 dials; N2 + W017
+riders; 9 gates PASS (N2 bit-exact vs e160).
+
+WHAT WE SAW (T100): the registered bars cannot fire — F1 was
+not untouched-with-door-closed, it was ANNIHILATED: g-12 0.916
+-> 0.0002, g0 0.785 -> 0.0017, held30 -> 0.0001, row-0 strength
+0.732 -> 0.001, A(129) -> +0.001, D-all -> 0.0003. F2's graft
+FORMED (site onset 0.124, site_pos TRUE; F2 expresses 0.993 at
+site) and CE_R IMPROVED (1.664 -> 1.649) — the damage is
+F1-specific. OVERWRITE, NOT SHARE: no second-fact capacity at
+this budget. THE CRITICAL CONFOUND (the agent's catch): the
+e151-protocol anchor bank uses INCUMBENT-CONTINUATION host
+windows — for a second-fact install these actively CONTRADICT
+F1's home expression (8 paired anti-F1 anchors x 300 steps):
+F1's demolition may be substantially ANCHOR-DRIVEN
+unlearning-by-contradiction, not graft-driven; this run cannot
+separate them. RIDERS (both clean): N2 kills NEITHER on the
+two-fact net (F2 -3.1% — the knife's circuit-selectivity
+REPLICATES on a fresh site-stored fact; F1's killable readout
+no longer exists to kill); W017's prediction CONFIRMS on a
+fresh fact — F2's census is DIFFUSE (top-1 0.139, 28/36 heads,
+entropy 2.958 — the locked-trained redundant signature; F1's
+sink-coupled was 0.352/16). Honesty: single seed/lineage;
+MIRABEL nonce-clean; site at rows 63-69 carries only 64 tokens
+pre-context (NEAR-mirror confound, priced: F2's deletion
+footprint on F1-battery negligible — F1 was already gone).
+
+---
+
 ## E166 — the inverse event: DOOR-STAYS-SHUT — the graft rows carry exactly ZERO of the closure; the third great asymmetry lands (2026-09-28 ~13:50Z) — DONE
 
 WHAT WE DID: 29 CE-priced cells — row restore (3 modes), head

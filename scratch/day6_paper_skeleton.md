@@ -72,7 +72,7 @@ both directions across the lineage (same-net reversibility is e155's
 queued cell) — and the conversion PASSES THROUGH A MIXED STATE: the cliff
 fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
 genuine at 67x control AND >=50% geometry retention) before separation
-completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together (jitter@novel open, locked@home open, locked@novel shut); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: NOT the graft (e166 — deleting the graft rows moves the door by exactly zero; the closure lives elsewhere: stream state or disuse, e161 pending); e154 pending: global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
+completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together (jitter@novel open, locked@home open, locked@novel shut); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: NOT the graft (e166 — deleting the graft rows moves the door by exactly zero; the closure lives elsewhere: stream state or disuse, e161 pending); e154 landed TEXTURE with a confound: F1 ANNIHILATED under a protocol whose anchors contradict it — 'globally' awaits e170 (anchor-neutral rerun); the riders (N2 spares F2; F2 diffuse) strengthen claims 3-4 now]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism
 damage, only readers die) while its READOUT consolidates into a small
