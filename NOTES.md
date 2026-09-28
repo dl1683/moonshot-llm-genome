@@ -63,6 +63,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E185 — the noise-gradient wash: NOISE-KILLS — the mechanism noun DIES; the kill is generic optimizer fragility, not corpus-directed (2026-09-28 ~19:40Z) — DONE
+
+WHAT WE DID: two noise arms (iid labels; permuted targets) at
+displacement-match against the real wash (inputs bit-identical
+md5-gated; control bit-exact vs e176N's stored cells).
+
+WHAT WE SAW (T114): NOISE-KILLS — both noise arms dissolve the
+fact at displacement-match (and a fortiori BELOW it: first under
+bar at +1); the noise deltas are ORTHOGONAL to the wash's
+(cosine -0.03..-0.10 at matched norms). THE KILL IS GENERIC
+TWO-STEP OPTIMIZER FRAGILITY: any AdamW step of the wash's size
+destroys the readout — content-free. THE TEXTURE (the
+redemption): the noise kills are COLLATERAL (CE 3.2-5.7, every
+dial flat — noise wrecks the whole net) while the corpus kill is
+SURGICAL (CE 2.0 -> 1.8, only the fact dies); and at +1 with
+identical displacement the corpus step leaves 0.678 while noise
+leaves 0.0003 — the corpus direction has one step of partiality
+(buys nothing: both dead by +2). THE MECHANISM NOUN DIES: "no
+robustness basin" replaces "corpus gradient flow"; the clock
+re-reads as a basin-width statement (2 steps @ 1e-3 ~ 2.5
+displacement; 50 @ 1e-4 ~ 5). THE PAPER'S REWRITE: the lead
+finding's mechanism sentence becomes "the consolidated readout
+has no robustness basin — continued training of any kind (even
+content-free noise at matched displacement) destroys it; the
+corpus's surgical variant kills the fact while sparing the
+organism". Honesty: single input stream (10902), one noise seed
+per arm (replicates owed before the noun formally moves); the
+displacement currency is unweighted L2 (the cosine co-report
+quantifies what the norm hides); full run executed twice
+bit-identical.
+
+---
+
 ## E157 — the lineage replication: LEAD-FINDING-REPLICATES (with a recorded bound) — the wash is n=2 families; the 2x2's phase structure is LINEAGE-SPECIFIC at n=2 (2026-09-28 ~19:00Z) — DONE
 
 WHAT WE DID: three stages on the e098 s4305 family (0.84M) —

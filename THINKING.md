@@ -575,6 +575,32 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T114 — E185: no robustness basin — and the corpus's one gift is surgicality, not direction (2026-09-28 ~19:40Z)
+
+The discriminator killed the mechanism noun and bought
+something better. THE KILL IS CONTENT-FREE: both noise arms
+dissolve the fact at (below) displacement-match, in directions
+ORTHOGONAL to the corpus's — the consolidated readout has NO
+ROBUSTNESS BASIN; any AdamW step of the wash's size ends it.
+THE REDEMPTION TEXTURE: the noise kills are collateral
+devastation (the organism dies with the fact) while the corpus
+kill is SURGICAL (only the fact; CE recovers) — and the corpus
+step's one-step partiality at identical displacement (0.678 vs
+0.0003) shows the corpus direction is GENTLER per unit
+displacement, even though both reach the same grave. THE
+HONEST FINAL MECHANISM SENTENCE: "memory in these networks has
+no robustness basin — continued optimization of ANY kind
+destroys it; what corpus-directed pressure adds is not the kill
+but the SURGERY (the fact dies; the organism recovers)". FOR
+THE PAPER: the lead finding stands (the dissolution universal
+was never mechanism-loaded); the mechanism paragraph rewrites
+to the basin form; the noise-vs-corpus surgicality contrast is
+the discussion's best new exhibit (one step of direction
+buying selectivity). W019's field-facing line needs its final
+adjustment: "catastrophic forgetting is their only mode" ->
+"these memories have no basin; what keeps them is the
+dataloader's direction — and even that kills, just neatly".
+
 ## T113 — E157: the wash crosses families; the phase structure does not — and the arc splits cleanly (2026-09-28 ~19:00Z)
 
 The lineage replication returned the arc's cleanest possible
