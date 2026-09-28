@@ -2005,6 +2005,37 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W017 — WONDER: variance concentrates credit — concentration is portability and vulnerability; redundancy is robustness and immobility (2026-09-28 ~12:28Z; the unifying thread of e125a/e160/e147/e151)
+
+The session's four biggest asymmetries compose into one
+mechanism. WHY does the variance-trained memory have a
+killable, superadditive, COMPLEMENTARY circuit while the
+locked-trained memory has an unkillable, saturating, REDUNDANT
+population? Because variance CONCENTRATES credit: when the
+fact's position varies, only invariant features win, and a few
+heads take the whole readout — concentrated, few moving parts,
+PORTABLE (geometry-free) and VULNERABLE (a small set ablates
+it). Zero variance lets every head that sees the site carry a
+little — diffused, robust to any ablation, and IMMOBILE (no
+invariant key to travel on). One variable (the cliff's switch)
+produces both coding schemes, and the coding scheme explains
+BOTH removability asymmetries at once: consolidation's trade is
+not place-for-field but REDUNDANCY FOR CONCENTRATION — the
+concentrated code can travel and can be cut; the redundant code
+can neither. CHECKABLE FROM SITTING DATA (zero compute): the
+sink-coupled circuit's load entropy should be LOW, the
+site-fact's HIGH (e133/e125a censuses — in hand); e154's F2
+(locked) should grow redundant; the e152 dwell's checkpoints
+should show the entropy TRANSITION mid-conversion (both codes
+present on the shelf — the two-door state as two CODES). If the
+entropies do not split as predicted, W017 dies and the coding
+story decouples from the phase story. SAVOR: biology's
+complementary learning systems re-read one more time — the
+fast, concentrated, labile system and the slow, redundant,
+stable one — with the switch being not anatomy but the
+STATISTICS OF EXPERIENCE (variance), and the trade-off being
+not speed but EDITABILITY.
+
 ## W016 — WONDER: born with one organ — the sink is the native memory substrate; addresses are protocol-grown grafts (2026-09-28 ~09:00Z)
 
 T085's deepest reading, savored: the architecture comes with
