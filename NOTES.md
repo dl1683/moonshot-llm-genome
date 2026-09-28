@@ -84,6 +84,23 @@ not the store.
 
 ---
 
+## E116 — re-barred census: STRUCTURE-STRONG, CONCENTRATION-MIXED — graduation denied, stays descriptive (2026-09-28) — DONE
+
+WHAT WE DID: the re-barred statistic (content-tested rows, top
+content >=2x next) across all 6 seeds from stored censuses.
+
+WHAT WE SAW (T069): 3/6 concentrate — both 2.7M seeds (2.31x,
+3.31x) + 4305 (2.22x); 4306/4307/4308 sit at 1.15/1.44/1.01.
+The wrinkle the re-bar exposed: ROW 0 passes the content test in
+every seed (it is BOTH scaffold and content — e071's window-key
+duality), so the measured ratio is row0/decision-row; in the
+0.84M family the install's mass genuinely SPLITS between the
+window-start row and the decision-window row (4308: 0.384 vs
+0.381). Address concentration is architecture-family-dependent;
+the one-decision-window-content-row structure holds 6/6.
+
+---
+
 ## E098 — seed-ladder dual mandate: structure 4/4, statistic re-barred; share-form replicates, value maturity-dependent (2026-09-28) — DONE
 
 WHAT WE DID: 4 fresh-seed base nets (2000-step recipe) + installs +

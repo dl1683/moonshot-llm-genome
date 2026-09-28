@@ -184,5 +184,5 @@ lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor |
 | e114 | brake signatures | DONE (T067: all three NULL — brake is coordinate-local, install+geometry-specific, strongest where field weakest; fourth story named) |
 | e115 | graded field ablation (M3 resurrection check) | READY (CPU) | give S3 dynamic range before the coordinate-local story is safe |
 
-| e116 | re-barred census (scaffolding-excluded) | READY (free re-analysis) | the formal M1 graduation check: top CONTENT row >=2x next content row |
+| e116 | re-barred census | DONE (T069: 3/6 — graduation denied; row-0 duality exposed; final form: structure 6/6, concentration family-dependent) |
 | e117 | maturity curve of the share constant | READY (GPU, one 3133-step seed) | exposure-matched replication — split seed vs maturity for the constant's drift |

@@ -514,6 +514,26 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T069 — E116: graduation denied — the address is family-graded, not universal-concentrated (2026-09-28 ~06:00Z)
+
+**STRUCTURE-STRONG, CONCENTRATION-MIXED at 3/6.** The re-bar did
+not rescue the statistic; it exposed something better: **ROW 0 IS
+A CONTENT ROW** (passes mean=zero in all 6 seeds — e071's
+window-key is load-bearing for the install itself, not pure
+scaffold), and the architecture family decides the split. 2.7M
+installs concentrate in the decision row (>=2.3x over row 0);
+0.84M installs SPLIT mass between window-start and decision rows
+(4308 essentially 50/50). The honest law, final form: *every
+install develops a single decision-window content row (6/6), whose
+dominance over the window-start content row is architecture-
+dependent — concentrated in the 2.7M family, split in the 0.84M
+family.* Row 0's dual role (window recognition + install content)
+retro-explains why e113's D-all-addresses on the 2.7M family
+needed only the five grown rows: in that family row 0's content
+share is small. Universality of structure stands; concentration
+stays descriptive; no further re-barring (a third re-bar would be
+bar-shopping — the finding is what it is).
+
 ## T068 — E098: universality-of-structure confirmed; the share constant chases maturity (2026-09-28 ~05:40Z)
 
 **M1 adjudication: the STRUCTURE is universal — n=6 total.** Every
