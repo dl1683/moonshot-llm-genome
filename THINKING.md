@@ -2372,6 +2372,31 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W019 — WONDER: no archive, only practice — the radical memory view, implemented (2026-09-28 ~15:10Z; the T105 savor, deepest cut)
+
+The biology echo completes its long arc by INVERTING: the lab's
+nets do not implement the classic two-system story (fast
+hippocampus -> slow hardened cortex); they implement the
+RADICAL view — memory as reconstruction, maintained by
+rehearsal, rewritten on every use. There is no static store to
+consolidate INTO; there is only the readout the practice
+keeps alive. Reconsolidation-dependence, memory's fragility at
+retrieval, the interferencelit's permanent-interference
+findings — all of it, implemented in 0.84M parameters as a
+LITERAL ARCHITECTURAL FACT rather than a caveat. PREDICTED
+SAVOR (e177, the last cell): the deep site-store washes too —
+the resistance axis stands EMPTY for every memory type, and
+'archive' joins 'address' and 'field' in the lab's graveyard of
+reified nouns. FALSIFIER: ANY wash-resistant store (e177
+survives; or some future MLP-sparse structure) restores a
+two-system picture and W019 dies. THE FIELD-FACING LINE (for
+the paper's discussion): catastrophic forgetting is not a
+failure mode of these networks — it is their ONLY mode;
+persistence is an artifact of the dataloader. Every training
+run that 'retains' its facts is running a memory prosthesis,
+and the moment the prosthesis stops, the patient is gone in
+two steps.
+
 ## W018 — WONDER [R49: BARRED FROM PAPER TEXT until each corner has n>=2 and the straddle resolved — currently one control, one straddling cell, two unreplicated magnitudes; legitimate wonder-card play only] : the four fates — a complete little phase diagram of what teaching does to a memory (2026-09-28 ~13:10Z; from e158's pass-2 textures)
 
 The 2x2's four cells now read as four FATES, not four
