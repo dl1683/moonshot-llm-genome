@@ -662,9 +662,16 @@ erasure-specific phenomenon beyond the damage it shares with
 any repeated fixed-position intervention.
 
 **(3) THE T082 DERIVATION ADDENDUM'S SYLLOGISM FAILED — recorded
-as predicted-then-falsified.** Registered at ~08:28Z (before
-reading e140): the taxonomy predicts E-flat + L-flat + R-rising
-on the row-0 dial. The data: everything flat-high (rel
+as asserted-then-falsified.** R45 AUDIT DOWNGRADE: the addendum
+was written contemporaneously (script mtime 08:28:39Z, metrics
+on disk 08:27:23Z, never read by the lead before the agent's
+report), but its first git appearance is the fold commit
+(08:31Z) — AFTER the data commit (08:28Z). "Registered" implied
+commit-before-data and that is NOT satisfied; the claim is
+ASSERTED, UNPROVEN ordering (mitigant: the prediction failed and
+was recorded as such — fabricators do not pre-register
+failures). Content: the taxonomy predicts E-flat + L-flat +
+R-rising on the row-0 dial. The data: everything flat-high (rel
 0.84-0.98), R non-monotone. The taxonomy itself survives — its
 discriminating evidence was never this dial; it is e139's
 183-geometry cells (routed 0.84-row-0-dependent vs splice 0.25)
@@ -1404,7 +1411,7 @@ the self, but never scramble directions without both.
 ## W014 — WONDER: the memory layer is a semi-independent tenant — it dies to what the corpus ignores and ignores what the corpus dies to (2026-09-28 ~08:00Z)
 
 E141's CE dissociation, savored properly: direction-scrambling
-row 0 costs the corpus +0.70 nats but SPARES the fact (+6%);
+row 0 costs the corpus +0.70 nats but SPARES the fact (+4%);
 removing row 0's norm kills the fact AND wrecks the corpus
 (+1.40-2.00). The fact's route and the net's language function
 share a pivot but have DIFFERENT failure modes: the route cares
@@ -1433,7 +1440,7 @@ memory is an addressing layer over the LM, not knowledge IN the
 LM, and the dissociation row (direction-scramble cell) is its
 cleanest single exhibit.
 
-## W013 — WONDER: the read policy is the protagonist — T037's never-edited component gets a face (2026-09-28 ~07:30Z; the R44 critic's closing pointer, worked)
+## W013 — WONDER: the read policy is the protagonist [R45 audit marker: the T079 key-selection clause below was killed on its dial by e140/T083 and causally REVIVED by e143/T084 — read 'invariant keys win' as the revived, width-ladder-pending form] — T037's never-edited component gets a face (2026-09-28 ~07:30Z; the R44 critic's closing pointer, worked)
 
 T037 said it two days ago and the morning's inversion just gave
 it a mechanism: "the one component never directly edited: the

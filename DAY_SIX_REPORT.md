@@ -31,11 +31,11 @@ committed before the data existed.
    the corpus +0.70 nats; novel-geometry reads collapse x0.014
    under row-0 deletion. The migration wrote nothing in the
    destination row — everything lives in readout weights (e133:
-   fact-specific residue 84.5% heads).
+   fact-specific residue 84.5% heads (locality-filtered, report-only table)).
 
 3. **Two memory types: ROUTED vs SITE-STORED (T082; e139).** Row 0
    routes; the site stores. Splice-road memories are site-stored
-   (row-183 content ~1000x controls) yet generalize across
+   (row-183 content 250-5900x controls) yet generalize across
    contexts (0.6-0.7 novel+val); jitter-road memories are routed
    and generalize across GEOMETRIES (0.660 at a never-trained
    offset). The brake is a re-routing scar — present only where a
@@ -101,6 +101,7 @@ Every load-bearing number traces to runs/eNNN/metrics.json
 (R44 auditor, number-by-number). The one geography error (E119's
 cross-geometry pair 0.709-vs-0.071) is corrected in NOTES to the
 matched pair (0.663 vs 0.071). Single-lineage caveats stand where
-noted (probes 1-3 one seed; probe 4 two independent nets). Open
-cells: e140 (T079's law), e143 (the proximity fork) — this report
-updates when they land.
+noted (probes 1-3 one seed; probe 4 two independent nets). Both
+open cells have since landed: e140 killed T079's law on its
+registered dial; e143's COMPASS-CAUSAL revived invariance
+causally (see finding 5).
