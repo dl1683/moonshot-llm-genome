@@ -84,6 +84,22 @@ not the store.
 
 ---
 
+## E113 — all-addresses deletion: BODY-STORED — the fact left the address system (2026-09-28) — DONE
+
+WHAT WE DID: rebuilt e109's consolidated net bit-exactly (post-none
+table matches to 0.009; grown addresses replicate to 3 decimals);
+three deletion arms with confinement verified per row.
+
+WHAT WE SAW (T065): (i) D-all-addresses {121,125,129,133,137}
+survives 5/5 geometries (0.889-0.930, argmax-Z 0.92-0.97; held-30
+0.64-0.66) — zeroing EVERY address the fact grew costs only
+~0.03-0.10. D0129's collapse (e109) was window-scaffold loss, NOT
+address loss — the T064 correction confirmed. Texture: deleting
+addresses RAISES p(Z) at the original geometry (0.785→0.905): the
+address row is mildly suppressive at its own coordinate.
+
+---
+
 ## E109 — consolidation: CONFIRMED — jittered replay makes the fact survive row-deletion (2026-09-28) — DONE
 
 WHAT WE DID: the W003 head-to-head — jittered replay (offsets

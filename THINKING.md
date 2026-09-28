@@ -514,6 +514,25 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T065 — E113: coordinate-binding is a developmental stage — W005's mirror resolves (2026-09-28 ~03:10Z)
+
+**BODY-STORED fires decisively.** Deleting all five of the fact's
+address rows costs almost nothing (0.89-0.93 across geometries);
+the D0129 collapse was row-0 window-scaffold loss. **W005's
+developmental reading WINS: the coordinate/field/hologram
+trichotomy is a SEQUENCE, not an architecture.** One-shot learning
+is coordinate-bound (the one-row key); distributed replay
+graduates the fact into field-storage — address-independent,
+held-out-generalizing, carried by the body. The T037
+coordinate-keyed law, standing absolute for four days, now carries
+its temporal boundary: coordinate-keying is the INITIAL STATE of a
+memory, not its fate. And the suppression texture completes the
+picture beautifully: the address row was mildly SUPPRESSIVE at its
+own coordinate — during consolidation the address stops being the
+fact's home and becomes its brake. CLS fully right, at every level
+tested. The registered follow-up the agent flagged (post-deletion
+regrowth dynamics) joins the shelf unregistered.
+
 ## T064 — E109: consolidation confirmed — the coordinate law gets its boundary and CLS gets its char-LM (2026-09-28 ~02:20Z)
 
 **W003's prediction is CONFIRMED: replay at varied positions

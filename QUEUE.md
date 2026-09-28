@@ -180,4 +180,5 @@ lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor |
 | e111 | V-manifold self-signature | DONE (T061: k*=7 — selfhood is a 7-dim readout; top-1 PC 11.7x; the fixed-point stamp found) |
 | e112 | signature forgery | DONE (T062: NOT FORGEABLE — stamp necessary not sufficient; the anchor reads full joint V-structure holographically; identity is process not summary) |
 | e109 | consolidation test | DONE (T064: CONFIRMED — jittered 0.909 through deleted coordinate; diversity 2x mass) |
+| e113 | all-addresses deletion | DONE (T065: BODY-STORED — fact survives all-five-address zeroing; D0129 was scaffold loss; coordinate-binding is a developmental stage) |
 
