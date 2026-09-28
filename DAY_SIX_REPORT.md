@@ -27,7 +27,7 @@ committed before the data existed.
    delta second-smallest of 256, no fact-axis excess), and e141's
    surgery confirmed beyond it: removing the entire consolidation
    delta from wpe[0] costs nothing (x0.999, CE flat);
-   direction-scrambling row 0 SPARES the fact (+6%) while costing
+   direction-scrambling row 0 SPARES the fact (+4%) while costing
    the corpus +0.70 nats; novel-geometry reads collapse x0.014
    under row-0 deletion. The migration wrote nothing in the
    destination row — everything lives in readout weights (e133:

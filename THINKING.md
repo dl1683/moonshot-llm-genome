@@ -768,7 +768,7 @@ The R44 critic's crack is confirmed and sharpened beyond it.
 "Re-keyed to row 0" is formally dead: removing the entire
 consolidation delta from wpe[0] costs NOTHING (x0.999, CE flat),
 and even scrambling row 0's DIRECTION leaves the fact intact
-(0.817, +6%) while degrading the corpus (+0.70 CE). What kills
+(0.817, +4%) while degrading the corpus (+0.70 CE). What kills
 is only REMOVAL (zero/mean/near-removal) — and rows 2-7 plus a
 norm-matched random row are all cheap. The noun, corrected: the
 consolidated fact is ROW-0 SINK-ROUTED — its readout weights
@@ -793,7 +793,7 @@ schematic memory's "cortex" is the fact that position zero
 exists.
 
 (3) THE CE DISSOCIATION is the new savor: direction-scrambling
-row 0 costs the corpus +0.70 nats but HELPS the fact (+6%) —
+row 0 costs the corpus +0.70 nats but HELPS the fact (+4%) —
 the fact's route is more presence-robust than the net's own
 language function. A memory that survives what cripples the
 net's general machinery: the route's independence from the
