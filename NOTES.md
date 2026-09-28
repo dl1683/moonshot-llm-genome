@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E159 — coupled-or-organism: MASK-HEALS + SITE-SPARED — the double dissociation; READ-coupled replaces sink-coupled (2026-09-28 ~11:15Z) — DONE
+
+WHAT WE DID: the two R46-critic probes — the mask+poison joint
+cell on the consolidated net, and the first-ever norm ladder on
+the site-stored control; gates to 1e-7; 86s.
+
+WHAT WE SAW (T093): MASK-HEALS — joint 0.07-under-mask heals
+COMPLETELY (g0 x1.030, g-12 x1.009 @ CE +0.036, numerically
+identical to mask-alone; even COMPLETE wpe[0] removal under the
+mask heals: the fact needs neither row-0 content nor its
+value). Manipulation check: poisoning turns row 0 into a mass
+absorber (pre-mask attention on key 0 explodes 0.157 -> 1.693,
+10.8x) — the kill is delivered THROUGH attention reads, not
+around them (query-side/global-softmax story FALSIFIED).
+SITE-SPARED — arm_b's ladder: nothing dies (0.07: x0.922 @ CE
++0.825 — the SAME organism damage the consolidated net pays at
+that bracket +0.843); even full removal costs its fact only
+27.5%. THE DOUBLE DISSOCIATION: equal organism damage, only the
+coupled memory dies. THE NOUN: READ-COUPLED — the consolidated
+fact dies of what attention READS off a degraded row 0 (the
+poisoned sink's reads corrupt downstream computation); the mask
+is literally the health door; a memory must itself read the
+sink to die of its poison. T086's organism-death bound is
+itself bounded: organism damage is real but NOT SUFFICIENT.
+Honesty: joint cell doubly off-distribution (CE prices generic
+damage; anchored by gated single-intervention rebuilds); single
+nets (e157 owes replication); per-net retentions (bracket
+comparison is the like-for-like).
+
+---
+
 ## E153 — phase-switch surgery: TEXTURE — the order parameter is DISTRIBUTED (MLP-heavy), not any small head set; the geometry door is transplant-RIGID (2026-09-28 ~11:05Z) — DONE
 
 WHAT WE DID: wiring diff + K-by-K head transplants (fact /

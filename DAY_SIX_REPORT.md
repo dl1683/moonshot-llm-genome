@@ -152,7 +152,10 @@ or rides the organ's health, and consolidation is the movement
 from the removable into an architecture of split custody: the
 DEPENDENCE moved into organism-critical coordinates (the sink,
 whose corruption is fatal) while the READOUT consolidated into
-a small head-set that surgery CAN remove (e160: {L1H0,L0H0}
+a small head-set that surgery CAN remove (e160) — and the dependence
+itself is READ-coupled (e159: masking the sink heals a poisoned net
+completely while the site-stored fact pays the same organism damage
+and lives — only readers die of the poison; {L1H0,L0H0}
 kills the memory at CE +0.25 — and spares the site-stored fact
 under the same knife: the surgery is type-selective). Postscript (e151): the
 types are PHASES, not subsystems — one locked re-teach converted

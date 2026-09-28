@@ -26,8 +26,10 @@ while costing the LM 0.70 nats). (4) sink-coupling and the
 removable-to-irremovable movement (e150): no flat-CE fact-kill exists —
 masking all attention to position 0 spares the fact at CE +0.03 while
 sub-threshold row-0 norm poisons every read (threshold in (0.07, 0.15));
-consolidation moves the memory's dependence from surgically-deletable
-tissue into organism-critical tissue. L0H3-zero (58.6% drop at CE +0.21)
+consolidation moves the
+    memory's dependence into READ-coupledness with the sink (e159's double
+    dissociation: equal organism damage, only the read-coupled memory dies;
+    the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
 RESOLVED by e160: the surgical surface EXISTS — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
 

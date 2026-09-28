@@ -575,6 +575,31 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T093 — E159: READ-coupled — the mask is the health door, and only readers die of the poison (2026-09-28 ~11:15Z)
+
+The R46 critic's mask/ladder contradiction resolves into the
+day's cleanest mechanism claim: the poison is delivered THROUGH
+attention reads (the manipulation check nails it — a poisoned
+row 0 becomes a 10.8x mass absorber whose reads corrupt
+downstream computation), and masking key 0 removes the poison
+entirely (the joint cell heals even under COMPLETE wpe[0]
+removal). The query-side/global-softmax alternative is
+falsified. And the site-stored control pays the same organism
+price (CE +0.825 vs +0.843) without its fact dying: ORGANISM
+DAMAGE IS NECESSARY BUT NOT SUFFICIENT — the memory must itself
+read through the sink. THE NOUN, FINAL FORM (pending replication
+and e158/e154): the consolidated memory type is READ-COUPLED to
+the sink — it dies of what it reads off a degraded pivot, not
+of the pivot's degradation per se. T086's removable-to-
+irremovable reframe is bounded accordingly: the coordinate is
+not unremovable (the mask removes it benignly!) — what is
+irreplaceable by surgery is the READ PATH, and what training
+built (access) surgery cannot create (e153) though it can sever
+(e160). The four-layer model's LAYER 4 updates: dependence =
+read-paths through the sink's health; the intervention class is
+poisoning OR masking (both organism-tolerable; one kills
+readers, one spares all).
+
 ## T092 — SYNTHESIS: the four-layer model of a consolidated memory (2026-09-28 ~10:50Z; the day's circuit story, complete enough to draw)
 
 T090 + T091 + T086 + T085 compose into a layered anatomy — four
@@ -875,11 +900,13 @@ movement from the REMOVABLE to the IRREMOVABLE — into machinery
 whose integrity is organism-critical.** The graft (row 129) was
 surgically deletable at zero collateral; the consolidated memory
 rides the sink whose poisoning wrecks everything. This is not a
-retreat from the day's findings; it is their synthesis: jitter
-moves the memory's dependence from editable tissue into
-essential tissue — the OPPOSITE of surgical memory, and arguably
-the point of consolidation (why replay-based systems consolidation
-would produce trauma-resistant memory).
+retreat from the day's findings; it is their synthesis — though
+E159 BOUNDS IT FURTHER: the coordinate is not unremovable (the
+mask removes row 0's contributions benignly — every fact
+survives); what is irreplaceable by surgery is the READ PATH,
+and only memories that read through the sink die of its
+poisoning (the site-stored fact pays equal organism damage and
+lives). The dependence is READ-coupledness, not organ-essentiality.
 
 **(3) WHAT SURVIVES OF THE TAXONOMY:** the TYPES are real but
 renamed — SITE-STORED vs SINK-COUPLED (was 'routed'): the type
