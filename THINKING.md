@@ -575,6 +575,27 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T112 — E184: the evidence completes — and the last textures are the strangest (2026-09-28 ~18:10Z)
+
+n=3 across seeds, all dissolving in the same (1,2] bracket. The
+lead finding's evidence structure is now: 3 streams x 2 lrs x 3
+seeds x every memory type — dissolution universal, the clock
+replicating, the lottery confined to depth and tail. THE
+STRANGE TEXTURES the replicate added: (1) seed 10903's read
+STRENGTHENED above the root at +1 (0.9415 vs 0.9156) before
+collapsing — the first gradient step can PUMP the memory it is
+about to kill (a last-gasp? a transient alignment? worth one
+paragraph, not a program); (2) the tail lottery (10904's 2-34x
+slower tail) — the AFTER-death decay is where seeds differ,
+which is consistent with the wash destroying the load-bearing
+structure fast and the wreckage settling at seed-dependent
+speed. THE PAPER'S FINAL FORM: the discussion's lead finding
+is now bounded only by lineage (e157 owes the second family) —
+"no memory state tested retains expression under continued
+training without the fact's windows (3 streams, 2 lrs, 3
+seeds, all types; one lineage)". W019's field-facing line may
+enter the discussion in this n=3 form.
+
 ## T111 — E183: the noun unbound — dissolution is stream-invariant; only its timing is a lottery (2026-09-28 ~17:45Z)
 
 The last gate opened: with the host-junction background
@@ -2533,7 +2554,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W019 — WONDER [e183 cleared the residue: the noun is unbounded save SEEDS; 'implemented'/'architectural fact' stay withdrawn (the >=3 rule); the field-facing line may enter the DISCUSSION in bounded form — the honest sentence: every memory state tested dissolved under continued training on every stream composition run, at every lr tested, with the fact's windows absent] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
+## W019 — WONDER [e184 cleared the seeds: n=3 across seeds, all dissolving — the noun is unbounded save LINEAGE (e157 owes the second family); 'implemented'/'architectural fact' stay withdrawn (the >=3 rule); the field-facing line may enter the DISCUSSION in bounded form — the honest sentence: every memory state tested dissolved under continued training on every stream composition run, at every lr tested, with the fact's windows absent] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
 
 The biology echo completes its long arc by INVERTING: the lab's
 nets do not implement the classic two-system story (fast

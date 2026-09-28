@@ -63,6 +63,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E184 — the seed replicates: ALL-DISSOLVE (n=3) — the lead finding's evidence COMPLETES; the seed clause discharges (2026-09-28 ~18:10Z) — DONE
+
+WHAT WE DID: e176N's neutral arm at seeds 10903/10904 (GPU-
+gated, self-heated to 83C mid-run -> CPU-parked at s175/s275,
+both finished; margins 6-350x from any bar).
+
+WHAT WE SAW (T112): ALL-DISSOLVE — both new seeds cross under
+the bar in the SAME (1,2] bracket; ANY-SURVIVOR never came
+close (max 0.002 vs the 0.5 bar). THE LEAD FINDING'S EVIDENCE
+COMPLETES AT n=3 ACROSS SEEDS: no seed of the consolidated
+line retains expression under continued training without the
+fact's windows — joining three stream compositions, two lrs,
+every memory type. THE TWO-STEP CLOCK ITSELF REPLICATES (3/3
+seeds in (1,2] — the timing lottery lives in the DEPTH/TAIL,
+not the clock: seed 10904's tail runs 2-34x slower; seed
+10903's read TRANSIENTLY STRENGTHENED at +1 (0.9415, above the
+root!) before collapsing — the first wash step can PUMP the
+read before killing it). W019's seeds clause CLEARS (the
+>=3 rule met for the direction; the field-facing line may
+enter the discussion in its bounded n=3 form). THE PAPER'S
+LEAD FINDING IS NOW FULLY EVIDENCED: bounded only by lineage
+(e157's replication remains the one outstanding axis).
+Honesty: device mixing twice (recorded per cell; margins
+preclude drift flips); RNG-independent samples; 14 checkpoints
+on disk under disk pressure.
+
+---
+
 ## E183 — the filtered stream: STILL-DISSOLVES — the last residue discharged; the activity-dependence noun goes UNBOUNDED (2026-09-28 ~17:45Z) — DONE
 
 WHAT WE DID: e176N arm A with the random half FILTERED of
