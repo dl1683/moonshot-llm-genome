@@ -575,6 +575,26 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T110 — E175: no savings at the threshold — and the early-kinetics residue that never cashes (2026-09-28 ~17:05Z)
+
+The Ebbinghaus test returned its cleanest modern form: the
+washed net re-learns at exactly the naive price at the
+threshold (100 steps for all three states) — NO savings, the
+archive truly empty where it matters. THE COMPLEMENT (the
+texture that didn't gate): the washed arm leads the naive arm
+at EVERY sub-threshold checkpoint (0.65 vs 0.29 at step 10) —
+a residue in the EARLY kinetics that never converts to a
+threshold advantage. The classical savings paradigm, split in
+two: sub-threshold savings exist; threshold price does not. FOR
+T098's bound: the kill showed no thin-lesion fast recovery
+under the persistent clamp — but g-12 recovered to 0.78 at step
+10 while g0 lagged: the GENERALIZING readout recovers around
+the clamp fast; the TRAINED one pays. That asymmetry (novel-
+geometry access routes around the lesion; the home readout
+doesn't) is a new dissociation between the two access modes,
+report-only, worth a follow-up if the clamp operationalization
+is refined (a transient kill rather than persistent).
+
 ## T109 — E176N: neutral-dissolves — the wash survives its confound; the paper's lead finding stands (bounded by one residue) (2026-09-28 ~16:50Z)
 
 The discharge fired against the escape: with the anchors'

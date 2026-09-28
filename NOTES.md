@@ -63,6 +63,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E175 — the savings triple: NO-SAVINGS — the washed net re-learns at the naive price; no fast recovery under the persistent clamp (2026-09-28 ~17:05Z) — DONE
+
+WHAT WE DID: identical HOME-site locked re-teaches (grid 10/30/
+100/300) on the KILLED (persistent N2 clamp, bit-exact to
+e160), the WASHED (e176's endpoint, bit-exact), and a RUN
+NAIVE control (e001, the true pre-install base).
+
+WHAT WE SAW (T110): NO-SAVINGS — steps-to-0.78 = 100 for ALL
+THREE states; the washed net re-learns at the naive price (the
+archive is truly empty at the threshold); FAST-RECOVERY FAILS
+(0.745@30 under the persistent clamp). TEXTURES (report-only):
+the washed arm LEADS naive at every sub-threshold checkpoint
+(0.650/0.735 vs 0.286/0.554) — a residue visible in EARLY
+kinetics that never cashes at the threshold; the killed arm's
+g-12 hit 0.778 at step 10 (novel geometry recovers fast while
+g0 lags — the clamp hurts the trained readout more than the
+generalizing one). CE healthy throughout. Honesty: the kill is
+a PERSISTENT clamp (recovery routes around it; clamped qkv get
+no gradient — FAST's failure may price the operationalization,
+not storage); the naive base never saw the install (substrate
+familiarity differs); single seed; grid-resolution bounds.
+
+---
+
 ## E176N — the neutral wash: NEUTRAL-DISSOLVES — the extinction escape is dead; the wash story holds across streams and rates (2026-09-28 ~16:50Z) — DONE
 
 WHAT WE DID: three arms — (A) e176's protocol with e170's
