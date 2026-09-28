@@ -51,10 +51,7 @@ story that inverts several intuitions.
 The lab's organisms are born with ONE memory organ: the omnipresent
 row (the attention-sink coordinate) carries every naturally-placed
 association from the first exposure (13/13 install checkpoints, five
-seeds of the fresh family at rel 1.000) [PROVISIONAL per R47: sits on
-the trained-geometry dial T083 declared saturating; the licensing cell
-(e163: the same dial on arm_b, 7% row-0-share — reads ~1.0 => collapse
-to truism; 0.7-0.8 => stands) is queued]. The "addresses" an earlier
+seeds of the fresh family at rel 1.000) [LICENSED by e163: the dial's removal face discriminates carriage (arm_b reads 0.275 vs the census's 0.878-1.000); the perturbation face saturates — the two-face footnote]. The "addresses" an earlier
 arc of this lab dissected — positional keys with mass laws and family
 typing — are PROTOCOL-MADE GRAFTS: they form when a masked-replay
 protocol pins a fact's position, and do not form under natural

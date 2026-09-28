@@ -225,6 +225,31 @@ slightly from the mixed run (float path); the convergence at
 
 ---
 
+## E163 — the saturation control: DIAL-VALID — the intro's first sentence stands; the dial discriminates carriage (2026-09-28 ~21:20Z) — DONE
+
+WHAT WE DID: e142's row-0 dial on the known non-carrier (arm_b,
+7% row-0 share, 0.725 survivor) vs the carrier control; the
+zero-arm bit-reproduces e133 (2.9e-7).
+
+WHAT WE SAW (T118): DIAL-VALID — arm_b reads rel 0.275 (the
+drop face) / survivor 0.725 (inside the registered 0.7-0.8
+window, reproducing its ground truth) vs the carrier's 0.932
+and the census band's 0.878-1.000. THE DIAL SEPARATES CLEANLY:
+on a net whose fact is 7% row-0-dependent it reads 0.275, not
+~1.0 — the 13/13 readings are informative about carriage. THE
+INTRO STANDS LICENSED. THE NUANCE (T083's caveat survives
+weakened): the MEAN arm is the saturated face (mean-replacement
+drops arm_b 74%! — the "every readout loads the sink" truism
+lives in the perturbation arm); the min-convention's ZERO arm
+is the dial's effective face, and IT discriminates. Honesty:
+arm_b's ground truth is dial-family (the zero-arm reproduces;
+the mean-arm, min-convention, and controls are the independent
+content); battery asymmetry discharged by the symmetric
+control (carrier 0.90 on arm_b's own battery); bars fixed
+before compute on both faces.
+
+---
+
 ## E175 — the savings triple: NO-SAVINGS — the washed net re-learns at the naive price; no fast recovery under the persistent clamp (2026-09-28 ~17:05Z) — DONE
 
 WHAT WE DID: identical HOME-site locked re-teaches (grid 10/30/

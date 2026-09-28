@@ -676,6 +676,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T118 — E163: the intro stands — and the dial's two faces explain the whole saturation debate (2026-09-28 ~21:20Z)
+
+The licensing cell returned DIAL-VALID: the census dial reads
+0.275 on a 7%-dependent fact vs 0.88-1.00 on the carriers —
+carriage-discriminating, the intro licensed. THE TWO-FACE
+FINDING resolves the T083 debate precisely: the MEAN arm (row-0
+perturbation) is the saturated face (74% drop even on the
+non-carrier — every readout does load the sink); the ZERO arm
+(removal) is the discriminating face. The e131/e142 min-
+convention accidentally chose the right face. FOR THE PAPER:
+the intro's "born with one memory organ" stands licensed
+(13/13 informative); the T083 caveat rewrites to the two-face
+footnote ("the dial's perturbation face saturates; its removal
+face discriminates — the census used the latter"). THE
+SUBMISSION BLOCKERS ARE NOW ZERO: every named blocker
+(e158/e154/e164/e166-corrections, e163, the grid, the tail, the
+mechanism) has its cell run and folded; what remains is
+assembly, the optional kinetics laws, and the GPT-2 fuse.
+
 ## T117 — E185c: the tail is real, and it ends — the lottery is 100-200, the asymptote is shared (2026-09-28 ~20:55Z)
 
 The device-confound discharge returns the cleanest possible
