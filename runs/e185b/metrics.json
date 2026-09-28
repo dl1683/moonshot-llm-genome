@@ -1,0 +1,1005 @@
+{
+  "experiment": "e185b_type_cells",
+  "date": "2026-09-28T20:04:46Z",
+  "registration": "QUEUE row e185b (DISPATCHED ~19:40Z CPU) + the dispatch mission text; frozen verbatim in this docstring before compute. Adjudicate against exactly this; no bar shopping.",
+  "registered_prediction": {
+    "both_dissolve": "BOTH-DISSOLVE fires if: the site type's onset and the dwell type's g-12 both fall under their bars by +50 \u2014 the sparse union becomes an honest cross; 'all types' earns its name.",
+    "either_survives": "EITHER-SURVIVES fires if: either type retains (site >= 0.5 onset / dwell >= 0.5 g-12) through +300 \u2014 'all types' is FALSE in the direction that matters; a survivor exists.",
+    "texture": "No bar shopping; texture (different rates than their extinction runs) => TEXTURE with both curves.",
+    "operationalizations": "'their bars' = each type's own prior SHUT bar, both 0.27 (e161 DISUSE / e177 SCRATCH-MEMORY / e176N NEUTRAL-DISSOLVES); dissolve = primary dial <= 0.27 AT +50 (earliest checkpoint <= 0.27 over {1,2,4,50,100,200,300} CO-REPORTED); 'retains through +300' = primary dial >= 0.50 at EVERY continuation checkpoint {1,2,4,50,100,200,300}; SITE primary = read_fact_at onset on e152's locked j=54 pool @183/184; DWELL primary = install-60 battery mean p(Z) at ctx offset -12; clauses disjoint; order BOTH-DISSOLVE -> EITHER-SURVIVES -> TEXTURE; every sub-boolean reported regardless; CE_R + in-batch corpus CE per checkpoint on both nets.",
+    "registration": "QUEUE row e185b (DISPATCHED ~19:40Z CPU) + the dispatch mission text; frozen verbatim in this docstring before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does each memory type dissolve under the NEUTRAL stream it never touched (e176N arm A verbatim), or does either type survive it \u2014 closing R52's two empty grid cells under the lead finding's 'all types' claim?",
+  "nets": {
+    "site": {
+      "path": "runs/checkpoints/e151_twodoor.pt",
+      "meta": {
+        "experiment": "e151",
+        "desc": "e131_consolidated_e113 + 300-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10902",
+        "steps": 300,
+        "seed": 10902,
+        "base": "runs/checkpoints/e131_consolidated_e113.pt"
+      },
+      "primary_dial": "site_read_onset @183/184 (e177 battery)",
+      "prior_wash": "e177 (its OWN extinction stream, seed 10902, lr 1e-3)"
+    },
+    "dwell": {
+      "path": "runs/checkpoints/e152_steps32.pt",
+      "meta": {
+        "experiment": "e152",
+        "desc": "e131_consolidated_e113 + 32-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10902 \u2014 sequential-continuation snapshot of the single 300-step run",
+        "steps": 32,
+        "seed": 10902,
+        "base": "runs/checkpoints/e131_consolidated_e113.pt"
+      },
+      "primary_dial": "base_gm12 install-60 battery (e161 convention)",
+      "prior_wash": "e161 (its OWN extinction stream, seed 10902, lr 1e-3)"
+    }
+  },
+  "stream": {
+    "desc": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176N arm A's bank)",
+    "protocol": "e176N arm A VERBATIM: batch 32 = 16 neutral-anchor draws + 16 random corpus windows, full-token CE (NO fact windows, NO name tokens, NO mask), AdamW (0.9,0.95) wd 0.1 constant lr 1e-3 clip 1.0, seed 10902 \u2014 the RNG draw sequence identical to e161/e177/e176/e176N's; only the anchor bank's CONTENT differs (0/16 junctions vs 16/16)",
+    "ckpt_steps": [
+      1,
+      2,
+      4,
+      50,
+      100,
+      200,
+      300
+    ],
+    "device": "cpu",
+    "torch_threads": 4,
+    "time_cap_s": 1800.0,
+    "cooldown_s": 60.0,
+    "stagger_s": 25.0
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176N arm A's bank)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 18,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0,
+        "anchor_zeph_windows": 0
+      },
+      "prior_stream_note": "both types' prior washes (e161 dwell / e177 site) ran the ORIGINAL bank \u2014 the install's own name-deleted host windows, 16/16 junctions covered (targeted EXTINCTION; the R50 critic's finding) \u2014 at the SAME seed/lr/optimizer; only the anchor content differs here",
+      "budget_identical_to_priors": true,
+      "rng_stream_identical_to_e161_e177_e176n": true,
+      "rng_note": "finetune_freeze verbatim; draw shapes/moduli identical (n_anc=16, len(train_ids)); seed 10902 \u2014 the same aj/rj sequences as e161's/e177's/e176N's runs; only anchor[aj] content differs",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows are e161/e176/e176n VERBATIM and unfiltered \u2014 identical background (~1-2%/window), not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ROOT_SITE": {
+      "cells": {
+        "gm12": 0.10205486416816711,
+        "g0": 0.10710463672876358,
+        "gp12": 0.12079531699419022,
+        "ce_r": 1.6489683389663696,
+        "site_read_onset": 0.9980737566947937,
+        "site_read_span": 0.9993568658828735
+      },
+      "refs": {
+        "gm12": 0.1020549014210701,
+        "g0": 0.10710463672876358,
+        "gp12": 0.12079524248838425,
+        "ce_r": 1.6489683389663696,
+        "site_read_onset": 0.9980737566947937,
+        "site_read_span": 0.9993568658828735
+      },
+      "skipped_missing": [],
+      "diffs": {
+        "gm12": -3.725290298461914e-08,
+        "g0": 0.0,
+        "gp12": 7.450580596923828e-08,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0
+      },
+      "max_abs_diff": 7.450580596923828e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_ROOT_DWELL": {
+      "cells": {
+        "gm12": 0.5133363008499146,
+        "g0": 0.14117614924907684,
+        "gp12": 0.7145951390266418,
+        "ce_r": 1.6883095502853394,
+        "site_read_onset": 0.9647805094718933,
+        "site_read_span": 0.9945025444030762
+      },
+      "refs": {
+        "gm12": 0.513336181640625,
+        "g0": 0.14117614924907684,
+        "gp12": 0.7145950198173523,
+        "ce_r": 1.6883095502853394,
+        "site_read_onset": 0.9647804498672485,
+        "site_read_span": 0.9945025444030762
+      },
+      "skipped_missing": [],
+      "diffs": {
+        "gm12": 1.1920928955078125e-07,
+        "g0": 0.0,
+        "gp12": 1.1920928955078125e-07,
+        "ce_r": 0.0,
+        "site_read_onset": 5.960464477539063e-08,
+        "site_read_span": 0.0
+      },
+      "max_abs_diff": 1.1920928955078125e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_DRAWFREE_SITE": {
+      "zeph_violations": 0,
+      "pass": true
+    },
+    "G_DRAWFREE_DWELL": {
+      "zeph_violations": 0,
+      "pass": true
+    }
+  },
+  "priors": {
+    "e161_dwell_extinction": {
+      "steps": [
+        0,
+        50,
+        100,
+        200,
+        300
+      ],
+      "gm12": [
+        0.5133363008499146,
+        0.03981111943721771,
+        0.019376089796423912,
+        0.0018337517976760864,
+        0.00364150432869792
+      ],
+      "g0": [
+        0.14117614924907684,
+        0.023069579154253006,
+        0.021433841437101364,
+        0.0064969733357429504,
+        0.005843465682119131
+      ],
+      "site_read_onset": [
+        0.9647805094718933,
+        0.1495015025138855,
+        0.051231108605861664,
+        0.010209816507995129,
+        0.012098240666091442
+      ],
+      "ce_r": [
+        1.6883095502853394,
+        1.6653131246566772,
+        1.6886937618255615,
+        1.6153916120529175,
+        1.6463027000427246
+      ],
+      "provenance": {
+        "source": "runs/e161/metrics.json trace_summary (embedded copy verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0
+      }
+    },
+    "e177_site_extinction": {
+      "steps": [
+        0,
+        50,
+        100,
+        200,
+        300
+      ],
+      "site_read_onset": [
+        0.9980737566947937,
+        0.6716808676719666,
+        0.1945670247077942,
+        0.1409446746110916,
+        0.011479347012937069
+      ],
+      "site_read_span": [
+        0.9993568658828735,
+        0.9501108527183533,
+        0.8833314180374146,
+        0.800300657749176,
+        0.8000056743621826
+      ],
+      "gm12": [
+        0.10205486416816711,
+        0.03960553556680679,
+        0.0019761284347623587,
+        0.002991028130054474,
+        0.0014502160483971238
+      ],
+      "g0": [
+        0.10710463672876358,
+        0.07036908715963364,
+        0.0036823058035224676,
+        0.0009324398706667125,
+        0.0008762489887885749
+      ],
+      "ce_r": [
+        1.6489683389663696,
+        1.6404904127120972,
+        1.6416882276535034,
+        1.6352111101150513,
+        1.6433320045471191
+      ],
+      "provenance": {
+        "source": "runs/e177/metrics.json trace_summary (embedded copy verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0
+      }
+    },
+    "e152_s32_gate_refs": {
+      "refs": {
+        "gm12": 0.513336181640625,
+        "g0": 0.14117614924907684,
+        "gp12": 0.7145950198173523,
+        "ce_r": 1.6883095502853394,
+        "site_read_onset": 0.9647804498672485,
+        "site_read_span": 0.9945025444030762
+      },
+      "provenance": {
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "source": "runs/e152/metrics.json trace row s32 (embedded copy verified)"
+      }
+    },
+    "e151_after_gate_refs": {
+      "refs": {
+        "gm12": 0.1020549014210701,
+        "g0": 0.10710463672876358,
+        "gp12": 0.12079524248838425,
+        "ce_r": 1.6489683389663696,
+        "site_read_onset": 0.9980737566947937,
+        "site_read_span": 0.9993568658828735
+      },
+      "provenance": {
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "source": "runs/e151/metrics.json after cells (embedded copy verified)"
+      }
+    }
+  },
+  "trace_site": [
+    {
+      "freeze_steps": 0,
+      "gm12": 0.10205486416816711,
+      "g0": 0.10710463672876358,
+      "gp12": 0.12079531699419022,
+      "ce_r": 1.6489683389663696,
+      "site_read_onset": 0.9980737566947937,
+      "site_read_span": 0.9993568658828735,
+      "retention_vs_root_onset": 1.0,
+      "retention_vs_root_gm12": 0.1988070738399917
+    },
+    {
+      "freeze_steps": 1,
+      "gm12": 0.02431689389050007,
+      "g0": 0.015556427650153637,
+      "site_read_onset": 0.8065120577812195,
+      "site_read_span": 0.9627028703689575,
+      "ce_r": 1.8538877964019775,
+      "corpus_ce": 1.2973724603652954,
+      "retention_vs_root_onset": 0.8080685945015255,
+      "retention_vs_root_gm12": 0.04737030967266549
+    },
+    {
+      "freeze_steps": 2,
+      "gm12": 0.005587964318692684,
+      "g0": 0.0010829044040292501,
+      "site_read_onset": 0.6691767573356628,
+      "site_read_span": 0.9484807848930359,
+      "ce_r": 1.8317370414733887,
+      "corpus_ce": 1.4919801950454712,
+      "retention_vs_root_onset": 0.6704682422987442,
+      "retention_vs_root_gm12": 0.010885584376370125
+    },
+    {
+      "freeze_steps": 4,
+      "gm12": 0.0029963338747620583,
+      "g0": 0.0014599586138501763,
+      "site_read_onset": 0.7050188183784485,
+      "site_read_span": 0.9546694755554199,
+      "ce_r": 1.7337583303451538,
+      "corpus_ce": 1.1599674224853516,
+      "retention_vs_root_onset": 0.7063794771171806,
+      "retention_vs_root_gm12": 0.005836981654372696
+    },
+    {
+      "freeze_steps": 50,
+      "gm12": 0.013388186693191528,
+      "g0": 0.026288995519280434,
+      "site_read_onset": 0.3496367335319519,
+      "site_read_span": 0.8932008147239685,
+      "ce_r": 1.692953109741211,
+      "corpus_ce": 0.6300211548805237,
+      "retention_vs_root_onset": 0.35031151874968014,
+      "retention_vs_root_gm12": 0.026080738455650676
+    },
+    {
+      "freeze_steps": 100,
+      "gm12": 0.023761235177516937,
+      "g0": 0.0638016015291214,
+      "site_read_onset": 0.1458699107170105,
+      "site_read_span": 0.7494485974311829,
+      "ce_r": 1.6511167287826538,
+      "corpus_ce": 0.6332651376724243,
+      "retention_vs_root_onset": 0.14615143393818023,
+      "retention_vs_root_gm12": 0.046287863640501456
+    },
+    {
+      "freeze_steps": 200,
+      "gm12": 0.008872004225850105,
+      "g0": 0.019199904054403305,
+      "site_read_onset": 0.24822355806827545,
+      "site_read_span": 0.7133307456970215,
+      "ce_r": 1.6172752380371094,
+      "corpus_ce": 0.643211305141449,
+      "retention_vs_root_onset": 0.24870261982470004,
+      "retention_vs_root_gm12": 0.017283029217802524
+    },
+    {
+      "freeze_steps": 300,
+      "gm12": 0.0012881384463980794,
+      "g0": 0.0018040555296465755,
+      "site_read_onset": 0.04173193871974945,
+      "site_read_span": 0.6602368950843811,
+      "ce_r": 1.6322112083435059,
+      "corpus_ce": 0.6138100624084473,
+      "retention_vs_root_onset": 0.04181247972890132,
+      "retention_vs_root_gm12": 0.0025093466863784714
+    }
+  ],
+  "trace_dwell": [
+    {
+      "freeze_steps": 0,
+      "gm12": 0.5133363008499146,
+      "g0": 0.14117614924907684,
+      "gp12": 0.7145951390266418,
+      "ce_r": 1.6883095502853394,
+      "site_read_onset": 0.9647805094718933,
+      "site_read_span": 0.9945025444030762,
+      "retention_vs_root_onset": 0.9666424981124102,
+      "retention_vs_root_gm12": 1.0000002322246002
+    },
+    {
+      "freeze_steps": 1,
+      "gm12": 0.18757177889347076,
+      "g0": 0.2437935471534729,
+      "site_read_onset": 0.3871406614780426,
+      "site_read_span": 0.6391286253929138,
+      "ce_r": 2.1664960384368896,
+      "corpus_ce": 1.2969142198562622,
+      "retention_vs_root_onset": 0.38788782780953174,
+      "retention_vs_root_gm12": 0.365397541809717
+    },
+    {
+      "freeze_steps": 2,
+      "gm12": 0.13809281587600708,
+      "g0": 0.17156793177127838,
+      "site_read_onset": 0.6720907688140869,
+      "site_read_span": 0.9320802688598633,
+      "ce_r": 2.051509380340576,
+      "corpus_ce": 1.9255601167678833,
+      "retention_vs_root_onset": 0.6733878777053238,
+      "retention_vs_root_gm12": 0.26901048633404673
+    },
+    {
+      "freeze_steps": 4,
+      "gm12": 0.19029539823532104,
+      "g0": 0.11816856265068054,
+      "site_read_onset": 0.5531313419342041,
+      "site_read_span": 0.9350080490112305,
+      "ce_r": 1.8941280841827393,
+      "corpus_ce": 1.4715064764022827,
+      "retention_vs_root_onset": 0.5541988637853236,
+      "retention_vs_root_gm12": 0.37070326433476014
+    },
+    {
+      "freeze_steps": 50,
+      "gm12": 0.00931780319660902,
+      "g0": 0.030263269320130348,
+      "site_read_onset": 0.09173064678907394,
+      "site_read_span": 0.8625242710113525,
+      "ce_r": 1.6968722343444824,
+      "corpus_ce": 0.6554169058799744,
+      "retention_vs_root_onset": 0.09190768334882163,
+      "retention_vs_root_gm12": 0.0181514639525881
+    },
+    {
+      "freeze_steps": 100,
+      "gm12": 0.009581985883414745,
+      "g0": 0.017612064257264137,
+      "site_read_onset": 0.02160387486219406,
+      "site_read_span": 0.8162368535995483,
+      "ce_r": 1.6736562252044678,
+      "corpus_ce": 0.6641438603401184,
+      "retention_vs_root_onset": 0.02164556949552219,
+      "retention_vs_root_gm12": 0.01866610269471104
+    },
+    {
+      "freeze_steps": 200,
+      "gm12": 0.004418849013745785,
+      "g0": 0.015160678885877132,
+      "site_read_onset": 0.033955615013837814,
+      "site_read_span": 0.7021311521530151,
+      "ce_r": 1.6479527950286865,
+      "corpus_ce": 0.6584239602088928,
+      "retention_vs_root_onset": 0.03402114802245149,
+      "retention_vs_root_gm12": 0.008608099666037802
+    },
+    {
+      "freeze_steps": 300,
+      "gm12": 0.0009541423642076552,
+      "g0": 0.001086024334654212,
+      "site_read_onset": 0.001218397868797183,
+      "site_read_span": 0.6640558242797852,
+      "ce_r": 1.6265276670455933,
+      "corpus_ce": 0.619655966758728,
+      "retention_vs_root_onset": 0.001220749329019542,
+      "retention_vs_root_gm12": 0.0018587085779892066
+    }
+  ],
+  "traj_site_light": [
+    {
+      "step": 1,
+      "g_m12_mean_pz": 0.02431689389050007,
+      "g0_mean_pz": 0.015556427650153637,
+      "site_onset": 0.8065120577812195,
+      "site_span": 0.9627028703689575,
+      "corpus_ce": 1.2973724603652954,
+      "ce_r": 1.8538877964019775,
+      "elapsed_s": 3.6
+    },
+    {
+      "step": 2,
+      "g_m12_mean_pz": 0.005587964318692684,
+      "g0_mean_pz": 0.0010829044040292501,
+      "site_onset": 0.6691767573356628,
+      "site_span": 0.9484807848930359,
+      "corpus_ce": 1.4919801950454712,
+      "ce_r": 1.8317370414733887,
+      "elapsed_s": 7.0
+    },
+    {
+      "step": 4,
+      "g_m12_mean_pz": 0.0029963338747620583,
+      "g0_mean_pz": 0.0014599586138501763,
+      "site_onset": 0.7050188183784485,
+      "site_span": 0.9546694755554199,
+      "corpus_ce": 1.1599674224853516,
+      "ce_r": 1.7337583303451538,
+      "elapsed_s": 11.4
+    },
+    {
+      "step": 50,
+      "g_m12_mean_pz": 0.013388186693191528,
+      "g0_mean_pz": 0.026288995519280434,
+      "site_onset": 0.3496367335319519,
+      "site_span": 0.8932008147239685,
+      "corpus_ce": 0.6300211548805237,
+      "ce_r": 1.692953109741211,
+      "elapsed_s": 100.5
+    },
+    {
+      "step": 100,
+      "g_m12_mean_pz": 0.023761235177516937,
+      "g0_mean_pz": 0.0638016015291214,
+      "site_onset": 0.1458699107170105,
+      "site_span": 0.7494485974311829,
+      "corpus_ce": 0.6332651376724243,
+      "ce_r": 1.6511167287826538,
+      "elapsed_s": 185.5
+    },
+    {
+      "step": 200,
+      "g_m12_mean_pz": 0.008872004225850105,
+      "g0_mean_pz": 0.019199904054403305,
+      "site_onset": 0.24822355806827545,
+      "site_span": 0.7133307456970215,
+      "corpus_ce": 0.643211305141449,
+      "ce_r": 1.6172752380371094,
+      "elapsed_s": 319.7
+    },
+    {
+      "step": 300,
+      "g_m12_mean_pz": 0.0012881384463980794,
+      "g0_mean_pz": 0.0018040555296465755,
+      "site_onset": 0.04173193871974945,
+      "site_span": 0.6602368950843811,
+      "corpus_ce": 0.6138100624084473,
+      "ce_r": 1.6322112083435059,
+      "elapsed_s": 453.6
+    }
+  ],
+  "traj_dwell_light": [
+    {
+      "step": 1,
+      "g_m12_mean_pz": 0.18757177889347076,
+      "g0_mean_pz": 0.2437935471534729,
+      "site_onset": 0.3871406614780426,
+      "site_span": 0.6391286253929138,
+      "corpus_ce": 1.2969142198562622,
+      "ce_r": 2.1664960384368896,
+      "elapsed_s": 4.1
+    },
+    {
+      "step": 2,
+      "g_m12_mean_pz": 0.13809281587600708,
+      "g0_mean_pz": 0.17156793177127838,
+      "site_onset": 0.6720907688140869,
+      "site_span": 0.9320802688598633,
+      "corpus_ce": 1.9255601167678833,
+      "ce_r": 2.051509380340576,
+      "elapsed_s": 7.6
+    },
+    {
+      "step": 4,
+      "g_m12_mean_pz": 0.19029539823532104,
+      "g0_mean_pz": 0.11816856265068054,
+      "site_onset": 0.5531313419342041,
+      "site_span": 0.9350080490112305,
+      "corpus_ce": 1.4715064764022827,
+      "ce_r": 1.8941280841827393,
+      "elapsed_s": 13.4
+    },
+    {
+      "step": 50,
+      "g_m12_mean_pz": 0.00931780319660902,
+      "g0_mean_pz": 0.030263269320130348,
+      "site_onset": 0.09173064678907394,
+      "site_span": 0.8625242710113525,
+      "corpus_ce": 0.6554169058799744,
+      "ce_r": 1.6968722343444824,
+      "elapsed_s": 74.2
+    },
+    {
+      "step": 100,
+      "g_m12_mean_pz": 0.009581985883414745,
+      "g0_mean_pz": 0.017612064257264137,
+      "site_onset": 0.02160387486219406,
+      "site_span": 0.8162368535995483,
+      "corpus_ce": 0.6641438603401184,
+      "ce_r": 1.6736562252044678,
+      "elapsed_s": 134.6
+    },
+    {
+      "step": 200,
+      "g_m12_mean_pz": 0.004418849013745785,
+      "g0_mean_pz": 0.015160678885877132,
+      "site_onset": 0.033955615013837814,
+      "site_span": 0.7021311521530151,
+      "corpus_ce": 0.6584239602088928,
+      "ce_r": 1.6479527950286865,
+      "elapsed_s": 254.4
+    },
+    {
+      "step": 300,
+      "g_m12_mean_pz": 0.0009541423642076552,
+      "g0_mean_pz": 0.001086024334654212,
+      "site_onset": 0.001218397868797183,
+      "site_span": 0.6640558242797852,
+      "corpus_ce": 0.619655966758728,
+      "ce_r": 1.6265276670455933,
+      "elapsed_s": 366.0
+    }
+  ],
+  "trace_summary": {
+    "site_steps": [
+      0,
+      1,
+      2,
+      4,
+      50,
+      100,
+      200,
+      300
+    ],
+    "site_onset": [
+      0.9980737566947937,
+      0.8065120577812195,
+      0.6691767573356628,
+      0.7050188183784485,
+      0.3496367335319519,
+      0.1458699107170105,
+      0.24822355806827545,
+      0.04173193871974945
+    ],
+    "site_span": [
+      0.9993568658828735,
+      0.9627028703689575,
+      0.9484807848930359,
+      0.9546694755554199,
+      0.8932008147239685,
+      0.7494485974311829,
+      0.7133307456970215,
+      0.6602368950843811
+    ],
+    "site_gm12": [
+      0.10205486416816711,
+      0.02431689389050007,
+      0.005587964318692684,
+      0.0029963338747620583,
+      0.013388186693191528,
+      0.023761235177516937,
+      0.008872004225850105,
+      0.0012881384463980794
+    ],
+    "site_ce_r": [
+      1.6489683389663696,
+      1.8538877964019775,
+      1.8317370414733887,
+      1.7337583303451538,
+      1.692953109741211,
+      1.6511167287826538,
+      1.6172752380371094,
+      1.6322112083435059
+    ],
+    "dwell_steps": [
+      0,
+      1,
+      2,
+      4,
+      50,
+      100,
+      200,
+      300
+    ],
+    "dwell_gm12": [
+      0.5133363008499146,
+      0.18757177889347076,
+      0.13809281587600708,
+      0.19029539823532104,
+      0.00931780319660902,
+      0.009581985883414745,
+      0.004418849013745785,
+      0.0009541423642076552
+    ],
+    "dwell_onset": [
+      0.9647805094718933,
+      0.3871406614780426,
+      0.6720907688140869,
+      0.5531313419342041,
+      0.09173064678907394,
+      0.02160387486219406,
+      0.033955615013837814,
+      0.001218397868797183
+    ],
+    "dwell_ce_r": [
+      1.6883095502853394,
+      2.1664960384368896,
+      2.051509380340576,
+      1.8941280841827393,
+      1.6968722343444824,
+      1.6736562252044678,
+      1.6479527950286865,
+      1.6265276670455933
+    ],
+    "e177_prior_steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "e177_prior_onset": [
+      0.9980737566947937,
+      0.6716808676719666,
+      0.1945670247077942,
+      0.1409446746110916,
+      0.011479347012937069
+    ],
+    "e161_prior_steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "e161_prior_gm12": [
+      0.5133363008499146,
+      0.03981111943721771,
+      0.019376089796423912,
+      0.0018337517976760864,
+      0.00364150432869792
+    ]
+  },
+  "fate_vs_prior": {
+    "site": {
+      "neutral_first_le_0.27": 100,
+      "neutral_first_lt_0.5": 50,
+      "e177_extinction_first_le_0.27": 100,
+      "neutral_50": 0.3496367335319519,
+      "neutral_300": 0.04173193871974945,
+      "prior_300": 0.011479347012937069
+    },
+    "dwell": {
+      "neutral_first_le_0.27": 1,
+      "neutral_first_lt_0.5": 1,
+      "e161_extinction_first_le_0.27": 50,
+      "neutral_50": 0.00931780319660902,
+      "neutral_300": 0.0009541423642076552,
+      "prior_300": 0.00364150432869792
+    }
+  },
+  "adjudication": {
+    "verdict": "TEXTURE",
+    "clauses": {
+      "BOTH_DISSOLVE": {
+        "bar": 0.27,
+        "site_onset_at_50": 0.3496367335319519,
+        "dwell_gm12_at_50": 0.00931780319660902,
+        "site_clause": false,
+        "dwell_clause": true,
+        "fires": false
+      },
+      "EITHER_SURVIVES": {
+        "bar": 0.5,
+        "site_onset_seq": [
+          0.9980737566947937,
+          0.8065120577812195,
+          0.6691767573356628,
+          0.7050188183784485,
+          0.3496367335319519,
+          0.1458699107170105,
+          0.24822355806827545,
+          0.04173193871974945
+        ],
+        "dwell_gm12_seq": [
+          0.5133363008499146,
+          0.18757177889347076,
+          0.13809281587600708,
+          0.19029539823532104,
+          0.00931780319660902,
+          0.009581985883414745,
+          0.004418849013745785,
+          0.0009541423642076552
+        ],
+        "site_all_ge_bar": false,
+        "dwell_all_ge_bar": false,
+        "ck_steps": [
+          1,
+          2,
+          4,
+          50,
+          100,
+          200,
+          300
+        ],
+        "fires": false
+      },
+      "TEXTURE": {
+        "fires": true
+      },
+      "site_earliest_le_0.27": 100,
+      "dwell_earliest_le_0.27": 1,
+      "site_earliest_lt_0.5": 50,
+      "dwell_earliest_lt_0.5": 1
+    },
+    "sub_booleans": {
+      "site_dissolves_by_50": false,
+      "dwell_dissolves_by_50": true,
+      "site_survives_through_300": false,
+      "dwell_survives_through_300": false
+    },
+    "clause": "different rates than their extinction runs; both curves reported",
+    "smoke_note": null
+  },
+  "ckpt_inventory": {
+    "e185b_site_neutral": {
+      "path": "runs/checkpoints/e185b_site_neutral.pt",
+      "desc": "e151_twodoor (SITE type) + 300-step NEUTRAL-anchor plain-corpus freeze (e170's neutral bank seed 170: 16 plain-corpus windows, 0/16 junctions; batch 32 = 16 neutral anchors + 16 random, full-token CE), lr 0.001, seed 10902 (= e176N arm A protocol verbatim)",
+      "steps": 300,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "primary_dial": "site_read_onset",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s1": {
+      "path": "runs/checkpoints/e185b_site_neutral_s1.pt",
+      "desc": "site type + 1-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 1,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s2": {
+      "path": "runs/checkpoints/e185b_site_neutral_s2.pt",
+      "desc": "site type + 2-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s4": {
+      "path": "runs/checkpoints/e185b_site_neutral_s4.pt",
+      "desc": "site type + 4-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s50": {
+      "path": "runs/checkpoints/e185b_site_neutral_s50.pt",
+      "desc": "site type + 50-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 50,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s100": {
+      "path": "runs/checkpoints/e185b_site_neutral_s100.pt",
+      "desc": "site type + 100-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 100,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_site_neutral_s200": {
+      "path": "runs/checkpoints/e185b_site_neutral_s200.pt",
+      "desc": "site type + 200-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 200,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e151_twodoor.pt"
+    },
+    "e185b_dwell_neutral": {
+      "path": "runs/checkpoints/e185b_dwell_neutral.pt",
+      "desc": "e152_steps32 (DWELL peak) + 300-step NEUTRAL-anchor plain-corpus freeze (e170's neutral bank seed 170: 16 plain-corpus windows, 0/16 junctions; batch 32 = 16 neutral anchors + 16 random, full-token CE), lr 0.001, seed 10902 (= e176N arm A protocol verbatim)",
+      "steps": 300,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "primary_dial": "base_gm12",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s1": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s1.pt",
+      "desc": "dwell type + 1-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 1,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s2": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s2.pt",
+      "desc": "dwell type + 2-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s4": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s4.pt",
+      "desc": "dwell type + 4-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s50": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s50.pt",
+      "desc": "dwell type + 50-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 50,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s100": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s100.pt",
+      "desc": "dwell type + 100-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 100,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    },
+    "e185b_dwell_neutral_s200": {
+      "path": "runs/checkpoints/e185b_dwell_neutral_s200.pt",
+      "desc": "dwell type + 200-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 200,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e152_steps32.pt"
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "CPU-ONLY by dispatch (CUDA_VISIBLE_DEVICES=-1 forced before torch): torch threads 4, one 25 s launch stagger (single sleep, no busy-waiting), cooldown 60 s before/after EACH of the two trainings, per-training CPU cap 1800 s (e176N arm-A precedent 829.7 s actual; the dispatch's '<=180s caps' read as e176N's 1800 s per-training cap \u2014 a 300-step CPU training cannot fit 180 s; the SMOKE keeps its own 180 s cap).",
+    "finetune_freeze's in-run light eval GAINS the site-read dial (read_fact_at on the j=54 pool @183/184) vs e176N's copy \u2014 it consumes no RNG, so the draw sequence at seed 10902 is unchanged (verified by the identical-shapes/moduli assertion of the copy); the per-step arithmetic is e176N arm A VERBATIM.",
+    "The two priors have NO fine-step trajectories (e161/e177 checkpointed only {50,100,200,300}); {1,2,4} is new texture for both types and is reported as such, not adjudicated.",
+    "Eval thread count is 4 (dispatch) vs the stored cells' original threads \u2014 CPU reduction order can drift low-order bits; the two G_ROOT gates report both the 5e-6 bit flag and the 0.05 fallback tolerance (e161/e176/e176n/e177 precedent).",
+    "Single seed (10902), one trajectory per type, one lineage per net (both nets descend from e131_consolidated_e113) \u2014 n=1 per cell, point estimates until replicated; the dwell peak itself is a single trajectory (e152R: DWELL-SEED-DEPENDENT) and the site endpoint is a lineage-1 object (T113: phase structure lineage-specific).",
+    "Smoke mode trims: 4 steps per net, ckpts {1,2,4}, no cooldowns, 180 s cap, checkpoints/dirs prefixed smoke_; nothing adjudicated."
+  ],
+  "timing": {
+    "total_s": 1103.0,
+    "stagger_s": 25.0,
+    "trainings": {
+      "site": {
+        "steps_ran": 300,
+        "traj_elapsed_final_s": 453.6
+      },
+      "dwell": {
+        "steps_ran": 300,
+        "traj_elapsed_final_s": 366.0
+      }
+    }
+  }
+}
