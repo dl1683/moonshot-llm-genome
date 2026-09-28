@@ -2036,6 +2036,21 @@ stable one — with the switch being not anatomy but the
 STATISTICS OF EXPERIENCE (variance), and the trade-off being
 not speed but EDITABILITY.
 
+RIDER RESULT (zero compute, e133's sitting census, ~12:30Z):
+PARTIAL SUPPORT — the concentration ordering holds where it
+matters. Top-1 load share: sink-coupled 0.352 > site-stored
+0.257 > install 0.117 (clean monotone in the predicted
+direction); top-2: 0.467 / 0.389 / 0.224; positive-head counts:
+16 / 29 / 33 (the variance-trained circuit recruits FEWEST
+heads). Weaker: normalized entropy H/ln(n) barely separates
+sink (0.795) from site (0.781) — the tail of the distribution
+is similar; what differs is the HEAD of it. Honest reading:
+variance concentrates the TOP of the load distribution (which
+is what killability needs — a superadditive pair IS a high
+top-2), not the whole shape. W017's operative claim (top-load
+concentration) survives its first check; the strong form
+(whole-distribution entropy split) does not.
+
 ## W016 — WONDER: born with one organ — the sink is the native memory substrate; addresses are protocol-grown grafts (2026-09-28 ~09:00Z)
 
 T085's deepest reading, savored: the architecture comes with
