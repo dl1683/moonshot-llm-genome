@@ -756,6 +756,42 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W008 — WONDER: adapters into a position-invariant readout — consolidation as a two-step wiring (2026-09-28 ~06:00Z; ripening, no bars yet)
+
+T075 says the operative ingredient is the fact's history of being
+READ from many addresses. Read by WHAT? e116's orthogonal-content
+principle (routing ⊥ readout, |cos| 0.033) says the field's
+readout kernel is position-invariant BY CONSTRUCTION — it keys on
+content, not coordinate. So the grown address rows of e109
+(121/125/133/137, cos 0.76-0.85 to the original address) are not
+new HOMES for the fact; they are ADAPTERS — bridges from specific
+positions into the position-invariant readout. Consolidation on
+this frame is TWO necessary steps, not one: (1) grow positional
+adapters, (2) WIRE them into the readout kernel. e120's row 183
+did step 1 without step 2 — the row grew (+0.16) but the battery
+never read the fact through it: an unconnected adapter. Jitter
+does both, because each jittered read forces a readout EVENT from
+a different address — the wiring is exercised, not just the mass.
+The locked-replay partial road (rescue_b +0.221) is then mass that
+leaks into the kernel through the one existing adapter. And the
+maturation timeline falls out: e109's mid-development D-all fatal
+(adapters indispensable) → e113's end-state BODY-STORED (adapters
+dispensable) — development = the kernel learning to key on content
+alone, adapters handed over from necessity to brake (W006's
+inhibitor grows precisely as the adapter's job ends).
+DISCRIMINATING OBSERVATION, already half-run: an intermediate
+jitter schedule should land in a regime where grown-row deletion
+is survivable but D-all is still fatal — partial dispensability
+INTERPOLATES if maturation, jumps if phase transition. REGISTERED
+PREDICTION if the wiring story is right: the readout kernel's cos
+to the fact's readout direction should MOVE during jitter (the
+wiring event) with adapter growth front-loaded early; FALSIFIER:
+if D-all flips discontinuously, or body-stored appears with a
+motionless kernel, the field lives somewhere other than the
+readout kernel and W008's mechanism dies while the phenotype
+survives. Cheap first probe: kernel-motion trace during a single
+jitter schedule (eval-only checkpoints, one run).
+
 ## W007 — WONDER: why 54? The derivation program for the share constant (2026-09-28 ~04:30Z)
 
 The share law has a constant; the constant wants a derivation.
