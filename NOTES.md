@@ -63,6 +63,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E170 — the anchor-neutral install: OVERWRITE-REAL — the anchors did NOT do it; capacity is one fact wide (2026-09-28 ~15:10Z) — DONE
+
+WHAT WE DID: e154's MIRABEL install verbatim with NEUTRAL
+anchors (16 plain-corpus windows; 0/16 host junctions vs
+e154's 16/16 — the contradiction channel removed by
+construction, G_ANCHOR gate); identical budget/RNG.
+
+WHAT WE SAW (T103): F1 annihilated ESSENTIALLY IDENTICALLY —
+g0 0.785 -> 0.0001 (e154: 0.0017); every dial at floor; CE
+improved. F2's graft formed indistinguishably (+0.0215 @r63;
+onset 0.986). The anchor channel is a NON-EXPLANATION: the
+demolition travels with the graft/capacity channel. W012's
+bandwidth answered the hard way: ~ONE FACT WIDE at this
+budget — installing a second locked fact costs the first
+everything. The two-facts question does NOT reopen (no
+per-fact doors at this protocol); the paper's "globally"
+clause unblocks (F1's door — and fact — close under any
+second-fact install). The N2 rider correctly SKIPPED (dead F1
+fails its precondition; recorded, not shopped). Honesty:
+single seed/lineage; a register shift (install-position drama
+text) and a ~3.8%/window shared host background in BOTH cells
+recorded; s278/300 time-cap immaterial (F2 saturated from s25;
+the 8-step smoke had already killed F1).
+
+---
+
 ## E152R — the dwell re-seeds: DWELL-SEED-DEPENDENT — the dwell dies at n=3; the brake overshoot survives 3/3; the straddle cell is unstable (2026-09-28 ~15:00Z) — DONE
 
 WHAT WE DID: two full conversion traces (seeds 10903/10904) +

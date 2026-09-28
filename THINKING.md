@@ -575,6 +575,24 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T103 — E170: the hard answer — one fact wide; the follow-up is the budget axis (2026-09-28 ~15:10Z)
+
+OVERWRITE-REAL, and cleaner than the confounded run: with the
+contradiction channel provably removed, F1 still dies to the
+floor while F2's graft forms and the corpus improves. The
+capacity claim is now licensed at n=1-clean: the consolidated
+substrate holds ~ONE fact at this budget, and a second locked
+install spends the first entirely. The question moves to the
+BUDGET AXIS (e174, now dispatching per the gating plan): is
+capacity a dial (a smaller F2 dose cohabits) or a cliff (F1
+dies at every graft-forming dose — matching e147's texture)?
+And the REHEARSAL arm answers the practical question: does
+interleaved F1-replay during F2's install save the tenant?
+Both quotable either way. FOR THE PAPER: the "globally" clause
+resolves (any second-fact install closes F1's door — by
+demolishing F1); W012's bandwidth = one fact at this budget;
+the two-facts-as-per-fact-doors story is dead at this protocol.
+
 ## T102 — E152R: the dwell dies, the brake lives — and the disuse frame absorbs the wreckage (2026-09-28 ~15:00Z)
 
 The replication did its job: the session's most-quoted texture
