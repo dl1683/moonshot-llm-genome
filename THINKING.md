@@ -684,6 +684,7 @@ jitter@183 the home-geometry readout collapses (0.785 -> 0.145)
 while novel doors stay open — variance moves the readout's home.
 PROCESS RULE: fold on completion notification, not early metrics.
 
+[PASS-1 RESIDUE LABELED per R49: the verdict label and razor-thin paragraphs below predate the committed pass-2 — the current form is in the PASS-2 UPDATE above; committed: TEXTURE, a=0.789 clean-OPEN, b=0.458 MID-straddling. Number fix: the home-graft content is +0.072 (old-census), not +0.057 (a pass-1 value).]
 THE HONEST RESTATEMENT: home-site and novel-site grafts dissociate
 from door closure. The registered verdict (SITE-INDEPENDENT: the
 two-factor gate on novelty+zero-variance) STANDS — it was the

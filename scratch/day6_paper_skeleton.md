@@ -15,7 +15,7 @@ We dissect memory consolidation in 0.84-2.7M-parameter char-LMs with
 pre-registered interventions and deletion batteries. Four findings. (1)
 A fact consolidates where its training error is placed — shown causally by
 steering: error locked at positions 5-13 builds a site-store there, with no
-routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, bidirectionally switchable at fixed architecture (both directions are 300 trained steps) (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
+routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, bidirectionally switchable at fixed architecture (both directions are 300 trained steps; conversions demonstrated across the lineage — same-net reversibility is e155R's cell) (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
 (content concentrated at a row, context-general, geometry-bound) and ROUTED
 (readout keyed to the omnipresent row's presence, geometry-general,
 deletion-tolerant) — switched by the error's position-variance. (3) Content
@@ -28,7 +28,7 @@ masking all attention to position 0 spares the fact at CE +0.03 while
 sub-threshold row-0 norm poisons every read (threshold in (0.07, 0.15));
 consolidation moves the
     memory's dependence into coupling with the sink (e159's double
-    dissociation; RESOLVED MIXED by e162: BOTH channels kill, each sufficient — functional dependence on the sink's dual role (supplier + guarantor): equal organism damage, only the read-coupled memory dies;
+    dissociation; RESOLVED MIXED by e162: healthy content fully rescues; total-dose absorption on a flattened profile kills (the per-layer distribution untested, e167 queued) — functional dependence on the sink's dual role, condition-qualified: equal organism damage, only the read-coupled memory dies;
     the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
 COMPLETED by e125a: an ASYMMETRY OF EXISTENCE — the sink-coupled
     (generalizing) memory dies 70.7-97.4% at CE 0.245-0.280 (N2, both modes) via a superadditive
@@ -72,7 +72,7 @@ both directions across the lineage (same-net reversibility is e155's
 queued cell) — and the conversion PASSES THROUGH A MIXED STATE: the cliff
 fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
 genuine at 67x control AND >=50% geometry retention) before separation
-completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together (jitter@novel open, locked@home open, locked@novel shut); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: NOT the graft (e166 — deleting the graft rows moves the door by exactly zero; the closure lives elsewhere: stream state or disuse, e161 pending); e154 landed TEXTURE with a confound: F1 ANNIHILATED under a protocol whose anchors contradict it — 'globally' awaits e170 (anchor-neutral rerun); the riders (N2 spares F2; F2 diffuse) strengthen claims 3-4 now]. (3) SPLIT CUSTODY: the converted memory's
+completes (e152) [e158 COMMITTED PASS-2: TEXTURE — closure requires the CONJUNCTION novelty x zero-variance (jitter@novel OPEN 0.789, locked@home MID 0.458 straddling, locked@novel SHUT 0.102); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism: NOT the graft (e166 — deleting the graft rows moves the door by exactly zero; the closure lives elsewhere: stream state or disuse, e161 pending); e154 landed TEXTURE with a confound: F1 ANNIHILATED under a protocol whose anchors contradict it — 'globally' awaits e170 (anchor-neutral rerun); the riders (N2 spares F2; F2 diffuse) strengthen claims 3-4 now]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism
 damage, only readers die) while its READOUT consolidates into a small
@@ -108,7 +108,7 @@ R1 The compass is causal (e120/e131/e143): instrument-blindness
    plate -> the committed-prediction record.
 R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
    twin panels; the conversion before/after; the dwell trace
-   (with mask-column overlay); the 2x2 [e158 DONE: SITE-INDEPENDENT].
+   (with mask-column overlay); the 2x2 [e158 DONE: TEXTURE-pass-2 — the conjunction].
 R3 Content everywhere, access differs (e133/e141/e142): the
    three-net maps; install-restore/perm/halfnorm riders; the
    origin census (13/13) [e163 pending for the dial license];
