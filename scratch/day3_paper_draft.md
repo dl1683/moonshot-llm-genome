@@ -476,7 +476,13 @@ post-audit numbers with the caveats attached, not the pre-audit headlines.
   signature keys fail. Positioning vs 2605.25459 (their on-policy
   entropy channel cannot reject JS-0.041 donors) and vs the sink canon
   (no prior derives the count threshold from normalization
-  arithmetic). Net-dependence (e079,
+  arithmetic). **Share-law footnote (e110/e117, added post-scan):**
+  the count-threshold and the magnitude floor are ONE boundary —
+  r*(k)·k is within-net constant (n=4 nets, max/min 1.04-1.20) —
+  but its VALUE is trend-plus-fingerprint: monotone with training
+  amount (31/42 → 54 → 77) yet wide-scattered at nominally equal
+  exposure (truncated- vs completed-cosine confound identified);
+  report each net's own constant, claim no universal value. Net-dependence (e079,
   B=16 resample): the 10M cell is the robust anchor (0.372 vs 0.000,
   diff CI excludes 0 even under worst-case bounds); 2.7M fires under
   the registered mapping; the ctx-512 cell's weaker contrast does not
