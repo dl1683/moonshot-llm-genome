@@ -84,6 +84,27 @@ not the store.
 
 ---
 
+## E098 — seed-ladder dual mandate: structure 4/4, statistic re-barred; share-form replicates, value maturity-dependent (2026-09-28) — DONE
+
+WHAT WE DID: 4 fresh-seed base nets (2000-step recipe) + installs +
+censuses + the e110 mini-grid on two; all gates pass; M2
+instrument identity 12/12 exact.
+
+WHAT WE SAW (T068): M1 — literal bar 0/4 but STRUCTURE replicates
+4/4: every seed grew a single content-carrying decision-window
+row (127-129, mean-arm = zero-arm, magnitudes 0.24-0.33 = seed-
+42's); the registered top1/top2 statistic was calibrated on the
+2.7M family where row 1 is negligible — in the 0.84M family the
+0-1 scaffolding band tops every census. M2 — SEED-DEPENDENT value
+(products 29.9-46.0, mean 36.8, −32% vs 54) BUT the law's FORM
+holds within each net (r*k max/min 1.10/1.20, under the 2.0
+constancy bar); post-hoc base diagnostic shows the departure is a
+net property, not install; and the ladder nets were under-trained
+vs e053c (2000 vs 3133 steps — a tasking deviation) — the
+constant appears to GROW WITH MATURITY at fixed architecture.
+
+---
+
 ## E114 — brake signatures: all three mechanisms NULL — the brake is coordinate-local, a fourth story (2026-09-28) — DONE
 
 WHAT WE DID: the three W006 signatures on the bit-exact rebuilt

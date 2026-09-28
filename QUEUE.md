@@ -149,7 +149,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e104 | failing-DP census | DONE (T056: LOCALIZED REAL RESIDUE — near-tie/mixed-age strata 3-10x base, p=1e-4; blur refuted; second-channel candidate) |
 | e101 | adversarial subsets | DONE (T058: no kill; recency-selection 2-7x — law's 3rd revision; top-readership WORST selector 0.40x — eviction heuristic falsified) |
 | e102 | direction-vs-magnitude | DONE (W001/T051 completion: DIRECTION CARRIES THE ANCHOR — unit-norm anchors, norm-random collapses; magnitude floor 10-56%; the anchor is a directional field) |
-| e098 | seed-ladder address universality (T053 upgrade) | READY (GPU, ~5 installs) | n=5-10 seeds — does the same wpe address carry the fact everywhere; graduates anecdote to law |
+| e098 | seed-ladder | DONE (T068: structure universal n=6; share-form n=3, value grows with maturity) |
 
 ## Parking lot (raw ideas, unranked)
 
@@ -184,3 +184,5 @@ lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor |
 | e114 | brake signatures | DONE (T067: all three NULL — brake is coordinate-local, install+geometry-specific, strongest where field weakest; fourth story named) |
 | e115 | graded field ablation (M3 resurrection check) | READY (CPU) | give S3 dynamic range before the coordinate-local story is safe |
 
+| e116 | re-barred census (scaffolding-excluded) | READY (free re-analysis) | the formal M1 graduation check: top CONTENT row >=2x next content row |
+| e117 | maturity curve of the share constant | READY (GPU, one 3133-step seed) | exposure-matched replication — split seed vs maturity for the constant's drift |

@@ -514,6 +514,33 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T068 — E098: universality-of-structure confirmed; the share constant chases maturity (2026-09-28 ~05:40Z)
+
+**M1 adjudication: the STRUCTURE is universal — n=6 total.** Every
+seed (42, 43, 4305-08) grows ONE content-carrying row at/near the
+decision position with the same magnitude band; what differs is
+only which scaffolding rows top the census (an architecture-
+family artifact the statistic must exclude). Address-universality
+graduates as: *every install develops a single decision-window
+content row; its position is family-stable (127-129); its code is
+seed-private (T053).* The re-barred census (scaffolding-excluded,
+content-rows-only) is registered as the formal graduation check
+(e116, re-analysis, free).
+
+**M2 adjudication: the share law's FORM is now n=3 (within-net
+constancy holds in every net tested); its VALUE moves — 31, 42,
+54 — and the axis looks like MATURITY, not seed.** The ladder nets
+were under-trained by my own tasking (~2000 vs e053c's 3133 steps
+— dispatcher deviation, honestly mine); the constant grew with
+exposure across the three nets we have. W007's derivation program
+sharpens: if share* ~ noise/signal, the mature net's non-anchor
+stream is LARGER (more structured, higher norms), so the anchor
+needs more mass to hold the same share — the constant SHOULD grow
+with maturity under the LN-share mechanism. The maturity curve
+(share constant vs training steps, exposure-matched seeds) is the
+program's next data point (e117 registered; one 3133-step seed
+suffices to start).
+
 ## T067 — E114: the brake is coordinate-local state modulation — the content-interaction frame dies (2026-09-28 ~05:00Z)
 
 **All three W006 mechanisms killed.** Not routing dilution (null;
