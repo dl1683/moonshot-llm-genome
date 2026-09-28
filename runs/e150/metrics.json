@@ -1,0 +1,1629 @@
+{
+  "experiment": "e150_flatce_route",
+  "date": "2026-09-28T05:24:18Z",
+  "registration": "R45 critic attack 2 (the flat-CE ultimatum) + amendments T081 (probe power) / T082 (hard bound) / W014 (never-consults null). Docstring + bars written before compute.",
+  "registered_prediction": {
+    "queue_row_verbatim": "On consolidated + R nets: (1) perm@g-12 AND perm@g0 (direction-permutation \u2014 fact survives => presence-only holds at both geometries); (2) FORCED-OFF-SINK attention mask (mask attention to position 0 at eval \u2014 removes the sink's attentional role at flat-ish CE); (3) L0H3-class fact-specific head ablation (e133's flat-CE fact-kill candidate, alone and as a set); (4) FACT-AT-POSITION-0 scramble (W014's never-consults control); (5) NORM LADDER on wpe[0] (0.07/0.15/0.25/0.35 \u2014 the threshold in (0.066,0.382)). Bars: FLAT-CE-ROUTE = any intervention kills fact >=60% at CE cost <=+0.35; ALL-KILLS-WRECK = every fact-kill costs CE >=+0.70 (T081/T082 hard-bounded \u2014 'routed' becomes a wreck statement); DIRECTION-CONSULTED = fact-at-position-0 scramble kills (tenant reading dies); PRESENCE-AT-NOVEL = perm@g-12 spares >=80% of g-12 level",
+    "operationalizations": "kill(60%) = expr <= 0.40 x base (die bar 0.5x reported alongside); CE cost on the e065 bank (seed 26502); PLANE = bar-eligible cells on the routed-fact nets (consolidated + R150/R300) \u2014 install-mask (differential) and site-stored-mask (specificity) are controls, top-3 joint heads and R150 ladder are report-only riders; perm seed 14101 = e141's permutation; mask = -inf on key column 0 for queries >= 1, all layers/heads, eval-only custom forward gated against the standard forward; head set recomputed from runs/e133/metrics.json by drop >= 0.3 & CE <= 0.35 (expected singleton L0H3 \u2014 'jointly' degenerates, stated); mean-replace = head slice -> its CE_R-bank mean; fact-at-position-0 = [NAME + 12 post-host + continuation], expression = mean p(next name char) over reads 0..5, control cell = e133 segment geometry (name at cols 12..18); ladder = norm rescale direction-kept + 0.0 anchor; PRESENCE-AT-NOVEL fires iff BOTH R nets retain >= 80% at g-12 under perm.",
+    "no_bar_shopping": "No bar shopping. Ambiguous => say AMBIGUOUS with numbers."
+  },
+  "question": "is 'the consolidated fact is ROUTED through row-0 presence' a memory property (a flat-CE fact-kill exists) or a wreck artifact (every kill wrecks the LM)?",
+  "nets": {
+    "consolidated": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated)",
+    "R150": "runs/checkpoints/e119_r_jittered_s150.pt (loaded, gated)",
+    "R300": "runs/checkpoints/e119_r_jittered_s300.pt (loaded, gated)",
+    "install_control": "runs/checkpoints/e048_repro.pt (loaded, gated)",
+    "site_stored_control": "runs/checkpoints/e131_arm_b_corpus_spliced.pt (loaded, gated)",
+    "eval_only": true
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "consolidated": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "install": {
+      "battery_pz": 0.5563086867332458,
+      "ref": 0.5563086867332458,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "r_arms": {
+      "R150": {
+        "battery_pz_g0": 0.5597274303436279,
+        "ref_g0": 0.5597274303436279,
+        "pass": true,
+        "battery_pz_g12": 0.8130165338516235,
+        "ref_g12": 0.8130165338516235
+      },
+      "R300": {
+        "battery_pz_g0": 0.7753651738166809,
+        "ref_g0": 0.7753651738166809,
+        "pass": true
+      }
+    },
+    "site_stored": {
+      "std_g0_floor": 0.007800613064318895,
+      "ref_std": 0.007800613064318895,
+      "site_onset": 0.9880021214485168,
+      "ref_site": 0.9880021214485168,
+      "pass": true
+    },
+    "mask_instrument": {
+      "max_abs_logit_diff_batch6": 0.0,
+      "abs_dpz_install60_g0": 0.0,
+      "tol_logit": 0.01,
+      "tol_pz": 0.001,
+      "pass": true
+    }
+  },
+  "probe1_perm_both_geometries": {
+    "cells": {
+      "cons__perm__g0": {
+        "probe": "P1",
+        "tag": "cons/perm@g0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.8169532418251038,
+        "retention": 1.0406555046497774,
+        "fact_drop_pct": -4.065550464977741,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.368222236633301,
+        "ce_cost": 0.7047055959701538,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "held30_base": 0.7233286499977112,
+        "held30_arm": 0.802960991859436
+      },
+      "cons__perm__gm12": {
+        "probe": "P1",
+        "tag": "cons/perm@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.722875714302063,
+        "retention": 0.7895202065903402,
+        "fact_drop_pct": 21.047979340965984,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.368222236633301,
+        "ce_cost": 0.7047055959701538,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        }
+      },
+      "R150__perm__gm12": {
+        "probe": "P1",
+        "tag": "R150/perm@g-12",
+        "net": "R150",
+        "geo": -12,
+        "expr_base": 0.8130165338516235,
+        "expr_arm": 0.6832101345062256,
+        "retention": 0.840339779154986,
+        "fact_drop_pct": 15.966022084501397,
+        "ce_base": 1.6844086647033691,
+        "ce_arm": 2.409085988998413,
+        "ce_cost": 0.724677324295044,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        }
+      },
+      "R300__perm__gm12": {
+        "probe": "P1",
+        "tag": "R300/perm@g-12",
+        "net": "R300",
+        "geo": -12,
+        "expr_base": 0.914334237575531,
+        "expr_arm": 0.7237507700920105,
+        "retention": 0.791560394819212,
+        "fact_drop_pct": 20.843960518078795,
+        "ce_base": 1.6661189794540405,
+        "ce_arm": 2.368108034133911,
+        "ce_cost": 0.7019890546798706,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        }
+      }
+    },
+    "r_nets": {
+      "R150": {
+        "none_g12": {
+          "mean_pz": 0.8130165338516235,
+          "median_pz": 0.987699031829834,
+          "std_pz": 0.3047293722629547,
+          "frac_pz_ge_0.5": 0.800000011920929,
+          "frac_argmax_z": 0.8333333333333334
+        },
+        "perm_g12": {
+          "mean_pz": 0.6832101345062256,
+          "median_pz": 0.9579011797904968,
+          "std_pz": 0.41915467381477356,
+          "frac_pz_ge_0.5": 0.6833333373069763,
+          "frac_argmax_z": 0.6833333333333333
+        },
+        "none_ce": 1.6844086647033691,
+        "perm_ce": 2.409085988998413,
+        "spares_80": true
+      },
+      "R300": {
+        "none_g12": {
+          "mean_pz": 0.914334237575531,
+          "median_pz": 0.9666296243667603,
+          "std_pz": 0.1515018790960312,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "perm_g12": {
+          "mean_pz": 0.7237507700920105,
+          "median_pz": 0.9628157019615173,
+          "std_pz": 0.3858887553215027,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7833333333333333
+        },
+        "none_ce": 1.6661189794540405,
+        "perm_ce": 2.368108034133911,
+        "spares_80": false
+      }
+    },
+    "verdict": {
+      "PRESENCE_AT_NOVEL": false,
+      "bar": "perm@g-12 spares >= 80% of g-12 level on BOTH R nets ('R150', 'R300')",
+      "retentions": {
+        "R150": 0.840339779154986,
+        "R300": 0.791560394819212
+      },
+      "supporting_cons_g12": 0.7895202065903402,
+      "verdict": "PRESENCE-AT-NOVEL FAILS the 80% bar (retentions R150 0.840, R300 0.792, cons 0.790 \u2014 perm@g-12 costs the fact a consistent 16-21%: NOT a kill, but the fact MILDLY consults row-0's direction at novel geometry, unlike the +4% spare at trained g0)"
+    }
+  },
+  "probe2_forced_off_sink": {
+    "cells": {
+      "cons__mask__g-12": {
+        "probe": "P2",
+        "tag": "cons/mask@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "fact_drop_pct": -0.9425606150838428,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "held30_base": 0.7233286499977112,
+        "held30_arm": 0.7303782105445862,
+        "note": "base = causal-only CUSTOM forward (path-matched)"
+      },
+      "cons__mask__g0": {
+        "probe": "P2",
+        "tag": "cons/mask@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "fact_drop_pct": -3.0332848470602025,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "held30_base": 0.7233286499977112,
+        "held30_arm": 0.7303782105445862,
+        "note": "base = causal-only CUSTOM forward (path-matched)"
+      },
+      "R150__mask__gm12": {
+        "probe": "P2",
+        "tag": "R150/mask@g-12",
+        "net": "R150",
+        "geo": -12,
+        "expr_base": 0.8130165338516235,
+        "expr_arm": 0.8166684508323669,
+        "retention": 1.0044918114560877,
+        "fact_drop_pct": -0.449181145608768,
+        "ce_base": 1.6844086647033691,
+        "ce_arm": 1.720886468887329,
+        "ce_cost": 0.03647780418395996,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true
+      },
+      "R300__mask__gm12": {
+        "probe": "P2",
+        "tag": "R300/mask@g-12",
+        "net": "R300",
+        "geo": -12,
+        "expr_base": 0.914334237575531,
+        "expr_arm": 0.9232483506202698,
+        "retention": 1.0097492937247714,
+        "fact_drop_pct": -0.9749293724771402,
+        "ce_base": 1.6661189794540405,
+        "ce_arm": 1.6985925436019897,
+        "ce_cost": 0.03247356414794922,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true
+      },
+      "install__mask__g0__CONTROL": {
+        "probe": "P2",
+        "tag": "inst/mask@g0 [ctl]",
+        "net": "install",
+        "geo": 0,
+        "expr_base": 0.5563086867332458,
+        "expr_arm": 0.5542356967926025,
+        "retention": 0.9962736696548524,
+        "fact_drop_pct": 0.3726330345147577,
+        "ce_base": 1.666774868965149,
+        "ce_arm": 1.7100207805633545,
+        "ce_cost": 0.043245911598205566,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": false,
+        "role": "W013 differential control (not bar-eligible)"
+      },
+      "armb__mask__site__CONTROL": {
+        "probe": "P2",
+        "tag": "armB/mask@site [ctl]",
+        "net": "site_stored",
+        "geo": 183,
+        "expr_base": 0.9880021214485168,
+        "expr_arm": 0.9834259152412415,
+        "retention": 0.9953682222862374,
+        "fact_drop_pct": 0.46317777137625527,
+        "ce_base": 1.682660698890686,
+        "ce_arm": 1.7090784311294556,
+        "ce_cost": 0.02641773223876953,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": false,
+        "role": "specificity control: site-stored fact should NOT die under the mask (its read is not row-0-routed)",
+        "base_detail": {
+          "onset_pz": 0.9880021214485168,
+          "onset_frac_ge_0.5": 1.0,
+          "pname_mean_over7": 0.9971728324890137
+        },
+        "arm_detail": {
+          "onset_pz": 0.9834259152412415,
+          "onset_frac_ge_0.5": 1.0,
+          "pname_mean_over7": 0.9960928559303284
+        }
+      }
+    },
+    "sink_mass_premask": {
+      "cons_g0_read129": {
+        "L0": 0.0069508610758930445,
+        "L1": 0.0006893691315781325,
+        "L2": 2.176841371692717e-05,
+        "L3": 1.219342129843426e-05,
+        "L4": 0.0007149362645577639,
+        "L5": 0.001668616198003292
+      },
+      "R150_gm12_read117": {
+        "L0": 0.0077839072328060865,
+        "L1": 0.000236490806855727,
+        "L2": 2.3906993192213122e-05,
+        "L3": 1.6771980597241054e-05,
+        "L4": 0.00047832207928877324,
+        "L5": 0.004023247165605426
+      },
+      "note": "mean attention mass on key 0 at the read position, per layer (mean over heads/batch); post-mask this is exactly 0 by construction (the -inf column)"
+    },
+    "cons_detail": {
+      "base": {
+        "g-12": {
+          "mean_pz": 0.9155886173248291,
+          "median_pz": 0.969791829586029,
+          "std_pz": 0.15201902389526367,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "g0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "held": {
+          "mean_pz": 0.7233286499977112,
+          "median_pz": 0.9483089447021484,
+          "std_pz": 0.3725012242794037,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        }
+      },
+      "masked": {
+        "g-12": {
+          "mean_pz": 0.9242185950279236,
+          "median_pz": 0.9739699959754944,
+          "std_pz": 0.13945044577121735,
+          "frac_pz_ge_0.5": 0.9666666388511658,
+          "frac_argmax_z": 1.0
+        },
+        "g0": {
+          "mean_pz": 0.808849573135376,
+          "median_pz": 0.9791030287742615,
+          "std_pz": 0.304668664932251,
+          "frac_pz_ge_0.5": 0.7666666507720947,
+          "frac_argmax_z": 0.7666666666666667
+        },
+        "held": {
+          "mean_pz": 0.7303782105445862,
+          "median_pz": 0.9512130618095398,
+          "std_pz": 0.37266862392425537,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        }
+      },
+      "ce_base": 1.663516640663147,
+      "ce_masked": 1.6974623203277588
+    },
+    "r_detail": {
+      "R150": {
+        "base": {
+          "g-12": {
+            "mean_pz": 0.8130165338516235,
+            "median_pz": 0.987699031829834,
+            "std_pz": 0.3047293722629547,
+            "frac_pz_ge_0.5": 0.800000011920929,
+            "frac_argmax_z": 0.8333333333333334
+          }
+        },
+        "masked": {
+          "g-12": {
+            "mean_pz": 0.8166684508323669,
+            "median_pz": 0.9886183738708496,
+            "std_pz": 0.29985499382019043,
+            "frac_pz_ge_0.5": 0.800000011920929,
+            "frac_argmax_z": 0.8333333333333334
+          }
+        },
+        "ce_base": 1.6844086647033691,
+        "ce_masked": 1.720886468887329
+      },
+      "R300": {
+        "base": {
+          "g-12": {
+            "mean_pz": 0.914334237575531,
+            "median_pz": 0.9666296243667603,
+            "std_pz": 0.1515018790960312,
+            "frac_pz_ge_0.5": 0.949999988079071,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "masked": {
+          "g-12": {
+            "mean_pz": 0.9232483506202698,
+            "median_pz": 0.9711400866508484,
+            "std_pz": 0.1376410871744156,
+            "frac_pz_ge_0.5": 0.9833333492279053,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "ce_base": 1.6661189794540405,
+        "ce_masked": 1.6985925436019897
+      }
+    },
+    "w013_differential": {
+      "fact_damage_cons": -0.030332848470602025,
+      "fact_damage_install": 0.003726330345147577,
+      "differential": -0.0340591788157496,
+      "signature": false,
+      "note": "W013's registered savor: consolidated >> install damaged under the same mask is the policy signature"
+    },
+    "specificity": {
+      "site_stored_retention_under_mask": 0.9953682222862374,
+      "site_stored_survives": true
+    }
+  },
+  "probe3_head_ablation": {
+    "selected": [
+      {
+        "head": 3,
+        "layer": 0,
+        "e133_drop": 0.4598899483680725,
+        "e133_ce_cost": 0.20773905515670776
+      }
+    ],
+    "cells": {
+      "L0H3__mean__g-12": {
+        "probe": "P3",
+        "tag": "L0H3-mean@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.5916339755058289,
+        "retention": 0.6461788234485348,
+        "fact_drop_pct": 35.382117655146516,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7555058002471924,
+        "ce_cost": 0.09198915958404541,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "mode": "mean-replace (CE_R-bank mean)"
+      },
+      "L0H3__mean__g0": {
+        "probe": "P3",
+        "tag": "L0H3-mean@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.6900150775909424,
+        "retention": 0.8789584911642765,
+        "fact_drop_pct": 12.104150883572352,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7555058002471924,
+        "ce_cost": 0.09198915958404541,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "mode": "mean-replace (CE_R-bank mean)"
+      },
+      "L0H3__zero__g0": {
+        "probe": "P3",
+        "tag": "L0H3-zero@g0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.32514816522598267,
+        "retention": 0.4141818780390286,
+        "fact_drop_pct": 58.58181219609714,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.8712550401687622,
+        "ce_cost": 0.20773839950561523,
+        "kills60": false,
+        "dies50": true,
+        "in_plane": true,
+        "mode": "zero (e133 convention)",
+        "e133_reference": {
+          "drop": 0.4598899483680725,
+          "ce_cost": 0.20773905515670776
+        }
+      },
+      "top3__mean__g0__RIDER": {
+        "probe": "P3",
+        "tag": "top3-mean@g0 [rider]",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.0536547414958477,
+        "retention": 0.06834675380377318,
+        "fact_drop_pct": 93.16532461962268,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.373612403869629,
+        "ce_cost": 0.7100957632064819,
+        "kills60": true,
+        "dies50": true,
+        "in_plane": false,
+        "role": "REPORT-ONLY post-hoc rider (selection set is a singleton; this restores a 'joint' cell)",
+        "heads": [
+          "L0H3",
+          "L1H0",
+          "L0H0"
+        ]
+      }
+    },
+    "singleton_note": "the dispatch criterion (drop>=0.3 & CE<=0.35) selects exactly one head on e133's stored table: L0H3 (drop 0.4599 at CE +0.2077); 'singly and jointly' collapses to the singleton; the top-3 joint is a labeled rider"
+  },
+  "probe4_fact_at_position0": {
+    "cells": {
+      "col0__none": {
+        "onset_pz": null,
+        "within6_mean": 0.23028352856636047,
+        "within6_frac_ge_0.5": 0.1666666716337204,
+        "n_reads": 360
+      },
+      "col0__perm": {
+        "onset_pz": null,
+        "within6_mean": 0.3659067451953888,
+        "within6_frac_ge_0.5": 0.3333333432674408,
+        "n_reads": 360
+      },
+      "col0__perm__cell": {
+        "probe": "P4",
+        "tag": "perm@fact-col0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.23028352856636047,
+        "expr_arm": 0.3659067451953888,
+        "retention": 1.5889401533551106,
+        "fact_drop_pct": -58.894015335511064,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.368222236633301,
+        "ce_cost": 0.7047055959701538,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "metric": "within6_mean (6 within-name continuation reads; col-0 has no onset read by construction)",
+        "onset_base": null,
+        "onset_perm": null,
+        "ce_note": "CE columns are the net-level perm state from probe 1 (same surgery)"
+      },
+      "col12__none": {
+        "onset_pz": 0.0005901131080463529,
+        "within6_mean": 0.9320449233055115,
+        "within6_frac_ge_0.5": 0.9750000238418579,
+        "n_reads": 360
+      },
+      "col12__perm": {
+        "onset_pz": 0.0001151068281615153,
+        "within6_mean": 0.0394718237221241,
+        "within6_frac_ge_0.5": 0.013888888992369175,
+        "n_reads": 360
+      },
+      "col12__perm__cell": {
+        "probe": "P4",
+        "tag": "perm@fact-col12",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.9320449233055115,
+        "expr_arm": 0.0394718237221241,
+        "retention": 0.04234970089439109,
+        "fact_drop_pct": 95.7650299105609,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.368222236633301,
+        "ce_cost": 0.7047055959701538,
+        "kills60": true,
+        "dies50": true,
+        "in_plane": true,
+        "metric": "within6_mean (6 within-name continuation reads; col-0 has no onset read by construction)",
+        "onset_base": 0.0005901131080463529,
+        "onset_perm": 0.0001151068281615153,
+        "ce_note": "CE columns are the net-level perm state from probe 1 (same surgery)"
+      }
+    },
+    "verdict": {
+      "DIRECTION_CONSULTED": false,
+      "bar": "col-0 scramble retention <= 0.5 x col-0 base (die bar); 60% convention also reported",
+      "col0_retention": 1.5889401533551106,
+      "col0_kills60": false,
+      "col12_retention": 0.04234970089439109,
+      "verdict": "NOT-CONSULTED (col-0 scramble spares the fact \u2014 W014's tenant reading survives its control)",
+      "texture_note_col12_control": "the col-12 CONTROL cell (same windows, name at cols 12..18, reads 12..17) DIES under the same perm (x0.042) while the standard 130-token battery's read at position 129 is spared (probe 1: x1.041) \u2014 the route's direction-insensitivity is READ-HORIZON-dependent: short-horizon within-name reads (key 0 is 1-of-~15 keys) consult row-0's direction; the long-context onset read (1-of-130) does not. Texture, not a registered bar."
+    }
+  },
+  "probe5_norm_ladder": {
+    "ladder": [
+      {
+        "target_norm": 0.0,
+        "actual_norm": 0.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g0_install60": 0.0533599890768528,
+        "gm12_install60": 0.010905269533395767,
+        "ce_r": 3.066155433654785
+      },
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g0_install60": 0.3231039047241211,
+        "gm12_install60": 0.14433331787586212,
+        "ce_r": 2.506317377090454,
+        "g0_held30": 0.320553183555603
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.14999999105930328,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g0_install60": 0.7846040725708008,
+        "gm12_install60": 0.7339223623275757,
+        "ce_r": 1.9703083038330078,
+        "g0_held30": 0.7061428427696228
+      },
+      {
+        "target_norm": 0.25,
+        "actual_norm": 0.2499999850988388,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g0_install60": 0.8116298913955688,
+        "gm12_install60": 0.8819405436515808,
+        "ce_r": 1.7122266292572021,
+        "g0_held30": 0.7358025312423706
+      },
+      {
+        "target_norm": 0.35,
+        "actual_norm": 0.34999996423721313,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g0_install60": 0.7879846692085266,
+        "gm12_install60": 0.9080929160118103,
+        "ce_r": 1.680081844329834,
+        "g0_held30": 0.729631781578064
+      }
+    ],
+    "rider_r150": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gm12_install60": 0.23608537018299103,
+        "ce_r": 2.498359441757202
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.14999999105930328,
+        "gm12_install60": 0.7229591012001038,
+        "ce_r": 1.915078043937683
+      },
+      {
+        "target_norm": 0.25,
+        "actual_norm": 0.2499999850988388,
+        "gm12_install60": 0.7999365925788879,
+        "ce_r": 1.7256861925125122
+      },
+      {
+        "target_norm": 0.35,
+        "actual_norm": 0.3499999940395355,
+        "gm12_install60": 0.8095459342002869,
+        "ce_r": 1.6992206573486328
+      }
+    ],
+    "cells": {
+      "norm0__g0": {
+        "probe": "P5",
+        "tag": "norm=0@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.0533599890768528,
+        "retention": 0.06797129078871662,
+        "fact_drop_pct": 93.20287092112834,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 3.066155433654785,
+        "ce_cost": 1.4026387929916382,
+        "kills60": true,
+        "dies50": true,
+        "in_plane": true,
+        "target_norm": 0.0
+      },
+      "norm0__g-12": {
+        "probe": "P5",
+        "tag": "norm=0@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.010905269533395767,
+        "retention": 0.011910665256257589,
+        "fact_drop_pct": 98.80893347437424,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 3.066155433654785,
+        "ce_cost": 1.4026387929916382,
+        "kills60": true,
+        "dies50": true,
+        "in_plane": true,
+        "target_norm": 0.0
+      },
+      "norm0.07__g0": {
+        "probe": "P5",
+        "tag": "norm=0.07@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.3231039047241211,
+        "retention": 0.41157784780169493,
+        "fact_drop_pct": 58.84221521983051,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.506317377090454,
+        "ce_cost": 0.8428007364273071,
+        "kills60": false,
+        "dies50": true,
+        "in_plane": true,
+        "target_norm": 0.07
+      },
+      "norm0.07__g-12": {
+        "probe": "P5",
+        "tag": "norm=0.07@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.14433331787586212,
+        "retention": 0.15763992162503707,
+        "fact_drop_pct": 84.2360078374963,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.506317377090454,
+        "ce_cost": 0.8428007364273071,
+        "kills60": true,
+        "dies50": true,
+        "in_plane": true,
+        "target_norm": 0.07
+      },
+      "norm0.15__g0": {
+        "probe": "P5",
+        "tag": "norm=0.15@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.7846040725708008,
+        "retention": 0.9994483224858015,
+        "fact_drop_pct": 0.055167751419848976,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.9703083038330078,
+        "ce_cost": 0.30679166316986084,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.15
+      },
+      "norm0.15__g-12": {
+        "probe": "P5",
+        "tag": "norm=0.15@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.7339223623275757,
+        "retention": 0.8015852845265304,
+        "fact_drop_pct": 19.841471547346956,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.9703083038330078,
+        "ce_cost": 0.30679166316986084,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.15
+      },
+      "norm0.25__g0": {
+        "probe": "P5",
+        "tag": "norm=0.25@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.8116298913955688,
+        "retention": 1.0338744875192263,
+        "fact_drop_pct": -3.387448751922628,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7122266292572021,
+        "ce_cost": 0.048709988594055176,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.25
+      },
+      "norm0.25__g-12": {
+        "probe": "P5",
+        "tag": "norm=0.25@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.8819405436515808,
+        "retention": 0.9632497903135129,
+        "fact_drop_pct": 3.6750209686487123,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7122266292572021,
+        "ce_cost": 0.048709988594055176,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.25
+      },
+      "norm0.35__g0": {
+        "probe": "P5",
+        "tag": "norm=0.35@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.7879846692085266,
+        "retention": 1.0037546111690931,
+        "fact_drop_pct": -0.3754611169093147,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.680081844329834,
+        "ce_cost": 0.01656520366668701,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.35
+      },
+      "norm0.35__g-12": {
+        "probe": "P5",
+        "tag": "norm=0.35@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9080929160118103,
+        "retention": 0.9918132432282527,
+        "fact_drop_pct": 0.8186756771747294,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.680081844329834,
+        "ce_cost": 0.01656520366668701,
+        "kills60": false,
+        "dies50": false,
+        "in_plane": true,
+        "target_norm": 0.35
+      }
+    },
+    "threshold_bracket_g0": {
+      "smallest_surviving_norm": 0.15,
+      "largest_dying_norm": 0.07,
+      "bracket": "(0.07, 0.15)",
+      "e141_anchors": {
+        "mean_replace_0.066": "killed (expr 0.0008)",
+        "halfnorm_0.382": "survived (expr 0.782)"
+      }
+    }
+  },
+  "plane": [
+    {
+      "probe": "P1",
+      "tag": "cons/perm@g0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.8169532418251038,
+      "retention": 1.0406555046497774,
+      "fact_drop_pct": -4.065550464977741,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.368222236633301,
+      "ce_cost": 0.7047055959701538,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "held30_base": 0.7233286499977112,
+      "held30_arm": 0.802960991859436
+    },
+    {
+      "probe": "P1",
+      "tag": "cons/perm@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.722875714302063,
+      "retention": 0.7895202065903402,
+      "fact_drop_pct": 21.047979340965984,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.368222236633301,
+      "ce_cost": 0.7047055959701538,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    },
+    {
+      "probe": "P1",
+      "tag": "R150/perm@g-12",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.6832101345062256,
+      "retention": 0.840339779154986,
+      "fact_drop_pct": 15.966022084501397,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 2.409085988998413,
+      "ce_cost": 0.724677324295044,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    },
+    {
+      "probe": "P1",
+      "tag": "R300/perm@g-12",
+      "net": "R300",
+      "geo": -12,
+      "expr_base": 0.914334237575531,
+      "expr_arm": 0.7237507700920105,
+      "retention": 0.791560394819212,
+      "fact_drop_pct": 20.843960518078795,
+      "ce_base": 1.6661189794540405,
+      "ce_arm": 2.368108034133911,
+      "ce_cost": 0.7019890546798706,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    },
+    {
+      "probe": "P2",
+      "tag": "cons/mask@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9242185950279236,
+      "retention": 1.0094256061508384,
+      "fact_drop_pct": -0.9425606150838428,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6974623203277588,
+      "ce_cost": 0.033945679664611816,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "held30_base": 0.7233286499977112,
+      "held30_arm": 0.7303782105445862,
+      "note": "base = causal-only CUSTOM forward (path-matched)"
+    },
+    {
+      "probe": "P2",
+      "tag": "cons/mask@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.808849573135376,
+      "retention": 1.030332848470602,
+      "fact_drop_pct": -3.0332848470602025,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6974623203277588,
+      "ce_cost": 0.033945679664611816,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "held30_base": 0.7233286499977112,
+      "held30_arm": 0.7303782105445862,
+      "note": "base = causal-only CUSTOM forward (path-matched)"
+    },
+    {
+      "probe": "P2",
+      "tag": "R150/mask@g-12",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.8166684508323669,
+      "retention": 1.0044918114560877,
+      "fact_drop_pct": -0.449181145608768,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 1.720886468887329,
+      "ce_cost": 0.03647780418395996,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true
+    },
+    {
+      "probe": "P2",
+      "tag": "R300/mask@g-12",
+      "net": "R300",
+      "geo": -12,
+      "expr_base": 0.914334237575531,
+      "expr_arm": 0.9232483506202698,
+      "retention": 1.0097492937247714,
+      "fact_drop_pct": -0.9749293724771402,
+      "ce_base": 1.6661189794540405,
+      "ce_arm": 1.6985925436019897,
+      "ce_cost": 0.03247356414794922,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true
+    },
+    {
+      "probe": "P2",
+      "tag": "inst/mask@g0 [ctl]",
+      "net": "install",
+      "geo": 0,
+      "expr_base": 0.5563086867332458,
+      "expr_arm": 0.5542356967926025,
+      "retention": 0.9962736696548524,
+      "fact_drop_pct": 0.3726330345147577,
+      "ce_base": 1.666774868965149,
+      "ce_arm": 1.7100207805633545,
+      "ce_cost": 0.043245911598205566,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": false,
+      "role": "W013 differential control (not bar-eligible)"
+    },
+    {
+      "probe": "P2",
+      "tag": "armB/mask@site [ctl]",
+      "net": "site_stored",
+      "geo": 183,
+      "expr_base": 0.9880021214485168,
+      "expr_arm": 0.9834259152412415,
+      "retention": 0.9953682222862374,
+      "fact_drop_pct": 0.46317777137625527,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7090784311294556,
+      "ce_cost": 0.02641773223876953,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": false,
+      "role": "specificity control: site-stored fact should NOT die under the mask (its read is not row-0-routed)",
+      "base_detail": {
+        "onset_pz": 0.9880021214485168,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9971728324890137
+      },
+      "arm_detail": {
+        "onset_pz": 0.9834259152412415,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9960928559303284
+      }
+    },
+    {
+      "probe": "P3",
+      "tag": "L0H3-mean@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.5916339755058289,
+      "retention": 0.6461788234485348,
+      "fact_drop_pct": 35.382117655146516,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7555058002471924,
+      "ce_cost": 0.09198915958404541,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "mode": "mean-replace (CE_R-bank mean)"
+    },
+    {
+      "probe": "P3",
+      "tag": "L0H3-mean@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.6900150775909424,
+      "retention": 0.8789584911642765,
+      "fact_drop_pct": 12.104150883572352,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7555058002471924,
+      "ce_cost": 0.09198915958404541,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "mode": "mean-replace (CE_R-bank mean)"
+    },
+    {
+      "probe": "P3",
+      "tag": "L0H3-zero@g0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.32514816522598267,
+      "retention": 0.4141818780390286,
+      "fact_drop_pct": 58.58181219609714,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.8712550401687622,
+      "ce_cost": 0.20773839950561523,
+      "kills60": false,
+      "dies50": true,
+      "in_plane": true,
+      "mode": "zero (e133 convention)",
+      "e133_reference": {
+        "drop": 0.4598899483680725,
+        "ce_cost": 0.20773905515670776
+      }
+    },
+    {
+      "probe": "P3",
+      "tag": "top3-mean@g0 [rider]",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.0536547414958477,
+      "retention": 0.06834675380377318,
+      "fact_drop_pct": 93.16532461962268,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.373612403869629,
+      "ce_cost": 0.7100957632064819,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": false,
+      "role": "REPORT-ONLY post-hoc rider (selection set is a singleton; this restores a 'joint' cell)",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ]
+    },
+    {
+      "probe": "P4",
+      "tag": "perm@fact-col0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.23028352856636047,
+      "expr_arm": 0.3659067451953888,
+      "retention": 1.5889401533551106,
+      "fact_drop_pct": -58.894015335511064,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.368222236633301,
+      "ce_cost": 0.7047055959701538,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "metric": "within6_mean (6 within-name continuation reads; col-0 has no onset read by construction)",
+      "onset_base": null,
+      "onset_perm": null,
+      "ce_note": "CE columns are the net-level perm state from probe 1 (same surgery)"
+    },
+    {
+      "probe": "P4",
+      "tag": "perm@fact-col12",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.9320449233055115,
+      "expr_arm": 0.0394718237221241,
+      "retention": 0.04234970089439109,
+      "fact_drop_pct": 95.7650299105609,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.368222236633301,
+      "ce_cost": 0.7047055959701538,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": true,
+      "metric": "within6_mean (6 within-name continuation reads; col-0 has no onset read by construction)",
+      "onset_base": 0.0005901131080463529,
+      "onset_perm": 0.0001151068281615153,
+      "ce_note": "CE columns are the net-level perm state from probe 1 (same surgery)"
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.0533599890768528,
+      "retention": 0.06797129078871662,
+      "fact_drop_pct": 93.20287092112834,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 3.066155433654785,
+      "ce_cost": 1.4026387929916382,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": true,
+      "target_norm": 0.0
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.010905269533395767,
+      "retention": 0.011910665256257589,
+      "fact_drop_pct": 98.80893347437424,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 3.066155433654785,
+      "ce_cost": 1.4026387929916382,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": true,
+      "target_norm": 0.0
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.07@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.3231039047241211,
+      "retention": 0.41157784780169493,
+      "fact_drop_pct": 58.84221521983051,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.506317377090454,
+      "ce_cost": 0.8428007364273071,
+      "kills60": false,
+      "dies50": true,
+      "in_plane": true,
+      "target_norm": 0.07
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.07@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.14433331787586212,
+      "retention": 0.15763992162503707,
+      "fact_drop_pct": 84.2360078374963,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.506317377090454,
+      "ce_cost": 0.8428007364273071,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": true,
+      "target_norm": 0.07
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.15@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.7846040725708008,
+      "retention": 0.9994483224858015,
+      "fact_drop_pct": 0.055167751419848976,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.9703083038330078,
+      "ce_cost": 0.30679166316986084,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.15
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.15@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.7339223623275757,
+      "retention": 0.8015852845265304,
+      "fact_drop_pct": 19.841471547346956,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.9703083038330078,
+      "ce_cost": 0.30679166316986084,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.15
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.25@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.8116298913955688,
+      "retention": 1.0338744875192263,
+      "fact_drop_pct": -3.387448751922628,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7122266292572021,
+      "ce_cost": 0.048709988594055176,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.25
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.25@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.8819405436515808,
+      "retention": 0.9632497903135129,
+      "fact_drop_pct": 3.6750209686487123,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7122266292572021,
+      "ce_cost": 0.048709988594055176,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.25
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.35@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.7879846692085266,
+      "retention": 1.0037546111690931,
+      "fact_drop_pct": -0.3754611169093147,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.680081844329834,
+      "ce_cost": 0.01656520366668701,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.35
+    },
+    {
+      "probe": "P5",
+      "tag": "norm=0.35@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9080929160118103,
+      "retention": 0.9918132432282527,
+      "fact_drop_pct": 0.8186756771747294,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.680081844329834,
+      "ce_cost": 0.01656520366668701,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": true,
+      "target_norm": 0.35
+    },
+    {
+      "probe": "P5",
+      "tag": "R150 norm=0.07@g-12 [rider]",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.23608537018299103,
+      "retention": 0.2903820037515705,
+      "fact_drop_pct": 70.96179962484295,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 2.498359441757202,
+      "ce_cost": 0.813950777053833,
+      "kills60": true,
+      "dies50": true,
+      "in_plane": false,
+      "target_norm": 0.07
+    },
+    {
+      "probe": "P5",
+      "tag": "R150 norm=0.15@g-12 [rider]",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.7229591012001038,
+      "retention": 0.8892305028227687,
+      "fact_drop_pct": 11.076949717723128,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 1.915078043937683,
+      "ce_cost": 0.23066937923431396,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": false,
+      "target_norm": 0.15
+    },
+    {
+      "probe": "P5",
+      "tag": "R150 norm=0.25@g-12 [rider]",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.7999365925788879,
+      "retention": 0.9839118385320283,
+      "fact_drop_pct": 1.6088161467971651,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 1.7256861925125122,
+      "ce_cost": 0.041277527809143066,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": false,
+      "target_norm": 0.25
+    },
+    {
+      "probe": "P5",
+      "tag": "R150 norm=0.35@g-12 [rider]",
+      "net": "R150",
+      "geo": -12,
+      "expr_base": 0.8130165338516235,
+      "expr_arm": 0.8095459342002869,
+      "retention": 0.9957312065538263,
+      "fact_drop_pct": 0.4268793446173702,
+      "ce_base": 1.6844086647033691,
+      "ce_arm": 1.6992206573486328,
+      "ce_cost": 0.014811992645263672,
+      "kills60": false,
+      "dies50": false,
+      "in_plane": false,
+      "target_norm": 0.35
+    }
+  ],
+  "adjudication": {
+    "bars_verbatim": "On consolidated + R nets: (1) perm@g-12 AND perm@g0 (direction-permutation \u2014 fact survives => presence-only holds at both geometries); (2) FORCED-OFF-SINK attention mask (mask attention to position 0 at eval \u2014 removes the sink's attentional role at flat-ish CE); (3) L0H3-class fact-specific head ablation (e133's flat-CE fact-kill candidate, alone and as a set); (4) FACT-AT-POSITION-0 scramble (W014's never-consults control); (5) NORM LADDER on wpe[0] (0.07/0.15/0.25/0.35 \u2014 the threshold in (0.066,0.382)). Bars: FLAT-CE-ROUTE = any intervention kills fact >=60% at CE cost <=+0.35; ALL-KILLS-WRECK = every fact-kill costs CE >=+0.70 (T081/T082 hard-bounded \u2014 'routed' becomes a wreck statement); DIRECTION-CONSULTED = fact-at-position-0 scramble kills (tenant reading dies); PRESENCE-AT-NOVEL = perm@g-12 spares >=80% of g-12 level",
+    "n_plane_cells": 23,
+    "n_killing_cells": 4,
+    "FLAT_CE_ROUTE": {
+      "fires": false,
+      "cells": []
+    },
+    "ALL_KILLS_WRECK": {
+      "fires": true,
+      "kill_cells": [
+        {
+          "tag": "perm@fact-col12",
+          "drop_pct": 95.7650299105609,
+          "ce_cost": 0.7047055959701538
+        },
+        {
+          "tag": "norm=0@g+0",
+          "drop_pct": 93.20287092112834,
+          "ce_cost": 1.4026387929916382
+        },
+        {
+          "tag": "norm=0@g-12",
+          "drop_pct": 98.80893347437424,
+          "ce_cost": 1.4026387929916382
+        },
+        {
+          "tag": "norm=0.07@g-12",
+          "drop_pct": 84.2360078374963,
+          "ce_cost": 0.8428007364273071
+        }
+      ]
+    },
+    "near_misses_report_only": {
+      "definition": "die-bar cells (drop >= 50%) at CE <= +0.35 that miss the registered 60% kill bar \u2014 margins reported, never gated (no bar shopping)",
+      "cells": [
+        {
+          "tag": "L0H3-zero@g0",
+          "drop_pct": 58.58181219609714,
+          "ce_cost": 0.20773839950561523
+        }
+      ]
+    },
+    "DIRECTION_CONSULTED": {
+      "fires": false,
+      "col0_retention": 1.5889401533551106
+    },
+    "PRESENCE_AT_NOVEL": {
+      "fires": false,
+      "retentions": {
+        "R150": 0.840339779154986,
+        "R300": 0.791560394819212
+      }
+    },
+    "verdict": "ALL-KILLS-WRECK (every fact-kill costs CE >= +0.70 \u2014 'routed' is hard-bounded to a wreck statement; T081/T082's frame dies) | near-miss: L0H3-zero@g0 drop 58.6% at CE +0.21",
+    "headline": "kills 4/23 plane cells; flat-CE kills 0; wreck-priced kills 4; gap kills 0 | mask cells: cons/mask@g-12 x1.01@CE+0.03, cons/mask@g+0 x1.03@CE+0.03, R150/mask@g-12 x1.00@CE+0.04, R300/mask@g-12 x1.01@CE+0.03 | head L0H3-mean: x0.88@CE+0.09 | ladder threshold (g0): (0.07, 0.15)"
+  },
+  "honesty_reflex": {
+    "mask_off_distribution": "the forced-off-sink mask puts every context OFF its training distribution (the sink was present at train time in every window); fact loss under the mask conflates route-interruption with generic off-distribution damage \u2014 the CE column prices the generic part, and the site-stored control (a fact that does NOT route) is the discriminator: if arm_b's fact survives the mask at similar CE, the damage is route-specific; if BOTH die, the mask is just wreckage and reads as ALL-KILLS-WRECK.",
+    "mask_implementation_risk": "the mask keeps row 0's self-attention (a fully-masked softmax row is undefined) and blocks key 0 only for queries >= 1 \u2014 every read the batteries score (last-position / onset-row reads) is such a query; the custom forward was gated against the standard forward (max |dp(Z)| recorded) and every mask cell's base is the path-matched causal-only custom forward.",
+    "single_net_caveats": "probe 3/4/5 and the consolidated cells of probes 1/2 run on ONE consolidated net (e113 recipe, one seed); the R nets add two more lineages at g-12 only; verdicts are line-specific until e145's replication seeds land.",
+    "singleton_head_set": "the dispatch's fact-specific head class is a singleton (L0H3) on e133's stored table \u2014 the 'jointly' cell degenerates by the registered criterion; the top-3 joint rider is post-hoc and never gates a bar.",
+    "probe4_base_power": "the col-0 cell reads only 6 within-name continuation reads with NO preceding context \u2014 if the col-0 base expression is near floor, DIRECTION-CONSULTED has no power and must be read as uninformative, not as evidence for the tenant reading; the base level is reported in probe4.cells.col0__none.",
+    "ce_bank_is_position_blind": "CE_R windows are 256-token corpus windows that never contain the fact; the CE column prices general LM damage, not fact-geometry damage \u2014 a cell could in principle be flat on CE_R while disrupting the fact's read geometry specifically (that is the dissociation being sought, and also its confound)."
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "Eval-only battery: every net is a LOADED, gated artifact (e131/e119/e048/e133-lineage checkpoints); nothing regenerated, nothing trained \u2014 the dispatch's eval-only constraint.",
+    "e133's head-selection criterion (drop >= 0.3 & CE <= 0.35) yields a SINGLETON {L0H3} on the stored graduated table \u2014 the dispatched 'singly and jointly' therefore collapses to the singleton; the top-3 joint ({L0H3, L1H0, L0H0} by the same table) runs as a REPORT-ONLY rider so a 'joint' cell still exists. Selection recomputed at runtime from runs/e133/metrics.json (auditable), not hand-copied.",
+    "Forced-off-sink mask: query row 0 keeps its self-attention (blocking a query's ONLY legal key would leave an undefined softmax row); the battery reads p(Z) at the LAST position, so rows 1..T-1 \u2014 every read that matters \u2014 lose key 0 entirely.",
+    "Each mask cell's base is the custom forward with a CAUSAL-ONLY mask (not the standard SDPA path), so recorded deltas isolate the mask effect from any kernel-path numerics; the custom-causal vs standard equivalence gate is recorded once per net.",
+    "Fact-at-position-0 cells cannot carry an onset read (it would sit at position -1); expression = the 6 within-name continuation reads, matched in the col-12 control cell (reads 12..17) so the col-0 vs col-12 comparison is read-matched.",
+    "Site-stored control net (e131 arm b): its primary battery is the e133 183-geometry site pool (onset p(Z) at row 183); its std g0 floor (0.0078) is gate-checked only."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt",
+      "runs/checkpoints/e119_r_jittered_s150.pt",
+      "runs/checkpoints/e119_r_jittered_s300.pt",
+      "runs/checkpoints/e048_repro.pt",
+      "runs/checkpoints/e131_arm_b_corpus_spliced.pt"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 56.6
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": false
+  }
+}
