@@ -125,6 +125,9 @@ git-hash check confirmed the ordering; two forks were committed
 
 ## The last four (postscript's postscript — e152/e153/e159/e160, the session's final form)
 
+- e125a (completing e160): the ASYMMETRY OF EXISTENCE — the
+  site-stored fact has NO kill set at any CE (92 cells, two
+  sites); the generalizing memory is the removable one.
 - e160: the surgical surface EXISTS — {L1H0,L0H0} kills the
   fact at CE +0.25 in both ablation modes, and the knife is
   TYPE-SELECTIVE (the site-stored fact survives the same

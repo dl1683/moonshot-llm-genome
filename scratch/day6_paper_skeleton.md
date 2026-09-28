@@ -30,7 +30,12 @@ consolidation moves the
     memory's dependence into coupling with the sink (e159's double
     dissociation; RESOLVED MIXED by e162: BOTH channels kill, each sufficient — functional dependence on the sink's dual role (supplier + guarantor): equal organism damage, only the read-coupled memory dies;
     the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
-RESOLVED by e160: the surgical surface EXISTS — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
+COMPLETED by e125a: an ASYMMETRY OF EXISTENCE — the sink-coupled
+    (generalizing) memory dies 79-95% at CE +0.25 via a superadditive
+    complementary circuit; the site-stored (locked-in) memory has NO kill
+    set at ANY CE (92 cells, two sites, both modes; disjoint fact-head
+    populations; saturating redundant ladder) — the memory that
+    generalizes is the memory you can remove. Preceded by e160: — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
 
 ## Introduction (draft, ~11:10Z; provisional clauses marked)

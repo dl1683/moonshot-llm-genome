@@ -575,6 +575,40 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T096 — E125a: the asymmetry of existence — consolidation buys generalization AND surgical removability; the locked-in memory can neither travel nor be excised (2026-09-28 ~12:30Z)
+
+The inverted knife returned the strongest possible null: across
+92 cells — two sites, both ablation modes, the site's OWN census
+ladder, the e160 sets, address heads, and random controls — the
+site-stored fact never dropped 60% at ANY CE. Not "harder to
+remove": NO KILL SET EXISTS over the head-coordinate surface.
+And the two facts' head populations are DISJOINT (L1H2-led vs
+L0H3/L1H0-led, sharing only their weakest member), with the
+site-fact's ladder SATURATING where the sink-coupled ladder was
+SUPERADDITIVE — redundant population coding versus a
+complementary killable circuit. T090's circuit-selectivity
+inverts into an ASYMMETRY OF EXISTENCE.
+
+THE POIGNANT INVERSION (the paper's strongest unlearning
+sentence): the memory that GENERALIZES — geometry-free,
+deletion-tolerant, the one jitter built — is the memory you can
+surgically remove at CE +0.25. The memory that STAYS PUT —
+context-bound, site-locked, the one locked replay built — is
+the memory you cannot remove at any price. Consolidation trades
+permanence-of-place for portability, and the price of
+portability is vulnerability to the knife. For unlearning
+practice the lesson inverts the usual fear: the DANGEROUS
+memory (the one that generalizes everywhere) is the EASY one to
+excise; the harmless-looking localized memory is the
+incorrigible one.
+
+FOR T092: layer 2 forks by phase — a killable complementary
+circuit (sink-coupled) versus an unkillable redundant population
+(site-stored); the four-layer model's readout layer was one
+layer too flat. FOR e164 (post-kill census): now also asks
+whether the site-fact's MLP third (33% of load) is the
+incorrigible substrate.
+
 ## T095 — E162: two edges, one pivot — the memory depends on what the sink supplies AND what it spares (2026-09-28 ~12:15Z)
 
 The fork resolves as MIXED, and the resolution is better than

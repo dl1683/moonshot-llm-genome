@@ -63,6 +63,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E125a — the inverted knife: NO-SITE-KNIFE — an asymmetry of EXISTENCE; the generalizing memory is the removable one (2026-09-28 ~12:30Z) — DONE
+
+WHAT WE DID: arm_b's own census (bit-tight vs e133's unread
+table: L1H2 0.215 mode-robust, L0H5, L1H4, L1H1, L0H1 — nearly
+DISJOINT from the consolidated net's kill ladder) + the full
+escalation (B-ladder, e160 sets re-pointed, L3H5-class, X-sets,
+random scatter) with split-window selection; 92 cells, 6/6
+gates; cross-check on e143_near (site at 5-13).
+
+WHAT WE SAW (T096): NO-SITE-KNIFE fires — best flat-CE drop
+25.7% < 30% bar; STRONGER THAN THE BAR: no cell reached 60% at
+ANY CE (ceiling 32.8% @ +0.836; site onset never below ~0.63).
+N2 spares the site fact (-0.8%) — e160's control replicated.
+The B-ladder is SATURATING/SUB-ADDITIVE (S 21.5% -> B4 32.8%) —
+redundant population coding, the OPPOSITE of e160's
+superadditive complementary circuit. Cross-check: no kill at
+the second site either (best flat 3.6%; N2 spares at 1.2%) —
+the un-killability replicates. TWO MEMORY TYPES, TWO FACT-HEAD
+POPULATIONS (disjoint except the weakest member L0H1). THE
+ASYMMETRY OF EXISTENCE: the sink-coupled fact dies 79-95% at
+CE +0.25; the site-stored fact has NO kill set at any price.
+Honesty: split-window selection (disjoint prompts/fillers;
+sel-vs-bar agree); families registered census-independent
+(non-self-fulfilling null); both modes; single lineage (near =
+site-geometry replication, not family); scope = head-coordinate
+surgery only (33% of arm_b's load is MLP).
+
+---
+
 ## E162 — the READ-vs-MASS fork: MIXED — the poison is a TWO-EDGED weapon, each channel independently sufficient (2026-09-28 ~12:15Z) — DONE
 
 WHAT WE DID: the two discriminating cells + the starvation
