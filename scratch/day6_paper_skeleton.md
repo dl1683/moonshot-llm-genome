@@ -161,3 +161,16 @@ R3 "Known phenomenon" (attention sinks; memory types) — the novelty is the
   W003's CLS analogy, now narrowed to replay-only).
 R4 "Instrument circularity" — Rule 12 + the probe-power amendment are the
   pre-emptive answers; lead with them.
+
+## Cut-list for the 8-page form (R49 ideator, adopted ~14:15Z)
+
+CUT: the self/identity arc entirely (e146/e146b/e156, W004/W015 — next
+paper); dreams (already out, mechanism sentence too); W017's coding story
+beyond one operative sentence; the e165 novelty ladder (one sentence:
+"novelty may itself be binary — untested axis"); the P-A anchor physics
+compressed to a background paragraph (the other paper); e149's brake
+decomposition (keep T094's overshoot as the one poetic sentence); R4's
+kill-set fine structure (two headline numbers, two panels). COMPRESS: R5
+correction chain to a half-page box + the timeline figure. FINISH LINE:
+one reversibility exhibit (e155R or e172); one of e171/e174 per e170's
+branch; GPT-2 probe or an explicit scope sentence; e147R run-or-flag.
