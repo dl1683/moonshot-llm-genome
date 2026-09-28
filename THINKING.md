@@ -575,6 +575,52 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T080 — E133: content is everywhere, routes are the difference — the read-policy frame's first direct support (2026-09-28 ~07:45Z)
+
+The anatomy census returned TEXTURE as registered, but the
+texture IS the finding, and it is the strongest support yet for
+W013's protagonist. THREE convergences:
+
+**(1) ALL THREE NETS ARE BODY-STORED.** The graduated fact keeps
+19.1% (unfiltered) at row 0 and ~0 fact-specific; the twin keeps
+its address apparatus (L3H4: 91% band attention, clean 0.319
+drop) yet still stores most content in general organs; the
+'site-locked' 183 net keeps only 7.9% at its own site. CONTENT
+SUBSTRATE IS SHARED ACROSS ALL THREE STATES — install, splice,
+and consolidated differ in their READ ROUTES, not their storage
+organs. The address-vs-field dichotomy that organized five days
+of experiments was a dichotomy of ROUTES all along (W013's
+claim, now with a map).
+
+**(2) THE FACT-SPECIFIC RESIDUE IS HEAD-DOMINATED.** Under the
+locality filter, the graduated net's fact-specific load is 84.5%
+heads (L0H3: 0.46 drop at 0.21 CE — a genuinely specific body
+head), 15.5% MLP, ~0 wpe. Combined with the R44 critic's census
+crack (wpe[0] delta minimal) and e131's necessity (row-0 deletion
+kills): row 0 is a CHANNEL — necessary for the route, carrying
+almost no fact-specific content — and the route finishes in
+heads. This is ROLE-ROUTED (T077's amendment) with the route's
+terminus located. It also REFINES W011: no head is sink-adjacent
+>= 0.25 — the sink route is a VALUE-CHANNEL route (row 0's
+contribution flows through V, not through attention mass);
+omnipresence may operate through what row 0 ADDS to every
+residual stream, not what it attends to.
+
+**(3) REDUNDANCY IS ORGAN-DEEP.** Joint ablation of the top
+three organs drops 0.785 where parts sum to 1.98 — the fact is a
+redundant population at every level observed (rows: e088;
+organs: e133). W009's population frame graduates from metaphor
+to measurement; the additivity assumption is dead lab-wide, and
+every future 'load' number must be stated as a marginal.
+
+THE DEVELOPMENTAL RE-READ: twin -> graduated is the DISMANTLING
+of L3H4's address read (0.32 clean drop -> 0.12 share) while
+body organs carry more — the read policy's canal (T037)
+rebuilt. e140's row-0 trace and e141's surgery now arbitrate the
+route's remaining structure; the POLICY TRANSPLANT (W013) has
+its target organ list (L0H3 + the value channel + whatever
+e141 isolates).
+
 ## T079 — the credit-assignment law: keys strengthen in proportion to their INVARIANCE across error-bearing windows (2026-09-28 ~07:12Z)
 
 The new frame's sharpest internal tension (handed to the R44
