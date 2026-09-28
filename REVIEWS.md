@@ -67,6 +67,78 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 43 — the re-keying ambush (2026-09-28T06:55Z; covering 05:50–06:55Z; e119 dispatched mid-review, RUNNING)
+
+Context: E120/T075/W008 freshest; e119 (migration head-to-head) dispatched at
+05:50Z and running on GPU through this review.
+
+### AUDITOR (agent failed at 95s — model request error; audit performed directly by lead, resilience clause)
+- Numbers: e109/e113/e116/e120/e121 headline values all verified against
+  metrics.json (2 apparent misses were rounding: 22.487→22.5, 0.0321→0.033).
+- Ledger debt found AND repaired in-beat: E019/E078/E088 late-folded (orphaned
+  runs with registered rules but no NOTES entries). e078 replicates T047's
+  row-129 rebind at 4x dose (0.97 ratio, both k); e088 pair-removal is
+  SUB-additive (median 0.464) — overlapping redundant supports, the texture
+  W008's adapter family implies; e019 energy-carrier held via the e011c rule.
+- 2 stale READY rows (e065, e083) marked; combined-heading false positives
+  cleared (E035+E038, E092+E104, E101+E106 covered).
+- NEW audit finding: NO model weights are persisted anywhere in the repo
+  (only an unrelated e055 scratch cache). The critic's "eval-only on existing
+  checkpoints" discriminator is therefore NOT free — nets must be regenerated
+  (deterministic recipes exist). Process fix adopted: every future experiment
+  saves phase-boundary checkpoints under runs/eNNN/ckpts/ (small, loadable).
+
+### IDEATOR (full 7-experiment list folded into QUEUE as e132–e138)
+Top pick: the wiring trace (kernel-motion x brake x self-acceptance at dense
+checkpoints of one jitter schedule — W008's own falsifier instrument, upgraded
+to a three-dial conjunction with temporal-order predictions). Also: field
+anatomy census (free-rides e119's twins), two-facts-one-field (first
+multi-fact ecology; share-law quantitative prediction), LN-causality variant
+(W001/W007's deferred causal test), dream-protection decomposition (the sole
+positive self-effect), RMU rewiring speed (bridges edit-law and consolidation
+programs), adapter head-start (e120's row-183 promoted to a discriminator).
+
+### CRITIC — accepted nearly in full; this review's center of mass
+1. T075 headline attacked (HIGH): ERROR-LOCATION counter-theory — every arm
+   consolidated where its training error lived; the battery reads only the
+   121–137 band and row 183 was NEVER read; plus loss-mask mismatch (a/b/c
+   full-CE vs d name-only) and locked-replay already doubling survival
+   (diversity is an amplifier, not a switch). ACCEPTED -> T075 second
+   amendment: headline downgraded to multiplier-language; corpus>self
+   downgraded to SUGGESTIVE (CI prices prompt-sampling only; arm a's
+   within-run range 0.02–0.18; both arms below base floor = damage regime).
+2. W008 timeline (HIGH): phantom leg — e109's "fatal D-all" was
+   D0129={0,129} (window-scaffold confound T065 itself flagged); e113's
+   "survived D-all" deleted 5-of-17 band rows on a bit-exact rebuild of the
+   SAME net. Depths retold as timepoints; zero stage x depth cells exist.
+   ACCEPTED -> W008 corrected: maturation RETRACTED pending a real cell.
+3. Most damaging assumption: D-all survival != fact left the wpe system.
+   Row 0 (content-carrying in 6/6 installs per T069) never content-tested
+   post-consolidation; 12 band rows left intact in e113; no out-of-band row
+   ever scanned. BODY-STORED vs ADDRESS-MIGRATED-ELSEWHERE is OPEN. ->
+   e131 RE-KEYING CENSUS dispatched (regenerate + probe: 183-geometry read
+   on e120 a/b arms; row-0 content test; band-minus-row-0 deletion with
+   scaffold-matched control; full-512 wpe delta census). It gates the
+   reading of e119, e122, e125 and both developmental arrows (W005/W008).
+4. Queue honesty bars adopted (pre-registered): e123 must control against
+   trivial output-similarity drift (rule 7a); e122 pre-commits the
+   same-run-different-window falsifier; e125 needs collateral-matched
+   specificity vs the pre-consolidation fact's removability; e128 needs the
+   e095 Monte-Carlo null guard on apparent clustering.
+
+### Decisions
+1. Ledger corrections landed BEFORE the dependent dispatch (THINKING gate
+   held): T075 second amendment, W008 correction, this entry.
+2. e131 dispatched CPU-only, parallel with e119's GPU (envelope: no
+   concurrent GPU — honored).
+3. Ideator list ranked in as e132–e138; wiring trace (e132) takes the next
+   GPU slot after e119.
+4. Process: checkpoint-discipline instruction added to all future taskings.
+5. Ratio this window: thinking-heavy (one earned experiment dispatch e119,
+   one cadence review, three direct audit/repair commits) — BOTH LANES held.
+
+---
+
 ## Review 42 — the graduation-and-verification window (2026-09-28T02:50Z; covering 00:10–02:50Z)
 
 ANGLES, all real dispatches: the thinking-lane doctrine produced

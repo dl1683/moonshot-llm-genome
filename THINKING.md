@@ -554,6 +554,26 @@ spacing inherits the claim. If spaced-locked stays address-locked
 (the e120 signature: row grows, battery never reads through it),
 T075 survives its strongest attack. Designed on paper; ripening.
 
+SECOND AMENDMENT (R43 critic — accepted, ~06:55Z): the ERROR-LOCATION
+counter-theory plus two confounds now bound this card. (1) The deletion
+battery reads only the 121–137 band; the splice arms' training error lived
+at row 183, which no instrument has ever read — "failed to consolidate" is
+indistinguishable from "consolidated where we never looked" until the
+183-geometry read runs (e131's first probe). (2) Loss-mask mismatch: arms
+a/b/c trained full-column CE, arm d the name-only mask — the headline
+contrast mixes objective with position. (3) The corpus>self "CI separation"
+prices prompt-sampling noise only; arm a's own within-run trajectory spans
+0.02–0.18, and both arms sit BELOW the no-fine-tune base floor — the
+direction flip is SUGGESTIVE, not established (mundane reading alive:
+corpus = training distribution -> less drift). (4) e109's own data:
+position-locked matched-budget replay already doubled survival
+(0.215->0.436) — position diversity AMPLIFIES a road that exists without
+it. T075's surviving claim, tightened: jitter's position diversity is the
+known MULTIPLIER on the only consolidation road that works in the
+instrument band; it is "THE ingredient" only if (i) the 183-read sits at
+floor, (ii) spaced-locked replay stays address-locked, and (iii) the
+mask-matched corpus arm rerun preserves the gap.
+
 ## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 ~09:20Z)
 
 **NO DREAM CONSOLIDATION** — and the negative is decisive because
@@ -835,6 +855,28 @@ self-signature does not, the lab earns a clean dissociation:
 GEOMETRY TRANSPLANTS FOR ROUTING, SUBSPACE DOES NOT TRANSPLANT
 FOR VERIFICATION — addresses are plug-in organs, selves are
 grown-in tissue. Ripening; dispatch when e119's census lands.
+
+CORRECTION (R43 critic — accepted; SUPERSEDES the maturation reading
+above): the timeline's first leg is a PHANTOM. E109's "D-all fatal" was
+D0129 = {0,129} — the window-scaffold confound T065 itself flagged;
+e113's "D-all survived" deleted 5 of 17 band rows on a bit-exact rebuild
+of the SAME net. Two deletion DEPTHS on one net were retold as two
+developmental TIMEPOINTS. No stage x depth cell exists; until one does
+(mid-replay checkpoint D-all — cheap, delivered by e132's dense
+checkpoints), "maturation"/"adapter dispensability" is RETRACTED. The
+defensible statement: after jitter on this line, deeper deletion is
+survivable, with 12 band rows and row 0 intact. Row 0 is the sharper
+hole: T069 showed it content-carrying in 6/6 installs and it was never
+content-tested post-consolidation — FIELD vs ADDRESS-MIGRATED-ELSEWHERE
+is OPEN (e131's row-0 test). The adapter frame's residual content after
+these cuts: (i) routing perpendicular to readout makes the readout
+position-invariant (e116, unattacked); (ii) row 183 "grew but unread" is
+unread-BY-CONSTRUCTION until the 183-geometry read — if the fact
+expresses there, the teach-in was an ordinary address-bound install and
+"unconnected adapter" never existed; (iii) the kernel-motion trace
+remains the frame's real falsifier (e132). W008 stays a wonder card — no
+bars were claimed — but its language must not seed experiment hypotheses
+until e131 and the kernel trace rule on it.
 
 ## W007 — WONDER: why 54? The derivation program for the share constant (2026-09-28 ~04:30Z)
 
