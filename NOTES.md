@@ -84,6 +84,22 @@ not the store.
 
 ---
 
+## E118 — standardization control: SURVIVES — rogue-dimension confound excluded (2026-09-28) — DONE
+
+WHAT WE DID: per-dim z-scoring over pooled own+donor V-sets (both
+readings: common-frame registered + Timkey strictest frame); the
+e111 subspace instrument standardized; rogue-dim census.
+
+WHAT WE SAW (T072): sibling/foreign 2.05x post-z (CIs disjoint);
+energy 2.80x — the standardized separation fires at EVERY k=1..8
+(6.09x at k=1; cleaner than raw e111's k=7). No rogue dim (max
+share 0.095; log-variance profiles own~sibling 0.987 vs
+own~foreign 0.028 — the mild anisotropy is FAMILY-SPECIFIC, not
+shared confound). Caveats: Timkey-strictest 1.68x (clear, below
+2x); a third of raw self-cos was scale-structure (0.403→0.315).
+
+---
+
 ## E115 — graded ablation: COORDINATE-LOCAL STORY SAFE — the address is content when the field is weak (2026-09-28) — DONE
 
 WHAT WE DID: address-intact vs no-address across graded field

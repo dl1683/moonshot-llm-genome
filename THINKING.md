@@ -514,6 +514,26 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T072 — E118: the family geometry is shape, not scale — the claims harden (2026-09-28 ~07:50Z)
+
+**SURVIVES: rogue-dimension confound EXCLUDED.** Post-z sibling/
+foreign 2.05x (disjoint CIs), energy 2.80x — and strikingly the
+STANDARDIZED separation is cleaner than the raw (fires at every
+k=1..8, 6x at k=1) because z-scoring removed scale noise that
+masked the first principal direction. The beautiful secondary: the
+mild anisotropy that exists is itself family-typed (variance
+profiles correlate own~sibling 0.987, own~foreign 0.028) — the
+"confound" was never generic, it was more self-signal. Two-thirds
+of the raw self-cos is shape (0.315 survives); one-third was
+scale. Honest edges recorded: the Timkey-strictest frame gives
+1.68x (clear separation, below the registered 2x — the verdict
+rests on the common frame, stated plainly); and post-z
+foreign/middle energy sits slightly ABOVE the isotropic null —
+the raw exclusion was partly scale-artifact, the standardized
+picture is separation-with-mild-shared-floor. T060's binary step
+and T061's signature harden; the paper's rebuttal line is now
+evidence-backed, not promissory.
+
 ## T071 — E115: the brake story closes — double-role, sign-flipping (2026-09-28 ~07:20Z)
 
 **COORDINATE-LOCAL SAFE; M3 dead at 0/3.** The cleanest possible
