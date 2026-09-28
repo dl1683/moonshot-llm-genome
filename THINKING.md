@@ -720,7 +720,7 @@ estimate); e158 (variance@183) still decides whether the
 conversion itself keys on variance; e154 decides per-fact vs
 global. The GPU is user-occupied — dispatch with park-to-CPU.
 
-## T093 — E159: READ-coupled — the mask is the health door, and only readers die of the poison (2026-09-28 ~11:15Z)
+## T093 — [RESOLVED MIXED by e162/T095 — BOTH channels kill, each at its own conditions (supply edge matched; allocation edge flattened-profile-only; per-layer distribution untested, e167 queued); the one-channel noun below is historical] E159: READ-coupled — the mask is the health door, and only readers die of the poison (2026-09-28 ~11:15Z)
 
 The R46 critic's mask/ladder contradiction resolves into the
 day's cleanest mechanism claim: the poison is delivered THROUGH
@@ -838,7 +838,7 @@ can, at priced collateral. The removable-to-irremovable sentence
 completes: the memory moved from row-removable tissue into
 head-attackable circuitry behind an unremovable coordinate.
 
-(2) THE KNIFE KNOWS THE TYPE: the same N2 coordinates kill the
+(2) THE KNIFE IS CIRCUIT-SELECTIVE [R47/R48: not type-selective — install dies too]: the same N2 coordinates kill the
 install-phase fact (67%) but SPARE the site-stored fact (<=
 10.6%). Head surgery is TYPE-SELECTIVE — the two memory phases
 (and the install state) share a readout circuit that the

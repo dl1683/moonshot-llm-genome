@@ -31,7 +31,7 @@ consolidation moves the
     dissociation; RESOLVED MIXED by e162: BOTH channels kill, each sufficient — functional dependence on the sink's dual role (supplier + guarantor): equal organism damage, only the read-coupled memory dies;
     the mask heals a poisoned net completely). L0H3-zero (58.6% drop at CE +0.21)
 COMPLETED by e125a: an ASYMMETRY OF EXISTENCE — the sink-coupled
-    (generalizing) memory dies 79-95% at CE +0.25 via a superadditive
+    (generalizing) memory dies 70.7-97.4% at CE 0.245-0.280 (N2, both modes) via a superadditive
     complementary circuit; the site-stored (locked-in) memory has NO kill
     set at ANY CE (92 cells, two sites, both modes; disjoint fact-head
     populations; saturating redundant ladder) — the memory that
@@ -108,11 +108,11 @@ R1 The compass is causal (e120/e131/e143): instrument-blindness
    plate -> the committed-prediction record.
 R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
    twin panels; the conversion before/after; the dwell trace
-   (with mask-column overlay); the 2x2 [* = e158 pending].
+   (with mask-column overlay); the 2x2 [e158 DONE: SITE-INDEPENDENT].
 R3 Content everywhere, access differs (e133/e141/e142): the
    three-net maps; install-restore/perm/halfnorm riders; the
    origin census (13/13) [e163 pending for the dial license].
-R4 Split custody (e150/e159/e160/e162*/e125a*): the flat-CE
+R4 Split custody (e150/e159/e160/e162/e125a (DONE)): the flat-CE
    plane with the killer point; READ-vs-MASS cells [*]; the two
    knives' planes side by side [* e125a]; the double
    dissociation panel.

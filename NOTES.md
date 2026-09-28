@@ -138,7 +138,7 @@ damage; power audit: the poison changes v0 by 1.13x its own
 norm — the cell had full power). (ii) MASS-INFLATE-ON-HEALTHY
 KILLS — healthy row 0, bias swept to the exact absorber dose
 (1.6927): x0.036 @ g-12, x0.301 @ g0, CE +0.572, monotone
-dose-response (b=3.0: x0.347; b=4.0: x0.005). (iii) Both modes
+dose-response (b=3.0: x0.337; b=4.0: x0.005). (iii) Both modes
 coexist in real poison: band queries' key-0 mass explodes
 ~60x while band keys lose ~23% relative mass. THE NOUN'S FULL
 FORM: the memory depends on the sink's DUAL ROLE — what it
