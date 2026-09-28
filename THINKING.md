@@ -575,7 +575,7 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T100 — E154: overwrite, not share — and the anchors may have done it (2026-09-28 ~14:00Z)
+## T100 — [R49: the headline noun OVERWRITE-NOT-SHARE STRUCK — it asserts the capacity mechanism the run's own text says it cannot separate (the anchor-contradiction confound); the verdict TEXTURE was correct-by-registration; the F1-side rider readings are floor-ratio artifacts (base 0.0017, leak ~5e-4) — only the F2-side riders stand (N2 spares F2; F2 diffuse)] E154: F1 annihilated under an anchor-confounded protocol (2026-09-28 ~14:00Z)
 
 The two-facts cell returned the strongest possible outcome with
 the most important confound: F1 annihilated everywhere (not
@@ -614,7 +614,9 @@ FOR THE PAPER: claim 2's "globally" must await e170 (the
 demolition's channel is unsettled); the riders strengthen
 claims 3-4 as-is.
 
-## T099 — E166: zero of the closure — the third great asymmetry, and the fork narrows honestly (2026-09-28 ~13:50Z)
+## T099 — [INVALID-BY-INSTRUMENT per R49 critic — the +0.0000 was a PROMPT-GEOMETRY TAUTOLOGY: the door battery's prompts span positions 0-141; the surgery edits wpe rows 183-189; a causal transformer never reads those rows for those prompts. g-12 was bit-identical to 17 figures EVEN ON THE ROOT'S OPEN DOOR — the dial was structurally blind. DOOR-STAYS-SHUT fired as a foregone conclusion; 'the graft rows carry zero of the closure' is UNSUPPORTED by e166; 'unreopenable-by-surgery' keeps only e153's sub-bar transplant arm (n=1). RULE 12's founding bite, a third time, at the same coordinate 183. The licensed graft-not-closer support remains T097's home-graft counterexample — itself the straddling cell. e166's long-window rerun rides e173's corrected design.] E166: the inverse event (2026-09-28 ~13:50Z)
+
+WHAT SURVIVES OF THE RUN: the site-read cells (surgery visible there: 0.998 -> 0.599) and the head-ablation cells (which DO move the door — reader3-zero 0.0041) are real; the ROW cells and the headline are void. The third-asymmetry noun is WITHDRAWN to a single-arm suggestion pending licensed evidence.
 
 The inverse event returned the cleanest zero the session has
 produced: deleting the graft rows kills the graft and moves the
@@ -644,7 +646,7 @@ rows — re-excavation, if possible at all, is a TRAINING
 operation (variance at the buried site); the four fates remain
 a phase diagram only if training can move between them.
 
-## T098 — E164: access severed, substance intact — the four-layer model earns its figure, and the MLP is the organism-priced organ (2026-09-28 ~13:35Z)
+## T098 — [R49 BOUND: the kill was 71%, not 100% — the residual is a 29%-ALIVE readout; the saturated organ dials cannot distinguish storage-support from access-support (same-circuit-at-29%-amplitude predicts the same cells); weight-level intactness is construction-tautological; profile rank 0.587 is moderate. The DECISIVE cell queued as e175: few-step fact-replay on the killed net — fast recovery => thin access lesion; full-budget => substance degraded with access] E164: access severed, substance intact (bounded) — the four-layer model earns its figure, and the MLP is the organism-priced organ (2026-09-28 ~13:35Z)
 
 The R47 critic's circularity charge is answered: each layer is
 now defined not only by what removes it but by INDEPENDENT
@@ -2192,7 +2194,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W018 — WONDER: the four fates — a complete little phase diagram of what teaching does to a memory (2026-09-28 ~13:10Z; from e158's pass-2 textures)
+## W018 — WONDER [R49: BARRED FROM PAPER TEXT until each corner has n>=2 and the straddle resolved — currently one control, one straddling cell, two unreplicated magnitudes; legitimate wonder-card play only] : the four fates — a complete little phase diagram of what teaching does to a memory (2026-09-28 ~13:10Z; from e158's pass-2 textures)
 
 The 2x2's four cells now read as four FATES, not four
 measurements: HOME x VARIANCE = REMAIN (the consolidated status

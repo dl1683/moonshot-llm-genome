@@ -63,7 +63,7 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
-## E154 — two facts, one door: TEXTURE — OVERWRITE, NOT SHARE; F1 annihilated (not door-closed) under a protocol whose anchors contradict it (2026-09-28 ~14:00Z) — DONE
+## E154 — two facts, one door: TEXTURE [noun OVERWRITE-NOT-SHARE struck per R49 — anchor-confounded]; F1 annihilated (not door-closed) under a protocol whose anchors contradict it (2026-09-28 ~14:00Z) — DONE
 
 WHAT WE DID: 300-step locked install of a NONCE fact (MIRABEL,
 zero corpus occurrences — the novelty confound avoided) at rows
@@ -96,7 +96,7 @@ footprint on F1-battery negligible — F1 was already gone).
 
 ---
 
-## E166 — the inverse event: DOOR-STAYS-SHUT — the graft rows carry exactly ZERO of the closure; the third great asymmetry lands (2026-09-28 ~13:50Z) — DONE
+## E166 — the inverse event: INVALID-BY-INSTRUMENT (R49) — the row cells were a prompt-geometry tautology (the door battery never reads rows 183-189); site/head cells real (2026-09-28 ~13:50Z) — DONE
 
 WHAT WE DID: 29 CE-priced cells — row restore (3 modes), head
 ablations (reader3/N2, both modes), joints, root ceiling +
