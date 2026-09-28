@@ -532,7 +532,16 @@ retro-explains why e113's D-all-addresses on the 2.7M family
 needed only the five grown rows: in that family row 0's content
 share is small. Universality of structure stands; concentration
 stays descriptive; no further re-barring (a third re-bar would be
-bar-shopping — the finding is what it is).
+bar-shopping — the finding is what it is). **Riders (agent-reported,
+report-only — not a third bar):** the verdict is robust (zero-arm
+ranking 2/6; content-bar at 0.25/0.75 unchanged); and setting the
+dual-role row 0 aside, the DECISION row clears 2x over the next
+content row in 5/6 seeds (7.49/2.51/4.73/5.10/7.98 — only 4308's
+twin rows fail). Sharpest summary: decision-row dominance is
+near-universal (5/6) once the window-key's own content share is
+acknowledged — row 0 is the address's partner, not noise. The
+agent's independent re-run reproduced the committed tables
+bit-exactly (max diff 0.0): T069 replication-confirmed.
 
 ## T068 — E098: universality-of-structure confirmed; the share constant chases maturity (2026-09-28 ~05:40Z)
 
