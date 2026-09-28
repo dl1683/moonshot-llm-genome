@@ -538,6 +538,30 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W007 — WONDER: why 54? The derivation program for the share constant (2026-09-28 ~04:30Z)
+
+The share law has a constant; the constant wants a derivation.
+The W001 calculus sketch: the anchor's attention-block output
+enters the residual stream; LN normalizes the stream TOTAL; the
+anchor survives while its SHARE of the normalized stream exceeds
+some functional threshold. So: 54 = the boundary share x (total
+stream norm) / (per-entry retained V-mass). The measurable path:
+(a) measure the anchor's share of the post-LN stream directly
+(projection of the attention-output onto the anchor-subspace vs.
+total norm — at r*k just above and below 54, the share at
+threshold should be the SAME number across k — a direct test of
+the mechanism, sharper than the behavioral constant); (b) the
+threshold share itself should be derivable from the noise floor —
+if the anchor's contribution must exceed the fluctuations of the
+non-anchor stream, then share* ~ noise/signal ratio, measurable.
+54/154 ~ 35% of full-band mass — suspiciously close to a third;
+probably coincidence, but the derivation program will say.
+**Falsifiable cross-net predictions standing:** share* constant
+across k within a net (direct); the constant scaling with
+d_model/stream-norm growth across nets (e098's replication is the
+first data point); if a norm-free variant exists, no floor at all
+(W001's oldest dream).
+
 ## W006 — WONDER: why does the address become a brake? Three mechanisms for the mature memory's inhibitor (2026-09-28 ~03:30Z)
 
 e113's strangest gift: after consolidation, deleting the address
