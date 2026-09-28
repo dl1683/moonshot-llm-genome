@@ -514,6 +514,24 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## T071 — E115: the brake story closes — double-role, sign-flipping (2026-09-28 ~07:20Z)
+
+**COORDINATE-LOCAL SAFE; M3 dead at 0/3.** The cleanest possible
+closure: the brake's SIGN FLIPS with field strength — at full
+field the address suppresses (+0.132); at r=0.56, the weakest
+rung with dynamic range, deleting the address LOWERS expression
+(0.0057 → 0.0006). **The address row is DOUBLE-ROLE IN TIME: a
+content source when the field is weak, a suppressor when the
+field is strong** — exactly what a coordinate-local state
+modulation predicts and the opposite of a content-independent
+inhibitor. The consolidation arc's full picture: the address
+starts as the fact's only home (one-shot install), becomes one
+content source among the field, and ends as a brake — but a brake
+that reverts to content whenever the field weakens. A dimmer
+switch, not a lock. (The held-30 inversion texture mirrors; the
+power caveat — most rungs at floor — is honestly flagged and the
+one informative rung lands anti-M3.)
+
 ## T070 — E117: the share constant is a per-net idiosyncrasy — the law is the FORM, n=4 (2026-09-28 ~06:45Z)
 
 **BETWEEN/MIXED, and the texture is the answer: the constant is a

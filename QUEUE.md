@@ -182,7 +182,7 @@ lines when a load-bearing claim is single-seed.| e108 | distance-ladder anchor |
 | e109 | consolidation test | DONE (T064: CONFIRMED — jittered 0.909 through deleted coordinate; diversity 2x mass) |
 | e113 | all-addresses deletion | DONE (T065: BODY-STORED — fact survives all-five-address zeroing; D0129 was scaffold loss; coordinate-binding is a developmental stage) |
 | e114 | brake signatures | DONE (T067: all three NULL — brake is coordinate-local, install+geometry-specific, strongest where field weakest; fourth story named) |
-| e115 | graded field ablation (M3 resurrection check) | READY (CPU) | give S3 dynamic range before the coordinate-local story is safe |
+| e115 | graded ablation | DONE (T071: SAFE — brake sign flips with field strength; address = content when weak, suppressor when strong; M3 0/3) |
 
 | e116 | re-barred census | DONE (T069: 3/6 — graduation denied; row-0 duality exposed; final form: structure 6/6, concentration family-dependent) |
 | e117 | maturity point | DONE (T070: BETWEEN — constant is a per-net idiosyncrasy, 31/42/54/77 non-monotone in steps and CE; the FORM is the law; maturity question closed negative) |

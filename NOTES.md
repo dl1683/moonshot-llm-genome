@@ -84,6 +84,22 @@ not the store.
 
 ---
 
+## E115 — graded ablation: COORDINATE-LOCAL STORY SAFE — the address is content when the field is weak (2026-09-28) — DONE
+
+WHAT WE DID: address-intact vs no-address across graded field
+scales (r 0.1-1.0); all gates pass (G_CONT matches e114's cells;
+G_SCALE exact; base rebuild dev +0.009).
+
+WHAT WE SAW (T071): the brake SIGN FLIPS — full field: +0.132
+(address suppresses, CI-separated); r=0.56: −0.0051 (deleting the
+address LOWERS expression, CI-separated — the address helps when
+the field is weak); floor at r<=0.25. M3 gets 0/3 under every
+reading. The fourth story (coordinate-local modulation) stands
+SAFE: the address is content when the field is weak, suppressor
+only when the field is strong.
+
+---
+
 ## E117 — maturity discriminator: BETWEEN — the constant is a DISTRIBUTION, not a maturity point (2026-09-28) — DONE
 
 WHAT WE DID: seed 4309 at exactly e053c's 3133-step recipe (base
