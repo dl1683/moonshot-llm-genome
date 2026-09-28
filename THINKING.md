@@ -660,6 +660,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T117 — E185c: the tail is real, and it ends — the lottery is 100-200, the asymptote is shared (2026-09-28 ~20:55Z)
+
+The device-confound discharge returns the cleanest possible
+confirmation: the CPU-only re-run reproduces e184's tail
+ordering EXACTLY at every checkpoint — 10904-slower at 10/10
+dials (+100) and 8/10 (+200), then convergence (+300, NOT-
+slower). T112's tail sentence stands device-free. THE
+REFINED SHAPE: the tail lottery lives in 100-200 (the
+settlement period), not the asymptote — both seeds' tails
+converge to the same floor by 300. The seed lottery in these
+nets is real but FINITE: it decides how fast the wreckage
+settles, not where it settles. THE ASYMMETRY-OF-EXISTENCE'S
+REPPLICATION DEBT IS DISCHARGED on this dial: the tail claim
+is now n=3 seeds x 2 device protocols. FOR THE PAPER: the
+conversion-observability caveat gains its footnote ("device
+migration at s175/s275 in the original run; the ordering
+reproduces CPU-only").
+
 ## T111 — E183: the noun unbound — dissolution is stream-invariant; only its timing is a lottery (2026-09-28 ~17:45Z)
 
 The last gate opened: with the host-junction background

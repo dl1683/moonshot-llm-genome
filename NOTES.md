@@ -207,6 +207,24 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## E185c — the CPU-only tail re-run: TAIL-REPRODUCES — the tail lottery is NOT a device artifact; the dissolution clock is device-robust (2026-09-28 ~20:55Z) — DONE
+
+WHAT WE DID: e184's seeds 10903/10904 re-run CPU end-to-end (no
+device events possible); the same checkpoint grid and dial set.
+
+WHAT WE SAW (T117): TAIL-REPRODUCES — the CPU classes match
+e184's mixed-device classes at every tail checkpoint (+100:
+10904-SLOWER 10/10 dials, median 2.40x; +200: 8/10, 1.80x;
++300: NOT-slower — the tails converge by the end). SEED
+10904'S SLOWER AFTER-DEATH DECAY IS NOT A DEVICE ARTIFACT;
+T112's tail sentence stands. THE DISSOLUTION ITSELF IS DEVICE-
+ROBUST: both seeds still dissolve on the same two-step clock
+CPU-only. Honesty: one lineage; the tail's magnitudes differ
+slightly from the mixed run (float path); the convergence at
++300 means the lottery lives in 100-200, not the asymptote.
+
+---
+
 ## E175 — the savings triple: NO-SAVINGS — the washed net re-learns at the naive price; no fast recovery under the persistent clamp (2026-09-28 ~17:05Z) — DONE
 
 WHAT WE DID: identical HOME-site locked re-teaches (grid 10/30/
