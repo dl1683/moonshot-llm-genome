@@ -35,7 +35,7 @@ COMPLETED by e125a: an ASYMMETRY OF EXISTENCE — the sink-coupled
     complementary circuit; the site-stored (locked-in) memory has NO kill
     set at ANY CE (92 cells, two sites, both modes; disjoint fact-head
     populations; saturating redundant ladder) — the memory that
-    generalizes is the memory you can remove. Preceded by e160: — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — type-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
+    generalizes is the memory you can remove. Preceded by e160: — {L1H0,L0H0} (no 'fact-specific' head needed) kills the fact at CE +0.25 in both ablation modes, superadditively, while SPARING the site-stored fact under the same coordinates — circuit-selective head surgery. Fig 2's killer point; the unlearning ordering (heads > route >> band) is demonstrated. All corrections in the arc
 were caught by pre-registered adversarial review and are reported.
 
 ## Introduction (draft, ~11:10Z; provisional clauses marked)
@@ -67,11 +67,12 @@ consolidates where its training error is placed — shown by steering
 read-coupling despite sink adjacency; proximity piggybacking dead).
 (2) A CLIFF, NOT A DOSE: memory TYPE is decided by a binary switch at
 zero-vs-any error-position variance (±1 suffices; no width trend);
-the types are PHASES of one substrate, converted bidirectionally by
-training — and the conversion PASSES THROUGH A MIXED STATE: the cliff
+the types are phases of one substrate, with conversions demonstrated in
+both directions across the lineage (same-net reversibility is e155's
+queued cell) — and the conversion PASSES THROUGH A MIXED STATE: the cliff
 fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
 genuine at 67x control AND >=50% geometry retention) before separation
-completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together: the geometry door closes exactly when a NOVEL GRAFT forms; neither variance nor placement alone suffices; e154 pending: global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
+completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together (jitter@novel open, locked@home open, locked@novel shut); the door's closure ACCOMPANIES novel-site teaching — graft-formation per se is not the closer (a home graft formed with the door open); mechanism pending e165/e166/e161; e154 pending: global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism
 damage, only readers die) while its READOUT consolidates into a small

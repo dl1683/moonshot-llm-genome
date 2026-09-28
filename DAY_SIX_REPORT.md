@@ -180,12 +180,10 @@ itself is READ-coupled (e159: masking the sink heals a poisoned net
 completely while the site-stored fact pays the same organism damage
 and lives — only readers die of the poison; {L1H0,L0H0}
 kills the memory at CE +0.25 — and spares the site-stored fact
-under the same knife: the surgery is type-selective). Postscript (e151): the
+under the same knife: the surgery is circuit-selective). Postscript (e151): the
 types are PHASES, not subsystems — one locked re-teach converted
 the sink-coupled memory to site-stored (g-12 0.916 -> 0.102) at
-improved CE, closing the geometry door globally [R46 critic: n=1 same-fact
-cell; the different-fact and jitter-at-183 cells are queued —
-"globally" is provisional]; the cliff runs
+improved CE, closing the geometry door [R48: novelty+zero-variance gate; a home graft formed with the door OPEN — graft-formation is not the closer; the disuse alternative is live and e161/e154/e166 decide]; the cliff runs
 both ways, and the read policy is its order parameter [R46: a
 metaphor e153 will test]. (e146 landed INSTRUMENT-INVALID — the
 self-battery does not transfer to this line; the self question

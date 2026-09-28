@@ -575,7 +575,27 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T097 — E158: the door closes when a novel graft forms — site-store construction and geometry-access destruction are one event (2026-09-28 ~12:40Z)
+## T097 — [CORRECTED per R48 critic — the headline was contradicted by e158's own unread census: locked@band DID re-form a home graft (row 129: brake -0.132 -> content +0.057, site_pos TRUE, peak 129) while the door stayed OPEN; TWO grafts, different door outcomes — the operative variable is SITE NOVELTY (or occupied-slot history), NOT graft formation; 'one event two faces' is FALSE as written] E158: the two-factor gate — closure requires novelty AND zero-variance (2026-09-28 ~12:40Z)
+
+THE HONEST RESTATEMENT: home-site and novel-site grafts dissociate
+from door closure. The registered verdict (SITE-INDEPENDENT: the
+two-factor gate on novelty+zero-variance) STANDS — it was the
+pre-committed cell and the metrics' own adjudication. What falls
+is the MECHANISM STORY layered on top: 'graft formation closes
+the door' must read 'NOVEL-SITE teaching closes the door, with
+or without a graft.' The novelty axis (distance-from-home vs
+occupied-slot vs first-novel-site) is unresolved until e165.
+THE FRAME-BREAKING ALTERNATIVE (R48's final line, adopted): the
+door may decay by DISUSE while the graft grows by USE — two
+independently-trained things, not one machinery seen twice. The
+build-travel frame is PROVISIONAL on exactly this; the deciding
+cells are already running/queued: e166 (inverse event), e161's
+freeze-cell (plain corpus, no teaching — does the door close
+anyway?), e154 (different fact). e158's at-boundary honesty:
+jitter@183 0.5048 (median 0.408, most prompts below bar) and
+locked@band 0.546 — margins 0.005/0.046 against a +-0.029
+device bound; 'OPEN' labels are at-or-near-boundary; locked@home
+cost 40% of the door ('harmless' was generous — corrected).
 
 The 2x2 landed on its strangest branch, and the strangeness is
 the synthesis: neither variance alone nor placement alone
@@ -603,7 +623,7 @@ RAZOR-THIN honesty: jitter@183's 0.505 vs the 0.5 bar — at-or-
 near-boundary; the site census (how much graft tried to form
 under ±8 jitter) is the mechanism's decimal.
 
-## T096 — E125a: the asymmetry of existence — consolidation buys generalization AND surgical removability; the locked-in memory can neither travel nor be excised (2026-09-28 ~12:30Z)
+## T096 — [R48 BOUND: 'no kill set EXISTS' is a 0.03% sample of the pair space (the consolidated kill was a superadditive pair INVISIBLE to singles ranking — the same hiding place unsearched for the site fact); B5/B6 at moderate CE never run; the MLP surface (33% of load) untouched — scope: head-coordinate surgery, sets <= 4; e168 queued: exhaustive 630-pair scan + MLP-neuron ablation] E125a: the asymmetry of existence — consolidation buys generalization AND surgical removability; the locked-in memory can neither travel nor be excised (2026-09-28 ~12:30Z)
 
 The inverted knife returned the strongest possible null: across
 92 cells — two sites, both ablation modes, the site's OWN census
@@ -639,9 +659,16 @@ incorrigible substrate.
 
 ## T095 — E162: two edges, one pivot — the memory depends on what the sink supplies AND what it spares (2026-09-28 ~12:15Z)
 
-The fork resolves as MIXED, and the resolution is better than
-either branch: the poison kills through BOTH channels, EACH
-INDIVIDUALLY SUFFICIENT. Restoring healthy values under a
+R48 CORRECTION (~13:10Z — the sufficiency claim fails internal
+consistency): cell (i) KEPT the poison's front-loaded q/k
+absorption at CE -0.0004 — absorbed mass at the REAL profile is
+FREE; cell (ii) killed only with a FLAT profile carrying 11x the
+poison's L0 absorption. The honest form: HEALTHY CONTENT FULLY
+RESCUES (supply edge, matched conditions); TOTAL-DOSE absorption
+on a FLATTENED profile kills (allocation edge, mismatched
+conditions); the per-layer DISTRIBUTION is untested and is where
+the divergence lives (e167 queued: per-layer-matched bias).
+The original fold text follows with that qualifier attached. Restoring healthy values under a
 poisoned key erases ALL damage (retention x1.000, CE -0.0004 —
 the corruption is carried by the content read off the pivot;
 power: the poison moves v0 by 1.13x its norm); inflating the
@@ -747,7 +774,7 @@ critical coordinate — corruption poisons every read (threshold
 e150) [e159 decides the coupled-vs-organism bound]. Intervention
 class: norm-poisoning — effective and indiscriminate.
 
-The paper's model figure: four stacked layers with the
+R48 AMENDMENT: T096 forks layer 2 by phase (killable complementary circuit vs unkillable redundant population — the readout layer was one layer too flat as drawn). The paper's model figure: four stacked layers (layer 2 drawn forked) with the
 intervention arrows that touch each (ablation, head surgery,
 re-training, poisoning) and the two phases as horizontal states
 of layers 2-3. What each queued cell fills: e158 = whether
@@ -2033,7 +2060,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W017 — WONDER: variance concentrates credit — concentration is portability and vulnerability; redundancy is robustness and immobility (2026-09-28 ~12:28Z; the unifying thread of e125a/e160/e147/e151)
+## W017 — WONDER: [R48 MINIMAL RESTATEMENT: variance-trained readouts recruit fewer heads with heavier top-load; killability tracks circuit COMPLEMENTARITY (the top-loaded head L0H3 is DISPENSABLE — the kill set is ranks 2-3), which concentration neither predicts nor explains; the coding-removability link is OPEN pending e154/e169; keep out of paper text beyond the operative top-load form] variance concentrates the top of the load distribution (2026-09-28 ~12:28Z)
 
 The session's four biggest asymmetries compose into one
 mechanism. WHY does the variance-trained memory have a
