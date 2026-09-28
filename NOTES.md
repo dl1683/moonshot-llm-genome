@@ -63,6 +63,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E158 — the 2x2 completion: SITE-INDEPENDENT — closure requires NOVELTY *and* zero-variance together; the geometry door closes exactly when a NOVEL graft forms (2026-09-28 ~12:40Z) — DONE
+
+WHAT WE DID: the two completing cells from the consolidated
+root — (a) JITTER@183 (e151's protocol with ±8 position jitter
+around the new site), (b) LOCKED@BAND (zero-variance at the
+home position); the 2x2 completed with the known cells (jitter@
+band = the root itself; locked@183 = e151).
+
+WHAT WE SAW (T097): SITE-INDEPENDENT fires — the two-factor
+gate. (a) jitter@183: door OPEN (g-12 0.505 >= 0.5) — variance
+at a NOVEL site does not close (and per e143/e142, variance
+prevents graft formation). (b) locked@band: door OPEN (0.546) —
+zero-variance at HOME is harmless. Only locked@NOVEL-site
+shuts (e151: 0.102). NEITHER registered simple law holds
+(PHASE-BY-VARIANCE and CLOSURE-BY-PLACEMENT both fail). THE
+UNIFYING READING: THE GEOMETRY DOOR CLOSES WHEN AND ONLY WHEN A
+NOVEL GRAFT FORMS — variance anywhere prevents the graft (door
+stays open); zero-variance at home re-trains the existing
+structure (door stays open); zero-variance at a novel site
+BUILDS a competing graft and the geometry-general access comes
+down with it. Graft formation and door closure are ONE EVENT.
+Open question (in the metrics' site census): did locked@band
+RE-FORM a band graft (weakly) — the home-graft caveat; and the
+novelty axis is unexplored (e165: locked at graded distances
+from home). Honesty: single seed/lineage; jitter@183's 0.505
+sits 0.005 above the open bar (razor-thin — the honest read is
+"at-or-near the boundary", and the arm's site census shows how
+much graft tried to form); the b-arm's 0.546 carries e119-L's
+budget-convention lineage.
+
+---
+
 ## E125a — the inverted knife: NO-SITE-KNIFE — an asymmetry of EXISTENCE; the generalizing memory is the removable one (2026-09-28 ~12:30Z) — DONE
 
 WHAT WE DID: arm_b's own census (bit-tight vs e133's unread

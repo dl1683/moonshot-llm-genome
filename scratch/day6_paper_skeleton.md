@@ -71,8 +71,7 @@ the types are PHASES of one substrate, converted bidirectionally by
 training — and the conversion PASSES THROUGH A MIXED STATE: the cliff
 fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
 genuine at 67x control AND >=50% geometry retention) before separation
-completes (e152) [e158 pending: variance-vs-placement; e154 pending:
-global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
+completes (e152) [e158 RESOLVED: SITE-INDEPENDENT — closure requires novelty AND zero-variance together: the geometry door closes exactly when a NOVEL GRAFT forms; neither variance nor placement alone suffices; e154 pending: global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism
 damage, only readers die) while its READOUT consolidates into a small

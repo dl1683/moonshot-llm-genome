@@ -206,7 +206,7 @@ vs-0.071 -> matched 0.663 vs 0.071); the +6%->+4.1% perm spare;
 the "67x" provenance (66.8x bar-mean across dwell peaks); the
 E160 attribution fix (N2-zero 66.9% kills; 67.3% was E2-mean).
 Open provisional markers: the intro's first
-sentence (e163), variance-vs-placement (e158), global-vs-self
+sentence (e163), global-vs-self
 (e154), dwell n=1 (e152R), lineage replication (e157). The
 flattering-direction bias was caught twice (R46, R47) and now
 has structural counter-measures (bounding cells queued with

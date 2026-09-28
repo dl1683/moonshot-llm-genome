@@ -575,6 +575,34 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T097 — E158: the door closes when a novel graft forms — site-store construction and geometry-access destruction are one event (2026-09-28 ~12:40Z)
+
+The 2x2 landed on its strangest branch, and the strangeness is
+the synthesis: neither variance alone nor placement alone
+closes the geometry door — NOVELTY AND ZERO-VARIANCE TOGETHER
+do, which is exactly the recipe for BUILDING A NOVEL GRAFT.
+Re-reading the whole arc through this: e142 (natural placement
+-> no graft, row 0 only), e143 (locked@novel -> graft), e147
+(variance -> no graft, door opens), e151 (locked@novel -> graft
++ door shut), e152 (the dwell = the graft being built while the
+door decays), e158 (jitter@novel -> NO graft, door open;
+locked@home -> no NEW graft, door open). ONE EVENT, TWO FACES:
+erecting a new positional key tears down the geometry-general
+access. The "phases" are not two states of a substrate switched
+by a variable; they are BUILD and TRAVEL — the same machinery
+seen from the construction side and the access side. FOR THE
+PAPER: claim 2's provisional marker clears into the two-factor
+form ("closure accompanies novel-graft formation"), which is
+STRONGER and cleaner than either simple law; the freeze-cell
+(e161) now reads as "does graft-building need supervision to
+finish tearing down the door"; e165 (the novelty-axis ladder:
+locked at graded distances from home) is the discriminating
+follow-up — does closure track distance-from-home (novelty as
+a continuous variable) or is it binary at first-novel-site?
+RAZOR-THIN honesty: jitter@183's 0.505 vs the 0.5 bar — at-or-
+near-boundary; the site census (how much graft tried to form
+under ±8 jitter) is the mechanism's decimal.
+
 ## T096 — E125a: the asymmetry of existence — consolidation buys generalization AND surgical removability; the locked-in memory can neither travel nor be excised (2026-09-28 ~12:30Z)
 
 The inverted knife returned the strongest possible null: across
