@@ -575,6 +575,26 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T109 — E176N: neutral-dissolves — the wash survives its confound; the paper's lead finding stands (bounded by one residue) (2026-09-28 ~16:50Z)
+
+The discharge fired against the escape: with the anchors'
+contradiction channel provably removed (0/16 junctions), the
+consolidated fact still dies on the two-step clock, whole-
+anatomy, with the CE transient honestly priced. THE LEAD
+FINDING (the discussion's, per R50's title verdict): no memory
+state tested retains expression under continued training
+without fact-bearing windows — on either stream, at any lr
+tested, with the wash rate optimizer-scaled. THE RESIDUE THAT
+KEEPS IT BOUNDED: the shared random half's 3.84%/window
+host-junction background — the filtered-stream cell (e183,
+queued) is the last step to the unbounded noun. e177's
+SCRATCH-MEMORY unblocks (the site-type's neutral wash remains
+technically open, but the burden has shifted: the root's wash
+is stream-insensitive). W019's bar eases to [n=1 + e183 owed].
+THE 60% RESTORE-IN-TO-+50: e178's half-fact is real but
+partially wash-depth-inflated — the interface story and the
+depth story share the credit.
+
 ## T108 — E177 (bounded): knife-proof is not wash-proof — and the mid-wash states are the new gold (2026-09-28 ~16:15Z)
 
 Under the extinction-grade stream, the deep site-store washes —

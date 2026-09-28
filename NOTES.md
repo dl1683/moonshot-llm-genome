@@ -63,6 +63,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E176N — the neutral wash: NEUTRAL-DISSOLVES — the extinction escape is dead; the wash story holds across streams and rates (2026-09-28 ~16:50Z) — DONE
+
+WHAT WE DID: three arms — (A) e176's protocol with e170's
+NEUTRAL anchors (G_ANCHOR 0/16 junctions, seed-matched); (B)
+the original stream at lr 1e-4; (C) restore-into-+50 (eval).
+
+WHAT WE SAW (T109): NEUTRAL-DISSOLVES — g-12 0.916 -> 0.678
+(+1) -> 0.027 (+2) -> 0.004 (+300); g0, sink, D-all, held30 all
+together; CE-at-dissolution (+2) honestly 2.03 (the transient
+the recovered values hide). THE EXTINCTION ESCAPE IS DEAD: the
+consolidated fact dissolves on BOTH streams at the same two-
+step clock. THE LR RIDER: wash rate scales with the optimizer
+(under-bar +2 at 1e-3; +50 at 1e-4) but dissolution does not
+need the big steps. ARM C (restore-into-+50): 60% retention —
+ABOVE e178's +300 band (42%) but below the wash-depth pole
+(78%): the "half-fact" is real but partially wash-depth-
+inflated (interface AND depth both contribute). THE HONEST
+RESIDUE: the random-corpus half (shared across all streams)
+carries a 3.84%/window host-junction background (~4800 draws) —
+a fully-filtered stream is the NEXT cell before the noun goes
+unbounded. e177's verdict UNBLOCKS (the stream distinction
+does not rescue the root type); W019's bar eases (n=1 + the
+background cell owed). Honesty: single seed/arm; arm A's fine
+steps main-run measured; wash timing varies across seeds
+(e152R).
+
+---
+
 ## E177 — wash the site-endpoint: SCRATCH-MEMORY [bounded: verdict on the EXTINCTION-grade stream — e176N's neutral cell still gates the noun] — knife-proof is not wash-proof; a decay GRADIENT without resistance (2026-09-28 ~16:15Z) — DONE
 
 WHAT WE DID: e176's protocol verbatim on e151_twodoor (the
