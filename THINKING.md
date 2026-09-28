@@ -1231,6 +1231,38 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W014 — WONDER: the memory layer is a semi-independent tenant — it dies to what the corpus ignores and ignores what the corpus dies to (2026-09-28 ~08:00Z)
+
+E141's CE dissociation, savored properly: direction-scrambling
+row 0 costs the corpus +0.70 nats but SPARES the fact (+6%);
+removing row 0's norm kills the fact AND wrecks the corpus
+(+1.40-2.00). The fact's route and the net's language function
+share a pivot but have DIFFERENT failure modes: the route cares
+about presence, the LM about direction. A memory system whose
+Achilles heel (pivot removal) is exactly the intervention that
+destroys general function, and whose insensitivity (direction)
+is exactly what the general function cannot survive — the memory
+is a semi-independent TENANT of the same building. Three
+consequences worth ripening: (1) TARGETED UNLEARNING has a
+predicted shape: route-level attack is maximally effective but
+catastrophic (indiscriminate); band-level attack is useless or
+BACKFIRES (the brake — deleting the old address STRENGTHENS a
+routed memory); the promising surface is the fact-SPECIFIC
+readout heads (e133's L0H3 class: 0.46 fact drop at 0.21 CE) —
+head-level ablation should remove the fact with low collateral.
+e125's three-surface design now carries a mechanism-backed
+ordering: heads > route >> band, with the brake-trap as the
+failure mode naive unlearning walks into. (2) The RMU arc
+re-reads: RMU unlearning seals the readout gate (T052) — under
+the tenant frame that is EVICTION at the head level, and e137's
+question (does restoration re-wire cheaply?) becomes "does the
+tenant keep its lease?" (3) SAVOR: the net's memories and its
+language live together but keep separate insurance policies —
+for the second paper this is the falsifiable claim that tiny-LLM
+memory is an addressing layer over the LM, not knowledge IN the
+LM, and the dissociation row (direction-scramble cell) is its
+cleanest single exhibit.
+
 ## W013 — WONDER: the read policy is the protagonist — T037's never-edited component gets a face (2026-09-28 ~07:30Z; the R44 critic's closing pointer, worked)
 
 T037 said it two days ago and the morning's inversion just gave
