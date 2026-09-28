@@ -76,8 +76,9 @@ inversion), the C5 exhibit.
 ## Risks (reviewer-kill, pre-empted)
 
 R1 "Toy scale" — C5's methodology + the GPT-2 probe as external validity.
-R2 "Confounded taxonomy" (R45 critic attack 1) — cite the bounds honestly;
-  the single-net-both-types cell (P-b) is queued; run it before submission.
+R2 DISCHARGED by e151 (one lineage, both phases, bidirectional). NEW R2:
+  "was the closure global or self-conversion?" — e154's two-facts cell decides;
+  run before the abstract's "globally" survives.
 R3 "Known phenomenon" (attention sinks; memory types) — the novelty is the
   CAUSAL compass + presence-typed routing + the failure-mode inversion, not
   the sink's existence. Position against sink/StreamLLM and
