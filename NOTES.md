@@ -119,6 +119,34 @@ report-only.
 
 ---
 
+## E143 — error-placement steering: COMPASS-CAUSAL — the committed prediction holds; invariance survives its observational death by intervention (2026-09-28 ~09:00Z) — DONE
+
+WHAT WE DID: three 300-step arms from the e048_repro root —
+NEAR (fact locked at positions 5-13, zero diversity), FAR
+(locked ~137-143), JITTER (e113 recipe); full battery; gates
+clean; 427s.
+
+WHAT WE SAW (T084): COMPASS-CAUSAL fires — NEAR consolidates
+SITE-STORED at 5-13 (site strength 0.280) with row-0 presence
+at/below install baseline (0.232 vs midpoint 0.634; PIGGY bar
+1.091 — proximity piggybacking DEAD). The error-placement
+compass is now CAUSAL: choose the error's site, choose the
+store's site. Invariance survived its strongest attack by
+INTERVENTION despite T079's observational death (T083): zero
+position-variance at a sink-adjacent site did NOT create a
+route. TEXTURE: FAR is a HYBRID — novel-geometry expression
+0.249 (vs NEAR 0.002, JITTER 0.915), row-0 strength 0.943 at
+trained geometry (sink-load per T083's saturation lesson, not
+necessarily routing); FAR's site overlaps the install band
+121-137, so the band population may supply de facto support
+diversity — the invariance law's width-0 boundary may have a
+band-overlap loophole, OR FAR's 0.249 is the old band field
+(content-carried). Discriminator queued (free, minutes):
+d_r0@g-12 on e143_far/jitter — FAR-ROUTED-TAIL (collapses >=70%)
+vs CONTENT-TAIL (drops <=30%).
+
+---
+
 ## E140 — route-dependence trace: GRADIENT-VOLUME fires — T079 dies on its dial; T078's 'erasure digs in' RETIRED (cycle damage); the trained-geometry dial SATURATES (2026-09-28 ~08:40Z) — DONE
 
 WHAT WE DID: row-0 presence-strength S (e131 instrument verbatim,

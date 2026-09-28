@@ -39,9 +39,13 @@ committed before the data existed.
    contexts (0.6-0.7 novel+val); jitter-road memories are routed
    and generalize across GEOMETRIES (0.660 at a never-trained
    offset). The brake is a re-routing scar — present only where a
-   route moved, absent on splice arms. And the day's best savor:
-   the net's dreams put 33/34 name occurrences at the OLD ADDRESS
-   — dreams dream in the fact's coordinates, which is why replay
+   route moved, absent on splice arms. And the day's savor, now
+   bounded: the net's dreams put 33/34 name occurrences at the
+   old address's column — though the harvest's 130-char prompts
+   place onsets there BY CONSTRUCTION (R45 ideator's confound),
+   so the address-seeking claim awaits the randomized-length
+   census (e148); what survives either way is the mechanism —
+   fixed-geometry replay never varies position, and replay
    without error erodes (0.230, below base 0.391) instead of
    consolidating.
 

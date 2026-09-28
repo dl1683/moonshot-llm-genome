@@ -575,6 +575,59 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T084 — E143: the compass is causal; invariance survives by intervention what it lost by census (2026-09-28 ~09:00Z)
+
+The committed prediction (COMPASS-CAUSAL, registered 07:58Z
+before dispatch) HELD. Three load-bearing consequences:
+
+(1) T076's compass is now CAUSAL, not observational: parking the
+fact's error at positions 5-13 built a site-store AT 5-13 with
+row-0 presence at baseline. Error placement chooses the storage
+site — a steering wheel, not just a description. The second
+paper's claim 1 upgrades to interventional.
+
+(2) INVARIANCE's strange double life, resolved: T079 died on its
+registered observational dial (T083, saturation), but its
+SUBSTANCE just passed the causal test — zero position-variance
+at a sink-ADJACENT site produced no route. Proximity was the
+last alternative to invariance for key-selection, and it is
+dead. The law's remaining unknown is the WIDTH dose-response:
+does address-key death co-occur with route birth as width grows?
+PRE-REGISTERED (e147, BEFORE dispatch): the width ladder w in
+{1,2,4,16,32,64} from the same root, co-measuring address-key
+strength A(w) (row-129 replacement delta) and novel-geometry
+routing NR(w) (row-0 presence at g-12 + one more novel
+geometry). INVARIANCE-CAUSAL fires if A(w) is monotone
+decreasing (Spearman <= -0.8), crosses <= 0 at w*, with NR(w)
+onsetting (>= 2x install baseline) within one bin of the same
+w* — the co-onset of address-key death and route birth is the
+causal joint. DEAD-AGAIN if A(w) flat, or routing onsets while
+A(w) still >= +0.15. SEED-COVERAGE rider (W010's ghost): if
+routing peaks at +-8 and collapses at +-32/64, seeds have finite
+reach; T079-pure predicts +-64 routes at least as well as +-8.
+
+(3) FAR's hybrid texture is the invariance law's first boundary
+case: locked at 137-143 — overlapping the install's own band —
+FAR shows novel-geometry expression 0.249 where pure NEAR shows
+0.002. Either the band population supplies de facto support
+diversity (invariance loophole: overlap counts), or the 0.249 is
+the old band field expressing (content-carried). The free cell
+(d_r0@g-12 on e143_far) adjudicates: FAR-ROUTED-TAIL vs
+CONTENT-TAIL. Registered before running.
+
+ALSO REGISTERED (the dream confound, honest): the R45 ideator
+found that e139's dream harvest used 130-char prompts, which
+place every first continuation token at x-col 130 BY
+CONSTRUCTION — the '33/34 at the old address' savor is partly
+rig geometry. The claim is CONFINED until the randomized-length
+dream-topology census runs (queued as e148): ADDRESS-SEEKING
+(install/locked nets concentrate onsets near 129 at >=5x
+uniform, p<0.01) vs ROUTE-DISSOLVES-ADDRESS (routed nets flat)
+vs ROUTE-KEEPS-AN-ADDRESS (a generation address distinct from
+the read address — a new object if real). The erosion mechanism
+(fixed-geometry replay never varies position) survives either
+way, but DAY_SIX_REPORT's phrasing is downgraded to match.
+
 ## T083 — E140: the law that died on the wrong dial — T079 killed as registered, T078 retired, and the instrument lesson that saves the taxonomy (2026-09-28 ~08:40Z)
 
 Three adjudications, all honest:
