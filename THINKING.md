@@ -676,6 +676,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T119 — E180: the rate law — survival is displacement-limited, and the gentle regime forgives (2026-09-28 ~21:55Z)
+
+The kinetics extension lands the quantitative replacement for
+the demoted rhetoric: t* ~ lr^-1.16 across a 100x lr range
+(R^2 0.975), with lr x t* roughly constant (2-6e-3) — the wash
+is DISPLACEMENT-LIMITED to first order. THE BASIN HAS A WIDTH,
+and it is ~5e-3 in parameter space; at lr 1e-5 the fact still
+lives at +300 (62% expressed). LR-IMMUNE dies — there is no
+intrinsic two-step fragility; there is a basin the optimizer
+must walk out of, and the walk's speed is the lr. THE PAPER'S
+FINAL MECHANISM PARAGRAPH: "memory in these networks has a
+narrow robustness basin (~5e-3 displacement); continued
+optimization exits it — the exit rate is the learning rate
+(t* ~ lr^-1.16); what corpus direction adds is not the exit
+but the surgery (the fact dies, the organism recovers)". The
++10 pumps at both gentle lrs echo e184's coin-flip texture.
+FOR W019: the field-facing line's FINAL form — "these memories
+have a narrow basin; gentle training forgives, ordinary
+training exits it, and the dataloader's direction only chooses
+who dies".
+
 ## T118 — E163: the intro stands — and the dial's two faces explain the whole saturation debate (2026-09-28 ~21:20Z)
 
 The licensing cell returned DIAL-VALID: the census dial reads

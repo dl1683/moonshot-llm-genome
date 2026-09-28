@@ -225,6 +225,35 @@ slightly from the mixed run (float path); the convergence at
 
 ---
 
+## E180 — the wash-rate law: LR-SCALED — a power law t* ~ lr^-1.16; at lr 1e-5 the fact still lives at +300 (2026-09-28 ~21:55Z) — DONE
+
+WHAT WE DID: the neutral wash at lr 3e-5 and 1e-5 (GPU-gated,
+thermal-migrated to CPU mid-run per precedent); the five-point
+curve with the stored 1e-3/1e-4 cells.
+
+WHAT WE SAW (T119): LR-SCALED — at 1e-5 the fact sits at 0.948
+at +50 and NEVER crosses by +300 (0.565 — 62% expressed,
+right-censored); monotone at every point. THE CURVE: t* ~
+7.5e-4 x lr^-1.16 (R^2 0.975) — a slightly super-linear power
+law. THE BASIN-WIDTH READING PRICED: displacement products
+lr x t* = 2.0/5.0/6.0/>3.0 e-3 across a 100x lr range —
+survival is DISPLACEMENT-LIMITED to first order, with a mild
+super-linear drift (the gentle regime kills slower per unit
+displacement — alpha 1.14-1.33 > 1; the stored-cell biases pull
+opposite ways). THE PAPER'S RATE QUALIFIER: activity-dependence
+as a RATE LAW, not a fixed step count — "continued training
+above a rate threshold" (W019's rhetoric was already demoted;
+this is its quantitative replacement). TEXTURE: the +10 pump
+above root at both gentle lrs (0.954/0.942 vs 0.916 — e184's
+coin-flip pump echoing). Honesty: single seed per cell (the
+gentle regime unreplicated); displacement is lr x steps to
+FIRST order (AdamW's normalized updates make alpha>1 partly
+optimizer geometry); mixed-device trajectories (recorded); the
+3e-5 crossing sits 0.006 under bar (near-bar flagged; the
+bracket robust).
+
+---
+
 ## E163 — the saturation control: DIAL-VALID — the intro's first sentence stands; the dial discriminates carriage (2026-09-28 ~21:20Z) — DONE
 
 WHAT WE DID: e142's row-0 dial on the known non-carrier (arm_b,
