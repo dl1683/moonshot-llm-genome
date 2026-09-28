@@ -122,6 +122,35 @@ data that proved it existed; R44's critic found the crack in an
 already-run census nobody had read. Pre-registrations fired 3/3
 (W010's P1/P2/P3 at 06:48Z, before e119's battery); the auditor's
 git-hash check confirmed the ordering; two forks were committed
+
+## The law ledger (as of ~09:50Z, pre-e151/e146)
+
+ALIVE: the error-placement compass (causal, e143); the CLIFF —
+variance switches memory type at zero-vs-any (e147, step form);
+sink-coupling with the poisoning mechanism and threshold
+(0.07, 0.15) (e150); content-everywhere / routes-differ (e133);
+the removable-to-irremovable reframe (pre-registered, activated);
+the population frame, tri-level (W009); the self-recognition arc
+(untouched today); all install-phase physics (mass, family,
+recency, direction — the P-A paper); the memory tenant (survived
+its control, with read-horizon texture).
+
+RETIRED TODAY, WITH SUCCESSORS: position-diversity-as-ingredient
+(-> the compass + the cliff); body-stored (-> sink-coupled);
+erasure-migration (-> cycle damage); T079's graded form (-> the
+cliff); "erasure digs in" (-> retired outright); seed-and-amplify
+(killed by one probe); "re-keyed to row 0" (-> sink-routed ->
+sink-coupled); W008's maturation timeline (retracted); the
+dreams-at-address savor (bounded, pending the randomized census).
+
+## The day's closing sentence
+
+The net is born with one memory organ — the omnipresent row — and
+protocols decide whether to graft a second: error chooses where
+content lands, variance chooses whether it hardens into a graft
+or rides the organ's health, and consolidation is the movement
+from the removable to the irremovable. (The self waits at the
+door — e146 pending.)
 to paper before their experiments ran (e143's proximity-vs-
 invariance; e125's heads-ordering). The audit also repaired three
 orphaned runs from earlier days (E019/E078/E088) and caught the
