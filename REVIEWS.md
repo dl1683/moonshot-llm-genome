@@ -67,6 +67,40 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 51 — the mint-time bar (2026-09-28T17:30Z; covering 16:10–17:30Z; e183 running through it)
+
+### AUDITOR — PASS WITH DEFECTS (numbers all clean; hygiene repaired)
+e183's "phantom dispatch" was a snapshot artifact (the script landed minutes later; queue/state
+now truthful); e175's duplicate row superseded; e181 dead / e182's gate fired; W019's seeds
+clause restored; the paper's seed markers re-applied; e175's metrics dates local-as-Z
+documented. All five folds' numbers verified clean.
+
+### CRITIC — accepted in full; the structural fix adopted
+1. (HIGH) THE MAINTENANCE BUDGET demoted: the wash channel alone suffices (e176N's fact-free
+   stream, same clock — "any-F2-gradient" withdrawn); the smoke reads REHEARSAL-FAILS with an
+   eviction transient at t~4-8 (the main's "every dose" is grid-limited); capacity =
+   1/rehearsal-fraction STRUCK (one fraction + a degenerate zero). Surviving: REHEARSAL
+   MAINTAINS — direction, two independent protocols.
+2. (HIGH) THE DECAY GRADIENT bounded: inside within-type variability (10x under one lr knob;
+   37x across seeds) — "worth a panel" withdrawn; only the 5.5x same-lineage contrast stands.
+3. (HIGH framing) e183's BACKGROUND-CARRIED branch is not "bounded" but MECHANISM-FATAL —
+   it inverts the sign (tiny-dose extinction returns, retroactively re-confounding every
+   wash); the bidirectional reading map registered before its data.
+4. (MED->HIGH) T110's paradigm-split withdrawn: grid-limited null + the substrate confound +
+   the late inversion (naive > washed at 100/300 — the brake-scar tail?).
+5. THE UNCONDITIONAL LIST DID NOT GROW — zero items since R49; the session's genuine gains
+   (stream/lr replication of the wash; the rehearsal direction) are bounded correctly.
+6. THE ASYMMETRIC MINTING NAMED: bars applied against distrusted nouns, waived for enjoyed
+   ones. STRUCTURAL FIX ADOPTED: the mint-time bar — "no unbounded noun from n=1 texture"
+   joins the dispatch template beside the battery-geometry check.
+THE EPITAPH adopted for the day-six report's final line.
+
+### Decisions
+1. All repairs applied. 2. The mint-time bar is standing. 3. Fleet: e183 (the bidirectional
+gate). Stamps below.
+
+---
+
 ## Review 50 — the extinction confound (2026-09-28T16:10Z; covering 14:35–16:10Z; e174/e177/e175/e176N running through it)
 
 ### AUDITOR — ISSUES FOUND; numbers otherwise verified clean
