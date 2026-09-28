@@ -58,11 +58,15 @@ committed before the data existed.
 5. **The read policy is the protagonist (W013/W014; T037
    resurrected).** Install/locked/jitter/erase are four states of
    the read policy; error-location is its training rule;
-   credit-assignment (T079: keys strengthen by invariance across
-   error windows) its key-selection rule — [e140 ADJUDICATION
-   PENDING: R-vs-L presence ratio, credit-assignment vs
-   gradient-volume; L-CYCLED decides whether "erasure digs in"
-   had any erasure-specific evidence]. The memory layer is a
+   its key-selection rule was T079 (keys strengthen by invariance
+   across error windows) — which e140 KILLED on its registered
+   dial (gradient-volume: everything is row-0-dependent at the
+   trained geometry; the dial saturates) while its unregistered
+   signature survived in the same run's texture (only the
+   position-varied road NEGATES the address key: R -0.21 vs
+   L +0.33); and L-CYCLED retired "erasure digs in" outright
+   (locked cycles thin identically — cycle damage, not erasure).
+   e143 carries invariance's last causal stand. The memory layer is a
    semi-independent tenant of the LM (W014): it dies to
    presence-removal and ignores direction — the corpus's exact
    opposite — making head-level attack the only promising

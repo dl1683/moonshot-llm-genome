@@ -119,6 +119,40 @@ report-only.
 
 ---
 
+## E140 — route-dependence trace: GRADIENT-VOLUME fires — T079 dies on its dial; T078's 'erasure digs in' RETIRED (cycle damage); the trained-geometry dial SATURATES (2026-09-28 ~08:40Z) — DONE
+
+WHAT WE DID: row-0 presence-strength S (e131 instrument verbatim,
+install-60 g0) across seven checkpoints + the L-CYCLED arm
+(3x300 locked, no reset); all gates bit-exact (twin reproduces
+e116's stored seed-42 values; R@300 vs e109 GPU ref 7.1e-4).
+
+WHAT WE SAW (T083): FIRED GRADIENT-VOLUME ONLY — ratio
+R@150/L@150 = 0.745 < 1.3 (locked replay MORE row-0-dependent
+than jitter at matched steps); R-ROUTE-MONOTONE failed (R@150
+0.4687 DIPS below twin 0.5455 before R@300 0.7226); E-NEVER-
+ROUTES failed absolutely (E@c2 off 0.228) but passed relatively
+(all E rel within 0.10 of twin's 0.981). THE CEILING: twin
+starts at rel 0.98 — presence-dependence at the trained geometry
+measures SINK-LOAD, which every readout has; it does not
+isolate routing. L-CYCLED: D-all residue thins 0.1307 ->
+0.0045 -> 0.0003 (fold 0.0022) vs E's 0.1902 -> 0.0132 -> 0.0010
+(fold 0.0053) — monotone, same-or-faster, NO erasure; grown rows
+explode (209) like E's ~190. ANTI-MIGRATION HAS NO
+ERASURE-SPECIFIC EVIDENCE LEFT — 'erasure digs in' retired.
+TEXTURE GOLD (row-129 address-key strength): L@150 0.327 >
+E@c3 0.280 > twin 0.241, but R@150/R@300 NEGATIVE (-0.21/-0.13)
+— deleting the address FEEDS only jittered facts (the brake as
+census texture): locked and erased roads STRENGTHEN the address
+key; only the position-varied road negates it. Fixed D-all:
+twin 0.193, E@c2/c3 0.061, R@300 0.903. Honesty: single lineage
+(all arms from one twin install); the e131 dial conflates
+route-keying with sink-load (e141's lesson) — the ceiling effect
+is WHY gradient-volume fired while no arm separates; the
+route-isolating dial is presence-dependence at NOVEL geometry
+(e141's g-12 design), which this run did not measure.
+
+---
+
 ## E139 — row-0 universality: HYBRID (site-dominant two-door) — row 0 is NOT universal; row 0 routes, the site stores (2026-09-28 ~08:15Z) — DONE
 
 WHAT WE DID: five probes on the splice arms + consolidated

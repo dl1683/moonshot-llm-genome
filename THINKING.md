@@ -514,7 +514,7 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
-## T078 — E119: the two roads run in OPPOSITE directions — jitter migrates (re-keys to row 0), erasure digs in (tightens the address) (2026-09-28 ~07:20Z)
+## T078 — [DIGS-IN CLAUSE RETIRED by e140/T083: cycle damage, not erasure — L-cycled thins identically] E119: the two roads run in OPPOSITE directions — jitter migrates (routes via row 0), locked/erase stay site-stored (2026-09-28 ~07:20Z)
 
 Read against T077's frame, e119's AMBIGUOUS becomes decisive in
 interpretation: R (jitter) survives D-all at 0.769 — exactly what
@@ -575,6 +575,59 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T083 — E140: the law that died on the wrong dial — T079 killed as registered, T078 retired, and the instrument lesson that saves the taxonomy (2026-09-28 ~08:40Z)
+
+Three adjudications, all honest:
+
+**(1) T079 (credit-assignment) is DEAD ON ITS REGISTERED DIAL.**
+GRADIENT-VOLUME fired: R@150/L@150 presence ratio 0.745 — locked
+replay is MORE row-0-dependent than jitter. No bar shopping: the
+law's registered prediction failed. But the INSTRUMENT LESSON is
+load-bearing: the twin starts at rel 0.98 — presence-dependence
+at the TRAINED geometry measures sink-load (which every readout
+has), not routing. The route-isolating dial is presence-
+dependence at NOVEL geometry (e141's g-12 collapse, which this
+run did not measure). The law died on a dial that saturates for
+everyone. ITS UNREGISTERED SIGNATURE SURVIVES IN THE SAME RUN:
+row-129 address-key strength — L 0.327 > E@c3 0.280 > twin
+0.241, but R NEGATIVE (-0.21/-0.13). Only the position-varied
+road NEGATES the address key; locked and erased both STRENGTHEN
+it. That is exactly what an invariance competition would
+produce — but it was not the registered bar, so it is TEXTURE,
+and reviving T079 requires a NEW pre-registered test (address-key
+strength vs jitter-width ladder, novel-geometry presence
+co-measured), not a reinterpretation.
+
+**(2) T078's 'erasure digs in' is RETIRED.** L-cycled (no
+erasure, just three locked cycles) thins 0.131 -> 0.0045 ->
+0.0003, same-or-faster fold than E. Thinning is CYCLE DAMAGE.
+The two-roads story in its final form: at matched expression,
+position-varied replay produces ROUTED, deletion-tolerant,
+geometry-general memories; locked and erased roads both produce
+site-stored ones that degrade under cycling. There is no
+erasure-specific phenomenon beyond the damage it shares with
+any repeated fixed-position intervention.
+
+**(3) THE T082 DERIVATION ADDENDUM'S SYLLOGISM FAILED — recorded
+as predicted-then-falsified.** Registered at ~08:28Z (before
+reading e140): the taxonomy predicts E-flat + L-flat + R-rising
+on the row-0 dial. The data: everything flat-high (rel
+0.84-0.98), R non-monotone. The taxonomy itself survives — its
+discriminating evidence was never this dial; it is e139's
+183-geometry cells (routed 0.84-row-0-dependent vs splice 0.25)
+and e141's novel-geometry collapse. But the failure teaches the
+taxonomy's boundary: ROUTING is invisible at the trained
+geometry, where the sink carries everything; it shows only where
+the memory must travel. What you measure WHERE matters more than
+what you measure.
+
+STANDING: e143 (in flight) now carries the invariance question's
+last causal stand — NEAR vs FAR decides whether position-variance
+is necessary for routing by INTERVENTION rather than census. If
+NEAR routes, proximity wins and the invariance story ends; if
+NEAR stays site-stored, invariance survives its observational
+death.
+
 ## T082 — E139: two memory types — ROUTED vs SITE-STORED — and the dreams that dream in coordinates (2026-09-28 ~08:15Z)
 
 The taxonomy completes, and it is cleaner than any card
@@ -608,6 +661,31 @@ never-trained 183). Novel-geometry-for-site-stored is the one
 missing cell in the taxonomy; prediction: it fails or degrades
 steeply (a site-stored read needs its site), which would make
 geometry-independence the ROUTED type's exclusive property.
+
+DERIVATION ADDENDUM (written ~08:28Z, BEFORE e140's report —
+its metrics are on disk unread): THE TAXONOMY RE-DERIVES THE
+E/L/R TRIANGLE AND DISSOLVES T078'S CONFOUND FROM FIRST
+PRINCIPLES. E (erase) and L (locked) matched on every loaded
+outcome because they are BOTH SITE-STORED roads — erasure and
+massed repetition are different recipes for the same memory
+type. R (jitter) differed from both because it is the only
+ROUTED arm. The R-vs-E contrast was never erasure-vs-replay; it
+was routed-vs-site-stored — which is T079's variable all along.
+This makes e140's registered bars a syllogism test: the taxonomy
+PREDICTS E-NEVER-KEYS and L-flat (site-stored roads never grow
+the route) together with R-ROW0-MONOTONE (the routed road does).
+If e140 instead shows E or L growing row-0 dependence, the
+taxonomy has a hole; if all three are flat, R's routing was a
+one-off and T079 dies with it. Also derivable, for e134's F2:
+a second fact jitter-consolidated into the same net should ALSO
+route (route-generic presence-keying) and the two routed facts
+should share the pivot's bandwidth (W012's combined-54 test).
+ZERO-COST PREDICTIONS REGISTERED: (P-b) a routed memory re-taught
+at a new site acquires a site-store WITHOUT losing the route
+(two-door addition, untested, cheap); (P-c) erase-cycling a
+ROUTED memory should NOT dig in (the route protects) — if it
+still digs in, "erasure digs in" is damage, full stop, and
+T078's demotion becomes a retirement.
 
 THE DREAMS THAT DREAM IN COORDINATES (the arm-c rider, the
 day's best savor): 33 of 34 dream ZEPHYRAs sit at x-col 130 —
@@ -720,7 +798,7 @@ route's remaining structure; the POLICY TRANSPLANT (W013) has
 its target organ list (L0H3 + the value channel + whatever
 e141 isolates).
 
-## T079 — the credit-assignment law: keys strengthen in proportion to their INVARIANCE across error-bearing windows (2026-09-28 ~07:12Z)
+## T079 — [KILLED ON ITS REGISTERED DIAL by e140/T083 (gradient-volume, ratio 0.745); unregistered row-129 signature survives as texture — revival requires new pre-registration] the credit-assignment law: keys strengthen in proportion to their INVARIANCE across error-bearing windows (2026-09-28 ~07:12Z)
 
 The new frame's sharpest internal tension (handed to the R44
 critic, worked here in parallel): e109's own data says locked
