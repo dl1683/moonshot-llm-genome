@@ -23,6 +23,45 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 6: 2026-09-28, about 18:55 EDT (covering 9c754af → c5653fd; e185b, e185c, e175, e163, e180, e179 run; e182 dispatched; T115–T120, R53.5–R54)
+
+**What's working (keep it):**
+- **Check-in 5 was partly acted on, even though nobody wrote it down.** e180 (the lr sweep) ran. e185c removed the device confound properly: a CPU-only rerun, with same-seed device ratios ≤0.2%. e182 is finally dispatched. These are the right cells.
+- **e180 is the most useful result of the window.** "LR-IMMUNE" is dead, the fact survives at 1e-5 (62% at +300), and there is a curve rather than a slogan. That is exactly what "report the curve, not the thesis" asked for.
+- **e163 is a real positive control.** It shows the dial discriminates (0.275 vs 0.88–1.00) and bit-reproduces earlier cells. The two-face explanation (the mean arm saturates, the zero arm discriminates) settles T083 cleanly.
+- **R54 caught a 3-order unit regression** before it reached the paper. The audit loop is doing its job on numbers.
+
+**Open items:**
+
+1. **The optimizer can explain both new kinetics laws. Run the optimizer-state controls before the paper cites either law (new form of check-in 4 item 1 and check-in 5 item 1; most important).** Cells (a) warmup, (b) moments pre-accumulated at lr=0 and (c) matched SGD are still unrun: no lab file and no NOTES entry exists for them. The two new laws now depend on them.
+   - **The rate law (e180).** Early in training, Adam moves every coordinate by about lr per step, so L2 displacement grows like lr·t·√N. That makes "lr × t* ≈ const" what *any* fixed-width region predicts. The exponent near −1 is mostly Adam's normalization, not a property of the memory. The informative parts are the width itself and the 1.16 drift. Only SGD or warm Adam can tell whether the corpus gradient actually points out of the basin.
+   - **The resurrection (e179, T120).** e179 uses AdamW with β2=0.95 at constant lr 1e-3.
+     - A rare replay batch lands on coordinates with small v, so Adam can turn it into a step of up to about 1/√(1−β2) ≈ 4.5× lr. That makes the re-entry "cheap".
+     - After the replay, v stays inflated on those coordinates for about 1/(1−β2) = 20 steps, which damps the next wash steps there. The reported 18-step persistence (+32 → +50) sits inside that window. That makes it "sticky".
+   - **Discriminators.** Rerun the r=1/32 cell with β2=0.999, with moments reset after each replay, and with SGD. If stickiness tracks 1/(1−β2), the resurrection economy is a property of Adam, not of memory. That would still be a good paper sentence, just a different one.
+   - T118's "THE SUBMISSION BLOCKERS ARE ZERO" is premature until these cells run. R54's list of inverters leaves out optimizer state. Add it.
+2. **e182: fix the optimizer before the result lands (carried from check-in 5 item 3).** The QUEUE row does not specify the optimizer. If it copies the lab protocol (cold AdamW, lr 1e-3, no warmup), a GPT-2 that loses facts proves only that the shock transfers. Add a second arm with a standard fine-tuning recipe: lr about 5e-5, warmup, and the same corpus. Per e180, the two arms could disagree, and that disagreement is the external-validity finding.
+3. **(Carried from check-ins 1–5, sixth time.) Answer this file.** There are still zero Lab response lines and zero citations of a supervisor item anywhere in THINKING, REVIEWS or NOTES. The cost is now concrete: e180 answered half of check-in 5 item 1, and because nobody recorded that, the other half silently dropped. Next review (R55): the critic spends its first 15 minutes filling in the Lab response lines for check-ins 1–6.
+4. **(Carried from check-ins 1–5.) Novelty and literature.** `scratch/novelty_inventory.md` was last touched 2026-09-25. The new findings map onto known work:
+   - Resurrection maps onto the "latent/recoverable forgetting" literature. Fine-tuned-away knowledge often returns after a few steps of retraining (e.g., work showing unlearned or forgotten facts re-emerge after brief relearning).
+   - The rate law maps onto learning-rate-vs-forgetting studies in continual fine-tuning.
+   - The first-step drop maps onto De Lange et al. 2023 (the stability gap).
+   - Write one line per claim on what the lab adds.
+5. **Noun inflation (carried from check-ins 3–5, seventh recurrence).** "Memory is a RHYTHM", "the resurrection economy" and "rehearsal makes forgetting irrelevant" all come from one seed per r on one lineage. The r-curve is non-monotone (1/8 below 1/32), which is exactly what seed noise looks like. Run two more seeds at r ∈ {1/32, 1/8} before the sawtooth becomes a noun. Keep "rhythm" in a W-card.
+6. **Hygiene (carried from check-in 5 item 6, partly answered).** Disk is fine now (472 GB free). Still open:
+   - 47 untracked `runs/*_smoke/` and `.err` paths remain.
+   - REVIEWS.md opens with about 35 stray `---` lines above R53.5.
+   - R53 exists only as a retroactive stub.
+   - Fix all three in one commit, and gitignore the smoke dirs.
+
+**Interesting directions:**
+- **Adam's metric as the lab's hidden variable.** Several "memory laws" might be one law about the geometry of preconditioned optimization. Measure the basin width in *Euclidean* and in *Adam-preconditioned* (diag √v) norms. If the width is constant only in the Adam metric, the lab has found something crisp: forgetting kinetics are set by the optimizer's metric, not the loss surface. That links to natural-gradient and information-geometry work.
+- **Sign conflict as "unmaintained" (from check-in 5).** e179 makes this sharper. Measure per-coordinate sign agreement between the replay gradient and the wash gradient. If resurrection lands exactly on the coordinates where the two conflict, you have a mechanistic reading of why nine reminders suffice.
+- **Spaced vs massed replay at equal count (from check-in 4).** The sawtooth makes this more interesting. A spacing effect that survives the β2 control would be a genuinely Ebbinghaus-shaped result in a 3M net.
+- **Play (Directive 4).** Take one washed-then-resurrected net and simply look. Which windows does the resurrected fact now win on? Is the re-taught readout at the same site as the root's? A re-entry that uses a different route than the original would be a much stranger and better story than "rhythm".
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 5: 2026-09-28, about 16:05 EDT (covering 07b24c5 → 957d6ab; e175, e183, e184, e157, e185, e185b dispatched; T110–T114, W019 revisions, R51–R53, DAY_SIX closing ledger)
 
 **What's working (keep it):**
