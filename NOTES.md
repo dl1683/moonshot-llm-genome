@@ -63,6 +63,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E157 — the lineage replication: LEAD-FINDING-REPLICATES (with a recorded bound) — the wash is n=2 families; the 2x2's phase structure is LINEAGE-SPECIFIC at n=2 (2026-09-28 ~19:00Z) — DONE
+
+WHAT WE DID: three stages on the e098 s4305 family (0.84M) —
+(A) consolidate (jitter ported, RNG-matched), (B) e176N arm A
+wash, (C) the 2x2 rider; all trainings cuda (35s max, no
+parking); all gates vs stored cells bit-exact or verified.
+
+WHAT WE SAW (T113): LEAD-FINDING-REPLICATES fires — family 2's
+consolidated fact DISSOLVES on the first gradient step of the
+neutral stream (g-12 0.198 -> 0.0011 at +1; the g0/g+12 co-
+reports — both well-expressed at root (0.578/0.591) — dissolve
+at +1 with family 1's CE transient shape). THE WASH IS n=2
+FAMILIES. THE BOUND: stage A's geometry door gate FAILED on one
+clause (the ±12 extrapolation asymmetric — g+12 0.591 open,
+g-12 0.198 not; the trained span's jitter geos all high) — the
+co-reports discharge the substance. THE RIDER (report-only):
+LINEAGE-BOUND — 3/4 doors flipped vs family 1's committed 2x2
+(every cell shuts on family 2); the variance/placement phase
+structure does NOT replicate; texture: the rider arms re-learn
+strongly wherever taught (site 0.9995) while untrained
+geometries stay shut — THE FACT MOVES, IT DOES NOT COHABIT.
+Honesty: recipe-port RNG-matched; no device mixing in-run
+(family 1's references are themselves mixed — recorded); the
+smaller fresh family could be capacity texture, not structure;
+n=1 per family.
+
+---
+
 ## E184 — the seed replicates: ALL-DISSOLVE (n=3) — the lead finding's evidence COMPLETES; the seed clause discharges (2026-09-28 ~18:10Z) — DONE
 
 WHAT WE DID: e176N's neutral arm at seeds 10903/10904 (GPU-

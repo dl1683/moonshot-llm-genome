@@ -575,6 +575,28 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T113 — E157: the wash crosses families; the phase structure does not — and the arc splits cleanly (2026-09-28 ~19:00Z)
+
+The lineage replication returned the arc's cleanest possible
+split verdict: THE WASH (the lead finding) REPLICATES ACROSS
+FAMILIES — a well-expressed consolidated fact dissolves on the
+FIRST gradient step of a fact-free neutral stream, on a second
+family, with the same CE transient — while THE PHASE STRUCTURE
+(the 2x2's variance/placement doors) IS LINEAGE-SPECIFIC at
+n=2: family 2's doors all shut regardless of recipe. THE PAPER
+SPLITS CLEANLY: the lead finding (bounded universal, sparse
+grid, n=2 families) is the title finding; the cliff/phase story
+demotes to a LINEAGE-1 CASE STUDY (interesting, mechanistically
+rich, explicitly not universal — its honest label). THE RIDER's
+TEXTURE is the day's last good line: on family 2 the fact MOVES,
+it does not cohabit — re-learned strongly wherever taught, gone
+wherever not. FOR THE GRID: the wash's family-2 cell closes the
+lineage axis (the R52 matrix's last column); the phase
+structure's non-replication is itself a finding (families
+differ in DOOR ARCHITECTURE, not in WASH PHYSICS). W019's
+lineage clause CLEARS for the wash; the phase claims inherit
+lineage-1 scope permanently unless a third family disagrees.
+
 ## T112 — [R52 VERDICT: the finding stands at its bars; the notation did not — the grid is SIX CELLS + one n=3 column (already corrected to the sparse-union form by the auditor); 'all types' rides an inference no run discharged (neutral-stream dwell/site cells owed); the seeds are WASH draws on ONE organism (the clause's 'no seed' reads organism-level — wrong); the tail lottery is DEVICE-confounded at the comparison points; the mechanism noun undiscriminated from generic two-step optimizer fragility (the noise-gradient cell owed); 'FULLY EVIDENCED' relabeled 'fully evidenced within the registered grid'] E184: the evidence completes (bounded by R52) — and the last textures are the strangest (2026-09-28 ~18:10Z)
 
 n=3 across seeds, all dissolving in the same (1,2] bracket. The
@@ -2550,7 +2572,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W019 — WONDER [e184 cleared the seeds: n=3 across seeds, all dissolving — the noun is unbounded save LINEAGE (e157 owes the second family); 'implemented'/'architectural fact' stay withdrawn (the >=3 rule); the field-facing line may enter the DISCUSSION in bounded form — the honest sentence: every memory state tested dissolved under continued training on every stream composition run, at every lr tested, with the fact's windows absent] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
+## W019 — WONDER [e157 cleared the lineage: the wash is n=2 families, first-step dissolution on both — the noun's grid now: sparse-union + 2 families + 3 wash-seeds; the phase/cliff structure is LINEAGE-1 (its claims scoped); 'implemented'/'architectural fact' stay withdrawn (the >=3 rule); the field-facing line may enter the DISCUSSION in bounded form — the honest sentence: every memory state tested dissolved under continued training on every stream composition run, at every lr tested, with the fact's windows absent] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
 
 The biology echo completes its long arc by INVERTING: the lab's
 nets do not implement the classic two-system story (fast
