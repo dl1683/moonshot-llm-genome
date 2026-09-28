@@ -666,6 +666,22 @@ step) — the anchor is not an entry property.
 
 ---
 
+## E088 — LATE FOLD (R43 audit debt repair; 2026-09-26) — pair-anchor factorial: NO super-additivity — pair removal costs LESS than singles summed — DONE
+
+Backfilled from runs/e088/metrics.json (fold dropped — found by
+the R43 audit; started 2026-09-26T15:28:48Z, CPU-only). T051's
+registered fork: super-additive pair cost => anchor lives in
+entry-PAIR interactions (view b); additive => sequence-level
+basin (view a). Result: 40 pairs, 11 qualifying (many with null
+denominator — singles cost ~0); median pair/(s1+s2) ratio 0.464,
+CI [0.024, 0.5]; Spearman(ratio, pair-distance) ~= 0. The
+super-additivity fork does NOT fire — observed is SUB-additive:
+single removals already carry most of the pair cost (overlapping
+redundant supports). Leans view (a) or plain redundancy; no
+T-card (window passed). Flag: 29/40 pairs unqualifying — the
+instrument saturates on this install; any sequel must pick pairs
+with nonzero single costs first.
+
 ## E087 — RIF adjudication: STRING-LEVEL INDUCTION ONLY — reads are pure at the fact level; T049 closes (2026-09-26) — DONE
 
 WHAT WE DID: both rigs × both nets × B=96, arms {real ELIZABETH,
@@ -829,6 +845,19 @@ contents — trivially circular, so instead the P3 line pivots to
 describing the anchor, not replacing it).
 
 ---
+
+## E078 — LATE FOLD (R43 audit debt repair; 2026-09-26 era) — dose rebinding at 4x dose: T047's ROW129 claim REPLICATES clean — DONE
+
+Backfilled from runs/e078/metrics.json (fold dropped — found by
+the R43 audit). Question: does ROW129-ONLY ~= PAIR-COPY >>
+ROW0-ONLY ~= NO-COPY replicate on the second (4x-dose) install?
+All three registered bars fire at BOTH k=10 and k=20:
+row129~pair (min/max = 0.97: 0.302 vs 0.294 at k10, 0.294 vs
+0.285 at k20, install-60 shifted); gap (row0/nocopy 0.108-0.117
+<= 0.5 x pair/row129); row0~nocopy (0.95). Held-30 carries
+~40% (0.125-0.127). T047's "~70% rebind, partial necessity — the
+single most load-bearing portable row" re-confirms at 4x dose:
+the row-129 geometry alone carries the rebind; row-0 adds nothing.
 
 ## E077 — untrained-init profile: TRAINING-BUILDS — the template is a fast training-dynamics emergent (2026-09-26) — DONE
 
@@ -1534,6 +1563,22 @@ WHAT WE SAW (T013):
 
 WHAT'S NEXT: C6 finalized. e043 (INSTALL a name) now cleanly defined:
 rows + which body. Review ~15:50Z.
+
+## E019 — LATE FOLD (R43 audit debt repair; original-era run) — mlp5 thermostat: ENERGY-CARRIER confirmed via the e011c-consistent rule, not as-written — DONE
+
+Backfilled from runs/e019/metrics.json (run predates E020; fold
+dropped in a quota-crunch period — found by the R43 audit).
+Registered rule (verbatim): "CE(a=0.5) and CE(a=2) within +0.15
+of baseline AND rotate(a=1) costs >2x zero-ablation ->
+energy>direction". Verdicts: graceful-alpha WITHIN +0.15 at both
+a=0.5 and a=2.0; rotate_over_zero = 0.25 (R1 as-written FAILS —
+rotation does NOT cost >2x zero-ablation); R2 (e011c-consistent,
+zero > 2x rotate) TRUE -> energy_carrier_confirmed (graceful AND
+R2). Reading: MLP-5's fact carrier degrades gracefully under
+magnitude scaling and is MORE damaged by zero-ablation than
+rotation — energy-form per the e011c lineage, though the literal
+registered inequality oriented the opposite way. No T-card
+interpretation (window passed; number stands in the ledger).
 
 ## E018 — causal depth: the lens is UNCORRELATED with causal depth (2026-09-24) — DONE
 

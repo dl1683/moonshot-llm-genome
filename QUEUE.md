@@ -96,7 +96,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e067 | address census (P1) | DONE (T042: ROW 0 top anchor — window-anchored conjunction; bimodal rows 0+129 (53%) + micro-carpet; NOT sparse, dense-cluster refuted) |
 | e071 | row-0 generalization (T042) | DONE (H-WINDOW-KEY sweep; both anchors generalize to held-30; generic+key coexist per KL) |
 | e068 | rebinding surgery (P1) | DONE (T043: MIXED — portable unit is ROW 129 ALONE, pair ≈ 129-only; row-0 = scaffolding; destruction-vs-portability dissociate) |
-| e065 | RMU-vs-surgery head-to-head | READY-GATED (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
+| e065 | RMU-vs-surgery head-to-head | STALE (R43 audit: E065 already in NOTES — row kept for history) (design critic-hardened 5f11a79; GPU free) | obfuscation inversion: rescuable-but-reverts-fast vs unrescuable-but-scarred; 5 arms incl. retain-only + no-removal controls |
 | — | P2 ramp e060/e062/e063 | RUNNING (agents) | then trained-tolerance + crossmatch grid at promotion |
 | e073 | P3 junk split (source stratification) | DONE (T045: H-SLEEPER 4/4 — cache junk is self-generated; prompt entries ~never hurt; 10M extreme 0.367) |
 | e074 | shuffled-prompt junk control | DONE (T045 close-out: H-SOURCE strict — no new junk from shuffled prompts 0.024; late-gen 0.169 vs early 0.031 = 5.5x drift gradient) |
@@ -137,7 +137,7 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e106 | second-channel census | DONE (T058: MIXED — two-channel unconfirmed, single-channel fails; residual open; e107 per-DP layer trajectories registered) |
 | e107 | value-side probe | DONE (T059: ROUTING-ONLY decisive; content ⊥ readout (0.033) — architecture forces routing+age selection; read-residual closes as attention-vs-age disagreement) |
 | e095 | T050 texture probes | DONE (both flags NOISE — escapes diffuse below MC-null; donor hits 33rd pctile vs 70 bar; T050 final) |
-| e083 | canalization cycle 3 | READY (~100 steps) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
+| e083 | canalization cycle 3 | STALE (R43 audit: E083 already in NOTES — row kept for history) | T037's registered debt: ratio >=1 AND cos >=0.6 or canalization falsified |
 | e093 | threshold-law generality | READY (eval-only) | k-ladder on ctx-256 + 8M/10M — fraction-invariant vs absolute-count law |
 | e094 | ONE-ROW TOLERANCE | READY (GPU, <=200 steps) | pin donor row-129 in seed-43 host, fine-tune rest — recoded lock vs routed-around + crossmatch rider |
 | e096 | coherence-gap dose ladder | DONE (T051 amendment: REMOVAL-fragile, CORRUPTION-robust — no damage at any eps; anchor = nonzero content-bearing entries) |
