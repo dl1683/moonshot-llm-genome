@@ -629,7 +629,7 @@ n=3 across seeds, all dissolving in the same (1,2] bracket. The
 lead finding's evidence structure is now: 3 streams x 2 lrs x 3
 seeds x every memory type — dissolution universal, the clock
 replicating, the lottery confined to depth and tail. THE
-STRANGE TEXTURES the replicate added: (1) seed 10903's +1 read (0.9415) sits ~1.3 SEM above the root (battery std 0.152/60 windows) — STATISTICALLY INDISTINGUISHABLE FROM UNCHANGED [R52: the pump paragraph demoted; 1/3 seeds 'pumping' is the coin-flip first step's expected frequency; the clock itself is optimizer-shaped (2 steps at 1e-3 ~ 2e-3 displacement; 50 at 1e-4 ~ 5e-3 — a basin-width statement, not a memory constant); (2) the tail lottery (10904's 2-34x
+STRANGE TEXTURES the replicate added: (1) seed 10903's +1 read (0.9415) sits ~1.3 SEM above the root (battery std 0.152/60 windows) — STATISTICALLY INDISTINGUISHABLE FROM UNCHANGED [R52: the pump paragraph demoted; 1/3 seeds 'pumping' is the coin-flip first step's expected frequency; the clock itself is optimizer-shaped (2 steps at 1e-3 ~ 2.5 displacement measured; 50 at 1e-4 ~ 5 — a basin-width statement, not a memory constant [figures corrected per R53: the 2e-3/5e-3 were off by 3 orders]; (2) the tail lottery (10904's 2-34x
 slower tail) — the AFTER-death decay is where seeds differ,
 which is consistent with the wash destroying the load-bearing
 structure fast and the wreckage settling at seed-dependent
@@ -2609,7 +2609,7 @@ consolidate INTO; there is only the readout the practice
 keeps alive. Reconsolidation-dependence, memory's fragility at
 retrieval, the interferencelit's permanent-interference
 findings — all of it, implemented in 0.84M parameters as a
-LITERAL ARCHITECTURAL FACT rather than a caveat. PREDICTED
+LITERAL ARCHITECTURAL FACT [withdrawn per R50; T114's rewrite owed and now applied: these memories have no basin; what keeps them is the dataloader's direction — and even that kills, just neatly] rather than a caveat. PREDICTED
 SAVOR (e177, the last cell): the deep site-store washes too —
 the resistance axis stands EMPTY for every memory type, and
 'archive' joins 'address' and 'field' in the lab's graveyard of

@@ -170,12 +170,12 @@ dreams-at-address savor (bounded, pending the randomized census).
 
 FINAL UPDATE, bounded (R50): the consolidated fact dissolves
 under the install's own name-deleted windows — an EXTINCTION-grade
-stream, not plain disuse (the neutral control e176N is running; the
-'two steps at healthy CE' spliced clocks — CE was shocked at the
-moment of death). The honest interim: no memory state tested retains
+stream, not plain disuse (e176N/e183/e184/e157 since resolved: neutral, filtered, seeded,
+and cross-family — all dissolve; the mechanism is NO ROBUSTNESS BASIN
+per e185: content-free noise kills identically; the corpus's gift is
+surgicality). The honest interim: no memory state tested retains
 expression under the exact contexts that taught it, shown once
-without the name. [The stronger no-archive claim awaits the neutral
-cell and seeds.] The classical consolidation story (resistance
+without the name. [The no-archive claim now stands within the registered grid: n=2 families, 3 wash-seeds, 3 streams.] The classical consolidation story (resistance
 acquisition) is dead here; what survives of 'consolidation' is the
 readout's geometry-generality — a property of the access the
 rehearsal maintains, not of hardened storage. [e177/e178: is the
@@ -215,6 +215,23 @@ streams, two families; the last 3.84% examined and found innocent) — and what 
 replicated 3-for-3 were brakes, conversions, clocks, and
 deaths; the one thing it never replicated was a memory
 surviving."
+
+## Session-closing ledger (R53, ~19:55Z)
+
+Day six closed at 1,629 commits, 191 experiment directories, 152 lab
+scripts, 114 interpretation cards (T075-T114 minted today), 19 wonder
+cards (W008-W019), and 10 frontier reviews (R43-R52). The session's
+central object ends in its corrected form: the wash finding is n=2
+families, 3 wash-seeds, 3 stream compositions, 2 lrs — every memory
+state tested dissolved under continued training on every stream
+composition run, with the fact's windows absent, "fully evidenced
+within the registered grid"; the phase/cliff structure is
+lineage-1-scoped; the mechanism is NO ROBUSTNESS BASIN (content-free
+noise at displacement-match kills identically, in orthogonal
+directions), with the corpus's one contribution being surgicality, not
+direction. Honest gaps at close: e185 replicates, e185b (in flight),
+e185c, e180, e163, e182 queued; the conversion direction remains
+single-family.
 
 ## The session's meta-lesson (written ~14:25Z, with the fleet computing)
 
