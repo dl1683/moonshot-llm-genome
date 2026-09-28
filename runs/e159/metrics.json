@@ -1,0 +1,966 @@
+{
+  "experiment": "e159_coupled_organism",
+  "date": "2026-09-28T07:00:54Z",
+  "registration": "R46 critic attack 2 (the mask/ladder contradiction) \u2014 the two cheap reconcilers. Docstring + bars written before compute.",
+  "registered_prediction": {
+    "queue_row_verbatim": "(a) MASK+LADDER JOINT: norm 0.07 UNDER the mask \u2014 heals (poisoning carried by attention reads; information sneaks back through the health door) or still kills (query-side global-softmax collapse; the reframe hardens). (b) SITE-STORED LADDER: norm ladder on e131_arm_b \u2014 dies at the same bracket (sink-poisoning is organism death; 'COUPLED' is a misnomer) or survives (coupling is real)",
+    "bars_verbatim": {
+      "MASK-HEALS": "if norm 0.07 UNDER the mask spares the fact (retention >= 0.7 at CE <= +0.35) \u2014 the poisoning is carried by attention reads of row 0; 'information flow' sneaks back in through the health door; the coupling is read-mediated.",
+      "POISON-PERSISTS": "if the joint cell still kills (retention <= 0.3) \u2014 poisoning is query-side/global-softmax (the shrunken k0 redistributes every query's attention); the reframe hardens; 'COUPLED' is organism-language and the noun needs a further bound.",
+      "SITE-SPARED": "if arm_b's fact survives its ladder at the same brackets \u2014 sink-poisoning is memory-coupled for the consolidated type only (COUPLED survives as a type distinction).",
+      "SITE-DIES-TOO": "if arm_b dies at the same brackets \u2014 sink-poisoning is organism death, full stop; 'COUPLED' is a misnomer; the type names need revisiting."
+    },
+    "operationalizations": "retention = expr_arm / expr_base(healthy same net, same geometry); CE cost vs same-net unmodified CE_R (e065 bank seed 26502); probe A verdict requires BOTH g0 and g-12 to fire the same branch (heal >=0.70 & CE<=+0.35 / persist <=0.30), else MIXED-A; probe B: spared >= 0.8x at BOTH 0.07 and 0.15, dies-too <= 0.5x at 0.07, else MIXED-B; bracket = (largest dying, smallest surviving) with survive 0.8x / die 0.5x (e150 convention); poison-alone and mask-alone rebuilt and gated against e151's stored cells (cross-run tol 1e-4); joint riders (0.15, 0.0) and the all-queries sink-mass check are labeled texture, never gating.",
+    "no_bar_shopping": "No bar shopping. Texture => TEXTURE with numbers."
+  },
+  "question": "is the consolidated fact's sink-poisoning carried by attention READS of row 0 (mask heals; coupling is read-mediated) or query-side/global-softmax (joint still kills; organism death)? and is the poison memory-coupled (arm_b survives its ladder) or organism-wide (arm_b dies too)?",
+  "nets": {
+    "consolidated": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated vs e131/e150/e151 + e151 stored cells)",
+    "site_stored": "runs/checkpoints/e131_arm_b_corpus_spliced.pt (loaded, gated; its ladder had never been run)",
+    "eval_only": true
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "consolidated": {
+      "battery_pz_g0": 0.7850371599197388,
+      "ref_g0": 0.7850371599197388,
+      "battery_pz_gm12": 0.9155886173248291,
+      "ref_gm12": 0.9155886173248291,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "pass": true
+    },
+    "mask_instrument": {
+      "max_abs_logit_diff_batch6": 0.0,
+      "abs_dpz_install60_g0": 0.0,
+      "tol_logit": 0.01,
+      "tol_pz": 0.001,
+      "pass": true
+    },
+    "e151_mask_cells": {
+      "g0": {
+        "value": 0.808849573135376,
+        "ref": 0.808849573135376,
+        "pass": true
+      },
+      "gm12": {
+        "value": 0.9242185950279236,
+        "ref": 0.9242185950279236,
+        "pass": true
+      },
+      "ce": {
+        "value": 1.6974623203277588,
+        "ref": 1.6974624395370483,
+        "pass": true
+      }
+    },
+    "e151_poison07_cells": {
+      "g0": {
+        "value": 0.3231039047241211,
+        "ref": 0.3231039047241211,
+        "pass": true
+      },
+      "gm12": {
+        "value": 0.14433331787586212,
+        "ref": 0.14433333277702332,
+        "pass": true
+      },
+      "ce": {
+        "value": 2.506317377090454,
+        "ref": 2.506317377090454,
+        "pass": true
+      }
+    },
+    "site_stored": {
+      "std_g0_floor": 0.007800613064318895,
+      "ref_std": 0.007800613064318895,
+      "site_onset": 0.9880021214485168,
+      "ref_site": 0.9880021214485168,
+      "ce_r": 1.682660698890686,
+      "ref_ce": 1.682660698890686,
+      "pass": true,
+      "site_tol": 5e-06
+    }
+  },
+  "probe_a_mask_ladder_joint": {
+    "cells": {
+      "mask__g0": {
+        "probe": "A",
+        "tag": "mask@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "fact_drop_pct": -3.0332848470602025,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816,
+        "rider": false,
+        "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask cell, rebuilt + gated)"
+      },
+      "poison07__g0": {
+        "probe": "A",
+        "tag": "poison0.07@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.3231039047241211,
+        "retention": 0.41157784780169493,
+        "fact_drop_pct": 58.84221521983051,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.506317377090454,
+        "ce_cost": 0.8428007364273071,
+        "rider": false,
+        "target_norm": 0.07,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "note": "norm ladder 0.07 alone (e150 P5 / e151 before.ladder cell, rebuilt + gated)"
+      },
+      "joint07__g0": {
+        "probe": "A",
+        "tag": "JOINT 0.07+mask@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "fact_drop_pct": -3.0332848470602025,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6999660730361938,
+        "ce_cost": 0.036449432373046875,
+        "rider": false,
+        "target_norm": 0.07,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "note": "THE reconciliation cell: wpe[0] norm 0.07 AND forced-off-sink mask, simultaneously"
+      },
+      "mask__g-12": {
+        "probe": "A",
+        "tag": "mask@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "fact_drop_pct": -0.9425606150838428,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816,
+        "rider": false,
+        "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask cell, rebuilt + gated)"
+      },
+      "poison07__g-12": {
+        "probe": "A",
+        "tag": "poison0.07@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.14433331787586212,
+        "retention": 0.15763992162503707,
+        "fact_drop_pct": 84.2360078374963,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 2.506317377090454,
+        "ce_cost": 0.8428007364273071,
+        "rider": false,
+        "target_norm": 0.07,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "note": "norm ladder 0.07 alone (e150 P5 / e151 before.ladder cell, rebuilt + gated)"
+      },
+      "joint07__g-12": {
+        "probe": "A",
+        "tag": "JOINT 0.07+mask@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "fact_drop_pct": -0.9425606150838428,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6999660730361938,
+        "ce_cost": 0.036449432373046875,
+        "rider": false,
+        "target_norm": 0.07,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "note": "THE reconciliation cell: wpe[0] norm 0.07 AND forced-off-sink mask, simultaneously"
+      },
+      "joint0.15__g0__RIDER": {
+        "probe": "A",
+        "tag": "joint0.15+mask@g+0 [rider]",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "fact_drop_pct": -3.0332848470602025,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6989103555679321,
+        "ce_cost": 0.035393714904785156,
+        "rider": true,
+        "target_norm": 0.15,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+      },
+      "joint0.15__g-12__RIDER": {
+        "probe": "A",
+        "tag": "joint0.15+mask@g-12 [rider]",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "fact_drop_pct": -0.9425606150838428,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.6989103555679321,
+        "ce_cost": 0.035393714904785156,
+        "rider": true,
+        "target_norm": 0.15,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+      },
+      "joint0__g0__RIDER": {
+        "probe": "A",
+        "tag": "joint0+mask@g+0 [rider]",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.7850371599197388,
+        "expr_arm": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "fact_drop_pct": -3.0332848470602025,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7007681131362915,
+        "ce_cost": 0.03725147247314453,
+        "rider": true,
+        "target_norm": 0.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+      },
+      "joint0__g-12__RIDER": {
+        "probe": "A",
+        "tag": "joint0+mask@g-12 [rider]",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.9155886173248291,
+        "expr_arm": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "fact_drop_pct": -0.9425606150838428,
+        "ce_base": 1.663516640663147,
+        "ce_arm": 1.7007681131362915,
+        "ce_cost": 0.03725147247314453,
+        "rider": true,
+        "target_norm": 0.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+      }
+    },
+    "sink_mass_premask": {
+      "healthy": {
+        "L0": {
+          "read_pos": 0.0069508610758930445,
+          "mean_queries_ge1": 0.0369788222014904
+        },
+        "L1": {
+          "read_pos": 0.0006893691315781325,
+          "mean_queries_ge1": 0.03453816659748554
+        },
+        "L2": {
+          "read_pos": 2.176841371692717e-05,
+          "mean_queries_ge1": 0.017555794678628445
+        },
+        "L3": {
+          "read_pos": 1.219342129843426e-05,
+          "mean_queries_ge1": 0.01908798422664404
+        },
+        "L4": {
+          "read_pos": 0.0007149362645577639,
+          "mean_queries_ge1": 0.020387877710163593
+        },
+        "L5": {
+          "read_pos": 0.001668616198003292,
+          "mean_queries_ge1": 0.02811330556869507
+        }
+      },
+      "poison07": {
+        "L0": {
+          "read_pos": 0.007991071557626128,
+          "mean_queries_ge1": 0.03686964325606823
+        },
+        "L1": {
+          "read_pos": 0.2295086309313774,
+          "mean_queries_ge1": 0.4776414781808853
+        },
+        "L2": {
+          "read_pos": 0.3534417748451233,
+          "mean_queries_ge1": 0.4483647346496582
+        },
+        "L3": {
+          "read_pos": 0.12320005893707275,
+          "mean_queries_ge1": 0.33144238591194153
+        },
+        "L4": {
+          "read_pos": 0.04688288830220699,
+          "mean_queries_ge1": 0.26103001087903976
+        },
+        "L5": {
+          "read_pos": 0.032374655827879906,
+          "mean_queries_ge1": 0.13736450672149658
+        }
+      },
+      "note": "pre-mask attention mass on key 0 per layer (mean over heads/batch, install60@g0): read_pos = at the battery's last-position read; mean_queries_ge1 = mean over ALL query positions 1..T-1 \u2014 the quantity the query-side/global-softmax story turns on. Post-mask both are exactly 0 by construction. TEXTURE, never gating."
+    },
+    "verdict": {
+      "branches_per_geometry": {
+        "g0": "MASK-HEALS",
+        "g-12": "MASK-HEALS"
+      },
+      "joint_retentions": {
+        "g0": 1.030332848470602,
+        "g-12": 1.0094256061508384
+      },
+      "joint_ce_costs": {
+        "g0": 0.036449432373046875,
+        "g-12": 0.036449432373046875
+      },
+      "bars": {
+        "heal": "retention >= 0.7 at CE <= +0.35 at BOTH (0, -12)",
+        "persist": "retention <= 0.3 at BOTH (0, -12)"
+      },
+      "anchor_cells": {
+        "mask_alone": {
+          "g0": 1.030332848470602,
+          "g-12": 1.0094256061508384
+        },
+        "poison07_alone": {
+          "g0": 0.41157784780169493,
+          "g-12": 0.15763992162503707
+        }
+      },
+      "outcome": "MASK-HEALS",
+      "verdict": "the poisoning is carried by attention reads of row 0; 'information flow' sneaks back in through the health door; the coupling is read-mediated"
+    }
+  },
+  "probe_b_site_stored_ladder": {
+    "cells": {
+      "armb_norm0": {
+        "probe": "B",
+        "tag": "armB/norm=0@site",
+        "net": "site_stored",
+        "geo": 183,
+        "expr_base": 0.9880021214485168,
+        "expr_arm": 0.716128408908844,
+        "retention": 0.7248247684518361,
+        "fact_drop_pct": 27.51752315481639,
+        "ce_base": 1.682660698890686,
+        "ce_arm": 3.0507285594940186,
+        "ce_cost": 1.3680678606033325,
+        "rider": true,
+        "target_norm": 0.0,
+        "pname_mean_over7": 0.87059485912323,
+        "metric": "site onset p(Z) at row 183 (e133 battery)",
+        "role": "0.0 removal anchor (e150 ladder convention), report-only"
+      },
+      "armb_norm0.07": {
+        "probe": "B",
+        "tag": "armB/norm=0.07@site",
+        "net": "site_stored",
+        "geo": 183,
+        "expr_base": 0.9880021214485168,
+        "expr_arm": 0.9112153649330139,
+        "retention": 0.9222807776941558,
+        "fact_drop_pct": 7.771922230584416,
+        "ce_base": 1.682660698890686,
+        "ce_arm": 2.507545232772827,
+        "ce_cost": 0.8248845338821411,
+        "rider": false,
+        "target_norm": 0.07,
+        "pname_mean_over7": 0.9820502996444702,
+        "metric": "site onset p(Z) at row 183 (e133 battery)",
+        "role": null
+      },
+      "armb_norm0.15": {
+        "probe": "B",
+        "tag": "armB/norm=0.15@site",
+        "net": "site_stored",
+        "geo": 183,
+        "expr_base": 0.9880021214485168,
+        "expr_arm": 0.9739139080047607,
+        "retention": 0.9857407052698417,
+        "fact_drop_pct": 1.42592947301583,
+        "ce_base": 1.682660698890686,
+        "ce_arm": 1.9232698678970337,
+        "ce_cost": 0.24060916900634766,
+        "rider": false,
+        "target_norm": 0.15,
+        "pname_mean_over7": 0.994431734085083,
+        "metric": "site onset p(Z) at row 183 (e133 battery)",
+        "role": null
+      },
+      "armb_norm0.5": {
+        "probe": "B",
+        "tag": "armB/norm=0.5@site",
+        "net": "site_stored",
+        "geo": 183,
+        "expr_base": 0.9880021214485168,
+        "expr_arm": 0.9874712228775024,
+        "retention": 0.9994626544220006,
+        "fact_drop_pct": 0.05373455779994485,
+        "ce_base": 1.682660698890686,
+        "ce_arm": 1.6842830181121826,
+        "ce_cost": 0.001622319221496582,
+        "rider": true,
+        "target_norm": 0.5,
+        "pname_mean_over7": 0.9970089793205261,
+        "metric": "site onset p(Z) at row 183 (e133 battery)",
+        "role": "0.5 midpoint (dispatch-allowed), report-only"
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.0,
+        "actual_norm": 0.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "site_onset": 0.716128408908844,
+        "pname_mean_over7": 0.87059485912323,
+        "ce_r": 3.0507285594940186
+      },
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "site_onset": 0.9112153649330139,
+        "pname_mean_over7": 0.9820502996444702,
+        "ce_r": 2.507545232772827
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.14999999105930328,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "site_onset": 0.9739139080047607,
+        "pname_mean_over7": 0.994431734085083,
+        "ce_r": 1.9232698678970337
+      },
+      {
+        "target_norm": 0.5,
+        "actual_norm": 0.5,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "site_onset": 0.9874712228775024,
+        "pname_mean_over7": 0.9970089793205261,
+        "ce_r": 1.6842830181121826
+      }
+    ],
+    "base": {
+      "site_onset": 0.9880021214485168,
+      "pname_mean_over7": 0.9971728324890137,
+      "std_g0_floor": 0.007800613064318895,
+      "ce_r": 1.682660698890686,
+      "wpe0_norm": 0.6876559257507324
+    },
+    "verdict": {
+      "retention_0.07": 0.9222807776941558,
+      "retention_0.15": 0.9857407052698417,
+      "bars": {
+        "spared": "retention >= 0.8 at BOTH 0.07 and 0.15",
+        "dies_too": "retention <= 0.5 at 0.07"
+      },
+      "threshold_bracket_site": {
+        "smallest_surviving_norm": 0.07,
+        "largest_dying_norm": null,
+        "bracket": "(0.0, 0.07)"
+      },
+      "consolidated_bracket_g0_stored": "(0.07, 0.15)",
+      "outcome": "SITE-SPARED",
+      "verdict": "sink-poisoning is memory-coupled for the consolidated type only (COUPLED survives as a type distinction)"
+    }
+  },
+  "cells": [
+    {
+      "probe": "A",
+      "tag": "mask@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.808849573135376,
+      "retention": 1.030332848470602,
+      "fact_drop_pct": -3.0332848470602025,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6974623203277588,
+      "ce_cost": 0.033945679664611816,
+      "rider": false,
+      "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask cell, rebuilt + gated)"
+    },
+    {
+      "probe": "A",
+      "tag": "poison0.07@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.3231039047241211,
+      "retention": 0.41157784780169493,
+      "fact_drop_pct": 58.84221521983051,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.506317377090454,
+      "ce_cost": 0.8428007364273071,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "norm ladder 0.07 alone (e150 P5 / e151 before.ladder cell, rebuilt + gated)"
+    },
+    {
+      "probe": "A",
+      "tag": "JOINT 0.07+mask@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.808849573135376,
+      "retention": 1.030332848470602,
+      "fact_drop_pct": -3.0332848470602025,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6999660730361938,
+      "ce_cost": 0.036449432373046875,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "THE reconciliation cell: wpe[0] norm 0.07 AND forced-off-sink mask, simultaneously"
+    },
+    {
+      "probe": "A",
+      "tag": "mask@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9242185950279236,
+      "retention": 1.0094256061508384,
+      "fact_drop_pct": -0.9425606150838428,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6974623203277588,
+      "ce_cost": 0.033945679664611816,
+      "rider": false,
+      "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask cell, rebuilt + gated)"
+    },
+    {
+      "probe": "A",
+      "tag": "poison0.07@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.14433331787586212,
+      "retention": 0.15763992162503707,
+      "fact_drop_pct": 84.2360078374963,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.506317377090454,
+      "ce_cost": 0.8428007364273071,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "norm ladder 0.07 alone (e150 P5 / e151 before.ladder cell, rebuilt + gated)"
+    },
+    {
+      "probe": "A",
+      "tag": "JOINT 0.07+mask@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9242185950279236,
+      "retention": 1.0094256061508384,
+      "fact_drop_pct": -0.9425606150838428,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6999660730361938,
+      "ce_cost": 0.036449432373046875,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "THE reconciliation cell: wpe[0] norm 0.07 AND forced-off-sink mask, simultaneously"
+    },
+    {
+      "probe": "A",
+      "tag": "joint0.15+mask@g+0 [rider]",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.808849573135376,
+      "retention": 1.030332848470602,
+      "fact_drop_pct": -3.0332848470602025,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6989103555679321,
+      "ce_cost": 0.035393714904785156,
+      "rider": true,
+      "target_norm": 0.15,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+    },
+    {
+      "probe": "A",
+      "tag": "joint0.15+mask@g-12 [rider]",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9242185950279236,
+      "retention": 1.0094256061508384,
+      "fact_drop_pct": -0.9425606150838428,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.6989103555679321,
+      "ce_cost": 0.035393714904785156,
+      "rider": true,
+      "target_norm": 0.15,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+    },
+    {
+      "probe": "A",
+      "tag": "joint0+mask@g+0 [rider]",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.7850371599197388,
+      "expr_arm": 0.808849573135376,
+      "retention": 1.030332848470602,
+      "fact_drop_pct": -3.0332848470602025,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7007681131362915,
+      "ce_cost": 0.03725147247314453,
+      "rider": true,
+      "target_norm": 0.0,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+    },
+    {
+      "probe": "A",
+      "tag": "joint0+mask@g-12 [rider]",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.9155886173248291,
+      "expr_arm": 0.9242185950279236,
+      "retention": 1.0094256061508384,
+      "fact_drop_pct": -0.9425606150838428,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7007681131362915,
+      "ce_cost": 0.03725147247314453,
+      "rider": true,
+      "target_norm": 0.0,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "role": "REPORT-ONLY rider: the dose dimension of the joint cell; never gates a bar"
+    },
+    {
+      "probe": "B",
+      "tag": "armB/norm=0@site",
+      "net": "site_stored",
+      "geo": 183,
+      "expr_base": 0.9880021214485168,
+      "expr_arm": 0.716128408908844,
+      "retention": 0.7248247684518361,
+      "fact_drop_pct": 27.51752315481639,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 3.0507285594940186,
+      "ce_cost": 1.3680678606033325,
+      "rider": true,
+      "target_norm": 0.0,
+      "pname_mean_over7": 0.87059485912323,
+      "metric": "site onset p(Z) at row 183 (e133 battery)",
+      "role": "0.0 removal anchor (e150 ladder convention), report-only"
+    },
+    {
+      "probe": "B",
+      "tag": "armB/norm=0.07@site",
+      "net": "site_stored",
+      "geo": 183,
+      "expr_base": 0.9880021214485168,
+      "expr_arm": 0.9112153649330139,
+      "retention": 0.9222807776941558,
+      "fact_drop_pct": 7.771922230584416,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 2.507545232772827,
+      "ce_cost": 0.8248845338821411,
+      "rider": false,
+      "target_norm": 0.07,
+      "pname_mean_over7": 0.9820502996444702,
+      "metric": "site onset p(Z) at row 183 (e133 battery)",
+      "role": null
+    },
+    {
+      "probe": "B",
+      "tag": "armB/norm=0.15@site",
+      "net": "site_stored",
+      "geo": 183,
+      "expr_base": 0.9880021214485168,
+      "expr_arm": 0.9739139080047607,
+      "retention": 0.9857407052698417,
+      "fact_drop_pct": 1.42592947301583,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.9232698678970337,
+      "ce_cost": 0.24060916900634766,
+      "rider": false,
+      "target_norm": 0.15,
+      "pname_mean_over7": 0.994431734085083,
+      "metric": "site onset p(Z) at row 183 (e133 battery)",
+      "role": null
+    },
+    {
+      "probe": "B",
+      "tag": "armB/norm=0.5@site",
+      "net": "site_stored",
+      "geo": 183,
+      "expr_base": 0.9880021214485168,
+      "expr_arm": 0.9874712228775024,
+      "retention": 0.9994626544220006,
+      "fact_drop_pct": 0.05373455779994485,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.6842830181121826,
+      "ce_cost": 0.001622319221496582,
+      "rider": true,
+      "target_norm": 0.5,
+      "pname_mean_over7": 0.9970089793205261,
+      "metric": "site onset p(Z) at row 183 (e133 battery)",
+      "role": "0.5 midpoint (dispatch-allowed), report-only"
+    }
+  ],
+  "combined": {
+    "probe_a_outcome": "MASK-HEALS",
+    "probe_b_outcome": "SITE-SPARED",
+    "noun_verdict": "read-mediated coupling + type distinction: the consolidated fact's poisoning rides attention READS of row 0 and arm_b's fact does not need sink health \u2014 'sink-COUPLED' is accurate as a type noun (coupled = read-coupled), and organism-death language stays out of it."
+  },
+  "honesty_reflex": {
+    "mask_off_distribution": "the joint cell stacks TWO off-distribution manipulations (mask + poison), each individually off the training distribution; its CE column prices only the generic LM damage \u2014 the heal/persist reading is anchored by the two single-intervention cells (rebuilt here and gated bit-tight against e151's stored values), not by absolute health claims.",
+    "retention_base_choice": "every retention is vs the SAME net's unmodified expression at the same geometry \u2014 the same convention e150's plane used; the custom-causal base is bit-identical to standard (mask gate), so path-matching cannot move a number.",
+    "probe_b_expression_metric": "arm_b's fact is read at row 183 (onset p(Z)) \u2014 a different battery from the consolidated install60 read; retentions compare each net to ITS OWN base (never cross-net raw levels); the bracket comparison is the registered like-for-like.",
+    "single_net_caveats": "one consolidated net + one arm_b net (e131 lineage, single recipe); the R150 rider in e150 agreed with the consolidated ladder at 0.07/0.15, but verdicts are lineage-specific until replication seeds land.",
+    "ce_bank_is_position_blind": "CE_R windows are 256-token corpus windows that never contain the fact; the CE column prices general LM damage, not fact-geometry damage (e150's caveat, inherited).",
+    "sink_mass_is_texture": "the all-queries sink-mass check is a manipulation/texture read-out for the query-side story; it gates nothing."
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "Eval-only battery: both nets are LOADED, gated artifacts (e131 consolidated + e131 arm_b); nothing regenerated, nothing trained.",
+    "Every probe-A cell's base is the healthy consolidated net (the same base poison-alone and mask-alone were measured against in e150/e151); the mask path (custom forward, causal-only) is bit-identical to the standard forward (gated, max|dp(Z)| recorded), so path-matching is immaterial here \u2014 stated, recorded.",
+    "The joint cell is a doubly-off-distribution state (the net never trained under mask nor poison); its retention is read RELATIVE to the two single-intervention cells, not as an absolute health statement.",
+    "Probe-A verdict requires both geometries (g0 AND g-12) to fire the same registered branch; split geometries => MIXED-A with numbers (pre-registered before compute).",
+    "arm_b's ladder includes the 0.0 removal anchor (e150's ladder convention) and the dispatch-allowed 0.5 midpoint; the bars adjudicate on the registered brackets 0.07/0.15 only.",
+    "e150's consolidated ladder and e151's stored joint-ingredient cells are read at runtime from runs/{e150,e151}/metrics.json (auditable), not hand-copied."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt",
+      "runs/checkpoints/e131_arm_b_corpus_spliced.pt"
+    ],
+    "metrics_read": [
+      "runs\\e150\\metrics.json",
+      "runs\\e151\\metrics.json"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 84.2
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": false
+  }
+}
