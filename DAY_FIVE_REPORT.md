@@ -103,6 +103,22 @@ complete: a graduated fact is sustained by ~54 units of retained
 directional field mass, however split between count and amplitude.
 The lab's first dimensionless constant.
 
+## The verification coda (T069-T072)
+
+The session's last acts closed every open edge: **e116** (graduation
+denied 3/6 — row 0 exposed as dual-role partner of the address;
+decision-row dominance near-universal 5/6 once acknowledged); **e117**
+(the share constant is trend-plus-fingerprint — monotone with
+training amount, wide per-net scatter; the maturity question closes
+DIRECTION-YES POINT-NO with the cosine confound named); **e115**
+(the brake's sign flips — suppressor at full field, content when
+weak: a dimmer switch, not a lock; M3 dead at 0/3); **e118** (the
+rogue-dimension confound EXCLUDED — family geometry is shape
+post-standardization, and the mild anisotropy is itself
+family-typed 0.987-vs-0.028; the self-recognition claims hardened).
+The paper carries the honest share-law footnote. The last standing
+registered prediction (e083, canalization cycle-3) is in flight.
+
 ## Open (ripening, not running)
 
 e109 (CLS consolidation — the one-row law vs fifty years of
