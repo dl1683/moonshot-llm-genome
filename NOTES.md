@@ -63,6 +63,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E152 — the conversion time-trace: TRANSIENT-TWO-DOOR — the cliff has a DWELL TIME; e151's P-b was EARLY, not wrong (2026-09-28 ~11:25Z) — DONE
+
+WHAT WE DID: six-checkpoint sequential trace (8/16/32/64/128/300)
+of e151's locked re-teach; one trajectory, seed-fixed; root gates
+bit-exact; ran CPU (park-to-CPU: user game held GPU at 86-87C —
+thermal rule honored; CPU/CUDA float-path equivalence shown).
+
+WHAT WE SAW (T094): TRANSIENT-TWO-DOOR fires — the cliff runs
+between 8 and 16 steps (g-12: 0.990 -> 0.447), then DWELLS on a
+~0.5 shelf through step 64 (checkpoints {8, 32, 64} hold BOTH
+doors: site clears e151's content bar — genuine, row-183-local,
+67x control, site read p_Z 0.962 — AND g-12 >= 0.5) before the
+final descent (300: 0.139). CLEAN failed (non-monotone bounce
+s16->s32; Spearman -0.60); DELAYED failed. TEXTURES: the A(129)
+brake OVERSHOOTS mid-conversion (-0.132 -> -0.466 @s128) before
+dissolving (the negative posterior intensifies as the graft
+grows, then releases); CE_R's early wobble (1.705 @s8) recovers
+to 1.643 — conversion, not damage; the 300-step endpoint
+reproduces e151 behaviorally (max diff 0.029; two instrument
+cells exceed strict tol, reported verbatim). Honesty: ONE
+trajectory (the s16->s32 bounce is this path's, not a law);
+single seed/lineage — the dwell time is a point estimate; the
+~0.5 shelf partially conflates route survival with sink health
+(mask/ladder columns in metrics price it).
+
+---
+
 ## E159 — coupled-or-organism: MASK-HEALS + SITE-SPARED — the double dissociation; READ-coupled replaces sink-coupled (2026-09-28 ~11:15Z) — DONE
 
 WHAT WE DID: the two R46-critic probes — the mask+poison joint

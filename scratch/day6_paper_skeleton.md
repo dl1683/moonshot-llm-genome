@@ -60,7 +60,10 @@ read-coupling despite sink adjacency; proximity piggybacking dead).
 (2) A CLIFF, NOT A DOSE: memory TYPE is decided by a binary switch at
 zero-vs-any error-position variance (±1 suffices; no width trend);
 the types are PHASES of one substrate, converted bidirectionally by
-training [e158 pending: variance-vs-placement; e154 pending:
+training — and the conversion PASSES THROUGH A MIXED STATE: the cliff
+fires in 8-16 steps, then a ~50-step dwell holds BOTH natures (site-store
+genuine at 67x control AND >=50% geometry retention) before separation
+completes (e152) [e158 pending: variance-vs-placement; e154 pending:
 global-vs-per-fact]. (3) SPLIT CUSTODY: the converted memory's
 DEPENDENCE is READ-coupled to the sink (it dies of what attention
 reads off a degraded pivot — the double dissociation: equal organism

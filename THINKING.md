@@ -575,6 +575,38 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T094 — E152: the dwell time — the phase transition passes through a MIXED state, and the brake overshoots before it releases (2026-09-28 ~11:25Z)
+
+TRANSIENT-TWO-DOOR resolves T088's fork in the gentlest
+possible way: the cliff is real AND the two-door state exists —
+for a window. Between steps ~16 and ~64 the net holds BOTH a
+genuine site-store (67x control, functionally readable) AND
+>=50% geometry retention; then the zero-variance training
+consolidates the graft and the shared state abandons the
+geometry door. THE MIXED STATE IS A DWELL, not an artifact of
+measurement timing: it survives across three checkpoints and a
+bounce. FOR THE PAPER: claim 2 gains its most physical sentence
+— the phase transition is not a hop but a passage through a
+mixed state with a dwell time (~50 steps at this budget);
+systems-consolidation language ("gradual transfer") and phase
+language ("sudden switch") were both half right: the SWITCH is
+sudden (8-16 steps), the SEPARATION is slow (the shelf), and
+the memory spends the shelf holding both natures.
+
+THE BRAKE OVERSHOOTS: A(129) intensifies (-0.132 -> -0.466)
+mid-conversion before dissolving at the end. Under the
+negative-posterior reading (T087), this is the address key
+fighting hardest exactly while its replacement is being built —
+suppression peaks at maximum competition, then the whole
+opposition dissolves when the new phase settles. A tiny,
+poignant mechanism: the old address does not fade; it resists,
+then is released.
+
+STANDING: the dwell is one trajectory, one seed (point
+estimate); e158 (variance@183) still decides whether the
+conversion itself keys on variance; e154 decides per-fact vs
+global. The GPU is user-occupied — dispatch with park-to-CPU.
+
 ## T093 — E159: READ-coupled — the mask is the health door, and only readers die of the poison (2026-09-28 ~11:15Z)
 
 The R46 critic's mask/ladder contradiction resolves into the
