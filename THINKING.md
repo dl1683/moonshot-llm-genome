@@ -575,6 +575,31 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T106 — E178: half a fact comes back — and the wash wears a different layer signature than the conversion (2026-09-28 ~15:40Z)
+
+The rider returned the nuanced answer: restoring the MLP+LN
+class into the washed net recovers a COHERENT HALF-FACT (all
+dials to the same 40-45% depth, CE-cheap) — the class-surgery
+restoration works, at half strength, on the wash axis too. But
+the graded arm kills the tidy story: the L2-L4 band that
+CARRIED the conversion's closure restores NOTHING here, and
+the wash's per-layer MLP delta is FLAT where the conversion's
+was banded. THE WASH AND THE CONVERSION SHARE A CLASS BUT NOT
+A MECHANISM: two different layer signatures for two different
+processes (novel-graft closure vs plain-corpus washout). The
+brake's 91% return is the sharpest single localization in the
+lab: the old address's suppressive sign lives almost entirely
+in the MLP+LN weights — the one object that survives the wash
+in near-full strength (a scar that outlasts the memory it
+scarred: the brake persists when the fact is gone, if you
+restore the class). FOR T092: layer 3 (the phase/brake
+substrate) is now the best-localized layer; layers 1-2's
+separability takes the 40% haircut. FOR THE PAPER: the
+activity-dependence claim gains its mechanistic footnote —
+the wash is fast, total, and only half class-recoverable;
+'maintenance' is distributed across the modulatory class and
+the residual context.
+
 ## T105 — E176: the net has no archive — activity-dependent memory, and the two-step collapse (2026-09-28 ~15:20Z)
 
 The decisive control returned the vertiginous answer: the

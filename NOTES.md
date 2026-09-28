@@ -63,6 +63,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E178 — the reverse class-restore: TEXTURE — HALF the washed fact is class-recoverable; the brake is 91% MLP+LN-localized; the wash is not the conversion run backward (2026-09-28 ~15:40Z) — DONE
+
+WHAT WE DID: e173's instrument in reverse — the root's MLP+LN
+class restored into e176's washed net; graded L2-L4 arm; all
+gates bit-level (the washed checkpoint verified 2e-13).
+
+WHAT WE SAW (T106): PARTIAL RECOVERY — g-12 0.001 -> 0.422
+(46.1% of the root span), g0 41.6%, held30 ~40%, sink 44%,
+D-all 43% — every dial to the same ~40-45% depth (a coherent
+half-fact, not a fragment); dCE +0.061. THE BRAKE RETURNS 91%
+(-0.121 vs root -0.132) — the most MLP+LN-localized object in
+the lab. THE GRADED SURPRISE: L2-L4 (the band that carried
+the CONVERSION's closure) restores NOTHING on the wash axis
+(g-12 0.018) — the wash's per-layer MLP delta is FLAT
+(2.4-5.8%) where the conversion's was banded (L3 peak 29.5%).
+THE READING: the washout is PARTLY the located rewrite (half
+the fact is class-recoverable, bidirectionally confirming
+e173's mechanism in weakened form), but the wash and the
+conversion are NOT the same process run in opposite
+directions — different layer signatures, and the other half
+of the fact lives in what the washed attention/wpe context
+withholds (restoring ALL is bit-root and fully alive). The
+two-step collapse (e176) + partial class recovery (e178):
+the wash destroys the class-carried half fast, and the
+context-carried half with it.
+
+---
+
 ## E176 — freeze the root: USE-IT-OR-LOSE-IT — the consolidated fact dissolves in TWO steps; there is no archive, only rehearsal (2026-09-28 ~15:20Z) — DONE
 
 WHAT WE DID: e161's protocol verbatim on the FULLY-consolidated
