@@ -89,6 +89,20 @@ directional fields, verifies by holographic self-checks — and
 distributed experience moves memories from the first to the
 second, where the address becomes a brake rather than a home.*
 
+## The session's last two results (post-close extensions)
+
+**e113 — BODY-STORED:** zeroing all five of the consolidated
+fact's addresses costs nothing; the trichotomy is a developmental
+sequence; the address becomes a brake (W006: three candidate
+mechanisms, pruning/inhibitory-maturation echo).
+
+**e110 — THE SHARE CONSTANT:** r*(k)·k ≈ 54 across a 2.4x range
+of field sizes — the count-threshold law and the magnitude floor
+are ONE boundary with a number. The mature memory's governing law
+complete: a graduated fact is sustained by ~54 units of retained
+directional field mass, however split between count and amplitude.
+The lab's first dimensionless constant.
+
 ## Open (ripening, not running)
 
 e109 (CLS consolidation — the one-row law vs fifty years of
