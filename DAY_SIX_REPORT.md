@@ -123,7 +123,27 @@ already-run census nobody had read. Pre-registrations fired 3/3
 (W010's P1/P2/P3 at 06:48Z, before e119's battery); the auditor's
 git-hash check confirmed the ordering; two forks were committed
 
-## The law ledger (as of ~09:50Z, pre-e151/e146)
+## The last four (postscript's postscript — e152/e153/e159/e160, the session's final form)
+
+- e160: the surgical surface EXISTS — {L1H0,L0H0} kills the
+  fact at CE +0.25 in both ablation modes, and the knife is
+  TYPE-SELECTIVE (the site-stored fact survives the same
+  coordinates). Unlearning: heads > route >> band, demonstrated.
+- e159: READ-coupled — the double dissociation (mask heals a
+  poisoned net completely; the site-stored fact pays equal
+  organism damage and lives; only readers die). The poison is
+  delivered through attention reads (a poisoned row 0 is a
+  10.8x mass absorber).
+- e153: the order parameter is DISTRIBUTED (MLP-heavy) — no
+  K<=6 head transplant switches the phase; the open geometry
+  door is transplant-rigid. T037's write-once core survives:
+  surgery can sever access but cannot create it.
+- e152: TRANSIENT-TWO-DOOR — the conversion passes through a
+  ~50-step mixed state holding both natures; the brake
+  OVERSHOOTS mid-conversion (the address resists, then is
+  released). T092's four-layer model composes them all.
+
+## The law ledger (as of ~09:50Z, pre-e151/e146 — see also the last four above)
 
 ALIVE: the error-placement compass (causal, e143); the CLIFF —
 variance switches memory type at zero-vs-any (e147, step form);
