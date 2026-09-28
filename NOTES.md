@@ -516,6 +516,30 @@ point is one point on one trajectory.
 
 ---
 
+## E175 — the savings triple: NO-SAVINGS — all three states re-learn at the SAME threshold price (100 steps); no fast recovery, no residue advantage, no scar penalty (2026-09-28 ~17:05Z) — DONE
+
+WHAT WE DID: identical short HOME-site locked re-teaches on
+the KILLED (N2 clamp), the WASHED (e176 endpoint), and a RUN
+NAIVE control (e001); grid {10,30,100,300}; e160's kill
+reproduced bit-exact.
+
+WHAT WE SAW (T116): NO-SAVINGS — steps-to-0.78 = 100 for ALL
+THREE states (the killed 0.662/0.745/0.909; the washed and the
+naive matching); FAST-RECOVERY FAILS (the clamp's persistence
+prices the operationalization, not storage — recovery routes
+around it at the same speed); POSITIVE fails (no residue
+advantage); NEGATIVE fails (no scar penalty). THE ARCHIVE IS
+EMPTY AT THE THRESHOLD — the wash left nothing that speeds or
+slows re-learning. THE TEXTURE (co-reported): the washed arm
+LEADS naive at every sub-threshold checkpoint (0.650/0.735 vs
+0.286/0.554) — a residue visible in EARLY kinetics that never
+cashes at the threshold [R52's bound: the naive control's
+substrate differs (never saw the install); grid-limited null].
+Honesty: the clamp convention; the naive reference's
+provenance; single seed; grid resolution (30,100] bounds.
+
+---
+
 ## E154 — two facts, one door: TEXTURE [noun OVERWRITE-NOT-SHARE struck per R49 — anchor-confounded]; F1 annihilated (not door-closed) under a protocol whose anchors contradict it (2026-09-28 ~14:00Z) — DONE
 
 WHAT WE DID: 300-step locked install of a NONCE fact (MIRABEL,

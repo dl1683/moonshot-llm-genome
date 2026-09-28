@@ -575,6 +575,22 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T116 — E175: the archive is empty — re-learning prices nothing's absence (2026-09-28 ~17:05Z)
+
+The Ebbinghaus test's modern answer is the cleanest possible
+null: killed, washed, and naive all re-learn at the same
+threshold price. THE ARCHIVE IS EMPTY — the wash left no
+residue that speeds (or slows) re-learning; the kill's storage
+(no-fast-recovery under the persistent clamp) prices the clamp,
+not the memory. What remains is the sub-threshold lead (the
+washed arm ahead early, never converting) — bounded by R52 as
+grid-limited on a confounded control. FOR THE PAPER: the
+no-savings result joins the wash finding as its other shoe —
+not only does nothing survive, NOTHING REMAINS: the re-learn
+price is the naive price, exactly. The practice metaphor
+completes: there is no muscle memory here either — only the
+doing, again, from the start.
+
 ## T115 — E185b: the grid closes — no type survives; the honest cross at +100 (2026-09-28 ~20:15Z)
 
 The last grid gap returns the direction-confirming texture: no
