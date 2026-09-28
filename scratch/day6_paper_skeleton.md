@@ -96,6 +96,23 @@ C5. Methodology: the correction chain itself (three headline verdicts inverted
     in one session; every inversion caught by the lab's adversarial-review
     machinery; pre-registrations git-verified) — reproducible honesty.
 
+## Results section outline (sections -> runs; assembled ~11:58Z)
+
+R1 The compass is causal (e120/e131/e143): instrument-blindness
+   exhibit (0.989/0.988 at 183) -> the steering NEAR/FAR/JITTER
+   plate -> the committed-prediction record.
+R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
+   twin panels; the conversion before/after; the dwell trace
+   (with mask-column overlay); the 2x2 [* = e158 pending].
+R3 Content everywhere, access differs (e133/e141/e142): the
+   three-net maps; install-restore/perm/halfnorm riders; the
+   origin census (13/13) [e163 pending for the dial license].
+R4 Split custody (e150/e159/e160/e162*/e125a*): the flat-CE
+   plane with the killer point; READ-vs-MASS cells [*]; the two
+   knives' planes side by side [* e125a]; the double
+   dissociation panel.
+R5 The correction chain (methodology): the timeline figure.
+
 ## Figure plan
 
 Fig 1 (THE plate): rows = {NEAR locked, FAR locked, jitter ±8, [ladder w=1..64
