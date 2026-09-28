@@ -168,11 +168,14 @@ dreams-at-address savor (bounded, pending the randomized census).
 
 ## The day's closing sentence
 
-FINAL UPDATE (e176, the day's last inversion): the net does not
-STORE its memories — it PRACTICES them. Freeze the rehearsal and
-the most consolidated fact dissolves in two plain-corpus steps at
-healthy CE; every past fine-tune's anchor bank was the memory's
-secret life-support. The classical consolidation story (resistance
+FINAL UPDATE, bounded (R50): the consolidated fact dissolves
+under the install's own name-deleted windows — an EXTINCTION-grade
+stream, not plain disuse (the neutral control e176N is running; the
+'two steps at healthy CE' spliced clocks — CE was shocked at the
+moment of death). The honest interim: no memory state tested retains
+expression under the exact contexts that taught it, shown once
+without the name. [The stronger no-archive claim awaits the neutral
+cell and seeds.] The classical consolidation story (resistance
 acquisition) is dead here; what survives of 'consolidation' is the
 readout's geometry-generality — a property of the access the
 rehearsal maintains, not of hardened storage. [e177/e178: is the

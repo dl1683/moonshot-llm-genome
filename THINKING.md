@@ -575,7 +575,7 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
-## T106 — E178: half a fact comes back — and the wash wears a different layer signature than the conversion (2026-09-28 ~15:40Z)
+## T106 — [R50 CORRECTIONS: (1) 'the brake survives the wash' is FALSE as written — the wash killed it with everything else (A129 -> -0.0006); it returns only CO-CARRIED by the restored class — 'resurrected', not 'surviving' (T105's NOTHING-SURVIVES stands); (2) the 'coherent half-fact' omitted site_read_span (93%) and A129 (91%) from the dial list — full structure at ~90% with expression at ~42% is the GAIN-ATTENUATION signature; e176N's arm (C) (restore-into-+50) discriminates] E178: the class-restore returns ~42% of expression with ~90% of structure — bounded (2026-09-28 ~15:40Z)
 
 The rider returned the nuanced answer: restoring the MLP+LN
 class into the washed net recovers a COHERENT HALF-FACT (all
@@ -600,7 +600,7 @@ the wash is fast, total, and only half class-recoverable;
 'maintenance' is distributed across the modulatory class and
 the residual context.
 
-## T105 — E176: the net has no archive — activity-dependent memory, and the two-step collapse (2026-09-28 ~15:20Z)
+## T105 — [R50 CRITICAL BOUND: the wash stream was NOT plain corpus — its anchor bank used the install's OWN windows with the name deleted (16/32 per batch at the teaching junction): targeted EXTINCTION, not disuse; and the 'two steps at healthy CE' splices clocks (CE was 2.000 AT step 2 — the memory died inside a concussion; the healthy numbers are post-recovery). e176N (neutral anchors) is RUNNING and decides the noun. The honest interim form: 'no memory state we tested retains expression under the exact contexts that taught it, shown once, without the name'] E176: the wash — bounded (2026-09-28 ~15:20Z)
 
 The decisive control returned the vertiginous answer: the
 CONSOLIDATED fact washes out as fast as the dwell-phase one —
@@ -2397,7 +2397,7 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
-## W019 — WONDER: no archive, only practice — the radical memory view, implemented (2026-09-28 ~15:10Z; the T105 savor, deepest cut)
+## W019 — WONDER [R50: BARRED FROM PAPER TEXT — W018's exact bar applies: n=1, one stream (whose composition contradicted its own description), one seed; the card was ALSO written BEFORE its T-card (a gate violation noted); 'implemented' and 'architectural fact' withdrawn; the field-facing line cut until e176N + seeds] : no archive, only practice — the radical memory view, PROPOSED (2026-09-28 ~15:10Z)
 
 The biology echo completes its long arc by INVERTING: the lab's
 nets do not implement the classic two-system story (fast

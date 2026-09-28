@@ -63,7 +63,7 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
-## E178 — the reverse class-restore: TEXTURE — HALF the washed fact is class-recoverable; the brake is 91% MLP+LN-localized; the wash is not the conversion run backward (2026-09-28 ~15:40Z) — DONE
+## E178 — the reverse class-restore: TEXTURE — ~42% of expression returns with ~90% of structure (site-span 93%, brake co-carried 91% — the GAIN-ATTENUATION candidate; e176N arm C discriminates); the wash's layer signature flat vs the conversion's banded (2026-09-28 ~15:40Z) — DONE (bounded)
 
 WHAT WE DID: e173's instrument in reverse — the root's MLP+LN
 class restored into e176's washed net; graded L2-L4 arm; all
@@ -91,7 +91,7 @@ context-carried half with it.
 
 ---
 
-## E176 — freeze the root: USE-IT-OR-LOSE-IT — the consolidated fact dissolves in TWO steps; there is no archive, only rehearsal (2026-09-28 ~15:20Z) — DONE
+## E176 — freeze the root: [R50 CRITICAL BOUND: the stream's anchors were the install's own name-deleted windows — EXTINCTION, not disuse; 'two steps at healthy CE' splices clocks (CE 2.000 at step 2); e176N running] the fact dissolves under the name-deleted teaching stream (2026-09-28 ~15:20Z) — DONE (bounded)
 
 WHAT WE DID: e161's protocol verbatim on the FULLY-consolidated
 root (stream-matched: same seed, same draw sequence — only the
