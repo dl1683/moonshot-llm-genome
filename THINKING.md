@@ -514,6 +514,43 @@ particular dissection — every question the lab asks lately turns
 out to be a mirror of an earlier one, and the mirrors are
 converging on a single object seen from different angles.
 
+## W006 — WONDER: why does the address become a brake? Three mechanisms for the mature memory's inhibitor (2026-09-28 ~03:30Z)
+
+e113's strangest gift: after consolidation, deleting the address
+row RAISES expression at its own coordinate (0.785 → 0.905). The
+mature memory's old index is mildly suppressive of its own
+content. Sitting with why:
+
+- **M1 READ-BUDGET DILUTION:** the read is routing-only (T054/
+  T059) — attention opens a handful of coordinates. If the address
+  row still attracts routing mass but its content is now redundant
+  with the field, the net wastes read budget on duplicate content,
+  diluting everything else. The brake is OPPORTUNITY COST.
+- **M2 DUPLICATE-INTERFERENCE:** the address path delivers a
+  slightly different (older) version of the fact; two versions
+  mixing is worse than either alone — the brake is CROSSTALK
+  between the old and new carriers.
+- **M3 TRAINED INHIBITOR:** during replay, address+field double-
+  evidence taught an actual inhibitory connection (calibration —
+  don't over-commit). The brake is FUNCTIONAL, learned on purpose.
+
+**The echo that delights me:** this is synaptic pruning plus
+inhibitory maturation in miniature — development is
+excitation-dominated, maturation ADDS inhibition and prunes
+redundancy. The net's mature memory doesn't just relocate content;
+the old pathway turns inhibitory, exactly the way biological
+maturation repurposes early scaffolding.
+
+**Discriminating observations (on paper, ripening — not
+dispatching):** M1 predicts brake-size grows with the ROUTING mass
+on the address (e100-style attention map on the consolidated net);
+M2 predicts the brake grows with FIELD strength (crosstalk scales
+with the duplicate's presence — measure brake vs field-read
+strength across held-out hosts); M3 predicts the brake survives
+address-only re-exposure (the inhibition is content-independent).
+Three signatures, three cheap measurements — one of them joins the
+queue when the field-floor question (e110) settles.
+
 ## T065 — E113: coordinate-binding is a developmental stage — W005's mirror resolves (2026-09-28 ~03:10Z)
 
 **BODY-STORED fires decisively.** Deleting all five of the fact's
