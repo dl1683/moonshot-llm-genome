@@ -958,6 +958,41 @@ at the 129-read holds; but perm kills short-horizon reads
 dependent. The tenant's insurance-policy metaphor gains a clause:
 the fact ignores the pivot's direction ONLY from far away.
 
+E158 + E125a READING MAPS (registered ~11:48Z, before their
+data — both mid-compute):
+
+E158 (variance x site 2x2):
+- PHASE-BY-VARIANCE: the cliff's causal clause CONFIRMS —
+  variance, not placement, is the switch; the paper's claim-2
+  provisional marker clears; the freeze-cell (e161) becomes the
+  dwell's stability test under the confirmed law.
+- CLOSURE-BY-PLACEMENT: T088's phase claim INVERTS to a
+  placement law (any new-site teaching closes the door) — the
+  day-six postscript and paper claim 2 rewrite; the cliff
+  becomes a site-selection phenomenon, not a variance one;
+  e147's A-dial re-reads as site-competition, not invariance.
+- SITE-INDEPENDENT: the strangest branch — locking the HOME
+  site is harmless; closure requires NOVELTY + zero-variance
+  together; a two-factor gate (novelty AND no-variance), which
+  no current law predicts cleanly and which would demand a
+  novelty-axis ladder (e165: locked at graded distances).
+
+E125a (the inverted knife):
+- SITE-KNIFE-EXISTS: symmetric surgery — one knife per type;
+  the circuit dissociation COMPLETES as a two-circuit story
+  (the paper's Fig-2 pairing becomes fully symmetric).
+- NO-SITE-KNIFE: the types differ in REMOVABILITY — the
+  deepest form of the split-custody claim (one memory type is
+  surgically erasable, the other is not) and arguably the
+  paper's strongest unlearning sentence; also predicts e125's
+  collateral framing shifts (the site-stored fact is only
+  removable by wreck).
+- Bias-check (standing rule): whichever fires, the fold must
+  ask for the cell that would flip it (EXISTS -> is the site
+  knife narrow (few sets) or easy?; NO-KNIFE -> is absence
+  power-bounded (the census's max single drop 20% sets the
+  prior)?).
+
 E160 READING MAP (registered ~10:39Z, before its data — the
 critic's one-cell-away experiment):
 - FLAT-CE-FACT-KILL (head-set >=60% at <= +0.35 CE): the
