@@ -63,6 +63,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E142 — row-0 at birth: ROW-0-ALWAYS — there was never an address-only phase, and the address itself was protocol-made (2026-09-28 ~09:30Z) — DONE
+
+WHAT WE DID: row-0 content census (e131 instrument, within-net
+adjudication) across 13 install checkpoints spanning the e048
+dose ladder (1x-4x), direct/natural-exposure installs, e044
+re-installs, the e098 fresh family (5 seeds), e117, e082 B43.
+
+WHAT WE SAW (T085): ROW-0-ALWAYS fires at every dose in all 13
+nets — no net's row-0 strength comes within two orders of its
+2x-control bar (most conservative: 2.6x over). HUB-FIRST fails
+(row 0 dominates the decision dial in 13/13; no dose where the
+decision row takes over). THE HISTORY REWRITE: the five-day
+'address -> field' arc was row-0-co-carried throughout — W011's
+savor (c) PROMOTED TO LAW (consolidation = share-growth of the
+largest seed). SHARPER: the ADDRESS ITSELF is protocol-
+contingent — direct/natural-exposure installs (e048_direct400/
+800) are almost purely row-0-carried (rel 0.947/0.983) with row
+129 NULL (-0.006/+0.007): the 'address' was a property of the
+masked-replay protocol, not of birth. In the fresh 0.84M family
+row 0 carries the ENTIRE install (rel exactly 1.000 at every
+seed). DOSE moves share, not presence (e048 ladder: row-0 share
+0.981->0.952 as decision-row share grows 0.432->0.522 — the
+address grows INTO an already-row-0-carried memory, never
+overtaking). Honesty: per-net instruments (families/batteries
+differ — all bars within-net); trained-geometry dial caveat
+stands (the at-birth question is well-posed on its own dial;
+routing-level replication needs novel-geometry arms); one
+unresolved gate (e098_s4307 is an earlier-trajectory state, not
+the stored patience twin — census internally valid, exclusion
+would not change the verdict).
+
+---
+
 ## E143 — error-placement steering: COMPASS-CAUSAL — the committed prediction holds; invariance survives its observational death by intervention (2026-09-28 ~09:00Z) — DONE
 
 WHAT WE DID: three 300-step arms from the e048_repro root —

@@ -575,6 +575,43 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T085 — E142: the address was never born — row 0 carries every install, and 'address' was the protocol's artifact (2026-09-28 ~09:30Z)
+
+ROW-0-ALWAYS, 13/13 nets, every dose. Two consequences, one
+historical and one structural:
+
+(1) THE HISTORY REWRITE: there was no address-era. The five-day
+narrative — install binds an address, consolidation migrates to
+a field, the field re-keys to row 0 — compresses at every stage
+to: ROW 0 CARRIED THE MEMORY ALL ALONG, and everything the lab
+called migration was share-redistribution around a constant
+row-0 core. W011's savor (c) is LAW: consolidation promotes the
+largest existing seed. The install's apparent address-binding
+(row 129) was real but SECONDARY — a protocol-made co-carrier
+that never exceeded row 0's share at any dose.
+
+(2) THE PROTOCOL-MADE ADDRESS: direct/natural-exposure installs
+put essentially everything on row 0 (row 129 NULL) — the address
+row forms ONLY under masked-replay installs, where the protocol
+fixes the fact's position-variance to zero at 129 and the credit
+lands there (T079's revived law, now visible in INSTALLATION
+too: error placement chooses the store, and natural exposure
+places its error at the omnipresent row). The taxonomy's
+'site-stored' type is therefore PROTOCOL-SCULPTED: lock the
+position, grow a site; let it vary (or let nature place it), and
+row 0 takes everything. This unifies e143 (NEAR site-stored
+under locked replay) with e142 (natural installs row-0-only)
+under one rule with no residue.
+
+CONNECTS: the fresh 0.84M family's rel-1.000 installs explain
+T069's 6/6 row-0 content-carrying — it was never a coincidence
+of the B43 line; it is the architecture's default. OPEN: the
+trained-geometry dial caveat (T083) bounds this census too — the
+claim is 'row 0 carries install EXPRESSION from birth', with
+routing-level (novel-geometry) replication still owed; e150's
+flat-CE cells and e147's ladder are the instruments that will or
+won't hold the story together at the routing level.
+
 ## T084 — E143: the compass is causal; invariance survives by intervention what it lost by census (2026-09-28 ~09:00Z)
 
 The committed prediction (COMPASS-CAUSAL, registered 07:58Z
@@ -1578,7 +1615,7 @@ content-keyed carries them. (b) Any fact that generalizes across
 geometries must be row-0-keyed (or keyed to whatever row is
 omnipresent under the construction — a right-aligned battery
 would test whether the hub is 'row 0' or 'the boundary position').
-(c) The sink was ALREADY the fact's co-carrier at install
+(c) [PROMOTED TO LAW by e142/T085 — 13/13 nets, every dose] The sink was ALREADY the fact's co-carrier at install
 (T069's 6/6 content-carrying, strength 0.545): consolidation did
 not build the row-0 key from nothing — it PROMOTED the
 already-largest seed. Error-location said WHERE error
