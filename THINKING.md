@@ -1880,7 +1880,25 @@ row-0 presence-keying under the e141/e150 instruments? If yes,
 the sink-route is an architecture-scale phenomenon, not a tiny-
 net curiosity. CAVEAT (R45's ghost): all presence claims carry
 the flat-CE bound until e150 lands; this card's 'native organ'
-language inherits it.
+language inherits it. [e150/e159 since bounded the language:
+sink-HEALTH, not routing — the organ metaphor survives the
+poisoning mechanism.]
+
+SAVOR, second pass (~10:58Z — the quietest revolution, felt
+properly): the fresh-family result is not just another datapoint
+— it means the lab never discovered how these nets store
+memories; it discovered how ONE PROTOCOL made them store
+memories. Every model the lab built — address, field,
+migration, brake, the five-day arc's whole vocabulary — was a
+model of PROTOCOL-memory. The nets were doing something simpler
+all along: one organ, the omnipresent row, carrying everything
+from birth (rel 1.000 at every seed). The dissection's greatest
+gift today was not the four-layer model but the humility
+underneath it: the instrument was the protocol, and half of
+what we called the organism was the instrument's shadow. The
+GPT-2 probe (savor c) is where this stops being a tiny-net
+confession and becomes a question about the field's own
+protocol-shaped memory findings.
 
 ## W015 — [UNADJUDICABLE on this rig: e146 instrument-invalid — the self-battery does not transfer to B43; home-lineage rerun queued] WONDER: does the self survive losing its pivot? Connecting the two arcs (2026-09-28 ~08:18Z)
 
