@@ -67,6 +67,89 @@ then append an entry here and update STATE.json.
 
 ---
 
+## Review 44 — the sink-role counterattack (2026-09-28T07:40Z; covering 06:10–07:40Z; e139 + e133 running throughout)
+
+### AUDITOR — VERDICT: ISSUES FOUND (no fabrication; every headline number
+traces to metrics; pre-registration integrity CONFIRMED via git hashes:
+W010 P1/P2/P3 at 479d816/06:47:52Z precede e119 results d0395ee/07:00:49Z;
+e131 bars landed with the R43 fold 414860f/06:06Z before results 31e520c/06:53Z).
+Findings, all repaired this beat: (1) e133 dispatch's ledger lag (dispatched
+07:08Z, stamped QUEUED — the lead's bookkeeping miss, now DISPATCHED);
+(2) three DONE queue rows asserting dead claims (e083/e113/e120 — markers
+added); (3) seven rows needing row-0-frame bar updates (e123/e125/e132/
+e133/e134/e137/e138 — updated; e138 RETIRED: its premise died with probe 1);
+(4) NOTES E119 paired R's cross-geometry max 0.709@g-8 against E's g+0
+(corrected to matched 0.663 vs 0.071); (5) 'the ONLY content-positive row'
+was false on the registered criterion (rows 118/119 at control level —
+phrasing corrected in NOTES and T077); (6) hygiene: e139 script untracked
+(added), T075/T065/T073 header markers, T073-T075 clock repairs (~4h drift),
+parking-lot table jam fixed.
+
+### IDEATOR — 7 candidates ranked; queue updated
+Top pick e141 (what kind of key is the sink: presence-vs-content scramble
+dial + gate-vs-source interpolation, eval-only minutes). e142 row-0-at-birth
+install-dose census (11 saved nets — rewrites the origin story: ADDRESS-ONLY-
+EVER vs ROW-0-ALWAYS vs HUB-FIRST). e143 error-placement steering (NEAR/FAR/
+jitter — the causal test of T076; claims e132's training slot). e134
+sharpened into hub-bandwidth (W012 born from this: is 54 the sink's
+capacity?). e125 re-scoped to three surfaces (key/band/brake — the brake is
+an 'unlearning' move that STRENGTHENS). e144 frozen-sink install, e145
+family-universality — sequenced after e142/e139. Queue hygiene adopted:
+e138 retired, e132 demoted.
+
+### CRITIC — the center of mass; nearly all accepted
+1. ATTACK 1 (HIGH) — ROLE VS WRITTEN KEY, and the crack is ALREADY IN HAND:
+   e131's census shows row 0's consolidation delta is the SECOND-SMALLEST
+   of 256 rows (delta_norm 0.0557 vs band median 0.1265) with fact-axis
+   projection at the band median (0.0124 vs 0.0108) — consolidation wrote
+   nothing fact-specific INTO wpe[0]; the 0.545->0.732 strengthening lives
+   in READOUT WEIGHTS. 'Re-keyed to row 0' may be 'the read policy became
+   sink-ROUTED' (role necessity, not key storage). 'Two independent
+   controls' overstated — mean-replacement is the same direction-scramble.
+   ACCEPTED -> T077 second amendment; install-restore surgery + rows-2-6
+   hardening dispatched in e141.
+2. ATTACK 2 (HIGH) — retirement premature: probe 1 proves learning-at-183,
+   not graduation (the D-183 survival cell is e139's, in flight). ACCEPTED
+   -> T075 marker softened to RETIRED-PROVISIONAL.
+3. ATTACK 3 (MED-HIGH) — E~=L on every loaded outcome (dall 0.190/0.191,
+   geometry 0.088/0.076, brakes both negative): the E-vs-R contrast IS the
+   L-vs-R contrast (position diversity, again); 'erasure digs in' demoted
+   to CONFOUNDED (P3 thinning is confounded with cumulative cycle damage).
+   ACCEPTED -> T078 amendment; L-CYCLED control added to e140.
+4. ATTACK 4 (MED) — content-keyed alternative alive (e116's un-killed
+   residue); the missing cell is d_r0 at g-12 on R@150/R@300 (added to
+   e141). The 500x dream number unreached by the frame: e136 gets the
+   pre-registered surprisal prediction (protection scales with fact-token
+   surprisal mass, not self-generation).
+5. ATTACK 5a (MED) — R arm's share product = 102.4 at k=128: the constant
+   DOUBLED on the jitter line, unremarked. ACCEPTED -> W012 amendment
+   (bandwidth reading gets direct input).
+6. ATTACK 6 (LOW-MED) — census condition 3 is vacuous (81/256 rows clear
+   the floor); RETIRED from the verdict's support; conditions 1+2 carry it
+   (and they are not independent witnesses — see attack 1).
+7. ATTACK 7 (MED) — one control row cannot bound the scaffold; rows-2-6 +
+   norm-matched random deletions added to e141.
+R43 ADJUDICATION: one over-correction — T075 retired too eagerly (mask
+confound never discharged; retirement announced pre-graduation-cell);
+otherwise correctly handled (W008 retraction, e131 dispatch, queue bars).
+
+### Decisions
+1. All audit repairs + critic corrections applied BEFORE the dependent
+   dispatch (gate held).
+2. e141 DISPATCHED (CPU eval-only, merged mechanism battery: install-restore
+   surgery with t-curve; presence-vs-content; rows-2-6 + norm-matched
+   controls; d_r0 at g-12 on e119's R checkpoints; gate-vs-source).
+3. e140 gains the L-CYCLED rider (locked-replay cycles, no reset — does L's
+   dall thin like E's?); e136 gains the surprisal pre-registration.
+4. Frame status: T077 bounded (role-vs-key open), T078 demoted (confounded),
+   T075 provisional, W011 amended (content-keyed alive), W012 amended
+   (102.4 anomaly). The lab's honesty machinery caught its own second
+   overclaim in one morning — the critic's in-hand crack (unread census
+   cell) is the review system working.
+5. Fleet through this window: e139 (CPU) + e133 (GPU) + e141 (CPU) — full.
+
+---
+
 ## Review 43 — the re-keying ambush (2026-09-28T06:10Z; covering 05:50–06:10Z; e119 dispatched mid-review, RUNNING; timestamps in this window repaired 06:30Z after a clock drift)
 
 Context: E120/T075/W008 freshest; e119 (migration head-to-head) dispatched at

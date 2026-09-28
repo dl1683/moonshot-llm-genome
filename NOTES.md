@@ -95,8 +95,10 @@ WHAT WE SAW (T078): verdict AMBIGUOUS as registered — one clean
 dissociation ((c) brake: R +0.210 [+0.153,+0.279] FEEDS vs E -0.267
 [-0.297,-0.240] SUPPRESSES, both CI-separated; L brakes -0.509
 like E), near-misses on the same side (D-all R 0.769 vs E 0.190 —
-E sits 0.01 under the 0.20 bar; held-30-under-D-all 0.709 vs
-0.071; novel geometry g-12 R 0.813 vs E 0.092; share E off-grid).
+E sits 0.01 under the 0.20 bar; held-30-under-D-all 0.663 vs
+0.071 at MATCHED g+0 (R44 audit correction — the first fold paired R's
+cross-geometry max 0.709@g-8 against E's g+0; R@g-8 vs E@g-8 is
+0.709 vs 0.021); novel geometry g-12 R 0.813 vs E 0.092; share E off-grid).
 Census: R grows 10 decision-band rows, E grows 2 (+ generic
 high-row drift 220-254 — overlapping e131's row-249 census find).
 PRE-REGISTRATIONS ALL FIRED (registered ~06:48Z before the
@@ -128,7 +130,9 @@ saved runs/checkpoints/e131_*.pt. Four probes.
 WHAT WE SAW (T077): all three RE-KEYED conditions fire.
 (1) ROW-0 CONTENT TEST: post-consolidation strength 0.732 — ABOVE
 its install-phase 0.545, 380x the max control row (0.0019); the
-ONLY content-positive row in the census; the whole 121-137 band
+only row ABOVE the control band (380x max control; two control-level
+rows 118/119 flag content:true at 0.0019 — R44 audit precision);
+the whole 121-137 band
 including 129 sits at ~0, and row-129 replacement RAISES p(Z)
 (the e115 brake, now with the new home identified). (2) BAND-
 MINUS-ROW-0: D-all reproduces e113 exactly (0.906); +row-0

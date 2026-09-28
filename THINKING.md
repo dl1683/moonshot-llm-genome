@@ -557,7 +557,21 @@ row-0-key at its address-tightened endpoint? (e140: row-0
 content test on e119's saved E checkpoints — eval-only, nets on
 disk); (iii) R@300's overshoot (0.776) vs R@150's match — does
 row-0 key strength grow with jitter dose (same e140 rider on
-R@150 vs R@300)? The wiring trace (e132) demotes to optional:
+R@150 vs R@300)? AMENDMENT (R44 critic, ~07:40Z): "ERASURE DIGS IN" DEMOTED TO
+CONFOUNDED. E ~= L on every loaded outcome (D-all 0.190 vs 0.191;
+novel geometry 0.088 vs 0.076; brakes both negative) — and L has
+NO erasure. The E-vs-R contrast collapses into the L-vs-R
+contrast: the error's POSITION DISTRIBUTION (T079's credit
+assignment), not erasure per se. The only erasure-specific
+evidence (P3's monotone thinning) is confounded with cumulative
+cycle damage (cycle-END expression also degrades; grown rows
+explode to 200+). The defensible two-roads claim: at matched
+expression, position-diverse replay produces deletion-surviving,
+geometry-generalizing memories; locked AND erased arms produce
+address-bound ones. L-CYCLED control (3 locked cycles, no reset)
+added to e140 — if L's D-all thins like E's, thinning is cycle
+damage and anti-migration loses its only erasure-specific
+evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
@@ -621,6 +635,8 @@ order of severity:
 
 **(1) THE MIGRATION'S DESTINATION IS ROW 0, NOT 'THE BODY'.**
 Post-consolidation, row 0 is the only content-positive wpe row
+above the control band (380x; rows 118/119 flag content:true at
+control level 0.0019 — R44 audit precision)
 (strength 0.732 — ABOVE its install-phase 0.545: consolidation
 STRENGTHENED the row-0 key), the band is content-null, and D-all+
 row-0 collapses expression -97% while the scaffold-matched row-1
@@ -665,6 +681,29 @@ survives for the band, dies for the key. The lab's nouns after
 e131: a row-0 KEY, a brake at the old address, a diffuse content
 population behind the key, and error-placement as the
 consolidation compass.
+
+SECOND AMENDMENT (R44 critic — accepted, ~07:40Z; the review's
+center of mass): THE CRACK WAS ALREADY IN THE CENSUS, UNREAD.
+Row 0's consolidation delta is the SECOND-SMALLEST of all 256
+wpe rows (delta_norm 0.0557 vs band median 0.1265) and its
+projection on the fact axis (0.0124) sits AT the band median
+(0.0108): consolidation wrote essentially nothing fact-specific
+INTO wpe[0]. The 0.545->0.732 strengthening therefore lives in
+READOUT WEIGHTS keyed to whatever row 0 already was. "Re-keyed to
+row 0" is DOWNGRADED to "row-0-ROUTED": row 0's necessity may be
+sink-ROLE necessity (the pivot every readout routes through), not
+a written key. The "two independent controls" of E131 were
+overstated — mean-replacement is the same direction-scramble as
+zeroing; row 1 bounds generic-row deletion, not sink-hub damage.
+CENSUS CONDITION 3 RETIRED from the verdict's support (81/256
+out-of-band rows clear its floor — vacuous bar); the verdict
+rests on conditions 1+2, which are NOT independent witnesses.
+DISCRIMINATORS DISPATCHED (e141): install-restore surgery (swap
+consolidated wpe[0] <- install-phase wpe[0], t-interpolated —
+fact survives at t=1 with CE flat => ROLE-ROUTED; fact dies with
+the delta removed => WRITTEN-KEY) + rows-2-6/norm-matched
+deletion controls. T075's retirement is PROVISIONAL until e139's
+D-183 graduation cell.
 
 STANDING PRE-REGISTRATIONS: W010's P1/P2/P3 vs e119 are MOOT as
 written (they assumed R-vs-E differences around a field concept
@@ -746,7 +785,7 @@ loss not logged) — this is the arm-level proxy. The decisive
 version rides e131's regenerated arms: log per-context fact-span
 loss, rank-correlate with per-context consolidation.
 
-## T075 — E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 ~10:10Z)
+## T075 — [RETIRED-PROVISIONAL per R44 critic: retirement announced on probe-1 (learning-at-183) before the D-183 graduation cell; e139 adjudicates] E120: the migration needs the road itself — position diversity, not signal, not self (2026-09-28 05:52Z; header clock repaired per R44 audit)
 
 **SIGNAL-IN-CONTEXTS INSUFFICIENT, decisively** — and the
 discrimination is airtight because arm (d) carries the same
@@ -806,7 +845,7 @@ instrument band; it is "THE ingredient" only if (i) the 183-read sits at
 floor, (ii) spaced-locked replay stays address-locked, and (iii) the
 mask-matched corpus arm rerun preserves the gap.
 
-## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 ~09:20Z)
+## T074 — E121: dreams are not a consolidation road — W004's self stops at the field boundary (2026-09-28 05:02Z; header clock repaired per R44 audit; arm-c dream-position read pending as e139 rider 5)
 
 **NO DREAM CONSOLIDATION** — and the negative is decisive because
 the covariate came back live: this install line DREAMS THE NAME
@@ -826,7 +865,7 @@ explicit reorganization signal that verbatim replay lacks. The
 e120-registered tier-1 fallback (fact spliced into own contexts)
 is the natural next rung — registered, not urgent.
 
-## T073 — E083: canalization's strong form dies — the groove persists, the erase weakens, the memory migrates (2026-09-28 ~08:20Z)
+## T073 — [MIGRATION READING INVERTED by T078: erase tightens address-binding, does not migrate] E083: canalization's strong form dies — the groove persists, the erase weakens (2026-09-28 03:47Z; header clock repaired per R44 audit)
 
 **MIXED with the oscillation flag fired** — and the texture is
 the finding. Steps 20→10→9, but the acceleration is NOT the
@@ -1053,6 +1092,15 @@ derivation program W007 wanted ("why 54?") transforms into
 "what sets the sink's capacity?" — a question with a measurable
 answer (bandwidth vs d_model, vs sink attention mass, across the
 e098 family ladder).
+AMENDMENT (R44 critic's attack 5a, in hand and unremarked): the
+R arm's share product reads 102.4 at k=128 — the constant DOUBLED
+on the jitter line. No card had noticed. Under the bandwidth
+reading this is either the sink's effective share doubling under
+consolidation or the k-grid boundary moving; either way W012 now
+has an in-hand anomaly to explain, and e134's two-fact grid gets
+a sharper question: does adding F2 push the product BACK toward
+54 (renormalization ceiling) or UP past 102 (bandwidth grew with
+the route)?
 
 ## W011 — WONDER: the sink as the consolidator's destination — universality by OMNIPRESENCE (2026-09-28 ~07:10Z)
 
@@ -1090,6 +1138,14 @@ not build the row-0 key from nothing — it PROMOTED the
 already-largest seed. Error-location said WHERE error
 consolidates; W011 says WHERE the key GOES when the error is
 everywhere: to the row that is always attended.
+AMENDMENT (R44 critic): the CONTENT-KEYED alternative is alive —
+e116's un-killed residue (readout keys on content, routing
+perpendicular) gives geometry-independence with no row-0
+involvement; the missing cell is row-0 deletion at NOVEL geometry
+on the R arm (d_r0@g-12 on R@150/R@300 — dispatched in e141:
+sink-keying dies, content-keying survives). And the ROLE reading
+survives W011 either way: omnipresence is a property of the
+POSITION, whether or not wpe[0] carries a written key.
 
 ## W010 — WONDER: seed-and-amplify — consolidation as amplification of existing expression, not construction from nothing (2026-09-28 ~06:30Z)
 
@@ -1335,7 +1391,7 @@ address-only re-exposure (the inhibition is content-independent).
 Three signatures, three cheap measurements — one of them joins the
 queue when the field-floor question (e110) settles.
 
-## T065 — E113: coordinate-binding is a developmental stage — W005's mirror resolves (2026-09-28 ~03:10Z)
+## T065 — [INVERTED by T077: 'body-stored' was re-keyed to row 0 — D-all survived because it never deletes row 0] E113: coordinate-binding is a developmental stage — W005's mirror resolves (2026-09-28 ~03:10Z)
 
 **BODY-STORED fires decisively.** Deleting all five of the fact's
 address rows costs almost nothing (0.89-0.93 across geometries);
