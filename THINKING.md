@@ -575,6 +575,28 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T108 — E177 (bounded): knife-proof is not wash-proof — and the mid-wash states are the new gold (2026-09-28 ~16:15Z)
+
+Under the extinction-grade stream, the deep site-store washes —
+W019's predicted savor held — but with a DECAY GRADIENT (4-24x
+slower than the other types through +50): the memory types are
+ordered by wash-rate (site > dwell > consolidated-root in
+slowness... inverted: the site decays SLOWEST, the consolidated
+fastest) even though all die. FOR THE PAPER (bounded form): no
+memory type tested retains expression under the
+extinction-grade stream; the types differ ~25x in decay RATE —
+a gradient worth a panel. THE MID-WASH STATES: at +50 the
+site's content census is at FULL strength while its read has
+dipped — nets where storage demonstrably outlives access by 50
+steps, on disk. These are the perfect substrate for the
+recovery-kinetics and re-excavation questions (does a +50-state
+re-learn faster than naive? can the tomb be reopened from
+half-washed?). THE GATE HOLDS: e176N decides whether any of
+this survives neutral streams — if both types survive them,
+the entire wash story becomes extinction-specific and the
+resistance question reopens with the decay gradient as its
+first datum.
+
 ## T107 — E174: the maintenance budget — rehearsal doubles capacity for free, and forgetting is first-contact (2026-09-28 ~16:05Z)
 
 The two arms compose into the day's cleanest practical finding

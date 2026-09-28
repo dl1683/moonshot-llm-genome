@@ -63,6 +63,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E177 — wash the site-endpoint: SCRATCH-MEMORY [bounded: verdict on the EXTINCTION-grade stream — e176N's neutral cell still gates the noun] — knife-proof is not wash-proof; a decay GRADIENT without resistance (2026-09-28 ~16:15Z) — DONE
+
+WHAT WE DID: e176's protocol verbatim on e151_twodoor (the
+buried endpoint); site-read onset as primary; gates PASS; 0
+name violations; CE healthy.
+
+WHAT WE SAW (T108, bounded per the wait-gate): SCRATCH-MEMORY
+fires — site onset 0.998 -> 0.672 @+50 (67% retention) -> 0.195
+@+100 (under bar) -> 0.012 @+300; the 183-census content decays
+with it (onset-arm 0.512 -> 0.008); the surviving span (0.80)
+is the wreckage pattern, not an archive. KNIFE-PROOF IS NOT
+WASH-PROOF — e125a's endpoint washes. THE DECAY GRADIENT: the
+site-type washes ~4x slower than the dwell peak and ~24x slower
+than the consolidated root through +50 (retentions 0.673 /
+0.155 / 0.028) — crossing the bar at +100 vs +50: a resistance
+GRADIENT without resistance. MID-WASH STATES CHECKPOINTED: at
++50 the census held full strength while the read dipped —
+"content present, read degraded" nets on disk (e177_site_freeze
+s50/s100/s200) for any later re-excavation. THE BOUND (e176N
+pending): this ran the extinction-grade stream — under neutral
+anchors the verdict may un-bound (both types surviving neutral
+streams would REOPEN the resistance question entire). Honesty:
+single seed; one lineage; one stream; the span/onset
+dissociation mid-wash documented.
+
+---
+
 ## E174 — the dose ladder + rehearsal: ALL-OR-NOTHING + REHEARSAL-RESOLVES — capacity is a MAINTENANCE BUDGET, not storage; cohabitation doubles it at ~zero cost (2026-09-28 ~16:05Z) — DONE
 
 WHAT WE DID: arm A = e170's neutral install bit-exact with
