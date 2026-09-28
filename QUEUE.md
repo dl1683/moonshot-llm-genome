@@ -151,6 +151,17 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e102 | direction-vs-magnitude | DONE (W001/T051 completion: DIRECTION CARRIES THE ANCHOR — unit-norm anchors, norm-random collapses; magnitude floor 10-56%; the anchor is a directional field) |
 | e098 | seed-ladder | DONE (T068: structure universal n=6; share-form n=3, value grows with maturity) |
 
+## NEXT ARC (ideator harvest 2026-09-28; memo: scratch/next_arc_programs.md) — P5-P8, Rule-11 ranked
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e121 | the dreams probe (P5 road 3, MOST DELIGHTFUL) | DISPATCHED | never re-teach; feed the net's OWN free-run dreams back as exposure — do spontaneous dreams alone consolidate the fact into the field? own-dreams vs twin-dreams vs none |
+| e119 | migration head-to-head (P5 road 1v2) | READY | jittered-replay twins vs deletion-pressure twins — same field or different stores? the migration plate viz |
+| e122 | self-at-distance (P6) | READY | does the anchor accept the same net's field from another run/window — generator-self vs episode-self |
+| e123 | self-drift curve (P6) | READY | identity half-life across checkpoints; doubles as P5's rekeying probe |
+| e125 | attack the graduated fact (P7) | READY | what removes a field-stored fact — segregated ~54 units or woven into self? |
+| e128 | inversion census (P8) | READY | dp27 promoted to census — do read-rule inversions cluster into a second mode? per-net rate as a fingerprint |
+
 ## Parking lot (raw ideas, unranked)
 
 - e037 forget-then-graft: graft-suite + ΔW atlas on a projectedly-forgotten net — fluency substrate vs stream basis
