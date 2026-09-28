@@ -63,6 +63,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E164 — the post-kill census: SUBSTANCE-SURVIVES + MLP-WRECK-ONLY — the knife severed ACCESS not STORAGE; the four-layer model's circularity is broken (2026-09-28 ~13:35Z) — DONE
+
+WHAT WE DID: the N2-killed state rebuilt in-memory (bit-exact vs
+e160's stored cell: 70.75% @ +0.245); the full organ census on
+the killed net; the MLP-coordinate plane on the site-fact.
+
+WHAT WE SAW (T098): PART A — SUBSTANCE-SURVIVES: behind the
+dead readout, the fact's machinery is intact and organized as in
+the root — row-0 dependence full strength (0.918-1.03), MLP body
+still consumes ~100% of the killed net's headroom, ALL root
+top-5 non-N2 heads still load-bearing (L0H3 0.218...), with
+sham contrasts 2.9-3.9x noise. THE KNIFE SEVERED ACCESS, NOT
+STORAGE — layers 1/2 are genuinely separable. No organ or third
+head restores the readout (best: L2H5 partial re-open +0.0875 —
+a weak suppressor texture). TEXTURE: the band-5 brake sign FLIPS
+post-kill (root -0.120 HELPS -> killed +0.140 COSTS). PART B —
+MLP-WRECK-ONLY: the head plane reproduces NO-SITE-KNIFE (best
+flat 21.8%; ladder saturates 43.6% @ +1.15); the MLP plane HAS
+an any-CE kill (mlp_l5 alone: 92.9% @ +0.793 — the cheapest
+full kill of the site-fact) but NO flat-CE kill exists ({l1,l2}
+39.5% @ +0.24). The MLP third IS the incorrigible substrate —
+removing it is indistinguishable from wrecking the organism;
+un-killability at flat CE holds on BOTH surfaces. Honesty:
+in-memory kill bit-exact (5e-6) but stateless (no dynamics);
+"unchanged weights" is a construction tautology — SUBSTANCE
+rests on functional probes; floor compression on the killed
+baseline (bars >= 50% headroom + shams + absolutes); mode/
+bank conventions differ across planes (priced).
+
+---
+
 ## E158 — the 2x2 completion: TEXTURE (two-pass disclosure) — closure requires the CONJUNCTION novel-site x zero-variance; committed pass: jitter@183 OPEN 0.789, locked@band MID 0.458 (straddling)
 [SUPERSEDES the 12:40Z fold, which used pass-1 CPU metrics (0.505/0.546 -> SITE-INDEPENDENT) while the agent re-ran on the freed GPU; the COMMITTED pass-2 (e9c4855, device-homogeneous with e151) reads TEXTURE — no bar fired cleanly. PROCESS RULE BORN: fold on the agent's completion notification, not early on-disk metrics]
 WHAT WE SAW (T097, committed pass): CLOSURE-BY-PLACEMENT dead

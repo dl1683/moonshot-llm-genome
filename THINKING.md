@@ -575,6 +575,35 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T098 — E164: access severed, substance intact — the four-layer model earns its figure, and the MLP is the organism-priced organ (2026-09-28 ~13:35Z)
+
+The R47 critic's circularity charge is answered: each layer is
+now defined not only by what removes it but by INDEPENDENT
+evidence of separation — the N2 kill leaves the row-0 door at
+full strength, the MLP body consuming full headroom, and every
+remaining fact-head load-bearing. A surgical readout death with
+the storage profile intact is exactly what "layers 1/2
+separable" predicted and what a one-layer account forbids. THE
+MODEL FIGURE IS LICENSED. The brake-flip texture (band-5 helps
+the root, costs the killed net) says the brake is a property of
+the LIVE readout configuration — it dies with the access it
+modulates.
+
+THE MLP'S DOUBLE ROLE: for the site-fact, the MLP third is the
+cheapest full kill (mlp_l5 alone: 92.9%) — the load-bearing
+remainder — yet only at organism prices (+0.79). INCORRIGIBLE
+IN THE STRONG SENSE: the site-stored memory's un-removability
+is not the absence of a kill coordinate but the fact that every
+kill coordinate is a vital organ. Combined with e125a: the
+site-fact has no flat-CE kill on EITHER surface; the
+asymmetry of existence now rests on two exhaustive planes.
+
+FOR THE PAPER: claim 3 gains its separability exhibit (the
+post-kill census); claim 4's scope clause strengthens (both
+surfaces); the closing sentence's split custody now has its
+mechanism diagram — access (severable), storage (intact),
+dependence (row-0, untouched by the knife).
+
 ## T097 — [CORRECTED per R48 critic — the headline was contradicted by e158's own unread census: locked@band DID re-form a home graft (row 129: brake -0.132 -> content +0.057, site_pos TRUE, peak 129) while the door stayed OPEN; TWO grafts, different door outcomes — the operative variable is SITE NOVELTY (or occupied-slot history), NOT graft formation; 'one event two faces' is FALSE as written] E158: the two-factor gate — closure requires novelty AND zero-variance (2026-09-28 ~12:40Z)
 
 PASS-2 UPDATE (~13:30Z — the agent's committed GPU pass supersedes

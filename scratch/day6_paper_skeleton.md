@@ -111,7 +111,11 @@ R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
    (with mask-column overlay); the 2x2 [e158 DONE: SITE-INDEPENDENT].
 R3 Content everywhere, access differs (e133/e141/e142): the
    three-net maps; install-restore/perm/halfnorm riders; the
-   origin census (13/13) [e163 pending for the dial license].
+   origin census (13/13) [e163 pending for the dial license];
+   the POST-KILL CENSUS (e164): behind the N2-killed readout,
+   storage intact and organized — access severed, substance
+   survives; the MLP plane answers the site-fact's remainder
+   (any-CE kill at organism prices only).
 R4 Split custody (e150/e159/e160/e162/e125a (DONE)): the flat-CE
    plane with the killer point; READ-vs-MASS cells [*]; the two
    knives' planes side by side [* e125a]; the double
