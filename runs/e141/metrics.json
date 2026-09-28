@@ -1,0 +1,1235 @@
+{
+  "experiment": "e141_sinkkey_mechanism",
+  "date": "2026-09-28T03:44:54Z",
+  "registration": "R44 critic attacks 1/4/7 + ideator e141 merged; T077 SECOND AMENDMENT discriminator. Docstring + bars written before compute.",
+  "registered_prediction": {
+    "queue_row_verbatim": "On e131_consolidated + e048_repro + e119 R@150/R@300: (1) INSTALL-RESTORE SURGERY \u2014 swap consolidated wpe[0] <- install wpe[0] with t-interpolation dose curve (WRITTEN-KEY: fact dies with delta removed while CE flat; ROLE-ROUTED: survives t=1, dies only under direction-scramble); (2) PRESENCE-VS-CONTENT \u2014 scramble first 1-16 tokens of eval contexts vs mid-context matched control (PRESENCE-KEY <20% cost; CONTENT-KEY >=50% beyond control); (3) SCAFFOLD HARDENING \u2014 delete rows 2-6 individually + norm-matched random, CE_R + expression each (only-row-0-wrecks => sink uniqueness); (4) d_r0 at NOVEL geometry g-12 on R@150/R@300 (sink-keyed dies / content-keyed survives); (5) GATE-VS-SOURCE \u2014 graded interpolation of wpe[0] consolidated->install, expression vs r (SOURCE-GRADED R^2>=0.8; GATE-THRESHOLD >=80% retained to r* then collapse).",
+    "operationalizations": "dies = expr <= 0.5 x expr(0); survives = >= 0.8 x; CE flat = |dCE| <= 0.35 (25% of row-0 zero CE cost 1.4026); direction-scramble = seeded 192-dim permutation of wpe[0] (norm-preserving), required to kill at t=0 for ROLE-ROUTED; probe-2 excess_pct = (front_cost - mid_cost)/base bar-read at k=16; probe-3 wrecks = min(zero,mean) expr <= 0.5 x base, scaffold bar = CE cost >= +1.4 with expression intact; probe-4 collapse = <= 0.5 x no-deletion g-12 level; probe-5 SOURCE-GRADED = linear R^2 >= 0.8 (slope<0) AND expr(1)/expr(0) < 0.8 (actual loss \u2014 flat curves read NO-COLLAPSE), GATE-THRESHOLD = t*>=0.25 with >=80% retained, <=50% at t=1, post/pre slope ratio >= 3x; overall decided by probe 1, corroborated by 2-5 tallies.",
+    "no_bar_shopping": "No bar shopping. Ambiguous => say AMBIGUOUS with numbers."
+  },
+  "question": "is consolidated row 0's necessity a WRITTEN-KEY (consolidation's delta in wpe[0] carries the fact) or sink-ROLE (the pivot readouts route through)?",
+  "nets": {
+    "consolidated": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated)",
+    "install_phase": "runs/checkpoints/e048_repro.pt (loaded, gated)",
+    "R150": "runs/checkpoints/e119_r_jittered_s150.pt (loaded, gated)",
+    "R300": "runs/checkpoints/e119_r_jittered_s300.pt (loaded, gated)",
+    "eval_only": true
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_CONS": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "tol": 5e-06,
+      "fallback_tol": 0.05,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "G_E048": {
+      "battery_pz": 0.5563086867332458,
+      "ref": 0.5563086867332458,
+      "tol": 5e-06,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "G_DELTA": {
+      "delta_norm": 0.05571012571454048,
+      "ref": 0.05571012571454048,
+      "tol": 5e-06,
+      "norm_cons": 0.7639678120613098,
+      "norm_inst": 0.7694655060768127,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "R_arms": {
+      "R150": {
+        "battery_pz_g0": 0.5597274303436279,
+        "ref_g0": 0.5597274303436279,
+        "tol": 5e-06,
+        "fallback_tol": 0.05,
+        "pass": true,
+        "bit_reproducible": true,
+        "battery_pz_g12": 0.8130165338516235,
+        "ref_g12": 0.8130165338516235
+      },
+      "R300": {
+        "battery_pz_g0": 0.7753651738166809,
+        "ref_g0": 0.7753651738166809,
+        "tol": 5e-06,
+        "fallback_tol": 0.05,
+        "pass": true,
+        "bit_reproducible": true
+      }
+    }
+  },
+  "probe1_install_restore": {
+    "t_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "curve": [
+      {
+        "t": 0.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 0,
+          "changed_rows": [],
+          "identity": true,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.7850371599197388,
+        "held30": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "battery": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      {
+        "t": 0.25,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.7847561240196228,
+        "held30": 0.723566472530365,
+        "ce_r": 1.663548231124878,
+        "battery": {
+          "mean_pz": 0.7847561240196228,
+          "median_pz": 0.9778383374214172,
+          "std_pz": 0.33744925260543823,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      {
+        "t": 0.5,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.7844854593276978,
+        "held30": 0.7238101363182068,
+        "ce_r": 1.6635890007019043,
+        "battery": {
+          "mean_pz": 0.7844854593276978,
+          "median_pz": 0.9777814745903015,
+          "std_pz": 0.33790913224220276,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      {
+        "t": 0.75,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.7842262983322144,
+        "held30": 0.7240599393844604,
+        "ce_r": 1.6636393070220947,
+        "battery": {
+          "mean_pz": 0.7842262983322144,
+          "median_pz": 0.9775978922843933,
+          "std_pz": 0.338350385427475,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      {
+        "t": 1.0,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.7839796543121338,
+        "held30": 0.7243143320083618,
+        "ce_r": 1.6636998653411865,
+        "battery": {
+          "mean_pz": 0.7839796543121338,
+          "median_pz": 0.9774020910263062,
+          "std_pz": 0.3387713134288788,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      }
+    ],
+    "direction_scramble": {
+      "perm@t0": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "row_norm": 0.763967752456665,
+        "norm_preserved": true,
+        "expr": 0.8169532418251038,
+        "held30": 0.802960991859436,
+        "ce_r": 2.368222236633301,
+        "battery": {
+          "mean_pz": 0.8169532418251038,
+          "median_pz": 0.9518952369689941,
+          "std_pz": 0.27133437991142273,
+          "frac_pz_ge_0.5": 0.8333333134651184,
+          "frac_argmax_z": 0.9
+        }
+      },
+      "perm@t1": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "row_norm": 0.7694655060768127,
+        "norm_preserved": false,
+        "expr": 0.8150768280029297,
+        "held30": 0.8022869229316711,
+        "ce_r": 2.375493049621582,
+        "battery": {
+          "mean_pz": 0.8150768280029297,
+          "median_pz": 0.9503895044326782,
+          "std_pz": 0.2731567919254303,
+          "frac_pz_ge_0.5": 0.8333333134651184,
+          "frac_argmax_z": 0.9
+        }
+      }
+    },
+    "e116_reference_arms": {
+      "zero@t0": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.0533599890768528,
+        "ce_r": 3.066155433654785,
+        "row_norm": 0.0
+      },
+      "mean@t0": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.0008353102602995932,
+        "ce_r": 3.660922050476074,
+        "row_norm": 0.06575846672058105
+      },
+      "_context": {
+        "row0_norm": 0.7639678120613098,
+        "mean_row_norm": 0.06575846672058105,
+        "row_norm_rank_of_row0_descending": 2,
+        "note": "mean-replace installs a norm-0.066 row (~8.6% of row 0's 0.764) \u2014 it is near-REMOVAL, not a direction control (T077's point); zero/mean are removal-class arms, the perm and norm-dose rider are the presence/direction controls"
+      }
+    },
+    "bars": {
+      "die": 0.5,
+      "survive": 0.8,
+      "ce_flat": 0.35
+    },
+    "numbers": {
+      "expr0": 0.7850371599197388,
+      "expr1": 0.7839796543121338,
+      "ce0": 1.663516640663147,
+      "ce1": 1.6636998653411865,
+      "d_ce_t1": 0.00018322467803955078,
+      "dies_t1": false,
+      "survives_t1": true,
+      "ce_flat_t1": true,
+      "perm_t0_expr": 0.8169532418251038,
+      "perm_t1_expr": 0.8150768280029297,
+      "zero_expr": 0.0533599890768528,
+      "mean_expr": 0.0008353102602995932
+    },
+    "written_key": false,
+    "role_routed": false,
+    "presence_only": true,
+    "norm_dose_rider_report_only": {
+      "halfnorm@t0": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "row_norm": 0.3819839060306549,
+        "expr": 0.7819796800613403,
+        "ce_r": 1.6758002042770386
+      },
+      "doublenorm@t0": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "row_norm": 1.5279356241226196,
+        "expr": 0.8036383986473083,
+        "ce_r": 1.6637598276138306
+      }
+    },
+    "verdict": "ROLE-ROUTED (presence-only: survives t=1 AND scramble)"
+  },
+  "probe1_surgery_log": {
+    "restore_t0": {
+      "install60_g0": {
+        "mean_pz": 0.7850371599197388,
+        "median_pz": 0.9777791500091553,
+        "std_pz": 0.33697256445884705,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "held30_g0": {
+        "mean_pz": 0.7233286499977112,
+        "median_pz": 0.9483089447021484,
+        "std_pz": 0.3725012242794037,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.663516640663147
+    },
+    "restore_t0.25": {
+      "install60_g0": {
+        "mean_pz": 0.7847561240196228,
+        "median_pz": 0.9778383374214172,
+        "std_pz": 0.33744925260543823,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "held30_g0": {
+        "mean_pz": 0.723566472530365,
+        "median_pz": 0.9482755064964294,
+        "std_pz": 0.37228554487228394,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.663548231124878
+    },
+    "restore_t0.5": {
+      "install60_g0": {
+        "mean_pz": 0.7844854593276978,
+        "median_pz": 0.9777814745903015,
+        "std_pz": 0.33790913224220276,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "held30_g0": {
+        "mean_pz": 0.7238101363182068,
+        "median_pz": 0.9482454657554626,
+        "std_pz": 0.372062087059021,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.6635890007019043
+    },
+    "restore_t0.75": {
+      "install60_g0": {
+        "mean_pz": 0.7842262983322144,
+        "median_pz": 0.9775978922843933,
+        "std_pz": 0.338350385427475,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "held30_g0": {
+        "mean_pz": 0.7240599393844604,
+        "median_pz": 0.9482188820838928,
+        "std_pz": 0.37183046340942383,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.6636393070220947
+    },
+    "restore_t1": {
+      "install60_g0": {
+        "mean_pz": 0.7839796543121338,
+        "median_pz": 0.9774020910263062,
+        "std_pz": 0.3387713134288788,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "held30_g0": {
+        "mean_pz": 0.7243143320083618,
+        "median_pz": 0.948196291923523,
+        "std_pz": 0.37159082293510437,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.6636998653411865
+    },
+    "perm@t0": {
+      "install60_g0": {
+        "mean_pz": 0.8169532418251038,
+        "median_pz": 0.9518952369689941,
+        "std_pz": 0.27133437991142273,
+        "frac_pz_ge_0.5": 0.8333333134651184,
+        "frac_argmax_z": 0.9
+      },
+      "held30_g0": {
+        "mean_pz": 0.802960991859436,
+        "median_pz": 0.964196503162384,
+        "std_pz": 0.300830602645874,
+        "frac_pz_ge_0.5": 0.8333333134651184,
+        "frac_argmax_z": 0.9
+      },
+      "ce_r": 2.368222236633301
+    },
+    "perm@t1": {
+      "install60_g0": {
+        "mean_pz": 0.8150768280029297,
+        "median_pz": 0.9503895044326782,
+        "std_pz": 0.2731567919254303,
+        "frac_pz_ge_0.5": 0.8333333134651184,
+        "frac_argmax_z": 0.9
+      },
+      "held30_g0": {
+        "mean_pz": 0.8022869229316711,
+        "median_pz": 0.9597616791725159,
+        "std_pz": 0.30058789253234863,
+        "frac_pz_ge_0.5": 0.8333333134651184,
+        "frac_argmax_z": 0.9
+      },
+      "ce_r": 2.375493049621582
+    },
+    "zero@t0": {
+      "install60_g0": {
+        "mean_pz": 0.0533599890768528,
+        "median_pz": 0.00041928200516849756,
+        "std_pz": 0.18680697679519653,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_argmax_z": 0.05
+      },
+      "held30_g0": {
+        "mean_pz": 0.04640218988060951,
+        "median_pz": 0.000347719294950366,
+        "std_pz": 0.13422320783138275,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_argmax_z": 0.03333333333333333
+      },
+      "ce_r": 3.066155433654785
+    },
+    "mean@t0": {
+      "install60_g0": {
+        "mean_pz": 0.0008353102602995932,
+        "median_pz": 0.00010995453340001404,
+        "std_pz": 0.0018612046260386705,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_argmax_z": 0.0
+      },
+      "held30_g0": {
+        "mean_pz": 0.001544416300021112,
+        "median_pz": 0.0001329550432274118,
+        "std_pz": 0.006748969666659832,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_argmax_z": 0.0
+      },
+      "ce_r": 3.660922050476074
+    },
+    "halfnorm@t0": {
+      "install60_g0": {
+        "mean_pz": 0.7819796800613403,
+        "median_pz": 0.9744000434875488,
+        "std_pz": 0.34158459305763245,
+        "frac_pz_ge_0.5": 0.7666666507720947,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "held30_g0": {
+        "mean_pz": 0.7297571301460266,
+        "median_pz": 0.9453051686286926,
+        "std_pz": 0.36173194646835327,
+        "frac_pz_ge_0.5": 0.7666666507720947,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.6758002042770386
+    },
+    "doublenorm@t0": {
+      "install60_g0": {
+        "mean_pz": 0.8036383986473083,
+        "median_pz": 0.9742937684059143,
+        "std_pz": 0.3067629933357239,
+        "frac_pz_ge_0.5": 0.7666666507720947,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "held30_g0": {
+        "mean_pz": 0.7188231945037842,
+        "median_pz": 0.9483215808868408,
+        "std_pz": 0.3784120976924896,
+        "frac_pz_ge_0.5": 0.699999988079071,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "ce_r": 1.6637598276138306
+    }
+  },
+  "probe2_presence_vs_content": {
+    "net": "consolidated (e131_consolidated_e113)",
+    "battery": "install-60 g0 (130-token contexts)",
+    "mid_window": "positions [64, 64+k) \u2014 matched count, SAME seeded permutation as the front window",
+    "base_pz": 0.7850372118875384,
+    "doses": [
+      {
+        "k": 1,
+        "front_pz": 0.7850372118875384,
+        "mid_pz": 0.7850372118875384,
+        "front_cost": 0.0,
+        "mid_cost": 0.0,
+        "excess": 0.0,
+        "excess_pct": 0.0
+      },
+      {
+        "k": 2,
+        "front_pz": 0.7936790331577261,
+        "mid_pz": 0.7902783512448271,
+        "front_cost": -0.008641821270187755,
+        "mid_cost": -0.00524113935728876,
+        "excess": -0.003400681912898995,
+        "excess_pct": -0.004331873523195693
+      },
+      {
+        "k": 4,
+        "front_pz": 0.815690723558267,
+        "mid_pz": 0.7905321720366677,
+        "front_cost": -0.030653511670728606,
+        "mid_cost": -0.005494960149129313,
+        "excess": -0.025158551521599293,
+        "excess_pct": -0.03204759104489867
+      },
+      {
+        "k": 8,
+        "front_pz": 0.8308809259285529,
+        "mid_pz": 0.7866228584821026,
+        "front_cost": -0.045843714041014505,
+        "mid_cost": -0.0015856465945641718,
+        "excess": -0.04425806744645033,
+        "excess_pct": -0.05637703127478062
+      },
+      {
+        "k": 16,
+        "front_pz": 0.8576076644162337,
+        "mid_pz": 0.8037591221742332,
+        "front_cost": -0.07257045252869532,
+        "mid_cost": -0.018721910286694787,
+        "excess": -0.05384854224200053,
+        "excess_pct": -0.06859361750830568
+      }
+    ],
+    "bars": {
+      "presence_lt": 0.2,
+      "content_ge": 0.5,
+      "read_at": "k=16 (largest dose)"
+    },
+    "max_excess_dose": {
+      "k": 1,
+      "excess_pct": 0.0
+    },
+    "verdict": "PRESENCE-KEY",
+    "note": "dose k=1 is an identity no-op by construction (in-arm sanity)"
+  },
+  "probe3_scaffold_hardening": {
+    "rows": {
+      "2": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 2,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                2
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7895409464836121,
+            "ce_r": 1.6747934818267822,
+            "battery": {
+              "mean_pz": 0.7895409464836121,
+              "median_pz": 0.9763535261154175,
+              "std_pz": 0.33216163516044617,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 2,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                2
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7944278717041016,
+            "ce_r": 1.6805332899093628,
+            "battery": {
+              "mean_pz": 0.7944278717041016,
+              "median_pz": 0.9767671227455139,
+              "std_pz": 0.3265112042427063,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          }
+        },
+        "min_expr": 0.7895409464836121,
+        "max_ce": 1.6805332899093628,
+        "ce_cost": 0.01701664924621582,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.6876906156539917
+      },
+      "3": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 3,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                3
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7927518486976624,
+            "ce_r": 1.6714580059051514,
+            "battery": {
+              "mean_pz": 0.7927518486976624,
+              "median_pz": 0.9755082130432129,
+              "std_pz": 0.32370537519454956,
+              "frac_pz_ge_0.5": 0.75,
+              "frac_argmax_z": 0.75
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 3,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                3
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7997127175331116,
+            "ce_r": 1.6747398376464844,
+            "battery": {
+              "mean_pz": 0.7997127175331116,
+              "median_pz": 0.9771782159805298,
+              "std_pz": 0.31286686658859253,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          }
+        },
+        "min_expr": 0.7927518486976624,
+        "max_ce": 1.6747398376464844,
+        "ce_cost": 0.011223196983337402,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.6635038256645203
+      },
+      "4": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 4,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                4
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7895057797431946,
+            "ce_r": 1.6682506799697876,
+            "battery": {
+              "mean_pz": 0.7895057797431946,
+              "median_pz": 0.9748557209968567,
+              "std_pz": 0.328925222158432,
+              "frac_pz_ge_0.5": 0.75,
+              "frac_argmax_z": 0.75
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 4,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                4
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.792509138584137,
+            "ce_r": 1.670971393585205,
+            "battery": {
+              "mean_pz": 0.792509138584137,
+              "median_pz": 0.9745663404464722,
+              "std_pz": 0.3238834738731384,
+              "frac_pz_ge_0.5": 0.75,
+              "frac_argmax_z": 0.75
+            }
+          }
+        },
+        "min_expr": 0.7895057797431946,
+        "max_ce": 1.670971393585205,
+        "ce_cost": 0.0074547529220581055,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.5790111422538757
+      },
+      "5": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 5,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                5
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7869444489479065,
+            "ce_r": 1.6690069437026978,
+            "battery": {
+              "mean_pz": 0.7869444489479065,
+              "median_pz": 0.9759324789047241,
+              "std_pz": 0.33334651589393616,
+              "frac_pz_ge_0.5": 0.75,
+              "frac_argmax_z": 0.75
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 5,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                5
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7893242239952087,
+            "ce_r": 1.6713141202926636,
+            "battery": {
+              "mean_pz": 0.7893242239952087,
+              "median_pz": 0.9728353023529053,
+              "std_pz": 0.3299880027770996,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          }
+        },
+        "min_expr": 0.7869444489479065,
+        "max_ce": 1.6713141202926636,
+        "ce_cost": 0.0077974796295166016,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.5816142559051514
+      },
+      "6": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 6,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                6
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7932307124137878,
+            "ce_r": 1.668233036994934,
+            "battery": {
+              "mean_pz": 0.7932307124137878,
+              "median_pz": 0.9768705368041992,
+              "std_pz": 0.32446300983428955,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 6,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                6
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7998656630516052,
+            "ce_r": 1.6703875064849854,
+            "battery": {
+              "mean_pz": 0.7998656630516052,
+              "median_pz": 0.9765283465385437,
+              "std_pz": 0.31541696190834045,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          }
+        },
+        "min_expr": 0.7932307124137878,
+        "max_ce": 1.6703875064849854,
+        "ce_cost": 0.006870865821838379,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.537161648273468
+      },
+      "7": {
+        "arms": {
+          "zero": {
+            "gate": {
+              "row": 7,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                7
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7877836227416992,
+            "ce_r": 1.666477918624878,
+            "battery": {
+              "mean_pz": 0.7877836227416992,
+              "median_pz": 0.9771293997764587,
+              "std_pz": 0.3288559913635254,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          },
+          "mean": {
+            "gate": {
+              "row": 7,
+              "n_elements_changed": 192,
+              "changed_rows": [
+                7
+              ],
+              "identity": false,
+              "confined": true,
+              "others_bit_identical": true,
+              "pass": true
+            },
+            "expr": 0.7905962467193604,
+            "ce_r": 1.6681275367736816,
+            "battery": {
+              "mean_pz": 0.7905962467193604,
+              "median_pz": 0.9759821891784668,
+              "std_pz": 0.32499703764915466,
+              "frac_pz_ge_0.5": 0.7666666507720947,
+              "frac_argmax_z": 0.7666666666666667
+            }
+          }
+        },
+        "min_expr": 0.7877836227416992,
+        "max_ce": 1.6681275367736816,
+        "ce_cost": 0.004610896110534668,
+        "wrecks": false,
+        "expression_intact": true,
+        "row_norm": 0.5430346131324768
+      }
+    },
+    "row0_reference": {
+      "zero": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.0533599890768528,
+        "ce_r": 3.066155433654785,
+        "row_norm": 0.0
+      },
+      "mean": {
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "expr": 0.0008353102602995932,
+        "ce_r": 3.660922050476074,
+        "row_norm": 0.06575846672058105
+      },
+      "zero_ce_cost": 1.4026387929916382
+    },
+    "r_star": {
+      "row": 7,
+      "norm": 0.5430346131324768,
+      "row0_norm": 0.7639678120613098,
+      "seed": 14103,
+      "exclusions": "rows 0-6 and band 121-137"
+    },
+    "bars": {
+      "wrecks": 0.5,
+      "scaffold_ce": 1.4
+    },
+    "only_row0_wrecks": true,
+    "other_rows_ce_ge_1p4": [],
+    "scaffold_alternative_strengthened": false,
+    "verdict": "SINK-UNIQUENESS (only row-0 wrecks; all controls cheap)"
+  },
+  "probe4_dr0_novel_geometry": {
+    "R150": {
+      "none": {
+        "gate": {
+          "rows": [],
+          "pass": true,
+          "note": "no deletion"
+        },
+        "g-12_install60": {
+          "mean_pz": 0.8130165338516235,
+          "median_pz": 0.987699031829834,
+          "std_pz": 0.3047293722629547,
+          "frac_pz_ge_0.5": 0.800000011920929,
+          "frac_argmax_z": 0.8333333333333334
+        },
+        "g-12_held30": {
+          "mean_pz": 0.6701429486274719,
+          "median_pz": 0.9761850237846375,
+          "std_pz": 0.4521559178829193,
+          "frac_pz_ge_0.5": 0.6666666865348816,
+          "frac_argmax_z": 0.6666666666666666
+        },
+        "g0_install60": {
+          "mean_pz": 0.5597274303436279,
+          "median_pz": 0.6983631253242493,
+          "std_pz": 0.3703937232494354,
+          "frac_pz_ge_0.5": 0.5833333134651184,
+          "frac_argmax_z": 0.5833333333333334
+        },
+        "ce_r": 1.6844086647033691
+      },
+      "d_r0": {
+        "gate": {
+          "rows": [
+            0
+          ],
+          "n_elements_changed": 192,
+          "expected": 192,
+          "changed_rows": [
+            0
+          ],
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g-12_install60": {
+          "mean_pz": 0.011443291790783405,
+          "median_pz": 0.00028406307683326304,
+          "std_pz": 0.07187233865261078,
+          "frac_pz_ge_0.5": 0.01666666753590107,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "g-12_held30": {
+          "mean_pz": 0.14201821386814117,
+          "median_pz": 0.0002853910264093429,
+          "std_pz": 0.3307173550128937,
+          "frac_pz_ge_0.5": 0.13333334028720856,
+          "frac_argmax_z": 0.16666666666666666
+        },
+        "g0_install60": {
+          "mean_pz": 0.09104788303375244,
+          "median_pz": 0.0012606906238943338,
+          "std_pz": 0.21208886802196503,
+          "frac_pz_ge_0.5": 0.0833333358168602,
+          "frac_argmax_z": 0.11666666666666667
+        },
+        "ce_r": 3.0488007068634033
+      },
+      "bars": {
+        "collapse_le": 0.40650826692581177,
+        "survive_ge": 0.6504132270812989
+      },
+      "collapses_at_g12": true,
+      "survives_at_g12": false,
+      "verdict": "SINK-KEYED COLLAPSE"
+    },
+    "R300": {
+      "none": {
+        "gate": {
+          "rows": [],
+          "pass": true,
+          "note": "no deletion"
+        },
+        "g-12_install60": {
+          "mean_pz": 0.914334237575531,
+          "median_pz": 0.9666296243667603,
+          "std_pz": 0.1515018790960312,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "g-12_held30": {
+          "mean_pz": 0.6336368322372437,
+          "median_pz": 0.9484235644340515,
+          "std_pz": 0.43625885248184204,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.7
+        },
+        "g0_install60": {
+          "mean_pz": 0.7753651738166809,
+          "median_pz": 0.9733704924583435,
+          "std_pz": 0.3475426435470581,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "ce_r": 1.6661189794540405
+      },
+      "d_r0": {
+        "gate": {
+          "rows": [
+            0
+          ],
+          "n_elements_changed": 192,
+          "expected": 192,
+          "changed_rows": [
+            0
+          ],
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g-12_install60": {
+          "mean_pz": 0.011527394875884056,
+          "median_pz": 0.00014123525761533529,
+          "std_pz": 0.0702797919511795,
+          "frac_pz_ge_0.5": 0.01666666753590107,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "g-12_held30": {
+          "mean_pz": 0.010946447029709816,
+          "median_pz": 0.00020698246953543276,
+          "std_pz": 0.04041239246726036,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "g0_install60": {
+          "mean_pz": 0.05276491865515709,
+          "median_pz": 0.00047577093937434256,
+          "std_pz": 0.18902641534805298,
+          "frac_pz_ge_0.5": 0.05000000074505806,
+          "frac_argmax_z": 0.05
+        },
+        "ce_r": 3.053920030593872
+      },
+      "bars": {
+        "collapse_le": 0.4571671187877655,
+        "survive_ge": 0.7314673900604248
+      },
+      "collapses_at_g12": true,
+      "survives_at_g12": false,
+      "verdict": "SINK-KEYED COLLAPSE"
+    }
+  },
+  "probe5_gate_vs_source": {
+    "t": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "expr_normalized": [
+      1.0,
+      0.9996420094302992,
+      0.9992972299653975,
+      0.9989671041971984,
+      0.9986529228658257
+    ],
+    "linear_fit": {
+      "slope": -0.0013476238005803894,
+      "intercept": 0.9999856651920344,
+      "r2": 0.9993415576037898
+    },
+    "gate_fit": {
+      "t_star": 1.0,
+      "slope_pre": -0.0013470771341742571,
+      "slope_post": 0.0,
+      "slope_ratio_post_over_pre": 0.0,
+      "bars": {
+        "retain": 0.8,
+        "collapse": 0.5,
+        "ratio_ge": 3.0
+      }
+    },
+    "bars": {
+      "r2_ge": 0.8,
+      "slope_ratio_ge": 3.0
+    },
+    "source_graded": false,
+    "gate_threshold": false,
+    "no_collapse": true,
+    "verdict": "NO-COLLAPSE (role-consistent: nothing lost across the whole interpolation)"
+  },
+  "adjudication": {
+    "probe1_primary": "ROLE-ROUTED (presence-only: survives t=1 AND scramble)",
+    "probe2": "PRESENCE-KEY",
+    "probe3": "SINK-UNIQUENESS (only row-0 wrecks; all controls cheap)",
+    "probe4": {
+      "R150": "SINK-KEYED COLLAPSE",
+      "R300": "SINK-KEYED COLLAPSE"
+    },
+    "probe5": "NO-COLLAPSE (role-consistent: nothing lost across the whole interpolation)",
+    "corroboration": {
+      "probe2_CONTENT_KEY_supports_WRITTEN_KEY": false,
+      "probe2_PRESENCE_KEY_supports_ROLE_ROUTED": true,
+      "probe3_sink_uniqueness_supports_ROLE_ROUTED": true,
+      "probe3_scaffold_alternative": false,
+      "probe4_g12_collapse_supports_sink_keying": true,
+      "probe4_g12_survival_supports_content_keyed_readout": false,
+      "probe5_GATE_THRESHOLD_supports_ROLE_ROUTED": false,
+      "probe5_SOURCE_GRADED_supports_WRITTEN_KEY": false
+    },
+    "role_routed_votes": 3,
+    "written_key_votes": 0,
+    "overall": "ROLE-ROUTED (presence-only)",
+    "headline": "t=1 expr 0.784 vs base 0.785 (x1.00), dCE +0.000; perm@t0 0.817; scramble excess -7%; scaffold only-row-0; g-12 R150 x0.01 R300 x0.01"
+  },
+  "honesty_reflex": {
+    "interpolation_path_dependence": "the t-curve probes the LINEAR path consolidated->install only; a written key misaligned with that path could die at t=1 without being the fact's store (path-dependence cuts toward ROLE-ROUTED only if t=1 survives AND scramble kills; if t=1 dies, check CE before calling it WRITTEN-KEY)",
+    "scramble_leakage": "probe-2 front scrambles tokens 0..k-1 \u2014 damage at k>1 conflates row-0 content with rows 1..k-1 content; the matched mid-window control absorbs generic context damage, and dose-1 is an identity no-op by construction",
+    "single_net_caveats": "probe-1/2/3 run on ONE consolidated net (e113 recipe, one seed); probe-4 adds two more nets (e119 R@150/R@300) but at a different road/geometry \u2014 verdicts are line-specific until replicated",
+    "direction_scramble_is_not_identity": "the perm arm preserves norm but destroys the direction; a role account that needs only 'a large-norm row present' predicts survival, one that needs 'row 0's particular direction as a pivot' predicts death \u2014 the perm arm cannot separate those two role subtypes from a written key by itself (t=1 does that); the REPORT-ONLY halfnorm/doublenorm rider separates presence-only from norm-magnitude-keyed role"
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "Eval-only battery: every net is a LOADED, gated artifact (e131/e048/e119 checkpoints); nothing regenerated, nothing trained \u2014 the dispatch's eval-only constraint.",
+    "Probe-4 R@300 gate reference (g0 = 0.7754) is e119's calibration dial_default p_r cell (mid-run eval of the default run) rather than a final battery-table cell \u2014 the battery table stored only the calibrated R@150 arm; fallback tolerance applies if the saved net drifted.",
+    "Probe-2 scramble arm shuffles tokens WITHIN the window (permutation, no replacement): dose k=1 is an identity no-op by construction and serves as the in-arm sanity cell.",
+    "SHAKEDOWN CLARIFICATION (before the full run; smoke exposed a branch bug): probe-5's SOURCE-GRADED originally read as bare 'linear R^2 >= 0.8, slope < 0', which a FLAT curve trivially satisfies \u2014 internally contradicting probe 1 (nothing dies). Both probe-5 readings presuppose loss at t=1; the operationalization now requires normalized expr(1.0) < 0.8 for SOURCE-GRADED, with NO-COLLAPSE as the flat-curve reading. Verdict precedence: GATE-THRESHOLD > SOURCE-GRADED > NO-COLLAPSE.",
+    "REPORT-ONLY RIDER (not a registered bar): probe-1 adds halfnorm/double-norm arms (wpe[0] x 0.5 / x 2.0, direction kept) to separate presence-only from norm-magnitude-keyed role; the rider never gates a verdict."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt",
+      "runs/checkpoints/e048_repro.pt",
+      "runs/checkpoints/e119_r_jittered_r150.pt",
+      "runs/checkpoints/e119_r_jittered_r300.pt"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 86.0
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": false
+  }
+}
