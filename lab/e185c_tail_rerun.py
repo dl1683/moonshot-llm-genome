@@ -293,10 +293,16 @@ E184_TRACE = {
 E184_DEVICE_EVENTS = [
     {"tag": "s10903", "step": 175, "event": "MID-RUN MIGRATION",
      "status": {"util": 91.0, "mem_used": 1104.0, "mem_total": 24463.0,
-                "temp": 83.0, "power": 99.12}},
+                "temp": 83.0, "power": 99.12},
+     "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + "
+             "optimizer state moved to CPU; training finishes on CPU "
+             "(e152 precedent)"},
     {"tag": "s10904", "step": 275, "event": "MID-RUN MIGRATION",
      "status": {"util": 77.0, "mem_used": 1104.0, "mem_total": 24463.0,
-                "temp": 83.0, "power": 111.35}},
+                "temp": 83.0, "power": 111.35},
+     "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + "
+             "optimizer state moved to CPU; training finishes on CPU "
+             "(e152 precedent)"},
 ]
 
 # ---- registered bar constants (frozen; see OPERATIONALIZATIONS above) ---------
