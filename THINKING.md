@@ -575,6 +575,27 @@ evidence. The wiring trace (e132) demotes to optional:
 row-0 growth across checkpoints answers its kernel question more
 directly and eval-only.
 
+## T089 — E146: the self-instrument does not travel — and that is data (2026-09-28 ~10:25Z)
+
+The dissociation matrix could not run: the e111-lineage self/
+other battery fails at baseline on the B43 line (foreign gap
+0.018 vs 1.0). Read carefully, the null carries information:
+the lab's self-recognition findings are LINEAGE-INDEXED — the
+binary step, the k*=7 signature, the exclusion all live on the
+nets they were measured on, and the instrument does not just
+transfer. Two live readings: (a) the B43 line genuinely lacks
+the self/other margin (families differ in whether they verify —
+e108's binary two-cluster step was family-typed at 0.40-vs-0.14;
+maybe B43 sits below it); (b) the battery's donor/null
+conventions are calibration-sensitive (the 1.0 gap bar was tuned
+on the home line). DISCRIMINATOR (cheap, queued as the e146
+repair): run the SAME matrix on the e111 HOME lineage's nets
+(they are on disk) — if the battery works there and fails on
+B43 under matched conventions, reading (a) strengthens and
+self-recognition joins the family-typed physics; if it fails
+both, the battery's conventions need recalibration and W015
+stays parked. W015 marked; e156 BLOCKED.
+
 ## T088 — E151: the cliff is PER-NET — memory type is a global phase of one substrate, and the transition runs BOTH WAYS (2026-09-28 ~10:10Z)
 
 The committed prediction failed honestly and the failure is the
@@ -633,6 +654,16 @@ GRADE the competition; it OPENS it. The biology echo sharpens:
 systems consolidation in the literature is discussed as graded
 transfer; here the DECISION to transfer is all-or-none at the
 moment the positional key stops being perfectly predictive.
+
+MAGNITUDE BOUND (R46 critic — the honest form): the step's
+core is the SIGN and the NR onset (both ~10-20x their controls);
+"dies" and "no width trend" overran the numbers — the w64 A
+endpoint is 20% of w8's (5x rung scatter, single seed, zero
+cross-seed variance on this dial), and NR falls 0.903 -> 0.605
+from w8 to w64 (W010's ghost half-alive). Bound: the key's
+positive load (<= +0.327) is abolished; what replaces it is a
+WEAK negative (|A| <= 0.13), sign-robust, magnitude unresolved
+pending 2-3 re-seeds.
 
 THE ROADS DIVERGE IN OPPOSITE DIRECTIONS FROM THE FIRST RUNG:
 locked replay strengthens the trained-geometry key (+0.327)
@@ -976,7 +1007,7 @@ NEAR routes, proximity wins and the invariance story ends; if
 NEAR stays site-stored, invariance survives its observational
 death.
 
-## T082 — E139: two memory types — ROUTED vs SITE-STORED — and the dreams that dream in coordinates (2026-09-28 ~08:15Z)
+## T082 — [TYPE RENAMED by e150/T086: ROUTED -> SINK-COUPLED; 'body-stored' -> content-in-heads/body; see T088: types are PHASES] E139: two memory types — sink-coupled vs site-stored — and the dreams savor (bounded) (2026-09-28 ~08:15Z)
 
 The taxonomy completes, and it is cleaner than any card
 predicted. The splice arms (error at a fixed novel site) produce
@@ -1050,7 +1081,7 @@ e136's surprisal prediction now has a mechanism to explain the
 500x: dreams protect by SLOWING EROSION at the address they
 never leave, not by moving anything.
 
-## T081 — E141: presence, not content — the fact routes through row 0 EXISTING (2026-09-28 ~08:05Z)
+## T081 — [HARD-BOUNDED by e150/T086: 'routes through' is sink-HEALTH dependence (poisoning), not information flow; presence claims rest on the perm/halfnorm/mean riders] E141: presence, not content — the fact needs row 0 EXISTING (2026-09-28 ~08:05Z)
 
 The R44 critic's crack is confirmed and sharpened beyond it.
 "Re-keyed to row 0" is formally dead: removing the entire
@@ -1110,7 +1141,7 @@ ROUTE's row-0 DEPENDENCE grow with jitter dose and stay flat
 under locked/erase? (The e131 content test measures presence-
 necessity — still the right dial, renamed.)
 
-## T080 — E133: content is everywhere, routes are the difference — the read-policy frame's first direct support (2026-09-28 ~07:45Z)
+## T080 — [RENAMED FRAME post-e150: 'routes' -> sink-health coupling; content claims stand] E133: content is everywhere, access differs — the read-policy frame's first direct support (2026-09-28 ~07:45Z)
 
 The anatomy census returned TEXTURE as registered, but the
 texture IS the finding, and it is the strongest support yet for
@@ -1696,7 +1727,7 @@ net curiosity. CAVEAT (R45's ghost): all presence claims carry
 the flat-CE bound until e150 lands; this card's 'native organ'
 language inherits it.
 
-## W015 — WONDER: does the self survive losing its pivot? Connecting the two arcs (2026-09-28 ~08:18Z)
+## W015 — [UNADJUDICABLE on this rig: e146 instrument-invalid — the self-battery does not transfer to B43; home-lineage rerun queued] WONDER: does the self survive losing its pivot? Connecting the two arcs (2026-09-28 ~08:18Z)
 
 The memory arc and the self arc have never touched
 mechanistically. The self-recognition machinery (binary
@@ -2025,7 +2056,7 @@ every instrument that assumed discreteness (pair slots, organ
 partitions, 'the' sink head) returned overlap. Discreteness was
 always the metaphor's artifact.
 
-## W008 — WONDER: adapters into a position-invariant readout — consolidation as a two-step wiring (2026-09-28 ~06:00Z; ripening, no bars yet)
+## W008 — [SUPERSEDED vocabulary: 'e113's end-stage BODY-STORED' below = sink-coupled content-in-heads; maturation already retracted R44] WONDER: adapters into a position-invariant readout — consolidation as a two-step wiring (2026-09-28 ~06:00Z; ripening, no bars yet)
 
 T075 says the operative ingredient is the fact's history of being
 READ from many addresses. Read by WHAT? e116's orthogonal-content

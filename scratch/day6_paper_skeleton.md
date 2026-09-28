@@ -15,7 +15,7 @@ We dissect memory consolidation in 0.84-2.7M-parameter char-LMs with
 pre-registered interventions and deletion batteries. Four findings. (1)
 A fact consolidates where its training error is placed — shown causally by
 steering: error locked at positions 5-13 builds a site-store there, with no
-routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, bidirectionally switchable at fixed wiring (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
+routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, bidirectionally switchable at fixed architecture (both directions are 300 trained steps) (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
 (content concentrated at a row, context-general, geometry-bound) and ROUTED
 (readout keyed to the omnipresent row's presence, geometry-general,
 deletion-tolerant) — switched by the error's position-variance. (3) Content
@@ -52,8 +52,9 @@ C5. Methodology: the correction chain itself (three headline verdicts inverted
 
 Fig 1 (THE plate): rows = {NEAR locked, FAR locked, jitter ±8, [ladder w=1..64
 from e147]}, columns = {site content census, novel-geometry generalization,
-D-all survival, brake sign}. e143's numbers already fill the core 3x4:
-0.278/0.002/0.003/neg; 0.238/0.205/0.156/~0; 0.722/0.914/0.903/brake.
+D-all survival, brake sign}. e143's numbers fill the core 3x4 (brake column
+CORRECTED per R46 audit — was transposed):
+NEAR 0.278/0.002/0.003/~0; FAR 0.238/0.205/0.156/-0.233; JITTER 0.722/0.914/0.903/brake(-0.132).
 Fig 2: the flat-CE plane (fact-drop vs CE-cost scatter, every intervention,
 flat-CE region shaded) — from e150; the paper's honesty centerpiece.
 Fig 3: the correction chain timeline (verdict → attack → discriminator →

@@ -149,12 +149,20 @@ The net is born with one memory organ — the omnipresent row — and
 protocols decide whether to graft a second: error chooses where
 content lands, variance chooses whether it hardens into a graft
 or rides the organ's health, and consolidation is the movement
-from the removable to the irremovable. Postscript (e151): the
+from the removable into machinery whose CORRUPTION is
+organism-fatal — whether its readout is surgically attackable
+is the open frontier (the L0H3 head-ablation near-miss, 58.6%
+at CE +0.21, is one cell from deciding it). Postscript (e151): the
 types are PHASES, not subsystems — one locked re-teach converted
 the sink-coupled memory to site-stored (g-12 0.916 -> 0.102) at
-improved CE, closing the geometry door globally; the cliff runs
-both ways, and the read policy is its order parameter. (The self
-waits at the door — e146 pending.)
+improved CE, closing the geometry door globally [R46 critic: n=1 same-fact
+cell; the different-fact and jitter-at-183 cells are queued —
+"globally" is provisional]; the cliff runs
+both ways, and the read policy is its order parameter [R46: a
+metaphor e153 will test]. (e146 landed INSTRUMENT-INVALID — the
+self-battery does not transfer to this line; the self question
+parks pending a lineage-native rig.)
+...two forks were committed
 to paper before their experiments ran (e143's proximity-vs-
 invariance; e125's heads-ordering). The audit also repaired three
 orphaned runs from earlier days (E019/E078/E088) and caught the

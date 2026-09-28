@@ -63,6 +63,28 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 
 
+## E146 — the dissociation matrix: INSTRUMENT-INVALID — the self/other battery does not transfer to this line (2026-09-28 ~10:25Z) — DONE (null)
+
+WHAT WE DID: the full intervention x function matrix (mask /
+poison ladder / perm / head ablation x fact / self / CE) on the
+B43-line consolidated net with the e111/e112 battery ported.
+
+WHAT WE SAW (T089): the battery FAILS AT BASELINE — the foreign
+donor does not collapse (gap 0.018 vs the >= 1.0 bar; every cell
+reads ACCEPTS-FOREIGN; the printed ROUTED/TENANT clauses are
+VOID). A weak occupancy separation survives (k*=1, E_sib 0.235 vs
+E_for 0.077, clears nulls) but it is not the e111 holographic
+k*=7 signature. Interpretation: INSTRUMENT TRANSFER FAILURE —
+either this line lacks the binary self/other step or the donor/
+null conventions mismatch; self-recognition, where the lab has
+found it, is lineage-particular (consistent with family-typed
+anchor physics, e108). W015's question (does the self survive
+losing its pivot) is UNADJUDICABLE on this rig; e156 BLOCKED
+until a lineage-native battery exists (options: run the matrix
+on the e111 home lineage instead — its nets and battery exist).
+
+---
+
 ## E151 — the P-b cell: ROUTE-OVERWRITES — the cliff is PER-NET; locked re-teaching converts the memory to site-only and closes the geometry door GLOBALLY (2026-09-28 ~10:10Z) — DONE
 
 WHAT WE DID: one GPU re-teach (e143's locked-replay protocol,
