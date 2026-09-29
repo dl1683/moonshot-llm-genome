@@ -229,8 +229,9 @@ gentle rate spares within its horizon, exactly as e180's t* ~
 lr^-1.16 predicts), the organism stays healthy while the facts
 erode (the corpus direction's surgicality, at scale), and the
 decay is slower per unit lr than the tiny-nets' two-step clock
-(the basin is WIDER at 124M — proportionally, exactly as
-sqrt(P) scaling would suggest). NO RESISTANCE: pretrained
+(the basin is WIDER at 124M — the exit gradual and lr-gated
+(~5-10x slower on the lr axis; NOT the two-step clock, which
+does not replicate: +10 retention 0.987-1.004 at both lrs)). NO RESISTANCE: pretrained
 facts are not archives either; they are practiced harder.
 Honesty: the probe set is hyper-consolidated (selected for
 recall >= 0.8 — the floor of what a real model knows; harder

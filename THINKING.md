@@ -684,7 +684,20 @@ to 0.66 retention by +50 steps with the perplexity IMPROVING
 (the corpus gets better as the facts fade — the surgical
 signature, at 148x the lab's scale); at 5e-6 they hold within
 the horizon — the lr-scaling the rate law predicts. THE BASIN
-IS WIDER (proportionally, ~sqrt(P)); THE LAW IS THE SAME.
+IS WIDER (the exit is real but gradual, lr-gated, ~5-10x slower on
+the lr axis than the small-net rate law — NOT proportional
+sqrt(P) as first read [corrected per the official report]);
+THE LAW IS THE SAME IN DIRECTION, SLOWER IN TIME CONSTANT.
+THE OFFICIAL REPORT'S SHARPER FRAME: GPT-2 sits BETWEEN the
+lab's two extremes — not basin-free (the two-step wash does
+NOT replicate: +10 retention 0.987-1.004 at BOTH lrs), not
+wash-resistant (no protected basin: 5e-5 broke 0.80 by +50).
+The decay is broad (Paris 0.685->0.251, Cairo ->0.162,
+dollar ->0.130); the few-shot conflation (2-shot context is
+part of the instrument — the decay's locus, fact-storage vs
+task-following, unadjudicated); the probe bias is toward
+resistance (so the kill is strong, the flat +10 an upper
+bound on speed).
 The field-facing line's final form stands: pretrained facts
 are not archives either — they are facts practiced harder; the
 dataloader's direction still chooses who dies, now at scale.
