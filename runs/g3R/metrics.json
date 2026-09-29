@@ -1,0 +1,387 @@
+{
+  "experiment": "g3R_seed_replicates",
+  "date": "2026-09-29T20:58:24Z",
+  "purpose": "THE CONE SEED REPLICATES: does g3's direction-vs-energy split (wash direction kills the store at 1x while matched-L2 isotropic spares through 4x) replicate across wash/noise draw seeds? n=1 -> n=3 (R55's ladder; T126's deepest cell)",
+  "registered_criteria": {
+    "dispatch": "e70f44b",
+    "SPLIT-REPLICATES": "both new seeds: WASH-KILLS (g0 <= 0.27 at lambda in {1,2} along own measured wash direction) AND ISO-SPARES (min g0 >= 0.50 at isotropic levels {2,4} of own Dstore(t*), all 3 draws) -> cone claim licensed at n=3",
+    "SPLIT-SEED-BOUND": "any seed breaks either leg (honest bound; report which)",
+    "bars": {
+      "SHUT_BAR": 0.27,
+      "SURVIVE_BAR": 0.5
+    },
+    "no_bar_shopping": true
+  },
+  "reference": {
+    "source": "runs/g3/metrics.json (T126; wash seed 10902)",
+    "root_g0": 0.8885950446128845,
+    "g3_param_basin": {
+      "Dstore_t_star": 0.13184139341968207,
+      "lambda_sweep": [
+        {
+          "lambda": 0.0,
+          "store_disp": 0.0,
+          "g0": 0.8885950446128845
+        },
+        {
+          "lambda": 0.25,
+          "store_disp": 0.03296034835492052,
+          "g0": 0.7806947231292725
+        },
+        {
+          "lambda": 0.5,
+          "store_disp": 0.06592069670984103,
+          "g0": 0.637468159198761
+        },
+        {
+          "lambda": 1.0,
+          "store_disp": 0.13184139341968207,
+          "g0": 0.23796182870864868
+        },
+        {
+          "lambda": 2.0,
+          "store_disp": 0.26368278683936414,
+          "g0": 0.0029905191622674465
+        },
+        {
+          "lambda": 4.0,
+          "store_disp": 0.5273655736787283,
+          "g0": 0.0005854839691892266
+        }
+      ],
+      "isotropic": [
+        {
+          "level": 0.25,
+          "store_disp": 0.03296034835492052,
+          "g0_mean": 0.8890016476313273,
+          "g0_min": 0.8886895775794983,
+          "g0_max": 0.8893868327140808,
+          "g0_seeds": [
+            0.8893868327140808,
+            0.8889285326004028,
+            0.8886895775794983
+          ]
+        },
+        {
+          "level": 0.5,
+          "store_disp": 0.06592069670984103,
+          "g0_mean": 0.8893030881881714,
+          "g0_min": 0.8886803984642029,
+          "g0_max": 0.890066921710968,
+          "g0_seeds": [
+            0.890066921710968,
+            0.8891619443893433,
+            0.8886803984642029
+          ]
+        },
+        {
+          "level": 1.0,
+          "store_disp": 0.13184139341968207,
+          "g0_mean": 0.8895943760871887,
+          "g0_min": 0.8883522152900696,
+          "g0_max": 0.8911008834838867,
+          "g0_seeds": [
+            0.8911008834838867,
+            0.8893300294876099,
+            0.8883522152900696
+          ]
+        },
+        {
+          "level": 2.0,
+          "store_disp": 0.26368278683936414,
+          "g0_mean": 0.8889480431874593,
+          "g0_min": 0.8864484429359436,
+          "g0_max": 0.8919150829315186,
+          "g0_seeds": [
+            0.8919150829315186,
+            0.8884806036949158,
+            0.8864484429359436
+          ]
+        },
+        {
+          "level": 4.0,
+          "store_disp": 0.5273655736787283,
+          "g0_mean": 0.8827516833941141,
+          "g0_min": 0.877475917339325,
+          "g0_max": 0.8887806534767151,
+          "g0_seeds": [
+            0.8887806534767151,
+            0.8819984793663025,
+            0.877475917339325
+          ]
+        }
+      ],
+      "lambda_star": 1.0,
+      "narrow": true,
+      "D_disc_sdisc": 0.916419706836259,
+      "per_coord": {
+        "g3_store_kill_rms": 0.0009992573362094896,
+        "sdisc_kill_rms": 0.0009805504105373092
+      }
+    },
+    "g3_split_numbers": {
+      "lambda_g0_1x": 0.238,
+      "lambda_g0_2x": 0.003,
+      "isotropic_mean_1x_to_4x": [
+        0.8896,
+        0.8889,
+        0.8828
+      ],
+      "isotropic_min_4x": 0.8775,
+      "Dstore_t_star": 0.13184139341968207
+    }
+  },
+  "organ": {
+    "root": "runs/checkpoints/g3_gen.pt",
+    "construction_seed": 43050,
+    "construction_n": 1,
+    "note": "the organ is REUSED (not redrawn) \u2014 the split's n=3 is over wash/noise draws on ONE constructed organ",
+    "provenance_gates": {
+      "root_ckpt": "runs/checkpoints/g3_gen.pt",
+      "meta": {
+        "experiment": "g3",
+        "desc": "e098_base_s4305 + g3-GEN organ (store-only training, seed 43050)",
+        "steps": 300,
+        "cal_steps": 0,
+        "seed": 43050,
+        "device": "cuda",
+        "kind": "gen",
+        "base": "runs/checkpoints/e098_base_s4305.pt"
+      },
+      "host_bit_identical_to_base": true,
+      "root_g0": 0.8885950446128845,
+      "ref_root_g0": 0.8885950446128845,
+      "root_g0_reproduces": true,
+      "store_off_g0": 0.0012461830126388425,
+      "store_off_bar": 0.27,
+      "store_off_pass": true,
+      "pass": true
+    }
+  },
+  "replicates": [
+    {
+      "seed": 10905,
+      "iso_draw_seeds": [
+        11101,
+        11102,
+        11103
+      ],
+      "wash": {
+        "ckpt_g0": [
+          {
+            "step": 1,
+            "g0": 1.4029239991941722e-06
+          },
+          {
+            "step": 2,
+            "g0": 2.2928395537746837e-06
+          },
+          {
+            "step": 4,
+            "g0": 1.155213794845622e-05
+          },
+          {
+            "step": 10,
+            "g0": 2.421468479951727e-06
+          }
+        ],
+        "t_star": 1,
+        "Dstore_t_star": 0.13180034651534364,
+        "clock_replicates_g3": true,
+        "steps_ran": 10,
+        "device": "cuda",
+        "zeph_violations": 0
+      },
+      "lambda_rows": [
+        {
+          "lambda": 1.0,
+          "store_disp": 0.13180034651534364,
+          "g0": 0.5970025658607483
+        },
+        {
+          "lambda": 2.0,
+          "store_disp": 0.2636006930306873,
+          "g0": 0.15559056401252747
+        }
+      ],
+      "iso_rows": [
+        {
+          "level": 1.0,
+          "store_disp": 0.13180034651534364,
+          "g0_mean": 0.8858900467554728,
+          "g0_min": 0.8825876712799072,
+          "g0_max": 0.8896597027778625,
+          "g0_seeds": [
+            0.8896597027778625,
+            0.8854227662086487,
+            0.8825876712799072
+          ]
+        },
+        {
+          "level": 2.0,
+          "store_disp": 0.2636006930306873,
+          "g0_mean": 0.8814855416615804,
+          "g0_min": 0.87468022108078,
+          "g0_max": 0.8896369934082031,
+          "g0_seeds": [
+            0.8896369934082031,
+            0.8801394104957581,
+            0.87468022108078
+          ]
+        },
+        {
+          "level": 4.0,
+          "store_disp": 0.5272013860613746,
+          "g0_mean": 0.867201566696167,
+          "g0_min": 0.8521517515182495,
+          "g0_max": 0.88642817735672,
+          "g0_seeds": [
+            0.88642817735672,
+            0.8630247712135315,
+            0.8521517515182495
+          ]
+        }
+      ],
+      "WASH_KILLS": true,
+      "ISO_SPARES": true,
+      "SPLIT": true
+    },
+    {
+      "seed": 10906,
+      "iso_draw_seeds": [
+        11111,
+        11112,
+        11113
+      ],
+      "wash": {
+        "ckpt_g0": [
+          {
+            "step": 1,
+            "g0": 1.306067224504659e-05
+          },
+          {
+            "step": 2,
+            "g0": 8.924209282668016e-07
+          },
+          {
+            "step": 4,
+            "g0": 1.3347507774597034e-05
+          },
+          {
+            "step": 10,
+            "g0": 2.921857003457262e-06
+          }
+        ],
+        "t_star": 1,
+        "Dstore_t_star": 0.1318891256823466,
+        "clock_replicates_g3": true,
+        "steps_ran": 10,
+        "device": "cuda",
+        "zeph_violations": 0
+      },
+      "lambda_rows": [
+        {
+          "lambda": 1.0,
+          "store_disp": 0.1318891256823466,
+          "g0": 0.5641894936561584
+        },
+        {
+          "lambda": 2.0,
+          "store_disp": 0.2637782513646932,
+          "g0": 0.09562158584594727
+        }
+      ],
+      "iso_rows": [
+        {
+          "level": 1.0,
+          "store_disp": 0.1318891256823466,
+          "g0_mean": 0.8896624445915222,
+          "g0_min": 0.8845667243003845,
+          "g0_max": 0.8941274881362915,
+          "g0_seeds": [
+            0.8845667243003845,
+            0.8902931213378906,
+            0.8941274881362915
+          ]
+        },
+        {
+          "level": 2.0,
+          "store_disp": 0.2637782513646932,
+          "g0_mean": 0.8892263174057007,
+          "g0_min": 0.8789817094802856,
+          "g0_max": 0.8980414867401123,
+          "g0_seeds": [
+            0.8789817094802856,
+            0.8906557559967041,
+            0.8980414867401123
+          ]
+        },
+        {
+          "level": 4.0,
+          "store_disp": 0.5275565027293864,
+          "g0_mean": 0.8838399648666382,
+          "g0_min": 0.8621969819068909,
+          "g0_max": 0.9018124938011169,
+          "g0_seeds": [
+            0.8621969819068909,
+            0.8875104188919067,
+            0.9018124938011169
+          ]
+        }
+      ],
+      "WASH_KILLS": true,
+      "ISO_SPARES": true,
+      "SPLIT": true
+    }
+  ],
+  "adjudication": {
+    "verdict": "SPLIT-REPLICATES",
+    "clause": "BOTH new seeds show the split (wash-direction kills at <=2x; isotropic spares at >=2x with min g0 >= 0.50) \u2014 with g3's original cell the direction-vs-energy split is n=3: THE BASIN IS A CONE [the store's own] is licensed. TEXTURE (co-reported, honest): the kill boundary along the wash direction is draw-sensitive between 1x and 2x \u2014 g3's s10902 killed AT 1x (g0 0.238); both replicates sit ABOVE the dissolve bar at 1x (s10905 0.597, s10906 0.564) and kill at 2x (s10905 0.156, s10906 0.096); the registered <=2x criterion holds 3/3, but 'kills at exactly 1x' is a draw artifact \u2014 the cone's edge along the wash direction lies between 1x and 2x. The DISSOCIATION is the replicating object: at 2x displacement the wash direction reads 0.10-0.16 while isotropic reads 0.85-0.89.",
+    "broken": [],
+    "kill_lambda_per_seed": {
+      "s10905": 2.0,
+      "s10906": 2.0
+    },
+    "g0_at_1x_per_seed": {
+      "s10905": 0.5970025658607483,
+      "s10906": 0.5641894936561584
+    },
+    "g0_at_2x_per_seed": {
+      "s10905": 0.15559056401252747,
+      "s10906": 0.09562158584594727
+    },
+    "texture": "TEXTURE (co-reported, honest): the kill boundary along the wash direction is draw-sensitive between 1x and 2x \u2014 g3's s10902 killed AT 1x (g0 0.238); both replicates sit ABOVE the dissolve bar at 1x (s10905 0.597, s10906 0.564) and kill at 2x (s10905 0.156, s10906 0.096); the registered <=2x criterion holds 3/3, but 'kills at exactly 1x' is a draw artifact \u2014 the cone's edge along the wash direction lies between 1x and 2x. The DISSOCIATION is the replicating object: at 2x displacement the wash direction reads 0.10-0.16 while isotropic reads 0.85-0.89.",
+    "cone_claim": "licensed at n=3"
+  },
+  "gates": {
+    "protocol": {
+      "corpus_zeph": 0,
+      "splice_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "neutral_rejections": 2,
+      "neutral_junctions": 0
+    },
+    "gpu_at_start": {
+      "util": 0.0,
+      "mem_used": 449.0,
+      "mem_total": 24463.0,
+      "temp": 63.0,
+      "power": 17.53
+    },
+    "gpu_parked": false,
+    "park_reason": null,
+    "device_events": []
+  },
+  "deviations": [
+    "The ORGAN is reused from disk (runs/checkpoints/g3_gen.pt, construction seed 43050) \u2014 the construction remains n=1; this replicate redraws only the WASH DRAW SEED (10905, 10906 vs g3's 10902) and the ISOTROPIC DRAW SEEDS (11101-3 / 11111-3 vs g3's 11011-13). The split's n=3 is over wash/noise draws on ONE constructed organ.",
+    "Grids restricted to the dispatch's critical points: lambda {1, 2} (wash leg) and isotropic {1, 2, 4} (spare leg); g3's full grids (lambda {0,.25,.5,1,2,4}; iso {0.25,...,4}) remain the reference and are overlaid in the plot from runs/g3/metrics.json.",
+    "ISO-SPARES is adjudicated on the MIN draw across the 3 directions per level (conservative; g3's own per-arm SPARES logic required every matched point >= bar) \u2014 mean co-reported.",
+    "No checkpoints written (wash sds in-memory; g3's cells already on disk); 10-step washes (t* = +1 in g3; the +4/+10 checkpoints cover a clock shift); lean batteries only \u2014 no full dials, no census, no rider (g3 already adjudicated those; this run is the split replicate alone)."
+  ],
+  "timing": {
+    "total_s": 171.4
+  },
+  "threads": 8
+}
