@@ -1,0 +1,184 @@
+{
+  "experiment": "e152r_reseeds",
+  "date": "2026-09-28T13:37:34Z",
+  "smoke": true,
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_GEO": {
+      "trace_name_xcols": [
+        184,
+        190
+      ],
+      "trace_all_windows_name_in_place": true,
+      "trace_mask_targets_per_window": 7,
+      "trace_zero_variance": true,
+      "band_name_xcols": [
+        130,
+        136
+      ],
+      "band_all_windows_name_in_place": true,
+      "band_mask_targets_per_window": 7,
+      "band_zero_variance": true,
+      "pool_sizes": {
+        "trace": 60,
+        "band": 60
+      },
+      "pass": true
+    },
+    "G_CONS": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "bit_reproducible": true,
+      "pass": true
+    },
+    "G_ROW0": {
+      "mean": 0.7842019017236945,
+      "zero": 0.7316772222270098,
+      "ref_mean": 0.7842019017236945,
+      "ref_zero": 0.7316772222270098,
+      "pass": true
+    },
+    "G_A129": {
+      "mean": -0.1084650677318375,
+      "zero": -0.13237020391970877,
+      "ref_mean": -0.1084650677318375,
+      "ref_zero": -0.13237020391970877,
+      "pass": true
+    },
+    "G_DALL": {
+      "dall_g0": 0.9047248959541321,
+      "ref": 0.9047248959541321,
+      "pass": true
+    }
+  },
+  "trace_runs": {
+    "10903": {
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 2,
+          "p_z_mean": 0.8527125120162964,
+          "frac_argmax_z": 0.9666666666666667,
+          "ce_r": 2.109757661819458,
+          "elapsed_s": 33.2
+        },
+        {
+          "step": 4,
+          "p_z_mean": 0.8493568897247314,
+          "frac_argmax_z": 0.9166666666666666,
+          "ce_r": 1.829572319984436,
+          "elapsed_s": 42.7
+        }
+      ]
+    },
+    "10904": {
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 2,
+          "p_z_mean": 0.675846517086029,
+          "frac_argmax_z": 0.9166666666666666,
+          "ce_r": 2.01200270652771,
+          "elapsed_s": 8.1
+        },
+        {
+          "step": 4,
+          "p_z_mean": 0.6444308757781982,
+          "frac_argmax_z": 0.7333333333333333,
+          "ce_r": 1.853587031364441,
+          "elapsed_s": 12.4
+        }
+      ]
+    }
+  },
+  "straddle_runs": {
+    "10905": {
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 4,
+          "p_z_mean": 0.8351237177848816,
+          "frac_argmax_z": 0.8833333333333333,
+          "ce_r": 1.8273526430130005,
+          "elapsed_s": 1.7
+        }
+      ],
+      "gm12": 0.7861812114715576
+    },
+    "10906": {
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 4,
+          "p_z_mean": 0.5195071697235107,
+          "frac_argmax_z": 0.48333333333333334,
+          "ce_r": 1.8816931247711182,
+          "elapsed_s": 2.7
+        }
+      ],
+      "gm12": 0.4079008996486664
+    }
+  },
+  "ckpt_inventory": {
+    "smoke_e152r_s10903_steps2": {
+      "path": "runs/checkpoints/smoke_e152r_s10903_steps2.pt",
+      "desc": "e131_consolidated_e113 + 2-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10903 \u2014 sequential-continuation snapshot of the single 4-step run (e152R re-seed)",
+      "steps": 2,
+      "seed": 10903,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e152r_s10903_steps4": {
+      "path": "runs/checkpoints/smoke_e152r_s10903_steps4.pt",
+      "desc": "e131_consolidated_e113 + 4-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10903 \u2014 sequential-continuation snapshot of the single 4-step run (e152R re-seed)",
+      "steps": 4,
+      "seed": 10903,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e152r_s10904_steps2": {
+      "path": "runs/checkpoints/smoke_e152r_s10904_steps2.pt",
+      "desc": "e131_consolidated_e113 + 2-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10904 \u2014 sequential-continuation snapshot of the single 4-step run (e152R re-seed)",
+      "steps": 2,
+      "seed": 10904,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e152r_s10904_steps4": {
+      "path": "runs/checkpoints/smoke_e152r_s10904_steps4.pt",
+      "desc": "e131_consolidated_e113 + 4-step locked replay of ZEPHYRA at read rows 183..189 (x-cols 184..190), name-only mask, seed 10904 \u2014 sequential-continuation snapshot of the single 4-step run (e152R re-seed)",
+      "steps": 4,
+      "seed": 10904,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e152r_locked_band_s10905": {
+      "path": "runs/checkpoints/smoke_e152r_locked_band_s10905.pt",
+      "desc": "e131_consolidated_e113 + 4-step LOCKED replay of ZEPHYRA at the home band (x-cols 130..136, onset read row 129, e119-L / e158 arm-b convention), name-only mask, seed 10905 (e152R straddle settler)",
+      "steps": 4,
+      "seed": 10905,
+      "device": "cuda",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e152r_locked_band_s10906": {
+      "path": "runs/checkpoints/smoke_e152r_locked_band_s10906.pt",
+      "desc": "e131_consolidated_e113 + 4-step LOCKED replay of ZEPHYRA at the home band (x-cols 130..136, onset read row 129, e119-L / e158 arm-b convention), name-only mask, seed 10906 (e152R straddle settler)",
+      "steps": 4,
+      "seed": 10906,
+      "device": "cuda",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "trims": [],
+  "timing": {
+    "total_s": 569.5
+  }
+}

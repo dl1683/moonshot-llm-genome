@@ -1,0 +1,928 @@
+{
+  "experiment": "g2",
+  "date": "2026-09-29T13:29:11Z",
+  "purpose": "THE REHEARSAL ORGAN \u2014 the generative turn's first built architecture (zero-new-parameter wrapper: cue pool + read monitor + rehearsal gate + error replay) vs the gate-disabled base under the e176N neutral wash, with the e121 ghost control and the r=1/32 schedule anchor.",
+  "design_spec": "scratch/g2_design.md",
+  "smoke": true,
+  "threads": 8,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "organ": {
+    "cadence": 4,
+    "k_mon": 8,
+    "mon_offsets": [
+      0,
+      -4,
+      4
+    ],
+    "theta_open": 0.5,
+    "refractory": 24,
+    "cue_pool": [
+      300,
+      256
+    ],
+    "cue_mask": [
+      300,
+      255
+    ],
+    "new_learnable_params": 0,
+    "root_monitor": 0.12063876539468765
+  },
+  "compute": {
+    "gpu_at_start": {
+      "util": 0.0,
+      "mem_used": 10925.0,
+      "mem_total": 24463.0,
+      "temp": 77.0,
+      "power": 21.62
+    },
+    "parked": false,
+    "park_reason": null,
+    "device_events": [],
+    "cooldown_s": 60.0,
+    "train_cap_s": 1800.0
+  },
+  "root": {
+    "e157_check": {
+      "geos": {
+        "g-12": 0.19826222956180573,
+        "g+0": 0.5784125924110413,
+        "g+12": 0.5911492705345154
+      },
+      "ruler_geo": 12,
+      "ruler": 0.5911492705345154,
+      "root_bar": 0.7,
+      "passes": false
+    },
+    "attempts": [
+      {
+        "attempt": "r1s_s4305_i8",
+        "base": "e098_base_s4305.pt",
+        "gen_seed": 4305,
+        "install_steps": 8,
+        "install_final": {
+          "step": 8,
+          "install60_pz": 0.39983898401260376,
+          "r1i_nll": 0.801211416721344,
+          "r1i_acc": 0.8309524059295654
+        },
+        "geos": {
+          "g-12": 0.0022205791901797056,
+          "g+0": 0.0020340944174677134,
+          "g+12": 0.002377510303631425
+        },
+        "jit_geos": {},
+        "ruler_geo": 12,
+        "ruler": 0.002377510303631425,
+        "passes": false,
+        "cons_traj": [
+          {
+            "step": 8,
+            "install60_pz": 0.0020340944174677134,
+            "ce_r": 2.89866304397583,
+            "elapsed_s": 0.7
+          }
+        ],
+        "devices": {
+          "install": "cuda",
+          "consolidation": "cuda"
+        }
+      }
+    ],
+    "root_bound": true,
+    "root_bar": 0.7,
+    "ruler_geo": 12,
+    "ruler_key": "gp12",
+    "cells": {
+      "gm12": 0.0022205791901797056,
+      "g0": 0.0020340944174677134,
+      "gp12": 0.002377510303631425,
+      "held30_gm12": 0.0020978220272809267,
+      "held30_g0": 0.0020569844637066126,
+      "ce_r": 2.89866304397583,
+      "site_read_onset": 0.0019042434869334102,
+      "site_read_span": 0.07529812306165695,
+      "A129": -0.0011863745268783535
+    },
+    "meta": {
+      "desc": "fresh root r1s_s4305_i8: e043-Dmix install (8 steps, gen 4305) + e113 jitter consolidation (300 steps, seed 10901) on cuda/cuda",
+      "base": "runs/checkpoints/e098_base_s4305.pt"
+    },
+    "cons_seed": 10901
+  },
+  "cells": {
+    "base": {
+      "mode": "base",
+      "steps_ran": 36,
+      "n_events": 0,
+      "n_checks": 0,
+      "realized_r": 0.0,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0013327315682545304,
+          "g0": 0.0016408507945016026,
+          "gp12": 0.00224832515232265,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.368732929229736,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.0
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.395516927819699e-05,
+          "g0": 7.8432603913825e-05,
+          "gp12": 0.00011246842768741772,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131648540496826,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.8
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.5064485523907933e-05,
+          "g0": 1.904861164803151e-05,
+          "gp12": 2.8870743335573934e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.046093225479126,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.7
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.00014028862642589957,
+          "g0": 0.00012306871940381825,
+          "gp12": 0.00011876009375555441,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.357820987701416,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 4.5
+        }
+      ],
+      "monitor_trace": [],
+      "event_log": [],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "dials_flat": {},
+      "dials_full": {}
+    },
+    "g2": {
+      "mode": "g2",
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 1,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0013327315682545304,
+          "g0": 0.001640850561670959,
+          "gp12": 0.0022483256179839373,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.3687334060668945,
+          "monitor": 0.1841171681880951,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 0.8
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.3955165640218183e-05,
+          "g0": 7.843259663786739e-05,
+          "gp12": 0.0001124684713431634,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131648540496826,
+          "monitor": 0.04728316515684128,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.6
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.5064486433402635e-05,
+          "g0": 1.9048608010052703e-05,
+          "gp12": 2.887074697355274e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.046093225479126,
+          "monitor": 0.012487988919019699,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.4
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.00043544775689952075,
+          "g0": 0.00037975391023792326,
+          "gp12": 0.000423060409957543,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.360661268234253,
+          "monitor": 0.18981477618217468,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 4.2
+        }
+      ],
+      "monitor_trace": [
+        {
+          "step": 24,
+          "check": 6,
+          "monitor": 0.06197947636246681,
+          "fired": true,
+          "became_event": true
+        }
+      ],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 24,
+          "mode": "g2",
+          "pre_event_monitor": 0.06197947636246681,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 0.00043544775689952075,
+            "g0": 0.00037975391023792326,
+            "gp12": 0.000423060409957543
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 0.00043544775689952075,
+            "g0": 0.00037975391023792326,
+            "gp12": 0.000423060409957543
+          }
+        }
+      ],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "dials_flat": {},
+      "dials_full": {}
+    },
+    "echo": {
+      "mode": "echo",
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 1,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.001332731801085174,
+          "g0": 0.0016408506780862808,
+          "gp12": 0.0022483256179839373,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.368732929229736,
+          "monitor": 0.1841171830892563,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.0
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.395516927819699e-05,
+          "g0": 7.843258208595216e-05,
+          "gp12": 0.0001124684204114601,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131648540496826,
+          "monitor": 0.04728315770626068,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.9
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.506448916188674e-05,
+          "g0": 1.9048608010052703e-05,
+          "gp12": 2.8870737878605723e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.046093225479126,
+          "monitor": 0.012487983331084251,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.9
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.00032124543213285506,
+          "g0": 0.0003128712996840477,
+          "gp12": 0.00029711954994127154,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.356498956680298,
+          "monitor": 0.1533728390932083,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 4.7
+        }
+      ],
+      "monitor_trace": [
+        {
+          "step": 24,
+          "check": 6,
+          "monitor": 0.061979491263628006,
+          "fired": true,
+          "became_event": true
+        }
+      ],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 24,
+          "mode": "echo",
+          "pre_event_monitor": 0.061979491263628006,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 0.00032124543213285506,
+            "g0": 0.0003128712996840477,
+            "gp12": 0.00029711954994127154
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 0.00032124543213285506,
+            "g0": 0.0003128712996840477,
+            "gp12": 0.00029711954994127154
+          }
+        }
+      ],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "dials_flat": {},
+      "dials_full": {}
+    },
+    "sched": {
+      "mode": "sched",
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 0,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0013327315682545304,
+          "g0": 0.001640850561670959,
+          "gp12": 0.0022483253851532936,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.368732929229736,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.6
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.39551729161758e-05,
+          "g0": 7.843257480999455e-05,
+          "gp12": 0.00011246844223933294,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131648540496826,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.6
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.5064490071381442e-05,
+          "g0": 1.9048609829042107e-05,
+          "gp12": 2.8870754249510355e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.046093225479126,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 3.9
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.00037560577038675547,
+          "g0": 0.00032787525560706854,
+          "gp12": 0.000316891964757815,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.3522450923919678,
+          "monitor": null,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 5.8
+        }
+      ],
+      "monitor_trace": [],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 32,
+          "mode": "sched",
+          "pre_event_monitor": null,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 0.00037560577038675547,
+            "g0": 0.00032787525560706854,
+            "gp12": 0.000316891964757815
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 0.00037560577038675547,
+            "g0": 0.00032787525560706854,
+            "gp12": 0.000316891964757815
+          }
+        }
+      ],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "dials_flat": {},
+      "dials_full": {}
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "cell_zeph_violations": {
+        "base": 0,
+        "g2": 0,
+        "echo": 0,
+        "sched": 0
+      },
+      "pass": true
+    },
+    "G_JIT": {
+      "jitters": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "pool_shape": [
+        300,
+        256
+      ],
+      "name_in_place_all": true,
+      "mask_targets_per_window": 7,
+      "masks_vary_with_jitter": true,
+      "stays_in_band": true,
+      "note": "e113's jitter set reads the name at onset rows 129+j in [121,137] \u2014 e113/e174/e179 VERBATIM arithmetic; this pool becomes the ORGAN's cue pool (registered_buffer, write-once)",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (e176n arm A / e157 / e179)",
+      "n_windows": 16,
+      "seed": 170,
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 0,
+      "rejections": 2,
+      "windows_with_host_content": 0,
+      "junctions_covered": 0,
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "geos_reloaded": {
+        "g-12": 0.0022205791901797056,
+        "g+0": 0.0020340944174677134,
+        "g+12": 0.002377510303631425
+      },
+      "ce_r_reloaded": 2.89866304397583,
+      "geos_step0": {
+        "g-12": 0.0022205791901797056,
+        "g0": 0.0020340944174677134,
+        "g+12": 0.002377510303631425
+      },
+      "ce_r_step0": 2.89866304397583,
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_REPLAY": {
+      "base": {
+        "n_events": 0,
+        "checks": {
+          "events": 0,
+          "mask7_ok": 0,
+          "anchors_8_8_ok": 0,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      },
+      "g2": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      },
+      "echo": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 0,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 1
+        },
+        "pass": true
+      },
+      "sched": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      }
+    },
+    "G_STEP_PARITY": {
+      "base": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "n_events": 0,
+        "pass": true
+      },
+      "g2": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "n_events": 1,
+        "pass": true
+      },
+      "echo": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "n_events": 1,
+        "pass": true
+      },
+      "sched": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "n_events": 1,
+        "pass": true
+      }
+    },
+    "G_ORGAN_INERT": {
+      "cell": "g2",
+      "step": 300,
+      "bit": null,
+      "pass": null
+    },
+    "G_REPRO": {
+      "form": "shape-level (fresh root; bit-repro N/A by design)",
+      "e157_ref": {
+        "source": "runs/e157/metrics.json stage B (embedded copies verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0.0
+      },
+      "base_ruler_at": {
+        "1": 0.00224832515232265,
+        "2": 0.00011246842768741772,
+        "4": 2.8870743335573934e-05
+      },
+      "e157_stored_gm12_at": {
+        "1": 0.001129803480580449,
+        "2": 0.0011759375920519233,
+        "4": 0.003656684886664152,
+        "50": 0.007448808290064335,
+        "100": 0.004423586186021566,
+        "200": 0.00012963238987140357,
+        "300": 0.00013348007632885128
+      },
+      "dies_like_e157": null,
+      "pass": true,
+      "note": "smoke: not adjudicated"
+    },
+    "gates_surgical": {}
+  },
+  "registered_prediction": {
+    "primary": "under the same rehearsal-free neutral wash that kills the base by +50 (CELL-BASE ruler <= 0.27 \u2014 the contrast gate), g2 MAINTAINS: ruler >= 0.5 at BOTH horizons +50 AND +300 (e179's state-based maintain convention verbatim). The trajectory is a self-triggered SAWTOOTH whose dips stay bounded and whose every event is followed within <= 18-25 steps by a ruler >= 0.5. MID-CYCLE DIPS BELOW 0.27 DO NOT UN-MAINTAIN (the late-grid mean/min over {100,200,300} is co-reported for phase honesty).",
+    "secondary": {
+      "economy": "5 <= n_events <= 25 (realized r in [1/60,1/12]); event spacing concentrates in 20-45 steps; maintaining at n_events <= 4 = a STRONGER economy than e179's (texture).",
+      "anatomy": "every dial >= 50% of ITS OWN root value at +300: held30, site read onset/span, row-0 sink, A129 brake, D-all deletion survival (D-all g0 >= 0.5 x root's).",
+      "organism_health": "CE_R at +300 <= root + 0.10; no sustained concussion.",
+      "ghost_erodes": "CELL-ECHO late-grid mean (over {100,200,300}) < 50% of CELL-G2's, declining across the three checkpoints, ending < 0.4 at +300 despite the gate firing; if ECHO maintains too, locks 2+3 are NOT the active ingredients (recorded either way).",
+      "schedule_parity": "CELL-SCHED maintains at r=1/32 on this family (expected); a failure bounds every g2 verdict with family-2 schedule-fragility.",
+      "coupling": "monitor and ruler track at every checkpoint (both normalized to root); monitor-high/ruler-low divergence = the CUE-OVERFIT texture."
+    },
+    "falsifiers": {
+      "F1_schedule_bound": "CELL-G2 ruler < 0.5 at +50 OR +300 (with the contrast gate passed and the gate firing n_events >= 3, events G_REPLAY-verified).",
+      "F2_erosion": "maintains at +50 but the late-grid {100,200,300} mean < 0.5 AND monotonically declining.",
+      "F3_gate_never_closes": "every post-refractory monitor check fires (n_events at the refractory ceiling ~12-13) AND maintain still fails.",
+      "F4_organism_price": "CE_R > root + 0.25 at +300 (sustained).",
+      "F5_anatomy_fail": "ruler maintains but D-all deletion at +300 kills (D-all g0 < 0.27 vs root's survival).",
+      "structural_void": "CELL-BASE does not die by +50 -> no contrast; a size/family bound on the wash law (informative)."
+    },
+    "law_level_stake": "primary fires -> the resurrection economy is ARCHITECTURALLY SUFFICIENT (the rhythm was the missing organ; e121 localized to echo); fails -> the economy was SCHEDULE-CONTINGENT (the dataloader's phase carried information the net cannot self-supply).",
+    "registration": "scratch/g2_design.md sections 6-7 VERBATIM (committed before this implementation); frozen \u2014 no bar shopping."
+  },
+  "adjudication": {
+    "ruler": {
+      "geo": 12,
+      "key": "gp12",
+      "root_value": 0.002377510303631425,
+      "die_bar": 0.27,
+      "maintain_bar": 0.5
+    },
+    "contrast_gate": {
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "pass": false
+    },
+    "gate_firing": {
+      "n_events": 1,
+      "bar": 3,
+      "g_replay_ok": true,
+      "pass": false
+    },
+    "primary": {
+      "g2_ruler_50": null,
+      "g2_ruler_300": null,
+      "bar": 0.5,
+      "maintains": false,
+      "late_grid_mean_100_200_300": "nan",
+      "late_grid_min": null
+    },
+    "falsifiers": {
+      "F1_schedule_bound": false,
+      "F2_erosion": false,
+      "F3_gate_never_closes": false,
+      "F4_organism_price": false,
+      "F5_anatomy_fail": false
+    },
+    "structural_void": true,
+    "secondary": {
+      "S1_economy": {
+        "n_events": 1,
+        "realized_r": 0.027777777777777776,
+        "in_band": false,
+        "spacings": [],
+        "frac_in_20_45": null,
+        "cheaper_than_schedule": false
+      },
+      "S2_anatomy": {
+        "root": {
+          "held30_g0": 0.0020569844637066126,
+          "site_read_onset": 0.0019042434869334102,
+          "site_read_span": 0.07529812306165695,
+          "row0_strength": null,
+          "A129": -0.0011863745268783535,
+          "dall_g0": null
+        }
+      },
+      "S3_organism_health": {
+        "root_ce_r": 2.89866304397583,
+        "g2_ce_r_300": null,
+        "health_bar": 2.99866304397583,
+        "pass": false,
+        "max_ce_r_over_ckpts": 6.3687334060668945,
+        "concussion_note": "the base wash's own +1/+2 transient ~2.0-2.8 recovers; sustained elevation fails F4"
+      },
+      "S4_ghost": {
+        "echo_n_events": 1,
+        "gate_firing": false,
+        "echo_late_mean": null,
+        "g2_late_mean": null,
+        "echo_declining": true,
+        "echo_ruler_300": null,
+        "echo_maintains": false,
+        "ghost_erodes": null,
+        "reading": "MIXED/texture"
+      },
+      "S5_schedule_parity": {
+        "r": 0.03125,
+        "k": 32,
+        "sched_ruler_50": null,
+        "sched_ruler_300": null,
+        "n_events": 1,
+        "realized_r": 0.027777777777777776,
+        "maintains": false
+      },
+      "S6_coupling": {
+        "root_monitor": 0.12063876539468765,
+        "root_ruler": 0.002377510303631425,
+        "points": [
+          {
+            "step": 1,
+            "monitor_norm": 1.5261857793863225,
+            "ruler_norm": 0.9456638797946869,
+            "divergence": 0.5805218995916356
+          },
+          {
+            "step": 2,
+            "monitor_norm": 0.39194006173842527,
+            "ruler_norm": 0.047305145711199786,
+            "divergence": 0.3446349160272255
+          },
+          {
+            "step": 4,
+            "monitor_norm": 0.10351555636501573,
+            "ruler_norm": 0.012143268918521771,
+            "divergence": 0.09137228744649396
+          },
+          {
+            "step": 36,
+            "monitor_norm": 1.5734144456897203,
+            "ruler_norm": 0.177942618928447,
+            "divergence": 1.3954718267612733
+          }
+        ],
+        "max_divergence": 1.3954718267612733,
+        "cue_overfit_flag": true
+      }
+    },
+    "verdict": "STRUCTURAL VOID [ROOT-BOUND]",
+    "clause": "CELL-BASE did NOT die by +50 (ruler None > 0.27) \u2014 no contrast; a size/family bound on the wash law itself (informative, not a verdict on g2).",
+    "root_bound_flag": true
+  },
+  "references": {
+    "e157": {
+      "source": "runs/e157/metrics.json stage B (embedded copies verified, max|diff| 0.0e+00)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 0.0
+    },
+    "e157_wash_embedded": {
+      "label": "e157 stage B: family-2 neutral wash (e176n arm A verbatim), lr 1e-3, seed 10902 \u2014 the stored lineage cell",
+      "freeze_steps": [
+        0,
+        1,
+        2,
+        4,
+        50,
+        100,
+        200,
+        300
+      ],
+      "gm12": [
+        0.19826222956180573,
+        0.001129803480580449,
+        0.0011759375920519233,
+        0.003656684886664152,
+        0.007448808290064335,
+        0.004423586186021566,
+        0.00012963238987140357,
+        0.00013348007632885128
+      ],
+      "g0": [
+        0.5784125924110413,
+        0.0040224287658929825,
+        0.00459279865026474,
+        0.015774426981806755,
+        0.020724201574921608,
+        0.002758212387561798,
+        0.00029339289176277816,
+        0.00019846257055178285
+      ],
+      "ce_r": [
+        1.9504578113555908,
+        2.840304136276245,
+        2.7520101070404053,
+        2.7039923667907715,
+        2.0670039653778076,
+        1.9851480722427368,
+        1.8773754835128784,
+        1.8591028451919556
+      ]
+    },
+    "e157_root_embedded": {
+      "gm12": 0.19826222956180573,
+      "g0": 0.5784125924110413,
+      "gp12": 0.5911492705345154,
+      "ce_r": 1.9504578113555908
+    }
+  },
+  "checkpoints": {
+    "smoke_g2_root": {
+      "path": "runs/checkpoints/smoke_g2_root.pt",
+      "desc": "fresh root r1s_s4305_i8: e043-Dmix install (8 steps, gen 4305) + e113 jitter consolidation (300 steps, seed 10901) on cuda/cuda \u2014 organ registered at install end (cue pool 300x256 int16 + mask)",
+      "ruler_geo": 12,
+      "root_bound": true,
+      "base": "runs/checkpoints/e098_base_s4305.pt"
+    },
+    "smoke_g2_base": {
+      "path": "runs/checkpoints/smoke_g2_base.pt",
+      "desc": "g2 root + 36-step cell (gate hard-disabled \u2014 the ablation identity), seed 10902, 0 events",
+      "mode": "base",
+      "steps": 36,
+      "n_events": 0,
+      "realized_r": 0.0,
+      "seed": 10902
+    },
+    "smoke_g2_g2": {
+      "path": "runs/checkpoints/smoke_g2_g2.pt",
+      "desc": "g2 root + 36-step cell (gate live, all three locks on (THE KEY CONTRAST)), seed 10902, 1 events",
+      "mode": "g2",
+      "steps": 36,
+      "n_events": 1,
+      "realized_r": 0.027777777777777776,
+      "seed": 10902
+    },
+    "smoke_g2_echo": {
+      "path": "runs/checkpoints/smoke_g2_echo.pt",
+      "desc": "g2 root + 36-step cell (gate live, verbatim j=0 full-CE events (the ghost)), seed 10902, 1 events",
+      "mode": "echo",
+      "steps": 36,
+      "n_events": 1,
+      "realized_r": 0.027777777777777776,
+      "seed": 10902
+    },
+    "smoke_g2_sched": {
+      "path": "runs/checkpoints/smoke_g2_sched.pt",
+      "desc": "g2 root + 36-step cell (organ-less + external r=1/32 (e179 verbatim at k=32)), seed 10902, 1 events",
+      "mode": "sched",
+      "steps": 36,
+      "n_events": 1,
+      "realized_r": 0.027777777777777776,
+      "seed": 10902
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "FILENAME: the design doc names lab/g2_rehearsal_native.py; the dispatch mission names lab/g2_rehearsal_organ.py \u2014 implemented under the mission's name (same spec). The PNG is runs/g2/rehearsal_organ.png (the doc's g2_wash.png), same panels.",
+    "F2 NET: the on-disk family-2 line is block_size=512 = 873,472 params (e157's F2_CFG, the checkpoints the spec cites); the doc's 'block=256 = 0.838M' misstates the line's wpe. All training windows remain 256-token (e157's convention); <=1M holds.",
+    "FRESH ROOT (the spec's own clause): e157_f2_consolidated FAILED ROOT-STRENGTH (ruler g+12 0.5911 < 0.7) \u2014 root re-built as e043-Dmix install (MORE exposure steps; e098's E43.exposure call verbatim) + e113 jitter consolidation (e157's finetune_replay verbatim, seed 10901) on an e098 base; the frozen attempt ladder is in-file; every attempt is recorded; the bar was never lowered.",
+    "G_REPRO is SHAPE-level by construction: CELL-BASE's root differs from e157's (the re-install clause), so bit-reproduction of the stored e157_f2_neutral cells is impossible; the gate checks the registered SHAPE (dead at +1/+50 on the same wash stream/arm-A-identical RNG shapes) with e157's stored trace embedded + verified vs file.",
+    "MONITOR POPULATION (registered here): K_MON=8 windows, offsets cycling {0,-4,+4} per the spec; the within-offset window rotation is this implementation's frozen choice (check c, window k -> block(k%3 offset), index (c*8+k) % 60) \u2014 deterministic, no RNG, covers the pool over time.",
+    "GATE INIT: last_event_step = 0 (install end = the last teaching), so the refractory covers steps 1..23 and the FIRST possible event is step 24 (24 % CADENCE == 0).",
+    "CELL-ECHO's event draws keep the g2 RNG shapes (ix(16,)+aj(8,)+rj(8,) at seed 10902) and map ix -> the j=0 block as 120 + (ix % 60) \u2014 verbatim j=0 cue windows, full-token CE, NO mask.",
+    "Extra texture evals: for gate cells, a light ruler read at each event's refractory-expiry step (event + 24) \u2014 no-RNG, no-grad; measures the registered 'event followed within <= 18-25 steps by ruler >= 0.5' sawtooth clause directly.",
+    "Cooldowns are 60 s (the dispatch's 60-120 s band), BEFORE each training only \u2014 the next training's pre-cooldown and the CPU dial time between trainings cover the after-gap (e179 used 90 s both sides; recorded trim, not a protocol change).",
+    "ANATOMY sign handling: the >= 50%-of-own-root bar is applied to positive root dials; a root dial <= 0 (e.g. a negative A129) is reported as ratio texture with the sub-boolean marked trivial.",
+    "GPU float nondeterminism vs the CPU-eval'd e157 references: every bar lives at order-of-magnitude separations; the G_ROOT self-consistency gate reports both the 5e-6 bit flag and the 0.05 fallback.",
+    "Single seed (10902), single lineage, n=1 per cell \u2014 point estimates until replicated (e179's own clause).",
+    "Smoke mode trims: one 8-step root attempt, 36-step cells, checkpoints {1,2,4,36}, lean dials, no cooldowns \u2014 nothing adjudicated."
+  ],
+  "timing_s": 67.1
+}

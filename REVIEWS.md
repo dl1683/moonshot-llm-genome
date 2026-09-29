@@ -7,7 +7,66 @@ then append an entry here and update STATE.json.
 
 ---
 
----
+## R56 — the trio lands together: the claims hold, the rulers bend (2026-09-29 ~21:25Z)
+
+Trigger: review 154 min stale (18:29Z). Trio dispatched 21:04Z, all landed
+by ~21:22Z. g2f (base redraw) in flight; g1bW (the critic's forced cell)
+dispatched 21:25Z.
+
+AUDITOR (scratch/r56_auditor.md; every headline number recomputed from
+committed metrics): WALL-REPLICATES SOUND; RHYTHM SOUNDS-WITH-SCOPE (one
+defect: the causal-loop sentence credits e184's n=3 for what is g2's own
+n=1 contrast); CONE SOUNDS-WITH-SCOPE (the <=2x re-anchor correct; the
+paper must never revert to "kills at 1x"); g5 SOUND (n=1 scoped); g4R /
+g2e / e187 SOUND; e182 SOUNDS-WITH-SCOPE (title overstates its own body).
+Ledgers clean; no e166-class invalidities. Repairs 1-2 applied this fold;
+repair 3 adopted as a standing form: law-grade one-liners carry
+"(wash-draw n=3, one root/organ)"; root-redraw cells queued (g1c-root,
+g3O).
+
+CRITIC (scratch/r56_critic.md; ran three eval-only cells on the saved g3
+organ — evidence, not argument):
+  C1 THE CONE'S RULER BENT: matched-L2 isotropic noise in ~874k dims was
+  guaranteed to spare — it kills only at ~24-32x (measured; first-order
+  prediction ~58x from cos(grad g0, wash) = -0.44); the registered 4x leg
+  sat 6-16x below the isotropic threshold. The noun SURVIVES the critic's
+  own tilt ladder (random 45-degree tilts of the wash direction still
+  kill): RESCOPED to wide-angle/low-measure — anisotropy ~12-16x
+  (wash-aligned ~2x vs isotropic ~25-32x); the L2 ball the wrong ruler.
+  T135 amended (second time); paper R6(c) + abstract clause 4 rewritten
+  to threshold-ratio form.
+  C2 THE WALL'S CHANNEL SCOPE: the same fact's wpe-band channel reads
+  ~0.001 by +2 INSIDE the ball; row0 0.76->0.62 by +50; no free-run read
+  ever existed; the +0.53 tax is standing interest (~half of future
+  adaptation). SEQUENTIAL MEMORY NEVER TESTED -> g1bW-second-fact
+  DISPATCHED (SPLINT-REFUTED / MUSEUM / ZERO-SUM + the free battery on
+  W1_10907_s300). T133 amended to "holds the battery channel" pending
+  g1bW.
+  C3 THE RHYTHM'S CONSTRUCTION: REFRACTORY=24 sits above the band's lower
+  edge — "100% in band" guaranteed from below; wash intensity constant in
+  every g2 run (a thermostat at one threat level); the fixed 1/32
+  schedule read 0.693 vs the organ's 0.587-0.615 in the one head-to-head
+  (the critic's read of the committed run). T131 amended; g2g (threat
+  ladder + refractory-widened control + REGISTERED fixed-period
+  head-to-head) queued READY.
+
+IDEATOR (scratch/r56_ideator.md): g6 WALL THE STREAM — function-space
+per-input anchor-tube at the graft site composed with g5's store wall;
+8 frozen bars (STREAM-WALL-HOLDS / STREAM-WALL-CHEAP / SITE-2-STREAM /
+SITE-2-READOUT / SPLINT-TUBE adopted from the 21:05Z draft / the
+noise-wound trio); supersedes the draft's regularizer mechanics; the
+2.7M economics variant parked as g6b -> QUEUED READY, dispatch after
+g1bW. g7 THE ORGANISM (wall+rhythm+cone composed; WALL-SILENCES-RHYTHM
+vs RHYTHM-CATCHES-THE-UNWALLABLE) -> QUEUED behind g6. g8 THE NATIVE
+ORGAN (co-developed store; TWO-SITE-IS-STRUCTURAL vs NATIVE-STABILITY)
+-> QUEUED, CPU-friendly census legs.
+
+DECISIONS: (1) g1bW running — the wall's gate to the paper's central
+positive; (2) g6 next, bars frozen from the ideator spec; (3) g2g READY —
+"self-timed" is unearned until the threat ladder exists; (4) T123 title +
+QUEUE e182 row repaired to the corrected form; (5) the cone's paper
+sentence rewritten to threshold-ratio; (6) standing form: law-grade
+one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 

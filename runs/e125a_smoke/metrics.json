@@ -1,0 +1,883 @@
+{
+  "experiment": "e125a_inverted_knife",
+  "date": "2026-09-28T07:55:54Z",
+  "registration": "QUEUE.md e125a row dispatched ~11:45Z (R47 ideator top pick, T090's flip-cell). Docstring + bars written before compute.",
+  "registered_prediction": {
+    "queue_row_verbatim": "re-point e160's escalation grid at e131_arm_b (site-stored) + e143_near (replication column): singles->E4 + site-reader candidates (L3H5-class) + random scatter. Bars: SITE-KNIFE-EXISTS = some head-set drops the site-fact >=60% at CE <= +0.35; NO-SITE-KNIFE = best <30% at CE <= +0.35 across the escalation (the types differ in REMOVABILITY \u2014 asymmetric surgery, the strongest form of the split-custody claim)",
+    "bar_read": "PRIMARY bar read = pool_bar site onset (held-prompts 15-29, filler seed 12512 \u2014 windows NEVER used for head selection; the census selects on pool_sel, prompts 0-14, seed 12511). Companions recorded per cell and NON-GATING: pool_sel drop (selection window), pname-span drop, either-window union. pool_full (e133/e160's exact battery) is used only for stored-value continuity gates.",
+    "operationalizations": "census: 36 heads x ZERO mode on pool_sel (drop + CE per head, e133 conventions) audited vs e133's stored site_locked table on pool_full (tol 5e-4); top-8 census heads also in MEAN mode. Ladder t1..t5 = drop-ranked within CE<=+0.35 class (e160 convention; e133's stored table expects L1H2,L0H5,L0H1,L1H4,L1H1). Escalation sets: census singles t1-t4; B2/B3/B4 (t1-ladder); M2/M3/M4 (no-t1, k-matched); e160's singles L0H3/L1H0/L0H0/L1H3 + E2/E3/E4 + N2/N3/N4; address candidates S:L3H5, S:L4H5, A2={L4H5,L4H3}, A4={L4H5,L4H3,L3H4,L3H5}; combined X1={t1,t2,L1H0,L0H0}, X2={t1,t2,L4H5,L4H3}; random-4 scatter x3 (seed 12503, control). Modes zero + mean-replace (per-net CE_R-bank mean). Per cell: site onset pool_bar (bar) + pool_sel + pname span + std install g0 floor + CE_R + NLL3.",
+    "no_bar_shopping": "No bar shopping. Ambiguous => say TEXTURE with numbers."
+  },
+  "question": "does a symmetric site-stored-killing head-set exist at flat CE (>=60% site-fact drop at CE <= +0.35), or is the site-stored fact's best flat-CE drop < 30% across the whole escalation \u2014 the types differ in REMOVABILITY itself (asymmetric surgery)?",
+  "nets": {
+    "primary_site_stored": "runs/checkpoints/e131_arm_b_corpus_spliced.pt (site fact @183; gated)",
+    "replication_near": "runs/checkpoints/e143_near.pt (site fact @5-13; cross-check, report-only)",
+    "control_install": "runs/checkpoints/e048_repro.pt (site floor control, report-only)",
+    "eval_only": true
+  },
+  "census": {
+    "selection_battery": "pool_sel (held prompts 0-14, seed 12511)",
+    "audit_battery": "pool_full (e133's exact battery, seed 12103) vs e133 stored, tol 0.0005",
+    "ladder_ce_class_top5": [
+      {
+        "head": "L1H1",
+        "drop_sel": 0.0061601996421813965,
+        "ce_cost": 0.07300639152526855
+      },
+      {
+        "head": "L0H1",
+        "drop_sel": 0.0015663504600524902,
+        "ce_cost": 0.18163609504699707
+      },
+      {
+        "head": "L0H5",
+        "drop_sel": 0.0011671781539916992,
+        "ce_cost": 0.24509501457214355
+      },
+      {
+        "head": "L0H3",
+        "drop_sel": 0.0006659626960754395,
+        "ce_cost": 0.012757420539855957
+      },
+      {
+        "head": "L0H0",
+        "drop_sel": 0.00010186433792114258,
+        "ce_cost": 0.06518661975860596
+      }
+    ],
+    "e133_stored_ranking_flat": [
+      {
+        "head": "L1H2",
+        "drop": 0.20430296659469604,
+        "ce_cost": 0.05699872970581055
+      },
+      {
+        "head": "L0H5",
+        "drop": 0.1047137975692749,
+        "ce_cost": 0.24509549140930176
+      },
+      {
+        "head": "L0H1",
+        "drop": 0.07394194602966309,
+        "ce_cost": 0.18163657188415527
+      },
+      {
+        "head": "L1H4",
+        "drop": 0.06176549196243286,
+        "ce_cost": 0.038209736347198486
+      },
+      {
+        "head": "L1H1",
+        "drop": 0.05372554063796997,
+        "ce_cost": 0.07300639152526855
+      }
+    ],
+    "table": [
+      {
+        "head": "L1H1",
+        "l": 1,
+        "h": 1,
+        "onset_sel": 0.9937082529067993,
+        "drop_sel": 0.0061601996421813965,
+        "onset_full": 0.7323018908500671,
+        "ref_e133_full": 0.9342764616012573,
+        "ce_cost": 0.07300639152526855,
+        "onset_sel_mean": 0.9921534061431885,
+        "drop_sel_mean": 0.007715046405792236,
+        "ce_cost_mean": 0.07416296005249023
+      },
+      {
+        "head": "L0H1",
+        "l": 0,
+        "h": 1,
+        "onset_sel": 0.9983021020889282,
+        "drop_sel": 0.0015663504600524902,
+        "onset_full": 0.9147455096244812,
+        "ref_e133_full": 0.9140600562095642,
+        "ce_cost": 0.18163609504699707,
+        "onset_sel_mean": 0.9998012185096741,
+        "drop_sel_mean": 6.723403930664062e-05,
+        "ce_cost_mean": 0.09665548801422119
+      },
+      {
+        "head": "L0H5",
+        "l": 0,
+        "h": 5,
+        "onset_sel": 0.998701274394989,
+        "drop_sel": 0.0011671781539916992,
+        "onset_full": 0.9025042057037354,
+        "ref_e133_full": 0.8832882046699524,
+        "ce_cost": 0.24509501457214355,
+        "onset_sel_mean": 0.999677300453186,
+        "drop_sel_mean": 0.00019115209579467773,
+        "ce_cost_mean": 0.14425158500671387
+      },
+      {
+        "head": "L0H3",
+        "l": 0,
+        "h": 3,
+        "onset_sel": 0.9992024898529053,
+        "drop_sel": 0.0006659626960754395,
+        "onset_full": 0.90073162317276,
+        "ref_e133_full": 0.9642568230628967,
+        "ce_cost": 0.012757420539855957,
+        "onset_sel_mean": 0.9990264177322388,
+        "drop_sel_mean": 0.0008420348167419434,
+        "ce_cost_mean": 0.007220268249511719
+      },
+      {
+        "head": "L0H0",
+        "l": 0,
+        "h": 0,
+        "onset_sel": 0.9997665882110596,
+        "drop_sel": 0.00010186433792114258,
+        "onset_full": 0.9800685048103333,
+        "ref_e133_full": 0.9788146615028381,
+        "ce_cost": 0.06518661975860596,
+        "onset_sel_mean": 0.9998776912689209,
+        "drop_sel_mean": -9.238719940185547e-06,
+        "ce_cost_mean": 0.04423105716705322
+      },
+      {
+        "head": "L0H2",
+        "l": 0,
+        "h": 2,
+        "onset_sel": 0.9998176097869873,
+        "drop_sel": 5.08427619934082e-05,
+        "onset_full": 0.9669455885887146,
+        "ref_e133_full": 0.9846936464309692,
+        "ce_cost": 0.05981743335723877,
+        "onset_sel_mean": 0.9998782277107239,
+        "drop_sel_mean": -9.775161743164062e-06,
+        "ce_cost_mean": 0.039310574531555176
+      },
+      {
+        "head": "L0H4",
+        "l": 0,
+        "h": 4,
+        "onset_sel": 0.9998291730880737,
+        "drop_sel": 3.927946090698242e-05,
+        "onset_full": 0.9642947316169739,
+        "ref_e133_full": 0.9889007806777954,
+        "ce_cost": 0.014887213706970215,
+        "onset_sel_mean": 0.9997736215591431,
+        "drop_sel_mean": 9.483098983764648e-05,
+        "ce_cost_mean": -0.0006164312362670898
+      },
+      {
+        "head": "L1H0",
+        "l": 1,
+        "h": 0,
+        "onset_sel": 0.9999333024024963,
+        "drop_sel": -6.4849853515625e-05,
+        "onset_full": 0.9981680512428284,
+        "ref_e133_full": 0.9963355660438538,
+        "ce_cost": 0.08136975765228271,
+        "onset_sel_mean": 0.9999343752861023,
+        "drop_sel_mean": -6.592273712158203e-05,
+        "ce_cost_mean": 0.0797351598739624
+      }
+    ],
+    "consolidated_census_comparison": {
+      "note": "the consolidated (sink-coupled) net's zero-mode fact-drops from e133 stored arms (std install-60 battery), for the two-censuses story",
+      "cons_base": 0.7850371599197388,
+      "top5": [
+        {
+          "head": "L0H3",
+          "cons_drop": 0.4598899483680725
+        },
+        {
+          "head": "L1H0",
+          "cons_drop": 0.14939802885055542
+        },
+        {
+          "head": "L0H0",
+          "cons_drop": 0.12578976154327393
+        },
+        {
+          "head": "L1H3",
+          "cons_drop": 0.10202407836914062
+        },
+        {
+          "head": "L0H1",
+          "cons_drop": 0.08939898014068604
+        }
+      ]
+    }
+  },
+  "bases": {
+    "arm_b": {
+      "site_full": 0.9579997062683105,
+      "site_sel": 0.9998684525489807,
+      "site_bar": 0.9999273419380188,
+      "site_sel_detail": {
+        "onset_pz": 0.9998684525489807,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9995681047439575
+      },
+      "site_bar_detail": {
+        "onset_pz": 0.9999273419380188,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9995895028114319
+      },
+      "std_g0": 0.025632506236433983,
+      "std_gm12": 0.018126290291547775,
+      "ce_r": 1.682660698890686,
+      "nll3": 1.8478997945785522
+    },
+    "near": {
+      "site": 0.9949318766593933,
+      "site_detail": {
+        "onset_pz": 0.9949318766593933,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9987813234329224
+      },
+      "ce_r": 1.683059811592102,
+      "nll3": 1.808847427368164
+    },
+    "install_control": {
+      "site_bar": 0.06607694923877716,
+      "ce_r": 1.666774868965149,
+      "nll3": 1.8164706230163574
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "arm_b": {
+      "std_g0_floor": 0.025632506236433983,
+      "ref_std": 0.007800613064318895,
+      "site_onset_full": 0.9579997062683105,
+      "ref_site": 0.9880021214485168,
+      "ce_r": 1.682660698890686,
+      "ref_ce": 1.682660698890686,
+      "pass": true,
+      "site_onset_bit": false
+    },
+    "near": {
+      "onset": 0.9949318766593933,
+      "ref_onset": 0.9986116290092468,
+      "pname": 0.9987813234329224,
+      "ref_pname": 0.9992892146110535,
+      "ce_r": 1.683059811592102,
+      "ref_ce": 1.683059811592102,
+      "tol": 0.001,
+      "pass": false
+    },
+    "install": {
+      "battery_pz": 0.4923441708087921,
+      "ref": 0.5563086867332458,
+      "pass": false
+    },
+    "e160_continuity": {
+      "E4_zero_onset": 0.8960797786712646,
+      "E4_ref": 0.8830115795135498,
+      "N4_zero_onset": 0.5001272559165955,
+      "N4_ref": 0.6837095022201538,
+      "tol": 5e-06,
+      "pass": false
+    },
+    "census_audit": {
+      "n_audited": 0,
+      "max_abs_diff_vs_e133": "nan",
+      "tol": 0.0005,
+      "pass": false
+    }
+  },
+  "grid": [
+    {
+      "net": "arm_b",
+      "set": "S:L1H1",
+      "heads": [
+        "L1H1"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9997448921203613,
+      "drop_bar_pct": 0.018246307507086,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9937082529067993,
+      "drop_sel_pct": 0.6161010107356701,
+      "site_detail_bar": {
+        "onset_pz": 0.9997448921203613,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9996358156204224
+      },
+      "pname_drop_pct": -0.004633182807567415,
+      "std_g0_floor": 0.004277402069419622,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7556670904159546,
+      "ce_cost": 0.07300639152526855,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9247040748596191,
+      "nll3_delta": 0.0768042802810669,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "S:L1H1",
+      "heads": [
+        "L1H1"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9997300505638123,
+      "drop_bar_pct": 0.019730571005704967,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9921534061431885,
+      "drop_sel_pct": 0.7716061434005828,
+      "site_detail_bar": {
+        "onset_pz": 0.9997300505638123,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9995800852775574
+      },
+      "pname_drop_pct": 0.0009421401333309376,
+      "std_g0_floor": 0.003808446926996112,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7568236589431763,
+      "ce_cost": 0.07416296005249023,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9264899492263794,
+      "nll3_delta": 0.07859015464782715,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "B2:L1H1+top1",
+      "heads": [
+        "L1H1",
+        "L0H1"
+      ],
+      "n_heads": 2,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9999149441719055,
+      "drop_bar_pct": 0.0012398666976443096,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9975323677062988,
+      "drop_sel_pct": 0.23363921891189632,
+      "site_detail_bar": {
+        "onset_pz": 0.9999149441719055,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9978756308555603
+      },
+      "pname_drop_pct": 0.1714575784410699,
+      "std_g0_floor": 0.0017371423309668899,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 2.0308592319488525,
+      "ce_cost": 0.3481985330581665,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 2.163299560546875,
+      "nll3_delta": 0.31539976596832275,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "B2:L1H1+top1",
+      "heads": [
+        "L1H1",
+        "L0H1"
+      ],
+      "n_heads": 2,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9998890161514282,
+      "drop_bar_pct": 0.0038328571470347406,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9973177909851074,
+      "drop_sel_pct": 0.2550997141044786,
+      "site_detail_bar": {
+        "onset_pz": 0.9998890161514282,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9993222951889038
+      },
+      "pname_drop_pct": 0.02673173555509667,
+      "std_g0_floor": 0.0042399391531944275,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.936261773109436,
+      "ce_cost": 0.25360107421875,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 2.0912234783172607,
+      "nll3_delta": 0.2433236837387085,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "E2:L0H3+top1",
+      "heads": [
+        "L0H3",
+        "L1H0"
+      ],
+      "n_heads": 2,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9999225735664368,
+      "drop_bar_pct": 0.00047687180678712693,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9994417428970337,
+      "drop_sel_pct": 0.0426765791899153,
+      "site_detail_bar": {
+        "onset_pz": 0.9999225735664368,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9991769790649414
+      },
+      "pname_drop_pct": 0.041269315587066924,
+      "std_g0_floor": 0.03907123580574989,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7820249795913696,
+      "ce_cost": 0.0993642807006836,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9521245956420898,
+      "nll3_delta": 0.1042248010635376,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "E2:L0H3+top1",
+      "heads": [
+        "L0H3",
+        "L1H0"
+      ],
+      "n_heads": 2,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.999908983707428,
+      "drop_bar_pct": 0.0018359564561198916,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9993633031845093,
+      "drop_sel_pct": 0.0505215824325389,
+      "site_detail_bar": {
+        "onset_pz": 0.999908983707428,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9990324974060059
+      },
+      "pname_drop_pct": 0.05572341484773036,
+      "std_g0_floor": 0.03997588902711868,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7715260982513428,
+      "ce_cost": 0.08886539936065674,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9394432306289673,
+      "nll3_delta": 0.09154343605041504,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "A2:site-mass-top2",
+      "heads": [
+        "L4H5",
+        "L4H3"
+      ],
+      "n_heads": 2,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.999868631362915,
+      "drop_bar_pct": 0.0058714841210338875,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9997177124023438,
+      "drop_sel_pct": 0.015075997872793234,
+      "site_detail_bar": {
+        "onset_pz": 0.999868631362915,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9991639256477356
+      },
+      "pname_drop_pct": 0.0425751933668117,
+      "std_g0_floor": 0.010653574019670486,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.734880805015564,
+      "ce_cost": 0.05222010612487793,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9013930559158325,
+      "nll3_delta": 0.05349326133728027,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "A2:site-mass-top2",
+      "heads": [
+        "L4H5",
+        "L4H3"
+      ],
+      "n_heads": 2,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9998620748519897,
+      "drop_bar_pct": 0.006527182855364799,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9996656775474548,
+      "drop_sel_pct": 0.020280167956987505,
+      "site_detail_bar": {
+        "onset_pz": 0.9998620748519897,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9992494583129883
+      },
+      "pname_drop_pct": 0.0340184143077904,
+      "std_g0_floor": 0.012417162768542767,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.729751706123352,
+      "ce_cost": 0.047091007232666016,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9013147354125977,
+      "nll3_delta": 0.05341494083404541,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "R1:random4",
+      "heads": [
+        "L0H2",
+        "L2H1",
+        "L3H2",
+        "L3H4"
+      ],
+      "n_heads": 4,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9999223947525024,
+      "drop_bar_pct": 0.0004947544995359543,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9996545314788818,
+      "drop_sel_pct": 0.021394921457273952,
+      "site_detail_bar": {
+        "onset_pz": 0.9999223947525024,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9759368300437927
+      },
+      "pname_drop_pct": 2.3662386110612332,
+      "std_g0_floor": 0.04232686385512352,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7988682985305786,
+      "ce_cost": 0.11620759963989258,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9762511253356934,
+      "nll3_delta": 0.1283513307571411,
+      "kills60_bar": false
+    },
+    {
+      "net": "arm_b",
+      "set": "R1:random4",
+      "heads": [
+        "L0H2",
+        "L2H1",
+        "L3H2",
+        "L3H4"
+      ],
+      "n_heads": 4,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9999273419380188,
+      "expr_bar": 0.9998986124992371,
+      "drop_bar_pct": 0.0028731526358738435,
+      "expr_sel_base": 0.9998684525489807,
+      "expr_sel": 0.9995187520980835,
+      "drop_sel_pct": 0.03497464591524224,
+      "site_detail_bar": {
+        "onset_pz": 0.9998986124992371,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9828248023986816
+      },
+      "pname_drop_pct": 1.6771585101282183,
+      "std_g0_floor": 0.0333622507750988,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.7636514902114868,
+      "ce_cost": 0.08099079132080078,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.9389811754226685,
+      "nll3_delta": 0.09108138084411621,
+      "kills60_bar": false
+    },
+    {
+      "net": "near",
+      "set": "S:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9918310046195984,
+      "drop_bar_pct": 0.3116667696090425,
+      "site_detail_bar": {
+        "onset_pz": 0.9918310046195984,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9954147338867188
+      },
+      "pname_drop_pct": 0.33706973360617676,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.8430607318878174,
+      "ce_cost": 0.16000092029571533,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.939651370048523,
+      "nll3_delta": 0.1308039426803589
+    },
+    {
+      "net": "near",
+      "set": "S:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9752838015556335,
+      "drop_bar_pct": 1.9748161220575877,
+      "site_detail_bar": {
+        "onset_pz": 0.9752838015556335,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.990979790687561
+      },
+      "pname_drop_pct": 0.7811051891265408,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.7779171466827393,
+      "ce_cost": 0.09485733509063721,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.8853020668029785,
+      "nll3_delta": 0.07645463943481445
+    },
+    {
+      "net": "near",
+      "set": "S:L1H0",
+      "heads": [
+        "L1H0"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9152727723121643,
+      "drop_bar_pct": 8.006488304977655,
+      "site_detail_bar": {
+        "onset_pz": 0.9152727723121643,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9873242974281311
+      },
+      "pname_drop_pct": 1.1471005450334415,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.7476410865783691,
+      "ce_cost": 0.06458127498626709,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.8903473615646362,
+      "nll3_delta": 0.08149993419647217
+    },
+    {
+      "net": "near",
+      "set": "S:L1H0",
+      "heads": [
+        "L1H0"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9350206255912781,
+      "drop_bar_pct": 6.021643538980248,
+      "site_detail_bar": {
+        "onset_pz": 0.9350206255912781,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9901842474937439
+      },
+      "pname_drop_pct": 0.8607565777891568,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.7452861070632935,
+      "ce_cost": 0.062226295471191406,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.884588360786438,
+      "nll3_delta": 0.07574093341827393
+    },
+    {
+      "net": "near",
+      "set": "S:L0H0",
+      "heads": [
+        "L0H0"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9979681372642517,
+      "drop_bar_pct": -0.3051727134377291,
+      "site_detail_bar": {
+        "onset_pz": 0.9979681372642517,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9979840517044067
+      },
+      "pname_drop_pct": 0.07982445304196562,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.7659591436386108,
+      "ce_cost": 0.08289933204650879,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.8771705627441406,
+      "nll3_delta": 0.06832313537597656
+    },
+    {
+      "net": "near",
+      "set": "S:L0H0",
+      "heads": [
+        "L0H0"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_bar_base": 0.9949318766593933,
+      "expr_bar": 0.9974158406257629,
+      "drop_bar_pct": -0.24966171299183326,
+      "site_detail_bar": {
+        "onset_pz": 0.9974158406257629,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9974112510681152
+      },
+      "pname_drop_pct": 0.13717440771700007,
+      "ce_base": 1.683059811592102,
+      "ce_arm": 1.7572239637374878,
+      "ce_cost": 0.07416415214538574,
+      "nll3_base": 1.808847427368164,
+      "nll3_arm": 1.8770341873168945,
+      "nll3_delta": 0.06818675994873047
+    },
+    {
+      "net": "install",
+      "set": "B4:L1H1+top3",
+      "heads": [
+        "L1H1",
+        "L0H1",
+        "L0H5",
+        "L0H3"
+      ],
+      "n_heads": 4,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_bar_base": 0.06607694923877716,
+      "expr_bar": 0.001133859739638865,
+      "note": "floor control: raw onset reported; drop% off a ~0 base is meaningless",
+      "ce_base": 1.666774868965149,
+      "ce_arm": 3.263880729675293,
+      "ce_cost": 1.597105860710144
+    },
+    {
+      "net": "install",
+      "set": "B4:L1H1+top3",
+      "heads": [
+        "L1H1",
+        "L0H1",
+        "L0H5",
+        "L0H3"
+      ],
+      "n_heads": 4,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_bar_base": 0.06607694923877716,
+      "expr_bar": 0.013890771195292473,
+      "note": "floor control: raw onset reported; drop% off a ~0 base is meaningless",
+      "ce_base": 1.666774868965149,
+      "ce_arm": 2.5001063346862793,
+      "ce_cost": 0.8333314657211304
+    }
+  ],
+  "adjudication": {
+    "bars_verbatim": "re-point e160's escalation grid at e131_arm_b (site-stored) + e143_near (replication column): singles->E4 + site-reader candidates (L3H5-class) + random scatter. Bars: SITE-KNIFE-EXISTS = some head-set drops the site-fact >=60% at CE <= +0.35; NO-SITE-KNIFE = best <30% at CE <= +0.35 across the escalation (the types differ in REMOVABILITY \u2014 asymmetric surgery, the strongest form of the split-custody claim)",
+    "bar_read": "PRIMARY bar read = pool_bar site onset (held-prompts 15-29, filler seed 12512 \u2014 windows NEVER used for head selection; the census selects on pool_sel, prompts 0-14, seed 12511). Companions recorded per cell and NON-GATING: pool_sel drop (selection window), pname-span drop, either-window union. pool_full (e133/e160's exact battery) is used only for stored-value continuity gates.",
+    "n_cells_total": 18,
+    "n_bar_eligible": 8,
+    "SITE_KNIFE_EXISTS": {
+      "fires": false,
+      "cells": []
+    },
+    "NO_SITE_KNIFE": {
+      "fires": true,
+      "best_flat_cell": {
+        "set": "S:L1H1",
+        "mode": "mean",
+        "drop_bar_pct": 0.019730571005704967,
+        "ce_cost": 0.07416296005249023
+      },
+      "wreck_priced_kills": []
+    },
+    "secondary_reads_REPORT_ONLY": {
+      "best_flat_cell_sel_window": {
+        "set": "S:L1H1",
+        "mode": "mean",
+        "drop_sel_pct": 0.7716061434005828,
+        "ce_cost": 0.07416296005249023
+      },
+      "note": "selection-window (pool_sel) and pname-span drops are recorded per cell; they cannot gate (registered before compute)."
+    },
+    "cross_check_summary": {
+      "n_cells": 6,
+      "best_flat_drop_pct": 8.006488304977655,
+      "best_cell": {
+        "set": "S:L1H0",
+        "mode": "zero",
+        "drop_pct": 8.006488304977655,
+        "ce_cost": 0.06458127498626709
+      },
+      "any_kill60_flat": false,
+      "note": "report-only: do arm_b's/e160's sets kill a SECOND site-stored fact at a different site (5-13)?"
+    },
+    "random_scatter_summary": {
+      "n_cells": 2,
+      "drop_bar_min": 0.0004947544995359543,
+      "drop_bar_max": 0.0028731526358738435,
+      "ce_min": 0.08099079132080078,
+      "ce_max": 0.11620759963989258
+    },
+    "verdict": "NO-SITE-KNIFE (best flat-CE site-drop across the whole escalation is 0.0% < 30% \u2014 the types differ in REMOVABILITY; asymmetric surgery; T090's type-selectivity inverts into an asymmetry of EXISTENCE)"
+  },
+  "honesty_reflex": {
+    "selection_then_escalation": "the census selects the B-ladder on pool_sel and the bars read pool_bar \u2014 DISJOINT prompts and filler draws, so selection cannot contaminate the adjudication window; the price is a 60-window bar battery (noisier), priced per cell by the sel-window companion column (a big sel-vs-bar gap = selection-window inflation, reported not hidden).",
+    "census_already_existed": "e133's stored site_locked table ALREADY contains arm_b's 36-head zero-mode census (the dispatch's 'never run' note is corrected in deviations); e125a's audit gate (tol 5e-4) makes the re-derivation redundant-safe rather than novel \u2014 the ESCALATION is the new measurement, and its candidate families (e160 sets, L3H5-class address heads, combined sets) were registered independently of the census outcome.",
+    "mode_choice": "zero is e133's convention; mean-replace is an intervention (per-net CE_R-bank means, no fact contexts). The two modes bracket the surgical range and DISAGREE sharply on the consolidated net's L0H3 (12.1% vs 58.6%) \u2014 any knife claim must name its mode; a kill in only one mode is weaker than one that survives both.",
+    "single_lineage": "arm_b and e143_near are two nets of ONE lineage (e113 recipe chain; near = e143's locked re-teach at 5-13). The near column is a SITE-GEOMETRY replication, not a family replication \u2014 the removability map is lineage-specific until a second-family replication runs.",
+    "geometry_of_the_read": "the site battery's onset row (183) IS arm_b's trained geometry \u2014 unlike e160 (where the bar read was the install battery and g-12 was the Rule-12 novel geometry), the site fact is geometry-BOUND (e151: D-all 0.098), so there is no second site geometry to read; the std install g0/g-12 floors are recorded per cell as the old-fact companions instead.",
+    "ce_bank_is_position_blind": "CE_R prices general LM damage on fact-free corpus windows; NLL3 is a second disjoint-window read \u2014 neither prices site-geometry damage specifically (e150's note; the point AND the confound).",
+    "kill_semantics": "a site 'kill' = onset drop >= 60% vs the same-net base on pool_bar; onset_frac_ge_0.5 and the pname-span drop are recorded to check the drop is a real readout collapse, not a mean-shift artifact."
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "DISPATCH CORRECTION (recorded, not shopped): arm_b's zero-mode head census already exists in runs/e133/metrics.json (nets.site_locked.arms, 36 heads, full 30-prompt battery) \u2014 the dispatch's 'census was never run' note is wrong in letter. e125a still runs its own census (needed for the split-window selection and the mean-mode bracket) and audits it against e133's stored table; the ESCALATION is what never existed.",
+    "SPLIT-WINDOW SELECTION/ADJUDICATION (honesty): the dispatch says 'selection on own-census then escalation on same net \u2014 split windows if possible'. Implemented: census/selection on pool_sel (prompts 0-14), bars on pool_bar (prompts 15-29) \u2014 disjoint prompts AND disjoint filler draws. Cost: pool_bar has 60 windows (vs e160's 120), so the bar read is noisier; the pool_sel companion column prices that noise per cell.",
+    "The dispatch's 'singles->E4' family and its 'L3H5-class site-reader candidates' are kept literal: e133's geo criterion names L3H4/L4H3/L4H5 (site_mass>=0.25); L3H5 itself sits at site_mass 0.199 (5th) \u2014 A4 carries all four (the three criterion heads + the dispatch's named representative); L3H2 (site_mass 0.214, between L3H4 and L3H5) is in the census table and reported, not promoted to a set.",
+    "ADDED cells beyond the dispatched grid (densifiers, same bars): the census singles t1-t4 and M2/M3/M4 (the no-t1 matched ladder \u2014 e160's N-ladder analogue, required for the superadditivity read), and the two combined sets X1/X2 (the direct two-knife superposition the flip-cell implies). All dispatched families run.",
+    "e048 control column reads the SITE battery's floor (base ~0): drop percentages off a ~0 base are meaningless there, so RAW onsets are reported (no drop, no bar eligibility).",
+    "Near-net base gates use tol 1e-3 (GPU-trained checkpoint re-evaluated on CPU; e143's own GPU-repro tolerances were 0.05 \u2014 this is tighter and reported with exact diffs)."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_arm_b_corpus_spliced.pt",
+      "runs/checkpoints/e143_near.pt",
+      "runs/checkpoints/e048_repro.pt"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 155.9
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

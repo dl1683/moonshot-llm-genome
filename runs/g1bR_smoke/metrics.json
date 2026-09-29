@@ -1,0 +1,929 @@
+{
+  "experiment": "g1bR_seed_replicates",
+  "date": "2026-09-29T19:45:24Z",
+  "design": "g1b's WALL-HOLDS claim at the lab's n>=3 rule: the identical cell re-run at two fresh wash-draw seeds (10907, 10908), C + W1(R=0.7) per seed, machinery lab/g1b_continuity.py VERBATIM via import (R55 owed-debt #1; g1 spec section 8 priority 1)",
+  "registered_prediction": {
+    "bars": "maintains = light g-12 >= 0.50 at EVERY checkpoint {1,2,4,10,50,100,200,300} (g1/g1b VERBATIM); dies = g-12 <= 0.27. WALL-REPLICATES = both new seeds' W1 maintain and every gate passes -> the WALL-HOLDS claim licensed at n=3. WALL-SEED-BOUND = any seed's W1 fails (honest bound, report which).",
+    "predicted": "WALL-REPLICATES (T125's claim, registered): each new seed's W1 maintains with a floor in g1b's registered band 0.55-0.85 (reference seed 10902: min 0.7768 at +2, flat 0.918 at +300, FLAT-AT-PIN delta 0.0026), while each seed's C dies by +50 (reference: dead at +2, 0.0271).",
+    "falsifier": "any seed's W1 drops below 0.50 at any checkpoint through +300 (the well is a seed lottery, not an architecture) or below 0.27 (the kill pierces at a fresh draw) \u2014 WALL-SEED-BOUND, reported per seed."
+  },
+  "question": "does the anchored ball's WALL-HOLDS result replicate across wash-draw seeds \u2014 one commit event + hard L2 projection at R=0.7 holding the consolidated fact (g-12 >= 0.50 at every checkpoint through +300) under the same-draw neutral wash that kills the uncommitted control?",
+  "reference": {
+    "source": "runs/g1b/metrics.json",
+    "seed": 10902,
+    "verdict": "WALL-HOLDS (WALL-CLIFF-INSIDE)",
+    "W1_min": 0.7767700552940369,
+    "W1_g300": 0.918087363243103,
+    "W1_g_m12": {
+      "1": 0.9451885223388672,
+      "2": 0.7767700552940369,
+      "4": 0.8174084424972534,
+      "10": 0.9226929545402527,
+      "50": 0.9154871106147766,
+      "100": 0.922188937664032,
+      "200": 0.9137293696403503,
+      "300": 0.918087363243103
+    },
+    "C_g_m12": {
+      "1": 0.6780481934547424,
+      "2": 0.02707824856042862,
+      "4": 0.010940629057586193,
+      "10": 0.019352762028574944,
+      "50": 0.022121788933873177,
+      "100": 0.014926178380846977,
+      "200": 0.0020478602964431047,
+      "300": 0.0038211452774703503
+    },
+    "flat_delta": 0.002600252628326416,
+    "device": "cuda"
+  },
+  "arms": {
+    "C10907": {
+      "desc": "CONTROL seed 10907 \u2014 uncommitted neutral wash (e176N arm A VERBATIM at this draw): the per-seed kill clock",
+      "R": null,
+      "wash_seed": 10907,
+      "target_mode": "true",
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.324038028717041,
+          "cum_disp": 1.6541266441345215,
+          "step_disp": 1.6541266441345215,
+          "elapsed_s": 0.4,
+          "g_m12_mean_pz": 0.8174033761024475,
+          "g0_mean_pz": 0.34023943543434143,
+          "frac_argmax_z": 0.9333333333333333,
+          "ce_r": 2.4410324096679688
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.981691598892212,
+          "cum_disp": 2.4648382663726807,
+          "step_disp": 1.083602786064148,
+          "elapsed_s": 1.3,
+          "g_m12_mean_pz": 0.4610499143600464,
+          "g0_mean_pz": 0.4825044274330139,
+          "frac_argmax_z": 0.6166666666666667,
+          "ce_r": 2.054154872894287
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6529260873794556,
+          "cum_disp": 3.0544381141662598,
+          "step_disp": 0.8762776851654053,
+          "elapsed_s": 2.4
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.4783070087432861,
+          "cum_disp": 3.5062789916992188,
+          "step_disp": 0.768753170967102,
+          "elapsed_s": 2.5,
+          "g_m12_mean_pz": 0.1630747765302658,
+          "g0_mean_pz": 0.31093916296958923,
+          "frac_argmax_z": 0.08333333333333333,
+          "ce_r": 1.8287969827651978
+        }
+      ],
+      "missing_checkpoints": []
+    },
+    "W1_10907": {
+      "desc": "WALL R=0.7 seed 10907 \u2014 commit(0.7) then the seed-identical neutral wash; step-1 weights equal to C10907's (the wall first acts at forward 2)",
+      "R": 0.7,
+      "wash_seed": 10907,
+      "target_mode": "true",
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.324038028717041,
+          "cum_disp": 1.6541266441345215,
+          "step_disp": 1.6541266441345215,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.9622930884361267,
+          "g0_mean_pz": 0.6506791710853577,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.7774964570999146
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3104369640350342,
+          "cum_disp": 1.621253490447998,
+          "step_disp": 0.9636242389678955,
+          "elapsed_s": 1.6,
+          "g_m12_mean_pz": 0.8028202056884766,
+          "g0_mean_pz": 0.8054155707359314,
+          "frac_argmax_z": 0.9166666666666666,
+          "ce_r": 1.6460576057434082
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2460664510726929,
+          "cum_disp": 1.4963855743408203,
+          "step_disp": 0.6849478483200073,
+          "elapsed_s": 3.3
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.2187514305114746,
+          "cum_disp": 1.4690964221954346,
+          "step_disp": 0.5058035850524902,
+          "elapsed_s": 3.4,
+          "g_m12_mean_pz": 0.9069920778274536,
+          "g0_mean_pz": 0.7187299132347107,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6585004329681396
+        }
+      ],
+      "missing_checkpoints": []
+    },
+    "C10908": {
+      "desc": "CONTROL seed 10908 \u2014 uncommitted neutral wash (e176N arm A VERBATIM at this draw): the per-seed kill clock",
+      "R": null,
+      "wash_seed": 10908,
+      "target_mode": "true",
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3531999588012695,
+          "cum_disp": 1.654201865196228,
+          "step_disp": 1.654201865196228,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.3226569592952728,
+          "g0_mean_pz": 0.3238697350025177,
+          "frac_argmax_z": 0.18333333333333332,
+          "ce_r": 2.210491180419922
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.787866473197937,
+          "cum_disp": 2.4589731693267822,
+          "step_disp": 1.0969310998916626,
+          "elapsed_s": 1.0,
+          "g_m12_mean_pz": 0.0008192951208911836,
+          "g0_mean_pz": 0.010865598917007446,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.023179054260254
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.598397970199585,
+          "cum_disp": 3.0287563800811768,
+          "step_disp": 0.8511634469032288,
+          "elapsed_s": 1.9
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3363898992538452,
+          "cum_disp": 3.4503352642059326,
+          "step_disp": 0.7442038059234619,
+          "elapsed_s": 1.9,
+          "g_m12_mean_pz": 0.3896283507347107,
+          "g0_mean_pz": 0.6294736266136169,
+          "frac_argmax_z": 0.5666666666666667,
+          "ce_r": 1.7974961996078491
+        }
+      ],
+      "missing_checkpoints": []
+    },
+    "W1_10908": {
+      "desc": "WALL R=0.7 seed 10908 \u2014 commit(0.7) then the seed-identical neutral wash; step-1 weights equal to C10908's (the wall first acts at forward 2)",
+      "R": 0.7,
+      "wash_seed": 10908,
+      "target_mode": "true",
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3531999588012695,
+          "cum_disp": 1.6542019844055176,
+          "step_disp": 1.6542019844055176,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.9099034070968628,
+          "g0_mean_pz": 0.6902258396148682,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.7274723052978516
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.2690714597702026,
+          "cum_disp": 1.6448276042938232,
+          "step_disp": 0.9727863073348999,
+          "elapsed_s": 1.3,
+          "g_m12_mean_pz": 0.7460371255874634,
+          "g0_mean_pz": 0.7523555755615234,
+          "frac_argmax_z": 0.9166666666666666,
+          "ce_r": 1.6424463987350464
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2089989185333252,
+          "cum_disp": 1.5124317407608032,
+          "step_disp": 0.6775584816932678,
+          "elapsed_s": 3.0
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1579216718673706,
+          "cum_disp": 1.4927233457565308,
+          "step_disp": 0.4907560646533966,
+          "elapsed_s": 3.1,
+          "g_m12_mean_pz": 0.9193903803825378,
+          "g0_mean_pz": 0.6639807224273682,
+          "frac_argmax_z": 0.9833333333333333,
+          "ce_r": 1.6877901554107666
+        }
+      ],
+      "missing_checkpoints": []
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "neutral_bank": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "note": "e170's construction VERBATIM via g1b (= e176n arm A's stream; FIXED content, shared by ALL arms here)"
+      },
+      "budget": [
+        16,
+        256
+      ],
+      "pass": true
+    },
+    "measure_dial": "e176n's measure() (the e131 dial set) on evl_load (settle+disarm PIVOT)"
+  },
+  "displacement": {
+    "currency": "cumulative ||theta_t - theta_0||_2 over all 2739072 trainable parameters (fp32, measured per step) + the projected displacement min(d, R)",
+    "table": {
+      "C10907": [
+        {
+          "step": 1,
+          "ce_batch": 1.324038028717041,
+          "cum_disp": 1.6541266441345215,
+          "step_disp": 1.6541266441345215,
+          "d_proj": null,
+          "g_m12_light": 0.8174033761024475,
+          "ce_r_light": 2.4410324096679688
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.981691598892212,
+          "cum_disp": 2.4648382663726807,
+          "step_disp": 1.083602786064148,
+          "d_proj": null,
+          "g_m12_light": 0.4610499143600464,
+          "ce_r_light": 2.054154872894287
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6529260873794556,
+          "cum_disp": 3.0544381141662598,
+          "step_disp": 0.8762776851654053,
+          "d_proj": null
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.4783070087432861,
+          "cum_disp": 3.5062789916992188,
+          "step_disp": 0.768753170967102,
+          "d_proj": null,
+          "g_m12_light": 0.1630747765302658,
+          "ce_r_light": 1.8287969827651978
+        }
+      ],
+      "W1_10907": [
+        {
+          "step": 1,
+          "ce_batch": 1.324038028717041,
+          "cum_disp": 1.6541266441345215,
+          "step_disp": 1.6541266441345215,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.9622930884361267,
+          "ce_r_light": 1.7774964570999146
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3104369640350342,
+          "cum_disp": 1.621253490447998,
+          "step_disp": 0.9636242389678955,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.8028202056884766,
+          "ce_r_light": 1.6460576057434082
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2460664510726929,
+          "cum_disp": 1.4963855743408203,
+          "step_disp": 0.6849478483200073,
+          "d_proj": 0.699999988079071
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.2187514305114746,
+          "cum_disp": 1.4690964221954346,
+          "step_disp": 0.5058035850524902,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.9069920778274536,
+          "ce_r_light": 1.6585004329681396
+        }
+      ],
+      "C10908": [
+        {
+          "step": 1,
+          "ce_batch": 1.3531999588012695,
+          "cum_disp": 1.654201865196228,
+          "step_disp": 1.654201865196228,
+          "d_proj": null,
+          "g_m12_light": 0.3226569592952728,
+          "ce_r_light": 2.210491180419922
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.787866473197937,
+          "cum_disp": 2.4589731693267822,
+          "step_disp": 1.0969310998916626,
+          "d_proj": null,
+          "g_m12_light": 0.0008192951208911836,
+          "ce_r_light": 2.023179054260254
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.598397970199585,
+          "cum_disp": 3.0287563800811768,
+          "step_disp": 0.8511634469032288,
+          "d_proj": null
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3363898992538452,
+          "cum_disp": 3.4503352642059326,
+          "step_disp": 0.7442038059234619,
+          "d_proj": null,
+          "g_m12_light": 0.3896283507347107,
+          "ce_r_light": 1.7974961996078491
+        }
+      ],
+      "W1_10908": [
+        {
+          "step": 1,
+          "ce_batch": 1.3531999588012695,
+          "cum_disp": 1.6542019844055176,
+          "step_disp": 1.6542019844055176,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.9099034070968628,
+          "ce_r_light": 1.7274723052978516
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.2690714597702026,
+          "cum_disp": 1.6448276042938232,
+          "step_disp": 0.9727863073348999,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.7460371255874634,
+          "ce_r_light": 1.6424463987350464
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2089989185333252,
+          "cum_disp": 1.5124317407608032,
+          "step_disp": 0.6775584816932678,
+          "d_proj": 0.699999988079071
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1579216718673706,
+          "cum_disp": 1.4927233457565308,
+          "step_disp": 0.4907560646533966,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.9193903803825378,
+          "ce_r_light": 1.6877901554107666
+        }
+      ]
+    },
+    "theta0_norm": {
+      "C10907": 80.41263580322266,
+      "W1_10907": 80.41263580322266,
+      "C10908": 80.41263580322266,
+      "W1_10908": 80.41263580322266
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "note": "e170's construction VERBATIM via g1b (= e176n arm A's stream; FIXED content, shared by ALL arms here)"
+      },
+      "budget": [
+        16,
+        256
+      ],
+      "pass": true
+    },
+    "G_BITEXACT": {
+      "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+      "n_tensors": 65,
+      "max_abs_diff_vs_file": 0.0,
+      "pass": true
+    },
+    "G_ROOT": {
+      "bar": 0.78,
+      "gm12": 0.9155886769294739,
+      "reference_gm12": 0.9155886769294739,
+      "pass": true
+    },
+    "G_CTRL": {
+      "per_seed": {
+        "10907": {
+          "gm12_at_50": null,
+          "earliest_le_bar": 4,
+          "pass": false
+        },
+        "10908": {
+          "gm12_at_50": null,
+          "earliest_le_bar": 2,
+          "pass": false
+        }
+      },
+      "pass": false
+    },
+    "G_PIN": {
+      "per_arm": {
+        "W1_10907": {
+          "R": 0.7,
+          "bound": 2.2,
+          "max_raw_disp_at_ckpt": 1.6541266441345215,
+          "per_ckpt": {
+            "1": 1.6541266441345215,
+            "2": 1.621253490447998,
+            "4": 1.4690964221954346
+          },
+          "pass": true
+        },
+        "W1_10908": {
+          "R": 0.7,
+          "bound": 2.2,
+          "max_raw_disp_at_ckpt": 1.6542019844055176,
+          "per_ckpt": {
+            "1": 1.6542019844055176,
+            "2": 1.6448276042938232,
+            "4": 1.4927233457565308
+          },
+          "pass": true
+        }
+      },
+      "fuzz_formula_at_this_size": 1.6550141993348577,
+      "pass": true
+    },
+    "G_INPUTS": {
+      "within_seed": {
+        "10907": {
+          "steps_compared": 4,
+          "identical": true
+        },
+        "10908": {
+          "steps_compared": 4,
+          "identical": true
+        }
+      },
+      "across_seed": {
+        "steps_compared": 4,
+        "differing_steps": 4
+      },
+      "pass": true
+    },
+    "G_STEP1": {
+      "per_seed": {
+        "10907": {
+          "max_abs_diff": 6.405636668205261e-06,
+          "tol": 0.0001,
+          "pass": true
+        },
+        "10908": {
+          "max_abs_diff": 1.3396143913269043e-05,
+          "tol": 0.0001,
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "G_BITROOT": {
+      "W1_10907": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      },
+      "W1_10908": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      }
+    },
+    "G_SURG": {
+      "G_DRAWFREE_C10907": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_W1_10907": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_C10908": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_W1_10908": {
+        "zeph_violations": 0,
+        "pass": true
+      }
+    }
+  },
+  "traces": {
+    "C10907": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.8174033761024475,
+        "g0": 0.34023943543434143,
+        "ce_r": 2.4410324096679688
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.4610499143600464,
+        "g0": 0.4825044274330139,
+        "ce_r": 2.054154872894287
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.1630747765302658,
+        "g0": 0.31093916296958923,
+        "ce_r": 1.8287969827651978
+      }
+    ],
+    "W1_10907": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.9622930884361267,
+        "g0": 0.6506791710853577,
+        "ce_r": 1.7774964570999146
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.8028202056884766,
+        "g0": 0.8054155707359314,
+        "ce_r": 1.6460576057434082
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.9069920778274536,
+        "g0": 0.7187299132347107,
+        "ce_r": 1.6585004329681396
+      }
+    ],
+    "C10908": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.3226569592952728,
+        "g0": 0.3238697350025177,
+        "ce_r": 2.210491180419922
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0008192951208911836,
+        "g0": 0.010865598917007446,
+        "ce_r": 2.023179054260254
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.3896283507347107,
+        "g0": 0.6294736266136169,
+        "ce_r": 1.7974961996078491
+      }
+    ],
+    "W1_10908": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.9099034070968628,
+        "g0": 0.6902258396148682,
+        "ce_r": 1.7274723052978516
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.7460371255874634,
+        "g0": 0.7523555755615234,
+        "ce_r": 1.6424463987350464
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.9193903803825378,
+        "g0": 0.6639807224273682,
+        "ce_r": 1.6877901554107666
+      }
+    ]
+  },
+  "batteries": {
+    "C10907": {},
+    "W1_10907": {},
+    "C10908": {},
+    "W1_10908": {}
+  },
+  "adjudication": {
+    "bars": "maintains = light g-12 >= 0.50 at EVERY checkpoint {1,2,4,10,50,100,200,300} (g1/g1b VERBATIM); dies = g-12 <= 0.27. WALL-REPLICATES = both new seeds' W1 maintain and every gate passes -> the WALL-HOLDS claim licensed at n=3. WALL-SEED-BOUND = any seed's W1 fails (honest bound, report which).",
+    "gates_pass": false,
+    "wall": {
+      "C10907": {
+        "g_m12": {
+          "1": 0.8174033761024475,
+          "2": 0.4610499143600464,
+          "4": 0.1630747765302658
+        },
+        "min_gm12": 0.1630747765302658,
+        "argmin_step": 4,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 4
+      },
+      "C10908": {
+        "g_m12": {
+          "1": 0.3226569592952728,
+          "2": 0.0008192951208911836,
+          "4": 0.3896283507347107
+        },
+        "min_gm12": 0.0008192951208911836,
+        "argmin_step": 2,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 2
+      },
+      "W1_10907": {
+        "g_m12": {
+          "1": 0.9622930884361267,
+          "2": 0.8028202056884766,
+          "4": 0.9069920778274536
+        },
+        "min_gm12": 0.8028202056884766,
+        "argmin_step": 2,
+        "maintains": true,
+        "dies_by_50": false,
+        "first_ck_le_bar": null
+      },
+      "W1_10908": {
+        "g_m12": {
+          "1": 0.9099034070968628,
+          "2": 0.7460371255874634,
+          "4": 0.9193903803825378
+        },
+        "min_gm12": 0.7460371255874634,
+        "argmin_step": 2,
+        "maintains": true,
+        "dies_by_50": false,
+        "first_ck_le_bar": null
+      }
+    },
+    "flat": {
+      "10907": {
+        "flat_delta": null,
+        "FLAT_AT_PIN": false,
+        "F4_ERODES": false,
+        "dip_at_2": 0.8028202056884766,
+        "g300": null
+      },
+      "10908": {
+        "flat_delta": null,
+        "FLAT_AT_PIN": false,
+        "F4_ERODES": false,
+        "dip_at_2": 0.7460371255874634,
+        "g300": null
+      }
+    },
+    "seed_maintains": {
+      "10907": true,
+      "10908": true
+    },
+    "n_total": 3,
+    "WALL_REPLICATES": false,
+    "verdict": "TEXTURE (GATE FAILURE: G-CTRL)",
+    "clause": "a construction gate failed \u2014 nothing adjudicated; failed: ['G-CTRL']"
+  },
+  "honesty_reflex": {
+    "intervention_not_logits": "the wall IS the intervention: each seed's C and W1 share bit-identical step-0 weights (G-BITROOT max|diff| = 0.0), bit-identical per-step input streams through +300 (md5-gated, G-INPUTS) and identical targets; the only delta is the commit event \u2014 and G-STEP1 shows the commit is inert at forward 1, so the divergence begins exactly at the first projection. G-PIN verifies the geometry before any behavioral clause is read.",
+    "device": "all arms and the reference g1b run executed on the same device class (cuda); every bar adjudicates against the SAME-RUN same-seed control, so device floats cancel from the claim; the stored e176N/e185 CPU priors are co-reported context only.",
+    "r_dial_sensitivity": "the claim is R=0.7 SPECIFICALLY: g1b's W2 (R=1.4) dipped to 0.320 at +4 \u2014 below the maintain bar \u2014 and W3 (R=4.2) died; survival orders with R, so the replicate licenses 'the well at 0.7', not 'any wall'. The R-dial's sensitivity is itself g1b's cliff measurement.",
+    "single_seed_per_cell": "one trajectory per arm per seed (the arc's honesty convention); what this run adds is SEED replication of the wash draws (n=3 with g1b), not within-cell error bars \u2014 the root remains single (the root-draw question is g2e's, not this cell's).",
+    "within_run_scope": "W2/W3 and the noise arms are NOT re-run: the replicated claim is WALL-HOLDS only; the cliff localization (W2's dip-and-recover) and the noise split (F3) remain n=1 textures from g1b, honestly scoped."
+  },
+  "trims": [],
+  "deviations": [
+    "ARMS: g1b's seven reduced to the claim's own two per seed (C + W1) \u2014 the replicated claim is WALL-HOLDS (W1-at-0.7 vs C, g1 spec section 8 priority (1): 'seeds x3 on W1 and C'). W2/W3/N0/N1/N2 are g1b's cells (cliff localization, noise split) and are not re-run; their n=1 verdicts stand as texture.",
+    "SEEDS: 10907/10908 (the next free draws of the locked 109xx lineage \u2014 10903/10904 are g2d's wash seeds, 10905/10906 e152r's straddle seeds). The ONLY stochastic delta from g1b: g1_wash's seed argument. Same root, same neutral bank (seed 170), same targets ('true'), same checkpoints, same lr.",
+    "ROOT: loaded bit-exact from the same e131_consolidated_e113.pt and gated (G-ROOT, G-BITEXACT) but measured LEAN (base batteries + CE_R + site read): the root is bit-identical to g1b's by gate, and its full dial (census, deletions) is g1b's record \u2014 re-measuring it re-draws nothing.",
+    "DIALS: full dials {2,50,300} on the W1 arms only (g1b's FULL_DIAL_WASH VERBATIM); C arms run light-only (the control's role here is the kill clock, read by the light g-12; g1b's C full dials stand).",
+    "CHECKPOINTS: each arm's +300 final only (g1b's wash-arm convention; the +2 dip states are bit-reproducible from the recorded seeds).",
+    "G-STEP1 (new gate, strengthens g1b's docstring claim to a checked gate): each seed's W1 step-1 body vs C's step-1 body, max|diff| <= 1e-4 \u2014 the wall cannot act at forward 1 (d=0 < R) and the input streams are md5-identical, so this verifies the commit is inert until forward 2, modulo device-float fuzz (tolerance, not bit-exactness, because GPU reductions are order-nondeterministic).",
+    "MACHINERY: lab/g1b_continuity.py VERBATIM via import (which owns the G1.G1_CFG/G1.G1_PARAMS -> 2.74M patch); measure()/flat_cells are g1b's closures copied VERBATIM (they close over the batteries, as in g1b and g1 before it).",
+    "Smoke mode trims: g1's (via G1B_SMOKE -> G1_SMOKE: 4-step washes, ckpts {1,2,4}, lean dials, no cooldowns) \u2014 nothing adjudicated."
+  ],
+  "device_events": [],
+  "device_policy": {
+    "parked": false,
+    "reason": null
+  },
+  "ckpt_inventory": {
+    "smoke_g1bR_C10907_s4": {
+      "path": "runs/checkpoints/smoke_g1bR_C10907_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=None, input seed 10907, lr 0.001)",
+      "steps": 4,
+      "R": null,
+      "input_seed": 10907,
+      "lr": 0.001,
+      "target_mode": "true",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1bR_W1_10907_s4": {
+      "path": "runs/checkpoints/smoke_g1bR_W1_10907_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=0.7, input seed 10907, lr 0.001)",
+      "steps": 4,
+      "R": 0.7,
+      "input_seed": 10907,
+      "lr": 0.001,
+      "target_mode": "true",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1bR_C10908_s4": {
+      "path": "runs/checkpoints/smoke_g1bR_C10908_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=None, input seed 10908, lr 0.001)",
+      "steps": 4,
+      "R": null,
+      "input_seed": 10908,
+      "lr": 0.001,
+      "target_mode": "true",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1bR_W1_10908_s4": {
+      "path": "runs/checkpoints/smoke_g1bR_W1_10908_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=0.7, input seed 10908, lr 0.001)",
+      "steps": 4,
+      "R": 0.7,
+      "input_seed": 10908,
+      "lr": 0.001,
+      "target_mode": "true",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 43.8
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "R_claim": 0.7,
+    "new_seeds": [
+      10907,
+      10908
+    ],
+    "reference_seed": 10902,
+    "smoke": true
+  }
+}

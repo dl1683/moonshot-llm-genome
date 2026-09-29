@@ -1,0 +1,432 @@
+{
+  "experiment": "g2b",
+  "date": "2026-09-29T17:47:32Z",
+  "purpose": "THE ONSET-ONLY MONITOR \u2014 g2's named fix (T122): the read monitor watches p(Z|ctx->onset) only (1 of the 7 name positions) instead of the self-correlation-dominated 7-position mean; the organ is otherwise verbatim, root and cue pool REUSED from g2's checkpoints.",
+  "delta_vs_g2": {
+    "g2_monitor": "mean p(true name char) over the 7x8 masked name positions (self-correlation-dominated; wash spares it at 0.65+)",
+    "g2b_monitor": "mean p(true name char) at the FIRST masked column of each of the K_MON=8 cue windows (mask & cumsum==1) \u2014 p(Z|ctx), the channel the wash kills",
+    "arithmetic": "onset = mask & (mask.cumsum(1) == 1); float(ptrue[onset].mean())  [g2: float(ptrue[mask].mean())]",
+    "everything_else": "VERBATIM g2 (cue pool, rotation, THETA_OPEN 0.5, REFRACTORY 24, CADENCE 4, e174-arm-B replay, e176n-arm-A wash, seed 10902) via the G2Net subclass + module-global patch"
+  },
+  "smoke": true,
+  "threads": 4,
+  "cpu_only": true,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "organ": {
+    "cadence": 4,
+    "k_mon": 8,
+    "mon_offsets": [
+      0,
+      -4,
+      4
+    ],
+    "theta_open": 0.5,
+    "refractory": 24,
+    "cue_pool": [
+      300,
+      256
+    ],
+    "cue_mask": [
+      300,
+      255
+    ],
+    "new_learnable_params": 0,
+    "root_monitor": 0.941053032875061,
+    "monitor_channel": "onset-only (1 of 7)",
+    "root_monitor_onset": 0.0022665834985673428,
+    "root_monitor_7pos_recheck": 0.12063873559236526
+  },
+  "compute": {
+    "cpu_only": true,
+    "cuda_visible_devices": "-1",
+    "threads": 4,
+    "stagger_s": 2.0,
+    "train_cap_s": 600.0
+  },
+  "root": {
+    "source": "runs/checkpoints/g2_root.pt (REUSED \u2014 not rebuilt)",
+    "meta": {
+      "experiment": "g2",
+      "desc": "fresh root r1s_s4305_i8: e043-Dmix install (8 steps, gen 4305) + e113 jitter consolidation (300 steps, seed 10901) on cuda/cuda \u2014 organ registered at install end (cue pool 300x256 int16 + mask)",
+      "ruler_geo": 12,
+      "root_bound": true,
+      "base": "runs/checkpoints/e098_base_s4305.pt"
+    },
+    "cells_stored": {
+      "gm12": 0.1599424183368683,
+      "g0": 0.7106021046638489,
+      "gp12": 0.4343072175979614,
+      "ce_r": 1.88302743434906
+    },
+    "gates": {
+      "G_POOL": {
+        "form": "bit",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "shape": [
+          300,
+          256
+        ],
+        "pass": true
+      },
+      "G_ROOT2": {
+        "form": "reuse-verify (threads 4 vs g2's 8)",
+        "cells_reloaded": {
+          "g-12": 0.002220579655840993,
+          "g+0": 0.0020340941846370697,
+          "g+12": 0.0023775105364620686
+        },
+        "ce_r_reloaded": 2.89866304397583,
+        "g2_stored": {
+          "gm12": 0.1599424183368683,
+          "g0": 0.7106021046638489,
+          "gp12": 0.4343072175979614,
+          "ce_r": 1.88302743434906
+        },
+        "diffs": {
+          "gm12": -0.1577218386810273,
+          "g0": -0.7085680104792118,
+          "gp12": -0.43192970706149936,
+          "ce_r": 1.01563560962677
+        },
+        "max_abs_diff": 1.01563560962677,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": false,
+        "pass": false
+      }
+    }
+  },
+  "cells": {
+    "base": {
+      "mode": "base",
+      "steps_ran": 36,
+      "n_events": 0,
+      "n_checks": 0,
+      "realized_r": 0.0,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0013327280757948756,
+          "g0": 0.0016408466035500169,
+          "gp12": 0.0022483193315565586,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.368732929229736,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.5
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.39547654625494e-05,
+          "g0": 7.843204366508871e-05,
+          "gp12": 0.00011246762733208016,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131647109985352,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 3.0
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.5064332728798036e-05,
+          "g0": 1.904845703393221e-05,
+          "gp12": 2.8870534151792526e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.0460939407348633,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 5.2
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.00014028952864464372,
+          "g0": 0.00012306969438213855,
+          "gp12": 0.00011876103963004425,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.357819080352783,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 23.4
+        }
+      ],
+      "monitor_trace": [],
+      "event_log": [],
+      "devices": {
+        "initial": "cpu",
+        "final": "cpu"
+      },
+      "replay_checks": {
+        "events": 0,
+        "mask7_ok": 0,
+        "anchors_8_8_ok": 0,
+        "echo_j0_ok": 0
+      }
+    },
+    "g2": {
+      "mode": "g2",
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 1,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0013327280757948756,
+          "g0": 0.0016408466035500169,
+          "gp12": 0.0022483193315565586,
+          "frac_argmax_z": 0.0,
+          "ce_r": 6.368732929229736,
+          "monitor": 0.001516794553026557,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 0.9
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 5.39547654625494e-05,
+          "g0": 7.843204366508871e-05,
+          "gp12": 0.00011246762733208016,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.131647109985352,
+          "monitor": 7.511366857215762e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.8
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.5064332728798036e-05,
+          "g0": 1.904845703393221e-05,
+          "gp12": 2.8870534151792526e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.0460939407348633,
+          "monitor": 2.875796599255409e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 3.0
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.0004354429547674954,
+          "g0": 0.00037975245504640043,
+          "gp12": 0.00042305683018639684,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.360659122467041,
+          "monitor": 0.0004187098820693791,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 15.5
+        }
+      ],
+      "monitor_trace": [
+        {
+          "step": 24,
+          "check": 6,
+          "monitor": 6.559951725648716e-05,
+          "fired": true,
+          "became_event": true
+        }
+      ],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 24,
+          "mode": "g2",
+          "pre_event_monitor": 6.559951725648716e-05,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 0.0004354429547674954,
+            "g0": 0.00037975245504640043,
+            "gp12": 0.00042305683018639684
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 0.0004354429547674954,
+            "g0": 0.00037975245504640043,
+            "gp12": 0.00042305683018639684
+          }
+        }
+      ],
+      "devices": {
+        "initial": "cpu",
+        "final": "cpu"
+      },
+      "replay_checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      }
+    }
+  },
+  "dials": {
+    "g2b_g2_300": null,
+    "root": {
+      "held30_g0": 0.8615970015525818,
+      "site_read_onset": 0.41777658462524414,
+      "site_read_span": 0.8840882182121277,
+      "A129": 0.14287310174355905,
+      "row0_strength": 0.7101401478305917,
+      "dall_g0": 0.4464130997657776
+    }
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "cell_zeph_violations": {
+        "base": 0,
+        "g2": 0
+      },
+      "pass": true
+    },
+    "G_REPLAY": {
+      "base": {
+        "n_events": 0,
+        "checks": {
+          "events": 0,
+          "mask7_ok": 0,
+          "anchors_8_8_ok": 0,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      },
+      "g2": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      }
+    },
+    "G_STEP_PARITY": {
+      "base": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      },
+      "g2": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      }
+    },
+    "G_DEV": {
+      "form": "shape (CPU vs g2's CUDA base; same RNG stream)",
+      "max_abs_diff": 0.00914519454818219,
+      "both_dead_at_50": false
+    }
+  },
+  "registered_bars": {
+    "maintains": "MAINTAINS (>=0.5 at +300 with the gate firing in the 5-25 band \u2014 the organ vindicated)",
+    "gate_hyper": "GATE-HYPER (over-firing; the sawtooth rides every cycle)",
+    "still_silent": "STILL-SILENT (the onset channel also decays too slowly under wash)",
+    "source": "QUEUE.md row g2b, VERBATIM; operationalized in this file's docstring (frozen before the run; no bar shopping)."
+  },
+  "registered_prediction": {
+    "pre_run": "root onset monitor 0.609 > theta (gate starts closed); wash kills the onset read -> first event step 24-44; 8-12 events, spacing 24-40; post-event +24 ruler 0.4-0.7; +300 ruler phase-riding (coin-flip vs 0.5); late-grid mean is the honest texture.",
+    "discriminating_observation": "post-refractory onset monitor: >= theta after most events -> gate closes (healthy); < theta at every first check -> GATE-HYPER."
+  },
+  "adjudication": {
+    "ruler": {
+      "geo": 0,
+      "key": "g0",
+      "root_value": 0.7106021046638489,
+      "die_bar": 0.27,
+      "maintain_bar": 0.5
+    },
+    "bars": {
+      "MAINTAINS": false,
+      "GATE_HYPER": false,
+      "STILL_SILENT": true,
+      "maintain_ruler_300": null,
+      "maintain_ruler_50_coreport": null,
+      "late_grid_mean_100_200_300": "nan",
+      "late_grid_min": null,
+      "n_events": 1,
+      "in_band_5_25": false,
+      "all_checks_fired": true,
+      "gate_closed_between_events": false,
+      "event_spacings": [],
+      "spacing_min_median_max": null,
+      "frac_spacing_in_20_45": null,
+      "frac_events_ruler_ge_0.5_at_plus24": 0.0,
+      "frac_events_post_refractory_monitor_ge_theta": 0.0,
+      "realized_r": 0.027777777777777776,
+      "contrast_gate": {
+        "base_ruler_50": null,
+        "bar": 0.27,
+        "g2_stored_cuda_base_50": 0.0241349209100008,
+        "pass": false
+      }
+    },
+    "verdict": "NO-CONTRAST (base did not die by +50 \u2014 record and stop)",
+    "clause": "CELL-BASE ruler at +50 was None (bar 0.27) \u2014 the wash law did not reproduce on CPU; no adjudication."
+  },
+  "honesty": [
+    "CHECKPOINT REUSE: the root (and its cue pool) is g2's, built cuda-install + cpu-consolidation; g2b adds no new training before the cells. The cells rerun CPU-only \u2014 g2b's own CELL-BASE is the device-consistent contrast; g2's CUDA base trace is the embedded cross-check (G_DEV).",
+    "SINGLE SEED (10902), single lineage, n=1 per cell \u2014 point estimates until replicated (e179's own clause).",
+    "THREAD TEXTURE: 4 threads vs g2's 8 can reorder float reductions; G_ROOT2 reports the bit flag (5e-6) and the 0.05 fallback.",
+    "The +300 endpoint rides cycle phase (e179's sawtooth convention): the late-grid mean/min over {100,200,300} and the +50 value are co-reported."
+  ],
+  "checkpoints": {
+    "smoke_g2b_base": {
+      "path": "runs/checkpoints/smoke_g2b_base.pt",
+      "desc": "g2 root (reused) + 36-step g2b cell (gate hard-disabled \u2014 the CPU contrast identity), onset-only monitor, seed 10902, 0 events",
+      "mode": "base",
+      "steps": 36,
+      "n_events": 0,
+      "realized_r": 0.0,
+      "seed": 10902,
+      "monitor": "onset-only (1 of 7)"
+    },
+    "smoke_g2b_g2": {
+      "path": "runs/checkpoints/smoke_g2b_g2.pt",
+      "desc": "g2 root (reused) + 36-step g2b cell (gate live, ONSET-ONLY monitor, all three locks on (THE FIX)), onset-only monitor, seed 10902, 1 events",
+      "mode": "g2",
+      "steps": 36,
+      "n_events": 1,
+      "realized_r": 0.027777777777777776,
+      "seed": 10902,
+      "monitor": "onset-only (1 of 7)"
+    }
+  },
+  "deviations": [
+    "THE DELTA: monitor channel only \u2014 g2 averaged p(true name char) over the 7x8 masked positions; g2b reads the FIRST masked column per window (mask & cumsum==1; p(Z|ctx), 8 values). Everything else verbatim, via the G2Net subclass + module-global patch (g2.run_cell unchanged).",
+    "ROOT REUSE (the honest-reflex point): the root is g2's own g2_root.pt (cuda install + cpu consolidation, ruler g0 0.7106) \u2014 loaded, not rebuilt; the cue pool on disk is bit-verified against the freshly rebuilt e113 pool (G_POOL), and the root dials are re-measured and checked against g2's stored cells (G_ROOT2).",
+    "CELL-BASE rerun on CPU: g2's base cell ran on CUDA; g2b reruns it CPU-only (same seed -> same RNG batch stream) so the contrast gate is device-consistent within g2b; g2's stored CUDA base trace is embedded as the shape-level cross-check.",
+    "TRAIN CAP: G2B_CAP_S=600 s (g2's own cap was 1800 s; the lab's 180-s single-run rule is GPU-era \u2014 at the mandated 4 CPU threads a 300-step cell measures ~217 s train-only, so the cap cannot hold; recorded, bounded at 600 s).",
+    "DIAL TRIM: the +300 anatomy dial keeps geos/held30/site-read/deletions/A129-quick and DROPS the row census (anatomy bars are not in g2b's registered bars; the census is the slow CPU piece).",
+    "Stagger: 20 s sleep between trainings (dispatch's CPU stagger), cooldowns skipped (CPU-only; g2's 60 s thermal cooldowns are GPU-era).",
+    "Single seed (10902), single lineage, n=1 per cell \u2014 point estimates until replicated.",
+    "Smoke mode trims: 36-step cells, checkpoints {1,2,4,36}, no dials, 2 s stagger \u2014 nothing adjudicated."
+  ],
+  "timing_s": 48.1
+}

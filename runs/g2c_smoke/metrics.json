@@ -1,0 +1,642 @@
+{
+  "experiment": "g2c",
+  "date": "2026-09-29T18:26:58Z",
+  "purpose": "THE PHASE-OFFSET REPLICATE \u2014 g2b's owed cell (T128): the onset-monitor organ's self-timed sawtooth re-measured on a dense grid (every 2 steps) so the maintain verdict rides the CYCLE, not one frozen phase. g2b's CELL-G2 rerun verbatim (same root/monitor/seed); measurement-only delta; fidelity-gated against g2b's stored trace, event log, and checkpoints.",
+  "delta_vs_g2b": {
+    "g2b": "9 checkpoint reads + 9 post-event reads of the ruler over the 300-step cell; +300 sampled a sawtooth trough (0.305)",
+    "g2c": "20 dense reads (step 1 + every 2 steps) of the SAME cell; cycle-median / duty / phase-binned curve adjudicated",
+    "organ": "VERBATIM g2b (onset-only monitor via g2b module import; G2.G2Net patched by g2b_onset_monitor itself)",
+    "training_stream": "bit-untouched by the grid: run_cell's evals are no-RNG no-grad CPU-twin reads; verified by F_SCHED/F_TRACE/F_SD rather than assumed"
+  },
+  "smoke": true,
+  "threads": 4,
+  "cpu_only": true,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "compute": {
+    "cpu_only": true,
+    "cuda_visible_devices": "-1",
+    "threads": 4,
+    "stagger_s": 0.0,
+    "train_cap_s": 900.0,
+    "meas_grid_n": 20,
+    "meas_grid_every": 2
+  },
+  "g2b_references": {
+    "metrics": "runs/g2b_smoke/metrics.json",
+    "events": [
+      24
+    ],
+    "n_events": 1,
+    "ruler_at_300": null,
+    "verdict_then": "NO-CONTRAST (base did not die by +50 \u2014 record and stop)",
+    "contrast_base_ruler_50": null
+  },
+  "root": {
+    "source": "runs/checkpoints/smoke_g2_root.pt (REUSED \u2014 not rebuilt; g2b's own root)",
+    "gates": {
+      "G_POOL": {
+        "form": "bit",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "pass": true
+      },
+      "G_ROOT": {
+        "form": "reuse-verify vs g2b's own reloaded dials (threads 4)",
+        "cells_reloaded": {
+          "g-12": 0.002220579655840993,
+          "g+0": 0.0020340941846370697,
+          "g+12": 0.0023775105364620686
+        },
+        "root_monitor_onset": 0.0022665834985673428,
+        "g2b_stored": {
+          "g-12": 0.002220579655840993,
+          "g+0": 0.0020340941846370697,
+          "g+12": 0.0023775105364620686,
+          "root_monitor_onset": 0.0022665834985673428
+        },
+        "diffs": {
+          "gm12": 0.0,
+          "g0": 0.0,
+          "gp12": 0.0,
+          "root_monitor_onset": 0.0
+        },
+        "max_abs_diff": 0.0,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": true,
+        "pass": true
+      }
+    }
+  },
+  "cell": {
+    "mode": "g2",
+    "steps_ran": 36,
+    "n_events": 1,
+    "n_checks": 1,
+    "realized_r": 0.027777777777777776,
+    "event_spacings": [],
+    "events": [
+      24
+    ],
+    "monitor_trace": [
+      {
+        "step": 24,
+        "check": 6,
+        "monitor": 6.559951725648716e-05,
+        "fired": true,
+        "became_event": true
+      }
+    ],
+    "event_log": [
+      {
+        "n": 1,
+        "step": 24,
+        "mode": "g2",
+        "pre_event_monitor": 6.559951725648716e-05,
+        "post_refractory_monitor": null,
+        "next_check_fired": null,
+        "ruler_cells_at_plus_refractory": {
+          "gm12": 0.0004354429547674954,
+          "g0": 0.00037975245504640043,
+          "gp12": 0.00042305683018639684
+        },
+        "ruler_cells_at_next_ckpt": {
+          "gm12": 7.831996481399983e-05,
+          "g0": 9.545890497975051e-05,
+          "gp12": 5.442390829557553e-05
+        }
+      }
+    ],
+    "traj_dense": [
+      {
+        "step": 1,
+        "why": "ckpt",
+        "gm12": 0.0013327280757948756,
+        "g0": 0.0016408466035500169,
+        "gp12": 0.0022483193315565586,
+        "frac_argmax_z": 0.0,
+        "ce_r": 6.368732929229736,
+        "monitor": 0.001516794553026557,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 0.8
+      },
+      {
+        "step": 2,
+        "why": "ckpt",
+        "gm12": 5.39547654625494e-05,
+        "g0": 7.843204366508871e-05,
+        "gp12": 0.00011246762733208016,
+        "frac_argmax_z": 0.0,
+        "ce_r": 4.131647109985352,
+        "monitor": 7.511366857215762e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 1.7
+      },
+      {
+        "step": 4,
+        "why": "ckpt",
+        "gm12": 1.5064332728798036e-05,
+        "g0": 1.904845703393221e-05,
+        "gp12": 2.8870534151792526e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 3.0460939407348633,
+        "monitor": 2.875796599255409e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 3.0
+      },
+      {
+        "step": 6,
+        "why": "ckpt",
+        "gm12": 1.344375777989626e-05,
+        "g0": 1.6131763914017938e-05,
+        "gp12": 1.8991882825503126e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.737623929977417,
+        "monitor": 2.291505370521918e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 4.4
+      },
+      {
+        "step": 8,
+        "why": "ckpt",
+        "gm12": 1.0088901035487652e-05,
+        "g0": 1.2796322153008077e-05,
+        "gp12": 1.2302512914175168e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.6249632835388184,
+        "monitor": 3.921762981917709e-06,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 5.8
+      },
+      {
+        "step": 10,
+        "why": "ckpt",
+        "gm12": 1.1125344826723449e-05,
+        "g0": 1.3203926755522843e-05,
+        "gp12": 1.4073310921958182e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.573195219039917,
+        "monitor": 4.676336629927391e-06,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 7.2
+      },
+      {
+        "step": 12,
+        "why": "ckpt",
+        "gm12": 1.1934456779272296e-05,
+        "g0": 1.550590241095051e-05,
+        "gp12": 1.4220094271877315e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.5426762104034424,
+        "monitor": 1.321096351603046e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 8.6
+      },
+      {
+        "step": 14,
+        "why": "ckpt",
+        "gm12": 1.463637272536289e-05,
+        "g0": 1.8981740140588954e-05,
+        "gp12": 1.5706053090980276e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.5135092735290527,
+        "monitor": 1.6768342902651057e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 10.1
+      },
+      {
+        "step": 16,
+        "why": "ckpt",
+        "gm12": 1.409586093359394e-05,
+        "g0": 1.9304201487102546e-05,
+        "gp12": 1.475835688324878e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.520020008087158,
+        "monitor": 1.8536184143158607e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 11.5
+      },
+      {
+        "step": 18,
+        "why": "ckpt",
+        "gm12": 1.615781911823433e-05,
+        "g0": 1.9866216462105513e-05,
+        "gp12": 1.4812403605901636e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.472644329071045,
+        "monitor": 1.7875496268970892e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 12.9
+      },
+      {
+        "step": 20,
+        "why": "ckpt",
+        "gm12": 2.078546276607085e-05,
+        "g0": 2.649403177201748e-05,
+        "gp12": 1.8564480342320167e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.450108289718628,
+        "monitor": 2.474016037012916e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 14.5
+      },
+      {
+        "step": 22,
+        "why": "ckpt",
+        "gm12": 3.499794547678903e-05,
+        "g0": 4.898761835647747e-05,
+        "gp12": 3.036620546481572e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.453411102294922,
+        "monitor": 4.5966899051563814e-05,
+        "n_events_so_far": 0,
+        "was_event": false,
+        "elapsed_s": 16.0
+      },
+      {
+        "step": 24,
+        "why": "ckpt",
+        "gm12": 7.831996481399983e-05,
+        "g0": 9.545890497975051e-05,
+        "gp12": 5.442390829557553e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.461188554763794,
+        "monitor": 0.00010896966705331579,
+        "n_events_so_far": 1,
+        "was_event": true,
+        "elapsed_s": 17.3
+      },
+      {
+        "step": 25,
+        "why": "ckpt",
+        "gm12": 0.00011750387056963518,
+        "g0": 0.00013690489868167788,
+        "gp12": 8.692683331901208e-05,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.4332361221313477,
+        "monitor": 0.00015317252837121487,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 18.2
+      },
+      {
+        "step": 26,
+        "why": "ckpt",
+        "gm12": 0.0001460023340769112,
+        "g0": 0.00016224889259319752,
+        "gp12": 0.00012604509538505226,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.4438350200653076,
+        "monitor": 0.00018140542670153081,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 19.2
+      },
+      {
+        "step": 28,
+        "why": "ckpt",
+        "gm12": 0.00020489301823545247,
+        "g0": 0.00022110306599643081,
+        "gp12": 0.00019210105529055,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.419919013977051,
+        "monitor": 0.0002648047520779073,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 20.4
+      },
+      {
+        "step": 30,
+        "why": "ckpt",
+        "gm12": 0.0002315422025276348,
+        "g0": 0.0002382983802817762,
+        "gp12": 0.00018621570779941976,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.4005653858184814,
+        "monitor": 0.00026802546926774085,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 21.6
+      },
+      {
+        "step": 32,
+        "why": "ckpt",
+        "gm12": 0.0003142602799925953,
+        "g0": 0.0002802062372211367,
+        "gp12": 0.0002695928851608187,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.384092092514038,
+        "monitor": 0.0003026963968295604,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 22.7
+      },
+      {
+        "step": 34,
+        "why": "ckpt",
+        "gm12": 0.00037143874214962125,
+        "g0": 0.00034690150641836226,
+        "gp12": 0.00039470838964916766,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.373598337173462,
+        "monitor": 0.00036744261160492897,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 23.8
+      },
+      {
+        "step": 36,
+        "why": "ckpt",
+        "gm12": 0.0004354429547674954,
+        "g0": 0.00037975245504640043,
+        "gp12": 0.00042305683018639684,
+        "frac_argmax_z": 0.0,
+        "ce_r": 2.360659122467041,
+        "monitor": 0.0004187098820693791,
+        "n_events_so_far": 1,
+        "was_event": false,
+        "elapsed_s": 25.0
+      }
+    ],
+    "devices": {
+      "initial": "cpu",
+      "final": "cpu"
+    },
+    "replay_checks": {
+      "events": 1,
+      "mask7_ok": 1,
+      "anchors_8_8_ok": 1,
+      "echo_j0_ok": 0
+    }
+  },
+  "fidelity": {
+    "F_SCHED": {
+      "g2b_events": [
+        24
+      ],
+      "rerun_events": [
+        24
+      ],
+      "match": true
+    },
+    "F_TRACE": {
+      "form": "ruler at g2b's stored steps + monitor values",
+      "n_steps_compared": 4,
+      "max_abs_diff": 0.0,
+      "per_key": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "monitor_n_checks_compared": 1,
+      "monitor_max_abs_diff": 0.0,
+      "monitor_fired_flags_match": true,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "F_SD": {
+      "final": {
+        "vs": "runs/checkpoints/g2b_g2.pt (final, +36)",
+        "max_abs_diff": 0.0,
+        "ints_bit_identical": true,
+        "bit_tol": 5e-06,
+        "bit": true,
+        "pass": true
+      },
+      "s50": null,
+      "pass": true
+    },
+    "same_realization": true,
+    "note": "same_realization=True means the dense trace IS g2b's trajectory (schedule + stored checkpoints + state_dicts all match); False means a same-seed twin \u2014 divergence recorded, bars adjudicated on the rerun's own trace."
+  },
+  "phase": {
+    "definition": "cycles = complete inter-event intervals [e_k, e_{k+1}); phase = (step - e_k)/spacing; ruler g0; dense samples every 2 steps",
+    "n_complete_cycles": 0,
+    "n_pooled_samples": 0,
+    "cycle_median": null,
+    "cycle_mean": null,
+    "mean_over_phase_offset_checkpoints": null,
+    "duty_ge_0.5": null,
+    "peak_max": null,
+    "trough_min": null,
+    "per_cycle": [],
+    "per_cycle_peak_range": null,
+    "per_cycle_median_range": null,
+    "per_cycle_trough_range": null,
+    "frac_cycles_median_ge_0.5": null,
+    "phase_bins": [
+      {
+        "phase_bin": [
+          0.0,
+          0.125
+        ],
+        "center": 0.0625,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.125,
+          0.25
+        ],
+        "center": 0.1875,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.25,
+          0.375
+        ],
+        "center": 0.3125,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.375,
+          0.5
+        ],
+        "center": 0.4375,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.5,
+          0.625
+        ],
+        "center": 0.5625,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.625,
+          0.75
+        ],
+        "center": 0.6875,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.75,
+          0.875
+        ],
+        "center": 0.8125,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      },
+      {
+        "phase_bin": [
+          0.875,
+          1.0
+        ],
+        "center": 0.9375,
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "duty_ge_0.5": null
+      }
+    ],
+    "expression_ge_0.5_through_phase": null,
+    "pre_rhythm": {
+      "steps": [
+        1,
+        22
+      ],
+      "min": 1.2796322153008077e-05,
+      "max": 0.0016408466035500169,
+      "note": "the initial death before the first event \u2014 co-reported, not adjudicated"
+    },
+    "tail_partial": {
+      "from_event": 24,
+      "first_post_event": 9.545890497975051e-05,
+      "n_samples": 7,
+      "min": 0.00013690489868167788,
+      "max": 0.00037975245504640043,
+      "ruler_at_final_step": 0.00037975245504640043,
+      "note": "the partial cycle after the last event \u2014 co-reported, not adjudicated"
+    }
+  },
+  "gates": {
+    "CONTRAST": {
+      "form": "g2b's stored CELL-BASE (CPU, seed 10902; embedded)",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "pass": null,
+      "note": "g2b smoke stored no +50 read \u2014 contrast not applicable in smoke"
+    },
+    "G_NAMEFREE": {
+      "cell_zeph_violations": 0,
+      "pass": true
+    },
+    "G_REPLAY": {
+      "n_events": 1,
+      "checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      },
+      "pass": true
+    },
+    "G_STEP": {
+      "steps_ran": 36,
+      "expected": 36,
+      "batch": 32,
+      "pass": true
+    }
+  },
+  "registered_bars": {
+    "maintains_in_rhythm": "MAINTAINS-IN-RHYTHM fires if the ruler's CYCLE-median (or the mean over phase-offset checkpoints) >= 0.5 AND the event band stays 20-45 \u2014 the organ vindicated as a self-maintaining memory in oscillation",
+    "trough_bound": "TROUGH-BOUND fires if even the phase-median stays < 0.5 (the sawtooth's duty cycle is too low \u2014 the organ maintains peaks but not expression-in-general)",
+    "source": "dispatch g2c (T128's registered follow-up), VERBATIM; operationalized in this docstring before the run; no shopping."
+  },
+  "registered_prediction": {
+    "pre_run": "from g2b's sparse grid the sawtooth jumps to 0.62-0.72 post-event and decays through ~0.36-0.44 at +24; the cycle-median hinges on the unknown trough-side between +24 and the next event \u2014 a genuinely open call between MAINTAINS-IN-RHYTHM and TROUGH-BOUND (no shopping: both outcomes pre-registered).",
+    "discriminating_observation": "the dense trough just before each event and the phase-binned median curve's crossing of 0.5 \u2014 the duty cycle."
+  },
+  "adjudication": {
+    "ruler": {
+      "geo": 0,
+      "key": "g0",
+      "root_value": 0.7106021046638489,
+      "die_bar": 0.27,
+      "maintain_bar": 0.5
+    },
+    "bars": {
+      "MAINTAINS_IN_RHYTHM": false,
+      "TROUGH_BOUND": false,
+      "cycle_median": null,
+      "cycle_mean": null,
+      "mean_over_phase_offset_checkpoints": null,
+      "duty_ge_0.5": null,
+      "n_complete_cycles": 0,
+      "n_events": 1,
+      "event_spacings": [],
+      "frac_spacing_in_20_45": null,
+      "band_stays_20_45": false,
+      "ruler_clause_ge_0.5": false,
+      "g2b_ruler_300_coreport": null
+    },
+    "verdict": "SMOKE (nothing adjudicated)",
+    "clause": "smoke trim \u2014 no complete cycles."
+  },
+  "honesty": [
+    "PHASE-RECONSTRUCTION FIDELITY: the dense trace is honest only if it reproduces g2b's realization \u2014 F_SCHED (event schedule), F_TRACE (ruler at g2b's stored steps + monitor values/flags), F_SD (bit-diff vs g2b_g2.pt and g2b_g2_s50.pt) are reported as gates; this run: same_realization=True.",
+    "SINGLE ROOT (g2_root.pt), SINGLE SEED (10902), n=1: this replicate samples PHASE, not seed-space; the organ's rhythm is one lineage's point estimate and a seed replicate remains owed.",
+    "THE GRID CANNOT STEER: measurements are no-RNG no-grad reads of a CPU twin; the training stream draws only from the seeded generator \u2014 verified by the fidelity gates, not assumed.",
+    "COMPLETE CYCLES ONLY are adjudicated (the pre-rhythm death and the partial tail after the last event are co-reported); with every-2-step sampling the duty cycle is step-weighted and unbiased.",
+    "g2b's +300 endpoint (a trough) is co-reported everywhere \u2014 the point of g2c is that ONE frozen phase must not carry a verdict."
+  ],
+  "checkpoints_saved": {},
+  "deviations": [
+    "THE DELTA: measurement grid only \u2014 g2b's CELL-G2 rerun with the ruler read every 2 steps (+ step 1; 151 reads vs g2b's 9+9). The organ, root, monitor (g2b's G2BNet via module import), seed, and wash/replay arithmetic are g2b VERBATIM; run_cell is reused unmodified.",
+    "WHY A RERUN, NOT CONTINUATIONS: g2b saved bodies only at +50 and +300; mid-cycle states were never on disk, so the phase grid cannot be evaluated from checkpoints alone. Short continuations from +50 would fork a NEW self-timed schedule (the monitor re-fires on its own clock), which samples schedule-space, not phase. The deterministic rerun with dense passive reads is the only mechanism that fills the cells BETWEEN g2b's saved points on g2b's OWN realization \u2014 and F_SCHED/F_TRACE/F_SD verify exactly that.",
+    "NO BASE RERUN: g2b's stored CELL-BASE contrast (ruler 0.0241 <= 0.27 at +50, CPU, same seed) is embedded as the contrast gate; it passed in g2b and nothing in g2c touches the wash law.",
+    "NO NEW CHECKPOINT FILES: the 151 measurement state_dicts live in memory and are discarded after the +50 bit-check (deliverables are metrics + PNG; the reusable artifacts remain g2b's).",
+    "TRAIN CAP: G2C_CAP_S=900 s (g2b's 600 s bound + the dense evals' wall time; train-only is unchanged at ~100 s \u2014 the cap has never bound).",
+    "Stagger: none needed (a single training; the dispatch's between-trainings stagger is vacuous here). Cooldowns skipped (CPU-only, g2b's convention).",
+    "Single seed (10902), single lineage, n=1 realization \u2014 this replicate samples PHASE, not seed-space; a seed replicate remains owed (honesty).",
+    "Smoke mode trims: 36-step cell, grid every 2 steps to 36, fidelity vs runs/g2b_smoke \u2014 nothing adjudicated (0 complete cycles)."
+  ],
+  "timing_s": 28.2
+}

@@ -1,0 +1,1678 @@
+{
+  "experiment": "e176n_neutral_wash",
+  "date": "2026-09-28T15:56:57Z",
+  "registration": "NO QUEUE ROW \u2014 the R50 critic's critical discharge (commit e5df61c/b4c6a4c) dispatched the bars in the mission text; frozen verbatim in the module docstring before compute; e177's fold waits on this cell",
+  "registered_prediction": {
+    "neutral_dissolves": "NEUTRAL-DISSOLVES fires if: g-12 <= 0.27 by +50 (the wash licenses the activity-dependence noun \u2014 W019 strengthened as a bounded reading).",
+    "neutral_survives": "NEUTRAL-SURVIVES fires if: g-12 >= 0.5 through +300 (the wash was EXTINCTION \u2014 the disuse noun dies; the honest finding becomes 'memories cannot survive their own teaching contexts shown without the name').",
+    "slow_wash": "SLOW-WASH texture in between (full trajectory reported).",
+    "operationalizations": "g-12/g0/g+12/held30 = absolute install-60/held-30 battery mean p(Z) at ctx offsets -12/0/+12 (e176's convention); NEUTRAL-DISSOLVES = neutral arm g-12 at +50 <= 0.27 (earliest checkpoint <= 0.27 over {1,2,4,50,100,200,300} CO-REPORTED); NEUTRAL-SURVIVES = neutral arm g-12 >= 0.50 at EVERY continuation checkpoint {1,2,4,50,100,200,300}; clauses disjoint; order NEUTRAL-DISSOLVES -> NEUTRAL-SURVIVES -> SLOW-WASH; CE-at-dissolution reported per stream (CE_R + in-batch corpus CE at the first checkpoint under 0.27); arm B (lr 1e-4) and arm C (restore-into-+50) are riders \u2014 reported, not bar-adjudicated (arm C's fork operationalized: gm12 in e178's band 0.4224 +/- 0.08 = interface/gain-set; >= 0.65 = wash-depth artifact; between = MIXED).",
+    "registration": "NO QUEUE ROW EXISTS \u2014 the dispatch registered these bars in the mission text; this docstring freezes them verbatim before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does the consolidated fact ALSO dissolve under a truly NEUTRAL stream (e170's anchors: 16 plain-corpus windows, 0/16 junction coverage), or was e176's wash targeted EXTINCTION by the install's own name-deleted junction windows?",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 1.19e-07)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "armA_neutral": {
+    "desc": "ONE plain-corpus freeze with e170's NEUTRAL anchors: batch 32 = 16 neutral-bank draws + 16 random corpus windows, full-token CE (NO fact windows, NO name tokens, NO mask), AdamW (0.9,0.95) wd 0.1 lr 1e-3 constant, clip 1.0, seed 10902 (= e176's draw sequence; only anchor content differs)",
+    "ckpt_steps": [
+      1,
+      2,
+      4
+    ],
+    "steps_ran": 4,
+    "seed": 10902,
+    "lr": 0.001,
+    "traj": [
+      {
+        "step": 1,
+        "g_m12_mean_pz": 0.6780440807342529,
+        "g0_mean_pz": 0.4619811177253723,
+        "frac_argmax_z": 0.85,
+        "corpus_ce": 1.356567621231079,
+        "ce_r": 2.2113420963287354,
+        "elapsed_s": 7.7
+      },
+      {
+        "step": 2,
+        "g_m12_mean_pz": 0.027077054604887962,
+        "g0_mean_pz": 0.1147073358297348,
+        "frac_argmax_z": 0.016666666666666666,
+        "corpus_ce": 1.8263245820999146,
+        "ce_r": 2.032074451446533,
+        "elapsed_s": 16.7
+      },
+      {
+        "step": 4,
+        "g_m12_mean_pz": 0.010940761305391788,
+        "g0_mean_pz": 0.06042749062180519,
+        "frac_argmax_z": 0.0,
+        "corpus_ce": 1.3631858825683594,
+        "ce_r": 1.8213403224945068,
+        "elapsed_s": 30.1
+      }
+    ],
+    "zeph_violations": 0,
+    "missing_checkpoints": []
+  },
+  "armB_lr1e4": {
+    "desc": "the LR RIDER: the ORIGINAL stream (e161/e176's anchor bank \u2014 the install's own name-deleted host windows) at lr 1e-4, 300 steps, seed 10902 (same draw sequence as e176 at lr 1e-3)",
+    "ckpt_steps": [
+      2,
+      4
+    ],
+    "steps_ran": 4,
+    "seed": 10902,
+    "lr": 0.0001,
+    "traj": [
+      {
+        "step": 2,
+        "g_m12_mean_pz": 0.9059149622917175,
+        "g0_mean_pz": 0.6570863127708435,
+        "frac_argmax_z": 0.9833333333333333,
+        "corpus_ce": 0.6480086445808411,
+        "ce_r": 1.668169379234314,
+        "elapsed_s": 11.1
+      },
+      {
+        "step": 4,
+        "g_m12_mean_pz": 0.8374525904655457,
+        "g0_mean_pz": 0.6362767815589905,
+        "frac_argmax_z": 0.95,
+        "corpus_ce": 0.6411874294281006,
+        "ce_r": 1.6489430665969849,
+        "elapsed_s": 23.9
+      }
+    ],
+    "zeph_violations": 0,
+    "missing_checkpoints": [],
+    "reading": "the ORIGINAL stream at lr 0.0001 does NOT dissolve within 300 steps (g-12 +50 n/a, +300 0.8375 >= 0.5) \u2014 the wash rate scales with the optimizer: extinction needs the lr-1e-3 step size to complete in <=300 steps",
+    "ce_at_dissolution": {
+      "dissolved": false
+    }
+  },
+  "armC_restore50": {
+    "ran": true,
+    "target": {
+      "path": "runs/checkpoints/e176_root_freeze_s50.pt",
+      "meta": {
+        "experiment": "e176",
+        "desc": "e131_consolidated_e113 + 50-step plain-corpus freeze (intermediate snapshot), seed 10902",
+        "steps": 50,
+        "seed": 10902,
+        "base": "runs/checkpoints/e131_consolidated_e113.pt"
+      }
+    },
+    "base": {
+      "tag": "s50_base",
+      "base": {
+        "-12": {
+          "mean_pz": 0.020882638171315193,
+          "median_pz": 0.008572842925786972,
+          "std_pz": 0.04842351749539375,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "0": {
+          "mean_pz": 0.027392588555812836,
+          "median_pz": 0.012578653171658516,
+          "std_pz": 0.0423099659383297,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "12": {
+          "mean_pz": 0.02393173798918724,
+          "median_pz": 0.014245804399251938,
+          "std_pz": 0.03606046736240387,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.00599030451849103,
+          "median_pz": 0.0043856422416865826,
+          "std_pz": 0.006120034493505955,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.01260960940271616,
+          "median_pz": 0.006068108603358269,
+          "std_pz": 0.01461005862802267,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "12": {
+          "mean_pz": 0.01034427247941494,
+          "median_pz": 0.007661161012947559,
+          "std_pz": 0.011397617869079113,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "ce_r": 1.6478883028030396,
+      "site_read": {
+        "pz_onset_mean": 0.02520560473203659,
+        "pz_onset_median": 0.014811807312071323,
+        "pz_onset_frac_ge_0.5": 0.0,
+        "pname_mean_over7": 0.8252765536308289,
+        "pname_frac_ge_0.5": 0.8309524059295654,
+        "per_position_mean": [
+          0.025205603893846275,
+          0.9993842542171478,
+          0.9988370517889659,
+          0.9995188613732656,
+          0.9983587175607681,
+          0.7562374701102574,
+          0.9993933369716008
+        ]
+      },
+      "A129_quick": -0.012971208266814457
+    },
+    "dial": {
+      "tag": "s50_mlp_ln",
+      "base": {
+        "-12": {
+          "mean_pz": 0.5625172853469849,
+          "median_pz": 0.5724245309829712,
+          "std_pz": 0.20372681319713593,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.6833333333333333
+        },
+        "0": {
+          "mean_pz": 0.6046039462089539,
+          "median_pz": 0.7790511846542358,
+          "std_pz": 0.3589913249015808,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7333333333333333
+        },
+        "12": {
+          "mean_pz": 0.6325344443321228,
+          "median_pz": 0.663459300994873,
+          "std_pz": 0.17844606935977936,
+          "frac_pz_ge_0.5": 0.8166666626930237,
+          "frac_argmax_z": 0.8833333333333333
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.331499308347702,
+          "median_pz": 0.31350311636924744,
+          "std_pz": 0.25298693776130676,
+          "frac_pz_ge_0.5": 0.2666666805744171,
+          "frac_argmax_z": 0.26666666666666666
+        },
+        "0": {
+          "mean_pz": 0.5605508089065552,
+          "median_pz": 0.6609477400779724,
+          "std_pz": 0.3066824674606323,
+          "frac_pz_ge_0.5": 0.699999988079071,
+          "frac_argmax_z": 0.7333333333333333
+        },
+        "12": {
+          "mean_pz": 0.37028414011001587,
+          "median_pz": 0.3983296751976013,
+          "std_pz": 0.2830730676651001,
+          "frac_pz_ge_0.5": 0.4333333373069763,
+          "frac_argmax_z": 0.43333333333333335
+        }
+      },
+      "ce_r": 1.639455795288086,
+      "site_read": {
+        "pz_onset_mean": 0.6084641814231873,
+        "pz_onset_median": 0.5908301472663879,
+        "pz_onset_frac_ge_0.5": 0.75,
+        "pname_mean_over7": 0.9434700608253479,
+        "pname_frac_ge_0.5": 0.9642857313156128,
+        "per_position_mean": [
+          0.608464177697897,
+          0.9992719580729802,
+          0.9989534904559453,
+          0.9998538553714752,
+          0.9994044621785482,
+          0.9992488185564677,
+          0.999093179901441
+        ]
+      },
+      "A129_quick": -0.10230774467927406
+    },
+    "cells_base": {
+      "gm12": 0.020882638171315193,
+      "g0": 0.027392588555812836,
+      "gp12": 0.02393173798918724,
+      "held30_gm12": 0.00599030451849103,
+      "held30_g0": 0.01260960940271616,
+      "ce_r": 1.6478883028030396,
+      "site_read_onset": 0.02520560473203659,
+      "site_read_span": 0.8252765536308289,
+      "A129": -0.012971208266814457
+    },
+    "cells_restore": {
+      "gm12": 0.5625172853469849,
+      "g0": 0.6046039462089539,
+      "gp12": 0.6325344443321228,
+      "held30_gm12": 0.331499308347702,
+      "held30_g0": 0.5605508089065552,
+      "ce_r": 1.639455795288086,
+      "site_read_onset": 0.6084641814231873,
+      "site_read_span": 0.9434700608253479,
+      "A129": -0.10230774467927406
+    },
+    "cells_all": {
+      "gm12": 0.9155886173248291,
+      "g0": 0.7850371599197388,
+      "gp12": 0.9478210210800171,
+      "held30_gm12": 0.6361417174339294,
+      "held30_g0": 0.7233286499977112,
+      "ce_r": 1.663516640663147,
+      "site_read_onset": 0.8898658156394958,
+      "site_read_span": 0.982668936252594,
+      "A129": -0.13237020391970877
+    },
+    "gate_restore": {
+      "class": "mlp_ln",
+      "n_tensors": 50,
+      "tensors_changed": 50,
+      "n_elements_changed": 1780224,
+      "expected_elements": 1780224,
+      "per_key_changed": {
+        "h.0.mlp.0.weight": 147456,
+        "h.0.mlp.0.bias": 768,
+        "h.0.mlp.2.weight": 147456,
+        "h.0.mlp.2.bias": 192,
+        "h.1.mlp.0.weight": 147456,
+        "h.1.mlp.0.bias": 768,
+        "h.1.mlp.2.weight": 147456,
+        "h.1.mlp.2.bias": 192,
+        "h.2.mlp.0.weight": 147456,
+        "h.2.mlp.0.bias": 768,
+        "h.2.mlp.2.weight": 147456,
+        "h.2.mlp.2.bias": 192,
+        "h.3.mlp.0.weight": 147456,
+        "h.3.mlp.0.bias": 768,
+        "h.3.mlp.2.weight": 147456,
+        "h.3.mlp.2.bias": 192,
+        "h.4.mlp.0.weight": 147456,
+        "h.4.mlp.0.bias": 768,
+        "h.4.mlp.2.weight": 147456,
+        "h.4.mlp.2.bias": 192,
+        "h.5.mlp.0.weight": 147456,
+        "h.5.mlp.0.bias": 768,
+        "h.5.mlp.2.weight": 147456,
+        "h.5.mlp.2.bias": 192,
+        "h.0.ln1.weight": 192,
+        "h.0.ln1.bias": 192,
+        "h.0.ln2.weight": 192,
+        "h.0.ln2.bias": 192,
+        "h.1.ln1.weight": 192,
+        "h.1.ln1.bias": 192,
+        "h.1.ln2.weight": 192,
+        "h.1.ln2.bias": 192,
+        "h.2.ln1.weight": 192,
+        "h.2.ln1.bias": 192,
+        "h.2.ln2.weight": 192,
+        "h.2.ln2.bias": 192,
+        "h.3.ln1.weight": 192,
+        "h.3.ln1.bias": 192,
+        "h.3.ln2.weight": 192,
+        "h.3.ln2.bias": 192,
+        "h.4.ln1.weight": 192,
+        "h.4.ln1.bias": 192,
+        "h.4.ln2.weight": 192,
+        "h.4.ln2.bias": 192,
+        "h.5.ln1.weight": 192,
+        "h.5.ln1.bias": 192,
+        "h.5.ln2.weight": 192,
+        "h.5.ln2.bias": 192,
+        "ln_f.weight": 192,
+        "ln_f.bias": 192
+      },
+      "identity": false,
+      "others_bit_identical": true,
+      "pass": true
+    },
+    "gate_all": {
+      "class": "all",
+      "n_tensors": 65,
+      "tensors_changed": 65,
+      "n_elements_changed": 2739072,
+      "expected_elements": 2739072,
+      "per_key_changed": {
+        "h.0.mlp.0.weight": 147456,
+        "h.0.mlp.0.bias": 768,
+        "h.0.mlp.2.weight": 147456,
+        "h.0.mlp.2.bias": 192,
+        "h.1.mlp.0.weight": 147456,
+        "h.1.mlp.0.bias": 768,
+        "h.1.mlp.2.weight": 147456,
+        "h.1.mlp.2.bias": 192,
+        "h.2.mlp.0.weight": 147456,
+        "h.2.mlp.0.bias": 768,
+        "h.2.mlp.2.weight": 147456,
+        "h.2.mlp.2.bias": 192,
+        "h.3.mlp.0.weight": 147456,
+        "h.3.mlp.0.bias": 768,
+        "h.3.mlp.2.weight": 147456,
+        "h.3.mlp.2.bias": 192,
+        "h.4.mlp.0.weight": 147456,
+        "h.4.mlp.0.bias": 768,
+        "h.4.mlp.2.weight": 147456,
+        "h.4.mlp.2.bias": 192,
+        "h.5.mlp.0.weight": 147456,
+        "h.5.mlp.0.bias": 768,
+        "h.5.mlp.2.weight": 147456,
+        "h.5.mlp.2.bias": 192,
+        "h.0.ln1.weight": 192,
+        "h.0.ln1.bias": 192,
+        "h.0.ln2.weight": 192,
+        "h.0.ln2.bias": 192,
+        "h.1.ln1.weight": 192,
+        "h.1.ln1.bias": 192,
+        "h.1.ln2.weight": 192,
+        "h.1.ln2.bias": 192,
+        "h.2.ln1.weight": 192,
+        "h.2.ln1.bias": 192,
+        "h.2.ln2.weight": 192,
+        "h.2.ln2.bias": 192,
+        "h.3.ln1.weight": 192,
+        "h.3.ln1.bias": 192,
+        "h.3.ln2.weight": 192,
+        "h.3.ln2.bias": 192,
+        "h.4.ln1.weight": 192,
+        "h.4.ln1.bias": 192,
+        "h.4.ln2.weight": 192,
+        "h.4.ln2.bias": 192,
+        "h.5.ln1.weight": 192,
+        "h.5.ln1.bias": 192,
+        "h.5.ln2.weight": 192,
+        "h.5.ln2.bias": 192,
+        "ln_f.weight": 192,
+        "ln_f.bias": 192,
+        "h.0.attn.c_attn.weight": 110592,
+        "h.0.attn.c_proj.weight": 36864,
+        "h.1.attn.c_attn.weight": 110592,
+        "h.1.attn.c_proj.weight": 36864,
+        "h.2.attn.c_attn.weight": 110592,
+        "h.2.attn.c_proj.weight": 36864,
+        "h.3.attn.c_attn.weight": 110592,
+        "h.3.attn.c_proj.weight": 36864,
+        "h.4.attn.c_attn.weight": 110592,
+        "h.4.attn.c_proj.weight": 36864,
+        "h.5.attn.c_attn.weight": 110592,
+        "h.5.attn.c_proj.weight": 36864,
+        "wpe.weight": 49152,
+        "wte.weight": 12480,
+        "lm_head.weight": 12480
+      },
+      "identity": false,
+      "others_bit_identical": true,
+      "pass": true
+    },
+    "G_S50": {
+      "cells": {
+        "gm12": 0.020882638171315193,
+        "g0": 0.027392588555812836,
+        "gp12": 0.02393173798918724,
+        "held30_gm12": 0.00599030451849103,
+        "held30_g0": 0.01260960940271616,
+        "ce_r": 1.6478883028030396,
+        "site_read_onset": 0.02520560473203659,
+        "site_read_span": 0.8252765536308289,
+        "A129": -0.012971208266814457
+      },
+      "refs": {
+        "gm12": 0.020882638171315193,
+        "g0": 0.027392588555812836,
+        "gp12": 0.02393173798918724,
+        "held30_gm12": 0.00599030451849103,
+        "held30_g0": 0.01260960940271616,
+        "ce_r": 1.6478883028030396,
+        "site_read_onset": 0.02520560473203659,
+        "site_read_span": 0.8252765536308289,
+        "A129": -0.012971208266814457,
+        "row0_strength": 0.02203246613395701,
+        "dall_g0": 0.03675490990281105
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "held30_gm12": 0.0,
+        "held30_g0": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_ALL_RESTORED": {
+      "sd_bit_equal_root": true,
+      "max_cell_diff": 0.0,
+      "cell_diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "held30_gm12": 0.0,
+        "held30_g0": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "pass": true
+    },
+    "refs": {
+      "e178_plus300": {
+        "target": "+300 washed (e176_root_freeze.pt)",
+        "gm12": 0.4223632514476776,
+        "g0": 0.3274501860141754,
+        "held30_gm12": 0.2527451813220978,
+        "held30_g0": 0.25866401195526123,
+        "ce_r": 1.694811463356018,
+        "retention_gm12": 0.46064205256736845,
+        "verdict": "TEXTURE (half-fact: all dials 40-45%, CE-cheap)"
+      },
+      "e173_forward": {
+        "desc": "e173's FORWARD single-class restore (conversion direction)",
+        "gm12": 0.7817810773849487,
+        "reading": "84% of ceiling \u2014 the wash-depth-artifact pole of arm C's fork"
+      }
+    },
+    "retention_gm12": 0.6053772521874874,
+    "delta_ce_vs_base": -0.008432507514953613,
+    "reading": "MIXED",
+    "reading_clause": "the +50 restore landed at g-12 0.5625 \u2014 between e178's band (0.4224 +/- 0.08) and the 0.65 wash-depth pole; both factors contribute; numbers reported, no clean fork."
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "measure_dial": "e176's measure() minus the 183-span census (e178's recorded deviation)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 18,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "original_bank": {
+        "construction": "e161/e176 verbatim: the first 16 install positions' ORIGINAL host windows (train_ids[p-130 : p+126]) \u2014 the teaching junctions shown with the TRUE host + continuation and no ZEPHYRA (targeted EXTINCTION; the R50 critic's finding)",
+        "n_windows": 16,
+        "windows_with_host_content": 16,
+        "junctions_covered": 16
+      },
+      "budget_identical": true,
+      "rng_stream_identical_to_e176": true,
+      "rng_note": "finetune_freeze verbatim; draw shapes/moduli identical (n_anc=16, len(train_ids)); seed 10902 \u2014 the same aj/rj sequences as e176's run; only anchor[aj] content (arm A) or lr (arm B) differs",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows are e161/e176 VERBATIM and unfiltered in ALL THREE streams \u2014 identical background (~1-2%/window), not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ANCHFREE_ORIG": {
+      "anchor_zeph_windows": 0,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772222270098,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": -1.1920928955078125e-07,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 1.1920928955078125e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_DRAWFREE_A": {
+      "zeph_violations": 0,
+      "pass": true
+    },
+    "G_DRAWFREE_B": {
+      "zeph_violations": 0,
+      "pass": true
+    },
+    "G_SURG": {
+      "armC_mlp_ln": {
+        "class": "mlp_ln",
+        "n_tensors": 50,
+        "tensors_changed": 50,
+        "n_elements_changed": 1780224,
+        "expected_elements": 1780224,
+        "per_key_changed": {
+          "h.0.mlp.0.weight": 147456,
+          "h.0.mlp.0.bias": 768,
+          "h.0.mlp.2.weight": 147456,
+          "h.0.mlp.2.bias": 192,
+          "h.1.mlp.0.weight": 147456,
+          "h.1.mlp.0.bias": 768,
+          "h.1.mlp.2.weight": 147456,
+          "h.1.mlp.2.bias": 192,
+          "h.2.mlp.0.weight": 147456,
+          "h.2.mlp.0.bias": 768,
+          "h.2.mlp.2.weight": 147456,
+          "h.2.mlp.2.bias": 192,
+          "h.3.mlp.0.weight": 147456,
+          "h.3.mlp.0.bias": 768,
+          "h.3.mlp.2.weight": 147456,
+          "h.3.mlp.2.bias": 192,
+          "h.4.mlp.0.weight": 147456,
+          "h.4.mlp.0.bias": 768,
+          "h.4.mlp.2.weight": 147456,
+          "h.4.mlp.2.bias": 192,
+          "h.5.mlp.0.weight": 147456,
+          "h.5.mlp.0.bias": 768,
+          "h.5.mlp.2.weight": 147456,
+          "h.5.mlp.2.bias": 192,
+          "h.0.ln1.weight": 192,
+          "h.0.ln1.bias": 192,
+          "h.0.ln2.weight": 192,
+          "h.0.ln2.bias": 192,
+          "h.1.ln1.weight": 192,
+          "h.1.ln1.bias": 192,
+          "h.1.ln2.weight": 192,
+          "h.1.ln2.bias": 192,
+          "h.2.ln1.weight": 192,
+          "h.2.ln1.bias": 192,
+          "h.2.ln2.weight": 192,
+          "h.2.ln2.bias": 192,
+          "h.3.ln1.weight": 192,
+          "h.3.ln1.bias": 192,
+          "h.3.ln2.weight": 192,
+          "h.3.ln2.bias": 192,
+          "h.4.ln1.weight": 192,
+          "h.4.ln1.bias": 192,
+          "h.4.ln2.weight": 192,
+          "h.4.ln2.bias": 192,
+          "h.5.ln1.weight": 192,
+          "h.5.ln1.bias": 192,
+          "h.5.ln2.weight": 192,
+          "h.5.ln2.bias": 192,
+          "ln_f.weight": 192,
+          "ln_f.bias": 192
+        },
+        "identity": false,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "armC_all": {
+        "class": "all",
+        "n_tensors": 65,
+        "tensors_changed": 65,
+        "n_elements_changed": 2739072,
+        "expected_elements": 2739072,
+        "per_key_changed": {
+          "h.0.mlp.0.weight": 147456,
+          "h.0.mlp.0.bias": 768,
+          "h.0.mlp.2.weight": 147456,
+          "h.0.mlp.2.bias": 192,
+          "h.1.mlp.0.weight": 147456,
+          "h.1.mlp.0.bias": 768,
+          "h.1.mlp.2.weight": 147456,
+          "h.1.mlp.2.bias": 192,
+          "h.2.mlp.0.weight": 147456,
+          "h.2.mlp.0.bias": 768,
+          "h.2.mlp.2.weight": 147456,
+          "h.2.mlp.2.bias": 192,
+          "h.3.mlp.0.weight": 147456,
+          "h.3.mlp.0.bias": 768,
+          "h.3.mlp.2.weight": 147456,
+          "h.3.mlp.2.bias": 192,
+          "h.4.mlp.0.weight": 147456,
+          "h.4.mlp.0.bias": 768,
+          "h.4.mlp.2.weight": 147456,
+          "h.4.mlp.2.bias": 192,
+          "h.5.mlp.0.weight": 147456,
+          "h.5.mlp.0.bias": 768,
+          "h.5.mlp.2.weight": 147456,
+          "h.5.mlp.2.bias": 192,
+          "h.0.ln1.weight": 192,
+          "h.0.ln1.bias": 192,
+          "h.0.ln2.weight": 192,
+          "h.0.ln2.bias": 192,
+          "h.1.ln1.weight": 192,
+          "h.1.ln1.bias": 192,
+          "h.1.ln2.weight": 192,
+          "h.1.ln2.bias": 192,
+          "h.2.ln1.weight": 192,
+          "h.2.ln1.bias": 192,
+          "h.2.ln2.weight": 192,
+          "h.2.ln2.bias": 192,
+          "h.3.ln1.weight": 192,
+          "h.3.ln1.bias": 192,
+          "h.3.ln2.weight": 192,
+          "h.3.ln2.bias": 192,
+          "h.4.ln1.weight": 192,
+          "h.4.ln1.bias": 192,
+          "h.4.ln2.weight": 192,
+          "h.4.ln2.bias": 192,
+          "h.5.ln1.weight": 192,
+          "h.5.ln1.bias": 192,
+          "h.5.ln2.weight": 192,
+          "h.5.ln2.bias": 192,
+          "ln_f.weight": 192,
+          "ln_f.bias": 192,
+          "h.0.attn.c_attn.weight": 110592,
+          "h.0.attn.c_proj.weight": 36864,
+          "h.1.attn.c_attn.weight": 110592,
+          "h.1.attn.c_proj.weight": 36864,
+          "h.2.attn.c_attn.weight": 110592,
+          "h.2.attn.c_proj.weight": 36864,
+          "h.3.attn.c_attn.weight": 110592,
+          "h.3.attn.c_proj.weight": 36864,
+          "h.4.attn.c_attn.weight": 110592,
+          "h.4.attn.c_proj.weight": 36864,
+          "h.5.attn.c_attn.weight": 110592,
+          "h.5.attn.c_proj.weight": 36864,
+          "wpe.weight": 49152,
+          "wte.weight": 12480,
+          "lm_head.weight": 12480
+        },
+        "identity": false,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    }
+  },
+  "trace_armA": [
+    {
+      "freeze_steps": 0,
+      "gm12": 0.9155886173248291,
+      "g0": 0.7850371599197388,
+      "gp12": 0.9478210210800171,
+      "held30_gm12": 0.6361417174339294,
+      "held30_g0": 0.7233286499977112,
+      "ce_r": 1.663516640663147,
+      "site_read_onset": 0.8898658156394958,
+      "site_read_span": 0.982668936252594,
+      "A129": -0.13237020391970877,
+      "retention_vs_root_gm12": 0.9999999349001946,
+      "retention_vs_root_g0": 1.0
+    },
+    {
+      "freeze_steps": 1,
+      "gm12": 0.6780440807342529,
+      "g0": 0.4619811177253723,
+      "gp12": 0.630972683429718,
+      "held30_gm12": 0.4820752739906311,
+      "held30_g0": 0.46198493242263794,
+      "ce_r": 2.2113420963287354,
+      "site_read_onset": 0.5253196954727173,
+      "site_read_span": 0.9041284918785095,
+      "A129": -0.18496511500949658,
+      "retention_vs_root_gm12": 0.7405553364947101,
+      "retention_vs_root_g0": 0.5884831206876942
+    },
+    {
+      "freeze_steps": 2,
+      "gm12": 0.027077054604887962,
+      "g0": 0.1147073358297348,
+      "gp12": 0.0140452291816473,
+      "held30_gm12": 0.0053826989606022835,
+      "held30_g0": 0.052937380969524384,
+      "ce_r": 2.032074451446533,
+      "site_read_onset": 0.004276960156857967,
+      "site_read_span": 0.25527775287628174,
+      "A129": 0.06476628839979337,
+      "retention_vs_root_gm12": 0.02957338299081396,
+      "retention_vs_root_g0": 0.14611707787369244
+    },
+    {
+      "freeze_steps": 4,
+      "gm12": 0.010940761305391788,
+      "g0": 0.06042749062180519,
+      "gp12": 0.01570577546954155,
+      "held30_gm12": 0.001151302014477551,
+      "held30_g0": 0.008801662363111973,
+      "ce_r": 1.8213403224945068,
+      "site_read_onset": 0.01323858741670847,
+      "site_read_span": 0.8370789289474487,
+      "A129": 0.03774139005108736,
+      "retention_vs_root_gm12": 0.011949428363490493,
+      "retention_vs_root_g0": 0.07697405130221252
+    }
+  ],
+  "trace_armB": [
+    {
+      "freeze_steps": 0,
+      "gm12": 0.9155886173248291,
+      "g0": 0.7850371599197388,
+      "gp12": 0.9478210210800171,
+      "held30_gm12": 0.6361417174339294,
+      "held30_g0": 0.7233286499977112,
+      "ce_r": 1.663516640663147,
+      "site_read_onset": 0.8898658156394958,
+      "site_read_span": 0.982668936252594,
+      "A129": -0.13237020391970877,
+      "retention_vs_root_gm12": 0.9999999349001946,
+      "retention_vs_root_g0": 1.0
+    },
+    {
+      "freeze_steps": 2,
+      "gm12": 0.9059149622917175,
+      "g0": 0.6570863127708435,
+      "gp12": 0.9305433034896851,
+      "held30_gm12": 0.6584861278533936,
+      "held30_g0": 0.639719545841217,
+      "ce_r": 1.668169379234314,
+      "site_read_onset": 0.8825699090957642,
+      "site_read_span": 0.9821143746376038,
+      "A129": -0.1297277397165696,
+      "retention_vs_root_gm12": 0.9894344317688614,
+      "retention_vs_root_g0": 0.8370130056493418
+    },
+    {
+      "freeze_steps": 4,
+      "gm12": 0.8374525904655457,
+      "g0": 0.6362767815589905,
+      "gp12": 0.8815611004829407,
+      "held30_gm12": 0.5867215991020203,
+      "held30_g0": 0.5809895992279053,
+      "ce_r": 1.6489430665969849,
+      "site_read_onset": 0.8036431670188904,
+      "site_read_span": 0.9708802103996277,
+      "A129": -0.10864250978920609,
+      "retention_vs_root_gm12": 0.9146602743865662,
+      "retention_vs_root_g0": 0.8105053034993179
+    }
+  ],
+  "trace_summary": {
+    "armA_steps": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "armA_gm12": [
+      0.9155886173248291,
+      0.6780440807342529,
+      0.027077054604887962,
+      0.010940761305391788
+    ],
+    "armA_g0": [
+      0.7850371599197388,
+      0.4619811177253723,
+      0.1147073358297348,
+      0.06042749062180519
+    ],
+    "armA_gp12": [
+      0.9478210210800171,
+      0.630972683429718,
+      0.0140452291816473,
+      0.01570577546954155
+    ],
+    "armA_held30_gm12": [
+      0.6361417174339294,
+      0.4820752739906311,
+      0.0053826989606022835,
+      0.001151302014477551
+    ],
+    "armA_held30_g0": [
+      0.7233286499977112,
+      0.46198493242263794,
+      0.052937380969524384,
+      0.008801662363111973
+    ],
+    "armA_row0": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "armA_dall_g0": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "armA_ce_r": [
+      1.663516640663147,
+      2.2113420963287354,
+      2.032074451446533,
+      1.8213403224945068
+    ],
+    "armB_steps": [
+      0,
+      2,
+      4
+    ],
+    "armB_gm12": [
+      0.9155886173248291,
+      0.9059149622917175,
+      0.8374525904655457
+    ],
+    "armB_g0": [
+      0.7850371599197388,
+      0.6570863127708435,
+      0.6362767815589905
+    ],
+    "armB_ce_r": [
+      1.663516640663147,
+      1.668169379234314,
+      1.6489430665969849
+    ],
+    "e176_main_steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "e176_main_gm12": [
+      0.9155886173248291,
+      0.020882638171315193,
+      0.006246014963835478,
+      0.0006464376347139478,
+      0.0011210207594558597
+    ],
+    "e176_main_g0": [
+      0.7850371599197388,
+      0.027392588555812836,
+      0.016695411875844002,
+      0.001976940780878067,
+      0.0012388104805722833
+    ],
+    "e176_smoke_steps": [
+      0,
+      2,
+      4
+    ],
+    "e176_smoke_gm12": [
+      0.9155886173248291,
+      0.08816977590322495,
+      0.002640149090439081
+    ],
+    "e176_smoke_ce_r": [
+      1.663516640663147,
+      2.0001156330108643,
+      1.7823567390441895
+    ]
+  },
+  "batteries_armA": {
+    "root": {
+      "tag": "root",
+      "base": {
+        "-12": {
+          "mean_pz": 0.9155886173248291,
+          "median_pz": 0.969791829586029,
+          "std_pz": 0.15201902389526367,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "12": {
+          "mean_pz": 0.9478210210800171,
+          "median_pz": 0.981702983379364,
+          "std_pz": 0.08915618807077408,
+          "frac_pz_ge_0.5": 1.0,
+          "frac_argmax_z": 1.0
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.6361417174339294,
+          "median_pz": 0.9574220180511475,
+          "std_pz": 0.4387085437774658,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.7
+        },
+        "0": {
+          "mean_pz": 0.7233286499977112,
+          "median_pz": 0.9483089447021484,
+          "std_pz": 0.3725012242794037,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        },
+        "12": {
+          "mean_pz": 0.64676433801651,
+          "median_pz": 0.9567431211471558,
+          "std_pz": 0.4417463541030884,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.7
+        }
+      },
+      "ce_r": 1.663516640663147,
+      "site_read": {
+        "pz_onset_mean": 0.8898658156394958,
+        "pz_onset_median": 0.9428561329841614,
+        "pz_onset_frac_ge_0.5": 0.9666666388511658,
+        "pname_mean_over7": 0.982668936252594,
+        "pname_frac_ge_0.5": 0.9952380657196045,
+        "per_position_mean": [
+          0.8898658404747645,
+          0.9987479706605276,
+          0.996099191904068,
+          0.9996264765659968,
+          0.9981235682964325,
+          0.9995786219835281,
+          0.9966405073801676
+        ]
+      },
+      "A129_quick": -0.13237020391970877
+    },
+    "1": {
+      "tag": "n1",
+      "base": {
+        "-12": {
+          "mean_pz": 0.6780440807342529,
+          "median_pz": 0.7109747529029846,
+          "std_pz": 0.2092680186033249,
+          "frac_pz_ge_0.5": 0.8166666626930237,
+          "frac_argmax_z": 0.85
+        },
+        "0": {
+          "mean_pz": 0.4619811177253723,
+          "median_pz": 0.506223738193512,
+          "std_pz": 0.2934892177581787,
+          "frac_pz_ge_0.5": 0.5166666507720947,
+          "frac_argmax_z": 0.5166666666666667
+        },
+        "12": {
+          "mean_pz": 0.630972683429718,
+          "median_pz": 0.6369808316230774,
+          "std_pz": 0.22048154473304749,
+          "frac_pz_ge_0.5": 0.7166666388511658,
+          "frac_argmax_z": 0.7666666666666667
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.4820752739906311,
+          "median_pz": 0.5706064701080322,
+          "std_pz": 0.23202070593833923,
+          "frac_pz_ge_0.5": 0.5333333611488342,
+          "frac_argmax_z": 0.7
+        },
+        "0": {
+          "mean_pz": 0.46198493242263794,
+          "median_pz": 0.4383227825164795,
+          "std_pz": 0.1935054361820221,
+          "frac_pz_ge_0.5": 0.36666667461395264,
+          "frac_argmax_z": 0.4666666666666667
+        },
+        "12": {
+          "mean_pz": 0.45963889360427856,
+          "median_pz": 0.5094015598297119,
+          "std_pz": 0.2263096123933792,
+          "frac_pz_ge_0.5": 0.5333333611488342,
+          "frac_argmax_z": 0.5666666666666667
+        }
+      },
+      "ce_r": 2.2113420963287354,
+      "site_read": {
+        "pz_onset_mean": 0.5253196954727173,
+        "pz_onset_median": 0.5691390633583069,
+        "pz_onset_frac_ge_0.5": 0.6166666746139526,
+        "pname_mean_over7": 0.9041284918785095,
+        "pname_frac_ge_0.5": 0.9428571462631226,
+        "per_position_mean": [
+          0.5253196794850131,
+          0.9704122414191564,
+          0.9662669271230697,
+          0.996446219086647,
+          0.9043288419644038,
+          0.9930104682842891,
+          0.9731154094139735
+        ]
+      },
+      "A129_quick": -0.18496511500949658
+    },
+    "2": {
+      "tag": "n2",
+      "base": {
+        "-12": {
+          "mean_pz": 0.027077054604887962,
+          "median_pz": 0.006332601420581341,
+          "std_pz": 0.1279074102640152,
+          "frac_pz_ge_0.5": 0.01666666753590107,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "0": {
+          "mean_pz": 0.1147073358297348,
+          "median_pz": 0.05516999214887619,
+          "std_pz": 0.16116151213645935,
+          "frac_pz_ge_0.5": 0.01666666753590107,
+          "frac_argmax_z": 0.06666666666666667
+        },
+        "12": {
+          "mean_pz": 0.0140452291816473,
+          "median_pz": 0.0037030011881142855,
+          "std_pz": 0.0538131445646286,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.0053826989606022835,
+          "median_pz": 0.0017405558610334992,
+          "std_pz": 0.008659660816192627,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.052937380969524384,
+          "median_pz": 0.011482267640531063,
+          "std_pz": 0.07626127451658249,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.03333333333333333
+        },
+        "12": {
+          "mean_pz": 0.0037974959705024958,
+          "median_pz": 0.001181829604320228,
+          "std_pz": 0.006229659076780081,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "ce_r": 2.032074451446533,
+      "site_read": {
+        "pz_onset_mean": 0.004276960156857967,
+        "pz_onset_median": 0.0014188023051247,
+        "pz_onset_frac_ge_0.5": 0.0,
+        "pname_mean_over7": 0.25527775287628174,
+        "pname_frac_ge_0.5": 0.23571428656578064,
+        "per_position_mean": [
+          0.004276960115627541,
+          0.09005333890102823,
+          0.11998988837406917,
+          0.5678196831722744,
+          0.27608898281663036,
+          0.2810280412906044,
+          0.4476874014362693
+        ]
+      },
+      "A129_quick": 0.06476628839979337
+    },
+    "4": {
+      "tag": "n4",
+      "base": {
+        "-12": {
+          "mean_pz": 0.010940761305391788,
+          "median_pz": 0.0012354471255093813,
+          "std_pz": 0.03495471179485321,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.06042749062180519,
+          "median_pz": 0.011018089950084686,
+          "std_pz": 0.14989636838436127,
+          "frac_pz_ge_0.5": 0.03333333507180214,
+          "frac_argmax_z": 0.06666666666666667
+        },
+        "12": {
+          "mean_pz": 0.01570577546954155,
+          "median_pz": 0.0027760721277445555,
+          "std_pz": 0.059478722512722015,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.001151302014477551,
+          "median_pz": 0.0007377513684332371,
+          "std_pz": 0.0008545676246285439,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.008801662363111973,
+          "median_pz": 0.006556060165166855,
+          "std_pz": 0.007854006253182888,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "12": {
+          "mean_pz": 0.002380240708589554,
+          "median_pz": 0.0019910659175366163,
+          "std_pz": 0.0019504460506141186,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "ce_r": 1.8213403224945068,
+      "site_read": {
+        "pz_onset_mean": 0.01323858741670847,
+        "pz_onset_median": 0.0031864121556282043,
+        "pz_onset_frac_ge_0.5": 0.0,
+        "pname_mean_over7": 0.8370789289474487,
+        "pname_frac_ge_0.5": 0.8571428656578064,
+        "per_position_mean": [
+          0.013238587023321695,
+          0.9840620597203572,
+          0.9830189416805903,
+          0.9986933290958404,
+          0.8927549421787262,
+          0.9982531656821568,
+          0.9895310819149017
+        ]
+      },
+      "A129_quick": 0.03774139005108736
+    }
+  },
+  "batteries_armB": {
+    "2": {
+      "tag": "b2",
+      "base": {
+        "-12": {
+          "mean_pz": 0.9059149622917175,
+          "median_pz": 0.9661664962768555,
+          "std_pz": 0.1368415355682373,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 0.9833333333333333
+        },
+        "0": {
+          "mean_pz": 0.6570863127708435,
+          "median_pz": 0.8361194729804993,
+          "std_pz": 0.3872327208518982,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7333333333333333
+        },
+        "12": {
+          "mean_pz": 0.9305433034896851,
+          "median_pz": 0.9658401012420654,
+          "std_pz": 0.08593348413705826,
+          "frac_pz_ge_0.5": 1.0,
+          "frac_argmax_z": 1.0
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.6584861278533936,
+          "median_pz": 0.9432048201560974,
+          "std_pz": 0.42803698778152466,
+          "frac_pz_ge_0.5": 0.6666666865348816,
+          "frac_argmax_z": 0.7
+        },
+        "0": {
+          "mean_pz": 0.639719545841217,
+          "median_pz": 0.7370998859405518,
+          "std_pz": 0.31847259402275085,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        },
+        "12": {
+          "mean_pz": 0.6634044647216797,
+          "median_pz": 0.9530838131904602,
+          "std_pz": 0.42738109827041626,
+          "frac_pz_ge_0.5": 0.6666666865348816,
+          "frac_argmax_z": 0.7
+        }
+      },
+      "ce_r": 1.668169379234314,
+      "site_read": {
+        "pz_onset_mean": 0.8825699090957642,
+        "pz_onset_median": 0.9386329650878906,
+        "pz_onset_frac_ge_0.5": 0.949999988079071,
+        "pname_mean_over7": 0.9821143746376038,
+        "pname_frac_ge_0.5": 0.9928571581840515,
+        "per_position_mean": [
+          0.8825699493288994,
+          0.9989797343810399,
+          0.997557540734609,
+          0.9997928460439046,
+          0.9988138725360235,
+          0.9996678988138835,
+          0.9974188884099324
+        ]
+      },
+      "A129_quick": -0.1297277397165696
+    },
+    "4": {
+      "tag": "b4",
+      "base": {
+        "-12": {
+          "mean_pz": 0.8374525904655457,
+          "median_pz": 0.9063503742218018,
+          "std_pz": 0.17385976016521454,
+          "frac_pz_ge_0.5": 0.9333333373069763,
+          "frac_argmax_z": 0.95
+        },
+        "0": {
+          "mean_pz": 0.6362767815589905,
+          "median_pz": 0.8065609335899353,
+          "std_pz": 0.380755752325058,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7333333333333333
+        },
+        "12": {
+          "mean_pz": 0.8815611004829407,
+          "median_pz": 0.9256309270858765,
+          "std_pz": 0.12369437515735626,
+          "frac_pz_ge_0.5": 0.9666666388511658,
+          "frac_argmax_z": 1.0
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.5867215991020203,
+          "median_pz": 0.8510112762451172,
+          "std_pz": 0.3996811807155609,
+          "frac_pz_ge_0.5": 0.6666666865348816,
+          "frac_argmax_z": 0.6666666666666666
+        },
+        "0": {
+          "mean_pz": 0.5809895992279053,
+          "median_pz": 0.6772637367248535,
+          "std_pz": 0.3291093111038208,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        },
+        "12": {
+          "mean_pz": 0.6111851930618286,
+          "median_pz": 0.8801978826522827,
+          "std_pz": 0.4143887758255005,
+          "frac_pz_ge_0.5": 0.6666666865348816,
+          "frac_argmax_z": 0.6666666666666666
+        }
+      },
+      "ce_r": 1.6489430665969849,
+      "site_read": {
+        "pz_onset_mean": 0.8036431670188904,
+        "pz_onset_median": 0.8658749461174011,
+        "pz_onset_frac_ge_0.5": 0.9166666865348816,
+        "pname_mean_over7": 0.9708802103996277,
+        "pname_frac_ge_0.5": 0.988095223903656,
+        "per_position_mean": [
+          0.8036431775738796,
+          0.9986848592758178,
+          0.998183994491895,
+          0.999799179037412,
+          0.9988213400046031,
+          0.9997578004995982,
+          0.9972712874412537
+        ]
+      },
+      "A129_quick": -0.10864250978920609
+    }
+  },
+  "references": {
+    "e176_main": {
+      "ref": {
+        "freeze_steps": [
+          0,
+          50,
+          100,
+          200,
+          300
+        ],
+        "base_gm12": [
+          0.9155886173248291,
+          0.020882638171315193,
+          0.006246014963835478,
+          0.0006464376347139478,
+          0.0011210207594558597
+        ],
+        "base_g0": [
+          0.7850371599197388,
+          0.027392588555812836,
+          0.016695411875844002,
+          0.001976940780878067,
+          0.0012388104805722833
+        ],
+        "base_gp12": [
+          0.9478210210800171,
+          0.02393173798918724,
+          0.008211151696741581,
+          0.001558798598125577,
+          0.0017126891762018204
+        ],
+        "held30_gm12": [
+          0.6361417174339294,
+          0.00599030451849103,
+          0.001938893343321979,
+          0.00025415088748559356,
+          0.0003840079589281231
+        ],
+        "held30_g0": [
+          0.7233286499977112,
+          0.01260960940271616,
+          0.005210408940911293,
+          0.0009895081166177988,
+          0.0005695995059795678
+        ],
+        "row0_strength": [
+          0.7316772222270098,
+          0.02203246613395701,
+          0.015375644575343964,
+          0.0015484262148422433,
+          -0.0005032020296397376
+        ],
+        "dall_g0": [
+          0.9047248959541321,
+          0.03675490990281105,
+          0.008526976220809734,
+          0.0017805545357988284,
+          0.001604252029210329
+        ],
+        "ce_r": [
+          1.663516640663147,
+          1.6478883028030396,
+          1.6605137586593628,
+          1.6117957830429077,
+          1.6334049701690674
+        ]
+      },
+      "provenance": {
+        "source": "runs/e176/metrics.json trace_summary (embedded copy verified, max|diff| 5.0e-13)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 4.999993474807951e-13
+      },
+      "note": "the original extinction-confounded stream (lr 1e-3) \u2014 the comparison arm"
+    },
+    "e176_smoke": {
+      "ref": {
+        "freeze_steps": [
+          0,
+          2,
+          4
+        ],
+        "base_gm12": [
+          0.9155886173248291,
+          0.08816977590322495,
+          0.002640149090439081
+        ],
+        "base_g0": [
+          0.7850371599197388,
+          0.08683783560991287,
+          0.0034518486354500055
+        ],
+        "ce_r": [
+          1.663516640663147,
+          2.0001156330108643,
+          1.7823567390441895
+        ]
+      },
+      "provenance": {
+        "source": "runs/e176_smoke/metrics.json trace_summary (embedded copy verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0
+      },
+      "note": "e176's ONLY fine-step trajectory (the smoke run; the R50 splice attribution)"
+    },
+    "e178_plus300_restore": {
+      "ref": {
+        "target": "+300 washed (e176_root_freeze.pt)",
+        "gm12": 0.4223632514476776,
+        "g0": 0.3274501860141754,
+        "held30_gm12": 0.2527451813220978,
+        "held30_g0": 0.25866401195526123,
+        "ce_r": 1.694811463356018,
+        "retention_gm12": 0.46064205256736845,
+        "verdict": "TEXTURE (half-fact: all dials 40-45%, CE-cheap)"
+      },
+      "provenance": {
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "source": "runs/e178/metrics.json arm.cells (embedded copy verified)"
+      }
+    },
+    "e173_forward_restore": {
+      "desc": "e173's FORWARD single-class restore (conversion direction)",
+      "gm12": 0.7817810773849487,
+      "reading": "84% of ceiling \u2014 the wash-depth-artifact pole of arm C's fork"
+    }
+  },
+  "ce_at_dissolution": {
+    "armA_neutral": {
+      "dissolved": true,
+      "step": 2,
+      "gm12": 0.027077054604887962,
+      "g0": 0.1147073358297348,
+      "ce_r": 2.032074451446533,
+      "in_batch_corpus_ce": 1.8263245820999146,
+      "note": "CE_R + the in-batch corpus CE at the FIRST checkpoint under the 0.27 bar \u2014 the wash's price at the moment of dissolution, not the recovered value"
+    },
+    "armB_lr1e4": {
+      "dissolved": false
+    },
+    "e176_original": {
+      "dissolved": true,
+      "step": 50,
+      "gm12": 0.020882638171315193,
+      "g0": 0.027392588555812836,
+      "ce_r": 1.6478883028030396,
+      "in_batch_corpus_ce": null,
+      "note": "CE_R + the in-batch corpus CE at the FIRST checkpoint under the 0.27 bar \u2014 the wash's price at the moment of dissolution, not the recovered value",
+      "smoke_fine_steps": {
+        "steps": [
+          0,
+          2,
+          4
+        ],
+        "gm12": [
+          0.9155886173248291,
+          0.08816977590322495,
+          0.002640149090439081
+        ],
+        "ce_r": [
+          1.663516640663147,
+          2.0001156330108643,
+          1.7823567390441895
+        ],
+        "note": "e176's only fine-step trajectory is its SMOKE run (s2 g-12 0.0882 at CE_R 2.0001) \u2014 the R50 auditor's splice attribution; arm A measures {1,2,4} in the MAIN run"
+      }
+    },
+    "critique": "the R50 splice critique: report the CE at the DISSOLUTION moment, not just recovered values"
+  },
+  "adjudication": {
+    "conditions": {
+      "NEUTRAL_DISSOLVES": {
+        "bar": 0.27,
+        "gA_at_50": 0.010940761305391788,
+        "clause": true,
+        "earliest_ck_le_bar": 2,
+        "fires": true
+      },
+      "NEUTRAL_SURVIVES": {
+        "bar": 0.5,
+        "gA_min_over_ckpts": 0.010940761305391788,
+        "all_ckpts_ge_bar": false,
+        "below_bar_ckpts": [
+          2,
+          4
+        ],
+        "fires": false
+      }
+    },
+    "verdict": "NEUTRAL-DISSOLVES",
+    "clause": "the fact dissolves under the truly neutral stream too: g-12 0.0109 <= 0.27 at +50 (earliest checkpoint <= bar: +2; trace +0:0.9156 -> +1:0.6780 -> +2:0.0271 -> +4:0.0109) \u2014 the wash was NOT extinction-specific; the activity-dependence noun is licensed (W019 strengthened as a bounded reading): remove rehearsal and ordinary corpus pressure alone dissolves the consolidated fact.",
+    "armB_reading": "the ORIGINAL stream at lr 0.0001 does NOT dissolve within 300 steps (g-12 +50 n/a, +300 0.8375 >= 0.5) \u2014 the wash rate scales with the optimizer: extinction needs the lr-1e-3 step size to complete in <=300 steps",
+    "armC_reading": "MIXED",
+    "armC_clause": "the +50 restore landed at g-12 0.5625 \u2014 between e178's band (0.4224 +/- 0.08) and the 0.65 wash-depth pole; both factors contribute; numbers reported, no clean fork."
+  },
+  "honesty_reflex": {
+    "anchor_fidelity": "the neutral bank is e170's construction VERBATIM (seed 170, rejection on FLORIZEL/ELIZABETH/ZEPH/MIRABEL in [s, s+257)): 0/16 host-content windows, 0/16 junctions covered (G_ANCHOR); the original bank rebuilt for the delta record: 16/16 host windows, 16/16 junctions \u2014 the delta between arm A and e176 is EXACTLY the anchor half's informational content; budget (16x256), structure, optimizer, seed and RNG draw sequence are identical",
+    "shared_stream_components": "the random-corpus half (16/32 per batch, unfiltered) is IDENTICAL across e176/arm A/arm B and can itself draw host-junction windows at ~3.8%/window (e170's background estimate) \u2014 a small extinction background PRESENT IN ALL THREE STREAMS, not part of the delta; host names are corpus-native; a NEUTRAL-SURVIVES verdict therefore survives this background, while a NEUTRAL-DISSOLVES verdict cannot fully exclude it as the driver (the ~4800 random draws x ~3.8% chance each leave a non-trivial cumulative junction exposure through the random half alone)",
+    "single_seed": "ONE trajectory per training arm (seed 10902, the same draw sequence as e176 \u2014 the arms differ from e176 only in anchor content (A) or lr (B)); n=1 per cell; the fine steps {1,2,4} are this trajectory's, not a replicated law (e152R showed seed-to-seed timing spans an order of magnitude on related washes)",
+    "original_stream_fine_steps": "e176's fine-step trajectory comes from its SMOKE run (4 steps, different total schedule than the main run's 300); arm A's fine steps are measured inside its own main run \u2014 the fine-step COMPARISON across streams is smoke-vs-main and carries that caveat",
+    "arm_c_n1": "arm C is one deterministic surgery on one +50 checkpoint (n=1); its fork is an annotation of e178's TEXTURE, not a re-adjudication; the all-restored gate (sd==root bit-exact) bounds the machinery",
+    "thread_bit_drift": "evals at 4 threads vs e151's stored cells can drift low-order bits; gates report both the 5e-6 bit flag and the 0.05 fallback tolerance",
+    "bars_anchored": "the dissolve/survive bars are the same absolute home-battery bars e176/e161/e158 used (0.27 SHUT / 0.50 SURVIVE) \u2014 the original stream's death and the neutral stream's fate are measured on one ruler"
+  },
+  "trims": [],
+  "deviations": [
+    "CPU-ONLY by dispatch (CUDA_VISIBLE_DEVICES=-1 forced before torch; e174/e177/e175 also on the CPU): torch threads 4, one 25 s launch stagger (single sleep, no busy-waiting), cooldown 60 s before/after EACH of the two trainings (arm A + arm B), per-training CPU cap 1800 s (e176 precedent: 414.6 s actual / 300 steps).",
+    "NO QUEUE ROW: the registered bars are the dispatch's registration, frozen verbatim in the module docstring before compute.",
+    "The measure dial is e176's measure() minus the 183-span census (e178's recorded deviation): the consolidated root has NO 183 site (0.00027 < 2x control) and no arm here touches that conclusion; the functional site read @183 is kept as the instrument co-report.",
+    "Arm A measures the fine steps {1,2,4} in the MAIN run (e176's two-step claim rests on its smoke run \u2014 the R50 auditor's splice critique); arm A's smoke schedule IS the fine-step schedule (4 steps, ckpts {1,2,4}).",
+    "Arm B carries light in-run evals only, plus ONE full dial at +300 (anatomy co-report); its question (wash-rate scaling) is answered by the g-12 trajectory, not the full battery.",
+    "Arm C is eval-only surgery on the ON-DISK e176 +50 checkpoint (gated vs e176's stored +50 cells in G_S50 before any surgery); its fork is an ANNOTATION classification of the dispatch's '~42% again vs ~80%' reading \u2014 it does not re-adjudicate e178.",
+    "finetune_freeze gains lr / ckpt-steps parameters vs e176's verbatim copy (arm B needs lr 1e-4; arm A needs the fine-step schedule); the per-step arithmetic and the RNG draw sequence are unchanged \u2014 at seed 10902 both arms draw the SAME aj/rj sequences as e176's original run (only anchor content / lr differ).",
+    "Eval thread count is 4 (dispatch) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance (e161/e176/e178 precedent).",
+    "Single seed (10902), one trajectory per training arm, one root lineage, n=1 per cell \u2014 point estimates until replicated.",
+    "Smoke mode trims: arm A 4 steps / arm B 4 steps, lean measures (no censuses, no deletion table), arm C gates on base cells + CE only; nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e176n_neutral": {
+      "path": "runs/checkpoints/smoke_e176n_neutral.pt",
+      "desc": "e131_consolidated_e113 + 4-step NEUTRAL-anchor plain-corpus freeze (e170's neutral bank seed 170: 16 plain-corpus windows, 0/16 junctions; batch 32 = 16 neutral anchors + 16 random, full-token CE), lr 0.001, seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e176n_neutral_s1": {
+      "path": "runs/checkpoints/smoke_e176n_neutral_s1.pt",
+      "desc": "e131_consolidated_e113 + 1-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 1,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e176n_neutral_s2": {
+      "path": "runs/checkpoints/smoke_e176n_neutral_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step NEUTRAL-anchor freeze (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e176n_lr1e4": {
+      "path": "runs/checkpoints/smoke_e176n_lr1e4.pt",
+      "desc": "e131_consolidated_e113 + 4-step ORIGINAL-anchor (extinction) freeze at lr 0.0001 (the LR rider), seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 0.0001,
+      "anchor_bank": "original (e161/e176 host windows)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 212.1
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

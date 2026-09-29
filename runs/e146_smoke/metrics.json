@@ -1,0 +1,402 @@
+{
+  "experiment": "e146_dissociation_matrix",
+  "purpose": "W015's registered question: does the SELF survive losing its pivot? First contact between the memory arc and the self arc: interventions (forced-off-sink MASK / norm POISON 0.07+0.15 / direction-PERM / L0H3 mean-replace; row-1 + random-head controls) x functions (FACT g-12+g0, SELF binary+occupancy+gaps, corpus CE), every cell CE-priced (the e150 discipline). Primary net e131_consolidated_e113 (B43 line). Instruments: e111/e112 self rig PORTED to the blk256 lineage with a gating SELF-BASELINE; e150's fact/mask/head instruments verbatim.",
+  "started": "2026-09-28T10:09:21Z",
+  "wall_s": 21.3,
+  "cpu_only": true,
+  "threads": 4,
+  "smoke": true,
+  "registered_prediction": {
+    "w015_verbatim": "PREDICTED SAVOR: the middle branch \u2014 the unfakeable check reads V-STRUCTURE, and V-structure is direction; presence never carried structure. The self should be direction-typed like the LM but presence-independent unlike the fact.",
+    "dispatch_bars": "SELF-ROUTED = self-recognition collapses under the MASK or the poison ladder at doses where CE is still flat-ish (the self rides the pivot like a memory). SELF-CONSTITUTIONAL (the W015 prediction) = self survives the mask AND the poison doses, but dies under direction-PERM (the self reads V-STRUCTURE \u2014 direction \u2014 computed upstream, presence-independent unlike the fact). SELF-TENANT = self dies under fact-specific-head ablation at flat CE (shares readout machinery with the fact). SELF-INDEPENDENT = self survives ALL interventions (computed upstream of everything measured).",
+    "operationalizations": "self INTACT iff gap(sibling) < 0.3 AND gap(foreign) > 1.0 (functional binary; collapse modes REJECTS-OWN / ACCEPTS-FOREIGN / GRAY); flat-CE dose = CE cost <= +0.35; SELF-ROUTED reads MASK + POISON 0.15 only (0.07 is wreck-confounded at CE +0.84 \u2014 recorded, never gates); SELF-CONSTITUTIONAL requires intact under MASK + 0.07 + 0.15 AND collapse under PERM; SELF-TENANT reads L0H3-mean at CE <= +0.35; SELF-INDEPENDENT requires intact under MASK + 0.07 + 0.15 + PERM + L0H3; controls never gate; priority ROUTED > CONSTITUTIONAL > TENANT > INDEPENDENT; ambiguous => TEXTURE with numbers.",
+    "instrument_transfer": "the e111/e112 instruments' home lineage (e053c_ctx512, 4L/4H/128d/blk512) differs from the primary net (6L/6H/192d/blk256): the SELF-BASELINE (sibling healthy, corpus collapsed, foreign collapsed, cos step >= 2x, occupancy k* <= 8) gates the whole matrix; failure => INSTRUMENT-INVALID, numbers reported."
+  },
+  "nets": {
+    "primary": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e131_consolidated_e113.pt",
+    "parent": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e048_repro.pt",
+    "foreign": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e021_task.train.pt",
+    "site_control": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e131_arm_b_corpus_spliced.pt",
+    "eval_only": true,
+    "primary_gates": {
+      "pz_g0": 0.7850371599197388,
+      "ce_r": 1.625858187675476,
+      "pz_gm12": 0.9155886173248291
+    }
+  },
+  "seeds": {
+    "corpus": 1337,
+    "prompts": 202,
+    "sampling": 7,
+    "continuation": 960250,
+    "donor_map_sib": 4343,
+    "donor_map_for": 4646,
+    "foreign_donor_window": {
+      "prompt": 5601,
+      "sample": 5701
+    },
+    "parent_stream": "seed-202 battery + seed-7 sampling",
+    "ce_bank": 26502,
+    "perm": 14101,
+    "perm_rider": 14620,
+    "nulls": {
+      "sibling": 14601,
+      "foreign": 14602,
+      "parent": 14603
+    },
+    "null_R": 8,
+    "note": "every arm stream is a published seed; new dedicated seeds: nulls 14601-14603, perm rider 14620 (never touching any arm stream)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G6_battery_fact_free": {
+      "n_prompts": 8,
+      "seed": 202,
+      "zeph_in_prompts": 0,
+      "used_rows": 2,
+      "ok": true
+    },
+    "G2_params": {
+      "params": 2739072,
+      "expected": 2739072,
+      "ok": true
+    },
+    "G1_primary_bit_repro": {
+      "pz_g0": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "pz_gm12": 0.9155886173248291,
+      "ref_gm12": 0.9155886173248291,
+      "ce_r": 1.625858187675476,
+      "ref_ce": 1.663516640663147,
+      "bit": false,
+      "ok": true
+    },
+    "parent_gate": {
+      "pz_g0": 0.5563086867332458,
+      "ref": 0.5563086867332458,
+      "ok": true
+    },
+    "site_stored_gate": {
+      "std_g0_floor": 0.007800613064318895,
+      "ref_std": 0.007800613064318895,
+      "site_onset": 0.9999002814292908,
+      "ref_site": 0.9880021214485168,
+      "ok": true
+    },
+    "G4_mask_instrument": {
+      "custom_vs_standard_maxdlogit": 0.0,
+      "tol_logit": 0.01,
+      "kvrig_causal_maxdlogit": 6.794929504394531e-06,
+      "kvrig_masked_maxdlogit": 9.5367431640625e-07,
+      "tol_kv": 0.0001,
+      "ok": true
+    },
+    "G5_head_selection": {
+      "criterion": "drop >= 0.3 & CE <= 0.35 on runs/e133 graduated table",
+      "selected": [
+        {
+          "head": "L0H3",
+          "drop": 0.4598899483680725,
+          "ce": 0.20773905515670776
+        }
+      ],
+      "singleton": true,
+      "random_control": {
+        "head": "L5H2",
+        "drop": -0.0001189112663269043,
+        "ce": 0.011269927024841309,
+        "rule": "smallest-|drop| head on the same table (matched-head-count control, deterministic)"
+      },
+      "ok": true
+    },
+    "G7_fact_crosscheck": {
+      "refs": {
+        "cons/perm@g0": 0.817,
+        "cons/mask@g+0": 0.8088,
+        "norm=0.07@g+0": 0.3231,
+        "norm=0.15@g+0": 0.7846,
+        "L0H3-mean@g+0": 0.69
+      },
+      "devs": {
+        "mask": 4.9573135376013155e-05,
+        "poison_0.15": 4.072570800817132e-06
+      },
+      "tol": 0.05,
+      "ok": true
+    }
+  },
+  "self_baseline": {
+    "note": "instrument transfer (e053c_ctx512 home lineage -> e131_consolidated 6L/6H/192d/blk256): the R45 ideator's design note \u2014 the self-metric must work on the primary net before any intervention cell counts",
+    "k_star": 1,
+    "first_firing_k": 1,
+    "home_lineage_k_star": 7,
+    "clauses": {
+      "sibling_healthy": {
+        "rule": "gap(sibling) < 0.3",
+        "gap": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "fires": true
+      },
+      "corpus_collapsed": {
+        "rule": "gap(corpus) > 1.0",
+        "gap": null,
+        "fires": false
+      },
+      "foreign_collapsed": {
+        "rule": "gap(foreign) > 1.0",
+        "gap": 0.11041644215583801,
+        "ci": [
+          -0.16500020027160645,
+          0.38583308458328247
+        ],
+        "fires": false
+      },
+      "cos_step_2x": {
+        "rule": "mean|cos(old,sib)| >= 2x mean|cos(old,for)| (e118)",
+        "cos_sib": 0.2782499735559645,
+        "cos_for": 0.17902031190527942,
+        "ratio": 1.5542927536803086,
+        "fires": false
+      },
+      "occupancy_lowdim": {
+        "rule": "EXISTS k <= 8: E_sib >= 2x E_for AND null97 < both (e111)",
+        "k_star": 1,
+        "fires": true
+      }
+    },
+    "texture_arms": {
+      "parent": [
+        null,
+        null,
+        "e048_repro V (the install-phase ancestor): does the consolidated anchor accept its own past?"
+      ],
+      "sig_destroyed": [
+        null,
+        null,
+        "sibling V projected OFF top-k*: e112's causal stamp test on the new lineage"
+      ]
+    },
+    "functional_transfer": false,
+    "geometric_transfer": false
+  },
+  "matrix": {
+    "baseline": {
+      "tag": "baseline",
+      "control": false,
+      "fact_retention": {
+        "g-12": 1.0,
+        "g0": 1.0
+      },
+      "fact_gm12": 0.9155886173248291,
+      "fact_g0": 0.7850371599197388,
+      "ce_cost": 0.0,
+      "ce_arm": 1.625858187675476,
+      "gap_sib": 0.0,
+      "gap_for": 0.11041644215583801,
+      "gap_sib_ci": [
+        0.0,
+        0.0
+      ],
+      "gap_for_ci": [
+        -0.16500020027160645,
+        0.38583308458328247
+      ],
+      "health_sib": "healthy",
+      "health_for": "healthy",
+      "self_intact": false,
+      "self_mode": "ACCEPTS-FOREIGN",
+      "cos_sib": 0.2782499735559645,
+      "cos_for": 0.17902031190527942,
+      "cos_ratio": 1.5542927536803086,
+      "cos_step_survives": false,
+      "occupancy": {
+        "k_star_ref": 1,
+        "E_sib": 0.25357657843911063,
+        "E_for": 0.07401504139592661,
+        "null97_for": 0.03178191992526786,
+        "separation_survives": true
+      },
+      "k_star_cell": 1
+    },
+    "mask": {
+      "tag": "mask",
+      "control": false,
+      "fact_retention": {
+        "g-12": 1.0094256061508384,
+        "g0": 1.030332848470602
+      },
+      "fact_gm12": 0.9242185950279236,
+      "fact_g0": 0.808849573135376,
+      "ce_cost": 0.016353845596313477,
+      "ce_arm": 1.6422120332717896,
+      "gap_sib": -0.011558473110198975,
+      "gap_for": -0.22506952285766602,
+      "gap_sib_ci": [
+        -0.02311694622039795,
+        0.0
+      ],
+      "gap_for_ci": [
+        -0.35244226455688477,
+        -0.09769678115844727
+      ],
+      "health_sib": "healthy",
+      "health_for": "healthy",
+      "self_intact": false,
+      "self_mode": "ACCEPTS-FOREIGN",
+      "cos_sib": 0.2553643602020515,
+      "cos_for": 0.1796842557446243,
+      "cos_ratio": 1.4211838379706863,
+      "cos_step_survives": false,
+      "occupancy": {
+        "k_star_ref": 1,
+        "E_sib": 0.23244609919636416,
+        "E_for": 0.07074751308697613,
+        "null97_for": 0.031833100378630144,
+        "separation_survives": true
+      },
+      "k_star_cell": 1
+    },
+    "poison_0.15": {
+      "tag": "poison_0.15",
+      "control": false,
+      "fact_retention": {
+        "g-12": 0.8015852845265304,
+        "g0": 0.9994483224858015
+      },
+      "fact_gm12": 0.7339223623275757,
+      "fact_g0": 0.7846040725708008,
+      "ce_cost": 0.3556046485900879,
+      "ce_arm": 1.981462836265564,
+      "gap_sib": 0.08113294839859009,
+      "gap_for": 0.06506380438804626,
+      "gap_sib_ci": [
+        0.0,
+        0.16226589679718018
+      ],
+      "gap_for_ci": [
+        -0.10299152135848999,
+        0.23311913013458252
+      ],
+      "health_sib": "healthy",
+      "health_for": "healthy",
+      "self_intact": false,
+      "self_mode": "ACCEPTS-FOREIGN",
+      "cos_sib": 0.2770454537460872,
+      "cos_for": 0.1836039788223685,
+      "cos_ratio": 1.5089294661425643,
+      "cos_step_survives": false,
+      "occupancy": {
+        "k_star_ref": 1,
+        "E_sib": 0.25630862089595724,
+        "E_for": 0.07282299834068642,
+        "null97_for": 0.03154828005794665,
+        "separation_survives": true
+      },
+      "k_star_cell": 1
+    }
+  },
+  "controls": {
+    "row1_zero": null,
+    "randhead": {
+      "head": "L5H2",
+      "e133_drop": -0.0001189112663269043,
+      "e133_ce": 0.011269927024841309,
+      "cell": null
+    },
+    "perm2_rider": null,
+    "site_stored": null,
+    "note": "controls never gate the adjudication; their cells are priced texture"
+  },
+  "adjudication": {
+    "clauses": {
+      "SELF_ROUTED": {
+        "fires": true,
+        "rule": "self collapses under MASK or POISON 0.15 (flat-CE doses; CE <= +0.35); a 0.07 collapse is wreck-confounded and never gates",
+        "evidence": {
+          "mask": "ACCEPTS-FOREIGN",
+          "mask_ce": 0.016353845596313477,
+          "p15": "ACCEPTS-FOREIGN",
+          "p15_ce": 0.3556046485900879
+        }
+      },
+      "SELF_CONSTITUTIONAL": {
+        "fires": false,
+        "rule": "self INTACT under MASK + POISON 0.07 + POISON 0.15 AND collapses under direction-PERM",
+        "evidence": {
+          "mask": "ACCEPTS-FOREIGN",
+          "p07": null,
+          "p15": "ACCEPTS-FOREIGN",
+          "perm": null
+        }
+      },
+      "SELF_TENANT": {
+        "fires": false,
+        "rule": "self collapses under L0H3 mean-replace at flat CE (<= +0.35)",
+        "evidence": {
+          "L0H3": null,
+          "ce": null
+        }
+      },
+      "SELF_INDEPENDENT": {
+        "fires": false,
+        "rule": "self INTACT under MASK + POISON 0.07 + 0.15 + PERM + L0H3",
+        "evidence": {
+          "mask": "ACCEPTS-FOREIGN",
+          "poison_0.15": "ACCEPTS-FOREIGN"
+        }
+      }
+    },
+    "clause": "INSTRUMENT-INVALID",
+    "verdict": "the SELF-BASELINE failed its functional clauses on the primary lineage (sibling gap +0.000, corpus n/a, foreign +0.110) \u2014 the e111/e112 instrument does not transfer as worded; all cells reported as texture, no dissociation claim",
+    "priority": "ROUTED > CONSTITUTIONAL > TENANT > INDEPENDENT > TEXTURE"
+  },
+  "honesty_reflex": {
+    "instrument_lineage_transfer": "the self instruments were built and calibrated on e053c_ctx512 (4L/4H/128d/blk512; bars 0.3/1.0, k*=7); this run ports them to e131_consolidated (6L/6H/192d/blk256) with a rescaled geometry \u2014 the SELF-BASELINE gates the transfer, and the port's deviations are enumerated in recipe_deviations; the home bars are applied VERBATIM (no recalibration shopping), so a gray-zone baseline reads as transfer failure, not as a tuned instrument",
+    "single_net": "the whole self column lives on ONE consolidated net (e113 recipe, one seed); the R nets are not self-batteried (the self arc has no replication-seed battery yet); verdicts are line-specific until replicated",
+    "mask_off_distribution": "the forced-off-sink mask puts every context OFF its training distribution; the CE column prices the generic part (+0.03 on this bank) and the site-stored control (arm_b, fact retention under mask smoke: n/a) is the specificity discriminator for the FACT column; for the SELF column the within-cell paired design (same mask for control and arms, judged by the same masked net) is the analogue of that control",
+    "judge_is_the_intervened_net": "each cell judges its own streams under the same intervention (weights/mask/hooks) \u2014 the gap isolates the splice effect, but a wrecked cell (poison 0.07, CE +0.84) has a degraded judge; its gap is reported and its self-collapse there is wreck-confounded by registration (never gates a bar)",
+    "foreign_donor_is_unintervened": "the foreign V content comes from e021_task's own run (a different organism \u2014 never intervened); under weight interventions the recipient's own V norms shift while the foreign donor's do not; the norm ratios are recorded per arm (fired.mean_norm_ratio) so the asymmetry is auditable",
+    "occupancy_support_only": "the cos-step and occupancy columns are geometric correlates (e111-class); e112 showed the functional gap is the causal instrument \u2014 the adjudication reads ONLY the functional binary; the geometric columns are reported per cell and any dissociation between them and the functional gap is texture to savor, not a bar"
+  },
+  "recipe_deviations": [
+    "Instrument port (registered, not silent): the e111/e112 self rig is rescaled to the primary net's blk256 \u2014 free run 64->256, intervention t=192, band 64..143 (80 entries, ages 49..128; e096's age-97 floor cannot fit in 256 tokens), judged tail = final 32 (the e112 64-of-512 tail at 1:2). The SELF-BASELINE validates the port before any intervention cell counts.",
+    "The judge is the INTERVENED net (the organism's own frame): each cell's control continuation and arm continuations are generated AND judged under the same intervention state (weights / mask forward / head hooks) \u2014 the gap isolates the splice effect, exactly e112's matched-control convention with the recipient carrying the intervention.",
+    "The own-anchor-band V population for the occupancy PCA is the control continuation's pristine prefill cache at the band positions (frame-consistent with the splice pairs; differs from a full-run recapture only at float-noise level).",
+    "36 (layer,head) groups (6Lx6H) replace e111's 16; k* is NAMED on the primary net (the home lineage's 7 is not assumed).",
+    "The parent texture arm (e048_repro V, the consolidated line's install-phase ancestor) and the sig-destroyed arm run at BASELINE only; intervention cells carry sibling + foreign (the adjudicated axis). E-curve row-bootstrap CIs are trimmed (the registered 2x/null clauses are pooled, as in e111); gap CIs are kept (the adjudication instrument)."
+  ],
+  "e150_crosscheck": {
+    "refs": {
+      "cons/perm@g0": 0.817,
+      "cons/mask@g+0": 0.8088,
+      "norm=0.07@g+0": 0.3231,
+      "norm=0.15@g+0": 0.7846,
+      "L0H3-mean@g+0": 0.69
+    },
+    "devs": {
+      "mask": 4.9573135376013155e-05,
+      "poison_0.15": 4.072570800817132e-06
+    },
+    "tol": 0.05,
+    "ok": true
+  },
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt",
+      "runs/checkpoints/e048_repro.pt",
+      "runs/checkpoints/e021_task.train.pt",
+      "runs/checkpoints/e131_arm_b_corpus_spliced.pt"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  }
+}

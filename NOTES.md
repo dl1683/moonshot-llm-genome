@@ -322,7 +322,9 @@ spacing, the ~70% duty, the ~1/30 rehearsal density)
 reproduces under fresh streams on the same root. THE NOUN IS
 LICENSED per R55's rule: the rhythm is wash-draw-robust.
 THE CAUSAL LOOP IS CLOSED: the onset read trips the replay
-(intervention), the gate-disabled contrast dies (e184's n=3),
+(intervention), the gate-disabled contrast dies (g2's own base cell, n=1;
+e184's n=3 is the organ-less analogue — the loop closed in kind,
+not yet in n; R56 audit),
 the medians held with room. THE TEXTURE: trough depth IS the
 lottery (10904 dipped to 0.081 mid-cycle and every event
 still resurrected it; 10903's first cycles warmed up below

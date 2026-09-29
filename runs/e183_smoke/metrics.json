@@ -1,0 +1,953 @@
+{
+  "experiment": "e183_filtered_stream",
+  "date": "2026-09-28T17:17:03Z",
+  "registration": "QUEUE.md row e183 (T109's named residue \u2014 the last gate on the unbounded noun); bars frozen verbatim in the module docstring before compute",
+  "registered_prediction": {
+    "still_dissolves": "STILL-DISSOLVES fires if: g-12 <= 0.27 by +50 \u2014 the activity-dependence noun goes UNBOUNDED (no memory survives continued training without fact-bearing windows, on any stream composition tested).",
+    "background_carried": "BACKGROUND-CARRIED fires if: survival (g-12 >= 0.5 through +300) \u2014 the 3.84% background was the driver; the noun stays bounded.",
+    "no_bar_shopping": "No bar shopping; texture (slower wash) => TEXTURE with the curve.",
+    "operationalizations": "g-12/g0/g+12/held30 = absolute install-60/held-30 battery mean p(Z) at ctx offsets -12/0/+12 (e176/e176N's convention); STILL-DISSOLVES = filtered arm g-12 at +50 <= 0.27 (earliest checkpoint <= 0.27 over {1,2,4,50,100,200,300} CO-REPORTED); BACKGROUND-CARRIED = filtered arm g-12 >= 0.50 at EVERY continuation checkpoint {1,2,4,50,100,200,300}; clauses disjoint; order STILL-DISSOLVES -> BACKGROUND-CARRIED -> TEXTURE; CE-at-dissolution reported per stream (CE_R + in-batch corpus CE at the first checkpoint under 0.27) for all three streams.",
+    "registration": "QUEUE.md row e183 (T109's named residue, the dispatch's registration); frozen verbatim in this docstring before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does the consolidated fact STILL dissolve when the random-corpus half's 3.84%/window host-junction background is FILTERED OUT (the truly clean stream), or was that background the driver of both prior dissolutions?",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 1.19e-07)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "armF_filtered": {
+    "desc": "ONE plain-corpus freeze, e176N arm A VERBATIM except the random half is FILTERED: batch 32 = 16 neutral-bank draws (e170's bank, bit-identical to e176N arm A's) + 16 random corpus windows rejection-sampled at draw time (no FLORIZEL/ELIZABETH substring in [s, s+257), no host onset in [s, s+257)); full-token CE (NO fact windows, NO name tokens, NO mask), AdamW (0.9,0.95) wd 0.1 lr 1e-3 constant, clip 1.0, seed 10902 (redraws diverge the draw sequence from e176N's after the first rejection \u2014 necessary consequence of the filter)",
+    "ckpt_steps": [
+      1,
+      2,
+      4
+    ],
+    "steps_ran": 4,
+    "seed": 10902,
+    "lr": 0.001,
+    "traj": [
+      {
+        "step": 1,
+        "g_m12_mean_pz": 0.8032550811767578,
+        "g0_mean_pz": 0.5230787992477417,
+        "frac_argmax_z": 0.95,
+        "corpus_ce": 1.3622431755065918,
+        "ce_r": 2.213454008102417,
+        "elapsed_s": 2.9
+      },
+      {
+        "step": 2,
+        "g_m12_mean_pz": 0.039825037121772766,
+        "g0_mean_pz": 0.19581082463264465,
+        "frac_argmax_z": 0.016666666666666666,
+        "corpus_ce": 1.8234308958053589,
+        "ce_r": 1.9948855638504028,
+        "elapsed_s": 5.7
+      },
+      {
+        "step": 4,
+        "g_m12_mean_pz": 0.014654790982604027,
+        "g0_mean_pz": 0.13009506464004517,
+        "frac_argmax_z": 0.0,
+        "corpus_ce": 1.3700852394104004,
+        "ce_r": 1.8189220428466797,
+        "elapsed_s": 10.0
+      }
+    ],
+    "zeph_violations": 0,
+    "host_leaks": 0,
+    "missing_checkpoints": []
+  },
+  "filter_record": {
+    "spec": "reject any random-window start s whose span [s, s+257) contains FLORIZEL/ELIZABETH as a substring (grep at draw time \u2014 the e161 convention extended to the host class) OR covers a host junction (onset p with s <= p < s+257 \u2014 e170's convention; the e176N-measured 3.84%/window class); redraw singles from the same torch generator (seed 10902, same modulus) until pass",
+    "candidates_tested": 66,
+    "rejected_substring_only": 0,
+    "rejected_junction_only": 0,
+    "rejected_substring_and_junction": 2,
+    "redraws": 2,
+    "accepted": 64,
+    "accepted_left_edge_straddle": 0,
+    "max_redraws_one_slot": 1,
+    "rejections_total": 2,
+    "realized_rejection_rate": 0.030303030303030304,
+    "expected_rejection_rate": 0.038401998697021676,
+    "expected_class": "the e176N measurement: 150 host occurrences x 257-token span / len(train_ids) = 3.84%/window",
+    "residue_note": "left-edge straddles (host onset before s, tail inside) are NOT in the 3.84% onset-in-span class, are accepted, and are counted in accepted_left_edge_straddle \u2014 they carry no pre-host context, hence no context->onset junction signal"
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "measure_dial": "e176N's measure() (= e176's minus the 183-span census, e178's recorded deviation, inherited)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176N arm A's bank)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 18,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0,
+        "bit_identical_to_e176n": true
+      },
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows carried this ~3.84%/window host-junction background UNFILTERED in e176 and e176N \u2014 THIS cell filters it (the delta); ~4800 draws x 3.84% ~ 184 expected rejections over the 300-step main run"
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772222270098,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": -1.1920928955078125e-07,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 1.1920928955078125e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_DRAWFREE": {
+      "zeph_violations": 0,
+      "host_leaks": 0,
+      "pass": true
+    },
+    "G_FILTER": {
+      "candidates_tested": 66,
+      "rejections_total": 2,
+      "realized_rejection_rate": 0.030303030303030304,
+      "expected_rejection_rate": 0.038401998697021676,
+      "rate_tol_3sigma": 0.07096153105709871,
+      "post_hoc_grep_leaks": 0,
+      "accepted_windows": 64,
+      "accepted_left_edge_straddle": 0,
+      "pass": true
+    },
+    "G_SURG": {}
+  },
+  "trace_armF": [
+    {
+      "freeze_steps": 0,
+      "gm12": 0.9155886173248291,
+      "g0": 0.7850371599197388,
+      "gp12": 0.9478210210800171,
+      "held30_gm12": 0.6361417174339294,
+      "held30_g0": 0.7233286499977112,
+      "ce_r": 1.663516640663147,
+      "site_read_onset": 0.8898658156394958,
+      "site_read_span": 0.982668936252594,
+      "A129": -0.13237020391970877,
+      "retention_vs_root_gm12": 0.9999999349001946,
+      "retention_vs_root_g0": 1.0
+    },
+    {
+      "freeze_steps": 1,
+      "gm12": 0.8032550811767578,
+      "g0": 0.5230787992477417,
+      "gp12": 0.7485789656639099,
+      "held30_gm12": 0.6233559250831604,
+      "held30_g0": 0.544236421585083,
+      "ce_r": 2.213454008102417,
+      "site_read_onset": 0.6748777031898499,
+      "site_read_span": 0.9224377870559692,
+      "A129": -0.21123446631245313,
+      "retention_vs_root_gm12": 0.8773099770855195,
+      "retention_vs_root_g0": 0.6663108779477657
+    },
+    {
+      "freeze_steps": 2,
+      "gm12": 0.039825037121772766,
+      "g0": 0.19581082463264465,
+      "gp12": 0.02423175238072872,
+      "held30_gm12": 0.012873496860265732,
+      "held30_g0": 0.11631660908460617,
+      "ce_r": 1.9948855638504028,
+      "site_read_onset": 0.00774273369461298,
+      "site_read_span": 0.3687419295310974,
+      "A129": 0.1252289830648806,
+      "retention_vs_root_gm12": 0.04349664661136959,
+      "retention_vs_root_g0": 0.2494287336062717
+    },
+    {
+      "freeze_steps": 4,
+      "gm12": 0.014654790982604027,
+      "g0": 0.13009506464004517,
+      "gp12": 0.02719917520880699,
+      "held30_gm12": 0.004918611142784357,
+      "held30_g0": 0.05974363163113594,
+      "ce_r": 1.8189220428466797,
+      "site_read_onset": 0.014962960965931416,
+      "site_read_span": 0.844551682472229,
+      "A129": 0.0842901562292051,
+      "retention_vs_root_gm12": 0.01600586742919371,
+      "retention_vs_root_g0": 0.16571835230493537
+    }
+  ],
+  "trace_summary": {
+    "armF_steps": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "armF_gm12": [
+      0.9155886173248291,
+      0.8032550811767578,
+      0.039825037121772766,
+      0.014654790982604027
+    ],
+    "armF_g0": [
+      0.7850371599197388,
+      0.5230787992477417,
+      0.19581082463264465,
+      0.13009506464004517
+    ],
+    "armF_gp12": [
+      0.9478210210800171,
+      0.7485789656639099,
+      0.02423175238072872,
+      0.02719917520880699
+    ],
+    "armF_held30_gm12": [
+      0.6361417174339294,
+      0.6233559250831604,
+      0.012873496860265732,
+      0.004918611142784357
+    ],
+    "armF_held30_g0": [
+      0.7233286499977112,
+      0.544236421585083,
+      0.11631660908460617,
+      0.05974363163113594
+    ],
+    "armF_row0": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "armF_dall_g0": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "armF_ce_r": [
+      1.663516640663147,
+      2.213454008102417,
+      1.9948855638504028,
+      1.8189220428466797
+    ],
+    "e176_main_steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "e176_main_gm12": [
+      0.9155886173248291,
+      0.020882638171315193,
+      0.006246014963835478,
+      0.0006464376347139478,
+      0.0011210207594558597
+    ],
+    "e176_main_g0": [
+      0.7850371599197388,
+      0.027392588555812836,
+      0.016695411875844002,
+      0.001976940780878067,
+      0.0012388104805722833
+    ],
+    "e176_smoke_steps": [
+      0,
+      2,
+      4
+    ],
+    "e176_smoke_gm12": [
+      0.9155886173248291,
+      0.08816977590322495,
+      0.002640149090439081
+    ],
+    "e176_smoke_ce_r": [
+      1.663516640663147,
+      2.0001156330108643,
+      1.7823567390441895
+    ],
+    "e176n_armA_steps": [
+      0,
+      1,
+      2,
+      4,
+      50,
+      100,
+      200,
+      300
+    ],
+    "e176n_armA_gm12": [
+      0.9155886173248291,
+      0.6780440807342529,
+      0.027077054604887962,
+      0.010940761305391788,
+      0.022122304886579514,
+      0.014922752045094967,
+      0.00204725144430995,
+      0.0038193254731595516
+    ],
+    "e176n_armA_g0": [
+      0.7850371599197388,
+      0.4619811177253723,
+      0.1147073358297348,
+      0.06042749062151019,
+      0.16835635900497437,
+      0.05249874293804169,
+      0.011475668288767338,
+      0.016238771378993988
+    ],
+    "e176n_armA_ce_r": [
+      1.663516640663147,
+      2.2113420963287354,
+      2.032074451446533,
+      1.8213403224945068,
+      1.708834171295166,
+      1.6700899600982666,
+      1.6468615531921387,
+      1.642844796180725
+    ]
+  },
+  "batteries_armF": {
+    "root": {
+      "tag": "root",
+      "base": {
+        "-12": {
+          "mean_pz": 0.9155886173248291,
+          "median_pz": 0.969791829586029,
+          "std_pz": 0.15201902389526367,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "12": {
+          "mean_pz": 0.9478210210800171,
+          "median_pz": 0.981702983379364,
+          "std_pz": 0.08915618807077408,
+          "frac_pz_ge_0.5": 1.0,
+          "frac_argmax_z": 1.0
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.6361417174339294,
+          "median_pz": 0.9574220180511475,
+          "std_pz": 0.4387085437774658,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.7
+        },
+        "0": {
+          "mean_pz": 0.7233286499977112,
+          "median_pz": 0.9483089447021484,
+          "std_pz": 0.3725012242794037,
+          "frac_pz_ge_0.5": 0.7333333492279053,
+          "frac_argmax_z": 0.7666666666666667
+        },
+        "12": {
+          "mean_pz": 0.64676433801651,
+          "median_pz": 0.9567431211471558,
+          "std_pz": 0.4417463541030884,
+          "frac_pz_ge_0.5": 0.6333333253860474,
+          "frac_argmax_z": 0.7
+        }
+      },
+      "ce_r": 1.663516640663147,
+      "site_read": {
+        "pz_onset_mean": 0.8898658156394958,
+        "pz_onset_median": 0.9428561329841614,
+        "pz_onset_frac_ge_0.5": 0.9666666388511658,
+        "pname_mean_over7": 0.982668936252594,
+        "pname_frac_ge_0.5": 0.9952380657196045,
+        "per_position_mean": [
+          0.8898658404747645,
+          0.9987479706605276,
+          0.996099191904068,
+          0.9996264765659968,
+          0.9981235682964325,
+          0.9995786219835281,
+          0.9966405073801676
+        ]
+      },
+      "A129_quick": -0.13237020391970877
+    },
+    "1": {
+      "tag": "f1",
+      "base": {
+        "-12": {
+          "mean_pz": 0.8032550811767578,
+          "median_pz": 0.8622982501983643,
+          "std_pz": 0.1793312281370163,
+          "frac_pz_ge_0.5": 0.8833333253860474,
+          "frac_argmax_z": 0.95
+        },
+        "0": {
+          "mean_pz": 0.5230787992477417,
+          "median_pz": 0.5954452157020569,
+          "std_pz": 0.2989523708820343,
+          "frac_pz_ge_0.5": 0.6166666746139526,
+          "frac_argmax_z": 0.6166666666666667
+        },
+        "12": {
+          "mean_pz": 0.7485789656639099,
+          "median_pz": 0.786046028137207,
+          "std_pz": 0.18678796291351318,
+          "frac_pz_ge_0.5": 0.8666666746139526,
+          "frac_argmax_z": 0.9
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.6233559250831604,
+          "median_pz": 0.7802534699440002,
+          "std_pz": 0.2950737476348877,
+          "frac_pz_ge_0.5": 0.699999988079071,
+          "frac_argmax_z": 0.8333333333333334
+        },
+        "0": {
+          "mean_pz": 0.544236421585083,
+          "median_pz": 0.5196889638900757,
+          "std_pz": 0.19027704000473022,
+          "frac_pz_ge_0.5": 0.6000000238418579,
+          "frac_argmax_z": 0.6333333333333333
+        },
+        "12": {
+          "mean_pz": 0.5974462032318115,
+          "median_pz": 0.6891483068466187,
+          "std_pz": 0.2560257911682129,
+          "frac_pz_ge_0.5": 0.7666666507720947,
+          "frac_argmax_z": 0.8333333333333334
+        }
+      },
+      "ce_r": 2.213454008102417,
+      "site_read": {
+        "pz_onset_mean": 0.6748777031898499,
+        "pz_onset_median": 0.7446909546852112,
+        "pz_onset_frac_ge_0.5": 0.800000011920929,
+        "pname_mean_over7": 0.9224377870559692,
+        "pname_frac_ge_0.5": 0.9714285731315613,
+        "per_position_mean": [
+          0.6748777285218239,
+          0.967175206542015,
+          0.9368981252113978,
+          0.9981075674295425,
+          0.9222516596317292,
+          0.9893655041853587,
+          0.968388456106186
+        ]
+      },
+      "A129_quick": -0.21123446631245313
+    },
+    "2": {
+      "tag": "f2",
+      "base": {
+        "-12": {
+          "mean_pz": 0.039825037121772766,
+          "median_pz": 0.013992310501635075,
+          "std_pz": 0.12915343046188354,
+          "frac_pz_ge_0.5": 0.01666666753590107,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "0": {
+          "mean_pz": 0.19581082463264465,
+          "median_pz": 0.1068272814154625,
+          "std_pz": 0.2000870257616043,
+          "frac_pz_ge_0.5": 0.06666667014360428,
+          "frac_argmax_z": 0.3
+        },
+        "12": {
+          "mean_pz": 0.02423175238072872,
+          "median_pz": 0.00714306952431798,
+          "std_pz": 0.049253903329372406,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.012873496860265732,
+          "median_pz": 0.0031973589211702347,
+          "std_pz": 0.023245247080922127,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.11631660908460617,
+          "median_pz": 0.03552597761154175,
+          "std_pz": 0.14955385029315948,
+          "frac_pz_ge_0.5": 0.03333333507180214,
+          "frac_argmax_z": 0.16666666666666666
+        },
+        "12": {
+          "mean_pz": 0.011470748111605644,
+          "median_pz": 0.0029748014640063047,
+          "std_pz": 0.022004147991538048,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "ce_r": 1.9948855638504028,
+      "site_read": {
+        "pz_onset_mean": 0.00774273369461298,
+        "pz_onset_median": 0.0028799844440072775,
+        "pz_onset_frac_ge_0.5": 0.0,
+        "pname_mean_over7": 0.3687419295310974,
+        "pname_frac_ge_0.5": 0.380952388048172,
+        "per_position_mean": [
+          0.0077427335772275304,
+          0.26842788919511806,
+          0.14078831355745933,
+          0.6667382454848848,
+          0.35545235772345524,
+          0.5339193348976551,
+          0.6081248760223389
+        ]
+      },
+      "A129_quick": 0.1252289830648806
+    },
+    "4": {
+      "tag": "f4",
+      "base": {
+        "-12": {
+          "mean_pz": 0.014654790982604027,
+          "median_pz": 0.005436974111944437,
+          "std_pz": 0.029244692996144295,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.13009506464004517,
+          "median_pz": 0.09132328629493713,
+          "std_pz": 0.14676666259765625,
+          "frac_pz_ge_0.5": 0.05000000074505806,
+          "frac_argmax_z": 0.08333333333333333
+        },
+        "12": {
+          "mean_pz": 0.02719917520880699,
+          "median_pz": 0.01442162599414587,
+          "std_pz": 0.045087993144989014,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.004918611142784357,
+          "median_pz": 0.0033163693733513355,
+          "std_pz": 0.004639541730284691,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "0": {
+          "mean_pz": 0.05974363163113594,
+          "median_pz": 0.04651902616024017,
+          "std_pz": 0.0597924068570137,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "12": {
+          "mean_pz": 0.013799252919852734,
+          "median_pz": 0.008172200061380863,
+          "std_pz": 0.017077159136533737,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "ce_r": 1.8189220428466797,
+      "site_read": {
+        "pz_onset_mean": 0.014962960965931416,
+        "pz_onset_median": 0.007230645045638084,
+        "pz_onset_frac_ge_0.5": 0.0,
+        "pname_mean_over7": 0.844551682472229,
+        "pname_frac_ge_0.5": 0.8571428656578064,
+        "per_position_mean": [
+          0.014962960864553072,
+          0.9834257513284683,
+          0.9866221855084102,
+          0.9980803817510605,
+          0.936375285188357,
+          0.9961012095212937,
+          0.9962935447692871
+        ]
+      },
+      "A129_quick": 0.0842901562292051
+    }
+  },
+  "references": {
+    "e176_main": {
+      "ref": {
+        "freeze_steps": [
+          0,
+          50,
+          100,
+          200,
+          300
+        ],
+        "base_gm12": [
+          0.9155886173248291,
+          0.020882638171315193,
+          0.006246014963835478,
+          0.0006464376347139478,
+          0.0011210207594558597
+        ],
+        "base_g0": [
+          0.7850371599197388,
+          0.027392588555812836,
+          0.016695411875844002,
+          0.001976940780878067,
+          0.0012388104805722833
+        ],
+        "ce_r": [
+          1.663516640663147,
+          1.6478883028030396,
+          1.6605137586593628,
+          1.6117957830429077,
+          1.6334049701690674
+        ]
+      },
+      "provenance": {
+        "source": "runs/e176/metrics.json trace_summary (embedded copy verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0
+      },
+      "note": "the original extinction-confounded stream (lr 1e-3) \u2014 stream 1 of 3"
+    },
+    "e176_smoke": {
+      "ref": {
+        "freeze_steps": [
+          0,
+          2,
+          4
+        ],
+        "base_gm12": [
+          0.9155886173248291,
+          0.08816977590322495,
+          0.002640149090439081
+        ],
+        "base_g0": [
+          0.7850371599197388,
+          0.08683783560991287,
+          0.0034518486354500055
+        ],
+        "ce_r": [
+          1.663516640663147,
+          2.0001156330108643,
+          1.7823567390441895
+        ]
+      },
+      "provenance": {
+        "source": "runs/e176_smoke/metrics.json trace_summary (embedded copy verified, max|diff| 0.0e+00)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 0
+      },
+      "note": "e176's ONLY fine-step trajectory (the smoke run)"
+    },
+    "e176n_armA": {
+      "ref": {
+        "armA_steps": [
+          0,
+          1,
+          2,
+          4,
+          50,
+          100,
+          200,
+          300
+        ],
+        "armA_gm12": [
+          0.9155886173248291,
+          0.6780440807342529,
+          0.027077054604887962,
+          0.010940761305391788,
+          0.022122304886579514,
+          0.014922752045094967,
+          0.00204725144430995,
+          0.0038193254731595516
+        ],
+        "armA_g0": [
+          0.7850371599197388,
+          0.4619811177253723,
+          0.1147073358297348,
+          0.06042749062151019,
+          0.16835635900497437,
+          0.05249874293804169,
+          0.011475668288767338,
+          0.016238771378993988
+        ],
+        "armA_held30_gm12": [
+          0.6361417174339294,
+          0.4820752739906311,
+          0.0053826989606022835,
+          0.001151302014477551,
+          0.008003094233572483,
+          0.008265051619424877,
+          0.0012307859724387527,
+          0.003200115170329809
+        ],
+        "armA_ce_r": [
+          1.663516640663147,
+          2.2113420963287354,
+          2.032074451446533,
+          1.8213403224945068,
+          1.708834171295166,
+          1.6700899600982666,
+          1.6468615531921387,
+          1.642844796180725
+        ]
+      },
+      "provenance": {
+        "source": "runs/e176n/metrics.json trace_summary armA_* (embedded copy verified, max|diff| 5.6e-10)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 5.599999994970739e-10
+      },
+      "note": "the neutral stream (lr 1e-3, 0/16 junction anchors, UNFILTERED random half) \u2014 stream 2 of 3"
+    }
+  },
+  "ce_at_dissolution": {
+    "armF_filtered": {
+      "dissolved": true,
+      "step": 2,
+      "gm12": 0.039825037121772766,
+      "g0": 0.19581082463264465,
+      "ce_r": 1.9948855638504028,
+      "in_batch_corpus_ce": 1.8234308958053589,
+      "note": "CE_R + the in-batch corpus CE at the FIRST checkpoint under the 0.27 bar \u2014 the wash's price at the moment of dissolution, not the recovered value"
+    },
+    "e176n_neutral": {
+      "dissolved": true,
+      "step": 2,
+      "gm12": 0.027077054604887962,
+      "g0": 0.1147073358297348,
+      "ce_r": 2.032074451446533,
+      "in_batch_corpus_ce": 1.8263245820999146,
+      "note": "CE_R + the in-batch corpus CE at the FIRST checkpoint under the 0.27 bar \u2014 the wash's price at the moment of dissolution, not the recovered value"
+    },
+    "e176_original": {
+      "dissolved": true,
+      "step": 50,
+      "gm12": 0.020882638171315193,
+      "g0": 0.027392588555812836,
+      "ce_r": 1.6478883028030396,
+      "in_batch_corpus_ce": null,
+      "note": "CE_R + the in-batch corpus CE at the FIRST checkpoint under the 0.27 bar \u2014 the wash's price at the moment of dissolution, not the recovered value",
+      "smoke_fine_steps": {
+        "steps": [
+          0,
+          2,
+          4
+        ],
+        "gm12": [
+          0.9155886173248291,
+          0.08816977590322495,
+          0.002640149090439081
+        ],
+        "ce_r": [
+          1.663516640663147,
+          2.0001156330108643,
+          1.7823567390441895
+        ],
+        "note": "e176's only fine-step trajectory is its SMOKE run (s2 g-12 0.0882 at CE_R 2.0001) \u2014 the R50 auditor's splice attribution; e176N arm A and this cell measure {1,2,4} in their MAIN runs"
+      }
+    },
+    "critique": "the R50 splice discipline: report the CE at the DISSOLUTION moment, not just recovered values"
+  },
+  "adjudication": {
+    "conditions": {
+      "STILL_DISSOLVES": {
+        "bar": 0.27,
+        "gF_at_50": 0.014654790982604027,
+        "clause": true,
+        "earliest_ck_le_bar": 2,
+        "fires": true
+      },
+      "BACKGROUND_CARRIED": {
+        "bar": 0.5,
+        "gF_min_over_ckpts": 0.014654790982604027,
+        "below_bar_ckpts": [
+          2,
+          4
+        ],
+        "fires": false
+      }
+    },
+    "verdict": "STILL-DISSOLVES",
+    "clause": "the fact dissolves under the FILTERED stream too: g-12 0.0147 <= 0.27 at +50 (earliest checkpoint <= bar: +2; trace +0:0.9156 -> +1:0.8033 -> +2:0.0398 -> +4:0.0147) \u2014 the 3.84%/window host-junction background was NOT the driver: with the anchor half neutral AND the random half filtered, the consolidated fact still dies. The activity-dependence noun goes UNBOUNDED: no memory state tested retains expression under continued training without fact-bearing windows, on any stream composition tested (extinction anchors / neutral anchors / filtered random half)."
+  },
+  "honesty_reflex": {
+    "filter_fidelity": "the filter removes EXACTLY the registered class (host substring in [s, s+257) OR host onset in [s, s+257)); realized 3.03% over 66 candidates vs the 3.84% measurement; every accepted window passed an independent post-hoc grep (0 leaks)",
+    "what_the_filter_could_not_remove": "(1) LEFT-EDGE STRADDLES: 0 accepted windows carry a host-name TAIL at their left edge (onset before the window) \u2014 not in the 3.84% class, no pre-host context, hence no context->onset junction signal, but they are host-adjacent text and are COUNTED, not hidden. (2) ORDINARY CORPUS PRESSURE: the stream remains full-token CE plain-corpus training at lr 1e-3 \u2014 the disuse mechanism itself is the object under test and cannot be filtered without emptying the stream. (3) The CE_R eval bank and the neutral anchor bank are host-free but still genuine corpus text.",
+    "rng_divergence": "rejection redraws consume extra generator draws: after the first rejection the draw sequence diverges from e176N arm A's (same seed/modulus; the anchor bank content is bit-identical and gated) \u2014 the filtered arm is a sibling, not a paired draw-sequence twin",
+    "single_seed": "ONE trajectory (seed 10902), n=1 per cell; e152R showed seed-to-seed timing spans an order of magnitude on related washes \u2014 the fine-step clock is this trajectory's, not a replicated law",
+    "stream_composition": "the filtered stream = 16 neutral-anchor draws + 16 filtered-random draws per batch; the UNFILTERED streams it is compared against carried ~3.84%/window junction content in their random half (~184 junction windows over 300 steps) \u2014 the delta is exactly that content",
+    "thread_bit_drift": "evals at 4 threads vs e151's stored cells can drift low-order bits; gates report both the 5e-6 bit flag and the 0.05 fallback tolerance",
+    "bars_anchored": "the dissolve/survive bars are the same absolute home-battery bars e158/e161/e176/e176N used (0.27 SHUT / 0.50 SURVIVE) \u2014 all three streams' deaths are measured on one ruler"
+  },
+  "trims": [],
+  "deviations": [
+    "CPU-ONLY by dispatch (CUDA_VISIBLE_DEVICES=-1 forced before torch; the machine otherwise quiet): torch threads 4, one 25 s launch stagger (single sleep, no busy-waiting), cooldown 60 s before/after the ONE 300-step training, per-training CPU cap 1800 s (e176N precedent: ~830 s actual / 300 steps). The 4-step smoke shakedown runs without cooldowns and adjudicates nothing.",
+    "Nets are the mandated e131_consolidated line (2.7M; e170/e176N's precedent note): the dispatch's '<=1M family' phrase is an envelope statement \u2014 every gate reference and lineage number of this cell lives on the 2.7M line, and the mandated root IS e131_consolidated_e113.pt.",
+    "THE FILTER (the only protocol change vs e176N arm A): the 16-per-step random-corpus windows are rejection-sampled at draw time \u2014 reject any candidate whose [s, s+257) span contains FLORIZEL/ELIZABETH as a substring (grep, the e161 convention extended to the host class) OR covers a host junction (onset p with s <= p < s+257; the e176N-measured 3.84%/window class); redraw singles from the same torch generator until pass. Spec + realized rejection rate in the docstring RUN RECORD and in metrics.json filter_record (G_FILTER gates zero leaks).",
+    "RNG DIVERGENCE (necessary consequence of the filter): rejection redraws consume extra generator draws, so after the first rejection the draw sequence diverges from e176N arm A's (same seed 10902, same modulus, same per-step draw structure; only the redraw count differs). The anchor half is unaffected content-wise: e170's neutral bank is rebuilt bit-identically and gated vs e176N's stored starts (G_ANCHOR).",
+    "LEFT-EDGE RESIDUE (recorded, not filtered): host names whose onset falls before s but whose tail enters the window are NOT in the 3.84% onset-in-span class and are accepted; they carry no pre-host context (no context->onset junction signal). COUNTED in filter_record as accepted_left_edge_straddle.",
+    "Fine steps {1,2,4} are measured in the MAIN run (e176N's recorded convention \u2014 e176's two-step claim rested on its smoke); the smoke run is a machinery shakedown only.",
+    "The measure dial is e176N's measure() (= e176's minus the 183-span census, e178's recorded deviation, inherited): the functional site read @183 is kept as the instrument co-report.",
+    "Eval thread count is 4 (dispatch) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance (e161/e176/e176N precedent).",
+    "Single seed (10902), one trajectory, one root lineage, n=1 per cell \u2014 point estimates until replicated (e152R showed seed-to-seed timing spans an order of magnitude on related washes).",
+    "Smoke mode trims: 4 steps, lean measures (no censuses, no deletion table), filter machinery live (its tallies sanity-check the rejection rate); nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e183_filtered": {
+      "path": "runs/checkpoints/smoke_e183_filtered.pt",
+      "desc": "e131_consolidated_e113 + 4-step FILTERED plain-corpus freeze (e170's neutral anchor bank bit-identical to e176N arm A + the random half rejection-filtered of host-junction windows: no FLORIZEL/ELIZABETH substring, no host onset in [s, s+257)), full-token CE), lr 0.001, seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170, bit-identical to e176N arm A)",
+      "random_half": "FILTERED (host-junction class removed)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e183_filtered_s1": {
+      "path": "runs/checkpoints/smoke_e183_filtered_s1.pt",
+      "desc": "e131_consolidated_e113 + 1-step FILTERED freeze (intermediate), seed 10902",
+      "steps": 1,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "random_half": "FILTERED (host-junction class removed)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e183_filtered_s2": {
+      "path": "runs/checkpoints/smoke_e183_filtered_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step FILTERED freeze (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "anchor_bank": "neutral (seed 170)",
+      "random_half": "FILTERED (host-junction class removed)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 59.8
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

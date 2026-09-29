@@ -1,0 +1,1629 @@
+{
+  "experiment": "e182_gpt2_wash",
+  "date": "2026-09-29T11:34:24Z",
+  "registration": "dispatched by the e182 mission text; bars frozen VERBATIM in the module docstring before compute; adjudicated against exactly that \u2014 no bar shopping",
+  "registered_prediction": {
+    "two_step_wash": "TWO-STEP-WASH fires if: recall drops < 50% of baseline by <= 10 steps at healthy perplexity (within 2x its start) \u2014 the no-basin physics replicates at 124M scale; the finding goes cross-scale.",
+    "resistant": "RESISTANT fires if: recall holds >= 80% of baseline through 200 steps at the moderate lr \u2014 pretrained facts are wash-resistant; the finding is bounded to the lab's small-net regime; W019's field-facing line dies its final death.",
+    "texture": "TEXTURE in between (slow decay, lr-sensitivity) => TEXTURE with the curves.",
+    "operationalizations": "R(c) = battery mean p(answer first token) over the KEPT probes (the p(Z)-battery analog; one absolute ruler); retention = R(c)/R(0); '<50% by <=10 steps' = retention < 0.5 at a measured checkpoint in {2,10} with bank ppl <= 2x start at that checkpoint; '>=80% through 200 at the moderate lr' = the 5e-5 arm retention >= 0.8 at EVERY checkpoint {2,10,50,200} with ppl health at every checkpoint; order TWO-STEP-WASH -> RESISTANT -> TEXTURE; probe gate = single-token answer AND [(top-1, p>=0.8) OR (top-5, p>=0.5)], cap 20 by baseline p, floor 10 (6-9 runs flagged); co-reports frac_top1/frac_top5/per-probe retention/ppl/in-batch CE.",
+    "registration": "dispatched by the e182 mission text (the arc's one true remaining inverter); bars frozen VERBATIM in this docstring before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does the field's own organism (pretrained GPT-2 124M) show the lab's no-basin wash physics (T114/T119), or is a real model's factual recall RESISTANT to a plain-corpus wash?",
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (dispatch): the field's own standard organism is required \u2014 GPT-2 124M, > the 100M free tier, <= the 500M ceiling with this stated reason"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (dispatch): the field's own standard organism is required \u2014 GPT-2 124M, > the 100M free tier, <= the 500M ceiling with this stated reason",
+    "pass": true
+  },
+  "probe_selection": {
+    "gate": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 34,
+      "n_pass": 23,
+      "n_kept": 20,
+      "cutoff_p": 0.5683619379997253
+    },
+    "reduced_flag": false,
+    "battery_floor": 6,
+    "few_shot_instrument": "K=2 rotating exemplars from the probe's own relation (leave-self-out, frozen candidate order); a probe's answer never appears in its own prompt",
+    "baseline_all_candidates": [
+      {
+        "fact": "France->Paris",
+        "relation": "cap",
+        "subject": "France",
+        "answer": "Paris",
+        "prompt": "The capital of Germany is Berlin. The capital of Italy is Rome. The capital of France is",
+        "exemplars": [
+          "Germany->Berlin",
+          "Italy->Rome"
+        ],
+        "p": 0.6850027441978455,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Germany->Berlin",
+        "relation": "cap",
+        "subject": "Germany",
+        "answer": "Berlin",
+        "prompt": "The capital of France is Paris. The capital of Italy is Rome. The capital of Germany is",
+        "exemplars": [
+          "France->Paris",
+          "Italy->Rome"
+        ],
+        "p": 0.28060412406921387,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Italy->Rome",
+        "relation": "cap",
+        "subject": "Italy",
+        "answer": "Rome",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Italy is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.4107319712638855,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Spain->Madrid",
+        "relation": "cap",
+        "subject": "Spain",
+        "answer": "Madrid",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Spain is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.47621601819992065,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->Tokyo",
+        "relation": "cap",
+        "subject": "Japan",
+        "answer": "Tokyo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Japan is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.46283191442489624,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "England->London",
+        "relation": "cap",
+        "subject": "England",
+        "answer": "London",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of England is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.4617273509502411,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Greece->Athens",
+        "relation": "cap",
+        "subject": "Greece",
+        "answer": "Athens",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Greece is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.94468092918396,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "relation": "cap",
+        "subject": "Poland",
+        "answer": "Warsaw",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Poland is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.6746281981468201,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "relation": "cap",
+        "subject": "Portugal",
+        "answer": "Lisbon",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Portugal is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.7412760853767395,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "relation": "cap",
+        "subject": "Egypt",
+        "answer": "Cairo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Egypt is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.8057803511619568,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Russia->Moscow",
+        "relation": "cap",
+        "subject": "Russia",
+        "answer": "Moscow",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Russia is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.45026326179504395,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->Beijing",
+        "relation": "cap",
+        "subject": "China",
+        "answer": "Beijing",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of China is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.27645033597946167,
+        "rank": 1,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Norway->Oslo",
+        "relation": "cap",
+        "subject": "Norway",
+        "answer": "Oslo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Norway is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.5471532344818115,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Austria->Vienna",
+        "relation": "cap",
+        "subject": "Austria",
+        "answer": "Vienna",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Austria is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.439180850982666,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "relation": "cap",
+        "subject": "Ireland",
+        "answer": "Dublin",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Ireland is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.6304253935813904,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Denmark->Copenhagen",
+        "relation": "cap",
+        "subject": "Denmark",
+        "answer": "Copenhagen",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Denmark is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.5640620589256287,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Scotland->Edinburgh",
+        "relation": "cap",
+        "subject": "Scotland",
+        "answer": "Edinburgh",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Scotland is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.5348308086395264,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Korea->Seoul",
+        "relation": "cap",
+        "subject": "Korea",
+        "answer": "Seoul",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Korea is",
+        "exemplars": [
+          "France->Paris",
+          "Germany->Berlin"
+        ],
+        "p": 0.39732784032821655,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "France->French",
+        "relation": "lang",
+        "subject": "France",
+        "answer": "French",
+        "prompt": "People in Germany speak German. People in Japan speak Japanese. People in France speak",
+        "exemplars": [
+          "Germany->German",
+          "Japan->Japanese"
+        ],
+        "p": 0.9179711937904358,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Germany->German",
+        "relation": "lang",
+        "subject": "Germany",
+        "answer": "German",
+        "prompt": "People in France speak French. People in Japan speak Japanese. People in Germany speak",
+        "exemplars": [
+          "France->French",
+          "Japan->Japanese"
+        ],
+        "p": 0.8766514658927917,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->Japanese",
+        "relation": "lang",
+        "subject": "Japan",
+        "answer": "Japanese",
+        "prompt": "People in France speak French. People in Germany speak German. People in Japan speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.8385147452354431,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Italy->Italian",
+        "relation": "lang",
+        "subject": "Italy",
+        "answer": "Italian",
+        "prompt": "People in France speak French. People in Germany speak German. People in Italy speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.8853657841682434,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Spain->Spanish",
+        "relation": "lang",
+        "subject": "Spain",
+        "answer": "Spanish",
+        "prompt": "People in France speak French. People in Germany speak German. People in Spain speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.744873046875,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Brazil->Portuguese",
+        "relation": "lang",
+        "subject": "Brazil",
+        "answer": "Portuguese",
+        "prompt": "People in France speak French. People in Germany speak German. People in Brazil speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.4586349129676819,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Russia->Russian",
+        "relation": "lang",
+        "subject": "Russia",
+        "answer": "Russian",
+        "prompt": "People in France speak French. People in Germany speak German. People in Russia speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.8519078493118286,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->Chinese",
+        "relation": "lang",
+        "subject": "China",
+        "answer": "Chinese",
+        "prompt": "People in France speak French. People in Germany speak German. People in China speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.5683619379997253,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "England->English",
+        "relation": "lang",
+        "subject": "England",
+        "answer": "English",
+        "prompt": "People in France speak French. People in Germany speak German. People in England speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.8146218657493591,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Greece->Greek",
+        "relation": "lang",
+        "subject": "Greece",
+        "answer": "Greek",
+        "prompt": "People in France speak French. People in Germany speak German. People in Greece speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.766821026802063,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Egypt->Arabic",
+        "relation": "lang",
+        "subject": "Egypt",
+        "answer": "Arabic",
+        "prompt": "People in France speak French. People in Germany speak German. People in Egypt speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.30892089009284973,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Poland->Polish",
+        "relation": "lang",
+        "subject": "Poland",
+        "answer": "Polish",
+        "prompt": "People in France speak French. People in Germany speak German. People in Poland speak",
+        "exemplars": [
+          "France->French",
+          "Germany->German"
+        ],
+        "p": 0.8325423002243042,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->yen",
+        "relation": "cur",
+        "subject": "Japan",
+        "answer": "yen",
+        "prompt": "The currency of the United Kingdom is the pound. The currency of the United States is the dollar. The currency of Japan is the",
+        "exemplars": [
+          "the United Kingdom->pound",
+          "the United States->dollar"
+        ],
+        "p": 0.8905185461044312,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "relation": "cur",
+        "subject": "the United Kingdom",
+        "answer": "pound",
+        "prompt": "The currency of Japan is the yen. The currency of the United States is the dollar. The currency of the United Kingdom is the",
+        "exemplars": [
+          "Japan->yen",
+          "the United States->dollar"
+        ],
+        "p": 0.9533817768096924,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "the United States->dollar",
+        "relation": "cur",
+        "subject": "the United States",
+        "answer": "dollar",
+        "prompt": "The currency of Japan is the yen. The currency of the United Kingdom is the pound. The currency of the United States is the",
+        "exemplars": [
+          "Japan->yen",
+          "the United Kingdom->pound"
+        ],
+        "p": 0.5909402966499329,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->yuan",
+        "relation": "cur",
+        "subject": "China",
+        "answer": "yuan",
+        "prompt": "The currency of Japan is the yen. The currency of the United Kingdom is the pound. The currency of China is the",
+        "exemplars": [
+          "Japan->yen",
+          "the United Kingdom->pound"
+        ],
+        "p": 0.9285135269165039,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      }
+    ],
+    "dropped_multitoken": [
+      {
+        "fact": "India->rupee",
+        "relation": "cur",
+        "answer": "rupee",
+        "drop_reason": "answer tokenizes to 2 tokens [7422, 39463] \u2014 first-token measurement would not be exact"
+      },
+      {
+        "fact": "Russia->ruble",
+        "relation": "cur",
+        "answer": "ruble",
+        "drop_reason": "answer tokenizes to 2 tokens [6437, 293] \u2014 first-token measurement would not be exact"
+      }
+    ],
+    "kept_facts": [
+      "France->Paris",
+      "Greece->Athens",
+      "Poland->Warsaw",
+      "Portugal->Lisbon",
+      "Egypt->Cairo",
+      "Ireland->Dublin",
+      "France->French",
+      "Germany->German",
+      "Japan->Japanese",
+      "Italy->Italian",
+      "Spain->Spanish",
+      "Russia->Russian",
+      "China->Chinese",
+      "England->English",
+      "Greece->Greek",
+      "Poland->Polish",
+      "Japan->yen",
+      "the United Kingdom->pound",
+      "the United States->dollar",
+      "China->yuan"
+    ]
+  },
+  "gates": {
+    "G_PROBE": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 34,
+      "n_pass": 23,
+      "n_kept": 20,
+      "cutoff_p": 0.5683619379997253,
+      "floor": 6,
+      "reduced_flag": false,
+      "pass": true
+    },
+    "G_STR": {
+      "rule": "drop any line containing a banned string (case-insensitive substring)",
+      "banned": [
+        "arabic",
+        "athens",
+        "austria",
+        "beijing",
+        "berlin",
+        "brazil",
+        "cairo",
+        "china",
+        "chinese",
+        "copenhagen",
+        "denmark",
+        "dollar",
+        "dublin",
+        "edinburgh",
+        "egypt",
+        "england",
+        "english",
+        "france",
+        "french",
+        "german",
+        "germany",
+        "greece",
+        "greek",
+        "india",
+        "ireland",
+        "italian",
+        "italy",
+        "japan",
+        "japanese",
+        "korea",
+        "lisbon",
+        "london",
+        "madrid",
+        "moscow",
+        "norway",
+        "oslo",
+        "paris",
+        "poland",
+        "polish",
+        "portugal",
+        "portuguese",
+        "pound",
+        "rome",
+        "ruble",
+        "rupee",
+        "russia",
+        "russian",
+        "scotland",
+        "seoul",
+        "spain",
+        "spanish",
+        "the united kingdom",
+        "the united states",
+        "tokyo",
+        "united kingdom",
+        "united states",
+        "vienna",
+        "warsaw",
+        "yen",
+        "yuan"
+      ],
+      "lines_total": 40001,
+      "lines_dropped": 664,
+      "occurrences_before": {
+        "arabic": 0,
+        "athens": 0,
+        "austria": 0,
+        "beijing": 0,
+        "berlin": 0,
+        "brazil": 0,
+        "cairo": 0,
+        "china": 1,
+        "chinese": 0,
+        "copenhagen": 0,
+        "denmark": 0,
+        "dollar": 1,
+        "dublin": 0,
+        "edinburgh": 0,
+        "egypt": 0,
+        "england": 57,
+        "english": 23,
+        "france": 46,
+        "french": 12,
+        "german": 2,
+        "germany": 0,
+        "greece": 4,
+        "greek": 3,
+        "india": 1,
+        "ireland": 10,
+        "italian": 2,
+        "italy": 8,
+        "japan": 0,
+        "japanese": 0,
+        "korea": 0,
+        "lisbon": 0,
+        "london": 30,
+        "madrid": 0,
+        "moscow": 0,
+        "norway": 0,
+        "oslo": 0,
+        "paris": 57,
+        "poland": 1,
+        "polish": 1,
+        "portugal": 0,
+        "portuguese": 0,
+        "pound": 21,
+        "rome": 383,
+        "ruble": 0,
+        "rupee": 0,
+        "russia": 3,
+        "russian": 0,
+        "scotland": 5,
+        "seoul": 0,
+        "spain": 1,
+        "spanish": 1,
+        "the united kingdom": 0,
+        "the united states": 0,
+        "tokyo": 0,
+        "united kingdom": 0,
+        "united states": 0,
+        "vienna": 9,
+        "warsaw": 0,
+        "yen": 0,
+        "yuan": 0
+      },
+      "occurrences_after": {
+        "arabic": 0,
+        "athens": 0,
+        "austria": 0,
+        "beijing": 0,
+        "berlin": 0,
+        "brazil": 0,
+        "cairo": 0,
+        "china": 0,
+        "chinese": 0,
+        "copenhagen": 0,
+        "denmark": 0,
+        "dollar": 0,
+        "dublin": 0,
+        "edinburgh": 0,
+        "egypt": 0,
+        "england": 0,
+        "english": 0,
+        "france": 0,
+        "french": 0,
+        "german": 0,
+        "germany": 0,
+        "greece": 0,
+        "greek": 0,
+        "india": 0,
+        "ireland": 0,
+        "italian": 0,
+        "italy": 0,
+        "japan": 0,
+        "japanese": 0,
+        "korea": 0,
+        "lisbon": 0,
+        "london": 0,
+        "madrid": 0,
+        "moscow": 0,
+        "norway": 0,
+        "oslo": 0,
+        "paris": 0,
+        "poland": 0,
+        "polish": 0,
+        "portugal": 0,
+        "portuguese": 0,
+        "pound": 0,
+        "rome": 0,
+        "ruble": 0,
+        "rupee": 0,
+        "russia": 0,
+        "russian": 0,
+        "scotland": 0,
+        "seoul": 0,
+        "spain": 0,
+        "spanish": 0,
+        "the united kingdom": 0,
+        "the united states": 0,
+        "tokyo": 0,
+        "united kingdom": 0,
+        "united states": 0,
+        "vienna": 0,
+        "warsaw": 0,
+        "yen": 0,
+        "yuan": 0
+      },
+      "max_after": 0,
+      "pass": true
+    },
+    "G_TOK": {
+      "rule": "count of each KEPT answer's first token id in the exact training token stream",
+      "counts": {
+        "France->Paris": 0,
+        "Greece->Athens": 0,
+        "Poland->Warsaw": 0,
+        "Portugal->Lisbon": 0,
+        "Egypt->Cairo": 0,
+        "Ireland->Dublin": 0,
+        "France->French": 0,
+        "Germany->German": 0,
+        "Japan->Japanese": 0,
+        "Italy->Italian": 0,
+        "Spain->Spanish": 0,
+        "Russia->Russian": 0,
+        "China->Chinese": 0,
+        "England->English": 0,
+        "Greece->Greek": 0,
+        "Poland->Polish": 0,
+        "Japan->yen": 0,
+        "the United Kingdom->pound": 0,
+        "the United States->dollar": 0,
+        "China->yuan": 0
+      },
+      "max": 0,
+      "pass": true
+    }
+  },
+  "corpus": {
+    "source": "data/input.txt (the lab's plain corpus, Shakespeare)",
+    "chars_before": 1115394,
+    "chars_after": 1093972,
+    "tokens_after": 331770,
+    "train_tokens": 328697,
+    "bank_windows": 6,
+    "bank_seq": 512,
+    "bank_is_held_out_tail": true,
+    "epochs_over_200_steps": 2.49
+  },
+  "baseline": {
+    "probes": [
+      {
+        "fact": "France->Paris",
+        "relation": "cap",
+        "p": 0.6850027441978455,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Greece->Athens",
+        "relation": "cap",
+        "p": 0.94468092918396,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "relation": "cap",
+        "p": 0.6746281981468201,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "relation": "cap",
+        "p": 0.7412760853767395,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "relation": "cap",
+        "p": 0.8057803511619568,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "relation": "cap",
+        "p": 0.6304253935813904,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "France->French",
+        "relation": "lang",
+        "p": 0.9179711937904358,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Germany->German",
+        "relation": "lang",
+        "p": 0.8766514658927917,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Japan->Japanese",
+        "relation": "lang",
+        "p": 0.8385147452354431,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Italy->Italian",
+        "relation": "lang",
+        "p": 0.8853657841682434,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Spain->Spanish",
+        "relation": "lang",
+        "p": 0.744873046875,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Russia->Russian",
+        "relation": "lang",
+        "p": 0.8519078493118286,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "China->Chinese",
+        "relation": "lang",
+        "p": 0.5683619379997253,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "England->English",
+        "relation": "lang",
+        "p": 0.8146218657493591,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Greece->Greek",
+        "relation": "lang",
+        "p": 0.766821026802063,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Poland->Polish",
+        "relation": "lang",
+        "p": 0.8325423002243042,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "Japan->yen",
+        "relation": "cur",
+        "p": 0.8905185461044312,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "relation": "cur",
+        "p": 0.9533817768096924,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "the United States->dollar",
+        "relation": "cur",
+        "p": 0.5909402966499329,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      },
+      {
+        "fact": "China->yuan",
+        "relation": "cur",
+        "p": 0.9285135269165039,
+        "rank": 0,
+        "top1": true,
+        "top5": true
+      }
+    ],
+    "mean_p": 0.7971389532089234,
+    "frac_top1": 1.0,
+    "frac_top5": 1.0,
+    "bank_ce": 3.7495954036712646,
+    "bank_ppl": 42.50388160623444
+  },
+  "arms": {
+    "lr5e6": {
+      "lr": 5e-06,
+      "seed": 18202,
+      "desc": "4-step plain-corpus wash (filtered Shakespeare), batch 8 x ctx 512, AdamW (0.9,0.95) wd 0.1 constant clip 1.0",
+      "steps_ran": 4,
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "ckpt": null,
+      "traj": [
+        {
+          "step": 2,
+          "mean_p": 0.79761500954628,
+          "frac_top1": 1.0,
+          "frac_top5": 1.0,
+          "bank_ce": 3.4860618114471436,
+          "bank_ppl": 32.65708437288141,
+          "in_batch_ce": 3.9672904014587402,
+          "probes": {
+            "France->Paris": {
+              "p": 0.6821540594100952,
+              "rank": 0
+            },
+            "Greece->Athens": {
+              "p": 0.9451037049293518,
+              "rank": 0
+            },
+            "Poland->Warsaw": {
+              "p": 0.6755696535110474,
+              "rank": 0
+            },
+            "Portugal->Lisbon": {
+              "p": 0.7410894632339478,
+              "rank": 0
+            },
+            "Egypt->Cairo": {
+              "p": 0.8029882907867432,
+              "rank": 0
+            },
+            "Ireland->Dublin": {
+              "p": 0.6304536461830139,
+              "rank": 0
+            },
+            "France->French": {
+              "p": 0.9186332821846008,
+              "rank": 0
+            },
+            "Germany->German": {
+              "p": 0.8779359459877014,
+              "rank": 0
+            },
+            "Japan->Japanese": {
+              "p": 0.839375913143158,
+              "rank": 0
+            },
+            "Italy->Italian": {
+              "p": 0.886482298374176,
+              "rank": 0
+            },
+            "Spain->Spanish": {
+              "p": 0.7459089159965515,
+              "rank": 0
+            },
+            "Russia->Russian": {
+              "p": 0.8525315523147583,
+              "rank": 0
+            },
+            "China->Chinese": {
+              "p": 0.5712996125221252,
+              "rank": 0
+            },
+            "England->English": {
+              "p": 0.8164921998977661,
+              "rank": 0
+            },
+            "Greece->Greek": {
+              "p": 0.7695056200027466,
+              "rank": 0
+            },
+            "Poland->Polish": {
+              "p": 0.8343577980995178,
+              "rank": 0
+            },
+            "Japan->yen": {
+              "p": 0.8927233815193176,
+              "rank": 0
+            },
+            "the United Kingdom->pound": {
+              "p": 0.9535244107246399,
+              "rank": 0
+            },
+            "the United States->dollar": {
+              "p": 0.587639570236206,
+              "rank": 0
+            },
+            "China->yuan": {
+              "p": 0.9285308718681335,
+              "rank": 0
+            }
+          },
+          "elapsed_s": 8.2,
+          "retention": 1.0005972062153532,
+          "ppl_ratio": 0.7683318120312873
+        },
+        {
+          "step": 4,
+          "mean_p": 0.798100820183754,
+          "frac_top1": 1.0,
+          "frac_top5": 1.0,
+          "bank_ce": 3.4021169344584146,
+          "bank_ppl": 30.02759927143661,
+          "in_batch_ce": 4.063347816467285,
+          "probes": {
+            "France->Paris": {
+              "p": 0.6793137192726135,
+              "rank": 0
+            },
+            "Greece->Athens": {
+              "p": 0.9454470872879028,
+              "rank": 0
+            },
+            "Poland->Warsaw": {
+              "p": 0.6755528450012207,
+              "rank": 0
+            },
+            "Portugal->Lisbon": {
+              "p": 0.7404569387435913,
+              "rank": 0
+            },
+            "Egypt->Cairo": {
+              "p": 0.7994783520698547,
+              "rank": 0
+            },
+            "Ireland->Dublin": {
+              "p": 0.6304829120635986,
+              "rank": 0
+            },
+            "France->French": {
+              "p": 0.9196596145629883,
+              "rank": 0
+            },
+            "Germany->German": {
+              "p": 0.8795658946037292,
+              "rank": 0
+            },
+            "Japan->Japanese": {
+              "p": 0.8404717445373535,
+              "rank": 0
+            },
+            "Italy->Italian": {
+              "p": 0.8877421021461487,
+              "rank": 0
+            },
+            "Spain->Spanish": {
+              "p": 0.747479259967804,
+              "rank": 0
+            },
+            "Russia->Russian": {
+              "p": 0.8532822728157043,
+              "rank": 0
+            },
+            "China->Chinese": {
+              "p": 0.5747687816619873,
+              "rank": 0
+            },
+            "England->English": {
+              "p": 0.8187730312347412,
+              "rank": 0
+            },
+            "Greece->Greek": {
+              "p": 0.7724786996841431,
+              "rank": 0
+            },
+            "Poland->Polish": {
+              "p": 0.8361367583274841,
+              "rank": 0
+            },
+            "Japan->yen": {
+              "p": 0.8945794105529785,
+              "rank": 0
+            },
+            "the United Kingdom->pound": {
+              "p": 0.9536155462265015,
+              "rank": 0
+            },
+            "the United States->dollar": {
+              "p": 0.5843697190284729,
+              "rank": 0
+            },
+            "China->yuan": {
+              "p": 0.928361713886261,
+              "rank": 0
+            }
+          },
+          "elapsed_s": 14.6,
+          "retention": 1.0012066490678426,
+          "ppl_ratio": 0.7064672245612548
+        }
+      ]
+    },
+    "lr5e5": {
+      "lr": 5e-05,
+      "seed": 18202,
+      "desc": "4-step plain-corpus wash (filtered Shakespeare), batch 8 x ctx 512, AdamW (0.9,0.95) wd 0.1 constant clip 1.0",
+      "steps_ran": 4,
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "ckpt": null,
+      "traj": [
+        {
+          "step": 2,
+          "mean_p": 0.7988145321607589,
+          "frac_top1": 1.0,
+          "frac_top5": 1.0,
+          "bank_ce": 3.320391575495402,
+          "bank_ppl": 27.671183794866213,
+          "in_batch_ce": 3.7000505924224854,
+          "probes": {
+            "France->Paris": {
+              "p": 0.6824260950088501,
+              "rank": 0
+            },
+            "Greece->Athens": {
+              "p": 0.9453871250152588,
+              "rank": 0
+            },
+            "Poland->Warsaw": {
+              "p": 0.6743360161781311,
+              "rank": 0
+            },
+            "Portugal->Lisbon": {
+              "p": 0.7325809001922607,
+              "rank": 0
+            },
+            "Egypt->Cairo": {
+              "p": 0.7720293402671814,
+              "rank": 0
+            },
+            "Ireland->Dublin": {
+              "p": 0.6247645616531372,
+              "rank": 0
+            },
+            "France->French": {
+              "p": 0.9204258322715759,
+              "rank": 0
+            },
+            "Germany->German": {
+              "p": 0.8792386054992676,
+              "rank": 0
+            },
+            "Japan->Japanese": {
+              "p": 0.8423770666122437,
+              "rank": 0
+            },
+            "Italy->Italian": {
+              "p": 0.8895332217216492,
+              "rank": 0
+            },
+            "Spain->Spanish": {
+              "p": 0.7484042048454285,
+              "rank": 0
+            },
+            "Russia->Russian": {
+              "p": 0.8517260551452637,
+              "rank": 0
+            },
+            "China->Chinese": {
+              "p": 0.5994874835014343,
+              "rank": 0
+            },
+            "England->English": {
+              "p": 0.8190023899078369,
+              "rank": 0
+            },
+            "Greece->Greek": {
+              "p": 0.7834639549255371,
+              "rank": 0
+            },
+            "Poland->Polish": {
+              "p": 0.8422133922576904,
+              "rank": 0
+            },
+            "Japan->yen": {
+              "p": 0.9129948616027832,
+              "rank": 0
+            },
+            "the United Kingdom->pound": {
+              "p": 0.957207202911377,
+              "rank": 0
+            },
+            "the United States->dollar": {
+              "p": 0.5710486173629761,
+              "rank": 0
+            },
+            "China->yuan": {
+              "p": 0.9276437163352966,
+              "rank": 0
+            }
+          },
+          "elapsed_s": 6.5,
+          "retention": 1.0021019910582596,
+          "ppl_ratio": 0.6510272179660745
+        },
+        {
+          "step": 4,
+          "mean_p": 0.7926625460386276,
+          "frac_top1": 1.0,
+          "frac_top5": 1.0,
+          "bank_ce": 3.2803095976511636,
+          "bank_ppl": 26.58400177046443,
+          "in_batch_ce": 3.9063239097595215,
+          "probes": {
+            "France->Paris": {
+              "p": 0.7065297365188599,
+              "rank": 0
+            },
+            "Greece->Athens": {
+              "p": 0.937279462814331,
+              "rank": 0
+            },
+            "Poland->Warsaw": {
+              "p": 0.6536329984664917,
+              "rank": 0
+            },
+            "Portugal->Lisbon": {
+              "p": 0.713297963142395,
+              "rank": 0
+            },
+            "Egypt->Cairo": {
+              "p": 0.7225233912467957,
+              "rank": 0
+            },
+            "Ireland->Dublin": {
+              "p": 0.6061126589775085,
+              "rank": 0
+            },
+            "France->French": {
+              "p": 0.9177656769752502,
+              "rank": 0
+            },
+            "Germany->German": {
+              "p": 0.8635656833648682,
+              "rank": 0
+            },
+            "Japan->Japanese": {
+              "p": 0.8360410928726196,
+              "rank": 0
+            },
+            "Italy->Italian": {
+              "p": 0.8853250741958618,
+              "rank": 0
+            },
+            "Spain->Spanish": {
+              "p": 0.7461363673210144,
+              "rank": 0
+            },
+            "Russia->Russian": {
+              "p": 0.8444218039512634,
+              "rank": 0
+            },
+            "China->Chinese": {
+              "p": 0.6252052187919617,
+              "rank": 0
+            },
+            "England->English": {
+              "p": 0.804019570350647,
+              "rank": 0
+            },
+            "Greece->Greek": {
+              "p": 0.7841504812240601,
+              "rank": 0
+            },
+            "Poland->Polish": {
+              "p": 0.838715136051178,
+              "rank": 0
+            },
+            "Japan->yen": {
+              "p": 0.920606791973114,
+              "rank": 0
+            },
+            "the United Kingdom->pound": {
+              "p": 0.9623911380767822,
+              "rank": 0
+            },
+            "the United States->dollar": {
+              "p": 0.5619147419929504,
+              "rank": 0
+            },
+            "China->yuan": {
+              "p": 0.9236159324645996,
+              "rank": 0
+            }
+          },
+          "elapsed_s": 13.7,
+          "retention": 0.9943844079476034,
+          "ppl_ratio": 0.6254488005764892
+        }
+      ]
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "TWO_STEP_WASH": false,
+      "RESISTANT": false,
+      "verdict": "SMOKE (nothing adjudicated)",
+      "clause": "neither registered bar fired: slow decay / lr-sensitivity in between \u2014 moderate lr (5e-5) retention 0.994 at +4 (min 0.994), gentle lr (5e-6) retention 1.001 at +4; first checkpoint under the 50% bar: lr 5e-06: none by +200, lr 5e-05: none by +200. Full curves reported; no bar shopping.",
+      "order": "TWO-STEP-WASH -> RESISTANT -> TEXTURE"
+    },
+    "recall_definition": "R(c) = battery mean p(answer first token); retention = R(c)/R(0)",
+    "baseline_R0": 0.7971389532089234,
+    "crossing_by_10": {
+      "5e-06": null,
+      "5e-05": null
+    },
+    "first_under_50pct_any_horizon": {
+      "5e-06": null,
+      "5e-05": null
+    },
+    "min_retention": {
+      "lr5e6": 1.0005972062153532,
+      "lr5e5": 0.9943844079476034
+    },
+    "final_retention": {
+      "lr5e6": 1.0012066490678426,
+      "lr5e5": 0.9943844079476034
+    },
+    "ppl_max_ratio": {
+      "lr5e6": 0.7683318120312873,
+      "lr5e5": 0.6510272179660745
+    },
+    "healthy_all_checkpoints": {
+      "lr5e6": true,
+      "lr5e5": true
+    },
+    "battery_facts": [
+      "France->Paris",
+      "Greece->Athens",
+      "Poland->Warsaw",
+      "Portugal->Lisbon",
+      "Egypt->Cairo",
+      "Ireland->Dublin",
+      "France->French",
+      "Germany->German",
+      "Japan->Japanese",
+      "Italy->Italian",
+      "Spain->Spanish",
+      "Russia->Russian",
+      "China->Chinese",
+      "England->English",
+      "Greece->Greek",
+      "Poland->Polish",
+      "Japan->yen",
+      "the United Kingdom->pound",
+      "the United States->dollar",
+      "China->yuan"
+    ],
+    "steps_ran": {
+      "lr5e6": 4,
+      "lr5e5": 4
+    }
+  },
+  "honesty_reflex": {
+    "probe_selection_bias": "the battery is, by construction, the facts GPT-2 recalls BEST (gate p>=0.8 top-1 / >=0.5 top-5, cap-20 of the passers) \u2014 hyper-consolidated facts, the most-plausibly-basin-deep ones the organism owns; this biases the cell TOWARD RESISTANT and against TWO-STEP-WASH: a wash kill on THIS battery is strong, resistance on it is an upper bound on the population's resistance",
+    "few_shot_conflation": "the 2-shot context is part of the frozen instrument; decay conflates fact storage with in-context task-following (bare zero-shot cloze was too weak to measure: 1/36 candidates over 0.8 in the session pilot); frac_top1 co-reported as the discrete check",
+    "corpus_composition": "the wash stream is filtered Shakespeare \u2014 archaic, verse-heavy, IN WebText's distribution family but far from it in style; a WebText-like wash could behave differently; the filter dropped 664 lines to guarantee content-freedom, so the stream is also not \"natural\" Shakespeare",
+    "single_seed": "one wash seed (18202), one trajectory per lr, one organism instance \u2014 e152R/e184's seed lottery precedent: wash timing is seed-textured; the bars here are coarse enough (50%/80% retention, order-of-magnitude steps) that the verdict class is the claim, not the exact step",
+    "checkpoint_resolution": "the {2,10,50,200} grid brackets crossings coarsely \u2014 a crossing 'by +10' could occur anywhere in (2,10]; first-under-bar is reported as a step, not a time",
+    "epochs": "200 steps cover ~3 epochs of the ~300k-token filtered corpus (resampled windows); repetition is part of this wash's pressure, unlike a fresh-data fine-tune",
+    "dropout_off": "the wash isolates corpus gradients (dropout zeroed); the field's default fine-tune (dropout 0.1) adds the noise channel e185 showed is lethal on its own"
+  },
+  "compute": {
+    "train_device_policy": "GPU allowed (park-once quick check + mid-run guard every 25 steps); cooldown 90s around each training; per-training cap 1800s; all readouts CPU-side",
+    "gpu_parked": false,
+    "park_reason": null,
+    "device_events": [],
+    "torch_threads": 8,
+    "cells_devices": {
+      "lr5e6": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "lr5e5": {
+        "initial": "cuda",
+        "final": "cuda"
+      }
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "NEW ORGANISM (the point of the cell): HF GPT-2 124M replaces the lab's TinyGPT lineage \u2014 every lab instrument is either ported verbatim (optimizer, device policy, draw discipline) or replaced by its external analog (cloze p(answer) battery for the p(Z) battery); no lab checkpoint is touched.",
+    "Size envelope: 124,439,808 params > the lab's 100M free tier, within common.py's 500M ceiling with the stated reason (external validity; the mission requires the field's own standard organism).",
+    "THE FEW-SHOT INSTRUMENT: bare zero-shot cloze on GPT-2 124M peaks near p~0.2 on standard facts (session pilot: 1/36 candidates over the 0.8 bar), so the battery uses 2-shot primed prompts (GPT-2-era standard probing form). The fixed context is part of the frozen instrument; decay's LOCUS (fact vs in-context task-following) is not adjudicated here \u2014 flagged in the honesty reflex.",
+    "Dropout disabled (all nn.Dropout p=0): the wash under test is the corpus-gradient pressure, not stochastic noise (e185 established noise kills; this cell isolates the stream). Side effect: bit-reproducible train-mode behavior.",
+    "Wash corpus = the lab's data/input.txt (Shakespeare) LINE-FILTERED on every candidate subject+answer string (case-insensitive) + a token-id scan of the exact training stream for every kept answer token \u2014 stricter than the mission's zero-occurrence requirement where it is cheap (~620/40k lines dropped). Line-level filtering (vs e170's window-level rejection) because the stream here is whole-corpus, not a 16-window bank; the verification is the load-bearing part and it is exact.",
+    "The 200-step wash covers ~3 epochs of the filtered corpus (batch 8 x 512 x 200 = 819k tokens over a ~300k-token corpus): windows resample with replacement, e176n's random-channel discipline.",
+    "lr set {5e-6, 5e-5} is the dispatch's GPT-2-appropriate pair (the lab's 1e-3/1e-4 axis does not transfer to a pretrained 124M); optimizer shape otherwise VERBATIM (AdamW (0.9,0.95) wd 0.1 constant lr clip 1.0).",
+    "Final +200 checkpoints saved per arm to runs/checkpoints/e182_*.pt (gitignored; intermediates NOT saved \u2014 the recall battery is the record at this size).",
+    "HF_HUB_OFFLINE=1 + revision pin: the organism is the local cache's 607a30d snapshot exactly; no network dependency.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch); single commit, no push.",
+    "Smoke mode trims: 4-step trainings, checkpoints {2,4}, 6-window bank, no cooldowns, nothing adjudicated."
+  ],
+  "timing": {
+    "total_s": 68.3
+  },
+  "config": {
+    "model": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "seq": 512,
+    "batch": 8,
+    "steps": 4,
+    "ckpt_steps": [
+      2,
+      4
+    ],
+    "lrs": [
+      5e-06,
+      5e-05
+    ],
+    "freeze_seed": 18202,
+    "smoke": true
+  }
+}

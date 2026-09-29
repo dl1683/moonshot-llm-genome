@@ -1,0 +1,1119 @@
+{
+  "experiment": "g2d",
+  "date": "2026-09-29T18:38:29Z",
+  "purpose": "THE SEED REPLICATE \u2014 g2c's named last debt (T130): the onset-monitor organ's self-maintaining rhythm re-run at two additional wash-draw seeds (10903, 10904) so the noun's fate is decided per R55's rule; g2c's cell machinery verbatim, only the seed argument of run_cell changes; g2c's stored dense trace is seed 10902's leg.",
+  "delta_vs_g2c": {
+    "g2c": "one realization: seed 10902, dense grid, cycle-median 0.615 / duty 69% (n=1 seed, n=1 root)",
+    "g2d": "seeds 10903 + 10904 (e184's replicate convention); identical root, monitor, protocol, measurement grid, and adjudication conventions",
+    "the_seed": "run_cell's single Generator draws every wash batch (aj, rj) and event replay batch (ix, aj, rj); the monitor/refractory/rotation are deterministic \u2014 each seed is a fresh realization of the SAME organ"
+  },
+  "smoke": true,
+  "threads": 4,
+  "cpu_only": true,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "compute": {
+    "cpu_only": true,
+    "cuda_visible_devices": "-1",
+    "threads": 4,
+    "stagger_s": 2.0,
+    "train_cap_s": 900.0,
+    "meas_grid_n": 20,
+    "meas_grid_every": 2
+  },
+  "g2c_references": {
+    "metrics": "runs/g2c_smoke/metrics.json",
+    "events": [
+      24
+    ],
+    "cycle_median_stored": null,
+    "duty_stored": null,
+    "verdict_then": "SMOKE (nothing adjudicated)",
+    "contrast_base_ruler_50": null
+  },
+  "root": {
+    "source": "runs/checkpoints/smoke_g2_root.pt (REUSED \u2014 not rebuilt; g2b/g2c's own root)",
+    "gates": {
+      "G_POOL": {
+        "form": "bit",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "pass": true
+      },
+      "G_ROOT": {
+        "form": "reuse-verify vs g2b's own reloaded dials (threads 4)",
+        "cells_reloaded": {
+          "g-12": 0.002220579655840993,
+          "g+0": 0.0020340941846370697,
+          "g+12": 0.0023775105364620686
+        },
+        "root_monitor_onset": 0.0022665834985673428,
+        "g2b_stored": {
+          "g-12": 0.002220579655840993,
+          "g+0": 0.0020340941846370697,
+          "g+12": 0.0023775105364620686,
+          "root_monitor_onset": 0.0022665834985673428
+        },
+        "diffs": {
+          "gm12": 0.0,
+          "g0": 0.0,
+          "gp12": 0.0,
+          "root_monitor_onset": 0.0
+        },
+        "max_abs_diff": 0.0,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": true,
+        "pass": true
+      }
+    }
+  },
+  "reference_seed": {
+    "seed": 10902,
+    "source": "g2c's stored dense realization (fidelity-gated to g2b's: F_SCHED/F_TRACE/F_SD PASS); embedded leg",
+    "F_REF": {
+      "form": "g2c's stored dense trace re-pooled (load integrity)",
+      "cycle_median_recomputed": null,
+      "g2c_stored": null,
+      "abs_diff": null,
+      "n_dense_rows": 20,
+      "pass": true,
+      "note": "smoke: 0 complete cycles on both sides \u2014 vacuous"
+    },
+    "clauses": {
+      "n_events": 1,
+      "event_spacings": [],
+      "frac_spacing_in_20_45": null,
+      "band_stays_20_45": false,
+      "events_clause": false,
+      "cycle_median": null,
+      "cycle_mean": null,
+      "duty_ge_0.5": null,
+      "median_clause": false,
+      "near_texture": [],
+      "passes_both": false,
+      "source": "g2c's stored realization (fidelity-gated to g2b's own); embedded reference leg, not re-adjudicated"
+    },
+    "phase": {
+      "n_complete_cycles": 0,
+      "n_pooled_samples": 0,
+      "cycle_median": null,
+      "cycle_mean": null,
+      "duty_ge_0.5": null,
+      "peak_max": null,
+      "trough_min": null,
+      "per_cycle": [],
+      "per_cycle_peak_range": null,
+      "per_cycle_median_range": null,
+      "per_cycle_trough_range": null,
+      "frac_cycles_median_ge_0.5": null,
+      "phase_bin_centers": [
+        0.0625,
+        0.1875,
+        0.3125,
+        0.4375,
+        0.5625,
+        0.6875,
+        0.8125,
+        0.9375
+      ],
+      "phase_bin_medians": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "phase_bin_means": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "pre_rhythm": {
+        "steps": [
+          1,
+          22
+        ],
+        "min": 1.2796322153008077e-05
+      },
+      "tail_partial": {
+        "n_samples": 7,
+        "min": 0.00013690489868167788,
+        "max": 0.00037975245504640043,
+        "ruler_at_final_step": 0.00037975245504640043
+      }
+    },
+    "events": [
+      24
+    ],
+    "event_log": [
+      {
+        "n": 1,
+        "step": 24,
+        "mode": "g2",
+        "pre_event_monitor": 6.559951725648716e-05,
+        "post_refractory_monitor": null,
+        "next_check_fired": null,
+        "ruler_cells_at_plus_refractory": {
+          "gm12": 0.0004354429547674954,
+          "g0": 0.00037975245504640043,
+          "gp12": 0.00042305683018639684
+        },
+        "ruler_cells_at_next_ckpt": {
+          "gm12": 7.831996481399983e-05,
+          "g0": 9.545890497975051e-05,
+          "gp12": 5.442390829557553e-05
+        }
+      }
+    ]
+  },
+  "per_seed": {
+    "10903": {
+      "cell": {
+        "mode": "g2",
+        "seed": 10903,
+        "steps_ran": 36,
+        "n_events": 1,
+        "n_checks": 1,
+        "realized_r": 0.027777777777777776,
+        "event_spacings": [],
+        "events": [
+          24
+        ],
+        "monitor_trace": [
+          {
+            "step": 24,
+            "check": 6,
+            "monitor": 5.6479031627532095e-05,
+            "fired": true,
+            "became_event": true
+          }
+        ],
+        "event_log": [
+          {
+            "n": 1,
+            "step": 24,
+            "mode": "g2",
+            "pre_event_monitor": 5.6479031627532095e-05,
+            "post_refractory_monitor": null,
+            "next_check_fired": null,
+            "ruler_cells_at_plus_refractory": {
+              "gm12": 0.00033806104329414666,
+              "g0": 0.00035495831980369985,
+              "gp12": 0.0004025986127089709
+            },
+            "ruler_cells_at_next_ckpt": {
+              "gm12": 5.350878200260922e-05,
+              "g0": 7.841398473829031e-05,
+              "gp12": 4.612652264768258e-05
+            }
+          }
+        ],
+        "traj_dense": [
+          {
+            "step": 1,
+            "why": "ckpt",
+            "gm12": 0.0015225986717268825,
+            "g0": 0.001895829802379012,
+            "gp12": 0.0026779661420732737,
+            "frac_argmax_z": 0.0,
+            "ce_r": 5.9945173263549805,
+            "monitor": 0.0017188310157507658,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 0.9
+          },
+          {
+            "step": 2,
+            "why": "ckpt",
+            "gm12": 7.479418127331883e-05,
+            "g0": 0.00011947260645683855,
+            "gp12": 0.0001803012564778328,
+            "frac_argmax_z": 0.0,
+            "ce_r": 4.100815773010254,
+            "monitor": 0.00011207756324438378,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 1.9
+          },
+          {
+            "step": 4,
+            "why": "ckpt",
+            "gm12": 2.4229861082858406e-05,
+            "g0": 3.110988109256141e-05,
+            "gp12": 4.114539115107618e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 3.204036235809326,
+            "monitor": 4.9130991101264954e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 3.2
+          },
+          {
+            "step": 6,
+            "why": "ckpt",
+            "gm12": 1.6621421309537254e-05,
+            "g0": 2.048919486696832e-05,
+            "gp12": 2.4212818971136585e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.8197336196899414,
+            "monitor": 2.818966459017247e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 4.5
+          },
+          {
+            "step": 8,
+            "why": "ckpt",
+            "gm12": 1.3547798516810872e-05,
+            "g0": 1.658211294852663e-05,
+            "gp12": 1.76288031070726e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.660043478012085,
+            "monitor": 4.442375939106569e-06,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 5.9
+          },
+          {
+            "step": 10,
+            "why": "ckpt",
+            "gm12": 1.463747594243614e-05,
+            "g0": 1.7475194908911362e-05,
+            "gp12": 1.72053296410013e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.5925183296203613,
+            "monitor": 8.151466317940503e-06,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 7.6
+          },
+          {
+            "step": 12,
+            "why": "ckpt",
+            "gm12": 1.6185364074772224e-05,
+            "g0": 1.829431130317971e-05,
+            "gp12": 1.8894450477091596e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.5431718826293945,
+            "monitor": 1.6395923012169078e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 9.1
+          },
+          {
+            "step": 14,
+            "why": "ckpt",
+            "gm12": 1.0877809472731315e-05,
+            "g0": 1.5248067029460799e-05,
+            "gp12": 1.4516487681248691e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.536454677581787,
+            "monitor": 1.4950224795029499e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 10.8
+          },
+          {
+            "step": 16,
+            "why": "ckpt",
+            "gm12": 1.6215844880207442e-05,
+            "g0": 2.1998353986418806e-05,
+            "gp12": 1.8824266589945182e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.5162949562072754,
+            "monitor": 2.0770123228430748e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 12.7
+          },
+          {
+            "step": 18,
+            "why": "ckpt",
+            "gm12": 2.2920821720617823e-05,
+            "g0": 2.669014247658197e-05,
+            "gp12": 2.3033668185235e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4840409755706787,
+            "monitor": 2.522842987673357e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 14.6
+          },
+          {
+            "step": 20,
+            "why": "ckpt",
+            "gm12": 2.4987935830722563e-05,
+            "g0": 3.410867429920472e-05,
+            "gp12": 2.3411841539200395e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4613211154937744,
+            "monitor": 2.747866528807208e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 16.2
+          },
+          {
+            "step": 22,
+            "why": "ckpt",
+            "gm12": 3.3073487429646775e-05,
+            "g0": 4.557964712148532e-05,
+            "gp12": 2.9880360671086237e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.474869728088379,
+            "monitor": 3.393338920432143e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 17.9
+          },
+          {
+            "step": 24,
+            "why": "ckpt",
+            "gm12": 5.350878200260922e-05,
+            "g0": 7.841398473829031e-05,
+            "gp12": 4.612652264768258e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4677376747131348,
+            "monitor": 8.830673323245719e-05,
+            "n_events_so_far": 1,
+            "was_event": true,
+            "elapsed_s": 19.4
+          },
+          {
+            "step": 25,
+            "why": "ckpt",
+            "gm12": 8.746318053454161e-05,
+            "g0": 0.00011181286390637979,
+            "gp12": 6.772611959604546e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4581124782562256,
+            "monitor": 0.00013550996663980186,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 20.3
+          },
+          {
+            "step": 26,
+            "why": "ckpt",
+            "gm12": 0.00010315720282960683,
+            "g0": 0.00012125688226660714,
+            "gp12": 8.011388854356483e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4376790523529053,
+            "monitor": 0.00015270309813786298,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 21.3
+          },
+          {
+            "step": 28,
+            "why": "ckpt",
+            "gm12": 0.00011599347635637969,
+            "g0": 0.00013125383702572435,
+            "gp12": 0.00010617182124406099,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4220011234283447,
+            "monitor": 0.00014513982750941068,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 22.7
+          },
+          {
+            "step": 30,
+            "why": "ckpt",
+            "gm12": 0.00018234606250189245,
+            "g0": 0.00018780413665808737,
+            "gp12": 0.00022369036742020398,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4072983264923096,
+            "monitor": 0.0002403968683211133,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 24.1
+          },
+          {
+            "step": 32,
+            "why": "ckpt",
+            "gm12": 0.00025868514785543084,
+            "g0": 0.0002668579400051385,
+            "gp12": 0.00029319021268747747,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.395038366317749,
+            "monitor": 0.00030528209754265845,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 25.3
+          },
+          {
+            "step": 34,
+            "why": "ckpt",
+            "gm12": 0.0002490871411282569,
+            "g0": 0.0002727501268964261,
+            "gp12": 0.00030512872035615146,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.382134437561035,
+            "monitor": 0.0002931992639787495,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 26.6
+          },
+          {
+            "step": 36,
+            "why": "ckpt",
+            "gm12": 0.00033806104329414666,
+            "g0": 0.00035495831980369985,
+            "gp12": 0.0004025986127089709,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.3903698921203613,
+            "monitor": 0.0003720754466485232,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 27.9
+          }
+        ],
+        "devices": {
+          "initial": "cpu",
+          "final": "cpu"
+        },
+        "replay_checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        }
+      },
+      "phase": {
+        "n_complete_cycles": 0,
+        "n_pooled_samples": 0,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "peak_max": null,
+        "trough_min": null,
+        "per_cycle": [],
+        "per_cycle_peak_range": null,
+        "per_cycle_median_range": null,
+        "per_cycle_trough_range": null,
+        "frac_cycles_median_ge_0.5": null,
+        "phase_bin_centers": [
+          0.0625,
+          0.1875,
+          0.3125,
+          0.4375,
+          0.5625,
+          0.6875,
+          0.8125,
+          0.9375
+        ],
+        "phase_bin_medians": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_bin_means": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "pre_rhythm": {
+          "steps": [
+            1,
+            22
+          ],
+          "min": 1.5248067029460799e-05
+        },
+        "tail_partial": {
+          "n_samples": 7,
+          "min": 0.00011181286390637979,
+          "max": 0.00035495831980369985,
+          "ruler_at_final_step": 0.00035495831980369985
+        }
+      },
+      "clauses": {
+        "n_events": 1,
+        "event_spacings": [],
+        "frac_spacing_in_20_45": null,
+        "band_stays_20_45": false,
+        "events_clause": false,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "median_clause": false,
+        "near_texture": [],
+        "passes_both": false
+      },
+      "gates": {
+        "G_NAMEFREE": {
+          "cell_zeph_violations": 0,
+          "pass": true
+        },
+        "G_REPLAY": {
+          "n_events": 1,
+          "checks": {
+            "events": 1,
+            "mask7_ok": 1,
+            "anchors_8_8_ok": 1,
+            "echo_j0_ok": 0
+          },
+          "pass": true
+        },
+        "G_STEP": {
+          "steps_ran": 36,
+          "expected": 36,
+          "batch": 32,
+          "pass": true
+        }
+      }
+    },
+    "10904": {
+      "cell": {
+        "mode": "g2",
+        "seed": 10904,
+        "steps_ran": 36,
+        "n_events": 1,
+        "n_checks": 1,
+        "realized_r": 0.027777777777777776,
+        "event_spacings": [],
+        "events": [
+          24
+        ],
+        "monitor_trace": [
+          {
+            "step": 24,
+            "check": 6,
+            "monitor": 7.697895489400253e-05,
+            "fired": true,
+            "became_event": true
+          }
+        ],
+        "event_log": [
+          {
+            "n": 1,
+            "step": 24,
+            "mode": "g2",
+            "pre_event_monitor": 7.697895489400253e-05,
+            "post_refractory_monitor": null,
+            "next_check_fired": null,
+            "ruler_cells_at_plus_refractory": {
+              "gm12": 0.0006940479506738484,
+              "g0": 0.0006293374462984502,
+              "gp12": 0.0007500363863073289
+            },
+            "ruler_cells_at_next_ckpt": {
+              "gm12": 7.428591197822243e-05,
+              "g0": 9.548000525683165e-05,
+              "gp12": 7.011088746367022e-05
+            }
+          }
+        ],
+        "traj_dense": [
+          {
+            "step": 1,
+            "why": "ckpt",
+            "gm12": 0.001582924509420991,
+            "g0": 0.0020815718453377485,
+            "gp12": 0.0029729141388088465,
+            "frac_argmax_z": 0.0,
+            "ce_r": 6.081094741821289,
+            "monitor": 0.001886228215880692,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 1.1
+          },
+          {
+            "step": 2,
+            "why": "ckpt",
+            "gm12": 9.68420717981644e-05,
+            "g0": 0.00018458488921169192,
+            "gp12": 0.0002991568180732429,
+            "frac_argmax_z": 0.0,
+            "ce_r": 4.114894390106201,
+            "monitor": 0.00017133807705249637,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 2.1
+          },
+          {
+            "step": 4,
+            "why": "ckpt",
+            "gm12": 1.988531403185334e-05,
+            "g0": 2.5020757675520144e-05,
+            "gp12": 4.152999827056192e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 3.1751017570495605,
+            "monitor": 3.842093065031804e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 3.7
+          },
+          {
+            "step": 6,
+            "why": "ckpt",
+            "gm12": 2.526666685298551e-05,
+            "g0": 2.736950045800768e-05,
+            "gp12": 3.6788002034882084e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.8102757930755615,
+            "monitor": 4.344752960605547e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 5.5
+          },
+          {
+            "step": 8,
+            "why": "ckpt",
+            "gm12": 2.153443892893847e-05,
+            "g0": 2.8328811822575517e-05,
+            "gp12": 2.9227509003248997e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.686342716217041,
+            "monitor": 1.051220442604972e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 7.2
+          },
+          {
+            "step": 10,
+            "why": "ckpt",
+            "gm12": 2.4443219444947317e-05,
+            "g0": 2.9300168534973636e-05,
+            "gp12": 3.013783134520054e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.5870754718780518,
+            "monitor": 1.3308951565704774e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 8.7
+          },
+          {
+            "step": 12,
+            "why": "ckpt",
+            "gm12": 2.4952361854957417e-05,
+            "g0": 2.860667882487178e-05,
+            "gp12": 2.841041532519739e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.576385021209717,
+            "monitor": 2.6092102416441776e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 10.3
+          },
+          {
+            "step": 14,
+            "why": "ckpt",
+            "gm12": 1.5159350368776359e-05,
+            "g0": 2.629487426020205e-05,
+            "gp12": 2.1763620679848827e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.553771734237671,
+            "monitor": 2.619011138449423e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 11.7
+          },
+          {
+            "step": 16,
+            "why": "ckpt",
+            "gm12": 1.7614356693229638e-05,
+            "g0": 2.5063209250220098e-05,
+            "gp12": 2.1773612388642505e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4988999366760254,
+            "monitor": 2.3307293304242194e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 13.1
+          },
+          {
+            "step": 18,
+            "why": "ckpt",
+            "gm12": 2.2291353161563165e-05,
+            "g0": 2.9314327548490837e-05,
+            "gp12": 2.4392986233578995e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.492173910140991,
+            "monitor": 2.6689622245612554e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 14.3
+          },
+          {
+            "step": 20,
+            "why": "ckpt",
+            "gm12": 3.2673113310011104e-05,
+            "g0": 4.811027611140162e-05,
+            "gp12": 3.734547135536559e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.45898699760437,
+            "monitor": 4.058325430378318e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 15.5
+          },
+          {
+            "step": 22,
+            "why": "ckpt",
+            "gm12": 4.5623313781106845e-05,
+            "g0": 6.376999954227358e-05,
+            "gp12": 4.752090171677992e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.439655303955078,
+            "monitor": 5.424270057119429e-05,
+            "n_events_so_far": 0,
+            "was_event": false,
+            "elapsed_s": 16.7
+          },
+          {
+            "step": 24,
+            "why": "ckpt",
+            "gm12": 7.428591197822243e-05,
+            "g0": 9.548000525683165e-05,
+            "gp12": 7.011088746367022e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4513795375823975,
+            "monitor": 0.00010357662540627643,
+            "n_events_so_far": 1,
+            "was_event": true,
+            "elapsed_s": 17.9
+          },
+          {
+            "step": 25,
+            "why": "ckpt",
+            "gm12": 9.268744179280475e-05,
+            "g0": 0.00011874923075083643,
+            "gp12": 7.863095379434526e-05,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.4433445930480957,
+            "monitor": 0.00012254997272975743,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 18.7
+          },
+          {
+            "step": 26,
+            "why": "ckpt",
+            "gm12": 0.00014291494153439999,
+            "g0": 0.00015959776646923274,
+            "gp12": 0.00011955441004829481,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.427476406097412,
+            "monitor": 0.00016744816093705595,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 19.6
+          },
+          {
+            "step": 28,
+            "why": "ckpt",
+            "gm12": 0.00021268783893901855,
+            "g0": 0.00020472730102483183,
+            "gp12": 0.00021980999736115336,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.434300184249878,
+            "monitor": 0.00023979567049536854,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 20.8
+          },
+          {
+            "step": 30,
+            "why": "ckpt",
+            "gm12": 0.0002994647657033056,
+            "g0": 0.0003418825217522681,
+            "gp12": 0.0002977070689667016,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.399372100830078,
+            "monitor": 0.00033019063994288445,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 21.9
+          },
+          {
+            "step": 32,
+            "why": "ckpt",
+            "gm12": 0.00027221321943216026,
+            "g0": 0.0003024251200258732,
+            "gp12": 0.00028324229060672224,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.402899742126465,
+            "monitor": 0.0002910973271355033,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 23.0
+          },
+          {
+            "step": 34,
+            "why": "ckpt",
+            "gm12": 0.00038740417221561074,
+            "g0": 0.000371017144061625,
+            "gp12": 0.00045717929606325924,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.3772330284118652,
+            "monitor": 0.0003762603155337274,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 24.3
+          },
+          {
+            "step": 36,
+            "why": "ckpt",
+            "gm12": 0.0006940479506738484,
+            "g0": 0.0006293374462984502,
+            "gp12": 0.0007500363863073289,
+            "frac_argmax_z": 0.0,
+            "ce_r": 2.3576924800872803,
+            "monitor": 0.000603123102337122,
+            "n_events_so_far": 1,
+            "was_event": false,
+            "elapsed_s": 25.5
+          }
+        ],
+        "devices": {
+          "initial": "cpu",
+          "final": "cpu"
+        },
+        "replay_checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        }
+      },
+      "phase": {
+        "n_complete_cycles": 0,
+        "n_pooled_samples": 0,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "peak_max": null,
+        "trough_min": null,
+        "per_cycle": [],
+        "per_cycle_peak_range": null,
+        "per_cycle_median_range": null,
+        "per_cycle_trough_range": null,
+        "frac_cycles_median_ge_0.5": null,
+        "phase_bin_centers": [
+          0.0625,
+          0.1875,
+          0.3125,
+          0.4375,
+          0.5625,
+          0.6875,
+          0.8125,
+          0.9375
+        ],
+        "phase_bin_medians": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_bin_means": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "pre_rhythm": {
+          "steps": [
+            1,
+            22
+          ],
+          "min": 2.5020757675520144e-05
+        },
+        "tail_partial": {
+          "n_samples": 7,
+          "min": 0.00011874923075083643,
+          "max": 0.0006293374462984502,
+          "ruler_at_final_step": 0.0006293374462984502
+        }
+      },
+      "clauses": {
+        "n_events": 1,
+        "event_spacings": [],
+        "frac_spacing_in_20_45": null,
+        "band_stays_20_45": false,
+        "events_clause": false,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "median_clause": false,
+        "near_texture": [],
+        "passes_both": false
+      },
+      "gates": {
+        "G_NAMEFREE": {
+          "cell_zeph_violations": 0,
+          "pass": true
+        },
+        "G_REPLAY": {
+          "n_events": 1,
+          "checks": {
+            "events": 1,
+            "mask7_ok": 1,
+            "anchors_8_8_ok": 1,
+            "echo_j0_ok": 0
+          },
+          "pass": true
+        },
+        "G_STEP": {
+          "steps_ran": 36,
+          "expected": 36,
+          "batch": 32,
+          "pass": true
+        }
+      }
+    }
+  },
+  "schedules_differ": {
+    "schedules": {
+      "10902": [
+        24
+      ],
+      "10903": [
+        24
+      ],
+      "10904": [
+        24
+      ]
+    },
+    "all_distinct": false
+  },
+  "gates": {
+    "CONTRAST": {
+      "form": "g2b's stored CELL-BASE (CPU, seed 10902; embedded; seed-generality per e184 ALL-DISSOLVE n=3)",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "pass": null
+    },
+    "G_NAMEFREE@10903": {
+      "cell_zeph_violations": 0,
+      "pass": true
+    },
+    "G_REPLAY@10903": {
+      "n_events": 1,
+      "checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      },
+      "pass": true
+    },
+    "G_STEP@10903": {
+      "steps_ran": 36,
+      "expected": 36,
+      "batch": 32,
+      "pass": true
+    },
+    "G_NAMEFREE@10904": {
+      "cell_zeph_violations": 0,
+      "pass": true
+    },
+    "G_REPLAY@10904": {
+      "n_events": 1,
+      "checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      },
+      "pass": true
+    },
+    "G_STEP@10904": {
+      "steps_ran": 36,
+      "expected": 36,
+      "batch": 32,
+      "pass": true
+    }
+  },
+  "registered_bars": {
+    "rhythm_replicates": "RHYTHM-REPLICATES fires if both new seeds (10903 AND 10904) show self-timed events (>=5) in/near the 20-45 band AND cycle-median >= 0.5 \u2014 the noun licensed (the self-maintaining rhythm is seed-robust)",
+    "rhythm_seed_bound": "RHYTHM-SEED-BOUND fires if any seed fails either clause \u2014 the rhythm was a seed lottery (honest bound)",
+    "source": "dispatch g2d (T130 / R55's noun rule), VERBATIM; operationalized in this docstring before the run; no shopping \u2014 'in/near' is co-reported texture, never a widened bar."
+  },
+  "registered_prediction": {
+    "pre_run": "the closed loop (deterministic monitor -> refractory -> replay resurrection) should dominate the wash-draw lottery: 7-12 events/seed, spacings 24-40, cycle-median 0.5-0.7, duty 55-75%. OPEN RISK: g2c's per-cycle troughs ranged 0.20-0.47 \u2014 a seed whose dips deepen could land duty < 50% and median just under the bar (both outcomes pre-registered; no shopping).",
+    "discriminating_observation": "the new seeds' per-cycle trough distributions vs g2c's 0.20-0.47 \u2014 deepening troughs name the failure mode; holding troughs license the noun with room."
+  },
+  "adjudication": {
+    "ruler": {
+      "geo": 0,
+      "key": "g0",
+      "root_value": 0.7106021046638489,
+      "die_bar": 0.27,
+      "maintain_bar": 0.5
+    },
+    "clauses": {
+      "events_clause": "n_events >= 5 AND 100% of spacings in [20, 45] (g2b/g2c's registered band)",
+      "median_clause": "cycle-median over dense in-cycle samples of complete inter-event intervals >= 0.5 (g2c's convention, same grid)",
+      "per_seed_passes_both": {
+        "10902": false,
+        "10903": false,
+        "10904": false
+      }
+    },
+    "bars": {
+      "RHYTHM_REPLICATES": false,
+      "RHYTHM_SEED_BOUND": true,
+      "near_texture": {
+        "10903": [],
+        "10904": []
+      }
+    },
+    "verdict": "SMOKE (nothing adjudicated)",
+    "clause": "smoke trim \u2014 no complete cycles."
+  },
+  "honesty": [
+    "WHAT WAS REPLICATED: the WASH-DRAW seed (the cell's RNG stream) at n=3 realizations on ONE root (g2_root.pt, the locked lineage) \u2014 the licensed noun is 'the organ's rhythm is wash-draw-robust on this root'; root-seed/install-seed generality remains open (the g-series' standing single-root bound, same as g2b/g2c's own honesty clause).",
+    "SEED 10902's LEG IS STORED, NOT RERUN: g2c's dense trace was fidelity-gated to g2b's realization; F_REF re-pools it (max|diff| None) as a load check only.",
+    "THE CONTRAST IS EMBEDDED: g2b's CELL-BASE (seed 10902) + e184's ALL-DISSOLVE n=3 for the wash law's seed-generality; no un-gated cell was rerun here.",
+    "NO BAR WIDENING: the dispatch's 'in/near' is co-reported texture (out-of-band spacings, medians within 0.05 of the bar); the two registered outcomes stay exhaustive.",
+    "n=2 NEW SEEDS, ONE PER VERDICT CLAUSE PAIR: a 2-of-2 pass licenses the noun at the lab's established replicate standard (e184/e187's n=2 new seeds + n=1 reference); it does not measure the pass RATE \u2014 recorded as the bound it is."
+  ],
+  "checkpoints_saved": {},
+  "deviations": [
+    "THE DELTA: the wash-draw seed only \u2014 g2c's CELL-G2 at seeds 10903/10904 (e184's replicate convention). Root, cue pool, monitor (g2b's G2BNet via module import), protocol, replay/wash arithmetic, refractory and the dense measurement grid are g2c VERBATIM; run_cell is reused unmodified \u2014 the seed is the one changed argument.",
+    "SEED 10902 NOT RERUN: g2c's stored dense trace (fidelity-gated to g2b's realization: F_SCHED/F_TRACE/F_SD all PASS) is the reference leg of the n=3; F_REF here only recomputes its cycle-median from the stored samples (a load-integrity check, not a re-measurement).",
+    "CONTRAST EMBEDDED: g2b's stored CELL-BASE (ruler 0.0241 <= 0.27 at +50, CPU, seed 10902) is the wash-law contrast; its seed-generality is established by e184 (ALL-DISSOLVE, n=3 seeds 10902/10903/10904) \u2014 the un-gated organ dies at every seed tested.",
+    "NO NEW CHECKPOINT FILES: the 152-per-cell measurement state_dicts live in memory and are discarded (deliverables are metrics + PNG; the reusable artifacts remain g2_root.pt and g2b's cells).",
+    "TRAIN CAP: G2D_CAP_S=900 s (g2c's bound, inherited; train-only is ~100 s/cell \u2014 the cap has never bound).",
+    "Stagger: 20 s sleep between the two trainings (the dispatch's CPU stagger). Cooldowns skipped (CPU-only; g2b/g2c's convention).",
+    "n=3 REALIZATIONS, ONE ROOT, ONE LINEAGE: this replicates the WASH-DRAW seed (the cell's RNG stream), not the install/root seed \u2014 the noun licensed is 'the organ's rhythm is wash-draw-robust on the locked root'; root-seed generality remains g-series-open (honesty).",
+    "Smoke mode trims: 36-step cells, grid to 36, g2c reference from runs/g2c_smoke \u2014 nothing adjudicated (0 complete cycles)."
+  ],
+  "timing_s": 58.9
+}

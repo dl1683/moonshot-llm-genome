@@ -1,0 +1,1407 @@
+{
+  "experiment": "e154_twofacts",
+  "date": "2026-09-28T13:05:31Z",
+  "registration": "QUEUE.md row e154 (rewrites e134) + the dispatch's registered prediction VERBATIM; operationalizations frozen in the module docstring before compute",
+  "registered_prediction": {
+    "global_phase": "GLOBAL-PHASE fires if: F1 g-12 drops >= 70% (0.916 -> <= 0.27) while F1's own trained-geometry expression stays >= 0.5 \u2014 the door closed on an untouched fact; T097's one-event reading generalizes across facts.",
+    "per_memory": "PER-MEMORY fires if: F1 g-12 within 15% \u2014 e151/e158 were self-conversion; the abstract's 'globally' rewrites; doors are per-fact.",
+    "crossover": "CROSSOVER fires if: 30-70% drop \u2014 shared substrate with capacity (feeds W012's contended-bandwidth reading).",
+    "rider_bars": "SHARED-READOUT = N2 kills both facts jointly; PER-FACT-READOUT = N2 kills F2 while F1 holds.",
+    "no_bar_shopping": "No bar shopping; texture => TEXTURE.",
+    "operationalizations": "door_drop = 1 - g12_after/g12_before (mean p(Z), install-60 battery); GLOBAL-PHASE = door_drop >= 0.70 AND g0_after >= 0.50 absolute (retention co-reported; >= 0.70 with g0 < 0.50 is TEXTURE); PER-MEMORY = |door_drop| <= 0.15; CROSSOVER = 0.30 <= door_drop < 0.70; gap (0.15, 0.30) => TEXTURE; order GLOBAL-PHASE -> PER-MEMORY -> CROSSOVER -> TEXTURE. Rider kill = >= 60% drop, F1 read g0 (e160 primary), F2 read = site onset install pool (e160 site-column convention), N2 zero primary / mean co-report; SHARED-READOUT = both >= 60%; PER-FACT-READOUT = F2 >= 60% AND F1 < 60%; F1 >= 60% & F2 < 60% = TEXTURE named F1-ONLY-KILL. W017 rider free: shares = positive drops / sum positive; DIFFUSE-AS-PREDICTED if top-1 < 0.352 (F1's stored), else CONCENTRATED.",
+    "committed": "NONE REGISTERED on the main fork (the dispatch left it open \u2014 'decides the day's headline'); T088's shared-state argument informally leans GLOBAL-PHASE. Recorded, not adjudicated against."
+  },
+  "committed_prediction": "NONE REGISTERED on the main fork (the dispatch left it open \u2014 'decides the day's headline'); T088's shared-state argument informally leans GLOBAL-PHASE. Recorded, not adjudicated against.",
+  "prediction_held": null,
+  "question": "does building a SECOND fact's locked graft (F2 = MIRABEL, nonce, site rows 63..69) tear down the FIRST fact's travel (F1 = ZEPHYRA, sink-coupled, g-12 0.916)? GLOBAL-PHASE vs PER-MEMORY vs CROSSOVER",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated vs e131/e151/e150/e160 cells)",
+  "f2": {
+    "name": "MIRABEL",
+    "kind": "nonce (e134 design)",
+    "corpus_occurrences": 0,
+    "onset_char": "M",
+    "onset_char_id": 25,
+    "install": {
+      "desc": "e151 locked-replay protocol verbatim at offset -66: MIRABEL locked at x-cols 64..70, onset read row 63, name-only 7-target mask, zero position variance",
+      "recipe": "batch 32 = 16 pool + 16 anchors (8 paired + 8 random), token-weighted union CE, AdamW (0.9,0.95) wd 0.1, lr 1e-3 constant, clip 1.0",
+      "steps_ran": 8,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 2,
+          "p_name_mean": 0.571135938167572,
+          "frac_argmax": 0.7666666666666667,
+          "ce_r": 1.9111158847808838,
+          "elapsed_s": 4.5
+        },
+        {
+          "step": 4,
+          "p_name_mean": 0.678777277469635,
+          "frac_argmax": 0.9666666666666667,
+          "ce_r": 1.8389856815338135,
+          "elapsed_s": 8.9
+        },
+        {
+          "step": 6,
+          "p_name_mean": 0.647687554359436,
+          "frac_argmax": 0.95,
+          "ce_r": 1.7238848209381104,
+          "elapsed_s": 13.7
+        },
+        {
+          "step": 8,
+          "p_name_mean": 0.7589241862297058,
+          "frac_argmax": 1.0,
+          "ce_r": 1.7054526805877686,
+          "elapsed_s": 17.5
+        }
+      ],
+      "device": "cpu",
+      "time_cap_s": 1500.0,
+      "cooldown_s": 60.0
+    },
+    "pre_install_site_error": {
+      "pz_onset_mean": 0.04224947467446327,
+      "pz_onset_median": 0.027363313362002373,
+      "pz_onset_frac_ge_0.5": 0.0,
+      "pname_mean_over7": 0.18264618515968323,
+      "pname_frac_ge_0.5": 0.16904762387275696,
+      "per_position_mean": [
+        0.042249473316284515,
+        0.004921560583898099,
+        0.004963732605665428,
+        0.0005979207776060018,
+        0.03473266391035092,
+        0.9771097630262375,
+        0.2139483081526123
+      ]
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "f2_placement": {
+      "offset": -66,
+      "name_xcols": [
+        64,
+        70
+      ],
+      "read_rows": [
+        63,
+        69
+      ],
+      "site_band": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "continuation_len": 185
+    },
+    "mask": "7 name-char targets per window (name-only)",
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0,
+      "note": "root trained {-8,-4,0,+4,+8}; +-12 novel for it"
+    }
+  },
+  "gates": {
+    "G_NONCE": {
+      "name": "MIRABEL",
+      "corpus_occurrences": 0,
+      "len": 7,
+      "onset_char": "M",
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_GEO2": {
+      "name_xcols": [
+        64,
+        70
+      ],
+      "all_windows_name_in_place": true,
+      "held_windows_name_in_place": true,
+      "mask_targets_per_window": 7,
+      "mask_cols": [
+        63,
+        69
+      ],
+      "zero_variance": true,
+      "clear_of_f1_band": true,
+      "clear_of_183": true,
+      "pass": true
+    },
+    "G_CONS": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "battery_pz_g12": 0.9155886173248291,
+      "ref_pz_g12": 0.9155886173248291,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "bit_reproducible": true,
+      "pass": true
+    },
+    "G_MASK": {
+      "max_abs_logit_diff_batch6": 0.0,
+      "abs_dpz_install60_g0": 0.0,
+      "tol_logit": 0.01,
+      "tol_pz": 0.001,
+      "pass": true
+    },
+    "G_ROW0": {
+      "mean": 0.7842019017236945,
+      "zero": 0.7316772222270098,
+      "ref_mean": 0.7842019017236945,
+      "ref_zero": 0.7316772222270098,
+      "pass": true
+    },
+    "G_A129": {
+      "mean": -0.1084650677318375,
+      "zero": -0.13237020391970877,
+      "ref_mean": -0.1084650677318375,
+      "ref_zero": -0.13237020391970877,
+      "pass": true
+    },
+    "G_DALL": {
+      "dall_g0": 0.9047248959541321,
+      "ref": 0.9047248959541321,
+      "pass": true
+    },
+    "G_N2": {
+      "zero_pz": 0.16161009669303894,
+      "ref_zero": 0.16161009669303894,
+      "mean_pz": 0.22963003814220428,
+      "ref_mean": 0.22963003814220428,
+      "pass": true
+    },
+    "G_SURG": {
+      "before__none": {
+        "rows": [],
+        "pass": true,
+        "note": "no deletion"
+      },
+      "before__d129": {
+        "rows": [
+          129
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          129
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__d_r0": {
+        "rows": [
+          0
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          0
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__dF2": {
+        "rows": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        "n_elements_changed": 1344,
+        "expected": 1344,
+        "changed_rows": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after__none": {
+        "rows": [],
+        "pass": true,
+        "note": "no deletion"
+      },
+      "after__d129": {
+        "rows": [
+          129
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          129
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after__d_r0": {
+        "rows": [
+          0
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          0
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after__dF2": {
+        "rows": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        "n_elements_changed": 1344,
+        "expected": 1344,
+        "changed_rows": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    }
+  },
+  "before": {
+    "tag": "before",
+    "base": {
+      "-12": {
+        "mean_pz": 0.9155886173248291,
+        "median_pz": 0.969791829586029,
+        "std_pz": 0.15201902389526367,
+        "frac_pz_ge_0.5": 0.949999988079071,
+        "frac_argmax_z": 1.0
+      },
+      "0": {
+        "mean_pz": 0.7850371599197388,
+        "median_pz": 0.9777791500091553,
+        "std_pz": 0.33697256445884705,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "12": {
+        "mean_pz": 0.9478210210800171,
+        "median_pz": 0.981702983379364,
+        "std_pz": 0.08915618807077408,
+        "frac_pz_ge_0.5": 1.0,
+        "frac_argmax_z": 1.0
+      }
+    },
+    "base_held30_g0": {
+      "mean_pz": 0.7233286499977112,
+      "median_pz": 0.9483089447021484,
+      "std_pz": 0.3725012242794037,
+      "frac_pz_ge_0.5": 0.7333333492279053,
+      "frac_argmax_z": 0.7666666666666667
+    },
+    "ce_r": 1.663516640663147,
+    "f2_leak_g0": 0.00048022918053902686,
+    "f1_leak_site": 0.6250411868095398,
+    "f2_site_install": {
+      "pz_onset_mean": 0.04224947467446327,
+      "pz_onset_median": 0.027363313362002373,
+      "pz_onset_frac_ge_0.5": 0.0,
+      "pname_mean_over7": 0.18264618515968323,
+      "pname_frac_ge_0.5": 0.16904762387275696,
+      "per_position_mean": [
+        0.042249473316284515,
+        0.004921560583898099,
+        0.004963732605665428,
+        0.0005979207776060018,
+        0.03473266391035092,
+        0.9771097630262375,
+        0.2139483081526123
+      ]
+    },
+    "f2_site_held": {
+      "pz_onset_mean": 0.07776708900928497,
+      "pz_onset_median": 0.059657592326402664,
+      "pz_onset_frac_ge_0.5": 0.0,
+      "pname_mean_over7": 0.19240586459636688,
+      "pname_frac_ge_0.5": 0.1666666716337204,
+      "per_position_mean": [
+        0.07776708925763766,
+        0.0074344571519759485,
+        0.007995954723810428,
+        0.0007328656657288472,
+        0.042084268988886224,
+        0.9792699098587037,
+        0.23155646172817795
+      ]
+    },
+    "censusF2_span": {
+      "base_readout": 0.18264618515968323,
+      "rows": {
+        "0": {
+          "mean": 0.1499466635286808,
+          "zero": 0.134982131421566,
+          "ratio": 0.9002009664306236,
+          "strength": 0.134982131421566,
+          "content": true
+        },
+        "63": {
+          "mean": -7.981061935424805e-05,
+          "zero": -0.003731369972229004,
+          "ratio": 0.0,
+          "strength": -0.003731369972229004,
+          "content": false
+        },
+        "64": {
+          "mean": 0.0020169615745544434,
+          "zero": -0.000655248761177063,
+          "ratio": -0.32486923372440085,
+          "strength": -0.000655248761177063,
+          "content": false
+        },
+        "65": {
+          "mean": 0.002214968204498291,
+          "zero": 0.0035216808319091797,
+          "ratio": 0.6289520005416018,
+          "strength": 0.002214968204498291,
+          "content": true
+        },
+        "66": {
+          "mean": 0.0033772140741348267,
+          "zero": 0.0014599412679672241,
+          "ratio": 0.4322915977250365,
+          "strength": 0.0014599412679672241,
+          "content": false
+        },
+        "67": {
+          "mean": 0.002848997712135315,
+          "zero": 0.0032974332571029663,
+          "ratio": 0.8640046636268737,
+          "strength": 0.002848997712135315,
+          "content": true
+        },
+        "68": {
+          "mean": -0.0017954111099243164,
+          "zero": 0.0028812140226364136,
+          "ratio": -0.6231439580047063,
+          "strength": -0.0017954111099243164,
+          "content": false
+        },
+        "69": {
+          "mean": 0.002582922577857971,
+          "zero": 0.0005510151386260986,
+          "ratio": 0.2133301026324443,
+          "strength": 0.0005510151386260986,
+          "content": false
+        },
+        "20": {
+          "mean": -0.0007691085338592529,
+          "zero": -0.0006607323884963989,
+          "ratio": 0.0,
+          "strength": -0.0007691085338592529,
+          "content": false
+        },
+        "40": {
+          "mean": 0.0005172491073608398,
+          "zero": 0.00031603872776031494,
+          "ratio": 0.6109990781286011,
+          "strength": 0.00031603872776031494,
+          "content": true
+        }
+      }
+    },
+    "site63_span": {
+      "control_max": 0.00031603872776031494,
+      "site_strength": 0.002848997712135315,
+      "bar_2x_control": 0.0006320774555206299,
+      "site_pos": true,
+      "peak_row": 67
+    },
+    "census_old": {
+      "base_readout": 0.7850372118875384,
+      "rows": {
+        "0": {
+          "mean": 0.7842019017236945,
+          "zero": 0.7316772222270098,
+          "ratio": 0.9330214841595842,
+          "strength": 0.7316772222270098,
+          "content": true
+        },
+        "1": {
+          "mean": -0.034818108193576336,
+          "zero": -0.02616492702315254,
+          "ratio": 0.0,
+          "strength": -0.034818108193576336,
+          "content": false
+        },
+        "60": {
+          "mean": -0.006498985861738582,
+          "zero": -0.003458215296268552,
+          "ratio": 0.0,
+          "strength": -0.006498985861738582,
+          "content": false
+        },
+        "121": {
+          "mean": -0.0026773056015372276,
+          "zero": 0.0024052464092770842,
+          "ratio": -1.113110736268353,
+          "strength": -0.0026773056015372276,
+          "content": false
+        },
+        "125": {
+          "mean": -0.015284052987893482,
+          "zero": -0.005409920836488502,
+          "ratio": 0.0,
+          "strength": -0.015284052987893482,
+          "content": false
+        },
+        "129": {
+          "mean": -0.1084650677318375,
+          "zero": -0.13237020391970877,
+          "ratio": 0.0,
+          "strength": -0.13237020391970877,
+          "content": false
+        }
+      }
+    },
+    "old_band": {
+      "base_pz": 0.7850372118875384,
+      "row0": {
+        "mean": 0.7842019017236945,
+        "zero": 0.7316772222270098,
+        "ratio": 0.9330214841595842,
+        "strength": 0.7316772222270098,
+        "content": true
+      },
+      "row129": {
+        "mean": -0.1084650677318375,
+        "zero": -0.13237020391970877,
+        "ratio": 0.0,
+        "strength": -0.13237020391970877,
+        "content": false
+      },
+      "row0_strength": 0.7316772222270098,
+      "A129": -0.13237020391970877,
+      "band121_129_max": -0.0026773056015372276
+    },
+    "del_table": {
+      "none": {
+        "g0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      "d129": {
+        "g0": {
+          "mean_pz": 0.9174073934555054,
+          "median_pz": 0.9682592749595642,
+          "std_pz": 0.12374190241098404,
+          "frac_pz_ge_0.5": 0.9833333492279053,
+          "frac_argmax_z": 0.9833333333333333
+        }
+      },
+      "d_all": {
+        "g0": {
+          "mean_pz": 0.9047248959541321,
+          "median_pz": 0.9671673774719238,
+          "std_pz": 0.15399876236915588,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 0.9666666666666667
+        }
+      },
+      "d_r0": {
+        "g0": {
+          "mean_pz": 0.0533599890768528,
+          "median_pz": 0.00041928200516849756,
+          "std_pz": 0.18680697679519653,
+          "frac_pz_ge_0.5": 0.03333333507180214,
+          "frac_argmax_z": 0.05
+        }
+      },
+      "dF2": {
+        "g0": {
+          "mean_pz": 0.7905788421630859,
+          "median_pz": 0.9695268273353577,
+          "std_pz": 0.31740766763687134,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "gm12": {
+          "mean_pz": 0.8635625839233398,
+          "median_pz": 0.9556065797805786,
+          "std_pz": 0.22861260175704956,
+          "frac_pz_ge_0.5": 0.8999999761581421,
+          "frac_argmax_z": 0.9166666666666666
+        },
+        "f2_onset": 0.0505826473236084,
+        "f2_span": 0.17726705968379974
+      }
+    },
+    "mask": {
+      "g+0": {
+        "base_pz": 0.7850371599197388,
+        "mask_pz": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "ce_base": 1.663516640663147,
+        "ce_mask": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816
+      },
+      "g-12": {
+        "base_pz": 0.9155886173248291,
+        "mask_pz": 0.9242185950279236,
+        "retention": 1.0094256061508384,
+        "ce_base": 1.663516640663147,
+        "ce_mask": 1.6974623203277588,
+        "ce_cost": 0.033945679664611816
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.3231039047241211,
+        "g-12": 0.14433331787586212,
+        "ce_r": 2.506317377090454
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.14999999105930328,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.7846040725708008,
+        "g-12": 0.7339223623275757,
+        "ce_r": 1.9703083038330078
+      }
+    ]
+  },
+  "after": {
+    "tag": "after",
+    "base": {
+      "-12": {
+        "mean_pz": 0.009625669568777084,
+        "median_pz": 1.0735784599091858e-06,
+        "std_pz": 0.021774176508188248,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_argmax_z": 0.0
+      },
+      "0": {
+        "mean_pz": 0.014750628732144833,
+        "median_pz": 4.671788246923825e-06,
+        "std_pz": 0.04606238380074501,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_argmax_z": 0.016666666666666666
+      },
+      "12": {
+        "mean_pz": 0.014222195371985435,
+        "median_pz": 8.150024086717167e-07,
+        "std_pz": 0.03436901047825813,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_argmax_z": 0.0
+      }
+    },
+    "base_held30_g0": {
+      "mean_pz": 0.0040863873437047005,
+      "median_pz": 3.1482879876421066e-06,
+      "std_pz": 0.013688820414245129,
+      "frac_pz_ge_0.5": 0.0,
+      "frac_argmax_z": 0.0
+    },
+    "ce_r": 1.7054526805877686,
+    "f2_leak_g0": 0.10796023905277252,
+    "f1_leak_site": 0.0002056234225165099,
+    "f2_site_install": {
+      "pz_onset_mean": 0.758924126625061,
+      "pz_onset_median": 0.9133710265159607,
+      "pz_onset_frac_ge_0.5": 0.7666666507720947,
+      "pname_mean_over7": 0.9513629674911499,
+      "pname_frac_ge_0.5": 0.9642857313156128,
+      "per_position_mean": [
+        0.7589241166909536,
+        0.9333238611618678,
+        0.9840615818897883,
+        0.9955443402131399,
+        0.989756292104721,
+        0.9980465253194173,
+        0.9998845805724462
+      ]
+    },
+    "f2_site_held": {
+      "pz_onset_mean": 0.7163876295089722,
+      "pz_onset_median": 0.9078981876373291,
+      "pz_onset_frac_ge_0.5": 0.6666666865348816,
+      "pname_mean_over7": 0.9450823068618774,
+      "pname_frac_ge_0.5": 0.9523809552192688,
+      "per_position_mean": [
+        0.716387630502383,
+        0.9335847000281016,
+        0.9835913817087809,
+        0.9948828081289928,
+        0.9893994271755219,
+        0.9978740652402242,
+        0.9998565514882406
+      ]
+    },
+    "censusF2_span": {
+      "base_readout": 0.9513629674911499,
+      "rows": {
+        "0": {
+          "mean": 0.7796773165464401,
+          "zero": 0.6405833661556244,
+          "ratio": 0.8216006193345105,
+          "strength": 0.6405833661556244,
+          "content": true
+        },
+        "1": {
+          "mean": 0.004309594631195068,
+          "zero": 0.0019649863243103027,
+          "ratio": 0.4559561843906892,
+          "strength": 0.0019649863243103027,
+          "content": false
+        },
+        "63": {
+          "mean": -0.0007370114326477051,
+          "zero": -0.0018294453620910645,
+          "ratio": 0.0,
+          "strength": -0.0018294453620910645,
+          "content": false
+        },
+        "64": {
+          "mean": -1.3709068298339844e-05,
+          "zero": -0.00012558698654174805,
+          "ratio": 0.0,
+          "strength": -0.00012558698654174805,
+          "content": false
+        },
+        "65": {
+          "mean": 0.002221524715423584,
+          "zero": 0.0009699463844299316,
+          "ratio": 0.4366129162083121,
+          "strength": 0.0009699463844299316,
+          "content": false
+        },
+        "66": {
+          "mean": -0.00018918514251708984,
+          "zero": -0.00033211708068847656,
+          "ratio": 0.0,
+          "strength": -0.00033211708068847656,
+          "content": false
+        },
+        "67": {
+          "mean": -1.5854835510253906e-05,
+          "zero": -0.00033527612686157227,
+          "ratio": 0.0,
+          "strength": -0.00033527612686157227,
+          "content": false
+        },
+        "68": {
+          "mean": 0.00023192167282104492,
+          "zero": -3.8743019104003906e-05,
+          "ratio": -0.1670521716782318,
+          "strength": -3.8743019104003906e-05,
+          "content": false
+        },
+        "69": {
+          "mean": -6.556510925292969e-07,
+          "zero": -1.0728836059570312e-06,
+          "ratio": 0.0,
+          "strength": -1.0728836059570312e-06,
+          "content": false
+        },
+        "20": {
+          "mean": -0.0006679296493530273,
+          "zero": -0.0006981492042541504,
+          "ratio": 0.0,
+          "strength": -0.0006981492042541504,
+          "content": false
+        },
+        "40": {
+          "mean": -0.0002948641777038574,
+          "zero": -0.000413358211517334,
+          "ratio": 0.0,
+          "strength": -0.000413358211517334,
+          "content": false
+        }
+      }
+    },
+    "site63_span": {
+      "control_max": -0.000413358211517334,
+      "site_strength": 0.0009699463844299316,
+      "bar_2x_control": -0.000826716423034668,
+      "site_pos": false,
+      "peak_row": 65
+    },
+    "censusF2_onset": {
+      "base_readout": 0.758924126625061,
+      "rows": {
+        "0": {
+          "mean": 0.71654037758708,
+          "zero": 0.6693151667714119,
+          "ratio": 0.9340927430011732,
+          "strength": 0.6693151667714119,
+          "content": true
+        },
+        "63": {
+          "mean": 0.007647335529327393,
+          "zero": -0.0041159987449646,
+          "ratio": -0.5382265142126718,
+          "strength": -0.0041159987449646,
+          "content": false
+        },
+        "20": {
+          "mean": -0.0033326148986816406,
+          "zero": -0.0038812756538391113,
+          "ratio": 0.0,
+          "strength": -0.0038812756538391113,
+          "content": false
+        },
+        "40": {
+          "mean": 0.0008414387702941895,
+          "zero": -0.0008998513221740723,
+          "ratio": -1.0694198484097188,
+          "strength": -0.0008998513221740723,
+          "content": false
+        }
+      }
+    },
+    "site63_onset": {
+      "control_max": -0.0008998513221740723,
+      "site_strength": -0.0041159987449646,
+      "bar_2x_control": -0.0017997026443481445,
+      "site_pos": false
+    },
+    "census_old": {
+      "base_readout": 0.014750628476659363,
+      "rows": {
+        "0": {
+          "mean": 0.014641704484286441,
+          "zero": 0.014678995637283877,
+          "ratio": 0.9974595569125507,
+          "strength": 0.014641704484286441,
+          "content": true
+        },
+        "1": {
+          "mean": 0.0007924948727138087,
+          "zero": 0.0005553993973569735,
+          "ratio": 0.7008239630056803,
+          "strength": 0.0005553993973569735,
+          "content": true
+        },
+        "60": {
+          "mean": 0.0004490852803905668,
+          "zero": -3.6607319463517404e-05,
+          "ratio": -0.08151529578453393,
+          "strength": -3.6607319463517404e-05,
+          "content": false
+        },
+        "121": {
+          "mean": 0.00036242288118029826,
+          "zero": 0.0007528317944211459,
+          "ratio": 0.48141282536953167,
+          "strength": 0.00036242288118029826,
+          "content": false
+        },
+        "125": {
+          "mean": 0.000570057473197258,
+          "zero": 0.0018678827814418621,
+          "ratio": 0.30518910440258856,
+          "strength": 0.000570057473197258,
+          "content": false
+        },
+        "129": {
+          "mean": 0.006181696364232537,
+          "zero": 0.008322945214247923,
+          "ratio": 0.7427294311213517,
+          "strength": 0.006181696364232537,
+          "content": true
+        }
+      }
+    },
+    "old_band": {
+      "base_pz": 0.014750628476659363,
+      "row0": {
+        "mean": 0.014641704484286441,
+        "zero": 0.014678995637283877,
+        "ratio": 0.9974595569125507,
+        "strength": 0.014641704484286441,
+        "content": true
+      },
+      "row129": {
+        "mean": 0.006181696364232537,
+        "zero": 0.008322945214247923,
+        "ratio": 0.7427294311213517,
+        "strength": 0.006181696364232537,
+        "content": true
+      },
+      "row0_strength": 0.014641704484286441,
+      "A129": 0.006181696364232537,
+      "band121_129_max": 0.006181696364232537
+    },
+    "del_table": {
+      "none": {
+        "g0": {
+          "mean_pz": 0.014750628732144833,
+          "median_pz": 4.671788246923825e-06,
+          "std_pz": 0.04606238380074501,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        }
+      },
+      "d129": {
+        "g0": {
+          "mean_pz": 0.006427683401852846,
+          "median_pz": 1.5771594235047814e-06,
+          "std_pz": 0.013401460833847523,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "d_all": {
+        "g0": {
+          "mean_pz": 0.005712305195629597,
+          "median_pz": 1.4119600564299617e-06,
+          "std_pz": 0.012116081081330776,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "d_r0": {
+        "g0": {
+          "mean_pz": 7.163283589761704e-05,
+          "median_pz": 2.178533759433776e-05,
+          "std_pz": 0.000123765945318155,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        }
+      },
+      "dF2": {
+        "g0": {
+          "mean_pz": 0.016267871484160423,
+          "median_pz": 2.818381744873477e-06,
+          "std_pz": 0.045989543199539185,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.016666666666666666
+        },
+        "gm12": {
+          "mean_pz": 0.00994647666811943,
+          "median_pz": 1.0035579407485784e-06,
+          "std_pz": 0.020863613113760948,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.0
+        },
+        "f2_onset": 0.7630401253700256,
+        "f2_span": 0.9535280466079712
+      }
+    },
+    "mask": {
+      "g+0": {
+        "base_pz": 0.014750628732144833,
+        "mask_pz": 0.01340483222156763,
+        "retention": 0.9087634476458337,
+        "ce_base": 1.7054526805877686,
+        "ce_mask": 1.7303546667099,
+        "ce_cost": 0.024901986122131348
+      },
+      "g-12": {
+        "base_pz": 0.009625669568777084,
+        "mask_pz": 0.008542296476662159,
+        "retention": 0.8874495862990064,
+        "ce_base": 1.7054526805877686,
+        "ce_mask": 1.7303546667099,
+        "ce_cost": 0.024901986122131348
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.00067665777169168,
+        "g-12": 7.630729669472203e-05,
+        "ce_r": 2.4361162185668945
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.15000000596046448,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.003010388696566224,
+        "g-12": 0.004601659253239632,
+        "ce_r": 1.9391348361968994
+      }
+    ]
+  },
+  "retentions": {
+    "g-12": 0.010513094403577677,
+    "g+0": 0.018789720391902107,
+    "g+12": 0.01500514871022761
+  },
+  "door_drop": 0.9894869055964223,
+  "deltas": {
+    "A129": 0.13855190028394132,
+    "row0_strength": -0.7170355177427233,
+    "site63_span": -0.0018790513277053833,
+    "d_all_g0": -0.8990125907585025,
+    "dF2_g0": -0.7743109706789255,
+    "ce_r": 0.04193603992462158
+  },
+  "adjudication": {
+    "conditions": {
+      "GLOBAL_PHASE": {
+        "door_drop": 0.9894869055964223,
+        "bar": 0.7,
+        "g0_after": 0.014750628732144833,
+        "g0_floor": 0.5,
+        "g0_retention": 0.018789720391902107,
+        "fires": false
+      },
+      "PER_MEMORY": {
+        "door_drop": 0.9894869055964223,
+        "tol": 0.15,
+        "fires": false
+      },
+      "CROSSOVER": {
+        "door_drop": 0.9894869055964223,
+        "lo": 0.3,
+        "hi": 0.7,
+        "fires": false
+      }
+    },
+    "verdict": "TEXTURE",
+    "clause": "door_drop 98.9% >= 70% BUT F1's own trained-geometry expression fell below 0.5 (g0 0.0148, retention 0.019) \u2014 the fact was damaged everywhere, not door-specifically; numbers reported, no bar shopping."
+  },
+  "n2_rider": {
+    "primary_cell": "N2:top2-noL0H3/zero (e160's N2, zero mode primary)",
+    "f1_drop_g0": 0.8865934774083717,
+    "f2_drop_onset": 0.23824960334208933,
+    "kill_bar": 0.6,
+    "cells": {
+      "N2:top2-noL0H3/zero": {
+        "heads": [
+          "L1H0",
+          "L0H0"
+        ],
+        "mode": "zero",
+        "f1_g0": 0.0016728175105527043,
+        "f1_gm12": 3.412167643546127e-05,
+        "ce_r": 1.9770183563232422,
+        "f1_drop_g0": 0.8865934774083717,
+        "f1_drop_gm12": 0.9964551373604033,
+        "ce_cost": 0.27156567573547363,
+        "f2_onset": 0.5781107544898987,
+        "f2_span": 0.912838876247406,
+        "f2_onset_held": 0.5209835767745972,
+        "f2_drop_onset": 0.23824960334208933,
+        "f1_kills60": true,
+        "f2_kills60": false
+      },
+      "N2:top2-noL0H3/mean": {
+        "heads": [
+          "L1H0",
+          "L0H0"
+        ],
+        "mode": "mean",
+        "f1_g0": 0.0011674744309857488,
+        "f1_gm12": 3.483088221400976e-05,
+        "ce_r": 1.9446247816085815,
+        "f1_drop_g0": 0.9208525648509092,
+        "f1_drop_gm12": 0.9963814587686459,
+        "ce_cost": 0.239172101020813,
+        "f2_onset": 0.6118083596229553,
+        "f2_span": 0.9199665784835815,
+        "f2_onset_held": 0.5518410801887512,
+        "f2_drop_onset": 0.19384779300182509,
+        "f1_kills60": true,
+        "f2_kills60": false
+      },
+      "S:L1H0/zero": {
+        "heads": [
+          "L1H0"
+        ],
+        "mode": "zero",
+        "f1_g0": 0.016913818195462227,
+        "f1_gm12": 0.0026986573357135057,
+        "ce_r": 1.7671693563461304,
+        "f1_drop_g0": -0.14665066164965124,
+        "f1_drop_gm12": 0.7196395205101184,
+        "ce_cost": 0.061716675758361816,
+        "f2_onset": 0.6921712160110474,
+        "f2_span": 0.9400001764297485,
+        "f2_onset_held": 0.6630364656448364,
+        "f2_drop_onset": 0.08795729147637477,
+        "f1_kills60": false,
+        "f2_kills60": false
+      },
+      "S:L0H0/zero": {
+        "heads": [
+          "L0H0"
+        ],
+        "mode": "zero",
+        "f1_g0": 0.003025440266355872,
+        "f1_gm12": 0.0006922766333445907,
+        "ce_r": 1.8314822912216187,
+        "f1_drop_g0": 0.7948941484939703,
+        "f1_drop_gm12": 0.928080158123219,
+        "ce_cost": 0.1260296106338501,
+        "f2_onset": 0.7539759874343872,
+        "f2_span": 0.9469804167747498,
+        "f2_onset_held": 0.7331493496894836,
+        "f2_drop_onset": 0.0065199392364533315,
+        "f1_kills60": true,
+        "f2_kills60": false
+      }
+    },
+    "before_gate_cells": {
+      "zero": {
+        "heads": [
+          "L1H0",
+          "L0H0"
+        ],
+        "mode": "zero",
+        "f1_g0": 0.16161009669303894,
+        "f1_gm12": 0.03778841346502304,
+        "ce_r": 1.9400016069412231,
+        "f1_drop_g0": 0.7941370103937988,
+        "f1_drop_gm12": 0.9587277378180679
+      },
+      "mean": {
+        "heads": [
+          "L1H0",
+          "L0H0"
+        ],
+        "mode": "mean",
+        "f1_g0": 0.22963003814220428,
+        "f1_gm12": 0.05206625908613205,
+        "ce_r": 1.9085687398910522,
+        "f1_drop_g0": 0.7074915050318364,
+        "f1_drop_gm12": 0.9431335666467114
+      }
+    },
+    "SHARED_READOUT": {
+      "fires": false
+    },
+    "PER_FACT_READOUT": {
+      "fires": false
+    },
+    "F1_ONLY_KILL_texture": {
+      "fires": true
+    },
+    "verdict": "TEXTURE (F1-ONLY-KILL, the e160-consistent type-selective shape): N2 kills F1 (88.7%) while F2 holds (23.8%) at CE +0.272 \u2014 readouts are per-fact with F1's circuit intact; not a registered bar"
+  },
+  "w017_rider": {
+    "readout": "F2 site onset on the held30 pool (e133 site-column convention); zero mode; CE on the e065 bank",
+    "base": {
+      "onset": 0.7163876295089722,
+      "span": 0.9450823068618774,
+      "ce_r": 1.7054526805877686
+    },
+    "cells": [
+      {
+        "head": "L0H0",
+        "onset": 0.7331493496894836,
+        "span": 0.9460763931274414,
+        "ce_r": 1.8314822912216187,
+        "drop": -0.016761720180511475,
+        "ce_cost": 0.1260296106338501
+      },
+      {
+        "head": "L0H1",
+        "onset": 0.7326539754867554,
+        "span": 0.947556734085083,
+        "ce_r": 1.7548630237579346,
+        "drop": -0.016266345977783203,
+        "ce_cost": 0.049410343170166016
+      },
+      {
+        "head": "L0H2",
+        "onset": 0.7338511347770691,
+        "span": 0.9465968012809753,
+        "ce_r": 1.759645700454712,
+        "drop": -0.017463505268096924,
+        "ce_cost": 0.05419301986694336
+      },
+      {
+        "head": "L0H3",
+        "onset": 0.6791585683822632,
+        "span": 0.9353172779083252,
+        "ce_r": 1.9486432075500488,
+        "drop": 0.037229061126708984,
+        "ce_cost": 0.24319052696228027
+      },
+      {
+        "head": "L0H4",
+        "onset": 0.7181068062782288,
+        "span": 0.9455175995826721,
+        "ce_r": 1.7154614925384521,
+        "drop": -0.0017191767692565918,
+        "ce_cost": 0.010008811950683594
+      },
+      {
+        "head": "L0H5",
+        "onset": 0.7312440276145935,
+        "span": 0.9481062889099121,
+        "ce_r": 1.7695164680480957,
+        "drop": -0.014856398105621338,
+        "ce_cost": 0.06406378746032715
+      },
+      {
+        "head": "L1H0",
+        "onset": 0.6630364656448364,
+        "span": 0.9378215074539185,
+        "ce_r": 1.7671693563461304,
+        "drop": 0.05335116386413574,
+        "ce_cost": 0.061716675758361816
+      },
+      {
+        "head": "L1H1",
+        "onset": 0.7333047986030579,
+        "span": 0.9440361261367798,
+        "ce_r": 1.745695948600769,
+        "drop": -0.016917169094085693,
+        "ce_cost": 0.04024326801300049
+      },
+      {
+        "head": "L1H2",
+        "onset": 0.6575614213943481,
+        "span": 0.9301171898841858,
+        "ce_r": 1.89030122756958,
+        "drop": 0.05882620811462402,
+        "ce_cost": 0.18484854698181152
+      },
+      {
+        "head": "L1H3",
+        "onset": 0.675286054611206,
+        "span": 0.9398912787437439,
+        "ce_r": 1.7433797121047974,
+        "drop": 0.04110157489776611,
+        "ce_cost": 0.03792703151702881
+      },
+      {
+        "head": "L1H4",
+        "onset": 0.7094367742538452,
+        "span": 0.9442835450172424,
+        "ce_r": 1.7132413387298584,
+        "drop": 0.006950855255126953,
+        "ce_cost": 0.007788658142089844
+      },
+      {
+        "head": "L1H5",
+        "onset": 0.7134897112846375,
+        "span": 0.9433016777038574,
+        "ce_r": 1.9008848667144775,
+        "drop": 0.002897918224334717,
+        "ce_cost": 0.19543218612670898
+      }
+    ],
+    "top1_share": 0.2936072723832632,
+    "top2_share": 0.5598880714124856,
+    "n_positive": 6,
+    "entropy_nat": 1.5277247784133245,
+    "effective_heads": 4.607681390946172,
+    "top5": [
+      {
+        "head": "L1H2",
+        "drop": 0.05882620811462402,
+        "share": 0.2936072723832632
+      },
+      {
+        "head": "L1H0",
+        "drop": 0.05335116386413574,
+        "share": 0.2662807990292224
+      },
+      {
+        "head": "L1H3",
+        "drop": 0.04110157489776611,
+        "share": 0.20514192029639775
+      },
+      {
+        "head": "L0H3",
+        "drop": 0.037229061126708984,
+        "share": 0.18581383096296247
+      },
+      {
+        "head": "L1H4",
+        "drop": 0.006950855255126953,
+        "share": 0.03469238826701382
+      }
+    ],
+    "refs_w017_card": {
+      "top1": {
+        "sink_coupled_F1": 0.352,
+        "site_stored": 0.257,
+        "install": 0.117
+      },
+      "top2": {
+        "sink_coupled_F1": 0.467,
+        "site_stored": 0.389,
+        "install": 0.224
+      }
+    },
+    "verdict": "DIFFUSE-AS-PREDICTED"
+  },
+  "honesty_reflex": {
+    "f2_choice": "MIRABEL is a nonce (0 corpus occurrences; the harness's JULIET is a natural corpus name known to base nets \u2014 a novelty confound under the e131 root, and its e044 checkpoints are B43-lineage, unusable here). F2's error statistics: pre-install root site read p(M)@63 = 0.0422 (span 0.1826); post-install 0.7589 (the full traj is in f2.install.traj). The install learned the nonce at the site; generalization beyond the site is the f2_site_held cell.",
+    "single_seed_single_lineage": "one install (seed 10902) on one root (e131 consolidated, one seed) \u2014 n=1; the fork verdict is lineage-specific until replicated (e157 class)",
+    "site_placement": "F2's site rows 63..69 carry only 64 tokens of pre-context (vs g0's 130 \u2014 the NEAR mirror of e151's FAR confound) AND sit inside the causal past of F1's battery reads (positions 117..143 attend keys 63..69): graft-interference with F1's read is real, priced by the dF2 deletion arm; F1's battery text never contains MIRABEL",
+    "install_budget": "300 locked steps vs the root's 300 jittered + 4000-step pretraining + install \u2014 a fine-tune of a consolidated net (recorded, not a bar)",
+    "novel_geometry_caveat_T087": "F1 g-12 retention conflates 'the route survived' with 'sink health at the novel geometry survived' (T087/E150 caveat); the mask/ladder columns separate the two only partially",
+    "w017_convention": "F2's census readout is the held30-pool site onset (out-of-install-host generalization); shares over positive drops only \u2014 comparable to e133's stored conventions but not identical batteries"
+  },
+  "trims": [],
+  "deviations": [
+    "Nets are the mandated 2.7M e131_consolidated line (e143's precedent note; the dispatch's '<=1M family' phrase is an envelope statement \u2014 every gate reference and lineage number of this cell lives on the 2.7M line).",
+    "F2 = MIRABEL, a nonce (0 corpus occurrences, verified pre-compute): e134's nonce-fact design. The harness's other candidate (e044's JULIET) is a natural corpus name known to the base net (e044b's G1) and lives on the B43 lineage \u2014 a novelty confound under the mandated e131 root. A nonce matches F1's own construction.",
+    "F2 site rows 63..69 (offset j=-66): pre-context 64 tokens vs g0's 130 \u2014 the NEAR-extreme of the placement-statistics axis (e151's FAR confound mirrored); and the F2 band sits INSIDE the causal past of F1's battery reads (positions 117..143 attend keys 63..69), so graft-interference with F1's read is real and priced by the dF2 deletion arm (the F1 battery text itself never contains MIRABEL).",
+    "Census controls CTR2 = {20,40,80,100,150,160,200,220} replace e151's {60,100,...}: row 60 falls in the F2 site's causal past and cannot serve as a control for the F2 census.",
+    "Before-net F2 census is reduced (span readout, fewer rows \u2014 the null control; the AFTER census carries the 2x-control bar); the onset census runs a reduced row set (rows > 63 are causally invisible to the onset read \u2014 e151's own exactly-zero cells).",
+    "N2 rider adds the two singles (L1H0, L0H0; zero mode) as texture cells beyond the dispatched N2 set \u2014 denser attribution, same bars.",
+    "CPU-ONLY mandated (GPU user-occupied; e164 co-running): training under the 1500 s CPU cap (e151's fallback convention), threads 4, sequential evals, 3 s staggers, cooldown(60) around the ONE training.",
+    "Single seed (10902), single lineage \u2014 no replication arm (dispatch envelope: ONE training).",
+    "Smoke mode trims: 8-step install, reduced census rows, 6-head W017 census, reduced rider cells; nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e154_twofacts": {
+      "path": "runs/checkpoints/smoke_e154_twofacts.pt",
+      "desc": "e131_consolidated_e113 + 300-step locked install of MIRABEL (nonce) at read rows 63..69 (x-cols 64..70), name-only mask, seed 10902",
+      "steps": 8,
+      "seed": 10902,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 638.0
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

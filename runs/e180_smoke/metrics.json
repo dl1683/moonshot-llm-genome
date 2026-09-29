@@ -1,0 +1,604 @@
+{
+  "experiment": "e180_wash_rate",
+  "date": "2026-09-28T21:24:48Z",
+  "registration": "QUEUE row e180 dispatched ~21:20Z (commit 24de6e1, GPU); the bars were registered in the dispatch mission text and are frozen VERBATIM in the module docstring before compute; adjudicated against exactly that \u2014 no bar shopping",
+  "registered_prediction": {
+    "lr_scaled": "LR-SCALED fires if: survival time grows monotonically as lr shrinks (no under-bar by +300 at 1e-5, or late) \u2014 wash is optimization-rate-limited; the basin-width reading holds; the paper's 'continued training' gets its rate qualifier.",
+    "lr_immune": "LR-IMMUNE fires if: under-bar by +50 even at 1e-5 \u2014 intrinsic fragility; the two-step death is lr-invariant in outcome.",
+    "texture": "No bar shopping; texture (partial survival at 1e-5) => TEXTURE with the curve.",
+    "operationalizations": "g-12 = absolute install-60 battery mean p(Z) at ctx offset -12 (e176's convention); survival time t*(lr) = FIRST measured checkpoint step on the cell's own grid with g-12 <= 0.27 (bracket co-reported; t* is the fit's point estimate); LR-IMMUNE = the 1e-5 cell's first-under in {2,10,50}; LR-SCALED's 1e-5 clause = first-under None or in {100,200,300} (disjoint from LR-IMMUNE by construction); monotone = WEAK growth of t* across {1e-3->2, 1e-4->50, 3e-5->t*(3e-5), 1e-5->t*(1e-5)} with a never-crossing cell contributing t* > 300 (300 as a lower bound); adjudication order LR-IMMUNE -> LR-SCALED -> TEXTURE; five-point curve = {1e-3 neutral (e176n armA, t*=2), 1e-3 original (e176 smoke fine grid, t*=2), 1e-4 original (e176n armB, t*=50 COARSE upper bound), 3e-5 neutral (new), 1e-5 neutral (new)}; neutral-only fit co-reported (the stored half mixes streams); fit reported not bar-adjudicated; a censored cell fitted twice (t*:=300 marked CENSORED, and complete-cases-only).",
+    "registration": "QUEUE row e180 dispatched ~21:20Z (commit 24de6e1) registered the bars in the mission text; this docstring freezes them verbatim before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does survival time to under-bar grow as lr shrinks (wash = optimization-rate-limited; the basin-width reading priced as a law) or does the two-step death persist even at 1e-5 (intrinsic fragility)?",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 0.00e+00)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cells": {
+    "lr3e5": {
+      "desc": "e176n arm A's NEUTRAL protocol VERBATIM at lr 3e-05 (only the lr differs; seed 10902 = arm A's draw sequence)",
+      "ckpt_steps": [
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "seed": 10902,
+      "lr": 3e-05,
+      "traj": [
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.9335058927536011,
+          "g0_mean_pz": 0.7688580751419067,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.319212555885315,
+          "ce_r": 1.6580445766448975,
+          "elapsed_s": 3.0
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.9423802495002747,
+          "g0_mean_pz": 0.7616230845451355,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.273220181465149,
+          "ce_r": 1.6538634300231934,
+          "elapsed_s": 6.2
+        }
+      ],
+      "trace": [
+        {
+          "freeze_steps": 0,
+          "gm12": 0.9155886769294739,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "retention_vs_root_gm12": 1.0
+        },
+        {
+          "freeze_steps": 2,
+          "gm12": 0.9335058927536011,
+          "g0": 0.7688580751419067,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.319212555885315,
+          "ce_r": 1.6580445766448975,
+          "retention_vs_root_gm12": 1.0195690666295858,
+          "elapsed_s": 3.0
+        },
+        {
+          "freeze_steps": 4,
+          "gm12": 0.9423802495002747,
+          "g0": 0.7616230845451355,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.273220181465149,
+          "ce_r": 1.6538634300231934,
+          "retention_vs_root_gm12": 1.029261581369321,
+          "elapsed_s": 6.2
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "batteries_full": null,
+      "cells_full": null
+    },
+    "lr1e5": {
+      "desc": "e176n arm A's NEUTRAL protocol VERBATIM at lr 1e-05 (only the lr differs; seed 10902 = arm A's draw sequence)",
+      "ckpt_steps": [
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "seed": 10902,
+      "lr": 1e-05,
+      "traj": [
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.9232620596885681,
+          "g0_mean_pz": 0.7793123722076416,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.325658917427063,
+          "ce_r": 1.6611945629119873,
+          "elapsed_s": 1.9
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.929290771484375,
+          "g0_mean_pz": 0.7758476138114929,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.301594614982605,
+          "ce_r": 1.6588951349258423,
+          "elapsed_s": 3.7
+        }
+      ],
+      "trace": [
+        {
+          "freeze_steps": 0,
+          "gm12": 0.9155886769294739,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "retention_vs_root_gm12": 1.0
+        },
+        {
+          "freeze_steps": 2,
+          "gm12": 0.9232620596885681,
+          "g0": 0.7793123722076416,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.325658917427063,
+          "ce_r": 1.6611945629119873,
+          "retention_vs_root_gm12": 1.0083808187589516,
+          "elapsed_s": 1.9
+        },
+        {
+          "freeze_steps": 4,
+          "gm12": 0.929290771484375,
+          "g0": 0.7758476138114929,
+          "frac_argmax_z": 1.0,
+          "corpus_ce": 1.301594614982605,
+          "ce_r": 1.6588951349258423,
+          "retention_vs_root_gm12": 1.0149653385850648,
+          "elapsed_s": 3.7
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "batteries_full": null,
+      "cells_full": null
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "stream": "e176n arm A's NEUTRAL protocol VERBATIM: e170's neutral bank (seed 170), batch 32 = 16 neutral anchors + 16 random corpus windows, full-token CE, AdamW (0.9,0.95) wd 0.1 constant lr clip 1.0, seed 10902; ONLY the lr differs across cells",
+    "measure_dial": "e176n's measure() (minus the 183-span census \u2014 e178's recorded deviation)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A / e184's bank)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 0,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "budget_identical_to_e176n_armA": true,
+      "rng_stream_identical_to_e176n_armA": true,
+      "rng_note": "finetune_freeze verbatim; draw shapes/moduli identical (n_anc=16, len(train_ids)); seed 10902 \u2014 the same aj/rj sequences as e176n arm A; ONLY the lr differs",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows are e161/e176 VERBATIM and unfiltered \u2014 identical background, not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772227270097,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_DRAWFREE": {
+      "lr3e5": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "lr1e5": {
+        "zeph_violations": 0,
+        "pass": true
+      }
+    },
+    "G_SURG": {}
+  },
+  "stored_refs": {
+    "e176n_armA": {
+      "source": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 9.0e-10)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 9.000000744663339e-10
+    },
+    "e176n_armB": {
+      "source": "embedded verbatim copy (runs/e176n/metrics.json armB_lr1e4)",
+      "file_present": true,
+      "verified_vs_embedded": false,
+      "max_abs_diff": 0.6150444746017456
+    },
+    "e176_main": {
+      "source": "runs/e176/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 0.0
+    },
+    "e176_smoke": {
+      "source": "runs/e176_smoke/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "survival_curve": {
+    "bar": 0.27,
+    "points": {
+      "1e-3_neutral_e176n_armA": {
+        "lr": 0.001,
+        "t_star": 2,
+        "bracket": "(1, 2]",
+        "gm12_at_t": 0.027077054604887962,
+        "grid": [
+          1,
+          2,
+          4,
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 9.0e-10)",
+        "stream": "neutral",
+        "coarse": false,
+        "censored": false,
+        "lr_times_t_star": 0.002
+      },
+      "1e-3_original_e176_smoke": {
+        "lr": 0.001,
+        "t_star": 2,
+        "bracket": "(0, 2]",
+        "gm12_at_t": 0.08816977590322495,
+        "grid": [
+          2,
+          4
+        ],
+        "provenance": "runs/e176_smoke/metrics.json trace_summary (trace_summary; embedded copy verified, max|diff| 0.0e+00)",
+        "stream": "original",
+        "coarse": false,
+        "note": "the smoke run is the ONLY fine-step trajectory the original stream has (e176n docstring's attribution); the main run's coarse grid alone would say t*=50",
+        "censored": false,
+        "lr_times_t_star": 0.002
+      },
+      "1e-4_original_e176n_armB": {
+        "lr": 0.0001,
+        "t_star": 50,
+        "bracket": "(0, 50]",
+        "gm12_at_t": 0.24797283113002777,
+        "grid": [
+          50,
+          100,
+          200,
+          300
+        ],
+        "provenance": "embedded verbatim copy (runs/e176n/metrics.json armB_lr1e4)",
+        "stream": "original",
+        "coarse": true,
+        "note": "COARSE grid {50,...}: t*=50 is an UPPER bound on the true survival time",
+        "censored": false,
+        "lr_times_t_star": 0.005
+      },
+      "3e-5_neutral_e180": {
+        "lr": 3e-05,
+        "t_star": null,
+        "bracket": "(+4, inf) \u2014 no crossing by +4",
+        "gm12_at_t": null,
+        "grid": [
+          2,
+          4
+        ],
+        "provenance": "this run",
+        "stream": "neutral",
+        "coarse": false,
+        "device": "cuda",
+        "censored": true,
+        "t_fit": 4,
+        "lr_times_t_star": "> 0.00012"
+      },
+      "1e-5_neutral_e180": {
+        "lr": 1e-05,
+        "t_star": null,
+        "bracket": "(+4, inf) \u2014 no crossing by +4",
+        "gm12_at_t": null,
+        "grid": [
+          2,
+          4
+        ],
+        "provenance": "this run",
+        "stream": "neutral",
+        "coarse": false,
+        "device": "cuda",
+        "censored": true,
+        "t_fit": 4,
+        "lr_times_t_star": "> 4e-05"
+      }
+    },
+    "five_point_order": [
+      "1e-3_neutral_e176n_armA",
+      "1e-3_original_e176_smoke",
+      "1e-4_original_e176n_armB",
+      "3e-5_neutral_e180",
+      "1e-5_neutral_e180"
+    ],
+    "fit_five_point": {
+      "n": 5,
+      "slope_alpha": -0.20114813529260217,
+      "intercept_log10": -0.08436813536736214,
+      "log_lr_range": [
+        -5.0,
+        -3.0
+      ],
+      "r2": 0.09779416242386074,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.0001,
+          "t_used": 50,
+          "censored": false
+        },
+        {
+          "lr": 3e-05,
+          "t_used": 4,
+          "censored": true
+        },
+        {
+          "lr": 1e-05,
+          "t_used": 4,
+          "censored": true
+        }
+      ],
+      "form": "t* ~ 0.823 * lr^-0.20"
+    },
+    "fit_neutral_only": {
+      "n": 3,
+      "slope_alpha": -0.1619862324223126,
+      "intercept_log10": -0.1744613229031711,
+      "log_lr_range": [
+        -5.0,
+        -3.0
+      ],
+      "r2": 0.9478421809260351,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 3e-05,
+          "t_used": 4,
+          "censored": true
+        },
+        {
+          "lr": 1e-05,
+          "t_used": 4,
+          "censored": true
+        }
+      ],
+      "form": "t* ~ 0.669 * lr^-0.16"
+    },
+    "fit_complete_cases": {
+      "n": 3,
+      "slope_alpha": -1.3979400086720357,
+      "intercept_log10": -3.8927900303521246,
+      "log_lr_range": [
+        -4.0,
+        -3.0
+      ],
+      "r2": 1.0,
+      "points": [
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.001,
+          "t_used": 2,
+          "censored": false
+        },
+        {
+          "lr": 0.0001,
+          "t_used": 50,
+          "censored": false
+        }
+      ],
+      "form": "t* ~ 0.000128 * lr^-1.40"
+    },
+    "censoring": "the 1e-5 cell never crossed by +300: fitted twice \u2014 t*:=300 (marked CENSORED) and complete-cases-only",
+    "displacement_products_note": "lr x t* per point (constant product <=> alpha ~ 1 <=> the wash is DISPLACEMENT-limited \u2014 T112's basin-width reading priced as a law; T112's measured anchors: 2@1e-3 ~ 2.5e-3, 50@1e-4 ~ 5e-3"
+  },
+  "adjudication": {
+    "bar": 0.27,
+    "survival_times": {
+      "1e-3 (both stored cells)": 2,
+      "1e-4 (stored, coarse upper bound)": 50,
+      "3e-5 (new)": null,
+      "1e-5 (new)": null
+    },
+    "monotone_growth_as_lr_shrinks": false,
+    "first_under_1e5": null,
+    "clause_1e5_late_or_none": true,
+    "clause_1e5_under_by_50": false,
+    "LR_IMMUNE_fires": false,
+    "LR_SCALED_fires": false,
+    "verdict": "TEXTURE",
+    "near_bar_flags": [],
+    "order": "LR-IMMUNE -> LR-SCALED -> TEXTURE (clauses disjoint by construction on the 1e-5 first-under; no bar shopping)",
+    "clause_text": "neither clause fired: partial survival / non-monotone timing \u2014 TEXTURE with the curve reported in full."
+  },
+  "compute": {
+    "train_device_policy": "GPU allowed (park-once, quick check + mid-run guard); cooldown 90s around each training; per-training cap 1800s",
+    "gpu_parked": false,
+    "park_reason": null,
+    "device_events": [],
+    "torch_threads": 8,
+    "cells_devices": {
+      "lr3e5": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "lr1e5": {
+        "initial": "cuda",
+        "final": "cuda"
+      }
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "GPU ALLOWED by dispatch (idle 0%/69C at dispatch; e184's policy verbatim): strict pre-training quick check per training (gpu_ok() gates: util <= 85, temp <= 80 C, mem <= 85% of total; double-poll 5 s apart), PARK-ONCE to CPU on failure; mid-run contention guard polls every 25 steps and migrates net + optimizer state to CPU on mem/temp breach, finishing there (any mixing recorded per cell in device_events).",
+    "GPU float nondeterminism: the stored 1e-3/1e-4 references ran CPU; if the new cells run GPU (or park mid-run), devices mix ACROSS lr points \u2014 recorded per cell. The bars live at order-of-magnitude step separations (2 vs 50 vs 100+), which float noise cannot move; any read within 0.05 of the 0.27 bar is FLAGGED, not smoothed.",
+    "The five-point curve's stored half mixes streams (1e-3 original + 1e-4 original vs the new neutral cells): both 1e-3 cells agree at t*=2, and the stream-homogeneous neutral-only fit is co-reported \u2014 the composition choice is a texture-level record, not a bar.",
+    "The 1e-4 point is COARSE (grid {50,100,200,300}): its t*=50 is an UPPER bound on the true survival time; the new cells' early grid {2,10} resolves the gentle regime better than that stored cell.",
+    "finetune_freeze carries e184's device parameter + mid-run guard, with the lr a per-call parameter (e176n's own parameterization); the per-step arithmetic and the CPU-generator RNG draw sequence are unchanged \u2014 at seed 10902 both new cells draw the SAME aj/rj sequences as e176n arm A; only lr differs.",
+    "Light in-run evals at every checkpoint; ONE full dial at +300 per cell (e176n arm B's rider convention); the wash-rate question is answered by the g-12 trajectory, the full dial is the anatomy co-report.",
+    "Nets are the mandated 2.7M e131_consolidated line (the dispatch's '<=1M family' note is an envelope statement; e143/e151/e152/e158/e176n/e184 precedent \u2014 every gate reference lives on this line).",
+    "Eval thread count is 8 (e152R/e143/e184 convention) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance.",
+    "Single seed (10902), one trajectory per lr cell, one root lineage, n=1 per cell \u2014 point estimates until replicated (e184's seed lottery lives in the tail, not the clock, but the gentle regime is unreplicated).",
+    "Smoke mode trims: 4-step trainings, checkpoints {2,4}, lean measures, no cooldowns, no adjudication; nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e180_neutral_lr3e5": {
+      "path": "runs/checkpoints/smoke_e180_neutral_lr3e5.pt",
+      "desc": "e131_consolidated_e113 + 4-step NEUTRAL-anchor plain-corpus freeze at lr 3e-05 (the wash-rate law), seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e180_neutral_lr3e5_s2": {
+      "path": "runs/checkpoints/smoke_e180_neutral_lr3e5_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step NEUTRAL-anchor freeze at lr 3e-05 (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 3e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e180_neutral_lr1e5": {
+      "path": "runs/checkpoints/smoke_e180_neutral_lr1e5.pt",
+      "desc": "e131_consolidated_e113 + 4-step NEUTRAL-anchor plain-corpus freeze at lr 1e-05 (the wash-rate law), seed 10902",
+      "steps": 4,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e180_neutral_lr1e5_s2": {
+      "path": "runs/checkpoints/smoke_e180_neutral_lr1e5_s2.pt",
+      "desc": "e131_consolidated_e113 + 2-step NEUTRAL-anchor freeze at lr 1e-05 (intermediate), seed 10902",
+      "steps": 2,
+      "seed": 10902,
+      "lr": 1e-05,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "elapsed_s": 33.0
+}

@@ -1,0 +1,2148 @@
+{
+  "experiment": "e187_noise_replicates",
+  "date": "2026-09-29T11:45:58Z",
+  "registration": "NO QUEUE ROW \u2014 the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring, frozen before compute)",
+  "registered_prediction": {
+    "noise_kills_replicates": "NOISE-KILLS-REPLICATES fires if: both arms kill (g-12 <= 0.27 by +2) at BOTH new seeds (the mechanism formally licensed \u2014 the no-basin noun stands).",
+    "any_spares": "ANY-SPARES fires if: any arm/seed combination leaves the fact >= 0.5 (the mechanism re-inverts toward corpus-directed; the noun re-bounds).",
+    "operationalizations": "g-12/g0/g+12/held30 = absolute install-60/held-30 battery mean p(Z) at ctx offsets -12/0/+12 (e185's convention); KILL by +2 = g-12 at checkpoint +2 <= 0.27 (g-12@+1 co-reported; the e185 displacement-match formality co-adjudicated at D_kill 2.4892616271972656, re-derived from e185's stored ctrl checkpoints and gated); SPARE = g-12 >= 0.50 at ANY matched checkpoint {+2,+4,+10} (matched = cum disp >= D_kill; +1 is pre-match \u2014 the corpus control read 0.678 there); COMPOSITE ORDER frozen: ANY-SPARES -> NOISE-KILLS-REPLICATES -> TEXTURE; NOISE-KILLS-REPLICATES = all four new cells kill by +2 AND no cell spares; displacement measured per step (cumulative + increment, all 2,739,072 params, fp32, CPU); cosines vs the corpus direction (e185 ctrl deltas recomputed from stored checkpoints on this device, gated); CE at each step + CE_R and the full dial at every checkpoint.",
+    "registration": "NO QUEUE ROW \u2014 the dispatch's registration IS the registration, frozen verbatim in this docstring before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does e185's content-free kill REPLICATE at fresh noise draws? Both arms (labels-iid, shuffled-target) at 2 additional noise seeds each, same input stream (10902, bit-identical to e185's \u2014 gated), same ruler. A spare anywhere re-inverts the mechanism toward corpus-directed; four kills formally license the no-basin noun.",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 1.19e-07)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "arms": {
+    "noise18503": {
+      "desc": "NOISE-LABELS seed 18503 \u2014 e185's arm VERBATIM at a fresh noise draw (y ~ i.i.d. uniform over the 65-token vocab; destroys mapping AND target statistics)",
+      "target_mode": "iid",
+      "noise_seed": 18503,
+      "orig_e185_seed": 18501,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541557312011719,
+          "step_disp": null,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.651057004928589,
+          "step_disp": 1.1971509456634521,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        }
+      ],
+      "zeph_violations": 0,
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9851715564727783,
+          "multiset_equals_true": false
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9832108020782471,
+          "multiset_equals_true": false
+        }
+      ],
+      "missing_checkpoints": [],
+      "provenance": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "eval_only": true
+    },
+    "noise18504": {
+      "desc": "NOISE-LABELS seed 18504 \u2014 e185's arm VERBATIM at a fresh noise draw (y ~ i.i.d. uniform over the 65-token vocab; destroys mapping AND target statistics)",
+      "target_mode": "iid",
+      "noise_seed": 18504,
+      "orig_e185_seed": 18501,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541575193405151,
+          "step_disp": null,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.6497228145599365,
+          "step_disp": 1.1963273286819458,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        }
+      ],
+      "zeph_violations": 0,
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9854166507720947,
+          "multiset_equals_true": false
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9845588207244873,
+          "multiset_equals_true": false
+        }
+      ],
+      "missing_checkpoints": [],
+      "provenance": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "eval_only": true
+    },
+    "shuf18505": {
+      "desc": "SHUFFLED-TARGET seed 18505 \u2014 e185's arm VERBATIM at a fresh noise draw (y = a flat random permutation of the true targets; preserves the exact target multiset, destroys only the mapping)",
+      "target_mode": "perm",
+      "noise_seed": 18505,
+      "orig_e185_seed": 18502,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541495323181152,
+          "step_disp": null,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.6530041694641113,
+          "step_disp": 1.1912511587142944,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        }
+      ],
+      "zeph_violations": 0,
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9409313797950745,
+          "multiset_equals_true": true
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9424019455909729,
+          "multiset_equals_true": true
+        }
+      ],
+      "missing_checkpoints": [],
+      "provenance": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "eval_only": true
+    },
+    "shuf18506": {
+      "desc": "SHUFFLED-TARGET seed 18506 \u2014 e185's arm VERBATIM at a fresh noise draw (y = a flat random permutation of the true targets; preserves the exact target multiset, destroys only the mapping)",
+      "target_mode": "perm",
+      "noise_seed": 18506,
+      "orig_e185_seed": 18502,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "seed": 10902,
+      "lr": 0.001,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541465520858765,
+          "step_disp": null,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.651252031326294,
+          "step_disp": 1.1908555030822754,
+          "elapsed_s": null,
+          "recovered_from": "checkpoint-eval (per-step CE / increments not recoverable; cum_disp exact)"
+        }
+      ],
+      "zeph_violations": 0,
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9403186440467834,
+          "multiset_equals_true": true
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9452205896377563,
+          "multiset_equals_true": true
+        }
+      ],
+      "missing_checkpoints": [],
+      "provenance": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "eval_only": true
+    }
+  },
+  "recovery": {
+    "event": "the 2026-09-28 system outage killed the previous process after the trainings but before any output (survivors: lab/e187_noise_replicates.py verbatim, 15/16 checkpoints under runs/checkpoints/e187_*.pt, runs/e187_run.log; runs/e187 was empty). From the log: shuf18505's training hit the registered 180 s CPU cap at step 9 (outage onset) so its s10 checkpoint is missing, and the process then died at the G_INPUTS assert \u2014 on the capped cell's MISSING step-10 hash, not on a divergence (the reconstructed seed-10902 stream matches e185's stored per-step md5s bit-exactly; re-gated live by G_INPUTS)",
+    "mode": "E187_RECOVERY=1: eval-only from survivors where the grid is complete + the minimal re-run (shuf18505, in full \u2014 optimizer state is not checkpointed) where it is not",
+    "cells": {
+      "noise18503": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "noise18504": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "shuf18505": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      },
+      "shuf18506": {
+        "mode": "eval-only from survivors",
+        "survivor_steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "stream_reconstruction": "eval-only cells' x_hashes/y_stats/zeph reconstructed by exact generator replay \u2014 a pure function of seeds 10902/<noise_seed> \u2014 gated bit-identical to e185's stored per-step md5s by G_INPUTS and to the e185 target statistics by G_TARGETS; the re-run cell's LIVE stream additionally anchors the replay path",
+    "not_recoverable_from_checkpoints": "per-step training CE and per-step displacement increments inside checkpoint intervals (null in eval-only traj rows); checkpoint cum_disp is exact; the re-run cell carries full live telemetry"
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "neutral_bank": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A's / e185's stream; FIXED content, not reseeded)",
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "forbidden": [
+        "FLORIZEL",
+        "ELIZABETH",
+        "ZEPH",
+        "MIRABEL"
+      ],
+      "windows_with_host_content": 0,
+      "junctions_covered": 0
+    },
+    "measure_dial": "e185's measure() VERBATIM (the e176n dial: base/held/site-read/old-band census/deletion table)"
+  },
+  "displacement": {
+    "currency": "cumulative ||theta_t - theta_0||_2 over all 2,739,072 trainable parameters (fp32, CPU, measured per step); per-step increments ||theta_t - theta_{t-1}||_2; cosine vs THE CORPUS DIRECTION (e185's stored control deltas, recomputed from checkpoints on this device, gated) at checkpoints",
+    "D_kill": 2.4892616271972656,
+    "D_kill_stored_e185": 2.4892616271972656,
+    "t_kill_e185": 2,
+    "ctrl_gm12_at_tkill_e185": 0.027077054604887962,
+    "table": {
+      "noise18503": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541557312011719,
+          "step_disp": null,
+          "cos_vs_corpus": -0.09342861920595169
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.651057004928589,
+          "step_disp": 1.1971509456634521,
+          "cos_vs_corpus": -0.04635908082127571
+        }
+      ],
+      "noise18504": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541575193405151,
+          "step_disp": null,
+          "cos_vs_corpus": -0.08953601866960526
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.6497228145599365,
+          "step_disp": 1.1963273286819458,
+          "cos_vs_corpus": -0.044056035578250885
+        }
+      ],
+      "shuf18505": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541495323181152,
+          "step_disp": null,
+          "cos_vs_corpus": -0.099134162068367
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.6530041694641113,
+          "step_disp": 1.1912511587142944,
+          "cos_vs_corpus": -0.035899568349123
+        }
+      ],
+      "shuf18506": [
+        {
+          "step": 1,
+          "ce_batch": null,
+          "cum_disp": 1.6541465520858765,
+          "step_disp": null,
+          "cos_vs_corpus": -0.09986621886491776
+        },
+        {
+          "step": 2,
+          "ce_batch": null,
+          "cum_disp": 2.651252031326294,
+          "step_disp": 1.1908555030822754,
+          "cos_vs_corpus": -0.03676960617303848
+        }
+      ]
+    },
+    "theta0_norm": {
+      "noise18503": 80.41263580322266,
+      "noise18504": 80.41263580322266,
+      "shuf18505": 80.41263580322266,
+      "shuf18506": 80.41263580322266
+    },
+    "e185_originals": {
+      "disp": {
+        "ctrl": {
+          "1": 1.6542880535125732,
+          "2": 2.4892616271972656,
+          "4": 3.526789665222168,
+          "10": 5.195915222167969
+        },
+        "noise": {
+          "1": 1.6541621685028076,
+          "2": 2.6485204696655273,
+          "4": 4.002531051635742,
+          "10": 6.385190010070801
+        },
+        "shuf": {
+          "1": 1.6541498899459839,
+          "2": 2.650214433670044,
+          "4": 4.0620503425598145,
+          "10": 6.566292762756348
+        }
+      },
+      "cos": {
+        "ctrl": {
+          "1": 0.9999352097511292,
+          "2": 1.0000027418136597,
+          "4": 1.0000380277633667,
+          "10": 1.0000596046447754
+        },
+        "noise": {
+          "1": -0.09102325141429901,
+          "2": -0.04463526979088783,
+          "4": -0.033226702362297966,
+          "10": -0.03346420079469681
+        },
+        "shuf": {
+          "1": -0.09880252927541733,
+          "2": -0.03536924719810486,
+          "4": -0.03541024029254913,
+          "10": -0.03878234326839447
+        }
+      }
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A's / e185's stream; FIXED content, not reseeded)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 18,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "budget_identical_to_e185": true,
+      "rng_note": "noise_wash verbatim; the seed-10902 aj/rj draw sequence is IDENTICAL across the four new cells AND vs e185's stored arms (same shapes/moduli, drawn BEFORE any noise draw) \u2014 the input stream is bit-identical (gated by per-step md5 vs e185's stored hashes); ONLY each step's target tensor differs (iid / perm at 4 new seeds)",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the 16-per-batch random corpus windows are e161/e176/e176n/e184/e185 VERBATIM and unfiltered \u2014 identical background (~3.8%/window) in all four cells; not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772222270098,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": -1.1920928955078125e-07,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 1.1920928955078125e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_E185CKPTS": {
+      "per_tag": {
+        "ctrl": {
+          "max_disp_diff": 0.0,
+          "max_cos_diff": null
+        },
+        "noise": {
+          "max_disp_diff": 0.0,
+          "max_cos_diff": 0.0
+        },
+        "shuf": {
+          "max_disp_diff": 0.0,
+          "max_cos_diff": 0.0
+        }
+      },
+      "pass": true,
+      "tol": 5e-06,
+      "D_kill_rederived": 2.4892616271972656,
+      "D_kill_stored": 2.4892616271972656,
+      "D_kill_diff": 0.0
+    },
+    "G_INPUTS": {
+      "per_step": {
+        "1": {
+          "noise18503": "1ea27bffde6c4a53be8badf5ab453d64",
+          "noise18504": "1ea27bffde6c4a53be8badf5ab453d64",
+          "shuf18505": "1ea27bffde6c4a53be8badf5ab453d64",
+          "shuf18506": "1ea27bffde6c4a53be8badf5ab453d64",
+          "identical": true
+        },
+        "2": {
+          "noise18503": "1d6f0e55cc6a25ece947d2040528225e",
+          "noise18504": "1d6f0e55cc6a25ece947d2040528225e",
+          "shuf18505": "1d6f0e55cc6a25ece947d2040528225e",
+          "shuf18506": "1d6f0e55cc6a25ece947d2040528225e",
+          "identical": true
+        }
+      },
+      "vs_e185_stored": {
+        "1": {
+          "e185_stored": "1ea27bffde6c4a53be8badf5ab453d64",
+          "match": true
+        },
+        "2": {
+          "e185_stored": "1d6f0e55cc6a25ece947d2040528225e",
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "G_TARGETS": {
+      "per_cell": {
+        "noise18503": {
+          "target_mode": "iid",
+          "frac_targets_changed_mean": 0.9841911792755127,
+          "multiset_equals_true_all_steps": false,
+          "expectation": "iid labels change ~64/65 of positions; multiset NOT preserved (e185's 18501 changed 0.984)"
+        },
+        "noise18504": {
+          "target_mode": "iid",
+          "frac_targets_changed_mean": 0.984987735748291,
+          "multiset_equals_true_all_steps": false,
+          "expectation": "iid labels change ~64/65 of positions; multiset NOT preserved (e185's 18501 changed 0.984)"
+        },
+        "shuf18505": {
+          "target_mode": "perm",
+          "frac_targets_changed_mean": 0.9416666626930237,
+          "multiset_equals_true_all_steps": true,
+          "expectation": "permutation changes ~63/65 positions; multiset preserved at EVERY step (e185's 18502 changed 0.943)"
+        },
+        "shuf18506": {
+          "target_mode": "perm",
+          "frac_targets_changed_mean": 0.9427696168422699,
+          "multiset_equals_true_all_steps": true,
+          "expectation": "permutation changes ~63/65 positions; multiset preserved at EVERY step (e185's 18502 changed 0.943)"
+        }
+      },
+      "pass": true
+    },
+    "G_FIDELITY": {
+      "cells": {
+        "noise18503": {
+          "mode": "eval-only from survivors",
+          "survivor_meta": {
+            "1": {
+              "path": "runs/checkpoints/smoke_e187_noise18503_s1.pt",
+              "mtime": "2026-09-28T20:00:19",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "iid",
+                  "expected": "iid"
+                },
+                "noise_seed": {
+                  "stored": 18503,
+                  "expected": 18503
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 1,
+                  "expected": 1
+                }
+              },
+              "pass": true
+            },
+            "2": {
+              "path": "runs/checkpoints/smoke_e187_noise18503_s2.pt",
+              "mtime": "2026-09-28T20:00:19",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "iid",
+                  "expected": "iid"
+                },
+                "noise_seed": {
+                  "stored": 18503,
+                  "expected": 18503
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 2,
+                  "expected": 2
+                }
+              },
+              "pass": true
+            }
+          },
+          "survivor_meta_all_match": true
+        },
+        "noise18504": {
+          "mode": "eval-only from survivors",
+          "survivor_meta": {
+            "1": {
+              "path": "runs/checkpoints/smoke_e187_noise18504_s1.pt",
+              "mtime": "2026-09-28T20:06:55",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "iid",
+                  "expected": "iid"
+                },
+                "noise_seed": {
+                  "stored": 18504,
+                  "expected": 18504
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 1,
+                  "expected": 1
+                }
+              },
+              "pass": true
+            },
+            "2": {
+              "path": "runs/checkpoints/smoke_e187_noise18504_s2.pt",
+              "mtime": "2026-09-28T20:06:55",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "iid",
+                  "expected": "iid"
+                },
+                "noise_seed": {
+                  "stored": 18504,
+                  "expected": 18504
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 2,
+                  "expected": 2
+                }
+              },
+              "pass": true
+            }
+          },
+          "survivor_meta_all_match": true
+        },
+        "shuf18505": {
+          "mode": "eval-only from survivors",
+          "survivor_meta": {
+            "1": {
+              "path": "runs/checkpoints/smoke_e187_shuf18505_s1.pt",
+              "mtime": "2026-09-28T20:09:30",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "perm",
+                  "expected": "perm"
+                },
+                "noise_seed": {
+                  "stored": 18505,
+                  "expected": 18505
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 1,
+                  "expected": 1
+                }
+              },
+              "pass": true
+            },
+            "2": {
+              "path": "runs/checkpoints/smoke_e187_shuf18505_s2.pt",
+              "mtime": "2026-09-28T20:09:30",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "perm",
+                  "expected": "perm"
+                },
+                "noise_seed": {
+                  "stored": 18505,
+                  "expected": 18505
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 2,
+                  "expected": 2
+                }
+              },
+              "pass": true
+            }
+          },
+          "survivor_meta_all_match": true
+        },
+        "shuf18506": {
+          "mode": "eval-only from survivors",
+          "survivor_meta": {
+            "1": {
+              "path": "runs/checkpoints/smoke_e187_shuf18506_s1.pt",
+              "mtime": "2026-09-28T20:10:47",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "perm",
+                  "expected": "perm"
+                },
+                "noise_seed": {
+                  "stored": 18506,
+                  "expected": 18506
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 1,
+                  "expected": 1
+                }
+              },
+              "pass": true
+            },
+            "2": {
+              "path": "runs/checkpoints/smoke_e187_shuf18506_s2.pt",
+              "mtime": "2026-09-28T20:10:54",
+              "meta_match": {
+                "experiment": {
+                  "stored": "e187",
+                  "expected": "e187"
+                },
+                "target_mode": {
+                  "stored": "perm",
+                  "expected": "perm"
+                },
+                "noise_seed": {
+                  "stored": 18506,
+                  "expected": 18506
+                },
+                "input_seed": {
+                  "stored": 10902,
+                  "expected": 10902
+                },
+                "lr": {
+                  "stored": 0.001,
+                  "expected": 0.001
+                },
+                "steps": {
+                  "stored": 2,
+                  "expected": 2
+                }
+              },
+              "pass": true
+            }
+          },
+          "survivor_meta_all_match": true
+        }
+      },
+      "tol": 5e-06,
+      "pass": true,
+      "applicable": true
+    },
+    "G_SURG": {
+      "G_DRAWFREE_noise18503": {
+        "zeph_violations_noise18503": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_noise18504": {
+        "zeph_violations_noise18504": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_shuf18505": {
+        "zeph_violations_shuf18505": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_shuf18506": {
+        "zeph_violations_shuf18506": 0,
+        "pass": true
+      }
+    }
+  },
+  "traces": {
+    "noise18503": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.6361417174339294,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "retention_vs_root_gm12": 0.9999999349001946,
+        "retention_vs_root_g0": 1.0
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.00025053907302208245,
+        "g0": 0.0003926563949789852,
+        "gp12": 0.0002206070494139567,
+        "held30_gm12": 0.00024423765717074275,
+        "held30_g0": 0.0003704477858263999,
+        "ce_r": 3.309725284576416,
+        "site_read_onset": 0.00021085800835862756,
+        "site_read_span": 0.003041520481929183,
+        "A129": 0.00012746350536569175,
+        "retention_vs_root_gm12": 0.00027363714660855404,
+        "retention_vs_root_g0": 0.0005001755522237061
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0008289968245662749,
+        "g0": 0.0012884532334282994,
+        "gp12": 0.000818962580524385,
+        "held30_gm12": 0.0008257158915512264,
+        "held30_g0": 0.0012725810520350933,
+        "ce_r": 5.68768310546875,
+        "site_read_onset": 0.0007713412051089108,
+        "site_read_span": 0.040152158588171005,
+        "A129": 0.0003132050750233853,
+        "retention_vs_root_gm12": 0.000905424941848785,
+        "retention_vs_root_g0": 0.0016412640053370586
+      }
+    ],
+    "noise18504": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.6361417174339294,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "retention_vs_root_gm12": 0.9999999349001946,
+        "retention_vs_root_g0": 1.0
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.000253748003160581,
+        "g0": 0.0004103677347302437,
+        "gp12": 0.00022658187663182616,
+        "held30_gm12": 0.00024889243650250137,
+        "held30_g0": 0.00038915860932320356,
+        "ce_r": 3.329970121383667,
+        "site_read_onset": 0.00021242728689685464,
+        "site_read_span": 0.003885433776304126,
+        "A129": 0.00013710143975913524,
+        "retention_vs_root_gm12": 0.0002771419192421126,
+        "retention_vs_root_g0": 0.0005227367004795024
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0007953739259392023,
+        "g0": 0.001231049420312047,
+        "gp12": 0.0007855547009967268,
+        "held30_gm12": 0.0007915468304418027,
+        "held30_g0": 0.0012152314884588122,
+        "ce_r": 5.761438369750977,
+        "site_read_onset": 0.0007492179865948856,
+        "site_read_span": 0.04042566567659378,
+        "A129": 0.0002913193554074194,
+        "retention_vs_root_gm12": 0.0008687022305764803,
+        "retention_vs_root_g0": 0.001568141590186518
+      }
+    ],
+    "shuf18505": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.6361417174339294,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "retention_vs_root_gm12": 0.9999999349001946,
+        "retention_vs_root_g0": 1.0
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 3.444899630267173e-05,
+        "g0": 3.902993557858281e-05,
+        "gp12": 2.848610165528953e-05,
+        "held30_gm12": 3.357106834300794e-05,
+        "held30_g0": 3.792909410549328e-05,
+        "ce_r": 3.214428186416626,
+        "site_read_onset": 2.751494866970461e-05,
+        "site_read_span": 5.7630437368061393e-05,
+        "A129": 7.0219953461977014e-06,
+        "retention_vs_root_gm12": 3.762496978250122e-05,
+        "retention_vs_root_g0": 4.9717309665408935e-05
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 1.0103729437105358e-05,
+        "g0": 1.2095869351469446e-05,
+        "gp12": 9.923262950906064e-06,
+        "held30_gm12": 9.773424608283676e-06,
+        "held30_g0": 1.164105469797505e-05,
+        "ce_r": 3.6703639030456543,
+        "site_read_onset": 9.497133760305587e-06,
+        "site_read_span": 1.5642948710592464e-05,
+        "A129": 1.5198858667038927e-06,
+        "retention_vs_root_gm12": 1.1035227599132519e-05,
+        "retention_vs_root_g0": 1.5408021389339216e-05
+      }
+    ],
+    "shuf18506": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.6361417174339294,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898658156394958,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "retention_vs_root_gm12": 0.9999999349001946,
+        "retention_vs_root_g0": 1.0
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 3.176613972755149e-05,
+        "g0": 3.635459506767802e-05,
+        "gp12": 2.6505305868340656e-05,
+        "held30_gm12": 3.102835762547329e-05,
+        "held30_g0": 3.549470056896098e-05,
+        "ce_r": 3.2312421798706055,
+        "site_read_onset": 2.551657053118106e-05,
+        "site_read_span": 5.89782721363008e-05,
+        "A129": 6.663920445741189e-06,
+        "retention_vs_root_gm12": 3.4694771274457756e-05,
+        "retention_vs_root_g0": 4.630939390358906e-05
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 9.849058187683113e-06,
+        "g0": 1.1841802006529178e-05,
+        "gp12": 9.734269042382948e-06,
+        "held30_gm12": 9.535241588309873e-06,
+        "held30_g0": 1.1411332707211841e-05,
+        "ce_r": 3.6744484901428223,
+        "site_read_onset": 9.365220648760442e-06,
+        "site_read_span": 1.572603105159942e-05,
+        "A129": 1.508676026181396e-06,
+        "retention_vs_root_gm12": 1.0757077316326148e-05,
+        "retention_vs_root_g0": 1.5084384040801164e-05
+      }
+    ]
+  },
+  "batteries": {
+    "noise18503": {
+      "root": {
+        "tag": "root",
+        "base": {
+          "-12": {
+            "mean_pz": 0.9155886173248291,
+            "median_pz": 0.969791829586029,
+            "std_pz": 0.15201902389526367,
+            "frac_pz_ge_0.5": 0.949999988079071,
+            "frac_argmax_z": 1.0
+          },
+          "0": {
+            "mean_pz": 0.7850371599197388,
+            "median_pz": 0.9777791500091553,
+            "std_pz": 0.33697256445884705,
+            "frac_pz_ge_0.5": 0.75,
+            "frac_argmax_z": 0.75
+          },
+          "12": {
+            "mean_pz": 0.9478210210800171,
+            "median_pz": 0.981702983379364,
+            "std_pz": 0.08915618807077408,
+            "frac_pz_ge_0.5": 1.0,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.6361417174339294,
+            "median_pz": 0.9574220180511475,
+            "std_pz": 0.4387085437774658,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          },
+          "0": {
+            "mean_pz": 0.7233286499977112,
+            "median_pz": 0.9483089447021484,
+            "std_pz": 0.3725012242794037,
+            "frac_pz_ge_0.5": 0.7333333492279053,
+            "frac_argmax_z": 0.7666666666666667
+          },
+          "12": {
+            "mean_pz": 0.64676433801651,
+            "median_pz": 0.9567431211471558,
+            "std_pz": 0.4417463541030884,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          }
+        },
+        "ce_r": 1.663516640663147,
+        "site_read": {
+          "pz_onset_mean": 0.8898658156394958,
+          "pz_onset_median": 0.9428561329841614,
+          "pz_onset_frac_ge_0.5": 0.9666666388511658,
+          "pname_mean_over7": 0.982668936252594,
+          "pname_frac_ge_0.5": 0.9952380657196045,
+          "per_position_mean": [
+            0.8898658404747645,
+            0.9987479706605276,
+            0.996099191904068,
+            0.9996264765659968,
+            0.9981235682964325,
+            0.9995786219835281,
+            0.9966405073801676
+          ]
+        },
+        "A129_quick": -0.13237020391970877
+      },
+      "1": {
+        "tag": "noise185031",
+        "base": {
+          "-12": {
+            "mean_pz": 0.00025053907302208245,
+            "median_pz": 0.00013068706903140992,
+            "std_pz": 0.00019049130787607282,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0003926563949789852,
+            "median_pz": 0.00027363686240278184,
+            "std_pz": 0.0002288344403496012,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0002206070494139567,
+            "median_pz": 0.00011115115194115788,
+            "std_pz": 0.00017405867401976138,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.00024423765717074275,
+            "median_pz": 0.00014503971033263952,
+            "std_pz": 0.00016710444469936192,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0003704477858263999,
+            "median_pz": 0.000283371948171407,
+            "std_pz": 0.0001775118726072833,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00021509530779439956,
+            "median_pz": 0.00011642384197330102,
+            "std_pz": 0.00015543604968115687,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.309725284576416,
+        "site_read": {
+          "pz_onset_mean": 0.00021085800835862756,
+          "pz_onset_median": 7.88913166616112e-05,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.003041520481929183,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.00021085799307911656,
+            0.006430564428834866,
+            0.0002356370401685126,
+            0.006676182302180677,
+            0.0034815011410197863,
+            0.0013860634935554117,
+            0.0028698387167726954
+          ]
+        },
+        "A129_quick": 0.00012746350536569175
+      },
+      "2": {
+        "tag": "noise185032",
+        "base": {
+          "-12": {
+            "mean_pz": 0.0008289968245662749,
+            "median_pz": 0.0008772783330641687,
+            "std_pz": 0.00010422336345072836,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0012884532334282994,
+            "median_pz": 0.0014377589104697108,
+            "std_pz": 0.0003371796337887645,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.000818962580524385,
+            "median_pz": 0.0008687186636961997,
+            "std_pz": 0.00010462466161698103,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0008257158915512264,
+            "median_pz": 0.0008805028046481311,
+            "std_pz": 0.00012105198402423412,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0012725810520350933,
+            "median_pz": 0.0014595097163692117,
+            "std_pz": 0.0003762817068491131,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.000813563761767,
+            "median_pz": 0.0008685972425155342,
+            "std_pz": 0.00012169976980658248,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 5.68768310546875,
+        "site_read": {
+          "pz_onset_mean": 0.0007713412051089108,
+          "pz_onset_median": 0.0007925241952762008,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.040152158588171005,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.0007713412574958056,
+            0.0564579580600063,
+            0.009295369296645125,
+            0.045718164555728434,
+            0.09854059256613254,
+            0.045410976745188236,
+            0.024870732271422943
+          ]
+        },
+        "A129_quick": 0.0003132050750233853
+      }
+    },
+    "noise18504": {
+      "root": {
+        "tag": "root",
+        "base": {
+          "-12": {
+            "mean_pz": 0.9155886173248291,
+            "median_pz": 0.969791829586029,
+            "std_pz": 0.15201902389526367,
+            "frac_pz_ge_0.5": 0.949999988079071,
+            "frac_argmax_z": 1.0
+          },
+          "0": {
+            "mean_pz": 0.7850371599197388,
+            "median_pz": 0.9777791500091553,
+            "std_pz": 0.33697256445884705,
+            "frac_pz_ge_0.5": 0.75,
+            "frac_argmax_z": 0.75
+          },
+          "12": {
+            "mean_pz": 0.9478210210800171,
+            "median_pz": 0.981702983379364,
+            "std_pz": 0.08915618807077408,
+            "frac_pz_ge_0.5": 1.0,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.6361417174339294,
+            "median_pz": 0.9574220180511475,
+            "std_pz": 0.4387085437774658,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          },
+          "0": {
+            "mean_pz": 0.7233286499977112,
+            "median_pz": 0.9483089447021484,
+            "std_pz": 0.3725012242794037,
+            "frac_pz_ge_0.5": 0.7333333492279053,
+            "frac_argmax_z": 0.7666666666666667
+          },
+          "12": {
+            "mean_pz": 0.64676433801651,
+            "median_pz": 0.9567431211471558,
+            "std_pz": 0.4417463541030884,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          }
+        },
+        "ce_r": 1.663516640663147,
+        "site_read": {
+          "pz_onset_mean": 0.8898658156394958,
+          "pz_onset_median": 0.9428561329841614,
+          "pz_onset_frac_ge_0.5": 0.9666666388511658,
+          "pname_mean_over7": 0.982668936252594,
+          "pname_frac_ge_0.5": 0.9952380657196045,
+          "per_position_mean": [
+            0.8898658404747645,
+            0.9987479706605276,
+            0.996099191904068,
+            0.9996264765659968,
+            0.9981235682964325,
+            0.9995786219835281,
+            0.9966405073801676
+          ]
+        },
+        "A129_quick": -0.13237020391970877
+      },
+      "1": {
+        "tag": "noise185041",
+        "base": {
+          "-12": {
+            "mean_pz": 0.000253748003160581,
+            "median_pz": 0.00013164810661692172,
+            "std_pz": 0.00019164614786859602,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0004103677347302437,
+            "median_pz": 0.0003011083754245192,
+            "std_pz": 0.0002261953050037846,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00022658187663182616,
+            "median_pz": 0.00011607332999119535,
+            "std_pz": 0.00017858983483165503,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.00024889243650250137,
+            "median_pz": 0.00015118661394808441,
+            "std_pz": 0.00016997514467220753,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.00038915860932320356,
+            "median_pz": 0.00031176014454104006,
+            "std_pz": 0.00017537028179503977,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00022215100761968642,
+            "median_pz": 0.00012029719800921157,
+            "std_pz": 0.00016188177687581629,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.329970121383667,
+        "site_read": {
+          "pz_onset_mean": 0.00021242728689685464,
+          "pz_onset_median": 8.5606770880986e-05,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.003885433776304126,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.00021242727549785438,
+            0.008081149919113765,
+            0.0002972104344128942,
+            0.007879319961648434,
+            0.003980446135392413,
+            0.0021754378200663873,
+            0.004572046057243521
+          ]
+        },
+        "A129_quick": 0.00013710143975913524
+      },
+      "2": {
+        "tag": "noise185042",
+        "base": {
+          "-12": {
+            "mean_pz": 0.0007953739259392023,
+            "median_pz": 0.0008331839344464242,
+            "std_pz": 9.144555951934308e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.001231049420312047,
+            "median_pz": 0.0013705191668123007,
+            "std_pz": 0.0003097437438555062,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0007855547009967268,
+            "median_pz": 0.0008231859537772834,
+            "std_pz": 9.154321014648303e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0007915468304418027,
+            "median_pz": 0.0008421764359809458,
+            "std_pz": 0.00010587657016003504,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0012152314884588122,
+            "median_pz": 0.0013835110003128648,
+            "std_pz": 0.00034607856650836766,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0007791948155499995,
+            "median_pz": 0.0008277071756310761,
+            "std_pz": 0.00010675872908905149,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 5.761438369750977,
+        "site_read": {
+          "pz_onset_mean": 0.0007492179865948856,
+          "pz_onset_median": 0.0007733997772447765,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.04042566567659378,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.0007492179312976078,
+            0.05932897279659907,
+            0.010078095644712449,
+            0.045764372187356156,
+            0.08836158874134223,
+            0.05317675191909075,
+            0.025520650794108708
+          ]
+        },
+        "A129_quick": 0.0002913193554074194
+      }
+    },
+    "shuf18505": {
+      "root": {
+        "tag": "root",
+        "base": {
+          "-12": {
+            "mean_pz": 0.9155886173248291,
+            "median_pz": 0.969791829586029,
+            "std_pz": 0.15201902389526367,
+            "frac_pz_ge_0.5": 0.949999988079071,
+            "frac_argmax_z": 1.0
+          },
+          "0": {
+            "mean_pz": 0.7850371599197388,
+            "median_pz": 0.9777791500091553,
+            "std_pz": 0.33697256445884705,
+            "frac_pz_ge_0.5": 0.75,
+            "frac_argmax_z": 0.75
+          },
+          "12": {
+            "mean_pz": 0.9478210210800171,
+            "median_pz": 0.981702983379364,
+            "std_pz": 0.08915618807077408,
+            "frac_pz_ge_0.5": 1.0,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.6361417174339294,
+            "median_pz": 0.9574220180511475,
+            "std_pz": 0.4387085437774658,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          },
+          "0": {
+            "mean_pz": 0.7233286499977112,
+            "median_pz": 0.9483089447021484,
+            "std_pz": 0.3725012242794037,
+            "frac_pz_ge_0.5": 0.7333333492279053,
+            "frac_argmax_z": 0.7666666666666667
+          },
+          "12": {
+            "mean_pz": 0.64676433801651,
+            "median_pz": 0.9567431211471558,
+            "std_pz": 0.4417463541030884,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          }
+        },
+        "ce_r": 1.663516640663147,
+        "site_read": {
+          "pz_onset_mean": 0.8898658156394958,
+          "pz_onset_median": 0.9428561329841614,
+          "pz_onset_frac_ge_0.5": 0.9666666388511658,
+          "pname_mean_over7": 0.982668936252594,
+          "pname_frac_ge_0.5": 0.9952380657196045,
+          "per_position_mean": [
+            0.8898658404747645,
+            0.9987479706605276,
+            0.996099191904068,
+            0.9996264765659968,
+            0.9981235682964325,
+            0.9995786219835281,
+            0.9966405073801676
+          ]
+        },
+        "A129_quick": -0.13237020391970877
+      },
+      "1": {
+        "tag": "shuf185051",
+        "base": {
+          "-12": {
+            "mean_pz": 3.444899630267173e-05,
+            "median_pz": 1.1356167306075804e-05,
+            "std_pz": 3.7300746043911204e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 3.902993557858281e-05,
+            "median_pz": 1.7029829905368388e-05,
+            "std_pz": 3.677328277262859e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 2.848610165528953e-05,
+            "median_pz": 1.06704001154867e-05,
+            "std_pz": 2.9083808840368874e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 3.357106834300794e-05,
+            "median_pz": 1.2171200978627894e-05,
+            "std_pz": 3.334101347718388e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 3.792909410549328e-05,
+            "median_pz": 1.7996502720052376e-05,
+            "std_pz": 3.2330841349903494e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 2.8366397600620985e-05,
+            "median_pz": 1.080079709936399e-05,
+            "std_pz": 2.728157051024027e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.214428186416626,
+        "site_read": {
+          "pz_onset_mean": 2.751494866970461e-05,
+          "pz_onset_median": 8.927646376832854e-06,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 5.7630437368061393e-05,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            2.751494843475181e-05,
+            0.00011888441767951007,
+            9.926266261572892e-06,
+            0.0001429599833500106,
+            2.805916543972368e-05,
+            5.06346301335725e-05,
+            2.5433631920653475e-05
+          ]
+        },
+        "A129_quick": 7.0219953461977014e-06
+      },
+      "2": {
+        "tag": "shuf185052",
+        "base": {
+          "-12": {
+            "mean_pz": 1.0103729437105358e-05,
+            "median_pz": 9.94688889477402e-06,
+            "std_pz": 8.971545071290166e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 1.2095869351469446e-05,
+            "median_pz": 1.2216098184580915e-05,
+            "std_pz": 1.1106121746706776e-06,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 9.923262950906064e-06,
+            "median_pz": 9.805511581362225e-06,
+            "std_pz": 7.504457357754291e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 9.773424608283676e-06,
+            "median_pz": 9.772488738235552e-06,
+            "std_pz": 6.680398882963345e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 1.164105469797505e-05,
+            "median_pz": 1.1845965673273895e-05,
+            "std_pz": 1.2763903214363381e-06,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 9.609252629161347e-06,
+            "median_pz": 9.53718972596107e-06,
+            "std_pz": 7.388225071736088e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.6703639030456543,
+        "site_read": {
+          "pz_onset_mean": 9.497133760305587e-06,
+          "pz_onset_median": 9.229611350747291e-06,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 1.5642948710592464e-05,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            9.497133608723137e-06,
+            1.6443511670634812e-05,
+            3.553613369907301e-06,
+            4.846641374266862e-05,
+            1.297155287526645e-05,
+            1.1775438330611603e-05,
+            6.792980760413532e-06
+          ]
+        },
+        "A129_quick": 1.5198858667038927e-06
+      }
+    },
+    "shuf18506": {
+      "root": {
+        "tag": "root",
+        "base": {
+          "-12": {
+            "mean_pz": 0.9155886173248291,
+            "median_pz": 0.969791829586029,
+            "std_pz": 0.15201902389526367,
+            "frac_pz_ge_0.5": 0.949999988079071,
+            "frac_argmax_z": 1.0
+          },
+          "0": {
+            "mean_pz": 0.7850371599197388,
+            "median_pz": 0.9777791500091553,
+            "std_pz": 0.33697256445884705,
+            "frac_pz_ge_0.5": 0.75,
+            "frac_argmax_z": 0.75
+          },
+          "12": {
+            "mean_pz": 0.9478210210800171,
+            "median_pz": 0.981702983379364,
+            "std_pz": 0.08915618807077408,
+            "frac_pz_ge_0.5": 1.0,
+            "frac_argmax_z": 1.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.6361417174339294,
+            "median_pz": 0.9574220180511475,
+            "std_pz": 0.4387085437774658,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          },
+          "0": {
+            "mean_pz": 0.7233286499977112,
+            "median_pz": 0.9483089447021484,
+            "std_pz": 0.3725012242794037,
+            "frac_pz_ge_0.5": 0.7333333492279053,
+            "frac_argmax_z": 0.7666666666666667
+          },
+          "12": {
+            "mean_pz": 0.64676433801651,
+            "median_pz": 0.9567431211471558,
+            "std_pz": 0.4417463541030884,
+            "frac_pz_ge_0.5": 0.6333333253860474,
+            "frac_argmax_z": 0.7
+          }
+        },
+        "ce_r": 1.663516640663147,
+        "site_read": {
+          "pz_onset_mean": 0.8898658156394958,
+          "pz_onset_median": 0.9428561329841614,
+          "pz_onset_frac_ge_0.5": 0.9666666388511658,
+          "pname_mean_over7": 0.982668936252594,
+          "pname_frac_ge_0.5": 0.9952380657196045,
+          "per_position_mean": [
+            0.8898658404747645,
+            0.9987479706605276,
+            0.996099191904068,
+            0.9996264765659968,
+            0.9981235682964325,
+            0.9995786219835281,
+            0.9966405073801676
+          ]
+        },
+        "A129_quick": -0.13237020391970877
+      },
+      "1": {
+        "tag": "shuf185061",
+        "base": {
+          "-12": {
+            "mean_pz": 3.176613972755149e-05,
+            "median_pz": 1.0859656867978629e-05,
+            "std_pz": 3.38714562531095e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 3.635459506767802e-05,
+            "median_pz": 1.6027794117690064e-05,
+            "std_pz": 3.411937359487638e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 2.6505305868340656e-05,
+            "median_pz": 1.0105046385433525e-05,
+            "std_pz": 2.66079769062344e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 3.102835762547329e-05,
+            "median_pz": 1.1197099411219824e-05,
+            "std_pz": 3.042224852833897e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 3.549470056896098e-05,
+            "median_pz": 1.653600156714674e-05,
+            "std_pz": 3.035167173948139e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 2.6333455025451258e-05,
+            "median_pz": 1.0242718417430297e-05,
+            "std_pz": 2.485767618054524e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.2312421798706055,
+        "site_read": {
+          "pz_onset_mean": 2.551657053118106e-05,
+          "pz_onset_median": 8.436237294517923e-06,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 5.89782721363008e-05,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            2.551656899261919e-05,
+            0.00011972452424136766,
+            9.937880455860675e-06,
+            0.00015015078109475628,
+            2.8193489652039715e-05,
+            5.2689013682538646e-05,
+            2.6635645281203323e-05
+          ]
+        },
+        "A129_quick": 6.663920445741189e-06
+      },
+      "2": {
+        "tag": "shuf185062",
+        "base": {
+          "-12": {
+            "mean_pz": 9.849058187683113e-06,
+            "median_pz": 9.683892130851746e-06,
+            "std_pz": 8.617354865236848e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 1.1841802006529178e-05,
+            "median_pz": 1.192006948258495e-05,
+            "std_pz": 1.0938895229628542e-06,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 9.734269042382948e-06,
+            "median_pz": 9.660996511229314e-06,
+            "std_pz": 7.486224262720498e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 9.535241588309873e-06,
+            "median_pz": 9.586223313817754e-06,
+            "std_pz": 6.557001483997738e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 1.1411332707211841e-05,
+            "median_pz": 1.1580548743950203e-05,
+            "std_pz": 1.2605454458025633e-06,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 9.431175385543611e-06,
+            "median_pz": 9.345593753096182e-06,
+            "std_pz": 7.193513056336087e-07,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.6744484901428223,
+        "site_read": {
+          "pz_onset_mean": 9.365220648760442e-06,
+          "pz_onset_median": 9.10629842110211e-06,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 1.572603105159942e-05,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            9.365220330437296e-06,
+            1.671262151224558e-05,
+            3.5467054961676086e-06,
+            4.8548271600642086e-05,
+            1.3056057726619959e-05,
+            1.1917382228906112e-05,
+            6.935957882584868e-06
+          ]
+        },
+        "A129_quick": 1.508676026181396e-06
+      }
+    }
+  },
+  "references": {
+    "e185": {
+      "ref": {
+        "desc": "e185's stored n=1 originals (the overlay's first member) + the control's displacement/cosine columns + the per-step input hashes",
+        "metrics": "runs/e185/metrics.json",
+        "checkpoints": "runs/checkpoints/e185_{ctrl,noise,shuf}_s{1,2,4,10}.pt"
+      },
+      "provenance": {
+        "source": "runs/e185/metrics.json (embedded copy verified, max|diff| 1.0e-15)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 9.992007221626409e-16,
+        "checks": {
+          "trace_gm12_ctrl": true,
+          "trace_gm12_noise": true,
+          "trace_gm12_shuf": true
+        }
+      }
+    }
+  },
+  "adjudication": {
+    "conditions": {
+      "NOISE_KILLS_REPLICATES": {
+        "fires": true
+      },
+      "ANY_SPARES": {
+        "fires": false
+      },
+      "ALL_KILLS_AT_M_E185_FORMALITY": {
+        "fires": true
+      }
+    },
+    "cells": {
+      "noise18503": {
+        "target_mode": "iid",
+        "noise_seed": 18503,
+        "M": 2,
+        "matched_ckpts": [
+          2
+        ],
+        "D_kill": 2.4892616271972656,
+        "gm12_at_1": 0.00025053907302208245,
+        "gm12_at_2": 0.0008289968245662749,
+        "gm12_at_M": 0.0008289968245662749,
+        "matched_gm12": {
+          "2": 0.0008289968245662749
+        },
+        "max_matched_gm12": 0.0008289968245662749,
+        "kill_by2": true,
+        "kills_at_M": true,
+        "spares": false,
+        "below_match_kill": 1
+      },
+      "noise18504": {
+        "target_mode": "iid",
+        "noise_seed": 18504,
+        "M": 2,
+        "matched_ckpts": [
+          2
+        ],
+        "D_kill": 2.4892616271972656,
+        "gm12_at_1": 0.000253748003160581,
+        "gm12_at_2": 0.0007953739259392023,
+        "gm12_at_M": 0.0007953739259392023,
+        "matched_gm12": {
+          "2": 0.0007953739259392023
+        },
+        "max_matched_gm12": 0.0007953739259392023,
+        "kill_by2": true,
+        "kills_at_M": true,
+        "spares": false,
+        "below_match_kill": 1
+      },
+      "shuf18505": {
+        "target_mode": "perm",
+        "noise_seed": 18505,
+        "M": 2,
+        "matched_ckpts": [
+          2
+        ],
+        "D_kill": 2.4892616271972656,
+        "gm12_at_1": 3.444899630267173e-05,
+        "gm12_at_2": 1.0103729437105358e-05,
+        "gm12_at_M": 1.0103729437105358e-05,
+        "matched_gm12": {
+          "2": 1.0103729437105358e-05
+        },
+        "max_matched_gm12": 1.0103729437105358e-05,
+        "kill_by2": true,
+        "kills_at_M": true,
+        "spares": false,
+        "below_match_kill": 1
+      },
+      "shuf18506": {
+        "target_mode": "perm",
+        "noise_seed": 18506,
+        "M": 2,
+        "matched_ckpts": [
+          2
+        ],
+        "D_kill": 2.4892616271972656,
+        "gm12_at_1": 3.176613972755149e-05,
+        "gm12_at_2": 9.849058187683113e-06,
+        "gm12_at_M": 9.849058187683113e-06,
+        "matched_gm12": {
+          "2": 9.849058187683113e-06
+        },
+        "max_matched_gm12": 9.849058187683113e-06,
+        "kill_by2": true,
+        "kills_at_M": true,
+        "spares": false,
+        "below_match_kill": 1
+      }
+    },
+    "verdict": "NOISE-KILLS-REPLICATES",
+    "clause": "ALL FOUR replicate cells killed by +2 \u2014 noise18503 g-12@+2 8.29e-04 (@+1 2.51e-04); noise18504 g-12@+2 7.95e-04 (@+1 2.54e-04); shuf18505 g-12@+2 1.01e-05 (@+1 3.44e-05); shuf18506 g-12@+2 9.85e-06 (@+1 3.18e-05); e185's displacement-match formality co-adjudicates KILLS at M for every cell (D_kill 2.4893) \u2014 THE MECHANISM IS FORMALLY LICENSED: the no-basin noun STANDS (n=3 noise draws per arm, all content-free kills; the cosines vs the corpus direction report whether the orthogonal-direction texture replicates too)."
+  },
+  "honesty_reflex": {
+    "seed_independence": "the four noise draws (18503/18504 iid, 18505/18506 perm) are independent dedicated generators drawn AFTER the shared seed-10902 input draws; the input stream is bit-identical across cells AND vs e185's stored per-step md5s (G_INPUTS) \u2014 the replicate samples the NOISE DRAW, not the input draw; n=3 per arm after this cell, but still ONE input stream and ONE root (the organism is not resampled)",
+    "displacement_matching": "matching is at MEASURED displacement: per-cell cumulative norms reported per step and adjudicated against D_kill re-derived from e185's stored control checkpoints ON THIS DEVICE (gated vs the stored table to 5e-06); AdamW's first step is lr-signed per coordinate, so step-1 displacement matches the e185 arms to weight-decay arithmetic (measured, not assumed)",
+    "device_consistency": "all four trainings ran in ONE process on ONE CPU (4 threads); the corpus direction is recomputed from stored checkpoints on the same device and G_E185CKPTS re-derives e185's stored noise/shuf cosines from those checkpoints before any new cosine is read \u2014 no cross-device comparison anywhere",
+    "bars_anchored": "KILL reuses the arc's absolute DISSOLVE bar (0.27) at the corpus kill step +2; SPARE reuses the SURVIVE bar (0.50) at any matched checkpoint \u2014 the broadest honest scope for the re-opening bar; composite order frozen ANY-SPARES -> NOISE-KILLS-REPLICATES -> TEXTURE before compute",
+    "logit_prediction_check": "the noise kills annihilate the ENTIRE dial (g0/gp12/held30/site-read all collapse together \u2014 collateral devastation), unlike the corpus kill's surgical profile; co-reported per checkpoint so the verdict never rests on g-12 alone",
+    "recovery_fidelity": "checkpoint-eval vs fresh-run: the re-run cell (the one incomplete grid) is compared PARAMETER-BY-PARAMETER against its surviving s{1,2,4} checkpoints (G_FIDELITY: bit-identity expected \u2014 the training is a pure function of the registered seeds on this device/torch build; 5e-6 fallback flagged, never silent), which transitively anchors the eval-only cells (same script path, same seeds, same machine); eval-only cells' dial is measured directly FROM the survivor tensors (no reconstruction of weights involved \u2014 only the data stream is replayed, and it is gated bit-exact vs e185's stored md5s). Single lineage: one root, one input stream (10902), four noise draws; no cell was re-trained where its grid survived, and survivors were never overwritten."
+  },
+  "trims": [],
+  "deviations": [
+    "CPU-ONLY by dispatch (CUDA_VISIBLE_DEVICES=-1 forced before torch, e176n/e185 precedent): torch threads 4, one 25 s launch stagger (single sleep, no busy-waiting), cooldown 60 s before/after EACH of the four trainings, per-training CPU cap 180 s (e185 measured ~1.5-2.5 s/step at 4 threads; 10 steps ~ 15-25 s).",
+    "NO control re-training: e185's stored control checkpoints (runs/checkpoints/e185_ctrl_s{1,2,4,10}.pt) supply BOTH the corpus direction (delta vectors recomputed vs the root on this device) and D_kill (re-derived and gated vs the stored displacement table, tol 5e-6). G_E185CKPTS additionally re-derives e185's stored noise/shuf displacements AND their stored cosines from the stored checkpoints \u2014 the entire e185 reference structure is verified on this device, not trusted; no cross-device displacement/cosine comparison exists anywhere in this cell.",
+    "The replicate isolates the NOISE DRAW, not the input draw: the seed-10902 aj/rj sequence is unchanged, so every input batch is bit-identical across the four new cells AND vs e185's stored per-step md5s (G_INPUTS gates all three ways). The four noise generators (18503/18504/18505/18506) are independent dedicated generators drawn AFTER the input draws.",
+    "Seed numbering convention: e185's original noise seeds were 18501 (labels-iid) / 18502 (shuffled); the replicates take the next four integers in arm order \u2014 18503/18504 (labels-iid), 18505/18506 (shuffled) \u2014 per the dispatch's explicit example.",
+    "KILL 'by +2' is operationalized at checkpoint +2 (the corpus kill step AND e185's measured displacement-match step); g-12@+1 is co-reported everywhere (e185: both arms were already dead below match at +1 \u2014 the fortiori read).",
+    "SPARE is operationalized at the broadest honest scope \u2014 any matched checkpoint {+2,+4,+10} \u2014 because ANY-SPARES is the re-opening bar; a cell that dies by +2 and revives to >= 0.50 later still fires ANY-SPARES (the fact survived the noise somewhere post-match).",
+    "Nets are the mandated 2.7M e131_consolidated line (e143/e151/e152/e158/e176n/e184/e185 precedent \u2014 every gate reference lives on this line).",
+    "Eval thread count is 4 (dispatch) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance (e161/e176/e176n/e184/e185 precedent).",
+    "n=3 per arm after this cell (18501+18503+18504; 18502+18505+18506) \u2014 still ONE input stream (10902) and ONE root: the replicate samples the noise draw, not the organism; recorded as the standing scope limit on the noun's license.",
+    "Smoke mode trims: 2-step trainings, checkpoints {1,2}, lean measures (no censuses, no deletion table), no cooldowns; nothing adjudicated.",
+    "RECOVERY RUN (E187_RECOVERY=1, 2026-09-29): the 2026-09-28 system outage killed the previous process AFTER all four trainings but BEFORE any output (survivors: this script verbatim, 15/16 checkpoints under runs/checkpoints/e187_*.pt, and runs/e187_run.log). Diagnosis from the log: shuf18505's training hit the registered 180 s CPU cap at step 9 (outage onset \u2014 the same 9 steps that took noise18503 ~17 s took shuf18505 184 s), so its s10 checkpoint is missing, and the process then died at the G_INPUTS assert on that cell's MISSING step-10 hash \u2014 NOT on any divergence: the reconstructed seed-10902 stream matches e185's stored per-step md5s bit-exactly (verified before this recovery and re-gated live by G_INPUTS below). Policy per dispatch: EVAL-ONLY from survivors where the checkpoint grid is complete (noise18503, noise18504, shuf18506); the minimal re-run where it is not (shuf18505 in full \u2014 optimizer state is not checkpointed, so a fresh 10-step cell is the smallest completion). G_FIDELITY gates the lineage: the re-run's checkpoint deltas vs the surviving s{1,2,4} files (bit-identity expected; 5e-6 fallback flagged) plus every survivor's embedded meta vs the registered cell spec. Eval-only cells' per-step training CE and intra-interval displacement increments are NOT recoverable from checkpoints (null in traj; checkpoint cum_disp exact); their x/y streams are reconstructed by exact generator replay (a pure function of seeds 10902/<noise_seed>, gated by G_INPUTS/G_TARGETS) and the re-run cell carries the full live telemetry as the machinery reference. The registered bars and operationalizations above are untouched; survivors are loaded, never overwritten."
+  ],
+  "ckpt_inventory": {
+    "smoke_e187_noise18503_s1": {
+      "path": "runs/checkpoints/smoke_e187_noise18503_s1.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 1,
+      "target_mode": "iid",
+      "noise_seed": 18503,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_noise18503_s2": {
+      "path": "runs/checkpoints/smoke_e187_noise18503_s2.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 2,
+      "target_mode": "iid",
+      "noise_seed": 18503,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_noise18504_s1": {
+      "path": "runs/checkpoints/smoke_e187_noise18504_s1.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 1,
+      "target_mode": "iid",
+      "noise_seed": 18504,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_noise18504_s2": {
+      "path": "runs/checkpoints/smoke_e187_noise18504_s2.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 2,
+      "target_mode": "iid",
+      "noise_seed": 18504,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_shuf18505_s1": {
+      "path": "runs/checkpoints/smoke_e187_shuf18505_s1.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 1,
+      "target_mode": "perm",
+      "noise_seed": 18505,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_shuf18505_s2": {
+      "path": "runs/checkpoints/smoke_e187_shuf18505_s2.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 2,
+      "target_mode": "perm",
+      "noise_seed": 18505,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_shuf18506_s1": {
+      "path": "runs/checkpoints/smoke_e187_shuf18506_s1.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 1,
+      "target_mode": "perm",
+      "noise_seed": 18506,
+      "input_seed": 10902,
+      "lr": 0.001
+    },
+    "smoke_e187_shuf18506_s2": {
+      "path": "runs/checkpoints/smoke_e187_shuf18506_s2.pt",
+      "provenance": "survivor of the 2026-09-28 outage (loaded for eval, NOT overwritten)",
+      "steps": 2,
+      "target_mode": "perm",
+      "noise_seed": 18506,
+      "input_seed": 10902,
+      "lr": 0.001
+    }
+  },
+  "timing": {
+    "total_s": 164.7
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": true,
+    "recovery": true,
+    "torch": "2.12.0.dev20260408+cu128"
+  }
+}

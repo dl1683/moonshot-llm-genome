@@ -192,13 +192,17 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    three seeds one waveform (medians 0.587/0.602/0.615, duty ~70%);
    scoping: timing root-robust 2/2, amplitude root-draw-bound (the root
    recipe is a strength lottery 0.591/0.684/0.711; g2f base-redraw in
-   flight); (c) THE CONE — a Hopfield-style store's basin is DIRECTIONAL:
-   the wash direction kills at 2x displacement (0.10-0.16) where
-   matched-L2 isotropic noise spares through 4x (0.85-0.89) — n=3,
-   zero broken legs; the lambda edge is draw-sensitive in (1x,2x), the
-   dissociation is the robust object.
-   Framing sentence: forgetting is not distance; it is direction — and
-   direction can be walled (g1), detected (g2), or shaped (g3).
+   flight); (c) THE CONE (rescoped R56): the store's damage anisotropy is
+   EXTREME — the wash direction and its 45-degree tilts kill at ~2x
+   displacement (g0 0.10-0.16) where matched-L2 ISOTROPIC noise needs
+   ~25-32x (concentration of measure; the registered 4x leg sat below
+   the isotropic threshold and is never cited) — n=3 wash-draw seeds,
+   one organ (redraw queued); the lambda edge is draw-sensitive in
+   (1x,2x); effect size stated ONLY as the threshold ratio ~12-16x.
+   Framing sentence: forgetting is not distance; it is direction —
+   a wide-angle, low-measure sensitive set — and it can be walled
+   (g1, battery-channel; sequential pending g1bW), detected (g2, with
+   the R56 construction disclosures), or measured as anisotropy (g3).
 
 Fig 4 (THE generative plate, 3 panels): (i) wall: fact p(Z) vs wash
    step, W1 flat ~0.9 vs C dead by +50, three seeds shaded; (ii) rhythm:
@@ -212,11 +216,15 @@ C6 (contribution, after C5): "Dissection-to-design closure: each
    wall, the no-basin/rate-law results (R2) predicted WHAT to detect,
    and the direction-vs-energy split (g3R) predicted the basin's shape."
 
-Abstract clause (4), draft: "(4) The same laws are generative: a
-   projection ball, a self-timed rehearsal organ, and a directional
-   basin each convert a dissected failure law into an architectural
-   positive, replicated at n>=3 — memory in these nets is not fragile
-   by necessity but by default."
+Abstract clause (4), draft (R56-corrected): "(4) The same laws are
+   generative: a projection ball (channel-scoped protection at a
+   standing tax; sequential memory tested), a self-timed rehearsal
+   organ (timing replicates across seeds and roots; amplitude
+   root-draw-bound), and an extreme damage anisotropy (wash-aligned
+   ~2x vs isotropic ~25-32x displacement) each convert a dissected
+   failure law into an architectural positive, replicated at n>=3 on
+   single roots/organs — memory in these nets is not fragile by
+   necessity but by default."
 
 Evidence gaps (additions):
 6. Rhythm amplitude is root-draw-bound (T132) — g2f (base redraw,
@@ -224,8 +232,19 @@ Evidence gaps (additions):
    ships the honest decomposition either way (clock = organ, floor =
    root).
 7. Cone is organ-draw n=1 (g3R's split robustness is over wash-draw
-   seeds on ONE reused organ) — one organ redraw before submission or
-   an explicit scope sentence (prefer both; cheap).
+   seeds on ONE reused organ) — one organ redraw (g3O queued) or an
+   explicit scope sentence (prefer both; cheap); the R56 ruler
+   correction is ADOPTED (threshold-ratio form, isotropic-spare never
+   cited).
+8. Wall's sequential test (g1bW, in flight): SPLINT-REFUTED licenses
+   "memory architecture"; MUSEUM/ZERO-SUM rescopes the central positive
+   to channel-scoped protection. The free-run battery (wpe-band
+   collapse channels) must be reported either way.
+9. Rhythm's controls (g2g, READY): threat-level ladder (self-timed vs
+   thermostat), refractory-widened band, and the REGISTERED fixed-period
+   head-to-head — without them "self-timed" stays scoped to one threat
+   level and the fixed-arm co-read (0.693 vs 0.587-0.615) is disclosed
+   in R6(b).
 
 Risks (addition):
 R5 "Circularity — the architectures fix a problem the paper itself

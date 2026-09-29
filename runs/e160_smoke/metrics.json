@@ -1,0 +1,725 @@
+{
+  "experiment": "e160_headset_escalation",
+  "date": "2026-09-28T06:31:32Z",
+  "registration": "R46 critic's closing line; QUEUE.md e160 row dispatched 10:45Z. Docstring + bars written before compute.",
+  "registered_prediction": {
+    "queue_row_verbatim": "L0H3-zero was single-head 58.6% @ CE +0.21 (1.4pts under bar). Escalate: L0H3 + top-2 and top-3 fact-specific heads (e133's list, CE<=0.35 class), zero and mean-replace, singly and jointly, graded; co-measure CE + base skills per cell. Bars: FLAT-CE-FACT-KILL = some head-set >=60% fact drop at CE <= +0.35 (the surgical surface EXISTS - paper's best figure; the removable->irremovable sentence inverts to 'attackable by head coordinates'); NEAR-MISS-CONFIRMED = best set 40-60% (the frontier stays open); WRECK-ONLY = every >=60% cell costs CE >= +0.70 (the reframe holds; noun architecture survives bounded)",
+    "bar_read": "PRIMARY bar read = g0 (trained geometry; the e133/e150 drop-table convention and the geometry of the 58.6% near-miss). g-12 recorded per cell (Rule 12) + a SECONDARY union read (either geometry) that is REPORTED but cannot gate the headline bar \u2014 registered before compute, so geometry shopping is impossible.",
+    "operationalizations": "head sets recomputed at runtime from runs/e133/metrics.json (drop >= 0.3 & CE <= 0.35 -> expected singleton {L0H3}; escalation ladder ranked by drop within the CE<=0.35 class: L0H3, L1H0, L0H0, L1H3, L0H1). Sets: singles top-4; E2={L0H3+1}, E3={L0H3+top2} (== e150 top-3 rider), E4={L0H3+top3}; N2/N3/N4 top-k without L0H3 (k matched); random-4 scatter x3 (seed 16003); modes zero + mean-replace (CE_R-bank mean); per cell: expr g0 + g-12 install-60, CE_R (e065 seed 26502), base-skill NLL (3 windows seed 31337). PLANE = consolidated escalation cells; random/install/site-stored are controls (full numbers, out of the bars).",
+    "no_bar_shopping": "No bar shopping. Ambiguous => say AMBIGUOUS with numbers."
+  },
+  "question": "does a graded escalation of fact-specific head-sets find a flat-CE fact-kill (>=60% fact drop at CE <= +0.35) on the consolidated net, or does every kill stay wreck-priced (>= +0.70)?",
+  "nets": {
+    "consolidated": "runs/checkpoints/e131_consolidated_e113.pt (primary; gated bit-exact vs e151 stored cells)",
+    "install_control": "runs/checkpoints/e048_repro.pt (report-only)",
+    "site_stored_control": "runs/checkpoints/e131_arm_b_corpus_spliced.pt (report-only)",
+    "eval_only": true
+  },
+  "selection": {
+    "source": "runs/e133/metrics.json nets.graduated (recomputed at runtime, auditable)",
+    "ce_class_top5": [
+      {
+        "head": "L0H3",
+        "drop": 0.4598899483680725,
+        "ce_cost": 0.20773905515670776
+      },
+      {
+        "head": "L1H0",
+        "drop": 0.14939802885055542,
+        "ce_cost": 0.08175379037857056
+      },
+      {
+        "head": "L0H0",
+        "drop": 0.12578976154327393,
+        "ce_cost": 0.09332561492919922
+      },
+      {
+        "head": "L1H3",
+        "drop": 0.10202407836914062,
+        "ce_cost": 0.03984379768371582
+      },
+      {
+        "head": "L0H1",
+        "drop": 0.08939898014068604,
+        "ce_cost": 0.030481815338134766
+      }
+    ],
+    "fact_specific_set": [
+      {
+        "head": "L0H3",
+        "drop": 0.4598899483680725,
+        "ce_cost": 0.20773905515670776
+      }
+    ],
+    "full_fs_tag": "FULL-FS:L0H3",
+    "degenerate_note": "the dispatched full fact-specific set (drop>=0.3 & CE<=0.35) recomputes to the singleton FULL-FS:L0H3 \u2014 the full-set cell coincides with S:L0H3 (stated, e150 lineage)",
+    "random_draws": [
+      {
+        "tag": "R1:random4",
+        "heads": [
+          "L2H0",
+          "L3H3",
+          "L4H0",
+          "L5H0"
+        ]
+      },
+      {
+        "tag": "R2:random4",
+        "heads": [
+          "L0H2",
+          "L2H0",
+          "L4H2",
+          "L5H3"
+        ]
+      },
+      {
+        "tag": "R3:random4",
+        "heads": [
+          "L1H1",
+          "L4H3",
+          "L5H1",
+          "L5H3"
+        ]
+      }
+    ]
+  },
+  "bases": {
+    "consolidated": {
+      "expr_g0": 0.7850371599197388,
+      "expr_gm12": 0.9155886173248291,
+      "ce_r": 1.663516640663147,
+      "nll3": 1.7715373039245605,
+      "held30_g0": {
+        "mean_pz": 0.7233286499977112,
+        "median_pz": 0.9483089447021484,
+        "std_pz": 0.3725012242794037,
+        "frac_pz_ge_0.5": 0.7333333492279053,
+        "frac_argmax_z": 0.7666666666666667
+      },
+      "battery_detail_g0": {
+        "mean_pz": 0.7850371599197388,
+        "median_pz": 0.9777791500091553,
+        "std_pz": 0.33697256445884705,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      }
+    },
+    "install": {
+      "expr_g0": 0.5563086867332458,
+      "expr_gm12": 0.1657126396894455,
+      "ce_r": 1.666774868965149,
+      "nll3": 1.8164706230163574
+    },
+    "site_stored": {
+      "expr_g0": 0.9684686660766602,
+      "site_detail": {
+        "onset_pz": 0.9684686660766602,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9942488074302673
+      },
+      "expr_gm12": 0.01076696626842022,
+      "ce_r": 1.682660698890686,
+      "nll3": 1.8478997945785522
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "consolidated": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "consolidated_g12": {
+      "battery_pz": 0.9155886173248291,
+      "ref": 0.9155886173248291,
+      "tol": 5e-06,
+      "pass": true
+    },
+    "install": {
+      "battery_pz": 0.5563086867332458,
+      "ref": 0.5563086867332458,
+      "pass": true,
+      "bit_reproducible": true
+    },
+    "site_stored": {
+      "std_g0_floor": 0.007800613064318895,
+      "ref_std": 0.007800613064318895,
+      "site_onset": 0.9684686660766602,
+      "ref_site": 0.9880021214485168,
+      "pass": true
+    },
+    "l0h3_zero_continuity": {
+      "value": 0.32514816522598267,
+      "ref": 0.32514816522598267,
+      "tol": 5e-06,
+      "e133_zero_arm": 0.32514744997024536,
+      "pass": true
+    }
+  },
+  "grid": [
+    {
+      "net": "consolidated",
+      "set": "S:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.32514816522598267,
+      "drop_g0_pct": 58.58181219609714,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.12403811514377594,
+      "drop_gm12_pct": 86.45263682873308,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.8712550401687622,
+      "ce_cost": 0.20773839950561523,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 1.9830888509750366,
+      "nll3_delta": 0.21155154705047607,
+      "kills60_g0": false,
+      "kills60_gm12": true
+    },
+    {
+      "net": "consolidated",
+      "set": "S:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.6900150775909424,
+      "drop_g0_pct": 12.104150883572352,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.5916339755058289,
+      "drop_gm12_pct": 35.382117655146516,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7555058002471924,
+      "ce_cost": 0.09198915958404541,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 1.851930022239685,
+      "nll3_delta": 0.08039271831512451,
+      "kills60_g0": false,
+      "kills60_gm12": false
+    },
+    {
+      "net": "consolidated",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "zero",
+      "bar_eligible": true,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.005593906156718731,
+      "drop_g0_pct": 99.28743422065642,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.0005407376447692513,
+      "drop_gm12_pct": 99.94094098216848,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.7279281616210938,
+      "ce_cost": 1.0644115209579468,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 2.8083114624023438,
+      "nll3_delta": 1.0367741584777832,
+      "kills60_g0": true,
+      "kills60_gm12": true
+    },
+    {
+      "net": "consolidated",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "mean",
+      "bar_eligible": true,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.0536547414958477,
+      "drop_g0_pct": 93.16532461962268,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.0046456647105515,
+      "drop_gm12_pct": 99.49260348778415,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 2.373612403869629,
+      "ce_cost": 0.7100957632064819,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 2.467742681503296,
+      "nll3_delta": 0.6962053775787354,
+      "kills60_g0": true,
+      "kills60_gm12": true
+    },
+    {
+      "net": "consolidated",
+      "set": "R1:random4",
+      "heads": [
+        "L2H0",
+        "L3H3",
+        "L4H0",
+        "L5H0"
+      ],
+      "n_heads": 4,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.793787956237793,
+      "drop_g0_pct": -1.1146983563107948,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.634060800075531,
+      "drop_gm12_pct": 30.748287158906294,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.7371325492858887,
+      "ce_cost": 0.0736159086227417,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 1.8566635847091675,
+      "nll3_delta": 0.08512628078460693,
+      "kills60_g0": false,
+      "kills60_gm12": false
+    },
+    {
+      "net": "consolidated",
+      "set": "R1:random4",
+      "heads": [
+        "L2H0",
+        "L3H3",
+        "L4H0",
+        "L5H0"
+      ],
+      "n_heads": 4,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_g0_base": 0.7850371599197388,
+      "expr_g0": 0.8353418111801147,
+      "drop_g0_pct": -6.407932493987811,
+      "expr_gm12_base": 0.9155886173248291,
+      "expr_gm12": 0.630673348903656,
+      "drop_gm12_pct": 31.11826239754266,
+      "ce_base": 1.663516640663147,
+      "ce_arm": 1.728545069694519,
+      "ce_cost": 0.06502842903137207,
+      "nll3_base": 1.7715373039245605,
+      "nll3_arm": 1.8530802726745605,
+      "nll3_delta": 0.08154296875,
+      "kills60_g0": false,
+      "kills60_gm12": false
+    },
+    {
+      "net": "install",
+      "set": "E1:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_g0_base": 0.5563086867332458,
+      "expr_g0": 0.26301103830337524,
+      "drop_g0_pct": 52.72210472789345,
+      "expr_gm12_base": 0.1657126396894455,
+      "expr_gm12": 0.07521138340234756,
+      "drop_gm12_pct": 54.613369539404,
+      "ce_base": 1.666774868965149,
+      "ce_arm": 1.8637746572494507,
+      "ce_cost": 0.19699978828430176,
+      "nll3_base": 1.8164706230163574,
+      "nll3_arm": 1.9794543981552124,
+      "nll3_delta": 0.16298377513885498,
+      "kills60_g0": false,
+      "kills60_gm12": false
+    },
+    {
+      "net": "install",
+      "set": "E1:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_g0_base": 0.5563086867332458,
+      "expr_g0": 0.39520591497421265,
+      "drop_g0_pct": 28.95924072389745,
+      "expr_gm12_base": 0.1657126396894455,
+      "expr_gm12": 0.094264455139637,
+      "drop_gm12_pct": 43.115712044480304,
+      "ce_base": 1.666774868965149,
+      "ce_arm": 1.7778747081756592,
+      "ce_cost": 0.11109983921051025,
+      "nll3_base": 1.8164706230163574,
+      "nll3_arm": 1.9116463661193848,
+      "nll3_delta": 0.09517574310302734,
+      "kills60_g0": false,
+      "kills60_gm12": false
+    },
+    {
+      "net": "install",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_g0_base": 0.5563086867332458,
+      "expr_g0": 0.005537410732358694,
+      "drop_g0_pct": 99.00461544742804,
+      "expr_gm12_base": 0.1657126396894455,
+      "expr_gm12": 0.000534923980012536,
+      "drop_gm12_pct": 99.67719784017983,
+      "ce_base": 1.666774868965149,
+      "ce_arm": 2.917670249938965,
+      "ce_cost": 1.250895380973816,
+      "nll3_base": 1.8164706230163574,
+      "nll3_arm": 2.965583562850952,
+      "nll3_delta": 1.1491129398345947,
+      "kills60_g0": true,
+      "kills60_gm12": true
+    },
+    {
+      "net": "install",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_g0_base": 0.5563086867332458,
+      "expr_g0": 0.05193943902850151,
+      "drop_g0_pct": 90.66355779315614,
+      "expr_gm12_base": 0.1657126396894455,
+      "expr_gm12": 0.0009718300425447524,
+      "drop_gm12_pct": 99.41354501119164,
+      "ce_base": 1.666774868965149,
+      "ce_arm": 2.5442428588867188,
+      "ce_cost": 0.8774679899215698,
+      "nll3_base": 1.8164706230163574,
+      "nll3_arm": 2.5885016918182373,
+      "nll3_delta": 0.7720310688018799,
+      "kills60_g0": true,
+      "kills60_gm12": true
+    },
+    {
+      "net": "site_stored",
+      "set": "E1:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_g0_base": 0.9684686660766602,
+      "expr_g0": 0.9254481792449951,
+      "drop_g0_pct": 4.442114478101211,
+      "expr_gm12_base": 0.01076696626842022,
+      "expr_gm12": 0.006116968579590321,
+      "drop_gm12_pct": 43.18763125011785,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.695418119430542,
+      "ce_cost": 0.012757420539855957,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.8619660139083862,
+      "nll3_delta": 0.014066219329833984,
+      "kills60_g0": false,
+      "kills60_gm12": false,
+      "site_detail_arm": {
+        "onset_pz": 0.9254481792449951,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9885390996932983
+      },
+      "site_detail_base": {
+        "onset_pz": 0.9684686660766602,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9942488074302673
+      }
+    },
+    {
+      "net": "site_stored",
+      "set": "E1:L0H3",
+      "heads": [
+        "L0H3"
+      ],
+      "n_heads": 1,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_g0_base": 0.9684686660766602,
+      "expr_g0": 0.9107048511505127,
+      "drop_g0_pct": 5.964448510260334,
+      "expr_gm12_base": 0.01076696626842022,
+      "expr_gm12": 0.00565375667065382,
+      "drop_gm12_pct": 47.48978932685589,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.6898809671401978,
+      "ce_cost": 0.007220268249511719,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 1.8535865545272827,
+      "nll3_delta": 0.005686759948730469,
+      "kills60_g0": false,
+      "kills60_gm12": false,
+      "site_detail_arm": {
+        "onset_pz": 0.9107048511505127,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9864169359207153
+      },
+      "site_detail_base": {
+        "onset_pz": 0.9684686660766602,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9942488074302673
+      }
+    },
+    {
+      "net": "site_stored",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "zero",
+      "bar_eligible": false,
+      "expr_g0_base": 0.9684686660766602,
+      "expr_g0": 0.9475375413894653,
+      "drop_g0_pct": 2.1612598755505807,
+      "expr_gm12_base": 0.01076696626842022,
+      "expr_gm12": 0.07594285160303116,
+      "drop_gm12_pct": -605.3319357540242,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.8853299617767334,
+      "ce_cost": 0.20266926288604736,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 2.0481159687042236,
+      "nll3_delta": 0.2002161741256714,
+      "kills60_g0": false,
+      "kills60_gm12": false,
+      "site_detail_arm": {
+        "onset_pz": 0.9475375413894653,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9765124917030334
+      },
+      "site_detail_base": {
+        "onset_pz": 0.9684686660766602,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9942488074302673
+      }
+    },
+    {
+      "net": "site_stored",
+      "set": "E3:L0H3+top2",
+      "heads": [
+        "L0H3",
+        "L1H0",
+        "L0H0"
+      ],
+      "n_heads": 3,
+      "mode": "mean",
+      "bar_eligible": false,
+      "expr_g0_base": 0.9684686660766602,
+      "expr_g0": 0.9759296178817749,
+      "drop_g0_pct": -0.7703864943137129,
+      "expr_gm12_base": 0.01076696626842022,
+      "expr_gm12": 0.07186773419380188,
+      "drop_gm12_pct": -567.4836012497943,
+      "ce_base": 1.682660698890686,
+      "ce_arm": 1.8401038646697998,
+      "ce_cost": 0.15744316577911377,
+      "nll3_base": 1.8478997945785522,
+      "nll3_arm": 2.0072381496429443,
+      "nll3_delta": 0.1593383550643921,
+      "kills60_g0": false,
+      "kills60_gm12": false,
+      "site_detail_arm": {
+        "onset_pz": 0.9759296178817749,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9818980097770691
+      },
+      "site_detail_base": {
+        "onset_pz": 0.9684686660766602,
+        "onset_frac_ge_0.5": 1.0,
+        "pname_mean_over7": 0.9942488074302673
+      }
+    }
+  ],
+  "adjudication": {
+    "bars_verbatim": "L0H3-zero was single-head 58.6% @ CE +0.21 (1.4pts under bar). Escalate: L0H3 + top-2 and top-3 fact-specific heads (e133's list, CE<=0.35 class), zero and mean-replace, singly and jointly, graded; co-measure CE + base skills per cell. Bars: FLAT-CE-FACT-KILL = some head-set >=60% fact drop at CE <= +0.35 (the surgical surface EXISTS - paper's best figure; the removable->irremovable sentence inverts to 'attackable by head coordinates'); NEAR-MISS-CONFIRMED = best set 40-60% (the frontier stays open); WRECK-ONLY = every >=60% cell costs CE >= +0.70 (the reframe holds; noun architecture survives bounded)",
+    "bar_read": "PRIMARY bar read = g0 (trained geometry; the e133/e150 drop-table convention and the geometry of the 58.6% near-miss). g-12 recorded per cell (Rule 12) + a SECONDARY union read (either geometry) that is REPORTED but cannot gate the headline bar \u2014 registered before compute, so geometry shopping is impossible.",
+    "n_cells_total": 14,
+    "n_bar_eligible": 4,
+    "FLAT_CE_FACT_KILL": {
+      "fires": false,
+      "cells": []
+    },
+    "NEAR_MISS_CONFIRMED": {
+      "fires": true,
+      "definition": "best flat-CE cell lands 40-60% drop (frontier stays open)",
+      "best_flat_cell": {
+        "set": "S:L0H3",
+        "mode": "zero",
+        "drop_g0_pct": 58.58181219609714,
+        "ce_cost": 0.20773839950561523
+      }
+    },
+    "WRECK_ONLY": {
+      "fires": true,
+      "kill_cells": [
+        {
+          "set": "E3:L0H3+top2",
+          "mode": "zero",
+          "drop_g0_pct": 99.28743422065642,
+          "ce_cost": 1.0644115209579468
+        },
+        {
+          "set": "E3:L0H3+top2",
+          "mode": "mean",
+          "drop_g0_pct": 93.16532461962268,
+          "ce_cost": 0.7100957632064819
+        }
+      ]
+    },
+    "secondary_union_read_REPORT_ONLY": {
+      "flatce_union_cells": [
+        {
+          "set": "S:L0H3",
+          "mode": "zero",
+          "drop_g0_pct": 58.58181219609714,
+          "drop_gm12_pct": 86.45263682873308,
+          "ce_cost": 0.20773839950561523
+        }
+      ],
+      "best_union_cell": {
+        "set": "S:L0H3",
+        "mode": "zero",
+        "drop_g0_pct": 58.58181219609714,
+        "drop_gm12_pct": 86.45263682873308,
+        "ce_cost": 0.20773839950561523
+      },
+      "note": "fire-if-either-geometry read, REPORTED but not gating (registered before compute)"
+    },
+    "dose_response": [
+      {
+        "mode": "zero",
+        "set": "S:L0H3",
+        "n_heads": 1,
+        "has_L0H3": true,
+        "drop_g0_pct": 58.58181219609714,
+        "drop_gm12_pct": 86.45263682873308,
+        "ce_cost": 0.20773839950561523,
+        "sum_single_drops": null
+      },
+      {
+        "mode": "zero",
+        "set": "E3:L0H3+top2",
+        "n_heads": 3,
+        "has_L0H3": true,
+        "drop_g0_pct": 99.28743422065642,
+        "drop_gm12_pct": 99.94094098216848,
+        "ce_cost": 1.0644115209579468,
+        "sum_single_drops": 58.58181219609714
+      },
+      {
+        "mode": "mean",
+        "set": "S:L0H3",
+        "n_heads": 1,
+        "has_L0H3": true,
+        "drop_g0_pct": 12.104150883572352,
+        "drop_gm12_pct": 35.382117655146516,
+        "ce_cost": 0.09198915958404541,
+        "sum_single_drops": null
+      },
+      {
+        "mode": "mean",
+        "set": "E3:L0H3+top2",
+        "n_heads": 3,
+        "has_L0H3": true,
+        "drop_g0_pct": 93.16532461962268,
+        "drop_gm12_pct": 99.49260348778415,
+        "ce_cost": 0.7100957632064819,
+        "sum_single_drops": 12.104150883572352
+      }
+    ],
+    "random_scatter_summary": {
+      "n_cells": 2,
+      "drop_g0_pct_min": -6.407932493987811,
+      "drop_g0_pct_max": -1.1146983563107948,
+      "ce_cost_min": 0.06502842903137207,
+      "ce_cost_max": 0.0736159086227417,
+      "any_kill": false
+    },
+    "control_columns": {
+      "install_best_drop": {
+        "set": "E3:L0H3+top2",
+        "mode": "zero",
+        "drop_g0_pct": 99.00461544742804,
+        "ce_cost": 1.250895380973816
+      },
+      "site_stored_best_drop": {
+        "set": "E1:L0H3",
+        "mode": "mean",
+        "drop_g0_pct": 5.964448510260334,
+        "ce_cost": 0.007220268249511719
+      },
+      "note": "report-only: does the same head-set kill the install-phase fact or the site-stored fact? A consolidated-only kill is phase-specific surgery; a universal kill is a shared readout circuit."
+    },
+    "verdict": "WRECK-ONLY (every >=60% cell costs CE >= +0.70 \u2014 the reframe holds; the noun architecture survives bounded) | best flat-CE cell: S:L0H3/zero drop 58.6% (g-12 86.5%) at CE +0.208"
+  },
+  "honesty_reflex": {
+    "additivity_assumption": "the escalation ladder assumes head effects can be summed by set union; e133's joint-vs-sum already FAILED at organ level (0.785 joint vs 1.98 sum) \u2014 the dose-response column exists to expose the same failure mode here (a set can kill less than its strongest member, as L0H3+L1H0 may if L1H0's route partially restores the read).",
+    "joint_interactions": "mean-replace of multiple heads replaces each head's slice with its ALL-HEADS-INTACT bank mean \u2014 the replacement vectors are not recomputed under the joint ablation; zero mode has no such coupling but both modes ablate coordinates, not circuits: downstream heads may re-route and the measured drop is the NET effect.",
+    "mean_replace_mode_choice": "mean-replace is itself an intervention (the bank mean over corpus windows, no fact contexts); zero is e133's convention. The two modes bracket the surgical range and DISAGREE sharply on L0H3 (e150: 12.1% vs 58.6% drop) \u2014 any flat-CE kill claim must name its mode, and a kill in only one mode is a weaker claim than one that survives both.",
+    "single_lineage": "the primary net is ONE consolidated lineage (e113 recipe, seed 1337 chain); the install and site-stored controls change the memory phase, not the seed \u2014 the frontier map is line-specific until e157's second-lineage conversion replication lands.",
+    "ce_bank_is_position_blind": "CE_R prices general LM damage on fact-free corpus windows; the base-skill NLL3 column is a second, disjoint-window read of the same \u2014 neither prices fact-geometry damage specifically (that dissociation is the point AND the confound, e150's note verbatim).",
+    "bar_geometry": "the primary bar read is g0; the union (either-geometry) read is recorded and non-gating \u2014 if it differs from the primary, the difference is REPORTED, not shopped."
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "E2 = {L0H3 + next-1 head} is an ADDED intermediate dose step between the dispatched {L0H3} and {L0H3+top2} \u2014 it only densifies the dose-response map (more cells, same bars); the dispatched sets all run.",
+    "The dispatched 'full fact-specific set' (drop >= 0.3 & CE <= 0.35 on e133's stored table) recomputes to the SINGLETON {L0H3} (e150's finding) \u2014 the full-set cell therefore coincides with the singleton cell; recorded as such, never shopped.",
+    "Singles of the three companion heads (L1H0, L0H0, L1H3) run in both modes so the escalation's additivity can be priced against its parts (e133's organ-level additivity already FAILED: 0.785 joint vs 1.98 sum).",
+    "Base-skill probe = 3 corpus windows at seed 31337 (disjoint draw from the CE_R bank's seed 26502); NLL reported per cell and as delta vs the same net's base \u2014 the 'collateral beyond CE' column.",
+    "Random scatter draws are matched in COUNT to the largest escalation set (4 heads) rather than to every size \u2014 the null needs one matched count to bracket the plane; 3 draws x 2 modes.",
+    "The install column skips the singles (dose-response is a primary-net question); it runs the 7 escalation/no-L0H3 sets x 2 modes."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt",
+      "runs/checkpoints/e048_repro.pt",
+      "runs/checkpoints/e131_arm_b_corpus_spliced.pt"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 110.9
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

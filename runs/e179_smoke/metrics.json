@@ -1,0 +1,894 @@
+{
+  "experiment": "e179_rehearsal_law",
+  "date": "2026-09-28T22:07:34Z",
+  "registration": "QUEUE row e179 (verbatim in the module docstring) + the dispatch's registered prediction VERBATIM; frozen before compute; adjudicated against exactly that \u2014 no bar shopping",
+  "registered_prediction": {
+    "threshold": "THRESHOLD fires if: a sharp r* exists (below it the fact dies by +50; at or above it maintains >= 0.5) \u2014 a maintenance phase transition.",
+    "graded": "GRADED fires if: any rehearsal slows the wash proportionally (no threshold; F1's +300 level rises smoothly with r).",
+    "pump_fit": "PUMP-FIT fires if: both a wash rate w and a rehearsal gain g are extractable (the maintenance law's two constants).",
+    "no_bar_shopping": "No bar shopping; texture => TEXTURE with the curve.",
+    "operationalizations": "r = fraction of the 300 optimizer steps that are F1-replay batches (replay at every step % k == 0, replacing that step's wash batch; realized r co-reported); F1 ruler = g-12 (install-60 battery, offset -12); dies(r) = g-12 AT THE +50 CHECKPOINT <= 0.27 (e176n's NEUTRAL-DISSOLVES convention VERBATIM \u2014 the dispatch's 'dies by +50' as the +50 STATE; smoke-corrected pre-main: the first draft's 'any checkpoint under 0.27 in (0,50]' made the pre-replay eviction dip (steps 1..k-1 are wash steps) count as death for every rate, structurally unfireable); maintains(r) = g-12 >= 0.5 at BOTH horizons +50 AND +300; THRESHOLD = the ladder {1/32<1/8<1/4} splits as a suffix (r* maintains, every rate below dies at +50; all-maintain does NOT fire it); GRADED = not THRESHOLD AND +300 levels strictly increasing over the three rates AND level(1/32,+300) > the wash's stored 0.00382; t*(r) = first checkpoint with g-12 <= 0.27 (co-reported timing only); cycle stats (late-grid {100,200,300} mean/min g-12) co-reported for phase honesty, not bar-adjudicated; PUMP-FIT = pooled origin-OLS over consecutive-checkpoint segments of the three rate cells, d(g-12) = w*wash_steps + g*replay_steps, fires iff w<0 AND g>0 AND uncentered R^2 >= 0.80 (log-domain variant annotation only); order THRESHOLD -> GRADED -> TEXTURE for the shape; PUMP-FIT a separate co-verdict; final verdict '<SHAPE> + <PUMP-FIT|NO-PUMP>'; r=0 = e176n arm A's stored trace, r=1/2 = e174 arm B's stored dose-300 dial (stream-mismatched, conservative); the r=0 replicate is a rider (rig validation, G_REPRO), bars anchor on the stored trace.",
+    "registration": "QUEUE row e179 (verbatim above) + the dispatch's registered prediction VERBATIM; frozen in this docstring before compute. Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "how little rehearsal suffices against the neutral wash? \u2014 the maintenance threshold r* (a phase transition) vs a graded response vs a two-constant pump law (w, g); the quantitative completion of the capacity story (capacity = the maintenance budget; T107's surviving direction, beside T119's rate law)",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 0.00e+00)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cells": {
+    "r0_wash": {
+      "desc": "the r=0 wash REPLICATE (rider): e176n arm A's NEUTRAL protocol VERBATIM at seed 10902 (arm-A-identical RNG stream)",
+      "k": 0,
+      "ckpt_steps": [
+        1,
+        2,
+        4,
+        36
+      ],
+      "steps_ran": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "n_replay": 0,
+      "nominal_r": 0.0,
+      "realized_r": 0.0,
+      "traj": [
+        {
+          "step": 1,
+          "g_m12_mean_pz": 0.6780481934547424,
+          "g0_mean_pz": 0.46198269724845886,
+          "frac_argmax_z": 0.85,
+          "corpus_ce": 1.3565675020217896,
+          "ce_r": 2.2113442420959473,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 6.4
+        },
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.027078237384557724,
+          "g0_mean_pz": 0.11471343040466309,
+          "frac_argmax_z": 0.016666666666666666,
+          "corpus_ce": 1.8263262510299683,
+          "ce_r": 2.032073736190796,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 8.9
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.010940617881715298,
+          "g0_mean_pz": 0.060428403317928314,
+          "frac_argmax_z": 0.0,
+          "corpus_ce": 1.3631869554519653,
+          "ce_r": 1.8213409185409546,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 11.4
+        },
+        {
+          "step": 36,
+          "g_m12_mean_pz": 0.014963938854634762,
+          "g0_mean_pz": 0.14699207246303558,
+          "frac_argmax_z": 0.0,
+          "corpus_ce": 0.7211975455284119,
+          "ce_r": 1.7355622053146362,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 14.1
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "batteries_full": {},
+      "cells_full": {}
+    },
+    "r1_32": {
+      "desc": "e176n arm A's NEUTRAL wash stream with e174 arm B's F1-replay batches interleaved at nominal r=0.03125 (replay at every step % 32 == 0)",
+      "k": 32,
+      "ckpt_steps": [
+        1,
+        2,
+        4,
+        36
+      ],
+      "steps_ran": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "n_replay": 1,
+      "nominal_r": 0.03125,
+      "realized_r": 0.027777777777777776,
+      "traj": [
+        {
+          "step": 1,
+          "g_m12_mean_pz": 0.6780484318733215,
+          "g0_mean_pz": 0.4619826078414917,
+          "frac_argmax_z": 0.85,
+          "corpus_ce": 1.3565675020217896,
+          "ce_r": 2.2113442420959473,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 2.2
+        },
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.027078237384557724,
+          "g0_mean_pz": 0.11471358686685562,
+          "frac_argmax_z": 0.016666666666666666,
+          "corpus_ce": 1.8263262510299683,
+          "ce_r": 2.032073736190796,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 4.2
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.010940615087747574,
+          "g0_mean_pz": 0.06042836233973503,
+          "frac_argmax_z": 0.0,
+          "corpus_ce": 1.3631869554519653,
+          "ce_r": 1.8213409185409546,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 5.9
+        },
+        {
+          "step": 36,
+          "g_m12_mean_pz": 0.8629798293113708,
+          "g0_mean_pz": 0.8788598775863647,
+          "frac_argmax_z": 0.95,
+          "corpus_ce": 0.7265725135803223,
+          "ce_r": 1.7388434410095215,
+          "replay_steps_so_far": 1,
+          "was_replay_step": false,
+          "elapsed_s": 9.3
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cuda",
+      "time_cap_s": 1800.0,
+      "batteries_full": {},
+      "cells_full": {}
+    },
+    "r1_8": {
+      "desc": "e176n arm A's NEUTRAL wash stream with e174 arm B's F1-replay batches interleaved at nominal r=0.125 (replay at every step % 8 == 0)",
+      "k": 8,
+      "ckpt_steps": [
+        1,
+        2,
+        4,
+        36
+      ],
+      "steps_ran": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "n_replay": 4,
+      "nominal_r": 0.125,
+      "realized_r": 0.1111111111111111,
+      "traj": [
+        {
+          "step": 1,
+          "g_m12_mean_pz": 0.6780483722686768,
+          "g0_mean_pz": 0.46198269724845886,
+          "frac_argmax_z": 0.85,
+          "corpus_ce": 1.3565675020217896,
+          "ce_r": 2.2113444805145264,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 2.2
+        },
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.0270781759172678,
+          "g0_mean_pz": 0.11471326649188995,
+          "frac_argmax_z": 0.016666666666666666,
+          "corpus_ce": 1.8263263702392578,
+          "ce_r": 2.032073736190796,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 4.8
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.010940635576844215,
+          "g0_mean_pz": 0.0604284293949604,
+          "frac_argmax_z": 0.0,
+          "corpus_ce": 1.3631871938705444,
+          "ce_r": 1.8213409185409546,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 6.6
+        },
+        {
+          "step": 36,
+          "g_m12_mean_pz": 0.6475474834442139,
+          "g0_mean_pz": 0.8756074905395508,
+          "frac_argmax_z": 0.85,
+          "corpus_ce": 0.7324298024177551,
+          "ce_r": 1.7090426683425903,
+          "replay_steps_so_far": 4,
+          "was_replay_step": false,
+          "elapsed_s": 26.7
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cpu",
+      "time_cap_s": 1800.0,
+      "batteries_full": {},
+      "cells_full": {}
+    },
+    "r1_4": {
+      "desc": "e176n arm A's NEUTRAL wash stream with e174 arm B's F1-replay batches interleaved at nominal r=0.25 (replay at every step % 4 == 0)",
+      "k": 4,
+      "ckpt_steps": [
+        1,
+        2,
+        4,
+        36
+      ],
+      "steps_ran": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "n_replay": 9,
+      "nominal_r": 0.25,
+      "realized_r": 0.25,
+      "traj": [
+        {
+          "step": 1,
+          "g_m12_mean_pz": 0.678048312664032,
+          "g0_mean_pz": 0.4619826674461365,
+          "frac_argmax_z": 0.85,
+          "corpus_ce": 1.3565675020217896,
+          "ce_r": 2.2113442420959473,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 2.8
+        },
+        {
+          "step": 2,
+          "g_m12_mean_pz": 0.027078188955783844,
+          "g0_mean_pz": 0.11471328884363174,
+          "frac_argmax_z": 0.016666666666666666,
+          "corpus_ce": 1.8263263702392578,
+          "ce_r": 2.032073736190796,
+          "replay_steps_so_far": 0,
+          "was_replay_step": false,
+          "elapsed_s": 4.7
+        },
+        {
+          "step": 4,
+          "g_m12_mean_pz": 0.2342928946018219,
+          "g0_mean_pz": 0.6118885278701782,
+          "frac_argmax_z": 0.21666666666666667,
+          "corpus_ce": 1.3920925855636597,
+          "ce_r": 1.8312944173812866,
+          "replay_steps_so_far": 1,
+          "was_replay_step": true,
+          "elapsed_s": 6.2
+        },
+        {
+          "step": 36,
+          "g_m12_mean_pz": 0.4699903130531311,
+          "g0_mean_pz": 0.7711710333824158,
+          "frac_argmax_z": 0.6833333333333333,
+          "corpus_ce": 0.7343649864196777,
+          "ce_r": 1.7358368635177612,
+          "replay_steps_so_far": 9,
+          "was_replay_step": true,
+          "elapsed_s": 36.6
+        }
+      ],
+      "zeph_violations": 0,
+      "missing_checkpoints": [],
+      "initial_device": "cuda",
+      "final_device": "cpu",
+      "time_cap_s": 1800.0,
+      "batteries_full": {},
+      "cells_full": {}
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0
+    },
+    "wash_stream": "e176n arm A's NEUTRAL protocol VERBATIM: e170's neutral bank (seed 170), 16 neutral-anchor draws + 16 random corpus windows, full-token CE, no fact windows in wash steps",
+    "replay_batch": "e174 arm B's F1-replay batch VERBATIM: 16 e113 jitter windows (7 name-char masked CE) + 16 anchors (8 paired neutral + 8 random), union CE; replay at every step % k == 0, replacing that step's wash batch",
+    "optimizer": "AdamW (0.9,0.95) wd 0.1 constant lr 0.001 clip 1.0; seed 10902 (locked lineage); 300 steps/cell",
+    "ckpt_grid": [
+      1,
+      2,
+      4,
+      36
+    ],
+    "full_dial_at": [],
+    "measure_dial": "e180's measure() (minus the 183-span census \u2014 e178's recorded deviation)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_JIT": {
+      "jitters": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "pool_shape": [
+        300,
+        256
+      ],
+      "name_in_place_all": true,
+      "mask_targets_per_window": 7,
+      "masks_vary_with_jitter": true,
+      "stays_in_f1_band": true,
+      "note": "e113's jitter set reads F1 at onset rows 129+j in [121,137] (the grown-address band); the +8 span reaches row 143 \u2014 e113/e174 VERBATIM arithmetic",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A / e180's bank)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 0,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "budget_identical_to_e176n_armA": true,
+      "rng_note": "wash steps draw aj(16,)+rj(16,) \u2014 e176n arm A's exact shapes/moduli at seed 10902 (the r=0 replicate is arm-A-identical); replay steps draw e174 arm B's ix(16,)+aj(8,)+rj(8,)",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676,
+        "note": "the random corpus windows are e161/e176 VERBATIM and unfiltered \u2014 identical background, not part of the delta"
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877,
+        "row0_strength": 0.7316772222270098,
+        "dall_g0": 0.9047248959541321
+      },
+      "skipped_missing": [
+        "row0_strength",
+        "dall_g0"
+      ],
+      "diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0,
+        "site_read_onset": 0.0,
+        "site_read_span": 0.0,
+        "A129": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_REPRO": {
+      "cells": {
+        "1": {
+          "this_run": 0.6780481934547424,
+          "e176n_armA": 0.6780440807342529,
+          "diff": 4.112720489501953e-06
+        },
+        "2": {
+          "this_run": 0.027078237384557724,
+          "e176n_armA": 0.027077054604887962,
+          "diff": 1.1827796697616577e-06
+        },
+        "4": {
+          "this_run": 0.010940617881715298,
+          "e176n_armA": 0.010940761305391788,
+          "diff": -1.434236764907837e-07
+        }
+      },
+      "n_cells": 3,
+      "max_abs_diff": 4.112720489501953e-06,
+      "tol": 0.05,
+      "bit_reproducible": true,
+      "replicate_pure_cpu": false,
+      "pass": true,
+      "note": "the rider's wash replicate vs the stored r=0 trace (common steps); a device-mixed replicate can drift beyond 0.05 through chaotic amplification \u2014 recorded and flagged, not raised (the bars anchor on the stored trace either way); pure-CPU fail raises"
+    },
+    "G_DRAWFREE": {
+      "r0_wash": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "r1_32": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "r1_8": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "r1_4": {
+        "zeph_violations": 0,
+        "pass": true
+      }
+    },
+    "G_SURG": {}
+  },
+  "stored_refs": {
+    "e176n_armA_r0": {
+      "source": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 8.4e-10)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 8.400000695019116e-10
+    },
+    "e174_armB_r_half": {
+      "source": "runs/e174/metrics.json ladder_B (embedded copy verified, max|diff| 2.0e-13)",
+      "file_present": true,
+      "verified_vs_embedded": true,
+      "max_abs_diff": 2.000621890374532e-13
+    }
+  },
+  "r_curve": {
+    "ruler": "g-12 (install-60 battery, offset -12; e176/e176n/e180's)",
+    "bars": {
+      "die": 0.27,
+      "maintain": 0.5
+    },
+    "points": {
+      "0.0_wash_stored_e176n_armA": {
+        "r": 0.0,
+        "provenance": "runs/e176n/metrics.json trace_armA (trace_armA; embedded copy verified, max|diff| 8.4e-10)",
+        "t_star": 2,
+        "gm12_plus300": 0.0038193254731595516,
+        "note": "the REGISTERED r=0 anchor (stored trace)"
+      },
+      "0.0_wash_replicate_this_run": {
+        "r": 0.0,
+        "provenance": "this run (rider)",
+        "t_star": 2,
+        "gm12_plus50": 0.014963938854634762,
+        "gm12_plus300": 0.014963938854634762,
+        "G_REPRO_max_abs_diff": 4.112720489501953e-06,
+        "note": "rider validation; bars anchor on the stored trace"
+      },
+      "1_32_this_run": {
+        "r": 0.03125,
+        "realized_r": 0.027777777777777776,
+        "n_replay": 1,
+        "t_star": 2,
+        "dead_at_50": false,
+        "maintains": true,
+        "gm12_plus50": 0.8629798293113708,
+        "gm12_plus300": 0.8629798293113708,
+        "g0_plus300": 0.8788598775863647,
+        "provenance": "this run"
+      },
+      "1_8_this_run": {
+        "r": 0.125,
+        "realized_r": 0.1111111111111111,
+        "n_replay": 4,
+        "t_star": 2,
+        "dead_at_50": false,
+        "maintains": true,
+        "gm12_plus50": 0.6475474834442139,
+        "gm12_plus300": 0.6475474834442139,
+        "g0_plus300": 0.8756074905395508,
+        "provenance": "this run"
+      },
+      "1_4_this_run": {
+        "r": 0.25,
+        "realized_r": 0.25,
+        "n_replay": 9,
+        "t_star": 2,
+        "dead_at_50": false,
+        "maintains": false,
+        "gm12_plus50": 0.4699903130531311,
+        "gm12_plus300": 0.4699903130531311,
+        "g0_plus300": 0.7711710333824158,
+        "provenance": "this run"
+      },
+      "0.5_rehearsal1to1_stored_e174_armB": {
+        "r": 0.5,
+        "provenance": "runs/e174/metrics.json ladder_B (embedded copy verified, max|diff| 2.0e-13)",
+        "gm12_plus300": 0.7099656462669373,
+        "g0_plus300": 0.9652615189552307,
+        "held30_g0_plus300": 0.716054379940233,
+        "ce_r": 1.6393135786056519,
+        "note": "STREAM-MISMATCHED (dispatch's design): arm B's interference is the F2-INSTALL batch, STRONGER than the neutral wash \u2014 a conservative floor for the curve's end"
+      }
+    },
+    "threshold": {
+      "r_star": null,
+      "tag": null,
+      "bracket": null
+    },
+    "adjudication_order": "THRESHOLD -> GRADED -> TEXTURE (shape); PUMP-FIT separate"
+  },
+  "pump_fit": {
+    "linear": {
+      "w": 0.026755283259310484,
+      "g": -0.0426648111729111,
+      "r2_uncentered": 0.4206357450673034,
+      "n_segments": 9,
+      "per_step_lr_displacement_note": "w and g are per-STEP effects on the g-12 level; w's magnitude x the wash clock prices the basin ride (T119's lr x t* ~ 2-6e-3 lives on the same axis)",
+      "fires": false
+    },
+    "log_domain": {
+      "w": 0.05338903995339101,
+      "g": -0.08738522176627253,
+      "r2_uncentered": 0.3916867108074572,
+      "n_segments": 9,
+      "per_step_lr_displacement_note": "w and g are per-STEP effects on the g-12 level; w's magnitude x the wash clock prices the basin ride (T119's lr x t* ~ 2-6e-3 lives on the same axis)",
+      "fires": null,
+      "note": "log-domain variant (d log10(g-12 + 0.01)) \u2014 ANNOTATION ONLY; the registered PUMP-FIT bar lives on the linear form"
+    },
+    "segments": [
+      {
+        "tag": "r1_32",
+        "from": 1,
+        "to": 2,
+        "wash_steps": 1,
+        "replay_steps": 0,
+        "d_gm12": -0.6509701944887638
+      },
+      {
+        "tag": "r1_32",
+        "from": 2,
+        "to": 4,
+        "wash_steps": 2,
+        "replay_steps": 0,
+        "d_gm12": -0.01613762229681015
+      },
+      {
+        "tag": "r1_32",
+        "from": 4,
+        "to": 36,
+        "wash_steps": 31,
+        "replay_steps": 1,
+        "d_gm12": 0.8520392142236233
+      },
+      {
+        "tag": "r1_8",
+        "from": 1,
+        "to": 2,
+        "wash_steps": 1,
+        "replay_steps": 0,
+        "d_gm12": -0.650970196351409
+      },
+      {
+        "tag": "r1_8",
+        "from": 2,
+        "to": 4,
+        "wash_steps": 2,
+        "replay_steps": 0,
+        "d_gm12": -0.016137540340423584
+      },
+      {
+        "tag": "r1_8",
+        "from": 4,
+        "to": 36,
+        "wash_steps": 28,
+        "replay_steps": 4,
+        "d_gm12": 0.6366068478673697
+      },
+      {
+        "tag": "r1_4",
+        "from": 1,
+        "to": 2,
+        "wash_steps": 1,
+        "replay_steps": 0,
+        "d_gm12": -0.6509701237082481
+      },
+      {
+        "tag": "r1_4",
+        "from": 2,
+        "to": 4,
+        "wash_steps": 1,
+        "replay_steps": 1,
+        "d_gm12": 0.20721470564603806
+      },
+      {
+        "tag": "r1_4",
+        "from": 4,
+        "to": 36,
+        "wash_steps": 24,
+        "replay_steps": 8,
+        "d_gm12": 0.2356974184513092
+      }
+    ]
+  },
+  "adjudication": {
+    "bars": {
+      "die": 0.27,
+      "maintain": 0.5,
+      "pump_r2": 0.8
+    },
+    "per_rate": {
+      "r1_32": {
+        "nominal_r": 0.03125,
+        "realized_r": 0.027777777777777776,
+        "n_replay": 1,
+        "t_star_timing_only": 2,
+        "dead_at_50": false,
+        "never_under_die_bar": false,
+        "gm12_plus50": 0.8629798293113708,
+        "gm12_plus300": 0.8629798293113708,
+        "cycle_stats_late_grid": {
+          "late_grid": [
+            100,
+            200,
+            300
+          ],
+          "mean_gm12_late": 0.8629798293113708,
+          "min_gm12_late": 0.8629798293113708
+        },
+        "maintains": true
+      },
+      "r1_8": {
+        "nominal_r": 0.125,
+        "realized_r": 0.1111111111111111,
+        "n_replay": 4,
+        "t_star_timing_only": 2,
+        "dead_at_50": false,
+        "never_under_die_bar": false,
+        "gm12_plus50": 0.6475474834442139,
+        "gm12_plus300": 0.6475474834442139,
+        "cycle_stats_late_grid": {
+          "late_grid": [
+            100,
+            200,
+            300
+          ],
+          "mean_gm12_late": 0.6475474834442139,
+          "min_gm12_late": 0.6475474834442139
+        },
+        "maintains": true
+      },
+      "r1_4": {
+        "nominal_r": 0.25,
+        "realized_r": 0.25,
+        "n_replay": 9,
+        "t_star_timing_only": 2,
+        "dead_at_50": false,
+        "never_under_die_bar": false,
+        "gm12_plus50": 0.4699903130531311,
+        "gm12_plus300": 0.4699903130531311,
+        "cycle_stats_late_grid": {
+          "late_grid": [
+            100,
+            200,
+            300
+          ],
+          "mean_gm12_late": 0.4699903130531311,
+          "min_gm12_late": 0.4699903130531311
+        },
+        "maintains": false
+      }
+    },
+    "all_rates_maintain": false,
+    "levels_strictly_rising": false,
+    "smallest_rehearsal_moves_curve": true,
+    "THRESHOLD_fires": false,
+    "GRADED_fires": false,
+    "PUMP_FIT_fires": false,
+    "shape": "TEXTURE",
+    "shape_clause": "neither clause fired (ladder (+50 state, +300 state, maintains): r=0.03125: (0.8630, 0.8630, True), r=0.125: (0.6475, 0.6475, True), r=0.25: (0.4700, 0.4700, False); late-grid cycle mean/min 1/32: 0.863/0.863, 1/8: 0.648/0.648, 1/4: 0.470/0.470) \u2014 texture with the curve.",
+    "pump_verdict": "NO-PUMP",
+    "pump_clause": "the two-constant pump did NOT fit (w = +0.026755, g = -0.042665, R^2 = 0.421 < 0.8 or wrong signs) \u2014 the linear pump is not the curve's form; log-domain variant w=+0.053389, g=-0.087385, R^2=0.392 (annotation).",
+    "verdict": "TEXTURE + NO-PUMP",
+    "order": "THRESHOLD -> GRADED -> TEXTURE (shape); PUMP-FIT a separate co-verdict; no bar shopping"
+  },
+  "honesty_reflex": {
+    "rate_accounting": "r=1/32 is NINE replay events in 300 steps (realized r 0.030): a threshold between 1/32 and 1/8 is a threshold between ~9 and ~37 interventions \u2014 the ladder's resolution, not a continuum; r=1/4's +300 read sits ON a replay step (300 % 4 == 0) while 1/32's sits 12 wash steps after its last replay: the endpoint phase differs by schedule, and the per-checkpoint trajectory (not the endpoint alone) carries the shape",
+    "single_seed_single_lineage": "one trajectory per rate, seed 10902, one root (e131 consolidated) \u2014 n=1 per cell; e152R/e184 showed timing texture is seed-dependent while outcomes held; the threshold bracket is unreplicated",
+    "stream_mismatch_at_r_half": "the 1/2 endpoint is e174 arm B, whose interleaved partner is the F2-INSTALL batch (stronger interference than the neutral wash) \u2014 the curve's end is a conservative floor, and its non-monotonicity (if any) vs the new cells is the stream delta, not a rate effect",
+    "device_mixing": "stored r=0 ran pure CPU; this run's cells may launch GPU and thermal-migrate mid-run (e180's precedent) \u2014 recorded per cell; the bars live at 0.27/0.5 vs floors ~0.004, beyond float noise; the replicate's G_REPRO reports the drift",
+    "pump_fit_scope": "the linear pump is the SIMPLEST two-constant summary; dead-flat floor segments attenuate w and sawtooth segments violate the linear form \u2014 the R^2 bar (0.80) is the honesty dial, and a NO-PUMP is a finding about the curve's form, not a failure of measurement",
+    "logits_alone": "the g-12 ruler is a readout probability; the e174 arm-B precedent (genuine cohabitation with the graft formed) and e176n's whole-anatomy wash argue the readout tracks the memory here, but a maintained readout at tiny r could in principle ride a re-teach cycle rather than true maintenance \u2014 the +50 full dials (held30, site read, census) co-report the difference"
+  },
+  "compute": {
+    "train_device_policy": "GPU allowed (park-once, quick check + mid-run guard); cooldown 90s around each training; per-training cap 1800s",
+    "gpu_parked": false,
+    "park_reason": null,
+    "device_events": [
+      {
+        "tag": "r1_8",
+        "step": 25,
+        "event": "MID-RUN MIGRATION",
+        "status": {
+          "util": 68.0,
+          "mem_used": 1104.0,
+          "mem_total": 24463.0,
+          "temp": 81.0,
+          "power": 48.11
+        },
+        "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + optimizer state moved to CPU; training finishes on CPU (e184/e152 precedent)"
+      },
+      {
+        "tag": "r1_4",
+        "step": 25,
+        "event": "MID-RUN MIGRATION",
+        "status": {
+          "util": 80.0,
+          "mem_used": 1104.0,
+          "mem_total": 24463.0,
+          "temp": 81.0,
+          "power": 57.76
+        },
+        "note": "contention guard fired (mem > 85% or temp > 80C) \u2014 net + optimizer state moved to CPU; training finishes on CPU (e184/e152 precedent)"
+      }
+    ],
+    "torch_threads": 8,
+    "cells_devices": {
+      "r0_wash": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "r1_32": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "r1_8": {
+        "initial": "cuda",
+        "final": "cpu"
+      },
+      "r1_4": {
+        "initial": "cuda",
+        "final": "cpu"
+      }
+    }
+  },
+  "trims": [],
+  "deviations": [
+    "GPU ALLOWED by dispatch (idle 0%/67C at dispatch; e184/e180's policy verbatim): strict pre-training quick check per training (gpu_ok() gates: util <= 85, temp <= 80 C, mem <= 85% of total; double-poll 5 s apart), PARK-ONCE to CPU on failure; mid-run contention guard polls every 25 steps and migrates net + optimizer state to CPU on mem/temp breach, finishing there (any mixing recorded per cell in device_events).",
+    "The r=1/2 endpoint is STREAM-MISMATCHED by the dispatch's own design (e174 arm B interleaves the F2-INSTALL batch \u2014 a STRONGER interference than the neutral wash \u2014 alongside the same F1-replay batches): the 1/2 point is a conservative floor for the curve's end, flagged at every use; the threshold/graded bars adjudicate on the three NEW rates only.",
+    "A FOURTH training beyond the dispatch's three \u2014 the r=0 wash REPLICATE (QUEUE's '4-5 trainings' allowance) \u2014 is a RIDER: it validates the rig (G_REPRO vs e176n arm A's stored cells; its RNG draw sequence is arm-A-identical at seed 10902) and anchors the curve same-run. The bars anchor on the STORED e176n trace as registered either way; a G_REPRO fail on a device-mixed replicate is recorded and flagged, not raised (pure-CPU fail still raises).",
+    "Full dials at +50 and +300 only (light in-run evals elsewhere, e180's rider convention): the maintenance question is answered by the g-12 trajectory; the full dial is the anatomy co-report at the two bar-relevant points.",
+    "SMOKE CORRECTION (pre-main; nothing adjudicated in smoke): the first frozen draft read dies(r) as 'any checkpoint in (0,50] under 0.27' and maintains(r) as 'never under 0.27 through +300' \u2014 both structurally unfireable under re-teach dynamics (steps 1..k-1 are wash steps for every k >= 4, so the two-step eviction dip at +2 counts as death for EVERY rate, 1:1 included by extension). Re-frozen BEFORE the main compute to e176n's state-based ancestor convention (dies = the +50 CELL <= 0.27, exactly e176n's NEUTRAL-DISSOLVES; maintains = >= 0.5 at BOTH registered horizons +50 and +300). This correction makes the registered THRESHOLD clause fireable; it does not favor any outcome.",
+    "The fixed checkpoint grid is NOT aligned to replay events (no per-rate phase shopping): an oscillating rate reads differently at +300 depending on where its last replay sits relative to 300 (k=32: 12 wash steps after the last replay; k=8: 4; k=4: step 300 IS a replay step) \u2014 the per-checkpoint trajectory AND the co-reported late-grid cycle stats (mean/min g-12 over {100,200,300}) carry the sustained level; flagged in the honesty reflex.",
+    "Nets are the mandated 2.7M e131_consolidated line (the dispatch's '<=1M family' note is an envelope statement; e174/e180 precedent \u2014 every gate reference lives on this line, and the mandated root IS e131_consolidated_e113.pt).",
+    "GPU float nondeterminism: the stored r=0 reference ran pure CPU; if the replicate or rate cells run GPU (or park mid-run), devices mix ACROSS curve points \u2014 recorded per cell. The bars live at order-of-magnitude level separations (0.27/0.5 vs floors ~0.004), which float noise cannot move; any read within 0.05 of either bar is FLAGGED, not smoothed.",
+    "Eval thread count is 8 (e152R/e143/e184/e180 convention) vs e151's stored cells \u2014 CPU reduction order can drift low-order bits; the G_ROOT gate reports both the 5e-6 bit flag and the 0.05 fallback tolerance.",
+    "The replay steps draw RNG shapes e174-arm-B-style (ix(16,)+aj(8,)+rj(8,)) while wash steps draw e176n-arm-A-style (aj(16,)+rj(16,)): the rate cells are their own streams at seed 10902 by design (only the r=0 replicate is arm-A-identical); recorded so no one reads cross-cell RNG identity into the design.",
+    "Single seed (10902), one trajectory per rate cell, one root lineage, n=1 per cell \u2014 point estimates until replicated (e184's seed lottery lives in the tail; the maintenance threshold is unreplicated).",
+    "Smoke mode trims: 36-step trainings, checkpoints {1,2,4,36}, lean measures, no cooldowns, no full dials, nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e179_r0_wash": {
+      "path": "runs/checkpoints/smoke_e179_r0_wash.pt",
+      "desc": "e131_consolidated_e113 + 36-step neutral-wash stream with F1-replay at nominal r=0 (0 replay batches of 36), lr 0.001, seed 10902 \u2014 the r=0 wash REPLICATE (rider)",
+      "steps": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "k": 0,
+      "nominal_r": 0.0,
+      "n_replay": 0,
+      "realized_r": 0.0,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e179_r1_32": {
+      "path": "runs/checkpoints/smoke_e179_r1_32.pt",
+      "desc": "e131_consolidated_e113 + 36-step neutral-wash stream with F1-replay at nominal r=0.03125 (1 replay batches of 36), lr 0.001, seed 10902",
+      "steps": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "k": 32,
+      "nominal_r": 0.03125,
+      "n_replay": 1,
+      "realized_r": 0.027777777777777776,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e179_r1_8": {
+      "path": "runs/checkpoints/smoke_e179_r1_8.pt",
+      "desc": "e131_consolidated_e113 + 36-step neutral-wash stream with F1-replay at nominal r=0.125 (4 replay batches of 36), lr 0.001, seed 10902",
+      "steps": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "k": 8,
+      "nominal_r": 0.125,
+      "n_replay": 4,
+      "realized_r": 0.1111111111111111,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e179_r1_4": {
+      "path": "runs/checkpoints/smoke_e179_r1_4.pt",
+      "desc": "e131_consolidated_e113 + 36-step neutral-wash stream with F1-replay at nominal r=0.25 (9 replay batches of 36), lr 0.001, seed 10902",
+      "steps": 36,
+      "seed": 10902,
+      "lr": 0.001,
+      "k": 4,
+      "nominal_r": 0.25,
+      "n_replay": 9,
+      "realized_r": 0.25,
+      "anchor_bank": "neutral (seed 170)",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "elapsed_s": 121.5
+}

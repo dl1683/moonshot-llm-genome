@@ -1,0 +1,839 @@
+{
+  "experiment": "g2e",
+  "date": "2026-09-29T19:07:18Z",
+  "purpose": "THE ROOT/LINEAGE REPLICATE \u2014 the architecture claim's last ladder rung (T131): a FRESH root (a new install+consolidation draw of the g2 recipe, gen 4305 -> 4306 on the same e098 base) must clear the 0.7 root-strength gate at construction AND sustain the onset-monitor organ's self-maintaining rhythm (g2c/g2d readout, wash seed 10902 held) for 'the organ works' to be licensed as an architecture claim at n=2 roots.",
+  "delta_vs_g2d": {
+    "g2d": "wash-draw seeds 10903/10904 on the LOCKED root \u2014 the rhythm is wash-draw-robust at n=3 seeds, one root",
+    "g2e": "a fresh ROOT draw (install gen 4306, same base/recipe) with the wash seed HELD at 10902 \u2014 the rhythm's root-generality, the architecture claim's last rung",
+    "the_knob": "G2.build_root's gen_seed only: 4305 -> 4306 (e184's +1 convention); base init, install windows, cue pool and the consolidation stream (seed 10901) are shared with the locked root (siblings, not strangers \u2014 see honesty)"
+  },
+  "smoke": true,
+  "threads": 4,
+  "cpu_only": true,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "compute": {
+    "cpu_only": true,
+    "cuda_visible_devices": "-1",
+    "threads": 4,
+    "stagger_s": 2.0,
+    "train_cap_s": 900.0,
+    "meas_grid_n": 20,
+    "meas_grid_every": 2,
+    "cooldowns": "0 s (CPU-only; g2b/g2c/g2d convention)"
+  },
+  "fresh_root": {
+    "recipe": "e098_base_s4305.pt + e043-Dmix install (8 steps, gen 4306) + e113 jitter consolidation (300 steps, seed 10901) \u2014 g2's r1 VERBATIM, one gen knob changed",
+    "install_traj": [
+      {
+        "step": 8,
+        "install60_pz": 0.31724315881729126,
+        "r1i_nll": 0.8442788124084473,
+        "r1i_acc": 0.8023809790611267
+      }
+    ],
+    "install_wall_s": 14.7,
+    "install_device": "cpu",
+    "cons_traj": [
+      {
+        "step": 8,
+        "install60_pz": 0.004809529986232519,
+        "ce_r": 2.7580325603485107,
+        "elapsed_s": 4.9
+      }
+    ],
+    "cons_device": "cpu",
+    "root_monitor_onset": 0.004119795747101307,
+    "locked_root_monitor_onset": 0.0022665834985673428,
+    "gates": {
+      "G_SPLICE": {
+        "install_mix": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "pass": true
+      },
+      "G_POOL": {
+        "form": "bit vs the LOCKED root's on-disk cue pool (g2_root.pt registered buffers)",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "shape": [
+          300,
+          256
+        ],
+        "pass": true
+      },
+      "G_ROOTF": {
+        "form": "fresh root sd through the organ registration (G2Net wrap -> body-strip -> reload), re-measured",
+        "cells_roundtrip": {
+          "g-12": 0.00323649775236845,
+          "g+0": 0.004809529986232519,
+          "g+12": 0.0029653245583176613
+        },
+        "cells_construction": {
+          "g-12": 0.00323649775236845,
+          "g+0": 0.004809529986232519,
+          "g+12": 0.0029653245583176613
+        },
+        "max_abs_diff": 0.0,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": true,
+        "pass": true
+      }
+    }
+  },
+  "locked_root_reference": {
+    "source": "runs/g2/metrics.json (root.cells) + runs/g2c/metrics.json (dense trace) + runs/g2b/metrics.json (root onset monitor)",
+    "cells": {
+      "gm12": 0.0022205791901797056,
+      "g0": 0.0020340944174677134,
+      "gp12": 0.002377510303631425,
+      "ce_r": 2.89866304397583
+    },
+    "ruler_value": 0.7106021046638489,
+    "g2c_cycle_median_stored": null,
+    "g2c_duty_stored": null,
+    "contrast_base_ruler_50": null
+  },
+  "cells": {
+    "base": {
+      "mode": "base",
+      "seed": 10902,
+      "steps_ran": 36,
+      "n_events": 0,
+      "n_checks": 0,
+      "realized_r": 0.0,
+      "event_spacings": [],
+      "events": [],
+      "monitor_trace": [],
+      "event_log": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0006511055398732424,
+          "g0": 0.0007035975577309728,
+          "gp12": 0.0009508617222309113,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.8869333267211914,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.6
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 2.953308830910828e-05,
+          "g0": 2.928217509179376e-05,
+          "gp12": 3.4885753848357126e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.802227258682251,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.9
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 3.0268898626673035e-05,
+          "g0": 3.8448171835625544e-05,
+          "gp12": 3.542436388670467e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.8922998905181885,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 4.7
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.0003245360276196152,
+          "g0": 0.00029171144706197083,
+          "gp12": 0.00019394917762838304,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.386181592941284,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 19.2
+        }
+      ],
+      "devices": {
+        "initial": "cpu",
+        "final": "cpu"
+      },
+      "replay_checks": {
+        "events": 0,
+        "mask7_ok": 0,
+        "anchors_8_8_ok": 0,
+        "echo_j0_ok": 0
+      },
+      "note": "gate hard-disabled \u2014 the intervention contrast ON THE FRESH ROOT (co-reported; not a registered bar)"
+    },
+    "g2": {
+      "mode": "g2",
+      "seed": 10902,
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 1,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "events": [
+        24
+      ],
+      "monitor_trace": [
+        {
+          "step": 24,
+          "check": 6,
+          "monitor": 3.738610030268319e-05,
+          "fired": true,
+          "became_event": true
+        }
+      ],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 24,
+          "mode": "g2",
+          "pre_event_monitor": 3.738610030268319e-05,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 0.0007759800646454096,
+            "g0": 0.0007395026041194797,
+            "gp12": 0.00040357111720368266
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 5.064119613962248e-05,
+            "g0": 7.4274510552641e-05,
+            "gp12": 3.600597119657323e-05
+          }
+        }
+      ],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 0.0006511055398732424,
+          "g0": 0.0007035975577309728,
+          "gp12": 0.0009508617222309113,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.8869333267211914,
+          "monitor": 0.0006164390360936522,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.1
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 2.953308830910828e-05,
+          "g0": 2.928217509179376e-05,
+          "gp12": 3.4885753848357126e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.802227258682251,
+          "monitor": 3.419531640247442e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.4
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 3.0268898626673035e-05,
+          "g0": 3.8448171835625544e-05,
+          "gp12": 3.542436388670467e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.8922998905181885,
+          "monitor": 4.851072299061343e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 4.3
+        },
+        {
+          "step": 6,
+          "why": "ckpt",
+          "gm12": 1.8187427485827357e-05,
+          "g0": 2.0107565433136187e-05,
+          "gp12": 1.79471135197673e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.7202839851379395,
+          "monitor": 2.583946115919389e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 5.9
+        },
+        {
+          "step": 8,
+          "why": "ckpt",
+          "gm12": 7.231368726934306e-06,
+          "g0": 1.0862698218261357e-05,
+          "gp12": 9.208571100316476e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.60868239402771,
+          "monitor": 4.155875103606377e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 7.5
+        },
+        {
+          "step": 10,
+          "why": "ckpt",
+          "gm12": 1.0168277185584884e-05,
+          "g0": 1.413337577105267e-05,
+          "gp12": 1.1474189705040772e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.56315016746521,
+          "monitor": 7.439427918143338e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 9.0
+        },
+        {
+          "step": 12,
+          "why": "ckpt",
+          "gm12": 1.28843630591291e-05,
+          "g0": 1.6946949472185224e-05,
+          "gp12": 1.3981323718326166e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.543347120285034,
+          "monitor": 1.3422971278487239e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 10.2
+        },
+        {
+          "step": 14,
+          "why": "ckpt",
+          "gm12": 1.2255408364580944e-05,
+          "g0": 2.0557337848003954e-05,
+          "gp12": 1.5012930816737935e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.501304864883423,
+          "monitor": 1.6956701074377634e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 11.4
+        },
+        {
+          "step": 16,
+          "why": "ckpt",
+          "gm12": 1.4196774827723857e-05,
+          "g0": 2.0329513063188642e-05,
+          "gp12": 1.5810604963917285e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.5055301189422607,
+          "monitor": 2.172085987695027e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 12.6
+        },
+        {
+          "step": 18,
+          "why": "ckpt",
+          "gm12": 1.498961773904739e-05,
+          "g0": 2.241599213448353e-05,
+          "gp12": 1.5819558029761538e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.484250783920288,
+          "monitor": 2.3069960661814548e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 13.7
+        },
+        {
+          "step": 20,
+          "why": "ckpt",
+          "gm12": 1.6766931366873905e-05,
+          "g0": 2.4086166376946494e-05,
+          "gp12": 1.5172116945905145e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4574015140533447,
+          "monitor": 1.554049231344834e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 14.9
+        },
+        {
+          "step": 22,
+          "why": "ckpt",
+          "gm12": 1.9630950191640295e-05,
+          "g0": 3.065951386815868e-05,
+          "gp12": 1.7618929632590152e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.470348596572876,
+          "monitor": 1.670191159064416e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 16.0
+        },
+        {
+          "step": 24,
+          "why": "ckpt",
+          "gm12": 5.064119613962248e-05,
+          "g0": 7.4274510552641e-05,
+          "gp12": 3.600597119657323e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4627063274383545,
+          "monitor": 6.315470818663016e-05,
+          "n_events_so_far": 1,
+          "was_event": true,
+          "elapsed_s": 17.2
+        },
+        {
+          "step": 25,
+          "why": "ckpt",
+          "gm12": 6.58918361295946e-05,
+          "g0": 9.592308924766257e-05,
+          "gp12": 4.6209974243538454e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.451624631881714,
+          "monitor": 8.113428339129314e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 18.1
+        },
+        {
+          "step": 26,
+          "why": "ckpt",
+          "gm12": 6.352704076562077e-05,
+          "g0": 0.0001020422569126822,
+          "gp12": 4.9435722758062184e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4292261600494385,
+          "monitor": 8.792063454166055e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 18.9
+        },
+        {
+          "step": 28,
+          "why": "ckpt",
+          "gm12": 8.510817860951647e-05,
+          "g0": 0.00013020717597100884,
+          "gp12": 6.628603296121582e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4449069499969482,
+          "monitor": 0.0001030635175993666,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 20.1
+        },
+        {
+          "step": 30,
+          "why": "ckpt",
+          "gm12": 0.00019908466492779553,
+          "g0": 0.00025212933542206883,
+          "gp12": 0.00012935874110553414,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4116721153259277,
+          "monitor": 0.00022771455405745655,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 21.4
+        },
+        {
+          "step": 32,
+          "why": "ckpt",
+          "gm12": 0.00036206308868713677,
+          "g0": 0.00043542898492887616,
+          "gp12": 0.00023213861277326941,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.404912233352661,
+          "monitor": 0.00047188950702548027,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 22.6
+        },
+        {
+          "step": 34,
+          "why": "ckpt",
+          "gm12": 0.00046183427912183106,
+          "g0": 0.0005109020275995135,
+          "gp12": 0.00025657087098807096,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4036779403686523,
+          "monitor": 0.0005550257628783584,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 23.8
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 0.0007759800646454096,
+          "g0": 0.0007395026041194797,
+          "gp12": 0.00040357111720368266,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.39701247215271,
+          "monitor": 0.0006679504294879735,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 25.1
+        }
+      ],
+      "devices": {
+        "initial": "cpu",
+        "final": "cpu"
+      },
+      "replay_checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      },
+      "note": "gate live, onset-only monitor \u2014 THE RHYTHM LEG (dense grid, g2c/g2d readout)"
+    }
+  },
+  "phase_fresh_root": {
+    "n_complete_cycles": 0,
+    "n_pooled_samples": 0,
+    "cycle_median": null,
+    "cycle_mean": null,
+    "duty_ge_0.5": null,
+    "peak_max": null,
+    "trough_min": null,
+    "per_cycle": [],
+    "per_cycle_peak_range": null,
+    "per_cycle_median_range": null,
+    "per_cycle_trough_range": null,
+    "frac_cycles_median_ge_0.5": null,
+    "phase_bin_centers": [
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375,
+      0.5625,
+      0.6875,
+      0.8125,
+      0.9375
+    ],
+    "phase_bin_medians": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "phase_bin_means": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "pre_rhythm": {
+      "steps": [
+        1,
+        22
+      ],
+      "min": 1.0862698218261357e-05
+    },
+    "tail_partial": {
+      "n_samples": 7,
+      "min": 9.592308924766257e-05,
+      "max": 0.0007395026041194797,
+      "ruler_at_final_step": 0.0007395026041194797
+    }
+  },
+  "clauses_fresh_root": {
+    "n_events": 1,
+    "event_spacings": [],
+    "frac_spacing_in_20_45": null,
+    "band_stays_20_45": false,
+    "events_clause": false,
+    "cycle_median": null,
+    "cycle_mean": null,
+    "duty_ge_0.5": null,
+    "median_clause": false,
+    "near_texture": [],
+    "passes_both": false
+  },
+  "reference_leg": {
+    "seed": 10902,
+    "root": "locked (g2_root.pt via g2c)",
+    "F_REF": {
+      "form": "g2c's stored dense trace re-pooled (load integrity)",
+      "cycle_median_recomputed": null,
+      "g2c_stored": null,
+      "abs_diff": null,
+      "n_dense_rows": 20,
+      "pass": true,
+      "note": "smoke: 0 complete cycles on both sides \u2014 vacuous"
+    },
+    "clauses": {
+      "n_events": 1,
+      "event_spacings": [],
+      "frac_spacing_in_20_45": null,
+      "band_stays_20_45": false,
+      "events_clause": false,
+      "cycle_median": null,
+      "cycle_mean": null,
+      "duty_ge_0.5": null,
+      "median_clause": false,
+      "near_texture": [],
+      "passes_both": false,
+      "source": "g2c's stored realization (fidelity-gated to g2b's own); embedded reference leg, not re-adjudicated"
+    },
+    "phase": {
+      "n_complete_cycles": 0,
+      "n_pooled_samples": 0,
+      "cycle_median": null,
+      "cycle_mean": null,
+      "duty_ge_0.5": null,
+      "peak_max": null,
+      "trough_min": null,
+      "per_cycle": [],
+      "per_cycle_peak_range": null,
+      "per_cycle_median_range": null,
+      "per_cycle_trough_range": null,
+      "frac_cycles_median_ge_0.5": null,
+      "phase_bin_centers": [
+        0.0625,
+        0.1875,
+        0.3125,
+        0.4375,
+        0.5625,
+        0.6875,
+        0.8125,
+        0.9375
+      ],
+      "phase_bin_medians": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "phase_bin_means": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "pre_rhythm": {
+        "steps": [
+          1,
+          22
+        ],
+        "min": 1.2796322153008077e-05
+      },
+      "tail_partial": {
+        "n_samples": 7,
+        "min": 0.00013690489868167788,
+        "max": 0.00037975245504640043,
+        "ruler_at_final_step": 0.00037975245504640043
+      }
+    },
+    "events": [
+      24
+    ],
+    "event_log": [
+      {
+        "n": 1,
+        "step": 24,
+        "mode": "g2",
+        "pre_event_monitor": 6.559951725648716e-05,
+        "post_refractory_monitor": null,
+        "next_check_fired": null,
+        "ruler_cells_at_plus_refractory": {
+          "gm12": 0.0004354429547674954,
+          "g0": 0.00037975245504640043,
+          "gp12": 0.00042305683018639684
+        },
+        "ruler_cells_at_next_ckpt": {
+          "gm12": 7.831996481399983e-05,
+          "g0": 9.545890497975051e-05,
+          "gp12": 5.442390829557553e-05
+        }
+      }
+    ],
+    "source": "g2c's stored dense realization (fidelity-gated to g2b's own); embedded leg, not re-adjudicated"
+  },
+  "schedules_differ": {
+    "schedules": {
+      "locked_root_g2c_10902": [
+        24
+      ],
+      "fresh_root_g2e_10902": [
+        24
+      ]
+    },
+    "distinct": false
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "cell_zeph_violations": {
+        "base": 0,
+        "g2": 0
+      },
+      "pass": true
+    },
+    "G_REPLAY": {
+      "base": {
+        "n_events": 0,
+        "checks": {
+          "events": 0,
+          "mask7_ok": 0,
+          "anchors_8_8_ok": 0,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      },
+      "g2": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      }
+    },
+    "G_STEP": {
+      "base": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      },
+      "g2": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      }
+    },
+    "CONTRAST": {
+      "form": "CELL-BASE on the FRESH ROOT (sparse grid, seed 10902) \u2014 the honest-reflex intervention check",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "locked_root_base_50": null,
+      "embedded_context": "e184 ALL-DISSOLVE (n=3 wash seeds, locked root); g4's two-root dissolve (T127)",
+      "pass": null,
+      "structural_void_on_fresh_root": false
+    },
+    "hard": {
+      "G_POOL": true,
+      "G_ROOTF": true,
+      "G_NAMEFREE": true,
+      "G_REPLAY": true,
+      "G_STEP": true,
+      "F_REF": true
+    }
+  },
+  "registered_bars": {
+    "organ_replicates": "ORGAN-REPLICATES fires if the fresh root clears the strength gate (ruler g0 >= 0.7 at construction) AND the organ sustains the rhythm on it (>=5 self-timed events in/near 20-45 band; cycle-median >= 0.5) \u2014 the architecture claim licensed at n=2 roots",
+    "organ_root_bound": "ORGAN-ROOT-BOUND fires if the fresh root passes the gate but the rhythm fails (or vice versa) \u2014 the organ's success was root-specific (honest bound; the architecture claim scoped)",
+    "residual_root_draw_bound": "pre-registered remainder: gate fails AND rhythm fails -> ROOT-DRAW-BOUND (the recipe's draw produced neither; claim stays n=1-root; a re-draw owed; no third bar invented)",
+    "source": "dispatch g2e (T131), VERBATIM; operationalized in this docstring before the run; no shopping \u2014 'in/near' is co-reported texture, never a widened bar (g2d's rule)."
+  },
+  "registered_prediction": {
+    "pre_run": "the GATE is the open risk (r1 landed 0.7106, barely over 0.7; e157's ported root 0.591) \u2014 predict the fresh draw lands 0.62-0.78; if it clears, predict 8-12 events, spacing 24-40, cycle-median 0.5-0.7, duty 55-75% (g2d's closed-loop dominance argument transfers from wash-draws to root-draws). Both outcomes pre-registered; no shopping.",
+    "discriminating_observation": "the fresh root's construction onset monitor vs the locked root's 0.609 (a root starting below theta opens the gate immediately \u2014 texture), and the fresh cell's per-cycle troughs vs g2d's 0.08-0.60 \u2014 shallow troughs license with room; deep troughs extend the amplitude lottery to roots while the median decides."
+  },
+  "adjudication": {
+    "gate": {
+      "form": "g2's frozen rule: ruler = argmax over {-12,0,+12} battery geos at construction; ROOT_BAR 0.7 never lowered",
+      "geos": {
+        "g-12": 0.00323649775236845,
+        "g+0": 0.004809529986232519,
+        "g+12": 0.0029653245583176613
+      },
+      "held30": {
+        "g-12": 0.0030596782453358173,
+        "g+0": 0.005019049625843763,
+        "g+12": 0.0027053735684603453
+      },
+      "ce_r": 2.7580325603485107,
+      "ruler_geo": 0,
+      "ruler_key": "g0",
+      "ruler": 0.004809529986232519,
+      "g0": 0.004809529986232519,
+      "root_bar": 0.7,
+      "locked_root_geos": {
+        "gm12": 0.0022205791901797056,
+        "g0": 0.0020340944174677134,
+        "gp12": 0.002377510303631425,
+        "ce_r": 2.89866304397583
+      },
+      "geo_matches_locked": true,
+      "passes": false
+    },
+    "gate_pass": false,
+    "rhythm_pass": false,
+    "clauses": {
+      "gate_clause": "fresh-root ruler (argmax of the three battery geos, g2's frozen rule) >= 0.7 at construction; g0 co-reported per the dispatch's letter",
+      "events_clause": "n_events >= 5 AND 100% of spacings in [20, 45] (g2b/g2c/g2d's registered band)",
+      "median_clause": "cycle-median over dense in-cycle samples of complete inter-event intervals >= 0.5 (g2c's convention, same grid)"
+    },
+    "bars": {
+      "ORGAN_REPLICATES": false,
+      "ORGAN_ROOT_BOUND": false,
+      "ROOT_DRAW_BOUND_residual": true,
+      "near_texture": []
+    },
+    "contrast_coreport": {
+      "form": "CELL-BASE on the FRESH ROOT (sparse grid, seed 10902) \u2014 the honest-reflex intervention check",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "locked_root_base_50": null,
+      "embedded_context": "e184 ALL-DISSOLVE (n=3 wash seeds, locked root); g4's two-root dissolve (T127)",
+      "pass": null,
+      "structural_void_on_fresh_root": false
+    },
+    "pre_rhythm_min": 1.0862698218261357e-05,
+    "verdict": "SMOKE (nothing adjudicated)",
+    "clause": "smoke trim \u2014 8-step root draw, 36-step cells."
+  },
+  "honesty": [
+    "WHAT WAS REPLICATED: the ROOT DRAW at n=2 (the locked root + one fresh install+consolidation draw), wash seed 10902 held fixed \u2014 the licensed claim is 'the organ's rhythm generalizes across root draws of this recipe'; it does NOT re-establish wash-draw robustness on the fresh root (g2d's n=3 was on the locked root; the fresh root's rhythm is a single wash-seed point estimate).",
+    "SIBLING ROOTS, NOT STRANGERS: the fresh draw renews the install batch trajectory (gen 4306) only \u2014 base init, install windows, cue pool and the consolidation stream (seed 10901) are shared; a base-seed redraw (e098_base_s4306.pt exists) and a consolidation-seed redraw remain open rungs.",
+    "DEVICE TEXTURE: the fresh root is CPU-only end-to-end; the locked root was cuda-install + cpu-consolidation \u2014 the two roots differ in float texture as well as draw; every bar sits at order-of-magnitude separations.",
+    "THE INTERVENTION CHECK RAN ON THE FRESH ROOT: CELL-BASE (gate off, same seed) \u2014 behavior with vs without the organ is the honest-reflex test; its +50 value is co-reported (not a registered bar).",
+    "THE REFERENCE LEG IS STORED, NOT RERUN: g2c's dense trace was fidelity-gated to g2b's realization; F_REF re-pools it (max|diff| None) as a load check only.",
+    "NO BAR WIDENING: the dispatch's 'in/near' is co-reported texture; the two registered outcomes stay exhaustive over their domain, with the pre-registered ROOT-DRAW-BOUND residual for the both-fail corner.",
+    "n=2 ROOTS is the lab's replicate standard for this claim (e184/e187-style n=2 new draws + n=1 reference); it does not measure the root-draw pass rate \u2014 recorded as the bound it is."
+  ],
+  "checkpoints_saved": {},
+  "deviations": [
+    "THE DELTA: the root's install GEN SEED only \u2014 4305 -> 4306 (e184's +1 convention) on the SAME base (e098_base_s4305.pt), same e043-Dmix install (300 steps), same e113 consolidation (300 steps, seed 10901). The organ (g2b's G2BNet via module import), wash seed (10902), cells (G2.run_cell unmodified), dense grid and adjudication conventions are g2c/g2d VERBATIM.",
+    "ROOT SCOPE (the honest-reflex point): the fresh draw renews the INSTALL batch-composition trajectory only \u2014 base init, install windows, cue pool (write-once from the same install_occ) and the consolidation stream are SHARED with the locked root; the two roots are siblings, not strangers. A base-seed redraw (e098_base_s4306.pt exists on disk) is a bigger redraw the dispatch's letter ('a new gen seed') did not ask for \u2014 recorded as the scope; base-init generality remains open.",
+    "WASH SEED HELD AT 10902: the delta vs the g2c reference leg is the root, not the wash draw. Wash-draw robustness is g2d's n=3 ON THE LOCKED ROOT \u2014 it is NOT re-established on the fresh root (single wash seed there; honesty clause in metrics).",
+    "CPU-ONLY END-TO-END (install + consolidation + both cells): the locked root was cuda-install + cpu-consolidation \u2014 a device texture difference between the two roots; every bar lives at order-of-magnitude separations (g2's own GPU-float deviation note, in reverse).",
+    "CELL-BASE RERUN on the fresh root (sparse g2b grid, seed 10902): the intervention contrast re-established on the NEW root \u2014 the honest-reflex 'does intervening change behavior' check. Co-reported, NOT a registered bar; e184's ALL-DISSOLVE (n=3 wash seeds) + g4's two-root dissolve are the embedded cross-root context.",
+    "NO +300 ANATOMY DIAL: g2e's registered bars are gate + rhythm; the anatomy-at-+300 claim remains g2's, on the locked root.",
+    "NO NEW CHECKPOINT FILES: the fresh root and the measurement states live in memory and are discarded (deliverables are metrics + PNG; the fresh root is deterministically rebuildable from the recorded recipe: base + gen 4306 + cons 10901). The commit adds lab/ + runs/g2e only.",
+    "TRAIN CAP: G2E_CAP_S=900 s (g2d's bound, inherited; train-only is ~100-200 s per training at the mandated 4 CPU threads \u2014 the lab's 180-s GPU-era single-run rule cannot hold; g2b's recorded convention).",
+    "Cooldowns trimmed to 0 s (CPU-only; g2b/g2c/g2d's convention); 20 s stagger between the four trainings (the dispatch's CPU stagger).",
+    "RULER FREEZE on the fresh root follows g2's frozen rule (argmax of the three battery geos at construction); the locked root's ruler was g0 and the dispatch's letter names g0 \u2014 if the fresh argmax differed, both the argmax ruler and g0 are reported and the frozen rule decides (no shopping).",
+    "phase_analysis/clauses are g2d's VERBATIM with one mechanical change: the ruler key is a parameter (g2e's ruler is frozen at runtime from the fresh root, not hardcoded from a checkpoint meta).",
+    "Smoke mode trims: 8-step install/consolidation, 36-step cells, grid to 36, references from runs/g2c_smoke \u2014 nothing adjudicated."
+  ],
+  "timing_s": 65.5
+}

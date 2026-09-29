@@ -1,0 +1,1144 @@
+{
+  "experiment": "g4R_seed_replicates",
+  "date": "2026-09-29T20:14:46Z",
+  "design": "dispatch brief 2026-09-29; bars = g4's registered P1/P4 clauses verbatim (scratch/g4_design.md sec 6)",
+  "claims": "COMPASS placement (P1) + N2 head-knife (P4b) seed replicates \u2014 R55's >=3 rule",
+  "claim_bars": {
+    "compass": "FIRES iff both compass draws pass near_site_pos (e116 criterion AND strength >= 2x shared-control max) AND A inert (A-arm < 0.5 x P-site); n=3 with g4's draw; any miss = HONEST BOUND.",
+    "knife": "FIRES iff both knife draws' per-census N2 (top-2 by the g-12 head census, e160 convention) kills the jitter fact (drop >= 0.60 at CE delta <= +0.35); n=3 with g4's draw; any miss = HONEST BOUND.",
+    "no_bar_shopping": "g4's registered clauses verbatim; texture stays texture."
+  },
+  "smoke": true,
+  "provenance": {
+    "machinery": "lab/g4_dual_address.py imported VERBATIM (models, instruments, recipes); nothing re-implemented except this file's driver",
+    "design_lineage": "e043 install / e113 pools / e131 census / e133+e160 knife / e143 compass / e147 w8 ladder \u2014 all via the g4 import",
+    "g4_reference_metrics": "runs/g4/metrics.json",
+    "g4_reference": "inlined below under 'g4_reference'"
+  },
+  "seeds": {
+    "corpus": 1337,
+    "splice_rng": 24301,
+    "compass_installs": [
+      10903,
+      10904
+    ],
+    "knife_installs": [
+      10905,
+      10906
+    ],
+    "near_arm": 10902,
+    "w8_arm": 10901,
+    "r_eval": 26502,
+    "slot_usage": 43052,
+    "g4_install_for_reference": 10901
+  },
+  "deviations": [
+    "Only the INSTALL seed varies (10903-10906 vs g4's 10901); roots, corpus, protocol, pools, batteries and downstream arm seeds (NEAR 10902, w8 10901) are g4's VERBATIM \u2014 this is install-draw replication on a shared root: n=3 on the install draw, n=1 on the root/lineage (the honesty reflex carries the bound).",
+    "The knife's head-set is selected PER-CENSUS per draw (e160 escalation convention, as in g4's stage 5); g4's literal headset {L1H2, L3H0} is co-reported as a transfer cell, never adjudicated.",
+    "g4's registered install in-band gate [0.35, 0.75] FAILED-and-was-recorded in g4 (dual 0.7521); g4R records the same fields as texture and proceeds identically \u2014 no new gate, no gate shopping.",
+    "FAR arm, wash, locked-net surgery and the table-surgery cells are NOT replicated (not part of the two claims; g4's P4 FALSIFIED verdict \u2014 D-A-all killed the jitter fact at +0.44 CE \u2014 stands on its own).",
+    "NEAR row-0 is reported against this draw's OWN install baseline (g4's midpoint construction degenerated to the baseline: its routed reference sat below it); the clause is texture either way.",
+    "GPU float nondeterminism precedent (e119): fresh GPU trainings carry no bit-repro expectations; gates are internal plus the registered program gates.",
+    "Smoke mode trims to 8-step trainings; nothing adjudicated."
+  ],
+  "trims": [],
+  "g4_reference": {
+    "install_seed": 10901,
+    "dual_near": {
+      "site_strength": 0.2878764867782593,
+      "control_max": 0.0,
+      "A_arm_strength": -0.0003701448440551758,
+      "row0": 0.5918931066989899,
+      "site_pos": true
+    },
+    "P1_clauses": {
+      "near_site_pos": true,
+      "far_site_pos": true,
+      "A_inert": true,
+      "row0_at_baseline": true,
+      "near_site_bound": true
+    },
+    "P1_verdict": "COMPASS-IS-POSITIONAL (committed branch HELD)",
+    "near_census_rows": {
+      "0": {
+        "mean": 0.7377761900424957,
+        "zero": 0.5918931066989899,
+        "ratio": 0.8022664795741064,
+        "strength": 0.5918931066989899,
+        "content": true
+      },
+      "1": {
+        "mean": 0.8966459855437279,
+        "zero": 0.7659343928098679,
+        "ratio": 0.8542216272182424,
+        "strength": 0.7659343928098679,
+        "content": true
+      },
+      "2": {
+        "mean": 0.6153647005558014,
+        "zero": 0.2962934970855713,
+        "ratio": 0.481492514630685,
+        "strength": 0.2962934970855713,
+        "content": false
+      },
+      "3": {
+        "mean": 0.44659560918807983,
+        "zero": 0.1777077317237854,
+        "ratio": 0.3979164328257991,
+        "strength": 0.1777077317237854,
+        "content": false
+      },
+      "4": {
+        "mean": 0.179287850856781,
+        "zero": 0.12130731344223022,
+        "ratio": 0.6766064340808743,
+        "strength": 0.12130731344223022,
+        "content": true
+      },
+      "5": {
+        "mean": 0.49667954444885254,
+        "zero": 0.2878764867782593,
+        "ratio": 0.579602059307084,
+        "strength": 0.2878764867782593,
+        "content": true
+      },
+      "6": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "7": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "8": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "9": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "10": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "11": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "12": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "13": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "14": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "15": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "16": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "17": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "60": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "100": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "150": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "160": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "170": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "200": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      },
+      "220": {
+        "mean": 0.0,
+        "zero": 0.0,
+        "ratio": 0.0,
+        "strength": 0.0,
+        "content": false
+      }
+    },
+    "knife_N2": {
+      "heads": [
+        "L1H2",
+        "L3H0"
+      ],
+      "pz_prim": 0.0008434321624614919,
+      "drop": 0.9877246134262997,
+      "ce_r": 1.9476984739303589,
+      "ce_delta": 0.1789180040359497,
+      "flat_ce_kill": true
+    },
+    "knife_ranking": [
+      "L1H2",
+      "L3H0",
+      "L1H0",
+      "L1H3"
+    ],
+    "P4_b_n2_kills_jitter": true,
+    "install_dual": {
+      "pz_g0": 0.7521459460258484,
+      "A_P": 0.26757761803843705,
+      "A_A": -0.004876750955979059,
+      "carrier": "P"
+    },
+    "dual_root_val_ce": 1.5271989703178406
+  },
+  "timing": {
+    "total_s": 471.6
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "w8_grid": [
+      -8,
+      -4,
+      0,
+      4,
+      8
+    ],
+    "batteries": "ctx = train_text[p-PRE-j:p], p(Z) at last position (wpe row 129+j)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_ROOT": {
+      "root": "runs/checkpoints/g4_dual_base.pt (LOADED, g4's pretrained dual root \u2014 no retraining)",
+      "sha256_16": "340f8289039e02e7",
+      "meta": {
+        "experiment": "g4",
+        "desc": "dual root: DualGPT (wpe P-floor + 32-slot A-floor + gate), net seed 4305",
+        "steps": 3000,
+        "seed": 4305
+      },
+      "val_ce_this_load": 1.5312029004096985,
+      "g4_recorded_val_ce": 1.5271989703178406,
+      "diff": 0.0040039300918579546,
+      "bar": 0.05,
+      "pass": true
+    }
+  },
+  "roots": {
+    "dual": {
+      "root": "runs/checkpoints/g4_dual_base.pt (LOADED, g4's pretrained dual root \u2014 no retraining)",
+      "sha256_16": "340f8289039e02e7",
+      "meta": {
+        "experiment": "g4",
+        "desc": "dual root: DualGPT (wpe P-floor + 32-slot A-floor + gate), net seed 4305",
+        "steps": 3000,
+        "seed": 4305
+      },
+      "val_ce_this_load": 1.5312029004096985,
+      "g4_recorded_val_ce": 1.5271989703178406,
+      "diff": 0.0040039300918579546,
+      "bar": 0.05,
+      "pass": true
+    },
+    "ctrl": {
+      "root": "runs/checkpoints/g4_ctrl_base.pt (provenance only \u2014 both g4R claims are dual-net claims)",
+      "sha256_16": "908b38290a820b05",
+      "meta": {
+        "experiment": "g4",
+        "desc": "control root: plain TinyGPT 4L/4H/128d/256, corpus seed 1337, net seed 4305, 3000 steps",
+        "steps": 3000,
+        "seed": 4305
+      }
+    }
+  },
+  "replicates": {
+    "compass": {
+      "r1": {
+        "install_seed": 10903,
+        "near_seed": 10902,
+        "install": {
+          "pz_g0": 0.28838497400283813,
+          "pz_held_g0": 0.3133147358894348,
+          "ce_r": 2.434950351715088,
+          "A_P": 0.06590626086399426,
+          "row0": 0.281810668669444,
+          "census_rows_0_129": {
+            "0": {
+              "mean": 0.28320217172974177,
+              "zero": 0.281810668669444,
+              "ratio": 0.9950865381723637,
+              "strength": 0.281810668669444,
+              "content": true
+            },
+            "129": {
+              "mean": 0.06590626086399426,
+              "zero": 0.219010903839929,
+              "ratio": 0.30092684751515353,
+              "strength": 0.06590626086399426,
+              "content": false
+            }
+          },
+          "slot_usage_read_band": {
+            "n": 200,
+            "band": [
+              120,
+              140
+            ],
+            "top3_slots": [
+              10,
+              23,
+              6
+            ],
+            "top3_mass": [
+              0.4000000059604645,
+              0.1550000011920929,
+              0.11500000208616257
+            ],
+            "entropy_nats": 1.8679563999176025
+          },
+          "A_A": 0.002376853241730703,
+          "carrier_observed": "UNRESOLVED",
+          "in_band_gate": {
+            "lo": 0.35,
+            "hi": 0.75,
+            "pass": false,
+            "note": "record-only (g4's own dual install sat at 0.7521, out of band)"
+          }
+        },
+        "near_traj": [
+          {
+            "step": 8,
+            "p_z_mean": 0.7129988074302673,
+            "frac_argmax_z": 0.6833333333333333,
+            "ce_r": 2.405898332595825,
+            "elapsed_s": 0.4
+          }
+        ],
+        "census": {
+          "base_readout": 0.7129987478256226,
+          "rows": {
+            "0": {
+              "mean": 0.696110961958766,
+              "zero": 0.6681428104639053,
+              "ratio": 0.9598222797466629,
+              "strength": 0.6681428104639053,
+              "content": true
+            },
+            "1": {
+              "mean": 0.27319008111953735,
+              "zero": 0.18087196350097656,
+              "ratio": 0.6620736842266027,
+              "strength": 0.18087196350097656,
+              "content": true
+            },
+            "2": {
+              "mean": 0.31493058800697327,
+              "zero": 0.20176291465759277,
+              "ratio": 0.6406583620042817,
+              "strength": 0.20176291465759277,
+              "content": true
+            },
+            "3": {
+              "mean": 0.4586934447288513,
+              "zero": 0.3273515999317169,
+              "ratio": 0.7136609508889431,
+              "strength": 0.3273515999317169,
+              "content": true
+            },
+            "4": {
+              "mean": 0.6936371866613626,
+              "zero": 0.6436652317643166,
+              "ratio": 0.9279566380551586,
+              "strength": 0.6436652317643166,
+              "content": true
+            },
+            "5": {
+              "mean": 0.712847341914312,
+              "zero": 0.712766267315601,
+              "ratio": 0.9998862665342999,
+              "strength": 0.712766267315601,
+              "content": true
+            },
+            "6": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "7": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "8": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "9": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "10": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "11": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "12": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "13": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "14": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "15": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "16": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "17": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "60": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "100": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "150": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "160": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "170": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "200": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "220": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            }
+          }
+        },
+        "control_max": 0.0,
+        "site_rows": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "site_strength": 0.712766267315601,
+        "site_pos": true,
+        "A_arm_strength": -0.002837061882019043,
+        "A_arm_census": {
+          "base_readout": 0.7129987478256226,
+          "slots": [
+            5,
+            0,
+            1
+          ],
+          "mean_drop": -0.001373887062072754,
+          "zero_drop": -0.002837061882019043,
+          "strength": -0.002837061882019043,
+          "per_slot": {
+            "5": {
+              "mean": -0.0008497834205627441,
+              "zero": -0.0013586878776550293,
+              "strength": -0.0013586878776550293
+            },
+            "0": {
+              "mean": -0.0004978775978088379,
+              "zero": -0.0010113716125488281,
+              "strength": -0.0010113716125488281
+            },
+            "1": {
+              "mean": -2.485513687133789e-05,
+              "zero": -0.0004653334617614746,
+              "strength": -0.0004653334617614746
+            }
+          }
+        },
+        "A_arm_slots": [
+          5,
+          0,
+          1
+        ],
+        "A_arm_slot_freq": {
+          "5": 1.0,
+          "0": 0.0,
+          "1": 0.0
+        },
+        "A_inert": true,
+        "row0": 0.6681428104639053,
+        "row0_at_install_baseline": false,
+        "novel_geos": {
+          "-12": 0.0027006690794223686,
+          "-2": 0.002614416996948421,
+          "2": 0.0024470909659915683,
+          "12": 0.002164068671603066
+        },
+        "novel_mean": 0.0024815614284913563,
+        "novel_site_bound_texture": true,
+        "D_all_g0": 0.0014892208642171075,
+        "ce_r": 2.405898332595825,
+        "PASS": true
+      },
+      "r2": {
+        "install_seed": 10904,
+        "near_seed": 10902,
+        "install": {
+          "pz_g0": 0.0007282505393959582,
+          "pz_held_g0": 0.0009399916743859649,
+          "ce_r": 2.2147061824798584,
+          "A_P": 0.00019938953446398957,
+          "row0": -0.0010883100311806023,
+          "census_rows_0_129": {
+            "0": {
+              "mean": -0.00024311989254025923,
+              "zero": -0.0010883100311806023,
+              "ratio": 0.0,
+              "strength": -0.0010883100311806023,
+              "content": false
+            },
+            "129": {
+              "mean": 0.00019938953446398957,
+              "zero": 0.0003482384966143097,
+              "ratio": 0.5725660327692683,
+              "strength": 0.00019938953446398957,
+              "content": true
+            }
+          },
+          "slot_usage_read_band": {
+            "n": 200,
+            "band": [
+              120,
+              140
+            ],
+            "top3_slots": [
+              10,
+              23,
+              6
+            ],
+            "top3_mass": [
+              0.4350000023841858,
+              0.1850000023841858,
+              0.10999999940395355
+            ],
+            "entropy_nats": 1.7412447929382324
+          },
+          "A_A": -0.00011348477188827624,
+          "carrier_observed": "UNRESOLVED",
+          "in_band_gate": {
+            "lo": 0.35,
+            "hi": 0.75,
+            "pass": false,
+            "note": "record-only (g4's own dual install sat at 0.7521, out of band)"
+          }
+        },
+        "near_traj": [
+          {
+            "step": 8,
+            "p_z_mean": 0.6152003407478333,
+            "frac_argmax_z": 0.6833333333333333,
+            "ce_r": 2.6372225284576416,
+            "elapsed_s": 0.5
+          }
+        ],
+        "census": {
+          "base_readout": 0.6152003407478333,
+          "rows": {
+            "0": {
+              "mean": 0.5278299227356911,
+              "zero": 0.45897482335567474,
+              "ratio": 0.8695505949659939,
+              "strength": 0.45897482335567474,
+              "content": true
+            },
+            "1": {
+              "mean": 0.6151138699206058,
+              "zero": 0.6150660437560873,
+              "ratio": 0.9999222482749013,
+              "strength": 0.6150660437560873,
+              "content": true
+            },
+            "2": {
+              "mean": 0.615175964876471,
+              "zero": 0.6151387186328066,
+              "ratio": 0.999939454325606,
+              "strength": 0.6151387186328066,
+              "content": true
+            },
+            "3": {
+              "mean": 0.61517773898413,
+              "zero": 0.6151352905508247,
+              "ratio": 0.9999309980992236,
+              "strength": 0.6151352905508247,
+              "content": true
+            },
+            "4": {
+              "mean": 0.6142448826576583,
+              "zero": 0.6121582810301334,
+              "ratio": 0.9966029808526905,
+              "strength": 0.6121582810301334,
+              "content": true
+            },
+            "5": {
+              "mean": 0.6148709502303973,
+              "zero": 0.61483988785767,
+              "ratio": 0.9999494814762094,
+              "strength": 0.61483988785767,
+              "content": true
+            },
+            "6": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "7": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "8": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "9": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "10": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "11": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "12": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "13": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "14": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "15": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "16": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "17": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "60": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "100": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "150": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "160": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "170": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "200": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            },
+            "220": {
+              "mean": 0.0,
+              "zero": 0.0,
+              "ratio": 0.0,
+              "strength": 0.0,
+              "content": false
+            }
+          }
+        },
+        "control_max": 0.0,
+        "site_rows": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "site_strength": 0.61483988785767,
+        "site_pos": true,
+        "A_arm_strength": -0.006060242652893066,
+        "A_arm_census": {
+          "base_readout": 0.6152003407478333,
+          "slots": [
+            5,
+            0,
+            1
+          ],
+          "mean_drop": -0.0007531046867370605,
+          "zero_drop": -0.006060242652893066,
+          "strength": -0.006060242652893066,
+          "per_slot": {
+            "5": {
+              "mean": 0.0005432963371276855,
+              "zero": -0.0016176700592041016,
+              "strength": -0.0016176700592041016
+            },
+            "0": {
+              "mean": 0.00041550397872924805,
+              "zero": -0.0019364356994628906,
+              "strength": -0.0019364356994628906
+            },
+            "1": {
+              "mean": -0.0017096400260925293,
+              "zero": -0.0038568973541259766,
+              "strength": -0.0038568973541259766
+            }
+          }
+        },
+        "A_arm_slots": [
+          5,
+          0,
+          1
+        ],
+        "A_arm_slot_freq": {
+          "5": 1.0,
+          "0": 0.0,
+          "1": 0.0
+        },
+        "A_inert": true,
+        "row0": 0.45897482335567474,
+        "row0_at_install_baseline": false,
+        "novel_geos": {
+          "-12": 0.0006619365120059228,
+          "-2": 0.0016442987182623862,
+          "2": 0.000998348733385986,
+          "12": 0.0016710402442186023
+        },
+        "novel_mean": 0.0012439060519682243,
+        "novel_site_bound_texture": true,
+        "D_all_g0": 0.0005526671189121164,
+        "ce_r": 2.6372225284576416,
+        "PASS": true
+      }
+    },
+    "knife": {
+      "r1": {
+        "install_seed": 10905,
+        "w8_seed": 10901,
+        "install": {
+          "pz_g0": 0.21059998869895935,
+          "pz_held_g0": 0.2271934300661087,
+          "ce_r": 2.172384023666382,
+          "A_P": 0.04212679247745352,
+          "row0": 0.11729499060566012,
+          "census_rows_0_129": {
+            "0": {
+              "mean": 0.17627476471813375,
+              "zero": 0.11729499060566012,
+              "ratio": 0.6654099966788595,
+              "strength": 0.11729499060566012,
+              "content": true
+            },
+            "129": {
+              "mean": 0.04212679247745352,
+              "zero": 0.07349356586079617,
+              "ratio": 0.5732038170150253,
+              "strength": 0.04212679247745352,
+              "content": true
+            }
+          },
+          "slot_usage_read_band": {
+            "n": 200,
+            "band": [
+              120,
+              140
+            ],
+            "top3_slots": [
+              10,
+              23,
+              6
+            ],
+            "top3_mass": [
+              0.45500001311302185,
+              0.15000000596046448,
+              0.11500000208616257
+            ],
+            "entropy_nats": 1.7584532499313354
+          },
+          "A_A": -0.0007663858870121942,
+          "carrier_observed": "UNRESOLVED",
+          "in_band_gate": {
+            "lo": 0.35,
+            "hi": 0.75,
+            "pass": false,
+            "note": "record-only (g4's own dual install sat at 0.7521, out of band)"
+          }
+        },
+        "w8_traj": [
+          {
+            "step": 8,
+            "p_z_mean": 0.6385993361473083,
+            "frac_argmax_z": 0.7,
+            "ce_r": 2.2407240867614746,
+            "elapsed_s": 0.6
+          }
+        ],
+        "pz_gm12": 0.6219396679817388,
+        "ce_arm": 2.2407240867614746,
+        "A_P_w8": 0.019637369574047603,
+        "row0_w8": 0.605786138404801,
+        "A_A_w8": -0.01462758836957323,
+        "slot_usage_read_band": {
+          "n": 200,
+          "band": [
+            120,
+            140
+          ],
+          "top3_slots": [
+            10,
+            23,
+            9
+          ],
+          "top3_mass": [
+            0.36000001430511475,
+            0.1550000011920929,
+            0.14499999582767487
+          ],
+          "entropy_nats": 1.8898093700408936
+        },
+        "carrier_w8": "HEADS",
+        "head_census": {
+          "base_pz": 0.6219396679817388,
+          "drops": {
+            "L0H0": 0.1245887860190123,
+            "L0H1": 0.20867728169153754,
+            "L0H2": 0.13950992031022907,
+            "L0H3": 0.03996992205890515,
+            "L1H0": 0.5259002985743184,
+            "L1H1": 0.35935982640367,
+            "L1H2": 0.2684057765485098,
+            "L1H3": 0.04208677038550379,
+            "L2H0": -0.019685960607603192,
+            "L2H1": 0.04286061272335551,
+            "L2H2": 0.07244623274697615,
+            "L2H3": 0.013128326390869915,
+            "L3H0": -0.017074843511606264,
+            "L3H1": -0.004694839504857828,
+            "L3H2": 0.05351917936932293,
+            "L3H3": -0.03368667881004517
+          },
+          "positive_heads": 12,
+          "positive_mass": 1.8904529332222104,
+          "top2_drop": 0.8852601249779883,
+          "top2_share": 0.4682793786720168,
+          "top2_id": [
+            "L1H0",
+            "L1H1"
+          ]
+        },
+        "ranking_top8": [
+          "L1H0",
+          "L1H1",
+          "L1H2",
+          "L0H1",
+          "L0H2",
+          "L0H0",
+          "L2H2",
+          "L3H2"
+        ],
+        "knife_cells": {
+          "L1H0": {
+            "pz_prim": 0.09603936940742036,
+            "drop": 0.8455808909583168
+          },
+          "L1H1": {
+            "pz_prim": 0.26257984157806885,
+            "drop": 0.5778049622881127
+          },
+          "N2": {
+            "heads": [
+              "L1H0",
+              "L1H1"
+            ],
+            "pz_prim": 0.026948767533758654,
+            "ce_r": 2.569140911102295,
+            "ce_delta": 0.3284168243408203,
+            "drop": 0.9566698042895216,
+            "flat_ce_kill": true
+          },
+          "N3": {
+            "heads": [
+              "L1H0",
+              "L1H1",
+              "L1H2"
+            ],
+            "pz_prim": 0.00907458979151367,
+            "ce_r": 2.640221118927002,
+            "ce_delta": 0.39949703216552734,
+            "drop": 0.985409212084893,
+            "flat_ce_kill": false
+          },
+          "E4": {
+            "heads": [
+              "L1H0",
+              "L1H1",
+              "L1H2",
+              "L0H1"
+            ],
+            "pz_prim": 0.0017050470460768944,
+            "ce_r": 2.797318935394287,
+            "ce_delta": 0.5565948486328125,
+            "drop": 0.9972585008902713,
+            "flat_ce_kill": false
+          },
+          "g4_headset_transfer": {
+            "heads": [
+              "L1H2",
+              "L3H0"
+            ],
+            "pz_prim": 0.35634635157572725,
+            "ce_r": 2.2875332832336426,
+            "ce_delta": 0.04680919647216797,
+            "drop": 0.42704032252499746,
+            "flat_ce_kill": false
+          }
+        },
+        "PASS": true
+      }
+    }
+  }
+}

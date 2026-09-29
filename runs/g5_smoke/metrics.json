@@ -1,0 +1,1490 @@
+{
+  "experiment": "g5_cone_wall",
+  "date": "2026-09-29T18:04:42Z",
+  "purpose": "WALL THE QUERY CONE \u2014 the composition g3's data named and g1b's machinery enables: the Hopfield organ + commit-and-project on the QUERY PROJECTION alone (the much cheaper well), adjudicated against the registered CONE-WALL-HOLDS bar with the census after wash, the adaptation tax, and the falsifier's kill attribution",
+  "registered_prediction": {
+    "composition": "g3's Hopfield organ + g1b's commit-and-project wall on the QUERY PROJECTION ALONE (not the whole net): WQ = W_q only (8,192 params, the dispatch's 'with W_q walled'); STW = the whole store (17,410, the queue row's '17k params' reading); WQE = W_q at the knife-edge radius; FREE = the unwalled control.",
+    "predicted": "CONE-WALL-HOLDS: the store survives the wash (g0 >= 0.50 at EVERY checkpoint through +300) with W_q walled \u2014 the composed system works; the adaptation tax NEAR-ZERO (the rest of the net stays free).",
+    "falsifier": "the wall on W_q fails to maintain (the kill is not confined to W_q at this substrate).",
+    "bars": "CONE-WALL-HOLDS = WQ g0 >= 0.50 at every checkpoint {1,2,4,10,50,100,200,300}; TAX-NEAR-ZERO = |CE_R(WQ,+300) - CE_R(FREE,+300)| < 0.05; co-reports STORE-SURVIVES (organ-level store-into-root-host >= 0.50 at every checkpoint), QUERY-CONE-HELD (live a_fact >= 0.5 and argmax >= 0.8 at every checkpoint), CONE-BRACKET (WQ stores + WQE does not => radius in (0.03, 0.09]).",
+    "registration": "QUEUE.md row g5 + the g5 dispatch (2026-09-29), frozen verbatim before compute. The R radii and operationalizations are fixed in this docstring and in the preflight record; no bar shopping."
+  },
+  "preflight": {
+    "script": "scratch/g5_preflight.py (eval-only on runs/checkpoints/g3_gen*.pt; run 2026-09-29 BEFORE this experiment; frozen)",
+    "route_death": {
+      "+10": 1e-05,
+      "+50": 5e-05,
+      "+300": 0.0007,
+      "reading": "root-store-into-washed-host g0 (bypass): the host's fact route is dead at every horizon \u2014 a second, unwalled kill site"
+    },
+    "wall_end_state": {
+      "+10": 1e-05,
+      "+50": 4e-05,
+      "+300": 0.0006,
+      "reading": "root W_q + washed K/V/W_o + washed host: behaviorally dead regardless of the W_q wall"
+    },
+    "store_survival": {
+      "+10": 0.7622,
+      "+50": 0.7032,
+      "+300": 0.5751,
+      "reading": "{root W_q, washed K/V/W_o} into the ROOT host \u2014 the store survives in isolation, eroding through V/W_o drift"
+    },
+    "root_q__washed_K": {
+      "+10": 0.9005,
+      "+50": 0.8994,
+      "+300": 0.9055,
+      "reading": "the keys hold the patterns at every horizon"
+    },
+    "wq_own_drift": {
+      "a_fact@0.0905_root_host": 0.8478,
+      "g0@0.0905_root_host": 0.3059,
+      "a_fact@0.030_root_host": 0.8913,
+      "g0@0.030_root_host": 0.7562,
+      "reading": "W_q's OWN weight drift is nearly harmless to retrieval \u2014 the cone is not exitable through W_q's weights alone at these radii"
+    },
+    "live_query_root_Wq_in_washed_host": {
+      "+1": 0.0832,
+      "+2": 0.0003,
+      "+4": 0.0008,
+      "+10": 0.0613,
+      "+50": 0.1857,
+      "+100": 0.2983,
+      "+200": 0.3236,
+      "+300": 0.3218,
+      "root": 0.9069,
+      "reading": "THE LIVE QUERY (root W_q inside the washed host) is dead anyway: the query cone is exited THROUGH THE HOST (q = W_q . LN(h); the wash moves h), with W_q pinned"
+    },
+    "net_expectation": "the FALSIFIER fires: g0 dead in every walled cell (host kills both the query side and the route), the wall works mechanically, the store survives at the organ level, the tax reads near zero."
+  },
+  "host": {
+    "base": "runs/checkpoints/e098_base_s4305.pt",
+    "cfg": {
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 512,
+      "params": 873472
+    },
+    "ce_r_base": 1.6778250932693481,
+    "ce_budget": 1.7778250932693482
+  },
+  "store": {
+    "n_params": 17408,
+    "beta": 8.0,
+    "d_key": 64,
+    "n_patterns": 8,
+    "null_idx": 7,
+    "placement": "after block 3, before ln_f (g3 VERBATIM)"
+  },
+  "root": {
+    "checkpoint": "runs/checkpoints/g3_gen.pt",
+    "bitexact_gate": {
+      "checkpoint": "runs/checkpoints/g3_gen.pt",
+      "meta": {
+        "experiment": "g3",
+        "desc": "e098_base_s4305 + g3-GEN organ (store-only training, seed 43050)",
+        "steps": 300,
+        "cal_steps": 0,
+        "seed": 43050,
+        "device": "cuda",
+        "kind": "gen",
+        "base": "runs/checkpoints/e098_base_s4305.pt"
+      },
+      "n_tensors": 49,
+      "max_abs_diff_vs_file": 0.0,
+      "pass": true
+    },
+    "n_params": 890880,
+    "dial": {
+      "base": {
+        "-12": {
+          "mean_pz": 0.4271412491798401,
+          "median_pz": 0.38454797863960266,
+          "std_pz": 0.28383687138557434,
+          "frac_pz_ge_0.5": 0.44999998807907104,
+          "frac_argmax_z": 0.6833333333333333
+        },
+        "0": {
+          "mean_pz": 0.8885950446128845,
+          "median_pz": 0.9921666383743286,
+          "std_pz": 0.1914750188589096,
+          "frac_pz_ge_0.5": 0.9166666865348816,
+          "frac_argmax_z": 1.0
+        },
+        "12": {
+          "mean_pz": 0.34431737661361694,
+          "median_pz": 0.2851886749267578,
+          "std_pz": 0.23242996633052826,
+          "frac_pz_ge_0.5": 0.18333333730697632,
+          "frac_argmax_z": 0.5333333333333333
+        }
+      },
+      "base_held": {
+        "-12": {
+          "mean_pz": 0.46768173575401306,
+          "median_pz": 0.3553437292575836,
+          "std_pz": 0.3117181956768036,
+          "frac_pz_ge_0.5": 0.46666666865348816,
+          "frac_argmax_z": 0.6333333333333333
+        },
+        "0": {
+          "mean_pz": 0.8631630539894104,
+          "median_pz": 0.9914813041687012,
+          "std_pz": 0.21255174279212952,
+          "frac_pz_ge_0.5": 0.8999999761581421,
+          "frac_argmax_z": 1.0
+        },
+        "12": {
+          "mean_pz": 0.35053250193595886,
+          "median_pz": 0.28070783615112305,
+          "std_pz": 0.2398970127105713,
+          "frac_pz_ge_0.5": 0.2666666805744171,
+          "frac_argmax_z": 0.5666666666666667
+        }
+      },
+      "ce_r": 1.6798440217971802,
+      "g0_store_off": 0.0012461830126388425,
+      "site_read": {
+        "pz_onset_mean": 0.37878909707069397,
+        "pz_onset_median": 0.3761296272277832,
+        "pz_onset_frac_ge_0.5": 0.3333333432674408,
+        "pname_mean_over7": 0.8896044492721558,
+        "pname_frac_ge_0.5": 0.9047619104385376,
+        "per_position_mean": [
+          0.37878913565849265,
+          0.9797548055648804,
+          0.9756380995114644,
+          0.9594269911448161,
+          0.9778353323539098,
+          0.9753420193990071,
+          0.9804447412490844
+        ]
+      }
+    },
+    "G_ROOT": {
+      "G_ROOT_EXPR": {
+        "g0": 0.8885950446128845,
+        "bar": 0.5,
+        "pass": true
+      },
+      "G_STOREOFF": {
+        "g0_store_off": 0.0012461830126388425,
+        "bar": 0.27,
+        "pass": true
+      },
+      "G_CECLEAN": {
+        "ce_r": 1.6798440217971802,
+        "budget": 1.7778250932693482,
+        "pass": true
+      },
+      "prior_g0_g3": 0.8885950446128845,
+      "pass": true
+    }
+  },
+  "arms": {
+    "FREE": {
+      "desc": "CONTROL \u2014 unwalled neutral wash (g3's stage-A cell re-run in-run: the clock, the tax baseline, the same-process census reference)",
+      "wall": null,
+      "recipe": "g3's stage-A wash VERBATIM (e176N arm A via e157: neutral bank seed 170, batch 16+16 full-token CE, AdamW (0.9,0.95) wd 0.1 lr 1e-3 clip 1.0, seed 10902), the wall's keyset/radius the only delta",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.4865202903747559,
+          "cum_disp": 0.9258008003234863,
+          "g_m12_mean_pz": 4.584678390529007e-05,
+          "g0_mean_pz": 5.888753730687313e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7887942790985107,
+          "disp_store": 0.13184139341968207,
+          "disp_host": 0.9163648326159406,
+          "disp_all_snap": 0.9258005505907221,
+          "a_fact_live": 0.08257650583982468,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.23796182870864868,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.09048271924257278,
+          "disp_K": 0.022627826780080795,
+          "disp_V": 0.022617682814598083,
+          "disp_W_o": 0.09039608389139175
+        },
+        {
+          "step": 2,
+          "ce_batch": 3.6570873260498047,
+          "cum_disp": 1.4422404766082764,
+          "g_m12_mean_pz": 3.0094849989836803e-07,
+          "g0_mean_pz": 3.5400017850406584e-07,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.728627681732178,
+          "disp_store": 0.21226609699850008,
+          "disp_host": 1.4265343266730786,
+          "disp_all_snap": 1.4422402993647039,
+          "a_fact_live": 0.00031600784859620035,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.01011005137115717,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873471,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.14945702254772186,
+          "disp_K": 0.036363810300827026,
+          "disp_V": 0.03597674518823624,
+          "disp_W_o": 0.14178448915481567
+        },
+        {
+          "step": 3,
+          "ce_batch": 4.536736011505127,
+          "cum_disp": 1.8455727100372314
+        },
+        {
+          "step": 4,
+          "ce_batch": 4.149447917938232,
+          "cum_disp": 2.173722505569458,
+          "g_m12_mean_pz": 3.220759754185565e-05,
+          "g0_mean_pz": 4.2994895920855924e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.9461867809295654,
+          "disp_store": 0.3284671272087903,
+          "disp_host": 2.1487712055290342,
+          "disp_all_snap": 2.173731434047798,
+          "a_fact_live": 0.0008438437944278121,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.0009942634496837854,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.23626111447811127,
+          "disp_K": 0.05718939006328583,
+          "disp_V": 0.05676029250025749,
+          "disp_W_o": 0.21349234879016876
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "g0": 0.8885950446128845,
+          "gm12": 0.4271412491798401,
+          "ce_r": 1.6798440217971802,
+          "cum_disp": 0.0,
+          "a_fact_live": null,
+          "g0_store_into_root_host": null
+        },
+        {
+          "step": 1,
+          "g0": 5.888753730687313e-05,
+          "gm12": 4.584678390529007e-05,
+          "ce_r": 3.7887942790985107,
+          "cum_disp": 0.9258008003234863,
+          "disp_store": 0.13184139341968207,
+          "disp_host": 0.9163648326159406,
+          "disp_wall_raw": null,
+          "disp_wall_settled": null,
+          "a_fact_live": 0.08257650583982468,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.23796182870864868
+        },
+        {
+          "step": 2,
+          "g0": 3.5400017850406584e-07,
+          "gm12": 3.0094849989836803e-07,
+          "ce_r": 4.728627681732178,
+          "cum_disp": 1.4422404766082764,
+          "disp_store": 0.21226609699850008,
+          "disp_host": 1.4265343266730786,
+          "disp_wall_raw": null,
+          "disp_wall_settled": null,
+          "a_fact_live": 0.00031600784859620035,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.01011005137115717
+        },
+        {
+          "step": 4,
+          "g0": 4.2994895920855924e-05,
+          "gm12": 3.220759754185565e-05,
+          "ce_r": 3.9461867809295654,
+          "cum_disp": 2.173722505569458,
+          "disp_store": 0.3284671272087903,
+          "disp_host": 2.1487712055290342,
+          "disp_wall_raw": null,
+          "disp_wall_settled": null,
+          "a_fact_live": 0.0008438437944278121,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.0009942634496837854
+        }
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "dials": {
+        "0": {
+          "base": {
+            "-12": {
+              "mean_pz": 0.4271412491798401,
+              "median_pz": 0.38454797863960266,
+              "std_pz": 0.28383687138557434,
+              "frac_pz_ge_0.5": 0.44999998807907104,
+              "frac_argmax_z": 0.6833333333333333
+            },
+            "0": {
+              "mean_pz": 0.8885950446128845,
+              "median_pz": 0.9921666383743286,
+              "std_pz": 0.1914750188589096,
+              "frac_pz_ge_0.5": 0.9166666865348816,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.34431737661361694,
+              "median_pz": 0.2851886749267578,
+              "std_pz": 0.23242996633052826,
+              "frac_pz_ge_0.5": 0.18333333730697632,
+              "frac_argmax_z": 0.5333333333333333
+            }
+          },
+          "base_held": {
+            "-12": {
+              "mean_pz": 0.46768173575401306,
+              "median_pz": 0.3553437292575836,
+              "std_pz": 0.3117181956768036,
+              "frac_pz_ge_0.5": 0.46666666865348816,
+              "frac_argmax_z": 0.6333333333333333
+            },
+            "0": {
+              "mean_pz": 0.8631630539894104,
+              "median_pz": 0.9914813041687012,
+              "std_pz": 0.21255174279212952,
+              "frac_pz_ge_0.5": 0.8999999761581421,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.35053250193595886,
+              "median_pz": 0.28070783615112305,
+              "std_pz": 0.2398970127105713,
+              "frac_pz_ge_0.5": 0.2666666805744171,
+              "frac_argmax_z": 0.5666666666666667
+            }
+          },
+          "ce_r": 1.6798440217971802,
+          "g0_store_off": 0.0012461830126388425,
+          "site_read": {
+            "pz_onset_mean": 0.37878909707069397,
+            "pz_onset_median": 0.3761296272277832,
+            "pz_onset_frac_ge_0.5": 0.3333333432674408,
+            "pname_mean_over7": 0.8896044492721558,
+            "pname_frac_ge_0.5": 0.9047619104385376,
+            "per_position_mean": [
+              0.37878913565849265,
+              0.9797548055648804,
+              0.9756380995114644,
+              0.9594269911448161,
+              0.9778353323539098,
+              0.9753420193990071,
+              0.9804447412490844
+            ]
+          }
+        }
+      }
+    },
+    "WQ": {
+      "desc": "THE REGISTERED COMPOSITION \u2014 commit+project on W_q ALONE (8,192 params), R_q 0.03 (inside the measured cone)",
+      "wall": {
+        "keys": [
+          "store.W_q.weight"
+        ],
+        "R": 0.03,
+        "n_walled": 8192
+      },
+      "recipe": "g3's stage-A wash VERBATIM (e176N arm A via e157: neutral bank seed 170, batch 16+16 full-token CE, AdamW (0.9,0.95) wd 0.1 lr 1e-3 clip 1.0, seed 10902), the wall's keyset/radius the only delta",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.4865202903747559,
+          "cum_disp": 0.9258008003234863,
+          "g_m12_mean_pz": 4.637758684111759e-05,
+          "g0_mean_pz": 5.954454172751866e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7884535789489746,
+          "disp_store": 0.10047402828785905,
+          "disp_host": 0.9163648427791696,
+          "disp_all_snap": 0.9218565807337288,
+          "a_fact_live": 0.08311645686626434,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.7099189758300781,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.029999999329447746,
+          "disp_K": 0.022627826780080795,
+          "disp_V": 0.022617682814598083,
+          "disp_W_o": 0.09039608389139175,
+          "disp_wall_raw": 0.09048272013480765,
+          "disp_wall_settled": 0.029999999742334086
+        },
+        {
+          "step": 2,
+          "ce_batch": 3.656944990158081,
+          "cum_disp": 1.43730890750885,
+          "g_m12_mean_pz": 3.0114043170215155e-07,
+          "g0_mean_pz": 3.541746877999685e-07,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.728935241699219,
+          "disp_store": 0.15376284463875958,
+          "disp_host": 1.426517561014114,
+          "disp_all_snap": 1.4347805979567259,
+          "a_fact_live": 0.00031063484493643045,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.685015082359314,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873471,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.029999999329447746,
+          "disp_K": 0.03639642149209976,
+          "disp_V": 0.03598420321941376,
+          "disp_W_o": 0.14185714721679688,
+          "disp_wall_raw": 0.0903224888478244,
+          "disp_wall_settled": 0.029999999742334086
+        },
+        {
+          "step": 3,
+          "ce_batch": 4.537128448486328,
+          "cum_disp": 1.8367090225219727
+        },
+        {
+          "step": 4,
+          "ce_batch": 4.149289131164551,
+          "cum_disp": 2.161978006362915,
+          "g_m12_mean_pz": 3.231104710721411e-05,
+          "g0_mean_pz": 4.3110190745210275e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.9468793869018555,
+          "disp_store": 0.23014220672413577,
+          "disp_host": 2.148768000418948,
+          "disp_all_snap": 2.1610574622023124,
+          "a_fact_live": 0.0007687716279178858,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.6489786505699158,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.029999995604157448,
+          "disp_K": 0.057243555784225464,
+          "disp_V": 0.056764598935842514,
+          "disp_W_o": 0.21346285939216614,
+          "disp_wall_raw": 0.07010407816714577,
+          "disp_wall_settled": 0.029999995861823076
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "g0": 0.8885950446128845,
+          "gm12": 0.4271412491798401,
+          "ce_r": 1.6798440217971802,
+          "cum_disp": 0.0,
+          "a_fact_live": null,
+          "g0_store_into_root_host": null
+        },
+        {
+          "step": 1,
+          "g0": 5.954454172751866e-05,
+          "gm12": 4.637758684111759e-05,
+          "ce_r": 3.7884535789489746,
+          "cum_disp": 0.9258008003234863,
+          "disp_store": 0.10047402828785905,
+          "disp_host": 0.9163648427791696,
+          "disp_wall_raw": 0.09048272013480765,
+          "disp_wall_settled": 0.029999999742334086,
+          "a_fact_live": 0.08311645686626434,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.7099189758300781
+        },
+        {
+          "step": 2,
+          "g0": 3.541746877999685e-07,
+          "gm12": 3.0114043170215155e-07,
+          "ce_r": 4.728935241699219,
+          "cum_disp": 1.43730890750885,
+          "disp_store": 0.15376284463875958,
+          "disp_host": 1.426517561014114,
+          "disp_wall_raw": 0.0903224888478244,
+          "disp_wall_settled": 0.029999999742334086,
+          "a_fact_live": 0.00031063484493643045,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.685015082359314
+        },
+        {
+          "step": 4,
+          "g0": 4.3110190745210275e-05,
+          "gm12": 3.231104710721411e-05,
+          "ce_r": 3.9468793869018555,
+          "cum_disp": 2.161978006362915,
+          "disp_store": 0.23014220672413577,
+          "disp_host": 2.148768000418948,
+          "disp_wall_raw": 0.07010407816714577,
+          "disp_wall_settled": 0.029999995861823076,
+          "a_fact_live": 0.0007687716279178858,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.6489786505699158
+        }
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "dials": {
+        "0": {
+          "base": {
+            "-12": {
+              "mean_pz": 0.4271412491798401,
+              "median_pz": 0.38454797863960266,
+              "std_pz": 0.28383687138557434,
+              "frac_pz_ge_0.5": 0.44999998807907104,
+              "frac_argmax_z": 0.6833333333333333
+            },
+            "0": {
+              "mean_pz": 0.8885950446128845,
+              "median_pz": 0.9921666383743286,
+              "std_pz": 0.1914750188589096,
+              "frac_pz_ge_0.5": 0.9166666865348816,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.34431737661361694,
+              "median_pz": 0.2851886749267578,
+              "std_pz": 0.23242996633052826,
+              "frac_pz_ge_0.5": 0.18333333730697632,
+              "frac_argmax_z": 0.5333333333333333
+            }
+          },
+          "base_held": {
+            "-12": {
+              "mean_pz": 0.46768173575401306,
+              "median_pz": 0.3553437292575836,
+              "std_pz": 0.3117181956768036,
+              "frac_pz_ge_0.5": 0.46666666865348816,
+              "frac_argmax_z": 0.6333333333333333
+            },
+            "0": {
+              "mean_pz": 0.8631630539894104,
+              "median_pz": 0.9914813041687012,
+              "std_pz": 0.21255174279212952,
+              "frac_pz_ge_0.5": 0.8999999761581421,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.35053250193595886,
+              "median_pz": 0.28070783615112305,
+              "std_pz": 0.2398970127105713,
+              "frac_pz_ge_0.5": 0.2666666805744171,
+              "frac_argmax_z": 0.5666666666666667
+            }
+          },
+          "ce_r": 1.6798440217971802,
+          "g0_store_off": 0.0012461830126388425,
+          "site_read": {
+            "pz_onset_mean": 0.37878909707069397,
+            "pz_onset_median": 0.3761296272277832,
+            "pz_onset_frac_ge_0.5": 0.3333333432674408,
+            "pname_mean_over7": 0.8896044492721558,
+            "pname_frac_ge_0.5": 0.9047619104385376,
+            "per_position_mean": [
+              0.37878913565849265,
+              0.9797548055648804,
+              0.9756380995114644,
+              0.9594269911448161,
+              0.9778353323539098,
+              0.9753420193990071,
+              0.9804447412490844
+            ]
+          }
+        }
+      }
+    },
+    "WQE": {
+      "desc": "THE KNIFE EDGE \u2014 W_q alone at R_q 0.09 (= the measured +1 wash-direction kill displacement); with WQ it brackets the cone radius",
+      "wall": {
+        "keys": [
+          "store.W_q.weight"
+        ],
+        "R": 0.09,
+        "n_walled": 8192
+      },
+      "recipe": "g3's stage-A wash VERBATIM (e176N arm A via e157: neutral bank seed 170, batch 16+16 full-token CE, AdamW (0.9,0.95) wd 0.1 lr 1e-3 clip 1.0, seed 10902), the wall's keyset/radius the only delta",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.4865202903747559,
+          "cum_disp": 0.9258008003234863,
+          "g_m12_mean_pz": 4.5850840251659974e-05,
+          "g0_mean_pz": 5.889230305911042e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7887914180755615,
+          "disp_store": 0.1315105721451923,
+          "disp_host": 0.9163648448038754,
+          "disp_all_snap": 0.9257535089743849,
+          "a_fact_live": 0.08257974684238434,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.24210527539253235,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.09000000357627869,
+          "disp_K": 0.022627826780080795,
+          "disp_V": 0.022617682814598083,
+          "disp_W_o": 0.09039608389139175,
+          "disp_wall_raw": 0.09048272013480765,
+          "disp_wall_settled": 0.09000000116725762
+        },
+        {
+          "step": 2,
+          "ce_batch": 3.65708589553833,
+          "cum_disp": 1.4421907663345337,
+          "g_m12_mean_pz": 3.0084427748988674e-07,
+          "g0_mean_pz": 3.5385676255828e-07,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.728613376617432,
+          "disp_store": 0.17555525610321002,
+          "disp_host": 1.4265342522066027,
+          "disp_all_snap": 1.437295940530034,
+          "a_fact_live": 0.0003112459962721914,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.19298173487186432,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873471,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.09000000357627869,
+          "disp_K": 0.03636404126882553,
+          "disp_V": 0.0359768271446228,
+          "disp_W_o": 0.14178495109081268,
+          "disp_wall_raw": 0.1489808090355306,
+          "disp_wall_settled": 0.09000000116725762
+        },
+        {
+          "step": 3,
+          "ce_batch": 4.53672456741333,
+          "cum_disp": 1.8401933908462524
+        },
+        {
+          "step": 4,
+          "ce_batch": 4.149415016174316,
+          "cum_disp": 2.1647331714630127,
+          "g_m12_mean_pz": 3.2175892556551844e-05,
+          "g0_mean_pz": 4.293666279409081e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.946199655532837,
+          "disp_store": 0.24525849146823858,
+          "disp_host": 2.148771859195532,
+          "disp_all_snap": 2.162723336561544,
+          "a_fact_live": 0.0007703605224378407,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.14966300129890442,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.09000000357627869,
+          "disp_K": 0.057203568518161774,
+          "disp_V": 0.056763146072626114,
+          "disp_W_o": 0.2134418487548828,
+          "disp_wall_raw": 0.12974681043793018,
+          "disp_wall_settled": 0.09000000116725762
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "g0": 0.8885950446128845,
+          "gm12": 0.4271412491798401,
+          "ce_r": 1.6798440217971802,
+          "cum_disp": 0.0,
+          "a_fact_live": null,
+          "g0_store_into_root_host": null
+        },
+        {
+          "step": 1,
+          "g0": 5.889230305911042e-05,
+          "gm12": 4.5850840251659974e-05,
+          "ce_r": 3.7887914180755615,
+          "cum_disp": 0.9258008003234863,
+          "disp_store": 0.1315105721451923,
+          "disp_host": 0.9163648448038754,
+          "disp_wall_raw": 0.09048272013480765,
+          "disp_wall_settled": 0.09000000116725762,
+          "a_fact_live": 0.08257974684238434,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.24210527539253235
+        },
+        {
+          "step": 2,
+          "g0": 3.5385676255828e-07,
+          "gm12": 3.0084427748988674e-07,
+          "ce_r": 4.728613376617432,
+          "cum_disp": 1.4421907663345337,
+          "disp_store": 0.17555525610321002,
+          "disp_host": 1.4265342522066027,
+          "disp_wall_raw": 0.1489808090355306,
+          "disp_wall_settled": 0.09000000116725762,
+          "a_fact_live": 0.0003112459962721914,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.19298173487186432
+        },
+        {
+          "step": 4,
+          "g0": 4.293666279409081e-05,
+          "gm12": 3.2175892556551844e-05,
+          "ce_r": 3.946199655532837,
+          "cum_disp": 2.1647331714630127,
+          "disp_store": 0.24525849146823858,
+          "disp_host": 2.148771859195532,
+          "disp_wall_raw": 0.12974681043793018,
+          "disp_wall_settled": 0.09000000116725762,
+          "a_fact_live": 0.0007703605224378407,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.14966300129890442
+        }
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "dials": {
+        "0": {
+          "base": {
+            "-12": {
+              "mean_pz": 0.4271412491798401,
+              "median_pz": 0.38454797863960266,
+              "std_pz": 0.28383687138557434,
+              "frac_pz_ge_0.5": 0.44999998807907104,
+              "frac_argmax_z": 0.6833333333333333
+            },
+            "0": {
+              "mean_pz": 0.8885950446128845,
+              "median_pz": 0.9921666383743286,
+              "std_pz": 0.1914750188589096,
+              "frac_pz_ge_0.5": 0.9166666865348816,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.34431737661361694,
+              "median_pz": 0.2851886749267578,
+              "std_pz": 0.23242996633052826,
+              "frac_pz_ge_0.5": 0.18333333730697632,
+              "frac_argmax_z": 0.5333333333333333
+            }
+          },
+          "base_held": {
+            "-12": {
+              "mean_pz": 0.46768173575401306,
+              "median_pz": 0.3553437292575836,
+              "std_pz": 0.3117181956768036,
+              "frac_pz_ge_0.5": 0.46666666865348816,
+              "frac_argmax_z": 0.6333333333333333
+            },
+            "0": {
+              "mean_pz": 0.8631630539894104,
+              "median_pz": 0.9914813041687012,
+              "std_pz": 0.21255174279212952,
+              "frac_pz_ge_0.5": 0.8999999761581421,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.35053250193595886,
+              "median_pz": 0.28070783615112305,
+              "std_pz": 0.2398970127105713,
+              "frac_pz_ge_0.5": 0.2666666805744171,
+              "frac_argmax_z": 0.5666666666666667
+            }
+          },
+          "ce_r": 1.6798440217971802,
+          "g0_store_off": 0.0012461830126388425,
+          "site_read": {
+            "pz_onset_mean": 0.37878909707069397,
+            "pz_onset_median": 0.3761296272277832,
+            "pz_onset_frac_ge_0.5": 0.3333333432674408,
+            "pname_mean_over7": 0.8896044492721558,
+            "pname_frac_ge_0.5": 0.9047619104385376,
+            "per_position_mean": [
+              0.37878913565849265,
+              0.9797548055648804,
+              0.9756380995114644,
+              0.9594269911448161,
+              0.9778353323539098,
+              0.9753420193990071,
+              0.9804447412490844
+            ]
+          }
+        }
+      }
+    },
+    "STW": {
+      "desc": "THE QUEUE'S 17K READING \u2014 commit+project on the whole store (17,408 params), R_store 0.04 (inside g3's lambda-sweep survival band)",
+      "wall": {
+        "keys": [
+          "store.W_q.weight",
+          "store.K",
+          "store.V",
+          "store.W_o.weight"
+        ],
+        "R": 0.04,
+        "n_walled": 17408
+      },
+      "recipe": "g3's stage-A wash VERBATIM (e176N arm A via e157: neutral bank seed 170, batch 16+16 full-token CE, AdamW (0.9,0.95) wd 0.1 lr 1e-3 clip 1.0, seed 10902), the wall's keyset/radius the only delta",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.4865202903747559,
+          "cum_disp": 0.9258008003234863,
+          "g_m12_mean_pz": 4.840514884563163e-05,
+          "g0_mean_pz": 6.214799941517413e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7839818000793457,
+          "disp_store": 0.040000004178655,
+          "disp_host": 0.9163648427553496,
+          "disp_all_snap": 0.917237442199308,
+          "a_fact_live": 0.0829179584980011,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.7510408759117126,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.02745199017226696,
+          "disp_K": 0.006865166127681732,
+          "disp_V": 0.006862089969217777,
+          "disp_W_o": 0.02742571383714676,
+          "disp_wall_raw": 0.13184139341968207,
+          "disp_wall_settled": 0.040000004178655
+        },
+        {
+          "step": 2,
+          "ce_batch": 3.6529440879821777,
+          "cum_disp": 1.4318594932556152,
+          "g_m12_mean_pz": 3.167609179399733e-07,
+          "g0_mean_pz": 3.7241551353872637e-07,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.732744216918945,
+          "disp_store": 0.04000000176849422,
+          "disp_host": 1.4263716270568703,
+          "disp_all_snap": 1.4269323805332692,
+          "a_fact_live": 0.0003106284129898995,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.7484159469604492,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.02806243859231472,
+          "disp_K": 0.006799002178013325,
+          "disp_V": 0.006762158125638962,
+          "disp_W_o": 0.02684299647808075,
+          "disp_wall_raw": 0.12522617126595367,
+          "disp_wall_settled": 0.04000000176849422
+        },
+        {
+          "step": 3,
+          "ce_batch": 4.541637897491455,
+          "cum_disp": 1.827769160270691
+        },
+        {
+          "step": 4,
+          "ce_batch": 4.1468000411987305,
+          "cum_disp": 2.150881052017212,
+          "g_m12_mean_pz": 3.4807497286237776e-05,
+          "g0_mean_pz": 4.6372166252695024e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.957700252532959,
+          "disp_store": 0.04000000267798887,
+          "disp_host": 2.148799353451941,
+          "disp_all_snap": 2.1491716221860266,
+          "a_fact_live": 0.0007725406321696937,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.7476208209991455,
+          "host_restore_gate": {
+            "class": "host",
+            "n_tensors": 45,
+            "tensors_changed": 45,
+            "n_elements_changed": 873472,
+            "expected_elements": 873472,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "disp_W_q": 0.028788654133677483,
+          "disp_K": 0.007006042171269655,
+          "disp_V": 0.006970527581870556,
+          "disp_W_o": 0.025952663272619247,
+          "disp_wall_raw": 0.09491767389563,
+          "disp_wall_settled": 0.04000000267798887
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "g0": 0.8885950446128845,
+          "gm12": 0.4271412491798401,
+          "ce_r": 1.6798440217971802,
+          "cum_disp": 0.0,
+          "a_fact_live": null,
+          "g0_store_into_root_host": null
+        },
+        {
+          "step": 1,
+          "g0": 6.214799941517413e-05,
+          "gm12": 4.840514884563163e-05,
+          "ce_r": 3.7839818000793457,
+          "cum_disp": 0.9258008003234863,
+          "disp_store": 0.040000004178655,
+          "disp_host": 0.9163648427553496,
+          "disp_wall_raw": 0.13184139341968207,
+          "disp_wall_settled": 0.040000004178655,
+          "a_fact_live": 0.0829179584980011,
+          "argmax_live": 0.0071428571827709675,
+          "g0_store_into_root_host": 0.7510408759117126
+        },
+        {
+          "step": 2,
+          "g0": 3.7241551353872637e-07,
+          "gm12": 3.167609179399733e-07,
+          "ce_r": 4.732744216918945,
+          "cum_disp": 1.4318594932556152,
+          "disp_store": 0.04000000176849422,
+          "disp_host": 1.4263716270568703,
+          "disp_wall_raw": 0.12522617126595367,
+          "disp_wall_settled": 0.04000000176849422,
+          "a_fact_live": 0.0003106284129898995,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.7484159469604492
+        },
+        {
+          "step": 4,
+          "g0": 4.6372166252695024e-05,
+          "gm12": 3.4807497286237776e-05,
+          "ce_r": 3.957700252532959,
+          "cum_disp": 2.150881052017212,
+          "disp_store": 0.04000000267798887,
+          "disp_host": 2.148799353451941,
+          "disp_wall_raw": 0.09491767389563,
+          "disp_wall_settled": 0.04000000267798887,
+          "a_fact_live": 0.0007725406321696937,
+          "argmax_live": 0.0,
+          "g0_store_into_root_host": 0.7476208209991455
+        }
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "dials": {
+        "0": {
+          "base": {
+            "-12": {
+              "mean_pz": 0.4271412491798401,
+              "median_pz": 0.38454797863960266,
+              "std_pz": 0.28383687138557434,
+              "frac_pz_ge_0.5": 0.44999998807907104,
+              "frac_argmax_z": 0.6833333333333333
+            },
+            "0": {
+              "mean_pz": 0.8885950446128845,
+              "median_pz": 0.9921666383743286,
+              "std_pz": 0.1914750188589096,
+              "frac_pz_ge_0.5": 0.9166666865348816,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.34431737661361694,
+              "median_pz": 0.2851886749267578,
+              "std_pz": 0.23242996633052826,
+              "frac_pz_ge_0.5": 0.18333333730697632,
+              "frac_argmax_z": 0.5333333333333333
+            }
+          },
+          "base_held": {
+            "-12": {
+              "mean_pz": 0.46768173575401306,
+              "median_pz": 0.3553437292575836,
+              "std_pz": 0.3117181956768036,
+              "frac_pz_ge_0.5": 0.46666666865348816,
+              "frac_argmax_z": 0.6333333333333333
+            },
+            "0": {
+              "mean_pz": 0.8631630539894104,
+              "median_pz": 0.9914813041687012,
+              "std_pz": 0.21255174279212952,
+              "frac_pz_ge_0.5": 0.8999999761581421,
+              "frac_argmax_z": 1.0
+            },
+            "12": {
+              "mean_pz": 0.35053250193595886,
+              "median_pz": 0.28070783615112305,
+              "std_pz": 0.2398970127105713,
+              "frac_pz_ge_0.5": 0.2666666805744171,
+              "frac_argmax_z": 0.5666666666666667
+            }
+          },
+          "ce_r": 1.6798440217971802,
+          "g0_store_off": 0.0012461830126388425,
+          "site_read": {
+            "pz_onset_mean": 0.37878909707069397,
+            "pz_onset_median": 0.3761296272277832,
+            "pz_onset_frac_ge_0.5": 0.3333333432674408,
+            "pname_mean_over7": 0.8896044492721558,
+            "pname_frac_ge_0.5": 0.9047619104385376,
+            "per_position_mean": [
+              0.37878913565849265,
+              0.9797548055648804,
+              0.9756380995114644,
+              0.9594269911448161,
+              0.9778353323539098,
+              0.9753420193990071,
+              0.9804447412490844
+            ]
+          }
+        }
+      }
+    }
+  },
+  "census_after_wash": {
+    "WQ@+4": {
+      "census": {
+        "tag": "WQ-t4",
+        "root": {
+          "a_fact": 0.9069405794143677,
+          "argmax_correct": 1.0,
+          "argmax_null_frac": 0.0,
+          "inj_norm_fact": 1.2254167795181274,
+          "a_null_on_fact": 0.0025050209369510412,
+          "a_fact_on_neutral": 0.009987321682274342,
+          "a_null_on_neutral": 0.9300886988639832
+        },
+        "washed": {
+          "a_fact": 0.0007687716279178858,
+          "argmax_correct": 0.0,
+          "argmax_null_frac": 1.0,
+          "inj_norm_fact": 0.03087618388235569,
+          "a_null_on_fact": 0.9951488971710205,
+          "a_fact_on_neutral": 0.0006780947442166507,
+          "a_null_on_neutral": 0.995253324508667
+        },
+        "inj_gain_ratio": 0.02519647551627062,
+        "root_q__root_K": {
+          "a_fact": 0.9069405794143677,
+          "argmax_correct": 1.0,
+          "a_null": 0.002505020471289754
+        },
+        "root_q__washed_K": {
+          "a_fact": 0.9030665755271912,
+          "argmax_correct": 1.0,
+          "a_null": 0.0025472561828792095
+        },
+        "washed_q__root_K": {
+          "a_fact": 0.000766048557125032,
+          "argmax_correct": 0.0,
+          "a_null": 0.9951574206352234
+        },
+        "washed_q__washed_K": {
+          "a_fact": 0.0007687716279178858,
+          "argmax_correct": 0.0,
+          "a_null": 0.9951487183570862
+        },
+        "wallstate_q__root_K": {
+          "a_fact": 0.0007778496365062892,
+          "argmax_correct": 0.0,
+          "a_null": 0.9951208233833313
+        },
+        "wqdrift_q__root_K": {
+          "a_fact": 0.8919426202774048,
+          "argmax_correct": 1.0,
+          "a_null": 0.002532775979489088
+        },
+        "per_tensor_displacement": {
+          "store.W_q.weight": 0.029999995604157448,
+          "store.K": 0.057243555784225464,
+          "store.V": 0.056764598935842514,
+          "store.W_o.weight": 0.21346285939216614,
+          "store_total": 0.23014220918227482
+        }
+      },
+      "closure": {
+        "bypass_root_store_into_washed_host": {
+          "gate": {
+            "class": "store",
+            "n_tensors": 4,
+            "tensors_changed": 4,
+            "n_elements_changed": 17408,
+            "expected_elements": 17408,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "g0": 4.371996328700334e-05
+        },
+        "washed_store_into_root_host": {
+          "gate": {
+            "class": "store",
+            "n_tensors": 4,
+            "tensors_changed": 4,
+            "n_elements_changed": 17408,
+            "expected_elements": 17408,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "g0": 0.6489786505699158
+        },
+        "all_restored_sanity": {
+          "gate": {
+            "class": "all",
+            "n_tensors": 49,
+            "tensors_changed": 49,
+            "n_elements_changed": 890880,
+            "expected_elements": 890880,
+            "identity": false,
+            "others_bit_identical": true,
+            "pass": true
+          },
+          "g0": 0.8885950446128845,
+          "root_g0": 0.8885950446128845,
+          "pass": true
+        },
+        "verdict": {
+          "bypass_restores": false,
+          "reading": "bypass restores only 0.0000 (< 0.5) \u2014 ROUTE-KILL (the host's expression path is dead at this state)"
+        }
+      },
+      "site": {
+        "site": "QUERY",
+        "retrieval_intact": false,
+        "bypass_g0": 4.371996328700334e-05,
+        "bypass_restores": false,
+        "null_encroached": true,
+        "storage_without_expression": false
+      }
+    }
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_POOL": {
+      "band_shape": [
+        60,
+        256
+      ],
+      "band_name_in_place": true,
+      "p183_name_in_place": true,
+      "note": "g3's pools VERBATIM (j=0 the census instrument; j=54 the site-read instrument); NO pool window enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection on FLORIZEL/ELIZABETH/ZEPH/MIRABEL in [s, s+257) \u2014 e170 VERBATIM (g3's copy)",
+      "n_windows": 16,
+      "seed": 170,
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "windows_with_host_content": 0,
+      "junctions_covered": 0,
+      "pass": true
+    },
+    "G_BITEXACT": {
+      "checkpoint": "runs/checkpoints/g3_gen.pt",
+      "meta": {
+        "experiment": "g3",
+        "desc": "e098_base_s4305 + g3-GEN organ (store-only training, seed 43050)",
+        "steps": 300,
+        "cal_steps": 0,
+        "seed": 43050,
+        "device": "cuda",
+        "kind": "gen",
+        "base": "runs/checkpoints/e098_base_s4305.pt"
+      },
+      "n_tensors": 49,
+      "max_abs_diff_vs_file": 0.0,
+      "pass": true
+    },
+    "G_ROOT": {
+      "G_ROOT_EXPR": {
+        "g0": 0.8885950446128845,
+        "bar": 0.5,
+        "pass": true
+      },
+      "G_STOREOFF": {
+        "g0_store_off": 0.0012461830126388425,
+        "bar": 0.27,
+        "pass": true
+      },
+      "G_CECLEAN": {
+        "ce_r": 1.6798440217971802,
+        "budget": 1.7778250932693482,
+        "pass": true
+      },
+      "prior_g0_g3": 0.8885950446128845,
+      "pass": true
+    },
+    "G_WALLROOT": {
+      "WQ": {
+        "keys": [
+          "store.W_q.weight"
+        ],
+        "R": 0.03,
+        "n_walled": 8192,
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "pass": true
+      },
+      "WQE": {
+        "keys": [
+          "store.W_q.weight"
+        ],
+        "R": 0.09,
+        "n_walled": 8192,
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "pass": true
+      },
+      "STW": {
+        "keys": [
+          "store.W_q.weight",
+          "store.K",
+          "store.V",
+          "store.W_o.weight"
+        ],
+        "R": 0.04,
+        "n_walled": 17408,
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "pass": true
+      }
+    },
+    "G_INPUTS": {
+      "pass": true,
+      "note": "the seed-10902 aj/rj draw sequence is shared by ALL four arms \u2014 per-step input batches are bit-identical (md5-gated) through +4",
+      "per_step": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    },
+    "G_PIN": {
+      "per_arm": {
+        "WQ": {
+          "R": 0.03,
+          "n_walled": 8192,
+          "fuzz": 0.1810193359837562,
+          "bound": 0.2110193359837562,
+          "max_raw_disp": 0.09048272013480765,
+          "max_settled_disp": 0.029999999742334086,
+          "per_ckpt": {
+            "1": {
+              "raw": 0.09048272013480765,
+              "settled": 0.029999999742334086
+            },
+            "2": {
+              "raw": 0.0903224888478244,
+              "settled": 0.029999999742334086
+            },
+            "4": {
+              "raw": 0.07010407816714577,
+              "settled": 0.029999995861823076
+            }
+          },
+          "pass": true
+        },
+        "WQE": {
+          "R": 0.09,
+          "n_walled": 8192,
+          "fuzz": 0.1810193359837562,
+          "bound": 0.27101933598375616,
+          "max_raw_disp": 0.1489808090355306,
+          "max_settled_disp": 0.09000000116725762,
+          "per_ckpt": {
+            "1": {
+              "raw": 0.09048272013480765,
+              "settled": 0.09000000116725762
+            },
+            "2": {
+              "raw": 0.1489808090355306,
+              "settled": 0.09000000116725762
+            },
+            "4": {
+              "raw": 0.12974681043793018,
+              "settled": 0.09000000116725762
+            }
+          },
+          "pass": true
+        },
+        "STW": {
+          "R": 0.04,
+          "n_walled": 17408,
+          "fuzz": 0.26387876003953026,
+          "bound": 0.30387876003953024,
+          "max_raw_disp": 0.13184139341968207,
+          "max_settled_disp": 0.040000004178655,
+          "per_ckpt": {
+            "1": {
+              "raw": 0.13184139341968207,
+              "settled": 0.040000004178655
+            },
+            "2": {
+              "raw": 0.12522617126595367,
+              "settled": 0.04000000176849422
+            },
+            "4": {
+              "raw": 0.09491767389563,
+              "settled": 0.04000000267798887
+            }
+          },
+          "pass": true
+        }
+      },
+      "fuzz_formula": "2 * lr * sqrt(n_walled)",
+      "pass": true
+    }
+  },
+  "adjudication": {
+    "order": "GATES -> CONE-WALL-HOLDS -> TAX -> co-reports (frozen)",
+    "gates_pass": true,
+    "CONE_WALL_HOLDS": false,
+    "WQ_g0_min": 3.541746877999685e-07,
+    "WQ_first_under_shut": 1,
+    "STORE_SURVIVES": {
+      "FREE": false,
+      "WQ": true,
+      "WQE": false,
+      "STW": true
+    },
+    "QUERY_CONE_HELD": {
+      "FREE": false,
+      "WQ": false,
+      "WQE": false,
+      "STW": false
+    },
+    "tax": {
+      "ce_r_wq_300": null,
+      "ce_r_free_300": null,
+      "delta": null,
+      "TAX_NEAR_ZERO": false
+    },
+    "cone_bracket": [
+      0.03,
+      0.09
+    ],
+    "falsifier_fires": true,
+    "first_working_memory_architecture": false,
+    "verdict": "FALSIFIER FIRES \u2014 THE KILL IS NOT CONFINED TO W_q",
+    "clause": "the wall on W_q fails to maintain: WQ's g0 fell to 0.0000 (first checkpoint <= 0.27: +1) \u2014 the kill is not confined to W_q at this substrate. The census decomposes it into three findings: (1) THE STORE SURVIVES AT THE ORGAN LEVEL \u2014 with W_q walled (R 0.03) the settled store read into a ROOT host gives +1:0.710 +2:0.685 +4:0.649 (STW, the whole store walled at R 0.04: +1:0.751 +2:0.748 +4:0.748) \u2014 the wall's product is real and the patterns are intact (keys hold; retrieval against root K intact); (2) THE QUERY CONE IS EXITED THROUGH THE HOST \u2014 with W_q pinned, the LIVE retrieval (through the arm's own washed host) reads a_fact +1:0.083 +2:0.000 +4:0.001 (vs root 0.907; the +1 census attribution: WALLSTATE-q (root W_q in the washed host) x root-K a_fact n/a while WQDRIFT-q (washed W_q in the root host) reads n/a) \u2014 q = W_q . LN(h): the wash moves h, and the cone is a property of the composed query path, not of W_q's weights; (3) THE ROUTE DIES INDEPENDENTLY \u2014 a PERFECT root store into the washed host restores g0 to only n/a at +300 \u2014 the host's expression path is a second unwalled kill site. The cheap wall is mechanically sound (G-PIN), the adaptation tax is NOT near-zero (dCE_R@300 n/a) \u2014 but the composed system (store + query wall) does NOT maintain: the wall that can hold this memory must cover the host (g1b's whole-net wall, at its tax). The cone bracket: WQ stores, WQE does not => the cone radius lives in (0.03, 0.09]."
+  },
+  "checkpoints": {},
+  "trims": [],
+  "deviations": [
+    "THE REGISTRATION'S AMBIGUITY (the queue row's 'QUERY PROJECTION alone (17k params)' \u2014 W_q is 8,192 params, the store 17,410) is discharged by running BOTH readings (WQ, STW) plus the knife-edge rung (WQE); the PRIMARY registered cell is WQ (the dispatch's 'with W_q walled' / the falsifier's 'the wall on W_q'), STW and WQE are co-cells on the same bars.",
+    "R RADII operationalized from the preflight (registered in the docstring before compute): R_q 0.03 inside the measured cone (a_fact 0.89 / g0 ~0.75 at 0.030 on a root host), R_qe 0.09 = the measured +1 wash-direction W_q kill displacement (g1's knife-edge rung), R_st 0.04 inside the store's lambda-sweep survival band (g3: 0.066 -> g0 0.637).",
+    "THE WALL implementation: g1's CommittedGPT semantics subspace-restricted; the anchors are python-held snapshots of theta0's walled tensors (gated bit-equal at commit; G_WALLROOT) instead of g1's state_dict buffers \u2014 the census's state-dict surgery (restore_class) then stays clean of anchor keys; the wall config is carried in the checkpoint meta + metrics, and reconstructs deterministically from theta0 (the commit snapshot IS theta0's tensors).",
+    "ROOT loaded DIRECTLY from runs/checkpoints/g3_gen.pt (bit-exact gate vs file; g1b's precedent) \u2014 the composition requirement (same root, delta = the wall); no construction re-run, no new seeds drawn for it.",
+    "The wash trainer is g3's wash_run arithmetic VERBATIM + the wall bookkeeping (g1's addition pattern): settle-at-checkpoint (g1b's ARMED-twin semantics \u2014 the +1 reads the settled/projected state entering forward 2), the subspace pin (raw + settled), the LIVE retrieval dial and the store-into-root-host probe at every checkpoint.",
+    "census()/classify_kill_site()/lean_dial() are g3's VERBATIM copies (nested in g3's main, not importable), EXTENDED by the two registered attribution cells (wallstate-q = root W_q in the washed host; wqdrift-q = washed W_q in the root host) that separate W_q's own drift from the host's contribution to the query \u2014 the cells the preflight showed are load-bearing for the falsifier's attribution.",
+    "TAX is measured on CE_R (the fixed val bank) at +300 (g1's WALL-FREE convention |d| < 0.05); g1b used the in-batch CE at +300 \u2014 both co-reported.",
+    "Checkpoints store the SETTLED body sd (the model's defined state) + wall meta, not g1's raw post-step weights: without state_dict anchors the settled sd + theta0 fully define the cell (the raw-vs-settled gap is one Adam step, bookkept in G_PIN).",
+    "Single seed per cell (the wash draws 10902 VERBATIM; one lineage \u2014 family 2, the e098 s4305 host), n=1 per cell \u2014 the arc's honesty convention; replicates owed before any noun moves.",
+    "Smoke mode trims: 8-step washes with checkpoints {1,2,4}, census at WQ +4 only, lean dials, no cooldowns, no checkpoint writes \u2014 nothing adjudicated."
+  ],
+  "device_events": [],
+  "timing": {
+    "total_s": 31.4
+  },
+  "smoke": true,
+  "threads": 8
+}

@@ -946,7 +946,7 @@ program's results are only as adjudicable as the organism's
 baseline expression; the gate-first design (the spec's own
 abort clause) saved a false verdict here, exactly as intended.
 
-## T123 — e182: the physics translates — wider basin, same law, same surgery (2026-09-29 ~14:10Z)
+## T123 — e182: the physics translates — wider basin, same DIRECTION, not the same clock (title corrected per R56 audit; 2026-09-29 ~14:10Z)
 
 The external-validity fuse returns the answer the arc needed:
 GPT-2's facts are NOT wash-proof. At lr 5e-5 the probes erode
@@ -6547,6 +6547,50 @@ meaning the +4.08 headline overstates true information content.
 and LN-recalibrate controls or it will rediscover H2 the hard way.
 
 ---
+
+
+[R56 AMENDMENT — THE RULER BENT, THE CONE WIDENED]: the critic's
+eval-only cells on the same organ (scratch/r56_critic.md): matched-L2
+isotropic noise kills only at ~24-32x displacement (g0 0.03-0.15 at
+32x; first-order prediction ~58x from cos(grad g0, wash) = -0.44) — the
+registered 4x spare leg sat 6-16x BELOW the isotropic kill threshold
+(concentration of measure in ~874k dims; the contrast was guaranteed to
+spare, so it measured geometry, not a basin). BUT the critic's tilt
+ladder shows random 45-degree tilts of the wash direction STILL kill at
+~2x. RESCOPED: the sensitive set is WIDE-ANGLE and low-measure —
+anisotropy ~12-16x (wash-aligned ~2x vs isotropic ~25-32x); forgetting
+is still direction-typed, but the effect size is a threshold RATIO, and
+"matched-L2 isotropic spares at 4x" must never be cited as evidence.
+The organ-draw n=1 scope stands (auditor).
+
+
+[R56 AMENDMENT — CHANNEL SCOPE, SEQUENTIAL PENDING]: the critic's read
+of the same committed metrics: the wall holds the fact's BATTERY
+channel; the SAME fact's wpe-band channel reads ~0.001 by +2 INSIDE the
+ball and row0 strength decays 0.76->0.62 by +50; no free-run generation
+read ever existed; the +0.53-nat tax is a standing interest payment
+(~half of future adaptation on the easiest stream). Sequential memory
+was never tested — without it "memory is made architectural" risks
+reducing to "the organism was frozen with its probe intact." The
+claim's form until g1bW lands: "the wall holds the fact's
+battery-channel expression through a wash that kills the control"
+(wash-draw n=3, one root — the root redraw g1c-root queued). g1bW
+(SPLINT-REFUTED / MUSEUM / ZERO-SUM + free-run battery) dispatched
+21:25Z.
+
+
+[R56 AMENDMENT — CONSTRUCTION DISCLOSURES, THE HEAD-TO-HEAD DEBT]:
+(i) REFRACTORY=24 sits above the registered band's lower edge (20) —
+"100% of spacings in [20,45]" was guaranteed from below; only the upper
+edge was a measurement. (ii) Wash intensity was CONSTANT in every g2
+run — "self-timed" has not been distinguished from "threshold +
+cooldown at one threat level" (a fixed-period oscillator built from a
+thermostat). (iii) The one existing head-to-head vs a fixed 1/32
+replay schedule: the FIXED arm read 0.693 vs the organ's 0.587-0.615
+(the critic's read of the committed run) — matched or beaten. The noun
+stands as "an event-driven maintenance that replicates (wash-draw n=3,
+one root)"; the claim "the organ beats a fixed schedule" is NOT ours
+until g2g registers the head-to-head with the threat-level ladder.
 
 ## T002 — Why was unlearning anti-selective? (2026-09-24)
 

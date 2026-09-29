@@ -1,0 +1,1065 @@
+{
+  "experiment": "g2f",
+  "date": "2026-09-29T21:13:28Z",
+  "purpose": "THE BASE-SEED REDRAW \u2014 T132's registered next rung: a STRANGER base (e098_base_s4306.pt, a fully fresh base-training draw) under the locked root's own recipe (e043-Dmix install gen 4305 HELD, 300 steps; e113 consolidation seed 10901; cue pool write-once) must clear the 0.7 root-strength gate AND sustain the onset-monitor organ's rhythm (g2c/g2d/g2e readout, wash seed 10902 held) \u2014 dissociating organ-lottery from root-lottery at the BASE level; with g2e the two rungs bracket the root recipe.",
+  "delta_vs_g2e": {
+    "g2e": "install-lottery: gen 4305->4306 on the SAME base (sibling root) \u2014 timing replicated, amplitude and the gate did not (ROOT-DRAW-BOUND residual)",
+    "g2f": "base-lottery: the BASE checkpoint s4305->s4306 with the install gen seed HELD at 4305 (stranger root) \u2014 the dissociation rung T132 registered",
+    "the_knob": "runs/checkpoints/e098_base_s4306.pt replaces e098_base_s4305.pt (see provenance.base for hashes and the distinct-init check); everything else verbatim from the locked root's recipe; e098_install_s4306.pt NOT used (e098's own different install recipe \u2014 the g2 install runs fresh on the new base)"
+  },
+  "smoke": true,
+  "threads": 4,
+  "cpu_only": false,
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "compute": {
+    "gpu_first": true,
+    "parked": false,
+    "park_reason": null,
+    "device_events": [],
+    "cuda_visible_devices": "0",
+    "threads": 4,
+    "cooldown_gpu_s": 120.0,
+    "stagger_cpu_s": 20.0,
+    "train_cap_s_wall": 900.0,
+    "train_cap_note": "the 180-s rule is the GPU-era optimizer-segment bound; wall is CPU-eval-dominated (152 dense reads)",
+    "meas_grid_n": 20,
+    "meas_grid_every": 2,
+    "evals": "CPU (run_cell's eval twin); the organ's own monitor read follows the wrapper device"
+  },
+  "provenance": {
+    "base": {
+      "form": "the delta is real: the two base checkpoints are distinct inits of the same family-2 cfg",
+      "new_base": {
+        "path": "runs/checkpoints/e098_base_s4306.pt",
+        "bytes": 10542957,
+        "mtime": "2026-09-28T00:58:23Z",
+        "sha256_16": "7da5cda63cf559af"
+      },
+      "locked_base": {
+        "path": "runs/checkpoints/e098_base_s4305.pt",
+        "bytes": 10542957,
+        "mtime": "2026-09-28T00:47:48Z",
+        "sha256_16": "83c1066ccf65a07c"
+      },
+      "params": 873472,
+      "max_abs_param_diff": 0.7438730001449585,
+      "distinct_inits": true,
+      "cfg": {
+        "vocab": 65,
+        "n_layer": 4,
+        "n_head": 4,
+        "n_embd": 128,
+        "block_size": 512
+      }
+    },
+    "install_gen_seed": 4305,
+    "install_steps": 8,
+    "install_house_cosine_total": 8,
+    "consolidation_seed": 10901,
+    "wash_seed": 10902,
+    "cue_pool": "write-once from install_occ (corpus-derived, base-independent; G_POOL bit-identical to the locked root's)",
+    "root_tag": "g2f_base4306_g4305",
+    "rebuild_recipe": "load_f2(runs/checkpoints/e098_base_s4306.pt) + G2.build_root(tag, base, gen 4305, 8 steps) \u2014 deterministic"
+  },
+  "fresh_root": {
+    "recipe": "e098_base_s4306.pt (THE KNOB) + e043-Dmix install (8 steps, gen 4305 HELD) + e113 jitter consolidation (300 steps, seed 10901) \u2014 g2's r1 VERBATIM, one base knob changed",
+    "install_traj": [
+      {
+        "step": 8,
+        "install60_pz": 0.46734461188316345,
+        "r1i_nll": 1.0164694786071777,
+        "r1i_acc": 0.7809523940086365
+      }
+    ],
+    "install_wall_s": 7.2,
+    "install_device": "cuda",
+    "cons_traj": [
+      {
+        "step": 8,
+        "install60_pz": 8.709966641617939e-05,
+        "ce_r": 2.960824489593506,
+        "elapsed_s": 0.4
+      }
+    ],
+    "cons_device": "cuda",
+    "root_monitor_onset": 8.853425970301032e-05,
+    "locked_root_monitor_onset": 0.0022665834985673428,
+    "sibling_root_monitor_onset": 0.004119795747101307,
+    "gates": {
+      "G_SPLICE": {
+        "install_mix": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "pass": true
+      },
+      "G_POOL": {
+        "form": "bit vs the LOCKED root's on-disk cue pool (g2_root.pt registered buffers)",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "shape": [
+          300,
+          256
+        ],
+        "pass": true
+      },
+      "G_ROOTF": {
+        "form": "fresh root sd through the organ registration (G2Net wrap -> body-strip -> reload), re-measured",
+        "cells_roundtrip": {
+          "g-12": 7.236031524371356e-05,
+          "g+0": 8.709966641617939e-05,
+          "g+12": 8.672916737850755e-05
+        },
+        "cells_construction": {
+          "g-12": 7.236031524371356e-05,
+          "g+0": 8.709966641617939e-05,
+          "g+12": 8.672916737850755e-05
+        },
+        "max_abs_diff": 0.0,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": true,
+        "pass": true
+      },
+      "G_SPAN": {
+        "form": "Rule 12: the ruler battery's three geometries span the readout position before compute (asserted)",
+        "geos": [
+          -12,
+          0,
+          12
+        ],
+        "battery_shapes": {
+          "g-12": [
+            60,
+            118
+          ],
+          "g+0": [
+            60,
+            130
+          ],
+          "g+12": [
+            60,
+            142
+          ]
+        },
+        "window_lengths": [
+          118,
+          130,
+          142
+        ],
+        "spans_pre_plus_minus_12": true,
+        "common_readout_last_token": true,
+        "brackets_offset_zero": true,
+        "grid_stride": 2,
+        "grid_finer_than_min_spacing": true,
+        "grid_covers": {
+          "step1": true,
+          "step25": true,
+          "max_is_N": true,
+          "n_reads": 20
+        },
+        "pass": true
+      }
+    }
+  },
+  "root_lottery_series": {
+    "e157_ported_root": 0.5911,
+    "g2_locked_r1": 0.0020340944174677134,
+    "g2e_install_redraw": 0.004809529986232519,
+    "g2f_base_redraw": 8.709966641617939e-05,
+    "bar": 0.7,
+    "note": "the root recipe's draw lottery across levels: locked install / fresh install (sibling base) / fresh base (stranger) \u2014 each n=1"
+  },
+  "locked_root_reference": {
+    "source": "runs/g2/metrics.json (root.cells) + runs/g2c/metrics.json (dense trace) + runs/g2b/metrics.json (root onset monitor)",
+    "cells": {
+      "gm12": 0.0022205791901797056,
+      "g0": 0.0020340944174677134,
+      "gp12": 0.002377510303631425,
+      "ce_r": 2.89866304397583
+    },
+    "ruler_value": 0.7106021046638489,
+    "g2c_cycle_median_stored": null,
+    "g2c_duty_stored": null,
+    "contrast_base_ruler_50": null
+  },
+  "sibling_root_reference": {
+    "source": "runs/g2e/metrics.json (the install-lottery rung)",
+    "gate": {
+      "geos": {
+        "g-12": 0.00323649775236845,
+        "g+0": 0.004809529986232519,
+        "g+12": 0.0029653245583176613
+      },
+      "ruler_geo": 0,
+      "ruler": 0.004809529986232519,
+      "passes": false
+    },
+    "ruler_key": "g0",
+    "events": [
+      24
+    ],
+    "cycle_median_stored": null,
+    "root_monitor_onset": 0.004119795747101307,
+    "contrast_base_ruler_50": null
+  },
+  "cells": {
+    "base": {
+      "mode": "base",
+      "seed": 10902,
+      "steps_ran": 36,
+      "n_events": 0,
+      "n_checks": 0,
+      "realized_r": 0.0,
+      "event_spacings": [],
+      "events": [],
+      "monitor_trace": [],
+      "event_log": [],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 2.865872738766484e-05,
+          "g0": 3.0485472962027416e-05,
+          "gp12": 3.418876804062165e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.245267868041992,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 0.6
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 2.274598773510661e-05,
+          "g0": 2.5899771571857855e-05,
+          "gp12": 2.1239482521195896e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7056028842926025,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.2
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.087168675439898e-05,
+          "g0": 1.2606457858055364e-05,
+          "gp12": 1.52771026478149e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.155731201171875,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.8
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 8.062477718340233e-06,
+          "g0": 1.0866250704566482e-05,
+          "gp12": 7.936724614410195e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.2542672157287598,
+          "monitor": null,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.9
+        }
+      ],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "wall_s": 8.1,
+      "n_evals": 4,
+      "replay_checks": {
+        "events": 0,
+        "mask7_ok": 0,
+        "anchors_8_8_ok": 0,
+        "echo_j0_ok": 0
+      },
+      "note": "gate hard-disabled \u2014 the intervention contrast ON THE FRESH BASE (co-reported; not a registered bar)"
+    },
+    "g2": {
+      "mode": "g2",
+      "seed": 10902,
+      "steps_ran": 36,
+      "n_events": 1,
+      "n_checks": 1,
+      "realized_r": 0.027777777777777776,
+      "event_spacings": [],
+      "events": [
+        24
+      ],
+      "monitor_trace": [
+        {
+          "step": 24,
+          "check": 6,
+          "monitor": 5.473041710502002e-06,
+          "fired": true,
+          "became_event": true
+        }
+      ],
+      "event_log": [
+        {
+          "n": 1,
+          "step": 24,
+          "mode": "g2",
+          "pre_event_monitor": 5.473041710502002e-06,
+          "post_refractory_monitor": null,
+          "next_check_fired": null,
+          "ruler_cells_at_plus_refractory": {
+            "gm12": 2.093548209813889e-05,
+            "g0": 2.9239501600386575e-05,
+            "gp12": 2.2123476810520515e-05
+          },
+          "ruler_cells_at_next_ckpt": {
+            "gm12": 5.976213742542313e-06,
+            "g0": 8.595151484769303e-06,
+            "gp12": 6.766630122001516e-06
+          }
+        }
+      ],
+      "traj": [
+        {
+          "step": 1,
+          "why": "ckpt",
+          "gm12": 2.8658725568675436e-05,
+          "g0": 3.0485471143038012e-05,
+          "gp12": 3.418876804062165e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 4.245267868041992,
+          "monitor": 2.823577233357355e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 0.6
+        },
+        {
+          "step": 2,
+          "why": "ckpt",
+          "gm12": 2.2745980459148996e-05,
+          "g0": 2.5899771571857855e-05,
+          "gp12": 2.12394843401853e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.7056028842926025,
+          "monitor": 2.2534073650604114e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 1.2
+        },
+        {
+          "step": 4,
+          "why": "ckpt",
+          "gm12": 1.087168675439898e-05,
+          "g0": 1.2606467862497084e-05,
+          "gp12": 1.527712811366655e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.155731678009033,
+          "monitor": 1.156740472652018e-05,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.0
+        },
+        {
+          "step": 6,
+          "why": "ckpt",
+          "gm12": 4.719442131317919e-06,
+          "g0": 5.53356312593678e-06,
+          "gp12": 6.919953648321098e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.796740770339966,
+          "monitor": 6.4137420849874616e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 2.7
+        },
+        {
+          "step": 8,
+          "why": "ckpt",
+          "gm12": 5.954787866357947e-06,
+          "g0": 7.547442692157347e-06,
+          "gp12": 9.46521140576806e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.7520041465759277,
+          "monitor": 9.111827239394188e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 3.5
+        },
+        {
+          "step": 10,
+          "why": "ckpt",
+          "gm12": 2.9465234092640458e-06,
+          "g0": 3.8021737509552622e-06,
+          "gp12": 4.190042545815231e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.6343271732330322,
+          "monitor": 3.6327451198303606e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 4.2
+        },
+        {
+          "step": 12,
+          "why": "ckpt",
+          "gm12": 2.995186378029757e-06,
+          "g0": 4.421574431034969e-06,
+          "gp12": 3.7035360946902074e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.54705810546875,
+          "monitor": 5.102042450744193e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 5.2
+        },
+        {
+          "step": 14,
+          "why": "ckpt",
+          "gm12": 3.959590230806498e-06,
+          "g0": 5.685235464625293e-06,
+          "gp12": 4.500297109188978e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.497411012649536,
+          "monitor": 6.0661691350105684e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 6.4
+        },
+        {
+          "step": 16,
+          "why": "ckpt",
+          "gm12": 3.068777232329012e-06,
+          "g0": 4.014081696368521e-06,
+          "gp12": 3.769482873394736e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4805192947387695,
+          "monitor": 3.153846364511992e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 7.4
+        },
+        {
+          "step": 18,
+          "why": "ckpt",
+          "gm12": 3.273877382525825e-06,
+          "g0": 4.3342133722035214e-06,
+          "gp12": 3.872702563967323e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4454665184020996,
+          "monitor": 3.381456053830334e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 8.4
+        },
+        {
+          "step": 20,
+          "why": "ckpt",
+          "gm12": 3.5868022223439766e-06,
+          "g0": 4.903061380900908e-06,
+          "gp12": 4.33772675023647e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.4376001358032227,
+          "monitor": 5.219263584876899e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 9.2
+        },
+        {
+          "step": 22,
+          "why": "ckpt",
+          "gm12": 3.658878540591104e-06,
+          "g0": 5.727676125388825e-06,
+          "gp12": 4.519234153121943e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.394080877304077,
+          "monitor": 5.273515853332356e-06,
+          "n_events_so_far": 0,
+          "was_event": false,
+          "elapsed_s": 10.2
+        },
+        {
+          "step": 24,
+          "why": "ckpt",
+          "gm12": 5.976213742542313e-06,
+          "g0": 8.595151484769303e-06,
+          "gp12": 6.766630122001516e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.385576009750366,
+          "monitor": 6.963611667742953e-06,
+          "n_events_so_far": 1,
+          "was_event": true,
+          "elapsed_s": 11.1
+        },
+        {
+          "step": 25,
+          "why": "ckpt",
+          "gm12": 6.543080871779239e-06,
+          "g0": 1.0052711331809405e-05,
+          "gp12": 8.198187060770579e-06,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.3694655895233154,
+          "monitor": 8.028845513763372e-06,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 12.0
+        },
+        {
+          "step": 26,
+          "why": "ckpt",
+          "gm12": 8.621567758382298e-06,
+          "g0": 1.3160871276340913e-05,
+          "gp12": 1.0897764695982914e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.34967303276062,
+          "monitor": 1.0626210496411659e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 12.9
+        },
+        {
+          "step": 28,
+          "why": "ckpt",
+          "gm12": 1.2116975085518789e-05,
+          "g0": 1.967491152754519e-05,
+          "gp12": 1.6838637748151086e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.3549201488494873,
+          "monitor": 1.520824935141718e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 13.7
+        },
+        {
+          "step": 30,
+          "why": "ckpt",
+          "gm12": 1.2336852705630008e-05,
+          "g0": 2.1650988855981268e-05,
+          "gp12": 1.9840848835883662e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.3316121101379395,
+          "monitor": 1.7669957742327824e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 14.6
+        },
+        {
+          "step": 32,
+          "why": "ckpt",
+          "gm12": 2.843589027179405e-05,
+          "g0": 3.7241316022118554e-05,
+          "gp12": 3.134781218250282e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.295138120651245,
+          "monitor": 3.3338918001390994e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 15.3
+        },
+        {
+          "step": 34,
+          "why": "ckpt",
+          "gm12": 2.1450132408062927e-05,
+          "g0": 2.99520579574164e-05,
+          "gp12": 2.5860681489575654e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.27360463142395,
+          "monitor": 2.616417987155728e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 16.3
+        },
+        {
+          "step": 36,
+          "why": "ckpt",
+          "gm12": 2.093548209813889e-05,
+          "g0": 2.9239501600386575e-05,
+          "gp12": 2.2123476810520515e-05,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.2615976333618164,
+          "monitor": 3.144100628560409e-05,
+          "n_events_so_far": 1,
+          "was_event": false,
+          "elapsed_s": 17.4
+        }
+      ],
+      "devices": {
+        "initial": "cuda",
+        "final": "cuda"
+      },
+      "wall_s": 22.6,
+      "n_evals": 20,
+      "replay_checks": {
+        "events": 1,
+        "mask7_ok": 1,
+        "anchors_8_8_ok": 1,
+        "echo_j0_ok": 0
+      },
+      "note": "gate live, onset-only monitor \u2014 THE RHYTHM LEG (dense grid, g2c/g2d/g2e readout)"
+    }
+  },
+  "phase_fresh_root": {
+    "n_complete_cycles": 0,
+    "n_pooled_samples": 0,
+    "cycle_median": null,
+    "cycle_mean": null,
+    "duty_ge_0.5": null,
+    "peak_max": null,
+    "trough_min": null,
+    "per_cycle": [],
+    "per_cycle_peak_range": null,
+    "per_cycle_median_range": null,
+    "per_cycle_trough_range": null,
+    "frac_cycles_median_ge_0.5": null,
+    "phase_bin_centers": [
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375,
+      0.5625,
+      0.6875,
+      0.8125,
+      0.9375
+    ],
+    "phase_bin_medians": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "phase_bin_means": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "pre_rhythm": {
+      "steps": [
+        1,
+        22
+      ],
+      "min": 3.8021737509552622e-06
+    },
+    "tail_partial": {
+      "n_samples": 7,
+      "min": 1.0052711331809405e-05,
+      "max": 3.7241316022118554e-05,
+      "ruler_at_final_step": 2.9239501600386575e-05
+    }
+  },
+  "clauses_fresh_root": {
+    "n_events": 1,
+    "event_spacings": [],
+    "frac_spacing_in_20_45": null,
+    "band_stays_20_45": false,
+    "events_clause": false,
+    "cycle_median": null,
+    "cycle_mean": null,
+    "duty_ge_0.5": null,
+    "median_clause": false,
+    "near_texture": [],
+    "passes_both": false
+  },
+  "reference_legs": {
+    "locked_g2c": {
+      "seed": 10902,
+      "root": "locked (g2_root.pt via g2c)",
+      "F_REF": {
+        "form": "g2c's stored dense trace re-pooled (load integrity)",
+        "cycle_median_recomputed": null,
+        "g2c_stored": null,
+        "abs_diff": null,
+        "n_dense_rows": 20,
+        "pass": true,
+        "note": "smoke: 0 complete cycles on both sides \u2014 vacuous"
+      },
+      "clauses": {
+        "n_events": 1,
+        "event_spacings": [],
+        "frac_spacing_in_20_45": null,
+        "band_stays_20_45": false,
+        "events_clause": false,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "median_clause": false,
+        "near_texture": [],
+        "passes_both": false,
+        "source": "g2c's stored realization (locked root, seed 10902); embedded reference leg, not re-adjudicated"
+      },
+      "phase": {
+        "n_complete_cycles": 0,
+        "n_pooled_samples": 0,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "peak_max": null,
+        "trough_min": null,
+        "per_cycle": [],
+        "per_cycle_peak_range": null,
+        "per_cycle_median_range": null,
+        "per_cycle_trough_range": null,
+        "frac_cycles_median_ge_0.5": null,
+        "phase_bin_centers": [
+          0.0625,
+          0.1875,
+          0.3125,
+          0.4375,
+          0.5625,
+          0.6875,
+          0.8125,
+          0.9375
+        ],
+        "phase_bin_medians": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_bin_means": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "pre_rhythm": {
+          "steps": [
+            1,
+            22
+          ],
+          "min": 1.2796322153008077e-05
+        },
+        "tail_partial": {
+          "n_samples": 7,
+          "min": 0.00013690489868167788,
+          "max": 0.00037975245504640043,
+          "ruler_at_final_step": 0.00037975245504640043
+        }
+      },
+      "events": [
+        24
+      ],
+      "source": "g2c's stored dense realization; embedded leg, not re-adjudicated"
+    },
+    "sibling_g2e": {
+      "seed": 10902,
+      "root": "install-redraw (g2e, gen 4306 on s4305)",
+      "F_SIB": {
+        "form": "g2e's stored dense trace re-pooled (sibling-rung load integrity)",
+        "cycle_median_recomputed": null,
+        "g2e_stored": null,
+        "abs_diff": null,
+        "n_dense_rows": 20,
+        "pass": true,
+        "note": "smoke: 0 complete cycles on both sides \u2014 vacuous"
+      },
+      "clauses": {
+        "n_events": 1,
+        "event_spacings": [],
+        "frac_spacing_in_20_45": null,
+        "band_stays_20_45": false,
+        "events_clause": false,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "median_clause": false,
+        "near_texture": [],
+        "passes_both": false,
+        "source": "g2e's stored realization (install-redraw root, seed 10902); embedded leg, not re-adjudicated"
+      },
+      "phase": {
+        "n_complete_cycles": 0,
+        "n_pooled_samples": 0,
+        "cycle_median": null,
+        "cycle_mean": null,
+        "duty_ge_0.5": null,
+        "peak_max": null,
+        "trough_min": null,
+        "per_cycle": [],
+        "per_cycle_peak_range": null,
+        "per_cycle_median_range": null,
+        "per_cycle_trough_range": null,
+        "frac_cycles_median_ge_0.5": null,
+        "phase_bin_centers": [
+          0.0625,
+          0.1875,
+          0.3125,
+          0.4375,
+          0.5625,
+          0.6875,
+          0.8125,
+          0.9375
+        ],
+        "phase_bin_medians": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_bin_means": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "pre_rhythm": {
+          "steps": [
+            1,
+            22
+          ],
+          "min": 1.0862698218261357e-05
+        },
+        "tail_partial": {
+          "n_samples": 7,
+          "min": 9.592308924766257e-05,
+          "max": 0.0007395026041194797,
+          "ruler_at_final_step": 0.0007395026041194797
+        }
+      },
+      "events": [
+        24
+      ],
+      "source": "g2e's stored dense realization; embedded leg, not re-adjudicated"
+    }
+  },
+  "schedules_differ": {
+    "schedules": {
+      "locked_root_g2c_10902": [
+        24
+      ],
+      "sibling_root_g2e_10902": [
+        24
+      ],
+      "fresh_root_g2f_10902": [
+        24
+      ]
+    },
+    "fresh_vs_locked": false,
+    "fresh_vs_sibling": false
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "cell_zeph_violations": {
+        "base": 0,
+        "g2": 0
+      },
+      "pass": true
+    },
+    "G_REPLAY": {
+      "base": {
+        "n_events": 0,
+        "checks": {
+          "events": 0,
+          "mask7_ok": 0,
+          "anchors_8_8_ok": 0,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      },
+      "g2": {
+        "n_events": 1,
+        "checks": {
+          "events": 1,
+          "mask7_ok": 1,
+          "anchors_8_8_ok": 1,
+          "echo_j0_ok": 0
+        },
+        "pass": true
+      }
+    },
+    "G_STEP": {
+      "base": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      },
+      "g2": {
+        "steps_ran": 36,
+        "expected": 36,
+        "batch": 32,
+        "pass": true
+      }
+    },
+    "CONTRAST": {
+      "form": "CELL-BASE on the FRESH BASE-REDRAW ROOT (sparse grid, seed 10902) \u2014 the honest-reflex intervention check",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "locked_root_base_50": null,
+      "sibling_root_base_50": null,
+      "embedded_context": "e184 ALL-DISSOLVE (n=3 wash seeds, locked root); g4's two-root dissolve (T127)",
+      "pass": null,
+      "structural_void_on_fresh_root": false
+    },
+    "hard": {
+      "G_POOL": true,
+      "G_ROOTF": true,
+      "G_SPAN": true,
+      "G_BASE": true,
+      "G_NAMEFREE": true,
+      "G_REPLAY": true,
+      "G_STEP": true,
+      "F_REF": true,
+      "F_SIB": true
+    }
+  },
+  "registered_bars": {
+    "organ_replicates": "ORGAN-REPLICATES fires if the fresh root clears the strength gate (ruler >= 0.7 at construction) AND the organ sustains the rhythm on it (>=5 self-timed events with 100% of spacings in the 20-45 band; cycle-median >= 0.5) \u2014 the architecture claim licensed at n=2 roots, base level bracketed",
+    "organ_root_bound": "ORGAN-ROOT-BOUND fires if the fresh root passes the gate but the rhythm fails (or vice versa) \u2014 the organ's success was root-specific (honest bound; the claim scoped)",
+    "residual_root_draw_bound": "residual inherited VERBATIM from g2e's pre-registration (the exhaustive remainder): gate fails AND rhythm fails -> ROOT-DRAW-BOUND (the recipe's draw produced neither; claim stays n=1-root; a re-draw owed; no third bar invented)",
+    "dissociation_reading": "T132's pre-registered DISSOCIATION READING (report-only, both outcomes informative): IF the redraw root clears the gate (>=0.7), the T132 decomposition PREDICTS amplitude recovery (cycle-median >= 0.5); a strong root with amplitude failure REFUTES the decomposition.",
+    "source": "dispatch g2f (T132's registered next rung), VERBATIM; operationalized in this docstring before the run; no shopping."
+  },
+  "registered_prediction": {
+    "pre_run": "T132's decomposition (organ = clock, root = floor) predicts: IF the base-redraw root clears the gate (ruler >= 0.7) THEN amplitude recovers (cycle-median >= 0.5); a strong root with amplitude failure REFUTES the decomposition. A gate failure leaves the prediction untested at this draw (both outcomes informative \u2014 the root lottery extends to base redraws). No shopping.",
+    "discriminating_observation": "the fresh root's construction onset monitor vs the locked root's 0.609 and the sibling's 0.596 (a root starting below THETA_OPEN would open the gate immediately \u2014 texture), and the fresh cell's per-cycle troughs vs g2d's 0.08-0.60 / g2e's 0.019-0.280 \u2014 shallow troughs license with room; deep troughs extend the amplitude lottery while the median decides."
+  },
+  "adjudication": {
+    "gate": {
+      "form": "g2's frozen rule: ruler = argmax over {-12,0,+12} battery geos at construction; ROOT_BAR 0.7 never lowered",
+      "geos": {
+        "g-12": 7.236031524371356e-05,
+        "g+0": 8.709966641617939e-05,
+        "g+12": 8.672916737850755e-05
+      },
+      "held30": {
+        "g-12": 7.49680693843402e-05,
+        "g+0": 9.091824176721275e-05,
+        "g+12": 8.894743223208934e-05
+      },
+      "ce_r": 2.960824489593506,
+      "ruler_geo": 0,
+      "ruler_key": "g0",
+      "ruler": 8.709966641617939e-05,
+      "g0": 8.709966641617939e-05,
+      "root_bar": 0.7,
+      "locked_root_geos": {
+        "gm12": 0.0022205791901797056,
+        "g0": 0.0020340944174677134,
+        "gp12": 0.002377510303631425,
+        "ce_r": 2.89866304397583
+      },
+      "sibling_rung_geos": {
+        "g-12": 0.00323649775236845,
+        "g+0": 0.004809529986232519,
+        "g+12": 0.0029653245583176613
+      },
+      "geo_matches_locked": true,
+      "passes": false
+    },
+    "gate_pass": false,
+    "rhythm_pass": false,
+    "clauses": {
+      "gate_clause": "fresh-root ruler (argmax of the three battery geos, g2's frozen rule) >= 0.7 at construction; g0 co-reported per the dispatch's letter",
+      "events_clause": "n_events >= 5 AND 100% of spacings in [20, 45] (g2b/g2c/g2d/g2e's registered band)",
+      "median_clause": "cycle-median over dense in-cycle samples of complete inter-event intervals >= 0.5 (g2c's convention, same grid)"
+    },
+    "bars": {
+      "ORGAN_REPLICATES": false,
+      "ORGAN_ROOT_BOUND": false,
+      "ROOT_DRAW_BOUND_residual": true,
+      "near_texture": []
+    },
+    "dissociation_reading": {
+      "outcome": "untested_gate_failed",
+      "report_only": true,
+      "registered": "T132's pre-registered DISSOCIATION READING (report-only, both outcomes informative): IF the redraw root clears the gate (>=0.7), the T132 decomposition PREDICTS amplitude recovery (cycle-median >= 0.5); a strong root with amplitude failure REFUTES the decomposition.",
+      "clause": "the redraw root MISSED the gate (ruler 0.0001 < 0.7) \u2014 the dissociation prediction is conditional on a strong root and is UNTESTED at this draw (both outcomes informative, as registered): the base-level draw renews root weakness \u2014 the recipe's lottery now reads 0.002 (locked) / 0.005 (g2e install-draw) / 0.000 (g2f base-draw) against the 0.7 bar, with e157's ported 0.591 before them. The timing clauses are co-reported regardless."
+    },
+    "geo_texture_cycle_medians": {
+      "g-12": {
+        "cycle_median": null,
+        "duty_ge_0.5": null,
+        "adjudicated": false,
+        "locked_root_ruler_geo": false
+      },
+      "g+0": {
+        "cycle_median": null,
+        "duty_ge_0.5": null,
+        "adjudicated": true,
+        "locked_root_ruler_geo": true
+      },
+      "g+12": {
+        "cycle_median": null,
+        "duty_ge_0.5": null,
+        "adjudicated": false,
+        "locked_root_ruler_geo": false
+      }
+    },
+    "contrast_coreport": {
+      "form": "CELL-BASE on the FRESH BASE-REDRAW ROOT (sparse grid, seed 10902) \u2014 the honest-reflex intervention check",
+      "base_ruler_50": null,
+      "bar": 0.27,
+      "locked_root_base_50": null,
+      "sibling_root_base_50": null,
+      "embedded_context": "e184 ALL-DISSOLVE (n=3 wash seeds, locked root); g4's two-root dissolve (T127)",
+      "pass": null,
+      "structural_void_on_fresh_root": false
+    },
+    "pre_rhythm_min": 3.8021737509552622e-06,
+    "verdict": "SMOKE (nothing adjudicated)",
+    "clause": "smoke trim \u2014 8-step root draw, 36-step cells."
+  },
+  "honesty": [
+    "WHAT WAS REPLICATED: the BASE-SEED draw at n=1 (the locked root's base s4305 vs one stranger draw s4306, install gen seed 4305 held) \u2014 with g2e (install-lottery, same base) the two rungs BRACKET the root recipe; neither rung measures the draw pass rate, and neither re-establishes wash-draw robustness on any fresh root (g2d's n=3 was on the locked root; every fresh root here is a single wash-seed point estimate).",
+    "SIBLINGS VS STRANGERS: the locked root and g2e share the base init (siblings \u2014 g2e renewed the install batch trajectory only); g2f renews the BASE INIT \u2014 a stranger at the base level. Install windows, cue pool (corpus-derived, bit-identical) and the consolidation stream (seed 10901) are shared across all three roots.",
+    "BASE-DRAW n=1: a single stranger base; the base-level pass rate is unmeasured (as the install-level one is at n=1 after g2e). The ROOT-DRAW-BOUND residual at BOTH levels is one observation each \u2014 consistent with a coin-flip-ish lottery, not a measured rate.",
+    "DEVICE TEXTURE: this rung's trainings are GPU-first (the dispatch's envelope) where g2b/g2c/g2d/g2e were CPU-only \u2014 the fresh root's weights and the organ's monitor reads (hence event timings) carry GPU float texture; every ruler/CE readout ran on the CPU eval twin. The locked root was itself cuda-install + cpu-consolidation, so the lineage has never been device-uniform; every bar sits at order-of-magnitude separations.",
+    "THE INTERVENTION CHECK RAN ON THE FRESH BASE: CELL-BASE (gate off, same seed) \u2014 behavior with vs without the organ is the honest-reflex test; its +50 value is co-reported (not a registered bar).",
+    "THE REFERENCE LEGS ARE STORED, NOT RERUN: g2c's and g2e's dense traces were fidelity-gated in their own runs; F_REF and F_SIB re-pool them as load checks only.",
+    "NO BAR WIDENING: near-misses are co-reported texture; the two registered outcomes stay exhaustive over their domain, with the ROOT-DRAW-BOUND residual (inherited VERBATIM from g2e's pre-registration) for the both-fail corner.",
+    "GEO TEXTURE IS CO-REPORTED, NEVER ADJUDICATED: the cycle-median is pooled per geo key and all three are recorded; the adjudicated key is the frozen construction-argmax ruler (g2e's lesson: a geo-shifted root can pass on one key and fail on another \u2014 the frozen rule decides).",
+    "n=2 ROOTS would license the architecture claim ONLY via ORGAN-REPLICATES (gate AND rhythm); the lab's replicate standard for this claim remains what it was \u2014 this rung adds the base-level bracket, not a rate."
+  ],
+  "checkpoints_saved": {},
+  "deviations": [
+    "THE DELTA: the BASE checkpoint only \u2014 e098_base_s4305.pt -> e098_base_s4306.pt (a stranger base, a fully fresh base-training draw from e098's ladder). The install recipe runs FRESH on the new base (e043-Dmix, gen seed 4305 HELD at the locked root's own, house cosine total=300, 300 steps); runs/checkpoints/e098_install_s4306.pt is NOT used (that is e098's own different install recipe). Consolidation (seed 10901), cue pool, wash seed (10902), cells (G2.run_cell unmodified, onset-only monitor via g2b's patch), dense grid and adjudication conventions are g2c/g2d/g2e VERBATIM.",
+    "ROOT SCOPE (the honest-reflex point): g2f renews the BASE INIT \u2014 the install windows, cue pool (write-once, corpus-derived, bit-identical: G_POOL) and the consolidation stream (seed 10901) are still shared with the locked root; g2f's root is a STRANGER at the base level where g2e's was a sibling (same base, fresh install trajectory). The two rungs bracket the root recipe; neither measures the draw pass rate (n=1 each).",
+    "GPU-FIRST ENVELOPE (this rung's dispatch; a change from g2b-g2e's CPU-only era): trainings may use the GPU via G2.pick_dev's own gpu_ok() double-poll (5 s apart) with park-once fallback and the 25-step mid-run guard. g2b's import clobbers CUDA_VISIBLE_DEVICES to '-1' \u2014 undone immediately after the import (CUDA was already detected at common's import with the GPU visible; availability survives, verified by probe and re-checked at runtime). Park-once falls back at the FIRST failed double-poll \u2014 sooner than the dispatch's 10-min patience (strictly safer; recorded).",
+    "COOLDOWN(120 s) between trainings (the dispatch's band): G2.COOLDOWN_S=120 covers install->consolidation inside build_root; the cells pre-cooldown explicitly. If parked to CPU, the stagger trims to 20 s (g2b/g2c/g2d/g2e's CPU convention) and the trim is recorded.",
+    "TRAIN CAP: G2F_CAP_S=900 s wall (g2d/g2e's inherited bound). The dispatch's 180 s single-run rule is GPU-era and applies to the optimizer segment \u2014 on GPU each training's optimizer segment is a small fraction of wall (g2's own GPU cells); the WALL is dominated by the mandated CPU evals (152 dense reads on the g2 cell), which the envelope itself puts on CPU. Per-training walls + eval counts recorded.",
+    "EVALS ON CPU: every ruler/CE readout runs on run_cell's CPU eval twin (g2's machinery); the organ's own monitor read (the sensor, 8 cue windows, no-grad) follows the wrapper's device \u2014 g2's original GPU-era behavior, machinery unmodified. Event timings therefore carry GPU float texture when the GPU is live (co-reported; bars live at order-of-magnitude separations).",
+    "DEVICE TEXTURE vs THE SIBLING RUNG: g2e was CPU-only end-to-end; g2f's trainings run GPU-first \u2014 the g2e-vs-g2f comparison carries device texture on top of the base-seed delta (recorded; the frozen bars do not sit near float-precision boundaries).",
+    "CELL-BASE RERUN on the fresh root (sparse g2b grid, seed 10902): the intervention contrast re-established on the NEW base \u2014 the honest-reflex 'does intervening change behavior' check. Co-reported, NOT a registered bar; e184's ALL-DISSOLVE (n=3 wash seeds) + g4's two-root dissolve are the embedded cross-root context.",
+    "NO +300 ANATOMY DIAL: g2f's registered bars are gate + rhythm (+ the report-only dissociation); the anatomy-at-+300 claim remains g2's, on the locked root.",
+    "NO NEW CHECKPOINT FILES: the fresh root and the measurement states live in memory and are discarded (deliverables are metrics + PNG; the fresh root is deterministically rebuildable from the recorded recipe: base s4306 + install gen 4305 + cons 10901). The commit adds lab/ + runs/g2f (+ runs/g2f_smoke) only.",
+    "RULE 12 PRE-DISPATCH INSTRUMENT CHECK (G_SPAN, asserted in code before any training): the ruler battery's three geometries {-12, 0, +12} span the readout position \u2014 window lengths {PRE-12, PRE, PRE+12} = {118, 130, 142}, every geo's window TERMINATES at the same char (the onset-preceding position), and the dense grid's stride (2) is finer than the registered minimum spacing (20) so every complete inter-event interval contains dense samples.",
+    "phase_analysis/clauses are g2d/g2e VERBATIM with the one mechanical change they already made: the ruler key is a parameter (frozen at runtime from the fresh root's construction argmax, never shopped).",
+    "Smoke mode trims: 8-step install/consolidation, 36-step cells, grid to 36, references from runs/*_smoke, cooldowns to 2 s \u2014 nothing adjudicated."
+  ],
+  "timing_s": 50.7
+}

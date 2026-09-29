@@ -1,4 +1,10 @@
 # g6 — WALL THE STREAM (design draft v1, 2026-09-29 ~21:05Z)
+<!-- SUPERSEDED (R56 ideator, 21:22Z): the registered spec is scratch/r56_ideator.md
+     (per-input anchor-TUBE projection supersedes the regularizer/tether mechanics;
+     the SPLINT framing + frontier discipline adopted; 2.7M economics variant parked as g6b).
+     This file is retained as the lineage record of the mechanics problem (fact-free wash
+     => no fact-context activations to project) and the replay-control leg, both carried
+     into the registered spec. -->
 
 Status: DESIGN-DRAFT — to be reconciled with R56's ideation report before
 registration (anti-collision) and then frozen (bars verbatim) for dispatch.

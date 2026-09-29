@@ -1,0 +1,1736 @@
+{
+  "experiment": "e158_2x2_completion",
+  "date": "2026-09-28T11:41:00Z",
+  "registration": "QUEUE.md row e158 / dispatch VERBATIM; bars frozen before compute; T088 phase claim (variance opens doors, zero-variance closes them) vs the placement alternative (any new-site teaching closes)",
+  "registered_prediction": {
+    "phase_by_variance": "PHASE-BY-VARIANCE fires if: (a) jitter@183 keeps the geometry door open (g-12 >= 0.5) AND (b) locked@band closes it (g-12 <= 0.27) \u2014 variance is the switch, site is irrelevant.",
+    "closure_by_placement": "CLOSURE-BY-PLACEMENT fires if: (a) also shuts (g-12 <= 0.27) \u2014 any new-site teaching closes the door; the phase claim's variance clause dies.",
+    "site_independent": "SITE-INDEPENDENT fires if: (b) stays open (g-12 >= 0.5) \u2014 locking the home site is harmless; closure keys on NOVEL-SITE teaching specifically.",
+    "no_bar_shopping": "No bar shopping; texture => TEXTURE with numbers.",
+    "operationalizations": "g-12 = ABSOLUTE mean p(Z) on the install-60 battery at ctx offset -12 AFTER the arm; open >= 0.5, shut <= 0.27; known cells: locked@183 = 0.1021 (e151 stored), jitter@band = the root by construction (in-run BEFORE battery); order PHASE-BY-VARIANCE -> CLOSURE-BY-PLACEMENT -> SITE-INDEPENDENT -> TEXTURE; site_pos = span-primary census, any band row content=True AND strength >= 2x same-census control-max; bands 183..189 (census183), 175..197 (census_jit8), 121..137 (census_band); mixed_state(a) = site_pos@183(a) AND a_open (T094 dwell question); every sub-boolean reported regardless; co-fires reported.",
+    "committed": "Committed prediction on record (T088 phase claim / QUEUE e158): PHASE-BY-VARIANCE."
+  },
+  "committed_prediction": "PHASE-BY-VARIANCE (T088 phase claim)",
+  "prediction_held": true,
+  "question": "does the phase conversion key on VARIANCE or on PLACEMENT? \u2014 the 2x2 completion: jitter@183 (variance at the new site) and locked@band (zero-variance at home) fill the two missing cells around e151's locked@183 and the root's jitter@band",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated vs e131 cells)",
+  "cells_2x2": {
+    "jitter_band": {
+      "g_m12": 0.9155886769294739,
+      "source": "root by construction (e131 = e113 jittered replay at the home band; in-run BEFORE battery)",
+      "door": "OPEN"
+    },
+    "locked_183": {
+      "g_m12": 0.1020549014210701,
+      "source": "runs/e151/metrics.json after.base g-12",
+      "door": "SHUT"
+    },
+    "jitter_183": {
+      "g_m12": 0.8959112167358398,
+      "source": "this run arm (a)",
+      "door": "OPEN"
+    },
+    "locked_band": {
+      "g_m12": 0.2590540647506714,
+      "source": "this run arm (b)",
+      "door": "SHUT"
+    }
+  },
+  "arms": {
+    "a_jitter183": {
+      "desc": "e151's protocol verbatim with the fact's position jittered (e113 set {-8,-4,0,+4,+8} as deltas on offset +54): name x-cols 176..198 across the pool, read rows 175..197, 300-window pool, name-only mask",
+      "recipe": "batch 32 = 16 pool + 16 anchors (8 paired + 8 random), token-weighted union CE, AdamW (0.9,0.95) wd 0.1, lr 1e-3 constant, clip 1.0",
+      "steps_ran": 8,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 2,
+          "p_z_mean": 0.05821404978632927,
+          "frac_argmax_z": 0.06666666666666667,
+          "ce_r": 2.1010642051696777,
+          "elapsed_s": 15.7
+        },
+        {
+          "step": 4,
+          "p_z_mean": 0.7369755506515503,
+          "frac_argmax_z": 0.8833333333333333,
+          "ce_r": 1.9234634637832642,
+          "elapsed_s": 35.2
+        },
+        {
+          "step": 6,
+          "p_z_mean": 0.9450746774673462,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.7465900182724,
+          "elapsed_s": 55.4
+        },
+        {
+          "step": 8,
+          "p_z_mean": 0.9466854333877563,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.7042826414108276,
+          "elapsed_s": 71.8
+        }
+      ],
+      "device": "cpu",
+      "time_cap_s": 1500.0
+    },
+    "b_locked_band": {
+      "desc": "locked (zero-variance) replay at the fact's home position (e119-L convention): ZEPHYRA locked at x-cols 130..136, onset read row 129, 60-window pool, name-only mask",
+      "recipe": "identical to arm (a) (same seed stream, same anchors)",
+      "steps_ran": 8,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 2,
+          "p_z_mean": 0.013324931263923645,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.14630389213562,
+          "elapsed_s": 16.8
+        },
+        {
+          "step": 4,
+          "p_z_mean": 0.7624025940895081,
+          "frac_argmax_z": 0.8333333333333334,
+          "ce_r": 1.9069849252700806,
+          "elapsed_s": 37.3
+        },
+        {
+          "step": 6,
+          "p_z_mean": 0.6494506597518921,
+          "frac_argmax_z": 0.6833333333333333,
+          "ce_r": 1.757506251335144,
+          "elapsed_s": 63.4
+        },
+        {
+          "step": 8,
+          "p_z_mean": 0.35058894753456116,
+          "frac_argmax_z": 0.25,
+          "ce_r": 1.7075730562210083,
+          "elapsed_s": 88.7
+        }
+      ],
+      "device": "cpu",
+      "time_cap_s": 1500.0
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "placement_a": {
+      "base_offset": 54,
+      "jitter_deltas": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "total_offsets": [
+        46,
+        50,
+        54,
+        58,
+        62
+      ],
+      "name_xcols": [
+        176,
+        198
+      ],
+      "read_rows": [
+        175,
+        197
+      ],
+      "pool": 300
+    },
+    "placement_b": {
+      "offset": 0,
+      "name_xcols": [
+        130,
+        136
+      ],
+      "read_rows": [
+        129,
+        135
+      ],
+      "decision_band": [
+        121,
+        137
+      ],
+      "pool": 60,
+      "zero_variance": true
+    },
+    "mask": "7 name-char targets per window (name-only)",
+    "geometries_measured": {
+      "novel": [
+        -12,
+        12
+      ],
+      "trained_g0": 0,
+      "note": "root trained {-8,-4,0,+4,+8}; +-12 novel for it"
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_GEO": {
+      "band_locked": true,
+      "p183_locked": true,
+      "jit_offsets": [
+        46,
+        50,
+        54,
+        58,
+        62
+      ],
+      "jit_name_positions": 5,
+      "jit_zero_variance": false,
+      "jit_all_in_place": true,
+      "jit_mask_targets": 7,
+      "jit_read_rows_d0": [
+        175,
+        197
+      ],
+      "band_zero_variance": true,
+      "pool_sizes": {
+        "band": 60,
+        "jit": 300,
+        "p183_instrument": 60
+      },
+      "pass": true
+    },
+    "G_CONS": {
+      "battery_pz": 0.7850371599197388,
+      "ref_pz": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "ref_ce": 1.663516640663147,
+      "bit_reproducible": true,
+      "pass": true
+    },
+    "G_MASK": {
+      "max_abs_logit_diff_batch6": 0.0,
+      "abs_dpz_install60_g0": 0.0,
+      "tol_logit": 0.01,
+      "tol_pz": 0.001,
+      "pass": true
+    },
+    "G_ROW0": {
+      "mean": 0.7842019017236945,
+      "zero": 0.7316772222270098,
+      "ref_mean": 0.7842019017236945,
+      "ref_zero": 0.7316772222270098,
+      "pass": true
+    },
+    "G_A129": {
+      "mean": -0.1084650677318375,
+      "zero": -0.13237020391970877,
+      "ref_mean": -0.1084650677318375,
+      "ref_zero": -0.13237020391970877,
+      "pass": true
+    },
+    "G_DALL": {
+      "dall_g0": 0.9047248959541321,
+      "ref": 0.9047248959541321,
+      "pass": true
+    },
+    "G_SURG": {
+      "before__none": {
+        "rows": [],
+        "pass": true,
+        "note": "no deletion"
+      },
+      "before__d129": {
+        "rows": [
+          129
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          129
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__d_r0": {
+        "rows": [
+          0
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          0
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "before__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_a__none": {
+        "rows": [],
+        "pass": true,
+        "note": "no deletion"
+      },
+      "after_a__d129": {
+        "rows": [
+          129
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          129
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_a__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_a__d_r0": {
+        "rows": [
+          0
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          0
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_a__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_b__none": {
+        "rows": [],
+        "pass": true,
+        "note": "no deletion"
+      },
+      "after_b__d129": {
+        "rows": [
+          129
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          129
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_b__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 960,
+        "expected": 960,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_b__d_r0": {
+        "rows": [
+          0
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          0
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "after_b__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 192,
+        "expected": 192,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    },
+    "gpu_at_start": {
+      "cuda_visible": true,
+      "status": {
+        "util": 30.0,
+        "mem_used": 341.0,
+        "mem_total": 24463.0,
+        "temp": 86.0,
+        "power": 38.56
+      },
+      "note": "CPU-only by dispatch (GPU user-held above the 80C ceiling); per-arm quick check (util low AND temp <= 75C) may switch one arm"
+    }
+  },
+  "before": {
+    "tag": "before",
+    "base": {
+      "-12": {
+        "mean_pz": 0.9155886769294739,
+        "median_pz": 0.9697917103767395,
+        "std_pz": 0.15201891958713531,
+        "frac_pz_ge_0.5": 0.949999988079071,
+        "frac_argmax_z": 1.0
+      },
+      "0": {
+        "mean_pz": 0.7850371599197388,
+        "median_pz": 0.9777791500091553,
+        "std_pz": 0.33697256445884705,
+        "frac_pz_ge_0.5": 0.75,
+        "frac_argmax_z": 0.75
+      },
+      "12": {
+        "mean_pz": 0.9478210210800171,
+        "median_pz": 0.981702983379364,
+        "std_pz": 0.08915624022483826,
+        "frac_pz_ge_0.5": 1.0,
+        "frac_argmax_z": 1.0
+      }
+    },
+    "ce_r": 1.663516640663147,
+    "site_read": {
+      "pz_onset_mean": 0.8898659348487854,
+      "pz_onset_median": 0.9428565502166748,
+      "pz_onset_frac_ge_0.5": 0.9666666388511658,
+      "pname_mean_over7": 0.982668936252594,
+      "pname_frac_ge_0.5": 0.9952380657196045,
+      "per_position_mean": [
+        0.8898658563693365,
+        0.9987479706605276,
+        0.9960991899172466,
+        0.9996264765659968,
+        0.9981235702832539,
+        0.9995786219835281,
+        0.9966405053933461
+      ]
+    },
+    "census183_span": {
+      "base_readout": 0.982668936252594,
+      "rows": {
+        "0": {
+          "mean": 0.9442481175065041,
+          "zero": 0.6318086981773376,
+          "ratio": 0.6691130079727013,
+          "strength": 0.6318086981773376,
+          "content": true
+        },
+        "1": {
+          "mean": -0.0005929470062255859,
+          "zero": -0.0006890296936035156,
+          "ratio": 0.0,
+          "strength": -0.0006890296936035156,
+          "content": false
+        },
+        "182": {
+          "mean": -0.0020350217819213867,
+          "zero": -0.002035379409790039,
+          "ratio": 0.0,
+          "strength": -0.002035379409790039,
+          "content": false
+        },
+        "183": {
+          "mean": 0.0008730888366699219,
+          "zero": -0.0007314085960388184,
+          "ratio": -0.8377252867285636,
+          "strength": -0.0007314085960388184,
+          "content": false
+        },
+        "185": {
+          "mean": 0.00024014711380004883,
+          "zero": 0.0006387829780578613,
+          "ratio": 0.37594476066063265,
+          "strength": 0.00024014711380004883,
+          "content": false
+        },
+        "189": {
+          "mean": 0.0002391338348388672,
+          "zero": 0.00036537647247314453,
+          "ratio": 0.6544861337683524,
+          "strength": 0.0002391338348388672,
+          "content": true
+        },
+        "60": {
+          "mean": 0.0004609227180480957,
+          "zero": 0.0005313754081726074,
+          "ratio": 0.8674144699943914,
+          "strength": 0.0004609227180480957,
+          "content": true
+        },
+        "100": {
+          "mean": 0.00048667192459106445,
+          "zero": 0.000520169734954834,
+          "ratio": 0.9356021542339865,
+          "strength": 0.00048667192459106445,
+          "content": true
+        }
+      }
+    },
+    "site_183": {
+      "control_max": 0.00048667192459106445,
+      "site_strength": 0.00024014711380004883,
+      "bar_2x_control": 0.0009733438491821289,
+      "site_pos": false,
+      "peak_row": 185,
+      "base_readout": 0.982668936252594
+    },
+    "census_jit8_span": {
+      "base_readout": 0.9650003910064697,
+      "rows": {
+        "0": {
+          "mean": 0.9058348461985588,
+          "zero": 0.5163842439651489,
+          "ratio": 0.5700644506360242,
+          "strength": 0.5163842439651489,
+          "content": true
+        },
+        "175": {
+          "mean": 0.0002154707908630371,
+          "zero": 0.0006881356239318848,
+          "ratio": 0.3131225638804677,
+          "strength": 0.0002154707908630371,
+          "content": false
+        },
+        "183": {
+          "mean": 0.0017426013946533203,
+          "zero": 0.003019571304321289,
+          "ratio": 0.5771022502960916,
+          "strength": 0.0017426013946533203,
+          "content": true
+        },
+        "191": {
+          "mean": -0.011395573616027832,
+          "zero": -0.013271689414978027,
+          "ratio": 0.0,
+          "strength": -0.013271689414978027,
+          "content": false
+        },
+        "197": {
+          "mean": 0.0003154873847961426,
+          "zero": 0.0006866455078125,
+          "ratio": 0.45946180555555555,
+          "strength": 0.0003154873847961426,
+          "content": false
+        },
+        "60": {
+          "mean": 0.0013734102249145508,
+          "zero": 0.001415252685546875,
+          "ratio": 0.9704346361185984,
+          "strength": 0.0013734102249145508,
+          "content": true
+        }
+      }
+    },
+    "site_jit8": {
+      "control_max": 0.0013734102249145508,
+      "site_strength": 0.0017426013946533203,
+      "bar_2x_control": 0.0027468204498291016,
+      "site_pos": false,
+      "peak_row": 183,
+      "base_readout": 0.9650003910064697
+    },
+    "census_band_span": {
+      "base_readout": 0.9650862216949463,
+      "rows": {
+        "0": {
+          "mean": 0.9214098080992699,
+          "zero": 0.8472782596945763,
+          "ratio": 0.919545518451105,
+          "strength": 0.8472782596945763,
+          "content": true
+        },
+        "121": {
+          "mean": -0.0004677772521972656,
+          "zero": 0.000701606273651123,
+          "ratio": -0.6667233030328774,
+          "strength": -0.0004677772521972656,
+          "content": false
+        },
+        "129": {
+          "mean": -0.016642272472381592,
+          "zero": -0.019720017910003662,
+          "ratio": 0.0,
+          "strength": -0.019720017910003662,
+          "content": false
+        },
+        "135": {
+          "mean": -0.00016707181930541992,
+          "zero": -0.0001208186149597168,
+          "ratio": 0.0,
+          "strength": -0.00016707181930541992,
+          "content": false
+        },
+        "60": {
+          "mean": -0.000922858715057373,
+          "zero": -0.0005284547805786133,
+          "ratio": 0.0,
+          "strength": -0.000922858715057373,
+          "content": false
+        }
+      }
+    },
+    "site_band": {
+      "control_max": -0.000922858715057373,
+      "site_strength": -0.00016707181930541992,
+      "bar_2x_control": -0.001845717430114746,
+      "site_pos": false,
+      "peak_row": 135,
+      "base_readout": 0.9650862216949463
+    },
+    "census_old": {
+      "base_readout": 0.7850372118875384,
+      "rows": {
+        "0": {
+          "mean": 0.7842019017236945,
+          "zero": 0.7316772222270098,
+          "ratio": 0.9330214841595842,
+          "strength": 0.7316772222270098,
+          "content": true
+        },
+        "1": {
+          "mean": -0.034818108193576336,
+          "zero": -0.02616492702315254,
+          "ratio": 0.0,
+          "strength": -0.034818108193576336,
+          "content": false
+        },
+        "60": {
+          "mean": -0.006498985861738582,
+          "zero": -0.003458215296268552,
+          "ratio": 0.0,
+          "strength": -0.006498985861738582,
+          "content": false
+        },
+        "121": {
+          "mean": -0.0026773056015372276,
+          "zero": 0.0024052464092770842,
+          "ratio": -1.113110736268353,
+          "strength": -0.0026773056015372276,
+          "content": false
+        },
+        "125": {
+          "mean": -0.015284052987893482,
+          "zero": -0.005409920836488502,
+          "ratio": 0.0,
+          "strength": -0.015284052987893482,
+          "content": false
+        },
+        "129": {
+          "mean": -0.1084650677318375,
+          "zero": -0.13237020391970877,
+          "ratio": 0.0,
+          "strength": -0.13237020391970877,
+          "content": false
+        }
+      }
+    },
+    "old_band": {
+      "base_pz": 0.7850372118875384,
+      "row0": {
+        "mean": 0.7842019017236945,
+        "zero": 0.7316772222270098,
+        "ratio": 0.9330214841595842,
+        "strength": 0.7316772222270098,
+        "content": true
+      },
+      "row129": {
+        "mean": -0.1084650677318375,
+        "zero": -0.13237020391970877,
+        "ratio": 0.0,
+        "strength": -0.13237020391970877,
+        "content": false
+      },
+      "row0_strength": 0.7316772222270098,
+      "A129": -0.13237020391970877,
+      "band121_129_max": -0.0026773056015372276,
+      "control_max_1_6": -0.034818108193576336
+    },
+    "del_table": {
+      "none": {
+        "g0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        }
+      },
+      "d129": {
+        "g0": {
+          "mean_pz": 0.9174073934555054,
+          "median_pz": 0.9682592749595642,
+          "std_pz": 0.12374190241098404,
+          "frac_pz_ge_0.5": 0.9833333492279053,
+          "frac_argmax_z": 0.9833333333333333
+        }
+      },
+      "d_all": {
+        "g0": {
+          "mean_pz": 0.9047248959541321,
+          "median_pz": 0.9671673774719238,
+          "std_pz": 0.15399876236915588,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 0.9666666666666667
+        }
+      },
+      "d_r0": {
+        "g0": {
+          "mean_pz": 0.0533599890768528,
+          "median_pz": 0.00041928200516849756,
+          "std_pz": 0.18680697679519653,
+          "frac_pz_ge_0.5": 0.03333333507180214,
+          "frac_argmax_z": 0.05
+        }
+      },
+      "d183": {
+        "g0": {
+          "mean_pz": 0.7850371599197388,
+          "median_pz": 0.9777791500091553,
+          "std_pz": 0.33697256445884705,
+          "frac_pz_ge_0.5": 0.75,
+          "frac_argmax_z": 0.75
+        },
+        "gm12": {
+          "mean_pz": 0.9155886769294739,
+          "median_pz": 0.9697917103767395,
+          "std_pz": 0.15201891958713531,
+          "frac_pz_ge_0.5": 0.949999988079071,
+          "frac_argmax_z": 1.0
+        },
+        "site_onset": 0.896581768989563
+      }
+    },
+    "mask": {
+      "g+0": {
+        "base_pz": 0.7850371599197388,
+        "mask_pz": 0.808849573135376,
+        "retention": 1.030332848470602,
+        "ce_base": 1.663516640663147,
+        "ce_mask": 1.6974624395370483,
+        "ce_cost": 0.03394579887390137
+      },
+      "g-12": {
+        "base_pz": 0.9155886769294739,
+        "mask_pz": 0.9242185950279236,
+        "retention": 1.0094255404374277,
+        "ce_base": 1.663516640663147,
+        "ce_mask": 1.6974624395370483,
+        "ce_cost": 0.03394579887390137
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.3231039047241211,
+        "g-12": 0.14433333277702332,
+        "ce_r": 2.506317377090454
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.14999999105930328,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.7846040725708008,
+        "g-12": 0.7339223027229309,
+        "ce_r": 1.9703083038330078
+      }
+    ]
+  },
+  "after_a": {
+    "tag": "after_a",
+    "base": {
+      "-12": {
+        "mean_pz": 0.8959112167358398,
+        "median_pz": 0.9441161751747131,
+        "std_pz": 0.15782514214515686,
+        "frac_pz_ge_0.5": 0.9666666388511658,
+        "frac_argmax_z": 0.9833333333333333
+      },
+      "0": {
+        "mean_pz": 0.4812453091144562,
+        "median_pz": 0.4778199791908264,
+        "std_pz": 0.33345699310302734,
+        "frac_pz_ge_0.5": 0.5,
+        "frac_argmax_z": 0.5
+      },
+      "12": {
+        "mean_pz": 0.9322855472564697,
+        "median_pz": 0.9693381786346436,
+        "std_pz": 0.13296455144882202,
+        "frac_pz_ge_0.5": 0.9833333492279053,
+        "frac_argmax_z": 0.9833333333333333
+      }
+    },
+    "ce_r": 1.7042826414108276,
+    "site_read": {
+      "pz_onset_mean": 0.9466854333877563,
+      "pz_onset_median": 0.9766303300857544,
+      "pz_onset_frac_ge_0.5": 0.9833333492279053,
+      "pname_mean_over7": 0.9917635917663574,
+      "pname_frac_ge_0.5": 0.9976190328598022,
+      "per_position_mean": [
+        0.9466854050755501,
+        0.998207085331281,
+        0.9995602667331696,
+        0.9995774189631145,
+        0.9998898635307948,
+        0.999309794108073,
+        0.9991148501634598
+      ]
+    },
+    "census183_span": {
+      "base_readout": 0.9917635917663574,
+      "rows": {
+        "0": {
+          "mean": 0.5933436155319214,
+          "zero": 0.27516013383865356,
+          "ratio": 0.46374499806824027,
+          "strength": 0.27516013383865356,
+          "content": false
+        },
+        "1": {
+          "mean": -0.0003280043601989746,
+          "zero": -0.0003681778907775879,
+          "ratio": 0.0,
+          "strength": -0.0003681778907775879,
+          "content": false
+        },
+        "182": {
+          "mean": 0.0006378293037414551,
+          "zero": 0.0005463957786560059,
+          "ratio": 0.8566489113166994,
+          "strength": 0.0005463957786560059,
+          "content": true
+        },
+        "183": {
+          "mean": 0.0008222460746765137,
+          "zero": 0.0015445351600646973,
+          "ratio": 0.532358275768919,
+          "strength": 0.0008222460746765137,
+          "content": true
+        },
+        "185": {
+          "mean": 5.424022674560547e-06,
+          "zero": 1.1026859283447266e-05,
+          "ratio": 0.4918918918918919,
+          "strength": 5.424022674560547e-06,
+          "content": false
+        },
+        "189": {
+          "mean": 4.506111145019531e-05,
+          "zero": 8.171796798706055e-05,
+          "ratio": 0.5514223194748359,
+          "strength": 4.506111145019531e-05,
+          "content": true
+        },
+        "60": {
+          "mean": -0.00031685829162597656,
+          "zero": -0.00015944242477416992,
+          "ratio": 0.0,
+          "strength": -0.00031685829162597656,
+          "content": false
+        },
+        "100": {
+          "mean": 7.003545761108398e-05,
+          "zero": 7.039308547973633e-05,
+          "ratio": 0.9949195596951735,
+          "strength": 7.003545761108398e-05,
+          "content": true
+        }
+      }
+    },
+    "site_183": {
+      "control_max": 7.003545761108398e-05,
+      "site_strength": 0.0008222460746765137,
+      "bar_2x_control": 0.00014007091522216797,
+      "site_pos": true,
+      "peak_row": 183,
+      "base_readout": 0.9917635917663574
+    },
+    "census_jit8_span": {
+      "base_readout": 0.9910421967506409,
+      "rows": {
+        "0": {
+          "mean": 0.5124606192111969,
+          "zero": 0.19404089450836182,
+          "ratio": 0.37864547486017275,
+          "strength": 0.19404089450836182,
+          "content": false
+        },
+        "175": {
+          "mean": -0.00017905235290527344,
+          "zero": -0.00019472837448120117,
+          "ratio": 0.0,
+          "strength": -0.00019472837448120117,
+          "content": false
+        },
+        "183": {
+          "mean": 0.0004660487174987793,
+          "zero": 0.0006963014602661133,
+          "ratio": 0.6693203218626947,
+          "strength": 0.0004660487174987793,
+          "content": true
+        },
+        "191": {
+          "mean": 0.0012183785438537598,
+          "zero": 0.0017594695091247559,
+          "ratio": 0.6924692570886548,
+          "strength": 0.0012183785438537598,
+          "content": true
+        },
+        "197": {
+          "mean": -0.0001989603042602539,
+          "zero": -0.00013494491577148438,
+          "ratio": 0.0,
+          "strength": -0.0001989603042602539,
+          "content": false
+        },
+        "60": {
+          "mean": 0.00010472536087036133,
+          "zero": 5.2094459533691406e-05,
+          "ratio": 0.4974388161639158,
+          "strength": 5.2094459533691406e-05,
+          "content": false
+        }
+      }
+    },
+    "site_jit8": {
+      "control_max": 5.2094459533691406e-05,
+      "site_strength": 0.0012183785438537598,
+      "bar_2x_control": 0.00010418891906738281,
+      "site_pos": true,
+      "peak_row": 191,
+      "base_readout": 0.9910421967506409
+    },
+    "census_band_span": {
+      "base_readout": 0.9252341389656067,
+      "rows": {
+        "0": {
+          "mean": 0.7146874815225601,
+          "zero": 0.4508684277534485,
+          "ratio": 0.6308609558865153,
+          "strength": 0.4508684277534485,
+          "content": true
+        },
+        "121": {
+          "mean": -0.004424571990966797,
+          "zero": -0.0028370022773742676,
+          "ratio": 0.0,
+          "strength": -0.004424571990966797,
+          "content": false
+        },
+        "129": {
+          "mean": -0.03773289918899536,
+          "zero": -0.0459025502204895,
+          "ratio": 0.0,
+          "strength": -0.0459025502204895,
+          "content": false
+        },
+        "135": {
+          "mean": 5.841255187988281e-06,
+          "zero": 2.9802322387695312e-05,
+          "ratio": 0.196,
+          "strength": 5.841255187988281e-06,
+          "content": false
+        },
+        "60": {
+          "mean": -0.0007621049880981445,
+          "zero": -0.0004208087921142578,
+          "ratio": 0.0,
+          "strength": -0.0007621049880981445,
+          "content": false
+        }
+      }
+    },
+    "site_band": {
+      "control_max": -0.0007621049880981445,
+      "site_strength": 5.841255187988281e-06,
+      "bar_2x_control": -0.001524209976196289,
+      "site_pos": false,
+      "peak_row": 135,
+      "base_readout": 0.9252341389656067
+    },
+    "census_old": {
+      "base_readout": 0.48124529571214225,
+      "rows": {
+        "0": {
+          "mean": 0.4779513013490335,
+          "zero": 0.34932979236352063,
+          "ratio": 0.7308899282783112,
+          "strength": 0.34932979236352063,
+          "content": true
+        },
+        "1": {
+          "mean": -0.01965709587772535,
+          "zero": -0.013811235637209984,
+          "ratio": 0.0,
+          "strength": -0.01965709587772535,
+          "content": false
+        },
+        "60": {
+          "mean": -0.005417363910237338,
+          "zero": -0.0030019809530737462,
+          "ratio": 0.0,
+          "strength": -0.005417363910237338,
+          "content": false
+        },
+        "121": {
+          "mean": -0.03070295107124066,
+          "zero": -0.019603655825873534,
+          "ratio": 0.0,
+          "strength": -0.03070295107124066,
+          "content": false
+        },
+        "125": {
+          "mean": -0.03962799288662311,
+          "zero": -0.030073875944557016,
+          "ratio": 0.0,
+          "strength": -0.03962799288662311,
+          "content": false
+        },
+        "129": {
+          "mean": -0.2640297118176629,
+          "zero": -0.32162460134422877,
+          "ratio": 0.0,
+          "strength": -0.32162460134422877,
+          "content": false
+        }
+      }
+    },
+    "old_band": {
+      "base_pz": 0.48124529571214225,
+      "row0": {
+        "mean": 0.4779513013490335,
+        "zero": 0.34932979236352063,
+        "ratio": 0.7308899282783112,
+        "strength": 0.34932979236352063,
+        "content": true
+      },
+      "row129": {
+        "mean": -0.2640297118176629,
+        "zero": -0.32162460134422877,
+        "ratio": 0.0,
+        "strength": -0.32162460134422877,
+        "content": false
+      },
+      "row0_strength": 0.34932979236352063,
+      "A129": -0.32162460134422877,
+      "band121_129_max": -0.03070295107124066,
+      "control_max_1_6": -0.01965709587772535
+    },
+    "del_table": {
+      "none": {
+        "g0": {
+          "mean_pz": 0.4812453091144562,
+          "median_pz": 0.4778199791908264,
+          "std_pz": 0.33345699310302734,
+          "frac_pz_ge_0.5": 0.5,
+          "frac_argmax_z": 0.5
+        }
+      },
+      "d129": {
+        "g0": {
+          "mean_pz": 0.8028699159622192,
+          "median_pz": 0.933843731880188,
+          "std_pz": 0.2574861943721771,
+          "frac_pz_ge_0.5": 0.8500000238418579,
+          "frac_argmax_z": 0.85
+        }
+      },
+      "d_all": {
+        "g0": {
+          "mean_pz": 0.8377807140350342,
+          "median_pz": 0.955601692199707,
+          "std_pz": 0.2359931766986847,
+          "frac_pz_ge_0.5": 0.9166666865348816,
+          "frac_argmax_z": 0.9166666666666666
+        }
+      },
+      "d_r0": {
+        "g0": {
+          "mean_pz": 0.13191550970077515,
+          "median_pz": 0.003630231134593487,
+          "std_pz": 0.268353134393692,
+          "frac_pz_ge_0.5": 0.15000000596046448,
+          "frac_argmax_z": 0.18333333333333332
+        }
+      },
+      "d183": {
+        "g0": {
+          "mean_pz": 0.4812453091144562,
+          "median_pz": 0.4778199791908264,
+          "std_pz": 0.33345699310302734,
+          "frac_pz_ge_0.5": 0.5,
+          "frac_argmax_z": 0.5
+        },
+        "gm12": {
+          "mean_pz": 0.8959112167358398,
+          "median_pz": 0.9441161751747131,
+          "std_pz": 0.15782514214515686,
+          "frac_pz_ge_0.5": 0.9666666388511658,
+          "frac_argmax_z": 0.9833333333333333
+        },
+        "site_onset": 0.9363036751747131
+      }
+    },
+    "mask": {
+      "g+0": {
+        "base_pz": 0.4812453091144562,
+        "mask_pz": 0.48588377237319946,
+        "retention": 1.0096384591618743,
+        "ce_base": 1.7042826414108276,
+        "ce_mask": 1.728485107421875,
+        "ce_cost": 0.024202466011047363
+      },
+      "g-12": {
+        "base_pz": 0.8959112167358398,
+        "mask_pz": 0.8952734470367432,
+        "retention": 0.999288132923014,
+        "ce_base": 1.7042826414108276,
+        "ce_mask": 1.728485107421875,
+        "ce_cost": 0.024202466011047363
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000774860382,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.2894843816757202,
+        "g-12": 0.3160472512245178,
+        "ce_r": 2.3352770805358887
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.15000000596046448,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.5176481604576111,
+        "g-12": 0.7604290246963501,
+        "ce_r": 1.8638616800308228
+      }
+    ]
+  },
+  "after_b": {
+    "tag": "after_b",
+    "base": {
+      "-12": {
+        "mean_pz": 0.2590540647506714,
+        "median_pz": 0.06226230040192604,
+        "std_pz": 0.33702680468559265,
+        "frac_pz_ge_0.5": 0.21666666865348816,
+        "frac_argmax_z": 0.3
+      },
+      "0": {
+        "mean_pz": 0.35058894753456116,
+        "median_pz": 0.21640023589134216,
+        "std_pz": 0.30646947026252747,
+        "frac_pz_ge_0.5": 0.23333333432674408,
+        "frac_argmax_z": 0.25
+      },
+      "12": {
+        "mean_pz": 0.24412280321121216,
+        "median_pz": 0.034237515181303024,
+        "std_pz": 0.34247881174087524,
+        "frac_pz_ge_0.5": 0.25,
+        "frac_argmax_z": 0.3
+      }
+    },
+    "ce_r": 1.7075730562210083,
+    "site_read": {
+      "pz_onset_mean": 0.22126202285289764,
+      "pz_onset_median": 0.015033092349767685,
+      "pz_onset_frac_ge_0.5": 0.25,
+      "pname_mean_over7": 0.8877640962600708,
+      "pname_frac_ge_0.5": 0.8928571343421936,
+      "per_position_mean": [
+        0.22126201637438497,
+        0.9975154946247736,
+        0.9991825928290685,
+        0.9991137494643529,
+        0.9999337395032247,
+        0.9985971023639043,
+        0.9987443049748739
+      ]
+    },
+    "census183_span": {
+      "base_readout": 0.8877640962600708,
+      "rows": {
+        "0": {
+          "mean": 0.42782920598983765,
+          "zero": 0.17984604835510254,
+          "ratio": 0.42036879632610796,
+          "strength": 0.17984604835510254,
+          "content": false
+        },
+        "1": {
+          "mean": -0.0002822279930114746,
+          "zero": -0.00045567750930786133,
+          "ratio": 0.0,
+          "strength": -0.00045567750930786133,
+          "content": false
+        },
+        "182": {
+          "mean": 0.0012573599815368652,
+          "zero": 0.0010524392127990723,
+          "ratio": 0.8370229912301493,
+          "strength": 0.0010524392127990723,
+          "content": true
+        },
+        "183": {
+          "mean": 0.0013607144355773926,
+          "zero": 0.00287020206451416,
+          "ratio": 0.4740831498940898,
+          "strength": 0.0013607144355773926,
+          "content": false
+        },
+        "185": {
+          "mean": -7.43865966796875e-05,
+          "zero": -8.255243301391602e-05,
+          "ratio": 0.0,
+          "strength": -8.255243301391602e-05,
+          "content": false
+        },
+        "189": {
+          "mean": 0.00024646520614624023,
+          "zero": 0.0004963278770446777,
+          "ratio": 0.4965773988231056,
+          "strength": 0.00024646520614624023,
+          "content": false
+        },
+        "60": {
+          "mean": 0.0003142356872558594,
+          "zero": 0.00024259090423583984,
+          "ratio": 0.7720030349013657,
+          "strength": 0.00024259090423583984,
+          "content": true
+        },
+        "100": {
+          "mean": 0.0002358555793762207,
+          "zero": 0.00026923418045043945,
+          "ratio": 0.8760239096745628,
+          "strength": 0.0002358555793762207,
+          "content": true
+        }
+      }
+    },
+    "site_183": {
+      "control_max": 0.00024259090423583984,
+      "site_strength": 0.0013607144355773926,
+      "bar_2x_control": 0.0004851818084716797,
+      "site_pos": false,
+      "peak_row": 183,
+      "base_readout": 0.8877640962600708
+    },
+    "census_jit8_span": {
+      "base_readout": 0.8849897980690002,
+      "rows": {
+        "0": {
+          "mean": 0.35278135538101196,
+          "zero": 0.12701314687728882,
+          "ratio": 0.360033615552363,
+          "strength": 0.12701314687728882,
+          "content": false
+        },
+        "175": {
+          "mean": -0.0002554655075073242,
+          "zero": -0.00024259090423583984,
+          "ratio": 0.0,
+          "strength": -0.0002554655075073242,
+          "content": false
+        },
+        "183": {
+          "mean": -0.0003922581672668457,
+          "zero": -0.00042551755905151367,
+          "ratio": 0.0,
+          "strength": -0.00042551755905151367,
+          "content": false
+        },
+        "191": {
+          "mean": 0.0005939006805419922,
+          "zero": 0.0024207234382629395,
+          "ratio": 0.24534016201708814,
+          "strength": 0.0005939006805419922,
+          "content": false
+        },
+        "197": {
+          "mean": -0.0005665421485900879,
+          "zero": -0.00017780065536499023,
+          "ratio": 0.0,
+          "strength": -0.0005665421485900879,
+          "content": false
+        },
+        "60": {
+          "mean": 0.0003363490104675293,
+          "zero": 0.0002429485321044922,
+          "ratio": 0.7223108275739855,
+          "strength": 0.0002429485321044922,
+          "content": true
+        }
+      }
+    },
+    "site_jit8": {
+      "control_max": 0.0002429485321044922,
+      "site_strength": 0.0005939006805419922,
+      "bar_2x_control": 0.0004858970642089844,
+      "site_pos": false,
+      "peak_row": 191,
+      "base_readout": 0.8849897980690002
+    },
+    "census_band_span": {
+      "base_readout": 0.9050546288490295,
+      "rows": {
+        "0": {
+          "mean": 0.5894958972930908,
+          "zero": 0.36506134271621704,
+          "ratio": 0.6192771559438226,
+          "strength": 0.36506134271621704,
+          "content": true
+        },
+        "121": {
+          "mean": -0.0034630298614501953,
+          "zero": -0.0028097033500671387,
+          "ratio": 0.0,
+          "strength": -0.0034630298614501953,
+          "content": false
+        },
+        "129": {
+          "mean": 0.004491567611694336,
+          "zero": 0.004575848579406738,
+          "ratio": 0.9815813468802917,
+          "strength": 0.004491567611694336,
+          "content": true
+        },
+        "135": {
+          "mean": 7.849931716918945e-05,
+          "zero": 0.00028061866760253906,
+          "ratio": 0.27973661852166526,
+          "strength": 7.849931716918945e-05,
+          "content": false
+        },
+        "60": {
+          "mean": 4.082918167114258e-05,
+          "zero": 0.00011134147644042969,
+          "ratio": 0.36670235546038543,
+          "strength": 4.082918167114258e-05,
+          "content": false
+        }
+      }
+    },
+    "site_band": {
+      "control_max": 4.082918167114258e-05,
+      "site_strength": 0.004491567611694336,
+      "bar_2x_control": 8.165836334228516e-05,
+      "site_pos": true,
+      "peak_row": 129,
+      "base_readout": 0.9050546288490295
+    },
+    "census_old": {
+      "base_readout": 0.3505889670923352,
+      "rows": {
+        "0": {
+          "mean": 0.347606622855316,
+          "zero": 0.3032592577277076,
+          "ratio": 0.872420827994215,
+          "strength": 0.3032592577277076,
+          "content": true
+        },
+        "1": {
+          "mean": 7.335993771750982e-05,
+          "zero": -0.00041461968794465065,
+          "ratio": -5.6518544159789785,
+          "strength": -0.00041461968794465065,
+          "content": false
+        },
+        "60": {
+          "mean": 0.0009719029379387512,
+          "zero": 0.0013500881691773658,
+          "ratio": 0.719881086381899,
+          "strength": 0.0009719029379387512,
+          "content": true
+        },
+        "121": {
+          "mean": -0.02327635558322072,
+          "zero": -0.018645354329297925,
+          "ratio": 0.0,
+          "strength": -0.02327635558322072,
+          "content": false
+        },
+        "125": {
+          "mean": 0.029925247188657522,
+          "zero": 0.018919017817825068,
+          "ratio": 0.6322092411987122,
+          "strength": 0.018919017817825068,
+          "content": true
+        },
+        "129": {
+          "mean": 0.03221279685385525,
+          "zero": 0.0323128248564899,
+          "ratio": 0.9969043869398947,
+          "strength": 0.03221279685385525,
+          "content": true
+        }
+      }
+    },
+    "old_band": {
+      "base_pz": 0.3505889670923352,
+      "row0": {
+        "mean": 0.347606622855316,
+        "zero": 0.3032592577277076,
+        "ratio": 0.872420827994215,
+        "strength": 0.3032592577277076,
+        "content": true
+      },
+      "row129": {
+        "mean": 0.03221279685385525,
+        "zero": 0.0323128248564899,
+        "ratio": 0.9969043869398947,
+        "strength": 0.03221279685385525,
+        "content": true
+      },
+      "row0_strength": 0.3032592577277076,
+      "A129": 0.03221279685385525,
+      "band121_129_max": 0.03221279685385525,
+      "control_max_1_6": -0.00041461968794465065
+    },
+    "del_table": {
+      "none": {
+        "g0": {
+          "mean_pz": 0.35058894753456116,
+          "median_pz": 0.21640023589134216,
+          "std_pz": 0.30646947026252747,
+          "frac_pz_ge_0.5": 0.23333333432674408,
+          "frac_argmax_z": 0.25
+        }
+      },
+      "d129": {
+        "g0": {
+          "mean_pz": 0.3182761073112488,
+          "median_pz": 0.13858996331691742,
+          "std_pz": 0.33149898052215576,
+          "frac_pz_ge_0.5": 0.2666666805744171,
+          "frac_argmax_z": 0.3
+        }
+      },
+      "d_all": {
+        "g0": {
+          "mean_pz": 0.3197208046913147,
+          "median_pz": 0.1498783826828003,
+          "std_pz": 0.3296898305416107,
+          "frac_pz_ge_0.5": 0.28333333134651184,
+          "frac_argmax_z": 0.3
+        }
+      },
+      "d_r0": {
+        "g0": {
+          "mean_pz": 0.04732970893383026,
+          "median_pz": 0.0018811362097039819,
+          "std_pz": 0.1040145605802536,
+          "frac_pz_ge_0.5": 0.0,
+          "frac_argmax_z": 0.05
+        }
+      },
+      "d183": {
+        "g0": {
+          "mean_pz": 0.35058894753456116,
+          "median_pz": 0.21640023589134216,
+          "std_pz": 0.30646947026252747,
+          "frac_pz_ge_0.5": 0.23333333432674408,
+          "frac_argmax_z": 0.25
+        },
+        "gm12": {
+          "mean_pz": 0.2590540647506714,
+          "median_pz": 0.06226230040192604,
+          "std_pz": 0.33702680468559265,
+          "frac_pz_ge_0.5": 0.21666666865348816,
+          "frac_argmax_z": 0.3
+        },
+        "site_onset": 0.2008797526359558
+      }
+    },
+    "mask": {
+      "g+0": {
+        "base_pz": 0.35058894753456116,
+        "mask_pz": 0.3556770980358124,
+        "retention": 1.0145131514756311,
+        "ce_base": 1.7075730562210083,
+        "ce_mask": 1.733941912651062,
+        "ce_cost": 0.02636885643005371
+      },
+      "g-12": {
+        "base_pz": 0.2590540647506714,
+        "mask_pz": 0.2643222510814667,
+        "retention": 1.0203362426907514,
+        "ce_base": 1.7075730562210083,
+        "ce_mask": 1.733941912651062,
+        "ce_cost": 0.02636885643005371
+      }
+    },
+    "ladder": [
+      {
+        "target_norm": 0.07,
+        "actual_norm": 0.07000000029802322,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.15095919370651245,
+        "g-12": 0.06274650990962982,
+        "ce_r": 2.366917848587036
+      },
+      {
+        "target_norm": 0.15,
+        "actual_norm": 0.15000000596046448,
+        "gate": {
+          "row": 0,
+          "n_elements_changed": 192,
+          "changed_rows": [
+            0
+          ],
+          "identity": false,
+          "confined": true,
+          "others_bit_identical": true,
+          "pass": true
+        },
+        "g+0": 0.2865581810474396,
+        "g-12": 0.15117162466049194,
+        "ce_r": 1.9169306755065918
+      }
+    ]
+  },
+  "adjudication": {
+    "conditions": {
+      "PHASE_BY_VARIANCE": {
+        "a_jitter183_gm12": 0.8959112167358398,
+        "a_open": true,
+        "b_locked_band_gm12": 0.2590540647506714,
+        "b_shut": true,
+        "open_bar": 0.5,
+        "shut_bar": 0.27,
+        "fires": true
+      },
+      "CLOSURE_BY_PLACEMENT": {
+        "a_jitter183_gm12": 0.8959112167358398,
+        "a_shut": false,
+        "shut_bar": 0.27,
+        "fires": false
+      },
+      "SITE_INDEPENDENT": {
+        "b_locked_band_gm12": 0.2590540647506714,
+        "b_open": false,
+        "open_bar": 0.5,
+        "fires": false
+      }
+    },
+    "cofires": [
+      "PHASE_BY_VARIANCE"
+    ],
+    "verdict": "PHASE-BY-VARIANCE",
+    "clause": "jitter@183 kept the geometry door OPEN (g-12 0.8959 >= 0.5) AND locked@band closed it (g-12 0.2591 <= 0.27) \u2014 variance is the switch, site is irrelevant: the 2x2 reads 0.916/0.259 under locking (open at the variance-trained root, shut at home) and 0.896/0.102 at 183 (open under jitter, shut under locking). T088's phase claim survives its sharpest test.",
+    "bars": {
+      "open": 0.5,
+      "shut": 0.27,
+      "measure": "absolute g-12 mean p(Z) install-60 after the arm"
+    },
+    "committed_prediction": "PHASE-BY-VARIANCE",
+    "prediction_held": true
+  },
+  "dwell_readout": {
+    "mixed_state_a_183": true,
+    "mixed_state_a_jitspan": true,
+    "site_pos_183_before": false,
+    "site_pos_183_after_a": true,
+    "site_pos_jitspan_after_a": true,
+    "note": "T094's dwell was measured under ZERO-variance teaching; under variance the phase claim predicts NO site-store (variance kills the graft, T088) AND an open door \u2014 a mixed state here (site_pos AND open) would extend the dwell to the variance regime; a clean no-site+open is the variance-phase signature."
+  },
+  "honesty_reflex": {
+    "single_seed_single_lineage": "one arm per cell (seed 10902) on one root (e131 consolidated, one seed) \u2014 each new cell is n=1; the 2x2 verdict is lineage-specific until replicated (T088's standing note)",
+    "jitter_magnitude_choice": "the e113 registered set {-8,-4,0,+4,+8} as deltas (within the dispatch's +-1-8); T087 says the cliff is saturated at ANY variance (w=1 already negative A, NR onset), so the set choice is not the switch \u2014 but the 183-site jitter is offset-54-based (FAR-class context statistics), and no finer-grain (e.g. +-1 only) arm was run",
+    "cpu_float_path": "CPU end-to-end (GPU user-held 86-87C); e152 precedent: CPU rerun of e151's arm reproduced behaviorally to <= 0.029 with site-census onset drift up to 0.111 \u2014 the 0.50/0.27 bars are wide against this, but site census cells may drift between devices",
+    "budget_vs_consolidation": "300 steps per arm, step-matched to the root's consolidation and e151's re-teach; a longer arm could convert more (the dwell decays with steps, T094)",
+    "known_cells_carry": "locked@183 is carried at e151's stored value (GPU-trained) while the two new cells are CPU-trained \u2014 device asymmetry inside the 2x2, priced by e152's behavioral repro (<= 0.029 on g-12)",
+    "mask_off_distribution": "the forced-off-sink mask puts every context off its training distribution (e150's caveat) \u2014 the CE column prices the generic part; the BEFORE net's mask cells are the in-run differential control",
+    "norm_ladder_is_poison_not_information": "per T086/E150, ladder kills measure SINK-HEALTH (poisoning), not routing; a differential there is texture, not a route readout"
+  },
+  "trims": [],
+  "deviations": [
+    "CPU-ONLY run by dispatch: the user's game held the GPU at 86-87C (above the 80C launch ceiling). A quick non-blocking check (util low AND temp <= 75C, double-poll 5s) before each training may switch that one arm to GPU; no bounded wait, never contention. e152 precedent: the CPU path reproduced e151's GPU arm behaviorally to <= 0.029.",
+    "Nets are the mandated 2.7M e131_consolidated line (the dispatch's '<=1M family' note is an envelope statement; e143/e151 precedent \u2014 every instrument, gate reference, and lineage number of this cell lives on the 2.7M line).",
+    "Arm (a) jitter set = e113's registered {-8,-4,0,+4,+8} as deltas around e151's base offset +54 \u2014 within the dispatch's +-1-8 window; T087's cliff says any variance suffices (saturated at w=1), so the exact delta set is not the switch. Pool = 300 windows (5x60, the e113 construction) vs e151's locked 60 \u2014 same batch composition (16 pool draws + 16 anchors), same seed 10902.",
+    "The jitter@band cell of the 2x2 is the ROOT ITSELF by construction (e131_consolidated IS e113 jittered replay at the home band on the e048 install); reported from the in-run BEFORE battery, not re-trained.",
+    "Site-span censuses: the census183 readout (span over e151's locked j=54 pool, reads 183..189) is causally blind to rows > 189, so arm (a) also carries a census over the d=+8 pool (reads 191..197 \u2014 the only read that sees the whole jittered span 175..197); the band census reads 129..135 over the offset-0 pool (sees 121..135). Rows 200/220 controls dropped from the 183 census (read-invisible by construction, exactly 0.0 in e151).",
+    "Old-band census covers rows 121..129 only (the rows causally visible to the g0 battery read at position 129); e131's rows 130..137 cells were read-invisible by construction (exactly 0.0) and are not rerun (e151 convention).",
+    "Single seed (10902), single lineage \u2014 one arm per cell, n=1; the 2x2 verdict is lineage-specific until replicated (T088's standing note).",
+    "Arm (a)'s re-teach windows at offset j carry 130+j tokens of true pre-context (176..192 across the jitter pool) vs g0's 130 \u2014 the FAR-class placement-statistics confound of e143/e151, inherited verbatim from the protocol being completed (recorded, not a bar).",
+    "Smoke mode trims: 8-step arms, reduced census rows, nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_e158_jitter183": {
+      "path": "runs/checkpoints/smoke_e158_jitter183.pt",
+      "desc": "e131_consolidated_e113 + 300-step JITTERED replay of ZEPHYRA around the 183 site (offsets 46..62, e113 set {-8,-4,0,+4,+8} as deltas on +54), name-only mask, seed 10902",
+      "steps": 8,
+      "seed": 10902,
+      "device": "cpu",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_e158_locked_band": {
+      "path": "runs/checkpoints/smoke_e158_locked_band.pt",
+      "desc": "e131_consolidated_e113 + 300-step LOCKED replay of ZEPHYRA at the home band (x-cols 130..136, onset read row 129, e119-L convention), name-only mask, seed 10902",
+      "steps": 8,
+      "seed": 10902,
+      "device": "cpu",
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 665.2
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "a:cpu/b:cpu",
+    "eval_device": "cpu",
+    "torch_threads": 8,
+    "smoke": true
+  }
+}

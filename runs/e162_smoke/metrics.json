@@ -1,0 +1,855 @@
+{
+  "experiment": "e162_read_vs_mass",
+  "date": "2026-09-28T08:02:03Z",
+  "registration": "R47 critic's final attack on T093's READ-coupled claim \u2014 the content-vs-allocation fork. Docstring + bars + decision table written before compute.",
+  "registered_prediction": {
+    "dispatch_bars_verbatim": {
+      "READ-COUPLED-LITERAL": "fires if: (i) heals (retention >= 0.7) AND (ii) spares (retention >= 0.7) \u2014 the content of reads carries the kill.",
+      "MASS-COUPLED": "fires if: (i) kills AND/OR (ii) kills \u2014 allocation carries the kill; the intro's 'dies of what attention reads' inverts to 'dies of what the degraded pivot steals attention from'; T092's layer-4 rewrites.",
+      "MIXED": "if one heals and the other kills.",
+      "texture": "Texture => TEXTURE with numbers."
+    },
+    "decision_table_pre_compute": {
+      "(i)HEALS+(ii)HEALS": "READ-COUPLED-LITERAL",
+      "(i)KILLS+(ii)KILLS": "MASS-COUPLED",
+      "(i)KILLS+(ii)other": "MASS-COUPLED (cell (i) is the direct test: healthy content at the absorber fails to rescue => content is not the carrier)",
+      "(i)HEALS+(ii)KILLS": "MIXED",
+      "else": "TEXTURE with numbers (a GAP in the decisive cell)"
+    },
+    "operationalizations": "retention = expr_arm / expr_base(healthy same net, same geometry); CE cost vs same-net unmodified CE_R (e065 bank seed 26502); a cell HEALS iff retention >= 0.70 at BOTH g0 and g-12; KILLS iff retention <= 0.40 at the PRIMARY geometry g-12 (the dispatch's ' >= 60% drop', read where the poison kills: poison-alone's own g-12 retention is 0.158); cell (ii) KILLS additionally requires CE cost <= +0.85 ('moderate' = no more wreckful than the emulated poison at +0.843). g0 is the consistency column: a disagreeing g0 branch suffixes -SPLIT (reported, never re-mapped). BARS v2: corrected after the smoke shakedown and before the full compute (v1's invented g0<=0.50 kill conjunct is not in the dispatch and could acquit a 97% primary-geometry kill \u2014 the correction is the dispatch-literal reading; see recipe_deviations). Cell (ii) calibration = uniform additive key-0 logit bias (queries >= 1, all layers/heads) swept+bisected to e159's stored poisoned TOTAL key-0 mass on the install60@g0 battery; per-layer profile NOT matched (dose, not distribution); bracketing grid biases run as report-only riders. Cell (i) = dual-stream forward, poisoned q/k with the clean copy's v at key 0 every layer/head/reader; donor-identity and donor-self instrument gates must be bit-tight; a v0 content-delta audit quantifies whether the poison perturbs the value channel at all (cell (i)'s power). Measurement (iii) uses NEW fact-in-window batteries (name inside the window; g0 reads 129..136, band 128..137; g-12 shifted +12) \u2014 report-only, never gating.",
+    "no_bar_shopping": "No bar shopping. Texture => TEXTURE with numbers."
+  },
+  "question": "does the consolidated fact die of what attention READS off the poisoned row 0 (value content; READ-coupled literal) or of what the degraded pivot STEALS (10.8x attention-mass absorption starving informative positions; MASS-coupled)?",
+  "nets": {
+    "consolidated": "runs/checkpoints/e131_consolidated_e113.pt (loaded, gated vs e131/e150/e151/e159 + e151 stored cells + e159 stored mass profile)",
+    "site_stored_column": "OMITTED (dispatch 'if cheap': arm_b's fact survives the poison outright \u2014 e159 SITE-SPARED x0.922 \u2014 so the cells have no kill to explain there; CPU thrift while e158/e125a run)",
+    "eval_only": true
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "consolidated": {
+      "pass": true,
+      "note": "smoke: reduced battery, no bit gate"
+    },
+    "mask_instrument": {
+      "max_abs_logit_diff_batch6": 0.0,
+      "abs_dpz_g0": 0.0,
+      "tol_logit": 0.01,
+      "tol_pz": 0.001,
+      "pass": true
+    },
+    "vt_identity": {
+      "g0": {
+        "value": 0.28578755259513855,
+        "ref": 0.28578755259513855,
+        "pass": true
+      },
+      "gm12": {
+        "value": 0.8733528256416321,
+        "ref": 0.8733528256416321,
+        "pass": true
+      },
+      "ce": {
+        "value": 1.625858187675476,
+        "ref": 1.625858187675476,
+        "pass": true
+      }
+    },
+    "vt_self": {
+      "g0": {
+        "value": 0.28611618280410767,
+        "ref": 0.28611618280410767,
+        "pass": true
+      },
+      "gm12": {
+        "value": 0.13274984061717987,
+        "ref": 0.13274984061717987,
+        "pass": true
+      },
+      "ce": {
+        "value": 2.592160940170288,
+        "ref": 2.592160940170288,
+        "pass": true
+      },
+      "pass": true
+    },
+    "e151_mask_cells": {
+      "pass": true,
+      "note": "smoke: no cross gate"
+    },
+    "e151_poison07_cells": {
+      "pass": true,
+      "note": "smoke: no cross gate"
+    },
+    "mass_instrument": {
+      "healthy_max_abs_dev": 0.005378475412726402,
+      "poison_max_abs_dev": 0.044577330350875854,
+      "tol": 0.0001,
+      "pass": true,
+      "note": "smoke: reduced battery (12 windows), no cross gate"
+    }
+  },
+  "cell_i_value_restore": {
+    "cells": {
+      "g0": {
+        "probe": "I",
+        "tag": "VALUE-RESTORE@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.28578755259513855,
+        "expr_arm": 0.2902597486972809,
+        "retention": 1.0156486735042582,
+        "fact_drop_pct": -1.5648673504258248,
+        "ce_base": 1.625858187675476,
+        "ce_arm": 1.6252245903015137,
+        "ce_cost": -0.0006335973739624023,
+        "rider": false,
+        "instrument": "dual-stream: poisoned q/k (norm-0.07 key geometry) + clean-copy v at key 0, every layer/head/reader",
+        "note": "THE content cell: degraded geometry kept, the CONTENT of every read off key 0 restored"
+      },
+      "g-12": {
+        "probe": "I",
+        "tag": "VALUE-RESTORE@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.8733528256416321,
+        "expr_arm": 0.8748930096626282,
+        "retention": 1.0017635301286907,
+        "fact_drop_pct": -0.17635301286906824,
+        "ce_base": 1.625858187675476,
+        "ce_arm": 1.6252245903015137,
+        "ce_cost": -0.0006335973739624023,
+        "rider": false,
+        "instrument": "dual-stream: poisoned q/k (norm-0.07 key geometry) + clean-copy v at key 0, every layer/head/reader",
+        "note": "THE content cell: degraded geometry kept, the CONTENT of every read off key 0 restored"
+      }
+    },
+    "v0_content_audit": {
+      "profile": {
+        "L0": {
+          "v0_rel_delta": 0.8292875289916992,
+          "v0_clean_norm": 2.5663580894470215
+        },
+        "L1": {
+          "v0_rel_delta": 1.24639892578125,
+          "v0_clean_norm": 1.9788148403167725
+        },
+        "L2": {
+          "v0_rel_delta": 1.4413695335388184,
+          "v0_clean_norm": 1.8374816179275513
+        },
+        "L3": {
+          "v0_rel_delta": 1.0624414682388306,
+          "v0_clean_norm": 1.928112506866455
+        },
+        "L4": {
+          "v0_rel_delta": 1.1208059787750244,
+          "v0_clean_norm": 1.9489809274673462
+        },
+        "L5": {
+          "v0_rel_delta": 1.1200984716415405,
+          "v0_clean_norm": 1.9978419542312622
+        }
+      },
+      "mean_rel_delta": 1.1367336511611938,
+      "note": "relative delta ||v0_clean - v0_pois|| / ||v0_clean|| of the V-projected vectors at key position 0, per layer (dual-stream, no transplant). If ~0, the value content read off key 0 is barely perturbed by the poison and cell (i) is weakly powered by construction \u2014 the fork then leans on cell (ii). REPORT-ONLY."
+    },
+    "verdict": {
+      "branch": "HEALS",
+      "detail": "x1.002@g-12, x1.016@g0 (heal bar >= 0.7 at both)"
+    }
+  },
+  "cell_ii_mass_inflate": {
+    "cells": {
+      "g0": {
+        "probe": "II",
+        "tag": "MASS-INFLATE@g+0",
+        "net": "consolidated",
+        "geo": 0,
+        "expr_base": 0.28578755259513855,
+        "expr_arm": 0.18642868101596832,
+        "retention": 0.6523331031147912,
+        "fact_drop_pct": 34.76668968852088,
+        "ce_base": 1.625858187675476,
+        "ce_arm": 2.1744537353515625,
+        "ce_cost": 0.5485955476760864,
+        "rider": false,
+        "bias": 3.5859375,
+        "achieved_total_key0_mass": 1.6902200728654861,
+        "target_total_key0_mass": 1.6927127595990896,
+        "note": "THE allocation cell: healthy row 0 (content untouched), key-0 attention mass inflated to the poison's dose by a uniform logit bias"
+      },
+      "g-12": {
+        "probe": "II",
+        "tag": "MASS-INFLATE@g-12",
+        "net": "consolidated",
+        "geo": -12,
+        "expr_base": 0.8733528256416321,
+        "expr_arm": 0.02785705029964447,
+        "retention": 0.03189667392348395,
+        "fact_drop_pct": 96.8103326076516,
+        "ce_base": 1.625858187675476,
+        "ce_arm": 2.1744537353515625,
+        "ce_cost": 0.5485955476760864,
+        "rider": false,
+        "bias": 3.5859375,
+        "achieved_total_key0_mass": 1.6902200728654861,
+        "target_total_key0_mass": 1.6927127595990896,
+        "note": "THE allocation cell: healthy row 0 (content untouched), key-0 attention mass inflated to the poison's dose by a uniform logit bias"
+      }
+    },
+    "calibration": {
+      "target_total_key0_mass": 1.6927127595990896,
+      "target_source": "runs/e159/metrics.json probe_a.sink_mass_premask poison07 (sum over layers of mean_queries_ge1)",
+      "healthy_total_key0_mass": 0.1566619509831071,
+      "ratio": 10.804874757251143,
+      "grid": [
+        0.5,
+        1.5,
+        3.0,
+        4.5
+      ],
+      "sweep": [
+        {
+          "bias": 0.5,
+          "total_key0_mass": 0.21052544564008713
+        },
+        {
+          "bias": 1.5,
+          "total_key0_mass": 0.43209880217909813
+        },
+        {
+          "bias": 3.0,
+          "total_key0_mass": 1.169713944196701
+        },
+        {
+          "bias": 4.5,
+          "total_key0_mass": 2.8789482712745667
+        },
+        {
+          "bias": 3.75,
+          "total_key0_mass": 1.8685420602560043
+        },
+        {
+          "bias": 3.375,
+          "total_key0_mass": 1.4827292412519455
+        },
+        {
+          "bias": 3.5625,
+          "total_key0_mass": 1.6659891158342361
+        },
+        {
+          "bias": 3.65625,
+          "total_key0_mass": 1.7647550255060196
+        },
+        {
+          "bias": 3.609375,
+          "total_key0_mass": 1.7147557735443115
+        },
+        {
+          "bias": 3.5859375,
+          "total_key0_mass": 1.6902200728654861
+        },
+        {
+          "bias": 3.59765625,
+          "total_key0_mass": 1.7024496346712112
+        }
+      ],
+      "bracket": [
+        3.0,
+        4.5
+      ],
+      "bisection_iterations": 7,
+      "bias_star": 3.5859375,
+      "achieved_total": 1.6902200728654861,
+      "abs_dev": 0.0024926867336034775,
+      "per_layer_at_bstar_g0": {
+        "L0": 0.421345591545105,
+        "L1": 0.28722190856933594,
+        "L2": 0.16548749804496765,
+        "L3": 0.2065584361553192,
+        "L4": 0.24794380366802216,
+        "L5": 0.3616628348827362
+      },
+      "per_layer_poison_g0_stored": {
+        "L0": 0.03686964325606823,
+        "L1": 0.4776414781808853,
+        "L2": 0.4483647346496582,
+        "L3": 0.33144238591194153,
+        "L4": 0.26103001087903976,
+        "L5": 0.13736450672149658
+      },
+      "per_layer_at_bstar_gm12": {
+        "L0": 0.4472135901451111,
+        "L1": 0.30915623903274536,
+        "L2": 0.19224782288074493,
+        "L3": 0.24550263583660126,
+        "L4": 0.3047769367694855,
+        "L5": 0.43486905097961426
+      },
+      "per_layer_poison_gm12_measured": {
+        "L0": 0.0401296466588974,
+        "L1": 0.5291092395782471,
+        "L2": 0.47285008430480957,
+        "L3": 0.344278484582901,
+        "L4": 0.34596240520477295,
+        "L5": 0.17757898569107056
+      },
+      "total_gm12": {
+        "bias_star": 1.9337662756443024,
+        "poison07": 1.9099088460206985
+      },
+      "note": "uniform additive bias on the key-0 logit (queries >= 1, all layers/heads), calibrated on install60@g0 to the poisoned net's TOTAL key-0 mass; the per-layer profile is NOT matched (the poison's profile is front-loaded) \u2014 the cell reproduces the allocation DOSE, not its distribution."
+    },
+    "verdict": {
+      "branch": "KILLS",
+      "detail": "x0.032@g-12 (<= 0.4, the primary geometry), x0.652@g0"
+    }
+  },
+  "measurement_iii_starvation": {
+    "geometries": {
+      "g+0": {
+        "battery": {
+          "pre_len": 130,
+          "name_cols": [
+            130,
+            136
+          ],
+          "read_queries": [
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136
+          ],
+          "key_band": [
+            128,
+            137
+          ],
+          "window_len": 148
+        },
+        "healthy": {
+          "L0": {
+            "read_pos": 0.0060198656283319,
+            "mean_queries_ge1": 0.0332091823220253,
+            "band_q_key0": 0.006734723516274244,
+            "band_q_bandkeys": 0.07288620062172413,
+            "band_q_elsewhere": 0.9203790758620016
+          },
+          "L1": {
+            "read_pos": 0.0005977565888315439,
+            "mean_queries_ge1": 0.02963741309940815,
+            "band_q_key0": 0.000614741860772483,
+            "band_q_bandkeys": 0.4557778239250183,
+            "band_q_elsewhere": 0.5436074342142092
+          },
+          "L2": {
+            "read_pos": 9.215145269081404e-08,
+            "mean_queries_ge1": 0.014896474778652191,
+            "band_q_key0": 1.1701787229867477e-05,
+            "band_q_bandkeys": 0.5989263579249382,
+            "band_q_elsewhere": 0.40106194028783193
+          },
+          "L3": {
+            "read_pos": 7.121349199223914e-08,
+            "mean_queries_ge1": 0.01701914332807064,
+            "band_q_key0": 3.261134068122118e-06,
+            "band_q_bandkeys": 0.6202839687466621,
+            "band_q_elsewhere": 0.37971277011926974
+          },
+          "L4": {
+            "read_pos": 2.5807505153352395e-05,
+            "mean_queries_ge1": 0.01622377522289753,
+            "band_q_key0": 0.000367809712770395,
+            "band_q_bandkeys": 0.5148294325917959,
+            "band_q_elsewhere": 0.4848027576954337
+          },
+          "L5": {
+            "read_pos": 0.000423060409957543,
+            "mean_queries_ge1": 0.02011909894645214,
+            "band_q_key0": 0.0021332486721803434,
+            "band_q_bandkeys": 0.2121289544738829,
+            "band_q_elsewhere": 0.7857377968539367
+          }
+        },
+        "poison07": {
+          "L0": {
+            "read_pos": 0.006636087782680988,
+            "mean_queries_ge1": 0.03295786306262016,
+            "band_q_key0": 0.0074314508237876,
+            "band_q_bandkeys": 0.07274375203996897,
+            "band_q_elsewhere": 0.9198247971362434
+          },
+          "L1": {
+            "read_pos": 0.16651855409145355,
+            "mean_queries_ge1": 0.4491860270500183,
+            "band_q_key0": 0.19631832838058472,
+            "band_q_bandkeys": 0.33428723365068436,
+            "band_q_elsewhere": 0.4693944379687309
+          },
+          "L2": {
+            "read_pos": 0.17628654837608337,
+            "mean_queries_ge1": 0.42038801312446594,
+            "band_q_key0": 0.29038126580417156,
+            "band_q_bandkeys": 0.32461388036608696,
+            "band_q_elsewhere": 0.3850048538297415
+          },
+          "L3": {
+            "read_pos": 0.054779164493083954,
+            "mean_queries_ge1": 0.34064146876335144,
+            "band_q_key0": 0.12328159995377064,
+            "band_q_bandkeys": 0.5097670257091522,
+            "band_q_elsewhere": 0.36695137433707714
+          },
+          "L4": {
+            "read_pos": 0.018337132409214973,
+            "mean_queries_ge1": 0.2302115261554718,
+            "band_q_key0": 0.0426571446005255,
+            "band_q_bandkeys": 0.44857821241021156,
+            "band_q_elsewhere": 0.5087646429892629
+          },
+          "L5": {
+            "read_pos": 0.020876700058579445,
+            "mean_queries_ge1": 0.13064925372600555,
+            "band_q_key0": 0.024243652820587158,
+            "band_q_bandkeys": 0.19558767415583134,
+            "band_q_elsewhere": 0.7801686730235815
+          }
+        },
+        "band_key0_mean_over_layers": {
+          "healthy": 0.0016442477805492424,
+          "poison07": 0.11405224039723787
+        },
+        "band_bandkeys_mean_over_layers": {
+          "healthy": 0.41247212304733694,
+          "poison07": 0.3142629630553226
+        },
+        "sink_total_mean_queries_ge1": {
+          "healthy": 0.13110508769750595,
+          "poison07": 1.6040341518819332
+        }
+      },
+      "g-12": {
+        "battery": {
+          "pre_len": 142,
+          "name_cols": [
+            142,
+            148
+          ],
+          "read_queries": [
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148
+          ],
+          "key_band": [
+            140,
+            149
+          ],
+          "window_len": 160
+        },
+        "healthy": {
+          "L0": {
+            "read_pos": 0.0057024285197257996,
+            "mean_queries_ge1": 0.031146330758929253,
+            "band_q_key0": 0.006114030547905713,
+            "band_q_bandkeys": 0.0575734986923635,
+            "band_q_elsewhere": 0.9363124707597308
+          },
+          "L1": {
+            "read_pos": 0.0007554446347057819,
+            "mean_queries_ge1": 0.026771873235702515,
+            "band_q_key0": 0.0008324246664415114,
+            "band_q_bandkeys": 0.45394909009337425,
+            "band_q_elsewhere": 0.5452184852401842
+          },
+          "L2": {
+            "read_pos": 1.9845876408908225e-07,
+            "mean_queries_ge1": 0.013487008400261402,
+            "band_q_key0": 4.590714240748639e-06,
+            "band_q_bandkeys": 0.6079533509910107,
+            "band_q_elsewhere": 0.3920420582947486
+          },
+          "L3": {
+            "read_pos": 3.95908017480906e-08,
+            "mean_queries_ge1": 0.013756413012742996,
+            "band_q_key0": 5.981485233286232e-06,
+            "band_q_bandkeys": 0.6594565883278847,
+            "band_q_elsewhere": 0.340537430186882
+          },
+          "L4": {
+            "read_pos": 1.0449191904626787e-05,
+            "mean_queries_ge1": 0.016586458310484886,
+            "band_q_key0": 0.00019049750915201002,
+            "band_q_bandkeys": 0.6017018295824528,
+            "band_q_elsewhere": 0.3981076729083952
+          },
+          "L5": {
+            "read_pos": 0.00033987255301326513,
+            "mean_queries_ge1": 0.024342725053429604,
+            "band_q_key0": 0.0013560596271418035,
+            "band_q_bandkeys": 0.21879802271723747,
+            "band_q_elsewhere": 0.7798459176556207
+          }
+        },
+        "poison07": {
+          "L0": {
+            "read_pos": 0.006150935776531696,
+            "mean_queries_ge1": 0.03105839155614376,
+            "band_q_key0": 0.006835574866272509,
+            "band_q_bandkeys": 0.05747444345615804,
+            "band_q_elsewhere": 0.9356899816775694
+          },
+          "L1": {
+            "read_pos": 0.15566129982471466,
+            "mean_queries_ge1": 0.4183596074581146,
+            "band_q_key0": 0.18085528910160065,
+            "band_q_bandkeys": 0.34755196049809456,
+            "band_q_elsewhere": 0.4715927504003048
+          },
+          "L2": {
+            "read_pos": 0.12466666102409363,
+            "mean_queries_ge1": 0.3705459237098694,
+            "band_q_key0": 0.1853516735136509,
+            "band_q_bandkeys": 0.44631014950573444,
+            "band_q_elsewhere": 0.36833817698061466
+          },
+          "L3": {
+            "read_pos": 0.04156994819641113,
+            "mean_queries_ge1": 0.29504185914993286,
+            "band_q_key0": 0.09461842477321625,
+            "band_q_bandkeys": 0.5209106095135212,
+            "band_q_elsewhere": 0.38447096571326256
+          },
+          "L4": {
+            "read_pos": 0.008960764855146408,
+            "mean_queries_ge1": 0.22013601660728455,
+            "band_q_key0": 0.029516917886212468,
+            "band_q_bandkeys": 0.4766898974776268,
+            "band_q_elsewhere": 0.49379318463616073
+          },
+          "L5": {
+            "read_pos": 0.01123720034956932,
+            "mean_queries_ge1": 0.13366393744945526,
+            "band_q_key0": 0.019882554071955383,
+            "band_q_bandkeys": 0.18574089091271162,
+            "band_q_elsewhere": 0.794376555015333
+          }
+        },
+        "band_key0_mean_over_layers": {
+          "healthy": 0.0014172640916858454,
+          "poison07": 0.08617673903548469
+        },
+        "band_bandkeys_mean_over_layers": {
+          "healthy": 0.4332387300673872,
+          "poison07": 0.3391129918939744
+        },
+        "sink_total_mean_queries_ge1": {
+          "healthy": 0.12609080877155066,
+          "poison07": 1.4688057359308004
+        }
+      }
+    },
+    "note": "per layer, the fact-band read queries' mean attention mass split into key 0 / band keys / elsewhere (fact-in-window batteries, name INSIDE the window; g0 band 128..137, g-12 band 140..149). REPORT-ONLY, never gating."
+  },
+  "cells": [
+    {
+      "probe": "ANCHOR",
+      "tag": "mask@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.343431681394577,
+      "retention": 1.2017027273441125,
+      "fact_drop_pct": -20.170272734411256,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.6422120332717896,
+      "ce_cost": 0.016353845596313477,
+      "rider": false,
+      "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask, rebuilt + gated)"
+    },
+    {
+      "probe": "ANCHOR",
+      "tag": "poison0.07@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.28611618280410767,
+      "retention": 1.0011499108550563,
+      "fact_drop_pct": -0.11499108550563353,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 2.592160940170288,
+      "ce_cost": 0.966302752494812,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "norm 0.07 alone (e150 P5 / e151 before.ladder, rebuilt + gated)"
+    },
+    {
+      "probe": "ANCHOR",
+      "tag": "mask@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.8947639465332031,
+      "retention": 1.0245160034558092,
+      "fact_drop_pct": -2.4516003455809177,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.6422120332717896,
+      "ce_cost": 0.016353845596313477,
+      "rider": false,
+      "note": "forced-off-sink mask alone (e150 P2 / e151 before.mask, rebuilt + gated)"
+    },
+    {
+      "probe": "ANCHOR",
+      "tag": "poison0.07@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.13274984061717987,
+      "retention": 0.15200024173466392,
+      "fact_drop_pct": 84.7999758265336,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 2.592160940170288,
+      "ce_cost": 0.966302752494812,
+      "rider": false,
+      "target_norm": 0.07,
+      "gate": {
+        "row": 0,
+        "n_elements_changed": 192,
+        "changed_rows": [
+          0
+        ],
+        "identity": false,
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "note": "norm 0.07 alone (e150 P5 / e151 before.ladder, rebuilt + gated)"
+    },
+    {
+      "probe": "I",
+      "tag": "VALUE-RESTORE@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.2902597486972809,
+      "retention": 1.0156486735042582,
+      "fact_drop_pct": -1.5648673504258248,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.6252245903015137,
+      "ce_cost": -0.0006335973739624023,
+      "rider": false,
+      "instrument": "dual-stream: poisoned q/k (norm-0.07 key geometry) + clean-copy v at key 0, every layer/head/reader",
+      "note": "THE content cell: degraded geometry kept, the CONTENT of every read off key 0 restored"
+    },
+    {
+      "probe": "I",
+      "tag": "VALUE-RESTORE@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.8748930096626282,
+      "retention": 1.0017635301286907,
+      "fact_drop_pct": -0.17635301286906824,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.6252245903015137,
+      "ce_cost": -0.0006335973739624023,
+      "rider": false,
+      "instrument": "dual-stream: poisoned q/k (norm-0.07 key geometry) + clean-copy v at key 0, every layer/head/reader",
+      "note": "THE content cell: degraded geometry kept, the CONTENT of every read off key 0 restored"
+    },
+    {
+      "probe": "II",
+      "tag": "MASS-INFLATE@g+0",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.18642868101596832,
+      "retention": 0.6523331031147912,
+      "fact_drop_pct": 34.76668968852088,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 2.1744537353515625,
+      "ce_cost": 0.5485955476760864,
+      "rider": false,
+      "bias": 3.5859375,
+      "achieved_total_key0_mass": 1.6902200728654861,
+      "target_total_key0_mass": 1.6927127595990896,
+      "note": "THE allocation cell: healthy row 0 (content untouched), key-0 attention mass inflated to the poison's dose by a uniform logit bias"
+    },
+    {
+      "probe": "II",
+      "tag": "MASS-INFLATE@g-12",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.02785705029964447,
+      "retention": 0.03189667392348395,
+      "fact_drop_pct": 96.8103326076516,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 2.1744537353515625,
+      "ce_cost": 0.5485955476760864,
+      "rider": false,
+      "bias": 3.5859375,
+      "achieved_total_key0_mass": 1.6902200728654861,
+      "target_total_key0_mass": 1.6927127595990896,
+      "note": "THE allocation cell: healthy row 0 (content untouched), key-0 attention mass inflated to the poison's dose by a uniform logit bias"
+    },
+    {
+      "probe": "II",
+      "tag": "mass-inflate b=+3.00@g+0 [rider]",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.4043678045272827,
+      "retention": 1.4149244809837156,
+      "fact_drop_pct": -41.49244809837156,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.8927806615829468,
+      "ce_cost": 0.2669224739074707,
+      "rider": true,
+      "bias": 3.0,
+      "role": "REPORT-ONLY rider: the dose dimension of the mass-inflate cell; never gates a bar"
+    },
+    {
+      "probe": "II",
+      "tag": "mass-inflate b=+3.00@g-12 [rider]",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.28628990054130554,
+      "retention": 0.32780554677999124,
+      "fact_drop_pct": 67.21944532200088,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 1.8927806615829468,
+      "ce_cost": 0.2669224739074707,
+      "rider": true,
+      "bias": 3.0,
+      "role": "REPORT-ONLY rider: the dose dimension of the mass-inflate cell; never gates a bar"
+    },
+    {
+      "probe": "II",
+      "tag": "mass-inflate b=+4.50@g+0 [rider]",
+      "net": "consolidated",
+      "geo": 0,
+      "expr_base": 0.28578755259513855,
+      "expr_arm": 0.0053074657917022705,
+      "retention": 0.01857136793925067,
+      "fact_drop_pct": 98.14286320607494,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 3.030482053756714,
+      "ce_cost": 1.4046238660812378,
+      "rider": true,
+      "bias": 4.5,
+      "role": "REPORT-ONLY rider: the dose dimension of the mass-inflate cell; never gates a bar"
+    },
+    {
+      "probe": "II",
+      "tag": "mass-inflate b=+4.50@g-12 [rider]",
+      "net": "consolidated",
+      "geo": -12,
+      "expr_base": 0.8733528256416321,
+      "expr_arm": 0.0003525006177369505,
+      "retention": 0.0004036176530120876,
+      "fact_drop_pct": 99.95963823469879,
+      "ce_base": 1.625858187675476,
+      "ce_arm": 3.030482053756714,
+      "ce_cost": 1.4046238660812378,
+      "rider": true,
+      "bias": 4.5,
+      "role": "REPORT-ONLY rider: the dose dimension of the mass-inflate cell; never gates a bar"
+    }
+  ],
+  "verdict": {
+    "cell_i_branch": {
+      "branch": "HEALS",
+      "detail": "x1.002@g-12, x1.016@g0 (heal bar >= 0.7 at both)"
+    },
+    "cell_ii_branch": {
+      "branch": "KILLS",
+      "detail": "x0.032@g-12 (<= 0.4, the primary geometry), x0.652@g0"
+    },
+    "bars": {
+      "heals": "retention >= 0.7 at BOTH g-12 and g0",
+      "kills": "retention <= 0.4 at the PRIMARY geometry g-12 (dispatch '>= 60% drop'; poison-alone's own g-12 retention is 0.158); g0 = consistency column, disagreement => -SPLIT suffix (reported, never re-mapped)",
+      "cell_ii_moderate_ce": "CE cost <= +0.85 for a bar-eligible cell-(ii) kill",
+      "bars_v2_note": "v1 (smoke shakedown) had an invented g0<=0.50 kill conjunct absent from the dispatch; corrected to the dispatch-literal form before the full compute (see recipe_deviations)"
+    },
+    "decision_table": {
+      "(i)HEALS+(ii)HEALS": "READ-COUPLED-LITERAL",
+      "(i)KILLS+(ii)KILLS": "MASS-COUPLED",
+      "(i)KILLS+(ii)other": "MASS-COUPLED (cell (i) is the direct test: healthy content at the absorber fails to rescue => content is not the carrier)",
+      "(i)HEALS+(ii)KILLS": "MIXED",
+      "else": "TEXTURE with numbers (a GAP in the decisive cell)"
+    },
+    "outcome": "MIXED",
+    "verdict": "one heals and the other kills: healthy values rescue the fact under the poison AND mass inflation alone kills \u2014 content and allocation each suffice to move the outcome in opposite directions; texture with numbers"
+  },
+  "honesty_reflex": {
+    "value_transplant_pathologies": "the transplant restores the FULL healthy value channel at key 0 (every layer, head, and reader \u2014 including row 0's self-read), not a minimal content patch; the donor stream is the clean copy's own forward, so later-layer donations are healthy-context donations and the two streams diverge by design. The cell therefore answers 'is healthy CONTENT at the absorber sufficient?', not 'which read carries the kill?'. Donor-identity and donor-self gates prove the machinery is inert (bit-tight); the v0 content-delta audit (cell_i.v0_content_audit) quantifies the channel's actual perturbation \u2014 if the poison barely moves v0, cell (i) is weakly powered by construction and says so; a partial heal is read as GAP texture, never shopped.",
+    "bias_calibration_limits": "the uniform bias matches the TOTAL key-0 mass on the g0 battery (e159's instrument), not the per-layer profile (the poison's absorption is front-loaded L1-L3; the biased net's is flatter) and not the g-12 battery's dose (reported alongside: total_gm12). The cell is a sufficiency test for the DOSE of absorption, not an emulation of the poison; the bracketing riders expose the dose gradient.",
+    "moderate_ce_bar": "cell (ii)'s kill bar requires CE <= +0.85 \u2014 'no more wreckful than the emulated state' (poison-alone +0.843); a kill priced beyond that reads as generic wreck, not mass starvation (KILL-AT-HEAVY-CE, non-eligible).",
+    "single_net": "one consolidated net (e131 lineage, single recipe); the fork's verdicts are lineage-specific until replication seeds land; the R150 rider history (e150) agreed with the consolidated ladder at these brackets.",
+    "off_distribution": "both cells are off the training distribution (as are the mask and poison anchors); every reading is anchored to the rebuilt + gated single-intervention cells, not to absolute health claims.",
+    "ce_bank_is_position_blind": "CE_R windows are 256-token corpus windows that never contain the fact; the CE column prices general LM damage, not fact-geometry damage (e150's caveat, inherited).",
+    "measurement_iii_is_report_only": "the band-mass decomposition runs on NEW fact-in-window batteries (the name inside the window); it motivates and illustrates but gates nothing."
+  },
+  "trims": [],
+  "recipe_deviations": [
+    "Eval-only battery: the consolidated net is a LOADED, gated artifact (e131 lineage); nothing regenerated, nothing trained.",
+    "SHAKEDOWN CORRECTION 1 (found by E162_SMOKE, fixed before the full compute): the value-transplant forward's donor default was inverted \u2014 donor_wpe0=None fell back to the net's OWN (poisoned) row, making cell (i) a literal no-op (the smoke cell matched poison-alone exactly); fixed so the default donor is the CLEAN row. The smoke run's cell-(i) numbers are therefore invalid; the full run's are not affected by the bug.",
+    "SHAKEDOWN CORRECTION 2 (bars v1 -> v2, before the full compute): v1 had invented a kill conjunct (g0 <= 0.50) absent from the dispatch, which the shakedown showed could acquit a 97% primary-geometry kill; v2 is the dispatch-literal reading (kill = >= 60% drop at the primary geometry g-12 at moderate CE; heal = >= 0.70 at BOTH geos; g0 disagreement => -SPLIT suffix, reported, never re-mapped). Both the docstring and REGISTERED_PREDICTION carry v2; this entry is the audit trail.",
+    "arm_b secondary column OMITTED (dispatch: 'if cheap'): its fact survives the poison outright (e159 SITE-SPARED, x0.922 at norm 0.07), so the value-restore / mass-inflate cells have no kill to explain on that net; omitted for CPU thrift while e158/e125a share the machine \u2014 stated, not silent.",
+    "Cell (i)'s transplant replaces position-0's value vector for EVERY reader (queries 1..T-1 and row 0's self-read), all layers/heads \u2014 the dispatch's 'override position-0's VALUE contribution' taken literally; the donor stream is the clean copy's own forward, so later-layer donations are healthy-context donations (the cell asks: is healthy CONTENT at the absorber sufficient?).",
+    "Cell (ii) calibrates the uniform bias to the TOTAL key-0 mass on the g0 battery (e159's instrument battery); the per-layer profile is not matched \u2014 the cell reproduces the allocation DOSE, not its distribution; the bracketing coarse-grid biases run as full report-only riders.",
+    "Measurement (iii) builds fact-in-window batteries (the name INSIDE the window \u2014 onset read 129 + within-name reads at g0, shifted +12 at g-12): a NEW battery for the mass decomposition, report-only; the registered fact cells remain the install60 last-position battery.",
+    "held30 battery not rebuilt (no registered cell uses it); the e151 mask/poison cells and e159's mass profile are read at runtime from runs/{e151,e159}/metrics.json (auditable), not hand-copied."
+  ],
+  "ckpt_inventory": {
+    "saved": {},
+    "external_used": [
+      "runs/checkpoints/e131_consolidated_e113.pt"
+    ],
+    "metrics_read": [
+      "runs\\e151\\metrics.json",
+      "runs\\e159\\metrics.json"
+    ],
+    "note": "eval-only: no checkpoints written or regenerated"
+  },
+  "timing": {
+    "total_s": 44.8
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "device": "cpu",
+    "torch_threads": 4,
+    "smoke": true
+  }
+}

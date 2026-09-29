@@ -1,0 +1,1887 @@
+{
+  "experiment": "g1b_continuity",
+  "date": "2026-09-29T14:58:15Z",
+  "design": "scratch/g1_design.md sections 4-6 bars VERBATIM (frozen at g1's dispatch; now live) + section 1's CONTINGENCY CELL (the registered 2.74M continuity cell); g1's registered discharge after the 0.84M G-ROOT abort",
+  "registered_prediction": {
+    "gates": "G-ROOT root g-12 >= 0.78 | G-CTRL arm C kills by +50 | G-PIN every wall arm raw displacement <= R + 1.5 at every checkpoint | G-NOISE N0 kills by +10 at displacement-match. Any failure => ABORT TO TEXTURE, nothing adjudicated.",
+    "predicted": "WALL-HOLDS (g1's registered prior, now live): (1) W1 maintains (g-12 >= 0.50 through +300, floor band 0.55-0.85; no checkpoint <= 0.27); (2) W3 dies by +50 (the kill en route to the wall); (3) WALL-CLIFF-INSIDE with W2 maintaining => cliff in (1.4, 4.2], which must bracket the measured D_kill (stored 2.489) \u2014 the headline quantitative test vs e180's t* extrapolation; (4) NOISE-SPARED-BY-WALL (N1, N2 >= 0.50 at {1,2,4,10} pinned; CE_R within root + 0.3); (5) FLAT-AT-PIN (|W1 g-12(+300) - g-12(+50)| <= 0.05).",
+    "falsifiers": "F1 WALL-DEAF (W1 dies by +50 at verified pin) | F2 WALL-CLIFF-MISPLACED (survival does not order with R against measured D_kill, e.g. W3 maintains) | F3 NOISE-PENETRATES (N1/N2 kill at pinned R) | F4 ERODES-AT-PIN (W1 declines monotonically >= 0.10 from +50 to +300).",
+    "costs": "WALL-TAXES-ADAPTATION predicted FIRES (W1 corpus CE at +300 >= C's + 0.05); WALL-FREE if |dCE| < 0.05; W1 held30_gm12(+300) >= 0.40; W1 +300 anatomy: row0 >= 0.5x root, site span >= 0.7, band rows content=True.",
+    "registration": "scratch/g1_design.md sections 4-6 + section 8 VERBATIM (committed before g1's implementation; frozen \u2014 no bar shopping). g1b adds NO bar: the continuity cell of spec section 1, the 0.84M discharge's registered discharge."
+  },
+  "question": "g1's question on the line its bars were calibrated on: does commit(R) + a hard L2 wall (flat interior, all directions, forward semantics) install a well in the 2.74M pre-LN organism whose consolidated root actually expresses (g-12 0.9156)? The R ladder {0.7, 1.4, 4.2} re-measures the basin width dynamically against e180's t* extrapolation and e185's stored D_kill 2.489.",
+  "continuity": {
+    "organism": "Cfg 6L/6H/192d block 256 = 2739072 params (the e131/e048 line \u2014 the organism behind every stored wash number)",
+    "root": {
+      "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+      "bitexact_gate": {
+        "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+        "meta": {
+          "recipe": "e113 verbatim: jittered replay 300 steps",
+          "seed": 10901,
+          "base": "runs/checkpoints/e048_repro.pt"
+        },
+        "n_tensors": 65,
+        "max_abs_diff_vs_file": 0.0,
+        "pass": true
+      },
+      "root_cells": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594,
+        "A129": -0.13237020391970877
+      },
+      "prior_root_gm12": 0.9155886769294739,
+      "delta_vs_prior": 0.0
+    },
+    "priors_same_line": {
+      "source": "runs/e176n + runs/e185 metrics (this line's own organism)",
+      "root_gm12": 0.9155886769294739,
+      "plus1_gm12": 0.6780440807342529,
+      "plus2_gm12": 0.027077054604887962,
+      "e185_D_kill": 2.4892616271972656,
+      "e185_t_kill": 2,
+      "g1_discharge": "runs/g1/metrics.json (0.84M, G-ROOT 0.2536 < 0.78 \u2014 nothing adjudicated; this cell is the discharge)"
+    },
+    "basin_prior_raw": [
+      2.5,
+      5.0
+    ],
+    "R_ladder_note": "R carried VERBATIM from g1 (absolute L2): {0.28, 0.56, 1.68} x the raw 2.5 low end \u2014 W1/W2 inside, W3 beyond e185's D_kill 2.489"
+  },
+  "arms": {
+    "C": {
+      "desc": "CONTROL \u2014 uncommitted neutral wash (e176N arm A VERBATIM, this line's own cell): the clock, D_kill, the CE adaptation curve (priors +1 0.678 / +2 0.0271)",
+      "R": null,
+      "target_mode": "true",
+      "noise_seed": null,
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "elapsed_s": 0.4,
+          "g_m12_mean_pz": 0.6780482530593872,
+          "g0_mean_pz": 0.4619826078414917,
+          "frac_argmax_z": 0.85,
+          "ce_r": 2.2113444805145264
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263263702392578,
+          "cum_disp": 2.4892618656158447,
+          "step_disp": 1.0913958549499512,
+          "elapsed_s": 1.2,
+          "g_m12_mean_pz": 0.027078190818428993,
+          "g0_mean_pz": 0.11471334844827652,
+          "frac_argmax_z": 0.016666666666666666,
+          "ce_r": 2.032073736190796
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6695867776870728,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403937220573425,
+          "elapsed_s": 2.0
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631869554519653,
+          "cum_disp": 3.526789903640747,
+          "step_disp": 0.7374944686889648,
+          "elapsed_s": 2.0,
+          "g_m12_mean_pz": 0.010940639302134514,
+          "g0_mean_pz": 0.0604284442961216,
+          "frac_argmax_z": 0.0,
+          "ce_r": 1.8213409185409546
+        }
+      ],
+      "y_stats": [],
+      "missing_checkpoints": []
+    },
+    "W1": {
+      "desc": "WALL R=0.7 \u2014 commit(0.7) then the identical neutral wash; step 1 is bit-identical to C (the wall first acts at forward 2)",
+      "R": 0.7,
+      "target_mode": "true",
+      "noise_seed": null,
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.9451885223388672,
+          "g0_mean_pz": 0.6931049227714539,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.7095043659210205
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3099018335342407,
+          "cum_disp": 1.6393288373947144,
+          "step_disp": 0.9447510242462158,
+          "elapsed_s": 1.2,
+          "g_m12_mean_pz": 0.7767698764801025,
+          "g0_mean_pz": 0.7415305972099304,
+          "frac_argmax_z": 0.9666666666666667,
+          "ce_r": 1.6442033052444458
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2666752338409424,
+          "cum_disp": 1.52114737033844,
+          "step_disp": 0.6800296902656555,
+          "elapsed_s": 2.1
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1452760696411133,
+          "cum_disp": 1.4871872663497925,
+          "step_disp": 0.512603223323822,
+          "elapsed_s": 2.1,
+          "g_m12_mean_pz": 0.8174085021018982,
+          "g0_mean_pz": 0.6634255051612854,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6527618169784546
+        }
+      ],
+      "y_stats": [],
+      "missing_checkpoints": []
+    },
+    "W2": {
+      "desc": "WALL R=1.4 \u2014 commit(1.4) then the identical neutral wash; step 1 is bit-identical to C (the wall first acts at forward 2)",
+      "R": 1.4,
+      "target_mode": "true",
+      "noise_seed": null,
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542879343032837,
+          "step_disp": 1.6542879343032837,
+          "elapsed_s": 0.3,
+          "g_m12_mean_pz": 0.8086821436882019,
+          "g0_mean_pz": 0.5415154099464417,
+          "frac_argmax_z": 0.9833333333333333,
+          "ce_r": 2.008958578109741
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.6050794124603271,
+          "cum_disp": 2.2430591583251953,
+          "step_disp": 0.9525054097175598,
+          "elapsed_s": 1.2,
+          "g_m12_mean_pz": 0.5031166672706604,
+          "g0_mean_pz": 0.6727263331413269,
+          "frac_argmax_z": 0.7833333333333333,
+          "ce_r": 1.7062323093414307
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.3240147829055786,
+          "cum_disp": 2.03566575050354,
+          "step_disp": 0.7463411092758179,
+          "elapsed_s": 2.0
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1189579963684082,
+          "cum_disp": 1.972906231880188,
+          "step_disp": 0.6124657392501831,
+          "elapsed_s": 2.0,
+          "g_m12_mean_pz": 0.3203408122062683,
+          "g0_mean_pz": 0.4997689425945282,
+          "frac_argmax_z": 0.3,
+          "ce_r": 1.6817858219146729
+        }
+      ],
+      "y_stats": [],
+      "missing_checkpoints": []
+    },
+    "W3": {
+      "desc": "WALL R=4.2 \u2014 commit(4.2) then the identical neutral wash; step 1 is bit-identical to C (the wall first acts at forward 2)",
+      "R": 4.2,
+      "target_mode": "true",
+      "noise_seed": null,
+      "ckpt_steps": [
+        1,
+        2,
+        4
+      ],
+      "steps_ran": 4,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.6780484914779663,
+          "g0_mean_pz": 0.4619825482368469,
+          "frac_argmax_z": 0.85,
+          "ce_r": 2.2113444805145264
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263264894485474,
+          "cum_disp": 2.4892618656158447,
+          "step_disp": 1.0913958549499512,
+          "elapsed_s": 1.2,
+          "g_m12_mean_pz": 0.0270781759172678,
+          "g0_mean_pz": 0.11471327394247055,
+          "frac_argmax_z": 0.016666666666666666,
+          "ce_r": 2.032073736190796
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6695870161056519,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403937816619873,
+          "elapsed_s": 2.3
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631870746612549,
+          "cum_disp": 3.526790142059326,
+          "step_disp": 0.7374945878982544,
+          "elapsed_s": 2.4,
+          "g_m12_mean_pz": 0.010940594598650932,
+          "g0_mean_pz": 0.0604284405708313,
+          "frac_argmax_z": 0.0,
+          "ce_r": 1.8213409185409546
+        }
+      ],
+      "y_stats": [],
+      "missing_checkpoints": []
+    },
+    "N0": {
+      "desc": "NOISE CONTROL \u2014 uncommitted labels-noise (e185 VERBATIM, its own organism): the continuity gate",
+      "R": null,
+      "target_mode": "iid",
+      "noise_seed": 18501,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 10.751952171325684,
+          "cum_disp": 1.6541621685028076,
+          "step_disp": 1.6541621685028076,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.00025460965116508305,
+          "g0_mean_pz": 0.00040182468364946544,
+          "frac_argmax_z": 0.0,
+          "ce_r": 3.3184468746185303
+        },
+        {
+          "step": 2,
+          "ce_batch": 6.390693664550781,
+          "cum_disp": 2.6485204696655273,
+          "step_disp": 1.1956417560577393,
+          "elapsed_s": 0.9,
+          "g_m12_mean_pz": 0.0007630118634551764,
+          "g0_mean_pz": 0.0011870351154357195,
+          "frac_argmax_z": 0.0,
+          "ce_r": 5.684881687164307
+        }
+      ],
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9813725352287292,
+          "multiset_equals_true": false
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9849264621734619,
+          "multiset_equals_true": false
+        }
+      ],
+      "missing_checkpoints": []
+    },
+    "N1": {
+      "desc": "NOISE UNDER THE WALL \u2014 commit(0.7), labels-noise; step 1 is bit-identical to N0",
+      "R": 0.7,
+      "target_mode": "iid",
+      "noise_seed": 18501,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 10.751952171325684,
+          "cum_disp": 1.6541621685028076,
+          "step_disp": 1.6541621685028076,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.0036784138064831495,
+          "g0_mean_pz": 0.03546550124883652,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.129120111465454
+        },
+        {
+          "step": 2,
+          "ce_batch": 7.60365104675293,
+          "cum_disp": 1.929766297340393,
+          "step_disp": 0.8108076453208923,
+          "elapsed_s": 1.0,
+          "g_m12_mean_pz": 0.0013024951331317425,
+          "g0_mean_pz": 0.0074737295508384705,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.596243381500244
+        }
+      ],
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9813725352287292,
+          "multiset_equals_true": false
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9849264621734619,
+          "multiset_equals_true": false
+        }
+      ],
+      "missing_checkpoints": []
+    },
+    "N2": {
+      "desc": "NOISE UNDER THE WALL, arm 2 \u2014 commit(0.7), shuffled-target",
+      "R": 0.7,
+      "target_mode": "perm",
+      "noise_seed": 18502,
+      "ckpt_steps": [
+        1,
+        2
+      ],
+      "steps_ran": 2,
+      "device": "cuda",
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 7.615522384643555,
+          "cum_disp": 1.6541498899459839,
+          "step_disp": 1.6541498899459839,
+          "elapsed_s": 0.2,
+          "g_m12_mean_pz": 0.001107534859329462,
+          "g0_mean_pz": 0.014898110181093216,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.18864369392395
+        },
+        {
+          "step": 2,
+          "ce_batch": 4.737489700317383,
+          "cum_disp": 1.9483087062835693,
+          "step_disp": 0.8144808411598206,
+          "elapsed_s": 1.0,
+          "g_m12_mean_pz": 0.00031616169144399464,
+          "g0_mean_pz": 0.0008177242707461119,
+          "frac_argmax_z": 0.0,
+          "ce_r": 2.5281381607055664
+        }
+      ],
+      "y_stats": [
+        {
+          "step": 1,
+          "frac_targets_changed": 0.9444853067398071,
+          "multiset_equals_true": true
+        },
+        {
+          "step": 2,
+          "frac_targets_changed": 0.9432597756385803,
+          "multiset_equals_true": true
+        }
+      ],
+      "missing_checkpoints": []
+    }
+  },
+  "protocol": {
+    "corpus_seed": 1337,
+    "splice_rng": 24301,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "pre": 130,
+    "post_cap": 119,
+    "neutral_bank": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A's stream; FIXED content)",
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "forbidden": [
+        "FLORIZEL",
+        "ELIZABETH",
+        "ZEPH",
+        "MIRABEL"
+      ],
+      "windows_with_host_content": 0,
+      "junctions_covered": 0
+    },
+    "measure_dial": "e176n's measure() (the e131 dial set) on evl_load (settle+disarm PIVOT)"
+  },
+  "displacement": {
+    "currency": "cumulative ||theta_t - theta_0||_2 over all 2739072 trainable parameters (fp32, CPU, measured per step) + per-step increments + the projected displacement min(d, R); cosines vs arm C at shared checkpoints",
+    "table": {
+      "C": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "d_proj": null,
+          "g_m12_light": 0.6780482530593872,
+          "ce_r_light": 2.2113444805145264,
+          "cos_vs_C": 0.9999349117279053
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263263702392578,
+          "cum_disp": 2.4892618656158447,
+          "step_disp": 1.0913958549499512,
+          "d_proj": null,
+          "g_m12_light": 0.027078190818428993,
+          "ce_r_light": 2.032073736190796,
+          "cos_vs_C": 1.0000027418136597
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6695867776870728,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403937220573425,
+          "d_proj": null
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631869554519653,
+          "cum_disp": 3.526789903640747,
+          "step_disp": 0.7374944686889648,
+          "d_proj": null,
+          "g_m12_light": 0.010940639302134514,
+          "ce_r_light": 1.8213409185409546,
+          "cos_vs_C": 1.0000386238098145
+        }
+      ],
+      "W1": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.9451885223388672,
+          "ce_r_light": 1.7095043659210205,
+          "cos_vs_C": 0.9999349117279053
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3099018335342407,
+          "cum_disp": 1.6393288373947144,
+          "step_disp": 0.9447510242462158,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.7767698764801025,
+          "ce_r_light": 1.6442033052444458,
+          "cos_vs_C": 0.8902497291564941
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.2666752338409424,
+          "cum_disp": 1.52114737033844,
+          "step_disp": 0.6800296902656555,
+          "d_proj": 0.699999988079071
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1452760696411133,
+          "cum_disp": 1.4871872663497925,
+          "step_disp": 0.512603223323822,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.8174085021018982,
+          "ce_r_light": 1.6527618169784546,
+          "cos_vs_C": 0.718362033367157
+        }
+      ],
+      "W2": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542879343032837,
+          "step_disp": 1.6542879343032837,
+          "d_proj": 1.399999976158142,
+          "g_m12_light": 0.8086821436882019,
+          "ce_r_light": 2.008958578109741,
+          "cos_vs_C": 0.9999350309371948
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.6050794124603271,
+          "cum_disp": 2.2430591583251953,
+          "step_disp": 0.9525054097175598,
+          "d_proj": 1.399999976158142,
+          "g_m12_light": 0.5031166672706604,
+          "ce_r_light": 1.7062323093414307,
+          "cos_vs_C": 0.9920971393585205
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.3240147829055786,
+          "cum_disp": 2.03566575050354,
+          "step_disp": 0.7463411092758179,
+          "d_proj": 1.399999976158142
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.1189579963684082,
+          "cum_disp": 1.972906231880188,
+          "step_disp": 0.6124657392501831,
+          "d_proj": 1.399999976158142,
+          "g_m12_light": 0.3203408122062683,
+          "ce_r_light": 1.6817858219146729,
+          "cos_vs_C": 0.9220008850097656
+        }
+      ],
+      "W3": [
+        {
+          "step": 1,
+          "ce_batch": 1.3565675020217896,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "d_proj": 1.6542880535125732,
+          "g_m12_light": 0.6780484914779663,
+          "ce_r_light": 2.2113444805145264,
+          "cos_vs_C": 0.9999349117279053
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263264894485474,
+          "cum_disp": 2.4892618656158447,
+          "step_disp": 1.0913958549499512,
+          "d_proj": 2.4892618656158447,
+          "g_m12_light": 0.0270781759172678,
+          "ce_r_light": 2.032073736190796,
+          "cos_vs_C": 1.0000027418136597
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6695870161056519,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403937816619873,
+          "d_proj": 3.0785462856292725
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631870746612549,
+          "cum_disp": 3.526790142059326,
+          "step_disp": 0.7374945878982544,
+          "d_proj": 3.526790142059326,
+          "g_m12_light": 0.010940594598650932,
+          "ce_r_light": 1.8213409185409546,
+          "cos_vs_C": 1.000038504600525
+        }
+      ],
+      "N0": [
+        {
+          "step": 1,
+          "ce_batch": 10.751952171325684,
+          "cum_disp": 1.6541621685028076,
+          "step_disp": 1.6541621685028076,
+          "d_proj": null,
+          "g_m12_light": 0.00025460965116508305,
+          "ce_r_light": 3.3184468746185303,
+          "cos_vs_C": -0.09102200716733932
+        },
+        {
+          "step": 2,
+          "ce_batch": 6.390693664550781,
+          "cum_disp": 2.6485204696655273,
+          "step_disp": 1.1956417560577393,
+          "d_proj": null,
+          "g_m12_light": 0.0007630118634551764,
+          "ce_r_light": 5.684881687164307,
+          "cos_vs_C": -0.04463490471243858
+        }
+      ],
+      "N1": [
+        {
+          "step": 1,
+          "ce_batch": 10.751952171325684,
+          "cum_disp": 1.6541621685028076,
+          "step_disp": 1.6541621685028076,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.0036784138064831495,
+          "ce_r_light": 2.129120111465454,
+          "cos_vs_C": -0.09102200716733932
+        },
+        {
+          "step": 2,
+          "ce_batch": 7.60365104675293,
+          "cum_disp": 1.929766297340393,
+          "step_disp": 0.8108076453208923,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.0013024951331317425,
+          "ce_r_light": 2.596243381500244,
+          "cos_vs_C": -0.05008917674422264
+        }
+      ],
+      "N2": [
+        {
+          "step": 1,
+          "ce_batch": 7.615522384643555,
+          "cum_disp": 1.6541498899459839,
+          "step_disp": 1.6541498899459839,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.001107534859329462,
+          "ce_r_light": 2.18864369392395,
+          "cos_vs_C": -0.09880170971155167
+        },
+        {
+          "step": 2,
+          "ce_batch": 4.737489700317383,
+          "cum_disp": 1.9483087062835693,
+          "step_disp": 0.8144808411598206,
+          "d_proj": 0.699999988079071,
+          "g_m12_light": 0.00031616169144399464,
+          "ce_r_light": 2.5281381607055664,
+          "cos_vs_C": -0.0441119447350502
+        }
+      ]
+    },
+    "theta0_norm": {
+      "C": 80.41263580322266,
+      "W1": 80.41263580322266,
+      "W2": 80.41263580322266,
+      "W3": 80.41263580322266,
+      "N0": 80.41263580322266,
+      "N1": 80.41263580322266,
+      "N2": 80.41263580322266
+    },
+    "wall_fuzz_registered": "one AdamW step ~ lr*sqrt(P) = 1.66 L2 at lr 1e-3, 2.74M params (0.92 at 0.84M); the VERBATIM G-PIN bar R + 1.5 held \u2014 measured tangential increments"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e176n arm A's stream; FIXED content)",
+        "n_windows": 16,
+        "block": 256,
+        "seed": 170,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "tries": 18,
+        "rejections": 2,
+        "forbidden": [
+          "FLORIZEL",
+          "ELIZABETH",
+          "ZEPH",
+          "MIRABEL"
+        ],
+        "windows_with_host_content": 0,
+        "junctions_covered": 0
+      },
+      "budget_identical_to_e176n": true,
+      "rng_note": "g1_wash verbatim; the seed-10902 aj/rj draw sequence is IDENTICAL across ALL SEVEN arms (same shapes/moduli, drawn BEFORE any noise draw) \u2014 the input stream is bit-identical (gated by per-step md5); the deltas are the wall (wash arms) and each step's targets (noise)",
+      "random_channel_background": {
+        "host_occurrences_in_train": 150,
+        "est_window_hit_rate": 0.038401998697021676
+      },
+      "pass": true
+    },
+    "G_BITEXACT": {
+      "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+      "meta": {
+        "recipe": "e113 verbatim: jittered replay 300 steps",
+        "seed": 10901,
+        "base": "runs/checkpoints/e048_repro.pt"
+      },
+      "n_tensors": 65,
+      "max_abs_diff_vs_file": 0.0,
+      "pass": true
+    },
+    "G_ROOT": {
+      "bar": 0.78,
+      "gm12": 0.9155886769294739,
+      "prior_gm12": 0.9155886769294739,
+      "delta_vs_prior": 0.0,
+      "pass": true
+    },
+    "G_CTRL": {
+      "bar": 0.27,
+      "gm12_at_50": null,
+      "earliest_le_bar": 2,
+      "pass": false
+    },
+    "G_PIN": {
+      "per_arm": {
+        "W1": {
+          "R": 0.699999988079071,
+          "bound": 2.199999988079071,
+          "max_raw_disp_at_ckpt": 1.6542880535125732,
+          "per_ckpt": {
+            "1": 1.6542880535125732,
+            "2": 1.6393288373947144,
+            "4": 1.4871872663497925
+          },
+          "pass": true
+        },
+        "W2": {
+          "R": 1.399999976158142,
+          "bound": 2.899999976158142,
+          "max_raw_disp_at_ckpt": 2.2430591583251953,
+          "per_ckpt": {
+            "1": 1.6542879343032837,
+            "2": 2.2430591583251953,
+            "4": 1.972906231880188
+          },
+          "pass": true
+        },
+        "W3": {
+          "R": 4.199999809265137,
+          "bound": 5.699999809265137,
+          "max_raw_disp_at_ckpt": 3.526790142059326,
+          "per_ckpt": {
+            "1": 1.6542880535125732,
+            "2": 2.4892618656158447,
+            "4": 3.526790142059326
+          },
+          "pass": true
+        },
+        "N1": {
+          "R": 0.699999988079071,
+          "bound": 2.199999988079071,
+          "max_raw_disp_at_ckpt": 1.929766297340393,
+          "per_ckpt": {
+            "1": 1.6541621685028076,
+            "2": 1.929766297340393
+          },
+          "pass": true
+        },
+        "N2": {
+          "R": 0.699999988079071,
+          "bound": 2.199999988079071,
+          "max_raw_disp_at_ckpt": 1.9483087062835693,
+          "per_ckpt": {
+            "1": 1.6541498899459839,
+            "2": 1.9483087062835693
+          },
+          "pass": true
+        }
+      },
+      "fuzz_formula_at_this_size": 1.6550141993348577,
+      "pass": true
+    },
+    "G_NOISE": {
+      "t_kill_C": 2,
+      "D_kill": 2.4892618656158447,
+      "coarse": false,
+      "match_step_N0": 2,
+      "gm12_at_match": 0.0007630118634551764,
+      "pass": true,
+      "displacement_unmatched": false
+    },
+    "G_BITROOT": {
+      "W1": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      },
+      "W2": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      },
+      "W3": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      },
+      "N1": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      },
+      "N2": {
+        "max_abs_diff": 0.0,
+        "anchors_bit_equal": true,
+        "n_anchor_tensors": 65,
+        "pass": true
+      }
+    },
+    "G_INPUTS": {
+      "pass": true,
+      "note": "the seed-10902 aj/rj draw sequence is shared by ALL arms \u2014 per-step input batches are bit-identical (md5-gated) across wash AND noise arms through +10",
+      "per_step": {
+        "1": true,
+        "2": true
+      }
+    },
+    "G_TARGETS": {
+      "per_arm": {
+        "N0": {
+          "frac_targets_changed_mean": 0.9831494987010956,
+          "multiset_equals_true_all_steps": false,
+          "expectation": "iid labels change ~64/65 positions; multiset NOT preserved"
+        },
+        "N1": {
+          "frac_targets_changed_mean": 0.9831494987010956,
+          "multiset_equals_true_all_steps": false,
+          "expectation": "iid labels change ~64/65 positions; multiset NOT preserved"
+        },
+        "N2": {
+          "frac_targets_changed_mean": 0.9438725411891937,
+          "multiset_equals_true_all_steps": true,
+          "expectation": "permutation changes ~63/65 positions; multiset preserved at EVERY step"
+        }
+      },
+      "pass": true
+    },
+    "G_SURG": {
+      "G_DRAWFREE_C": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_W1": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_W2": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_W3": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_N0": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_N1": {
+        "zeph_violations": 0,
+        "pass": true
+      },
+      "G_DRAWFREE_N2": {
+        "zeph_violations": 0,
+        "pass": true
+      }
+    }
+  },
+  "traces": {
+    "C": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.6780482530593872,
+        "g0": 0.4619826078414917,
+        "ce_r": 2.2113444805145264
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.027078190818428993,
+        "g0": 0.11471334844827652,
+        "ce_r": 2.032073736190796
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.010940639302134514,
+        "g0": 0.0604284442961216,
+        "ce_r": 1.8213409185409546
+      }
+    ],
+    "W1": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.9451885223388672,
+        "g0": 0.6931049227714539,
+        "ce_r": 1.7095043659210205
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.7767698764801025,
+        "g0": 0.7415305972099304,
+        "ce_r": 1.6442033052444458
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.8174085021018982,
+        "g0": 0.6634255051612854,
+        "ce_r": 1.6527618169784546
+      }
+    ],
+    "W2": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.8086821436882019,
+        "g0": 0.5415154099464417,
+        "ce_r": 2.008958578109741
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.5031166672706604,
+        "g0": 0.6727263331413269,
+        "ce_r": 1.7062323093414307
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.3203408122062683,
+        "g0": 0.4997689425945282,
+        "ce_r": 1.6817858219146729
+      }
+    ],
+    "W3": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.6780484914779663,
+        "g0": 0.4619825482368469,
+        "ce_r": 2.2113444805145264
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0270781759172678,
+        "g0": 0.11471327394247055,
+        "ce_r": 2.032073736190796
+      },
+      {
+        "freeze_steps": 4,
+        "gm12": 0.010940594598650932,
+        "g0": 0.0604284405708313,
+        "ce_r": 1.8213409185409546
+      }
+    ],
+    "N0": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.00025460965116508305,
+        "g0": 0.00040182468364946544,
+        "gp12": 0.00022263804567046463,
+        "held30_gm12": 0.0002481089613866061,
+        "held30_g0": 0.00037655196501873434,
+        "ce_r": 3.3184468746185303,
+        "site_read_onset": 0.0002045430155703798,
+        "site_read_span": 0.0032997122034430504,
+        "A129": 0.00013350236246575757
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0007630118634551764,
+        "g0": 0.0011870351154357195,
+        "gp12": 0.0007588561275042593,
+        "held30_gm12": 0.0007597437943331897,
+        "held30_g0": 0.0011717372108250856,
+        "ce_r": 5.684881687164307,
+        "site_read_onset": 0.0007317288545891643,
+        "site_read_span": 0.04036610573530197,
+        "A129": 0.0002908863389166071
+      }
+    ],
+    "N1": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.0036784138064831495,
+        "g0": 0.03546550124883652,
+        "gp12": 0.0037480234168469906,
+        "held30_gm12": 0.003382650204002857,
+        "held30_g0": 0.015485894866287708,
+        "ce_r": 2.129120111465454,
+        "site_read_onset": 0.00216853735037148,
+        "site_read_span": 0.3458261489868164,
+        "A129": 0.02934900350519456
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.0013024950167164207,
+        "g0": 0.007473721168935299,
+        "gp12": 0.0009949200320988894,
+        "held30_gm12": 0.0012883221497759223,
+        "held30_g0": 0.004961661994457245,
+        "ce_r": 2.596243381500244,
+        "site_read_onset": 0.0006795881199650466,
+        "site_read_span": 0.12067097425460815,
+        "A129": 0.005721640579092005
+      }
+    ],
+    "N2": [
+      {
+        "freeze_steps": 0,
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "held30_gm12": 0.636141836643219,
+        "held30_g0": 0.7233286499977112,
+        "ce_r": 1.663516640663147,
+        "site_read_onset": 0.8898659348487854,
+        "site_read_span": 0.982668936252594
+      },
+      {
+        "freeze_steps": 1,
+        "gm12": 0.001107534859329462,
+        "g0": 0.014898110181093216,
+        "gp12": 0.0008001310052350163,
+        "held30_gm12": 0.0006609050324186683,
+        "held30_g0": 0.0013785349437966943,
+        "ce_r": 2.18864369392395,
+        "site_read_onset": 0.001226246589794755,
+        "site_read_span": 0.0446593314409256,
+        "A129": 0.011048009943078797
+      },
+      {
+        "freeze_steps": 2,
+        "gm12": 0.00031616169144399464,
+        "g0": 0.0008177242707461119,
+        "gp12": 0.00025215570349246264,
+        "held30_gm12": 0.0002600897569209337,
+        "held30_g0": 0.0004100707301404327,
+        "ce_r": 2.5281381607055664,
+        "site_read_onset": 0.00032391201239079237,
+        "site_read_span": 0.0011133983498439193,
+        "A129": 0.0003635899593973591
+      }
+    ]
+  },
+  "batteries": {
+    "C": {},
+    "W1": {},
+    "W2": {},
+    "W3": {},
+    "N0": {
+      "1": {
+        "tag": "N01",
+        "base": {
+          "-12": {
+            "mean_pz": 0.00025460965116508305,
+            "median_pz": 0.00012859884009230882,
+            "std_pz": 0.00019968832202721387,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.00040182468364946544,
+            "median_pz": 0.0002765340032055974,
+            "std_pz": 0.0002398499782430008,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00022263804567046463,
+            "median_pz": 0.00010716621909523383,
+            "std_pz": 0.0001833130227169022,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0002481089613866061,
+            "median_pz": 0.00014598880079574883,
+            "std_pz": 0.00017560650303494185,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.00037655196501873434,
+            "median_pz": 0.0002877571969293058,
+            "std_pz": 0.00018436159007251263,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00021635710436385125,
+            "median_pz": 0.00011225155321881175,
+            "std_pz": 0.000163344680913724,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 3.3184468746185303,
+        "site_read": {
+          "pz_onset_mean": 0.0002045430155703798,
+          "pz_onset_median": 7.90300327935256e-05,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.0032997122034430504,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.0002045429960465602,
+            0.006488141766749322,
+            0.00026247506296689,
+            0.007127630935671429,
+            0.0038346872917221237,
+            0.001548910839483142,
+            0.003631597749578456
+          ]
+        },
+        "A129_quick": 0.00013350236246575757
+      },
+      "2": {
+        "tag": "N02",
+        "base": {
+          "-12": {
+            "mean_pz": 0.0007630118634551764,
+            "median_pz": 0.0008068136521615088,
+            "std_pz": 9.664471872383729e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0011870351154357195,
+            "median_pz": 0.0013276881072670221,
+            "std_pz": 0.00031612548627890646,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0007588561275042593,
+            "median_pz": 0.0007999566732905805,
+            "std_pz": 9.673635940998793e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0007597437943331897,
+            "median_pz": 0.0008154638926498592,
+            "std_pz": 0.00011205446207895875,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0011717372108250856,
+            "median_pz": 0.001348350546322763,
+            "std_pz": 0.00035203699371777475,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0007528879796154797,
+            "median_pz": 0.000804256706032902,
+            "std_pz": 0.00011277704470558092,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 5.684881687164307,
+        "site_read": {
+          "pz_onset_mean": 0.0007317288545891643,
+          "pz_onset_median": 0.0007550607551820576,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.04036610573530197,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.0007317288788423563,
+            0.056584873547156654,
+            0.010211682117854556,
+            0.0472067183504502,
+            0.09622258444627126,
+            0.04718851763755083,
+            0.0244166258101662
+          ]
+        },
+        "A129_quick": 0.0002908863389166071
+      }
+    },
+    "N1": {
+      "1": {
+        "tag": "N11",
+        "base": {
+          "-12": {
+            "mean_pz": 0.0036784138064831495,
+            "median_pz": 0.002947318134829402,
+            "std_pz": 0.0029826092068105936,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.03546550124883652,
+            "median_pz": 0.01194869726896286,
+            "std_pz": 0.06478884071111679,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.05
+          },
+          "12": {
+            "mean_pz": 0.0037480234168469906,
+            "median_pz": 0.002578025683760643,
+            "std_pz": 0.003097216133028269,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.003382650204002857,
+            "median_pz": 0.0021692023146897554,
+            "std_pz": 0.0028870077803730965,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.015485894866287708,
+            "median_pz": 0.0069754100404679775,
+            "std_pz": 0.01880839467048645,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0037768338806927204,
+            "median_pz": 0.0018571136752143502,
+            "std_pz": 0.004802038427442312,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 2.129120111465454,
+        "site_read": {
+          "pz_onset_mean": 0.00216853735037148,
+          "pz_onset_median": 0.0013963551027700305,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.3458261489868164,
+          "pname_frac_ge_0.5": 0.2904762029647827,
+          "per_position_mean": [
+            0.002168537530815229,
+            0.31569564435631037,
+            0.09196469222855133,
+            0.7821282948056857,
+            0.30326529406011105,
+            0.4978737618153294,
+            0.42768672506014505
+          ]
+        },
+        "A129_quick": 0.02934900350519456
+      },
+      "2": {
+        "tag": "N12",
+        "base": {
+          "-12": {
+            "mean_pz": 0.0013024950167164207,
+            "median_pz": 0.001154442667029798,
+            "std_pz": 0.0006203035009093583,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.007473721168935299,
+            "median_pz": 0.003876062110066414,
+            "std_pz": 0.009659546427428722,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0009949200320988894,
+            "median_pz": 0.0008095847442746162,
+            "std_pz": 0.0004507291014306247,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0012883221497759223,
+            "median_pz": 0.0010208511957898736,
+            "std_pz": 0.0007342774770222604,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.004961661994457245,
+            "median_pz": 0.0028304215520620346,
+            "std_pz": 0.004999751225113869,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0009355243528261781,
+            "median_pz": 0.0007762892637401819,
+            "std_pz": 0.000590180978178978,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 2.596243381500244,
+        "site_read": {
+          "pz_onset_mean": 0.0006795881199650466,
+          "pz_onset_median": 0.00045318607590161264,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.12067097425460815,
+          "pname_frac_ge_0.5": 0.009523809887468815,
+          "per_position_mean": [
+            0.0006795881653185158,
+            0.13143696986759704,
+            0.017681389598874376,
+            0.2971706736832857,
+            0.10822911436359088,
+            0.16832078729445735,
+            0.12117823821802934
+          ]
+        },
+        "A129_quick": 0.005721640579092005
+      }
+    },
+    "N2": {
+      "1": {
+        "tag": "N21",
+        "base": {
+          "-12": {
+            "mean_pz": 0.001107534859329462,
+            "median_pz": 0.00035954415216110647,
+            "std_pz": 0.002208256395533681,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.014898110181093216,
+            "median_pz": 0.000614029704593122,
+            "std_pz": 0.06971073150634766,
+            "frac_pz_ge_0.5": 0.01666666753590107,
+            "frac_argmax_z": 0.016666666666666666
+          },
+          "12": {
+            "mean_pz": 0.0008001310052350163,
+            "median_pz": 0.00034138967748731375,
+            "std_pz": 0.0011294480646029115,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0006609050324186683,
+            "median_pz": 0.0004652518837247044,
+            "std_pz": 0.0005533410585485399,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0013785349437966943,
+            "median_pz": 0.0007417664164677262,
+            "std_pz": 0.0015452067600563169,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.0006010642973706126,
+            "median_pz": 0.0003341316769365221,
+            "std_pz": 0.0005335765308700502,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 2.18864369392395,
+        "site_read": {
+          "pz_onset_mean": 0.001226246589794755,
+          "pz_onset_median": 0.0002445880963932723,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.0446593314409256,
+          "pname_frac_ge_0.5": 0.0023809524718672037,
+          "per_position_mean": [
+            0.0012262466634638258,
+            0.04343710836255923,
+            0.0023269433754345907,
+            0.10137145701640596,
+            0.0042812827887246385,
+            0.03478697151876986,
+            0.1251853216943952
+          ]
+        },
+        "A129_quick": 0.011048009943078797
+      },
+      "2": {
+        "tag": "N22",
+        "base": {
+          "-12": {
+            "mean_pz": 0.00031616169144399464,
+            "median_pz": 5.560647332458757e-05,
+            "std_pz": 0.0004839054017793387,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0008177242707461119,
+            "median_pz": 0.00011559248378034681,
+            "std_pz": 0.0018381269183009863,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00025215570349246264,
+            "median_pz": 5.052286360296421e-05,
+            "std_pz": 0.000352975184796378,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "base_held": {
+          "-12": {
+            "mean_pz": 0.0002600897569209337,
+            "median_pz": 7.609689055243507e-05,
+            "std_pz": 0.0003210535505786538,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "0": {
+            "mean_pz": 0.0004100707301404327,
+            "median_pz": 0.00011594175157370046,
+            "std_pz": 0.0005050960462540388,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          },
+          "12": {
+            "mean_pz": 0.00021136669965926558,
+            "median_pz": 5.681974289473146e-05,
+            "std_pz": 0.000266499089775607,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_argmax_z": 0.0
+          }
+        },
+        "ce_r": 2.5281381607055664,
+        "site_read": {
+          "pz_onset_mean": 0.00032391201239079237,
+          "pz_onset_median": 4.0250568417832255e-05,
+          "pz_onset_frac_ge_0.5": 0.0,
+          "pname_mean_over7": 0.0011133983498439193,
+          "pname_frac_ge_0.5": 0.0,
+          "per_position_mean": [
+            0.0003239119924728584,
+            0.0016679822869870502,
+            4.787982926851934e-05,
+            0.0021383537493723753,
+            0.00040068614859289177,
+            0.0015612675956314585,
+            0.0016537067431878919
+          ]
+        },
+        "A129_quick": 0.0003635899593973591
+      }
+    }
+  },
+  "adjudication": {
+    "order": "GATES -> WALL -> NOISE -> PIN -> COSTS (frozen)",
+    "gates_pass": false,
+    "wall": {
+      "C": {
+        "g_m12": {
+          "1": 0.6780482530593872,
+          "2": 0.027078190818428993,
+          "4": 0.010940639302134514
+        },
+        "min_gm12": 0.010940639302134514,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 2
+      },
+      "W1": {
+        "g_m12": {
+          "1": 0.9451885223388672,
+          "2": 0.7767698764801025,
+          "4": 0.8174085021018982
+        },
+        "min_gm12": 0.7767698764801025,
+        "maintains": true,
+        "dies_by_50": false,
+        "first_ck_le_bar": null
+      },
+      "W2": {
+        "g_m12": {
+          "1": 0.8086821436882019,
+          "2": 0.5031166672706604,
+          "4": 0.3203408122062683
+        },
+        "min_gm12": 0.3203408122062683,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": null
+      },
+      "W3": {
+        "g_m12": {
+          "1": 0.6780484914779663,
+          "2": 0.0270781759172678,
+          "4": 0.010940594598650932
+        },
+        "min_gm12": 0.010940594598650932,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 2
+      }
+    },
+    "noise": {
+      "N0": {
+        "g_m12": {
+          "1": 0.00025460965116508305,
+          "2": 0.0007630118634551764
+        },
+        "min_gm12": 0.00025460965116508305,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 1,
+        "ce_r_at_10": 5.684881687164307,
+        "ce_r_within_bar": false
+      },
+      "N1": {
+        "g_m12": {
+          "1": 0.0036784138064831495,
+          "2": 0.0013024951331317425
+        },
+        "min_gm12": 0.0013024951331317425,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 1,
+        "ce_r_at_10": 2.596243381500244,
+        "ce_r_within_bar": false
+      },
+      "N2": {
+        "g_m12": {
+          "1": 0.001107534859329462,
+          "2": 0.00031616169144399464
+        },
+        "min_gm12": 0.00031616169144399464,
+        "maintains": false,
+        "dies_by_50": false,
+        "first_ck_le_bar": 1,
+        "ce_r_at_10": 2.5281381607055664,
+        "ce_r_within_bar": false
+      }
+    },
+    "F1_WALL_DEAF": false,
+    "F2_WALL_CLIFF_MISPLACED": false,
+    "WALL_CLIFF_INSIDE": false,
+    "cliff_interval": null,
+    "survival_order_with_R": true,
+    "F3_NOISE_PENETRATES": true,
+    "NOISE_SPARED_BY_WALL": false,
+    "anisotropy_fork": {
+      "W1_floor_h10": 0.7767698764801025,
+      "N1_floor_h10": 0.0013024951331317425,
+      "dip": 0.7754673813469708,
+      "direction_thin_for_noise": true
+    },
+    "FLAT_AT_PIN": false,
+    "flat_delta": null,
+    "F4_ERODES_AT_PIN": false,
+    "WALL_TAXES_ADAPTATION": false,
+    "WALL_FREE": false,
+    "ce_tax": {
+      "W1_ce300": null,
+      "C_ce300": null,
+      "delta": null
+    },
+    "W1_anatomy_at_300": null,
+    "verdict": "TEXTURE (GATE FAILURE: G-CTRL)",
+    "clause": "a registered gate failed \u2014 nothing adjudicated per the spec's abort clause; failed: ['G-CTRL']; the full record is reported (root g-12 0.9156, C g-12 trace +1:0.6780 -> +2:0.0271 -> +4:0.0109)"
+  },
+  "honesty_reflex": {
+    "envelope": "2739072 trainable params \u2014 above the lab's old 1M default, inside the <=100M free tier (common.py, Devansh 2026-09-27); the stated reason registered in g1's spec section 1 stands: CONTINUITY \u2014 the arc's bars (D_kill 2.489, root 0.9156, the jitter-to--12 generalization) are this line's numbers, and the 0.84M discharge aborted at G-ROOT 0.2536 < 0.78.",
+    "intervention_not_logits": "the wall IS the intervention: committed vs uncommitted arms share bit-identical step-0 weights (G_BITROOT max|diff| = 0.0), bit-identical per-step input streams (md5-gated, G_INPUTS) and identical seeds; the only deltas are the commit event and the noise targets. G-PIN verifies the geometry did what it claims (raw |d| <= R + 1.5 at every checkpoint) BEFORE any behavioral clause is read; the displacement table co-reports raw and projected L2.",
+    "step_1_equality": "W1's step 1 is bit-identical to C's and N1/N2's to N0's \u2014 the first forward happens at d=0 inside the ball, so the wall first acts at forward 2: each arm's +1 checkpoint re-measures the arc's stored +1 (0.678) directly, and any divergence after +1 is the wall's own action, not a stream difference.",
+    "size_matched_control": "every verdict is adjudicated against arm C \u2014 same class (uncommitted CommittedGPT = bit-identical TinyGPT), same root, same instruments, same process; the same-line stored numbers (root 0.9156, +1 0.678, +2 0.0271, D_kill 2.489) are co-reported priors, now directly comparable modulo device floats (e176N/e185 ran CPU).",
+    "single_seed": "one trajectory per arm (wash draws 10902 / noise 18501-2), n=1 per cell \u2014 the arc's honesty convention (e185's own); the replication debt stands (g1 spec section 8 priority (1)).",
+    "wall_blind_spot": "the wall never protects the FIRST step: commit happens at d=0, so step 1's AdamW update (the full ~1.66 L2 at this size) always lands before the first projection; the wall caps CUMULATIVE displacement at R + fuzz, it does not shrink any single step \u2014 the design's own registered semantics, not a bug.",
+    "gpin_at_this_size": "the registered one-step fuzz formula lr*sqrt(P) = 1.655 L2 here (1.5-bar margin kept VERBATIM); measured beyond-wall increments are tangential (concentration of measure: post-projection Adam steps in 2.74M-d are near-orthogonal to the radial direction), so the verbatim bar held with margin \u2014 reported, not tuned.",
+    "bars_anchored": "dies/maintain reuse the arc's absolute home-battery bars (0.27 / 0.50) on the e131 dial set's ruler; the R grid, seeds, checkpoints and adjudication order were frozen in scratch/g1_design.md before g1's implementation; g1b adds NO bar \u2014 no bar shopping."
+  },
+  "trims": [],
+  "deviations": [
+    "ROOT: loads the arc's consolidated root (e131_consolidated_e113.pt) DIRECTLY as theta0 \u2014 phase 0 (e043 Dmix install + e113 jitter consolidation) is the arc's own history, not re-run (spec section 1's registered contingency cell: 'reuses the stored root directly ... making g1's wash bit-comparable to e176N/e179's stored traces'). The root is NOT re-saved under a g1b name (it exists; provenance recorded in metrics.root); only arm checkpoints are written.",
+    "R LADDER VERBATIM: {0.7, 1.4, 4.2} L2 absolute, carried from g1 (the continuity requirement) \u2014 NOT rescaled to the raw 2.74M basin ({0.28, 0.56, 1.68} x the 2.5 low end): W1/W2 sit inside any plausible basin, W3 beyond e185's stored D_kill 2.489.",
+    "ENVELOPE: 2,739,072 trainable params \u2014 above the lab's old 1M default, inside the <=100M free tier (common.py, Devansh 2026-09-27); the stated reason registered in g1's spec section 1 stands: CONTINUITY \u2014 the arc's bars (D_kill 2.489, root 0.9156, the jitter-to--12 generalization) are this line's numbers, and the 0.84M discharge aborted at G-ROOT.",
+    "G-PIN kept VERBATIM (raw displacement <= R + 1.5) although the registered one-step wall fuzz at this size is lr*sqrt(P) = 1.66 L2 (vs 0.92 at 0.84M): measured, tangential beyond-wall increments keep the verbatim bar satisfiable; had it failed mechanically it would be reported as an implementation-gate failure, never re-tuned.",
+    "MACHINERY: everything is lab/g1_anchored_ball.py VERBATIM via import (CommittedGPT, g1_wash, pick_dev/migrate_to_cpu, evl_load's settle+disarm PIVOT, every instrument); the only patch is G1.G1_CFG/G1.G1_PARAMS -> the 6/6/192 family (constructed at call time). G1B_SMOKE sets G1_SMOKE before import so g1's smoke trims apply. The protocol rebuild, measure()/flat_cells, arm loop, gates, adjudication and plot are g1's main() copied with the root/labels delta and phase 0 removed.",
+    "DEVICE: g1's policy unchanged (GPU gated, park-once double-poll, mid-run contention poll every 25 steps, per-training caps 180 s GPU / 1800 s CPU); the stored e176N/e185 references ran CPU-only \u2014 GPU float nondeterminism is co-reported and every bar adjudicates against the in-run control.",
+    "Smoke mode trims: g1's (8-step washes via g1's CK constants, lean dials, no cooldowns) \u2014 nothing adjudicated."
+  ],
+  "device_events": [],
+  "device_policy": {
+    "parked": false,
+    "reason": null
+  },
+  "ckpt_inventory": {
+    "smoke_g1b_C_s4": {
+      "path": "runs/checkpoints/smoke_g1b_C_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=None, input seed 10902, lr 0.001)",
+      "steps": 4,
+      "R": null,
+      "target_mode": "true",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": null,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_W1_s4": {
+      "path": "runs/checkpoints/smoke_g1b_W1_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=0.7, input seed 10902, lr 0.001)",
+      "steps": 4,
+      "R": 0.7,
+      "target_mode": "true",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": null,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_W2_s4": {
+      "path": "runs/checkpoints/smoke_g1b_W2_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=1.4, input seed 10902, lr 0.001)",
+      "steps": 4,
+      "R": 1.4,
+      "target_mode": "true",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": null,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_W3_s4": {
+      "path": "runs/checkpoints/smoke_g1b_W3_s4.pt",
+      "desc": "e131 root + 4-step true-target neutral wash (R=4.2, input seed 10902, lr 0.001)",
+      "steps": 4,
+      "R": 4.2,
+      "target_mode": "true",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": null,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N0_s1": {
+      "path": "runs/checkpoints/smoke_g1b_N0_s1.pt",
+      "desc": "e131 root + 1-step iid-target neutral noise (R=None, input seed 10902, lr 0.001)",
+      "steps": 1,
+      "R": null,
+      "target_mode": "iid",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18501,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N0_s2": {
+      "path": "runs/checkpoints/smoke_g1b_N0_s2.pt",
+      "desc": "e131 root + 2-step iid-target neutral noise (R=None, input seed 10902, lr 0.001)",
+      "steps": 2,
+      "R": null,
+      "target_mode": "iid",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18501,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N1_s1": {
+      "path": "runs/checkpoints/smoke_g1b_N1_s1.pt",
+      "desc": "e131 root + 1-step iid-target neutral noise (R=0.7, input seed 10902, lr 0.001)",
+      "steps": 1,
+      "R": 0.7,
+      "target_mode": "iid",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18501,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N1_s2": {
+      "path": "runs/checkpoints/smoke_g1b_N1_s2.pt",
+      "desc": "e131 root + 2-step iid-target neutral noise (R=0.7, input seed 10902, lr 0.001)",
+      "steps": 2,
+      "R": 0.7,
+      "target_mode": "iid",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18501,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N2_s1": {
+      "path": "runs/checkpoints/smoke_g1b_N2_s1.pt",
+      "desc": "e131 root + 1-step perm-target neutral noise (R=0.7, input seed 10902, lr 0.001)",
+      "steps": 1,
+      "R": 0.7,
+      "target_mode": "perm",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18502,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "smoke_g1b_N2_s2": {
+      "path": "runs/checkpoints/smoke_g1b_N2_s2.pt",
+      "desc": "e131 root + 2-step perm-target neutral noise (R=0.7, input seed 10902, lr 0.001)",
+      "steps": 2,
+      "R": 0.7,
+      "target_mode": "perm",
+      "input_seed": 10902,
+      "lr": 0.001,
+      "noise_seed": 18502,
+      "base": "runs/checkpoints/e131_consolidated_e113.pt"
+    }
+  },
+  "timing": {
+    "total_s": 72.1
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "trainable_params": 2739072,
+    "anchor_state_bytes": 10956288,
+    "R_ladder": [
+      0.7,
+      1.4,
+      4.2
+    ],
+    "smoke": true
+  }
+}

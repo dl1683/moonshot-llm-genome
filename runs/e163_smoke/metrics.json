@@ -1,0 +1,924 @@
+{
+  "experiment": "e163_saturation_control",
+  "date": "2026-09-28T17:04:50Z",
+  "registration": "R44 ideator (never run); QUEUE e163; coordinator dispatch. Docstring + bars written before compute.",
+  "registered_prediction": {
+    "dial_blind": "DIAL-BLIND fires if: arm_b's dial reads ~1.0 (>= 0.9) \u2014 the dial cannot detect non-carriage; the 13/13 collapses to 'every readout loads the sink' (T083's truism); the intro's first sentence rewrites.",
+    "dial_valid": "DIAL-VALID fires if: arm_b's dial reads 0.7-0.8 \u2014 the dial discriminates carriage; the intro stands as licensed.",
+    "no_bar_shopping": "No bar shopping; texture => TEXTURE with numbers.",
+    "operationalizations": "dial headline = rel = S_0/base (drop fraction; e142 census band 0.878..1.000): DIAL-BLIND = rel_S0(arm_b) >= 0.9. The 0.7-0.8 DIAL-VALID figure is the dial's SURVIVOR (1 - rel_S0), pinned by the QUEUE row's own parenthetical '(survives row-0 removal at 0.725)': DIAL-VALID = 1 - rel_S0(arm_b) in [0.7, 0.8] (rel in [0.2, 0.3]). Both faces reported for every cell; any other outcome => TEXTURE with numbers; no post-hoc bar movement."
+  },
+  "question": "does the trained-geometry row-0 dial (the instrument behind the intro's 'row 0 carries every install, 13/13') detect NON-carriage, or does it saturate for every readout (T083)?",
+  "instruments": {
+    "dial": "e142 row_census / e131 probe-2 VERBATIM (mean arm wpe[r]<-mean(all rows); zero arm wpe[r]<-0; strength = min(mean-drop, zero-drop); e116 content criterion)",
+    "battery": "each net's OWN instrument context (e142 convention): carrier on install-60 g0 130-token (e131 probe-2); arm_b on the e133 site battery (e120 arm-(b) splice pool, onset p(Z)@183 \u2014 the battery of the 7.06%/0.725 ground truth)",
+    "rel": "S/base reported everywhere (T083: trained-geometry absolutes measure sink-load); the registered 0.7-0.8 bar is the survivor 1 - rel, pinned by the QUEUE row's own 'survives row-0 removal at 0.725' parenthetical"
+  },
+  "gates": {
+    "carrier": {
+      "kind": "e131_probe2_cells",
+      "tol": 5e-06,
+      "fallback_tol": 0.05,
+      "note": "e131 metrics unavailable or smoke \u2014 embedded GT refs used",
+      "cells": {
+        "base": {
+          "mine": 0.7850372118875384,
+          "ref": 0.7850372118875384,
+          "diff": 0.0
+        },
+        "row0_mean": {
+          "mine": 0.7842019017236945,
+          "ref": 0.7842019017236945,
+          "diff": 0.0
+        },
+        "row0_zero": {
+          "mine": 0.7316772222270098,
+          "ref": 0.7316772222270098,
+          "diff": 0.0
+        }
+      },
+      "max_diff": 0.0,
+      "bit_reproducible": true,
+      "passes_e113_convention": true,
+      "base_ok": true
+    },
+    "arm_b": {
+      "kind": "e131_probe1_plus_e133_cells",
+      "tol": 5e-06,
+      "gpu_tol": 0.001,
+      "std_g0": {
+        "mine": 0.007800613640938536,
+        "ref": 0.007800613064318895,
+        "diff": 5.766196409240365e-10,
+        "tol": 5e-06,
+        "ok": true
+      },
+      "site_onset_base": {
+        "mine": 0.968468651175499,
+        "ref": 0.9880021214485168,
+        "diff": 0.019533470273017883,
+        "tol": 5e-06,
+        "ok": false
+      },
+      "row0_zero_vs_e133": {
+        "mine": 0.7367397430934943,
+        "ref_arm_pz": 0.7161287069320679,
+        "mine_arm_pz": 0.23172890808200464,
+        "tol": 0.001,
+        "ok": false
+      },
+      "base_ok": false,
+      "ground_truth_ok": false
+    }
+  },
+  "nets": {
+    "carrier": {
+      "ckpt": "runs/checkpoints/e131_consolidated_e113.pt",
+      "role": "carrier control (e133 graduated; the dial should read ~1.0)",
+      "battery": "install-60 g0 130-token (e131 probe-2 verbatim)",
+      "battery_n": 60,
+      "char": "Z",
+      "base": 0.7850372118875384,
+      "row0": {
+        "mean": 0.7842019017236945,
+        "zero": 0.7316772222270098,
+        "ratio": 0.9330214841595842,
+        "strength": 0.7316772222270098,
+        "content": true
+      },
+      "S0": 0.7316772222270098,
+      "S0_content": true,
+      "rel_S0": 0.932028712967338,
+      "survivor": 0.06797128703266198,
+      "decision_row_129": {
+        "mean": -0.1084650677318375,
+        "zero": -0.13237020391970877,
+        "ratio": 0.0,
+        "strength": -0.13237020391970877,
+        "content": false
+      },
+      "controls": {
+        "rows": {
+          "1": {
+            "mean": -0.034818108193576336,
+            "zero": -0.02616492702315254,
+            "ratio": 0.0,
+            "strength": -0.034818108193576336,
+            "content": false
+          },
+          "2": {
+            "mean": -0.009390700794756457,
+            "zero": -0.004503697839876031,
+            "ratio": 0.0,
+            "strength": -0.009390700794756457,
+            "content": false
+          },
+          "3": {
+            "mean": -0.014675431946913453,
+            "zero": -0.007714565160373943,
+            "ratio": 0.0,
+            "strength": -0.014675431946913453,
+            "content": false
+          },
+          "4": {
+            "mean": -0.007471981023748797,
+            "zero": -0.0044685825084647135,
+            "ratio": 0.0,
+            "strength": -0.007471981023748797,
+            "content": false
+          },
+          "5": {
+            "mean": -0.004287067490319485,
+            "zero": -0.001907236004869195,
+            "ratio": 0.0,
+            "strength": -0.004287067490319485,
+            "content": false
+          },
+          "6": {
+            "mean": -0.014828455510238814,
+            "zero": -0.008193407642344663,
+            "ratio": 0.0,
+            "strength": -0.014828455510238814,
+            "content": false
+          },
+          "60": {
+            "mean": -0.006498985861738582,
+            "zero": -0.003458215296268552,
+            "ratio": 0.0,
+            "strength": -0.006498985861738582,
+            "content": false
+          },
+          "100": {
+            "mean": 0.0002548548082510482,
+            "zero": 0.0022938066472609764,
+            "ratio": 0.11110561936655347,
+            "strength": 0.0002548548082510482,
+            "content": false
+          },
+          "118": {
+            "mean": 0.0019280306994914342,
+            "zero": 0.0036930567895372413,
+            "ratio": 0.5220690634798026,
+            "strength": 0.0019280306994914342,
+            "content": true
+          },
+          "119": {
+            "mean": 0.0018803072472413085,
+            "zero": 0.0030694373572865974,
+            "ratio": 0.6125902008645364,
+            "strength": 0.0018803072472413085,
+            "content": true
+          },
+          "120": {
+            "mean": 0.0016463359196979832,
+            "zero": 0.004096632171422199,
+            "ratio": 0.4018754554491614,
+            "strength": 0.0016463359196979832,
+            "content": false
+          }
+        },
+        "max_strength": 0.0019280306994914342
+      },
+      "census_rows": {
+        "0": {
+          "mean": 0.7842019017236945,
+          "zero": 0.7316772222270098,
+          "ratio": 0.9330214841595842,
+          "strength": 0.7316772222270098,
+          "content": true
+        },
+        "1": {
+          "mean": -0.034818108193576336,
+          "zero": -0.02616492702315254,
+          "ratio": 0.0,
+          "strength": -0.034818108193576336,
+          "content": false
+        },
+        "2": {
+          "mean": -0.009390700794756457,
+          "zero": -0.004503697839876031,
+          "ratio": 0.0,
+          "strength": -0.009390700794756457,
+          "content": false
+        },
+        "3": {
+          "mean": -0.014675431946913453,
+          "zero": -0.007714565160373943,
+          "ratio": 0.0,
+          "strength": -0.014675431946913453,
+          "content": false
+        },
+        "4": {
+          "mean": -0.007471981023748797,
+          "zero": -0.0044685825084647135,
+          "ratio": 0.0,
+          "strength": -0.007471981023748797,
+          "content": false
+        },
+        "5": {
+          "mean": -0.004287067490319485,
+          "zero": -0.001907236004869195,
+          "ratio": 0.0,
+          "strength": -0.004287067490319485,
+          "content": false
+        },
+        "6": {
+          "mean": -0.014828455510238814,
+          "zero": -0.008193407642344663,
+          "ratio": 0.0,
+          "strength": -0.014828455510238814,
+          "content": false
+        },
+        "60": {
+          "mean": -0.006498985861738582,
+          "zero": -0.003458215296268552,
+          "ratio": 0.0,
+          "strength": -0.006498985861738582,
+          "content": false
+        },
+        "100": {
+          "mean": 0.0002548548082510482,
+          "zero": 0.0022938066472609764,
+          "ratio": 0.11110561936655347,
+          "strength": 0.0002548548082510482,
+          "content": false
+        },
+        "118": {
+          "mean": 0.0019280306994914342,
+          "zero": 0.0036930567895372413,
+          "ratio": 0.5220690634798026,
+          "strength": 0.0019280306994914342,
+          "content": true
+        },
+        "119": {
+          "mean": 0.0018803072472413085,
+          "zero": 0.0030694373572865974,
+          "ratio": 0.6125902008645364,
+          "strength": 0.0018803072472413085,
+          "content": true
+        },
+        "120": {
+          "mean": 0.0016463359196979832,
+          "zero": 0.004096632171422199,
+          "ratio": 0.4018754554491614,
+          "strength": 0.0016463359196979832,
+          "content": false
+        },
+        "121": {
+          "mean": -0.0026773056015372276,
+          "zero": 0.0024052464092770842,
+          "ratio": -1.113110736268353,
+          "strength": -0.0026773056015372276,
+          "content": false
+        },
+        "122": {
+          "mean": -0.0030224349970618958,
+          "zero": 0.0036078366450964516,
+          "ratio": -0.8377416425352302,
+          "strength": -0.0030224349970618958,
+          "content": false
+        },
+        "123": {
+          "mean": -0.003061847016215369,
+          "zero": 0.004494720945755648,
+          "ratio": -0.681209590799327,
+          "strength": -0.003061847016215369,
+          "content": false
+        },
+        "124": {
+          "mean": -0.04463126913954818,
+          "zero": -0.06390288863331084,
+          "ratio": 0.0,
+          "strength": -0.06390288863331084,
+          "content": false
+        },
+        "125": {
+          "mean": -0.015284052987893482,
+          "zero": -0.005409920836488502,
+          "ratio": 0.0,
+          "strength": -0.015284052987893482,
+          "content": false
+        },
+        "126": {
+          "mean": -7.02838103050496e-07,
+          "zero": 0.0034819922720391583,
+          "ratio": -0.00020184941497267974,
+          "strength": -7.02838103050496e-07,
+          "content": false
+        },
+        "127": {
+          "mean": -0.019533936865627766,
+          "zero": -0.009161850064992927,
+          "ratio": 0.0,
+          "strength": -0.019533936865627766,
+          "content": false
+        },
+        "128": {
+          "mean": -0.021476013585925102,
+          "zero": -0.012518856550256419,
+          "ratio": 0.0,
+          "strength": -0.021476013585925102,
+          "content": false
+        },
+        "129": {
+          "mean": -0.1084650677318375,
+          "zero": -0.13237020391970877,
+          "ratio": 0.0,
+          "strength": -0.13237020391970877,
+          "content": false
+        },
+        "130": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "131": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "132": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "133": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "134": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "135": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "136": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        },
+        "137": {
+          "mean": 0.0,
+          "zero": 0.0,
+          "ratio": 0.0,
+          "strength": 0.0,
+          "content": false
+        }
+      },
+      "off_geometry_site_row0": {
+        "mean": 0.5954468302312534,
+        "zero": 0.5770913156943607,
+        "ratio": 0.9691735456383838,
+        "strength": 0.5770913156943607,
+        "content": true
+      },
+      "off_geometry_site_base": 0.5956156169704627,
+      "gate": {
+        "kind": "e131_probe2_cells",
+        "tol": 5e-06,
+        "fallback_tol": 0.05,
+        "note": "e131 metrics unavailable or smoke \u2014 embedded GT refs used",
+        "cells": {
+          "base": {
+            "mine": 0.7850372118875384,
+            "ref": 0.7850372118875384,
+            "diff": 0.0
+          },
+          "row0_mean": {
+            "mine": 0.7842019017236945,
+            "ref": 0.7842019017236945,
+            "diff": 0.0
+          },
+          "row0_zero": {
+            "mine": 0.7316772222270098,
+            "ref": 0.7316772222270098,
+            "diff": 0.0
+          }
+        },
+        "max_diff": 0.0,
+        "bit_reproducible": true,
+        "passes_e113_convention": true,
+        "base_ok": true
+      }
+    },
+    "arm_b": {
+      "ckpt": "runs/checkpoints/e131_arm_b_corpus_spliced.pt",
+      "role": "non-carrier (e133 site_locked: 7.06% wpe_r0 share; row-0-removal survivor 0.725)",
+      "battery": "e133 site battery (e120 arm-(b) splice pool, onset p(Z)@183)",
+      "battery_n": 8,
+      "char": "Z",
+      "base": 0.968468651175499,
+      "row0": {
+        "mean": 0.8104925666521012,
+        "zero": 0.23172890808200464,
+        "ratio": 0.28591120710607676,
+        "strength": 0.23172890808200464,
+        "content": false
+      },
+      "S0": 0.23172890808200464,
+      "S0_content": false,
+      "rel_S0": 0.23927352506530683,
+      "survivor": 0.7607264749346931,
+      "site_row_183": {
+        "mean": 0.3172186651499942,
+        "zero": 0.3162072147242725,
+        "ratio": 0.9968115040606345,
+        "strength": 0.3162072147242725,
+        "content": true
+      },
+      "controls": {
+        "rows": {
+          "1": {
+            "mean": -0.002649456262588501,
+            "zero": -0.003402799367904663,
+            "ratio": 0.0,
+            "strength": -0.003402799367904663,
+            "content": false
+          },
+          "2": {
+            "mean": 0.004913918673992157,
+            "zero": 0.002409733831882477,
+            "ratio": 0.49038944104558513,
+            "strength": 0.002409733831882477,
+            "content": false
+          },
+          "3": {
+            "mean": 0.003903135657310486,
+            "zero": 0.0023860707879066467,
+            "ratio": 0.6113215110619047,
+            "strength": 0.0023860707879066467,
+            "content": true
+          },
+          "4": {
+            "mean": 0.003286905586719513,
+            "zero": 0.0019385963678359985,
+            "ratio": 0.5897937487674568,
+            "strength": 0.0019385963678359985,
+            "content": true
+          },
+          "5": {
+            "mean": 0.00633297860622406,
+            "zero": 0.004327811300754547,
+            "ratio": 0.6833769020632989,
+            "strength": 0.004327811300754547,
+            "content": true
+          },
+          "6": {
+            "mean": 0.0020660609006881714,
+            "zero": 0.00046468526124954224,
+            "ratio": 0.2249136320690078,
+            "strength": 0.00046468526124954224,
+            "content": false
+          },
+          "60": {
+            "mean": -0.0008816942572593689,
+            "zero": -0.0007177293300628662,
+            "ratio": 0.0,
+            "strength": -0.0008816942572593689,
+            "content": false
+          },
+          "100": {
+            "mean": -0.0009265467524528503,
+            "zero": -0.0009127035737037659,
+            "ratio": 0.0,
+            "strength": -0.0009265467524528503,
+            "content": false
+          },
+          "118": {
+            "mean": -0.0015302449464797974,
+            "zero": -0.001504555344581604,
+            "ratio": 0.0,
+            "strength": -0.0015302449464797974,
+            "content": false
+          },
+          "119": {
+            "mean": 0.00028070807456970215,
+            "zero": -0.0002218112349510193,
+            "ratio": -0.7901847329865166,
+            "strength": -0.0002218112349510193,
+            "content": false
+          },
+          "120": {
+            "mean": -0.0009306073188781738,
+            "zero": -0.0019403249025344849,
+            "ratio": 0.0,
+            "strength": -0.0019403249025344849,
+            "content": false
+          }
+        },
+        "max_strength": 0.004327811300754547
+      },
+      "census_rows": {
+        "0": {
+          "mean": 0.8104925666521012,
+          "zero": 0.23172890808200464,
+          "ratio": 0.28591120710607676,
+          "strength": 0.23172890808200464,
+          "content": false
+        },
+        "1": {
+          "mean": -0.002649456262588501,
+          "zero": -0.003402799367904663,
+          "ratio": 0.0,
+          "strength": -0.003402799367904663,
+          "content": false
+        },
+        "2": {
+          "mean": 0.004913918673992157,
+          "zero": 0.002409733831882477,
+          "ratio": 0.49038944104558513,
+          "strength": 0.002409733831882477,
+          "content": false
+        },
+        "3": {
+          "mean": 0.003903135657310486,
+          "zero": 0.0023860707879066467,
+          "ratio": 0.6113215110619047,
+          "strength": 0.0023860707879066467,
+          "content": true
+        },
+        "4": {
+          "mean": 0.003286905586719513,
+          "zero": 0.0019385963678359985,
+          "ratio": 0.5897937487674568,
+          "strength": 0.0019385963678359985,
+          "content": true
+        },
+        "5": {
+          "mean": 0.00633297860622406,
+          "zero": 0.004327811300754547,
+          "ratio": 0.6833769020632989,
+          "strength": 0.004327811300754547,
+          "content": true
+        },
+        "6": {
+          "mean": 0.0020660609006881714,
+          "zero": 0.00046468526124954224,
+          "ratio": 0.2249136320690078,
+          "strength": 0.00046468526124954224,
+          "content": false
+        },
+        "60": {
+          "mean": -0.0008816942572593689,
+          "zero": -0.0007177293300628662,
+          "ratio": 0.0,
+          "strength": -0.0008816942572593689,
+          "content": false
+        },
+        "100": {
+          "mean": -0.0009265467524528503,
+          "zero": -0.0009127035737037659,
+          "ratio": 0.0,
+          "strength": -0.0009265467524528503,
+          "content": false
+        },
+        "118": {
+          "mean": -0.0015302449464797974,
+          "zero": -0.001504555344581604,
+          "ratio": 0.0,
+          "strength": -0.0015302449464797974,
+          "content": false
+        },
+        "119": {
+          "mean": 0.00028070807456970215,
+          "zero": -0.0002218112349510193,
+          "ratio": -0.7901847329865166,
+          "strength": -0.0002218112349510193,
+          "content": false
+        },
+        "120": {
+          "mean": -0.0009306073188781738,
+          "zero": -0.0019403249025344849,
+          "ratio": 0.0,
+          "strength": -0.0019403249025344849,
+          "content": false
+        },
+        "121": {
+          "mean": 0.003504723310470581,
+          "zero": 0.0022310614585876465,
+          "ratio": 0.6365870458082127,
+          "strength": 0.0022310614585876465,
+          "content": true
+        },
+        "122": {
+          "mean": -0.001201041042804718,
+          "zero": -0.0009715110063552856,
+          "ratio": 0.0,
+          "strength": -0.001201041042804718,
+          "content": false
+        },
+        "123": {
+          "mean": 0.0030567198991775513,
+          "zero": 0.003652803599834442,
+          "ratio": 0.8368147412349497,
+          "strength": 0.0030567198991775513,
+          "content": true
+        },
+        "124": {
+          "mean": 0.004562355577945709,
+          "zero": 0.0021597668528556824,
+          "ratio": 0.47338854150166,
+          "strength": 0.0021597668528556824,
+          "content": false
+        },
+        "125": {
+          "mean": -0.0008309260010719299,
+          "zero": -0.0005450397729873657,
+          "ratio": 0.0,
+          "strength": -0.0008309260010719299,
+          "content": false
+        },
+        "126": {
+          "mean": -0.003022924065589905,
+          "zero": -0.003352142870426178,
+          "ratio": 0.0,
+          "strength": -0.003352142870426178,
+          "content": false
+        },
+        "127": {
+          "mean": 7.121264934539795e-05,
+          "zero": -0.0008967965841293335,
+          "ratio": -12.59322033898305,
+          "strength": -0.0008967965841293335,
+          "content": false
+        },
+        "128": {
+          "mean": 0.0032134056091308594,
+          "zero": 0.0056861937046051025,
+          "ratio": 0.5651241895836937,
+          "strength": 0.0032134056091308594,
+          "content": true
+        },
+        "129": {
+          "mean": 0.004358083009719849,
+          "zero": 0.0049676597118377686,
+          "ratio": 0.8772909705015988,
+          "strength": 0.004358083009719849,
+          "content": true
+        },
+        "130": {
+          "mean": -0.0035714954137802124,
+          "zero": -0.00225115567445755,
+          "ratio": 0.0,
+          "strength": -0.0035714954137802124,
+          "content": false
+        },
+        "131": {
+          "mean": -0.0058800652623176575,
+          "zero": -0.006851136684417725,
+          "ratio": 0.0,
+          "strength": -0.006851136684417725,
+          "content": false
+        },
+        "132": {
+          "mean": -0.0031725913286209106,
+          "zero": -0.0028238892555236816,
+          "ratio": 0.0,
+          "strength": -0.0031725913286209106,
+          "content": false
+        },
+        "133": {
+          "mean": -0.002485334873199463,
+          "zero": -0.004124656319618225,
+          "ratio": 0.0,
+          "strength": -0.004124656319618225,
+          "content": false
+        },
+        "134": {
+          "mean": -0.0011000335216522217,
+          "zero": -0.0019609928131103516,
+          "ratio": 0.0,
+          "strength": -0.0019609928131103516,
+          "content": false
+        },
+        "135": {
+          "mean": -0.0014167651534080505,
+          "zero": -0.0025186240673065186,
+          "ratio": 0.0,
+          "strength": -0.0025186240673065186,
+          "content": false
+        },
+        "136": {
+          "mean": -0.004939280450344086,
+          "zero": -0.00578673928976059,
+          "ratio": 0.0,
+          "strength": -0.00578673928976059,
+          "content": false
+        },
+        "137": {
+          "mean": 0.0004997700452804565,
+          "zero": 0.0002812892198562622,
+          "ratio": 0.5628372938966576,
+          "strength": 0.0002812892198562622,
+          "content": true
+        },
+        "183": {
+          "mean": 0.3172186651499942,
+          "zero": 0.3162072147242725,
+          "ratio": 0.9968115040606345,
+          "strength": 0.3162072147242725,
+          "content": true
+        }
+      },
+      "off_geometry_std_row0": {
+        "mean": 0.00739088337604817,
+        "zero": -0.009136878302427931,
+        "ratio": -1.2362362978203731,
+        "strength": -0.009136878302427931,
+        "content": false
+      },
+      "off_geometry_std_base": 0.007800613640938536,
+      "gate": {
+        "kind": "e131_probe1_plus_e133_cells",
+        "tol": 5e-06,
+        "gpu_tol": 0.001,
+        "std_g0": {
+          "mine": 0.007800613640938536,
+          "ref": 0.007800613064318895,
+          "diff": 5.766196409240365e-10,
+          "tol": 5e-06,
+          "ok": true
+        },
+        "site_onset_base": {
+          "mine": 0.968468651175499,
+          "ref": 0.9880021214485168,
+          "diff": 0.019533470273017883,
+          "tol": 5e-06,
+          "ok": false
+        },
+        "row0_zero_vs_e133": {
+          "mine": 0.7367397430934943,
+          "ref_arm_pz": 0.7161287069320679,
+          "mine_arm_pz": 0.23172890808200464,
+          "tol": 0.001,
+          "ok": false
+        },
+        "base_ok": false,
+        "ground_truth_ok": false
+      }
+    }
+  },
+  "census_context_13": {
+    "source": "runs/e142/metrics.json (e142_row0_at_birth)",
+    "verdict": "ROW-0-ALWAYS",
+    "nets": [
+      {
+        "file": "e048_repro.pt",
+        "rel_S0": 0.9806289171716007,
+        "S0": 0.5455324279477395,
+        "base": 0.5563087304433186,
+        "gate_ok": true
+      },
+      {
+        "file": "e048_dose.pt",
+        "rel_S0": 0.9521412217514562,
+        "S0": 0.4773698513911332,
+        "base": 0.5013645460208257,
+        "gate_ok": true
+      },
+      {
+        "file": "e048_direct400.pt",
+        "rel_S0": 0.9471539991904292,
+        "S0": 0.1736989741055713,
+        "base": 0.183390424634261,
+        "gate_ok": true
+      },
+      {
+        "file": "e048_direct800.pt",
+        "rel_S0": 0.982558997328336,
+        "S0": 0.22107916433414496,
+        "base": 0.22500345010862308,
+        "gate_ok": true
+      },
+      {
+        "file": "e044_a_reinstall.pt",
+        "rel_S0": 0.953805750980133,
+        "S0": 0.4644305643043481,
+        "base": 0.48692363599936167,
+        "gate_ok": true
+      },
+      {
+        "file": "e044_b2_zephyra.pt",
+        "rel_S0": 0.9587364745084384,
+        "S0": 0.3674815452902597,
+        "base": 0.3832977622747421,
+        "gate_ok": true
+      },
+      {
+        "file": "e044_b_zephyra.pt",
+        "rel_S0": 0.9260644555083098,
+        "S0": 0.2616499507596776,
+        "base": 0.28253967550893627,
+        "gate_ok": true
+      },
+      {
+        "file": "e098_install_s4305.pt",
+        "rel_S0": 0.9998508396806893,
+        "S0": 0.5677701782571546,
+        "base": 0.5678548796723286,
+        "gate_ok": true
+      },
+      {
+        "file": "e098_install_s4306.pt",
+        "rel_S0": 0.9999757235474913,
+        "S0": 0.2890331722418021,
+        "base": 0.2890401891122262,
+        "gate_ok": true
+      },
+      {
+        "file": "e098_install_s4307.pt",
+        "rel_S0": 0.9999908587714986,
+        "S0": 0.10806673729242555,
+        "base": 0.1080677251641949,
+        "gate_ok": false
+      },
+      {
+        "file": "e098_install_s4308.pt",
+        "rel_S0": 0.9998479485817036,
+        "S0": 0.3842320886797962,
+        "base": 0.38429052059849106,
+        "gate_ok": true
+      },
+      {
+        "file": "e082_b43_install.pt",
+        "rel_S0": 0.8776191161711506,
+        "S0": 0.2806818311963136,
+        "base": 0.3198219204942385,
+        "gate_ok": true
+      },
+      {
+        "file": "e117_install_s4309.pt",
+        "rel_S0": 0.9989909512419631,
+        "S0": 0.5917584142629891,
+        "base": 0.5923561304807663,
+        "gate_ok": true
+      }
+    ],
+    "band": {
+      "n_gate_passing": 12,
+      "rel_S0_min": 0.8776191161711506,
+      "rel_S0_max": 0.9999757235474913,
+      "skipped": [
+        "e098_install_s4307.pt"
+      ]
+    }
+  },
+  "adjudication": {
+    "dial_blind": {
+      "fires": false,
+      "bar": "rel_S0(arm_b) >= 0.9",
+      "rel_S0_arm_b": 0.23927352506530683
+    },
+    "dial_valid": {
+      "fires": true,
+      "bar": "1 - rel_S0(arm_b) in [0.7, 0.8] (the dial's survivor; QUEUE's '0.7-8')",
+      "survivor_arm_b": 0.7607264749346931
+    },
+    "verdict": "DIAL-VALID",
+    "what_happens_to_the_intro": "the dial discriminates carriage (arm_b reads far below the census band and reproduces its known 7%-dependent profile); the intro stands as licensed.",
+    "carrier_control": {
+      "rel_S0": 0.932028712967338,
+      "e131_stored_rel": 0.932028712967338,
+      "within_census_band": true
+    },
+    "ground_truth": {
+      "wpe_r0_share_e133": 0.07063399829336497,
+      "survivor_known": 0.724825157549296,
+      "zero_arm_reproduced": false
+    }
+  },
+  "recipe_deviations": [
+    "arm_b's own battery is its SITE battery (the only one where its fact is expressed: std install-60 g0 = 0.0078); the dial's arm mechanics are verbatim e142/e131 \u2014 only the battery read differs, per e142's own 'each net's OWN install battery' convention.",
+    "The two registered bar figures live on the dial's two faces (drop rel vs survivor); both are operationalized in the docstring BEFORE compute and both are reported for every cell. Reading '0.7-0.8' as rel in [0.7,0.8] would be a third, unregistered outcome and fires nothing.",
+    "The carrier's site-battery read and arm_b's std-battery read are recorded as off-geometry context (not adjudicated)."
+  ],
+  "honesty_reflex": "arm_b's ground truth is itself a member of the dial family: the 7.06% share and the 0.725 survivor come from e133's zero-arm on this very battery, so the zero-arm here is a REPRODUCTION (gated at 1e-3), not new evidence; the independent content is the mean-arm, the min-convention S_0, and the carrier control's reproduction of e131's CPU-stored cells. Battery asymmetry: the carrier is read at the last position of 130-token install contexts, arm_b at position 183 of 256-token splice windows \u2014 each is the net's own instrument context (the dimensionless rel=S/base is within-net), and arm_b's std-battery off-geometry read shows the dial has nothing to read where the fact is absent (base 0.0078). Survivor at 0.7-0.8 still attributes up to a quarter of base expression to row-0 sink load in a 7%-share net \u2014 the dial's absolute floor is sink-load, exactly as T083 said; the licensing question is only whether its scale SEPARATES carriage levels, which is what DIAL-VALID vs DIAL-BLIND adjudicates.",
+  "timing": {
+    "total_s": 37.4
+  },
+  "config": {
+    "threads": 4,
+    "device": "cpu",
+    "smoke": true,
+    "cfg": "6L/6H/192d/256 (2.7M)"
+  }
+}
