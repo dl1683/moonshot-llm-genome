@@ -3061,6 +3061,66 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W021 — WONDER: the instrument that cannot fail — R56's meta-law, and the scan it demands (2026-09-29 ~21:20Z; no bars, no kills)
+
+All three of the critic's ruler-bends were ONE species: an instrument
+whose outcome was guaranteed before the world got a vote. The isotropic
+contrast could not have killed at 4x (geometry in 874k dims); the
+refractory could not have produced a spacing below 24 (construction);
+the wall's battery ruler measured the channel the anchor was built
+around (a circle drawn around the probe). Rule 12 said "check the
+battery geometry"; R56 says the deeper form: COMPUTE WHAT THE
+INSTRUMENT GUARANTEES — the guaranteed component is not a finding, no
+matter how pleasing its number. And the mirror: the critic's tilt
+ladder is the exemplar of the honest instrument — it COULD have said
+no (random 45-degree tilts might have spared the store) and it did
+not; that is exactly why it could save the cone noun when the
+isotropic leg could not. The instruments that earn trust are the ones
+that could have failed. THE SCAN (questions, ripening): where else
+does a guaranteed component hide inside a reported number? The e163
+two-face (the perturbation arm SATURATES — saturation is
+guarantee-flavored); the g2 "~1/30 ~= 1/32" density
+near-coincidence (the critic dissolved it into refractory arithmetic
+plus O(10) decay steps — a guaranteed near-match); the g2 monitor's
+channel choices; any bar ever adjudicated on the same battery the
+intervention was tuned to.
+
+## W022 — WONDER: the wash is half the death gradient — one alignment to bind the rate law, the cone, and the store's immunity (2026-09-29 ~21:20Z; no bars, no kills — but it names the kappa cell)
+
+The critic's cosine is the deepest number of the day: cos(grad g0,
+wash) = -0.44 in a space where a random direction reads ~0.001. The
+corpus's adaptation direction contains nearly HALF the fact's death
+direction. That one alignment touches everything the wash arc found:
+(1) THE RATE LAW'S MECHANISM CANDIDATE: death integrates the aligned
+component of adaptation — t* ~ lr^-1.1..-1.4 because alignment is
+roughly scale-free along the trajectory; the 1e-5 survivor is the
+slow integral. Computable from SAVED checkpoints across the e180 grid:
+alignment-weighted displacement integral vs survival time — no new
+training owed.
+(2) THE CONE'S TILT TOLERANCE: 45-degree tilts still kill — the
+killing set is not a ray but the wide span of adaptation-like
+directions (the wash direction itself drifts as the organism adapts;
+its similarity neighborhood is wide).
+(3) THE KAPPA CONTRAST (the ripening cell): e185/e187's host fact
+dies to ISOTROPIC noise at displacement-match (kappa_host ~ 1); the
+critic's store needs ~25-32x isotropic vs ~2x wash (kappa_store ~
+12-16). If that contrast survives per-coordinate-RMS matching across
+the scale difference (2.7M host vs 890k organism — the conventions
+must be unified first), then the store's design ACQUIRED directional
+immunity the distributed host fact never had: attractor readout
+forgives random displacement; only learning-aligned displacement
+kills. That would flip R56's C1 from "ruler bent" to "ruler bent and
+now measurable: the thing the isotropic leg was hiding is the
+store's kappa." THE KAPPA CELL (g3K, on paper): same host family,
+both facts side by side (installed host fact + grafted store), wash
+vs isotropic at MATCHED per-coordinate RMS, kill thresholds read as
+kappa. Either branch rewrites a paragraph: kappa_store >> kappa_host
+licenses "directional immunity is purchasable" as the fourth
+architectural claim; kappa_host >> 1 at matched RMS rescopes e185's
+no-basin to "no basin against the corpus direction" — the day-six
+centerpiece narrows and sharpens at once. Ripening; dispatch when a
+lane frees (behind g6/g2g — the registered debts come first).
+
 ## W020 — THE GENERATIVE TURN (the user's standing directive, 2026-09-29 ~12:40Z: from dissection to synthesis — design architectures that test our laws)
 
 The lab's findings are now laws-in-waiting: no-basin memory
