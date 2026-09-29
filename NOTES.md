@@ -287,7 +287,7 @@ taken — at this scale NO per-token table can host the
 conjunction (the necessity claim stays parked behind the
 bound). BASIN HELD — both roots dissolve by +2 (the no-basin
 law in the new architecture; W019's debt paid twice more).
-SURGERY: the N2-class knife flat-CE-kills the jitter fact
+SURGERY [R55 D1: the registered P4 hierarchy was FALSIFIED — D-P-site killed only 51.8% (bar 60); D-A-all costs the organism AND 97.5% of the jitter field at +0.44 CE; tables do not spare the jitter fact as registered — the A-floor was never recruited as CONTENT but is not inert decoration]: the N2-class knife flat-CE-kills the jitter fact
 ({L1H2,L3H0}, 98.8% at +0.18 CE — the flight-to-heads CAUSAL
 cell, clean); D-P-site only 51.8% (an e150-style near-miss);
 GATE-FREEZE inert. THE SPINE: predicted the install carrier P

@@ -713,7 +713,8 @@ oscillates 0.03->0.72 with every event a resurrection; the
 +300 checkpoint simply sampled a trough (a phase-offset
 replicate is the owed cell — the honest read is 'maintains in
 rhythm' pending it). THE g-SERIES' FIRST WORKING SYSTEM IS
-COMPLETE IN ALL BUT PHRASE: a net that knows when it is
+COMPLETE IN ALL BUT PHRASE [R55: n=1 single seed; 'rhythm' is not a noun until
+two more seeds + the g2c phase cell; the verdict stands as MAINTAIN-FAILED]: a net that knows when it is
 forgetting (the onset sensor), and re-teaches itself (the
 error-carrying replay) — 0 new trainable parameters; the
 maintenance budget self-administered. THE SYNTHESIS WITH
@@ -784,7 +785,7 @@ one commit event plus a hard L2 projection installs a WELL
 that holds the fact flat at 0.918 through 300 steps of the
 stream that kills the control in two — survival ordered in R,
 bracketing D_kill (the wall is a dynamic basin-width
-measurement). MEMORY IS ARCHITECTURAL AGAINST DISPLACEMENT.
+measurement). MEMORY IS ARCHITECTURAL AGAINST DISPLACEMENT [n=1, one lineage].
 But F3 splits the kill into TWO MECHANISMS: the corpus kill is
 DISPLACEMENT-MEDIATED (the wall heals it — the settled +1
 reads 0.945, the projection undoes the step); the noise kill
