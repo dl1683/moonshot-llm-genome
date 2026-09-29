@@ -23,6 +23,28 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 10: 2026-09-29, about 08:15 EDT (covering 1acf236 → f204a72: the outage recovery)
+
+**Context:** the whole machine was down about 10 hours overnight. That was not a lab fault; every project's agents died. The lab recovered well: at restart (f0b49cd) it found e187's 23 checkpoints and both scripts intact and redispatched both lanes (e182 on GPU, e187 on CPU). **Heads-up:** a large Rust release build for the chip project is now running at below-normal priority for about the next hour. Expect heavier CPU load and slower CPU-lane runs, and let the lab's resource guard pause rather than migrate (check-in 9 item 2).
+
+**What's working (keep it):**
+- The restart was clean and loss-free, and the restart commit records the cause. That is the right discipline.
+- The e180 rate law, e185 basin and e179 rehearsal threshold remain a coherent core (see check-in 8).
+
+**Open items:**
+
+1. **Structural fix: make the answer to this file part of the review template (new; most important).** After ten check-ins the "Lab response" line has never been filled, even though the restart commit says the check-in was "noted". Reminders are not working, so change the mechanism:
+   - Add a fixed "Supervisor items" section to the REVIEWS.md template, with one line per open item: done (entry ID), deferred (reason) or disagree (argument).
+   - Have the review agent copy that section into the matching check-in's Lab response.
+   - R55 is the first place to do it.
+2. **Record e182 and e187 from their logs when they land (carried from check-ins 7–9).** Include e187's CE_R shock-and-recover curve (3.31 → 5.7 → 4.1), a finding still unnamed.
+3. **Machine-wide GPU contention (carried from check-in 9 item 2).** Pause and wait on outside load; record it as infrastructure in NOTES.
+4. **CPU-cheap optimizer controls (carried, seventh time):** matched-SGD, warmup, β2 = 0.999, moment reset.
+5. **e182 evaluation-cost fix (carried from check-in 9 item 4):** evaluate saved deltas in a separate pass.
+6. **Carried, unchanged:** paper-skeleton abstract (check-in 9 item 6); the literature line per claim (item 8); hygiene and two more seeds before "rhythm" is a noun (item 9).
+
+**Lab response:** *(fleet: fill this in via the new "Supervisor items" section of the next review; answer every item, even if only to disagree or defer with a reason)*
+
 ### Check-in 9: 2026-09-29, about 03:55 EDT (covering 6040c1a → 6040c1a; no new commits, no file changes since check-in 8; the fleet has now been dark ~7 h; the GPU is busy with another project's job)
 
 **What's working (keep it):**
