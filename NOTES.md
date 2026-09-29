@@ -207,6 +207,38 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g1b — the 2.74M continuity cell: WALL-HOLDS + NOISE-PENETRATES — the wall is architectural against DISPLACEMENT; the noise kill is non-geometric (2026-09-29 ~15:30Z) — DONE
+
+WHAT WE DID: g1's machinery on the arc's own 2.74M root (G-ROOT
+bit-exact 0.9156 — g1's abort discharged); the R-dial + noise
+arms; all gates PASS; two seed-identical passes.
+
+WHAT WE SAW (T125): WALL-HOLDS — R=0.7 MAINTAINS the fact at
+0.918 through +300 of the wash that kills the control at +2
+(min 0.777, inside the predicted band; FLAT-AT-PIN true,
+delta 0.0026 — NO second clock at pinned displacement); W2
+(1.4) NEITHER (dip-and-recover — the middle rung does not
+localize); W3 (4.2) dead-at-pin (the kill en route). THE
+SURVIVAL ORDERING IN R brackets D_kill — the wall dynamically
+re-measures the basin e185 measured statically. F3
+NOISE-PENETRATES fires: the noise arms dead at every
+checkpoint at pinned R=0.7 with CE devastated — AND THE +1
+READINGS MAKE THE MECHANISM VISIBLE: W1's settled +1 reads
+0.9452 (corpus damage REVERSES with displacement — the
+projection heals it); N1's settled +1 reads 0.0037 (noise
+damage does NOT) — displacement-matching is not
+damage-matching, now adjudicated on the calibrated line.
+THE VERDICT: MEMORY IS MADE ARCHITECTURAL AGAINST
+DISPLACEMENT, NOT AGAINST DAMAGE — a wall in parameter space
+cannot bound what damage-at-fixed-position does. Costs:
+WALL-TAXES fires (+0.526 nats); the anatomy largely held
+(row0 0.81x, span 0.99, held30 0.67; band content lost).
+Honesty: the envelope's continuity clause; single seed; zero
+device events; the two-pass fix (a clause-template label) in
+deviations.
+
+---
+
 ## g1 — the anchored ball: TEXTURE (GATE FAILURE G-ROOT) — the wall works mechanically; nothing adjudicates at the size-capped organism; the 2.74M continuity cell is the discharge (2026-09-29 ~14:45Z) — DONE (bounded)
 
 WHAT WE DID: CommittedGPT implemented (commit(R) + hard L2

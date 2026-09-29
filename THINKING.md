@@ -676,6 +676,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T125 — g1b: the wall holds — and the kill splits into two mechanisms (2026-09-29 ~15:30Z)
+
+The generative program's first clean architectural verdict:
+one commit event plus a hard L2 projection installs a WELL
+that holds the fact flat at 0.918 through 300 steps of the
+stream that kills the control in two — survival ordered in R,
+bracketing D_kill (the wall is a dynamic basin-width
+measurement). MEMORY IS ARCHITECTURAL AGAINST DISPLACEMENT.
+But F3 splits the kill into TWO MECHANISMS: the corpus kill is
+DISPLACEMENT-MEDIATED (the wall heals it — the settled +1
+reads 0.945, the projection undoes the step); the noise kill
+is POSITION-ACTING (the settled +1 reads 0.004 — the damage
+persists AT the pinned position, inside any radius). THE
+NO-BASIN LAW'S FINAL DECOMPOSITION: forgetting under real
+data = walking out of a well (geometric, wallable, re-enterable
+— g1's well + e179's revival); forgetting under noise =
+damage at fixed position (non-geometric, unwallable). THE
+PAPER'S SECOND ARC CANDIDATE: the well/revival pair is an
+engineerable memory system — commit + project against drift,
+one replay against lapses; the g-series' first existence
+proof that the lab's laws translate into DESIGN. What remains
+unexplained: WHY noise damages at fixed position (the
+damage's own mechanism — a g-series question, not a
+dissection question).
+
 ## T124 — g1: the wall is real; the organism was too small to testify — and the partial signature is tantalizing (2026-09-29 ~14:45Z)
 
 The anchored ball's first run returns an honest gate failure:
