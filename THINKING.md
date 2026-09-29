@@ -676,6 +676,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T128 — g2b: the organ knows it is dying now — the self-maintaining memory oscillates (2026-09-29 ~18:00Z)
+
+The one-line fix vindicates T122's diagnosis completely: the
+gate watching the ONSET (the channel the wash kills) finds the
+rhythm autonomously — 10 events, spacing 24-36 steps,
+essentially the external schedule's frequency, without ever
+seeing it. THE ORGAN IS NOW A SELF-MAINTAINING MEMORY in
+every sense except the frozen bar's letter: the ruler
+oscillates 0.03->0.72 with every event a resurrection; the
++300 checkpoint simply sampled a trough (a phase-offset
+replicate is the owed cell — the honest read is 'maintains in
+rhythm' pending it). THE g-SERIES' FIRST WORKING SYSTEM IS
+COMPLETE IN ALL BUT PHRASE: a net that knows when it is
+forgetting (the onset sensor), and re-teaches itself (the
+error-carrying replay) — 0 new trainable parameters; the
+maintenance budget self-administered. THE SYNTHESIS WITH
+e179: the resurrection economy measured externally (9 events
+suffice) is now measured INTERNALLY (10 events, self-timed) —
+the same number, found twice, once by the experimenter's
+schedule and once by the architecture's own sensor.
+
 ## T127 — g4: the compass is architecture-robust; the cliff is scale-robust in its ABSENCE; and the content floor refused every fact (2026-09-29 ~17:50Z)
 
 The generative program's law-census across the g-series so

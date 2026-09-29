@@ -207,6 +207,30 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g2b — the onset-only monitor: MAINTAIN-FAILED (phase-riding) — the sensor fix WORKED (10 events, 100% in band); the organ finds the rhythm but the +300 checkpoint rode a dip (2026-09-29 ~18:00Z) — DONE
+
+WHAT WE DID: g2's organ with ONE changed line (the monitor =
+the onset position only, p(Z|ctx), 8 values not 56); g2's root
+and cue pool reused bit-identically; CPU.
+
+WHAT WE SAW (T128): the sensor fix did its job — the gate
+fired 10 EVENTS, spacings 24-36 (100% in the pre-registered
+20-45 band; realized r=1/30 ~ the external 1/32 schedule; not
+hyper, not silent — T122's diagnosis was exactly right). The
+ruler failed the frozen bar (0.305 at +300 vs 0.5) but the
+failure is PHASE-RIDING: the +300 checkpoint sits 16 steps
+after the last event, mid-rise from a dip; the sawtooth's
+peaks reach 0.62-0.72 and EVERY event resurrects from ~0.03
+dips (40% of events at ruler >= 0.5 by +24). THE ORGAN FOUND
+THE RHYTHM ON ITS OWN — the architecture maintains in
+oscillation; the checkpoint bar sampled the trough. Honesty:
+the +300 verdict could flip on cycle phase (recorded, not
+adjudicated around); replicate checkpoints at phase offsets
+owed before 'maintains-in-rhythm' is quoted; single root/seed
+(g2's draw inherited).
+
+---
+
 ## g4 — the dual-address net: COMPASS-IS-POSITIONAL held; the CLIFF is SCALE-BOUND (no switch on EITHER root); the no-basin law held; the A-floor was NEVER recruited (2026-09-29 ~17:50Z) — DONE
 
 WHAT WE DID: the dual-address architecture (P-floor wpe + a
