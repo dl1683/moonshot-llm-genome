@@ -207,6 +207,32 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## E187 — the noise replicates: NOISE-KILLS-REPLICATES — the no-basin mechanism formally licensed; the orthogonal kill replicates 4/4 (2026-09-29 ~12:30Z) — DONE
+
+WHAT WE DID: finished from the outage's 15 surviving checkpoints
+(3 cells eval-only, bit-gated; 1 cell minimally re-run,
+reproducing its survivors bit-identically); the input stream
+replayed and matched e185's md5s 10/10; a latent v1 plot bug
+found and fixed.
+
+WHAT WE SAW (T121): NOISE-KILLS-REPLICATES — all four cells
+(labels-iid x2, shuffled-target x2) dead by +2 (worst 8.3e-4 vs
+the 0.27 bar; ANY-SPARES never close — max 2.5e-2 vs 0.50);
+displacement-match co-adjudicates (M=+2, 2.65 >= D_kill 2.489).
+BOTH E185 TEXTURES REPLICATE: the labels-vs-shuffled magnitude
+split (1e-3..1e-2 vs 1e-5..1e-4) and the ORTHOGONAL kill
+direction (cos ~ -0.09 at +1 -> ~ -0.04 after, both arms);
+the collateral-devastation profile replicates (CE 3.7-5.8 vs
+the corpus's surgical 1.66). THE NO-BASIN NOUN STANDS,
+FORMALLY LICENSED at n=3 draws per arm: "these memories have
+no basin; what keeps them is the dataloader's direction — and
+even that kills, just neatly." Honesty: one input stream, one
+root, four draws; eval-only cells lack per-step training
+telemetry (marked null; the re-run cell anchors transitively);
+the recovery provenance documented cell-by-cell.
+
+---
+
 ## E185c — the CPU-only tail re-run: TAIL-REPRODUCES — the tail lottery is NOT a device artifact; the dissolution clock is device-robust (2026-09-28 ~20:55Z) — DONE
 
 WHAT WE DID: e184's seeds 10903/10904 re-run CPU end-to-end (no

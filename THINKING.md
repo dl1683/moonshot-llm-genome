@@ -676,6 +676,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T121 — E187: the mechanism formally licensed — and the recovery itself a small demonstration of the lab's memory (2026-09-29 ~12:30Z)
+
+The replication debt discharges clean: four cells, four kills,
+both arms' textures intact (the labels/shuffled magnitude split
+and the orthogonal direction), the collateral-devastation
+profile matching. The no-basin mechanism is now n=3 draws per
+arm — the skeleton's paragraph stands formally. THE SAVOR: the
+recovery IS the thesis — the outage killed the run mid-flight,
+and the surviving checkpoints (the run's own memory) let the
+experiment be resurrected from them at near-zero cost, exactly
+as e179's single replay resurrected the fact. The lab practices
+what it found: checkpointed state + one directed event = cheap
+re-entry. FOR THE PAPER: the mechanism paragraph's [n=1,
+replicates owed] flag clears to [n=3/arm, one stream] — the
+last formality before assembly; only e182 (in flight) remains.
+
 ## T120 — E179: the resurrection economy — nine events, one revival, a sawtooth (2026-09-28 ~23:00Z)
 
 The rehearsal law returns the session's last great texture:
