@@ -676,6 +676,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T124 — g1: the wall is real; the organism was too small to testify — and the partial signature is tantalizing (2026-09-29 ~14:45Z)
+
+The anchored ball's first run returns an honest gate failure:
+the 0.84M organism consolidates but does not GENERALIZE to
+offset -12 (the jitter set's ±8 span is width-enough at 2.74M,
+not at 0.84M) — the arc's own ruler bar (0.78) unreachable,
+so nothing adjudicates. But the textures: THE WALL WORKS
+(displacement pinned exactly at R + the registered one-step
+Adam fuzz); W1 HELD A HALF-EXPRESSED FACT FLAT through +300
+where the control free-ran to death (0.29 vs 0.001) — partial
+maintenance on a partial root, exactly proportional; and the
+NOISE KILL PIERCED THE WALL (dead at pinned R with CE
+devastated — displacement-matching is NOT damage-matching; the
+wall bounds the DRIFT, not the DAMAGE — arguably the deepest
+single number in the run: it means the noise kill's mechanism
+is not "walking out of the basin" but something that acts
+WITHIN any radius). THE DISCHARGE IS CHEAP: the 2.74M
+continuity cell (one config line, the e131 root on disk) —
+g1b. FOR THE PROGRAM: the first two builds taught a sensor
+lesson (g2) and now a testimony lesson (g1) — the architecture
+program's results are only as adjudicable as the organism's
+baseline expression; the gate-first design (the spec's own
+abort clause) saved a false verdict here, exactly as intended.
+
 ## T123 — e182: the physics translates — wider basin, same law, same surgery (2026-09-29 ~14:10Z)
 
 The external-validity fuse returns the answer the arc needed:

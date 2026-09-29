@@ -207,6 +207,34 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g1 — the anchored ball: TEXTURE (GATE FAILURE G-ROOT) — the wall works mechanically; nothing adjudicates at the size-capped organism; the 2.74M continuity cell is the discharge (2026-09-29 ~14:45Z) — DONE (bounded)
+
+WHAT WE DID: CommittedGPT implemented (commit(R) + hard L2
+projection in forward); the 0.84M organism run per the spec's
+size correction; all 7 arms; every gate but G-ROOT passed.
+
+WHAT WE SAW (T124): G-ROOT FAILED — the 0.84M consolidated
+root expresses g-12 at only 0.2536 (the ±8 jitter set does not
+generalize to offset -12 at this scale; the 2.74M line's 0.9156
+was never in reach). Per the spec's frozen abort clause, no
+WALL clause adjudicates. THE TEXTURES (reported): the wall
+WORKS MECHANICALLY (displacement pinned at R + one-step fuzz
+in every arm; the control free-runs to 9.29); W1 (R=0.7) holds
+a HALF-EXPRESSED fact FLAT at 0.09->0.34->0.29 through +300
+(FLAT-AT-PIN true; the control dead at 0.001) — a partial
+maintenance signature on a partial root; the NOISE KILL is NOT
+SPARED by the wall (N1/N2 dead at pinned R with CE devastated
+— the F3 direction: damage beyond net displacement);
+WALL-TAXES-ADAPTATION fires (+0.52 nats in-batch). THE
+DISCHARGE: the registered 2.74M continuity cell (one config
+line; the e131 root exists) — the size-capped organism cannot
+test the arc's own bars. Honesty: the projection semantics
+(armed-twin evals; settle-then-disarm for probes) documented;
+the install's mask deviation registered (unlikely the driver;
+cannot be excluded); one thermal migration; single seed.
+
+---
+
 ## e182 — the GPT-2 wash: TEXTURE — pretrained facts are NOT wash-proof; the moderate lr erodes to 0.66 by +50 and falling (2026-09-29 ~14:10Z) — DONE (third dispatch)
 
 WHAT WE DID: 10 high-recall cloze probes on GPT-2 124M
