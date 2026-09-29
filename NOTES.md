@@ -217,9 +217,13 @@ WHAT WE SAW (T135): SPLIT-REPLICATES — both new seeds show the
 split (wash-direction kills at <=2x; isotropic spares at >=2x
 with min g0 >= 0.50); with g3's original cell the split is
 N=3. THE CONE CLAIM IS LICENSED: the store's basin is
-directional — the wash trajectory kills at 1x displacement
-while matched-L2 isotropic noise spares through 4x, at every
-draw. THIRD ARCHITECTURAL CLAIM AT LAW GRADE (with the wall
+directional — the full wash trajectory kills at +1 (g0 ~0.0000,
+draw-invariant) while matched-L2 isotropic noise spares through
+4x, at every draw; along the lambda-sweep the kill edge is at
+2x in the replicates (g3's exact-1x kill, 0.238, was a draw
+artifact — replicates read 0.597/0.564 at 1x; registered <=2x
+criterion holds 3/3). The robust object is the dissociation:
+at 2x identical L2, wash reads 0.10-0.16, isotropic 0.85-0.89. THIRD ARCHITECTURAL CLAIM AT LAW GRADE (with the wall
 and the rhythm): forgetting is not distance — it is DIRECTION.
 Honesty: the organ reused (construction n=1 — the split's
 robustness is over draw seeds, not organ draws); device
