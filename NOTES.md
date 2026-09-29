@@ -207,6 +207,41 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g4 — the dual-address net: COMPASS-IS-POSITIONAL held; the CLIFF is SCALE-BOUND (no switch on EITHER root); the no-basin law held; the A-floor was NEVER recruited (2026-09-29 ~17:50Z) — DONE
+
+WHAT WE DID: the dual-address architecture (P-floor wpe + a
+K=32 content-conditional A-floor, gate on one token; 863,328
+params) + a matched single-table control; both pretrained 3000
+steps; the full program (spine -> install -> ladder -> compass
+-> wash -> surgery); 1854s GPU.
+
+WHAT WE SAW (T127): COMPASS-IS-POSITIONAL HELD — NEAR built
+P-site content at rows 5-13 (+0.288); A-slots carried NOTHING
+in every arm (census and surgery alike); row-0 at/below
+baseline. THE CLIFF DID NOT FIRE ON EITHER ROOT — a graded
+decline at 0.86M, not the 2.7M step function (and the CONTROL
+root fails identically — nothing architecture-specific; the
+switch is SCALE/LINEAGE BOUND, extending e157). SLOT-
+SUCCESSION never fired: the offered content channel was never
+taken — at this scale NO per-token table can host the
+conjunction (the necessity claim stays parked behind the
+bound). BASIN HELD — both roots dissolve by +2 (the no-basin
+law in the new architecture; W019's debt paid twice more).
+SURGERY: the N2-class knife flat-CE-kills the jitter fact
+({L1H2,L3H0}, 98.8% at +0.18 CE — the flight-to-heads CAUSAL
+cell, clean); D-P-site only 51.8% (an e150-style near-miss);
+GATE-FREEZE inert. THE SPINE: predicted the install carrier P
+— CORRECT (A_P +0.268, A_A -0.005); predicted w>=1 HEADS —
+the w8 census read a MIXED carrier (residual A_P +0.223 with
+the field weak) — P0's second half DIES as registered. The
+honest classifier reported the mixture rather than rounding.
+Honesty: the control is a genuine match (CE parity 0.008) and
+IT fails the cliff too; n=1 per cell; the install gate missed
+high on both roots equally (recorded, not re-run); the dual
+net's weaker field is lineage-lottery texture.
+
+---
+
 ## g3 — the generative-memory architecture: G3-DIES, THE LAW HOLDS — the Hopfield store dies at +1 like everything else; the kill-site is QUERY drift; isotropic noise SPARES the store (2026-09-29 ~16:35Z) — DONE
 
 WHAT WE DID: the committed spec implemented (the 17.4k Hopfield

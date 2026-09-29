@@ -676,6 +676,33 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T127 — g4: the compass is architecture-robust; the cliff is scale-robust in its ABSENCE; and the content floor refused every fact (2026-09-29 ~17:50Z)
+
+The generative program's law-census across the g-series so
+far: THE COMPASS IS ARCHITECTURE-ROBUST (positional placement
+in a net with an offered content channel — the A-floor was
+never recruited, by census OR by surgery; when the architecture
+COULD host the conjunction in a table it still chose the
+positional floor and the heads). THE NO-BASIN LAW IS
+ARCHITECTURE-ROBUST (both roots dissolve by +2; the attractor
+died; only the wall survives it). THE CLIFF IS
+SCALE/LINEAGE-BOUND: no switch on either root at 0.86M —
+the variance cliff of e147 is a property of the 2.7M line
+(and the 0.84M family-2 line's doors), NOT a universal of
+optimization. THE HEAD-KNIFE IS THE SURGERY INVARIANT: the
+N2-class flat-CE kill of the variance-built fact replicated
+on a brand-new architecture — the flight-to-heads causal cell
+is now the lab's most portable surgery result. THE SPINE'S
+HALF-VICTORY: the gate's pre-teaching sensitivity correctly
+predicted the install carrier (P) — the architecture DID
+predict its own memory type — and honestly mispredicted the
+w8 carrier (a mixed carrier the classifier refused to round).
+FOR THE SYNTHESIS: three laws survive the generative gauntlet
+(compass, no-basin, head-knife); one is bounded (the cliff);
+and the A-floor's total disuse is a NEGATIVE result worth its
+weight: per-token address tables cannot host conjunction
+memories at this scale — only positions and attention can.
+
 ## T126 — g3: the attractor dies like everything else — and the direction/energy split deepens (2026-09-29 ~16:35Z)
 
 The generative-store test returns the law's strongest
