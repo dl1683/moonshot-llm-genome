@@ -676,6 +676,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T129 — g5: the memory is two-site and the organ is survivable — the wall decomposition finds the real fragility (2026-09-29 ~18:25Z)
+
+The falsifier firing is the informative outcome: the query-cone
+wall failed because the cone is not a property of W_q's
+weights — it is a property of the COMPOSED query path q =
+W_q.LN(h), and the wash moves h (the host's residual stream).
+T126's census attribution was right about the function, wrong
+about the subspace — a correction the transplant cells make
+unambiguous (washed-W_q works fine in a root host at full
+displacement; root-W_q dies in a washed host). THE POSITIVE:
+the walled STORE survives flat at ~root through the wash —
+the g-series' first survivor — and the tax is near-zero as
+predicted. THE MEMORY'S REAL FRAGILITY MAP: two unwalled sites,
+both in the host (the query path's stream dependence; the
+expression route), plus a survivable organ. THE COMPOSITION
+THAT WOULD WORK names itself: store + WHOLE-NET wall (g1b's
++0.53-nat tax) — or store + a stream-stabilizing host (a g6
+question: can the host's h be walled/regularized more cheaply
+than the whole net?). FOR THE PAPER'S SECOND ARC: the
+well/revival system now has its full anatomy — the organ
+(wallable, survives), the access path (stream-dependent, the
+real kill site), and the expression route (a second
+independent kill site) — memory as a three-part dependency
+chain, each part separately attackable.
+
 ## T128 — g2b: the organ knows it is dying now — the self-maintaining memory oscillates (2026-09-29 ~18:00Z)
 
 The one-line fix vindicates T122's diagnosis completely: the

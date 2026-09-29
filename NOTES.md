@@ -207,6 +207,42 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g5 — the query-cone wall: FALSIFIER FIRES — the kill is NOT confined to W_q; the fragility is TWO-SITE and both sites live in the host; the store itself SURVIVES walled (the g-series' first wash survivor) (2026-09-29 ~18:25Z) — DONE
+
+WHAT WE DID: g3's Hopfield organ + g1b's commit/project wall on
+the query projection (R=0.03) and on the whole 17k store; the
+census decomposition with transplant probes; all gates PASS
+(inputs bit-identical; the FREE arm replicates g3's stored wash
+to 7 figures).
+
+WHAT WE SAW (T129): CONE-WALL-HOLDS FAILS — W_q walled, the
+fact still dies at +1, identical to unwalled. THE CENSUS SAYS
+WHY WITH UNUSUAL PRECISION: (1) THE STORE SURVIVES AT THE
+ORGAN LEVEL — the whole-store wall (STW) reads 0.75->0.88
+FLAT through +300 (the keys hold; the first time ANYTHING in
+the g-series survived a 300-step wash); (2) THE QUERY CONE IS
+EXITED THROUGH THE HOST — with W_q pinned, live retrieval
+dies (0.083) while root-W_q-in-washed-host x root-K = 0.083
+vs washed-W_q-in-root-host x root-K = 0.891 — q = W_q.LN(h):
+the wash moves h (the host's stream), not W_q's weights;
+T126's kill-site attribution was right about the FUNCTION and
+wrong about the PARAMETER SUBSPACE; (3) THE ROUTE DIES
+INDEPENDENTLY — a perfect root store into the washed host
+restores g0 to 0.00004 (a second unwalled kill site). THE
+FRAGILITY IS TWO-SITE (the query path and the expression
+route), BOTH IN THE HOST — a 17k wall preserves the organ but
+the organism cannot address or express it; the wall that holds
+this memory must cover the host (g1b's whole-net wall at its
++0.53-nat tax). THE TAX: near-zero as predicted (-0.018). THE
+TEXTURE: the WQE knife-edge recovers (0.12->0.56 — the
+wall-pinned direction rotates; the static cone bracket did not
+close). Honesty: radii operationalized pre-run from g3's
+checkpoints; the organ-level 0.4996-at-+300 misses by 0.0004
+(one R-step from clearing — not adjudicated); single seed;
+transplant probes interventional.
+
+---
+
 ## g2b — the onset-only monitor: MAINTAIN-FAILED (phase-riding) — the sensor fix WORKED (10 events, 100% in band); the organ finds the rhythm but the +300 checkpoint rode a dip (2026-09-29 ~18:00Z) — DONE
 
 WHAT WE DID: g2's organ with ONE changed line (the monitor =
