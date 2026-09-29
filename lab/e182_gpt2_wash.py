@@ -128,6 +128,18 @@ runs/checkpoints/e182_gpt2_lr{5e6,5e5}.pt. NO lab checkpoints touched.
 Outputs: runs/e182/{metrics.json, gpt2_wash.png}. No NOTES/THINKING/QUEUE/
 STATE edits (dispatch); single commit, no push.
 
+RECOVERY PROVENANCE (third dispatch): two prior e182 agents died in system
+outages with this script surviving committed, bars frozen. The third-dispatch
+agent verified it line-by-line against the mission text (bars, gates,
+operationalizations, adjudication order intact — no science edits needed),
+shook it down clean (E182_SMOKE=1, 70 s), then ran it whole. One mechanical
+post-survival fix: the figure is TRIM-TOLERANT — a time-cap-trimmed arm
+(steps_ran < 200) now plots its MEASURED checkpoint steps and labels the
+probe table with each arm's final measured step (the original paired a fixed
+5-point x grid with trajectory y lists and would have crashed the figure
+after metrics.json was already saved). No bar, gate, trajectory, or
+adjudication logic touched.
+
 Run:  cd lab && python e182_gpt2_wash.py    (E182_SMOKE=1 shakedown)
 """
 from __future__ import annotations
@@ -298,6 +310,18 @@ deviations: list[str] = [
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch); single commit, no push.",
     "Smoke mode trims: 4-step trainings, checkpoints {2,4}, 6-window bank, no "
     "cooldowns, nothing adjudicated.",
+    "RECOVERY PROVENANCE (third dispatch): two prior e182 agents died in "
+    "system outages; this script survived committed with its bars frozen. "
+    "The third-dispatch agent verified it line-by-line against the mission "
+    "text (intact — no science edits needed), ran the E182_SMOKE=1 shakedown "
+    "clean (70 s), then ran it whole.",
+    "TRIM-TOLERANT FIGURE (post-survival fix, mechanical only): make_plot "
+    "originally paired a fixed 5-point x grid ([0]+CK_MAIN) with trajectory "
+    "y lists — an arm trimmed by the 1800 s time cap (steps_ran < 200) would "
+    "have crashed the figure AFTER metrics.json was saved, losing the PNG. "
+    "Fixed to plot each arm's MEASURED checkpoint steps (per-arm x lists) "
+    "and label the probe table with each arm's final measured step. No bar, "
+    "gate, trajectory, or adjudication logic touched.",
 ]
 
 
@@ -619,13 +643,16 @@ def make_plot(rd, arms, base, verdict, clause, adjudication):
     """THE FIGURE: the recall-vs-steps wash curves with the perplexity
     overlay (the deliverable), retention vs the registered bars, the
     discrete accuracies, and the probe table + verdict panel."""
-    steps_all = [0] + list(CK_MAIN)
+    last_step = max((t["step"] for a in arms.values() for t in a["traj"]),
+                    default=CK_MAIN[-1])
     cols = {5e-6: "tab:blue", 5e-5: "tab:red"}
     lbls = {5e-6: "lr 5e-6 (gentle)", 5e-5: "lr 5e-5 (moderate)"}
     R0 = base["mean_p"]
 
     def seq(lr, key):
-        return steps_all, [base[key]] + [t[key] for t in arms[LR_TAG[lr]]["traj"]]
+        tr = arms[LR_TAG[lr]]["traj"]
+        return ([0] + [t["step"] for t in tr],
+                [base[key]] + [t[key] for t in tr])
 
     fig, axes = plt.subplots(2, 2, figsize=(16.5, 10.0))
 
@@ -654,7 +681,7 @@ def make_plot(rd, arms, base, verdict, clause, adjudication):
                 alpha=0.5)
     axr.annotate(f"health ceiling 2x start "
                  f"({PPLX_MAX_MULT * base['bank_ppl']:.1f})",
-                 xy=(steps_all[-1], PPLX_MAX_MULT * base["bank_ppl"]),
+                 xy=(last_step, PPLX_MAX_MULT * base["bank_ppl"]),
                  xytext=(-4, 4), textcoords="offset points", ha="right",
                  fontsize=6.5, color="k", alpha=0.75)
     ax.set_xlabel("plain-corpus wash steps (batch 8 x ctx 512, AdamW wd 0.1)")
@@ -668,8 +695,8 @@ def make_plot(rd, arms, base, verdict, clause, adjudication):
     # (0,1) retention vs the registered bars
     ax = axes[0, 1]
     for lr in LRS:
-        xs, ys = steps_all, [1.0] + [t["mean_p"] / R0 for t in
-                                     arms[LR_TAG[lr]]["traj"]]
+        xs, ys = seq(lr, "mean_p")
+        ys = [y / R0 for y in ys]
         ax.plot(xs, ys, "o-", ms=7, lw=2.2, color=cols[lr], label=lbls[lr])
         for s, y in zip(xs, ys):
             if s > 0:
@@ -710,18 +737,21 @@ def make_plot(rd, arms, base, verdict, clause, adjudication):
             "per arm):", fontsize=8.4, va="top", family="monospace",
             weight="bold")
     y -= 0.030
-    hdr = (f"  {'fact':22s} {'rel':4s} {'R0':>6s} {'5e-6@200':>9s} "
-           f"{'ret':>6s} {'5e-5@200':>9s} {'ret':>6s}")
+    tr5e6 = {t["step"]: t for t in arms["lr5e6"]["traj"]}
+    tr5e5 = {t["step"]: t for t in arms["lr5e5"]["traj"]}
+    last6 = max(tr5e6) if tr5e6 else 0
+    last5 = max(tr5e5) if tr5e5 else 0
+    hdr = (f"  {'fact':22s} {'rel':4s} {'R0':>6s} {'5e-6@{last6}':>9s} "
+           f"{'ret':>6s} {'5e-5@{last5}':>9s} {'ret':>6s}")
     ax.text(0.02, y, hdr, fontsize=6.6, va="top", family="monospace")
     y -= 0.024
     kept = adjudication["battery_facts"]
-    tr5e6 = {t["step"]: t for t in arms["lr5e6"]["traj"]}
-    tr5e5 = {t["step"]: t for t in arms["lr5e5"]["traj"]}
-    last = CK_MAIN[-1]
     for fact in kept:
         b = next(r for r in base["probes"] if r["fact"] == fact)
-        p6 = tr5e6[last]["probes"][fact]["p"] if last in tr5e6 else float("nan")
-        p5 = tr5e5[last]["probes"][fact]["p"] if last in tr5e5 else float("nan")
+        p6 = (tr5e6[last6]["probes"][fact]["p"] if last6 in tr5e6
+              else float("nan"))
+        p5 = (tr5e5[last5]["probes"][fact]["p"] if last5 in tr5e5
+              else float("nan"))
         ax.text(0.02, y,
                 f"  {fact:22s} {b['relation']:4s} {b['p']:6.3f} "
                 f"{p6:9.3f} {p6 / b['p']:6.2f} {p5:9.3f} {p5 / b['p']:6.2f}",
