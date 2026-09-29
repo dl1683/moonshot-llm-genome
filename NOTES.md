@@ -207,6 +207,33 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g2d — the seed replicate: RHYTHM-REPLICATES — the noun LICENSED; three seeds, three rhythms, one waveform (2026-09-29 ~19:20Z) — DONE
+
+WHAT WE DID: the organ at wash-draw seeds 10903/10904 (the
+machinery, root, cue pool, and monitor all bit-gated reused;
+only the stream changed).
+
+WHAT WE SAW (T131): RHYTHM-REPLICATES — seed 10903: 10
+events, 100% in band, cycle-median 0.587, duty 70.4%; seed
+10904: 11 events, 100% in band, cycle-median 0.602, duty
+71.0%; the reference 0.615/69%. THREE SEEDS, DISTINCT EVENT
+SCHEDULES, ONE WAVEFORM — the self-timed sawtooth (the ~24-36
+spacing, the ~70% duty, the ~1/30 rehearsal density)
+reproduces under fresh streams on the same root. THE NOUN IS
+LICENSED per R55's rule: the rhythm is wash-draw-robust.
+THE CAUSAL LOOP IS CLOSED: the onset read trips the replay
+(intervention), the gate-disabled contrast dies (e184's n=3),
+the medians held with room. THE TEXTURE: trough depth IS the
+lottery (10904 dipped to 0.081 mid-cycle and every event
+still resurrected it; 10903's first cycles warmed up below
+bar before settling) — the rhythm's AMPLITUDE varies by seed;
+its TIMING and MEDIAN do not. HONEST BOUNDS: n=3 wash-draw
+realizations on ONE root/lineage — "wash-draw-robust on the
+locked root," not root-seed generality (the root/lineage
+replicate remains owed for the architecture claim).
+
+---
+
 ## g2c — the phase-offset replicate: MAINTAINS-IN-RHYTHM — cycle-median 0.615, duty cycle 69%; the organ vindicated (2026-09-29 ~19:05Z) — DONE
 
 WHAT WE DID: the dense phase reconstruction (131 samples, 9

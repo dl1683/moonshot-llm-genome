@@ -676,6 +676,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T131 — g2d: the noun licensed — three rhythms, one waveform; the arc's generative program has its first law-grade architectural claim (2026-09-29 ~19:20Z)
+
+The seed replicate closes it: three wash-draw seeds, distinct
+event schedules, one waveform (~70% duty, ~24-36 spacing,
+~1/30 density, medians 0.587/0.602/0.615). THE SELF-MAINTAINING
+RHYTHM IS A NOUN — the first g-series claim licensed at the
+lab's own n>=3 standard. THE FINDING'S SHAPE: the rhythm's
+TIMING and MEDIAN are seed-robust; its AMPLITUDE is the
+lottery (troughs 0.08-0.60 across seeds — every event still
+resurrects from whatever depth). THE SYNTHESIS STANDING: a
+memory that maintains itself by knowing when it is dying, on
+one root, wash-robust, zero new parameters — the lab's
+dissection arc (memories wash out) and generative arc (the
+rhythm can be built) meet at a single object. WHAT REMAINS FOR
+THE ARCHITECTURE CLAIM: root/lineage generality (a fresh root
+at the same recipe) — the same ladder every e-claim climbed.
+
 ## T130 — g2c: the organ vindicated — memory as a self-timed oscillation, its waveform mapped (2026-09-29 ~19:05Z)
 
 The owed cell returns the vindication: the organ MAINTAINS IN
