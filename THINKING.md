@@ -676,6 +676,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T130 — g2c: the organ vindicated — memory as a self-timed oscillation, its waveform mapped (2026-09-29 ~19:05Z)
+
+The owed cell returns the vindication: the organ MAINTAINS IN
+RHYTHM (cycle-median 0.615, duty 69%) — g2b's failure was a
+phase artifact exactly as suspected, and the dense
+reconstruction maps the full waveform: slow rise, plateau at
+0.65-0.74 through mid-cycle, late fall into the pre-event
+dip. THE SYNTHESIS COMPLETE: the lab's arc ran from
+"memories wash out in two steps" (e176) to "the rhythm is the
+memory" (e179) to "the rhythm can be ARCHITECTURAL" (g2/g2b)
+to "the architecture maintains it in oscillation, self-timed,
+with the waveform mapped" (g2c) — a net that knows when it
+is forgetting, re-teaches itself, and spends 69% of its time
+above the expression bar, on ~1/30 rehearsal density. THE
+REMAINING DEBT: the seed replicate (rhythm's noun-hood per
+R55's standard) — one more run.
+
 ## T129 — g5: the memory is two-site and the organ is survivable — the wall decomposition finds the real fragility (2026-09-29 ~18:25Z)
 
 The falsifier firing is the informative outcome: the query-cone

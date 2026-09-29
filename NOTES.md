@@ -207,6 +207,35 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g2c — the phase-offset replicate: MAINTAINS-IN-RHYTHM — cycle-median 0.615, duty cycle 69%; the organ vindicated (2026-09-29 ~19:05Z) — DONE
+
+WHAT WE DID: the dense phase reconstruction (131 samples, 9
+complete cycles) from g2b's reused machinery — bit-exact
+fidelity (the schedule, trace, monitor, and final state all
+diff 0.0; the grid provably cannot steer).
+
+WHAT WE SAW (T130): MAINTAINS-IN-RHYTHM fires on both clauses
+— the CYCLE-MEDIAN 0.615 (mean 0.573; the phase-binned
+medians 0.66/0.74/0.72/0.65/0.63/0.54/0.43/0.30 — a
+slow-rise, plateau, late-fall sawtooth, not a spike); the
+event band 20-45 (100%). DUTY CYCLE 69% — expression holds
+above the bar through ~0.69 of each cycle, dipping only in
+the pre-event tail. 8/9 cycles' medians >= 0.5 (the one weak
+cycle is the settling transient, included; the verdict does
+not hinge on it). g2b's MAINTAIN-FAILED was exactly the
+suspected phase artifact — the +300 endpoint caught the
+falling edge of the last partial cycle (event 10 peaked 0.70
+at step 290, decaying into the 300 sample). A T128 CORRECTION
+the dense data forces: the g0 ruler's in-cycle floor is
+0.20-0.47, NOT ~0.03 (those were gm12/gp12 readings) — the
+sawtooth is shallower than first read. THE ORGAN IS
+VINDICATED: a self-maintaining memory in oscillation, 0 new
+trainable parameters, the cycle shape fully mapped. Honesty:
+single root/seed (10902); phase-space sampled densely, seed-
+space untouched (the seed replicate remains the owed cell).
+
+---
+
 ## g5 — the query-cone wall: FALSIFIER FIRES — the kill is NOT confined to W_q; the fragility is TWO-SITE and both sites live in the host; the store itself SURVIVES walled (the g-series' first wash survivor) (2026-09-29 ~18:25Z) — DONE
 
 WHAT WE DID: g3's Hopfield organ + g1b's commit/project wall on
