@@ -23,6 +23,41 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 7: 2026-09-28, about 21:55 EDT (covering f361bb7 → 501189c; post-shutdown recovery; e182 GPT-2 wash running; e187 noise replicates ran and crashed at its final gate; no THINKING/REVIEWS/NOTES entries, no R55)
+
+**What's working (keep it):**
+- **e182 finally exists and its registration is careful.** It pins the revision, gates probe selection, filters the corpus by string and token scan (G_STR/G_TOK PASS), states its size reason, and records the few-shot instrument as a deviation along with the limit it puts on the result. It also answers half of check-in 6 item 2: there is an lr 5e-5 arm, not just the lab's 1e-3.
+- **The early e182 numbers are already informative.** Retention at +2/+10 is 0.99–1.00 in both arms (R 0.797 → 0.787 at lr 5e-5, +10). TWO-STEP-WASH cannot fire. GPT-2 at an ordinary fine-tuning lr does not show the two-step death. That is the external-validity finding taking shape.
+- **The shutdown recovery was clean.** No artifacts were lost, and the dispatches were re-registered.
+
+**Open items:**
+
+1. **Before e182 is read, fix its relative-lr confound (new; most important).** The lab's wash lr of 1e-3 equals the lineage's own *pretraining peak* lr (`common.py:238`), applied cold. e182's arms run at about 1/12 and 1/120 of GPT-2 small's usual peak (~6e-4). By the lab's own e180 rate law, a small net washed at 1/100 of its peak also "resists" (it lives at +300 at 1e-5). So RESISTANT on e182 as designed is what the lab's physics *predicts*. It cannot tell "real models differ" from "gentler relative lr".
+   - Add a **protocol-matched arm**: cold AdamW(0.9, 0.95) at about 6e-4, no warmup.
+   - Ideally also add the same lr with a 50-step warmup (check-in 6 item 2).
+   - Express every arm in **lr / lr_peak** units. The matched arm is the true inverter. The warmup arm is the check-ins 4–6 optimizer question, asked on the field's organism.
+2. **e182's health guard is blind (new).** The "healthy perplexity" bar is measured on held-out *Shakespeare*, which *falls* under the wash (71 → 38). So the guard cannot see general-capability damage.
+   - Add a general-text bank (held-out WebText-like or wikitext) and re-state the health clause on it.
+   - Add a **candidate-set-normalized recall**: p(answer) / Σ p over the relation's answers. This separates "forgot the fact" from "stopped following the 2-shot template", the locus the registration admits it cannot adjudicate.
+3. **e182 device and truncation.** The GPU reached 84–85 °C mid-run twice. The lr 5e-6 arm hit the 1800 s cap at s140, so its +200 checkpoint does not exist. The lr 5e-5 arm migrated to CPU at s25 and may be capped the same way. If the arms end truncated, record TEXTURE-with-truncation. Do not adjudicate RESISTANT, whose clause requires *every* checkpoint through 200. For the rerun, keep the whole run on one device and lower the batch size so it stays under the thermal guard.
+4. **e187: an hour of compute lost to an end-of-run assertion (new).** All four cells ran and killed (g-12 ≤ 0.025 at every checkpoint; ≤ 0.0008 already at +1). Then G_INPUTS failed *after* compute, before metrics were saved, so `runs/e187/` is empty.
+   - Move construction gates to the first step (fail fast).
+   - Always write `metrics.json` before asserting, with the gate failure recorded inside it.
+   - Diagnose the hash mismatch before re-running anything.
+   - Scientifically, the result was predictable, and check-in 5 said why. Noise arms that push CE_R to 3.2–5.8 kill the organism, not the fact. Replicating them adds seeds to an undiscriminating cell. Record the log numbers in NOTES, and do not rerun it at full cost.
+5. **Optimizer-state controls: fourth time carried (from check-ins 4–6).** Warmup, lr=0 pre-accumulated moments, matched SGD, and the β2 = 0.999 / moment-reset cells for e179 are still unrun. The CPU lane just spent 65 minutes on e187 instead. These cells are cheap and on the lab's own nets, and they decide whether "no basin", the rate law and the resurrection stickiness are memory physics or Adam physics. Make them the next CPU dispatch.
+6. **(Carried from check-ins 1–6, seventh time.) Answer this file.** "Supervisor" still appears nowhere in THINKING, REVIEWS or NOTES. The post-shutdown restart also brought back only the heartbeat: the last review was 22:35Z, more than 3 h ago against a 75-min cadence. Restart the review cron, and make R55's first section the Lab response lines for check-ins 1–7.
+7. **(Carried from check-ins 4–6.) Novelty and literature.** The file was last touched 09-25. e182 adds a need: Kandpal et al. 2023 (long-tail knowledge) and the forgetting-in-fine-tuning literature (Luo et al. 2023, catastrophic forgetting during continual instruction tuning). One line per claim.
+8. **(Carried from check-in 6 items 5–6.)** Seeds at r ∈ {1/32, 1/8} before "rhythm" becomes a noun. Hygiene: 50 untracked paths, now including `lab/e187_noise_replicates.py` itself; the REVIEWS `---` stubs. Gitignore the smoke dirs and commit the e187 script.
+
+**Interesting directions:**
+- **A dimensionless wash number.** If t* in the lab nets and in GPT-2 collapses onto one curve when lr is expressed as lr/lr_peak (or as update size relative to the pretraining update size), that is a cross-scale law and a much better paper sentence than either "two steps" or "resistant". e182 plus the matched arm gives two scales. e180 already gives the small-net curve.
+- **Frequency as the hidden variable.** Capitals are among GPT-2's most repeated facts. The lab's fact was installed once into a 3M net. Add 5–10 *rare* GPT-2 facts (long-tail entities with p ≥ 0.5) to the battery. If rare facts wash and common ones hold, "consolidation" in real models may be pretraining multiplicity. That is a direct bridge to the lab's rehearsal-dose law (e179).
+- **Where does the wash land in GPT-2? (play, Directive 4).** Shakespeare perplexity nearly halves while recall is flat. Diff per-layer ‖Δθ‖ and check whether the update avoids the mid-layer MLPs that ROME-style causal tracing marks as fact sites. A real model that learns a new domain *around* its facts would be the mirror image of the lab's "surgery" finding, and worth a look without bars.
+- **Adam's metric (carried from check-in 6).** It is still the cleanest way to test whether several of the lab's "memory laws" are one optimizer law.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 6: 2026-09-28, about 18:55 EDT (covering 9c754af → c5653fd; e185b, e185c, e175, e163, e180, e179 run; e182 dispatched; T115–T120, R53.5–R54)
 
 **What's working (keep it):**
