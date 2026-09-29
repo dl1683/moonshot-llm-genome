@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T136 — g2f: the organ survives the root lottery; the ruler did not (2026-09-29 ~21:35Z)
+
+The stranger-base redraw splits the claim the OTHER way: the rhythm
+sustained IN FULL (11 events, 100% in-band, cycle-median 0.598 vs the
+0.5 bar, duty 67%) on a root whose gate failed a third time (0.601;
+lottery 0.591/0.711/0.684/0.601 — 3 of 4 draws miss 0.7). TIMING IS
+NOW 3/3 ROOTS (locked, install-redraw, base-redraw); amplitude 2/3 —
+and the ONE amplitude miss (g2e 0.388) decomposes as GEO SHIFT, not
+weakness: g2e's root moved argmax to g+12 while the frozen
+no-shopping ruler stayed at g0 (g0-pooling there read 0.563/60%);
+g2f's root kept argmax AT g0 and amplitude recovered on a WEAKER
+root. T132's simple floor story ("the root contributes the floor")
+is REFUTED: amplitude tracks RULER-ROOT GEO ALIGNMENT, not strength.
+DECOMPOSITION v2: the organ contributes the clock everywhere and the
+amplitude wherever the frozen ruler lands on the root's own argmax;
+the recipe's fragile half is the ROOT GATE itself. W021 CONNECTION:
+the frozen ruler is the instrument that cannot FOLLOW — the
+no-shopping rule traded bar-shopping for geo blindness; the
+registered fix when the rhythm returns to the ladder is a
+battery-pooled median or an argmax-at-construction rule registered
+BEFORE the draw (all three geos always co-reported). STANDING: the
+organ is robust on every root tested at the ruler's own terms;
+formal ORGAN-REPLICATES waits for a gate-clearing root (g2h queued:
+the r2 ladder's stronger install).
+
 ## T135 — g3R: the cone licensed — forgetting is not distance, it is DIRECTION (2026-09-29 ~21:15Z)
 
 The split replicates at both new seeds with zero broken legs
@@ -3092,7 +3117,11 @@ guarantee-flavored); the g2 "~1/30 ~= 1/32" density
 near-coincidence (the critic dissolved it into refractory arithmetic
 plus O(10) decay steps — a guaranteed near-match); the g2 monitor's
 channel choices; any bar ever adjudicated on the same battery the
-intervention was tuned to.
+intervention was tuned to; and the INVERSE species — the instrument
+that cannot FOLLOW (g2f/T136: the frozen no-shopping ruler, blind to
+a root's argmax shift — the rule traded bar-shopping for geo
+blindness; the fix is registering the ruler rule per-draw, not
+freezing one draw's geometry forever).
 
 ## W022 — WONDER: the wash is half the death gradient — one alignment to bind the rate law, the cone, and the store's immunity (2026-09-29 ~21:20Z; no bars, no kills — but it names the kappa cell)
 

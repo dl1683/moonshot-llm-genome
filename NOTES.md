@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g2f — the base-seed redraw: ORGAN-ROOT-BOUND — the rhythm (timing AND amplitude) sustains on a STRANGER base; the root strength missed the gate again (2026-09-29 ~21:32Z) — DONE
+
+WHAT WE DID: the stranger rung — e098_base_s4306 (fresh base init;
+max|param diff| 0.744 over 873k, hashes recorded) under the locked
+root's own recipe (install gen 4305 HELD, e113 cons 10901, cue pool
+bit-identical, wash 10902); GPU-first envelope (double-poll, 120s
+cooldowns); all 9 hard gates PASS (both stored legs re-pool
+bit-exactly; Rule-12 span check asserted pre-compute).
+
+WHAT WE SAW (T136): the gate FAILED a third time — ruler g0
+0.6005 < 0.7 (geos 0.445/0.600/0.232; argmax matches the locked
+root's g0; lottery now 0.591/0.711/0.684/0.601 across four draws,
+both redraw levels n=1). THE RHYTHM PASSED IN FULL: 11 self-timed
+events, 100% in the 20-45 band, cycle-median 0.598 (locked 0.615,
+g2e sibling 0.388), duty 67% (locked 69%), schedule distinct from
+both prior roots; the wash kills the un-gated organ here too
+(base@+50 0.066). VERDICT: ORGAN-ROOT-BOUND (rhythm yes, gate no —
+the formal architecture claim stays gated). T132's dissociation
+reading UNTESTED (conditional on a strong root) — but the texture
+REFUTES the simple floor story: amplitude RECOVERED on this 0.60
+root while g2e's STRONGER 0.684 root gave 0.388; the amplitude miss
+coincides with g2e's GEO SHIFT (argmax to g+12 under the frozen
+g0 ruler), not weakness. Timing 3/3 roots, amplitude 2/3 — the
+recipe's fragile half is the ROOT GATE, not the organ. Honesty:
+base-draw n=1, single wash seed, GPU-vs-CPU texture vs earlier
+rungs.
+
+---
+
 ---
 
 ---
