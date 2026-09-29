@@ -207,6 +207,26 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g3R — the cone seed replicates: SPLIT-REPLICATES — THE BASIN IS A CONE [the store's own] LICENSED at n=3 (2026-09-29 ~21:15Z) — DONE
+
+WHAT WE DID: the direction-vs-energy split's two critical legs
+(the wash-direction kill and the isotropic spare) at 2 fresh
+draw seeds on g3's reused organ (provenance gates all PASS).
+
+WHAT WE SAW (T135): SPLIT-REPLICATES — both new seeds show the
+split (wash-direction kills at <=2x; isotropic spares at >=2x
+with min g0 >= 0.50); with g3's original cell the split is
+N=3. THE CONE CLAIM IS LICENSED: the store's basin is
+directional — the wash trajectory kills at 1x displacement
+while matched-L2 isotropic noise spares through 4x, at every
+draw. THIRD ARCHITECTURAL CLAIM AT LAW GRADE (with the wall
+and the rhythm): forgetting is not distance — it is DIRECTION.
+Honesty: the organ reused (construction n=1 — the split's
+robustness is over draw seeds, not organ draws); device
+recorded; the full per-seed tables in metrics.
+
+---
+
 ## g4R — the compass + knife replicates: HONEST BOUNDS both — the SUBSTANCE replicates 3/3; the registered bars' specifics don't (the row band slid; the census-selection rule picks load-bearing heads) (2026-09-29 ~20:50Z) — DONE
 
 WHAT WE DID: 2 fresh install draws per claim on g4's surviving

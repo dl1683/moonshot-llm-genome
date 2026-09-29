@@ -676,6 +676,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T135 — g3R: the cone licensed — forgetting is not distance, it is DIRECTION (2026-09-29 ~21:15Z)
+
+The split replicates at both new seeds: the wash trajectory
+kills the store at 1x its own measured displacement while
+matched-L2 isotropic noise spares it through 4x — n=3 draws,
+zero broken legs. THE THIRD LAW-GRADE ARCHITECTURAL CLAIM
+(with the wall g1bR and the rhythm g2d): memory's fragility is
+DIRECTIONAL — the basin is a cone, not a ball [scoped: the
+store's own; the whole organism still dies isotropic at match,
+per e185/e187]. THE G-SERIES' LADDER NOW COMPLETE: three
+claims at n>=3 (wall / rhythm-timing / cone), two scoped
+(compass-positional 3/3-substance band-brittle; headset knife
+3/3 flat-CE), the anatomy (organ/access/route), the
+two-mechanism kill, and the law-census. THE REPLICATION
+PROGRAM ACHIEVED WHAT R55 DEMANDED — every g-positive either
+licensed at the lab's own standard or honestly bounded, none
+minted unqualified.
+
 ## T134 — g4R: the substance replicates where the bars don't — honest bounds as findings (2026-09-29 ~20:50Z)
 
 Both g4 positives return honest bounds, and each bound TEACHES:
