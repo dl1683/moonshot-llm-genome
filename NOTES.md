@@ -207,6 +207,39 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g3 — the generative-memory architecture: G3-DIES, THE LAW HOLDS — the Hopfield store dies at +1 like everything else; the kill-site is QUERY drift; isotropic noise SPARES the store (2026-09-29 ~16:35Z) — DONE
+
+WHAT WE DID: the committed spec implemented (the 17.4k Hopfield
+organ — the arithmetic slip corrected: 17,408); all three arms
+constructed clean (store-carried, host bit-identical, zero
+calibration); the wash, noise, census, two-basin map, and the
+resurrection rider; 949s GPU.
+
+WHAT WE SAW (T126): G3-DIES — GEN, SHAL, HARD, and the S-DISC
+control ALL die at +1 (per-coordinate kill RMS 0.0010 for both
+the store and the deep net — the first AdamW step saturates
+every coordinate; there is nothing special about being an
+attractor). THE KILL-SITE IS QUERY DRIFT (not the registered
+gain-collapse): washed-q x root-K retrieves 0.082 while
+root-q x washed-K retrieves 0.906 — the query projection left
+the key cone; the KEYS still hold the patterns. THE TWO-BASIN
+MAP's dissociation REPLACED: both basins narrow (the beta=8
+store was never an attractor in practice — the spec's own
+construction-finding falsifier fired), BUT the
+DIRECTION-VS-ENERGY dissociation emerged: ISOTROPIC matched-L2
+noise on the store SPARES at every level through 4x (0.88-0.89)
+while the wash direction kills at 1x — THE WASH DOES NOT
+TRAVERSE THE LANDSCAPE; IT RE-SCULPTS IT (the one-line
+prediction held exactly). THE RESURRECTION RIDER NO-FIRE (the
++1 wreck cannot re-enter from one replay — the re-entry
+economy does not survive a total kill on this substrate).
+NOISE-KILLS with collateral (registered, exact). Honesty:
+single seed/lineage; beta=8 unswept; the census reads a
+maximally-wrecked state; the sigma->cosine mapping's sqrt(64)
+miss documented (the measured column authoritative).
+
+---
+
 ## g1b — the 2.74M continuity cell: WALL-HOLDS + NOISE-PENETRATES — the wall is architectural against DISPLACEMENT; the noise kill is non-geometric (2026-09-29 ~15:30Z) — DONE
 
 WHAT WE DID: g1's machinery on the arc's own 2.74M root (G-ROOT

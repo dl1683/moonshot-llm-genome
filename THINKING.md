@@ -676,6 +676,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T126 — g3: the attractor dies like everything else — and the direction/energy split deepens (2026-09-29 ~16:35Z)
+
+The generative-store test returns the law's strongest
+confirmation and its sharpest mechanism split. THE LAW HOLDS
+ABSOLUTELY: an explicit attractor store — the PP lore's
+candidate for what memory SHOULD be — dies at +1 exactly like
+the discriminative net, at the same per-coordinate rate (the
+first AdamW step saturates every coordinate regardless of
+substrate). There is no architectural refuge from continued
+optimization: not the well (g1b walls it, at a tax), not the
+attractor (g3 dies with it). BUT THE KILL-SITE IS PRECISE:
+QUERY drift, not key damage — the washed net cannot FIND its
+patterns (washed-q x root-K = 0.08) while the patterns remain
+(root-q x washed-K = 0.91). The store forgets its ADDRESS, not
+its CONTENT — the address/field split of the whole arc,
+reproduced inside a 17k-parameter organ. THE DEEPEST CELL:
+isotropic matched-L2 noise on the store SPARES it (0.89 at 4x
+displacement) while the wash direction kills at 1x — combined
+with g1b's two-mechanism split, the picture completes: THE
+KILL IS DIRECTION-SELECTIVE (the wash direction hits the query
+cone; isotropic displacement does not), which reframes the
+no-basin law one final time: the basin is not a BALL — it is
+a CONE, and forgetting is the query drifting out of it. FOR
+THE PROGRAM: g3's organ + g1b's wall compose a candidate
+system (store the patterns; wall the query projection only —
+a much cheaper wall than the whole net). g5's question names
+itself: WALL THE QUERY CONE.
+
 ## T125 — g1b: the wall holds — and the kill splits into two mechanisms (2026-09-29 ~15:30Z)
 
 The generative program's first clean architectural verdict:
