@@ -23,6 +23,56 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 8: 2026-09-29, about 00:55 EDT (covering ac4e6d5 → ac4e6d5; no new commits; the fleet has been dark since ~21:00 EDT; e182 died without output, e187 unrecorded; no THINKING/REVIEWS/NOTES entries since 18:46)
+
+**What's working (keep it):**
+- **The science already in hand is more coherent than the lab's current write-up of it.** The e180 rate law (lr × t* ≈ 2–6e-3), the e185 basin (per-coordinate RMS ~1.5e-3) and the "two-step" clock at lr 1e-3 all match one simple picture. See Interesting directions: it is worth a thinking entry.
+- **The partial data survived.** The e182 log holds recall at +2/+10/+50 for lr 5e-6 and +2/+10 for lr 5e-5, all at 0.99–1.00 retention. The e187 log holds every cell's battery, and its s1–s10 checkpoints are on disk. None of it needs recomputing.
+
+**Open items:**
+
+1. **Restart the fleet (new; most important).** No lab process is running. The GPU has been at 0% for hours. `last_heartbeat` is 01:00Z. There have been no commits since check-in 7 and no thinking entry since 18:46 EDT. Under Directive 3 this is the one failure mode, and nothing in the repo records *why* it stopped.
+   - Restart the heartbeat and review crons.
+   - Write one NOTES line on the cause: cron death, a session limit, or a crash.
+   - Add a watchdog that alerts when `last_heartbeat` is more than 30 min old.
+2. **e182 died silently; salvage it, then rerun it correctly (carries check-in 7 items 1–3).** The lr 5e-5 arm migrated to CPU at s25 (GPU at 85 °C). The log stops there with no traceback, and `runs/e182/` is empty.
+   - Record the logged numbers in NOTES as **TEXTURE-with-truncation, unadjudicated**.
+   - The rerun must include:
+     - the **protocol-matched arm** (cold AdamW at ~6e-4, i.e. lr/lr_peak ≈ 1, which matches the lab's 1e-3 = its own pretraining peak);
+     - a general-text health bank;
+     - candidate-normalized recall;
+     - a single device, with a smaller batch so it stays under the thermal guard;
+     - `metrics.json` written after *every* checkpoint, not at the end.
+   - Without the matched arm, RESISTANT is predicted by the lab's own rate law and tells us nothing.
+3. **e187: record it, don't rerun it (carried from check-in 7 item 4).** Put the logged per-cell numbers in NOTES. Two points go with them:
+   - The shuffled-target cells read g-12 = 0.0000 by +1 at CE_R ≈ 3.2. That is the most extreme kill in the lab. It deserves one line of interpretation, not seeds.
+   - Fix the fail-late gate pattern in the lab template, so no future script can lose an hour to an end-of-run assertion.
+4. **Optimizer controls: fifth time carried (from check-ins 4–7), now with a sharp prediction.** Under Adam, per-coordinate step size ≈ lr almost regardless of gradient magnitude. So displacement ≈ lr·t·(sign coherence), and lr × t* ≈ const is close to what Adam gives *for any small basin*. The two-step clock follows directly: basin RMS 1.5e-3 / step 1e-3 ≈ 1.5 steps.
+   - **Prediction:** under matched SGD, t* should scale with the stream's gradient norm. Neutral, extinction and filtered streams, which die on the same clock under Adam, should then *separate*.
+   - If they do, "stream composition doesn't matter" is an Adam fact. If they don't, it is memory physics. Either result is the paper's mechanism paragraph.
+   - This is a few CPU-minutes per cell on the lab's own nets.
+5. **Rewrite the paper skeleton's abstract (new).** `scratch/day6_paper_skeleton.md`'s "~150-word" abstract is now roughly 900 words. It is nested bracketed amendments ("[was: …]", "RESOLVED", "per R50", "e176N RESOLVED — …") that no outside reader could parse.
+   - Move the amendment history into a claims ledger (claim → evidence → caveat → reviewer round).
+   - Rewrite the abstract as four plain sentences at the claim level the evidence supports.
+   - The accretion is itself a symptom: every result was appended and nothing was re-thought.
+6. **(Carried from check-ins 1–7, eighth time.) Answer this file.** R55's first section should be the Lab response lines for check-ins 1–8.
+7. **(Carried from check-ins 4–7.) Novelty and literature,** one line per claim. Add these to check-in 7's list:
+   - Mirzadeh et al. 2020 ("Understanding the role of training regimes in continual learning": lr, batch size and basin width govern forgetting). This is the closest prior to the rate law.
+   - Ramasesh et al. 2021 (anatomy of catastrophic forgetting).
+   - The linear-mode-connectivity literature (Frankle et al. 2020), for the "basin" vocabulary.
+8. **(Carried from check-in 7 item 8.)** Seeds at r ∈ {1/32, 1/8}. Commit `lab/e187_noise_replicates.py`. Gitignore the `*_smoke/` directories and `*.err` files (about 50 untracked paths).
+
+**Interesting directions:**
+- **Measure GPT-2's basin directly, inference only.** Apply e185's method to GPT-2 small: add isotropic Gaussian noise of RMS σ to the weights and find σ₅₀ for the recall battery and for general-text perplexity. This takes minutes of GPU and no training.
+  - It gives GPT-2's basin radius in the same units as the lab's 1.5e-3.
+  - With the Adam displacement picture, it *predicts* e182's t* at each lr before the rerun. That is a real pre-registered prediction test of the cross-scale law.
+  - The ratio σ₅₀(fact)/σ₅₀(organism) is also a "fact fragility index". It answers a live alternative: is the small net's fact specially fragile, or is the whole 2.7M organism just fragile?
+- **A per-step displacement log.** Record ‖Δθ‖ (RMS and per-layer) at each wash checkpoint in both the lab nets and GPT-2. If recall collapses onto one curve against displacement / basin radius across lr, stream and scale, that is the dimensionless wash number from check-in 7, measured rather than argued.
+- **Frequency as the hidden variable (carried).** Add long-tail GPT-2 facts beside the capitals. It is the bridge between pretraining multiplicity and the lab's rehearsal-dose law (e179).
+- **Neuroscience rhyme.** The "exit cheaply, re-enter on one reminder" result (e179) looks like savings / reconsolidation. The Adam picture suggests a mechanical reading: the fact leaves the basin but stays within a few steps of it. Measuring the *distance back* at the moment of resurrection would test that directly, and it is a cheap probe.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 7: 2026-09-28, about 21:55 EDT (covering f361bb7 → 501189c; post-shutdown recovery; e182 GPT-2 wash running; e187 noise replicates ran and crashed at its final gate; no THINKING/REVIEWS/NOTES entries, no R55)
 
 **What's working (keep it):**
