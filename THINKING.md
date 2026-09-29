@@ -676,6 +676,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T132 — g2e: the timing is the organ's; the amplitude is the root's (2026-09-29 ~19:45Z)
+
+The root replicate splits the rhythm claim cleanly: the
+TIMING (the event cadence, the 20-45 band, the self-fire)
+replicated on the fresh root 2/2 — the organ KNOWS when to
+fire wherever it is planted. The AMPLITUDE (the adjudicated
+cycle-median on the frozen ruler) did not — and the
+attribution runs through the ROOT's strength lottery (three
+draws: 0.591/0.684/0.711 against the 0.7 bar) plus a geo
+shift (the fresh root's argmax moved to g+12; on g0 pooling
+its median reads 0.563/duty 60%). THE HONEST DECOMPOSITION:
+the organ contributes the clock; the root contributes the
+floor — and a weaker root's floor drags the sawtooth's median
+under the bar even when every event still resurrects from the
+dip. THE ARCHITECTURE CLAIM'S STATUS: timing root-robust,
+maintenance root-draw-bound, n=1 root at the frozen bar. The
+next rung (a base-seed redraw — s4306 on disk) would
+dissociate organ-lottery from root-lottery; the claim's
+scoping statement is already honest as-is.
+
 ## T131 — g2d: the noun licensed — three rhythms, one waveform; the arc's generative program has its first law-grade architectural claim (2026-09-29 ~19:20Z)
 
 The seed replicate closes it: three wash-draw seeds, distinct

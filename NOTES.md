@@ -207,6 +207,33 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g2e — the root replicate: ROOT-DRAW-BOUND — the rhythm's TIMING replicated on the fresh root; the adjudicated amplitude did not (the root itself missed the gate) (2026-09-29 ~19:45Z) — DONE
+
+WHAT WE DID: a fresh root (gen 4306 — a sibling: base/init/pool/consolidation shared, only the install batch new); the organ verbatim; the dense readout; all gates bit-clean.
+
+WHAT WE SAW (T132): the fresh root's ruler g+12 = 0.684 < the
+0.7 gate (the draw landed in the registered coin-flip zone
+0.591-0.711 across three known draws — the root recipe itself
+is a lottery). THE RHYTHM'S TIMING REPLICATED: 11 self-timed
+events, 100% in the 20-45 band, a schedule distinct from the
+locked root's — the organ fires on the new root. THE AMPLITUDE
+DID NOT (on the frozen ruler): cycle-median 0.388, duty 29%
+(peaks 0.49-0.69 but troughs 0.02-0.28); co-reported on g0 the
+median is 0.563/duty 60% — the fresh root is GEO-SHIFTED
+(argmax g+12 at construction; g0 stronger under wash) and the
+frozen argmax rule decided against it. THE VERDICT:
+ROOT-DRAW-BOUND (the pre-registered residual; neither bar
+fired). THE ARCHITECTURE CLAIM STAYS n=1 root — the honest
+form: the organ's TIMING is root-robust (2/2); its
+adjudicated maintenance is root-draw-bound, and the confound
+is the ROOT'S OWN strength lottery (0.591/0.684/0.711), not
+the organ. The base-seed redraw (e098_base_s4306 on disk) is
+the owed next rung. Honesty: the roots are siblings not
+strangers (one fresh randomness); single wash-seed on the new
+root; CPU-vs-cuda float texture between roots.
+
+---
+
 ## g2d — the seed replicate: RHYTHM-REPLICATES — the noun LICENSED; three seeds, three rhythms, one waveform (2026-09-29 ~19:20Z) — DONE
 
 WHAT WE DID: the organ at wash-draw seeds 10903/10904 (the
