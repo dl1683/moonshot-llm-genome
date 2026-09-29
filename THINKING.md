@@ -678,10 +678,16 @@ enter the discussion in this n=3 form.
 
 ## T135 — g3R: the cone licensed — forgetting is not distance, it is DIRECTION (2026-09-29 ~21:15Z)
 
-The split replicates at both new seeds: the wash trajectory
-kills the store at 1x its own measured displacement while
-matched-L2 isotropic noise spares it through 4x — n=3 draws,
-zero broken legs. THE THIRD LAW-GRADE ARCHITECTURAL CLAIM
+The split replicates at both new seeds with zero broken legs
+[sharpened per the agent's final texture field: g3's exact-1x
+lambda kill (0.238) was a DRAW ARTIFACT — both replicates sit
+ABOVE the dissolve bar at 1x (0.597/0.564) and kill at 2x
+(0.156/0.096); the registered <=2x criterion holds 3/3, and
+the robust object is the DISSOCIATION — at 2x displacement the
+wash direction reads 0.10-0.16 while isotropic reads 0.85-0.89,
+a ~0.7 g0 gap at identical L2. The full-wash kill (+1, g0
+~0.0000) is draw-invariant; the lambda-sweep's edge is
+draw-sensitive in (1x,2x)]. THE THIRD LAW-GRADE ARCHITECTURAL CLAIM
 (with the wall g1bR and the rhythm g2d): memory's fragility is
 DIRECTIONAL — the basin is a cone, not a ball [scoped: the
 store's own; the whole organism still dies isotropic at match,
