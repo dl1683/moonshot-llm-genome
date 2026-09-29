@@ -676,6 +676,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T133 — g1bR: the well is real across seeds — the arc's central positive at law grade (2026-09-29 ~20:15Z)
+
+The wall replicates cleanly: two new wash seeds, both W1 arms
+flat at ~0.9 through 300 steps (mins 0.746/0.803 vs the
+reference's 0.777 — a narrow seed band), both controls dead by
++50. THE COMMIT-AND-PROJECT WELL IS LAW-GRADE at n=3 seeds on
+the calibrated root: one event (the commit) plus one geometric
+constraint (the projection) buys 300 steps of survival through
+the stream that kills in 2 — the arc's central architectural
+positive now at the lab's own standard. THE G-SERIES' EVIDENCE
+STRUCTURE AFTER g1bR + g2d: two architectural claims at n>=3
+(THE WALL; THE RHYTHM's wash-robust timing) + the anatomy
+(organ/access/route) + the two-mechanism kill + the law-census
+(no-basin licensed; compass a census of two; knife replicated
+once; cliff bounded). The well/revival system — the paper's
+second arc — now stands on replicated legs.
+
 ## T132 — g2e: the timing is the organ's; the amplitude is the root's (2026-09-29 ~19:45Z)
 
 The root replicate splits the rhythm claim cleanly: the

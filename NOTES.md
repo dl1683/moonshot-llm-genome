@@ -207,6 +207,26 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g1bR — the wall seed replicates: WALL-REPLICATES — the claim LICENSED at n=3; both new seeds hold 0.9+ through +300 while their controls die (2026-09-29 ~20:15Z) — DONE
+
+WHAT WE DID: g1b's anchored ball at wash-draw seeds 10907/
+10908 (the machinery, root, and bars verbatim; only the stream
+changed); all gates PASS.
+
+WHAT WE SAW (T133): WALL-REPLICATES — seed 10907's W1: min
+0.803, +300 0.906; seed 10908's W1: min 0.746, +300 0.900 —
+BOTH maintain at every checkpoint while their controls die
+(C: 0.002-0.014 by +50). THE CLAIM IS LICENSED AT N=3: the
+commit-and-project well holds the consolidated fact flat at
+~0.9 through the wash that kills the control in 2 steps, at
+every seed tested. The reference (10902: min 0.777, +300
+0.918) completes a tight n=3 band (mins 0.746/0.777/0.803) —
+the wall's floor is seed-robust, its variance narrow. THE
+ARC'S CENTRAL ARCHITECTURAL POSITIVE IS LAW-GRADE: memory is
+made architectural against displacement, across seeds.
+
+---
+
 ## g2e — the root replicate: ROOT-DRAW-BOUND — the rhythm's TIMING replicated on the fresh root; the adjudicated amplitude did not (the root itself missed the gate) (2026-09-29 ~19:45Z) — DONE
 
 WHAT WE DID: a fresh root (gen 4306 — a sibling: base/init/pool/consolidation shared, only the install batch new); the organ verbatim; the dense readout; all gates bit-clean.
