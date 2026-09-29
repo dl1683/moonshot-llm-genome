@@ -207,6 +207,35 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g4R — the compass + knife replicates: HONEST BOUNDS both — the SUBSTANCE replicates 3/3; the registered bars' specifics don't (the row band slid; the census-selection rule picks load-bearing heads) (2026-09-29 ~20:50Z) — DONE
+
+WHAT WE DID: 2 fresh install draws per claim on g4's surviving
+roots (bit-gated); 8 GPU trainings; censuses CPU.
+
+WHAT WE SAW (T134): COMPASS — HONEST BOUND: r1 PASS (site
++0.376 at rows 5-13, A inert); r2's band FAIL — but the arm
+learned at ceiling (0.9994) with the content at rows 3-4
+(+0.82): THE SITE SLID LEFT of the registered band. THE
+SUBSTANCE IS 3/3: P-floor positional placement, A-floor inert
+every time, COMPASS-CONTENT never threatened. What's
+draw-brittle is the ROW BAND, not the placement law. KNIFE —
+HONEST BOUND: the per-census selection rule (e160 top-2)
+picked load-bearing heads both times (kills at +0.97/+1.85 CE
+— kills but NOT flat); g4's LITERAL headset {L1H2,L3H0}
+flat-CE-killed BOTH new nets (88.8% @ +0.170; 86.7% @ +0.177;
+dCE stable to ~0.01 across three installs) — THE KNIFE
+REPLICATES WITH THE COMMITTED HEADSET 3/3; the census-RANKING
+generality does not (it ranks by drop and finds organism
+pillars like L0H3). THE SPINE 4/4: all four new installs
+landed carrier P, replicating the pre-teaching prediction.
+CLAIMS' FATES: both keep scoped forms — compass-positional
+(3/3 substance, draw-brittle band); headset-specific knife
+(3/3 flat-CE, selection-rule bounded). Neither mints
+unqualified per R55. Honesty: install-draw only (root n=1 —
+T113 stands); no wash cell; the fork reported not adjudicated.
+
+---
+
 ## g1bR — the wall seed replicates: WALL-REPLICATES — the claim LICENSED at n=3; both new seeds hold 0.9+ through +300 while their controls die (2026-09-29 ~20:15Z) — DONE
 
 WHAT WE DID: g1b's anchored ball at wash-draw seeds 10907/

@@ -676,6 +676,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T134 — g4R: the substance replicates where the bars don't — honest bounds as findings (2026-09-29 ~20:50Z)
+
+Both g4 positives return honest bounds, and each bound TEACHES:
+the compass's row BAND is draw-brittle (r2's site slid to rows
+3-4 at full strength — the placement law held, the registered
+window didn't; the band is a convention of one draw, not a
+property), and the knife's census-RANKING rule fails because it
+selects by damage — and damage-ranking finds organism pillars
+(L0H3 at ~2 nats ablation cost), not fact-specific circuits.
+The committed headset kills flat 3/3. THE DEEPER LESSON (both
+bounds share it): the SELECTION RULES are the brittle layer;
+the PHENOMENA are robust. The spine's install prediction went
+4/4 — the architecture predicted its own carrier every time it
+was asked. CLAIMS' FINAL FORMS: compass-positional (3/3
+substance, one-family, band-scoped); headset-specific knife
+(3/3 flat-CE); the wall and the rhythm at n=3 law grade; the
+cone and two-site at n=1 (g3R the remaining replicate).
+
 ## T133 — g1bR: the well is real across seeds — the arc's central positive at law grade (2026-09-29 ~20:15Z)
 
 The wall replicates cleanly: two new wash seeds, both W1 arms
