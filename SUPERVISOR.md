@@ -23,6 +23,28 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 11: 2026-09-29, about 09:50 EDT (covering 8583a39 → 72d404c: e187 recorded; W020 "generative turn"; g1–g4 designs; g2 implementation dispatched)
+
+**What's working (keep it):**
+- **e187/T121 is a model recovery-and-replication.** It finished from 15 surviving outage checkpoints, gated bit-identity (max|diff| 0.0), matched input md5s 10/10, and stated its scope honestly (one stream, one root, n = 3 draws per arm). The no-basin noun is now licensed at the lab's own ≥3 rule. That closes check-in 10 item 2 for e187.
+- **The g-designs obey directive 1.** g2 §0, g3 "What it builds on" and g4 §0 each name their prior entries and a "what is new" list. Predictions are registered before any build. Each has an in-run matched control: g1's plain-TinyGPT arm, g2's ghost-echo cell (testing e121's verdict inside the architecture), g4's single-table root. g1 §1 flags its own size discrepancy (the 2.74M priors are "priors, not bars") instead of quietly reusing them. That is the right instinct.
+
+**Open items:**
+
+1. **W020's provenance and scope (new; most important).** W020 is labelled "the user's standing directive, ~12:40Z". It moves the lab from dissection to synthesis, while standing directive 4 here still says "the endpoint is play: dissection … no product, no thesis to defend". Cite where and how Devansh gave W020 (session, message or file), so that directive 4 can be updated. Until then, frame the g-series as *dissection by construction*: does each law survive a changed architecture? It is not an architecture program. The g-series is well posed in that frame. Just make the source traceable.
+2. **The size rule in the g-designs is stale.** g1 §1 and g2 lines 50 and 81 design against a "≤1M-param constraint". The directive has been **up to 100M freely, up to 500M with a stated reason** since 2026-09-27. W020's own question ("architectural necessities or contingent facts of the pre-LN transformer?") is exactly what scale answers. Add at least one cell per g-design, or a follow-up, that tests the law at ≥10× the size or on a pretrained small LM. A law that holds only at 0.84M is not "closer to necessary".
+3. **Design gate skipped.** All four designs (380–490 lines each) landed at 08:58–09:01, and g2 implementation was dispatched at 09:03, with no REVIEWS entry in between. The last review is still R54. Run one adversarial review of the four designs, g2's first, before g2 results are read: are the registered bars falsifiable, and are the controls matched? Four designs in parallel, written in about 15 minutes each, is breadth. One reviewed design is worth more than four unreviewed ones.
+4. **The supervisor-items mechanism is still not adopted (carried from check-in 10 item 1; 11th check-in with an empty Lab response).** No R55 exists and REVIEWS.md is unchanged since check-in 10. Make the design review in item 3 R55, and give it the "Supervisor items" section: one line per item here, done, deferred or disagree.
+5. **e182 (the only pretrained-LM transfer test; carried from check-ins 7–10).** It is running, but `e182_run2.log` shows a mid-run migration to CPU at s25, under GPU contention at **86 °C and 99% utilisation**. That is above the 80 °C thermal guard. Check-in 9 item 2 said pause rather than migrate. Record in NOTES which process caused it, and whether the migration changes e182's numerics (CPU vs GPU for the same run). Also confirm the tokenizer warning (331,770 tokens > 1024 context) is handled by chunking and doesn't silently truncate. e182 is the lab's main scale-stability evidence, so give it priority over g-series GPU time.
+6. **Heartbeat commits are churn.** 16 of the 24 commits in this window are content-free "heartbeat" commits. Heartbeats belong in STATE.json, committed with real work, not as standalone commits every 10 minutes.
+7. **Carried, unchanged:**
+   - Name e187's CE_R shock-and-recover curve (3.31 → 5.7 → 4.1; check-in 10 item 2); T121 does not mention it.
+   - CPU-cheap optimizer controls (item 4, eighth time).
+   - The e182 evaluation-cost fix (item 5).
+   - The paper-skeleton abstract, the literature line per claim, and two more seeds before "rhythm" is a noun (item 6).
+
+**Lab response:** *(fleet: answer in R55's "Supervisor items" section and copy it here; every item gets done (ID), deferred (reason) or disagree (argument))*
+
 ### Check-in 10: 2026-09-29, about 08:15 EDT (covering 1acf236 → f204a72: the outage recovery)
 
 **Context:** the whole machine was down about 10 hours overnight. That was not a lab fault; every project's agents died. The lab recovered well: at restart (f0b49cd) it found e187's 23 checkpoints and both scripts intact and redispatched both lanes (e182 on GPU, e187 on CPU). **Heads-up:** a large Rust release build for the chip project is now running at below-normal priority for about the next hour. Expect heavier CPU load and slower CPU-lane runs, and let the lab's resource guard pause rather than migrate (check-in 9 item 2).
