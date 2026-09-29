@@ -708,6 +708,13 @@ def restore_class(sd_base: dict, sd_src: dict, keys: list, name: str
     return out, gate
 
 
+def tensor_short(k: str) -> str:
+    """Short unique name for a store tensor key (W_q / K / V / W_o / mlp0...)."""
+    s = k.replace("store.", "")
+    s = s.replace(".weight", "").replace(".bias", "_b")
+    return s.replace(".", "")
+
+
 def sd_disp(sd_a: dict, sd_b: dict, keys=None) -> float:
     """Unweighted fp32 L2 over the (sub)space — e185's displacement currency."""
     ks = list(sd_a.keys()) if keys is None else keys
@@ -978,9 +985,9 @@ def wash_run(tag: str, kind: str, sd0: dict, anchor: torch.Tensor,
                 "disp_store": sd_disp(sd_cpu, sd0, skeys),
                 "disp_host": sd_disp(sd_cpu, sd0, hkeys),
                 "disp_all_snap": sd_disp(sd_cpu, sd0),
-                **{f"disp_{k.split('.')[-1]}": float(
+                **{f"disp_{tensor_short(k)}": float(
                     (sd_cpu[k].float() - sd0[k].float()).norm())
-                   for k in skeys if "." in k}})
+                   for k in skeys}})
             log(f"  [{tag}] CKPT +{step:4d} g-12 {gz['mean_pz']:.4f} "
                 f"g0 {gz0['mean_pz']:.4f} CE_R {ce_r:.4f} |d| {cum_disp:.4f} "
                 f"(store {traj[-1]['disp_store']:.4f})")
@@ -1722,9 +1729,9 @@ def main():
             f"{cen['inj_gain_ratio']:.4f} of root | attribution: root-q x "
             f"washed-K a_fact {cen['root_q__washed_K']['a_fact']:.4f}, "
             f"washed-q x root-K {cen['washed_q__root_K']['a_fact']:.4f}")
-        log(f"  per-tensor displacement: "
-            + " ".join(f"{k.split('.')[-1]} {v:.4f}" for k, v
-                       in per_tensor.items()))
+        log("  per-tensor displacement: "
+            + " ".join(f"{tensor_short(k) if k != 'store_total' else k} {v:.4f}"
+                       for k, v in per_tensor.items()))
 
         log(f"STAGE C2 THE CLOSURE PARTITION (2x2 at t* = +{t_gen})")
         skeys = store_keys("gen")
@@ -1874,13 +1881,13 @@ def main():
             g0s = []
             for s_ in ISO_SEEDS:
                 g = torch.Generator().manual_seed(s_)
-                noise = {k: torch.randn(sd_root[k].shape, generator=g)
-                         for k in flat_keys}
-                nn_ = float(sum(float(noise[k].norm() ** 2)
-                                for k in flat_keys) ** 0.5)
+                pert = {k: torch.randn(sd_root[k].shape, generator=g)
+                        for k in flat_keys}
+                pn = float(sum(float(pert[k].norm() ** 2)
+                               for k in flat_keys) ** 0.5)
                 sd_n = {k: v.clone() for k, v in sd_root.items()}
                 for k in flat_keys:
-                    sd_n[k] = sd_root[k] + (L2 / max(nn_, 1e-12)) * noise[k]
+                    sd_n[k] = sd_root[k] + (L2 / max(pn, 1e-12)) * pert[k]
                 g0s.append(battery_cell(evl_load("gen", sd_n), ids130,
                                         zid)["mean_pz"])
             iso_rows.append({"level": lvl, "store_disp": L2,
