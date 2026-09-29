@@ -691,7 +691,13 @@ STRUCTURE AFTER g1bR + g2d: two architectural claims at n>=3
 (organ/access/route) + the two-mechanism kill + the law-census
 (no-basin licensed; compass a census of two; knife replicated
 once; cliff bounded). The well/revival system — the paper's
-second arc — now stands on replicated legs.
+second arc — now stands on replicated legs [official-report
+scoping: what replicates is the well at R=0.7 SPECIFICALLY
+(radius-tuned; W2's dip and W3's death order with R — the
+licensed claim is commit(0.7)+projection, ~0.28x the basin
+prior's low end); wash-draw seeds replicate, the ROOT remains
+single (g2e's question); W2/W3/noise cells stay n=1; device
+migrations recorded, immaterial at the 0.90-vs-0.50 margins].
 
 ## T132 — g2e: the timing is the organ's; the amplitude is the root's (2026-09-29 ~19:45Z)
 
