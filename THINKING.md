@@ -486,6 +486,15 @@ selfhood is a k-dim lock pickable; that would be e112, someday,
 and it would say the net's self is shallower than it acts.)
 
 ## W005 — WONDER: is coordinate-binding a developmental stage? The e112/e113 mirror (2026-09-28 ~02:50Z)
+[ECHO, R56+1 beat (21:22Z): the developmental motif returns as g8 —
+THE NATIVE ORGAN (the ideator's third cell): co-develop the store with
+the host instead of grafting post-hoc; TWO-SITE-IS-STRUCTURAL vs
+NATIVE-STABILITY is precisely W005's question one level up — is the
+fragility a fact of DEVELOPMENT (grafting made it fragile; growing it
+together heals it) or of STRUCTURE (the interface is fragile however
+it arrives)? The lab keeps circling development: e112/e113 -> W005 ->
+g8. Savoring the shape of a program that rediscovers its own
+questions at new scales.]
 
 Noticing a symmetry while e113 runs: e112 asked whether the SELF-
 key can be faked (no — holographic); e113 asks whether the FACT
