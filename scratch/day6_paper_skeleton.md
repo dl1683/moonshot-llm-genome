@@ -172,3 +172,71 @@ kill-set fine structure (two headline numbers, two panels). COMPRESS: R5
 correction chain to a half-page box + the timeline figure. FINISH LINE:
 one reversibility exhibit (e155R or e172); one of e171/e174 per e170's
 branch; GPT-2 probe or an explicit scope sentence; e147R run-or-flag.
+
+
+## g-series integration amendment (coordinator, 2026-09-29 ~21:10Z)
+
+The generative turn's three law-grade positives enter the paper as the
+arc's payoff section. Every dissected law above says memory dies; the
+g-series says the death is an ENGINEERING TARGET — each claim was
+designed FROM a dissected law, pre-registered, then replicated to the
+lab's n>=3 standard.
+
+R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
+   g2e[/g2f in flight], g3/g3R): (a) THE WALL — commit-and-project L2
+   ball (zero new params) holds the consolidated fact at ~0.9 through
+   the +300 wash that kills the control in 2 steps, n=3 seeds, tight
+   band (mins 0.746/0.777/0.803), at +0.53 nats organism tax; (b) THE
+   RHYTHM — a zero-parameter rehearsal organ (cue pool + onset monitor
+   + replay gate) self-times resurrection events in the 20-45 band,
+   three seeds one waveform (medians 0.587/0.602/0.615, duty ~70%);
+   scoping: timing root-robust 2/2, amplitude root-draw-bound (the root
+   recipe is a strength lottery 0.591/0.684/0.711; g2f base-redraw in
+   flight); (c) THE CONE — a Hopfield-style store's basin is DIRECTIONAL:
+   the wash direction kills at 2x displacement (0.10-0.16) where
+   matched-L2 isotropic noise spares through 4x (0.85-0.89) — n=3,
+   zero broken legs; the lambda edge is draw-sensitive in (1x,2x), the
+   dissociation is the robust object.
+   Framing sentence: forgetting is not distance; it is direction — and
+   direction can be walled (g1), detected (g2), or shaped (g3).
+
+Fig 4 (THE generative plate, 3 panels): (i) wall: fact p(Z) vs wash
+   step, W1 flat ~0.9 vs C dead by +50, three seeds shaded; (ii) rhythm:
+   the sawtooth trace with self-timed events marked, three seeds'
+   waveform overlay; (iii) cone: the dissociation bars (wash vs
+   isotropic at 1x/2x/4x matched L2), n=3 with the draw-artifact note.
+
+C6 (contribution, after C5): "Dissection-to-design closure: each
+   architectural positive was designed from a law dissected in R2-R4,
+   pre-registered, and replicated — the compass (R1) predicted WHERE to
+   wall, the no-basin/rate-law results (R2) predicted WHAT to detect,
+   and the direction-vs-energy split (g3R) predicted the basin's shape."
+
+Abstract clause (4), draft: "(4) The same laws are generative: a
+   projection ball, a self-timed rehearsal organ, and a directional
+   basin each convert a dissected failure law into an architectural
+   positive, replicated at n>=3 — memory in these nets is not fragile
+   by necessity but by default."
+
+Evidence gaps (additions):
+6. Rhythm amplitude is root-draw-bound (T132) — g2f (base redraw,
+   in flight) either licenses n=2 roots or scopes the claim; the paper
+   ships the honest decomposition either way (clock = organ, floor =
+   root).
+7. Cone is organ-draw n=1 (g3R's split robustness is over wash-draw
+   seeds on ONE reused organ) — one organ redraw before submission or
+   an explicit scope sentence (prefer both; cheap).
+
+Risks (addition):
+R5 "Circularity — the architectures fix a problem the paper itself
+   shows exists" — pre-empted: the g-series claims are not post-hoc
+   engineering; each was pre-registered with frozen bars BEFORE compute
+   (git-verified), and two falsifiers fired honestly (g5's W_q
+   falsifier; g2's GATE-SILENT) — the design loop is itself evidence
+   the dissected laws are causal, not descriptive.
+
+Cut-list interaction: R6 gets 0.75 pages; pay for it by compressing
+R3's rider list (the maps' numbers to a table) and R5's box (already
+half-page). g5/g4 (the two honestly-scoped cells) enter as one
+sentence each in R6's closing ("two scoped negatives: the compass is
+positional at the A-floor; single-site walls fail two-site fragility").
