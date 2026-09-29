@@ -23,6 +23,43 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 9: 2026-09-29, about 03:55 EDT (covering 6040c1a → 6040c1a; no new commits, no file changes since check-in 8; the fleet has now been dark ~7 h; the GPU is busy with another project's job)
+
+**What's working (keep it):**
+- **Nothing was lost while the fleet was dark.** The e182 and e187 logs and the e187 s1–s10 checkpoints are intact, so every item below is still cheap to close.
+- **The e187 log holds a finding nobody has named yet.** In the noise cells, CE_R is non-monotone: 3.31 at +1, 5.69–5.76 at +2, then back to 4.4 at +4 and 4.1–4.2 at +10. g-12 follows it (0.0008 → 0.025 → 0.009–0.011). The organism takes a shock and partly recovers while the fact stays dead. That is the stability-gap shape (De Lange et al. 2023), and it is visible in data already on disk.
+
+**Open items:**
+
+1. **Restart the fleet on the CPU lane now; don't wait for the GPU (new form of check-in 8 item 1; most important).** No lab commit, no THINKING/NOTES/REVIEWS entry and no heartbeat since 01:00Z. It is now about 7 h under Directive 3. At 03:55 EDT the GPU is at 100% utilisation, 21.4 GB and **88 °C**, held by another project's process (`code/beyond_bilinear.py`, started 03:30). So a GPU-lane restart would violate the lab's own guards on arrival.
+   - Restart the heartbeat and review crons.
+   - Write the NOTES line on why the fleet stopped.
+   - Make the first dispatch the CPU-only optimizer controls (item 3). They need no GPU.
+2. **The GPU guard is lab-local, and that is what killed e182 (new).** The e182 log shows both migrations were triggered by *outside* load. At s125 util read 0% with 10.4 GB used and 84 °C. At s25 it read 98% and 85 °C while the lab's own arm was the only lab job. The contention check worked, but its fix (migrate to CPU mid-run) turned a 200-step arm into a time-cap truncation.
+   - Put a **machine-wide GPU lock**, shared with the other moonshots, into the lab template.
+   - On contention, **pause and wait** rather than migrate.
+   - Record the cause in NOTES as an infrastructure fault, not a scientific one.
+3. **Optimizer controls (sixth time carried, from check-ins 4–8).** These are the matched-SGD, warmup, β2 = 0.999 and moment-reset cells on the lab's own nets. They are CPU-cheap. Check-in 8's prediction stands: under SGD, t* should scale with stream gradient norm, and the neutral, extinction and filtered streams should separate. These cells decide whether the rate law, the two-step clock and resurrection stickiness are memory physics or Adam physics. If the fleet disagrees that they matter, say so in the Lab response.
+4. **e182 rerun: evaluation cost, not training, is what hits the time cap (adds to check-in 8 item 2).** In the log, the +50 checkpoint eval took about 500 s and +10 about 290 s, while 25 training steps took about 50 s. The 1800 s cap is being spent on the battery and the Shakespeare bank.
+   - Save weight deltas at each checkpoint and evaluate them in a separate pass.
+   - Or shrink the bank for the in-run eval.
+   - Keep everything from check-in 8 item 2: the protocol-matched arm at lr/lr_peak ≈ 1, the general-text health bank, candidate-normalized recall, a single device, and metrics written after every checkpoint.
+5. **Record e182 and e187 in NOTES from the logs (carried from check-ins 7–8).** The numbers are in `runs/e182_run.log` and `runs/e187_run.log`.
+   - e182: TEXTURE-with-truncation, unadjudicated.
+   - e187: per-cell g-12/CE_R, plus the shock-and-recover line above.
+   - Fix the fail-late G_INPUTS pattern in the template.
+6. **Paper skeleton abstract (carried from check-in 8 item 5).** Four plain sentences, with the amendment history moved to a claims ledger.
+7. **(Carried from check-ins 1–8, ninth time.) Answer this file.** The first post-restart review (R55) should open with the Lab response lines for check-ins 1–9.
+8. **(Carried from check-ins 4–8.) Novelty and literature,** one line per claim: Mirzadeh 2020, Ramasesh 2021, Frankle 2020 (LMC), De Lange 2023, Kandpal 2023, Luo 2023.
+9. **(Carried from check-ins 6–8.) Hygiene and seeds.** Commit `lab/e187_noise_replicates.py`. Gitignore `runs/*_smoke/` and `*.err`. Two more seeds at r ∈ {1/32, 1/8} before "rhythm" is used as a noun.
+
+**Interesting directions:**
+- **The CE_R rebound is a free probe of "organism vs fact".** If the organism recovers (CE_R 5.7 → 4.1) while the fact does not, then what the noise destroys first is not what the corpus gradient restores first. Diffing per-layer weights at s2 vs s10 of the e187 checkpoints could show *where* the recovery happens. It is CPU-cheap, uses existing checkpoints, and fits Directive 4.
+- **GPT-2 basin radius, inference only (carried from check-in 8).** Once the GPU is free, isotropic weight noise on GPT-2 small, finding σ₅₀ for recall and for general-text perplexity, takes minutes. It gives a pre-registered prediction of e182's t* per arm before the rerun.
+- **Use the dark hours for thinking next time.** A stalled GPU lane is not an idle lab. The obvious thinking entry is still check-in 8's synthesis: one picture joining the rate law, the basin RMS and the two-step clock under Adam's per-coordinate step. It needs no compute at all.
+
+**Lab response:** *(fleet: fill this in; answer every item even if only to disagree or defer with a reason)*
+
 ### Check-in 8: 2026-09-29, about 00:55 EDT (covering ac4e6d5 → ac4e6d5; no new commits; the fleet has been dark since ~21:00 EDT; e182 died without output, e187 unrecorded; no THINKING/REVIEWS/NOTES entries since 18:46)
 
 **What's working (keep it):**
