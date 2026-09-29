@@ -676,6 +676,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T123 — e182: the physics translates — wider basin, same law, same surgery (2026-09-29 ~14:10Z)
+
+The external-validity fuse returns the answer the arc needed:
+GPT-2's facts are NOT wash-proof. At lr 5e-5 the probes erode
+to 0.66 retention by +50 steps with the perplexity IMPROVING
+(the corpus gets better as the facts fade — the surgical
+signature, at 148x the lab's scale); at 5e-6 they hold within
+the horizon — the lr-scaling the rate law predicts. THE BASIN
+IS WIDER (proportionally, ~sqrt(P)); THE LAW IS THE SAME.
+The field-facing line's final form stands: pretrained facts
+are not archives either — they are facts practiced harder; the
+dataloader's direction still chooses who dies, now at scale.
+FOR THE PAPER: the external-validity exhibit is the two-curve
+figure (5e-6 flat; 5e-5 surgical decay, perplexity overlay)
+plus the sqrt(P) basin-width scaling note. W019's scope clause
+completes: the no-basin finding is now bounded by neither
+family NOR scale (tested 0.84M, 2.7M, 124M).
+
 ## T122 — g2: the organ's engine works; the sensor was the failure — architecture's first lesson (2026-09-29 ~14:05Z)
 
 The generative turn's first build returns the most instructive

@@ -207,6 +207,38 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## e182 — the GPT-2 wash: TEXTURE — pretrained facts are NOT wash-proof; the moderate lr erodes to 0.66 by +50 and falling (2026-09-29 ~14:10Z) — DONE (third dispatch)
+
+WHAT WE DID: 10 high-recall cloze probes on GPT-2 124M
+(top-1 100% at baseline); a grep-verified fact-free corpus
+fine-tune at lr 5e-6 and 5e-5; recall checkpoints with a
+perplexity guard; the time cap trimmed the arms at 108/80
+steps (recorded; the +50 cells complete, the +200 partial).
+
+WHAT WE SAW (T123): TEXTURE — neither bar fired cleanly, but
+the direction is decisive AGAINST resistance: at the gentle lr
+(5e-6) retention holds 0.993 through +50 (top-1 100% — the
+hyper-consolidated probe set is untouched at this rate); at
+the moderate lr (5e-5) retention falls to 0.662 by +50 (mean_p
+0.528, top-1 90%) with the perplexity HEALTHY throughout
+(bank_ppl IMPROVING 53.9 -> 34.7 — the model is getting
+better on the corpus while losing the facts: the small-net
+surgical signature, at 124M). THE CROSS-SCALE READ: the
+no-basin physics TRANSLATES — the kill is lr-scaled (the
+gentle rate spares within its horizon, exactly as e180's t* ~
+lr^-1.16 predicts), the organism stays healthy while the facts
+erode (the corpus direction's surgicality, at scale), and the
+decay is slower per unit lr than the tiny-nets' two-step clock
+(the basin is WIDER at 124M — proportionally, exactly as
+sqrt(P) scaling would suggest). NO RESISTANCE: pretrained
+facts are not archives either; they are practiced harder.
+Honesty: the probe set is hyper-consolidated (selected for
+recall >= 0.8 — the floor of what a real model knows; harder
+facts would fall faster); the +200 cells time-capped; single
+seed; the third-dispatch recovery provenance in metrics.
+
+---
+
 ## g2 — the rehearsal organ (the lab's first BUILT architecture): GATE-SILENT — the organ works, the detector didn't; the one fired event self-triggered a resurrection to 0.44 (2026-09-29 ~14:05Z) — DONE (bounded)
 
 WHAT WE DID: the committed spec implemented verbatim (bars
