@@ -676,6 +676,29 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T122 — g2: the organ's engine works; the sensor was the failure — architecture's first lesson (2026-09-29 ~14:05Z)
+
+The generative turn's first build returns the most instructive
+possible outcome: NOT maintained (0.024@+50) but NOT for any
+registered reason — the gate fired once instead of 5-25 times
+because the spec's monitor averaged over the name's self-
+correlation channel (which the wash spares) rather than the
+onset (which it kills). THE ENGINE IS VINDICATED: the single
+self-triggered event resurrected the fact 0.024 -> 0.44 in 24
+steps — the resurrection economy, architectural. THE SENSOR
+FAILED: the organ did not know it was dying because it was
+listening to the wrong channel of its own reading — a sensor-
+actuator mismatch that is itself a memory-science finding:
+THE NET'S OWN SELF-CORRELATION IS NOT ITS MEMORY (the wash
+leaves Z->E at 0.65+ while the fact is dead at 0.02) — the
+distinction between knowing the name's SEQUENCE and knowing
+the name (the ctx->Z onset) is exactly the gap the detector
+needed. g2b named: onset-only monitor. FOR THE PROGRAM: the
+first built architecture taught a measurement lesson, not a
+memory lesson — and that IS the generative turn working (the
+architecture found a distinction the dissection's instruments
+had already drawn but never had to ACT on).
+
 ## T121 — E187: the mechanism formally licensed — and the recovery itself a small demonstration of the lab's memory (2026-09-29 ~12:30Z)
 
 The replication debt discharges clean: four cells, four kills,

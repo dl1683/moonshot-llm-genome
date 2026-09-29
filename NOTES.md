@@ -207,6 +207,42 @@ paired-draw twin (the anchor half gated bit-identical).
 
 ---
 
+## g2 — the rehearsal organ (the lab's first BUILT architecture): GATE-SILENT — the organ works, the detector didn't; the one fired event self-triggered a resurrection to 0.44 (2026-09-29 ~14:05Z) — DONE (bounded)
+
+WHAT WE DID: the committed spec implemented verbatim (bars
+frozen); a fresh family-2 root built (the e157 one failed the
+spec's own strength gate; the rebuild cleared 0.7106 >= 0.7
+first attempt); four cells under the e176N neutral wash; all
+gates PASS; 934s.
+
+WHAT WE SAW (T122): the primary bar FAILED — CELL-G2's ruler
+0.024@+50, 0.001@+300 — but NOT the way any registered
+falsifier predicted: the gate fired ONCE in 300 steps (the
+5-25-event economy band missed by 5x) because the monitor (mean
+p over all 7 name chars) is dominated by the name's SELF-
+CORRELATION channel (6/7 positions Z->E, ZE->P... sit at
+0.65-0.87 under wash while the ctx->Z onset is dead — the
+pre-registered coupling clause caught it: monitor-ruler
+divergence 0.80, CUE-OVERFIT). THE ORGAN'S ENGINE DEMONSTRATED:
+the ONE fired event (step 76, monitor 0.482) RESURRECTED the
+ruler 0.024 -> 0.4435 within 24 steps — e179's resurrection
+signature SELF-TRIGGERED (0.44, just under the 0.5 sawtooth
+bar) — then the gate never re-opened and the fact re-died.
+THE GHOST starved identically (2 events; transient 0.34 then
+eroded) — e121's verdict unadjudicated, both gate cells
+under-fired. SCHED (r=1/32 external): 0.693@+300 — the
+maintaining endpoint replicates on family 2 (the +50 horizon
+misses; the registered family-2 schedule-fragility bound
+applies). BASE reproduced e157's +1 death (contrast gate).
+THE ATTRUTION: the DETECTOR, not the events — g2b's delta is
+named (an onset-only monitor decoupling the gate from the
+self-correlation channel); a re-registration, not this run's.
+Honesty: implementation deltas pre-registered (the family-2
+param count corrected: 873,472, block 512); one thermal
+migration recorded; single seed per cell.
+
+---
+
 ## E187 — the noise replicates: NOISE-KILLS-REPLICATES — the no-basin mechanism formally licensed; the orthogonal kill replicates 4/4 (2026-09-29 ~12:30Z) — DONE
 
 WHAT WE DID: finished from the outage's 15 surviving checkpoints
