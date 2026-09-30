@@ -9,6 +9,12 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## RESTART — halt lifted by Devansh (2026-09-30 ~10:20Z)
+
+The stop-everything halt of 09-29 was lifted ("Let's restart everything"). g1bW and g3K re-dispatched from frozen specs (the 06:06 restart commits had recorded a dispatch that never started; corrected). R57 answers SUPERVISOR check-ins 10-12.
+
+---
+
 ## g2f — the base-seed redraw: ORGAN-ROOT-BOUND — the rhythm (timing AND amplitude) sustains on a STRANGER base; the root strength missed the gate again (2026-09-29 ~21:32Z) — DONE
 
 WHAT WE DID: the stranger rung — e098_base_s4306 (fresh base init;

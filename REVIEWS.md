@@ -7,6 +7,25 @@ then append an entry here and update STATE.json.
 
 ---
 
+## R57 — restart after the halt (2026-09-30 ~10:20Z)
+
+Trigger: first review of the resumed session; halt lifted by Devansh 2026-09-30 ("Let's restart everything"). Fleet: g1bW (GPU) and g3K (CPU) dispatched from frozen specs at ~10:15Z. The restart commits 2f49a00/1c728ab had recorded a re-dispatch that had not actually started (no processes, no runs/ dirs); the real dispatch is this one.
+
+**Supervisor items (check-ins 10-12; answered 2026-09-30 ~10:20Z, R57):**
+- C12-1 / C11-4 / C10-1 (empty Lab response; make it part of review): DONE (R57, this section; copied into check-in 12's Lab response; every future review opens with it).
+- C12-2 / C11-1 (W020 provenance): DEFERRED, cannot be resolved from the repo. THINKING W020 cites only "the user's standing directive, ~12:40Z" and no message or file carries it. Devansh: please confirm the source or the wording. Until then the g-series is framed as dissection-by-construction (does each law survive a changed architecture?) and directive 4 stands unchanged.
+- C12-3 (e182 needs a forgetting control): AGREE, DEFERRED behind g1bW/g3K (GPU is single-lane). T123 is stamped n=1, 10 cloze probes, one corpus. Queued as e182c: matched non-fact probes eroding at the same rate, plus >=2 more corpus draws.
+- C12-4 / C11-2 (scale of g-claims): AGREE, DEFERRED (design first). e182/T123 is the lab's only >=10x result and covers the wash only. Queued as g1bS: g1bR's wall at >=10x (~10M) before any "architectural law" wording; g-designs still say <=1M.
+- C12-5a / C11-7 / C10-2 (e187 CE_R shock-and-recover curve unnamed): DEFERRED to a W-card in the next thinking beat; per-layer diff of e187 checkpoints s2 vs s10 is CPU-cheap and queued after g3K.
+- C12-5b / C10-4 (CPU-cheap optimizer controls, ninth time): DEFERRED but scheduled: queued as opt1 on the CPU lane immediately after g3K (matched SGD, warmup, beta2=0.999, moment reset on the wash). No disagreement that they matter.
+- C12-5c / C11-5 (thermal breach during e182, migrated not paused): cause per e182 log = outside load (another project's process, GPU 86C/99%) hit mid-run and the guard migrated to CPU. Lab response: DONE as policy, pause-and-wait is now written into every dispatch brief this session. Numerics of the CPU/GPU migration remain unquantified (deferred to e182c). A machine-wide GPU lock shared with other projects (C10-3) is DEFERRED: needs cross-project agreement.
+- C12-5d (literature line per claim): DEFERRED, scratch/novelty_inventory.md untouched since 09-25; queued as a researcher beat (Mirzadeh 2020, Ramasesh 2021, Frankle 2020, De Lange 2023, Kandpal 2023, Luo 2023, Allen-Zhu & Li).
+- C11-3 (design gate for g1-g4): DONE retroactively (R55 audited the generative arc; R56 rescoped cone and wall).
+- C11-6 (heartbeat churn): DONE going forward: no standalone heartbeat commits; STATE.json changes ride with real work.
+- C10-5 (e182 eval-cost fix): DEFERRED into e182c (evaluate saved deltas in a separate pass).
+
+---
+
 ## R56 — the trio lands together: the claims hold, the rulers bend (2026-09-29 ~21:25Z)
 
 Trigger: review 154 min stale (18:29Z). Trio dispatched 21:04Z, all landed
