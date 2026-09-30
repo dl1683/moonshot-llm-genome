@@ -1,0 +1,1194 @@
+{
+  "experiment": "opt1_optimizer_controls",
+  "date": "2026-09-30T10:57:11Z",
+  "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and in registered_prediction, frozen before compute)",
+  "registered_prediction": {
+    "opt_agnostic": "OPT-AGNOSTIC: \"fires if SGD kills the fact within 2x of the AdamW clock at comparable final displacement AND no single Adam knob (A3/A4/A5) shifts t* by >=2x \u2014 the no-basin trajectory law is optimizer-agnostic memory physics.\"",
+    "adam_amplifies": "ADAM-AMPLIFIES: \"fires if any single Adam knob shifts t* by >=2x (either direction) OR matched-displacement SGD survives >=5x longer \u2014 the kill is substantially Adam-carried; every no-basin statement gains an optimizer clause.\"",
+    "mixed_texture": "MIXED-TEXTURE: \"any graded outcome \u2014 report the full arm table verbatim; no binary claim.\"",
+    "operationalizations": "the fact = g-12 (install-60 battery mean p(Z) at ctx offset -12, e185's convention); KILL = g-12 <= 0.27 (SHUT), SPARE = g-12 >= 0.50; t* reported as t_ck (first checkpoint <= 0.27; e185's stored convention) AND t_x (linearly interpolated 0.27 crossing, root read as step-0 anchor); bar ratios use t_x; displacement = cumulative ||theta_t - theta_0||_2 over all 2,739,072 params (fp32, CPU, per step) + increments + PRE-CLIP grad norms; D_kill = 2.4892616271972656 (e185 stored, A0-gated); 'comparable final displacement' = D at the SGD arm's t* within [0.5, 2.0] x D_kill; 'matched-displacement SGD survives >=5x longer' = an SGD arm reaching D >= D_kill within its window with g-12 >= 0.50 at every matched checkpoint or t_x >= 5x A0's t_x (SGD arms that never reach D_kill within the CPU cap CANNOT fire the clause \u2014 cap-limited ambiguity + EXTRAPOLATED clock co-reported, projections never adjudicate); 'shifts t* by >=2x' = t_x(knob)/t_x(A0) >= 2 or <= 0.5; alignment = cos(delta_theta_t, grad of mean log p(Z) on the fact battery at theta_t), critic's sign convention (negative = death-aligned); CE at each step + CE_R at every checkpoint; composite order frozen OPT-AGNOSTIC -> ADAM-AMPLIFIES -> MIXED-TEXTURE; if A0 does not kill by +10 the cell ABORTS to MIXED-TEXTURE (control failure).",
+    "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "is the fast fact-kill OPTIMIZER-AGNOSTIC memory physics, or is it carried by Adam's moment/normalization structure? The licensed e185 wash cell VERBATIM (true targets, seed-10902 stream, the consolidated host fact) with ONLY the optimizer swapped: A0 AdamW recipe, A1 SGD matched-lr, A2 SGD ladder {3e-3, 1e-2}, A3 warmup-30, A4 beta2=0.999, A5 moment-reset-at-wash-start. Reads: g-12/g0 batteries, CE_R, per-step displacement + pre-clip grad norms, and the alignment co-read cos(delta_theta_t, grad fact) at every checkpoint.",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.96e-08)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cell": {
+    "licensed_cell": "e185 arm C (CONTROL) VERBATIM \u2014 the consolidated host fact under its neutral/corpus wash",
+    "batch": "32 = 16 neutral-bank anchors (seed 170, fixed) + 16 random corpus windows, full-token CE, clip 1.0",
+    "targets": "TRUE (the real neutral wash \u2014 the optimizer is the only delta)",
+    "input_seed": 10902,
+    "ckpt_cadence": "e185's {1,2,4,10} verbatim + geometric extension {8,20,40,80,160}",
+    "measure_light": "g-12 / g0 batteries + CE_R + alignment + displacement + pre-clip grad norms (the dispatch's read list; no census/deletions)"
+  },
+  "arms": {
+    "a0_adamw_ref": {
+      "desc": "A0 AdamW reference \u2014 the recipe VERBATIM (AdamW 0.9/0.95 wd 0.1, constant lr 1e-3, fresh state): the known kill clock t*=+2; doubles as the e185 reproduction gate",
+      "opt_class": "AdamW",
+      "opt_spec": {
+        "kind": "AdamW",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "weight_decay": 0.1,
+        "momentum": null,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 19.1,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.001,
+          "elapsed_s": 2.0,
+          "gm12": 0.6780440807342529,
+          "g0": 0.4619811177253723,
+          "frac_argmax_z": 0.85,
+          "ce_r": 2.2113420963287354,
+          "cos_delta_fact_g0": -0.015248272567987442,
+          "cos_delta_fact_m12": -0.03851291537284851
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263245820999146,
+          "cum_disp": 2.4892616271972656,
+          "step_disp": 1.0913957357406616,
+          "preclip_gnorm": 6.195682048797607,
+          "lr_eff": 0.001,
+          "elapsed_s": 10.1,
+          "gm12": 0.027077054604887962,
+          "g0": 0.1147073358297348,
+          "frac_argmax_z": 0.016666666666666666,
+          "ce_r": 2.032074451446533,
+          "cos_delta_fact_g0": -0.04381672292947769,
+          "cos_delta_fact_m12": -0.04329743608832359
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.669585943222046,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403939008712769,
+          "preclip_gnorm": 3.860910177230835,
+          "lr_eff": 0.001,
+          "elapsed_s": 17.3
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631858825683594,
+          "cum_disp": 3.526789665222168,
+          "step_disp": 0.7374950051307678,
+          "preclip_gnorm": 2.229318380355835,
+          "lr_eff": 0.001,
+          "elapsed_s": 19.1
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.6780440807342529,
+          "g0": 0.4619811177253723,
+          "ce_r": 2.2113420963287354,
+          "cum_disp": 1.6542880535125732,
+          "cos_delta_fact_g0": -0.015248272567987442,
+          "cos_delta_fact_m12": -0.03851291537284851,
+          "cos_vs_a0": 0.9999352097511292
+        },
+        {
+          "step": 2,
+          "gm12": 0.027077054604887962,
+          "g0": 0.1147073358297348,
+          "ce_r": 2.032074451446533,
+          "cum_disp": 2.4892616271972656,
+          "cos_delta_fact_g0": -0.04381672292947769,
+          "cos_delta_fact_m12": -0.04329743608832359,
+          "cos_vs_a0": 1.0000027418136597
+        }
+      ],
+      "tstar": {
+        "t_ck": 2,
+        "t_x": 1.6268275724509023,
+        "bracket": [
+          1,
+          2
+        ],
+        "D_at_kill": 2.4892616271972656,
+        "D_kill_ratio": 1.0,
+        "steady_disp_rate": 1.0808931738138199,
+        "extrapolated_steps_to_D_kill": 2.3029672936264025,
+        "extrapolation_flag": "MEASURED t* (kill inside window)",
+        "reached_D_kill": true,
+        "final_cum_disp": 3.526789665222168,
+        "final_gm12": 0.027077054604887962,
+        "steps_ran": 4,
+        "train_seconds": 19.1
+      },
+      "zeph_violations": 0
+    },
+    "a1_sgd_1e-3": {
+      "desc": "A1 SGD matched-lr \u2014 plain SGD (momentum 0, wd 0, clip 1.0 retained) at the same lr 1e-3",
+      "opt_class": "SGD",
+      "opt_spec": {
+        "kind": "SGD",
+        "lr": 0.001,
+        "betas": null,
+        "weight_decay": 0.0,
+        "momentum": 0,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 18.4,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 0.0009829070186242461,
+          "step_disp": 0.0009829070186242461,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.001,
+          "elapsed_s": 1.9,
+          "gm12": 0.9162279963493347,
+          "g0": 0.7846817374229431,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6633177995681763,
+          "cos_delta_fact_g0": -0.0712742954492569,
+          "cos_delta_fact_m12": 0.09807665646076202
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3287270069122314,
+          "cum_disp": 0.0015731329331174493,
+          "step_disp": 0.0008254344575107098,
+          "preclip_gnorm": 0.8254303336143494,
+          "lr_eff": 0.001,
+          "elapsed_s": 9.5,
+          "gm12": 0.9168444871902466,
+          "g0": 0.7842280268669128,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6632475852966309,
+          "cos_delta_fact_g0": -0.10452070832252502,
+          "cos_delta_fact_m12": 0.12127525359392166
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.3646743297576904,
+          "cum_disp": 0.0022597562056034803,
+          "step_disp": 0.0008584381430409849,
+          "preclip_gnorm": 0.8584434390068054,
+          "lr_eff": 0.001,
+          "elapsed_s": 16.6
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3164634704589844,
+          "cum_disp": 0.0030282847583293915,
+          "step_disp": 0.000982953468337655,
+          "preclip_gnorm": 0.9829545617103577,
+          "lr_eff": 0.001,
+          "elapsed_s": 18.4
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.9162279963493347,
+          "g0": 0.7846817374229431,
+          "ce_r": 1.6633177995681763,
+          "cum_disp": 0.0009829070186242461,
+          "cos_delta_fact_g0": -0.0712742954492569,
+          "cos_delta_fact_m12": 0.09807665646076202,
+          "cos_vs_a0": 0.5951780080795288
+        },
+        {
+          "step": 2,
+          "gm12": 0.9168444871902466,
+          "g0": 0.7842280268669128,
+          "ce_r": 1.6632475852966309,
+          "cum_disp": 0.0015731329331174493,
+          "cos_delta_fact_g0": -0.10452070832252502,
+          "cos_delta_fact_m12": 0.12127525359392166,
+          "cos_vs_a0": 0.4846837818622589
+        }
+      ],
+      "tstar": {
+        "t_ck": null,
+        "t_x": null,
+        "bracket": null,
+        "D_at_kill": null,
+        "D_kill_ratio": null,
+        "steady_disp_rate": 0.000912433271878399,
+        "extrapolated_steps_to_D_kill": 2728.157448788225,
+        "extrapolation_flag": "EXTRAPOLATED ONLY (no kill inside the arm's window; D_kill / steady rate \u2014 never adjudicates)",
+        "reached_D_kill": false,
+        "final_cum_disp": 0.0030282847583293915,
+        "final_gm12": 0.9168444871902466,
+        "steps_ran": 4,
+        "train_seconds": 18.4
+      },
+      "zeph_violations": 0
+    },
+    "a2a_sgd_3e-3": {
+      "desc": "A2a SGD ladder \u2014 plain SGD at lr 3e-3 (co-reported; locates the SGD kill clock)",
+      "opt_class": "SGD",
+      "opt_spec": {
+        "kind": "SGD",
+        "lr": 0.003,
+        "betas": null,
+        "weight_decay": 0.0,
+        "momentum": 0,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 17.1,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 0.0029485111590474844,
+          "step_disp": 0.0029485111590474844,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.003,
+          "elapsed_s": 1.7,
+          "gm12": 0.9174768924713135,
+          "g0": 0.7839756608009338,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6629292964935303,
+          "cos_delta_fact_g0": -0.07075704634189606,
+          "cos_delta_fact_m12": 0.09694139659404755
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.327906608581543,
+          "cum_disp": 0.004695332143455744,
+          "step_disp": 0.00245704036206007,
+          "preclip_gnorm": 0.8190780878067017,
+          "lr_eff": 0.003,
+          "elapsed_s": 8.6,
+          "gm12": 0.9191913604736328,
+          "g0": 0.7826520204544067,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6627434492111206,
+          "cos_delta_fact_g0": -0.10308171063661575,
+          "cos_delta_fact_m12": 0.1173119843006134
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.362818956375122,
+          "cum_disp": 0.006710287649184465,
+          "step_disp": 0.00253908964805305,
+          "preclip_gnorm": 0.8464385867118835,
+          "lr_eff": 0.003,
+          "elapsed_s": 15.5
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3134585618972778,
+          "cum_disp": 0.008954137563705444,
+          "step_disp": 0.0029020390938967466,
+          "preclip_gnorm": 0.9674167037010193,
+          "lr_eff": 0.003,
+          "elapsed_s": 17.1
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.9174768924713135,
+          "g0": 0.7839756608009338,
+          "ce_r": 1.6629292964935303,
+          "cum_disp": 0.0029485111590474844,
+          "cos_delta_fact_g0": -0.07075704634189606,
+          "cos_delta_fact_m12": 0.09694139659404755,
+          "cos_vs_a0": 0.5952218770980835
+        },
+        {
+          "step": 2,
+          "gm12": 0.9191913604736328,
+          "g0": 0.7826520204544067,
+          "ce_r": 1.6627434492111206,
+          "cum_disp": 0.004695332143455744,
+          "cos_delta_fact_g0": -0.10308171063661575,
+          "cos_delta_fact_m12": 0.1173119843006134,
+          "cos_vs_a0": 0.4860000014305115
+        }
+      ],
+      "tstar": {
+        "t_ck": null,
+        "t_x": null,
+        "bracket": null,
+        "D_at_kill": null,
+        "D_kill_ratio": null,
+        "steady_disp_rate": 0.0027116700657643378,
+        "extrapolated_steps_to_D_kill": 917.9810105310943,
+        "extrapolation_flag": "EXTRAPOLATED ONLY (no kill inside the arm's window; D_kill / steady rate \u2014 never adjudicates)",
+        "reached_D_kill": false,
+        "final_cum_disp": 0.008954137563705444,
+        "final_gm12": 0.9191913604736328,
+        "steps_ran": 4,
+        "train_seconds": 17.1
+      },
+      "zeph_violations": 0
+    },
+    "a2b_sgd_1e-2": {
+      "desc": "A2b SGD ladder \u2014 plain SGD at lr 1e-2 (co-reported; locates the SGD kill clock)",
+      "opt_class": "SGD",
+      "opt_spec": {
+        "kind": "SGD",
+        "lr": 0.01,
+        "betas": null,
+        "weight_decay": 0.0,
+        "momentum": 0,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 17.0,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 0.009828010573983192,
+          "step_disp": 0.009828010573983192,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.01,
+          "elapsed_s": 1.5,
+          "gm12": 0.9215604066848755,
+          "g0": 0.7815586924552917,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6616665124893188,
+          "cos_delta_fact_g0": -0.06893327832221985,
+          "cos_delta_fact_m12": 0.09291957318782806
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.325148582458496,
+          "cum_disp": 0.01538199931383133,
+          "step_disp": 0.007982860319316387,
+          "preclip_gnorm": 0.7983586192131042,
+          "lr_eff": 0.01,
+          "elapsed_s": 8.9,
+          "gm12": 0.9259465336799622,
+          "g0": 0.7775501608848572,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6612963676452637,
+          "cos_delta_fact_g0": -0.09832924604415894,
+          "cos_delta_fact_m12": 0.10405803471803665
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.3568209409713745,
+          "cum_disp": 0.021635321900248528,
+          "step_disp": 0.008112984709441662,
+          "preclip_gnorm": 0.8113827705383301,
+          "lr_eff": 0.01,
+          "elapsed_s": 15.4
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3040013313293457,
+          "cum_disp": 0.028521329164505005,
+          "step_disp": 0.009243136271834373,
+          "preclip_gnorm": 0.9244040250778198,
+          "lr_eff": 0.01,
+          "elapsed_s": 17.0
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.9215604066848755,
+          "g0": 0.7815586924552917,
+          "ce_r": 1.6616665124893188,
+          "cum_disp": 0.009828010573983192,
+          "cos_delta_fact_g0": -0.06893327832221985,
+          "cos_delta_fact_m12": 0.09291957318782806,
+          "cos_vs_a0": 0.5952447652816772
+        },
+        {
+          "step": 2,
+          "gm12": 0.9259465336799622,
+          "g0": 0.7775501608848572,
+          "ce_r": 1.6612963676452637,
+          "cum_disp": 0.01538199931383133,
+          "cos_delta_fact_g0": -0.09832924604415894,
+          "cos_delta_fact_m12": 0.10405803471803665,
+          "cos_vs_a0": 0.4904066324234009
+        }
+      ],
+      "tstar": {
+        "t_ck": null,
+        "t_x": null,
+        "bracket": null,
+        "D_at_kill": null,
+        "D_kill_ratio": null,
+        "steady_disp_rate": 0.008791747968643904,
+        "extrapolated_steps_to_D_kill": 283.1361449481161,
+        "extrapolation_flag": "EXTRAPOLATED ONLY (no kill inside the arm's window; D_kill / steady rate \u2014 never adjudicates)",
+        "reached_D_kill": false,
+        "final_cum_disp": 0.028521329164505005,
+        "final_gm12": 0.9259465336799622,
+        "steps_ran": 4,
+        "train_seconds": 17.0
+      },
+      "zeph_violations": 0
+    },
+    "a3_adamw_warmup30": {
+      "desc": "A3 AdamW recipe + 30-step linear warmup into the wash (lr_eff = 1e-3 * min(1, step/30))",
+      "opt_class": "AdamW",
+      "opt_spec": {
+        "kind": "AdamW",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "weight_decay": 0.1,
+        "momentum": null,
+        "clip": 1.0,
+        "lr_schedule": "linear warmup 30 steps"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 14.4,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 0.05513203144073486,
+          "step_disp": 0.05513203144073486,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 3.3333333333333335e-05,
+          "elapsed_s": 1.9,
+          "gm12": 0.9273566603660583,
+          "g0": 0.7768226265907288,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6593070030212402,
+          "cos_delta_fact_g0": -0.028110865503549576,
+          "cos_delta_fact_m12": 0.03292899951338768
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.3182028532028198,
+          "cum_disp": 0.13128796219825745,
+          "step_disp": 0.08490598201751709,
+          "preclip_gnorm": 0.7678846716880798,
+          "lr_eff": 6.666666666666667e-05,
+          "elapsed_s": 7.5,
+          "gm12": 0.9399986267089844,
+          "g0": 0.7583287358283997,
+          "frac_argmax_z": 1.0,
+          "ce_r": 1.6573046445846558,
+          "cos_delta_fact_g0": -0.03863919526338577,
+          "cos_delta_fact_m12": 0.026078807190060616
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.327233076095581,
+          "cum_disp": 0.23699001967906952,
+          "step_disp": 0.1150294840335846,
+          "preclip_gnorm": 0.7276748418807983,
+          "lr_eff": 0.0001,
+          "elapsed_s": 13.0
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.2357696294784546,
+          "cum_disp": 0.3675830364227295,
+          "step_disp": 0.1419721096754074,
+          "preclip_gnorm": 0.789387047290802,
+          "lr_eff": 0.00013333333333333334,
+          "elapsed_s": 14.4
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.9273566603660583,
+          "g0": 0.7768226265907288,
+          "ce_r": 1.6593070030212402,
+          "cum_disp": 0.05513203144073486,
+          "cos_delta_fact_g0": -0.028110865503549576,
+          "cos_delta_fact_m12": 0.03292899951338768,
+          "cos_vs_a0": 1.0001368522644043
+        },
+        {
+          "step": 2,
+          "gm12": 0.9399986267089844,
+          "g0": 0.7583287358283997,
+          "ce_r": 1.6573046445846558,
+          "cum_disp": 0.13128796219825745,
+          "cos_delta_fact_g0": -0.03863919526338577,
+          "cos_delta_fact_m12": 0.026078807190060616,
+          "cos_vs_a0": 0.8626566529273987
+        }
+      ],
+      "tstar": {
+        "t_ck": null,
+        "t_x": null,
+        "bracket": null,
+        "D_at_kill": null,
+        "D_kill_ratio": null,
+        "steady_disp_rate": 0.09925990179181099,
+        "extrapolated_steps_to_D_kill": 25.078219726816528,
+        "extrapolation_flag": "EXTRAPOLATED ONLY (no kill inside the arm's window; D_kill / steady rate \u2014 never adjudicates)",
+        "reached_D_kill": false,
+        "final_cum_disp": 0.3675830364227295,
+        "final_gm12": 0.9399986267089844,
+        "steps_ran": 4,
+        "train_seconds": 14.4
+      },
+      "zeph_violations": 0
+    },
+    "a4_adamw_b2_0.999": {
+      "desc": "A4 AdamW recipe with beta2=0.999 (vs the recipe's 0.95), all else verbatim",
+      "opt_class": "AdamW",
+      "opt_spec": {
+        "kind": "AdamW",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0.1,
+        "momentum": null,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 14.3,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.001,
+          "elapsed_s": 1.5,
+          "gm12": 0.6780440807342529,
+          "g0": 0.46198102831840515,
+          "frac_argmax_z": 0.85,
+          "ce_r": 2.2113420963287354,
+          "cos_delta_fact_g0": -0.015248280018568039,
+          "cos_delta_fact_m12": -0.03851292282342911
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.826324701309204,
+          "cum_disp": 2.4845683574676514,
+          "step_disp": 1.0888170003890991,
+          "preclip_gnorm": 6.195681095123291,
+          "lr_eff": 0.001,
+          "elapsed_s": 7.4,
+          "gm12": 0.026429390534758568,
+          "g0": 0.11021605879068375,
+          "frac_argmax_z": 0.016666666666666666,
+          "ce_r": 2.032167673110962,
+          "cos_delta_fact_g0": -0.0439055860042572,
+          "cos_delta_fact_m12": -0.043370556086301804
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.6699155569076538,
+          "cum_disp": 3.068355083465576,
+          "step_disp": 0.83709716796875,
+          "preclip_gnorm": 3.873211622238159,
+          "lr_eff": 0.001,
+          "elapsed_s": 12.9
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3633657693862915,
+          "cum_disp": 3.512664794921875,
+          "step_disp": 0.7360115647315979,
+          "preclip_gnorm": 2.2466306686401367,
+          "lr_eff": 0.001,
+          "elapsed_s": 14.3
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.6780440807342529,
+          "g0": 0.46198102831840515,
+          "ce_r": 2.2113420963287354,
+          "cum_disp": 1.6542880535125732,
+          "cos_delta_fact_g0": -0.015248280018568039,
+          "cos_delta_fact_m12": -0.03851292282342911,
+          "cos_vs_a0": 0.9999352097511292
+        },
+        {
+          "step": 2,
+          "gm12": 0.026429390534758568,
+          "g0": 0.11021605879068375,
+          "ce_r": 2.032167673110962,
+          "cum_disp": 2.4845683574676514,
+          "cos_delta_fact_g0": -0.0439055860042572,
+          "cos_delta_fact_m12": -0.043370556086301804,
+          "cos_vs_a0": 0.9999967813491821
+        }
+      ],
+      "tstar": {
+        "t_ck": 2,
+        "t_x": 1.6262045452187834,
+        "bracket": [
+          1,
+          2
+        ],
+        "D_at_kill": 2.4845683574676514,
+        "D_kill_ratio": 0.9981145936295581,
+        "steady_disp_rate": 1.079053446650505,
+        "extrapolated_steps_to_D_kill": 2.3068937270199124,
+        "extrapolation_flag": "MEASURED t* (kill inside window)",
+        "reached_D_kill": false,
+        "final_cum_disp": 3.512664794921875,
+        "final_gm12": 0.026429390534758568,
+        "steps_ran": 4,
+        "train_seconds": 14.3
+      },
+      "zeph_violations": 0
+    },
+    "a5_adamw_moment_reset": {
+      "desc": "A5 AdamW moment-reset at wash start \u2014 FRESH optimizer state, same weights (NULL ARM BY CONSTRUCTION: the e185 cell never loads optimizer state; expected bit-identical to A0 \u2014 run as the inherited-state gate + determinism replicate)",
+      "opt_class": "AdamW",
+      "opt_spec": {
+        "kind": "AdamW",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "weight_decay": 0.1,
+        "momentum": null,
+        "clip": 1.0,
+        "lr_schedule": "constant"
+      },
+      "max_steps": 4,
+      "steps_ran": 4,
+      "train_seconds": 15.3,
+      "time_cap": 180.0,
+      "seed": 10902,
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.6542880535125732,
+          "step_disp": 1.6542880535125732,
+          "preclip_gnorm": 0.9829167127609253,
+          "lr_eff": 0.001,
+          "elapsed_s": 1.4,
+          "gm12": 0.6780440807342529,
+          "g0": 0.4619811177253723,
+          "frac_argmax_z": 0.85,
+          "ce_r": 2.2113420963287354,
+          "cos_delta_fact_g0": -0.015248272567987442,
+          "cos_delta_fact_m12": -0.03851291537284851
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8263245820999146,
+          "cum_disp": 2.4892616271972656,
+          "step_disp": 1.0913957357406616,
+          "preclip_gnorm": 6.195682048797607,
+          "lr_eff": 0.001,
+          "elapsed_s": 7.1,
+          "gm12": 0.027077054604887962,
+          "g0": 0.1147073358297348,
+          "frac_argmax_z": 0.016666666666666666,
+          "ce_r": 2.032074451446533,
+          "cos_delta_fact_g0": -0.04381672292947769,
+          "cos_delta_fact_m12": -0.04329743608832359
+        },
+        {
+          "step": 3,
+          "ce_batch": 1.669585943222046,
+          "cum_disp": 3.0785462856292725,
+          "step_disp": 0.8403939008712769,
+          "preclip_gnorm": 3.860910177230835,
+          "lr_eff": 0.001,
+          "elapsed_s": 13.8
+        },
+        {
+          "step": 4,
+          "ce_batch": 1.3631858825683594,
+          "cum_disp": 3.526789665222168,
+          "step_disp": 0.7374950051307678,
+          "preclip_gnorm": 2.229318380355835,
+          "lr_eff": 0.001,
+          "elapsed_s": 15.3
+        }
+      ],
+      "ckpt_table": [
+        {
+          "step": 0,
+          "gm12": 0.9155886173248291,
+          "g0": 0.7850371599197388,
+          "ce_r": 1.663516640663147,
+          "cum_disp": 0.0,
+          "cos_delta_fact_g0": null,
+          "cos_delta_fact_m12": null,
+          "cos_vs_a0": null
+        },
+        {
+          "step": 1,
+          "gm12": 0.6780440807342529,
+          "g0": 0.4619811177253723,
+          "ce_r": 2.2113420963287354,
+          "cum_disp": 1.6542880535125732,
+          "cos_delta_fact_g0": -0.015248272567987442,
+          "cos_delta_fact_m12": -0.03851291537284851,
+          "cos_vs_a0": 0.9999352097511292
+        },
+        {
+          "step": 2,
+          "gm12": 0.027077054604887962,
+          "g0": 0.1147073358297348,
+          "ce_r": 2.032074451446533,
+          "cum_disp": 2.4892616271972656,
+          "cos_delta_fact_g0": -0.04381672292947769,
+          "cos_delta_fact_m12": -0.04329743608832359,
+          "cos_vs_a0": 1.0000027418136597
+        }
+      ],
+      "tstar": {
+        "t_ck": 2,
+        "t_x": 1.6268275724509023,
+        "bracket": [
+          1,
+          2
+        ],
+        "D_at_kill": 2.4892616271972656,
+        "D_kill_ratio": 1.0,
+        "steady_disp_rate": 1.0808931738138199,
+        "extrapolated_steps_to_D_kill": 2.3029672936264025,
+        "extrapolation_flag": "MEASURED t* (kill inside window)",
+        "reached_D_kill": true,
+        "final_cum_disp": 3.526789665222168,
+        "final_gm12": 0.027077054604887962,
+        "steps_ran": 4,
+        "train_seconds": 15.3
+      },
+      "zeph_violations": 0
+    }
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e185's control stream; FIXED content, not reseeded)",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_INPUTS": {
+      "per_step": {
+        "1": {
+          "a0_adamw_ref": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a1_sgd_1e-3": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a2a_sgd_3e-3": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a2b_sgd_1e-2": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a3_adamw_warmup30": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a4_adamw_b2_0.999": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a5_adamw_moment_reset": "1ea27bffde6c4a53be8badf5ab453d64",
+          "identical": true
+        },
+        "2": {
+          "a0_adamw_ref": "1d6f0e55cc6a25ece947d2040528225e",
+          "a1_sgd_1e-3": "1d6f0e55cc6a25ece947d2040528225e",
+          "a2a_sgd_3e-3": "1d6f0e55cc6a25ece947d2040528225e",
+          "a2b_sgd_1e-2": "1d6f0e55cc6a25ece947d2040528225e",
+          "a3_adamw_warmup30": "1d6f0e55cc6a25ece947d2040528225e",
+          "a4_adamw_b2_0.999": "1d6f0e55cc6a25ece947d2040528225e",
+          "a5_adamw_moment_reset": "1d6f0e55cc6a25ece947d2040528225e",
+          "identical": true
+        },
+        "3": {
+          "a0_adamw_ref": "b5c0b670270406a94aca63071b051468",
+          "a1_sgd_1e-3": "b5c0b670270406a94aca63071b051468",
+          "a2a_sgd_3e-3": "b5c0b670270406a94aca63071b051468",
+          "a2b_sgd_1e-2": "b5c0b670270406a94aca63071b051468",
+          "a3_adamw_warmup30": "b5c0b670270406a94aca63071b051468",
+          "a4_adamw_b2_0.999": "b5c0b670270406a94aca63071b051468",
+          "a5_adamw_moment_reset": "b5c0b670270406a94aca63071b051468",
+          "identical": true
+        },
+        "4": {
+          "a0_adamw_ref": "cdccea0c413e603dc52d1873e37b9844",
+          "a1_sgd_1e-3": "cdccea0c413e603dc52d1873e37b9844",
+          "a2a_sgd_3e-3": "cdccea0c413e603dc52d1873e37b9844",
+          "a2b_sgd_1e-2": "cdccea0c413e603dc52d1873e37b9844",
+          "a3_adamw_warmup30": "cdccea0c413e603dc52d1873e37b9844",
+          "a4_adamw_b2_0.999": "cdccea0c413e603dc52d1873e37b9844",
+          "a5_adamw_moment_reset": "cdccea0c413e603dc52d1873e37b9844",
+          "identical": true
+        }
+      },
+      "vs_e185_stored": {
+        "1": {
+          "match": true
+        },
+        "2": {
+          "match": true
+        },
+        "3": {
+          "match": true
+        },
+        "4": {
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "G_A0_E185": {
+      "per_key_max_abs_diff": {
+        "disp": 0.0,
+        "gm12": 0.0,
+        "g0": 0.0,
+        "ce_r": 0.0,
+        "ce_batch": 0.0
+      },
+      "gated_steps": [
+        1,
+        2
+      ],
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "A0 (this device, this process) vs e185's stored CONTROL: displacements, g-12/g0/CE_R lights, per-step in-batch CE \u2014 the licensed cell reproduced"
+    },
+    "G_A5_NULL": {
+      "bit_identical_deltas": {
+        "1": true,
+        "2": true
+      },
+      "all_bit_identical": true,
+      "note": "A5 (fresh optimizer state at wash start) vs A0: expected bit-identical BY CONSTRUCTION (the e185 cell never loads optimizer state) \u2014 the gate PROVES no consolidation-time optimizer state is inherited; doubles as the determinism replicate"
+    }
+  },
+  "references": {
+    "e185": {
+      "metrics": "runs/e185/metrics.json",
+      "checkpoints": "runs/checkpoints/e185_ctrl_s{1,2,4,10}.pt",
+      "provenance": {
+        "source": "runs/e185/metrics.json (embedded copy verified, max|diff| 3.2e-13)",
+        "file_present": true,
+        "verified_vs_embedded": true,
+        "max_abs_diff": 3.2000097016648965e-13,
+        "checks": {
+          "trace_steps": true
+        }
+      },
+      "role": "the licensed cell + the stored control A0 must reproduce (displacements, lights, per-step CE, input md5s)"
+    },
+    "e187": {
+      "metrics": "runs/e187/metrics.json",
+      "role": "the n=3 no-basin license this cell's question sits on (T121); its verified embedded e185 copies are this file's provenance"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "OPT_AGNOSTIC": {
+        "fires": false,
+        "sgd_clause": {
+          "a1_sgd_1e-3": {
+            "kills_within_2x": false,
+            "comparable_displacement": false,
+            "fires": false
+          },
+          "a2a_sgd_3e-3": {
+            "kills_within_2x": false,
+            "comparable_displacement": false,
+            "fires": false
+          },
+          "a2b_sgd_1e-2": {
+            "kills_within_2x": false,
+            "comparable_displacement": false,
+            "fires": false
+          }
+        },
+        "knob_quiet": true
+      },
+      "ADAM_AMPLIFIES": {
+        "fires": false,
+        "knob_clause": {
+          "a3_adamw_warmup30": {
+            "t_x_ratio_vs_a0": null,
+            "shifts_2x": false,
+            "basis": "no kill inside window; delay lower-bound window/t_x(A0) = 2.5x \u2014 EXTRAPOLATED, does not fire the clause (displacement stayed below D_kill \u2014 rate-carried delay)"
+          },
+          "a4_adamw_b2_0.999": {
+            "t_x_ratio_vs_a0": 0.9996170293381614,
+            "shifts_2x": false,
+            "basis": "measured"
+          },
+          "a5_adamw_moment_reset": {
+            "t_x_ratio_vs_a0": 1.0,
+            "shifts_2x": false,
+            "basis": "measured"
+          }
+        },
+        "sgd_matched_displacement_clause": {
+          "a1_sgd_1e-3": {
+            "reached_D_kill": false,
+            "gm12_ge_0.5_at_all_matched": false,
+            "t_x_ge_5x_a0": false,
+            "fires": false,
+            "cap_limited": true
+          },
+          "a2a_sgd_3e-3": {
+            "reached_D_kill": false,
+            "gm12_ge_0.5_at_all_matched": false,
+            "t_x_ge_5x_a0": false,
+            "fires": false,
+            "cap_limited": true
+          },
+          "a2b_sgd_1e-2": {
+            "reached_D_kill": false,
+            "gm12_ge_0.5_at_all_matched": false,
+            "t_x_ge_5x_a0": false,
+            "fires": false,
+            "cap_limited": true
+          }
+        }
+      },
+      "MIXED_TEXTURE": {
+        "fires": true
+      }
+    },
+    "verdict": "MIXED-TEXTURE",
+    "clause": "graded outcome \u2014 full arm table reported verbatim; no binary claim. SGD arms: a1_sgd_1e-3 t_x=None, reached_D_kill=False; a2a_sgd_3e-3 t_x=None, reached_D_kill=False; a2b_sgd_1e-2 t_x=None, reached_D_kill=False; knobs: a3_adamw_warmup30 ratio=n/a; a4_adamw_b2_0.999 ratio=1.00; a5_adamw_moment_reset ratio=1.00.",
+    "t_a0": {
+      "t_ck": 2,
+      "t_x": 1.6268275724509023,
+      "note": "the AdamW reference clock (e185's t*=+2 checkpoint convention; interpolated t_x for ratios)"
+    },
+    "D_kill": 2.4892616271972656,
+    "composite_order": "OPT-AGNOSTIC -> ADAM-AMPLIFIES -> MIXED-TEXTURE (frozen before compute)"
+  },
+  "honesty_reflex": {
+    "n_and_scope": "n=1 per arm (single training seed per arm, first cell; replicate ladder only if a bar fires); ONE root, ONE input stream (seed 10902, bit-gated across all seven arms AND vs e185's stored md5s); single family (the e131 consolidated line) \u2014 the replicate samples nothing here; every arm differs ONLY in optimizer construction/lr schedule",
+    "float_texture": "CPU fp32 texture: all trainings this process, this CPU, 4 threads (the e185-era reduction order); the GPU-era e185 reference is gated ON THIS DEVICE via A0 (G_A0_E185) rather than compared across devices",
+    "no_guaranteed_spare": "every arm TRAINS on the licensed stream \u2014 every arm could kill; the battery is honest because nothing in it is guaranteed-to-spare (A5's expected null is a state-inheritance statement, not a sparing guarantee)",
+    "projections_never_adjudicate": "SGD arms that never reach D_kill within the CPU cap carry EXTRAPOLATED clocks (D_kill / steady measured rate); the registered bars fire only on measured crossings; cap-limits are reported as ambiguity",
+    "step_clock_vs_displacement_gate": "t* in STEPS is confounded by each arm's displacement RATE; the co-read D(t*) vs D_kill and the per-step rates separate rate-carried clock shifts (warmup) from gating-carried ones \u2014 reported per arm, never adjudicated away",
+    "logit_prediction_check": "check-in 6/8's arithmetic predicts A0's step-1 displacement = lr*sqrt(N) = 1.655 and SGD's = lr*min(||g||,1); the pre-clip grad-norm column tests this directly (Adam amplifies ||g||<<1 gradients into lr-sized steps)"
+  },
+  "trims": [],
+  "deviations": [
+    "Checkpoint cadence = e185's {1,2,4,10} VERBATIM (A0 gates against e185's stored values at exactly these steps) + the geometric extension {8,20,40,80,160} \u2014 required to locate kill clocks slower than the AdamW clock; the e185-era steps are untouched.",
+    "Per-arm max steps: AdamW arms run to +10 (A3 to +24 \u2014 its kill is expected inside the 30-step warmup); SGD arms to +160 or the 180 s cap, whichever binds first. Matched-lr SGD's projected clock (~2.5k steps at the clip-capped 1e-3/step rate) is UNREACHABLE on CPU: the SGD arms report measured displacement rates + clearly-labeled EXTRAPOLATED clocks; no bar adjudicates on a projection.",
+    "plain SGD = momentum 0, weight_decay 0, clip 1.0 retained (the clip is part of the licensed cell verbatim; its effect on SGD is to cap per-step displacement at lr \u2014 the pre-clip gradient norm is recorded at every step so the uncapped rate is also known).",
+    "A5 is a null arm BY CONSTRUCTION (the e185 cell never loads optimizer state \u2014 every wash starts cold), so A5 is expected bit-identical to A0; it is RUN as the gate proving no consolidation-time optimizer state is inherited, and doubles as the determinism replicate of the reference clock (n=2 for A0's trajectory).",
+    "CPU-ONLY by dispatch (CUDA_VISIBLE_DEVICES=-1 forced before torch; the GPU is another agent's, never claimed): torch threads 4 (the e185-era reduction order, required for the A0 bit-reproduction gate), sequential arms, 25 s launch stagger + 20 s between arms (e187 used dispatch-mandated 60 s cooldowns; this dispatch mandates staggering only), per-arm 180 s cap measured on the training loop with in-loop checkpoint reads counted (e185's FT_TIME_CAP convention).",
+    "Light reads only (g-12/g0 batteries + CE_R + alignment + displacement + pre-clip grad norms) \u2014 the dispatch's read list; the full e185 dial (held30/site-read/census/deletions) is not measured.",
+    "n=1 per arm (single training seed per arm, first cell); the replicate ladder runs only if a bar fires. Single family (the e131 consolidated line); all trainings this process, this CPU, 4 threads; every e185 reference is re-derived/gated on this device before use \u2014 no cross-device comparison anywhere.",
+    "Smoke mode trims: 4-step arms, checkpoints {1,2}, no staggers; nothing adjudicated."
+  ],
+  "ckpt_inventory": {
+    "smoke_opt1_a0_adamw_ref_s1": {
+      "path": "runs/checkpoints/smoke_opt1_a0_adamw_ref_s1.pt",
+      "arm": "a0_adamw_ref",
+      "steps": 1
+    },
+    "smoke_opt1_a0_adamw_ref_s2": {
+      "path": "runs/checkpoints/smoke_opt1_a0_adamw_ref_s2.pt",
+      "arm": "a0_adamw_ref",
+      "steps": 2
+    }
+  },
+  "timing": {
+    "total_s": 156.6
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": true,
+    "torch": "2.12.0.dev20260408+cu128",
+    "stagger_s": 25.0,
+    "inter_arm_s": 20.0
+  }
+}
