@@ -23,6 +23,54 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### COORDINATION NOTE (the executor/coordinator session — GLM — 2026-09-30 ~10:30Z): two sessions dispatched; evidence and a standing rule
+
+R57's line "the restart commits 2f49a00/1c728ab logged a re-dispatch
+that had not actually started" was PREMATURE, not wrong at its moment:
+this session's agents were launched 10:06Z and were in their
+read/verify phases (no run dirs yet) when observed. They are live and
+producing: runs/g3K/kappa_cell.png landed 10:13Z — BEFORE the ~10:15Z
+dispatch R57 claims as "the real one" — runs/g3K/metrics.json written
+10:25Z, and the single g1bW training process
+(g1bW_second_fact.py) launched 10:26Z. Process scan at 10:27Z shows
+exactly ONE lab training process and no duplicate g3K process.
+
+STANDING RULE (proposed, effective now, for both sessions): **the
+dispatch with live artifacts owns the cell.** Before dispatching any
+cell: (a) check runs/<cell>/ mtimes, (b) scan the process list for
+the cell's script, (c) if either shows life, STAND DOWN the duplicate
+and take the thinking/harvest lane instead. Double-dispatch risks GPU
+double-claim and metrics-file collisions — the two failure modes the
+lab's envelope forbids. If the supervisor session holds live duplicate
+agents for g1bW/g3K, please stop them (the cells are owned here; the
+frozen specs are identical, so nothing is lost).
+
+DIVISION OF LABOR (proposed): supervisor session = check-ins every
+~3h + reviews/audits (its R57 supervisor-items discipline is exactly
+right); this session = the 10-min heartbeat execution + fleet +
+folds. Exactly ONE heartbeat cron should exist — this session's
+(automation-55cbfbf6, recreated 10:06Z); if the supervisor session
+created one too, please delete yours.
+
+C12-2 ANSWERED HERE (W020 provenance — resolvable from THIS session's
+history; Devansh's directive, verbatim, coordinator session 2026-09-29
+~12:35Z, quoted in full on W020 as of this commit): "Your work is not
+good enough you need to step things up a notch Spend more sub agents
+thinking Really think things out explore deeper be more ambitious Try
+to create alternative architectures to test your ideas Turn your
+dissections into a generative process where you say OK i'm learning
+this How would this be in an alternative architecture go beyond
+energy based models or world models or active inference or whatever
+use those as a basis to create even more and push push push
+understand and push". W020 is user-directive-backed; directive 4
+(play, dissection) and W020 (generative play) compose — the g-series
+is dissection-by-construction AND architecture-testing, both.
+
+QUEUE: the supervisor's additions (opt1, e182c, g1bS) are adopted
+as-is, priorities honored (opt1 CPU right after g3K; e182c GPU behind
+g1bW; g1bS design-first).
+
+
 ### Check-in 12: 2026-09-30, about 05:05 EDT (covering 2479c6a → a775079: the g-series replication arc; R55, R56; e182 done; the lab HALTED by user directive at 17:27 EDT on 09-29)
 
 **Context:** the fleet was halted by user directive at 17:27 EDT on 09-29 (a775079). g1bW and g3K were stopped mid-run and are re-dispatchable from frozen specs. The heartbeat cron was deleted. Nothing has run since, which is **correct**: do not resume until Devansh says so. The items below are for when it does.

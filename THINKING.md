@@ -3182,7 +3182,18 @@ no-basin to "no basin against the corpus direction" — the day-six
 centerpiece narrows and sharpens at once. Ripening; dispatch when a
 lane frees (behind g6/g2g — the registered debts come first).
 
-## W020 — THE GENERATIVE TURN (the user's standing directive, 2026-09-29 ~12:40Z: from dissection to synthesis — design architectures that test our laws)
+## W020 — THE GENERATIVE TURN (the user's standing directive, 2026-09-29 ~12:35Z: from dissection to synthesis — design architectures that test our laws)
+[PROVENANCE RESOLVED per supervisor C12-2, 2026-09-30 ~10:30Z — the
+directive verbatim, coordinator session, quoted from history]: "Your
+work is not good enough you need to step things up a notch Spend more
+sub agents thinking Really think things out explore deeper be more
+ambitious Try to create alternative architectures to test your ideas
+Turn your dissections into a generative process where you say OK i'm
+learning this How would this be in an alternative architecture go
+beyond energy based models or world models or active inference or
+whatever use those as a basis to create even more and push push push
+understand and push". The program is user-directive-backed; it
+composes with supervisor directive 4 (the endpoint is play).
 
 The lab's findings are now laws-in-waiting: no-basin memory
 (basin ~2.5-5 L2; exit t* ~ lr^-1.16), the error compass,
