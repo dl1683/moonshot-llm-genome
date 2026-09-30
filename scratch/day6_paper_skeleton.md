@@ -156,7 +156,21 @@ R3 "Known phenomenon" (attention sinks; memory types) — the novelty is the
   CAUSAL compass + presence-typed routing + the failure-mode inversion, not
   the sink's existence. Position against sink/StreamLLM and
   complementary-learning-systems literature (scratch/massaction_key_lit.md,
-  W003's CLS analogy, now narrowed to replay-only).
+  W003's CLS analogy, now narrowed to replay-only; full claim-by-claim
+  mapping: scratch/lit_beat_20260930.md).
+R3b (T137, the most dangerous overlap): the trajectory law's nearest
+  prior is THEORY — Evron COLT'22 + Goldfarb & Hand AISTATS'23 state
+  that forgetting follows task/gradient geometry, not displacement
+  magnitude. MUST cite and lead with the controlled 3-way dissociation
+  (the theory predicted; nobody ran the static control).
+R3c: the wall reads as hard-constraint methods (Wolczyk ICML'22,
+  Elsayed RLC'24) without minimality (one commit + one scalar ball,
+  zero old-task statistics) + the survival assay foregrounded.
+R3d: "wash = negative task vector" (Ilharco ICLR'23) — pre-empted by
+  reporting the install-vs-wash cosine (e188 co-read) and adopting
+  the vocabulary if it fits.
+FULL-TEXT RE-CHECKS before submission: SFAO (OpenReview Feb 2026),
+  Elsayed RLC 2024.
 R4 "Instrument circularity" — Rule 12 + the probe-power amendment are the
   pre-emptive answers; lead with them.
 

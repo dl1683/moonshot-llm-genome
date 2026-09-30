@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T138 — the literature pass: the trajectory law is new as a CONTROL, predicted as THEORY (2026-09-30 ~10:55Z)
+
+scratch/lit_beat_20260930.md, ~20 searches, all supervisor anchors
+pinned. THE GATE: six phrasings of trajectory-vs-static /
+learned-vs-random displacement — the dissociation appears NOWHERE.
+THE POSITIONING THAT MATTERS: Evron (COLT 2022) and Goldfarb & Hand
+(AISTATS 2023) already state IN THEORY that forgetting is governed by
+task/gradient geometry rather than displacement magnitude — linear/
+overparameterized theory, no static controls, no fact-readout assay.
+So the lab's claim is not "alignment was unsuspected"; it is "the
+theory predicted it and nobody ran the control": the 3-way controlled
+dissociation at matched per-coordinate RMS (training kills — corpus
+or noise-label; random jump survives, graded kappa 5-6) plus the
+census form. CITE THE THEORY LINE AND LEAD WITH THE CONTROL —
+uncited, T137 reads under-theorized; cited, it reads as the
+experiment the theory was waiting for. The other sharpenings: the
+wall's family is hard-constraint methods (Wolczyk ICML'22, Elsayed
+RLC'24 — defended by minimality: one commit + one scalar ball, zero
+old-task statistics, plus the survival assay); the rhythm's is
+learned/interference-based replay scheduling (Klasson, MIR, PER —
+defended by the zero-parameter self-timed gate and the g2g
+head-to-head); the cone's is task arithmetic (Ilharco — the defence
+is to ADOPT the vocabulary: report the install-vs-wash cosine; if
+the wash approximates minus-the-install-vector, forgetting at this
+scale IS task arithmetic, which would be a simplification, not a
+refutation). FLAGGED for full-text re-check before submission: SFAO
+(OpenReview Feb 2026) and Elsayed RLC 2024. The e188 co-read gains
+the install-vs-wash cosine (cheap, decisive for the vocabulary
+choice).
+
 ## T137 — g3K: the basin is graded and the no-basin is a trajectory law (2026-09-30 ~10:50Z)
 
 The kappa pair came back nearly EQUAL — kappa_store 5.0 [2.8-6.6],
@@ -3177,7 +3207,7 @@ epiphenomenal, e185's displacement story was already the whole law;
 (iii) neither — alignment itself drifts with lr (the organism's
 adaptation becomes more or less fact-eroding as it speeds up), which
 would be its own finding. Costs: eval-only, CPU, tens of backward
-passes. Name when dispatched: e188. Ripening behind the R56 cells.
+passes. Name when dispatched: e188. [LIT-BEAT ADDITION 10:55Z: add the INSTALL-vs-WASH cosine as a co-read — cos(install_direction, wash_direction) per organism; if wash ~ -install, forgetting here IS task arithmetic (Ilharco ICLR'23) and the paper adopts that vocabulary (T138); if not, the wash is the corpus's adaptation direction, not the fact's negation — either answer decides the framing.] Ripening behind the R56 cells.
 [UPDATE 10:50Z: g3K landed MIXED and sharpened this card's stakes —
 the graded 4-10x static basin vs the trajectory kill is exactly what
 the integral must separate (T137); e188 is now pointed by result, not
