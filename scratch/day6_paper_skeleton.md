@@ -15,7 +15,7 @@ We dissect memory consolidation in 0.84-2.7M-parameter char-LMs with
 pre-registered interventions and deletion batteries. Four findings. (1)
 A fact consolidates where its training error is placed — shown causally by
 steering: error locked at positions 5-13 builds a site-store there, with no
-routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, BOUNDED per R50 (e176N RESOLVED — NEUTRAL-DISSOLVES): under the install's own name-deleted windows (an extinction-grade stream), no memory state we tested retains expression (the consolidated fact dissolves; CE was shocked at the dissolution moment); e176N RESOLVED [n=3 seeds via e184; n=2 families via e157]: NEUTRAL-DISSOLVES — the fact dies on the neutral stream too (both streams, two-step clock; lr scales the rate not the outcome); e183 RESOLVED: STILL-DISSOLVES — the filtered stream (background removed) kills on the same clock; the lead finding EVIDENCED WITHIN THE REGISTERED GRID (R52: six cells + one n=3 column; e185b RESOLVED: no type survives neutral streams (the cross lands at +100; the dwell collapses at +1 — faster than extinction) — the grid CLOSED; the noise discriminator (e185) RESOLVED: no robustness basin): no memory state tested retains expression under continued training on any stream composition run, at every lr tested above ~1e-5 within its horizon (survival t* ~ lr^-1.1..-1.4; the 1e-5 cell right-censored at +300 with the fact alive), with the fact's windows absent (sparse union, not a cross: 3 streams on the root; 3 seeds on neutral/root; the second lr on extinction/root; the dwell and site types on their own single streams — R52 axis audit; n=2 families (e157: the wash replicates; the phase structure is lineage-1-scoped)); the mechanism per e185+e180+g3K: no robustness basin against LEARNED displacement (the law is a TRAJECTORY law — static random displacement is 4-10x more forgivable, kappa ~5-6 at matched per-coordinate RMS; every e185 arm was a trajectory),  (~2.5-5 L2 over 2.7M params; per-coordinate RMS ~1.5e-3) — content-free noise at displacement-match exits it identically; survival is a rate law (t* ~ lr^-1.1..-1.4 (grid-legal band; -1.16 stored); at 1e-5 the fact lives); the corpus's addition is surgicality, not the exit [e185 n=1; e180's gentle regime unreplicated] [e177: the site-store also washes, with a 4-24x decay gradient; e175: no savings at threshold — the archive empty] [was: memories lie on a GRADIENT-RESISTANCE axis — unconsolidated (dwell-phase) memories wash out under ANY continued training (e161: plain corpus dissolves the whole fact in <50 steps); variance training builds geometry-general access (the cliff survives); the 'closing' direction was substantially forgetting — confirmed by the root-freeze (e176): BOTH memory types wash without rehearsal; e177 tests the one candidate archive] (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
+routing despite sink adjacency. (2) Two memory types follow, switched by a BINARY CLIFF at zero-vs-any error-position variance — and the types are PHASES of one substrate, BOUNDED per R50 (e176N RESOLVED — NEUTRAL-DISSOLVES): under the install's own name-deleted windows (an extinction-grade stream), no memory state we tested retains expression (the consolidated fact dissolves; CE was shocked at the dissolution moment); e176N RESOLVED [n=3 seeds via e184; n=2 families via e157]: NEUTRAL-DISSOLVES — the fact dies on the neutral stream too (both streams, two-step clock; lr scales the rate not the outcome); e183 RESOLVED: STILL-DISSOLVES — the filtered stream (background removed) kills on the same clock; the lead finding EVIDENCED WITHIN THE REGISTERED GRID (R52: six cells + one n=3 column; e185b RESOLVED: no type survives neutral streams (the cross lands at +100; the dwell collapses at +1 — faster than extinction) — the grid CLOSED; the noise discriminator (e185) RESOLVED: no robustness basin): no memory state tested retains expression under continued training on any stream composition run, at every lr tested above ~1e-5 within its horizon (survival t* ~ lr^-1.1..-1.4; the 1e-5 cell right-censored at +300 with the fact alive), with the fact's windows absent (sparse union, not a cross: 3 streams on the root; 3 seeds on neutral/root; the second lr on extinction/root; the dwell and site types on their own single streams — R52 axis audit; n=2 families (e157: the wash replicates; the phase structure is lineage-1-scoped)); the mechanism per e185+e180 (+g3K, PROPOSED n=1): no robustness basin against LEARNED displacement (the trajectory hypothesis — static random displacement is 4-10x more forgivable, kappa ~5-6 at matched per-coordinate RMS; every e185 arm was a trajectory; replication owed per C13-1),  (~2.5-5 L2 over 2.7M params; per-coordinate RMS ~1.5e-3) — content-free noise at displacement-match exits it identically; survival is a rate law (t* ~ lr^-1.1..-1.4 (grid-legal band; -1.16 stored); at 1e-5 the fact lives); the corpus's addition is surgicality, not the exit [e185 n=1; e180's gentle regime unreplicated] [e177: the site-store also washes, with a 4-24x decay gradient; e175: no savings at threshold — the archive empty] [was: memories lie on a GRADIENT-RESISTANCE axis — unconsolidated (dwell-phase) memories wash out under ANY continued training (e161: plain corpus dissolves the whole fact in <50 steps); variance training builds geometry-general access (the cliff survives); the 'closing' direction was substantially forgetting — confirmed by the root-freeze (e176): BOTH memory types wash without rehearsal; e177 tests the one candidate archive] (e151: one locked re-teach converts sink-coupled to site-stored, g-12 0.916->0.102, at improved CE) (e147: ±1 suffices — address key +0.327→−0.029, novel-geometry expression 0.071→0.696, no width trend): SITE-STORED
 (content concentrated at a row, context-general, geometry-bound) and ROUTED
 (readout keyed to the omnipresent row's presence, geometry-general,
 deletion-tolerant) — switched by the error's position-variance. (3) Content
@@ -206,7 +206,10 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    three seeds one waveform (medians 0.587/0.602/0.615, duty ~70%);
    scoping: timing root-robust 2/2, amplitude root-draw-bound (the root
    recipe is a strength lottery 0.591/0.684/0.711; g2f base-redraw in
-   flight); (c) THE CONE + THE TRAJECTORY LAW (g3R-amended + g3K): killing is
+   flight); (c) THE CONE (licensed: n=3 wash-draw seeds, one organ) + THE
+   TRAJECTORY HYPOTHESIS (PROPOSED — g3K n=1 per organism, kappa
+   intervals overlap [2.8,6.6] vs [4.0,9.7]; replication owed: e188
+   + two more organisms; supervisor C13-1): killing is
    DIRECTION-typed (the wash direction and its 45-degree tilts kill at
    ~2x displacement; g3R n=3 wash-draw seeds, one organ) AND
    TRAJECTORY-typed (g3K: static random displacement is 4-10x more
@@ -218,10 +221,11 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    Effect sizes stated ONLY as organism-level threshold ratios; the
    store-isolated organ reading cited as the design's property, never
    as the organism's.
-   Framing sentence: forgetting is not distance and not even
-   displacement — it is ALIGNED TRAINING: any learned path to a
-   displacement kills where a random jump of the same size is 4-10x
-   more forgivable; the aligned front can be walled (g1,
+   Framing sentence (the hypothesis's slogan, PROPOSED per C13-1 —
+   not law-graded until replicated): forgetting may be not distance
+   and not even displacement but ALIGNED TRAINING — any learned path
+   to a displacement kills where a random jump of the same size is
+   4-10x more forgivable; the aligned front can be walled (g1,
    battery-channel; sequential pending g1bW), detected (g2, with the
    R56 construction disclosures), and its anisotropy measured (g3).
 
@@ -243,10 +247,11 @@ Abstract clause (4), draft (R56+g3K-corrected): "(4) The same laws
    are generative: a projection ball (channel-scoped protection at a
    standing tax; sequential memory tested in g1bW), a self-timed
    rehearsal organ (timing replicates across seeds and roots;
-   amplitude root-draw-bound), and a direction-and-trajectory-typed
-   forgetting law (wash-aligned training kills at ~2x where static
-   random displacement is 4-10x more forgivable; no state survives
-   any learned path) each convert a dissected failure law into an
+   amplitude root-draw-bound), and a direction-typed forgetting
+   law with a PROPOSED trajectory hypothesis (wash-aligned training
+   kills at ~2x where static random displacement is 4-10x more
+   forgivable; n=1, replication owed) each convert a dissected
+   failure law into an
    architectural positive, replicated at n>=3 on single roots/organs
    — memory in these nets is not fragile by necessity but by
    default."
@@ -270,6 +275,9 @@ Evidence gaps (additions):
    head-to-head — without them "self-timed" stays scoped to one threat
    level and the fixed-arm co-read (0.693 vs 0.587-0.615) is disclosed
    in R6(b).
+11. Trajectory-hypothesis replication (C13-1, NEW): e188's
+   alignment-integral test + >=2 more organisms (kappa pairs) before
+   any "trajectory law" or "aligned training" wording is law-graded.
 10. g3K (DONE): abstract paragraph (2) must gain the TRAJECTORY-vs-
    STATIC clause — "no memory state survives continued TRAINING"
    (the e185 arms were displacement-matched trajectories, corpus and

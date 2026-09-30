@@ -716,6 +716,13 @@ the install-vs-wash cosine (cheap, decisive for the vocabulary
 choice).
 
 ## T137 — g3K: the basin is graded and the no-basin is a trajectory law (2026-09-30 ~10:50Z)
+[C13-1 AMENDMENT ~11:00Z — the claim's stamp: PROPOSED, not law. The
+card's body carried the scope (organ n=1 per organism, overlapping
+kappa intervals) but the TITLE minted "law" from one cell — my paper
+amendment 17 minutes after landing repeated the sin. Status until
+e188's integral test + >=2 more organisms: THE TRAJECTORY
+HYPOTHESIS. The cone noun (n=3 wash-draw, one organ) keeps its
+licensed standing.]
 
 The kappa pair came back nearly EQUAL — kappa_store 5.0 [2.8-6.6],
 kappa_host 6.0 [4.0-9.7] — and the MIXED verdict hides the day's
