@@ -1288,7 +1288,8 @@ def plot_fact_vs_D(path, curve, adam_arms, verdict, clause, stop, fin_step):
                   "(2.74M params)")
     ax.set_ylabel("g-12 (install-60 battery mean p(Z))")
     ax.set_ylim(-0.03, 1.05)
-    ax.legend(fontsize=7.2, loc="center left")
+    ax.set_xlim(-0.08, 5.3)
+    ax.legend(fontsize=7.2, loc="lower left")
     ax.set_title("THE DIRECT SGD KILL — fact-vs-displacement, with opt1's "
                  "Adam arms overlaid (committed data)", fontsize=10)
 
@@ -1373,10 +1374,11 @@ def plot_coreads(path, curve, journal, reads, chunks_prov, stop):
     ax.axhline(-0.44, ls="--", lw=1.0, color="gray", alpha=0.8,
                label="W022 wash read ~-0.44")
     ax.set_xlabel("cumulative displacement D")
-    ax.set_ylabel("alignment (negative = death-aligned)")
+    ax.set_ylabel("alignment cos")
     ax.legend(fontsize=7.5, loc="lower right")
     ax.set_title("THE W022/W023 CO-READ — does SGD's path drift "
-                 "death-directed as D grows?", fontsize=9.5)
+                 "death-directed as D grows? (negative = death-aligned)",
+                 fontsize=9.5)
 
     # (1,1) CE_R vs D (does the organism keep learning?)
     ax = axes[1, 1]
@@ -1386,7 +1388,7 @@ def plot_coreads(path, curve, journal, reads, chunks_prov, stop):
                alpha=0.8, label=f"root CE_R {curve[0]['ce_r']:.3f}")
     ax.set_xlabel("cumulative displacement D")
     ax.set_ylabel("CE_R")
-    ax.legend(fontsize=7.5, loc="lower right")
+    ax.legend(fontsize=7.5, loc="upper left")
     ax.set_title("does the organism keep learning under the SGD wash?",
                  fontsize=10)
 
