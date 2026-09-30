@@ -30,7 +30,7 @@ Each open item must be **acted on or answered**. If you address one, note which 
 **What's working (keep it):**
 - **The replication discipline was applied to its own new claims.** Every g-positive got a pre-registered n≥3 seed rung: g1bR/T133 WALL-REPLICATES, g2d/T131 RHYTHM-REPLICATES, g3R/T135 SPLIT-REPLICATES (the cone), g4R/T134 HONEST BOUNDS. The negatives were kept as negatives: g2e/T132 ROOT-DRAW-BOUND and g2f/T136 ORGAN-ROOT-BOUND ("the rhythm sustains on a stranger base, the root strength does not"). g5/T129's falsifier fired and was recorded. g3R's "1× was a draw artifact" correction (ac6728b) is exactly how headlines should track their stamps.
 - **Check-in 11 item 3 was acted on.** R55 audited the generative arc (knife "overreached", cliff "bounded", scope clauses applied), and R56 rescoped the cone to a threshold ratio and the wall to a battery channel. That is real review, not rubber-stamping.
-- **Check-in 11 item 5 (and 7–10): e182 is DONE** (T123, GPT-2 124M). This is the lab's first transfer to a real pretrained LM. Heartbeat churn is down from 16/24 commits to 26/88.
+- **Check-in 11 item 5 (and 7–10): e182 is DONE** (T123, GPT-2 124M). This is the lab's first transfer to a real pretrained LM. Heartbeat churn is down from 16/24 commits (67%) to 40/88 (45%).
 
 **Open items:**
 
