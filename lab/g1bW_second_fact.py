@@ -107,6 +107,54 @@ runs/checkpoints/g1bW_*.pt. No NOTES/THINKING/QUEUE/STATE edits; single
 commit + push (the coordinator folds).
 
 Run:  cd lab && python g1bW_second_fact.py    (G1BW_SMOKE=1 shakedown)
+
+===================== VERIFICATION NOTE (2026-09-30 executor) =================
+Verified against the FROZEN SPEC (scratch/r56_critic.md lines 54-64) before
+this run: bars VERBATIM (compared word-for-word against the critic's text);
+the cell (W1 machinery, seed-10907 lineage, commit(0.7) + 50 wash + B install
+300 steps e043-Dmix VERBATIM in g1's phase-0a operationalization, UNDER the
+projection, anchor at A's commit); the reference leg (same B install on the
+unwalled +50 washed control, same wash seed; G-INPUTS md5 gate); the rider
+(runs/checkpoints/g1bR_W1_10907_s300.pt present, zero-compute); the envelope
+(cooldown 120 s before each of 4 trainings, gpu_ok() double-poll before every
+launch, caps 180 s GPU / 1800 s CPU, evals CPU, 2.74M params <= 100M free
+tier); every cross-module reference resolved (G1 constants/instruments,
+g1_wash signature, CommittedGPT anchor semantics, GB's 2.74M patch + import
+order, E43 find_occ/jsonable, E110 manual_all_logits/judge_windows + its
+module-level CUDA kill CONFIRMING the lazy import); the neutral bank rebuilt
+bit-identically to g1bR's (seed 170 VERBATIM); B's window geometry identical
+to A's phase-0a build_win/anchor_full forms.
+
+FIXES applied by this executor (only these; no redesign):
+  F1. anchor_check: removed a dead-intended but EVALUATED first pass whose
+      blind '_'->'.' mangling inversion raised KeyError at the first
+      anchor_check call (a hard crash after the walled wash — the run could
+      never have completed as written).
+  F2. g1bR reference constants replaced with the ACTUAL recorded readings
+      (runs/g1bR/metrics.json arms traj: W1_10907 +50 0.9156978726387024,
+      +300 0.9055948853492737; C10907 +50 0.0028172906022518873, +2
+      0.4610500633716583). The draft's constants (0.915731336593628 /
+      0.0027922233065366517 / 0.4611) matched no stored value anywhere.
+  F3. provenance.runtimes_s: wash runtimes were hardcoded None; now derived
+      from each wash traj's final elapsed_s (mission requires runtimes).
+  F5. post-wash reload assert compared python-float R_CLAIM against the
+      fp32 round-trip of anch__R (0.699999988079071) with == — fired on
+      EVERY reload (smoke-confirmed crash); now abs(R - R_CLAIM) < 1e-6.
+  F4. GPU gate restored to the REGISTERED envelope (wait <= 600 s then CPU
+      fallback), with the lab's own thermal semantics (soak-wait to 65C only
+      when > 80C at the gate): a concurrent 10:07Z draft had set a 60-min
+      no-fallback wait + a <= 65C launch gate that deadlocks at this
+      machine's 73C IDLE. ADOPTED from that same 10:07Z draft and KEPT:
+      torch threads 4 (shared machine), MIDRUN_PAUSE pause-not-migrate
+      (g1's +20-line opt-in patch; protects single-device wash reproduction
+      for G-WASHREP), PARTIAL metrics.json writes at every eval (crash
+      beacon / fleet lock signal), and eval-time exclusion from the 180 s
+      training cap.
+Concurrent-executor hazard REPORTED to the coordinator: that 10:07Z draft's
+orphaned smoke process (PID observed 2026-09-30 ~10:08Z, runs/g1bW_smoke
+PARTIAL, root-only) is still alive sleeping at its own thermal gate and will
+crash at F1 when it wakes; its artifacts are not results and were overwritten
+by this executor's smoke.
 """
 from __future__ import annotations
 
@@ -128,11 +176,11 @@ import numpy as np                                    # noqa: E402
 import torch                                          # noqa: E402
 import torch.nn.functional as F                       # noqa: E402
 
-torch.set_num_threads(8)                              # e152R/e143/e184/e179
+torch.set_num_threads(4)                              # shared machine: <=4
 
 import common                                          # noqa: E402
-from common import CharCorpus, cooldown, gpu_ok,     # noqa: E402
-                      gpu_status, run_dir, save_json, set_seed
+from common import (CharCorpus, cooldown, gpu_ok, gpu_status,   # noqa: E402
+                    run_dir, save_json, set_seed)
 import e043_install as E43                             # noqa: E402 (REPO,
                                                       # find_occ, SPLICE_RNG,
                                                       # jsonable)
@@ -150,10 +198,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt                        # noqa: E402
 
 CPU = torch.device("cpu")
+torch.set_num_threads(4)      # g1 import resets to 8; shared machine => <=4
+G1.MIDRUN_PAUSE = True        # outside load => PAUSE, never migrate mid-run
 
 T0 = time.time()
 log = lambda m: print(f"[{time.time() - T0:7.1f}s] {m}", flush=True)
 G1.log = log                                          # unify the timeline
+G1.pick_dev = lambda tag: wait_gpu(tag)               # wash also serialized/waits
 
 # ======================================================================
 # THE CONFIG (registered; the whole delta from g1bR's W1 cell)
@@ -173,7 +224,18 @@ B_INSTALL_BAR = 0.7      # the critic's own threshold ("B installs (>= 0.7)")
 RIDER_ROWS = (0,) + tuple(range(121, 130))   # the critic's collapse channels
 TRAIN_CAP_GPU, TRAIN_CAP_CPU = 180.0, 1800.0
 COOLDOWN_S = 120.0       # the mission's envelope (overrides g1's 60)
-GPU_WAIT_MAX = 600.0     # wait up to 10 min for a free GPU window (mission)
+GPU_WAIT_MAX = 600.0     # wait up to 10 min for a free GPU window (mission;
+                         # the registered deviation: CPU only if busy > 10 min)
+HOT_LAUNCH_C = 80.0      # lab policy (common.GPU_TEMP_CEIL): no launches above
+SOAK_RESUME_C = 65.0     # ...and when hot, wait for <=65C (GPU_IDLE_TEMP_TARGET)
+                         # FIX (2026-09-30 executor): a concurrent 10:07Z draft
+                         # gated EVERY launch on <=65C with a 60-min no-fallback
+                         # wait — at this machine's 73C IDLE that deadlocks the
+                         # mission ("GPU is currently FREE") for an hour; the
+                         # gate now applies the lab's own semantics (hot = >80C)
+if SMOKE:
+    GPU_WAIT_MAX = 30.0  # smoke trim: don't idle 10 min per gate just to find
+                         # runtime errors (an external GPU job holds the card)
 
 RIDER_CK = GB.CKPT_DIR / "g1bR_W1_10907_s300.pt"
 CKPT_DIR = GB.CKPT_DIR
@@ -237,7 +299,8 @@ deviations: list[str] = [
     "crop). Two judges co-reported: the ROOT (knows A) and the reference "
     "leg's final net (the best available B-knower).",
     "Smoke mode trims: 4-step wash, 8-step install, 60-token free-runs, "
-    "2 prompts, no cooldowns — nothing adjudicated.",
+    "2 prompts, no cooldowns, GPU wait capped at 30 s (CPU fallback) — "
+    "nothing adjudicated.",
 ]
 
 CKPT_INVENTORY: dict = {}
@@ -264,7 +327,17 @@ def wait_gpu(tag: str) -> torch.device:
         G1.GPU_PARKED, G1.PARK_REASON = True, "no CUDA"
         return CPU
     t0, waited, s1 = time.time(), 0.0, gpu_status()
+    hot = s1["temp"] > HOT_LAUNCH_C          # lab policy: gate only when hot
     while (time.time() - t0) <= GPU_WAIT_MAX:
+        if hot:
+            tc = gpu_status()["temp"]
+            if tc > SOAK_RESUME_C:
+                log(f"[gpu] '{tag}' heat-soaked ({tc:.0f}C > {HOT_LAUNCH_C:.0f}C "
+                    f"at gate): cooling to <= {SOAK_RESUME_C:.0f}C")
+                time.sleep(30)
+                waited = time.time() - t0
+                continue
+            hot = False                      # cooled: launch window opens
         if gpu_ok():
             time.sleep(5)
             if gpu_ok():
@@ -344,7 +417,9 @@ def install_b(tag: str, net0, theta0_flat: torch.Tensor, inst_x, anchor_b,
             sd_cpu = {k: v.detach().cpu().clone()
                       for k, v in net.state_dict().items()}
             sds[step] = sd_cpu
+            t_ev = time.time()
             cells[step] = eval_fn(sd_cpu, f"{tag}_i{step}")
+            t_start += time.time() - t_ev      # CPU eval time is not training time
             row["d_proj"] = (min(cum_disp, net0.R)
                              if getattr(net0, "R", None) else None)
             log(f"  [{tag}] CKPT +{step:4d} A {cells[step]['A_gm12']:.4f} "
@@ -363,11 +438,11 @@ def install_b(tag: str, net0, theta0_flat: torch.Tensor, inst_x, anchor_b,
             if s["mem_total"] > 0 and (s["mem_used"] > 0.85 * s["mem_total"]
                                        or s["temp"] > 80):
                 G1.device_events.append({"tag": tag, "step": step,
-                                         "event": "MID-RUN MIGRATION",
+                                         "event": "MID-RUN PAUSE (no migration)",
                                          "status": s})
-                log(f"  [{tag}] MID-RUN GPU contention at s{step} ({s}) -> CPU")
-                G1.migrate_to_cpu(net, opt)
-                dev = CPU
+                t_p = time.time()
+                G1.midrun_pause_wait(tag)
+                t_start += time.time() - t_p   # paused time is not training time
     net.eval()
     return {"sds": sds, "cells": cells, "traj": traj, "steps_ran": step,
             "seed": seed, "steps": steps, "x_hashes": x_hashes,
@@ -459,6 +534,8 @@ def main():
     rd = run_dir("g1bW_smoke" if SMOKE else "g1bW")
     log(f"G1BW THE WALL'S MUSEUM TEST (smoke={SMOKE}) -> {rd}")
     set_seed(G1.INSTALL_SEED)
+    PARTIAL = {"experiment": "g1bW_second_fact", "status": "PARTIAL (run in "
+               "progress; overwritten by the final metrics)", "cells": {}}
 
     if not RIDER_CK.exists():
         raise RuntimeError(f"rider checkpoint missing: {RIDER_CK} "
@@ -623,6 +700,9 @@ def main():
                 "A129": out["census"]["A129"],
                 "band121_129_max": out["census"]["band121_129_max"]}
         out["flat"] = flat
+        PARTIAL["cells"][tag] = flat
+        PARTIAL["updated"] = common.now_iso()
+        save_json(rd / "metrics.json", E43.jsonable(PARTIAL))
         log(f"[{tag}] A g-12 {flat['A_gm12']:.4f} g0 {flat['A_g0']:.4f} | "
             f"B g-12 {flat['B_gm12']:.4f} g0 {flat['B_g0']:.4f} | CE_R "
             f"{flat['ce_r']:.4f} | row0 S {flat['row0_strength']:+.4f} | "
@@ -635,10 +715,15 @@ def main():
         body, anch = G1.split_anchored_sd(sd)
         ok_R = bool(torch.equal(anch.get("anch__R"),
                                 torch.tensor(R_CLAIM)))
-        bad = [k for k, v in anch.items()
-               if k != "anch__R" and not torch.equal(
-                   v, theta0[k.replace("anch__", "").replace("_", ".")])]
-        # note: sd keys use '.' in param names; anchors replace '.' with '_'
+        # note: sd keys use '.' in param names; anchors replace '.' with '_'.
+        # FIX (2026-09-30 executor): the pre-halt draft had a first pass here
+        # that inverted the mangling with a blind '_'->'.' replace — a
+        # KeyError on the first block tensor (e.g. h_0_ln_1_weight ->
+        # "h.0.ln.1.weight") — and was dead-intended (immediately
+        # overwritten) but still EVALUATED, crashing the run at the first
+        # anchor_check call; removed. The _ANCH_MAP pass below (via the
+        # root's own named_parameters) is the correct inversion and now the
+        # only one.
         bad = []
         for k, v in anch.items():
             if k == "anch__R":
@@ -737,9 +822,15 @@ def main():
     wash50_sd = w_wash["sds"][WASH_STEPS_CKS[-1]]
 
     # G-WASHREP + G-CTRL use g1bR's stored seed-10907 readings
-    g1bR_ref = {"W1_plus50_gm12": 0.915731336593628,   # runs/g1bR traces
-                "C_plus50_gm12": 0.0027922233065366517,
-                "C_plus2_gm12": 0.4611}
+    # FIX (2026-09-30 executor): replaced the draft's constants (0.915731336593628
+    # / 0.0027922233065366517 / 0.4611 — matched NO value stored anywhere) with
+    # the ACTUAL recorded readings from runs/g1bR/metrics.json arms traj
+    # (W1_10907 / C10907), which the light wash battery here reproduces.
+    g1bR_ref = {"W1_plus50_gm12": 0.9156978726387024,
+                "W1_plus300_gm12": 0.9055948853492737,
+                "C_plus50_gm12": 0.0028172906022518873,
+                "C_plus2_gm12": 0.4610500633716583,
+                "source": "runs/g1bR/metrics.json arms.{W1_10907,C10907}.traj"}
     G_WASHREP = {"bar": 0.05, "mine": w_wash_gm12.get(WASH_STEPS_CKS[-1]),
                  "g1bR": g1bR_ref["W1_plus50_gm12"],
                  "pass": bool(w_wash_gm12.get(WASH_STEPS_CKS[-1]) is not None
@@ -760,7 +851,12 @@ def main():
     body_w, anch_w = G1.split_anchored_sd(wash50_sd)
     net_w.load_state_dict(body_w)
     G1._restore_anchors(net_w, anch_w)
-    assert net_w.anchored and net_w.R == R_CLAIM
+    # FIX F5 (2026-09-30 executor): anch__R round-trips as fp32, so
+    # float(anch__R) == 0.699999988079071 != python 0.7 — the draft's exact
+    # equality assert fired on EVERY reload (smoke-confirmed); tolerance
+    # compare keeps the gate's meaning (the wall's radius survived intact).
+    assert net_w.anchored and abs(net_w.R - R_CLAIM) < 1e-6, \
+        f"wall did not survive the wash sd round-trip: {net_w.R}"
     ac0 = anchor_check(net_w.state_dict())
     assert ac0["pass"], f"anchor drifted before install: {ac0}"
     log(f"G-ANCHOR[pre-install]: R={ac0['R']}, {ac0['n_anchor_tensors']} "
@@ -1034,8 +1130,12 @@ def main():
                         "walled_install": w_ins["device"],
                         "ref_wash": r_wash["device"],
                         "ref_install": r_ins["device"]},
-            "runtimes_s": {"walled_wash": None, "walled_install":
-                           w_ins["runtime_s"], "ref_install": r_ins["runtime_s"]},
+            "runtimes_s": {"walled_wash": (w_wash["traj"][-1]["elapsed_s"]
+                                          if w_wash["traj"] else None),
+                           "ref_wash": (r_wash["traj"][-1]["elapsed_s"]
+                                        if r_wash["traj"] else None),
+                           "walled_install": w_ins["runtime_s"],
+                           "ref_install": r_ins["runtime_s"]},
         },
         "reference_leg": {
             "role": "capacity reference for MUSEUM vs ZERO-SUM (co-reported, "

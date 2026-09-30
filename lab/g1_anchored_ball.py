@@ -400,6 +400,21 @@ def pick_dev(tag: str) -> torch.device:
     return CPU
 
 
+MIDRUN_PAUSE = False   # default off (legacy behaviour = migrate); g1bW sets True
+
+
+def midrun_pause_wait(tag: str, temp_resume: float = 75.0) -> None:
+    """Block until outside GPU load / heat clears (mem <= 85%, temp <= resume)."""
+    while True:
+        s = gpu_status()
+        if s["mem_total"] == 0 or (s["mem_used"] <= 0.85 * s["mem_total"]
+                                   and s["temp"] <= temp_resume):
+            log(f"  [{tag}] contention cleared ({s}); resuming")
+            return
+        log(f"  [{tag}] PAUSED for outside load/heat ({s})")
+        time.sleep(30)
+
+
 def migrate_to_cpu(net, opt) -> None:
     """Move net + optimizer state to CPU in place (params persist)."""
     net.to("cpu")
@@ -908,6 +923,11 @@ def g1_wash(tag: str, net0: CommittedGPT, anchor: torch.Tensor,
                 device_events.append({"tag": tag, "step": step,
                                       "event": "MID-RUN MIGRATION", "status": s})
                 log(f"  [{tag}] MID-RUN GPU contention at s{step} ({s}) -> CPU")
+                if MIDRUN_PAUSE:      # g1bW: pause and wait, never migrate
+                    t_p = time.time()
+                    midrun_pause_wait(tag)
+                    t_start += time.time() - t_p     # paused time is not cap
+                    continue
                 migrate_to_cpu(net, opt)
                 dev = CPU
     net.eval()
