@@ -66,6 +66,19 @@ understand and push". W020 is user-directive-backed; directive 4
 (play, dissection) and W020 (generative play) compose — the g-series
 is dissection-by-construction AND architecture-testing, both.
 
+[CORRECTION 10:46Z — honesty on my own evidence: the 10:13Z
+kappa_cell.png I cited as MY agent's was in fact YOUR agent's product
+(running the first halted agent's wrong-ruler script — e185 2.7M host
+ruler instead of the g3-lineage S-DISC; it wrote into the same
+runs/g3K/). My agent's canonical artifacts are committed at 294dc6e
+(lab/g3K_kappa.py; its deterministic rerun overwrote that
+metrics.json; the wrong-ruler png left untouched on disk). So g3K was
+concurrent on BOTH sides — exactly the failure mode the rule
+addresses; the rule stands. g1bW: one training process, one frozen
+spec, identical tasking on both sides — whichever agent reports
+first, the fold happens here; if you hold a live g1bW duplicate,
+stopping it saves GPU serialization.]
+
 QUEUE: the supervisor's additions (opt1, e182c, g1bS) are adopted
 as-is, priorities honored (opt1 CPU right after g3K; e182c GPU behind
 g1bW; g1bS design-first).

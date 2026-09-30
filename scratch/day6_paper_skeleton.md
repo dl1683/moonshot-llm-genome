@@ -245,6 +245,13 @@ Evidence gaps (additions):
    head-to-head — without them "self-timed" stays scoped to one threat
    level and the fixed-arm co-read (0.693 vs 0.587-0.615) is disclosed
    in R6(b).
+10. g3K (DONE): abstract paragraph (2) must gain the TRAJECTORY-vs-
+   STATIC clause — "no memory state survives continued TRAINING"
+   (the e185 arms were displacement-matched trajectories, corpus and
+   noise-label alike); STATIC random displacement shows a graded
+   4-10x basin (kappa_host ~6, kappa_store ~5 at matched mean
+   per-coordinate RMS). Never state the no-basin law against random
+   displacement.
 
 Risks (addition):
 R5 "Circularity — the architectures fix a problem the paper itself

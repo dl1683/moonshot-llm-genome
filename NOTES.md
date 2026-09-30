@@ -9,6 +9,43 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g3K — the kappa cell: MIXED — kappa_store 5.0, kappa_host 6.0; the no-basin law is a TRAJECTORY law, and the cone is an organ property (2026-09-30 ~10:45Z) — DONE
+
+WHAT WE DID: eval-only CPU, both kappas under ONE convention
+(perturbation L2 = rung x own wash-1x; mean per-coordinate RMS ~9.8e-4
+at 1x on both organisms — the AdamW step). Store ruler on g3_gen
+(g3R gates bit-exact); host ruler on the g3 lineage's own host-fact
+battery (S-DISC = e157_f2_consolidated, same e098 s4305 family —
+root g0/wash read/displacement reproduce committed values bit-exactly;
+g3's own host is pristine, store-off 0.0012). Wash direction = the
+committed t*=+1 full-wash snapshot per organism; iso = 3 fresh
+full-vector Gaussians per organism (no registered-block collisions).
+
+WHAT WE SAW (T137): MIXED, pair verbatim — kappa_store 5.0 [2.8, 6.6]
+(iso rungs {8,4,8}/wash 1), kappa_host 6.0 [4.0, 9.7] (iso {8,8,16}/
+wash 1); verdict aggregation-robust (min/mean/max all MIXED). NO
+SPLIT: the composed organism's readout (host-side per g5) dies to iso
+at 4-8x — the critic's 24-32x was the STORE-ISOLATED leg; the wide
+cone is an ORGAN property, not an ORGANISM property. NO UNIVERSAL
+NO-BASIN: e185/e187's host iso kill does NOT replicate as STATIC
+weight noise — a graded 4-10x basin vs random directions; the
+no-basin law is about LEARNING TRAJECTORIES (e185's displacement-matched
+noise arms were trajectories — corpus and noise-label training alike),
+not random displacement. Kills precede organism wreck (CE_R 1.84-2.62
+at kills, under the 3.0 bar). Wash-1x is magnitude-UNIFORM (top-decile
+0.324 vs iso 0.663; store-share 0.142 vs 0.139) — the g3-vs-e185
+convention disagreement was SUBSPACE choice, not wash shape. Wash
+direction drifts fast (cos d1..d300 ~0.13) — the killing object is a
+drifting aligned front, not a fixed direction. WHAT'S NEXT: (a) the
+store-isolated kappa beside the organism kappa on one plot (feeds
+g3O's amended ruler); (b) T137's trajectory-vs-static restatement of
+e185 (owed in the paper); (c) e188 (W022b) now separates
+trajectory-kill from static-kill directly. Honesty: organ n=1 per
+organism; host ruler on the lineage's discriminative twin; single
+wash snapshot; 3 iso seeds, seed values verbatim in metrics.
+
+---
+
 ## RESTART — halt lifted by Devansh (2026-09-30 ~10:20Z)
 
 The stop-everything halt of 09-29 was lifted ("Let's restart everything"). g1bW and g3K re-dispatched from frozen specs (the 06:06 restart commits had recorded a dispatch that never started; corrected). R57 answers SUPERVISOR check-ins 10-12.

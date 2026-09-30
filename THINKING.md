@@ -685,6 +685,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T137 — g3K: the basin is graded and the no-basin is a trajectory law (2026-09-30 ~10:50Z)
+
+The kappa pair came back nearly EQUAL — kappa_store 5.0 [2.8-6.6],
+kappa_host 6.0 [4.0-9.7] — and the MIXED verdict hides the day's
+sharpest dissociation, because BOTH kappas at ~5-6 means: (1) the
+store's celebrated wide cone (the critic's 24-32x) does NOT survive
+composition — that was the store-isolated leg with the host pristine;
+at the organism, the readout path g5 located in the HOST dies to
+isotropic at 4-8x, indistinguishable from the host's own fact. THE
+CONE IS AN ORGAN PROPERTY, NOT AN ORGANISM PROPERTY. (2) e185/e187's
+"isotropic kills at displacement-match" does NOT replicate as STATIC
+noise — the host fact holds a graded 4-10x basin against random
+displacement. THE NO-BASIN LAW IS A TRAJECTORY LAW: any LEARNED path
+to the same displacement kills (corpus or noise-label training alike
+— e185's arms were trajectories), a random jump does not. W022's
+alignment story absorbs BOTH readings: the wash kills because it is
+aligned with the death gradient (cos -0.44); random directions
+(alignment ~0) need 4-10x the magnitude — the graded basin IS the
+alignment law's static footprint. The fast drift (cos d1..d300
+~0.13) says the killing object is a DRIFTING aligned front, not a
+fixed direction — the cone's 45-degree tilt tolerance is its static
+shadow. e188 (W022b) is now the pointed test: the alignment integral
+separates trajectory-kill from static-kill by construction.
+CONCENTRATION REFUTED at 1x (magnitude-uniform wash) — the
+g3-vs-e185 disagreement was subspace choice. SCOPE: organ n=1 per
+organism; host ruler = the lineage's discriminative twin (S-DISC);
+single wash snapshot per organism.
+
 ## T136 — g2f: the organ survives the root lottery; the ruler did not (2026-09-29 ~21:35Z)
 
 The stranger-base redraw splits the claim the OTHER way: the rhythm
@@ -3117,6 +3145,10 @@ epiphenomenal, e185's displacement story was already the whole law;
 adaptation becomes more or less fact-eroding as it speeds up), which
 would be its own finding. Costs: eval-only, CPU, tens of backward
 passes. Name when dispatched: e188. Ripening behind the R56 cells.
+[UPDATE 10:50Z: g3K landed MIXED and sharpened this card's stakes —
+the graded 4-10x static basin vs the trajectory kill is exactly what
+the integral must separate (T137); e188 is now pointed by result, not
+just by argument.]
 
 ## W021 — WONDER: the instrument that cannot fail — R56's meta-law, and the scan it demands (2026-09-29 ~21:20Z; no bars, no kills)
 
