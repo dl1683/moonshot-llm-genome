@@ -1,0 +1,36 @@
+W024 CARD TEXT (pasted into THINKING.md by the fold below):
+
+## W024 — WONDER: the pump is a few big stitches; the erosion is a thousand tiny cuts — why the normalizer flips the sign (2026-09-30 ~11:50Z; no bars, no kills)
+
+The R58 critic's buried gem: on the SAME bit-identical wash batch,
+the raw gradient reads cos(g, grad m12) = +0.0981 (fact-positive —
+the pump) but Adam's normalized step reads -0.0385 (fact-negative —
+the erosion). HOW CAN NORMALIZING FLIP A SIGN? Mechanism candidate:
+sign-normalization flattens per-coordinate magnitudes, so the step
+direction becomes dominated by the MANY SMALL coordinates and
+relatively shrinks the FEW LARGE ones. If the pump lives in a few
+big coordinates (strong, aligned stitches into the fact's subspace)
+while the erosion is spread thin over a mass of tiny coordinates
+(each barely negative, jointly meaningful), then Adam's step
+amplifies the thousand tiny cuts and mutes the few big stitches —
+the net alignment flips. FORGETTING AS DEATH-BY-FLATTENING: not a
+directed attack but a magnitude-blind walk that erases the pump's
+protection and lets the thin erosion accumulate. THE CHEAP
+DISCRIMINATING OBSERVATION (paper-ready, eval-only, checkpoints on
+disk): THE GRADIENT CENSUS OF THE PUMP — decompose the wash gradient
+at each e180 snapshot into top-k |g| coordinates vs the complement;
+compute each part's alignment with grad(fact) separately.
+PREDICTION: top-k positive (the stitches), complement negative (the
+cuts). If instead BOTH parts are positive and the flip comes from
+the second-moment denominator's correlation structure, the
+mechanism is different and better — either answer explains the
+flip. Name when dispatched: e189 (THE GRADIENT CENSUS). It composes
+with opt2's TOPK arms (which intervene on exactly this structure)
+and e188's currency question (whose answer may literally be "the
+death currency is the COMPLEMENT's aligned displacement"). LITERATURE
+ECHO (for the next researcher beat): gradient-magnitude-vs-
+task-alignment decomposition smells like NTK-regime structure
+(big-coordinates = well-aligned useful directions); check
+"gradient signal-to-noise" and low-curvature-direction literature.
+Savoring: the organism's own healing signal is not destroyed by the
+wash — it is OUTVOTED, once every coordinate gets an equal vote.
