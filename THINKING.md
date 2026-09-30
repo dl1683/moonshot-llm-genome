@@ -3281,6 +3281,45 @@ physics states. That is the culture working.
 
 
 
+
+## W025 — WONDER: the kappas may be a dimension ratio, not a basin — the effective-subspace picture (2026-09-30 ~12:10Z; no bars, no kills — but it names e190)
+
+e188 killed alignment as the death currency, which forces the
+question: WHY do learned paths reach the gate at 1x while matched
+random directions need 4-10x, if not alignment? NOTE first: g3K's
+isotropic arm was a single Gaussian draw — which IS a uniformly
+random DIRECTION, as "coherent" as the wash in the naive sense; so
+coherent-vs-incoherent is not the axis either. THE CANDIDATE
+PICTURE: the network's function (on this battery) lives on a
+low-dimensional EFFECTIVE SUBSPACE of dimension d_eff. Gradient
+paths — wash, noise-label, any loss on this net's data — lie
+INSIDE it by construction (gradients are spans of data-Jacobians).
+A random direction projects onto it at ~sqrt(d_eff/d). At matched
+raw D, the random arm's EFFECTIVE displacement is D*sqrt(d_eff/d)
+— so it needs kappa ~ sqrt(d/d)_eff more raw magnitude. THE KAPPAS
+(4-10x at the organism, g3K) MEASURE THE DIMENSION RATIO, NOT
+FORGIVENESS: d_eff ~ d/kappa^2 ~ 874k/(16-100) ~ 9-35k effective
+dimensions. THE UNIFIED PICTURE (everything today composes):
+death is a raw-displacement threshold ~2.5 IN THE EFFECTIVE
+SUBSPACE (e188's 0.6% invariance holds because gradient paths never
+leave it); Adam vs SGD changes only the SPEED inside it (1683x,
+opt1); the pump is the stream's true gradient at small effective
+displacement; the wall caps raw D = caps effective D. THE DISCRIM
+INATING OBSERVATION (e190, THE EFFECTIVE-SUBSPACE TEST): (a)
+IN-SUBSPACE RANDOM — a random direction drawn inside the empirical
+span of the wash gradients (SVD of the e180/opt1 step history, top-r
+components): predicted to KILL AT 1x like any gradient path; (b)
+SUBSPACE-PROJECTED GRADIENT — the wash direction with its in-span
+component removed (pure out-of-subspace): predicted to need kappa-x
+or never kill; (c) the Jacobian's effective rank on the fact
+battery measured directly — predicted ~kappa^-2 * d. If (a) kills
+at 1x and (b) spares, the "static basin" language retires for good:
+there is no basin, only a PROJECTION RATIO, and g3K's kappas get
+their true name. CONCENTRATION RETURNS AT THE ORGANISM LEVEL (the
+R56 critic's instinct was right, one level up: the geometry is the
+subspace's, not the ball's). Savoring: the network is a
+10-35k-dimensional animal wearing an 874k-dimensional coat.
+
 ## W024 — WONDER: the pump is a few big stitches; the erosion is a thousand tiny cuts — why the normalizer flips the sign (2026-09-30 ~11:50Z; no bars, no kills)
 
 The R58 critic's buried gem: on the SAME bit-identical wash batch,
