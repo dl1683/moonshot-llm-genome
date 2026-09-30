@@ -1,0 +1,1016 @@
+{
+  "experiment": "e188_death_currency",
+  "date": "2026-09-30T11:51:02Z",
+  "registration": "QUEUE.md e188 DISPATCHED 12:00Z (bars frozen: A*-CONSTANT / RAW-WINS / NEITHER + the vocabulary rule); W022b's estimator; T137/T139 pointed; R58 ideator's two-currency amendment; bars frozen VERBATIM in the module docstring before compute",
+  "registered_bars": {
+    "A_STAR_CONSTANT": "A*-CONSTANT: \"fires if the fact dies at an lr-INDEPENDENT A* \u2014 the alignment-weighted displacement at death within +-25% across the e180 arms (t* known per arm from committed metrics) \u2014 death is measured in aligned-displacement units; the rate law is a corollary of constant-speed aligned drift.\"",
+    "RAW_WINS": "RAW-WINS: \"fires if raw cumulative ||d_theta|| at death is more arm-invariant than A (coefficient of variation comparison, stated numerically) \u2014 alignment is epiphenomenal; e185's displacement story was the whole law.\"",
+    "NEITHER": "NEITHER: \"fires if neither currency is arm-invariant \u2014 alignment itself drifts with lr; its own finding, reported as texture.\""
+  },
+  "vocab_rule": "|cos| > 0.5 -> task-arithmetic vocabulary fits (adopt in the paper); |cos| < 0.3 -> the wash is the corpus's adaptation direction, not the fact's negation (reject the vocabulary); between -> mixed, reported.",
+  "question": "in what currency is the wash kill priced \u2014 aligned displacement A (W022b's integral) or raw ||d_theta|| (e185/e180) \u2014 and is g3K's static kill priced in the same currency?",
+  "gates": {
+    "corpus_zeph_count": 0,
+    "install_mix": {
+      "FLORIZEL": 19,
+      "ELIZABETH": 41
+    },
+    "battery_shapes": {
+      "-12": [
+        60,
+        118
+      ],
+      "0": [
+        60,
+        130
+      ],
+      "12": [
+        60,
+        142
+      ]
+    },
+    "G_ROOT": {
+      "reads": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "base_gm12": 0.9155886769294739,
+        "base_g0": 0.7850371599197388,
+        "base_gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "max_abs_diff": 0.0,
+      "pass": true
+    },
+    "G_DISP_XCHECK": {
+      "mine": [
+        1.6542880535125732,
+        2.4892616271972656
+      ],
+      "e185_stored": [
+        1.6542880535125732,
+        2.4892616271972656
+      ],
+      "pass": true
+    },
+    "G_G3K_STORE_ROOT": {
+      "root_ckpt": "runs/checkpoints/g3_gen.pt",
+      "meta": {
+        "experiment": "g3",
+        "desc": "e098_base_s4305 + g3-GEN organ (store-only training, seed 43050)",
+        "steps": 300,
+        "cal_steps": 0,
+        "seed": 43050,
+        "device": "cuda",
+        "kind": "gen",
+        "base": "runs/checkpoints/e098_base_s4305.pt"
+      },
+      "host_bit_identical_to_base": true,
+      "root_g0": 0.8885950446128845,
+      "ref_root_g0": 0.8885950446128845,
+      "root_g0_reproduces": true,
+      "store_off_g0": 0.0012461830126388425,
+      "store_off_bar": 0.27,
+      "store_off_pass": true,
+      "pass": true
+    },
+    "G_G3K_HOST_ROOT": {
+      "root_g0": 0.5784125924110413,
+      "ref": 0.5784125924110413,
+      "wash_s1_g0": 0.0040224287658929825,
+      "ref_s1": 0.0040224287658929825,
+      "D_all_s1": 0.916419706836259,
+      "ref_D": 0.916419706836259,
+      "pass": true
+    }
+  },
+  "trajectory_row": {
+    "arms": {
+      "lr1e-3_neutral": {
+        "lr": 0.001,
+        "stream": "neutral",
+        "seed": 10902,
+        "t_star_committed": 2,
+        "t_star_kind": "measured (bracket (1, 2])",
+        "source": "runs/e176n/metrics.json trace_armA = e180's five-point arm '1e-3_neutral_e176n_armA' (e180 attributes it verbatim; ONLY the lr differs across the family's neutral cells)",
+        "pairs": [
+          {
+            "from_step": 0,
+            "to_step": 1,
+            "seg_span_steps": 1,
+            "d_norm": 1.6542880535125732,
+            "raw_cum_norm": 1.6542880535125732,
+            "a_t_g0": -0.029720136895775795,
+            "a_t_m12": 0.039546843618154526,
+            "grad_g0_norm": 21.50369644165039,
+            "ce_r_committed": 2.2113420963287354,
+            "A_g0_cum": -0.04916566741544015,
+            "A_m12_cum": 0.06542187095164298
+          },
+          {
+            "from_step": 1,
+            "to_step": 2,
+            "seg_span_steps": 1,
+            "d_norm": 1.0913957357406616,
+            "raw_cum_norm": 2.4892616271972656,
+            "a_t_g0": 0.036217689514160156,
+            "a_t_m12": 0.02183138020336628,
+            "grad_g0_norm": 45.63154602050781,
+            "ce_r_committed": 2.032074451446533,
+            "A_g0_cum": -0.009637835521306481,
+            "A_m12_cum": 0.08924854621093004
+          },
+          {
+            "from_step": 2,
+            "to_step": 4,
+            "seg_span_steps": 2,
+            "d_norm": 1.4710595607757568,
+            "raw_cum_norm": 3.526789665222168,
+            "a_t_g0": 0.07163312286138535,
+            "a_t_m12": 0.06742526590824127,
+            "grad_g0_norm": 129.60772705078125,
+            "ce_r_committed": 1.8213403224945068,
+            "A_g0_cum": 0.09573875473215887,
+            "A_m12_cum": 0.18843512826309605
+          },
+          {
+            "from_step": 4,
+            "to_step": 50,
+            "seg_span_steps": 46,
+            "d_norm": 8.976757049560547,
+            "raw_cum_norm": 9.870302200317383,
+            "a_t_g0": 0.0079520083963871,
+            "a_t_m12": 0.0061456202529370785,
+            "grad_g0_norm": 96.23551177978516,
+            "ce_r_committed": 1.708834171295166,
+            "A_g0_cum": 0.16712200216259143,
+            "A_m12_cum": 0.24360286819257104
+          },
+          {
+            "from_step": 50,
+            "to_step": 100,
+            "seg_span_steps": 50,
+            "d_norm": 6.476455211639404,
+            "raw_cum_norm": 11.621082305908203,
+            "a_t_g0": -0.0004994471673853695,
+            "a_t_m12": 0.002678603632375598,
+            "grad_g0_norm": 78.37277221679688,
+            "ce_r_committed": 1.6700899600982666,
+            "A_g0_cum": 0.16388735495243992,
+            "A_m12_cum": 0.2609507246473862
+          },
+          {
+            "from_step": 100,
+            "to_step": 200,
+            "seg_span_steps": 100,
+            "d_norm": 8.878265380859375,
+            "raw_cum_norm": 14.401354789733887,
+            "a_t_g0": -0.0006052899407222867,
+            "a_t_m12": -0.001049785758368671,
+            "grad_g0_norm": 80.64385986328125,
+            "ce_r_committed": 1.6468615531921387,
+            "A_g0_cum": 0.15851343022634282,
+            "A_m12_cum": 0.25163044809154245
+          },
+          {
+            "from_step": 200,
+            "to_step": 300,
+            "seg_span_steps": 100,
+            "d_norm": 8.764686584472656,
+            "raw_cum_norm": 16.594125747680664,
+            "a_t_g0": 0.0016764708561822772,
+            "a_t_m12": 0.0031413233373314142,
+            "grad_g0_norm": 87.2990951538086,
+            "ce_r_committed": 1.642844796180725,
+            "A_g0_cum": 0.173207171848783,
+            "A_m12_cum": 0.27916316260374197
+          }
+        ],
+        "repro": [
+          {
+            "step": 1,
+            "ckpt": "e176n_neutral_s1.pt",
+            "g0": 0.4619811177253723,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.6780441403388977,
+            "gm12_ref_diff": 5.960464477539063e-08
+          },
+          {
+            "step": 2,
+            "ckpt": "e176n_neutral_s2.pt",
+            "g0": 0.1147073358297348,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.027077050879597664,
+            "gm12_ref_diff": 3.725290298461914e-09
+          },
+          {
+            "step": 4,
+            "ckpt": "e176n_neutral_s4.pt",
+            "g0": 0.06042749062180519,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.010940758511424065,
+            "gm12_ref_diff": 2.7939677238464355e-09
+          },
+          {
+            "step": 50,
+            "ckpt": "e176n_neutral_s50.pt",
+            "g0": 0.16835635900497437,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.022122319787740707,
+            "gm12_ref_diff": 1.4901161193847656e-08
+          },
+          {
+            "step": 100,
+            "ckpt": "e176n_neutral_s100.pt",
+            "g0": 0.05249874293804169,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.014922748319804668,
+            "gm12_ref_diff": 3.725290298461914e-09
+          },
+          {
+            "step": 200,
+            "ckpt": "e176n_neutral_s200.pt",
+            "g0": 0.011475668288767338,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.002047252841293812,
+            "gm12_ref_diff": 1.3969838619232178e-09
+          },
+          {
+            "step": 300,
+            "ckpt": "e176n_neutral.pt",
+            "g0": 0.016238771378993988,
+            "g0_ref_diff": 0.0,
+            "gm12": 0.0038193268701434135,
+            "gm12_ref_diff": 1.3969838619232178e-09
+          }
+        ],
+        "A_final_g0": 0.173207171848783,
+        "A_final_m12": 0.27916316260374197,
+        "death": {
+          "t": 2,
+          "censored": false,
+          "A_g0": -0.009637835521306481,
+          "A_m12": 0.08924854621093004,
+          "raw_D": 2.4892616271972656,
+          "note": "measured at committed t*=2"
+        },
+        "repro_max_diff": 5.960464477539063e-08
+      }
+    },
+    "replication_corread_lr1e-3_texture": {},
+    "row_note": "A from SAMPLED snapshots \u2014 the integral is a quadrature (piecewise-constant a_t per segment; the 1e-4 arm's whole kill sits in ONE 50-step segment; grad g0 at snapshotted theta assumes piecewise-linear adaptation)"
+  },
+  "static_row": {
+    "convention": {
+      "rungs": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "match": "perturbation total L2 = rung x ||own wash 1x||; mean per-coordinate RMS = rung x ||D||/sqrt(N) in both arms",
+      "store": {
+        "D_wash_1x": 0.9258005526026513,
+        "n_params": 890880,
+        "mean_rms_1x": 0.000980861822424744
+      },
+      "host": {
+        "D_wash_1x": 0.916419706836259,
+        "n_params": 873472,
+        "mean_rms_1x": 0.0009805504105373092
+      }
+    },
+    "convention_note": "g3K's committed displacement conventions reused verbatim: perturbation L2 = rung x ||own wash 1x||; iso draws regenerated from the committed seeds (11401-3 / 11411-13) and VERIFIED by reproducing g3K's committed per-rung reads rung by rung (G-ISO-REPRO)",
+    "organisms": {
+      "store": {
+        "root": "runs/checkpoints/g3_gen.pt",
+        "n_params": 890880,
+        "D_wash_1x": 0.9258005526026513,
+        "grad_g0_norm": 53.20647430419922,
+        "wash_dir_cos_grad_root": -0.098917655646801,
+        "wash_dir_A_static_rung1": -0.09157802025996713,
+        "wash_leg": [
+          {
+            "rung": 1,
+            "read": 5.8887377235805616e-05,
+            "A_static": -0.09157803886797966
+          },
+          {
+            "rung": 2,
+            "read": 1.0080562788061798e-05,
+            "A_static": -0.18315607773595932
+          },
+          {
+            "rung": 4,
+            "read": 3.271214382039034e-06,
+            "A_static": -0.36631215547191864
+          },
+          {
+            "rung": 8,
+            "read": 4.76756122225197e-06,
+            "A_static": -0.7326243109438373
+          },
+          {
+            "rung": 16,
+            "read": 8.883240661816671e-05,
+            "A_static": -1.4652486218876746
+          },
+          {
+            "rung": 32,
+            "read": 0.014681946486234665,
+            "A_static": -2.930497243775349
+          },
+          {
+            "rung": 64,
+            "read": 0.028347833082079887,
+            "A_static": -5.860994487550698
+          }
+        ],
+        "iso": [
+          {
+            "seed": 11401,
+            "draw_L2": 944.5149609505138,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.8789353966712952,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.00019766516382281607
+              },
+              {
+                "rung": 2,
+                "read": 0.8510811924934387,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.00039533032764563214
+              },
+              {
+                "rung": 4,
+                "read": 0.7639797925949097,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.0007906606552912643
+              },
+              {
+                "rung": 8,
+                "read": 0.39421117305755615,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.0015813213105825286
+              },
+              {
+                "rung": 16,
+                "read": 0.004476333037018776,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.003162642621165057
+              },
+              {
+                "rung": 32,
+                "read": 0.0028702581766992807,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.006325285242330114
+              },
+              {
+                "rung": 64,
+                "read": 0.0008429762092418969,
+                "cos": -0.00021350948372855783,
+                "A_static": -0.012650570484660228
+              }
+            ],
+            "kill_rung_committed": 8,
+            "A_static_at_kill": -0.0015813213105825286,
+            "read_at_kill": 0.39421117305755615
+          },
+          {
+            "seed": 11402,
+            "draw_L2": 944.3002523513808,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.8614416718482971,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.0005375506594354137
+              },
+              {
+                "rung": 2,
+                "read": 0.7783026099205017,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.0010751013188708275
+              },
+              {
+                "rung": 4,
+                "read": 0.2090865820646286,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.002150202637741655
+              },
+              {
+                "rung": 8,
+                "read": 0.0015691797016188502,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.00430040527548331
+              },
+              {
+                "rung": 16,
+                "read": 0.000431004271376878,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.00860081055096662
+              },
+              {
+                "rung": 32,
+                "read": 2.4974819098133594e-05,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.01720162110193324
+              },
+              {
+                "rung": 64,
+                "read": 4.050330517202383e-06,
+                "cos": -0.0005806382978335023,
+                "A_static": -0.03440324220386648
+              }
+            ],
+            "kill_rung_committed": 4,
+            "A_static_at_kill": -0.002150202637741655,
+            "read_at_kill": 0.2090865820646286
+          },
+          {
+            "seed": 11403,
+            "draw_L2": 944.0039996167492,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.8906676173210144,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.0003903228029238596
+              },
+              {
+                "rung": 2,
+                "read": 0.8613251447677612,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.0007806456058477192
+              },
+              {
+                "rung": 4,
+                "read": 0.6578771471977234,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.0015612912116954383
+              },
+              {
+                "rung": 8,
+                "read": 0.3592463731765747,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.0031225824233908767
+              },
+              {
+                "rung": 16,
+                "read": 0.03967750445008278,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.006245164846781753
+              },
+              {
+                "rung": 32,
+                "read": 0.00012914305261801928,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.012490329693563507
+              },
+              {
+                "rung": 64,
+                "read": 7.056778849801049e-05,
+                "cos": 0.0004216088855173439,
+                "A_static": 0.024980659387127013
+              }
+            ],
+            "kill_rung_committed": 8,
+            "A_static_at_kill": 0.0031225824233908767,
+            "read_at_kill": 0.3592463731765747
+          }
+        ],
+        "kill_rungs_committed": [
+          8,
+          4,
+          8
+        ],
+        "A_static_at_kill": [
+          -0.0015813213105825286,
+          -0.002150202637741655,
+          0.0031225824233908767
+        ],
+        "g3k_repro_max_abs_diff": 0.0
+      },
+      "host": {
+        "root": "runs/checkpoints/e157_f2_consolidated.pt",
+        "n_params": 873472,
+        "D_wash_1x": 0.916419706836259,
+        "grad_g0_norm": 64.24596405029297,
+        "wash_dir_cos_grad_root": 0.009693097323179245,
+        "wash_dir_A_static_rung1": 0.00888294540724325,
+        "wash_leg": [
+          {
+            "rung": 1,
+            "read": 0.004022428300231695,
+            "A_static": 0.008882945772239914
+          },
+          {
+            "rung": 2,
+            "read": 0.00019297763356007636,
+            "A_static": 0.017765891544479828
+          },
+          {
+            "rung": 4,
+            "read": 5.406492709880695e-05,
+            "A_static": 0.035531783088959656
+          },
+          {
+            "rung": 8,
+            "read": 2.296373168064747e-05,
+            "A_static": 0.07106356617791931
+          },
+          {
+            "rung": 16,
+            "read": 6.3391830735781696e-06,
+            "A_static": 0.14212713235583863
+          },
+          {
+            "rung": 32,
+            "read": 0.000632940442301333,
+            "A_static": 0.28425426471167725
+          },
+          {
+            "rung": 64,
+            "read": 0.004277536179870367,
+            "A_static": 0.5685085294233545
+          }
+        ],
+        "iso": [
+          {
+            "seed": 11411,
+            "draw_L2": 935.4282520535662,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.5780147314071655,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.000316737687133457
+              },
+              {
+                "rung": 2,
+                "read": 0.5708404779434204,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.000633475374266914
+              },
+              {
+                "rung": 4,
+                "read": 0.5216239094734192,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.001266950748533828
+              },
+              {
+                "rung": 8,
+                "read": 0.244688481092453,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.002533901497067656
+              },
+              {
+                "rung": 16,
+                "read": 0.003419897984713316,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.005067802994135312
+              },
+              {
+                "rung": 32,
+                "read": 0.00020510380272753537,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.010135605988270624
+              },
+              {
+                "rung": 64,
+                "read": 0.0006235329201444983,
+                "cos": 0.0003456275735516101,
+                "A_static": 0.020271211976541248
+              }
+            ],
+            "kill_rung_committed": 8,
+            "A_static_at_kill": 0.002533901497067656,
+            "read_at_kill": 0.244688481092453
+          },
+          {
+            "seed": 11412,
+            "draw_L2": 933.7937388480022,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.5688080191612244,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.0006100636738085377
+              },
+              {
+                "rung": 2,
+                "read": 0.5536248087882996,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.0012201273476170754
+              },
+              {
+                "rung": 4,
+                "read": 0.5023201107978821,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.002440254695234151
+              },
+              {
+                "rung": 8,
+                "read": 0.30001959204673767,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.004880509390468302
+              },
+              {
+                "rung": 16,
+                "read": 0.013491762802004814,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.009761018780936603
+              },
+              {
+                "rung": 32,
+                "read": 4.9782433052314445e-05,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.019522037561873207
+              },
+              {
+                "rung": 64,
+                "read": 6.37931443634443e-05,
+                "cos": -0.0006657092599198222,
+                "A_static": -0.03904407512374641
+              }
+            ],
+            "kill_rung_committed": 8,
+            "A_static_at_kill": -0.004880509390468302,
+            "read_at_kill": 0.30001959204673767
+          },
+          {
+            "seed": 11413,
+            "draw_L2": 934.6294344543912,
+            "rows": [
+              {
+                "rung": 1,
+                "read": 0.5835965871810913,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.0005421437584778033
+              },
+              {
+                "rung": 2,
+                "read": 0.5865699052810669,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.0010842875169556065
+              },
+              {
+                "rung": 4,
+                "read": 0.5897073149681091,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.002168575033911213
+              },
+              {
+                "rung": 8,
+                "read": 0.5889328718185425,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.004337150067822426
+              },
+              {
+                "rung": 16,
+                "read": 0.2757045030593872,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.008674300135644852
+              },
+              {
+                "rung": 32,
+                "read": 0.00018734367040451616,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.017348600271289705
+              },
+              {
+                "rung": 64,
+                "read": 3.4955785395140992e-06,
+                "cos": 0.0005915941437706351,
+                "A_static": 0.03469720054257941
+              }
+            ],
+            "kill_rung_committed": 16,
+            "A_static_at_kill": 0.008674300135644852,
+            "read_at_kill": 0.2757045030593872
+          }
+        ],
+        "kill_rungs_committed": [
+          8,
+          8,
+          16
+        ],
+        "A_static_at_kill": [
+          0.002533901497067656,
+          -0.004880509390468302,
+          0.008674300135644852
+        ],
+        "g3k_repro_max_abs_diff": 0.0
+      }
+    }
+  },
+  "install_vs_wash": {
+    "e180_lineage_zephyra": {
+      "install": {
+        "endpoints": "e131_consolidated_e113 - e048_repro",
+        "note": "full install+consolidation arc (root_meta base)"
+      },
+      "wash": {
+        "endpoints": "e176n_neutral_s1 - e131_consolidated_e113",
+        "note": "committed lr 1e-3 neutral first step (seed 10902)"
+      },
+      "cos": -0.033790212124586105,
+      "abs_cos": 0.033790212124586105,
+      "vocab_rule_call": "reject: the wash is the corpus's adaptation direction, not the fact's negation",
+      "install_L2": 15.189518928527832,
+      "wash_L2": 1.6542880535125732,
+      "install_one_sided_key_L2": 0.0,
+      "wash_one_sided_key_L2": 0.0
+    },
+    "g3_store": {
+      "install": {
+        "endpoints": "g3_gen - e098_base_s4305",
+        "note": "the g3 construction arc (one-shot organ write; host trunk bit-identical by g3R's gate, so this vector is essentially the organ itself \u2014 the one-sided store-key mass is reported)"
+      },
+      "wash": {
+        "endpoints": "g3_gen_s1 - g3_gen",
+        "note": "committed wash snapshot (g3's seed 10902, t*=+1)"
+      },
+      "cos": -0.018020199611783028,
+      "abs_cos": 0.018020199611783028,
+      "vocab_rule_call": "reject: the wash is the corpus's adaptation direction, not the fact's negation",
+      "install_L2": 7.5933003425598145,
+      "wash_L2": 0.9258007407188416,
+      "install_one_sided_key_L2": 7.5933003425598145,
+      "wash_one_sided_key_L2": 0.0
+    },
+    "g3_host_e157f2_full_arc": {
+      "install": {
+        "endpoints": "e157_f2_consolidated - e098_base_s4305",
+        "note": "full install+consolidation arc"
+      },
+      "wash": {
+        "endpoints": "e157_f2_neutral_s1 - e157_f2_consolidated",
+        "note": "committed wash snapshot (e176n arm A verbatim; seed 10902, t*=+1)"
+      },
+      "cos": -0.0301973819732666,
+      "abs_cos": 0.0301973819732666,
+      "vocab_rule_call": "reject: the wash is the corpus's adaptation direction, not the fact's negation",
+      "install_L2": 10.72406005859375,
+      "wash_L2": 0.9164197444915771,
+      "install_one_sided_key_L2": 0.0,
+      "wash_one_sided_key_L2": 0.0
+    },
+    "g3_host_e157f2_consolidation_only": {
+      "install": {
+        "endpoints": "e157_f2_consolidated - e098_install_s4305",
+        "note": "consolidation-only arc (installed -> consolidated)"
+      },
+      "wash": {
+        "endpoints": "e157_f2_neutral_s1 - e157_f2_consolidated",
+        "note": "same committed wash snapshot"
+      },
+      "cos": -0.028843125328421593,
+      "abs_cos": 0.028843125328421593,
+      "vocab_rule_call": "reject: the wash is the corpus's adaptation direction, not the fact's negation",
+      "install_L2": 10.056048393249512,
+      "wash_L2": 0.9164197444915771,
+      "install_one_sided_key_L2": 0.0,
+      "wash_one_sided_key_L2": 0.0
+    },
+    "rule": "|cos| > 0.5 -> task-arithmetic vocabulary fits (adopt in the paper); |cos| < 0.3 -> the wash is the corpus's adaptation direction, not the fact's negation (reject the vocabulary); between -> mixed, reported."
+  },
+  "vocabulary_verdict": {
+    "per_organism": {
+      "e180_lineage_zephyra": {
+        "cos": -0.033790212124586105,
+        "call": "reject: the wash is the corpus's adaptation direction, not the fact's negation"
+      },
+      "g3_store": {
+        "cos": -0.018020199611783028,
+        "call": "reject: the wash is the corpus's adaptation direction, not the fact's negation"
+      },
+      "g3_host_e157f2_full_arc": {
+        "cos": -0.0301973819732666,
+        "call": "reject: the wash is the corpus's adaptation direction, not the fact's negation"
+      },
+      "g3_host_e157f2_consolidation_only": {
+        "cos": -0.028843125328421593,
+        "call": "reject: the wash is the corpus's adaptation direction, not the fact's negation"
+      }
+    },
+    "rule": "|cos| > 0.5 -> task-arithmetic vocabulary fits (adopt in the paper); |cos| < 0.3 -> the wash is the corpus's adaptation direction, not the fact's negation (reject the vocabulary); between -> mixed, reported.",
+    "note": "reported per organism; the paper-level adoption is the coordinator's fold, not this cell's adjudication"
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "A_STAR_CONSTANT": "A*-CONSTANT: \"fires if the fact dies at an lr-INDEPENDENT A* \u2014 the alignment-weighted displacement at death within +-25% across the e180 arms (t* known per arm from committed metrics) \u2014 death is measured in aligned-displacement units; the rate law is a corollary of constant-speed aligned drift.\"",
+      "RAW_WINS": "RAW-WINS: \"fires if raw cumulative ||d_theta|| at death is more arm-invariant than A (coefficient of variation comparison, stated numerically) \u2014 alignment is epiphenomenal; e185's displacement story was the whole law.\"",
+      "NEITHER": "NEITHER: \"fires if neither currency is arm-invariant \u2014 alignment itself drifts with lr; its own finding, reported as texture.\""
+    },
+    "no_bar_shopping": true,
+    "verdict": "A*-CONSTANT",
+    "clause": "A*-CONSTANT: \"fires if the fact dies at an lr-INDEPENDENT A* \u2014 the alignment-weighted displacement at death within +-25% across the e180 arms (t* known per arm from committed metrics) \u2014 death is measured in aligned-displacement units; the rate law is a corollary of constant-speed aligned drift.\" \u2014 FIRED: A* per arm { lr1e-3_neutral: +0.0096 }; max rel dev from mean 0.0% (band +-25%); CV(A) 0.000 <= CV(D) 0.000; censored bound VIOLATED",
+    "death_alignment_per_arm": {
+      "lr1e-3_neutral": 0.009637835521306481
+    },
+    "raw_D_per_arm": {
+      "lr1e-3_neutral": 2.4892616271972656
+    },
+    "A_m12_per_arm_co_read": {
+      "lr1e-3_neutral": -0.08924854621093004
+    },
+    "mean_death_alignment": 0.009637835521306481,
+    "rel_dev_from_mean": {
+      "lr1e-3_neutral": 0.0
+    },
+    "band_pass_25pct": true,
+    "CV_A": 0.0,
+    "CV_D": 0.0,
+    "CV_A_m12_co_read": 0.0,
+    "cv_convention": "population std (ddof=0) / mean(|values|); signed A entered as death alignment -A so the mean is positive when the mechanism holds",
+    "censored_bound": null,
+    "alignment_drift_texture": {
+      "lr": [
+        0.001
+      ],
+      "mean_a_t_g0": [
+        0.012379202517747347
+      ],
+      "monotone_in_lr": true
+    },
+    "static_co_read_never_adjudicated": {
+      "store": {
+        "A_static_at_kill": [
+          -0.0015813213105825286,
+          -0.002150202637741655,
+          0.0031225824233908767
+        ],
+        "kill_rungs": [
+          8,
+          4,
+          8
+        ],
+        "A_star_traj_range": [
+          0.009637835521306481,
+          0.009637835521306481
+        ],
+        "expected": "far below A* (the static kill is not aligned-displacement death) \u2014 reported as measured, never adjudicated"
+      },
+      "host": {
+        "A_static_at_kill": [
+          0.002533901497067656,
+          -0.004880509390468302,
+          0.008674300135644852
+        ],
+        "kill_rungs": [
+          8,
+          8,
+          16
+        ],
+        "A_star_traj_range": [
+          0.009637835521306481,
+          0.009637835521306481
+        ],
+        "expected": "far below A* (the static kill is not aligned-displacement death) \u2014 reported as measured, never adjudicated"
+      }
+    }
+  },
+  "honesty": {
+    "snapshot_quadrature": "A(t) is a 1-7-point quadrature per arm; segments span 1-100 steps; the estimator assumes piecewise-constant alignment and piecewise-linear adaptation between snapshots \u2014 the caveat is carried on the figure, not shopped away",
+    "single_fact_family": "the ZEPHYRA installs (e043 splice, one corpus, one install recipe); n=1 per arm; the lr 1e-4 arm is the ORIGINAL extinction-anchor stream on a coarse grid (flagged everywhere it enters a number); the g3 organisms are one construction each (g3K's standing scope)",
+    "device_texture": "CPU fp32 reads of committed trajectories (e176n/e184 committed on-device; functional gate 0.05; diffs reported per snapshot; e185c measured same-seed device ratios <= 0.2%)",
+    "pricing_not_causation": "the cell shows WHAT death is priced in, not what CAUSES it; the causal cell is opt2's masked arms (r58's clause, adopted)",
+    "estimator_change": "W022's -0.44 and opt1/T139's -0.015..-0.105 were CUMULATIVE-displacement cosines; e188's a_t is the PER-PAIR estimator (W022b's specification) \u2014 disagreement between the two is expected and informative, not a contradiction",
+    "no_bar_shopping": true
+  },
+  "provenance": {
+    "checkpoints": {
+      "e131_consolidated_e113.pt": {
+        "path": "runs\\checkpoints\\e131_consolidated_e113.pt",
+        "sha1": "6fcf580a2b453823584f894456a52c01b0476ea5",
+        "bytes": 10976905,
+        "note": "meta-present"
+      },
+      "runs/e176n/metrics.json": {
+        "path": "runs\\e176n\\metrics.json",
+        "sha1": "930bd4ea14482d06ab6efce749143532dd1283a9",
+        "bytes": 150862,
+        "note": "committed metrics (provenance source)"
+      },
+      "e176n_neutral_s1.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s1.pt",
+        "sha1": "aaca425bd4d61d420c535013d9bd5c3d09eb41af",
+        "bytes": 10976607,
+        "note": "meta-present"
+      },
+      "e176n_neutral_s2.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s2.pt",
+        "sha1": "2c75a13e250cffb1ff7f7ca241c296a995480f09",
+        "bytes": 10976607,
+        "note": "meta-present"
+      },
+      "e176n_neutral_s4.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s4.pt",
+        "sha1": "281bd64dfe7146e73920a33a21ed68de2a31fce9",
+        "bytes": 10976607,
+        "note": "meta-present"
+      },
+      "e176n_neutral_s50.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s50.pt",
+        "sha1": "c0f4887859b42fb5d27f7ed2a5fff99f3df4eb0d",
+        "bytes": 10976678,
+        "note": "meta-present"
+      },
+      "e176n_neutral_s100.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s100.pt",
+        "sha1": "e7174e8b0a30f16840f54c18074aa4a693c018ba",
+        "bytes": 10976749,
+        "note": "meta-present"
+      },
+      "e176n_neutral_s200.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral_s200.pt",
+        "sha1": "7720d5475fd95d1b2f685a478c5ef05d838d3154",
+        "bytes": 10976749,
+        "note": "meta-present"
+      },
+      "e176n_neutral.pt": {
+        "path": "runs\\checkpoints\\e176n_neutral.pt",
+        "sha1": "7c304ed66e6d690b278325cd455125f4bb894752",
+        "bytes": 10976522,
+        "note": "meta-present"
+      },
+      "e157_f2_consolidated.pt": {
+        "path": "runs\\checkpoints\\e157_f2_consolidated.pt",
+        "sha1": "37efbf8b09857940c5196730c875d01486c100e1",
+        "bytes": 3508467,
+        "note": "meta-present"
+      },
+      "e157_f2_neutral_s1.pt": {
+        "path": "runs\\checkpoints\\e157_f2_neutral_s1.pt",
+        "sha1": "bdf206a7ccc2960c008844bbd19ccfe388d5e49a",
+        "bytes": 3508301,
+        "note": "meta-present"
+      },
+      "runs/g3K/metrics.json": {
+        "path": "runs\\g3K\\metrics.json",
+        "sha1": "91f2066f61ac8faa9875944acf3a75371375d5f3",
+        "bytes": 46141,
+        "note": "committed metrics (provenance source)"
+      },
+      "g3_gen_s1.pt": {
+        "path": "runs\\checkpoints\\g3_gen_s1.pt",
+        "sha1": "eec2188cff943845ed7f710fae72b6b1a76c9988",
+        "bytes": 3578622,
+        "note": "meta-present"
+      },
+      "e048_repro.pt": {
+        "path": "runs\\checkpoints\\e048_repro.pt",
+        "sha1": "02bff63cde7818203ad7d745d18ab71c7b2d9d56",
+        "bytes": 32952214,
+        "note": "raw-sd"
+      },
+      "g3_gen.pt": {
+        "path": "runs\\checkpoints\\g3_gen.pt",
+        "sha1": "56cf501977bbb9940998e99f0b8e284e540ef14a",
+        "bytes": 3575321,
+        "note": "meta-present"
+      },
+      "e098_base_s4305.pt": {
+        "path": "runs\\checkpoints\\e098_base_s4305.pt",
+        "sha1": "226efc5e6cb00f4dc28b870d8ff803c2e1fad782",
+        "bytes": 10542957,
+        "note": "raw-sd"
+      },
+      "e098_install_s4305.pt": {
+        "path": "runs\\checkpoints\\e098_install_s4305.pt",
+        "sha1": "5d922cbaf6f79ed1c98dcae944f1961790961043",
+        "bytes": 10543198,
+        "note": "raw-sd"
+      }
+    },
+    "committed_metrics_consumed": [
+      "runs/e176n/metrics.json",
+      "runs/e180/metrics.json",
+      "runs/e184/metrics.json",
+      "runs/e185c/metrics.json",
+      "runs/g3K/metrics.json",
+      "runs/g3/metrics.json (via g3R gates)",
+      "runs/e157/metrics.json (lineage endpoints)",
+      "runs/e151/metrics.json (root gate refs, embedded)",
+      "runs/e185/metrics.json (control displacements, embedded)"
+    ],
+    "note": "every checkpoint hashed at load; every battery read reproduced its committed trajectory row before use (no silent loads)"
+  },
+  "compute": {
+    "device": "cpu",
+    "threads": 8,
+    "elapsed_s": 41.7,
+    "backward_passes": "one per left-endpoint snapshot per battery geometry (g0 primary, g-12 co-report) + one per g3K organism root + one per replication arm",
+    "training_runs": 0,
+    "gpu_claimed": false
+  }
+}

@@ -113,11 +113,14 @@ R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
    Adam's sign-normalization, 1683x/step at matched lr, and the
    normalizer flips the sign of fact-relevance, -0.0385 vs +0.0981);
    the small-displacement pump strengthens the fact under every
-   optimizer; the kill reads displacement in a two-convention
-   bracket (PROPOSED — opt1b/opt1c/e188 adjudicate the gate's
-   trajectory-class scope and the death currency; e189 reads the
-   stitches-vs-cuts decomposition, W024); the trajectory-vs-static
-   hypothesis (g3K, n=1) and its replication debt.
+   optimizer; the kill is priced in RAW displacement (e188 DONE: RAW-WINS —
+   D at death CV 0.6% across seeds at matched t*; the aligned
+   currency lost, CV 0.56; alignment a passenger that flips
+   positive post-kill); opt1b/opt1c adjudicate the gate's
+   trajectory-class scope; the static/learned contrast (g3K kappas,
+   n=1) keeps the replication debt; task-arithmetic vocabulary
+   REJECTED (install-vs-wash cos in [-0.034,-0.018] on four
+   organisms).
 R3 Content everywhere, access differs (e133/e141/e142): the
    three-net maps; install-restore/perm/halfnorm riders; the
    origin census (13/13) [e163 pending for the dial license];
@@ -232,11 +235,13 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    Effect sizes stated ONLY as organism-level threshold ratios; the
    store-isolated organ reading cited as the design's property, never
    as the organism's.
-   Framing sentence (the hypothesis's slogan, PROPOSED per C13-1 —
-   not law-graded until replicated): forgetting may be not distance
-   and not even displacement but ALIGNED TRAINING — any learned path
-   to a displacement kills where a random jump of the same size is
-   4-10x more forgivable; the aligned front can be walled (g1,
+   Framing sentence (REWRITTEN AFTER E188 — the aligned-training
+   slogan died by measurement; RAW-WINS): the wash kill is a
+   DISPLACEMENT THRESHOLD under training — raw D at death is the
+   invariant (0.6% across seeds at matched t*) — while the
+   static/learned contrast governs how fast the threshold is
+   reached (learned paths at 1x, static jumps 4-10x; alignment a
+   passenger, seed-lottery at death); the front can be walled (g1,
    battery-channel; sequential: A held
    through an active second install, dose-adequate contrast owed),
    detected (g2, with the
@@ -261,11 +266,12 @@ Abstract clause (4), draft (R56+g3K-corrected): "(4) The same laws
    standing tax; sequential: A held through an active second
    install, dose-adequate contrast owed), a self-timed
    rehearsal organ (timing replicates across seeds and roots;
-   amplitude root-draw-bound), and a direction-typed forgetting
-   law with a PROPOSED trajectory hypothesis (wash-aligned training
-   kills at ~2x where static random displacement is 4-10x more
-   forgivable; n=1, replication owed) each convert a dissected
-   failure law into an
+   amplitude root-draw-bound), and a displacement-threshold
+   forgetting law (raw displacement at death is the invariant,
+   0.6% across seeds; learned paths reach the gate at 1x where
+   static jumps need 4-10x; alignment demoted to passenger by the
+   death-currency measurement) each convert a dissected failure law
+   into an
    architectural positive, replicated at n>=3 on single roots/organs
    — memory in these nets is not fragile by necessity but by
    default."
@@ -305,9 +311,10 @@ Evidence gaps (additions):
    1/1683rd speed); paragraph (2)'s "at every lr tested" becomes
    "under AdamW at every lr tested"; opt1b/opt1c/e188 adjudicate the
    gate's trajectory-class scope and the death currency.
-11. Trajectory-hypothesis replication (C13-1, NEW): e188's
-   alignment-integral test + >=2 more organisms (kappa pairs) before
-   any "trajectory law" or "aligned training" wording is law-graded.
+11. Static/learned replication (C13-1, narrowed by e188): the
+   integral layer is DEAD (RAW-WINS); the owed replication is the
+   kappa contrast alone — >=2 more organisms (kappa pairs) before
+   the static-vs-learned wording is law-graded.
 10. g3K (DONE): abstract paragraph (2) must gain the TRAJECTORY-vs-
    STATIC clause — "no memory state survives continued TRAINING"
    (the e185 arms were displacement-matched trajectories, corpus and

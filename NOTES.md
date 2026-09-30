@@ -9,6 +9,44 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e188 — the death-currency cell: RAW-WINS — death is priced in RAW displacement; alignment is a passenger (2026-09-30 ~12:05Z) — DONE
+
+WHAT WE DID: eval-only CPU over the e180 lr-grid snapshots (42
+checkpoints sha1-hashed, every battery read reproduced its committed
+trajectory row before use); the trajectory row (alignment integral
+A vs raw D at death per arm), the static row (g3K's iso arms
+re-priced in the same currency), and the install-vs-wash cosine on
+four organisms. Deviation documented: only 3e-5/1e-5 arms live
+under e180_*; the 1e-3 arm is e176n_neutral_*, the 1e-4 arm
+e176n_lr1e4_* (the original extinction stream, coarse {50,300}
+grid — flagged wherever it enters a number); the 1e-5 arm censored
+(alive at +300, one-sided bound).
+
+WHAT WE SAW (T141): RAW-WINS — across {1e-3, 1e-4, 3e-5}: CV(D at
+death) 0.233 vs CV(A) 0.557; neutral-only 0.026 vs 0.697; and the
+cleanest texture: same arm, same t*=2, three wash seeds — D at
+death {2.489, 2.484, 2.500} (0.6% spread) while A spreads 3.7x.
+DISPLACEMENT IS THE INVARIANT; ALIGNMENT IS A SEED LOTTERY. W022b's
+aligned-drift law dies in its letter (its own pre-registered
+Branch B); the rate law t* ~ lr^-1.16 keeps its displacement
+reading. T139's displacement GATE is STRENGTHENED (the tightest
+invariance the wash arc has produced); T137 REDUCES to the
+static/learned contrast (no integral needed; g3K kappas n=1,
+replication still owed). POIGNANT: the lr 1e-3 arm's per-pair
+alignment flips POSITIVE after the kill — post-death adaptation
+walks toward the fact readout's ascent direction. VOCABULARY:
+install-vs-wash cos in [-0.034, -0.018] on all four organisms —
+task arithmetic REJECTED; the wash is the corpus's adaptation
+direction, not the fact's negation. TWO-CURRENCY TABLE stands
+softer: static kills at |A| <= 0.009 on 4-10x raw displacement.
+HONESTY: quadrature (the 1e-4 kill in one 50-step segment); single
+ZEPHYRA family, n=1 per arm; pricing not causation (opt1b/opt1c/
+opt2 own the mechanism); the store's wash direction remains the
+only strongly-aligned object measured (the -0.44 was a different
+estimator — informative disagreement, not contradiction).
+
+---
+
 ## g1bW — the wall's museum test: MUSEUM as registered, but the reference leg fails too — B's 300-step dose installs NOWHERE; A survives an ACTIVE second install; the tax relocates to the onset channel (2026-09-30 ~11:45Z) — DONE
 
 WHAT WE DID: R56's killer control (spec verbatim, scratch/

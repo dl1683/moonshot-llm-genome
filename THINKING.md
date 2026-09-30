@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T141 — e188: RAW-WINS — death is priced in raw displacement; alignment is a passenger (2026-09-30 ~12:05Z)
+
+The death-currency cell answers W022b's fork AGAINST its own
+favorite, exactly per pre-registered Branch B (scratch/
+e188_interp_prereg.md, written before the fold read the numbers).
+CV(D at death) 0.233 vs CV(A) 0.557 across the lr grid; neutral-only
+0.026 vs 0.697; and the cleanest texture: same arm, same t*=2,
+three wash seeds — D at death {2.489, 2.484, 2.500}, 0.6% SPREAD,
+while A spreads 3.7x. DISPLACEMENT IS THE INVARIANT; ALIGNMENT IS A
+SEED LOTTERY. DIES: W022b's aligned-drift law (in its letter);
+W022's rate-law mechanism candidate (the rate law keeps its
+displacement reading); the framing slogan "forgetting is aligned
+training" (stamped once by C13-1, now killed by EVIDENCE — the
+honest arc). STRENGTHENS: T139's displacement GATE (the tightest
+invariance the wash arc has produced). REDUCES: T137 to the
+static/learned contrast (g3K's kappas; no integral needed).
+POIGNANT: the fast arm's alignment flips POSITIVE post-kill — the
+organism's adaptation walks toward the fact readout's ascent
+direction; it returns to the grave it dug. VOCABULARY REJECTED:
+install-vs-wash cos in [-0.034, -0.018] everywhere — the wash is
+the corpus's adaptation direction, not the fact's negation
+(T138's defence resolves by measurement). e189's census survives
+as the mechanism of the FLIP (W024), not the currency.
+
 ## T140 — g1bW: the museum test's honest split — A survives an active second install; the tax relocates to the onset channel (2026-09-30 ~11:50Z)
 
 The killer control lands with an ambiguity that is itself the
@@ -3333,7 +3357,7 @@ healing and the killing remain one trajectory), and the
 replay-as-mini-shock question transfers to g2g's monitor slopes.
 Cards keep their predictions AND their answers.
 
-## W022b — WONDER EXTENSION: the alignment integral is computable NOW — the e180 grid has the snapshots (2026-09-30 ~10:18Z; no bars, no kills — the e188 candidate specified)
+## W022b — WONDER EXTENSION: the alignment integral is computable NOW — the e180 grid has the snapshots (2026-09-30 ~10:18Z; no bars, no kills — the e188 candidate specified) [KILLED-BY-E188 per its own pre-registered Branch B, 2026-09-30: RAW-WINS — death is priced in RAW displacement (0.6% seed spread at matched t*); the alignment integral was the wrong currency; retired with honor]
 
 The e180 checkpoint inventory on disk: every lr arm (1e-5, 3e-5, ...)
 carries step snapshots s2/s10/s50/s100/s200 — the adaptation
@@ -3423,6 +3447,15 @@ architectural claim; kappa_host >> 1 at matched RMS rescopes e185's
 no-basin to "no basin against the corpus direction" — the day-six
 centerpiece narrows and sharpens at once. Ripening; dispatch when a
 lane frees (behind g6/g2g — the registered debts come first).
+
+
+[E188 VERDICT, 2026-09-30: this card's unification role ENDS — the
+alignment integral (the death currency) was measured and LOST to
+raw displacement (T141, e188); the rate law keeps its displacement
+reading; alignment demoted to passenger (real, 15-100x random,
+seed-lottery at death). The card's kappa-contrast thread survives
+in T137's reduced form. Kept for the record of a favorite that
+died well.]
 
 ## W020 — THE GENERATIVE TURN (the user's standing directive, 2026-09-29 ~12:35Z: from dissection to synthesis — design architectures that test our laws)
 [PROVENANCE RESOLVED per supervisor C12-2, 2026-09-30 ~10:30Z — the
@@ -6965,6 +6998,64 @@ replay schedule: the FIXED arm read 0.693 vs the organ's 0.587-0.615
 stands as "an event-driven maintenance that replicates (wash-draw n=3,
 one root)"; the claim "the organ beats a fixed schedule" is NOT ours
 until g2g registers the head-to-head with the threat-level ladder.
+
+
+[E188 AMENDMENT — REDUCED, 12:05Z]: the trajectory hypothesis loses
+its integral layer (RAW-WINS: the alignment-weighted currency lost
+to raw displacement, CV 0.233 vs 0.557; pre-registered Branch B
+executed). WHAT REMAINS: the STATIC-vs-LEARNED contrast (g3K's
+kappas 4-10x at matched per-coordinate RMS, n=1, replication still
+owed) — "learned paths reach the gate at 1x; static jumps need
+4-10x" — with no claim about alignment as the currency.
+
+
+[E188 RESOLUTION, 12:05Z]: the vocabulary clause RESOLVED BY
+MEASUREMENT — install-vs-wash cos in [-0.034, -0.018] on all four
+organisms; |cos| < 0.3 everywhere -> task-arithmetic vocabulary
+REJECTED; the wash is the corpus's adaptation direction, not the
+fact's negation. R3d resolves: report the cosines, reject the
+vocabulary.
+
+
+[E188 AMENDMENT — THE GATE STRENGTHENED, 12:05Z]: e188's RAW-WINS
+is the displacement gate's best evidence: D at death varies 0.6%
+across three wash seeds at matched t* (2.489/2.484/2.500) — the
+tightest invariance the wash arc has produced — while the aligned
+currency spreads 3.7x (a seed lottery). The decomposition reads:
+CLOCK = Adam's normalization (opt1); GATE = raw displacement
+(e188); CURRENCY-of-reaching = open (opt1b running, opt1c
+dispatching); ALIGNMENT = passenger (flips positive post-kill on
+the fast arm).
+
+
+[E188 AMENDMENT — REDUCED, 12:05Z]: the trajectory hypothesis loses
+its integral layer (RAW-WINS: the alignment-weighted currency lost
+to raw displacement, CV 0.233 vs 0.557; the pre-registered Branch B
+executed). WHAT REMAINS: the STATIC-vs-LEARNED contrast (g3K's
+kappas 4-10x at matched per-coordinate RMS, n=1, replication still
+owed) — "learned paths reach the gate at 1x; static jumps need
+4-10x" — with no claim about alignment as the currency. The paper
+sentence becomes the displacement-threshold form.
+
+
+[E188 RESOLUTION, 12:05Z]: the vocabulary clause RESOLVED BY
+MEASUREMENT — install-vs-wash cos in [-0.034, -0.018] on all four
+organisms; |cos| < 0.3 everywhere -> task-arithmetic vocabulary
+REJECTED; the wash is the corpus's adaptation direction, not the
+fact's negation. The R3d pre-empt resolves: report the cosines,
+reject the vocabulary.
+
+
+[E188 AMENDMENT — THE GATE STRENGTHENED, 12:05Z]: e188's RAW-WINS
+is the displacement gate's best evidence: D at death varies 0.6%
+across three wash seeds at matched t* (2.489/2.484/2.500) — the
+tightest invariance the wash arc has produced — while the aligned
+currency spreads 3.7x (a seed lottery). The decomposition now
+reads: CLOCK = Adam's normalization (opt1); GATE = raw displacement
+(e188); CURRENCY-of-reaching = the open question (opt1b running,
+opt1c dispatching); ALIGNMENT = passenger (flips positive
+post-kill on the fast arm — the organism returns to the grave it
+dug).
 
 ## T002 — Why was unlearning anti-selective? (2026-09-24)
 

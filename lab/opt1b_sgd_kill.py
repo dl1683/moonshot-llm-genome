@@ -181,6 +181,9 @@ ADAM_GATE_BAND = (2.49, 2.84)     # opt1's measured Adam kill displacements (T13
 # ---- checkpoint cadence for the CONTINUATION (replay reuses opt1's stored rows) -
 FIRST_READ = 80                   # opt1's stored a2b reads cover {0,1,2,4,8,10,20,40}
 GAP_HI, GAP_MID, GAP_LO = 40, 10, 4   # densify as g-12 falls (0.55 / 0.35 triggers)
+if SMOKE:                         # true shakedown trims (documented in deviations)
+    STEP_CAP, CHUNK_CAP, FIRST_READ = 8, 12.0, 5
+    GAP_HI = GAP_MID = GAP_LO = 2
 
 # ---- gates / references (full precision, = stored metrics; opt1's set) ----------
 R_EVAL_SEED = 26502               # e065 CE_R eval-bank seed (verbatim)
@@ -284,7 +287,26 @@ deviations: list[str] = [
     "torch; the GPU is another agent's, never claimed); threads 4; "
     "n=1; single seed lineage (10902, A2b's); no reruns beyond the cap.",
     "Smoke mode trims: replay gate to the first 4 steps, cap 8 steps, "
-    "12 s chunks, first read at step 5 gap 2; nothing adjudicated.",
+    "12 s chunks, first read at step 5 gap 2; nothing adjudicated. "
+    "DEVIATION HISTORY: the FIRST shakedown (2026-09-30 ~11:30Z) ran "
+    "with only the replay trim implemented — it accidentally executed "
+    "the full 600-step continuation (runs/opt1b_smoke/journal.jsonl; "
+    "its steps 1..69 verified post hoc BIT-IDENTICAL to opt1's "
+    "committed a2b trajectory, max|diff| 0.0 on ce/disp/gnorm). The "
+    "registered run then re-executed the identical deterministic "
+    "stream and is gated against that shakedown as a DETERMINISM "
+    "REPLICATE (G_REPLICATE, opt1's A5 convention: same machine, same "
+    "threads, cross-process) — the accident became the n=2 "
+    "bit-replication evidence for the continuation itself. The "
+    "shakedown ADJUDICATED NOTHING (its metrics are stamped "
+    "smoke=true, nothing adjudicated); every number in runs/opt1b/ "
+    "comes from the registered run.",
+    "Chunk walls: the chunk budget (178 s) is checked BETWEEN steps; "
+    "under heavy outside CPU contention a single in-flight step can "
+    "overshoot, so individual chunk walls may slightly exceed 180 s "
+    "(observed max recorded in gates.G_CHUNKS). This is wall-clock "
+    "contention, not compute: one training step is ~2 s of CPU on 4 "
+    "threads (opt1's own rate).",
 ]
 
 
@@ -805,6 +827,51 @@ def main():
         f"{G_CHUNKS['max_chunk_wall_s']:.0f}s: "
         + ("PASS" if G_CHUNKS["pass"] else "FAIL"))
 
+    # ---- determinism replicate vs the (accidentally full-depth) shakedown:
+    # the registered run must reproduce runs/opt1b_smoke/journal.jsonl
+    # bit-for-bit (same machine, same threads, cross-process; opt1's A5
+    # convention). Report-only gate: a divergence would indict the run's
+    # own integrity, so it is logged loudly either way.
+    G_REPLICATE = {"reference": "runs/opt1b_smoke/journal.jsonl "
+                               "(the 2026-09-30 shakedown)",
+                   "present": False, "pass": None}
+    sj_path = E43.REPO / "runs" / "opt1b_smoke" / "journal.jsonl"
+    if sj_path.exists():
+        sj = {}
+        with open(sj_path, encoding="utf-8") as f:
+            for line in f:
+                r = json.loads(line)
+                sj[r["step"]] = r
+        shared = [r for r in journal if r["step"] in sj]
+        if shared:
+            rce = max(abs(r["ce_batch"] - sj[r["step"]]["ce_batch"])
+                      for r in shared)
+            rdd = max(abs(r["cum_disp"] - sj[r["step"]]["cum_disp"])
+                      for r in shared)
+            sm = json.loads((E43.REPO / "runs" / "opt1b_smoke"
+                             / "metrics.json").read_text(encoding="utf-8"))
+            sreads = {rr["step"]: rr["gm12"]
+                      for rr in sm["arm"]["ckpt_table"]}
+            drm = max((abs(r["gm12"] - sreads[r["step"]])
+                       for r in reads if r["step"] in sreads), default=None)
+            G_REPLICATE.update({
+                "present": True, "shared_steps": len(shared),
+                "max_abs_diff_ce": rce, "max_abs_diff_cum_disp": rdd,
+                "max_abs_diff_gm12_reads": drm,
+                "bit": bool(max(rce, rdd) == 0.0),
+                "pass": bool(max(rce, rdd) < G_FALLBACK_TOL
+                             and (drm is None or drm < G_FALLBACK_TOL)),
+                "note": "the registered run vs the shakedown's identical "
+                        "deterministic stream: cross-process determinism "
+                        "replicate (n=2 for the continuation trajectory); "
+                        "bit == exact equality",
+            })
+            log(f"G_REPLICATE (vs opt1b_smoke journal, "
+                f"{len(shared)} steps): max|dCE| {rce:.2e} max|dD| "
+                f"{rdd:.2e} gm12 reads max|d| "
+                f"{drm if drm is None else f'{drm:.2e}'}: "
+                + ("PASS" if G_REPLICATE["pass"] else "DIVERGED?!"))
+
     # ---- the final checkpoint (provenance for any follow-up cell)
     fin_step = step
     fin_name = ("smoke_" if SMOKE else "") + \
@@ -909,13 +976,21 @@ def main():
             v0, v1 = reads[-2]["gm12"], reads[-1]["gm12"]
             if v0 > v1:
                 g_proj = s1 + (v1 - SHUT_BAR) / (v0 - v1) * (s1 - s0)
+        # projected g-12 at the projected 2.6-crossing step (co-read only)
+        s26 = (fin["step"] + proj) if proj else None
+        g_at_26 = None
+        if s26 and len(reads) >= 2:
+            r0, r1 = reads[-2], reads[-1]
+            if r1["step"] > r0["step"]:
+                g_at_26 = r1["gm12"] + (s26 - r1["step"]) * \
+                    (r1["gm12"] - r0["gm12"]) / (r1["step"] - r0["step"])
         bars = {
             "SGD_KILLS_AT_GATE": {"fires": False},
             "SGD_SPARED_AT_GATE": {"fires": False},
             "CAP_NEITHER": {"fires": True},
             "projection": {"steady_disp_rate": rate,
-                           "extrapolated_steps_to_D_2.6":
-                               (fin["step"] + proj) if proj else None,
+                           "extrapolated_steps_to_D_2.6": s26,
+                           "extrapolated_gm12_at_D_2.6": g_at_26,
                            "extrapolated_kill_step": g_proj,
                            "label": "EXTRAPOLATED — projections never "
                                     "adjudicate"},
@@ -927,6 +1002,10 @@ def main():
                   f"labeled EXTRAPOLATED (never adjudicated): steady rate "
                   f"{rate:.5f}/step -> D=2.6 ~step "
                   f"{(fin['step'] + proj) if proj else float('nan'):.0f}"
+                  + (f" with g-12 projected ~{g_at_26:.3f} (ALIVE, above "
+                     f"the 0.27 bar) there — the SPARED clause's trigger, "
+                     f"but past the frozen cap: never adjudicated"
+                     if g_at_26 is not None and g_at_26 > SHUT_BAR else "")
                   + (f"; g-12 0.27 crossing ~step {g_proj:.0f} if the last "
                      "slope held" if g_proj else "") + ".")
     log("=" * 78)
@@ -1041,7 +1120,7 @@ def main():
                                                   if REPLAY_TO == 69
                                                   else "trimmed (smoke)"),
                   "G_INPUTS": G_INPUTS, "G_DRAWFREE": G_DRAWFREE,
-                  "G_CHUNKS": G_CHUNKS},
+                  "G_CHUNKS": G_CHUNKS, "G_REPLICATE": G_REPLICATE},
         "references": {
             "opt1": {"metrics": "runs/opt1/metrics.json",
                      "role": "the parent cell: A2b's committed trajectory "
@@ -1103,7 +1182,9 @@ def main():
                               "e185/opt1 reduction order); the replay "
                               "gate (max|dCE|/|dD| vs opt1's committed "
                               "trajectory) bounds cross-process float "
-                              "drift explicitly"),
+                              "drift explicitly, and G_REPLICATE bounds "
+                              "this run vs the shakedown's identical "
+                              "stream (observed BIT-IDENTICAL)"),
             "committed_data_reuse": ("opt1's a2b reads at steps "
                                      "{0,1,2,4,8,10,20,40} and the Adam "
                                      "arms' curves are REUSED from the "
