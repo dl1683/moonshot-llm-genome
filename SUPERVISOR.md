@@ -23,6 +23,29 @@ Each open item must be **acted on or answered**. If you address one, note which 
 
 ## Check-in log (newest first)
 
+### Check-in 12: 2026-09-30, about 05:05 EDT (covering 2479c6a → a775079: the g-series replication arc; R55, R56; e182 done; the lab HALTED by user directive at 17:27 EDT on 09-29)
+
+**Context:** the fleet was halted by user directive at 17:27 EDT on 09-29 (a775079). g1bW and g3K were stopped mid-run and are re-dispatchable from frozen specs. The heartbeat cron was deleted. Nothing has run since, which is **correct**: do not resume until Devansh says so. The items below are for when it does.
+
+**What's working (keep it):**
+- **The replication discipline was applied to its own new claims.** Every g-positive got a pre-registered n≥3 seed rung: g1bR/T133 WALL-REPLICATES, g2d/T131 RHYTHM-REPLICATES, g3R/T135 SPLIT-REPLICATES (the cone), g4R/T134 HONEST BOUNDS. The negatives were kept as negatives: g2e/T132 ROOT-DRAW-BOUND and g2f/T136 ORGAN-ROOT-BOUND ("the rhythm sustains on a stranger base, the root strength does not"). g5/T129's falsifier fired and was recorded. g3R's "1× was a draw artifact" correction (ac6728b) is exactly how headlines should track their stamps.
+- **Check-in 11 item 3 was acted on.** R55 audited the generative arc (knife "overreached", cliff "bounded", scope clauses applied), and R56 rescoped the cone to a threshold ratio and the wall to a battery channel. That is real review, not rubber-stamping.
+- **Check-in 11 item 5 (and 7–10): e182 is DONE** (T123, GPT-2 124M). This is the lab's first transfer to a real pretrained LM. Heartbeat churn is down from 16/24 commits to 26/88.
+
+**Open items:**
+
+1. **The "Lab response" line is still empty: 12th check-in (carried from check-in 10 item 1 and check-in 11 item 4).** R55 and R56 exist but contain no "Supervisor items" section, and none of check-in 11's seven items was answered here. When the lab resumes, R57 must open with one line per carried item: done (ID), deferred (reason) or disagree (argument).
+2. **W020 provenance (carried from check-in 11 item 1; unanswered).** THINKING still says only "the user's standing directive, ~12:40Z". Cite where Devansh gave it, so that SUPERVISOR directive 4 ("the endpoint is play: dissection") can be updated or kept.
+3. **e182's headline needs its trivial baseline and scope.** "Pretrained facts are NOT wash-proof" rests on 10 cloze probes, one seed and one corpus. The +200 cell was trimmed by the time cap. The trivial expectation is ordinary catastrophic forgetting: fine-tuning at lr 5e-5 degrades *any* held-out recall while in-domain perplexity improves. Before T123 counts as evidence for the lab's no-basin law specifically, add a control that separates "no basin" from generic forgetting: matched random-token or held-out non-fact probes eroding at the same rate, plus ≥2 more corpus draws. Until then, stamp T123 as n=1.
+4. **Scale (carried from check-in 11 item 2; R55 names it as an owed debt).** All g-architecture claims are at about 0.84–0.86M ("the cliff refused to fire at 0.86M"). The directive allows up to 100M freely. Pick one licensed claim (g1bR's wall is the cleanest) and run it at ≥10× the size before any "architectural law" wording enters the paper skeleton (764ac1a amended it with the g-series).
+5. **Carried, unchanged:**
+   - the e187 CE_R shock-and-recover curve, still unnamed;
+   - the CPU-cheap optimizer controls (ninth time);
+   - the thermal-guard breach during e182 (86 °C, migrated rather than paused; check-in 11 item 5): record the cause in NOTES;
+   - the literature line per claim.
+
+**Lab response:** *(fleet: on resumption, answer in R57's "Supervisor items" section and copy it here)*
+
 ### Check-in 11: 2026-09-29, about 09:50 EDT (covering 8583a39 → 72d404c: e187 recorded; W020 "generative turn"; g1–g4 designs; g2 implementation dispatched)
 
 **What's working (keep it):**
