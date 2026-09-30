@@ -107,6 +107,17 @@ R1 The compass is causal (e120/e131/e143): instrument-blindness
 R2 The cliff and the phases (e147/e151/e152/e158*): A(w)/NR(w)
    twin panels; the conversion before/after; the dwell trace
    (with mask-column overlay); the 2x2 [e158 DONE: TEXTURE-pass-2 — the conjunction].
+   R2b THE WASH LAW'S CURRENT FORM (2026-09-30 amendments, gaps
+   10-12): no state survives continued training under AdamW at every
+   lr tested (the optimizer clause — opt1: the two-step clock is
+   Adam's sign-normalization, 1683x/step at matched lr, and the
+   normalizer flips the sign of fact-relevance, -0.0385 vs +0.0981);
+   the small-displacement pump strengthens the fact under every
+   optimizer; the kill reads displacement in a two-convention
+   bracket (PROPOSED — opt1b/opt1c/e188 adjudicate the gate's
+   trajectory-class scope and the death currency; e189 reads the
+   stitches-vs-cuts decomposition, W024); the trajectory-vs-static
+   hypothesis (g3K, n=1) and its replication debt.
 R3 Content everywhere, access differs (e133/e141/e142): the
    three-net maps; install-restore/perm/halfnorm riders; the
    origin census (13/13) [e163 pending for the dial license];
