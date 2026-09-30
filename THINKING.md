@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T142 — opt1b: CAP-NEITHER honestly — Adam is the guillotine, SGD is the bleed; the gate question moves to opt1c/opt1b2 (2026-09-30 ~12:25Z)
+
+The direct SGD kill honors its frozen cap: at 600 steps the fact is
+ALIVE (0.601) at D 1.43 — the D=2.6 gate unreached; neither bar
+fired. The labeled projection reads the crossing at ~step 761 with
+g-12 ~0.56 ALIVE and the kill at ~step 1829 / D ~10 — OUTSIDE the
+[2.12, 3.27] bracket: if it holds, the gate is TRAJECTORY-CLASS-
+TYPED (raw-gradient paths kill at ~4x the Adam gate) — but the
+projection never adjudicates; opt1b2 (registered: cap ~800, the
+crossing read directly) owns it. THE MEASURED GEM: at matched D
+1.65 — Adam's first-step displacement — SGD holds 0.79 vs Adam's
+0.678: at EQUAL raw displacement the raw-gradient path preserves
+more than the sign-normalized path. TEXTURE VOCABULARY (the
+trajectory classes get names): ADAM IS THE GUILLOTINE (dead in ~2
+steps, any stream, organism shocked); SGD IS THE BLEED (pump to
+0.955 at D 0.32, then slow monotone erosion with the organism
+nearly unharmed — CE_R 1.66 -> 1.72). The pump-then-erode shape is
+the bleed's signature. ALIGNMENT: flat-negative, slightly LESS
+death-directed as D grows — RAW-WINS consistent (e188). FREE N=2
+determinism (the registered run bit-reproduced an accidental
+full-depth shakedown). WITH e188: the picture is now — the GATE is
+raw displacement for sign-normalized paths; the raw-gradient class
+may carry its own (larger) gate; opt1c splits direction from size
+inside the Adam kill; opt1b2 catches the bleed at the crossing.
+
 ## T141 — e188: RAW-WINS — death is priced in raw displacement; alignment is a passenger (2026-09-30 ~12:05Z)
 
 The death-currency cell answers W022b's fork AGAINST its own
