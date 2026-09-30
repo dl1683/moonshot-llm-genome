@@ -3123,6 +3123,39 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+
+## W023 — WONDER: the shock-and-recover is the knife sharpening — the e187 CE_R curve named at last (2026-09-30 ~10:40Z; no bars, no kills; C12-5a's owed card)
+
+The carried curve: under the noise-training wash, root-stream CE
+SHOCKS upward at wash start then RECOVERS, while the fact dies. For
+days it sat unnamed. T137's trajectory lens names it: the shock is
+the optimizer-state mismatch (moments and weights tuned to the old
+stream, flailing on the new one); the recovery is the organism
+healing AROUND the dying fact — and the wonder is that the healing
+and the killing are the SAME PROCESS. As CE_R recovers, the steps
+rotate onto the wash stream's loss-reducing directions; those
+directions carry the fact's death component (W022: cos -0.44). Early
+displacement is misaligned flailing — movement without lethality;
+late displacement is surgical — each unit carries more death.
+ADAPTATION SHARPENS THE KNIFE. The curve's shape is the knife's
+profile. TWO DISCRIMINATING OBSERVATIONS, both already in flight
+without new compute: (1) opt1's alignment co-read (running now) —
+|cos(delta_theta, grad g0)| should RISE as CE_R recovers within each
+arm; if instead alignment is flat through the shock-recover, then
+lethality-per-displacement is constant and the two-step clock was
+magnitude, not alignment — either answer sharpens e188. (2) The
+moment-reset arm (A5) is the cleanest probe: a fresh optimizer state
+at wash start should EXTEND the shock (longer mismatch flailing) and
+— if the wonder is right — DELAY the sharpening, moving the kill
+later per unit displacement. THE ECHO: the resurrection economy's
+"18 steps of stickiness" after one replay — is that the same
+healing-clock running backward (the replay event re-mismatches the
+optimizer to the wash stream, buying the fact ~18 steps of
+misaligned-protection)? A replay event as a DELIBERATE MINI-SHOCK:
+the rhythm's mechanism candidate, stated as a wonder for g2g's
+threat-ladder to carry. Savoring: the organism never stops healing;
+the memory dies of the healing itself.
+
 ## W022b — WONDER EXTENSION: the alignment integral is computable NOW — the e180 grid has the snapshots (2026-09-30 ~10:18Z; no bars, no kills — the e188 candidate specified)
 
 The e180 checkpoint inventory on disk: every lr arm (1e-5, 3e-5, ...)
