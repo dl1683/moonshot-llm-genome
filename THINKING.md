@@ -685,6 +685,35 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T139 — opt1: the clock is Adam's arithmetic; the gate is displacement; the "killer" stream teaches under SGD (2026-09-30 ~11:30Z)
+
+The nine-times-asked control lands as a decomposition of the wash
+kill into CLOCK and GATE. THE CLOCK: step-1 pre-clip grad norm 0.9829
+in every arm; AdamW moves 1.6543/step (lr*sqrt(N), sign-normalized),
+matched-lr SGD 0.0010 — 1687x at the same lr. THE GATE: every Adam
+variant kills at D ~ 2.49-2.84; warmup stretched the clock 10.08x
+(the registered ADAM-AMPLIFIES fire) and the kill still arrived at
+the same displacement within ~15%. THE BOMBSHELL: matched-lr SGD ran
+the SAME corpus wash with the fact RISING (g-12 0.916 -> 0.940-0.955)
+— the raw stream gradient is weakly fact-POSITIVE at small
+displacement; the kill is Adam's sign-normalization exiting the
+basin at full speed. A fresh AdamW's first step is +/- lr on every
+coordinate; the basin (~2.5 L2) meets per-step 1.65 and dies in ~1.6
+steps — the stream chooses signs, the normalizer chooses the clock.
+THE TRAJECTORY HYPOTHESIS (T137) REFINES: never "any learned path
+kills" — it is "any path that REACHES the gate kills; Adam reaches
+it in ~1.6 steps BY CONSTRUCTION; static jumps need 4-10x (g3K);
+SGD's slow path is fact-positive in-window." THE OWED DISCRIMINATOR
+(opt1b, dispatched): the direct measured SGD kill at lr 1e-2 — if
+SGD dies at D ~ 2.5 the displacement gate generalizes across
+trajectory classes; if SGD reaches D = 2.5 ALIVE, the gate is
+trajectory-class-typed (sign-normalized vs raw-gradient paths
+differ) and the law gains a third clause. W023 stands untested (the
+summary alignment read is flat-negative; the per-arm curves decide).
+beta2, inherited moments: nothing (A4 indistinguishable; A5
+bit-identical). HONESTY: n=1 per arm; SGD clocks only by labeled
+projection; CPU fp32 texture gated on-device.
+
 ## T138 — the literature pass: the trajectory law is new as a CONTROL, predicted as THEORY (2026-09-30 ~10:55Z)
 
 scratch/lit_beat_20260930.md, ~20 searches, all supervisor anchors

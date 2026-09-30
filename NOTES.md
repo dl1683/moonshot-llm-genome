@@ -9,6 +9,45 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## opt1 — the optimizer controls: the clock is ADAM'S ARITHMETIC, the kill gate is DISPLACEMENT, and the killer stream TEACHES under SGD (2026-09-30 ~11:25Z) — DONE
+
+WHAT WE DID: the licensed e185 wash cell VERBATIM with only the
+optimizer swapped (7 arms, CPU-only); every gate green — A0
+bit-reproduces e185's stored control (max|diff| 3.2e-13), input
+batches bit-identical across arms and vs e185's stored hashes, and A5
+(moment-reset) is bit-identical to A0: no consolidation-time
+optimizer state is inherited, now gated proof not assumption.
+
+WHAT WE SAW (T139): VERDICT per the registered letter: ADAM-
+AMPLIFIES (the warmup knob shifted t* 10.08x >= 2x; OPT-AGNOSTIC
+could not fire — no SGD arm killed within the CPU window, all three
+cap-limited; their clocks located only by clearly-labeled
+extrapolation ~379/1174/3228 steps, never adjudicated). THE
+DECOMPOSITION the co-reads carry: (1) THE CLOCK IS ADAM'S
+ARITHMETIC — step-1 pre-clip grad norm 0.9829 in EVERY arm; AdamW
+moved 1.6543/step (lr*sqrt(N), sign-normalized) vs SGD-1e-3's
+0.0010: 1687x at the same lr; the two-step clock is the normalizer,
+not the memory. (2) THE GATE IS DISPLACEMENT — every Adam variant
+kills at D ~ 2.49-2.84; warmup stretched the step clock 10x and the
+kill still arrived at the same displacement within ~15%
+(rate-carried, not clock-carried). (3) beta2 and inherited moments
+carry NOTHING (A4 indistinguishable; A5 bit-identical). (4) THE
+BOMBSHELL: matched-lr SGD ran the SAME corpus wash with the fact
+RISING (g-12 0.916 -> 0.940-0.955 at |d| <= 0.29) — the stream that
+kills in two steps under Adam TEACHES under SGD; the raw gradient is
+weakly fact-positive at small displacement, the kill is the sign-
+normalization leaving the basin at full speed. "The stream chooses
+signs, the normalizer chooses the clock." (5) Alignment co-read:
+mildly negative everywhere (-0.015..-0.105, SGD included) — never
+the store's -0.44; W023's rise-prediction undecided pending the
+per-arm curves. HONESTY: n=1 per arm, one root, one stream, CPU fp32
+texture (gated on-device via A0). OWED (dispatched, opt1b): the
+DIRECT measured SGD kill at lr 1e-2 (~380 steps, ckpt-resumable CPU
+chunks) — does the displacement gate generalize across learned
+trajectory classes, or is it sign-normalization-typed?
+
+---
+
 ## g3K — the kappa cell: MIXED — kappa_store 5.0, kappa_host 6.0; the no-basin law is a TRAJECTORY law, and the cone is an organ property (2026-09-30 ~10:45Z) — DONE
 
 WHAT WE DID: eval-only CPU, both kappas under ONE convention

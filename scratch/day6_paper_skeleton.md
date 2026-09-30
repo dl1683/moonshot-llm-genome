@@ -275,6 +275,13 @@ Evidence gaps (additions):
    head-to-head — without them "self-timed" stays scoped to one threat
    level and the fixed-arm co-read (0.693 vs 0.587-0.615) is disclosed
    in R6(b).
+12. Optimizer clause EVIDENCED (opt1, DONE): the two-step clock is
+   Adam's sign-normalization (1687x/step at matched lr); the kill
+   gate is displacement (~2.5, clock-invariant); under matched SGD
+   the same stream STRENGTHENS the fact — paragraph (2)'s "at every
+   lr tested" must become "under AdamW at every lr tested" and cite
+   the decomposition; opt1b (the direct SGD kill) decides whether
+   the gate generalizes across trajectory classes.
 11. Trajectory-hypothesis replication (C13-1, NEW): e188's
    alignment-integral test + >=2 more organisms (kappa pairs) before
    any "trajectory law" or "aligned training" wording is law-graded.
