@@ -3095,6 +3095,29 @@ its own lead sentence — my slip in the dispatch; the agent caught
 it pre-compute, registered it, and adjudicated the direction the
 physics states. That is the culture working.
 
+## W022b — WONDER EXTENSION: the alignment integral is computable NOW — the e180 grid has the snapshots (2026-09-30 ~10:18Z; no bars, no kills — the e188 candidate specified)
+
+The e180 checkpoint inventory on disk: every lr arm (1e-5, 3e-5, ...)
+carries step snapshots s2/s10/s50/s100/s200 — the adaptation
+trajectory is SAMPLED, not just summarized. The integral is therefore
+one eval-only pass away, no training owed. THE ESTIMATOR: for each lr
+arm, each consecutive checkpoint pair: d_theta = theta_next -
+theta_t (the realized adaptation step); grad g0 at theta_t (the
+fact-strength readout's gradient, one backward pass, CPU);
+a_t = cos(d_theta, grad g0_t) — the critic's convention (negative =
+adaptation erodes the fact). A(t) = SUM over pairs of a_t *
+||d_theta|| — the ALIGNMENT-WEIGHTED DISPLACEMENT. THE FORK (all
+three arms' t* known): (i) the fact dies at a lr-INDEPENDENT A* —
+the rate law t* ~ lr^-1.1 is a COROLLARY of constant-speed aligned
+drift, lr only sets the speed; death is measured in aligned-displacement
+units, not steps — and e185's no-basin sharpens to "no basin on the
+aligned ray"; (ii) t* tracks RAW ||d_theta|| better — alignment is
+epiphenomenal, e185's displacement story was already the whole law;
+(iii) neither — alignment itself drifts with lr (the organism's
+adaptation becomes more or less fact-eroding as it speeds up), which
+would be its own finding. Costs: eval-only, CPU, tens of backward
+passes. Name when dispatched: e188. Ripening behind the R56 cells.
+
 ## W021 — WONDER: the instrument that cannot fail — R56's meta-law, and the scan it demands (2026-09-29 ~21:20Z; no bars, no kills)
 
 All three of the critic's ruler-bends were ONE species: an instrument
