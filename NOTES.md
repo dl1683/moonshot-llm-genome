@@ -65,7 +65,7 @@ extrapolation ~379/1174/3228 steps, never adjudicated). THE
 DECOMPOSITION the co-reads carry: (1) THE CLOCK IS ADAM'S
 ARITHMETIC — step-1 pre-clip grad norm 0.9829 in EVERY arm; AdamW
 moved 1.6543/step (lr*sqrt(N), sign-normalized) vs SGD-1e-3's
-0.0010: 1687x at the same lr; the two-step clock is the normalizer,
+0.0010: 1683x at the same lr; the two-step clock is the normalizer,
 not the memory. (2) THE GATE IS DISPLACEMENT — every Adam variant
 kills at D ~ 2.49-2.84; warmup stretched the step clock 10x and the
 kill still arrived at the same displacement within ~15%

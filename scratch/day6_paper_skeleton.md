@@ -158,7 +158,7 @@ R3 "Known phenomenon" (attention sinks; memory types) — the novelty is the
   complementary-learning-systems literature (scratch/massaction_key_lit.md,
   W003's CLS analogy, now narrowed to replay-only; full claim-by-claim
   mapping: scratch/lit_beat_20260930.md).
-R3b (T137, the most dangerous overlap): the trajectory law's nearest
+R3b (T137, the most dangerous overlap): the trajectory hypothesis's nearest
   prior is THEORY — Evron COLT'22 + Goldfarb & Hand AISTATS'23 state
   that forgetting follows task/gradient geometry, not displacement
   magnitude. MUST cite and lead with the controlled 3-way dissociation
@@ -269,26 +269,31 @@ Evidence gaps (additions):
    queued, now carrying g3K's organism-level ruler); the R56+g3K
    corrections are ADOPTED (organism threshold ratios; the 24-32x
    store-isolated reading cited only as the organ's design property).
-8. g1bW DONE (T140): A SURVIVED an active second-install attempt
-   (0.83 through the install; free-run expression intact) — the
-   wall's strongest positive. The MUSEUM contrast itself is
-   unlicensed at this dose (B installs nowhere, walled or unwalled;
-   disclosed); the measured tax is the ONSET channel (B partial-form
-   0.21 vs 0.53). g1bW2 (the dose cell) adjudicates where B can
-   install; until then the paper says "sequential: A held through an
-   active second install; the dose-adequate contrast owed".
+8. g1bW DONE (T140 + R58-critic 2c): MUSEUM fired as registered,
+   its rescope WITHHELD (the paired reference failed the same ruler —
+   B installs nowhere at this dose; the museum question is OPEN
+   pending g1bW2's dose LADDER). LEAD WITH THE ONSET-TAX — the one
+   contrast-licensed read: the install's partial form halved inside
+   the ball (B g0 peak 0.21 vs 0.53, bit-identical inputs). A held
+   (min 0.65) through the 300-step attempt — real but a weak
+   antagonist (it installed nothing); the paper says "the wall held
+   A through a second-install attempt; the dose-adequate contrast
+   owed (g1bW2)".
 9. Rhythm's controls (g2g, READY): threat-level ladder (self-timed vs
    thermostat), refractory-widened band, and the REGISTERED fixed-period
    head-to-head — without them "self-timed" stays scoped to one threat
    level and the fixed-arm co-read (0.693 vs 0.587-0.615) is disclosed
    in R6(b).
-12. Optimizer clause EVIDENCED (opt1, DONE): the two-step clock is
-   Adam's sign-normalization (1687x/step at matched lr); the kill
-   gate is displacement (~2.5, clock-invariant); under matched SGD
-   the same stream STRENGTHENS the fact — paragraph (2)'s "at every
-   lr tested" must become "under AdamW at every lr tested" and cite
-   the decomposition; opt1b (the direct SGD kill) decides whether
-   the gate generalizes across trajectory classes.
+12. Optimizer clause EVIDENCED, decomposition PROPOSED (opt1 DONE;
+   R58): the two-step clock is Adam's sign-normalization (1683x/step
+   at matched lr; the normalizer flips the SIGN of fact-relevance:
+   -0.0385 vs +0.0981 on the same batch); the kill gate reads
+   displacement in a two-convention bracket (checkpoint 2.49 vs 3.64;
+   interpolated 2.18 vs 2.85) — the small-displacement PUMP
+   strengthens the fact under every optimizer (SGD lingers at
+   1/1683rd speed); paragraph (2)'s "at every lr tested" becomes
+   "under AdamW at every lr tested"; opt1b/opt1c/e188 adjudicate the
+   gate's trajectory-class scope and the death currency.
 11. Trajectory-hypothesis replication (C13-1, NEW): e188's
    alignment-integral test + >=2 more organisms (kappa pairs) before
    any "trajectory law" or "aligned training" wording is law-graded.

@@ -91,6 +91,97 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R58 — the decomposition day reviewed: numbers verified, three slogans corrected, one forced cell born (2026-09-30 ~12:15Z)
+
+Trigger: 90 min since R57. Trio dispatched 11:52Z; all landed by
+~12:10Z. Fleet during review: g1bS (GPU, building), opt1b + e188 (CPU).
+
+SUPERVISOR ITEMS (check-in 13 Lab response):
+- C13-1 (paper framing outran T137's stamp): DONE — repaired on T137,
+  R6(c), framing, clause 4, paragraph 2, gaps 10/11; the R58 auditor
+  found three residual "law" mints (QUEUE g3K row, skeleton R3b,
+  T138 title) — ALL re-stamped in this fold.
+- C13-2 (g1bS next GPU slot): DONE — dispatched 11:52Z from the
+  frozen design (R in per-coordinate RMS units).
+- C13-3 (e182c to CPU): DONE — QUEUE row moved.
+- C13-4 (W020 provenance): with Devansh; nothing owed by the lab.
+- C13-5 carried items: literature beat DONE (T138, 10:53Z); W023 card
+  DONE (10:41Z) and now amended by the R58 critic (below) — the card
+  wrote a registered prediction and the data answered it NO within
+  the hour; recorded as the honest arc.
+- Coordination: accepted — future coordination notes go to
+  NOTES/THINKING; SUPERVISOR.md stays directives + check-ins +
+  responses.
+
+AUDITOR (scratch/r58_auditor.md; every number recomputed): g3K
+kappa pair SOUND (host min 4.03 misses the <=4 bar by 0.03); opt1's
+step ratio OVERCLAIMED at the third digit — 1683.06x not 1687x
+(repaired everywhere); the "D ~ 2.49-2.84 within ~15%" is a
+CONVENTION MIX (checkpoint 2.49 vs warmup 3.64; interpolated 2.18 vs
+2.85 — opt1b's spared-gate is calibrated on the interpolated reading
+and now says so); g1bW SOUND (one metrics prose bug noted: the
+reference clause calls 0.0628 an "install" — the file stays frozen,
+the contradiction documented); C13-1 residuals re-stamped; the
+wrong-ruler g3K draft QUARANTINED (banner + PNG renamed — never
+deleted); last_novelty re-stamped (the researcher beat happened but
+the field was never updated).
+
+CRITIC (scratch/r58_critic.md; three attacks, all evidence-backed):
+  K1 "THE STREAM TEACHES UNDER SGD" is a small-displacement PUMP, not
+  an optimizer property — A3 (AdamW+warmup) pumped to 0.9476 at
+  D=0.368 before dying; e184 pumped +0.026 in one full-lr AdamW step;
+  the SGD "teaching" is the same transient lingered in at 1/1683rd
+  the speed. THE GENUINELY NEW FACT (was buried as a co-read): on the
+  same bit-identical batch, Adam's step cos(delta, grad m12) =
+  -0.0385 vs SGD's +0.0981 — THE NORMALIZER FLIPS THE SIGN OF
+  FACT-RELEVANCE (T139's slogan inverted: the normalizer chooses the
+  sign, not the stream). And "inherited moments carry nothing" was
+  TAUTOLOGICAL (A0's wash starts fresh-state; A5 null by construction
+  — inherited moments UNTESTED, claim withdrawn).
+  K2 the displacement-gate evidence is CIRCULAR AT ITS CORE: D_kill
+  2.4893 was imported from A0's own kill into the registration —
+  predicting A0's t* from it is an identity; the only independent
+  test (A3) is bracketed [1.45, 3.64] at 10-step resolution; and the
+  e131 lineage has NO static-jump leg — the forgetting law is a
+  two-organism stitch at n=1 each. T139's decomposition joins T137
+  under the PROPOSED stamp.
+  K3 g1bW's honesty lived in NOTES while the metrics' adjudication
+  clause contradicted it (file stays frozen; contradiction
+  documented); MUSEUM's fire was dose-guaranteed (W021's species —
+  its paired control should have been gating); "A survives an ACTIVE
+  second install" oversold a weak antagonist (installed nothing;
+  non-monotonic 0.53->0.49). ADOPTED VERBATIM: the critic's 2c
+  MUSEUM-WITHHELD wording on T140 + the paper; g1bW2 re-registered
+  as a dose LADDER (2d: the non-monotonicity says the dose sat near a
+  form-transition; a point at 600 steps may overshoot); the paper
+  leads with the ONSET-TAX (the one contrast-licensed read). W023's
+  rise-prediction ANSWERED NO on disk (A0 |cos| flat 0.015->0.044->
+  0.015 while CE_R recovered 2.21->1.77) — amended.
+  FORCED CELL: opt1c, THE DIRECTION-SIZE FACTORIAL — sign-SGD (raw-
+  gradient DIRECTION at Adam's measured step size 1.6543 L2/step):
+  kills at the bracket -> cumulative displacement is direction-robust
+  (alignment epiphenomenal); alive past D=2.6 -> "any path reaching
+  the gate kills" dies in its letter and the law moves to
+  ruler-aligned-displacement currency. Registered behind opt1b.
+
+IDEATOR (scratch/r58_ideator.md): e188 CONFIRMED + the two-currency
+amendment (DISPATCHED 12:00Z); opt2 THE SIGN CARRIER (SIGN / TOPK /
+WARMV at matched per-step L2; QUEUED CPU after opt1b — bars stable
+under either opt1b outcome); g9 THE ADMISSION BALL (top-k PC
+projection of A's install-gradient structure; spec frozen, GATED on
+g1bW2's dose ladder by construction).
+
+DECISIONS: (1) all auditor repairs applied this fold; (2) critic's
+wordings adopted verbatim (T139/T140/W023/paper); (3) opt1c
+registered (behind opt1b); (4) double-session guards adopted as
+policy — no hardcoded reference constants in lab/*.py, dispatch
+briefs cite spec provenance; (5) the forgetting law's current honest
+form: DISPLACEMENT-GATED (checkpoint-bracketed), OPTIMIZER-CARRIED
+SPEED, DIRECTION-STRUCTURE UNRESOLVED pending opt1b/opt1c/e188 — all
+currencies PROPOSED until the factorials land.
+
+---
+
 ---
 
 ---

@@ -708,12 +708,32 @@ HONESTY: n=1 lineage, one wash seed, B-draw n=1; the concurrent
 draft's F2 (fabricated reference constants) joins W021's scan — a
 would-be instrument corruption caught only by verify-before-run.
 
+[R58 AMENDMENT — the critic's 2c wording adopted]: "MUSEUM fired as
+registered (walled B 0.074 <= 0.27 at healthy CE 1.63). Its
+registered rescope is WITHHELD: the paired unwalled reference failed
+the same B-ruler (0.063) — at the 300-step dose B installs nowhere in
+this lineage (partial onset form only, g0 peak 0.53 unwalled), so
+B's failure inside the wall is uninformative about the wall. The
+museum question is OPEN pending the dose control (g1bW2, registered
+as a dose LADDER: the reference's non-monotonicity 0.53->0.49 says
+the dose sat near a form-transition; a point at 600 steps may
+overshoot). Licensed today: (1) the wall held A (min 0.65) through a
+300-step second-install attempt — protection survives interference;
+(2) THE ONSET-TAX is the day's cleanest paired read (B g0 peak 0.21
+walled vs 0.53 unwalled, bit-identical inputs, 300/300) and the one
+contrast-licensed claim — the paper leads with it. 'Survives an
+ACTIVE second install' softens: an antagonist that installed nothing
+is a weak antagonist until g1bW2 supplies a dose at which B presses.
+The metrics' adjudication clause contradicts this reading (calls
+0.0628 an 'install' and asserts the rescope) — the file stays frozen
+as the machine record; this amendment is the interpretive record.
+
 ## T139 — opt1: the clock is Adam's arithmetic; the gate is displacement; the "killer" stream teaches under SGD (2026-09-30 ~11:30Z)
 
 The nine-times-asked control lands as a decomposition of the wash
 kill into CLOCK and GATE. THE CLOCK: step-1 pre-clip grad norm 0.9829
 in every arm; AdamW moves 1.6543/step (lr*sqrt(N), sign-normalized),
-matched-lr SGD 0.0010 — 1687x at the same lr. THE GATE: every Adam
+matched-lr SGD 0.0010 — 1683x at the same lr. THE GATE: every Adam
 variant kills at D ~ 2.49-2.84; warmup stretched the clock 10.08x
 (the registered ADAM-AMPLIFIES fire) and the kill still arrived at
 the same displacement within ~15%. THE BOMBSHELL: matched-lr SGD ran
@@ -737,7 +757,30 @@ beta2, inherited moments: nothing (A4 indistinguishable; A5
 bit-identical). HONESTY: n=1 per arm; SGD clocks only by labeled
 projection; CPU fp32 texture gated on-device.
 
-## T138 — the literature pass: the trajectory law is new as a CONTROL, predicted as THEORY (2026-09-30 ~10:55Z)
+[R58 AMENDMENT — three corrections, all evidence-backed]:
+(a) "THE STREAM TEACHES UNDER SGD" is retired: the fact-strengthening
+is a SMALL-DISPLACEMENT PUMP, not an optimizer property — A3
+(AdamW+warmup) pumped to 0.9476 at D=0.368 before dying; e184 pumped
++0.026 in one full-lr AdamW step; SGD lingers in the pump at
+1/1683rd the speed. The genuinely new SGD-specific fact (was a
+co-read): on the same bit-identical batch Adam's step reads
+cos(delta, grad m12) = -0.0385 vs SGD's +0.0981 — THE NORMALIZER
+FLIPS THE SIGN OF FACT-RELEVANCE; the slogan inverts: the normalizer
+chooses the sign, the stream supplies the gradient.
+(b) "Inherited moments carry nothing" WITHDRAWN as tautological —
+A0's wash already starts fresh-state, so A5 was null by construction;
+inherited moments are UNTESTED (opt2's WARMV arm owns the question).
+(c) The decomposition joins T137 under PROPOSED: D_kill 2.4893 was
+imported from A0's own kill (the registered bar was circular for A0;
+identity, not prediction); the only independent test (A3) is
+bracketed [1.45, 3.64] at 10-step resolution — the honest
+displacement statement is two-convention (checkpoint 2.49 vs 3.64;
+interpolated 2.18 vs 2.85; opt1b's gate reads the interpolated
+convention); and the e131 lineage has no static-jump leg — the
+forgetting law is a two-organism stitch at n=1 each. opt1b (running)
++ opt1c (registered) + e188 (running) are the adjudicators.
+
+## T138 — the literature pass: the trajectory hypothesis is new as a CONTROL, predicted as THEORY (title re-stamped per C13-1; 2026-09-30 ~10:55Z)
 
 scratch/lit_beat_20260930.md, ~20 searches, all supervisor anchors
 pinned. THE GATE: six phrasings of trajectory-vs-static /
@@ -3244,6 +3287,15 @@ misaligned-protection)? A replay event as a DELIBERATE MINI-SHOCK:
 the rhythm's mechanism candidate, stated as a wonder for g2g's
 threat-ladder to carry. Savoring: the organism never stops healing;
 the memory dies of the healing itself.
+[R58 AMENDMENT — the rise-prediction ANSWERED NO, 12:15Z]: opt1's
+own disk data: A0's |cos| ran FLAT (0.015 -> 0.044 -> 0.015) while
+CE_R recovered 2.21 -> 1.77 — the alignment does NOT rise with the
+recovery; "adaptation sharpens the knife" in its alignment form is
+REFUTED. What survives of the wonder: the pump-then-die texture (the
+fact strengthens at small displacement, dies past the gate — the
+healing and the killing remain one trajectory), and the
+replay-as-mini-shock question transfers to g2g's monitor slopes.
+Cards keep their predictions AND their answers.
 
 ## W022b — WONDER EXTENSION: the alignment integral is computable NOW — the e180 grid has the snapshots (2026-09-30 ~10:18Z; no bars, no kills — the e188 candidate specified)
 
