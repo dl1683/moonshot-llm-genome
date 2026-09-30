@@ -9,6 +9,45 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bW — the wall's museum test: MUSEUM as registered, but the reference leg fails too — B's 300-step dose installs NOWHERE; A survives an ACTIVE second install; the tax relocates to the onset channel (2026-09-30 ~11:45Z) — DONE
+
+WHAT WE DID: R56's killer control (spec verbatim, scratch/
+r56_critic.md 54-64): W1 machinery, seed-10907 lineage; commit(0.7)
++ 50 wash -> install fact B (QUORINA on CAMILLO/AUTOLYCUS hosts,
+e043-Dmix verbatim, 300 steps) UNDER the projection, anchor at A's
+commit; reference = the same install on the unwalled washed control
+(bit-identical inputs, 300/300 md5); zero-compute rider on the
+g1bR +300 checkpoint. All 9 gates green; the wash reproduces g1bR
+to 7 decimals (0.9156978 vs 0.9156979). The script was the
+concurrent session's draft, verified then FIVE-bug-fixed before
+running (F1 a guaranteed KeyError — it could never complete as
+written; F2 fabricated g1bR constants; F4 a GPU gate deadlocking at
+idle temperature; documented in the docstring).
+
+WHAT WE SAW (T140): walled final A 0.8324 (min 0.6505, held at every
+checkpoint) | B 0.0736 | CE_r 1.6285 healthy -> MUSEUM fires per its
+registered letter (B <= 0.27 at healthy CE); SPLINT-REFUTED and
+ZERO-SUM did not. BUT the reference leg ALSO fails the B-ruler
+(0.0628): at this dose B installs nowhere, so "the wall is a
+splint" is NOT contrast-licensed — reported as ambiguity inside the
+fired bar. THE WALL'S MEASURED EFFECT: (1) A held through an ACTIVE
+second-install attempt — the wall's strongest positive yet
+(protection survives interference, not just passive wash); free-run
+ZEPHYRA survived the whole ordeal (3/2800 chars, walled final).
+(2) The tax relocated to the ONSET channel: B's partial-form peak
+0.21 walled vs 0.53 unwalled, while A's row0 stayed protected
+(0.62-0.69 vs reference's 0.006) — inside-the-ball protected,
+outside-the-ball resisted. WHAT'S NEXT (queued g1bW2): the
+discriminator is DOSE — B at 600+ steps on the unwashed control
+(does the ruler form ever arrive without the wall? A needed ~400
+steps), then the walled contrast rerun at that dose; plus a B-draw
+replicate. HONESTY: n=1 lineage, one wash seed (10907), B-draw n=1
+(the walled-vs-reference contrast is draw-controlled; B's absolute
+level is not); all trainings cuda with pauses under external GPU
+contention (logged; no migration).
+
+---
+
 ## opt1 — the optimizer controls: the clock is ADAM'S ARITHMETIC, the kill gate is DISPLACEMENT, and the killer stream TEACHES under SGD (2026-09-30 ~11:25Z) — DONE
 
 WHAT WE DID: the licensed e185 wash cell VERBATIM with only the

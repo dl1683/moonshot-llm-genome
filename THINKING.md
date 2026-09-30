@@ -685,6 +685,29 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T140 — g1bW: the museum test's honest split — A survives an active second install; the tax relocates to the onset channel (2026-09-30 ~11:50Z)
+
+The killer control lands with an ambiguity that is itself the
+finding. AS REGISTERED, MUSEUM fired (walled B 0.0736 <= 0.27 at
+healthy CE 1.63) — but the UNWALLED reference failed the B-ruler too
+(0.0628): at the critic's 300-step dose B installs NOWHERE, so "the
+wall is a splint" is NOT contrast-licensed. WHAT THE WALL ACTUALLY
+DID: (1) A held 0.83 (min 0.65) through an ACTIVE second-install
+attempt — the wall's strongest positive yet: protection survives
+interference, not just passive wash; free-run ZEPHYRA survived the
+ordeal. (2) The measurable tax relocated to the ONSET channel: B's
+trained-length partial form peaked 0.21 walled vs 0.53 unwalled,
+while A's row0 stayed protected (0.62-0.69 vs 0.006). THE COHERENT
+PICTURE: the wall protects the committed manifold and resists
+leaving it — T133's battery-channel scope and this onset-tax are ONE
+mechanism: inside-the-ball protected, outside-the-ball resisted.
+THE DISCRIMINATOR IS DOSE (g1bW2 queued): B at 600+ steps unwashed —
+if the ruler form arrives, rerun the walled contrast at that
+operating point; the museum question adjudicated where B can install.
+HONESTY: n=1 lineage, one wash seed, B-draw n=1; the concurrent
+draft's F2 (fabricated reference constants) joins W021's scan — a
+would-be instrument corruption caught only by verify-before-run.
+
 ## T139 — opt1: the clock is Adam's arithmetic; the gate is displacement; the "killer" stream teaches under SGD (2026-09-30 ~11:30Z)
 
 The nine-times-asked control lands as a decomposition of the wash

@@ -226,7 +226,9 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    and not even displacement but ALIGNED TRAINING — any learned path
    to a displacement kills where a random jump of the same size is
    4-10x more forgivable; the aligned front can be walled (g1,
-   battery-channel; sequential pending g1bW), detected (g2, with the
+   battery-channel; sequential: A held
+   through an active second install, dose-adequate contrast owed),
+   detected (g2, with the
    R56 construction disclosures), and its anisotropy measured (g3).
 
 Fig 4 (THE generative plate, 3 panels): (i) wall: fact p(Z) vs wash
@@ -245,7 +247,8 @@ C6 (contribution, after C5): "Dissection-to-design closure: each
 
 Abstract clause (4), draft (R56+g3K-corrected): "(4) The same laws
    are generative: a projection ball (channel-scoped protection at a
-   standing tax; sequential memory tested in g1bW), a self-timed
+   standing tax; sequential: A held through an active second
+   install, dose-adequate contrast owed), a self-timed
    rehearsal organ (timing replicates across seeds and roots;
    amplitude root-draw-bound), and a direction-typed forgetting
    law with a PROPOSED trajectory hypothesis (wash-aligned training
@@ -266,10 +269,14 @@ Evidence gaps (additions):
    queued, now carrying g3K's organism-level ruler); the R56+g3K
    corrections are ADOPTED (organism threshold ratios; the 24-32x
    store-isolated reading cited only as the organ's design property).
-8. Wall's sequential test (g1bW, in flight): SPLINT-REFUTED licenses
-   "memory architecture"; MUSEUM/ZERO-SUM rescopes the central positive
-   to channel-scoped protection. The free-run battery (wpe-band
-   collapse channels) must be reported either way.
+8. g1bW DONE (T140): A SURVIVED an active second-install attempt
+   (0.83 through the install; free-run expression intact) — the
+   wall's strongest positive. The MUSEUM contrast itself is
+   unlicensed at this dose (B installs nowhere, walled or unwalled;
+   disclosed); the measured tax is the ONSET channel (B partial-form
+   0.21 vs 0.53). g1bW2 (the dose cell) adjudicates where B can
+   install; until then the paper says "sequential: A held through an
+   active second install; the dose-adequate contrast owed".
 9. Rhythm's controls (g2g, READY): threat-level ladder (self-timed vs
    thermostat), refractory-widened band, and the REGISTERED fixed-period
    head-to-head — without them "self-timed" stays scoped to one threat
