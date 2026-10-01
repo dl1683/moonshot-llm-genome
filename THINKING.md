@@ -1015,8 +1015,7 @@ organism's adaptation walks toward the fact readout's ascent
 direction; it returns to the grave it dug. VOCABULARY REJECTED:
 install-vs-wash cos in [-0.034, -0.018] everywhere — the wash is
 the corpus's adaptation direction, not the fact's negation
-(T138's defence resolves by measurement). e189's census survives
-as the mechanism of the FLIP (W024), not the currency.
+(T138's defence resolves by measurement). the census survives as the mechanism of the ATTENUATION (W024's flip corrected to attenuation by the chart), not the currency.
 
 ## T140 — g1bW: the museum test's honest split — A survives an active second install; the tax relocates to the onset channel (2026-09-30 ~11:50Z)
 

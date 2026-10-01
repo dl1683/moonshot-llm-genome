@@ -91,6 +91,56 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R60 — the wave audited: the numbers are real; the corrections' copies chased; the next wave shaped (2026-10-01, folded ~17:20Z)
+
+Trigger: the day's wave closed (T144-T152) + the inherited R59
+audit mandate. Trio complete; e193 (the lineage replicate)
+launched mid-review from the ideator's top rank.
+
+AUDITOR (scratch/r60_auditor.md; ~60 figures recomputed — the
+inherited mandate discharged): every headline reproduces except
+one unsupported co-read and one backwards inequality — opt2's
+"75% of ||g||^2" had NO artifact (the committed census reads
+86.6% — corrected) and NOTES's d_eff bound was the uncorrected
+flip copy (<=52k/35k/24k — corrected, with the PR scope and the
+11602 rung-2 disclosure). THREE SURVIVING FLIP COPIES killed
+(skeleton R2b, day7-skeleton, T141 — the wave's own correction
+now lives everywhere it is cited). g1bS's hard stop verified as a
+model negative; opt1b3's fold carries numbers not phrases; e182c's
+replay premise sound; g2g "the best fold of the wave". Ledger
+minor drift fixed (a duplicated e193 row; DAY7's stale open item).
+
+CRITIC (scratch/r60_critic.md; absorbed at landing + repairs in
+51bb934): the terrain is a slice that misses its own steepest wall
+(in-span 0.56-0.61 contradicts "the most lethal direction" — T143
+amended; three rays are not a map); the lethal-front rests on
+three conventions + one instant of selection (the magnitude-shuffle
+breaker queued — sign-pairing was convicted by intervention,
+magnitude-pairing never was); g2g's +0.07 is an anecdote until the
+seed ladder (protocol specified: >=3 fresh wash seeds x {organ,
+count-matched fixed} at 1x, CPU-deterministic, bar same-sign 3/3
+with median delta >= +0.03; "worth" struck until then); the
+abstract's two weakest sentences repaired (construction preceded
+explanation; process not causality-proof). FORCED: the second-
+organism replicate — e193b registered (fresh root + TWO facts +
+the rider + the in-span range + the magnitude shuffle), composing
+with the running e193 (the lineage axis).
+
+IDEATOR (scratch/r60_ideator.md): the next wave ranked — e193 >
+g1c-root > g1bS2 > the g2g seed ladder > e194 (the sign-front
+mechanism); stranded cells named honestly (g3O's d_eff leg dead,
+the span's size ownerless, the retired-by-design set); the three
+drafting blockers: the n=1 organism (e193/e193b), g1c-root, the
+g2g seed ladder; g1bS2 explicitly NOT a blocker (the scale-bound
+negative is writable).
+
+DECISIONS: all repairs applied; e193 running; e193b registered
+behind it; the g2g seed ladder DISPATCHING now (the critic's exact
+protocol); g1bS2 next GPU slot (staggered); novelty clock stamped
+(the ideator + the day's card deaths serve).
+
+---
+
 ## R59 — the rapid-fire day reviewed: two of three landed; the auditor killed by disruption (2026-10-01, folded ~13:38Z)
 
 Trigger: five results + two outages folded since R58 within hours.

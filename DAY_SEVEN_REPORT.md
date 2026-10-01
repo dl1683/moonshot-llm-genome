@@ -83,7 +83,7 @@ W022b's aligned-drift law (killed by its own branch), W024
 (retired whole), the g2h lottery (parked). Claims strengthened:
 the displacement gate (e188's 0.6%), the wall's channel-scoped
 protection (g1bW), re-orientation causality (e192's rider), the
-lethal front (opt2). Open: the rhythm's controls (g2g, out); the
+lethal front (opt2). Open: the rhythm's seed ladder (licensed); the
 wall's scale (g1bS2); the bleed's asymptote (retired-by-design);
 the span's size (instruments don't reconcile); phase-2 e182c.
 

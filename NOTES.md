@@ -64,7 +64,7 @@ a four-digit echo) < full sign(g) 1.7496 < A0-Adam 2.4893
 bar fired — every arm kills, nothing spares — and the LADDER IS THE
 RESULT: (1) DENSITY CARRIES NOTHING: keeping |g|-selection + g's
 own magnitudes, deleting 90% of the coordinates leaves the kill AT
-the raw cliff (the top-10% front holds 75% of ||g||^2 and the
+the raw cliff (the top-10% front holds 86.6% of ||g|| (the committed census read; the agent's 75% had no artifact — corrected per R60-audit)^2 and the
 entire lethality; top-50% is indistinguishable from the full
 gradient). (2) WHAT MOVES THE KILL IS MAGNITUDE INFORMATION — the
 T143 lethality ordering made INTERVENTIONAL at matched size:
@@ -139,7 +139,7 @@ wash delta IS the first history segment, removed 1.0, residual
 kills at rung 8 — inside the random band; e131: the sign-flattened
 history contains only 64.2% of the raw ray, so the "out-span"
 residual retains 59% of the g-ray and kills at rung 1). The
-dimension estimates do NOT reconcile (kappa-derived d_eff <=52k/ (bound direction CORRECTED per R60-critic)
+dimension estimates do NOT reconcile (kappa-derived d_eff <=52k / 35k / 24k (direction corrected; PR e131-only; 11602 rung-2 disclosed)
 36k/24k vs SVD rank 20/8/7 vs PR 6.4-15.8) — the finite-span proxy
 caveat carried verbatim; W025's projection-ratio account of the
 random band remains UNCONFIRMED. RIDERS: the shuffled-sign ray is
