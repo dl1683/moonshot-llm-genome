@@ -1,0 +1,147 @@
+{
+  "experiment": "g1bS_scale_wall",
+  "date": "2026-10-01T07:50:57Z",
+  "partial": true,
+  "phase": "G-CONFIG",
+  "progressive_writes": 2,
+  "phases": [
+    "start",
+    "G-CONFIG"
+  ],
+  "recovery": {
+    "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
+    "survivors": {
+      "script": "lab/g1bS_scale_wall.py @ ef4f1f1 (mid-edit working copy: WAIT-GATE SOAK FIX + inter-chunk cuda empty_cache \u2014 device policy only, pre-documented in deviations)",
+      "base_ckpt": "runs/checkpoints/g1bS_base.pt \u2014 the TRAINED 10M host base, NOT retrained; resumed at step 750/4000 with model+opt+sched+batch-generator state carried",
+      "smoke": "runs/g1bS_smoke/ \u2014 complete machinery smoke from the PRE-EDIT copy (root ckpt landed as smoke_g1bS_root.pt.pt, the mid-edit ROOT_CK residue; the committed line is fixed); re-verified by this agent's smoke re-run \u2014 see runs/g1bS_smoke/recovery_verification.json"
+    },
+    "recovery_fixes": [
+      "(a) neutral-bank `tries += 1` restored (lost in the copy from g1; RNG stream unaffected \u2014 the bank is bit-identical)",
+      "(b) PROGRESSIVE PARTIAL metrics.json writes after every phase/chunk/arm (the outage lesson: the killed full run left runs/g1bS/ empty)",
+      "(c) G1BS_GPU_WAIT_MAX env override for the arm wait (default 600 s unchanged) per the recovery dispatch's pause-and-wait",
+      "(d) RECOVERY provenance block (this dict) + the docstring note"
+    ],
+    "base_pre_recovery_chunks": [
+      {
+        "run": 1,
+        "chunk": 1,
+        "device": "cuda",
+        "seconds": 184.5,
+        "steps_done": 353,
+        "val_loss": 1.8385
+      },
+      {
+        "run": 1,
+        "chunk": 2,
+        "device": "cuda",
+        "seconds": 184.0,
+        "steps_done": 547,
+        "val_loss": 1.6437,
+        "note": "gate parked 965 s on an outside job; then the chunk-3 gate hit the <=65C soak deadlock (idle floor 73-76C)"
+      },
+      {
+        "run": 2,
+        "chunk": 1,
+        "device": "cuda",
+        "seconds": null,
+        "steps_done": 750,
+        "val_loss": 1.5801,
+        "note": "post soak-fix restart; killed by the outage right after the step-750 ckpt save (runs/g1bS_run.log)"
+      }
+    ],
+    "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events"
+  },
+  "gates_partial": {
+    "G_CONFIG": {
+      "params": 9977600,
+      "band": [
+        8500000.0,
+        11500000.0
+      ],
+      "vocab": 65,
+      "block_size": 256,
+      "n_layer": 8,
+      "n_head": 8,
+      "n_embd": 320,
+      "R_rms_ref": 0.00042295709624807246,
+      "R_ladder_raw": [
+        1.3360089281393446,
+        2.672017856278689,
+        5.344035712557378
+      ],
+      "R_ladder_rms": [
+        0.00042295709624807246,
+        0.0008459141924961449,
+        0.0016918283849922898
+      ],
+      "R_ladder_mult": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "pin_fuzz_rms_carried_raw": 2.86287627458431,
+      "one_adamw_step_fuzz_raw": 3.1587339235839416,
+      "assertions": {
+        "rung_1": {
+          "mult": 1.0,
+          "rms": 0.00042295709624807246,
+          "expected_rms": 0.00042295709624807246,
+          "raw": 1.3360089281393446,
+          "abs_err_rms": 0.0,
+          "pass": true
+        },
+        "rung_2": {
+          "mult": 2.0,
+          "rms": 0.0008459141924961449,
+          "expected_rms": 0.0008459141924961449,
+          "raw": 2.672017856278689,
+          "abs_err_rms": 0.0,
+          "pass": true
+        },
+        "rung_3": {
+          "mult": 4.0,
+          "rms": 0.0016918283849922898,
+          "expected_rms": 0.0016918283849922898,
+          "raw": 5.344035712557378,
+          "abs_err_rms": 0.0,
+          "pass": true
+        }
+      },
+      "battery_geometry": {
+        "vocab_unchanged": true,
+        "block_unchanged": true,
+        "positions_read": {
+          "site_rows": [
+            183,
+            189
+          ],
+          "wpe_band": [
+            121,
+            129
+          ],
+          "inside_block": true
+        },
+        "tokenizer": "same data/input.txt char stoi (65 chars)"
+      },
+      "pass": true
+    }
+  },
+  "config": {
+    "n_layer": 8,
+    "n_head": 8,
+    "n_embd": 320,
+    "block_size": 256,
+    "params": 9977600,
+    "R_ladder_raw": [
+      1.3360089281393446,
+      2.672017856278689,
+      5.344035712557378
+    ],
+    "R_ladder_rms": [
+      0.00042295709624807246,
+      0.0008459141924961449,
+      0.0016918283849922898
+    ],
+    "smoke": false
+  }
+}
