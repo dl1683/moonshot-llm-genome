@@ -1,0 +1,369 @@
+{
+  "experiment": "opt1b3_last_steps",
+  "date": "2026-10-01T13:43:11Z",
+  "status": "PARTIAL: chunk 0 saved @ step 1264 (stop=none); continuation continuing",
+  "partial": true,
+  "phase": {
+    "step": 1264,
+    "chunks": 1,
+    "reads": 64,
+    "journal_rows": 64,
+    "stop_kind": null,
+    "elapsed_s": 190.8
+  },
+  "gates_partial": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e185's control stream; FIXED content, not reseeded)",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_RESUME": {
+      "loaded_from": "runs/opt1b2/chunk_state.pt (opt1b2's committed cap stop: model + generator state + step 1200 + 600-row continuation journal + 68 reads + the cap stop)",
+      "chunk_step": 1200,
+      "chunk_stop": {
+        "kind": "cap",
+        "step": 1200,
+        "note": "1200-step cap reached with neither bar's trigger inside the window"
+      },
+      "chunk_meta": {
+        "experiment": "opt1b2",
+        "arm": "a2b_sgd_1e-2",
+        "lr": 0.01,
+        "input_seed": 10902,
+        "base": "runs/checkpoints/e131_consolidated_e113.pt",
+        "parent": "runs/opt1b/chunk_state.pt @ s600 (committed; journal md5 17d1d08741204785f7f9b5825f116559)"
+      },
+      "flat_md5_loaded_vs_committed_chain_tail": true,
+      "s1200_pt_model_bit_identical": true,
+      "journal_file_row_equal": true,
+      "journal_file_md5": "076cd8116eed4a669e09a51f1983b85a",
+      "grandparent_journal": {
+        "path": "runs/opt1b/journal.jsonl",
+        "md5": "17d1d08741204785f7f9b5825f116559",
+        "rows": 600
+      },
+      "step1200_row_hard_bind_diffs": {
+        "ce_batch": 0.0,
+        "cum_disp": 0.0,
+        "step_disp": 0.0,
+        "preclip_gnorm": 0.0
+      },
+      "read1200_row_hard_bind_diffs": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "ce_r": 0.0,
+        "cum_disp": 0.0
+      },
+      "committed_journal_x_md5_1_10_vs_e185": true,
+      "parent_committed_at_cap": true,
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): the resumed state's identity \u2014 the committed chunk_state (what a cross-process resumer loads, stopped at its own cap) vs opt1b2's committed s1200.pt model (bit), the committed journal.jsonl (row-equal) with the step-1200 trajectory row and read hard-bound to this file's embedded full-precision copies, and the committed stream's steps 1..10 x_md5s vs e185's stored hashes (via the grandparent opt1b journal). The first resumed step (1201) continues the committed trajectory bit-consistently: the state is the committed one (md5 chain) and the stream position carries in the generator state (per-step md5s recorded; never repeats \u2014 gates.G_INPUTS).",
+      "disp_recompute_measured": 2.145502805709839,
+      "disp_recompute_vs_committed_diff": 0.0,
+      "disp_recompute_bit": true
+    }
+  },
+  "provenance_partial": {
+    "resume": "continued from runs/opt1b2/chunk_state.pt @ step 1200 (gated bit: md5 chain + s1200.pt + journal hard-bind); parent journal md5 076cd8116eed4a669e09a51f1983b85a; grandparent 17d1d08741204785f7f9b5825f116559",
+    "parents": {
+      "opt1b": "CAP-NEITHER",
+      "opt1b2": "CAP-NEITHER",
+      "opt1c": "KILL-OUT-OF-WINDOW (no bar)"
+    }
+  },
+  "chunks": [
+    {
+      "chunk": 0,
+      "step_from": 1201,
+      "step_to": 1264,
+      "n_steps": 64,
+      "wall_s": 179.9,
+      "flat_md5_at_end": "0ff657739d9721c681933fd9afde73b0",
+      "stopped": false
+    }
+  ],
+  "journal_tail": [
+    {
+      "step": 1257,
+      "chunk": 0,
+      "ce_batch": 0.7028997540473938,
+      "cum_disp": 2.186767339706421,
+      "step_disp": 0.006310544908046722,
+      "preclip_gnorm": 0.6311089992523193,
+      "lr_eff": 0.01,
+      "x_md5": "643b0f6551f32e078e9a79704ecd825a"
+    },
+    {
+      "step": 1258,
+      "chunk": 0,
+      "ce_batch": 0.6898669004440308,
+      "cum_disp": 2.1875739097595215,
+      "step_disp": 0.005958662834018469,
+      "preclip_gnorm": 0.5959122776985168,
+      "lr_eff": 0.01,
+      "x_md5": "70187ad0cf6b91c74ab9076a3d5db61f"
+    },
+    {
+      "step": 1259,
+      "chunk": 0,
+      "ce_batch": 0.6552028059959412,
+      "cum_disp": 2.1883623600006104,
+      "step_disp": 0.0062001231126487255,
+      "preclip_gnorm": 0.6200681328773499,
+      "lr_eff": 0.01,
+      "x_md5": "b570e4e8d3d1571ace95738b5c1dd929"
+    },
+    {
+      "step": 1260,
+      "chunk": 0,
+      "ce_batch": 0.6420018672943115,
+      "cum_disp": 2.1889936923980713,
+      "step_disp": 0.006171750370413065,
+      "preclip_gnorm": 0.6172307133674622,
+      "lr_eff": 0.01,
+      "x_md5": "3b1f459055b52447a50e415948108a32"
+    },
+    {
+      "step": 1261,
+      "chunk": 0,
+      "ce_batch": 0.6814596056938171,
+      "cum_disp": 2.1897776126861572,
+      "step_disp": 0.006193971261382103,
+      "preclip_gnorm": 0.619447648525238,
+      "lr_eff": 0.01,
+      "x_md5": "28351479c339d9dd2e358525e111e2e3"
+    },
+    {
+      "step": 1262,
+      "chunk": 0,
+      "ce_batch": 0.6629067659378052,
+      "cum_disp": 2.1905460357666016,
+      "step_disp": 0.006010439246892929,
+      "preclip_gnorm": 0.6010976433753967,
+      "lr_eff": 0.01,
+      "x_md5": "da58f6174d7acfc4bbf257e68a3be514"
+    },
+    {
+      "step": 1263,
+      "chunk": 0,
+      "ce_batch": 0.674403190612793,
+      "cum_disp": 2.19108510017395,
+      "step_disp": 0.006209538783878088,
+      "preclip_gnorm": 0.621009349822998,
+      "lr_eff": 0.01,
+      "x_md5": "1bf00de7ec8a4f6dc6c367f9e407181f"
+    },
+    {
+      "step": 1264,
+      "chunk": 0,
+      "ce_batch": 0.7026182413101196,
+      "cum_disp": 2.191755533218384,
+      "step_disp": 0.006184531841427088,
+      "preclip_gnorm": 0.6185044646263123,
+      "lr_eff": 0.01,
+      "x_md5": "9bfc9bb4f3d70af1ebaa48dc500370b2"
+    }
+  ],
+  "reads_tail": [
+    {
+      "step": 1257,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.32544511556625366,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.186767339706421,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1258,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.32095974683761597,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.1875739097595215,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1259,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.32132789492607117,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.1883623600006104,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1260,
+      "chunk": 0,
+      "forced": null,
+      "full": true,
+      "gm12": 0.3226913511753082,
+      "g0": 0.5076223611831665,
+      "ce_r": 1.6877045631408691,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.1889936923980713,
+      "cos_delta_fact_g0": -0.019531438127160072,
+      "cos_delta_fact_m12": -0.023012401536107063
+    },
+    {
+      "step": 1261,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.32256099581718445,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.1897776126861572,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1262,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.32796838879585266,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.1905460357666016,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1263,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.3282451033592224,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.19108510017395,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    },
+    {
+      "step": 1264,
+      "chunk": 0,
+      "forced": null,
+      "full": false,
+      "gm12": 0.3263090252876282,
+      "g0": null,
+      "ce_r": null,
+      "frac_argmax_z": 0.3,
+      "cum_disp": 2.191755533218384,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null
+    }
+  ],
+  "stop_partial": null
+}

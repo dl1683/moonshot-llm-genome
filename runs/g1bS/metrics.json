@@ -1,18 +1,17 @@
 {
   "experiment": "g1bS_scale_wall",
-  "date": "2026-10-01T08:20:30Z",
+  "date": "2026-10-01T13:45:46Z",
   "partial": true,
-  "phase": "base-chunk-6",
-  "progressive_writes": 8,
+  "phase": "base-chunk-4",
+  "progressive_writes": 7,
   "phases": [
     "start",
     "G-CONFIG",
+    "divergence-verification",
     "base-chunk-1",
     "base-chunk-2",
     "base-chunk-3",
-    "base-chunk-4",
-    "base-chunk-5",
-    "base-chunk-6"
+    "base-chunk-4"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
@@ -55,56 +54,69 @@
         "note": "post soak-fix restart; killed by the outage right after the step-750 ckpt save (runs/g1bS_run.log)"
       }
     ],
-    "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events"
+    "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events",
+    "third_dispatch": {
+      "note": "two machine disruptions killed the first two executors; this is the THIRD dispatch's recovery (coordinator commits 3b1b4cc + dbc3fd7); survivors: this script, the partial runs/g1bS/metrics.json, the diverged base ckpt",
+      "primary_inheritance": "agent-2's base chunks: val RISING monotonically 1.628 -> 3.724 over chunks 1-6 (steps 1207-2958); the saved ckpt (s3250) splits train 0.13 falling / val 3.96 rising \u2014 degenerate collapse under peak lr 1e-3 (the 0.87M n_embd=128 recipe carried unscaled onto the 10M n_embd=320 host); the scheduler decayed correctly (lr 8.9e-5 at s3250) \u2014 the recipe, not the resume, is the fault",
+      "lr_fix": "BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x 128/320, inside the coordinator's documented 3e-4..5e-4 window); warmup 100 + clip 1.0 kept verbatim; legitimate documented deviation \u2014 the design froze the R-convention and the WALL bars, NOT the base lr",
+      "install_adaptation": "install lr 4e-4 + dose s1000 (MOVEMENT-matched to e043's 1e-3 x s400); consolidate + wash stay 1e-3 verbatim (the registered treatment; Adam-clock priced at 1e-3)",
+      "quality_gate": "G-BASE-QUAL registered BEFORE the retrain (registered.base_quality_gates): cosine complete + val decreasing across the schedule + final val <= 1.70 + a coherence sample; on failure the run STOPS before install \u2014 no arms, no adjudication",
+      "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) \u2014 lr is the only delta vs the diverged trajectory",
+      "divergence_verification": {
+        "ckpt": "g1bS_base.pt",
+        "step": 3250,
+        "val_first": 2.031466484069824,
+        "val_min": 1.5677728354930878,
+        "val_last": 3.9586017727851868,
+        "rise_from_min": 2.390828937292099,
+        "train_last": 0.1276863068342209,
+        "train_val_split": "train FALLING while val RISES = degenerate collapse, not benign overfitting",
+        "own_eval_val_loss": 3.9586022893587747,
+        "sample_stats": {
+          "len": 300,
+          "lower_space_fraction": 0.7566666666666667,
+          "mean_word_len": 4.192982456140351,
+          "max_char_run": 2,
+          "distinct_chars": 46
+        },
+        "sample_reading": "coherent-looking sample DESPITE val 3.96 = the MEMORIZATION/RECITATION signature: train CE 0.13 means the collapsed model recites its train corpus (free-running generation re-enters the memorized manifold) while generalization on held-out windows died \u2014 which is why the registered quality gate leads with the VAL-based legs (g2 decreasing + g3 <= 1.70) and the coherence sample alone can never certify a base",
+        "classification": "DIVERGED",
+        "verdict": "DIVERGED \u2014 archive + fresh retrain at the width-scaled lr 0.0004"
+      }
+    }
   },
   "base_chunks": [
     {
       "chunk": 1,
       "device": "cuda",
       "cap_s": 180.0,
-      "seconds": 183.6,
-      "steps_done": 1207,
-      "val_loss": 1.6283147136370342
+      "seconds": 183.5,
+      "steps_done": 249,
+      "val_loss": 2.1608801086743674
     },
     {
       "chunk": 2,
       "device": "cuda",
       "cap_s": 180.0,
-      "seconds": 181.0,
-      "steps_done": 1673,
-      "val_loss": 1.9816020131111145
+      "seconds": 190.3,
+      "steps_done": 454,
+      "val_loss": 1.8444162011146545
     },
     {
       "chunk": 3,
       "device": "cuda",
       "cap_s": 180.0,
-      "seconds": 184.2,
-      "steps_done": 1991,
-      "val_loss": 2.4080626169840493
+      "seconds": 184.9,
+      "steps_done": 721,
+      "val_loss": 1.6562077204386394
     },
     {
       "chunk": 4,
       "device": "cuda",
       "cap_s": 180.0,
-      "seconds": 184.9,
-      "steps_done": 2275,
-      "val_loss": 2.8388333916664124
-    },
-    {
-      "chunk": 5,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 185.3,
-      "steps_done": 2593,
-      "val_loss": 3.3384240667025247
-    },
-    {
-      "chunk": 6,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 185.2,
-      "steps_done": 2958,
-      "val_loss": 3.723600387573242
+      "seconds": 185.4,
+      "steps_done": 1113,
+      "val_loss": 1.576567639907201
     }
   ]
 }
