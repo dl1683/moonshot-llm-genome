@@ -2,7 +2,7 @@
   "experiment": "e182c_forgetting_control",
   "phase": "1 (matched batteries under e182's frozen wash; phase 2 = fresh corpus draws, queued for GPU behind g2g)",
   "date": "2026-10-01T15:01:14Z",
-  "status": "PARTIAL: states probed through +50",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from the third-dispatch brief (predecessors killed pre-artifact); adjudicated against exactly that \u2014 no bar shopping",
   "registered_prediction": {
     "forgetting_generic": "controls erode within ~1.5x of the fact probes' relative decline at the deepest state \u2014 T123's erosion is generic forgetting at 124M; the GPT-2 clause scopes to 'ordinary forgetting with improving perplexity', NOT a no-basin signature",
@@ -1205,6 +1205,83 @@
       "kept_contamination_scans_zero": true,
       "kept_overlap_with_e182_banned_zero": true,
       "pass": true
+    },
+    "G_REPLAY": {
+      "shared_steps": [
+        2,
+        10,
+        50
+      ],
+      "per_step": {
+        "2": {
+          "fact_mean_p": [
+            0.8014794915914536,
+            0.8014721900224686
+          ],
+          "dp": 7.3015689849853516e-06,
+          "ppl": [
+            43.461267374344395,
+            43.459916884766045
+          ],
+          "ppl_ratio": 1.000031074370941,
+          "in_batch_ce": [
+            3.7664241790771484,
+            3.766435146331787
+          ]
+        },
+        "10": {
+          "fact_mean_p": [
+            0.7867586523294449,
+            0.7867171436548233
+          ],
+          "dp": 4.1508674621604236e-05,
+          "ppl": [
+            38.34582382109327,
+            38.344801414484806
+          ],
+          "ppl_ratio": 1.0000266634998942,
+          "in_batch_ce": [
+            3.770509719848633,
+            3.7704644203186035
+          ]
+        },
+        "50": {
+          "fact_mean_p": [
+            0.5266193024814129,
+            0.5276785984635353
+          ],
+          "dp": 0.001059295982122399,
+          "ppl": [
+            34.68910636956736,
+            34.67734491701951
+          ],
+          "ppl_ratio": 1.0003391681968732,
+          "in_batch_ce": [
+            3.260141611099243,
+            3.2602033615112305
+          ]
+        }
+      },
+      "tol_dp": 0.03,
+      "tol_ppl": [
+        0.9,
+        1.1
+      ],
+      "fact_decline_at_50": 0.33936323101326304,
+      "shape_tol_decl50": 0.15,
+      "pass": true
+    },
+    "G_PPL": {
+      "rule": "bank ppl read at every state (the improving reference)",
+      "ppl_curve": {
+        "0": 71.33571584997821,
+        "2": 43.461267374344395,
+        "10": 38.34582382109327,
+        "50": 34.68910636956736,
+        "80": 34.81885799634494
+      },
+      "ppl_improves": true,
+      "pass": true
     }
   },
   "corpus": {
@@ -1885,9 +1962,323 @@
       "ppl": 34.68910636956736,
       "ce": 3.546425700187683,
       "in_batch_ce": 3.260141611099243
+    },
+    {
+      "step": 80,
+      "fact": {
+        "mean_p": 0.45484777726233006,
+        "frac_top1": 0.8,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.13572438061237335,
+            "rank": 1
+          },
+          "Greece->Athens": {
+            "p": 0.3968694806098938,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.1412094533443451,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.14942365884780884,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.10885904729366302,
+            "rank": 2
+          },
+          "Ireland->Dublin": {
+            "p": 0.08268740773200989,
+            "rank": 1
+          },
+          "France->French": {
+            "p": 0.8230644464492798,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.7190970182418823,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.7728919982910156,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.7876316905021667,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.5816192626953125,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.649308443069458,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5738397836685181,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.6320819854736328,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.6970937848091125,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.7124454975128174,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.4514829218387604,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.41885340213775635,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.09912417083978653,
+            "rank": 1
+          },
+          "China->yuan": {
+            "p": 0.16364771127700806,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.43818790776034194,
+        "frac_top1": 0.75,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.6969111561775208,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.5711445808410645,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.6289164423942566,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.7129104733467102,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.3956748843193054,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.2825866639614105,
+            "rank": 1
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.20234887301921844,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.11716761440038681,
+            "rank": 2
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.24164250493049622,
+            "rank": 1
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.6747748851776123,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.20097064971923828,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.5332061648368835,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.138129194577535,
+        "frac_top1": 0.3333333333333333,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.1682472974061966,
+            "rank": 1
+          },
+          "Georgia->Atlanta": {
+            "p": 0.1052575409412384,
+            "rank": 1
+          },
+          "Ohio->Columbus": {
+            "p": 0.14088274538516998,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 34.81885799634494,
+      "ce": 3.550159136454264,
+      "in_batch_ce": 3.274717330932617
     }
   ],
   "timing": {
-    "total_s": 1140.8
-  }
+    "total_s": 1609.5
+  },
+  "adjudication": {
+    "bars": {
+      "FACT_SPECIFIC": false,
+      "FORGETTING_GENERIC": true,
+      "verdict": "FORGETTING-GENERIC",
+      "clause": "controls erode within ~1.5x of the fact probes' relative decline at +80 (ctrl 0.397 vs fact 0.429, ratio 0.92; band [0.286, 0.644]) \u2014 T123's erosion is generic forgetting at 124M; the GPT-2 clause scopes to 'ordinary forgetting with improving perplexity', NOT a no-basin signature",
+      "order": "FACT-SPECIFIC -> FORGETTING-GENERIC -> MIXED (gated on G_REPLAY)"
+    },
+    "bar_constants": {
+      "GEN_BAND": 1.5,
+      "GEN_FLOOR_FACT_DECL": 0.02,
+      "HOLD_DECL": 0.2,
+      "ERODE_DECL": 0.5
+    },
+    "declines_at_deepest": {
+      "fact": 0.4293996354947689,
+      "ctrl": 0.396949733200183,
+      "step": 80,
+      "decline_ratio_ctrl_over_fact": 0.9244295998127805
+    },
+    "co_adjudication_at_50": {
+      "declines": {
+        "fact": 0.33936323101326304,
+        "ctrl": 0.2814036182341395
+      },
+      "FACT_SPECIFIC": false,
+      "FORGETTING_GENERIC": true,
+      "verdict": "FORGETTING-GENERIC",
+      "note": "e182's own deepest MEASURED checkpoint (the T123-stamp comparison); the PRIMARY verdict is the deepest probed state"
+    },
+    "declines_per_state": {
+      "2": {
+        "fact": -0.005445146501820153,
+        "ctrl": 0.009000998572888164
+      },
+      "10": {
+        "fact": 0.013021946597506107,
+        "ctrl": 0.061305173093452514
+      },
+      "50": {
+        "fact": 0.33936323101326304,
+        "ctrl": 0.2814036182341395
+      },
+      "80": {
+        "fact": 0.4293996354947689,
+        "ctrl": 0.396949733200183
+      }
+    },
+    "nearrel_co_report": {
+      "declines": {
+        "2": 0.015740180612744514,
+        "10": 0.2168948073178304,
+        "50": 0.6479293360106464,
+        "80": 0.765542761255382
+      },
+      "note": "same-template (US-state capitals) co-report: if nearrel erodes with the facts while the registered controls hold, the decay is template/capital-relation-level, not knowledge-level; NOT part of the frozen bars"
+    },
+    "e182_fact_mean_p": {
+      "2": 0.8014721900224686,
+      "10": 0.7867171436548233,
+      "50": 0.5276785984635353
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_SIZE": true,
+      "G_BATT_FACT": true,
+      "G_REPRO_CORPUS": true,
+      "G_CTRL": true,
+      "G_REPLAY": true
+    },
+    "fact_facts": [
+      "France->Paris",
+      "Greece->Athens",
+      "Poland->Warsaw",
+      "Portugal->Lisbon",
+      "Egypt->Cairo",
+      "Ireland->Dublin",
+      "France->French",
+      "Germany->German",
+      "Japan->Japanese",
+      "Italy->Italian",
+      "Spain->Spanish",
+      "Russia->Russian",
+      "China->Chinese",
+      "England->English",
+      "Greece->Greek",
+      "Poland->Polish",
+      "Japan->yen",
+      "the United Kingdom->pound",
+      "the United States->dollar",
+      "China->yuan"
+    ],
+    "ctrl_facts": [
+      "The social network founded by Mark Zuckerberg->Facebook",
+      "The electric car company founded by Elon Musk->Tesla",
+      "The rocket company founded by Elon Musk->SpaceX",
+      "The search engine founded by Larry Page->Google",
+      "The online encyclopedia that anyone can edit->Wikipedia",
+      "The gaming console made by Microsoft->Xbox",
+      "The web browser made by Google->Chrome",
+      "The phone made by Apple->iPhone",
+      "The tablet made by Apple->iPad",
+      "The email service made by Google->Gmail",
+      "The music store made by Apple->iTunes",
+      "The game console made by Sony->PlayStation"
+    ],
+    "nearrel_facts": [
+      "Massachusetts->Boston",
+      "Georgia->Atlanta",
+      "Ohio->Columbus"
+    ]
+  },
+  "honesty_reflex": {
+    "phase_1": "matched batteries under ONE frozen wash trajectory; phase 2 (>=2 fresh corpus draws, GPU) owns generality",
+    "states_regenerated": "e182 saved no wash states; the states here are a CPU fp32 replay of the frozen recipe, admitted by G_REPLAY (steps 1-25 were GPU in e182 \u2014 the measured deviation is the deferred CPU/GPU-numerics item, now quantified)",
+    "control_guarantees_nothing": "controls holding does not prove the facts special (weaker consolidation is an alternative); controls eroding does not prove generic (shared few-shot locus, shared prompt family); the openness is the point",
+    "single_seed_single_corpus": "one organism, one wash seed (e182's 18202), one frozen corpus draw",
+    "few_shot_conflation_inherited": "the 2-shot context is part of the frozen instrument; decay's locus (fact storage vs in-context task-following) remains unadjudicated \u2014 the nearrel co-report is the partial check (shared template, disjoint entities), not a discharge",
+    "exemplar_pair_sensitivity": "control p0 depends on the fixed exemplar pair (observed swings 0.12-0.55 across screening orders); the pool order was frozen after pristine-model screening and never tuned again",
+    "control_domain_caveat": "the registered controls are brand/corporate knowledge (the family that passes the gate at 124M); 'controls hold' may not generalize to all non-fact knowledge \u2014 phase 2's fresh draws owe the breadth",
+    "plus80_never_probed_by_e182": "e182's measurements stop at +50; +80 is its true final step, probed here first",
+    "baseline_matching": "both batteries share the gate and cap; baseline p distributions co-reported in form_matching (decline is per-battery relative)",
+    "selection_bias": "the control battery is the best-known members of a hand-curated pool (the same top-of-passers bias e182's battery has)"
+  },
+  "compute": {
+    "envelope": "CPU-only (124M fp32 inference + the 80-step frozen replay, batch 8x512, threads 8); no GPU claim",
+    "walls_s_per_step_logged": true,
+    "state_archive": [
+      "runs/checkpoints/e182c_s2.pt",
+      "runs/checkpoints/e182c_s10.pt",
+      "runs/checkpoints/e182c_s50.pt",
+      "runs/checkpoints/e182c_s80.pt"
+    ],
+    "resumable": "runs/checkpoints/e182c_replay_latest.pt"
+  },
+  "trims": [],
+  "deviations": [
+    "STATES REGENERATED, NOT LOADED (the inventory finding, Rule 12): e182 saved no wash states (ckpt=null both arms; runs/checkpoints/ has no e182*.pt) \u2014 the brief's 'eval-only on saved states' was unsatisfiable. This cell REPLAYS e182's frozen 5e-5 wash on CPU (same corpus asserted equal, same seed 18202 -> bit-identical draws, same optimizer) and admits the states via the G_REPLAY verification gate against e182's recorded +2/+10/+50 readings. Steps 1-25 ran on GPU in e182; the replay is CPU end-to-end \u2014 the gate measures that deviation (check-in 12 item 5c's deferred 'CPU/GPU migration numerics', discharged as a side product).",
+    "Per-state weights ARE saved this time (runs/checkpoints/e182c_s{N}.pt) \u2014 the discipline e182 lacked; future phases eval-only on disk states.",
+    "+80 (e182's true final step, its time cap) is probed here for the first time; e182's own measurements stop at +50. The +80 read is a state on the frozen trajectory, certified by the +2/+10/+50 agreement.",
+    "The control corpus-freedom is VERIFIED post-hoc (subject/answer strings and answer token ids absent from the FROZEN filtered stream), not enforced by re-filtering \u2014 re-filtering would change the wash. Drop reasons recorded per candidate.",
+    "Control pool designed via five pristine-model screening rounds (t=0 information only; bars already frozen; no wash state touched): the person-surname, land/superlative and mythology families fail the gate at 124M (full-name completion bias; no uniform template; p 0.02-0.14) \u2014 the recorded scarcity that itself mirrors Kandpal 2023's frequency law. The passing population (unique-anchor brand items) defines the registered battery; mythology stays in-pool as documented failures. A near-relation co-report (US-state capitals, the fact battery's own template, disjoint entities) reads the shared-template locus; it is NOT part of the frozen bars.",
+    "CPU-only envelope incl. the 80-step replay (the brief's 'no training' meant no NEW washes; reconstruction of the frozen trajectory is the only path to 'the same states', disclosed before compute). Walls logged per step.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: 2 replay steps, grid {1,2}, own smoke dir, nothing adjudicated or verified.",
+    "RECOVERY NOTE (third dispatch): two prior e182c agents died pre-artifact; no e182c script survived (git + lab/ verified). This is the first e182c artifact; bars are the frozen brief's, verbatim."
+  ]
 }

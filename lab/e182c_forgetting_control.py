@@ -728,10 +728,17 @@ def replay_wash(net0, train_ids, bank_xy, ckpt_steps: tuple[int, ...],
 
 # ------------------------------------------------------------------ plot
 
-def make_plot(rd, states, verdict, clause, adj, form_match):
+def make_plot(rd, states, verdict, clause, adj, form_match, ctrl_rel=None):
     """THE FIGURE: both batteries under the SAME states (mean_p + ppl
     overlay), per-battery retention vs the bar bands, discrete accuracies,
-    and the verdict + verification + control-table panel."""
+    and the verdict + verification + control-table panel.
+
+    ctrl_rel: optional {fact: relation} for the control table (the per-state
+    journal records p/rank only; relations live in the battery records).
+    PLOT-ONLY FIX (fourth dispatch): the first full pass wrote DONE metrics
+    + journal and then crashed here (probes is a DICT {fact: {p, rank}}, the
+    table iterated it as a list); the figure is regenerated VERBATIM from
+    the frozen journal — zero recompute, zero metric change."""
     cols = {"fact": "tab:red", "ctrl": "tab:blue", "near": "tab:green"}
     lbls = {"fact": "FACT battery (e182 verbatim, n=%d)" % len(adj["fact_facts"]),
             "ctrl": "CONTROL battery (matched, n=%d)" % len(adj["ctrl_facts"]),
@@ -841,12 +848,11 @@ def make_plot(rd, states, verdict, clause, adj, form_match):
            f"{f'+{last}':>7s} {'ret':>6s}")
     ax.text(0.02, y, hdr, fontsize=6.6, va="top", family="monospace")
     y -= 0.022
-    c0 = {r["fact"]: r["p"] for r in states[0]["ctrl"]["probes"]}
-    cl = {r["fact"]: r["p"] for r in states[-1]["ctrl"]["probes"]}
-    c_rel = {r["fact"]: r["relation"] for r in states[0]["ctrl"]["probes"]}
+    c0 = {f: v["p"] for f, v in states[0]["ctrl"]["probes"].items()}
+    cl = {f: v["p"] for f, v in states[-1]["ctrl"]["probes"].items()}
     for fact in adj["ctrl_facts"]:
         ax.text(0.02, y,
-                f"  {fact:34s} {c_rel[fact]:6s} "
+                f"  {fact:34s} {(ctrl_rel or {}).get(fact, '-'):6s} "
                 f"{c0[fact]:6.3f} {cl[fact]:7.3f} "
                 f"{cl[fact] / c0[fact]:6.2f}",
                 fontsize=6.1, va="top", family="monospace")
@@ -1493,7 +1499,8 @@ def main():
                   if not SMOKE else "SMOKE DONE")
     if not SMOKE:
         png = make_plot(rd, states, verdict, clause,
-                        metrics["adjudication"], form_match)
+                        metrics["adjudication"], form_match,
+                        {r["fact"]: r["relation"] for r in cbattery})
         log(f"outputs: {rd / 'metrics.json'}, {png}")
     else:
         png = None
