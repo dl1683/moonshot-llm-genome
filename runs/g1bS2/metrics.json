@@ -1,14 +1,15 @@
 {
   "experiment": "g1bS2_scale_wall",
-  "date": "2026-10-01T17:34:01Z",
+  "date": "2026-10-01T17:55:46Z",
   "partial": true,
-  "phase": "base-chunk-2",
-  "progressive_writes": 4,
+  "phase": "G-BASE-QUAL",
+  "progressive_writes": 5,
   "phases": [
     "start",
     "G-CONFIG",
-    "base-chunk-1",
-    "base-chunk-2"
+    "divergence-verification",
+    "base-chunk-3",
+    "G-BASE-QUAL"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
@@ -59,7 +60,27 @@
       "install_adaptation": "install lr 4e-4 + dose s1000 (MOVEMENT-matched to e043's 1e-3 x s400); consolidate + wash stay 1e-3 verbatim (the registered treatment; Adam-clock priced at 1e-3)",
       "quality_gate": "G-BASE-QUAL registered BEFORE the retrain (registered.base_quality_gates): cosine complete + val decreasing across the schedule + final val <= 1.70 + a coherence sample; on failure the run STOPS before install \u2014 no arms, no adjudication",
       "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) \u2014 lr is the only delta vs the diverged trajectory",
-      "divergence_verification": null
+      "divergence_verification": {
+        "ckpt": "g1bS2_base.pt",
+        "step": 962,
+        "val_first": 2.129887064297994,
+        "val_min": 1.5927761395772297,
+        "val_last": 1.5927761395772297,
+        "rise_from_min": 0.0,
+        "train_last": 1.3354578018188477,
+        "train_val_split": "n/a",
+        "own_eval_val_loss": 1.5927760899066925,
+        "sample_stats": {
+          "len": 300,
+          "lower_space_fraction": 0.9066666666666666,
+          "mean_word_len": 4.016666666666667,
+          "max_char_run": 2,
+          "distinct_chars": 38
+        },
+        "sample_reading": null,
+        "classification": "healthy-partial (resume, Rule 10)",
+        "verdict": "not diverged \u2014 resume the chunk schedule"
+      }
     },
     "fourth_dispatch": {
       "note": "a FIFTH disruption (user-confirmed shutdown) killed the third executor mid-base-retrain after its chunk-4 write (13:45:46Z); this is the FOURTH dispatch's recovery",
@@ -74,24 +95,89 @@
       "g2_by_construction": "the shortened schedule sits inside the observed DECREASING prefix (min ~s1113) and anneals lr -> 0 where the 4000-step run turned, so the val-decreasing leg should hold by construction \u2014 a documented expectation, not a proof (new trajectory); if it still fails the run STOPS honestly and the finding ('even val-min-anchored fails') is itself reportable",
       "g1bs_record": "the failed cell's record: runs/g1bS/metrics.json (13 chunks, chunk-final vals 2.1609 -> 1.5766 (s1113) -> 2.8506 (s4000); G-BASE-QUAL g2/g3 FALSE, g4 TRUE, pass FALSE, enforced) + runs/g1bS/base_quality.png + the archived base ckpt g1bS_base_overtrained_s4000_lr4e-4.pt \u2014 none touched by this run (fresh base at the shortened schedule, same seed-1337 init and batch stream; the schedule is the only delta vs the g1bS trajectory)",
       "artifact_separation": "all run/checkpoint names renamed g1bS -> g1bS2 (runs/g1bS2/, runs/checkpoints/g1bS2_*.pt) so no g1bS survivor artifact is modified"
+    },
+    "sixth_dispatch": {
+      "note": "a SEVENTH disruption (user-confirmed shutdown #2) killed the fifth executor mid-base after chunk 2's progressive write; survivors committed at 7f9703c \u2014 this is the SIXTH dispatch's recovery (g1bS2-r2)",
+      "base_inventory": "g1bS2_base.pt = healthy mid-schedule partial at step 962/1200 (vals falling 2.1299 -> 1.5928; sched epoch 962, lr 4.15e-5 -> 0 at 1200; generator state carried) \u2014 CONTINUED via the chunk machinery, not restarted",
+      "script_verification": "full read against the frozen design + the G1BS2 license: R-convention, ladder, bars, scaled-bar ordering, both R conventions, G-BASE-QUAL hard stop, priors vs runs/g1b/metrics.json \u2014 NO deviations, NO fixes; the RECOVERY-6 docstring note is the only edit",
+      "gpu_policy": "G1BS_GPU_WAIT_MAX=7200 (the pre-registered env knob): pause-and-wait under the neighbor's INT8 jobs, never migrate; the base gate waits without timeout as registered"
     }
   },
-  "base_chunks": [
-    {
-      "chunk": 1,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 182.4,
-      "steps_done": 436,
-      "val_loss": 1.8508074482282002
+  "G_BASE": {
+    "steps": 1200,
+    "final_val_loss": 1.5690115491549175,
+    "n_chunks": 3,
+    "chunks": [
+      {
+        "chunk": 1,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 182.4,
+        "steps_done": 436,
+        "val_loss": 1.8508074482282002
+      },
+      {
+        "chunk": 2,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 193.0,
+        "steps_done": 962,
+        "val_loss": 1.5927761395772297
+      },
+      {
+        "chunk": 3,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 89.8,
+        "steps_done": 1200,
+        "val_loss": 1.5690115491549175
+      }
+    ],
+    "pass": true
+  },
+  "base_cells": {
+    "gm12": 0.00010502710210857913,
+    "g0": 8.78928549354896e-05,
+    "gp12": 0.00010621726687531918,
+    "held30_gm12": 0.00011472695769043639,
+    "held30_g0": 9.866273467196152e-05,
+    "ce_r": 1.5452262163162231,
+    "site_read_onset": 9.243038948625326e-05,
+    "site_read_span": 0.014176633208990097,
+    "A129": -1.458658104335579e-05
+  },
+  "G_BASE_QUAL": {
+    "registered": {
+      "registered_before_retrain": true,
+      "why": "third-dispatch instruction: NO install/consolidate/arms until the base passes a quality gate REGISTERED BEFORE the base trains (the inherited base diverged; the gate is the dispatch bar, not a wall dial \u2014 no bar shopping applies here or is enabled by it). G1BS2: the gate fired on g1bS exactly as registered (val U-turn, hard stop, no arms); the LEGS are re-registered VERBATIM below \u2014 only the cosine-complete reference moves to the licensed 1200-step val-min-anchored schedule",
+      "g1_cosine_complete": "final step == 1200 (the licensed val-min-anchored schedule; g1bS's reference was 4000)",
+      "g2_val_decreasing": "every chunk-final val <= previous chunk-final val + 0.02 (float/device noise band), AND final val <= first-eval val (step 250) - 0.15 (real learning across the schedule). G1BS2 expectation (documented BEFORE compute, per the license): the shortened schedule's whole span sits inside the observed DECREASING prefix of g1bS's 4000-step trajectory (min ~s1113) and anneals lr -> 0 where that trajectory turned, so this leg should hold BY CONSTRUCTION \u2014 a non-proof caveat: the shortened cosine is a new trajectory; if the leg still fails, that IS the finding (even the val-min-anchored recipe fails) and the run stops honestly",
+      "g3_final_val_anchor": "final val <= 1.70 \u2014 agent-1's healthy prefix was 1.58 @ step 750 and still falling at lr 1e-3; a stable width-scaled cosine on 3.6x the parameters must stay under the diverged run's own healthy window with margin (g1bS's val-min was 1.5766 @ ~s1113; the shortened cosine ends at 1200 at ~zero lr, so the anchor leg expects ~1.5-1.6)",
+      "g4_coherence_sample": "common.generate (the house instrument verbatim: temp 0.8, top_k 40, 300 new tokens, fixed prompt = the first 64 chars of val_text, recorded): lowercase+space fraction >= 0.70 AND mean word length in [2.0, 8.0] AND longest single-char run <= 10 AND >= 18 distinct chars; the sample text recorded verbatim (NOTE: g1bS showed coherence alone CANNOT certify a base \u2014 the memorizing host passed it)",
+      "failure_action": "G-BASE-QUAL FAILS => the run STOPS before install (progressive metrics hold the record); no arms, no adjudication"
     },
-    {
-      "chunk": 2,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 193.0,
-      "steps_done": 962,
-      "val_loss": 1.5927761395772297
-    }
-  ]
+    "cosine_complete": true,
+    "chunk_final_vals": [
+      1.8508074482282002,
+      1.5927761395772297,
+      1.5690115491549175
+    ],
+    "val_monotone_decreasing_noise0.02": true,
+    "first_eval_val": 2.129887064297994,
+    "final_val": 1.5690115491549175,
+    "g2_val_decreasing": true,
+    "g3_final_val<=1.70": true,
+    "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
+    "sample_generated": "ow, say thy please.\n\nVIRGILIA:\nI say to see the father's death, and you have:\nThe should will not to ask as honest at lize.\nAnd what the gods umons of a fiend.\n\nVIRGILIA:\nMost so, if our mocks suspirity!\n\nJULIET:\nHere you way speak it not will your and for yours?\n\nVOLUMNIA:\nO, if I will not do retir",
+    "sample_stats": {
+      "len": 300,
+      "lower_space_fraction": 0.78,
+      "mean_word_len": 3.95,
+      "max_char_run": 2,
+      "distinct_chars": 44
+    },
+    "g4_coherence_sample": true,
+    "pass": true,
+    "enforced": true
+  }
 }
