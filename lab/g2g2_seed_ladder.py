@@ -995,7 +995,7 @@ def plot_all(state: dict) -> None:
         axD.axhline(0.0758, color="#7f7f7f", ls=":", lw=1.2,
                     label="parent +0.0758 (GPU, seed 10902)")
         axD.axhline(0, color="k", lw=0.6)
-        axD.set_xticks(range(len(ds) + 1 + (1 if pd_ is not None else 0)
+        axD.set_xticks(range(len(ds) + (1 if pd_ is not None else 0)
                              + (1 if rd is not None else 0)))
         axD.set_xticklabels([str(s) for s in SEEDS[:len(ds)]]
                             + (["paired"] if pd_ is not None else [])
