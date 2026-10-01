@@ -1,12 +1,18 @@
 {
   "experiment": "g1bS_scale_wall",
-  "date": "2026-10-01T07:50:57Z",
+  "date": "2026-10-01T08:20:30Z",
   "partial": true,
-  "phase": "G-CONFIG",
-  "progressive_writes": 2,
+  "phase": "base-chunk-6",
+  "progressive_writes": 8,
   "phases": [
     "start",
-    "G-CONFIG"
+    "G-CONFIG",
+    "base-chunk-1",
+    "base-chunk-2",
+    "base-chunk-3",
+    "base-chunk-4",
+    "base-chunk-5",
+    "base-chunk-6"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
@@ -51,97 +57,54 @@
     ],
     "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events"
   },
-  "gates_partial": {
-    "G_CONFIG": {
-      "params": 9977600,
-      "band": [
-        8500000.0,
-        11500000.0
-      ],
-      "vocab": 65,
-      "block_size": 256,
-      "n_layer": 8,
-      "n_head": 8,
-      "n_embd": 320,
-      "R_rms_ref": 0.00042295709624807246,
-      "R_ladder_raw": [
-        1.3360089281393446,
-        2.672017856278689,
-        5.344035712557378
-      ],
-      "R_ladder_rms": [
-        0.00042295709624807246,
-        0.0008459141924961449,
-        0.0016918283849922898
-      ],
-      "R_ladder_mult": [
-        1.0,
-        2.0,
-        4.0
-      ],
-      "pin_fuzz_rms_carried_raw": 2.86287627458431,
-      "one_adamw_step_fuzz_raw": 3.1587339235839416,
-      "assertions": {
-        "rung_1": {
-          "mult": 1.0,
-          "rms": 0.00042295709624807246,
-          "expected_rms": 0.00042295709624807246,
-          "raw": 1.3360089281393446,
-          "abs_err_rms": 0.0,
-          "pass": true
-        },
-        "rung_2": {
-          "mult": 2.0,
-          "rms": 0.0008459141924961449,
-          "expected_rms": 0.0008459141924961449,
-          "raw": 2.672017856278689,
-          "abs_err_rms": 0.0,
-          "pass": true
-        },
-        "rung_3": {
-          "mult": 4.0,
-          "rms": 0.0016918283849922898,
-          "expected_rms": 0.0016918283849922898,
-          "raw": 5.344035712557378,
-          "abs_err_rms": 0.0,
-          "pass": true
-        }
-      },
-      "battery_geometry": {
-        "vocab_unchanged": true,
-        "block_unchanged": true,
-        "positions_read": {
-          "site_rows": [
-            183,
-            189
-          ],
-          "wpe_band": [
-            121,
-            129
-          ],
-          "inside_block": true
-        },
-        "tokenizer": "same data/input.txt char stoi (65 chars)"
-      },
-      "pass": true
+  "base_chunks": [
+    {
+      "chunk": 1,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 183.6,
+      "steps_done": 1207,
+      "val_loss": 1.6283147136370342
+    },
+    {
+      "chunk": 2,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 181.0,
+      "steps_done": 1673,
+      "val_loss": 1.9816020131111145
+    },
+    {
+      "chunk": 3,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 184.2,
+      "steps_done": 1991,
+      "val_loss": 2.4080626169840493
+    },
+    {
+      "chunk": 4,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 184.9,
+      "steps_done": 2275,
+      "val_loss": 2.8388333916664124
+    },
+    {
+      "chunk": 5,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 185.3,
+      "steps_done": 2593,
+      "val_loss": 3.3384240667025247
+    },
+    {
+      "chunk": 6,
+      "device": "cuda",
+      "cap_s": 180.0,
+      "seconds": 185.2,
+      "steps_done": 2958,
+      "val_loss": 3.723600387573242
     }
-  },
-  "config": {
-    "n_layer": 8,
-    "n_head": 8,
-    "n_embd": 320,
-    "block_size": 256,
-    "params": 9977600,
-    "R_ladder_raw": [
-      1.3360089281393446,
-      2.672017856278689,
-      5.344035712557378
-    ],
-    "R_ladder_rms": [
-      0.00042295709624807246,
-      0.0008459141924961449,
-      0.0016918283849922898
-    ],
-    "smoke": false
-  }
+  ]
 }
