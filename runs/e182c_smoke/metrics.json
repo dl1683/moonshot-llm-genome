@@ -1,0 +1,1885 @@
+{
+  "experiment": "e182c_forgetting_control",
+  "phase": "1 (matched batteries under e182's frozen wash; phase 2 = fresh corpus draws, queued for GPU behind g2g)",
+  "date": "2026-10-01T14:50:16Z",
+  "status": "SMOKE DONE",
+  "registration": "bars frozen VERBATIM from the third-dispatch brief (predecessors killed pre-artifact); adjudicated against exactly that \u2014 no bar shopping",
+  "registered_prediction": {
+    "forgetting_generic": "controls erode within ~1.5x of the fact probes' relative decline at the deepest state \u2014 T123's erosion is generic forgetting at 124M; the GPT-2 clause scopes to 'ordinary forgetting with improving perplexity', NOT a no-basin signature",
+    "fact_specific": "controls hold <= 20% while the fact erodes >= 50% \u2014 fact-specific; the surgical signature STRENGTHENS; phase 2 (fresh corpus draws, GPU) unlocks",
+    "mixed": "curves verbatim; the scope sentence carries numbers",
+    "operationalizations": "decline_b(s) = 1 - R_b(s)/R_b(0); deepest state = deepest probed (intended +80, e182's own final step; co-adjudication at +50); within-1.5x := fact_decl/1.5 <= ctrl_decl <= 1.5*fact_decl AND fact_decl > 0.02; hold := ctrl_decl <= 0.20; erode := fact_decl >= 0.50; order FACT-SPECIFIC -> FORGETTING-GENERIC -> MIXED; adjudication gated on G_REPLAY; control gate = e182's VERBATIM (cap 20, floor 10, abort 6); state grid {0,2,10,50,80}",
+    "registration": "bars frozen VERBATIM from the third-dispatch brief (predecessors killed pre-artifact; the brief is the registration); adjudicate against exactly this; no bar shopping"
+  },
+  "question": "is e182/T123's fact erosion under the 5e-5 wash GENERIC forgetting (matched controls erode with it) or FACT-SPECIFIC (controls hold while facts erode)?",
+  "builds_on": [
+    "e182/T123 (parent: the surgical signature)",
+    "SUPERVISOR check-in 12 item 3 (the control letter)",
+    "R59-ideator (e182c phase-1 promotion)",
+    "e176n/e180 (the wash arithmetic e182 inherited)"
+  ],
+  "whats_new": [
+    "the matched control battery (inventors/authors/discoveries cloze, e182's gate verbatim)",
+    "the same-state comparison (fact vs control under one wash trajectory)",
+    "the state-regeneration + verification discipline (e182 saved no states)",
+    "per-state weights saved for future eval-only phases"
+  ],
+  "smoke": true,
+  "inventory": {
+    "checked": [
+      "runs/e182*",
+      "runs/checkpoints/e182*",
+      "runs/checkpoints/*gpt2*"
+    ],
+    "e182_ckpt_files_found": [],
+    "e182_metrics_ckpt_fields": {
+      "lr5e6": null,
+      "lr5e5": null
+    },
+    "e182_steps_ran": {
+      "lr5e6": 108,
+      "lr5e5": 80
+    },
+    "finding": "NO e182 wash states exist: e182's design saved only +200 finals; both arms were time-capped (lr5e6 s108, lr5e5 s80) before step 200, so ckpt=null; zero e182*.pt on disk. The brief's 'eval-only on saved states' was unsatisfiable; this cell REPLAYS the frozen 5e-5 wash on CPU (corpus asserted equal, seed 18202 bit-identical draws, same optimizer) and admits the states via G_REPLAY vs e182's recorded +2/+10/+50 readings.",
+    "what_survived": [
+      "the pristine organism (HF cache, pinned)",
+      "the frozen wash recipe (corpus filter + seed 18202 + optimizer)",
+      "e182's recorded readings (runs/e182/metrics.json)"
+    ],
+    "regeneration_disclosed_before_compute": true
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "fact_battery": {
+    "source": "e182's battery VERBATIM (pools/templates/2-shot/gate)",
+    "gate": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 34,
+      "n_pass": 23,
+      "n_kept": 20,
+      "cutoff_p": 0.5683619379997253
+    },
+    "kept_facts": [
+      "the United Kingdom->pound",
+      "Greece->Athens",
+      "China->yuan",
+      "France->French",
+      "Japan->yen",
+      "Italy->Italian",
+      "Germany->German",
+      "Russia->Russian",
+      "Japan->Japanese",
+      "Poland->Polish",
+      "England->English",
+      "Egypt->Cairo",
+      "Greece->Greek",
+      "Spain->Spanish",
+      "Portugal->Lisbon",
+      "France->Paris",
+      "Poland->Warsaw",
+      "Ireland->Dublin",
+      "the United States->dollar",
+      "China->Chinese"
+    ],
+    "baseline_all_candidates": [
+      {
+        "fact": "France->Paris",
+        "relation": "cap",
+        "subject": "France",
+        "answer": "Paris",
+        "prompt": "The capital of Germany is Berlin. The capital of Italy is Rome. The capital of France is",
+        "p": 0.6850027441978455,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Germany->Berlin",
+        "relation": "cap",
+        "subject": "Germany",
+        "answer": "Berlin",
+        "prompt": "The capital of France is Paris. The capital of Italy is Rome. The capital of Germany is",
+        "p": 0.28060412406921387,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Italy->Rome",
+        "relation": "cap",
+        "subject": "Italy",
+        "answer": "Rome",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Italy is",
+        "p": 0.4107319712638855,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Spain->Madrid",
+        "relation": "cap",
+        "subject": "Spain",
+        "answer": "Madrid",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Spain is",
+        "p": 0.47621601819992065,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->Tokyo",
+        "relation": "cap",
+        "subject": "Japan",
+        "answer": "Tokyo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Japan is",
+        "p": 0.46283191442489624,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "England->London",
+        "relation": "cap",
+        "subject": "England",
+        "answer": "London",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of England is",
+        "p": 0.4617273509502411,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Greece->Athens",
+        "relation": "cap",
+        "subject": "Greece",
+        "answer": "Athens",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Greece is",
+        "p": 0.94468092918396,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "relation": "cap",
+        "subject": "Poland",
+        "answer": "Warsaw",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Poland is",
+        "p": 0.6746281981468201,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "relation": "cap",
+        "subject": "Portugal",
+        "answer": "Lisbon",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Portugal is",
+        "p": 0.7412760853767395,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "relation": "cap",
+        "subject": "Egypt",
+        "answer": "Cairo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Egypt is",
+        "p": 0.8057803511619568,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Russia->Moscow",
+        "relation": "cap",
+        "subject": "Russia",
+        "answer": "Moscow",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Russia is",
+        "p": 0.45026326179504395,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->Beijing",
+        "relation": "cap",
+        "subject": "China",
+        "answer": "Beijing",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of China is",
+        "p": 0.27645033597946167,
+        "rank": 1,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Norway->Oslo",
+        "relation": "cap",
+        "subject": "Norway",
+        "answer": "Oslo",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Norway is",
+        "p": 0.5471532344818115,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Austria->Vienna",
+        "relation": "cap",
+        "subject": "Austria",
+        "answer": "Vienna",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Austria is",
+        "p": 0.439180850982666,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "relation": "cap",
+        "subject": "Ireland",
+        "answer": "Dublin",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Ireland is",
+        "p": 0.6304253935813904,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Denmark->Copenhagen",
+        "relation": "cap",
+        "subject": "Denmark",
+        "answer": "Copenhagen",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Denmark is",
+        "p": 0.5640620589256287,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Scotland->Edinburgh",
+        "relation": "cap",
+        "subject": "Scotland",
+        "answer": "Edinburgh",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Scotland is",
+        "p": 0.5348308086395264,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": false,
+        "drop_reason": "cap 20: baseline p below the kept cutoff"
+      },
+      {
+        "fact": "Korea->Seoul",
+        "relation": "cap",
+        "subject": "Korea",
+        "answer": "Seoul",
+        "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Korea is",
+        "p": 0.39732784032821655,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "France->French",
+        "relation": "lang",
+        "subject": "France",
+        "answer": "French",
+        "prompt": "People in Germany speak German. People in Japan speak Japanese. People in France speak",
+        "p": 0.9179711937904358,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Germany->German",
+        "relation": "lang",
+        "subject": "Germany",
+        "answer": "German",
+        "prompt": "People in France speak French. People in Japan speak Japanese. People in Germany speak",
+        "p": 0.8766514658927917,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->Japanese",
+        "relation": "lang",
+        "subject": "Japan",
+        "answer": "Japanese",
+        "prompt": "People in France speak French. People in Germany speak German. People in Japan speak",
+        "p": 0.8385147452354431,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Italy->Italian",
+        "relation": "lang",
+        "subject": "Italy",
+        "answer": "Italian",
+        "prompt": "People in France speak French. People in Germany speak German. People in Italy speak",
+        "p": 0.8853657841682434,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Spain->Spanish",
+        "relation": "lang",
+        "subject": "Spain",
+        "answer": "Spanish",
+        "prompt": "People in France speak French. People in Germany speak German. People in Spain speak",
+        "p": 0.744873046875,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Brazil->Portuguese",
+        "relation": "lang",
+        "subject": "Brazil",
+        "answer": "Portuguese",
+        "prompt": "People in France speak French. People in Germany speak German. People in Brazil speak",
+        "p": 0.4586349129676819,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Russia->Russian",
+        "relation": "lang",
+        "subject": "Russia",
+        "answer": "Russian",
+        "prompt": "People in France speak French. People in Germany speak German. People in Russia speak",
+        "p": 0.8519078493118286,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->Chinese",
+        "relation": "lang",
+        "subject": "China",
+        "answer": "Chinese",
+        "prompt": "People in France speak French. People in Germany speak German. People in China speak",
+        "p": 0.5683619379997253,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "England->English",
+        "relation": "lang",
+        "subject": "England",
+        "answer": "English",
+        "prompt": "People in France speak French. People in Germany speak German. People in England speak",
+        "p": 0.8146218657493591,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Greece->Greek",
+        "relation": "lang",
+        "subject": "Greece",
+        "answer": "Greek",
+        "prompt": "People in France speak French. People in Germany speak German. People in Greece speak",
+        "p": 0.766821026802063,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Egypt->Arabic",
+        "relation": "lang",
+        "subject": "Egypt",
+        "answer": "Arabic",
+        "prompt": "People in France speak French. People in Germany speak German. People in Egypt speak",
+        "p": 0.30892089009284973,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false,
+        "drop_reason": null
+      },
+      {
+        "fact": "Poland->Polish",
+        "relation": "lang",
+        "subject": "Poland",
+        "answer": "Polish",
+        "prompt": "People in France speak French. People in Germany speak German. People in Poland speak",
+        "p": 0.8325423002243042,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "Japan->yen",
+        "relation": "cur",
+        "subject": "Japan",
+        "answer": "yen",
+        "prompt": "The currency of the United Kingdom is the pound. The currency of the United States is the dollar. The currency of Japan is the",
+        "p": 0.8905185461044312,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "relation": "cur",
+        "subject": "the United Kingdom",
+        "answer": "pound",
+        "prompt": "The currency of Japan is the yen. The currency of the United States is the dollar. The currency of the United Kingdom is the",
+        "p": 0.9533817768096924,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "the United States->dollar",
+        "relation": "cur",
+        "subject": "the United States",
+        "answer": "dollar",
+        "prompt": "The currency of Japan is the yen. The currency of the United Kingdom is the pound. The currency of the United States is the",
+        "p": 0.5909402966499329,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      },
+      {
+        "fact": "China->yuan",
+        "relation": "cur",
+        "subject": "China",
+        "answer": "yuan",
+        "prompt": "The currency of Japan is the yen. The currency of the United Kingdom is the pound. The currency of China is the",
+        "p": 0.9285135269165039,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true,
+        "drop_reason": null
+      }
+    ],
+    "dropped_multitoken": [
+      {
+        "fact": "India->rupee",
+        "relation": "cur",
+        "answer": "rupee",
+        "drop_reason": "answer tokenizes to 2 tokens [7422, 39463] \u2014 first-token measurement would not be exact"
+      },
+      {
+        "fact": "Russia->ruble",
+        "relation": "cur",
+        "answer": "ruble",
+        "drop_reason": "answer tokenizes to 2 tokens [6437, 293] \u2014 first-token measurement would not be exact"
+      }
+    ],
+    "verification_vs_e182": {
+      "kept_set_equal": true,
+      "max_per_probe_dp": 0.0,
+      "mean_per_probe_dp": 0.0,
+      "tol_per_probe_dp": 0.01,
+      "R0_e182": 0.7971389532089234,
+      "tol_R0_dp": 0.005,
+      "n_kept": 20,
+      "note": "R0 comparison happens at t=0 (P2) against the KEPT-20 battery mean (e182's baseline mean is over its battery, not its candidate pool)",
+      "pass": false,
+      "R0_replay_kept20": 0.7971389532089234,
+      "R0_dp": 0.0,
+      "bank_ppl_replay": 47.21935162311447,
+      "bank_ppl_e182": 71.33571584997821
+    }
+  },
+  "control_battery": {
+    "definition": "matched held-out named-entity cloze: three relations (company-founders / company-products / mythology \u2014 the last kept as the recorded scarcity: its p 0.02-0.14 members document that 124M's p>=0.5 cloze population is thin outside unique-anchor items), e182's 2-shot construction and gate VERBATIM, count target 20",
+    "templates": {
+      "found": [
+        "{c} is called {a}. ",
+        "{c} is called"
+      ],
+      "make": [
+        "{c} is called {a}. ",
+        "{c} is called"
+      ],
+      "myth": [
+        "{c} is called {a}. ",
+        "{c} is called"
+      ]
+    },
+    "pool_frozen_in_script": true,
+    "draw_provenance": "no sampling anywhere: the pool is frozen verbatim; exemplars are the first two leave-self-out candidates in frozen order (e182's rule, so pool[0]+pool[1] is the fixed exemplar pair for the relation); the ONLY random element in the cell is the wash replay's window draws, which reuse e182's own seed 18202",
+    "screening_provenance": "five pristine-model screening rounds, t=0 information only, AFTER the bars were frozen and BEFORE any wash compute; see the module docstring's SCREENING PROVENANCE",
+    "gate": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 23,
+      "n_pass": 12,
+      "n_kept": 12,
+      "cutoff_p": null,
+      "floor": 6,
+      "reduced_flag": false,
+      "pool": {
+        "found": 9,
+        "make": 8,
+        "myth": 8
+      },
+      "kept_contamination_scans_zero": true,
+      "kept_overlap_with_e182_banned_zero": true,
+      "pass": true
+    },
+    "kept_facts": [
+      "The search engine founded by Larry Page->Google",
+      "The game console made by Sony->PlayStation",
+      "The rocket company founded by Elon Musk->SpaceX",
+      "The tablet made by Apple->iPad",
+      "The email service made by Google->Gmail",
+      "The social network founded by Mark Zuckerberg->Facebook",
+      "The electric car company founded by Elon Musk->Tesla",
+      "The web browser made by Google->Chrome",
+      "The online encyclopedia that anyone can edit->Wikipedia",
+      "The music store made by Apple->iTunes",
+      "The phone made by Apple->iPhone",
+      "The gaming console made by Microsoft->Xbox"
+    ],
+    "baseline_all_candidates": [
+      {
+        "fact": "The software company founded by Bill Gates->Microsoft",
+        "relation": "found",
+        "subject": "The software company founded by Bill Gates",
+        "answer": "Microsoft",
+        "prompt": "The social network founded by Mark Zuckerberg is called Facebook. The electric car company founded by Elon Musk is called Tesla. The software company founded by Bill Gates is called",
+        "p": 0.26588594913482666,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The social network founded by Mark Zuckerberg->Facebook",
+        "relation": "found",
+        "subject": "The social network founded by Mark Zuckerberg",
+        "answer": "Facebook",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The electric car company founded by Elon Musk is called Tesla. The social network founded by Mark Zuckerberg is called",
+        "p": 0.7398577928543091,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The electric car company founded by Elon Musk->Tesla",
+        "relation": "found",
+        "subject": "The electric car company founded by Elon Musk",
+        "answer": "Tesla",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The electric car company founded by Elon Musk is called",
+        "p": 0.7342568039894104,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The rocket company founded by Elon Musk->SpaceX",
+        "relation": "found",
+        "subject": "The rocket company founded by Elon Musk",
+        "answer": "SpaceX",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The rocket company founded by Elon Musk is called",
+        "p": 0.77444988489151,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The search engine founded by Larry Page->Google",
+        "relation": "found",
+        "subject": "The search engine founded by Larry Page",
+        "answer": "Google",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The search engine founded by Larry Page is called",
+        "p": 0.8327568769454956,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The social network founded by Jack Dorsey->Twitter",
+        "relation": "found",
+        "subject": "The social network founded by Jack Dorsey",
+        "answer": "Twitter",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The social network founded by Jack Dorsey is called",
+        "p": 0.3291158974170685,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The shoe company founded by Phil Knight->Nike",
+        "relation": "found",
+        "subject": "The shoe company founded by Phil Knight",
+        "answer": "Nike",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The shoe company founded by Phil Knight is called",
+        "p": 0.32815536856651306,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The coffee chain founded in Seattle->Starbucks",
+        "relation": "found",
+        "subject": "The coffee chain founded in Seattle",
+        "answer": "Starbucks",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The coffee chain founded in Seattle is called",
+        "p": 0.21836434304714203,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+        "relation": "found",
+        "subject": "The online encyclopedia that anyone can edit",
+        "answer": "Wikipedia",
+        "prompt": "The software company founded by Bill Gates is called Microsoft. The social network founded by Mark Zuckerberg is called Facebook. The online encyclopedia that anyone can edit is called",
+        "p": 0.6928136348724365,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The gaming console made by Microsoft->Xbox",
+        "relation": "make",
+        "subject": "The gaming console made by Microsoft",
+        "answer": "Xbox",
+        "prompt": "The web browser made by Google is called Chrome. The phone made by Apple is called iPhone. The gaming console made by Microsoft is called",
+        "p": 0.6225916743278503,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The web browser made by Google->Chrome",
+        "relation": "make",
+        "subject": "The web browser made by Google",
+        "answer": "Chrome",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The phone made by Apple is called iPhone. The web browser made by Google is called",
+        "p": 0.7029966711997986,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The phone made by Apple->iPhone",
+        "relation": "make",
+        "subject": "The phone made by Apple",
+        "answer": "iPhone",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The phone made by Apple is called",
+        "p": 0.6358935832977295,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The tablet made by Apple->iPad",
+        "relation": "make",
+        "subject": "The tablet made by Apple",
+        "answer": "iPad",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The tablet made by Apple is called",
+        "p": 0.7676098942756653,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The email service made by Google->Gmail",
+        "relation": "make",
+        "subject": "The email service made by Google",
+        "answer": "Gmail",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The email service made by Google is called",
+        "p": 0.7456632852554321,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The music store made by Apple->iTunes",
+        "relation": "make",
+        "subject": "The music store made by Apple",
+        "answer": "iTunes",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The music store made by Apple is called",
+        "p": 0.6862599849700928,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The game console made by Sony->PlayStation",
+        "relation": "make",
+        "subject": "The game console made by Sony",
+        "answer": "PlayStation",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The game console made by Sony is called",
+        "p": 0.7842804193496704,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "The console made by Nintendo->Wii",
+        "relation": "make",
+        "subject": "The console made by Nintendo",
+        "answer": "Wii",
+        "prompt": "The gaming console made by Microsoft is called Xbox. The web browser made by Google is called Chrome. The console made by Nintendo is called",
+        "p": 0.1285797357559204,
+        "rank": 1,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The king of the gods in Greek mythology->Zeus",
+        "relation": "myth",
+        "subject": "The king of the gods in Greek mythology",
+        "answer": "Zeus",
+        "prompt": "The goddess of wisdom is called Athena. The messenger of the gods is called Hermes. The king of the gods in Greek mythology is called",
+        "p": 0.04143024981021881,
+        "rank": 3,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The goddess of wisdom->Athena",
+        "relation": "myth",
+        "subject": "The goddess of wisdom",
+        "answer": "Athena",
+        "prompt": "The king of the gods in Greek mythology is called Zeus. The messenger of the gods is called Hermes. The goddess of wisdom is called",
+        "p": 0.02829713001847267,
+        "rank": 3,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The messenger of the gods->Hermes",
+        "relation": "myth",
+        "subject": "The messenger of the gods",
+        "answer": "Hermes",
+        "prompt": "The king of the gods in Greek mythology is called Zeus. The goddess of wisdom is called Athena. The messenger of the gods is called",
+        "p": 0.02956155128777027,
+        "rank": 4,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The goddess of the hunt->Artemis",
+        "relation": "myth",
+        "subject": "The goddess of the hunt",
+        "answer": "Artemis",
+        "prompt": "The king of the gods in Greek mythology is called Zeus. The goddess of wisdom is called Athena. The goddess of the hunt is called",
+        "p": 0.061694856733083725,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The trickster god in Norse mythology->Loki",
+        "relation": "myth",
+        "subject": "The trickster god in Norse mythology",
+        "answer": "Loki",
+        "prompt": "The king of the gods in Greek mythology is called Zeus. The goddess of wisdom is called Athena. The trickster god in Norse mythology is called",
+        "p": 0.05273584648966789,
+        "rank": 2,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "The home of the gods in Norse mythology->Asgard",
+        "relation": "myth",
+        "subject": "The home of the gods in Norse mythology",
+        "answer": "Asgard",
+        "prompt": "The king of the gods in Greek mythology is called Zeus. The goddess of wisdom is called Athena. The home of the gods in Norse mythology is called",
+        "p": 0.002441770164296031,
+        "rank": 67,
+        "top1": false,
+        "top5": false,
+        "gate_pass": false,
+        "kept": false
+      }
+    ],
+    "dropped_pre_probe": [
+      {
+        "fact": "The god of the underworld->Hades",
+        "reason": "answer string 'Hades' occurs in the wash corpus"
+      },
+      {
+        "fact": "The god of thunder->Thor",
+        "reason": "answer string 'Thor' occurs in the wash corpus"
+      }
+    ]
+  },
+  "nearrel_battery": {
+    "definition": "CO-REPORT (not the registered battery; the frozen bars adjudicate fact vs the registered control battery only): SAME template as the fact battery ('The capital of {c} is {a}.') over DISJOINT entities (US states). Reads whether a shared template erodes independently of the facts \u2014 the few-shot-locus check e182 could not make",
+    "template": [
+      "The capital of {c} is {a}. ",
+      "The capital of {c} is"
+    ],
+    "gate": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 8,
+      "n_pass": 3,
+      "n_kept": 3,
+      "cutoff_p": null,
+      "floor": null,
+      "note": "no floor/abort: a co-report; curve reported for whatever passes"
+    },
+    "kept_facts": [
+      "Georgia->Atlanta",
+      "Massachusetts->Boston",
+      "Ohio->Columbus"
+    ],
+    "baseline_all_candidates": [
+      {
+        "fact": "California->Sacramento",
+        "relation": "near",
+        "subject": "California",
+        "answer": "Sacramento",
+        "p": 0.059729743748903275,
+        "rank": 3,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "Colorado->Denver",
+        "relation": "near",
+        "subject": "Colorado",
+        "answer": "Denver",
+        "p": 0.4319060444831848,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "Massachusetts->Boston",
+        "relation": "near",
+        "subject": "Massachusetts",
+        "answer": "Boston",
+        "p": 0.6118616461753845,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "Texas->Austin",
+        "relation": "near",
+        "subject": "Texas",
+        "answer": "Austin",
+        "p": 0.398993581533432,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "Georgia->Atlanta",
+        "relation": "near",
+        "subject": "Georgia",
+        "answer": "Atlanta",
+        "p": 0.6366477012634277,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "Illinois->Springfield",
+        "relation": "near",
+        "subject": "Illinois",
+        "answer": "Springfield",
+        "p": 0.1526271253824234,
+        "rank": 1,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      },
+      {
+        "fact": "Ohio->Columbus",
+        "relation": "near",
+        "subject": "Ohio",
+        "answer": "Columbus",
+        "p": 0.5189241766929626,
+        "rank": 0,
+        "top1": true,
+        "top5": true,
+        "gate_pass": true,
+        "kept": true
+      },
+      {
+        "fact": "New York->Albany",
+        "relation": "near",
+        "subject": "New York",
+        "answer": "Albany",
+        "p": 0.020687615498900414,
+        "rank": 4,
+        "top1": false,
+        "top5": true,
+        "gate_pass": false,
+        "kept": false
+      }
+    ],
+    "dropped_pre_probe": [
+      {
+        "fact": "Arizona->Phoenix",
+        "reason": "answer string 'Phoenix' occurs in the wash corpus"
+      },
+      {
+        "fact": "Washington->Olympia",
+        "reason": "answer string 'Olympia' occurs in the wash corpus"
+      },
+      {
+        "fact": "Oregon->Salem",
+        "reason": "answer string 'Salem' occurs in the wash corpus"
+      }
+    ]
+  },
+  "form_matching": "FORM-MATCHING: all batteries 2-shot rotating leave-self-out cloze, single-token answers, gate (top1 p>=0.8)|(top5 p>=0.5), cap 20; fact n=20 (p0 0.568-0.953, mean 0.797), control n=12 (p0 0.623-0.833, mean 0.727), nearrel n=3 (mean 0.589); registered-control relations disjoint from the facts (capitals/languages/currencies of countries vs company-founders/products/mythology); nearrel shares the fact TEMPLATE over disjoint entities (the locus check).",
+  "gates": {
+    "G_STATES": {
+      "checked": [
+        "runs/e182*",
+        "runs/checkpoints/e182*",
+        "runs/checkpoints/*gpt2*"
+      ],
+      "e182_ckpt_files_found": [],
+      "e182_metrics_ckpt_fields": {
+        "lr5e6": null,
+        "lr5e5": null
+      },
+      "e182_steps_ran": {
+        "lr5e6": 108,
+        "lr5e5": 80
+      },
+      "finding": "NO e182 wash states exist: e182's design saved only +200 finals; both arms were time-capped (lr5e6 s108, lr5e5 s80) before step 200, so ckpt=null; zero e182*.pt on disk. The brief's 'eval-only on saved states' was unsatisfiable; this cell REPLAYS the frozen 5e-5 wash on CPU (corpus asserted equal, seed 18202 bit-identical draws, same optimizer) and admits the states via G_REPLAY vs e182's recorded +2/+10/+50 readings.",
+      "what_survived": [
+        "the pristine organism (HF cache, pinned)",
+        "the frozen wash recipe (corpus filter + seed 18202 + optimizer)",
+        "e182's recorded readings (runs/e182/metrics.json)"
+      ],
+      "regeneration_disclosed_before_compute": true,
+      "pass": true
+    },
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_BATT_FACT": {
+      "kept_set_equal": true,
+      "max_per_probe_dp": 0.0,
+      "mean_per_probe_dp": 0.0,
+      "tol_per_probe_dp": 0.01,
+      "R0_e182": 0.7971389532089234,
+      "tol_R0_dp": 0.005,
+      "n_kept": 20,
+      "note": "R0 comparison happens at t=0 (P2) against the KEPT-20 battery mean (e182's baseline mean is over its battery, not its candidate pool)",
+      "pass": false,
+      "R0_replay_kept20": 0.7971389532089234,
+      "R0_dp": 0.0,
+      "bank_ppl_replay": 47.21935162311447,
+      "bank_ppl_e182": 71.33571584997821
+    },
+    "G_REPRO_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        330745,
+        319481
+      ],
+      "bank_windows": [
+        2,
+        24
+      ],
+      "format": "[replayed, e182_recorded]",
+      "filter_equal": true,
+      "bank_equal": false,
+      "pass": true,
+      "note": "smoke trims the bank (2 windows) so train_tokens differs by design there; the FILTER equality (lines/chars/tokens of the filtered text) is the load-bearing check and must hold in every mode"
+    },
+    "G_CTRL": {
+      "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+      "n_candidates_probed": 23,
+      "n_pass": 12,
+      "n_kept": 12,
+      "cutoff_p": null,
+      "floor": 6,
+      "reduced_flag": false,
+      "pool": {
+        "found": 9,
+        "make": 8,
+        "myth": 8
+      },
+      "kept_contamination_scans_zero": true,
+      "kept_overlap_with_e182_banned_zero": true,
+      "pass": true
+    },
+    "G_REPLAY": {
+      "shared_steps": [
+        2
+      ],
+      "per_step": {
+        "2": {
+          "fact_mean_p": [
+            0.8029193013906479,
+            0.8014721900224686
+          ],
+          "dp": 0.0014471113681793213,
+          "ppl": [
+            32.99274155204053,
+            43.459916884766045
+          ],
+          "ppl_ratio": 0.7591533513402884,
+          "in_batch_ce": [
+            3.9072036743164062,
+            3.766435146331787
+          ]
+        }
+      },
+      "tol_dp": 0.03,
+      "tol_ppl": [
+        0.9,
+        1.1
+      ],
+      "fact_decline_at_50": null,
+      "shape_tol_decl50": 0.15,
+      "pass": false
+    },
+    "G_PPL": {
+      "rule": "bank ppl read at every state (the improving reference)",
+      "ppl_curve": {
+        "0": 47.21935162311447,
+        "1": 34.099185895739524,
+        "2": 32.99274155204053
+      },
+      "ppl_improves": true,
+      "pass": true
+    }
+  },
+  "corpus": {
+    "source": "data/input.txt (the lab's plain corpus, Shakespeare)",
+    "chars_before": 1115394,
+    "chars_after": 1093972,
+    "tokens_after": 331770,
+    "train_tokens": 330745,
+    "bank_windows": 2,
+    "bank_seq": 512,
+    "bank_is_held_out_tail": true
+  },
+  "states": [
+    {
+      "step": 0,
+      "fact": {
+        "mean_p": 0.7971389532089234,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.6850027441978455,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.94468092918396,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.6746281981468201,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.7412760853767395,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.8057803511619568,
+            "rank": 0
+          },
+          "Ireland->Dublin": {
+            "p": 0.6304253935813904,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.9179711937904358,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.8766514658927917,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8385147452354431,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8853657841682434,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.744873046875,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.8519078493118286,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5683619379997253,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.8146218657493591,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.766821026802063,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.8325423002243042,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.8905185461044312,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.9533817768096924,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.5909402966499329,
+            "rank": 0
+          },
+          "China->yuan": {
+            "p": 0.9285135269165039,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.72661920885245,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7398577928543091,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.7342568039894104,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.77444988489151,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.8327568769454956,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.6928136348724365,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.6225916743278503,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.7029966711997986,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.6358935832977295,
+            "rank": 0
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.7676098942756653,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.7456632852554321,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.6862599849700928,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.7842804193496704,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.5891445080439249,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.6118616461753845,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.6366477012634277,
+            "rank": 0
+          },
+          "Ohio->Columbus": {
+            "p": 0.5189241766929626,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 47.21935162311447,
+      "ce": 3.8548038005828857,
+      "in_batch_ce": null
+    },
+    {
+      "step": 1,
+      "fact": {
+        "mean_p": 0.8021690398454666,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.6718683838844299,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.9496299028396606,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.6842108964920044,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.7495859265327454,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.7999532222747803,
+            "rank": 0
+          },
+          "Ireland->Dublin": {
+            "p": 0.6394951343536377,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.9228675961494446,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.887980580329895,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8435953259468079,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8917467594146729,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.753912091255188,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.8570643067359924,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5796553492546082,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.8276413083076477,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.7802661061286926,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.8424484729766846,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.9019885659217834,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.9549394249916077,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.575273871421814,
+            "rank": 0
+          },
+          "China->yuan": {
+            "p": 0.9292575716972351,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.7280895014603933,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7394440174102783,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.7402549386024475,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.7920672297477722,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.8401861786842346,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.704235851764679,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.6221819519996643,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.6897115111351013,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.6325826644897461,
+            "rank": 0
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.7689845561981201,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.7403304576873779,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.6781865954399109,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.788908064365387,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.5886538028717041,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.6097240447998047,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.639948308467865,
+            "rank": 0
+          },
+          "Ohio->Columbus": {
+            "p": 0.5162890553474426,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 34.099185895739524,
+      "ce": 3.529273509979248,
+      "in_batch_ce": 4.159507751464844
+    },
+    {
+      "step": 2,
+      "fact": {
+        "mean_p": 0.8029193013906479,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.6830465197563171,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.9505468010902405,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.6773015260696411,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.7497060298919678,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.7859329581260681,
+            "rank": 0
+          },
+          "Ireland->Dublin": {
+            "p": 0.6332647204399109,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.9244953393936157,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.8871278166770935,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8442983627319336,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8920947909355164,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.7558941841125488,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.8561074137687683,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5915977954864502,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.8294430375099182,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.7861632704734802,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.8468539118766785,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.9100945591926575,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.9573631286621094,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.5699812769889832,
+            "rank": 0
+          },
+          "China->yuan": {
+            "p": 0.9270725846290588,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.7237149775028229,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7427287697792053,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.7375843524932861,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.7828488945960999,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.8430222272872925,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.7008792757987976,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.614244282245636,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.684866189956665,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.6245022416114807,
+            "rank": 0
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.7623670101165771,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.7384653687477112,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.6719663143157959,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.7811048030853271,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.5822388529777527,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.605945885181427,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.6367312073707581,
+            "rank": 0
+          },
+          "Ohio->Columbus": {
+            "p": 0.504039466381073,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 32.99274155204053,
+      "ce": 3.4962875843048096,
+      "in_batch_ce": 3.9072036743164062
+    }
+  ],
+  "timing": {
+    "total_s": 374.7
+  },
+  "adjudication": {
+    "bars": {
+      "FACT_SPECIFIC": false,
+      "FORGETTING_GENERIC": false,
+      "verdict": "SMOKE (nothing adjudicated)",
+      "clause": "smoke run: pipeline shakedown only",
+      "order": "FACT-SPECIFIC -> FORGETTING-GENERIC -> MIXED (gated on G_REPLAY)"
+    },
+    "bar_constants": {
+      "GEN_BAND": 1.5,
+      "GEN_FLOOR_FACT_DECL": 0.02,
+      "HOLD_DECL": 0.2,
+      "ERODE_DECL": 0.5
+    },
+    "declines_at_deepest": {
+      "fact": -0.007251368357367838,
+      "ctrl": 0.003996909680125005,
+      "step": 2,
+      "decline_ratio_ctrl_over_fact": -0.5511938551658182
+    },
+    "co_adjudication_at_50": null,
+    "declines_per_state": {
+      "1": {
+        "fact": -0.0063101754296341905,
+        "ctrl": -0.0020234706019750526
+      },
+      "2": {
+        "fact": -0.007251368357367838,
+        "ctrl": 0.003996909680125005
+      }
+    },
+    "nearrel_co_report": {
+      "declines": {
+        "1": 0.0008329113918927877,
+        "2": 0.011721496121724684
+      },
+      "note": "same-template (US-state capitals) co-report: if nearrel erodes with the facts while the registered controls hold, the decay is template/capital-relation-level, not knowledge-level; NOT part of the frozen bars"
+    },
+    "e182_fact_mean_p": {
+      "2": 0.8014721900224686,
+      "10": 0.7867171436548233,
+      "50": 0.5276785984635353
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_SIZE": true,
+      "G_BATT_FACT": false,
+      "G_REPRO_CORPUS": true,
+      "G_CTRL": true,
+      "G_REPLAY": false
+    },
+    "fact_facts": [
+      "France->Paris",
+      "Greece->Athens",
+      "Poland->Warsaw",
+      "Portugal->Lisbon",
+      "Egypt->Cairo",
+      "Ireland->Dublin",
+      "France->French",
+      "Germany->German",
+      "Japan->Japanese",
+      "Italy->Italian",
+      "Spain->Spanish",
+      "Russia->Russian",
+      "China->Chinese",
+      "England->English",
+      "Greece->Greek",
+      "Poland->Polish",
+      "Japan->yen",
+      "the United Kingdom->pound",
+      "the United States->dollar",
+      "China->yuan"
+    ],
+    "ctrl_facts": [
+      "The social network founded by Mark Zuckerberg->Facebook",
+      "The electric car company founded by Elon Musk->Tesla",
+      "The rocket company founded by Elon Musk->SpaceX",
+      "The search engine founded by Larry Page->Google",
+      "The online encyclopedia that anyone can edit->Wikipedia",
+      "The gaming console made by Microsoft->Xbox",
+      "The web browser made by Google->Chrome",
+      "The phone made by Apple->iPhone",
+      "The tablet made by Apple->iPad",
+      "The email service made by Google->Gmail",
+      "The music store made by Apple->iTunes",
+      "The game console made by Sony->PlayStation"
+    ],
+    "nearrel_facts": [
+      "Massachusetts->Boston",
+      "Georgia->Atlanta",
+      "Ohio->Columbus"
+    ]
+  },
+  "honesty_reflex": {
+    "phase_1": "matched batteries under ONE frozen wash trajectory; phase 2 (>=2 fresh corpus draws, GPU) owns generality",
+    "states_regenerated": "e182 saved no wash states; the states here are a CPU fp32 replay of the frozen recipe, admitted by G_REPLAY (steps 1-25 were GPU in e182 \u2014 the measured deviation is the deferred CPU/GPU-numerics item, now quantified)",
+    "control_guarantees_nothing": "controls holding does not prove the facts special (weaker consolidation is an alternative); controls eroding does not prove generic (shared few-shot locus, shared prompt family); the openness is the point",
+    "single_seed_single_corpus": "one organism, one wash seed (e182's 18202), one frozen corpus draw",
+    "few_shot_conflation_inherited": "the 2-shot context is part of the frozen instrument; decay's locus (fact storage vs in-context task-following) remains unadjudicated \u2014 the nearrel co-report is the partial check (shared template, disjoint entities), not a discharge",
+    "exemplar_pair_sensitivity": "control p0 depends on the fixed exemplar pair (observed swings 0.12-0.55 across screening orders); the pool order was frozen after pristine-model screening and never tuned again",
+    "control_domain_caveat": "the registered controls are brand/corporate knowledge (the family that passes the gate at 124M); 'controls hold' may not generalize to all non-fact knowledge \u2014 phase 2's fresh draws owe the breadth",
+    "plus80_never_probed_by_e182": "e182's measurements stop at +50; +80 is its true final step, probed here first",
+    "baseline_matching": "both batteries share the gate and cap; baseline p distributions co-reported in form_matching (decline is per-battery relative)",
+    "selection_bias": "the control battery is the best-known members of a hand-curated pool (the same top-of-passers bias e182's battery has)"
+  },
+  "compute": {
+    "envelope": "CPU-only (124M fp32 inference + the 80-step frozen replay, batch 8x512, threads 8); no GPU claim",
+    "walls_s_per_step_logged": true,
+    "state_archive": [
+      "runs/checkpoints/e182c_smoke_s1.pt",
+      "runs/checkpoints/e182c_smoke_s2.pt"
+    ],
+    "resumable": "runs/checkpoints/e182c_smoke_replay_latest.pt"
+  },
+  "trims": [],
+  "deviations": [
+    "STATES REGENERATED, NOT LOADED (the inventory finding, Rule 12): e182 saved no wash states (ckpt=null both arms; runs/checkpoints/ has no e182*.pt) \u2014 the brief's 'eval-only on saved states' was unsatisfiable. This cell REPLAYS e182's frozen 5e-5 wash on CPU (same corpus asserted equal, same seed 18202 -> bit-identical draws, same optimizer) and admits the states via the G_REPLAY verification gate against e182's recorded +2/+10/+50 readings. Steps 1-25 ran on GPU in e182; the replay is CPU end-to-end \u2014 the gate measures that deviation (check-in 12 item 5c's deferred 'CPU/GPU migration numerics', discharged as a side product).",
+    "Per-state weights ARE saved this time (runs/checkpoints/e182c_s{N}.pt) \u2014 the discipline e182 lacked; future phases eval-only on disk states.",
+    "+80 (e182's true final step, its time cap) is probed here for the first time; e182's own measurements stop at +50. The +80 read is a state on the frozen trajectory, certified by the +2/+10/+50 agreement.",
+    "The control corpus-freedom is VERIFIED post-hoc (subject/answer strings and answer token ids absent from the FROZEN filtered stream), not enforced by re-filtering \u2014 re-filtering would change the wash. Drop reasons recorded per candidate.",
+    "Control pool designed via five pristine-model screening rounds (t=0 information only; bars already frozen; no wash state touched): the person-surname, land/superlative and mythology families fail the gate at 124M (full-name completion bias; no uniform template; p 0.02-0.14) \u2014 the recorded scarcity that itself mirrors Kandpal 2023's frequency law. The passing population (unique-anchor brand items) defines the registered battery; mythology stays in-pool as documented failures. A near-relation co-report (US-state capitals, the fact battery's own template, disjoint entities) reads the shared-template locus; it is NOT part of the frozen bars.",
+    "CPU-only envelope incl. the 80-step replay (the brief's 'no training' meant no NEW washes; reconstruction of the frozen trajectory is the only path to 'the same states', disclosed before compute). Walls logged per step.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: 2 replay steps, grid {1,2}, own smoke dir, nothing adjudicated or verified.",
+    "RECOVERY NOTE (third dispatch): two prior e182c agents died pre-artifact; no e182c script survived (git + lab/ verified). This is the first e182c artifact; bars are the frozen brief's, verbatim."
+  ]
+}
