@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e198 — the architecture-vs-biography cut: BIOGRAPHY-CARRIES — the architecture suspect CLEARED; the flight concentration is organism-1 lineage biography; the t=2 wrinkle (u2 concentrates) and the rim picture now 2/2 architectures, 4/4 lineages (2026-10-01 ~22:25Z) — DONE
+
+WHAT WE DID: the flight map on e193b's fresh 2.74M MIRABEL root
+(org-1's EXACT architecture, the terrain-replicating fact, theta_1
+ALIVE 0.3673, theta_2 alive 0.6911); 14/14 gates bit-tight; 310.6s
+CPU.
+
+WHAT WE SAW (T162): NEITHER EFFECT — (1) THE FLIGHT RAY u1 IS THE
+SOFTEST DIRECTION (never crosses 0.27 within [0, 3.0]; min 0.5169
+at D=3.0 vs its own u0 edge 1.9471): categorically
+non-concentrating (org1 ratio 0.171; this: unresolved-high). (2)
+THE WALK IS SAFER THAN ITS EDGE (k=1 kills at 2.4128 vs 1.9471;
+ratio 1.239 >= 0.85) — e197's texture, now at 2.74M with a LIVE
+window. BIOGRAPHY-CARRIES: a fresh 2.74M draw, same architecture,
+terrain-replicating fact, alive mid-flight — and no flight
+concentration. THE ARCHITECTURE SUSPECT IS CLEARED (n=1
+draw/fact caveat). (3) THE T=2 WRINKLE (riding, no bar): the t=2
+front u2 DOES concentrate (kill 0.8313, ratio 0.427 — below the
+0.7 bar): LETHALITY ARRIVES AT t=2 HERE, t=1 IN ORG1 — the
+concentration may be a TIMING matter (when the rotation finds the
+lethal direction), not a whether. (4) THE RIM PICTURE HOLDS at
+2/2 architectures, 4/4 lineages: the walk's recomputed direction
+IMPROVES the fact (0.367 -> 0.691) before the far crash. (5)
+ALIGNMENT PREDICTS NOTHING (|cos| <= 0.092 everywhere). THE
+CANDIDATES LEFT: fact strength (org1's theta_1 0.679 vs 0.367);
+lineage draw; FACT IDENTITY (ZEPHYRA-vs-MIRABEL — the one
+variable the fork could not hold fixed). HONESTY: n=1 root/fact;
+the fresh-draw caveat; the riding textures carry no bars.
+
+---
+
 ## g1bS3 — the take-3 (the width-scaled e113 license): TEXTURE, and the strongest texture yet — the channel FORMED (650x take-2), the blowout cured, a graded rms ladder on the REGISTERED channel at 10M; the dose question sharp (2026-10-01 ~22:10Z) — DONE
 
 WHAT WE DID: one knob (CONS_LR 1e-3 -> 4e-4) on g1bS2's LOADED

@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T162 — e198: biography carries the flight — and the t=2 wrinkle reopens the timing question (2026-10-01 ~22:25Z)
+
+The fork resolves to BIOGRAPHY: a fresh 2.74M root with org-1's
+exact architecture, a terrain-replicating fact, and a live
+mid-flight state shows NEITHER the t=1 flight concentration nor
+the recomputation bonus — the architecture suspect is cleared.
+THE FLIGHT QUESTION'S LEDGER: org1 (concentrates at t=1, ratio
+0.17); org2 dead (absent); org2 alive (absent); MIRABEL alive
+(absent at t=1 — BUT u2 concentrates at 0.43). THE T=2 WRINKLE IS
+THE REOPENED DOOR: the rotation finds a lethal direction by t=2
+here — the concentration may be a WHEN, not a WHETHER: the front
+needs time (or steps) to rotate onto the fleeing support, and org1
+did it in one step where MIRABEL needs two. THE TIMING CUT IS
+NAMED (ripening): org1's own u2/u3 map (does its concentration
+DEEPEN past t=1?) vs MIRABEL's t=3/t=4 — the concentration's
+onset curve on both organisms. THE RIM PICTURE IS NOW UNIVERSAL
+(2/2 architectures, 4/4 lineages: the recomputed direction always
+improves the fact before the far crash) — the valley-with-rim is
+the physics; the concentration's timing is the biography.
+ALIGNMENT PREDICTS NOTHING (again) — the day's most repeated
+negative. THE CANDIDATES: fact strength, draw, fact identity.
+
 ## T161 — g1bS3: the channel forms at 10M — the wall's near-miss with a new texture (the +2 dip and the above-root recovery) (2026-10-01 ~22:10Z)
 
 The take-3 arc: the width-scaled license CURED the formation-kill
