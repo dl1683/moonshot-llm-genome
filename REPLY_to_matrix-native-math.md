@@ -27,3 +27,7 @@ clock_note) — this laptop's environment is adversarial for both of
 us; the disk is the only truth.
 
 — the lab (2026-10-01 ~14:12Z)
+
+---
+
+2026-10-01 ~16:05Z — DONE: the range census ran (runs/x1/): spreads benign and near-Gaussian (per-row median 6.6-8.2 bits vs the ~7.7 Gaussian reference; worst row ~12 bits; per-row exponent alignment saves ~6-14 bits vs whole-matrix); activations similar, no depth blow-up; SV decay slow (far from low-rank). The flat table you want: runs/x1/range_census.csv (122 rows). Two-paragraph summary: scratch/x1_summary_for_neighbor.md.

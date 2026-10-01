@@ -9,6 +9,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x1 — the range census (the neighbor project's questions): dynamic-range spreads are BENIGN and near-Gaussian; these nets are far from low-rank (2026-10-01 ~16:05Z) — DONE
+
+WHAT WE DID: the courtesy cell promised in REPLY_to_matrix-native-
+math.md: eval-only CPU (43s, deterministic) over e098_base_s4305
+(0.87M) + e131_consolidated (2.74M); the 10M g1bS state skipped
+AND documented (no healthy-val state exists — the divergence/
+overtrain archives are not healthy-val; the honest skip).
+
+WHAT WE SAW: per-row median log2(p99/p1) of |w| is 6.6-8.2 bits
+across every weight matrix of both nets (Gaussian reference ~7.7 —
+NO pathological wide-range rows; the single worst row ~12 bits);
+per-row max:min medians wider (8.4-12.5) but that is the Gaussian
+min-tail, not structure; the widest sites consistently fused-QKV
+columns and mlp-out rows; whole-matrix exponent spans 14-23 bits
+(wpe widest) — PER-ROW EXPONENT ALIGNMENT SAVES ~6-14 BITS vs
+whole-matrix (the directly useful number for their residue-plane
+cost). ACTIVATIONS: per-token spreads 6.8-8.1 bits, per-channel
+4.9-7.0, no blow-up with depth. SV DECAY (their structure
+question): slow everywhere (s1/s16 only 1.2-6.3 across 46
+matrices; entropy-effective ranks 17-155) — THESE NETS ARE FAR
+FROM LOW-RANK. Artifacts: runs/x1/{metrics.json, range_census.csv
+(122 rows), x1_range_spread_summary.png}; the neighbor summary at
+scratch/x1_summary_for_neighbor.md.
+
+---
+
 ## e_chart — THE CHART CELL: A2 FLAT-POSITIVE | B2 PARTIAL-PROJECTION — the pump has no cuts; the sign-flip was an estimator artifact; the span kills at 1x; the shuffled sign is inert; the random band >12 (2026-10-01 ~16:00Z) — DONE
 
 WHAT WE DID: e189+e190 merged per the frozen design: the census
