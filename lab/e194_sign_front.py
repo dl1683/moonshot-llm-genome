@@ -191,6 +191,7 @@ GN1_COMMITTED = 0.9829167127609253       # opt1 A0's committed step-1 pre-clip g
 A0_DKILL_COMMITTED = 2.4892616271972656  # opt1 A0's committed kill displacement
 RAW_DKILL_COMMITTED = 0.9203406595225093 # opt1c's committed densified raw kill D
 SIGN_EDGE_COMMITTED = 2.5                # e192's committed static sign-ray kill D (coarse grid)
+SIGN_EDGE = SIGN_EDGE_COMMITTED          # alias (the committed coarse edge)
 PATH_DKILL_COMMITTED = 1.749640490742179 # opt2 a_sign's committed densified kill D
 PATH_DKILL_RAW_COMMITTED = 1.9539829631812597  # opt2 a_sign's committed raw kill D
 W024_ADAM_SAMEPOINT = 0.039550412581627135  # the chart's committed same-point sign read
@@ -657,7 +658,9 @@ def main():
     assert abs(chart_same["cos_mov_m12_at_t0_samepoint"]
                - W024_RAW_SAMEPOINT) < 1e-12
     e192_r2 = e192m["profiles"]["R2_SIGN"]
-    assert e192_r2["u_md5"] == E192_R2_U_MD5
+    e192_r2_meta = next(r for r in e192m["cell"]["rays"]
+                        if r["key"] == "R2_SIGN")
+    assert e192_r2_meta["u_md5"] == E192_R2_U_MD5
     for D, ref in E192_R2_GATE.items():
         row = next(r for r in e192_r2["rows"] if abs(r["D"] - D) < 1e-9)
         assert abs(row["gm12"] - ref["gm12"]) < 1e-12
@@ -872,17 +875,22 @@ def main():
     G_R2DIR = {
         "u_sign_md5": u_sign_md5, "committed_e192_md5": E192_R2_U_MD5,
         "md5_match": bool(u_sign_md5 == E192_R2_U_MD5),
-        "u_norm": float(torch.norm(u_sign.double())),
-        "committed_e192_norm": E192_R2_UNORM,
+        "u_norm_fp32": float(torch.norm(u_sign)),
+        "u_norm_fp64": float(torch.norm(u_sign.double())),
+        "committed_e192_u_norm": E192_R2_UNORM,
+        "norm_note": "e192's committed u_norm is its fp32-norm read "
+                     "(sequential fp32 accumulation over 2.7M elements "
+                     "carries ~1e-4 relative error); the md5 bit-match is "
+                     "the definitive gate",
         "n_zero_g_coords": int((g0_t0 == 0).sum()),
         "note": "the static sign(g_0) ray rebuilt from the gated t=0 "
                 "gradient (e192's fp32-norm construction VERBATIM)",
     }
-    G_R2DIR["pass"] = bool(G_R2DIR["md5_match"]
-                           and abs(G_R2DIR["u_norm"] - E192_R2_UNORM) < 1e-4)
+    G_R2DIR["pass"] = bool(G_R2DIR["md5_match"])
     log(f"G_R2DIR (static sign ray): md5 "
         + ("match" if G_R2DIR["md5_match"] else "DRIFT")
-        + f", norm {G_R2DIR['u_norm']:.7f} vs {E192_R2_UNORM:.7f}: "
+        + f" (fp32 norm {G_R2DIR['u_norm_fp32']:.7f} vs e192's "
+        f"{E192_R2_UNORM:.7f}; fp64 {G_R2DIR['u_norm_fp64']:.9f}): "
         + ("PASS" if G_R2DIR["pass"] else "FAIL"))
     if not G_U191["pass"] or not G_R2DIR["pass"]:
         raise RuntimeError("committed-direction gates FAILED — abort")
