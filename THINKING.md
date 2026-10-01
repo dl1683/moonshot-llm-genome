@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T155 — e193b: the order is physics, the distances are biography — and the ridge/cliff thesis decided inside one organism (2026-10-01 ~19:00Z)
+
+The critic's replicate lands the cleanest generality statement of
+the program: THE RAY ORDER IS DRAW-FACT-ARCHITECTURE-ROBUST (3/3
+organisms, 2/2 facts, architecture pinned and lineage varied);
+THE ABSOLUTE KILL DISTANCES ARE THE FACT'S STRENGTH BIOGRAPHY
+(MIRABEL inside both windows; ZEPHYRA — ruler-dead at D=0 on the
+imported ruler — holds the order at >2x-down distances). THE
+RIDGE/CLIFF SPLIT IS DECIDED WITHOUT CONFOUND: the same organism,
+the same rays, two facts — ZEPHYRA pumps, MIRABEL does not —
+T153's thesis confirmed: the ridge is consolidation-alignment
+biography; the cliff is physics. THE IN-SPAN SPREAD IS THE NORM
+(3.0x/2.0x here; e131's suppressed spread replicated) — the
+subspace's lethality is direction-heterogeneous everywhere
+measured. THE BREAKER'S MIXED VERDICT refines the lethal front:
+support+signs suffice (magnitude-shuffle kills at 1.68x) but
+magnitude-pairing contributes — the front is support > signs >
+magnitudes in necessity order. THE SIGN RUNG's sensitivity is now
+triply-observed (f1 1.90, e193 2.63, here 2.24) — the sign edge
+is the terrain's softest number; the paper's clause carries the
+range. THE RULER BIOGRAPHY LESSON (second occurrence): a fact can
+be alive on its own ruler and dead on the imported one — rulers
+are facts' property too.
+
 ## T154 — g2g2: the autonomy splits — the organ is a better selector than scheduler (2026-10-01 ~18:40Z)
 
 The seed ladder licenses the number and decomposes it in the same

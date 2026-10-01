@@ -9,6 +9,48 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e193b — the critic's replicate: ORDER-SCRAMBLES fires on the FACT axis, not the lineage axis; the pump splits INSIDE one organism — the ridge is fact-biography, the cliff is physics (2026-10-01 ~19:00Z) — DONE
+
+WHAT WE DID: the fresh-root two-fact cell at organism-1's EXACT
+architecture (6L/6H/192d, 2,739,072 params, seed 5301): both facts
+installed (ZEPHYRA pZ 0.377; MIRABEL pZ 0.533; the second install
+crushed the first to 0.0003 — e154's interference, co-reported),
+e113 consolidation, then the full terrain pass per fact (five rays,
+dual currency, the ladder, the rider, the in-span 3-draw range,
+the magnitude-shuffle breaker). All Rule-12 gates PASS (the
+seed-10902 stream bit-matches e185's md5s; measured STEP_L2 1.6544
+vs organism-1's 1.6543).
+
+WHAT WE SAW (T155): (1) ORDER-SCRAMBLES FIRES on the frozen
+"any fact" rule — but the reading is sharp: MIRABEL (the fact that
+passed its root-strength gate on the e192-verbatim ruler)
+replicates the WHOLE terrain (g 0.8 < sign 2.0 < randoms >4.0,
+both [0.5x,2x] windows, the rider dying AT the static cliff
+0.827~0.8 — e192's interventional anchor at n=3); ZEPHYRA
+(G_CONS'd at D=0 on g-12: 0.149 — e193's lesson on a fresh draw;
+its own fallback ruler reads 0.462) holds the ORDER but its
+kill-Ds move >2x DOWN on every expressed ruler. THE ORDER IS
+DRAW/FACT-ROBUST (3/3 organisms, 2/2 facts); THE ABSOLUTE KILL-Ds
+ARE THE FACT'S STRENGTH BIOGRAPHY. (2) PUMP-PER-FACT decides
+T153's thesis IN ONE ORGANISM ALONG THE SAME RAYS: ZEPHYRA ridge
+PRESENT (+0.018 g-ray), MIRABEL ridge ABSENT (+0.0004) — THE RIDGE
+IS FACT-LEVEL BIOGRAPHY (consolidation alignment), THE CLIFF IS
+PHYSICS. (3) THE MISSING NUMBER: in-span 3-draw spreads 3.0x
+(ZEPHYRA) / 2.0x (MIRABEL) — e131's suppressed in-span spread was
+the NORM, not the outlier. (4) THE MAGNITUDE-SHUFFLE BREAKER:
+kills at 1.68x the topk-10 kill — support+signs ALONE suffice to
+kill; magnitude-pairing CONTRIBUTES but is not necessary — neither
+pure-support nor pure-pairing. (5) The ladder's topk/raw cluster
+is tight at n=3 organisms (0.99/0.99/0.99 vs f1 ~1.00); the sign
+rung drifts wide AGAIN (2.24 vs f1 1.90; e193 read 2.63) — the
+sign edge is lineage- AND fact-sensitive where the magnitude
+cluster is neither. HONESTY: fresh root n=1, each fact n=1;
+ZEPHYRA's window comparison is cross-ruler (all co-ruler kills
+co-reported: g-12 dies at the first grid point); one 89C thermal
+hold honored, GPU released.
+
+---
+
 ## g2g2 — the seed ladder: AUTONOMY-REPLICATES fires (+0.0333 median, 3/3, clearing by 0.0033) — and the paired control SPLITS the +0.07: majority replay-batch composition, minority timing (2026-10-01 ~18:40Z) — DONE
 
 WHAT WE DID: the R60-critic's exact replication — 3 fresh wash
