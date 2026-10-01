@@ -25,6 +25,15 @@ class (top-k |g| for k in {0.1%, 1%, 10%} + the continuous
 percentile curve); per part: cos(part, grad fact) and ||part||
 share; the ADAM-VIEW flip census (which classes change sign under
 normalization).
+PART A-B RIDER — THE SHUFFLED-SIGN RAY (e192's open question:
+what do g and sign(g) share that isotropic lacks? The sign PATTERN.
+One more static ray: sign(g_0) with its coordinate assignment
+SHUFFLED WITHIN magnitude deciles — same sign census, same magnitude
+profile per decile, wrong coordinate-sign pairing. If it pumps,
+structure means magnitude-profile+sign-census; if it is inert, the
+pump needs the EXACT coordinate-sign pairing (truly
+gradient-structural). D grid {0.05..2.0}, both rulers, dual
+currency — a ray, not a bar; report-only.)
 PART B — THE SUBSPACE (e190's spec verbatim): the SVD basis of the
 step history (r in {64, 256, 1024}); the in-span random arm vs the
 out-span-projected wash arm at the rung ladder, both rulers; the
