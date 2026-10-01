@@ -1,0 +1,1433 @@
+{
+  "experiment": "e194_sign_front",
+  "date": "2026-10-01T18:47:55Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_prediction": {
+    "front_chases": "FRONT-CHASES: \"fires if the front's overlap with the death direction RISES along the path and the kill-D falls with the re-computation rate \u2014 the front tracks the fact's fleeing support; the mirror of re-orientation.\"",
+    "front_accumulates": "FRONT-ACCUMULATES: \"fires if consecutive fronts are mutually correlated (mean |cos| >> 1/sqrt(d)) and the effective displacement accumulates super-linearly in step count \u2014 a shrinking-subspace effect.\"",
+    "static_artifact": "STATIC-ARTIFACT: \"fires if the fine-grid static profile shows the 2.5 edge was a coarse-grid artifact (the true edge near 1.75) \u2014 the path never beat its ray.\"",
+    "graded": "GRADED: \"any mix \u2014 the reads verbatim.\"",
+    "operationalizations": "the cell = the licensed e185 wash stream (root e131, seed-10902, bit-gated batches, TRUE targets, clip 1.0) with delta_t = -STEP_L2 * sign(g_t)/||sign(g_t)|| recomputed every k steps (k in {1,2,4,8}; between refreshes the SAME direction is re-walked at matched L2; the stream advances one batch per step); the k=1 arm IS opt2's a_sign, rebuilt bit-exactly and gated vs the committed trajectory + the saved runs/checkpoints/opt2_a_sign_s2.pt parameters; KILL = g-12 <= 0.27 at an every-step read, D_kill = opt1c's densified bracket; the k=inf rung is e192's R2 static profile LOADED COMMITTED (a frozen-front walk is colinear with the static ray by construction); 'overlap with the death direction' = cos64(sign(g_t), u_g) (double-negation identity: step -sign, ray -u_g), RISES = strictly across the path's three read fronts t=0,1,2; 'falls with the re-computation rate' = D_read strictly increasing in k AND D_read(k=1) < the refined static edge; 'mutually correlated' = pooled pre-kill consecutive-refresh mean |cos| >= 0.05 (~83x the 1/sqrt(d) floor 6.04e-4); 'super-linearly' = super-diffusive, cum(n) > 1.1*STEP_L2*sqrt(n) at every arm's pre-kill end (n >= 2); 'the true edge near 1.75' = the fine grid's first 0.27-downcrossing (interpolated) <= 1.9, a crossing in (1.9, 2.5) refines but does not fire; composite order frozen FRONT-CHASES -> FRONT-ACCUMULATES -> STATIC-ARTIFACT -> GRADED.",
+    "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "WHERE does the sign path's extra lethality live \u2014 the front CHASING the fact's fleeing support (overlap with the death ray rising; kill-D falling with the re-computation rate), the front ACCUMULATING in a shrinking subspace (mutually correlated fronts, super-diffusive displacement), or the 2.5 static edge being a coarse-grid ARTIFACT (the true edge near 1.75)? On the saved opt2 sign-arm state + the e131 root: the front-overlap read, the fine static re-read, and the k-ladder at matched per-step L2.",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.96e-08)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cell": {
+    "licensed_cell": "the e185 wash stream VERBATIM (opt2's conventions), update rule = the sign front at matched per-step L2, recomputed every k steps",
+    "batch": "32 = 16 neutral-bank anchors (seed 170, fixed) + 16 random corpus windows, full-token CE, clip 1.0",
+    "input_seed": 10902,
+    "matched_step_L2": {
+      "value": 1.6542880535125732,
+      "provenance": "opt1 A0's committed step-1 displacement (recomputed at t=0 and bit-gated in G_T0)"
+    },
+    "k_ladder": [
+      1,
+      2,
+      4,
+      8,
+      "inf(static R2, loaded)"
+    ],
+    "death_direction": "u_g = e191's committed static g-ray; the kill ray is descent (-u_g); overlap read = cos64(sign(g_t), u_g) (double-negation identity, stated in the operationalizations)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_T0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "pass": true,
+      "note": "the t=0 bit-gate vs opt1's committed A0 row (the matched-L2 reference re-derived on THIS device)"
+    },
+    "G_STREAM": {
+      "steps_1_10_md5_match": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true,
+        "10": true
+      },
+      "pass": true
+    },
+    "G_SAMEPOINT": {
+      "sign_arm_s1_matched_point_m12_measured": 0.039550412581627135,
+      "committed_chart_samepoint": 0.039550412581627135,
+      "d_sign": 0.0,
+      "raw_sanity_measured": 0.09862135965497001,
+      "committed_chart_raw": 0.09862135965497001,
+      "d_raw": 0.0,
+      "tol": 0.002,
+      "pass": true,
+      "note": "the dual-estimator machinery gate: the SIGN arm's step-1 matched-point read must reproduce the chart's committed anchor \u2014 every alignment read below states its point"
+    },
+    "G_U191": {
+      "loaded_u_md5_match_fresh": true,
+      "fresh_cos64_loaded": 0.9999999999998932,
+      "root_md5_match_checkpoint": true,
+      "note": "the death direction u_g = e191's committed static g-ray; the kill ray is DESCENT (-u_g)",
+      "pass": true
+    },
+    "G_R2DIR": {
+      "u_sign_md5": "aac6c6d643e327939f680148772dd180",
+      "committed_e192_md5": "aac6c6d643e327939f680148772dd180",
+      "md5_match": true,
+      "u_norm_fp32": 0.9998204112052917,
+      "u_norm_fp64": 0.9999999880438428,
+      "committed_e192_u_norm": 0.9998204112052917,
+      "norm_note": "e192's committed u_norm is its fp32-norm read (sequential fp32 accumulation over 2.7M elements carries ~1e-4 relative error); the md5 bit-match is the definitive gate",
+      "n_zero_g_coords": 960,
+      "note": "the static sign(g_0) ray rebuilt from the gated t=0 gradient (e192's fp32-norm construction VERBATIM)",
+      "pass": true
+    },
+    "G_REPRO": {
+      "rows": {
+        "s1_ce_batch": {
+          "measured": 1.356567621231079,
+          "committed": 1.356567621231079,
+          "abs_diff": 0.0
+        },
+        "s1_cum_disp": {
+          "measured": 1.6567984819412231,
+          "committed": 1.6567984819412231,
+          "abs_diff": 0.0
+        },
+        "s1_gm12": {
+          "measured": 0.6785961389541626,
+          "committed": 0.6785961389541626,
+          "abs_diff": 0.0
+        },
+        "s1_preclip_gnorm": {
+          "measured": 0.9829167127609253,
+          "committed": 0.9829167127609253,
+          "abs_diff": 0.0
+        },
+        "s1_matched_point_m12": {
+          "measured": 0.03955041258161903,
+          "committed": 0.03955041750707301,
+          "abs_diff": 4.925453982174144e-09
+        },
+        "s2_ce_batch": {
+          "measured": 1.8259366750717163,
+          "committed": 1.8259366750717163,
+          "abs_diff": 0.0
+        },
+        "s2_cum_disp": {
+          "measured": 2.1502907276153564,
+          "committed": 2.1502907276153564,
+          "abs_diff": 0.0
+        },
+        "s2_gm12": {
+          "measured": 9.830708586378023e-05,
+          "committed": 9.830708586378023e-05,
+          "abs_diff": 0.0
+        },
+        "s2_preclip_gnorm": {
+          "measured": 6.194264888763428,
+          "committed": 6.194264888763428,
+          "abs_diff": 0.0
+        },
+        "D_kill": {
+          "measured": 1.749640490742179,
+          "committed": 1.749640490742179,
+          "abs_diff": 0.0
+        }
+      },
+      "dens_gm12_max_abs_diff": 0.0,
+      "tol": 1e-09,
+      "matched_point_comparator": {
+        "measured": 0.03955041258161903,
+        "chart_committed": 0.039550412581627135,
+        "chart_diff": 8.104628079763643e-15,
+        "opt2_traj_value": 0.03955041750707301,
+        "opt2_traj_diff": 4.925453982174144e-09,
+        "note": "gated vs the CHART's committed same-point anchor (the family convention \u2014 opt2's own G_SAMEPOINT); opt2's traj row differs at fp32-texture level because it evaluated the cosine on the walked d_cum vector, this read on the pre-step -sign(g_0) vector (T150's estimator lesson, measured and reported verbatim)"
+      },
+      "e192_static_sign_D16543_gm12": {
+        "measured": 0.6785961389541626,
+        "committed": 0.6785961389541626,
+        "abs_diff": 0.0,
+        "note": "corroboration: step 1 of the sign walk IS a static sign-ray jump at D=STEP_L2"
+      },
+      "pass": true,
+      "note": "THE SAVED-STATE PROVENANCE GATE (Rule 12): the rebuilt k=1 walk must reproduce opt2's committed a_sign trajectory and densified kill bracket \u2014 failure = control failure, abort"
+    },
+    "G_SAVEDSTATE": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\opt2_a_sign_s2.pt",
+      "meta_gate": {
+        "experiment": "opt2",
+        "arm": "a_sign",
+        "steps": 2,
+        "input_seed": 10902,
+        "match": true
+      },
+      "walked_s2_flat_md5": "739c953029ecc98c876ec719d8add0b1",
+      "saved_flat_md5": "739c953029ecc98c876ec719d8add0b1",
+      "max_abs_param_diff": 0.0,
+      "tol": 1e-06,
+      "pass": true,
+      "note": "THE SAVED-STATE PROVENANCE GATE: opt2's committed checkpoint must BE the walked k=1 s2 endpoint (md5 or max|diff| < 1e-6)"
+    },
+    "G_STATIC_XC": {
+      "crosschecks": {
+        "D1.5": {
+          "gm12_measured": 0.7637382745742798,
+          "gm12_committed": 0.7637382745742798,
+          "gm12_diff": 0.0,
+          "ce_r_measured": 2.0823192596435547,
+          "ce_r_committed": 2.0823192596435547,
+          "ce_r_diff": 0.0
+        },
+        "D2.0": {
+          "gm12_measured": 0.4483865201473236,
+          "gm12_committed": 0.4483865201473236,
+          "gm12_diff": 0.0,
+          "ce_r_measured": 2.5618293285369873,
+          "ce_r_committed": 2.5618293285369873,
+          "ce_r_diff": 0.0
+        },
+        "D2.5": {
+          "gm12_measured": 0.14364269375801086,
+          "gm12_committed": 0.14364269375801086,
+          "gm12_diff": 0.0,
+          "ce_r_measured": 3.1449053287506104,
+          "ce_r_committed": 3.1449053287506104,
+          "ce_r_diff": 0.0
+        }
+      },
+      "tol": 0.001,
+      "pass": true,
+      "note": "the fine-grid machinery gate: this build must reproduce e192's committed R2 rows at the shared Ds before the fine points are believed"
+    }
+  },
+  "phaseA_front_overlap": {
+    "walk_traj": [
+      {
+        "step": 1,
+        "refresh": true,
+        "post_kill": false,
+        "ce_batch": 1.356567621231079,
+        "preclip_gnorm": 0.9829167127609253,
+        "step_disp": 1.6567984819412231,
+        "l2_dev": 4.508526596502804e-08,
+        "cum_disp": 1.6567984819412231,
+        "delta_vs_death_ray": 0.5950223410087695,
+        "delta_vs_prev_delta": null,
+        "cum_vs_g_ray": -0.595022343317856,
+        "cum_vs_static_sign": -1.0000000000010576,
+        "matched_point_m12": 0.03955041258161903,
+        "gm12": 0.6785961389541626,
+        "frac_argmax_z": 0.85,
+        "post_step_m12": -0.038474506823322395,
+        "root_point_m12": 0.03955041750707301
+      },
+      {
+        "step": 2,
+        "refresh": true,
+        "post_kill": false,
+        "ce_batch": 1.8259366750717163,
+        "preclip_gnorm": 6.194264888763428,
+        "step_disp": 1.6567445993423462,
+        "l2_dev": 2.480988503528181e-08,
+        "cum_disp": 2.1502907276153564,
+        "delta_vs_death_ray": -0.1622211100719134,
+        "delta_vs_prev_delta": -0.1545272198052734,
+        "cum_vs_g_ray": -0.33283093486830134,
+        "cum_vs_static_sign": -0.6501818235378047,
+        "matched_point_m12": 0.06015982408222451,
+        "gm12": 9.830708586378023e-05,
+        "frac_argmax_z": 0.0,
+        "post_step_m12": -0.039260209458733084,
+        "root_point_m12": -0.021289681879733968
+      },
+      {
+        "step": 3,
+        "refresh": true,
+        "post_kill": true,
+        "ce_batch": 1.8582803010940552,
+        "preclip_gnorm": 3.926907539367676,
+        "step_disp": 1.6567984819412231,
+        "l2_dev": 4.508526596502804e-08,
+        "cum_disp": 2.539003849029541,
+        "delta_vs_death_ray": 0.034184469615967494,
+        "delta_vs_prev_delta": -0.20298347429109276,
+        "cum_vs_g_ray": -0.30475759130351987,
+        "cum_vs_static_sign": -0.5723245697357966,
+        "matched_point_m12": 0.133829189309824,
+        "gm12": 0.0039044867735356092,
+        "frac_argmax_z": 0.0,
+        "post_step_m12": -0.030078130207485308,
+        "root_point_m12": -0.003313593915457482
+      },
+      {
+        "step": 4,
+        "refresh": true,
+        "post_kill": true,
+        "ce_batch": 1.5854073762893677,
+        "preclip_gnorm": 4.488908767700195,
+        "step_disp": 1.6567445993423462,
+        "l2_dev": 2.480988503528181e-08,
+        "cum_disp": 2.907585620880127,
+        "delta_vs_death_ray": 0.008285110418093105,
+        "delta_vs_prev_delta": -0.18565048572221043,
+        "cum_vs_g_ray": -0.27036204265411723,
+        "cum_vs_static_sign": -0.5005303792686534,
+        "matched_point_m12": 0.06932670460422248,
+        "gm12": 0.0002037263329839334,
+        "frac_argmax_z": 0.0,
+        "post_step_m12": -0.016463841438703296,
+        "root_point_m12": 0.004502197111648171
+      },
+      {
+        "step": 5,
+        "refresh": true,
+        "post_kill": true,
+        "ce_batch": 1.712945818901062,
+        "preclip_gnorm": 4.258616924285889,
+        "step_disp": 1.6567984819412231,
+        "l2_dev": 4.508526596502804e-08,
+        "cum_disp": 3.2625508308410645,
+        "delta_vs_death_ray": 0.010734250596479158,
+        "delta_vs_prev_delta": -0.15233073884836068,
+        "cum_vs_g_ray": -0.2463048175147087,
+        "cum_vs_static_sign": -0.45498598121129175,
+        "matched_point_m12": 0.03788522156290183,
+        "gm12": 0.014048758894205093,
+        "frac_argmax_z": 0.0,
+        "post_step_m12": -0.03174083783744302,
+        "root_point_m12": 0.0005102910571574484
+      },
+      {
+        "step": 6,
+        "refresh": true,
+        "post_kill": true,
+        "ce_batch": 1.5712804794311523,
+        "preclip_gnorm": 4.543355464935303,
+        "step_disp": 1.6566288471221924,
+        "l2_dev": 1.586012019494376e-07,
+        "cum_disp": 3.570817470550537,
+        "delta_vs_death_ray": 0.030058967261743064,
+        "delta_vs_prev_delta": -0.1485077208213747,
+        "cum_vs_g_ray": -0.2392301751703713,
+        "cum_vs_static_sign": -0.42718836968005586,
+        "matched_point_m12": 0.09261447750506863,
+        "gm12": 0.22213254868984222,
+        "frac_argmax_z": 0.13333333333333333,
+        "post_step_m12": -0.021252203977113533,
+        "root_point_m12": 0.005099066419279667
+      }
+    ],
+    "front_trace": [
+      {
+        "step": 1,
+        "front_state": 0,
+        "vs_g_ray": 0.5950223410088911,
+        "vs_fresh_g": 0.5950223409848382,
+        "vs_static_sign": 1.0000000000017162,
+        "vs_prev_front": null,
+        "gm12_at_state": null
+      },
+      {
+        "step": 2,
+        "front_state": 1,
+        "vs_g_ray": -0.1622211100709781,
+        "vs_fresh_g": 0.4426546085364459,
+        "vs_static_sign": -0.15452721980470194,
+        "vs_prev_front": -0.15452721980443676,
+        "gm12_at_state": 0.6785961389541626
+      },
+      {
+        "step": 3,
+        "front_state": 2,
+        "vs_g_ray": 0.034184469615974565,
+        "vs_fresh_g": 0.46384749991983254,
+        "vs_static_sign": 0.03151076362111852,
+        "vs_prev_front": -0.20298347429000238,
+        "gm12_at_state": 9.830708586378023e-05
+      },
+      {
+        "step": 4,
+        "front_state": 3,
+        "vs_g_ray": 0.00828511041804535,
+        "vs_fresh_g": 0.44851278625584357,
+        "vs_static_sign": 0.002901370921461582,
+        "vs_prev_front": -0.1856504857212099,
+        "gm12_at_state": 0.0039044867735356092
+      },
+      {
+        "step": 5,
+        "front_state": 4,
+        "vs_g_ray": 0.010734250596481415,
+        "vs_fresh_g": 0.4093319523987555,
+        "vs_static_sign": 0.01788677745836695,
+        "vs_prev_front": -0.15233073884753343,
+        "gm12_at_state": 0.0002037263329839334
+      },
+      {
+        "step": 6,
+        "front_state": 5,
+        "vs_g_ray": 0.030058967261701076,
+        "vs_fresh_g": 0.393464750372547,
+        "vs_static_sign": 0.023753170532481195,
+        "vs_prev_front": -0.14850772082119404,
+        "gm12_at_state": 0.014048758894205093
+      }
+    ],
+    "front_trace_pre_kill": [
+      {
+        "step": 1,
+        "front_state": 0,
+        "vs_g_ray": 0.5950223410088911,
+        "vs_fresh_g": 0.5950223409848382,
+        "vs_static_sign": 1.0000000000017162,
+        "vs_prev_front": null,
+        "gm12_at_state": null
+      },
+      {
+        "step": 2,
+        "front_state": 1,
+        "vs_g_ray": -0.1622211100709781,
+        "vs_fresh_g": 0.4426546085364459,
+        "vs_static_sign": -0.15452721980470194,
+        "vs_prev_front": -0.15452721980443676,
+        "gm12_at_state": 0.6785961389541626
+      }
+    ],
+    "front_trace_continuation": [
+      {
+        "step": 3,
+        "front_state": 2,
+        "vs_g_ray": 0.034184469615974565,
+        "vs_fresh_g": 0.46384749991983254,
+        "vs_static_sign": 0.03151076362111852,
+        "vs_prev_front": -0.20298347429000238,
+        "gm12_at_state": 9.830708586378023e-05
+      },
+      {
+        "step": 4,
+        "front_state": 3,
+        "vs_g_ray": 0.00828511041804535,
+        "vs_fresh_g": 0.44851278625584357,
+        "vs_static_sign": 0.002901370921461582,
+        "vs_prev_front": -0.1856504857212099,
+        "gm12_at_state": 0.0039044867735356092
+      },
+      {
+        "step": 5,
+        "front_state": 4,
+        "vs_g_ray": 0.010734250596481415,
+        "vs_fresh_g": 0.4093319523987555,
+        "vs_static_sign": 0.01788677745836695,
+        "vs_prev_front": -0.15233073884753343,
+        "gm12_at_state": 0.0002037263329839334
+      },
+      {
+        "step": 6,
+        "front_state": 5,
+        "vs_g_ray": 0.030058967261701076,
+        "vs_fresh_g": 0.393464750372547,
+        "vs_static_sign": 0.023753170532481195,
+        "vs_prev_front": -0.14850772082119404,
+        "gm12_at_state": 0.014048758894205093
+      }
+    ],
+    "stop": {
+      "kind": "kill",
+      "step": 2,
+      "gm12_at_kill": 9.830708586378023e-05,
+      "D_kill_raw": 1.9539829631812597,
+      "D_kill": 1.749640490742179,
+      "dens": [
+        {
+          "f": 0.2,
+          "gm12": 0.8249044418334961,
+          "D": 1.6348317861557007
+        },
+        {
+          "f": 0.4,
+          "gm12": 0.6051573157310486,
+          "D": 1.683386206626892
+        },
+        {
+          "f": 0.6,
+          "gm12": 0.05381816625595093,
+          "D": 1.7923755645751953
+        },
+        {
+          "f": 0.8,
+          "gm12": 0.013179803267121315,
+          "D": 1.952124834060669
+        }
+      ],
+      "reason": "g-12 <= SHUT at an every-step read"
+    },
+    "max_l2_dev": 1.586012019494376e-07,
+    "continuation_disclosure": "steps 3..6 are post-kill continuation (read-only context; never adjudicates)",
+    "reads": {
+      "ov_vs_g_ray_t0_t1_t2": [
+        0.5950223410088911,
+        -0.1622211100709781,
+        0.034184469615974565
+      ],
+      "front_persistence": [
+        -0.15452721980443676,
+        -0.20298347429000238,
+        -0.1856504857212099,
+        -0.15233073884753343,
+        -0.14850772082119404
+      ],
+      "front_vs_fresh_g": [
+        0.5950223409848382,
+        0.4426546085364459,
+        0.46384749991983254,
+        0.44851278625584357,
+        0.4093319523987555,
+        0.393464750372547
+      ],
+      "cum_vs_g_ray": [
+        -0.595022343317856,
+        -0.33283093486830134,
+        -0.30475759130351987,
+        -0.27036204265411723,
+        -0.2463048175147087,
+        -0.2392301751703713
+      ]
+    }
+  },
+  "phaseB_static_fine": {
+    "rows": [
+      {
+        "D": 1.5,
+        "rms": 0.0009063366348172981,
+        "gm12": 0.7637382745742798,
+        "frac_argmax_z": 0.9,
+        "disp_check": 1.5000842809677124,
+        "ce_r": 2.0823192596435547
+      },
+      {
+        "D": 1.55,
+        "rms": 0.0009365478559778748,
+        "gm12": 0.7379499673843384,
+        "frac_argmax_z": 0.9,
+        "disp_check": 1.549142837524414
+      },
+      {
+        "D": 1.6,
+        "rms": 0.0009667590771384514,
+        "gm12": 0.7103347778320312,
+        "frac_argmax_z": 0.8666666666666667,
+        "disp_check": 1.5985969305038452
+      },
+      {
+        "D": 1.65,
+        "rms": 0.0009969702982990279,
+        "gm12": 0.6811626553535461,
+        "frac_argmax_z": 0.85,
+        "disp_check": 1.6483763456344604
+      },
+      {
+        "D": 1.7,
+        "rms": 0.0010271815194596045,
+        "gm12": 0.6506606936454773,
+        "frac_argmax_z": 0.8166666666666667,
+        "disp_check": 1.6978952884674072
+      },
+      {
+        "D": 1.75,
+        "rms": 0.0010573927406201812,
+        "gm12": 0.618982195854187,
+        "frac_argmax_z": 0.7666666666666667,
+        "disp_check": 1.753373384475708
+      },
+      {
+        "D": 1.8,
+        "rms": 0.0010876039617807578,
+        "gm12": 0.5862300395965576,
+        "frac_argmax_z": 0.6833333333333333,
+        "disp_check": 1.8013371229171753
+      },
+      {
+        "D": 1.85,
+        "rms": 0.0011178151829413345,
+        "gm12": 0.5525264143943787,
+        "frac_argmax_z": 0.6333333333333333,
+        "disp_check": 1.8511933088302612
+      },
+      {
+        "D": 1.9,
+        "rms": 0.001148026404101911,
+        "gm12": 0.5180846452713013,
+        "frac_argmax_z": 0.5333333333333333,
+        "disp_check": 1.8963450193405151
+      },
+      {
+        "D": 1.95,
+        "rms": 0.0011782376252624876,
+        "gm12": 0.483236163854599,
+        "frac_argmax_z": 0.5166666666666667,
+        "disp_check": 1.9532197713851929
+      },
+      {
+        "D": 2.0,
+        "rms": 0.0012084488464230642,
+        "gm12": 0.4483865201473236,
+        "frac_argmax_z": 0.45,
+        "disp_check": 1.9996408224105835,
+        "ce_r": 2.5618293285369873
+      },
+      {
+        "D": 2.05,
+        "rms": 0.0012386600675836407,
+        "gm12": 0.4139039218425751,
+        "frac_argmax_z": 0.38333333333333336,
+        "disp_check": 2.0486667156219482
+      },
+      {
+        "D": 2.1,
+        "rms": 0.0012688712887442175,
+        "gm12": 0.38002243638038635,
+        "frac_argmax_z": 0.3333333333333333,
+        "disp_check": 2.0992250442504883
+      },
+      {
+        "D": 2.15,
+        "rms": 0.001299082509904794,
+        "gm12": 0.34681713581085205,
+        "frac_argmax_z": 0.25,
+        "disp_check": 2.150775671005249
+      },
+      {
+        "D": 2.2,
+        "rms": 0.0013292937310653706,
+        "gm12": 0.31427156925201416,
+        "frac_argmax_z": 0.21666666666666667,
+        "disp_check": 2.2003259658813477
+      },
+      {
+        "D": 2.25,
+        "rms": 0.0013595049522259473,
+        "gm12": 0.2823839485645294,
+        "frac_argmax_z": 0.18333333333333332,
+        "disp_check": 2.249338388442993
+      },
+      {
+        "D": 2.3,
+        "rms": 0.0013897161733865237,
+        "gm12": 0.25129440426826477,
+        "frac_argmax_z": 0.15,
+        "disp_check": 2.2980427742004395
+      },
+      {
+        "D": 2.35,
+        "rms": 0.0014199273945471004,
+        "gm12": 0.22135214507579803,
+        "frac_argmax_z": 0.15,
+        "disp_check": 2.35311222076416
+      },
+      {
+        "D": 2.4,
+        "rms": 0.001450138615707677,
+        "gm12": 0.19308382272720337,
+        "frac_argmax_z": 0.15,
+        "disp_check": 2.3990020751953125
+      },
+      {
+        "D": 2.45,
+        "rms": 0.0014803498368682537,
+        "gm12": 0.16704429686069489,
+        "frac_argmax_z": 0.15,
+        "disp_check": 2.454620361328125
+      },
+      {
+        "D": 2.5,
+        "rms": 0.0015105610580288301,
+        "gm12": 0.14364269375801086,
+        "frac_argmax_z": 0.1,
+        "disp_check": 2.4982919692993164,
+        "ce_r": 3.1449053287506104
+      }
+    ],
+    "refined_static_edge": 2.269916581032063,
+    "refined_edge_note": "first 0.27-downcrossing, linear-in-D interpolated on the fine grid; None = the profile never crosses within the window",
+    "any_upcross_inside_window": [],
+    "coarse_grid_gap": "e192's committed grid had NO point in (1.5, 2.0) \u2014 this window is the check",
+    "path_kill_D": 1.749640490742179
+  },
+  "phaseC_k_ladder": {
+    "arms": {
+      "1": {
+        "journal": [
+          {
+            "step": 1,
+            "refresh": true,
+            "post_kill": false,
+            "ce_batch": 1.356567621231079,
+            "preclip_gnorm": 0.9829167127609253,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 1.6567984819412231,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": null,
+            "cum_vs_g_ray": -0.595022343317856,
+            "cum_vs_static_sign": -1.0000000000010576,
+            "matched_point_m12": 0.03955041258161903,
+            "gm12": 0.6785961389541626,
+            "frac_argmax_z": 0.85,
+            "post_step_m12": -0.038474506823322395,
+            "root_point_m12": 0.03955041750707301
+          },
+          {
+            "step": 2,
+            "refresh": true,
+            "post_kill": false,
+            "ce_batch": 1.8259366750717163,
+            "preclip_gnorm": 6.194264888763428,
+            "step_disp": 1.6567445993423462,
+            "l2_dev": 2.480988503528181e-08,
+            "cum_disp": 2.1502907276153564,
+            "delta_vs_death_ray": -0.1622211100719134,
+            "delta_vs_prev_delta": -0.1545272198052734,
+            "cum_vs_g_ray": -0.33283093486830134,
+            "cum_vs_static_sign": -0.6501818235378047,
+            "matched_point_m12": 0.06015982408222451,
+            "gm12": 9.830708586378023e-05,
+            "frac_argmax_z": 0.0,
+            "post_step_m12": -0.039260209458733084,
+            "root_point_m12": -0.021289681879733968
+          },
+          {
+            "step": 3,
+            "refresh": true,
+            "post_kill": true,
+            "ce_batch": 1.8582803010940552,
+            "preclip_gnorm": 3.926907539367676,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 2.539003849029541,
+            "delta_vs_death_ray": 0.034184469615967494,
+            "delta_vs_prev_delta": -0.20298347429109276,
+            "cum_vs_g_ray": -0.30475759130351987,
+            "cum_vs_static_sign": -0.5723245697357966,
+            "matched_point_m12": 0.133829189309824,
+            "gm12": 0.0039044867735356092,
+            "frac_argmax_z": 0.0,
+            "post_step_m12": -0.030078130207485308,
+            "root_point_m12": -0.003313593915457482
+          },
+          {
+            "step": 4,
+            "refresh": true,
+            "post_kill": true,
+            "ce_batch": 1.5854073762893677,
+            "preclip_gnorm": 4.488908767700195,
+            "step_disp": 1.6567445993423462,
+            "l2_dev": 2.480988503528181e-08,
+            "cum_disp": 2.907585620880127,
+            "delta_vs_death_ray": 0.008285110418093105,
+            "delta_vs_prev_delta": -0.18565048572221043,
+            "cum_vs_g_ray": -0.27036204265411723,
+            "cum_vs_static_sign": -0.5005303792686534,
+            "matched_point_m12": 0.06932670460422248,
+            "gm12": 0.0002037263329839334,
+            "frac_argmax_z": 0.0,
+            "post_step_m12": -0.016463841438703296,
+            "root_point_m12": 0.004502197111648171
+          },
+          {
+            "step": 5,
+            "refresh": true,
+            "post_kill": true,
+            "ce_batch": 1.712945818901062,
+            "preclip_gnorm": 4.258616924285889,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 3.2625508308410645,
+            "delta_vs_death_ray": 0.010734250596479158,
+            "delta_vs_prev_delta": -0.15233073884836068,
+            "cum_vs_g_ray": -0.2463048175147087,
+            "cum_vs_static_sign": -0.45498598121129175,
+            "matched_point_m12": 0.03788522156290183,
+            "gm12": 0.014048758894205093,
+            "frac_argmax_z": 0.0,
+            "post_step_m12": -0.03174083783744302,
+            "root_point_m12": 0.0005102910571574484
+          },
+          {
+            "step": 6,
+            "refresh": true,
+            "post_kill": true,
+            "ce_batch": 1.5712804794311523,
+            "preclip_gnorm": 4.543355464935303,
+            "step_disp": 1.6566288471221924,
+            "l2_dev": 1.586012019494376e-07,
+            "cum_disp": 3.570817470550537,
+            "delta_vs_death_ray": 0.030058967261743064,
+            "delta_vs_prev_delta": -0.1485077208213747,
+            "cum_vs_g_ray": -0.2392301751703713,
+            "cum_vs_static_sign": -0.42718836968005586,
+            "matched_point_m12": 0.09261447750506863,
+            "gm12": 0.22213254868984222,
+            "frac_argmax_z": 0.13333333333333333,
+            "post_step_m12": -0.021252203977113533,
+            "root_point_m12": 0.005099066419279667
+          }
+        ],
+        "front_trace": [
+          {
+            "step": 1,
+            "front_state": 0,
+            "vs_g_ray": 0.5950223410088911,
+            "vs_fresh_g": 0.5950223409848382,
+            "vs_static_sign": 1.0000000000017162,
+            "vs_prev_front": null,
+            "gm12_at_state": null
+          },
+          {
+            "step": 2,
+            "front_state": 1,
+            "vs_g_ray": -0.1622211100709781,
+            "vs_fresh_g": 0.4426546085364459,
+            "vs_static_sign": -0.15452721980470194,
+            "vs_prev_front": -0.15452721980443676,
+            "gm12_at_state": 0.6785961389541626
+          },
+          {
+            "step": 3,
+            "front_state": 2,
+            "vs_g_ray": 0.034184469615974565,
+            "vs_fresh_g": 0.46384749991983254,
+            "vs_static_sign": 0.03151076362111852,
+            "vs_prev_front": -0.20298347429000238,
+            "gm12_at_state": 9.830708586378023e-05
+          },
+          {
+            "step": 4,
+            "front_state": 3,
+            "vs_g_ray": 0.00828511041804535,
+            "vs_fresh_g": 0.44851278625584357,
+            "vs_static_sign": 0.002901370921461582,
+            "vs_prev_front": -0.1856504857212099,
+            "gm12_at_state": 0.0039044867735356092
+          },
+          {
+            "step": 5,
+            "front_state": 4,
+            "vs_g_ray": 0.010734250596481415,
+            "vs_fresh_g": 0.4093319523987555,
+            "vs_static_sign": 0.01788677745836695,
+            "vs_prev_front": -0.15233073884753343,
+            "gm12_at_state": 0.0002037263329839334
+          },
+          {
+            "step": 6,
+            "front_state": 5,
+            "vs_g_ray": 0.030058967261701076,
+            "vs_fresh_g": 0.393464750372547,
+            "vs_static_sign": 0.023753170532481195,
+            "vs_prev_front": -0.14850772082119404,
+            "gm12_at_state": 0.014048758894205093
+          }
+        ],
+        "stop": {
+          "kind": "kill",
+          "step": 2,
+          "gm12_at_kill": 9.830708586378023e-05,
+          "D_kill_raw": 1.9539829631812597,
+          "D_kill": 1.749640490742179,
+          "dens": [
+            {
+              "f": 0.2,
+              "gm12": 0.8249044418334961,
+              "D": 1.6348317861557007
+            },
+            {
+              "f": 0.4,
+              "gm12": 0.6051573157310486,
+              "D": 1.683386206626892
+            },
+            {
+              "f": 0.6,
+              "gm12": 0.05381816625595093,
+              "D": 1.7923755645751953
+            },
+            {
+              "f": 0.8,
+              "gm12": 0.013179803267121315,
+              "D": 1.952124834060669
+            }
+          ],
+          "reason": "g-12 <= SHUT at an every-step read"
+        },
+        "max_l2_dev": 1.586012019494376e-07,
+        "zeph": 0,
+        "train_seconds": 19.038951873779297
+      },
+      "2": {
+        "journal": [
+          {
+            "step": 1,
+            "refresh": true,
+            "post_kill": false,
+            "ce_batch": 1.356567621231079,
+            "preclip_gnorm": 0.9829167127609253,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 1.6567984819412231,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": null,
+            "cum_vs_g_ray": -0.595022343317856,
+            "cum_vs_static_sign": -1.0000000000010576,
+            "matched_point_m12": null,
+            "gm12": 0.6785961389541626,
+            "frac_argmax_z": 0.85
+          },
+          {
+            "step": 2,
+            "refresh": false,
+            "post_kill": false,
+            "ce_batch": null,
+            "preclip_gnorm": null,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 3.3135969638824463,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": 1.0000000000003217,
+            "cum_vs_g_ray": -0.5950223432272245,
+            "cum_vs_static_sign": -1.0000000000010236,
+            "matched_point_m12": null,
+            "gm12": 0.007273772265762091,
+            "frac_argmax_z": 0.0
+          }
+        ],
+        "front_trace": [
+          {
+            "step": 1,
+            "front_state": 0,
+            "vs_g_ray": 0.5950223410088911,
+            "vs_fresh_g": 0.5950223409848382,
+            "vs_static_sign": 1.0000000000017162,
+            "vs_prev_front": null,
+            "gm12_at_state": null
+          }
+        ],
+        "stop": {
+          "kind": "kill",
+          "step": 2,
+          "gm12_at_kill": 0.007273772265762091,
+          "D_kill_raw": 2.6651984643307847,
+          "D_kill": 2.274354638630264,
+          "dens": [
+            {
+              "f": 0.2,
+              "gm12": 0.458716481924057,
+              "D": 1.983090877532959
+            },
+            {
+              "f": 0.4,
+              "gm12": 0.24156293272972107,
+              "D": 2.318244218826294
+            },
+            {
+              "f": 0.6,
+              "gm12": 0.09055230021476746,
+              "D": 2.6486897468566895
+            },
+            {
+              "f": 0.8,
+              "gm12": 0.028803404420614243,
+              "D": 2.9736199378967285
+            }
+          ],
+          "reason": "g-12 <= SHUT at an every-step read"
+        },
+        "max_l2_dev": 4.508526596502804e-08,
+        "zeph": 0,
+        "train_seconds": 3.5783398151397705
+      },
+      "4": {
+        "journal": [
+          {
+            "step": 1,
+            "refresh": true,
+            "post_kill": false,
+            "ce_batch": 1.356567621231079,
+            "preclip_gnorm": 0.9829167127609253,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 1.6567984819412231,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": null,
+            "cum_vs_g_ray": -0.595022343317856,
+            "cum_vs_static_sign": -1.0000000000010576,
+            "matched_point_m12": null,
+            "gm12": 0.6785961389541626,
+            "frac_argmax_z": 0.85
+          },
+          {
+            "step": 2,
+            "refresh": false,
+            "post_kill": false,
+            "ce_batch": null,
+            "preclip_gnorm": null,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 3.3135969638824463,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": 1.0000000000003217,
+            "cum_vs_g_ray": -0.5950223432272245,
+            "cum_vs_static_sign": -1.0000000000010236,
+            "matched_point_m12": null,
+            "gm12": 0.007273772265762091,
+            "frac_argmax_z": 0.0
+          }
+        ],
+        "front_trace": [
+          {
+            "step": 1,
+            "front_state": 0,
+            "vs_g_ray": 0.5950223410088911,
+            "vs_fresh_g": 0.5950223409848382,
+            "vs_static_sign": 1.0000000000017162,
+            "vs_prev_front": null,
+            "gm12_at_state": null
+          }
+        ],
+        "stop": {
+          "kind": "kill",
+          "step": 2,
+          "gm12_at_kill": 0.007273772265762091,
+          "D_kill_raw": 2.6651984643307847,
+          "D_kill": 2.274354638630264,
+          "dens": [
+            {
+              "f": 0.2,
+              "gm12": 0.458716481924057,
+              "D": 1.983090877532959
+            },
+            {
+              "f": 0.4,
+              "gm12": 0.24156293272972107,
+              "D": 2.318244218826294
+            },
+            {
+              "f": 0.6,
+              "gm12": 0.09055230021476746,
+              "D": 2.6486897468566895
+            },
+            {
+              "f": 0.8,
+              "gm12": 0.028803404420614243,
+              "D": 2.9736199378967285
+            }
+          ],
+          "reason": "g-12 <= SHUT at an every-step read"
+        },
+        "max_l2_dev": 4.508526596502804e-08,
+        "zeph": 0,
+        "train_seconds": 3.488267421722412
+      },
+      "8": {
+        "journal": [
+          {
+            "step": 1,
+            "refresh": true,
+            "post_kill": false,
+            "ce_batch": 1.356567621231079,
+            "preclip_gnorm": 0.9829167127609253,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 1.6567984819412231,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": null,
+            "cum_vs_g_ray": -0.595022343317856,
+            "cum_vs_static_sign": -1.0000000000010576,
+            "matched_point_m12": null,
+            "gm12": 0.6785961389541626,
+            "frac_argmax_z": 0.85
+          },
+          {
+            "step": 2,
+            "refresh": false,
+            "post_kill": false,
+            "ce_batch": null,
+            "preclip_gnorm": null,
+            "step_disp": 1.6567984819412231,
+            "l2_dev": 4.508526596502804e-08,
+            "cum_disp": 3.3135969638824463,
+            "delta_vs_death_ray": 0.5950223410087695,
+            "delta_vs_prev_delta": 1.0000000000003217,
+            "cum_vs_g_ray": -0.5950223432272245,
+            "cum_vs_static_sign": -1.0000000000010236,
+            "matched_point_m12": null,
+            "gm12": 0.007273772265762091,
+            "frac_argmax_z": 0.0
+          }
+        ],
+        "front_trace": [
+          {
+            "step": 1,
+            "front_state": 0,
+            "vs_g_ray": 0.5950223410088911,
+            "vs_fresh_g": 0.5950223409848382,
+            "vs_static_sign": 1.0000000000017162,
+            "vs_prev_front": null,
+            "gm12_at_state": null
+          }
+        ],
+        "stop": {
+          "kind": "kill",
+          "step": 2,
+          "gm12_at_kill": 0.007273772265762091,
+          "D_kill_raw": 2.6651984643307847,
+          "D_kill": 2.274354638630264,
+          "dens": [
+            {
+              "f": 0.2,
+              "gm12": 0.458716481924057,
+              "D": 1.983090877532959
+            },
+            {
+              "f": 0.4,
+              "gm12": 0.24156293272972107,
+              "D": 2.318244218826294
+            },
+            {
+              "f": 0.6,
+              "gm12": 0.09055230021476746,
+              "D": 2.6486897468566895
+            },
+            {
+              "f": 0.8,
+              "gm12": 0.028803404420614243,
+              "D": 2.9736199378967285
+            }
+          ],
+          "reason": "g-12 <= SHUT at an every-step read"
+        },
+        "max_l2_dev": 4.508526596502804e-08,
+        "zeph": 0,
+        "train_seconds": 3.5710535049438477
+      }
+    },
+    "ladder_rows": [
+      {
+        "k": 1,
+        "recompute_rate": 1.0,
+        "stop_kind": "kill",
+        "D_read": 1.749640490742179,
+        "steps_pre_kill": 2,
+        "final_cum_disp_pre_kill": 2.1502907276153564,
+        "efficiency_e": 0.919117533243927
+      },
+      {
+        "k": 2,
+        "recompute_rate": 0.5,
+        "stop_kind": "kill",
+        "D_read": 2.274354638630264,
+        "steps_pre_kill": 2,
+        "final_cum_disp_pre_kill": 3.3135969638824463,
+        "efficiency_e": 1.4163596710411865
+      },
+      {
+        "k": 4,
+        "recompute_rate": 0.25,
+        "stop_kind": "kill",
+        "D_read": 2.274354638630264,
+        "steps_pre_kill": 2,
+        "final_cum_disp_pre_kill": 3.3135969638824463,
+        "efficiency_e": 1.4163596710411865
+      },
+      {
+        "k": 8,
+        "recompute_rate": 0.125,
+        "stop_kind": "kill",
+        "D_read": 2.274354638630264,
+        "steps_pre_kill": 2,
+        "final_cum_disp_pre_kill": 3.3135969638824463,
+        "efficiency_e": 1.4163596710411865
+      },
+      {
+        "k": "inf",
+        "recompute_rate": 0.0,
+        "stop_kind": "static_ray_loaded",
+        "D_read": 2.269916581032063,
+        "source": "runs/e192/metrics.json profiles.R2_SIGN (fine-refined this cell)",
+        "note": "a frozen-front walk is colinear with the static ray by construction (e192's rider disclosure) \u2014 loaded, never rerun"
+      }
+    ],
+    "accumulation": {
+      "iso_floor": 0.0006042244232115321,
+      "cos_bar": 0.05,
+      "prekill_pairs": [
+        {
+          "k": 1,
+          "cos": -0.15452721980443676
+        }
+      ],
+      "prekill_mean_abs_cos": 0.15452721980443676,
+      "continuation_pairs_context": [
+        -0.20298347429000238,
+        -0.1856504857212099,
+        -0.15233073884753343,
+        -0.14850772082119404
+      ],
+      "continuation_mean_abs_cos": 0.17236810491998494,
+      "efficiencies": [
+        {
+          "k": 1,
+          "n": 2,
+          "e": 0.919117533243927
+        },
+        {
+          "k": 2,
+          "n": 2,
+          "e": 1.4163596710411865
+        },
+        {
+          "k": 4,
+          "n": 2,
+          "e": 1.4163596710411865
+        },
+        {
+          "k": 8,
+          "n": 2,
+          "e": 1.4163596710411865
+        }
+      ],
+      "eff_bar": 1.1,
+      "note": "pairs = consecutive REFRESHED fronts within each arm's pre-kill walk; continuation pairs are context only"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "FRONT_CHASES": {
+        "fires": false,
+        "detail": {
+          "ov_t0_t1_t2": [
+            0.5950223410088911,
+            -0.1622211100709781,
+            0.034184469615974565
+          ],
+          "rise_strict": false,
+          "D_reads_by_k": {
+            "1": 1.749640490742179,
+            "2": 2.274354638630264,
+            "4": 2.274354638630264,
+            "8": 2.274354638630264
+          },
+          "strictly_increasing_in_k": false,
+          "refined_static_edge": 2.269916581032063,
+          "k1_below_static": true
+        }
+      },
+      "FRONT_ACCUMULATES": {
+        "fires": false,
+        "detail": {
+          "prekill_mean_abs_cos": 0.15452721980443676,
+          "bar": 0.05,
+          "iso_floor": 0.0006042244232115321,
+          "efficiencies": [
+            {
+              "k": 1,
+              "n": 2,
+              "e": 0.919117533243927
+            },
+            {
+              "k": 2,
+              "n": 2,
+              "e": 1.4163596710411865
+            },
+            {
+              "k": 4,
+              "n": 2,
+              "e": 1.4163596710411865
+            },
+            {
+              "k": 8,
+              "n": 2,
+              "e": 1.4163596710411865
+            }
+          ],
+          "eff_bar": 1.1
+        }
+      },
+      "STATIC_ARTIFACT": {
+        "fires": false,
+        "detail": {
+          "refined_static_edge": 2.269916581032063,
+          "near_path_bar": 1.9,
+          "path_kill_D": 1.749640490742179,
+          "committed_coarse_edge": 2.5
+        }
+      },
+      "GRADED": {
+        "fires": true
+      }
+    },
+    "verdict": "GRADED",
+    "clause": "any mix \u2014 the reads verbatim: ov(t=0,1,2) = +0.5950, -0.1622, +0.0342; D_read by k = 1:1.7496, 2:2.2744, 4:2.2744, 8:2.2744, inf:2.2699; refined static edge 2.2699; pre-kill mean |cos(fronts)| 0.1545; efficiencies 1:0.919, 2:1.416, 4:1.416, 8:1.416",
+    "composite_order": "FRONT-CHASES -> FRONT-ACCUMULATES -> STATIC-ARTIFACT -> GRADED (frozen before compute)",
+    "constants": {
+      "STEP_L2": 1.6542880535125732,
+      "SHUT_BAR": 0.27,
+      "D_TARGET": 5.0,
+      "STEP_CAP": 16,
+      "ACCUM_COS_BAR": 0.05,
+      "ACCUM_EFF_BAR": 1.1,
+      "STATIC_NEAR_PATH": 1.9,
+      "ISO_FLOOR": 0.0006042244232115321
+    }
+  },
+  "references": {
+    "opt2_sign_path": {
+      "metrics": "runs/opt2/metrics.json",
+      "D_kill": 1.749640490742179,
+      "ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\opt2_a_sign_s2.pt",
+      "role": "the parent path (rebuilt, gated G_REPRO/G_SAVEDSTATE \u2014 never re-adjudicated)"
+    },
+    "e192_terrain": {
+      "metrics": "runs/e192/metrics.json",
+      "static_sign_edge_coarse": 2.5,
+      "R2_fine_refined": 2.269916581032063,
+      "pinned_rider": "300 pinned steps L2 0.005514 along the frozen g-ray \u2014 the slow-step re-orientation-denial context (a different ray; loaded committed)",
+      "role": "the static rays (loaded committed)"
+    },
+    "opt1c_raw": {
+      "D_kill": 0.9203406595225093
+    },
+    "opt1_A0": {
+      "D_kill": 2.4892616271972656
+    },
+    "e_chart_samepoint": {
+      "adam": 0.039550412581627135,
+      "raw": 0.09862135965497001
+    }
+  },
+  "honesty_reflex": {
+    "n_and_scope": "n=1 organism/fact (the e131 consolidated line), ONE stream (seed 10902, md5-gated vs e185's stored hashes at every consumed step); n=1 per k-rung; the k-ladder is ONE fact's trajectory family, not a population claim",
+    "openness": "WHAT EACH ARM GUARANTEES: NOTHING \u2014 every arm walks at lethal-scale per-step L2 and could kill anywhere on the ladder; the k-ladder is at MATCHED L2 (size held fixed, only the re-computation rate varies); that openness is the point",
+    "estimator_lesson": "every alignment read states its evaluation point: matched_point cos(delta_s, grad m12(theta_{s-1})) (gated at s=1 vs the chart's committed +0.03955), post_step cos(d_cum, grad m12(theta_s)), root_point \u2014 T150's lesson",
+    "post_kill_continuation": "the k=1 walk's steps past the kill (4 steps) are read-only context \u2014 flagged post_kill, never adjudicated",
+    "projections_never_adjudicate": "the refined static edge is an interpolation ON measured points of the fine grid; no arm outcome is extrapolated",
+    "float_texture": "CPU fp32 texture, this process, 4 threads (the e185-era reduction order); the parent references are hard-bound asserts and the k=1 rebuild reproduced opt2's committed trajectory to 4.9e-09"
+  },
+  "deviations": [
+    "The k=1 arm doubles as the front-overlap read and the opt2 reproduction rung (G_REPRO): identical construction \u2014 opt2's sign_update copied VERBATIM (fp64 support norm), identical stream draw order, identical every-step reads \u2014 so the walk is walked ONCE and gated, not walked twice.",
+    "The k=1 arm does NOT stop at the kill (opt2's stop rule): after the kill bracket + densification (computed exactly as opt2 committed it) the walk CONTINUES 4 steps as read-only context so the front trace has more than the 2 pre-kill points. Continuation rows are flagged post_kill=true and NEVER adjudicate.",
+    "k>=2 arms skip the forward/backward on non-refresh steps (the delta is the previous delta by construction; per-step L2 asserted identical); the stream still advances one batch draw per step so refresh-step batch indexing is the licensed stream's own.",
+    "No chunk-resume machinery (opt2's): every phase is < 180 s and the progressive metrics.json writes after every phase carry the outage insurance instead.",
+    "No new checkpoints saved: the deliverables are metrics + figures; the saved-state role here is INPUT (provenance-gated), not output.",
+    "The k=inf rung is e192's R2 static sign profile loaded committed (frozen-front walk = colinear steps = the static ray by construction, e192's own rider disclosure); e192's 300-step pinned g-ray rider is co-loaded as the slow-step re-orientation-denial context (a different ray at a different step size \u2014 context, not a rung).",
+    "Light reads only (battery + CE_R + fact-gradient alignment co-reads + displacement + front cosines); CPU-ONLY, threads 4, n=1, seed lineage 10902.",
+    "Smoke mode trims: static grid {1.5, 1.6, 1.75}, 1 continuation step, k ladder {1, 2}, no densification (verdict stamped SMOKE; nothing adjudicated)."
+  ],
+  "timing": {
+    "total_s": 53.2
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "torch_threads": 4,
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128"
+  }
+}

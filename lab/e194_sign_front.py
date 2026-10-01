@@ -954,7 +954,15 @@ def main():
                    else PATH_DKILL_RAW_COMMITTED),
     }
     repro_tol = G_REPRO_TOL if not SMOKE else 5e-3   # smoke: no densification
+    # the matched-point read's comparator is the CHART's committed anchor
+    # (opt2's own G_SAMEPOINT convention): opt2's traj row evaluated the
+    # cosine on the walked fp32 d_cum vector, the chart (and this read) on
+    # the pre-step -sign(g_0) vector — the T150 estimator-texture
+    # difference (measured 4.93e-9, reported verbatim, never gated at 1e-9)
     repro_diffs = {kk: abs(vv[0] - vv[1]) for kk, vv in repro_rows.items()}
+    strict_diffs = {kk: v for kk, v in repro_diffs.items()
+                    if kk != "s1_matched_point_m12"}
+    sp_chart_diff = abs(s1["matched_point_m12"] - W024_ADAM_SAMEPOINT)
     dens_diffs = ([abs(a["gm12"] - b[1]) for a, b in
                   zip(arm1["stop"].get("dens", []), OPT2_DENS)]
                   if arm1["stop"].get("dens") else [])
@@ -964,6 +972,18 @@ def main():
                  for kk, vv in repro_rows.items()},
         "dens_gm12_max_abs_diff": (max(dens_diffs) if dens_diffs else None),
         "tol": repro_tol,
+        "matched_point_comparator": {
+            "measured": s1["matched_point_m12"],
+            "chart_committed": W024_ADAM_SAMEPOINT,
+            "chart_diff": sp_chart_diff,
+            "opt2_traj_value": OPT2_S1["matched_point_m12"],
+            "opt2_traj_diff": repro_diffs["s1_matched_point_m12"],
+            "note": "gated vs the CHART's committed same-point anchor (the "
+                    "family convention — opt2's own G_SAMEPOINT); opt2's "
+                    "traj row differs at fp32-texture level because it "
+                    "evaluated the cosine on the walked d_cum vector, this "
+                    "read on the pre-step -sign(g_0) vector (T150's "
+                    "estimator lesson, measured and reported verbatim)"},
         "e192_static_sign_D16543_gm12": {"measured": s1["gm12"],
                                          "committed": E192_A0_SIGNRAY_GM12,
                                          "abs_diff": abs(
@@ -972,17 +992,20 @@ def main():
                                                  "the sign walk IS a static "
                                                  "sign-ray jump at D=STEP_L2"},
         "pass": bool(arm1["stop"]["kind"] == "kill"
-                     and max(repro_diffs.values()) < repro_tol
+                     and max(strict_diffs.values()) < repro_tol
+                     and sp_chart_diff < (G_REPRO_TOL if not SMOKE
+                                          else G_SAMEPOINT_TOL)
                      and (not dens_diffs
                           or max(dens_diffs) < repro_tol)),
         "note": "THE SAVED-STATE PROVENANCE GATE (Rule 12): the rebuilt k=1 "
                 "walk must reproduce opt2's committed a_sign trajectory and "
                 "densified kill bracket — failure = control failure, abort",
     }
-    log("G_REPRO (vs opt2 committed a_sign): max|diff| "
-        f"{max(repro_diffs.values()):.2e}"
+    log("G_REPRO (vs opt2 committed a_sign): strict max|diff| "
+        f"{max(strict_diffs.values()):.2e}"
         + (f", dens max|diff| {max(dens_diffs):.2e}" if dens_diffs else "")
-        + ": " + ("PASS" if G_REPRO["pass"] else "FAIL"))
+        + f", matched-point vs chart {sp_chart_diff:.2e}: "
+        + ("PASS" if G_REPRO["pass"] else "FAIL"))
 
     # ---- G_SAVEDSTATE: the saved opt2 sign-arm checkpoint vs the walked s2
     # (the phase-A net continued past the kill, so its CURRENT state is the
