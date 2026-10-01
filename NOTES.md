@@ -9,6 +9,43 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## opt2 — GRADED: the density ladder — DENSITY CARRIES NOTHING; MAGNITUDE-INFORMATION ORDERS THE KILL; the sign path kills BELOW its own static edge (2026-10-01 ~16:15Z) — DONE
+
+WHAT WE DID: the optimizer arc's terminal cell at matched per-step
+L2 1.6543 in the licensed e185 wash cell (all gates bit-clean; the
+chart's same-point anchor pair -0.0385/+0.0396 reproduced EXACTLY —
+T150's estimator lesson trajectory-anchored at both ends; dual-
+estimator alignment at every checkpoint).
+
+WHAT WE SAW (T151): THE DENSITY LADDER (densified kill-D): TOPK-10%
+0.9066 < TOPK-50% 0.9203 == raw-g 0.9203 (opt1c's committed rung,
+a four-digit echo) < full sign(g) 1.7496 < A0-Adam 2.4893
+(checkpoint convention, cross-convention disclosed). Neither named
+bar fired — every arm kills, nothing spares — and the LADDER IS THE
+RESULT: (1) DENSITY CARRIES NOTHING: keeping |g|-selection + g's
+own magnitudes, deleting 90% of the coordinates leaves the kill AT
+the raw cliff (the top-10% front holds 75% of ||g||^2 and the
+entire lethality; top-50% is indistinguishable from the full
+gradient). (2) WHAT MOVES THE KILL IS MAGNITUDE INFORMATION — the
+T143 lethality ordering made INTERVENTIONAL at matched size:
+flattening to sign moves the kill 0.92 -> 1.75; Adam's warmed path
+2.49; THE LETHAL OBJECT IS THE |g|-WEIGHTED FRONT AT ANY DENSITY
+>= 10%. (3) THE SIGN PATH KILLS BELOW ITS OWN STATIC EDGE (1.75 vs
+the 2.5 static ray, which reads ~0.5 alive there) — the drifting
+fresh-sign front is MORE lethal per displacement than its fixed
+ray; e192's disclosed sign-class path-vs-ray gap is now measured.
+With the chart's shuffled-sign inertness: THE KILL LIVES IN THE
+COORDINATE-MAGNITUDE PAIRING, CONCENTRATED IN A TENTH OF IT.
+HONESTY: n=1, CPU fp32; every-step g-12 + along-step
+densification; the metrics' canned stretch phrase reads opposite to
+the number's meaning (the kill arrived EARLIER than the static
+edge — the agent's disclosed caution adopted here); top-k churn
+unobservable (kills at +1). FOLLOW-ONS NAMED: the top-k ladder
+downward (1% — where does the front stop being the whole kill?)
+and the sign-path-vs-ray mechanism.
+
+---
+
 ## x1 — the range census (the neighbor project's questions): dynamic-range spreads are BENIGN and near-Gaussian; these nets are far from low-rank (2026-10-01 ~16:05Z) — DONE
 
 WHAT WE DID: the courtesy cell promised in REPLY_to_matrix-native-

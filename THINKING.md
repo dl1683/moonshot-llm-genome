@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T151 — opt2: the lethal object is the |g|-weighted front — density exonerated, magnitude-information convicted (2026-10-01 ~16:15Z)
+
+The density ladder answers the optimizer arc's last open question
+with digit-level cleanliness (TOPK-50% == raw at 0.9203): DENSITY
+CARRIES NOTHING — a tenth of the coordinates, |g|-selected and
+magnitude-weighted, carry the whole kill. WHAT ORDERS THE KILL IS
+MAGNITUDE INFORMATION, now interventional at matched size: raw
+0.92 -> flattened sign 1.75 -> Adam's warmed sign-path 2.49. THE
+SIGN PATH KILLS BELOW ITS OWN STATIC EDGE: the re-computed front
+beats the frozen ray (1.75 vs 2.5) — the trajectory is MORE lethal
+than its shadow, the mirror of the bleed (whose re-orientation
+SPARES what its ray kills): DYNAMICS CUT BOTH WAYS, and the
+interesting objects are the two mismatches (the bleed's protective
+re-orientation; the sign path's lethal re-computation). WITH THE
+CHART: the kill lives in the coordinate-magnitude pairing
+(the shuffled sign is inert), concentrated in the top tenth —
+a sharp, small, nameable object: THE LETHAL FRONT. The estimator
+lesson is now anchored at both ends on trajectories. The arc's
+shape: opt1 asked CLOCK-vs-GATE; opt1c split direction from size;
+e191/e192 mapped the terrain; the chart killed two pictures; opt2
+names the weapon. FOLLOW-ONS: the 1% rung; the sign-front
+mechanism. HONESTY: n=1, CPU fp32, the canned-phrase caution
+adopted (the number, not the frozen text, is the reading).
+
 ## T150 — the chart: no cuts, no flip — the corrections corrected (2026-10-01 ~16:00Z)
 
 THE CHART CELL corrects the correctors. (1) THE PUMP HAS NO CUTS:
