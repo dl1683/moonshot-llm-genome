@@ -769,6 +769,21 @@ THE META: the chart was built to check two wonder cards and it
 killed both pictures while confirming both questions were worth
 asking — the favorite-dies-well pattern, twice in one cell.
 
+
+[R60-CRITIC REPAIRS ~17:15Z]: (a) the d_eff BOUND WAS FLIPPED in
+this fold — kappa >= 7.25 implies d_eff <= 52k, not >=; corrected.
+(b) The "SVD rank 20" saturates its instrument (only 20 history
+vectors exist — a cap, not a measurement); the kappa denominator
+is an unregistered convention swinging d_eff 8x — the
+"non-reconciliation" is convention-plus-cap, not physics. (c)
+SUPPRESSED DISCLOSURE restored: in-span seed 11602 is ALIVE (0.66)
+at rung 1 where siblings die at ~1e-4 — a ~3x threshold spread
+inside the primary organism; the in-span arm's lethality is
+seed-heterogeneous. (d) The un-run breaker named: magnitude-shuffle
+within the front (keep top-10% support and signs, permute |g|) —
+sign-pairing was convicted by intervention; magnitude-pairing is
+asserted, never intervened on (queued for e193b/e194's rider).
+
 ## T149 — e182c: the surgical signature dies at 124M — generic forgetting, and the template-locus hint (2026-10-01 ~15:40Z)
 
 FORGETTING-GENERIC fired at both depths: matched held-out controls
@@ -944,6 +959,15 @@ the dynamic cliff, the terrain is real; if the static jump at 0.92
 spares, the kill is overshoot) and the bleed's own crossing
 (opt1b2: it passed 0.92 alive at 0.79 — where does the re-orienting
 path die? the projection said ~10; the cliff says closer).
+
+
+[R60-CRITIC AMENDMENT ~17:15Z]: "the raw gradient is the most
+lethal direction" is CONTRADICTED un-amended by the chart's in-span
+arm (sampled span directions kill at 0.56-0.61, BELOW the g-ray's
+0.92) — the correct sentence: the g-ray is the most lethal of the
+FIVE RAYS SAMPLED; the span contains directions more lethal still;
+three rays are not a map. TERRAIN language scopes to biography-of-
+rays until e193/e193b replicate or scramble the order.
 
 ## T142 — opt1b: CAP-NEITHER honestly — Adam is the guillotine, SGD is the bleed; the gate question moves to opt1c/opt1b2 (2026-09-30 ~12:25Z)
 

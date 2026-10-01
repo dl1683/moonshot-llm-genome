@@ -139,7 +139,7 @@ wash delta IS the first history segment, removed 1.0, residual
 kills at rung 8 — inside the random band; e131: the sign-flattened
 history contains only 64.2% of the raw ray, so the "out-span"
 residual retains 59% of the g-ray and kills at rung 1). The
-dimension estimates do NOT reconcile (kappa-derived d_eff >=52k/
+dimension estimates do NOT reconcile (kappa-derived d_eff <=52k/ (bound direction CORRECTED per R60-critic)
 36k/24k vs SVD rank 20/8/7 vs PR 6.4-15.8) — the finite-span proxy
 caveat carried verbatim; W025's projection-ratio account of the
 random band remains UNCONFIRMED. RIDERS: the shuffled-sign ray is

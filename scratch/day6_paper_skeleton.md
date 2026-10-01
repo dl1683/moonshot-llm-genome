@@ -218,7 +218,8 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    RHYTHM (g2g-controlled) — a zero-parameter rehearsal organ (cue
    pool + onset monitor + replay gate) self-times resurrection
    events: threat-responsive within [0.5x, 2x] (a weak step,
-   ceiling-saturated beyond), autonomy worth +0.07 of cycle-median
+   ceiling-saturated beyond), autonomy reading
+   +0.07 of cycle-median (single-run; the seed ladder owed — 'worth' struck per R60-critic)
    over a matched fixed schedule at operating threat (run-stable;
    FIXED-MATCHES-OR-WINS the safer letter beyond), refractory-
    tunable with shorter better (the 20-45 band partly a

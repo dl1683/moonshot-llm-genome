@@ -34,10 +34,10 @@ displacement 0.92, Adam's two sign-steps at ~2.5, and a diffusive
 small-step walk grinding below the ring without dying (asymptote
 unmeasured; three linear projections falsified) —
 with small displacements paradoxically STRENGTHENING the fact before
-the cliff (C3-C5). The same physics is generative: a projection
+the cliff (C3-C5). The architectures came first and the physics explains them after (construction preceded explanation — not 'the same physics is generative'): a projection
 ball holds a fact through the killing wash at a measurable onset
 tax (n=3, one root), and a zero-parameter organ self-times its
-resurrection (C6-C7). We pre-register every bar; the paper's
-correction chain — three rulers bent, one projection falsified by
-its own measurement — is itself evidence the dissected laws are
-causal, not descriptive (C9).
+resurrection (C6-C7). We pre-register every bar and publish the correction chain
+itself — three rulers bent, one projection falsified by its own
+measurement — as the method's claim (verifiable process, not
+proof of causality) (C9).
