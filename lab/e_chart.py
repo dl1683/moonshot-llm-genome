@@ -1950,6 +1950,15 @@ def main():
                              "+ = pump, - = erosion",
                 "adam_view": "the flattening limit (-sign(g)); exact at t=0, "
                              "fresh-Adam flattening at t>0 (declared)",
+                "traj_estimator": "cos(realized same-arm segment to the "
+                             "next snapshot, grad m12 at that next "
+                             "snapshot) — the PER-SEGMENT object; at t=0 it "
+                             "coincides with opt1's cumulative estimator "
+                             "(gated HARD, d 5.4e-06); at later steps "
+                             "opt1's committed cos_delta values are "
+                             "cumulative-displacement cosines, so the "
+                             "per-segment read is a declared different "
+                             "object",
                 "states": "neutral-stream arms only (lr1e-3/3e-5/1e-5 + "
                           "opt1 A0's s10; 21 states + root); the 1e-4 "
                           "extinction-stream arm EXCLUDED (provenance)",
