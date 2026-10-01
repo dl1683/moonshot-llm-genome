@@ -244,6 +244,28 @@ ckpt regardless (train_model's own resume path — untouched).
 G1BS_GPU_WAIT_MAX=7200 set for this run (the pre-registered env knob,
 recovery fix (c)): the neighbor project's INT8 jobs may return; arms
 pause-and-wait up to 2h rather than silently hopping to CPU mid-cell.
+
+==================== RECOVERY-6 NOTE (2026-10-01, the SIXTH dispatch) =======
+A SEVENTH disruption (user-confirmed shutdown #2) killed the fifth
+executor MID-BASE, right after its chunk-2 progressive write (survivors
+committed at 7f9703c). Inventory by this agent: runs/checkpoints/
+g1bS2_base.pt = a HEALTHY mid-schedule partial at step 962/1200 (vals
+falling monotonically 2.1299 -> 1.8508 -> 1.7943 -> 1.6421 -> 1.5928;
+scheduler last_epoch 962, lr 4.15e-5 annealing to 0 at 1200; batch-
+generator state carried) — verify_base_divergence classifies it healthy
+-> CONTINUED via the chunk machinery (RECOVERY-4's stash path carries
+the 2-chunk table; train_model's own resume honors the licensed 1200/
+warmup-60 schedule; nothing restarted). Script verified against the
+frozen design + the G1BS2 license (R_rms 4.2296e-4 = 0.7/sqrt(2739072),
+ladder {1,2,4}x, WALL bars verbatim, scaled-bar-before-arms, both R
+conventions, G-BASE-QUAL hard stop, priors cross-checked against runs/
+g1b/metrics.json): NO deviations found, NO fixes needed — this note is
+the only edit (bookkeeping). G1BS_GPU_WAIT_MAX=7200 for this run too
+(the pre-registered knob; pause-and-wait, never migrate). Then the
+sequence is exactly the dispatch's: G-BASE-QUAL verbatim (hard stop
+before install if it fails) -> install -> consolidate -> commit ->
+W1{R_rms ladder} vs C under the untouched wash -> the scaled bars ->
+adjudication; no bar shopping.
 """
 from __future__ import annotations
 
@@ -766,6 +788,27 @@ RECOVERY = {
                                 "g1bS2 (runs/g1bS2/, "
                                 "runs/checkpoints/g1bS2_*.pt) so no g1bS "
                                 "survivor artifact is modified"),
+    },
+    "sixth_dispatch": {
+        "note": ("a SEVENTH disruption (user-confirmed shutdown #2) killed "
+                 "the fifth executor mid-base after chunk 2's progressive "
+                 "write; survivors committed at 7f9703c — this is the SIXTH "
+                 "dispatch's recovery (g1bS2-r2)"),
+        "base_inventory": ("g1bS2_base.pt = healthy mid-schedule partial at "
+                           "step 962/1200 (vals falling 2.1299 -> 1.5928; "
+                           "sched epoch 962, lr 4.15e-5 -> 0 at 1200; "
+                           "generator state carried) — CONTINUED via the "
+                           "chunk machinery, not restarted"),
+        "script_verification": ("full read against the frozen design + the "
+                                "G1BS2 license: R-convention, ladder, bars, "
+                                "scaled-bar ordering, both R conventions, "
+                                "G-BASE-QUAL hard stop, priors vs runs/g1b/"
+                                "metrics.json — NO deviations, NO fixes; the "
+                                "RECOVERY-6 docstring note is the only edit"),
+        "gpu_policy": ("G1BS_GPU_WAIT_MAX=7200 (the pre-registered env knob): "
+                       "pause-and-wait under the neighbor's INT8 jobs, never "
+                       "migrate; the base gate waits without timeout as "
+                       "registered"),
     },
 }
 
