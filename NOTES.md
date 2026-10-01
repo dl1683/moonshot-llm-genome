@@ -237,7 +237,7 @@ a four-digit echo) < full sign(g) 1.7496 < A0-Adam 2.4893
 bar fired — every arm kills, nothing spares — and the LADDER IS THE
 RESULT: (1) DENSITY CARRIES NOTHING: keeping |g|-selection + g's
 own magnitudes, deleting 90% of the coordinates leaves the kill AT
-the raw cliff (the top-10% front holds 86.6% of ||g|| (the committed census read; the agent's 75% had no artifact — corrected per R60-audit)^2 and the
+the raw cliff (the top-10% front holds ~75% of ||g||^2 (opt2's own gate, energy_frac 0.7497; e_chart's census reads 86.6% at its own convention — TWO instruments, both real, unreconciled; the paper omits mass fractions) and the
 entire lethality; top-50% is indistinguishable from the full
 gradient). (2) WHAT MOVES THE KILL IS MAGNITUDE INFORMATION — the
 T143 lethality ordering made INTERVENTIONAL at matched size:
