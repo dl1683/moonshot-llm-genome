@@ -1,17 +1,23 @@
 {
   "experiment": "g1bS_scale_wall",
-  "date": "2026-10-01T13:45:46Z",
+  "date": "2026-10-01T15:01:47Z",
   "partial": true,
-  "phase": "base-chunk-4",
-  "progressive_writes": 7,
+  "phase": "G-BASE-QUAL",
+  "progressive_writes": 13,
   "phases": [
     "start",
     "G-CONFIG",
     "divergence-verification",
-    "base-chunk-1",
-    "base-chunk-2",
-    "base-chunk-3",
-    "base-chunk-4"
+    "base-chunk-5",
+    "base-chunk-6",
+    "base-chunk-7",
+    "base-chunk-8",
+    "base-chunk-9",
+    "base-chunk-10",
+    "base-chunk-11",
+    "base-chunk-12",
+    "base-chunk-13",
+    "G-BASE-QUAL"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
@@ -64,59 +70,199 @@
       "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) \u2014 lr is the only delta vs the diverged trajectory",
       "divergence_verification": {
         "ckpt": "g1bS_base.pt",
-        "step": 3250,
-        "val_first": 2.031466484069824,
-        "val_min": 1.5677728354930878,
-        "val_last": 3.9586017727851868,
-        "rise_from_min": 2.390828937292099,
-        "train_last": 0.1276863068342209,
-        "train_val_split": "train FALLING while val RISES = degenerate collapse, not benign overfitting",
-        "own_eval_val_loss": 3.9586022893587747,
+        "step": 1113,
+        "val_first": 2.1608801086743674,
+        "val_min": 1.576567639907201,
+        "val_last": 1.576567639907201,
+        "rise_from_min": 0.0,
+        "train_last": 1.2347416877746582,
+        "train_val_split": "n/a",
+        "own_eval_val_loss": 1.5765677094459534,
         "sample_stats": {
           "len": 300,
-          "lower_space_fraction": 0.7566666666666667,
-          "mean_word_len": 4.192982456140351,
+          "lower_space_fraction": 0.8433333333333334,
+          "mean_word_len": 4.228070175438597,
           "max_char_run": 2,
-          "distinct_chars": 46
+          "distinct_chars": 40
         },
-        "sample_reading": "coherent-looking sample DESPITE val 3.96 = the MEMORIZATION/RECITATION signature: train CE 0.13 means the collapsed model recites its train corpus (free-running generation re-enters the memorized manifold) while generalization on held-out windows died \u2014 which is why the registered quality gate leads with the VAL-based legs (g2 decreasing + g3 <= 1.70) and the coherence sample alone can never certify a base",
-        "classification": "DIVERGED",
-        "verdict": "DIVERGED \u2014 archive + fresh retrain at the width-scaled lr 0.0004"
+        "sample_reading": null,
+        "classification": "healthy-partial (resume, Rule 10)",
+        "verdict": "not diverged \u2014 resume the chunk schedule"
       }
+    },
+    "fourth_dispatch": {
+      "note": "a FIFTH disruption (user-confirmed shutdown) killed the third executor mid-base-retrain after its chunk-4 write (13:45:46Z); this is the FOURTH dispatch's recovery",
+      "retrain_state_survived": "runs/checkpoints/g1bS_base.pt = step 1113/4000 with model+opt+sched+generator+full history (chunk-final vals 2.1609 -> 1.8444 -> 1.6562 -> 1.5766, val FALLING healthily) \u2014 CONTINUED, not restarted; the 4e-4 schedule honored verbatim",
+      "script_verification": "full read against the frozen design: the R-convention (R_rms 4.2301e-4, ladder {1,2,4}x), the WALL bars, the untouched wash, the scaled-bar-before-arms ordering, the G-BASE-QUAL hard stop and both R conventions in every readout all match; smoke exit 0 (recovery3_smoke_run.log)",
+      "fix": "chunk-table continuation across process restarts was dead code (write_partial('start') clobbered metrics.json before the resume branch read base_chunks back) \u2014 fixed by stashing the prior table before the first partial write; bookkeeping only (no training arithmetic, RNG, dial or bars); G-BASE-QUAL's g2 leg now sees the WHOLE continued trajectory as registered",
+      "gpu_policy": "G1BS_GPU_WAIT_MAX=7200 for this run (the pre-registered env knob, recovery fix (c)): the neighbor's INT8 jobs may return; pause-and-wait up to 2h, never a silent CPU hop mid-cell"
     }
   },
-  "base_chunks": [
-    {
-      "chunk": 1,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 183.5,
-      "steps_done": 249,
-      "val_loss": 2.1608801086743674
+  "G_BASE": {
+    "steps": 4000,
+    "final_val_loss": 2.8505695859591165,
+    "n_chunks": 13,
+    "chunks": [
+      {
+        "chunk": 1,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 183.5,
+        "steps_done": 249,
+        "val_loss": 2.1608801086743674
+      },
+      {
+        "chunk": 2,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 190.3,
+        "steps_done": 454,
+        "val_loss": 1.8444162011146545
+      },
+      {
+        "chunk": 3,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 184.9,
+        "steps_done": 721,
+        "val_loss": 1.6562077204386394
+      },
+      {
+        "chunk": 4,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 185.4,
+        "steps_done": 1113,
+        "val_loss": 1.576567639907201
+      },
+      {
+        "chunk": 5,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 186.7,
+        "steps_done": 1423,
+        "val_loss": 1.5995878378550212
+      },
+      {
+        "chunk": 6,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 186.4,
+        "steps_done": 1731,
+        "val_loss": 1.6394678155581157
+      },
+      {
+        "chunk": 7,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 189.5,
+        "steps_done": 2024,
+        "val_loss": 1.7798547248045604
+      },
+      {
+        "chunk": 8,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 184.2,
+        "steps_done": 2369,
+        "val_loss": 2.0228983064492545
+      },
+      {
+        "chunk": 9,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 185.7,
+        "steps_done": 2728,
+        "val_loss": 2.3023159305254617
+      },
+      {
+        "chunk": 10,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 185.6,
+        "steps_done": 3081,
+        "val_loss": 2.5974626938501992
+      },
+      {
+        "chunk": 11,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 182.8,
+        "steps_done": 3435,
+        "val_loss": 2.780246992905935
+      },
+      {
+        "chunk": 12,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 187.2,
+        "steps_done": 3815,
+        "val_loss": 2.8516182700792947
+      },
+      {
+        "chunk": 13,
+        "device": "cuda",
+        "cap_s": 180.0,
+        "seconds": 74.7,
+        "steps_done": 4000,
+        "val_loss": 2.8505695859591165
+      }
+    ],
+    "pass": true
+  },
+  "base_cells": {
+    "gm12": 7.752865349175408e-05,
+    "g0": 9.970800601877272e-05,
+    "gp12": 0.00012616952881217003,
+    "held30_gm12": 2.7585796487983316e-05,
+    "held30_g0": 3.0291814255178906e-05,
+    "ce_r": 2.788372039794922,
+    "site_read_onset": 6.998043681960553e-05,
+    "site_read_span": 0.13343413174152374,
+    "A129": 4.970787768598931e-06
+  },
+  "G_BASE_QUAL": {
+    "registered": {
+      "registered_before_retrain": true,
+      "why": "third-dispatch instruction: NO install/consolidate/arms until the base passes a quality gate REGISTERED BEFORE the base trains (the inherited base diverged; the gate is the dispatch bar, not a wall dial \u2014 no bar shopping applies here or is enabled by it)",
+      "g1_cosine_complete": "final step == 4000 (the existing G-BASE)",
+      "g2_val_decreasing": "every chunk-final val <= previous chunk-final val + 0.02 (float/device noise band), AND final val <= first-eval val (step 250) - 0.15 (real learning across the schedule)",
+      "g3_final_val_anchor": "final val <= 1.70 \u2014 agent-1's healthy prefix was 1.58 @ step 750 and still falling at lr 1e-3; a stable width-scaled cosine on 3.6x the parameters must stay under the diverged run's own healthy window with margin",
+      "g4_coherence_sample": "common.generate (the house instrument verbatim: temp 0.8, top_k 40, 300 new tokens, fixed prompt = the first 64 chars of val_text, recorded): lowercase+space fraction >= 0.70 AND mean word length in [2.0, 8.0] AND longest single-char run <= 10 AND >= 18 distinct chars; the sample text recorded verbatim",
+      "failure_action": "G-BASE-QUAL FAILS => the run STOPS before install (progressive metrics hold the record); no arms, no adjudication"
     },
-    {
-      "chunk": 2,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 190.3,
-      "steps_done": 454,
-      "val_loss": 1.8444162011146545
+    "cosine_complete": true,
+    "chunk_final_vals": [
+      2.1608801086743674,
+      1.8444162011146545,
+      1.6562077204386394,
+      1.576567639907201,
+      1.5995878378550212,
+      1.6394678155581157,
+      1.7798547248045604,
+      2.0228983064492545,
+      2.3023159305254617,
+      2.5974626938501992,
+      2.780246992905935,
+      2.8516182700792947,
+      2.8505695859591165
+    ],
+    "val_monotone_decreasing_noise0.02": false,
+    "first_eval_val": 2.1608801086743674,
+    "final_val": 2.8505695859591165,
+    "g2_val_decreasing": false,
+    "g3_final_val<=1.70": false,
+    "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
+    "sample_generated": "ow, my lord.\n\nGREMIO:\nWhat's here? and  I very words prove in arms?\n\nPOMPEY:\nTake her hence to delay then shall shame violently.\n\nSAMPSON:\nI would seem by him.\n\nGREGORY:\nI would they were so, as sweet as dull as sweet.\n\nSAMPSON:\nTruly, sir, I would be ruled to the margle.\n\nGREGORY:\nNo; I beseech you",
+    "sample_stats": {
+      "len": 300,
+      "lower_space_fraction": 0.7133333333333334,
+      "mean_word_len": 4.25,
+      "max_char_run": 2,
+      "distinct_chars": 42
     },
-    {
-      "chunk": 3,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 184.9,
-      "steps_done": 721,
-      "val_loss": 1.6562077204386394
-    },
-    {
-      "chunk": 4,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 185.4,
-      "steps_done": 1113,
-      "val_loss": 1.576567639907201
-    }
-  ]
+    "g4_coherence_sample": true,
+    "pass": false,
+    "enforced": true
+  }
 }
