@@ -1,26 +1,28 @@
 {
   "experiment": "g1bS2_scale_wall",
-  "date": "2026-10-01T18:14:15Z",
+  "date": "2026-10-01T20:23:35Z",
   "partial": true,
-  "phase": "G-INST",
-  "progressive_writes": 6,
+  "phase": "root+scaled-bar",
+  "progressive_writes": 8,
   "phases": [
     "start",
     "G-CONFIG",
     "divergence-verification",
-    "base-chunk-3",
+    "base-chunk-1",
     "G-BASE-QUAL",
-    "G-INST"
+    "G-INST",
+    "consolidate",
+    "root+scaled-bar"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
     "survivors": {
-      "script": "lab/g1bS_scale_wall.py @ ef4f1f1 (mid-edit working copy: WAIT-GATE SOAK FIX + inter-chunk cuda empty_cache — device policy only, pre-documented in deviations)",
-      "base_ckpt": "runs/checkpoints/g1bS_base.pt — the TRAINED 10M host base, NOT retrained; resumed at step 750/4000 with model+opt+sched+batch-generator state carried",
-      "smoke": "runs/g1bS_smoke/ — complete machinery smoke from the PRE-EDIT copy (root ckpt landed as smoke_g1bS_root.pt.pt, the mid-edit ROOT_CK residue; the committed line is fixed); re-verified by this agent's smoke re-run — see runs/g1bS_smoke/recovery_verification.json"
+      "script": "lab/g1bS_scale_wall.py @ ef4f1f1 (mid-edit working copy: WAIT-GATE SOAK FIX + inter-chunk cuda empty_cache \u2014 device policy only, pre-documented in deviations)",
+      "base_ckpt": "runs/checkpoints/g1bS_base.pt \u2014 the TRAINED 10M host base, NOT retrained; resumed at step 750/4000 with model+opt+sched+batch-generator state carried",
+      "smoke": "runs/g1bS_smoke/ \u2014 complete machinery smoke from the PRE-EDIT copy (root ckpt landed as smoke_g1bS_root.pt.pt, the mid-edit ROOT_CK residue; the committed line is fixed); re-verified by this agent's smoke re-run \u2014 see runs/g1bS_smoke/recovery_verification.json"
     },
     "recovery_fixes": [
-      "(a) neutral-bank `tries += 1` restored (lost in the copy from g1; RNG stream unaffected — the bank is bit-identical)",
+      "(a) neutral-bank `tries += 1` restored (lost in the copy from g1; RNG stream unaffected \u2014 the bank is bit-identical)",
       "(b) PROGRESSIVE PARTIAL metrics.json writes after every phase/chunk/arm (the outage lesson: the killed full run left runs/g1bS/ empty)",
       "(c) G1BS_GPU_WAIT_MAX env override for the arm wait (default 600 s unchanged) per the recovery dispatch's pause-and-wait",
       "(d) RECOVERY provenance block (this dict) + the docstring note"
@@ -56,122 +58,97 @@
     "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events",
     "third_dispatch": {
       "note": "two machine disruptions killed the first two executors; this is the THIRD dispatch's recovery (coordinator commits 3b1b4cc + dbc3fd7); survivors: this script, the partial runs/g1bS/metrics.json, the diverged base ckpt",
-      "primary_inheritance": "agent-2's base chunks: val RISING monotonically 1.628 -> 3.724 over chunks 1-6 (steps 1207-2958); the saved ckpt (s3250) splits train 0.13 falling / val 3.96 rising — degenerate collapse under peak lr 1e-3 (the 0.87M n_embd=128 recipe carried unscaled onto the 10M n_embd=320 host); the scheduler decayed correctly (lr 8.9e-5 at s3250) — the recipe, not the resume, is the fault",
-      "lr_fix": "BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x 128/320, inside the coordinator's documented 3e-4..5e-4 window); warmup 100 + clip 1.0 kept verbatim; legitimate documented deviation — the design froze the R-convention and the WALL bars, NOT the base lr",
+      "primary_inheritance": "agent-2's base chunks: val RISING monotonically 1.628 -> 3.724 over chunks 1-6 (steps 1207-2958); the saved ckpt (s3250) splits train 0.13 falling / val 3.96 rising \u2014 degenerate collapse under peak lr 1e-3 (the 0.87M n_embd=128 recipe carried unscaled onto the 10M n_embd=320 host); the scheduler decayed correctly (lr 8.9e-5 at s3250) \u2014 the recipe, not the resume, is the fault",
+      "lr_fix": "BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x 128/320, inside the coordinator's documented 3e-4..5e-4 window); warmup 100 + clip 1.0 kept verbatim; legitimate documented deviation \u2014 the design froze the R-convention and the WALL bars, NOT the base lr",
       "install_adaptation": "install lr 4e-4 + dose s1000 (MOVEMENT-matched to e043's 1e-3 x s400); consolidate + wash stay 1e-3 verbatim (the registered treatment; Adam-clock priced at 1e-3)",
-      "quality_gate": "G-BASE-QUAL registered BEFORE the retrain (registered.base_quality_gates): cosine complete + val decreasing across the schedule + final val <= 1.70 + a coherence sample; on failure the run STOPS before install — no arms, no adjudication",
-      "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) — lr is the only delta vs the diverged trajectory",
+      "quality_gate": "G-BASE-QUAL registered BEFORE the retrain (registered.base_quality_gates): cosine complete + val decreasing across the schedule + final val <= 1.70 + a coherence sample; on failure the run STOPS before install \u2014 no arms, no adjudication",
+      "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) \u2014 lr is the only delta vs the diverged trajectory",
       "divergence_verification": {
         "ckpt": "g1bS2_base.pt",
-        "step": 962,
+        "step": 1200,
         "val_first": 2.129887064297994,
-        "val_min": 1.5927761395772297,
-        "val_last": 1.5927761395772297,
+        "val_min": 1.5690115491549175,
+        "val_last": 1.5690115491549175,
         "rise_from_min": 0.0,
-        "train_last": 1.3354578018188477,
+        "train_last": 1.289050579071045,
         "train_val_split": "n/a",
-        "own_eval_val_loss": 1.5927760899066925,
+        "own_eval_val_loss": 1.5690115491549175,
         "sample_stats": {
           "len": 300,
-          "lower_space_fraction": 0.9066666666666666,
-          "mean_word_len": 4.016666666666667,
+          "lower_space_fraction": 0.7933333333333333,
+          "mean_word_len": 4.155172413793103,
           "max_char_run": 2,
-          "distinct_chars": 38
+          "distinct_chars": 48
         },
         "sample_reading": null,
         "classification": "healthy-partial (resume, Rule 10)",
-        "verdict": "not diverged — resume the chunk schedule"
+        "verdict": "not diverged \u2014 resume the chunk schedule"
       }
     },
     "fourth_dispatch": {
       "note": "a FIFTH disruption (user-confirmed shutdown) killed the third executor mid-base-retrain after its chunk-4 write (13:45:46Z); this is the FOURTH dispatch's recovery",
-      "retrain_state_survived": "runs/checkpoints/g1bS_base.pt = step 1113/4000 with model+opt+sched+generator+full history (chunk-final vals 2.1609 -> 1.8444 -> 1.6562 -> 1.5766, val FALLING healthily) — CONTINUED, not restarted; the 4e-4 schedule honored verbatim",
+      "retrain_state_survived": "runs/checkpoints/g1bS_base.pt = step 1113/4000 with model+opt+sched+generator+full history (chunk-final vals 2.1609 -> 1.8444 -> 1.6562 -> 1.5766, val FALLING healthily) \u2014 CONTINUED, not restarted; the 4e-4 schedule honored verbatim",
       "script_verification": "full read against the frozen design: the R-convention (R_rms 4.2301e-4, ladder {1,2,4}x), the WALL bars, the untouched wash, the scaled-bar-before-arms ordering, the G-BASE-QUAL hard stop and both R conventions in every readout all match; smoke exit 0 (recovery3_smoke_run.log)",
-      "fix": "chunk-table continuation across process restarts was dead code (write_partial('start') clobbered metrics.json before the resume branch read base_chunks back) — fixed by stashing the prior table before the first partial write; bookkeeping only (no training arithmetic, RNG, dial or bars); G-BASE-QUAL's g2 leg now sees the WHOLE continued trajectory as registered",
+      "fix": "chunk-table continuation across process restarts was dead code (write_partial('start') clobbered metrics.json before the resume branch read base_chunks back) \u2014 fixed by stashing the prior table before the first partial write; bookkeeping only (no training arithmetic, RNG, dial or bars); G-BASE-QUAL's g2 leg now sees the WHOLE continued trajectory as registered",
       "gpu_policy": "G1BS_GPU_WAIT_MAX=7200 for this run (the pre-registered env knob, recovery fix (c)): the neighbor's INT8 jobs may return; pause-and-wait up to 2h, never a silent CPU hop mid-cell"
     },
     "fifth_dispatch": {
-      "note": "g1bS2 = THE WALL AT 10x, TAKE 2 (the fifth dispatch of the lineage; coordinator commit 2e3d70f): g1bS's 4000-step base FAILED G-BASE-QUAL exactly as registered (val U-turn; hard stop before install; no arms) — T148: the house recipe is SCALE-BOUND; relaunching g1bS unmodified fails identically. This dispatch is the LICENSED re-registration, not a do-over",
+      "note": "g1bS2 = THE WALL AT 10x, TAKE 2 (the fifth dispatch of the lineage; coordinator commit 2e3d70f): g1bS's 4000-step base FAILED G-BASE-QUAL exactly as registered (val U-turn; hard stop before install; no arms) \u2014 T148: the house recipe is SCALE-BOUND; relaunching g1bS unmodified fails identically. This dispatch is the LICENSED re-registration, not a do-over",
       "licensed_change": "HOST recipe val-min-anchored: BASE_STEPS 4000 -> 1200 (warmup 60 + cosine to 1200, ending near g1bS's observed val minimum ~s1113), lr 4e-4 unchanged; train_model warmup kwarg added (default 100, backward compatible). Everything downstream VERBATIM: install (e043-Dmix, RECOVERY-3 movement-matched s1000 @ 4e-4), consolidate (e113), wash (e176N), R_rms ladder {1,2,4}x, the scaled bar before the arms, both R conventions, the frozen WALL bars",
-      "g2_by_construction": "the shortened schedule sits inside the observed DECREASING prefix (min ~s1113) and anneals lr -> 0 where the 4000-step run turned, so the val-decreasing leg should hold by construction — a documented expectation, not a proof (new trajectory); if it still fails the run STOPS honestly and the finding ('even val-min-anchored fails') is itself reportable",
-      "g1bs_record": "the failed cell's record: runs/g1bS/metrics.json (13 chunks, chunk-final vals 2.1609 -> 1.5766 (s1113) -> 2.8506 (s4000); G-BASE-QUAL g2/g3 FALSE, g4 TRUE, pass FALSE, enforced) + runs/g1bS/base_quality.png + the archived base ckpt g1bS_base_overtrained_s4000_lr4e-4.pt — none touched by this run (fresh base at the shortened schedule, same seed-1337 init and batch stream; the schedule is the only delta vs the g1bS trajectory)",
+      "g2_by_construction": "the shortened schedule sits inside the observed DECREASING prefix (min ~s1113) and anneals lr -> 0 where the 4000-step run turned, so the val-decreasing leg should hold by construction \u2014 a documented expectation, not a proof (new trajectory); if it still fails the run STOPS honestly and the finding ('even val-min-anchored fails') is itself reportable",
+      "g1bs_record": "the failed cell's record: runs/g1bS/metrics.json (13 chunks, chunk-final vals 2.1609 -> 1.5766 (s1113) -> 2.8506 (s4000); G-BASE-QUAL g2/g3 FALSE, g4 TRUE, pass FALSE, enforced) + runs/g1bS/base_quality.png + the archived base ckpt g1bS_base_overtrained_s4000_lr4e-4.pt \u2014 none touched by this run (fresh base at the shortened schedule, same seed-1337 init and batch stream; the schedule is the only delta vs the g1bS trajectory)",
       "artifact_separation": "all run/checkpoint names renamed g1bS -> g1bS2 (runs/g1bS2/, runs/checkpoints/g1bS2_*.pt) so no g1bS survivor artifact is modified"
     },
     "sixth_dispatch": {
-      "note": "a SEVENTH disruption (user-confirmed shutdown #2) killed the fifth executor mid-base after chunk 2's progressive write; survivors committed at 7f9703c — this is the SIXTH dispatch's recovery (g1bS2-r2)",
-      "base_inventory": "g1bS2_base.pt = healthy mid-schedule partial at step 962/1200 (vals falling 2.1299 -> 1.5928; sched epoch 962, lr 4.15e-5 -> 0 at 1200; generator state carried) — CONTINUED via the chunk machinery, not restarted",
-      "script_verification": "full read against the frozen design + the G1BS2 license: R-convention, ladder, bars, scaled-bar ordering, both R conventions, G-BASE-QUAL hard stop, priors vs runs/g1b/metrics.json — NO deviations, NO fixes; the RECOVERY-6 docstring note is the only edit",
+      "note": "a SEVENTH disruption (user-confirmed shutdown #2) killed the fifth executor mid-base after chunk 2's progressive write; survivors committed at 7f9703c \u2014 this is the SIXTH dispatch's recovery (g1bS2-r2)",
+      "base_inventory": "g1bS2_base.pt = healthy mid-schedule partial at step 962/1200 (vals falling 2.1299 -> 1.5928; sched epoch 962, lr 4.15e-5 -> 0 at 1200; generator state carried) \u2014 CONTINUED via the chunk machinery, not restarted",
+      "script_verification": "full read against the frozen design + the G1BS2 license: R-convention, ladder, bars, scaled-bar ordering, both R conventions, G-BASE-QUAL hard stop, priors vs runs/g1b/metrics.json \u2014 NO deviations, NO fixes; the RECOVERY-6 docstring note is the only edit",
       "gpu_policy": "G1BS_GPU_WAIT_MAX=7200 (the pre-registered env knob): pause-and-wait under the neighbor's INT8 jobs, never migrate; the base gate waits without timeout as registered"
     }
   },
-  "G_INST": {
-    "steps": 1000,
-    "n_chunks": 4,
-    "chunks": [
-      {
-        "chunk": 1,
-        "device": "cuda",
-        "seconds": 182.3,
-        "steps_done": 343
-      },
-      {
-        "chunk": 2,
-        "device": "cuda",
-        "seconds": 185.9,
-        "steps_done": 666
-      },
-      {
-        "chunk": 3,
-        "device": "cuda",
-        "seconds": 186.4,
-        "steps_done": 975
-      },
-      {
-        "chunk": 4,
-        "device": "cuda",
-        "seconds": 3.1,
-        "steps_done": 1000
-      }
-    ],
-    "pass": true
+  "G_ROOT": {
+    "bar": 0.78,
+    "gm12": 0.0010485216043889523,
+    "pass": false
   },
-  "inst_cells": {
-    "gm12": 0.04199834540486336,
-    "g0": 0.5013128519058228,
-    "gp12": 0.042499374598264694,
-    "held30_gm12": 0.022439507767558098,
-    "held30_g0": 0.30181604623794556,
-    "ce_r": 1.540094017982483,
-    "site_read_onset": 0.02382466569542885,
-    "site_read_span": 0.8596717715263367,
-    "A129": 0.23110246583819388
+  "root_cells": {
+    "gm12": 0.0010485216043889523,
+    "g0": 0.658349871635437,
+    "gp12": 0.00288148014806211,
+    "held30_gm12": 0.0011116000823676586,
+    "held30_g0": 0.8293391466140747,
+    "ce_r": 2.578374147415161,
+    "site_read_onset": 0.0004025587113574147,
+    "site_read_span": 0.2064085453748703,
+    "A129": 0.6528987613650498,
+    "row0_strength": -0.037813445304830884,
+    "dall_g0": 0.006069680210202932,
+    "d183_g0": 0.658349871635437,
+    "d183_gm12": 0.0010485216043889523
   },
-  "base_chunks": [
-    {
-      "chunk": 1,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 182.4,
-      "steps_done": 436,
-      "val_loss": 1.8508074482282002
+  "scaled_bar": {
+    "definition": {
+      "formula": "bar_0p9eq = root_gm12(this host) * 0.9 / 0.9155886769294739",
+      "g1b_root_gm12": 0.9155886769294739,
+      "factor_vs_root": 0.982974148411542,
+      "holds": "g-12 >= bar_0p9eq at EVERY checkpoint {1,2,4,10,50,100,200,300} (light battery read, g1b's convention)",
+      "freezing_CE": "W1 in-batch corpus CE at +300 >= root CE_R (the walled organism never improved on its own root corpus CE through the wash)",
+      "secondary_co_reported": [
+        "g1-verbatim maintains (>=0.50 every ckpt) / dies (<=0.27 by +50)",
+        "post-transient flat-phase retention: min g-12 over {10,50,100,200,300} >= 0.9 x root_gm12"
+      ],
+      "note": "defined in the dispatch BEFORE compute; the primary bar is intentionally strict (0.983x root): g1b's own W1 dipped to 0.848x root at +2 then sat flat at ~1.00x \u2014 at 10x the dip discriminates a raw-geometry leak (dip widens, no rung holds) from an rms-matched basin (dip shallow, rung holds)"
     },
-    {
-      "chunk": 2,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 193.0,
-      "steps_done": 962,
-      "val_loss": 1.5927761395772297
+    "root_gm12_measured": 0.0010485216043889523,
+    "bar_0p9eq": 0.001030669631165334,
+    "bar_09x_root": 0.000943669443950057,
+    "g1b_W1_reference": {
+      "min": 0.7768,
+      "argmin_step": 2,
+      "min_retention_vs_root": 0.8484159094289843,
+      "note": "g1b's own W1 dipped below BOTH 0.9x-root and the 0.9eq bar at +2/+4"
     },
-    {
-      "chunk": 3,
-      "device": "cuda",
-      "cap_s": 180.0,
-      "seconds": 89.8,
-      "steps_done": 1200,
-      "val_loss": 1.5690115491549175,
-      "note": "g1bS2-r2 resume chunk (sixth dispatch); val = the G-BASE-QUAL final_val (commit 03735ab), exact"
-    }
-  ],
-  "base_chunks_note": "recovery bookkeeping: the chunk table hand-carried into this partial (phase G-INST) after the r2 process was killed mid-consolidate, so the relaunch stash preserves the full 3-chunk lineage (fifth executor chunks 1-2 + r2 chunk 3)"
+    "computed_before_arms": true
+  },
+  "theta0_ckpt": "runs/checkpoints/g1bS2_root.pt"
 }
