@@ -215,12 +215,15 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    ball (zero new params) holds the consolidated fact at ~0.9 through
    the +300 wash that kills the control in 2 steps, n=3 seeds, tight
    band (mins 0.746/0.777/0.803), at +0.53 nats organism tax; (b) THE
-   RHYTHM — a zero-parameter rehearsal organ (cue pool + onset monitor
-   + replay gate) self-times resurrection events in the 20-45 band,
-   three seeds one waveform (medians 0.587/0.602/0.615, duty ~70%);
-   scoping: timing root-robust 2/2, amplitude root-draw-bound (the root
-   recipe is a strength lottery 0.591/0.684/0.711; g2f base-redraw in
-   flight); (c) THE CONE (licensed: n=3 wash-draw seeds, one organ) + THE
+   RHYTHM (g2g-controlled) — a zero-parameter rehearsal organ (cue
+   pool + onset monitor + replay gate) self-times resurrection
+   events: threat-responsive within [0.5x, 2x] (a weak step,
+   ceiling-saturated beyond), autonomy worth +0.07 of cycle-median
+   over a matched fixed schedule at operating threat (run-stable;
+   FIXED-MATCHES-OR-WINS the safer letter beyond), refractory-
+   tunable with shorter better (the 20-45 band partly a
+   construction floor, disclosed); timing root-robust 3/3,
+   amplitude root-draw-bound (T136; the seed ladder licensed); (c) THE CONE (licensed: n=3 wash-draw seeds, one organ) + THE
    TRAJECTORY HYPOTHESIS (PROPOSED — g3K n=1 per organism, kappa
    intervals overlap [2.8,6.6] vs [4.0,9.7]; replication owed: e188
    + two more organisms; supervisor C13-1): killing is

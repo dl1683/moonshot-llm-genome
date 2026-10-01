@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T152 — g2g: a thermostat on a leash — the rhythm's honest operating envelope (2026-10-01 ~16:55Z)
+
+The controls land as three teaches. (1) THE ORGAN IS
+threat-responsive but WEAKLY: 10 -> 12 events across 8x threat,
+ceiling-saturated — at high threat every spacing pins to the
+refractory floor and maintenance collapses (0.62 -> 0.002): a
+thermostat on a leash, firing without maintaining. The autonomy is
+real but bounded by the gate's fixed thresholds. (2) THE HEAD-TO-
+HEAD RESOLVES AT 1x: the organ beats the matched-count fixed
+schedule by +0.07 in both runs on the registered same-ruler
+comparison — the critic's 0.693 co-read was endpoint-vs-median and
+is superseded — but the 2x leg rides one float-nondeterministic
+check, so FIXED-MATCHES-OR-WINS is the safer letter with the 1x
+win co-reported. AUTONOMY IS WORTH +0.07 OF CYCLE-MEDIAN AT
+OPERATING THREAT — a small, real, priced number. (3) THE BAND WAS
+PARTLY A FLOOR: at refractory 8 five spacings land below 20 — the
+"100% in 20-45" construction disclosed — yet the wash's decay
+clock still shapes 9/14 intervals AND maintenance IMPROVES at the
+shorter refractory (0.671, duty 0.74): the refractory is a TUNABLE,
+and shorter is better. THE W023 RIDER: the mini-shock lives in the
+monitor channel (jump, brief rise, accelerating decay — the
+replay's protective mismatch wearing off) even though the
+alignment form died; at 4x the replay's step is as big as the wash
+and the signal pins to zero. THE CLAIM'S FINAL FORM THIS CELL:
+"threat-responsive within [0.5x, 2x]; autonomy worth +0.07 at
+operating threat; refractory-tunable" — and the seed ladder is
+licensed. W026's managed-bleed noun gains its price tag: the
+re-orientation schedule is worth +0.07 over a fixed schedule, at
+the cost of a ceiling.
+
 ## T151 — opt2: the lethal object is the |g|-weighted front — density exonerated, magnitude-information convicted (2026-10-01 ~16:15Z)
 
 The density ladder answers the optimizer arc's last open question
@@ -1262,6 +1292,17 @@ dissection arc (memories wash out) and generative arc (the
 rhythm can be built) meet at a single object. WHAT REMAINS FOR
 THE ARCHITECTURE CLAIM: root/lineage generality (a fresh root
 at the same recipe) — the same ladder every e-claim climbed.
+
+
+[G2G RESOLUTION, 2026-10-01 ~16:55Z]: the controls landed. The
+band was partly a construction floor (at refractory 8, 5/14
+spacings <20 — disclosed); the wash's clock still shapes 9/14;
+maintenance IMPROVES at shorter refractory. The head-to-head:
+the organ wins at 1x (+0.07 both runs, the registered
+same-ruler comparison; the 0.693 co-read was endpoint-vs-median,
+superseded); FIXED-MATCHES-OR-WINS is the safer letter beyond 1x.
+The final claim: threat-responsive [0.5x, 2x], autonomy +0.07 at
+operating threat, refractory-tunable; the seed ladder licensed.
 
 ## T130 — g2c: the organ vindicated — memory as a self-timed oscillation, its waveform mapped (2026-09-29 ~19:05Z)
 
@@ -3700,7 +3741,7 @@ task-alignment decomposition smells like NTK-regime structure
 Savoring: the organism's own healing signal is not destroyed by the
 wash — it is OUTVOTED, once every coordinate gets an equal vote.
 
-## W023 — WONDER: the shock-and-recover is the knife sharpening — the e187 CE_R curve named at last (2026-09-30 ~10:40Z; no bars, no kills; C12-5a's owed card)
+## W023 — WONDER: the shock-and-recover is the knife sharpening — the e187 CE_R curve named at last (2026-09-30 ~10:40Z; no bars, no kills; C12-5a's owed card) [G2G RIDER UPDATE ~16:55Z: the mini-shock LIVES in the monitor channel — jump, brief rise, accelerating decay — even though the alignment form died; at 4x the replay's step is as big as the wash and the signal pins to zero]
 
 The carried curve: under the noise-training wash, root-stream CE
 SHOCKS upward at wash start then RECOVERS, while the fact dies. For

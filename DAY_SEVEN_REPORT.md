@@ -1,7 +1,10 @@
 # Day Seven Report — the corrections cascade and the forgetting machine (2026-10-01)
 
-Written with one cell (g2g, the rhythm's controls) still out; its
-verdict amends C7 below and nothing else. Sources: NOTES/THINKING
+The g2g verdict landed and is folded into C7: a thermostat on a
+leash — threat-responsive within [0.5x, 2x], autonomy worth +0.07
+of cycle-median at operating threat (run-stable at 1x; the safer
+letter elsewhere), refractory-tunable with shorter better; the
+20-45 band partly a construction floor (disclosed). Sources: NOTES/THINKING
 T136-T151, REVIEWS R56-R59, scratch/claims_ledger.md.
 
 ## The day in one sentence

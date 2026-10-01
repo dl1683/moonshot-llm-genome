@@ -9,6 +9,46 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g2g — the rhythm's controls: A THERMOSTAT ON A LEASH — the organ earns its keep at 1x; the band was partly a floor (2026-10-01 ~16:55Z) — DONE
+
+WHAT WE DID: the R56-critic-forced controls on the locked root (8
+arms x 2 runs on cuda; all gates PASS both runs; L1 bit-reproduced
+g2c's stored schedule 10/10; run 2 = deterministic rerun after a
+rider instrument repair (pre-window parity bug, no bar touched)
+doubling as the reproducibility check; two pause-and-wait cycles
+under the neighbor's 80-81C job — never migrated).
+
+WHAT WE SAW (T152): (1) SELF-TIMED-THERMOSTAT FIRES (run-stable:
+rates [0.0333, 0.0333, 0.0400, 0.0400] across 8x threat, monotone)
+BUT ON ITS LETTER ONLY — the response is a WEAK STEP (10 -> 12
+events), ceiling-saturated: at 4x EVERY spacing sits at the
+refractory floor (frac-at-floor 1.0) and the cycle-median collapses
+0.619 -> 0.240 -> 0.0017 — fires without maintaining. At 0.5x =
+1x exactly. (2) FIXED-PERIOD-ARTIFACT does not fire (there IS
+threat response). (3) SELF-TIMED-WINS IS RUN-STABLE AT 1x ONLY
+(+0.072/+0.076 both runs vs the matched-count fixed schedule, same
+frozen ruler; the critic's 0.693 co-read superseded — it compared
+an endpoint against cycle-medians); the 2x leg is float-fragile
+(one near-threshold check flipped the rung 0.240 -> 0.167):
+FIXED-MATCHES-OR-WINS is the safer standing letter with the 1x win
+co-reported. (4) REFRACTORY-REAL FIRES: at r8, 5/14 spacings land
+<20 (min 8) — the old "100% in 20-45" band was partly a
+CONSTRUCTION FLOOR (disclosed per the bar's letter) — yet 9/14
+stay in-band (the wash's decay clock still shapes most intervals)
+and maintenance IMPROVES at the shorter refractory (cycle-median
+0.671 vs 0.619; duty 0.74). (5) THE W023 RIDER reads the
+mini-shock in monitor language: post-event the monitor jumps
+(+0.21 at 1x), keeps rising briefly, then decays with ACCELERATING
+steepness (late-half steeper in 60-70% of events) — the replay's
+protective mismatch wearing off; at 4x the read is pinned ~0 (the
+replay's step is as big as the wash). THE RHYTHM'S CLAIM AFTER
+g2g: "threat-responsive within [0.5x, 2x]; autonomy worth +0.07 of
+cycle-median at operating threat; refractory-tunable" — n=1 root,
+one wash seed per rung; the seed-replicate ladder LICENSED by the
+thermostat firing (owed next).
+
+---
+
 ## opt2 — GRADED: the density ladder — DENSITY CARRIES NOTHING; MAGNITUDE-INFORMATION ORDERS THE KILL; the sign path kills BELOW its own static edge (2026-10-01 ~16:15Z) — DONE
 
 WHAT WE DID: the optimizer arc's terminal cell at matched per-step
