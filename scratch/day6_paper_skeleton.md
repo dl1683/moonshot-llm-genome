@@ -247,6 +247,12 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    detected (g2, with the
    R56 construction disclosures), and its anisotropy measured (g3).
 
+Fig 5 (THE terrain figure, from e191/opt1c/opt1b/opt1b2): the
+   fact-vs-displacement overlay — the static g-ray profile (pump
+   ridge, cliff [0.80,0.92], floor), the dynamic single-step kill,
+   Adam's ray (kill ~2.5), the random-ray band (4-10x), and the
+   re-orienting bleed alive across all of it: forgetting's terrain
+   and the one path that dances on it.
 Fig 4 (THE generative plate, 3 panels): (i) wall: fact p(Z) vs wash
    step, W1 flat ~0.9 vs C dead by +50, three seeds shaded; (ii) rhythm:
    the sawtooth trace with self-timed events marked, three seeds'

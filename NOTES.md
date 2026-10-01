@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e191 — the pump-cliff map: STATIC-CLIFF (TERRAIN) — the cliff is in the geometry; no overshoot needed; the bleed survives by re-orientation (2026-10-01 ~08:05Z) — DONE
+
+WHAT WE DID: 12 graded STATIC single jumps theta_0 - D*u (u = the
+root wash-batch gradient, opt1c's t=0 convention, recomputed: t=0
+gate diffs 0.0; direction gate 1-cos 8.3e-14 in fp64, the fp32 dot
+artifact documented; 5 committed points reproduced to 1.6e-06);
+perturb-and-eval, CPU eval-only 35.3s; progressive PARTIAL writes.
+
+WHAT WE SAW (T144): the static profile MATCHES the dynamic cliff —
+pump 0.9555 at D 0.33 (grid peak 0.9605 at 0.20), 0.910 at 0.50,
+0.755 at 0.66, 0.492 at 0.80, DEAD 0.2482 at D 0.92, floor 0.0004
+at D 2.0; cliff-edge bracket tightened from [0.66, 0.99] to
+[0.80, 0.92]. STATIC-SPARES does not fire at its own D — no
+trajectory effect is required to explain the kill: THE PUMP-CLIFF
+IS TERRAIN in the g-direction. THE BLEED OVERLAY is the punchline:
+opt1b's re-orienting tiny-step path holds ~0.83 ALIVE at the same D
+where the straight g-ray is dead — sparing is re-orientation OFF
+the ray, not gentler displacement. CE_R co-read: the fact cliffs
+first (dead at CE_R 3.0 vs root 1.66), the organism wrecks
+progressively after (5.28 at D 2.0). HONESTY: within [0, 1.6543]
+opt1c's dynamic path WAS the straight ray (single-step kill), so
+static = dynamic by construction there — DISCLOSED before compute;
+the independent content is the fresh recompute, the D 2.0 extension,
+the tighter edge, and the CE_R read; n=1 direction-deterministic,
+one organism. WHAT'S NEXT: opt1b2 owns the surviving split (where
+does the re-orienting path die?); a second-organism replicate is
+the honest replicate axis.
+
+---
+
 ## opt1c — the direction-size factorial: KILL-OUT-OF-WINDOW (no bar fires) — the raw-gradient direction at Adam's size kills BELOW the gate; the pump is local; small steps spare by RE-ORIENTATION (2026-09-30 ~07:55Z true-clock) — DONE
 
 WHAT WE DID: one arm — delta = 1.6543 * (g/||g||), the raw

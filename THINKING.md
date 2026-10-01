@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T144 — e191: the cliff is terrain — the first mapped ground of the forgetting machine (2026-10-01 ~08:05Z)
+
+STATIC-CLIFF fires: the graded static profile along the raw-gradient
+ray matches the dynamic kill — pump ridge (0.94-0.96 across D
+0.05-0.50, peak 0.9605 at 0.20), cliff edge [0.80, 0.92], dead at
+0.92, floor at 2.0. NO OVERSHOOT IS NEEDED: the kill is geometry.
+THE BLEED OVERLAY IS THE FIGURE: at D 0.92 the straight ray reads
+0.248-dead while the re-orienting path reads ~0.83-alive —
+protection = re-orientation off the ray (W026's managed-bleed
+mechanism now has its figure). THE LETHALITY ORDERING STANDS ON
+MAPPED GROUND: the raw-gradient ray's terrain kills at 0.92; the
+sign-normalized ray's at ~2.5 (opt1); random rays' at 4-10x (g3K) —
+three terrains of increasing width. CE_R: the fact dies at organism
+CE 3.0 — the fact is the canary, not the casualty of general
+wreck (the organism wrecks further out, 4.8-5.3). DISCLOSED: on the
+single-step interval static = dynamic by construction; the
+independent content is the recompute, the extension, the tighter
+edge, the CE_R profile. THE SURVIVING SPLIT: opt1b2 (running) —
+where does the re-orienting path itself die? If it survives past
+every static kill ring, the final law's protective principle is
+re-orientation alone and the walls/cages are one family of many.
+
 ## T143 — opt1c: the third outcome — the raw gradient is the most lethal direction, and the pump-cliff is the terrain (2026-09-30 ~07:55Z)
 
 The factorial's answer was a branch neither name covered (the map
