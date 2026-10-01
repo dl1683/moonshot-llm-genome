@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS — the wall at 10x BLOCKED AT THE BASE GATE: the house recipe overtrains the 10M host — G-BASE-QUAL FAIL, hard stop, no arms, no bars (2026-10-01 ~15:15Z) — DONE (BLOCKED)
+
+WHAT WE DID: fourth dispatch. The 4e-4 retrain's s1113 resume state
+SURVIVED the shutdown — continued agent-3's schedule seamlessly (13
+chunks total, one trajectory) to the completed 4000-step cosine.
+The G-BASE-QUAL gate (registered BEFORE the retrain) then read:
+g1 cosine-complete PASS; g2 val-decreasing FAIL (2.1609 -> min
+1.5766 @ s1113 -> 2.8506; first violation chunk 5); g3 final<=1.70
+FAIL (2.8506); g4 coherence PASS (ls 0.71, mwl 4.25). THE HARD
+STOP FIRED EXACTLY AS REGISTERED: no install, no arms, no wall bar
+adjudicated, no dial search; the failed base ARCHIVED (never
+deleted); four-dispatch provenance + the lr deviation documented in
+13 progressive metric writes.
+
+WHAT WE SAW (T148): THE COHERENCE-PASS/VAL-FAIL SPLIT is the
+memorization-recitation signature — the base "reads" plausibly
+while generalizing worse (train 0.32 falling, val 2.85 rising); a
+coherence check ALONE would have licensed a memorizing host (W021
+echo: the gate that cannot fail). THE SCALE FINDING THE CELL DID
+YIELD: BOTH licensed lrs (1e-3 archived; 4e-4) U-TURN in the same
+s~1000-1200 window with near-identical minima (1.568 vs 1.577) —
+the turn is CAPACITY/CORPUS-driven (10M params x ~1M-char corpus);
+width-scaled lr slows the memorization slope but cannot prevent the
+turn; the 0.87M-minted 4000-step recipe overtrains the 10M host ~3x
+past its val min. THE WALL'S SCALE QUESTION IS OPEN, NOT ANSWERED.
+WHAT'S LICENSED (g1bS2): the HOST recipe re-registration — a
+val-min-anchored cosine (~s1150 at 4e-4, same corpus for
+comparability), then the frozen wall cell VERBATIM (R_rms
+convention, ladder, bars untouched). The frozen wall machinery
+awaits; do NOT relaunch the current script unmodified (it would
+retrain into the identical failure).
+
+---
+
 ## opt1b3 — the last fourteen steps (recovered twice): CAP-AGAIN (GRADED) — neither bar fires; the stall is a SLOW EROSION; the third linear kill-projection dies; the bleed's own kill-D stays unmeasured (2026-10-01 ~14:35Z) — DONE
 
 WHAT WE DID: third dispatch (second recovery): the killed

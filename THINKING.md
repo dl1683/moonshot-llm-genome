@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T148 — g1bS: the recipe is scale-bound — the honest negative that saves the cell (2026-10-01 ~15:15Z)
+
+The hard stop fired exactly as registered: the 10M base failed
+G-BASE-QUAL (val rising past its s1113 minimum to 2.85 by the
+cosine's end; coherence alone PASSING — the memorization-recitation
+signature). NO ARMS RAN — the wall's scale question is OPEN, and
+the negative is itself the scale lesson: THE HOUSE RECIPE DOES NOT
+TRANSFER. Both licensed lrs U-turn together (minima 1.568/1.577 at
+s~1000-1113) — capacity/corpus-driven at 10M params on ~1M chars;
+the 4000-step cosine minted at 0.87M overtrains ~3x past the val
+min; width-scaling the lr slows memorization but cannot prevent the
+turn. THE POLICY EXTENSION (R58's no-hardcoded-constants, one
+step further): recipes are SCALE-BOUND — steps AND lr re-register
+per host size, anchored at the val minimum. THE INSTRUMENT ECHO
+(W021): coherence was the instrument that could not fail — it
+would have licensed a memorizing host; the val-decreasing clause
+was the one that could. g1bS2 LICENSED: val-min-anchored cosine
+(~s1150, 4e-4, same corpus), then the frozen wall cell verbatim —
+R_rms ladder, bars, and wash untouched. The wall question costs one
+more GPU hour, not a redesign.
+
 ## T147 — opt1b3: the walk that will not die — the third projection falsified, the grind named (2026-10-01 ~14:35Z)
 
 CAP-AGAIN, graded honestly: 150 every-step reads, no kill (min
