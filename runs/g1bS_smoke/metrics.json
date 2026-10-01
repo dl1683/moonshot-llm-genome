@@ -1,13 +1,13 @@
 {
   "experiment": "g1bS_scale_wall",
-  "date": "2026-10-01T07:49:31Z",
+  "date": "2026-10-01T13:20:11Z",
   "partial": false,
   "progressive_writes": 12,
   "phases": [
     "start",
     "G-CONFIG",
     "base-chunk-1",
-    "G-BASE",
+    "G-BASE-QUAL",
     "G-INST",
     "consolidate",
     "root+scaled-bar",
@@ -58,7 +58,16 @@
         "note": "post soak-fix restart; killed by the outage right after the step-750 ckpt save (runs/g1bS_run.log)"
       }
     ],
-    "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events"
+    "waits_policy": "per the recovery dispatch: PAUSE-AND-WAIT on outside GPU load (never migrate mid-run); every wait recorded in device_events",
+    "third_dispatch": {
+      "note": "two machine disruptions killed the first two executors; this is the THIRD dispatch's recovery (coordinator commits 3b1b4cc + dbc3fd7); survivors: this script, the partial runs/g1bS/metrics.json, the diverged base ckpt",
+      "primary_inheritance": "agent-2's base chunks: val RISING monotonically 1.628 -> 3.724 over chunks 1-6 (steps 1207-2958); the saved ckpt (s3250) splits train 0.13 falling / val 3.96 rising \u2014 degenerate collapse under peak lr 1e-3 (the 0.87M n_embd=128 recipe carried unscaled onto the 10M n_embd=320 host); the scheduler decayed correctly (lr 8.9e-5 at s3250) \u2014 the recipe, not the resume, is the fault",
+      "lr_fix": "BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x 128/320, inside the coordinator's documented 3e-4..5e-4 window); warmup 100 + clip 1.0 kept verbatim; legitimate documented deviation \u2014 the design froze the R-convention and the WALL bars, NOT the base lr",
+      "install_adaptation": "install lr 4e-4 + dose s1000 (MOVEMENT-matched to e043's 1e-3 x s400); consolidate + wash stay 1e-3 verbatim (the registered treatment; Adam-clock priced at 1e-3)",
+      "quality_gate": "G-BASE-QUAL registered BEFORE the retrain (registered.base_quality_gates): cosine complete + val decreasing across the schedule + final val <= 1.70 + a coherence sample; on failure the run STOPS before install \u2014 no arms, no adjudication",
+      "controlled_comparison": "the fresh retrain replays the SAME seed-1337 init and the SAME batch stream (train_model reseeds its generator from corpus.seed; the archived diverged ckpt carried its own) \u2014 lr is the only delta vs the diverged trajectory",
+      "divergence_verification": null
+    }
   },
   "design": "scratch/g1bS_design.md (convention frozen at dispatch; bars verbatim; no bar shopping)",
   "question": "does the commit-and-project L2 ball hold a consolidated fact through a wash that kills the control, at ~10x the parameters (9,977,600 vs the 2,739,072 every g-law was minted on), with the R-dial carried in per-coordinate RMS units?",
@@ -80,6 +89,15 @@
       ],
       "note": "defined in the dispatch BEFORE compute; the primary bar is intentionally strict (0.983x root): g1b's own W1 dipped to 0.848x root at +2 then sat flat at ~1.00x \u2014 at 10x the dip discriminates a raw-geometry leak (dip widens, no rung holds) from an rms-matched basin (dip shallow, rung holds)"
     },
+    "base_quality_gates": {
+      "registered_before_retrain": true,
+      "why": "third-dispatch instruction: NO install/consolidate/arms until the base passes a quality gate REGISTERED BEFORE the base trains (the inherited base diverged; the gate is the dispatch bar, not a wall dial \u2014 no bar shopping applies here or is enabled by it)",
+      "g1_cosine_complete": "final step == 4000 (the existing G-BASE)",
+      "g2_val_decreasing": "every chunk-final val <= previous chunk-final val + 0.02 (float/device noise band), AND final val <= first-eval val (step 250) - 0.15 (real learning across the schedule)",
+      "g3_final_val_anchor": "final val <= 1.70 \u2014 agent-1's healthy prefix was 1.58 @ step 750 and still falling at lr 1e-3; a stable width-scaled cosine on 3.6x the parameters must stay under the diverged run's own healthy window with margin",
+      "g4_coherence_sample": "common.generate (the house instrument verbatim: temp 0.8, top_k 40, 300 new tokens, fixed prompt = the first 64 chars of val_text, recorded): lowercase+space fraction >= 0.70 AND mean word length in [2.0, 8.0] AND longest single-char run <= 10 AND >= 18 distinct chars; the sample text recorded verbatim",
+      "failure_action": "G-BASE-QUAL FAILS => the run STOPS before install (progressive metrics hold the record); no arms, no adjudication"
+    },
     "predicted": "WALL-SCALES on the flat phase ({+10..+300} retention >= 0.9x root at the 1x rung, raw-equivalent of g1b's W1 behavior); C dead by ~+2/+4 \u2014 the Adam clock makes rms displacement per step = lr regardless of N (T139), so the kill should arrive on the same step count; the +2 settled-reversal dip is the registered discriminator: if it replicates g1b's depth at the 1x rung, the strict every-checkpoint primary bar fails at +2 and WALL-FADES fires with the dip texture (reported, not re-tuned).",
     "falsifiers": "C survives (+50 > 0.27) => G-CTRL fails => TEXTURE (a scale finding about the WASH, registered as texture); no rung holds while C dies => WALL-FADES; a looser rung holds => WALL-TIGHTENS with the tax curve."
   },
@@ -97,13 +115,14 @@
       "config_provenance": "e005s LARGE's 10M-class config (extend-don't-repeat); e005s's own large ckpt (1086/4000 steps, incomplete cosine) NOT reused",
       "host_seed": 1337,
       "corpus_seed": 1337,
-      "recipe": "common.train_model steps=24 lr=1e-3 batch=64 cosine warmup 100",
+      "recipe": "common.train_model steps=24 lr=0.0004 (RECOVERY-3 width-scaled: 1e-3 x 128/320) batch=64 cosine warmup 100 clip 1.0",
+      "lr_fix": "BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x 128/320, inside the coordinator's documented 3e-4..5e-4 window); warmup 100 + clip 1.0 kept verbatim; legitimate documented deviation \u2014 the design froze the R-convention and the WALL bars, NOT the base lr",
       "chunks": [
         {
           "chunk": 1,
-          "device": "cuda",
-          "cap_s": 180.0,
-          "seconds": 1.6,
+          "device": "cpu",
+          "cap_s": 1800.0,
+          "seconds": 2.4,
           "steps_done": 24,
           "val_loss": 2.844777226448059
         }
@@ -113,16 +132,17 @@
     },
     "install": {
       "steps": 8,
+      "lr": 0.0004,
       "seed": 42,
       "chunks": [
         {
           "chunk": 1,
-          "device": "cuda",
+          "device": "cpu",
           "seconds": 0.1,
           "steps_done": 8
         }
       ],
-      "stream": "e043 Dmix via common.train_model (DmixCorpus; g1 phase-0a VERBATIM)",
+      "stream": "e043 Dmix via common.train_model (DmixCorpus; g1 phase-0a VERBATIM; dose movement-matched per RECOVERY-3)",
       "post_install_cells": {
         "gm12": 0.006884691771119833,
         "g0": 0.006316537037491798,
@@ -142,9 +162,9 @@
       "traj": [
         {
           "step": 8,
-          "install60_g0_pz": 0.0243378933519125,
+          "install60_g0_pz": 0.02433791197836399,
           "ce_r": 3.265915870666504,
-          "elapsed_s": 1.5
+          "elapsed_s": 1.4
         }
       ],
       "recipe": "e113 jitter convention VERBATIM (jitters {-8..+8}, batch 16+16, name-masked union CE, AdamW (0.9,0.95) wd 0.1 const lr 1e-3)"
@@ -159,15 +179,15 @@
       ],
       "devices": {
         "C": "cuda",
-        "W1": "cuda",
-        "W2": "cuda",
-        "W3": "cuda"
+        "W1": "cpu",
+        "W2": "cpu",
+        "W3": "cpu"
       },
       "runtimes_s": {
-        "C": 0.7,
-        "W1": 0.8,
-        "W2": 0.8,
-        "W3": 0.6
+        "C": 1.2,
+        "W1": 18.7,
+        "W2": 18.5,
+        "W3": 18.6
       }
     },
     "R_convention": {
@@ -197,7 +217,68 @@
       "wash": 10902,
       "protocol_corpus": 1337
     },
-    "pauses": []
+    "pauses": [
+      {
+        "tag": "base_chunk1",
+        "event": "GPU-WAIT TIMEOUT -> CPU",
+        "waited_s": 30.2,
+        "status": {
+          "util": 0.0,
+          "mem_used": 19372.0,
+          "mem_total": 24463.0,
+          "temp": 82.0,
+          "power": 23.59
+        }
+      },
+      {
+        "tag": "install_chunk1",
+        "event": "GPU-WAIT TIMEOUT -> CPU",
+        "waited_s": 35.2,
+        "status": {
+          "util": 0.0,
+          "mem_used": 19372.0,
+          "mem_total": 24463.0,
+          "temp": 75.0,
+          "power": 10.85
+        }
+      },
+      {
+        "tag": "W1",
+        "event": "GPU-WAIT TIMEOUT -> CPU",
+        "waited_s": 30.1,
+        "status": {
+          "util": 100.0,
+          "mem_used": 21493.0,
+          "mem_total": 24463.0,
+          "temp": 85.0,
+          "power": 107.37
+        }
+      },
+      {
+        "tag": "W2",
+        "event": "GPU-WAIT TIMEOUT -> CPU",
+        "waited_s": 30.1,
+        "status": {
+          "util": 100.0,
+          "mem_used": 21493.0,
+          "mem_total": 24463.0,
+          "temp": 80.0,
+          "power": 26.55
+        }
+      },
+      {
+        "tag": "W3",
+        "event": "GPU-WAIT TIMEOUT -> CPU",
+        "waited_s": 30.1,
+        "status": {
+          "util": 100.0,
+          "mem_used": 22869.0,
+          "mem_total": 24463.0,
+          "temp": 84.0,
+          "power": 81.51
+        }
+      }
+    ]
   },
   "scaled_bar": {
     "definition": {
@@ -212,9 +293,9 @@
       ],
       "note": "defined in the dispatch BEFORE compute; the primary bar is intentionally strict (0.983x root): g1b's own W1 dipped to 0.848x root at +2 then sat flat at ~1.00x \u2014 at 10x the dip discriminates a raw-geometry leak (dip widens, no rung holds) from an rms-matched basin (dip shallow, rung holds)"
     },
-    "root_gm12_measured": 0.023518986999988556,
-    "bar_0p9eq": 0.02311855621781588,
-    "bar_09x_root": 0.0211670882999897,
+    "root_gm12_measured": 0.023519005626440048,
+    "bar_0p9eq": 0.02311857452713617,
+    "bar_09x_root": 0.021167105063796043,
     "g1b_W1_reference": {
       "min": 0.7768,
       "argmin_step": 2,
@@ -272,40 +353,40 @@
           "cum_disp_rms": 0.000993998400699273,
           "step_disp": 3.1397764682769775,
           "elapsed_s": 0.4,
-          "g_m12_mean_pz": 0.003581138327717781,
-          "g0_mean_pz": 0.003662972943857312,
+          "g_m12_mean_pz": 0.0035811401903629303,
+          "g0_mean_pz": 0.0036629748065024614,
           "frac_argmax_z": 0.0,
           "ce_r": 3.3933629989624023
         },
         {
           "step": 2,
           "ce_batch": 3.2530758380889893,
-          "cum_disp": 4.777058124542236,
-          "cum_disp_rms": 0.0015123331816192112,
-          "step_disp": 2.087134599685669,
-          "elapsed_s": 0.5,
-          "g_m12_mean_pz": 0.00205392949283123,
-          "g0_mean_pz": 0.002001603599637747,
+          "cum_disp": 4.7770586013793945,
+          "cum_disp_rms": 0.0015123333325775287,
+          "step_disp": 2.08713436126709,
+          "elapsed_s": 0.8,
+          "g_m12_mean_pz": 0.002053933683782816,
+          "g0_mean_pz": 0.0020016073249280453,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.318021059036255
+          "ce_r": 3.3180205821990967
         },
         {
           "step": 3,
-          "ce_batch": 3.2204906940460205,
-          "cum_disp": 5.9738688468933105,
-          "cum_disp_rms": 0.0018912225566993246,
-          "step_disp": 1.68429434299469,
-          "elapsed_s": 0.7
+          "ce_batch": 3.2204902172088623,
+          "cum_disp": 5.973867893218994,
+          "cum_disp_rms": 0.0018912222547826899,
+          "step_disp": 1.6842944622039795,
+          "elapsed_s": 1.1
         },
         {
           "step": 4,
           "ce_batch": 3.141793966293335,
-          "cum_disp": 6.888354778289795,
-          "cum_disp_rms": 0.002180732833132769,
-          "step_disp": 1.4642497301101685,
-          "elapsed_s": 0.7,
-          "g_m12_mean_pz": 0.0021508291829377413,
-          "g0_mean_pz": 0.002194112166762352,
+          "cum_disp": 6.888352870941162,
+          "cum_disp_rms": 0.002180732229299499,
+          "step_disp": 1.4642479419708252,
+          "elapsed_s": 1.2,
+          "g_m12_mean_pz": 0.0021508296485990286,
+          "g0_mean_pz": 0.002194112865254283,
           "frac_argmax_z": 0.0,
           "ce_r": 3.1531214714050293
         }
@@ -323,51 +404,51 @@
         4
       ],
       "steps_ran": 4,
-      "device": "cuda",
+      "device": "cpu",
       "traj": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp": 3.1397764682769775,
-          "elapsed_s": 0.2,
-          "g_m12_mean_pz": 0.009067906998097897,
-          "g0_mean_pz": 0.009491758421063423,
+          "ce_batch": 3.210649013519287,
+          "cum_disp": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp": 3.1357650756835938,
+          "elapsed_s": 3.3,
+          "g_m12_mean_pz": 0.009067908860743046,
+          "g0_mean_pz": 0.009491761215031147,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.24237322807312
+          "ce_r": 3.242372989654541
         },
         {
           "step": 2,
           "ce_batch": 3.1344094276428223,
-          "cum_disp": 3.1212568283081055,
-          "cum_disp_rms": 0.0009881354060891226,
-          "step_disp": 1.7855243682861328,
-          "elapsed_s": 0.5,
-          "g_m12_mean_pz": 0.01136731542646885,
-          "g0_mean_pz": 0.011699341237545013,
+          "cum_disp": 3.120756149291992,
+          "cum_disp_rms": 0.0009879768998558578,
+          "step_disp": 1.7850576639175415,
+          "elapsed_s": 9.8,
+          "g_m12_mean_pz": 0.011367334984242916,
+          "g0_mean_pz": 0.011699358001351357,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.189525842666626
+          "ce_r": 3.1895251274108887
         },
         {
           "step": 3,
-          "ce_batch": 3.1234145164489746,
-          "cum_disp": 2.9705188274383545,
-          "cum_disp_rms": 0.0009404143873150178,
-          "step_disp": 1.228407382965088,
-          "elapsed_s": 0.7
+          "ce_batch": 3.1234140396118164,
+          "cum_disp": 2.9698023796081543,
+          "cum_disp_rms": 0.0009401875724431316,
+          "step_disp": 1.2277945280075073,
+          "elapsed_s": 15.8
         },
         {
           "step": 4,
           "ce_batch": 3.114668130874634,
-          "cum_disp": 2.917407512664795,
-          "cum_disp_rms": 0.0009236002725277556,
-          "step_disp": 0.9515601992607117,
-          "elapsed_s": 0.8,
-          "g_m12_mean_pz": 0.012594591826200485,
-          "g0_mean_pz": 0.01299288310110569,
+          "cum_disp": 2.9166653156280518,
+          "cum_disp_rms": 0.0009233653059067301,
+          "step_disp": 0.9512725472450256,
+          "elapsed_s": 18.7,
+          "g_m12_mean_pz": 0.012594608590006828,
+          "g0_mean_pz": 0.012992904521524906,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.1419260501861572
+          "ce_r": 3.141925811767578
         }
       ],
       "missing_checkpoints": []
@@ -383,51 +464,51 @@
         4
       ],
       "steps_ran": 4,
-      "device": "cuda",
+      "device": "cpu",
       "traj": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp": 3.1397764682769775,
-          "elapsed_s": 0.3,
-          "g_m12_mean_pz": 0.004330034367740154,
-          "g0_mean_pz": 0.004469676874577999,
+          "ce_batch": 3.210649013519287,
+          "cum_disp": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp": 3.1357650756835938,
+          "elapsed_s": 2.9,
+          "g_m12_mean_pz": 0.004330035764724016,
+          "g0_mean_pz": 0.004469678271561861,
           "frac_argmax_z": 0.0,
           "ce_r": 3.350785732269287
         },
         {
           "step": 2,
-          "ce_batch": 3.2173349857330322,
-          "cum_disp": 4.2965087890625,
-          "cum_disp_rms": 0.0013601996537231677,
-          "step_disp": 1.8140696287155151,
-          "elapsed_s": 0.6,
-          "g_m12_mean_pz": 0.004553575534373522,
-          "g0_mean_pz": 0.004666916560381651,
+          "ce_batch": 3.217334747314453,
+          "cum_disp": 4.295721530914307,
+          "cum_disp_rms": 0.0013599504215411483,
+          "step_disp": 1.8135749101638794,
+          "elapsed_s": 9.6,
+          "g_m12_mean_pz": 0.004553582053631544,
+          "g0_mean_pz": 0.004666923079639673,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.2338201999664307
+          "ce_r": 3.2338194847106934
         },
         {
           "step": 3,
-          "ce_batch": 3.1509673595428467,
-          "cum_disp": 4.008914470672607,
-          "cum_disp_rms": 0.001269152314710965,
-          "step_disp": 1.4432964324951172,
-          "elapsed_s": 0.8
+          "ce_batch": 3.1509671211242676,
+          "cum_disp": 4.008157253265381,
+          "cum_disp_rms": 0.0012689125929029414,
+          "step_disp": 1.4427928924560547,
+          "elapsed_s": 15.9
         },
         {
           "step": 4,
           "ce_batch": 3.086822032928467,
-          "cum_disp": 3.8938305377960205,
-          "cum_disp_rms": 0.0012327187512451282,
-          "step_disp": 1.1927160024642944,
-          "elapsed_s": 0.8,
-          "g_m12_mean_pz": 0.008013538084924221,
-          "g0_mean_pz": 0.00815066322684288,
+          "cum_disp": 3.8928654193878174,
+          "cum_disp_rms": 0.0012324132116107206,
+          "step_disp": 1.1922881603240967,
+          "elapsed_s": 18.5,
+          "g_m12_mean_pz": 0.008013540878891945,
+          "g0_mean_pz": 0.00815066508948803,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.1156437397003174
+          "ce_r": 3.115643262863159
         }
       ],
       "missing_checkpoints": []
@@ -443,51 +524,51 @@
         4
       ],
       "steps_ran": 4,
-      "device": "cuda",
+      "device": "cpu",
       "traj": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp": 3.1397764682769775,
-          "elapsed_s": 0.1,
-          "g_m12_mean_pz": 0.0035811380948871374,
-          "g0_mean_pz": 0.003662972943857312,
+          "ce_batch": 3.210649013519287,
+          "cum_disp": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp": 3.1357650756835938,
+          "elapsed_s": 2.9,
+          "g_m12_mean_pz": 0.0035811394918709993,
+          "g0_mean_pz": 0.0036629745736718178,
           "frac_argmax_z": 0.0,
           "ce_r": 3.3933629989624023
         },
         {
           "step": 2,
           "ce_batch": 3.2530758380889893,
-          "cum_disp": 4.777058124542236,
-          "cum_disp_rms": 0.0015123331816192112,
-          "step_disp": 2.087134599685669,
-          "elapsed_s": 0.3,
-          "g_m12_mean_pz": 0.00205392949283123,
-          "g0_mean_pz": 0.002001603599637747,
+          "cum_disp": 4.777755260467529,
+          "cum_disp_rms": 0.0015125538826792429,
+          "step_disp": 2.086728572845459,
+          "elapsed_s": 9.1,
+          "g_m12_mean_pz": 0.002053934847936034,
+          "g0_mean_pz": 0.0020016084890812635,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.318021059036255
+          "ce_r": 3.3180203437805176
         },
         {
           "step": 3,
-          "ce_batch": 3.2204906940460205,
-          "cum_disp": 5.9738688468933105,
-          "cum_disp_rms": 0.0018912225566993246,
-          "step_disp": 1.68429434299469,
-          "elapsed_s": 0.5
+          "ce_batch": 3.220489978790283,
+          "cum_disp": 5.9727559089660645,
+          "cum_disp_rms": 0.0018908702199865244,
+          "step_disp": 1.6838265657424927,
+          "elapsed_s": 15.7
         },
         {
           "step": 4,
-          "ce_batch": 3.1291182041168213,
-          "cum_disp": 6.330975532531738,
-          "cum_disp_rms": 0.0020042762973047534,
-          "step_disp": 1.2583751678466797,
-          "elapsed_s": 0.6,
+          "ce_batch": 3.129117965698242,
+          "cum_disp": 6.329565048217773,
+          "cum_disp_rms": 0.0020038297626018987,
+          "step_disp": 1.2579950094223022,
+          "elapsed_s": 18.6,
           "g_m12_mean_pz": 0.003005575155839324,
           "g0_mean_pz": 0.003061074996367097,
           "frac_argmax_z": 0.0,
-          "ce_r": 3.128932237625122
+          "ce_r": 3.128932476043701
         }
       ],
       "missing_checkpoints": []
@@ -551,198 +632,198 @@
           "step_disp_rms": 0.000993998400699273,
           "d_proj_raw": null,
           "d_proj_rms": null,
-          "g_m12_light": 0.003581138327717781,
+          "g_m12_light": 0.0035811401903629303,
           "ce_r_light": 3.3933629989624023,
-          "cos_vs_C": 1.002558946609497
+          "cos_vs_C": 1.0025590658187866
         },
         {
           "step": 2,
           "ce_batch": 3.2530758380889893,
-          "cum_disp_raw": 4.777058124542236,
-          "cum_disp_rms": 0.0015123331816192112,
-          "step_disp_raw": 2.087134599685669,
-          "step_disp_rms": 0.0006607503671336706,
+          "cum_disp_raw": 4.7770586013793945,
+          "cum_disp_rms": 0.0015123333325775287,
+          "step_disp_raw": 2.08713436126709,
+          "step_disp_rms": 0.0006607502916545118,
           "d_proj_raw": null,
           "d_proj_rms": null,
-          "g_m12_light": 0.00205392949283123,
-          "ce_r_light": 3.318021059036255,
+          "g_m12_light": 0.002053933683782816,
+          "ce_r_light": 3.3180205821990967,
           "cos_vs_C": 0.9997082352638245
         },
         {
           "step": 3,
-          "ce_batch": 3.2204906940460205,
-          "cum_disp_raw": 5.9738688468933105,
-          "cum_disp_rms": 0.0018912225566993246,
-          "step_disp_raw": 1.68429434299469,
-          "step_disp_rms": 0.0005332181765672961,
+          "ce_batch": 3.2204902172088623,
+          "cum_disp_raw": 5.973867893218994,
+          "cum_disp_rms": 0.0018912222547826899,
+          "step_disp_raw": 1.6842944622039795,
+          "step_disp_rms": 0.0005332182143068754,
           "d_proj_raw": null,
           "d_proj_rms": null
         },
         {
           "step": 4,
           "ce_batch": 3.141793966293335,
-          "cum_disp_raw": 6.888354778289795,
-          "cum_disp_rms": 0.002180732833132769,
-          "step_disp_raw": 1.4642497301101685,
-          "step_disp_rms": 0.0004635558947139211,
+          "cum_disp_raw": 6.888352870941162,
+          "cum_disp_rms": 0.002180732229299499,
+          "step_disp_raw": 1.4642479419708252,
+          "step_disp_rms": 0.0004635553286202309,
           "d_proj_raw": null,
           "d_proj_rms": null,
-          "g_m12_light": 0.0021508291829377413,
+          "g_m12_light": 0.0021508296485990286,
           "ce_r_light": 3.1531214714050293,
-          "cos_vs_C": 1.0004156827926636
+          "cos_vs_C": 1.0004161596298218
         }
       ],
       "W1": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp_raw": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp_raw": 3.1397764682769775,
-          "step_disp_rms": 0.000993998400699273,
+          "ce_batch": 3.210649013519287,
+          "cum_disp_raw": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp_raw": 3.1357650756835938,
+          "step_disp_rms": 0.0009927284638541866,
           "d_proj_raw": 1.336008906364441,
           "d_proj_rms": 0.0004229570893545182,
-          "g_m12_light": 0.009067906998097897,
-          "ce_r_light": 3.24237322807312,
-          "cos_vs_C": 1.002558946609497
+          "g_m12_light": 0.009067908860743046,
+          "ce_r_light": 3.242372989654541,
+          "cos_vs_C": 1.0025590658187866
         },
         {
           "step": 2,
           "ce_batch": 3.1344094276428223,
-          "cum_disp_raw": 3.1212568283081055,
-          "cum_disp_rms": 0.0009881354060891226,
-          "step_disp_raw": 1.7855243682861328,
-          "step_disp_rms": 0.0005652658348191142,
+          "cum_disp_raw": 3.120756149291992,
+          "cum_disp_rms": 0.0009879768998558578,
+          "step_disp_raw": 1.7850576639175415,
+          "step_disp_rms": 0.0005651180843659637,
           "d_proj_raw": 1.336008906364441,
           "d_proj_rms": 0.0004229570893545182,
-          "g_m12_light": 0.01136731542646885,
-          "ce_r_light": 3.189525842666626,
-          "cos_vs_C": 0.9075829982757568
+          "g_m12_light": 0.011367334984242916,
+          "ce_r_light": 3.1895251274108887,
+          "cos_vs_C": 0.9075828194618225
         },
         {
           "step": 3,
-          "ce_batch": 3.1234145164489746,
-          "cum_disp_raw": 2.9705188274383545,
-          "cum_disp_rms": 0.0009404143873150178,
-          "step_disp_raw": 1.228407382965088,
-          "step_disp_rms": 0.0003888923260656664,
+          "ce_batch": 3.1234140396118164,
+          "cum_disp_raw": 2.9698023796081543,
+          "cum_disp_rms": 0.0009401875724431316,
+          "step_disp_raw": 1.2277945280075073,
+          "step_disp_rms": 0.0003886983068882343,
           "d_proj_raw": 1.336008906364441,
           "d_proj_rms": 0.0004229570893545182
         },
         {
           "step": 4,
           "ce_batch": 3.114668130874634,
-          "cum_disp_raw": 2.917407512664795,
-          "cum_disp_rms": 0.0009236002725277556,
-          "step_disp_raw": 0.9515601992607117,
-          "step_disp_rms": 0.0003012473422202839,
+          "cum_disp_raw": 2.9166653156280518,
+          "cum_disp_rms": 0.0009233653059067301,
+          "step_disp_raw": 0.9512725472450256,
+          "step_disp_rms": 0.0003011562766153153,
           "d_proj_raw": 1.336008906364441,
           "d_proj_rms": 0.0004229570893545182,
-          "g_m12_light": 0.012594591826200485,
-          "ce_r_light": 3.1419260501861572,
-          "cos_vs_C": 0.7711639404296875
+          "g_m12_light": 0.012594608590006828,
+          "ce_r_light": 3.141925811767578,
+          "cos_vs_C": 0.7711632251739502
         }
       ],
       "W2": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp_raw": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp_raw": 3.1397764682769775,
-          "step_disp_rms": 0.000993998400699273,
+          "ce_batch": 3.210649013519287,
+          "cum_disp_raw": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp_raw": 3.1357650756835938,
+          "step_disp_rms": 0.0009927284638541866,
           "d_proj_raw": 2.672017812728882,
           "d_proj_rms": 0.0008459141787090364,
-          "g_m12_light": 0.004330034367740154,
+          "g_m12_light": 0.004330035764724016,
           "ce_r_light": 3.350785732269287,
           "cos_vs_C": 1.0025590658187866
         },
         {
           "step": 2,
-          "ce_batch": 3.2173349857330322,
-          "cum_disp_raw": 4.2965087890625,
-          "cum_disp_rms": 0.0013601996537231677,
-          "step_disp_raw": 1.8140696287155151,
-          "step_disp_rms": 0.0005743027657920765,
+          "ce_batch": 3.217334747314453,
+          "cum_disp_raw": 4.295721530914307,
+          "cum_disp_rms": 0.0013599504215411483,
+          "step_disp_raw": 1.8135749101638794,
+          "step_disp_rms": 0.0005741461465377791,
           "d_proj_raw": 2.672017812728882,
           "d_proj_rms": 0.0008459141787090364,
-          "g_m12_light": 0.004553575534373522,
-          "ce_r_light": 3.2338201999664307,
-          "cos_vs_C": 0.995761513710022
+          "g_m12_light": 0.004553582053631544,
+          "ce_r_light": 3.2338194847106934,
+          "cos_vs_C": 0.9957613348960876
         },
         {
           "step": 3,
-          "ce_batch": 3.1509673595428467,
-          "cum_disp_raw": 4.008914470672607,
-          "cum_disp_rms": 0.001269152314710965,
-          "step_disp_raw": 1.4432964324951172,
-          "step_disp_rms": 0.0004569224465913653,
+          "ce_batch": 3.1509671211242676,
+          "cum_disp_raw": 4.008157253265381,
+          "cum_disp_rms": 0.0012689125929029414,
+          "step_disp_raw": 1.4427928924560547,
+          "step_disp_rms": 0.00045676303460819603,
           "d_proj_raw": 2.672017812728882,
           "d_proj_rms": 0.0008459141787090364
         },
         {
           "step": 4,
           "ce_batch": 3.086822032928467,
-          "cum_disp_raw": 3.8938305377960205,
-          "cum_disp_rms": 0.0012327187512451282,
-          "step_disp_raw": 1.1927160024642944,
-          "step_disp_rms": 0.0003775930582690621,
+          "cum_disp_raw": 3.8928654193878174,
+          "cum_disp_rms": 0.0012324132116107206,
+          "step_disp_raw": 1.1922881603240967,
+          "step_disp_rms": 0.00037745761091877937,
           "d_proj_raw": 2.672017812728882,
           "d_proj_rms": 0.0008459141787090364,
-          "g_m12_light": 0.008013538084924221,
-          "ce_r_light": 3.1156437397003174,
-          "cos_vs_C": 0.9198290705680847
+          "g_m12_light": 0.008013540878891945,
+          "ce_r_light": 3.115643262863159,
+          "cos_vs_C": 0.9198288917541504
         }
       ],
       "W3": [
         {
           "step": 1,
-          "ce_batch": 3.210648775100708,
-          "cum_disp_raw": 3.1397764682769775,
-          "cum_disp_rms": 0.000993998400699273,
-          "step_disp_raw": 3.1397764682769775,
-          "step_disp_rms": 0.000993998400699273,
-          "d_proj_raw": 3.1397764682769775,
-          "d_proj_rms": 0.000993998400699273,
-          "g_m12_light": 0.0035811380948871374,
+          "ce_batch": 3.210649013519287,
+          "cum_disp_raw": 3.1357650756835938,
+          "cum_disp_rms": 0.0009927284638541866,
+          "step_disp_raw": 3.1357650756835938,
+          "step_disp_rms": 0.0009927284638541866,
+          "d_proj_raw": 3.1357650756835938,
+          "d_proj_rms": 0.0009927284638541866,
+          "g_m12_light": 0.0035811394918709993,
           "ce_r_light": 3.3933629989624023,
-          "cos_vs_C": 1.002558946609497
+          "cos_vs_C": 1.0025590658187866
         },
         {
           "step": 2,
           "ce_batch": 3.2530758380889893,
-          "cum_disp_raw": 4.777058124542236,
-          "cum_disp_rms": 0.0015123331816192112,
-          "step_disp_raw": 2.087134599685669,
-          "step_disp_rms": 0.0006607503671336706,
-          "d_proj_raw": 4.777058124542236,
-          "d_proj_rms": 0.0015123331816192112,
-          "g_m12_light": 0.00205392949283123,
-          "ce_r_light": 3.318021059036255,
+          "cum_disp_raw": 4.777755260467529,
+          "cum_disp_rms": 0.0015125538826792429,
+          "step_disp_raw": 2.086728572845459,
+          "step_disp_rms": 0.0006606218261264086,
+          "d_proj_raw": 4.777755260467529,
+          "d_proj_rms": 0.0015125538826792429,
+          "g_m12_light": 0.002053934847936034,
+          "ce_r_light": 3.3180203437805176,
           "cos_vs_C": 0.9997082352638245
         },
         {
           "step": 3,
-          "ce_batch": 3.2204906940460205,
-          "cum_disp_raw": 5.9738688468933105,
-          "cum_disp_rms": 0.0018912225566993246,
-          "step_disp_raw": 1.68429434299469,
-          "step_disp_rms": 0.0005332181765672961,
+          "ce_batch": 3.220489978790283,
+          "cum_disp_raw": 5.9727559089660645,
+          "cum_disp_rms": 0.0018908702199865244,
+          "step_disp_raw": 1.6838265657424927,
+          "step_disp_rms": 0.0005330700864579315,
           "d_proj_raw": 5.344035625457764,
           "d_proj_rms": 0.0016918283574180728
         },
         {
           "step": 4,
-          "ce_batch": 3.1291182041168213,
-          "cum_disp_raw": 6.330975532531738,
-          "cum_disp_rms": 0.0020042762973047534,
-          "step_disp_raw": 1.2583751678466797,
-          "step_disp_rms": 0.00039837960343899764,
+          "ce_batch": 3.129117965698242,
+          "cum_disp_raw": 6.329565048217773,
+          "cum_disp_rms": 0.0020038297626018987,
+          "step_disp_raw": 1.2579950094223022,
+          "step_disp_rms": 0.0003982592519204544,
           "d_proj_raw": 5.344035625457764,
           "d_proj_rms": 0.0016918283574180728,
           "g_m12_light": 0.003005575155839324,
-          "ce_r_light": 3.128932237625122,
-          "cos_vs_C": 0.99815833568573
+          "ce_r_light": 3.128932476043701,
+          "cos_vs_C": 0.9981585741043091
         }
       ]
     },
@@ -839,14 +920,46 @@
       "chunks": [
         {
           "chunk": 1,
-          "device": "cuda",
-          "cap_s": 180.0,
-          "seconds": 1.6,
+          "device": "cpu",
+          "cap_s": 1800.0,
+          "seconds": 2.4,
           "steps_done": 24,
           "val_loss": 2.844777226448059
         }
       ],
       "pass": true
+    },
+    "G_BASE_QUAL": {
+      "registered": {
+        "registered_before_retrain": true,
+        "why": "third-dispatch instruction: NO install/consolidate/arms until the base passes a quality gate REGISTERED BEFORE the base trains (the inherited base diverged; the gate is the dispatch bar, not a wall dial \u2014 no bar shopping applies here or is enabled by it)",
+        "g1_cosine_complete": "final step == 4000 (the existing G-BASE)",
+        "g2_val_decreasing": "every chunk-final val <= previous chunk-final val + 0.02 (float/device noise band), AND final val <= first-eval val (step 250) - 0.15 (real learning across the schedule)",
+        "g3_final_val_anchor": "final val <= 1.70 \u2014 agent-1's healthy prefix was 1.58 @ step 750 and still falling at lr 1e-3; a stable width-scaled cosine on 3.6x the parameters must stay under the diverged run's own healthy window with margin",
+        "g4_coherence_sample": "common.generate (the house instrument verbatim: temp 0.8, top_k 40, 300 new tokens, fixed prompt = the first 64 chars of val_text, recorded): lowercase+space fraction >= 0.70 AND mean word length in [2.0, 8.0] AND longest single-char run <= 10 AND >= 18 distinct chars; the sample text recorded verbatim",
+        "failure_action": "G-BASE-QUAL FAILS => the run STOPS before install (progressive metrics hold the record); no arms, no adjudication"
+      },
+      "cosine_complete": true,
+      "chunk_final_vals": [
+        2.844777226448059
+      ],
+      "val_monotone_decreasing_noise0.02": true,
+      "first_eval_val": 3.430142064889272,
+      "final_val": 2.844777226448059,
+      "g2_val_decreasing": true,
+      "g3_final_val<=1.70": false,
+      "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
+      "sample_generated": "ot,orylhofal lian-\nZeam\nU\nL\nK\nNI meE\nV\nqinerod I anBAuMT:\nAne!\nWhe g! g tour.\n-\nQ\nA,\n\nCusharinuve h:\nMZLilen\nK\nSot ce nvF sthy atathe hesgo anshiseeie,\nF\n-\nXtow,,\n3nLoumind:\nxinenlsis.\nXth he sastis s t koeankeg t f isriOlis cal\n\nLfis wast s o, amot kanorenou ne fim, mepeee me ke;y folooratu nosinow",
+      "sample_stats": {
+        "len": 300,
+        "lower_space_fraction": 0.7533333333333333,
+        "mean_word_len": 4.067796610169491,
+        "max_char_run": 3,
+        "distinct_chars": 51
+      },
+      "g4_coherence_sample": true,
+      "pass": false,
+      "enforced": false
     },
     "G_INST": {
       "steps": 8,
@@ -854,7 +967,7 @@
       "chunks": [
         {
           "chunk": 1,
-          "device": "cuda",
+          "device": "cpu",
           "seconds": 0.1,
           "steps_done": 8
         }
@@ -925,7 +1038,7 @@
     },
     "G_ROOT": {
       "bar": 0.78,
-      "gm12": 0.023518986999988556,
+      "gm12": 0.023519005626440048,
       "pass": false
     },
     "G_CTRL": {
@@ -941,16 +1054,16 @@
           "R_rms": 0.0004229570893545182,
           "bound_rms_carried": 4.198885180948751,
           "bound_verbatim": 2.836008906364441,
-          "max_raw_disp_at_ckpt": 3.1397764682769775,
+          "max_raw_disp_at_ckpt": 3.1357650756835938,
           "per_ckpt_raw": {
-            "1": 3.1397764682769775,
-            "2": 3.1212568283081055,
-            "4": 2.917407512664795
+            "1": 3.1357650756835938,
+            "2": 3.120756149291992,
+            "4": 2.9166653156280518
           },
           "per_ckpt_rms": {
-            "1": 0.000993998400699273,
-            "2": 0.0009881354060891226,
-            "4": 0.0009236002725277556
+            "1": 0.0009927284638541866,
+            "2": 0.0009879768998558578,
+            "4": 0.0009233653059067301
           },
           "pass_rms_carried": true,
           "pass_verbatim": false
@@ -960,16 +1073,16 @@
           "R_rms": 0.0008459141787090364,
           "bound_rms_carried": 5.534894087313192,
           "bound_verbatim": 4.172017812728882,
-          "max_raw_disp_at_ckpt": 4.2965087890625,
+          "max_raw_disp_at_ckpt": 4.295721530914307,
           "per_ckpt_raw": {
-            "1": 3.1397764682769775,
-            "2": 4.2965087890625,
-            "4": 3.8938305377960205
+            "1": 3.1357650756835938,
+            "2": 4.295721530914307,
+            "4": 3.8928654193878174
           },
           "per_ckpt_rms": {
-            "1": 0.000993998400699273,
-            "2": 0.0013601996537231677,
-            "4": 0.0012327187512451282
+            "1": 0.0009927284638541866,
+            "2": 0.0013599504215411483,
+            "4": 0.0012324132116107206
           },
           "pass_rms_carried": true,
           "pass_verbatim": false
@@ -979,16 +1092,16 @@
           "R_rms": 0.0016918283574180728,
           "bound_rms_carried": 8.206911900042073,
           "bound_verbatim": 6.844035625457764,
-          "max_raw_disp_at_ckpt": 6.330975532531738,
+          "max_raw_disp_at_ckpt": 6.329565048217773,
           "per_ckpt_raw": {
-            "1": 3.1397764682769775,
-            "2": 4.777058124542236,
-            "4": 6.330975532531738
+            "1": 3.1357650756835938,
+            "2": 4.777755260467529,
+            "4": 6.329565048217773
           },
           "per_ckpt_rms": {
-            "1": 0.000993998400699273,
-            "2": 0.0015123331816192112,
-            "4": 0.0020042762973047534
+            "1": 0.0009927284638541866,
+            "2": 0.0015125538826792429,
+            "4": 0.0020038297626018987
           },
           "pass_rms_carried": true,
           "pass_verbatim": true
@@ -1033,17 +1146,17 @@
     "G_STEP1": {
       "per_arm": {
         "W1": {
-          "max_abs_diff": 1.210719347000122e-07,
+          "max_abs_diff": 2.4645589292049408e-05,
           "tol": 0.0001,
           "pass": true
         },
         "W2": {
-          "max_abs_diff": 9.106006473302841e-07,
+          "max_abs_diff": 2.4645589292049408e-05,
           "tol": 0.0001,
           "pass": true
         },
         "W3": {
-          "max_abs_diff": 1.1548399925231934e-07,
+          "max_abs_diff": 2.4645589292049408e-05,
           "tol": 0.0001,
           "pass": true
         }
@@ -1073,125 +1186,125 @@
     "C": [
       {
         "freeze_steps": 0,
-        "gm12": 0.023518986999988556,
-        "g0": 0.0243378896266222,
-        "gp12": 0.02417384833097458,
-        "held30_gm12": 0.023462247103452682,
-        "held30_g0": 0.024266425520181656,
+        "gm12": 0.023519005626440048,
+        "g0": 0.02433791011571884,
+        "gp12": 0.024173863232135773,
+        "held30_gm12": 0.023462263867259026,
+        "held30_g0": 0.024266444146633148,
         "ce_r": 3.265916109085083,
-        "site_read_onset": 0.022789934650063515,
-        "site_read_span": 0.02226138859987259
+        "site_read_onset": 0.022789958864450455,
+        "site_read_span": 0.022261405363678932
       },
       {
         "freeze_steps": 1,
-        "gm12": 0.003581138327717781,
-        "g0": 0.003662972943857312,
+        "gm12": 0.0035811401903629303,
+        "g0": 0.0036629748065024614,
         "ce_r": 3.3933629989624023
       },
       {
         "freeze_steps": 2,
-        "gm12": 0.00205392949283123,
-        "g0": 0.002001603599637747,
-        "ce_r": 3.318021059036255
+        "gm12": 0.002053933683782816,
+        "g0": 0.0020016073249280453,
+        "ce_r": 3.3180205821990967
       },
       {
         "freeze_steps": 4,
-        "gm12": 0.0021508291829377413,
-        "g0": 0.002194112166762352,
+        "gm12": 0.0021508296485990286,
+        "g0": 0.002194112865254283,
         "ce_r": 3.1531214714050293
       }
     ],
     "W1": [
       {
         "freeze_steps": 0,
-        "gm12": 0.023518986999988556,
-        "g0": 0.0243378896266222,
-        "gp12": 0.02417384833097458,
-        "held30_gm12": 0.023462247103452682,
-        "held30_g0": 0.024266425520181656,
+        "gm12": 0.023519005626440048,
+        "g0": 0.02433791011571884,
+        "gp12": 0.024173863232135773,
+        "held30_gm12": 0.023462263867259026,
+        "held30_g0": 0.024266444146633148,
         "ce_r": 3.265916109085083,
-        "site_read_onset": 0.022789934650063515,
-        "site_read_span": 0.02226138859987259
+        "site_read_onset": 0.022789958864450455,
+        "site_read_span": 0.022261405363678932
       },
       {
         "freeze_steps": 1,
-        "gm12": 0.009067906998097897,
-        "g0": 0.009491758421063423,
-        "ce_r": 3.24237322807312
+        "gm12": 0.009067908860743046,
+        "g0": 0.009491761215031147,
+        "ce_r": 3.242372989654541
       },
       {
         "freeze_steps": 2,
-        "gm12": 0.01136731542646885,
-        "g0": 0.011699341237545013,
-        "ce_r": 3.189525842666626
+        "gm12": 0.011367334984242916,
+        "g0": 0.011699358001351357,
+        "ce_r": 3.1895251274108887
       },
       {
         "freeze_steps": 4,
-        "gm12": 0.012594591826200485,
-        "g0": 0.01299288310110569,
-        "ce_r": 3.1419260501861572
+        "gm12": 0.012594608590006828,
+        "g0": 0.012992904521524906,
+        "ce_r": 3.141925811767578
       }
     ],
     "W2": [
       {
         "freeze_steps": 0,
-        "gm12": 0.023518986999988556,
-        "g0": 0.0243378896266222,
-        "gp12": 0.02417384833097458,
-        "held30_gm12": 0.023462247103452682,
-        "held30_g0": 0.024266425520181656,
+        "gm12": 0.023519005626440048,
+        "g0": 0.02433791011571884,
+        "gp12": 0.024173863232135773,
+        "held30_gm12": 0.023462263867259026,
+        "held30_g0": 0.024266444146633148,
         "ce_r": 3.265916109085083,
-        "site_read_onset": 0.022789934650063515,
-        "site_read_span": 0.02226138859987259
+        "site_read_onset": 0.022789958864450455,
+        "site_read_span": 0.022261405363678932
       },
       {
         "freeze_steps": 1,
-        "gm12": 0.004330034367740154,
-        "g0": 0.004469676874577999,
+        "gm12": 0.004330035764724016,
+        "g0": 0.004469678271561861,
         "ce_r": 3.350785732269287
       },
       {
         "freeze_steps": 2,
-        "gm12": 0.004553575534373522,
-        "g0": 0.004666916560381651,
-        "ce_r": 3.2338201999664307
+        "gm12": 0.004553582053631544,
+        "g0": 0.004666923079639673,
+        "ce_r": 3.2338194847106934
       },
       {
         "freeze_steps": 4,
-        "gm12": 0.008013538084924221,
-        "g0": 0.00815066322684288,
-        "ce_r": 3.1156437397003174
+        "gm12": 0.008013540878891945,
+        "g0": 0.00815066508948803,
+        "ce_r": 3.115643262863159
       }
     ],
     "W3": [
       {
         "freeze_steps": 0,
-        "gm12": 0.023518986999988556,
-        "g0": 0.0243378896266222,
-        "gp12": 0.02417384833097458,
-        "held30_gm12": 0.023462247103452682,
-        "held30_g0": 0.024266425520181656,
+        "gm12": 0.023519005626440048,
+        "g0": 0.02433791011571884,
+        "gp12": 0.024173863232135773,
+        "held30_gm12": 0.023462263867259026,
+        "held30_g0": 0.024266444146633148,
         "ce_r": 3.265916109085083,
-        "site_read_onset": 0.022789934650063515,
-        "site_read_span": 0.02226138859987259
+        "site_read_onset": 0.022789958864450455,
+        "site_read_span": 0.022261405363678932
       },
       {
         "freeze_steps": 1,
-        "gm12": 0.0035811380948871374,
-        "g0": 0.003662972943857312,
+        "gm12": 0.0035811394918709993,
+        "g0": 0.0036629745736718178,
         "ce_r": 3.3933629989624023
       },
       {
         "freeze_steps": 2,
-        "gm12": 0.00205392949283123,
-        "g0": 0.002001603599637747,
-        "ce_r": 3.318021059036255
+        "gm12": 0.002053934847936034,
+        "g0": 0.0020016084890812635,
+        "ce_r": 3.3180203437805176
       },
       {
         "freeze_steps": 4,
         "gm12": 0.003005575155839324,
         "g0": 0.003061074996367097,
-        "ce_r": 3.128932237625122
+        "ce_r": 3.128932476043701
       }
     ]
   },
@@ -1212,82 +1325,82 @@
     "ladder": {
       "C": {
         "g_m12": {
-          "1": 0.003581138327717781,
-          "2": 0.00205392949283123,
-          "4": 0.0021508291829377413
+          "1": 0.0035811401903629303,
+          "2": 0.002053933683782816,
+          "4": 0.0021508296485990286
         },
         "all_checkpoints_present": true,
         "missing": [],
-        "min_gm12": 0.00205392949283123,
+        "min_gm12": 0.002053933683782816,
         "argmin_step": 2,
         "holds_0p9eq_bar": false,
         "first_ck_below_bar": 1,
         "maintains_g1_bar": false,
         "dies_by_50": false,
-        "retention_min": 0.08733069552835034,
+        "retention_min": 0.08733080455892171,
         "flat_phase_min": null,
         "flat_phase_retention_min": null,
         "flat_phase_holds_09x_root": false
       },
       "W1": {
         "g_m12": {
-          "1": 0.009067906998097897,
-          "2": 0.01136731542646885,
-          "4": 0.012594591826200485
+          "1": 0.009067908860743046,
+          "2": 0.011367334984242916,
+          "4": 0.012594608590006828
         },
         "all_checkpoints_present": true,
         "missing": [],
-        "min_gm12": 0.009067906998097897,
+        "min_gm12": 0.009067908860743046,
         "argmin_step": 1,
         "holds_0p9eq_bar": false,
         "first_ck_below_bar": 1,
         "maintains_g1_bar": false,
         "dies_by_50": false,
-        "retention_min": 0.3855568693542077,
+        "retention_min": 0.3855566432004638,
         "flat_phase_min": null,
         "flat_phase_retention_min": null,
         "flat_phase_holds_09x_root": false
       },
       "W2": {
         "g_m12": {
-          "1": 0.004330034367740154,
-          "2": 0.004553575534373522,
-          "4": 0.008013538084924221
+          "1": 0.004330035764724016,
+          "2": 0.004553582053631544,
+          "4": 0.008013540878891945
         },
         "all_checkpoints_present": true,
         "missing": [],
-        "min_gm12": 0.004330034367740154,
+        "min_gm12": 0.004330035764724016,
         "argmin_step": 1,
         "holds_0p9eq_bar": false,
         "first_ck_below_bar": 1,
         "maintains_g1_bar": false,
         "dies_by_50": false,
-        "retention_min": 0.18410803015207505,
+        "retention_min": 0.18410794374130313,
         "flat_phase_min": null,
         "flat_phase_retention_min": null,
         "flat_phase_holds_09x_root": false
       },
       "W3": {
         "g_m12": {
-          "1": 0.0035811380948871374,
-          "2": 0.00205392949283123,
+          "1": 0.0035811394918709993,
+          "2": 0.002053934847936034,
           "4": 0.003005575155839324
         },
         "all_checkpoints_present": true,
         "missing": [],
-        "min_gm12": 0.00205392949283123,
+        "min_gm12": 0.002053934847936034,
         "argmin_step": 2,
         "holds_0p9eq_bar": false,
         "first_ck_below_bar": 1,
         "maintains_g1_bar": false,
         "dies_by_50": false,
-        "retention_min": 0.08733069552835034,
+        "retention_min": 0.0873308540573247,
         "flat_phase_min": null,
         "flat_phase_retention_min": null,
         "flat_phase_holds_09x_root": false
       }
     },
-    "bar_0p9eq": 0.02311855621781588,
+    "bar_0p9eq": 0.02311857452713617,
     "WALL_SCALES": null,
     "WALL_TIGHTENS": null,
     "WALL_FADES": null,
@@ -1298,7 +1411,7 @@
       "W1_ce300": 3.114668130874634,
       "C_ce300": 3.141793966293335,
       "W2_ce300": 3.086822032928467,
-      "W3_ce300": 3.1291182041168213,
+      "W3_ce300": 3.129117965698242,
       "root_ce_r": 3.265916109085083,
       "reference_274M": 0.5263230800628662,
       "W1_minus_C": -0.027125835418701172,
@@ -1307,32 +1420,32 @@
         "C": {
           "1": 3.210648775100708,
           "2": 3.2530758380889893,
-          "3": 3.2204906940460205,
+          "3": 3.2204902172088623,
           "4": 3.141793966293335
         },
         "W1": {
-          "1": 3.210648775100708,
+          "1": 3.210649013519287,
           "2": 3.1344094276428223,
-          "3": 3.1234145164489746,
+          "3": 3.1234140396118164,
           "4": 3.114668130874634
         },
         "W2": {
-          "1": 3.210648775100708,
-          "2": 3.2173349857330322,
-          "3": 3.1509673595428467,
+          "1": 3.210649013519287,
+          "2": 3.217334747314453,
+          "3": 3.1509671211242676,
           "4": 3.086822032928467
         },
         "W3": {
-          "1": 3.210648775100708,
+          "1": 3.210649013519287,
           "2": 3.2530758380889893,
-          "3": 3.2204906940460205,
-          "4": 3.1291182041168213
+          "3": 3.220489978790283,
+          "4": 3.129117965698242
         }
       }
     },
     "freezing_CE": false,
-    "verdict": "TEXTURE (GATE FAILURE: G-ROOT, G-CTRL)",
-    "clause": "a registered gate failed \u2014 nothing adjudicated; failed: ['G-ROOT', 'G-CTRL']; full record reported (root g-12 0.0235, C trace +1:0.0036 -> +2:0.0021 -> +4:0.0022)"
+    "verdict": "TEXTURE (GATE FAILURE: G-BASE-QUAL, G-ROOT, G-CTRL)",
+    "clause": "a registered gate failed \u2014 nothing adjudicated; failed: ['G-BASE-QUAL', 'G-ROOT', 'G-CTRL']; full record reported (root g-12 0.0235, C trace +1:0.0036 -> +2:0.0021 -> +4:0.0022)"
   },
   "honesty_reflex": {
     "n1_scope": "n=1 host, one wash seed (10902), one fact \u2014 the rung is SCALE, not seeds; the replicate ladder follows only if a bar fires (the design's own first-cell scoping).",
@@ -1341,7 +1454,9 @@
     "device_texture": "the 2.74M references (root 0.9156, +0.53 tax) were CPU/mixed-device runs; this cell is GPU-trained with CPU full dials; every bar adjudicates against the in-run control C, and cross-device float fuzz is bounded by G-STEP1 (~1e-5 measured on same-stream step-1 bodies).",
     "cpu_gpu_tax_caveat": "the tax comparison to +0.53 carries the device-texture caveat (g1b's dCE was measured on its own device mix); the in-run W1-vs-C delta is the primary number.",
     "wall_blind_spot": "the wall never protects the FIRST step: commit happens at d=0, so step 1's AdamW update (~3.16 raw = lr*sqrt(P)) always lands before the first projection; the wall caps cumulative displacement at R + fuzz \u2014 the design's registered semantics, not a bug.",
-    "no_bar_shopping": "the ladder was fixed by the frozen design; if no rung holds, WALL-FADES is the verdict; the secondary bars are co-reported context, never adjudicated."
+    "no_bar_shopping": "the ladder was fixed by the frozen design; if no rung holds, WALL-FADES is the verdict; the secondary bars are co-reported context, never adjudicated.",
+    "three_dispatch_provenance": "this cell spans THREE executor dispatches interrupted by machine disruptions: agent-1 (healthy base prefix, steps 353/547/750, vals 1.8385/1.6437/1.5801 \u2014 its ckpts were later overwritten; the committed chunk table is its record), agent-2 (base DIVERGED: val 1.628 -> 3.724 over steps 1207-2958, saved state s3250 train 0.13 / val 3.96 \u2014 archived as g1bS_base_diverged_s3250.pt, never deleted), agent-3 (this run: divergence verified from the committed data + its own eval/sample of the saved state, then the documented width-scaled-lr retrain from the same init and batch stream). Nothing from the diverged trajectory enters this cell's hosts, arms or adjudication.",
+    "base_lr_deviation": "BASE_LR 4e-4 (not the carried 1e-3): a DOCUMENTED stability fix ordered by the third dispatch \u2014 width-proportional 1e-3 x 128/320, inside the 3e-4..5e-4 window; install lr 4e-4 with the movement-matched dose s1000; consolidate + wash stay 1e-3 verbatim (the frozen treatment). The R-convention, the ladder, the wash recipe and the bars are UNTOUCHED \u2014 the deviation touches only the HOST recipe, and the controlled comparison (same init, same batches, lr the only delta) is on record. Cross-scale tax comparisons carry this caveat."
   },
   "trims": [],
   "deviations": [
@@ -1353,12 +1468,77 @@
     "OWN DRIVERS (g1's own precedent \u2014 'copied, not imported, to own the device policy'): g1bS_wash/g1bS_consolidate copy g1_wash/consolidate VERBATIM arithmetic (draw order ix/aj/rj, batch composition, target handling, optimizer, clip, cap semantics, ckpt evals) plus the two registered adaptations above and the g1bW MIDRUN policy: outside GPU load/heat => PAUSE-AND-WAIT (cap time excluded), never migrate mid-run. Instruments (battery_cell, ce_fixed_cpu, val_windows, deleted_wpe, read_fact_at, row_census, CommittedGPT, evl_load, DmixCorpus) are G1's VERBATIM via import with G1.G1_CFG/G1_PARAMS patched to the 10M family (g1b's pattern).",
     "FULL DIALS TRIMMED to root + W1@{2,50,300} (g1b's FULL_DIAL_WASH verbatim): W2/W3/C run light-only (their roles are the ladder and the kill clock \u2014 g1bR's precedent); at 10M one full dial is ~4-5 CPU-min (census 49 battery reads), so 12 dials would dominate the cell.",
     "NO NOISE ARMS: the g1bS design's arms are C + the R ladder only; the noise split (N0/N1/N2) is g1b's cell, not re-run here.",
-    "BASE CHUNK GATE WAITS up to 1800 s per chunk for a free GPU window (vs 600 s for the other trainings): a 4000-step 10M base on CPU is not a viable cell (~3 h); waiting is envelope-legal and every wait is recorded in device_events. Arms/install/consolidate keep g1bW's 600 s-then-CPU policy (all are <=1800 s viable on CPU).",
+    "BASE CHUNK GATE WAITS (was: up to 1800 s per chunk; RECOVERY-3: WITHOUT timeout \u2014 pause-and-wait) for a free GPU window (vs 600 s for the other trainings): a 4000-step 10M base on CPU is not a viable cell (~3 h); waiting is envelope-legal and every wait is recorded/logged. Arms/install/consolidate keep g1bW's 600 s-then-CPU policy (all are <=1800 s viable on CPU).",
     "torch threads 4 (shared machine; g1bW's adopted trim; g1's import resets to 8, reset after import).",
     "WAIT-GATE SOAK FIX (after the first full run's chunk 3 gate, run restarted cleanly between trainings; the base resumed from its chunk checkpoint at step 547): the soak-wait's <=65C resume target cannot be reached on this machine (~73-76C idle floor \u2014 the deadlock class g1bW's own F-note documented); the launch window now opens at the LAB'S OWN launch ceiling (<=80C, README rule 9: 'no new launches above 80C'), i.e. the gate waits while >80C and launches once under it. The thermal ceiling, mem <=85% cap and util gate are unchanged and binding; no training semantics touched.",
-    "Smoke mode trims: base 24 steps, install/consolidate 8 steps, washes 4 steps with ckpts {1,2,4}, lean dials, no cooldowns, GPU gate waits capped at 30 s \u2014 nothing adjudicated."
+    "Smoke mode trims: base 24 steps, install/consolidate 8 steps, washes 4 steps with ckpts {1,2,4}, lean dials, no cooldowns, GPU gate waits capped at 30 s \u2014 nothing adjudicated.",
+    "RECOVERY-3 LR FIX (documented deviation; the third dispatch's primary): BASE_LR 1e-3 -> 4e-4, WIDTH-PROPORTIONAL (1e-3 x 128/320 \u2014 the house recipe was minted on n_embd=128; this host is n_embd=320), inside the coordinator's documented 3e-4..5e-4 window. EVIDENCE: agent-2's committed chunks rose monotonically (val 1.628 -> 3.724 @ steps 1207-2958) and the saved s3250 state splits train 0.13 (falling) / val 3.96 (rising) \u2014 degenerate collapse; the scheduler decayed correctly, so the recipe (not the resume mechanics) is the fault. The design froze the R-convention and the WALL bars, NOT the base lr \u2014 this is a legitimate documented deviation, not bar shopping. Warmup 100 + grad clip 1.0 (the house recipe's own stabilizers) kept verbatim.",
+    "RECOVERY-3 INSTALL ADAPTATION (dispatch-licensed, documented): install lr 1e-3 -> 4e-4 (the same width-scale; the install trains this same 10M host) and dose s400 -> s1000 MOVEMENT-matched (1e-3 x 400 ~= 4e-4 x 1000 parameter-space distance \u2014 the same convention-carrying logic as the R_rms dial); the e043 stream/objective convention is unchanged. Consolidate (e113) and the wash (e176N) stay lr 1e-3 VERBATIM \u2014 they are the registered treatment; the Adam-clock (T139: rms displacement per step = lr regardless of N) and ONE_STEP_FUZZ_RAW are priced at 1e-3 and changing them would change the frozen treatment.",
+    "RECOVERY-3 BASE VERIFICATION + ARCHIVE: the inherited g1bS_base.pt is loaded and honestly evaluated (its own history; this run's own val estimate + a 300-token sample on the house instruments) BEFORE any training; classified DIVERGED -> archived as g1bS_base_diverged_s{step}.pt (never deleted), then a FRESH retrain from the same seed-1337 init and the same batch stream \u2014 lr is the only delta vs the diverged trajectory (controlled comparison). A healthy partial (future interruption) still resumes (Rule 10).",
+    "RECOVERY-3 BASE GATE WAITS WITHOUT TIMEOUT (pause-and-wait per the dispatch): BASE_WAIT_MAX = inf \u2014 a 4000-step 10M base on CPU is not a viable cell, so the gate parks (30 s polls, logged) instead of migrating; arms/install/consolidate keep the committed 600 s policy (G1BS_GPU_WAIT_MAX env extends it)."
   ],
-  "device_events": [],
+  "device_events": [
+    {
+      "tag": "base_chunk1",
+      "event": "GPU-WAIT TIMEOUT -> CPU",
+      "waited_s": 30.2,
+      "status": {
+        "util": 0.0,
+        "mem_used": 19372.0,
+        "mem_total": 24463.0,
+        "temp": 82.0,
+        "power": 23.59
+      }
+    },
+    {
+      "tag": "install_chunk1",
+      "event": "GPU-WAIT TIMEOUT -> CPU",
+      "waited_s": 35.2,
+      "status": {
+        "util": 0.0,
+        "mem_used": 19372.0,
+        "mem_total": 24463.0,
+        "temp": 75.0,
+        "power": 10.85
+      }
+    },
+    {
+      "tag": "W1",
+      "event": "GPU-WAIT TIMEOUT -> CPU",
+      "waited_s": 30.1,
+      "status": {
+        "util": 100.0,
+        "mem_used": 21493.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 107.37
+      }
+    },
+    {
+      "tag": "W2",
+      "event": "GPU-WAIT TIMEOUT -> CPU",
+      "waited_s": 30.1,
+      "status": {
+        "util": 100.0,
+        "mem_used": 21493.0,
+        "mem_total": 24463.0,
+        "temp": 80.0,
+        "power": 26.55
+      }
+    },
+    {
+      "tag": "W3",
+      "event": "GPU-WAIT TIMEOUT -> CPU",
+      "waited_s": 30.1,
+      "status": {
+        "util": 100.0,
+        "mem_used": 22869.0,
+        "mem_total": 24463.0,
+        "temp": 84.0,
+        "power": 81.51
+      }
+    }
+  ],
   "ckpt_inventory": {
     "smoke_g1bS_root": {
       "path": "runs/checkpoints/smoke_g1bS_root.pt",
@@ -1414,7 +1594,7 @@
     }
   },
   "timing": {
-    "total_s": 93.5
+    "total_s": 290.9
   },
   "config": {
     "n_layer": 8,

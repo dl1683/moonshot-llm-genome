@@ -1,0 +1,103 @@
+C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[    0.0s] G1BS THE WALL AT 10x (smoke=True) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\g1bS_smoke
+[    1.0s] [partial] metrics.json updated (phase 'start', write #1)
+[    3.7s] protocol rebuilt: install60 {'FLORIZEL': 19, 'ELIZABETH': 41}, held30 (SPLICE_RNG 24301)
+[    3.9s] G_ANCHOR: neutral bank 16x256 (seed 170, 2 rejections/18 tries) — host 0/16, junctions 0/16: PASS
+[    4.0s] G-CONFIG: 9,977,600 params in [8.5M, 11.5M]; ladder W1: 1.3360 raw = 1x 4.2296e-04 rms | W2: 2.6720 raw = 2x 4.2296e-04 rms | W3: 5.3440 raw = 4x 4.2296e-04 rms; pin fuzz rms-carried 2.863 raw (verbatim 1.5 co-reported; one-step 3.159): PASS
+[    4.0s] [partial] metrics.json updated (phase 'G-CONFIG', write #2)
+[    4.0s] ==============================================================================
+[    4.0s] HOST BASE: 9,977,600 params, 24 steps house cosine (warmup 100), lr 0.0004 (RECOVERY-3 width-scaled: 1e-3 x 128/320), batch 64, seed 1337, chunk cap 180s GPU / 1800s CPU, cooldown 120s between chunks
+[    4.2s] [gpu] 'base_chunk1' heat-soaked (82C > 80C): waiting to cool below the launch ceiling
+[   34.2s] [gpu] 'base_chunk1' runs CPU (GPU busy >30s: {'util': 0.0, 'mem_used': 19372.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 23.59})
+  resumed from smoke_g1bS_base.pt at step 24 (val 2.8448)
+[   36.6s] [base] chunk 1: step 24/24 val 2.8448 (2.4s on cpu)
+[   36.6s] [partial] metrics.json updated (phase 'base-chunk-1', write #3)
+[   36.6s] G-BASE: cosine COMPLETED at step 24 (val 2.8448) in 1 chunks: PASS
+[   44.8s] [g1bS_base] base: g-12 0.0079 g+0 0.0069 g+12 0.0070 | held30: g-12 0.0079 g+0 0.0069 g+12 0.0070 | CE_R 2.8509
+[   47.1s] [g1bS_base] site read @183: onset 0.0074 span 0.0159
+[   50.5s] base cells: g-12 0.0079 CE_R 2.8509
+[   61.2s] G-BASE-QUAL: cosine True | val decreasing True (3.4301 -> 2.8448, chunk vals 2.8448) | final<=1.70 False | coherence True (ls 0.75, mwl 4.067796610169491, max_run 3, distinct 51): FAIL (smoke: NOT enforced)
+[   61.2s] G-BASE-QUAL sample ('?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr'...): 'ot,orylhofal lian-\nZeam\nU\nL\nK\nNI meE\nV\nqinerod I anBAuMT:\nAne!\nWhe g! g tour.\n-\nQ\nA,\n\nCusharinuve h:\nMZLilen\nK\nSot ce nvF sthy atathe hesgo anshiseeie,\nF\n-\nXtow'
+[   61.2s] [partial] metrics.json updated (phase 'G-BASE-QUAL', write #4)
+[   61.2s] ==============================================================================
+[   61.2s] INSTALL: e043 Dmix stream (16 install + 16 paired + 32 random = 64 windows/step), dose s8 (RECOVERY-3 movement-matched), house cosine (warmup 100), lr 0.0004 (width-scaled), seed 42
+[gpu_guard] HOLD: {'util': 100.0, 'mem_used': 19372.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 52.38}
+[   96.7s] [gpu] 'install_chunk1' runs CPU (GPU busy >30s: {'util': 0.0, 'mem_used': 19372.0, 'mem_total': 24463.0, 'temp': 75.0, 'power': 10.85})
+  resumed from smoke_g1bS_install.pt at step 8 (val 2.7542)
+[  103.1s] [post_install] base: g-12 0.0069 g+0 0.0063 g+12 0.0061 | held30: g-12 0.0068 g+0 0.0063 g+12 0.0060 | CE_R 2.7725
+[  104.9s] [post_install] site read @183: onset 0.0067 span 0.0358
+[  107.5s] post-install: g-12 0.0069 g0 0.0063 CE_R 2.7725
+[  107.5s] [partial] metrics.json updated (phase 'G-INST', write #5)
+[  107.5s] ==============================================================================
+[  112.9s] [gpu] 'consolidate' may use GPU (util 0% temp 76C mem 19372/24463MB)
+[  114.4s]   [consolidate] s   8 g0 0.0243 CE_R 3.2659 (1s)
+[  115.2s] [partial] metrics.json updated (phase 'consolidate', write #6)
+[  115.2s] ==============================================================================
+[  121.2s] [g1bS_root] base: g-12 0.0235 g+0 0.0243 g+12 0.0242 | held30: g-12 0.0235 g+0 0.0243 g+12 0.0241 | CE_R 3.2659
+[  123.4s] [g1bS_root] site read @183: onset 0.0228 span 0.0223
+[  125.7s] G-ROOT: root g-12 0.0235 (bar >= 0.78): FAIL
+[  125.7s] SCALED BAR (frozen formula, root measured): bar_0p9eq = 0.0235 x 0.9 / 0.9156 = 0.0231  (= 0.98297 x root; secondary 0.9x root = 0.0212)
+[  125.7s] [partial] metrics.json updated (phase 'root+scaled-bar', write #7)
+[  125.8s] [ckpt] saved smoke_g1bS_root.pt
+[  125.8s] ==============================================================================
+[  125.8s] ARM C — CONTROL — uncommitted neutral wash (e176N arm A VERBATIM at 10M): the kill clock, D_kill, the CE adaptation curve
+[  131.1s] [gpu] 'C' may use GPU (util 0% temp 74C mem 20057/24463MB)
+[  131.8s]   [C] CKPT +   1 g-12 0.0036 g0 0.0037 CE_R 3.3934 | |d| 3.1398 raw = 9.9400e-04 rms (uncommitted) (CE 3.2106)
+[  132.1s]   [C] CKPT +   2 g-12 0.0021 g0 0.0020 CE_R 3.3180 | |d| 4.7771 raw = 1.5123e-03 rms (uncommitted) (CE 3.2531)
+[  132.6s]   [C] CKPT +   4 g-12 0.0022 g0 0.0022 CE_R 3.1531 | |d| 6.8884 raw = 2.1807e-03 rms (uncommitted) (CE 3.1418)
+[  132.6s] [partial] metrics.json updated (phase 'arm-C', write #8)
+[  132.6s] [ckpt] saved smoke_g1bS_C_s4.pt
+[  132.6s] ==============================================================================
+[  132.6s] ARM W1 — WALL 1x R_rms = 1.3360 raw L2 = 4.2296e-04 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[  132.8s] G_BITROOT[W1]: max|diff| 0.0e+00, anchors bit-equal, R = 1.336009 raw = 4.229571e-04 rms: PASS
+[  132.9s] [gpu] 'W1' heat-soaked (85C > 80C): waiting to cool below the launch ceiling
+[  162.9s] [gpu] 'W1' runs CPU (GPU busy >30s: {'util': 100.0, 'mem_used': 21493.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 107.37})
+[  169.7s]   [W1] CKPT +   1 g-12 0.0091 g0 0.0095 CE_R 3.2424 | |d| 3.1358 raw = 9.9273e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 3.2106)
+[  176.0s]   [W1] CKPT +   2 g-12 0.0114 g0 0.0117 CE_R 3.1895 | |d| 3.1208 raw = 9.8798e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 3.1344)
+[  185.2s]   [W1] CKPT +   4 g-12 0.0126 g0 0.0130 CE_R 3.1419 | |d| 2.9167 raw = 9.2337e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 3.1147)
+[  185.2s] [partial] metrics.json updated (phase 'arm-W1', write #9)
+[  185.3s] [ckpt] saved smoke_g1bS_W1_s4.pt
+[  185.3s] ==============================================================================
+[  185.3s] ARM W2 — WALL 2x R_rms = 2.6720 raw L2 = 8.4591e-04 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[  185.4s] G_BITROOT[W2]: max|diff| 0.0e+00, anchors bit-equal, R = 2.672018 raw = 8.459142e-04 rms: PASS
+[gpu_guard] HOLD: {'util': 100.0, 'mem_used': 21493.0, 'mem_total': 24463.0, 'temp': 80.0, 'power': 26.55}
+[  215.6s] [gpu] 'W2' runs CPU (GPU busy >30s: {'util': 100.0, 'mem_used': 21493.0, 'mem_total': 24463.0, 'temp': 80.0, 'power': 26.55})
+[  222.4s]   [W2] CKPT +   1 g-12 0.0043 g0 0.0045 CE_R 3.3508 | |d| 3.1358 raw = 9.9273e-04 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 3.2106)
+[  228.8s]   [W2] CKPT +   2 g-12 0.0046 g0 0.0047 CE_R 3.2338 | |d| 4.2957 raw = 1.3600e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 3.2173)
+[  237.5s]   [W2] CKPT +   4 g-12 0.0080 g0 0.0082 CE_R 3.1156 | |d| 3.8929 raw = 1.2324e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 3.0868)
+[  237.9s] [partial] metrics.json updated (phase 'arm-W2', write #10)
+[  238.0s] [ckpt] saved smoke_g1bS_W2_s4.pt
+[  238.0s] ==============================================================================
+[  238.0s] ARM W3 — WALL 4x R_rms = 5.3440 raw L2 = 1.6918e-03 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[  238.1s] G_BITROOT[W3]: max|diff| 0.0e+00, anchors bit-equal, R = 5.344036 raw = 1.691828e-03 rms: PASS
+[  238.2s] [gpu] 'W3' heat-soaked (84C > 80C): waiting to cool below the launch ceiling
+[  268.2s] [gpu] 'W3' runs CPU (GPU busy >30s: {'util': 100.0, 'mem_used': 22869.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 81.51})
+[  274.6s]   [W3] CKPT +   1 g-12 0.0036 g0 0.0037 CE_R 3.3934 | |d| 3.1358 raw = 9.9273e-04 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 3.1397762298583984) (CE 3.2106)
+[  280.9s]   [W3] CKPT +   2 g-12 0.0021 g0 0.0020 CE_R 3.3180 | |d| 4.7778 raw = 1.5126e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 4.777058124542236) (CE 3.2531)
+[  290.6s]   [W3] CKPT +   4 g-12 0.0030 g0 0.0031 CE_R 3.1289 | |d| 6.3296 raw = 2.0038e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 5.344035625457764) (CE 3.1291)
+[  290.6s] [partial] metrics.json updated (phase 'arm-W3', write #11)
+[  290.7s] [ckpt] saved smoke_g1bS_W3_s4.pt
+[  290.7s] G-INPUTS: per-step inputs bit-identical across all 4 arms through +4: PASS
+[  290.8s] G-STEP1: wall arms' step-1 bodies == C's step-1 body (max|diff| 2.5e-05, 2.5e-05, 2.5e-05 <= 1e-4): PASS — the wall is inert until forward 2
+[  290.8s] [partial] metrics.json updated (phase 'input-gates', write #12)
+[  290.9s] G-CTRL: arm C g-12 at +50 = n/a (earliest <= 0.27: +1): FAIL
+[  290.9s] G-PIN[W1]: max raw |d| 3.1358 <= 4.199 (rms-carried): PASS | verbatim R+1.5 = 2.84: FAIL (co-reported)
+[  290.9s] G-PIN[W2]: max raw |d| 4.2957 <= 5.535 (rms-carried): PASS | verbatim R+1.5 = 4.17: FAIL (co-reported)
+[  290.9s] G-PIN[W3]: max raw |d| 6.3296 <= 8.207 (rms-carried): PASS | verbatim R+1.5 = 6.84: PASS (co-reported)
+[  290.9s] ==============================================================================
+[  290.9s] G1BS VERDICT: TEXTURE (GATE FAILURE: G-BASE-QUAL, G-ROOT, G-CTRL)
+[  290.9s]   C: g-12 +1:0.0036 -> +2:0.0021 -> +4:0.0022
+[  290.9s]   C: |d| raw/rms +1:3.140/9.94e-04 -> +2:4.777/1.51e-03 -> +4:6.888/2.18e-03
+[  290.9s]   W1: g-12 +1:0.0091 -> +2:0.0114 -> +4:0.0126
+[  290.9s]   W1: |d| raw/rms +1:3.136/9.93e-04 -> +2:3.121/9.88e-04 -> +4:2.917/9.23e-04
+[  290.9s]   W2: g-12 +1:0.0043 -> +2:0.0046 -> +4:0.0080
+[  290.9s]   W2: |d| raw/rms +1:3.136/9.93e-04 -> +2:4.296/1.36e-03 -> +4:3.893/1.23e-03
+[  290.9s]   W3: g-12 +1:0.0036 -> +2:0.0021 -> +4:0.0030
+[  290.9s]   W3: |d| raw/rms +1:3.136/9.93e-04 -> +2:4.778/1.51e-03 -> +4:6.330/2.00e-03
+[  290.9s]   bar_0p9eq 0.0231 | root 0.0235 | D_kill raw 3.1398
+[  290.9s]   tax: W1-C dCE@300 -0.0271 (ref +0.53) | W1-root -0.1512 | freezing False
+[  290.9s]   a registered gate failed — nothing adjudicated; failed: ['G-BASE-QUAL', 'G-ROOT', 'G-CTRL']; full record reported (root g-12 0.0235, C trace +1:0.0036 -> +2:0.0021 -> +4:0.0022)
+[  290.9s] ==============================================================================
+[  292.7s] outputs: C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\g1bS_smoke\metrics.json, C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\g1bS_smoke\scale_wall.png, 5 checkpoints in runs/checkpoints/g1bS_*.pt
+[  292.7s] total 292.7s

@@ -61,7 +61,9 @@ THE CELL (design verbatim in form, g1b's conventions):
          the envelope-legal way to exceed 180 s total) to a COMPLETED
          4000-step house cosine (common.train_model, warmup 100).
   INSTALL    e043-Dmix convention verbatim (g1 phase-0a): 16 spliced install
-         + 16 paired originals + 32 random = 64 windows/step, dose s400,
+         + 16 paired originals + 32 random = 64 windows/step, dose s400
+         [RECOVERY-3: lr 4e-4 + dose s1000, movement-matched — see the
+         RECOVERY-3 NOTE; stream/objective convention unchanged],
          house cosine, seed 42, full-token union CE.
   CONSOLIDATE e113 jitter convention verbatim (g1 phase-0b): jitters
          {-8,-4,0,+4,+8}, 300 steps, batch 16 install + 16 anchor (8 paired
@@ -147,11 +149,45 @@ end-of-run write never executed; (c) optional G1BS_GPU_WAIT_MAX env
 override for the arm wait (default 600 s, the committed g1bW policy,
 UNCHANGED unless set) so the recovery dispatch's pause-and-wait
 instruction can extend waits without code edits.
+
+==================== RECOVERY-3 NOTE (2026-10-01, the THIRD dispatch) =======
+A SECOND machine disruption killed the second executor mid-base. The
+committed partial (3b1b4cc) shows its base chunks' val RISING MONOTONICALLY
+1.628 -> 3.724 over chunks 1-6 (steps 1207-2958), and the saved ckpt state
+(s3250, saved mid-chunk-7 before the kill) shows train_loss FALLING to 0.13
+while val RISES to 3.96 — a degenerate collapse, not benign overfitting; the
+LR SCHEDULER decayed correctly (lr 8.9e-5 at s3250), so the schedule and the
+chunk-resume mechanics are exonerated: peak lr 1e-3 — the 0.87M n_embd=128
+house recipe carried unscaled onto the 10M n_embd=320 host — is the fault
+(agent-1's healthy prefix fell 1.84 -> 1.58 through step 750 at the same lr:
+an edge-of-stability signature that bloomed after ~750-1200 steps).
+This third executor: (a) VERIFIES the divergence honestly — the committed
+chunk tables, plus its OWN eval (val estimate + a 300-token sample
+generation) of the saved s3250 state; agent-1's own ckpts (353/547/750) were
+overwritten by agent-2's chunk saves, so its committed log IS its record;
+(b) applies the DOCUMENTED stability fix: width-scaled BASE_LR = 4e-4
+(= 1e-3 x 128/320, inside the coordinator's 3e-4..5e-4 window; warmup 100 +
+grad clip 1.0 are the house recipe's own stabilizers, kept verbatim); the
+install cosine gets the same 4e-4 with the MOVEMENT-matched dose s1000
+(1e-3 x 400 ~= 4e-4 x 1000 parameter-space distance — the same
+convention-carrying logic as the R_rms dial); consolidate (e113) and the
+wash (e176N) stay lr 1e-3 VERBATIM — they are the registered treatment and
+the Adam-clock (T139) is priced at 1e-3; (c) registers G-BASE-QUAL BEFORE
+the retrain (see REGISTERED.base_quality_gates) and STOPS — no install, no
+consolidate, no arms — if it fails. The R-convention, the wall ladder, the
+wash and the bars are UNTOUCHED (no bar shopping). The diverged ckpt is
+ARCHIVED (never deleted) as runs/checkpoints/g1bS_base_diverged_s*.pt. The
+fresh retrain replays the same seed-1337 init and the same batch stream, so
+lr is the ONLY delta vs the diverged trajectory (a controlled comparison).
+The base gate now PAUSE-AND-WAITS without timeout (a 4000-step 10M base on
+CPU is not a viable cell; never migrate mid-run).
 """
 from __future__ import annotations
 
 import copy
 import hashlib
+import itertools
+import json
 import math
 import os
 import random
@@ -203,8 +239,24 @@ BASE_CK, INSTALL_CK = "g1bS_base.pt", "g1bS_install.pt"
 ROOT_CK = "g1bS_root"                   # save_ckpt appends .pt
 
 BASE_STEPS = 4000 if not SMOKE else 24
-BASE_LR, BASE_BS, BASE_EVAL = 1e-3, 64, 250
-INSTALL_STEPS = 400 if not SMOKE else 8
+# RECOVERY-3 LR FIX (documented deviation; the frozen design covers the
+# R-convention and the WALL bars, NOT the base lr): agent-2's chunks rose
+# monotonically (val 1.628 -> 3.724 @ steps 1207-2958; saved s3250 state:
+# train 0.13 falling / val 3.96 rising = degenerate collapse) under peak
+# lr 1e-3 — the 0.87M n_embd=128 recipe carried unscaled onto n_embd=320.
+# WIDTH-PROPORTIONAL scaling: 1e-3 x 128/320 = 4.0e-4, inside the
+# coordinator's documented 3e-4..5e-4 window. Warmup 100 + grad clip 1.0
+# (the house recipe's own stabilizers) kept verbatim.
+BASE_LR, BASE_BS, BASE_EVAL = 4e-4, 64, 250
+INSTALL_LR = 4e-4               # the same width-scaled fix for the install
+                                # cosine (the base it trains IS the 10M host)
+INSTALL_STEPS = 1000 if not SMOKE else 8
+                                # RECOVERY-3 dose adaptation (dispatch-
+                                # licensed, documented): e043's s400 at 1e-3
+                                # is MOVEMENT-matched by 4e-4 x 1000 (the
+                                # same convention-carrying logic as the
+                                # R_rms dial); stream/objective unchanged;
+                                # G-ROOT calibrates the result
 CONS_STEPS = 300 if not SMOKE else 8
 COOLDOWN_S = 120.0               # the mission's envelope
 TRAIN_CAP_GPU, TRAIN_CAP_CPU = 180.0, 1800.0
@@ -212,8 +264,11 @@ GPU_WAIT_MAX = float(os.environ.get("G1BS_GPU_WAIT_MAX", "600"))
                                  # arms/install/consolidate (g1bW policy;
                                  # recovery dispatch may extend via env —
                                  # pause-and-wait, never a silent CPU hop)
-BASE_WAIT_MAX = 1800.0           # base chunks wait longer: a 4000-step CPU
-                                 # base is not a viable cell; recorded
+BASE_WAIT_MAX = float("inf")     # RECOVERY-3: the base gate PAUSE-AND-WAITS
+                                 # with NO timeout — a 4000-step 10M base on
+                                 # CPU is not a viable cell, so waiting is
+                                 # the only honest option (never migrate);
+                                 # every wait is visible in the gate log
 HOT_LAUNCH_C, SOAK_RESUME_C = 80.0, 65.0   # lab thermal semantics (g1bW fix)
 
 # ---- THE R LADDER (frozen convention): R_rms = 0.7/sqrt(2.74e6) ----------
@@ -279,6 +334,36 @@ REGISTERED = {
                  "discriminates a raw-geometry leak (dip widens, no rung "
                  "holds) from an rms-matched basin (dip shallow, rung holds)"),
     },
+    "base_quality_gates": {
+        "registered_before_retrain": True,
+        "why": ("third-dispatch instruction: NO install/consolidate/arms "
+                "until the base passes a quality gate REGISTERED BEFORE the "
+                "base trains (the inherited base diverged; the gate is the "
+                "dispatch bar, not a wall dial — no bar shopping applies "
+                "here or is enabled by it)"),
+        "g1_cosine_complete": "final step == 4000 (the existing G-BASE)",
+        "g2_val_decreasing": ("every chunk-final val <= previous chunk-final "
+                              "val + 0.02 (float/device noise band), AND "
+                              "final val <= first-eval val (step 250) - 0.15 "
+                              "(real learning across the schedule)"),
+        "g3_final_val_anchor": ("final val <= 1.70 — agent-1's healthy "
+                                "prefix was 1.58 @ step 750 and still "
+                                "falling at lr 1e-3; a stable width-scaled "
+                                "cosine on 3.6x the parameters must stay "
+                                "under the diverged run's own healthy window "
+                                "with margin"),
+        "g4_coherence_sample": ("common.generate (the house instrument "
+                                "verbatim: temp 0.8, top_k 40, 300 new "
+                                "tokens, fixed prompt = the first 64 chars "
+                                "of val_text, recorded): lowercase+space "
+                                "fraction >= 0.70 AND mean word length in "
+                                "[2.0, 8.0] AND longest single-char run "
+                                "<= 10 AND >= 18 distinct chars; the sample "
+                                "text recorded verbatim"),
+        "failure_action": ("G-BASE-QUAL FAILS => the run STOPS before "
+                           "install (progressive metrics hold the record); "
+                           "no arms, no adjudication"),
+    },
     "predicted": ("WALL-SCALES on the flat phase ({+10..+300} retention "
                   ">= 0.9x root at the 1x rung, raw-equivalent of g1b's W1 "
                   "behavior); C dead by ~+2/+4 — the Adam clock makes rms "
@@ -342,11 +427,12 @@ deviations: list[str] = [
     "(census 49 battery reads), so 12 dials would dominate the cell.",
     "NO NOISE ARMS: the g1bS design's arms are C + the R ladder only; the "
     "noise split (N0/N1/N2) is g1b's cell, not re-run here.",
-    "BASE CHUNK GATE WAITS up to 1800 s per chunk for a free GPU window "
-    "(vs 600 s for the other trainings): a 4000-step 10M base on CPU is "
-    "not a viable cell (~3 h); waiting is envelope-legal and every wait is "
-    "recorded in device_events. Arms/install/consolidate keep g1bW's "
-    "600 s-then-CPU policy (all are <=1800 s viable on CPU).",
+    "BASE CHUNK GATE WAITS (was: up to 1800 s per chunk; RECOVERY-3: "
+    "WITHOUT timeout — pause-and-wait) for a free GPU window (vs 600 s for "
+    "the other trainings): a 4000-step 10M base on CPU is not a viable cell "
+    "(~3 h); waiting is envelope-legal and every wait is recorded/logged. "
+    "Arms/install/consolidate keep g1bW's 600 s-then-CPU policy (all are "
+    "<=1800 s viable on CPU).",
     "torch threads 4 (shared machine; g1bW's adopted trim; g1's import "
     "resets to 8, reset after import).",
     "WAIT-GATE SOAK FIX (after the first full run's chunk 3 gate, run "
@@ -361,6 +447,39 @@ deviations: list[str] = [
     "Smoke mode trims: base 24 steps, install/consolidate 8 steps, washes "
     "4 steps with ckpts {1,2,4}, lean dials, no cooldowns, GPU gate waits "
     "capped at 30 s — nothing adjudicated.",
+    "RECOVERY-3 LR FIX (documented deviation; the third dispatch's primary): "
+    "BASE_LR 1e-3 -> 4e-4, WIDTH-PROPORTIONAL (1e-3 x 128/320 — the house "
+    "recipe was minted on n_embd=128; this host is n_embd=320), inside the "
+    "coordinator's documented 3e-4..5e-4 window. EVIDENCE: agent-2's "
+    "committed chunks rose monotonically (val 1.628 -> 3.724 @ steps "
+    "1207-2958) and the saved s3250 state splits train 0.13 (falling) / val "
+    "3.96 (rising) — degenerate collapse; the scheduler decayed correctly, "
+    "so the recipe (not the resume mechanics) is the fault. The design "
+    "froze the R-convention and the WALL bars, NOT the base lr — this is a "
+    "legitimate documented deviation, not bar shopping. Warmup 100 + grad "
+    "clip 1.0 (the house recipe's own stabilizers) kept verbatim.",
+    "RECOVERY-3 INSTALL ADAPTATION (dispatch-licensed, documented): install "
+    "lr 1e-3 -> 4e-4 (the same width-scale; the install trains this same "
+    "10M host) and dose s400 -> s1000 MOVEMENT-matched (1e-3 x 400 ~= 4e-4 "
+    "x 1000 parameter-space distance — the same convention-carrying logic "
+    "as the R_rms dial); the e043 stream/objective convention is unchanged. "
+    "Consolidate (e113) and the wash (e176N) stay lr 1e-3 VERBATIM — they "
+    "are the registered treatment; the Adam-clock (T139: rms displacement "
+    "per step = lr regardless of N) and ONE_STEP_FUZZ_RAW are priced at "
+    "1e-3 and changing them would change the frozen treatment.",
+    "RECOVERY-3 BASE VERIFICATION + ARCHIVE: the inherited g1bS_base.pt is "
+    "loaded and honestly evaluated (its own history; this run's own val "
+    "estimate + a 300-token sample on the house instruments) BEFORE any "
+    "training; classified DIVERGED -> archived as "
+    "g1bS_base_diverged_s{step}.pt (never deleted), then a FRESH retrain "
+    "from the same seed-1337 init and the same batch stream — lr is the "
+    "only delta vs the diverged trajectory (controlled comparison). A "
+    "healthy partial (future interruption) still resumes (Rule 10).",
+    "RECOVERY-3 BASE GATE WAITS WITHOUT TIMEOUT (pause-and-wait per the "
+    "dispatch): BASE_WAIT_MAX = inf — a 4000-step 10M base on CPU is not a "
+    "viable cell, so the gate parks (30 s polls, logged) instead of "
+    "migrating; arms/install/consolidate keep the committed 600 s policy "
+    "(G1BS_GPU_WAIT_MAX env extends it).",
 ]
 
 device_events: list[dict] = []
@@ -411,6 +530,46 @@ RECOVERY = {
     "waits_policy": ("per the recovery dispatch: PAUSE-AND-WAIT on outside "
                      "GPU load (never migrate mid-run); every wait "
                      "recorded in device_events"),
+    "third_dispatch": {
+        "note": ("two machine disruptions killed the first two executors; "
+                 "this is the THIRD dispatch's recovery (coordinator "
+                 "commits 3b1b4cc + dbc3fd7); survivors: this script, the "
+                 "partial runs/g1bS/metrics.json, the diverged base ckpt"),
+        "primary_inheritance": ("agent-2's base chunks: val RISING "
+                                "monotonically 1.628 -> 3.724 over chunks "
+                                "1-6 (steps 1207-2958); the saved ckpt "
+                                "(s3250) splits train 0.13 falling / val "
+                                "3.96 rising — degenerate collapse under "
+                                "peak lr 1e-3 (the 0.87M n_embd=128 recipe "
+                                "carried unscaled onto the 10M n_embd=320 "
+                                "host); the scheduler decayed correctly "
+                                "(lr 8.9e-5 at s3250) — the recipe, not "
+                                "the resume, is the fault"),
+        "lr_fix": ("BASE_LR 1e-3 -> 4e-4 (width-proportional 1e-3 x "
+                   "128/320, inside the coordinator's documented "
+                   "3e-4..5e-4 window); warmup 100 + clip 1.0 kept "
+                   "verbatim; legitimate documented deviation — the design "
+                   "froze the R-convention and the WALL bars, NOT the "
+                   "base lr"),
+        "install_adaptation": ("install lr 4e-4 + dose s1000 "
+                               "(MOVEMENT-matched to e043's 1e-3 x s400); "
+                               "consolidate + wash stay 1e-3 verbatim (the "
+                               "registered treatment; Adam-clock priced at "
+                               "1e-3)"),
+        "quality_gate": ("G-BASE-QUAL registered BEFORE the retrain "
+                         "(registered.base_quality_gates): cosine complete "
+                         "+ val decreasing across the schedule + final val "
+                         "<= 1.70 + a coherence sample; on failure the run "
+                         "STOPS before install — no arms, no adjudication"),
+        "controlled_comparison": ("the fresh retrain replays the SAME "
+                                  "seed-1337 init and the SAME batch stream "
+                                  "(train_model reseeds its generator from "
+                                  "corpus.seed; the archived diverged ckpt "
+                                  "carried its own) — lr is the only delta "
+                                  "vs the diverged trajectory"),
+        "divergence_verification": None,   # filled at runtime (phase
+                                           # 'divergence-verification')
+    },
 }
 
 _progressive = {"n": 0, "phases": []}
@@ -498,6 +657,93 @@ def flat_params(net) -> torch.Tensor:
     fp32 parameter vector in net.parameters() order — the optimizer's own
     currency; 9,977,600 elements here."""
     return torch.cat([p.detach().reshape(-1) for p in net.parameters()])
+
+
+# ---------------- RECOVERY-3: divergence verification (job a) --------------
+
+def coherence_stats(text: str) -> dict:
+    """The g4 coherence dial (house-stat only; registered BEFORE use):
+    english-likeness of a generated sample. Used both to exhibit the
+    diverged state's incoherence and as the new base's quality gate."""
+    n = max(1, len(text))
+    words = [w for w in text.split() if w]
+    runs = max((sum(1 for _ in g) for _, g in itertools.groupby(text)),
+               default=0)
+    return {
+        "len": len(text),
+        "lower_space_fraction": sum(1 for c in text
+                                    if c.islower() or c == " ") / n,
+        "mean_word_len": (sum(len(w) for w in words) / len(words))
+                         if words else None,
+        "max_char_run": runs,
+        "distinct_chars": len(set(text)),
+    }
+
+
+def verify_base_divergence(ck: Path, corpus: CharCorpus, prompt: str) -> dict:
+    """Honest verification of the inherited base state BEFORE any training:
+    read the ckpt's own eval history, then THIS run's own instruments (a
+    12-batch val estimate + a 300-token sample generation, CPU). Returns
+    the record with a `diverged` classification; the caller archives a
+    diverged ckpt (never deletes) and retrains fresh, and resumes a healthy
+    partial (Rule 10)."""
+    state = torch.load(ck, map_location="cpu", weights_only=False)
+    hist = state.get("history", [])
+    vals = [e["val_loss"] for e in hist]
+    tail = vals[-5:] if len(vals) >= 5 else vals
+    tail_mono_rise = all(tail[i + 1] >= tail[i] - 0.02
+                         for i in range(len(tail) - 1))
+    rise_from_min = (vals[-1] - min(vals)) if vals else 0.0
+    diverged = bool(len(vals) >= 3 and rise_from_min >= 0.5
+                    and tail_mono_rise and vals[-1] >= 1.9)
+    rec: dict = {
+        "ckpt": ck.name, "step": state.get("step"), "n_evals": len(vals),
+        "val_first": vals[0] if vals else None,
+        "val_min": min(vals) if vals else None,
+        "val_last": vals[-1] if vals else None,
+        "rise_from_min": rise_from_min,
+        "tail_monotone_rise": tail_mono_rise,
+        "train_first": hist[0]["train_loss"] if hist else None,
+        "train_last": hist[-1]["train_loss"] if hist else None,
+        "train_val_split": ("train FALLING while val RISES = degenerate "
+                            "collapse, not benign overfitting"
+                            if (hist and hist[-1]["train_loss"] < 0.5
+                                and rise_from_min >= 0.5) else "n/a"),
+        "classification": ("DIVERGED" if diverged else
+                           "healthy-partial (resume, Rule 10)"),
+    }
+    dev_prev = common.DEVICE
+    common.DEVICE = "cpu"            # the verification is CPU-only: no GPU
+    net = TinyGPT(G1BS_CFG)          # contention, deterministic floats
+    net.load_state_dict(state["model"])
+    net.to(common.DEVICE)
+    rec["own_eval_val_loss"] = common.estimate_loss(net, corpus, "val",
+                                                    n_batches=12)
+    try:
+        sample = common.generate(net, corpus, prompt, max_new_tokens=300)
+        rec["sample_prompt"] = prompt
+        rec["sample_generated"] = sample[len(prompt):]
+        rec["sample_stats"] = coherence_stats(rec["sample_generated"])
+    except Exception as e:                                 # noqa: BLE001
+        rec["sample_error"] = str(e)
+    common.DEVICE = dev_prev
+    del net
+    ss = rec.get("sample_stats")
+    if diverged and ss and ss.get("lower_space_fraction", 0) >= 0.70:
+        rec["sample_reading"] = (
+            "coherent-looking sample DESPITE val "
+            f"{rec['val_last']:.2f} = the MEMORIZATION/RECITATION signature: "
+            f"train CE {rec['train_last']:.2f} means the collapsed model "
+            "recites its train corpus (free-running generation re-enters the "
+            "memorized manifold) while generalization on held-out windows "
+            "died — which is why the registered quality gate leads with the "
+            "VAL-based legs (g2 decreasing + g3 <= 1.70) and the coherence "
+            "sample alone can never certify a base")
+    rec["verdict"] = ("DIVERGED — archive + fresh retrain at the "
+                      f"width-scaled lr {BASE_LR}"
+                      if diverged else
+                      "not diverged — resume the chunk schedule")
+    return rec
 
 
 # ------------------------------------------------------------------ main
@@ -810,16 +1056,78 @@ def main():
     # =====================================================================
     log("=" * 78)
     log(f"HOST BASE: {n_params:,} params, {BASE_STEPS} steps house cosine "
-        f"(warmup 100), batch {BASE_BS}, seed {HOST_SEED}, chunk cap "
+        f"(warmup 100), lr {BASE_LR} (RECOVERY-3 width-scaled: 1e-3 x "
+        f"128/320), batch {BASE_BS}, seed {HOST_SEED}, chunk cap "
         f"{TRAIN_CAP_GPU:.0f}s GPU / {TRAIN_CAP_CPU:.0f}s CPU, "
         f"cooldown {COOLDOWN_S:.0f}s between chunks")
     base_ck = CKPT_DIR / ("smoke_" + BASE_CK if SMOKE else BASE_CK)
-    if base_ck.exists() and not SMOKE and os.environ.get("G1BS_FRESH") != "0":
-        # a prior interrupted dispatch's chunk state is RESUMABLE by design;
-        # never retrain silently — record it and continue the schedule
-        log(f"[base] existing chunk state {base_ck.name} found — RESUMING "
-            f"(Rule 10; the chunk table records the split)")
+    base_sample_prompt = val_text[:64]      # the fixed g4 prompt (recorded)
     chunks: list[dict] = []
+    if base_ck.exists() and not SMOKE:
+        # RECOVERY-3 job (a): honest verification of the inherited state
+        # BEFORE any training; diverged -> archive (never delete) + fresh
+        # retrain; healthy partial -> resume (Rule 10, never silently
+        # retrain)
+        vrec = verify_base_divergence(base_ck, corpus, base_sample_prompt)
+        vrec["first_agent_committed_record"] = RECOVERY[
+            "base_pre_recovery_chunks"]
+        vrec["first_agent_note"] = (
+            "agent-1's own ckpts (steps 353/547/750, val FALLING 1.8385 -> "
+            "1.6437 -> 1.5801) were OVERWRITTEN by agent-2's chunk saves; "
+            "the committed chunk table + run log are its surviving record — "
+            "a healthy prefix at lr 1e-3 through step 750, after which the "
+            "inherited trajectory rose monotonically (the collapse bloomed "
+            "~steps 750-1207 under peak lr 1e-3; the scheduler itself "
+            "decayed correctly)")
+        write_partial(rd, "divergence-verification",
+                      {"divergence_verification": vrec})
+        RECOVERY["third_dispatch"]["divergence_verification"] = {
+            k: vrec.get(k) for k in
+            ("ckpt", "step", "val_first", "val_min", "val_last",
+             "rise_from_min", "train_last", "train_val_split",
+             "own_eval_val_loss", "sample_stats", "sample_reading",
+             "classification", "verdict")}
+        log(f"[verify] {vrec['classification']}: val {vrec['val_first']:.4f}"
+            f" -> min {vrec['val_min']:.4f} -> last {vrec['val_last']:.4f} "
+            f"(+{vrec['rise_from_min']:.3f} from min) | this run's own val "
+            f"estimate {vrec['own_eval_val_loss']:.4f} | train last "
+            f"{vrec['train_last']:.4f} ({vrec['train_val_split']})")
+        if "sample_generated" in vrec:
+            ss = vrec["sample_stats"]
+            log(f"[verify] sample: ls_frac {ss['lower_space_fraction']:.2f} "
+                f"mwl {ss['mean_word_len']} max_run {ss['max_char_run']} "
+                f"distinct {ss['distinct_chars']} | "
+                + repr(vrec["sample_generated"][:120]))
+        if vrec["classification"] == "DIVERGED":
+            arch = CKPT_DIR / f"g1bS_base_diverged_s{vrec['step']}.pt"
+            base_ck.rename(arch)
+            CKPT_INVENTORY[f"g1bS_base_diverged_s{vrec['step']}"] = {
+                "path": str(arch.relative_to(E43.REPO)).replace("\\", "/"),
+                "desc": ("agent-2's diverged 10M base (peak lr 1e-3; val "
+                         "rose 1.628 -> 3.96 while train fell to 0.13); "
+                         "archived by RECOVERY-3 — evidence, never deleted"),
+                "step": vrec["step"], "final_val_loss": vrec["val_last"]}
+            log(f"[base] DIVERGED state ARCHIVED: {base_ck.name} -> "
+                f"{arch.name}; FRESH retrain at lr {BASE_LR} (the quality "
+                f"gates above were registered BEFORE this training)")
+        else:
+            log(f"[base] existing chunk state {base_ck.name} is a healthy "
+                f"partial — RESUMING (Rule 10; the chunk table records the "
+                f"split)")
+            prior = rd / "metrics.json"
+            if prior.exists():      # continue the chunk table across the
+                try:                # interruption (the process restarts, the
+                    prev = json.loads(prior.read_text(encoding="utf-8")) \
+                        .get("base_chunks")     # record must not)
+                    if isinstance(prev, list) and prev:
+                        chunks.extend(prev)
+                        log(f"[base] chunk table CONTINUED from the prior "
+                            f"partial ({len(chunks)} chunks)")
+                except Exception as e:                    # noqa: BLE001
+                    log(f"[base] prior partial unreadable ({e}) — chunk "
+                        f"table restarts at this process (recorded)")
+    elif not SMOKE:
+        log(f"[base] no prior state — FRESH training at lr {BASE_LR}")
     hist: list[dict] = []
     while True:
         tag = f"base_chunk{len(chunks) + 1}"
@@ -864,7 +1172,61 @@ def main():
     base_cells = flat_cells(measure(theta_base, "g1bS_base", lean=True))
     log(f"base cells: g-12 {base_cells['gm12']:.4f} CE_R "
         f"{base_cells['ce_r']:.4f}")
-    write_partial(rd, "G-BASE", {"G_BASE": G_BASE, "base_cells": base_cells})
+
+    # ---- G-BASE-QUAL (registered BEFORE the retrain; the dispatch bar) ---
+    chunk_vals = [c["val_loss"] for c in chunks]
+    first_eval_val = hist[0]["val_loss"]
+    final_val = hist[-1]["val_loss"]
+    mono_ok = all(chunk_vals[i + 1] <= chunk_vals[i] + 0.02
+                  for i in range(len(chunk_vals) - 1))
+    g2 = bool(mono_ok and final_val <= first_eval_val - 0.15)
+    g3 = bool(final_val <= 1.70)
+    common.DEVICE = "cpu"            # deterministic CPU sample (house tool)
+    bnet = TinyGPT(G1BS_CFG)
+    bnet.load_state_dict(theta_base)
+    bnet.to(common.DEVICE)
+    base_sample = common.generate(bnet, corpus, base_sample_prompt,
+                                  max_new_tokens=300)
+    del bnet
+    base_gen = base_sample[len(base_sample_prompt):]
+    bstats = coherence_stats(base_gen)
+    mwl = bstats["mean_word_len"]
+    g4 = bool(bstats["lower_space_fraction"] >= 0.70 and mwl is not None
+              and 2.0 <= mwl <= 8.0 and bstats["max_char_run"] <= 10
+              and bstats["distinct_chars"] >= 18)
+    G_BASE_QUAL = {
+        "registered": REGISTERED["base_quality_gates"],
+        "cosine_complete": G_BASE["pass"],
+        "chunk_final_vals": chunk_vals,
+        "val_monotone_decreasing_noise0.02": mono_ok,
+        "first_eval_val": first_eval_val, "final_val": final_val,
+        "g2_val_decreasing": g2,
+        "g3_final_val<=1.70": g3,
+        "sample_prompt": base_sample_prompt,
+        "sample_generated": base_gen,
+        "sample_stats": bstats,
+        "g4_coherence_sample": g4,
+        "pass": bool(G_BASE["pass"] and g2 and g3 and g4),
+        "enforced": bool(not SMOKE),
+    }
+    log(f"G-BASE-QUAL: cosine {G_BASE['pass']} | val decreasing {g2} "
+        f"({first_eval_val:.4f} -> {final_val:.4f}, chunk vals "
+        + " -> ".join(f"{v:.4f}" for v in chunk_vals) + f") | "
+        f"final<=1.70 {g3} | coherence {g4} (ls "
+        f"{bstats['lower_space_fraction']:.2f}, mwl {mwl}, max_run "
+        f"{bstats['max_char_run']}, distinct {bstats['distinct_chars']}): "
+        f"{'PASS' if G_BASE_QUAL['pass'] else 'FAIL'}"
+        + ("" if not SMOKE else " (smoke: NOT enforced)"))
+    log(f"G-BASE-QUAL sample ({base_sample_prompt!r}...): "
+        + repr(base_gen[:160]))
+    write_partial(rd, "G-BASE-QUAL", {"G_BASE": G_BASE,
+                                      "base_cells": base_cells,
+                                      "G_BASE_QUAL": G_BASE_QUAL})
+    if not G_BASE_QUAL["pass"] and not SMOKE:
+        raise SystemExit(
+            "G-BASE-QUAL FAILED — the dispatch bar: NO install / "
+            "consolidate / arms on a failed base (progressive metrics hold "
+            "the full record); report and stop, no dial search")
     del host_net
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -874,8 +1236,9 @@ def main():
     # =====================================================================
     log("=" * 78)
     log(f"INSTALL: e043 Dmix stream ({G1.NAME_BS} install + 16 paired + "
-        f"{G1.MIX_RANDOM} random = 64 windows/step), dose s{INSTALL_STEPS}, "
-        f"house cosine (warmup 100), seed {G1.INSTALL_SEED}")
+        f"{G1.MIX_RANDOM} random = 64 windows/step), dose s{INSTALL_STEPS} "
+        f"(RECOVERY-3 movement-matched), house cosine (warmup 100), lr "
+        f"{INSTALL_LR} (width-scaled), seed {G1.INSTALL_SEED}")
     if not SMOKE:
         cooldown(COOLDOWN_S)
     torch.manual_seed(G1.INSTALL_SEED)
@@ -892,7 +1255,8 @@ def main():
         inst_net.to(dev)
         cap = TRAIN_CAP_GPU if dev.type == "cuda" else TRAIN_CAP_CPU
         t_c = time.time()
-        ihist = train_model(inst_net, dmix, steps=INSTALL_STEPS, lr=1e-3,
+        ihist = train_model(inst_net, dmix, steps=INSTALL_STEPS,
+                            lr=INSTALL_LR,
                             batch_size=64, max_seconds=cap,
                             eval_every=(100 if not SMOKE else 4),
                             ckpt=inst_ck)
@@ -1191,7 +1555,8 @@ def main():
     G_PIN["pass"] = bool(all(v["pass_rms_carried"]
                              for v in G_PIN["per_arm"].values()))
 
-    gates_pass = bool(G_CONFIG["pass"] and G_BASE["pass"] and G_ROOT0["pass"]
+    gates_pass = bool(G_CONFIG["pass"] and G_BASE["pass"]
+                      and G_BASE_QUAL["pass"] and G_ROOT0["pass"]
                       and G_CTRL["pass"] and G_PIN["pass"]
                       and G_INPUTS["pass"] and G_STEP1["pass"]
                       and all(v["pass"] for v in G_BITROOT.values())
@@ -1256,6 +1621,7 @@ def main():
     WALL_SCALES_G = WALL_TIGHTENS_G = WALL_FADES_G = None
     if not gates_pass:
         failed = [k for k, g in (("G-CONFIG", G_CONFIG), ("G-BASE", G_BASE),
+                                 ("G-BASE-QUAL", G_BASE_QUAL),
                                  ("G-INST", G_INST), ("G-ROOT", G_ROOT0),
                                  ("G-CTRL", G_CTRL), ("G-PIN", G_PIN),
                                  ("G-INPUTS", G_INPUTS),
@@ -1423,13 +1789,19 @@ def main():
                                           "incomplete cosine) NOT reused",
                      "host_seed": HOST_SEED, "corpus_seed": 1337,
                      "recipe": f"common.train_model steps={BASE_STEPS} "
-                               f"lr=1e-3 batch=64 cosine warmup 100",
+                               f"lr={BASE_LR} (RECOVERY-3 width-scaled: "
+                               f"1e-3 x 128/320) batch={BASE_BS} cosine "
+                               f"warmup 100 clip 1.0",
+                     "lr_fix": RECOVERY["third_dispatch"]["lr_fix"],
                      "chunks": chunks, "n_chunks": len(chunks),
                      "final_val_loss": G_BASE["final_val_loss"]},
-            "install": {"steps": INSTALL_STEPS, "seed": G1.INSTALL_SEED,
+            "install": {"steps": INSTALL_STEPS,
+                        "lr": INSTALL_LR,
+                        "seed": G1.INSTALL_SEED,
                         "chunks": ichunks,
                         "stream": "e043 Dmix via common.train_model "
-                                  "(DmixCorpus; g1 phase-0a VERBATIM)",
+                                  "(DmixCorpus; g1 phase-0a VERBATIM; dose "
+                                  "movement-matched per RECOVERY-3)",
                         "post_install_cells": inst_cells},
             "consolidation": {"steps": cons["steps_ran"],
                               "seed": G1.CONS_SEED, "device": cons["device"],
@@ -1498,7 +1870,8 @@ def main():
                         "co-reported per arm and cannot hold at 10M (one "
                         "AdamW step = 3.159 raw > any R+1.5 on the ladder)"},
         },
-        "gates": {"G_CONFIG": G_CONFIG, "G_BASE": G_BASE, "G_INST": G_INST,
+        "gates": {"G_CONFIG": G_CONFIG, "G_BASE": G_BASE,
+                  "G_BASE_QUAL": G_BASE_QUAL, "G_INST": G_INST,
                   "G_SPLICE": G_SPLICE, "G_NAMEFREE": G_NAMEFREE,
                   "G_POOL": G_POOL, "G_ANCHOR": G_ANCHOR,
                   "G_ROOT": G_ROOT0, "G_CTRL": G_CTRL, "G_PIN": G_PIN,
@@ -1559,6 +1932,29 @@ def main():
             "no_bar_shopping": ("the ladder was fixed by the frozen design; "
                 "if no rung holds, WALL-FADES is the verdict; the secondary "
                 "bars are co-reported context, never adjudicated."),
+            "three_dispatch_provenance": ("this cell spans THREE executor "
+                "dispatches interrupted by machine disruptions: agent-1 "
+                "(healthy base prefix, steps 353/547/750, vals "
+                "1.8385/1.6437/1.5801 — its ckpts were later overwritten; "
+                "the committed chunk table is its record), agent-2 (base "
+                "DIVERGED: val 1.628 -> 3.724 over steps 1207-2958, saved "
+                "state s3250 train 0.13 / val 3.96 — archived as "
+                "g1bS_base_diverged_s3250.pt, never deleted), agent-3 (this "
+                "run: divergence verified from the committed data + its own "
+                "eval/sample of the saved state, then the documented "
+                "width-scaled-lr retrain from the same init and batch "
+                "stream). Nothing from the diverged trajectory enters this "
+                "cell's hosts, arms or adjudication."),
+            "base_lr_deviation": ("BASE_LR 4e-4 (not the carried 1e-3): a "
+                "DOCUMENTED stability fix ordered by the third dispatch — "
+                "width-proportional 1e-3 x 128/320, inside the 3e-4..5e-4 "
+                "window; install lr 4e-4 with the movement-matched dose "
+                "s1000; consolidate + wash stay 1e-3 verbatim (the frozen "
+                "treatment). The R-convention, the ladder, the wash recipe "
+                "and the bars are UNTOUCHED — the deviation touches only "
+                "the HOST recipe, and the controlled comparison (same "
+                "init, same batches, lr the only delta) is on record. "
+                "Cross-scale tax comparisons carry this caveat."),
         },
         "trims": trims, "deviations": deviations,
         "device_events": device_events,
