@@ -1,0 +1,813 @@
+{
+  "experiment": "opt2_density",
+  "date": "2026-10-01T16:07:44Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_prediction": {
+    "density_carries": "DENSITY-CARRIES: \"fires if the sparse arms (TOPK-10/50) KILL while the full sign arm at matched L2 spares beyond its 2.5 edge \u2014 the lethal carrier is the sparse structured front, not dense flattening.\"",
+    "density_spares": "DENSITY-SPARES: \"fires if the sparse arms spare (survive past the sign edge alive) while dense killing proceeds \u2014 density itself carries lethality; structure rides on which coordinates.\"",
+    "graded": "GRADED: \"any partial pattern \u2014 the arm table verbatim; the kill-D ordering (topk-10, topk-50, sign, raw) reported as the density ladder.\"",
+    "operationalizations": "the arms = the licensed e185 wash cell VERBATIM (root e131, seed-10902 stream, bit-identical batches, TRUE targets, full-token CE, clip 1.0) with delta_t = -STEP_L2 * u_t: (a) u = g[TopK(|g|, round(0.10*N))] on its support, L2-normalized; (b) same at 0.50; (c) u = sign(g)/||sign(g)|| (zeros stay zero); g = the POST-CLIP batch gradient (direction clip-invariant; pre-clip norm recorded); per-step L2 == STEP_L2 1.6542880535125732 EXACTLY (asserted every step; recomputed at t=0 and bit-gated vs opt1's committed A0 step-1 values); KILL = g-12 <= 0.27 at an EVERY-STEP read wherever it lands (no window veto \u2014 the ladder IS the result), D_kill = linear-in-D interpolation densified along the killing step at f in {0.2,0.4,0.6,0.8} (opt1c's convention); SPARE-past-edge = alive at the first read with D >= 2.5 AND at the final read; stop = first of kill / D >= 5.0 (= 2x the sign edge, the 2x-longer horizon) alive / 16-step cap; DENSITY-CARRIES fires iff BOTH sparse arms kill AND a_sign spares past the edge; DENSITY-SPARES fires iff BOTH sparse arms spare past the edge AND a_sign kills; arms never reaching D 2.5 cannot fire a spare clause (projections never adjudicate); composite order frozen DENSITY-CARRIES -> DENSITY-SPARES -> GRADED; the density ladder (kill-D ordering of raw 0.9203 / topk-10 / topk-50 / sign / A0-Adam 2.4893) always reported.",
+    "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "does the lethal structure of the sign-normalized wash step live in the NUMBER OF COORDINATES TOUCHED \u2014 a sparse |g|-selected structured front, or dense every-coordinate flattening? The licensed e185 wash cell VERBATIM (true targets, seed-10902 stream, the consolidated host fact) at matched per-step L2 1.6543: TOPK-10%, TOPK-50%, SIGN (2x horizon) + the committed references (opt1 A0, opt1c raw 0.9203, e192 terrain rays, opt1b bleed).",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.96e-08)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cell": {
+    "licensed_cell": "e185 arm C (CONTROL) VERBATIM \u2014 the consolidated host fact under its neutral/corpus wash (opt1's conventions)",
+    "batch": "32 = 16 neutral-bank anchors (seed 170, fixed) + 16 random corpus windows, full-token CE, clip 1.0",
+    "targets": "TRUE (the real neutral wash \u2014 the update rule is the only delta)",
+    "input_seed": 10902,
+    "matched_step_L2": {
+      "value": 1.6542880535125732,
+      "provenance": "opt1 A0's committed step-1 displacement (lr*sqrt(N) arithmetic; recomputed at t=0 and bit-gated in G_T0)"
+    },
+    "ckpt_cadence": "g-12 EVERY step (opt1c's bracket-tightest); g-0 + CE_R + dual-estimator alignment at [1, 2, 4, 8, 16]",
+    "measure_light": "g-12 / g0 batteries + CE_R + dual-estimator alignment + displacement + pre-clip grad norms + top-k churn (the dispatch's read list; no census/deletions)"
+  },
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e185's control stream; FIXED content, not reseeded)",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_T0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "step_l2_used": 1.6542880535125732,
+      "pass": true,
+      "note": "the t=0 bit-gate vs opt1's committed A0 row (the matched-L2 reference is A0's own step-1 displacement; measured on this device, this process)"
+    },
+    "G_SAMEPOINT": {
+      "sign_arm_s1_matched_point_m12_measured": 0.039550412581627135,
+      "committed_chart_samepoint": 0.039550412581627135,
+      "d_sign": 0.0,
+      "raw_sanity_measured": 0.09862135965497001,
+      "committed_chart_raw": 0.09862135965497001,
+      "d_raw": 0.0,
+      "tol": 0.002,
+      "pass": true,
+      "note": "T150's estimator lesson made a HARD machinery gate: the SIGN arm's step-1 matched-point alignment (cos(-sign(g_0), grad m12 at theta_0), scale-invariant) must reproduce the chart's committed same-point anchors \u2014 the dual-estimator reads are anchored at the matched-point end (the post-step end is anchored by G_T0 reproducing opt1's committed row)"
+    },
+    "G_TERRAIN": {
+      "u_g_ckpt": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e191_static_dir_u.pt",
+      "pass": true,
+      "loaded_u_md5_match_fresh": true,
+      "fresh_cos64_loaded": 0.9999999999998932,
+      "root_md5_match_checkpoint": true
+    },
+    "G_STREAM": {
+      "steps_1_10_md5_match": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true,
+        "10": true
+      },
+      "pass": true,
+      "note": "the arms' own draw order is this exact generator sequence (verified per consumed step in G_INPUTS); this gate verifies the construction for steps the arms may never reach"
+    },
+    "G_INPUTS": {
+      "per_step": {
+        "1": {
+          "a_topk10": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a_topk50": "1ea27bffde6c4a53be8badf5ab453d64",
+          "a_sign": "1ea27bffde6c4a53be8badf5ab453d64",
+          "identical": true
+        }
+      },
+      "vs_e185_stored": {
+        "1": {
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "density_t0": {
+      "a_topk10": {
+        "k": 273907,
+        "energy_frac": 0.7497432827949524
+      },
+      "a_topk50": {
+        "k": 1369536,
+        "energy_frac": 0.9824490547180176
+      },
+      "sign_zeros": 960
+    }
+  },
+  "arms": {
+    "a_topk10": {
+      "desc": "TOPK-10% \u2014 update only the top-10% |g| coordinates, direction g's (magnitude-informative within the front), scaled to matched per-step L2 1.6543",
+      "update_rule": {
+        "kind": "topk",
+        "frac": 0.1,
+        "k": 273907,
+        "step_L2": 1.6542880535125732,
+        "assertion": "per-step |delta|_2 == step_L2 (in-code, every step); max dev reported"
+      },
+      "max_l2_dev": 4.901507510979286e-08,
+      "steps_ran": 1,
+      "train_seconds": 7.33153510093689,
+      "seed": 10902,
+      "stop": {
+        "kind": "kill",
+        "step": 1,
+        "gm12_at_kill": 0.000894351745955646,
+        "D_kill_raw": 1.1675911412508901,
+        "D_kill": 0.90664498444579,
+        "dens": [
+          {
+            "f": 0.2,
+            "gm12": 0.9562063813209534,
+            "D": 0.33085736632347107
+          },
+          {
+            "f": 0.4,
+            "gm12": 0.7232280373573303,
+            "D": 0.6617146730422974
+          },
+          {
+            "f": 0.6,
+            "gm12": 0.11099549382925034,
+            "D": 0.992573082447052
+          },
+          {
+            "f": 0.8,
+            "gm12": 0.00395660987123847,
+            "D": 1.3234293460845947
+          }
+        ],
+        "reason": "g-12 <= SHUT at an every-step read"
+      },
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.6542870998382568,
+          "step_disp": 1.6542870998382568,
+          "l2_dev": 4.901507510979286e-08,
+          "preclip_gnorm": 0.9829167127609253,
+          "k": 273907,
+          "jaccard": null,
+          "elapsed_s": 1.5,
+          "gm12": 0.000894351745955646,
+          "frac_argmax_z": 0.0,
+          "g0": 0.0006793283973820508,
+          "ce_r": 4.844960689544678,
+          "align": {
+            "post_step": {
+              "g0": -0.016262092389566097,
+              "m12": -0.012779216390972412
+            },
+            "root_point": {
+              "g0": -0.0707058825551651,
+              "m12": 0.09851354129495535
+            },
+            "terrain": {
+              "u_g": -0.8658771253498032,
+              "sign_g0": -0.2662848123814298
+            },
+            "matched_point": {
+              "g0": -0.0707058825551651,
+              "m12": 0.09851354129495535
+            }
+          }
+        }
+      ],
+      "outcome": {
+        "outcome": "kill",
+        "stop_kind": "kill",
+        "stop_step": 1,
+        "D_kill": 0.90664498444579,
+        "D_kill_raw": 1.1675911412508901,
+        "gm12_at_kill": 0.000894351745955646,
+        "alive_at_2p5_crossing": null,
+        "reached_edge": false,
+        "edge_cross_D": null,
+        "edge_cross_gm12": null,
+        "final_cum_disp": 1.6542870998382568,
+        "final_gm12": 0.000894351745955646,
+        "steps_ran": 1,
+        "max_l2_dev": 4.901507510979286e-08,
+        "train_seconds": 7.33153510093689,
+        "topk_overlap_mean": null
+      },
+      "topk_overlap": {
+        "per_step_jaccard": [],
+        "mean": null
+      },
+      "zeph_violations": 0,
+      "chunks": [
+        {
+          "chunk": 1,
+          "arm": "a_topk10",
+          "step": 1,
+          "t": 19.6
+        }
+      ],
+      "md5_chain": [
+        "90347d68dcc0b002269b6caaf3db1178"
+      ]
+    },
+    "a_topk50": {
+      "desc": "TOPK-50% \u2014 same at 50% (the density ladder's midpoint)",
+      "update_rule": {
+        "kind": "topk",
+        "frac": 0.5,
+        "k": 1369536,
+        "step_L2": 1.6542880535125732,
+        "assertion": "per-step |delta|_2 == step_L2 (in-code, every step); max dev reported"
+      },
+      "max_l2_dev": 3.7004035391419166e-09,
+      "steps_ran": 1,
+      "train_seconds": 8.37374210357666,
+      "seed": 10902,
+      "stop": {
+        "kind": "kill",
+        "step": 1,
+        "gm12_at_kill": 0.0007384266355074942,
+        "D_kill_raw": 1.1674022343017885,
+        "D_kill": 0.9202602091418797,
+        "dens": [
+          {
+            "f": 0.2,
+            "gm12": 0.9555361270904541,
+            "D": 0.3308580815792084
+          },
+          {
+            "f": 0.4,
+            "gm12": 0.7512638568878174,
+            "D": 0.6617162227630615
+          },
+          {
+            "f": 0.6,
+            "gm12": 0.13538767397403717,
+            "D": 0.9925764799118042
+          },
+          {
+            "f": 0.8,
+            "gm12": 0.004836223553866148,
+            "D": 1.3234323263168335
+          }
+        ],
+        "reason": "g-12 <= SHUT at an every-step read"
+      },
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.654301404953003,
+          "step_disp": 1.6543012857437134,
+          "l2_dev": 3.7004035391419166e-09,
+          "preclip_gnorm": 0.9829167127609253,
+          "k": 1369536,
+          "jaccard": null,
+          "elapsed_s": 2.1,
+          "gm12": 0.0007384266355074942,
+          "frac_argmax_z": 0.0,
+          "g0": 0.0006706043495796621,
+          "ce_r": 4.7960968017578125,
+          "align": {
+            "post_step": {
+              "g0": -0.030166092015818758,
+              "m12": -0.022724626484566687
+            },
+            "root_point": {
+              "g0": -0.07160958540122303,
+              "m12": 0.09857351806055166
+            },
+            "terrain": {
+              "u_g": -0.9911856992397287,
+              "sign_g0": -0.521033992305313
+            },
+            "matched_point": {
+              "g0": -0.07160958540122303,
+              "m12": 0.09857351806055166
+            }
+          }
+        }
+      ],
+      "outcome": {
+        "outcome": "kill",
+        "stop_kind": "kill",
+        "stop_step": 1,
+        "D_kill": 0.9202602091418797,
+        "D_kill_raw": 1.1674022343017885,
+        "gm12_at_kill": 0.0007384266355074942,
+        "alive_at_2p5_crossing": null,
+        "reached_edge": false,
+        "edge_cross_D": null,
+        "edge_cross_gm12": null,
+        "final_cum_disp": 1.654301404953003,
+        "final_gm12": 0.0007384266355074942,
+        "steps_ran": 1,
+        "max_l2_dev": 3.7004035391419166e-09,
+        "train_seconds": 8.37374210357666,
+        "topk_overlap_mean": null
+      },
+      "topk_overlap": {
+        "per_step_jaccard": [],
+        "mean": null
+      },
+      "zeph_violations": 0,
+      "chunks": [
+        {
+          "chunk": 1,
+          "arm": "a_topk50",
+          "step": 1,
+          "t": 38.6
+        }
+      ],
+      "md5_chain": [
+        "3857d950639ac32f6fbe82da461acb6f"
+      ]
+    },
+    "a_sign": {
+      "desc": "SIGN-STRETCH GATE \u2014 the full sign(g) direction at matched L2 for a 2x longer horizon (to D >= 2x the 2.5 sign edge): does the sign kill move with horizon? (r59: near-predicted to kill ~2.5)",
+      "update_rule": {
+        "kind": "sign",
+        "frac": null,
+        "k": 2739072,
+        "step_L2": 1.6542880535125732,
+        "assertion": "per-step |delta|_2 == step_L2 (in-code, every step); max dev reported"
+      },
+      "max_l2_dev": 4.508526596502804e-08,
+      "steps_ran": 2,
+      "train_seconds": 12.89066457748413,
+      "seed": 10902,
+      "stop": {
+        "kind": "kill",
+        "step": 2,
+        "gm12_at_kill": 9.830708586378023e-05,
+        "D_kill_raw": 1.9539829631812597,
+        "D_kill": 1.749640490742179,
+        "dens": [
+          {
+            "f": 0.2,
+            "gm12": 0.8249044418334961,
+            "D": 1.6348317861557007
+          },
+          {
+            "f": 0.4,
+            "gm12": 0.6051573157310486,
+            "D": 1.683386206626892
+          },
+          {
+            "f": 0.6,
+            "gm12": 0.05381816625595093,
+            "D": 1.7923755645751953
+          },
+          {
+            "f": 0.8,
+            "gm12": 0.013179803267121315,
+            "D": 1.952124834060669
+          }
+        ],
+        "reason": "g-12 <= SHUT at an every-step read"
+      },
+      "traj": [
+        {
+          "step": 1,
+          "ce_batch": 1.356567621231079,
+          "cum_disp": 1.6567984819412231,
+          "step_disp": 1.6567984819412231,
+          "l2_dev": 4.508526596502804e-08,
+          "preclip_gnorm": 0.9829167127609253,
+          "k": null,
+          "jaccard": null,
+          "elapsed_s": 1.4,
+          "gm12": 0.6785961389541626,
+          "frac_argmax_z": 0.85,
+          "g0": 0.46193426847457886,
+          "ce_r": 2.2111220359802246,
+          "align": {
+            "post_step": {
+              "g0": -0.015231444362346597,
+              "m12": -0.038474506823322395
+            },
+            "root_point": {
+              "g0": -0.029734956308340527,
+              "m12": 0.03955041750707301
+            },
+            "terrain": {
+              "u_g": -0.595022343317856,
+              "sign_g0": -1.0000000000010576
+            },
+            "matched_point": {
+              "g0": -0.029734956308340527,
+              "m12": 0.03955041750707301
+            }
+          }
+        },
+        {
+          "step": 2,
+          "ce_batch": 1.8259366750717163,
+          "cum_disp": 2.1502907276153564,
+          "step_disp": 1.6567445993423462,
+          "l2_dev": 2.480988503528181e-08,
+          "preclip_gnorm": 6.194264888763428,
+          "k": null,
+          "jaccard": null,
+          "elapsed_s": 7.1,
+          "gm12": 9.830708586378023e-05,
+          "frac_argmax_z": 0.0,
+          "g0": 0.00014808299602009356,
+          "ce_r": 2.1801326274871826,
+          "align": {
+            "post_step": {
+              "g0": -0.039837798154317844,
+              "m12": -0.039260209458733084
+            },
+            "root_point": {
+              "g0": 0.010340275801760042,
+              "m12": -0.021289681879733968
+            },
+            "terrain": {
+              "u_g": -0.33283093486830134,
+              "sign_g0": -0.6501818235378047
+            },
+            "matched_point": {
+              "g0": 0.059562051905186104,
+              "m12": 0.060159821455084785
+            }
+          }
+        }
+      ],
+      "outcome": {
+        "outcome": "kill",
+        "stop_kind": "kill",
+        "stop_step": 2,
+        "D_kill": 1.749640490742179,
+        "D_kill_raw": 1.9539829631812597,
+        "gm12_at_kill": 9.830708586378023e-05,
+        "alive_at_2p5_crossing": null,
+        "reached_edge": false,
+        "edge_cross_D": null,
+        "edge_cross_gm12": null,
+        "final_cum_disp": 2.1502907276153564,
+        "final_gm12": 9.830708586378023e-05,
+        "steps_ran": 2,
+        "max_l2_dev": 4.508526596502804e-08,
+        "train_seconds": 12.89066457748413,
+        "topk_overlap_mean": null
+      },
+      "topk_overlap": {
+        "per_step_jaccard": [],
+        "mean": null
+      },
+      "zeph_violations": 0,
+      "chunks": [
+        {
+          "chunk": 1,
+          "arm": "a_sign",
+          "step": 2,
+          "t": 61.7
+        }
+      ],
+      "md5_chain": [
+        "739c953029ecc98c876ec719d8add0b1"
+      ]
+    }
+  },
+  "density_ladder": {
+    "ordered": [
+      {
+        "rung": "topk-10 (top-10% |g|)",
+        "kind": "kill",
+        "D": 0.90664498444579,
+        "source": "this cell"
+      },
+      {
+        "rung": "topk-50 (top-50% |g|)",
+        "kind": "kill",
+        "D": 0.9202602091418797,
+        "source": "this cell"
+      },
+      {
+        "rung": "raw (raw-g direction, opt1c committed)",
+        "kind": "kill",
+        "D": 0.9203406595225093,
+        "source": "runs/opt1c/metrics.json"
+      },
+      {
+        "rung": "sign (full sign(g))",
+        "kind": "kill",
+        "D": 1.749640490742179,
+        "source": "this cell"
+      },
+      {
+        "rung": "A0-Adam (opt1 committed)",
+        "kind": "kill",
+        "D": 2.4892616271972656,
+        "source": "runs/opt1/metrics.json"
+      }
+    ],
+    "raw_rows": [
+      {
+        "rung": "raw (raw-g direction, opt1c committed)",
+        "kind": "kill",
+        "D": 0.9203406595225093,
+        "source": "runs/opt1c/metrics.json"
+      },
+      {
+        "rung": "A0-Adam (opt1 committed)",
+        "kind": "kill",
+        "D": 2.4892616271972656,
+        "source": "runs/opt1/metrics.json"
+      },
+      {
+        "rung": "topk-10 (top-10% |g|)",
+        "kind": "kill",
+        "D": 0.90664498444579,
+        "source": "this cell"
+      },
+      {
+        "rung": "topk-50 (top-50% |g|)",
+        "kind": "kill",
+        "D": 0.9202602091418797,
+        "source": "this cell"
+      },
+      {
+        "rung": "sign (full sign(g))",
+        "kind": "kill",
+        "D": 1.749640490742179,
+        "source": "this cell"
+      }
+    ],
+    "ordering_note": "kills by D_kill then spares by final D; raw/A0 rungs are committed parents, never rerun"
+  },
+  "references": {
+    "opt1_A0": {
+      "metrics": "runs/opt1/metrics.json",
+      "t_x": 1.6268275724509023,
+      "t_ck": 2,
+      "D_at_kill": 2.4892616271972656,
+      "ckpt_table_loaded": 6,
+      "role": "the AdamW reference clock + the matched-L2 anchor (loaded committed, never rerun)"
+    },
+    "opt1c_raw": {
+      "metrics": "runs/opt1c/metrics.json",
+      "D_kill_interp": 0.9203406595225093,
+      "t_x": 0.556336072490073,
+      "role": "the raw-gradient rung of the ladder (loaded committed, never rerun)"
+    },
+    "e192_terrain": {
+      "metrics": "runs/e192/metrics.json",
+      "sign_kill_D": 2.5,
+      "profiles": {
+        "R1_G": 16,
+        "R2_SIGN": 16,
+        "R3_GAUSS_s11501": 16,
+        "R4_GAUSS_s11502": 16,
+        "R5_GAUSS_s11503": 16
+      },
+      "role": "the static terrain rays (overlay)"
+    },
+    "opt1b_bleed": {
+      "via": "e192 overlays (loaded committed)",
+      "rows": 22,
+      "role": "the diffusive reference curve"
+    },
+    "e_chart_samepoint": {
+      "metrics": "runs/e_chart/metrics.json",
+      "adam_samepoint": 0.039550412581627135,
+      "raw_samepoint": 0.09862135965497001,
+      "role": "T150's estimator-lesson anchors (the dual-estimator gate)"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "DENSITY_CARRIES": {
+        "fires": false,
+        "sparse_kill": true,
+        "sign_spares_past_edge": false,
+        "detail": {
+          "a_topk10": "kill",
+          "a_topk50": "kill",
+          "a_sign": "kill"
+        }
+      },
+      "DENSITY_SPARES": {
+        "fires": false,
+        "sparse_spare": false,
+        "sign_kills": true,
+        "detail": {
+          "a_topk10": "kill",
+          "a_topk50": "kill",
+          "a_sign": "kill"
+        }
+      },
+      "GRADED": {
+        "fires": true
+      }
+    },
+    "verdict": "GRADED",
+    "clause": "any partial pattern \u2014 the arm table verbatim; the kill-D ordering reported as the density ladder: topk-10 0.907(kill) < topk-50 0.920(kill) < raw 0.920(kill) < sign 1.750(kill) < A0-Adam 2.489(kill)",
+    "density_ladder_ordered": [
+      {
+        "rung": "topk-10 (top-10% |g|)",
+        "kind": "kill",
+        "D": 0.90664498444579,
+        "source": "this cell"
+      },
+      {
+        "rung": "topk-50 (top-50% |g|)",
+        "kind": "kill",
+        "D": 0.9202602091418797,
+        "source": "this cell"
+      },
+      {
+        "rung": "raw (raw-g direction, opt1c committed)",
+        "kind": "kill",
+        "D": 0.9203406595225093,
+        "source": "runs/opt1c/metrics.json"
+      },
+      {
+        "rung": "sign (full sign(g))",
+        "kind": "kill",
+        "D": 1.749640490742179,
+        "source": "this cell"
+      },
+      {
+        "rung": "A0-Adam (opt1 committed)",
+        "kind": "kill",
+        "D": 2.4892616271972656,
+        "source": "runs/opt1/metrics.json"
+      }
+    ],
+    "stretch_invariance_coread": {
+      "sign_kill_D": 1.749640490742179,
+      "static_edge": 2.5,
+      "a0_kill": 2.4892616271972656,
+      "reading": "kill-D OUTSIDE 15% of the 2.5 edge \u2014 the sign kill MOVES with horizon (reported)"
+    },
+    "composite_order": "DENSITY-CARRIES -> DENSITY-SPARES -> GRADED (frozen before compute)",
+    "constants": {
+      "STEP_L2": 1.6542880535125732,
+      "SIGN_EDGE": 2.5,
+      "D_TARGET": 5.0,
+      "SHUT_BAR": 0.27,
+      "STEP_CAP": 16
+    }
+  },
+  "honesty_reflex": {
+    "n_and_scope": "n=1 per arm (single seed per arm; the replicate ladder runs only if a bar fires); ONE root, ONE input stream (seed 10902, bit-gated across all three arms AND vs e185's stored md5s); single family (the e131 consolidated line); every arm differs ONLY in the update rule's mask/arithmetic",
+    "float_texture": "CPU fp32 texture: all trainings this process, this CPU, 4 threads (the e185-era reduction order); committed references are hard-bound and the t=0 gate re-derives A0's step on THIS device",
+    "no_guaranteed_outcome": "every arm TRAINS on the licensed stream at lethal-scale per-step L2 \u2014 the arms could kill anywhere on the ladder; that openness is the point (nothing in this battery is guaranteed-to-spare)",
+    "estimator_lesson_honored": "alignment co-reads state their evaluation point: post_step (opt1's convention) AND matched_point (the chart's same-point convention; at s=1 gated vs the committed +0.03955) + the root-anchored cumulative read \u2014 T150's chart lesson",
+    "topk_churn": "the top-k set churns step to step (the mask follows g) \u2014 that IS the drifting front; per-step Jaccard reported, mean co-read",
+    "densification": "kill brackets densified along the killing step at f in {0.2,0.4,0.6,0.8} (points ON the trajectory, not new steps); the densified value adjudicates, both reported",
+    "projections_never_adjudicate": "arms stalled below D 2.5 cannot fire a spare clause; no projection is used anywhere"
+  },
+  "trims": [],
+  "deviations": [
+    "THE TRIM (r59 CUT 1, the dispatch's letter): r58's opt2 spec'd 6 arms (REF/REF-RAW/SIGN/TOPK-10/TOPK-50/WARMV); after opt1c (magnitude-informative steps are MORE lethal: raw g kills at 0.9203 vs sign's 2.5) the WARMV protective arm is dead on arrival and SIGN demotes from discrimination to stretch-invariance gate; the surviving cell is THE DENSITY QUESTION: TOPK-10/50 vs the full sign at matched per-step L2. The lr/8 stretch of r58's spec is NOT used: the arms are size-pinned at A0's measured step L2 directly (each step is 1.6543 L2, the gate is crossed at step ~2, and the horizon extends to 2x the edge instead).",
+    "The arms have NO learning rate and NO optimizer state: the update is size-pinned by construction (per-step L2 = STEP_L2 exactly; the in-code assertion reports max deviation per arm). The batch CE, pre-clip grad norms, and input md5s are still recorded per step (the licensed cell's own reads).",
+    "g-12 is read at EVERY step (opt1c's bracket-tightest cadence); g-0 + CE_R + the dual-estimator alignment at the {1,2,4,8,16} cadence. The alignment carries BOTH evaluation points per T150's estimator lesson: post_step cos(delta_s, grad fact(theta_s)) (opt1's committed convention) AND matched_point cos(delta_s - delta_s_prev, grad fact(theta_s_prev)) (the increment at the point it began; at s=1 this is EXACTLY the chart's same-point convention, gated vs its committed +0.03955) plus the root-anchored cumulative read cos(delta_s, grad fact(theta_0)).",
+    "Top-k set churn recorded per step (Jaccard of consecutive masks; r58's stated read \u2014 the drifting front is a read, not a bug); per-checkpoint cos vs the committed terrain directions (e191's u_g, sign(g_0)) \u2014 which ray each arm rides. torch.topk's tie handling on CPU is deterministic (sorted by value); fp32-exact ties are rare \u2014 stated, not sampled.",
+    "Chunk cap 178 s (dispatch <= 180 s; the margin absorbs one step overshoot); in-chunk reads count toward the cap (opt1's FT_TIME_CAP convention). Chunk state round-trips through runs/opt2/chunk_state.pt per the opt1b/opt1c convention (model + generator + step + journal + flags + last top-k mask + previous-checkpoint fact grads); chunk-boundary parameter md5s form a hash chain.",
+    "The reference A0 (opt1), the raw rung (opt1c), the bleed curve (opt1b via e192's overlays), the terrain rays (e192), and the same-point anchors (e_chart) are LOADED COMMITTED, never rerun; hard-bound at runtime (asserts catch any drift of the committed files vs this file's copies).",
+    "Light reads only (g-12/g0 batteries + CE_R + dual-estimator alignment + displacement + pre-clip grad norms + topk churn) \u2014 no census/deletions. CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 before torch; the GPU is another agent's, never claimed); threads 4; n=1; single seed lineage (10902).",
+    "Smoke mode trims: 3-step cap, 12 s chunks, cadence {1,2}, no densification, no adjudication (verdict stamped SMOKE; nothing adjudicated)."
+  ],
+  "ckpt_inventory": {
+    "opt2_a_topk10_s1": {
+      "path": "runs/checkpoints/opt2_a_topk10_s1.pt",
+      "arm": "a_topk10",
+      "steps": 1
+    },
+    "opt2_a_topk50_s1": {
+      "path": "runs/checkpoints/opt2_a_topk50_s1.pt",
+      "arm": "a_topk50",
+      "steps": 1
+    },
+    "opt2_a_sign_s2": {
+      "path": "runs/checkpoints/opt2_a_sign_s2.pt",
+      "arm": "a_sign",
+      "steps": 2
+    }
+  },
+  "timing": {
+    "total_s": 63.4
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128",
+    "inter_arm_s": 10.0,
+    "chunk_cap": 178.0
+  }
+}
