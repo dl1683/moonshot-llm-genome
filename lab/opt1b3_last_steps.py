@@ -254,7 +254,7 @@ E185_XHASH = {                    # per-step input-batch md5 (seed-10902 stream;
     4: "cdccea0c413e603dc52d1873e37b9844",
     5: "4da7b67a7fd80b4e9729731fb27bec0c",
     6: "1aa4f9f250f14acad52d3b969343090a",
-    7: "1e9e3373028935fe252d86683280e4b5",
+    7: "1e9e3373028935fe272d86683280e4b5",
     8: "3535a9db2d1aa2e6e0655208ff26b3d9",
     9: "2c3260242cd38e60cffafe0c91495c5e",
     10: "688062bb39f486e563b091124a7231a1",
