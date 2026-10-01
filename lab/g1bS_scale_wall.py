@@ -181,6 +181,31 @@ fresh retrain replays the same seed-1337 init and the same batch stream, so
 lr is the ONLY delta vs the diverged trajectory (a controlled comparison).
 The base gate now PAUSE-AND-WAITS without timeout (a 4000-step 10M base on
 CPU is not a viable cell; never migrate mid-run).
+
+==================== RECOVERY-4 NOTE (2026-10-01, the FOURTH dispatch) =======
+A FIFTH machine disruption (user-confirmed system shutdown) killed the third
+executor mid-base-retrain, right after its chunk-4 progressive write
+(13:45:46Z). The 4e-4 retrain's resume state SURVIVED intact:
+runs/checkpoints/g1bS_base.pt = step 1113/4000, model+opt+sched+generator+
+full history carried, val FALLING healthily across the whole trajectory
+(evals: s250 2.1581 -> s500 1.8004 -> s750 1.6444 -> s1000 1.5903 ->
+s1113 1.5766; chunk-final vals 2.1609 -> 1.8444 -> 1.6562 -> 1.5766).
+This agent VERIFIED the script against the frozen design (full read; the
+R-convention, ladder, bars, wash, gates all match; smoke exit 0 at 09:20Z
+in runs/g1bS_smoke/recovery3_smoke_run.log) and CONTINUES the retrain from
+the surviving state — its schedule is honored verbatim (same cosine, same
+batch-generator state, same lr 4e-4; nothing restarted).
+ONE FIX (bookkeeping only, no training arithmetic / RNG / bars): the
+intended chunk-table continuation across process restarts was dead code —
+write_partial('start') clobbers metrics.json BEFORE the resume branch reads
+base_chunks back, so agent-3's 4-chunk table would have been dropped from
+the record and G-BASE-QUAL's g2 leg would have seen only this process's
+chunks. Fixed by stashing the prior base_chunks before the first partial
+write (RECOVERY['fourth_dispatch']); the training itself resumes from the
+ckpt regardless (train_model's own resume path — untouched).
+G1BS_GPU_WAIT_MAX=7200 set for this run (the pre-registered env knob,
+recovery fix (c)): the neighbor project's INT8 jobs may return; arms
+pause-and-wait up to 2h rather than silently hopping to CPU mid-cell.
 """
 from __future__ import annotations
 
@@ -480,6 +505,15 @@ deviations: list[str] = [
     "viable cell, so the gate parks (30 s polls, logged) instead of "
     "migrating; arms/install/consolidate keep the committed 600 s policy "
     "(G1BS_GPU_WAIT_MAX env extends it).",
+    "RECOVERY-4 CHUNK-TABLE CONTINUATION FIX (fourth dispatch; bookkeeping "
+    "only): write_partial('start') replaced metrics.json before the resume "
+    "branch could read the prior base_chunks back — the documented "
+    "'continue the chunk table across the interruption' path was dead code "
+    "and agent-3's 4-chunk table would have been dropped. Fixed by stashing "
+    "the prior table before the first partial write; no training "
+    "arithmetic, RNG stream, dial or bar touched. The 4e-4 retrain itself "
+    "CONTINUES from the surviving step-1113 ckpt (train_model's own resume "
+    "path, untouched).",
 ]
 
 device_events: list[dict] = []
@@ -569,6 +603,36 @@ RECOVERY = {
                                   "vs the diverged trajectory"),
         "divergence_verification": None,   # filled at runtime (phase
                                            # 'divergence-verification')
+    },
+    "fourth_dispatch": {
+        "note": ("a FIFTH disruption (user-confirmed shutdown) killed the "
+                 "third executor mid-base-retrain after its chunk-4 write "
+                 "(13:45:46Z); this is the FOURTH dispatch's recovery"),
+        "retrain_state_survived": ("runs/checkpoints/g1bS_base.pt = step "
+                                   "1113/4000 with model+opt+sched+generator"
+                                   "+full history (chunk-final vals 2.1609 "
+                                   "-> 1.8444 -> 1.6562 -> 1.5766, val "
+                                   "FALLING healthily) — CONTINUED, not "
+                                   "restarted; the 4e-4 schedule honored "
+                                   "verbatim"),
+        "script_verification": ("full read against the frozen design: the "
+                                "R-convention (R_rms 4.2301e-4, ladder "
+                                "{1,2,4}x), the WALL bars, the untouched "
+                                "wash, the scaled-bar-before-arms ordering, "
+                                "the G-BASE-QUAL hard stop and both R "
+                                "conventions in every readout all match; "
+                                "smoke exit 0 (recovery3_smoke_run.log)"),
+        "fix": ("chunk-table continuation across process restarts was dead "
+                "code (write_partial('start') clobbered metrics.json before "
+                "the resume branch read base_chunks back) — fixed by "
+                "stashing the prior table before the first partial write; "
+                "bookkeeping only (no training arithmetic, RNG, dial or "
+                "bars); G-BASE-QUAL's g2 leg now sees the WHOLE continued "
+                "trajectory as registered"),
+        "gpu_policy": ("G1BS_GPU_WAIT_MAX=7200 for this run (the "
+                       "pre-registered env knob, recovery fix (c)): the "
+                       "neighbor's INT8 jobs may return; pause-and-wait up "
+                       "to 2h, never a silent CPU hop mid-cell"),
     },
 }
 
@@ -751,6 +815,24 @@ def verify_base_divergence(ck: Path, corpus: CharCorpus, prompt: str) -> dict:
 def main():
     rd = run_dir("g1bS_smoke" if SMOKE else "g1bS")
     log(f"G1BS THE WALL AT 10x (smoke={SMOKE}) -> {rd}")
+    # RECOVERY-4 bookkeeping fix: stash the prior partial's base_chunks
+    # BEFORE the first write_partial clobbers metrics.json — the chunk table
+    # must continue across process restarts (the resume branch's own
+    # documented intent; record-keeping only, no training semantics)
+    prior_base_chunks: list | None = None
+    if not SMOKE:
+        _prior = rd / "metrics.json"
+        if _prior.exists():
+            try:
+                _prev = json.loads(_prior.read_text(
+                    encoding="utf-8")).get("base_chunks")
+                if isinstance(_prev, list) and _prev:
+                    prior_base_chunks = _prev
+                    log(f"[base] prior partial chunk table stashed "
+                        f"({len(_prev)} chunks) — the record continues")
+            except Exception as e:                              # noqa: BLE001
+                log(f"[base] prior partial unreadable ({e}) — chunk table "
+                    f"restarts at this process (recorded)")
     write_partial(rd, "start", {
         "design": ("scratch/g1bS_design.md (convention frozen at dispatch; "
                    "bars verbatim; no bar shopping)"),
@@ -1114,6 +1196,9 @@ def main():
             log(f"[base] existing chunk state {base_ck.name} is a healthy "
                 f"partial — RESUMING (Rule 10; the chunk table records the "
                 f"split)")
+            # RECOVERY-4: the on-disk read is now too late (this process's
+            # own partial writes already replaced metrics.json) — the
+            # stash from before the first write is the continuation source
             prior = rd / "metrics.json"
             if prior.exists():      # continue the chunk table across the
                 try:                # interruption (the process restarts, the
@@ -1126,6 +1211,10 @@ def main():
                 except Exception as e:                    # noqa: BLE001
                     log(f"[base] prior partial unreadable ({e}) — chunk "
                         f"table restarts at this process (recorded)")
+            if not chunks and prior_base_chunks:
+                chunks.extend(prior_base_chunks)
+                log(f"[base] chunk table CONTINUED from the pre-write stash "
+                    f"({len(chunks)} chunks, RECOVERY-4 fix)")
     elif not SMOKE:
         log(f"[base] no prior state — FRESH training at lr {BASE_LR}")
     hist: list[dict] = []
@@ -1932,19 +2021,27 @@ def main():
             "no_bar_shopping": ("the ladder was fixed by the frozen design; "
                 "if no rung holds, WALL-FADES is the verdict; the secondary "
                 "bars are co-reported context, never adjudicated."),
-            "three_dispatch_provenance": ("this cell spans THREE executor "
+            "four_dispatch_provenance": ("this cell spans FOUR executor "
                 "dispatches interrupted by machine disruptions: agent-1 "
-                "(healthy base prefix, steps 353/547/750, vals "
+                "(healthy base prefix at lr 1e-3, steps 353/547/750, vals "
                 "1.8385/1.6437/1.5801 — its ckpts were later overwritten; "
                 "the committed chunk table is its record), agent-2 (base "
                 "DIVERGED: val 1.628 -> 3.724 over steps 1207-2958, saved "
                 "state s3250 train 0.13 / val 3.96 — archived as "
-                "g1bS_base_diverged_s3250.pt, never deleted), agent-3 (this "
-                "run: divergence verified from the committed data + its own "
-                "eval/sample of the saved state, then the documented "
-                "width-scaled-lr retrain from the same init and batch "
-                "stream). Nothing from the diverged trajectory enters this "
-                "cell's hosts, arms or adjudication."),
+                "g1bS_base_diverged_s3250.pt, never deleted), agent-3 "
+                "(verified the divergence from committed data + its own "
+                "eval/sample, registered G-BASE-QUAL, began the "
+                "width-scaled-lr 4e-4 retrain from the same init and batch "
+                "stream — killed by the fifth disruption at step 1113 with "
+                "val falling 2.1609 -> 1.5766), agent-4 (this run: "
+                "continued the SAME 4e-4 trajectory from the surviving "
+                "step-1113 ckpt — schedule honored, nothing restarted; one "
+                "bookkeeping fix, the chunk-table continuation, see "
+                "RECOVERY['fourth_dispatch']). Nothing from the diverged "
+                "trajectory enters this cell's hosts, arms or adjudication; "
+                "the base's host-recipe lr deviation (4e-4, width-scaled, "
+                "dispatch-licensed) carries into every cross-scale "
+                "comparison as a stated caveat."),
             "base_lr_deviation": ("BASE_LR 4e-4 (not the carried 1e-3): a "
                 "DOCUMENTED stability fix ordered by the third dispatch — "
                 "width-proportional 1e-3 x 128/320, inside the 3e-4..5e-4 "
