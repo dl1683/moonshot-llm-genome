@@ -31,7 +31,8 @@ AdamW moves 1683x a matched SGD step and flips the sign of the
 stream's fact-relevance), while displacement sets the gate; lethality
 is trajectory-class-typed — one ballistic raw-gradient step kills at
 displacement 0.92, Adam's two sign-steps at ~2.5, and a diffusive
-small-step walk [opt1b3: dies at / survives past] the same ring —
+small-step walk grinding below the ring without dying (asymptote
+unmeasured; three linear projections falsified) —
 with small displacements paradoxically STRENGTHENING the fact before
 the cliff (C3-C5). The same physics is generative: a projection
 ball holds a fact through the killing wash at a measurable onset

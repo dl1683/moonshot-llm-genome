@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T147 — opt1b3: the walk that will not die — the third projection falsified, the grind named (2026-10-01 ~14:35Z)
+
+CAP-AGAIN, graded honestly: 150 every-step reads, no kill (min
+0.2891 at the final step), no 2.6 crossing (final D 2.2501). THE
+ARITHMETIC LESSON COMPOUNDS: opt1b2's kill ~s1214 was walked
+through ALIVE — the third linear projection this arc has falsified
+(opt1b's D~10, opt1b2's s1214, now the same class again); W021's
+family of arithmetic-model instruments grows a dedicated shelf.
+THE GRIND (the named texture): the stall is not equilibrium but
+SLOW EROSION (0.33 -> 0.29 at -2e-4/step) on a 9.26x-sublinear
+drift (D(t) linear r2 0.9996 — steady, deeply sublinear): the
+bleed never dies within any cap we have set, yet never stops
+grinding; its asymptote is UNRESOLVED and now unmeasured-by-design
+(three falsified projections means the class is retired, not
+retried). THE GATE QUESTION'S HONEST STATE: the walk's own kill-D
+is unknown; the CAUSAL axis (why the walk is spared where rays
+die) is answered independently by e192's rider — orientation owns
+the sparing. THE FOUR-CLASS OVERLAY stands complete for Fig-5's
+companion: guillotine ~2.5, annihilation 0.92, random >4.0 flat,
+and the grind — three ways to die and one way to erode. THE
+ABSTRACT'S BRACKET FILLS: the diffusive walk "grinds below the
+ring without dying (asymptote unmeasured)". Savoring: the bleed
+is the arc's honest ending — not saved, not dead; grinding.
+
 ## T146 — e192: the terrain licensed as one picture; re-orientation causal; the pump tracks structure (2026-10-01 ~13:50Z)
 
 Both primary bars fired. THE MAP: on one organism, one ruler, dual

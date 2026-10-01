@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## opt1b3 — the last fourteen steps (recovered twice): CAP-AGAIN (GRADED) — neither bar fires; the stall is a SLOW EROSION; the third linear kill-projection dies; the bleed's own kill-D stays unmeasured (2026-10-01 ~14:35Z) — DONE
+
+WHAT WE DID: third dispatch (second recovery): the killed
+predecessor's mid-flight chunk_state @ s1264 certified standalone
+(md5 + displacement recomputes exact; tails bit-equal the committed
+partial; stream unique); the MID-RUN RESUME GATE added (its v1
+aborted once at an in-process chunk boundary — a pure control
+failure, zero steps adjudicated, disclosed); v2 resumed from the
+saved s1348 chunk, cross-process bind ENFORCED. No committed step
+re-executed; bars verbatim; all 10 gates PASS.
+
+WHAT WE SAW (T147): CAP-AGAIN — g-12 read EVERY step for 150 steps:
+no read <= 0.27 (min 0.2891 AT the final step; mean 0.3167 +- 0.01)
+and D = 2.6 never approached (final D 2.2501; 9.26x sublinear —
+walked 6.4e-3 buys 7.0e-4 of D per step, D(t) linear r2 0.9996: a
+steady deeply-sublinear drift). THE DOOR CLOSED ON ITS OWN
+EXTRAPOLATION: opt1b2's kill ~s1214 was walked through alive — THE
+THIRD FALSIFIED LINEAR PROJECTION in this arc (W021's family
+grows). THE STALL'S TEXTURE (the graded finding): not a flat
+equilibrium but a SLOW EROSION 0.33 -> 0.29 (-2.0e-4/step; margin
+0.019 at the end) — a diffusive walk that never dies within any cap
+set yet keeps grinding; asymptote unresolved. The organism improves
+through it (CE_R 1.677 vs root 1.664); cos(g0) flat -0.0195
+(RAW-WINS-consistent). WHERE THE GATE STANDS: dead-in-window and
+past-2.6 both unfired — the bleed's own kill-D remains UNMEASURED
+(a labeled linear read says ~s1440 at D ~2.32, adjudicating nothing
+after three misses of that class); e192/T146's rider answers the
+causal axis independently. THE FOUR-CLASS OVERLAY is complete:
+guillotine ~2.5 / annihilation 0.92 / random >4.0 flat / the bleed
+grinding at 2.25. HONESTY: n=1, CPU fp32, single stream;
+CAP-AGAIN graded by registration. Checkpoint s1350 on disk.
+
+---
+
 ## e192 — the all-ray terrain map: TERRAIN-ONE-PICTURE + RIDER-REORIENTATION-CAUSAL — Fig-5 licensed as ONE picture; re-orientation is causal; the pump tracks gradient STRUCTURE (2026-10-01 ~13:50Z) — DONE
 
 WHAT WE DID: static graded jumps along five ray families on ONE
