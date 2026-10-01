@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T157 — e195: the flight direction is the killer — direction-of-flight beats current-alignment (2026-10-01 ~19:20Z)
+
+FLEEING-IS-LETHAL, decisively: the rotated ray kills at 0.39 from
+the root where the original kills at 2.27 — an 83% concentration
+of lethality into the direction the support fled toward. THE
+DISSOCIATION IS THE DAY'S DEEPEST TWIST: the flight ray is
+ANTI-aligned with the root's fact gradient (cos -0.067) yet
+deadliest; the aligned ray kills 6x later. The killer direction is
+not where the death gradient points NOW — it is where the fact's
+support is GOING. Static alignment readings (the whole day's
+terrain program!) measure the wrong thing unless they state their
+point AND the state's history: the lethal direction is a property
+of the TRAJECTORY (which way the support moves under this wash),
+not of the landscape alone. THE BOTH-TRUTHS READING: the flight
+ray is absolutely lethal from the root AND the panel reverses
+from theta_1 — the terrain concentrates AND rotates; e192's
+order (measured on t=0 rays) stands as the root-panel biography.
+THE VALLEY-WITH-RIM picture: the fleeing support lands in a basin
+whose near rim pumps (short -u1 jumps from theta_1 IMPROVE the
+fact 0.68 -> 0.82 before the crash) — the flight is not toward
+death but THROUGH a rim into a valley whose far wall kills. THE
+FOLLOW-ONS: the valley's width; the second organism's flight
+direction (does e193's replicate line flee the same way?).
+
 ## T156 — e194: the lethal subspace flees and the fresh front pursues — one recomputation, the whole bonus (2026-10-01 ~19:25Z)
 
 GRADED with the mechanism convicted anyway: NOT chase (the frozen

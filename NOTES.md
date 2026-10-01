@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e195 — the rotated-ray terrain: FLEEING-IS-LETHAL — the flight direction is itself the killer (0.39 vs 2.27, an 83% drop); direction-of-flight beats current-alignment; the terrain both concentrates and rotates (2026-10-01 ~19:20Z) — DONE
+
+WHAT WE DID: static graded jumps along three sign-ray families
+(u0/u1/u2) from the root AND from the one-stepped state theta_1;
+237.7s CPU; every gate bit-exact (the walk reproduces opt2's
+committed trajectory to 0.0; e194's fine grid and front traces
+reproduced exactly).
+
+WHAT WE SAW (T157): (1) FLEEING-IS-LETHAL fires decisively: the
+rotated ray sign(g_1) from the root kills at D 0.3875 vs
+sign(g_0)'s 2.2699 — 82.9% lower (bar 15%) — the most lethal
+static ray ever measured in this program; lethality concentrates
+exactly where the support fled TO. (2) THE TERRAIN ROTATES TOO:
+from theta_1 the panel REVERSES (u0 0.616 < u1 0.828) — BOTH
+truths in one cell: the flight direction is absolutely lethal from
+the root AND the lethality is state-relative. (3) THE
+DISSOCIATION: the rotated ray is ANTI-ALIGNED with the root's fact
+gradient (cos -0.067) yet deadliest; the ORIGINAL ray is the
+aligned one (+0.040) and kills 6x later — DIRECTION-OF-FLIGHT
+BEATS CURRENT-ALIGNMENT: the killer ray follows where the support
+is GOING, not where the death gradient points at the start.
+(4) THE VALLEY HAS A RIM: short jumps along -u1 from theta_1
+first IMPROVE the fact (0.679 -> 0.824 at D 0.30) before crashing
+— the fleeing-support valley's near rim is a pump. (5) CE
+currency: the fact dies 10x earlier than general degradation
+along the flight ray (fact dead at 0.39; val CE still climbing
+smoothly). HONESTY: n=1 organism/fact, one stream; u2's gradient
+is the post-kill continuation's (read-only, disclosed);
+cross-panel D comparisons never adjudicated. FOLLOW-ONS NAMED: the
+valley's width (the basin the support fled into); does a second
+organism's front flee the same way (e193's replicate line)?
+
+---
+
 ## e194 — the sign-front mechanism: GRADED — no named bar; the reads convict ROTATION-TO-FLEEING-SUPPORT: the fresh front tracks the fact's moved lethal subspace, and ONE recomputation buys the whole lethality bonus (2026-10-01 ~19:25Z) — DONE
 
 WHAT WE DID: the front-overlap reads (t=0,1,2 + post-kill), the
