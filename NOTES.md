@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e197 — the alive window: ALIVE-BUT-NO-FLIGHT — aliveness is necessary but NOT sufficient; the rim exists without the concentration (2026-10-01 ~21:55Z) — DONE
+
+WHAT WE DID: the half-step wash (s* = 0.4582, the frozen ladder's
+largest rung landing above the 0.27 bar, registered BEFORE the
+walk; the same seed-10902 stream, direction machinery verbatim) on
+the f2 root; all 15 gates bit-clean; 190s CPU.
+
+WHAT WE SAW (T160): THE ALIVE WINDOW OPENED EXACTLY AS DESIGNED —
+g-4 alive t=1 through t=4 (0.419/0.851/0.528/0.648), killed at t=5
+(D 0.8387) — AND NEITHER DYNAMIC EFFECT FORMED: (1) NO
+RECOMPUTATION BONUS (walk 0.8387 vs its static edge 0.5252, ratio
+1.60 — the sub-step path is SAFER than its own ray; org1 0.771;
+org2 full-step 1.001); (2) NO FLIGHT CONCENTRATION (the alive
+lineage's u1 ratio 3.17 — softer than even the DEAD lineage's
+2.58; org1 0.17). ALIVE-BUT-NO-FLIGHT: the honest fork — aliveness
+alone does not build the flight structure; SOMETHING ELSE OF
+ORGANISM 1 CARRIES THE DYNAMICS (candidates: its fact's strength;
+its architecture 2.74M-6L vs 873k-4L; its lineage biography).
+THE RIM-WITHOUT-CONCENTRATION TEXTURE: from the alive theta_1,
+u0/u2 kill almost instantly (~0.067) while the walk's own -u1
+direction IMPROVES the fact (0.42 -> 0.85 at D 0.4) before
+crashing at 1.83 — THE VALLEY-WITH-RIM PICTURE EXISTS IN THIS
+ORGANISM TOO, but the lethality never CONCENTRATES into the flight
+direction. Front rotation large here as well (cos(u0,u1) -0.263).
+HONESTY: n=1 root, one stream; the sub-step lineage is a
+COUNTERFACTUAL wash — the claim is causal for this biography, not
+a population claim; kill-D resolution ~s*/5.
+
+---
+
 ## g1bS2 — the wall at 10x, take 2: TEXTURE (G-ROOT failure) — the e113 CONSOLIDATE recipe is scale-bound too; T148's cure pattern works (the base passed by construction); the g0 co-report is g1b-SHAPED at 10x; the Adam-clock holds at lr*sqrt(P) (2026-10-01 ~21:10Z) — DONE
 
 WHAT WE DID: sixth-dispatch lineage; three external process kills

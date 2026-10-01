@@ -685,6 +685,29 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T160 — e197: the honest fork — aliveness is not the carrier; the rim is universal, the concentration is not (2026-10-01 ~21:55Z)
+
+The discriminating cell fired its honest fork: the alive window
+opened (the half-step lineage lived t=1..t=4 exactly as designed)
+and NEITHER effect formed — no recomputation bonus (the path SAFER
+than its ray), no flight concentration (softer than the dead
+lineage). THE ALIVE WINDOW IS NECESSARY BUT NOT SUFFICIENT. THE
+MISSING CARRIER'S CANDIDATES, ranked by testability: (1)
+ARCHITECTURE/SIZE — organism 1 is 2.74M 6L; this organism 873k 4L;
+e193b's fresh root was 2.74M and its MIRABEL fact replicated the
+whole TERRAIN — but the FLIGHT map was never read there: THE
+DISCRIMINATING CUT IS NAMED (the flight map on e193b's MIRABEL
+root: if the concentration appears, architecture carries it; if
+not, organism 1's specific biography); (2) FACT STRENGTH (org1's
+theta_1 read 0.679; this lineage's 0.419 — a strength threshold?);
+(3) lineage biography (untestable except by draws). THE TEXTURE
+THAT SAVES THE PICTURE: the rim-without-concentration — from the
+alive theta_1, the static rays kill instantly while the walk's own
+recomputed direction IMPROVES the fact before the far crash: THE
+VALLEY-GEOMETRY IS UNIVERSAL (present in both organisms), the
+LETHALITY-CONCENTRATION is organism 1's. The dissection's next cut
+is already sharp.
+
 ## T159 — g1bS2: the third scale casualty and the cure pattern that generalizes (2026-10-01 ~21:10Z)
 
 The wall-at-10x saga closes its second act honestly: the val-min-
