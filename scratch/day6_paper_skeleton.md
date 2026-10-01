@@ -311,8 +311,9 @@ Evidence gaps (additions):
    in R6(b).
 12. Optimizer clause EVIDENCED, decomposition PROPOSED (opt1 DONE;
    R58): the two-step clock is Adam's sign-normalization (1683x/step
-   at matched lr; the normalizer flips the SIGN of fact-relevance:
-   -0.0385 vs +0.0981 on the same batch); the kill gate reads
+   at matched lr; the normalizer ATTENUATES the stream's
+   fact-relevance ~2.5x at a matched point; the trajectory-level negative
+   read is the post-step view — the chart cell's estimator correction); the kill gate reads
    displacement in a two-convention bracket (checkpoint 2.49 vs 3.64;
    interpolated 2.18 vs 2.85) — the small-displacement PUMP
    strengthens the fact under every optimizer (SGD lingers at

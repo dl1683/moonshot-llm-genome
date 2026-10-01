@@ -27,8 +27,8 @@ streams contain: install-time error placement causally relocates a
 fact's support and switches its type (C1-C2). Under continued
 training, no consolidated state we tested survives — and the kill
 decomposes: the optimizer's normalization sets the clock (a fresh
-AdamW moves 1683x a matched SGD step and flips the sign of the
-stream's fact-relevance), while displacement sets the gate; lethality
+AdamW moves 1683x a matched SGD step and attenuates the stream's
+fact-relevance ~2.5x at a matched point), while displacement sets the gate; lethality
 is trajectory-class-typed — one ballistic raw-gradient step kills at
 displacement 0.92, Adam's two sign-steps at ~2.5, and a diffusive
 small-step walk grinding below the ring without dying (asymptote

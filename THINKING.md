@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T150 — the chart: no cuts, no flip — the corrections corrected (2026-10-01 ~16:00Z)
+
+THE CHART CELL corrects the correctors. (1) THE PUMP HAS NO CUTS:
+every magnitude class of the wash gradient is fact-positive at
+t=0 — W024's stitches-and-cuts dies whole (there are no tiny
+cuts; the erosion is not a sign-flattened mass of small
+coordinates). (2) THE SIGN-FLIP WAS AN ESTIMATOR-POINT ARTIFACT:
+at a MATCHED point, normalization ATTENUATES fact-relevance
+(+0.0986 -> +0.0396, ~2.5x) but does not flip it; opt1's -0.0385
+trajectory read is real but POST-STEP (it evaluates the fact
+gradient after the 1.6543-L2 step has already moved it). T139's
+adopted gem and the paper's clause correct to "the normalizer
+ATTENUATES the stream's fact-relevance; the trajectory-level
+negative read is the post-step view". (3) THE SPAN KILLS AT 1x:
+in-span random directions kill BELOW the g-ray itself (0.56-0.61
+on e131) — the empirical gradient-history span is lethally
+sufficient, stronger than the subspace hypothesis needed; but the
+out-span arm's split behavior (rung 8 on g3 vs rung-1-with-59%-
+retained on e131) and the non-reconciling dimension estimates
+(kappa >=52k vs SVD rank 20) leave W025's projection-ratio account
+UNCONFIRMED — the span is real and lethal; its size is not yet
+measurable by these instruments. (4) THE SHUFFLED SIGN IS INERT:
+exact coordinate-sign pairing owns both the pump and the sign
+kill — gradient structure is in the PAIRING, the sharpest form
+the structure question has taken. (5) THE RANDOM BAND >12: the
+isotropic arm of the terrain widens another 3x (Fig-5 updates).
+THE META: the chart was built to check two wonder cards and it
+killed both pictures while confirming both questions were worth
+asking — the favorite-dies-well pattern, twice in one cell.
+
 ## T149 — e182c: the surgical signature dies at 124M — generic forgetting, and the template-locus hint (2026-10-01 ~15:40Z)
 
 FORGETTING-GENERIC fired at both depths: matched held-out controls
@@ -1004,6 +1034,18 @@ interpolated 2.18 vs 2.85; opt1b's gate reads the interpolated
 convention); and the e131 lineage has no static-jump leg — the
 forgetting law is a two-organism stitch at n=1 each. opt1b (running)
 + opt1c (registered) + e188 (running) are the adjudicators.
+
+
+[CHART RE-AMENDMENT, 2026-10-01 ~16:00Z — the flip corrects to
+ATTENUATION]: the R58-critic gem adopted above ("the normalizer
+FLIPS the sign of fact-relevance, -0.0385 vs +0.0981") is an
+ESTIMATOR-POINT ARTIFACT per the chart cell's hard-gated double
+anchor: at a matched point the flattening only attenuates
+(+0.0986 -> +0.0396); opt1's -0.0385 evaluates the fact gradient
+AFTER the Adam step. The honest sentence: "the normalizer
+attenuates the stream's fact-relevance ~2.5x at a matched point;
+the trajectory-level negative alignment is the post-step view."
+The paper's clause corrects with it.]
 
 ## T138 — the literature pass: the trajectory hypothesis is new as a CONTROL, predicted as THEORY (title re-stamped per C13-1; 2026-09-30 ~10:55Z)
 
@@ -3599,7 +3641,7 @@ LOSES lethality relative to g, even as it beats random). The
 pump-cliff at D 0.33-1.0 is the first MAPPED terrain inside the
 subspace.]
 
-## W024 — WONDER: the pump is a few big stitches; the erosion is a thousand tiny cuts — why the normalizer flips the sign (2026-09-30 ~11:50Z; no bars, no kills)
+## W024 — WONDER: the pump is a few big stitches; the erosion is a thousand tiny cuts — why the normalizer flips the sign (2026-09-30 ~11:50Z; no bars, no kills) [RETIRED-BY-CHART, 2026-10-01: BOTH pictures died — no cuts (A2: every class positive) and no flip (estimator-point artifact; matched-point read: attenuates +0.099->+0.040). The surviving object: exact coordinate-sign pairing (the shuffled-sign rider). Died well.]
 
 The R58 critic's buried gem: on the SAME bit-identical wash batch,
 the raw gradient reads cos(g, grad m12) = +0.0981 (fact-positive —

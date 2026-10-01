@@ -9,6 +9,46 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e_chart — THE CHART CELL: A2 FLAT-POSITIVE | B2 PARTIAL-PROJECTION — the pump has no cuts; the sign-flip was an estimator artifact; the span kills at 1x; the shuffled sign is inert; the random band >12 (2026-10-01 ~16:00Z) — DONE
+
+WHAT WE DID: e189+e190 merged per the frozen design: the census
+(21 states; both W024 estimators gated HARD — same-point raw
++0.09862 vs committed +0.09808; opt1-estimator -0.03851 vs
+-0.03851, d 5.4e-6) and the subspace test (SVD of the wash-step
+history; in-span random vs out-span wash at the rung ladder; e131
+primary + both g3K rulers), plus the shuffled-sign and wider-grid
+riders. All 9 gates PASS; 39 checkpoints sha1-hashed; e188/e191/
+e192/opt1/g3K loaded, never recomputed; 290.8s CPU eval-only.
+
+WHAT WE SAW (T150): A2 FLAT-POSITIVE — at t=0 EVERY magnitude
+class of the wash gradient aligns positively with the fact gradient
+(top-0.1% +0.054 carrying 40% of ||g||; 0.1-1% +0.083; 1-10%
++0.040; bottom-90% +0.027; complements positive at all cuts; 0/21
+states show stitches-and-cuts). THE PUMP HAS NO CUTS — W024's
+picture dies. THE FLIP WAS AN ESTIMATOR-POINT ARTIFACT: at a
+matched point flattening only ATTENUATES (+0.0986 -> +0.0396);
+opt1's -0.0385 evaluated the fact gradient AFTER the 1.6543-L2
+step (the trajectory read is real but post-step). B2 PARTIAL-
+PROJECTION — THE SPAN KILLS AT 1x EVERYWHERE: in-span random kills
+at rung 1 on all three organisms (fine-D 0.56-0.61 on e131, BELOW
+the g-ray's 0.91); the out-span arm splits by organism (g3: the
+wash delta IS the first history segment, removed 1.0, residual
+kills at rung 8 — inside the random band; e131: the sign-flattened
+history contains only 64.2% of the raw ray, so the "out-span"
+residual retains 59% of the g-ray and kills at rung 1). The
+dimension estimates do NOT reconcile (kappa-derived d_eff >=52k/
+36k/24k vs SVD rank 20/8/7 vs PR 6.4-15.8) — the finite-span proxy
+caveat carried verbatim; W025's projection-ratio account of the
+random band remains UNCONFIRMED. RIDERS: the shuffled-sign ray is
+INERT (no pump; no kill through D 2.5; CE_R flat) — the pump and
+the sign-ray kill both need the EXACT coordinate-sign pairing;
+the random band widens to >12 (>13x the g-ray; still
+unresolved-high). HONESTY: n=1 per ruler; snapshot quadrature;
+the 0.02 floor declared; the lr1e-4 arm excluded per e188's
+provenance flag.
+
+---
+
 ## e182c — the forgetting control: FORGETTING-GENERIC — T123's GPT-2 erosion is GENERIC forgetting; the surgical signature retires at 124M; a template-locus hint (2026-10-01 ~15:40Z) — DONE (phase 1)
 
 WHAT WE DID: fourth dispatch (the lean brief — three predecessors
