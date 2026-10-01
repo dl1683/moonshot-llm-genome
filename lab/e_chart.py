@@ -75,9 +75,12 @@ not move the bars):
     = pump (fact-ascent), negative = erosion. The movement direction is
     the post-clip gradient negated. t=0 anchors gate the convention:
     cos(-g_0, grad m12) must reproduce opt1's committed SGD-arm step-1
-    alignment +0.0981 (SGD wd=0, so the delta IS -lr*g), and the Adam-view
-    cos(-sign(g_0), grad m12) must land near A0's committed step-1
-    -0.0385 (the residual is Adam's weight-decay admixture, ~0.8% of L2).
+    alignment +0.0981 (SGD wd=0, so the delta IS -lr*g), AND opt1's own
+    estimator (delta . grad m12 at the POST-STEP state) must reproduce
+    A0's committed step-1 -0.0385. DISCLOSED: at a matched point the
+    flattening attenuates (+0.0986 -> +0.0396) without flipping; W024's
+    flip is measured across the estimator-point change (both estimators
+    carried per state; see the deviations block).
   * ADAM-VIEW = the flattening limit: the same decomposition applied to
     -sign(g). EXACT at t=0 (Adam's bias-corrected first step is +-lr per
     coordinate); at t>0 it is the fresh-Adam flattening of that state's
@@ -316,6 +319,18 @@ REGISTERED_BARS = {
 }
 
 deviations: list[str] = [
+    "ESTIMATOR DISCLOSURE (found at gate time, kept verbatim): opt1's "
+    "committed cos_delta_fact_m12 evaluates the fact gradient at the "
+    "POST-STEP state (its eval twin is loaded with the post-step weights); "
+    "the census needs both gradients at the SAME state. At a matched point "
+    "the flattening ATTENUATES the alignment (+0.0986 -> +0.0396) without "
+    "flipping it; W024's -0.0385 flip is measured across the estimator-"
+    "point change. G_W024 therefore gates BOTH committed numbers under "
+    "their own conventions (two HARD sub-gates), the census reports BOTH "
+    "estimators per state (same-point + the trajectory estimator, which at "
+    "t=0 IS opt1's object), and the A bars' flip clause uses the flip as "
+    "W024 measured it (same-point raw positive vs trajectory negative). "
+    "No bar moved.",
     "PART A states: the lr1e-4 arm (the original extinction-anchor stream) "
     "is EXCLUDED from the census — its batch provenance is a different "
     "stream and the census's own clause is bit-identical provenance (e188 "
@@ -341,6 +356,15 @@ deviations: list[str] = [
     "full-random/2; else B2); e131 is the primary adjudication and the "
     "store/host legs co-adjudicate with their own committed references — "
     "any disagreement is reported verbatim (organ n=1 per ruler).",
+    "The g3 legs use g3K's own ADD-delta sign convention (root + rung x "
+    "delta, gated by the wash rung-1 anchor vs the committed s1 reads); "
+    "the e131 legs use e192's subtract-the-gradient-ray convention "
+    "(theta_0 - D x u, gated by the wash rung-1 anchor vs e191's endpoint).",
+    "A fine-D co-read (e192's absolute-D grid below wash-1x) is added to "
+    "the e131 in-span/out-span arms because the g-ray's kill (D 0.92 = "
+    "rung 0.556) sits BELOW rung 1 — the rung ladder alone cannot place "
+    "the arms' kills in comparable units. Labeled non-adjudicating; the "
+    "rung ladder stays the registered axis.",
     "The e131 wash leg re-reads the committed g-ray fresh at the 7 rung Ds "
     "(its rung-1 point gated bit-close vs e191's committed endpoint read); "
     "e192's committed R1 profile remains the loaded reference of record.",
@@ -507,8 +531,8 @@ def participation_ratio(vals: torch.Tensor) -> float:
 
 def svd_basis(H: torch.Tensor) -> dict:
     """Right-singular basis of H (m x N) via the Gram matrix (fp64), with the
-    spectrum + participation ratio. V columns are orthonormal directions in
-    parameter space."""
+    spectrum + participation ratio. Vp rows are the top right-singular
+    DIRECTIONS in parameter space (v_i = H^T e_i / sigma_i), fp32, (r, N)."""
     H64 = H.to(torch.float64)
     G = (H64 @ H64.T)
     evals, evecs = torch.linalg.eigh(G)     # ascending
@@ -517,7 +541,12 @@ def svd_basis(H: torch.Tensor) -> dict:
     sv = torch.sqrt(evals)
     pr = participation_ratio(sv) if float(sv[0]) > 0 else 0.0
     rank_eff = int((sv > sv[0] * 1e-7).sum())
-    return {"sv": sv, "V": evecs, "pr": pr, "rank_eff": rank_eff,
+    rows = []
+    for i in range(rank_eff):
+        v = H64.T @ evecs[:, i]
+        rows.append((v / sv[i].clamp(min=1e-30)).to(torch.float32))
+    Vp = torch.stack(rows) if rows else torch.empty(0, H.shape[1])
+    return {"sv": sv, "Vp": Vp, "pr": pr, "rank_eff": rank_eff,
             "cond": float(sv[0] / sv[rank_eff - 1].clamp(min=1e-30))
             if rank_eff else None}
 
@@ -689,16 +718,18 @@ def main():
     g0_t0 = torch.cat([p.grad.detach().reshape(-1)
                        for p in tw.parameters()]).clone()   # post-clip
     optw.step()
-    disp1 = float(torch.norm(flat_params(tw) - theta0))
+    theta1_adam = flat_params(tw)          # kept for G_W024's opt1-estimator
+    disp1 = float(torch.norm(theta1_adam - theta0))
     del tw, optw, logits
-    G_T0.update(ce_batch_measured=ce1, ce_batch_committed=CE1_COMMITTED,
-                preclip_gnorm_measured=gn1, preclip_gnorm_committed=GN1_COMMITTED,
-                adamw_step1_L2_measured=disp1,
-                adamw_step1_L2_committed=STEP_SCALE_COMMITTED,
-                pass=bool(G_T0["step1_x_md5_match_e185"]
-                          and abs(ce1 - CE1_COMMITTED) < G_FALLBACK_TOL
-                          and abs(gn1 - GN1_COMMITTED) < G_FALLBACK_TOL
-                          and abs(disp1 - STEP_SCALE_COMMITTED) < G_FALLBACK_TOL))
+    G_T0.update({
+        "ce_batch_measured": ce1, "ce_batch_committed": CE1_COMMITTED,
+        "preclip_gnorm_measured": gn1, "preclip_gnorm_committed": GN1_COMMITTED,
+        "adamw_step1_L2_measured": disp1,
+        "adamw_step1_L2_committed": STEP_SCALE_COMMITTED,
+        "pass": bool(G_T0["step1_x_md5_match_e185"]
+                     and abs(ce1 - CE1_COMMITTED) < G_FALLBACK_TOL
+                     and abs(gn1 - GN1_COMMITTED) < G_FALLBACK_TOL
+                     and abs(disp1 - STEP_SCALE_COMMITTED) < G_FALLBACK_TOL)})
     log(f"G_T0 (t=0 bit-identity): CE |d| {abs(ce1 - CE1_COMMITTED):.2e}, "
         f"gn |d| {abs(gn1 - GN1_COMMITTED):.2e}, disp |d| "
         f"{abs(disp1 - STEP_SCALE_COMMITTED):.2e}: "
@@ -707,36 +738,64 @@ def main():
         raise RuntimeError("t=0 bit-identity gate FAILED — abort (control failure)")
 
     # ---- G_W024: the flip anchors (the census's sign-convention gate)
+    # DISCLOSED AT GATE TIME (the smoke run's finding, kept verbatim): opt1's
+    # committed cos_delta_fact_m12 evaluates the fact gradient at the
+    # POST-STEP state (its evl twin is loaded with sd_cpu AFTER opt.step());
+    # the census's design needs both gradients at the SAME state. At a
+    # matched point the flattening ATTENUATES the alignment (+0.0986 ->
+    # +0.0396) but does NOT flip it; the -0.0385 flip is measured across an
+    # estimator-point change. BOTH committed numbers are reproduced under
+    # their own conventions here (two HARD sub-gates); the bars adjudicate
+    # on the census's same-point decomposition regardless.
     evl_root = copy.deepcopy(net0)
     evl_root.eval()
     grad_m12_root = fact_grad(evl_root, gm12_ids, zid)
     grad_g0_root = fact_grad(evl_root, bat_ids[0], zid)
     w024_raw = cos64(-g0_t0, grad_m12_root)
-    w024_adam = cos64(-torch.sign(g0_t0), grad_m12_root)
+    w024_adam_samepoint = cos64(-torch.sign(g0_t0), grad_m12_root)
+    # opt1's estimator reproduced exactly: delta = the fresh Adam step,
+    # fact gradient AT THE POST-STEP STATE
+    evl_p1 = copy.deepcopy(net0)
+    load_flat(evl_p1, theta1_adam)
+    evl_p1.eval()
+    grad_m12_p1 = fact_grad(evl_p1, gm12_ids, zid)
+    w024_opt1est = cos64(theta1_adam - theta0, grad_m12_p1)
+    del evl_p1, grad_m12_p1
     G_W024 = {
-        "cos_mov_m12_at_t0": w024_raw,
+        "cos_mov_m12_at_t0_samepoint": w024_raw,
         "committed_sgd_s1": SGD_S1_COS_M12_COMMITTED,
         "d_raw": abs(w024_raw - SGD_S1_COS_M12_COMMITTED),
-        "cos_adamview_m12_at_t0": w024_adam,
+        "cos_adamview_m12_at_t0_samepoint": w024_adam_samepoint,
+        "cos_opt1_estimator_at_t0": w024_opt1est,
         "committed_a0_s1": A0_S1_COS_M12_COMMITTED,
-        "d_adam": abs(w024_adam - A0_S1_COS_M12_COMMITTED),
-        "tol_raw": 2e-3, "tol_adam": 1e-2,
+        "d_opt1est": abs(w024_opt1est - A0_S1_COS_M12_COMMITTED),
+        "tol_raw": 2e-3, "tol_opt1est": 2e-3,
+        "estimator_disclosure": (
+            f"at the SAME point the flattening reads {w024_adam_samepoint:+.4f} "
+            f"(vs raw {w024_raw:+.4f}): attenuated 2.5x, NOT flipped; opt1's "
+            f"committed {A0_S1_COS_M12_COMMITTED:+.4f} is the fact gradient "
+            f"at the POST-STEP state (reproduced exactly here) — W024's "
+            f"flip is measured across an estimator-point change; the census "
+            f"carries BOTH estimators per state"),
         "pass": bool(abs(w024_raw - SGD_S1_COS_M12_COMMITTED) < 2e-3
-                     and abs(w024_adam - A0_S1_COS_M12_COMMITTED) < 1e-2),
+                     and abs(w024_opt1est - A0_S1_COS_M12_COMMITTED) < 2e-3),
         "note": "the census's sign convention gated at its own anchors: the "
-                "raw movement alignment must reproduce opt1's SGD-arm step-1 "
-                "+0.0981 (SGD wd=0 -> delta = -lr*g), the flattened "
-                "(Adam-view) alignment must land near A0's step-1 -0.0385 "
-                "(residual = Adam's weight-decay admixture ~0.8% of L2)",
+                "same-point movement alignment must reproduce opt1's "
+                "SGD-arm step-1 +0.0981 (SGD wd=0, tiny step -> its "
+                "post-step gradient ~ the same-point one), and opt1's own "
+                "estimator (delta . grad at the post-step state) must "
+                "reproduce A0's step-1 -0.0385 — both HARD",
     }
-    log(f"G_W024 (the flip anchors): raw {w024_raw:+.5f} vs "
+    log(f"G_W024 (the flip anchors): samepoint raw {w024_raw:+.5f} vs "
         f"{SGD_S1_COS_M12_COMMITTED:+.5f} (|d| {G_W024['d_raw']:.1e}); "
-        f"adam-view {w024_adam:+.5f} vs {A0_S1_COS_M12_COMMITTED:+.5f} "
-        f"(|d| {G_W024['d_adam']:.1e}): "
+        f"samepoint adam-view {w024_adam_samepoint:+.5f} (ATTENUATED, not "
+        f"flipped); opt1-estimator {w024_opt1est:+.5f} vs "
+        f"{A0_S1_COS_M12_COMMITTED:+.5f} (|d| {G_W024['d_opt1est']:.1e}): "
         + ("PASS" if G_W024["pass"] else "FAIL"))
     if not G_W024["pass"]:
         raise RuntimeError("flip-anchor gate FAILED — the census convention "
-                           "would not be W024's; abort (control failure)")
+                           "would not reproduce opt1's anchors; abort "
+                           "(control failure)")
 
     # ---- G_U_CK: the e191 direction bit-gate (e192 verbatim)
     uck = torch.load(E191_DIR_CK, map_location="cpu", weights_only=False)
@@ -806,13 +865,33 @@ def main():
     class_names = ("top0.1%", "0.1-1%", "1-10%", "bottom90%")
     pctl_ns = [max(1, int(round((p / 100.0) * N))) for p in PCTL_GRID]
     grad_history: list[tuple[str, torch.Tensor]] = []
+    gm12_grads: dict[tuple[str, int], torch.Tensor] = {}
 
+    # precompute every census state's flat vector ONCE (shared with the SVD
+    # history section); the trajectory estimator needs consecutive segments
+    theta_cache: dict[tuple[str, int], torch.Tensor] = {}
+    ck_theta: dict[str, torch.Tensor] = {}
     for (arm, step, ck, repro_arm) in CENSUS_STATES:
         if step == 0:
-            theta_s = theta0
+            theta_cache[(arm, 0)] = theta0
+            ck_theta[ck] = theta0
         else:
-            theta_s = flat_params(load_cpu(CKPT_DIR / ck))
+            tf = flat_params(load_cpu(CKPT_DIR / ck))
             hash_prov(CKPT_DIR / ck, f"census state {arm}@s{step}")
+            theta_cache[(arm, step)] = tf
+            ck_theta[ck] = tf
+
+    def successor(arm: str, step: int):
+        """The same-arm next snapshot (the trajectory estimator's segment);
+        the root's successor is the lr1e-3 arm's s1 (the committed wash)."""
+        if step == 0:
+            return ("lr1e-3", 1)
+        steps = sorted(s for (a, s) in theta_cache if a == arm and s > 0)
+        nxt = [s for s in steps if s > step]
+        return (arm, nxt[0]) if nxt else None
+
+    for (arm, step, ck, repro_arm) in CENSUS_STATES:
+        theta_s = theta_cache[(arm, step)]
         # state gate vs committed reads
         load_flat(evl, theta_s)
         evl.eval()
@@ -842,6 +921,7 @@ def main():
         evl.eval()
         gm12_grad = fact_grad(evl, gm12_ids, zid)
         g0_grad = fact_grad(evl, bat_ids[0], zid)
+        gm12_grads[(arm, step)] = gm12_grad             # for the traj read
         # stream gate where opt1 committed the pre-clip norm
         sgate = None
         if step in (0, 1, 2, 4) and (step + 1) in a0_traj:
@@ -911,6 +991,21 @@ def main():
         write_partial(f"PARTIAL: census {len(state['census'])}/"
                       f"{len(CENSUS_STATES)} states done")
 
+    # ---- the trajectory-estimator co-read (opt1's own object, per state):
+    # cos(realized same-arm segment to the next snapshot, grad m12 AT THE
+    # SEGMENT'S RIGHT ENDPOINT). At t=0 this IS opt1's committed A0 step-1
+    # estimator (-0.0385); it anchors the W024 flip across estimator points.
+    for row in state["census"]:
+        succ = successor(row["arm"], row["step"])
+        if succ is None or succ not in gm12_grads:
+            row["cos_traj_m12"] = None
+            continue
+        seg = theta_cache[succ] - theta_cache[(row["arm"], row["step"])]
+        row["cos_traj_m12"] = cos64(seg, gm12_grads[succ])
+        row["traj_segment"] = {"to_arm": succ[0], "to_step": succ[1],
+                               "L2": float(torch.norm(seg))}
+    del gm12_grads
+
     G_STREAM = {"rows": gnorm_gate_rows,
                 "pass": bool(gnorm_gate_rows
                              and all(r["pass"] for r in gnorm_gate_rows)),
@@ -971,15 +1066,15 @@ def main():
         if not pa.exists() or not pb.exists():
             log(f"  history segment {tag}: MISSING checkpoint ({a}/{b}) — skipped")
             continue
-        ta = theta0 if a == ROOT_CK else state_flat(a)
-        tb = state_flat(b)
+        ta = ck_theta.get(a, state_flat(a))
+        tb = ck_theta.get(b, state_flat(b))
         hist_rows.append((tag, tb - ta))
     H = torch.stack([v for _, v in hist_rows])
     Hu = torch.stack([v / torch.norm(v) for _, v in hist_rows])
     basis = svd_basis(H)
     basis_u = svd_basis(Hu)
     r_avail = basis["rank_eff"]
-    Vr = basis["V"].T[:r_avail].to(torch.float32).contiguous()   # (r, N)
+    Vr = basis["Vp"].contiguous()   # (r, N) parameter-space right-singular rows
     Vr64 = Vr.to(torch.float64)
     proj64 = Vr64 @ u_g.to(torch.float64)
     removed = float(torch.norm(proj64))
@@ -1008,11 +1103,15 @@ def main():
                       f"history rank {r_avail} (the finite-span proxy; the "
                       f"span used = the FULL available span)",
         "wash_dir_removed_fraction": removed,
-        "wash_dir_removed_note": f"||V_r^T u_g|| = {removed:.6f} — the wash "
-                                 f"direction is ~fully in-span BY "
-                                 f"CONSTRUCTION (the step-1 segment is in "
-                                 f"the history); the out-span arm measures "
-                                 f"the residual, disclosed per e190's letter",
+        "wash_dir_removed_note": f"||V_r^T u_g|| = {removed:.6f} — the "
+                                 f"raw-gradient g-ray is only PARTIALLY in "
+                                 f"the realized-step span (the history is "
+                                 f"Adam's SIGN-flattened steps, not raw "
+                                 f"gradient steps); the out-span arm is the "
+                                 f"measured orthogonal residual, carrying "
+                                 f"sqrt(1-removed^2) = "
+                                 f"{(1 - removed ** 2) ** 0.5:.4f} of the "
+                                 f"wash ray's L2",
         "outspan_residual_L2": outspan_residual,
     }
     log(f"  history: {state['svd']['n_segments']} segments; rank {r_avail}; "
@@ -1069,12 +1168,13 @@ def main():
         raise RuntimeError("wash rung-1 anchor FAILED — abort")
     wash_an = kill_analysis(wash_rows, "gm12", SHUT_BAR)
 
-    inspan_ans = []
+    inspan_ans, inspan_us = [], {}
     for sd in INSPAN_SEEDS_E131:
         g = torch.Generator().manual_seed(sd)
         c = torch.randn(r_avail, generator=g, dtype=torch.float64)
         v = Vr64.T @ c
         u_in = (v / torch.norm(v)).to(torch.float32)
+        inspan_us[sd] = u_in
         in_cos = cos64(u_in, u_g)
         rows = ladder(u_in, f"INSPAN s{sd}", f"inspan_{sd}")
         an = kill_analysis(rows, "gm12", SHUT_BAR)
@@ -1089,6 +1189,46 @@ def main():
     out_an = kill_analysis(out_rows, "gm12", SHUT_BAR)
     log(f"  OUTSPAN: kill rung {out_an['kill_rung']} thr "
         f"{out_an['threshold']}; cos to wash dir {out_cos:+.4f}")
+
+    # ---- the fine-D co-read (B2's projection profile below rung 1):
+    # e192's absolute-D grid below wash-1x for the in-span/out-span arms
+    # (the wash arm's fine profile is e192's committed R1 — LOADED); the
+    # rung ladder remains the only adjudicating axis; this is a labeled
+    # co-read because the g-ray's kill (0.92) sits BELOW rung 1 and the
+    # ladder alone cannot place the arms' kills in comparable units.
+    FINE_GRID = (0.05, 0.1, 0.2, 0.33, 0.5, 0.66, 0.8, 0.92, 1.0, 1.17, 1.5)
+    fine = {"wash_loaded_e192": [{"D": r["D"], "gm12": r["gm12"]}
+                                 for r in e192_r1 if r["D"] in FINE_GRID],
+            "inspan": {}, "outspan": []}
+    for sd in INSPAN_SEEDS_E131:
+        fine["inspan"][sd] = []
+        for D in FINE_GRID:
+            load_flat(evl, theta0 - D * inspan_us[sd])
+            evl.eval()
+            gz = battery_cell(evl, gm12_ids, zid)
+            fine["inspan"][sd].append(
+                {"D": D, "rms": D / RMS_DEN, "gm12": gz["mean_pz"]})
+    for D in FINE_GRID:
+        load_flat(evl, theta0 - D * u_out)
+        evl.eval()
+        gz = battery_cell(evl, gm12_ids, zid)
+        fine["outspan"].append({"D": D, "rms": D / RMS_DEN,
+                                "gm12": gz["mean_pz"]})
+    def fine_thr(rows):
+        return first_dead_thr_D(rows, SHUT_BAR)
+    fine_summ = {"wash_thr_D_loaded": fine_thr(fine["wash_loaded_e192"]),
+                 "inspan_thr_D": {str(sd): fine_thr(v)
+                                  for sd, v in fine["inspan"].items()},
+                 "outspan_thr_D": fine_thr(fine["outspan"]),
+                 "note": "non-adjudicating co-read; the rung ladder is the "
+                         "registered axis; the g-ray's committed kill D "
+                         "0.92 (= rung 0.556) sits below rung 1"}
+    log(f"  fine-D co-read: wash(loaded) {fine_summ['wash_thr_D_loaded']}; "
+        f"in-span {fine_summ['inspan_thr_D']}; out-span "
+        f"{fine_summ['outspan_thr_D']}")
+    state["partB_e131"]["fine_D_coread"] = fine
+    state["partB_e131"]["fine_D_summary"] = fine_summ
+    write_partial("PARTIAL: e131 fine-D co-read complete")
 
     # =====================================================================
     # RIDER 1 — THE SHUFFLED-SIGN RAY (report-only)
@@ -1302,7 +1442,7 @@ def main():
         Hh = torch.stack(segments)
         bb = svd_basis(Hh)
         rr = bb["rank_eff"]
-        Vv = bb["V"].T[:rr].to(torch.float32).contiguous()
+        Vv = bb["Vp"].contiguous()
         Vv64 = Vv.to(torch.float64)
         D_w1 = float(torch.norm(segments[0]))       # ||wash 1x|| (root->s1)
         u_w = segments[0] / torch.norm(segments[0])
@@ -1324,9 +1464,12 @@ def main():
 
         base = read_flat(rf)
         rows_wash, rows_out = [{"rung": 0, **base}], [{"rung": 0, **base}]
+        # g3K's own sign convention: the arms move ALONG the wash delta
+        # (root + rung x delta) — the wash leg's rung-1 point IS the
+        # committed s1 state, gated below (G_G3_WASHRUNG1)
         for rg in RUNGS:
-            rows_wash.append({"rung": rg, **read_flat(rf - rg * D_w1 * u_w)})
-            rows_out.append({"rung": rg, **read_flat(rf - rg * D_w1 * u_o)})
+            rows_wash.append({"rung": rg, **read_flat(rf + rg * D_w1 * u_w)})
+            rows_out.append({"rung": rg, **read_flat(rf + rg * D_w1 * u_o)})
             log(f"  [{tag}] rung {rg:2d}x (D {rg * D_w1:7.3f}): wash "
                 f"{rows_wash[-1][read_key]:.4f} outspan {rows_out[-1][read_key]:.4f}")
             state["partB_g3"].setdefault(tag, {})[f"rung_{rg}"] = {
@@ -1340,7 +1483,7 @@ def main():
             u_i = (v / torch.norm(v)).to(torch.float32)
             rows = [{"rung": 0, **base}]
             for rg in RUNGS:
-                rows.append({"rung": rg, **read_flat(rf - rg * D_w1 * u_i)})
+                rows.append({"rung": rg, **read_flat(rf + rg * D_w1 * u_i)})
             inspan_rows[sd_] = rows
             an = kill_analysis(rows, read_key, KILL_BAR_G3)
             an["draw_seed"] = sd_
@@ -1395,6 +1538,37 @@ def main():
                                   if not k.startswith("rows_")}
     state["partB_g3"]["host"] = {k: v for k, v in host_leg.items()
                                  if not k.startswith("rows_")}
+    G_G3_WASHRUNG1 = {
+        "store": {"read_g0": store_leg["rows_wash"][1]["g0"],
+                  "committed_s1": GK.REF["store"]["wash_s1_g0"],
+                  "d": abs(store_leg["rows_wash"][1]["g0"]
+                           - GK.REF["store"]["wash_s1_g0"]),
+                  "tol": 1e-4},
+        "host": {"read_pz": host_leg["rows_wash"][1]["pz"],
+                 "committed_s1": GK.REF["host"]["wash_s1_g0"],
+                 "d": abs(host_leg["rows_wash"][1]["pz"]
+                          - GK.REF["host"]["wash_s1_g0"]),
+                 "tol": 1e-4},
+        "note": "the wash legs' rung-1 points (root + 1x own wash delta) "
+                "must reproduce the committed s1 reads — the g3K sign "
+                "convention's anchor",
+    }
+    G_G3_WASHRUNG1["store"]["pass"] = bool(
+        G_G3_WASHRUNG1["store"]["d"] < 1e-4)
+    G_G3_WASHRUNG1["host"]["pass"] = bool(
+        G_G3_WASHRUNG1["host"]["d"] < 1e-4)
+    G_G3_WASHRUNG1["pass"] = bool(G_G3_WASHRUNG1["store"]["pass"]
+                                  and G_G3_WASHRUNG1["host"]["pass"])
+    log(f"G_G3_WASHRUNG1: store {G_G3_WASHRUNG1['store']['read_g0']:.2e} vs "
+        f"{G_G3_WASHRUNG1['store']['committed_s1']:.2e} (d "
+        f"{G_G3_WASHRUNG1['store']['d']:.1e}); host "
+        f"{G_G3_WASHRUNG1['host']['read_pz']:.6f} vs "
+        f"{G_G3_WASHRUNG1['host']['committed_s1']:.6f} (d "
+        f"{G_G3_WASHRUNG1['host']['d']:.1e}): "
+        + ("PASS" if G_G3_WASHRUNG1["pass"] else "FAIL"))
+    if not G_G3_WASHRUNG1["pass"]:
+        write_partial("FAILED GATE — G_G3_WASHRUNG1", {"failed": True})
+        raise RuntimeError("g3 wash rung-1 anchor FAILED — abort")
     torch.set_num_threads(4)
 
     # =====================================================================
@@ -1408,7 +1582,12 @@ def main():
     a1_cut = next((c for c in t0_row["cuts"]
                    if c["cos_top_m12"] >= ALIGN_FLOOR
                    and c["cos_comp_m12"] <= -ALIGN_FLOOR), None)
-    flip_present = bool(t0_row["cos_mov_m12"] > 0 > t0_row["cos_adamview_m12"])
+    # W024's flip, measured as W024 measured it: the same-point raw
+    # alignment POSITIVE vs the trajectory estimator (grad at the post-step
+    # state) NEGATIVE — both committed values gated in G_W024
+    flip_present = bool(t0_row["cos_mov_m12"] > 0
+                        and t0_row.get("cos_traj_m12") is not None
+                        and t0_row["cos_traj_m12"] < 0)
     a2_allpos = all(c["cos_raw_m12"] > 0 for c in t0_row["classes"]) and flip_present
     a3_allfloor = all(abs(c["cos_raw_m12"]) < ALIGN_FLOOR
                       and abs(c["cos_adamview_m12"]) < ALIGN_FLOOR
@@ -1427,10 +1606,13 @@ def main():
         verdict_a, clause_a = "A2 FLAT-POSITIVE", (
             f"all four magnitude classes align positively at t=0 "
             f"({[round(c['cos_raw_m12'], 4) for c in t0_row['classes']]}) "
-            f"while the flip is present (raw {t0_row['cos_mov_m12']:+.4f} / "
-            f"adam {t0_row['cos_adamview_m12']:+.4f}) — the flip arises from "
-            f"the second-moment denominator's correlation structure, not "
-            f"from a magnitude-class split; different mechanism, reported.")
+            f"while the flip is present as W024 measured it (same-point raw "
+            f"{t0_row['cos_mov_m12']:+.4f} > 0 vs trajectory-estimator "
+            f"{t0_row['cos_traj_m12']:+.4f} < 0; same-point adam-view "
+            f"{t0_row['cos_adamview_m12']:+.4f} is attenuated, not flipped) "
+            f"— the flip arises from the estimator-point change / the "
+            f"second-moment denominator's correlation structure, not from "
+            f"a magnitude-class split; different mechanism, reported.")
     elif a3_allfloor:
         verdict_a, clause_a = "A3 NO-STRUCTURE", (
             f"every class and cut alignment at t=0 sits below the declared "
@@ -1752,10 +1934,11 @@ def main():
             "G_ROOT": G_ROOT, "G_T0": G_T0, "G_W024": G_W024, "G_U_CK": G_U_CK,
             "G_STREAM": G_STREAM, "G_STATES": G_STATES,
             "G_WASHRUNG1": G_WASHRUNG1, "G_G3": GG3,
+            "G_G3_WASHRUNG1": G_G3_WASHRUNG1,
             "all_pass": bool(G_ROOT["pass"] and G_T0["pass"] and G_W024["pass"]
                              and G_U_CK["pass"] and G_STREAM["pass"]
                              and G_STATES["all_pass"] and G_WASHRUNG1["pass"]
-                             and GG3["pass"]),
+                             and GG3["pass"] and G_G3_WASHRUNG1["pass"]),
         },
         "partA_census": {
             "convention": {
@@ -1792,6 +1975,8 @@ def main():
                 "svd": state["svd"],
                 "wash": wash_an, "inspan": inspan_ans, "outspan": out_an,
                 "outspan_cos_to_wash": out_cos,
+                "fine_D_coread": fine,
+                "fine_D_summary": fine_summ,
                 "rows": {k: v for k, v in state["partB_e131"].items()
                          if isinstance(v, list)},
             },
@@ -1838,13 +2023,17 @@ def main():
                                  "conservative LOWER bound of the subspace; "
                                  "SPARING ON THE IN-SPAN ARM IS AMBIGUOUS "
                                  "and is reported as such",
-            "outspan_construction": "the wash direction is ~fully in-span by "
-                                    "construction (the step-1 segment is in "
-                                    "the history); the out-span arm measures "
-                                    "the orthogonal residual at matched D "
-                                    "(effective in-span displacement 0); if "
-                                    "it kills, something outside the span "
-                                    "carries death — refutes cleanly",
+            "outspan_construction": "the out-span arm is the wash "
+                                    "direction's measured orthogonal "
+                                    "residual vs the history span (the "
+                                    "history is Adam's sign-flattened steps; "
+                                    "the raw g-ray is only partially "
+                                    "in-span — the removed fraction is "
+                                    "reported); at matched raw D its "
+                                    "in-span displacement is 0 by "
+                                    "construction — if it kills, something "
+                                    "outside the span carries death "
+                                    "(refutes cleanly)",
             "numerical_rank_documented": state["svd"]["numerical_rank"],
             "cross_part": "no cross-part bar; the chart is the synthesis",
             "riders_report_only": True,
