@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T159 — g1bS2: the third scale casualty and the cure pattern that generalizes (2026-10-01 ~21:10Z)
+
+The wall-at-10x saga closes its second act honestly: the val-min-
+anchored base license WORKED (the gate passed by construction —
+T148's cure is proven as a pattern), but the verbatim e113
+consolidation killed the registered channel (g-12 0.0010): THE
+RECIPE STACK IS SCALE-BOUND ONE COMPONENT AT A TIME (base cosine;
+base steps; consolidate lr). THE CURE PATTERN GENERALIZES WITH THE
+DIAGNOSIS: each treatment gets its own width-scaled license
+(val-min-anchored schedules; movement-matched doses); g1bS3 (the
+4e-4 consolidation take) is named. THE CO-REPORT IS THE REAL NEWS:
+on the g0 channel (never the registered ruler) the wall behaves
+QUALITATIVELY AS AT 2.74M — C dead at +2, W1 flat ~0.5 through
++300, a graded response across the rms ladder — the wall itself
+appears to TRANSLATE to 10x; what failed is the INSTRUMENT (the
+g-12 channel the treatment killed in formation), not the
+mechanism. THE ADAM-CLOCK AT SCALE: D_kill 3.146 = one step =
+lr*sqrt(P) exactly — T139's arithmetic holds at 10M with all
+mechanics bit-clean. THE HONEST LEDGER LINE: the wall's scale
+claim stays OPEN-but-encouraging (a co-reported shape, not an
+adjudicated bar); the recipe-stack lesson is itself a finding the
+paper's discussion carries (treatments do not transfer across
+host sizes without re-licensing — a small-scale lab's pipeline
+discipline for the scaled world).
+
 ## T158 — e196: the flight is biography — and the reason found in the same cell: it needs a live mid-flight state (2026-10-01 ~20:30Z)
 
 The replicate answers T157's follow-on NEGATIVELY with the

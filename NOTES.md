@@ -9,6 +9,43 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS2 — the wall at 10x, take 2: TEXTURE (G-ROOT failure) — the e113 CONSOLIDATE recipe is scale-bound too; T148's cure pattern works (the base passed by construction); the g0 co-report is g1b-SHAPED at 10x; the Adam-clock holds at lr*sqrt(P) (2026-10-01 ~21:10Z) — DONE
+
+WHAT WE DID: sixth-dispatch lineage; three external process kills
+survived (the consolidate rerun x3 under the neighbor's INT8
+bursts; progressive metrics carried every phase; pause-and-wait
+held, never migrated). The licensed val-min-anchored base PASSED
+ITS GATE BY CONSTRUCTION (1200-step cosine; val 2.13 -> 1.569
+monotone; final BELOW g1bS's own 4000-step minimum — T148's cure
+works). The wall cell ran VERBATIM: install (movement-matched;
+post-install g0 0.5013) -> consolidate (e113 verbatim lr 1e-3) ->
+commit -> W1/W2/W3 {R_rms ladder} vs C.
+
+WHAT WE SAW (T159): NO WALL BAR ADJUDICATED — VERDICT TEXTURE
+(GATE FAILURE: G-ROOT): the registered g-12 channel DIED INSIDE
+THE CONSOLIDATION (root g-12 0.0010 vs the 0.78 bar; post-install
+was 0.042) while corpus CE degraded 1.54 -> 2.58 under the
+verbatim lr-1e-3 treatment — THE e113 CONSOLIDATE RECIPE IS THE
+THIRD SCALE CASUALTY (base cosine; base steps; now the consolidate
+lr): the house pipeline's treatments are scale-bound one by one.
+THE FACT ITSELF INSTALLED AND GENERALIZED AT THE SITE (root g0
+0.6583, held30 0.8293; the carrier distributed across the old wpe
+band, not row 183). THE CO-REPORT THAT TRAVELS (never adjudicated):
+the wall's g0 behavior is QUALITATIVELY g1b-LIKE AT 10x — C dies at
++2 (0.658 -> 0.004); W1 (1x rms) HOLDS FLAT ~0.5 THROUGH +300; W2
+dips 0.069@+2 and recovers ~0.45; W3 near-killed — the
+rms-convention dial produced a GRADED g1b-SHAPED RESPONSE at 10x;
+D_kill = 3.146 raw = ONE AdamW step = lr*sqrt(P) (T139's Adam-clock
+CONFIRMED at 10M); G-PIN/INPUTS/STEP1/BITROOT all bit-clean at
+scale; the tax co-report W1-C dCE@300 +1.23 (ref +0.53, with the
+degraded-root caveat). TAKE-3 NAMED (g1bS3): the width-scaled e113
+license (4e-4 movement-matched consolidation — the same cure
+pattern applied to the third casualty); the g0 co-report says the
+wall itself will translate once the instrument does. HONESTY: n=1
+host/seed/fact; the co-reported g0 behavior carries no bar.
+
+---
+
 ## e196 — the flight replicate: GRADED — organism 2 does not flee into lethality; the flight structure needs a LIVE MID-FLIGHT STATE to form (2026-10-01 ~20:30Z) — DONE
 
 WHAT WE DID: e195's machinery on e193's f2 root (all 14 gates
