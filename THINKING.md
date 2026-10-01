@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T154 — g2g2: the autonomy splits — the organ is a better selector than scheduler (2026-10-01 ~18:40Z)
+
+The seed ladder licenses the number and decomposes it in the same
+run. THE BAR: 3/3 seeds positive, median +0.0333, cleared by 11% —
+"worth" returns to the paper's clause WITH the seed scope and the
+barely-cleared honesty. THE DECOMPOSITION (the paired control's
+failed prediction is the finding): organ-vs-paired +0.0130 vs
+paired-vs-fixed +0.0558 — the margin is MAJORITY REPLAY-BATCH
+COMPOSITION, MINORITY TIMING. The organ's value lives in WHAT it
+replays (the cue pool's fact-relevant draws — the g2 design's
+original core) more than in WHEN it fires (the monitor's
+thresholding — the later addition). W026'S MANAGED-BLEED NOUN
+REFINES: the re-orientation schedule's small timing premium
+(+0.013, within seed spread) rides a larger selection premium
+(+0.056; the right gradients injected, not just any re-
+orientation). THE DEVICE LESSON: CPU-vs-GPU moves ~0.007 on this
+instrument — the g2g 2x leg's float-fragility was of this size;
+the bit-exact reproduction of g2c's realization (10/10 events)
+anchors the lineage. THE HONEST PICTURE OF THE ORGAN: a cue-pool
+selector with a thermostat bolted on — the selector earns the
+keep; the thermostat earns a little; the ceiling (T152) stands.
+
 ## T153 — e193: the order is lineage-physics; the pump is biography — the replicate's clean split (2026-10-01 ~17:30Z)
 
 The replicate splits the day's central objects by generality.
@@ -744,6 +766,13 @@ operating threat; refractory-tunable" — and the seed ladder is
 licensed. W026's managed-bleed noun gains its price tag: the
 re-orientation schedule is worth +0.07 over a fixed schedule, at
 the cost of a ceiling.
+
+
+[G2G2 AMENDMENT ~18:40Z]: the +0.07 is licensed at n=3 seeds
+(median +0.033, barely cleared) AND DECOMPOSED: majority
+replay-batch composition (+0.056; the cue-pool selector), minority
+timing (+0.013; the thermostat). The "autonomy" noun splits into
+selection + scheduling; selection wins.
 
 ## T151 — opt2: the lethal object is the |g|-weighted front — density exonerated, magnitude-information convicted (2026-10-01 ~16:15Z)
 

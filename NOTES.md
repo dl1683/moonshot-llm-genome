@@ -9,6 +9,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g2g2 — the seed ladder: AUTONOMY-REPLICATES fires (+0.0333 median, 3/3, clearing by 0.0033) — and the paired control SPLITS the +0.07: majority replay-batch composition, minority timing (2026-10-01 ~18:40Z) — DONE
+
+WHAT WE DID: the R60-critic's exact replication — 3 fresh wash
+seeds x {organ, count-matched fixed k=27} at 1x, CPU-deterministic
+end-to-end, G_DET bit-PASS, 30/30 gates; the paired-batch control
+(the fixed schedule replaying the organ's realized event draws,
+11/11 injected); the 10902 CPU device co-read. Recovery lineage:
+the predecessor died scaffold-only; the full 9-arm ladder re-ran
+identical by construction.
+
+WHAT WE SAW (T154): per-seed deltas +0.0688/+0.0333/+0.0117 — 3/3
+same sign, median +0.0333 >= +0.03: THE BAR FIRES (cleared by
+0.0033 — 11%; the honest clause says "barely"). THE +0.07 IS NOW
+LICENSED at n=3 wash seeds / n=1 root. THE PAIRED CONTROL FAILED
+ITS PREDICTION AND SPLIT THE MECHANISM: organ-vs-paired only
++0.0130 while paired-vs-fixed is +0.0558 — MOST OF THE MARGIN IS
+REPLAY-BATCH COMPOSITION (the organ's cue-pool draws are the right
+batches), the TIMING contribution ~+0.013 (within g2d's spread).
+THE ORGAN IS A BETTER SELECTOR THAN SCHEDULER. Device co-read:
+CPU-vs-GPU moves the number ~0.007; the organ arm reproduced g2c's
+stored CPU realization bit-exactly (10/10 events, cm diff 0.0).
+STANDING LETTER: "autonomy worth +0.07 at n=3 seeds (median +0.033,
+range +0.012..+0.069, single root); the margin is majority
+batch-composition, minority timing."
+
+---
+
 ## e193 — the second-organism replicate: THE ORDER IS LINEAGE-PHYSICS, THE PUMP IS NOT (and the front's sign rung drifts wide; re-orientation causal at n=2) (2026-10-01 ~17:30Z) — DONE
 
 WHAT WE DID: one 93s eval-only CPU pass on the committed family-2
