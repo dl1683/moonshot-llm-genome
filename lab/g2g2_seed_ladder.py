@@ -752,11 +752,11 @@ def run_organ_arm(name: str, seed: int, state: dict, root_sd, cue_pool,
         rec["G_XCHECK_vs_g2c"] = crosscheck(rec)
     ARMS[name] = rec
     ok = "PASS" if draws["pass"] else "FAIL"
+    cm = rec["phase"]["cycle_median"] if rec["phase"] else None
     log(f"ARM {name} DONE in {wall:.0f}s: {cell['n_events']} events "
         f"{[e['step'] for e in cell['event_log']]}; G_DRAWS {ok}; "
-        + (f"cycle-median "
-           f"{rec['phase']['cycle_median']:.4f}" if rec["phase"] else
-           "no events"))
+        + (f"cycle-median {cm:.4f}" if cm is not None
+           else "cycle-median NA (no complete cycles)"))
     for g in rec["gates"]:
         if not rec["gates"][g]["pass"]:
             log(f"  GATE {g} FAILED on arm {name}: {rec['gates'][g]}")
@@ -780,10 +780,11 @@ def run_fixed_arm(name: str, seed: int, k: int, state: dict, root_sd,
     rec = arm_common(cell, "fixed", seed, k, 24)
     rec["wall_s"] = round(wall, 1)
     ARMS[name] = rec
+    cm = rec["phase"]["cycle_median"] if rec["phase"] else None
     log(f"ARM {name} DONE in {wall:.0f}s: {cell['n_events']} events "
         f"{[e['step'] for e in cell['event_log']]}; "
-        + (f"cycle-median {rec['phase']['cycle_median']:.4f}"
-           if rec["phase"] else "no events"))
+        + (f"cycle-median {cm:.4f}" if cm is not None
+           else "cycle-median NA (no complete cycles)"))
     for g in rec["gates"]:
         if not rec["gates"][g]["pass"]:
             log(f"  GATE {g} FAILED on arm {name}: {rec['gates'][g]}")
@@ -806,12 +807,13 @@ def run_paired_arm(name: str, seed: int, k: int, state: dict, root_sd,
     rec = arm_common(cell, "paired", seed, k, 24)
     rec["wall_s"] = round(wall, 1)
     ARMS[name] = rec
+    cm = rec["phase"]["cycle_median"] if rec["phase"] else None
     log(f"ARM {name} DONE in {wall:.0f}s: {cell['n_events']} events "
         f"{[e['step'] for e in cell['event_log']]} "
         f"({cell['replay_checks']['injected_draws']} injected / "
         f"{cell['replay_checks']['fallback_draws']} fallback draws); "
-        + (f"cycle-median {rec['phase']['cycle_median']:.4f}"
-           if rec["phase"] else "no events"))
+        + (f"cycle-median {cm:.4f}" if cm is not None
+           else "cycle-median NA (no complete cycles)"))
     for g in rec["gates"]:
         if not rec["gates"][g]["pass"]:
             log(f"  GATE {g} FAILED on arm {name}: {rec['gates'][g]}")
@@ -1002,7 +1004,11 @@ def plot_all(state: dict) -> None:
     axD.set_ylabel("delta of cycle-median (organ - comparator)")
     axD.set_title("THE BAR — same sign 3/3 AND median >= +0.03 "
                   f"(fired: {b['AUTONOMY_REPLICATES']})")
-    axD.legend(fontsize=7, loc="best")
+    if ds:
+        axD.legend(fontsize=7, loc="best")
+    else:
+        axD.text(0.5, 0.5, "no adjudicable deltas", ha="center",
+                 va="center", transform=axD.transAxes)
     fig.suptitle("G2G2 THE SEED LADDER — organ vs count-matched fixed at "
                  f"1x, CPU-deterministic, fresh wash seeds {list(SEEDS)}",
                  fontsize=12)
@@ -1039,7 +1045,8 @@ def plot_all(state: dict) -> None:
     for name, col, lab in ((f"O_{PAIRED_SEED}", "#d62728", "organ"),
                            (f"F_{PAIRED_SEED}", "#7f7f7f", "fixed"),
                            (f"P_{PAIRED_SEED}", "#1f77b4", "paired")):
-        if name in ARMS and ARMS[name]["phase"]:
+        if name in ARMS and ARMS[name].get("phase") \
+                and ARMS[name]["phase"]["cycle_median"] is not None:
             labels.append(lab)
             vals.append(ARMS[name]["phase"]["cycle_median"])
             cols.append(col)
@@ -1047,6 +1054,9 @@ def plot_all(state: dict) -> None:
         axB.bar(np.arange(len(vals)), vals, width=0.55, color=cols)
         for i, v in enumerate(vals):
             axB.text(i, v + 0.01, f"{v:.3f}", ha="center", fontsize=9)
+    else:
+        axB.text(0.5, 0.5, "no complete cycles", ha="center", va="center",
+                 transform=axB.transAxes)
     axB.axhline(MAINTAIN_BAR, color="k", ls="--", lw=0.7)
     axB.set_xticks(range(len(labels)))
     axB.set_xticklabels(labels, fontsize=9)
@@ -1089,7 +1099,7 @@ def det_probe(root_sd: dict, P: dict, n_steps: int) -> dict:
             loss.backward()
             torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
             opt.step()
-            last = float(loss)
+            last = float(loss.detach())
         wall = time.time() - t0
         sd = {k: v.detach().clone() for k, v in net.state_dict().items()}
         del net
@@ -1313,7 +1323,7 @@ def main():
     # ---- G_DET determinism probe (skipped if a prior run recorded a pass)
     prior_gates = prior.get("gates") if isinstance(prior.get("gates"),
                                                    dict) else {}
-    if prior_gates.get("G_DET", {}).get("pass") \
+    if prior_gates.get("G_DET") is True \
             and isinstance(prior.get("det_probe"), dict):
         state["det_probe"] = prior["det_probe"]
         log(f"[resume] G_DET adopted from prior run: "
