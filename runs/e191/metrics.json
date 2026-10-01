@@ -1,0 +1,748 @@
+{
+  "experiment": "e191_pump_cliff",
+  "date": "2026-10-01T08:03:51Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and in registered_prediction, frozen before compute)",
+  "registered_prediction": {
+    "static_cliff": "STATIC-CLIFF: \"fires if the static profile matches the dynamic cliff \u2014 pumps near D ~ 0.33 and falls below 0.27 by D ~ 0.92-1.17 \u2014 the pump-cliff is TERRAIN (geometry); the direction's lethality is a static property; e188's cross-class break is a geometry fact.\"",
+    "static_spares": "STATIC-SPARES: \"fires if the static jump at D 0.92 leaves the fact alive (> 0.27) \u2014 the kill is DYNAMIC overshoot (the single big step passes THROUGH the cliff into worse territory a static endpoint-jump never visits); trajectory effects carry lethality that geometry alone does not.\"",
+    "graded_map": "GRADED-MAP: \"any partial pattern \u2014 the full profile reported verbatim as the map; the terrain/dynamics split stated as measured.\"",
+    "operationalizations": "STATIC single jumps theta_D = theta_0 - D*u with u = g_0/||g_0||_2 the unit RAW WASH-BATCH GRADIENT at the ROOT (opt1c's t=0 convention; the step-1 batch, bit-gated; g_0 post-clip \u2014 the clip is a positive rescale so the direction is clip-invariant), perturb-and-eval, NO optimizer/steps; graded D in {0.05, 0.1, 0.2, 0.33, 0.5, 0.66, 0.8, 0.92, 1.0, 1.17, 1.5, 2.0}; reads = fact g-12 + CE_R at each; 3 seeds NOT needed (the direction is deterministic; documented); PUMP clause = gm12(0.33) > root gm12; KILL clause = some D in {0.92, 1.0, 1.17} reads gm12 <= 0.27; STATIC-CLIFF fires iff PUMP and KILL; STATIC-SPARES fires iff gm12(0.92) > 0.27; GRADED-MAP otherwise; composite order frozen STATIC-CLIFF -> STATIC-SPARES -> GRADED-MAP (a co-hold of the two first letters \u2014 kill at 1.0/1.17 with 0.92 alive \u2014 gives the verdict to STATIC-CLIFF and the overlap is reported verbatim; no shopping); the 5-point crosscheck arm (the four committed densify Ds + the committed step-1 endpoint) is verification only, never an adjudication input; the \u00b190-degree rider is SKIPPED per dispatch (recorded in trims).",
+    "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "is the pump-cliff TERRAIN (a static property of the displacement region \u2014 a ridge then a cliff in the g-direction, present under a single static jump) or DYNAMICS (the big step overshoots THROUGH the cliff into worse territory a static jump at the same endpoint would not reach)? STATIC single jumps theta_0 - D*u at graded D along the unit raw wash-batch gradient at the root (opt1c's t=0 convention), overlay vs opt1c's dynamic path and opt1b's bleed (committed)",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.96e-08)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cell": {
+    "licensed_cell": "e185 arm C (CONTROL) VERBATIM as the gradient source \u2014 the consolidated host fact under its neutral/corpus wash; opt1c's machinery verbatim",
+    "batch": "32 = 16 neutral-bank anchors (seed 170, fixed) + 16 random corpus windows, full-token CE, clip 1.0 (the step-1 batch only \u2014 the t=0 gradient)",
+    "static_jump": "theta_D = theta_0 - D * u, u = g_0/||g_0||_2 (post-clip g_0; clip-invariant direction; DESCENT sign, opt1c's convention); perturb-and-eval; NO optimizer, NO steps",
+    "D_grid": [
+      0.05,
+      0.1,
+      0.2,
+      0.33,
+      0.5,
+      0.66,
+      0.8,
+      0.92,
+      1.0,
+      1.17,
+      1.5,
+      2.0
+    ],
+    "input_seed": 10902,
+    "measure_light": "fact g-12 battery + frac argmax Z + CE_R at every D (the dispatch's read list + the free argmax; no census/deletions/alignment \u2014 the static delta is along u identically)"
+  },
+  "provenance": {
+    "step_scale_measured": 1.6542880535125732,
+    "step_scale_committed_opt1_a0": 1.6542880535125732,
+    "dyn_endpoint_committed": 1.6542682647705078,
+    "direction_md5": "abb6df7ceefdd048b300c938123d964d",
+    "postclip_gnorm": 0.9828128814697266,
+    "t0_gate": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "diffs": {
+        "ce": 0.0,
+        "gnorm": 0.0,
+        "disp": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12; opt1c's gate VERBATIM): the step-1 batch md5 vs e185's stored hash; the forward CE and pre-clip grad norm vs opt1/opt1c's committed values; ONE fresh AdamW-recipe step from the root reproducing A0's committed step-1 L2 \u2014 the gradient provenance gate"
+    },
+    "direction_gate": {
+      "cos_delta_dyn_neg_u": 1.0000000000000826,
+      "one_minus_cos": 8.260059303211165e-14,
+      "disp_dyn_measured": 1.6542682647705078,
+      "disp_dyn_committed": 1.6542682647705078,
+      "disp_diff_vs_committed": 0.0,
+      "cos_tol_bit": 1e-06,
+      "cos_tol_hard": 0.0001,
+      "disp_tol": 5e-06,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12, this cell's own geometry): the recomputed unit direction u must BE the committed dynamic step's displacement direction \u2014 cos(theta_1-theta_0, -u) = 1 and ||theta_1-theta_0|| = opt1c's committed cumulative displacement; without it the static map is not mapping the dynamic step's own ray"
+    },
+    "crosscheck_gate": {
+      "n_points": 5,
+      "max_abs_d_gm12": 1.6093254089355469e-06,
+      "bit_tol": 0.0001,
+      "pass": true,
+      "note": "verification arm: the fresh static code path reproduces opt1c's committed dynamic-path reads (densify points + step-1 endpoint) \u2014 machinery cross-validation, never an adjudication input"
+    },
+    "progressive_writes": "metrics.json was written progressively (after the gates, after every profile point) per the opt1c outage lesson; intermediate PARTIAL writes are replaced by this COMPLETE write",
+    "committed_data_reuse": "opt1c's dynamic curve + densify rows, opt1b's bleed and opt1's Adam-A0 are loaded from runs/opt1c/metrics.json + runs/opt1b/metrics.json + runs/opt1/metrics.json verbatim and plotted, never rerun"
+  },
+  "profile": [
+    {
+      "D": 0.0,
+      "gm12": 0.9155886173248291,
+      "frac_argmax_z": null,
+      "ce_r": 1.663516640663147,
+      "disp_check": 0.0,
+      "disp_dev": 0.0
+    },
+    {
+      "D": 0.05,
+      "gm12": 0.9389259815216064,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.6571557521820068,
+      "disp_check": 0.049999553710222244,
+      "disp_dev": 4.4628977775851286e-07
+    },
+    {
+      "D": 0.1,
+      "gm12": 0.9512543082237244,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.6578614711761475,
+      "disp_check": 0.09999912977218628,
+      "disp_dev": 8.702278137262542e-07
+    },
+    {
+      "D": 0.2,
+      "gm12": 0.960460901260376,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.6782755851745605,
+      "disp_check": 0.19999822974205017,
+      "disp_dev": 1.7702579498402038e-06
+    },
+    {
+      "D": 0.33,
+      "gm12": 0.9555321931838989,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.7438029050827026,
+      "disp_check": 0.32999953627586365,
+      "disp_dev": 4.637241363680822e-07
+    },
+    {
+      "D": 0.5,
+      "gm12": 0.9100172519683838,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.931689739227295,
+      "disp_check": 0.5000000596046448,
+      "disp_dev": 5.960464477539063e-08
+    },
+    {
+      "D": 0.66,
+      "gm12": 0.7552096247673035,
+      "frac_argmax_z": 0.9166666666666666,
+      "ce_r": 2.255788564682007,
+      "disp_check": 0.6599990129470825,
+      "disp_dev": 9.87052917511555e-07
+    },
+    {
+      "D": 0.8,
+      "gm12": 0.49156031012535095,
+      "frac_argmax_z": 0.6333333333333333,
+      "ce_r": 2.6413497924804688,
+      "disp_check": 0.7999927401542664,
+      "disp_dev": 7.259845733686987e-06
+    },
+    {
+      "D": 0.92,
+      "gm12": 0.24818210303783417,
+      "frac_argmax_z": 0.2,
+      "ce_r": 3.0035018920898438,
+      "disp_check": 0.9199942350387573,
+      "disp_dev": 5.764961242715749e-06
+    },
+    {
+      "D": 1.0,
+      "gm12": 0.12607988715171814,
+      "frac_argmax_z": 0.0,
+      "ce_r": 3.2439582347869873,
+      "disp_check": 1.0,
+      "disp_dev": 0.0
+    },
+    {
+      "D": 1.17,
+      "gm12": 0.020915763452649117,
+      "frac_argmax_z": 0.0,
+      "ce_r": 3.7292368412017822,
+      "disp_check": 1.1699854135513306,
+      "disp_dev": 1.458644866936254e-05
+    },
+    {
+      "D": 1.5,
+      "gm12": 0.0014270091196522117,
+      "frac_argmax_z": 0.0,
+      "ce_r": 4.506800651550293,
+      "disp_check": 1.500002384185791,
+      "disp_dev": 2.384185791015625e-06
+    },
+    {
+      "D": 2.0,
+      "gm12": 0.0004342137253843248,
+      "frac_argmax_z": 0.0,
+      "ce_r": 5.280641555786133,
+      "disp_check": 2.000000238418579,
+      "disp_dev": 2.384185791015625e-07
+    }
+  ],
+  "crosscheck": [
+    {
+      "D": 0.3308580815792084,
+      "gm12": 0.9554463028907776,
+      "frac_argmax_z": 1.0,
+      "ce_r": 1.7444156408309937,
+      "disp_check": 0.33085861802101135,
+      "disp_dev": 5.364418029785156e-07,
+      "committed_gm12": 0.9554463028907776,
+      "committed_ce_r": null,
+      "d_gm12": 0.0,
+      "d_ce_r": null,
+      "src": "opt1c densify",
+      "bit": true
+    },
+    {
+      "D": 0.6617161631584167,
+      "gm12": 0.752680778503418,
+      "frac_argmax_z": 0.9,
+      "ce_r": 2.260033369064331,
+      "disp_check": 0.6617171168327332,
+      "disp_dev": 9.5367431640625e-07,
+      "committed_gm12": 0.7526823878288269,
+      "committed_ce_r": null,
+      "d_gm12": 1.6093254089355469e-06,
+      "d_ce_r": null,
+      "src": "opt1c densify",
+      "bit": true
+    },
+    {
+      "D": 0.9925732612609863,
+      "gm12": 0.1351885050535202,
+      "frac_argmax_z": 0.0,
+      "ce_r": 3.2218515872955322,
+      "disp_check": 0.9925736784934998,
+      "disp_dev": 4.172325134277344e-07,
+      "committed_gm12": 0.13518908619880676,
+      "committed_ce_r": null,
+      "d_gm12": 5.811452865600586e-07,
+      "d_ce_r": null,
+      "src": "opt1c densify",
+      "bit": true
+    },
+    {
+      "D": 1.323432207107544,
+      "gm12": 0.004857071675360203,
+      "frac_argmax_z": 0.0,
+      "ce_r": 4.122119426727295,
+      "disp_check": 1.3234339952468872,
+      "disp_dev": 1.7881393432617188e-06,
+      "committed_gm12": 0.004857146646827459,
+      "committed_ce_r": null,
+      "d_gm12": 7.497146725654602e-08,
+      "d_ce_r": null,
+      "src": "opt1c densify",
+      "bit": true
+    },
+    {
+      "D": 1.6542682647705078,
+      "gm12": 0.0007280169520527124,
+      "frac_argmax_z": 0.0,
+      "ce_r": 4.788332462310791,
+      "disp_check": 1.654248833656311,
+      "disp_dev": 1.9431114196777344e-05,
+      "committed_gm12": 0.0007279703859239817,
+      "committed_ce_r": 4.788366794586182,
+      "d_gm12": 4.6566128730773926e-08,
+      "d_ce_r": 3.4332275390625e-05,
+      "src": "opt1c step-1 endpoint",
+      "bit": true
+    }
+  ],
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e185's control stream; FIXED content, not reseeded)",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_T0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "diffs": {
+        "ce": 0.0,
+        "gnorm": 0.0,
+        "disp": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12; opt1c's gate VERBATIM): the step-1 batch md5 vs e185's stored hash; the forward CE and pre-clip grad norm vs opt1/opt1c's committed values; ONE fresh AdamW-recipe step from the root reproducing A0's committed step-1 L2 \u2014 the gradient provenance gate"
+    },
+    "G_DIR": {
+      "cos_delta_dyn_neg_u": 1.0000000000000826,
+      "one_minus_cos": 8.260059303211165e-14,
+      "disp_dyn_measured": 1.6542682647705078,
+      "disp_dyn_committed": 1.6542682647705078,
+      "disp_diff_vs_committed": 0.0,
+      "cos_tol_bit": 1e-06,
+      "cos_tol_hard": 0.0001,
+      "disp_tol": 5e-06,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12, this cell's own geometry): the recomputed unit direction u must BE the committed dynamic step's displacement direction \u2014 cos(theta_1-theta_0, -u) = 1 and ||theta_1-theta_0|| = opt1c's committed cumulative displacement; without it the static map is not mapping the dynamic step's own ray"
+    },
+    "G_XCHK": {
+      "n_points": 5,
+      "max_abs_d_gm12": 1.6093254089355469e-06,
+      "bit_tol": 0.0001,
+      "pass": true,
+      "note": "verification arm: the fresh static code path reproduces opt1c's committed dynamic-path reads (densify points + step-1 endpoint) \u2014 machinery cross-validation, never an adjudication input"
+    }
+  },
+  "references": {
+    "opt1c": {
+      "metrics": "runs/opt1c/metrics.json",
+      "role": "the parent dynamic cell: the t=0 gradient convention, the committed along-path densify rows + step-1 endpoint (the crosscheck targets), the dynamic curve (the overlay), and T143's open split this cell adjudicates"
+    },
+    "opt1b": {
+      "metrics": "runs/opt1b/metrics.json",
+      "role": "the bleed (the raw-gradient path at its own small size): the sampled-point overlay from committed data"
+    },
+    "opt1": {
+      "metrics": "runs/opt1/metrics.json",
+      "role": "the Adam arms' fact-vs-D curves (A0 overlaid for context) + the t=0 committed row"
+    },
+    "e185": {
+      "metrics": "runs/e185/metrics.json",
+      "role": "the licensed cell + the stored input md5s re-derived at step 1"
+    }
+  },
+  "overlays": {
+    "dynamic_curve": [
+      {
+        "step": 0,
+        "D": 0.0,
+        "gm12": 0.9155886173248291,
+        "ce_r": 1.663516640663147,
+        "provenance": "opt1c ckpt (committed)"
+      },
+      {
+        "step": 1,
+        "D": 1.6542682647705078,
+        "gm12": 0.0007279703859239817,
+        "ce_r": 4.788366794586182,
+        "provenance": "opt1c ckpt (committed)"
+      }
+    ],
+    "dynamic_densify": [
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.2,
+        "D": 0.3308580815792084,
+        "gm12": 0.9554463028907776
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.4,
+        "D": 0.6617161631584167,
+        "gm12": 0.7526823878288269
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.6,
+        "D": 0.9925732612609863,
+        "gm12": 0.13518908619880676
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.8,
+        "D": 1.323432207107544,
+        "gm12": 0.004857146646827459
+      }
+    ],
+    "dynamic_kill": {
+      "D_kill_interp": 0.9203406595225093,
+      "D_kill_interp_raw": 1.1673655056766874,
+      "t_x": 0.556336072490073,
+      "bracket_f": [
+        0.4,
+        0.6
+      ],
+      "D_bracket": [
+        0.6617161631584167,
+        0.9925732612609863
+      ]
+    },
+    "bleed_curve": [
+      {
+        "step": 0,
+        "D": 0.0,
+        "gm12": 0.9155886173248291
+      },
+      {
+        "step": 1,
+        "D": 0.009828010573983192,
+        "gm12": 0.9215604066848755
+      },
+      {
+        "step": 2,
+        "D": 0.01538199931383133,
+        "gm12": 0.9259465336799622
+      },
+      {
+        "step": 4,
+        "D": 0.028521329164505005,
+        "gm12": 0.9316505193710327
+      },
+      {
+        "step": 8,
+        "D": 0.05193374678492546,
+        "gm12": 0.9415491819381714
+      },
+      {
+        "step": 10,
+        "D": 0.06163448840379715,
+        "gm12": 0.9449109435081482
+      },
+      {
+        "step": 20,
+        "D": 0.10688290745019913,
+        "gm12": 0.9530801177024841
+      },
+      {
+        "step": 40,
+        "D": 0.18530598282814026,
+        "gm12": 0.9548165202140808
+      },
+      {
+        "step": 80,
+        "D": 0.31930455565452576,
+        "gm12": 0.9553408026695251
+      },
+      {
+        "step": 120,
+        "D": 0.4357306659221649,
+        "gm12": 0.9456143975257874
+      },
+      {
+        "step": 160,
+        "D": 0.5420989990234375,
+        "gm12": 0.9346763491630554
+      },
+      {
+        "step": 200,
+        "D": 0.6410856246948242,
+        "gm12": 0.91841059923172
+      },
+      {
+        "step": 240,
+        "D": 0.7334475517272949,
+        "gm12": 0.9056013822555542
+      },
+      {
+        "step": 280,
+        "D": 0.8219650983810425,
+        "gm12": 0.873616099357605
+      },
+      {
+        "step": 320,
+        "D": 0.9067988991737366,
+        "gm12": 0.8633302450180054
+      },
+      {
+        "step": 360,
+        "D": 0.9882312417030334,
+        "gm12": 0.8251885175704956
+      },
+      {
+        "step": 400,
+        "D": 1.067423701286316,
+        "gm12": 0.792296290397644
+      },
+      {
+        "step": 440,
+        "D": 1.144357442855835,
+        "gm12": 0.7800548672676086
+      },
+      {
+        "step": 480,
+        "D": 1.2194911241531372,
+        "gm12": 0.7006824612617493
+      },
+      {
+        "step": 520,
+        "D": 1.2930546998977661,
+        "gm12": 0.6700679659843445
+      },
+      {
+        "step": 560,
+        "D": 1.364747166633606,
+        "gm12": 0.6120547652244568
+      },
+      {
+        "step": 600,
+        "D": 1.4338268041610718,
+        "gm12": 0.6012769937515259
+      }
+    ],
+    "adam_a0_curve": [
+      {
+        "step": 1,
+        "D": 1.6542880535125732,
+        "gm12": 0.6780440807342529,
+        "ce_r": 2.2113420963287354
+      },
+      {
+        "step": 2,
+        "D": 2.4892616271972656,
+        "gm12": 0.027077054604887962,
+        "ce_r": 2.032074451446533
+      },
+      {
+        "step": 4,
+        "D": 3.526789665222168,
+        "gm12": 0.010940761305391788,
+        "ce_r": 1.8213403224945068
+      },
+      {
+        "step": 8,
+        "D": 4.714180946350098,
+        "gm12": 0.04319119080901146,
+        "ce_r": 1.7468260526657104
+      },
+      {
+        "step": 10,
+        "D": 5.195915222167969,
+        "gm12": 0.019353048875927925,
+        "ce_r": 1.7722809314727783
+      }
+    ]
+  },
+  "adjudication": {
+    "bars": {
+      "STATIC_CLIFF": {
+        "fires": true,
+        "pump": true,
+        "pump_gm12": 0.9555321931838989,
+        "dead_in_band_D": [
+          0.92,
+          1.0,
+          1.17
+        ],
+        "band_reads": {
+          "0.92": 0.24818210303783417,
+          "1.0": 0.12607988715171814,
+          "1.17": 0.020915763452649117
+        },
+        "cliff_edge": {
+          "bracket_D": [
+            0.8,
+            0.92
+          ],
+          "first_dead_grid_D": 0.92,
+          "n_alive_dead_pairs": 1
+        },
+        "overlap_with_spares": false
+      },
+      "STATIC_SPARES": {
+        "fires": false,
+        "gm12_at_092": 0.24818210303783417
+      },
+      "GRADED_MAP": {
+        "fires": false
+      }
+    },
+    "verdict": "STATIC-CLIFF (TERRAIN)",
+    "clause": "the static profile MATCHES the dynamic cliff: the fact PUMPS to gm12 0.9555 at D 0.33 (root 0.9156) and falls below 0.27 by D 0.92 (band reads: D 0.92: 0.2482, D 1.0: 0.1261, D 1.17: 0.0209); cliff-edge bracket D [0.8, 0.92]. THE PUMP-CLIFF IS TERRAIN (geometry); the direction's lethality is a static property; e188's cross-class break is a geometry fact. Scope as disclosed: within [0, 1.6543] the dynamic path WAS the straight ray (single-step kill), so static-at-D and dynamic-at-D coincide BY CONSTRUCTION there \u2014 this map's independent content is the fresh recompute (XCHK max|d| 1.6e-06), the D 2.0 extension (gm12 0.0004 there), the tighter cliff edge, and the CE_R co-read; no trajectory effect is NEEDED to explain the kill.",
+    "cliff_edge": {
+      "bracket_D": [
+        0.8,
+        0.92
+      ],
+      "first_dead_grid_D": 0.92,
+      "n_alive_dead_pairs": 1
+    },
+    "constants": {
+      "shut_bar": 0.27,
+      "pump_D": 0.33,
+      "spares_D": 0.92,
+      "kill_band_grid": [
+        0.92,
+        1.0,
+        1.17
+      ],
+      "root_gm12": 0.9155886173248291,
+      "dyn_D_kill_interp": 0.9203406595225093,
+      "dyn_densify_Ds": [
+        0.3308580815792084,
+        0.6617161631584167,
+        0.9925732612609863,
+        1.323432207107544
+      ],
+      "dyn_endpoint": 1.6542682647705078
+    },
+    "composite_order": "STATIC-CLIFF -> STATIC-SPARES -> GRADED-MAP (frozen before compute; a co-hold gives the verdict to STATIC-CLIFF with the overlap reported verbatim)"
+  },
+  "honesty_reflex": {
+    "n_and_scope": "n=1 direction-deterministic map on ONE organism (the e131 consolidated root, seed lineage 10902); no seed sweep \u2014 the direction u is a deterministic function of the bit-gated root + batch, and every read of theta_D is deterministic (documented per dispatch); the honest replicate axis is a second ORGANISM, a separate dispatch decision",
+    "on_span_coincidence": "DISCLOSED (stated before compute): opt1c's dynamic path died INSIDE its first step, so on [0, 1.6543] the dynamic trajectory IS the straight ray theta_0 - D*u \u2014 static-at-D and dynamic-at-D are the same parameter point up to float noise; terrain-vs-dynamics is NOT separable by construction within the span. This map's independent content: the fresh recompute (crosscheck max|dgm12| 1.6e-06 over 5 committed points), the D = 2.0 extension BEYOND the dynamic endpoint, the 0.8/0.92/1.0 cliff-edge resolution between the committed 0.66/0.99 bracket, and the CE_R co-read",
+    "extrapolation_free": "every adjudication input is a MEASURED read at a graded D (the pump, the band reads, the 0.92 read); no interpolation is used anywhere in the clauses; the cliff-edge bracket is reported as a bracket, not a point",
+    "float_texture": "CPU fp32, this process, 4 threads (the e185/opt1/opt1b/opt1c reduction order); the t=0 gate and the direction gate reproduce opt1c's committed values on THIS device before any jump (Rule 12); the parents' curves are loaded from committed metrics, never rerun",
+    "shape_resemblance": "the static g-direction profile's shape (reported verbatim in .profile) vs the store's earlier flat-vs-cone forms (g3R/g3K conventions): noted as a pointer only \u2014 any resemblance is stated, none claimed (the dispatch's no-claims clause); this profile's own shape is a ridge-then-cliff along ONE direction, a different object than a store-type decay curve",
+    "no_guarantees": "nothing was guaranteed ex ante: the static profile could be flat, ridge-then-cliff, or monotone \u2014 the openness is the point; the verdict actually observed is 'STATIC-CLIFF (TERRAIN)'"
+  },
+  "trims": [
+    "THE RIDER (\u00b190-degree-rotated g-direction within its 2D span): SKIPPED per the dispatch's own letter ('SKIP the rider unless trivial \u2014 the core map is the graded static profile'). It is not trivial: a canonical second basis vector for u's 2D span is undefined without an extra convention (which vector pairs with u defines the rotation's meaning). The direction vector is checkpointed (runs/checkpoints/e191_static_dir_u.pt) so a rider arm can be registered properly if wanted."
+  ],
+  "deviations": [
+    "EVAL-ONLY cell: no training, no optimizer state, no chunk machinery \u2014 every grid point is an independent perturb-and-eval off the root (bit-deterministic; a re-run is bit-identical and cheap). PROGRESSIVE PARTIAL metrics.json writes (after the gates, after every profile point) carry the outage honesty instead, per the opt1c recovery lesson.",
+    "No seed sweep: the direction u is a deterministic function of (the root, the bit-gated step-1 batch, the clip rescale) and every read is a deterministic function of (theta_D, the fixed batteries) \u2014 the dispatch documents '3 seeds not needed'; the honest replicate axis would be a second ORGANISM (a different root), which is a separate dispatch decision.",
+    "Read list = the dispatch's: fact g-12 + CE_R at each D. frac_argmax_z is recorded free from the same battery call (one forward pass set); the g0 battery and the alignment reads are NOT taken (the static delta is along u by construction \u2014 cos(delta, u) = -1 identically; an alignment read would be a tautology).",
+    "The CROSSCHECK arm (5 extra static jumps at the EXACT committed dynamic points: densify Ds 0.3308580815792084 / 0.6617161631584167 / 0.9925732612609863 / 1.323432207107544 + the step-1 endpoint 1.6542682647705078) was added by this design as VERIFICATION: a different code path (fresh gradient, direct theta_0 - D*u placement vs opt1c's per-tensor p.add_ and densify's th_s0 + f*seg) must reproduce the committed reads bit-close. Verification only \u2014 never an adjudication input (frozen in the operationalizations).",
+    "G_DIR added (Rule 12, this cell's own geometry check): the recomputed unit direction u vs opt1c's committed step-1 CHECKPOINT (cos(theta_1 - theta_0, -u) and ||theta_1 - theta_0|| vs the committed cumulative displacement) \u2014 the static map's direction is the dynamic step's own displacement vector, gated before the profile runs.",
+    "The on-span coincidence is DISCLOSED in the honesty block and the docstring: opt1c's dynamic path died inside its first step, so on [0, 1.6543] static-at-D and dynamic-at-D are the same parameter point (up to float noise); the map's discriminating content is the fresh recompute, the D = 2.0 extension beyond the dynamic endpoint, the tighter cliff-edge bracket, and the CE_R co-read.",
+    "The direction vector is checkpointed (runs/checkpoints/e191_static_dir_u.pt: u + theta0_md5 + step_scale + meta) for any rider/follow-up cell \u2014 cheap provenance, no recompute needed.",
+    "Smoke mode trims: D grid {0.1, 0.33, 1.0}, crosscheck = the step-1 endpoint only, no adjudication (verdict stamped SMOKE; nothing adjudicated).",
+    "FLOAT TEXTURE (observed in the smoke, documented): (a) the post-clip gradient re-normed via torch.norm over the concatenated flat vector reads 0.9828128814697266 while clip_grad_norm_'s own returned norm reads 0.9829167127609253 \u2014 a ~1e-4 relative fp32 reduction-order difference on 2.7M elements; the clip is inactive either way (coef = 1.0) and the direction u is a positive rescale of the same gradient, so the direction is unaffected. (b) G_DIR's cosine is computed in fp64: the fp32 torch.dot over 2.7M elements reads cos 1.0002 (above 1) from accumulation order alone \u2014 the fp64 cosine reads 0.9999999999992 and ||delta/||delta|| + u/||u||||_2 = 1.2e-5, i.e. the recomputed direction IS the committed step's displacement direction to bit grade; the gate's meaning is unchanged, its estimator is now truthful."
+  ],
+  "ckpt_inventory": {
+    "e191_static_dir_u": {
+      "path": "runs/checkpoints/e191_static_dir_u.pt",
+      "what": "the unit direction vector u (fp32 flat, 2,739,072) + theta0_md5 + meta \u2014 for any rider/follow-up cell"
+    }
+  },
+  "timing": {
+    "total_s": 33.5
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128",
+    "eval_only": true
+  }
+}
