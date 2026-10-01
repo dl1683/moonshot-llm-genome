@@ -694,7 +694,11 @@ ray matches the dynamic kill — pump ridge (0.94-0.96 across D
 THE BLEED OVERLAY IS THE FIGURE: at D 0.92 the straight ray reads
 0.248-dead while the re-orienting path reads ~0.83-alive —
 protection = re-orientation off the ray (W026's managed-bleed
-mechanism now has its figure). THE LETHALITY ORDERING STANDS ON
+mechanism now has its figure). [R59-CRITIC STAMP ~08:30Z: the
+three-terrains FIGURE is UNLICENSED as one picture — the sign-ray
+2.5 is a cumulative PATH LENGTH (no static sign ray was ever mapped
+on e131); the random band is g3K's organism in a different ruler
+and currency; e192 (dispatched) is the license.] THE LETHALITY ORDERING STANDS ON
 MAPPED GROUND: the raw-gradient ray's terrain kills at 0.92; the
 sign-normalized ray's at ~2.5 (opt1); random rays' at 4-10x (g3K) —
 three terrains of increasing width. CE_R: the fact dies at organism
@@ -3391,6 +3395,19 @@ protection? (Terrain reshaping — the admission ball g9's PC-
 subspace projection is the first candidate: not capping or dodging
 the cliff but REMOVING it.) Savoring: the lab built a cage and a
 dancer before it knew the ground had cliffs.
+
+
+[R59-CRITIC AMENDMENT ~08:30Z — earned vs poetry]: EARNED (e131,
+measured): the overlay's survival-off-the-ray; the pump's locality;
+the canary ordering. POETRY (unmeasured on their organisms): the
+rhythm-as-managed-bleed (zero reads around any replay event; the
+rival floor-reinstallation reading fits the identical data); the
+wall-as-displacement-budget (R58's circularity open; no terrain map
+on g1b's lineage). The card's sentences stand as QUESTIONS until
+e192's rider (pinned-ray walk: re-orientation causal vs step-size)
+and a g2-event displacement read exist. The pump is n=1 in every
+generalizing axis (one root, one fact, one battery) — no random-ray
+pump control yet; e192 adds it.]
 
 ## W025 — WONDER: the kappas may be a dimension ratio, not a basin — the effective-subspace picture (2026-09-30 ~12:10Z; no bars, no kills — but it names e190)
 
