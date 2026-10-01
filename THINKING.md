@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T161 — g1bS3: the channel forms at 10M — the wall's near-miss with a new texture (the +2 dip and the above-root recovery) (2026-10-01 ~22:10Z)
+
+The take-3 arc: the width-scaled license CURED the formation-kill
+(the channel 650x take-2's) and the stability blowout, and missed
+the express bar by a dose question now sharp enough to name — the
+frozen 300 steps carried the width-scaled rate but a third of
+e113's movement; s750 movement-matches. THE RECORD LADDER IS THE
+REAL NEWS: for the first time at 10M, on the REGISTERED g-12
+channel, the rms-dial produces the graded g1b-shaped response —
+and with a NEW TEXTURE the 2.74M arc never showed: W1's +2 dip to
+~0.0001 (a transient near-death, far deeper than 2.74M's dip)
+followed by a recovery ABOVE ROOT and a flat 0.68-0.84 hold
+through +300 at a TENTH of the reference tax (+0.055 vs +0.53).
+THE SHAPE: at 10M the wall's first checkpoint sees the anchor's
+formation shock, then the projection holds — the ball needs its
+first moments to settle before it protects. THE SCALE CLAIM:
+OPEN, instrument half-formed, one licensed knob from adjudication
+(g1bS4: the movement-matched dose — the fourth take, the pattern
+holding: diagnose, license one knob, re-run verbatim).
+
 ## T160 — e197: the honest fork — aliveness is not the carrier; the rim is universal, the concentration is not (2026-10-01 ~21:55Z)
 
 The discriminating cell fired its honest fork: the alive window

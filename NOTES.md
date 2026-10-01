@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS3 — the take-3 (the width-scaled e113 license): TEXTURE, and the strongest texture yet — the channel FORMED (650x take-2), the blowout cured, a graded rms ladder on the REGISTERED channel at 10M; the dose question sharp (2026-10-01 ~22:10Z) — DONE
+
+WHAT WE DID: one knob (CONS_LR 1e-3 -> 4e-4) on g1bS2's LOADED
+bit-faithful base+install (|d| = 0.0 vs record); all gates PASS
+except G-ROOT: root g-12 0.6498 vs the 0.78 express bar ->
+TEXTURE (gate failure), arms-for-the-record per the registered
+failure_action; nothing adjudicated; no shopping.
+
+WHAT WE SAW (T161): (1) THE CHANNEL FORMED — 0.6498 vs g1bS2's
+0.0010 (~650x); the formation-kill cured. (2) THE BLOWOUT CURED —
+CE_R 2.03@s25 -> 1.70 settled (vs 2.97 -> 2.58 stuck at 1e-3).
+(3) THE MISSED BAR'S SHARP DOSE QUESTION: 300@4e-4 moves 0.12 rms
+total vs e113's 0.30 — the frozen dose carried the width-scaled
+RATE, not the DISTANCE; s750 would movement-match. Is 0.65 a dose
+shortfall or the e113 form's 10M ceiling? g1bS4 LICENSED (the
+movement-matched dose). (4) THE RECORD LADDER (never adjudicated):
+C dead at +2 (D_kill 3.157 = one AdamW step = lr*sqrt(P), T139 at
+10x); W1 (1x rms) DIPS TO ~0.0001 AT +2 — far deeper than g1b's
+0.848x-root dip — THEN RECOVERS ABOVE ROOT and sits flat 0.68-0.84
+through +300 (flat-phase retention 1.05x, holding the 0.9x
+secondary bar; only the +2 dip fails the strict form); W2 partial
+(0.49x flat); W3 near-kill-then-weak-recovery — A GRADED
+RMS-LADDER RESPONSE ON THE REGISTERED CHANNEL AT 10M, the first.
+(5) TAX +0.055 (ref +0.53 at 2.74M; freezing False). HONESTY: n=1
+host/seed/fact; the co-reported ladder carries no bar; the +2 dip
+(deeper than 2.74M's) is itself a finding — the wall's first
+checkpoint at 10M sees a transient near-death before the recovery.
+
+---
+
 ## e197 — the alive window: ALIVE-BUT-NO-FLIGHT — aliveness is necessary but NOT sufficient; the rim exists without the concentration (2026-10-01 ~21:55Z) — DONE
 
 WHAT WE DID: the half-step wash (s* = 0.4582, the frozen ladder's
