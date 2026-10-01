@@ -214,11 +214,7 @@ DISCUSSION-MECH NOTE (e194+e195, for the mechanism paragraph):
    the lethal subspace flees with the state; a re-computed front
    pursues it (one recomputation = the whole 23% bonus) while a
    re-orienting walk rotates away and spares — dynamics cut both
-   ways, measured in both directions; AND THE FLIGHT DIRECTION
-   ITSELF IS THE KILLER (e195: the rotated ray kills at 0.39 vs
-   the original's 2.27, ANTI-aligned with the root gradient —
-   direction-of-flight beats current-alignment; the valley the
-   support flees into has a pumping near rim): the
+   ways, measured in both directions; AND WHERE THE ORGANISM STAYS ALIVE PAST ITS FIRST STEP, THE FLIGHT DIRECTION ITSELF IS THE KILLER (e195: 0.39 vs 2.27, anti-aligned; e196: absent on the organism whose first step kills — the flight and the pursuit both require the alive window): the
    lethal subspace flees with the state; a re-computed front
    pursues it (one recomputation = the whole 23% bonus; k-ladder a
    step function) while a re-orienting walk rotates away and

@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e196 — the flight replicate: GRADED — organism 2 does not flee into lethality; the flight structure needs a LIVE MID-FLIGHT STATE to form (2026-10-01 ~20:30Z) — DONE
+
+WHAT WE DID: e195's machinery on e193's f2 root (all 14 gates
+bit-clean; the k=1 walk reproduces e193's committed row to 0.0);
+208s CPU.
+
+WHAT WE SAW (T158): (1) FLIGHT-REPLICATES does NOT fire —
+organism 2's flight ray u1 kills at 1.358 vs its OWN u0 edge 0.525
+(ratio 2.585; bar 0.60; organism 1 committed 0.171) — the OPPOSITE
+direction: on organism 2 the flight ray is the SOFTEST of the
+three. FLIGHT-ABSENT also fails (spread 66%): there IS structure,
+but immaterial (u2 ratio 0.876). (2) THE PRE-REGISTERED ASYMMETRY
+EXPLAINS IT: organism 2's step (0.916) exceeds BOTH its static
+edges (g 0.20 / sign 0.58) — its walk kills AT step 1, and its
+t=1/t=2 fronts are DEAD-STATE reads (theta_1 anchor 0.0068 vs
+organism 1's alive 0.679). THE FLIGHT STRUCTURE NEEDS A LIVE
+MID-FLIGHT STATE TO FORM. (3) CORROBORATING: organism 2's sign
+path dies EXACTLY at its own static edge (0.5257 vs 0.5252 — NONE
+of organism 1's 23% recomputation bonus; the e194 inversion is
+absent where the mid-flight state is dead); its flight ray is
+ORTHOGONAL to the fact gradient (+0.0008 vs org1's -0.067); the
+ray geometry is comparable (cos(u0,u1) -0.165 vs -0.155 — not a
+collinearity artifact). HONESTY: n=2 organisms total, each n=1
+stream, architecture co-varies with lineage. DISCRIMINATING
+FOLLOW-ON NAMED: a lineage that stays alive past t=1 (a smaller
+step or a stronger fact) — does the flight concentration require
+the live mid-flight state?
+
+---
+
 ## e195 — the rotated-ray terrain: FLEEING-IS-LETHAL — the flight direction is itself the killer (0.39 vs 2.27, an 83% drop); direction-of-flight beats current-alignment; the terrain both concentrates and rotates (2026-10-01 ~19:20Z) — DONE
 
 WHAT WE DID: static graded jumps along three sign-ray families

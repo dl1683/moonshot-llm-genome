@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T158 — e196: the flight is biography — and the reason found in the same cell: it needs a live mid-flight state (2026-10-01 ~20:30Z)
+
+The replicate answers T157's follow-on NEGATIVELY with the
+mechanism in hand: organism 2's flight ray is its SOFTEST
+direction (ratio 2.58 vs organism 1's 0.17 — the opposite
+direction), and the pre-registered asymmetry is the explanation —
+organism 2's single step exceeds both its static edges, its walk
+dies AT step 1, and its post-kill fronts are dead-state reads.
+THE FLIGHT CONCENTRATION REQUIRES A LIVE MID-FLIGHT STATE: the
+support cannot flee somewhere if it is already dead. The
+corroboration is tight: where the mid-flight state is dead, the
+recomputation bonus is absent too (the sign path dies exactly at
+its static edge — no e194 inversion) — BOTH dynamic effects (the
+pursuit and the flight) live in the alive window. T157 RESCOPES:
+the flight-direction finding is organism-1 biography WITH a
+mechanism hypothesis (the live-state condition); the discriminating
+cell is named (a lineage alive past t=1 — smaller step or stronger
+fact). THE PAPER'S DISCUSSION carries the conditional: dynamics
+cut both ways WHERE THE ORGANISM IS ALIVE TO CUT; past the kill,
+the terrain is static again.
+
 ## T157 — e195: the flight direction is the killer — direction-of-flight beats current-alignment (2026-10-01 ~19:20Z)
 
 FLEEING-IS-LETHAL, decisively: the rotated ray kills at 0.39 from
@@ -708,6 +729,15 @@ fact 0.68 -> 0.82 before the crash) — the flight is not toward
 death but THROUGH a rim into a valley whose far wall kills. THE
 FOLLOW-ONS: the valley's width; the second organism's flight
 direction (does e193's replicate line flee the same way?).
+
+
+[E196 AMENDMENT ~20:30Z]: the flight concentration is ORGANISM-1
+BIOGRAPHY — organism 2's flight ray is its softest (ratio 2.58 vs
+0.17) — WITH THE MECHANISM: its walk dies at step 1 (dead
+mid-flight state; theta_1 0.0068 vs org1's 0.679); the
+recomputation bonus is absent there too. The flight and the
+pursuit both require the alive window. Rescopes this card's
+universality claims.
 
 ## T156 — e194: the lethal subspace flees and the fresh front pursues — one recomputation, the whole bonus (2026-10-01 ~19:25Z)
 
