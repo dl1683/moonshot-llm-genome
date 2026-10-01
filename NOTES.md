@@ -9,6 +9,42 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e194 — the sign-front mechanism: GRADED — no named bar; the reads convict ROTATION-TO-FLEEING-SUPPORT: the fresh front tracks the fact's moved lethal subspace, and ONE recomputation buys the whole lethality bonus (2026-10-01 ~19:25Z) — DONE
+
+WHAT WE DID: the front-overlap reads (t=0,1,2 + post-kill), the
+21-point fine static grid (D 1.50-2.50), and the k-ladder
+(front recomputed every k in {1,2,4,8} at matched per-step L2);
+bit-exact provenance throughout (opt2's a_sign trajectory AND its
+saved s2 checkpoint reproduced to 0.0; e192's static-ray md5
+matched; the chart's matched-point anchor to 8.1e-15). 54s CPU.
+
+WHAT WE SAW (T156): (1) NOT CHASE (frozen-ray frame): the front's
+overlap with the frozen g-ray COLLAPSES (+0.595 -> -0.162); the
+front ANTI-ROTATES off the death ray (consecutive fronts
+anti-correlated -0.15, 256x the isotropic floor). (2) NOT
+ACCUMULATION: the k=1 walk's efficiency is 0.919 — SUB-DIFFUSIVE
+(it kills while accumulating displacement worse than a random
+walk). (3) NOT A STATIC ARTIFACT: the fine grid puts the TRUE
+static edge at 2.2699 (the committed 2.5 was coarse-grid); the
+path's 1.7496 is 23% BELOW — the inversion is real. (4) THE
+K-LADDER IS A STEP FUNCTION: k=1 kills at 1.7496; k in {2,4,8}
+ALL kill at 2.2744 (= the static edge; the walk-bracket and
+grid-interp agree to 0.2%) — through their kills the k>=2 walks
+ARE the frozen front: ONE RE-COMPUTATION IS THE WHOLE LETHALITY
+BONUS. (5) THE MECHANISM NOUN: the fresh front's matched-point
+alignment with the FACT'S OWN GRADIENT RISES along the path
+(+0.040 -> +0.060, post-kill +0.13) while its frozen-ray overlap
+collapses — THE FRONT TRACKS THE FACT'S FLEEING SUPPORT: the
+lethal subspace moves with the state, and the recomputed front
+follows it. DYNAMICS CUT BOTH WAYS, NOW MEASURED IN BOTH
+DIRECTIONS (the bleed's re-orientation spares; the sign front's
+re-computation pursues). HONESTY: n=1 organism/fact, one stream;
+the k-ladder saturates at k=2 (reported, not hidden); post-kill
+reads never adjudicated. FOLLOW-ON NAMED: the rotated-ray terrain
+(sign(g_1) ray map) — where did the support flee TO?
+
+---
+
 ## e193b — the critic's replicate: ORDER-SCRAMBLES fires on the FACT axis, not the lineage axis; the pump splits INSIDE one organism — the ridge is fact-biography, the cliff is physics (2026-10-01 ~19:00Z) — DONE
 
 WHAT WE DID: the fresh-root two-fact cell at organism-1's EXACT

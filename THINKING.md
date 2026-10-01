@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T156 — e194: the lethal subspace flees and the fresh front pursues — one recomputation, the whole bonus (2026-10-01 ~19:25Z)
+
+GRADED with the mechanism convicted anyway: NOT chase (the frozen
+frame), NOT accumulation, NOT artifact — the true reading is
+ROTATION-TO-FLEEING-SUPPORT. The fine static edge is 2.2699 (the
+2.5 was coarse-grid); the recomputed path kills at 1.75 — a real
+23% inversion — and the k-ladder is a STEP FUNCTION: k=1 at 1.75,
+k>=2 at the static edge: ONE RE-COMPUTATION IS THE WHOLE BONUS.
+The discriminating pair (T150's estimator lesson earning its keep
+again): the front's frozen-ray overlap collapses while its
+matched-point alignment with the FACT'S OWN GRADIENT rises —
+the lethal subspace MOVES WITH THE STATE and the fresh front
+follows it. THE SYMMETRY WITH THE BLEED completes the day's
+picture: the re-orienting walk's steps rotate AWAY from the
+lethal direction and spare; the sign path's steps re-computed
+TOWARD the fleeing lethal direction and kill sooner — dynamics
+cut both ways, now measured in both directions, both at n>=2
+anchors. THE SUBLINEAR EFFICIENCY (0.919 — worse than a random
+walk at accumulating displacement) says the path SPENDS its
+budget on rotation, not advance: lethality is not borrowed
+steepestness. FOLLOW-ON: the rotated-ray terrain names where the
+support fled TO; the discussion's mechanism paragraph writes
+itself from this cell.
+
 ## T155 — e193b: the order is physics, the distances are biography — and the ridge/cliff thesis decided inside one organism (2026-10-01 ~19:00Z)
 
 The critic's replicate lands the cleanest generality statement of

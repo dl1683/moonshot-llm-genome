@@ -210,6 +210,11 @@ g-series says the death is an ENGINEERING TARGET — each claim was
 designed FROM a dissected law, pre-registered, then replicated to the
 lab's n>=3 standard.
 
+DISCUSSION-MECH NOTE (e194, for the mechanism paragraph): the
+   lethal subspace flees with the state; a re-computed front
+   pursues it (one recomputation = the whole 23% bonus; k-ladder a
+   step function) while a re-orienting walk rotates away and
+   spares — dynamics cut both ways, measured in both directions.
 R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    g2e[/g2f in flight], g3/g3R): (a) THE WALL — commit-and-project L2
    ball (zero new params) holds the consolidated fact at ~0.9 through
