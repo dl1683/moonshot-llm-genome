@@ -91,6 +91,61 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R59 — the rapid-fire day reviewed: two of three landed; the auditor killed by disruption (2026-10-01, folded ~13:38Z)
+
+Trigger: five results + two outages folded since R58 within hours.
+Trio dispatched ~08:20Z. Fates: CRITIC landed (adopted in full);
+IDEATOR landed (adopted in full); AUDITOR killed in the fourth
+disruption pre-report — its recomputation mandate TRANSFERS to R60
+(the first review after the current wave lands).
+
+CRITIC (scratch/r59_critic.md; adopted verbatim at landing):
+  K1 Fig-5 was a three-organism stitch in mixed currencies — the
+  "sign-ray 2.5" was a cumulative PATH LENGTH (no static sign ray
+  ever mapped on e131); the random band was g3K's organism in a
+  different ruler/currency. STAMPED UNLICENSED on T144; e192 (the
+  one-organism all-ray map + the pinned-ray re-orientation rider)
+  dispatched as the license.
+  K2 W026 split earned/poetry: earned = the e131-measured sentences
+  (overlay survival-off-ray, pump locality, canary ordering);
+  poetry = the rhythm-noun (zero reads around replay events; the
+  rival floor-reinstallation reading fits identically) and the
+  wall-noun (R58 circularity open; no terrain map on g1b's lineage).
+  K3 the pump is n=1 in every generalizing axis (one root/fact/
+  battery/ray family; no random-ray pump control — e192 adds it).
+  AMENDMENTS ADOPTED: interpretation maps carry OUT-OF-WINDOW
+  branches split by side; hypothesis-derived windows stamped
+  circular at registration; cite metrics not prose timings.
+
+IDEATOR (scratch/r59_ideator.md; adopted at landing):
+  QUEUE SURGERY: opt2 trimmed (WARMV cut — inverted by opt1c:
+  magnitude-informative steps are MORE lethal; SIGN demoted to a
+  stretch gate); g2h PARKED (a GPU slot to win a strength lottery
+  is a zombie of the pre-terrain framing); g8 PARKED (wonder-class);
+  g3O respecced via e190 (d_eff/projection profile, not superseded
+  kappa brackets); g1c-root PROMOTED above g1bW2 (paper debt on the
+  lead licensed positive outranks new lines); e182c PROMOTED to the
+  CPU lane (phase-1 eval-only on saved states); e189+e190 MERGED
+  into THE CHART CELL (one run, one figure, six bars).
+  ASSEMBLY PATH adopted: chart cell -> claims-ledger writing step
+  (the abstract rewrite — EXECUTED: scratch/claims_ledger.md, nine
+  claims, four readable bracketed sentences) -> draft R1-R6 (Figs
+  1-4 evidence-complete; g6/g9/g7 are the discussion's forward
+  paragraph, not blockers) -> scope cells touch stamps during
+  drafting.
+
+STANDING RULES BORN THIS REVIEW (from the disruption pattern):
+  the agent cap (3 concurrent, the envelope's own 1-3) and
+  staggered re-dispatch; progressive PARTIAL writes mandatory in
+  every brief.
+
+DECISIONS: all critic/ideator adoptions executed at landing (see
+the commits); e192 + opt1b3 re-dispatched after the fourth
+disruption; e182c staggered for the next slot; R60 inherits the
+auditor's mandate.
+
+---
+
 ## R58 — the decomposition day reviewed: numbers verified, three slogans corrected, one forced cell born (2026-09-30 ~12:15Z)
 
 Trigger: 90 min since R57. Trio dispatched 11:52Z; all landed by
