@@ -9,6 +9,42 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e192 — the all-ray terrain map: TERRAIN-ONE-PICTURE + RIDER-REORIENTATION-CAUSAL — Fig-5 licensed as ONE picture; re-orientation is causal; the pump tracks gradient STRUCTURE (2026-10-01 ~13:50Z) — DONE
+
+WHAT WE DID: static graded jumps along five ray families on ONE
+organism (the e131 consolidated root, 2.74M), ONE ruler (the
+install-60 g-12 battery + CE_R), DUAL currency (absolute L2 +
+per-coordinate RMS), D grid to 4.0; plus the intervention rider
+(300 pinned 0.0055-L2 steps down the FROZEN g-ray — orientation
+denied, step size at the bleed's scale). All 10 gates PASS (e191
+protocol verbatim; G_T0 bit-exact; the loaded direction
+md5-identical + fresh recompute identical; the fresh g-ray reads
+bit-exact over 12 shared Ds; A0's endpoint anchor exact; the
+rider's step-300 anchor 4.4e-8). Second-dispatch recovery
+(predecessor killed pre-artifact); progressive PARTIAL writes
+throughout; 194.7s CPU eval-only.
+
+WHAT WE SAW (T146): KILLS — g-ray 0.92 (5.6e-4 RMS) < static
+sign(g0) 2.5 (1.5e-3 RMS; 2.72x; THE FIRST static sign map on this
+lineage — and A0's committed step-1 read 0.678 sits ON the static
+curve, |d| 5.5e-4: the path-length stitch objection dies) < three
+Gaussian rays ALL ALIVE at D 4.0 (>4.35x; the fact flat
+0.896-0.905 — untouched by isotropic displacement at 4x the g-ray
+kill). THE ORDER g < sign < random NOW STANDS ON MAPPED GROUND:
+Fig-5 licensed as one picture. THE PUMP IS GRADIENT-SPECIFIC — and
+the sign ray pumps too (+0.037, peak 0.953 at 0.5): the pump tracks
+gradient STRUCTURE (g and sign(g) both pump; isotropic does not
+move the fact at all). THE RIDER: the pinned walk dies inside
+[0.827, 0.993] (the static edge bracket) while the re-orienting
+bleed lives 0.79-0.86 at the same D — STEP SIZE DENIED; ORIENTATION
+OWNS THE SPARING: W026's "protection = re-orientation" is now
+INTERVENTIONAL. HONESTY: n=1 organism/fact/root; the random-kill
+band is UNRESOLVED-HIGH (>4.0 at the grid cap — a number would
+need a wider grid, 8-12); the sign ray is one static direction,
+not Adam's adaptive path.
+
+---
+
 ## opt1b2 — the gate-crossing read: CAP-NEITHER — and the projection itself falsified: the bleed's D(t) is SUBLINEAR (a diffusive walk); it entered the kill window's lower margin ALIVE and stalled; the kill extrapolates ~14 steps past the cap (2026-10-01 ~08:50Z) — DONE
 
 WHAT WE DID: continued the committed s600 bleed (resume certified

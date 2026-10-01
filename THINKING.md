@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T146 — e192: the terrain licensed as one picture; re-orientation causal; the pump tracks structure (2026-10-01 ~13:50Z)
+
+Both primary bars fired. THE MAP: on one organism, one ruler, dual
+currency — g-ray 0.92 < static sign(g0) 2.5 < Gaussian >4.0 (alive,
+flat): the three-band figure stands on mapped ground, and the
+middle band's stitch objection DIED by measurement (A0's step-1
+read sits ON the static sign curve). THE ISOTROPIC ARM'S FLATNESS
+is its own finding: 4x the g-ray's kill displacement leaves the
+fact untouched — W025's projection ratio at this organism >= 4.35x,
+and the e190 subspace test now has a sharp target. THE RIDER IS THE
+DAY'S CAUSAL ANCHOR: pinned small steps (orientation denied, size
+at the bleed's scale) die at the static edge while the bleed lives
+at the same D — RE-ORIENTATION OWNS THE SPARING; step size owns
+nothing. W026's managed-bleed noun graduates from poetry to
+interventional mechanism (the R59 critic's one converting cell,
+paid). THE PUMP TRACKS GRADIENT STRUCTURE: g pumps (+0.045), sign(g)
+pumps (+0.037), isotropic is inert (+0.0002) — the pump is not
+displacement, not magnitude, but STRUCTURE; W024's census question
+sharpens to "what do g and sign(g) share that isotropic lacks" (the
+sign pattern itself?). CAVEATS carried: n=1; random band
+unresolved-high (the wider grid is a rider for the chart cell, not
+a new dispatch); the sign ray is static, not Adam's adaptive path
+(the path-vs-ray gap for the SIGN class remains e191-style
+disclosed).
+
 ## T145 — opt1b2: the bleed is a diffusive walk — the trajectory-class axis is BALLISTIC vs DIFFUSIVE (2026-10-01 ~08:50Z)
 
 CAP-NEITHER with a bonus falsification: the bleed entered the kill
@@ -725,7 +750,7 @@ mechanism now has its figure). [R59-CRITIC STAMP ~08:30Z: the
 three-terrains FIGURE is UNLICENSED as one picture — the sign-ray
 2.5 is a cumulative PATH LENGTH (no static sign ray was ever mapped
 on e131); the random band is g3K's organism in a different ruler
-and currency; e192 (dispatched) is the license.] THE LETHALITY ORDERING STANDS ON
+and currency; e192 (DONE 13:50Z): LICENSED — the one-organism map: 0.92 < 2.5 < >4.0, A0's step-1 read ON the static sign curve; re-orientation causal via the rider.] THE LETHALITY ORDERING STANDS ON
 MAPPED GROUND: the raw-gradient ray's terrain kills at 0.92; the
 sign-normalized ray's at ~2.5 (opt1); random rays' at 4-10x (g3K) —
 three terrains of increasing width. CE_R: the fact dies at organism
@@ -3435,6 +3460,17 @@ e192's rider (pinned-ray walk: re-orientation causal vs step-size)
 and a g2-event displacement read exist. The pump is n=1 in every
 generalizing axis (one root, one fact, one battery) — no random-ray
 pump control yet; e192 adds it.]
+
+
+[E192 UPGRADE ~13:50Z: the managed-bleed noun GRADUATES — the
+pinned-ray rider killed step size as the sparing mechanism and
+established re-orientation CAUSALLY (pinned steps die at the static
+edge; the re-orienting bleed lives at the same D). The
+rhythm-as-managed-bleed sentence remains unmeasured on g2's
+organisms (the replay-event displacement read is still owed), but
+the MECHANISM it invokes is now interventional on e131. The
+wall-as-cage noun remains poetry until g1b's lineage gets its
+terrain map.]
 
 ## W025 — WONDER: the kappas may be a dimension ratio, not a basin — the effective-subspace picture (2026-09-30 ~12:10Z; no bars, no kills — but it names e190)
 
