@@ -45,6 +45,17 @@ from this when the pending cells land.
    controls); g1bW2 (the dose ladder); g9 (the admission ball);
    opt2 (the sign carrier).
 
+## The three slices (crystallized ~08:18Z Oct-1)
+
+The open CPU stack is three orthogonal slices of ONE object — the
+forgetting terrain: e189 reads WHICH COORDINATES (the census: big
+stitches vs tiny cuts), e190 reads WHICH DIRECTIONS (the subspace:
+in-span random vs out-span wash), e191 has read WHICH MAGNITUDES
+(the profile: pump ridge, cliff [0.80,0.92], floor). Together:
+census x subspace x profile = the terrain's full chart. The paper's
+discussion composes them; g9's admission ball (terrain reshaping)
+is the architecture that edits the chart.
+
 ## The meta-lesson of the day
 
 The lab's instrument discipline turned on itself three times (R56's
