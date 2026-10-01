@@ -685,6 +685,35 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T143 — opt1c: the third outcome — the raw gradient is the most lethal direction, and the pump-cliff is the terrain (2026-09-30 ~07:55Z)
+
+The factorial's answer was a branch neither name covered (the map
+still served: it forced the graded-outcome reading, no bar
+shopping). KILL-OUT-OF-WINDOW: the raw-gradient direction at Adam's
+step size kills at D ~ 0.920 — 2.7x BELOW the Adam gate, inside the
+first step. THE THREE CLASSES AT MATCHED D 1.6543: the guillotine
+(Adam's sign direction: 0.678, organism shocked), the ANNIHILATION
+(raw gradient at full size: 0.0007, organism devastated), the bleed
+(small steps: 0.79, organism intact). LETHALITY PER DISPLACEMENT
+ORDERS: raw-gradient > sign-normalized > random (4-10x) — W025
+REFINES: not merely "in the subspace" — the direction's projected
+effectiveness on the fact's sensitive structure orders the lethality;
+the raw gradient IS the steepest effective direction, sign(g) its
+flattened shadow (W024's stitches again — flattening LOSES some
+lethality, it does not add it). THE PUMP-CLIFF GEOMETRY: the fact
+pumps to 0.955 at D ~ 0.33 then cliffs by D 1.0 — a local ridge then
+a cliff in the g-direction; the pump is a REGION property (the bleed
+pumped at the same D on tiny steps), and the bleed's protection is
+RE-ORIENTATION: each tiny step recomputes the gradient and the path
+curves around the cliff the big step overshoots. e188's RAW-WINS
+RESTATES as within-class invariance across lr along the Adam class.
+THE OPEN SPLITS (both dispatched): geometry-vs-dynamics (e191:
+static single g-jumps at graded D — if the static profile matches
+the dynamic cliff, the terrain is real; if the static jump at 0.92
+spares, the kill is overshoot) and the bleed's own crossing
+(opt1b2: it passed 0.92 alive at 0.79 — where does the re-orienting
+path die? the projection said ~10; the cliff says closer).
+
 ## T142 — opt1b: CAP-NEITHER honestly — Adam is the guillotine, SGD is the bleed; the gate question moves to opt1c/opt1b2 (2026-09-30 ~12:25Z)
 
 The direct SGD kill honors its frozen cap: at 600 steps the fact is
@@ -3344,6 +3373,16 @@ their true name. CONCENTRATION RETURNS AT THE ORGANISM LEVEL (the
 R56 critic's instinct was right, one level up: the geometry is the
 subspace's, not the ball's). Savoring: the network is a
 10-35k-dimensional animal wearing an 874k-dimensional coat.
+
+
+[OPT1C REFINEMENT ~07:55Z: the subspace picture gains an ordering —
+lethality per displacement: raw-gradient (D~0.9) > sign-normalized
+(D~2.5) > random (4-10x). Not all in-subspace directions are equal:
+the raw gradient is the steepest effective direction; sign(g) is its
+magnitude-flattened shadow (W024 inverted at the top end — flattening
+LOSES lethality relative to g, even as it beats random). The
+pump-cliff at D 0.33-1.0 is the first MAPPED terrain inside the
+subspace.]
 
 ## W024 — WONDER: the pump is a few big stitches; the erosion is a thousand tiny cuts — why the normalizer flips the sign (2026-09-30 ~11:50Z; no bars, no kills)
 

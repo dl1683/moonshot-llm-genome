@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## opt1c — the direction-size factorial: KILL-OUT-OF-WINDOW (no bar fires) — the raw-gradient direction at Adam's size kills BELOW the gate; the pump is local; small steps spare by RE-ORIENTATION (2026-09-30 ~07:55Z true-clock) — DONE
+
+WHAT WE DID: one arm — delta = 1.6543 * (g/||g||), the raw
+batch-gradient direction at Adam's measured per-step L2, on the
+licensed e185 cell (t=0 bit-gate vs opt1's A0: diffs 0.0; step-1
+read + chunk md5 bit-identical to the smoke — free n=2
+cross-process determinism; recovery agent: verified the survivor
+script line-by-line, fixed a plot-layer key bug, added progressive
+PARTIAL writes + resume hardening; 18.1s CPU).
+
+WHAT WE SAW (T143): the fact died INSIDE step 1 — densified
+interpolated D_kill 0.920 (bracket [0.662, 0.993]) vs the registered
+window [2.12, 3.27]: NO bar fires (graded outcome, curve verbatim;
+the pre-registered map's two named branches both miss — the third
+reading is the finding). CUMULATIVE DISPLACEMENT IS NOT
+DIRECTION-ROBUST: kill-D moved ~2.7x DOWN vs Adam's 2.489. AT
+MATCHED D 1.6543: Adam's direction left g-12 0.678 (CE_R 2.21);
+this arm left 0.0007 (CE_R 4.79 — the organism devastated too); the
+bleed held 0.79. THE ALONG-PATH GEM: the fact PUMPS to 0.955 at
+D 0.33 — numerically the bleed's pump at D 0.32 — then cliffs
+(f=0.6: 0.135; f=0.8: 0.005): THE PUMP IS LOCAL (a property of the
+displacement region), and what spares the bleed is small-step
+RE-ORIENTATION, not the gradient direction. e188's RAW-WINS becomes
+WITHIN-CLASS invariance (the first cross-direction measurement at
+fixed size breaks it). Alignment -0.031 at the kill (within opt1's
+band). HONESTY: n=1, CPU fp32, recovery provenance disclosed.
+WHAT'S NEXT (dispatched): opt1b2 (the bleed's own crossing — it
+already passed 0.92 alive at 0.79 territory; where does IT die?) and
+e191 (the pump-cliff map: STATIC single jumps along the g-direction
+at graded D — geometry vs dynamics).
+
+---
+
 ## opt1b — the direct SGD kill: CAP-NEITHER — the fact ALIVE (0.601) at D 1.43, 600 steps in; the gate unreached; at matched displacement the raw-gradient path is GENTLER (2026-09-30 ~12:25Z) — DONE
 
 WHAT WE DID: opt1's A2b (SGD 1e-2) continued by deterministic replay
