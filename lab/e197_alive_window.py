@@ -694,8 +694,7 @@ def main():
     assert abs(dial["base"]["-12"]["mean_pz"] - E157_DIAL["gm12"]) < 1e-12
     assert abs(dial["base"]["0"]["mean_pz"] - E157_DIAL["g0"]) < 1e-12
     assert abs(dial["base"]["12"]["mean_pz"] - E157_DIAL["gp12"]) < 1e-12
-    assert abs(e157m["stages"]["A_consolidate"]["ce_r"]
-               - E157_DIAL["ce_r"]) < 1e-12
+    assert abs(dial["ce_r"] - E157_DIAL["ce_r"]) < 1e-12
     for j, k in ((-8, "g-8"), (-4, "g-4"), (4, "g+4"), (8, "g+8")):
         assert abs(jit[f"g{j:+d}"] - E157_DIAL[k]) < 1e-12
     assert abs(e193m["organism"]["step_l2_measured"] - E193_STEP_L2) < 1e-12
@@ -1919,7 +1918,8 @@ def main():
     plot_alive_window(rd / "e197_alive_window.png", wfull, wsub, ws1,
                       families, static_edge, u1_kill, bonus_ratio,
                       flight_ratio, walk_kill,
-                      root_gm=root_cells[f"g{RULER_J:+d}"])
+                      root_gm=root_cells[f"g{RULER_J:+d}"],
+                      sub_frac=SUB_FRAC)
     plot_kill_summary(rd / "e197_kill_summary.png", families, wsub,
                       ray_geometry, alignment_reads)
     log(f"outputs: {rd / 'metrics.json'} + 2 PNGs; total "
@@ -1947,7 +1947,7 @@ def _dual_axis(ax):
 
 def plot_alive_window(path, wfull, wsub, ws1, families, static_edge,
                       u1_kill, bonus_ratio, flight_ratio, walk_kill,
-                      root_gm):
+                      root_gm, sub_frac):
     """THE ALIVE-WINDOW MAP: the two walks (dead baseline vs the alive
     lineage) + the alive lineage's flight map + the three-lineage ratio
     side-by-side (org 1, org 2 dead, org 2 ALIVE — the committed curves)."""
@@ -2094,7 +2094,7 @@ def plot_alive_window(path, wfull, wsub, ws1, families, static_edge,
     ax.set_title("THE THREE-LINEAGE SIDE-BY-SIDE (committed curves, "
                  "never bars)", fontsize=10)
     fig.suptitle("E197 — THE ALIVE WINDOW: organism 2's sub-step lineage "
-                 f"(s* = STEP_L2/{round(1 / SUB_FRAC)}) — does the flight "
+                 f"(s* = STEP_L2/{round(1 / sub_frac)}) — does the flight "
                  "structure form past t=1?", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, 0.93))
     fig.savefig(path, dpi=130)
