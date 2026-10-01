@@ -1,0 +1,177 @@
+{
+  "experiment": "g2g2",
+  "date": "2026-10-01T17:29:47Z",
+  "purpose": "THE SEED LADDER (the R60-critic's exact replication protocol for the +0.07 autonomy number): >=3 FRESH wash seeds x {organ, count-matched fixed schedule} at 1x threat ONLY, CPU-DETERMINISTIC end-to-end, same frozen ruler + pooling as g2g's registered comparison \u2014 plus ONE paired-batch control arm (the fixed schedule replaying the organ's own realized event batches; the count-vs-batch parity co-read) and a 10902 CPU device co-read of the parent number.",
+  "builds_on": [
+    "g2g (the parent cell: +0.0758/+0.072 at 1x, the machinery, the frozen ruler + pooling)",
+    "g2c (the dense grid + CPU-lane convention)",
+    "g2d (the wash-seed replicate convention + the borrowed ~0.03 spread)",
+    "T152 (the seed ladder licensed)",
+    "R60-critic ATTACK 3 (the protocol + the bar)",
+    "g2g's cross_run (the 2x float-fragility lesson -> CPU-deterministic)"
+  ],
+  "what_is_new": "the +0.07 has never met a second seed \u2014 the critic's head-to-head seed ladder + the paired-batch control close the two disclosed seams (single wash seed; count-vs-batch)",
+  "smoke": false,
+  "threads": 4,
+  "cpu_only": true,
+  "cuda_visible_devices": "-1",
+  "cfg": {
+    "vocab": 65,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 128,
+    "block_size": 512,
+    "params": 873472,
+    "note": "family-2 line (e098/e157); training windows 256"
+  },
+  "organ": {
+    "cadence": 4,
+    "k_mon": 8,
+    "mon_offsets": [
+      0,
+      -4,
+      4
+    ],
+    "theta_open": 0.5,
+    "refractory": 24,
+    "cue_pool": [
+      300,
+      256
+    ],
+    "cue_mask": [
+      300,
+      255
+    ],
+    "new_learnable_params": 0,
+    "root_monitor": 0.941053032875061,
+    "monitor_channel": "onset-only (1 of 7; g2b's, reproduced verbatim)",
+    "root_monitor_onset": 0.609137237071991
+  },
+  "compute": {
+    "lane": "CPU-DETERMINISTIC (fp32 end-to-end; the 2x float-fragility lesson)",
+    "threads": 4,
+    "cap_s": 600.0,
+    "grid_n": 152,
+    "grid": "g2c VERBATIM (1 + every-2 + 25)",
+    "sequential": true,
+    "cooldowns": "none (no GPU)"
+  },
+  "root": {
+    "source": "runs/checkpoints/g2_root.pt (REUSED \u2014 not rebuilt; the SAME locked root as g2g)",
+    "gates": {
+      "G_POOL": {
+        "form": "bit",
+        "pool_bit_identical": true,
+        "mask_bit_identical": true,
+        "pass": true
+      },
+      "G_ROOT": {
+        "form": "reuse-verify vs g2's stored dials (CPU 4 threads)",
+        "cells_reloaded": {
+          "g-12": 0.15994243323802948,
+          "g+0": 0.7106021046638489,
+          "g+12": 0.43430715799331665
+        },
+        "root_monitor_onset": 0.609137237071991,
+        "g2_stored": {
+          "gm12": 0.1599424183368683,
+          "g0": 0.7106021046638489,
+          "gp12": 0.4343072175979614,
+          "ce_r": 1.88302743434906
+        },
+        "diffs": {
+          "gm12": 1.4901161193847656e-08,
+          "g0": 0.0,
+          "gp12": -5.960464477539063e-08,
+          "ce_r": 0.0,
+          "root_monitor_onset": 0.0
+        },
+        "max_abs_diff": 5.960464477539063e-08,
+        "bit_tol": 5e-06,
+        "tol": 0.05,
+        "bit": true,
+        "pass": true
+      }
+    }
+  },
+  "seeds": {
+    "ladder": [
+      10909,
+      10910,
+      10911
+    ],
+    "paired": 10909,
+    "ref_device_cread": 10902,
+    "provenance": "10909/10910/10911 = the NEXT FREE DRAWS of the locked 109xx lineage (10902 the locked wash seed; 10903/10904 g2d; 10905/10906 e152r/g3R/g4R; 10907/10908 g1bR \u2014 no prior use)"
+  },
+  "registered_bars": {
+    "autonomy_replicates": "AUTONOMY-REPLICATES: fires if the organ beats the count-matched fixed schedule with the SAME SIGN in 3/3 seeds AND the in-cell median delta >= +0.03 of cycle-median \u2014 the autonomy number licensed at n>=3; 'worth' returns to the paper's clause with the seed scope. Any other outcome: the +0.07 stays a single-run reading and the clause carries the honesty.",
+    "autonomy_anecdote": "AUTONOMY-ANECDOTE: every other outcome (mixed signs, median delta < +0.03, or a seed dropped by count parity) \u2014 the +0.07 stays a single-run reading and the clause carries the honesty.",
+    "critic_source": "scratch/r60_critic.md ATTACK 3 (the licensed exact replication): 'registered bar: AUTONOMY-REPLICATES = same sign in >=3/3 seeds with median delta >= +0.03 (the borrowed spread, now measured in-cell); AUTONOMY-ANECDOTE = mixed signs. Until then, the abstract may not carry +0.07 as \"worth\" \u2014 only \"won by +0.07 in the one root tested\".' Frozen \u2014 no bar shopping.",
+    "paired_arm": "the paired-batch arm and the 10902 device co-read are CO-READS (the critic's 'co-report'); NO bar lives on either."
+  },
+  "operationalization": "this file's docstring (frozen before the run; no bar shopping)",
+  "registered_prediction": {
+    "ladder": "each fresh organ fires 9-12 events (spacings >= 24), cycle-median 0.55-0.65; deltas POSITIVE 3/3 with median in [+0.03, +0.09] \u2014 AUTONOMY-REPLICATES fires.",
+    "paired": "delta_organ-paired within +-0.03 of delta_organ-fixed (the +0.07 is timing, not draw luck).",
+    "ref": "seed-10902-CPU organ reproduces g2c's schedule >= 9/10 steps; the CPU parent delta lands within +-0.03 of the GPU +0.0758/+0.072.",
+    "risks": "a seed firing fewer/later events (k mismatch -> parity drop -> ANECDOTE by protocol); a 0-event seed (F arm skipped, recorded); CPU-vs-GPU float class moving the parent delta (what the ref leg measures)."
+  },
+  "parent_reference": {
+    "form": "runs/g2g/metrics.json (the parent cell): the +0.07 at 1x, GPU lane, seed 10902, ONE root, count-matched fixed k=30",
+    "g2g_1x": {
+      "n_organ": 10,
+      "n_fixed": 10,
+      "k": 30,
+      "count_parity_ok": true,
+      "organ_cycle_median": 0.6186236143112183,
+      "fixed_cycle_median": 0.5427855253219604,
+      "delta_organ_minus_fixed": 0.07583808898925781
+    },
+    "g2g_cross_run_1x_medians": [
+      0.6188,
+      0.6186
+    ],
+    "g2g_cross_run_fixed_1x_medians": [
+      0.5468,
+      0.5428
+    ],
+    "g2d_borrowed_spread": {
+      "organ_cycle_medians": [
+        0.587,
+        0.6016,
+        0.6149
+      ],
+      "spread": 0.0279,
+      "note": "g2d's cross-seed spread (~0.03) \u2014 the bar's borrowed threshold, now measured in-cell"
+    }
+  },
+  "adjudication": null,
+  "honesty": [
+    "n=1 ROOT STILL \u2014 the ladder varies WASH seeds only (10909/10910/10911); root-seed/install-seed generality remains open (the g-series' standing single-root bound, g2d's own clause).",
+    "THE 2x LEG NOT RE-TESTED BY DESIGN \u2014 the critic's protocol is 1x-only (the run-stable leg); g2g's 2x comparison of two failing oscillators stays retired either way.",
+    "CPU fp32 END-TO-DETERMINISTIC (the float-fragility class retired by construction): env -1 before any import, threads 4 fixed, per-arm devices recorded cpu, G_DET bit-equality on two identical full-length trainings.",
+    "COUNT-MATCHED, NOT BATCH-MATCHED (the parent's own disclosure) \u2014 the paired arm closes the REPLAY-batch seam for seed 10909; the WASH stream remains schedule-dependent in every arm (no arm pairs wash draws \u2014 the named residual).",
+    "THE +0.03 BAR IS g2d's BORROWED CROSS-SEED SPREAD (~0.03), now measured in-cell (organ spread + delta spread co-reported in the adjudication).",
+    "THE PARENT +0.0758/+0.072 WAS GPU \u2014 the 10902 CPU co-read measures the device class's move on the same seed; a CO-READ, never a gate.",
+    "The paired arm's injected draws are the organ's REALIZED event batches (bit-identical index tuples, G_DRAWS-gate-parsed); a shortfall firing draws fresh ONCE (counted + recorded)."
+  ],
+  "gates": null,
+  "deviations": [
+    "CPU-DETERMINISTIC LANE (the dispatch + the 2x float-fragility lesson): CUDA_VISIBLE_DEVICES=-1 before any import, torch threads 4 (the g2b/g2c/g2d CPU-lane convention, reset AFTER the G2 import which sets 8), fp32 end-to-end. G_DET proves determinism ON THIS WORKLOAD: two identical full-length (300-step) wash-only trainings on the root body bit-compared (state_dicts torch.equal) \u2014 and doubles as the train-only timing receipt for the envelope (recorded in metrics).",
+    "G2.pick_dev is patched to ALWAYS return CPU and G2.GPU_PARKED=True (so run_cell's device records read 'cpu', never a stale 'cuda'); G2.MIDRUN_POLL_EVERY is left untouched \u2014 the migration branch is unreachable on CPU (dev.type != 'cuda').",
+    "THE ORGAN VERBATIM: G2.run_cell('g2', ...) unmodified (refractory 24, onset-only monitor via the G2GNet patch = g2b's arithmetic VERBATIM, lr 1e-3 = G2.FT_LR untouched, THETA_OPEN 0.5, CADENCE 4 \u2014 asserted at entry). THE FIXED ARM: G2.run_cell('sched', ...) with exactly one dial set (G2.SCHED_K = k_s, count-matched per seed; restored to 32 after) \u2014 the parent cell's own convention.",
+    "THE PAIRED ARM: the loop is G2.run_cell's 'sched' branch copied VERBATIM with ONE change \u2014 the event-draw triple (ix, aj, rj) is the organ's RECORDED i-th event draw (injected; no generator consumption at firings); a shortfall firing (n_fixed = n_organ + 1) draws fresh ONCE (counted + recorded). The organ's draws are captured by a pass-through torch.randint recorder (zero arithmetic change; parse gate-checked by G_DRAWS: the per-step draw pattern must match the realized schedule exactly, else the paired arm does not run).",
+    "THE 10902 DEVICE CO-READ (O_ref/F_ref): seed 10902 organ+fixed on CPU \u2014 the parent +0.0758/+0.072 was GPU; this leg reads the device class's move on the SAME seed and soft-x-checks the organ arm against g2c's stored CPU realization (n_shared_event_steps; never a gate). NOT a ladder seed; no bar.",
+    "sds NOT RETAINED: run_cell builds dense state_dicts for its light evals; g2g deleted them post-arm (no rider there) \u2014 this cell has no rider either, so the paired-arm copy simply never stores them (the measurement rows are identical either way).",
+    "TRAIN CAP 600 s/arm (g2b's precedent; run_cell's cap counts the interleaved dense CPU light-evals \u2014 g2c's own dense cell was 188.7 s wall; train-only is measured by G_DET and recorded). No cooldowns (no GPU); arms run sequential per the dispatch.",
+    "RESUME: a prior interrupted run's metrics.json is loaded at start and its COMPLETED arms (records with a full cell block) are adopted bit-trusted and not re-run; the determinism protocol makes re-runs identical by construction. Adjudication is recomputed from the adopted arms at the end.",
+    "Smoke mode trims: 36-step cells, grid {1,2,4,36}, one seed (10909) with organ+fixed+paired, 36-step G_DET, no ref pair \u2014 nothing adjudicated."
+  ],
+  "timing_s": null,
+  "arms": {},
+  "arms_pending": [],
+  "progressive_writes": [
+    "2026-10-01T17:29:47Z scaffold (gates G_POOL/G_ROOT asserted)"
+  ]
+}
