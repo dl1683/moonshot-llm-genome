@@ -117,6 +117,36 @@ runs/checkpoints/g1bS_*.pt. No NOTES/THINKING/QUEUE/STATE edits (the
 coordinator folds). Single commit + push.
 
 Run:  cd lab && python g1bS_scale_wall.py    (G1BS_SMOKE=1 shakedown)
+
+==================== RECOVERY NOTE (2026-10-01) =============================
+A machine disruption (clock jump -5h; no fault in the work) killed the
+original executor MID-FULL-RUN. This is the recovery agent's continuation,
+resumed from survivor artifacts committed by the coordinator (ef4f1f1):
+  - SCRIPT: the committed candidate = the prior agent's mid-edit working
+    copy (WAIT-GATE SOAK FIX + inter-chunk cuda empty_cache — device
+    policy only, both pre-documented in `deviations`). It had never been
+    smoke-tested AS COMMITTED: the committed smoke pass came from the
+    PRE-EDIT copy (its root ckpt landed as smoke_g1bS_root.pt.pt — the
+    double-extension residue of the mid-edit ROOT_CK; the committed line
+    is the fixed one). This agent re-ran the smoke on the committed
+    script + the fixes below; the comparison is committed at
+    runs/g1bS_smoke/recovery_verification.json.
+  - BASE: runs/checkpoints/g1bS_base.pt is the TRAINED 10M host base and
+    is NOT retrained — this run RESUMES it at step 750/4000 (model+opt+
+    sched+batch-generator state carried in the ckpt; chunk story across
+    the outage 353 -> 547 -> 750, vals 2.031 -> 1.644 -> 1.580; the
+    pre-recovery chunk table lives in runs/g1bS_run.log and in
+    RECOVERY["base_pre_recovery_chunks"]).
+RECOVERY FIXES (documented; NONE touch training arithmetic or any RNG
+stream): (a) the neutral-bank loop's `tries += 1` restored — lost in the
+copy from g1_anchored_ball; the draw sequence is unaffected (the counter
+and the loop guard were wrong, the bank is bit-identical); (b) PROGRESSIVE
+PARTIAL metrics.json writes after every phase/chunk/arm — the outage
+lesson: the killed full run left runs/g1bS/ EMPTY because the single
+end-of-run write never executed; (c) optional G1BS_GPU_WAIT_MAX env
+override for the arm wait (default 600 s, the committed g1bW policy,
+UNCHANGED unless set) so the recovery dispatch's pause-and-wait
+instruction can extend waits without code edits.
 """
 from __future__ import annotations
 
@@ -178,7 +208,10 @@ INSTALL_STEPS = 400 if not SMOKE else 8
 CONS_STEPS = 300 if not SMOKE else 8
 COOLDOWN_S = 120.0               # the mission's envelope
 TRAIN_CAP_GPU, TRAIN_CAP_CPU = 180.0, 1800.0
-GPU_WAIT_MAX = 600.0             # arms/install/consolidate (g1bW policy)
+GPU_WAIT_MAX = float(os.environ.get("G1BS_GPU_WAIT_MAX", "600"))
+                                 # arms/install/consolidate (g1bW policy;
+                                 # recovery dispatch may extend via env —
+                                 # pause-and-wait, never a silent CPU hop)
 BASE_WAIT_MAX = 1800.0           # base chunks wait longer: a 4000-step CPU
                                  # base is not a viable cell; recorded
 HOT_LAUNCH_C, SOAK_RESUME_C = 80.0, 65.0   # lab thermal semantics (g1bW fix)
@@ -333,6 +366,81 @@ deviations: list[str] = [
 device_events: list[dict] = []
 trims: list[str] = []
 
+# ---- RECOVERY provenance (2026-10-01; see the docstring's RECOVERY NOTE) --
+RECOVERY = {
+    "note": ("outage continuation: the original executor was killed "
+             "mid-full-run by a machine disruption (clock jump -5h; no "
+             "fault in the work); this run is the recovery agent's, "
+             "resumed from survivor artifacts committed at ef4f1f1"),
+    "survivors": {
+        "script": "lab/g1bS_scale_wall.py @ ef4f1f1 (mid-edit working copy: "
+                  "WAIT-GATE SOAK FIX + inter-chunk cuda empty_cache — "
+                  "device policy only, pre-documented in deviations)",
+        "base_ckpt": ("runs/checkpoints/g1bS_base.pt — the TRAINED 10M "
+                      "host base, NOT retrained; resumed at step 750/4000 "
+                      "with model+opt+sched+batch-generator state carried"),
+        "smoke": ("runs/g1bS_smoke/ — complete machinery smoke from the "
+                  "PRE-EDIT copy (root ckpt landed as "
+                  "smoke_g1bS_root.pt.pt, the mid-edit ROOT_CK residue; "
+                  "the committed line is fixed); re-verified by this "
+                  "agent's smoke re-run — see "
+                  "runs/g1bS_smoke/recovery_verification.json"),
+    },
+    "recovery_fixes": [
+        "(a) neutral-bank `tries += 1` restored (lost in the copy from "
+        "g1; RNG stream unaffected — the bank is bit-identical)",
+        "(b) PROGRESSIVE PARTIAL metrics.json writes after every "
+        "phase/chunk/arm (the outage lesson: the killed full run left "
+        "runs/g1bS/ empty)",
+        "(c) G1BS_GPU_WAIT_MAX env override for the arm wait (default "
+        "600 s unchanged) per the recovery dispatch's pause-and-wait",
+        "(d) RECOVERY provenance block (this dict) + the docstring note",
+    ],
+    "base_pre_recovery_chunks": [
+        {"run": 1, "chunk": 1, "device": "cuda", "seconds": 184.5,
+         "steps_done": 353, "val_loss": 1.8385},
+        {"run": 1, "chunk": 2, "device": "cuda", "seconds": 184.0,
+         "steps_done": 547, "val_loss": 1.6437,
+         "note": "gate parked 965 s on an outside job; then the chunk-3 "
+                 "gate hit the <=65C soak deadlock (idle floor 73-76C)"},
+        {"run": 2, "chunk": 1, "device": "cuda", "seconds": None,
+         "steps_done": 750, "val_loss": 1.5801,
+         "note": "post soak-fix restart; killed by the outage right "
+                 "after the step-750 ckpt save (runs/g1bS_run.log)"},
+    ],
+    "waits_policy": ("per the recovery dispatch: PAUSE-AND-WAIT on outside "
+                     "GPU load (never migrate mid-run); every wait "
+                     "recorded in device_events"),
+}
+
+_progressive = {"n": 0, "phases": []}
+
+
+def write_partial(rd: Path, phase: str, payload: dict) -> None:
+    """The outage lesson, mechanized: metrics.json exists from the first
+    phase onward and is rewritten after every phase/chunk/arm, so a killed
+    run leaves its partial record on disk. Superseded by the final full
+    write (partial=false). Bookkeeping only — never allowed to kill
+    compute."""
+    _progressive["n"] += 1
+    _progressive["phases"].append(phase)
+    try:
+        out = {
+            "experiment": "g1bS_scale_wall",
+            "date": common.now_iso(),
+            "partial": True,
+            "phase": phase,
+            "progressive_writes": _progressive["n"],
+            "phases": list(_progressive["phases"]),
+            "recovery": RECOVERY,
+        }
+        out.update(E43.jsonable(payload))
+        save_json(rd / "metrics.json", out)
+        log(f"[partial] metrics.json updated (phase '{phase}', write "
+            f"#{_progressive['n']})")
+    except Exception as e:         # bookkeeping must never kill compute
+        log(f"[partial] WRITE FAILED at '{phase}' ({e}) — continuing")
+
 
 # ------------------------------------------------------------------ device
 # g1bW's wait_gpu VERBATIM semantics (double-poll; wait for free windows;
@@ -397,6 +505,14 @@ def flat_params(net) -> torch.Tensor:
 def main():
     rd = run_dir("g1bS_smoke" if SMOKE else "g1bS")
     log(f"G1BS THE WALL AT 10x (smoke={SMOKE}) -> {rd}")
+    write_partial(rd, "start", {
+        "design": ("scratch/g1bS_design.md (convention frozen at dispatch; "
+                   "bars verbatim; no bar shopping)"),
+        "question": ("does the commit-and-project L2 ball hold a "
+                     "consolidated fact through a wash that kills the "
+                     "control, at ~10x the parameters?"),
+        "registered": REGISTERED, "deviations": deviations, "smoke": SMOKE,
+        "device_events": device_events})
     set_seed(HOST_SEED)      # host init + base corpus (the 1337 family)
 
     # ---- patch g1's machinery to the 10M family (g1b's pattern) ---------
@@ -487,6 +603,8 @@ def main():
     hi_start = len(train_ids) - G1.BLOCK - 2
     while len(n_starts) < 16 and tries < 100000:
         s = arng.randrange(hi_start)
+        tries += 1                   # recovery fix: lost in the copy from g1
+                                     # (draw sequence unaffected — counter only)
         txt = train_text[s: s + G1.BLOCK + 1]
         if any(f in txt for f in G1.ANCHOR_FORBIDDEN):
             rejections += 1
@@ -678,6 +796,14 @@ def main():
                                                    R_LADDER_MULT)))
         + f"; pin fuzz rms-carried {PIN_FUZZ_RMS_CARRIED:.3f} raw "
         f"(verbatim 1.5 co-reported; one-step {ONE_STEP_FUZZ_RAW:.3f}): PASS")
+    write_partial(rd, "G-CONFIG", {"gates_partial": {"G_CONFIG": G_CONFIG},
+                                   "config": {"n_layer": 8, "n_head": 8,
+                                              "n_embd": 320,
+                                              "block_size": 256,
+                                              "params": n_params,
+                                              "R_ladder_raw": list(R_LADDER_RAW),
+                                              "R_ladder_rms": list(R_LADDER_RMS),
+                                              "smoke": SMOKE}})
 
     # =====================================================================
     # PHASE 0a-host — THE BASE: ckpt-resumable chunks to a completed cosine
@@ -713,6 +839,8 @@ def main():
         log(f"[base] chunk {chunks[-1]['chunk']}: step {hist[-1]['step']}/"
             f"{BASE_STEPS} val {hist[-1]['val_loss']:.4f} "
             f"({chunks[-1]['seconds']}s on {dev})")
+        write_partial(rd, f"base-chunk-{len(chunks)}",
+                      {"base_chunks": chunks})
         if hist and hist[-1]["step"] >= BASE_STEPS:
             break
         if len(chunks) > 40:
@@ -736,6 +864,7 @@ def main():
     base_cells = flat_cells(measure(theta_base, "g1bS_base", lean=True))
     log(f"base cells: g-12 {base_cells['gm12']:.4f} CE_R "
         f"{base_cells['ce_r']:.4f}")
+    write_partial(rd, "G-BASE", {"G_BASE": G_BASE, "base_cells": base_cells})
     del host_net
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -789,6 +918,7 @@ def main():
     inst_cells = flat_cells(measure(theta_install, "post_install", lean=True))
     log(f"post-install: g-12 {inst_cells['gm12']:.4f} g0 "
         f"{inst_cells['g0']:.4f} CE_R {inst_cells['ce_r']:.4f}")
+    write_partial(rd, "G-INST", {"G_INST": G_INST, "inst_cells": inst_cells})
     del inst_net
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -807,6 +937,9 @@ def main():
     if cons["steps_ran"] < CONS_STEPS:
         trims.append(f"consolidate capped at step {cons['steps_ran']} of "
                      f"{CONS_STEPS} (documented, not silent)")
+    write_partial(rd, "consolidate", {"consolidation": {
+        "steps_ran": cons["steps_ran"], "device": cons["device"],
+        "seed": cons["seed"], "traj": cons["traj"]}})
 
     # ---- the root battery + G-ROOT --------------------------------------
     log("=" * 78)
@@ -838,6 +971,10 @@ def main():
         f"{root_cells['gm12']:.4f} x 0.9 / {G1B_ROOT_GM12:.4f} = "
         f"{bar_0p9eq:.4f}  (= {0.9 / G1B_ROOT_GM12:.5f} x root; secondary "
         f"0.9x root = {0.9 * root_cells['gm12']:.4f})")
+
+    write_partial(rd, "root+scaled-bar", {
+        "G_ROOT": G_ROOT0, "root_cells": root_cells, "scaled_bar": SCALED_BAR,
+        "theta0_ckpt": f"runs/checkpoints/{ROOT_CK}.pt"})
 
     save_ckpt(ROOT_CK, theta_root,
               {"desc": f"fresh 10M base (seed {HOST_SEED}, {len(chunks)} "
@@ -899,6 +1036,17 @@ def main():
         assert G_DRAWFREE["pass"], f"{tag}: name token leaked into a window"
         gates_surg[f"G_DRAWFREE_{tag}"] = G_DRAWFREE
         arms[tag] = arm
+        write_partial(rd, f"arm-{tag}", {"arms_partial": {tag: {
+            "R_raw": R, "R_rms": (R / SQRT_P if R else None),
+            "steps_ran": arm["steps_ran"], "device": arm["device"],
+            "wall_R": arm["wall_R"],
+            "g_m12": {t["step"]: t["g_m12_mean_pz"] for t in arm["traj"]
+                      if "g_m12_mean_pz" in t},
+            "traj": [{k: v for k, v in t.items() if k != "d_proj"}
+                     for t in arm["traj"]],
+            "x_hashes_head": {s: arm["x_hashes"][s]
+                              for s in list(arm["x_hashes"])[:2]},
+        }}})
 
         # checkpoints: each arm's final only (g1b's wash-arm convention)
         for s in sorted(arm["sds"]):
@@ -955,6 +1103,9 @@ def main():
         + ", ".join(f"{v['max_abs_diff']:.1e}"
                     for v in G_STEP1["per_arm"].values())
         + " <= 1e-4): PASS — the wall is inert until forward 2")
+    write_partial(rd, "input-gates", {
+        "G_INPUTS_pass": G_INPUTS["pass"], "G_STEP1": G_STEP1,
+        "G_BITROOT": G_BITROOT})
 
     # =====================================================================
     # DISPLACEMENT TABLES + COSINES (e185's currency, measured; both
@@ -1250,6 +1401,10 @@ def main():
     metrics = {
         "experiment": "g1bS_scale_wall",
         "date": common.now_iso(),
+        "partial": False,
+        "progressive_writes": _progressive["n"],
+        "phases": list(_progressive["phases"]),
+        "recovery": RECOVERY,
         "design": "scratch/g1bS_design.md (convention frozen at dispatch; "
                   "bars verbatim; no bar shopping)",
         "question": ("does the commit-and-project L2 ball hold a "

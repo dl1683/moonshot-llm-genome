@@ -1,0 +1,317 @@
+{
+ "baseline": "runs/g1bS_smoke/metrics.json @2512c5e (pre-edit working copy)",
+ "rerun": "recovery smoke on the committed+fixed script (this file)",
+ "checks": {
+  "ladder_raw_exact": true,
+  "ladder_rms_exact": true,
+  "g_config_pass": true,
+  "neutral_bank_starts_exact": true,
+  "neutral_bank_tries": {
+   "baseline": 0,
+   "rerun": 18,
+   "note": "recovery fix (a): baseline recorded 0 (counter bug); draws identical (starts exact-equal)"
+  },
+  "splice_mix": true,
+  "verdict": true,
+  "gates_verdicts": {
+   "G_CONFIG": [
+    true,
+    true
+   ],
+   "G_BASE": [
+    true,
+    true
+   ],
+   "G_INST": [
+    true,
+    true
+   ],
+   "G_SPLICE": [
+    true,
+    true
+   ],
+   "G_NAMEFREE": [
+    true,
+    true
+   ],
+   "G_POOL": [
+    true,
+    true
+   ],
+   "G_ANCHOR": [
+    true,
+    true
+   ],
+   "G_ROOT": [
+    false,
+    false
+   ],
+   "G_CTRL": [
+    false,
+    false
+   ],
+   "G_PIN": [
+    true,
+    true
+   ],
+   "G_INPUTS": [
+    true,
+    true
+   ],
+   "G_STEP1": [
+    true,
+    true
+   ]
+  },
+  "base_val": {
+   "baseline": 2.844777226448059,
+   "rerun": 2.844777226448059
+  },
+  "base_val_exact": true,
+  "root_gm12": {
+   "baseline": 0.023521410301327705,
+   "rerun": 0.023518986999988556,
+   "devices": {
+    "baseline": "install cpu, consolidate cpu",
+    "rerun": "install cuda, consolidate cuda"
+   }
+  },
+  "arms": {
+   "C": {
+    "devices": {
+     "baseline": "cpu",
+     "rerun": "cuda"
+    },
+    "per_ckpt": {
+     "1": {
+      "g12": [
+       0.0035813807044178247,
+       0.003581138327717781
+      ],
+      "ce": [
+       3.2106404304504395,
+       3.210648775100708
+      ],
+      "disp": [
+       3.1357614994049072,
+       3.1397764682769775
+      ]
+     },
+     "2": {
+      "g12": [
+       0.0020534940995275974,
+       0.00205392949283123
+      ],
+      "ce": [
+       3.2531683444976807,
+       3.2530758380889893
+      ],
+      "disp": [
+       4.777768135070801,
+       4.777058124542236
+      ]
+     },
+     "4": {
+      "g12": [
+       0.0021515940316021442,
+       0.0021508291829377413
+      ],
+      "ce": [
+       3.141767740249634,
+       3.141793966293335
+      ],
+      "disp": [
+       6.887238502502441,
+       6.888354778289795
+      ]
+     }
+    }
+   },
+   "W1": {
+    "devices": {
+     "baseline": "cuda",
+     "rerun": "cuda"
+    },
+    "per_ckpt": {
+     "1": {
+      "g12": [
+       0.009068702347576618,
+       0.009067906998097897
+      ],
+      "ce": [
+       3.2106406688690186,
+       3.210648775100708
+      ],
+      "disp": [
+       3.1397757530212402,
+       3.1397764682769775
+      ]
+     },
+     "2": {
+      "g12": [
+       0.011367479339241982,
+       0.01136731542646885
+      ],
+      "ce": [
+       3.134420871734619,
+       3.1344094276428223
+      ],
+      "disp": [
+       3.1211163997650146,
+       3.1212568283081055
+      ]
+     },
+     "4": {
+      "g12": [
+       0.012596145272254944,
+       0.012594591826200485
+      ],
+      "ce": [
+       3.114637851715088,
+       3.114668130874634
+      ],
+      "disp": [
+       2.917494058609009,
+       2.917407512664795
+      ]
+     }
+    }
+   },
+   "W2": {
+    "devices": {
+     "baseline": "cuda",
+     "rerun": "cuda"
+    },
+    "per_ckpt": {
+     "1": {
+      "g12": [
+       0.004330373834818602,
+       0.004330034367740154
+      ],
+      "ce": [
+       3.2106406688690186,
+       3.210648775100708
+      ],
+      "disp": [
+       3.1397757530212402,
+       3.1397764682769775
+      ]
+     },
+     "2": {
+      "g12": [
+       0.004552801605314016,
+       0.004553575534373522
+      ],
+      "ce": [
+       3.217405319213867,
+       3.2173349857330322
+      ],
+      "disp": [
+       4.296498775482178,
+       4.2965087890625
+      ]
+     },
+     "4": {
+      "g12": [
+       0.0080146174877882,
+       0.008013538084924221
+      ],
+      "ce": [
+       3.0867905616760254,
+       3.086822032928467
+      ],
+      "disp": [
+       3.8939898014068604,
+       3.8938305377960205
+      ]
+     }
+    }
+   },
+   "W3": {
+    "devices": {
+     "baseline": "cuda",
+     "rerun": "cuda"
+    },
+    "per_ckpt": {
+     "1": {
+      "g12": [
+       0.003581381170079112,
+       0.0035811380948871374
+      ],
+      "ce": [
+       3.2106406688690186,
+       3.210648775100708
+      ],
+      "disp": [
+       3.1397757530212402,
+       3.1397764682769775
+      ]
+     },
+     "2": {
+      "g12": [
+       0.0020534927025437355,
+       0.00205392949283123
+      ],
+      "ce": [
+       3.2531683444976807,
+       3.2530758380889893
+      ],
+      "disp": [
+       4.777072906494141,
+       4.777058124542236
+      ]
+     },
+     "4": {
+      "g12": [
+       0.0030061553698033094,
+       0.003005575155839324
+      ],
+      "ce": [
+       3.1291072368621826,
+       3.1291182041168213
+      ],
+      "disp": [
+       6.331247329711914,
+       6.330975532531738
+      ]
+     }
+    }
+   }
+  },
+  "progressive_writes": {
+   "rerun_writes": 12,
+   "partial_flag": false,
+   "phases": [
+    "start",
+    "G-CONFIG",
+    "base-chunk-1",
+    "G-BASE",
+    "G-INST",
+    "consolidate",
+    "root+scaled-bar",
+    "arm-C",
+    "arm-W1",
+    "arm-W2",
+    "arm-W3",
+    "input-gates"
+   ]
+  },
+  "ckpt_inventory_names": {
+   "baseline": [
+    "smoke_g1bS_root.pt",
+    "smoke_g1bS_C_s4",
+    "smoke_g1bS_W1_s4",
+    "smoke_g1bS_W2_s4",
+    "smoke_g1bS_W3_s4"
+   ],
+   "rerun": [
+    "smoke_g1bS_root",
+    "smoke_g1bS_C_s4",
+    "smoke_g1bS_W1_s4",
+    "smoke_g1bS_W2_s4",
+    "smoke_g1bS_W3_s4"
+   ]
+  }
+ },
+ "verdict": "SMOKE VERIFIED: the committed script (ef4f1f1 candidate) + the four recovery fixes reproduces the committed smoke pass. Bit-exact where the machinery is device-free or same-device (ladder both conventions; neutral-bank starts; splice mix; base val_loss cuda->cuda 2.844777226448059 == 2.844777226448059) and within float device-texture (~1e-6 on g-12, ~1e-4 on CE) where the baseline ran CPU and the re-run ran cuda (install/consolidate/C; root 0.0235214 vs 0.0235190). Same gates, same verdict TEXTURE (G-ROOT, G-CTRL \u2014 the smoke's expected outcome: a 24-step base cannot express a 0.78 root). The recovery fixes are behavior-preserving: tries 0->18 recorded while the bank stays bit-identical; progressive writes 12/12; root ckpt name fixed (smoke_g1bS_root.pt, single extension)."
+}
