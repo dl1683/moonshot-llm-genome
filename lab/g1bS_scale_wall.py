@@ -316,6 +316,15 @@ deviations: list[str] = [
     "600 s-then-CPU policy (all are <=1800 s viable on CPU).",
     "torch threads 4 (shared machine; g1bW's adopted trim; g1's import "
     "resets to 8, reset after import).",
+    "WAIT-GATE SOAK FIX (after the first full run's chunk 3 gate, run "
+    "restarted cleanly between trainings; the base resumed from its chunk "
+    "checkpoint at step 547): the soak-wait's <=65C resume target cannot be "
+    "reached on this machine (~73-76C idle floor — the deadlock class "
+    "g1bW's own F-note documented); the launch window now opens at the "
+    "LAB'S OWN launch ceiling (<=80C, README rule 9: 'no new launches above "
+    "80C'), i.e. the gate waits while >80C and launches once under it. The "
+    "thermal ceiling, mem <=85% cap and util gate are unchanged and "
+    "binding; no training semantics touched.",
     "Smoke mode trims: base 24 steps, install/consolidate 8 steps, washes "
     "4 steps with ckpts {1,2,4}, lean dials, no cooldowns, GPU gate waits "
     "capped at 30 s — nothing adjudicated.",
@@ -334,17 +343,19 @@ def wait_gpu(tag: str, max_wait: float | None = None) -> torch.device:
     if not torch.cuda.is_available():
         return CPU
     t0, waited, s1 = time.time(), 0.0, gpu_status()
-    hot = s1["temp"] > HOT_LAUNCH_C          # lab policy: gate only when hot
+    hot = s1["temp"] > HOT_LAUNCH_C          # lab policy: no launches >80C
     while (time.time() - t0) <= mw:
         if hot:
             tc = gpu_status()["temp"]
-            if tc > SOAK_RESUME_C:
-                log(f"[gpu] '{tag}' heat-soaked ({tc:.0f}C): cooling to "
-                    f"<= {SOAK_RESUME_C:.0f}C")
+            if tc > HOT_LAUNCH_C:
+                log(f"[gpu] '{tag}' heat-soaked ({tc:.0f}C > "
+                    f"{HOT_LAUNCH_C:.0f}C): waiting to cool below the "
+                    f"launch ceiling")
                 time.sleep(30)
                 waited = time.time() - t0
                 continue
-            hot = False                      # cooled: launch window opens
+            hot = False                      # under the 80C ceiling: the
+                                             # window opens (FIX below)
         if gpu_ok():
             time.sleep(5)
             if gpu_ok():
@@ -706,6 +717,10 @@ def main():
             break
         if len(chunks) > 40:
             raise RuntimeError(f"base chunks exceeded 40: {chunks}")
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()   # free MY cache between chunks: the
+                                       # shared card's 85% cap is checked at
+                                       # every gate, own residency included
         if not SMOKE:
             cooldown(COOLDOWN_S)
     host_net.to(CPU)
@@ -759,6 +774,8 @@ def main():
             break
         if len(ichunks) > 10:
             raise RuntimeError(f"install chunks exceeded 10: {ichunks}")
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
         if not SMOKE:
             cooldown(COOLDOWN_S)
     inst_net.to(CPU)
