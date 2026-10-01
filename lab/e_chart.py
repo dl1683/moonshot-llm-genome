@@ -922,9 +922,11 @@ def main():
         gm12_grad = fact_grad(evl, gm12_ids, zid)
         g0_grad = fact_grad(evl, bat_ids[0], zid)
         gm12_grads[(arm, step)] = gm12_grad             # for the traj read
-        # stream gate where opt1 committed the pre-clip norm
+        # stream gate where opt1 committed the pre-clip norm (ONLY on
+        # A0's own trajectory — the lr1e-3 arm; the other arms' states are
+        # different thetas and are gated by their committed battery reads)
         sgate = None
-        if step in (0, 1, 2, 4) and (step + 1) in a0_traj:
+        if arm in ("root", "lr1e-3") and step in (0, 1, 2, 4)                 and (step + 1) in a0_traj:
             committed = a0_traj[step + 1]["preclip_gnorm"]
             sgate = {"step": step, "batch": step + 1,
                      "measured_preclip": gn_pre, "committed": committed,
