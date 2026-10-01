@@ -241,7 +241,12 @@ deviations: list[str] = [
     "is a wonder card); slopes are ordinary least squares on 2-step-spaced "
     "post-hoc monitor reads with a FIXED window set per event (the check "
     "counter c = event_step // CADENCE), so the trace is pure weight "
-    "dynamics, no rotation noise.",
+    "dynamics, no rotation noise. RIDER REPAIR (run 2): run 1's pre-event "
+    "window inherited its start parity from prev_event+1 — spacing-24 "
+    "cycles started odd against an even grid and got EMPTY pre-windows "
+    "(L4 all-None pre/jump); the window is now even-aligned counting down "
+    "from e-2. No bar touched; arms re-run deterministically (GPU) — "
+    "run 2 doubles as the free reproducibility check of run 1's bars.",
     "Cooldown 120 s BETWEEN arms, overlapped with the arm's CPU-side rider "
     "analysis (>= 120 s GPU-idle gap between trainings either way).",
     "Single root (the locked g2_root.pt), ONE wash seed (10902) per rung — "
@@ -503,8 +508,10 @@ def rider_traces(sds: dict, event_steps: list[int], refr: int,
         prev_e = event_steps[i - 1] if i > 0 else 0
         next_e = event_steps[i + 1] if i + 1 < len(event_steps) \
             else n_steps + 1
-        pre_s = [s for s in range(max(prev_e + 1, e - 24), e, 2)
-                 if s in sds]
+        # even-aligned, counting DOWN from e-2 (the grid holds evens; e is a
+        # multiple of CADENCE=4): the last <=24 pre-event steps above prev_e
+        pre_s = sorted(s for s in range(e - 2, e - 26, -2)
+                       if s in sds and s > prev_e)
         post_s = [s for s in range(e, min(e + refr, next_e - 1, n_steps) + 1,
                                    2) if s in sds]
         steps_all = sorted(set(pre_s + post_s))
