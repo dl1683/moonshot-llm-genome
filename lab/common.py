@@ -240,16 +240,21 @@ def train_model(
     max_seconds: float = 240.0,
     eval_every: int = 250,
     ckpt: Path | None = None,
+    warmup: int = 100,
 ) -> list[dict]:
     """Train with AdamW + cosine schedule; returns history of eval points.
 
     Checkpoint discipline: if `ckpt` is given, a resumable snapshot (model +
     optimizer + scheduler + batch-generator state + history) is written at
     EVERY eval point, so an interrupted run resumes instead of retraining.
+
+    `warmup` (g1bS2, 2026-10-01): optional cosine warmup length, default 100
+    = the historical house value — every existing caller is bit-identical;
+    g1bS2's licensed val-min-anchored base passes warmup=60.
     """
     cfg = model.cfg
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.1, betas=(0.9, 0.95))
-    sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: cosine_lr(s, steps))
+    sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: cosine_lr(s, steps, warmup))
     model.train()
     history, start_step = [], 0
     gen = torch.Generator().manual_seed(corpus.seed)
