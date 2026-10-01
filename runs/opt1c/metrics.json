@@ -1,0 +1,747 @@
+{
+  "experiment": "opt1c_direction_size",
+  "date": "2026-10-01T07:48:34Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes; see provenance.recovery for the outage lineage)",
+  "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and in registered_prediction, frozen before compute)",
+  "registered_prediction": {
+    "kills_at_gate": "KILLS-AT-GATE: \"fires if the fact dies at displacement within [2.12, 3.27] \u2014 cumulative displacement is DIRECTION-ROBUST at Adam's size; the alignment integral is epiphenomenal; 'any path that reaches the gate kills' holds in its letter.\"",
+    "spared_at_gate": "SPARED-AT-GATE: \"fires if the trajectory passes D = 2.6 with the fact alive (g-12 > 0.27) \u2014 the kill is not carried by size alone; DIRECTION (or normalization structure) carries it; 'any path reaching the gate kills' dies in its current letter and the law moves to ruler-aligned-displacement currency (e188's RAW-WINS then needs reconciliation \u2014 report the tension honestly).\"",
+    "cap_neither": "CAP-NEITHER: \"neither within the cap \u2014 report the curve; no projection adjudicates.\"",
+    "operationalizations": "the arm = the licensed e185 wash cell VERBATIM (root, seed-10902 stream, bit-identical batches, TRUE targets, full-token CE, clip 1.0) with ONE delta: the update is delta_t = STEP_SCALE * (g_t/||g_t||_2), theta -= delta_t (DESCENT \u2014 SGD's direction at Adam's measured per-step L2; g_t post-clip, direction clip-invariant, pre-clip norm recorded); STEP_SCALE = opt1 A0's step-1 L2 1.6542880535125732, RECOMPUTED at t=0 by one fresh AdamW-recipe step gated bit vs the committed value, the MEASURED number used; KILL = g-12 <= 0.27 interpolated linearly-in-step between the last alive and first dead read (reads EVERY step) + along-path densification at f in {0.2,0.4,0.6,0.8} (parameter points ON the same trajectory, not new steps); D_kill = same-bracket interpolation of cumulative displacement; SPARED certified by alive FORCED reads at BOTH the measured 2.6-crossing and 3.3-crossing steps; stop = whichever FIRST of kill / D>=3.3 alive / 300-step cap; a kill OUTSIDE [2.12, 3.27] fires NO bar (graded outcome, curve reported verbatim; opt1b's convention); composite order frozen KILLS-AT-GATE -> SPARED-AT-GATE -> CAP-NEITHER; at a tie step the dead read is processed first.",
+    "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "question": "inside the Adam kill, is it the raw-gradient DIRECTION at small size that spares (SIZE carries the kill), or would ANY direction at Adam's step size kill (cumulative displacement is direction-robust)? ONE arm splits direction from size: the raw batch-gradient DIRECTION (SGD's own, g_t/||g_t||_2, descent) at Adam's measured per-step L2 on the licensed e185 wash cell \u2014 'SGD's direction at Adam's size'",
+  "root": "runs/checkpoints/e131_consolidated_e113.pt (gated vs e151 before-cells, max|diff| 5.96e-08)",
+  "root_meta": {
+    "recipe": "e113 verbatim: jittered replay 300 steps",
+    "seed": 10901,
+    "base": "runs/checkpoints/e048_repro.pt"
+  },
+  "cell": {
+    "licensed_cell": "e185 arm C (CONTROL) VERBATIM \u2014 the consolidated host fact under its neutral/corpus wash; opt1's machinery verbatim",
+    "batch": "32 = 16 neutral-bank anchors (seed 170, fixed) + 16 random corpus windows, full-token CE, clip 1.0",
+    "targets": "TRUE (the real neutral wash \u2014 the update rule is the only delta vs the licensed cell)",
+    "input_seed": 10902,
+    "update_rule": "delta_t = 1.6542880535125732 * (g_t/||g_t||_2), theta -= delta_t (DESCENT along the raw gradient direction; g_t post-clip \u2014 direction clip-invariant, pre-clip norm recorded; NO optimizer, NO lr)",
+    "measure_light": "g-12 / g0 batteries + CE_R + alignment + displacement + pre-clip grad norms + direction persistence (the dispatch's read list; no census/deletions)"
+  },
+  "provenance": {
+    "step_scale_measured": 1.6542880535125732,
+    "step_scale_committed_opt1_a0": 1.6542880535125732,
+    "t0_gate": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "diffs": {
+        "ce": 0.0,
+        "gnorm": 0.0,
+        "disp": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): the step-1 batch md5 vs e185's stored hash; the forward CE and pre-clip grad norm vs opt1 A0's committed row; ONE fresh AdamW-recipe step from the root reproducing A0's committed step-1 L2 \u2014 the size match that defines this arm, gated before the run"
+    },
+    "hashes_vs_opt1_committed_t0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_matches_e185_stored": true,
+      "step1_ce_batch_measured": 1.356567621231079,
+      "step1_ce_batch_opt1_committed": 1.356567621231079,
+      "step1_preclip_gnorm_measured": 0.9829167127609253,
+      "step1_preclip_gnorm_opt1_committed": 0.9829167127609253,
+      "adamw_one_step_L2_measured": 1.6542880535125732,
+      "adamw_one_step_L2_opt1_committed": 1.6542880535125732
+    },
+    "effective_step1_sgd_lr": 1.6830399076904754,
+    "recovery": {
+      "what": "outage-recovery re-dispatch (2026-10-01): the 2026-09-30 machine disruption killed the dispatching agent immediately after the smoke (survivors committed at ef4f1f1); this run is the recovery executor's completion from the verified committed script",
+      "smoke_lineage": "runs/opt1c_smoke/ (all 10 gates PASS; t=0 diffs 0.0 bit; the smoke itself crashed at the fact-vs-D plot \u2014 the recovered key bug, fixed and documented in deviations) + runs/checkpoints/smoke_opt1c_sgrad_dir_s1.pt",
+      "re_verified_in_this_process": "the t=0 bit-identity gate re-ran and passed in THIS process before any training (G_T0 above)",
+      "progressive_writes": "metrics.json was written progressively (after the gates, after every chunk) per the recovery dispatch's outage lesson; intermediate PARTIAL writes are replaced by this COMPLETE write"
+    },
+    "resume": {
+      "method": "fresh start from the root (no replay needed \u2014 the arm is a NEW trajectory, not a continuation); chunk state round-trips through runs/opt1c/chunk_state.pt per the opt1b convention; the stream position carries in the generator state",
+      "state_hash_chain": [
+        "33c1894c77c0886cf74cf9fafb7bf029"
+      ]
+    }
+  },
+  "arm": {
+    "tag": "sgrad_dir_at_adam_size",
+    "parent_size": "runs/opt1/metrics.json arms.a0_adamw_ref (step-1 L2 \u2014 the size this arm pins)",
+    "parent_bleed": "runs/opt1b/metrics.json (the raw-gradient path at its own small size \u2014 the contrast arm, committed)",
+    "max_steps": 300,
+    "steps_ran": 1,
+    "train_seconds": 7.7,
+    "time_cap_per_chunk": 178.0,
+    "seed": 10902,
+    "traj": [
+      {
+        "step": 1,
+        "chunk": 0,
+        "ce_batch": 1.356567621231079,
+        "cum_disp": 1.6542682647705078,
+        "step_disp": 1.6542682647705078,
+        "preclip_gnorm": 0.9829167127609253,
+        "lr_eff": null,
+        "step_scale": 1.6542880535125732,
+        "u_cos_prev": null,
+        "x_md5": "1ea27bffde6c4a53be8badf5ab453d64"
+      }
+    ],
+    "ckpt_table": [
+      {
+        "step": 0,
+        "chunk": 0,
+        "forced": null,
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "frac_argmax_z": null,
+        "ce_r": 1.663516640663147,
+        "cum_disp": 0.0,
+        "cos_delta_fact_g0": null,
+        "cos_delta_fact_m12": null
+      },
+      {
+        "step": 1,
+        "chunk": 0,
+        "forced": null,
+        "gm12": 0.0007279703859239817,
+        "g0": 0.0006781847914680839,
+        "frac_argmax_z": 0.0,
+        "ce_r": 4.788366794586182,
+        "cum_disp": 1.6542682647705078,
+        "cos_delta_fact_g0": -0.03115776740014553,
+        "cos_delta_fact_m12": -0.023480448871850967
+      }
+    ],
+    "densify": [
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.2,
+        "D": 0.3308580815792084,
+        "gm12": 0.9554463028907776
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.4,
+        "D": 0.6617161631584167,
+        "gm12": 0.7526823878288269
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.6,
+        "D": 0.9925732612609863,
+        "gm12": 0.13518908619880676
+      },
+      {
+        "between": [
+          0,
+          1
+        ],
+        "f": 0.8,
+        "D": 1.323432207107544,
+        "gm12": 0.004857146646827459
+      }
+    ],
+    "zeph_violations": 0
+  },
+  "chunks": [
+    {
+      "chunk": 0,
+      "step_from": 1,
+      "step_to": 1,
+      "n_steps": 1,
+      "wall_s": 7.7,
+      "flat_md5_at_end": "33c1894c77c0886cf74cf9fafb7bf029",
+      "stopped": true
+    }
+  ],
+  "gates": {
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12}, e185's convention verbatim"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection if [s, s+257) contains FLORIZEL/ELIZABETH/ZEPH/MIRABEL \u2014 e170's construction VERBATIM (= e185's control stream; FIXED content, not reseeded)",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true
+    },
+    "G_T0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "preclip_gnorm_committed": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "adamw_step1_L2_committed": 1.6542880535125732,
+      "diffs": {
+        "ce": 0.0,
+        "gnorm": 0.0,
+        "disp": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): the step-1 batch md5 vs e185's stored hash; the forward CE and pre-clip grad norm vs opt1 A0's committed row; ONE fresh AdamW-recipe step from the root reproducing A0's committed step-1 L2 \u2014 the size match that defines this arm, gated before the run"
+    },
+    "G_INPUTS": {
+      "md5_vs_e185_stored": {
+        "1": true
+      },
+      "pass": true,
+      "note": "input-batch md5s at steps 1..10 vs e185's stored hashes (= opt1/opt1b's gate set); all steps' md5s recorded in the journal"
+    },
+    "G_DRAWFREE": {
+      "zeph_violations": 0,
+      "pass": true
+    },
+    "G_CHUNKS": {
+      "round_trips": [],
+      "pass": true,
+      "n_chunks": 1,
+      "max_chunk_wall_s": 7.7
+    },
+    "G_STEPSCALE": {
+      "step_scale": 1.6542880535125732,
+      "committed_ref": 1.6542880535125732,
+      "max_abs_step_disp_dev": 1.9788742065429688e-05,
+      "note": "the per-step L2 is PINNED at the measured Adam step size by construction; this reports the float deviation of the measured increments"
+    }
+  },
+  "references": {
+    "opt1": {
+      "metrics": "runs/opt1/metrics.json",
+      "role": "the parent cell: A0's measured step-1 L2 (the pinned size), the t=0 bit-identity references, and the Adam arms' fact-vs-D curves (the overlay, plotted from committed data, never rerun)"
+    },
+    "opt1b": {
+      "metrics": "runs/opt1b/metrics.json",
+      "role": "the bleed (the raw-gradient path at its own small size): the fact-vs-D curve overlaid from committed data; T142's CAP-NEITHER"
+    },
+    "e185": {
+      "metrics": "runs/e185/metrics.json",
+      "role": "the licensed cell + the stored input md5s this run re-derives at steps 1..10"
+    }
+  },
+  "fact_vs_D_curve": [
+    {
+      "step": 0,
+      "D": 0.0,
+      "gm12": 0.9155886173248291,
+      "g0": 0.7850371599197388,
+      "ce_r": 1.663516640663147,
+      "cos_delta_fact_g0": null,
+      "cos_delta_fact_m12": null,
+      "provenance": "opt1c (this run)"
+    },
+    {
+      "step": 1,
+      "D": 1.6542682647705078,
+      "gm12": 0.0007279703859239817,
+      "g0": 0.0006781847914680839,
+      "ce_r": 4.788366794586182,
+      "cos_delta_fact_g0": -0.03115776740014553,
+      "cos_delta_fact_m12": -0.023480448871850967,
+      "provenance": "opt1c (this run)"
+    }
+  ],
+  "adam_overlay": {
+    "a0_adamw_ref": [
+      {
+        "step": 1,
+        "D": 1.6542880535125732,
+        "gm12": 0.6780440807342529
+      },
+      {
+        "step": 2,
+        "D": 2.4892616271972656,
+        "gm12": 0.027077054604887962
+      },
+      {
+        "step": 4,
+        "D": 3.526789665222168,
+        "gm12": 0.010940761305391788
+      },
+      {
+        "step": 8,
+        "D": 4.714180946350098,
+        "gm12": 0.04319119080901146
+      },
+      {
+        "step": 10,
+        "D": 5.195915222167969,
+        "gm12": 0.019353048875927925
+      }
+    ],
+    "a3_adamw_warmup30": [
+      {
+        "step": 1,
+        "D": 0.05513203144073486,
+        "gm12": 0.9273566603660583
+      },
+      {
+        "step": 2,
+        "D": 0.13128796219825745,
+        "gm12": 0.9399986267089844
+      },
+      {
+        "step": 4,
+        "D": 0.3675830364227295,
+        "gm12": 0.9476236701011658
+      },
+      {
+        "step": 8,
+        "D": 1.0528759956359863,
+        "gm12": 0.8257730603218079
+      },
+      {
+        "step": 10,
+        "D": 1.4494309425354004,
+        "gm12": 0.6340574026107788
+      },
+      {
+        "step": 20,
+        "D": 3.6361074447631836,
+        "gm12": 0.06469569355249405
+      }
+    ],
+    "a4_adamw_b2_0.999": [
+      {
+        "step": 1,
+        "D": 1.6542880535125732,
+        "gm12": 0.6780440807342529
+      },
+      {
+        "step": 2,
+        "D": 2.4845683574676514,
+        "gm12": 0.026429390534758568
+      },
+      {
+        "step": 4,
+        "D": 3.512664794921875,
+        "gm12": 0.011602981016039848
+      },
+      {
+        "step": 8,
+        "D": 4.703882694244385,
+        "gm12": 0.041913386434316635
+      },
+      {
+        "step": 10,
+        "D": 5.192151069641113,
+        "gm12": 0.020533733069896698
+      }
+    ],
+    "a5_adamw_moment_reset": [
+      {
+        "step": 1,
+        "D": 1.6542880535125732,
+        "gm12": 0.6780440807342529
+      },
+      {
+        "step": 2,
+        "D": 2.4892616271972656,
+        "gm12": 0.027077054604887962
+      },
+      {
+        "step": 4,
+        "D": 3.526789665222168,
+        "gm12": 0.010940761305391788
+      },
+      {
+        "step": 8,
+        "D": 4.714180946350098,
+        "gm12": 0.04319119080901146
+      },
+      {
+        "step": 10,
+        "D": 5.195915222167969,
+        "gm12": 0.019353048875927925
+      }
+    ]
+  },
+  "bleed_overlay": [
+    {
+      "step": 0,
+      "D": 0.0,
+      "gm12": 0.9155886173248291
+    },
+    {
+      "step": 1,
+      "D": 0.009828010573983192,
+      "gm12": 0.9215604066848755
+    },
+    {
+      "step": 2,
+      "D": 0.01538199931383133,
+      "gm12": 0.9259465336799622
+    },
+    {
+      "step": 4,
+      "D": 0.028521329164505005,
+      "gm12": 0.9316505193710327
+    },
+    {
+      "step": 8,
+      "D": 0.05193374678492546,
+      "gm12": 0.9415491819381714
+    },
+    {
+      "step": 10,
+      "D": 0.06163448840379715,
+      "gm12": 0.9449109435081482
+    },
+    {
+      "step": 20,
+      "D": 0.10688290745019913,
+      "gm12": 0.9530801177024841
+    },
+    {
+      "step": 40,
+      "D": 0.18530598282814026,
+      "gm12": 0.9548165202140808
+    },
+    {
+      "step": 80,
+      "D": 0.31930455565452576,
+      "gm12": 0.9553408026695251
+    },
+    {
+      "step": 120,
+      "D": 0.4357306659221649,
+      "gm12": 0.9456143975257874
+    },
+    {
+      "step": 160,
+      "D": 0.5420989990234375,
+      "gm12": 0.9346763491630554
+    },
+    {
+      "step": 200,
+      "D": 0.6410856246948242,
+      "gm12": 0.91841059923172
+    },
+    {
+      "step": 240,
+      "D": 0.7334475517272949,
+      "gm12": 0.9056013822555542
+    },
+    {
+      "step": 280,
+      "D": 0.8219650983810425,
+      "gm12": 0.873616099357605
+    },
+    {
+      "step": 320,
+      "D": 0.9067988991737366,
+      "gm12": 0.8633302450180054
+    },
+    {
+      "step": 360,
+      "D": 0.9882312417030334,
+      "gm12": 0.8251885175704956
+    },
+    {
+      "step": 400,
+      "D": 1.067423701286316,
+      "gm12": 0.792296290397644
+    },
+    {
+      "step": 440,
+      "D": 1.144357442855835,
+      "gm12": 0.7800548672676086
+    },
+    {
+      "step": 480,
+      "D": 1.2194911241531372,
+      "gm12": 0.7006824612617493
+    },
+    {
+      "step": 520,
+      "D": 1.2930546998977661,
+      "gm12": 0.6700679659843445
+    },
+    {
+      "step": 560,
+      "D": 1.364747166633606,
+      "gm12": 0.6120547652244568
+    },
+    {
+      "step": 600,
+      "D": 1.4338268041610718,
+      "gm12": 0.6012769937515259
+    }
+  ],
+  "coreads": {
+    "alignment": {
+      "mean_cos_g0_D_le_1": null,
+      "mean_cos_g0_D_gt_1": -0.03115776740014553,
+      "min_cos_g0": -0.03115776740014553,
+      "max_cos_g0": -0.03115776740014553,
+      "note": "cumulative-displacement alignment, opt1's convention; negative = death-aligned; opt1's arms sat at -0.015..-0.105, opt1b's bleed at -0.025..-0.041"
+    },
+    "ce_r": {
+      "note": "organism health at every checkpoint (rows in fact_vs_D_curve / arm.ckpt_table)",
+      "root": 1.663516640663147,
+      "final": 4.788366794586182
+    },
+    "direction_persistence": {
+      "u_cos_prev_rows": [],
+      "note": "cos(u_t, u_{t-1}) per step \u2014 why cumulative D grows sublinearly (random |cos| ~ 6e-4 in 2.7M dims; consecutive stream gradients persist)"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "KILLS_AT_GATE": {
+        "fires": false,
+        "D_kill_interp": 0.9203406595225093,
+        "window": [
+          2.12,
+          3.27
+        ],
+        "in_window": false,
+        "t_x": 0.556336072490073,
+        "bracket": [
+          0,
+          1
+        ],
+        "bracket_f": [
+          0.4,
+          0.6
+        ],
+        "D_bracket": [
+          0.6617161631584167,
+          0.9925732612609863
+        ],
+        "gm12_bracket": [
+          0.7526823878288269,
+          0.13518908619880676
+        ],
+        "raw_bracket": {
+          "t_x": 0.7056688026585778,
+          "bracket": [
+            0,
+            1
+          ],
+          "D_kill_interp": 1.1673655056766874
+        }
+      },
+      "SPARED_AT_GATE": {
+        "fires": false
+      },
+      "CAP_NEITHER": {
+        "fires": false
+      }
+    },
+    "verdict": "KILL-OUT-OF-WINDOW (no bar)",
+    "clause": "the fact died at interpolated displacement D_kill 0.9203 (t_x 0.56) \u2014 OUTSIDE the registered window [2.12, 3.27]: NEITHER bar fires (opt1b's convention: a kill outside the window is a graded outcome; the full fact-vs-D curve is reported verbatim; no bar claim).",
+    "stop": {
+      "kind": "kill",
+      "step": 1,
+      "t_x_raw": 0.7056688026585778,
+      "bracket_raw": [
+        0,
+        1
+      ],
+      "gm12_bracket_raw": [
+        0.9155886173248291,
+        0.0007279703859239817
+      ],
+      "D_kill_interp_raw": 1.1673655056766874,
+      "t_x": 0.556336072490073,
+      "f_x": 0.556336072490073,
+      "bracket": [
+        0,
+        1
+      ],
+      "bracket_f": [
+        0.4,
+        0.6
+      ],
+      "gm12_bracket": [
+        0.7526823878288269,
+        0.13518908619880676
+      ],
+      "D_bracket": [
+        0.6617161631584167,
+        0.9925732612609863
+      ],
+      "D_kill_interp": 0.9203406595225093
+    },
+    "constants": {
+      "step_scale": 1.6542880535125732,
+      "D_spare_gate": 2.6,
+      "D_stop": 3.3,
+      "kill_window": [
+        2.12,
+        3.27
+      ],
+      "adam_gate_band": [
+        2.49,
+        2.84
+      ],
+      "shut_bar": 0.27,
+      "step_cap": 300,
+      "D_kill_adam_A0": 2.4892616271972656
+    },
+    "composite_order": "KILLS-AT-GATE -> SPARED-AT-GATE -> CAP-NEITHER (frozen before compute; kill wins tie steps)"
+  },
+  "honesty_reflex": {
+    "recovery_provenance": "this is the OUTAGE-RECOVERY completion: the 2026-09-30 machine disruption killed the first agent post-smoke (no fault in the work); the script was verified against the frozen spec and the t=0 gate re-passed bit in THIS process; the fixes made (plot key, progressive writes, resume hardening) are machinery/output layer only \u2014 arm, cell, gates, bars and stop rule are the committed ones",
+    "n_and_scope": "n=1, single seed lineage (10902; the replicate ladder is a separate dispatch decision); ONE root, ONE input stream (bit-gated vs e185/opt1 at steps 1..10 + the t=0 gate); single family (the e131 consolidated line); this arm differs from the licensed cell in ONE thing only \u2014 the update rule (direction x size factorial's single cell)",
+    "extrapolation_free": "every adjudication input is MEASURED inside this run's window: the kill (if any) is bracketed by every-step reads and refined by along-path densification (points ON the same trajectory); the spare is certified by forced reads at the measured 2.6- and 3.3-crossing steps; CAP-NEITHER carries no adjudicating projection by registration",
+    "float_texture": "CPU fp32, this process, 4 threads (the e185/opt1 reduction order); the t=0 gate reproduces opt1's committed A0 row on THIS device before any training (Rule 12); the parents' curves are loaded from committed metrics, never rerun",
+    "committed_data_reuse": "opt1's Adam arms and opt1b's bleed are plotted from runs/opt1/metrics.json + runs/opt1b/metrics.json verbatim (the dispatch's order; no parent reruns)",
+    "no_guarantees": "nothing was guaranteed ex ante: the arm could kill at the gate, pass it alive, or bleed like SGD \u2014 the openness is the point; the stop actually observed is 'kill'",
+    "interpolation_texture": "D_kill/t_x are linear interpolations inside measured brackets (raw = one step wide; densified = a 0.2-fraction sub-bracket ON the path); the bracket is the honest resolution limit \u2014 both are reported",
+    "one_arm": "the factorial's other cell (Adam's direction at SGD's size \u2014 the mirror arm) was NOT run: the dispatch registered one arm, minimum; if this arm kills at the gate the mirror is moot for the registered question, if it survives the mirror becomes the next cell"
+  },
+  "trims": [],
+  "deviations": [
+    "THE CORRECTION vs the critic's letter: r58_critic 1g proposed 'sign-SGD (\u00b1lr per coordinate)'; this cell runs the L2-NORMALIZED gradient g_t/||g_t||_2 scaled to Adam's MEASURED step-1 L2 (the dispatch's correction) \u2014 exactly SGD's direction with the per-step L2 pinned EXACTLY at the measured Adam displacement (sign(g)*lr approximates it, 1.6550 vs 1.6543); the sign-vs-normalized residual is opt2's SIGN arm, not this cell's.",
+    "Reads at EVERY step (the bracket-tightest cadence). The arm is expected to resolve within a handful of steps (each step moves ~1.65 L2, so D=3.3 arrives by step ~2-4); the every-step cadence bounds the kill bracket at one step and the densification refines it WITHIN the step. Worst case (a direction stall keeping D below 3.3) is bounded by the 300-step cap at ~8-10 chunks.",
+    "Kill-bracket densification reads g-12 at parameter points theta_{s0} + f*(theta_{s1}-theta_{s0}) for f in {0.2,0.4,0.6,0.8} \u2014 points ON the same piecewise-linear parameter trajectory (between two committed training steps), not new training steps and not off-path probes; it refines D_kill's bracket only. Both the raw and densified brackets are reported; the window adjudication uses the densified bracket (frozen here before compute).",
+    "Chunk cap 178 s (dispatch <=180 s; the margin absorbs one ~2 s step overshoot); in-chunk checkpoint reads count toward the cap (opt1's FT_TIME_CAP convention). Chunk state round-trips through runs/opt1c/chunk_state.pt exactly per the opt1b convention (model + generator state + step + journal + reads + flags + last direction vector); each chunk LOADS the previous chunk's file; chunk-boundary parameter md5s form a hash chain.",
+    "This arm has NO learning rate: the update is size-pinned by construction (per-step L2 = STEP_SCALE exactly; machinery gate G_STEPSCALE reports max|step_disp - STEP_SCALE|). The batch CE, pre-clip grad norms, and input md5s are still recorded per step (the licensed cell's own reads).",
+    "Light reads only (g-12/g0 batteries + CE_R + alignment + displacement + pre-clip grad norms + direction persistence) \u2014 the dispatch's read list; no census/deletions. CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 before torch; the GPU is g1bS's, never claimed); threads 4; n=1; single seed lineage (10902).",
+    "Smoke mode trims: cap 4 steps, 12 s chunks, no densification, no adjudication (verdict stamped SMOKE; nothing adjudicated).",
+    "RECOVERY (2026-10-01) \u2014 plot key fix: the committed smoke crashed at plot_fact_vs_D (KeyError 'D') because opt1's ckpt_table rows key displacement as 'cum_disp'; the overlay now reads the committed key and the kill star falls back to the raw interpolation when the densified value is absent. Plot layer only \u2014 no arm/gate/bar logic touched.",
+    "RECOVERY (2026-10-01) \u2014 progressive partial metrics.json writes (the outage lesson; mandated by the recovery dispatch): a partial is written (a) immediately after the t=0 gates pass and (b) after every chunk save, each stamped status/phase/timestamp with gates + provenance + journal/read tails + chunks + stop-so-far; the final COMPLETE write replaces it. An outage at ANY point leaves an honest, dated, machine-readable state file behind.",
+    "RECOVERY (2026-10-01) \u2014 resume hardening: chunk_state additionally persists stop + chunks_prov (appended BEFORE the save so the file always includes the just-finished chunk); the same-process chunk LOAD assigns (not accumulates) zeph_checks/step_disp_devs \u2014 the committed script double-counted both across same-process chunk boundaries (cosmetic for the max-deviation gate, wrong for the reported counts); a recovery hook before the arm loop restores an already-completed run (stop set in chunk_state) so the final metrics/plots regenerate WITHOUT re-training past a completed kill. No effect on the registered arm, reads, bars or stop rule.",
+    "RECOVERY (2026-10-01) \u2014 provenance: this is the outage-recovery re-dispatch (first agent killed post-smoke by the 2026-09-30 machine disruption; survivors committed at ef4f1f1). Smoke lineage: runs/opt1c_smoke/ (all 10 gates PASS, t=0 diffs 0.0) + runs/checkpoints/smoke_opt1c_sgrad_dir_s1.pt. The t=0 gate is re-verified bit in THIS process before any training; CPU-only (the GPU belongs to g1bS's recovery)."
+  ],
+  "ckpt_inventory": {
+    "opt1c_sgrad_dir_s1": {
+      "path": "runs/checkpoints/opt1c_sgrad_dir_s1.pt",
+      "arm": "sgrad_dir_at_adam_size",
+      "steps": 1,
+      "stop": "kill"
+    },
+    "chunk_state": {
+      "path": "runs/opt1c/chunk_state.pt",
+      "note": "the resumable state (model + generator + step + journal + reads)"
+    }
+  },
+  "timing": {
+    "total_s": 16.3
+  },
+  "config": {
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 192,
+    "block_size": 256,
+    "params": 2739072,
+    "train_device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "eval_device": "cpu",
+    "torch_threads": 4,
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128",
+    "chunk_cap_s": 178.0
+  }
+}

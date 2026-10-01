@@ -124,6 +124,43 @@ opt1c_coreads.png, chunk_state.pt, journal.jsonl}; checkpoint
 runs/checkpoints/opt1c_sgrad_dir_s<final>.pt. No NOTES/THINKING/
 QUEUE/STATE edits (the coordinator folds).
 
+RECOVERY NOTE (2026-10-01, the outage-recovery executor): the
+machine disruption of 2026-09-30 killed the dispatching agent right
+after the smoke (commit ef4f1f1 preserved script + smoke; the smoke
+passed ALL gates with the t=0 reproduction bit-perfect, diffs 0.0,
+then died at the fact-vs-D plot — no PNGs were ever written). This
+file was VERIFIED line-by-line against the frozen spec before the
+real run: the arm (delta = 1.6543 * g/||g||, descent, post-clip g,
+direction clip-invariant, pre-clip norm recorded), the licensed cell
+(root e131_consolidated_e113.pt, seed-10902 stream, E185_XHASH batch
+gates 1..10), the t=0 bit-identity gate vs opt1's committed A0 row,
+the three registered bars VERBATIM, the stop rule (kill / D>=3.3
+alive / 300-step cap; kill outside [2.12, 3.27] fires NO bar), the
+composite order — ALL unchanged. Fixes made by the recovery executor
+(machinery/output layer ONLY; the update rule, cell, gates, bars,
+stop rule and adjudication are untouched):
+  (1) PLOT KEY FIX — the smoke's actual crash: the Adam-arm overlay
+      read r["D"] but opt1's committed ckpt_table rows key
+      displacement as "cum_disp" (verified against runs/opt1/
+      metrics.json); fixed to read the committed key. The kill star
+      now falls back to the raw interpolation when the densified
+      value is absent (smoke mode).
+  (2) PROGRESSIVE PARTIAL metrics.json WRITES (the outage lesson,
+      mandated by the recovery dispatch): written right after the
+      gates pass, then after EVERY chunk save — each partial carries
+      status/phase/gates/provenance/journal+reads tails/chunks/stop,
+      so a mid-run outage loses nothing; the final COMPLETE write
+      replaces it.
+  (3) RESUME HARDENING — chunk_state now also persists stop +
+      chunks_prov; the same-process chunk LOAD no longer
+      double-counts zeph_checks/step_disp_devs (assignment, not
+      accumulation — correct in both the same-process and
+      fresh-process paths); a RECOVERY HOOK before the arm loop
+      detects an already-completed run (stop set in chunk_state) and
+      restores it so metrics/plots regenerate WITHOUT re-training
+      (a die-between-chunk-save-and-final-write outage previously
+      would have stepped PAST a completed kill).
+
 Run:  cd lab && python opt1c_direction_size.py    (OPT1C_SMOKE=1 shakedown)
 """
 from __future__ import annotations
@@ -309,6 +346,36 @@ deviations: list[str] = [
     "lineage (10902).",
     "Smoke mode trims: cap 4 steps, 12 s chunks, no densification, no "
     "adjudication (verdict stamped SMOKE; nothing adjudicated).",
+    "RECOVERY (2026-10-01) — plot key fix: the committed smoke crashed at "
+    "plot_fact_vs_D (KeyError 'D') because opt1's ckpt_table rows key "
+    "displacement as 'cum_disp'; the overlay now reads the committed key "
+    "and the kill star falls back to the raw interpolation when the "
+    "densified value is absent. Plot layer only — no arm/gate/bar logic "
+    "touched.",
+    "RECOVERY (2026-10-01) — progressive partial metrics.json writes "
+    "(the outage lesson; mandated by the recovery dispatch): a partial "
+    "is written (a) immediately after the t=0 gates pass and (b) after "
+    "every chunk save, each stamped status/phase/timestamp with gates + "
+    "provenance + journal/read tails + chunks + stop-so-far; the final "
+    "COMPLETE write replaces it. An outage at ANY point leaves an "
+    "honest, dated, machine-readable state file behind.",
+    "RECOVERY (2026-10-01) — resume hardening: chunk_state additionally "
+    "persists stop + chunks_prov (appended BEFORE the save so the file "
+    "always includes the just-finished chunk); the same-process chunk "
+    "LOAD assigns (not accumulates) zeph_checks/step_disp_devs — the "
+    "committed script double-counted both across same-process chunk "
+    "boundaries (cosmetic for the max-deviation gate, wrong for the "
+    "reported counts); a recovery hook before the arm loop restores an "
+    "already-completed run (stop set in chunk_state) so the final "
+    "metrics/plots regenerate WITHOUT re-training past a completed "
+    "kill. No effect on the registered arm, reads, bars or stop rule.",
+    "RECOVERY (2026-10-01) — provenance: this is the outage-recovery "
+    "re-dispatch (first agent killed post-smoke by the 2026-09-30 "
+    "machine disruption; survivors committed at ef4f1f1). Smoke "
+    "lineage: runs/opt1c_smoke/ (all 10 gates PASS, t=0 diffs 0.0) + "
+    "runs/checkpoints/smoke_opt1c_sgrad_dir_s1.pt. The t=0 gate is "
+    "re-verified bit in THIS process before any training; CPU-only "
+    "(the GPU belongs to g1bS's recovery).",
 ]
 
 
@@ -628,6 +695,30 @@ def main():
     log("WHAT THIS ARM GUARANTEES: NOTHING — it could kill at the gate, "
         "pass it alive, or bleed like SGD; that openness is the point.")
 
+    # ---- PROGRESSIVE PARTIAL WRITE #1 (the outage lesson): the gates
+    # have passed and the size is pinned — if the machine dies from here
+    # on, this file says exactly where things stood.
+    save_json(rd / "metrics.json", E43.jsonable({
+        "experiment": "opt1c_direction_size", "date": common.now_iso(),
+        "status": "PARTIAL — all pre-dispatch gates PASSED (t=0 "
+                  "bit-identity vs opt1 A0), arm starting; no steps yet",
+        "partial": True,
+        "phase": {"step": 0, "elapsed_s": round(time.time() - T0, 1)},
+        "gates_partial": {"G_SPLICE": G_SPLICE, "G_NAMEFREE": G_NAMEFREE,
+                          "G_BATTERY": G_BATTERY, "G_ANCHOR": G_ANCHOR,
+                          "G_ROOT": G_ROOT, "G_T0": G_T0},
+        "provenance_partial": {
+            "step_scale_measured": STEP_SCALE,
+            "step_scale_committed_opt1_a0": STEP_SCALE_COMMITTED,
+            "t0_gate": G_T0,
+            "recovery": ("outage-recovery re-dispatch (2026-10-01); first "
+                         "agent killed post-smoke 2026-09-30 (ef4f1f1); "
+                         "smoke lineage runs/opt1c_smoke + runs/"
+                         "checkpoints/smoke_opt1c_sgrad_dir_s1.pt; t=0 "
+                         "gate re-verified bit in THIS process")},
+    }))
+    log(f"[partial] metrics.json written (gates passed, arm starting)")
+
     # =====================================================================
     # THE ARM (chunked, ckpt-resumable; reads at EVERY step)
     # =====================================================================
@@ -661,6 +752,77 @@ def main():
                   "cum_disp": 0.0, "cos_delta_fact_g0": None,
                   "cos_delta_fact_m12": None})
 
+    # ---- PROGRESSIVE PARTIAL WRITER (the outage lesson): cheap, dated,
+    # machine-readable state after every chunk; the final COMPLETE write
+    # replaces it. Closes over the arm-loop state at CALL time.
+    def write_partial(status: str, stop_: dict | None) -> None:
+        save_json(rd / "metrics.json", E43.jsonable({
+            "experiment": "opt1c_direction_size", "date": common.now_iso(),
+            "status": status, "partial": True,
+            "phase": {"step": int(step), "chunks": len(chunks_prov),
+                      "reads": len(reads), "journal_rows": len(journal),
+                      "stop_kind": (stop_ or {}).get("kind"),
+                      "elapsed_s": round(time.time() - T0, 1)},
+            "gates_partial": {"G_SPLICE": G_SPLICE, "G_NAMEFREE":
+                              G_NAMEFREE, "G_BATTERY": G_BATTERY,
+                              "G_ANCHOR": G_ANCHOR, "G_ROOT": G_ROOT,
+                              "G_T0": G_T0},
+            "provenance_partial": {
+                "step_scale_measured": STEP_SCALE,
+                "step_scale_committed_opt1_a0": STEP_SCALE_COMMITTED,
+                "recovery": ("outage-recovery re-dispatch (2026-10-01); "
+                             "smoke lineage runs/opt1c_smoke; t=0 gate "
+                             "bit-verified in THIS process")},
+            "chunks": chunks_prov,
+            "journal_tail": journal[-8:], "reads_tail": reads[-8:],
+            "stop_partial": stop_,
+        }))
+
+    # ---- RECOVERY HOOK: if a previous process COMPLETED the arm (stop
+    # set in chunk_state) and died before the final write, restore and
+    # skip training entirely — metrics/plots regenerate; the arm is
+    # never stepped past a completed kill.
+    if chunk_path.exists():
+        _probe = torch.load(chunk_path, map_location="cpu",
+                            weights_only=False)
+        if isinstance(_probe, dict) and _probe.get("stop") is not None:
+            net.load_state_dict(_probe["model"])
+            net.train()
+            gen.set_state(_probe["gen_state"])
+            step = int(_probe["step"])
+            journal = _probe["journal"]
+            reads = _probe["reads"]
+            densify_rows = _probe["densify_rows"]
+            d26_crossed = bool(_probe["d26_crossed"])
+            d33_crossed = bool(_probe["d33_crossed"])
+            prev_u = _probe["prev_u"]
+            d26_row = _probe["d26_row"]
+            md5_vs_e185.update(_probe["md5_vs_e185"])
+            zeph_checks = int(_probe["zeph_checks"])
+            step_disp_devs = list(_probe["step_disp_devs"])
+            chunks_prov = list(_probe.get("chunks_prov", []))
+            stop = dict(_probe["stop"])
+            chunk_idx = int(_probe["chunk"]) + 1
+            prev = flat_params(net)
+            _rt = {"chunk": int(_probe["chunk"]), "loaded_step": step,
+                   "flat_md5_match": bool(flat_md5(net)
+                                          == _probe["flat_md5"]),
+                   "gen_state_match": bool(torch.equal(
+                       gen.get_state(), _probe["gen_state"])),
+                   "journal_len": len(journal), "recovery_hook": True}
+            G_CHUNKS["round_trips"].append(_rt)
+            log(f"RECOVERY HOOK: completed run restored @ step {step} "
+                f"(stop={stop['kind']}; md5 "
+                f"{'OK' if _rt['flat_md5_match'] else 'MISMATCH'}, gen "
+                f"{'OK' if _rt['gen_state_match'] else 'MISMATCH'}) — "
+                f"NO re-training")
+            if not (_rt["flat_md5_match"] and _rt["gen_state_match"]):
+                raise RuntimeError("recovery hook round-trip FAILED")
+            write_partial(
+                f"PARTIAL (recovery hook): completed run restored @ "
+                f"step {step} (stop={stop['kind']}); final write pending",
+                stop)
+
     while stop is None:
         # ---- chunk begin: LOAD the previous chunk's state file (the
         # cross-process resume path; chunk 0 starts fresh from the root)
@@ -679,8 +841,12 @@ def main():
             prev_u = st["prev_u"]
             d26_row = st["d26_row"]
             md5_vs_e185.update(st["md5_vs_e185"])
-            zeph_checks += int(st["zeph_checks"])
-            step_disp_devs.extend(st["step_disp_devs"])
+            # RECOVERY FIX: assign, never accumulate — the committed
+            # version double-counted these across same-process chunk
+            # boundaries (correct only in the fresh-process path)
+            zeph_checks = int(st["zeph_checks"])
+            step_disp_devs = list(st["step_disp_devs"])
+            chunks_prov = list(st.get("chunks_prov", []))
             prev = flat_params(net)          # displacement continuity anchor
             rt = {"chunk": int(st["chunk"]) + 1, "loaded_step": step,
                   "flat_md5_match": bool(flat_md5(net) == st["flat_md5"]),
@@ -867,8 +1033,23 @@ def main():
                         "d26_row": (dict(d26_row) if d26_row else None)}
                 break
 
-        # ---- chunk end: SAVE the full state (round-trip through disk)
+        # ---- chunk end: SAVE the full state (round-trip through disk).
+        # The chunk's provenance row is appended BEFORE the save (the
+        # recovery reordering) so the file always includes the
+        # just-finished chunk — and stop is persisted so a
+        # die-before-final-write outage resumes into the RECOVERY HOOK
+        # instead of stepping past a completed kill.
         fp_md5 = flat_md5(net)
+        ch_rows = [r["step"] for r in journal if r["chunk"] == chunk_idx]
+        chunks_prov.append({"chunk": chunk_idx,
+                            "step_from": (min(ch_rows) if ch_rows
+                                          else step + 1),
+                            "step_to": step,
+                            "n_steps": sum(1 for r in journal
+                                           if r["chunk"] == chunk_idx),
+                            "wall_s": round(time.time() - t_chunk, 1),
+                            "flat_md5_at_end": fp_md5,
+                            "stopped": stop is not None})
         payload = {"model": {k: v.detach().cpu().clone()
                              for k, v in net.state_dict().items()},
                    "gen_state": gen.get_state().clone(),
@@ -883,6 +1064,8 @@ def main():
                    "md5_vs_e185": dict(md5_vs_e185),
                    "zeph_checks": int(zeph_checks),
                    "step_disp_devs": list(step_disp_devs),
+                   "stop": stop,
+                   "chunks_prov": list(chunks_prov),
                    "flat_md5": fp_md5,
                    "meta": {"experiment": "opt1c",
                             "arm": "sgrad_dir_at_adam_size",
@@ -892,16 +1075,11 @@ def main():
                             "parent": "runs/opt1/metrics.json (A0 size) + "
                                       "runs/opt1b/metrics.json (the bleed)"}}
         torch.save(payload, chunk_path)
-        ch_rows = [r["step"] for r in journal if r["chunk"] == chunk_idx]
-        chunks_prov.append({"chunk": chunk_idx,
-                            "step_from": (min(ch_rows) if ch_rows
-                                          else step + 1),
-                            "step_to": step,
-                            "n_steps": sum(1 for r in journal
-                                           if r["chunk"] == chunk_idx),
-                            "wall_s": round(time.time() - t_chunk, 1),
-                            "flat_md5_at_end": fp_md5,
-                            "stopped": stop is not None})
+        write_partial(
+            f"PARTIAL: chunk {chunk_idx} saved @ step {step} "
+            f"(stop={stop['kind'] if stop else 'none'}); "
+            + ("final write pending" if stop else "arm continuing"),
+            stop)
         log(f"[chunk {chunk_idx}] SAVED @ step {step} "
             f"(wall {time.time() - t_chunk:.0f}s, md5 {fp_md5[:10]}…)")
         chunk_idx += 1
@@ -917,7 +1095,8 @@ def main():
     G_CHUNKS["pass"] = bool(all(rt["flat_md5_match"]
                                 and rt["gen_state_match"]
                                 for rt in G_CHUNKS["round_trips"]))
-    G_CHUNKS["max_chunk_wall_s"] = max(c["wall_s"] for c in chunks_prov)
+    G_CHUNKS["max_chunk_wall_s"] = max((c["wall_s"] for c in chunks_prov),
+                                       default=0.0)
     G_DRAWFREE = {"zeph_violations": zeph_checks,
                   "pass": bool(zeph_checks == 0)}
     assert G_DRAWFREE["pass"], "name token leaked into a window"
@@ -985,7 +1164,8 @@ def main():
                               "in_window": in_window,
                               "t_x": stop["t_x"],
                               "bracket": list(stop["bracket"]),
-                              "bracket_f": list(stop["bracket_f"]),
+                              "bracket_f": list(stop.get(
+                                  "bracket_f", [None, None])),
                               "D_bracket": list(stop["D_bracket"]),
                               "gm12_bracket": list(stop["gm12_bracket"]),
                               "raw_bracket": {"t_x": stop["t_x_raw"],
@@ -1101,6 +1281,9 @@ def main():
     metrics = {
         "experiment": "opt1c_direction_size",
         "date": common.now_iso(),
+        "status": "COMPLETE — adjudicated (this write replaces all "
+                  "PARTIAL progressive writes; see provenance.recovery "
+                  "for the outage lineage)",
         "registration": ("the dispatch's registration IS the registration "
                          "(the three bars quoted verbatim in the module "
                          "docstring and in registered_prediction, frozen "
@@ -1153,6 +1336,32 @@ def main():
                 "adamw_one_step_L2_measured": disp1,
                 "adamw_one_step_L2_opt1_committed": STEP_SCALE_COMMITTED},
             "effective_step1_sgd_lr": STEP_SCALE / gn1,
+            "recovery": {
+                "what": ("outage-recovery re-dispatch (2026-10-01): the "
+                         "2026-09-30 machine disruption killed the "
+                         "dispatching agent immediately after the smoke "
+                         "(survivors committed at ef4f1f1); this run is "
+                         "the recovery executor's completion from the "
+                         "verified committed script"),
+                "smoke_lineage": ("runs/opt1c_smoke/ (all 10 gates "
+                                  "PASS; t=0 diffs 0.0 bit; the smoke "
+                                  "itself crashed at the fact-vs-D plot "
+                                  "— the recovered key bug, fixed and "
+                                  "documented in deviations) + runs/"
+                                  "checkpoints/smoke_opt1c_sgrad_dir_"
+                                  "s1.pt"),
+                "re_verified_in_this_process": ("the t=0 bit-identity "
+                                                "gate re-ran and passed "
+                                                "in THIS process before "
+                                                "any training "
+                                                "(G_T0 above)"),
+                "progressive_writes": ("metrics.json was written "
+                                       "progressively (after the gates, "
+                                       "after every chunk) per the "
+                                       "recovery dispatch's outage "
+                                       "lesson; intermediate PARTIAL "
+                                       "writes are replaced by this "
+                                       "COMPLETE write")},
             "resume": {
                 "method": ("fresh start from the root (no replay needed — "
                            "the arm is a NEW trajectory, not a "
@@ -1235,6 +1444,18 @@ def main():
                                "wins tie steps)",
         },
         "honesty_reflex": {
+            "recovery_provenance": ("this is the OUTAGE-RECOVERY "
+                                    "completion: the 2026-09-30 machine "
+                                    "disruption killed the first agent "
+                                    "post-smoke (no fault in the work); "
+                                    "the script was verified against the "
+                                    "frozen spec and the t=0 gate "
+                                    "re-passed bit in THIS process; the "
+                                    "fixes made (plot key, progressive "
+                                    "writes, resume hardening) are "
+                                    "machinery/output layer only — "
+                                    "arm, cell, gates, bars and stop "
+                                    "rule are the committed ones"),
             "n_and_scope": ("n=1, single seed lineage (10902; the "
                             "replicate ladder is a separate dispatch "
                             "decision); ONE root, ONE input stream "
@@ -1338,10 +1559,12 @@ def plot_fact_vs_D(path, curve, adam_arms, bleed_curve, verdict, clause,
     ax.plot([r["D"] for r in bleed_curve], [r["gm12"] for r in bleed_curve],
             "o-", ms=4.5, lw=1.8, color="royalblue", alpha=0.9,
             label="SGD 1e-2 — THE BLEED (opt1b committed, to s600)")
-    # the Adam arms (opt1 committed)
+    # the Adam arms (opt1 committed; ckpt_table keys displacement as
+    # "cum_disp" — the recovery key fix; the smoke crashed on r["D"])
     for t, rows in adam_arms.items():
         col, lbl = ADAM_STYLE[t]
-        pts = [(r["D"], r["gm12"]) for r in rows if r["step"] > 0]
+        pts = [(r["cum_disp"], r["gm12"]) for r in rows
+               if r["step"] > 0]
         ax.plot([p[0] for p in pts], [p[1] for p in pts], "s--", ms=5,
                 lw=1.5, color=col, alpha=0.85, label=lbl)
     # THIS arm
@@ -1358,9 +1581,10 @@ def plot_fact_vs_D(path, curve, adam_arms, bleed_curve, verdict, clause,
                          (SHUT_BAR, "tab:purple", f"{SHUT_BAR} DISSOLVE")):
         ax.axhline(yv, ls="--", lw=1.1, color=col, alpha=0.8, label=lbl)
     if stop["kind"] == "kill":
-        ax.plot([stop["D_kill_interp"]], [SHUT_BAR], "*", ms=19,
+        dk = stop.get("D_kill_interp", stop.get("D_kill_interp_raw"))
+        ax.plot([dk], [SHUT_BAR], "*", ms=19,
                 color="yellow", mec="k", zorder=6,
-                label=f"KILL (interp D {stop['D_kill_interp']:.3f})")
+                label=f"KILL (interp D {dk:.3f})")
     if stop["kind"] == "spared":
         ax.plot([stop["d26_row"]["cum_disp"]], [stop["d26_row"]["gm12"]],
                 "*", ms=19, color="lime", mec="k", zorder=6,
