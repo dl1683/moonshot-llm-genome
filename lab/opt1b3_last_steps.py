@@ -24,9 +24,14 @@ payload == the partial's chunk-0 tail; journal contiguous s1201..s1264
 with one read per step; tails bit-equal the committed partial; the
 displacement recompute; stream uniqueness across opt1b+opt1b2+the loaded
 rows) certifies it; on failure it ABORTS (control failure). It NEVER
-re-executes steps 1201..1264. The registration is the dispatch's letter
-VERBATIM (bars quoted word-for-word); no bar shopping; no bar, cadence,
-gate threshold or adjudication logic changed by the recovery.
+re-executes committed steps. G_MIDRESUME v1 was over-strict and aborted
+once at the s1348 in-process chunk boundary (a control failure: no steps
+past it, nothing adjudicated; v2 scopes the partial binds to
+cross-process loads at the partial's own step — see deviations); the run
+then resumed from the saved s1348 chunk. The registration is the
+dispatch's letter VERBATIM (bars quoted word-for-word); no bar shopping;
+no bar, cadence, gate threshold or adjudication logic changed by the
+recovery.
 
 THE CELL (CPU-only, minutes): resume the committed s1200 state via opt1b2's
 CERTIFIED path (the chunk_state == s1200.pt == journal-tail gates, all
@@ -370,21 +375,31 @@ deviations: list[str] = [
     "the fifth disruption killed dispatch-2's executor mid-flight at s1264 "
     "(chunk 0: 64 every-step reads, all alive; survivors = the mid-flight "
     "runs/opt1b3/chunk_state.pt + the PARTIAL metrics.json committed at "
-    "b7f8e20). This dispatch adds: (a) THE MID-RUN RESUME GATE "
-    "(gates.G_MIDRESUME, certify_midrun) — the loaded cross-process chunk "
-    "is certified before any step continues (model flat-md5 recomputed == "
-    "payload == the partial's chunk-0 tail; journal contiguous from the "
-    "parent's s1200 stop; one read per step; tails bit-equal the committed "
-    "partial; displacement recompute from the root; stream uniqueness "
-    "across opt1b+opt1b2+loaded); on failure the run ABORTS and never "
-    "re-executes steps 1201..1264; (b) the chunk_idx continuity fix — a "
+    "b7f8e20, now also preserved verbatim at "
+    "runs/opt1b3/partial_dispatch2_b7f8e20.json). This dispatch adds: (a) "
+    "THE MID-RUN RESUME GATE (gates.G_MIDRESUME, certify_midrun) — a "
+    "loaded cross-process chunk is certified before any step continues "
+    "(model flat-md5 recomputed == payload; journal contiguous from the "
+    "parent's s1200 stop; one read per step; displacement recompute from "
+    "the root; stream uniqueness across opt1b+opt1b2+loaded; plus, when "
+    "the loaded state IS the on-disk partial's snapshot step, tails "
+    "bit-equal that partial); on failure the run ABORTS and never "
+    "re-executes committed steps; (b) the chunk_idx continuity fix — a "
     "fresh process resuming a mid-flight chunk tags its chunk as "
     "st['chunk']+1 so journal rows and chunks_prov never duplicate the "
-    "predecessor's chunk-0 rows (the opt1c recovery-fix class); (c) the "
-    "predecessor's partial preserved verbatim under "
-    "metrics['recovery']['predecessor_partial']. Verified standalone "
-    "before dispatch: md5/disp recomputes exact (|d| 0.0), tails equal, "
-    "union 1264-step stream unique.",
+    "predecessor's chunk-0 rows (the opt1c recovery-fix class). Verified "
+    "standalone before dispatch: md5/disp recomputes exact (|d| 0.0), "
+    "tails equal, union 1264-step stream unique.",
+    "G_MIDRESUME v1->v2 (a control failure, disclosed): v1 enforced the "
+    "partial binds at EVERY chunk load, so it ABORTED at the s1348 "
+    "in-process chunk boundary (the state had legitimately advanced past "
+    "the s1264 partial) after chunk 1 was saved — no steps executed past "
+    "the abort, nothing adjudicated, the s1348 chunk_state intact on "
+    "disk. v2 scopes the partial binds to CROSS-PROCESS loads at the "
+    "partial's own phase step (the killed process's independent second "
+    "artifact of that same state); intrinsic binds (md5/contiguity/"
+    "uniqueness/disp) still run at every load. The run then resumed from "
+    "the saved s1348 chunk — same certified machinery, bars untouched.",
 ]
 
 
@@ -481,16 +496,25 @@ def interp_cross(s0, v0, s1, v1, bar):
 
 
 def certify_midrun(st, net, theta0, j600_file, j1200_file,
-                   pred_partial) -> dict:
+                   pred_partial, cross_process) -> dict:
     """THE MID-RUN RESUME GATE (third dispatch; Rule 12): certify a KILLED
     PREDECESSOR's mid-flight chunk_state BEFORE continuing from it. The
     normal per-chunk round-trip gate (flat_md5 + gen_state) already binds
     the loaded state to disk; this adds the cross-process provenance
     binds: journal contiguity from the parent's s1200 stop, one read per
-    step, tails bit-equal the COMMITTED PARTIAL metrics.json (b7f8e20),
-    the displacement recompute at the loaded step, and stream uniqueness
-    across parents + the loaded rows. Data/recovery layer ONLY — no bar,
-    cadence or adjudication logic. Failing any clause aborts the run."""
+    step, the displacement recompute at the loaded step, and stream
+    uniqueness across parents + the loaded rows — these run at EVERY
+    chunk load (cheap, always meaningful). The PARTIAL-metrics binds
+    (tails bit-equal the progressive metrics.json written by the killed
+    process) are enforced ONLY on a CROSS-PROCESS load whose loaded step
+    equals the partial's own phase step — i.e. when the loaded state IS
+    the partial's snapshot; a state PAST that step is a descendant, and
+    the partial is provenance for it, not a reference (v1 of this gate
+    enforced the binds at every load and aborted at an in-process chunk
+    boundary — a control failure, disclosed in deviations; no steps were
+    executed past it and nothing was adjudicated). Data/recovery layer
+    ONLY — no bar, cadence or adjudication logic. Failing any ENFORCED
+    clause aborts the run."""
     jr, rr = st["journal"], st["reads"]
     steps = [int(r["step"]) for r in jr]
     contig = bool(steps == list(range(RESUME_STEP + 1,
@@ -505,19 +529,35 @@ def certify_midrun(st, net, theta0, j600_file, j1200_file,
     disp_now = float(torch.norm(flat - theta0))
     disp_diff = abs(disp_now - float(jr[-1]["cum_disp"]))
     tail_j = tail_r = tail_c = phase_step = partial_md5 = True
+    partial_mode = "none on disk"
     if pred_partial is not None:
-        _jt = pred_partial.get("journal_tail") or []
-        _rt = pred_partial.get("reads_tail") or []
-        _ct = pred_partial.get("chunks") or []
-        tail_j = bool(_jt == jr[-len(_jt):] if _jt else True)
-        tail_r = bool(_rt == rr[-len(_rt):] if _rt else True)
-        tail_c = bool(_ct == list(st.get("chunks_prov", []))[:len(_ct)]
-                      if _ct else True)
-        phase_step = bool(int(pred_partial.get("phase", {}).get("step", -1))
-                          == int(st["step"]))
-        if _ct:
-            partial_md5 = bool(_ct[-1].get("flat_md5_at_end")
-                               == st["flat_md5"])
+        _pstep = int(pred_partial.get("phase", {}).get("step", -1))
+        if cross_process and int(st["step"]) == _pstep:
+            partial_mode = (f"ENFORCED (cross-process load @ s{st['step']} "
+                            "== the partial's phase step — the partial is "
+                            "the killed process's INDEPENDENT second "
+                            "artifact of this same state)")
+            _jt = pred_partial.get("journal_tail") or []
+            _rt = pred_partial.get("reads_tail") or []
+            _ct = pred_partial.get("chunks") or []
+            tail_j = bool(_jt == jr[-len(_jt):] if _jt else True)
+            tail_r = bool(_rt == rr[-len(_rt):] if _rt else True)
+            tail_c = bool(_ct == list(st.get("chunks_prov", []))[:len(_ct)]
+                          if _ct else True)
+            phase_step = bool(_pstep == int(st["step"]))
+            if _ct:
+                partial_md5 = bool(_ct[-1].get("flat_md5_at_end")
+                                   == st["flat_md5"])
+        elif cross_process:
+            partial_mode = (f"skipped-descendant (cross-process load @ "
+                            f"s{st['step']} is PAST the partial's phase "
+                            f"step s{_pstep}; the partial is provenance "
+                            "for this state's ancestor, not a reference "
+                            "for it — intrinsic binds only)")
+        else:
+            partial_mode = ("skipped-in-process (a chunk boundary of THIS "
+                            "process; the round-trip gate above is the "
+                            "bind)")
     payload_md5 = bool(md5_now == st["flat_md5"])
     meta_parent_ok = "opt1b2" in str(st.get("meta", {}).get("parent", ""))
     passed = bool(payload_md5 and partial_md5 and contig and reads_match
@@ -525,11 +565,13 @@ def certify_midrun(st, net, theta0, j600_file, j1200_file,
                   and tail_c and phase_step and meta_parent_ok)
     return {
         "ran": True, "resumed_step": int(st["step"]),
+        "cross_process_load": bool(cross_process),
         "state_kind": ("mid-flight (stop=None) — a killed predecessor's "
                        "chunk" if st.get("stop") is None
                        else "completed (stop set)"),
         "journal_rows_loaded": len(jr), "read_rows_loaded": len(rr),
         "flat_md5_recompute_match": payload_md5,
+        "partial_bind_mode": partial_mode,
         "partial_chunk_tail_md5_match": partial_md5,
         "journal_contiguous_from_parent_stop": contig,
         "reads_one_per_step": reads_match,
@@ -542,19 +584,20 @@ def certify_midrun(st, net, theta0, j600_file, j1200_file,
                                           "phase_step": phase_step},
         "meta_parent_binding_ok": meta_parent_ok,
         "pass": passed,
-        "note": "THIRD-DISPATCH RECOVERY (Rule 12): the loaded cross-process "
-                "chunk (written by dispatch-2's executor, killed mid-flight "
-                "by the fifth disruption) is certified before ANY step "
-                "continues — the model's flat-md5 recomputed in this "
-                "process == the payload's recorded hash == the committed "
-                "partial's chunk-0 tail; the journal is contiguous from the "
-                "parent's s1200 stop with exactly one read per step; the "
-                "journal/read/chunk tails are bit-equal the PARTIAL "
-                "metrics.json committed at b7f8e20; the displacement from "
-                "the root recomputes to the loaded journal's value; and the "
-                "whole 1264-step input stream (opt1b 600 + opt1b2 600 + the "
-                "loaded 64) is md5-unique. On any failure the run ABORTS "
-                "(control failure) — steps 1201..1264 are never re-executed.",
+        "note": "THIRD-DISPATCH RECOVERY (Rule 12): a loaded cross-process "
+                "chunk (written by a killed predecessor process) is "
+                "certified before ANY step continues — the model's flat-md5 "
+                "recomputed in this process == the payload's recorded hash; "
+                "the journal is contiguous from the parent's s1200 stop "
+                "with exactly one read per step; the displacement from the "
+                "root recomputes to the loaded journal's value; and the "
+                "whole input stream (opt1b 600 + opt1b2 600 + the loaded "
+                "rows) is md5-unique. When the loaded state IS the "
+                "on-disk partial's snapshot step, the journal/read/chunk "
+                "tails are additionally bound bit-equal to that partial "
+                "(the killed process's independent second artifact). On "
+                "any enforced-clause failure the run ABORTS (control "
+                "failure) — committed steps are never re-executed.",
     }
 
 
@@ -954,6 +997,11 @@ def main():
             net.train()
             gen.set_state(st["gen_state"])
             step = int(st["step"])
+            # cross-process iff this process has written no journal rows of
+            # its own yet (a fresh process resuming a killed predecessor's
+            # mid-flight chunk); an in-process chunk boundary re-loads its
+            # own rows (cross_process False)
+            cross_process = (len(journal) == 0)
             journal = st["journal"]
             reads = st["reads"]
             d26_crossed = bool(st["d26_crossed"])
@@ -986,14 +1034,17 @@ def main():
             # certification trivially (its rows were written by this process).
             G_MIDRESUME.clear()
             G_MIDRESUME.update(certify_midrun(st, net, theta0, j600_file,
-                                              j1200_file, pred_partial))
-            log(f"G_MIDRESUME ({G_MIDRESUME['state_kind']}): resumed @ s"
-                f"{G_MIDRESUME['resumed_step']}, {G_MIDRESUME['journal_rows_loaded']} "
-                f"journal rows, md5 recompute "
+                                              j1200_file, pred_partial,
+                                              cross_process))
+            log(f"G_MIDRESUME ({G_MIDRESUME['state_kind']}; cross-process "
+                f"load={G_MIDRESUME['cross_process_load']}): resumed @ s"
+                f"{G_MIDRESUME['resumed_step']}, "
+                f"{G_MIDRESUME['journal_rows_loaded']} journal rows, md5 "
+                f"recompute "
                 f"{'OK' if G_MIDRESUME['flat_md5_recompute_match'] else 'MISMATCH'}, "
                 f"disp recompute |d| "
-                f"{G_MIDRESUME['disp_recompute_vs_journal_diff']:.2e}, tails-vs-"
-                f"committed-partial {G_MIDRESUME['tails_equal_committed_partial']}: "
+                f"{G_MIDRESUME['disp_recompute_vs_journal_diff']:.2e}, "
+                f"partial bind: {G_MIDRESUME['partial_bind_mode']}: "
                 + ("PASS" if G_MIDRESUME["pass"] else "FAIL"))
             if not G_MIDRESUME["pass"]:
                 raise RuntimeError(
@@ -1534,14 +1585,23 @@ def main():
                      "run resumed from that state — certified by "
                      "gates.G_MIDRESUME (model md5 recompute; journal "
                      "contiguity; one read per step; tails bit-equal the "
-                     "committed partial; displacement recompute; stream "
-                     "uniqueness) — and NEVER re-executed steps 1201..1264. "
-                     "The predecessor's PARTIAL metrics.json (progressive "
-                     "write, committed at b7f8e20) is preserved VERBATIM "
-                     "below. No bar, cadence, gate threshold or adjudication "
-                     "logic changed by the recovery."),
-            "predecessor_partial_committed_at": "b7f8e20",
-            "predecessor_partial": pred_partial,
+                     "on-disk partial; displacement recompute; stream "
+                     "uniqueness) — and NEVER re-executed committed steps. "
+                     "G_MIDRESUME v1 was over-strict (it enforced the "
+                     "partial binds at EVERY chunk load and aborted once at "
+                     "the s1348 in-process boundary — a CONTROL failure: no "
+                     "steps past it, nothing adjudicated; v2 scopes the "
+                     "partial binds to cross-process loads at the partial's "
+                     "own step; disclosed in deviations). The dispatch-2 "
+                     "PARTIAL metrics.json is preserved VERBATIM at "
+                     "partial_dispatch2_b7f8e20.json (committed; also at "
+                     "git b7f8e20); this run's own resume-point partial is "
+                     "embedded below. No bar, cadence, gate threshold or "
+                     "adjudication logic changed by the recovery."),
+            "dispatch2_partial_committed_at": "b7f8e20",
+            "dispatch2_partial_preserved_verbatim":
+                "runs/opt1b3/partial_dispatch2_b7f8e20.json",
+            "resume_point_partial": pred_partial,
         },
         "references": {
             "opt1": {"metrics": "runs/opt1/metrics.json",
