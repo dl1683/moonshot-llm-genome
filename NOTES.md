@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e199 — the concentration's onset curve: ONSET-COMMON — A WHEN, NOT A WHETHER; org-1-EARLY, not org-1-only; MIRABEL's drop-in texture (2026-10-01 ~23:00Z) — DONE
+
+WHAT WE DID: both organisms' committed walks extended to t=6 or
+death (vacuous: both die first — org1 t=2, MIRABEL t=3; T158's
+lesson bounds the question); the sign(g_t) rays from each ROOT at
+every alive t; 23/23 gates PASS (org1's chain BIT-EXACT; MIRABEL's
+chain at a disclosed TEXTURE tier — a measured ~1e-7 cross-
+environment fp drift, four orders below any bar margin); 225.9s
+CPU.
+
+WHAT WE SAW (T163): ONSET-COMMON FIRES — both organisms'
+fronts concentrate from the root: org1 at t=1 (ratio 0.1707,
+bit-exact vs e195), MIRABEL at t=2 (0.4269) — THE SAME CURVE
+SHIFTED ONE STEP. The t=1 asymmetry stands but its MEANING FLIPS:
+the concentration is not org-1-ONLY (e198's verdict) but
+ORG-1-EARLY — the rotation needs one step (org1) or two (MIRABEL)
+to land on the fleeing support. MIRABEL'S DROP-IN TEXTURE: its t=1
+front is SOFTER THAN STATIC (floor ratio 1.54) before the rotation
+finds the lethal direction at t=2 — the rotation first points
+away, then onto the target. Org1's post-death t=2 context (0.396,
+e195 committed) sits beside MIRABEL's alive t=2 (0.427). HONESTY:
+n=1 per organism; the t=6 horizon never reached (both die first —
+no ripening past death); the MIRABEL chain's TEXTURE tier stamped.
+FOLLOW-ON NAMED: e197's half-step alive lineage (alive t=1..4,
+only u1 mapped at ratio 3.17) owes its own t=2..t=4 onset curve —
+THE ONE ORGANISM WHOSE CURVE COULD DEEPEN across three alive
+steps.
+
+---
+
 ## e198 — the architecture-vs-biography cut: BIOGRAPHY-CARRIES — the architecture suspect CLEARED; the flight concentration is organism-1 lineage biography; the t=2 wrinkle (u2 concentrates) and the rim picture now 2/2 architectures, 4/4 lineages (2026-10-01 ~22:25Z) — DONE
 
 WHAT WE DID: the flight map on e193b's fresh 2.74M MIRABEL root

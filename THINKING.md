@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T163 — e199: the WHEN — the flight question closes at onset-shape (2026-10-01 ~23:00Z)
+
+The timing cut returns the day's cleanest synthesis: ONSET-COMMON.
+Both organisms' rotating fronts eventually concentrate from the
+root — org1 at t=1 (0.171), MIRABEL at t=2 (0.427) — the same
+onset curve shifted one step: THE CONCENTRATION IS A WHEN; THE
+TIMING IS THE BIOGRAPHY. The e198 verdict's meaning flips without
+its numbers changing: org-1-EARLY, not org-1-only. THE DROP-IN
+TEXTURE completes the mechanism picture: MIRABEL's t=1 front is
+SOFTER THAN STATIC before its t=2 lands on the lethal direction —
+the rotation first points away (e194's anti-rotation read), then
+ONTO the fleeing support: two movements, not one. THE ARC CLOSES
+AT A SHAPE: every organism so far concentrates before it dies
+(org1 t=1; MIRABEL t=2; org2 full-step never — it died at t=1
+BEFORE its onset; its half-step lineage alive t=1..4 owes the
+deepening test — the one curve that could fall across three alive
+steps). THE FLIGHT STORY'S FINAL FORM: the lethal direction is a
+ROTATING OBJECT the front tracks; the tracking has an onset (1-2
+steps); the onset and the death race — where death wins first, no
+concentration ever appears (org2's full-step, T158's alive-window
+lesson, now with the timing account).
+
 ## T162 — e198: biography carries the flight — and the t=2 wrinkle reopens the timing question (2026-10-01 ~22:25Z)
 
 The fork resolves to BIOGRAPHY: a fresh 2.74M root with org-1's
