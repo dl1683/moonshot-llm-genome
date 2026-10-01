@@ -323,6 +323,12 @@ Evidence gaps (additions):
    integral layer is DEAD (RAW-WINS); the owed replication is the
    kappa contrast alone — >=2 more organisms (kappa pairs) before
    the static-vs-learned wording is law-graded.
+13. GPT-2 clause (e182c DONE, phase 1): T123's erosion is GENERIC
+   forgetting at 124M (controls erode with the fact, ratio 0.92,
+   while ppl improves) — every GPT-2 sentence reads "ordinary
+   forgetting with improving perplexity", never a no-basin
+   signature; the template-locus hint and phase 2 (fresh corpus
+   draws) noted in the discussion.
 10. g3K (DONE): abstract paragraph (2) must gain the TRAJECTORY-vs-
    STATIC clause — "no memory state survives continued TRAINING"
    (the e185 arms were displacement-matched trajectories, corpus and

@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T149 — e182c: the surgical signature dies at 124M — generic forgetting, and the template-locus hint (2026-10-01 ~15:40Z)
+
+FORGETTING-GENERIC fired at both depths: matched held-out controls
+erode WITH the installed fact (ratio 0.92 at +80; 0.83 at +50) under
+the bit-tight replayed wash, while perplexity improves throughout.
+The supervisor's objection — carried across nine check-ins —
+resolves against the lab's own claim: THE SURGICAL SIGNATURE
+RETIREES AT 124M. What survives of T123: the direction-only
+transfer (the corrected title) and the time-constant texture; what
+dies: "no-basin signature" as a GPT-2 claim. The honest GPT-2
+clause: "ordinary forgetting with improving perplexity" — itself a
+nontrivial texture (adaptation and erosion co-occur), but not the
+tiny-nets' law. THE TEMPLATE-LOCUS HINT is phase-2's gift: the
+near-related battery (same cloze template, disjoint entities)
+collapses FASTEST (0.234) — erosion may live at the few-shot-
+following/template level rather than knowledge storage; and the
+controls' heterogeneity (founders hold 0.78-0.94, products collapse
+0.18-0.31) says probe-TYPE structures the forgetting. THE META-
+NOTES: four dispatches died for this cell; the lean brief (smoke
+first, commit at every stage) got it home — the disruption era's
+dispatch pattern. And the replay-that-was-necessary incidentally
+discharged the CPU/GPU numerics debt (bit-tight). T123's amendment
+follows; the paper's GPT-2 clause rewrites in the fold.
+
 ## T148 — g1bS: the recipe is scale-bound — the honest negative that saves the cell (2026-10-01 ~15:15Z)
 
 The hard stop fired exactly as registered: the 10M base failed
@@ -1410,6 +1434,16 @@ what it found: checkpointed state + one directed event = cheap
 re-entry. FOR THE PAPER: the mechanism paragraph's [n=1,
 replicates owed] flag clears to [n=3/arm, one stream] — the
 last formality before assembly; only e182 (in flight) remains.
+
+
+[E182C RESOLUTION, 2026-10-01 ~15:40Z]: THE SURGICAL SIGNATURE
+RETIRES at 124M — matched held-out controls erode with the fact
+(ratio 0.92 at +80) under the bit-tight replayed wash; the clause
+becomes "ordinary forgetting with improving perplexity", NOT a
+no-basin signature. The direction-only transfer (this card's
+corrected title) and the time-constant texture survive as the
+weaker form. A template-locus hint opens phase 2 (the near-related
+battery collapses fastest).
 
 ## T120 — E179: the resurrection economy — nine events, one revival, a sawtooth (2026-09-28 ~23:00Z)
 

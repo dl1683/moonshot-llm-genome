@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e182c — the forgetting control: FORGETTING-GENERIC — T123's GPT-2 erosion is GENERIC forgetting; the surgical signature retires at 124M; a template-locus hint (2026-10-01 ~15:40Z) — DONE (phase 1)
+
+WHAT WE DID: fourth dispatch (the lean brief — three predecessors
+died pre-artifact; first artifacts in minutes, progressive
+commits). THE PREMISE CORRECTION (disclosed pre-compute): e182
+saved NO wash states (time-capped); the agent REPLAYED e182's
+frozen 5e-5 wash on CPU fp32 (corpus asserted exactly equal:
+331770 tokens / 664 lines; seed 18202; same AdamW recipe) — the
+replay is bit-tight vs e182's record (fact-battery dp <= 0.0011;
+ppl ratios within 0.03%), which also discharges the deferred
+CPU/GPU-numerics item. Matched held-out named-entity cloze
+controls (n=12, e182's gate verbatim, zero corpus contamination;
+R0 0.727 vs facts' 0.797) evaluated at t=0/+10/+50/+80.
+
+WHAT WE SAW (T149): FORGETTING-GENERIC at both probed depths —
+fact decline 0.429 vs control 0.397 at +80 (ratio 0.92, inside the
+1.5x band) and 0.339 vs 0.281 at +50 — while bank ppl improves
+71.3 -> 34.8. THE SUPERVISOR'S CARRIED OBJECTION (check-ins 10-12,
+asked across nine check-ins) RESOLVES AGAINST THE LAB'S OWN CLAIM:
+T123's erosion at 124M is GENERIC forgetting; the GPT-2 clause
+scopes to "ordinary forgetting with improving perplexity", NOT a
+no-basin signature. TWO TEXTURE GEMS: (a) the near-related
+co-report (same capital-of template, disjoint US entities)
+collapses FASTEST (retention 0.234 at +80) — erosion may live
+partly at the TEMPLATE/few-shot-following level, not knowledge
+storage; (b) control erosion is heterogeneous (founders/
+unique-anchor items hold 0.78-0.94; product items collapse
+0.18-0.31) — probe-type structure in forgetting. HONESTY: phase-1
+only; n=1 lineage, one seed, one corpus draw; controls
+brand-flavored; per-state weights saved (the discipline e182
+lacked). PHASE 2 (fresh corpus draws, GPU) owns generality.
+
+---
+
 ## g1bS — the wall at 10x BLOCKED AT THE BASE GATE: the house recipe overtrains the 10M host — G-BASE-QUAL FAIL, hard stop, no arms, no bars (2026-10-01 ~15:15Z) — DONE (BLOCKED)
 
 WHAT WE DID: fourth dispatch. The 4e-4 retrain's s1113 resume state
