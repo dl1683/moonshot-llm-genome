@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T153 — e193: the order is lineage-physics; the pump is biography — the replicate's clean split (2026-10-01 ~17:30Z)
+
+The replicate splits the day's central objects by generality.
+WHAT CROSSES LINEAGES: the terrain's ORDER (g < sign < random,
+2.9x and >4.0 at n=2 — Fig-5's caption now true at two organisms);
+the front's magnitude-informative cluster (topk/raw ratio-tight,
+extending to the 1% rung with neither floor nor shrink); the
+re-orientation causality (the pinned walk dies at the static cliff
+on both organisms — Fig-5's interventional sentence at n=2); the
+CE_R canary ordering. WHAT DOES NOT: THE PUMP — organism 2's g-ray
+FALLS immediately (every small-D rise negative on every ruler) —
+the fact-positive ridge is one organism's biography, not the
+physics; C5 rescopes. THE SIGN RUNG DRIFTS WIDE (2.63 vs the
+[1.43,2.38] band): the front's sign-normalized edge is
+lineage-sensitive where its magnitude cluster is not. THE THINK-
+CARD THE AGENT OWED (adopted here): the ridge and the cliff may
+not be the same object — the ridge is fact-positivity the wash can
+harvest (present where the consolidation left the fact gradient-
+aligned with the wash's useful directions); the cliff is the
+direction the fact cannot survive (universal); organism 2's fact
+consolidated WITHOUT the alignment, so no ridge, same cliff. THE
+DISCLOSED SLIP: architecture co-varies with lineage (the family-2
+root is 873k 4L, not the "same class" as e131's 2.74M 6L) — the
+replicate doubles lineage, not architecture-at-fixed-lineage;
+e193b (the fresh-root/two-fact cell) can pin the axis. THE RULER
+LESSON: the e192-verbatim battery read 0.198 at the f2 ROOT —
+under the kill bar at D=0 — a fact can be alive for its ruler and
+dead for an imported one; co-rulers everywhere, adjudicated on
+none.
+
 ## T152 — g2g: a thermostat on a leash — the rhythm's honest operating envelope (2026-10-01 ~16:55Z)
 
 The controls land as three teaches. (1) THE ORGAN IS

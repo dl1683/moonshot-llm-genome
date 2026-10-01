@@ -251,8 +251,11 @@ R6 THE GENERATIVE TURN: memory made architectural (g1/g1b/g1bR, g2/g2d/
    detected (g2, with the
    R56 construction disclosures), and its anisotropy measured (g3).
 
-Fig 5 (THE terrain figure — LICENSED by e192 as one picture): the
-   fact-vs-displacement overlay on ONE organism/ruler/dual-currency
+Fig 5 (THE terrain figure — LICENSED at n=2 organisms/lineages:
+   e192 primary + e193 replicate; the order g < sign < random and
+   the re-orientation rider replicate; the pump ridge does NOT
+   cross lineages — one panel, two organisms): the
+   fact-vs-displacement overlay, dual-currency
    — the g-ray profile (pump ridge, cliff 0.92), the STATIC sign
    ray (kill 2.5; A0's step-1 read on the curve), three Gaussian
    rays (alive/flat at 4.0), and the two walks at matched D (the

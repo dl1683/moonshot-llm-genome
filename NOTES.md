@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e193 — the second-organism replicate: THE ORDER IS LINEAGE-PHYSICS, THE PUMP IS NOT (and the front's sign rung drifts wide; re-orientation causal at n=2) (2026-10-01 ~17:30Z) — DONE
+
+WHAT WE DID: one 93s eval-only CPU pass on the committed family-2
+root (e157_f2_consolidated, 873k): the five-ray terrain map + the
+density ladder (with the 1% rung) + the pump read + the pinned-ray
+rider. All provenance gates bit-tight (root dial cells max|diff|
+0.0; the stream md5-matches e185's hashes on the new net; this
+organism's OWN measured step L2 0.9164 — never ported).
+
+WHAT WE SAW (T153): (1) TERRAIN-REPLICATES FIRES: g-ray kill 0.20 <
+sign 0.58 (2.90x) < random >4.0 on all three Gaussian rays —
+FIG-5'S ORDER AT n=2 ORGANISMS / n=2 LINEAGES; the absolute kill-Ds
+differ exactly as pre-registered (0.20 vs 0.92; ratio form
+carried); ruler-robust (checked on three rulers). (2) THE FRONT:
+topk-10/50 and raw replicate within +-25% in ratio form
+(1.108/1.117/1.119 vs family-1's 0.985/1.000/1.000) and the 1%
+rung kills at ratio 1.289 — NO FLOOR, NO SHRINK — but the SIGN rung
+overshoots its band (2.63 vs [1.43, 2.38]): the magnitude-
+informative cluster is lineage-stable; the sign-normalized rung is
+not. (3) THE PUMP IS ABSENT ON ORGANISM 2: every small-D rise is
+NEGATIVE on every ruler (the g-ray -0.079 vs family-1's +0.045
+ridge) — C5's pump claim RESCOPES to n=1 organism; gradient-
+specificity survives INVERTED (randoms flat; the g-ray
+monotonically lethal). (4) THE RIDER: the pinned walk dies in the
+static cliff's bracket [0.183, 0.275] — RE-ORIENTATION CAUSAL AT
+n=2. HONESTY: architecture co-varies with lineage (873k 4L/128d
+vs 2.74M 6L/192d — disclosed); the primary ruler is a trained
+jitter geometry (the e192-verbatim g-12 battery reads 0.198 at the
+f2 root — under the kill bar at D=0, T113's G_CONS bound —
+co-rulers reported in every table, never adjudicated); CE_R canary
+ordering replicates.
+
+---
+
 ## g2g — the rhythm's controls: A THERMOSTAT ON A LEASH — the organ earns its keep at 1x; the band was partly a floor (2026-10-01 ~16:55Z) — DONE
 
 WHAT WE DID: the R56-critic-forced controls on the locked root (8
