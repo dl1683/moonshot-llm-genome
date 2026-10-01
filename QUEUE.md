@@ -1,4 +1,6 @@
 # Experiment Queue
+<!-- USER CORRECTION 2026-10-01 ~21:30Z: the paper lane is PARKED. The lab's job is dissection-for-its-own-sake (supervisor directive 4; W020). The drafts remain as committed records, nothing more. The queue below is DISSECTION questions only. -->
+
 
 Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 (idea only, no live-hypothesis discrimination), `GATED` (waiting on a
