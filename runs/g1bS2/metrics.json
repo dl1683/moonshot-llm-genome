@@ -1,15 +1,16 @@
 {
   "experiment": "g1bS2_scale_wall",
-  "date": "2026-10-01T17:55:46Z",
+  "date": "2026-10-01T18:14:15Z",
   "partial": true,
-  "phase": "G-BASE-QUAL",
-  "progressive_writes": 5,
+  "phase": "G-INST",
+  "progressive_writes": 6,
   "phases": [
     "start",
     "G-CONFIG",
     "divergence-verification",
     "base-chunk-3",
-    "G-BASE-QUAL"
+    "G-BASE-QUAL",
+    "G-INST"
   ],
   "recovery": {
     "note": "outage continuation: the original executor was killed mid-full-run by a machine disruption (clock jump -5h; no fault in the work); this run is the recovery agent's, resumed from survivor artifacts committed at ef4f1f1",
@@ -103,81 +104,46 @@
       "gpu_policy": "G1BS_GPU_WAIT_MAX=7200 (the pre-registered env knob): pause-and-wait under the neighbor's INT8 jobs, never migrate; the base gate waits without timeout as registered"
     }
   },
-  "G_BASE": {
-    "steps": 1200,
-    "final_val_loss": 1.5690115491549175,
-    "n_chunks": 3,
+  "G_INST": {
+    "steps": 1000,
+    "n_chunks": 4,
     "chunks": [
       {
         "chunk": 1,
         "device": "cuda",
-        "cap_s": 180.0,
-        "seconds": 182.4,
-        "steps_done": 436,
-        "val_loss": 1.8508074482282002
+        "seconds": 182.3,
+        "steps_done": 343
       },
       {
         "chunk": 2,
         "device": "cuda",
-        "cap_s": 180.0,
-        "seconds": 193.0,
-        "steps_done": 962,
-        "val_loss": 1.5927761395772297
+        "seconds": 185.9,
+        "steps_done": 666
       },
       {
         "chunk": 3,
         "device": "cuda",
-        "cap_s": 180.0,
-        "seconds": 89.8,
-        "steps_done": 1200,
-        "val_loss": 1.5690115491549175
+        "seconds": 186.4,
+        "steps_done": 975
+      },
+      {
+        "chunk": 4,
+        "device": "cuda",
+        "seconds": 3.1,
+        "steps_done": 1000
       }
     ],
     "pass": true
   },
-  "base_cells": {
-    "gm12": 0.00010502710210857913,
-    "g0": 8.78928549354896e-05,
-    "gp12": 0.00010621726687531918,
-    "held30_gm12": 0.00011472695769043639,
-    "held30_g0": 9.866273467196152e-05,
-    "ce_r": 1.5452262163162231,
-    "site_read_onset": 9.243038948625326e-05,
-    "site_read_span": 0.014176633208990097,
-    "A129": -1.458658104335579e-05
-  },
-  "G_BASE_QUAL": {
-    "registered": {
-      "registered_before_retrain": true,
-      "why": "third-dispatch instruction: NO install/consolidate/arms until the base passes a quality gate REGISTERED BEFORE the base trains (the inherited base diverged; the gate is the dispatch bar, not a wall dial \u2014 no bar shopping applies here or is enabled by it). G1BS2: the gate fired on g1bS exactly as registered (val U-turn, hard stop, no arms); the LEGS are re-registered VERBATIM below \u2014 only the cosine-complete reference moves to the licensed 1200-step val-min-anchored schedule",
-      "g1_cosine_complete": "final step == 1200 (the licensed val-min-anchored schedule; g1bS's reference was 4000)",
-      "g2_val_decreasing": "every chunk-final val <= previous chunk-final val + 0.02 (float/device noise band), AND final val <= first-eval val (step 250) - 0.15 (real learning across the schedule). G1BS2 expectation (documented BEFORE compute, per the license): the shortened schedule's whole span sits inside the observed DECREASING prefix of g1bS's 4000-step trajectory (min ~s1113) and anneals lr -> 0 where that trajectory turned, so this leg should hold BY CONSTRUCTION \u2014 a non-proof caveat: the shortened cosine is a new trajectory; if the leg still fails, that IS the finding (even the val-min-anchored recipe fails) and the run stops honestly",
-      "g3_final_val_anchor": "final val <= 1.70 \u2014 agent-1's healthy prefix was 1.58 @ step 750 and still falling at lr 1e-3; a stable width-scaled cosine on 3.6x the parameters must stay under the diverged run's own healthy window with margin (g1bS's val-min was 1.5766 @ ~s1113; the shortened cosine ends at 1200 at ~zero lr, so the anchor leg expects ~1.5-1.6)",
-      "g4_coherence_sample": "common.generate (the house instrument verbatim: temp 0.8, top_k 40, 300 new tokens, fixed prompt = the first 64 chars of val_text, recorded): lowercase+space fraction >= 0.70 AND mean word length in [2.0, 8.0] AND longest single-char run <= 10 AND >= 18 distinct chars; the sample text recorded verbatim (NOTE: g1bS showed coherence alone CANNOT certify a base \u2014 the memorizing host passed it)",
-      "failure_action": "G-BASE-QUAL FAILS => the run STOPS before install (progressive metrics hold the record); no arms, no adjudication"
-    },
-    "cosine_complete": true,
-    "chunk_final_vals": [
-      1.8508074482282002,
-      1.5927761395772297,
-      1.5690115491549175
-    ],
-    "val_monotone_decreasing_noise0.02": true,
-    "first_eval_val": 2.129887064297994,
-    "final_val": 1.5690115491549175,
-    "g2_val_decreasing": true,
-    "g3_final_val<=1.70": true,
-    "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
-    "sample_generated": "ow, say thy please.\n\nVIRGILIA:\nI say to see the father's death, and you have:\nThe should will not to ask as honest at lize.\nAnd what the gods umons of a fiend.\n\nVIRGILIA:\nMost so, if our mocks suspirity!\n\nJULIET:\nHere you way speak it not will your and for yours?\n\nVOLUMNIA:\nO, if I will not do retir",
-    "sample_stats": {
-      "len": 300,
-      "lower_space_fraction": 0.78,
-      "mean_word_len": 3.95,
-      "max_char_run": 2,
-      "distinct_chars": 44
-    },
-    "g4_coherence_sample": true,
-    "pass": true,
-    "enforced": true
+  "inst_cells": {
+    "gm12": 0.04199834540486336,
+    "g0": 0.5013128519058228,
+    "gp12": 0.042499374598264694,
+    "held30_gm12": 0.022439507767558098,
+    "held30_g0": 0.30181604623794556,
+    "ce_r": 1.540094017982483,
+    "site_read_onset": 0.02382466569542885,
+    "site_read_span": 0.8596717715263367,
+    "A129": 0.23110246583819388
   }
 }
