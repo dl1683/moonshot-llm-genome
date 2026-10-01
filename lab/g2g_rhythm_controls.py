@@ -247,8 +247,9 @@ deviations: list[str] = [
     "Single root (the locked g2_root.pt), ONE wash seed (10902) per rung — "
     "n=1 per cell; the replicate ladder (seeds) is licensed only if "
     "SELF-TIMED-THERMOSTAT fires (the design's own clause).",
-    "Smoke mode trims: 36-step cells, grid {1,2,4,36}, lr mults {0.5, 2}, "
-    "one fixed level, no cooldown — nothing adjudicated.",
+    "Smoke mode trims: 36-step cells, grid {1,2,4,36}, lr mults "
+    "{0.5, 2, 4} (+L1 first), one fixed level, no cooldown — nothing "
+    "adjudicated.",
 ]
 
 # ---------------------------------------------------------------- the delta
@@ -603,8 +604,7 @@ def run_arm(name: str, mode: str, lr_mult: float, refr: int,
 
     ev_steps = [e["step"] for e in cell["event_log"]]
     traj = {r["step"]: r for r in cell["traj"]}
-    ph = (phase_analysis(traj, ev_steps, N_STEPS)
-          if mode == "organ" else None)
+    ph = phase_analysis(traj, ev_steps, N_STEPS) if ev_steps else None
     rid = (rider_traces(cell["sds"], ev_steps, refr, cue_pool, cue_mask,
                         N_STEPS) if mode == "organ" else None)
     gates = {
@@ -687,8 +687,10 @@ def adjudicate(state: dict) -> dict:
         k = ARMS[f_n]["sched_k"]
         n_fix = ARMS[f_n]["cell"]["n_events"]
         ok = n_org >= 1 and abs(n_fix - n_org) <= 1
-        oc = ARMS[o_n]["phase"]["cycle_median"]
-        fc = ARMS[f_n]["phase"]["cycle_median"]
+        oc = (ARMS[o_n]["phase"]["cycle_median"]
+              if ARMS[o_n]["phase"] else None)
+        fc = (ARMS[f_n]["phase"]["cycle_median"]
+              if ARMS[f_n]["phase"] else None)
         pairs[m] = {"n_organ": n_org, "n_fixed": n_fix, "k": k,
                     "count_parity_ok": bool(ok),
                     "organ_cycle_median": oc, "fixed_cycle_median": fc,
@@ -742,19 +744,24 @@ def plot_all(state: dict) -> None:
     fig = plt.figure(figsize=(15, 9))
     gs = gridspec.GridSpec(2, 2, height_ratios=[1.2, 1.0])
     axA = fig.add_subplot(gs[0, :])
-    axA.plot(lrs, [ARMS[n]["event_rate"] for n in ladder_names], "o-",
-             lw=2, ms=8, color="#d62728", zorder=3,
-             label="organ event rate (n/300)")
-    ceil = 1.0 / 24
-    axA.axhline(ceil, color="k", ls=":", lw=1.0)
-    axA.text(4.05, ceil, " refractory ceiling 1/24", va="bottom", fontsize=8)
-    for n in ladder_names:
-        axA.annotate(f"{ARMS[n]['cell']['n_events']} ev",
-                     (ARMS[n]["lr_mult"], ARMS[n]["event_rate"]),
-                     textcoords="offset points", xytext=(6, 6), fontsize=8)
-    axA.set_xscale("log")
-    axA.set_xticks(lrs)
-    axA.set_xticklabels([f"{m:g}x" for m in lrs])
+    if ladder_names:
+        axA.plot(lrs, [ARMS[n]["event_rate"] for n in ladder_names], "o-",
+                 lw=2, ms=8, color="#d62728", zorder=3,
+                 label="organ event rate (n/300)")
+        ceil = 1.0 / 24
+        axA.axhline(ceil, color="k", ls=":", lw=1.0)
+        axA.text(4.05, ceil, " refractory ceiling 1/24", va="bottom",
+                 fontsize=8)
+        for n in ladder_names:
+            axA.annotate(f"{ARMS[n]['cell']['n_events']} ev",
+                         (ARMS[n]["lr_mult"], ARMS[n]["event_rate"]),
+                         textcoords="offset points", xytext=(6, 6),
+                         fontsize=8)
+        axA.set_xscale("log")
+        axA.set_xticks(lrs)
+        axA.set_xticklabels([f"{m:g}x" for m in lrs])
+    else:
+        axA.text(0.5, 0.5, "no ladder arms", ha="center", va="center")
     axA.set_xlabel("wash-lr multiplier (THREAT = lr = clock speed — named)")
     axA.set_ylabel("event rate (events/step)")
     axA.set_title("THE THERMOSTAT QUESTION — event rate vs threat "
@@ -770,7 +777,8 @@ def plot_all(state: dict) -> None:
             ys.append(r["median_post_slope_full"])
     if xs:
         axB.plot(xs, ys, "s-", lw=1.8, ms=7, color="#1f77b4")
-        axB.set_xscale("log")
+        if min(xs) > 0:
+            axB.set_xscale("log")
         axB.set_xticks(lrs)
         axB.set_xticklabels([f"{m:g}x" for m in lrs])
     axB.set_xlabel("wash-lr multiplier")
@@ -793,9 +801,10 @@ def plot_all(state: dict) -> None:
     axC.axhline(45, color="#d62728", ls="--", lw=0.8)
     axC.axhline(24, color="k", ls=":", lw=0.8)
     axC.text(4.1, 24, " r24 floor", va="bottom", fontsize=7)
-    axC.set_xscale("log")
-    axC.set_xticks(lrs)
-    axC.set_xticklabels([f"{m:g}x" for m in lrs])
+    if ladder_names and min(lrs) > 0:
+        axC.set_xscale("log")
+        axC.set_xticks(lrs)
+        axC.set_xticklabels([f"{m:g}x" for m in lrs])
     axC.set_ylim(0, 60)
     axC.set_xlabel("wash-lr multiplier")
     axC.set_ylabel("event spacing (steps; black = median)")
@@ -810,7 +819,11 @@ def plot_all(state: dict) -> None:
     gs = gridspec.GridSpec(2, 2, height_ratios=[1.2, 1.0])
     axA = fig.add_subplot(gs[0, :])
     lvls = [m for m in FIXED_LEVELS
-            if f"L{m:g}" in ARMS and f"F{m:g}" in ARMS]
+            if f"L{m:g}" in ARMS and f"F{m:g}" in ARMS
+            and ARMS[f"L{m:g}"].get("phase")
+            and ARMS[f"F{m:g}"].get("phase")
+            and ARMS[f"L{m:g}"]["phase"]["cycle_median"] is not None
+            and ARMS[f"F{m:g}"]["phase"]["cycle_median"] is not None]
     if lvls:
         xs = np.arange(len(lvls))
         axA.bar(xs - 0.18, [ARMS[f"L{m:g}"]["phase"]["cycle_median"]
