@@ -685,6 +685,33 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T145 — opt1b2: the bleed is a diffusive walk — the trajectory-class axis is BALLISTIC vs DIFFUSIVE (2026-10-01 ~08:50Z)
+
+CAP-NEITHER with a bonus falsification: the bleed entered the kill
+window's lower margin ALIVE (0.324 at D 2.12) and STALLED at 0.329/
+D 2.1455 — and the projection that said "kill at D~10" was wrong as
+arithmetic: it assumed colinear steps, but consecutive raw
+gradients are far from colinear; per-step norm 0.0072 buys only
+0.0012 of displacement (5.9x sublinear, decelerating). THE BLEED IS
+A DIFFUSIVE WALK. THE TRAJECTORY-CLASS AXIS RENAMES ITSELF:
+ballistic-maximal (the annihilation: one huge colinear step, kill at
+D 0.92), ballistic-normalized (the guillotine: Adam's ~2 colinear
+sign-steps, kill at D ~2.5), and DIFFUSIVE (the bleed: a random-walk
+in gradient space whose displacement grows ~sqrt-ish, stalling at
+the window's edge ~D 2.1-2.2 at 0.33). THE DECIDING DOOR: the
+last-slope extrapolation puts the kill ~14 steps past the cap —
+opt1b3 (dispatched, tens of steps) reads the bleed's own kill-D
+directly: ~2.2-2.6 reunifies the gate (all classes die near the
+same ring, protection = staying diffusive/slow); >>2.6 keeps the
+classes separate (each has its own ring). W026's managed-bleed noun
+upgrades: the rhythm's candidate protection is KEEPING THE WALK
+DIFFUSIVE (replay events re-randomize the step directions); e192's
+pinned-ray rider tests the same axis interventionally (a pinned walk
+is forced-ballistic — dies at the static cliff iff direction-
+randomness, not step size, is the protection). The projection
+lesson joins W021's family: an arithmetic model is an instrument —
+this one was falsified by the measurement it motivated.
+
 ## T144 — e191: the cliff is terrain — the first mapped ground of the forgetting machine (2026-10-01 ~08:05Z)
 
 STATIC-CLIFF fires: the graded static profile along the raw-gradient

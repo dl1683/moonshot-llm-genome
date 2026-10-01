@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## opt1b2 — the gate-crossing read: CAP-NEITHER — and the projection itself falsified: the bleed's D(t) is SUBLINEAR (a diffusive walk); it entered the kill window's lower margin ALIVE and stalled; the kill extrapolates ~14 steps past the cap (2026-10-01 ~08:50Z) — DONE
+
+WHAT WE DID: continued the committed s600 bleed (resume certified
+bit-identical: chunk_state == s600.pt == journal, displacement
+recompute |diff| 0.0; all 9 gates PASS) in 7 CPU chunks to the
+1200-step cap with fine cadence in the window.
+
+WHAT WE SAW (T145): alive 0.3290 at D 2.1455 at cap — the bleed
+CROSSED INTO the kill window's lower margin ALIVE (D 2.12 at ~s1167,
+g-12 0.324) and stalled; the 2.6 gate unreached; neither bar fired.
+THE HEADLINE: opt1b's labeled projection (D=2.6 at s761; kill at
+s1829/D~10) is FALSIFIED AS ARITHMETIC — it divided remaining
+displacement by the per-step norm (0.0072/step) assuming colinear
+steps; measured D(761) = 1.68 and D grows at 0.0012/step (5.9x
+sublinear; late-window 0.00075 and decelerating): consecutive raw
+gradients are NOT colinear — THE BLEED IS A DIFFUSIVE WALK, and any
+linear-rate projection overestimates D growth. TEXTURE: pump-
+plateau-erode-stall (0.601 -> ~0.49 plateau at D 1.6-1.75 -> 0.35
+at D 2.04 -> stall 0.33); the pump-cliff acceleration criterion
+NEVER fired in-window; CE_R 1.72 -> 1.69 (the organism still
+improving); cos(g0) flat ~-0.02 (RAW-WINS-consistent). THE OPEN
+DOOR: last-slope kill extrapolation ~s1214 — ~14 steps past the
+cap; opt1b3 (a tens-of-steps continuation) decides KILLS-AT-GATE vs
+SPARED directly. Checkpoint: runs/checkpoints/opt1b2_a2b_sgd_1e-2_
+s1200.pt. HONESTY: n=1, CPU fp32, single stream; the new
+extrapolations are labeled and inherit the same falsified-model
+warning (they use the linear D-model this run just broke).
+
+---
+
 ## e191 — the pump-cliff map: STATIC-CLIFF (TERRAIN) — the cliff is in the geometry; no overshoot needed; the bleed survives by re-orientation (2026-10-01 ~08:05Z) — DONE
 
 WHAT WE DID: 12 graded STATIC single jumps theta_0 - D*u (u = the
