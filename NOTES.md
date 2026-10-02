@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e216 — the within-family residual: RESIDUAL-STRUCTURED — THE RESIDUAL IS THE THIRD SORTING DIMENSION, AND IT REPLICATES (family x height explains only ~2/3 (R2 0.67/0.62, below the bar; p0 adds only +0.06); the per-probe misses replicate across washes at rho 0.934 — essentially the full reliability surviving the model; no surface feature names the dimension) (2026-10-02 ~16:05Z) — DONE
+
+WHAT WE DID: pure desk on the committed 54-probe records (the OLS
+hr ~ family + p0 per wash; the residual structure; the predictor
+ladder; the cross-wash residual); 9.6s, zero model loads; the desk
+recompute certified at dp 0.0.
+
+WHAT WE SAW (T190): THE FULL MODEL R2 0.671/0.621 — BELOW the
+0.75 bar; the height term adds only +0.057/+0.085 over family
+(p0-only R2 0.04/0.09: family is the load-bearing term; linear-p0
+a poor within-family account despite the rank association
+0.51-0.55). THE NAMED SPLITS SURVIVE: the product contrast
+(Gmail+PlayStation minus iPhone) at +2.92/+2.29 residual SD
+(Gmail the archive's single largest residual); the tmpl width
+ratio 0.89/0.86 (the common slope leaves rev-capital's width
+intact). NO REGISTERED PREDICTOR NAMES THE DIMENSION (vocab
+overlap / entrenchment / position all |rho| < 0.09). THE DECISIVE
+CLAUSE: THE CROSS-WASH RESIDUAL rho 0.934 (per-family: rev-capital
+0.96, lang 0.89, near 1.00) — the per-probe idiosyncrasy IS the
+residual, and it replicates: A GENUINE THIRD SORTING DIMENSION.
+W028'S READING REFINED ONE FLOOR DOWN: the height layer was the
+wrong second term — p0-as-linear-height is poor; the conserved
+object is the PER-PROBE RANK, family x probe-idiosyncrasy, not
+family x linear-p0 — the rank-conserved/scale-destroyed cut
+reaching into the probe-level sorting itself. THE NEXT CUT NAMED:
+within-family nonlinear height (p0 as rank or logit) vs genuinely
+new probe features. HONESTY: n=2 washes; the hand-registered
+typology caveat; plain OLS on bounded hr with unbalanced n's; the
+residual's mechanism open (probe physics vs shared-denominator
+texture).
+
+---
+
 ## e215 — the relational signature: GRADED — THE SORTING KEY IS FAMILY-FIRST, NOT FAMILY-ONLY (family carries 58% of the variance; the exposure story dead: founders hold at zero cues, products collapse at 232; the key replicates across washes at rho 0.939; the within-family residue is the ratio device) (2026-10-02 ~15:40Z) — DONE
 
 WHAT WE DID: desk+eval on e214's committed 54-probe records; a

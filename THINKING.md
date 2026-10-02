@@ -685,6 +685,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T190 — e216: the third dimension — per-probe rank the model cannot carry (2026-10-02 ~16:05Z)
+
+The residual cell closes T189's thread hard: family x height
+explains two-thirds; what remains is NOT noise — the per-probe
+misses replicate across independent washes at rho 0.934 (the full
+reliability surviving the model). A THIRD SORTING DIMENSION,
+unnamed by every surface feature, real as physics. THE LAW'S
+DEEPEST CUT YET: the conserved object at the probe level is the
+PER-PROBE RANK — which specific probes hold is wash-independent
+to three digits of reliability — and linear-height terms cannot
+carry it (rank 0.51 but R2 +0.06); the family label organizes the
+tiers, the probe idiosyncrasy sorts within, and the idiosyncrasy
+replicates. Gmail holds and iPhone dies on BOTH washes — not
+because of exposure, entrenchment, or order — for reasons the lab
+has not yet named. THE CUT NAMED: nonlinear within-family height
+(p0 as rank/logit) vs genuinely new probe features — the third
+dimension's identity is the relational signature's last question.
+
 ## T189 — e215: family x height — the two-layer law meets the erosion order (2026-10-02 ~15:40Z)
 
 The sorting key resolves as the law's own product: FAMILY-FIRST
@@ -4468,7 +4486,7 @@ physics states. That is the culture working.
 
 
 
-## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc) [E214 UPDATE ~15:10Z: the law's direct test — the baseline rank is HEIGHT (dies with the scale, coupling -0.88); the SHAPE layer is the EROSION ORDER (replicates across washes at rho 0.94-1.00; relational: lang holds, cap/cur collapses, baseline strength irrelevant)]
+## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc) [E214 UPDATE ~15:10Z: the law's direct test — the baseline rank is HEIGHT (dies with the scale, coupling -0.88); the SHAPE layer is the EROSION ORDER (replicates across washes at rho 0.94-1.00; relational: lang holds, cap/cur collapses, baseline strength irrelevant)] [E214+E216 UPDATE ~16:05Z: the law at probe level — the baseline rank is HEIGHT (dies with the scale); the conserved objects are the EROSION ORDER (relational, replicating) and now the PER-PROBE IDIOSYNCRASY (the third dimension, rho 0.934 — which probe holds within a family is physics the surface features do not name)]
 
 Assembled from the day's folds (T172-T185), one law has written
 itself into every layer of the program without anyone naming it
