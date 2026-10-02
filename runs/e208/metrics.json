@@ -1,0 +1,595 @@
+{
+ "experiment": "e208_edge_multiple",
+ "date": "2026-10-02T11:40:51Z",
+ "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+ "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before assembly). Adjudicate against exactly this; no bar shopping.",
+ "registered_bars": {
+  "MARGIN-PREDICTS": "MARGIN-PREDICTS: \"fires if every fact with margin > 2 outlived (in its lineage's committed walk) every fact with margin < 1 across the table \u2014 the noise margin is a survival predictor; the scalar earns object status.\"",
+  "MARGIN-DECORRELATED": "MARGIN-DECORRELATED: \"fires if survival and margin decorrelate across the table \u2014 the margin is a per-organism descriptor, not a predictor; the table stands as the first map.\"",
+  "GRADED": "GRADED: \"any partial \u2014 the table verbatim with the caveats.\"",
+  "operationalizations": "row = (organism, fact) with committed u0 static kill-D AND a same-ruler in-span band; edge = D_kill(root,u0) on the row's own primary ruler (e199 x2 / e200 / e193b, loaded); band = middle order statistic of the organism's in-span draws' kill-Ds AS READ BY THAT ROW'S OWN RULER (e193b's two facts share draws, differ in ruler); multiple = edge/band; survival = natural (protocol-step) walk steps survived (ruler read > 0.27); the half lineage's half-step counterfactual is THE FORK, reported never adjudicated; PREDICTS fires iff min(surv | margin>2) > max(surv | margin<1); DECORRELATED fires iff PREDICTS fails AND Spearman(margin, survival) over all rows <= 0; GRADED = any partial; composite PREDICTS -> DECORRELATED -> GRADED, first two mutually exclusive on the primary reading; the gray zone [1,2] is reported, never adjudicated by the letter.",
+  "registered_prediction": "DESK-FORCED to MARGIN-PREDICTS on the natural-walk primary reading (org1 3.72x survived 1 step > half 0.616x survived 0; MIRABEL 2.12x survived 2 > half 0) \u2014 reported as forced, e205's convention. THE FORK: under the half-step counterfactual reading (half survival 4) PREDICTS fails and DECORRELATED's Spearman clause is the live outcome \u2014 the fork is the table's biggest caveat and is reported inside the verdict. The fresh compute owns only the gates, the g1bR survey, the table, and the figure.",
+  "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before assembly). Adjudicate against exactly this; no bar shopping."
+ },
+ "smoke": false,
+ "envelope": {
+  "device": "DESK CENSUS \u2014 CPU-only, NO torch, NO model compute (CUDA never touched)",
+  "threads": "n/a (no compute threads; matplotlib Agg only)",
+  "load_check_recorded_not_gating": true,
+  "phases": "P0 registration -> P1 edges -> P2 bands -> P3 walks -> P4 g1bR survey -> P5 table+adjudication -> P6 figure; progressive writes",
+  "cpu_load_pct_at_launch": 10
+ },
+ "deviations": [
+  "DESK CENSUS, ZERO MODEL COMPUTE: no torch import, no GPU, no training \u2014 every number loaded from committed metrics.json (the owner envelope's desk+census form; the 'tiny eval bursts' clause was not needed: NO band is missing \u2014 the fourth row's band (e193b/ZEPHYRA) was already committed in e193b's inspan_range, read by the ZEPHYRA ruler on the same draws as MIRABEL's).",
+  "THE e193b PAIR SHARES ONE WALK AND ONE SET OF DRAWS: rows 2 and 3 are two facts of the SAME organism \u2014 the margins differ by ruler and edge, the walk is a single realization; the pair is the table's only within-organism contrast (and its only same-walk contrast).",
+  "THE FALLBACK RULER ROW (e193b/ZEPHYRA): its ruler is g+0, the frozen mechanical fallback (g-12 read 0.1486 < 0.27 at the root) \u2014 a CROSS-GEOMETRY ruler vs the g-12 family and vs org2's g-4; its edge is a FIRST-DEAD GRID POINT (upper bound, e193b's 27-pt grid), its band likewise grid upper bounds \u2014 the multiple's bias direction is UNDETERMINED (both numerator and denominator upper-bounded).",
+  "THE FORK (carried from e197/e200, load-bearing): the half lineage's PRIMARY walk is the NATURAL-step walk (e196: death AT t=1, gm 0.0068); its half-step counterfactual (e197/e200: alive t1-t4, death t5) is reported as the ALTERNATE reading \u2014 under it MARGIN-PREDICTS fails. The dispatcher's reading (natural walk) is the primary; both are in the table.",
+  "INSTRUMENT HETEROGENEITY (e205's disclosures carried verbatim): org1's band = e_chart's FINE_GRID co-read (cap 1.5; 1-of-3 draws right-censored >1.5; the co-read PROMOTED to band instrument by e205, disclosed there); MIRABEL's + ZEPHYRA's bands = first-dead GRID points on e193b's 27-pt grid (upper bounds); the half band = e205's fresh onset-grid interpolated crossings (the ONLY same-instrument band). Grid class context: e193's own bracket interpolates 0.4% off the onset grid.",
+  "RULER GEOMETRY ASYMMETRY (T153/T155, Rule 12): org1's ruler is the NOVEL geometry g-12 (its 0.27 shut bar sits on a battery the organism never trained); org2-f2's is TRAINED g-4 (max committed root read); e193b/ZEPHYRA's is the TRAINED g+0 fallback. Within a row, edge and band share the ruler (self-consistent); ACROSS rows the rulers differ \u2014 cross-row comparisons carry this flag.",
+  "g1bR's 2.74M roots (C10907/C10908/W1_10907/W1_10908, s300): the rays DO NOT EXIST \u2014 no u0/static kill-D instrument, no in-span band in the committed metrics (verified by key-survey in P4) \u2014 OUT OF THE CENSUS, reported honestly, not silently dropped.",
+  "the load-check is recorded, not gating (e204/e205's convention).",
+  "Smoke mode: loads rows 1-2 only, stamps SMOKE, nothing adjudicated."
+ ],
+ "parents_loaded": {
+  "e199": {
+   "file": "runs/e199/metrics.json",
+   "md5": "14da6376689c2be6bebcc9834f597e02",
+   "experiment": "e199_onset_curve",
+   "date": "2026-10-01T22:42:30Z"
+  },
+  "e200": {
+   "file": "runs/e200/metrics.json",
+   "md5": "371bec85445c8cce23a76c240e3683b1",
+   "experiment": "e200_deepening",
+   "date": "2026-10-02T08:21:09Z"
+  },
+  "e193b": {
+   "file": "runs/e193b/metrics.json",
+   "md5": "7385fb4c79524a9f065e3af988bd98e5",
+   "experiment": "e193b_two_fact",
+   "date": "2026-10-01T18:37:19Z"
+  },
+  "e196": {
+   "file": "runs/e196/metrics.json",
+   "md5": "326048bf1521daafd7087ea29f55026c",
+   "experiment": "e196_flight_replicate",
+   "date": "2026-10-01T20:22:40Z"
+  },
+  "e198": {
+   "file": "runs/e198/metrics.json",
+   "md5": "eb9f1262e3372d7a0e054d756879d520",
+   "experiment": "e198_flight_arch",
+   "date": "2026-10-01T22:08:39Z"
+  },
+  "e205": {
+   "file": "runs/e205/metrics.json",
+   "md5": "538ea50744d4e7a5023799605f0be4c5",
+   "experiment": "e205_onset_norm",
+   "date": "2026-10-02T10:50:43Z"
+  },
+  "e_chart": {
+   "file": "runs/e_chart/metrics.json",
+   "md5": "d4ffe31d5ef0e7a9e1e5df603712e11f",
+   "experiment": "e_chart",
+   "date": "2026-10-01T15:33:37Z"
+  }
+ },
+ "table_rows_loaded": [
+  {
+   "id": "R1",
+   "organism": "org1 (e131_consolidated_e113.pt)",
+   "fact": "ZEPHYRA",
+   "ruler_class": "g-12 novel",
+   "edge": 2.269916581032063,
+   "band_kill_Ds": [
+    0.6100797132671589,
+    null,
+    0.5636664436670049
+   ],
+   "band_median": 0.6100797132671589,
+   "multiple": 3.7206885127780804,
+   "survival": 1,
+   "death_t": 2
+  },
+  {
+   "id": "R2",
+   "organism": "e193b (e193b_root.pt, fresh two-fact)",
+   "fact": "MIRABEL",
+   "ruler_class": "g-12 novel",
+   "edge": 1.9470925580069711,
+   "band_kill_Ds": [
+    1.5,
+    0.92,
+    0.74
+   ],
+   "band_median": 0.92,
+   "multiple": 2.1164049543554033,
+   "survival": 2,
+   "death_t": 3
+  },
+  {
+   "id": "R3",
+   "organism": "e193b (e193b_root.pt, fresh two-fact)",
+   "fact": "ZEPHYRA",
+   "ruler_class": "g+0 trained (FALLBACK)",
+   "edge": 0.92,
+   "band_kill_Ds": [
+    1.75,
+    0.74,
+    0.58
+   ],
+   "band_median": 0.74,
+   "multiple": 1.2432432432432432,
+   "survival": 0,
+   "death_t": 1
+  },
+  {
+   "id": "R4",
+   "organism": "org2-f2 'half' (e157_f2_consolidated.pt)",
+   "fact": "ZEPHYRA (f2)",
+   "ruler_class": "g-4 trained",
+   "edge": 0.5252331597771716,
+   "band_kill_Ds": [
+    0.8526279196164989,
+    0.985063798996848,
+    0.4138067254671565
+   ],
+   "band_median": 0.8526279196164989,
+   "multiple": 0.6160168435645583,
+   "survival": 0,
+   "death_t": 1
+  }
+ ],
+ "phase": "P5 table + adjudication",
+ "gates": {
+  "G_LOAD": {
+   "pass": true,
+   "note": "every row's edge/band/walk loaded AT its committed path; parent file md5s recorded in parents_loaded",
+   "rows": {
+    "R1": {
+     "edge_path": "runs/e199/metrics.json onset_curves.org1[0].D_kill (u0 = e192's R2, interpolated)",
+     "band_path": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D (seeds 11601-3; e205's promoted instrument)",
+     "walk_path": "runs/e199/metrics.json organisms.org1.alive_ledger"
+    },
+    "R2": {
+     "edge_path": "runs/e199/metrics.json onset_curves.mirabel[0].D_kill (u0 = e193b's R2_SIGN, interpolated)",
+     "band_path": "runs/e193b/metrics.json inspan_range.MIRABEL.kill_Ds (seeds 11911-3, e205's loaded band)",
+     "walk_path": "runs/e199/metrics.json organisms.mirabel.alive_ledger"
+    },
+    "R3": {
+     "edge_path": "runs/e193b/metrics.json adjudication.per_fact.ZEPHYRA.sign_kill (u0 = R2_SIGN, FIRST-DEAD GRID POINT)",
+     "band_path": "runs/e193b/metrics.json inspan_range.ZEPHYRA.kill_Ds (the SAME draws as R2's \u2014 seeds 11911-3 \u2014 read by the ZEPHYRA ruler)",
+     "walk_path": "runs/e198/metrics.json phase0_walk_rebuild.kill_zephyra_rederived + walk_journal[0]['g+0']"
+    },
+    "R4": {
+     "edge_path": "runs/e200/metrics.json profiles.root_u0.D_kill (u0 = e193's R2_SIGN, onset-grid interpolated; e193's own 27-pt bracket interpolates 0.5271 \u2014 a 0.4% grid class)",
+     "band_path": "runs/e205/metrics.json bands.half.kill_Ds_fresh (seeds 12001-3 \u2014 e205's fresh band at this root)",
+     "walk_path": "runs/e196/metrics.json phase0_walk_rebuild.stop (natural) + runs/e200/metrics.json alive_ledger (alternate)"
+    }
+   }
+  },
+  "G_ARITH": {
+   "pass": true,
+   "checks": [
+    {
+     "name": "R1 multiple == e205 committed edge_multiples.org1",
+     "ok": true,
+     "detail": {
+      "recomputed": 3.7206885127780804,
+      "committed": 3.7206885127780804,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R1 band median == e205 committed band_medians.org1",
+     "ok": true,
+     "detail": {
+      "recomputed": 0.6100797132671589,
+      "committed": 0.6100797132671589,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R2 multiple == e205 committed edge_multiples.mirabel",
+     "ok": true,
+     "detail": {
+      "recomputed": 2.1164049543554033,
+      "committed": 2.1164049543554033,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R2 band median == e205 committed band_medians.mirabel",
+     "ok": true,
+     "detail": {
+      "recomputed": 0.92,
+      "committed": 0.92,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R4 multiple == e205 committed edge_multiples.half",
+     "ok": true,
+     "detail": {
+      "recomputed": 0.6160168435645583,
+      "committed": 0.6160168435645583,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R4 band median == e205 committed band_medians.half",
+     "ok": true,
+     "detail": {
+      "recomputed": 0.8526279196164989,
+      "committed": 0.8526279196164989,
+      "abs_diff": 0.0
+     }
+    },
+    {
+     "name": "R3 band median == middle order statistic of [1.75, 0.74, 0.58]",
+     "ok": true,
+     "detail": {
+      "recomputed": 0.74
+     }
+    },
+    {
+     "name": "R3 multiple == 0.92/0.74",
+     "ok": true,
+     "detail": {
+      "recomputed": 1.2432432432432432
+     }
+    },
+    {
+     "name": "R3 edge bracket: 0.87 alive / 0.92 dead (e193b rows)",
+     "ok": true,
+     "detail": {
+      "gm_at_0.87": 0.27922821044921875,
+      "gm_at_0.92": 0.25733309984207153,
+      "interp_crossing": 0.8910736785367195,
+      "grid_gap_pct": 3.24623228808442
+     }
+    }
+   ]
+  },
+  "G_WALKS": {
+   "pass": true,
+   "checks": [
+    {
+     "name": "R1 t1 alive (0.6786 > 0.27)",
+     "ok": true,
+     "detail": {
+      "read": 0.6785961389541626
+     }
+    },
+    {
+     "name": "R1 t2 death (9.83e-05 <= 0.27)",
+     "ok": true,
+     "detail": {
+      "read": 9.830708586378023e-05
+     }
+    },
+    {
+     "name": "R1 survival == 1",
+     "ok": true,
+     "detail": {}
+    },
+    {
+     "name": "R2 t1,t2 alive; t3 death",
+     "ok": true,
+     "detail": {
+      "t1": 0.3672751486301422,
+      "t2": 0.691045343875885,
+      "t3": 0.12303005158901215
+     }
+    },
+    {
+     "name": "R2 survival == 2",
+     "ok": true,
+     "detail": {}
+    },
+    {
+     "name": "R3 step-1 ZEPHYRA read dead (journal 0.1629 <= 0.27)",
+     "ok": true,
+     "detail": {
+      "journal": 0.16293005645275116
+     }
+    },
+    {
+     "name": "R3 step-1 a_sign repro read dead (0.0526 <= 0.27)",
+     "ok": true,
+     "detail": {
+      "asign": 0.052623070776462555
+     }
+    },
+    {
+     "name": "R3 e198 kill row: kind=kill, step=1",
+     "ok": true,
+     "detail": {
+      "kill_zephyra_rederived.step": 1
+     }
+    },
+    {
+     "name": "R3 survival == 0",
+     "ok": true,
+     "detail": {}
+    },
+    {
+     "name": "R4 natural step-1 dead (0.0068 <= 0.27)",
+     "ok": true,
+     "detail": {
+      "read": 0.006826397497206926
+     }
+    },
+    {
+     "name": "R4 natural survival == 0 (e196 stop step 1)",
+     "ok": true,
+     "detail": {}
+    },
+    {
+     "name": "R4 half-step t1 alive (0.4192 > 0.27) [the fork]",
+     "ok": true,
+     "detail": {
+      "read": 0.41916513442993164
+     }
+    },
+    {
+     "name": "R4 half-step t5 death (0.1648 <= 0.27) [the fork]",
+     "ok": true,
+     "detail": {
+      "read": 0.164818674325943
+     }
+    }
+   ]
+  }
+ },
+ "g1bR_survey": {
+  "file": "runs/g1bR/metrics.json",
+  "md5": "8f46c904e81acea3fd866a3ab836af8a",
+  "experiment": "g1bR_seed_replicates",
+  "verdict": "WALL-REPLICATES",
+  "roots": [
+   "g1bR_C10907_s300.pt",
+   "g1bR_C10908_s300.pt",
+   "g1bR_W1_10907_s300.pt",
+   "g1bR_W1_10908_s300.pt"
+  ],
+  "instrument_key_survey": {
+   "d_kill": false,
+   "static": true,
+   "ray": false,
+   "inspan": false,
+   "edge_multiple": false
+  },
+  "instrument_key_survey_note": "the lone 'static' substring hit is PROSE (a device-record honesty note: \"the first run's static honesty text...\"), not a static-ray instrument \u2014 verified by context scan",
+  "status": "OUT OF CENSUS \u2014 the rays DO NOT EXIST: no u0/static kill-D instrument and no in-span random band in the committed metrics (batteries = the g1b ruler reads; the wash arms are trained walks, not static-ray profiles). The four 2.74M roots are real and checkpointed; a margin for them would need a NEW instrument cell (e191/e192's machinery at those roots) \u2014 named here as the census's named debt, not run."
+ },
+ "census_table": [
+  {
+   "id": "R1",
+   "organism": "org1 (e131_consolidated_e113.pt)",
+   "arch": "6L/6H/192d/256ctx, 2,739,072 params",
+   "fact": "ZEPHYRA",
+   "ruler": "ZEPHYRA install-60 g-12 (NOVEL geometry; root read 0.9156)",
+   "ruler_class": "g-12 novel",
+   "edge": 2.269916581032063,
+   "edge_kind": "interpolated downcrossing (the onset instrument)",
+   "band_kill_Ds": [
+    0.6100797132671589,
+    null,
+    0.5636664436670049
+   ],
+   "band_median": 0.6100797132671589,
+   "band_n": 3,
+   "band_censored": 1,
+   "band_instrument": "e_chart FINE_GRID 11pts 0.05..1.5, interpolated linear-in-D; 1-of-3 right-censored >1.5",
+   "margin_multiple": 3.7206885127780804,
+   "survival_steps_natural": 1,
+   "death_t": 2,
+   "alternate_walk": null,
+   "class": ">2",
+   "caveats": [
+    "band = the e_chart fine-D co-read PROMOTED to band instrument by e205 (disclosed there)",
+    "n=3 draws with 1 right-censored (>1.5) \u2014 the median is censoring-robust",
+    "ruler is the NOVEL g-12 geometry (T153's asymmetry: org1's shut bar sits on an untrained battery)"
+   ]
+  },
+  {
+   "id": "R2",
+   "organism": "e193b (e193b_root.pt, fresh two-fact)",
+   "arch": "6L/6H/192d/256ctx, 2,739,072 params (org1's EXACT architecture)",
+   "fact": "MIRABEL",
+   "ruler": "MIRABEL install-60 g-12 (root read 0.6236 \u2014 no fallback triggered)",
+   "ruler_class": "g-12 novel",
+   "edge": 1.9470925580069711,
+   "edge_kind": "interpolated downcrossing (the onset instrument)",
+   "band_kill_Ds": [
+    1.5,
+    0.92,
+    0.74
+   ],
+   "band_median": 0.92,
+   "band_n": 3,
+   "band_censored": 0,
+   "band_instrument": "e193b D_GRID 27pts, FIRST-DEAD GRID POINTS (upper bounds)",
+   "margin_multiple": 2.1164049543554033,
+   "survival_steps_natural": 2,
+   "death_t": 3,
+   "alternate_walk": null,
+   "class": ">2",
+   "caveats": [
+    "band kill-Ds are first-dead GRID points (upper bounds) => band median overstates => the multiple is a LOWER bound (biased toward arrival)",
+    "shares its walk and its in-span DRAWS with R3 (one organism, two facts)",
+    "ruler g-12 (novel geometry), same class as R1's"
+   ]
+  },
+  {
+   "id": "R3",
+   "organism": "e193b (e193b_root.pt, fresh two-fact)",
+   "arch": "6L/6H/192d/256ctx, 2,739,072 params (same organism as R2)",
+   "fact": "ZEPHYRA",
+   "ruler": "ZEPHYRA install-60 install-60 g+0 \u2014 THE FALLBACK RULER (g-12 read 0.1486 < 0.27 => frozen mechanical fallback to the max root read 0.4618)",
+   "ruler_class": "g+0 trained (FALLBACK)",
+   "edge": 0.92,
+   "edge_kind": "first-dead grid point (upper bound; interpolated context recomputed in G_ARITH from e193b's committed rows)",
+   "band_kill_Ds": [
+    1.75,
+    0.74,
+    0.58
+   ],
+   "band_median": 0.74,
+   "band_n": 3,
+   "band_censored": 0,
+   "band_instrument": "e193b D_GRID 27pts, FIRST-DEAD GRID POINTS (upper bounds)",
+   "margin_multiple": 1.2432432432432432,
+   "survival_steps_natural": 0,
+   "death_t": 1,
+   "alternate_walk": null,
+   "class": "gray[1,2]",
+   "caveats": [
+    "THE FALLBACK RULER: g+0 (trained geometry) \u2014 a CROSS-GEOMETRY row vs the g-12 family and R4's g-4; the fallback was frozen before compute in e193b, but the row's margin is not same-ruler-family comparable",
+    "edge AND band are both grid upper bounds => the multiple's bias direction is UNDETERMINED",
+    "the table's only within-organism, same-walk contrast (vs R2): margin 1.24x died at t=1 where 2.12x survived to t=3"
+   ]
+  },
+  {
+   "id": "R4",
+   "organism": "org2-f2 'half' (e157_f2_consolidated.pt)",
+   "arch": "4L/4H/128d/512ctx, 873,472 params (family 2)",
+   "fact": "ZEPHYRA (f2)",
+   "ruler": "install-60 g-4 (e193's frozen primary; root read 0.8872 \u2014 max committed)",
+   "ruler_class": "g-4 trained",
+   "edge": 0.5252331597771716,
+   "edge_kind": "interpolated downcrossing (the onset instrument)",
+   "band_kill_Ds": [
+    0.8526279196164989,
+    0.985063798996848,
+    0.4138067254671565
+   ],
+   "band_median": 0.8526279196164989,
+   "band_n": 3,
+   "band_censored": 0,
+   "band_instrument": "onset grid 0.05..3.00, interpolated linear-in-D (the ONLY same-instrument band in the table)",
+   "margin_multiple": 0.6160168435645583,
+   "survival_steps_natural": 0,
+   "death_t": 1,
+   "alternate_walk": {
+    "kind": "half-step counterfactual (e197/e200 \u2014 the direction machinery at HALF the natural step)",
+    "death_t": 5,
+    "survival": 4,
+    "note": "THE FORK: under this reading R4 survives 4 steps and MARGIN-PREDICTS fails; reported, never adjudicated"
+   },
+   "class": "<1",
+   "caveats": [
+    "THE FORK: the lineage's protocol walk dies at t=1; the half-step counterfactual survives to t=5 \u2014 both committed, the primary is the natural walk",
+    "the band is root-level (step-size independent) while the fronts belong to the counterfactual construction (e197/e200's carried deviation)",
+    "different architecture (873k vs 2.74M): absolute Ds are NOT cross-currency (e193's dual-currency note) \u2014 but the multiple is a RATIO and carries no unit",
+    "ruler g-4 (trained geometry) \u2014 a third ruler class in the table"
+   ]
+  }
+ ],
+ "adjudication": {
+  "bars": {
+   "MARGIN-PREDICTS": {
+    "fires": true,
+    "detail": {
+     "class_>2": {
+      "R1": [
+       3.7206885127780804,
+       1
+      ],
+      "R2": [
+       2.1164049543554033,
+       2
+      ]
+     },
+     "class_<1": {
+      "R4": [
+       0.6160168435645583,
+       0
+      ]
+     },
+     "gray_[1,2]": {
+      "R3": [
+       1.2432432432432432,
+       0
+      ]
+     },
+     "min_survival_>2": 1,
+     "max_survival_<1": 0,
+     "clause": "min(surv | margin>2) > max(surv | margin<1)",
+     "desk_forced": true,
+     "desk_forced_note": "the census is desk-complete from committed data; the firing was readable at registration and is reported as forced (e205's convention)"
+    }
+   },
+   "MARGIN-DECORRELATED": {
+    "fires": false,
+    "detail": {
+     "spearman_primary": 0.7378647873726218,
+     "spearman_alternate_fork": -0.4,
+     "clause": "fires iff PREDICTS fails AND Spearman(margin, survival) <= 0"
+    }
+   },
+   "GRADED": {
+    "fires": false
+   }
+  },
+  "verdict": "MARGIN-PREDICTS",
+  "composite_order": "MARGIN-PREDICTS -> MARGIN-DECORRELATED -> GRADED (first two mutually exclusive on the primary reading)",
+  "the_fork": {
+   "primary": "the half lineage's NATURAL-step walk (e196): death AT t=1 -> survival 0 -> PREDICTS fires",
+   "alternate": "the half-step counterfactual (e197/e200): survival 4 -> min(>2)=1 vs max(<1)=4 -> PREDICTS FAILS; Spearman -0.400",
+   "alternate_predicts_fires": false,
+   "note": "the dispatcher's registered reading (the natural walk, 'the half lineage's fact died at t=1') is the primary; the counterfactual is e197's own construction and is reported, never adjudicated"
+  },
+  "context_never_adjudicated": {
+   "two_line_separation": {
+    "observation": "every margin > 2 row survived its first wash step; every margin < 2 row died AT its first wash step (4/4 rows, the gray-zone row included on the death side)",
+    "holds": true,
+    "note": "a sharper cut than the registered letter asked for; reported as context because it was not registered as a bar (no bar shopping)"
+   },
+   "not_an_ordering": "the margin does NOT order deaths inside the survivor class: R1 (3.72x) died at t=2 while R2 (2.12x) died at t=3 \u2014 class separation, not a graded survival law",
+   "within_organism_pair": "R3 vs R2 (same organism, same walk, same draws): 1.24x died at t=1 where 2.12x survived to t=3 \u2014 the table's only same-walk margin contrast, margin-ordered"
+  }
+ },
+ "figure": "runs/e208/margin_vs_survival.png",
+ "honesty": {
+  "bands_own_ns": "every band is n=3 draws of ONE 20-step wash-history realization; R1's carries 1-of-3 right-censored >1.5 (median censoring-robust); R2/R3's are first-dead GRID points (upper bounds \u2014 R2's multiple is a lower bound, biased toward survival); R3's edge is ALSO a grid upper bound so its multiple's bias is UNDETERMINED; R4's band is the only same-instrument (interpolated onset grid) band",
+  "cross_ruler_rows": "three ruler classes in one table (g-12 novel x2, g+0 trained-fallback, g-4 trained) \u2014 within a row the edge and band share the ruler; ACROSS rows the rulers differ (T153/T155); R3 is the flagged fallback-ruler row; R2 vs R3 isolates the ruler's contribution (same draws: band 0.92 under g-12 vs 0.74 under g+0)",
+  "single_realizations": "every survival number is ONE realized walk; rows R2/R3 share a single walk; margins are single-u0, single-span-realization numbers \u2014 nothing here is a distribution; the 2-3x draw lottery T155 committed would move any band median on redraw",
+  "the_fork": "R4's two committed walks disagree by four survival steps (natural death t=1 vs counterfactual death t=5); the primary is the natural walk; the verdict flips to MARGIN-DECORRELATED under the alternate \u2014 this is the table's single biggest fragility and it is on the face of the adjudication",
+  "logits_prediction_check": "the census is behavior reads (battery p(Z) shut-bar crossings) on committed data; NO intervening was done in this cell \u2014 the margin's causal claim is only as good as the walks it is compared against (single realizations)",
+  "nothing_guaranteed": "the openness is the point: n=4 rows, 3 organisms, 1 shared walk, one gray-zone row; the 2x-line 4/4 separation is context, NOT a registered bar; g1bR's roots are the named debt (a new instrument cell would be needed to extend the census)",
+  "desk_forced": "like e205, the verdict was desk-computable at registration; the cell's value is the gated assembly, the fork made explicit, the g1bR survey and the map itself"
+ },
+ "provenance": {
+  "edges": {
+   "R1": "runs/e199/metrics.json onset_curves.org1[0]",
+   "R2": "runs/e199/metrics.json onset_curves.mirabel[0]",
+   "R3": "runs/e193b/metrics.json adjudication.per_fact.ZEPHYRA.sign_kill",
+   "R4": "runs/e200/metrics.json profiles.root_u0"
+  },
+  "bands": {
+   "R1": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D (via e205's committed copy, cross-checked)",
+   "R2": "runs/e193b/metrics.json inspan_range.MIRABEL.kill_Ds",
+   "R3": "runs/e193b/metrics.json inspan_range.ZEPHYRA.kill_Ds",
+   "R4": "runs/e205/metrics.json bands.half.kill_Ds_fresh"
+  },
+  "walks": {
+   "R1": "runs/e199/metrics.json organisms.org1.alive_ledger",
+   "R2": "runs/e199/metrics.json organisms.mirabel.alive_ledger",
+   "R3": "runs/e198/metrics.json phase0_walk_rebuild.kill_zephyra_rederived (+ walk_journal[0])",
+   "R4 primary": "runs/e196/metrics.json phase0_walk_rebuild.stop",
+   "R4 alternate": "runs/e200/metrics.json alive_ledger"
+  },
+  "g1bR": "runs/g1bR/metrics.json (key survey; OUT of census)",
+  "parent_file_md5s": {
+   "e199": "14da6376689c2be6bebcc9834f597e02",
+   "e200": "371bec85445c8cce23a76c240e3683b1",
+   "e193b": "7385fb4c79524a9f065e3af988bd98e5",
+   "e196": "326048bf1521daafd7087ea29f55026c",
+   "e198": "eb9f1262e3372d7a0e054d756879d520",
+   "e205": "538ea50744d4e7a5023799605f0be4c5",
+   "e_chart": "d4ffe31d5ef0e7a9e1e5df603712e11f"
+  }
+ }
+}

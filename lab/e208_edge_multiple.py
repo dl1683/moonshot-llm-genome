@@ -548,6 +548,11 @@ def main():
     blob = json.dumps(g1).lower()
     survey_keys = ["d_kill", "static", "ray", "inspan", "edge_multiple"]
     found = {k: (k in blob) for k in survey_keys}
+    found_note = None
+    if found.get("static"):
+        found_note = ("the lone 'static' substring hit is PROSE (a device-record "
+                      "honesty note: \"the first run's static honesty text...\"), "
+                      "not a static-ray instrument — verified by context scan")
     g1bR = {
         "file": "runs/g1bR/metrics.json",
         "md5": md5_file(RUNS / "g1bR" / "metrics.json"),
@@ -556,6 +561,7 @@ def main():
         "roots": ["g1bR_C10907_s300.pt", "g1bR_C10908_s300.pt",
                   "g1bR_W1_10907_s300.pt", "g1bR_W1_10908_s300.pt"],
         "instrument_key_survey": found,
+        "instrument_key_survey_note": found_note,
         "status": "OUT OF CENSUS — the rays DO NOT EXIST: no u0/static kill-D "
                   "instrument and no in-span random band in the committed "
                   "metrics (batteries = the g1b ruler reads; the wash arms are "
