@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T170 — g1bS6: the wall's scale verdict — WALL-FADES, direction survives, and the first step is the whole story (2026-10-02 ~10:25Z)
+
+The six-take saga closes with an honest negative and a mechanism:
+the strict 2.74M wall did NOT survive 10x — every rung breached at
++1 because ONE AdamW step (3.16 raw) exceeds every radius on the
+2.74M-minted ladder: THE WALL'S FIRST-STEP BLINDNESS IS
+STRUCTURAL, not a tuning artifact — the commit-then-project design
+is blind between commit and the first projection rescale, and at
+10M that window is exactly where the kill lands (T139's clock: one
+step). WHAT SURVIVES IS DIRECTION: the rms-matched rung holds the
+fact ~1000x above the control through the whole flat phase — the
+ball still separates memory from death; it just cannot promise
+every-checkpoint continuity when the step outruns the radius. THE
+TIGHTER-BALL ORDERING replicates on the strong root (0.895 >>
+0.464 >> 0.0002) — g1bS4's texture was real. THE TAX RE-PRICED:
++0.18 at 10M (vs +0.53) with the walled organism ADAPTING (CE
+below root) — the freeze reading dead at both scales now. THE
+SAGA'S LEDGER: divergence -> near-miss -> inversion -> the curve
+-> the verdict; three recipe casualties, one cure pattern, one
+tuned window, one structural limit. THE WALL'S HONEST FINAL FORM:
+a displacement budget that separates memory from death at every
+scale tested, holding strict continuity only where the step fits
+the radius — the fix candidate (a first-step-aware projection)
+named for the next life of the g-series.
+
 ## T169 — e203: the sliver retires; the sign survives — the flight arc's geometry chapter closes on its smallest true object (2026-10-02 ~10:10Z)
 
 The replicate adjudicates cleanly: the T168 sliver (a pair-1-

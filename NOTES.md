@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS6 — the fifth take adjudicated: WALL-FADES at 10M — the wall's first scale verdict; the strict 2.74M wall did NOT survive 10x; what survives is DIRECTION (1000x separation at every checkpoint >= +10); the first-step blindness is structural (2026-10-02 ~10:25Z) — DONE
+
+WHAT WE DID: the wall arms on g1bS5's formation-curve PEAK root
+(0.20 rms; root g-12 0.7677) loaded BIT-EXACT (the new G-ROOTLOAD
+gate |d| 0.0 on all cells); the REGISTERED pre-run deviation
+honored (the root 0.0123 below the express bar; the curve licenses
+the arms; disclosed on every artifact); the owner envelope held
+(4 gated launches, 23 heat pauses, 180s cooldowns).
+
+WHAT WE SAW (T170): WALL-FADES — C died at +1 (D_kill = exactly
+one AdamW step, T139 at 10x again) and NO rung on the {1x,2x,4x}
+R_rms ladder held the strict every-checkpoint bar: EVERY RUNG
+BREACHED AT +1 (W1 shock 0.094; W2 0.0015; W3 tracks C — its ball
+contains step 1). NOT the freezing escape (W1's CE@300 0.97 <
+root 1.70 — the walled organism ADAPTS; the tax re-priced +0.18
+vs +0.53 at 2.74M). THE TEXTURE: (a) THE TIGHTER BALL HOLDS
+BETTER — flat-phase retention W1 0.895 >> W2 0.464 >> W3 0.0002
+(g1bS4's ordering replicated on the strong root; W1 missed the
+0.9x-root secondary by 0.005, a late fade); (b) THE WALL'S
+FIRST-STEP BLINDNESS IS STRUCTURAL AT 10M — one AdamW step (3.16
+raw) EXCEEDS EVERY RUNG on the registered ladder, and the +1
+projection shock breaches the bar before the flat phase ever
+starts: the R-dial was minted at 2.74M's step scale. THE 2.74M
+WALL DID NOT SURVIVE 10x IN ITS STRICT FORM; WHAT SURVIVES IS
+DIRECTION: the rms-matched rung separates the fact from the
+control by ~1000x at every checkpoint >= +10. HONESTY: n=1
+host/wash-seed/fact — the rung was SCALE; the replicate ladder
+owed only per the design's own scoping.
+
+---
+
 ## e203 — the second twin: GRADED — the sliver RETIRES unreplicated; what replicates is the SIGN only (fact-carrying fronts deeper than fact-free, both families); the shapes are family-specific (2026-10-02 ~10:10Z) — DONE
 
 WHAT WE DID: the f2 lineage's own pre-install parent (the
