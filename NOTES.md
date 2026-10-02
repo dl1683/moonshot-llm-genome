@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g14 — the g1f crush decomposition: MULTI-COMPONENT — no single component's removal spares g1f (the ladder 0.404/0.210/0.251/0.258/0.403, all crush) — the per-draw structure is DIMENSIONAL, not componential; the co-reads: LETHAL != CARRIER (the -s_0 direction at full norm ANNIHILATES (3e-7) yet its removal never spares; the span's top-3 at full norm are BENIGN (0.947)); the delta 83.9% span-orthogonal; first-order predicts nothing (2026-10-02 ~22:05Z) — DONE
+
+WHAT WE DID: the component-transplant ladder on g1f's delta (the
+span/span-orth/top-3/s_0-part/span-rest removals, each at the full
+step's norm; the refs reproduced bit-clean 0.2577/0.2951; the span
+= e211's committed pristine wash-span reproduced to 0.0 rel); all
+gates PASS; 55.2s CPU.
+
+WHAT WE SAW (T202): MULTI-COMPONENT — removing ANY one component
+still crushes (0/5 spare; the ladder 0.404/0.210/0.251/0.258/
+0.403): THE g1f CRUSH IS DISTRIBUTED — nothing carries it the way
+s_0 carried g1e's (g1e's s_0-carriage was the DRAW, not the law).
+THE CO-READS THAT SHARPEN: (1) LETHAL != CARRIER — the -s_0
+direction at full norm ANNIHILATES (0.0000003) yet removing it
+never spares: a direction can be maximally lethal without being
+the damage's carrier; (2) the span's top-3 directions at full
+norm are BENIGN (0.947 — even protective); (3) the delta is 83.9%
+SPAN-ORTHOGONAL (only 16% in the family's wash-span) with s_0
+nearly out-of-span (0.072); (4) first-order predicts nothing
+(-0.021 vs -1.939). THE MECHANISM TABLE'S HONEST FINISH: the
+crush delta-carried (n=2, licensed); the carrier PER-DRAW (g1e:
+s_0; g1f: distributed — dimensional, not componential); the wall
+re-captures by +2 everywhere. HONESTY: n=1 per arm; the nested-
+component caveat (each removal renormalizes a 2.74M-dim remainder
+— "spared" means a non-lethal remainder direction); the span the
+family's reference. SUCCESSORS: the g1e mirrored ladder; a third
+cons draw; the +2 re-capture anatomy.
+
+---
+
 ## e223 — the exposure test on the strong-ordering root: NULL-CONFIRMS — every same-axis residue within +-0.0002 of the pass-back arithmetic (BOTH signs; the drift-side floor row included; the control riding a 1.47x mechanical ceiling to 4 decimals); no cross-ray immunity vs control; T182's ORDERING RETIRES AS A CORRELATION, full stop (2026-10-02 ~21:30Z) — DONE
 
 WHAT WE DID: the exposure test on the e131 root (the strong-ordering

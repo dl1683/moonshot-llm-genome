@@ -685,6 +685,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T202 — g14: lethal is not carrier; the g1f crush is dimensional (2026-10-02 ~22:05Z)
+
+The decomposition answers T200's successor with the registered
+modal prediction: no single component's removal spares g1f — the
+crush is DISTRIBUTED, and the per-draw structure is dimensional,
+not componential. THE DISTINCTION THE CELL GIVES THE LAB: LETHAL
+!= CARRIER — the -s_0 direction at full norm annihilates totally
+(3e-7) yet its removal never spares; a direction's direct lethality
+says nothing about whether it carries a step's damage. THE
+MECHANISM TABLE, CLOSED WITH ITS HONEST SHAPE: delta-carried
+(replicates n=2); carrier-per-draw (g1e: one direction; g1f:
+none — distributed); first-order blind; the wall universal in
+re-capture. W028'S LAW ONE LAST TIME, NOW INSIDE THE MECHANISM:
+"which component carries the crush" was a height question with a
+draw-specific answer; "the crush is delta-carried and the wall
+re-captures" are the shape sentences that replicate.
+
 ## T201 — e223: the vaccination retires (2026-10-02 ~21:30Z)
 
 The strong-ordering replication closes the exposure thread with
