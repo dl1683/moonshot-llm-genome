@@ -441,12 +441,13 @@ deviations: list[str] = [
     "on them); the named-split yardsticks of e216/e219/e220 are kept as "
     "co-reports for continuity.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
-    "After the smoke shakedown (nothing adjudicated), one display label "
-    "('SUBSTITUTION') and one plot title were made dynamic; the TYPOLOGY, "
-    "the bars and the operationalizations are byte-identical to the "
-    "registration commit (diff-verifiable; the typo fix was committed "
-    "before the real run, so G_TYPOLOGY's blob check reads the amended "
-    "registration).",
+    "After the smoke shakedown (nothing adjudicated), display/plot "
+    "cosmetics only were fixed (the 'SUBSTITUTION' label, a dynamic "
+    "plot title, one plot-loop typo that crashed the first PNG AFTER "
+    "metrics were DONE — the standing fail-safe); the TYPOLOGY, the bars "
+    "and the operationalizations are byte-identical to the registration "
+    "commit (diff-verifiable; every fix was committed before the "
+    "rerun, so G_TYPOLOGY's blob check reads the amended registration).",
     "Smoke mode: the same desk tables on the same committed records, own "
     "smoke dir, nothing adjudicated.",
 ]
@@ -703,9 +704,8 @@ def make_plot(rd, rows, sep, ord_res, absorb, anchor, famcap, adj, base_xw):
                    [r["resid_w2"] for r in fr], s=30, marker="s",
                    facecolors="none", edgecolors=CLASS_COLS[c],
                    linewidths=1.2, alpha=0.9)
-        for w, dy in (("w1", 0.0)):
-            m = sep[w]["class_mean"][c]
-            ax.plot([ci - 0.28, ci + 0.28], [m, m], color="k", lw=1.6)
+        m = sep["w1"]["class_mean"][c]
+        ax.plot([ci - 0.28, ci + 0.28], [m, m], color="k", lw=1.6)
     for r in rows:
         if r["answer"] in ("Gmail", "iPhone") or "Topeka" in r["fact"] \
                 or r["fact"].endswith("->yuan"):
