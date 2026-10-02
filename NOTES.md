@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e222 — the exposure-immunity causal test: NULL — T182's reading is NOT intervenable at sub-lethal doses (the same-axis rows land ON the pass-back arithmetic to four decimals (ceiling 1.100, residue +0.0006); every cross row within 7% with no arm-specific immunity; the f2 span's own ordering nearly flat); the honest limits named (2026-10-02 ~20:15Z) — DONE
+
+WHAT WE DID: the span machinery verbatim on the f2 root (873k,
+51.5s CPU, all 9 gates PASS); the sub-lethal pre-exposure eps =
+0.1 x t_top along +v0 / +v19 / a random in-span control; the
+kill-Ds of dirs 0/9/19 re-walked from every exposed state; the
+pass-back arithmetic disclosed BEFORE compute.
+
+WHAT WE SAW (T199): NULL — the same-direction rows land ON the
+mechanical pass-back arithmetic to four decimals (ratio 1.101 vs
+ceiling 1.100, residue +0.0006; the low arm -0.0012; the control
+-0.0001); every cross row within 7%, no arm-specific immunity
+(the top exposure raises the mid/low rays no more than the control
+does); the f2 span's own ordering NEARLY FLAT (kills
+0.802/0.811/0.877 by SV rank — slightly reversed: e211's ordering
+had little variance to act on at this organism). THE EXPOSURE-
+IMMUNITY READING, made causal at one sub-lethal dose here, does
+NOT fire: the top-SV tolerance is position-determined along its
+own axis and untouched along the orthogonal span axes. HONEST
+LIMITS (the honesty-gated next): n=1 organism, one span draw, one
+dose, ONE SIGN (the +v side; the wash itself drifts -v0 — the
+drift-side exposure, the mechanically sensitizing geometry,
+remains untested); a direct displacement is the wash's mechanism
+at one remove (eps 0.080 vs the wash's 0.916 step — immunity-to-
+TRAINING needs a 1-3 AdamW-step exposure arm); the e131-family
+root (where the ordering is strong, +0.38..+0.81) is the
+replication that would give the NULL teeth.
+
+---
+
 ## g12 — the crush intervention: GRADED — THE CRUSH TRAVELS WITH THE DELTA (the cross-transplant crushes the locked root to 0.109 where its own step reads 0.945) but NOT via the gradient's s_0-component (the g_0-form removal crushes HARDER at 0.006; the g0.s0 term was PROTECTIVE); the interaction lives in the ADAMW-REALIZED step's s_0-component (the delta-form removal SPARES at 0.708); first-order predicts neither sign nor scale (predicted -0.0004 vs actual -6.65) (2026-10-02 ~19:50Z) — DONE
 
 WHAT WE DID: the two registered interventions (the cross-transplant: g1e's cons delta applied at the locked root; the component-removals: both the g_0-form and the delta-form with their s_0-components removed), each a single projected step + the standard +1 read; the references bit-exact; all gates green; 16s CPU.

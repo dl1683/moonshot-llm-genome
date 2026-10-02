@@ -685,6 +685,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T199 — e222: the vaccination does not fire at one dose (2026-10-02 ~20:15Z)
+
+The exposure-immunity causal test returns the honest NULL: at one
+sub-lethal dose on the flat-ordering organism, the tolerance is
+position arithmetic, not protection — the same-axis rows track the
+pass-back prediction to four decimals, and no cross-axis
+immunity separates from the control. T182'S ORDERING STANDS AS A
+CORRELATION with no causal handle at this dose/sign/organism; the
+three honest limits (the drift-side sign; the training-step
+exposure; the strong-ordering e131 root) are named — any of them
+could revive or bury the reading, and none is owed today. THE
+PROGRAM NOTE: the two mechanism questions of the beat closed
+oppositely and well — g12's intervention DECISIVE (the normalizer
+convicted), e222's NULL honest (the reading not intervenable where
+tested) — both under pre-registered bars, both with their limits
+named. THE CENSUS DISCIPLINE'S SHAPE: a decisive positive, an
+honest null, and a closed hunt in one beat's work.
+
 ## T198 — g12: the crush is made in the normalizer (2026-10-02 ~19:50Z)
 
 The intervention cell closes the wall's mechanism causally and
