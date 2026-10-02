@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e182c2 — phase 2: TEMPLATE-GENERAL + DRAW-REPLICATES — the fast erosion survives the form change and the fresh draw; the locus is the FEW-SHOT-FOLLOWING FACULTY; the cross-wash stability free find (2026-10-02 ~16:05Z) — DONE
+
+WHAT WE DID: the reversed-form capital battery (n=19 gate-passers,
+p0 mean 0.907 — the reversed direction is NOT scarce at 124M) on
+phase-1's saved states (re-probe dp 0.0, bit-identical); the fresh
+corpus draw (seed 20261002, the only delta); the envelope held (3
+bursts of 2.7-9.1s).
+
+WHAT WE SAW (T183): (1) TEMPLATE-GENERAL — the reversed form
+declines 0.561 at +80 vs the capital-of form's 0.766 (ratio 0.73,
+inside the band): THE EROSION IS TEMPLATE-GENERAL; THE LOCUS IS
+THE FEW-SHOT-FOLLOWING FACULTY, not one form. TEXTURES: the +50
+co-adjudication flips SPECIFIC by 0.011 (the reversed form LAGS
+then CONVERGES: 0.003/+2 -> 0.068/+10 -> 0.421/+50 -> 0.561/+80
+vs nearrel's 0.016 -> 0.217 -> 0.648 -> 0.766); tmpl erodes 1.41x
+the generic controls (the capital family sits BETWEEN the controls
+0.397 and the near-related 0.766); the form+direction confound
+disclosed. (2) DRAW-REPLICATES — the fresh draw reproduces the
+phase-1 pattern at +50 (generic ratio 0.889 vs phase-1's 0.83; the
+near-related still FASTEST) and +80 (0.818; nearrel 0.656); ppl
+improves 71.3 -> 34.6 throughout. (3) THE CROSS-WASH FREE FIND:
+the tmpl battery's +50 decline reads 0.4212 on phase-1's states
+and 0.4202 on the fresh draw — TWO WASHES, THE SAME BATTERY, THE
+SAME DECLINE TO THREE DECIMALS (the erosion's per-battery dose-
+response is wash-path-independent to this precision — a stability
+the texture did not promise). HONESTY: n=1 pool, n=2 draws,
+nearrel n=3; CPU-fp32 probes vs GPU-fp32 wash — patterns, never
+bits.
+
+---
+
+---
+
 ## e211 — the walled-band question: GRADED — the wall neither widens the span nor flattens the basin; THE "WIDER WALLED BAND" WAS MOSTLY THE INSTRUMENT'S SHADOW (same-instrument medians match; the committed gap = cross-instrument heterogeneity + the n=3 lottery); safety orders with SV ENERGY (2026-10-02 ~15:45Z) — DONE
 
 WHAT WE DID: the two instruments, same-machinery at all four states
