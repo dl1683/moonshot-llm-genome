@@ -45,9 +45,9 @@ def _log_envelope_poll(tag: str, util: float, temp: float, ok: bool) -> None:
         import json as _json, datetime as _dt
         rec = {"t": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
                "tag": tag, "util": util, "temp": temp, "ok": bool(ok)}
-        with open("runs/_envelope_log.jsonl", "a", encoding="utf-8") as f:
-            f.write(_json.dumps(rec) + "
-")
+        with open(REPO / "runs" / "_envelope_log.jsonl", "a",
+                  encoding="utf-8") as f:
+            f.write(_json.dumps(rec) + "\n")
     except Exception:
         pass
 
@@ -69,6 +69,7 @@ def gpu_ok() -> bool:
     s = gpu_status()
     ok = s["util"] <= GPU_UTIL_CEIL and s["temp"] <= GPU_TEMP_CEIL and \
         (s["mem_total"] == 0 or s["mem_used"] <= 0.85 * s["mem_total"])
+    _log_envelope_poll("gpu_ok", s["util"], s["temp"], ok)
     if not ok:
         print(f"[gpu_guard] HOLD: {s}")
     return ok
