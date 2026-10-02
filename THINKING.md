@@ -807,7 +807,7 @@ did it in one step where MIRABEL needs two. THE TIMING CUT IS
 NAMED (ripening): org1's own u2/u3 map (does its concentration
 DEEPEN past t=1?) vs MIRABEL's t=3/t=4 — the concentration's
 onset curve on both organisms. THE RIM PICTURE IS NOW UNIVERSAL
-(2/2 architectures, 4/4 lineages: the recomputed direction always
+(2/2 architectures, 3/4 lineages (the fourth, org2-dead, has no live-anchor rim — its rises are dead-anchor reads; R61-audit repair): the recomputed direction always
 improves the fact before the far crash) — the valley-with-rim is
 the physics; the concentration's timing is the biography.
 ALIGNMENT PREDICTS NOTHING (again) — the day's most repeated

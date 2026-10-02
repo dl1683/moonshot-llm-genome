@@ -91,6 +91,49 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R61 — the envelope era's first review: the audit sound, the rotation under the null (2026-10-02, folded ~09:05Z)
+
+Trigger: the arc since R60 (T156-T166 + the scale saga + the park
++ the owner-envelope transition). DUO (the ideator skipped with the
+deviation noted — the dissection queue self-generates from its
+follow-on chains).
+
+AUDITOR (scratch/r61_auditor.md): every headline recomputed — ALL
+SOUND (g1bS2/3 with nuances: "lr*sqrt(P) exactly" is 0.4%;
+"650x" is 620x; g1bS4 SOUND-WITH-REPAIR). The amendments
+propagated accurately; no surviving estimator-flip copies; THE
+PAPER PARK HOLDS (zero drafting commits since the directive);
+envelope compliance mostly verified. THREE REPAIRS applied this
+fold: T162's rim universality 4/4 -> 3/4 (the dead lineage has no
+live-anchor rim); the QUEUE surgery (the missing e201 row; the
+g1bS3 status typo); g1bS4's envelope sentence re-scoped to the
+recovery legs (>=24 pauses, not 5; the original legs predate the
+envelope).
+
+CRITIC (scratch/r61_critic.md): three attacks + the forced desk
+item. K1 THE ROTATION'S NULL IS THE WRONG NULL: sign-descent
+overshoot on a quadratic landscape yields cos = 1 - 2*f_flip,
+reproducing every censused value with f_flip 0.58-0.68; the
+absorption fingerprint (deepening along the walk) was in the data
+and misread as "a rotating object"; "the rotation outlives the
+organism" = the mandatory period-2 bounce. T164/T166 stamped
+PROVISIONAL; THE NULL DERIVATION DISPATCHED (a desk item with the
+registered falsifier: a fact-free walk deviating toward the fact
+rescues the information reading). K2 the onset arrival times are
+bar-contingent (the bar moved 0.60->0.70; the half lineage's t2
+sits between; per-organism in-span normalization owed). K3 the
+scale landscape is one jitter draw with fuzz > the margin
+(g1bS5 is the right curve but needs one redrawn interior dose).
+K4 ATTACK ANSWERED STRUCTURALLY: gpu_ok() now appends every poll
+to runs/_envelope_log.jsonl — asserted compliance becomes
+auditable arithmetic.
+
+DECISIONS: repairs applied; the null derivation running; g1bS5's
+fold will carry the one-draw caveat + the redraw requirement; the
+onset normalization (per-organism in-span bands) queued.
+
+---
+
 ## R60 — the wave audited: the numbers are real; the corrections' copies chased; the next wave shaped (2026-10-01, folded ~17:20Z)
 
 Trigger: the day's wave closed (T144-T152) + the inherited R59
