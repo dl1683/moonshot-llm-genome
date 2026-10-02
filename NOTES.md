@@ -9,6 +9,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e210 — the same-episode margin: SAME-EPISODE-BREAKS — the class line dies at ANY episode; the hinge is one clock; the residue: the line was about the STEP SIZE relative to the noise ball, not the margin alone (2026-10-02 ~14:40Z) — DONE
+
+WHAT WE DID: the repair fork as a desk cell (ZERO fresh compute —
+every number loaded committed; same-episode identity gated per
+row); the within-episode table n=7 (three margins against seven
+committed first-episode clocks at their own pristine roots).
+
+WHAT WE SAW (T180): SAME-EPISODE-BREAKS — W5 (the f2 half-step
+counterfactual clock: margin 0.616x < 1, SURVIVED 4 steps) violates
+even within the honest episode; the 2x class line is DEAD AT ANY
+EPISODE; THE MARGIN IS A DESCRIPTOR, FULL STOP. THE HINGE, on the
+face of the adjudication: drop W5 (e208's frozen fork convention)
+and the n=6 NATURAL-clock table separates perfectly — the e208
+finding "restored" as a NATURAL-STEP claim only. THE RESIDUE, THE
+REAL LESSON: at half speed the same below-noise organism crosses
+four steps of the same noise ball — THE LINE WAS ALWAYS ABOUT THE
+STEP SIZE RELATIVE TO THE NOISE BALL, not the margin alone: the
+margin, the step, and the ball are one object (the fact's
+signal-to-noise per step), and no two of them predict survival
+without the third. Context: Spearman 0.124; W3's step-1 read 1.20x
+the bar (the survivor side noise-thin). HONESTY: three margins not
+seven; W2's death bracketed; W6's margin conservative; the fork on
+the face.
+
+---
+
 ## e209 — the census debt: MARGIN-BREAKS at n=7 — the scalar demotes to a DESCRIPTOR; the anatomy: an EPISODE MISMATCH (the margin at the settled state vs the first-episode clock); the walled roots' noise bands GROW 2-3x under the wall (2026-10-02 ~14:00Z) — DONE
 
 WHAT WE DID: the g1b/g1bR 2.74M W1 roots (10902 + 10907/10908)

@@ -685,6 +685,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T180 — e210: the margin, the step, and the ball are one object (2026-10-02 ~14:40Z)
+
+The repair cell ends the scalar's candidacy cleanly: the class
+line breaks even within the honest episode (one counterfactual
+clock suffices), and the anatomy of the break delivers the real
+lesson — AT HALF SPEED THE SAME BELOW-NOISE ORGANISM CROSSES FOUR
+STEPS OF THE SAME NOISE BALL. The line was never about the margin
+alone: THE MARGIN, THE STEP, AND THE BALL ARE ONE OBJECT — the
+fact's signal-to-noise PER STEP — and survival prediction needs
+all three. THE SCALAR'S FINAL FORM: the margin is a descriptor
+(the per-organism noise-unit reading); the class claim survives
+only as a natural-step statement (drop the counterfactual clock
+and n=6 separates perfectly — disclosed, the fork on the face).
+THE PROGRAM NOTE: the scalar was minted (e208), extended (e209),
+and killed (e210) in three cells and one day — the census
+discipline working at full speed on its own objects.
+
 ## T179 — e209: the margin demotes — and the demotion's anatomy is the finding (2026-10-02 ~14:00Z)
 
 The census extension breaks the class line honestly, and the
