@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T194 — g1f: the crush is the axis's; the flat phase is the wall's (2026-10-02 ~18:10Z)
+
+The second cons draw replicates the first's crush to the second
+digit (0.2577 vs 0.2719) — the +1 breach is the CONS axis's own
+texture, not a draw. THE +1 LEDGER'S THREE TIERS: cons ~0.26, base
+~0.48, wash/root 0.82-0.96 — the crush depth is a property of
+WHICH STREAM built the anchor's neighborhood, while the flat phase
+(the wall's own) is universal across every expressed draw (this
+cell's the strictest yet: 0.90-0.93 flat, the 0.9xroot bar holding
+for the first time in the redraw family). THE WALL'S LAW, FINAL
+TWO CLAUSES: the first step is the axis's; the flat phase is the
+wall's. THE MECHANISM QUESTION NAMED: what does the jitter-replay
+consolidation leave in the weights that costs the fact one extra
+projected step at the first wash gradient — the wash/root draws
+don't pay it. THE GRID, COMPLETE: wash n=3 HOLDS x root n=2 HOLDS
+x cons n=2 BOUND (systematic) x base unadjudicated x 10M
+direction-form — every cell adjudicated or honestly fenced, the
+saga's last variance closed.
+
 ## T193 — e219: the dimension survives its first confound break (2026-10-02 ~17:50Z)
 
 The third dimension's first identity test lands in the honest

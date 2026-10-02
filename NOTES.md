@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1f — the second cons seed: CRUSH-IS-TEXTURE — the +1 crush is the CONS AXIS's own (0.2577 replicating 0.2719 against the wash/root family's 0.82-0.96); THE FLAT PHASE BULLETPROOF (0.90-0.93 flat through +300, the strictest reading of the redraw family); the +1 ledger closes in three tiers (2026-10-02 ~18:10Z) — DONE
+
+WHAT WE DID: the g1e machinery VERBATIM at cons seed 10913 (the
+only delta); all gates PASS (the cons draw genuine, L2 17.18; the
+root 0.9682 — in-family and strong, no deviation); the envelope
+held (12 polls all FREE, bursts 16-22s).
+
+WHAT WE SAW (T194): (1) CRUSH-IS-TEXTURE — the second cons draw's
++1 reads 0.2577, replicating g1e's 0.2719 to the second digit
+against the wash/root family's 0.82-0.96: n=2-of-3 cons draws
+breaching at +1 is not draw-shaped — THE CONS AXIS CARRIES A
+SYSTEMATICALLY DEEPER FIRST-STEP CRUSH; the grid's cons cell
+stays BOUND at the every-checkpoint form. (2) THE FLAT PHASE IS
+BULLETPROOF — W1 recovers to 0.80 by +2 and holds 0.9021-0.9185
+FLAT through +300 (the 0.9xroot bar holds for the first time in
+the redraw family; FLAT-AT-PIN |d| 0.016) — the wall re-captures
+the fact after ONE projected step and holds it at ~0.95x its own
+root. (3) THE CONS LOTTERY STAYS QUIET AT 2.74M (the second root
+0.9682, above even the locked 0.9156: expression in-family twice;
+the PEAK-LOTTERY remains 10M-only). (4) THE +1 LEDGER, CLOSED IN
+TIERS: cons 0.27/0.26 > base 0.48 (unadjudicated) > wash/root
+0.82-0.96 — THE CRUSH DEPTH IS AN AXIS PROPERTY; THE FLAT PHASE
+UNIVERSAL. THE WALL'S LAW, TWO CLAUSES: THE FIRST STEP IS THE
+AXIS'S (the crush carries the stream's texture); THE FLAT PHASE IS
+THE WALL'S (re-capture by +2, hold ~0.95x root, every expressed
+draw). THE OPEN QUESTION NOW MECHANISM: what does the
+jitter-replay consolidation leave that costs the fact one extra
+projected step at the first wash gradient?
+
+---
+
 ## e219 — the independent-entrenchment cell: GRADED — THE THIRD DIMENSION SURVIVED THE BREAK (not instrument texture (rho +0.234/+0.256 > the bar); not entrenchment (zero absorption: family+IE leaves the residual at 0.936 vs 0.934)); a weak positive relation real but unable to name the dimension; the hunt continues past entrenchment (2026-10-02 ~17:50Z) — DONE
 
 WHAT WE DID: the confound break executed — 146 hand-registered
