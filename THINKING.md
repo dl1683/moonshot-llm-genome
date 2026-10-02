@@ -685,6 +685,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T177 — e208: the noise margin earns object status — as a class line (2026-10-02 ~13:00Z)
+
+The census gives T173's scalar its first structure: the 2x line
+separates every row on first-wash survival (margin > 2 survives
+the first wash step; margin < 1 dies at it) — THE FACT'S
+SIGNAL-TO-NOISE MARGIN IS A SURVIVAL CLASS PREDICTOR. The scalar's
+honest shape: a CLASS separator (the ordering inside the survivor
+class is not margin-driven — a threshold object, like the cliff).
+THE WITHIN-ORGANISM CONTRAST is the program's cleanest instrument
+move in days: two facts, one organism, one walk, one set of
+in-span draws — ordered by their margins through the ruler
+difference alone. THE PROGRAM'S LAW GAINS A MEMBER: the margin is
+a HEIGHT scalar (per-organism, lottery-flavored — the fork flips
+it) that nonetheless PREDICTS A CLASS (the shape layer): the
+lottery draws the height, and the height sets the class.
+
 ## T176 — g10: size, not timing — the wall's limit confirmed by its own fix attempts (2026-10-02 ~12:45Z)
 
 The fix cell closes the structural question in the cleanest

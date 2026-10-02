@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e208 — the edge-multiple census: MARGIN-PREDICTS (desk-forced, the fork disclosed) — the 2x noise-margin line separates 4/4 on first-wash survival; the within-organism pair is the scalar's cleanest contrast; the margin is a CLASS separator, not an ordering (2026-10-02 ~13:00Z) — DONE
+
+WHAT WE DID: T173's scalar assembled for every (organism, fact)
+pair with committed data; zero fresh compute (no torch import); 3
+gates PASS (the e205 multiples reproduce to 0.0; every survival
+read re-checked).
+
+WHAT WE SAW (T177): THE TABLE — 3.72x (org1/ZEPHYRA, survived 1
+step into the wash), 2.12x (e193b/MIRABEL, survived 2), 1.24x
+(e193b/ZEPHYRA under the fallback g+0 ruler, died at t=1), 0.616x
+(the half lineage, died at t=1 naturally). MARGIN-PREDICTS FIRES
+(desk-forced, disclosed): EVERY margin > 2 ROW OUTLIVED EVERY
+margin < 1 ROW; the 2x line separates 4/4 on first-wash survival
+(context, unregistered). THE SCALAR'S SHAPE: a CLASS separator,
+not an ordering (3.72x died at t=2 while 2.12x reached t=3). THE
+WITHIN-ORGANISM GEM (e193b, same walk, same in-span draws, two
+rulers): margin 1.24x died at t=1 where 2.12x survived to t=3 —
+the margin ordered two facts of ONE organism through their ruler
+difference alone (T155's ruler lesson made quantitative). THE
+FORK: under the half lineage's counterfactual walk (survived 4)
+the verdict flips to DECORRELATED — the fork is on the face of
+the adjudication. THE DEBT NAMED: the g1bR 2.74M roots have NO
+committed rays (verified) — a static-ray + band cell there breaks
+the n=4 table; a second walk realization breaks the
+single-realization fragility. HONESTY: n=4; band n=3 with
+censoring; three ruler classes; no intervention (a census).
+
+---
+
 ## g10 — the first-step-aware wall: FIX-IMPOTENT, cleanly — the kill is the first step's SIZE vs the radius, not its timing (the isomorphism exact); WALL-FADES stands confirmed; the continuity dial named (2026-10-02 ~12:45Z) — DONE
 
 WHAT WE DID: T170's three named fixes (STEP-CLIP / ANCHOR-AT-ONE /
