@@ -4103,6 +4103,40 @@ physics states. That is the culture working.
 
 
 
+
+## W027 — WONDER: two rotators — the wash bounces, the fact drifts; the dance is the dissection's loveliest object (2026-10-02 ~10:40Z; no bars, no kills — savoring the closed chapter)
+
+The geometry chapter's parting gift, assembled from e194-e205: the
+wash's sign front is a PERIOD-2 BOUNCER (the algorithm's overshoot
+— lag-1 negative, lag-2 positive, confirmed in-domain from
+orthogonal-at-s/8 to -0.263-at-s/2), while the fact's own
+sensitivity ladder is a SMOOTH DRIFTER (monotone decorrelation
+0.78 -> 0.19, nearly orthogonal at death). TWO ROTATORS AT
+DIFFERENT TEMPOS: the environment's probe oscillates fast and
+mechanically; the organism's support rotates slowly and dies into
+it. WHAT THE SURVIVORS SAY: death-at-deepest-landing (a shape,
+mostly fact-directed, the endpoint alignment +0.146 the best
+hint), the onset curves (arrival times pending their common
+ruler), and THE SIGN (the fact deepens the front — one bit,
+replicated first try). THE WONDER QUESTIONS, ripening: (1) WHY
+DOES THE SUPPORT DRIFT SMOOTHLY when the front bounces? The
+support is the fact-readout's gradient — a smooth functional of
+the weights — while the front is a sign pattern (a
+discontinuity); smooth objects rotate, discontinuous objects
+bounce. Is the tempo difference just regularity? (2) DOES THE
+SUPPORT'S DRIFT RATE PREDECT DEATH TIME? The ladder reaches
+near-orthogonality at death on this lineage — is the drift rate
+the fact's own clock (a candidate death timer measured from
+gradients alone)? (3) THE DANCE: if the front bounces at period 2
+and the support drifts monotonically, the ENCOUNTER structure is
+quasi-periodic — the fact's chance is the phase relationship; the
+rhythm organ (the g-series' managed bleed) wins by re-injecting
+support-direction steps at bounce minima. A CELLO QUARTET IN ONE
+ORGANISM: the wash drives, the front bounces, the support drifts,
+the wall (when it holds) is the room. The next dissection cut is
+the drift-rate-as-clock (2) — cheap, eval-only, and it would give
+the fact its own watch.
+
 ## W026 — WONDER: the architectures were exploiting the trajectory physics all along — the rhythm is a managed bleed, the wall is a guillotine cage (2026-09-30 ~08:00Z; no bars, no kills)
 
 Today's trajectory classes map onto the g-series architectures with
