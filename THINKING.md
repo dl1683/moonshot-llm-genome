@@ -685,6 +685,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T193 — e219: the dimension survives its first confound break (2026-10-02 ~17:50Z)
+
+The third dimension's first identity test lands in the honest
+middle: the paraphrase channel (146 forms, independent of the wash
+reads at rho 0.33) correlates with the residual above the texture
+bar — the replicating miss is NOT instrument texture — but absorbs
+nothing (0.936 vs 0.934): NOT entrenchment through a second
+channel either. A WEAK POSITIVE slope is real (entrenched probes
+sit high) but Gmail — the archive's biggest residual — is
+mid-channel: whatever holds Gmail is not entrenchment. THE HUNT'S
+STATE: the dimension is real (survived the break), unnamed
+(entrenchment retired), with two candidates left (the internal
+token structure; the relation's compositionality). THE PROGRAM
+NOTE: the census discipline's pattern holds — each identity test
+retires one candidate cleanly and leaves the object sharper.
+
 ## T192 — e217: the state function deepens; the signature is three-draw-stable (2026-10-02 ~17:00Z)
 
 The third draw closes T185's thread with the better answer: the

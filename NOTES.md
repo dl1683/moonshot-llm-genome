@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e219 — the independent-entrenchment cell: GRADED — THE THIRD DIMENSION SURVIVED THE BREAK (not instrument texture (rho +0.234/+0.256 > the bar); not entrenchment (zero absorption: family+IE leaves the residual at 0.936 vs 0.934)); a weak positive relation real but unable to name the dimension; the hunt continues past entrenchment (2026-10-02 ~17:50Z) — DONE
+
+WHAT WE DID: the confound break executed — 146 hand-registered
+paraphrase forms (2-3 per probe; paraphrased cloze, reversed
+cue-swaps, per-item constructions) measured at t=0 through a
+channel independent of the wash reads (rho(IE, p0) +0.333); all 7
+gates PASS (e216's residuals bit-reproduced at dp 0.0); 30s CPU.
+
+WHAT WE SAW (T193): (1) THE CORRELATION: rho(IE, residual) =
++0.234/+0.256 — above the 0.2 texture bar (NOT instrument
+texture; the confound genuinely broken), far below the 0.4 real
+bar (NOT plain entrenchment); directionally consistent everywhere
+(the reversed-direction forms carry more: +0.238/+0.282). (2) THE
+ABSORPTION (the decisive split): family + IE substituted as the
+height term leaves the cross-wash residual at 0.936 vs the 0.934
+baseline — ZERO absorption; the named splits survive substitution
+verbatim (product +3.2/+2.5 SD; tmpl width 0.82/0.80). (3) THE
+TEXTURE: a weak positive relation is real (Topeka->Kansas at IE
+0.96 anchors high; iPhone at 0.48 low) but cannot name the
+dimension — Gmail, the largest positive residual, is only
+mid-channel. THE HUNT CONTINUES PAST ENTRENCHMENT: the remaining
+named candidates are the probe's internal token structure and the
+relation's compositionality. HONESTY: the hand-registered
+paraphrases (committed before measurement); n=2 washes; the 8
+multi-token drops documented.
+
+---
+
 ## e217 — the third wash draw: DEEP-MEAN-REVERTS + GRADED — the +80 drift COLLAPSED toward 1 (wash 1's depth was the outlier; the state function deepens its claim); the relational signature three-draw-stable (rho 0.972/0.966; the decided families rock-steady, the mixed band carrying the lottery) (2026-10-02 ~17:00Z) — DONE
 
 WHAT WE DID: a third independent 5e-5 draw (seed 21703; the
