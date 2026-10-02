@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T189 — e215: family x height — the two-layer law meets the erosion order (2026-10-02 ~15:40Z)
+
+The sorting key resolves as the law's own product: FAMILY-FIRST
+(58% of the variance; lang and founder-anchor hold — cap-cur
+collapses) crossed with HEIGHT (the within-family residue carried
+by the baseline p0 — the ratio device at probe level). THE
+EXPOSURE KILLER: founders hold at ZERO corpus cues while products
+collapse at 232 — the wash's sorting is not about what it has
+seen; it is about WHAT KIND OF RELATION the probe encodes
+(language and unique-anchor relations survive; capital/currency
+relations die) — and how strong the probe started. THE EMERGENCE
+(+10 -> +50): the sort is not instant — the first ten steps
+leave every family intact; the relational signature is the
+mid-dose object (echoing T185's mid-dose state function). THE
+RELIABILITY (rho 0.939 cross-wash): the key is physics, not
+stream. THE NAMED OPEN THREAD: what sorts WITHIN the mixed
+families (the product split; the tmpl width) — family x height is
+the model, its residual the question.
+
 ## T188 — g1e: the grid closes — the flat phase survives everything; the transient is the last lottery (2026-10-02 ~15:25Z)
 
 The wall's final stream axis resolves as the grid's sharpest

@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e215 — the relational signature: GRADED — THE SORTING KEY IS FAMILY-FIRST, NOT FAMILY-ONLY (family carries 58% of the variance; the exposure story dead: founders hold at zero cues, products collapse at 232; the key replicates across washes at rho 0.939; the within-family residue is the ratio device) (2026-10-02 ~15:40Z) — DONE
+
+WHAT WE DID: desk+eval on e214's committed 54-probe records; a
+hand-registered 6-family typology; the predictor ladder (family
+ANOVA vs frequency/length with family-partials); the re-probes at
+dp 0.0; 23.8s CPU.
+
+WHAT WE SAW (T189): FAMILY CARRIES 58% OF THE HOLD-RATIO VARIANCE
+(F 13.1, eta2 0.577) yet the registered 2x separation bar fails
+(SSb/SSw 1.37 — the product and rev-capital families internally
+wide): FAMILY-FIRST, NOT FAMILY-ONLY. THE EXPOSURE STORY IS DEAD
+IN THIS CORPUS: founders HOLD at ZERO corpus cues while products
+collapse at 232 "made" cues; cap-cur/near/rev share the same four
+"capital" cues and split three ways; probe-level exposure is 0/54
+by the contamination gates. THE TABLE: lang HOLDS (0.87/0.82) +
+founder-anchor HOLDS (0.81/0.81, at zero exposure); cap-cur
+COLLAPSES (0.20/0.24); product/near-uscap/rev-capital MIXED. THE
+SORT EMERGES +10 -> +50 (all families 0.9-1.0 at +10). THE KEY
+REPLICATES: Spearman(hr_w1, hr_w2) = 0.939; the hold-class
+agreement 81%. THE WITHIN-FAMILY RESIDUE IS THE RATIO DEVICE: p0
+carries it (|partial| 0.45) — T178/T186's law at probe level: THE
+SORTING KEY IS FAMILY x HEIGHT, W028's two-layer law meeting
+T187's erosion order. HONESTY: the typology hand-registered, not
+blind to the outcome (disclosed); n=2 washes; the unbalanced n's
+(near=3); the answer-length arm structurally null; the
+separation-bar reading frozen literal (F co-reported).
+
+---
+
 ## g1e — the cons-seed redraw: CONS-WALL-BOUND — THE TRANSIENT IS THE LAST LOTTERY (the flat-phase protection cons-robust; the +1 crush draw-dependent; the cons lottery does NOT bite expression at 2.74M) (2026-10-02 ~15:25Z) — DONE
 
 WHAT WE DID: the wall's last stream axis — the e113 jitter-replay
