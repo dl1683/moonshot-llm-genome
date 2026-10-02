@@ -685,6 +685,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T195 — e220: token-silent — the Gmail/iPhone anchor at its sharpest (2026-10-02 ~18:35Z)
+
+The second candidate retires as cleanly as the first: every varying
+token feature silent (|rho| <= 0.069), every substitution leaving
+the residual untouched. THE ANCHOR IS THE STORY: Gmail and iPhone
+are near token-identical (both zero-frequency in the source corpus,
+near-identical fragmentation and cue lengths) with opposite fates —
+and the best token model WIDENS their gap. Whatever holds Gmail and
+kills iPhone is invisible at the token level entirely. THE HUNT AT
+ITS LAST DOOR: real (survived the confound break), beyond height,
+not entrenchment, not tokens — COMPOSITIONALITY, the relation's
+internal structure, is the last registered candidate. THE PATTERN
+ONE MORE TIME: each test retires a candidate cleanly, the object
+stays sharp, and the hunt converges — the third dimension is
+either compositionality (the next cell names it) or something the
+lab has not yet thought to register (the honest open door).
+
 ## T194 — g1f: the crush is the axis's; the flat phase is the wall's (2026-10-02 ~18:10Z)
 
 The second cons draw replicates the first's crush to the second
