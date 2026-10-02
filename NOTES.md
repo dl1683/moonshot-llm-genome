@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e211 — the walled-band question: GRADED — the wall neither widens the span nor flattens the basin; THE "WIDER WALLED BAND" WAS MOSTLY THE INSTRUMENT'S SHADOW (same-instrument medians match; the committed gap = cross-instrument heterogeneity + the n=3 lottery); safety orders with SV ENERGY (2026-10-02 ~15:45Z) — DONE
+
+WHAT WE DID: the two instruments, same-machinery at all four states
+(the pristine e131 root + the three walled s300 roots, settled and
+md5-gated): each root's OWN contiguous 20-step wash span spectrum
+(+2 realizations/root) and FD curvatures along the top span
+directions (eps ladder); the per-direction kill rays on e209's
+instrument.
+
+WHAT WE SAW (T182): THE SPECTRA MATCH (the fresh pristine PR
+4.117; the walled 1.02-1.04x, inside the ~5% realization spread;
+shape 0.058 bits) — CANDIDATE (b) DEAD: the wall does not widen
+the exploration subspace. THE CURVATURES MATCH (geomean ratio
+1.076; 0/3 under the 2x bar) — CANDIDATE (a) DEAD: the wall does
+not flatten the basin along the span. THE INSTRUMENT SHADOW: the
+SAME-INSTRUMENT per-direction medians MATCH across states
+(pristine 1.03 vs walled 0.85/0.90/0.92) — the committed 2-3x gap
+(the walled 1.58-1.71 vs the pristine 0.61) dissolves into
+cross-instrument heterogeneity (the pristine row's committed band
+was e_chart's mixed-lr-ladder span + a different fine grid) PLUS
+the n=3 draw lottery (the walled family's own medians swing
+0.91-1.71). T179's free find RETIRED, substantially an artifact.
+THE FREE LESSON THAT SURVIVES: per-direction safety orders with SV
+ENERGY (Spearman +0.38..+0.81; pooled +0.64) and ANTI-orders with
+curvature (-0.60..-0.79) — IDENTICALLY at all four states: SAFETY
+LIVES IN THE WASH'S OWN TOP DIRECTIONS; flatness is not the
+protective axis. HONESTY: n=3 walled + 1 pristine; single
+realization per primary span; the FD instrument a ranker; the
+committed join's cross-instrument caveat.
+
+---
+
 ## g1c-root — the wall's root redraw: ROOT-WALL-HOLDS — the 2.74M protection is ROOT-ROBUST at n=2 roots; the fresh draw barely dips; THE ANATOMY DIFFERS, THE WALL DOESN'T (protection without anatomical fidelity) (2026-10-02 ~15:00Z) — DONE
 
 WHAT WE DID: the C6/R58 scope debt paid — the g1bR machinery at a

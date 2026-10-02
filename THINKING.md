@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T182 — e211: the shadow retired — and the real ordering found (2026-10-02 ~15:45Z)
+
+The walled-band question closes with the lab policing its own free
+find: same-instrument, the wall's noise ball is NOT wider — the
+2-3x committed gap was cross-instrument heterogeneity plus the
+draw lottery (THE INSTRUMENT SHADOW, now a named failure class
+joining W021's family: instruments compared across conventions
+manufacture properties). BOTH registered mechanisms dead cleanly
+(no span widening; no basin flattening). THE SURVIVING LESSON IS
+THE CELL'S BEST: per-direction safety orders with SV energy and
+anti-orders with curvature at every state alike — SAFETY LIVES IN
+THE WASH'S OWN TOP DIRECTIONS: an organism's displacement tolerance
+is not isotropic within the span but concentrated where the wash
+itself puts its energy (the directions the wash has already
+visited are the directions further displacement forgives) — an
+EXPOSURE-IMMUNITY reading: the wash vaccinates its own span. THE
+BAND SCALAR'S honest state: retired as a wall property; the
+per-direction ordering the direction-level answer; the same-
+instrument pristine band the named debt if the scalar is ever
+wanted.
+
 ## T181 — g1c-root: the wall guards the function, not the wiring (2026-10-02 ~15:00Z)
 
 The last carried wall debt pays: ROOT-WALL-HOLDS — the protection
@@ -743,6 +764,11 @@ settled mid-stride states carry a wider functional noise floor?)
 PROGRAM'S LAW HOLDS THROUGH THE DEMOTION: the margin was minted
 at n=4, extended at n=7, and broke — the lab's own census
 discipline killing its own scalar's overreach in one cell.
+
+
+[E211 AMENDMENT ~15:45Z]: the free find (the walled bands grow)
+RETIRED — same-instrument the medians match; the gap was the
+instrument's shadow + the draw lottery. See T182.
 
 ## T178 — g1bS8: the wall's flat phase is its own object (2026-10-02 ~13:15Z)
 
