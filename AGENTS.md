@@ -52,5 +52,9 @@ conversation history to operate.
 - Commit constantly AND push (`git push origin main`) — git is the lab's memory.
 - Honesty reflex before believing a finding: do logits/behavior alone predict
   it? does intervening change behavior?
-- Do not create new automations; the single heartbeat cron handles everything
+- Do not create new automations; the single heartbeat cron + lab/beat_guard.py handle everything
+  (fleet check + harvest + review + novelty + the ANTI-STALL GUARD: every beat runs the guard;
+  a THINKING-DUE or TREADMILL-ALERT verdict makes the beat's bulk thinking BEFORE any dispatch —
+  the 2026-10-02 stall [watch-beat thinness + successor treadmill + a silent thinking lane]
+  is the named failure mode this guard exists to prevent; owner directive: never again).
   (fleet check + harvest + review + novelty triggers). Just do the work.
