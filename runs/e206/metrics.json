@@ -1,0 +1,1305 @@
+{
+  "gates": {
+    "G_FILES": {
+      "parents": {
+        "e194": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e194\\metrics.json",
+        "e195": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e195\\metrics.json",
+        "e198": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e198\\metrics.json",
+        "e201": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e201\\metrics.json",
+        "e204": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e204\\metrics.json",
+        "opt2": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\opt2\\metrics.json"
+      },
+      "missing": [],
+      "pass": true,
+      "experiment_names": {
+        "e194": "e194_sign_front",
+        "e195": "e195_rotated_ray",
+        "e198": "e198_flight_arch",
+        "e201": "e201_rotation_census",
+        "e204": "e204_support",
+        "opt2": "opt2_density"
+      },
+      "statuses_complete": {
+        "e194": true,
+        "e195": true,
+        "e198": true,
+        "e201": true,
+        "e204": true,
+        "opt2": true
+      }
+    },
+    "G_E204LADDER": {
+      "source": "runs/e204/metrics.json sensitivity_ladder.geometry (COMMITTED; asserted at load, never rerun here)",
+      "consecutive_cosines": {
+        "1": 0.7763956990420287,
+        "2": 0.6802009111119693,
+        "3": 0.5635647719069462,
+        "4": 0.33338362717467435,
+        "5": 0.1916621629393665
+      },
+      "death_step_committed": 5,
+      "alive_steps_committed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verdict_parent": "GRADED",
+      "pass": true,
+      "note": "THE HALF LINEAGE'S LADDER GATE: e204's committed sensitivity ladder (0.7764 -> 0.6802 -> 0.5636 -> 0.3334 -> 0.1917) + its G_ALIVE window \u2014 the adjudicated half-lineage numbers in this cell are these committed cosines, loaded, never recomputed"
+    },
+    "G_NAMEFREE": {
+      "corpus_counts": {
+        "ZEPHYRA": 0,
+        "MIRABEL": 0
+      },
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "ZEPHYRA": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "MIRABEL": {
+          "FLORIZEL": 16,
+          "ELIZABETH": 44
+        }
+      },
+      "expected": {
+        "org1_ZEPHYRA": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "e193b": {
+          "ZEPHYRA": {
+            "FLORIZEL": 19,
+            "ELIZABETH": 41
+          },
+          "MIRABEL": {
+            "FLORIZEL": 16,
+            "ELIZABETH": 44
+          }
+        }
+      },
+      "pass": true,
+      "note": "one shuffle, both batteries: org1's ZEPHYRA install host_occ[:60] (e195's gate) + e193b's MIRABEL install host_occ[90:150] (e198/e201's) \u2014 SPLICE_RNG 24301"
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "ZEPHYRA": {
+          "-12": [
+            60,
+            118
+          ],
+          "-8": [
+            60,
+            122
+          ],
+          "-4": [
+            60,
+            126
+          ],
+          "0": [
+            60,
+            130
+          ],
+          "4": [
+            60,
+            134
+          ],
+          "8": [
+            60,
+            138
+          ],
+          "12": [
+            60,
+            142
+          ]
+        },
+        "MIRABEL": {
+          "-12": [
+            60,
+            118
+          ],
+          "-8": [
+            60,
+            122
+          ],
+          "-4": [
+            60,
+            126
+          ],
+          "0": [
+            60,
+            130
+          ],
+          "4": [
+            60,
+            134
+          ],
+          "8": [
+            60,
+            138
+          ],
+          "12": [
+            60,
+            142
+          ]
+        }
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): both facts' install-60 batteries at the seven read geometries, 60 x (130 +- j) \u2014 e195/e198/e201's gate verbatim; THE SENSITIVITY BATTERY for both organisms is g-12 (e194/e195's convention, each on its OWN install)"
+    },
+    "G_ANCHOR": {
+      "construction": "16 plain corpus windows from train_ids, RNG seed 170, rejection on FLORIZEL/ELIZABETH/ZEPH/MIRABEL in [s, s+257) \u2014 e170 VERBATIM",
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 0,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT_O1": {
+      "cells": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "refs": {
+        "gm12": 0.9155886769294739,
+        "g0": 0.7850371599197388,
+        "gp12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "diffs": {
+        "gm12": -5.960464477539063e-08,
+        "g0": 0.0,
+        "gp12": 0.0,
+        "ce_r": 0.0
+      },
+      "max_abs_diff": 5.960464477539063e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "pass": true,
+      "note": "e195's G_ROOT VERBATIM: the e131 consolidated root's reads vs e151's committed before-cells"
+    },
+    "G_T0_O1": {
+      "tag": "org1",
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.356567621231079,
+      "ce_batch_committed": 1.356567621231079,
+      "d_ce": 0.0,
+      "preclip_gnorm_measured": 0.9829167127609253,
+      "adamw_step1_L2_measured": 1.6542880535125732,
+      "committed_step_l2": 1.6542880535125732,
+      "d_step_l2": 0.0,
+      "pass": true,
+      "note": "e195/e198/e201's G_T0 VERBATIM: the step-1 batch md5 vs e185's stored hash + the forward CE + the fresh CPU AdamW step's L2 vs the committed MEASURED step L2"
+    },
+    "G_WALK_O1": {
+      "rows": {
+        "s1": {
+          "ce_batch": {
+            "measured": 1.356567621231079,
+            "committed": 1.356567621231079,
+            "abs_diff": 0.0
+          },
+          "cum_disp": {
+            "measured": 1.6567984819412231,
+            "committed": 1.6567984819412231,
+            "abs_diff": 0.0
+          },
+          "step_disp": {
+            "measured": 1.6567984819412231,
+            "committed": 1.6567984819412231,
+            "abs_diff": 0.0
+          },
+          "preclip_gnorm": {
+            "measured": 0.9829167127609253,
+            "committed": 0.9829167127609253,
+            "abs_diff": 0.0
+          },
+          "gm12": {
+            "measured": 0.6785961389541626,
+            "committed": 0.6785961389541626,
+            "abs_diff": 0.0
+          }
+        },
+        "s2": {
+          "ce_batch": {
+            "measured": 1.8259366750717163,
+            "committed": 1.8259366750717163,
+            "abs_diff": 0.0
+          },
+          "cum_disp": {
+            "measured": 2.1502907276153564,
+            "committed": 2.1502907276153564,
+            "abs_diff": 0.0
+          },
+          "step_disp": {
+            "measured": 1.6567445993423462,
+            "committed": 1.6567445993423462,
+            "abs_diff": 0.0
+          },
+          "preclip_gnorm": {
+            "measured": 6.194264888763428,
+            "committed": 6.194264888763428,
+            "abs_diff": 0.0
+          },
+          "gm12": {
+            "measured": 9.830708586378023e-05,
+            "committed": 9.830708586378023e-05,
+            "abs_diff": 0.0
+          }
+        }
+      },
+      "max_abs_diff": 0.0,
+      "tol_bit": 1e-09,
+      "tol_texture": 0.001,
+      "x_hashes_vs_e185": {
+        "1": true,
+        "2": true
+      },
+      "max_l2_dev": 4.508526596502804e-08,
+      "tier": "BIT",
+      "tag": "org1",
+      "pass": true,
+      "note": "THE ORG1 WALK GATE (Rule 12; e195's G_REPRO class): the rebuilt 2-step k=1 sign walk must reproduce opt2/e194's committed s1/s2 rows (ce, cum/step disp, pre-clip gnorm, the g-12 ruler read) on md5-gated batches 1-2 \u2014 bit class, or the disclosed cross-thread TEXTURE tier"
+    },
+    "G_SAVEDSTATE_O1": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\opt2_a_sign_s2.pt",
+      "meta_gate": {
+        "experiment": "opt2",
+        "arm": "a_sign",
+        "steps": 2,
+        "input_seed": 10902,
+        "match": true
+      },
+      "walked_s2_flat_md5": "739c953029ecc98c876ec719d8add0b1",
+      "saved_flat_md5": "739c953029ecc98c876ec719d8add0b1",
+      "max_abs_param_diff": 0.0,
+      "tol": 1e-06,
+      "pass": true,
+      "note": "e195's G_SAVEDSTATE VERBATIM: opt2's committed checkpoint must BE the walked k=1 s2 endpoint \u2014 theta_2's chain of custody; theta_1 = theta_0 + delta_1 (the gated s1 row)"
+    },
+    "G_RAYS_O1": {
+      "u_md5s": {
+        "u0": "aac6c6d643e327939f680148772dd180",
+        "u1": "c9b8da4f25c05fb7ea7701b08ccba8c0"
+      },
+      "committed_md5s": {
+        "u0": "aac6c6d643e327939f680148772dd180",
+        "u1": "c9b8da4f25c05fb7ea7701b08ccba8c0"
+      },
+      "md5_match": {
+        "u0": true,
+        "u1": true
+      },
+      "fresh_mutual_geometry": {
+        "cos_u0_u1": -0.15452721980584394
+      },
+      "geometry_dev_vs_e195_committed": 0.0,
+      "tol_geom": 0.001,
+      "tier": "BIT",
+      "pass": true,
+      "note": "THE ORG1 RAY GATE: u0 vs e192's committed R2_SIGN md5, u1 vs e195's committed rotated ray \u2014 md5 BIT, or the fresh mutual geometry vs e195's committed cosine within 1e-3 (e199's tier); u2 NOT re-read (theta_2's custody is the saved checkpoint; e194's post-death continuation is out of scope)"
+    },
+    "G_ALIVE_O1": {
+      "per_state_ruler_read": {
+        "0": 0.9155886173248291,
+        "1": 0.6785961389541626,
+        "2": 9.830708586378023e-05
+      },
+      "bar": 0.27,
+      "alive": {
+        "0": true,
+        "1": true,
+        "2": false
+      },
+      "death_t": 2,
+      "expected_alive": [
+        0,
+        1
+      ],
+      "expected_death_t": 2,
+      "ledger_reads": {
+        "0": 0.9155886173248291,
+        "1": 0.6785961389541626,
+        "2": 9.830708586378023e-05
+      },
+      "reads_match_ledger": true,
+      "pass": true,
+      "note": "org1's alive window re-anchored on its OWN g-12 ruler: t=0/1 ALIVE, t=2 DEAD \u2014 the committed ledger (opt2/e194/e199)"
+    },
+    "G_SENS_O1": {
+      "convention": "e194/e195's fact_grad VERBATIM (mean log p(Z) over the g-12 install-60 battery, one backward, eval twin); matched-point: s_t computed AT theta_t",
+      "battery_root_read": 0.9155886173248291,
+      "battery_strength": "STRONG (0.9156 at D=0 \u2014 the convention's home)",
+      "fd_root_HARD": {
+        "point": "org1 theta_0 (root)",
+        "hard": true,
+        "eps": {
+          "0.05": {
+            "plus": -0.0057009934137264885,
+            "zero": -0.11115399599075318,
+            "minus": -2.042282485961914,
+            "raises": true,
+            "d_plus": 0.1054530025770267,
+            "d_minus": -1.9311284899711607
+          },
+          "0.02": {
+            "plus": -0.0188872163494428,
+            "zero": -0.11115399599075318,
+            "minus": -0.5855587959289551,
+            "raises": true,
+            "d_plus": 0.09226677964131039,
+            "d_minus": -0.47440479993820195
+          }
+        },
+        "zero": -0.11115399599075318,
+        "raises_at_every_eps": true
+      },
+      "fd_theta1_reported": {
+        "point": "org1 theta_1 (last alive)",
+        "hard": false,
+        "eps": {
+          "0.05": {
+            "plus": -0.014396722118059794,
+            "zero": -0.44975032806396487,
+            "minus": -3.9112698872884115,
+            "raises": true,
+            "d_plus": 0.43535360594590505,
+            "d_minus": -3.4615195592244468
+          },
+          "0.02": {
+            "plus": -0.1088376502195994,
+            "zero": -0.44975032806396487,
+            "minus": -1.4438207626342774,
+            "raises": true,
+            "d_plus": 0.34091267784436546,
+            "d_minus": -0.9940704345703125
+          }
+        },
+        "zero": -0.44975032806396487,
+        "raises_at_every_eps": true
+      },
+      "pass": true,
+      "note": "THE INSTRUMENT GATE (e204's G_SENSDIR): at the root, +eps*s_0 must RAISE the readout and -eps*s_0 LOWER it, strictly, at every eps \u2014 the direction must BE the fact's sensitivity; the theta_1 probe reported, not gating"
+    },
+    "G_ROOT_MIR": {
+      "max_abs_diff": 1.341104507446289e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "flat_md5": "9113c7593dbac14fb57d47f0b96c1587",
+      "flat_md5_match_committed": true,
+      "pass": true,
+      "note": "e198/e201's G_ROOT verbatim: the root's dial reproduces e193b's committed cells (both facts) + the flat md5"
+    },
+    "G_T0_MIR": {
+      "tag": "MIRABEL",
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.5319024324417114,
+      "ce_batch_committed": 1.531902551651001,
+      "d_ce": 1.1920928955078125e-07,
+      "preclip_gnorm_measured": 0.9484267830848694,
+      "adamw_step1_L2_measured": 1.6544126272201538,
+      "committed_step_l2": 1.6544127464294434,
+      "d_step_l2": 1.1920928955078125e-07,
+      "pass": true,
+      "note": "e195/e198/e201's G_T0 VERBATIM: the step-1 batch md5 vs e185's stored hash + the forward CE + the fresh CPU AdamW step's L2 vs the committed MEASURED step L2"
+    },
+    "G_WALK_MIR": {
+      "rows": {
+        "s1": {
+          "ce_batch": {
+            "measured": 1.5319024324417114,
+            "committed": 1.531902551651001,
+            "abs_diff": 1.1920928955078125e-07
+          },
+          "cum_disp": {
+            "measured": 1.6568037271499634,
+            "committed": 1.6568037271499634,
+            "abs_diff": 0.0
+          },
+          "step_disp": {
+            "measured": 1.6568037271499634,
+            "committed": 1.6568037271499634,
+            "abs_diff": 0.0
+          },
+          "preclip_gnorm": {
+            "measured": 0.9484267830848694,
+            "committed": 0.9484267234802246,
+            "abs_diff": 5.960464477539063e-08
+          },
+          "gm": {
+            "measured": 0.3672752380371094,
+            "committed": 0.3672811686992645,
+            "abs_diff": 5.930662155151367e-06
+          }
+        },
+        "s2": {
+          "ce_batch": {
+            "measured": 2.3146958351135254,
+            "committed": 2.314697265625,
+            "abs_diff": 1.430511474609375e-06
+          },
+          "cum_disp": {
+            "measured": 2.1239805221557617,
+            "committed": 2.1239850521087646,
+            "abs_diff": 4.5299530029296875e-06
+          },
+          "step_disp": {
+            "measured": 1.6567463874816895,
+            "committed": 1.6567463874816895,
+            "abs_diff": 0.0
+          },
+          "preclip_gnorm": {
+            "measured": 6.934147834777832,
+            "committed": 6.934149265289307,
+            "abs_diff": 1.430511474609375e-06
+          },
+          "gm": {
+            "measured": 0.691045343875885,
+            "committed": 0.6910732984542847,
+            "abs_diff": 2.7954578399658203e-05
+          }
+        },
+        "s3": {
+          "ce_batch": {
+            "measured": 2.145750045776367,
+            "committed": 2.1457536220550537,
+            "abs_diff": 3.5762786865234375e-06
+          },
+          "cum_disp": {
+            "measured": 2.4923200607299805,
+            "committed": 2.4923200607299805,
+            "abs_diff": 0.0
+          },
+          "step_disp": {
+            "measured": 1.6568037271499634,
+            "committed": 1.6568037271499634,
+            "abs_diff": 0.0
+          },
+          "preclip_gnorm": {
+            "measured": 6.339449882507324,
+            "committed": 6.33951997756958,
+            "abs_diff": 7.009506225585938e-05
+          },
+          "gm": {
+            "measured": 0.12307019531726837,
+            "committed": 0.12300960719585419,
+            "abs_diff": 6.058812141418457e-05
+          }
+        }
+      },
+      "max_abs_diff": 7.009506225585938e-05,
+      "tol_bit": 1e-09,
+      "tol_texture": 0.001,
+      "x_hashes_vs_e185": {
+        "1": true,
+        "2": true,
+        "3": true
+      },
+      "max_l2_dev": 3.746137022808682e-08,
+      "note": "THE MIRABEL WALK GATE (Rule 12; e201's G_WALKE198 class): the rebuilt 3-step walk must reproduce e198's committed journal (ce, cum/step disp, pre-clip gnorm, the MIRABEL g-12 ruler read) on md5-gated batches 1-3 \u2014 bit class, or the disclosed cross-thread TEXTURE tier; co-rulers and the kill bracket are not consumed here (deviation)",
+      "tier": "TEXTURE",
+      "pass": true
+    },
+    "G_RAYS_MIR": {
+      "u_md5s": {
+        "u0": "e1f28a17a0928d6cd0450a154b74603b",
+        "u1": "06a1d2aef4215fc024ea83d425f711ee",
+        "u2": "f32d4337dc7c1393fe45bd6384fb3e40"
+      },
+      "committed_md5s": {
+        "u0": "fbb878c1926c165ebdb54eef1259ab65",
+        "u1": "7702614f1ff109a0f3597533b42d9934",
+        "u2": "4e862a134281b94a6b1c6e4d3531186b"
+      },
+      "md5_match": {
+        "u0": false,
+        "u1": false,
+        "u2": false
+      },
+      "fresh_mutual_geometry": {
+        "cos_u0_u1": -0.17511146768282831,
+        "cos_u0_u2": -0.015699138676629462,
+        "cos_u1_u2": -0.17814797294984835
+      },
+      "geometry_dev_vs_e198_committed": {
+        "cos_u0_u1": 3.652279593896468e-06,
+        "cos_u0_u2": 1.3147745601113647e-05,
+        "cos_u1_u2": 9.49592696550261e-06
+      },
+      "tol_geom": 0.001,
+      "tier": "TEXTURE",
+      "pass": true,
+      "note": "THE MIRABEL RAY GATE (e201's G_RAYSE198 class): u0/u1/u2 md5-gated vs e198's committed rays, or the fresh mutual geometry within 1e-3"
+    },
+    "G_ALIVE_MIR": {
+      "per_state_ruler_read": {
+        "0": 0.6235591769218445,
+        "1": 0.3672752380371094,
+        "2": 0.691045343875885,
+        "3": 0.12307019531726837
+      },
+      "bar": 0.27,
+      "alive": {
+        "0": true,
+        "1": true,
+        "2": true,
+        "3": false
+      },
+      "death_t": 3,
+      "expected_alive": [
+        0,
+        1,
+        2
+      ],
+      "expected_death_t": 3,
+      "ledger_reads": {
+        "0": 0.6235591173171997,
+        "1": 0.3672811686992645,
+        "2": 0.6910732984542847,
+        "3": 0.12300960719585419
+      },
+      "reads_match_ledger": true,
+      "pass": true,
+      "note": "MIRABEL's alive window re-anchored on its OWN g-12 ruler: t=0/1/2 ALIVE, t=3 DEAD \u2014 e198's committed ledger (the wash bounce 0.367 -> 0.691 visible in the window)"
+    },
+    "G_SENS_MIR": {
+      "convention": "e194/e195's fact_grad VERBATIM, carried to MIRABEL per e201's census precedent (mean log p(M) over MIRABEL's own g-12 install-60 battery); matched-point",
+      "battery_root_read": 0.6235591769218445,
+      "battery_strength": "ALIVE (0.6236 at D=0; above the 0.27 bar)",
+      "fd_root_HARD": {
+        "point": "MIRABEL theta_0 (root)",
+        "hard": true,
+        "eps": {
+          "0.05": {
+            "plus": -0.12237711350123087,
+            "zero": -0.8133243242899577,
+            "minus": -2.6623253504435223,
+            "raises": true,
+            "d_plus": 0.6909472107887269,
+            "d_minus": -1.8490010261535645
+          },
+          "0.02": {
+            "plus": -0.39774037996927897,
+            "zero": -0.8133243242899577,
+            "minus": -1.4252229054768881,
+            "raises": true,
+            "d_plus": 0.41558394432067874,
+            "d_minus": -0.6118985811869304
+          }
+        },
+        "zero": -0.8133243242899577,
+        "raises_at_every_eps": true
+      },
+      "fd_theta2_reported": {
+        "point": "MIRABEL theta_2 (last alive)",
+        "hard": false,
+        "eps": {
+          "0.05": {
+            "plus": -0.2233803987503052,
+            "zero": -0.721200434366862,
+            "minus": -1.8549405415852864,
+            "raises": true,
+            "d_plus": 0.4978200356165568,
+            "d_minus": -1.1337401072184243
+          },
+          "0.02": {
+            "plus": -0.4530139923095703,
+            "zero": -0.721200434366862,
+            "minus": -1.2324286142985026,
+            "raises": true,
+            "d_plus": 0.2681864420572917,
+            "d_minus": -0.5112281799316406
+          }
+        },
+        "zero": -0.721200434366862,
+        "raises_at_every_eps": true
+      },
+      "pass": true,
+      "note": "THE INSTRUMENT GATE (e204's G_SENSDIR): hard at the root; the theta_2 (last alive) probe reported, not gating"
+    }
+  },
+  "experiment": "e206_drift_clock",
+  "date": "2026-10-02T11:12:11Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "CLOCK_PREDICTS": "CLOCK-PREDICTS: \"fires if early-t drift extrapolation predicts each lineage's death step within +-1 on all three \u2014 the support's decorrelation rate IS a death timer, measurable from gradients alone.\"",
+    "CLOCK_ONE_LINEAGE": "CLOCK-ONE-LINEAGE: \"fires if the prediction works on some lineages but not others \u2014 the drift-as-clock is biography; reported with the table.\"",
+    "NO_CLOCK": "NO-CLOCK: \"fires if the drift rates don't extrapolate to death on any \u2014 the near-orthogonality-at-death was one lineage's coincidence; the second rotation is not a timer.\"",
+    "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\"",
+    "operationalizations": "lineages/death steps = the COMMITTED ledgers (org1 t=2; MIRABEL t=3; half t=5); s_t = e194/e195's fact_grad VERBATIM (mean log p(Z) over the organism's OWN g-12 install-60 battery AT theta_t, eval-mode twin, matched-point); the ladder c_k = cos_fp64(s_{k-1}, s_k), k = 1..death_t; alive c_k iff both states alive on the lineage's own ruler; THE THRESHOLD tau = 0.20 registered (the dispatch's ~0.2; DISCLOSED: the only ladder on record at registration is the half lineage's, death cosine 0.192 \u2014 tau is registration, not outcome; tau-sensitivity {0.15, 0.25, 0.30} rides, never adjudicates); THE EARLY WINDOW = alive c_k with k <= 2 (the dispatch's t <= 2); org1's window holds ONE cosine (death t=2 is inside it) \u2014 its PRIMARY prediction is UNDEFINED (a rate needs two ticks); org1's DISPATCH-LITERAL window (k <= 2 including the into-death cosine) rides as a CIRCULAR context column, never adjudicates; THE DRIFT RATE (PRIMARY) = the mean first difference of the early window in COSINE space (the dispatch's literal first differences of the ladder); THE PREDICTION (PRIMARY) = the smallest integer t with c_1 + (t-1)*d_hat <= tau; a lineage LANDS iff defined AND |t_hat - death_t| <= 1; CLOCK-PREDICTS iff all three LAND; CLOCK-ONE-LINEAGE iff not all and >= 1 LANDS; NO-CLOCK iff none LANDS and >= 1 defined; GRADED the catch-all; composite order frozen CLOCK-PREDICTS -> CLOCK-ONE-LINEAGE -> NO-CLOCK -> GRADED; CO-READS never adjudicated: (i) ANGLE-space extrapolation (arccos ladder, the rotation-rate reading \u2014 a monotone reparameterization that changes the linear answer, disclosed), (ii) tau-sensitivity, (iii) per-D drift (d_hat / step_L2 \u2014 the half lineage ticks 0.458/step vs 1.654: cross-lineage rates compare in D units), (iv) the OBSERVED ladder-vs-tau first crossing per lineage (the W027-at-death replication read, descriptive).",
+    "registered_prediction": "frozen BEFORE compute, including what the committed record already fixes: the half lineage's committed ladder gives d_hat = -0.0962 and t_hat = 7 vs observed death 5 (error +2, OUTSIDE +-1) \u2014 CLOCK-PREDICTS cannot fire under the primary protocol (computable from e204's committed ladder before this cell runs; stated now, not discovered after \u2014 no bar shopping); org1's primary prediction is UNDEFINED by construction (one tick in its early window; the clock cannot be set on a lineage that dies inside its own early window \u2014 itself a finding, reported in the table); THE LIVE QUESTIONS: (a) does MIRABEL's fresh early-rate extrapolation land within +-1 of its death t=3? (b) does the W027-at-death near-orthogonality (c_death <= 0.2) replicate on org1 (c_2) and MIRABEL (c_3)? Honest expected branches: CLOCK-ONE-LINEAGE (MIRABEL lands and/or the at-death read replicates partially) or NO-CLOCK (MIRABEL misses too). No bar shopping.",
+    "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "load_check": {
+    "cpu_count": 24,
+    "torch_threads": 4,
+    "load_pct_at_start": 20,
+    "note": "the envelope's load-check, recorded not gating: a 4-thread CPU eval burst of a few minutes; the GPU lane is never claimed"
+  },
+  "timing_partial": {
+    "total_s": 34.6
+  },
+  "config_partial": {
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128",
+    "threads": 4
+  },
+  "phase1_org1": {
+    "walk_journal": [
+      {
+        "step": 1,
+        "ce_batch": 1.356567621231079,
+        "cum_disp": 1.6567984819412231,
+        "step_disp": 1.6567984819412231,
+        "l2_dev": 4.508526596502804e-08,
+        "preclip_gnorm": 0.9829167127609253,
+        "gm": 0.6785961389541626,
+        "frac_argmax_z": 0.85
+      },
+      {
+        "step": 2,
+        "ce_batch": 1.8259366750717163,
+        "cum_disp": 2.1502907276153564,
+        "step_disp": 1.6567445993423462,
+        "l2_dev": 2.480988503528181e-08,
+        "preclip_gnorm": 6.194264888763428,
+        "gm": 9.830708586378023e-05,
+        "frac_argmax_z": 0.0
+      }
+    ],
+    "states_provenance": "theta_0 = the gated e131 root; theta_1/2 = the gated 2-step walk's endpoints (G_WALK_O1 + G_SAVEDSTATE_O1)",
+    "sensitivity_per_t": {
+      "0": {
+        "read_meanlogp": -0.11115399599075318,
+        "read_meanp": 0.8948009425608127,
+        "g_norm": 10.53275147029313
+      },
+      "1": {
+        "read_meanlogp": -0.44975032806396487,
+        "read_meanp": 0.6377873693521317,
+        "g_norm": 30.395318266169244
+      },
+      "2": {
+        "read_meanlogp": -10.219773356119791,
+        "read_meanp": 3.644255560686791e-05,
+        "g_norm": 39.8262791178255
+      }
+    },
+    "sensitivity_geometry": {
+      "cos_s0_s1": 0.38615941558243005,
+      "cos_s1_s2": 0.02016560150418606,
+      "cos_s0_s2": 0.17470711115555035,
+      "iso_floor": 0.0006042244232115321
+    },
+    "clock": {
+      "lineage": "org1",
+      "death_t": 2,
+      "alive_window": {
+        "1": true,
+        "2": false
+      },
+      "step_L2": 1.6542880535125732,
+      "ladder_committed": false,
+      "ladder": {
+        "1": 0.38615941558243005,
+        "2": 0.02016560150418606
+      },
+      "ladder_angles_deg": {
+        "1": 67.28426292344903,
+        "2": 88.844517820352
+      },
+      "first_differences": {
+        "1": -0.365993814078244
+      },
+      "monotone_decreasing": true,
+      "early_window": {
+        "kmax": 2,
+        "values": [
+          0.38615941558243005
+        ],
+        "n_points": 1
+      },
+      "drift_rate_primary": null,
+      "prediction_primary": {
+        "defined": false,
+        "t_hat": null,
+        "err": null,
+        "lands": false
+      },
+      "literal_window_circular": {
+        "values": [
+          0.38615941558243005,
+          0.02016560150418606
+        ],
+        "d": -0.365993814078244,
+        "t_hat": 2,
+        "circular": true,
+        "note": "the dispatch-literal k <= 2 window INCLUDING the into-death cosine when the early window is censored by death \u2014 CIRCULAR (consumes the outcome row), context only"
+      },
+      "co_reads_never_adjudicated": {
+        "angle_space": {
+          "early_angles_deg": [
+            67.28426292344903
+          ],
+          "d_deg_per_step": null,
+          "t_hat_angle": null,
+          "err_angle": null,
+          "note": "the rotation-rate reading: linear in arccos (a monotone reparameterization that changes the linear answer)"
+        },
+        "tau_sensitivity": {},
+        "per_D_drift": null,
+        "observed_vs_tau": {
+          "tau": 0.2,
+          "first_cross_t": 2,
+          "cross_at_death": true,
+          "c_death": 0.02016560150418606,
+          "note": "the W027-at-death replication read (descriptive): does the OBSERVED ladder hit near-orthogonality at the death step?"
+        }
+      }
+    }
+  },
+  "phase2_mirabel": {
+    "walk_journal": [
+      {
+        "step": 1,
+        "ce_batch": 1.5319024324417114,
+        "cum_disp": 1.6568037271499634,
+        "step_disp": 1.6568037271499634,
+        "l2_dev": 1.2824725503790546e-08,
+        "preclip_gnorm": 0.9484267830848694,
+        "gm": 0.3672752380371094,
+        "frac_argmax_z": 0.6333333333333333
+      },
+      {
+        "step": 2,
+        "ce_batch": 2.3146958351135254,
+        "cum_disp": 2.1239805221557617,
+        "step_disp": 1.6567463874816895,
+        "l2_dev": 3.746137022808682e-08,
+        "preclip_gnorm": 6.934147834777832,
+        "gm": 0.691045343875885,
+        "frac_argmax_z": 0.7333333333333333
+      },
+      {
+        "step": 3,
+        "ce_batch": 2.145750045776367,
+        "cum_disp": 2.4923200607299805,
+        "step_disp": 1.6568037271499634,
+        "l2_dev": 1.2824725503790546e-08,
+        "preclip_gnorm": 6.339449882507324,
+        "gm": 0.12307019531726837,
+        "frac_argmax_z": 0.21666666666666667
+      }
+    ],
+    "states_provenance": "theta_0 = the gated e193b root; theta_1/2/3 = the gated 3-step walk's endpoints (G_WALK_MIR + G_RAYS_MIR)",
+    "sensitivity_per_t": {
+      "0": {
+        "read_meanlogp": -0.8133243242899577,
+        "read_meanp": 0.4433816691188447,
+        "g_norm": 26.041776422248308
+      },
+      "1": {
+        "read_meanlogp": -1.299760882059733,
+        "read_meanp": 0.2725969680669694,
+        "g_norm": 31.7470951627125
+      },
+      "2": {
+        "read_meanlogp": -0.721200434366862,
+        "read_meanp": 0.48616829239885995,
+        "g_norm": 18.73576144455533
+      },
+      "3": {
+        "read_meanlogp": -2.5831832885742188,
+        "read_meanp": 0.07553317701591138,
+        "g_norm": 94.11383807196458
+      }
+    },
+    "sensitivity_geometry": {
+      "cos_s0_s1": 0.44015544600224615,
+      "cos_s1_s2": 0.18199173352579276,
+      "cos_s2_s3": 0.06368591875288505,
+      "cos_s0_s2": 0.5074265767210825,
+      "cos_s0_s3": 0.12839402090666072,
+      "iso_floor": 0.0006042244232115321
+    },
+    "clock": {
+      "lineage": "MIRABEL",
+      "death_t": 3,
+      "alive_window": {
+        "1": true,
+        "2": true,
+        "3": false
+      },
+      "step_L2": 1.6544127464294434,
+      "ladder_committed": false,
+      "ladder": {
+        "1": 0.44015544600224615,
+        "2": 0.18199173352579276,
+        "3": 0.06368591875288505
+      },
+      "ladder_angles_deg": {
+        "1": 63.886200377422206,
+        "2": 79.5142058075231,
+        "3": 86.34859451166558
+      },
+      "first_differences": {
+        "1": -0.2581637124764534,
+        "2": -0.1183058147729077
+      },
+      "monotone_decreasing": true,
+      "early_window": {
+        "kmax": 2,
+        "values": [
+          0.44015544600224615,
+          0.18199173352579276
+        ],
+        "n_points": 2
+      },
+      "drift_rate_primary": -0.2581637124764534,
+      "prediction_primary": {
+        "defined": true,
+        "t_hat": 2,
+        "err": -1,
+        "lands": true
+      },
+      "literal_window_circular": {
+        "values": [
+          0.44015544600224615,
+          0.18199173352579276
+        ],
+        "d": -0.2581637124764534,
+        "t_hat": 2,
+        "circular": false,
+        "note": "the dispatch-literal k <= 2 window INCLUDING the into-death cosine when the early window is censored by death \u2014 CIRCULAR (consumes the outcome row), context only"
+      },
+      "co_reads_never_adjudicated": {
+        "angle_space": {
+          "early_angles_deg": [
+            63.886200377422206,
+            79.5142058075231
+          ],
+          "d_deg_per_step": 15.628005430100892,
+          "t_hat_angle": 2,
+          "err_angle": -1,
+          "note": "the rotation-rate reading: linear in arccos (a monotone reparameterization that changes the linear answer)"
+        },
+        "tau_sensitivity": {
+          "tau_0.15": 3,
+          "tau_0.25": 2,
+          "tau_0.30": 2
+        },
+        "per_D_drift": -0.15604552916654132,
+        "observed_vs_tau": {
+          "tau": 0.2,
+          "first_cross_t": 2,
+          "cross_at_death": false,
+          "c_death": 0.06368591875288505,
+          "note": "the W027-at-death replication read (descriptive): does the OBSERVED ladder hit near-orthogonality at the death step?"
+        }
+      }
+    }
+  },
+  "question": "THE DRIFT-RATE CLOCK (W027's named cut): is the support's decorrelation rate a DEATH TIMER? The half lineage's sensitivity ladder hit near-orthogonality (0.192) exactly at its death (t=5) \u2014 does the early-t (k <= 2) drift rate, extrapolated to the tau=0.2 near-orthogonality threshold, predict the observed death step on each of the three lineages (org1 t=2, MIRABEL t=3, half t=5)?",
+  "organisms": {
+    "org1": {
+      "root": "runs/checkpoints/e131_consolidated_e113.pt",
+      "architecture": "6L/6H/192d/256-ctx TinyGPT (2,739,072) \u2014 the e131 line",
+      "fact": "ZEPHYRA (its own g-12 install-60 battery)",
+      "step_L2": 1.6542880535125732,
+      "death_t": 2,
+      "sens_battery_root_read": 0.9155886173248291
+    },
+    "MIRABEL": {
+      "root": "runs/checkpoints/e193b_root.pt",
+      "root_flat_md5": "9113c7593dbac14fb57d47f0b96c1587",
+      "architecture": "6L/6H/192d/256-ctx TinyGPT (2,739,072) \u2014 e193b, organism 1's EXACT architecture, fresh draw",
+      "fact": "MIRABEL (its own g-12 install-60 battery)",
+      "step_L2": 1.6544127464294434,
+      "death_t": 3,
+      "sens_battery_root_read": 0.6235591769218445
+    },
+    "half": {
+      "root": "runs/checkpoints/e157_f2_consolidated.pt",
+      "architecture": "4L/4H/128d/512-ctx TinyGPT (873,472) \u2014 architecture co-varies with lineage (e193's disclosure)",
+      "fact": "ZEPHYRA (the f2 install; ladder on e204's g-12 battery, committed)",
+      "step_L2": 0.4582097828388214,
+      "death_t": 5,
+      "note": "the counterfactual half-step wash (the natural 0.9164 step killed it at t=1); its ladder is e204's COMMITTED geometry, loaded and gated, never recomputed"
+    }
+  },
+  "the_clock": {
+    "threshold_tau_registered": 0.2,
+    "early_window": "alive c_k with k <= 2 (the dispatch's t <= 2)",
+    "primary_protocol": "d_hat = mean first difference of the early window in cosine space; t_hat = smallest integer t with c_1 + (t-1)*d_hat <= tau; lands iff defined and |err| <= 1",
+    "rows": [
+      {
+        "lineage": "org1",
+        "death_t": 2,
+        "alive_window": {
+          "1": true,
+          "2": false
+        },
+        "step_L2": 1.6542880535125732,
+        "ladder_committed": false,
+        "ladder": {
+          "1": 0.38615941558243005,
+          "2": 0.02016560150418606
+        },
+        "ladder_angles_deg": {
+          "1": 67.28426292344903,
+          "2": 88.844517820352
+        },
+        "first_differences": {
+          "1": -0.365993814078244
+        },
+        "monotone_decreasing": true,
+        "early_window": {
+          "kmax": 2,
+          "values": [
+            0.38615941558243005
+          ],
+          "n_points": 1
+        },
+        "drift_rate_primary": null,
+        "prediction_primary": {
+          "defined": false,
+          "t_hat": null,
+          "err": null,
+          "lands": false
+        },
+        "literal_window_circular": {
+          "values": [
+            0.38615941558243005,
+            0.02016560150418606
+          ],
+          "d": -0.365993814078244,
+          "t_hat": 2,
+          "circular": true,
+          "note": "the dispatch-literal k <= 2 window INCLUDING the into-death cosine when the early window is censored by death \u2014 CIRCULAR (consumes the outcome row), context only"
+        },
+        "co_reads_never_adjudicated": {
+          "angle_space": {
+            "early_angles_deg": [
+              67.28426292344903
+            ],
+            "d_deg_per_step": null,
+            "t_hat_angle": null,
+            "err_angle": null,
+            "note": "the rotation-rate reading: linear in arccos (a monotone reparameterization that changes the linear answer)"
+          },
+          "tau_sensitivity": {},
+          "per_D_drift": null,
+          "observed_vs_tau": {
+            "tau": 0.2,
+            "first_cross_t": 2,
+            "cross_at_death": true,
+            "c_death": 0.02016560150418606,
+            "note": "the W027-at-death replication read (descriptive): does the OBSERVED ladder hit near-orthogonality at the death step?"
+          }
+        }
+      },
+      {
+        "lineage": "MIRABEL",
+        "death_t": 3,
+        "alive_window": {
+          "1": true,
+          "2": true,
+          "3": false
+        },
+        "step_L2": 1.6544127464294434,
+        "ladder_committed": false,
+        "ladder": {
+          "1": 0.44015544600224615,
+          "2": 0.18199173352579276,
+          "3": 0.06368591875288505
+        },
+        "ladder_angles_deg": {
+          "1": 63.886200377422206,
+          "2": 79.5142058075231,
+          "3": 86.34859451166558
+        },
+        "first_differences": {
+          "1": -0.2581637124764534,
+          "2": -0.1183058147729077
+        },
+        "monotone_decreasing": true,
+        "early_window": {
+          "kmax": 2,
+          "values": [
+            0.44015544600224615,
+            0.18199173352579276
+          ],
+          "n_points": 2
+        },
+        "drift_rate_primary": -0.2581637124764534,
+        "prediction_primary": {
+          "defined": true,
+          "t_hat": 2,
+          "err": -1,
+          "lands": true
+        },
+        "literal_window_circular": {
+          "values": [
+            0.44015544600224615,
+            0.18199173352579276
+          ],
+          "d": -0.2581637124764534,
+          "t_hat": 2,
+          "circular": false,
+          "note": "the dispatch-literal k <= 2 window INCLUDING the into-death cosine when the early window is censored by death \u2014 CIRCULAR (consumes the outcome row), context only"
+        },
+        "co_reads_never_adjudicated": {
+          "angle_space": {
+            "early_angles_deg": [
+              63.886200377422206,
+              79.5142058075231
+            ],
+            "d_deg_per_step": 15.628005430100892,
+            "t_hat_angle": 2,
+            "err_angle": -1,
+            "note": "the rotation-rate reading: linear in arccos (a monotone reparameterization that changes the linear answer)"
+          },
+          "tau_sensitivity": {
+            "tau_0.15": 3,
+            "tau_0.25": 2,
+            "tau_0.30": 2
+          },
+          "per_D_drift": -0.15604552916654132,
+          "observed_vs_tau": {
+            "tau": 0.2,
+            "first_cross_t": 2,
+            "cross_at_death": false,
+            "c_death": 0.06368591875288505,
+            "note": "the W027-at-death replication read (descriptive): does the OBSERVED ladder hit near-orthogonality at the death step?"
+          }
+        }
+      },
+      {
+        "lineage": "half (org2 f2, committed)",
+        "death_t": 5,
+        "alive_window": {
+          "1": true,
+          "2": true,
+          "3": true,
+          "4": true,
+          "5": false
+        },
+        "step_L2": 0.4582097828388214,
+        "ladder_committed": true,
+        "ladder": {
+          "1": 0.7763956990420287,
+          "2": 0.6802009111119693,
+          "3": 0.5635647719069462,
+          "4": 0.33338362717467435,
+          "5": 0.1916621629393665
+        },
+        "ladder_angles_deg": {
+          "1": 39.06825662117054,
+          "2": 47.14065505814489,
+          "3": 55.697314244317305,
+          "4": 70.52572291198254,
+          "5": 78.95019795961625
+        },
+        "first_differences": {
+          "1": -0.09619478793005931,
+          "2": -0.11663613920502314,
+          "3": -0.23018114473227186,
+          "4": -0.14172146423530785
+        },
+        "monotone_decreasing": true,
+        "early_window": {
+          "kmax": 2,
+          "values": [
+            0.7763956990420287,
+            0.6802009111119693
+          ],
+          "n_points": 2
+        },
+        "drift_rate_primary": -0.09619478793005931,
+        "prediction_primary": {
+          "defined": true,
+          "t_hat": 7,
+          "err": 2,
+          "lands": false
+        },
+        "literal_window_circular": {
+          "values": [
+            0.7763956990420287,
+            0.6802009111119693
+          ],
+          "d": -0.09619478793005931,
+          "t_hat": 7,
+          "circular": false,
+          "note": "the dispatch-literal k <= 2 window INCLUDING the into-death cosine when the early window is censored by death \u2014 CIRCULAR (consumes the outcome row), context only"
+        },
+        "co_reads_never_adjudicated": {
+          "angle_space": {
+            "early_angles_deg": [
+              39.06825662117054,
+              47.14065505814489
+            ],
+            "d_deg_per_step": 8.072398436974346,
+            "t_hat_angle": 6,
+            "err_angle": 1,
+            "note": "the rotation-rate reading: linear in arccos (a monotone reparameterization that changes the linear answer)"
+          },
+          "tau_sensitivity": {
+            "tau_0.15": 8,
+            "tau_0.25": 7,
+            "tau_0.30": 6
+          },
+          "per_D_drift": -0.2099361286747047,
+          "observed_vs_tau": {
+            "tau": 0.2,
+            "first_cross_t": 5,
+            "cross_at_death": true,
+            "c_death": 0.1916621629393665,
+            "note": "the W027-at-death replication read (descriptive): does the OBSERVED ladder hit near-orthogonality at the death step?"
+          }
+        }
+      }
+    ]
+  },
+  "adjudication": {
+    "bars": {
+      "CLOCK_PREDICTS": false,
+      "CLOCK_ONE_LINEAGE": true,
+      "NO_CLOCK": false,
+      "GRADED": false
+    },
+    "bar_details": {
+      "CLOCK_PREDICTS": {
+        "fires": false,
+        "detail": {
+          "lands": [
+            "MIRABEL"
+          ],
+          "note": "requires ALL THREE defined AND within +-1"
+        }
+      },
+      "CLOCK_ONE_LINEAGE": {
+        "fires": true,
+        "detail": {
+          "lands": [
+            "MIRABEL"
+          ],
+          "n_defined": 2,
+          "undefined": [
+            "org1"
+          ],
+          "misses": [
+            "half (org2 f2, committed)"
+          ]
+        }
+      },
+      "NO_CLOCK": {
+        "fires": false,
+        "detail": {
+          "lands": [
+            "MIRABEL"
+          ],
+          "n_defined": 2
+        }
+      },
+      "GRADED": {
+        "fires": false,
+        "detail": {
+          "lands": [
+            "MIRABEL"
+          ],
+          "n_defined": 2
+        }
+      }
+    },
+    "verdict": "CLOCK-ONE-LINEAGE",
+    "clause": "org1: ladder 0.386 -> 0.020, d_hat UNDEFINED, prediction UNDEFINED (one tick in the early window), c_death 0.020 <= tau 0.2; MIRABEL: ladder 0.440 -> 0.182 -> 0.064, d_hat -0.2582, t_hat 2 vs death 3 (err -1, LANDS), c_death 0.064 <= tau 0.2; half (org2 f2, committed): ladder 0.776 -> 0.680 -> 0.564 -> 0.333 -> 0.192, d_hat -0.0962, t_hat 7 vs death 5 (err +2, MISS), c_death 0.192 <= tau 0.2; verdict CLOCK-ONE-LINEAGE",
+    "composite_order": "CLOCK-PREDICTS -> CLOCK-ONE-LINEAGE -> NO-CLOCK -> GRADED (frozen before compute)",
+    "constants": {
+      "TAU": 0.2,
+      "EARLY_KMAX": 2,
+      "ERR_BAR": 1,
+      "FD_EPS": [
+        0.05,
+        0.02
+      ]
+    }
+  },
+  "references": {
+    "e204_support": {
+      "metrics": "runs/e204/metrics.json",
+      "role": "THE HALF LINEAGE'S COMMITTED LADDER (loaded, gated) + the fact_grad/FD machinery this cell ports to org1/MIRABEL"
+    },
+    "e194_e195": {
+      "metrics": "runs/e194/metrics.json, runs/e195/metrics.json",
+      "role": "org1's committed walk rows + rays + the saved theta_2 checkpoint; the fact_grad convention (minted on org1)"
+    },
+    "e198_e201": {
+      "metrics": "runs/e198/metrics.json, runs/e201/metrics.json",
+      "role": "MIRABEL's committed walk journal + rays; e201's multi-organism census convention"
+    },
+    "thinking": "W027 (the wonder card that named the cut: does the support's drift rate predict death time?), T171 (the two-rotator picture: the front bounces, the sensitivity drifts smoothly, 0.78 -> 0.19 nearly orthogonal at death)"
+  },
+  "honesty_reflex": {
+    "n_and_scope": "n=1 stream per lineage, three lineages, one battery geometry per organism, a threshold registered from the one ladder on record: whatever the verdict, it is a three-biography read, not a population claim",
+    "threshold_provenance": "tau = 0.2 was registered FROM the half lineage (the only ladder on record, death cosine 0.192): the at-death crossing on that lineage is partially tautological; the REPLICATION reads (org1, MIRABEL) are the live content",
+    "circularity_disclosures": "org1's death (t=2) is INSIDE the early window (k <= 2): its primary prediction is UNDEFINED (one tick; a rate needs two), and its dispatch-literal prediction is CIRCULAR (consumes the outcome row) \u2014 both ride stamped, never adjudicated as successes",
+    "alignment_reads_never_predict": "the extrapolation is an arithmetic claim about gradient directions, not an intervention; nothing here establishes causality (T157's class caveat, carried)",
+    "counterfactual_wash_caveat": "the half lineage is alive only because the experimenter halved the step (the natural 0.9164 step killed it at t=1); its ladder belongs to the alive window OF THIS CONSTRUCTION (T158/T160, carried from e204)",
+    "step_size_confound": "the half lineage ticks 0.458 L2/step vs 1.654 on the 2.74M organisms: per-STEP drift rates are not commensurable across lineages; the per-D co-read rides and never adjudicates",
+    "battery_strengths": "the sensitivity batteries differ in strength at their roots: org1 0.9156 (the convention's home), MIRABEL 0.6236, half 0.198 (UNDER the 0.27 bar \u2014 e204's disclosure, carried)",
+    "openness": "WHAT EACH ARM GUARANTEES: NOTHING \u2014 the ladders are local linearizations of one readout each on single-stream walks; the clock is one arithmetic protocol on three numbers per lineage; the openness is the point"
+  },
+  "deviations": [
+    "THE SPLIT (this cell's design): the half lineage's ladder is LOADED COMMITTED (e204's sensitivity_ladder geometry, hard-bound + asserted, G_E204LADDER \u2014 never rerun; e204's own convention: committed parents are loaded, not recomputed); the NEW compute is org1's and MIRABEL's sensitivity ladders (e194/e195's fact_grad convention, minted on org1, carried to MIRABEL per e201's census precedent) \u2014 eval-only walk rebuilds (2 and 3 sign steps) + one fact_grad per state + FD probes; minutes, CPU, threads 4.",
+    "e194's matched-point gradient reads existed on org1 only at the root and theta_1 (the chart/e194 rows); the LADDER view (consecutive cosines of s_t along a walk) is new on org1 and MIRABEL \u2014 no committed comparator exists for these exact reads; the state identity is carried by the parents' gates (org1: OPT2_S1/S2 rows + the saved opt2_a_sign_s2.pt checkpoint + the u0/u1 ray md5s; MIRABEL: e198's journal rows + the u0/u1/u2 ray md5s) and the instrument by the FD sign probe (G_SENS, hard at each root).",
+    "THREADS 4 (the owner envelope's cap), where e195/e198's committed chains ran threads 8: cross-thread/environment drift at ~1e-7 fp32 is possible, so every recompute gate is TIERED (BIT md5/1e-9 or e199's disclosed TEXTURE tier at 1e-3), the achieved tier STAMPED per gate; the half lineage's adjudicated numbers are the COMMITTED cosines (loaded, gated), never this process's texture.",
+    "org1's u2 (the post-death front) is NOT re-read: the ladder needs STATES, and theta_2's custody is carried by the saved checkpoint (G_SAVEDSTATE_O1) + the committed s2 row; e194's front-trace continuation (states 3-5) is out of scope (post-death, never adjudicated).",
+    "MIRABEL's walk rebuild skips e198's co-ruler reads (g-4/g0/g+12 per step) and the kill-bracket densification: nothing in this cell consumes them (the death step is the committed ledger), and the walk's identity is carried by the md5-gated batches 1-3, the arithmetic rows (ce/disp/gnorm), the primary-ruler reads, and the ray md5s \u2014 e201's own G_WALKE198 skipped the same class of reads it did not consume; disclosed.",
+    "the sensitivity batteries differ in STRENGTH at their roots (disclosed, carried): org1's g-12 reads 0.9156 (the convention's home, strong), MIRABEL's 0.6236 (alive), the half lineage's 0.198 (UNDER the 0.27 bar at D=0 \u2014 e204's ruler disclosure): the ladder object is the same instrument at three different readout strengths.",
+    "the CPU load-check is recorded, not gating (the envelope's 'check load first'): this cell is a 4-thread CPU eval burst of a few minutes; the GPU is never claimed.",
+    "Smoke mode trims: FD eps set to {0.05} (verdict stamped SMOKE; nothing adjudicated).",
+    "THE ANGLE CO-READ'S UNITS SLIP (caught before the final write): the first compute compared the degree-valued ladder angles against a radian-valued arccos(tau) target (t_hat_angle collapsed to 1 everywhere); fixed to degrees and re-run \u2014 a reporting-layer bug in a NEVER-ADJUDICATED co-read column; the primary (cosine-space) protocol and the verdict were never touched by it."
+  ],
+  "timing": {
+    "total_s": 34.9
+  },
+  "config": {
+    "torch": "2.12.0.dev20260408+cu128",
+    "threads": 4,
+    "device": "cpu (CUDA_VISIBLE_DEVICES=-1)",
+    "smoke": false,
+    "eval_only": true,
+    "n_lineages": 3
+  }
+}

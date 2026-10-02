@@ -418,6 +418,12 @@ deviations: list[str] = [
     "minutes; the GPU is never claimed.",
     "Smoke mode trims: FD eps set to {0.05} (verdict stamped SMOKE; "
     "nothing adjudicated).",
+    "THE ANGLE CO-READ'S UNITS SLIP (caught before the final write): the "
+    "first compute compared the degree-valued ladder angles against a "
+    "radian-valued arccos(tau) target (t_hat_angle collapsed to 1 "
+    "everywhere); fixed to degrees and re-run — a reporting-layer bug in "
+    "a NEVER-ADJUDICATED co-read column; the primary (cosine-space) "
+    "protocol and the verdict were never touched by it.",
 ]
 
 
@@ -564,8 +570,11 @@ def first_cross_int(c1: float, d: float, tau: float, t_max: int = 200):
 def first_cross_int_angle(a1: float, d_ang: float, tau: float,
                           t_max: int = 200):
     """ANGLE-space co-read: smallest integer t with a1 + (t-1)*d_ang >=
-    arccos(tau); None if never."""
-    tgt = math.acos(tau)
+    arccos(tau); None if never. a1/d_ang in DEGREES (the ladder-angle
+    currency); the target is converted to degrees to match — a first-
+    compute units slip in this never-adjudicated co-read, caught and
+    fixed before the final COMPLETE write (the deviation note rides)."""
+    tgt = math.degrees(math.acos(tau))
     if a1 >= tgt:
         return 1
     if d_ang <= 0.0:
