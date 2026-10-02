@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS4 — the wall at 10x, take 4 (movement-matched dose): TEXTURE — and the dose question INVERTED; the formation landscape is NON-MONOTONIC in movement (2026-10-02 ~08:50Z) — DONE
+
+WHAT WE DID: T161's licensed knob (750 steps @ 4e-4 = e113's 0.30
+rms), everything else loaded verbatim; the ninth-disruption
+recovery (W2 complete; C/W1 recovered from the run log; W3
+fresh-replayed bit-tight through +50); the owner envelope HELD
+(launch gates util<=20% AND temp<=70C double-polled; 181s
+cooldowns; 5 heat pauses ridden; never migrated).
+
+WHAT WE SAW (T165): G-ROOT FAIL — root g-12 0.2523 < 0.78: the
+movement-matched dose produced a WEAKER root than g1bS3's
+near-miss at a THIRD of the movement. THE 10M FORMATION LANDSCAPE,
+three points: 0.0010 (0.30 rms @ 1e-3) / 0.6498 (0.12 rms @ 4e-4)
+/ 0.2523 (0.30 rms @ 4e-4) — NON-MONOTONIC IN MOVEMENT; the
+near-miss was not a dose shortfall; movement-matching is not the
+cure; the formation optimum (if any) sits BETWEEN 0.12 and 0.30
+rms and is SHARP. No wall bar adjudicated (TEXTURE, the registered
+rule). THE RECORD LADDER: C dead at +1 (D_kill = one AdamW step =
+9.99e-4 rms, T139 at 10x again); W1's formation shock (0.04@+1)
+then recovery ABOVE root (flat 1.49x; the +1 dip alone fails the
+strict bar); W2 1.20x; W3's LATE FADE (0.31@+200 -> 0.12@+300) —
+AT A WEAK ROOT THE LOOSER BALLS HOLD WORSE (the opposite of
+WALL-TIGHTENS texture); tax +0.232; freezing FALSE (the walled
+arm IMPROVED corpus CE). HONESTY: n=1 host/seed/fact; the ladder
+carries no bar; the recovery provenance disclosed (the run-log
+parse; the fresh replay's device-fuzz band).
+
+---
+
 ## e200 — the deepening test: GRADED — the concentration ARRIVES, UN-FORMS, and RETURNS at its deepest exactly at the killing step; the rotation is a rotating object, not a converging pursuit (2026-10-02 ~08:30Z) — DONE
 
 WHAT WE DID: e197's half-step walk rebuilt verbatim as the ray

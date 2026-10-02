@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T165 — g1bS4: the dose question inverted — formation is non-monotonic in movement at 10M (2026-10-02 ~08:50Z)
+
+Take 4 closes the dose question by inverting it: matching e113's
+total movement made the channel WEAKER (0.2523 vs 0.6498 at a
+third of the movement) — the 10M formation landscape is
+NON-MONOTONIC in consolidation movement, with the optimum (if it
+exists) sharp between 0.12 and 0.30 rms. THE CURE PATTERN'S LIMIT:
+the one-knob licenses fixed stability (lr) and dose (steps) and
+the formation still refuses to transfer — the e113 consolidation
+FORM itself may not survive 10M (a form question, not a knob
+question). THE LADDER'S NEW TEXTURE: at a weak root, the looser
+balls hold WORSE (W3's late fade) — the wall's protection quality
+tracks the ROOT's formation strength; and the walled arms IMPROVE
+corpus CE (freezing False at 10M too). THE NAMED NEXT CUTS: the
+formation-vs-movement curve (a consolidation-only dose sweep,
+0.15/0.20/0.25 rms at 4e-4 — root reads only, no arms; small
+cooled bursts under the owner envelope) or ACCEPT the e113 form's
+10M ceiling as the finding. THE HONEST POSITION: four takes, one
+inversion, three TEXTUREs — the wall's scale question has cost
+patience and taught the recipe-stack lesson three ways; the sweep
+is cheap and the curve is the dissection's instinct.
+
 ## T164 — e200: alternation — the front rotates onto and off the support, and death is the deepest landing (2026-10-02 ~08:30Z)
 
 Given the longest alive window on record, the onset curve answers
