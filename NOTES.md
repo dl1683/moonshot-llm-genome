@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1e — the cons-seed redraw: CONS-WALL-BOUND — THE TRANSIENT IS THE LAST LOTTERY (the flat-phase protection cons-robust; the +1 crush draw-dependent; the cons lottery does NOT bite expression at 2.74M) (2026-10-02 ~15:25Z) — DONE
+
+WHAT WE DID: the wall's last stream axis — the e113 jitter-replay
+consolidation at seed 10912 (the only delta; the base and install
+LOADED as locked artifacts, reuse |d| 0.0; wash 10902 held); all
+gates PASS (the cons draw genuine, L2 17.12; the ruler 0.9322 — no
+deviation needed); the envelope held (one honest 4.5-min gate-wait).
+
+WHAT WE SAW (T188): CONS-WALL-BOUND — W1 BREACHED the maintain bar
+AT +1 (g-12 0.2719 < 0.50; the family's first breach — every
+wash/root draw reads 0.82-0.96 at +1 on the same instrument) —
+then RECOVERED to 0.6572 at +2 and HELD FLAT 0.52-0.63 through
++300 (0.61-0.74x its own root — T186's ratio-device law) while C
+died at +1 (0.0022). TWO READINGS BEYOND THE BOUND: (1) THE CONS
+LOTTERY DOES NOT BITE EXPRESSION at 2.74M (the fresh root 0.8575
+in-family vs the locked 0.9156 and g1c's 0.9026 — unlike the base
+redraw's 0.52 and the 10M peak lottery); (2) THE TRANSIENT IS THE
+LAST LOTTERY — the flat-phase protection cons-robust, the
+first-step crush draw-dependent (+1 reads 0.95/0.96/0.91/0.82
+wash/root, 0.48 base, 0.27 cons): the R=0.7 truncation of the
+first wash step lands draw-specifically harder, and the wall
+RE-CAPTURES the fact after one projected step in every draw that
+expressed. THE GRID'S FINAL FORM: wash n=3 HOLDS x root n=2 HOLDS
+x cons n=1-of-2 BOUND at the every-checkpoint form (the FLAT PHASE
+survives ALL axes) x base observed-unadjudicated — THE PROTECTION'S
+SHAPE REPLICATES EVERYWHERE; the expression height AND the +1
+transient are the lotteries (W028's law, final stamp). HONESTY:
+n=1 cons/wash; the strict co-report fails (flat min 0.5277 vs
+0.8429); FLAT-AT-PIN misses by a hair (0.0552 vs 0.05).
+
+---
+
 ## e214 — the conservation-of-rank cell: RANK-DESTROYED (0/5 cells hold) WITH THE DISCLOSED SPLIT — the t=0 order dies WITH the scale (coupling -0.88) while the deep-state order REPLICATES across washes (xrho 0.94-1.00 at 65-77% decay); the wash re-orders BY RELATION (lang holds, cap/cur collapses; baseline p irrelevant); THE EROSION ORDER IS PHYSICS, THE BASELINE ORDER IS BIOGRAPHY (2026-10-02 ~15:10Z) — DONE
 
 WHAT WE DID: eval-only on the two-wash 124M archive (all four

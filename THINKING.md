@@ -685,6 +685,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T188 — g1e: the grid closes — the flat phase survives everything; the transient is the last lottery (2026-10-02 ~15:25Z)
+
+The wall's final stream axis resolves as the grid's sharpest
+honest bound: the first +1 breach in the family (0.27 — the cons
+draw's truncation of the first step landing harder) followed by
+the recovery-and-hold that every other draw showed (flat 0.52-0.63
+at 0.61-0.74x its own root). THE GRID'S COMPLETE MAP: wash n=3
+HOLDS; root n=2 HOLDS; cons n=1-of-2 BOUND at the strict form with
+the FLAT PHASE surviving every axis; base observed-unadjudicated
+(the expression lottery); 10M direction-form draw-clean. THE
+REPLICATING OBJECT: the flat-phase protection (the wall re-captures
+the fact after one projected step in EVERY draw that expressed);
+THE LOTTERIES: the expression height (base > install > cons >
+peak) and the +1 transient depth — W028's law with the wall's own
+final stamp. THE OPEN RUNG (only if wanted): a second cons seed to
+split the +1-crush variance from n=1 noise.
+
 ## T187 — e214: the law survives its own test by deepening — the shape layer is the EROSION ORDER (2026-10-02 ~15:10Z)
 
 W028's direct test fires its honest negative and the negative is
