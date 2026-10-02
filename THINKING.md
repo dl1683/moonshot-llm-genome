@@ -685,6 +685,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T200 — g13: the crush delta-carried in both directions; the normalizer clause draw-specific (2026-10-02 ~21:05Z)
+
+The symmetry cell delivers the mechanism table's honest finish:
+the 2x2 is symmetric (the crush travels with the delta, both
+directions, n=2 — the DELTA-CARRIES clause licensed), but the
+s_0-decomposition's lethality is a g1e draw's property, not the
+axis's law — g1f's crush survives its s_0-removal untouched.
+THE MECHANISM'S FINAL HONEST FORM: the crush is carried by the
+AdamW-realized step (not the gradient); within the step, WHICH
+component carries the damage VARIES BY DRAW (s_0 at g1e; elsewhere
+at g1f); first-order predicts nothing; the wall re-captures by
++2 everywhere. THE LAB'S LAW APPLIED TO THE LAB'S OWN MECHANISM
+CLAIM: the delta-carrying (shape) replicates; the s_0-attribution
+(height) is a draw. THE SUCCESSORS: the orthogonal complement at
+g1f; a third cons draw; the +2 re-capture phase's anatomy.
+
 ## T199 — e222: the vaccination does not fire at one dose (2026-10-02 ~20:15Z)
 
 The exposure-immunity causal test returns the honest NULL: at one
@@ -726,6 +742,14 @@ registered decisive cell (this cell's co-read); the fourth
 symmetry cell (the locked delta at the cons root); replicates at
 g1f's root; the whole-delta-vs-vector confound disclosed in
 metrics.]
+
+
+[G13 AMENDMENT ~21:05Z]: the normalizer clause DOWNGRADED to
+draw-specific — the registered delta-form removal spares g1e
+(0.708, reproduced) but fails at g1f (0.295, delta.s0 3x smaller
+there: the g1f crush s_0-independent). The crush is delta-carried
+both directions (licensed); WHICH component carries it varies by
+draw. See T200.
 
 ## T197 — e221: the hunt closes at real-and-unnamed (2026-10-02 ~19:15Z)
 
