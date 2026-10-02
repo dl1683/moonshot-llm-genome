@@ -4224,6 +4224,22 @@ the graded 4-10x static basin vs the trajectory kill is exactly what
 the integral must separate (T137); e188 is now pointed by result, not
 just by argument.]
 
+## W021b — PROCESS NOTE: heredoc code edits corrupt — the Edit/Write tools only (2026-10-02 ~09:28Z)
+
+The envelope-log fix (8d6be37) wrote a literal newline inside a
+Python string via a bash heredoc — common.py was SYNTACTICALLY
+INVALID at HEAD for ~4.5 hours, every import failing, while the
+commit message claimed both the hook and the wiring were complete
+(they were not: the hook was never called). g1bS5 survived only by
+having imported before the write; the g1bS6 agent's PRE-FLIGHT
+caught it. SECOND INSTANCE of heredoc-edit corruption (the first
+ate T151's C4 row). THE RULE, now standing: code edits go through
+the dedicated Edit/Write tools only — heredocs are for reading;
+and every infra commit gets an import smoke within the same
+commit. The pre-flight pattern (the agents' own verify-before-run)
+is what caught both instances — the lab's discipline policing its
+coordinator.
+
 ## W021 — WONDER: the instrument that cannot fail — R56's meta-law, and the scan it demands (2026-09-29 ~21:20Z; no bars, no kills)
 
 All three of the critic's ruler-bends were ONE species: an instrument
