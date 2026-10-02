@@ -4396,6 +4396,42 @@ physics states. That is the culture working.
 
 
 
+
+## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc)
+
+Assembled from the day's folds (T172-T185), one law has written
+itself into every layer of the program without anyone naming it
+whole until now: EVERY OBJECT SPLITS INTO A SHAPE (robust,
+replicating) AND A HEIGHT (a lottery). The wall: protection
+replicates across wash x root x base x scale while the dip, the
+tax, and the root strength are draws (T172, T178, T181, g1d
+running). The flight arc: the ray ORDER is draw/fact/architecture-
+robust while the kill distances are biography (T155); the onset
+arrival is within-organism while the WHEN was a self-normalized
+artifact (T163/T173). The formation curve: the interior-optimum
+SHAPE survives the redraw while the peak HEIGHT lotteries (T172).
+The 124M erosion: the mid-dose decline is a state function (the
+displacement gate's echo, two-scale) while the ends drift with the
+stream (T185). EVEN THE FACT'S OWN GRADIENTS: the destination
+(orthogonality at death) replicates 3/3 while the schedule is
+biography (T174). AND THE LAW'S OPERATIONAL TWIN: the census
+discipline kills its own scalars at speed — the margin class line
+minted, extended, and broken in three cells (T177-T180); the
+walled-band property minted, shadow-named, and buried in three
+(T179-T184) — each death leaving a sharper residue (the
+margin-step-ball triad; the exposure-immunity ordering). THE
+WONDER QUESTION THIS LEAVES: WHY does the shape layer replicate
+when the height layer lotteries? The shapes live in ORDERINGS and
+DESTINATIONS (rank information); the heights live in DISTANCES and
+RATES (scale information) — is the split itself the deepest
+finding: that rank information is conserved under the wash while
+scale information is destroyed? THE CUT IT NAMES, ripening: a
+direct test — the wash's information-theoretic signature (which
+mutual informations survive: the rank order of a battery's probes
+vs their absolute levels?) — the conservation-of-rank cell, if it
+ever wants to run. Savoring: the lab has been measuring one law
+from six directions for two days, and the law held every time.
+
 ## W027 — WONDER: two rotators — the wash bounces, the fact drifts; the dance is the dissection's loveliest object (2026-10-02 ~10:40Z; no bars, no kills — savoring the closed chapter) [E206 UPDATE ~11:55Z: question (2) answered — the drift-rate is NOT a clock (the schedule is biography); the DESTINATION (orthogonality at death) replicates 3/3; the quartet's fact has a destination, no tick]
 
 The geometry chapter's parting gift, assembled from e194-e205: the
