@@ -705,6 +705,24 @@ OPENNESS: a shape claim at n=3; the mechanism candidates (why the
 stream's gradient structure alternates) unnamed — the next
 dissection question, ripening.
 
+
+[R61-CRITIC PROVISIONAL STAMP ~08:55Z]: the alternation may be a
+THEOREM OF SIGN DESCENT — on a locally quadratic landscape,
+overshoot gives cos(u_t,u_{t+1}) = 1 - 2*f_flip (f_flip = the
+fraction of coordinates with |g_i| <= h_i*s; f_flip ~ 0.58-0.68
+reproduces every censused value with banal parameters), and the
+model's absorption fingerprint (anti-correlation deepening along
+the walk: -0.263 -> -0.353 committed) was read as "a rotating
+object". "The rotation outlives the organism" = the period-2
+bounce continuing at dead states — MANDATORY, not a discovery. THE
+NULL DERIVATION DISPATCHED (a desk item, zero compute; the closed
+form + the retrodiction + the registered falsifier: a fact-free
+sign walk deviating toward the fact's presence would rescue the
+information reading). THE SURVIVOR either way: "death = the
+deepest landing" (one perfect 4-point rank-ordering, censored at
+the event; the support-proxy overlap -0.030 — the support itself
+never measured). T164/T166's nouns PROVISIONAL pending the null.
+
 ## T165 — g1bS4: the dose question inverted — formation is non-monotonic in movement at 10M (2026-10-02 ~08:50Z)
 
 Take 4 closes the dose question by inverting it: matching e113's

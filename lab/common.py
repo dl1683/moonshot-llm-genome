@@ -38,6 +38,19 @@ GPU_TEMP_CEIL = 80          # deg C — no new launches above this
 GPU_IDLE_TEMP_TARGET = 65   # deg C — wait for cooldown to here when hot
 
 
+
+def _log_envelope_poll(tag: str, util: float, temp: float, ok: bool) -> None:
+    """Owner-envelope audit: append every gpu poll (R61-critic compliance fix)."""
+    try:
+        import json as _json, datetime as _dt
+        rec = {"t": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
+               "tag": tag, "util": util, "temp": temp, "ok": bool(ok)}
+        with open("runs/_envelope_log.jsonl", "a", encoding="utf-8") as f:
+            f.write(_json.dumps(rec) + "
+")
+    except Exception:
+        pass
+
 def gpu_status() -> dict:
     """util%, mem_used_mb, mem_total_mb, temp_c, power_w via nvidia-smi."""
     import subprocess
