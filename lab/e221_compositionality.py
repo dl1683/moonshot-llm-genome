@@ -441,6 +441,12 @@ deviations: list[str] = [
     "on them); the named-split yardsticks of e216/e219/e220 are kept as "
     "co-reports for continuity.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "After the smoke shakedown (nothing adjudicated), one display label "
+    "('SUBSTITUTION') and one plot title were made dynamic; the TYPOLOGY, "
+    "the bars and the operationalizations are byte-identical to the "
+    "registration commit (diff-verifiable; the typo fix was committed "
+    "before the real run, so G_TYPOLOGY's blob check reads the amended "
+    "registration).",
     "Smoke mode: the same desk tables on the same committed records, own "
     "smoke dir, nothing adjudicated.",
 ]
@@ -715,9 +721,16 @@ def make_plot(rd, rows, sep, ord_res, absorb, anchor, famcap, adj, base_xw):
     ax.set_ylabel("e216 residual (o = w1, [] = w2; black bar = class mean)")
     ax.grid(alpha=0.25, axis="y")
     ax.legend(fontsize=6.6, loc="upper left")
-    ax.set_title("(1) THE TYPOLOGY vs THE THIRD DIMENSION — ATOMIC's width "
-                 "(Topeka +0.37 vs yuan -0.20) is the un-named dimension "
-                 "itself", fontsize=9.0)
+    atom_r1 = [r["resid_w1"] for r in rows if r["comp_class"] == CLASS_ATOMIC]
+    hi = max(rows, key=lambda r: (r["comp_class"] == CLASS_ATOMIC)
+             * r["resid_w1"])
+    lo = min((r for r in rows if r["comp_class"] == CLASS_ATOMIC),
+             key=lambda r: r["resid_w1"])
+    ax.set_title(f"(1) THE TYPOLOGY vs THE THIRD DIMENSION — ATOMIC's own "
+                 f"width ({hi['answer'] if hi['answer'] in ('Gmail', 'iPhone') else hi['fact'].split('->')[-1]} "
+                 f"{hi['resid_w1']:+.2f} vs "
+                 f"{lo['fact'].split('->')[-1]} {lo['resid_w1']:+.2f}) is "
+                 f"the un-named dimension itself", fontsize=9.0)
 
     # (0,1) the separation ladder
     ax = axes[0, 1]
@@ -1310,7 +1323,7 @@ def main():
              "TOKEN-IDENTITY == lang, MULTI-HOP == founder-anchor, "
              "FUNCTION-COMPOSED == is_Gmail (all asserted) — the "
              "interpretable form of 'family + compositionality class'")
-    run_form("SUBSTITION: family + ordinal (p0 out)",
+    run_form("SUBSTITUTION: family + ordinal (p0 out)",
              [ordc],
              "e219/e220's substitution convention with the class ordinal as "
              "the height term; within families the ordinal varies only "
