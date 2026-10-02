@@ -9,6 +9,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e212 — the same-instrument pristine band: GRADED — the shadow's near-last word: the 2-3x gap DEAD at the same instrument (bounded <= 16%, inside the SE window); the band scalar stays closed as a NON-PROPERTY (2026-10-02 ~16:40Z) — DONE
+
+WHAT WE DID: the pristine e131 root's random-draw band on e209's
+onset-grid instrument VERBATIM (3+2 draws; the instrument identity
+BIT-verified — the spans reproduce e211's committed pristine spans
+at rel 0.0; the stream md5-gated); 124s CPU.
+
+WHAT WE SAW (T184): THE PRISTINE MEDIAN 0.756 [0.435-2.128, 0
+censored] vs the walled family 0.846/0.896/0.920 -> RATIO 0.844x —
+neither inside the registered match window (0.809-0.957) nor
+materially below (the 0.7x bar): GRADED, the tables verbatim. THE
+SHADOW'S NEAR-LAST WORD: the committed 2-3x "walled bands grow"
+gap (built on e_chart's cross-instrument 0.610 pristine row) is
+now BOUNDED AT <= 16% SAME-INSTRUMENT, inside the generous
+within-root SE window [0.533, 1.233] — THE WALL'S BAND IS NOT
+WIDER IN ANY MATERIAL SENSE; the residual 16% sits at the edge of
+the draw lottery's reach and of the registered window. THE BAND
+SCALAR'S FINAL STATE: CLOSED AS A NON-PROPERTY (with the honest
+caveats: 1 pristine root vs 3 walled; the direction-family
+asymmetry — random draws weight the safe top-SV directions; both
+like-for-like joins co-reported). HONESTY: nothing guaranteed,
+nothing shopped.
+
+---
+
 ## e182c2 — phase 2: TEMPLATE-GENERAL + DRAW-REPLICATES — the fast erosion survives the form change and the fresh draw; the locus is the FEW-SHOT-FOLLOWING FACULTY; the cross-wash stability free find (2026-10-02 ~16:05Z) — DONE
 
 WHAT WE DID: the reversed-form capital battery (n=19 gate-passers,

@@ -685,6 +685,44 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T184 — e212: the band closes — the instrument-shadow saga's end (2026-10-02 ~16:40Z)
+
+The named debt pays and the saga ends quietly: same-instrument,
+the pristine band reads 0.756 against the walled family's 0.85-0.92
+(ratio 0.844) — the celebrated 2-3x gap was the cross-instrument
+row plus the lottery, now bounded at <= 16% and inside the noise.
+THE BAND SCALAR CLOSES AS A NON-PROPERTY — the wall neither buys
+nor costs noise tolerance; its ledger (protection, continuity
+bounds, the flat phase, the anatomy-independence) stands complete
+without it. THE INSTRUMENT-SHADOW SAGA'S THREE ACTS, for the
+record: the free find minted (e209: "the walled bands grow 2-3x");
+the shadow named (e211: same-instrument per-direction medians
+match; both mechanisms dead); the close (e212: the like-for-like
+random join bounds the residual inside the noise) — three cells
+from minting to burial, the census discipline's standard operating
+speed on its own objects.
+
+## T183 — e182c2: the few-shot locus at n=2 draws and 2 forms; the cross-wash stability (2026-10-02 ~16:05Z)
+
+Phase 2 closes the 124M thread's open question both ways: the
+erosion is TEMPLATE-GENERAL (the reversed form converges to the
+same decline; the +50 lag-then-converge the only form residue) and
+DRAW-REPLICATING (the fresh stream reproduces the pattern; the
+near-related still fastest). THE GPT-2 CLAUSE'S FINAL FORM: at
+124M the wash erodes the FEW-SHOT-FOLLOWING FACULTY generically —
+controls, templates, and near-relations in a graded order (ctrl <
+template < nearrel), with perplexity improving throughout: the
+organism gets better at the stream while its instruction-following
+surface wears. THE FREE FIND IS THE QUIET STUNNER: one battery's
+decline identical across two independent washes to three decimals
+(0.4212 vs 0.4202) — the per-battery dose-response is
+wash-path-INDEPENDENT: the erosion is a function of the STATE (the
+displacement), not the PATH — echo of e188's displacement gate at
+124M scale. THE THREAD'S LEDGER: surgical signature retired
+(e182c); generic erosion licensed at n=2 draws + 2 forms (this
+cell); the template-locus resolved to the faculty level; the
+path-independence the new open object.
+
 ## T182 — e211: the shadow retired — and the real ordering found (2026-10-02 ~15:45Z)
 
 The walled-band question closes with the lab policing its own free
@@ -1516,6 +1554,13 @@ first, commit at every stage) got it home — the disruption era's
 dispatch pattern. And the replay-that-was-necessary incidentally
 discharged the CPU/GPU numerics debt (bit-tight). T123's amendment
 follows; the paper's GPT-2 clause rewrites in the fold.
+
+
+[E182C2 AMENDMENT ~16:05Z]: the hint LICENSED — TEMPLATE-GENERAL
+(the reversed form converges) + DRAW-REPLICATES (n=2 draws): the
+locus is the FEW-SHOT-FOLLOWING FACULTY; the graded order ctrl <
+template < nearrel; the cross-wash stability (0.4212 vs 0.4202) the
+new open object.
 
 ## T148 — g1bS: the recipe is scale-bound — the honest negative that saves the cell (2026-10-01 ~15:15Z)
 
