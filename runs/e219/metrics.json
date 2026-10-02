@@ -1,0 +1,2659 @@
+{
+  "experiment": "e219_independent_entrenchment",
+  "phase": "desk + one pristine-burst eval (the paraphrase channel; no wash state loaded)",
+  "date": "2026-10-02T16:35:19Z",
+  "status": "DONE",
+  "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE row DISPATCHED 17:07Z, commit 1db7f74) BEFORE any compute; the paraphrase registry above committed with the cell BEFORE any p measurement; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "ENTRENCHMENT-REAL": "fires if the independent-channel p0 correlates with the residual (|rho| >= 0.4) or absorbs the cross-wash residual (rho < 0.5 when substituted as the height term) \u2014 the third dimension is ENTRENCHMENT seen through a second channel: real probe physics, the confound broken.",
+      "INSTRUMENT-TEXTURE": "fires if the independent channel shows no relation (|rho| < 0.2, no absorption) \u2014 the residual's replication is same-channel texture; the third dimension retires as an instrument artifact; W021's family grows.",
+      "GRADED": "any partial \u2014 the tables verbatim."
+    },
+    "operationalizations": "residual = e216's committed per-probe residuals (resid_w1/w2), re-derived through G_RECOMPUTE (p0/hr from e214 curves+journal vs the e215 assignment at 1e-9) + G_BASELINE (this cell's linear-form OLS reproduces e216's committed residuals at 1e-9) and then read from this cell's own recompute; IE(probe) = MEAN over its measured hand-registered paraphrase forms of p_t0(answer | paraphrase prompt) on the pristine state (one eval burst; forward+reversed mixed under the frozen mean, per-direction co-reports); CORRELATION: Spearman(IE, resid_w) per wash, FIRES iff max |rho| over washes >= 0.40; ABSORPTION: OLS hr_w ~ 1 + 5 family dummies (reference lang) + IE centered at its own mean (the e216 full model with p0 SUBSTITUTED by IE), xwash = Spearman(resid_w1, resid_w2), ABSORBED iff |xwash| < 0.5 (e218's abs-convention on the bar's 'rho < 0.5'); NO-RELATION iff max |rho| < 0.20 AND no absorption; ADJUDICATION: gates ok -> ENTRENCHMENT-REAL iff (correlation OR absorption); else INSTRUMENT-TEXTURE iff no-relation; else GRADED; co-reports never adjudicated: rho(IE, p0), the additive form family+p0+IE, substituted R2 per wash, IE_forward/IE_reversed rhos, per-family IE medians, the named splits under the substituted model (e216 yardsticks); gated on G_RECORDS/G_RECOMPUTE/G_BASELINE/G_CORPUS/G_T0/G_PARA/G_ENV",
+    "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE row DISPATCHED 17:07Z, commit 1db7f74) BEFORE any compute; the paraphrase registry above committed with the cell BEFORE any p measurement; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "T191's named hunt, first target: does the third sorting dimension correlate with entrenchment measured through a DIFFERENT channel (the hand-registered paraphrase battery at t=0) \u2014 and does the independent entrenchment ABSORB the cross-wash residual where every same-channel height form failed? (the pipeline-texture confound, broken or confirmed)",
+  "builds_on": [
+    "T191 / e218 (the named hunt + the pipeline-texture confound; the BEYOND-HEIGHT verdict this cell interrogates)",
+    "T190 / e216 (the residual this cell hunts; the committed 54-probe table + the OLS baseline reproduced via G_BASELINE)",
+    "T189 / e215 (the family x height model + the committed 54-probe records)",
+    "T187 / e214 (the archive + the committed curves/journal)",
+    "T183 / e182c2 + T149 / e182c + T123 / e182 (the two-wash 124M archive)",
+    "W028 (the shape/height law)"
+  ],
+  "whats_new": [
+    "the HAND-REGISTERED PARAPHRASE BATTERY: 2-3 independent prompt forms per probe (paraphrased cloze + reversed cue<->answer + per-item hand forms), every string committed with the cell before any measurement",
+    "the INDEPENDENT-ENTRENCHMENT table IE = mean paraphrase p at t=0 (the pristine state, one eval burst)",
+    "the CORRELATION TEST: Spearman(IE, e216's committed residual) per wash against the frozen 0.4/0.2 bars",
+    "the SUBSTITUTION absorption test: family + IE replacing p0 as the height term \u2014 the decisive split against the 0.934 cross-wash residual",
+    "the channel-independence co-report rho(IE, p0) + the additive form family+p0+IE"
+  ],
+  "smoke": false,
+  "gates": {
+    "G_RECORDS": {
+      "e215_status": "DONE",
+      "n_probes": 54,
+      "e216_status": "DONE",
+      "e215_gates": {
+        "G_STATES": true,
+        "G_BATT": true,
+        "G_CORPUS": true,
+        "G_ENV": true
+      },
+      "e216_gates": {
+        "G_RECORDS": true,
+        "G_RECOMPUTE": true,
+        "G_CORPUS": true,
+        "G_PROMPT": true,
+        "G_ENV": true
+      },
+      "e215_reprobe_max_dp": 0.0,
+      "e216_xwash_committed": 0.933981322660568,
+      "git": {
+        "head": "0a88019a4420d29600373cf22783998d5ab0fa35",
+        "records_commits": {
+          "runs/e214/metrics.json": "ce34eda 2026-10-02",
+          "runs/e214/journal.json": "ce34eda 2026-10-02",
+          "runs/e215/metrics.json": "8668dec 2026-10-02",
+          "runs/e216/metrics.json": "e9e04c1 2026-10-02"
+        },
+        "dirty_records": []
+      },
+      "note": "the records chain's own certifications are inherited (e215 re-probed both +80 states at dp 0.0 vs e214's records; e214 certified those vs the e182c/e182c2 originals at <= 3.3e-06; e216 added the corpus/prompt rebuild certifications + its committed residual table); this cell adds the desk recompute (G_RECOMPUTE), the baseline reproduction (G_BASELINE), git provenance, and its own t=0 pristine re-certification (G_T0)",
+      "pass": true
+    },
+    "G_RECOMPUTE": {
+      "recomputed_from": "e214 curves w1/w2 +80 and journal t=0, matched per probe by fact+battery (the e216/e218 recompute, verbatim)",
+      "max_dp_vs_e215_assignment": 0.0,
+      "tol": 1e-09,
+      "n_rows": 54,
+      "note": "e215's assignment re-derived from the same committed records it certified \u2014 expected exactly 0",
+      "pass": true
+    },
+    "G_BASELINE": {
+      "compared": "this cell's linear form (family dummies + p0 centered) vs e216's committed per-probe residuals, both washes",
+      "max_dp": 0.0,
+      "tol": 1e-09,
+      "xw_spearman_this_cell": 0.933981322660568,
+      "xw_spearman_e216": 0.933981322660568,
+      "p0_mean": 0.8087400771953441,
+      "note": "the e216 baseline REPRODUCED (extend, don't repeat): the independent channel is read only after this bit-check passes",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "rebuilt TOKENIZER-ONLY (the e214/e215/e216 chain) \u2014 the substrate the battery builders' contamination scans need; no wash, no model",
+      "pass": true
+    },
+    "G_T0": {
+      "tol_per_probe_dp": 0.01,
+      "batteries": {
+        "fact": {
+          "kept_set_equal": true,
+          "n": 20,
+          "max_dp_vs_e214_journal_t0": 0.0
+        },
+        "ctrl": {
+          "kept_set_equal": true,
+          "n": 12,
+          "max_dp_vs_e214_journal_t0": 0.0
+        },
+        "near": {
+          "kept_set_equal": true,
+          "n": 3,
+          "max_dp_vs_e214_journal_t0": 0.0
+        },
+        "tmpl": {
+          "kept_set_equal": true,
+          "n": 19,
+          "max_dp_vs_e214_journal_t0": 0.0
+        }
+      },
+      "pass": true,
+      "note": "the pristine t=0 state re-certified: the pinned pretrained 124M is the state e214's journal t0 was measured on (kept sets equal, per-probe p matched; expected ~0.0 \u2014 the e215 precedent read exactly 0.0); the screening pass doubles as the kept probes' t0 witness (same net, same prompts \u2014 the deviation is disclosed)"
+    },
+    "G_PARA": {
+      "registry_committed": true,
+      "n_probes": 54,
+      "n_forms_total": 146,
+      "min_forms_per_probe": 2,
+      "registered_minimum": 2,
+      "forms_dropped": 8,
+      "exemplar_rule": "first-two-others per frozen pool (e1.K_SHOT=2) \u2014 the original battery's rotating-exemplar rule, applied to the paraphrase sentences",
+      "registry": {
+        "lang": [
+          {
+            "id": "L1 lang-passive",
+            "dir": "forward",
+            "template": [
+              "The language spoken in {c} is {a}. ",
+              "The language spoken in {c} is"
+            ]
+          },
+          {
+            "id": "L2 in-country",
+            "dir": "forward",
+            "template": [
+              "In {c}, people speak {a}. ",
+              "In {c}, people speak"
+            ]
+          },
+          {
+            "id": "L3 reversed",
+            "dir": "reversed",
+            "template": [
+              "{a} is spoken in {c}. ",
+              "{a} is spoken in"
+            ]
+          }
+        ],
+        "cap": [
+          {
+            "id": "C1 capital-city",
+            "dir": "forward",
+            "template": [
+              "The capital city of {c} is {a}. ",
+              "The capital city of {c} is"
+            ]
+          },
+          {
+            "id": "C2 possessive",
+            "dir": "forward",
+            "template": [
+              "{c}'s capital is {a}. ",
+              "{c}'s capital is"
+            ]
+          },
+          {
+            "id": "C3 reversed",
+            "dir": "reversed",
+            "template": [
+              "{a} is the capital of {c}. ",
+              "{a} is the capital of"
+            ]
+          }
+        ],
+        "cur": [
+          {
+            "id": "U1 official-currency",
+            "dir": "forward",
+            "template": [
+              "The official currency of {c} is the {a}. ",
+              "The official currency of {c} is the"
+            ]
+          },
+          {
+            "id": "U2 money",
+            "dir": "forward",
+            "template": [
+              "Money in {c} is the {a}. ",
+              "Money in {c} is the"
+            ]
+          },
+          {
+            "id": "U3 reversed",
+            "dir": "reversed",
+            "template": [
+              "The {a} is the currency of {c}. ",
+              "The {a} is the currency of"
+            ]
+          }
+        ],
+        "found": [
+          {
+            "id": "F1 bare-is",
+            "dir": "forward",
+            "template": [
+              "{c} is {a}. ",
+              "{c} is"
+            ]
+          },
+          {
+            "id": "F2 anchor-first",
+            "dir": "forward",
+            "hand_map": "FOUND_F2"
+          }
+        ],
+        "make": [
+          {
+            "id": "M1 is-the",
+            "dir": "forward",
+            "template": [
+              "{c} is the {a}. ",
+              "{c} is the"
+            ]
+          },
+          {
+            "id": "M2 maker-first",
+            "dir": "forward",
+            "hand_map": "MAKE_M2"
+          },
+          {
+            "id": "M3 made-by-rev",
+            "dir": "reversed",
+            "hand_map": "MAKE_M3"
+          }
+        ],
+        "near": [
+          {
+            "id": "N1 us-state",
+            "dir": "forward",
+            "template": [
+              "The capital of the U.S. state of {c} is {a}. ",
+              "The capital of the U.S. state of {c} is"
+            ]
+          },
+          {
+            "id": "N2 reversed",
+            "dir": "reversed",
+            "template": [
+              "{a} is the capital of the U.S. state of {c}. ",
+              "{a} is the capital of the U.S. state of"
+            ]
+          }
+        ],
+        "tmpl": [
+          {
+            "id": "T1 forward",
+            "dir": "forward-flipped",
+            "template": [
+              "The capital of {c} is {a}. ",
+              "The capital of {c} is"
+            ]
+          },
+          {
+            "id": "T2 capital-of",
+            "dir": "same-as-committed",
+            "template": [
+              "{a} is the capital of {c}. ",
+              "{a} is the capital of"
+            ]
+          },
+          {
+            "id": "T3 us-rev",
+            "dir": "same-as-committed",
+            "template": [
+              "The U.S. state whose capital is {a} is {c}. ",
+              "The U.S. state whose capital is {a} is"
+            ]
+          }
+        ]
+      },
+      "hand_maps": {
+        "FOUND_F2": {
+          "The software company founded by Bill Gates->Microsoft": [
+            "Bill Gates founded the software company Microsoft. ",
+            "Bill Gates founded the software company",
+            "Microsoft"
+          ],
+          "The social network founded by Mark Zuckerberg->Facebook": [
+            "Mark Zuckerberg founded the social network Facebook. ",
+            "Mark Zuckerberg founded the social network",
+            "Facebook"
+          ],
+          "The electric car company founded by Elon Musk->Tesla": [
+            "Elon Musk founded the electric car company Tesla. ",
+            "Elon Musk founded the electric car company",
+            "Tesla"
+          ],
+          "The rocket company founded by Elon Musk->SpaceX": [
+            "Elon Musk founded the rocket company SpaceX. ",
+            "Elon Musk founded the rocket company",
+            "SpaceX"
+          ],
+          "The search engine founded by Larry Page->Google": [
+            "Larry Page founded the search engine Google. ",
+            "Larry Page founded the search engine",
+            "Google"
+          ],
+          "The social network founded by Jack Dorsey->Twitter": [
+            "Jack Dorsey founded the social network Twitter. ",
+            "Jack Dorsey founded the social network",
+            "Twitter"
+          ],
+          "The shoe company founded by Phil Knight->Nike": [
+            "Phil Knight founded the shoe company Nike. ",
+            "Phil Knight founded the shoe company",
+            "Nike"
+          ],
+          "The coffee chain founded in Seattle->Starbucks": [
+            "Seattle is home to the coffee chain Starbucks. ",
+            "Seattle is home to the coffee chain",
+            "Starbucks"
+          ],
+          "The online encyclopedia that anyone can edit->Wikipedia": [
+            "Anyone can edit the online encyclopedia Wikipedia. ",
+            "Anyone can edit the online encyclopedia",
+            "Wikipedia"
+          ]
+        },
+        "MAKE_M2": {
+          "The gaming console made by Microsoft->Xbox": [
+            "Microsoft makes the gaming console Xbox. ",
+            "Microsoft makes the gaming console",
+            "Xbox"
+          ],
+          "The web browser made by Google->Chrome": [
+            "Google makes the web browser Chrome. ",
+            "Google makes the web browser",
+            "Chrome"
+          ],
+          "The phone made by Apple->iPhone": [
+            "Apple makes the phone iPhone. ",
+            "Apple makes the phone",
+            "iPhone"
+          ],
+          "The tablet made by Apple->iPad": [
+            "Apple makes the tablet iPad. ",
+            "Apple makes the tablet",
+            "iPad"
+          ],
+          "The email service made by Google->Gmail": [
+            "Google makes the email service Gmail. ",
+            "Google makes the email service",
+            "Gmail"
+          ],
+          "The music store made by Apple->iTunes": [
+            "Apple makes the music store iTunes. ",
+            "Apple makes the music store",
+            "iTunes"
+          ],
+          "The game console made by Sony->PlayStation": [
+            "Sony makes the game console PlayStation. ",
+            "Sony makes the game console",
+            "PlayStation"
+          ],
+          "The console made by Nintendo->Wii": [
+            "Nintendo makes the console Wii. ",
+            "Nintendo makes the console",
+            "Wii"
+          ]
+        },
+        "MAKE_M3": {
+          "The gaming console made by Microsoft->Xbox": [
+            "The Xbox is made by Microsoft. ",
+            "The Xbox is made by",
+            "Microsoft"
+          ],
+          "The web browser made by Google->Chrome": [
+            "Chrome is made by Google. ",
+            "Chrome is made by",
+            "Google"
+          ],
+          "The phone made by Apple->iPhone": [
+            "The iPhone is made by Apple. ",
+            "The iPhone is made by",
+            "Apple"
+          ],
+          "The tablet made by Apple->iPad": [
+            "The iPad is made by Apple. ",
+            "The iPad is made by",
+            "Apple"
+          ],
+          "The email service made by Google->Gmail": [
+            "Gmail is made by Google. ",
+            "Gmail is made by",
+            "Google"
+          ],
+          "The music store made by Apple->iTunes": [
+            "iTunes is made by Apple. ",
+            "iTunes is made by",
+            "Apple"
+          ],
+          "The game console made by Sony->PlayStation": [
+            "The PlayStation is made by Sony. ",
+            "The PlayStation is made by",
+            "Sony"
+          ],
+          "The console made by Nintendo->Wii": [
+            "The Wii is made by Nintendo. ",
+            "The Wii is made by",
+            "Nintendo"
+          ]
+        }
+      },
+      "note": "every measured form's full prompt string + answer + p is committed per probe in metrics.paraphrase.table; the registry + hand maps above are the frozen source; the forms were fixed BEFORE any p was measured (the honesty block discloses the not-blind boundary)",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "model_loads": 1,
+      "gpu_calls": 0,
+      "load_checks": 5,
+      "burst": "battery screening (~4 candidate sets) + ONE paraphrase burst on the pristine t=0 state; no wash state loaded",
+      "pass": true
+    }
+  },
+  "timing": {
+    "total_s": 29.9
+  },
+  "tokenizer": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "note": "the pinned local cache; the instrument this cell shares with the archive (disclosed)"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "paraphrase": {
+    "definition": "IE(probe) = MEAN p over its measured hand-registered paraphrase forms at t=0 (the pristine state); forward and reversed directions mixed under the frozen mean; per-direction means co-reported",
+    "table": [
+      {
+        "fact": "France->Paris",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Paris",
+        "p0": 0.6850027441978455,
+        "IE": 0.48747139672438305,
+        "IE_forward": 0.42266853898763657,
+        "IE_reversed": 0.617077112197876,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Paris",
+            "p": 0.6844006180763245,
+            "rank": 0,
+            "prompt": "The capital city of Germany is Berlin. The capital city of Italy is Rome. The capital city of France is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Paris",
+            "p": 0.16093645989894867,
+            "rank": 1,
+            "prompt": "Germany's capital is Berlin. Italy's capital is Rome. France's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "France",
+            "p": 0.617077112197876,
+            "rank": 0,
+            "prompt": "Berlin is the capital of Germany. Rome is the capital of Italy. Paris is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "Greece->Athens",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Athens",
+        "p0": 0.94468092918396,
+        "IE": 0.9411693612734476,
+        "IE_forward": 0.9502249360084534,
+        "IE_reversed": 0.9230582118034363,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Athens",
+            "p": 0.9364348649978638,
+            "rank": 0,
+            "prompt": "The capital city of France is Paris. The capital city of Germany is Berlin. The capital city of Greece is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Athens",
+            "p": 0.964015007019043,
+            "rank": 0,
+            "prompt": "France's capital is Paris. Germany's capital is Berlin. Greece's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "Greece",
+            "p": 0.9230582118034363,
+            "rank": 0,
+            "prompt": "Paris is the capital of France. Berlin is the capital of Germany. Athens is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Warsaw",
+        "p0": 0.6746281981468201,
+        "IE": 0.8370440800984701,
+        "IE_forward": 0.7766089737415314,
+        "IE_reversed": 0.9579142928123474,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Warsaw",
+            "p": 0.695563018321991,
+            "rank": 0,
+            "prompt": "The capital city of France is Paris. The capital city of Germany is Berlin. The capital city of Poland is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Warsaw",
+            "p": 0.8576549291610718,
+            "rank": 0,
+            "prompt": "France's capital is Paris. Germany's capital is Berlin. Poland's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "Poland",
+            "p": 0.9579142928123474,
+            "rank": 0,
+            "prompt": "Paris is the capital of France. Berlin is the capital of Germany. Warsaw is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Lisbon",
+        "p0": 0.7412760853767395,
+        "IE": 0.8564348618189493,
+        "IE_forward": 0.818755179643631,
+        "IE_reversed": 0.9317942261695862,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Lisbon",
+            "p": 0.7402990460395813,
+            "rank": 0,
+            "prompt": "The capital city of France is Paris. The capital city of Germany is Berlin. The capital city of Portugal is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Lisbon",
+            "p": 0.8972113132476807,
+            "rank": 0,
+            "prompt": "France's capital is Paris. Germany's capital is Berlin. Portugal's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "Portugal",
+            "p": 0.9317942261695862,
+            "rank": 0,
+            "prompt": "Paris is the capital of France. Berlin is the capital of Germany. Lisbon is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Cairo",
+        "p0": 0.8057803511619568,
+        "IE": 0.8947721123695374,
+        "IE_forward": 0.8785876631736755,
+        "IE_reversed": 0.927141010761261,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Cairo",
+            "p": 0.8139244914054871,
+            "rank": 0,
+            "prompt": "The capital city of France is Paris. The capital city of Germany is Berlin. The capital city of Egypt is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Cairo",
+            "p": 0.943250834941864,
+            "rank": 0,
+            "prompt": "France's capital is Paris. Germany's capital is Berlin. Egypt's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "Egypt",
+            "p": 0.927141010761261,
+            "rank": 0,
+            "prompt": "Paris is the capital of France. Berlin is the capital of Germany. Cairo is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "Dublin",
+        "p0": 0.6304253935813904,
+        "IE": 0.7722979386647543,
+        "IE_forward": 0.7499919235706329,
+        "IE_reversed": 0.8169099688529968,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "C1 capital-city",
+            "dir": "forward",
+            "answer": "Dublin",
+            "p": 0.6446340680122375,
+            "rank": 0,
+            "prompt": "The capital city of France is Paris. The capital city of Germany is Berlin. The capital city of Ireland is"
+          },
+          {
+            "form": "C2 possessive",
+            "dir": "forward",
+            "answer": "Dublin",
+            "p": 0.8553497791290283,
+            "rank": 0,
+            "prompt": "France's capital is Paris. Germany's capital is Berlin. Ireland's capital is"
+          },
+          {
+            "form": "C3 reversed",
+            "dir": "reversed",
+            "answer": "Ireland",
+            "p": 0.8169099688529968,
+            "rank": 0,
+            "prompt": "Paris is the capital of France. Berlin is the capital of Germany. Dublin is the capital of"
+          }
+        ]
+      },
+      {
+        "fact": "France->French",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "French",
+        "p0": 0.9179711937904358,
+        "IE": 0.8882284959157308,
+        "IE_forward": 0.854290246963501,
+        "IE_reversed": 0.9561049938201904,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "French",
+            "p": 0.9141949415206909,
+            "rank": 0,
+            "prompt": "The language spoken in Germany is German. The language spoken in Japan is Japanese. The language spoken in France is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "French",
+            "p": 0.794385552406311,
+            "rank": 0,
+            "prompt": "In Germany, people speak German. In Japan, people speak Japanese. In France, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "France",
+            "p": 0.9561049938201904,
+            "rank": 0,
+            "prompt": "German is spoken in Germany. Japanese is spoken in Japan. French is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Germany->German",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "German",
+        "p0": 0.8766514658927917,
+        "IE": 0.8628747860590616,
+        "IE_forward": 0.808222234249115,
+        "IE_reversed": 0.9721798896789551,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "German",
+            "p": 0.8699039220809937,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Japan is Japanese. The language spoken in Germany is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "German",
+            "p": 0.7465405464172363,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Japan, people speak Japanese. In Germany, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Germany",
+            "p": 0.9721798896789551,
+            "rank": 0,
+            "prompt": "French is spoken in France. Japanese is spoken in Japan. German is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Japan->Japanese",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Japanese",
+        "p0": 0.8385147452354431,
+        "IE": 0.8383148908615112,
+        "IE_forward": 0.7661088705062866,
+        "IE_reversed": 0.9827269315719604,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Japanese",
+            "p": 0.8454887270927429,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Japan is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Japanese",
+            "p": 0.6867290139198303,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Japan, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Japan",
+            "p": 0.9827269315719604,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Japanese is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Italy->Italian",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Italian",
+        "p0": 0.8853657841682434,
+        "IE": 0.8716855843861898,
+        "IE_forward": 0.8227848410606384,
+        "IE_reversed": 0.9694870710372925,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Italian",
+            "p": 0.9209210276603699,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Italy is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Italian",
+            "p": 0.724648654460907,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Italy, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Italy",
+            "p": 0.9694870710372925,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Italian is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Spain->Spanish",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Spanish",
+        "p0": 0.744873046875,
+        "IE": 0.8335692485173544,
+        "IE_forward": 0.7737286388874054,
+        "IE_reversed": 0.9532504677772522,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Spanish",
+            "p": 0.8541665077209473,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Spain is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Spanish",
+            "p": 0.6932907700538635,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Spain, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Spain",
+            "p": 0.9532504677772522,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Spanish is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Russia->Russian",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Russian",
+        "p0": 0.8519078493118286,
+        "IE": 0.7931990822156271,
+        "IE_forward": 0.7296324372291565,
+        "IE_reversed": 0.9203323721885681,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Russian",
+            "p": 0.7866975665092468,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Russia is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Russian",
+            "p": 0.6725673079490662,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Russia, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Russia",
+            "p": 0.9203323721885681,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Russian is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "China->Chinese",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Chinese",
+        "p0": 0.5683619379997253,
+        "IE": 0.6734470327695211,
+        "IE_forward": 0.5559772253036499,
+        "IE_reversed": 0.9083866477012634,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Chinese",
+            "p": 0.5668380856513977,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in China is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Chinese",
+            "p": 0.5451163649559021,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In China, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "China",
+            "p": 0.9083866477012634,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Chinese is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "England->English",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "English",
+        "p0": 0.8146218657493591,
+        "IE": 0.679332047700882,
+        "IE_forward": 0.78133425116539,
+        "IE_reversed": 0.47532764077186584,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "English",
+            "p": 0.8469837307929993,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in England is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "English",
+            "p": 0.7156847715377808,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In England, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "England",
+            "p": 0.47532764077186584,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. English is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Greece->Greek",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Greek",
+        "p0": 0.766821026802063,
+        "IE": 0.7789421677589417,
+        "IE_forward": 0.702486127614975,
+        "IE_reversed": 0.931854248046875,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Greek",
+            "p": 0.8157055377960205,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Greece is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Greek",
+            "p": 0.5892667174339294,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Greece, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Greece",
+            "p": 0.931854248046875,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Greek is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Poland->Polish",
+        "battery": "fact",
+        "family6": "lang",
+        "answer_committed": "Polish",
+        "p0": 0.8325423002243042,
+        "IE": 0.8428946336110433,
+        "IE_forward": 0.7838435769081116,
+        "IE_reversed": 0.9609967470169067,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "L1 lang-passive",
+            "dir": "forward",
+            "answer": "Polish",
+            "p": 0.8471415042877197,
+            "rank": 0,
+            "prompt": "The language spoken in France is French. The language spoken in Germany is German. The language spoken in Poland is"
+          },
+          {
+            "form": "L2 in-country",
+            "dir": "forward",
+            "answer": "Polish",
+            "p": 0.7205456495285034,
+            "rank": 0,
+            "prompt": "In France, people speak French. In Germany, people speak German. In Poland, people speak"
+          },
+          {
+            "form": "L3 reversed",
+            "dir": "reversed",
+            "answer": "Poland",
+            "p": 0.9609967470169067,
+            "rank": 0,
+            "prompt": "French is spoken in France. German is spoken in Germany. Polish is spoken in"
+          }
+        ]
+      },
+      {
+        "fact": "Japan->yen",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "yen",
+        "p0": 0.8905185461044312,
+        "IE": 0.829307754834493,
+        "IE_forward": 0.8960524797439575,
+        "IE_reversed": 0.695818305015564,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "U1 official-currency",
+            "dir": "forward",
+            "answer": "yen",
+            "p": 0.82320636510849,
+            "rank": 0,
+            "prompt": "The official currency of the United Kingdom is the pound. The official currency of the United States is the dollar. The official currency of Japan is the"
+          },
+          {
+            "form": "U2 money",
+            "dir": "forward",
+            "answer": "yen",
+            "p": 0.968898594379425,
+            "rank": 0,
+            "prompt": "Money in the United Kingdom is the pound. Money in the United States is the dollar. Money in Japan is the"
+          },
+          {
+            "form": "U3 reversed",
+            "dir": "reversed",
+            "answer": "Japan",
+            "p": 0.695818305015564,
+            "rank": 0,
+            "prompt": "The pound is the currency of the United Kingdom. The dollar is the currency of the United States. The yen is the currency of"
+          }
+        ]
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "pound",
+        "p0": 0.9533817768096924,
+        "IE": 0.9419253468513489,
+        "IE_forward": 0.9419253468513489,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "U1 official-currency",
+            "dir": "forward",
+            "answer": "pound",
+            "p": 0.9457266926765442,
+            "rank": 0,
+            "prompt": "The official currency of Japan is the yen. The official currency of the United States is the dollar. The official currency of the United Kingdom is the"
+          },
+          {
+            "form": "U2 money",
+            "dir": "forward",
+            "answer": "pound",
+            "p": 0.9381240010261536,
+            "rank": 0,
+            "prompt": "Money in Japan is the yen. Money in the United States is the dollar. Money in the United Kingdom is the"
+          }
+        ]
+      },
+      {
+        "fact": "the United States->dollar",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "dollar",
+        "p0": 0.5909402966499329,
+        "IE": 0.6112061142921448,
+        "IE_forward": 0.6112061142921448,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "U1 official-currency",
+            "dir": "forward",
+            "answer": "dollar",
+            "p": 0.6195657253265381,
+            "rank": 0,
+            "prompt": "The official currency of Japan is the yen. The official currency of the United Kingdom is the pound. The official currency of the United States is the"
+          },
+          {
+            "form": "U2 money",
+            "dir": "forward",
+            "answer": "dollar",
+            "p": 0.6028465032577515,
+            "rank": 0,
+            "prompt": "Money in Japan is the yen. Money in the United Kingdom is the pound. Money in the United States is the"
+          }
+        ]
+      },
+      {
+        "fact": "China->yuan",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer_committed": "yuan",
+        "p0": 0.9285135269165039,
+        "IE": 0.8523942033449808,
+        "IE_forward": 0.8543641269207001,
+        "IE_reversed": 0.8484543561935425,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "U1 official-currency",
+            "dir": "forward",
+            "answer": "yuan",
+            "p": 0.7991009950637817,
+            "rank": 0,
+            "prompt": "The official currency of Japan is the yen. The official currency of the United Kingdom is the pound. The official currency of China is the"
+          },
+          {
+            "form": "U2 money",
+            "dir": "forward",
+            "answer": "yuan",
+            "p": 0.9096272587776184,
+            "rank": 0,
+            "prompt": "Money in Japan is the yen. Money in the United Kingdom is the pound. Money in China is the"
+          },
+          {
+            "form": "U3 reversed",
+            "dir": "reversed",
+            "answer": "China",
+            "p": 0.8484543561935425,
+            "rank": 0,
+            "prompt": "The yen is the currency of Japan. The pound is the currency of the United Kingdom. The yuan is the currency of"
+          }
+        ]
+      },
+      {
+        "fact": "The social network founded by Mark Zuckerberg->Facebook",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer_committed": "Facebook",
+        "p0": 0.7398610711097717,
+        "IE": 0.7977756857872009,
+        "IE_forward": 0.7977756857872009,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "F1 bare-is",
+            "dir": "forward",
+            "answer": "Facebook",
+            "p": 0.7202489972114563,
+            "rank": 0,
+            "prompt": "The software company founded by Bill Gates is Microsoft. The electric car company founded by Elon Musk is Tesla. The social network founded by Mark Zuckerberg is"
+          },
+          {
+            "form": "F2 anchor-first",
+            "dir": "forward",
+            "answer": "Facebook",
+            "p": 0.8753023743629456,
+            "rank": 0,
+            "prompt": "Bill Gates founded the software company Microsoft. Elon Musk founded the electric car company Tesla. Mark Zuckerberg founded the social network"
+          }
+        ]
+      },
+      {
+        "fact": "The electric car company founded by Elon Musk->Tesla",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer_committed": "Tesla",
+        "p0": 0.7342566847801208,
+        "IE": 0.6808785200119019,
+        "IE_forward": 0.6808785200119019,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "F1 bare-is",
+            "dir": "forward",
+            "answer": "Tesla",
+            "p": 0.7248687744140625,
+            "rank": 0,
+            "prompt": "The software company founded by Bill Gates is Microsoft. The social network founded by Mark Zuckerberg is Facebook. The electric car company founded by Elon Musk is"
+          },
+          {
+            "form": "F2 anchor-first",
+            "dir": "forward",
+            "answer": "Tesla",
+            "p": 0.6368882656097412,
+            "rank": 0,
+            "prompt": "Bill Gates founded the software company Microsoft. Mark Zuckerberg founded the social network Facebook. Elon Musk founded the electric car company"
+          }
+        ]
+      },
+      {
+        "fact": "The rocket company founded by Elon Musk->SpaceX",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer_committed": "SpaceX",
+        "p0": 0.77444988489151,
+        "IE": 0.7662100791931152,
+        "IE_forward": 0.7662100791931152,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "F1 bare-is",
+            "dir": "forward",
+            "answer": "SpaceX",
+            "p": 0.5910804867744446,
+            "rank": 0,
+            "prompt": "The software company founded by Bill Gates is Microsoft. The social network founded by Mark Zuckerberg is Facebook. The rocket company founded by Elon Musk is"
+          },
+          {
+            "form": "F2 anchor-first",
+            "dir": "forward",
+            "answer": "SpaceX",
+            "p": 0.9413396716117859,
+            "rank": 0,
+            "prompt": "Bill Gates founded the software company Microsoft. Mark Zuckerberg founded the social network Facebook. Elon Musk founded the rocket company"
+          }
+        ]
+      },
+      {
+        "fact": "The search engine founded by Larry Page->Google",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer_committed": "Google",
+        "p0": 0.8327568769454956,
+        "IE": 0.7284397780895233,
+        "IE_forward": 0.7284397780895233,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "F1 bare-is",
+            "dir": "forward",
+            "answer": "Google",
+            "p": 0.813043475151062,
+            "rank": 0,
+            "prompt": "The software company founded by Bill Gates is Microsoft. The social network founded by Mark Zuckerberg is Facebook. The search engine founded by Larry Page is"
+          },
+          {
+            "form": "F2 anchor-first",
+            "dir": "forward",
+            "answer": "Google",
+            "p": 0.6438360810279846,
+            "rank": 0,
+            "prompt": "Bill Gates founded the software company Microsoft. Mark Zuckerberg founded the social network Facebook. Larry Page founded the search engine"
+          }
+        ]
+      },
+      {
+        "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer_committed": "Wikipedia",
+        "p0": 0.6928136348724365,
+        "IE": 0.778059720993042,
+        "IE_forward": 0.778059720993042,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "F1 bare-is",
+            "dir": "forward",
+            "answer": "Wikipedia",
+            "p": 0.6851836442947388,
+            "rank": 0,
+            "prompt": "The software company founded by Bill Gates is Microsoft. The social network founded by Mark Zuckerberg is Facebook. The online encyclopedia that anyone can edit is"
+          },
+          {
+            "form": "F2 anchor-first",
+            "dir": "forward",
+            "answer": "Wikipedia",
+            "p": 0.8709357976913452,
+            "rank": 0,
+            "prompt": "Bill Gates founded the software company Microsoft. Mark Zuckerberg founded the social network Facebook. Anyone can edit the online encyclopedia"
+          }
+        ]
+      },
+      {
+        "fact": "The gaming console made by Microsoft->Xbox",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "Xbox",
+        "p0": 0.6225916743278503,
+        "IE": 0.7233022650082906,
+        "IE_forward": 0.6671019196510315,
+        "IE_reversed": 0.8357029557228088,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "Xbox",
+            "p": 0.5604725480079651,
+            "rank": 0,
+            "prompt": "The web browser made by Google is the Chrome. The phone made by Apple is the iPhone. The gaming console made by Microsoft is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "Xbox",
+            "p": 0.7737312912940979,
+            "rank": 0,
+            "prompt": "Google makes the web browser Chrome. Apple makes the phone iPhone. Microsoft makes the gaming console"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Microsoft",
+            "p": 0.8357029557228088,
+            "rank": 0,
+            "prompt": "Chrome is made by Google. The iPhone is made by Apple. The Xbox is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The web browser made by Google->Chrome",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "Chrome",
+        "p0": 0.7029966711997986,
+        "IE": 0.48063210646311444,
+        "IE_forward": 0.5289066880941391,
+        "IE_reversed": 0.38408294320106506,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "Chrome",
+            "p": 0.5939356088638306,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The phone made by Apple is the iPhone. The web browser made by Google is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "Chrome",
+            "p": 0.46387776732444763,
+            "rank": 0,
+            "prompt": "Microsoft makes the gaming console Xbox. Apple makes the phone iPhone. Google makes the web browser"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Google",
+            "p": 0.38408294320106506,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. The iPhone is made by Apple. Chrome is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The phone made by Apple->iPhone",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "iPhone",
+        "p0": 0.6358935832977295,
+        "IE": 0.4749961085617542,
+        "IE_forward": 0.36771330051124096,
+        "IE_reversed": 0.6895617246627808,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "iPhone",
+            "p": 0.720879077911377,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The web browser made by Google is the Chrome. The phone made by Apple is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "iPhone",
+            "p": 0.014547523111104965,
+            "rank": 12,
+            "prompt": "Microsoft makes the gaming console Xbox. Google makes the web browser Chrome. Apple makes the phone"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Apple",
+            "p": 0.6895617246627808,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. Chrome is made by Google. The iPhone is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The tablet made by Apple->iPad",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "iPad",
+        "p0": 0.7676098942756653,
+        "IE": 0.435684675971667,
+        "IE_forward": 0.38314905017614365,
+        "IE_reversed": 0.5407559275627136,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "iPad",
+            "p": 0.6639651656150818,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The web browser made by Google is the Chrome. The tablet made by Apple is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "iPad",
+            "p": 0.1023329347372055,
+            "rank": 2,
+            "prompt": "Microsoft makes the gaming console Xbox. Google makes the web browser Chrome. Apple makes the tablet"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Apple",
+            "p": 0.5407559275627136,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. Chrome is made by Google. The iPad is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The email service made by Google->Gmail",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "Gmail",
+        "p0": 0.7456632852554321,
+        "IE": 0.5599018633365631,
+        "IE_forward": 0.6447114050388336,
+        "IE_reversed": 0.3902827799320221,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "Gmail",
+            "p": 0.5979337692260742,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The web browser made by Google is the Chrome. The email service made by Google is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "Gmail",
+            "p": 0.691489040851593,
+            "rank": 0,
+            "prompt": "Microsoft makes the gaming console Xbox. Google makes the web browser Chrome. Google makes the email service"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Google",
+            "p": 0.3902827799320221,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. Chrome is made by Google. Gmail is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The music store made by Apple->iTunes",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "iTunes",
+        "p0": 0.6862599849700928,
+        "IE": 0.53223850329717,
+        "IE_forward": 0.6386781334877014,
+        "IE_reversed": 0.3193592429161072,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "iTunes",
+            "p": 0.6446675062179565,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The web browser made by Google is the Chrome. The music store made by Apple is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "iTunes",
+            "p": 0.6326887607574463,
+            "rank": 0,
+            "prompt": "Microsoft makes the gaming console Xbox. Google makes the web browser Chrome. Apple makes the music store"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Apple",
+            "p": 0.3193592429161072,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. Chrome is made by Google. iTunes is made by"
+          }
+        ]
+      },
+      {
+        "fact": "The game console made by Sony->PlayStation",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer_committed": "PlayStation",
+        "p0": 0.7842804193496704,
+        "IE": 0.7112366755803426,
+        "IE_forward": 0.7080299556255341,
+        "IE_reversed": 0.7176501154899597,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "M1 is-the",
+            "dir": "forward",
+            "answer": "PlayStation",
+            "p": 0.7976235151290894,
+            "rank": 0,
+            "prompt": "The gaming console made by Microsoft is the Xbox. The web browser made by Google is the Chrome. The game console made by Sony is the"
+          },
+          {
+            "form": "M2 maker-first",
+            "dir": "forward",
+            "answer": "PlayStation",
+            "p": 0.6184363961219788,
+            "rank": 0,
+            "prompt": "Microsoft makes the gaming console Xbox. Google makes the web browser Chrome. Sony makes the game console"
+          },
+          {
+            "form": "M3 made-by-rev",
+            "dir": "reversed",
+            "answer": "Sony",
+            "p": 0.7176501154899597,
+            "rank": 0,
+            "prompt": "The Xbox is made by Microsoft. Chrome is made by Google. The PlayStation is made by"
+          }
+        ]
+      },
+      {
+        "fact": "Massachusetts->Boston",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer_committed": "Boston",
+        "p0": 0.6118616461753845,
+        "IE": 0.6284842640161514,
+        "IE_forward": 0.43460169434547424,
+        "IE_reversed": 0.8223668336868286,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "N1 us-state",
+            "dir": "forward",
+            "answer": "Boston",
+            "p": 0.43460169434547424,
+            "rank": 0,
+            "prompt": "The capital of the U.S. state of California is Sacramento. The capital of the U.S. state of Colorado is Denver. The capital of the U.S. state of Massachusetts is"
+          },
+          {
+            "form": "N2 reversed",
+            "dir": "reversed",
+            "answer": "Massachusetts",
+            "p": 0.8223668336868286,
+            "rank": 0,
+            "prompt": "Sacramento is the capital of the U.S. state of California. Denver is the capital of the U.S. state of Colorado. Boston is the capital of the U.S. state of"
+          }
+        ]
+      },
+      {
+        "fact": "Georgia->Atlanta",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer_committed": "Atlanta",
+        "p0": 0.6366477012634277,
+        "IE": 0.7334088683128357,
+        "IE_forward": 0.5467447638511658,
+        "IE_reversed": 0.9200729727745056,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "N1 us-state",
+            "dir": "forward",
+            "answer": "Atlanta",
+            "p": 0.5467447638511658,
+            "rank": 0,
+            "prompt": "The capital of the U.S. state of California is Sacramento. The capital of the U.S. state of Colorado is Denver. The capital of the U.S. state of Georgia is"
+          },
+          {
+            "form": "N2 reversed",
+            "dir": "reversed",
+            "answer": "Georgia",
+            "p": 0.9200729727745056,
+            "rank": 0,
+            "prompt": "Sacramento is the capital of the U.S. state of California. Denver is the capital of the U.S. state of Colorado. Atlanta is the capital of the U.S. state of"
+          }
+        ]
+      },
+      {
+        "fact": "Ohio->Columbus",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer_committed": "Columbus",
+        "p0": 0.5189241766929626,
+        "IE": 0.7810631096363068,
+        "IE_forward": 0.6451772451400757,
+        "IE_reversed": 0.9169489741325378,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "N1 us-state",
+            "dir": "forward",
+            "answer": "Columbus",
+            "p": 0.6451772451400757,
+            "rank": 0,
+            "prompt": "The capital of the U.S. state of California is Sacramento. The capital of the U.S. state of Colorado is Denver. The capital of the U.S. state of Ohio is"
+          },
+          {
+            "form": "N2 reversed",
+            "dir": "reversed",
+            "answer": "Ohio",
+            "p": 0.9169489741325378,
+            "rank": 0,
+            "prompt": "Sacramento is the capital of the U.S. state of California. Denver is the capital of the U.S. state of Colorado. Columbus is the capital of the U.S. state of"
+          }
+        ]
+      },
+      {
+        "fact": "Boston->Massachusetts",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Massachusetts",
+        "p0": 0.8855844140052795,
+        "IE": 0.6122506757577261,
+        "IE_forward": 0.6489576101303101,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Boston",
+            "p": 0.6489576101303101,
+            "rank": 0,
+            "prompt": "The capital of Georgia is Atlanta. The capital of California is Sacramento. The capital of Massachusetts is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Massachusetts",
+            "p": 0.28833696246147156,
+            "rank": 0,
+            "prompt": "Atlanta is the capital of Georgia. Sacramento is the capital of California. Boston is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Massachusetts",
+            "p": 0.8994574546813965,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Sacramento is California. The U.S. state whose capital is Boston is"
+          }
+        ]
+      },
+      {
+        "fact": "Atlanta->Georgia",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Georgia",
+        "p0": 0.9629536271095276,
+        "IE": 0.7096207936604818,
+        "IE_forward": 0.5278620719909668,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Atlanta",
+            "p": 0.5278620719909668,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of California is Sacramento. The capital of Georgia is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Georgia",
+            "p": 0.6429175138473511,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Sacramento is the capital of California. Atlanta is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Georgia",
+            "p": 0.9580827951431274,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Sacramento is California. The U.S. state whose capital is Atlanta is"
+          }
+        ]
+      },
+      {
+        "fact": "Sacramento->California",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "California",
+        "p0": 0.9349073767662048,
+        "IE": 0.5436249809960524,
+        "IE_forward": 0.058547746390104294,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Sacramento",
+            "p": 0.058547746390104294,
+            "rank": 3,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of California is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "California",
+            "p": 0.6442362070083618,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Sacramento is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "California",
+            "p": 0.9280909895896912,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Sacramento is"
+          }
+        ]
+      },
+      {
+        "fact": "Austin->Texas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Texas",
+        "p0": 0.966093897819519,
+        "IE": 0.5774326920509338,
+        "IE_forward": 0.4127410650253296,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Austin",
+            "p": 0.4127410650253296,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Texas is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Texas",
+            "p": 0.3726743459701538,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Austin is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Texas",
+            "p": 0.9468826651573181,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Austin is"
+          }
+        ]
+      },
+      {
+        "fact": "Columbus->Ohio",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Ohio",
+        "p0": 0.811143696308136,
+        "IE": 0.6125309964021047,
+        "IE_forward": 0.5591596961021423,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Columbus",
+            "p": 0.5591596961021423,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Ohio is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Ohio",
+            "p": 0.4627508223056793,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Columbus is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Ohio",
+            "p": 0.8156824707984924,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Columbus is"
+          }
+        ]
+      },
+      {
+        "fact": "Denver->Colorado",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Colorado",
+        "p0": 0.85616534948349,
+        "IE": 0.49147279063860577,
+        "IE_forward": 0.35777175426483154,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Denver",
+            "p": 0.35777175426483154,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Colorado is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Colorado",
+            "p": 0.3663550317287445,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Denver is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Colorado",
+            "p": 0.7502915859222412,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Denver is"
+          }
+        ]
+      },
+      {
+        "fact": "Little Rock->Arkansas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Arkansas",
+        "p0": 0.9000856876373291,
+        "IE": 0.8194805979728699,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Arkansas",
+            "p": 0.7511923909187317,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Little Rock is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Arkansas",
+            "p": 0.8877688050270081,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Little Rock is"
+          }
+        ]
+      },
+      {
+        "fact": "Hartford->Connecticut",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Connecticut",
+        "p0": 0.8384353518486023,
+        "IE": 0.4699724266926448,
+        "IE_forward": 0.24836890399456024,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Hartford",
+            "p": 0.24836890399456024,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Connecticut is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Connecticut",
+            "p": 0.3398873209953308,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Hartford is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Connecticut",
+            "p": 0.8216610550880432,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Hartford is"
+          }
+        ]
+      },
+      {
+        "fact": "Dover->Delaware",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Delaware",
+        "p0": 0.8786457777023315,
+        "IE": 0.5047000882526239,
+        "IE_forward": 0.018236469477415085,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Dover",
+            "p": 0.018236469477415085,
+            "rank": 7,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Delaware is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Delaware",
+            "p": 0.610450267791748,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Dover is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Delaware",
+            "p": 0.8854135274887085,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Dover is"
+          }
+        ]
+      },
+      {
+        "fact": "Tallahassee->Florida",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Florida",
+        "p0": 0.9273396730422974,
+        "IE": 0.6971034556627274,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Florida",
+            "p": 0.44802889227867126,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Tallahassee is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Florida",
+            "p": 0.9461780190467834,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Tallahassee is"
+          }
+        ]
+      },
+      {
+        "fact": "Honolulu->Hawaii",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Hawaii",
+        "p0": 0.9394004344940186,
+        "IE": 0.7984368205070496,
+        "IE_forward": 0.8340046405792236,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Honolulu",
+            "p": 0.8340046405792236,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Hawaii is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Hawaii",
+            "p": 0.6100137233734131,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Honolulu is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Hawaii",
+            "p": 0.951292097568512,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Honolulu is"
+          }
+        ]
+      },
+      {
+        "fact": "Boise->Idaho",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Idaho",
+        "p0": 0.9823838472366333,
+        "IE": 0.7233237127463022,
+        "IE_forward": 0.360405832529068,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Boise",
+            "p": 0.360405832529068,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Idaho is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Idaho",
+            "p": 0.8270174860954285,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Boise is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Idaho",
+            "p": 0.9825478196144104,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Boise is"
+          }
+        ]
+      },
+      {
+        "fact": "Indianapolis->Indiana",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Indiana",
+        "p0": 0.9422821998596191,
+        "IE": 0.648493617773056,
+        "IE_forward": 0.6967818140983582,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Indianapolis",
+            "p": 0.6967818140983582,
+            "rank": 0,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Indiana is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Indiana",
+            "p": 0.31858041882514954,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Indianapolis is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Indiana",
+            "p": 0.9301186203956604,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Indianapolis is"
+          }
+        ]
+      },
+      {
+        "fact": "Des Moines->Iowa",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Iowa",
+        "p0": 0.9877914190292358,
+        "IE": 0.9736727178096771,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Iowa",
+            "p": 0.9575881361961365,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Des Moines is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Iowa",
+            "p": 0.9897572994232178,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Des Moines is"
+          }
+        ]
+      },
+      {
+        "fact": "Topeka->Kansas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Kansas",
+        "p0": 0.9824606776237488,
+        "IE": 0.9609055817127228,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Kansas",
+            "p": 0.9357163310050964,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Topeka is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Kansas",
+            "p": 0.9860948324203491,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Topeka is"
+          }
+        ]
+      },
+      {
+        "fact": "Baton Rouge->Louisiana",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Louisiana",
+        "p0": 0.8759879469871521,
+        "IE": 0.7162757515907288,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Louisiana",
+            "p": 0.557044506072998,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Baton Rouge is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Louisiana",
+            "p": 0.8755069971084595,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Baton Rouge is"
+          }
+        ]
+      },
+      {
+        "fact": "Annapolis->Maryland",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Maryland",
+        "p0": 0.9069494605064392,
+        "IE": 0.8889722228050232,
+        "IE_forward": null,
+        "IE_reversed": null,
+        "n_forms": 2,
+        "forms": [
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Maryland",
+            "p": 0.8407143950462341,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Annapolis is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Maryland",
+            "p": 0.9372300505638123,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Annapolis is"
+          }
+        ]
+      },
+      {
+        "fact": "Lansing->Michigan",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Michigan",
+        "p0": 0.9702924489974976,
+        "IE": 0.70401964088281,
+        "IE_forward": 0.19813548028469086,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Lansing",
+            "p": 0.19813548028469086,
+            "rank": 1,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Michigan is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Michigan",
+            "p": 0.9385186433792114,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Lansing is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Michigan",
+            "p": 0.9754047989845276,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Lansing is"
+          }
+        ]
+      },
+      {
+        "fact": "Jackson->Mississippi",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer_committed": "Mississippi",
+        "p0": 0.6934146285057068,
+        "IE": 0.42646421988805133,
+        "IE_forward": 0.13414153456687927,
+        "IE_reversed": null,
+        "n_forms": 3,
+        "forms": [
+          {
+            "form": "T1 forward",
+            "dir": "forward-flipped",
+            "answer": "Jackson",
+            "p": 0.13414153456687927,
+            "rank": 1,
+            "prompt": "The capital of Massachusetts is Boston. The capital of Georgia is Atlanta. The capital of Mississippi is"
+          },
+          {
+            "form": "T2 capital-of",
+            "dir": "same-as-committed",
+            "answer": "Mississippi",
+            "p": 0.4534648358821869,
+            "rank": 0,
+            "prompt": "Boston is the capital of Massachusetts. Atlanta is the capital of Georgia. Jackson is the capital of"
+          },
+          {
+            "form": "T3 us-rev",
+            "dir": "same-as-committed",
+            "answer": "Mississippi",
+            "p": 0.6917862892150879,
+            "rank": 0,
+            "prompt": "The U.S. state whose capital is Boston is Massachusetts. The U.S. state whose capital is Atlanta is Georgia. The U.S. state whose capital is Jackson is"
+          }
+        ]
+      }
+    ],
+    "family_table": {
+      "lang": {
+        "n": 10,
+        "n_forms": 30,
+        "median_IE": 0.8359420696894329,
+        "median_IE_fwd": 0.7775314450263977,
+        "median_IE_rev": 0.9546777307987213,
+        "median_p0": 0.8355285227298737,
+        "median_resid_w1": -0.031150852233176207,
+        "median_resid_w2": -0.025392945360652674,
+        "median_form_p_forward": 0.7666190564632416,
+        "median_form_p_reversed": 0.9546777307987213
+      },
+      "cap-cur": {
+        "n": 10,
+        "n_forms": 28,
+        "median_IE": 0.8447191417217255,
+        "median_IE_fwd": 0.8365596532821655,
+        "median_IE_rev": 0.8857562839984894,
+        "median_p0": 0.7735282182693481,
+        "median_resid_w1": 0.026721755127377567,
+        "median_resid_w2": 0.02689010563088405,
+        "median_form_p_forward": 0.8392780721187592,
+        "median_form_p_reversed": 0.8857562839984894
+      },
+      "founder-anchor": {
+        "n": 5,
+        "n_forms": 10,
+        "median_IE": 0.7662100791931152,
+        "median_IE_fwd": 0.7662100791931152,
+        "median_IE_rev": null,
+        "median_p0": 0.7398610711097717,
+        "median_resid_w1": 0.0030327027868064516,
+        "median_resid_w2": -0.0019442496730258663,
+        "median_form_p_forward": 0.7225588858127594,
+        "median_form_p_reversed": null
+      },
+      "product": {
+        "n": 7,
+        "n_forms": 21,
+        "median_IE": 0.53223850329717,
+        "median_IE_fwd": 0.6386781334877014,
+        "median_IE_rev": 0.5407559275627136,
+        "median_p0": 0.7029966711997986,
+        "median_resid_w1": -0.13675909389390517,
+        "median_resid_w2": -0.06467816486630018,
+        "median_form_p_forward": 0.6255625784397125,
+        "median_form_p_reversed": 0.5407559275627136
+      },
+      "near-uscap": {
+        "n": 3,
+        "n_forms": 6,
+        "median_IE": 0.7334088683128357,
+        "median_IE_fwd": 0.5467447638511658,
+        "median_IE_rev": 0.9169489741325378,
+        "median_p0": 0.6118616461753845,
+        "median_resid_w1": 0.019859329720638697,
+        "median_resid_w2": 0.006475013210798686,
+        "median_form_p_forward": 0.5467447638511658,
+        "median_form_p_reversed": 0.9169489741325378
+      },
+      "rev-capital": {
+        "n": 19,
+        "n_forms": 51,
+        "median_IE": 0.6971034556627274,
+        "median_IE_fwd": 0.360405832529068,
+        "median_IE_rev": null,
+        "median_p0": 0.9273396730422974,
+        "median_resid_w1": -0.03584574662634582,
+        "median_resid_w2": -0.03566643470296926,
+        "median_form_p_forward": 0.360405832529068,
+        "median_form_p_reversed": null
+      }
+    }
+  },
+  "correlation_test": {
+    "definition": "Spearman(IE, resid_w) per wash; FIRES iff max |rho| >= 0.4 (the e216 max-over-washes convention)",
+    "rho_w1": 0.23415284924718888,
+    "rho_w2": 0.2562607204116638,
+    "max_abs_rho": 0.2562607204116638,
+    "co_report": {
+      "rho_w1_IE_forward": 0.14640747093577283,
+      "rho_w2_IE_forward": 0.16744806556127312,
+      "rho_w1_IE_reversed": 0.23811701924909473,
+      "rho_w2_IE_reversed": 0.2815704211930627,
+      "rho_IE_p0": 0.3326472269868496,
+      "pearson_IE_p0": 0.3156512287280867,
+      "rho_IE_hr_w1": 0.29651229273870783,
+      "rho_IE_hr_w2": 0.2887364208118925,
+      "note": "per-direction means and raw-hr rhos co-reported, never adjudicated; rho(IE, p0) is the channel-independence read"
+    },
+    "fires": false
+  },
+  "absorption_test": {
+    "definition": "the e216 full model with the height term SUBSTITUTED: OLS hr_w ~ 1 + 5 family dummies + IE centered at its own mean; ABSORBED iff |xwash| < 0.5 (the bar's '(rho < 0.5)' with e218's abs-convention)",
+    "substituted": {
+      "spearman": 0.9358871736230227,
+      "pearson": 0.9411063060083191,
+      "r2": {
+        "w1": 0.6977866891699263,
+        "w2": 0.6460159944546271
+      },
+      "adj_r2": {
+        "w1": 0.6592062665107679,
+        "w2": 0.6008265469381965
+      },
+      "coefs_w1": {
+        "intercept(lang)": [
+          0.8031084445864626,
+          0.055097650032929976
+        ],
+        "D[cap-cur]": [
+          -0.6010151158842258,
+          0.07441232749237268
+        ],
+        "D[founder-anchor]": [
+          -0.032845313333493276,
+          0.09172168592748697
+        ],
+        "D[product]": [
+          -0.2515030145026824,
+          0.09388814815727807
+        ],
+        "D[near-uscap]": [
+          -0.56330728065072,
+          0.11084680941231864
+        ],
+        "D[rev-capital]": [
+          -0.34698622528078316,
+          0.06923119798551922
+        ],
+        "IE_centered": [
+          0.6699636003925968,
+          0.1855185325789855
+        ]
+      },
+      "coefs_w2": {
+        "intercept(lang)": [
+          0.7359927213112492,
+          0.05478818941692938
+        ],
+        "D[cap-cur]": [
+          -0.5321010478689254,
+          0.07399438435523226
+        ],
+        "D[founder-anchor]": [
+          0.05290027077854967,
+          0.09120652331327804
+        ],
+        "D[product]": [
+          -0.15531600903679454,
+          0.09336081742454189
+        ],
+        "D[near-uscap]": [
+          -0.3838425713337661,
+          0.11022422892291601
+        ],
+        "D[rev-capital]": [
+          -0.1688333818292782,
+          0.06884235510089068
+        ],
+        "IE_centered": [
+          0.7075213610821967,
+          0.18447655203467725
+        ]
+      },
+      "absorbed": false
+    },
+    "xwash_table": {
+      "family+p0 (e216 baseline)": {
+        "spearman": 0.933981322660568,
+        "pearson": 0.9464171040093924,
+        "r2": {
+          "w1": 0.6712733262132069,
+          "w2": 0.6206348205397786
+        },
+        "absorbed": false
+      },
+      "family+IE (SUBSTITUTED)": {
+        "spearman": 0.9358871736230227,
+        "r2": {
+          "w1": 0.6977866891699263,
+          "w2": 0.6460159944546271
+        },
+        "absorbed": false
+      },
+      "family+p0+IE (additive)": {
+        "spearman": 0.9334476843910806,
+        "r2": {},
+        "absorbed": false
+      },
+      "family-only": {
+        "spearman": 0.9441966838193253,
+        "r2": {},
+        "absorbed": null
+      }
+    },
+    "ie_mean": 0.7181032805209177,
+    "note": "the decisive split: IE substituted where every same-channel height form (linear/rank/logit/quad/family-slopes \u2014 e218) left rho >= 0.91; the additive and family-only forms are co-reports"
+  },
+  "named_splits_substituted": {
+    "definition": "the e216 descriptive yardsticks under the SUBSTITUTED model (never adjudicated): product contrast mean resid[Gmail,PlayStation]-resid[iPhone] in residual SD; tmpl SD(resid)/SD(hr)",
+    "product_contrast_sd": {
+      "w1": 3.224766752190211,
+      "w2": 2.546610565966062,
+      "verdict": "SURVIVES (structured)"
+    },
+    "tmpl_width": {
+      "ratio_w1": 0.824325495502453,
+      "ratio_w2": 0.8002034775299568,
+      "verdict": "SURVIVES (width unabsorbed)"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "ENTRENCHMENT_REAL": false,
+      "INSTRUMENT_TEXTURE": false,
+      "verdict": "GRADED",
+      "clause": "any partial \u2014 max |rho| 0.256 (between the 0.2 texture bar and the 0.4 real bar; w1 +0.234 / w2 +0.256) and no absorption (family+IE xwash 0.936; additive 0.933; e216 baseline 0.934); the tables verbatim (the paraphrase table, the correlation co-reports, the absorption ladder)",
+      "order": "ENTRENCHMENT-REAL -> INSTRUMENT-TEXTURE -> GRADED (gated on G_RECORDS/G_RECOMPUTE/G_BASELINE/G_CORPUS/G_T0/G_PARA/G_ENV)"
+    },
+    "clauses": {
+      "correlation (max |rho| >= 0.4)": false,
+      "absorption (|xwash| < 0.5)": false,
+      "no_relation (max |rho| < 0.2 and no absorption)": false
+    },
+    "gates_summary": {
+      "G_RECORDS": true,
+      "G_RECOMPUTE": true,
+      "G_BASELINE": true,
+      "G_CORPUS": true,
+      "G_T0": true,
+      "G_PARA": true,
+      "G_ENV": true
+    }
+  },
+  "honesty_reflex": {
+    "hand_registered_not_blind": "the paraphrase forms were chosen by this cell's author with e216's residual table readable (Gmail holds, iPhone dies, Topeka high) \u2014 NOT blind to the outcome; the defense is only that the forms were fixed for naturalness/coverage per family BEFORE any p was measured, and every string is committed with the cell (the registry + the per-probe table)",
+    "channel_independence_scope": "the channel breaks the NAMED confound (identical prompt strings + shared p0 denominators between the two wash reads) \u2014 it does NOT break: the shared organism (the same 124M net, CPU fp32 texture), the shared answer tokens (forward forms), the k-shot exemplar structure, the probe pools, or the committed hr outcome (which still divides by same-channel p0; independence enters only through the predictor/regressor); rho(IE, p0) = +0.333 co-reports the residual statistical dependence",
+    "reversed_direction_forms": "reversed forms measure the reverse association \u2014 a DIFFERENT trace (the lab's own forward/backward asymmetry literature); IE mixes directions under the frozen mean; the per-direction co-reports (IE_forward / IE_reversed) bound that mixing",
+    "form_floor_effects": "paraphrase p can sit near 0 for form-following failures rather than knowledge absence (per-family form medians in the family table); IE's range [0.426, 0.974] against p0's [0.519, 0.988]",
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 inherited from the archive (disclosed)",
+    "typology_inherited": "the family factor is e215's hand-registered typology (not blind to the outcome \u2014 disclosed there); every R2 measured against it inherits that subjectivity wholesale",
+    "ols_conventions": "raw bounded hr (no transform), plain OLS, homoskedastic SEs (co-reported, never adjudicated); the e216 conventions, inherited",
+    "absorption_convention": "the bar's '(rho < 0.5)' read as |rho| < 0.5 (a negatively-replicating miss is not absorption either \u2014 e218's convention); disclosed before compute",
+    "guarantees_nothing": "the paraphrase channel describes THESE 54 probes under THESE two washes on THIS 124M CPU-fp32 organism with hand-registered forms \u2014 the openness is the point"
+  },
+  "compute": {
+    "envelope": "CPU-only (owner envelope 2026-10-02): threads 4, load checks 5, ONE pristine-state eval burst (battery screening + ~150 paraphrase forwards), decisive; no GPU calls; no wash state loaded",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 34.0,
+        "tool": "psutil"
+      },
+      {
+        "tag": "pre_burst",
+        "cpu_percent": 27.7,
+        "tool": "psutil"
+      },
+      {
+        "tag": "post_screening",
+        "cpu_percent": 36.9,
+        "tool": "psutil"
+      },
+      {
+        "tag": "pre_paraphrase_burst",
+        "cpu_percent": 38.1,
+        "tool": "psutil"
+      },
+      {
+        "tag": "post_paraphrase_burst",
+        "cpu_percent": 60.7,
+        "tool": "psutil"
+      }
+    ],
+    "records_chain": [
+      "runs/e214/metrics.json",
+      "runs/e214/journal.json",
+      "runs/e215/metrics.json",
+      "runs/e216/metrics.json"
+    ]
+  },
+  "trims": [
+    "the United Kingdom->pound form U3 reversed: answer 'the United Kingdom' tokenizes to 3 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "the United States->dollar form U3 reversed: answer 'the United States' tokenizes to 3 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Little Rock->Arkansas form T1 forward: answer 'Little Rock' tokenizes to 2 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Tallahassee->Florida form T1 forward: answer 'Tallahassee' tokenizes to 4 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Des Moines->Iowa form T1 forward: answer 'Des Moines' tokenizes to 2 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Topeka->Kansas form T1 forward: answer 'Topeka' tokenizes to 2 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Baton Rouge->Louisiana form T1 forward: answer 'Baton Rouge' tokenizes to 2 tokens \u2014 form dropped (first-token measurement would not be exact)",
+    "Annapolis->Maryland form T1 forward: answer 'Annapolis' tokenizes to 2 tokens \u2014 form dropped (first-token measurement would not be exact)"
+  ],
+  "deviations": [
+    "DESK + ONE-BURST-EVAL cell: the residual chain enters through the committed records (e216 re-derived via G_RECOMPUTE + G_BASELINE); the ONLY model compute is the pristine t=0 burst (battery screening + the paraphrase battery) \u2014 no wash state is loaded.",
+    "The batteries' screening re-probe runs at t=0 to reproduce the kept sets (the frozen gate needs p); the kept probes' t=0 certification values are read from that same pass (no duplicate probe_battery call \u2014 same net, same prompts, same numbers; the e215 precedent probed twice and read dp 0.0).",
+    "Reversed-direction forms swap cue and answer (the dispatch's own example, 'X is spoken in'): the form's answer is the pair's other member, a DIFFERENT token than the committed probe's answer; per-form direction recorded; IE mixes directions under the frozen mean (per-direction co-reports included).",
+    "Forms whose answer tokenizes to >1 token are DROPPED per-probe with the reason recorded (trims + the per-probe table); the affected probes keep their remaining 2 forms (the registered minimum).",
+    "The absorption clause reads the bar's '(rho < 0.5)' as |rho| < 0.5 (a negatively-replicating miss is not absorption either \u2014 e218's convention, inherited); disclosed before compute.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "PLOT-ONLY FIX (the e215 precedent): the first full pass wrote DONE metrics and crashed in the figure (a None-median format on families with no reversed forms); the figure was regenerated by re-running the cell \u2014 deterministic (every gate read dp 0.0 both passes) and zero metric change.",
+    "Smoke mode: fact+ctrl batteries only, own smoke dir, nothing adjudicated or gated (tables descriptive)."
+  ]
+}
