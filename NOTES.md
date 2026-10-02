@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g10 — the first-step-aware wall: FIX-IMPOTENT, cleanly — the kill is the first step's SIZE vs the radius, not its timing (the isomorphism exact); WALL-FADES stands confirmed; the continuity dial named (2026-10-02 ~12:45Z) — DONE
+
+WHAT WE DID: T170's three named fixes (STEP-CLIP / ANCHOR-AT-ONE /
+DELTA-PROJECTION) on the loaded peak root, the g1bS6 record
+drift-guarded; all gates PASS; the envelope audited every poll.
+
+WHAT WE SAW (T176): ALL THREE VARIANTS BREACHED AT +1 EXACTLY LIKE
+THE ORIGINAL W1 (0.0940 / 0.0007 / 0.0940 vs the bar 0.7546) —
+FIX-IMPOTENT. THE STRUCTURAL FINDING: THE KILL IS THE SIZE OF THE
+FIRST AdamW STEP (3.16 raw) VS THE 1x RADIUS (1.34 raw), NOT ITS
+TIMING — (1) F1's clip produced THE IDENTICAL +1 READING as the
+wall's own settled projection (the isomorphism EXACT: F1-vs-W1
+deltas 0.0/0.0/0.0/-0.0 at +1/+2/+4/+10 — clipping the step to
+the rung lands the fact where the projection did); (2) F2 anchored
+at its own DEAD theta_1 (F2@+1 == C@+1 to 0.0; a ~0.3 shadow
+re-formation in the dead ball); (3) F3's per-step trust region is
+a SLOWER WASH (the walk unbounded to 32 raw; fact dead by +4; CE
+0.726 < C's 0.788). WALL-FADES STANDS CONFIRMED: the wall's honest
+final form — A DISPLACEMENT BUDGET THAT SEPARATES MEMORY FROM
+DEATH, with every-checkpoint continuity IMPOSSIBLE while one step
+exceeds the radius. THE DIAL THAT COULD BUY CONTINUITY (named,
+not run): the FIRST STEP'S LR (or a rung >= one step) — the
+g-series' next question. HONESTY: n=1 root/wash/variant; the
+C/W1 legs loaded from g1bS6's committed metrics (the drift guard
+caught a transcription typo pre-run).
+
+---
+
 ## e207 — the lag-2 rung set: CORE-GRAINY — the null's last debt RETIRES as grain; the cos1 law is the whole in-domain story; both raw series are smooth and only their difference wobbles (2026-10-02 ~12:25Z) — DONE
 
 WHAT WE DID: the missing interior rung 3s/8 on the gated org2 root

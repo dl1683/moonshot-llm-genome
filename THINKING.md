@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T176 — g10: size, not timing — the wall's limit confirmed by its own fix attempts (2026-10-02 ~12:45Z)
+
+The fix cell closes the structural question in the cleanest
+possible way: all three timing-based repairs breach identically to
+the original, and the isomorphism (F1 == W1 to 0.0 through +10)
+PROVES the equivalence — clipping the first step to the rung and
+projecting after the full step land the fact at the same point:
+the projection already IS a clip at the rung scale. THE MECHANISM,
+FINAL FORM: the +1 kill is arithmetic (a 3.16-raw step vs a
+1.34-raw ball; the fact lands at the ball's edge whatever you do
+about scheduling); anchoring later anchors into a dead state; a
+per-step trust region is just a smaller wash-lr. THE WALL'S
+10M LEDGER, CLOSED: a displacement budget separating memory from
+death (~1000x), continuity impossible while step > radius, the
+dial that could buy continuity being the step's lr or a
+step-scaled rung — one named cell away if ever wanted. THE
+PROGRAM NOTE: this is the third structural limit found by trying
+to fix it and failing cleanly (the projection IS the clip; the
+recipe stack IS scale-bound; the dose IS a window) — the failed
+fix as an instrument.
+
 ## T175 — e207: the null's last debt retires — the geometry chapter's final stamp (2026-10-02 ~12:25Z)
 
 The interior rung decides cleanly: the core statistic is GRAIN
