@@ -948,8 +948,8 @@ def main():
     nbattery = [r for r in ncand if r["kept"]]
 
     # G_BATT: kept sets + t=0 probes vs phase-1's record
-    def _dp_vs_p1(cur_rows, p1_state_probes, key):
-        p1p = p1_state_probes[key]["probes"]
+    def _dp_vs_p1(cur_rows, key):
+        p1p = p1_states[0][key]["probes"]
         dp = {r["fact"]: abs(r["p"] - p1p[r["fact"]]["p"])
               for r in cur_rows if r["fact"] in p1p}
         return {"kept_set_equal": bool({r["fact"] for r in cur_rows}
@@ -957,12 +957,9 @@ def main():
                 "max_per_probe_dp": max(dp.values()) if dp else None,
                 "n": len(dp)}
     G_BATT = {
-        "fact": _dp_vs_p1(battery, p1_states, "fact") if 0 in p1_states
-                else None,
-        "ctrl": _dp_vs_p1(cbattery, p1_states, "ctrl") if 0 in p1_states
-                else None,
-        "near": _dp_vs_p1(nbattery, p1_states, "near") if 0 in p1_states
-                else None,
+        "fact": _dp_vs_p1(battery, "fact") if 0 in p1_states else None,
+        "ctrl": _dp_vs_p1(cbattery, "ctrl") if 0 in p1_states else None,
+        "near": _dp_vs_p1(nbattery, "near") if 0 in p1_states else None,
         "tol_per_probe_dp": TOL_PROBE_DP,
         "note": "the fact/ctrl/nearrel batteries are phase-1's VERBATIM "
                 "(module import); t=0 must reproduce phase-1's record "
