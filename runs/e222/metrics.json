@@ -1,0 +1,2056 @@
+{
+  "experiment": "e222_exposure_immunity",
+  "date": "2026-10-02T17:39:23Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the four bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "IMMUNITY_CAUSAL": "IMMUNITY-CAUSAL: \"fires if pre-exposure along the top-SV direction raises the kill-D of THAT direction (>= 1.15x the un-exposed baseline) with the random-direction control showing less \u2014 the exposure-immunity ordering is CAUSAL: the wash vaccinates its own span.\"",
+    "SENSITIZATION": "SENSITIZATION: \"fires if pre-exposure LOWERS the kill-D (sensitization \u2014 the ordering is a correlation, not protection; the SV-energy ordering's mechanism is elsewhere).\"",
+    "NULL": "NULL: \"no material change either way \u2014 the ordering at these doses is not intervenable; reported honestly.\"",
+    "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\"",
+    "operationalizations": "organism = the e193 f2 root as committed (md5-gated); ruler = install-60 g-4 (e193's frozen RULER DISCLOSURE; committed read 0.8872273564338684); kill bar 0.27; grid 0.05..3.00; kill = first downcrossing interpolated (e209/e211 verbatim); span = the root's own contiguous 20-step unwalled AdamW wash (seed-10902 stream), fp64 Gram-SVD basis, SVD-emitted signs; TOP=dir0 MID=dir9 LOW=dir19; eps = 0.1 x baseline kill-D(dir0), the SAME eps for all arms; arms TOP-EXP/LOW-EXP/CTRL-EXP = theta0 + eps*v (pass-back-through geometry, the desk disclosure's arithmetic); the control = fresh random in-span unit (seed 12501, randn(20) coeffs in Vp), accepted only if the exposed state reads alive (<= 5 draws, disclosed; the selection biases AGAINST the IMMUNITY clause \u2014 conservative); sub-lethality asserted at every exposed state; same-axis rows carry the mechanical ceiling 1 + eps/t_base and the residue kill-D_post - eps - t_base; CE_R canary at every state + the dir-0 kill positions (report-only); composite IMMUNITY-CAUSAL / SENSITIZATION / NULL / GRADED, the first two mutually exclusive; NULL = neither fired AND all resolved ratios in [0.85,1.15] AND |residue(dir0 row)| <= 0.05; a censored control-own row makes the IMMUNITY control clause unresolvable (cannot fire, reported).",
+    "desk_pre_read_disclosure": "ARITHMETIC, stated before compute (no bar moved): the exposure is +eps*v, the kill walk is theta-D*v \u2014 the same-direction post-exposure walk REVISITS the baseline positions for D>=eps, so its kill-D is arithmetically capped at eps + t_base (ratio <= 1 + eps/t_base = 1.10 at the 0.1x dose, up to +/- one 0.05 grid step of interpolation). The IMMUNITY row's >= 1.15 clause is therefore arithmetically unreachable at this dose; a reading below 1.10 (esp. < 1.0 = SENSITIZATION) is genuine terrain structure (the exposure segment dips under the bar). The causal content lives in the same-axis residues (=0 means pure position arithmetic) and the CROSS rows (orthogonal exposures, fresh lines). The bars below adjudicate the raw numbers exactly as registered.",
+    "registration": "the dispatch's registration IS the registration (the four bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; GPU never claimed)",
+    "torch_threads": 4,
+    "load_check_recorded_not_gating": true,
+    "phases": "P0 gates -> P1 span -> P2 baselines + dose -> P3 the exposure arms -> P4 adjudication + figure; progressive writes",
+    "organism": "runs/checkpoints/e157_f2_consolidated.pt (873,472 params, the e193 f2 root)",
+    "ruler": "install-60 g-4 (e193's PRIMARY; bar 0.27)",
+    "dirs": {
+      "top": 0,
+      "mid": 9,
+      "low": 19
+    },
+    "dose_frac": 0.1,
+    "ctrl_seed": 12501,
+    "cpu_load_pct_at_launch": 24,
+    "cpu_load_pct_after_P0": 20,
+    "cpu_load_pct_after_P3": 4
+  },
+  "deviations": [
+    "THE ORGANISM PORT: e211's span/band machinery (2.74M e131 family) is run VERBATIM on the e193 family-2 root (873k, 4L/4H/128d/512-ctx) per the dispatch's cell; the ruler is e193's PRIMARY (install-60 g-4), NOT e211's install-60 g-12 \u2014 the f2 g-12 geometry reads 0.198 at the root (under the 0.27 bar; e157 stage-A's G_CONS failure, e193's frozen RULER DISCLOSURE); the g-12 co-ruler rides in every table.",
+    "THREADS 4 (the owner envelope), not e157's threads-8 readout convention: the dial gates run at the 5e-3 cross-thread texture tier with the bit status (5e-6) recorded; the root flat md5 gates exactly (thread-independent).",
+    "THE EXPOSURE SIGN IS THE SVD-EMITTED +v, OPPOSED to the kill walk's -v (the pass-back-through geometry) \u2014 the only sign choice under which the registered IMMUNITY clause is not mechanically dead in the sensitization direction (0.90 tautology); the desk disclosure states the resulting 1.10 arithmetic ceiling on every same-axis row BEFORE compute.",
+    "THE CONTROL ACCEPTANCE RULE: the random in-span control is drawn AFTER eps is fixed and accepted only if the exposed state reads alive (> 0.27) \u2014 up to 5 draws from seed 12501, every draw's read disclosed; the selection biases the control toward forgiveness, i.e. AGAINST the IMMUNITY clause's 'control shows less' (conservative for the bar, disclosed).",
+    "THE LOW ARM IS INCLUDED (the dispatch's optional second arm): the same-L2 exposure along dir 19 \u2014 the ordering's gradient probe (does exposure along the LEAST-forgiving in-span direction immunize less than the top direction?).",
+    "e193's committed g-ray direction checkpoint is joined by fp64 cosine to every span direction (context only: how gradient-aligned the span axes are; e193's g-kill 0.2 vs the span rays' kill-Ds).",
+    "No committed 20-step span PR exists for the f2 root (e209's committed PRs are the walled e131-family roots) \u2014 the span here is fresh compute gated only by the e193 stream/t0 anchors; nothing is reproduced against e209.",
+    "The load-check is recorded, not gating (e204/e205/e209/e211's convention).",
+    "Smoke mode trims: D grid {0.05,0.5,1.5,3.0}, 4-step history (basis dirs re-indexed to 0/1/2 of 3); nothing adjudicated (verdict stamped SMOKE)."
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "-8": [
+          60,
+          122
+        ],
+        "-4": [
+          60,
+          126
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "4": [
+          60,
+          134
+        ],
+        "8": [
+          60,
+          138
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at the e157 dial's seven read geometries (e193 verbatim); PRIMARY ruler = g-4"
+    },
+    "G_ANCHOR": {
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 0,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_PARENTS": {
+      "files_md5": {
+        "e157": "708b9983ff41335dfbb732704747cfb8",
+        "e193": "d9b08cab2a0c03a62e5ef69ff9ea602c",
+        "e211": "1dd3c07acc45ba107d4db3ebab5aa4b9"
+      },
+      "hardbound": {
+        "e157.dial_g-4": 0.8872273564338684,
+        "e157.dial_ce_r": 1.9504578113555908,
+        "e157.wash_s1.corpus_ce": 1.7748003005981445,
+        "e157.wash_s1.gm12": 0.001129803480580449,
+        "e193.G_T0.poststep_primary_read": 0.0068241604603827,
+        "e193.G_T0.adamw_step1_L2": 0.9164195656776428,
+        "e193.adjudication.g_kill": 0.2,
+        "e211.verdict": "GRADED",
+        "e211.spearman_kill_vs_sv_per_root": {
+          "P": 0.8095238095238095,
+          "R5": 0.4523809523809524,
+          "R6": 0.5714285714285714,
+          "R7": 0.38095238095238093
+        },
+        "e211.spearman_kill_vs_sv_pooled": 0.6391129032258065
+      },
+      "note": "e211's per-direction ordering (kill-D vs SV energy, +0.381..+0.810 per root, pooled +0.639, vs curvature -0.595..-0.786) is THE correlation this cell interrogates",
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells": {
+        "g-12": 0.19826214015483856,
+        "g-8": 0.851925253868103,
+        "g-4": 0.8872273564338684,
+        "g+0": 0.5784125924110413,
+        "g+4": 0.8801682591438293,
+        "g+8": 0.8754011988639832,
+        "g+12": 0.5911492705345154,
+        "ce_r": 1.9504576921463013
+      },
+      "refs": {
+        "g-12": 0.19826222956180573,
+        "g-8": 0.8519253134727478,
+        "g-4": 0.8872273564338684,
+        "g+0": 0.5784125924110413,
+        "g+4": 0.8801683187484741,
+        "g+8": 0.8754011988639832,
+        "g+12": 0.5911492705345154,
+        "ce_r": 1.9504578113555908
+      },
+      "diffs": {
+        "g-12": -8.940696716308594e-08,
+        "g-8": -5.960464477539063e-08,
+        "g-4": 0.0,
+        "g+0": 0.0,
+        "g+4": -5.960464477539063e-08,
+        "g+8": 0.0,
+        "g+12": 0.0,
+        "ce_r": -1.1920928955078125e-07
+      },
+      "max_abs_diff": 1.1920928955078125e-07,
+      "bit_tol": 5e-06,
+      "tol": 0.005,
+      "bit": true,
+      "flat_md5": "73820c546e0f8d7b22c727e1d6f23fbc",
+      "flat_md5_match_committed": true,
+      "root_meta": {
+        "experiment": "e157",
+        "desc": "e098_install_s4305 + 300-step e113 jittered replay (offsets [-8, -4, 0, 4, 8], seed 10901) \u2014 the family-2 consolidated net",
+        "steps": 300,
+        "seed": 10901,
+        "device": "cuda",
+        "base": "runs/checkpoints/e098_install_s4305.pt"
+      },
+      "threads_note": "threads 4 (the owner envelope) vs e157's threads-8 committed reads \u2014 the 5e-3 texture tier gates; the flat md5 gates exactly",
+      "pass": true
+    },
+    "G_T0": {
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce_batch_measured": 1.7748003005981445,
+      "ce_batch_committed_e157": 1.7748003005981445,
+      "d_ce": 0.0,
+      "adamw_step1_L2_measured": 0.9164196252822876,
+      "adamw_step1_L2_committed_e193": 0.9164195656776428,
+      "poststep_primary_measured": 0.006824164651334286,
+      "poststep_primary_committed_e193": 0.0068241604603827,
+      "d_poststep_primary": 4.190951585769653e-09,
+      "G_S1CK": {
+        "cos64_fresh_vs_ckpt": 0.9999999730558046,
+        "rel_L2_dev": 1.300815546306757e-07,
+        "pass": true,
+        "s1_meta": {
+          "experiment": "e157",
+          "desc": "e157_f2_consolidated + 1-step NEUTRAL freeze (intermediate)",
+          "steps": 1,
+          "seed": 10902,
+          "device": "cuda",
+          "base": "runs/checkpoints/e157_f2_consolidated.pt"
+        }
+      },
+      "G_STREAM": {
+        "steps_1_4_md5_match": {
+          "1": true,
+          "2": true,
+          "3": true,
+          "4": true
+        },
+        "pass": true
+      },
+      "note": "e193's t=0 gate set verbatim at threads 4: the stream construction is net-independent (md5s must bit-match); the CE + post-step reads gate at the 5e-3 cross-thread texture tier; the s1 checkpoint anchors the fresh step (cos > 0.999)",
+      "pass": true
+    }
+  },
+  "phase": "P4 adjudicated",
+  "span": {
+    "n_segments": 20,
+    "rank_eff": 20,
+    "sv": [
+      1.0840360431968192,
+      0.7468821525232662,
+      0.6131183167241806,
+      0.4813928012541131,
+      0.37376979705617225,
+      0.29998789458326364,
+      0.2875739107040533,
+      0.22616922257764785,
+      0.2054956112272237,
+      0.18319095860451418,
+      0.13285835009620206,
+      0.12140843684143589,
+      0.10693433434752664,
+      0.09945316362879401,
+      0.08959934050677949,
+      0.07953757998657592,
+      0.06518850963778869,
+      0.05041817571255642,
+      0.044691488962517,
+      0.04305042209170706
+    ],
+    "participation_ratio": 4.2385681798211765,
+    "cond": 25.18061358115326,
+    "sv_top": 1.0840360431968192,
+    "energy_frac_top1": 0.4110773530427223,
+    "profile": [
+      1.0,
+      0.6889827669573724,
+      0.5655884973308604,
+      0.44407453449101847,
+      0.3447946213614136,
+      0.2767323987665578,
+      0.2652807648867455,
+      0.20863625706639372,
+      0.18956529399264044,
+      0.16898973032694056,
+      0.12255897848599495,
+      0.11199667908034013,
+      0.09864462996283554,
+      0.09174341042711727,
+      0.0826534699368033,
+      0.07337171165639457,
+      0.060135002011139735,
+      0.04650968575165947,
+      0.041226940047788374,
+      0.03971309105622677
+    ],
+    "energy_frac_dirs": {
+      "dir0": 0.4110773530427223,
+      "dir9": 0.011739353412661906,
+      "dir19": 0.0006483222618831287
+    },
+    "wash_drift_proj_dirs": {
+      "dir0": -1.7596639311070055,
+      "dir9": -0.007951222115172137,
+      "dir19": -0.0005762074694472003
+    },
+    "g_ray_cos_dirs_context": {
+      "dir0": 0.5078113343514089,
+      "dir9": -0.019401307899648182,
+      "dir19": -0.021539352150398153
+    },
+    "history": {
+      "n_steps": 20,
+      "rows": [
+        {
+          "step": 1,
+          "L2": 0.9164196252822876,
+          "cum": 0.9164196252822876,
+          "ce": 1.7748003005981445,
+          "g_m4_mean_pz": 0.006824164651334286,
+          "g_p12_mean_pz": 0.0017874079057946801
+        },
+        {
+          "step": 2,
+          "L2": 0.6040362119674683,
+          "cum": 1.3696435689926147,
+          "ce": 2.7313079833984375,
+          "g_m4_mean_pz": 0.004215702880173922,
+          "g_p12_mean_pz": 0.002086235675960779
+        },
+        {
+          "step": 3,
+          "L2": 0.481024831533432,
+          "cum": 1.6961376667022705,
+          "ce": 2.6938743591308594,
+          "g_m4_mean_pz": 0.0034647854045033455,
+          "g_p12_mean_pz": 0.0016218636883422732
+        },
+        {
+          "step": 4,
+          "L2": 0.3861052393913269,
+          "cum": 1.9566118717193604,
+          "ce": 2.9933600425720215,
+          "g_m4_mean_pz": 0.028029318898916245,
+          "g_p12_mean_pz": 0.008766035549342632
+        },
+        {
+          "step": 5,
+          "L2": 0.34152230620384216,
+          "cum": 2.1471829414367676,
+          "ce": 2.5677998065948486,
+          "g_m4_mean_pz": 0.008319507353007793,
+          "g_p12_mean_pz": 0.0015548465307801962
+        },
+        {
+          "step": 6,
+          "L2": 0.3386908173561096,
+          "cum": 2.2963976860046387,
+          "ce": 2.339792013168335,
+          "g_m4_mean_pz": 0.0013222016859799623,
+          "g_p12_mean_pz": 0.0002864900743588805
+        },
+        {
+          "step": 7,
+          "L2": 0.32359999418258667,
+          "cum": 2.427863359451294,
+          "ce": 2.219461441040039,
+          "g_m4_mean_pz": 0.00165444181766361,
+          "g_p12_mean_pz": 0.0002879672683775425
+        },
+        {
+          "step": 8,
+          "L2": 0.3181455731391907,
+          "cum": 2.5411741733551025,
+          "ce": 2.1144795417785645,
+          "g_m4_mean_pz": 0.003154884558171034,
+          "g_p12_mean_pz": 0.0005038270028308034
+        },
+        {
+          "step": 9,
+          "L2": 0.3073129951953888,
+          "cum": 2.6434597969055176,
+          "ce": 2.0539350509643555,
+          "g_m4_mean_pz": 0.0060258787125349045,
+          "g_p12_mean_pz": 0.0007287192856892943
+        },
+        {
+          "step": 10,
+          "L2": 0.3012639284133911,
+          "cum": 2.7366836071014404,
+          "ce": 1.8795605897903442,
+          "g_m4_mean_pz": 0.016285184770822525,
+          "g_p12_mean_pz": 0.0018009505001828074
+        },
+        {
+          "step": 11,
+          "L2": 0.28358498215675354,
+          "cum": 2.8221030235290527,
+          "ce": 1.9294772148132324,
+          "g_m4_mean_pz": 0.020968647673726082,
+          "g_p12_mean_pz": 0.0019967418629676104
+        },
+        {
+          "step": 12,
+          "L2": 0.2780482769012451,
+          "cum": 2.9012200832366943,
+          "ce": 1.828061819076538,
+          "g_m4_mean_pz": 0.04118935018777847,
+          "g_p12_mean_pz": 0.0029338502790778875
+        },
+        {
+          "step": 13,
+          "L2": 0.27710381150245667,
+          "cum": 2.979698419570923,
+          "ce": 1.797898530960083,
+          "g_m4_mean_pz": 0.12553319334983826,
+          "g_p12_mean_pz": 0.0068238950334489346
+        },
+        {
+          "step": 14,
+          "L2": 0.2603398561477661,
+          "cum": 3.0530149936676025,
+          "ce": 1.747704029083252,
+          "g_m4_mean_pz": 0.08988437056541443,
+          "g_p12_mean_pz": 0.0034294629003852606
+        },
+        {
+          "step": 15,
+          "L2": 0.25735920667648315,
+          "cum": 3.124260425567627,
+          "ce": 1.7708919048309326,
+          "g_m4_mean_pz": 0.03050992451608181,
+          "g_p12_mean_pz": 0.0013494071317836642
+        },
+        {
+          "step": 16,
+          "L2": 0.2505609393119812,
+          "cum": 3.1968331336975098,
+          "ce": 1.6993699073791504,
+          "g_m4_mean_pz": 0.07286687195301056,
+          "g_p12_mean_pz": 0.002273090183734894
+        },
+        {
+          "step": 17,
+          "L2": 0.24164806306362152,
+          "cum": 3.268988847732544,
+          "ce": 1.6722257137298584,
+          "g_m4_mean_pz": 0.21436148881912231,
+          "g_p12_mean_pz": 0.004231669008731842
+        },
+        {
+          "step": 18,
+          "L2": 0.2330496907234192,
+          "cum": 3.339071750640869,
+          "ce": 1.6318670511245728,
+          "g_m4_mean_pz": 0.2836306691169739,
+          "g_p12_mean_pz": 0.0063775102607905865
+        },
+        {
+          "step": 19,
+          "L2": 0.23415353894233704,
+          "cum": 3.4074652194976807,
+          "ce": 1.5840580463409424,
+          "g_m4_mean_pz": 0.27360931038856506,
+          "g_p12_mean_pz": 0.007651189342141151
+        },
+        {
+          "step": 20,
+          "L2": 0.22840085625648499,
+          "cum": 3.476315498352051,
+          "ce": 1.5421940088272095,
+          "g_m4_mean_pz": 0.1784859299659729,
+          "g_p12_mean_pz": 0.004309526178985834
+        }
+      ],
+      "step1_L2": 0.9164196252822876,
+      "cum_final": 3.476315498352051,
+      "step1_L2_vs_G_T0": 0.0,
+      "step1_g_m4_vs_e193_committed": 4.190951585769653e-09,
+      "fact_died_in_history_at_step": 1,
+      "note": "the wash-history trace (the span's source); step-1 rows double-check vs G_T0 / e193's committed post-step primary read \u2014 no committed 20-step f2 span exists (disclosed)"
+    },
+    "note": "the contiguous wash-history span (e209/e211's machinery at the f2 root); drift = <theta20-theta0, v_i> (the wash's own drift along each axis, sign vs the SVD-emitted +v); the g-ray cosines are context (e193's committed direction)"
+  },
+  "baselines": {
+    "top": {
+      "dir": 0,
+      "energy_frac": 0.4110773530427223,
+      "D_kill": 0.8017851194697441,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.8872273564338684,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.873686671257019,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.8552971482276917,
+          "frac": 1.0
+        },
+        {
+          "D": 0.15,
+          "gm": 0.8331558108329773,
+          "frac": 1.0
+        },
+        {
+          "D": 0.2,
+          "gm": 0.8084666132926941,
+          "frac": 1.0
+        },
+        {
+          "D": 0.25,
+          "gm": 0.7825593948364258,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.3,
+          "gm": 0.7563894987106323,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.35,
+          "gm": 0.7298542261123657,
+          "frac": 0.8666666666666667
+        },
+        {
+          "D": 0.4,
+          "gm": 0.7015565633773804,
+          "frac": 0.8333333333333334
+        },
+        {
+          "D": 0.45,
+          "gm": 0.66912841796875,
+          "frac": 0.7833333333333333
+        },
+        {
+          "D": 0.5,
+          "gm": 0.6299449801445007,
+          "frac": 0.75
+        },
+        {
+          "D": 0.55,
+          "gm": 0.582133948802948,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 0.6,
+          "gm": 0.5255947113037109,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 0.65,
+          "gm": 0.46241295337677,
+          "frac": 0.7
+        },
+        {
+          "D": 0.7,
+          "gm": 0.3963276147842407,
+          "frac": 0.6666666666666666
+        },
+        {
+          "D": 0.75,
+          "gm": 0.3316049575805664,
+          "frac": 0.6166666666666667
+        },
+        {
+          "D": 0.8,
+          "gm": 0.27187320590019226,
+          "frac": 0.48333333333333334
+        },
+        {
+          "D": 0.85,
+          "gm": 0.21940596401691437,
+          "frac": 0.43333333333333335
+        }
+      ]
+    },
+    "mid": {
+      "dir": 9,
+      "energy_frac": 0.011739353412661906,
+      "D_kill": 0.8112509926698503,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.8872273564338684,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.8863971829414368,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.8781713247299194,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.15,
+          "gm": 0.8637162446975708,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.2,
+          "gm": 0.8441147208213806,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.25,
+          "gm": 0.8211040496826172,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.3,
+          "gm": 0.7969259023666382,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.35,
+          "gm": 0.7732698321342468,
+          "frac": 0.85
+        },
+        {
+          "D": 0.4,
+          "gm": 0.7505871057510376,
+          "frac": 0.8
+        },
+        {
+          "D": 0.45,
+          "gm": 0.7277664542198181,
+          "frac": 0.7833333333333333
+        },
+        {
+          "D": 0.5,
+          "gm": 0.7013937830924988,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 0.55,
+          "gm": 0.6643540263175964,
+          "frac": 0.7333333333333333
+        },
+        {
+          "D": 0.6,
+          "gm": 0.6089804172515869,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.65,
+          "gm": 0.5355616807937622,
+          "frac": 0.5833333333333334
+        },
+        {
+          "D": 0.7,
+          "gm": 0.4523649215698242,
+          "frac": 0.5166666666666667
+        },
+        {
+          "D": 0.75,
+          "gm": 0.3670988380908966,
+          "frac": 0.43333333333333335
+        },
+        {
+          "D": 0.8,
+          "gm": 0.2861451208591461,
+          "frac": 0.3
+        },
+        {
+          "D": 0.85,
+          "gm": 0.21439535915851593,
+          "frac": 0.21666666666666667
+        }
+      ]
+    },
+    "low": {
+      "dir": 19,
+      "energy_frac": 0.0006483222618831287,
+      "D_kill": 0.8768652125177427,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.8872273564338684,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.888073742389679,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.8852632641792297,
+          "frac": 1.0
+        },
+        {
+          "D": 0.15,
+          "gm": 0.8792257308959961,
+          "frac": 1.0
+        },
+        {
+          "D": 0.2,
+          "gm": 0.8702682852745056,
+          "frac": 1.0
+        },
+        {
+          "D": 0.25,
+          "gm": 0.8587580323219299,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.3,
+          "gm": 0.8451519012451172,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.35,
+          "gm": 0.8300303220748901,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.4,
+          "gm": 0.8141500353813171,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.45,
+          "gm": 0.79822838306427,
+          "frac": 0.8666666666666667
+        },
+        {
+          "D": 0.5,
+          "gm": 0.7822571396827698,
+          "frac": 0.8166666666666667
+        },
+        {
+          "D": 0.55,
+          "gm": 0.7639255523681641,
+          "frac": 0.8
+        },
+        {
+          "D": 0.6,
+          "gm": 0.7347483038902283,
+          "frac": 0.7833333333333333
+        },
+        {
+          "D": 0.65,
+          "gm": 0.6765565872192383,
+          "frac": 0.75
+        },
+        {
+          "D": 0.7,
+          "gm": 0.5815436840057373,
+          "frac": 0.75
+        },
+        {
+          "D": 0.75,
+          "gm": 0.4753465950489044,
+          "frac": 0.7
+        },
+        {
+          "D": 0.8,
+          "gm": 0.3798161745071411,
+          "frac": 0.6166666666666667
+        },
+        {
+          "D": 0.85,
+          "gm": 0.3015424311161041,
+          "frac": 0.5833333333333334
+        },
+        {
+          "D": 0.9,
+          "gm": 0.24283745884895325,
+          "frac": 0.5333333333333333
+        }
+      ]
+    },
+    "ctrl": {
+      "dir": "ctrl (random in-span)",
+      "D_kill": 0.8306607153669756,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.8872273564338684,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.8625783324241638,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.8304663896560669,
+          "frac": 0.95
+        },
+        {
+          "D": 0.15,
+          "gm": 0.7941448092460632,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.2,
+          "gm": 0.7587653994560242,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.25,
+          "gm": 0.7279451489448547,
+          "frac": 0.8
+        },
+        {
+          "D": 0.3,
+          "gm": 0.7039196491241455,
+          "frac": 0.7333333333333333
+        },
+        {
+          "D": 0.35,
+          "gm": 0.6866620779037476,
+          "frac": 0.7
+        },
+        {
+          "D": 0.4,
+          "gm": 0.673534095287323,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.45,
+          "gm": 0.6607024669647217,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.5,
+          "gm": 0.6444253325462341,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.55,
+          "gm": 0.6210685968399048,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.6,
+          "gm": 0.5868616104125977,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.65,
+          "gm": 0.5384390354156494,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.7,
+          "gm": 0.47456198930740356,
+          "frac": 0.65
+        },
+        {
+          "D": 0.75,
+          "gm": 0.3982517421245575,
+          "frac": 0.65
+        },
+        {
+          "D": 0.8,
+          "gm": 0.3170834481716156,
+          "frac": 0.6333333333333333
+        },
+        {
+          "D": 0.85,
+          "gm": 0.24030205607414246,
+          "frac": 0.5
+        }
+      ],
+      "n_draws_to_accept": 1
+    }
+  },
+  "dose": {
+    "baseline_kill_top": 0.8017851194697441,
+    "dose_frac": 0.1,
+    "eps_L2": 0.08017851194697441,
+    "eps_frac_of": {
+      "mid": 0.09883317576364944,
+      "low": 0.09143767001174317
+    },
+    "note": "eps = 0.1 x the top-SV direction's own un-exposed kill-D (sub-lethal by construction along the exposed axis); the same eps for all three arms (matched L2)"
+  },
+  "control_draws": {
+    "seed": 12501,
+    "max_draws": 5,
+    "draws": [
+      {
+        "draw": 1,
+        "read_at_exposed_state": 0.9109019041061401,
+        "accepted": true
+      }
+    ],
+    "n_draws": 1,
+    "selection_disclosure": "accepted = first draw whose exposed state reads alive; the selection biases the control toward forgiveness \u2014 i.e. AGAINST the IMMUNITY clause (conservative)"
+  },
+  "arms": {
+    "TOP-EXP": {
+      "exposure": "TOP-EXP",
+      "eps": 0.08017851194697441,
+      "gate": {
+        "exposed_state_primary_read": 0.8961583375930786,
+        "corulers": {
+          "coruler_g+12": 0.6043685078620911,
+          "coruler_g-12": 0.24601943790912628,
+          "coruler_g+0": 0.5623504519462585
+        },
+        "ce_r": 2.024082899093628,
+        "ce_r_delta_vs_root": 0.07362520694732666,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 0.882580753164309,
+          "D_kill_baseline": 0.8017851194697441,
+          "ratio_vs_baseline": 1.1007696847105353,
+          "same_axis": true,
+          "mechanical_ceiling_ratio": 1.1,
+          "causal_residue_D": 0.0006171217475904323,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8961583375930786,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8925942182540894,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8825101852416992,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8669155240058899,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8469058275222778,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8235991597175598,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.7982720732688904,
+              "frac": 0.95
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7721929550170898,
+              "frac": 0.9
+            },
+            {
+              "D": 0.4,
+              "gm": 0.7459639310836792,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7189633250236511,
+              "frac": 0.85
+            },
+            {
+              "D": 0.5,
+              "gm": 0.6893453598022461,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.654536247253418,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6120773553848267,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.65,
+              "gm": 0.560695469379425,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5011603236198425,
+              "frac": 0.7
+            },
+            {
+              "D": 0.75,
+              "gm": 0.4363228380680084,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.8,
+              "gm": 0.3702796995639801,
+              "frac": 0.65
+            },
+            {
+              "D": 0.85,
+              "gm": 0.30716773867607117,
+              "frac": 0.5666666666666667
+            },
+            {
+              "D": 0.9,
+              "gm": 0.2501283288002014,
+              "frac": 0.43333333333333335
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 0.834119955532728,
+          "D_kill_baseline": 0.8112509926698503,
+          "ratio_vs_baseline": 1.0281897502369954,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8961583375930786,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.896018922328949,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8880872130393982,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8733106255531311,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8531205654144287,
+              "frac": 0.95
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8301703929901123,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8062461614608765,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7820711731910706,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.7584339380264282,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7345943450927734,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7070534229278564,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.6708278656005859,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.621295154094696,
+              "frac": 0.7
+            },
+            {
+              "D": 0.65,
+              "gm": 0.5570133328437805,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.7,
+              "gm": 0.4819500744342804,
+              "frac": 0.55
+            },
+            {
+              "D": 0.75,
+              "gm": 0.4015922248363495,
+              "frac": 0.48333333333333334
+            },
+            {
+              "D": 0.8,
+              "gm": 0.3211773931980133,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 0.85,
+              "gm": 0.24618111550807953,
+              "frac": 0.25
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 0.8958813138478615,
+          "D_kill_baseline": 0.8768652125177427,
+          "ratio_vs_baseline": 1.0216864588293084,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8961583375930786,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9008501172065735,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9018791913986206,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8996662497520447,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.894291341304779,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8858247399330139,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8744587302207947,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8606218099594116,
+              "frac": 0.95
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8450645804405212,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8284785747528076,
+              "frac": 0.9
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8103369474411011,
+              "frac": 0.9
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7867056727409363,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.7451136112213135,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6713007092475891,
+              "frac": 0.8
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5749334096908569,
+              "frac": 0.75
+            },
+            {
+              "D": 0.75,
+              "gm": 0.47783729434013367,
+              "frac": 0.7
+            },
+            {
+              "D": 0.8,
+              "gm": 0.39175304770469666,
+              "frac": 0.65
+            },
+            {
+              "D": 0.85,
+              "gm": 0.32021263241767883,
+              "frac": 0.6
+            },
+            {
+              "D": 0.9,
+              "gm": 0.2654924988746643,
+              "frac": 0.5833333333333334
+            }
+          ]
+        }
+      }
+    },
+    "LOW-EXP": {
+      "exposure": "LOW-EXP",
+      "eps": 0.08017851194697441,
+      "gate": {
+        "exposed_state_primary_read": 0.8756535053253174,
+        "corulers": {
+          "coruler_g+12": 0.5684205293655396,
+          "coruler_g-12": 0.22609946131706238,
+          "coruler_g+0": 0.5887952446937561
+        },
+        "ce_r": 1.9508470296859741,
+        "ce_r_delta_vs_root": 0.00038933753967285156,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 0.7529295930665515,
+          "D_kill_baseline": 0.8017851194697441,
+          "ratio_vs_baseline": 0.9390665588362342,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8756535053253174,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8656661510467529,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8500739336013794,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8298245668411255,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8059251308441162,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.25,
+              "gm": 0.7793360948562622,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.3,
+              "gm": 0.7506198883056641,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7193806171417236,
+              "frac": 0.85
+            },
+            {
+              "D": 0.4,
+              "gm": 0.6840494871139526,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.45,
+              "gm": 0.6423550844192505,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.5923922061920166,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.5338685512542725,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.4687500298023224,
+              "frac": 0.7
+            },
+            {
+              "D": 0.65,
+              "gm": 0.40079250931739807,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.7,
+              "gm": 0.3343496322631836,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.2731432616710663,
+              "frac": 0.5
+            },
+            {
+              "D": 0.8,
+              "gm": 0.21949653327465057,
+              "frac": 0.4166666666666667
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 0.867533592338455,
+          "D_kill_baseline": 0.8112509926698503,
+          "ratio_vs_baseline": 1.0693775418177018,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8756535053253174,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8823935389518738,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.879368782043457,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8689785003662109,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8524883389472961,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8313192129135132,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8077248334884644,
+              "frac": 0.9
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7834294438362122,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.7592608332633972,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7361661195755005,
+              "frac": 0.8
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7138755321502686,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.6889930963516235,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6549133062362671,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6052054166793823,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5392814874649048,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 0.75,
+              "gm": 0.4622066617012024,
+              "frac": 0.55
+            },
+            {
+              "D": 0.8,
+              "gm": 0.3792557716369629,
+              "frac": 0.45
+            },
+            {
+              "D": 0.85,
+              "gm": 0.2963848114013672,
+              "frac": 0.3333333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.22114406526088715,
+              "frac": 0.23333333333333334
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 0.9557976103313174,
+          "D_kill_baseline": 0.8768652125177427,
+          "ratio_vs_baseline": 1.09001656889425,
+          "same_axis": true,
+          "mechanical_ceiling_ratio": 1.0914376700117432,
+          "causal_residue_D": -0.0012461141333998116,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.8756535053253174,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.884571373462677,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8880446553230286,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8873664140701294,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8832389116287231,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8760057091712952,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8659874200820923,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8535861968994141,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8393000364303589,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8237798810005188,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8078171014785767,
+              "frac": 0.9
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7919532060623169,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.775544285774231,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.65,
+              "gm": 0.7544843554496765,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.7162935733795166,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.6423123478889465,
+              "frac": 0.75
+            },
+            {
+              "D": 0.8,
+              "gm": 0.5391198396682739,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.43563592433929443,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.9,
+              "gm": 0.3465243875980377,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 0.95,
+              "gm": 0.27596810460090637,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 1.0,
+              "gm": 0.2244977205991745,
+              "frac": 0.48333333333333334
+            }
+          ]
+        }
+      }
+    },
+    "CTRL-EXP": {
+      "exposure": "CTRL-EXP",
+      "eps": 0.08017851194697441,
+      "gate": {
+        "exposed_state_primary_read": 0.9109019041061401,
+        "corulers": {
+          "coruler_g+12": 0.6041640639305115,
+          "coruler_g-12": 0.22036448121070862,
+          "coruler_g+0": 0.6081202626228333
+        },
+        "ce_r": 1.956885814666748,
+        "ce_r_delta_vs_root": 0.006428122520446777,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 0.7673625012552965,
+          "D_kill_baseline": 0.8017851194697441,
+          "ratio_vs_baseline": 0.9570675267243512,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9109019041061401,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8941605687141418,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.872790515422821,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8476555347442627,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8195732235908508,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.25,
+              "gm": 0.7895129323005676,
+              "frac": 0.95
+            },
+            {
+              "D": 0.3,
+              "gm": 0.7583598494529724,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7261602878570557,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.6915681958198547,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.45,
+              "gm": 0.6521082520484924,
+              "frac": 0.8
+            },
+            {
+              "D": 0.5,
+              "gm": 0.6052426099777222,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.5498014092445374,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.4869175851345062,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.65,
+              "gm": 0.41979649662971497,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.7,
+              "gm": 0.35265785455703735,
+              "frac": 0.65
+            },
+            {
+              "D": 0.75,
+              "gm": 0.28952834010124207,
+              "frac": 0.5166666666666667
+            },
+            {
+              "D": 0.8,
+              "gm": 0.23329122364521027,
+              "frac": 0.4166666666666667
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 0.8075214052188688,
+          "D_kill_baseline": 0.8112509926698503,
+          "ratio_vs_baseline": 0.995402671325298,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9109019041061401,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9121249914169312,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.907073438167572,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8961486220359802,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8796018362045288,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8579578399658203,
+              "frac": 0.95
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8323538303375244,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8048580884933472,
+              "frac": 0.9
+            },
+            {
+              "D": 0.4,
+              "gm": 0.7774322628974915,
+              "frac": 0.85
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7497940063476562,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7170251607894897,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.6701977849006653,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6036927103996277,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.65,
+              "gm": 0.5232437252998352,
+              "frac": 0.55
+            },
+            {
+              "D": 0.7,
+              "gm": 0.4383631944656372,
+              "frac": 0.48333333333333334
+            },
+            {
+              "D": 0.75,
+              "gm": 0.3553321063518524,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 0.8,
+              "gm": 0.2798147201538086,
+              "frac": 0.3
+            },
+            {
+              "D": 0.85,
+              "gm": 0.21456946432590485,
+              "frac": 0.2
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 0.8456332742071846,
+          "D_kill_baseline": 0.8768652125177427,
+          "ratio_vs_baseline": 0.9643822814901256,
+          "same_axis": false,
+          "mechanical_ceiling_ratio": null,
+          "causal_residue_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9109019041061401,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.912535548210144,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.91126948595047,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9072973728179932,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9006853103637695,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8914906978607178,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8798177242279053,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8658427000045776,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8498846292495728,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8324220180511475,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8130969405174255,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7867110371589661,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.7358577251434326,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6425598859786987,
+              "frac": 0.8
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5267102122306824,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.75,
+              "gm": 0.41990169882774353,
+              "frac": 0.65
+            },
+            {
+              "D": 0.8,
+              "gm": 0.3323488235473633,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 0.85,
+              "gm": 0.2640337347984314,
+              "frac": 0.5166666666666667
+            }
+          ]
+        },
+        "ctrl": {
+          "D_kill": 0.9107338913329855,
+          "D_kill_baseline": 0.8306607153669756,
+          "ratio_vs_baseline": 1.0963969698875606,
+          "same_axis": true,
+          "mechanical_ceiling_ratio": 1.0965237797619363,
+          "causal_residue_D": -0.00010533598096451602,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9109019041061401,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8983495831489563,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8783958554267883,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8506558537483215,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8162643313407898,
+              "frac": 0.95
+            },
+            {
+              "D": 0.25,
+              "gm": 0.7797727584838867,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.7458417415618896,
+              "frac": 0.85
+            },
+            {
+              "D": 0.35,
+              "gm": 0.7175464630126953,
+              "frac": 0.75
+            },
+            {
+              "D": 0.4,
+              "gm": 0.6963660717010498,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.6811707019805908,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.6686269044876099,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.6548624038696289,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6362205743789673,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6090156435966492,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5695074796676636,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.5149098634719849,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.8,
+              "gm": 0.4454602003097534,
+              "frac": 0.65
+            },
+            {
+              "D": 0.85,
+              "gm": 0.366132527589798,
+              "frac": 0.65
+            },
+            {
+              "D": 0.9,
+              "gm": 0.28564581274986267,
+              "frac": 0.6
+            },
+            {
+              "D": 0.95,
+              "gm": 0.2127653807401657,
+              "frac": 0.43333333333333335
+            }
+          ]
+        }
+      }
+    }
+  },
+  "ce_r_canary": {
+    "root": 1.9504576921463013,
+    "root_dir0_kill_position": 2.1711184978485107,
+    "exposed_states": {
+      "TOP-EXP": 2.024082899093628,
+      "LOW-EXP": 1.9508470296859741,
+      "CTRL-EXP": 1.956885814666748
+    },
+    "note": "the organism-health honesty reflex (report-only): a pre-exposure that wrecks general CE while the ruler stays alive would confound any immunity reading"
+  },
+  "adjudication": {
+    "bars": {
+      "IMMUNITY_CAUSAL": {
+        "fires": false
+      },
+      "SENSITIZATION": {
+        "fires": false
+      },
+      "NULL": {
+        "fires": true
+      },
+      "GRADED": {
+        "fires": false
+      }
+    },
+    "inputs": {
+      "ratio_dir0_after_top_exp": 1.1007696847105353,
+      "mechanical_ceiling_dir0": 1.1,
+      "residue_dir0": 0.0006171217475904323,
+      "ctrl_own_ratio": 1.0963969698875606,
+      "ctrl_own_censored": false,
+      "immunity_control_clause": "resolved: control-own ratio 1.096 < 1.101",
+      "all_ratios": {
+        "TOP-EXP/top": 1.1007696847105353,
+        "TOP-EXP/mid": 1.0281897502369954,
+        "TOP-EXP/low": 1.0216864588293084,
+        "LOW-EXP/top": 0.9390665588362342,
+        "LOW-EXP/mid": 1.0693775418177018,
+        "LOW-EXP/low": 1.09001656889425,
+        "CTRL-EXP/top": 0.9570675267243512,
+        "CTRL-EXP/mid": 0.995402671325298,
+        "CTRL-EXP/low": 0.9643822814901256,
+        "CTRL-EXP/ctrl": 1.0963969698875606
+      }
+    },
+    "verdict": "NULL",
+    "clause": "no material change either way: every resolved ratio in [0.85, 1.15] and the same-axis residue within one grid step of the pass-back arithmetic \u2014 the ordering at these doses is not intervenable",
+    "composite_order": "IMMUNITY-CAUSAL / SENSITIZATION / NULL / GRADED (frozen before compute; the first two mutually exclusive by construction)",
+    "desk_arithmetic_recap": "the same-direction row is arithmetically capped at 1+eps/t = 1.100 (the desk disclosure, stated before compute); measured 1.1008 \u2014 the causal content lives in the residues and the cross rows"
+  },
+  "provenance": {
+    "parents_files_md5": {
+      "e157": "708b9983ff41335dfbb732704747cfb8",
+      "e193": "d9b08cab2a0c03a62e5ef69ff9ea602c",
+      "e211": "1dd3c07acc45ba107d4db3ebab5aa4b9"
+    },
+    "machinery": {
+      "family2_gates_battery_stream": "lab/e193_organism_replicate.py VERBATIM (dial hard-bind, e185-hashed stream, e170 bank, CE_R val windows)",
+      "wash_span_kill": "lab/e211_walled_band.py VERBATIM (the contiguous 20-step unwalled AdamW wash, the fp64 Gram-SVD basis, the onset-grid 0.05..3.00 kill walk, first-downcrossing interpolation, SVD-emitted signs) \u2014 the ruler swapped to e193's PRIMARY per its frozen RULER DISCLOSURE",
+      "the_exposure_cell": "NEW this cell (registered): the sub-lethal displacement arms, the pass-back-through geometry, the mechanical-ceiling/residue decomposition, the control acceptance rule",
+      "committed_records": "e157 (the dial + wash step-1 rows), e193 (the t0 rows + the g-ray checkpoint), e211 (the ordering this cell interrogates) \u2014 loaded, hard-bound, never re-run"
+    },
+    "registry_note": "the control seed 12501 is fresh (the registry held through 12401-12408 at e211)"
+  },
+  "honesty": {
+    "n_and_scope": "n=1 organism (the e193 f2 root, one lineage); one span realization (a single 20-step history draw \u2014 the draw lottery moves every direction); ONE dose (eps = 0.1x t_top); one ruler family; every kill ray walked once",
+    "perturbation_vs_training": "the pre-exposure is a DIRECT weight displacement along a span axis \u2014 the wash's mechanism at ONE REMOVE, not the wash itself: the wash moves by AdamW steps whose directions are gradient-determined and whose per-step L2 is 0.916 (vs eps 0.0802 here); immunity-to-TRAINING is not tested by this cell",
+    "pass_back_arithmetic": "every same-axis row is arithmetically capped at 1+eps/t_base (the desk disclosure, stated before compute); the residues and cross rows carry the causal content; the bars adjudicated the raw numbers as registered",
+    "sign_convention": "the exposure is +v (the SVD-emitted sign, OPPOSED to the kill walk -v) at every arm; the wash's own drift along each axis is reported (span.wash_drift_proj_dirs) so the reader can see whether +v is with or against the wash",
+    "control_selection": "the control was accepted as the first sub-lethal draw (1 draw(s) from seed 12501) \u2014 biased toward forgiveness, i.e. against the IMMUNITY clause",
+    "ce_r_canary": {
+      "root": 1.9504576921463013,
+      "root_dir0_kill_position": 2.1711184978485107,
+      "exposed_states": {
+        "TOP-EXP": 2.024082899093628,
+        "LOW-EXP": 1.9508470296859741,
+        "CTRL-EXP": 1.956885814666748
+      },
+      "note": "the organism-health honesty reflex (report-only): a pre-exposure that wrecks general CE while the ruler stays alive would confound any immunity reading"
+    },
+    "nothing_guaranteed": "the openness was the point: the residues could have been anything; the observed outcome is 'NULL'"
+  },
+  "elapsed_s": 51.5
+}
