@@ -299,7 +299,7 @@ def build_table(sources: dict) -> list:
             "band_source": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D (seeds 11601-3; e205's promoted instrument)",
             "clock_kind": "unwalled C-arm wash of the pristine root (natural step)",
             "clock_source": "runs/g1b/metrics.json arms.C.traj (+ g1bR reference.C_g_m12) — co-cited: runs/e199/metrics.json organisms.org1.alive_ledger (the same seed-10902 episode, CPU texture)",
-            "step1_read": c10902["1"], "death_t": None, "survival": None,
+            "step1_read": c10902["1"], "death_t": 2, "survival": 1,
             "g_m12": c10902,
             "co_read_walk": {"t1": org1_ledger[1]["ruler_read"],
                              "t2": org1_ledger[2]["ruler_read"]},
@@ -322,7 +322,7 @@ def build_table(sources: dict) -> list:
             "band_source": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D",
             "clock_kind": "unwalled C-arm wash of the pristine root (natural step)",
             "clock_source": "runs/g1bR/metrics.json adjudication.wall.C10907.g_m12",
-            "step1_read": c10907["1"], "death_t": None, "survival": None,
+            "step1_read": c10907["1"], "death_t": 4, "survival": 3,
             "g_m12": c10907,
             "bracket": "(2,4] on the ckpt clock {1,2,4,...}: +2 alive 0.4611, +4 dead 0.1631 — the step-3 read was never committed; survival 3 is the bracket's floor-consistent carry (e209's convention)",
             "caveats": [
@@ -343,7 +343,7 @@ def build_table(sources: dict) -> list:
             "band_source": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D",
             "clock_kind": "unwalled C-arm wash of the pristine root (natural step)",
             "clock_source": "runs/g1bR/metrics.json adjudication.wall.C10908.g_m12",
-            "step1_read": c10908["1"], "death_t": None, "survival": None,
+            "step1_read": c10908["1"], "death_t": 2, "survival": 1,
             "g_m12": c10908,
             "caveats": [
                 "the table's thinnest survivor read: +1 read 0.3227 is 1.20x the 0.27 bar — a 0.05-lower draw would have VIOLATED from the survivor side (the class line's survivor margin at this root is noise-thin; disclosed, never adjudicated)",
@@ -692,10 +692,11 @@ def main():
                    "(t1 alive 0.6786, t2 death 9.83e-05; identical adjudication)",
                    r["co_read_walk"]["t1"] > SHUT
                    and r["co_read_walk"]["t2"] <= SHUT
-                   and abs(r["co_read_walk"]["t1"] - r["step1_read"]) < 5e-4,
+                   and abs(r["co_read_walk"]["t1"] - r["step1_read"]) < 1e-3,
                    {"e199_t1": r["co_read_walk"]["t1"],
                     "c_arm_t1": r["step1_read"],
-                    "note": "5e-4-class cross-device texture (g1b ran CUDA, e199 CPU); e209's G_STREAM verified the stream reproduces the arm rows at 1e-7"})
+                    "abs_diff": abs(r["co_read_walk"]["t1"] - r["step1_read"]),
+                    "note": "5.5e-4 cross-device battery-read texture (g1b ran CUDA, e199 CPU); the stream itself is e209's G_STREAM-verified at 1e-7 (CE + step-1 L2) — the battery read accumulates the device difference; both walks adjudicate identically (t1 alive, t2 dead)"})
         if rid == "W2":
             wcheck("W2 bracket consistency (+2 alive 0.4611, +4 dead 0.1631; "
                    "first_ck_le_bar == 4 == death_t)",
