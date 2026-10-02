@@ -1,0 +1,59 @@
+[    0.0s] E182C2 PHASE 2 — THE TEMPLATE LOCUS + FRESH DRAWS (smoke=False) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e182c2
+[    0.0s] G_STATES inventory: all saved states on disk = True
+[   13.7s] G_CORPUS: PASS (331770 tokens; e182 331770)
+[   15.0s] G_BATT: fact/ctrl/near kept sets + t=0 probes vs phase-1 record -> PASS (max dp fact 0.0, ctrl 0.0, near 0.0)
+[   16.0s] template battery: 19 kept of 23 probed (19 passed the gate)
+[   16.0s] FORM-MATCHING: all batteries 2-shot rotating leave-self-out cloze, single-token answers, gate (top1 p>=0.8)|(top5 p>=0.5), cap 20; fact n=20 (mean 0.797), ctrl n=12 (mean 0.727), nearrel n=3 (mean 0.589), template n=19 (p0 0.693-0.988, mean 0.907); the template battery shares the nearrel/fact CONTENT FAMILY (capitals, held-out entities) but reverses the template FORM and direction; declines are per-battery relative.
+[   17.8s]   SAVED STATE +2: template battery 0.9048 (ret 0.997)
+[   19.0s]   SAVED STATE +10: template battery 0.8456 (ret 0.932)
+[   20.2s]   SAVED STATE +50: template battery 0.5253 (ret 0.579)
+[   21.4s]   SAVED STATE +80: template battery 0.3981 (ret 0.439)
+[   23.1s] G_STATES re-probe: 30 probes, max dp 0.000000 (tol 0.005)
+[   23.1s] ==============================================================================
+[   23.1s] PART 1 TEMPLATE VERDICT: TEMPLATE-GENERAL
+[   23.1s]   the second template's controls erode comparably to the first's at +80 (reversed-form decline 0.561 vs capital-of-form nearrel 0.766, ratio 0.73; band [0.510, 1.148]) — the erosion is template-GENERAL; the locus is the few-shot-following faculty, not one form (with the disclosed caveat: form and direction changed together)
+[   36.8s] fresh t=0: fact 0.7971 | ctrl 0.7266 | tmpl 0.9075 | near 0.5891 | ppl 71.34
+[   36.8s] THE FRESH DRAW: lr 5e-05, 80 steps, batch 8 x ctx 512, AdamW (0.9,0.95) wd 0.1 clip 1.0, stream seed 20261002 (the ONLY delta from phase-1's 18202), checkpoints +[10, 50, 80], GPU fp32 bursts <=40 steps/<=75s, cooldown >=180s, launches double-polled util<=20%/temp<=70C
+[   40.2s]   [gpu:burst1#1] util 0% temp 56C mem 752/24463MB power 28.0W -> FREE
+[   45.3s]   [gpu:burst1#2] util 0% temp 57C mem 752/24463MB power 26.0W -> FREE
+[   47.9s]   [fresh] s 10/80 corpus CE 3.7507 (2.7s into burst)
+[   47.9s]   [fresh] burst done: 10 steps in 2.7s (<= 75s cap), now at s10, checkpoint +10
+[   65.2s]   FRESH CKPT + 10: fact 0.7743 (decl 0.029) | ctrl 0.6692 (decl 0.079) | tmpl 0.8378 (decl 0.077) | near 0.4404 (decl 0.253) | ppl 38.11 | in-batch CE 3.7507
+[   65.4s]   [thermal] cooldown 163s (owner envelope >=180s between bursts)
+[  228.0s]   [gpu:burst11#1] util 0% temp 55C mem 10446/24463MB power 7.9W -> FREE
+[  233.0s]   [gpu:burst11#2] util 0% temp 54C mem 10446/24463MB power 8.0W -> FREE
+[  235.4s]   [fresh] s 20/80 corpus CE 3.5037 (2.3s into burst)
+[  237.5s]   [fresh] s 30/80 corpus CE 3.4317 (4.5s into burst)
+[  239.8s]   [fresh] s 40/80 corpus CE 3.5563 (6.7s into burst)
+[  242.1s]   [fresh] s 50/80 corpus CE 3.3458 (9.1s into burst)
+[  242.1s]   [fresh] burst done: 40 steps in 9.1s (<= 75s cap), now at s50, checkpoint +50
+[  258.2s]   FRESH CKPT + 50: fact 0.5503 (decl 0.310) | ctrl 0.5265 (decl 0.275) | tmpl 0.5261 (decl 0.420) | near 0.2410 (decl 0.591) | ppl 34.76 | in-batch CE 3.3458
+[  258.2s]   [thermal] cooldown 164s (owner envelope >=180s between bursts)
+[  422.2s]   [gpu:burst51#1] util 0% temp 54C mem 10446/24463MB power 7.8W -> FREE
+[  427.2s]   [gpu:burst51#2] util 0% temp 54C mem 10446/24463MB power 7.9W -> FREE
+[  429.6s]   [fresh] s 60/80 corpus CE 3.4882 (2.4s into burst)
+[  431.7s]   [fresh] s 70/80 corpus CE 3.5856 (4.5s into burst)
+[  433.9s]   [fresh] s 80/80 corpus CE 3.4218 (6.7s into burst)
+[  433.9s]   [fresh] burst done: 30 steps in 6.7s (<= 75s cap), now at s80, checkpoint +80
+[  447.5s]   FRESH CKPT + 80: fact 0.4321 (decl 0.458) | ctrl 0.4546 (decl 0.374) | tmpl 0.4982 (decl 0.451) | near 0.2024 (decl 0.656) | ppl 34.60 | in-batch CE 3.4218
+[  447.6s] fresh wash finished at step 80
+[  447.6s] ==============================================================================
+[  447.6s] PART 2 FRESH-DRAW VERDICT: DRAW-REPLICATES
+[  447.6s]   the fresh draw reproduces the phase-1 pattern at +50 (generic erosion ratio ctrl/fact 0.89 in [0.7, 1.3]; the near-related still fastest: nearrel decline 0.591 > fact 0.310, ctrl 0.275) — the texture at n=2 draws
+[    0.0s] E182C2 PHASE 2 — THE TEMPLATE LOCUS + FRESH DRAWS (smoke=False) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e182c2
+[    0.0s] G_STATES inventory: all saved states on disk = True
+[   10.5s] G_CORPUS: PASS (331770 tokens; e182 331770)
+[   11.4s] G_BATT: fact/ctrl/near kept sets + t=0 probes vs phase-1 record -> PASS (max dp fact 0.0, ctrl 0.0, near 0.0)
+[   12.1s] template battery: 19 kept of 23 probed (19 passed the gate)
+[   12.1s] FORM-MATCHING: all batteries 2-shot rotating leave-self-out cloze, single-token answers, gate (top1 p>=0.8)|(top5 p>=0.5), cap 20; fact n=20 (mean 0.797), ctrl n=12 (mean 0.727), nearrel n=3 (mean 0.589), template n=19 (p0 0.693-0.988, mean 0.907); the template battery shares the nearrel/fact CONTENT FAMILY (capitals, held-out entities) but reverses the template FORM and direction; declines are per-battery relative.
+[   12.1s] journal_p1: 5 states restored
+[   12.1s] G_STATES re-probe: 30 probes, max dp 0.000000 (tol 0.005)
+[   12.1s] ==============================================================================
+[   12.1s] PART 1 TEMPLATE VERDICT: TEMPLATE-GENERAL
+[   12.1s]   the second template's controls erode comparably to the first's at +80 (reversed-form decline 0.561 vs capital-of-form nearrel 0.766, ratio 0.73; band [0.510, 1.148]) — the erosion is template-GENERAL; the locus is the few-shot-following faculty, not one form (with the disclosed caveat: form and direction changed together)
+[   12.1s] journal_p2: 4 states restored
+[   12.7s] ==============================================================================
+[   12.7s] PART 2 FRESH-DRAW VERDICT: DRAW-REPLICATES
+[   12.7s]   the fresh draw reproduces the phase-1 pattern at +50 (generic erosion ratio ctrl/fact 0.89 in [0.7, 1.3]; the near-related still fastest: nearrel decline 0.591 > fact 0.310, ctrl 0.275) — the texture at n=2 draws
+[   13.6s] outputs: C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e182c2\metrics.json, [WindowsPath('C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/runs/e182c2/template_locus.png'), WindowsPath('C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome/runs/e182c2/fresh_draw.png')]
+[   13.6s] total 13.6s

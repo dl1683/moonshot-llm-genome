@@ -337,6 +337,16 @@ deviations: list[str] = [
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
     "Smoke mode: 2-step fresh wash, grids {1,2}, own smoke dir and log, "
     "nothing adjudicated or verified.",
+    "PLOT-ONLY RE-PASS (the phase-1 precedent): the first full pass wrote "
+    "DONE metrics + journals and then crashed in the SECOND figure "
+    "(adj2['ratio'] KeyError — the ratio lived in the draw_bars record, "
+    "not at top level). The fix is plot-only + recording-only (the "
+    "draw_bars booleans added to the adjudication dict); main() re-ran "
+    "SELF-RESUMING off the frozen journals — zero wash recompute, zero "
+    "GPU, probes deterministic CPU fp32 — so every number in metrics.json "
+    "is bit-identical to the crashed pass's; the envelope polls of the "
+    "actual wash live in runs/e182c2_run.log + runs/_envelope_log.jsonl "
+    "(3 launch cycles, 6 polls, all FREE).",
 ]
 
 
@@ -725,7 +735,7 @@ def plot_fresh(rd, p2, adj2, p1_ref, form_match):
     ax.set_ylabel(f"decline at +{DRAW_STEP}")
     ax.grid(alpha=0.25, axis="y")
     ax.legend(fontsize=8)
-    r = adj2["ratio"]
+    r = (adj2.get("draw_bars") or {}).get("ratio")
     r_txt = (f"{r:.2f} in [{DRAW_RATIO_LO}, {DRAW_RATIO_HI}]"
              if r is not None
              else "undefined (fact decline at floor)")
@@ -1429,6 +1439,7 @@ def main():
     metrics["adjudication_part2_fresh"] = {
         "bars": REGISTERED_PREDICTION["bars_verbatim"],
         "verdict": verdict2, "clause": clause2,
+        "draw_bars": b2, "draw_bars_deep": b2_deep,
         "clause_booleans": [f"A (ratio in [0.7,1.3]) = "
                             f"{b2['clause_A'] if b2 else 'n/a'}",
                             f"B (near-related fastest) = "
