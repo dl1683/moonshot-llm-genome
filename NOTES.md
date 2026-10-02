@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e221 — the compositionality test: GRADED — the hunt's LAST candidate retires WITHOUT naming the dimension (the separation fires only through its anchor singleton: R 2.56x collapses to R' 0.03x leave-one-out, KW p 0.40; the anchor captured BY REGISTRATION (weight zero); class == family XOR is_Gmail, asserted; no absorption — leave-Gmail-out 0.930: the miss replicates without the anchor); THE THIRD DIMENSION STANDS REAL-AND-UNNAMED (2026-10-02 ~19:15Z) — DONE
+
+WHAT WE DID: the hunt's lightest cell (2.9s, zero loads; the
+typology hand-registered and blob-certified BEFORE any test); all
+5 gates PASS (e216's residual table reproduced at 1e-9).
+
+WHAT WE SAW (T197): THE FOUR-CLASS TYPOLOGY (38 ATOMIC / 10
+TOKEN-IDENTITY / 1 FUNCTION-COMPOSED / 5 MULTI-HOP) SEPARATES THE
+RESIDUAL ONLY THROUGH ITS ANCHOR SINGLETON — R 2.562/2.629 (clears
+the 1.5 bar) but the leave-singleton R' 0.028/0.029 (COLLAPSES;
+Kruskal-Wallis p 0.40); the collinearity asserted in code: CLASS ==
+FAMILY XOR is_Gmail. THE ANCHOR captured in direction (Gmail
++0.429 vs iPhone -0.206) but BY REGISTRATION (the
+FUNCTION-COMPOSED class is Gmail alone — weight zero, the
+instrument-tautology guard registered before compute per the
+R49/e166 precedent). NO ABSORPTION anywhere near 0.5 (the best
+0.924 vs the 0.934 baseline; the leave-Gmail-out baseline 0.930 —
+THE MISS REPLICATES WITHOUT THE ANCHOR). THE UNGUARDED co-report:
+R + anchor alone would have read COMPOSITIONALITY-NAMES-IT — the
+singleton guard (registered at the typology's commit) is what
+blocks it, fully reconstructible in metrics. THE HUNT'S LEDGER,
+CLOSED: the third dimension is REAL (e219's confound break),
+BEYOND HEIGHT (e218), NOT ENTRENCHMENT (e219), NOT TOKENS (e220),
+NOT COMPOSITIONALITY-AS-TYPOLOGY (here) — THE LAB'S HONEST OPEN
+OBJECT: REAL-AND-UNNAMED.
+
+---
+
 ## g11 — the crush mechanism: CARRIER-CONCENTRATED at the boundary; the crush is NOT first-order-directional (the registered falsifier fired: the locked root's first step is the MORE erase-aligned yet survives); the readable residue: the nonlinear interaction between each root's rotated support and the shared wash hot set (2026-10-02 ~19:00Z) — DONE
 
 WHAT WE DID: at the three cons roots (locked 10901; g1e's 10912;

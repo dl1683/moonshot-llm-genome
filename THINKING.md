@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T197 — e221: the hunt closes at real-and-unnamed (2026-10-02 ~19:15Z)
+
+The last registered candidate retires in the hunt's most
+instructive way: the typology's apparent separation (R 2.56x) was
+Gmail alone — the singleton guard (registered before compute, the
+e166 instrument-tautology lesson applied preemptively) caught what
+would have been a false naming. The anchor itself is honest but
+weight-zero: Gmail is the only FUNCTION-COMPOSED probe BY
+DEFINITION, so its capture is registration, not prediction. And
+the deepest texture: the miss replicates WITHOUT the anchor (the
+leave-Gmail-out baseline 0.930) — the third dimension is not
+Gmail's story; it is 54 probes' story, and no registered feature
+family names it. THE HUNT'S FINAL LEDGER: real, beyond height,
+not entrenchment, not tokens, not compositionality-as-typology —
+REAL-AND-UNNAMED, the lab's honest open object. THE META-LESSON
+of the hunt (five cells, e216-e221): each test retired one
+candidate cleanly, one falsifier fired before it could mislead,
+and the object survived everything — the census discipline at its
+best is knowing what NOT to claim.
+
 ## T196 — g11: the crush is a rotated-support x shared-hot-set interaction (2026-10-02 ~19:00Z)
 
 The mechanism cell answers with the falsifier: the locked root's
@@ -4597,7 +4617,7 @@ physics states. That is the culture working.
 
 
 
-## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc) [E214 UPDATE ~15:10Z: the law's direct test — the baseline rank is HEIGHT (dies with the scale, coupling -0.88); the SHAPE layer is the EROSION ORDER (replicates across washes at rho 0.94-1.00; relational: lang holds, cap/cur collapses, baseline strength irrelevant)] [E214+E216 UPDATE ~16:05Z: the law at probe level — the baseline rank is HEIGHT (dies with the scale); the conserved objects are the EROSION ORDER (relational, replicating) and now the PER-PROBE IDIOSYNCRASY (the third dimension, rho 0.934 — which probe holds within a family is physics the surface features do not name)]
+## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc) [E214 UPDATE ~15:10Z: the law's direct test — the baseline rank is HEIGHT (dies with the scale, coupling -0.88); the SHAPE layer is the EROSION ORDER (replicates across washes at rho 0.94-1.00; relational: lang holds, cap/cur collapses, baseline strength irrelevant)] [E214+E216 UPDATE ~16:05Z: the law at probe level — the baseline rank is HEIGHT (dies with the scale); the conserved objects are the EROSION ORDER (relational, replicating) and now the PER-PROBE IDIOSYNCRASY (the third dimension, rho 0.934 — which probe holds within a family is physics the surface features do not name)] [HUNT CLOSED ~19:15Z: the third dimension REAL-AND-UNNAMED — the five-cell identity hunt (residual -> beyond height -> not entrenchment -> not tokens -> not compositionality-as-typology) retired every candidate; the singleton guard caught the false naming; the miss replicates without its own anchor]
 
 Assembled from the day's folds (T172-T185), one law has written
 itself into every layer of the program without anyone naming it
