@@ -1,0 +1,5067 @@
+{
+  "experiment": "e223_exposure_e131",
+  "date": "2026-10-02T18:10:52Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the four bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "IMMUNITY_CAUSAL": "IMMUNITY-CAUSAL: \"fires if the top-SV pre-exposure raises its own ray's kill-D BEYOND the pass-back arithmetic (residue >= +0.05 in kill-D units) or raises the cross rays more than the control does (>= +0.05) \u2014 the vaccination causal on the strong-ordering organism.\"",
+    "SENSITIZATION": "SENSITIZATION: \"fires if the drift-side (-v0) exposure LOWERS the kill-D materially (residue <= -0.05) \u2014 the drift direction sensitizes; the reading inverts.\"",
+    "NULL_CONFIRMS": "NULL-CONFIRMS: \"fires if all arms sit on the arithmetic (residues within +-0.01) \u2014 the e222 NULL replicates on the strong-ordering root; T182's ordering retires as a correlation, full stop.\"",
+    "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\"",
+    "operationalizations": "organism = the pristine e131 root as committed (flat md5-gated vs e211's root-P block); ruler = install-60 g-12 (the e131 lineage's battery family; committed read 0.9155886173248291); kill bar 0.27; grid 0.05..3.50 (e211's onset grid +0.5, disclosed before compute: the TOP-EXP pass-back ceiling eps+t_top = 3.032 > 3.00 at this root's t_top 2.757); kill = first downcrossing interpolated (e209/e211/e222 verbatim); span = the root's own contiguous 20-step unwalled AdamW wash (the seed-10902 g1b C-arm stream, per-step L2 gated vs g1b's CUDA rows at 5e-3; the fresh span PR must reproduce e211's committed root-P PR within 1e-6 rel), fp64 Gram-SVD basis, SVD-emitted signs; TOP=dir0 MID=dir9 LOW=dir19; eps = 0.1 x baseline kill-D(dir0), the SAME eps for all four arms; arms TOP-EXP +eps*v0 / LOW-EXP +eps*v19 / CTRL-EXP +eps*u_ctrl (fresh seed 12502, accepted only if the exposed state reads alive, <= 5 draws disclosed \u2014 biased AGAINST the IMMUNITY clause, conservative) / DRIFT-EXP -eps*v0 (the wash's drift side, registered regardless of the measured drift sign); rays top/mid/low/ctrl re-walked from EVERY exposed state; same-axis arithmetic t_base+eps at the +arms (residue kill-D_post - eps - t_base) and t_base-eps at the drift arm (residue kill-D_post - (t_base - eps)); IMMUNITY clause (a) residue(TOP-EXP/top) >= +0.05 OR (b) any cross ray r in {mid,low,ctrl}: delta(TOP-EXP,r) - delta(CTRL-EXP,r) >= +0.05 with delta = D_kill_post - t_base; SENSITIZATION residue(DRIFT-EXP/top) <= -0.05; NULL-CONFIRMS = neither fired AND all four same-axis residues within +-0.01; CE_R canary at every state + the root's dir-0 kill position (report-only); composite IMMUNITY-CAUSAL / SENSITIZATION / NULL-CONFIRMS / GRADED.",
+    "desk_pre_read_disclosure": "ARITHMETIC, stated before compute (no bar moved): the kill walk is theta-D*v. THE +v ARMS: the post-exposure walk REVISITS the baseline positions for D>=eps, so the same-axis kill-D is arithmetically capped at eps + t_base (ratio <= 1 + eps/t_base, 1.10 at the 0.1x dose on the exposed axis, up to +/- one 0.05 grid step); residue = kill-D_post - eps - t_base, 0 = pure position arithmetic. THE -v0 DRIFT ARM: the exposed state sits eps INTO the kill direction; its walk reaches the baseline kill position arithmetically at D = t_base - eps, so the same-axis kill-D is arithmetically FLOORED at t_base - eps (ratio ~0.90); residue = kill-D_post - (t_base - eps), 0 = pure position arithmetic, below the floor by > 0.05 = the SENSITIZATION clause. THE CROSS ROWS have no arithmetic (fresh lines); under pure position-arithmetic the naive prediction is 'unchanged'. The bars adjudicate the raw numbers exactly as registered.",
+    "registration": "the dispatch's registration IS the registration (the four bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; GPU never claimed)",
+    "torch_threads": 4,
+    "load_check_recorded_not_gating": true,
+    "phases": "P0 gates -> P1 span -> P2 baselines + dose -> P3 the exposure arms (incl. the drift side) -> P4 adjudication + figure; progressive writes",
+    "organism": "runs/checkpoints/e131_consolidated_e113.pt (2,739,072 params, the pristine e131 root = e211's root P)",
+    "ruler": "install-60 g-12 (the e131 lineage's battery family; bar 0.27)",
+    "dirs": {
+      "top": 0,
+      "mid": 9,
+      "low": 19
+    },
+    "dose_frac": 0.1,
+    "ctrl_seed": 12502,
+    "cpu_load_pct_at_launch": 0,
+    "cpu_load_pct_after_P3": 23
+  },
+  "deviations": [
+    "THE ORGANISM IS e211'S ROOT P (the pristine e131 root, 2.74M, 6L/6H/192d/256-ctx) \u2014 the strong-ordering root (Spearman +0.809 at P), e222's stated limit; e222's exposure cell runs VERBATIM on it.",
+    "THE DRIFT ARM IS NEW (the dispatch's named untested sign): theta0 - eps*v0, the wash's own drift side; its same-axis arithmetic is the FLOOR t_base - eps (the desk disclosure), not the +arms' ceiling.",
+    "THE CTRL RAY IS WALKED FROM EVERY STATE (the dispatch's letter: 'the top/mid/low rays + control re-walked from every exposed state') \u2014 e222 walked it only at its own arm; +3 walks, same instrument.",
+    "THE D GRID EXTENDS TO 3.50 (e211's onset grid +0.5, disclosed before compute): this root's t_top 2.757 puts the TOP-EXP pass-back ceiling at 3.032 > the family's 3.00 \u2014 without the extension the registered IMMUNITY row (a) would censor mechanically. Same 0.05 step, same interpolation, early stop; dormant for every other row.",
+    "THE CTRL SEED IS 12502 (e222 drew 12501; the registry moves forward, disclosed).",
+    "No committed 20-step span exists for the f2 root (e222's disclosure) \u2014 but one DOES for this root: e211's root-P primary span; the fresh span PR must reproduce it within 1e-6 rel (CPU->CPU same threads) \u2014 the strongest span gate in the family.",
+    "The load-check is recorded, not gating (e204/e205/e209/e211's convention).",
+    "Smoke mode trims: D grid {0.05,0.5,1.5,3.5}, 4-step history (basis dirs re-indexed to 0/1/2 of 3), 2 ctrl draws max; nothing adjudicated (verdict stamped SMOKE)."
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "expected_shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "PRE-DISPATCH CHECK (Rule 12): install-60 battery at ctx offsets {-12,0,+12} \u2014 e185/e209/e211's convention = the e131 lineage's own battery; PRIMARY ruler = g-12"
+    },
+    "G_ANCHOR": {
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 0,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_PARENTS": {
+      "files_md5": {
+        "e131": "986dcaff8e7c47671520c9ac075e2930",
+        "e211": "1dd3c07acc45ba107d4db3ebab5aa4b9",
+        "e222": "77906b6607d029fc16029570931bfeea",
+        "e_chart": "d4ffe31d5ef0e7a9e1e5df603712e11f",
+        "g1b": "833e2bd35602ebcc24108002bda4c1f0"
+      },
+      "hardbound": {
+        "e131.g_e048.battery_pz": 0.5563086867332458,
+        "e131.fired": "RE-KEYED",
+        "e211.rootP.span_pr": 4.117363094870968,
+        "e211.rootP.span_sv0": 1.9597355390295585,
+        "e211.rootP.dir0_kill": 2.7565262446927674,
+        "e211.spearman_P": 0.8095238095238095,
+        "e211.spearman_pooled": 0.6391129032258065,
+        "e211.verdict": "GRADED",
+        "e222.verdict": "NULL",
+        "e222.residue_dir0": 0.0006171217475904323,
+        "e_chart.pristine_root_read": 0.9155886173248291,
+        "g1b.C_traj_rows_1_to_20": "loaded (the pristine history anchors)"
+      },
+      "note": "e211's root-P ordering (kill-D vs SV energy, Spearman +0.809 \u2014 THE strong correlation this cell interrogates), e222's NULL (residue +0.0006 \u2014 the replication target), e131's committed root provenance (RE-KEYED; G_E048 0.5563) \u2014 all loaded, never re-run",
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+      "meta": {
+        "recipe": "e113 verbatim: jittered replay 300 steps",
+        "seed": 10901,
+        "base": "runs/checkpoints/e048_repro.pt"
+      },
+      "n_params": 2739072,
+      "cells": {
+        "g-12": 0.9155886173248291,
+        "g+0": 0.7850371599197388,
+        "g+12": 0.9478210210800171,
+        "ce_r": 1.663516640663147
+      },
+      "settled_read_measured": 0.9155886173248291,
+      "settled_read_committed": 0.9155886173248291,
+      "abs_diff": 0.0,
+      "bit_tol": 5e-06,
+      "tol": 0.005,
+      "bit": true,
+      "flat_md5": "36ae244756475dda71266346e7a0f196",
+      "flat_md5_match_e211_committed": true,
+      "pass": true,
+      "note": "the pristine e131 root used AS COMMITTED (e211's root-P convention: no anch__ ball of its own; flat md5 BIT-gated vs e211's committed block; read gated vs e_chart's rung-0 install-60 g-12)"
+    },
+    "G_STREAM": {
+      "seed": 10902,
+      "src": "runs/g1b/metrics.json arms.C.traj[0] (the seed-10902 wash AT the pristine root)",
+      "step1_x_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "step1_x_md5_match_e185": true,
+      "ce1_measured": 1.356567621231079,
+      "ce1_committed": 1.3565675020217896,
+      "d_ce": 1.1920928955078125e-07,
+      "disp1_measured": 1.6542880535125732,
+      "disp1_committed": 1.6542880535125732,
+      "d_disp": 0.0,
+      "tol": 0.005,
+      "pass": true,
+      "note": "the pristine stream IS g1b's own C-arm stream; step-1 CE + AdamW L2 vs the committed CUDA row (cross-device texture tier, e211's pre-verified convention)"
+    },
+    "G_HIST": {
+      "gate": "per-step displacement L2 vs g1b's committed C-arm rows 1..20",
+      "max_abs_dev_L2": 9.238719940185547e-07,
+      "per_step_dev_first3": [
+        0.0,
+        1.2e-07,
+        1.2e-07
+      ],
+      "tol": 0.005,
+      "committed_death_step": 2,
+      "measured_death_step": 2,
+      "pass": true,
+      "note": "the pristine contiguous history IS g1b's C-arm wash (same stream, same recipe); per-step anchored vs the committed CUDA rows (cross-device texture tier)"
+    },
+    "G_SPAN": {
+      "gate": "the fresh span PR must reproduce e211's committed root-P PR (CPU->CPU, same threads)",
+      "pr_measured": 4.117363094870968,
+      "pr_committed_e211": 4.117363094870968,
+      "pr_rel_dev": 0.0,
+      "sv0_measured": 1.9597355390295585,
+      "sv0_committed_e211": 1.9597355390295585,
+      "sv0_rel_dev": 0.0,
+      "tol": 1e-06,
+      "pass": true,
+      "note": "this run's span IS e211's root-P span (the ordering's own axes) \u2014 the reproduction is the gate; sv0 rides as a report (fp64 eigh degeneracy can permute near-equal SVs; PR is permutation-invariant)"
+    }
+  },
+  "phase": "P4 adjudicated",
+  "span": {
+    "n_segments": 20,
+    "rank_eff": 20,
+    "sv": [
+      1.9597355390295585,
+      1.4676190745815085,
+      1.0840231000069138,
+      0.8516531991871176,
+      0.6754297556601792,
+      0.5446478048652162,
+      0.4751903432789083,
+      0.37694177303028514,
+      0.3406220016987602,
+      0.2792117231232169,
+      0.23479511170828862,
+      0.2120952460349488,
+      0.1816930659234477,
+      0.16720944597868573,
+      0.15851014009334544,
+      0.12365014301894246,
+      0.11241917367756023,
+      0.10215793762375433,
+      0.09377184368376072,
+      0.08634923178214998
+    ],
+    "participation_ratio": 4.117363094870968,
+    "cond": 22.695460035750692,
+    "sv_top": 1.9597355390295585,
+    "energy_frac_top1": 0.40639026898098907,
+    "profile": [
+      1.0,
+      0.7488862886613052,
+      0.5531476459031361,
+      0.43457557523748724,
+      0.3446535219719724,
+      0.27791903245012356,
+      0.24247676985753794,
+      0.19234318382415158,
+      0.17381018760696296,
+      0.14247418468589887,
+      0.11980959013712474,
+      0.1082264631175573,
+      0.09271305352426291,
+      0.08532245430497534,
+      0.08088343398203518,
+      0.06309532105549955,
+      0.05736446139729092,
+      0.052128430387266396,
+      0.04784923364210438,
+      0.04406167570187009
+    ],
+    "energy_frac_dirs": {
+      "dir0": 0.40639026898098907,
+      "dir9": 0.008249272708980262,
+      "dir19": 0.0007889787742583564
+    },
+    "wash_drift_proj_dirs": {
+      "dir0": -4.725435313142226,
+      "dir9": 0.021847696890581407,
+      "dir19": 0.000997957062863413
+    },
+    "drift_side_check": {
+      "dispatch_claim": "the wash drifts along -v0",
+      "measured_drift_dir0": -4.725435313142226,
+      "holds": true,
+      "note": "the DRIFT-EXP arm (-eps*v0) is registered regardless; this reports whether the dispatch's drift-side naming holds at this root's realized wash"
+    },
+    "history": {
+      "n_steps": 20,
+      "rows": [
+        {
+          "step": 1,
+          "L2": 1.6542880535125732,
+          "cum": 1.6542880535125732,
+          "ce": 1.356567621231079,
+          "g_m12_mean_pz": 0.6780440807342529,
+          "g0_mean_pz": 0.4619811177253723,
+          "g_p12_mean_pz": 0.630972683429718
+        },
+        {
+          "step": 2,
+          "L2": 1.0913957357406616,
+          "cum": 2.4892616271972656,
+          "ce": 1.8263245820999146,
+          "g_m12_mean_pz": 0.027077054604887962,
+          "g0_mean_pz": 0.1147073358297348,
+          "g_p12_mean_pz": 0.0140452291816473
+        },
+        {
+          "step": 3,
+          "L2": 0.8403939008712769,
+          "cum": 3.0785462856292725,
+          "ce": 1.669585943222046,
+          "g_m12_mean_pz": 0.011007101275026798,
+          "g0_mean_pz": 0.04852782562375069,
+          "g_p12_mean_pz": 0.015965556725859642
+        },
+        {
+          "step": 4,
+          "L2": 0.7374950051307678,
+          "cum": 3.526789665222168,
+          "ce": 1.3631858825683594,
+          "g_m12_mean_pz": 0.010940761305391788,
+          "g0_mean_pz": 0.06042749062180519,
+          "g_p12_mean_pz": 0.01570577546954155
+        },
+        {
+          "step": 5,
+          "L2": 0.6829712986946106,
+          "cum": 3.8803164958953857,
+          "ce": 1.3955520391464233,
+          "g_m12_mean_pz": 0.04225516691803932,
+          "g0_mean_pz": 0.10592781007289886,
+          "g_p12_mean_pz": 0.03275756165385246
+        },
+        {
+          "step": 6,
+          "L2": 0.648078978061676,
+          "cum": 4.18756103515625,
+          "ce": 1.2410888671875,
+          "g_m12_mean_pz": 0.0794403925538063,
+          "g0_mean_pz": 0.1437576711177826,
+          "g_p12_mean_pz": 0.08635731786489487
+        },
+        {
+          "step": 7,
+          "L2": 0.6056900024414062,
+          "cum": 4.4605231285095215,
+          "ce": 1.1650500297546387,
+          "g_m12_mean_pz": 0.10393191128969193,
+          "g0_mean_pz": 0.18845948576927185,
+          "g_p12_mean_pz": 0.126850888133049
+        },
+        {
+          "step": 8,
+          "L2": 0.585646390914917,
+          "cum": 4.714180946350098,
+          "ce": 1.0894068479537964,
+          "g_m12_mean_pz": 0.04319119080901146,
+          "g0_mean_pz": 0.1597384661436081,
+          "g_p12_mean_pz": 0.05636192485690117
+        },
+        {
+          "step": 9,
+          "L2": 0.5485594272613525,
+          "cum": 4.957010269165039,
+          "ce": 1.1546937227249146,
+          "g_m12_mean_pz": 0.015899859368801117,
+          "g0_mean_pz": 0.08768285065889359,
+          "g_p12_mean_pz": 0.02320895344018936
+        },
+        {
+          "step": 10,
+          "L2": 0.524486780166626,
+          "cum": 5.195915222167969,
+          "ce": 0.9942378997802734,
+          "g_m12_mean_pz": 0.019353048875927925,
+          "g0_mean_pz": 0.09843862056732178,
+          "g_p12_mean_pz": 0.02776176854968071
+        },
+        {
+          "step": 11,
+          "L2": 0.5068569183349609,
+          "cum": 5.4239397048950195,
+          "ce": 1.089450478553772,
+          "g_m12_mean_pz": 0.017735326662659645,
+          "g0_mean_pz": 0.10724151134490967,
+          "g_p12_mean_pz": 0.025979159399867058
+        },
+        {
+          "step": 12,
+          "L2": 0.49159055948257446,
+          "cum": 5.644277095794678,
+          "ce": 1.0081220865249634,
+          "g_m12_mean_pz": 0.028479738160967827,
+          "g0_mean_pz": 0.16196952760219574,
+          "g_p12_mean_pz": 0.04514019936323166
+        },
+        {
+          "step": 13,
+          "L2": 0.4848543703556061,
+          "cum": 5.855512619018555,
+          "ce": 1.0090839862823486,
+          "g_m12_mean_pz": 0.05640661343932152,
+          "g0_mean_pz": 0.21855750679969788,
+          "g_p12_mean_pz": 0.07714790850877762
+        },
+        {
+          "step": 14,
+          "L2": 0.4709712862968445,
+          "cum": 6.05991792678833,
+          "ce": 0.9677252769470215,
+          "g_m12_mean_pz": 0.06383992731571198,
+          "g0_mean_pz": 0.24086077511310577,
+          "g_p12_mean_pz": 0.09692206978797913
+        },
+        {
+          "step": 15,
+          "L2": 0.45911526679992676,
+          "cum": 6.254332542419434,
+          "ce": 0.9829158782958984,
+          "g_m12_mean_pz": 0.05318879708647728,
+          "g0_mean_pz": 0.24915571510791779,
+          "g_p12_mean_pz": 0.090151347219944
+        },
+        {
+          "step": 16,
+          "L2": 0.4520505666732788,
+          "cum": 6.442873001098633,
+          "ce": 0.9262686371803284,
+          "g_m12_mean_pz": 0.06995876133441925,
+          "g0_mean_pz": 0.29821109771728516,
+          "g_p12_mean_pz": 0.12631097435951233
+        },
+        {
+          "step": 17,
+          "L2": 0.4399435818195343,
+          "cum": 6.625246047973633,
+          "ce": 0.8896399140357971,
+          "g_m12_mean_pz": 0.056219253689050674,
+          "g0_mean_pz": 0.26554834842681885,
+          "g_p12_mean_pz": 0.09928392618894577
+        },
+        {
+          "step": 18,
+          "L2": 0.4346262514591217,
+          "cum": 6.800528526306152,
+          "ce": 0.8940185308456421,
+          "g_m12_mean_pz": 0.018894603475928307,
+          "g0_mean_pz": 0.15410736203193665,
+          "g_p12_mean_pz": 0.034461699426174164
+        },
+        {
+          "step": 19,
+          "L2": 0.41956835985183716,
+          "cum": 6.96819543838501,
+          "ce": 0.8490587472915649,
+          "g_m12_mean_pz": 0.013496199622750282,
+          "g0_mean_pz": 0.1244025006890297,
+          "g_p12_mean_pz": 0.02429124340415001
+        },
+        {
+          "step": 20,
+          "L2": 0.4132964015007019,
+          "cum": 7.129310607910156,
+          "ce": 0.827785313129425,
+          "g_m12_mean_pz": 0.0165554191917181,
+          "g0_mean_pz": 0.1395132839679718,
+          "g_p12_mean_pz": 0.028068184852600098
+        }
+      ],
+      "step1_L2": 1.6542880535125732,
+      "cum_final": 7.129310607910156,
+      "step1_L2_vs_G_STREAM": 0.0,
+      "fact_died_in_history_at_step": 2,
+      "note": "the wash-history trace (the span's source); step-1 rows double-check vs G_STREAM / g1b's committed C-arm row (the fact dies at step 2 \u2014 the span is built from all 20 segments regardless, e211's convention)"
+    },
+    "note": "the contiguous wash-history span (e211's machinery at the e131 root, reproduced under G_SPAN); drift = <theta20-theta0, v_i> (the wash's own drift along each axis, sign vs the SVD-emitted +v)"
+  },
+  "baselines": {
+    "top": {
+      "dir": 0,
+      "energy_frac": 0.40639026898098907,
+      "D_kill": 2.7565262446927674,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.9155886173248291,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.9194868803024292,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.9223688840866089,
+          "frac": 1.0
+        },
+        {
+          "D": 0.15,
+          "gm": 0.9244785904884338,
+          "frac": 1.0
+        },
+        {
+          "D": 0.2,
+          "gm": 0.9259670376777649,
+          "frac": 1.0
+        },
+        {
+          "D": 0.25,
+          "gm": 0.9269227981567383,
+          "frac": 1.0
+        },
+        {
+          "D": 0.3,
+          "gm": 0.9273994565010071,
+          "frac": 1.0
+        },
+        {
+          "D": 0.35,
+          "gm": 0.9274283647537231,
+          "frac": 1.0
+        },
+        {
+          "D": 0.4,
+          "gm": 0.9270281195640564,
+          "frac": 1.0
+        },
+        {
+          "D": 0.45,
+          "gm": 0.9262074828147888,
+          "frac": 1.0
+        },
+        {
+          "D": 0.5,
+          "gm": 0.9249666333198547,
+          "frac": 1.0
+        },
+        {
+          "D": 0.55,
+          "gm": 0.9233001470565796,
+          "frac": 1.0
+        },
+        {
+          "D": 0.6,
+          "gm": 0.9211966395378113,
+          "frac": 1.0
+        },
+        {
+          "D": 0.65,
+          "gm": 0.9186386466026306,
+          "frac": 1.0
+        },
+        {
+          "D": 0.7,
+          "gm": 0.9156050086021423,
+          "frac": 1.0
+        },
+        {
+          "D": 0.75,
+          "gm": 0.9120691418647766,
+          "frac": 1.0
+        },
+        {
+          "D": 0.8,
+          "gm": 0.9080000519752502,
+          "frac": 1.0
+        },
+        {
+          "D": 0.85,
+          "gm": 0.9033634662628174,
+          "frac": 1.0
+        },
+        {
+          "D": 0.9,
+          "gm": 0.8981210589408875,
+          "frac": 1.0
+        },
+        {
+          "D": 0.95,
+          "gm": 0.8922310471534729,
+          "frac": 1.0
+        },
+        {
+          "D": 1.0,
+          "gm": 0.8856495022773743,
+          "frac": 1.0
+        },
+        {
+          "D": 1.05,
+          "gm": 0.8783303499221802,
+          "frac": 1.0
+        },
+        {
+          "D": 1.1,
+          "gm": 0.8702260255813599,
+          "frac": 1.0
+        },
+        {
+          "D": 1.15,
+          "gm": 0.8612890839576721,
+          "frac": 1.0
+        },
+        {
+          "D": 1.2,
+          "gm": 0.8514733910560608,
+          "frac": 1.0
+        },
+        {
+          "D": 1.25,
+          "gm": 0.8407355546951294,
+          "frac": 1.0
+        },
+        {
+          "D": 1.3,
+          "gm": 0.8290367126464844,
+          "frac": 1.0
+        },
+        {
+          "D": 1.35,
+          "gm": 0.8163451552391052,
+          "frac": 1.0
+        },
+        {
+          "D": 1.4,
+          "gm": 0.8026373982429504,
+          "frac": 1.0
+        },
+        {
+          "D": 1.45,
+          "gm": 0.7879015803337097,
+          "frac": 1.0
+        },
+        {
+          "D": 1.5,
+          "gm": 0.7721386551856995,
+          "frac": 1.0
+        },
+        {
+          "D": 1.55,
+          "gm": 0.7553637027740479,
+          "frac": 1.0
+        },
+        {
+          "D": 1.6,
+          "gm": 0.7376095652580261,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 1.65,
+          "gm": 0.7189241051673889,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 1.7,
+          "gm": 0.6993728876113892,
+          "frac": 0.95
+        },
+        {
+          "D": 1.75,
+          "gm": 0.6790376305580139,
+          "frac": 0.95
+        },
+        {
+          "D": 1.8,
+          "gm": 0.6580111384391785,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 1.85,
+          "gm": 0.6363998651504517,
+          "frac": 0.85
+        },
+        {
+          "D": 1.9,
+          "gm": 0.6143187880516052,
+          "frac": 0.8333333333333334
+        },
+        {
+          "D": 1.95,
+          "gm": 0.5918869376182556,
+          "frac": 0.7833333333333333
+        },
+        {
+          "D": 2.0,
+          "gm": 0.5692275762557983,
+          "frac": 0.7
+        },
+        {
+          "D": 2.05,
+          "gm": 0.5464641451835632,
+          "frac": 0.6666666666666666
+        },
+        {
+          "D": 2.1,
+          "gm": 0.523718535900116,
+          "frac": 0.5666666666666667
+        },
+        {
+          "D": 2.15,
+          "gm": 0.50110924243927,
+          "frac": 0.5333333333333333
+        },
+        {
+          "D": 2.2,
+          "gm": 0.47875091433525085,
+          "frac": 0.4666666666666667
+        },
+        {
+          "D": 2.25,
+          "gm": 0.45674875378608704,
+          "frac": 0.43333333333333335
+        },
+        {
+          "D": 2.3,
+          "gm": 0.43520209193229675,
+          "frac": 0.4
+        },
+        {
+          "D": 2.35,
+          "gm": 0.4141983985900879,
+          "frac": 0.36666666666666664
+        },
+        {
+          "D": 2.4,
+          "gm": 0.3938126564025879,
+          "frac": 0.35
+        },
+        {
+          "D": 2.45,
+          "gm": 0.3741072118282318,
+          "frac": 0.31666666666666665
+        },
+        {
+          "D": 2.5,
+          "gm": 0.3551294505596161,
+          "frac": 0.3
+        },
+        {
+          "D": 2.55,
+          "gm": 0.3369125425815582,
+          "frac": 0.3
+        },
+        {
+          "D": 2.6,
+          "gm": 0.3194764256477356,
+          "frac": 0.26666666666666666
+        },
+        {
+          "D": 2.65,
+          "gm": 0.3028278350830078,
+          "frac": 0.25
+        },
+        {
+          "D": 2.7,
+          "gm": 0.28696393966674805,
+          "frac": 0.23333333333333334
+        },
+        {
+          "D": 2.75,
+          "gm": 0.27187177538871765,
+          "frac": 0.21666666666666667
+        },
+        {
+          "D": 2.8,
+          "gm": 0.25753140449523926,
+          "frac": 0.2
+        }
+      ]
+    },
+    "mid": {
+      "dir": 9,
+      "energy_frac": 0.008249272708980262,
+      "D_kill": 1.251912685854775,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.9155886173248291,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.910252571105957,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.9030584692955017,
+          "frac": 1.0
+        },
+        {
+          "D": 0.15,
+          "gm": 0.8939756155014038,
+          "frac": 1.0
+        },
+        {
+          "D": 0.2,
+          "gm": 0.8828980922698975,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.25,
+          "gm": 0.8697109818458557,
+          "frac": 0.95
+        },
+        {
+          "D": 0.3,
+          "gm": 0.8543156981468201,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.35,
+          "gm": 0.8366572856903076,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.4,
+          "gm": 0.8168221116065979,
+          "frac": 0.9
+        },
+        {
+          "D": 0.45,
+          "gm": 0.7950385808944702,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.5,
+          "gm": 0.7714131474494934,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.55,
+          "gm": 0.7457720041275024,
+          "frac": 0.8666666666666667
+        },
+        {
+          "D": 0.6,
+          "gm": 0.7177995443344116,
+          "frac": 0.8166666666666667
+        },
+        {
+          "D": 0.65,
+          "gm": 0.6871960163116455,
+          "frac": 0.8
+        },
+        {
+          "D": 0.7,
+          "gm": 0.6538464426994324,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 0.75,
+          "gm": 0.6182143092155457,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 0.8,
+          "gm": 0.5816164016723633,
+          "frac": 0.7333333333333333
+        },
+        {
+          "D": 0.85,
+          "gm": 0.545522153377533,
+          "frac": 0.7
+        },
+        {
+          "D": 0.9,
+          "gm": 0.510359525680542,
+          "frac": 0.6833333333333333
+        },
+        {
+          "D": 0.95,
+          "gm": 0.47561943531036377,
+          "frac": 0.6666666666666666
+        },
+        {
+          "D": 1.0,
+          "gm": 0.4407660663127899,
+          "frac": 0.65
+        },
+        {
+          "D": 1.05,
+          "gm": 0.4056825041770935,
+          "frac": 0.65
+        },
+        {
+          "D": 1.1,
+          "gm": 0.3706510365009308,
+          "frac": 0.5666666666666667
+        },
+        {
+          "D": 1.15,
+          "gm": 0.3361815810203552,
+          "frac": 0.55
+        },
+        {
+          "D": 1.2,
+          "gm": 0.3028402626514435,
+          "frac": 0.48333333333333334
+        },
+        {
+          "D": 1.25,
+          "gm": 0.271135151386261,
+          "frac": 0.38333333333333336
+        },
+        {
+          "D": 1.3,
+          "gm": 0.2414608746767044,
+          "frac": 0.31666666666666665
+        }
+      ]
+    },
+    "low": {
+      "dir": 19,
+      "energy_frac": 0.0007889787742583564,
+      "D_kill": 3.2089224139107184,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.9155886173248291,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.9124155044555664,
+          "frac": 1.0
+        },
+        {
+          "D": 0.1,
+          "gm": 0.9087680578231812,
+          "frac": 1.0
+        },
+        {
+          "D": 0.15,
+          "gm": 0.9046347141265869,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.2,
+          "gm": 0.9000014662742615,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.25,
+          "gm": 0.894853413105011,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.3,
+          "gm": 0.8891763091087341,
+          "frac": 0.9833333333333333
+        },
+        {
+          "D": 0.35,
+          "gm": 0.8829574584960938,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.4,
+          "gm": 0.8761888146400452,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.45,
+          "gm": 0.8688666224479675,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.5,
+          "gm": 0.8609960079193115,
+          "frac": 0.95
+        },
+        {
+          "D": 0.55,
+          "gm": 0.8525961637496948,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.6,
+          "gm": 0.8437048196792603,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.65,
+          "gm": 0.8343817591667175,
+          "frac": 0.9166666666666666
+        },
+        {
+          "D": 0.7,
+          "gm": 0.8247165083885193,
+          "frac": 0.9
+        },
+        {
+          "D": 0.75,
+          "gm": 0.8148165345191956,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.8,
+          "gm": 0.8048035502433777,
+          "frac": 0.8833333333333333
+        },
+        {
+          "D": 0.85,
+          "gm": 0.7947980165481567,
+          "frac": 0.85
+        },
+        {
+          "D": 0.9,
+          "gm": 0.784906804561615,
+          "frac": 0.85
+        },
+        {
+          "D": 0.95,
+          "gm": 0.775214433670044,
+          "frac": 0.8333333333333334
+        },
+        {
+          "D": 1.0,
+          "gm": 0.7657782435417175,
+          "frac": 0.8333333333333334
+        },
+        {
+          "D": 1.05,
+          "gm": 0.7566266655921936,
+          "frac": 0.8166666666666667
+        },
+        {
+          "D": 1.1,
+          "gm": 0.7477615475654602,
+          "frac": 0.7833333333333333
+        },
+        {
+          "D": 1.15,
+          "gm": 0.7391660213470459,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 1.2,
+          "gm": 0.7308135628700256,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 1.25,
+          "gm": 0.7226778864860535,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 1.3,
+          "gm": 0.7147443890571594,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 1.35,
+          "gm": 0.7070112824440002,
+          "frac": 0.75
+        },
+        {
+          "D": 1.4,
+          "gm": 0.6994840502738953,
+          "frac": 0.75
+        },
+        {
+          "D": 1.45,
+          "gm": 0.6921635866165161,
+          "frac": 0.75
+        },
+        {
+          "D": 1.5,
+          "gm": 0.6850355863571167,
+          "frac": 0.75
+        },
+        {
+          "D": 1.55,
+          "gm": 0.6780636310577393,
+          "frac": 0.75
+        },
+        {
+          "D": 1.6,
+          "gm": 0.6711907982826233,
+          "frac": 0.7333333333333333
+        },
+        {
+          "D": 1.65,
+          "gm": 0.6643461585044861,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.7,
+          "gm": 0.6574521660804749,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.75,
+          "gm": 0.6504351496696472,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.8,
+          "gm": 0.643233060836792,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.85,
+          "gm": 0.6358022093772888,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.9,
+          "gm": 0.6281195878982544,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 1.95,
+          "gm": 0.6201791167259216,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 2.0,
+          "gm": 0.6119800806045532,
+          "frac": 0.7166666666666667
+        },
+        {
+          "D": 2.05,
+          "gm": 0.6035146117210388,
+          "frac": 0.7
+        },
+        {
+          "D": 2.1,
+          "gm": 0.5947567820549011,
+          "frac": 0.7
+        },
+        {
+          "D": 2.15,
+          "gm": 0.585661768913269,
+          "frac": 0.7
+        },
+        {
+          "D": 2.2,
+          "gm": 0.5761697888374329,
+          "frac": 0.7
+        },
+        {
+          "D": 2.25,
+          "gm": 0.5662164092063904,
+          "frac": 0.7
+        },
+        {
+          "D": 2.3,
+          "gm": 0.555738627910614,
+          "frac": 0.7
+        },
+        {
+          "D": 2.35,
+          "gm": 0.5446799993515015,
+          "frac": 0.7
+        },
+        {
+          "D": 2.4,
+          "gm": 0.5329941511154175,
+          "frac": 0.7
+        },
+        {
+          "D": 2.45,
+          "gm": 0.5206469893455505,
+          "frac": 0.7
+        },
+        {
+          "D": 2.5,
+          "gm": 0.5076174736022949,
+          "frac": 0.6666666666666666
+        },
+        {
+          "D": 2.55,
+          "gm": 0.49389928579330444,
+          "frac": 0.6666666666666666
+        },
+        {
+          "D": 2.6,
+          "gm": 0.47950202226638794,
+          "frac": 0.65
+        },
+        {
+          "D": 2.65,
+          "gm": 0.46444931626319885,
+          "frac": 0.65
+        },
+        {
+          "D": 2.7,
+          "gm": 0.44877946376800537,
+          "frac": 0.6333333333333333
+        },
+        {
+          "D": 2.75,
+          "gm": 0.43254271149635315,
+          "frac": 0.55
+        },
+        {
+          "D": 2.8,
+          "gm": 0.4157983064651489,
+          "frac": 0.5166666666666667
+        },
+        {
+          "D": 2.85,
+          "gm": 0.39861446619033813,
+          "frac": 0.4666666666666667
+        },
+        {
+          "D": 2.9,
+          "gm": 0.3810656666755676,
+          "frac": 0.43333333333333335
+        },
+        {
+          "D": 2.95,
+          "gm": 0.36323344707489014,
+          "frac": 0.38333333333333336
+        },
+        {
+          "D": 3.0,
+          "gm": 0.34520480036735535,
+          "frac": 0.36666666666666664
+        },
+        {
+          "D": 3.05,
+          "gm": 0.32707491517066956,
+          "frac": 0.35
+        },
+        {
+          "D": 3.1,
+          "gm": 0.30894482135772705,
+          "frac": 0.3
+        },
+        {
+          "D": 3.15,
+          "gm": 0.2909221351146698,
+          "frac": 0.26666666666666666
+        },
+        {
+          "D": 3.2,
+          "gm": 0.27311840653419495,
+          "frac": 0.21666666666666667
+        },
+        {
+          "D": 3.25,
+          "gm": 0.2556432783603668,
+          "frac": 0.15
+        }
+      ]
+    },
+    "ctrl": {
+      "dir": "ctrl (random in-span)",
+      "D_kill": 0.5833106551334242,
+      "rows": [
+        {
+          "D": 0.0,
+          "gm": 0.9155886173248291,
+          "frac": 1.0
+        },
+        {
+          "D": 0.05,
+          "gm": 0.8933387994766235,
+          "frac": 0.9666666666666667
+        },
+        {
+          "D": 0.1,
+          "gm": 0.8641242384910583,
+          "frac": 0.95
+        },
+        {
+          "D": 0.15,
+          "gm": 0.8263033628463745,
+          "frac": 0.9333333333333333
+        },
+        {
+          "D": 0.2,
+          "gm": 0.7795447707176208,
+          "frac": 0.9
+        },
+        {
+          "D": 0.25,
+          "gm": 0.7255370020866394,
+          "frac": 0.8166666666666667
+        },
+        {
+          "D": 0.3,
+          "gm": 0.6667289733886719,
+          "frac": 0.7666666666666667
+        },
+        {
+          "D": 0.35,
+          "gm": 0.6040340065956116,
+          "frac": 0.75
+        },
+        {
+          "D": 0.4,
+          "gm": 0.5365375280380249,
+          "frac": 0.7
+        },
+        {
+          "D": 0.45,
+          "gm": 0.46411797404289246,
+          "frac": 0.65
+        },
+        {
+          "D": 0.5,
+          "gm": 0.3894170820713043,
+          "frac": 0.5833333333333334
+        },
+        {
+          "D": 0.55,
+          "gm": 0.3159186542034149,
+          "frac": 0.5
+        },
+        {
+          "D": 0.6,
+          "gm": 0.2469937801361084,
+          "frac": 0.35
+        }
+      ],
+      "n_draws_to_accept": 1
+    }
+  },
+  "dose": {
+    "baseline_kill_top": 2.7565262446927674,
+    "vs_e211_committed_dir0_kill": {
+      "committed": 2.7565262446927674,
+      "abs_dev": 0.0
+    },
+    "dose_frac": 0.1,
+    "eps_L2": 0.27565262446927674,
+    "eps_frac_of": {
+      "mid": 0.22018518350668195,
+      "low": 0.0859019287204699
+    },
+    "pass_back_ceil_top_row": 3.032178869162044,
+    "pass_back_floor_top_row": 2.4808736202234907,
+    "grid_max": 3.5,
+    "note": "eps = 0.1 x the top-SV direction's own un-exposed kill-D (sub-lethal by construction along the exposed axis); the same eps for all four arms (matched L2); the +arm ceiling eps+t_top and the drift-arm floor t_top-eps both stated BEFORE compute (the desk disclosure)"
+  },
+  "control_draws": {
+    "seed": 12502,
+    "max_draws": 5,
+    "draws": [
+      {
+        "draw": 1,
+        "read_at_exposed_state": 0.9644708633422852,
+        "accepted": true
+      }
+    ],
+    "n_draws": 1,
+    "selection_disclosure": "accepted = first draw whose exposed state reads alive; the selection biases the control toward forgiveness \u2014 i.e. AGAINST the IMMUNITY clause (conservative)"
+  },
+  "arms": {
+    "TOP-EXP": {
+      "exposure": "TOP-EXP",
+      "eps": 0.27565262446927674,
+      "sign": 1.0,
+      "gate": {
+        "exposure_sign": "+v (anti-drift side)",
+        "exposed_state_primary_read": 0.873432993888855,
+        "corulers": {
+          "coruler_g+0": 0.8108148574829102,
+          "coruler_g+12": 0.9109582901000977
+        },
+        "ce_r": 1.6967272758483887,
+        "ce_r_delta_vs_root": 0.0332106351852417,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 3.03232769331355,
+          "D_kill_baseline": 2.7565262446927674,
+          "arithmetic_prediction_D": 3.032178869162044,
+          "ratio_vs_baseline": 1.1000539897458959,
+          "same_axis": true,
+          "mechanical_ceiling_or_floor_ratio": 1.1,
+          "causal_residue_D": 0.00014882415150596628,
+          "cross_delta_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.873432993888855,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8822439908981323,
+              "frac": 0.95
+            },
+            {
+              "D": 0.1,
+              "gm": 0.891011655330658,
+              "frac": 0.95
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8995136022567749,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.907053530216217,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9130880236625671,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.917633593082428,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.9209997653961182,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.9234815239906311,
+              "frac": 1.0
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9252745509147644,
+              "frac": 1.0
+            },
+            {
+              "D": 0.5,
+              "gm": 0.9264951348304749,
+              "frac": 1.0
+            },
+            {
+              "D": 0.55,
+              "gm": 0.9272124171257019,
+              "frac": 1.0
+            },
+            {
+              "D": 0.6,
+              "gm": 0.9274681210517883,
+              "frac": 1.0
+            },
+            {
+              "D": 0.65,
+              "gm": 0.9272863864898682,
+              "frac": 1.0
+            },
+            {
+              "D": 0.7,
+              "gm": 0.9266808032989502,
+              "frac": 1.0
+            },
+            {
+              "D": 0.75,
+              "gm": 0.9256557822227478,
+              "frac": 1.0
+            },
+            {
+              "D": 0.8,
+              "gm": 0.92420893907547,
+              "frac": 1.0
+            },
+            {
+              "D": 0.85,
+              "gm": 0.9223315119743347,
+              "frac": 1.0
+            },
+            {
+              "D": 0.9,
+              "gm": 0.920009195804596,
+              "frac": 1.0
+            },
+            {
+              "D": 0.95,
+              "gm": 0.9172226786613464,
+              "frac": 1.0
+            },
+            {
+              "D": 1.0,
+              "gm": 0.9139478802680969,
+              "frac": 1.0
+            },
+            {
+              "D": 1.05,
+              "gm": 0.9101563692092896,
+              "frac": 1.0
+            },
+            {
+              "D": 1.1,
+              "gm": 0.9058154821395874,
+              "frac": 1.0
+            },
+            {
+              "D": 1.15,
+              "gm": 0.9008886814117432,
+              "frac": 1.0
+            },
+            {
+              "D": 1.2,
+              "gm": 0.8953364491462708,
+              "frac": 1.0
+            },
+            {
+              "D": 1.25,
+              "gm": 0.8891155123710632,
+              "frac": 1.0
+            },
+            {
+              "D": 1.3,
+              "gm": 0.8821805715560913,
+              "frac": 1.0
+            },
+            {
+              "D": 1.35,
+              "gm": 0.8744849562644958,
+              "frac": 1.0
+            },
+            {
+              "D": 1.4,
+              "gm": 0.8659811615943909,
+              "frac": 1.0
+            },
+            {
+              "D": 1.45,
+              "gm": 0.8566218018531799,
+              "frac": 1.0
+            },
+            {
+              "D": 1.5,
+              "gm": 0.846362292766571,
+              "frac": 1.0
+            },
+            {
+              "D": 1.55,
+              "gm": 0.8351612091064453,
+              "frac": 1.0
+            },
+            {
+              "D": 1.6,
+              "gm": 0.8229824304580688,
+              "frac": 1.0
+            },
+            {
+              "D": 1.65,
+              "gm": 0.8097984194755554,
+              "frac": 1.0
+            },
+            {
+              "D": 1.7,
+              "gm": 0.7955907583236694,
+              "frac": 1.0
+            },
+            {
+              "D": 1.75,
+              "gm": 0.7803535461425781,
+              "frac": 1.0
+            },
+            {
+              "D": 1.8,
+              "gm": 0.7640946507453918,
+              "frac": 1.0
+            },
+            {
+              "D": 1.85,
+              "gm": 0.7468379735946655,
+              "frac": 1.0
+            },
+            {
+              "D": 1.9,
+              "gm": 0.7286233305931091,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.95,
+              "gm": 0.7095072269439697,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 2.0,
+              "gm": 0.6895633935928345,
+              "frac": 0.95
+            },
+            {
+              "D": 2.05,
+              "gm": 0.6688784956932068,
+              "frac": 0.95
+            },
+            {
+              "D": 2.1,
+              "gm": 0.6475542783737183,
+              "frac": 0.85
+            },
+            {
+              "D": 2.15,
+              "gm": 0.6256988644599915,
+              "frac": 0.85
+            },
+            {
+              "D": 2.2,
+              "gm": 0.6034318804740906,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 2.25,
+              "gm": 0.5808737277984619,
+              "frac": 0.75
+            },
+            {
+              "D": 2.3,
+              "gm": 0.558148205280304,
+              "frac": 0.7
+            },
+            {
+              "D": 2.35,
+              "gm": 0.535378634929657,
+              "frac": 0.6
+            },
+            {
+              "D": 2.4,
+              "gm": 0.5126851201057434,
+              "frac": 0.55
+            },
+            {
+              "D": 2.45,
+              "gm": 0.49018409848213196,
+              "frac": 0.5
+            },
+            {
+              "D": 2.5,
+              "gm": 0.46798619627952576,
+              "frac": 0.4666666666666667
+            },
+            {
+              "D": 2.55,
+              "gm": 0.4461943507194519,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 2.6,
+              "gm": 0.4249013364315033,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 2.65,
+              "gm": 0.4041900634765625,
+              "frac": 0.35
+            },
+            {
+              "D": 2.7,
+              "gm": 0.3841286897659302,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 2.75,
+              "gm": 0.3647724986076355,
+              "frac": 0.3
+            },
+            {
+              "D": 2.8,
+              "gm": 0.34616219997406006,
+              "frac": 0.3
+            },
+            {
+              "D": 2.85,
+              "gm": 0.32832369208335876,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 2.9,
+              "gm": 0.311271071434021,
+              "frac": 0.26666666666666666
+            },
+            {
+              "D": 2.95,
+              "gm": 0.29500558972358704,
+              "frac": 0.25
+            },
+            {
+              "D": 3.0,
+              "gm": 0.27951934933662415,
+              "frac": 0.23333333333333334
+            },
+            {
+              "D": 3.05,
+              "gm": 0.2647961378097534,
+              "frac": 0.2
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 1.2453918787657678,
+          "D_kill_baseline": 1.251912685854775,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 0.9947913243769433,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": -0.006520807089007263,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.873432993888855,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8687884211540222,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8629499077796936,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8556159734725952,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8464146256446838,
+              "frac": 0.9
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8350927829742432,
+              "frac": 0.9
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8215892910957336,
+              "frac": 0.9
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8059424161911011,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.4,
+              "gm": 0.78814697265625,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7680739164352417,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7455201745033264,
+              "frac": 0.85
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7203269600868225,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6924805045127869,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.65,
+              "gm": 0.662305474281311,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.6308066844940186,
+              "frac": 0.75
+            },
+            {
+              "D": 0.75,
+              "gm": 0.5993497371673584,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.8,
+              "gm": 0.5684072375297546,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.5373805165290833,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.5055124163627625,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.95,
+              "gm": 0.47242072224617004,
+              "frac": 0.65
+            },
+            {
+              "D": 1.0,
+              "gm": 0.43815478682518005,
+              "frac": 0.65
+            },
+            {
+              "D": 1.05,
+              "gm": 0.40309563279151917,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 1.1,
+              "gm": 0.36782506108283997,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 1.15,
+              "gm": 0.33299338817596436,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 1.2,
+              "gm": 0.299219012260437,
+              "frac": 0.4666666666666667
+            },
+            {
+              "D": 1.25,
+              "gm": 0.26703372597694397,
+              "frac": 0.4166666666666667
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 3.3614556806547236,
+          "D_kill_baseline": 3.2089224139107184,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.0475341086723604,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.15253326674400514,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.873432993888855,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8704710602760315,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8669893145561218,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8630226254463196,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8586024045944214,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8537560105323792,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8485087156295776,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8428823947906494,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.4,
+              "gm": 0.836898684501648,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.830579936504364,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8239506483078003,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.8170421719551086,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.8098927736282349,
+              "frac": 0.85
+            },
+            {
+              "D": 0.65,
+              "gm": 0.8025510907173157,
+              "frac": 0.85
+            },
+            {
+              "D": 0.7,
+              "gm": 0.7950745224952698,
+              "frac": 0.85
+            },
+            {
+              "D": 0.75,
+              "gm": 0.7875270843505859,
+              "frac": 0.85
+            },
+            {
+              "D": 0.8,
+              "gm": 0.7799766063690186,
+              "frac": 0.85
+            },
+            {
+              "D": 0.85,
+              "gm": 0.7724865674972534,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.9,
+              "gm": 0.7651118040084839,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.95,
+              "gm": 0.7578911185264587,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.0,
+              "gm": 0.7508451342582703,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.05,
+              "gm": 0.7439773678779602,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.1,
+              "gm": 0.7372796535491943,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.15,
+              "gm": 0.7307414412498474,
+              "frac": 0.75
+            },
+            {
+              "D": 1.2,
+              "gm": 0.7243577241897583,
+              "frac": 0.75
+            },
+            {
+              "D": 1.25,
+              "gm": 0.7181341648101807,
+              "frac": 0.75
+            },
+            {
+              "D": 1.3,
+              "gm": 0.7120850086212158,
+              "frac": 0.75
+            },
+            {
+              "D": 1.35,
+              "gm": 0.7062244415283203,
+              "frac": 0.75
+            },
+            {
+              "D": 1.4,
+              "gm": 0.7005558013916016,
+              "frac": 0.75
+            },
+            {
+              "D": 1.45,
+              "gm": 0.6950650811195374,
+              "frac": 0.75
+            },
+            {
+              "D": 1.5,
+              "gm": 0.6897198557853699,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.55,
+              "gm": 0.6844730973243713,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.6,
+              "gm": 0.6792699098587036,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.65,
+              "gm": 0.6740530729293823,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.7,
+              "gm": 0.6687684655189514,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.75,
+              "gm": 0.6633692979812622,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.8,
+              "gm": 0.657817006111145,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.85,
+              "gm": 0.6520835757255554,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.9,
+              "gm": 0.6461504697799683,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.95,
+              "gm": 0.6400054693222046,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.0,
+              "gm": 0.6336386203765869,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.05,
+              "gm": 0.6270355582237244,
+              "frac": 0.7
+            },
+            {
+              "D": 2.1,
+              "gm": 0.6201727390289307,
+              "frac": 0.7
+            },
+            {
+              "D": 2.15,
+              "gm": 0.6130145788192749,
+              "frac": 0.7
+            },
+            {
+              "D": 2.2,
+              "gm": 0.605514645576477,
+              "frac": 0.7
+            },
+            {
+              "D": 2.25,
+              "gm": 0.5976173877716064,
+              "frac": 0.7
+            },
+            {
+              "D": 2.3,
+              "gm": 0.5892627239227295,
+              "frac": 0.7
+            },
+            {
+              "D": 2.35,
+              "gm": 0.5803894400596619,
+              "frac": 0.7
+            },
+            {
+              "D": 2.4,
+              "gm": 0.5709378719329834,
+              "frac": 0.7
+            },
+            {
+              "D": 2.45,
+              "gm": 0.5608528852462769,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.5,
+              "gm": 0.5500856041908264,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.55,
+              "gm": 0.5385954976081848,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.6,
+              "gm": 0.5263545513153076,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.65,
+              "gm": 0.5133475065231323,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.7,
+              "gm": 0.49957433342933655,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.75,
+              "gm": 0.48505067825317383,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.8,
+              "gm": 0.4698058068752289,
+              "frac": 0.65
+            },
+            {
+              "D": 2.85,
+              "gm": 0.45388367772102356,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 2.9,
+              "gm": 0.4373386800289154,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 2.95,
+              "gm": 0.4202350974082947,
+              "frac": 0.55
+            },
+            {
+              "D": 3.0,
+              "gm": 0.40264785289764404,
+              "frac": 0.5
+            },
+            {
+              "D": 3.05,
+              "gm": 0.3846598267555237,
+              "frac": 0.4666666666666667
+            },
+            {
+              "D": 3.1,
+              "gm": 0.3663633167743683,
+              "frac": 0.4
+            },
+            {
+              "D": 3.15,
+              "gm": 0.347859650850296,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 3.2,
+              "gm": 0.3292596936225891,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 3.25,
+              "gm": 0.310681015253067,
+              "frac": 0.3
+            },
+            {
+              "D": 3.3,
+              "gm": 0.2922450304031372,
+              "frac": 0.26666666666666666
+            },
+            {
+              "D": 3.35,
+              "gm": 0.27407482266426086,
+              "frac": 0.2
+            },
+            {
+              "D": 3.4,
+              "gm": 0.25628966093063354,
+              "frac": 0.16666666666666666
+            }
+          ]
+        },
+        "ctrl": {
+          "D_kill": 0.557464490903585,
+          "D_kill_baseline": 0.5833106551334242,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 0.9556905672776931,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": -0.025846164229839208,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.873432993888855,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.05,
+              "gm": 0.8483749628067017,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8173894882202148,
+              "frac": 0.9
+            },
+            {
+              "D": 0.15,
+              "gm": 0.7798362374305725,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.2,
+              "gm": 0.7362631559371948,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.25,
+              "gm": 0.6878854036331177,
+              "frac": 0.75
+            },
+            {
+              "D": 0.3,
+              "gm": 0.6346028447151184,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.35,
+              "gm": 0.5745620727539062,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.4,
+              "gm": 0.5064120292663574,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.45,
+              "gm": 0.4317665994167328,
+              "frac": 0.6
+            },
+            {
+              "D": 0.5,
+              "gm": 0.35480010509490967,
+              "frac": 0.5
+            },
+            {
+              "D": 0.55,
+              "gm": 0.2801450788974762,
+              "frac": 0.45
+            },
+            {
+              "D": 0.6,
+              "gm": 0.2121894806623459,
+              "frac": 0.25
+            }
+          ]
+        }
+      }
+    },
+    "LOW-EXP": {
+      "exposure": "LOW-EXP",
+      "eps": 0.27565262446927674,
+      "sign": 1.0,
+      "gate": {
+        "exposure_sign": "+v",
+        "exposed_state_primary_read": 0.924551248550415,
+        "corulers": {
+          "coruler_g+0": 0.7824058532714844,
+          "coruler_g+12": 0.9618983864784241
+        },
+        "ce_r": 1.6690503358840942,
+        "ce_r_delta_vs_root": 0.005533695220947266,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 2.7994327053246746,
+          "D_kill_baseline": 2.7565262446927674,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.0155654098031957,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.04290646063190717,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.924551248550415,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9284390807151794,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9313060641288757,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9333860874176025,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9348253011703491,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9357145428657532,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9361114501953125,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.9360530972480774,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.935562252998352,
+              "frac": 1.0
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9346521496772766,
+              "frac": 1.0
+            },
+            {
+              "D": 0.5,
+              "gm": 0.9333263635635376,
+              "frac": 1.0
+            },
+            {
+              "D": 0.55,
+              "gm": 0.9315816164016724,
+              "frac": 1.0
+            },
+            {
+              "D": 0.6,
+              "gm": 0.929408609867096,
+              "frac": 1.0
+            },
+            {
+              "D": 0.65,
+              "gm": 0.9267914891242981,
+              "frac": 1.0
+            },
+            {
+              "D": 0.7,
+              "gm": 0.9237093329429626,
+              "frac": 1.0
+            },
+            {
+              "D": 0.75,
+              "gm": 0.920136034488678,
+              "frac": 1.0
+            },
+            {
+              "D": 0.8,
+              "gm": 0.9160406589508057,
+              "frac": 1.0
+            },
+            {
+              "D": 0.85,
+              "gm": 0.9113879799842834,
+              "frac": 1.0
+            },
+            {
+              "D": 0.9,
+              "gm": 0.9061383605003357,
+              "frac": 1.0
+            },
+            {
+              "D": 0.95,
+              "gm": 0.9002484679222107,
+              "frac": 1.0
+            },
+            {
+              "D": 1.0,
+              "gm": 0.8936722874641418,
+              "frac": 1.0
+            },
+            {
+              "D": 1.05,
+              "gm": 0.8863610625267029,
+              "frac": 1.0
+            },
+            {
+              "D": 1.1,
+              "gm": 0.8782645463943481,
+              "frac": 1.0
+            },
+            {
+              "D": 1.15,
+              "gm": 0.8693329095840454,
+              "frac": 1.0
+            },
+            {
+              "D": 1.2,
+              "gm": 0.859516978263855,
+              "frac": 1.0
+            },
+            {
+              "D": 1.25,
+              "gm": 0.8487710356712341,
+              "frac": 1.0
+            },
+            {
+              "D": 1.3,
+              "gm": 0.8370547890663147,
+              "frac": 1.0
+            },
+            {
+              "D": 1.35,
+              "gm": 0.8243348598480225,
+              "frac": 1.0
+            },
+            {
+              "D": 1.4,
+              "gm": 0.8105885982513428,
+              "frac": 1.0
+            },
+            {
+              "D": 1.45,
+              "gm": 0.7958043217658997,
+              "frac": 1.0
+            },
+            {
+              "D": 1.5,
+              "gm": 0.7799872159957886,
+              "frac": 1.0
+            },
+            {
+              "D": 1.55,
+              "gm": 0.7631551623344421,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.6,
+              "gm": 0.7453464269638062,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.65,
+              "gm": 0.7266162037849426,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.7,
+              "gm": 0.7070353627204895,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 1.75,
+              "gm": 0.6866921782493591,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 1.8,
+              "gm": 0.6656869053840637,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 1.85,
+              "gm": 0.6441308259963989,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 1.9,
+              "gm": 0.6221438050270081,
+              "frac": 0.85
+            },
+            {
+              "D": 1.95,
+              "gm": 0.5998483300209045,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 2.0,
+              "gm": 0.5773695707321167,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.05,
+              "gm": 0.5548315644264221,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.1,
+              "gm": 0.5323550701141357,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 2.15,
+              "gm": 0.510054886341095,
+              "frac": 0.55
+            },
+            {
+              "D": 2.2,
+              "gm": 0.4880385398864746,
+              "frac": 0.5
+            },
+            {
+              "D": 2.25,
+              "gm": 0.46640506386756897,
+              "frac": 0.48333333333333334
+            },
+            {
+              "D": 2.3,
+              "gm": 0.4452408254146576,
+              "frac": 0.45
+            },
+            {
+              "D": 2.35,
+              "gm": 0.4246208965778351,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 2.4,
+              "gm": 0.4046064615249634,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 2.45,
+              "gm": 0.38524702191352844,
+              "frac": 0.35
+            },
+            {
+              "D": 2.5,
+              "gm": 0.3665787875652313,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 2.55,
+              "gm": 0.3486265540122986,
+              "frac": 0.3
+            },
+            {
+              "D": 2.6,
+              "gm": 0.3314049541950226,
+              "frac": 0.26666666666666666
+            },
+            {
+              "D": 2.65,
+              "gm": 0.3149201571941376,
+              "frac": 0.25
+            },
+            {
+              "D": 2.7,
+              "gm": 0.2991698384284973,
+              "frac": 0.23333333333333334
+            },
+            {
+              "D": 2.75,
+              "gm": 0.2841469943523407,
+              "frac": 0.21666666666666667
+            },
+            {
+              "D": 2.8,
+              "gm": 0.2698376476764679,
+              "frac": 0.21666666666666667
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 1.146107463009443,
+          "D_kill_baseline": 1.251912685854775,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 0.9154851420224319,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": -0.10580522284533211,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.924551248550415,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9182183146476746,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9095146059989929,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8983867168426514,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8848822712898254,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8690517544746399,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8506941199302673,
+              "frac": 0.95
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8295490741729736,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8058396577835083,
+              "frac": 0.9
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7800174355506897,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7520545721054077,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7216196060180664,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6884573698043823,
+              "frac": 0.8
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6523881554603577,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.6134498119354248,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 0.75,
+              "gm": 0.5724273324012756,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.8,
+              "gm": 0.5309635996818542,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.85,
+              "gm": 0.49037888646125793,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.4508379101753235,
+              "frac": 0.65
+            },
+            {
+              "D": 0.95,
+              "gm": 0.4120178818702698,
+              "frac": 0.65
+            },
+            {
+              "D": 1.0,
+              "gm": 0.37385180592536926,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 1.05,
+              "gm": 0.3366662263870239,
+              "frac": 0.55
+            },
+            {
+              "D": 1.1,
+              "gm": 0.300997793674469,
+              "frac": 0.45
+            },
+            {
+              "D": 1.15,
+              "gm": 0.26738306879997253,
+              "frac": 0.38333333333333336
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 3.4845989329723692,
+          "D_kill_baseline": 3.2089224139107184,
+          "arithmetic_prediction_D": 3.484575038379995,
+          "ratio_vs_baseline": 1.0859093750184141,
+          "same_axis": true,
+          "mechanical_ceiling_or_floor_ratio": 1.0859019287204699,
+          "causal_residue_D": 2.3894592374062995e-05,
+          "cross_delta_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.924551248550415,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9240496158599854,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9230241179466248,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9215021133422852,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9195025563240051,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9170351028442383,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9141021966934204,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.910699188709259,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.9068168997764587,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9024419188499451,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8975600004196167,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.8921558856964111,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.8862163424491882,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.65,
+              "gm": 0.879730761051178,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.7,
+              "gm": 0.8726924061775208,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.75,
+              "gm": 0.86510169506073,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.8,
+              "gm": 0.8569701910018921,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.8483245968818665,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.9,
+              "gm": 0.8392139077186584,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.95,
+              "gm": 0.8297122716903687,
+              "frac": 0.9
+            },
+            {
+              "D": 1.0,
+              "gm": 0.8199176788330078,
+              "frac": 0.9
+            },
+            {
+              "D": 1.05,
+              "gm": 0.8099475502967834,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 1.1,
+              "gm": 0.7999234795570374,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 1.15,
+              "gm": 0.7899615168571472,
+              "frac": 0.85
+            },
+            {
+              "D": 1.2,
+              "gm": 0.7801581025123596,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 1.25,
+              "gm": 0.7705852389335632,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 1.3,
+              "gm": 0.7612857818603516,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 1.35,
+              "gm": 0.7522746920585632,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 1.4,
+              "gm": 0.7435438632965088,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.45,
+              "gm": 0.7350701689720154,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.5,
+              "gm": 0.7268259525299072,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.55,
+              "gm": 0.7187899351119995,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.6,
+              "gm": 0.7109534740447998,
+              "frac": 0.75
+            },
+            {
+              "D": 1.65,
+              "gm": 0.7033199071884155,
+              "frac": 0.75
+            },
+            {
+              "D": 1.7,
+              "gm": 0.6958938241004944,
+              "frac": 0.75
+            },
+            {
+              "D": 1.75,
+              "gm": 0.6886703372001648,
+              "frac": 0.75
+            },
+            {
+              "D": 1.8,
+              "gm": 0.6816242933273315,
+              "frac": 0.75
+            },
+            {
+              "D": 1.85,
+              "gm": 0.6747087836265564,
+              "frac": 0.75
+            },
+            {
+              "D": 1.9,
+              "gm": 0.6678591370582581,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 1.95,
+              "gm": 0.6610000729560852,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.0,
+              "gm": 0.6540548205375671,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.05,
+              "gm": 0.646954357624054,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.1,
+              "gm": 0.6396452784538269,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.15,
+              "gm": 0.6320933103561401,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.2,
+              "gm": 0.6242852807044983,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.25,
+              "gm": 0.6162189841270447,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.3,
+              "gm": 0.6078922152519226,
+              "frac": 0.7
+            },
+            {
+              "D": 2.35,
+              "gm": 0.599289059638977,
+              "frac": 0.7
+            },
+            {
+              "D": 2.4,
+              "gm": 0.5903734564781189,
+              "frac": 0.7
+            },
+            {
+              "D": 2.45,
+              "gm": 0.5810931324958801,
+              "frac": 0.7
+            },
+            {
+              "D": 2.5,
+              "gm": 0.5713846683502197,
+              "frac": 0.7
+            },
+            {
+              "D": 2.55,
+              "gm": 0.561183512210846,
+              "frac": 0.7
+            },
+            {
+              "D": 2.6,
+              "gm": 0.5504293441772461,
+              "frac": 0.7
+            },
+            {
+              "D": 2.65,
+              "gm": 0.5390701293945312,
+              "frac": 0.7
+            },
+            {
+              "D": 2.7,
+              "gm": 0.5270656943321228,
+              "frac": 0.7
+            },
+            {
+              "D": 2.75,
+              "gm": 0.5143882632255554,
+              "frac": 0.7
+            },
+            {
+              "D": 2.8,
+              "gm": 0.5010234117507935,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.85,
+              "gm": 0.48697230219841003,
+              "frac": 0.65
+            },
+            {
+              "D": 2.9,
+              "gm": 0.47225192189216614,
+              "frac": 0.65
+            },
+            {
+              "D": 2.95,
+              "gm": 0.45689311623573303,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 3.0,
+              "gm": 0.44094038009643555,
+              "frac": 0.5666666666666667
+            },
+            {
+              "D": 3.05,
+              "gm": 0.42444849014282227,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 3.1,
+              "gm": 0.4074808955192566,
+              "frac": 0.5
+            },
+            {
+              "D": 3.15,
+              "gm": 0.3901098966598511,
+              "frac": 0.4666666666666667
+            },
+            {
+              "D": 3.2,
+              "gm": 0.37241268157958984,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 3.25,
+              "gm": 0.3544732630252838,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 3.3,
+              "gm": 0.3363829255104065,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 3.35,
+              "gm": 0.31823965907096863,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 3.4,
+              "gm": 0.3001484274864197,
+              "frac": 0.3
+            },
+            {
+              "D": 3.45,
+              "gm": 0.2822186052799225,
+              "frac": 0.25
+            },
+            {
+              "D": 3.5,
+              "gm": 0.26456111669540405,
+              "frac": 0.16666666666666666
+            }
+          ]
+        },
+        "ctrl": {
+          "D_kill": 0.5843805932340906,
+          "D_kill_baseline": 0.5833106551334242,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.0018342509111577,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.0010699381006664677,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.924551248550415,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9053326845169067,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8795329332351685,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8451016545295715,
+              "frac": 0.95
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8003734946250916,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.25,
+              "gm": 0.7457460165023804,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.6838176250457764,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 0.35,
+              "gm": 0.6169918179512024,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.5458036065101624,
+              "frac": 0.7
+            },
+            {
+              "D": 0.45,
+              "gm": 0.470903605222702,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.3946981430053711,
+              "frac": 0.5666666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.31963014602661133,
+              "frac": 0.5
+            },
+            {
+              "D": 0.6,
+              "gm": 0.24745258688926697,
+              "frac": 0.3
+            }
+          ]
+        }
+      }
+    },
+    "CTRL-EXP": {
+      "exposure": "CTRL-EXP",
+      "eps": 0.27565262446927674,
+      "sign": 1.0,
+      "gate": {
+        "exposure_sign": "+u (random in-span)",
+        "exposed_state_primary_read": 0.9644708633422852,
+        "corulers": {
+          "coruler_g+0": 0.7590747475624084,
+          "coruler_g+12": 0.9645299911499023
+        },
+        "ce_r": 1.6970055103302002,
+        "ce_r_delta_vs_root": 0.03348886966705322,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 2.935867821315122,
+          "D_kill_baseline": 2.7565262446927674,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.0650607179843279,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.17934157662235473,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9644708633422852,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9662453532218933,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9675150513648987,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9683839678764343,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9689189195632935,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9691650867462158,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9691542387008667,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.9689074754714966,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.9684382677078247,
+              "frac": 1.0
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9677524566650391,
+              "frac": 1.0
+            },
+            {
+              "D": 0.5,
+              "gm": 0.9668505191802979,
+              "frac": 1.0
+            },
+            {
+              "D": 0.55,
+              "gm": 0.9657275676727295,
+              "frac": 1.0
+            },
+            {
+              "D": 0.6,
+              "gm": 0.964372992515564,
+              "frac": 1.0
+            },
+            {
+              "D": 0.65,
+              "gm": 0.9627717137336731,
+              "frac": 1.0
+            },
+            {
+              "D": 0.7,
+              "gm": 0.9609034061431885,
+              "frac": 1.0
+            },
+            {
+              "D": 0.75,
+              "gm": 0.9587429165840149,
+              "frac": 1.0
+            },
+            {
+              "D": 0.8,
+              "gm": 0.9562598466873169,
+              "frac": 1.0
+            },
+            {
+              "D": 0.85,
+              "gm": 0.953417956829071,
+              "frac": 1.0
+            },
+            {
+              "D": 0.9,
+              "gm": 0.9501752853393555,
+              "frac": 1.0
+            },
+            {
+              "D": 0.95,
+              "gm": 0.9464839696884155,
+              "frac": 1.0
+            },
+            {
+              "D": 1.0,
+              "gm": 0.9422895312309265,
+              "frac": 1.0
+            },
+            {
+              "D": 1.05,
+              "gm": 0.937531054019928,
+              "frac": 1.0
+            },
+            {
+              "D": 1.1,
+              "gm": 0.9321420788764954,
+              "frac": 1.0
+            },
+            {
+              "D": 1.15,
+              "gm": 0.9260483980178833,
+              "frac": 1.0
+            },
+            {
+              "D": 1.2,
+              "gm": 0.9191722869873047,
+              "frac": 1.0
+            },
+            {
+              "D": 1.25,
+              "gm": 0.9114304780960083,
+              "frac": 1.0
+            },
+            {
+              "D": 1.3,
+              "gm": 0.9027385711669922,
+              "frac": 1.0
+            },
+            {
+              "D": 1.35,
+              "gm": 0.8930113315582275,
+              "frac": 1.0
+            },
+            {
+              "D": 1.4,
+              "gm": 0.8821675181388855,
+              "frac": 1.0
+            },
+            {
+              "D": 1.45,
+              "gm": 0.8701324462890625,
+              "frac": 1.0
+            },
+            {
+              "D": 1.5,
+              "gm": 0.8568437099456787,
+              "frac": 1.0
+            },
+            {
+              "D": 1.55,
+              "gm": 0.8422554731369019,
+              "frac": 1.0
+            },
+            {
+              "D": 1.6,
+              "gm": 0.8263434171676636,
+              "frac": 1.0
+            },
+            {
+              "D": 1.65,
+              "gm": 0.8091083765029907,
+              "frac": 1.0
+            },
+            {
+              "D": 1.7,
+              "gm": 0.7905803918838501,
+              "frac": 1.0
+            },
+            {
+              "D": 1.75,
+              "gm": 0.7708192467689514,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.8,
+              "gm": 0.7499162554740906,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 1.85,
+              "gm": 0.7279871702194214,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 1.9,
+              "gm": 0.7051736116409302,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 1.95,
+              "gm": 0.6816334128379822,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 2.0,
+              "gm": 0.6575359106063843,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 2.05,
+              "gm": 0.6330543160438538,
+              "frac": 0.8
+            },
+            {
+              "D": 2.1,
+              "gm": 0.6083628535270691,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 2.15,
+              "gm": 0.5836272835731506,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.2,
+              "gm": 0.5590053796768188,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 2.25,
+              "gm": 0.5346408486366272,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 2.3,
+              "gm": 0.5106632709503174,
+              "frac": 0.5166666666666667
+            },
+            {
+              "D": 2.35,
+              "gm": 0.48718777298927307,
+              "frac": 0.45
+            },
+            {
+              "D": 2.4,
+              "gm": 0.4643121361732483,
+              "frac": 0.43333333333333335
+            },
+            {
+              "D": 2.45,
+              "gm": 0.4421195089817047,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 2.5,
+              "gm": 0.4206787347793579,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 2.55,
+              "gm": 0.40004223585128784,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 2.6,
+              "gm": 0.38024961948394775,
+              "frac": 0.35
+            },
+            {
+              "D": 2.65,
+              "gm": 0.36132749915122986,
+              "frac": 0.3333333333333333
+            },
+            {
+              "D": 2.7,
+              "gm": 0.34328922629356384,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 2.75,
+              "gm": 0.32613804936408997,
+              "frac": 0.3
+            },
+            {
+              "D": 2.8,
+              "gm": 0.30986538529396057,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 2.85,
+              "gm": 0.29445478320121765,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 2.9,
+              "gm": 0.2798798680305481,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 2.95,
+              "gm": 0.2661072611808777,
+              "frac": 0.25
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 1.3958754528165818,
+          "D_kill_baseline": 1.251912685854775,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.1149942552611107,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.14396276696180665,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9644708633422852,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9608386754989624,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9554967880249023,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9483850598335266,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9395555257797241,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9288195371627808,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9155343174934387,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8993018269538879,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8810439705848694,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8620839715003967,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8425628542900085,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.55,
+              "gm": 0.8220383524894714,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.7999523282051086,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.65,
+              "gm": 0.7753199934959412,
+              "frac": 0.85
+            },
+            {
+              "D": 0.7,
+              "gm": 0.7470911741256714,
+              "frac": 0.85
+            },
+            {
+              "D": 0.75,
+              "gm": 0.7149861454963684,
+              "frac": 0.85
+            },
+            {
+              "D": 0.8,
+              "gm": 0.6799387335777283,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.6438170075416565,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.6085169315338135,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.95,
+              "gm": 0.574803352355957,
+              "frac": 0.7
+            },
+            {
+              "D": 1.0,
+              "gm": 0.5419845581054688,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 1.05,
+              "gm": 0.5089169144630432,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 1.1,
+              "gm": 0.47489768266677856,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 1.15,
+              "gm": 0.4398476481437683,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 1.2,
+              "gm": 0.40414682030677795,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 1.25,
+              "gm": 0.368412047624588,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 1.3,
+              "gm": 0.33331355452537537,
+              "frac": 0.5
+            },
+            {
+              "D": 1.35,
+              "gm": 0.2994609475135803,
+              "frac": 0.45
+            },
+            {
+              "D": 1.4,
+              "gm": 0.2673512399196625,
+              "frac": 0.38333333333333336
+            }
+          ]
+        },
+        "low": {
+          "D_kill": null,
+          "D_kill_baseline": 3.2089224139107184,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": null,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9644708633422852,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9644911289215088,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9640759825706482,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9632528424263,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9620422124862671,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9604597687721252,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9585159420967102,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.9562142491340637,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.9535505175590515,
+              "frac": 1.0
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9505103230476379,
+              "frac": 1.0
+            },
+            {
+              "D": 0.5,
+              "gm": 0.9470676183700562,
+              "frac": 1.0
+            },
+            {
+              "D": 0.55,
+              "gm": 0.9431843161582947,
+              "frac": 1.0
+            },
+            {
+              "D": 0.6,
+              "gm": 0.9388116002082825,
+              "frac": 1.0
+            },
+            {
+              "D": 0.65,
+              "gm": 0.9338920712471008,
+              "frac": 1.0
+            },
+            {
+              "D": 0.7,
+              "gm": 0.9283614754676819,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.9221531748771667,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.8,
+              "gm": 0.9152012467384338,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.9074490070343018,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.8988552093505859,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.95,
+              "gm": 0.8894084095954895,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.0,
+              "gm": 0.8791382312774658,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.05,
+              "gm": 0.8681221008300781,
+              "frac": 0.95
+            },
+            {
+              "D": 1.1,
+              "gm": 0.8564903736114502,
+              "frac": 0.95
+            },
+            {
+              "D": 1.15,
+              "gm": 0.844412088394165,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 1.2,
+              "gm": 0.8320848345756531,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 1.25,
+              "gm": 0.8197089433670044,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 1.3,
+              "gm": 0.8074701428413391,
+              "frac": 0.9
+            },
+            {
+              "D": 1.35,
+              "gm": 0.7955194711685181,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 1.4,
+              "gm": 0.7839605808258057,
+              "frac": 0.8833333333333333
+            },
+            {
+              "D": 1.45,
+              "gm": 0.772846519947052,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 1.5,
+              "gm": 0.7621866464614868,
+              "frac": 0.8
+            },
+            {
+              "D": 1.55,
+              "gm": 0.751957356929779,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.6,
+              "gm": 0.7421166896820068,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.65,
+              "gm": 0.7326151132583618,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.7,
+              "gm": 0.7233981490135193,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.75,
+              "gm": 0.7144108414649963,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.8,
+              "gm": 0.705597460269928,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.85,
+              "gm": 0.6969081163406372,
+              "frac": 0.75
+            },
+            {
+              "D": 1.9,
+              "gm": 0.688302218914032,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 1.95,
+              "gm": 0.6797538995742798,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 2.0,
+              "gm": 0.6712478995323181,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.05,
+              "gm": 0.6627718806266785,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.1,
+              "gm": 0.6543012261390686,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.15,
+              "gm": 0.6457908153533936,
+              "frac": 0.7
+            },
+            {
+              "D": 2.2,
+              "gm": 0.6371710300445557,
+              "frac": 0.7
+            },
+            {
+              "D": 2.25,
+              "gm": 0.6283552646636963,
+              "frac": 0.7
+            },
+            {
+              "D": 2.3,
+              "gm": 0.6192501783370972,
+              "frac": 0.7
+            },
+            {
+              "D": 2.35,
+              "gm": 0.6097667813301086,
+              "frac": 0.7
+            },
+            {
+              "D": 2.4,
+              "gm": 0.5998296141624451,
+              "frac": 0.7
+            },
+            {
+              "D": 2.45,
+              "gm": 0.5893800854682922,
+              "frac": 0.7
+            },
+            {
+              "D": 2.5,
+              "gm": 0.5783794522285461,
+              "frac": 0.7
+            },
+            {
+              "D": 2.55,
+              "gm": 0.5668066143989563,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.6,
+              "gm": 0.5546553134918213,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.65,
+              "gm": 0.5419318079948425,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.7,
+              "gm": 0.5286513566970825,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.75,
+              "gm": 0.5148379802703857,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.8,
+              "gm": 0.5005215406417847,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 2.85,
+              "gm": 0.485740065574646,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 2.9,
+              "gm": 0.4705375134944916,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 2.95,
+              "gm": 0.45496484637260437,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 3.0,
+              "gm": 0.439079225063324,
+              "frac": 0.5833333333333334
+            },
+            {
+              "D": 3.05,
+              "gm": 0.4229443371295929,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 3.1,
+              "gm": 0.40663135051727295,
+              "frac": 0.5166666666666667
+            },
+            {
+              "D": 3.15,
+              "gm": 0.39021816849708557,
+              "frac": 0.48333333333333334
+            },
+            {
+              "D": 3.2,
+              "gm": 0.3737899959087372,
+              "frac": 0.45
+            },
+            {
+              "D": 3.25,
+              "gm": 0.3574361205101013,
+              "frac": 0.4
+            },
+            {
+              "D": 3.3,
+              "gm": 0.3412461280822754,
+              "frac": 0.35
+            },
+            {
+              "D": 3.35,
+              "gm": 0.3253075182437897,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 3.4,
+              "gm": 0.3096994161605835,
+              "frac": 0.3
+            },
+            {
+              "D": 3.45,
+              "gm": 0.2944908142089844,
+              "frac": 0.25
+            },
+            {
+              "D": 3.5,
+              "gm": 0.27973511815071106,
+              "frac": 0.21666666666666667
+            }
+          ]
+        },
+        "ctrl": {
+          "D_kill": 0.8588337548961477,
+          "D_kill_baseline": 0.5833106551334242,
+          "arithmetic_prediction_D": 0.8589632796027009,
+          "ratio_vs_baseline": 1.4723436771435308,
+          "same_axis": true,
+          "mechanical_ceiling_or_floor_ratio": 1.472565728130279,
+          "causal_residue_D": -0.00012952470655325232,
+          "cross_delta_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9644708633422852,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9624725580215454,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9578230381011963,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9502957463264465,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9394938945770264,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9248526096343994,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9055099487304688,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8800976276397705,
+              "frac": 0.95
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8468502759933472,
+              "frac": 0.95
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8045893311500549,
+              "frac": 0.9
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7539896368980408,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.697386622428894,
+              "frac": 0.8
+            },
+            {
+              "D": 0.6,
+              "gm": 0.6367207765579224,
+              "frac": 0.75
+            },
+            {
+              "D": 0.65,
+              "gm": 0.5718315243721008,
+              "frac": 0.7
+            },
+            {
+              "D": 0.7,
+              "gm": 0.5017845034599304,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.4277949631214142,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 0.8,
+              "gm": 0.3532870411872864,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.2815397381782532,
+              "frac": 0.45
+            },
+            {
+              "D": 0.9,
+              "gm": 0.2162235826253891,
+              "frac": 0.26666666666666666
+            }
+          ]
+        }
+      }
+    },
+    "DRIFT-EXP": {
+      "exposure": "DRIFT-EXP",
+      "eps": 0.27565262446927674,
+      "sign": -1.0,
+      "gate": {
+        "exposure_sign": "-v0 (the drift side, e222's named untested sign)",
+        "exposed_state_primary_read": 0.9272249937057495,
+        "corulers": {
+          "coruler_g+0": 0.7650165557861328,
+          "coruler_g+12": 0.9558468461036682
+        },
+        "ce_r": 1.6468521356582642,
+        "ce_r_delta_vs_root": -0.016664505004882812,
+        "sublethal": true,
+        "pass": true
+      },
+      "kill_rows": {
+        "top": {
+          "D_kill": 2.481030993155197,
+          "D_kill_baseline": 2.7565262446927674,
+          "arithmetic_prediction_D": 2.4808736202234907,
+          "ratio_vs_baseline": 0.9000570910333283,
+          "same_axis": true,
+          "mechanical_ceiling_or_floor_ratio": 0.9,
+          "causal_residue_D": 0.00015737293170614564,
+          "cross_delta_D": null,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9272249937057495,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9274687170982361,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9272758960723877,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9266594052314758,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.92562335729599,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9241654872894287,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9222766757011414,
+              "frac": 1.0
+            },
+            {
+              "D": 0.35,
+              "gm": 0.9199424386024475,
+              "frac": 1.0
+            },
+            {
+              "D": 0.4,
+              "gm": 0.9171435832977295,
+              "frac": 1.0
+            },
+            {
+              "D": 0.45,
+              "gm": 0.9138554930686951,
+              "frac": 1.0
+            },
+            {
+              "D": 0.5,
+              "gm": 0.9100501537322998,
+              "frac": 1.0
+            },
+            {
+              "D": 0.55,
+              "gm": 0.9056945443153381,
+              "frac": 1.0
+            },
+            {
+              "D": 0.6,
+              "gm": 0.9007520079612732,
+              "frac": 1.0
+            },
+            {
+              "D": 0.65,
+              "gm": 0.8951825499534607,
+              "frac": 1.0
+            },
+            {
+              "D": 0.7,
+              "gm": 0.8889438509941101,
+              "frac": 1.0
+            },
+            {
+              "D": 0.75,
+              "gm": 0.881989598274231,
+              "frac": 1.0
+            },
+            {
+              "D": 0.8,
+              "gm": 0.8742735385894775,
+              "frac": 1.0
+            },
+            {
+              "D": 0.85,
+              "gm": 0.86574786901474,
+              "frac": 1.0
+            },
+            {
+              "D": 0.9,
+              "gm": 0.8563656210899353,
+              "frac": 1.0
+            },
+            {
+              "D": 0.95,
+              "gm": 0.8460819721221924,
+              "frac": 1.0
+            },
+            {
+              "D": 1.0,
+              "gm": 0.8348557353019714,
+              "frac": 1.0
+            },
+            {
+              "D": 1.05,
+              "gm": 0.8226509690284729,
+              "frac": 1.0
+            },
+            {
+              "D": 1.1,
+              "gm": 0.8094403743743896,
+              "frac": 1.0
+            },
+            {
+              "D": 1.15,
+              "gm": 0.7952058911323547,
+              "frac": 1.0
+            },
+            {
+              "D": 1.2,
+              "gm": 0.7799419164657593,
+              "frac": 1.0
+            },
+            {
+              "D": 1.25,
+              "gm": 0.7636568546295166,
+              "frac": 1.0
+            },
+            {
+              "D": 1.3,
+              "gm": 0.7463743686676025,
+              "frac": 1.0
+            },
+            {
+              "D": 1.35,
+              "gm": 0.7281354069709778,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.4,
+              "gm": 0.7089967131614685,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 1.45,
+              "gm": 0.6890323758125305,
+              "frac": 0.95
+            },
+            {
+              "D": 1.5,
+              "gm": 0.6683297753334045,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 1.55,
+              "gm": 0.6469895839691162,
+              "frac": 0.85
+            },
+            {
+              "D": 1.6,
+              "gm": 0.6251224279403687,
+              "frac": 0.85
+            },
+            {
+              "D": 1.65,
+              "gm": 0.6028461456298828,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 1.7,
+              "gm": 0.5802818536758423,
+              "frac": 0.75
+            },
+            {
+              "D": 1.75,
+              "gm": 0.5575538873672485,
+              "frac": 0.7
+            },
+            {
+              "D": 1.8,
+              "gm": 0.5347851514816284,
+              "frac": 0.6
+            },
+            {
+              "D": 1.85,
+              "gm": 0.5120946168899536,
+              "frac": 0.55
+            },
+            {
+              "D": 1.9,
+              "gm": 0.4896000623703003,
+              "frac": 0.5
+            },
+            {
+              "D": 1.95,
+              "gm": 0.4674115478992462,
+              "frac": 0.45
+            },
+            {
+              "D": 2.0,
+              "gm": 0.4456315338611603,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 2.05,
+              "gm": 0.42435312271118164,
+              "frac": 0.36666666666666664
+            },
+            {
+              "D": 2.1,
+              "gm": 0.40365761518478394,
+              "frac": 0.35
+            },
+            {
+              "D": 2.15,
+              "gm": 0.38361436128616333,
+              "frac": 0.31666666666666665
+            },
+            {
+              "D": 2.2,
+              "gm": 0.36427706480026245,
+              "frac": 0.3
+            },
+            {
+              "D": 2.25,
+              "gm": 0.3456864058971405,
+              "frac": 0.3
+            },
+            {
+              "D": 2.3,
+              "gm": 0.3278684616088867,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 2.35,
+              "gm": 0.3108363747596741,
+              "frac": 0.26666666666666666
+            },
+            {
+              "D": 2.4,
+              "gm": 0.29459139704704285,
+              "frac": 0.25
+            },
+            {
+              "D": 2.45,
+              "gm": 0.27912527322769165,
+              "frac": 0.23333333333333334
+            },
+            {
+              "D": 2.5,
+              "gm": 0.2644217908382416,
+              "frac": 0.2
+            }
+          ]
+        },
+        "mid": {
+          "D_kill": 1.2211331974645332,
+          "D_kill_baseline": 1.251912685854775,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 0.9754140294782407,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": -0.030779488390241916,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9272249937057495,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9213999509811401,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9140376448631287,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9048797488212585,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8936368823051453,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.8800361156463623,
+              "frac": 1.0
+            },
+            {
+              "D": 0.3,
+              "gm": 0.8638619184494019,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.35,
+              "gm": 0.844913899898529,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8230167031288147,
+              "frac": 0.9666666666666667
+            },
+            {
+              "D": 0.45,
+              "gm": 0.7983026504516602,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.5,
+              "gm": 0.7713901400566101,
+              "frac": 0.9
+            },
+            {
+              "D": 0.55,
+              "gm": 0.7428760528564453,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.7128696441650391,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.65,
+              "gm": 0.6811221837997437,
+              "frac": 0.8
+            },
+            {
+              "D": 0.7,
+              "gm": 0.6472565531730652,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.6110118627548218,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 0.8,
+              "gm": 0.5725978016853333,
+              "frac": 0.75
+            },
+            {
+              "D": 0.85,
+              "gm": 0.5329535603523254,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.9,
+              "gm": 0.49352750182151794,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 0.95,
+              "gm": 0.45535188913345337,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 1.0,
+              "gm": 0.4185381531715393,
+              "frac": 0.65
+            },
+            {
+              "D": 1.05,
+              "gm": 0.38281410932540894,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 1.1,
+              "gm": 0.34809938073158264,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 1.15,
+              "gm": 0.31460142135620117,
+              "frac": 0.4666666666666667
+            },
+            {
+              "D": 1.2,
+              "gm": 0.2826765179634094,
+              "frac": 0.4
+            },
+            {
+              "D": 1.25,
+              "gm": 0.2526845633983612,
+              "frac": 0.36666666666666664
+            }
+          ]
+        },
+        "low": {
+          "D_kill": 3.044310608745697,
+          "D_kill_baseline": 3.2089224139107184,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 0.9487018431946415,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": -0.1646118051650216,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9272249937057495,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9244329333305359,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.9212545156478882,
+              "frac": 1.0
+            },
+            {
+              "D": 0.15,
+              "gm": 0.9176685810089111,
+              "frac": 1.0
+            },
+            {
+              "D": 0.2,
+              "gm": 0.9136497974395752,
+              "frac": 1.0
+            },
+            {
+              "D": 0.25,
+              "gm": 0.9091686606407166,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.9041928052902222,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.35,
+              "gm": 0.8986881971359253,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.4,
+              "gm": 0.8926185369491577,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.45,
+              "gm": 0.8859468102455139,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.8786366581916809,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.55,
+              "gm": 0.8706579804420471,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.6,
+              "gm": 0.8619946837425232,
+              "frac": 0.95
+            },
+            {
+              "D": 0.65,
+              "gm": 0.8526579737663269,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.7,
+              "gm": 0.8426991701126099,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.75,
+              "gm": 0.8322161436080933,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.8,
+              "gm": 0.8213463425636292,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.85,
+              "gm": 0.8102447390556335,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.9,
+              "gm": 0.7990577220916748,
+              "frac": 0.9166666666666666
+            },
+            {
+              "D": 0.95,
+              "gm": 0.7879026532173157,
+              "frac": 0.9
+            },
+            {
+              "D": 1.0,
+              "gm": 0.7768606543540955,
+              "frac": 0.8666666666666667
+            },
+            {
+              "D": 1.05,
+              "gm": 0.7659777998924255,
+              "frac": 0.85
+            },
+            {
+              "D": 1.1,
+              "gm": 0.7552693486213684,
+              "frac": 0.85
+            },
+            {
+              "D": 1.15,
+              "gm": 0.7447291016578674,
+              "frac": 0.8166666666666667
+            },
+            {
+              "D": 1.2,
+              "gm": 0.7343363165855408,
+              "frac": 0.8
+            },
+            {
+              "D": 1.25,
+              "gm": 0.7240646481513977,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.3,
+              "gm": 0.7138935327529907,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.35,
+              "gm": 0.703813910484314,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.4,
+              "gm": 0.6938315629959106,
+              "frac": 0.7833333333333333
+            },
+            {
+              "D": 1.45,
+              "gm": 0.6839601993560791,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.5,
+              "gm": 0.6742120385169983,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.55,
+              "gm": 0.6645825505256653,
+              "frac": 0.7666666666666667
+            },
+            {
+              "D": 1.6,
+              "gm": 0.6550416350364685,
+              "frac": 0.75
+            },
+            {
+              "D": 1.65,
+              "gm": 0.645538330078125,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.7,
+              "gm": 0.6360050439834595,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.75,
+              "gm": 0.6263753771781921,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.8,
+              "gm": 0.6165987849235535,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.85,
+              "gm": 0.6066514253616333,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.9,
+              "gm": 0.5965369939804077,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 1.95,
+              "gm": 0.5862671136856079,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 2.0,
+              "gm": 0.5758411288261414,
+              "frac": 0.7
+            },
+            {
+              "D": 2.05,
+              "gm": 0.5652297735214233,
+              "frac": 0.7
+            },
+            {
+              "D": 2.1,
+              "gm": 0.5543764233589172,
+              "frac": 0.7
+            },
+            {
+              "D": 2.15,
+              "gm": 0.5432092547416687,
+              "frac": 0.7
+            },
+            {
+              "D": 2.2,
+              "gm": 0.5316538214683533,
+              "frac": 0.7
+            },
+            {
+              "D": 2.25,
+              "gm": 0.5196444988250732,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 2.3,
+              "gm": 0.507128119468689,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.35,
+              "gm": 0.4940684735774994,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.4,
+              "gm": 0.48044535517692566,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.45,
+              "gm": 0.466256707906723,
+              "frac": 0.6666666666666666
+            },
+            {
+              "D": 2.5,
+              "gm": 0.4515165388584137,
+              "frac": 0.6333333333333333
+            },
+            {
+              "D": 2.55,
+              "gm": 0.43625500798225403,
+              "frac": 0.55
+            },
+            {
+              "D": 2.6,
+              "gm": 0.42051568627357483,
+              "frac": 0.5333333333333333
+            },
+            {
+              "D": 2.65,
+              "gm": 0.4043525457382202,
+              "frac": 0.5
+            },
+            {
+              "D": 2.7,
+              "gm": 0.38782641291618347,
+              "frac": 0.4166666666666667
+            },
+            {
+              "D": 2.75,
+              "gm": 0.37100455164909363,
+              "frac": 0.4
+            },
+            {
+              "D": 2.8,
+              "gm": 0.35395753383636475,
+              "frac": 0.38333333333333336
+            },
+            {
+              "D": 2.85,
+              "gm": 0.3367587625980377,
+              "frac": 0.35
+            },
+            {
+              "D": 2.9,
+              "gm": 0.31948626041412354,
+              "frac": 0.3
+            },
+            {
+              "D": 2.95,
+              "gm": 0.3022221624851227,
+              "frac": 0.2833333333333333
+            },
+            {
+              "D": 3.0,
+              "gm": 0.28505241870880127,
+              "frac": 0.25
+            },
+            {
+              "D": 3.05,
+              "gm": 0.26806730031967163,
+              "frac": 0.21666666666666667
+            }
+          ]
+        },
+        "ctrl": {
+          "D_kill": 0.5873587205757786,
+          "D_kill_baseline": 0.5833106551334242,
+          "arithmetic_prediction_D": null,
+          "ratio_vs_baseline": 1.006939810556741,
+          "same_axis": false,
+          "mechanical_ceiling_or_floor_ratio": null,
+          "causal_residue_D": null,
+          "cross_delta_D": 0.004048065442354476,
+          "rows": [
+            {
+              "D": 0.0,
+              "gm": 0.9272249937057495,
+              "frac": 1.0
+            },
+            {
+              "D": 0.05,
+              "gm": 0.9081125855445862,
+              "frac": 1.0
+            },
+            {
+              "D": 0.1,
+              "gm": 0.8829014897346497,
+              "frac": 0.9833333333333333
+            },
+            {
+              "D": 0.15,
+              "gm": 0.8494037985801697,
+              "frac": 0.95
+            },
+            {
+              "D": 0.2,
+              "gm": 0.8052790760993958,
+              "frac": 0.95
+            },
+            {
+              "D": 0.25,
+              "gm": 0.7494934797286987,
+              "frac": 0.9333333333333333
+            },
+            {
+              "D": 0.3,
+              "gm": 0.6837230920791626,
+              "frac": 0.8333333333333334
+            },
+            {
+              "D": 0.35,
+              "gm": 0.612034022808075,
+              "frac": 0.7333333333333333
+            },
+            {
+              "D": 0.4,
+              "gm": 0.5380379557609558,
+              "frac": 0.7166666666666667
+            },
+            {
+              "D": 0.45,
+              "gm": 0.4633188247680664,
+              "frac": 0.6833333333333333
+            },
+            {
+              "D": 0.5,
+              "gm": 0.3898676633834839,
+              "frac": 0.6166666666666667
+            },
+            {
+              "D": 0.55,
+              "gm": 0.31952717900276184,
+              "frac": 0.5166666666666667
+            },
+            {
+              "D": 0.6,
+              "gm": 0.2532412111759186,
+              "frac": 0.36666666666666664
+            }
+          ]
+        }
+      }
+    }
+  },
+  "ce_r_canary": {
+    "root": 1.663516640663147,
+    "root_dir0_kill_position": 1.7534279823303223,
+    "exposed_states": {
+      "TOP-EXP": 1.6967272758483887,
+      "LOW-EXP": 1.6690503358840942,
+      "CTRL-EXP": 1.6970055103302002,
+      "DRIFT-EXP": 1.6468521356582642
+    },
+    "note": "the organism-health honesty reflex (report-only): a pre-exposure that wrecks general CE while the ruler stays alive would confound any immunity reading"
+  },
+  "adjudication": {
+    "bars": {
+      "IMMUNITY_CAUSAL": {
+        "fires": false,
+        "clause_a_own_ray": false,
+        "clause_b_cross_vs_ctrl": false,
+        "clause_a_state": "resolved: residue +0.0001 < +0.05",
+        "clause_b_rows": {
+          "mid": {
+            "top_exp_delta": -0.006520807089007263,
+            "ctrl_exp_delta": 0.14396276696180665,
+            "excess": -0.15048357405081392,
+            "fires": false,
+            "note": ""
+          },
+          "low": {
+            "top_exp_delta": 0.15253326674400514,
+            "ctrl_exp_delta": null,
+            "excess": null,
+            "state": "unresolvable (a censored member of the pair)"
+          },
+          "ctrl": {
+            "top_exp_delta": -0.025846164229839208,
+            "ctrl_exp_delta": 0.2755230997627235,
+            "excess": -0.3013692639925627,
+            "fires": false,
+            "note": "the CTRL-EXP member is the control's own same-axis row (delta = +eps mechanically \u2014 the pass-back arithmetic); formula applied as registered"
+          }
+        }
+      },
+      "SENSITIZATION": {
+        "fires": false,
+        "state": "resolved: residue +0.0002 > -0.05"
+      },
+      "NULL_CONFIRMS": {
+        "fires": true
+      },
+      "GRADED": {
+        "fires": false
+      }
+    },
+    "inputs": {
+      "residue_top_exp_top": 0.00014882415150596628,
+      "residue_drift_exp_top": 0.00015737293170614564,
+      "residue_low_exp_low": 2.3894592374062995e-05,
+      "residue_ctrl_exp_ctrl": -0.00012952470655325232,
+      "same_axis_residues": {
+        "TOP-EXP/top": 0.00014882415150596628,
+        "LOW-EXP/low": 2.3894592374062995e-05,
+        "CTRL-EXP/ctrl": -0.00012952470655325232,
+        "DRIFT-EXP/top": 0.00015737293170614564
+      },
+      "pass_back_ceiling_top": 3.032178869162044,
+      "pass_back_floor_top": 2.4808736202234907,
+      "all_ratios": {
+        "TOP-EXP/top": 1.1000539897458959,
+        "TOP-EXP/mid": 0.9947913243769433,
+        "TOP-EXP/low": 1.0475341086723604,
+        "TOP-EXP/ctrl": 0.9556905672776931,
+        "LOW-EXP/top": 1.0155654098031957,
+        "LOW-EXP/mid": 0.9154851420224319,
+        "LOW-EXP/low": 1.0859093750184141,
+        "LOW-EXP/ctrl": 1.0018342509111577,
+        "CTRL-EXP/top": 1.0650607179843279,
+        "CTRL-EXP/mid": 1.1149942552611107,
+        "CTRL-EXP/low": null,
+        "CTRL-EXP/ctrl": 1.4723436771435308,
+        "DRIFT-EXP/top": 0.9000570910333283,
+        "DRIFT-EXP/mid": 0.9754140294782407,
+        "DRIFT-EXP/low": 0.9487018431946415,
+        "DRIFT-EXP/ctrl": 1.006939810556741
+      }
+    },
+    "verdict": "NULL-CONFIRMS",
+    "clause": "all arms sit on the arithmetic: every same-axis residue within +-0.01 (TOP-EXP/top +0.0001; LOW-EXP/low +0.0000; CTRL-EXP/ctrl -0.0001; DRIFT-EXP/top +0.0002) \u2014 the e222 NULL replicates on the strong-ordering root; T182's ordering retires as a correlation, full stop",
+    "composite_order": "IMMUNITY-CAUSAL / SENSITIZATION / NULL-CONFIRMS / GRADED (frozen before compute)",
+    "desk_arithmetic_recap": "the +arm same-axis rows are arithmetically capped at eps+t_base (top row 3.0322); the drift arm is floored at t_base-eps (2.4809) \u2014 the desk disclosure, stated before compute; the causal content lives in the residues (0 = pure position arithmetic) and the cross rows"
+  },
+  "provenance": {
+    "parents_files_md5": {
+      "e131": "986dcaff8e7c47671520c9ac075e2930",
+      "e211": "1dd3c07acc45ba107d4db3ebab5aa4b9",
+      "e222": "77906b6607d029fc16029570931bfeea",
+      "e_chart": "d4ffe31d5ef0e7a9e1e5df603712e11f",
+      "g1b": "833e2bd35602ebcc24108002bda4c1f0"
+    },
+    "machinery": {
+      "e131_gates": "the root's committed provenance hard-bound from runs/e131/metrics.json (G_SPLICE 19+41, G_E048 0.5563 bit-read, fired RE-KEYED)",
+      "wash_span_kill": "lab/e211_walled_band.py VERBATIM (the pristine-root load + md5 gate, the contiguous 20-step unwalled AdamW wash on the seed-10902 g1b C-arm stream with per-step anchors, the fp64 Gram-SVD basis, the onset-grid kill walk with first-downcrossing interpolation, SVD-emitted signs, install-60 g-12 ruler); the grid extended 3.00->3.50 (disclosed: this root's pass-back ceiling 3.032)",
+      "the_exposure_cell": "lab/e222_exposure.py VERBATIM (the dose arithmetic, the matched-L2 arms, the pass-back decomposition, the control acceptance rule, the CE_R canary) + NEW this cell (registered): the -v0 drift arm with the floor arithmetic t_base-eps, the ctrl ray walked from every state",
+      "committed_records": "e131 (the root provenance), e211 (the root-P span + dir-0 kill + the ordering Spearmans \u2014 the correlation this cell interrogates), e222 (the NULL + residue this cell replicates-with-teeth), e_chart (the rung-0 root read), g1b (the C-arm stream anchors) \u2014 loaded, hard-bound, never re-run"
+    },
+    "registry_note": "the control seed 12502 is fresh (e222 drew 12501; the registry held through 12401-12408 at e211)"
+  },
+  "honesty": {
+    "n_and_scope": "n=1 organism (the pristine e131 root = e211's root P, one lineage); one span realization (a single 20-step history draw \u2014 but THE draw e211's ordering was measured on, PR-gated to reproduce it); ONE dose (eps = 0.1x t_top); one ruler family; every kill ray walked once",
+    "perturbation_vs_training": "the pre-exposure is a DIRECT weight displacement along a span axis \u2014 the wash's mechanism at ONE REMOVE, not the wash itself: the wash moves by AdamW steps whose directions are gradient-determined and whose per-step L2 is 1.654 (vs eps 0.2757 here); immunity-to-TRAINING is not tested by this cell",
+    "pass_back_arithmetic": "every same-axis row is arithmetically bounded: the +arms capped at t_base+eps, the drift arm floored at t_base-eps (the desk disclosure, stated before compute); the residues and cross rows carry the causal content; the bars adjudicated the raw numbers as registered",
+    "sign_convention": "the +arms expose along +v (the SVD-emitted sign, OPPOSED to the kill walk -v; pass-back-through); the drift arm exposes along -v0 (WITH the kill walk; the floor geometry) \u2014 the two signs are now both tested, e222's named limit; the wash's own drift along each axis is reported (span.wash_drift_proj_dirs)",
+    "control_selection": "the control was accepted as the first sub-lethal draw (1 draw(s) from seed 12502) \u2014 biased toward forgiveness, i.e. against the IMMUNITY clause",
+    "ce_r_canary": {
+      "root": 1.663516640663147,
+      "root_dir0_kill_position": 1.7534279823303223,
+      "exposed_states": {
+        "TOP-EXP": 1.6967272758483887,
+        "LOW-EXP": 1.6690503358840942,
+        "CTRL-EXP": 1.6970055103302002,
+        "DRIFT-EXP": 1.6468521356582642
+      },
+      "note": "the organism-health honesty reflex (report-only): a pre-exposure that wrecks general CE while the ruler stays alive would confound any immunity reading"
+    },
+    "ordering_extension_note": "e211's +0.809 Spearman was measured over the TOP-8 span directions; this cell's fresh baselines show the ordering does NOT extend monotonically to the span's tail at this root (kills: dir0 2.7565 / dir9 1.2519 / dir19 3.2089 \u2014 dir19 is the MOST forgiving ray walked) \u2014 the 'strong-ordering root' label is the top-8 fact, reported honestly",
+    "nothing_guaranteed": "the openness was the point: the residues could have been anything; the observed outcome is 'NULL-CONFIRMS'"
+  },
+  "elapsed_s": 320.6
+}
