@@ -467,7 +467,8 @@ def owner_gpu_ok() -> bool:
 
 
 def wait_gpu_owner(tag: str, max_wait: float | None = None) -> torch.device:
-    mw = 30.0 if SMOKE else (GPU_WAIT_MAX if max_wait is None else max_wait)
+    mw = (float(os.environ.get("G10_SMOKE_WAIT_MAX", "30"))
+          if SMOKE else (GPU_WAIT_MAX if max_wait is None else max_wait))
     if not torch.cuda.is_available():
         raise OwnerWindowShut(
             f"'{tag}': no CUDA device — this cell has no CPU form under the "
@@ -1321,22 +1322,33 @@ def main():
         f"{loaded_C[1]:.4f} (|d| {abs(f2_g1 - loaded_C[1]):.2e} <= 0.02): "
         f"PASS")
 
-    # F2's anchors == its own +1 body (bit) and anch__R == R
-    f2_anch = arms["F2"]["f2_anchors_sd"] or {}
+    # F2's anchors == its own +1 body (bit) and anch__R == R (read from the
+    # +1 checkpoint itself — the authoritative theta_1 record, immune to the
+    # resume path); co-check the anchors never moved through the last ckpt
+    f2_sd1 = arms["F2"]["sds"][1]
+    f2_anch = {k: v for k, v in f2_sd1.items() if k.startswith("anch__")}
     key_of = {"anch__" + bk.replace(".", "_"): bk for bk in f2_body}
     anch_pairs = [(ak, key_of[ak]) for ak in f2_anch
                   if ak != "anch__R" and ak in key_of]
     anch_bit = all(torch.equal(f2_anch[ak], f2_body[bk])
                    for ak, bk in anch_pairs)
+    last_ck = max(arms["F2"]["sds"])
+    anch_immutable = all(
+        torch.equal(f2_sd1[ak], arms["F2"]["sds"][last_ck][ak])
+        for ak in f2_anch)
     G_COMMITAT1 = {
         "n_anchor_tensors": len(anch_pairs),
         "anchors_bit_equal_own_plus1_body": bool(anch_bit),
+        "anchors_immutable_through_last_ckpt": bool(anch_immutable),
         "anch_R": float(f2_anch["anch__R"]) if "anch__R" in f2_anch else None,
         "expected_R": R1_RAW,
-        "pass": bool(anch_bit and "anch__R" in f2_anch
-                     and abs(float(f2_anch["anch__R"]) - R1_RAW) < 1e-9),
+        "pass": bool(anch_bit and anch_immutable and "anch__R" in f2_anch
+                     and abs(float(f2_anch["anch__R"]) - R1_RAW) < 1e-6),
         "rationale": ("F2's anchor must BE theta_1 (the post-shock state "
-                      "itself), bit-equal, at the 1x radius"),
+                      "itself), bit-equal to its own +1 body, at the 1x "
+                      "radius, and never move again through the wash (anch__R "
+                      "is stored float32 by commit(); tol 1e-6 = the float32 "
+                      "round-trip at this magnitude)"),
     }
     assert G_COMMITAT1["pass"], f"G-COMMITAT1 FAILED: {G_COMMITAT1}"
     log(f"G-COMMITAT1: F2's anchors bit-equal its own +1 body "
