@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T178 — g1bS8: the wall's flat phase is its own object (2026-10-02 ~13:15Z)
+
+The in-spec take closes the wall saga's last question: WALL-FADES
+is DRAW-CLEAN (the first-step breach replicates on a root 0.16
+stronger — the blindness is arithmetic, as g10 proved). THE
+CROSS-DRAW GEM: the stronger root shallowed the +1 shock 4x — the
+root's strength DOES soften the formation blow — but the FLAT
+PHASE FELL (0.96 -> 0.79 retention): the ball's settled level is
+set by the ball (the radius-vs-displacement economics), NOT by the
+root's strength — the lottery's height gains do not transfer
+through the wall. THE WALL'S FINAL PHYSICS, three sentences: the
+wall separates memory from death by ~1000x at every scale tested;
+its continuity is bounded by the step-to-radius ratio (an
+arithmetic limit, fixable only at the step's lr); its flat-phase
+level is the ball's own (root-independent). THE SAGA ENDS: eight
+takes, two TEXTURE cascades, one lottery, one curve, one isomorphism,
+one in-spec verdict — the lab's longest single question, closed
+honestly at both scales.
+
 ## T177 — e208: the noise margin earns object status — as a class line (2026-10-02 ~13:00Z)
 
 The census gives T173's scalar its first structure: the 2x line

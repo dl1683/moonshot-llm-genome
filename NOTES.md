@@ -9,6 +9,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS8 — the sixth take, the FIRST IN-SPEC adjudication: WALL-FADES — the verdict draw-clean; the cross-draw texture: the dip shallows but the flat phase is root-independent (the lottery's gains do NOT transfer through the ball) (2026-10-02 ~13:15Z) — DONE
+
+WHAT WE DID: the wall arms on the 0.9351 root (the first over the
+0.78 bar; G-ROOT in the standard order, no deviation; the root
+loaded bit-exact); all gates PASS.
+
+WHAT WE SAW (T178): WALL-FADES AGAIN — C dead at +1 (D_kill 3.157
+raw, one AdamW step) and NO rung holds the every-checkpoint 0.9eq
+bar (0.9192): EVERY RUNG FIRST-BELOW-BAR AT +1 — the structural
+first-step blindness (T170) REPLICATED on the stronger root: the
+verdict is now DRAW-CLEAN (the fifth take's lottery caveat
+discharged). THE CROSS-DRAW TEXTURE (the fifth-take vs sixth-take
+comparison, the program's first two-root wall overlay at 10M):
+(1) W1's +1 dip SHALLOWED 4x (0.3741 vs 0.0940) — a stronger root
+DOES soften the formation shock; (2) BUT the flat-phase level is
+ROOT-INDEPENDENT (~0.74-0.80; the retention FELL 0.96x -> 0.79x) —
+THE LOTTERY'S HEIGHT GAINS DO NOT TRANSFER THROUGH THE BALL: the
+wall's flat phase is its own object (the ball sets the level, not
+the root); (3) the tighter-ball ordering replicates (W1 0.79 >>
+W2 0.30 >> W3 0.00 flat retention); (4) the tax +0.10 (take 5:
++0.18; the 2.74M ref +0.53) — ADAPTING, not freezing. HONESTY:
+n=1 root/wash; T172's lottery caveat stamped on the root itself.
+
+---
+
 ## e208 — the edge-multiple census: MARGIN-PREDICTS (desk-forced, the fork disclosed) — the 2x noise-margin line separates 4/4 on first-wash survival; the within-organism pair is the scalar's cleanest contrast; the margin is a CLASS separator, not an ordering (2026-10-02 ~13:00Z) — DONE
 
 WHAT WE DID: T173's scalar assembled for every (organism, fact)
