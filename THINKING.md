@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T191 — e218: beyond height — the per-probe idiosyncrasy is new information (2026-10-02 ~16:40Z)
+
+The nonlinear test closes the height family cleanly: no function of
+p0 (linear, rank, logit, quadratic, even family-specific slopes)
+absorbs the replicating miss — the best form moves rho by two
+hundredths. THE THIRD DIMENSION IS GENUINELY BEYOND HEIGHT: which
+probe holds within a family is information the baseline does not
+carry in any dress. THE HONEST BOUNDARY: the confound that the
+cross-wash correlation could be shared pipeline texture (both
+washes read the same probes through the same p0 denominators) is
+named as the hunt's first target — the third dimension's reality
+rests on the miss replicating for reasons beyond the instrument;
+the first candidate feature (independent entrenchment, measured
+through a different channel) would break or confirm exactly that.
+THE SIGNATURE'S STATE: family (58%) x height (nonlinear, ~6%) x
+THE THIRD DIMENSION (the replicating residual, identity unknown) —
+the relational signature now three-layered, its deepest layer
+unnamed and the hunt specified.
+
 ## T190 — e216: the third dimension — per-probe rank the model cannot carry (2026-10-02 ~16:05Z)
 
 The residual cell closes T189's thread hard: family x height

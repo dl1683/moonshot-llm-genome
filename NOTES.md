@@ -9,6 +9,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e218 — the nonlinear height test: BEYOND-HEIGHT — the third sorting dimension is NOT height in any registered dress (rank 0.930 / logit 0.913 / quad 0.938 — all far above the 0.5 absorption line; even family-specific slopes leave rho 0.910); the named splits survive under every form; THE PROBE-FEATURE HUNT OWED (2026-10-02 ~16:40Z) — DONE
+
+WHAT WE DID: pure desk (2.3s, zero loads; the linear arm
+reproduced e216's fit at dp 0.0 — the new G_BASELINE gate); the
+four height forms + two outside-adjudication competitors; the
+decisive cross-wash residual test per form.
+
+WHAT WE SAW (T191): NO FORM COMES WITHIN 0.4 OF THE ABSORPTION
+LINE: linear 0.934 / rank 0.930 / logit 0.913 (the best absorber —
+moves rho by 0.02, buys +0.04 R2) / quad 0.938; even the
+family-slopes form (12 params, the richest height functional tested,
+outside the adjudication) leaves rho 0.910. THE NAMED SPLITS
+SURVIVE under the best form (the product contrast +3.28/+2.64 SD;
+the tmpl width 0.80/0.79). THE THIRD DIMENSION IS BEYOND HEIGHT:
+no registered function of p0+family absorbs it — the per-probe
+idiosyncrasy is genuinely new information. THE HUNT OWED, with
+named candidates: independent entrenchment (measured beyond the
+wash battery), internal token structure, the relation's
+compositionality. HONESTY: the four forms carry no information
+beyond p0 (rank strictly less) — BEYOND-HEIGHT means "no
+registered function of p0+family," not a proof none exists (the
+fslopes disclosure at the boundary); the xwash correlation could
+still be shared pipeline texture (the same p0 denominator) — the
+hunt's first job is to break that confound.
+
+---
+
 ## e216 — the within-family residual: RESIDUAL-STRUCTURED — THE RESIDUAL IS THE THIRD SORTING DIMENSION, AND IT REPLICATES (family x height explains only ~2/3 (R2 0.67/0.62, below the bar; p0 adds only +0.06); the per-probe misses replicate across washes at rho 0.934 — essentially the full reliability surviving the model; no surface feature names the dimension) (2026-10-02 ~16:05Z) — DONE
 
 WHAT WE DID: pure desk on the committed 54-probe records (the OLS
