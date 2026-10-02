@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T179 — e209: the margin demotes — and the demotion's anatomy is the finding (2026-10-02 ~14:00Z)
+
+The census extension breaks the class line honestly, and the
+break's anatomy teaches more than the line did: the violated rows
+joined a SETTLED-STATE margin to a FIRST-EPISODE clock — an
+episode mismatch the frozen letter baked in — and the co-read
+shows the walled organisms dying at their first unwalled step
+with at-or-below-noise margins tracking exactly that fragility.
+THE SCALAR'S HONEST FORM: a SAME-EPISODE descriptor (the
+organism's own unwalled death, measured in its own noise units) —
+the e208 class line was a within-episode coincidence of the
+first four rows. THE FREE FIND MAY OUTLIVE THE SCANDAL: the
+walled roots' noise bands are 2-3x WIDER — the wall's protection
+GROWS the organism's wash-noise ball (the walled history leaves
+the net more displacement-tolerant in random directions? or the
+settled mid-stride states carry a wider functional noise floor?)
+— the walled-band question, a genuinely new wall property. THE
+PROGRAM'S LAW HOLDS THROUGH THE DEMOTION: the margin was minted
+at n=4, extended at n=7, and broke — the lab's own census
+discipline killing its own scalar's overreach in one cell.
+
 ## T178 — g1bS8: the wall's flat phase is its own object (2026-10-02 ~13:15Z)
 
 The in-spec take closes the wall saga's last question: WALL-FADES
@@ -719,6 +740,13 @@ difference alone. THE PROGRAM'S LAW GAINS A MEMBER: the margin is
 a HEIGHT scalar (per-organism, lottery-flavored — the fork flips
 it) that nonetheless PREDICTS A CLASS (the shape layer): the
 lottery draws the height, and the height sets the class.
+
+
+[E209 AMENDMENT ~14:00Z]: the class line BREAKS at n=7 (the
+extension's rows violate; the anatomy is an episode mismatch);
+the scalar demotes to a SAME-EPISODE descriptor — this card's
+"class predictor" claim is withdrawn; the honest residue is
+T179's.
 
 ## T176 — g10: size, not timing — the wall's limit confirmed by its own fix attempts (2026-10-02 ~12:45Z)
 

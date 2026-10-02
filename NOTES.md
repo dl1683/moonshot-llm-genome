@@ -9,6 +9,36 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e209 — the census debt: MARGIN-BREAKS at n=7 — the scalar demotes to a DESCRIPTOR; the anatomy: an EPISODE MISMATCH (the margin at the settled state vs the first-episode clock); the walled roots' noise bands GROW 2-3x under the wall (2026-10-02 ~14:00Z) — DONE
+
+WHAT WE DID: the g1b/g1bR 2.74M W1 roots (10902 + 10907/10908)
+got their static rays + in-span bands (the e191/e192/e205
+machinery; fresh seeds); three deterministic passes bit-identical.
+
+WHAT WE SAW (T179): THE EXTENDED TABLE (n=7) — the new rows R5
+0.744x and R6 0.786x sit BELOW 1x yet their seeds' unwalled C-arms
+SURVIVED the first wash step (deaths +2/+4): the 2x class line
+does not survive the extension; Spearman 0.738 -> 0.225; THE
+SCALAR DEMOTES FROM CLASS PREDICTOR TO PER-ORGANISM DESCRIPTOR.
+THE ANATOMY (the honest disclosure): AN EPISODE MISMATCH — the
+margin is measured at the s300 SETTLED state while the honest
+survival column is the lineage's FIRST-episode clock; the frozen
+letter joined the episodes and broke (no bar shopping). THE LOOP
+CLOSED BY THE CO-READ: at all three s300 roots the fact DIES AT
+THE FIRST UNWALLED STEP of the band history (ruler traces
+0.0001/0.0266/0.0009) — these organisms are WALL-DEPENDENT, and
+their at-or-below-noise margins TRACK EXACTLY THAT: the margin
+still describes the s300 organism's OWN unwalled death; it does
+not predict another episode's. TWO FREE FINDS: (1) the committed
+checkpoints store MID-STRIDE states (settling is the load path;
+the settled reads = the committed at ~5e-6); (2) THE WALLED
+ROOTS' BANDS ARE 2-3x WIDER than the pristine root's — THE NOISE
+BALL GROWS UNDER THE WALL. FORKS REGISTERED: same-episode margins
+(at the E131 root per seed — the C-arm clock's own episode); the
+walled-band question (does a walled history widen the band?).
+
+---
+
 ## g1bS8 — the sixth take, the FIRST IN-SPEC adjudication: WALL-FADES — the verdict draw-clean; the cross-draw texture: the dip shallows but the flat phase is root-independent (the lottery's gains do NOT transfer through the ball) (2026-10-02 ~13:15Z) — DONE
 
 WHAT WE DID: the wall arms on the 0.9351 root (the first over the
