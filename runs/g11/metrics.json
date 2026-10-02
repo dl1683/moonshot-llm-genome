@@ -1,0 +1,1566 @@
+{
+  "design": "G11 THE CRUSH MECHANISM: at THREE roots (the locked e131 cons-10901; g1e's cons-10912; g1f's cons-10913 \u2014 all committed, provenance-gated): (1) the first wash gradient g_0 (the seed-10902 stream, VERBATIM) vs each root's OWN fact sensitivity s_0 (the e204 convention) \u2014 the primary read cos(g_0, -s_0); (2) the ball geometry: the first raw delta (1.6543) vs R=0.7, the rescale ratio, the projected landing point and the same alignment AFTER projection, the landing read gated vs the committed +1 crushes (0.9452 / 0.2719 / 0.2577); (3) the coordinate composition: the first delta's top-|delta| overlap with each root's OWN fact-carrier set (top-|s_0|, the e204 sensitivity top-k as the carrier proxy), the mass fractions, per-tensor tables, the differing-weights co-read. T194's question: what does the jitter-replay consolidation leave that costs the fact one extra projected step at the first wash gradient \u2014 the wash/root draws don't pay it?",
+  "registered": {
+    "ERASE_ALIGNED": "ERASE-ALIGNED: \"fires if the cons roots' first steps align more with their fact-erasing directions than the locked root's (cos difference >= 0.05 consistently) \u2014 the crush is DIRECTIONAL: the jitter-replay leaves the fact-support oriented toward the first wash gradient; named.\"",
+    "CARRIER_CONCENTRATED": "CARRIER-CONCENTRATED: \"fires if the cons roots' first deltas concentrate more on the fact-carrier coordinates (top-k overlap >= 1.5x the locked root's) \u2014 the crush is SPATIAL: the consolidation packed the fact where the first wash step lands; named.\"",
+    "PROJECTION_NEUTRAL": "PROJECTION-NEUTRAL: \"fires if the alignments and concentrations match across roots \u2014 the crush lives in the nonlinear interaction (not readable from first-order geometry); the honest limit; the nonlinear cell named.\"",
+    "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\"",
+    "operationalizations": "frozen BEFORE compute (they fix the clauses, they do not move the bars): the PRIMARY alignment read is the dispatch's literal cos(g_0, -s_0) with g_0 = the post-clip first wash gradient at the root (the stream's own arithmetic; cosine is clip-invariant \u2014 clip multiplies by a positive constant \u2014 the pre-clip norm co-reported) and s_0 = the unit fact-sensitivity at the SAME root (matched-point, T150); BOTH orientations ride in the table, the verdict reads the primary only. ERASE-ALIGNED fires iff BOTH cons roots' primary read >= locked's + 0.05 ('consistently' = the two fresh draws agree). CARRIER-CONCENTRATED fires iff BOTH cons roots' overlap at k=2000 >= 1.5x the locked root's, overlap = |top2000(|delta|) n top2000(|s_0|)|/2000, the ratio's denominator floored at one coordinate (disclosed); the k-ladder co-reported, never adjudicated. PROJECTION-NEUTRAL fires iff neither of the above fires AND the reads MATCH across roots: |cos_cons - cos_locked| < 0.05 at BOTH cons roots AND both overlap ratios strictly inside (1/1.5, 1.5). GRADED fires otherwise (any partial). Composite order frozen: a full firing names the mechanism(s) (both bars may fire \u2014 the crush can be directional AND spatial); hard-gate failure => the record completes, verdict TEXTURE (gate failure), nothing adjudicated.",
+    "registered_prediction": "TWO-SIDED, frozen before compute. FOR a directional/spatial signature: the C-arm co-read (the RAW first step erases the cons roots' fact to ~0.00 while the locked root holds 0.68) is too large and too replicated (0.2719/0.2577 to the second digit) to be first-order-orthogonal. AGAINST a clean firing: e204's f2 lesson (first-order alignments small, only partially tracking; the support ROTATES) and T178's law (root strength softens the shock \u2014 the roots' g-12 differ 0.9156/0.8575/0.9682, a named confound). PREDICTED: the erase-alignment ORDERS locked < cons at both draws; whether BOTH clear +0.05 is the open bit (the most likely honest landing is GRADED). FALSIFIER: locked >= cons on the primary read at either draw while the crush stands \u2014 the crush is then not first-order-directional. No bar shopping.",
+    "registration": "the dispatch's registration IS the registration (the bars quoted verbatim here and in the module docstring, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "deviations": [
+    "CPU-ONLY, FORCED (e193/e204's convention; the letter's 'mostly eval-only; CPU fine'): CUDA_VISIBLE_DEVICES=-1 before torch; the GPU is never claimed; the single AdamW first step per root runs on CPU (2.74M, seconds); the envelope load-check poll is recorded at start (recorded, not gating).",
+    "THE LOCKED ROOT'S FIRST-STEP DELTA IS REBUILT: g1b's W1 predates the resume-ckpt convention, so no committed delta vector exists for the locked root; its rebuilt delta is PRIMARY and gated by the disp-norm (1.6543) + the settled landing read vs the committed +1 (0.9452, texture tier 0.02). g1e/g1f's deltas are LOADED COMMITTED from the resume ckpts (deltas[1]) with the CPU rebuild as the gate (cos > 0.999 + rel L2 < 5%, e193's G_S1CK convention).",
+    "THE CARRIER SET IS A PROXY (e204's own disclosure carried): top-|s_0| at k=2000 primary (0.073% of 2,739,072 coords), ladder 500/1000/5000/10000 co-reported; the directly measured support does not exist at these roots; k is this cell's frozen choice (the letter fixes no k).",
+    "THE SIGN CONVENTIONS (the critic's, carried): s_0 = grad of the fact readout, so -s_0 is the fact-ERASING ray; the PRIMARY read is the letter's literal cos(g_0, -s_0); the exact negation cos(g_0, +s_0) and the displacement reads cos(delta, +-s_0) ride verbatim (the projection rescales the delta by a positive constant, so the projected and raw displacement reads are IDENTICAL \u2014 disclosed, not recomputed).",
+    "CLIP-INVARIANCE DISCLOSED: clip_grad_norm_ multiplies the gradient by a positive constant, so cos(g_0, s_0) is identical pre/post clip; the pre-clip norm is reported as texture (the roots' pre-clip norms differ \u2014 the gradient SCALE is its own read, outside the bars).",
+    "THE ROOT-STRENGTH CONFOUND, CO-NOTED (T178): the three roots' g-12 differ (0.9156 / 0.8575 / 0.9682); T178's law (strength softens the shock) predicts the STRONGER roots crush LESS \u2014 g1f's root (0.9682) is the strongest yet crushes hardest, already against a pure-strength reading; the alignment/composition reads carry the question regardless.",
+    "THE FD SIGN CHECK IS HARD per root (e204's G_SENSDIR): the direction must BE the fact's sensitivity (read(theta0+eps*s) strictly monotone at BOTH eps) before any alignment is believed; failure => TEXTURE, the record completes.",
+    "n=1 PER ROOT (three objects); alignment/composition reads cannot establish causality (no intervention); a firing names where to intervene next, not a mechanism proven.",
+    "torch threads 4 (shared machine; g1/g1b's import resets to 8 \u2014 reset after import).",
+    "Smoke mode trims: FD eps {0.05}, the k-ladder to {2000}; nothing adjudicated."
+  ],
+  "smoke": false,
+  "owner_envelope": {
+    "policy": "CPU-ONLY forced (CUDA_VISIBLE_DEVICES=-1); threads 4; no GPU launch; load-check poll recorded",
+    "device_events": [
+      {
+        "tag": "g11",
+        "event": "LOAD CHECK (CPU-only policy; GPU never claimed)",
+        "status": {
+          "util": 0.0,
+          "mem_used": 0.0,
+          "mem_total": 24463.0,
+          "temp": 55.0,
+          "power": 27.73
+        },
+        "note": "the letter's envelope: eval-only cell; the single AdamW step per root runs CPU (2.74M); no GPU launch"
+      }
+    ]
+  },
+  "experiment": "g11_crush_mech",
+  "date": "2026-10-02T17:13:32Z",
+  "phase": "final",
+  "write_n": 8,
+  "phases": [
+    "start (bars + prediction registered before compute)",
+    "protocol + stream gates",
+    "cell locked_10901 (gates + reads)",
+    "cell g1e_10912 (gates + reads)",
+    "cell g1f_10913 (gates + reads)",
+    "cross-root reads complete",
+    "adjudication",
+    "final"
+  ],
+  "status": "COMPLETE",
+  "timing_partial": {
+    "total_s": 17.8
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "the g-12 install-60 battery (e194/e195's fact_grad convention, e204's carrier; shapes 60x118)"
+    },
+    "G_STREAM": {
+      "x1_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "vs_g1e_resume": true,
+      "vs_g1f_resume": true,
+      "vs_e185_stored": true,
+      "note": "the seed-10902 stream drawn VERBATIM (the e170 bank + the first batch); md5-gated vs the g1e/g1f resume ckpts' own x_hashes[1] (the exact batches the committed runs consumed) + e185's stored hash (the family co-report)",
+      "pass": true
+    },
+    "locked_10901__G_ROOT": {
+      "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+      "meta": {
+        "recipe": "e113 verbatim: jittered replay 300 steps",
+        "seed": 10901,
+        "base": "runs/checkpoints/e048_repro.pt"
+      },
+      "params": 2739072,
+      "body_md5": "df74c435719c16f53d7a62a89571d2d9",
+      "gm12": 0.9155886173248291,
+      "gm12_committed": 0.9155886769294739,
+      "gm12_d": 5.960464477539063e-08,
+      "g0": 0.7850371599197388,
+      "meta_gate": true,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the root loads into the 2,739,072 cfg clean; its same-instrument g-12 reproduces the committed root cell (texture tier 0.02); meta provenance for the fresh draws (experiment + cons_seed)"
+    },
+    "locked_10901__G_SENSDIR": {
+      "convention": "e194/e195's fact_grad VERBATIM (the g-12 install-60 battery; matched-point at the root); FD sign check HARD at eps in (0.05, 0.02) (e204's G_SENSDIR)",
+      "readout_theta0_mean_log_pz": -0.11115399599075318,
+      "probes": {
+        "eps0.05_plus": -0.005701023712754249,
+        "eps0.05_minus": -2.0422589619954428,
+        "eps0.05_monotone": true,
+        "eps0.02_plus": -0.018887384235858916,
+        "eps0.02_minus": -0.5855538050333658,
+        "eps0.02_monotone": true
+      },
+      "pass": true
+    },
+    "locked_10901__G_STEP1": {
+      "disp_rebuilt": 1.6542880535125732,
+      "disp_committed": 1.6542880535125732,
+      "disp_d": 0.0,
+      "primary": "REBUILT (g1b predates the resume convention; gated by disp + landing)",
+      "pass": true
+    },
+    "locked_10901__G_LAND": {
+      "committed_plus1": 0.9451885223388672,
+      "settled_read": 0.9451882839202881,
+      "d_vs_committed": 2.384185791015625e-07,
+      "raw_read_coreported": 0.6780441403388977,
+      "projection_arithmetic_maxdiff": 1.1920928955078125e-07,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the settled read at the projected landing point reproduces the committed +1 crush read (the in-run ARMED-twin convention) + the in-place projection matches theta0 + (R/|delta|)*delta to fp32"
+    },
+    "g1e_10912__G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1e_root.pt",
+      "meta": {
+        "experiment": "g1e",
+        "desc": "FRESH-CONS ROOT: e001 base LOADED + e048_repro install LOADED (gen 24313 HELD) + e113 consolidation s300 (seed 10912, was 10901 \u2014 the g1e cons-seed redraw of the e131 line)",
+        "install_seed": 24313,
+        "install_artifact": "runs/checkpoints/e048_repro.pt",
+        "cons_seed": 10912,
+        "cons_steps": 300,
+        "base": "runs/checkpoints/e001.pt",
+        "locked_root": "runs/checkpoints/e131_consolidated_e113.pt"
+      },
+      "params": 2739072,
+      "body_md5": "32e9692509afec57ba8fd3e65cae3190",
+      "gm12": 0.857479989528656,
+      "gm12_committed": 0.857479989528656,
+      "gm12_d": 0.0,
+      "g0": 0.6659361124038696,
+      "meta_gate": true,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the root loads into the 2,739,072 cfg clean; its same-instrument g-12 reproduces the committed root cell (texture tier 0.02); meta provenance for the fresh draws (experiment + cons_seed)"
+    },
+    "g1e_10912__G_ANCHOR": {
+      "form": "the W1 arm's wall anchor (theta_anchor) IS the root \u2014 the anch__ buffers in the committed resume sds[1] must equal the root ckpt's commit(R)",
+      "wall_R_resume": 0.699999988079071,
+      "wall_R_expected": 0.7,
+      "wall_R_match": true,
+      "anch_md5_root_rebuilt": "3fb9cbaa3429865695c27f4cd90785c0",
+      "anch_md5_resume": "3fb9cbaa3429865695c27f4cd90785c0",
+      "anch_md5_match": true,
+      "pass": true
+    },
+    "g1e_10912__G_SENSDIR": {
+      "convention": "e194/e195's fact_grad VERBATIM (the g-12 install-60 battery; matched-point at the root); FD sign check HARD at eps in (0.05, 0.02) (e204's G_SENSDIR)",
+      "readout_theta0_mean_log_pz": -0.17306139469146728,
+      "probes": {
+        "eps0.05_plus": -0.01052567313114802,
+        "eps0.05_minus": -3.9696978251139323,
+        "eps0.05_monotone": true,
+        "eps0.02_plus": -0.041591453552246097,
+        "eps0.02_minus": -1.0624616940816243,
+        "eps0.02_monotone": true
+      },
+      "pass": true
+    },
+    "g1e_10912__G_STEP1": {
+      "disp_rebuilt": 1.6542651653289795,
+      "disp_committed": 1.6542880535125732,
+      "disp_d": 2.288818359375e-05,
+      "cos_rebuilt_vs_committed": 0.9999999513161716,
+      "rel_l2_vs_committed": 0.0,
+      "primary": "COMMITTED deltas[1] (the run's own vector); the rebuild is the gate",
+      "pass": true
+    },
+    "g1e_10912__G_LAND": {
+      "committed_plus1": 0.2719059884548187,
+      "settled_read": 0.2719059884548187,
+      "d_vs_committed": 0.0,
+      "raw_read_coreported": 0.0022325143218040466,
+      "projection_arithmetic_maxdiff": 1.1920928955078125e-07,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the settled read at the projected landing point reproduces the committed +1 crush read (the in-run ARMED-twin convention) + the in-place projection matches theta0 + (R/|delta|)*delta to fp32"
+    },
+    "g1f_10913__G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1f_root.pt",
+      "meta": {
+        "experiment": "g1f",
+        "desc": "SECOND-FRESH-CONS ROOT: e001 base LOADED + e048_repro install LOADED (gen 24313 HELD) + e113 consolidation s300 (seed 10913: 10901 locked -> 10912 g1e -> 10913 this \u2014 the second cons redraw of the e131 line)",
+        "install_seed": 24313,
+        "install_artifact": "runs/checkpoints/e048_repro.pt",
+        "cons_seed": 10913,
+        "cons_steps": 300,
+        "base": "runs/checkpoints/e001.pt",
+        "locked_root": "runs/checkpoints/e131_consolidated_e113.pt"
+      },
+      "params": 2739072,
+      "body_md5": "89a7b7459afd49e35421100232715ba3",
+      "gm12": 0.9682114720344543,
+      "gm12_committed": 0.9682114720344543,
+      "gm12_d": 0.0,
+      "g0": 0.7221678495407104,
+      "meta_gate": true,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the root loads into the 2,739,072 cfg clean; its same-instrument g-12 reproduces the committed root cell (texture tier 0.02); meta provenance for the fresh draws (experiment + cons_seed)"
+    },
+    "g1f_10913__G_ANCHOR": {
+      "form": "the W1 arm's wall anchor (theta_anchor) IS the root \u2014 the anch__ buffers in the committed resume sds[1] must equal the root ckpt's commit(R)",
+      "wall_R_resume": 0.699999988079071,
+      "wall_R_expected": 0.7,
+      "wall_R_match": true,
+      "anch_md5_root_rebuilt": "0c076743eb401029d71d9fb89fe04e13",
+      "anch_md5_resume": "0c076743eb401029d71d9fb89fe04e13",
+      "anch_md5_match": true,
+      "pass": true
+    },
+    "g1f_10913__G_SENSDIR": {
+      "convention": "e194/e195's fact_grad VERBATIM (the g-12 install-60 battery; matched-point at the root); FD sign check HARD at eps in (0.05, 0.02) (e204's G_SENSDIR)",
+      "readout_theta0_mean_log_pz": -0.035987999041875204,
+      "probes": {
+        "eps0.05_plus": -0.02429466644922892,
+        "eps0.05_minus": -0.92210480372111,
+        "eps0.05_monotone": true,
+        "eps0.02_plus": -0.008539402236541113,
+        "eps0.02_minus": -0.17265188296635944,
+        "eps0.02_monotone": true
+      },
+      "pass": true
+    },
+    "g1f_10913__G_STEP1": {
+      "disp_rebuilt": 1.654300570487976,
+      "disp_committed": 1.6542880535125732,
+      "disp_d": 1.2516975402832031e-05,
+      "cos_rebuilt_vs_committed": 0.9999999304090664,
+      "rel_l2_vs_committed": 7.206023601600861e-08,
+      "primary": "COMMITTED deltas[1] (the run's own vector); the rebuild is the gate",
+      "pass": true
+    },
+    "g1f_10913__G_LAND": {
+      "committed_plus1": 0.25772199034690857,
+      "settled_read": 0.25772199034690857,
+      "d_vs_committed": 0.0,
+      "raw_read_coreported": 0.0003398194967303425,
+      "projection_arithmetic_maxdiff": 1.1920928955078125e-07,
+      "tol": 0.02,
+      "pass": true,
+      "note": "the settled read at the projected landing point reproduces the committed +1 crush read (the in-run ARMED-twin convention) + the in-place projection matches theta0 + (R/|delta|)*delta to fp32"
+    }
+  },
+  "cells": {
+    "locked_10901": {
+      "spec": {
+        "tag": "locked_10901",
+        "ckpt": "e131_consolidated_e113.pt",
+        "cons_seed": 10901,
+        "lineage": "the LOCKED draw (e109a/e113/g1b)",
+        "ref_metrics": "runs/g1b/metrics.json"
+      },
+      "root": {
+        "gm12": 0.9155886173248291,
+        "g0": 0.7850371599197388,
+        "body_md5": "df74c435719c16f53d7a62a89571d2d9",
+        "readout_mean_log_pz": -0.11115399599075318
+      },
+      "first_step": {
+        "ce_batch": 1.356567621231079,
+        "preclip_gnorm": 0.9829167127609253,
+        "clip_binds": false,
+        "d_raw_rebuilt": 1.6542880535125732,
+        "d_primary": 1.6542880535125732,
+        "R": 0.7,
+        "rescale_ratio": 0.4231427522635372,
+        "delta_primary": "REBUILT (g1b predates the resume convention; gated by disp + landing)"
+      },
+      "landing": {
+        "settled_plus1": 0.9451882839202881,
+        "raw_plus1": 0.6780441403388977,
+        "committed_plus1": 0.9451885223388672,
+        "crush_delta_vs_root": 0.029599666595458984
+      },
+      "alignment": {
+        "primary_cos_g0_neg_s0": 0.0986213596773565,
+        "cos_g0_pos_s0": -0.0986213596773565,
+        "cos_delta_neg_s0": -0.039539022253024816,
+        "cos_delta_pos_s0": 0.039539022253024816,
+        "note": "the projection rescales delta by a positive constant, so the projected-step alignment is IDENTICAL to cos_delta_*; cos(g0, +-s0) is clip-invariant; both orientations verbatim"
+      },
+      "composition": {
+        "overlap_by_k": {
+          "500": 0.0,
+          "1000": 0.0,
+          "2000": 0.007,
+          "5000": 0.0076,
+          "10000": 0.0078
+        },
+        "k_primary": 2000,
+        "mass_frac_on_carriers": 0.0007308993277546273,
+        "null_frac_k_over_P": 0.0007301743072106173,
+        "mass_excess_ratio": 1.0009929417357613
+      },
+      "per_tensor": {
+        "wte.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.004275370928055268,
+          "s_l2_frac": 0.057288069278001785
+        },
+        "wpe.weight": {
+          "n": 49152,
+          "delta_l2_frac": 0.017891769552469843,
+          "s_l2_frac": 0.07320869714021683
+        },
+        "h.0.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.402182526122439e-05,
+          "s_l2_frac": 0.00040416783303953707
+        },
+        "h.0.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011795217358438e-05,
+          "s_l2_frac": 0.0032257093116641045
+        },
+        "h.0.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04038838319849192,
+          "s_l2_frac": 0.028415195643901825
+        },
+        "h.0.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013468761211253602,
+          "s_l2_frac": 0.08556745201349258
+        },
+        "h.0.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.816888169874308e-05,
+          "s_l2_frac": 0.0008599139400757849
+        },
+        "h.0.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.020246132809022e-05,
+          "s_l2_frac": 0.0018319182563573122
+        },
+        "h.0.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05384462363380611,
+          "s_l2_frac": 0.08958055078983307
+        },
+        "h.0.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028061678180126806,
+          "s_l2_frac": 0.0008743463549762964
+        },
+        "h.0.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05385500180251258,
+          "s_l2_frac": 0.06512586772441864
+        },
+        "h.0.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.013150618068407e-05,
+          "s_l2_frac": 0.0017271526157855988
+        },
+        "h.1.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.080131022317625e-05,
+          "s_l2_frac": 0.0001814546121750027
+        },
+        "h.1.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015303626100837e-05,
+          "s_l2_frac": 0.00017063682025764138
+        },
+        "h.1.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04038159328433821,
+          "s_l2_frac": 0.036958251148462296
+        },
+        "h.1.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013464358929302303,
+          "s_l2_frac": 0.025576844811439514
+        },
+        "h.1.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.939843592537426e-05,
+          "s_l2_frac": 4.2963809391949326e-05
+        },
+        "h.1.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.013662150231212e-05,
+          "s_l2_frac": 7.865028601372615e-05
+        },
+        "h.1.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05380355200392528,
+          "s_l2_frac": 0.009903288446366787
+        },
+        "h.1.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028032124170138546,
+          "s_l2_frac": 9.579867037246004e-05
+        },
+        "h.1.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05383123982547427,
+          "s_l2_frac": 0.013455254025757313
+        },
+        "h.1.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.018338787831909e-05,
+          "s_l2_frac": 0.0011207574279978871
+        },
+        "h.2.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.035401735412215e-05,
+          "s_l2_frac": 0.00015452421212103218
+        },
+        "h.2.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.017171090711826e-05,
+          "s_l2_frac": 0.0002889664610847831
+        },
+        "h.2.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04037316442538878,
+          "s_l2_frac": 0.06482037901878357
+        },
+        "h.2.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013466555986528461,
+          "s_l2_frac": 0.024917788803577423
+        },
+        "h.2.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.07316471996325e-05,
+          "s_l2_frac": 0.00012186307867523283
+        },
+        "h.2.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.006019476867389e-05,
+          "s_l2_frac": 0.00012375197547953576
+        },
+        "h.2.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05383941821445491,
+          "s_l2_frac": 0.016184531152248383
+        },
+        "h.2.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002805393819866964,
+          "s_l2_frac": 0.0001329703227384016
+        },
+        "h.2.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053859090997002895,
+          "s_l2_frac": 0.02815754897892475
+        },
+        "h.2.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.017958595008203e-05,
+          "s_l2_frac": 0.0010103742824867368
+        },
+        "h.3.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.220063782708438e-05,
+          "s_l2_frac": 0.00022777437698096037
+        },
+        "h.3.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.019851051315296e-05,
+          "s_l2_frac": 0.00019864195201080292
+        },
+        "h.3.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04038761000858829,
+          "s_l2_frac": 0.042465344071388245
+        },
+        "h.3.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013468019330096071,
+          "s_l2_frac": 0.03840629756450653
+        },
+        "h.3.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.301233621224241e-05,
+          "s_l2_frac": 7.906598330009729e-05
+        },
+        "h.3.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 6.992952010234399e-05,
+          "s_l2_frac": 9.01221574167721e-05
+        },
+        "h.3.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053864214741364276,
+          "s_l2_frac": 0.028185591101646423
+        },
+        "h.3.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002803934092119217,
+          "s_l2_frac": 0.00015320265083573759
+        },
+        "h.3.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053859733506922816,
+          "s_l2_frac": 0.03797874227166176
+        },
+        "h.3.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.017540648771233e-05,
+          "s_l2_frac": 0.0009919728618115187
+        },
+        "h.4.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.939083738628228e-05,
+          "s_l2_frac": 0.00018548715161159635
+        },
+        "h.4.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.013636626796894e-05,
+          "s_l2_frac": 0.0002530026249587536
+        },
+        "h.4.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.040391707370577595,
+          "s_l2_frac": 0.054140605032444
+        },
+        "h.4.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013467781111375763,
+          "s_l2_frac": 0.016503848135471344
+        },
+        "h.4.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.082890211915127e-05,
+          "s_l2_frac": 8.745510422158986e-05
+        },
+        "h.4.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 6.989641939846185e-05,
+          "s_l2_frac": 0.00017131288768723607
+        },
+        "h.4.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053862788151542086,
+          "s_l2_frac": 0.03745538741350174
+        },
+        "h.4.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002806037648497655,
+          "s_l2_frac": 0.00021354983618948609
+        },
+        "h.4.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053859281571979147,
+          "s_l2_frac": 0.019846104085445404
+        },
+        "h.4.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.022055637954579e-05,
+          "s_l2_frac": 0.0008736416348256171
+        },
+        "h.5.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.252889046195222e-05,
+          "s_l2_frac": 0.00015102575707715005
+        },
+        "h.5.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.005818479822128e-05,
+          "s_l2_frac": 0.0003503439365886152
+        },
+        "h.5.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04038267956170282,
+          "s_l2_frac": 0.030512360855937004
+        },
+        "h.5.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.01346675200650403,
+          "s_l2_frac": 0.009519113227725029
+        },
+        "h.5.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.103426473515643e-05,
+          "s_l2_frac": 9.527228394290432e-05
+        },
+        "h.5.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.055631184062692e-05,
+          "s_l2_frac": 0.0001607951708137989
+        },
+        "h.5.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053866305621103665,
+          "s_l2_frac": 0.023988401517271996
+        },
+        "h.5.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028072997823247177,
+          "s_l2_frac": 0.00012581130431499332
+        },
+        "h.5.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05383943454945288,
+          "s_l2_frac": 0.0105265649035573
+        },
+        "h.5.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015021804846901e-05,
+          "s_l2_frac": 0.0003324286954011768
+        },
+        "ln_f.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.30301653945905e-05,
+          "s_l2_frac": 0.0001141229658969678
+        },
+        "ln_f.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.03365657059067e-05,
+          "s_l2_frac": 0.00016557479102630168
+        },
+        "lm_head.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.004534597136370313,
+          "s_l2_frac": 0.014303142204880714
+        }
+      }
+    },
+    "g1e_10912": {
+      "spec": {
+        "tag": "g1e_10912",
+        "ckpt": "g1e_root.pt",
+        "cons_seed": 10912,
+        "lineage": "the FIRST cons redraw (the +1 breach)",
+        "ref_metrics": "runs/g1e/metrics.json"
+      },
+      "root": {
+        "gm12": 0.857479989528656,
+        "g0": 0.6659361124038696,
+        "body_md5": "32e9692509afec57ba8fd3e65cae3190",
+        "readout_mean_log_pz": -0.17306139469146728
+      },
+      "first_step": {
+        "ce_batch": 1.3500604629516602,
+        "preclip_gnorm": 1.3212401866912842,
+        "clip_binds": true,
+        "d_raw_rebuilt": 1.6542651653289795,
+        "d_primary": 1.6542651653289795,
+        "R": 0.7,
+        "rescale_ratio": 0.4231486068080221,
+        "delta_primary": "COMMITTED deltas[1] (the run's own vector); the rebuild is the gate"
+      },
+      "landing": {
+        "settled_plus1": 0.2719059884548187,
+        "raw_plus1": 0.0022325143218040466,
+        "committed_plus1": 0.2719059884548187,
+        "crush_delta_vs_root": -0.5855740010738373
+      },
+      "alignment": {
+        "primary_cos_g0_neg_s0": -0.09619380847574797,
+        "cos_g0_pos_s0": 0.09619380847574797,
+        "cos_delta_neg_s0": 0.03416618495177012,
+        "cos_delta_pos_s0": -0.03416618495177012,
+        "note": "the projection rescales delta by a positive constant, so the projected-step alignment is IDENTICAL to cos_delta_*; cos(g0, +-s0) is clip-invariant; both orientations verbatim"
+      },
+      "composition": {
+        "overlap_by_k": {
+          "500": 0.0,
+          "1000": 0.0,
+          "2000": 0.0115,
+          "5000": 0.0138,
+          "10000": 0.0116
+        },
+        "k_primary": 2000,
+        "mass_frac_on_carriers": 0.0007308976483409892,
+        "null_frac_k_over_P": 0.0007301743072106173,
+        "mass_excess_ratio": 1.000990641718325,
+        "differing_overlap_primary": 0.0,
+        "sens_on_differing_primary": 0.0
+      },
+      "per_tensor": {
+        "wte.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.004276745164641303,
+          "s_l2_frac": 0.0531156100332737
+        },
+        "wpe.weight": {
+          "n": 49152,
+          "delta_l2_frac": 0.01788987073779781,
+          "s_l2_frac": 0.048341840505599976
+        },
+        "h.0.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.490302317712108e-05,
+          "s_l2_frac": 0.0001721484150039032
+        },
+        "h.0.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.023519477756844e-05,
+          "s_l2_frac": 0.0015219975030049682
+        },
+        "h.0.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04039142973874431,
+          "s_l2_frac": 0.02024943195283413
+        },
+        "h.0.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013468338009047487,
+          "s_l2_frac": 0.040980104357004166
+        },
+        "h.0.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.890977928769857e-05,
+          "s_l2_frac": 0.0007849411922506988
+        },
+        "h.0.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.017719116613793e-05,
+          "s_l2_frac": 0.00047225248999893665
+        },
+        "h.0.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05384418781185464,
+          "s_l2_frac": 0.06948532909154892
+        },
+        "h.0.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028047896231108815,
+          "s_l2_frac": 0.0004068211419507861
+        },
+        "h.0.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053852758478229505,
+          "s_l2_frac": 0.07522767782211304
+        },
+        "h.0.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015010367103095e-05,
+          "s_l2_frac": 0.0012552578700706363
+        },
+        "h.1.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.562324532077554e-05,
+          "s_l2_frac": 0.0006230744766071439
+        },
+        "h.1.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.02308450384641e-05,
+          "s_l2_frac": 0.0002699933829717338
+        },
+        "h.1.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04039290809701672,
+          "s_l2_frac": 0.05956568196415901
+        },
+        "h.1.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013471008855208142,
+          "s_l2_frac": 0.019605878740549088
+        },
+        "h.1.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.222369555696546e-05,
+          "s_l2_frac": 8.190188236767426e-05
+        },
+        "h.1.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011541210878556e-05,
+          "s_l2_frac": 7.954649481689557e-05
+        },
+        "h.1.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053797011030741665,
+          "s_l2_frac": 0.008741362020373344
+        },
+        "h.1.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002801548269848727,
+          "s_l2_frac": 8.277611050289124e-05
+        },
+        "h.1.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053826137139025745,
+          "s_l2_frac": 0.01457308977842331
+        },
+        "h.1.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015634113309621e-05,
+          "s_l2_frac": 0.0011804759269580245
+        },
+        "h.2.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.931035941753752e-05,
+          "s_l2_frac": 0.0002604482288006693
+        },
+        "h.2.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.016871502416688e-05,
+          "s_l2_frac": 0.00030917825642973185
+        },
+        "h.2.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.040373321891838586,
+          "s_l2_frac": 0.07066278904676437
+        },
+        "h.2.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013465679414474725,
+          "s_l2_frac": 0.028862303122878075
+        },
+        "h.2.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.962094567867002e-05,
+          "s_l2_frac": 0.00014718653983436525
+        },
+        "h.2.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.014590814028116e-05,
+          "s_l2_frac": 0.00014531308261211962
+        },
+        "h.2.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05383339552420853,
+          "s_l2_frac": 0.020114906132221222
+        },
+        "h.2.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028045031146231776,
+          "s_l2_frac": 0.00013822110486216843
+        },
+        "h.2.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053855334034262105,
+          "s_l2_frac": 0.03331455588340759
+        },
+        "h.2.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.014163816411883e-05,
+          "s_l2_frac": 0.0009824670851230621
+        },
+        "h.3.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.225278244315219e-05,
+          "s_l2_frac": 0.00025817524874582887
+        },
+        "h.3.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011771459904496e-05,
+          "s_l2_frac": 0.0002536771062295884
+        },
+        "h.3.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04039279102628796,
+          "s_l2_frac": 0.07580843567848206
+        },
+        "h.3.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013469226929813496,
+          "s_l2_frac": 0.061083778738975525
+        },
+        "h.3.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.451927834557595e-05,
+          "s_l2_frac": 0.0001242355356225744
+        },
+        "h.3.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 6.994879264045372e-05,
+          "s_l2_frac": 0.0001575232163304463
+        },
+        "h.3.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05386169396966607,
+          "s_l2_frac": 0.03450588881969452
+        },
+        "h.3.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002804690504361609,
+          "s_l2_frac": 0.00016402939218096435
+        },
+        "h.3.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05385891694307701,
+          "s_l2_frac": 0.03911339119076729
+        },
+        "h.3.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.012343094322241e-05,
+          "s_l2_frac": 0.0010331121739000082
+        },
+        "h.4.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.233109369961875e-05,
+          "s_l2_frac": 9.380019037052989e-05
+        },
+        "h.4.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.016993805594439e-05,
+          "s_l2_frac": 0.0001915261964313686
+        },
+        "h.4.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04039269029100973,
+          "s_l2_frac": 0.043871328234672546
+        },
+        "h.4.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013467123740558546,
+          "s_l2_frac": 0.012438379228115082
+        },
+        "h.4.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.763238640644886e-05,
+          "s_l2_frac": 0.0001390820398228243
+        },
+        "h.4.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.056882189388324e-05,
+          "s_l2_frac": 0.00015880419232416898
+        },
+        "h.4.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053859695599551984,
+          "s_l2_frac": 0.040979452431201935
+        },
+        "h.4.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002806090928922146,
+          "s_l2_frac": 0.00018209665722679347
+        },
+        "h.4.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053856934908413444,
+          "s_l2_frac": 0.025695741176605225
+        },
+        "h.4.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011659260032733e-05,
+          "s_l2_frac": 0.0004860784101765603
+        },
+        "h.5.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.317730938647402e-05,
+          "s_l2_frac": 3.367587487446144e-05
+        },
+        "h.5.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.01585160026484e-05,
+          "s_l2_frac": 7.191077020252123e-05
+        },
+        "h.5.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.040384239417938714,
+          "s_l2_frac": 0.010040825232863426
+        },
+        "h.5.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.01346543574400441,
+          "s_l2_frac": 0.004168442450463772
+        },
+        "h.5.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.005185167906161e-05,
+          "s_l2_frac": 0.00011425686534494162
+        },
+        "h.5.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.037036637663002e-05,
+          "s_l2_frac": 0.00012196354509796947
+        },
+        "h.5.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05386358343677666,
+          "s_l2_frac": 0.03329271450638771
+        },
+        "h.5.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028064956992652053,
+          "s_l2_frac": 0.00015543629706371576
+        },
+        "h.5.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05384126921136104,
+          "s_l2_frac": 0.020081065595149994
+        },
+        "h.5.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011146118439127e-05,
+          "s_l2_frac": 0.00038838962791487575
+        },
+        "ln_f.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.852744594457848e-05,
+          "s_l2_frac": 0.00016083898663055152
+        },
+        "ln_f.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015133202033791e-05,
+          "s_l2_frac": 0.0002101563586620614
+        },
+        "lm_head.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.004530005905700976,
+          "s_l2_frac": 0.02308320626616478
+        }
+      }
+    },
+    "g1f_10913": {
+      "spec": {
+        "tag": "g1f_10913",
+        "ckpt": "g1f_root.pt",
+        "cons_seed": 10913,
+        "lineage": "the SECOND cons redraw (CRUSH-IS-TEXTURE)",
+        "ref_metrics": "runs/g1f/metrics.json"
+      },
+      "root": {
+        "gm12": 0.9682114720344543,
+        "g0": 0.7221678495407104,
+        "body_md5": "89a7b7459afd49e35421100232715ba3",
+        "readout_mean_log_pz": -0.035987999041875204
+      },
+      "first_step": {
+        "ce_batch": 1.3673902750015259,
+        "preclip_gnorm": 1.1727981567382812,
+        "clip_binds": true,
+        "d_raw_rebuilt": 1.654300570487976,
+        "d_primary": 1.6543004512786865,
+        "R": 0.7,
+        "rescale_ratio": 0.42313958111958266,
+        "delta_primary": "COMMITTED deltas[1] (the run's own vector); the rebuild is the gate"
+      },
+      "landing": {
+        "settled_plus1": 0.25772199034690857,
+        "raw_plus1": 0.0003398194967303425,
+        "committed_plus1": 0.25772199034690857,
+        "crush_delta_vs_root": -0.7104894816875458
+      },
+      "alignment": {
+        "primary_cos_g0_neg_s0": -0.021142395519228162,
+        "cos_g0_pos_s0": 0.021142395519228162,
+        "cos_delta_neg_s0": 0.011341267726398693,
+        "cos_delta_pos_s0": -0.011341267726398693,
+        "note": "the projection rescales delta by a positive constant, so the projected-step alignment is IDENTICAL to cos_delta_*; cos(g0, +-s0) is clip-invariant; both orientations verbatim"
+      },
+      "composition": {
+        "overlap_by_k": {
+          "500": 0.0,
+          "1000": 0.0,
+          "2000": 0.0105,
+          "5000": 0.0104,
+          "10000": 0.0088
+        },
+        "k_primary": 2000,
+        "mass_frac_on_carriers": 0.0007308682164362695,
+        "null_frac_k_over_P": 0.0007301743072106173,
+        "mass_excess_ratio": 1.0009503336652628,
+        "differing_overlap_primary": 0.0005,
+        "sens_on_differing_primary": 0.0
+      },
+      "per_tensor": {
+        "wte.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.004279892846088118,
+          "s_l2_frac": 0.042901597917079926
+        },
+        "wpe.weight": {
+          "n": 49152,
+          "delta_l2_frac": 0.01788202865917202,
+          "s_l2_frac": 0.06857380270957947
+        },
+        "h.0.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.73131038556693e-05,
+          "s_l2_frac": 0.00013028689136262983
+        },
+        "h.0.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011839034188061e-05,
+          "s_l2_frac": 0.001158869476057589
+        },
+        "h.0.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04037517301770583,
+          "s_l2_frac": 0.018647244200110435
+        },
+        "h.0.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013460590752665353,
+          "s_l2_frac": 0.03557774797081947
+        },
+        "h.0.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.193061741844211e-05,
+          "s_l2_frac": 0.000976097013335675
+        },
+        "h.0.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.012887606235518e-05,
+          "s_l2_frac": 0.00047606832231394947
+        },
+        "h.0.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05385730386491586,
+          "s_l2_frac": 0.06051455810666084
+        },
+        "h.0.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028053560365276444,
+          "s_l2_frac": 0.0004376625001896173
+        },
+        "h.0.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053864382257966435,
+          "s_l2_frac": 0.06461932510137558
+        },
+        "h.0.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.012324503903745e-05,
+          "s_l2_frac": 0.0015481595182791352
+        },
+        "h.1.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.687013002134124e-05,
+          "s_l2_frac": 0.0003052522079087794
+        },
+        "h.1.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.007810645835358e-05,
+          "s_l2_frac": 0.00028589245630428195
+        },
+        "h.1.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04036209160285659,
+          "s_l2_frac": 0.04926322400569916
+        },
+        "h.1.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013459659671733315,
+          "s_l2_frac": 0.01907574199140072
+        },
+        "h.1.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.095680132643804e-05,
+          "s_l2_frac": 4.426712621352635e-05
+        },
+        "h.1.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.016064162732223e-05,
+          "s_l2_frac": 5.599201176664792e-05
+        },
+        "h.1.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.0538023265305838,
+          "s_l2_frac": 0.006886595394462347
+        },
+        "h.1.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028065407315183813,
+          "s_l2_frac": 6.407438195310533e-05
+        },
+        "h.1.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05383169097190823,
+          "s_l2_frac": 0.012884721159934998
+        },
+        "h.1.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.012461158577272e-05,
+          "s_l2_frac": 0.0015324774431064725
+        },
+        "h.2.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.186071084284419e-05,
+          "s_l2_frac": 0.00018435360107105225
+        },
+        "h.2.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.018817461952167e-05,
+          "s_l2_frac": 0.0002268063253723085
+        },
+        "h.2.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04037996726776816,
+          "s_l2_frac": 0.055063895881175995
+        },
+        "h.2.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013467829770789001,
+          "s_l2_frac": 0.027688106521964073
+        },
+        "h.2.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.804878455646985e-05,
+          "s_l2_frac": 9.499285079073161e-05
+        },
+        "h.2.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.015488830604765e-05,
+          "s_l2_frac": 8.70362637215294e-05
+        },
+        "h.2.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053839406420333365,
+          "s_l2_frac": 0.013546043075621128
+        },
+        "h.2.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.00028050004153383246,
+          "s_l2_frac": 0.00010210784239461645
+        },
+        "h.2.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05386247109184278,
+          "s_l2_frac": 0.02731391228735447
+        },
+        "h.2.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.01520435492252e-05,
+          "s_l2_frac": 0.0012494641123339534
+        },
+        "h.3.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.210626918829846e-05,
+          "s_l2_frac": 0.0001822238409658894
+        },
+        "h.3.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.006949242834912e-05,
+          "s_l2_frac": 0.00030079676071181893
+        },
+        "h.3.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04038814008928271,
+          "s_l2_frac": 0.07461381703615189
+        },
+        "h.3.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.01346840693206851,
+          "s_l2_frac": 0.04903114587068558
+        },
+        "h.3.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.149625229681603e-05,
+          "s_l2_frac": 9.771895565791056e-05
+        },
+        "h.3.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 6.984772901145656e-05,
+          "s_l2_frac": 0.0001190359762404114
+        },
+        "h.3.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053857625115062,
+          "s_l2_frac": 0.03017747402191162
+        },
+        "h.3.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002805230335497209,
+          "s_l2_frac": 0.00016683095600456
+        },
+        "h.3.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053862324079064036,
+          "s_l2_frac": 0.037057336419820786
+        },
+        "h.3.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.013562371919201e-05,
+          "s_l2_frac": 0.0011970731429755688
+        },
+        "h.4.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.318371418817714e-05,
+          "s_l2_frac": 0.00018028209160547704
+        },
+        "h.4.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.01512672230643e-05,
+          "s_l2_frac": 0.00026047611027024686
+        },
+        "h.4.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.04039654976471857,
+          "s_l2_frac": 0.0653783529996872
+        },
+        "h.4.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.013467696370304587,
+          "s_l2_frac": 0.02298266440629959
+        },
+        "h.4.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 6.675014509106309e-05,
+          "s_l2_frac": 0.000105399674794171
+        },
+        "h.4.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.042963864207259e-05,
+          "s_l2_frac": 0.00011389701830921695
+        },
+        "h.4.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053861518231239816,
+          "s_l2_frac": 0.03824690356850624
+        },
+        "h.4.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002805807156469359,
+          "s_l2_frac": 0.00017302707419730723
+        },
+        "h.4.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.053856781152813664,
+          "s_l2_frac": 0.022500328719615936
+        },
+        "h.4.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.009803570801823e-05,
+          "s_l2_frac": 0.0009076892165467143
+        },
+        "h.5.ln1.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.286268736873937e-05,
+          "s_l2_frac": 0.00011465525312814862
+        },
+        "h.5.ln1.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.018118768407362e-05,
+          "s_l2_frac": 0.00023396671167574823
+        },
+        "h.5.attn.c_attn.weight": {
+          "n": 110592,
+          "delta_l2_frac": 0.040392117601685366,
+          "s_l2_frac": 0.028230518102645874
+        },
+        "h.5.attn.c_proj.weight": {
+          "n": 36864,
+          "delta_l2_frac": 0.01346553746042416,
+          "s_l2_frac": 0.010966039262712002
+        },
+        "h.5.ln2.weight": {
+          "n": 192,
+          "delta_l2_frac": 7.13038403895683e-05,
+          "s_l2_frac": 0.0001963015820365399
+        },
+        "h.5.ln2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.017670519808981e-05,
+          "s_l2_frac": 0.00017665863560978323
+        },
+        "h.5.mlp.0.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05386434414354232,
+          "s_l2_frac": 0.04552865028381348
+        },
+        "h.5.mlp.0.bias": {
+          "n": 768,
+          "delta_l2_frac": 0.0002805927752889422,
+          "s_l2_frac": 0.00024091957311611623
+        },
+        "h.5.mlp.2.weight": {
+          "n": 147456,
+          "delta_l2_frac": 0.05384838508967213,
+          "s_l2_frac": 0.03517906367778778
+        },
+        "h.5.mlp.2.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.011912412962174e-05,
+          "s_l2_frac": 0.0008991256472654641
+        },
+        "ln_f.weight": {
+          "n": 192,
+          "delta_l2_frac": 8.073048714429332e-05,
+          "s_l2_frac": 0.00019371981034055352
+        },
+        "ln_f.bias": {
+          "n": 192,
+          "delta_l2_frac": 7.026730139760584e-05,
+          "s_l2_frac": 0.0002779367787297815
+        },
+        "lm_head.weight": {
+          "n": 12480,
+          "delta_l2_frac": 0.00453362294959644,
+          "s_l2_frac": 0.02280271239578724
+        }
+      }
+    }
+  },
+  "mutual": {
+    "locked_10901__g1e_10912": {
+      "root_l2": 17.12105941772461,
+      "cos_s0_s0": 0.34223043749592297,
+      "cos_delta_delta": 0.09367704712621619,
+      "sens_topk_overlap": 0.231,
+      "delta_topk_overlap": 0.5535
+    },
+    "locked_10901__g1f_10913": {
+      "root_l2": 17.180944442749023,
+      "cos_s0_s0": 0.29498353739679006,
+      "cos_delta_delta": 0.11418278294569467,
+      "sens_topk_overlap": 0.2835,
+      "delta_topk_overlap": 0.546
+    },
+    "g1e_10912__g1f_10913": {
+      "root_l2": 17.180395126342773,
+      "cos_s0_s0": 0.4263687765288325,
+      "cos_delta_delta": 0.11804607207965048,
+      "sens_topk_overlap": 0.331,
+      "delta_topk_overlap": 0.556
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "ERASE_ALIGNED": "ERASE-ALIGNED: \"fires if the cons roots' first steps align more with their fact-erasing directions than the locked root's (cos difference >= 0.05 consistently) \u2014 the crush is DIRECTIONAL: the jitter-replay leaves the fact-support oriented toward the first wash gradient; named.\"",
+      "CARRIER_CONCENTRATED": "CARRIER-CONCENTRATED: \"fires if the cons roots' first deltas concentrate more on the fact-carrier coordinates (top-k overlap >= 1.5x the locked root's) \u2014 the crush is SPATIAL: the consolidation packed the fact where the first wash step lands; named.\"",
+      "PROJECTION_NEUTRAL": "PROJECTION-NEUTRAL: \"fires if the alignments and concentrations match across roots \u2014 the crush lives in the nonlinear interaction (not readable from first-order geometry); the honest limit; the nonlinear cell named.\"",
+      "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\""
+    },
+    "operationalization": "frozen BEFORE compute (they fix the clauses, they do not move the bars): the PRIMARY alignment read is the dispatch's literal cos(g_0, -s_0) with g_0 = the post-clip first wash gradient at the root (the stream's own arithmetic; cosine is clip-invariant \u2014 clip multiplies by a positive constant \u2014 the pre-clip norm co-reported) and s_0 = the unit fact-sensitivity at the SAME root (matched-point, T150); BOTH orientations ride in the table, the verdict reads the primary only. ERASE-ALIGNED fires iff BOTH cons roots' primary read >= locked's + 0.05 ('consistently' = the two fresh draws agree). CARRIER-CONCENTRATED fires iff BOTH cons roots' overlap at k=2000 >= 1.5x the locked root's, overlap = |top2000(|delta|) n top2000(|s_0|)|/2000, the ratio's denominator floored at one coordinate (disclosed); the k-ladder co-reported, never adjudicated. PROJECTION-NEUTRAL fires iff neither of the above fires AND the reads MATCH across roots: |cos_cons - cos_locked| < 0.05 at BOTH cons roots AND both overlap ratios strictly inside (1/1.5, 1.5). GRADED fires otherwise (any partial). Composite order frozen: a full firing names the mechanism(s) (both bars may fire \u2014 the crush can be directional AND spatial); hard-gate failure => the record completes, verdict TEXTURE (gate failure), nothing adjudicated.",
+    "constants": {
+      "cos_diff_bar": 0.05,
+      "overlap_ratio_bar": 1.5,
+      "k_primary": 2000,
+      "k_ladder": [
+        500,
+        1000,
+        2000,
+        5000,
+        10000
+      ]
+    },
+    "erase_table": {
+      "cos_g0_neg_s0": {
+        "locked_10901": 0.0986213596773565,
+        "g1e_10912": -0.09619380847574797,
+        "g1f_10913": -0.021142395519228162
+      },
+      "cons_minus_locked": {
+        "g1e_10912": -0.19481516815310446,
+        "g1f_10913": -0.11976375519658466
+      },
+      "fired": false,
+      "clause": "BOTH cons roots >= locked + 0.05"
+    },
+    "carrier_table": {
+      "overlap_k2000": {
+        "locked_10901": 0.007,
+        "g1e_10912": 0.0115,
+        "g1f_10913": 0.0105
+      },
+      "overlap_counts_k2000": {
+        "locked_10901": 14,
+        "g1e_10912": 23,
+        "g1f_10913": 21
+      },
+      "cons_over_locked": {
+        "g1e_10912": 1.6428571428571428,
+        "g1f_10913": 1.5
+      },
+      "locked_floor": 0.007,
+      "fired": true,
+      "clause": "BOTH cons roots' overlap >= 1.5x locked's (denominator floored at one coordinate)"
+    },
+    "boundary_disclosure": {
+      "erase_within_2pct_of_bar": {
+        "g1e_10912": false,
+        "g1f_10913": false
+      },
+      "carrier_within_2pct_of_bar": {
+        "g1e_10912": false,
+        "g1f_10913": true
+      },
+      "note": "a decisive read within 2% of its bar is flagged \u2014 the verdict stands on the frozen comparison (>= is >=), the flag carries the honesty"
+    },
+    "co_read_texture": {
+      "mass_excess_ratio": {
+        "locked_10901": 1.0009929417357613,
+        "g1e_10912": 1.000990641718325,
+        "g1f_10913": 1.0009503336652628
+      },
+      "mass_note": "the delta's L1 mass ON the carrier coords vs the k/P null \u2014 1.0x = exactly null concentration (the top-k overlap read's honest companion; never adjudicated)",
+      "delta_topk_mutual_overlap": {
+        "locked_10901__g1e_10912": 0.5535,
+        "locked_10901__g1f_10913": 0.546,
+        "g1e_10912__g1f_10913": 0.556
+      },
+      "sens_topk_mutual_overlap": {
+        "locked_10901__g1e_10912": 0.231,
+        "locked_10901__g1f_10913": 0.2835,
+        "g1e_10912__g1f_10913": 0.331
+      }
+    },
+    "neutral_clause": {
+      "matches": false,
+      "fired": false
+    },
+    "verdict": "CARRIER-CONCENTRATED"
+  },
+  "honesty_reflex": {
+    "n1_per_root": "n=1 per root (three objects); every number is a single draw's read; no seed replicates here",
+    "carrier_proxy": "the carrier set is top-|s_0| (the e204 sensitivity top-k as the carrier PROXY) \u2014 the directly measured support does not exist at these roots; k=2000 is this cell's frozen choice",
+    "alignment_class": "alignment/composition reads cannot establish causality (the T157 class): no intervention here; a firing NAMES where to intervene next (e.g. a g_0-minus-its-s_0-component step), it does not prove the mechanism",
+    "root_strength_confound": "the roots' g-12 differ (0.9156 / 0.8575 / 0.9682); T178's strength-softening law is a live confound co-noted in deviations",
+    "open_bits": "what the jitter-replay leaves: directional, spatial, or nonlinear \u2014 the verdict names the readable part; the intervention cell is the natural successor"
+  },
+  "reference": {
+    "plus1_ledger": {
+      "locked_g1b": 0.9451885223388672,
+      "g1e_10912": 0.2719059884548187,
+      "g1f_10913": 0.25772199034690857,
+      "wash_root_family": "0.82-0.96 (g1bR 0.9623/0.9099; g1c 0.8214; g1d base 0.4820 observed-unadjudicated)"
+    },
+    "sources": [
+      "runs/g1b/metrics.json",
+      "runs/g1e/metrics.json",
+      "runs/g1f/metrics.json",
+      "runs/g1bR/metrics.json",
+      "THINKING T194/T181",
+      "lab/e204_support.py (the sensitivity convention)",
+      "lab/e194_sign_front.py (the fact_grad convention)",
+      "lab/g1_anchored_ball.py (the wall arithmetic)"
+    ],
+    "first_step_disp_all_roots": 1.6542880535125732
+  },
+  "timing": {
+    "total_s": 17.8
+  },
+  "config": {
+    "smoke": false,
+    "torch": "2.12.0.dev20260408+cu128",
+    "threads": 4,
+    "params": 2739072,
+    "device": "cpu-forced (CUDA_VISIBLE_DEVICES=-1)",
+    "wash_seed": 10902,
+    "R": 0.7,
+    "lr": 0.001
+  }
+}
