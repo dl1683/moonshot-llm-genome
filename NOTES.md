@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e202 — the signfront-null cell: GRADED — the null mostly holds with two marginal splits; the front carries at most a SLIVER of fact information; the overshoot picture survives in RESTRICTED form (2026-10-02 ~09:45Z) — DONE
+
+WHAT WE DID: the fact-free twin (the pre-install base e048_repro —
+org1's own install parent, identity-gated — on the matched
+stream/step; no kill by construction) + the first in-domain step
+ladder {s/8, s/4, s/2} on the org2 root; 11/11 gates PASS (the
+ladder's rays BIT-matched to e193/e197/e200; the fresh lag matrix
+equals the committed one to 0.0); 34.3s CPU, threads 4.
+
+WHAT WE SAW (T168): (1) THE FACT-FREE TWIN SITS ON THE OVERSHOOT
+CURVE at pair 0 (delta +0.009 vs org1 — REMOVING THE FACT BARELY
+MOVES THE FRONT GEOMETRY) but drifts +0.052 shallower than MIRABEL
+at pair 1 — 0.0024 over the registered bar, the fact-deepening
+direction, NOT at both indices: FACT-IN-THE-FRONT does NOT fire;
+the twins-match clause also fails marginally. THE VERDICT: THE
+FRONT CARRIES AT MOST A SLIVER OF FACT INFORMATION, NOT THE
+ROTATION. (2) THE NULL'S COS1 LAW HOLDS — the first in-domain
+step-size evidence: +0.002 (s/8, orthogonal) -> -0.206 (s/4) ->
+-0.263 (s/2, bit-exact on e197's anchor): the bounce core grows
+from ~zero with the step, non-increasing — but the derivation's
+registered CORE STATISTIC breaks at the half rung (the lag-2
+collapses to +0.141; not monotone): STATISTIC SPLIT, disclosed.
+THE RESOLUTION: the overshoot picture survives in RESTRICTED form;
+NEITHER the alternation noun NOR a clean null stamp is earned; THE
+SURVIVORS (death-at-deepest-landing, the onset curves) stand
+untouched. HONESTY: n=1 per arm; the marginal splits (0.0024 over
+the bar; the quarter-vs-half core inversion) are single-path reads
+— replicate before weighting. FOLLOW-ONS: a second pre-install
+twin seed; the lag-2-focused rung set {s/4, 3s/8}.
+
+---
+
 ## g1bS5 — the formation curve: SHARP-OPTIMUM — the 10M formation optimum located IN THE INTERIOR (peak 0.7677 at 0.20 rms, 0.012 below the express bar); the dose is a tuned window; CE healthy throughout (2026-10-02 ~10:05Z) — DONE
 
 WHAT WE DID: the consolidation-only dose sweep (3 new doses at

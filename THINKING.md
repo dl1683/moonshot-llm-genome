@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T168 — e202: the restricted verdict — the bounce is the algorithm's, with a sliver unaccounted (2026-10-02 ~09:45Z)
+
+The falsifier collected both the null's debts and split both
+marginally — the honest ending for the arc: (1) THE TWIN: removing
+the fact barely moves the front geometry at pair 0 (+0.009 — the
+bounce IS the algorithm's there) but a +0.052 shallowing at pair 1
+(0.0024 over the bar, the fact-deepening direction, not at both
+indices) leaves A SLIVER of fact information in the front —
+unrescued as a rotation, unexplained by the null as sketched.
+(2) THE LADDER: the cos1 law CONFIRMED in-domain for the first
+time (orthogonal at s/8 -> -0.263 at s/2, bit-anchored) while the
+core statistic breaks at the half rung — the overshoot picture's
+lag-2 structure is incomplete. THE FINAL FORM OF THE FLIGHT ARC'S
+GEOMETRY CHAPTER: the alternation noun RETIRED (the bounce is the
+algorithm's, first in-domain confirmation); the null UNSTAMPED
+(the sliver + the lag-2 break); the rotation reading dead; THE
+SURVIVORS UNTOUCHED — death-at-deepest-landing and the onset
+curves, the D_kill objects the cosine null cannot reach. The
+marginal splits are single-path (replicate before weighting); the
+sliver is the arc's smallest and most stubborn open object.
+
 ## T167 — g1bS5: the tuned window — the formation optimum located in the interior (2026-10-02 ~10:05Z)
 
 The dose sweep closes the inversion with a curve: the 10M
