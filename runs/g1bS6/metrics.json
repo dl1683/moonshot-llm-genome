@@ -1,0 +1,158 @@
+{
+  "experiment": "g1bS6_peak_wall",
+  "date": "2026-10-02T09:31:21Z",
+  "partial": true,
+  "phase": "root-load+scaled-bar",
+  "progressive_writes": 5,
+  "phases": [
+    "start",
+    "G-CONFIG",
+    "G-BASE-QUAL",
+    "G-INST",
+    "root-load+scaled-bar"
+  ],
+  "device_events": [],
+  "G_ROOTLOAD": {
+    "tol": 0.005,
+    "g1bs5_committed": {
+      "gm12": 0.7676599621772766,
+      "g0": 0.7367021441459656,
+      "gp12": 0.8544988036155701,
+      "held30_gm12": 0.5573378801345825,
+      "held30_g0": 0.6574546694755554,
+      "ce_r": 1.6968417167663574
+    },
+    "this_run_remeasured": {
+      "gm12": 0.7676599621772766,
+      "g0": 0.7367021441459656,
+      "gp12": 0.8544988036155701,
+      "held30_gm12": 0.5573378801345825,
+      "held30_g0": 0.6574546694755554,
+      "ce_r": 1.6968417167663574,
+      "site_read_onset": 0.6970594525337219,
+      "site_read_span": 0.9553064107894897,
+      "A129": -0.07295363429002466,
+      "row0_strength": 0.5237537777124089,
+      "dall_g0": 0.790242075920105,
+      "d183_g0": 0.7367021441459656,
+      "d183_gm12": 0.7676599621772766
+    },
+    "abs_deltas": {
+      "gm12": 0.0,
+      "g0": 0.0,
+      "held30_gm12": 0.0,
+      "ce_r": 0.0
+    },
+    "ckpt_meta": {
+      "experiment": "g1bS5",
+      "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10901) = movement 0.2 rms \u2014 the m020 point of the formation curve",
+      "params": 9977600,
+      "movement_rms": 0.2,
+      "steps": 500,
+      "lr": 0.0004,
+      "cons_seed": 10901,
+      "root_gm12": 0.7676599621772766,
+      "base": "runs/checkpoints/g1bS2_base.pt.pt",
+      "install": "runs/checkpoints/g1bS2_install.pt.pt"
+    },
+    "pass": true,
+    "rationale": "the loaded checkpoint must BE g1bS5's committed peak root: the root dial is a deterministic CPU measure on the same tensors (expect ~0; 0.005 tolerates float-reduction fuzz); a mismatch would mean the wrong artifact or a corrupted load \u2014 the arms would measure something else entirely"
+  },
+  "G_ROOT_read": {
+    "bar": 0.78,
+    "gm12": 0.7676599621772766,
+    "pass": false,
+    "note": "A READ, NOT A STOP \u2014 THE REGISTERED PRE-RUN DEVIATION (frozen in the dispatch): the arms RUN on the sub-bar peak root; the wall bars adjudicate against the scaled-bar definition computed from THIS root; see REGISTERED.gate_deviation",
+    "not_in_gate_set": true
+  },
+  "root_cells": {
+    "gm12": 0.7676599621772766,
+    "g0": 0.7367021441459656,
+    "gp12": 0.8544988036155701,
+    "held30_gm12": 0.5573378801345825,
+    "held30_g0": 0.6574546694755554,
+    "ce_r": 1.6968417167663574,
+    "site_read_onset": 0.6970594525337219,
+    "site_read_span": 0.9553064107894897,
+    "A129": -0.07295363429002466,
+    "row0_strength": 0.5237537777124089,
+    "dall_g0": 0.790242075920105,
+    "d183_g0": 0.7367021441459656,
+    "d183_gm12": 0.7676599621772766
+  },
+  "scaled_bar": {
+    "definition": {
+      "formula": "bar_0p9eq = root_gm12(this host) * 0.9 / 0.9155886769294739",
+      "g1b_root_gm12": 0.9155886769294739,
+      "factor_vs_root": 0.982974148411542,
+      "root_source": "THIS run's measured dial on the LOADED g1bS5 peak root (committed 0.7677; identity-gated by G-ROOTLOAD)",
+      "holds": "g-12 >= bar_0p9eq at EVERY checkpoint {1,2,4,10,50,100,200,300} (light battery read, g1b's convention)",
+      "freezing_CE": "W1 in-batch corpus CE at +300 >= root CE_R (the walled organism never improved on its own root corpus CE through the wash)",
+      "secondary_co_reported": [
+        "g1-verbatim maintains (>=0.50 every ckpt) / dies (<=0.27 by +50)",
+        "post-transient flat-phase retention: min g-12 over {10,50,100,200,300} >= 0.9 x root_gm12"
+      ],
+      "note": "defined in the dispatch BEFORE compute; the primary bar is intentionally strict (0.983x root): g1b's own W1 dipped to 0.848x root at +2 then sat flat at ~1.00x \u2014 at 10x the dip discriminates a raw-geometry leak (dip widens, no rung holds) from an rms-matched basin (dip shallow, rung holds)"
+    },
+    "root_gm12_measured": 0.7676599621772766,
+    "bar_0p9eq": 0.754589897590845,
+    "bar_09x_root": 0.690893965959549,
+    "g1b_W1_reference": {
+      "min": 0.7768,
+      "argmin_step": 2,
+      "min_retention_vs_root": 0.8484159094289843,
+      "note": "g1b's own W1 dipped below BOTH 0.9x-root and the 0.9eq bar at +2/+4"
+    },
+    "sub_bar_root_disclosure": "the root is 0.7677 = 0.0123 BELOW the 0.78 express bar (the registered deviation; disclosed on every artifact)",
+    "computed_before_arms": true
+  },
+  "theta0_ckpt": "runs/checkpoints/g1bS5_root_m020.pt",
+  "gates_partial": {
+    "G_ROOTLOAD": {
+      "tol": 0.005,
+      "g1bs5_committed": {
+        "gm12": 0.7676599621772766,
+        "g0": 0.7367021441459656,
+        "gp12": 0.8544988036155701,
+        "held30_gm12": 0.5573378801345825,
+        "held30_g0": 0.6574546694755554,
+        "ce_r": 1.6968417167663574
+      },
+      "this_run_remeasured": {
+        "gm12": 0.7676599621772766,
+        "g0": 0.7367021441459656,
+        "gp12": 0.8544988036155701,
+        "held30_gm12": 0.5573378801345825,
+        "held30_g0": 0.6574546694755554,
+        "ce_r": 1.6968417167663574,
+        "site_read_onset": 0.6970594525337219,
+        "site_read_span": 0.9553064107894897,
+        "A129": -0.07295363429002466,
+        "row0_strength": 0.5237537777124089,
+        "dall_g0": 0.790242075920105,
+        "d183_g0": 0.7367021441459656,
+        "d183_gm12": 0.7676599621772766
+      },
+      "abs_deltas": {
+        "gm12": 0.0,
+        "g0": 0.0,
+        "held30_gm12": 0.0,
+        "ce_r": 0.0
+      },
+      "ckpt_meta": {
+        "experiment": "g1bS5",
+        "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10901) = movement 0.2 rms \u2014 the m020 point of the formation curve",
+        "params": 9977600,
+        "movement_rms": 0.2,
+        "steps": 500,
+        "lr": 0.0004,
+        "cons_seed": 10901,
+        "root_gm12": 0.7676599621772766,
+        "base": "runs/checkpoints/g1bS2_base.pt.pt",
+        "install": "runs/checkpoints/g1bS2_install.pt.pt"
+      },
+      "pass": true,
+      "rationale": "the loaded checkpoint must BE g1bS5's committed peak root: the root dial is a deterministic CPU measure on the same tensors (expect ~0; 0.005 tolerates float-reduction fuzz); a mismatch would mean the wrong artifact or a corrupted load \u2014 the arms would measure something else entirely"
+    }
+  }
+}
