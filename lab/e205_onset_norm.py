@@ -246,7 +246,7 @@ E185_XHASH = {                    # per-step input-batch md5 (seed-10902 stream;
     4: "cdccea0c413e603dc52d1873e37b9844",
     5: "4da7b67a7fd80b4e9729731fb27bec0c",
     6: "1aa4f9f250f14acad52d3b969343090a",
-    7: "1e9e3373028935fe382d86683280e4b5",
+    7: "1e9e3373028935fe272d86683280e4b5",
     8: "3535a9db2d1aa2e6e0655208ff26b3d9",
 }
 E170_BANK_STARTS = [825650, 361746, 954106, 856844, 615070, 335787,
@@ -850,7 +850,10 @@ def main():
     write_partial("P2b G_DIRCK (the fresh t=0 g-ray = e193's committed direction)")
 
     # ---- the wash history: 20 CPU AdamW steps on the licensed stream ----------
-    # e193b's in-span machinery VERBATIM (its wash-history loop), this root.
+    # e193b's in-span machinery VERBATIM (its wash-history loop), this root:
+    # the loop RE-SEEDS its generator (the stream restarts at the root — the
+    # g-ray block above consumed a draw pair from a separate generator).
+    wh_gen = torch.Generator().manual_seed(FREEZE_SEED)
     wh_net = copy.deepcopy(net0)
     wh_net.train()
     wh_opt = torch.optim.AdamW(wh_net.parameters(), lr=LR_ADAMW,

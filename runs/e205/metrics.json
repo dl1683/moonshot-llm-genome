@@ -1,0 +1,2016 @@
+{
+  "experiment": "e205_onset_norm",
+  "date": "2026-10-02T10:50:43Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "ARRIVALS_ROBUST": "ARRIVALS-ROBUST: \"fires if the arrival ordering (org1 earliest; the others at-or-later) is invariant under the in-span normalization AND across the bar sweep \u2014 the WHEN account stands on a common ruler.\"",
+    "ARRIVALS_CONTINGENT": "ARRIVALS-CONTINGENT: \"fires if the ordering flips or dissolves under normalization or the bar sweep \u2014 the WHEN was an artifact of self-normalized ratios; the onset story rescopes to within-organism shape only.\"",
+    "GRADED": "GRADED: \"any partial \u2014 the tables verbatim.\"",
+    "operationalizations": "multiple_t = D_kill(root,u_t)/BAND_MEDIAN(organism); BAND_MEDIAN = the middle order statistic of the organism's own in-span band kill-Ds (right-censored draws order above all resolved; n=3 with <=1 censored => censoring-robust; >=2 censored => the common axis is UNDEFINED for that organism and its arrivals read DISSOLVED); SOFT fronts get the floor multiple 3.0/BAND_MEDIAN (reported, never adjudicated); arrival(axis,bar) = first ALIVE t>=1 with axis value < bar; post-death fronts context only; ROBUST = the assignment (t1,t2,t2) in ALL SIX cells (axes {SELF,COMMON} x bars {0.60,0.70,0.80}); CONTINGENT = NOT ROBUST AND a DISSOLUTION exists (an organism that arrives in one cell fails to arrive in another \u2014 under the normalization at the same bar, or across the bar sweep within-axis: arrives at 0.80 but not at 0.60) or a FLIP (a pairwise arrival inversion under the normalization, or the SELF cell's strictly-earliest organism losing earliest-equality on COMMON); GRADED = any other partial; composite order ARRIVALS-ROBUST -> ARRIVALS-CONTINGENT -> GRADED.",
+    "registered_prediction": "desk-forced to CONTINGENT-or-worse by committed arithmetic at registration (org1 t1 multiple 0.635 > 0.60; MIRABEL t2 multiple 0.903 > 0.80 \u2014 dissolutions under normalization); the fresh compute owns the HALF band and therefore half's common-axis arrival (survive / shift / flip-past-org1), the anchors, the tables, the figures. No bar shopping; the forced verdict is reported as forced.",
+    "registration": "the dispatch's registration IS the registration (the bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; GPU never claimed)",
+    "torch_threads": 4,
+    "load_check_recorded_not_gating": true,
+    "phases": "sequential tiny bursts; progressive writes; n=1",
+    "cpu_load_pct_at_launch": 37,
+    "cpu_load_pct_after_draw_s12001": 24,
+    "cpu_load_pct_after_draw_s12002": 34,
+    "cpu_load_pct_after_draw_s12003": 26
+  },
+  "deviations": [
+    "DESK+EVAL CELL: org1's and MIRABEL's bands load COMMITTED (e_chart's fine-D co-read; e193b's inspan_range); only the half lineage's band is fresh (never measured \u2014 e193's random rays are out-of-span Gaussians, all unresolved-high on this root's g-4 primary).",
+    "THE CO-READ PROMOTION: e_chart's fine-D in-span thresholds were registered non-adjudicating; e205 promotes them to org1's band instrument (the critic's named repair) \u2014 the promotion is disclosed, the numbers are loaded verbatim.",
+    "INSTRUMENT HETEROGENEITY (disclosed, bias directions stated): org1's band = interpolated crossings on e_chart's FINE_GRID (cap 1.5; one draw censored there); MIRABEL's band = first-dead GRID points on e193b's coarser grid (upper bounds -> MIRABEL's multiples are lower bounds, biased toward arrival); the half band = fresh interpolated crossings on EXACTLY the onset grid/instrument (the only same-instrument band).",
+    "GRID-RESOLUTION CONTEXT: e193's own committed R2_SIGN bracket interpolates to 0.5271 where e197/e200's onset-grid reads gave 0.5252 (a 0.4% grid effect) \u2014 the bands' coarser grids move kill-Ds by at most this class.",
+    "THE HALF-STEP CAVEAT (carried from e197/e200, load-bearing): the half lineage's FRONTS come from a COUNTERFACTUAL wash (the direction machinery verbatim at HALF the natural step; the natural step died at t=1). Its BAND, though, is a root-level property: the wash history is the root's own AdamW recipe at lr 1e-3 (e193b's convention), independent of the walk's step size \u2014 the band is the organism's, the fronts are the construction's.",
+    "the f2 wash history's steps 9-20 have NO committed x-hashes (e185 stored 1-8): the stream is deterministic-by-construction from seed 10902 and steps 1-8 are md5-gated; the ungated steps are disclosed, not silently trusted.",
+    "threads 4 (the owner envelope's cap) where e193's chain ran threads 8: cross-thread fp32 drift at ~1e-7 is possible, so every identity gate carries e199/e200's tier system (BIT md5/1e-9 or TEXTURE at the disclosed tolerances), the achieved tier STAMPED per gate.",
+    "no CE co-reads and no co-ruler walks on the fresh band rows (tiny bursts): the g-4 battery is the ruler, read at every grid point; e193b's ce_r/co-ruler co-reads are not repeated.",
+    "the load-check is recorded, not gating (e204's convention).",
+    "Smoke mode trims: 4-step history, 1 draw, grid {0.05, 0.5, 1.5, 3.0} (verdict stamped SMOKE; nothing adjudicated)."
+  ],
+  "parents_hardbound": {
+    "e199": {
+      "org1_edge": 2.269916581032063,
+      "org1_t1": 0.3875040789853107,
+      "org1_t2_postdeath_ctx": 0.8979436419840907,
+      "mirabel_edge": 1.9470925580069711,
+      "mirabel_t1": null,
+      "mirabel_t2": 0.8312446762047895,
+      "verdict": "ONSET-COMMON"
+    },
+    "e200": {
+      "half_edge": 0.5252331597771716,
+      "half_fronts": {
+        "1": 1.664473633460733,
+        "2": 0.34829356925017246,
+        "3": 0.6786533732491854,
+        "4": 0.20865737305118012
+      },
+      "verdict": "GRADED"
+    },
+    "e196": {
+      "flight_ratio_bar": 0.6
+    },
+    "e_chart": {
+      "inspan_thr_D": {
+        "11601": 0.6100797132671589,
+        "11602": null,
+        "11603": 0.5636664436670049
+      },
+      "wash_thr_D_loaded": 0.9085451308227387,
+      "root": "runs/checkpoints/e131_consolidated_e113.pt"
+    },
+    "e193b": {
+      "inspan_kill_Ds": [
+        1.5,
+        0.92,
+        0.74
+      ],
+      "span": {
+        "n_segments": 20,
+        "rank_eff": 20,
+        "participation_ratio": 4.284682583904991,
+        "wash_dir_removed_fraction": 0.6032087574002191,
+        "note": "e_chart's convention: the span of REALIZED wash steps (Adam's sign-flattened displacements \u2014 its own caveat carried); this root's OWN history, never a ported span"
+      }
+    },
+    "e193": {
+      "root_flat_md5": "73820c546e0f8d7b22c727e1d6f23fbc",
+      "step_l2": 0.9164195656776428,
+      "R1_G_g4_bracket": {
+        "gm_015": 0.5393117666244507,
+        "gm_020": 0.2508571743965149,
+        "interp": 0.19668183032628606
+      },
+      "R2_SIGN_grid_interp_context": 0.5271160940090444
+    }
+  },
+  "phase": "P3 adjudicated \u2014 verdict ARRIVALS-CONTINGENT",
+  "bands": {
+    "org1": {
+      "source": "runs/e_chart/metrics.json partB_subspace.e131.fine_D_summary.inspan_thr_D",
+      "seeds": [
+        11601,
+        11602,
+        11603
+      ],
+      "kill_Ds": {
+        "11601": 0.6100797132671589,
+        "11602": null,
+        "11603": 0.5636664436670049
+      },
+      "instrument": "e_chart's fine-D co-read: FINE_GRID (0.05..1.5, 11 pts), kill = first g-12 <= 0.27 downcrossing INTERPOLATED linear-in-D; None = unresolved > 1.5 (right-censored)",
+      "ruler": "ZEPHYRA install-60 g-12 (the SAME ruler as org1's onset fronts)",
+      "root": "runs/checkpoints/e131_consolidated_e113.pt",
+      "wash_g_ray_kill_context": 0.9085451308227387,
+      "promotion_disclosure": "e_chart registered the fine-D co-read 'non-adjudicating' (the rung ladder was its axis); e205 PROMOTES it to the band instrument (R61-critic's named repair) \u2014 disclosed",
+      "median_stat": {
+        "median": 0.6100797132671589,
+        "n": 3,
+        "n_resolved": 2,
+        "n_censored": 1,
+        "defined": true,
+        "resolved_sorted": [
+          0.5636664436670049,
+          0.6100797132671589
+        ]
+      },
+      "n_draws": 3,
+      "honesty": "n=3 draws; ONE right-censored at >1.5; the median (the middle order statistic) is censoring-robust"
+    },
+    "mirabel": {
+      "source": "runs/e193b/metrics.json inspan_range.MIRABEL",
+      "seeds": [
+        11911,
+        11912,
+        11913
+      ],
+      "kill_Ds": [
+        1.5,
+        0.92,
+        0.74
+      ],
+      "instrument": "e193b's D_GRID (27 pts to 4.0), kill = FIRST-DEAD GRID POINT (an upper bound on the true crossing \u2014 NOT interpolated)",
+      "ruler": "MIRABEL install-60 g-12 (e193b's per-fact primary = e199's MIRABEL ruler)",
+      "root": "runs/checkpoints/e193b_root.pt",
+      "span_meta_committed": {
+        "n_segments": 20,
+        "rank_eff": 20,
+        "participation_ratio": 4.284682583904991,
+        "wash_dir_removed_fraction": 0.6032087574002191
+      },
+      "bias_disclosure": "first-dead grid points OVERSTATE the band's kill-Ds => the band median is an upper bound => MIRABEL's multiples are LOWER bounds (biased TOWARD arrival); its dissolution is conservative",
+      "median_stat": {
+        "median": 0.92,
+        "n": 3,
+        "n_resolved": 3,
+        "n_censored": 0,
+        "defined": true,
+        "resolved_sorted": [
+          0.74,
+          0.92,
+          1.5
+        ]
+      },
+      "n_draws": 3,
+      "honesty": "n=3 draws, all resolved, on e193b's coarser grid as first-dead grid points (upper bounds)"
+    },
+    "half": {
+      "status": "FRESH \u2014 never measured before (e193's random rays are out-of-span Gaussians, all unresolved-high on g-4); computed in P2",
+      "span": {
+        "n_segments": 20,
+        "rank_eff": 20,
+        "participation_ratio": 4.2385681798211765,
+        "cond": 25.18061358115326,
+        "wash_dir_removed_fraction": 0.5571802209788825,
+        "e193b_committed_context": {
+          "n_segments": 20,
+          "rank_eff": 20,
+          "participation_ratio": 4.284682583904991,
+          "wash_dir_removed_fraction": 0.6032087574002191
+        },
+        "note": "e193b's convention verbatim at this root: the span of REALIZED wash steps (Adam's sign-flattened displacements \u2014 e_chart's caveat carried); this root's OWN history, never a ported span"
+      },
+      "g_ray_anchor": {
+        "D_kill": 0.19668188680793092,
+        "committed_interp": 0.19668183032628606
+      },
+      "draws": {
+        "s12001": {
+          "u_md5": "e97557382246e4dd8d3fb0c598519b73",
+          "cos_to_wash_dir": -0.22410391163452256,
+          "D_kill": 0.8526279196164989,
+          "rows": [
+            {
+              "D": 0.0,
+              "rms": 0.0,
+              "gm": 0.8872273564338684,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.0
+            },
+            {
+              "D": 0.05,
+              "rms": 5.3498981046711e-05,
+              "gm": 0.9200188517570496,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.0499994158744812
+            },
+            {
+              "D": 0.1,
+              "rms": 0.000106997962093422,
+              "gm": 0.9421012997627258,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.0999988317489624
+            },
+            {
+              "D": 0.15,
+              "rms": 0.00016049694314013298,
+              "gm": 0.9548958539962769,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.1499985009431839
+            },
+            {
+              "D": 0.2,
+              "rms": 0.000213995924186844,
+              "gm": 0.9607927203178406,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.1999976933002472
+            },
+            {
+              "D": 0.25,
+              "rms": 0.00026749490523355496,
+              "gm": 0.9617434144020081,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.24999800324440002
+            },
+            {
+              "D": 0.3,
+              "rms": 0.00032099388628026597,
+              "gm": 0.9589071273803711,
+              "frac_argmax_z": 0.9833333333333333,
+              "disp_check": 0.2999970018863678
+            },
+            {
+              "D": 0.35,
+              "rms": 0.0003744928673269769,
+              "gm": 0.9515789151191711,
+              "frac_argmax_z": 0.9833333333333333,
+              "disp_check": 0.34999746084213257
+            },
+            {
+              "D": 0.4,
+              "rms": 0.000427991848373688,
+              "gm": 0.93587327003479,
+              "frac_argmax_z": 0.9833333333333333,
+              "disp_check": 0.399995356798172
+            },
+            {
+              "D": 0.45,
+              "rms": 0.00048149082942039895,
+              "gm": 0.9052919149398804,
+              "frac_argmax_z": 0.9666666666666667,
+              "disp_check": 0.449995756149292
+            },
+            {
+              "D": 0.5,
+              "rms": 0.0005349898104671099,
+              "gm": 0.8556111454963684,
+              "frac_argmax_z": 0.95,
+              "disp_check": 0.4999959468841553
+            },
+            {
+              "D": 0.55,
+              "rms": 0.000588488791513821,
+              "gm": 0.7902252674102783,
+              "frac_argmax_z": 0.9,
+              "disp_check": 0.549994945526123
+            },
+            {
+              "D": 0.6,
+              "rms": 0.0006419877725605319,
+              "gm": 0.7097228169441223,
+              "frac_argmax_z": 0.8666666666666667,
+              "disp_check": 0.5999939441680908
+            },
+            {
+              "D": 0.65,
+              "rms": 0.000695486753607243,
+              "gm": 0.6178098917007446,
+              "frac_argmax_z": 0.7666666666666667,
+              "disp_check": 0.6499944925308228
+            },
+            {
+              "D": 0.7,
+              "rms": 0.0007489857346539539,
+              "gm": 0.5223948955535889,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.6999949216842651
+            },
+            {
+              "D": 0.75,
+              "rms": 0.0008024847157006649,
+              "gm": 0.4286600351333618,
+              "frac_argmax_z": 0.6,
+              "disp_check": 0.7499915361404419
+            },
+            {
+              "D": 0.8,
+              "rms": 0.000855983696747376,
+              "gm": 0.34432631731033325,
+              "frac_argmax_z": 0.48333333333333334,
+              "disp_check": 0.7999906539916992
+            },
+            {
+              "D": 0.85,
+              "rms": 0.0009094826777940869,
+              "gm": 0.2731384336948395,
+              "frac_argmax_z": 0.36666666666666664,
+              "disp_check": 0.8499923944473267
+            },
+            {
+              "D": 0.9,
+              "rms": 0.0009629816588407979,
+              "gm": 0.2134251594543457,
+              "frac_argmax_z": 0.2833333333333333,
+              "disp_check": 0.8999914526939392
+            },
+            {
+              "D": 0.95,
+              "rms": 0.0010164806398875088,
+              "gm": 0.1643548458814621,
+              "frac_argmax_z": 0.21666666666666667,
+              "disp_check": 0.9499915242195129
+            },
+            {
+              "D": 1.0,
+              "rms": 0.0010699796209342198,
+              "gm": 0.1260378360748291,
+              "frac_argmax_z": 0.16666666666666666,
+              "disp_check": 0.9999920129776001
+            },
+            {
+              "D": 1.05,
+              "rms": 0.0011234786019809308,
+              "gm": 0.09740674495697021,
+              "frac_argmax_z": 0.13333333333333333,
+              "disp_check": 1.0499881505966187
+            },
+            {
+              "D": 1.1,
+              "rms": 0.001176977583027642,
+              "gm": 0.07606766372919083,
+              "frac_argmax_z": 0.08333333333333333,
+              "disp_check": 1.099989891052246
+            },
+            {
+              "D": 1.15,
+              "rms": 0.0012304765640743529,
+              "gm": 0.06037038192152977,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.149986982345581
+            },
+            {
+              "D": 1.2,
+              "rms": 0.0012839755451210639,
+              "gm": 0.049060799181461334,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.1999878883361816
+            },
+            {
+              "D": 1.25,
+              "rms": 0.0013374745261677749,
+              "gm": 0.04090823978185654,
+              "frac_argmax_z": 0.03333333333333333,
+              "disp_check": 1.249986171722412
+            },
+            {
+              "D": 1.3,
+              "rms": 0.001390973507214486,
+              "gm": 0.034890104085206985,
+              "frac_argmax_z": 0.03333333333333333,
+              "disp_check": 1.299989104270935
+            },
+            {
+              "D": 1.35,
+              "rms": 0.001444472488261197,
+              "gm": 0.03029436245560646,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.3499884605407715
+            },
+            {
+              "D": 1.4,
+              "rms": 0.0014979714693079077,
+              "gm": 0.026683038100600243,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.3999897241592407
+            },
+            {
+              "D": 1.45,
+              "rms": 0.0015514704503546187,
+              "gm": 0.02379770204424858,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.4499869346618652
+            },
+            {
+              "D": 1.5,
+              "rms": 0.0016049694314013297,
+              "gm": 0.02146594598889351,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.4999829530715942
+            },
+            {
+              "D": 1.55,
+              "rms": 0.001658468412448041,
+              "gm": 0.019552594050765038,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.5499851703643799
+            },
+            {
+              "D": 1.6,
+              "rms": 0.001711967393494752,
+              "gm": 0.017948269844055176,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.5999813079833984
+            },
+            {
+              "D": 1.65,
+              "rms": 0.0017654663745414628,
+              "gm": 0.016568433493375778,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.64998197555542
+            },
+            {
+              "D": 1.7,
+              "rms": 0.0018189653555881738,
+              "gm": 0.015351098030805588,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.6999847888946533
+            },
+            {
+              "D": 1.75,
+              "rms": 0.0018724643366348848,
+              "gm": 0.014252787455916405,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.7499834299087524
+            },
+            {
+              "D": 1.8,
+              "rms": 0.0019259633176815958,
+              "gm": 0.013243856839835644,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.7999829053878784
+            },
+            {
+              "D": 1.85,
+              "rms": 0.001979462298728307,
+              "gm": 0.012304854579269886,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.8499828577041626
+            },
+            {
+              "D": 1.9,
+              "rms": 0.0020329612797750176,
+              "gm": 0.011423353105783463,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.8999829292297363
+            },
+            {
+              "D": 1.95,
+              "rms": 0.002086460260821729,
+              "gm": 0.010591884143650532,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.9499820470809937
+            },
+            {
+              "D": 2.0,
+              "rms": 0.0021399592418684396,
+              "gm": 0.00980614684522152,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.9999839067459106
+            },
+            {
+              "D": 2.05,
+              "rms": 0.0021934582229151504,
+              "gm": 0.009063917212188244,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.049983263015747
+            },
+            {
+              "D": 2.1,
+              "rms": 0.0022469572039618617,
+              "gm": 0.008364078588783741,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.0999763011932373
+            },
+            {
+              "D": 2.15,
+              "rms": 0.0023004561850085725,
+              "gm": 0.00770619185641408,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.1499812602996826
+            },
+            {
+              "D": 2.2,
+              "rms": 0.002353955166055284,
+              "gm": 0.007089983206242323,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.199979543685913
+            },
+            {
+              "D": 2.25,
+              "rms": 0.002407454147101995,
+              "gm": 0.006515205837786198,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.2499797344207764
+            },
+            {
+              "D": 2.3,
+              "rms": 0.0024609531281487057,
+              "gm": 0.005981460679322481,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.299973964691162
+            },
+            {
+              "D": 2.35,
+              "rms": 0.002514452109195417,
+              "gm": 0.005488102789968252,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.3499720096588135
+            },
+            {
+              "D": 2.4,
+              "rms": 0.0025679510902421277,
+              "gm": 0.005034103058278561,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.3999757766723633
+            },
+            {
+              "D": 2.45,
+              "rms": 0.002621450071288839,
+              "gm": 0.004617997910827398,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.4499754905700684
+            },
+            {
+              "D": 2.5,
+              "rms": 0.0026749490523355498,
+              "gm": 0.004237921442836523,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.499972343444824
+            },
+            {
+              "D": 2.55,
+              "rms": 0.0027284480333822606,
+              "gm": 0.0038916554767638445,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.549973726272583
+            },
+            {
+              "D": 2.6,
+              "rms": 0.002781947014428972,
+              "gm": 0.0035767708905041218,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.59997820854187
+            },
+            {
+              "D": 2.65,
+              "rms": 0.0028354459954756826,
+              "gm": 0.0032908038701862097,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.6499788761138916
+            },
+            {
+              "D": 2.7,
+              "rms": 0.002888944976522394,
+              "gm": 0.003031312022358179,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.699977159500122
+            },
+            {
+              "D": 2.75,
+              "rms": 0.0029424439575691046,
+              "gm": 0.0027960161678493023,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.749976873397827
+            },
+            {
+              "D": 2.8,
+              "rms": 0.0029959429386158154,
+              "gm": 0.00258271605707705,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.7999794483184814
+            },
+            {
+              "D": 2.85,
+              "rms": 0.0030494419196625266,
+              "gm": 0.002389343921095133,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.8499789237976074
+            },
+            {
+              "D": 2.9,
+              "rms": 0.0031029409007092374,
+              "gm": 0.002213874366134405,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.8999738693237305
+            },
+            {
+              "D": 2.95,
+              "rms": 0.0031564398817559487,
+              "gm": 0.002054366283118725,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.9499735832214355
+            },
+            {
+              "D": 3.0,
+              "rms": 0.0032099388628026595,
+              "gm": 0.0019089598208665848,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.9999659061431885
+            }
+          ]
+        },
+        "s12002": {
+          "u_md5": "e7dbe3c485050cee4348d15c7b0a2602",
+          "cos_to_wash_dir": -0.0028546072647217236,
+          "D_kill": 0.985063798996848,
+          "rows": [
+            {
+              "D": 0.0,
+              "rms": 0.0,
+              "gm": 0.8872273564338684,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.0
+            },
+            {
+              "D": 0.05,
+              "rms": 5.3498981046711e-05,
+              "gm": 0.8533801436424255,
+              "frac_argmax_z": 0.9833333333333333,
+              "disp_check": 0.04999947175383568
+            },
+            {
+              "D": 0.1,
+              "rms": 0.000106997962093422,
+              "gm": 0.810931921005249,
+              "frac_argmax_z": 0.9333333333333333,
+              "disp_check": 0.09999894350767136
+            },
+            {
+              "D": 0.15,
+              "rms": 0.00016049694314013298,
+              "gm": 0.7644764184951782,
+              "frac_argmax_z": 0.85,
+              "disp_check": 0.14999833703041077
+            },
+            {
+              "D": 0.2,
+              "rms": 0.000213995924186844,
+              "gm": 0.7235653400421143,
+              "frac_argmax_z": 0.7666666666666667,
+              "disp_check": 0.1999978870153427
+            },
+            {
+              "D": 0.25,
+              "rms": 0.00026749490523355496,
+              "gm": 0.6948086023330688,
+              "frac_argmax_z": 0.7166666666666667,
+              "disp_check": 0.24999777972698212
+            },
+            {
+              "D": 0.3,
+              "rms": 0.00032099388628026597,
+              "gm": 0.6797782182693481,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.2999967038631439
+            },
+            {
+              "D": 0.35,
+              "rms": 0.0003744928673269769,
+              "gm": 0.6722096800804138,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.3499971330165863
+            },
+            {
+              "D": 0.4,
+              "rms": 0.000427991848373688,
+              "gm": 0.6662691831588745,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.3999958336353302
+            },
+            {
+              "D": 0.45,
+              "rms": 0.00048149082942039895,
+              "gm": 0.6591769456863403,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.4499949812889099
+            },
+            {
+              "D": 0.5,
+              "rms": 0.0005349898104671099,
+              "gm": 0.6489947438240051,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.49999555945396423
+            },
+            {
+              "D": 0.55,
+              "rms": 0.000588488791513821,
+              "gm": 0.6336514353752136,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.5499938130378723
+            },
+            {
+              "D": 0.6,
+              "rms": 0.0006419877725605319,
+              "gm": 0.6118497252464294,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.5999933481216431
+            },
+            {
+              "D": 0.65,
+              "rms": 0.000695486753607243,
+              "gm": 0.5842719674110413,
+              "frac_argmax_z": 0.6833333333333333,
+              "disp_check": 0.6499934792518616
+            },
+            {
+              "D": 0.7,
+              "rms": 0.0007489857346539539,
+              "gm": 0.5514650940895081,
+              "frac_argmax_z": 0.6666666666666666,
+              "disp_check": 0.6999942660331726
+            },
+            {
+              "D": 0.75,
+              "rms": 0.0008024847157006649,
+              "gm": 0.511513352394104,
+              "frac_argmax_z": 0.65,
+              "disp_check": 0.7499918341636658
+            },
+            {
+              "D": 0.8,
+              "rms": 0.000855983696747376,
+              "gm": 0.46222206950187683,
+              "frac_argmax_z": 0.65,
+              "disp_check": 0.7999915480613708
+            },
+            {
+              "D": 0.85,
+              "rms": 0.0009094826777940869,
+              "gm": 0.40645378828048706,
+              "frac_argmax_z": 0.6166666666666667,
+              "disp_check": 0.8499915599822998
+            },
+            {
+              "D": 0.9,
+              "rms": 0.0009629816588407979,
+              "gm": 0.3513447940349579,
+              "frac_argmax_z": 0.6,
+              "disp_check": 0.8999900221824646
+            },
+            {
+              "D": 0.95,
+              "rms": 0.0010164806398875088,
+              "gm": 0.30139681696891785,
+              "frac_argmax_z": 0.4166666666666667,
+              "disp_check": 0.9499893188476562
+            },
+            {
+              "D": 1.0,
+              "rms": 0.0010699796209342198,
+              "gm": 0.25662583112716675,
+              "frac_argmax_z": 0.3333333333333333,
+              "disp_check": 0.9999911189079285
+            },
+            {
+              "D": 1.05,
+              "rms": 0.0011234786019809308,
+              "gm": 0.2157280296087265,
+              "frac_argmax_z": 0.3333333333333333,
+              "disp_check": 1.0499883890151978
+            },
+            {
+              "D": 1.1,
+              "rms": 0.001176977583027642,
+              "gm": 0.17844322323799133,
+              "frac_argmax_z": 0.26666666666666666,
+              "disp_check": 1.0999876260757446
+            },
+            {
+              "D": 1.15,
+              "rms": 0.0012304765640743529,
+              "gm": 0.14573751389980316,
+              "frac_argmax_z": 0.18333333333333332,
+              "disp_check": 1.1499890089035034
+            },
+            {
+              "D": 1.2,
+              "rms": 0.0012839755451210639,
+              "gm": 0.11887983977794647,
+              "frac_argmax_z": 0.15,
+              "disp_check": 1.1999866962432861
+            },
+            {
+              "D": 1.25,
+              "rms": 0.0013374745261677749,
+              "gm": 0.09804777055978775,
+              "frac_argmax_z": 0.13333333333333333,
+              "disp_check": 1.2499865293502808
+            },
+            {
+              "D": 1.3,
+              "rms": 0.001390973507214486,
+              "gm": 0.08213657885789871,
+              "frac_argmax_z": 0.11666666666666667,
+              "disp_check": 1.2999868392944336
+            },
+            {
+              "D": 1.35,
+              "rms": 0.001444472488261197,
+              "gm": 0.06969603896141052,
+              "frac_argmax_z": 0.08333333333333333,
+              "disp_check": 1.3499871492385864
+            },
+            {
+              "D": 1.4,
+              "rms": 0.0014979714693079077,
+              "gm": 0.05955587700009346,
+              "frac_argmax_z": 0.06666666666666667,
+              "disp_check": 1.3999885320663452
+            },
+            {
+              "D": 1.45,
+              "rms": 0.0015514704503546187,
+              "gm": 0.05092792958021164,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.4499849081039429
+            },
+            {
+              "D": 1.5,
+              "rms": 0.0016049694314013297,
+              "gm": 0.04333939403295517,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.4999836683273315
+            },
+            {
+              "D": 1.55,
+              "rms": 0.001658468412448041,
+              "gm": 0.0365513414144516,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.5499829053878784
+            },
+            {
+              "D": 1.6,
+              "rms": 0.001711967393494752,
+              "gm": 0.03047829493880272,
+              "frac_argmax_z": 0.05,
+              "disp_check": 1.5999832153320312
+            },
+            {
+              "D": 1.65,
+              "rms": 0.0017654663745414628,
+              "gm": 0.025108518078923225,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.6499829292297363
+            },
+            {
+              "D": 1.7,
+              "rms": 0.0018189653555881738,
+              "gm": 0.020442182198166847,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 1.6999832391738892
+            },
+            {
+              "D": 1.75,
+              "rms": 0.0018724643366348848,
+              "gm": 0.016461217775940895,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.7499831914901733
+            },
+            {
+              "D": 1.8,
+              "rms": 0.0019259633176815958,
+              "gm": 0.013125240802764893,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.7999800443649292
+            },
+            {
+              "D": 1.85,
+              "rms": 0.001979462298728307,
+              "gm": 0.01037715096026659,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.8499813079833984
+            },
+            {
+              "D": 1.9,
+              "rms": 0.0020329612797750176,
+              "gm": 0.008150366134941578,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.899978518486023
+            },
+            {
+              "D": 1.95,
+              "rms": 0.002086460260821729,
+              "gm": 0.006373755168169737,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.9499849081039429
+            },
+            {
+              "D": 2.0,
+              "rms": 0.0021399592418684396,
+              "gm": 0.004975862335413694,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.999982237815857
+            },
+            {
+              "D": 2.05,
+              "rms": 0.0021934582229151504,
+              "gm": 0.0038887017872184515,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.0499792098999023
+            },
+            {
+              "D": 2.1,
+              "rms": 0.0022469572039618617,
+              "gm": 0.0030508667696267366,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.0999767780303955
+            },
+            {
+              "D": 2.15,
+              "rms": 0.0023004561850085725,
+              "gm": 0.0024092199746519327,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.1499760150909424
+            },
+            {
+              "D": 2.2,
+              "rms": 0.002353955166055284,
+              "gm": 0.001919595873914659,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.1999752521514893
+            },
+            {
+              "D": 2.25,
+              "rms": 0.002407454147101995,
+              "gm": 0.0015464189928025007,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.249969720840454
+            },
+            {
+              "D": 2.3,
+              "rms": 0.0024609531281487057,
+              "gm": 0.0012617793399840593,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.299978017807007
+            },
+            {
+              "D": 2.35,
+              "rms": 0.002514452109195417,
+              "gm": 0.0010441802442073822,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.349968910217285
+            },
+            {
+              "D": 2.4,
+              "rms": 0.0025679510902421277,
+              "gm": 0.0008773136651143432,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.3999733924865723
+            },
+            {
+              "D": 2.45,
+              "rms": 0.002621450071288839,
+              "gm": 0.0007489219424314797,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.4499740600585938
+            },
+            {
+              "D": 2.5,
+              "rms": 0.0026749490523355498,
+              "gm": 0.0006498509901575744,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.4999730587005615
+            },
+            {
+              "D": 2.55,
+              "rms": 0.0027284480333822606,
+              "gm": 0.0005732784629799426,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.549975633621216
+            },
+            {
+              "D": 2.6,
+              "rms": 0.002781947014428972,
+              "gm": 0.0005141188157722354,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.599973678588867
+            },
+            {
+              "D": 2.65,
+              "rms": 0.0028354459954756826,
+              "gm": 0.00046857030247338116,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.6499760150909424
+            },
+            {
+              "D": 2.7,
+              "rms": 0.002888944976522394,
+              "gm": 0.0004337853752076626,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.699974298477173
+            },
+            {
+              "D": 2.75,
+              "rms": 0.0029424439575691046,
+              "gm": 0.0004076139011885971,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.749973773956299
+            },
+            {
+              "D": 2.8,
+              "rms": 0.0029959429386158154,
+              "gm": 0.0003884308389388025,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.7999773025512695
+            },
+            {
+              "D": 2.85,
+              "rms": 0.0030494419196625266,
+              "gm": 0.0003749996249098331,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.8499743938446045
+            },
+            {
+              "D": 2.9,
+              "rms": 0.0031029409007092374,
+              "gm": 0.0003663770912680775,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.8999698162078857
+            },
+            {
+              "D": 2.95,
+              "rms": 0.0031564398817559487,
+              "gm": 0.0003618444607127458,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.949967861175537
+            },
+            {
+              "D": 3.0,
+              "rms": 0.0032099388628026595,
+              "gm": 0.00036085493047721684,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.999967336654663
+            }
+          ]
+        },
+        "s12003": {
+          "u_md5": "dcf498b08932a47a5e97279cca79a3a5",
+          "cos_to_wash_dir": 0.12486189078023079,
+          "D_kill": 0.4138067254671565,
+          "rows": [
+            {
+              "D": 0.0,
+              "rms": 0.0,
+              "gm": 0.8872273564338684,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.0
+            },
+            {
+              "D": 0.05,
+              "rms": 5.3498981046711e-05,
+              "gm": 0.873572587966919,
+              "frac_argmax_z": 1.0,
+              "disp_check": 0.049999579787254333
+            },
+            {
+              "D": 0.1,
+              "rms": 0.000106997962093422,
+              "gm": 0.8522571921348572,
+              "frac_argmax_z": 0.9833333333333333,
+              "disp_check": 0.09999915212392807
+            },
+            {
+              "D": 0.15,
+              "rms": 0.00016049694314013298,
+              "gm": 0.8206775188446045,
+              "frac_argmax_z": 0.9666666666666667,
+              "disp_check": 0.14999842643737793
+            },
+            {
+              "D": 0.2,
+              "rms": 0.000213995924186844,
+              "gm": 0.776311993598938,
+              "frac_argmax_z": 0.9166666666666666,
+              "disp_check": 0.19999830424785614
+            },
+            {
+              "D": 0.25,
+              "rms": 0.00026749490523355496,
+              "gm": 0.7130267024040222,
+              "frac_argmax_z": 0.8333333333333334,
+              "disp_check": 0.2499982863664627
+            },
+            {
+              "D": 0.3,
+              "rms": 0.00032099388628026597,
+              "gm": 0.6169076561927795,
+              "frac_argmax_z": 0.7833333333333333,
+              "disp_check": 0.29999685287475586
+            },
+            {
+              "D": 0.35,
+              "rms": 0.0003744928673269769,
+              "gm": 0.4781295359134674,
+              "frac_argmax_z": 0.7,
+              "disp_check": 0.3499969244003296
+            },
+            {
+              "D": 0.4,
+              "rms": 0.000427991848373688,
+              "gm": 0.3114967942237854,
+              "frac_argmax_z": 0.48333333333333334,
+              "disp_check": 0.3999965786933899
+            },
+            {
+              "D": 0.45,
+              "rms": 0.00048149082942039895,
+              "gm": 0.16121932864189148,
+              "frac_argmax_z": 0.25,
+              "disp_check": 0.44999605417251587
+            },
+            {
+              "D": 0.5,
+              "rms": 0.0005349898104671099,
+              "gm": 0.06711532175540924,
+              "frac_argmax_z": 0.016666666666666666,
+              "disp_check": 0.499996542930603
+            },
+            {
+              "D": 0.55,
+              "rms": 0.000588488791513821,
+              "gm": 0.02492338791489601,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.5499948859214783
+            },
+            {
+              "D": 0.6,
+              "rms": 0.0006419877725605319,
+              "gm": 0.009293207898736,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.5999938249588013
+            },
+            {
+              "D": 0.65,
+              "rms": 0.000695486753607243,
+              "gm": 0.0037404405884444714,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.6499951481819153
+            },
+            {
+              "D": 0.7,
+              "rms": 0.0007489857346539539,
+              "gm": 0.0016690430929884315,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.699993908405304
+            },
+            {
+              "D": 0.75,
+              "rms": 0.0008024847157006649,
+              "gm": 0.0008232105756178498,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.7499933838844299
+            },
+            {
+              "D": 0.8,
+              "rms": 0.000855983696747376,
+              "gm": 0.00044027026160620153,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.7999931573867798
+            },
+            {
+              "D": 0.85,
+              "rms": 0.0009094826777940869,
+              "gm": 0.00024847566965036094,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.8499927520751953
+            },
+            {
+              "D": 0.9,
+              "rms": 0.0009629816588407979,
+              "gm": 0.00014475097123067826,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.8999921083450317
+            },
+            {
+              "D": 0.95,
+              "rms": 0.0010164806398875088,
+              "gm": 8.748812251724303e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.9499922394752502
+            },
+            {
+              "D": 1.0,
+              "rms": 0.0010699796209342198,
+              "gm": 5.5951637477846816e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 0.9999932050704956
+            },
+            {
+              "D": 1.05,
+              "rms": 0.0011234786019809308,
+              "gm": 3.824877057923004e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.0499898195266724
+            },
+            {
+              "D": 1.1,
+              "rms": 0.001176977583027642,
+              "gm": 2.7923706511501223e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.0999897718429565
+            },
+            {
+              "D": 1.15,
+              "rms": 0.0012304765640743529,
+              "gm": 2.1637732061208226e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.1499888896942139
+            },
+            {
+              "D": 1.2,
+              "rms": 0.0012839755451210639,
+              "gm": 1.7656409909250215e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.1999874114990234
+            },
+            {
+              "D": 1.25,
+              "rms": 0.0013374745261677749,
+              "gm": 1.5049153262225445e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.2499885559082031
+            },
+            {
+              "D": 1.3,
+              "rms": 0.001390973507214486,
+              "gm": 1.329535552940797e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.2999904155731201
+            },
+            {
+              "D": 1.35,
+              "rms": 0.001444472488261197,
+              "gm": 1.2090850759705063e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.3499889373779297
+            },
+            {
+              "D": 1.4,
+              "rms": 0.0014979714693079077,
+              "gm": 1.125025846704375e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.399987816810608
+            },
+            {
+              "D": 1.45,
+              "rms": 0.0015514704503546187,
+              "gm": 1.0656000995368231e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.4499906301498413
+            },
+            {
+              "D": 1.5,
+              "rms": 0.0016049694314013297,
+              "gm": 1.0230770385533106e-05,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.4999866485595703
+            },
+            {
+              "D": 1.55,
+              "rms": 0.001658468412448041,
+              "gm": 9.922081517288461e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.5499838590621948
+            },
+            {
+              "D": 1.6,
+              "rms": 0.001711967393494752,
+              "gm": 9.693522770248819e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.5999863147735596
+            },
+            {
+              "D": 1.65,
+              "rms": 0.0017654663745414628,
+              "gm": 9.51933725445997e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.649986982345581
+            },
+            {
+              "D": 1.7,
+              "rms": 0.0018189653555881738,
+              "gm": 9.381253221363295e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.6999855041503906
+            },
+            {
+              "D": 1.75,
+              "rms": 0.0018724643366348848,
+              "gm": 9.266292181564495e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.7499847412109375
+            },
+            {
+              "D": 1.8,
+              "rms": 0.0019259633176815958,
+              "gm": 9.165371920971666e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.7999842166900635
+            },
+            {
+              "D": 1.85,
+              "rms": 0.001979462298728307,
+              "gm": 9.072279681276996e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.8499846458435059
+            },
+            {
+              "D": 1.9,
+              "rms": 0.0020329612797750176,
+              "gm": 8.982910912891384e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.8999844789505005
+            },
+            {
+              "D": 1.95,
+              "rms": 0.002086460260821729,
+              "gm": 8.894723578123376e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.9499845504760742
+            },
+            {
+              "D": 2.0,
+              "rms": 0.0021399592418684396,
+              "gm": 8.806267942418344e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 1.9999865293502808
+            },
+            {
+              "D": 2.05,
+              "rms": 0.0021934582229151504,
+              "gm": 8.716896445548628e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.049985408782959
+            },
+            {
+              "D": 2.1,
+              "rms": 0.0022469572039618617,
+              "gm": 8.626450835436117e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.0999796390533447
+            },
+            {
+              "D": 2.15,
+              "rms": 0.0023004561850085725,
+              "gm": 8.535143933841027e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.14998197555542
+            },
+            {
+              "D": 2.2,
+              "rms": 0.002353955166055284,
+              "gm": 8.44336136651691e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.199979543685913
+            },
+            {
+              "D": 2.25,
+              "rms": 0.002407454147101995,
+              "gm": 8.351599717570934e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.2499780654907227
+            },
+            {
+              "D": 2.3,
+              "rms": 0.0024609531281487057,
+              "gm": 8.260381036961917e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.2999777793884277
+            },
+            {
+              "D": 2.35,
+              "rms": 0.002514452109195417,
+              "gm": 8.170222827175166e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.34997820854187
+            },
+            {
+              "D": 2.4,
+              "rms": 0.0025679510902421277,
+              "gm": 8.08160075393971e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.399975061416626
+            },
+            {
+              "D": 2.45,
+              "rms": 0.002621450071288839,
+              "gm": 7.994950465217698e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.449976921081543
+            },
+            {
+              "D": 2.5,
+              "rms": 0.0026749490523355498,
+              "gm": 7.910630301921628e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.4999771118164062
+            },
+            {
+              "D": 2.55,
+              "rms": 0.0027284480333822606,
+              "gm": 7.828954039723612e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.549978017807007
+            },
+            {
+              "D": 2.6,
+              "rms": 0.002781947014428972,
+              "gm": 7.750171789666638e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.5999808311462402
+            },
+            {
+              "D": 2.65,
+              "rms": 0.0028354459954756826,
+              "gm": 7.6744863690692e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.6499783992767334
+            },
+            {
+              "D": 2.7,
+              "rms": 0.002888944976522394,
+              "gm": 7.602061486977618e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.6999776363372803
+            },
+            {
+              "D": 2.75,
+              "rms": 0.0029424439575691046,
+              "gm": 7.533004918514052e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.7499780654907227
+            },
+            {
+              "D": 2.8,
+              "rms": 0.0029959429386158154,
+              "gm": 7.46740261092782e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.799975633621216
+            },
+            {
+              "D": 2.85,
+              "rms": 0.0030494419196625266,
+              "gm": 7.405304586427519e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.849982738494873
+            },
+            {
+              "D": 2.9,
+              "rms": 0.0031029409007092374,
+              "gm": 7.346738584601553e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.8999810218811035
+            },
+            {
+              "D": 2.95,
+              "rms": 0.0031564398817559487,
+              "gm": 7.291710517165484e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.949976682662964
+            },
+            {
+              "D": 3.0,
+              "rms": 0.0032099388628026595,
+              "gm": 7.240222657856066e-06,
+              "frac_argmax_z": 0.0,
+              "disp_check": 2.9999735355377197
+            }
+          ]
+        }
+      },
+      "kill_Ds_fresh": [
+        0.8526279196164989,
+        0.985063798996848,
+        0.4138067254671565
+      ],
+      "seeds": [
+        12001,
+        12002,
+        12003
+      ],
+      "kill_Ds": [
+        0.8526279196164989,
+        0.985063798996848,
+        0.4138067254671565
+      ],
+      "median_stat": {
+        "median": 0.8526279196164989,
+        "n": 3,
+        "n_resolved": 3,
+        "n_censored": 0,
+        "defined": true,
+        "resolved_sorted": [
+          0.4138067254671565,
+          0.8526279196164989,
+          0.985063798996848
+        ]
+      },
+      "n_draws": 3,
+      "instrument": "FRESH: onset grid 0.05..3.00 + D=0 anchor, kill = first g-4 <= 0.27 downcrossing INTERPOLATED linear-in-D (e199/e200's onset instrument VERBATIM) \u2014 the only band on exactly the onset instrument",
+      "ruler": "install-60 g-4 (e193's frozen primary; the SAME ruler as the half lineage's onset fronts)",
+      "root": "runs/checkpoints/e157_f2_consolidated.pt",
+      "honesty": "n=3 draws of ONE 20-step wash-history realization (seed 10902); None = unresolved-high (right-censored at 3.0)"
+    }
+  },
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "-8": [
+          60,
+          122
+        ],
+        "-4": [
+          60,
+          126
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "4": [
+          60,
+          134
+        ],
+        "8": [
+          60,
+          138
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "install-60 battery at the e157 dial's seven read geometries \u2014 e193/e197/e200's gate verbatim"
+    },
+    "G_ANCHOR": {
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 0,
+      "rejections": 2,
+      "bank_starts_match_e185_stored": true,
+      "n_windows": 16,
+      "block": 256,
+      "seed": 170,
+      "pass": true
+    },
+    "G_ROOT": {
+      "cells_measured": {
+        "g-4": 0.8872273564338684,
+        "g-12": 0.19826214015483856
+      },
+      "cells_committed": {
+        "g-4": 0.8872273564338684,
+        "g-12": 0.19826222956180573
+      },
+      "max_abs_diff": 8.940696716308594e-08,
+      "bit_tol": 5e-06,
+      "tol": 0.05,
+      "bit": true,
+      "flat_md5": "73820c546e0f8d7b22c727e1d6f23fbc",
+      "flat_md5_match_e193_committed": true,
+      "pass": true,
+      "note": "e200's G_ROOT in light form: the flat md5 must match e193's committed root identity + the e157 dial's g-4/g-12 cells bit-tight (or the disclosed texture tier)"
+    },
+    "G_STREAM": {
+      "steps_1_8_md5_match": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true
+      },
+      "steps_9_20": "no committed hashes (e185 stored 1-8) \u2014 deterministic-by-construction, disclosed",
+      "pass": true
+    },
+    "G_DIRCK": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e193_f2_static_dir_u.pt",
+      "meta_gate": {
+        "experiment": "e193",
+        "root": "e157_f2_consolidated.pt",
+        "match": true
+      },
+      "fresh_u_md5": "fd61d779f96ecbd371ffa4041e780daa",
+      "md5_match": false,
+      "max_abs_diff_fresh_vs_ckpt": 1.0151416063308716e-07,
+      "cos64_fresh_vs_ckpt": 0.9999999999994282,
+      "theta0_md5_match_root": true,
+      "note": "e200's G_DIRCK verbatim: the committed u must BE the fresh t=0 g-ray (md5, or the cross-thread TEXTURE fallback coordinate-wise within 1e-6); theta0_md5 must be THIS root's flat md5",
+      "tier": "TEXTURE",
+      "pass": true
+    },
+    "G_HIST": {
+      "n_steps": 20,
+      "step1_L2_measured": 0.9164196252822876,
+      "step1_L2_committed_e193": 0.9164195656776428,
+      "step1_L2_abs_diff": 5.960464477539063e-08,
+      "tol": 0.05,
+      "tier": "TEXTURE (threads 4 vs e193's 8)",
+      "pass": true,
+      "xhash_steps_1_8_gated": true,
+      "disp_L2_all": [
+        0.9164196252822876,
+        0.6040362119674683,
+        0.481024831533432,
+        0.3861052393913269,
+        0.34152230620384216,
+        0.3386908173561096,
+        0.32359999418258667,
+        0.3181455731391907,
+        0.3073129951953888,
+        0.3012639284133911,
+        0.28358498215675354,
+        0.2780482769012451,
+        0.27710381150245667,
+        0.2603398561477661,
+        0.25735920667648315,
+        0.2505609393119812,
+        0.24164806306362152,
+        0.2330496907234192,
+        0.23415353894233704,
+        0.22840085625648499
+      ],
+      "cum_disp_final": 6.862370744347572,
+      "note": "e193b's wash-history convention at THIS root: fresh AdamW (lr 1e-3, betas 0.9/0.95, wd 0.1, clip 1.0, batch 16 anchor + 16 random, seed-10902 stream); the step-1 displacement L2 must reproduce e193's committed MEASURED step L2 (never ported); steps 9-20 ungated (no committed hashes)"
+    },
+    "G_GRAY": {
+      "fresh_u_md5": "fd61d779f96ecbd371ffa4041e780daa",
+      "fresh_D_kill_interp": 0.19668188680793092,
+      "e193_R1_G_bracket": {
+        "gm_015": 0.5393117666244507,
+        "gm_020": 0.2508571743965149
+      },
+      "e193_R1_G_interp_committed": 0.19668183032628606,
+      "abs_diff": 5.6481644861161584e-08,
+      "tol": 0.02,
+      "tier": "TEXTURE (e193 ran threads 8; grid interp vs this cell's 0.05-grid interp)",
+      "pass": true,
+      "note": "THE BAND-INSTRUMENT ANCHOR (Rule 12): the fresh t=0 g-ray walked down THIS cell's band grid must reproduce e193's committed R1_G kill bracket (first-dead 0.20 on e193's grid; interpolated 0.1967) \u2014 the band's kill-Ds are not believed until this passes"
+    }
+  },
+  "normalization": {
+    "org1": {
+      "rows": [
+        {
+          "t": 0,
+          "D_kill": 2.269916581032063,
+          "self_ratio": 1.0,
+          "self_note": "definitional (u0 vs itself)",
+          "band_multiple": 3.7206885127780804,
+          "band_note": "the EDGE's own multiple (a real number on the common axis \u2014 the self axis hides it inside ratio_0 = 1.0)"
+        },
+        {
+          "t": 1,
+          "state": "alive",
+          "D_kill": 0.3875040789853107,
+          "self_ratio": 0.1707129161588503,
+          "band_multiple": 0.6351695861350818
+        },
+        {
+          "t": 2,
+          "state": "post_death_context",
+          "D_kill": 0.8979436419840907,
+          "self_ratio": 0.39558442344864614,
+          "band_multiple": 1.4718464201593175,
+          "note": "e195's committed POST-DEATH read \u2014 plotted open, NEVER adjudicated"
+        }
+      ],
+      "median": 0.6100797132671589,
+      "edge": 2.269916581032063
+    },
+    "mirabel": {
+      "rows": [
+        {
+          "t": 0,
+          "D_kill": 1.9470925580069711,
+          "self_ratio": 1.0,
+          "self_note": "definitional (u0 vs itself)",
+          "band_multiple": 2.1164049543554033,
+          "band_note": "the EDGE's own multiple (a real number on the common axis \u2014 the self axis hides it inside ratio_0 = 1.0)"
+        },
+        {
+          "t": 1,
+          "state": "alive_SOFT",
+          "D_kill": null,
+          "self_ratio_floor": 1.5407588035110036,
+          "band_multiple_floor": 3.260869565217391,
+          "note": "SOFT (unresolved-high within [0,3.0]) \u2014 floors reported, never adjudicated"
+        },
+        {
+          "t": 2,
+          "state": "alive",
+          "D_kill": 0.8312446762047895,
+          "self_ratio": 0.42691585091139433,
+          "band_multiple": 0.9035268219617276
+        },
+        {
+          "t": 3,
+          "state": "death",
+          "D_kill": null,
+          "self_ratio": null,
+          "band_multiple": null
+        }
+      ],
+      "median": 0.92,
+      "edge": 1.9470925580069711
+    },
+    "half": {
+      "rows": [
+        {
+          "t": 0,
+          "D_kill": 0.5252331597771716,
+          "self_ratio": 1.0,
+          "self_note": "definitional (u0 vs itself)",
+          "band_multiple": 0.6160168435645583,
+          "band_note": "the EDGE's own multiple (a real number on the common axis \u2014 the self axis hides it inside ratio_0 = 1.0)"
+        },
+        {
+          "t": 1,
+          "state": "alive",
+          "D_kill": 1.664473633460733,
+          "self_ratio": 3.169018563425966,
+          "band_multiple": 1.9521688126391545
+        },
+        {
+          "t": 2,
+          "state": "alive",
+          "D_kill": 0.34829356925017246,
+          "self_ratio": 0.6631218207889519,
+          "band_multiple": 0.4084942109411928
+        },
+        {
+          "t": 3,
+          "state": "alive",
+          "D_kill": 0.6786533732491854,
+          "self_ratio": 1.292099252714931,
+          "band_multiple": 0.7959549032295764
+        },
+        {
+          "t": 4,
+          "state": "alive",
+          "D_kill": 0.20865737305118012,
+          "self_ratio": 0.39726618391668633,
+          "band_multiple": 0.2447226606712944
+        },
+        {
+          "t": 5,
+          "state": "death",
+          "D_kill": null,
+          "self_ratio": null,
+          "band_multiple": null
+        }
+      ],
+      "median": 0.8526279196164989,
+      "edge": 0.5252331597771716
+    },
+    "band_medians": {
+      "org1": 0.6100797132671589,
+      "mirabel": 0.92,
+      "half": 0.8526279196164989
+    },
+    "edge_multiples": {
+      "org1": 3.7206885127780804,
+      "mirabel": 2.1164049543554033,
+      "half": 0.6160168435645583
+    }
+  },
+  "arrival_sweep": {
+    "axes": {
+      "SELF": "ratio vs own u0 edge (the committed instrument)",
+      "COMMON": "D_kill / own in-span band median (the critic's proposed ruler)"
+    },
+    "bars": [
+      0.6,
+      0.7,
+      0.8
+    ],
+    "bars_provenance": {
+      "0.60": "e196's committed FLIGHT_RATIO_BAR",
+      "0.70": "e198/e199/e200's frozen concentration bar",
+      "0.80": "the sweep's upper arm"
+    },
+    "matrix": {
+      "SELF": {
+        "0.60": {
+          "org1": 1,
+          "mirabel": 2,
+          "half": 4
+        },
+        "0.70": {
+          "org1": 1,
+          "mirabel": 2,
+          "half": 2
+        },
+        "0.80": {
+          "org1": 1,
+          "mirabel": 2,
+          "half": 2
+        }
+      },
+      "COMMON": {
+        "0.60": {
+          "org1": null,
+          "mirabel": null,
+          "half": 2
+        },
+        "0.70": {
+          "org1": 1,
+          "mirabel": null,
+          "half": 2
+        },
+        "0.80": {
+          "org1": 1,
+          "mirabel": null,
+          "half": 2
+        }
+      }
+    },
+    "committed_assignment_T163_T164": {
+      "org1": 1,
+      "mirabel": 2,
+      "half": 2
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "ARRIVALS_ROBUST": {
+        "fires": false,
+        "detail": {
+          "all_six_cells": {
+            "SELF": {
+              "0.60": {
+                "org1": 1,
+                "mirabel": 2,
+                "half": 4
+              },
+              "0.70": {
+                "org1": 1,
+                "mirabel": 2,
+                "half": 2
+              },
+              "0.80": {
+                "org1": 1,
+                "mirabel": 2,
+                "half": 2
+              }
+            },
+            "COMMON": {
+              "0.60": {
+                "org1": null,
+                "mirabel": null,
+                "half": 2
+              },
+              "0.70": {
+                "org1": 1,
+                "mirabel": null,
+                "half": 2
+              },
+              "0.80": {
+                "org1": 1,
+                "mirabel": null,
+                "half": 2
+              }
+            }
+          },
+          "required": "(1, 2, 2)"
+        }
+      },
+      "ARRIVALS_CONTINGENT": {
+        "fires": true,
+        "detail": {
+          "dissolutions": [
+            {
+              "kind": "under normalization",
+              "bar": 0.6,
+              "organism": "org1",
+              "self_t": 1
+            },
+            {
+              "kind": "under normalization",
+              "bar": 0.6,
+              "organism": "mirabel",
+              "self_t": 2
+            },
+            {
+              "kind": "under normalization",
+              "bar": 0.7,
+              "organism": "mirabel",
+              "self_t": 2
+            },
+            {
+              "kind": "under normalization",
+              "bar": 0.8,
+              "organism": "mirabel",
+              "self_t": 2
+            },
+            {
+              "kind": "across the bar sweep",
+              "axis": "COMMON",
+              "organism": "org1",
+              "t_at_0.80": 1
+            }
+          ],
+          "flips": [
+            {
+              "bar": 0.6,
+              "kind": "earliest-identity flip",
+              "self_earliest": [
+                "org1"
+              ],
+              "common_earliest": [
+                "half"
+              ]
+            }
+          ]
+        }
+      },
+      "GRADED": {
+        "fires": false
+      }
+    },
+    "verdict": "ARRIVALS-CONTINGENT",
+    "desk_forced_disclosure": {
+      "org1_t1_multiple_desk": 0.6351695861350818,
+      "mirabel_t2_multiple_desk": 0.9035268219617276,
+      "statement": "org1's t1 multiple (0.635) sits ABOVE the 0.60 bar and MIRABEL's t2 multiple (0.903) above ALL THREE bars \u2014 both desk-computable from committed data at registration; ARRIVALS-ROBUST was already impossible and the verdict desk-forced to CONTINGENT-or-worse; reported as forced, the fresh compute owns the half band and its arrival"
+    },
+    "composite_order": "ARRIVALS-ROBUST -> ARRIVALS-CONTINGENT -> GRADED"
+  },
+  "honesty": {
+    "bands_own_ns": "every band is n=3 draws of ONE 20-step wash-history realization; org1's carries 1-of-3 right-censored at >1.5 (the median is censoring-robust); MIRABEL's are first-dead GRID points (upper bounds \u2014 its multiples are lower bounds, biased TOWARD arrival, so its dissolution is conservative); the half band is the only one on exactly the onset instrument",
+    "grid_heterogeneity": "org1's band grid caps at 1.5 (e_chart's FINE_GRID); MIRABEL's rides e193b's 27-point grid; e193's own R2_SIGN bracket interpolates to 0.5271 where the onset grid reads 0.5252 \u2014 a 0.4% grid class",
+    "the_half_step_caveat": "the half lineage's FRONTS belong to the counterfactual half-step construction (e197/e200's carried deviation); its BAND is root-level (the root's own AdamW wash recipe \u2014 step-size-independent)",
+    "single_realizations": "every onset curve is one realized walk; every band is one span realization; nothing here is a distribution \u2014 the tables are the objects",
+    "logits_prediction_check": "the bands and fronts are behavior reads (battery p(Z) downcrossings), not logits; no intervening was done in this cell (the onset fronts are committed; the band is a reference instrument, not an intervention)",
+    "nothing_guaranteed": "the openness is the point: the half band measured here is the first of its kind on this root; a redraw (fresh history seed, fresh draws) would move the band median by the 2-3x draw lottery T155 committed"
+  },
+  "provenance": {
+    "onset_fronts": {
+      "org1": "runs/e199/metrics.json (hard-bound; e195/e199's gated chain)",
+      "mirabel": "runs/e199/metrics.json (hard-bound; e198's committed crosscheck rides)",
+      "half": "runs/e200/metrics.json (hard-bound; e197's committed chain rides transitively)"
+    },
+    "bands": {
+      "org1": "runs/e_chart/metrics.json partB.e131 fine_D_summary (loaded verbatim; the co-read promotion disclosed)",
+      "mirabel": "runs/e193b/metrics.json inspan_range.MIRABEL (loaded verbatim)",
+      "half": "THIS CELL (fresh; parents = the gated f2 root + the gated stream + G_HIST + G_DIRCK + G_GRAY)"
+    },
+    "bars_provenance": {
+      "0.60": "runs/e196/metrics.json FLIGHT_RATIO_BAR (hard-bound)",
+      "0.70": "e198/e199/e200's frozen concentration bar (hard-bound in e199)"
+    },
+    "seeds": {
+      "fresh_inspan_draws": [
+        12001,
+        12002,
+        12003
+      ],
+      "wash_stream": 10902,
+      "registry_note": "12001-3 fresh for e205 (repo-grep'd); e193b's 11911-3 and e_chart's 11601-3 load committed"
+    }
+  },
+  "timing": {
+    "total_s": 51.8
+  }
+}
