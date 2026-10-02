@@ -1,0 +1,1039 @@
+{
+  "experiment": "g1bS7_redraw",
+  "date": "2026-10-02T10:42:39Z",
+  "partial": false,
+  "progressive_writes": 8,
+  "phases": [
+    "start",
+    "G-CONFIG",
+    "G-BASE-QUAL",
+    "G-INST",
+    "cons-m020f-chunk1",
+    "redrew-checks",
+    "root-m020f",
+    "adjudication"
+  ],
+  "design": "T167's honesty-ledger debt (the dispatch, 2026-10-02): the formation curve's fine-ordering leg \u2014 one fresh-jitter consolidation at the 0.20 rms peak (consolidation-only, no install, no wall arms, no wash); bars frozen verbatim; no bar shopping",
+  "question": "is the formation peak's height draw-robust? \u2014 the fresh draw's (seed 10903) root g-12 vs the original draw's (seed 10901) 0.7677",
+  "registered": {
+    "bars_verbatim": {
+      "PEAK-ROBUST": "fires if the fresh-draw root lands within +-0.05 of 0.7677 \u2014 the peak height is draw-robust; the curve's shape licensed at the peak; the wall's root (g1bS6) stands.",
+      "PEAK-LOTTERY": "fires if the fresh draw lands > 0.10 from the original \u2014 the formation peak is itself a draw lottery (the g2e lesson at the consolidation level); the curve is one biography; reported honestly.",
+      "GRADED": "any partial \u2014 the value verbatim."
+    },
+    "operationalization": {
+      "registered_before_compute": true,
+      "orig_gm12": 0.7676599621772766,
+      "d_definition": "d := |fresh_gm12 - orig_gm12|",
+      "PEAK-ROBUST_fires_if": "d <= 0.05",
+      "PEAK-LOTTERY_fires_if": "d > 0.10",
+      "GRADED_fires_if": "otherwise (0.05 < d <= 0.10) \u2014 any partial",
+      "priority": "PEAK-ROBUST -> PEAK-LOTTERY -> GRADED (the first two mutually exclusive by construction; the middle band is GRADED's)",
+      "texture_co_reported_never_bars": [
+        "fresh vs the 0.78 express bar (the root gate READ)",
+        "fresh vs the SHARP-OPTIMUM threshold 0.6998 (would the redraw ALONE still have fired g1bS5's SHARP-OPTIMUM?)",
+        "fresh vs the 0.25 reading 0.7431 (the fine ordering redrawn)",
+        "the same-recipe replay fuzz floor (mean |dg0| 0.0218 / max 0.111 \u2014 same-seed device fuzz; a different currency from the seed redraw)"
+      ],
+      "prediction": "NONE registered \u2014 the redraw is open by design; the only mechanical expectation is GENUINE divergence from the original stream (a real runtime gate: s25 float-fuzz distance + the final root NOT bit-identical to g1bS5_root_m020.pt)"
+    },
+    "movement_arithmetic": {
+      "licensed_currency": "ADAM-CLOCK rms (T139): steps = movement / lr",
+      "lr": 0.0004,
+      "dose": {
+        "tag": "m020f",
+        "movement_rms": 0.2,
+        "steps": 500,
+        "check": "0.2 / 0.0004 = 500"
+      },
+      "seed_registration": {
+        "original_draw": 10901,
+        "fresh_draw": 10903,
+        "note": "the jitter seed is THE TREATMENT \u2014 the only delta vs g1bS5's m020 run"
+      },
+      "width_proportional": "4e-4 = 1e-3 x 128/320 (n_embd 128 -> 320)",
+      "raw_per_step": 1.2634935694335765,
+      "raw_total": 631.7467847167883,
+      "e113_verbatim_reference": {
+        "steps": 300,
+        "lr": 0.001,
+        "movement_rms": 0.3,
+        "raw_total": 496.5042598004573
+      }
+    },
+    "root_gate": {
+      "bar": 0.78,
+      "reading": "the fresh root g-12 vs the 0.78 express bar \u2014 a READ, not a hard stop: there are no arms to stop in this cell; the redraw bars are the adjudication",
+      "co_reads": "g0 / gp12 / held30 / CE_R / site read / A129 \u2014 the prior takes' root-dial conventions verbatim (measure() full dial, CPU)"
+    },
+    "sources_loaded": {
+      "base": "runs/checkpoints/g1bS2_base.pt \u2014 g1bS2's PASSED base (val-min-anchored 1200-step cosine, lr 4e-4, seed 1337); G-BASE-QUAL PASS on record at runs/g1bS2/metrics.json, re-derived ON THE LOAD by this run (takes 3-7's standing license: never retrained)",
+      "install": "runs/checkpoints/g1bS2_install.pt \u2014 the movement-matched s1000 @ 4e-4 install (seed 42); post-install state REUSABLE (g1bS2's failure was IN the consolidation, strictly downstream; re-verified by takes 3-6 and re-checked here)",
+      "original_root": "runs/checkpoints/g1bS5_root_m020.pt \u2014 g1bS5's saved m020 root (seed 10901), LOADED READ-ONLY for the bit-divergence check (the redraw must NOT bit-replay it); never a training source"
+    },
+    "owner_envelope": {
+      "launch_gate": "util <= 20% AND temp <= 70C (double-poll 5 s) AND mem <= 60%",
+      "burst_cap_s": 90.0,
+      "cooldown_s": 180.0,
+      "poll_audit": "every owner-gate poll appended to runs/_envelope_log.jsonl (the R61-critic trail; g1bS6's adopted trim)",
+      "no_cpu_hop": "the consolidation NEVER runs on CPU (a 10M CPU consolidation is not a viable burst; if no CUDA or no window: STOP honestly, partial metrics + resume ckpt hold the record)"
+    },
+    "checks_rule12": [
+      "the loaded checkpoints' identity gates (G-BASE cosine-complete + G-BASE-QUAL legs re-derived on the load; G-INST step + the post-install reuse check |d gm12| <= 0.02 vs g1bS2's record)",
+      "the movement arithmetic + the fresh-seed registration asserted BEFORE compute (0.20/4e-4 == 500; 10903 != 10901)",
+      "THE REDREW CHECK (a real gate): the s25 in-run read must leave float-fuzz distance from the original draw's s25 AND the final root state must NOT be bit-identical to g1bS5_root_m020.pt",
+      "the original draw's committed numbers cross-checked at runtime against runs/g1bS5/metrics.json (warn-only)",
+      "the in-run trajectory deltas vs the original m020 traj \u2014 the DRAW-SENSITIVITY read (texture, never a gate)"
+    ]
+  },
+  "provenance": {
+    "host": {
+      "config": {
+        "n_layer": 8,
+        "n_head": 8,
+        "n_embd": 320,
+        "block_size": 256,
+        "vocab": 65
+      },
+      "params": 9977600,
+      "band": "[8.5M, 11.5M]",
+      "config_provenance": "e005s LARGE's 10M-class config (the lineage's standing host)",
+      "host_seed": 1337,
+      "corpus_seed": 1337,
+      "base": "g1bS2's PASSED base LOADED VERBATIM from runs/checkpoints/g1bS2_base.pt (never retrained; val-min-anchored 1200-step cosine, lr 4e-4; G-BASE-QUAL re-derived on the load)",
+      "final_val_loss": 1.5690115491549175
+    },
+    "install": {
+      "steps": 1000,
+      "seed": 42,
+      "source": "g1bS2's movement-matched install LOADED VERBATIM from runs/checkpoints/g1bS2_install.pt (post-install state REUSABLE; cells re-measured and cross-checked by this run)",
+      "post_install_cells": {
+        "gm12": 0.04199834540486336,
+        "g0": 0.5013128519058228,
+        "gp12": 0.042499374598264694,
+        "held30_gm12": 0.022439507767558098,
+        "held30_g0": 0.30181604623794556,
+        "ce_r": 1.540094017982483,
+        "site_read_onset": 0.02382466569542885,
+        "site_read_span": 0.8596717715263367,
+        "A129": 0.23110246583819388
+      }
+    },
+    "redraw": {
+      "movement_rms": 0.2,
+      "steps": 500,
+      "lr": 0.0004,
+      "seed": 10903,
+      "recipe": "e113 jitter convention VERBATIM (jitters {-8..+8}, batch 16 install + 16 anchor, name-masked union CE, AdamW (0.9,0.95) wd 0.1 const lr clip 1.0) at the G1BS3-licensed rate 4e-4 \u2014 the SEED (10903, fresh) is the ONLY delta vs g1bS5's m020 run (10901); the dose 0.20 rms / 500 steps is VERBATIM the peak point",
+      "steps_ran": 500,
+      "device": "cuda",
+      "n_chunks": 1,
+      "chunk_table": [
+        {
+          "chunk": 1,
+          "device": "cuda",
+          "seconds": 27.9,
+          "steps_done": 500,
+          "capped": false
+        }
+      ],
+      "traj": [
+        {
+          "step": 25,
+          "install60_g0_pz": 0.5999200344085693,
+          "ce_r": 1.9265822172164917,
+          "elapsed_s": 1.9
+        },
+        {
+          "step": 50,
+          "install60_g0_pz": 0.4646274447441101,
+          "ce_r": 1.7432233095169067,
+          "elapsed_s": 3.1
+        },
+        {
+          "step": 75,
+          "install60_g0_pz": 0.6841701865196228,
+          "ce_r": 1.7329117059707642,
+          "elapsed_s": 4.3
+        },
+        {
+          "step": 100,
+          "install60_g0_pz": 0.4262501001358032,
+          "ce_r": 1.7309982776641846,
+          "elapsed_s": 5.6
+        },
+        {
+          "step": 125,
+          "install60_g0_pz": 0.450399786233902,
+          "ce_r": 1.7120682001113892,
+          "elapsed_s": 6.8
+        },
+        {
+          "step": 150,
+          "install60_g0_pz": 0.5375021696090698,
+          "ce_r": 1.7082680463790894,
+          "elapsed_s": 8.4
+        },
+        {
+          "step": 175,
+          "install60_g0_pz": 0.8054990172386169,
+          "ce_r": 1.7035273313522339,
+          "elapsed_s": 9.6
+        },
+        {
+          "step": 200,
+          "install60_g0_pz": 0.49268367886543274,
+          "ce_r": 1.7480868101119995,
+          "elapsed_s": 11.0
+        },
+        {
+          "step": 225,
+          "install60_g0_pz": 0.7632758021354675,
+          "ce_r": 1.7006666660308838,
+          "elapsed_s": 12.4
+        },
+        {
+          "step": 250,
+          "install60_g0_pz": 0.6606146693229675,
+          "ce_r": 1.6855143308639526,
+          "elapsed_s": 13.7
+        },
+        {
+          "step": 275,
+          "install60_g0_pz": 0.5227237343788147,
+          "ce_r": 1.7119520902633667,
+          "elapsed_s": 15.1
+        },
+        {
+          "step": 300,
+          "install60_g0_pz": 0.7148670554161072,
+          "ce_r": 1.6814918518066406,
+          "elapsed_s": 16.5
+        },
+        {
+          "step": 325,
+          "install60_g0_pz": 0.6501160264015198,
+          "ce_r": 1.7083643674850464,
+          "elapsed_s": 17.6
+        },
+        {
+          "step": 350,
+          "install60_g0_pz": 0.6329787969589233,
+          "ce_r": 1.7233564853668213,
+          "elapsed_s": 18.9
+        },
+        {
+          "step": 375,
+          "install60_g0_pz": 0.7684195637702942,
+          "ce_r": 1.6915456056594849,
+          "elapsed_s": 20.1
+        },
+        {
+          "step": 400,
+          "install60_g0_pz": 0.6688429713249207,
+          "ce_r": 1.6851460933685303,
+          "elapsed_s": 22.0
+        },
+        {
+          "step": 425,
+          "install60_g0_pz": 0.7413918972015381,
+          "ce_r": 1.6759594678878784,
+          "elapsed_s": 23.5
+        },
+        {
+          "step": 450,
+          "install60_g0_pz": 0.6859676837921143,
+          "ce_r": 1.6780709028244019,
+          "elapsed_s": 25.0
+        },
+        {
+          "step": 475,
+          "install60_g0_pz": 0.6291079521179199,
+          "ce_r": 1.6796765327453613,
+          "elapsed_s": 26.5
+        },
+        {
+          "step": 500,
+          "install60_g0_pz": 0.679726243019104,
+          "ce_r": 1.677453637123108,
+          "elapsed_s": 27.7
+        }
+      ],
+      "redrew_stream": {
+        "step": 25,
+        "fresh_g0": 0.5999200344085693,
+        "orig_g0": 0.5002425312995911,
+        "abs_d_g0": 0.09967750310897827,
+        "float_fuzz_scale": 0.0218,
+        "verdict": "SUSPICIOUSLY CLOSE (float-fuzz scale \u2014 the seed change may not have taken; co-reported, the bit check decides)"
+      },
+      "redrew_bits": {
+        "compared_to": "runs/checkpoints/g1bS5_root_m020.pt",
+        "max_abs_diff": 0.05730809271335602,
+        "frac_elements_differing": 0.9999676274855677,
+        "gate": "the final root state must NOT be bit-identical (max_abs_diff > 1e-6): a bit-identical 'redraw' means the seed change failed",
+        "pass": true
+      },
+      "draw_sensitivity": {
+        "n_shared": 20,
+        "mean_d_g0": 0.13181442618370057,
+        "max_d_g0": 0.5634486675262451,
+        "reading": "the SEED axis: same recipe/pools/net0/lr/dose, different jitter seed \u2014 the in-run g0 deltas vs the original draw; compare against the same-seed replay fuzz floor (mean 0.0218 / max 0.111) \u2014 a different currency, both stamped"
+      },
+      "root_read": {
+        "bar": 0.78,
+        "gm12": 0.935076117515564,
+        "pass": true,
+        "note": "a READ, not a hard stop \u2014 no arms to stop in this cell; the redraw bars adjudicate"
+      },
+      "root_cells": {
+        "gm12": 0.935076117515564,
+        "g0": 0.679726243019104,
+        "gp12": 0.9306924939155579,
+        "held30_gm12": 0.639456033706665,
+        "held30_g0": 0.5851817727088928,
+        "ce_r": 1.677453637123108,
+        "site_read_onset": 0.7297611832618713,
+        "site_read_span": 0.9553685784339905,
+        "A129": -0.16281464115406075,
+        "row0_strength": 0.5723619414310329,
+        "dall_g0": 0.8471786975860596,
+        "d183_g0": 0.679726243019104,
+        "d183_gm12": 0.935076117515564
+      }
+    },
+    "original_draw": {
+      "movement_rms": 0.2,
+      "steps": 500,
+      "rate": 0.0004,
+      "seed": 10901,
+      "gm12": 0.7676599621772766,
+      "g0": 0.7367021441459656,
+      "gp12": 0.8544988036155701,
+      "held30_gm12": 0.5573378801345825,
+      "held30_g0": 0.6574546694755544,
+      "ce_r": 1.6968417167663574,
+      "site_read_onset": 0.6970594525337219,
+      "site_read_span": 0.9553064108894898,
+      "A129": -0.07295363429002466,
+      "row0_strength": 0.5237537777129889,
+      "source": "runs/g1bS5/metrics.json provenance.consolidations.m020.root_cells (the original draw \u2014 the comparison anchor)"
+    },
+    "committed_curve": {
+      "x_movement_rms": [
+        0.12,
+        0.15,
+        0.2,
+        0.25,
+        0.3
+      ],
+      "x_steps": [
+        300,
+        375,
+        500,
+        625,
+        750
+      ],
+      "gm12": [
+        0.6498003602027893,
+        0.7284520268440247,
+        0.7676599621772766,
+        0.7430918216705322,
+        0.2523
+      ],
+      "committed": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "source": "runs/g1bS5/metrics.json curve (the m015/m020/m025 points are g1bS5's fresh cells; 0.12 = g1bS3, 0.30 = g1bS4)"
+    },
+    "fuzz_floor": {
+      "mean_d_g0": 0.0218,
+      "max_d_g0": 0.111,
+      "source": "g1bS4's committed replay overlap (same recipe, same seed 10901); bounds device float fuzz, NOT seed variance \u2014 the redraw measures the seed axis; both stamped honestly"
+    },
+    "owner_envelope": {
+      "launch_gate": "util <= 20% AND temp <= 70C (double-poll 5 s) AND mem <= 60%",
+      "burst_cap_s": 90.0,
+      "cooldown_s": 180.0,
+      "poll_audit": "every owner-gate poll appended to runs/_envelope_log.jsonl (the R61-critic trail; g1bS6's adopted trim)",
+      "events": [
+        {
+          "tag": "m020f-chunk1",
+          "event": "LAUNCH WINDOW OPEN",
+          "waited_s": 0.0,
+          "status": {
+            "util": 0.0,
+            "mem_used": 0.0,
+            "mem_total": 24463.0,
+            "temp": 61.0,
+            "power": 23.98
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 75,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 89.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 84.0,
+            "power": 165.33
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 125,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 92.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 84.0,
+            "power": 163.22
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 175,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 92.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 85.0,
+            "power": 168.4
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 200,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 93.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 82.0,
+            "power": 168.76
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 225,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 91.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 81.0,
+            "power": 171.8
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 275,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 90.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 85.0,
+            "power": 149.62
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 325,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 94.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 84.0,
+            "power": 167.19
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 375,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 94.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 85.0,
+            "power": 173.45
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 400,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 92.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 87.0,
+            "power": 135.74
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 425,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 89.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 87.0,
+            "power": 151.43
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 450,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 86.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 85.0,
+            "power": 122.71
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 475,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 93.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 85.0,
+            "power": 169.22
+          }
+        },
+        {
+          "tag": "m020f",
+          "step": 500,
+          "event": "MID-RUN PAUSE (no migration)",
+          "status": {
+            "util": 92.0,
+            "mem_used": 2142.0,
+            "mem_total": 24463.0,
+            "temp": 87.0,
+            "power": 130.47
+          }
+        }
+      ]
+    },
+    "priors_crosscheck": {
+      "g1bs5_m020": {
+        "file": "runs/g1bS5/metrics.json",
+        "file_gm12": 0.7676599621772766,
+        "frozen_gm12": 0.7676599621772766,
+        "abs_d_gm12": 0.0,
+        "abs_d_ce_r": 0.0,
+        "curve_gm12_match": true,
+        "match": true
+      }
+    },
+    "seeds": {
+      "host_init_base_corpus": 1337,
+      "install": 42,
+      "consolidation": 10903,
+      "original_draw_consolidation": 10901,
+      "protocol_corpus": 1337
+    }
+  },
+  "comparison": {
+    "fresh_gm12": 0.935076117515564,
+    "orig_gm12": 0.7676599621772766,
+    "abs_d": 0.16741615533828735,
+    "signed_d": 0.16741615533828735,
+    "robust_band": [
+      0.7176599621772766,
+      0.8176599621772767
+    ],
+    "lottery_edge": [
+      0.6676599621772766,
+      0.8676599621772766
+    ]
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "PEAK-ROBUST": "fires if the fresh-draw root lands within +-0.05 of 0.7677 \u2014 the peak height is draw-robust; the curve's shape licensed at the peak; the wall's root (g1bS6) stands.",
+      "PEAK-LOTTERY": "fires if the fresh draw lands > 0.10 from the original \u2014 the formation peak is itself a draw lottery (the g2e lesson at the consolidation level); the curve is one biography; reported honestly.",
+      "GRADED": "any partial \u2014 the value verbatim."
+    },
+    "operationalization": {
+      "registered_before_compute": true,
+      "orig_gm12": 0.7676599621772766,
+      "d_definition": "d := |fresh_gm12 - orig_gm12|",
+      "PEAK-ROBUST_fires_if": "d <= 0.05",
+      "PEAK-LOTTERY_fires_if": "d > 0.10",
+      "GRADED_fires_if": "otherwise (0.05 < d <= 0.10) \u2014 any partial",
+      "priority": "PEAK-ROBUST -> PEAK-LOTTERY -> GRADED (the first two mutually exclusive by construction; the middle band is GRADED's)",
+      "texture_co_reported_never_bars": [
+        "fresh vs the 0.78 express bar (the root gate READ)",
+        "fresh vs the SHARP-OPTIMUM threshold 0.6998 (would the redraw ALONE still have fired g1bS5's SHARP-OPTIMUM?)",
+        "fresh vs the 0.25 reading 0.7431 (the fine ordering redrawn)",
+        "the same-recipe replay fuzz floor (mean |dg0| 0.0218 / max 0.111 \u2014 same-seed device fuzz; a different currency from the seed redraw)"
+      ],
+      "prediction": "NONE registered \u2014 the redraw is open by design; the only mechanical expectation is GENUINE divergence from the original stream (a real runtime gate: s25 float-fuzz distance + the final root NOT bit-identical to g1bS5_root_m020.pt)"
+    },
+    "d": 0.16741615533828735,
+    "fresh_gm12": 0.935076117515564,
+    "orig_gm12": 0.7676599621772766,
+    "PEAK_ROBUST_fired": false,
+    "PEAK_LOTTERY_fired": true,
+    "fired": "PEAK-LOTTERY",
+    "clause": "the fresh draw lands > 0.10 from the original: fresh 0.9351 vs original 0.7677 (|d| 0.1674 > 0.10) \u2014 the formation peak is itself a draw lottery (the g2e lesson at the consolidation level: one-seed readings of a formation optimum do not transfer); the curve is one biography; reported honestly. Co-reads: express bar 0.78 (PASS), SHARP-OPTIMUM threshold 0.6998 (still met on the redraw). Honesty: n=1 redraw; no bar shopping \u2014 the value verbatim.",
+    "texture": {
+      "express_bar": {
+        "bar": 0.78,
+        "fresh": 0.935076117515564,
+        "read": "PASS"
+      },
+      "sharp_threshold": {
+        "threshold": 0.6998003602027894,
+        "fresh": 0.935076117515564,
+        "would_refire": true
+      },
+      "fine_ordering": {
+        "reading_0p25": 0.7430918216705322,
+        "fresh": 0.935076117515564,
+        "peak_still_outranks_0p25": true
+      },
+      "fuzz_context": {
+        "same_seed_replay": {
+          "mean_d_g0": 0.0218,
+          "max_d_g0": 0.111,
+          "source": "g1bS4's committed replay overlap (same recipe, same seed 10901); bounds device float fuzz, NOT seed variance \u2014 the redraw measures the seed axis; both stamped honestly"
+        },
+        "note": "the redraw's d is on the SEED axis; the fuzz floor bounds the same-seed device axis \u2014 different currencies, both stamped"
+      }
+    },
+    "no_bar_shopping": "the fresh seed (10903), the dose (0.20 rms / 500 steps) and the bars were frozen in the dispatch and registered in the script BEFORE any compute; the original draw's numbers are g1bS5's committed record, cross-checked (warn-only) not re-tuned"
+  },
+  "gates": {
+    "G_CONFIG": {
+      "params": 9977600,
+      "band": [
+        8500000.0,
+        11500000.0
+      ],
+      "vocab": 65,
+      "block_size": 256,
+      "n_layer": 8,
+      "n_head": 8,
+      "n_embd": 320,
+      "battery_geometry": {
+        "vocab_unchanged": true,
+        "block_unchanged": true,
+        "positions_read": {
+          "site_rows": [
+            183,
+            189
+          ],
+          "wpe_band": [
+            121,
+            129
+          ],
+          "inside_block": true
+        },
+        "tokenizer": "same data/input.txt char stoi (65 chars)"
+      },
+      "note": "no R-ladder in this cell (no wall arms) \u2014 the config gate carries the 10M band + the battery geometry only",
+      "pass": true
+    },
+    "G_BASE": {
+      "steps": 1200,
+      "final_val_loss": 1.5690115491549175,
+      "loaded_from": "runs/checkpoints/g1bS2_base.pt",
+      "pass": true
+    },
+    "G_BASE_QUAL": {
+      "cosine_complete": true,
+      "eval_vals": [
+        2.129887064297994,
+        1.8508074482282002,
+        1.7942850689093273,
+        1.6420506834983826,
+        1.5927761395772297,
+        1.5863671998182933,
+        1.5690115491549175
+      ],
+      "val_monotone_decreasing_noise0.02": true,
+      "first_eval_val": 2.129887064297994,
+      "final_val": 1.5690115491549175,
+      "g2_val_decreasing": true,
+      "g3_final_val<=1.70": true,
+      "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
+      "sample_generated": "ow, my lord; and should I knew for him:\nMistake the duke or eyes extremes are you.\nThen shall Volshier's and guilt come out\nIs a state, soon, shall it a marriage,\nIn thou doubt'st son.\n\nFirst Murdesman:\nIf a beg to his palt with you, sweet sir,\nThou know and you fim, and shall keep follows\nA posserv",
+      "sample_stats": {
+        "len": 300,
+        "lower_space_fraction": 0.8866666666666667,
+        "mean_word_len": 4.084745762711864,
+        "max_char_run": 2,
+        "distinct_chars": 36
+      },
+      "g4_coherence_sample": true,
+      "pass": true,
+      "enforced": true,
+      "verification_of": "the LOADED g1bS2 base (its own G-BASE-QUAL PASS is on record at runs/g1bS2/metrics.json; these legs re-derive on the carried history + a fresh coherence sample so a corrupted load cannot slip through)",
+      "g1bs2_committed_record": {
+        "cosine_complete": true,
+        "val_monotone_decreasing_noise0.02": true,
+        "first_eval_val": 2.129887064297994,
+        "final_val": 1.5690115491549175,
+        "g2_val_decreasing": true,
+        "g3_final_val<=1.70": true,
+        "sample_prompt": "?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr",
+        "sample_generated": "ow, say thy please.\n\nVIRGILIA:\nI say to see the father's death, and you have:\nThe should will not to ask as honest at lize.\nAnd what the gods umons of a fiend.\n\nVIRGILIA:\nMost so, if our mocks suspirity!\n\nJULIET:\nHere you way speak it not will your and for yours?\n\nVOLUMNIA:\nO, if I will not do retir",
+        "g4_coherence_sample": true,
+        "pass": true,
+        "enforced": true
+      }
+    },
+    "G_INST": {
+      "steps": 1000,
+      "loaded_from": "runs/checkpoints/g1bS2_install.pt",
+      "recipe": "e043 Dmix s1000 @ lr 4e-4 (movement-matched, RECOVERY-3), seed 42 \u2014 g1bS2's run",
+      "pass": true,
+      "reuse_check": {
+        "g1bs2_committed": {
+          "gm12": 0.04199834540486336,
+          "g0": 0.5013128519058228,
+          "gp12": 0.042499374598264694,
+          "held30_gm12": 0.022439507767558098,
+          "held30_g0": 0.30181604623794556,
+          "ce_r": 1.540094017982483,
+          "site_read_onset": 0.02382466569542885,
+          "site_read_span": 0.8596717715263367,
+          "A129": 0.23110246583819388
+        },
+        "this_run_remeasured": {
+          "gm12": 0.04199834540486336,
+          "g0": 0.5013128519058228,
+          "gp12": 0.042499374598264694,
+          "held30_gm12": 0.022439507767558098,
+          "held30_g0": 0.30181604623794556,
+          "ce_r": 1.540094017982483,
+          "site_read_onset": 0.02382466569542885,
+          "site_read_span": 0.8596717715263367,
+          "A129": 0.23110246583819388
+        },
+        "abs_d_gm12": 0.0,
+        "tol": 0.02,
+        "reuse_ok": true,
+        "rationale": "the post-install state is the licensed source of this redraw; g1bS2's G-ROOT failure was caused by its lr-1e-3 consolidation itself, strictly downstream of this state; smoke skips the check (machinery only)"
+      }
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_POOL": {
+      "shape": [
+        60,
+        256
+      ],
+      "name_xcols": [
+        184,
+        190
+      ],
+      "all_windows_name_in_place": true,
+      "note": "MEASUREMENT instrument only (e152's locked j=54 pool); NO window from this pool enters any training",
+      "pass": true
+    },
+    "G_SURG": {
+      "g1bS7_m020f__d_all": {
+        "rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "n_elements_changed": 1600,
+        "expected": 1600,
+        "changed_rows": [
+          121,
+          125,
+          129,
+          133,
+          137
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      },
+      "g1bS7_m020f__d183": {
+        "rows": [
+          183
+        ],
+        "n_elements_changed": 320,
+        "expected": 320,
+        "changed_rows": [
+          183
+        ],
+        "confined": true,
+        "others_bit_identical": true,
+        "pass": true
+      }
+    },
+    "G_REDREW": {
+      "stream": {
+        "step": 25,
+        "fresh_g0": 0.5999200344085693,
+        "orig_g0": 0.5002425312995911,
+        "abs_d_g0": 0.09967750310897827,
+        "float_fuzz_scale": 0.0218,
+        "verdict": "SUSPICIOUSLY CLOSE (float-fuzz scale \u2014 the seed change may not have taken; co-reported, the bit check decides)"
+      },
+      "bits": {
+        "compared_to": "runs/checkpoints/g1bS5_root_m020.pt",
+        "max_abs_diff": 0.05730809271335602,
+        "frac_elements_differing": 0.9999676274855677,
+        "gate": "the final root state must NOT be bit-identical (max_abs_diff > 1e-6): a bit-identical 'redraw' means the seed change failed",
+        "pass": true
+      },
+      "pass": true
+    },
+    "pass": true
+  },
+  "honesty_reflex": {
+    "n1_draw": "n=1 REDRAW (two draws total at the peak dose: 10901's and 10903's; one host, one fact) \u2014 the |d| reading is a TWO-POINT variance glimpse, not a variance estimate; the seed-axis in-run |dg0| texture and the same-seed replay fuzz floor are DIFFERENT currencies, both stamped; no third draw was taken (none registered)",
+    "consolidation_only": "NO WALL CLAIMS and NO CURVE REVISION: this cell does not re-adjudicate g1bS5's SHARP-OPTIMUM (its frozen operationalization lives on the original draw's interior readings) nor g1bS6's WALL-FADES; the redraw's relation to the 0.78 bar / 0.6998 threshold / 0.7431 reading is TEXTURE, co-reported never adjudicated",
+    "original_anchor": "the comparison anchor is g1bS5's COMMITTED m020 record (cross-checked warn-only at runtime); g1bS4-assembled print-precision texture does not touch this leg (the m020 row is g1bS5's own full-precision run)",
+    "openness": "nothing was guaranteed \u2014 the redraw was open by design; the registered prediction was NONE and the verdict above is the comparison's, not a thesis's"
+  },
+  "trims": [],
+  "deviations": [
+    "CONSOLIDATION-ONLY REDRAW CELL (the dispatch's license): no install training (g1bS2's install is LOADED read-only), no wall arms, no wash \u2014 the cheapest possible form of T167's owed redraw; no wall claims possible from this cell (g1bS6's WALL-FADES verdict is CONTEXT, not re-adjudicated here).",
+    "THE FRESH SEED IS THE TREATMENT: consolidation seed 10903 (registered) vs the original draw's 10901 \u2014 the ONLY delta vs g1bS5's m020 run; implemented by overriding G1.CONS_SEED before any compute so the verbatim driver (manual_seed(G1.CONS_SEED)) carries the fresh seed with its arithmetic untouched.",
+    "THE OWNER ENVELOPE (STATE.json compute_directive 2026-10-02, permanent) verbatim from g1bS5/g1bS6: launch gate util <= 20% AND temp <= 70C (double-poll; mem <= 60%), burst cap 90 s, cooldown 180 s, no CPU fallback, plus g1bS6's adopted poll-audit trim (every owner-gate poll appended to runs/_envelope_log.jsonl).",
+    "The registered g-12 channel is read ONLY at the endpoint (the prior takes' root-dial convention \u2014 full measure() dial, CPU ~4-5 min); the in-run every-25-step evals stay on the g0/CE_R light channels (the consolidation driver's own convention, verbatim).",
+    "g1bS5's committed m020 ROOT checkpoint is LOADED (read-only) purely for the bit-divergence check \u2014 the honest machinery gate that the redraw actually redrew; it never enters training or the readout.",
+    "torch threads 4 (shared machine; g1bW's adopted trim; g1's import resets to 8, reset after import).",
+    "Smoke mode trims: base 24 steps, install 8 steps (g1bS2's smoke ckpts), dose 8 steps, lean dials, no cooldowns, gate waits capped at 30 s, the bit-divergence gate vs the FULL m020 root SKIPPED (a smoke redraw of 8 steps trivially differs from a 500-step root; the divergence check falls to the s25/s8 float-fuzz distance read) \u2014 nothing adjudicated."
+  ],
+  "device_events": [
+    {
+      "tag": "m020f-chunk1",
+      "event": "LAUNCH WINDOW OPEN",
+      "waited_s": 0.0,
+      "status": {
+        "util": 0.0,
+        "mem_used": 0.0,
+        "mem_total": 24463.0,
+        "temp": 61.0,
+        "power": 23.98
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 75,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 89.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 84.0,
+        "power": 165.33
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 125,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 92.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 84.0,
+        "power": 163.22
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 175,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 92.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 168.4
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 200,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 93.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 82.0,
+        "power": 168.76
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 225,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 91.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 81.0,
+        "power": 171.8
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 275,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 90.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 149.62
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 325,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 94.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 84.0,
+        "power": 167.19
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 375,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 94.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 173.45
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 400,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 92.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 87.0,
+        "power": 135.74
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 425,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 89.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 87.0,
+        "power": 151.43
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 450,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 86.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 122.71
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 475,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 93.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 85.0,
+        "power": 169.22
+      }
+    },
+    {
+      "tag": "m020f",
+      "step": 500,
+      "event": "MID-RUN PAUSE (no migration)",
+      "status": {
+        "util": 92.0,
+        "mem_used": 2142.0,
+        "mem_total": 24463.0,
+        "temp": 87.0,
+        "power": 130.47
+      }
+    }
+  ],
+  "ckpt_inventory": {
+    "src_g1bS2_base": {
+      "path": "runs/checkpoints/g1bS2_base.pt",
+      "desc": "g1bS2's PASSED 10M base (val-min-anchored 1200-step cosine, lr 4e-4, seed 1337) \u2014 LOADED read-only by g1bS7 (the license: never retrained)",
+      "step": 1200,
+      "final_val_loss": 1.5690115491549175
+    },
+    "src_g1bS2_install": {
+      "path": "runs/checkpoints/g1bS2_install.pt",
+      "desc": "g1bS2's movement-matched install (e043 Dmix s1000 @ 4e-4, seed 42) \u2014 LOADED read-only by g1bS7; the licensed redraw source (the SAME start as the original draw)",
+      "step": 1000
+    },
+    "g1bS7_root_m020f": {
+      "path": "runs/checkpoints/g1bS7_root_m020f.pt",
+      "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10903, FRESH \u2014 the original draw's was 10901) = movement 0.2 rms \u2014 the REDRAWN peak point (g1bS7, the fine-ordering leg)",
+      "params": 9977600,
+      "movement_rms": 0.2,
+      "steps": 500,
+      "lr": 0.0004,
+      "cons_seed": 10903,
+      "root_gm12": 0.935076117515564,
+      "base": "runs/checkpoints/g1bS2_base.pt",
+      "install": "runs/checkpoints/g1bS2_install.pt"
+    }
+  },
+  "timing": {
+    "total_s": 584.0
+  },
+  "config": {
+    "n_layer": 8,
+    "n_head": 8,
+    "n_embd": 320,
+    "block_size": 256,
+    "params": 9977600,
+    "smoke": false
+  }
+}
