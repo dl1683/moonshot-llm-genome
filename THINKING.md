@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T174 — e206: the destination replicates, the tick doesn't — the fact's watch (2026-10-02 ~11:55Z)
+
+W027's cut delivers the cleanest shape/height split of the arc:
+the support's DESTINATION (near-orthogonality at the death step)
+replicates on every lineage measured (3/3, monotone ladders, the
+first-crossing at or one-step-from death) — physics; while the
+SCHEDULE (the per-step decorrelation rate) is biography — the
+drift accelerates into death on one lineage and decelerates on
+another, and the early-rate extrapolation cannot predict the
+death step across lineages. THE FACT'S WATCH HAS A DESTINATION BUT
+NO CONSTANT TICK. THE TWO-ROTATOR PICTURE (W027) UPDATES: the
+support's rotation is a relaxation toward a terminal condition
+(orthogonality to its origin), not a clocked decay — the fact dies
+WHEN it has turned away from everything it was, at whatever pace
+its biography sets. THE ECHO: the program's recurring law —
+destinations/orderings/shapes replicate; rates/heights/schedules
+are lotteries — now confirmed inside the fact's own gradient
+structure.
+
 ## T173 — e205: the WHEN falls — and the edge-multiple rises (2026-10-02 ~11:15Z)
 
 The normalization cell kills the cross-organism WHEN cleanly: on
@@ -4148,7 +4167,7 @@ physics states. That is the culture working.
 
 
 
-## W027 — WONDER: two rotators — the wash bounces, the fact drifts; the dance is the dissection's loveliest object (2026-10-02 ~10:40Z; no bars, no kills — savoring the closed chapter)
+## W027 — WONDER: two rotators — the wash bounces, the fact drifts; the dance is the dissection's loveliest object (2026-10-02 ~10:40Z; no bars, no kills — savoring the closed chapter) [E206 UPDATE ~11:55Z: question (2) answered — the drift-rate is NOT a clock (the schedule is biography); the DESTINATION (orthogonality at death) replicates 3/3; the quartet's fact has a destination, no tick]
 
 The geometry chapter's parting gift, assembled from e194-e205: the
 wash's sign front is a PERIOD-2 BOUNCER (the algorithm's overshoot

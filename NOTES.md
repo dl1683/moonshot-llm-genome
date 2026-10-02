@@ -9,6 +9,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e206 — the drift-rate clock: CLOCK-ONE-LINEAGE — THE DESTINATION REPLICATES 3/3 (near-orthogonality at death on every lineage, monotone ladders); the rate does NOT (the error's sign flips; the fact's watch has no constant tick) (2026-10-02 ~11:55Z) — DONE
+
+WHAT WE DID: all three state-laddered lineages (org1 died t=2;
+MIRABEL t=3; the half lineage t=5; e204's machinery ported; 19/19
+gates, org1 BIT-exact to its committed states); 36s CPU.
+
+WHAT WE SAW (T174): THE LADDERS — org1 0.386 -> 0.020; MIRABEL
+0.440 -> 0.182 -> 0.064; half (committed) 0.776 -> 0.680 -> 0.564
+-> 0.333 -> 0.192 — all monotone, and NEAR-ORTHOGONALITY AT DEATH
+REPLICATES 3/3 (c_death 0.020/0.064/0.192, all <= the registered
+tau 0.2; the strict first-crossing exactly at death on 2/3). THE
+CLOCK ITSELF IS BIOGRAPHY: the early-t extrapolation lands only on
+MIRABEL (-1); the half lineage misses (+2 — its drift ACCELERATES
+late while MIRABEL's DECELERATES: the error's sign flips); org1's
+clock cannot be set (death inside the early window — one tick,
+stamped CIRCULAR). THE ANGLE-SPACE CO-READ lands on both defined
+lineages — the "timer" is parameterization-dependent, disclosed,
+never adjudicated. THE SURVIVOR: THE SUPPORT'S DESTINATION
+(orthogonality at the death step) is a 3-lineage object; the
+SCHEDULE is not a timer. HONESTY: n=1 per lineage; tau registered
+from the one ladder on record (its partial tautology on the half
+lineage); the counterfactual-wash caveat; a units slip in the
+angle co-read caught and fixed pre-write (the adjudicated primary
+never touched).
+
+---
+
 ## e205 — the onset normalization: ARRIVALS-CONTINGENT — the WHEN was an artifact of self-normalized ratios; onset rescopes to within-organism shape; the edge-multiple emerges as the per-organism scalar (2026-10-02 ~11:15Z) — DONE
 
 WHAT WE DID: each front's kill-D re-expressed as a multiple of its
