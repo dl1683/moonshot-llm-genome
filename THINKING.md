@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T169 — e203: the sliver retires; the sign survives — the flight arc's geometry chapter closes on its smallest true object (2026-10-02 ~10:10Z)
+
+The replicate adjudicates cleanly: the T168 sliver (a pair-1-
+specific drift) was single-path and RETIRES. What survives the
+whole geometry chapter — e194 through e203, ten cells — is a
+minimal, sturdy object: ACROSS BOTH FAMILIES, FACT-CARRYING
+FRONTS RUN DEEPER THAN FACT-FREE (the sign replicates; the shapes
+do not: e202 on-curve-then-drift; e203 off-everywhere). THE
+ANTI-ABSORPTION CONTEXT is the chapter's pretiest residual: the
+fact-free twin's front geometry SHALLOWS along its walk while
+every fact-carrying lineage DEEPENS — the fact's presence flips
+the front-geometry's time direction, a one-bit fact signature
+visible in the cosines even though no single cosine object
+replicates. THE CHAPTER'S FINAL LEDGER: the alternation noun
+RETIRED (the bounce is the algorithm's, e202's in-domain
+confirmation); the null UNSTAMPED (the lag-2 break + the sign
+split); the rotation DEAD; the sliver RETIRED; THE SURVIVORS:
+death-at-deepest-landing + the onset curves + now THE SIGN (the
+fact deepens the front — n=2 families, the smallest claim in the
+arc and the only one that replicated first try).
+
 ## T168 — e202: the restricted verdict — the bounce is the algorithm's, with a sliver unaccounted (2026-10-02 ~09:45Z)
 
 The falsifier collected both the null's debts and split both

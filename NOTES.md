@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e203 — the second twin: GRADED — the sliver RETIRES unreplicated; what replicates is the SIGN only (fact-carrying fronts deeper than fact-free, both families); the shapes are family-specific (2026-10-02 ~10:10Z) — DONE
+
+WHAT WE DID: the f2 lineage's own pre-install parent (the
+base->install->root md5 chain closing at e193's root identity,
+BIT) on the licensed seed-10902 stream at f2's OWN measured step
+0.9164 (cross-gated exact, never ported), walked t=0..4; 19/19
+cross-file gates; 11.2s CPU.
+
+WHAT WE SAW (T169): the twin's lag-1 series [-0.0781, -0.0491,
+-0.0455, -0.0204] — OFF its family's alive curve at PAIR 0
+(+0.185 vs -0.263, the fact-deepening direction) and shallower at
+pair 1 (+0.264): SLIVER-REPLICATES does NOT fire; TWIN-NOISE does
+NOT fire. THE T168 SLIVER AS NAMED RETIRES (the pair-1-specific
+object was single-path). WHAT REPLICATES ACROSS BOTH FAMILIES IS
+THE SIGN ONLY: FACT-CARRYING FRONTS RUN DEEPER THAN FACT-FREE —
+one consistent direction, two family-specific shapes (e202:
+on-curve at pair 0, then +0.052 at pair 1; e203: off everywhere).
+DISCLOSED COMPARATOR CHOICE (registered pre-compute): the f2
+family's fact died at t=1 at the twin's own step — the alive s/2
+series adjudicates (step mismatch 2x registered); under the
+step-matched dead-full reading STILL GRADED (pair 0 +0.087 off;
+pair 1 +0.026 match — the pair-1 split flips between readings).
+CONTEXT FINDINGS: the twin fails the period-2 fingerprint at
+every t; its series SHALLOWS along the walk (anti-absorbs) while
+the fact-carrying absorbs — the fact's presence flips the
+front-geometry's time direction. THE SURVIVING MINIMAL OBJECT:
+two families, two split shapes, one consistent direction (the
+fact deepens the front) — smaller than the sliver, sturdier than
+the rotation. HONESTY: n=1 arm; no kill by construction; the
+comparator caveat carried.
+
+---
+
 ## e202 — the signfront-null cell: GRADED — the null mostly holds with two marginal splits; the front carries at most a SLIVER of fact information; the overshoot picture survives in RESTRICTED form (2026-10-02 ~09:45Z) — DONE
 
 WHAT WE DID: the fact-free twin (the pre-install base e048_repro —
