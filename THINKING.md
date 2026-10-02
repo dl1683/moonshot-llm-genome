@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T201 — e223: the vaccination retires (2026-10-02 ~21:30Z)
+
+The strong-ordering replication closes the exposure thread with
+teeth: on the organism where the SV-energy ordering is strongest,
+at both signs (including the mechanically-sensitizing drift
+side), the tolerance after sub-lethal pre-exposure is pure
+position arithmetic to four decimals — the reading is NOT
+intervenable, and T182's exposure-immunity ordering retires as a
+correlation, full stop. The extra honesty: the ordering itself is
+a top-8 fact (the span's tail inverts locally), so the
+correlation being retired is thinner than it looked. THE ONE
+REMAINING LIMIT, named: the training-step exposure (a few AdamW
+steps along the span — immunity-to-TRAINING, the wash's real
+mechanism); it stays unowed until an interpretation demands it.
+THE EXPOSURE ARC'S LEDGER: a correlation found (e211), a
+mechanism candidate named (T182), a causal test designed with
+pre-registered arithmetic (e222), a NULL at one dose, and a
+NULL-CONFIRMS at the strongest organism with both signs — a
+candidate born and retired cleanly in five cells, the census
+discipline's standard arc.
+
 ## T200 — g13: the crush delta-carried in both directions; the normalizer clause draw-specific (2026-10-02 ~21:05Z)
 
 The symmetry cell delivers the mechanism table's honest finish:
@@ -1046,6 +1067,14 @@ BAND SCALAR'S honest state: retired as a wall property; the
 per-direction ordering the direction-level answer; the same-
 instrument pristine band the named debt if the scalar is ever
 wanted.
+
+
+[E222+E223 RESOLUTION ~21:30Z]: the exposure-immunity reading
+RETIRED AS A CORRELATION (not intervenable at one dose, either
+sign, on both organisms — the strong-ordering root included; the
+ordering a top-8 fact, the tail locally inverted). The surviving
+lesson of this card: the instrument shadow; the per-direction
+safety ordering stands as descriptive geometry only.
 
 ## T181 — g1c-root: the wall guards the function, not the wiring (2026-10-02 ~15:00Z)
 

@@ -9,6 +9,30 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e223 — the exposure test on the strong-ordering root: NULL-CONFIRMS — every same-axis residue within +-0.0002 of the pass-back arithmetic (BOTH signs; the drift-side floor row included; the control riding a 1.47x mechanical ceiling to 4 decimals); no cross-ray immunity vs control; T182's ORDERING RETIRES AS A CORRELATION, full stop (2026-10-02 ~21:30Z) — DONE
+
+WHAT WE DID: the exposure test on the e131 root (the strong-ordering
+organism — e222's stated limit) with BOTH signs (the +v exposure
+and the -v0 DRIFT side; the wash drifts -4.73 along v0); the
+pass-back arithmetic for both signs disclosed before compute; all
+9 gates PASS (the span IS e211's committed root-P span at 0.0 rel
+dev); 320.6s CPU.
+
+WHAT WE SAW (T201): NULL-CONFIRMS — every same-axis residue within
++-0.0002 of pure position arithmetic (the ceiling rows at +eps
+(1.100x/1.086x/1.473x) AND the drift-side floor row at -eps
+(0.900x)); the cross rays move +-4-11% with NO immunity signature
+vs control; the CE_R canary clean. T182'S ORDERING RETIRES AS A
+CORRELATION, FULL STOP: not intervenable at one dose, either sign,
+on the organism where the ordering is STRONGEST. RESIDUAL HONESTY:
+the ordering does not extend monotonically to the span's tail
+(dir19 out-tolerates dir0 at this root — e211's +0.809 is a top-8
+fact, disclosed); the remaining named limit: the TRAINING-STEP
+exposure (immunity-to-training untested — a displacement is the
+wash's mechanism at one remove, per-step 1.654 vs eps 0.276).
+
+---
+
 ## g13 — the symmetry closure: GRADED — the transplant SYMMETRIC at n=2 (the locked delta holds the cons root 0.809/0.870 as the cons delta crushed the locked 0.109: the crush delta-carried both directions); the registered delta-form removal SPARES g1e (0.708, reproducing g12's co-read exactly) but FAILS at g1f (0.295, delta.s0 3x smaller: the g1f crush is s_0-INDEPENDENT) — T198's "made in the normalizer" is a g1e-draw property, not the axis's law (2026-10-02 ~21:05Z) — DONE
 
 WHAT WE DID: the fourth symmetry cell (the locked delta at g1e's
