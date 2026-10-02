@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e201 — the front-rotation census: ALTERNATION-UNIVERSAL (n=3) — the natural washes rotate the same way; the rotation outlives the organism (2026-10-02 ~08:45Z) — DONE
+
+WHAT WE DID: a desk check on committed data (17 cross-file
+identity gates; 7 parent files) plus ONE gated fresh read
+(MIRABEL's post-death u3 — 23.7s CPU, threads 4, load-probed;
+e198's walk rebuilt under its full gate chain, TEXTURE tiers
+stamped); the owner envelope's perfect cell.
+
+WHAT WE SAW (T166): EVERY ALIVE CONSECUTIVE-FRONT PAIR IS
+ANTI-CORRELATED below the -0.10 bar on ALL THREE organisms: org1
+(u0,u1) -0.1545; MIRABEL (u0,u1) -0.1751 and (u1,u2) -0.1781; the
+half-step anchor -0.263/-0.313/-0.341/-0.353. THE ALTERNATION IS
+NOT THE WASH'S TEXTURE — the natural washes rotate the same way;
+T164's rotation-alternates account and the bleed/front phase
+picture STAND AT n=3. POST-DEATH CONTEXT (never adjudicated): the
+alternation PERSISTS PAST DEATH on every lineage (org1 -0.203 +
+the committed continuation; MIRABEL (u2,u3) -0.2204, the one fresh
+read) — THE ROTATION OUTLIVES THE ORGANISM: the front's
+alternation is a property of the WASH TRAJECTORY, not of the
+living fact's response. ROOT-GRADIENT OVERLAPS (root-point
+stated): org1 0.595/-0.162/0.034; MIRABEL 0.600/-0.174/-0.021/
++0.007; half 0.547/-0.269/0.148/-0.077/-0.030. HONESTY: a shape
+claim at n=3 biographies, not a mechanism proof; the half-step
+anchor's counterfactual caveat rides (org1/MIRABEL are the
+natural trajectories — which is what makes the verdict about the
+natural washes).
+
+---
+
 ## g1bS4 — the wall at 10x, take 4 (movement-matched dose): TEXTURE — and the dose question INVERTED; the formation landscape is NON-MONOTONIC in movement (2026-10-02 ~08:50Z) — DONE
 
 WHAT WE DID: T161's licensed knob (750 steps @ 4e-4 = e113's 0.30

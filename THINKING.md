@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T166 — e201: the rotation is the wash's — alternation universal, and it outlives the organism (2026-10-02 ~08:45Z)
+
+The census licenses the phase picture: EVERY alive consecutive-
+front pair anti-correlates on all three organisms — the natural
+washes rotate exactly as the counterfactual lineage does. THE
+DEEPER READ IS THE POST-DEATH PERSISTENCE: the alternation
+continues past death on every lineage on record — THE ROTATION
+OUTLIVES THE ORGANISM. The front's alternation belongs to the WASH
+TRAJECTORY (the stream's gradient sign-structure turning over),
+not to the fact's fleeing response; what the LIVING organism adds
+is only the DEATH TIMING (T164: death = the rotation's deepest
+landing on the support). THE PICTURE, FINAL FORM: the wash drives
+a rotating lethal front; the fact dies when the rotation lands on
+its support deepest; the bleed survives by turning its own steps
+away from each landing; the rhythm (a managed bleed) survives by
+re-injecting the right gradients at the right times. THE
+OPENNESS: a shape claim at n=3; the mechanism candidates (why the
+stream's gradient structure alternates) unnamed — the next
+dissection question, ripening.
+
 ## T165 — g1bS4: the dose question inverted — formation is non-monotonic in movement at 10M (2026-10-02 ~08:50Z)
 
 Take 4 closes the dose question by inverting it: matching e113's
