@@ -1,0 +1,1434 @@
+{
+  "experiment": "e216_residual",
+  "phase": "pure desk on the committed 54-probe records (no model loads, no re-probes; the tokenizer only)",
+  "date": "2026-10-02T15:35:50Z",
+  "status": "DONE",
+  "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE row DISPATCHED 15:47Z, commit 28b97dc) BEFORE any compute; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "MODEL-COMPLETE": "fires if the full model's R-squared >= 0.75 AND the residuals are unstructured (no residual predictor |rho| > 0.3; the cross-wash residual correlation < 0.3) \u2014 FAMILY x HEIGHT is the whole sorting key; the named splits dissolve into it.",
+      "RESIDUAL-STRUCTURED": "fires if the residuals carry structure (a predictor |rho| > 0.3 or the cross-wash residual rho > 0.5) \u2014 a third sorting dimension exists; named with the best candidate.",
+      "GRADED": "any partial \u2014 the tables verbatim."
+    },
+    "operationalizations": "data = e215's committed 54-probe assignment (re-certified desk-only by G_RECOMPUTE against e214's curves+journal at 1e-9 + G_RECORDS git provenance); outcome = hr_w = p_w(+80)/p0 per wash; FULL MODEL = OLS hr_w ~ 1 + 5 family dummies (reference lang) + p0 centered; R2 = 1 - SSres/SStot, PRIMARY per wash (MODEL-COMPLETE needs BOTH >= 0.75), adj-R2/family-only/p0-only/increments co-reported; residual = hr - fitted per probe; named splits descriptive (product contrast mean resid{Gmail,PlayStation} - mean resid{iPhone} in residual-SD units, SURVIVES iff >= 1.0 SD both washes; tmpl width SD(resid)/SD(hr) within rev-capital, DISSOLVES iff <= 0.5 both washes); RESIDUAL PREDICTORS (registered set) = vocab overlap (prompt-token overlap with the frozen wash train stream), entrenchment p0 (t=0 pre-install analogue \u2014 already a linear regressor: its residual rho is the nonlinear leftover, disclosed), battery position (0-based index in the battery's kept order); statistic = Spearman(predictor, residual) per wash, FIRES iff max |rho| over washes > 0.30; CROSS-WASH RESIDUAL = Spearman(resid_w1, resid_w2) (Pearson co-reported); ADJUDICATION: gates ok -> MODEL-COMPLETE iff (R2 both washes >= 0.75 AND no predictor fires AND xwash Spearman < 0.3); else RESIDUAL-STRUCTURED iff (a predictor fires OR xwash Spearman > 0.5), named with the best candidate; else GRADED; gated on G_RECORDS/G_RECOMPUTE/G_CORPUS/G_PROMPT/G_ENV",
+    "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE row DISPATCHED 15:47Z, commit 28b97dc) BEFORE any compute; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "T189's named open thread: family x height is the sorting-key model \u2014 WHAT IS LEFT? (1) the full model's R^2; (2) do the named splits survive its residual; (3) any residual predictor; (4) is the residual physics (cross-wash) or noise",
+  "builds_on": [
+    "T189 / e215 (the named open thread; the family x height model this cell residuals + the committed 54-probe records it reads)",
+    "W028 (the shape/height law the two-layer model serves)",
+    "T187 / e214 (the archive + the committed per-probe records)",
+    "T183 / e182c2 + T149 / e182c + T123 / e182 (the two-wash 124M archive)"
+  ],
+  "whats_new": [
+    "the JOINT family x height regression (OLS family dummies + p0) and its R^2 \u2014 never yet computed (e215 reported the marginal eta2 and the partial separately)",
+    "the per-probe RESIDUAL table on both washes",
+    "the named-split survival tests against the model (product Gmail/PlayStation vs iPhone; the tmpl width)",
+    "the residual-predictor set: prompt-token overlap with the wash train stream, entrenchment p0 (the nonlinear leftover), battery position",
+    "the cross-wash residual correlation (physics or noise)"
+  ],
+  "smoke": false,
+  "gates": {
+    "G_RECORDS": {
+      "e215_status": "DONE",
+      "n_probes": 54,
+      "e215_gates": {
+        "G_STATES": true,
+        "G_BATT": true,
+        "G_CORPUS": true,
+        "G_ENV": true
+      },
+      "e215_reprobe_max_dp": 0.0,
+      "git": {
+        "head": "e9067478af95d0b261d3219c75562640f697176a",
+        "records_commits": {
+          "runs/e214/metrics.json": "ce34eda 2026-10-02",
+          "runs/e214/journal.json": "ce34eda 2026-10-02",
+          "runs/e215/metrics.json": "8668dec 2026-10-02"
+        },
+        "dirty_records": []
+      },
+      "note": "the records chain's own certification is inherited (e215 re-probed both +80 states at dp 0.0 vs e214's records; e214 certified those vs the e182c/e182c2 originals at <= 3.3e-06); this cell adds the desk recompute (G_RECOMPUTE) + git provenance",
+      "pass": true
+    },
+    "G_RECOMPUTE": {
+      "recomputed_from": "e214 curves w1/w2 +{80} and journal t=0, matched per probe by fact+battery",
+      "max_dp_vs_e215_assignment": 0.0,
+      "tol": 1e-09,
+      "note": "e215's assignment re-derived from the same committed records it certified \u2014 expected exactly 0",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "rebuilt TOKENIZER-ONLY (answer ids from the committed fact battery; e1's filter VERBATIM) \u2014 the substrate of the vocab-overlap predictor; no wash, no model",
+      "pass": true
+    },
+    "G_PROMPT": {
+      "batteries": {
+        "fact": {
+          "n": 20,
+          "order_equal_committed": true,
+          "max_prompt_toklen_dp": 0
+        },
+        "ctrl": {
+          "n": 12,
+          "order_equal_committed": true,
+          "max_prompt_toklen_dp": 0
+        },
+        "near": {
+          "n": 3,
+          "order_equal_committed": true,
+          "max_prompt_toklen_dp": 0
+        },
+        "tmpl": {
+          "n": 19,
+          "order_equal_committed": true,
+          "max_prompt_toklen_dp": 0
+        }
+      },
+      "note": "candidate construction VERBATIM by module import (no model); kept membership from the committed rows; order + prompt token lengths cross-checked",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "model_loads": 0,
+      "gpu_calls": 0,
+      "load_checks": 2,
+      "burst": "tokenizer + corpus filter + candidate construction (no model, no probes, no wash)",
+      "pass": true
+    }
+  },
+  "timing": {
+    "total_s": 9.6
+  },
+  "tokenizer": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "note": "the pinned local cache; the ONLY artifact loaded in this cell (no model)"
+  },
+  "full_model": {
+    "definition": "OLS hr_w ~ 1 + 5 family dummies (reference lang) + p0 centered at the 54-probe mean 0.8087; raw hr; n=54",
+    "primary": "R2 per wash (MODEL-COMPLETE requires BOTH >= 0.75)",
+    "R2_bar": 0.75,
+    "r2": {
+      "w1": 0.6712733262132069,
+      "w2": 0.6206348205397786,
+      "mean": 0.6490258105225806
+    },
+    "adj_r2": {
+      "w1": 0.6293082189212759,
+      "w2": 0.5722052231618779,
+      "mean": 0.6042205948446122
+    },
+    "resid_sd": {
+      "w1": 0.1735284145623844,
+      "w2": 0.17127765422822364
+    },
+    "dof": 47,
+    "coefs_w1": {
+      "intercept(lang)": [
+        0.8613588271547427,
+        0.054875221087915635
+      ],
+      "D[cap-cur]": [
+        -0.5837520558386708,
+        0.07791297794553183
+      ],
+      "D[founder-anchor]": [
+        -0.027179091058104815,
+        0.09623366840196872
+      ],
+      "D[product]": [
+        -0.33550612708027366,
+        0.09009146249298101
+      ],
+      "D[near-uscap]": [
+        -0.45153567285479085,
+        0.1292835131426414
+      ],
+      "D[rev-capital]": [
+        -0.509816509799955,
+        0.07290637063729008
+      ],
+      "p0_centered": [
+        0.7857967741285983,
+        0.2744309438873585
+      ]
+    },
+    "coefs_w2": {
+      "intercept(lang)": [
+        0.7974561570724349,
+        0.05416345886001502
+      ],
+      "D[cap-cur]": [
+        -0.5125763139473802,
+        0.07690240316031069
+      ],
+      "D[founder-anchor]": [
+        0.06169945091469986,
+        0.09498546404191525
+      ],
+      "D[product]": [
+        -0.23873480049816814,
+        0.08892292596980061
+      ],
+      "D[near-uscap]": [
+        -0.2544989362988433,
+        0.12760663386050056
+      ],
+      "D[rev-capital]": [
+        -0.3458001258227189,
+        0.0719607343416329
+      ],
+      "p0_centered": [
+        0.8810956870574128,
+        0.2708714214625979
+      ]
+    },
+    "coefs_mean": {
+      "intercept(lang)": [
+        0.8294074921135887,
+        0.053784087219525455
+      ],
+      "D[cap-cur]": [
+        -0.5481641848930253,
+        0.07636376343052684
+      ],
+      "D[founder-anchor]": [
+        0.01726017992829737,
+        0.09432016695648769
+      ],
+      "D[product]": [
+        -0.28712046378922085,
+        0.08830009210703933
+      ],
+      "D[near-uscap]": [
+        -0.35301730457681735,
+        0.12671285161239623
+      ],
+      "D[rev-capital]": [
+        -0.4278083178113369,
+        0.07145670704329188
+      ],
+      "p0_centered": [
+        0.8334462305930056,
+        0.26897418414273633
+      ]
+    },
+    "ladder": {
+      "definition": "R^2 of nested OLS on hr (raw): family-only (5 dummies), p0-only, full (family + p0); increments = the added R^2 over the nested model",
+      "family_only_r2_by_wash": {
+        "w1": 0.6139288735410502,
+        "w2": 0.5352305897866201,
+        "mean": 0.5773271078429218
+      },
+      "p0_only_r2_by_wash": {
+        "w1": 0.040065575148414134,
+        "w2": 0.09132902425629441,
+        "mean": 0.06344135299568099
+      },
+      "delta_family_given_p0": {
+        "w1": 0.6312077510647928,
+        "w2": 0.5293057962834842,
+        "mean": 0.5855844575268996
+      },
+      "delta_p0_given_family": {
+        "w1": 0.05734445267215671,
+        "w2": 0.0854042307531585,
+        "mean": 0.07169870267965872
+      },
+      "eta2_crosscheck_vs_e215": 0.577327107842922,
+      "family_only_r2": 0.6139288735410502
+    }
+  },
+  "residual": {
+    "table": [
+      {
+        "fact": "France->Paris",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Paris",
+        "p0": 0.6850027441978455,
+        "hr_w1": 0.19813698815368957,
+        "hr_w2": 0.20889179833802032,
+        "fit_w1": 0.1803743742073612,
+        "fit_w2": 0.17585541269297167,
+        "resid_w1": 0.017762613946328387,
+        "resid_w2": 0.033036385645048655,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 0
+      },
+      {
+        "fact": "Greece->Athens",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Athens",
+        "p0": 0.94468092918396,
+        "hr_w1": 0.4201095505894461,
+        "hr_w2": 0.4260837639146562,
+        "fit_w1": 0.38442865428101936,
+        "fit_w2": 0.40465674150713415,
+        "resid_w1": 0.035680896308426746,
+        "resid_w2": 0.021427022407522034,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 1
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Warsaw",
+        "p0": 0.6746281981468201,
+        "hr_w1": 0.20931448423330434,
+        "hr_w2": 0.26206298638241876,
+        "fit_w1": 0.17222208938741684,
+        "fit_w2": 0.1667144449122347,
+        "resid_w1": 0.0370923948458875,
+        "resid_w2": 0.09534854147018407,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 2
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Lisbon",
+        "p0": 0.7412760853767395,
+        "hr_w1": 0.2015762572076868,
+        "hr_w2": 0.2920877809430896,
+        "fit_w1": 0.22459378417517414,
+        "fit_w2": 0.22543761090200554,
+        "resid_w1": -0.02301752696748735,
+        "resid_w2": 0.06665017004108409,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 3
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Cairo",
+        "p0": 0.8057803511619568,
+        "hr_w1": 0.13509766915597454,
+        "hr_w2": 0.14459912014061063,
+        "fit_w1": 0.2752810281467316,
+        "fit_w2": 0.28227204128216554,
+        "resid_w1": -0.14018335899075707,
+        "resid_w2": -0.1376729211415549,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 4
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "Dublin",
+        "p0": 0.6304253935813904,
+        "hr_w1": 0.13116128977969954,
+        "hr_w2": 0.16012073330803894,
+        "fit_w1": 0.13748766815246533,
+        "fit_w2": 0.12776754445379288,
+        "resid_w1": -0.006326378372765784,
+        "resid_w2": 0.03235318885424607,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 5
+      },
+      {
+        "fact": "France->French",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "French",
+        "p0": 0.9179711937904358,
+        "hr_w1": 0.8966124994083177,
+        "hr_w2": 0.8729683869249798,
+        "fit_w1": 0.9471922862096305,
+        "fit_w2": 0.8936992227968356,
+        "resid_w1": -0.05057978680131281,
+        "resid_w2": -0.020730835871855757,
+        "vocab_overlap": 0.625,
+        "battery_pos": 6
+      },
+      {
+        "fact": "Germany->German",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "German",
+        "p0": 0.8766514658927917,
+        "hr_w1": 0.820276981467824,
+        "hr_w2": 0.7717032716922231,
+        "fit_w1": 0.9147233773197904,
+        "fit_w2": 0.8572925887558355,
+        "resid_w1": -0.09444639585196635,
+        "resid_w2": -0.08558931706361239,
+        "vocab_overlap": 0.625,
+        "battery_pos": 7
+      },
+      {
+        "fact": "Japan->Japanese",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Japanese",
+        "p0": 0.8385147452354431,
+        "hr_w1": 0.9217393047441265,
+        "hr_w2": 0.8717008591803365,
+        "fit_w1": 0.8847556652514024,
+        "fit_w2": 0.8236904886661323,
+        "resid_w1": 0.036983639492724096,
+        "resid_w2": 0.048010370514204204,
+        "vocab_overlap": 0.625,
+        "battery_pos": 8
+      },
+      {
+        "fact": "Italy->Italian",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Italian",
+        "p0": 0.8853657841682434,
+        "hr_w1": 0.8896116210794244,
+        "hr_w2": 0.8349156821545319,
+        "fit_w1": 0.9215710605093701,
+        "fit_w2": 0.8649707370039815,
+        "resid_w1": -0.031959439429945724,
+        "resid_w2": -0.03005505484944959,
+        "vocab_overlap": 0.625,
+        "battery_pos": 9
+      },
+      {
+        "fact": "Spain->Spanish",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Spanish",
+        "p0": 0.744873046875,
+        "hr_w1": 0.7808300557194362,
+        "hr_w2": 0.6665616805965258,
+        "fit_w1": 0.8111723207558429,
+        "fit_w2": 0.7411831921120147,
+        "resid_w1": -0.03034226503640669,
+        "resid_w2": -0.0746215115154889,
+        "vocab_overlap": 0.625,
+        "battery_pos": 10
+      },
+      {
+        "fact": "Russia->Russian",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Russian",
+        "p0": 0.8519078493118286,
+        "hr_w1": 0.7621815476802679,
+        "hr_w2": 0.7514872337808504,
+        "fit_w1": 0.8952799232301947,
+        "fit_w2": 0.8354910949041466,
+        "resid_w1": -0.13309837554992676,
+        "resid_w2": -0.08400386112329628,
+        "vocab_overlap": 0.625,
+        "battery_pos": 11
+      },
+      {
+        "fact": "China->Chinese",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Chinese",
+        "p0": 0.5683619379997253,
+        "hr_w1": 1.0096379530411048,
+        "hr_w2": 0.8661774053275062,
+        "fit_w1": 0.6724704608037902,
+        "fit_w2": 0.5856600153642888,
+        "resid_w1": 0.33716749223731457,
+        "resid_w2": 0.2805173899632174,
+        "vocab_overlap": 0.625,
+        "battery_pos": 12
+      },
+      {
+        "fact": "England->English",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "English",
+        "p0": 0.8146218657493591,
+        "hr_w1": 0.7759207210724568,
+        "hr_w2": 0.7029865252193097,
+        "fit_w1": 0.8659807176265941,
+        "fit_w2": 0.8026385755995612,
+        "resid_w1": -0.09005999655413732,
+        "resid_w2": -0.09965205038025149,
+        "vocab_overlap": 0.625,
+        "battery_pos": 13
+      },
+      {
+        "fact": "Greece->Greek",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Greek",
+        "p0": 0.766821026802063,
+        "hr_w1": 0.9090697313247399,
+        "hr_w2": 0.807622345128169,
+        "fit_w1": 0.8284189725811681,
+        "fit_w2": 0.7605214625653726,
+        "resid_w1": 0.08065075874357175,
+        "resid_w2": 0.04710088256279643,
+        "vocab_overlap": 0.625,
+        "battery_pos": 14
+      },
+      {
+        "fact": "Poland->Polish",
+        "battery": "fact",
+        "family6": "lang",
+        "answer": "Polish",
+        "p0": 0.8325423002243042,
+        "hr_w1": 0.8557469059780743,
+        "hr_w2": 0.8374521808893663,
+        "fit_w1": 0.8800625372279889,
+        "fit_w2": 0.8184281931256302,
+        "resid_w1": -0.024315631249914538,
+        "resid_w2": 0.01902398776373615,
+        "vocab_overlap": 0.625,
+        "battery_pos": 15
+      },
+      {
+        "fact": "Japan->yen",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "yen",
+        "p0": 0.8905185461044312,
+        "hr_w1": 0.5069887918828531,
+        "hr_w2": 0.5251371079076615,
+        "fit_w1": 0.3418680283780082,
+        "fit_w2": 0.35693449937501,
+        "resid_w1": 0.16512076350484484,
+        "resid_w2": 0.16820260853265157,
+        "vocab_overlap": 0.6153846153846154,
+        "battery_pos": 16
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "pound",
+        "p0": 0.9533817768096924,
+        "hr_w1": 0.43933439082438536,
+        "hr_w2": 0.3900644335149807,
+        "fit_w1": 0.3912657522775044,
+        "fit_w2": 0.41232302082391076,
+        "resid_w1": 0.04806863854688098,
+        "resid_w2": -0.022258587308930045,
+        "vocab_overlap": 0.6153846153846154,
+        "battery_pos": 17
+      },
+      {
+        "fact": "the United States->dollar",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "dollar",
+        "p0": 0.5909402966499329,
+        "hr_w1": 0.1677397385179618,
+        "hr_w2": 0.08817837896911472,
+        "fit_w1": 0.10646040635757101,
+        "fit_w2": 0.09297739584444178,
+        "resid_w1": 0.061279332160390804,
+        "resid_w2": -0.004799016875327064,
+        "vocab_overlap": 0.6153846153846154,
+        "battery_pos": 18
+      },
+      {
+        "fact": "China->yuan",
+        "battery": "fact",
+        "family6": "cap-cur",
+        "answer": "yuan",
+        "p0": 0.9285135269165039,
+        "hr_w1": 0.17624698675146386,
+        "hr_w2": 0.1381243214734336,
+        "fit_w1": 0.371724361733213,
+        "fit_w2": 0.3904117130983564,
+        "resid_w1": -0.19547737498174914,
+        "resid_w2": -0.25228739162492286,
+        "vocab_overlap": 0.625,
+        "battery_pos": 19
+      },
+      {
+        "fact": "The social network founded by Mark Zuckerberg->Facebook",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer": "Facebook",
+        "p0": 0.7398610711097717,
+        "hr_w1": 0.9419481118254539,
+        "hr_w2": 0.95957570925324,
+        "fit_w1": 0.780054835309411,
+        "fit_w2": 0.7984666127963356,
+        "resid_w1": 0.1618932765160429,
+        "resid_w2": 0.1611090964569044,
+        "vocab_overlap": 0.5625,
+        "battery_pos": 0
+      },
+      {
+        "fact": "The electric car company founded by Elon Musk->Tesla",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer": "Tesla",
+        "p0": 0.7342566847801208,
+        "hr_w1": 0.7778501334100941,
+        "hr_w2": 0.8102741155518366,
+        "fit_w1": 0.7756509266106009,
+        "fit_w2": 0.7935286121726767,
+        "resid_w1": 0.0021992067994932585,
+        "resid_w2": 0.01674550337915992,
+        "vocab_overlap": 0.5625,
+        "battery_pos": 1
+      },
+      {
+        "fact": "The rocket company founded by Elon Musk->SpaceX",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer": "SpaceX",
+        "p0": 0.77444988489151,
+        "hr_w1": 0.8120815234963322,
+        "hr_w2": 0.8102355455540178,
+        "fit_w1": 0.8072346136000357,
+        "fit_w2": 0.8289426674398572,
+        "resid_w1": 0.004846909896296547,
+        "resid_w2": -0.01870712188583945,
+        "vocab_overlap": 0.5483870967741935,
+        "battery_pos": 2
+      },
+      {
+        "fact": "The search engine founded by Larry Page->Google",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer": "Google",
+        "p0": 0.8327568769454956,
+        "hr_w1": 0.8560847626520058,
+        "hr_w2": 0.878372456990889,
+        "fit_w1": 0.8530520598651994,
+        "fit_w2": 0.8803167066639148,
+        "resid_w1": 0.0030327027868064516,
+        "resid_w2": -0.0019442496730258663,
+        "vocab_overlap": 0.5806451612903226,
+        "battery_pos": 3
+      },
+      {
+        "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+        "battery": "ctrl",
+        "family6": "founder-anchor",
+        "answer": "Wikipedia",
+        "p0": 0.6928136348724365,
+        "hr_w1": 0.5711130156844539,
+        "hr_w2": 0.5998100913633124,
+        "fit_w1": 0.7430851116830921,
+        "fit_w2": 0.7570133196405109,
+        "resid_w1": -0.17197209599863816,
+        "resid_w2": -0.15720322827719846,
+        "vocab_overlap": 0.5483870967741935,
+        "battery_pos": 4
+      },
+      {
+        "fact": "The gaming console made by Microsoft->Xbox",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "Xbox",
+        "p0": 0.6225916743278503,
+        "hr_w1": 0.45388763713631564,
+        "hr_w2": 0.37816462437131143,
+        "fit_w1": 0.37957788559200173,
+        "fit_w2": 0.3947068016550923,
+        "resid_w1": 0.0743097515443139,
+        "resid_w2": -0.01654217728378088,
+        "vocab_overlap": 0.6666666666666666,
+        "battery_pos": 5
+      },
+      {
+        "fact": "The web browser made by Google->Chrome",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "Chrome",
+        "p0": 0.7029966711997986,
+        "hr_w1": 0.28783759768573486,
+        "hr_w2": 0.28606956547838636,
+        "fit_w1": 0.4427598727577987,
+        "fit_w2": 0.4655512976168307,
+        "resid_w1": -0.15492227507206385,
+        "resid_w2": -0.17948173213844432,
+        "vocab_overlap": 0.6666666666666666,
+        "battery_pos": 6
+      },
+      {
+        "fact": "The phone made by Apple->iPhone",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "iPhone",
+        "p0": 0.6358935832977295,
+        "hr_w1": 0.18425663896898953,
+        "hr_w2": 0.34174889141178294,
+        "fit_w1": 0.390030482750285,
+        "fit_w2": 0.4064270562780831,
+        "resid_w1": -0.20577384378129548,
+        "resid_w2": -0.06467816486630018,
+        "vocab_overlap": 0.6666666666666666,
+        "battery_pos": 7
+      },
+      {
+        "fact": "The tablet made by Apple->iPad",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "iPad",
+        "p0": 0.7676098942756653,
+        "hr_w1": 0.3147985802847366,
+        "hr_w2": 0.37793454553247746,
+        "fit_w1": 0.49353273501686623,
+        "fit_w2": 0.5224817297958553,
+        "resid_w1": -0.1787341547321296,
+        "resid_w2": -0.14454718426337781,
+        "vocab_overlap": 0.6666666666666666,
+        "battery_pos": 8
+      },
+      {
+        "fact": "The email service made by Google->Gmail",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "Gmail",
+        "p0": 0.7456632852554321,
+        "hr_w1": 0.9049324252922866,
+        "hr_w2": 0.9309835834155199,
+        "fit_w1": 0.4762871604457054,
+        "fit_w2": 0.5031446672425925,
+        "resid_w1": 0.42864526484658116,
+        "resid_w2": 0.42783891617292735,
+        "vocab_overlap": 0.6785714285714286,
+        "battery_pos": 9
+      },
+      {
+        "fact": "The music store made by Apple->iTunes",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "iTunes",
+        "p0": 0.6862599849700928,
+        "hr_w1": 0.29284914481498814,
+        "hr_w2": 0.19949764329486383,
+        "fit_w1": 0.4296082387088933,
+        "fit_w2": 0.45080467556420367,
+        "resid_w1": -0.13675909389390517,
+        "resid_w2": -0.2513070322693398,
+        "vocab_overlap": 0.7142857142857143,
+        "battery_pos": 10
+      },
+      {
+        "fact": "The game console made by Sony->PlayStation",
+        "battery": "ctrl",
+        "family6": "product",
+        "answer": "PlayStation",
+        "p0": 0.7842804193496704,
+        "hr_w1": 0.6798667309315474,
+        "hr_w2": 0.7658874321878589,
+        "fit_w1": 0.5066323798430494,
+        "fit_w2": 0.5371700575395437,
+        "resid_w1": 0.17323435108849794,
+        "resid_w2": 0.2287173746483152,
+        "vocab_overlap": 0.6785714285714286,
+        "battery_pos": 11
+      },
+      {
+        "fact": "Massachusetts->Boston",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer": "Boston",
+        "p0": 0.6118616461753845,
+        "hr_w1": 0.27497604802960646,
+        "hr_w2": 0.3759634975380735,
+        "fit_w1": 0.25511671830896776,
+        "fit_w2": 0.3694884843272748,
+        "resid_w1": 0.019859329720638697,
+        "resid_w2": 0.006475013210798686,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 0
+      },
+      {
+        "fact": "Georgia->Atlanta",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer": "Atlanta",
+        "p0": 0.6366477012634277,
+        "hr_w1": 0.16533090551077897,
+        "hr_w2": 0.24046003923163517,
+        "fit_w1": 0.2745935204405259,
+        "fit_w2": 0.39132737056451716,
+        "resid_w1": -0.1092626149297469,
+        "resid_w2": -0.150867331332882,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 1
+      },
+      {
+        "fact": "Ohio->Columbus",
+        "battery": "near",
+        "family6": "near-uscap",
+        "answer": "Columbus",
+        "p0": 0.5189241766929626,
+        "hr_w1": 0.2714900398031128,
+        "hr_w2": 0.4319939989223652,
+        "fit_w1": 0.18208675459400558,
+        "fit_w2": 0.28760168080028303,
+        "resid_w1": 0.08940328520910723,
+        "resid_w2": 0.14439231812208214,
+        "vocab_overlap": 0.7368421052631579,
+        "battery_pos": 2
+      },
+      {
+        "fact": "Boston->Massachusetts",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Massachusetts",
+        "p0": 0.8855844140052795,
+        "hr_w1": 0.7249711444771078,
+        "hr_w2": 0.859387772258059,
+        "fit_w1": 0.4119263493300864,
+        "fit_w2": 0.5193632449877372,
+        "resid_w1": 0.3130447951470213,
+        "resid_w2": 0.34002452727032173,
+        "vocab_overlap": 0.8,
+        "battery_pos": 0
+      },
+      {
+        "fact": "Atlanta->Georgia",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Georgia",
+        "p0": 0.9629536271095276,
+        "hr_w1": 0.6395916705708661,
+        "hr_w2": 0.6940422381452073,
+        "fit_w1": 0.4727228274042726,
+        "fit_w2": 0.587532924964916,
+        "resid_w1": 0.16686884316659345,
+        "resid_w2": 0.10650931318029122,
+        "vocab_overlap": 0.8,
+        "battery_pos": 1
+      },
+      {
+        "fact": "Sacramento->California",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "California",
+        "p0": 0.9349073767662048,
+        "hr_w1": 0.47515260141396226,
+        "hr_w2": 0.5271550600463126,
+        "fit_w1": 0.4506841743580865,
+        "fit_w2": 0.5628214947492819,
+        "resid_w1": 0.024468427055875763,
+        "resid_w2": -0.03566643470296926,
+        "vocab_overlap": 0.8,
+        "battery_pos": 2
+      },
+      {
+        "fact": "Austin->Texas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Texas",
+        "p0": 0.966093897819519,
+        "hr_w1": 0.2178522036089264,
+        "hr_w2": 0.28822128029438626,
+        "fit_w1": 0.4751904419980744,
+        "fit_w2": 0.5902998039436823,
+        "resid_w1": -0.25733823838914804,
+        "resid_w2": -0.30207852364929605,
+        "vocab_overlap": 0.8,
+        "battery_pos": 3
+      },
+      {
+        "fact": "Columbus->Ohio",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Ohio",
+        "p0": 0.811143696308136,
+        "hr_w1": 0.22931460628994632,
+        "hr_w2": 0.31388818488833603,
+        "fit_w1": 0.35343107349985337,
+        "fit_w2": 0.4537738496833256,
+        "resid_w1": -0.12411646720990704,
+        "resid_w2": -0.1398856647949896,
+        "vocab_overlap": 0.8,
+        "battery_pos": 4
+      },
+      {
+        "fact": "Denver->Colorado",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Colorado",
+        "p0": 0.85616534948349,
+        "hr_w1": 0.2098311996647747,
+        "hr_w2": 0.2205878298707936,
+        "fit_w1": 0.3888089433309831,
+        "fit_w2": 0.49344223412032473,
+        "resid_w1": -0.1789777436662084,
+        "resid_w2": -0.2728544042495311,
+        "vocab_overlap": 0.8,
+        "battery_pos": 5
+      },
+      {
+        "fact": "Little Rock->Arkansas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Arkansas",
+        "p0": 0.9000856876373291,
+        "hr_w1": 0.6365033628387969,
+        "hr_w2": 0.7792237591693016,
+        "fit_w1": 0.42332140337090707,
+        "fit_w2": 0.5321402546417755,
+        "resid_w1": 0.21318195946788987,
+        "resid_w2": 0.24708350452752614,
+        "vocab_overlap": 0.7692307692307693,
+        "battery_pos": 6
+      },
+      {
+        "fact": "Hartford->Connecticut",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Connecticut",
+        "p0": 0.8384353518486023,
+        "hr_w1": 0.3390310217578349,
+        "hr_w2": 0.44907355439060626,
+        "fit_w1": 0.3748767683841807,
+        "fit_w2": 0.4778204096726871,
+        "resid_w1": -0.03584574662634582,
+        "resid_w2": -0.02874685528208082,
+        "vocab_overlap": 0.8,
+        "battery_pos": 7
+      },
+      {
+        "fact": "Dover->Delaware",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Delaware",
+        "p0": 0.8786457777023315,
+        "hr_w1": 0.22925240973785768,
+        "hr_w2": 0.4004755369802927,
+        "fit_w1": 0.4064739913063783,
+        "fit_w2": 0.5132496424671498,
+        "resid_w1": -0.1772215815685206,
+        "resid_w2": -0.11277410548685707,
+        "vocab_overlap": 0.8,
+        "battery_pos": 8
+      },
+      {
+        "fact": "Tallahassee->Florida",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Florida",
+        "p0": 0.9273396730422974,
+        "hr_w1": 0.19161903148299242,
+        "hr_w2": 0.38370373446042333,
+        "fit_w1": 0.444737497184279,
+        "fit_w2": 0.5561536236372188,
+        "resid_w1": -0.2531184657012866,
+        "resid_w2": -0.17244988917679543,
+        "vocab_overlap": 0.8214285714285714,
+        "battery_pos": 9
+      },
+      {
+        "fact": "Honolulu->Hawaii",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Hawaii",
+        "p0": 0.9394004344940186,
+        "hr_w1": 0.33087529323263615,
+        "hr_w2": 0.5129084857838483,
+        "fit_w1": 0.4542148046265761,
+        "fit_w2": 0.5667803085349585,
+        "resid_w1": -0.12333951139393995,
+        "resid_w2": -0.05387182275111024,
+        "vocab_overlap": 0.8,
+        "battery_pos": 10
+      },
+      {
+        "fact": "Boise->Idaho",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Idaho",
+        "p0": 0.9823838472366333,
+        "hr_w1": 0.7216365748462564,
+        "hr_w2": 0.8359533556862516,
+        "fit_w1": 0.48799103170076086,
+        "fit_w2": 0.6046528081174851,
+        "resid_w1": 0.23364554314549557,
+        "resid_w2": 0.2313005475687665,
+        "vocab_overlap": 0.8,
+        "battery_pos": 11
+      },
+      {
+        "fact": "Indianapolis->Indiana",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Indiana",
+        "p0": 0.9422821998596191,
+        "hr_w1": 0.22269155256617928,
+        "hr_w2": 0.4156566958097959,
+        "fit_w1": 0.4564792865546606,
+        "fit_w2": 0.5693194195697007,
+        "resid_w1": -0.2337877339884813,
+        "resid_w2": -0.15366272375990475,
+        "vocab_overlap": 0.8,
+        "battery_pos": 12
+      },
+      {
+        "fact": "Des Moines->Iowa",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Iowa",
+        "p0": 0.9877914190292358,
+        "hr_w1": 0.6630591001056577,
+        "hr_w2": 0.7180024727875701,
+        "fit_w1": 0.49224028417125676,
+        "fit_w2": 0.6094173963014005,
+        "resid_w1": 0.17081881593440096,
+        "resid_w2": 0.10858507648616966,
+        "vocab_overlap": 0.8076923076923077,
+        "battery_pos": 13
+      },
+      {
+        "fact": "Topeka->Kansas",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Kansas",
+        "p0": 0.9824606776237488,
+        "hr_w1": 0.8615111792758035,
+        "hr_w2": 0.9191074051952456,
+        "fit_w1": 0.48805140477111125,
+        "fit_w2": 0.6047205030402074,
+        "resid_w1": 0.3734597745046922,
+        "resid_w2": 0.3143869021550382,
+        "vocab_overlap": 0.7692307692307693,
+        "battery_pos": 14
+      },
+      {
+        "fact": "Baton Rouge->Louisiana",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Louisiana",
+        "p0": 0.8759879469871521,
+        "hr_w1": 0.5156232319511964,
+        "hr_w2": 0.5662370491647785,
+        "fit_w1": 0.4043854765042104,
+        "fit_w2": 0.5109078392870765,
+        "resid_w1": 0.111237755446986,
+        "resid_w2": 0.05532920987770196,
+        "vocab_overlap": 0.7692307692307693,
+        "battery_pos": 15
+      },
+      {
+        "fact": "Annapolis->Maryland",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Maryland",
+        "p0": 0.9069494605064392,
+        "hr_w1": 0.25353909976986855,
+        "hr_w2": 0.39842559391254795,
+        "fit_w1": 0.4287149339498052,
+        "fit_w2": 0.53818789531369,
+        "resid_w1": -0.17517583417993665,
+        "resid_w2": -0.1397623014011421,
+        "vocab_overlap": 0.7692307692307693,
+        "battery_pos": 16
+      },
+      {
+        "fact": "Lansing->Michigan",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Michigan",
+        "p0": 0.9702924489974976,
+        "hr_w1": 0.5710288580132965,
+        "hr_w2": 0.7630631509460829,
+        "fit_w1": 0.4784896499697438,
+        "fit_w2": 0.593999129278489,
+        "resid_w1": 0.0925392080435527,
+        "resid_w2": 0.16906402166759393,
+        "vocab_overlap": 0.8,
+        "battery_pos": 17
+      },
+      {
+        "fact": "Jackson->Mississippi",
+        "battery": "tmpl",
+        "family6": "rev-capital",
+        "answer": "Mississippi",
+        "p0": 0.6934146285057068,
+        "hr_w1": 0.12057615261080286,
+        "hr_w2": 0.1895128983225867,
+        "fit_w1": 0.26091995179953753,
+        "fit_w2": 0.35004327580131556,
+        "resid_w1": -0.14034379918873469,
+        "resid_w2": -0.16053037747872886,
+        "vocab_overlap": 0.8,
+        "battery_pos": 18
+      }
+    ],
+    "named_splits": {
+      "product": {
+        "definition": "contrast = mean resid['Gmail', 'PlayStation'] - mean resid[iPhone], in residual-SD units, per wash; SURVIVES iff >= 1.0 SD on both washes (descriptive, never adjudicated)",
+        "residuals": {
+          "Xbox": [
+            0.0743097515443139,
+            -0.01654217728378088
+          ],
+          "Chrome": [
+            -0.15492227507206385,
+            -0.17948173213844432
+          ],
+          "iPhone": [
+            -0.20577384378129548,
+            -0.06467816486630018
+          ],
+          "iPad": [
+            -0.1787341547321296,
+            -0.14454718426337781
+          ],
+          "Gmail": [
+            0.42864526484658116,
+            0.42783891617292735
+          ],
+          "iTunes": [
+            -0.13675909389390517,
+            -0.2513070322693398
+          ],
+          "PlayStation": [
+            0.17323435108849794,
+            0.2287173746483152
+          ]
+        },
+        "hr_for_reference": {
+          "Xbox": [
+            0.45388763713631564,
+            0.37816462437131143
+          ],
+          "Chrome": [
+            0.28783759768573486,
+            0.28606956547838636
+          ],
+          "iPhone": [
+            0.18425663896898953,
+            0.34174889141178294
+          ],
+          "iPad": [
+            0.3147985802847366,
+            0.37793454553247746
+          ],
+          "Gmail": [
+            0.9049324252922866,
+            0.9309835834155199
+          ],
+          "iTunes": [
+            0.29284914481498814,
+            0.19949764329486383
+          ],
+          "PlayStation": [
+            0.6798667309315474,
+            0.7658874321878589
+          ]
+        },
+        "gap_sd_w1": 2.9200615531853935,
+        "gap_sd_w2": 2.294264900156304,
+        "others_mean_resid": {
+          "w1": -0.09902644303844618,
+          "w2": -0.1479695314887357
+        },
+        "verdict": "SURVIVES (structured)"
+      },
+      "tmpl_width": {
+        "definition": "within rev-capital: SD(resid)/SD(hr) per wash; DISSOLVES iff <= 0.5 on both washes (descriptive; the only within-family regressor is p0, so this is the model's own account of the width under the COMMON p0 slope)",
+        "ratio_w1": 0.8878833175766323,
+        "ratio_w2": 0.8611296529415623,
+        "within_family_spearman_p0_hr": {
+          "w1": 0.5087719298245614,
+          "w2": 0.5491228070175439
+        },
+        "verdict": "SURVIVES (width unabsorbed)"
+      },
+      "family_width_table": {
+        "lang": {
+          "n": 10,
+          "sd_hr_w1": 0.07435274590211231,
+          "sd_resid_w1": 0.12704014251904477,
+          "ratio_w1": 1.708613999088844,
+          "spearman_p0_hr_w1": -0.15151515151515152,
+          "sd_hr_w2": 0.0691876687269566,
+          "sd_resid_w2": 0.10713989074109949,
+          "ratio_w2": 1.5485402632067022,
+          "spearman_p0_hr_w2": 0.3212121212121212
+        },
+        "cap-cur": {
+          "n": 10,
+          "sd_hr_w1": 0.13278359833146405,
+          "sd_resid_w1": 0.09732816013460881,
+          "ratio_w1": 0.7329833003293915,
+          "spearman_p0_hr_w1": 0.6,
+          "sd_hr_w2": 0.13637771283105277,
+          "sd_resid_w2": 0.11293546493439496,
+          "ratio_w2": 0.8281079260678136,
+          "spearman_p0_hr_w2": 0.5393939393939394
+        },
+        "founder-anchor": {
+          "n": 5,
+          "sd_hr_w1": 0.1232766555441562,
+          "sd_resid_w1": 0.10566111973242344,
+          "ratio_w1": 0.8571056642153705,
+          "spearman_p0_hr_w1": 0.7,
+          "sd_hr_w2": 0.11934315421619596,
+          "sd_resid_w2": 0.10129476229440225,
+          "ratio_w2": 0.8487689382744303,
+          "spearman_p0_hr_w2": 0.5
+        },
+        "product": {
+          "n": 7,
+          "sd_hr_w1": 0.2389162857570735,
+          "sd_resid_w1": 0.21917428700060024,
+          "ratio_w1": 0.9173685515245845,
+          "spearman_p0_hr_w1": 0.4642857142857143,
+          "sd_hr_w2": 0.2508277205987341,
+          "sd_resid_w2": 0.22553982524971805,
+          "ratio_w2": 0.8991822144352586,
+          "spearman_p0_hr_w2": 0.39285714285714285
+        },
+        "near-uscap": {
+          "n": 3,
+          "sd_hr_w1": 0.050885461059375456,
+          "sd_resid_w1": 0.08231172335380536,
+          "ratio_w1": 1.6175882391585354,
+          "spearman_p0_hr_w1": -0.5,
+          "sd_hr_w2": 0.08040581931205806,
+          "sd_resid_w2": 0.12062617044994034,
+          "ratio_w2": 1.500216918153468,
+          "spearman_p0_hr_w2": -1.0
+        },
+        "rev-capital": {
+          "n": 19,
+          "sd_hr_w1": 0.22328126200737847,
+          "sd_resid_w1": 0.19824770766380845,
+          "ratio_w1": 0.8878833175766323,
+          "spearman_p0_hr_w1": 0.5087719298245614,
+          "sd_hr_w2": 0.22056435695066592,
+          "sd_resid_w2": 0.1899345081522058,
+          "ratio_w2": 0.8611296529415623,
+          "spearman_p0_hr_w2": 0.5491228070175439
+        }
+      }
+    },
+    "largest_abs_resid_w1": [
+      [
+        0.42864526484658116,
+        "The email service made by Google->Gmail"
+      ],
+      [
+        0.3734597745046922,
+        "Topeka->Kansas"
+      ],
+      [
+        0.33716749223731457,
+        "China->Chinese"
+      ],
+      [
+        0.3130447951470213,
+        "Boston->Massachusetts"
+      ],
+      [
+        0.25733823838914804,
+        "Austin->Texas"
+      ],
+      [
+        0.2531184657012866,
+        "Tallahassee->Florida"
+      ]
+    ],
+    "largest_abs_resid_w2": [
+      [
+        0.42783891617292735,
+        "The email service made by Google->Gmail"
+      ],
+      [
+        0.34002452727032173,
+        "Boston->Massachusetts"
+      ],
+      [
+        0.3143869021550382,
+        "Topeka->Kansas"
+      ],
+      [
+        0.30207852364929605,
+        "Austin->Texas"
+      ],
+      [
+        0.2805173899632174,
+        "China->Chinese"
+      ],
+      [
+        0.2728544042495311,
+        "Denver->Colorado"
+      ]
+    ]
+  },
+  "residual_predictors": {
+    "registered": [
+      {
+        "label": "vocab overlap",
+        "key": "vocab_overlap",
+        "note": "fraction of the probe's prompt token ids present in the frozen wash TRAIN stream (rebuilt + G_CORPUS/G_PROMPT certified)",
+        "value_range": [
+          0.5483870967741935,
+          0.8214285714285714
+        ],
+        "rho_w1": -0.07468999630510433,
+        "rho_w2": -0.04295061381727273,
+        "rho_mean": -0.05184228004407086,
+        "fires": false,
+        "firing_stat": "max |rho| over the two washes vs 0.3"
+      },
+      {
+        "label": "entrenchment p0",
+        "key": "p0",
+        "note": "p0 at t=0 \u2014 the PRE-INSTALL analogue (computable from the committed records; in the model LINEARLY, so its residual rho tests the nonlinear leftover; disclosed)",
+        "value_range": [
+          0.5189241766929626,
+          0.9877914190292358
+        ],
+        "rho_w1": 0.031903945111492284,
+        "rho_w2": 0.028778349533066513,
+        "rho_mean": 0.018791690489803697,
+        "fires": false,
+        "firing_stat": "max |rho| over the two washes vs 0.3"
+      },
+      {
+        "label": "battery position",
+        "key": "battery_pos",
+        "note": "0-based index of the probe in its battery's kept order (the instrument's own candidate/pool order)",
+        "value_range": [
+          0,
+          19
+        ],
+        "rho_w1": -0.012023600805890121,
+        "rho_w2": -0.0543924798361696,
+        "rho_mean": -0.03843735241755985,
+        "fires": false,
+        "firing_stat": "max |rho| over the two washes vs 0.3"
+      }
+    ],
+    "competitors": [
+      {
+        "label": "subj tok len",
+        "key": "subj_tok_len",
+        "note": "co-report competitor (never adjudicated)",
+        "rho_w1": 0.040506730904016755,
+        "rho_w2": -0.007353900551026852,
+        "rho_mean": -0.004299821633660509
+      },
+      {
+        "label": "prompt tok len",
+        "key": "prompt_tok_len",
+        "note": "co-report competitor (never adjudicated)",
+        "rho_w1": 0.04606775873307005,
+        "rho_w2": -0.00692370177432371,
+        "rho_mean": 0.005105746559836479
+      },
+      {
+        "label": "rel-cue freq",
+        "key": "rel_cue_freq_per_1m",
+        "note": "co-report competitor (never adjudicated) \u2014 family-level (constant within family): orders the families' mean residuals",
+        "rho_w1": -0.03403356802804897,
+        "rho_w2": -0.037738488091861894,
+        "rho_mean": -0.0262790841735568
+      }
+    ]
+  },
+  "cross_wash_residual": {
+    "spearman": 0.933981322660568,
+    "pearson": 0.9464171040093924,
+    "per_family": {
+      "lang": 0.8909090909090909,
+      "cap-cur": 0.4666666666666667,
+      "founder-anchor": 0.6,
+      "product": 0.6428571428571429,
+      "near-uscap": 1.0,
+      "rev-capital": 0.956140350877193
+    },
+    "for_reference_hr_level": 0.9387840670859539,
+    "note": "the e215 reliability convention (Spearman primary); a high rho means the model's per-probe misses REPLICATE across washes (physics or shared texture \u2014 see honesty)"
+  },
+  "adjudication": {
+    "bars": {
+      "MODEL_COMPLETE": false,
+      "RESIDUAL_STRUCTURED": true,
+      "verdict": "RESIDUAL-STRUCTURED",
+      "clause": "the residuals carry structure (the cross-wash residual rho 0.934 > 0.5 \u2014 the model's per-probe misses replicate across washes) \u2014 a third sorting dimension exists; named with the best candidate: the cross-wash residual rho (rho 0.934); R-squared FAILED the bar (w1 0.671, w2 0.621 vs 0.75); the named splits: product SURVIVES (structured), tmpl width SURVIVES (width unabsorbed)",
+      "order": "MODEL-COMPLETE -> RESIDUAL-STRUCTURED -> GRADED (gated on G_RECORDS/G_RECOMPUTE/G_CORPUS/G_PROMPT/G_ENV)"
+    },
+    "clauses": {
+      "r2_both_washes >= 0.75": false,
+      "no_predictor_fires (|rho| <= 0.30)": true,
+      "crosswash_spearman < 0.30": false,
+      "crosswash_spearman > 0.50": true,
+      "firing_predictors": []
+    },
+    "gates_summary": {
+      "G_RECORDS": true,
+      "G_RECOMPUTE": true,
+      "G_CORPUS": true,
+      "G_PROMPT": true,
+      "G_ENV": true
+    }
+  },
+  "honesty_reflex": {
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 inherited from the archive (disclosed)",
+    "typology_inherited": "the family factor is e215's HAND-REGISTERED typology (not blind to the outcome \u2014 the grouping follows the instrument's pools, disclosed there); the full model's R^2 is measured AGAINST that hand-grouped factor \u2014 'family x height explains X%' inherits the typology's subjectivity wholesale",
+    "ols_conventions": "raw bounded hr (no transform), plain OLS, homoskedastic SEs (co-reported, never adjudicated); unbalanced family n's (3..19) and heteroskedastic family widths make the plain R^2 generous in the wide families \u2014 the adj-R^2 beside it",
+    "entrenchment_collinear": "the entrenchment predictor IS the model's own p0 term (the dispatch's proxy): its residual Spearman is a NONLINEARITY test, not an independent dimension \u2014 a firing means the linear height term mis-fits (e.g. floor compression), disclosed wherever read",
+    "xwash_reading": "a cross-wash residual correlation could be probe physics OR shared texture (both arms divide by the same p0; both share the wash corpus and the prompt strings) \u2014 the correlation replicates the MISS, its MECHANISM stays open",
+    "vocab_overlap_surface": "the overlap feature is a token-id surface statistic (fraction of prompt ids seen in the wash train stream) \u2014 it conflates syntax frequency with content words; co-reported per-family means so the table is transparent",
+    "position_surface": "battery position is the instrument's own pool order (fact: cap->lang->cur blocks; ctrl: pool listing) \u2014 an ordering-artifact check, not a cognitive variable",
+    "hr_ratio_floor": "hr divides by p0 as low as 0.52; deep-state floors compress ratios \u2014 hr, p80 and fitted are co-reported per probe in the residual table",
+    "guarantees_nothing": "the model and its residual describe THESE 54 probes under THESE two washes with an inherited hand-registered typology \u2014 the openness is the point"
+  },
+  "compute": {
+    "envelope": "CPU-only (owner envelope 2026-10-02): threads 4, load checks 2, ZERO model loads (tokenizer only), decisive; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 46.8,
+        "tool": "psutil"
+      },
+      {
+        "tag": "post_corpus",
+        "cpu_percent": 21.9,
+        "tool": "psutil"
+      }
+    ],
+    "records_chain": [
+      "runs/e214/metrics.json",
+      "runs/e214/journal.json",
+      "runs/e215/metrics.json"
+    ]
+  },
+  "trims": [],
+  "deviations": [
+    "PURE DESK cell: NO model loads, NO re-probes (the dispatch's 'pure desk on the committed records') \u2014 the provenance chain enters as e215's committed certification (its runtime re-probes read dp 0.0 vs e214's records, which e214 certified vs the e182c/e182c2 originals at <= 3.3e-06) PLUS this cell's desk recompute (G_RECOMPUTE) and git provenance (G_RECORDS).",
+    "The entrenchment predictor IS the model's own p0 term (the dispatch's proxy \u2014 p0 at t=0, the pre-install analogue in this no-install archive): computable, hence computed; its residual Spearman can only fire on NONLINEAR entrenchment leftover, never on an independent dimension \u2014 disclosed at the feature and in the honesty block.",
+    "The named-split conventions (1.0 residual SD for the product contrast; 0.5 SD-ratio for the tmpl width) are DESCRIPTIVE yardsticks frozen before compute \u2014 they feed the clause wording, they never flip a bar.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: the same desk tables on the same committed records (the e215 smoke disclosure applies \u2014 a desk shakedown inevitably displays the committed tables), own smoke dir, nothing adjudicated."
+  ]
+}
