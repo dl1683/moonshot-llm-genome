@@ -9,6 +9,35 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e214 — the conservation-of-rank cell: RANK-DESTROYED (0/5 cells hold) WITH THE DISCLOSED SPLIT — the t=0 order dies WITH the scale (coupling -0.88) while the deep-state order REPLICATES across washes (xrho 0.94-1.00 at 65-77% decay); the wash re-orders BY RELATION (lang holds, cap/cur collapses; baseline p irrelevant); THE EROSION ORDER IS PHYSICS, THE BASELINE ORDER IS BIOGRAPHY (2026-10-02 ~15:10Z) — DONE
+
+WHAT WE DID: eval-only on the two-wash 124M archive (all four
+batteries re-probed fresh on every state; the provenance gates at
+3.3e-06); 49s CPU.
+
+WHAT WE SAW (T187): THE BAR'S OWN HALF FIRES: at every
+>= 50%-scale-decay state the t=0-vs-t rho is below 0.8 (0/5 hold;
+rho tracks the decline, pooled coupling -0.88) — RANK-DESTROYED as
+registered. THE DISCLOSED SPLIT IS THE FINDING: the CROSS-WASH
+half HELD 5/5 (xrho 1.000/1.000/0.951/1.000/1.000) — THE ORDER IS
+THE SAME FUNCTION OF STATE ON BOTH WASHES, even at 65-77% scale
+decay: what dies is the ORIGIN's order, not order per se (T185's
+state function now reads on the full p-vector). THE MECHANISM
+TEXTURE: THE WASH RE-ORDERS BY RELATION, NOT BY BASELINE STRENGTH
+— the fact battery: lang holds (0.65-0.69) while cap/cur collapse
+(0.17-0.28) with baseline p IRRELEVANT (China->yuan p0 0.93 dies
+to 0.16; China->Chinese p0 0.57 holds 0.57); the controls:
+founders/unique-anchor hold 0.60-0.62, products collapse 0.32-0.34
+— identically on both washes. W028'S LAW, REFINED BY ITS OWN TEST:
+THE SHAPE LAYER IS NOT THE BASELINE RANK — IT IS THE EROSION
+ORDER, WHICH REPLICATES; the baseline order is biography. HONESTY:
+the >= 0.5 regime carried by near (n=3, rho quantized, flagged) +
+tmpl n=19; the 0.40-echo co-reported; the cross-wash rho partly
+re-expresses the state function; the tiny-scale echo scanned,
+absent (aggregates only), skipped.
+
+---
+
 ## g1d — the base-seed redraw: TEXTURE (G-CONS) — the base lottery owns the expression channel; the wall guarded the HALF-EXPRESSED fact at 1.35x its own root (the unadjudicated record) (2026-10-02 ~14:35Z) — DONE
 
 WHAT WE DID: the wall's third axis — a fresh seed-44 base at the

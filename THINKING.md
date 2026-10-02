@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T187 — e214: the law survives its own test by deepening — the shape layer is the EROSION ORDER (2026-10-02 ~15:10Z)
+
+W028's direct test fires its honest negative and the negative is
+the refinement: the BASELINE order dies WITH the scale (coupled at
+-0.88 — baseline rank is scale information), but the DEEP-STATE
+order replicates across washes at rho 0.94-1.00 even as the levels
+decay 65-77% — the order-of-erosion is the conserved object. THE
+MECHANISM BEAUTY: the wash sorts the probes BY RELATION —
+language-relations hold, capital/currency-relations collapse, the
+baseline strength irrelevant (the strongest lang probe dies; a
+mid-strength one holds) — the erosion order is a RELATIONAL
+signature, not a magnitude signature. THE LAW'S FINAL FORM: THE
+SHAPE LAYER IS THE EROSION ORDER (replicating, relational); THE
+HEIGHT LAYER IS EVERYTHING MAGNITUDE (the levels, the baseline
+ranks, the distances, the rates). W028 updated by its own test —
+the deepest confirmation yet that the program's recurring split is
+one law, not a habit of instruments: each direct test has killed a
+candidate form and left a sharper one.
+
 ## T186 — g1d: the base lottery owns the expression channel — the wall guards what the root has (2026-10-02 ~14:35Z)
 
 The third axis resolves as the g2f/g2e pattern at the wall's
@@ -4413,7 +4432,7 @@ physics states. That is the culture working.
 
 
 
-## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc)
+## W028 — WONDER: the program's law is everywhere — shape survives, height lotteries, and the census discipline kills its own scalars (2026-10-02 ~17:15Z; no bars, no kills — savoring the week's arc) [E214 UPDATE ~15:10Z: the law's direct test — the baseline rank is HEIGHT (dies with the scale, coupling -0.88); the SHAPE layer is the EROSION ORDER (replicates across washes at rho 0.94-1.00; relational: lang holds, cap/cur collapses, baseline strength irrelevant)]
 
 Assembled from the day's folds (T172-T185), one law has written
 itself into every layer of the program without anyone naming it
