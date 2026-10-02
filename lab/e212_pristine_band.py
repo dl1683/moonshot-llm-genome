@@ -859,10 +859,12 @@ def main():
                 "pristine span (same machine, same threads, same arithmetic)",
         "pr_measured": basis["pr"], "pr_committed": E211_PRISTINE["primary_pr"],
         "pr_rel_dev": pr_rel, "sv_max_rel_dev": sv_rel, "tol": G_PR_TOL,
-        "pass": bool(pr_rel < G_PR_TOL and sv_rel < G_PR_TOL),
+        "pass": bool(SMOKE or (pr_rel < G_PR_TOL and sv_rel < G_PR_TOL)),
         "note": "THE INSTRUMENT-IDENTITY GATE (primary): the same span "
                 "construction as the walled rows, verified by bit-grade "
-                "reproduction of e211's committed pristine span",
+                "reproduction of e211's committed pristine span (in SMOKE the "
+                "trimmed 4-step span cannot reproduce the 20-step PR — the "
+                "step-1 md5 + G_HIST carry the shakedown; e211's convention)",
     }
     log(f"  G_SPAN[P]: PR {basis['pr']:.6f} vs e211 "
         f"{E211_PRISTINE['primary_pr']:.6f} (rel {pr_rel:.1e}); max SV rel "
@@ -885,7 +887,7 @@ def main():
     # ---- robustness spans + G_ROBUST ---------------------------------------
     robust_bases = {}
     robust_rows = []
-    rob_seeds = (ROBUST_SEEDS[:1],) if SMOKE else ROBUST_SEEDS
+    rob_seeds = ROBUST_SEEDS[:1] if SMOKE else ROBUST_SEEDS
     for rs in rob_seeds:
         Hr, rows_r = run_wash(rs, trace_ruler=False)
         br = svd_basis(Hr)
@@ -899,7 +901,7 @@ def main():
             "step1_L2": rows_r[0]["L2"],
             "pr_rel_dev_vs_e211": pr_rel_r,
             "step1_L2_abs_dev_vs_e211": l2_d,
-            "gate_pass": bool(pr_rel_r < G_PR_TOL and l2_d < 1e-3),
+            "gate_pass": bool(SMOKE or (pr_rel_r < G_PR_TOL and l2_d < 1e-3)),
         })
         log(f"  robustness wash s{rs}: PR {br['pr']:.6f} vs e211 "
             f"{rec['pr']:.6f} (rel {pr_rel_r:.1e}); step1 L2 |d| {l2_d:.1e}: "
@@ -974,9 +976,9 @@ def main():
             "seed": sd_, "span": span_tag, "u_md5": hashlib.md5(
                 u_in.numpy().tobytes()).hexdigest(),
             "D_kill": kill, "rows": rows,
-            "energy_frac_top1": cum[0], "energy_frac_top4": sum(cum[:4]),
-            "energy_frac_top8": sum(cum[:8]),
-            "energy_frac_total_check": tot_e,
+            "energy_frac_top1": cum[0] / tot_e,
+            "energy_frac_top4": sum(cum[:4]) / tot_e,
+            "energy_frac_top8": sum(cum[:8]) / tot_e,
             "note": "e209's draw construction verbatim: c ~ N(0,I) over the "
                     "Vp basis coefficients, u = Vp^T c / ||.|| (fp32)",
         })
@@ -1273,63 +1275,69 @@ def plot_band(path, metrics, table_rows, context_rows, walled_kills, draws,
 
     # (0,0) THE HONEST BAND TABLE — the dot plot
     ax = fig.add_subplot(gs[0, 0])
-    ax.axhspan(win_lo, win_hi, color="seagreen", alpha=0.10)
-    ax.axhline(win_lo, ls="--", lw=1.4, color="seagreen")
-    ax.axhline(win_hi, ls="--", lw=1.4, color="seagreen")
-    ax.axhline(gap_thresh, ls="--", lw=1.8, color="crimson")
-    ax.text(3.28, (win_lo + win_hi) / 2, "MATCH window\n0.85-0.92 ± swing",
-            fontsize=8, color="seagreen", va="center", ha="left")
-    ax.text(3.28, gap_thresh, "GAP threshold\n0.7x walled median",
-            fontsize=8, color="crimson", va="center", ha="left")
-    ys, labels = [], []
-    y = 0
-    for row in table_rows:
+    ax.axhspan(win_lo, win_hi, color="seagreen", alpha=0.10, zorder=0)
+    ax.axhline(win_lo, ls="--", lw=1.4, color="seagreen", zorder=1)
+    ax.axhline(win_hi, ls="--", lw=1.4, color="seagreen", zorder=1)
+    ax.axhline(gap_thresh, ls="--", lw=1.8, color="crimson", zorder=1)
+    ax.text(3.12, (win_lo + win_hi) / 2, "MATCH window\n0.85-0.92 "
+            "\u00b1 swing", fontsize=8, color="seagreen", va="center",
+            ha="left", zorder=7,
+            bbox=dict(fc="white", ec="seagreen", alpha=0.75, pad=1.2))
+    ax.text(3.12, gap_thresh, "GAP threshold\n0.7x walled median",
+            fontsize=8, color="crimson", va="center", ha="left", zorder=7,
+            bbox=dict(fc="white", ec="crimson", alpha=0.75, pad=1.2))
+    # the adjudicated rows, one column each (left half)
+    for i, row in enumerate(table_rows):
+        xc = 0.35 + 0.34 * i
+        is_p = "THIS RUN" in row["row"]
+        col = "darkorange" if is_p else "steelblue"
+        ax.axvline(xc, color="lightgray", lw=0.8, zorder=0)
         kills = [k for k in row["kills"] if k is not None]
         nc = len(row["kills"]) - len(kills)
-        ax.plot([0.30 + 0.02 * i - 0.05 for i in range(len(kills))],
-                kills, "o", ms=4, alpha=0.45, color="gray")
+        ax.plot([xc] * len(kills), kills, "o", ms=4.5, alpha=0.5,
+                color="gray", zorder=3)
         if row["median"] is not None:
-            ax.plot([0.05, 0.95], [row["median"]] * 2, "-", lw=2.6,
-                    color=("darkorange" if "THIS RUN" in row["row"]
-                           else "steelblue"))
-            ax.plot([0.5], [row["median"]], "*",
-                    ms=17 if "THIS RUN" in row["row"] else 12,
-                    color=("darkorange" if "THIS RUN" in row["row"]
-                           else "steelblue"), mec="k", zorder=6)
-        ax.text(1.02, row["median"] if row["median"] is not None else 0.4,
-                f"{row['median']:.3f}" + (f" ({nc} cens)" if nc else ""),
-                fontsize=8.5, va="center",
-                color=("darkorange" if "THIS RUN" in row["row"] else "black"),
-                weight="bold" if "THIS RUN" in row["row"] else "normal")
-        ys.append(0)
-        labels.append(row["row"])
-        y += 1
-    # context rows (right half)
-    cx = 2.3
+            ax.plot([xc - 0.11, xc + 0.11], [row["median"]] * 2, "-",
+                    lw=3.0, color=col, zorder=4)
+            ax.plot([xc], [row["median"]], "*",
+                    ms=18 if is_p else 13, color=col, mec="k", zorder=6)
+            ax.annotate(f"{row['median']:.3f}" + (f"\n({nc} cens)" if nc else ""),
+                        (xc, row["median"]), textcoords="offset points",
+                        xytext=(0, 13), fontsize=8.5, ha="center", color=col,
+                        weight="bold" if is_p else "normal", zorder=7)
+        ax.annotate(row["row"].replace(" (THIS RUN)", "\n(THIS RUN)")
+                    .replace(" (e211)", "\n(e211)"),
+                    (xc, 0.04), ha="center", va="bottom", fontsize=8,
+                    color=col if is_p else "dimgray", zorder=7)
+    # the context rows (right half)
+    cx = 1.62
+    ax.axvline(1.42, color="silver", lw=1.0, ls=":")
+    ctx_y_text = []
     for crow in context_rows:
         if crow["row"].startswith("R5/R6/R7"):
-            for r_, m_ in crow["medians"].items():
-                ax.plot([cx], [m_], "s", ms=7, mfc="none", mec="purple",
-                        alpha=0.8)
-                ax.annotate(f"{r_}-rand {m_:.2f}", (cx, m_),
-                            textcoords="offset points", xytext=(8, -3),
-                            fontsize=7, color="purple")
+            entries = [(f"{r_}-rand", m_, "s", "purple")
+                       for r_, m_ in crow["medians"].items()]
+            entries.append(("(e209 3-draw\nrandom bands)", None, None, None))
         else:
-            mk = "x" if "RETIRED" in crow["row"] else "d"
             col = "gray" if "RETIRED" in crow["row"] else "purple"
-            if crow["median"] is not None:
-                ax.plot([cx], [crow["median"]], mk, ms=9, color=col, alpha=0.9)
-                ax.annotate(f"{crow['row'].split(' (')[0]} {crow['median']:.2f}"
-                            + (" (retired, cross-instr.)"
+            mk = "x" if "RETIRED" in crow["row"] else "d"
+            lbl = crow["row"].split(" (")[0]
+            entries = [(lbl + (" (retired,\ncross-instr.)"
                                if "RETIRED" in crow["row"] else " (context)"),
-                            (cx, crow["median"]), textcoords="offset points",
-                            xytext=(8, -3), fontsize=7, color=col)
+                        crow["median"], mk, col)]
+        for lbl, m_, mk, col in entries:
+            if m_ is not None:
+                ax.plot([cx], [m_], mk, ms=9, color=col, alpha=0.9, zorder=5,
+                        mfc="none" if mk == "s" else None)
+            ax.annotate(f"{lbl} {m_:.3f}" if m_ is not None else lbl,
+                        (cx, m_ if m_ is not None else 2.62),
+                        textcoords="offset points", xytext=(9, 0),
+                        fontsize=7.2, va="center", color=col)
     ax.set_ylim(0, 3.05)
-    ax.set_xlim(0, 4.4)
-    ax.set_xticks([0.5, cx])
-    ax.set_xticklabels(["ADJUDICATED rows\n(median = thick bar, * = median, "
-                        "o = individual kills)",
-                        "CONTEXT rows\n(never adjudicated)"], fontsize=8)
+    ax.set_xlim(0, 4.35)
+    ax.set_xticks([0.78, cx])
+    ax.set_xticklabels(["ADJUDICATED (o = individual kills; * / bar = median)",
+                        "CONTEXT (never adjudicated)"], fontsize=8)
     ax.set_ylabel("band median D_kill (onset grid, install-60 g-12 ruler)")
     ax.set_title("THE HONEST BAND TABLE — the same-instrument pristine band "
                  "(n=5) vs e211's walled per-direction medians", fontsize=10)
@@ -1341,7 +1349,8 @@ def plot_band(path, metrics, table_rows, context_rows, walled_kills, draws,
         ax2.plot([r["D"] for r in rr], [r["gm"] for r in rr], "-",
                  lw=1.5, alpha=0.85,
                  label=f"s{d['seed']} ({d['span'].split(':')[0]}): "
-                       f"{d['D_kill'] if d['D_kill'] is not None else 'SOFT'}")
+                       f"{d['D_kill']:.3f}" if d["D_kill"] is not None
+                       else f"s{d['seed']}: SOFT")
         if d["D_kill"] is not None:
             ax2.axvline(d["D_kill"], ls=":", lw=1.0, color="gray", alpha=0.5)
     med = metrics["roots"]["P"]["band"]["median_stat"]["median"]
@@ -1353,9 +1362,10 @@ def plot_band(path, metrics, table_rows, context_rows, walled_kills, draws,
     ax2.axhline(metrics["roots"]["P"]["G_ROOT"]["read_measured"], ls="--",
                 lw=1.0, color="gray", alpha=0.8, label="root read")
     ax2.set_ylim(-0.03, 1.02)
+    ax2.set_xlim(-0.05, 3.05)
     ax2.set_xlabel("D along the unit draw (L2; grid 0.05..3.00, early stop)")
     ax2.set_ylabel("g-12 ruler (install-60 mean p(Z))")
-    ax2.legend(fontsize=7.2, loc="lower left")
+    ax2.legend(fontsize=7.2, loc="upper right")
     ax2.set_title("THE 3+2 PRISTINE DRAWS (e209's instrument verbatim)",
                   fontsize=10)
 
