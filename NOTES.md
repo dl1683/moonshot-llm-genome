@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## sign-front-null — the desk derivation: THE ALTERNATION IS THE ALGORITHM'S — the committed lag structure carries the exact period-2 fingerprint; the critic's parameter point refuted at lag 3; the survivors named (2026-10-02 ~09:50Z) — DONE (desk)
+
+WHAT WAS DONE: the closed form derived and confirmed at lag 1;
+the (f_flip, f_n) plane checked against ALL committed cosines
+including the lag-2/3 structure nobody had read as a class; the
+absorption retrodiction; the step-size debt; the falsifier
+registered (scratch/sign_front_null.md).
+
+WHAT IT SHOWED (T166 resolves): (1) THE NULL HOLDS AND BITES
+DEEPER: e200's full mutual matrix carries the exact PERIOD-2
+FINGERPRINT of sign-descent overshoot (lag-1 negative, lag-2
+POSITIVE, lag-3/4 ~ 0) — the alternation, its universality, its
+post-death persistence, and the deepening are ALL THE ALGORITHM'S:
+a ~8-28% deterministic flip core riding a ~66-95% bath-redrawn
+majority. (2) THE CRITIC'S OWN POINT REFUTED at lag 3 (f_n ~ 0
+predicts +0.6..+0.84 vs observed ~ 0 — the correction's
+correction; the null is richer than its sketch). (3) THE
+SURVIVORS, untouched by the null (different instruments): the
+DEATH-AT-DEEPEST-LANDING rank-order (4/4, event-censored, support-
+proxy -0.030 — the support itself still unmeasured) and the
+ONSET/ARRIVAL curves (D_kill objects, not pair-cosine objects).
+(4) THE DEBT BEFORE STAMPING: the null's one sharp in-domain
+prediction (the anti-phase core grows with step size) has ZERO
+committed in-domain evidence — the single two-size pair reverses
+the predicted direction from BEYOND the kill cliff. e202
+REGISTERED: the SIGNFRONT-NULL cell (the fact-free twin + the
+step ladder {s/2, s/4, s/8}) — CPU minutes, the falsifier: FACT-
+IN-THE-FRONT fires iff the fact-free walk's lag-1 cosines sit
+>= 0.05 away from the fact-carrying twins in the fact-deepening
+direction; otherwise SIGN DESCENT BOUNCES, AS IT MUST.
+
+---
+
 ## e201 — the front-rotation census: ALTERNATION-UNIVERSAL (n=3) — the natural washes rotate the same way; the rotation outlives the organism (2026-10-02 ~08:45Z) — DONE
 
 WHAT WE DID: a desk check on committed data (17 cross-file

@@ -723,6 +723,21 @@ deepest landing" (one perfect 4-point rank-ordering, censored at
 the event; the support-proxy overlap -0.030 — the support itself
 never measured). T164/T166's nouns PROVISIONAL pending the null.
 
+
+[NULL-DERIVATION RESOLUTION ~09:50Z]: THE ALTERNATION IS THE
+ALGORITHM'S — the committed lag matrix carries the exact period-2
+fingerprint of sign-descent overshoot (lag-1 -, lag-2 +, lag-3/4
+~0); the nouns RETIRE (alternation / universality / outlives-the-
+organism = the mandatory bounce); the critic's f_n~0 point also
+refuted (lag-3 predicts +0.6..+0.84 vs ~0 observed — the flip
+core is 8-28% on a 66-95% bath-redrawn majority). THE SURVIVORS
+(different instruments, untouched): death-at-deepest-landing (the
+4/4 rank-order) and the onset/arrival curves (D_kill objects).
+ONE DEBT before the stamp: the step-size prediction has no
+in-domain evidence — e202 (the fact-free twin + the ladder)
+adjudicates; if FACT-IN-THE-FRONT fails to fire, the reading is
+final: SIGN DESCENT BOUNCES, AS IT MUST.
+
 ## T165 — g1bS4: the dose question inverted — formation is non-monotonic in movement at 10M (2026-10-02 ~08:50Z)
 
 Take 4 closes the dose question by inverting it: matching e113's
