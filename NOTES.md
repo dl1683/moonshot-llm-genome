@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e217 — the third wash draw: DEEP-MEAN-REVERTS + GRADED — the +80 drift COLLAPSED toward 1 (wash 1's depth was the outlier; the state function deepens its claim); the relational signature three-draw-stable (rho 0.972/0.966; the decided families rock-steady, the mixed band carrying the lottery) (2026-10-02 ~17:00Z) — DONE
+
+WHAT WE DID: a third independent 5e-5 draw (seed 21703; the
+e182c2 machinery verbatim; all gates at dp 0.0; the envelope
+held: 3 launch cycles, bursts 2.6-9.0s); the three-wash census
+with the relational signature at n=3.
+
+WHAT WE SAW (T192): (1) DEEP-MEAN-REVERTS — THE +80 DRIFT DID
+NOT GROW; IT COLLAPSED toward 1 on BOTH deepest batteries (near
+r21 0.857 -> r31 0.910; tmpl 0.804 -> 0.955; the distances
+0.143->0.090 and 0.196->0.046): WASH 1'S DEPTH WAS THE OUTLIER;
+the state function deepens its claim — path-independent at
+mid-depth, approximately so at depth. (2) MID-DOSE-TIGHTENS
+missed the strict 0.15 bar on the n=3 NEAR battery ALONE (its r31
+0.819; fact 0.917 / ctrl 1.085 / tmpl 0.927 all inside) — THE
+MID-DOSE STATE FUNCTION HOLDS FOR EVERY 12+-ITEM BATTERY AT n=3;
+the 3-item battery carries the draw-noise; GRADED the honest
+letter. (3) THE RELATIONAL SIGNATURE AT n=3: the family
+hold-ratios ROCK-STEADY where decided (lang 0.87/0.82/0.80;
+founder-anchor 0.81/0.81/0.86; cap-cur 0.20/0.24/0.20) and wander
+only in the MIXED band (rev-capital spread 0.174; near 0.105;
+product 0.074); rho w3xw1 0.972 / w3xw2 0.966 (e215's 0.939
+reproduced) — THE SORTING KEY IS THREE-DRAW-STABLE, and the
+families' own mid-band is where the path-lottery lives. 26
+HOLD-all-3 / 12 COLLAPSE-all-3 / 12 discordant (every discordance
+a one-class flicker at the boundaries). (4) The +10 shallows stay
+stream-typed (the direction flips across draws). HONESTY: n=3
+draws; the wash-1 arm the CPU replay; the plot-only re-pass
+disclosed.
+
+---
+
 ## e218 — the nonlinear height test: BEYOND-HEIGHT — the third sorting dimension is NOT height in any registered dress (rank 0.930 / logit 0.913 / quad 0.938 — all far above the 0.5 absorption line; even family-specific slopes leave rho 0.910); the named splits survive under every form; THE PROBE-FEATURE HUNT OWED (2026-10-02 ~16:40Z) — DONE
 
 WHAT WE DID: pure desk (2.3s, zero loads; the linear arm

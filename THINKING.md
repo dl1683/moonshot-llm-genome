@@ -685,6 +685,24 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T192 — e217: the state function deepens; the signature is three-draw-stable (2026-10-02 ~17:00Z)
+
+The third draw closes T185's thread with the better answer: the
+deep drift MEAN-REVERTED (wash 1 was the extreme deep draw) — the
+erosion's state-function claim now covers the mid-dose exactly and
+the deep dose approximately, with the path-lottery confined to the
+shallows and the mixed families' mid-band. THE RELATIONAL
+SIGNATURE'S STRONGEST FORM YET: the sorting key three-draw-stable
+at rho 0.97, the decided families' hold-ratios steady to within
+0.04-0.07 across three independent streams, and every discordance
+a boundary flicker — the wash sorts the same way every time; the
+uncertainty lives only where families are undecided. THE 124M
+THREAD'S FINAL MAP: the erosion is a mid-dose state function
+(approximately deep), stream-typed at the shallows; the sorting
+key family x nonlinear-height x the third dimension; the third
+dimension beyond height with the hunt owed; and the whole thing
+replicating at n=3 draws.
+
 ## T191 — e218: beyond height — the per-probe idiosyncrasy is new information (2026-10-02 ~16:40Z)
 
 The nonlinear test closes the height family cleanly: no function of
