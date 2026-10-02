@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e204 — the support measurement: GRADED — the survivor's leg is PARTIAL (the rank-order stands, the mechanism does not fully); THE SUPPORT ITSELF ROTATES (monotone decorrelation toward orthogonality at death) (2026-10-02 ~10:45Z) — DONE
+
+WHAT WE DID: the fact's LOCAL sensitivity directions (the g-12
+readout gradient, FD-gated — the first fact gradients on any f2
+state) at every state of the half-step lineage; all five fronts
+md5-BIT; a registered sign-identity resolution (the dispatch's
+literal formula vs its intent; both columns; the verdict
+orientation-invariant); 17s CPU.
+
+WHAT WE SAW (T171): THE LANDING METRIC TRACKS THE KILL-RATIO ONLY
+PARTIALLY — Spearman +0.60 (the e197-committed t1/t2 prefix
+PERFECT at +1.0: the softest front the most anti-aligned, the
+first concentrated front the max) but THE DEEPEST LANDING (t4,
+the killing step) IS NOT THE MOST ERASING-ALIGNED (t2 is; t4
+slightly anti-aligned at -0.066). DEATH-AT-DEEPEST-LANDING KEEPS
+ITS 4/4 RANK-ORDER BUT NOT THE FACT-DIRECTED MECHANISM LEG;
+neither is it pure geometry (+0.60 > 0). THE FREE FINDINGS:
+(1) THE SUPPORT ITSELF ROTATES — the consecutive-sensitivity
+cosines fall monotonically 0.776 -> 0.680 -> 0.564 -> 0.333 ->
+0.192 (nearly orthogonal at death): THE FLEEING SUPPORT'S OWN
+ROTATION, now measured — the fact's sensitivity direction
+decorrelates steadily under the wash; (2) the static g-ray proxy
+is CONFIRMED INADEQUATE (cos(s_t, u_g) ~ +-0.04 everywhere —
+T166's suspicion quantified); (3) the death landing-point read
+cos(u4, s5) = +0.146 is the table's LARGEST positive alignment
+(context only); (4) t3 BREAKS the ordering (the un-formed front
+the MOST anti-aligned). HONESTY: n=1 lineage, 4 points (Spearman
+in 0.2 quanta); the counterfactual-wash caveat; the
+alignment-reads-never-predict stamp (T157) carried.
+
+---
+
 ## g1bS6 — the fifth take adjudicated: WALL-FADES at 10M — the wall's first scale verdict; the strict 2.74M wall did NOT survive 10x; what survives is DIRECTION (1000x separation at every checkpoint >= +10); the first-step blindness is structural (2026-10-02 ~10:25Z) — DONE
 
 WHAT WE DID: the wall arms on g1bS5's formation-curve PEAK root

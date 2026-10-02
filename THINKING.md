@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T171 — e204: the support measured — the survivor partial, and the second rotation found (2026-10-02 ~10:45Z)
+
+The survivor's missing leg is measured and it is PARTIAL: the
+landing metric correlates with the kill-depth (+0.60; the early
+prefix perfect) but the killing step's own front is not the most
+fact-erasing-aligned — the 4/4 rank-order stands as a SHAPE; the
+fact-directed mechanism advances no further than "mostly". THE
+DAY'S SECOND ROTATION IS THE FREE GIFT: the fact's sensitivity
+direction itself decorrelates monotonically under the wash
+(0.78 -> 0.19, nearly orthogonal at death) — THE SUPPORT FLIES
+with a steadier rotation than the front's bounce: the fact's
+sensitivity ladder rotates smoothly while the sign front
+alternates. THE PICTURE'S LAST FORM: two rotators — the wash's
+front (period-2 bounce, the algorithm's) and the fact's own
+sensitivity (a monotone drift, the fact's) — and death where they
+meet under conditions only partially rank-ordered. THE STATIC
+PROXY buried properly (±0.04 everywhere); the death landing-point
++0.146 the table's largest positive (context — the one hint that
+the ENDPOINT alignment matters more than the along-path).
+
 ## T170 — g1bS6: the wall's scale verdict — WALL-FADES, direction survives, and the first step is the whole story (2026-10-02 ~10:25Z)
 
 The six-take saga closes with an honest negative and a mechanism:
