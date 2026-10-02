@@ -1,0 +1,1554 @@
+{
+  "experiment": "e214_rank_conservation",
+  "phase": "eval-only on the two archived washes (the rank/scale split of the per-probe records)",
+  "date": "2026-10-02T14:56:33Z",
+  "status": "DONE",
+  "registration": "bars frozen VERBATIM from the dispatch brief (commit eaed63f, QUEUE row DISPATCHED 14:37Z) BEFORE any compute; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "RANK-CONSERVED": "fires if the rank correlations (t=0 vs t, and cross-wash) stay high (rho >= 0.8) at states where the scale has decayed >= 50% \u2014 RANK INFORMATION IS CONSERVED UNDER THE WASH WHILE SCALE IS DESTROYED: W028's law licensed as a measurement; the shape/height split given an information-theoretic form.",
+      "RANK-DESTROYED": "fires if the ranks decorrelate with the scale (rho tracks the decline) \u2014 the shape layer is not rank; the law's form is elsewhere; reported honestly.",
+      "GRADED": "any partial \u2014 the curves verbatim."
+    },
+    "operationalizations": "cell = (battery, wash, state) with decline >= 0.50 where decline_b(w,s) = 1 - mean_p_b(w,s)/mean_p_b(0) on ONE shared pristine t=0 read; cell HOLDS iff within-wash rho_b(w,s) >= 0.8 AND (cross-wash xrho_b(s) >= 0.8 at shared states); rho = Spearman on average ranks (Pearson-on-ranks, exact under ties) over the battery's per-probe p(answer) vector, probed fresh on the loaded states and certified vs the committed records (re-probe tol 0.005); RANK-CONSERVED := cells exist and all HOLD; RANK-DESTROYED := cells exist and all BREAK; GRADED := otherwise; order CONSERVED -> DESTROYED -> GRADED, gated on G_STATES/G_BATT/G_CORPUS/G_ENV; co-reports (never adjudicated): the >= 0.40 echo, Kendall tau-b, the near n=3 flags",
+    "registration": "bars frozen VERBATIM from the dispatch brief (commit eaed63f, QUEUE row DISPATCHED 14:37Z) BEFORE any compute; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "W028's named question: is RANK information (the probes' p-ORDER) conserved under the wash while SCALE information (their absolute levels) is destroyed?",
+  "builds_on": [
+    "W028 (the named question; the shape/height law)",
+    "T185 / e213 (the mid-dose state function + the two-wash archive this cell reads)",
+    "T183 / e182c2 (the fresh draw, the two-wash design)",
+    "T149 / e182c (the saved-state discipline + the batteries)",
+    "T123 / e182 (the parent wash)"
+  ],
+  "whats_new": [
+    "the rank layer: within-wash Spearman(p(0), p(t)) per battery per wash per state",
+    "the cross-wash rho at each shared state (the order as a function of state)",
+    "the scale layer curves; THE dissociation table + plot (rho vs decline, the 0.8/0.5 quadrants)",
+    "the three-rank-bar adjudication + the 0.40 echo + the Kendall tau-b echo",
+    "the e185 tiny-scale per-probe scan (load-only)"
+  ],
+  "smoke": false,
+  "inventory": {
+    "wash1_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:07:14Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:20:17Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:28:00Z"
+      },
+      "2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+        "exists": true,
+        "size_bytes": 652195312,
+        "mtime": "2026-10-01T15:04:11Z"
+      }
+    },
+    "wash2_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:11:49Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:15:03Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:18:15Z"
+      }
+    },
+    "wash1_crosscheck_vs_e182c2_inventory": {
+      "10": true,
+      "50": true,
+      "80": true,
+      "2": true
+    },
+    "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
+  },
+  "timing": {
+    "total_s": 15.8
+  },
+  "tiny_scale_echo": {
+    "scan": {
+      "e185": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      },
+      "e185_smoke": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      },
+      "e185b": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      },
+      "e185b_smoke": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      },
+      "e185c": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      },
+      "e185c_smoke": {
+        "per_probe_records": 0,
+        "note": "aggregates only (mean_pz/median/std/frac at dose points) \u2014 no per-probe p vectors committed"
+      }
+    },
+    "verdict": "NOTED AND SKIPPED \u2014 no per-probe records committed in any runs/e185*/metrics.json (aggregates only); the 2.74M rank/scale curves cannot be drawn load-only (the dispatch's escape clause)"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN \u2014 it feeds the batteries' contamination scans only; no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "kept_set_equal": true,
+        "n": 20,
+        "max_dp_vs_p1": 0.0,
+        "max_dp_vs_p2": 0.0,
+        "kept_set_equal_vs_p2": true
+      },
+      "ctrl": {
+        "kept_set_equal": true,
+        "n": 12,
+        "max_dp_vs_p1": 3.2782554626464844e-06,
+        "max_dp_vs_p2": 3.2782554626464844e-06,
+        "kept_set_equal_vs_p2": true
+      },
+      "near": {
+        "kept_set_equal": true,
+        "n": 3,
+        "max_dp_vs_p1": 0.0,
+        "max_dp_vs_p2": 0.0,
+        "kept_set_equal_vs_p2": true
+      },
+      "tmpl": {
+        "kept_set_equal": true,
+        "n": 19,
+        "max_dp_vs_p1": 0.0,
+        "max_dp_vs_p2": 0.0,
+        "kept_set_equal_vs_p2": true
+      },
+      "tol_per_probe_dp": 0.01,
+      "note": "the four batteries are the phase-1/phase-2 pools VERBATIM (module import); t=0 must reproduce BOTH committed records (same pristine organism, same prompts, same CPU fp32 probe path)",
+      "pass": true
+    },
+    "G_STATES": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:07:14Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:20:17Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:28:00Z"
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "mtime": "2026-10-01T15:04:11Z"
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:11:49Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:15:03Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:18:15Z"
+        }
+      },
+      "wash1_crosscheck_vs_e182c2_inventory": {
+        "10": true,
+        "50": true,
+        "80": true,
+        "2": true
+      },
+      "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set",
+      "all_exist": true,
+      "reprobe_max_dp": 3.337860107421875e-06,
+      "witness_reprobe_max_dp": 2.9206275939941406e-06,
+      "tol_reprobe_dp": 0.005,
+      "reprobe_note": "every battery re-probed on every LOADED state of BOTH archives (incl. the wash-1-only +2) and compared per-probe to the committed records (wash-1 fact/ctrl/near vs e182c; wash-1 tmpl vs e182c2 part 1; wash-2 all four vs e182c2 journal_p2; the part-1 ctrl/near re-probes at +50/+80 a second witness) \u2014 same fp32 weights + same CPU fp32 probe path -> expected ~0.0",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "load_checks": 1,
+      "gpu_calls": 0,
+      "burst": "one state = one eval burst",
+      "pass": true
+    }
+  },
+  "curves": {
+    "w1": {
+      "10": {
+        "fact": {
+          "mean_p": 0.7867586523294449,
+          "retention": 0.9869780534024939,
+          "decl": 0.013021946597506107,
+          "rho_t0": 0.912781954887218,
+          "tau_t0": 0.7789473684210526,
+          "probes": {
+            "France->Paris": 0.6855733394622803,
+            "Greece->Athens": 0.9073511958122253,
+            "Poland->Warsaw": 0.5960739850997925,
+            "Portugal->Lisbon": 0.6725755929946899,
+            "Egypt->Cairo": 0.572288990020752,
+            "Ireland->Dublin": 0.5584324598312378,
+            "France->French": 0.9331899881362915,
+            "Germany->German": 0.8718715906143188,
+            "Japan->Japanese": 0.8634815216064453,
+            "Italy->Italian": 0.9091552495956421,
+            "Spain->Spanish": 0.7756586670875549,
+            "Russia->Russian": 0.8512365818023682,
+            "China->Chinese": 0.6940214037895203,
+            "England->English": 0.8380970358848572,
+            "Greece->Greek": 0.8340088725090027,
+            "Poland->Polish": 0.8641241788864136,
+            "Japan->yen": 0.9248021841049194,
+            "the United Kingdom->pound": 0.964678943157196,
+            "the United States->dollar": 0.5235177874565125,
+            "China->yuan": 0.8950334787368774
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.6820740898450216,
+          "retention": 0.9386950336850323,
+          "decl": 0.061304966314967735,
+          "rho_t0": 0.8881118881118881,
+          "tau_t0": 0.7878787878787878,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.7724655270576477,
+            "The electric car company founded by Elon Musk->Tesla": 0.6907551288604736,
+            "The rocket company founded by Elon Musk->SpaceX": 0.7178038358688354,
+            "The search engine founded by Larry Page->Google": 0.8256096839904785,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.6549122333526611,
+            "The gaming console made by Microsoft->Xbox": 0.5451658964157104,
+            "The web browser made by Google->Chrome": 0.6710348129272461,
+            "The phone made by Apple->iPhone": 0.5515169501304626,
+            "The tablet made by Apple->iPad": 0.7171598076820374,
+            "The email service made by Google->Gmail": 0.742093563079834,
+            "The music store made by Apple->iTunes": 0.5675137042999268,
+            "The game console made by Sony->PlayStation": 0.7288579344749451
+          }
+        },
+        "near": {
+          "mean_p": 0.4613621234893799,
+          "retention": 0.7831051926821696,
+          "decl": 0.2168948073178304,
+          "rho_t0": 0.5,
+          "tau_t0": 0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.562576174736023,
+            "Georgia->Atlanta": 0.4878448247909546,
+            "Ohio->Columbus": 0.3336653709411621
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.8456124035935653,
+          "retention": 0.931814141666836,
+          "decl": 0.06818585833316404,
+          "rho_t0": 0.868421052631579,
+          "tau_t0": 0.695906432748538,
+          "probes": {
+            "Boston->Massachusetts": 0.8351489901542664,
+            "Atlanta->Georgia": 0.9263822436332703,
+            "Sacramento->California": 0.8998387455940247,
+            "Austin->Texas": 0.8856738209724426,
+            "Columbus->Ohio": 0.7353748679161072,
+            "Denver->Colorado": 0.7523755431175232,
+            "Little Rock->Arkansas": 0.9029797911643982,
+            "Hartford->Connecticut": 0.7722193598747253,
+            "Dover->Delaware": 0.7842130064964294,
+            "Tallahassee->Florida": 0.7557725310325623,
+            "Honolulu->Hawaii": 0.9298029541969299,
+            "Boise->Idaho": 0.9778987169265747,
+            "Indianapolis->Indiana": 0.8876628875732422,
+            "Des Moines->Iowa": 0.9691709876060486,
+            "Topeka->Kansas": 0.9839322566986084,
+            "Baton Rouge->Louisiana": 0.8374687433242798,
+            "Annapolis->Maryland": 0.7619900107383728,
+            "Lansing->Michigan": 0.9585186243057251,
+            "Jackson->Mississippi": 0.5102115869522095
+          }
+        }
+      },
+      "50": {
+        "fact": {
+          "mean_p": 0.5266193024814129,
+          "retention": 0.660636768986737,
+          "decl": 0.33936323101326304,
+          "rho_t0": 0.47969924812030074,
+          "tau_t0": 0.4,
+          "probes": {
+            "France->Paris": 0.2497953325510025,
+            "Greece->Athens": 0.5610106587409973,
+            "Poland->Warsaw": 0.21787914633750916,
+            "Portugal->Lisbon": 0.29420042037963867,
+            "Egypt->Cairo": 0.1612653136253357,
+            "Ireland->Dublin": 0.1543307602405548,
+            "France->French": 0.8626181483268738,
+            "Germany->German": 0.7825202345848083,
+            "Japan->Japanese": 0.7902258634567261,
+            "Italy->Italian": 0.823845386505127,
+            "Spain->Spanish": 0.6045123934745789,
+            "Russia->Russian": 0.6892755031585693,
+            "China->Chinese": 0.6018483638763428,
+            "England->English": 0.6567545533180237,
+            "Greece->Greek": 0.7207820415496826,
+            "Poland->Polish": 0.7459540367126465,
+            "Japan->yen": 0.6429978013038635,
+            "the United Kingdom->pound": 0.5763322710990906,
+            "the United States->dollar": 0.12932845950126648,
+            "China->yuan": 0.2669093608856201
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.5221459195017815,
+          "retention": 0.7185961009112569,
+          "decl": 0.2814038990887431,
+          "rho_t0": 0.7202797202797203,
+          "tau_t0": 0.5151515151515151,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.7548393607139587,
+            "The electric car company founded by Elon Musk->Tesla": 0.6190733313560486,
+            "The rocket company founded by Elon Musk->SpaceX": 0.7069522738456726,
+            "The search engine founded by Larry Page->Google": 0.7784528136253357,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.481040358543396,
+            "The gaming console made by Microsoft->Xbox": 0.3579445481300354,
+            "The web browser made by Google->Chrome": 0.26568615436553955,
+            "The phone made by Apple->iPhone": 0.2197819948196411,
+            "The tablet made by Apple->iPad": 0.4041278660297394,
+            "The email service made by Google->Gmail": 0.7385443449020386,
+            "The music store made by Apple->iTunes": 0.33042967319488525,
+            "The game console made by Sony->PlayStation": 0.6088783144950867
+          }
+        },
+        "near": {
+          "mean_p": 0.2074204981327057,
+          "retention": 0.35207066398935355,
+          "decl": 0.6479293360106464,
+          "rho_t0": -0.5,
+          "tau_t0": -0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.2617817521095276,
+            "Georgia->Atlanta": 0.1529892086982727,
+            "Ohio->Columbus": 0.20749053359031677
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.5252675335658225,
+          "retention": 0.5788133119323811,
+          "decl": 0.42118668806761894,
+          "rho_t0": 0.7175438596491228,
+          "tau_t0": 0.5321637426900585,
+          "probes": {
+            "Boston->Massachusetts": 0.6972534656524658,
+            "Atlanta->Georgia": 0.7726046442985535,
+            "Sacramento->California": 0.5423477292060852,
+            "Austin->Texas": 0.36132869124412537,
+            "Columbus->Ohio": 0.34973493218421936,
+            "Denver->Colorado": 0.2460067868232727,
+            "Little Rock->Arkansas": 0.6391218304634094,
+            "Hartford->Connecticut": 0.33418622612953186,
+            "Dover->Delaware": 0.39742594957351685,
+            "Tallahassee->Florida": 0.26312392950057983,
+            "Honolulu->Hawaii": 0.5523943901062012,
+            "Boise->Idaho": 0.8610318303108215,
+            "Indianapolis->Indiana": 0.3505350351333618,
+            "Des Moines->Iowa": 0.7977593541145325,
+            "Topeka->Kansas": 0.9249545335769653,
+            "Baton Rouge->Louisiana": 0.6158467531204224,
+            "Annapolis->Maryland": 0.3780710995197296,
+            "Lansing->Michigan": 0.7535730600357056,
+            "Jackson->Mississippi": 0.14278289675712585
+          }
+        }
+      },
+      "80": {
+        "fact": {
+          "mean_p": 0.45484777726233006,
+          "retention": 0.5706003645052311,
+          "decl": 0.4293996354947689,
+          "rho_t0": 0.45864661654135336,
+          "tau_t0": 0.3684210526315789,
+          "probes": {
+            "France->Paris": 0.13572438061237335,
+            "Greece->Athens": 0.3968694806098938,
+            "Poland->Warsaw": 0.1412094533443451,
+            "Portugal->Lisbon": 0.14942365884780884,
+            "Egypt->Cairo": 0.10885904729366302,
+            "Ireland->Dublin": 0.08268740773200989,
+            "France->French": 0.8230644464492798,
+            "Germany->German": 0.7190970182418823,
+            "Japan->Japanese": 0.7728919982910156,
+            "Italy->Italian": 0.7876316905021667,
+            "Spain->Spanish": 0.5816192626953125,
+            "Russia->Russian": 0.649308443069458,
+            "China->Chinese": 0.5738397836685181,
+            "England->English": 0.6320819854736328,
+            "Greece->Greek": 0.6970937848091125,
+            "Poland->Polish": 0.7124454975128174,
+            "Japan->yen": 0.4514829218387604,
+            "the United Kingdom->pound": 0.41885340213775635,
+            "the United States->dollar": 0.09912417083978653,
+            "China->yuan": 0.16364771127700806
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.43818762960533303,
+          "retention": 0.6030496655080421,
+          "decl": 0.39695033449195793,
+          "rho_t0": 0.6783216783216783,
+          "tau_t0": 0.5151515151515151,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.6969107389450073,
+            "The electric car company founded by Elon Musk->Tesla": 0.5711416602134705,
+            "The rocket company founded by Elon Musk->SpaceX": 0.6289164423942566,
+            "The search engine founded by Larry Page->Google": 0.7129104733467102,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.3956748843193054,
+            "The gaming console made by Microsoft->Xbox": 0.2825866639614105,
+            "The web browser made by Google->Chrome": 0.20234887301921844,
+            "The phone made by Apple->iPhone": 0.11716761440038681,
+            "The tablet made by Apple->iPad": 0.24164250493049622,
+            "The email service made by Google->Gmail": 0.6747748851776123,
+            "The music store made by Apple->iTunes": 0.20097064971923828,
+            "The game console made by Sony->PlayStation": 0.5332061648368835
+          }
+        },
+        "near": {
+          "mean_p": 0.138129194577535,
+          "retention": 0.23445723874461796,
+          "decl": 0.765542761255382,
+          "rho_t0": -0.5,
+          "tau_t0": -0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.1682472974061966,
+            "Georgia->Atlanta": 0.1052575409412384,
+            "Ohio->Columbus": 0.14088274538516998
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.39814792416597666,
+          "retention": 0.43873512809950366,
+          "decl": 0.5612648719004963,
+          "rho_t0": 0.643859649122807,
+          "tau_t0": 0.47368421052631576,
+          "probes": {
+            "Boston->Massachusetts": 0.6420231461524963,
+            "Atlanta->Georgia": 0.6158971190452576,
+            "Sacramento->California": 0.44422367215156555,
+            "Austin->Texas": 0.2104656845331192,
+            "Columbus->Ohio": 0.18600709736347198,
+            "Denver->Colorado": 0.1796502023935318,
+            "Little Rock->Arkansas": 0.572907567024231,
+            "Hartford->Connecticut": 0.28425559401512146,
+            "Dover->Delaware": 0.20143166184425354,
+            "Tallahassee->Florida": 0.17769593000411987,
+            "Honolulu->Hawaii": 0.3108243942260742,
+            "Boise->Idaho": 0.7089241147041321,
+            "Indianapolis->Indiana": 0.20983828604221344,
+            "Des Moines->Iowa": 0.6549640893936157,
+            "Topeka->Kansas": 0.8464008569717407,
+            "Baton Rouge->Louisiana": 0.4516797363758087,
+            "Annapolis->Maryland": 0.22994714975357056,
+            "Lansing->Michigan": 0.5540649890899658,
+            "Jackson->Mississippi": 0.08360926806926727
+          }
+        }
+      },
+      "2": {
+        "fact": {
+          "mean_p": 0.8014794915914536,
+          "retention": 1.0054451465018202,
+          "decl": -0.005445146501820153,
+          "rho_t0": 0.9954887218045113,
+          "tau_t0": 0.968421052631579,
+          "probes": {
+            "France->Paris": 0.6840294599533081,
+            "Greece->Athens": 0.9465760588645935,
+            "Poland->Warsaw": 0.6628219485282898,
+            "Portugal->Lisbon": 0.7327584028244019,
+            "Egypt->Cairo": 0.7649705410003662,
+            "Ireland->Dublin": 0.6329318881034851,
+            "France->French": 0.9256871938705444,
+            "Germany->German": 0.8870295286178589,
+            "Japan->Japanese": 0.8488547205924988,
+            "Italy->Italian": 0.8952212333679199,
+            "Spain->Spanish": 0.7575949430465698,
+            "Russia->Russian": 0.8571146726608276,
+            "China->Chinese": 0.6155425906181335,
+            "England->English": 0.8290001153945923,
+            "Greece->Greek": 0.7962731719017029,
+            "Poland->Polish": 0.8448593020439148,
+            "Japan->yen": 0.9063175916671753,
+            "the United Kingdom->pound": 0.9561573266983032,
+            "the United States->dollar": 0.5634327530860901,
+            "China->yuan": 0.9224163889884949
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.7200787166754404,
+          "retention": 0.9909983757909799,
+          "decl": 0.009001624209020065,
+          "rho_t0": 0.986013986013986,
+          "tau_t0": 0.9393939393939394,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.7459872961044312,
+            "The electric car company founded by Elon Musk->Tesla": 0.7279942631721497,
+            "The rocket company founded by Elon Musk->SpaceX": 0.7770640254020691,
+            "The search engine founded by Larry Page->Google": 0.8427738547325134,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.701863706111908,
+            "The gaming console made by Microsoft->Xbox": 0.6098625659942627,
+            "The web browser made by Google->Chrome": 0.6947441101074219,
+            "The phone made by Apple->iPhone": 0.6168507933616638,
+            "The tablet made by Apple->iPad": 0.7565334439277649,
+            "The email service made by Google->Gmail": 0.7300610542297363,
+            "The music store made by Apple->iTunes": 0.6592689752578735,
+            "The game console made by Sony->PlayStation": 0.7779405117034912
+          }
+        },
+        "near": {
+          "mean_p": 0.579871267080307,
+          "retention": 0.9842598193872555,
+          "decl": 0.015740180612744514,
+          "rho_t0": 1.0,
+          "tau_t0": 1.0,
+          "probes": {
+            "Massachusetts->Boston": 0.6134338974952698,
+            "Georgia->Atlanta": 0.6335731744766235,
+            "Ohio->Columbus": 0.4926067292690277
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.9048396411694979,
+          "retention": 0.9970790045172173,
+          "decl": 0.0029209954827826845,
+          "rho_t0": 0.9947368421052631,
+          "tau_t0": 0.9649122807017544,
+          "probes": {
+            "Boston->Massachusetts": 0.890346884727478,
+            "Atlanta->Georgia": 0.9639889597892761,
+            "Sacramento->California": 0.9267340898513794,
+            "Austin->Texas": 0.9629864692687988,
+            "Columbus->Ohio": 0.8166370987892151,
+            "Denver->Colorado": 0.8365249037742615,
+            "Little Rock->Arkansas": 0.9065008163452148,
+            "Hartford->Connecticut": 0.8308058977127075,
+            "Dover->Delaware": 0.8738468289375305,
+            "Tallahassee->Florida": 0.9070621728897095,
+            "Honolulu->Hawaii": 0.9509825110435486,
+            "Boise->Idaho": 0.98328697681427,
+            "Indianapolis->Indiana": 0.9439556002616882,
+            "Des Moines->Iowa": 0.9879999756813049,
+            "Topeka->Kansas": 0.9843548536300659,
+            "Baton Rouge->Louisiana": 0.8724477887153625,
+            "Annapolis->Maryland": 0.8988462686538696,
+            "Lansing->Michigan": 0.9712693691253662,
+            "Jackson->Mississippi": 0.6833757162094116
+          }
+        }
+      }
+    },
+    "w2": {
+      "10": {
+        "fact": {
+          "mean_p": 0.7743247777223587,
+          "retention": 0.9713799264297335,
+          "decl": 0.028620073570266524,
+          "rho_t0": 0.9187969924812031,
+          "tau_t0": 0.7894736842105263,
+          "probes": {
+            "France->Paris": 0.6888761520385742,
+            "Greece->Athens": 0.9065020680427551,
+            "Poland->Warsaw": 0.5935038924217224,
+            "Portugal->Lisbon": 0.6716935634613037,
+            "Egypt->Cairo": 0.5719118714332581,
+            "Ireland->Dublin": 0.5448583960533142,
+            "France->French": 0.9239764213562012,
+            "Germany->German": 0.862922728061676,
+            "Japan->Japanese": 0.8613760471343994,
+            "Italy->Italian": 0.8947650790214539,
+            "Spain->Spanish": 0.7568483352661133,
+            "Russia->Russian": 0.8368988633155823,
+            "China->Chinese": 0.6939569711685181,
+            "England->English": 0.8099637031555176,
+            "Greece->Greek": 0.8243201971054077,
+            "Poland->Polish": 0.8358119130134583,
+            "Japan->yen": 0.9309965968132019,
+            "the United Kingdom->pound": 0.9535975456237793,
+            "the United States->dollar": 0.44297707080841064,
+            "China->yuan": 0.8807381391525269
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.6692046026388804,
+          "retention": 0.9209835798908811,
+          "decl": 0.07901642010911891,
+          "rho_t0": 0.8951048951048951,
+          "tau_t0": 0.7575757575757576,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.7520514726638794,
+            "The electric car company founded by Elon Musk->Tesla": 0.686306893825531,
+            "The rocket company founded by Elon Musk->SpaceX": 0.7184571623802185,
+            "The search engine founded by Larry Page->Google": 0.8118370175361633,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.6621575355529785,
+            "The gaming console made by Microsoft->Xbox": 0.5642220377922058,
+            "The web browser made by Google->Chrome": 0.6268640160560608,
+            "The phone made by Apple->iPhone": 0.5364912152290344,
+            "The tablet made by Apple->iPad": 0.6946506500244141,
+            "The email service made by Google->Gmail": 0.7153750061988831,
+            "The music store made by Apple->iTunes": 0.5381872057914734,
+            "The game console made by Sony->PlayStation": 0.7238550186157227
+          }
+        },
+        "near": {
+          "mean_p": 0.4403582215309143,
+          "retention": 0.7474536646246432,
+          "decl": 0.25254633537535676,
+          "rho_t0": 0.5,
+          "tau_t0": 0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.5146596431732178,
+            "Georgia->Atlanta": 0.46148592233657837,
+            "Ohio->Columbus": 0.3449290990829468
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.8378483841293737,
+          "retention": 0.9232586579698542,
+          "decl": 0.07674134203014582,
+          "rho_t0": 0.8701754385964913,
+          "tau_t0": 0.7076023391812866,
+          "probes": {
+            "Boston->Massachusetts": 0.8460899591445923,
+            "Atlanta->Georgia": 0.9319971203804016,
+            "Sacramento->California": 0.8838909864425659,
+            "Austin->Texas": 0.8615480065345764,
+            "Columbus->Ohio": 0.7151139378547668,
+            "Denver->Colorado": 0.6927140355110168,
+            "Little Rock->Arkansas": 0.8948483467102051,
+            "Hartford->Connecticut": 0.7770708203315735,
+            "Dover->Delaware": 0.8092619776725769,
+            "Tallahassee->Florida": 0.7325277328491211,
+            "Honolulu->Hawaii": 0.9353042244911194,
+            "Boise->Idaho": 0.9764584302902222,
+            "Indianapolis->Indiana": 0.8704119324684143,
+            "Des Moines->Iowa": 0.9685854911804199,
+            "Topeka->Kansas": 0.9820868968963623,
+            "Baton Rouge->Louisiana": 0.8377618789672852,
+            "Annapolis->Maryland": 0.7214945554733276,
+            "Lansing->Michigan": 0.9592543244361877,
+            "Jackson->Mississippi": 0.5226986408233643
+          }
+        }
+      },
+      "50": {
+        "fact": {
+          "mean_p": 0.5503305766731501,
+          "retention": 0.6903822407094352,
+          "decl": 0.3096177592905648,
+          "rho_t0": 0.5278195488721804,
+          "tau_t0": 0.4105263157894737,
+          "probes": {
+            "France->Paris": 0.2690417468547821,
+            "Greece->Athens": 0.6127621531486511,
+            "Poland->Warsaw": 0.26017776131629944,
+            "Portugal->Lisbon": 0.379864901304245,
+            "Egypt->Cairo": 0.219637930393219,
+            "Ireland->Dublin": 0.16819638013839722,
+            "France->French": 0.8659191131591797,
+            "Germany->German": 0.7602989673614502,
+            "Japan->Japanese": 0.8086544275283813,
+            "Italy->Italian": 0.8248841166496277,
+            "Spain->Spanish": 0.6089867353439331,
+            "Russia->Russian": 0.7117503881454468,
+            "China->Chinese": 0.6079057455062866,
+            "England->English": 0.7013193964958191,
+            "Greece->Greek": 0.7579549551010132,
+            "Poland->Polish": 0.7705532312393188,
+            "Japan->yen": 0.6892218589782715,
+            "the United Kingdom->pound": 0.6286848187446594,
+            "the United States->dollar": 0.10263804346323013,
+            "China->yuan": 0.2581588625907898
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.5265404159824053,
+          "retention": 0.7246439659208269,
+          "decl": 0.2753560340791731,
+          "rho_t0": 0.7062937062937062,
+          "tau_t0": 0.5151515151515151,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.7430320382118225,
+            "The electric car company founded by Elon Musk->Tesla": 0.6376827955245972,
+            "The rocket company founded by Elon Musk->SpaceX": 0.6842846274375916,
+            "The search engine founded by Larry Page->Google": 0.7673287391662598,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.5083450675010681,
+            "The gaming console made by Microsoft->Xbox": 0.3041084408760071,
+            "The web browser made by Google->Chrome": 0.27108338475227356,
+            "The phone made by Apple->iPhone": 0.3231460452079773,
+            "The tablet made by Apple->iPad": 0.4226694405078888,
+            "The email service made by Google->Gmail": 0.7484946846961975,
+            "The music store made by Apple->iTunes": 0.2753598988056183,
+            "The game console made by Sony->PlayStation": 0.6329498291015625
+          }
+        },
+        "near": {
+          "mean_p": 0.240962415933609,
+          "retention": 0.40900392457811646,
+          "decl": 0.5909960754218835,
+          "rho_t0": -0.5,
+          "tau_t0": -0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.324594646692276,
+            "Georgia->Atlanta": 0.1494455337524414,
+            "Ohio->Columbus": 0.24884706735610962
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.5261192015911403,
+          "retention": 0.5797517990059199,
+          "decl": 0.4202482009940801,
+          "rho_t0": 0.6526315789473685,
+          "tau_t0": 0.49707602339181284,
+          "probes": {
+            "Boston->Massachusetts": 0.6541531682014465,
+            "Atlanta->Georgia": 0.7114018201828003,
+            "Sacramento->California": 0.5199455618858337,
+            "Austin->Texas": 0.2778187692165375,
+            "Columbus->Ohio": 0.2842978835105896,
+            "Denver->Colorado": 0.1983185112476349,
+            "Little Rock->Arkansas": 0.7155569791793823,
+            "Hartford->Connecticut": 0.4439254105091095,
+            "Dover->Delaware": 0.4235615134239197,
+            "Tallahassee->Florida": 0.35550063848495483,
+            "Honolulu->Hawaii": 0.5761903524398804,
+            "Boise->Idaho": 0.8211370706558228,
+            "Indianapolis->Indiana": 0.41877055168151855,
+            "Des Moines->Iowa": 0.7747812271118164,
+            "Topeka->Kansas": 0.9311085343360901,
+            "Baton Rouge->Louisiana": 0.5417236685752869,
+            "Annapolis->Maryland": 0.40680578351020813,
+            "Lansing->Michigan": 0.7877576947212219,
+            "Jackson->Mississippi": 0.1535096913576126
+          }
+        }
+      },
+      "80": {
+        "fact": {
+          "mean_p": 0.4321231307461858,
+          "retention": 0.542092603813491,
+          "decl": 0.457907396186509,
+          "rho_t0": 0.4030075187969925,
+          "tau_t0": 0.3368421052631579,
+          "probes": {
+            "France->Paris": 0.14309145510196686,
+            "Greece->Athens": 0.40251320600509644,
+            "Poland->Warsaw": 0.1767950803041458,
+            "Portugal->Lisbon": 0.21651768684387207,
+            "Egypt->Cairo": 0.1165151298046112,
+            "Ireland->Dublin": 0.10094417631626129,
+            "France->French": 0.8013598322868347,
+            "Germany->German": 0.6765148043632507,
+            "Japan->Japanese": 0.7309340238571167,
+            "Italy->Italian": 0.7392057776451111,
+            "Spain->Spanish": 0.4965038299560547,
+            "Russia->Russian": 0.6401978731155396,
+            "China->Chinese": 0.492302268743515,
+            "England->English": 0.572668194770813,
+            "Greece->Greek": 0.6193017959594727,
+            "Poland->Polish": 0.6972143650054932,
+            "Japan->yen": 0.4676443338394165,
+            "the United Kingdom->pound": 0.37188032269477844,
+            "the United States->dollar": 0.05210815742611885,
+            "China->yuan": 0.12825030088424683
+          }
+        },
+        "ctrl": {
+          "mean_p": 0.45459703356027603,
+          "retention": 0.6256328807739033,
+          "decl": 0.37436711922609667,
+          "rho_t0": 0.7412587412587412,
+          "tau_t0": 0.5151515151515151,
+          "probes": {
+            "The social network founded by Mark Zuckerberg->Facebook": 0.709952712059021,
+            "The electric car company founded by Elon Musk->Tesla": 0.5949491858482361,
+            "The rocket company founded by Elon Musk->SpaceX": 0.6274868249893188,
+            "The search engine founded by Larry Page->Google": 0.7314707040786743,
+            "The online encyclopedia that anyone can edit->Wikipedia": 0.4155566096305847,
+            "The gaming console made by Microsoft->Xbox": 0.2354421466588974,
+            "The web browser made by Google->Chrome": 0.20110595226287842,
+            "The phone made by Apple->iPhone": 0.2173159271478653,
+            "The tablet made by Apple->iPad": 0.29010629653930664,
+            "The email service made by Google->Gmail": 0.6942002773284912,
+            "The music store made by Apple->iTunes": 0.13690724968910217,
+            "The game console made by Sony->PlayStation": 0.6006705164909363
+          }
+        },
+        "near": {
+          "mean_p": 0.2024327019850413,
+          "retention": 0.34360449638605217,
+          "decl": 0.6563955036139478,
+          "rho_t0": -0.5,
+          "tau_t0": -0.3333333333333333,
+          "probes": {
+            "Massachusetts->Boston": 0.2300376445055008,
+            "Georgia->Atlanta": 0.15308833122253418,
+            "Ohio->Columbus": 0.22417213022708893
+          }
+        },
+        "tmpl": {
+          "mean_p": 0.49820280153500407,
+          "retention": 0.5489896008094522,
+          "decl": 0.45101039919054775,
+          "rho_t0": 0.6526315789473685,
+          "tau_t0": 0.4853801169590643,
+          "probes": {
+            "Boston->Massachusetts": 0.7610604166984558,
+            "Atlanta->Georgia": 0.6683304905891418,
+            "Sacramento->California": 0.4928411543369293,
+            "Austin->Texas": 0.27844882011413574,
+            "Columbus->Ohio": 0.2546084225177765,
+            "Denver->Colorado": 0.18885965645313263,
+            "Little Rock->Arkansas": 0.7013681530952454,
+            "Hartford->Connecticut": 0.3765191435813904,
+            "Dover->Delaware": 0.3518761396408081,
+            "Tallahassee->Florida": 0.35582369565963745,
+            "Honolulu->Hawaii": 0.48182645440101624,
+            "Boise->Idaho": 0.8212270736694336,
+            "Indianapolis->Indiana": 0.39166590571403503,
+            "Des Moines->Iowa": 0.7092366814613342,
+            "Topeka->Kansas": 0.9029868841171265,
+            "Baton Rouge->Louisiana": 0.49601683020591736,
+            "Annapolis->Maryland": 0.361351877450943,
+            "Lansing->Michigan": 0.7403944134712219,
+            "Jackson->Mississippi": 0.13141101598739624
+          }
+        }
+      }
+    },
+    "xwash": {
+      "10": {
+        "fact": 0.9909774436090225,
+        "fact_tau": 0.9473684210526315,
+        "ctrl": 0.951048951048951,
+        "ctrl_tau": 0.8484848484848485,
+        "near": 1.0,
+        "near_tau": 1.0,
+        "tmpl": 0.9947368421052631,
+        "tmpl_tau": 0.9649122807017544
+      },
+      "50": {
+        "fact": 0.9819548872180451,
+        "fact_tau": 0.9263157894736842,
+        "ctrl": 0.951048951048951,
+        "ctrl_tau": 0.8787878787878788,
+        "near": 1.0,
+        "near_tau": 1.0,
+        "tmpl": 0.9403508771929825,
+        "tmpl_tau": 0.8245614035087719
+      },
+      "80": {
+        "fact": 0.9849624060150376,
+        "fact_tau": 0.9263157894736842,
+        "ctrl": 0.965034965034965,
+        "ctrl_tau": 0.8787878787878788,
+        "near": 1.0,
+        "near_tau": 1.0,
+        "tmpl": 0.9508771929824561,
+        "tmpl_tau": 0.847953216374269
+      }
+    },
+    "n": {
+      "fact": 20,
+      "ctrl": 12,
+      "near": 3,
+      "tmpl": 19
+    }
+  },
+  "dissociation_rows": [
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 2,
+      "n": 20,
+      "mean_p": 0.8014794915914536,
+      "decl": -0.005445146501820153,
+      "rho_t0": 0.9954887218045113,
+      "tau_t0": 0.968421052631579,
+      "xrho": null,
+      "xtau": null
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 2,
+      "n": 12,
+      "mean_p": 0.7200787166754404,
+      "decl": 0.009001624209020065,
+      "rho_t0": 0.986013986013986,
+      "tau_t0": 0.9393939393939394,
+      "xrho": null,
+      "xtau": null
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 2,
+      "n": 3,
+      "mean_p": 0.579871267080307,
+      "decl": 0.015740180612744514,
+      "rho_t0": 1.0,
+      "tau_t0": 1.0,
+      "xrho": null,
+      "xtau": null
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 2,
+      "n": 19,
+      "mean_p": 0.9048396411694979,
+      "decl": 0.0029209954827826845,
+      "rho_t0": 0.9947368421052631,
+      "tau_t0": 0.9649122807017544,
+      "xrho": null,
+      "xtau": null
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 10,
+      "n": 20,
+      "mean_p": 0.7867586523294449,
+      "decl": 0.013021946597506107,
+      "rho_t0": 0.912781954887218,
+      "tau_t0": 0.7789473684210526,
+      "xrho": 0.9909774436090225,
+      "xtau": 0.9473684210526315
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 10,
+      "n": 12,
+      "mean_p": 0.6820740898450216,
+      "decl": 0.061304966314967735,
+      "rho_t0": 0.8881118881118881,
+      "tau_t0": 0.7878787878787878,
+      "xrho": 0.951048951048951,
+      "xtau": 0.8484848484848485
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 10,
+      "n": 3,
+      "mean_p": 0.4613621234893799,
+      "decl": 0.2168948073178304,
+      "rho_t0": 0.5,
+      "tau_t0": 0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 10,
+      "n": 19,
+      "mean_p": 0.8456124035935653,
+      "decl": 0.06818585833316404,
+      "rho_t0": 0.868421052631579,
+      "tau_t0": 0.695906432748538,
+      "xrho": 0.9947368421052631,
+      "xtau": 0.9649122807017544
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 50,
+      "n": 20,
+      "mean_p": 0.5266193024814129,
+      "decl": 0.33936323101326304,
+      "rho_t0": 0.47969924812030074,
+      "tau_t0": 0.4,
+      "xrho": 0.9819548872180451,
+      "xtau": 0.9263157894736842
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 50,
+      "n": 12,
+      "mean_p": 0.5221459195017815,
+      "decl": 0.2814038990887431,
+      "rho_t0": 0.7202797202797203,
+      "tau_t0": 0.5151515151515151,
+      "xrho": 0.951048951048951,
+      "xtau": 0.8787878787878788
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 50,
+      "n": 3,
+      "mean_p": 0.2074204981327057,
+      "decl": 0.6479293360106464,
+      "rho_t0": -0.5,
+      "tau_t0": -0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 50,
+      "n": 19,
+      "mean_p": 0.5252675335658225,
+      "decl": 0.42118668806761894,
+      "rho_t0": 0.7175438596491228,
+      "tau_t0": 0.5321637426900585,
+      "xrho": 0.9403508771929825,
+      "xtau": 0.8245614035087719
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 80,
+      "n": 20,
+      "mean_p": 0.45484777726233006,
+      "decl": 0.4293996354947689,
+      "rho_t0": 0.45864661654135336,
+      "tau_t0": 0.3684210526315789,
+      "xrho": 0.9849624060150376,
+      "xtau": 0.9263157894736842
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 80,
+      "n": 12,
+      "mean_p": 0.43818762960533303,
+      "decl": 0.39695033449195793,
+      "rho_t0": 0.6783216783216783,
+      "tau_t0": 0.5151515151515151,
+      "xrho": 0.965034965034965,
+      "xtau": 0.8787878787878788
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 80,
+      "n": 3,
+      "mean_p": 0.138129194577535,
+      "decl": 0.765542761255382,
+      "rho_t0": -0.5,
+      "tau_t0": -0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 80,
+      "n": 19,
+      "mean_p": 0.39814792416597666,
+      "decl": 0.5612648719004963,
+      "rho_t0": 0.643859649122807,
+      "tau_t0": 0.47368421052631576,
+      "xrho": 0.9508771929824561,
+      "xtau": 0.847953216374269
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 10,
+      "n": 20,
+      "mean_p": 0.7743247777223587,
+      "decl": 0.028620073570266524,
+      "rho_t0": 0.9187969924812031,
+      "tau_t0": 0.7894736842105263,
+      "xrho": 0.9909774436090225,
+      "xtau": 0.9473684210526315
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 10,
+      "n": 12,
+      "mean_p": 0.6692046026388804,
+      "decl": 0.07901642010911891,
+      "rho_t0": 0.8951048951048951,
+      "tau_t0": 0.7575757575757576,
+      "xrho": 0.951048951048951,
+      "xtau": 0.8484848484848485
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 10,
+      "n": 3,
+      "mean_p": 0.4403582215309143,
+      "decl": 0.25254633537535676,
+      "rho_t0": 0.5,
+      "tau_t0": 0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 10,
+      "n": 19,
+      "mean_p": 0.8378483841293737,
+      "decl": 0.07674134203014582,
+      "rho_t0": 0.8701754385964913,
+      "tau_t0": 0.7076023391812866,
+      "xrho": 0.9947368421052631,
+      "xtau": 0.9649122807017544
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 50,
+      "n": 20,
+      "mean_p": 0.5503305766731501,
+      "decl": 0.3096177592905648,
+      "rho_t0": 0.5278195488721804,
+      "tau_t0": 0.4105263157894737,
+      "xrho": 0.9819548872180451,
+      "xtau": 0.9263157894736842
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 50,
+      "n": 12,
+      "mean_p": 0.5265404159824053,
+      "decl": 0.2753560340791731,
+      "rho_t0": 0.7062937062937062,
+      "tau_t0": 0.5151515151515151,
+      "xrho": 0.951048951048951,
+      "xtau": 0.8787878787878788
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 50,
+      "n": 3,
+      "mean_p": 0.240962415933609,
+      "decl": 0.5909960754218835,
+      "rho_t0": -0.5,
+      "tau_t0": -0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 50,
+      "n": 19,
+      "mean_p": 0.5261192015911403,
+      "decl": 0.4202482009940801,
+      "rho_t0": 0.6526315789473685,
+      "tau_t0": 0.49707602339181284,
+      "xrho": 0.9403508771929825,
+      "xtau": 0.8245614035087719
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 80,
+      "n": 20,
+      "mean_p": 0.4321231307461858,
+      "decl": 0.457907396186509,
+      "rho_t0": 0.4030075187969925,
+      "tau_t0": 0.3368421052631579,
+      "xrho": 0.9849624060150376,
+      "xtau": 0.9263157894736842
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 80,
+      "n": 12,
+      "mean_p": 0.45459703356027603,
+      "decl": 0.37436711922609667,
+      "rho_t0": 0.7412587412587412,
+      "tau_t0": 0.5151515151515151,
+      "xrho": 0.965034965034965,
+      "xtau": 0.8787878787878788
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 80,
+      "n": 3,
+      "mean_p": 0.2024327019850413,
+      "decl": 0.6563955036139478,
+      "rho_t0": -0.5,
+      "tau_t0": -0.3333333333333333,
+      "xrho": 1.0,
+      "xtau": 1.0
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 80,
+      "n": 19,
+      "mean_p": 0.49820280153500407,
+      "decl": 0.45101039919054775,
+      "rho_t0": 0.6526315789473685,
+      "tau_t0": 0.4853801169590643,
+      "xrho": 0.9508771929824561,
+      "xtau": 0.847953216374269
+    }
+  ],
+  "relation_texture": {
+    "fact": {
+      "t0": {
+        "cap": 0.747,
+        "cur": 0.8408,
+        "lang": 0.8098
+      },
+      "w1": {
+        "cap": 0.1691,
+        "cur": 0.2833,
+        "lang": 0.6949
+      },
+      "w2": {
+        "cap": 0.1927,
+        "cur": 0.255,
+        "lang": 0.6466
+      }
+    },
+    "ctrl": {
+      "t0": {
+        "found": 0.7548,
+        "make": 0.7065
+      },
+      "w1": {
+        "found": 0.6011,
+        "make": 0.3218
+      },
+      "w2": {
+        "found": 0.6159,
+        "make": 0.3394
+      }
+    },
+    "note": "co-report: the fact battery's t=0 order interleaves relations while the wash sorts BY relation (lang holds, cap/cur collapse \u2014 regardless of baseline p; e.g. China->yuan p0 0.93 dies to 0.16 while China->Chinese p0 0.57 holds 0.57); ctrl splits identically (founders/unique-anchor hold, products collapse). The erosion order lives on the wash's own axes \u2014 which is why the t=0 order dies while the cross-wash order replicates"
+  },
+  "adjudication": {
+    "bars": {
+      "RANK_CONSERVED": false,
+      "RANK_DESTROYED": true,
+      "verdict": "RANK-DESTROYED",
+      "clause": "the ranks decorrelate with the scale \u2014 at every one of the 5 states with decline >= 50%, the t=0-vs-t rho has fallen below 0.8 (near/w1+50 decl 0.648 rho -0.500, near/w1+80 decl 0.766 rho -0.500, tmpl/w1+80 decl 0.561 rho 0.644, near/w2+50 decl 0.591 rho -0.500, near/w2+80 decl 0.656 rho -0.500); the decline-vs-rho coupling (pooled Spearman) -0.88 \u2014 the shape layer is not rank; the law's form is elsewhere; reported honestly. DISCLOSED SPLIT: the bar's CROSS-WASH half HELD at 5/5 cells (xrho 1.000, 1.000, 0.951, 1.000, 1.000) \u2014 the deep-state ORDER is wash-path-independent (T185's state function read on the full p-vector); what dies is the ORIGIN's order, not order per se",
+      "order": "RANK-CONSERVED -> RANK-DESTROYED -> GRADED (gated on G_STATES/G_BATT/G_CORPUS/G_ENV)"
+    },
+    "bar_constants": {
+      "RHO_BAR": 0.8,
+      "SCALE_BAR": 0.5,
+      "ECHO_BAR (non-adjudicated)": 0.4
+    },
+    "cells": [
+      {
+        "battery": "near",
+        "wash": "w1",
+        "state": 50,
+        "n": 3,
+        "mean_p": 0.2074204981327057,
+        "decl": 0.6479293360106464,
+        "rho_t0": -0.5,
+        "tau_t0": -0.3333333333333333,
+        "xrho": 1.0,
+        "xtau": 1.0,
+        "shared_state": true,
+        "cell_holds_flag": "BREAKS",
+        "n3_coarse_flag": true
+      },
+      {
+        "battery": "near",
+        "wash": "w1",
+        "state": 80,
+        "n": 3,
+        "mean_p": 0.138129194577535,
+        "decl": 0.765542761255382,
+        "rho_t0": -0.5,
+        "tau_t0": -0.3333333333333333,
+        "xrho": 1.0,
+        "xtau": 1.0,
+        "shared_state": true,
+        "cell_holds_flag": "BREAKS",
+        "n3_coarse_flag": true
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 80,
+        "n": 19,
+        "mean_p": 0.39814792416597666,
+        "decl": 0.5612648719004963,
+        "rho_t0": 0.643859649122807,
+        "tau_t0": 0.47368421052631576,
+        "xrho": 0.9508771929824561,
+        "xtau": 0.847953216374269,
+        "shared_state": true,
+        "cell_holds_flag": "BREAKS",
+        "n3_coarse_flag": false
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "state": 50,
+        "n": 3,
+        "mean_p": 0.240962415933609,
+        "decl": 0.5909960754218835,
+        "rho_t0": -0.5,
+        "tau_t0": -0.3333333333333333,
+        "xrho": 1.0,
+        "xtau": 1.0,
+        "shared_state": true,
+        "cell_holds_flag": "BREAKS",
+        "n3_coarse_flag": true
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "state": 80,
+        "n": 3,
+        "mean_p": 0.2024327019850413,
+        "decl": 0.6563955036139478,
+        "rho_t0": -0.5,
+        "tau_t0": -0.3333333333333333,
+        "xrho": 1.0,
+        "xtau": 1.0,
+        "shared_state": true,
+        "cell_holds_flag": "BREAKS",
+        "n3_coarse_flag": true
+      }
+    ],
+    "n_cells": 5,
+    "n_hold": 0,
+    "echo40_cells": [
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 50,
+        "n": 19,
+        "mean_p": 0.5252675335658225,
+        "decl": 0.42118668806761894,
+        "rho_t0": 0.7175438596491228,
+        "tau_t0": 0.5321637426900585,
+        "xrho": 0.9403508771929825,
+        "xtau": 0.8245614035087719
+      },
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "state": 80,
+        "n": 20,
+        "mean_p": 0.45484777726233006,
+        "decl": 0.4293996354947689,
+        "rho_t0": 0.45864661654135336,
+        "tau_t0": 0.3684210526315789,
+        "xrho": 0.9849624060150376,
+        "xtau": 0.9263157894736842
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 50,
+        "n": 19,
+        "mean_p": 0.5261192015911403,
+        "decl": 0.4202482009940801,
+        "rho_t0": 0.6526315789473685,
+        "tau_t0": 0.49707602339181284,
+        "xrho": 0.9403508771929825,
+        "xtau": 0.8245614035087719
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "state": 80,
+        "n": 20,
+        "mean_p": 0.4321231307461858,
+        "decl": 0.457907396186509,
+        "rho_t0": 0.4030075187969925,
+        "tau_t0": 0.3368421052631579,
+        "xrho": 0.9849624060150376,
+        "xtau": 0.9263157894736842
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 80,
+        "n": 19,
+        "mean_p": 0.49820280153500407,
+        "decl": 0.45101039919054775,
+        "rho_t0": 0.6526315789473685,
+        "tau_t0": 0.4853801169590643,
+        "xrho": 0.9508771929824561,
+        "xtau": 0.847953216374269
+      }
+    ],
+    "echo40_note": "co-report at the softer >= 0.40 cut \u2014 the frozen 0.50 bar's just-under neighbors (fact/ctrl top out 0.43/0.40 at +80); NOT adjudicated, no bar shopping",
+    "tracks_decline": {
+      "w1:fact": -1.0,
+      "w1:ctrl": -1.0,
+      "w1:near": -0.9486832980505138,
+      "w1:tmpl": -1.0,
+      "w2:fact": -1.0,
+      "w2:ctrl": -0.5,
+      "w2:near": -0.8660254037844387,
+      "w2:tmpl": -0.8660254037844387,
+      "pooled": -0.881031893420993
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_BATT": true,
+      "G_CORPUS": true,
+      "G_ENV": true
+    }
+  },
+  "honesty_reflex": {
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 a device-texture asymmetry between the arms, inherited from the archive (disclosed)",
+    "bar_regime_small_n": "the >= 0.50-decline regime is reached by ['near', 'tmpl'] \u2014 near is n=3 and tmpl n=19; fact (n=20) and ctrl (n=12) top out below the 0.50 line (the 0.40 echo carries their texture, NON-ADJUDICATED)",
+    "n3_quantization": "Spearman on n=3 is quantized to half-points ({-1,-0.5,0.5,1} untied; any tie breaks it further) \u2014 every near cell flagged coarse; its weight in the adjudication is exactly its 3 probes",
+    "t0_shared": "both washes' t=0 is ONE read of the same pristine organism (the committed wash-specific t=0s verified identical to ~1e-6 via G_BATT); within-wash rho for both washes is measured against that single read",
+    "crosswash_state_function": "high cross-wash rho at deep states partly re-expresses T185's state function (if erosion is state-typed, both washes sit near the same deep-state attractor); the WITHIN-wash rho is the independently informative half of the bar",
+    "what_rank_means_here": "conservation of the p-ORDER of these frozen probe sets under these two washes \u2014 an instrument-level measurement of W028's law on the 124M archive, not a proof that the shape layer is rank in general; the 2-shot exemplar structure is part of the frozen instrument (orderings could live partly in the exemplar prefix)",
+    "rho_floor_effect": "batteries saturate near t=0 (p 0.59-0.91) \u2014 the p-vectors carry baseline heterogeneity that rho inherits; Kendall tau-b co-reported as the ties-robust echo (never adjudicated)",
+    "relation_sorting": "the within-wash rho death is partly a BLOCK SORT, not item noise: the wash re-orders the fact battery BY RELATION (lang holds, cap/cur collapse, baseline p irrelevant) and ctrl by anchor type (see relation_texture) \u2014 'rank destroyed' means the ORIGIN's order is overwritten by the wash's own ordering, which itself replicates (the cross-wash half)",
+    "plus2_w1_only": "+2 is a wash-1-only state (in the curves, never the adjudication \u2014 no wash-2 twin)",
+    "tiny_scale_echo": "the e185 family committed NO per-probe records (aggregates only, scan recorded in metrics) \u2014 the 2.74M echo is noted and skipped per the dispatch's escape clause; a future cell would have to re-probe the archived e185 states",
+    "guarantees_nothing": "rank holding at deep states does not prove conservation in the mutual-information sense (the probe sets are small and frozen); rank breaking does not kill W028's law (the shape layer may live in finer structure than battery-level order); the openness is the point"
+  },
+  "compute": {
+    "envelope": "CPU-only (owner envelope 2026-10-02): threads 4, load checks 1, one state = one eval burst, decisive; ~54 prompts x 8 records + screening forwards, 7 checkpoint loads; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 16.7,
+        "tool": "psutil"
+      }
+    ],
+    "state_archive": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+    ]
+  },
+  "trims": [],
+  "deviations": [
+    "EVAL-ONLY on the two archived washes (no wash run here); the +2 wash-1-only state IS loaded from its checkpoint (e213 co-reported it from records only) and verified per-probe like every other state \u2014 it enters the curves, never the adjudication (no wash-2 twin).",
+    "The rank layer uses the RUNTIME re-probes (from the loaded states), not the committed journals: same weights, same CPU fp32 probe path \u2014 the committed records are the verification reference (the re-probe convention), not the data source.",
+    "The e185-family tiny-scale echo was scanned LOAD-ONLY: no per-probe records exist in runs/e185*/metrics.json (aggregates only) \u2014 noted and skipped per the dispatch's 'if the per-probe records don't exist, note and skip'.",
+    "CLAUSE AMENDMENT (reporting only, post-first-run, pre-final-commit): the RANK-DESTROYED clause discloses the cross-wash half's status (computed from the cells) \u2014 the verdict RULE was frozen before compute (a cell HOLDS iff BOTH the t=0-vs-t and cross-wash rhos >= 0.8) and is unchanged; the amendment adds the honest split, it moves no bar.",
+    "PLOT-ONLY FIX: the first full pass wrote DONE metrics + journal and crashed in the figure (adj keying); the figure and all downstream records were regenerated VERBATIM from the frozen journal \u2014 zero recompute of any state, zero metric change.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: t=0 + the +10 pair only, own smoke dir, nothing adjudicated or verified."
+  ]
+}

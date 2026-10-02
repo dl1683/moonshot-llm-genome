@@ -267,6 +267,16 @@ deviations: list[str] = [
     "records exist in runs/e185*/metrics.json (aggregates only) — noted "
     "and skipped per the dispatch's 'if the per-probe records don't "
     "exist, note and skip'.",
+    "CLAUSE AMENDMENT (reporting only, post-first-run, pre-final-commit): "
+    "the RANK-DESTROYED clause discloses the cross-wash half's status "
+    "(computed from the cells) — the verdict RULE was frozen before "
+    "compute (a cell HOLDS iff BOTH the t=0-vs-t and cross-wash rhos "
+    ">= 0.8) and is unchanged; the amendment adds the honest split, it "
+    "moves no bar.",
+    "PLOT-ONLY FIX: the first full pass wrote DONE metrics + journal and "
+    "crashed in the figure (adj keying); the figure and all downstream "
+    "records were regenerated VERBATIM from the frozen journal — zero "
+    "recompute of any state, zero metric change.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
     "Smoke mode: t=0 + the +10 pair only, own smoke dir, nothing "
     "adjudicated or verified.",
@@ -532,10 +542,11 @@ def make_plot(rd, curves, cells, adj, R0):
                 color="dimgray")
         y -= 0.0165
     y = 0.36
-    ax.text(0.02, y, f"E214 VERDICT: {adj['verdict']}", fontsize=9.6,
+    ax.text(0.02, y, f"E214 VERDICT: {adj['bars']['verdict']}", fontsize=9.6,
             va="top", family="monospace", weight="bold", color="darkred")
     y -= 0.032
-    for wd in textwrap.wrap(adj["clause"], width=94, break_long_words=False):
+    for wd in textwrap.wrap(adj["bars"]["clause"], width=94,
+                            break_long_words=False):
         ax.text(0.02, y, f"  {wd}", fontsize=6.8, va="top", family="monospace")
         y -= 0.020
     y -= 0.004
@@ -546,7 +557,7 @@ def make_plot(rd, curves, cells, adj, R0):
 
     fig.suptitle("E214 — THE CONSERVATION-OF-RANK CELL (W028's named "
                  "question): rank vs scale under the two washes -> "
-                 f"{adj['verdict']}", fontsize=11)
+                 f"{adj['bars']['verdict']}", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     png = rd / "rank_conservation.png"
     fig.savefig(png, dpi=130)
@@ -970,6 +981,36 @@ def main():
                 })
     metrics["dissociation_rows"] = diss_rows
 
+    # the RELATION-BLOCK texture (co-report): the multi-relation batteries'
+    # per-relation mean p at t=0 and the deepest state, both washes — the
+    # axis the wash actually orders along (computed, never asserted)
+    rel_tex = {}
+    rel_of = {b: {r["fact"]: r["relation"] for r in bats[b]}
+              for b in ("fact", "ctrl")}
+    for b in ("fact", "ctrl"):
+        rel_tex[b] = {}
+        for wash in ("t0", "w1", "w2"):
+            src = t0_rec if wash == "t0" else st.get((wash, 80))
+            if src is None:
+                continue
+            agg: dict[str, list[float]] = {}
+            for f, d in src[b]["probes"].items():
+                agg.setdefault(rel_of[b][f], []).append(d["p"])
+            rel_tex[b][wash] = {r: round(sum(v) / len(v), 4)
+                                for r, v in sorted(agg.items())}
+    metrics["relation_texture"] = {
+        **rel_tex,
+        "note": "co-report: the fact battery's t=0 order interleaves "
+                "relations while the wash sorts BY relation (lang holds, "
+                "cap/cur collapse — regardless of baseline p; e.g. "
+                "China->yuan p0 0.93 dies to 0.16 while China->Chinese "
+                "p0 0.57 holds 0.57); ctrl splits identically "
+                "(founders/unique-anchor hold, products collapse). The "
+                "erosion order lives on the wash's own axes — which is "
+                "why the t=0 order dies while the cross-wash order "
+                "replicates",
+    }
+
     # the adjudication cells: decline >= SCALE_BAR
     cells = []
     for r in diss_rows:
@@ -1037,10 +1078,12 @@ def main():
                   "information-theoretic form")
     elif n_hold == 0:
         verdict = "RANK-DESTROYED"
+        xhalf = sum(1 for c in cells
+                    if c["xrho"] is not None and c["xrho"] >= RHO_BAR)
         clause = (f"the ranks decorrelate with the scale — at every one of "
                   f"the {n_cells} states with decline >= "
-                  f"{int(SCALE_BAR*100)}%, rho has fallen below "
-                  f"{RHO_BAR} ("
+                  f"{int(SCALE_BAR*100)}%, the t=0-vs-t rho has fallen "
+                  f"below {RHO_BAR} ("
                   + ", ".join(f"{c['battery']}/{c['wash']}+{c['state']} "
                               f"decl {c['decl']:.3f} rho "
                               f"{c['rho_t0']:.3f}"
@@ -1048,7 +1091,12 @@ def main():
                   + "); the decline-vs-rho coupling "
                   f"(pooled Spearman) {tracking['pooled']:.2f} — the "
                   "shape layer is not rank; the law's form is elsewhere; "
-                  "reported honestly")
+                  "reported honestly. DISCLOSED SPLIT: the bar's CROSS-"
+                  f"WASH half HELD at {xhalf}/{n_cells} cells (xrho "
+                  + ", ".join(f"{c['xrho']:.3f}" for c in cells)
+                  + ") — the deep-state ORDER is wash-path-independent "
+                  "(T185's state function read on the full p-vector); "
+                  "what dies is the ORIGIN's order, not order per se")
     else:
         verdict = "GRADED"
         clause = (f"partial dissociation: {n_hold}/{n_cells} of the "
@@ -1128,6 +1176,14 @@ def main():
                     "the p-vectors carry baseline heterogeneity that rho "
                     "inherits; Kendall tau-b co-reported as the "
                     "ties-robust echo (never adjudicated)",
+        "relation_sorting": "the within-wash rho death is partly a BLOCK "
+                    "SORT, not item noise: the wash re-orders the fact "
+                    "battery BY RELATION (lang holds, cap/cur collapse, "
+                    "baseline p irrelevant) and ctrl by anchor type "
+                    "(see relation_texture) — 'rank destroyed' means the "
+                    "ORIGIN's order is overwritten by the wash's own "
+                    "ordering, which itself replicates (the cross-wash "
+                    "half)",
         "plus2_w1_only": "+2 is a wash-1-only state (in the curves, never "
                          "the adjudication — no wash-2 twin)",
         "tiny_scale_echo": "the e185 family committed NO per-probe records "
