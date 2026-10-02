@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e205 — the onset normalization: ARRIVALS-CONTINGENT — the WHEN was an artifact of self-normalized ratios; onset rescopes to within-organism shape; the edge-multiple emerges as the per-organism scalar (2026-10-02 ~11:15Z) — DONE
+
+WHAT WE DID: each front's kill-D re-expressed as a multiple of its
+own organism's in-span random band (org1's and MIRABEL's loaded
+committed; the half lineage's band FRESHLY computed — 3 draws,
+median 0.8526, G_GRAY-anchored to 5.6e-08); the 2x3 arrival
+matrix (self/common axes x bars 0.60/0.70/0.80). THE VERDICT WAS
+DESK-FORCED TO CONTINGENT-OR-WORSE AT REGISTRATION (the committed
+arithmetic alone sufficed; the fresh compute owned only the open
+part; no bar shopping possible).
+
+WHAT WE SAW (T173): ARRIVALS-CONTINGENT — on the common axis the
+cross-organism arrivals DO NOT SURVIVE: org1 t1 dissolves at bar
+0.60 (0.635x); MIRABEL dissolves at every bar (0.904x); at bar
+0.60 the EARLIEST IDENTITY FLIPS org1 -> half. Edge multiples:
+org1 3.72x / MIRABEL 2.12x / half 0.616x — THE HALF EDGE SITS
+BELOW BAND PARITY (a lineage whose consolidation edge is WEAKER
+than its own wash noise), a fact the self axis hid inside
+ratio_0=1.0; the 4.3x edge spread the critic flagged was RANK
+INFORMATION, not noise. ONE INVERSION: the half t2 (0.408x) is
+bar-robust on the common axis where its self-axis arrival was the
+contingent one. THE ONSET STORY RESCOPES TO WITHIN-ORGANISM SHAPE
+ONLY (the cross-organism WHEN falls). THE NEW SCALAR: the
+edge-multiple (the consolidation edge vs the organism's own wash
+noise band) — the per-organism quantity the story was
+accidentally normalizing away. HONESTY: bands n=3 (org1's one
+SOFT-censored); the half fronts' counterfactual currency vs the
+root-level bands; MIRABEL's multiples lower bounds a fortiori.
+
+---
+
 ## g1bS7 — the redrawn interior dose: PEAK-LOTTERY — the peak's HEIGHT is a draw lottery (0.9351 vs 0.7677, |d| 0.167); the SHAPE survives (the redraw still clears SHARP and outranks 0.25); the lottery broke UPWARD — the FIRST 10M root over the express bar (2026-10-02 ~10:55Z) — DONE
 
 WHAT WE DID: one fresh-jitter consolidation at the 0.20 rms peak

@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T173 — e205: the WHEN falls — and the edge-multiple rises (2026-10-02 ~11:15Z)
+
+The normalization cell kills the cross-organism WHEN cleanly: on
+a common ruler (each front vs its own organism's wash-noise band)
+the arrivals dissolve or flip — org1's celebrated t1 arrival is a
+0.635x band-multiple (below parity); MIRABEL's 0.904x dissolves
+everywhere; the earliest identity flips at bar 0.60. THE ONSET
+STORY'S SURVIVING LAYER: within-organism shape (each organism's
+own concentration curve — intact). THE RISE: THE EDGE-MULTIPLE —
+the consolidation edge as a multiple of the organism's own wash
+noise (3.72 / 2.12 / 0.616) — the per-organism scalar the
+self-normalized ratios were accidentally erasing: org1's fact
+lives 3.7x above its wash noise; the half lineage's edge is BELOW
+its own noise yet still resolves arrivals — the edge-multiple may
+be the MEMORY-VERSUS-NOISE MARGIN, a genuinely new quantity (the
+fact's signal-to-noise in its own environment). THE CHAPTER'S
+PATTERN REPEATS: normalize honestly, and a story dies while a
+scalar is born (the flight arc's order-vs-distances; now the
+WHEN-vs-the-margin).
+
 ## T172 — g1bS7: the second lottery — and the 0.94 root (2026-10-02 ~10:55Z)
 
 The redraw answers the honesty ledger with the lab's second
@@ -928,6 +948,14 @@ ROTATING OBJECT the front tracks; the tracking has an onset (1-2
 steps); the onset and the death race — where death wins first, no
 concentration ever appears (org2's full-step, T158's alive-window
 lesson, now with the timing account).
+
+
+[E205 AMENDMENT ~11:15Z]: the cross-organism WHEN FALLS under the
+common ruler (e205/T173: the arrivals dissolve or flip on the
+in-span-band axis; the ordering was an artifact of self-normalized
+ratios) — this card's claim rescopes to WITHIN-ORGANISM arrival
+shape; the surviving cross-organism object is the EDGE-MULTIPLE
+(the fact's margin over its own wash noise).
 
 ## T162 — e198: biography carries the flight — and the t=2 wrinkle reopens the timing question (2026-10-01 ~22:25Z)
 
