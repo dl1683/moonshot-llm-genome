@@ -1201,9 +1201,101 @@ def main():
     log(f"E209 VERDICT: {verdict}")
     log(f"  {clause}")
     log("=" * 78)
+
+    # ---- provenance + honesty (the dispatch's required blocks) --------------
+    metrics["provenance"] = {
+        "parents_files_md5": parents_md5,
+        "machinery": {
+            "rays": "lab/e191_pump_cliff.py + lab/e192_all_ray_terrain.py "
+                    "VERBATIM (the t=0 post-clip-gradient g-ray, the "
+                    "sign-ray, perturb-and-eval, the 0.27 bar, dual "
+                    "currency), adapted at THESE roots",
+            "u0_convention": "e199/e208's: u0 = the t=0 SIGN-ray; edge = "
+                             "first 0.27 downcrossing interpolated on the "
+                             "0.05..3.00 onset grid",
+            "band": "lab/e205_onset_norm.py VERBATIM (20-step unwalled "
+                    "wash-history span by Gram SVD, 3 fresh Gaussian "
+                    "in-span draws, middle-order-statistic median with "
+                    "right-censoring), seeds 12201-3/12211-3/12221-3 "
+                    "(registry-clean, repo-grep'd)",
+            "roots_and_records": "runs/g1b/metrics.json + runs/g1bR/"
+                                 "metrics.json (the checkpoints' meta "
+                                 "inventories, the wall adjudications, the "
+                                 "C-arm death clocks, the s300 reads) — "
+                                 "loaded, hard-bound, never re-run",
+            "e208_table": "runs/e208/metrics.json census_table — loaded "
+                          "verbatim, arithmetic re-checked, never re-run",
+        },
+        "per_new_row": {r["id"]: {
+            "edge": "this run's sign-ray walk at the settled root (u md5 "
+                    + metrics["roots"][r["id"]]["directions"]
+                              ["sign_ray_md5"] + ")",
+            "band": "this run's 3 in-span draws on the SAME grid/ruler "
+                    "(u md5s: " + ", ".join(
+                        d["u_md5"][:8] for d in metrics["roots"][r["id"]]
+                        .get("band", {}).get("draws", {}).values()) + ")",
+            "survival": r["c_arm"]["src"],
+            "settled_root_md5": metrics["roots"][r["id"]]["G_ROOT"]
+                                          .get("settled_flat_md5"),
+        } for r in ROOTS},
+    }
+    hist_deaths = {rid: c["wash_history"]["fact_died_in_history_at_step"]
+                   for rid, c in metrics["roots"].items()}
+    metrics["honesty"] = {
+        "n_and_scope": ("n=1 per root, 3 roots: every margin is a single-u0, "
+                        "single-20-step-history-realization, 3-draw number; "
+                        "every survival number is ONE committed realized "
+                        "walk; the 2-3x draw lottery (T155) would move any "
+                        "band median on redraw"),
+        "the_wall_lineage_caveat": ("these roots' committed survival reads "
+                                    "are WALLED: each W1 maintained g-12 "
+                                    ">= 0.746 through +300 BY CONSTRUCTION "
+                                    "under the wall (R=0.7) — reported per "
+                                    "row, never adjudicated. THE HONEST "
+                                    "COLUMN is named per row: the seed's "
+                                    "C-ARM unwalled death clock (the only "
+                                    "committed unwalled record)"),
+        "the_episode_mismatch_the_verdicts_anatomy": (
+            "the new rows join a margin measured at the s300 SETTLED state "
+            "(300 walled steps into the wash) to a survival clock from the "
+            "lineage's FIRST wash episode (the C-arm washed the PRISTINE "
+            "e131 root). The history co-read closes the loop: at all three "
+            "s300 roots the fact DIES AT THE FIRST unwalled step "
+            f"(death steps {hist_deaths}; min ruler traces "
+            + "/".join(f"{c['wash_history']['ruler_trace_min']:.4f}"
+                       for c in metrics["roots"].values())
+            + ") — the s300 margin (0.74-1.24x, at-or-below noise) tracks "
+            "the s300 organism's OWN unwalled fragility, while the "
+            "registered honest column belongs to a different episode. The "
+            "frozen letter joins the episodes and BREAKS; the co-read is "
+            "reported, never adjudicated (no bar shopping)"),
+        "settled_state_load": ("the checkpoints store MID-STRIDE states "
+                               "(d_raw 1.458-1.463 > R 0.7); the rays start "
+                               "at the SETTLED body (g1's evl_load "
+                               "convention; settled reads reproduce the "
+                               "committed s300 reads at ~5e-6, raw reads sit "
+                               "at 0.449-0.626)"),
+        "single_realizations": ("margins are single-u0 single-span numbers; "
+                                "nothing here is a distribution; R6's death "
+                                "step is bracketed (2,4] on the committed "
+                                "ckpt clock {1,2,4,...}"),
+        "logits_prediction_check": ("every adjudication input is a behavior "
+                                    "read (battery p(Z) crossings); the "
+                                    "one intervention in the cell is the "
+                                    "unwalled history itself and it MOVED "
+                                    "behavior (the fact died at step 1 at "
+                                    "every root) — the co-read is "
+                                    "behaviorally grounded, and it is not "
+                                    "the registered column"),
+        "nothing_guaranteed": ("the openness was the point: the margins "
+                               "could have landed over 2, under 1, or gray; "
+                               f"the observed outcome is '{verdict}' with "
+                               "R7 gray (1.238x) and the episode fork on the "
+                               "face of the adjudication"),
+    }
     metrics["status"] = "COMPLETE — adjudicated (this write replaces all " \
                         "PARTIAL progressive writes)"
-    write_partial("P3 adjudicated")
+    write_partial("P3 adjudicated (+ provenance + honesty)")
 
     # ================= P4: the figure =========================================
     plot_extended(rd / "e209_census_debt.png", old_rows, new_rows, extended,
