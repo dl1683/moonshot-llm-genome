@@ -91,6 +91,30 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R62 — the densest arc audited: 31/34 exact, no verdict changes, the debt bookkeeping (2026-10-02, folded ~14:45Z)
+
+Trigger: the review clock >5h; the arc T172-T186 (fifteen cards).
+AUDITOR (scratch/r62_auditor.md; a pure recomputation pass): 31 of
+34 headline quantities reproduce EXACTLY — the lottery numbers,
+both 10M wall tables, g10's isomorphism (deltas 5.2e-8..1.8e-7),
+g1c-root's, e205's desk-forced arithmetic (5 decimals), the full
+margin/band chain, the 124M cross-wash find (0.99777) — NO verdict
+changes, NO bar shopping. THREE numeric misquotations (all robust
+to correction, all repaired this fold): "~1000x" -> "order 10^3
+(276x-59,000x)"; the retention pair -> the committed mins
+0.895->0.790; W028's wall clause conflated strict protection with
+its 10M direction-form and the untested base axis -> scoped. ONE
+STALE LEDGER ROW (C6: g1c-root's "queued" fragment beside its own
+result; g1bS8/g10 never folded in) -> repaired with the full
+grid. THREE MISSING QUEUE rows (g1bS7/S8/g1d) -> added; e209's
+retired free find -> marked. ONE HARVEST CAUGHT (g1d's complete
+record was ahead of the lab's git memory — folded as T186 before
+the audit landed, the race disclosed). THE BOTTOM LINE: the arc's
+arithmetic is clean; the discipline held through its densest day;
+the debts were bookkeeping and are paid.
+
+---
+
 ## R61 — the envelope era's first review: the audit sound, the rotation under the null (2026-10-02, folded ~09:05Z)
 
 Trigger: the arc since R60 (T156-T166 + the scale saga + the park
