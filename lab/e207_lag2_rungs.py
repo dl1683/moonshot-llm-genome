@@ -778,7 +778,7 @@ def main():
             and h_["stop"]["kind"] == E202_HALF["stop"][0]
             and h_["stop"]["step"] == E202_HALF["stop"][1]),
         "e202_half_geometry_vs_e200": all(
-            exact(h_["geometry"]["mutual_cosines"][k], v)
+            exact(h_["geometry"]["mutual_cosines"][k[len("cos_"):]], v)
             for k, v in HALF_GEOM.items()),
         "e202_ladder_registered_sizes": (
             exact(e_["s"], E193_STEP_L2 * 0.125)
@@ -1089,14 +1089,14 @@ def main():
          "source": "FRESH (this cell) — anchored vs e202 committed "
                    f"(core dev {c14 - E202_QUARTER['core_t0']:+.2e}, tier "
                    f"{tier_w})" if c14 is not None else "FRESH (no core)",
-         "lag1_series": geom_q["lag1_series"], "lag2_series": geom_q["lag2_series"],
+         "lag1_series": qa[6]["lag1_series"], "lag2_series": qa[6]["lag2_series"],
          "cos1_t0": geom_q.get("cos1_t0"), "cos2_t0": geom_q.get("cos2_t0"),
          "core_t0": c14, "core_t0_committed_e202": E202_QUARTER["core_t0"],
          "kill": [qa[3]["stop"]["kind"], qa[3]["stop"]["step"]],
          "n_alive_fronts": geom_q["n_fronts"], "in_domain": True},
         {"key": "three_eighths", "fraction": 0.375, "s": te[2],
          "source": "FRESH (this cell) — the new interior rung",
-         "lag1_series": geom_te["lag1_series"], "lag2_series": geom_te["lag2_series"],
+         "lag1_series": te[6]["lag1_series"], "lag2_series": te[6]["lag2_series"],
          "cos1_t0": geom_te.get("cos1_t0"), "cos2_t0": geom_te.get("cos2_t0"),
          "core_t0": c38,
          "kill": [te[3]["stop"]["kind"], te[3]["stop"]["step"]],
@@ -1248,16 +1248,22 @@ def main():
     try:
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.0, 5.6))
         in_dom = [r for r in five_rung_table if r["in_domain"]]
+        nanify = lambda v: float("nan") if v is None else v
         xs = [r["s"] for r in in_dom]
-        cores_plot = [r["core_t0"] for r in in_dom]
-        c1_plot = [r["cos1_t0"] for r in in_dom]
-        c2_plot = [r["cos2_t0"] for r in in_dom]
+        cores_plot = [nanify(r["core_t0"]) for r in in_dom]
+        c1_plot = [nanify(r["cos1_t0"]) for r in in_dom]
+        c2_plot = [nanify(r["cos2_t0"]) for r in in_dom]
         # panel 1 — THE REGISTERED STATISTIC: the core vs step size
+        # (robust to an unreadable core: plot only rungs with a core)
         ax1.plot([xs[0], xs[3]], [cores_plot[0], cores_plot[3]], "o",
                  color="tab:gray", ms=10, zorder=4,
                  label="LOADED e202 committed (s/8, s/2)")
-        ax1.plot(xs[1:3], cores_plot[1:3], "*", color="tab:red", ms=15,
-                 zorder=6, label="FRESH e207 (s/4 anchored, 3s/8 NEW)")
+        if cores_plot[1] is not None:
+            ax1.plot([xs[1]], [cores_plot[1]], "*", color="tab:red", ms=15,
+                     zorder=6)
+        if cores_plot[2] is not None:
+            ax1.plot([xs[2]], [cores_plot[2]], "*", color="tab:red", ms=15,
+                     zorder=6, label="FRESH e207 (s/4 anchored, 3s/8 NEW)")
         ax1.plot(xs, cores_plot, "-", color="tab:brown", lw=1.6, zorder=3,
                  alpha=0.8)
         ax1.plot([E202_QUARTER["s"]], [E202_QUARTER["core_t0"]], "o",
@@ -1271,11 +1277,12 @@ def main():
                      xytext=(0.16, cores_plot[3] - 0.045),
                      arrowprops=dict(arrowstyle="->", color="tab:gray"),
                      fontsize=9, color="tab:gray")
-        ax1.annotate("3s/8 — the missing\ninterior rung",
-                     xy=(xs[2], cores_plot[2]),
-                     xytext=(0.20, cores_plot[2] + 0.035),
-                     arrowprops=dict(arrowstyle="->", color="tab:red"),
-                     fontsize=9, color="tab:red")
+        if cores_plot[2] is not None:
+            ax1.annotate("3s/8 — the missing\ninterior rung",
+                         xy=(xs[2], cores_plot[2]),
+                         xytext=(0.20, cores_plot[2] + 0.035),
+                         arrowprops=dict(arrowstyle="->", color="tab:red"),
+                         fontsize=9, color="tab:red")
         ax1.set_xscale("log")
         ax1.set_xlabel("per-step L2 s (log scale)")
         ax1.set_ylabel("core(t=0) = (cos2 - cos1)/2")
@@ -1283,11 +1290,14 @@ def main():
                       "(verdict: " + verdict + ")")
         ax1.legend(fontsize=8)
         ax1.grid(alpha=0.3)
-        # panel 2 — the raw series behind the core
+        # panel 2 — the raw series behind the core (cos1/cos2 at t=0)
         ax2.plot(xs, c1_plot, "s-", color="tab:purple", lw=2, ms=8,
                  label="cos1(u0,u1) — the CONFIRMED law (e202)")
-        ax2.plot(xs, c2_plot, "^-", color="tab:blue", lw=2, ms=8,
-                 label="cos2(u0,u2) — the lag-2 raw read")
+        c2_pts = [(x, v) for x, v in zip(xs, c2_plot) if v is not None]
+        if c2_pts:
+            ax2.plot([p[0] for p in c2_pts], [p[1] for p in c2_pts],
+                     "^-", color="tab:blue", lw=2, ms=8,
+                     label="cos2(u0,u2) — the lag-2 raw read")
         ax2.plot([E193_STEP_L2], [DEAD_FULL_C1], "x", color="gray", ms=11,
                  mew=2, zorder=2, label="natural s cos1 (OUT OF DOMAIN)")
         ax2.axhline(0, color="gray", lw=0.8)
