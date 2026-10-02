@@ -9,6 +9,33 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e213 — the path-independence census: PATH-PARTIAL (+GRADED, tables verbatim) — 6/11 non-floor cells match within ±10% (all four at +50; fact+ctrl at +80); 5 wander; the free find re-derived at dp 0.0 (ratio 0.9978); the correlate is DEPTH (2026-10-02 ~17:10Z) — DONE
+
+WHAT WE DID: every battery's decline compared across the two saved
+washes (the fact, the phase-1 controls, the near-related, the
+reversed template) at every shared state; all gates PASS (the
+states re-probed, max dp 3.3e-06 over 24 checks); eval-only CPU.
+
+WHAT WE SAW (T185): PATH-PARTIAL — 6/11 non-floor cells match
+within +-10%: ALL FOUR batteries at +50 (the free find re-derived
+at dp 0.0: tmpl@+50 0.421187 vs 0.420248, ratio 0.9978 — the
+original match is real, not luck) and fact+ctrl at +80. THE 5
+WANDERERS: the +10 cells (uniform >1.1 — WASH 2 ERODES EARLIER:
+the shallow-decline denominators diverge) and near (0.857) + tmpl
+(0.804) at +80 — THE TWO DEEPEST wash-1 declines read SHALLOWER on
+wash 2 at depth (Spearman -0.60: the deeper the wash-1 decline,
+the more wash 2 spares). THE CORRELATE IS DEPTH: not battery size
+(n=3 and n=19 both wander), not base rate (the lowest and highest
+R0 both wander). THE READING: the MID-regime (+50) is
+path-independent (a state function — the displacement-gate echo
+holds there); the EARLY regime is path-typed (wash 2's stream
+erodes earlier); the DEEP regime partially mean-reverts (the
+deepest declines spare on the second wash). HONESTY: n=2 washes;
+the pools' n's; the CPU fp32 texture; the free find stands as
+real but not general.
+
+---
+
 ## e212 — the same-instrument pristine band: GRADED — the shadow's near-last word: the 2-3x gap DEAD at the same instrument (bounded <= 16%, inside the SE window); the band scalar stays closed as a NON-PROPERTY (2026-10-02 ~16:40Z) — DONE
 
 WHAT WE DID: the pristine e131 root's random-draw band on e209's

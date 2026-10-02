@@ -685,6 +685,23 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T185 — e213: the state function holds at mid-depth only (2026-10-02 ~17:10Z)
+
+The census maps the path-independence honestly: the +50 regime is
+a STATE FUNCTION across every battery (the original three-decimal
+match re-derived at dp 0.0 — real, not luck); the early regime is
+path-typed (wash 2's stream erodes earlier — the shallows are the
+stream's own texture); the deep regime partially mean-reverts (the
+deepest wash-1 declines read shallower on wash 2 — a sparing
+correlate, Spearman -0.60). THE 124M PICTURE IN ONE BREATH: the
+erosion is a displacement function at mid-depth, a stream function
+early, and partially self-correcting late. THE ECHO RESCOPED:
+e188's displacement gate (tiny-scale) and the 124M mid-depth state
+function agree where they overlap — the STATE-FUNCTION claim is
+now two-scale, depth-bounded. The program's law again: the SHAPE
+(mid-depth state-functionality) is the physics; the depth
+boundaries are the biography.
+
 ## T184 — e212: the band closes — the instrument-shadow saga's end (2026-10-02 ~16:40Z)
 
 The named debt pays and the saga ends quietly: same-instrument,
