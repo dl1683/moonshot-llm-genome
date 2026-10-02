@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T198 — g12: the crush is made in the normalizer (2026-10-02 ~19:50Z)
+
+The intervention cell closes the wall's mechanism causally and
+with the arc's favorite villain: THE CRUSH TRAVELS WITH THE
+DELTA (the cons delta crushes the locked root to 0.109 where its
+own step reads 0.945 — the same root, the same ball, only the
+delta swapped) — but the s_0-decomposition splits WHERE: the
+gradient's own mild s_0-alignment (+0.096) was PROTECTIVE (its
+removal crushes harder at 0.006), while the ADAMW-REALIZED step's
+s_0-component is the lethal part (the delta-form removal spares
+at 0.708). THE CRUSH IS MADE IN THE NORMALIZER: AdamW transforms
+a mildly-aligned gradient into a concentrated damaging step —
+T139's clock (the normalizer sets the pace) now has its mechanism
+twin (the normalizer sets the AIM). First-order predicts neither
+sign nor scale (-0.0004 vs -6.65): the effect is the nonlinear
+interaction, and the four-cell table is the wall's mechanism
+closed at every clause — orientation (the stream), energy (the
+shared hot set), concentration (the normalizer), re-capture (the
+wall by +2).
+
 ## T197 — e221: the hunt closes at real-and-unnamed (2026-10-02 ~19:15Z)
 
 The last registered candidate retires in the hunt's most

@@ -9,6 +9,14 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g12 — the crush intervention: GRADED — THE CRUSH TRAVELS WITH THE DELTA (the cross-transplant crushes the locked root to 0.109 where its own step reads 0.945) but NOT via the gradient's s_0-component (the g_0-form removal crushes HARDER at 0.006; the g0.s0 term was PROTECTIVE); the interaction lives in the ADAMW-REALIZED step's s_0-component (the delta-form removal SPARES at 0.708); first-order predicts neither sign nor scale (predicted -0.0004 vs actual -6.65) (2026-10-02 ~19:50Z) — DONE
+
+WHAT WE DID: the two registered interventions (the cross-transplant: g1e's cons delta applied at the locked root; the component-removals: both the g_0-form and the delta-form with their s_0-components removed), each a single projected step + the standard +1 read; the references bit-exact; all gates green; 16s CPU.
+
+WHAT WE SAW (T198): (1) THE CRUSH TRAVELS WITH THE DELTA — the cross-transplant crushes the LOCKED root to 0.1088 (its own step reads 0.9452): the same wall, the same ball, the same root — only the delta swapped, and the crush follows it. (2) BUT NOT VIA THE GRADIENT'S s_0-COMPONENT — removing the g_0-form's s_0-component crushes HARDER (0.0059): the +0.096 g0.s0 alignment was PROTECTIVE, not lethal. (3) THE INTERACTION LIVES IN THE ADAMW-REALIZED STEP's s_0-COMPONENT — the delta-form removal (the realized step's own s_0-component) SPARES the cons root (0.7075 vs its own 0.2719): the AdamW normalization transforms the gradient's mild +0.096 alignment into the realized step's damaging interaction — THE CRUSH IS MADE IN THE NORMALIZER, echoing T139's clock at the mechanism level. (4) FIRST-ORDER PREDICTS NEITHER SIGN NOR SCALE (the ledger: predicted -0.0004 vs the actual -6.65 in the removal cell): the interaction is genuinely nonlinear. THE WALL'S MECHANISM, CLOSED CAUSALLY: the consolidation stream orients the support; the wash's shared hot set supplies the energy; THE NORMALIZER CONCENTRATES THE ENERGY INTO THE SUPPORT'S DIRECTION; the wall re-captures by +2.
+
+---
+
 ## e221 — the compositionality test: GRADED — the hunt's LAST candidate retires WITHOUT naming the dimension (the separation fires only through its anchor singleton: R 2.56x collapses to R' 0.03x leave-one-out, KW p 0.40; the anchor captured BY REGISTRATION (weight zero); class == family XOR is_Gmail, asserted; no absorption — leave-Gmail-out 0.930: the miss replicates without the anchor); THE THIRD DIMENSION STANDS REAL-AND-UNNAMED (2026-10-02 ~19:15Z) — DONE
 
 WHAT WE DID: the hunt's lightest cell (2.9s, zero loads; the
