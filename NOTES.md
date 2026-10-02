@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS5 — the formation curve: SHARP-OPTIMUM — the 10M formation optimum located IN THE INTERIOR (peak 0.7677 at 0.20 rms, 0.012 below the express bar); the dose is a tuned window; CE healthy throughout (2026-10-02 ~10:05Z) — DONE
+
+WHAT WE DID: the consolidation-only dose sweep (3 new doses at
+4e-4 from the same loaded base+install, seed 10901; the two
+committed points joined); the owner envelope held throughout
+(3 launches double-polled at 0%/55-65C; bursts 21-32s; 180s
+cooldowns; 32 pause-and-waits).
+
+WHAT WE SAW (T167): THE CURVE — 0.12 -> 0.6498 / 0.15 -> 0.7285 /
+0.20 -> 0.7677 (PEAK) / 0.25 -> 0.7431 / 0.30 -> 0.2523 (the 1e-3
+casualty 0.0010 kept SEPARATE, off the curve). SHARP-OPTIMUM
+FIRES: the max interior reading >= the registered threshold; the
+optimum is IN THE INTERIOR (argmax 0.20 rms / s500, 0.012 below
+the 0.78 express bar); MONOTONE-DECLINE dead. THE E113 FORM'S
+DOSE AT 10M IS A TUNED WINDOW (~2/3 of e113's 0.30 rms) — not
+"more is better", not "less is safer". CE_R HEALTHY 1.66-1.70
+across the sweep (a dose effect, not stability); held30 rises
+0.39 -> 0.58 through the peak then collapses at 0.30, tracking
+the channel. HONESTY: n=1 host/seed/fact; consolidation-only —
+NO wall claims; the same-recipe replay fuzz re-measured in-cell
+(mean |dg0| 2-4e-2, max 2.7e-1) — the curve SHAPE is 2-4x the max
+fuzz but the 0.20-vs-0.25 ordering (gap 0.025) is WITHIN it: the
+robust statement is "the optimum sits in the 0.15-0.25 window"
+(the critic's one-draw caveat carried; the redrawn-dose leg still
+owed for the fine ordering). THE REGISTERED FOLLOW-ON: the fifth
+take — the WALL ARMS on the peak root (runs/checkpoints/
+g1bS5_root_m020.pt, already 0.012 below the bar) — the actual
+adjudication.
+
+---
+
 ## sign-front-null — the desk derivation: THE ALTERNATION IS THE ALGORITHM'S — the committed lag structure carries the exact period-2 fingerprint; the critic's parameter point refuted at lag 3; the survivors named (2026-10-02 ~09:50Z) — DONE (desk)
 
 WHAT WAS DONE: the closed form derived and confirmed at lag 1;

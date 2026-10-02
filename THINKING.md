@@ -685,6 +685,26 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T167 — g1bS5: the tuned window — the formation optimum located in the interior (2026-10-02 ~10:05Z)
+
+The dose sweep closes the inversion with a curve: the 10M
+formation optimum sits IN THE INTERIOR (peak 0.7677 at 0.20 rms,
+0.012 below the express bar; the robust window 0.15-0.25 given
+the fuzz), CE healthy throughout — the e113 form's dose at 10M is
+a TUNED WINDOW at ~2/3 of e113's movement. THE SAGA'S SHAPE: four
+takes of diagnosis (three casualties, one inversion) then one
+sweep — the one-knob licenses were exploring a non-monotone
+landscape pointwise; the curve is the map they needed. THE
+HONESTY LEDGER: n=1 draw (the critic's caveat carried — the fine
+peak ordering is within fuzz; a redrawn interior dose still owed
+for it); consolidation-only (no wall claims); the 0.78 bar
+UNBROKEN but within 0.012 at the peak. THE FIFTH TAKE IS THE
+CHEAPEST OF ALL: the peak root is SAVED (g1bS5_root_m020.pt) —
+the wall arms run directly on it (W1/W2/W3 + C; short bursts; the
+envelope-log now recording every poll). If the arms adjudicate,
+the wall's scale question — open since the first divergence —
+closes on the sweep's back.
+
 ## T166 — e201: the rotation is the wash's — alternation universal, and it outlives the organism (2026-10-02 ~08:45Z)
 
 The census licenses the phase picture: EVERY alive consecutive-
