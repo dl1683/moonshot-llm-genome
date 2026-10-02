@@ -900,6 +900,7 @@ def main():
                     gz = battery_cell(evl, ruler_ids, zid)
                     row["gm12"] = gz["mean_pz"]
                 rows.append(row)
+                wtheta = th_new
             wnet.eval()
             del wnet, wopt, evl
             return torch.stack(segs), rows, (x1b, y1b)
@@ -913,6 +914,9 @@ def main():
             for h in hist_rows:
                 crow = carm_rows[h["step"]]
                 devs.append(abs(h["L2"] - crow["step_disp"]))
+                log(f"  [P hist s{h['step']}] L2 {h['L2']:.6f} vs committed "
+                    f"{crow['step_disp']:.6f} (|d| {devs[-1]:.2e}, ce "
+                    f"{h['ce']:.4f} vs {crow['ce_batch']:.4f})")
             max_dev = max(devs)
             G_HIST = {
                 "gate": "per-step displacement L2 vs g1b's committed C-arm "
@@ -937,13 +941,14 @@ def main():
                 "pr_reproduction_rel_dev": pr_rel,
                 "tol": G_PR_TOL,
                 "measured_death_step": hist_dead,
-                "pass": bool(pr_rel < G_PR_TOL
+                "pass": bool((SMOKE or pr_rel < G_PR_TOL)
                              and abs(hist_rows[0]["L2"]
                                      - r["hist_step1_L2"]) < 1e-3),
                 "note": "same checkpoint, same settling (md5-gated), same "
                         "stream, same arithmetic as e209 — the reproduction "
                         "IS the gate (the full PR comparison happens at the "
-                        "span block)",
+                        "span block; in SMOKE the trimmed 4-step span cannot "
+                        "reproduce the 20-step PR — only step-1 L2 gates)",
             }
         log(f"  G_HIST[{rid}]: " + ("PASS" if G_HIST["pass"] else "FAIL")
             + f" (death step in-history: {hist_dead})")
@@ -977,7 +982,8 @@ def main():
         }
         if rid != "P":
             pr_rel = abs(pr_primary - r["pr"]) / r["pr"]
-            assert pr_rel < G_PR_TOL, f"{rid}: PR reproduction {pr_rel}"
+            if not SMOKE:
+                assert pr_rel < G_PR_TOL, f"{rid}: PR reproduction {pr_rel}"
             cell["span_primary"]["pr_vs_e209_rel_dev"] = pr_rel
         log(f"  span: PR {pr_primary:.4f}, cond {basis['cond']:.2f}, "
             f"top SV {sv[0]:.3f}"
