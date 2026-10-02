@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g11 — the crush mechanism: CARRIER-CONCENTRATED at the boundary; the crush is NOT first-order-directional (the registered falsifier fired: the locked root's first step is the MORE erase-aligned yet survives); the readable residue: the nonlinear interaction between each root's rotated support and the shared wash hot set (2026-10-02 ~19:00Z) — DONE
+
+WHAT WE DID: at the three cons roots (locked 10901; g1e's 10912;
+g1f's 10913 — provenance-gated; the committed first-step deltas
+loaded bit-exact; the settled +1 reads reproduced to 2.4e-7): the
+first wash gradient vs each root's own sensitivity; the ball
+geometry; the delta's composition vs the carrier sets. 18s CPU.
+
+WHAT WE SAW (T196): (1) ERASE-ALIGNED REVERSED — cos(g_0, -s_0):
+locked +0.0986 > cons -0.0962/-0.0211 — THE LOCKED ROOT'S FIRST
+STEP IS THE MORE ERASE-ALIGNED YET SURVIVES (0.945 vs 0.27/0.26):
+the crush is NOT first-order-directional (the registered
+falsifier); (2) CARRIER-CONCENTRATED FIRES AT THE BOUNDARY — top-
+2000 overlap: locked 14/2000 vs cons 23 (1.64x) and 21 (exactly
+1.50x), disclosed with the companions: the L1 mass on carriers at
+the k/P null for EVERY root; the overlap 0.0 at k <= 1000; the
+ladder not uniformly clearing 1.5x — A WEAK k=2000-SHAPED SET
+PREFERENCE, NOT A CONCENTRATION; (3) THE FREE GEOMETRY: the first
+deltas share 55% of their top coords across roots (the wash's hot
+set is ROOT-INDEPENDENT) while the carriers ROTATE (mutual
+overlap 0.23-0.33) — THE CRUSH'S READABLE RESIDUE IS THE
+NONLINEAR INTERACTION between each root's rotated support and the
+shared hot set; (4) the cons roots' first wash gradients are
+20-34% larger in norm (clip binds there, not at the locked). THE
+INTERVENTION NAMED (for whenever): the first step with its
+s_0-component removed; or the cons delta applied at the locked
+root. HONESTY: n=1 per root; the carrier proxy; the T157 class
+(no intervention — a firing names where to intervene, proves
+nothing); the T178 strength confound co-noted.
+
+---
+
 ## e220 — the token-structure test: TOKEN-SILENT — the hunt's second candidate retires cleanly (all four varying token features at |rho| <= 0.069; no substitution moves the residual off 0.934; the Gmail/iPhone anchor token-identical with opposite fates — the best token model WIDENS the gap); the hunt's last candidate is COMPOSITIONALITY (2026-10-02 ~18:35Z) — DONE
 
 WHAT WE DID: the six registered token features vs e216's residual

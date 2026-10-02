@@ -685,6 +685,28 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T196 — g11: the crush is a rotated-support x shared-hot-set interaction (2026-10-02 ~19:00Z)
+
+The mechanism cell answers with the falsifier: the locked root's
+first step is MORE erase-aligned yet survives — first-order
+direction is ruled out. The spatial signature fires only at the
+boundary (a weak k=2000-shaped set preference, mass at the null)
+— honest but thin. THE REAL FINDING IS THE GEOMETRY: the wash's
+first gradient is essentially THE SAME OBJECT at every root (55%
+shared top coordinates — the wash has a root-independent hot set)
+while each root's fact support sits ROTATED relative to it
+(overlap 0.23-0.33). The crush depth is therefore NOT a property
+of the gradient or the support alone but of their RELATIVE
+GEOMETRY — the nonlinear interaction — plus a norm asymmetry (the
+cons roots' first gradients 20-34% larger, the clip binding
+differently). THE WALL'S MECHANISM STORY, FINAL FORM: the
+consolidation stream decides the support's ORIENTATION relative
+to the wash's fixed hot set; the first projected step's damage is
+the interaction; the wall re-captures by +2 whatever the
+interaction costs. THE INTERVENTION NAMED (the s_0-component-
+removed first step; the cons delta at the locked root) — the
+cheap decisive cell for whenever the question is wanted again.
+
 ## T195 — e220: token-silent — the Gmail/iPhone anchor at its sharpest (2026-10-02 ~18:35Z)
 
 The second candidate retires as cleanly as the first: every varying
