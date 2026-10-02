@@ -1,0 +1,231 @@
+C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[    0.0s] G1BS4 THE WALL AT 10x, TAKE 4 (the movement-matched dose: consolidate s750 @ lr 0.0004 = 0.30 rms total; base+install LOADED from g1bS2's PASSED ckpts; smoke=False) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\g1bS4
+[    0.0s] [partial] metrics.json updated (phase 'start', write #1)
+[    2.1s] protocol rebuilt: install60 {'FLORIZEL': 19, 'ELIZABETH': 41}, held30 (SPLICE_RNG 24301)
+[    2.1s] G_ANCHOR: neutral bank 16x256 (seed 170, 2 rejections/18 tries) — host 0/16, junctions 0/16: PASS
+[    2.2s] G-CONFIG: 9,977,600 params in [8.5M, 11.5M]; ladder W1: 1.3360 raw = 1x 4.2296e-04 rms | W2: 2.6720 raw = 2x 4.2296e-04 rms | W3: 5.3440 raw = 4x 4.2296e-04 rms; pin fuzz rms-carried 2.863 raw (verbatim 1.5 co-reported; one-step 3.159): PASS
+[    2.2s] [partial] metrics.json updated (phase 'G-CONFIG', write #2)
+[    2.2s] ==============================================================================
+[    2.2s] HOST BASE: LOADED VERBATIM from g1bS2_base.pt (g1bS2's PASSED base — 9,977,600 params, 1200-step val-min-anchored cosine, lr 0.0004, seed 1337); the ckpt carries the whole eval history; G-BASE-QUAL re-derived ON THE LOAD (a corrupted load cannot slip through); never retrained
+[    2.3s] G-BASE: loaded 1200/1200 steps, final val 1.5690 — cosine COMPLETE (g1bS2's own PASS on record at runs/g1bS2/metrics.json): PASS
+[    8.0s] [g1bS4_base] base: g-12 0.0001 g+0 0.0001 g+12 0.0001 | held30: g-12 0.0001 g+0 0.0001 g+12 0.0001 | CE_R 1.5452
+[    9.7s] [g1bS4_base] site read @183: onset 0.0001 span 0.0142
+[   12.1s] base cells: g-12 0.0001 CE_R 1.5452
+[   19.7s] G-BASE-QUAL (on the loaded state): cosine True | val decreasing True (2.1299 -> 1.5690) | final<=1.70 True | coherence True (ls 0.89, mwl 4.084745762711864, max_run 2, distinct 36): PASS
+[   19.7s] G-BASE-QUAL sample ('?\n\nGREMIO:\nGood morrow, neighbour Baptista.\n\nBAPTISTA:\nGood morr'...): "ow, my lord; and should I knew for him:\nMistake the duke or eyes extremes are you.\nThen shall Volshier's and guilt come out\nIs a state, soon, shall it a marriag"
+[   19.7s] [partial] metrics.json updated (phase 'G-BASE-QUAL', write #3)
+[   19.7s] ==============================================================================
+[   19.7s] INSTALL: LOADED VERBATIM from g1bS2_install.pt (g1bS2's movement-matched e043-Dmix install: 16 install + 16 paired + 32 random = 64 windows/step, dose s1000, house cosine, lr 0.0004 width-scaled, seed 42); post-install cells re-measured THIS run and cross-checked against g1bS2's committed record
+[   25.4s] [post_install] base: g-12 0.0420 g+0 0.5013 g+12 0.0425 | held30: g-12 0.0224 g+0 0.3018 g+12 0.0203 | CE_R 1.5401
+[   27.0s] [post_install] site read @183: onset 0.0238 span 0.8597
+[   29.5s] post-install (re-measured): g-12 0.0420 g0 0.5013 CE_R 1.5401 (g1bS2 record g-12 0.0420; |d| 0.00e+00 <= 0.02): REUSABLE
+[   29.5s] [partial] metrics.json updated (phase 'G-INST', write #4)
+[   29.5s] ==============================================================================
+[thermal] cooldown 120s (temp 60C)
+[  152.8s] CONSOLIDATE: e113 jitter convention at the LICENSED lr 0.0004 with THE MOVEMENT-MATCHED DOSE 750 steps (= 750 x 0.0004 = 0.30 rms total movement = e113's 300 x 1e-3; g1bS2's verbatim 1e-3 killed the channel — root 0.0010; g1bS3's 0.12 rms dose formed it to 0.6498 — the near-miss), jitters (-8, -4, 0, 4, 8), batch 16 install + 16 anchor, name-masked union CE, AdamW (0.9,0.95) wd 0.1 clip 1.0, seed 10901 — the movement arithmetic: REGISTERED.g1bs4_license / CONS_MOVEMENT
+[  162.3s] [gpu] 'consolidate-chunk1' may use GPU (util 0% temp 58C mem 0/24463MB)
+[  165.4s]   [consolidate] s  25 g0 0.5003 CE_R 2.0348 (2s)
+[  166.6s]   [consolidate] s  50 g0 0.6432 CE_R 1.8184 (3s)
+[  167.8s]   [consolidate] s  75 g0 0.4889 CE_R 1.7556 (4s)
+[  167.9s]   [consolidate] PAUSED for outside load/heat ({'util': 92.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 165.72})
+[  197.9s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 60.0, 'power': 8.51}); resuming
+[  199.3s]   [consolidate] s 100 g0 0.5976 CE_R 1.7291 (5s)
+[  200.4s]   [consolidate] s 125 g0 0.6678 CE_R 1.7320 (6s)
+[  200.7s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 166.79})
+[  230.8s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 62.0, 'power': 8.76}); resuming
+[  232.1s]   [consolidate] s 150 g0 0.5656 CE_R 1.7514 (8s)
+[  233.3s]   [consolidate] s 175 g0 0.2191 CE_R 1.7413 (9s)
+[  233.4s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 165.45})
+[  263.4s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 63.0, 'power': 9.0}); resuming
+[  264.7s]   [consolidate] s 200 g0 0.6624 CE_R 1.7288 (11s)
+[  265.9s]   [consolidate] s 225 g0 0.4730 CE_R 1.7484 (12s)
+[  266.0s]   [consolidate] PAUSED for outside load/heat ({'util': 43.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 164.36})
+[  296.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.1}); resuming
+[  297.5s]   [consolidate] s 250 g0 0.7038 CE_R 1.7169 (13s)
+[  298.9s]   [consolidate] s 275 g0 0.5771 CE_R 1.7268 (15s)
+[  299.0s]   [consolidate] PAUSED for outside load/heat ({'util': 11.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 159.81})
+[  329.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.26}); resuming
+[  330.5s]   [consolidate] s 300 g0 0.7115 CE_R 1.6902 (16s)
+[  330.7s]   [consolidate] PAUSED for outside load/heat ({'util': 89.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 168.91})
+[  360.7s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.26}); resuming
+[  362.1s]   [consolidate] s 325 g0 0.6932 CE_R 1.7024 (18s)
+[  362.2s]   [consolidate] PAUSED for outside load/heat ({'util': 88.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 171.99})
+[  392.3s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.32}); resuming
+[  393.8s]   [consolidate] s 350 g0 0.7178 CE_R 1.6943 (19s)
+[  394.0s]   [consolidate] PAUSED for outside load/heat ({'util': 84.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 156.21})
+[  424.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.2}); resuming
+[  425.3s]   [consolidate] s 375 g0 0.7290 CE_R 1.7061 (20s)
+[  426.7s]   [consolidate] s 400 g0 0.7215 CE_R 1.7294 (22s)
+[  426.9s]   [consolidate] PAUSED for outside load/heat ({'util': 89.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 145.77})
+[  456.9s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 66.0, 'power': 9.47}); resuming
+[  458.3s]   [consolidate] s 425 g0 0.7478 CE_R 1.7349 (23s)
+[  458.4s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 150.6})
+[  488.5s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.34}); resuming
+[  489.8s]   [consolidate] s 450 g0 0.7838 CE_R 1.7007 (25s)
+[  490.0s]   [consolidate] PAUSED for outside load/heat ({'util': 87.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 88.66})
+[  520.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.35}); resuming
+[  521.4s]   [consolidate] s 475 g0 0.7806 CE_R 1.7035 (26s)
+[  522.7s]   [consolidate] s 500 g0 0.6959 CE_R 1.6997 (27s)
+[  523.0s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 86.0, 'power': 164.74})
+[  553.0s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 66.0, 'power': 9.49}); resuming
+[  554.3s]   [consolidate] s 525 g0 0.7336 CE_R 1.6722 (29s)
+[  554.4s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 146.43})
+[  584.5s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 66.0, 'power': 9.43}); resuming
+[  585.9s]   [consolidate] s 550 g0 0.4082 CE_R 1.6852 (30s)
+[  586.0s]   [consolidate] PAUSED for outside load/heat ({'util': 90.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 151.4})
+[  616.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 66.0, 'power': 9.39}); resuming
+[  617.5s]   [consolidate] s 575 g0 0.7280 CE_R 1.6710 (32s)
+[  617.6s]   [consolidate] PAUSED for outside load/heat ({'util': 19.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 160.69})
+[  647.7s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.53}); resuming
+[  648.9s]   [consolidate] s 600 g0 0.7604 CE_R 1.6873 (33s)
+[  649.1s]   [consolidate] PAUSED for outside load/heat ({'util': 89.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 82.04})
+[  679.1s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.32}); resuming
+[  680.5s]   [consolidate] s 625 g0 0.6756 CE_R 1.6664 (34s)
+[  680.8s]   [consolidate] PAUSED for outside load/heat ({'util': 27.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 163.3})
+[  710.8s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.34}); resuming
+[  712.1s]   [consolidate] s 650 g0 0.7602 CE_R 1.6577 (36s)
+[  712.2s]   [consolidate] PAUSED for outside load/heat ({'util': 90.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 170.17})
+[  742.3s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.29}); resuming
+[  743.7s]   [consolidate] s 675 g0 0.7768 CE_R 1.6628 (37s)
+[  743.8s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 160.88})
+[  773.9s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.48}); resuming
+[  775.1s]   [consolidate] s 700 g0 0.6696 CE_R 1.6996 (39s)
+[  775.3s]   [consolidate] PAUSED for outside load/heat ({'util': 91.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 168.25})
+[  805.3s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2142.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.12}); resuming
+[  806.7s]   [consolidate] s 725 g0 0.8406 CE_R 1.6688 (40s)
+[  806.8s]   [consolidate] PAUSED for outside load/heat ({'util': 90.0, 'mem_used': 2144.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 172.34})
+[  836.9s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2144.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.15}); resuming
+[  838.3s]   [consolidate] s 750 g0 0.6204 CE_R 1.6372 (42s)
+[  838.5s]   [consolidate] PAUSED for outside load/heat ({'util': 92.0, 'mem_used': 2144.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 156.65})
+[  868.6s]   [consolidate] contention cleared ({'util': 0.0, 'mem_used': 2144.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.12}); resuming
+[  868.6s] [partial] metrics.json updated (phase 'consolidate-chunk1', write #5)
+[  868.8s] [g1bS3 overlap] 12 eval points replayed: mean |dg0| 2.18e-02, max 1.11e-01, mean |dCE| 3.69e-03
+[  868.8s] [partial] metrics.json updated (phase 'consolidate', write #6)
+[  868.8s] ==============================================================================
+[  875.4s] [g1bS4_root] base: g-12 0.2523 g+0 0.6204 g+12 0.2860 | held30: g-12 0.0602 g+0 0.4380 g+12 0.0477 | CE_R 1.6372
+[  877.6s] [g1bS4_root] site read @183: onset 0.1614 span 0.8786
+[  923.7s] [g1bS4_root] old band: row0 S +0.5367 | A(129) +0.0377
+[  926.6s] [g1bS4_root] deletions g0: d_all 0.509 | d183 0.620
+[  926.6s] G-ROOT: root g-12 0.2523 (bar >= 0.78): FAIL
+[  926.6s] G-ROOT FAILED — arms still run for the record; verdict will be TEXTURE (gate failure), nothing adjudicated
+[  926.6s] SCALED BAR (frozen formula, root measured): bar_0p9eq = 0.2523 x 0.9 / 0.9156 = 0.2480  (= 0.98297 x root; secondary 0.9x root = 0.2271)
+[  926.6s] [partial] metrics.json updated (phase 'root+scaled-bar', write #7)
+[  926.7s] [ckpt] saved g1bS4_root.pt
+[  926.7s] ==============================================================================
+[  926.7s] [thermal] cooldown 120s before C
+[thermal] cooldown 120s (temp 61C)
+[ 1046.7s] ARM C — CONTROL — uncommitted neutral wash (e176N arm A VERBATIM at 10M): the kill clock, D_kill, the CE adaptation curve
+[ 1052.1s] [gpu] 'C' may use GPU (util 0% temp 58C mem 686/24463MB)
+[ 1052.5s]   [C] CKPT +   1 g-12 0.0003 g0 0.0007 CE_R 3.2843 | |d| 3.1570 raw = 9.9944e-04 rms (uncommitted) (CE 1.3985)
+[ 1052.6s]   [C] CKPT +   2 g-12 0.0003 g0 0.0006 CE_R 4.0480 | |d| 4.8584 raw = 1.5381e-03 rms (uncommitted) (CE 3.1899)
+[ 1052.8s]   [C] CKPT +   4 g-12 0.0000 g0 0.0000 CE_R 3.1118 | |d| 7.1547 raw = 2.2651e-03 rms (uncommitted) (CE 3.7289)
+[ 1053.1s]   [C] CKPT +  10 g-12 0.0000 g0 0.0000 CE_R 2.5690 | |d| 11.1434 raw = 3.5278e-03 rms (uncommitted) (CE 2.4298)
+[ 1055.1s]   [C] CKPT +  50 g-12 0.0215 g0 0.0035 CE_R 2.0661 | |d| 18.4438 raw = 5.8390e-03 rms (uncommitted) (CE 1.1752)
+[ 1056.4s]   [C] PAUSED for outside load/heat ({'util': 92.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 162.45})
+[ 1086.4s]   [C] contention cleared ({'util': 0.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 61.0, 'power': 8.77}); resuming
+[ 1087.8s]   [C] CKPT + 100 g-12 0.0726 g0 0.0072 CE_R 1.7813 | |d| 22.4921 raw = 7.1206e-03 rms (uncommitted) (CE 0.8244)
+[ 1089.1s]   [C] PAUSED for outside load/heat ({'util': 92.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 159.4})
+[ 1119.1s]   [C] contention cleared ({'util': 0.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 62.0, 'power': 8.83}); resuming
+[ 1120.5s]   [C] s 150 CE 0.7589 |d| 25.3835 (8s)
+[ 1121.8s]   [C] PAUSED for outside load/heat ({'util': 92.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 168.22})
+[ 1151.8s]   [C] contention cleared ({'util': 0.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 63.0, 'power': 9.02}); resuming
+[ 1153.2s]   [C] CKPT + 200 g-12 0.0052 g0 0.0019 CE_R 1.7212 | |d| 28.2629 raw = 8.9475e-03 rms (uncommitted) (CE 0.7620)
+[ 1154.4s]   [C] PAUSED for outside load/heat ({'util': 93.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 161.49})
+[ 1184.5s]   [C] contention cleared ({'util': 0.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 63.0, 'power': 9.01}); resuming
+[ 1185.9s]   [C] s 250 CE 0.7467 |d| 31.1167 (13s)
+[ 1187.2s]   [C] PAUSED for outside load/heat ({'util': 89.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 161.35})
+[ 1217.2s]   [C] contention cleared ({'util': 0.0, 'mem_used': 2122.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.05}); resuming
+[ 1218.6s]   [C] CKPT + 300 g-12 0.0014 g0 0.0015 CE_R 1.6886 | |d| 33.7603 raw = 1.0688e-02 rms (uncommitted) (CE 0.7199)
+[ 1218.7s] [partial] metrics.json updated (phase 'arm-C', write #8)
+[ 1218.7s] [ckpt] saved g1bS4_C_s300.pt
+[ 1218.7s] ==============================================================================
+[ 1218.7s] [thermal] cooldown 120s before W1
+[thermal] cooldown 120s (temp 75C)
+[ 1338.8s] ARM W1 — WALL 1x R_rms = 1.3360 raw L2 = 4.2296e-04 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[ 1338.9s] G_BITROOT[W1]: max|diff| 0.0e+00, anchors bit-equal, R = 1.336009 raw = 4.229571e-04 rms: PASS
+[ 1344.2s] [gpu] 'W1' may use GPU (util 0% temp 59C mem 2122/24463MB)
+[ 1344.7s]   [W1] CKPT +   1 g-12 0.0400 g0 0.3691 CE_R 1.9146 | |d| 3.1570 raw = 9.9944e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.3985)
+[ 1344.9s]   [W1] CKPT +   2 g-12 0.3003 g0 0.5323 CE_R 1.7471 | |d| 3.0655 raw = 9.7049e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.6744)
+[ 1345.3s]   [W1] CKPT +   4 g-12 0.2781 g0 0.5122 CE_R 1.6536 | |d| 2.4995 raw = 7.9130e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.3183)
+[ 1345.8s]   [W1] CKPT +  10 g-12 0.4345 g0 0.5365 CE_R 1.6767 | |d| 2.2992 raw = 7.2788e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.0623)
+[ 1348.4s]   [W1] CKPT +  50 g-12 0.3749 g0 0.5438 CE_R 1.6712 | |d| 2.3927 raw = 7.5747e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.0151)
+[ 1348.6s]   [W1] PAUSED for outside load/heat ({'util': 71.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 145.69})
+[ 1378.6s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 62.0, 'power': 8.75}); resuming
+[ 1382.0s]   [W1] CKPT + 100 g-12 0.4065 g0 0.5706 CE_R 1.6436 | |d| 2.3839 raw = 7.5472e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 0.9921)
+[ 1382.1s]   [W1] PAUSED for outside load/heat ({'util': 65.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 145.49})
+[ 1412.2s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 63.0, 'power': 8.95}); resuming
+[ 1415.3s]   [W1] s 150 CE 1.0510 |d| 2.3226 (11s)
+[ 1415.5s]   [W1] PAUSED for outside load/heat ({'util': 65.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 147.92})
+[ 1445.5s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.12}); resuming
+[ 1449.0s]   [W1] CKPT + 200 g-12 0.4839 g0 0.5385 CE_R 1.6660 | |d| 2.3027 raw = 7.2900e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 1.0625)
+[ 1449.1s]   [W1] PAUSED for outside load/heat ({'util': 74.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 149.03})
+[ 1479.2s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.42}); resuming
+[ 1481.0s]   [W1] PAUSED for outside load/heat ({'util': 74.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 143.77})
+[ 1511.1s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.2}); resuming
+[ 1512.7s]   [W1] s 250 CE 0.9813 |d| 2.3498 (18s)
+[ 1514.3s]   [W1] PAUSED for outside load/heat ({'util': 66.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 85.0, 'power': 146.58})
+[ 1544.3s]   [W1] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 65.0, 'power': 9.3}); resuming
+[ 1546.1s]   [W1] CKPT + 300 g-12 0.4847 g0 0.6164 CE_R 1.6325 | |d| 2.3108 raw = 7.3154e-04 rms | R 1.3360 raw = 4.2296e-04 rms (d_proj 1.336008906364441) (CE 0.9520)
+[ 1546.1s] [partial] metrics.json updated (phase 'arm-W1', write #9)
+[ 1546.2s] [ckpt] saved g1bS4_W1_s300.pt
+[ 1546.2s] W1 +2 full dial (CPU)
+[ 1552.5s] [W12] base: g-12 0.3003 g+0 0.5323 g+12 0.2588 | held30: g-12 0.0491 g+0 0.3048 g+12 0.0269 | CE_R 1.7471
+[ 1554.3s] [W12] site read @183: onset 0.0732 span 0.8646
+[ 1592.1s] [W12] old band: row0 S +0.4835 | A(129) +0.0319
+[ 1594.6s] [W12] deletions g0: d_all 0.448 | d183 0.532
+[ 1594.6s] W1 +50 full dial (CPU)
+[ 1600.3s] [W150] base: g-12 0.3749 g+0 0.5438 g+12 0.3674 | held30: g-12 0.1266 g+0 0.4999 g+12 0.0998 | CE_R 1.6712
+[ 1602.1s] [W150] site read @183: onset 0.2646 span 0.8943
+[ 1639.7s] [W150] old band: row0 S +0.4650 | A(129) -0.0211
+[ 1642.2s] [W150] deletions g0: d_all 0.527 | d183 0.544
+[ 1642.3s] W1 +300 full dial (CPU)
+[ 1647.8s] [W1300] base: g-12 0.4847 g+0 0.6164 g+12 0.4260 | held30: g-12 0.1966 g+0 0.5306 g+12 0.1209 | CE_R 1.6325
+[ 1649.6s] [W1300] site read @183: onset 0.2049 span 0.8857
+[ 1686.2s] [W1300] old band: row0 S +0.5201 | A(129) -0.0195
+[ 1688.6s] [W1300] deletions g0: d_all 0.607 | d183 0.616
+[ 1688.6s] ==============================================================================
+[ 1688.6s] [thermal] cooldown 120s before W2
+[thermal] cooldown 120s (temp 60C)
+[ 1808.7s] ARM W2 — WALL 2x R_rms = 2.6720 raw L2 = 8.4591e-04 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[ 1808.8s] G_BITROOT[W2]: max|diff| 0.0e+00, anchors bit-equal, R = 2.672018 raw = 8.459142e-04 rms: PASS
+[ 1814.0s] [gpu] 'W2' may use GPU (util 0% temp 58C mem 2170/24463MB)
+[ 1814.5s]   [W2] CKPT +   1 g-12 0.0006 g0 0.0024 CE_R 2.9177 | |d| 3.1570 raw = 9.9944e-04 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 1.3985)
+[ 1814.8s]   [W2] CKPT +   2 g-12 0.0256 g0 0.1271 CE_R 2.8121 | |d| 4.3844 raw = 1.3880e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 2.7987)
+[ 1815.0s]   [W2] CKPT +   4 g-12 0.0133 g0 0.1229 CE_R 1.8304 | |d| 3.7209 raw = 1.1780e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 1.7911)
+[ 1815.5s]   [W2] CKPT +  10 g-12 0.4238 g0 0.4287 CE_R 1.7653 | |d| 3.3326 raw = 1.0551e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 1.1040)
+[ 1817.9s]   [W2] CKPT +  50 g-12 0.3422 g0 0.5705 CE_R 1.6300 | |d| 3.2577 raw = 1.0313e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 0.7549)
+[ 1819.5s]   [W2] PAUSED for outside load/heat ({'util': 66.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 148.16})
+[ 1849.6s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 62.0, 'power': 8.72}); resuming
+[ 1851.3s]   [W2] CKPT + 100 g-12 0.3024 g0 0.2963 CE_R 1.8467 | |d| 3.2477 raw = 1.0282e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 0.7827)
+[ 1852.8s]   [W2] PAUSED for outside load/heat ({'util': 78.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 154.23})
+[ 1882.9s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 63.0, 'power': 8.98}); resuming
+[ 1884.6s]   [W2] s 150 CE 0.7636 |d| 3.2465 (10s)
+[ 1886.1s]   [W2] PAUSED for outside load/heat ({'util': 80.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 153.07})
+[ 1916.2s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.03}); resuming
+[ 1918.0s]   [W2] CKPT + 200 g-12 0.3193 g0 0.5342 CE_R 1.6235 | |d| 3.2214 raw = 1.0199e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 0.7991)
+[ 1919.6s]   [W2] PAUSED for outside load/heat ({'util': 68.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 150.32})
+[ 1949.7s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.07}); resuming
+[ 1951.3s]   [W2] s 250 CE 0.7375 |d| 3.2142 (17s)
+[ 1952.9s]   [W2] PAUSED for outside load/heat ({'util': 83.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 84.0, 'power': 149.42})
+[ 1982.9s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.17}); resuming
+[ 1984.7s]   [W2] CKPT + 300 g-12 0.3202 g0 0.5475 CE_R 1.6330 | |d| 3.2539 raw = 1.0301e-03 rms | R 2.6720 raw = 8.4591e-04 rms (d_proj 2.672017812728882) (CE 0.7383)
+[ 1984.8s]   [W2] PAUSED for outside load/heat ({'util': 75.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 82.0, 'power': 153.09})
+[ 2014.8s]   [W2] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 64.0, 'power': 9.05}); resuming
+[ 2014.9s] [partial] metrics.json updated (phase 'arm-W2', write #10)
+[ 2014.9s] [ckpt] saved g1bS4_W2_s300.pt
+[ 2014.9s] ==============================================================================
+[ 2014.9s] [thermal] cooldown 120s before W3
+[thermal] cooldown 120s (temp 64C)
+[ 2135.0s] ARM W3 — WALL 4x R_rms = 5.3440 raw L2 = 1.6918e-03 rms — commit then the identical neutral wash; step-1 weights equal to C's (the wall first acts at forward 2)
+[ 2135.1s] G_BITROOT[W3]: max|diff| 0.0e+00, anchors bit-equal, R = 5.344036 raw = 1.691828e-03 rms: PASS
+[ 2140.3s] [gpu] 'W3' may use GPU (util 0% temp 59C mem 2170/24463MB)
+[ 2140.8s]   [W3] CKPT +   1 g-12 0.0003 g0 0.0007 CE_R 3.2843 | |d| 3.1570 raw = 9.9944e-04 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 3.1569766998291016) (CE 1.3985)
+[ 2141.0s]   [W3] CKPT +   2 g-12 0.0003 g0 0.0006 CE_R 4.0480 | |d| 4.8584 raw = 1.5381e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 4.858412742614746) (CE 3.1899)
+[ 2141.2s]   [W3] CKPT +   4 g-12 0.0000 g0 0.0000 CE_R 2.7749 | |d| 6.3751 raw = 2.0182e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 5.344035625457764) (CE 3.3360)
+[ 2141.8s]   [W3] CKPT +  10 g-12 0.0007 g0 0.0021 CE_R 1.9689 | |d| 5.8245 raw = 1.8439e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 5.344035625457764) (CE 1.5870)
+[ 2144.2s]   [W3] CKPT +  50 g-12 0.1777 g0 0.3222 CE_R 1.6774 | |d| 5.6865 raw = 1.8002e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 5.344035625457764) (CE 0.6790)
+[ 2144.3s]   [W3] PAUSED for outside load/heat ({'util': 72.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 81.0, 'power': 151.7})
+[ 2174.4s]   [W3] contention cleared ({'util': 0.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 61.0, 'power': 8.63}); resuming
+[ 2177.7s]   [W3] CKPT + 100 g-12 0.2907 g0 0.4380 CE_R 1.6500 | |d| 5.6708 raw = 1.7953e-03 rms | R 5.3440 raw = 1.6918e-03 rms (d_proj 5.344035625457764) (CE 0.7212)
+[ 2177.8s]   [W3] PAUSED for outside load/heat ({'util': 65.0, 'mem_used': 2170.0, 'mem_total': 24463.0, 'temp': 83.0, 'power': 151.25})
