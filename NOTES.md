@@ -9,6 +9,32 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1d — the base-seed redraw: TEXTURE (G-CONS) — the base lottery owns the expression channel; the wall guarded the HALF-EXPRESSED fact at 1.35x its own root (the unadjudicated record) (2026-10-02 ~14:35Z) — DONE
+
+WHAT WE DID: the wall's third axis — a fresh seed-44 base at the
+e098 completed-s2000-cosine convention (val 1.5113 in-family; L2
+76.6 from e001); the LOCKED install gen 24313 + cons 10901 + wash
+10902 ALL HELD; 14/15 gates PASS; the envelope clean (4 neighbor
+pauses, no migration).
+
+WHAT WE SAW (T186): THE BASE LOTTERY OWNS THE EXPRESSION CHANNEL
+— the locked install+cons stream on the stranger base
+HALF-EXPRESSED (root g-12 0.5235 < 0.78; ruler g0 0.6622 < 0.7 —
+g2f's stranger-base band; the deviation stamped): G-CONS FAIL ->
+TEXTURE, nothing adjudicated on the wall bars. THE UNADJUDICATED
+RECORD, worth carrying: W1 sat FLAT 0.69-0.73 THROUGH +300 (the
+flat min 0.6945; FLAT-AT-PIN |d| 0.0282; the strict co-report
+0.5146 HOLDS; the +1 dip 0.4820 the only sub-0.50 read) while C
+died at +1 under bit-identical md5-gated inputs — THE WALL GUARDED
+THE HALF-EXPRESSED FACT AT 1.35x ITS OWN ROOT READING: protection
+scaled with what the root had. THE WALL'S REPLICATION GRID, FINAL:
+protection adjudicated at n=3 wash x n=2 root (g1c-root HOLDS) and
+observed-unadjudicated at n=1 base (this cell, the gate's honest
+stop); the protection-vs-strength coupling (T178's dip law, this
+cell's 1.35x) the recurring texture.
+
+---
+
 ## e213 — the path-independence census: PATH-PARTIAL (+GRADED, tables verbatim) — 6/11 non-floor cells match within ±10% (all four at +50; fact+ctrl at +80); 5 wander; the free find re-derived at dp 0.0 (ratio 0.9978); the correlate is DEPTH (2026-10-02 ~17:10Z) — DONE
 
 WHAT WE DID: every battery's decline compared across the two saved

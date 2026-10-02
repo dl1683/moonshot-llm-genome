@@ -685,6 +685,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T186 — g1d: the base lottery owns the expression channel — the wall guards what the root has (2026-10-02 ~14:35Z)
+
+The third axis resolves as the g2f/g2e pattern at the wall's
+level: the base draw owns whether the fact EXPRESSES at all (the
+locked recipe half-expressed on the stranger base — 0.52 vs the
+family's 0.78-0.94), and the gate stops the arms honestly. THE
+RECORD TEXTURE IS THE FINDING: the wall guarded the half-expressed
+fact at 1.35x its own root reading — protection coupled to what
+the root has (the same law as T178's dip-shallowing and the
+retention fall): THE WALL IS A RATIO DEVICE, not an absolute one —
+it holds the fact at roughly the fraction the root achieved.
+THE REPLICATION GRID CLOSES: wash x root adjudicated; base
+observed-unadjudicated; every axis obeying W028's law (the
+protection shape everywhere; the expression height a three-level
+lottery — base > install > consolidation).
+
 ## T185 — e213: the state function holds at mid-depth only (2026-10-02 ~17:10Z)
 
 The census maps the path-independence honestly: the +50 regime is
