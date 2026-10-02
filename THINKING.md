@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T203 — e224: the traversal is gentler — the exposure arc's true residue (2026-10-02 ~23:05Z)
+
+The training-step cell closes the exposure arc with the honest
+split: the raw formula fired (the registration's letter honored,
+nothing un-fired post-hoc) but the agent's own decomposition
+shows most of the fire is the control's mechanical geometry, and
+the corrected vaccination content is sub-bar. THE FINDING THAT
+SURVIVES: both arms' same-axis tolerances ROSE with training
+where pure displacement moved them not at all — THE NORMALIZER'S
+OFF-AXIS GEOMETRY TOLERIZES. The off-axis (per-coordinate-normalized)
+component of a trained step buys tolerance proportional to its L2 —
+the traversal is gentler than the displacement, in both directions
+tested. THE EXPOSURE ARC'S LEDGER (e211 -> e224, seven cells): a
+correlation found, a candidate named, two displacement NULLs, a
+training test with a raw fire and an honest retraction — and one
+real residue: the gentleness of trained traversal. THE NORMALIZER'S
+THREE CLAUSES NOW: sets the pace (T139), sets the aim (g12), and
+travels gently (e224).
+
 ## T202 — g14: lethal is not carrier; the g1f crush is dimensional (2026-10-02 ~22:05Z)
 
 The decomposition answers T200's successor with the registered

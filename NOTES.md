@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e224 — the training-step exposure: TRAINING-IMMUNITY fires on the RAW clause (b) — and the on-ray decomposition takes most of it back (+0.088 mechanical + +0.046 corrected, sub-bar; clause (a) missed by 0.0008); the real finding: THE NORMALIZER'S OFF-AXIS GEOMETRY TOLERIZES (both arms' same-axis residues positive, scaling with off-axis L2 — the traversal gentler than the displacement) (2026-10-02 ~23:05Z) — DONE
+
+WHAT WE DID: the exposure arc's last named limit discharged —
+REAL TRAINING (2 AdamW steps, the wash's own optimizer/batches,
+gradients projected onto v0 vs a random in-span control, matched
+displacement T=0.827 via the both-alive rung ladder, 3x e223's
+dose); 10/10 gates (the span PR at 0.0 rel; the synthetic batches
+bitwise the wash's own); 180.4s CPU.
+
+WHAT WE SAW (T203): CLAUSE (b) RAW +0.1341 FIRES
+TRAINING-IMMUNITY AS REGISTERED — but the on-ray decomposition
+inside the verdict takes most of it back: +0.0881 MECHANICAL (the
+control's own on-mid shift, confirmed to +0.010 — the desk's
+pre-registered "no mechanical loading at mid" claim was WRONG,
+disclosed as a deviation) + +0.0460 ON-RAY-CORRECTED (sub-bar);
+clause (a) +0.0492 missed by 0.0008. THE GENUINE, REPLICABLE
+TEXTURE: BOTH arms' same-axis residues are POSITIVE (+0.049 at
+off-axis 0.334; +0.097 at 0.501) where e222/e223's exact-axis
+displacements sat at +-0.0002 — THE NORMALIZER'S OFF-AXIS GEOMETRY
+TOLERIZES: a trained traversal is gentler than an equal-L2
+displacement, in both arms, scaling with off-axis L2 — T139/g12's
+"the normalizer sets the pace/aim" gains a third clause: THE
+TRAVERSAL IS GENTLER. Honest strength: A RAW-FORMULA FIRE WEARING
+GRADED CLOTHES — the corrected vaccination content is sub-bar at
+n=1; nothing was un-fired post-hoc. HONESTY: n=1; the projections
+the wash's gradients constrained (one-axis, 2-step), not the wash;
+the dose displacement-set (Adam's scale invariance); the shared-T
+binding (the control's fragility capped the dose at 0.5x the
+wash's step).
+
+---
+
 ## g14 — the g1f crush decomposition: MULTI-COMPONENT — no single component's removal spares g1f (the ladder 0.404/0.210/0.251/0.258/0.403, all crush) — the per-draw structure is DIMENSIONAL, not componential; the co-reads: LETHAL != CARRIER (the -s_0 direction at full norm ANNIHILATES (3e-7) yet its removal never spares; the span's top-3 at full norm are BENIGN (0.947)); the delta 83.9% span-orthogonal; first-order predicts nothing (2026-10-02 ~22:05Z) — DONE
 
 WHAT WE DID: the component-transplant ladder on g1f's delta (the
