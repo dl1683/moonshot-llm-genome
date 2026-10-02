@@ -703,7 +703,11 @@ sign nor scale (-0.0004 vs -6.65): the effect is the nonlinear
 interaction, and the four-cell table is the wall's mechanism
 closed at every clause — orientation (the stream), energy (the
 shared hot set), concentration (the normalizer), re-capture (the
-wall by +2).
+wall by +2). [SUCCESSORS NAMED: the delta-form removal as the
+registered decisive cell (this cell's co-read); the fourth
+symmetry cell (the locked delta at the cons root); replicates at
+g1f's root; the whole-delta-vs-vector confound disclosed in
+metrics.]
 
 ## T197 — e221: the hunt closes at real-and-unnamed (2026-10-02 ~19:15Z)
 
