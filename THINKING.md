@@ -685,6 +685,22 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T172 — g1bS7: the second lottery — and the 0.94 root (2026-10-02 ~10:55Z)
+
+The redraw answers the honesty ledger with the lab's second
+lottery: the formation peak's height is a draw lottery (0.77 vs
+0.94 at the same dose, same base, one seed apart) — joining the
+root-strength lottery (g2e/T132) as the program's recurring
+texture: THE RECIPE LEVELS ARE LOTTERIES; THE SHAPES ARE THE
+PHYSICS. What survives the redraw is exactly the shape layer (the
+interior optimum; the ordering; the class) — the same split as
+the flight arc's (order=physics, distances=biography): EVERY LAYER
+OF THIS PROGRAM SEPARATES INTO SHAPE (robust) AND HEIGHT
+(lottery). THE UPWARD BREAK IS THE PRACTICAL GIFT: the first 10M
+root over the express bar (0.9351, saved) — the sixth take's
+substrate: the wall arms on a root that actually clears, the
+first 10M adjudication with no deviation needed.
+
 ## T171 — e204: the support measured — the survivor partial, and the second rotation found (2026-10-02 ~10:45Z)
 
 The survivor's missing leg is measured and it is PARTIAL: the

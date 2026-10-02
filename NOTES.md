@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1bS7 — the redrawn interior dose: PEAK-LOTTERY — the peak's HEIGHT is a draw lottery (0.9351 vs 0.7677, |d| 0.167); the SHAPE survives (the redraw still clears SHARP and outranks 0.25); the lottery broke UPWARD — the FIRST 10M root over the express bar (2026-10-02 ~10:55Z) — DONE
+
+WHAT WE DID: one fresh-jitter consolidation at the 0.20 rms peak
+(seed 10903 vs 10901; everything else verbatim); the
+genuine-redraw gates PASS (s25 divergence 4.6x the same-seed
+fuzz; ~100% of elements differing; the seed axis ~6x the device
+fuzz — two currencies stamped); the envelope audited every poll.
+
+WHAT WE SAW (T172): PEAK-LOTTERY — the fresh draw landed at root
+g-12 0.9351 vs the original's 0.7677 (|d| 0.1674 > 0.10, the
+frozen bar): THE PEAK'S HEIGHT IS A DRAW LOTTERY (the g2e lesson
+at the consolidation level — the lab's second lottery). THE CURVE
+IS ONE BIOGRAPHY (g1bS5's five readings are single-seed draws;
+the seed axis dominates the fine structure). WHAT SURVIVES
+(texture, registered non-bars): the interior-optimum SHAPE (the
+redraw still clears SHARP's 0.6998 threshold and still outranks
+the 0.25 reading); AND THE LOTTERY BROKE UPWARD — 0.9351 IS THE
+FIRST 10M ROOT OVER THE 0.78 EXPRESS BAR (held30 0.6395, CE_R
+1.678; saved at runs/checkpoints/g1bS7_root_m020f.pt — the
+strongest root on record). g1bS6's WALL-FADES ran on one draw
+(0.7677) of a 0.77-0.94-class distribution: the verdict's
+DIRECTION untouched; its root's identity a lottery ticket. THE
+FORMATION-DOSE CHAPTER'S RESIDUAL: a peak DISTRIBUTION (not a
+peak value), and a 0.94-class root available for the sixth take.
+HONESTY: n=1 redraw (two draws total at the peak).
+
+---
+
 ## e204 — the support measurement: GRADED — the survivor's leg is PARTIAL (the rank-order stands, the mechanism does not fully); THE SUPPORT ITSELF ROTATES (monotone decorrelation toward orthogonality at death) (2026-10-02 ~10:45Z) — DONE
 
 WHAT WE DID: the fact's LOCAL sensitivity directions (the g-12
