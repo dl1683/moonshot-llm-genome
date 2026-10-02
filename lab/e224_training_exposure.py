@@ -177,7 +177,7 @@ rows — all hard-bound); the span conventions (the PR reproduction gate
 documented (the projection arithmetic g~ = (g.v0)v0 with live
 gradients on the wash's own batches 1-2, bit-checked against the wash's
 own draws; the displacement matched and ASSERTED: ||theta_exp-theta0||
-= T to 1e-5). WHAT THE GATES GUARANTEE: NOTHING — the training residues
+= T to 1e-4 (fp32 endpoint arithmetic; ~1e-5 realized)). WHAT THE GATES GUARANTEE: NOTHING — the training residues
 could sit at zero (the arc closes), the traversal could sensitize (the
 inversion), or the off-axis normalizer geometry could finally separate
 the v0-training from the control. The openness is the point.
@@ -308,7 +308,10 @@ G_BIT_TOL = 5e-6
 G_READ_TOL = 5e-3                 # cross-device texture tier (e211/e223's G_HIST_TOL)
 G_PR_TOL = 1e-6                   # span PR reproduction, CPU->CPU same threads (e211)
 VAL_SEED = 26502                  # e222/e223's CE_R val-window seed
-MATCH_TOL = 1e-5                  # the displacement-matching assert tolerance
+MATCH_TOL = 1e-4                  # the displacement-matching assert tolerance
+                                   # (fp32 endpoint arithmetic loses ~1e-5 to
+                                   # cancellation over 2.74M params; 1e-4 is
+                                   # still a real assert of the match)
 
 # the rung ladder: fractions of the wash's own committed step-1 L2
 RUNG_FRACS = [1.0, 0.5, 0.25, 0.125]
@@ -355,7 +358,7 @@ REGISTERED_BARS = {
         "direction accepted as the first of <= 5 sequential seed-12503 "
         "draws for which some rung accepts, every rung of every draw "
         "disclosed, the selection biased AGAINST the IMMUNITY clause; the "
-        "displacement match ASSERTED to 1e-5); rays "
+        "displacement match ASSERTED to 1e-4); rays "
         "top/mid/ctrl walked from theta0 and from BOTH exposed states; "
         "same-axis arithmetic t_base + c with c = the achieved on-axis "
         "displacement (fp64); residue = kill-D_post - (t_base + c); "
@@ -431,6 +434,19 @@ deviations: list[str] = [
     "formula would fire +|c_u| mechanically — the e166 instrument-tautology "
     "lesson applied preemptively); the u-ray pair and the ctrl-arm's top row "
     "are reported verbatim (raw + residue-reduced), never adjudicated.",
+    "THE DESK DISCLOSURE'S MID-RAY CLAIM, TESTED AND FALSIFIED BY THE "
+    "MEASURED NUMBERS (disclosed post-compute; nothing un-fired): the "
+    "disclosure asserted 'no mechanical loading at the both-cross mid ray' "
+    "— but the training displacements are not span axes, and the control's "
+    "displacement carries its own on-mid component, which shifts the mid "
+    "kill-D mechanically under axis-separability; the raw registered "
+    "formula adjudicates exactly as frozen (no bar shopping), and the "
+    "on-ray decomposition (mechanical vs terrain parts, the control's own "
+    "shift confirmation) is computed alongside in "
+    "adjudication.bars.TRAINING_IMMUNITY.clause_b_mid.on_ray_decomposition "
+    "and carried into the verdict clause and honesty — the e166 "
+    "instrument-tautology discipline applied AFTER the fact rather than "
+    "before it, reported plainly.",
     "The load-check is recorded, not gating (e204/e205/e209/e211/e223's "
     "convention).",
     "Smoke mode trims: D grid {0.05,0.5,1.5,3.5}, 4-step history (basis dirs "
@@ -1301,7 +1317,8 @@ def main():
         gamma = T_acc / float(torch.norm(d_raw))
         d_ach = gamma * d_raw
         theta_exp = theta0 + d_ach
-        assert abs(float(torch.norm(theta_exp - theta0)) - T_acc) < MATCH_TOL
+        ach_dev = abs(float(torch.norm(theta_exp - theta0)) - T_acc)
+        assert ach_dev < MATCH_TOL, f"displacement match dev {ach_dev:.2e}"
         c_own = float(torch.dot(d_ach.double(), RAYS[spec["own"]].double()))
         off_axis = float(max(T_acc ** 2 - c_own ** 2, 0.0)) ** 0.5
         # the in-span fraction of the achieved displacement (fp64, all dirs)
@@ -1319,6 +1336,7 @@ def main():
             "gamma_endpoint_scale": gamma,
             "raw_2step_L2": raw_trajs[arm_tag]["d_raw_L2"],
             "achieved_L2": float(torch.norm(theta_exp - theta0)),
+            "achieved_L2_abs_dev_from_T": ach_dev,
             "match_assert_tol": MATCH_TOL,
             "on_axis_c_own": c_own,
             "off_axis_L2": off_axis,
@@ -1439,11 +1457,42 @@ def main():
     else:
         excess = d_v - d_c
         clause_b = bool(excess >= RESIDUE_BAR)
+        # THE ON-RAY DECOMPOSITION (the honesty reflex, computed alongside,
+        # never replacing the registered formula): unlike e223's exact-axis
+        # exposures, the training displacements are not span axes — each
+        # arm's displacement carries an ON-RAY component along the mid ray,
+        # and under axis-separability that component shifts the mid kill-D
+        # mechanically. The desk disclosure's "no mechanical loading at the
+        # both-cross ray" is TESTED here, not assumed.
+        on_v_mid = rr_v["arm_on_ray_component"]
+        on_c_mid = rr_c["arm_on_ray_component"]
+        v0t_terrain = d_v - on_v_mid
+        ctrlt_terrain = d_c - on_c_mid
+        corrected_excess = v0t_terrain - ctrlt_terrain
         clause_b_mid = {"v0t_delta": d_v, "ctrlt_delta": d_c,
                         "excess": excess, "fires": clause_b,
-                        "note": "the both-cross ray: both members are cross "
-                                "rows, no mechanical loading; the raw "
-                                "registered formula"}
+                        "on_ray_decomposition": {
+                            "v0t_on_mid_component": on_v_mid,
+                            "ctrlt_on_mid_component": on_c_mid,
+                            "mechanical_prediction_of_excess":
+                                on_v_mid - on_c_mid,
+                            "v0t_terrain_part": v0t_terrain,
+                            "ctrlt_terrain_part": ctrlt_terrain,
+                            "ctrl_mid_mechanical_confirmation": {
+                                "ctrl_delta_minus_own_on_mid_shift":
+                                    d_c - on_c_mid,
+                                "note": "~0 means the ctrl member IS its own "
+                                        "mechanical shift (axis-separable)"},
+                            "on_ray_corrected_excess": corrected_excess,
+                            "corrected_fires": bool(corrected_excess
+                                                    >= RESIDUE_BAR),
+                            "note": ("the RAW formula adjudicates as "
+                                     "registered (no bar shopping); the "
+                                     "corrected form is REPORTED, never "
+                                     "adjudicated")},
+                        "note": "the both-cross ray, the RAW registered "
+                                "formula; the on-ray decomposition rides "
+                                "alongside (see deviations)"}
     imm_fires = bool(clause_a or clause_b)
 
     # the mechanically-loaded context rows (reported verbatim, never adjudicated)
@@ -1508,7 +1557,23 @@ def main():
                          f"control does (>= +{RESIDUE_BAR})")
         clause = ("; ".join(which) + " — the vaccination is a TRAINING "
                   "phenomenon (the displacement was never the mechanism; "
-                  "the optimizer's traversal is)")
+                  "the optimizer's traversal is). "
+                  "THE ON-RAY DECOMPOSITION RIDES WITH THE VERDICT: "
+                  + (f"the mid excess {clause_b_mid['excess']:+.4f} "
+                     f"decomposes into {clause_b_mid['on_ray_decomposition']['mechanical_prediction_of_excess']:+.4f} "
+                     "mechanical (the control's own on-mid component, "
+                     "axis-separable; its mid delta sits "
+                     f"{clause_b_mid['on_ray_decomposition']['ctrl_mid_mechanical_confirmation']['ctrl_delta_minus_own_on_mid_shift']:+.4f} "
+                     "from its own shift) + "
+                     f"{clause_b_mid['on_ray_decomposition']['on_ray_corrected_excess']:+.4f} "
+                     "on-ray-corrected (sub-bar: "
+                     f"{clause_b_mid['on_ray_decomposition']['corrected_fires']}); "
+                     f"clause (a) at {resid_v:+.4f} is sub-bar by "
+                     f"{RESIDUE_BAR - resid_v:.4f}; BOTH arms' same-axis "
+                     "residues are positive (the traversal gentler than the "
+                     "displacement arithmetic in both) — the raw formula "
+                     "governs, the decomposition governs the interpretation"
+                     if clause_b_mid.get("on_ray_decomposition") else ""))
     elif sens_fires:
         verdict = "SENSITIZATION"
         clause = (f"the v0-training LOWERED the top-ray kill-D to "
@@ -1561,6 +1626,10 @@ def main():
                                          if r_v else None),
             "floor_arithmetic_ctrlt_ctrl": (r_c["arithmetic_prediction_D"]
                                             if r_c else None),
+            "clause_b_mid": {"raw_excess": clause_b_mid.get("excess"),
+                             "on_ray_corrected_excess":
+                                 (clause_b_mid.get("on_ray_decomposition")
+                                  or {}).get("on_ray_corrected_excess")},
             "all_ratios": {f"{a}/{r}": rr["ratio_vs_baseline"]
                            for a in arm_results
                            for r, rr in metrics["arms"][a]
@@ -1812,11 +1881,28 @@ def main():
                              "traversal adds nothing beyond "
                              "position-along-axis"),
         "clause_b_loading": ("clause (b) is adjudicated at the both-cross "
-                             "mid ray; the u-ray pair and the ctrl-arm's "
-                             "top row are mechanically loaded by their "
-                             "own-axis arithmetic and are reported verbatim "
-                             "never adjudicated (the e166 instrument-"
-                             "tautology lesson applied preemptively)"),
+                             "mid ray with the RAW registered formula; the "
+                             "u-ray pair and the ctrl-arm's top row are "
+                             "mechanically loaded by their own-axis "
+                             "arithmetic and are reported verbatim never "
+                             "adjudicated (the e166 lesson applied "
+                             "preemptively); the mid row ITSELF turned out "
+                             "mechanically loaded through the control's "
+                             "own on-mid displacement component (see "
+                             "deviations + the on_ray_decomposition): the "
+                             "raw fire stands as registered, the "
+                             "decomposition governs the interpretation"),
+        "off_axis_tolerization": (
+            "BOTH arms' same-axis residues are POSITIVE (v0 "
+            f"{resid_v:+.4f} at off-axis {arm_results['V0-TRAIN']['gate']['off_axis_L2']:.3f} L2; "
+            f"ctrl {resid_c:+.4f} at off-axis "
+            f"{arm_results['CTRL-TRAIN']['gate']['off_axis_L2']:.3f} L2) — "
+            "e222/e223's exact-axis exposures (off-axis = 0) sat at "
+            "+-0.0002; the training traversals' off-axis (normalizer) "
+            "geometry TOLERIZES the rays, in BOTH arms, roughly scaling "
+            "with the off-axis L2 — a traversal-is-gentler-than-"
+            "displacement texture that is NOT v0-specific and bounds any "
+            "vaccination-specific reading"),
         "ce_r_canary": metrics["ce_r_canary"],
         "wash_context": (f"the REAL wash on this stream kills the fact at "
                          f"step 2 (g1b's committed death step; e223's "
