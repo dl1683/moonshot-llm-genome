@@ -17,7 +17,10 @@ THE CELL (the g1bR/g1c machinery with a FRESH BASE — one knob changed:
   phase -1 (the fresh base draw, e098-ladder convention):
     base    TRAINED FRESH at seed 44 — e001's recipe VERBATIM (TinyGPT
             6L/6H/192d block 256 = 2,739,072 params; corpus seed 1337;
-            4000 steps, lr 1e-3, batch 64, AdamW (0.9,0.95) wd 0.1, house
+            s2000 (the e098-ladder completed-cosine convention — the
+            committed as-run family bases are time-capped in this regime:
+            e028's B43 record 1955 steps / val 1.5696, e001's own 1.6224),
+            lr 1e-3, batch 64, AdamW (0.9,0.95) wd 0.1, house
             cosine warmup 100, clip 1.0 — common.train_model, e001's own
             trainer; data order fixed by corpus seed 1337 so INIT IS THE
             ONLY SEED AXIS, the e040/e098 convention). Seed genealogy:
@@ -103,7 +106,8 @@ any compute — no shopping):
 GATES (g1c's form + the base-draw provenance set; any failure outside
 the root-gate caveat => TEXTURE):
   G-BASE   the fresh base: params exact (2,739,072); trained to
-           completion (s4000); val CE <= 1.70 (the e098-ladder
+           completion (s2000, the completed-cosine convention); val CE
+           <= 1.70 (the e098-ladder
            plausibility gate — e053c's convention for fresh base draws;
            e001's own 1.6224 co-reported); fact-free (g-12 <= 0.05, the
            pre-install check).
@@ -148,7 +152,7 @@ PAUSE-AND-WAIT (the g1bW policy), never migrate. torch threads 4.
 
 COMPUTE ENVELOPE: 2,739,072 params (inside the <=100M free tier; the
 stated reason is g1b's own: CONTINUITY on the e131 line — the reference
-scale the claim was minted on). 5 trainings (base 4000 / install 400 /
+scale the claim was minted on). 5 trainings (base 2000 / install 400 /
 consolidation 300 / C 300 / W1 300), each in owner-envelope bursts.
 
 Outputs: runs/g1d/{metrics.json (PROGRESSIVE), base_redraw.png};
@@ -214,7 +218,20 @@ G1.log = log                                          # unify the timeline
 BASE_SEED = 44                    # THE BASE-DRAW KNOB (e098-ladder
                                  # convention; genealogy 42=e001,
                                  # 43=e028_b43, 44=this draw)
-BASE_STEPS = 4000 if not SMOKE else 40
+BASE_STEPS = 2000 if not SMOKE else 40
+                                 # AMENDED 2026-10-02 BEFORE any arm trained
+                                 # (the first pass's 4000-step registration
+                                 # drove the base into the overfit regime —
+                                 # val 1.548@s1500 -> 1.892@s3148 — OUT of
+                                 # the family): the committed as-run bases
+                                 # are TIME-CAPPED at ~s2000 (e028's B43
+                                 # record: 1955 steps, val 1.5696; e001's
+                                 # own 1.6224 is that regime), and e098's
+                                 # named convention is explicit — "2000 is
+                                 # a COMPLETED cosine schedule, identical
+                                 # treatment for every ladder seed". The
+                                 # first pass's log is preserved at
+                                 # runs/g1d_run_pass1.log.
 BASE_BS = 64 if not SMOKE else 4
 BASE_LR = 1e-3
 BASE_WARMUP = 100                 # train_model's historical house value
@@ -296,16 +313,30 @@ G1D_PREDICTION = {
 
 deviations: list[str] = [
     "THE BASE-DRAW DELTA (the whole difference from g1b): the base is "
-    "TRAINED FRESH at seed 44 — e001's recipe VERBATIM (TinyGPT 6L/6H/"
-    "192d block 256, corpus seed 1337, 4000 steps, lr 1e-3, batch 64, "
-    "AdamW (0.9,0.95) wd 0.1, house cosine warmup 100, clip 1.0 — "
-    "common.train_model, e001's own trainer; data order fixed by corpus "
+    "TRAINED FRESH at seed 44 — e001's recipe at the e098-ladder's "
+    "completed-schedule convention (TinyGPT 6L/6H/192d block 256, corpus "
+    "seed 1337, s2000 COMPLETED cosine (see the amendment below), lr 1e-3, "
+    "batch 64, AdamW (0.9,0.95) wd 0.1, house cosine warmup 100, clip 1.0 "
+    "— common.train_model, e001's own trainer; data order fixed by corpus "
     "seed 1337 so INIT IS THE ONLY SEED AXIS, the e040/e098 convention). "
     "Seed genealogy: 42 = e001 (the locked base), 43 = e028_b43 (the "
     "e028-era fresh baseline, same recipe), 44 = THIS DRAW (the next "
     "unused — the e098-ladder convention). The install gen seed (24313), "
     "cons seed (10901) and wash seed (10902) are ALL HELD at the locked "
     "draw's values — the delta vs g1b's reference leg is THE BASE ALONE.",
+    "STEPS AMENDMENT (2026-10-02, made BEFORE any arm trained — the g1c "
+    "gate-amendment precedent: correct a mis-anchored registration, "
+    "document it, re-execute): the first registration targeted s4000 "
+    "(e001's nominal call), but the committed as-run family bases are "
+    "TIME-CAPPED in the ~s2000 regime — e028's B43 record: 1955 steps, "
+    "val 1.5696; e001's own 1.6224 — and the first pass's seed-44 draw "
+    "confirmed why: val 1.548@s1500 -> 1.892@s3148 under the 4000-cosine "
+    "(the overfit regime; 4000 steps x bs 64 ~ 65 epochs). e098's named "
+    "convention for exactly this situation: a COMPLETED 2000-step cosine, "
+    "identical treatment for every ladder seed. Amended to s2000 BEFORE "
+    "the base was accepted (G-BASE never adjudicated the 4000-step draw); "
+    "the first pass's log preserved at runs/g1d_run_pass1.log; the "
+    "registered bars untouched.",
     "STRANGER, NOT SIBLING (the scope note): unlike g1c's root redraw "
     "(which renewed only the install's batch-composition trajectory on "
     "the SAME e001 base), this draw renews EVERY parameter of the corpus "
@@ -498,7 +529,7 @@ def save_ckpt(name: str, sd: dict, meta: dict) -> None:
 
 def chunked_base(tag: str, corpus: CharCorpus, resume_ck: Path) -> dict:
     """THE FRESH BASE: e001's recipe VERBATIM (common.train_model: 6L/6H/
-    192d/256, steps 4000, lr 1e-3, bs 64, AdamW (0.9,0.95) wd 0.1, house
+    192d/256, steps {BASE_STEPS} (completed cosine), lr 1e-3, bs 64, AdamW (0.9,0.95) wd 0.1, house
     cosine warmup 100, clip 1.0, corpus-seed-1337 batch stream) in
     owner-envelope bursts; train_model's own ckpt discipline carries the
     resume (bit-identical stream: model+opt+sched+gen_state)."""
@@ -528,9 +559,10 @@ def chunked_base(tag: str, corpus: CharCorpus, resume_ck: Path) -> dict:
         n_chunks += 1
         dev = next_dev(f"{tag}-chunk{n_chunks}", parked)
         parked = parked or dev.type == "cpu"
-        # -10 s headroom: train_model checks its budget only at eval points
-        # (every 250 steps ~ a few s on GPU) — worst-case burst stays < 90 s
-        cap = (TRAIN_CAP_GPU - 10.0) if dev.type == "cuda" else TRAIN_CAP_CPU
+        # -30 s thermal trim (the pass-1 base burst peaked 88C at its cap):
+        # train_model checks its budget only at eval points, so the headroom
+        # both bounds the burst under 90 s AND keeps sustained heat lower
+        cap = (TRAIN_CAP_GPU - 30.0) if dev.type == "cuda" else TRAIN_CAP_CPU
         net = net.to(dev)
         common.DEVICE = str(dev)
         devices.append(str(dev))
@@ -1337,6 +1369,12 @@ def main():
         "train_history": baseb["history"],
         "devices": baseb["devices"], "chunk_table": baseb["chunk_table"],
         "val_ce": val_ce, "val_ce_e001_locked": 1.622391394774119,
+        "val_ce_b43_family": 1.5695625305175782,
+        "b43_family_record": {"steps": 1955, "val": 1.5695625305175782,
+                              "note": "e028's committed fresh-baseline draw "
+                                      "(seed 43, same recipe) — the as-run "
+                                      "family regime the s2000 convention "
+                                      "matches"},
         "plausible": bool(val_ce <= VCE_PLAUSIBLE),
         "fact_free_gm12": base_cells["gm12"], "ce_r": base_cells["ce_r"],
         "fact_free": bool(base_cells["gm12"] <= 0.05),
