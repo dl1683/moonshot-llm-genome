@@ -685,6 +685,27 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T181 — g1c-root: the wall guards the function, not the wiring (2026-10-02 ~15:00Z)
+
+The last carried wall debt pays: ROOT-WALL-HOLDS — the protection
+replicates on a genuinely different root draw (L2 18.6 away), the
+fresh root barely dipping where the reference family dipped, and
+the strict form holding too. TWO FINDINGS BEYOND THE REPLICATION:
+(1) T178's cross-draw law (strength softens the shock) now
+confirmed at the reference scale — the dip-vs-strength relation
+holds at 2.74M and 10M alike; (2) THE ANATOMY DISSOCIATION — the
+fresh root's fact runs on DIFFERENT WIRING (d183-independent,
+A129-negative) yet the wall's behavior is IDENTICAL: THE WALL
+GUARDS THE FUNCTION, NOT THE WIRING — protection is
+anatomy-independent, which is exactly what an architectural (not
+anatomical) claim wanted. THE WALL'S LEDGER, FINAL: battery-channel
+protection at n=3 wash draws + n=2 root draws + 2 scales (the 10M
+verdict: direction-only); the tax priced at both scales; the
+mechanism (a displacement budget) arithmetic-bounded; and now the
+provenance-independent protection. THE PROGRAM'S LAW ONE MORE
+TIME: the protection (a shape) replicates across every axis tried;
+the dip and the tax (heights) vary with the draw.
+
 ## T180 — e210: the margin, the step, and the ball are one object (2026-10-02 ~14:40Z)
 
 The repair cell ends the scalar's candidacy cleanly: the class

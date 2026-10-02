@@ -9,6 +9,34 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## g1c-root — the wall's root redraw: ROOT-WALL-HOLDS — the 2.74M protection is ROOT-ROBUST at n=2 roots; the fresh draw barely dips; THE ANATOMY DIFFERS, THE WALL DOESN'T (protection without anatomical fidelity) (2026-10-02 ~15:00Z) — DONE
+
+WHAT WE DID: the C6/R58 scope debt paid — the g1bR machinery at a
+FRESH ROOT (install gen 24314 the only stochastic delta; cons 10901
+and wash 10902 held); all 15 gates PASS; one disclosed gate
+amendment (G-INST re-anchored same-instrument; G-CONS read on the
+final root; the first TEXTURE pass re-executed bit-identical per
+the precedent).
+
+WHAT WE SAW (T181): THE FRESH ROOT LANDED STRONG (ruler 0.9289;
+g-12 0.9026 vs the locked 0.9156; L2 18.6 away — no coin-flip
+deviation). W1 HELD FLAT 0.82 -> 0.94 through +300 (the flat-phase
+min 0.9265; the strict 0.9eq co-report ALSO holds) while C died by
++1 under bit-identical inputs. THE CLAIM'S NEW STAMP: "THE WALL AT
+R=0.7 HOLDS THE BATTERY CHANNEL (n=3 WASH DRAWS AND n=2 ROOT
+DRAWS)". THE CROSS-ROOT GEM: THE +2 DIP NEARLY VANISHED on the
+stronger draw (min-at-+1 0.8214 vs the reference family's +2 dips
+0.746-0.803) — T178's STRENGTH-SOFTENS-THE-SHOCK at the reference
+scale; held30 IMPROVED under the wall (0.653 -> 0.758). THE
+ANATOMY FINDING: the fresh root writes a DIFFERENT anatomy
+(d183-independent g-12; negative A129) with IDENTICAL wall
+behavior — THE PROTECTION IS NOT ANATOMY-SPECIFIC: the wall guards
+the function, not the wiring. THE HONEST OPEN RUNGS: base-seed and
+cons-seed redraws; the draw variance itself unmeasured (2-of-2
+passing); W2/W3/noise stay n=1 textures.
+
+---
+
 ## e210 — the same-episode margin: SAME-EPISODE-BREAKS — the class line dies at ANY episode; the hinge is one clock; the residue: the line was about the STEP SIZE relative to the noise ball, not the margin alone (2026-10-02 ~14:40Z) — DONE
 
 WHAT WE DID: the repair fork as a desk cell (ZERO fresh compute —
