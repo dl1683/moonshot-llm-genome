@@ -1,0 +1,2566 @@
+{
+  "experiment": "e217_third_wash",
+  "phase": "the third fresh 5e-5 wash draw + the three-wash census + the relational signature at n=3",
+  "date": "2026-10-02T16:03:40Z",
+  "status": "DONE",
+  "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE DISPATCHED 15:47Z); the third stream seed 21703 + operationalizations registered and committed BEFORE any wash compute; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "MID-DOSE-TIGHTENS": "fires if the +50 ratios' spread shrinks with the third draw (max |ratio-1| <= 0.15 on all four batteries) \u2014 the mid-dose state function licensed at n=3.",
+      "DEEP-DRIFT-GROWS": "fires if the +80 drift widens (the deepest batteries' ratios move further from 1 in the same direction) \u2014 the deep-regime path-sensitivity is real and growing; the three-regime picture final.",
+      "DEEP-MEAN-REVERTS": "fires if the +80 drift shrinks or flips \u2014 wash 1's depth was the outlier; the state function deepens its claim.",
+      "GRADED": "any partial \u2014 the tables verbatim."
+    },
+    "lean": "T185's map (mid-dose tight at +-9%, deep partially mean-reverting with the deepest batteries shallower on wash 2) leans MID-DOSE-TIGHTENS + DEEP-MEAN-REVERTS; but n=2 draws, the near battery n=3, and the CPU-replay-vs-GPU device asymmetry between the wash-1 arm and the wash-2/3 arms \u2014 nothing guaranteed; the openness is the point",
+    "operationalizations": "decl_b^w(s)=1-R_b^w(s)/R_b^w(0); w1/w2 declines runtime-read from runs/e213/metrics.json, w3 computed here (CPU fp32 probes); ratios anchored on wash 1 (e213's instrument): r21=decl_w2/decl_w1, r31=decl_w3/decl_w1, r32=decl_w3/decl_w2; denominator guard decl_w1>0.02 (DECL_FLOOR); MID at +50: max |ratio-1| over {r21,r31,r32} <= 0.15 for EVERY battery; DEEP at +80: deepest batteries := the two largest wash-1 +80 declines in the e213 record (near 0.766, tmpl 0.561 \u2014 frozen); per battery GROWS := same_sign(r21-1, r31-1) AND |r31-1| > |r21-1|; REVERTS := sign-flip OR |r31-1| < |r21-1|; FLAT := exact tie; DEEP-DRIFT-GROWS iff GROWS on both, DEEP-MEAN-REVERTS iff REVERTS on both, else GRADED; GRADED co-fires with any partial; relational co-report (no bar): hr_w = p_w(+80)/p_0, family = MEDIAN hr, e215 typology runtime-read, spread = max-min across washes, pooled Spearman pairs; adjudication gated on G_SIZE/G_CORPUS/G_BATT/G_TMPL/G_STATES_PROV/G_PPL",
+    "registration": "bars frozen VERBATIM from the dispatch brief (QUEUE row DISPATCHED 15:47Z); the third stream seed 21703 and these operationalizations registered in this file and committed BEFORE any wash compute; no bar shopping"
+  },
+  "question": "T185's named thread: with a THIRD independent wash draw, does the +80 deep drift GROW (deep-regime path-sensitivity real and growing) or MEAN-REVERT (wash 1's depth was the outlier)? and does the +50 mid-dose state function tighten at n=3?",
+  "builds_on": [
+    "e213 / T185 (the two-wash census + the drift)",
+    "e182c2 / T183 (the fresh-draw machinery + the free find)",
+    "e215 / T189 (the relational typology)",
+    "e182c / T149 + e182 / T123 (the saved-state discipline + the parent wash)"
+  ],
+  "whats_new": [
+    "the third stream seed 21703 (n=3 wash draws)",
+    "the three-wash census (pairwise ratios anchored on wash 1)",
+    "the deep-drift grow/revert adjudication",
+    "the relational signature's n=3 reliability table"
+  ],
+  "smoke": false,
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "inventory": {
+    "prior_washes": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "recorded_size_bytes": 652195312,
+          "size_match": true
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        }
+      },
+      "note": "w1/w2 declines runtime-read from the e213 record; e213 verified the archives by re-probe (max dp 3.34e-06) \u2014 that stamp inherited; here: existence + size match vs e213's committed inventory"
+    }
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN (the wash corpus cannot be re-filtered without changing the wash); the third draw changes ONLY the stream seed",
+      "pass": true
+    },
+    "G_BATT": {
+      "tol_per_probe_dp": 0.01,
+      "note": "the four batteries are the e182c2 part-2 pools VERBATIM (module import); t=0 must reproduce e213's committed census t=0 (same pristine organism, same prompts, same CPU fp32 probe path)",
+      "fact": {
+        "kept_set_equal": true,
+        "n": 20,
+        "max_per_probe_dp": 0.0
+      },
+      "ctrl": {
+        "kept_set_equal": true,
+        "n": 12,
+        "max_per_probe_dp": 0.0
+      },
+      "near": {
+        "kept_set_equal": true,
+        "n": 3,
+        "max_per_probe_dp": 0.0
+      },
+      "tmpl": {
+        "kept_set_equal": true,
+        "n": 19,
+        "max_per_probe_dp": 0.0
+      },
+      "e215_p0_cocheck_max_dp": 0.0,
+      "tol_e215_dp": 0.01,
+      "pass": true
+    },
+    "G_TMPL": {
+      "kept_set_equal_vs_e213_t0": true,
+      "n": 19,
+      "gate": {
+        "gate": "(top-1 and p>=0.8) or (top-5 and p>=0.5); cap 20 by baseline p, ties by candidate order",
+        "n_candidates_probed": 23,
+        "n_pass": 19,
+        "n_kept": 19,
+        "cutoff_p": null
+      },
+      "contamination_scans_zero": true,
+      "pool_frozen_in_script": true,
+      "pass": true
+    },
+    "G_STATES_PROV": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "recorded_size_bytes": 652195467,
+          "size_match": true
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "recorded_size_bytes": 652195312,
+          "size_match": true
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "recorded_size_bytes": 652196552,
+          "size_match": true
+        }
+      },
+      "note": "w1/w2 declines runtime-read from the e213 record; e213 verified the archives by re-probe (max dp 3.34e-06) \u2014 that stamp inherited; here: existence + size match vs e213's committed inventory",
+      "all_exist_and_match": true,
+      "pass": true
+    },
+    "G_PPL": {
+      "rule": "bank ppl (the SAME frozen held-out tail bank) read at every wash-3 state",
+      "ppl_curve": {
+        "0": 71.33571018072513,
+        "10": 38.35930049897559,
+        "50": 34.86437974303887,
+        "80": 34.522963281918415
+      },
+      "ppl_improves": true,
+      "pass": true
+    },
+    "G_ENV": {
+      "launch_gate": "double-poll util<=20% AND temp<=70C, 5s apart",
+      "burst_caps": {
+        "wall_s": 75.0,
+        "steps": 40
+      },
+      "cooldown_s": 180.0,
+      "cpu_threads": 4,
+      "polls_logged": "run log + runs/_envelope_log.jsonl (every poll)",
+      "n_launch_poll_cycles": 0,
+      "wash_executed_this_pass": false,
+      "cpu_load_checks": [
+        {
+          "tag": "launch",
+          "cpu_percent": 49.4,
+          "tool": "psutil"
+        }
+      ],
+      "pass": true,
+      "wash_pass_note": "the wash ran in the prior DONE pass (455.2s wall; see runs/e217_run.log + runs/_envelope_log.jsonl); THIS pass is the plot-only re-pass off the frozen journal \u2014 zero GPU, zero wash recompute, the census numbers bit-identical",
+      "carried_from_wash_pass": {
+        "n_launch_poll_cycles": 3,
+        "n_polls_logged": 6,
+        "burst_walls": [
+          "  [fresh] burst done: 10 steps in 2.6s (<= 75s cap), now at s10, checkpoint +10",
+          "  [fresh] burst done: 40 steps in 9.0s (<= 75s cap), now at s50, checkpoint +50",
+          "  [fresh] burst done: 30 steps in 6.7s (<= 75s cap), now at s80, checkpoint +80"
+        ],
+        "source": "parsed from C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217_run.log (the append-mode audit trail; re-passes add no GPU polls)"
+      }
+    }
+  },
+  "form_matching": "FORM-MATCHING: all four batteries are the e182c2 part-2 pools VERBATIM (module import; identity gated by G_BATT against e213's committed t=0 census record): 2-shot rotating leave-self-out cloze, single-token answers, gate (top1 p>=0.8)|(top5 p>=0.5), cap 20; fact n=20 (R0 0.797), ctrl n=12 (R0 0.727), near n=3 (R0 0.589), tmpl n=19 (R0 0.907); one instrument, one pristine baseline, declines per battery relative; the three washes share the organism, the corpus, the recipe \u2014 the stream seed is the only delta.",
+  "timing": {
+    "total_s": 17.8
+  },
+  "wash3_states": [
+    {
+      "step": 0,
+      "fact": {
+        "mean_p": 0.7971389532089234,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.6850027441978455,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.94468092918396,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.6746281981468201,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.7412760853767395,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.8057803511619568,
+            "rank": 0
+          },
+          "Ireland->Dublin": {
+            "p": 0.6304253935813904,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.9179711937904358,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.8766514658927917,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8385147452354431,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8853657841682434,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.744873046875,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.8519078493118286,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5683619379997253,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.8146218657493591,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.766821026802063,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.8325423002243042,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.8905185461044312,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.9533817768096924,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.5909402966499329,
+            "rank": 0
+          },
+          "China->yuan": {
+            "p": 0.9285135269165039,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.7266194721062978,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7398610711097717,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.7342566847801208,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.77444988489151,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.8327568769454956,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.6928136348724365,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.6225916743278503,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.7029966711997986,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.6358935832977295,
+            "rank": 0
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.7676098942756653,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.7456632852554321,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.6862599849700928,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.7842804193496704,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.5891445080439249,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.6118616461753845,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.6366477012634277,
+            "rank": 0
+          },
+          "Ohio->Columbus": {
+            "p": 0.5189241766929626,
+            "rank": 0
+          }
+        }
+      },
+      "tmpl": {
+        "mean_p": 0.9074904165769878,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Boston->Massachusetts": {
+            "p": 0.8855844140052795,
+            "rank": 0
+          },
+          "Atlanta->Georgia": {
+            "p": 0.9629536271095276,
+            "rank": 0
+          },
+          "Sacramento->California": {
+            "p": 0.9349073767662048,
+            "rank": 0
+          },
+          "Austin->Texas": {
+            "p": 0.966093897819519,
+            "rank": 0
+          },
+          "Columbus->Ohio": {
+            "p": 0.811143696308136,
+            "rank": 0
+          },
+          "Denver->Colorado": {
+            "p": 0.85616534948349,
+            "rank": 0
+          },
+          "Little Rock->Arkansas": {
+            "p": 0.9000856876373291,
+            "rank": 0
+          },
+          "Hartford->Connecticut": {
+            "p": 0.8384353518486023,
+            "rank": 0
+          },
+          "Dover->Delaware": {
+            "p": 0.8786457777023315,
+            "rank": 0
+          },
+          "Tallahassee->Florida": {
+            "p": 0.9273396730422974,
+            "rank": 0
+          },
+          "Honolulu->Hawaii": {
+            "p": 0.9394004344940186,
+            "rank": 0
+          },
+          "Boise->Idaho": {
+            "p": 0.9823838472366333,
+            "rank": 0
+          },
+          "Indianapolis->Indiana": {
+            "p": 0.9422821998596191,
+            "rank": 0
+          },
+          "Des Moines->Iowa": {
+            "p": 0.9877914190292358,
+            "rank": 0
+          },
+          "Topeka->Kansas": {
+            "p": 0.9824606776237488,
+            "rank": 0
+          },
+          "Baton Rouge->Louisiana": {
+            "p": 0.8759879469871521,
+            "rank": 0
+          },
+          "Annapolis->Maryland": {
+            "p": 0.9069494605064392,
+            "rank": 0
+          },
+          "Lansing->Michigan": {
+            "p": 0.9702924489974976,
+            "rank": 0
+          },
+          "Jackson->Mississippi": {
+            "p": 0.6934146285057068,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 71.33571018072513,
+      "ce": 4.267397046089172,
+      "in_batch_ce": null
+    },
+    {
+      "step": 10,
+      "fact": {
+        "mean_p": 0.7775808110833168,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.6779588460922241,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.9075237512588501,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.5904136300086975,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.6985207796096802,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.5496018528938293,
+            "rank": 0
+          },
+          "Ireland->Dublin": {
+            "p": 0.5330384969711304,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.9267018437385559,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.8649673461914062,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8739567399024963,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8960548043251038,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.7731764316558838,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.8481587171554565,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.7234170436859131,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.8115841150283813,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.8300711512565613,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.8521841168403625,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.9228198528289795,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.9571635127067566,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.4473462402820587,
+            "rank": 0
+          },
+          "China->yuan": {
+            "p": 0.8669569492340088,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.6662881374359131,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7567836046218872,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.6846418976783752,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.7313622236251831,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.7981312870979309,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.642278790473938,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.5477240681648254,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.6234545111656189,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.5250861644744873,
+            "rank": 0
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.6874616742134094,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.7239935398101807,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.54477459192276,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.7297652959823608,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.4750554958979289,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.556091845035553,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.48449504375457764,
+            "rank": 0
+          },
+          "Ohio->Columbus": {
+            "p": 0.384579598903656,
+            "rank": 0
+          }
+        }
+      },
+      "tmpl": {
+        "mean_p": 0.829829077971609,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Boston->Massachusetts": {
+            "p": 0.8476799130439758,
+            "rank": 0
+          },
+          "Atlanta->Georgia": {
+            "p": 0.9295444488525391,
+            "rank": 0
+          },
+          "Sacramento->California": {
+            "p": 0.8827276229858398,
+            "rank": 0
+          },
+          "Austin->Texas": {
+            "p": 0.8007738590240479,
+            "rank": 0
+          },
+          "Columbus->Ohio": {
+            "p": 0.731545627117157,
+            "rank": 0
+          },
+          "Denver->Colorado": {
+            "p": 0.6365360617637634,
+            "rank": 0
+          },
+          "Little Rock->Arkansas": {
+            "p": 0.8943836092948914,
+            "rank": 0
+          },
+          "Hartford->Connecticut": {
+            "p": 0.7413808703422546,
+            "rank": 0
+          },
+          "Dover->Delaware": {
+            "p": 0.803124725818634,
+            "rank": 0
+          },
+          "Tallahassee->Florida": {
+            "p": 0.7118045687675476,
+            "rank": 0
+          },
+          "Honolulu->Hawaii": {
+            "p": 0.9438328742980957,
+            "rank": 0
+          },
+          "Boise->Idaho": {
+            "p": 0.9743810296058655,
+            "rank": 0
+          },
+          "Indianapolis->Indiana": {
+            "p": 0.8607060313224792,
+            "rank": 0
+          },
+          "Des Moines->Iowa": {
+            "p": 0.9660345315933228,
+            "rank": 0
+          },
+          "Topeka->Kansas": {
+            "p": 0.9820200800895691,
+            "rank": 0
+          },
+          "Baton Rouge->Louisiana": {
+            "p": 0.838627815246582,
+            "rank": 0
+          },
+          "Annapolis->Maryland": {
+            "p": 0.7471943497657776,
+            "rank": 0
+          },
+          "Lansing->Michigan": {
+            "p": 0.9589523077011108,
+            "rank": 0
+          },
+          "Jackson->Mississippi": {
+            "p": 0.5155021548271179,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 38.35930049897559,
+      "ce": 3.646997014681498,
+      "in_batch_ce": 3.578350067138672
+    },
+    {
+      "step": 50,
+      "fact": {
+        "mean_p": 0.549213482812047,
+        "frac_top1": 0.9,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.318283349275589,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.6474242210388184,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.26682180166244507,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.39529740810394287,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.2140468806028366,
+            "rank": 1
+          },
+          "Ireland->Dublin": {
+            "p": 0.17618636786937714,
+            "rank": 0
+          },
+          "France->French": {
+            "p": 0.8525364398956299,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.7712042331695557,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.8074870109558105,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.8155085444450378,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.6186269521713257,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.7071352601051331,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.6446123123168945,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.6935811042785645,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.7363966703414917,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.7316315174102783,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.6396157741546631,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.6211166977882385,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.09968554228544235,
+            "rank": 1
+          },
+          "China->yuan": {
+            "p": 0.22707156836986542,
+            "rank": 0
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.5047110666831335,
+        "frac_top1": 0.9166666666666666,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7277798652648926,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.6088881492614746,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.7068595886230469,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.7825980186462402,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.5055232644081116,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.3505045175552368,
+            "rank": 0
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.24586105346679688,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.18642079830169678,
+            "rank": 1
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.3268618881702423,
+            "rank": 0
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.6887220144271851,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.2988499701023102,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.6276636719703674,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.2763502299785614,
+        "frac_top1": 0.6666666666666666,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.3389468193054199,
+            "rank": 0
+          },
+          "Georgia->Atlanta": {
+            "p": 0.2215116024017334,
+            "rank": 1
+          },
+          "Ohio->Columbus": {
+            "p": 0.2685922682285309,
+            "rank": 0
+          }
+        }
+      },
+      "tmpl": {
+        "mean_p": 0.5530697719046944,
+        "frac_top1": 1.0,
+        "frac_top5": 1.0,
+        "probes": {
+          "Boston->Massachusetts": {
+            "p": 0.651046633720398,
+            "rank": 0
+          },
+          "Atlanta->Georgia": {
+            "p": 0.5162176489830017,
+            "rank": 0
+          },
+          "Sacramento->California": {
+            "p": 0.5889058709144592,
+            "rank": 0
+          },
+          "Austin->Texas": {
+            "p": 0.4595052897930145,
+            "rank": 0
+          },
+          "Columbus->Ohio": {
+            "p": 0.41480568051338196,
+            "rank": 0
+          },
+          "Denver->Colorado": {
+            "p": 0.33127516508102417,
+            "rank": 0
+          },
+          "Little Rock->Arkansas": {
+            "p": 0.6656136512756348,
+            "rank": 0
+          },
+          "Hartford->Connecticut": {
+            "p": 0.4110172390937805,
+            "rank": 0
+          },
+          "Dover->Delaware": {
+            "p": 0.45163777470588684,
+            "rank": 0
+          },
+          "Tallahassee->Florida": {
+            "p": 0.34530824422836304,
+            "rank": 0
+          },
+          "Honolulu->Hawaii": {
+            "p": 0.5735852718353271,
+            "rank": 0
+          },
+          "Boise->Idaho": {
+            "p": 0.8830472230911255,
+            "rank": 0
+          },
+          "Indianapolis->Indiana": {
+            "p": 0.45932477712631226,
+            "rank": 0
+          },
+          "Des Moines->Iowa": {
+            "p": 0.80075603723526,
+            "rank": 0
+          },
+          "Topeka->Kansas": {
+            "p": 0.947597086429596,
+            "rank": 0
+          },
+          "Baton Rouge->Louisiana": {
+            "p": 0.5911056399345398,
+            "rank": 0
+          },
+          "Annapolis->Maryland": {
+            "p": 0.4656065106391907,
+            "rank": 0
+          },
+          "Lansing->Michigan": {
+            "p": 0.7744104862213135,
+            "rank": 0
+          },
+          "Jackson->Mississippi": {
+            "p": 0.17755943536758423,
+            "rank": 0
+          }
+        }
+      },
+      "ppl": 34.86437974303887,
+      "ce": 3.5514656702677407,
+      "in_batch_ce": 3.2209720611572266
+    },
+    {
+      "step": 80,
+      "fact": {
+        "mean_p": 0.42894688323140145,
+        "frac_top1": 0.8,
+        "frac_top5": 1.0,
+        "probes": {
+          "France->Paris": {
+            "p": 0.1564646065235138,
+            "rank": 0
+          },
+          "Greece->Athens": {
+            "p": 0.4354715049266815,
+            "rank": 0
+          },
+          "Poland->Warsaw": {
+            "p": 0.11310679465532303,
+            "rank": 0
+          },
+          "Portugal->Lisbon": {
+            "p": 0.2152150571346283,
+            "rank": 0
+          },
+          "Egypt->Cairo": {
+            "p": 0.10730832815170288,
+            "rank": 2
+          },
+          "Ireland->Dublin": {
+            "p": 0.06503784656524658,
+            "rank": 2
+          },
+          "France->French": {
+            "p": 0.7927402853965759,
+            "rank": 0
+          },
+          "Germany->German": {
+            "p": 0.6568301320075989,
+            "rank": 0
+          },
+          "Japan->Japanese": {
+            "p": 0.7269326448440552,
+            "rank": 0
+          },
+          "Italy->Italian": {
+            "p": 0.7343504428863525,
+            "rank": 0
+          },
+          "Spain->Spanish": {
+            "p": 0.5087763071060181,
+            "rank": 0
+          },
+          "Russia->Russian": {
+            "p": 0.6018535494804382,
+            "rank": 0
+          },
+          "China->Chinese": {
+            "p": 0.5136186480522156,
+            "rank": 0
+          },
+          "England->English": {
+            "p": 0.5510706901550293,
+            "rank": 0
+          },
+          "Greece->Greek": {
+            "p": 0.6194834113121033,
+            "rank": 0
+          },
+          "Poland->Polish": {
+            "p": 0.6607282757759094,
+            "rank": 0
+          },
+          "Japan->yen": {
+            "p": 0.5474028587341309,
+            "rank": 0
+          },
+          "the United Kingdom->pound": {
+            "p": 0.3688499331474304,
+            "rank": 0
+          },
+          "the United States->dollar": {
+            "p": 0.08064394444227219,
+            "rank": 1
+          },
+          "China->yuan": {
+            "p": 0.12305240333080292,
+            "rank": 2
+          }
+        }
+      },
+      "ctrl": {
+        "mean_p": 0.45044709742069244,
+        "frac_top1": 0.75,
+        "frac_top5": 1.0,
+        "probes": {
+          "The social network founded by Mark Zuckerberg->Facebook": {
+            "p": 0.7313677072525024,
+            "rank": 0
+          },
+          "The electric car company founded by Elon Musk->Tesla": {
+            "p": 0.5825947523117065,
+            "rank": 0
+          },
+          "The rocket company founded by Elon Musk->SpaceX": {
+            "p": 0.6643064618110657,
+            "rank": 0
+          },
+          "The search engine founded by Larry Page->Google": {
+            "p": 0.7410845756530762,
+            "rank": 0
+          },
+          "The online encyclopedia that anyone can edit->Wikipedia": {
+            "p": 0.4254055619239807,
+            "rank": 0
+          },
+          "The gaming console made by Microsoft->Xbox": {
+            "p": 0.28991949558258057,
+            "rank": 1
+          },
+          "The web browser made by Google->Chrome": {
+            "p": 0.19396260380744934,
+            "rank": 0
+          },
+          "The phone made by Apple->iPhone": {
+            "p": 0.12405470013618469,
+            "rank": 1
+          },
+          "The tablet made by Apple->iPad": {
+            "p": 0.21954110264778137,
+            "rank": 1
+          },
+          "The email service made by Google->Gmail": {
+            "p": 0.6440540552139282,
+            "rank": 0
+          },
+          "The music store made by Apple->iTunes": {
+            "p": 0.20848527550697327,
+            "rank": 0
+          },
+          "The game console made by Sony->PlayStation": {
+            "p": 0.5805888772010803,
+            "rank": 0
+          }
+        }
+      },
+      "near": {
+        "mean_p": 0.17888536055882773,
+        "frac_top1": 0.3333333333333333,
+        "frac_top5": 1.0,
+        "probes": {
+          "Massachusetts->Boston": {
+            "p": 0.19961674511432648,
+            "rank": 1
+          },
+          "Georgia->Atlanta": {
+            "p": 0.16103896498680115,
+            "rank": 1
+          },
+          "Ohio->Columbus": {
+            "p": 0.17600037157535553,
+            "rank": 0
+          }
+        }
+      },
+      "tmpl": {
+        "mean_p": 0.42131991017805903,
+        "frac_top1": 0.8947368421052632,
+        "frac_top5": 1.0,
+        "probes": {
+          "Boston->Massachusetts": {
+            "p": 0.6864262819290161,
+            "rank": 0
+          },
+          "Atlanta->Georgia": {
+            "p": 0.5672882199287415,
+            "rank": 0
+          },
+          "Sacramento->California": {
+            "p": 0.40430644154548645,
+            "rank": 0
+          },
+          "Austin->Texas": {
+            "p": 0.22490504384040833,
+            "rank": 0
+          },
+          "Columbus->Ohio": {
+            "p": 0.24511225521564484,
+            "rank": 0
+          },
+          "Denver->Colorado": {
+            "p": 0.13957132399082184,
+            "rank": 1
+          },
+          "Little Rock->Arkansas": {
+            "p": 0.5649932026863098,
+            "rank": 0
+          },
+          "Hartford->Connecticut": {
+            "p": 0.2830052375793457,
+            "rank": 0
+          },
+          "Dover->Delaware": {
+            "p": 0.2470436990261078,
+            "rank": 0
+          },
+          "Tallahassee->Florida": {
+            "p": 0.1930282562971115,
+            "rank": 0
+          },
+          "Honolulu->Hawaii": {
+            "p": 0.3915097713470459,
+            "rank": 0
+          },
+          "Boise->Idaho": {
+            "p": 0.741114616394043,
+            "rank": 0
+          },
+          "Indianapolis->Indiana": {
+            "p": 0.3030998706817627,
+            "rank": 0
+          },
+          "Des Moines->Iowa": {
+            "p": 0.5628165006637573,
+            "rank": 0
+          },
+          "Topeka->Kansas": {
+            "p": 0.9007924199104309,
+            "rank": 0
+          },
+          "Baton Rouge->Louisiana": {
+            "p": 0.4445670247077942,
+            "rank": 0
+          },
+          "Annapolis->Maryland": {
+            "p": 0.3468813896179199,
+            "rank": 0
+          },
+          "Lansing->Michigan": {
+            "p": 0.6771422028541565,
+            "rank": 0
+          },
+          "Jackson->Mississippi": {
+            "p": 0.08147453516721725,
+            "rank": 2
+          }
+        }
+      },
+      "ppl": 34.522963281918415,
+      "ce": 3.5416247049967446,
+      "in_batch_ce": 3.228031873703003
+    }
+  ],
+  "census": {
+    "note": "declines w1/w2 RUNTIME-READ from runs/e213/metrics.json (census.declines); w3 computed here (CPU fp32 probes)",
+    "states": [
+      10,
+      50,
+      80
+    ],
+    "declines": {
+      "w1": {
+        "10": {
+          "fact": 0.013021946597506107,
+          "ctrl": 0.061304966314967735,
+          "near": 0.2168948073178304,
+          "tmpl": 0.06818585833316404
+        },
+        "50": {
+          "fact": 0.33936323101326304,
+          "ctrl": 0.2814038990887431,
+          "near": 0.6479293360106464,
+          "tmpl": 0.42118668806761894
+        },
+        "80": {
+          "fact": 0.4293996354947689,
+          "ctrl": 0.39695033449195793,
+          "near": 0.765542761255382,
+          "tmpl": 0.5612648719004963
+        }
+      },
+      "w2": {
+        "10": {
+          "fact": 0.028620073570266524,
+          "ctrl": 0.07901642010911891,
+          "near": 0.25254633537535676,
+          "tmpl": 0.07674134203014582
+        },
+        "50": {
+          "fact": 0.3096177592905648,
+          "ctrl": 0.2753560340791731,
+          "near": 0.5909960754218835,
+          "tmpl": 0.4202482009940801
+        },
+        "80": {
+          "fact": 0.457907396186509,
+          "ctrl": 0.37436711922609667,
+          "near": 0.6563955036139478,
+          "tmpl": 0.45101039919054775
+        }
+      },
+      "w3": {
+        "10": {
+          "fact": 0.024535423901785647,
+          "ctrl": 0.08303016501264204,
+          "near": 0.19365199978659542,
+          "tmpl": 0.08557813634915712
+        },
+        "50": {
+          "fact": 0.3110191383808806,
+          "ctrl": 0.30539837417225335,
+          "near": 0.5309296340619414,
+          "tmpl": 0.39055028923517654
+        },
+        "80": {
+          "fact": 0.4618919555936214,
+          "ctrl": 0.38007841144835697,
+          "near": 0.6963642058673141,
+          "tmpl": 0.5357307333698813
+        }
+      }
+    },
+    "pairwise": {
+      "10": {
+        "fact": {
+          "decl_w1": 0.013021946597506107,
+          "decl_w2": 0.028620073570266524,
+          "decl_w3": 0.024535423901785647,
+          "r21": null,
+          "r31": null,
+          "r32": 0.857280252671173,
+          "denominator_floor": true
+        },
+        "ctrl": {
+          "decl_w1": 0.061304966314967735,
+          "decl_w2": 0.07901642010911891,
+          "decl_w3": 0.08303016501264204,
+          "r21": 1.2889073244597296,
+          "r31": 1.3543790985228885,
+          "r32": 1.050796339520068,
+          "denominator_floor": false
+        },
+        "near": {
+          "decl_w1": 0.2168948073178304,
+          "decl_w2": 0.25254633537535676,
+          "decl_w3": 0.19365199978659542,
+          "r21": 1.1643724370278898,
+          "r31": 0.8928383403057882,
+          "r32": 0.766797900665526,
+          "denominator_floor": false
+        },
+        "tmpl": {
+          "decl_w1": 0.06818585833316404,
+          "decl_w2": 0.07674134203014582,
+          "decl_w3": 0.08557813634915712,
+          "r21": 1.1254729925841616,
+          "r31": 1.2550716298240667,
+          "r32": 1.1151503750812697,
+          "denominator_floor": false
+        }
+      },
+      "50": {
+        "fact": {
+          "decl_w1": 0.33936323101326304,
+          "decl_w2": 0.3096177592905648,
+          "decl_w3": 0.3110191383808806,
+          "r21": 0.9123491615933614,
+          "r31": 0.9164785986161397,
+          "r32": 1.0045261586206387,
+          "denominator_floor": false
+        },
+        "ctrl": {
+          "decl_w1": 0.2814038990887431,
+          "decl_w2": 0.2753560340791731,
+          "decl_w3": 0.30539837417225335,
+          "r21": 0.978508240187309,
+          "r31": 1.085267031342531,
+          "r32": 1.1091036199498798,
+          "denominator_floor": false
+        },
+        "near": {
+          "decl_w1": 0.6479293360106464,
+          "decl_w2": 0.5909960754218835,
+          "decl_w3": 0.5309296340619414,
+          "r21": 0.9121304478366336,
+          "r31": 0.8194252128340388,
+          "r32": 0.898364060510785,
+          "denominator_floor": false
+        },
+        "tmpl": {
+          "decl_w1": 0.42118668806761894,
+          "decl_w2": 0.4202482009940801,
+          "decl_w3": 0.39055028923517654,
+          "r21": 0.9977718026230967,
+          "r31": 0.9272617114918791,
+          "r32": 0.9293324476139235,
+          "denominator_floor": false
+        }
+      },
+      "80": {
+        "fact": {
+          "decl_w1": 0.4293996354947689,
+          "decl_w2": 0.457907396186509,
+          "decl_w3": 0.4618919555936214,
+          "r21": 1.0663898111112564,
+          "r31": 1.0756691841655006,
+          "r32": 1.0087016707751308,
+          "denominator_floor": false
+        },
+        "ctrl": {
+          "decl_w1": 0.39695033449195793,
+          "decl_w2": 0.37436711922609667,
+          "decl_w3": 0.38007841144835697,
+          "r21": 0.9431082095074572,
+          "r31": 0.9574961359707765,
+          "r32": 1.0152558596333643,
+          "denominator_floor": false
+        },
+        "near": {
+          "decl_w1": 0.765542761255382,
+          "decl_w2": 0.6563955036139478,
+          "decl_w3": 0.6963642058673141,
+          "r21": 0.8574250020175906,
+          "r31": 0.9096346293254411,
+          "r32": 1.060891188366326,
+          "denominator_floor": false
+        },
+        "tmpl": {
+          "decl_w1": 0.5612648719004963,
+          "decl_w2": 0.45101039919054775,
+          "decl_w3": 0.5357307333698813,
+          "r21": 0.8035607104064496,
+          "r31": 0.954506081158876,
+          "r32": 1.1878456335627419,
+          "denominator_floor": false
+        }
+      }
+    },
+    "floor_cells_plus10": {
+      "10": {
+        "fact": {
+          "floor_cell": true,
+          "abs_diff_w3w1": 0.01151347730427954,
+          "verdict": "FLOOR-MATCH"
+        },
+        "ctrl": {
+          "floor_cell": false
+        },
+        "near": {
+          "floor_cell": false
+        },
+        "tmpl": {
+          "floor_cell": false
+        }
+      },
+      "50": {
+        "fact": {
+          "floor_cell": false
+        },
+        "ctrl": {
+          "floor_cell": false
+        },
+        "near": {
+          "floor_cell": false
+        },
+        "tmpl": {
+          "floor_cell": false
+        }
+      },
+      "80": {
+        "fact": {
+          "floor_cell": false
+        },
+        "ctrl": {
+          "floor_cell": false
+        },
+        "near": {
+          "floor_cell": false
+        },
+        "tmpl": {
+          "floor_cell": false
+        }
+      }
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "MID-DOSE-TIGHTENS": "fires if the +50 ratios' spread shrinks with the third draw (max |ratio-1| <= 0.15 on all four batteries) \u2014 the mid-dose state function licensed at n=3.",
+      "DEEP-DRIFT-GROWS": "fires if the +80 drift widens (the deepest batteries' ratios move further from 1 in the same direction) \u2014 the deep-regime path-sensitivity is real and growing; the three-regime picture final.",
+      "DEEP-MEAN-REVERTS": "fires if the +80 drift shrinks or flips \u2014 wash 1's depth was the outlier; the state function deepens its claim.",
+      "GRADED": "any partial \u2014 the tables verbatim."
+    },
+    "gates_summary": {
+      "G_SIZE": true,
+      "G_CORPUS": true,
+      "G_BATT": true,
+      "G_TMPL": true,
+      "G_STATES_PROV": true,
+      "G_PPL": true,
+      "G_ENV": true
+    },
+    "mid_dose": {
+      "state": 50,
+      "fires": false,
+      "max_abs_dev_all_pairs": 0.1805747871659612,
+      "tol": 0.15,
+      "per_battery_max_abs_dev": {
+        "fact": 0.08765083840663856,
+        "ctrl": 0.10910361994987983,
+        "near": 0.1805747871659612,
+        "tmpl": 0.07273828850812092
+      },
+      "per_battery_abs_dev_w2_only": {
+        "fact": 0.08765083840663856,
+        "ctrl": 0.021491759812691025,
+        "near": 0.08786955216336645,
+        "tmpl": 0.0022281973769032737
+      },
+      "spread_shrinks_with_third_draw": false,
+      "denominator_guard_ok": true,
+      "note": "fires iff max |ratio-1| over the three pairwise ratios {r21, r31, r32} <= 0.15 for EVERY battery; the w2-only co-reading (e213's r21) makes 'shrinks' readable"
+    },
+    "deep_drift": {
+      "state": 80,
+      "deepest_batteries": [
+        "near",
+        "tmpl"
+      ],
+      "deepest_w1_declines": {
+        "near": 0.765542761255382,
+        "tmpl": 0.5612648719004963
+      },
+      "per_battery": {
+        "near": {
+          "r21": 0.8574250020175906,
+          "r31": 0.9096346293254411,
+          "dist2": 0.14257499798240936,
+          "dist3": 0.09036537067455885,
+          "same_sign": true,
+          "GROWS": false,
+          "REVERTS": true,
+          "FLAT": false
+        },
+        "tmpl": {
+          "r21": 0.8035607104064496,
+          "r31": 0.954506081158876,
+          "dist2": 0.1964392895935504,
+          "dist3": 0.04549391884112397,
+          "same_sign": true,
+          "GROWS": false,
+          "REVERTS": true,
+          "FLAT": false
+        }
+      },
+      "fired": "DEEP-MEAN-REVERTS",
+      "clause": ""
+    },
+    "fired": [
+      "DEEP-MEAN-REVERTS",
+      "GRADED"
+    ],
+    "verdict_composite": "DEEP-MEAN-REVERTS + GRADED (partial \u2014 the tables verbatim)",
+    "clause": "MID-DOSE at +50: max|r-1| over the three pairwise ratios = 0.181 (tol 0.15; per battery fact 0.088 ctrl 0.109 near 0.181 tmpl 0.073; e213's w2-only max 0.088) -> does NOT fire. DEEP at +80: the deepest batteries ['near', 'tmpl'] (wash-1 declines near 0.766, tmpl 0.561) near: r21 0.857 -> r31 0.910 (REVERTS); tmpl: r21 0.804 -> r31 0.955 (REVERTS) -> DEEP-MEAN-REVERTS."
+  },
+  "relational_n3": {
+    "note": "CO-REPORT (no bar): the relational signature's cross-wash reliability at n=3 \u2014 hr_w = p_w(+80)/p_0; the 6-family typology + hr_w1/hr_w2 RUNTIME-READ from runs/e215/metrics.json; hr_w3 from THIS wash; family statistic = MEDIAN hr (e215's instrument)",
+    "family_order": [
+      "cap-cur",
+      "founder-anchor",
+      "lang",
+      "near-uscap",
+      "product",
+      "rev-capital"
+    ],
+    "family_medians": {
+      "cap-cur": {
+        "w1": 0.19985662268068818,
+        "w2": 0.23547739236021953,
+        "w3": 0.1980362697919142
+      },
+      "founder-anchor": {
+        "w1": 0.8120815234963322,
+        "w2": 0.8102741155518366,
+        "w3": 0.8577785015800293
+      },
+      "lang": {
+        "w1": 0.8726792635287494,
+        "w2": 0.8212690136413505,
+        "w3": 0.8007432302517578
+      },
+      "near-uscap": {
+        "w1": 0.2714900398031128,
+        "w2": 0.3759634975380735,
+        "w3": 0.32624490579216364
+      },
+      "product": {
+        "w1": 0.3147985802847366,
+        "w2": 0.37793454553247746,
+        "w3": 0.3037992598622212
+      },
+      "rev-capital": {
+        "w1": 0.3390310217578349,
+        "w2": 0.5129084857838483,
+        "w3": 0.41676558469756464
+      }
+    },
+    "family_medians_s50_co_report": {
+      "cap-cur": {
+        "w1": 0.34381253585149363,
+        "w2": 0.38921053245398807,
+        "w3": 0.43007738766924597
+      },
+      "founder-anchor": {
+        "w1": 0.9128444430522539,
+        "w2": 0.883575090896231,
+        "w3": 0.9127247642654998
+      },
+      "lang": {
+        "w1": 0.9132547521970311,
+        "w2": 0.9286149032782048,
+        "w3": 0.9004068885808983
+      },
+      "near-uscap": {
+        "w1": 0.3998474977840258,
+        "w2": 0.47954417722831905,
+        "w3": 0.5175944392112062
+      },
+      "product": {
+        "w1": 0.5264755822501271,
+        "w2": 0.508176295052624,
+        "w3": 0.4354763160427226
+      },
+      "rev-capital": {
+        "w1": 0.5801085141525327,
+        "w2": 0.5561466031900378,
+        "w3": 0.5360773711736447
+      }
+    },
+    "family_spread": {
+      "cap-cur": {
+        "n": 10,
+        "medians": {
+          "w1": 0.19985662268068818,
+          "w2": 0.23547739236021953,
+          "w3": 0.1980362697919142
+        },
+        "spread_max_min": 0.03744112256830534
+      },
+      "founder-anchor": {
+        "n": 5,
+        "medians": {
+          "w1": 0.8120815234963322,
+          "w2": 0.8102741155518366,
+          "w3": 0.8577785015800293
+        },
+        "spread_max_min": 0.047504386028192735
+      },
+      "lang": {
+        "n": 10,
+        "medians": {
+          "w1": 0.8726792635287494,
+          "w2": 0.8212690136413505,
+          "w3": 0.8007432302517578
+        },
+        "spread_max_min": 0.0719360332769916
+      },
+      "near-uscap": {
+        "n": 3,
+        "medians": {
+          "w1": 0.2714900398031128,
+          "w2": 0.3759634975380735,
+          "w3": 0.32624490579216364
+        },
+        "spread_max_min": 0.1044734577349607
+      },
+      "product": {
+        "n": 7,
+        "medians": {
+          "w1": 0.3147985802847366,
+          "w2": 0.37793454553247746,
+          "w3": 0.3037992598622212
+        },
+        "spread_max_min": 0.07413528567025623
+      },
+      "rev-capital": {
+        "n": 19,
+        "medians": {
+          "w1": 0.3390310217578349,
+          "w2": 0.5129084857838483,
+          "w3": 0.41676558469756464
+        },
+        "spread_max_min": 0.1738774640260134
+      }
+    },
+    "family_class3_w3": {
+      "cap-cur": "COLLAPSE",
+      "founder-anchor": "HOLD",
+      "lang": "HOLD",
+      "near-uscap": "MID",
+      "product": "MID",
+      "rev-capital": "MID"
+    },
+    "spearman": {
+      "w2xw1": 0.9387840670859539,
+      "w3xw1": 0.9724032780636555,
+      "w3xw2": 0.9656184486373166,
+      "note": "pooled per-probe; w2xw1 reproduces e215's 0.939 (its instrument); n=54"
+    },
+    "class3_counts": {
+      "HOLD on all 3": 26,
+      "COLLAPSE on all 3": 12,
+      "discordant (any)": 12,
+      "n_total": 54
+    },
+    "class3_confusion": {
+      "COLLAPSE/COLLAPSE/COLLAPSE": 12,
+      "MID/MID/MID": 4,
+      "HOLD/HOLD/HOLD": 26,
+      "COLLAPSE/MID/COLLAPSE": 3,
+      "MID/MID/COLLAPSE": 1,
+      "COLLAPSE/COLLAPSE/MID": 1,
+      "COLLAPSE/MID/MID": 5,
+      "MID/HOLD/MID": 2
+    },
+    "per_probe": [
+      {
+        "fact": "France->Paris",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.6850027441978455,
+        "p80_w3": 0.1564646065235138,
+        "hr_w3": 0.22841456891787723,
+        "hr_w1": 0.19813698815368957,
+        "hr_w2": 0.20889179833802032,
+        "hr_w1_s50": 0.36466325816478123,
+        "hr_w2_s50": 0.3927601007932259,
+        "hr_w3_s50": 0.46464536379092375,
+        "p0_e215": 0.6850027441978455
+      },
+      {
+        "fact": "Greece->Athens",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.94468092918396,
+        "p80_w3": 0.4354715049266815,
+        "hr_w3": 0.4609720504285539,
+        "hr_w1": 0.4201095505894461,
+        "hr_w2": 0.4260837639146562,
+        "hr_w1_s50": 0.59386258514355,
+        "hr_w2_s50": 0.6486445679367858,
+        "hr_w3_s50": 0.6853363935250395,
+        "p0_e215": 0.94468092918396
+      },
+      {
+        "fact": "Poland->Warsaw",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.6746281981468201,
+        "p80_w3": 0.11310679465532303,
+        "hr_w3": 0.16765797066595114,
+        "hr_w1": 0.20931448423330434,
+        "hr_w2": 0.26206298638241876,
+        "hr_w1_s50": 0.32296181353820597,
+        "hr_w2_s50": 0.3856609641147503,
+        "hr_w3_s50": 0.39550941154756825,
+        "p0_e215": 0.6746281981468201
+      },
+      {
+        "fact": "Portugal->Lisbon",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.7412760853767395,
+        "p80_w3": 0.2152150571346283,
+        "hr_w3": 0.29033050084874834,
+        "hr_w1": 0.2015762572076868,
+        "hr_w2": 0.2920877809430896,
+        "hr_w1_s50": 0.3968837335823628,
+        "hr_w2_s50": 0.5124472633043138,
+        "hr_w3_s50": 0.5332661013919536,
+        "p0_e215": 0.7412760853767395
+      },
+      {
+        "fact": "Egypt->Cairo",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.8057803511619568,
+        "p80_w3": 0.10730832815170288,
+        "hr_w3": 0.1331731755396634,
+        "hr_w1": 0.13509766915597454,
+        "hr_w2": 0.14459912014061063,
+        "hr_w1_s50": 0.20013557465478873,
+        "hr_w2_s50": 0.27257791788605323,
+        "hr_w3_s50": 0.2656392406369494,
+        "p0_e215": 0.8057803511619568
+      },
+      {
+        "fact": "Ireland->Dublin",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.6304253935813904,
+        "p80_w3": 0.06503784656524658,
+        "hr_w3": 0.10316501718906401,
+        "hr_w1": 0.13116128977969954,
+        "hr_w2": 0.16012073330803894,
+        "hr_w1_s50": 0.24480416209730313,
+        "hr_w2_s50": 0.2667982315605794,
+        "hr_w3_s50": 0.2794721939553832,
+        "p0_e215": 0.6304253935813904
+      },
+      {
+        "fact": "France->French",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.9179711937904358,
+        "p80_w3": 0.7927402853965759,
+        "hr_w3": 0.863578607650243,
+        "hr_w1": 0.8966124994083177,
+        "hr_w2": 0.8729683869249798,
+        "hr_w1_s50": 0.9397006727030276,
+        "hr_w2_s50": 0.9432966077984152,
+        "hr_w3_s50": 0.9287180748835742,
+        "p0_e215": 0.9179711937904358
+      },
+      {
+        "fact": "Germany->German",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8766514658927917,
+        "p80_w3": 0.6568301320075989,
+        "hr_w3": 0.7492488834643944,
+        "hr_w1": 0.820276981467824,
+        "hr_w2": 0.7717032716922231,
+        "hr_w1_s50": 0.8926241100707918,
+        "hr_w2_s50": 0.8672762174499453,
+        "hr_w3_s50": 0.8797158998464145,
+        "p0_e215": 0.8766514658927917
+      },
+      {
+        "fact": "Japan->Japanese",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8385147452354431,
+        "p80_w3": 0.7269326448440552,
+        "hr_w3": 0.866928875102778,
+        "hr_w1": 0.9217393047441265,
+        "hr_w2": 0.8717008591803365,
+        "hr_w1_s50": 0.9424114101116275,
+        "hr_w2_s50": 0.964389036833601,
+        "hr_w3_s50": 0.9629967934899936,
+        "p0_e215": 0.8385147452354431
+      },
+      {
+        "fact": "Italy->Italian",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8853657841682434,
+        "p80_w3": 0.7343504428863525,
+        "hr_w3": 0.8294316948065006,
+        "hr_w1": 0.8896116210794244,
+        "hr_w2": 0.8349156821545319,
+        "hr_w1_s50": 0.9305141459460038,
+        "hr_w2_s50": 0.9316873674134186,
+        "hr_w3_s50": 0.9210978773153822,
+        "p0_e215": 0.8853657841682434
+      },
+      {
+        "fact": "Spain->Spanish",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.744873046875,
+        "p80_w3": 0.5087763071060181,
+        "hr_w3": 0.683037611899787,
+        "hr_w1": 0.7808300557194362,
+        "hr_w2": 0.6665616805965258,
+        "hr_w1_s50": 0.811564327653843,
+        "hr_w2_s50": 0.8175711792752376,
+        "hr_w3_s50": 0.8305132730559652,
+        "p0_e215": 0.744873046875
+      },
+      {
+        "fact": "Russia->Russian",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8519078493118286,
+        "p80_w3": 0.6018535494804382,
+        "hr_w3": 0.7064772909025497,
+        "hr_w1": 0.7621815476802679,
+        "hr_w2": 0.7514872337808504,
+        "hr_w1_s50": 0.8090963168321155,
+        "hr_w2_s50": 0.8354781432292224,
+        "hr_w3_s50": 0.8300607403445773,
+        "p0_e215": 0.8519078493118286
+      },
+      {
+        "fact": "China->Chinese",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.5683619379997253,
+        "p80_w3": 0.5136186480522156,
+        "hr_w3": 0.9036823434374027,
+        "hr_w1": 1.0096379530411048,
+        "hr_w2": 0.8661774053275062,
+        "hr_w1_s50": 1.0589174320758854,
+        "hr_w2_s50": 1.0695750451652877,
+        "hr_w3_s50": 1.134158129211682,
+        "p0_e215": 0.5683619379997253
+      },
+      {
+        "fact": "England->English",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8146218657493591,
+        "p80_w3": 0.5510706901550293,
+        "hr_w3": 0.6764742186831766,
+        "hr_w1": 0.7759207210724568,
+        "hr_w2": 0.7029865252193097,
+        "hr_w1_s50": 0.8062078627289049,
+        "hr_w2_s50": 0.8609140338391056,
+        "hr_w3_s50": 0.8514147894134281,
+        "p0_e215": 0.8146218657493591
+      },
+      {
+        "fact": "Greece->Greek",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.766821026802063,
+        "p80_w3": 0.6194834113121033,
+        "hr_w3": 0.8078591870329718,
+        "hr_w1": 0.9090697313247399,
+        "hr_w2": 0.807622345128169,
+        "hr_w1_s50": 0.9399612378335782,
+        "hr_w2_s50": 0.9884378865587128,
+        "hr_w3_s50": 0.9603240451198208,
+        "p0_e215": 0.766821026802063
+      },
+      {
+        "fact": "Poland->Polish",
+        "battery": "fact",
+        "family": "lang",
+        "p0": 0.8325423002243042,
+        "p80_w3": 0.6607282757759094,
+        "hr_w3": 0.7936272734705437,
+        "hr_w1": 0.8557469059780743,
+        "hr_w2": 0.8374521808893663,
+        "hr_w1_s50": 0.8959953584480584,
+        "hr_w2_s50": 0.9255424391429911,
+        "hr_w3_s50": 0.8787920051787899,
+        "p0_e215": 0.8325423002243042
+      },
+      {
+        "fact": "Japan->yen",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.8905185461044312,
+        "p80_w3": 0.5474028587341309,
+        "hr_w3": 0.614701244717184,
+        "hr_w1": 0.5069887918828531,
+        "hr_w2": 0.5251371079076615,
+        "hr_w1_s50": 0.7220487480206382,
+        "hr_w2_s50": 0.7739556486423208,
+        "hr_w3_s50": 0.7182509302615415,
+        "p0_e215": 0.8905185461044312
+      },
+      {
+        "fact": "the United Kingdom->pound",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.9533817768096924,
+        "p80_w3": 0.3688499331474304,
+        "hr_w3": 0.3868858647390087,
+        "hr_w1": 0.43933439082438536,
+        "hr_w2": 0.3900644335149807,
+        "hr_w1_s50": 0.604513622053565,
+        "hr_w2_s50": 0.6594260914535534,
+        "hr_w3_s50": 0.6514879064152929,
+        "p0_e215": 0.9533817768096924
+      },
+      {
+        "fact": "the United States->dollar",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.5909402966499329,
+        "p80_w3": 0.08064394444227219,
+        "hr_w3": 0.13646716072578963,
+        "hr_w1": 0.1677397385179618,
+        "hr_w2": 0.08817837896911472,
+        "hr_w1_s50": 0.21885198933705374,
+        "hr_w2_s50": 0.17368597816918194,
+        "hr_w3_s50": 0.16868970156640894,
+        "p0_e215": 0.5909402966499329
+      },
+      {
+        "fact": "China->yuan",
+        "battery": "fact",
+        "family": "cap-cur",
+        "p0": 0.9285135269165039,
+        "p80_w3": 0.12305240333080292,
+        "hr_w3": 0.13252623657454626,
+        "hr_w1": 0.17624698675146386,
+        "hr_w2": 0.1381243214734336,
+        "hr_w1_s50": 0.2874587748570536,
+        "hr_w2_s50": 0.278034573656787,
+        "hr_w3_s50": 0.24455386140032476,
+        "p0_e215": 0.9285135269165039
+      },
+      {
+        "fact": "The social network founded by Mark Zuckerberg->Facebook",
+        "battery": "ctrl",
+        "family": "founder-anchor",
+        "p0": 0.7398610711097717,
+        "p80_w3": 0.7313677072525024,
+        "hr_w3": 0.9885203260599595,
+        "hr_w1": 0.9419481118254539,
+        "hr_w2": 0.95957570925324,
+        "hr_w1_s50": 1.020244732678961,
+        "hr_w2_s50": 1.004285895319907,
+        "hr_w3_s50": 0.9836709805169804,
+        "p0_e215": 0.7398610711097717
+      },
+      {
+        "fact": "The electric car company founded by Elon Musk->Tesla",
+        "battery": "ctrl",
+        "family": "founder-anchor",
+        "p0": 0.7342566847801208,
+        "p80_w3": 0.5825947523117065,
+        "hr_w3": 0.7934483463179763,
+        "hr_w1": 0.7778501334100941,
+        "hr_w2": 0.8102741155518366,
+        "hr_w1_s50": 0.8431293091208766,
+        "hr_w2_s50": 0.8684739393493659,
+        "hr_w3_s50": 0.8292578901665855,
+        "p0_e215": 0.7342566847801208
+      },
+      {
+        "fact": "The rocket company founded by Elon Musk->SpaceX",
+        "battery": "ctrl",
+        "family": "founder-anchor",
+        "p0": 0.77444988489151,
+        "p80_w3": 0.6643064618110657,
+        "hr_w3": 0.8577785015800293,
+        "hr_w1": 0.8120815234963322,
+        "hr_w2": 0.8102355455540178,
+        "hr_w1_s50": 0.9128444430522539,
+        "hr_w2_s50": 0.883575090896231,
+        "hr_w3_s50": 0.9127247642654998,
+        "p0_e215": 0.77444988489151
+      },
+      {
+        "fact": "The search engine founded by Larry Page->Google",
+        "battery": "ctrl",
+        "family": "founder-anchor",
+        "p0": 0.8327568769454956,
+        "p80_w3": 0.7410845756530762,
+        "hr_w3": 0.8899170888523092,
+        "hr_w1": 0.8560847626520058,
+        "hr_w2": 0.878372456990889,
+        "hr_w1_s50": 0.9347900151610347,
+        "hr_w2_s50": 0.9214318853550361,
+        "hr_w3_s50": 0.9397677044910933,
+        "p0_e215": 0.8327568769454956
+      },
+      {
+        "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+        "battery": "ctrl",
+        "family": "founder-anchor",
+        "p0": 0.6928136348724365,
+        "p80_w3": 0.4254055619239807,
+        "hr_w3": 0.6140259667411251,
+        "hr_w1": 0.5711130156844539,
+        "hr_w2": 0.5998100913633124,
+        "hr_w1_s50": 0.6943286539560772,
+        "hr_w2_s50": 0.733739987081326,
+        "hr_w3_s50": 0.7296670258246151,
+        "p0_e215": 0.6928136348724365
+      },
+      {
+        "fact": "The gaming console made by Microsoft->Xbox",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.6225916743278503,
+        "p80_w3": 0.28991949558258057,
+        "hr_w3": 0.4656655518170517,
+        "hr_w1": 0.45388763713631564,
+        "hr_w2": 0.37816462437131143,
+        "hr_w1_s50": 0.5749266540007496,
+        "hr_w2_s50": 0.48845568197538525,
+        "hr_w3_s50": 0.5629765575224586,
+        "p0_e215": 0.6225916743278503
+      },
+      {
+        "fact": "The web browser made by Google->Chrome",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.7029966711997986,
+        "p80_w3": 0.19396260380744934,
+        "hr_w3": 0.27590828200710393,
+        "hr_w1": 0.28783759768573486,
+        "hr_w2": 0.28606956547838636,
+        "hr_w1_s50": 0.37793373034341,
+        "hr_w2_s50": 0.3856111925674097,
+        "hr_w3_s50": 0.3497328842925925,
+        "p0_e215": 0.7029966711997986
+      },
+      {
+        "fact": "The phone made by Apple->iPhone",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.6358935832977295,
+        "p80_w3": 0.12405470013618469,
+        "hr_w3": 0.19508720231589674,
+        "hr_w1": 0.18425663896898953,
+        "hr_w2": 0.34174889141178294,
+        "hr_w1_s50": 0.34562700519771994,
+        "hr_w2_s50": 0.508176295052624,
+        "hr_w3_s50": 0.2931635154028805,
+        "p0_e215": 0.6358935832977295
+      },
+      {
+        "fact": "The tablet made by Apple->iPad",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.7676098942756653,
+        "p80_w3": 0.21954110264778137,
+        "hr_w3": 0.2860060875777865,
+        "hr_w1": 0.3147985802847366,
+        "hr_w2": 0.37793454553247746,
+        "hr_w1_s50": 0.5264755822501271,
+        "hr_w2_s50": 0.5506305268599092,
+        "hr_w3_s50": 0.4258177110636085,
+        "p0_e215": 0.7676098942756653
+      },
+      {
+        "fact": "The email service made by Google->Gmail",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.7456632852554321,
+        "p80_w3": 0.6440540552139282,
+        "hr_w3": 0.8637330923344348,
+        "hr_w1": 0.9049324252922866,
+        "hr_w2": 0.9309835834155199,
+        "hr_w1_s50": 0.9904528753203198,
+        "hr_w2_s50": 1.0037971554946485,
+        "hr_w3_s50": 0.9236367513941075,
+        "p0_e215": 0.7456632852554321
+      },
+      {
+        "fact": "The music store made by Apple->iTunes",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.6862599849700928,
+        "p80_w3": 0.20848527550697327,
+        "hr_w3": 0.3037992598622212,
+        "hr_w1": 0.29284914481498814,
+        "hr_w2": 0.19949764329486383,
+        "hr_w1_s50": 0.4814934287758092,
+        "hr_w2_s50": 0.40124720198806063,
+        "hr_w3_s50": 0.4354763160427226,
+        "p0_e215": 0.6862599849700928
+      },
+      {
+        "fact": "The game console made by Sony->PlayStation",
+        "battery": "ctrl",
+        "family": "product",
+        "p0": 0.7842804193496704,
+        "p80_w3": 0.5805888772010803,
+        "hr_w3": 0.7402822547610047,
+        "hr_w1": 0.6798667309315474,
+        "hr_w2": 0.7658874321878589,
+        "hr_w1_s50": 0.7763528190592491,
+        "hr_w2_s50": 0.8070453035489626,
+        "hr_w3_s50": 0.8003051669845711,
+        "p0_e215": 0.7842804193496704
+      },
+      {
+        "fact": "Massachusetts->Boston",
+        "battery": "near",
+        "family": "near-uscap",
+        "p0": 0.6118616461753845,
+        "p80_w3": 0.19961674511432648,
+        "hr_w3": 0.32624490579216364,
+        "hr_w1": 0.27497604802960646,
+        "hr_w2": 0.3759634975380735,
+        "hr_w1_s50": 0.4278446831009412,
+        "hr_w2_s50": 0.5305033396377224,
+        "hr_w3_s50": 0.5539599048642835,
+        "p0_e215": 0.6118616461753845
+      },
+      {
+        "fact": "Georgia->Atlanta",
+        "battery": "near",
+        "family": "near-uscap",
+        "p0": 0.6366477012634277,
+        "p80_w3": 0.16103896498680115,
+        "hr_w3": 0.2529483176758814,
+        "hr_w1": 0.16533090551077897,
+        "hr_w2": 0.24046003923163517,
+        "hr_w1_s50": 0.24030434476503337,
+        "hr_w2_s50": 0.2347381973670315,
+        "hr_w3_s50": 0.3479343473040796,
+        "p0_e215": 0.6366477012634277
+      },
+      {
+        "fact": "Ohio->Columbus",
+        "battery": "near",
+        "family": "near-uscap",
+        "p0": 0.5189241766929626,
+        "p80_w3": 0.17600037157535553,
+        "hr_w3": 0.33916394625701074,
+        "hr_w1": 0.2714900398031128,
+        "hr_w2": 0.4319939989223652,
+        "hr_w1_s50": 0.3998474977840258,
+        "hr_w2_s50": 0.47954417722831905,
+        "hr_w3_s50": 0.5175944392112062,
+        "p0_e215": 0.5189241766929626
+      },
+      {
+        "fact": "Boston->Massachusetts",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.8855844140052795,
+        "p80_w3": 0.6864262819290161,
+        "hr_w3": 0.7751110691125193,
+        "hr_w1": 0.7249711444771078,
+        "hr_w2": 0.859387772258059,
+        "hr_w1_s50": 0.7873371014954528,
+        "hr_w2_s50": 0.7386683390721313,
+        "hr_w3_s50": 0.7351604470723179,
+        "p0_e215": 0.8855844140052795
+      },
+      {
+        "fact": "Atlanta->Georgia",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9629536271095276,
+        "p80_w3": 0.5672882199287415,
+        "hr_w3": 0.5891127090216748,
+        "hr_w1": 0.6395916705708661,
+        "hr_w2": 0.6940422381452073,
+        "hr_w1_s50": 0.8023279860502321,
+        "hr_w2_s50": 0.7387705909766354,
+        "hr_w3_s50": 0.5360773711736447,
+        "p0_e215": 0.9629536271095276
+      },
+      {
+        "fact": "Sacramento->California",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9349073767662048,
+        "p80_w3": 0.40430644154548645,
+        "hr_w3": 0.4324561465585618,
+        "hr_w1": 0.47515260141396226,
+        "hr_w2": 0.5271550600463126,
+        "hr_w1_s50": 0.5801085141525327,
+        "hr_w2_s50": 0.5561466031900378,
+        "hr_w3_s50": 0.629908251394329,
+        "p0_e215": 0.9349073767662048
+      },
+      {
+        "fact": "Austin->Texas",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.966093897819519,
+        "p80_w3": 0.22490504384040833,
+        "hr_w3": 0.23279832772779194,
+        "hr_w1": 0.2178522036089264,
+        "hr_w2": 0.28822128029438626,
+        "hr_w1_s50": 0.37400990945046525,
+        "hr_w2_s50": 0.2875691170843501,
+        "hr_w3_s50": 0.4756321210910464,
+        "p0_e215": 0.966093897819519
+      },
+      {
+        "fact": "Columbus->Ohio",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.811143696308136,
+        "p80_w3": 0.24511225521564484,
+        "hr_w3": 0.3021810516820339,
+        "hr_w1": 0.22931460628994632,
+        "hr_w2": 0.31388818488833603,
+        "hr_w1_s50": 0.4311627320486044,
+        "hr_w2_s50": 0.35049015951742163,
+        "hr_w3_s50": 0.5113837195571402,
+        "p0_e215": 0.811143696308136
+      },
+      {
+        "fact": "Denver->Colorado",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.85616534948349,
+        "p80_w3": 0.13957132399082184,
+        "hr_w3": 0.1630191225036412,
+        "hr_w1": 0.2098311996647747,
+        "hr_w2": 0.2205878298707936,
+        "hr_w1_s50": 0.2873356028384989,
+        "hr_w2_s50": 0.23163575980653395,
+        "hr_w3_s50": 0.38692895628265833,
+        "p0_e215": 0.85616534948349
+      },
+      {
+        "fact": "Little Rock->Arkansas",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9000856876373291,
+        "p80_w3": 0.5649932026863098,
+        "hr_w3": 0.6277104618443418,
+        "hr_w1": 0.6365033628387969,
+        "hr_w2": 0.7792237591693016,
+        "hr_w1_s50": 0.7100677627049774,
+        "hr_w2_s50": 0.7949876206316272,
+        "hr_w3_s50": 0.7395003169340806,
+        "p0_e215": 0.9000856876373291
+      },
+      {
+        "fact": "Hartford->Connecticut",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.8384353518486023,
+        "p80_w3": 0.2830052375793457,
+        "hr_w3": 0.337539724387061,
+        "hr_w1": 0.3390310217578349,
+        "hr_w2": 0.44907355439060626,
+        "hr_w1_s50": 0.39858317685759564,
+        "hr_w2_s50": 0.5294688606943065,
+        "hr_w3_s50": 0.4902193570292091,
+        "p0_e215": 0.8384353518486023
+      },
+      {
+        "fact": "Dover->Delaware",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.8786457777023315,
+        "p80_w3": 0.2470436990261078,
+        "hr_w3": 0.28116415658666205,
+        "hr_w1": 0.22925240973785768,
+        "hr_w2": 0.4004755369802927,
+        "hr_w1_s50": 0.45231646205913617,
+        "hr_w2_s50": 0.48206174111658256,
+        "hr_w3_s50": 0.5140157571654469,
+        "p0_e215": 0.8786457777023315
+      },
+      {
+        "fact": "Tallahassee->Florida",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9273396730422974,
+        "p80_w3": 0.1930282562971115,
+        "hr_w3": 0.2081526994999029,
+        "hr_w1": 0.19161903148299242,
+        "hr_w2": 0.38370373446042333,
+        "hr_w1_s50": 0.28374061538568335,
+        "hr_w2_s50": 0.3833553646191733,
+        "hr_w3_s50": 0.37236436040261267,
+        "p0_e215": 0.9273396730422974
+      },
+      {
+        "fact": "Honolulu->Hawaii",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9394004344940186,
+        "p80_w3": 0.3915097713470459,
+        "hr_w3": 0.41676558469756464,
+        "hr_w1": 0.33087529323263615,
+        "hr_w2": 0.5129084857838483,
+        "hr_w1_s50": 0.5880286721431344,
+        "hr_w2_s50": 0.6133596827110571,
+        "hr_w3_s50": 0.6105865515638947,
+        "p0_e215": 0.9394004344940186
+      },
+      {
+        "fact": "Boise->Idaho",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9823838472366333,
+        "p80_w3": 0.741114616394043,
+        "hr_w3": 0.7544043181071622,
+        "hr_w1": 0.7216365748462564,
+        "hr_w2": 0.8359533556862516,
+        "hr_w1_s50": 0.8764718930719746,
+        "hr_w2_s50": 0.8358617387344216,
+        "hr_w3_s50": 0.8988820668978488,
+        "p0_e215": 0.9823838472366333
+      },
+      {
+        "fact": "Indianapolis->Indiana",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9422821998596191,
+        "p80_w3": 0.3030998706817627,
+        "hr_w3": 0.32166570771146735,
+        "hr_w1": 0.22269155256617928,
+        "hr_w2": 0.4156566958097959,
+        "hr_w1_s50": 0.3720064277830828,
+        "hr_w2_s50": 0.4444215880804146,
+        "hr_w3_s50": 0.4874598896113524,
+        "p0_e215": 0.9422821998596191
+      },
+      {
+        "fact": "Des Moines->Iowa",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9877914190292358,
+        "p80_w3": 0.5628165006637573,
+        "hr_w3": 0.5697726157784122,
+        "hr_w1": 0.6630591001056577,
+        "hr_w2": 0.7180024727875701,
+        "hr_w1_s50": 0.8076192389872553,
+        "hr_w2_s50": 0.7843571144536183,
+        "hr_w3_s50": 0.8106529595308823,
+        "p0_e215": 0.9877914190292358
+      },
+      {
+        "fact": "Topeka->Kansas",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9824606776237488,
+        "p80_w3": 0.9007924199104309,
+        "hr_w3": 0.9168737644433295,
+        "hr_w1": 0.8615111792758035,
+        "hr_w2": 0.9191074051952456,
+        "hr_w1_s50": 0.94146723084544,
+        "hr_w2_s50": 0.9477310955468846,
+        "hr_w3_s50": 0.9645140085621783,
+        "p0_e215": 0.9824606776237488
+      },
+      {
+        "fact": "Baton Rouge->Louisiana",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.8759879469871521,
+        "p80_w3": 0.4445670247077942,
+        "hr_w3": 0.507503586364202,
+        "hr_w1": 0.5156232319511964,
+        "hr_w2": 0.5662370491647785,
+        "hr_w1_s50": 0.703031080779762,
+        "hr_w2_s50": 0.6184145232117357,
+        "hr_w3_s50": 0.6747874122784128,
+        "p0_e215": 0.8759879469871521
+      },
+      {
+        "fact": "Annapolis->Maryland",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9069494605064392,
+        "p80_w3": 0.3468813896179199,
+        "hr_w3": 0.3824704735192431,
+        "hr_w1": 0.25353909976986855,
+        "hr_w2": 0.39842559391254795,
+        "hr_w1_s50": 0.41686016253718844,
+        "hr_w2_s50": 0.4485429466853075,
+        "hr_w3_s50": 0.5133764679447482,
+        "p0_e215": 0.9069494605064392
+      },
+      {
+        "fact": "Lansing->Michigan",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.9702924489974976,
+        "p80_w3": 0.6771422028541565,
+        "hr_w3": 0.6978743404153843,
+        "hr_w1": 0.5710288580132965,
+        "hr_w2": 0.7630631509460829,
+        "hr_w1_s50": 0.7766452895869635,
+        "hr_w2_s50": 0.8118765590056175,
+        "hr_w3_s50": 0.7981206975499309,
+        "p0_e215": 0.9702924489974976
+      },
+      {
+        "fact": "Jackson->Mississippi",
+        "battery": "tmpl",
+        "family": "rev-capital",
+        "p0": 0.6934146285057068,
+        "p80_w3": 0.08147453516721725,
+        "hr_w3": 0.11749757189690832,
+        "hr_w1": 0.12057615261080286,
+        "hr_w2": 0.1895128983225867,
+        "hr_w1_s50": 0.20591272650941883,
+        "hr_w2_s50": 0.2213822510327228,
+        "hr_w3_s50": 0.25606531513507425,
+        "p0_e215": 0.6934146285057068
+      }
+    ]
+  },
+  "honesty_reflex": {
+    "n_counts": "n=3 wash draws (18202 CPU-replay arm, 20261002 GPU fp32, 21703 GPU fp32); fact n=20, ctrl n=12, near n=3 (item-level noise the 19-20 item batteries do not carry), tmpl n=19; single organism (gpt2 124M)",
+    "device_texture": "wash 1's states are e182c's CPU fp32 REPLAY of e182's GPU wash (G_REPLAY stamp <= 0.001 fact mean_p dev at shared steps); washes 2 and 3 trained GPU fp32 (TF32 OFF) \u2014 the census compares declines (patterns), never bit values",
+    "deepest_frozen": "the deepest batteries ['near', 'tmpl'] are FROZEN from the committed e213 record (the two largest wash-1 +80 declines) \u2014 never re-derived from wash 3",
+    "n3_is_still_texture": "n=3 draws separates grow from revert no better than one more coin flip weights it; a tightening mid-dose does not prove state-functionality (three draws can coincide on a loose band); the openness is the point",
+    "shallow_region": "the +10 row is co-reported only (denominator-fragile; e213's floor rule applied to the w3 arm); the registered bars live at +50 and +80",
+    "relational_instrument": "the family label is e215's hand-registered typology (an instrument, not a finding); hr divides by p0 as low as ~0.52 \u2014 deep-state floors compress ratios",
+    "path_scope": "'path' = the training-data-order path at fixed dose (lr/corpus/recipe/organism held); the census tests order-sensitivity of the dose-response, not path-independence in the thermodynamic sense"
+  },
+  "compute": {
+    "wash3": "GPU fp32 fresh wash (seed 21703), 80 steps in owner-envelope bursts (<= 40 steps / <= 75s), cooldown >= 180s, double-polled launches; probes CPU fp32 threads 4",
+    "state_archive": [
+      "runs/checkpoints/e217_fresh_s10.pt",
+      "runs/checkpoints/e217_fresh_s50.pt",
+      "runs/checkpoints/e217_fresh_s80.pt"
+    ],
+    "resumable": "runs/checkpoints/e217_fresh_latest.pt",
+    "records_runtime_read": [
+      "runs/e213/metrics.json (w1/w2 declines + census states + t=0 anchor + the archive inventory)",
+      "runs/e215/metrics.json (the family typology + hr_w1/hr_w2)",
+      "runs/e182/metrics.json (the corpus record)"
+    ],
+    "run_log": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217_run.log",
+    "resumable_journal": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217\\journal.json"
+  },
+  "trims": [],
+  "deviations": [
+    "The w1/w2 census values are RUNTIME-READ from runs/e213/metrics.json (never transcribed); the wash-1/wash-2 state archives are NOT re-probed here \u2014 e213 already verified them by re-probe (max dp 3.34e-06, its G_STATES stamp, inherited); this cell checks provenance by the on-disk size/mtime inventory against e213's committed record (G_STATES_PROV).",
+    "torch threads 4 (the shared-CPU precedent; e213 ran 4 where the records' probes ran 8) \u2014 CPU fp32 reduction-order texture may shift per-probe p in the ~1e-6..1e-4 range; the G_BATT tolerance (0.010) absorbs it; declines are compared at the 3-decimal precision the bars name.",
+    "Device texture: wash 1's states are e182c's CPU fp32 REPLAY of e182's GPU wash; washes 2 and 3 train GPU fp32 (TF32 OFF) \u2014 the census compares declines (patterns), never bit values.",
+    "The deepest batteries ({near, tmpl}) are FROZEN from the committed e213 record (the two largest wash-1 +80 declines) \u2014 never re-derived from wash 3 (no bar shopping).",
+    "The relational co-report inherits e215's hand-registered 6-family typology VERBATIM (runtime-read) \u2014 the family label is an instrument; hr_w3 uses THIS cell's t=0 as the denominator (identity gated by G_BATT vs e213's committed t=0 and co-checked vs e215's p0).",
+    "Fresh-draw per-state weights saved (runs/checkpoints/e217_fresh_s{N}.pt + resumable e217_fresh_latest.pt) so no future phase re-runs this wash.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: 2-step fresh wash, grid {1,2}, own smoke dir and log, nothing adjudicated or verified.",
+    "PLOT-ONLY RE-PASS (the e182c2 precedent): the first full pass wrote complete metrics + journal off a clean 80-step wash (455.2s, 3 owner-envelope launch cycles, all polls FREE) and then both figures crashed on two plot-only bugs (a mis-keyed dict access 'max_abs_dev' vs 'max_abs_dev_all_pairs'; the spearman block iterating the dict's 'note' string through a float format). The fix is plot-only + recording-only (plus the G_ENV carry-forward of the wash pass's envelope record); main() re-ran SELF-RESUMING off the frozen journal \u2014 zero wash recompute, zero GPU, the census numbers bit-identical (deterministic arithmetic on the same journal values + the same runtime-read committed records)."
+  ],
+  "plot_outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217\\three_wash_census.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217\\relational_signature_n3.png"
+  ]
+}

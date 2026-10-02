@@ -284,6 +284,17 @@ deviations: list[str] = [
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
     "Smoke mode: 2-step fresh wash, grid {1,2}, own smoke dir and log, "
     "nothing adjudicated or verified.",
+    "PLOT-ONLY RE-PASS (the e182c2 precedent): the first full pass wrote "
+    "complete metrics + journal off a clean 80-step wash (455.2s, 3 "
+    "owner-envelope launch cycles, all polls FREE) and then both figures "
+    "crashed on two plot-only bugs (a mis-keyed dict access "
+    "'max_abs_dev' vs 'max_abs_dev_all_pairs'; the spearman block "
+    "iterating the dict's 'note' string through a float format). The fix "
+    "is plot-only + recording-only (plus the G_ENV carry-forward of the "
+    "wash pass's envelope record); main() re-ran SELF-RESUMING off the "
+    "frozen journal — zero wash recompute, zero GPU, the census numbers "
+    "bit-identical (deterministic arithmetic on the same journal values "
+    "+ the same runtime-read committed records).",
 ]
 
 
@@ -526,7 +537,9 @@ def plot_three_wash(rd, census, adj, retention, mid_state, deep_state):
     ax.set_ylim(0, max(max(census["declines"][w][str(mid_state)][b]
                            for w in ("w1", "w2", "w3") for b in BATTERIES) * 1.28, 0.05))
     m = adj["mid_dose"]
-    ax.set_title(f"MID-DOSE at +{mid_state}: max|r-1| {m['max_abs_dev']:.3f} "
+    max_dev_plot = m["max_abs_dev_all_pairs"]
+    max_dev_plot_txt = f"{max_dev_plot:.3f}" if max_dev_plot is not None else "n/a"
+    ax.set_title(f"MID-DOSE at +{mid_state}: max|r-1| {max_dev_plot_txt} "
                  f"(tol {RATIO_TOL_MID}) -> "
                  f"{'FIRES' if m['fires'] else 'does not fire'}", fontsize=9.5)
 
@@ -554,41 +567,42 @@ def plot_three_wash(rd, census, adj, retention, mid_state, deep_state):
                            for w in ("w1", "w2", "w3") for b in BATTERIES) * 1.28, 0.05))
     d = adj["deep_drift"]
     ax.set_title(f"DEEP at +{deep_state}: deepest {d['deepest_batteries']} -> "
-                 f"{adj['verdict_deep']}", fontsize=9.5)
+                 f"{d['fired']}", fontsize=9.5)
 
     ax = axes[1, 1]
     ax.axis("off")
-    y = 0.98
-    ax.text(0.02, y, "GATES:", fontsize=9, va="top", family="monospace",
+    y = 0.995
+    ax.text(0.02, y, "GATES:", fontsize=8.4, va="top", family="monospace",
             weight="bold")
-    y -= 0.026
+    y -= 0.030
     for g, val in adj["gates_summary"].items():
         ax.text(0.02, y, f"  {g:14s} {'PASS' if val else 'FAIL'}",
-                fontsize=7.4, va="top", family="monospace")
-        y -= 0.020
+                fontsize=6.8, va="top", family="monospace")
+        y -= 0.021
     y -= 0.012
-    ax.text(0.02, y, f"THREE-WASH RATIO TABLE (anchored on wash 1):",
-            fontsize=8.8, va="top", family="monospace", weight="bold")
-    y -= 0.024
+    ax.text(0.02, y, "THREE-WASH RATIOS (anchored on wash 1; r_ij = decl_i/decl_j):",
+            fontsize=8.0, va="top", family="monospace", weight="bold")
+    y -= 0.028
     for st in census["states"]:
         if st in (mid_state, deep_state):
-            ax.text(0.02, y, f"  +{st}:", fontsize=7.6, va="top",
+            ax.text(0.02, y, f"+{st}:", fontsize=7.0, va="top",
                     family="monospace", weight="bold")
-            y -= 0.021
+            y -= 0.024
             for b in BATTERIES:
                 rr = census["pairwise"][str(st)][b]
                 ax.text(0.02, y,
-                        f"    {b:5s} r21 {fmt(rr['r21']):>7s}  r31 {fmt(rr['r31']):>7s}"
-                        f"  r32 {fmt(rr['r32']):>7s}",
-                        fontsize=7.0, va="top", family="monospace")
-                y -= 0.019
-    y -= 0.010
+                        f" {b:5s} r21 {fmt(rr['r21']):>6s} r31 {fmt(rr['r31']):>6s}"
+                        f" r32 {fmt(rr['r32']):>6s}",
+                        fontsize=6.2, va="top", family="monospace")
+                y -= 0.022
+            y -= 0.005
+    y -= 0.012
     ax.text(0.02, y, f"FIRED: {', '.join(adj['fired']) or 'none'}",
-            fontsize=9.4, va="top", family="monospace", weight="bold",
+            fontsize=8.6, va="top", family="monospace", weight="bold",
             color="darkred")
-    y -= 0.030
-    for wd in textwrap.wrap(adj["clause"], width=92, break_long_words=False):
-        ax.text(0.02, y, f"  {wd}", fontsize=6.8, va="top", family="monospace")
+    y -= 0.036
+    for wd in textwrap.wrap(adj["clause"], width=78, break_long_words=False):
+        ax.text(0.02, y, f" {wd}", fontsize=6.2, va="top", family="monospace")
         y -= 0.021
 
     fig.suptitle(f"E217 — THE THIRD WASH DRAW (seed {FRESH_SEED}) -> "
@@ -674,7 +688,8 @@ def plot_relational(rd, rel):
     ax.text(0.03, y, "pooled per-probe Spearman:", fontsize=8.4, va="top",
             family="monospace", weight="bold")
     y -= 0.026
-    for k, v in rel["spearman"].items():
+    for k in ("w2xw1", "w3xw1", "w3xw2"):
+        v = rel["spearman"][k]
         ax.text(0.03, y, f"  {k:6s} rho {v:.3f}", fontsize=7.4, va="top",
                 family="monospace")
         y -= 0.023
@@ -984,6 +999,7 @@ def main():
             log(f"resume failed ({e}); fresh wash from scratch")
             resume = None
             p3_states = [s for s in p3_states if s["step"] == 0]
+    metrics["wash3_states"] = p3_states   # self-contained on every pass
 
     def bat_rec(b):
         return {"mean_p": b["mean_p"], "frac_top1": b["frac_top1"],
@@ -1061,8 +1077,33 @@ def main():
              "polls_logged": "run log + runs/_envelope_log.jsonl (every "
                              "poll)",
              "n_launch_poll_cycles": len(envelope_poll_log) // 2,
+             "wash_executed_this_pass": bool(todo),
              "cpu_load_checks": load_checks,
              "pass": True}
+    if not todo:
+        # the plot-only re-pass (the e182c2 precedent): the wash itself ran
+        # in the prior pass — recover its envelope record from the ON-DISK
+        # audit trail (the run log's poll/burst lines; runs/
+        # _envelope_log.jsonl holds the same polls), recording-only
+        G_ENV["wash_pass_note"] = (
+            "the wash ran in the prior DONE pass (455.2s wall; see "
+            "runs/e217_run.log + runs/_envelope_log.jsonl); THIS pass is "
+            "the plot-only re-pass off the frozen journal — zero GPU, zero "
+            "wash recompute, the census numbers bit-identical")
+        try:
+            logtxt = LOG_PATH.read_text(encoding="utf-8", errors="replace")
+            n_polls = logtxt.count("[gpu:burst")
+            bursts = [ln.split("] ", 1)[1] for ln in logtxt.splitlines()
+                      if "burst done:" in ln]
+            G_ENV["carried_from_wash_pass"] = {
+                "n_launch_poll_cycles": n_polls // 2,
+                "n_polls_logged": n_polls,
+                "burst_walls": bursts,
+                "source": f"parsed from {LOG_PATH} (the append-mode audit "
+                          "trail; re-passes add no GPU polls)",
+            }
+        except Exception as e:                          # noqa: BLE001
+            G_ENV["carried_from_wash_pass"] = {"error": repr(e)}
     metrics["gates"]["G_ENV"] = G_ENV
     write_metrics("PARTIAL: the third draw complete; the census pending")
 
