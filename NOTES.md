@@ -9,6 +9,39 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e200 — the deepening test: GRADED — the concentration ARRIVES, UN-FORMS, and RETURNS at its deepest exactly at the killing step; the rotation is a rotating object, not a converging pursuit (2026-10-02 ~08:30Z) — DONE
+
+WHAT WE DID: e197's half-step walk rebuilt verbatim as the ray
+factory (journal gated row-by-row, 9.5e-07 TEXTURE tier — threads
+4 vs 8, the owner envelope's cap, disclosed); the sign(g_t) rays
+from its root at every ALIVE t; 15/15 gates PASS (u1/u2 md5s BIT;
+D_kills BIT at 6.6e-08); 141s CPU, threads 4, load checked.
+
+WHAT WE SAW (T164): THE CURVE — t1 SOFT (3.169, reproducing e197's
+committed flight ray to 8 decimals) -> t2 CONCENTRATED (0.663;
+e197's unadjudicated root_u2 now read as onset) -> t3 UN-FORMS
+(1.292) -> t4 RE-CONCENTRATES AT ITS DEEPEST (0.397 — the killing
+step's own direction; depth comparable to org1's 0.171 and
+MIRABEL's 0.427) -> death at t5 (recompute 1.597 = e197's
+committed ABSENT). ONSET-DEEPENS FAILS (no hold); ONSET-STALLS
+FAILS (it arrived); GRADED — and the texture is the finding: THE
+CONCENTRATION IS NON-MONOTONE, and consecutive fronts are ALL
+mutually anti-correlated (cos -0.26/-0.31/-0.34/-0.35): THE FRONT
+ALTERNATES ONTO AND OFF THE SUPPORT — a rotating object, not a
+converging pursuit — AND THE ORGANISM DIES EXACTLY WHEN THE FRONT
+LANDS ON IT DEEPEST. THE WHEN (T163) SURVIVES as arrival-at-first-
+concentration (t=2 here, the second t=2 arriver after MIRABEL);
+the monotone-deepening SHAPE amends to alternation. HONESTY: n=1
+lineage, one stream; the COUNTERFACTUAL-WASH caveat rides (alive
+only at half the natural step; the curve belongs to this
+construction's alive window); cross-organism magnitudes never
+compared (shape and arrival only). FOLLOW-ONS NAMED: the
+front-rotation census (do org1/MIRABEL's consecutive fronts also
+anti-correlate — is the alternation universal or the wash's?); the
+t4-deepest replicate before it is a noun.
+
+---
+
 ## e199 — the concentration's onset curve: ONSET-COMMON — A WHEN, NOT A WHETHER; org-1-EARLY, not org-1-only; MIRABEL's drop-in texture (2026-10-01 ~23:00Z) — DONE
 
 WHAT WE DID: both organisms' committed walks extended to t=6 or

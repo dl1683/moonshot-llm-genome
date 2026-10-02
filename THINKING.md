@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T164 — e200: alternation — the front rotates onto and off the support, and death is the deepest landing (2026-10-02 ~08:30Z)
+
+Given the longest alive window on record, the onset curve answers
+NO to monotone deepening and YES to something better: the
+concentration ARRIVES (t2), UN-FORMS (t3), and RETURNS AT ITS
+DEEPEST at exactly the killing step (t4, ratio 0.397). The
+geometry explains the shape: every consecutive front pair is
+mutually ANTI-correlated (-0.26 to -0.35) — the front is a
+ROTATING OBJECT that alternates onto and off the fleeing support,
+and THE ORGANISM DIES WHEN THE ROTATION LANDS ON IT DEEPEST. THE
+MECHANISM PICTURE REWRITES AGAIN: not a pursuit that converges
+(e194's reading) but a ROTATION that periodically lands; survival
+is the phase of the rotation relative to death. THE WHEN ACCOUNT
+(T163) HOLDS (arrival at first concentration: org1 t1, MIRABEL t2,
+org2-half t2); the SHAPE account amends: alternation, not
+deepening. THE BLEED'S RE-ORIENTATION and the front's rotation are
+THE SAME OBJECT SEEN TWICE: the bleed's steps turn away from the
+lethal direction and live; the sign front's rotation periodically
+lands on it and kills — both are the rotation's phase. THE
+COUNTERFACTUAL CAVEAT rides honestly (this lineage lives only at
+half the natural step); the census follow-on decides whether the
+alternation is universal (org1/MIRABEL's committed fronts' mutual
+correlations — a pure desk check on committed data).
+
 ## T163 — e199: the WHEN — the flight question closes at onset-shape (2026-10-01 ~23:00Z)
 
 The timing cut returns the day's cleanest synthesis: ONSET-COMMON.
