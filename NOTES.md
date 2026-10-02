@@ -9,6 +9,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e207 — the lag-2 rung set: CORE-GRAINY — the null's last debt RETIRES as grain; the cos1 law is the whole in-domain story; both raw series are smooth and only their difference wobbles (2026-10-02 ~12:25Z) — DONE
+
+WHAT WE DID: the missing interior rung 3s/8 on the gated org2 root
+(e202's machinery verbatim; the s/4 rebuild BIT-anchored to e202's
+committed quarter — journal 0.0, all 5 ray md5s); 10/10 gates; 16s
+CPU.
+
+WHAT WE SAW (T175): THE CORE STATISTIC 0.13387 -> 0.23319 ->
+0.23013 -> 0.20186 — the interior TURNS DOWN at 3s/8 (-0.0031
+below the quarter, +0.0283 above the half): non-monotone ->
+CORE-GRAINY per the frozen bar (the WEAK form disclosed verbatim:
+the dip is 10x smaller than the half-rung drop). THE STRUCTURE
+UNDERNEATH: cos1 deepens MONOTONE through all four rungs (0.00196
+-> -0.20573 -> -0.25840 -> -0.26318 — the 3s/8 rung sits ON the
+confirmed law) while cos2 declines MONOTONE (0.26970 -> 0.14055) —
+BOTH RAW SERIES SMOOTH IN s; THE CORE IS THEIR DIFFERENCE OF
+OPPOSING TRENDS AND THE DIFFERENCE IS GRAIN. e202's half-rung
+"break" was grain; THE LAG-2 TERM RETIRES; the overshoot null's
+cos1 law stands as the whole in-domain step-size story. HONESTY:
+n=1 per rung, deterministic same-stream walks on one org2 root; a
+finer ladder could in principle re-sharpen — the registered grain
+is what the registered rungs read.
+
+---
+
 ## e206 — the drift-rate clock: CLOCK-ONE-LINEAGE — THE DESTINATION REPLICATES 3/3 (near-orthogonality at death on every lineage, monotone ladders); the rate does NOT (the error's sign flips; the fact's watch has no constant tick) (2026-10-02 ~11:55Z) — DONE
 
 WHAT WE DID: all three state-laddered lineages (org1 died t=2;

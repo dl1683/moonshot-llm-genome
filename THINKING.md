@@ -685,6 +685,25 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T175 — e207: the null's last debt retires — the geometry chapter's final stamp (2026-10-02 ~12:25Z)
+
+The interior rung decides cleanly: the core statistic is GRAIN
+(both raw series — cos1 and cos2 — individually smooth and
+monotone in the step; the core, their half-difference of opposing
+trends, wobbles). e202's half-rung "break" dissolves; the lag-2
+term retires; THE OVERSHOOT NULL'S COS1 LAW STAMPS AS THE WHOLE
+IN-DOMAIN STEP-SIZE STORY. THE GEOMETRY CHAPTER'S FINAL LEDGER
+(e194-e207, fourteen cells): the sign front's bounce is the
+algorithm's (the cos1 law: orthogonal at s/8 to -0.263 at s/2,
+in-domain, bit-anchored); the lag-2/core term retired; the
+rotation dead; the sliver retired (e203); THE SIGN SURVIVES as the
+minimal fact-carrying object (fact-carrying fronts deeper, both
+families); the survivors on the D_kill side (death-at-deepest,
+mostly fact-directed) stand untouched. THE NULL'S OWN LEDGER: its
+step-size debt paid (this cell); its twin debt paid (e203: the
+sign survives); the null STAMPS CLEAN on both its named axes —
+with the sign as the honest residue it cannot absorb.
+
 ## T174 — e206: the destination replicates, the tick doesn't — the fact's watch (2026-10-02 ~11:55Z)
 
 W027's cut delivers the cleanest shape/height split of the arc:
