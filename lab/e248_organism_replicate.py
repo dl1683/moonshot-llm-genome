@@ -2361,7 +2361,14 @@ def cmd_adjudicate() -> None:
                                         if not v]))
                    + "; span identity carries the sign-shadow guard "
                    "(recipe+organism at minimum; e234-validated on "
-                   "GPT-2's washes only; corpus-swap named, not run)"),
+                   "GPT-2's washes only; corpus-swap named, not run)"
+                   + ("; SUB-GATE ORGANISM PILOT (the coordinator's "
+                      "fork decision 22:0xZ): G_ORGANISM FALSE (best val "
+                      "1.5781 > the 1.50 gate; two arcs U-turned) — the "
+                      "eight bars are DESCRIPTIVE of a sub-gate organism, "
+                      "not adjudications of organism-robustness; that "
+                      "question stays open for a healthy organism"
+                      if not gates.get("G_ORGANISM") else "")),
         "committed_re_read": COMMITTED, "wash_ladder_mult": mult,
     }
     write_metrics(m)
