@@ -3,65 +3,61 @@
 (Owner-ordered 2026-10-04: refreshed every two hours by the heartbeat's DROID BRIEF step.
  For the supervisor (droid). Read top-down; timestamps UTC; commit hashes are the record.)
 
-## Generated: 2026-10-04T15:06:00Z
+## Generated: 2026-10-04T16:57:00Z
 
-- Beat guard: OK (the thinking lane rich: 7+ thinking commits in the 6h window).
-- Cadence stamps: heartbeat fresh (15:00Z); the FRONTIER REVIEW OPEN (staggered under the
-  agent cap — critic + ideator REPORTED, auditor running; the REVIEWS.md entry when all
-  three land); NOVELTY SERVED this hour (the ideator's FQ6-FQ11 layer — stamp refreshed);
-  the max-priority compute window still open (owner, 'for now').
-- Owner envelope: MAXIMUM priority (2026-10-04, 'for now'): go ham; still no concurrent
-  GPU; <=180s bursts; temp-aware (the 5090 ramps ~9C/s at burst start — per-step polls
-  now the default after e233's catches). Paper lane PARKED; dissection only.
+- Beat guard: OK (the thinking lane rich all day; no THINKING-DUE, no TREADMILL-ALERT).
+- Cadence: heartbeat fresh; R63 review folded ~15:15Z (all corrections applied); novelty
+  served ~15:06Z (the ideator's FQ6-FQ11); the max-priority compute window still open.
+- Owner directives live: the paper lane PARKED; the compute envelope at MAXIMUM
+  ('for now'); the AMBITION DIRECTIVE re-issued ~16:56Z ("more ambitious, explore more
+  deeply — very key") — answered within the hour (below).
 
 ## WHERE WE ARE
 
-- Through-line: the day ran a generative CASCADE under the open window — 12 cells in
-  ~4h (x2/x3 + e225-e238), each landed result seeding the next. The standing law
-  (W028 shape/height) held everywhere it was pressed; three big pictures were born and
-  are now in open adjudication (the W035/W036/W037 triangle: wind-and-friction /
-  the wall's shoreline / behavior-shadow).
+- Through-line: the lab ran a ~20-cell generative cascade today (x2/x3, e225-e245,
+  T204-T221, W031-W038, R63) under the open compute window, and the day's three big
+  pictures CONVERGED into one four-movement field description — THE LAWS DRAFT (W038):
+  the TIDE (the common rotation; the field's direction = the wash-span, cross-wash-
+  identical), the UNDERTOW (a ~0.04%-of-L2 directed killing acting only at exposure
+  extremes), the FRICTION (margin grinding; the p-side two-thirds thermal, T(t) to
+  1.45 unwalled), and the RE-FORMATION (the wall FORGES commitments: margins +19.2%;
+  cutting the undertow ELEVATES the dying probe above t=0).
 - Freshest verdicts:
-  - e233 (the intervention): ANY [UNDERPOWERED] — 0.04% of step L2 along ONE direction
-    more than doubled the dying probe's fate; the wind is a scalpel with a memory
-    (Adam's moments re-grow it); e237 (the pre-Adam cut) designed, w2 rider mandated.
-  - e226/e230/e232 (the seat + the zombies): the wash's pull works along the dying
-    relation's support; decisions outlive beliefs (ZOMBIE DECISIONS; 7 wrong-choosers);
-    the grinding is not temperature.
-  - e227/e235 (the cross-scale bridge): 124M eats the faculty, 2.74M eats the fact;
-    the 10M absence decomposes (variant vs scale); the never-seen-name prior is a
-    10x lottery (the prior shape is HEIGHT).
-  - e231 (the honest kill): the flat phase's currency ledger 0-for-4 — and the
-    instrument autopsy: the sign-ray "fact direction" is a stream-relative cloud
-    (RECIPE-IDENTITY instrument class born).
-- Fleet 3/3: e234 (the wind/friction decomposition — w1 replay deep; coverage-guard
-  advisory sent), the review AUDITOR (recovered after a model-request failure), and
-  e238 (FQ7, the one-temperature-per-state null — time-sensitive before e234 reads).
-- The review's verdicts so far: the critic's three sharpest (e233's number is one
-  stream wide — the w2 rider mandated; W037 most-at-risk — its direct test named;
-  the currency chain needs rows not columns); the ideator's six fresh questions
-  (FQ6-FQ11) with two never-opened substrates: the decision layer's slow timescale
-  and the optimizer's moment state as a memory archive.
+  - e239: STABLE-AS-VECTORS — the supports hold as vectors cross-wash (0.997; zero
+    below the u0 cloud); ~87% of rotation common-mode; fate-blind.
+  - e234: NEITHER with a valid instrument — the wind is real and span-stable but does
+    not aim at beliefs battery-wide; the dying family is the LEAST wind-reached;
+    Gmail's margin GROWS.
+  - e238: STRUCTURED — one temperature explains 60-71%; the residual IS the conserved
+    erosion order; Gmail's protection super-thermal (+3.86 sigma).
+  - e242: FLAT-COMMITMENT + the thermal inversion — the wall thickens commitments and
+    COOLS while the unwalled wash heats; "the wash heats beliefs" is an unwalled
+    statement.
+  - e243/e241: the zombie wrong-choosers split into mis-dials and frequency collapses;
+    the mode selected by death depth (e245 adjudicating), not standing structure.
+  - e237 (in flight, adjudicating): the pre-Adam cut ELEVATED iPhone above t=0 (1.253
+    vs the 0.4525 line) with the 1% honest-instrument bar cleared; the w2 rider
+    elevating — the triangle's last verdict.
+- Fleet 3/3: e237 (final arms), e240 (the moment archive — does Adam's optimizer state
+  remember what the weights forgot?), e245 (the death-depth read).
+- The ambition directive answered: the BUILD LANE opens (e246 designed — the
+  ENGINEERED SEAT: install facts orthogonal vs aligned to the wash span; forgetting by
+  design) + the organism replicate sized (gated on e237's fold).
 
-## WHAT CAN BE DONE (named queue, ranked)
+## WHAT CAN BE DONE (named, ranked)
 
-1. THE REVIEWS.md ENTRY when the auditor lands — fold the three roles' verdicts, park
-   the prior-era queue tail honestly (g1bW2/g9/e167/e168; keep e146b as filler).
-2. FQ6 — the cross-wash support-stability read (W037's direct test; ~1h CPU; every
-   outcome edits a standing card). The triangle's cheapest adjudication.
-3. e237 — the pre-Adam projection WITH the w2 replication rider (GPU when e234's lane
-   frees; the "wind has memory" mechanism claim's decisive cut).
-4. FQ8 — the moment archive (reconstruct Adam's m/v from e234's gradient cache; the
-   no-archive law's possible amendment; FQ3 ripens with it). ~1-3h CPU after e234.
-5. Behind those: e236 (ONLY as the W036-vs-W037 discrimination), FQ9 (+160 window,
-   one GPU burst), FQ10 (the wall's commitment layer), FQ11 (the lift's baseline
-   relativity).
+1. e246 — THE ENGINEERED SEAT (GPU after e237; the build lane's first cell; if fate
+   follows engineered geometry, the seat becomes a construction tool).
+2. THE ORGANISM REPLICATE (per scratch/e244's rule: gated on e237's clean adjudication
+   + the window; the laws draft's constants are its bars — a fresh ~124M char-LM, an
+   afternoon of bursts).
+3. e240's RESURRECTION LEG if H-FOSSIL fires (one moment-only step from +80 — do the
+   eaten probes twitch?).
+4. The layers' interactions (the laws draft's named gaps: does the tide feed the
+   undertow? does the forge consume the friction's leavings?) + the exposure-vs-
+   protection read + FQ9 (+160 window).
 
 ## BLOCKERS / ASKS
 
-- None hard. The one deliberate deferral (the ideator's own): the second-organism
-  replicate WAITS until the triangle adjudicates (e234+e236+e237+FQ6) — replicating
-  before validation freezes the wrong bars.
-- The droid-visible risk the review named: cadence stamps have lagged reality before
-  (novelty was 3 days stale until this hour) — the stamps are now reconciled; the
-  commit hashes remain the reliable record.
+- None hard. The replicate is the one big spend queued — it wants the window to stay
+  open (owner signal if not). e237's fold is imminent and gates two dispatches.
