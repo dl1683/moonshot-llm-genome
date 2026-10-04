@@ -685,6 +685,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T233 — e257: the carrier is the span, and the anchor's load is the standing seat (2026-10-05 ~00:32Z)
+
+SPAN-SPECIFIC at the frozen bar: the own-direction denominator
+load does not beat the span-residency pooled (a near-tie), and
+the per-wash carriers point OPPOSITE ways — w1 favors v-overlap,
+w2 the span — so even the tie is draw-relative. THE COMPOSITION'S
+PROBE-LEG CLOSES BOUNDED: the carrier noun stays 'the span basis'
+(the 2-dim standing tide), and the composition's causal leg stays
+where T231 registered it (the v-heavy-vs-v-light install arm).
+THE UPGRADE NOBODY REGISTERED: iPhone's OWN-direction denominator
+load is extreme (z +19.6..+20.0) AND WASH-STABLE — the one
+standing probe-level read that beats its residency analogue's
+wash-inconsistency. THE ANCHOR'S STANDING SEAT IS ITS V-LOAD, not
+its span residency: the dying anchor lives in a direction the
+denominator has always loaded. This sharpens T230's
+standing/during correction: the EXPOSURE asymmetry is during-wash
+(e234), the RESIDENCY seat is wash-inconsistent (e256), but the
+V-LOAD seat stands — three dials, one anchor, the third one
+finally stable. THE NEARREL INVERSION persists at the v level
+(the hardest-dying family carries the least load): deaths are
+not load-directed either. CONNECTIONS: T231's one-story-three-
+cells keeps its install-side and span-side legs, loses its
+probe-side sharpening; the surviving-objects census gains
+'iPhone's qov' as a stable standing property; the counterfeit-
+self's targeting gains a candidate (disguise toward v-HEAVY
+directions — the anchor's own seat — rather than the span
+generally).
+
 ## T232 — x5: the battery thermal ladder — the lens is battery-relative, and the ordering mirrors the deaths (2026-10-04 ~22:52Z)
 
 BATTERY-SPECIFIC, cleanly: each battery carries its own T(t)

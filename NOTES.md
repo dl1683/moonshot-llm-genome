@@ -34,6 +34,34 @@ read — the composition's sharper predictor).
 
 ---
 
+## e257 — T231's sharper prediction: SPAN-SPECIFIC — the support-v-overlap join does NOT beat the span-residency join (|rho_v| 0.1385 p 0.042 vs |rho_span| 0.1479 p 0.030 on the IDENTICAL 216 rows; delta_pool -0.0094, bar 0.05) — the thermal coupling's carrier is the SPAN BASIS specifically, not v-load generally; the per-wash carriers point OPPOSITE ways at the bar's own margin (w1 v-overlap better +0.072; w2 span better -0.095 — the discordance rule did not fire; the tables verbatim); THE ANCHOR UPGRADE: iPhone's OWN-direction load is extreme AND wash-stable (qov z +19.6..+20.0 vs product at all four states, where its residency z was +3.2 at w1 only); nearrel carries the least v-load too (0.55-0.72 — e256's inversion persists at the denominator level); every support v-heavy 456-656x (pre-announced, disclosed) (2026-10-05 ~00:30Z) — DONE
+
+WHAT WE DID: the registered head-to-head — the per-probe quadratic
+form <s_i, V_s s_i>/||s_i||^2 (the denominator's load on each
+probe's OWN t=0 support, FULL form over all 124M coords) joined
+to |resid_z| (e238's committed y-side, e256's rows verbatim),
+vs e256's span-residency join recomputed on identical rows.
+15/15 gates PASS (the replays bit-exact; the v recursion
+bit-identical to e254's journal; the span masses bit-exact vs
+e254's committed; the span join reproducing e256's -0.1479 at
+|d| 0.0). Bars frozen at 9b85f99 BEFORE compute. Script
+lab/e257_support_v_overlap.py; runs/e257/{metrics.json,
+journal.json, 2 PNGs}.
+
+WHAT WE SAW (T233): THE COMPOSITION BOUNDED, NOT REFUTED — the
+two joins near-ties pooled (the span IS v-heavy; the x-sides
+share variance; the bar asked whether the OWN-direction load is
+BETTER and it is not — wash-inconsistently so: the carrier noun
+stays 'the span basis'). THE ANCHOR UPGRADE: iPhone's
+denominator load extreme + wash-stable — the standing read its
+residency never was. The causal leg unchanged: T231's install
+arm (v-heavy vs v-light at matched rank).
+
+HONESTY: observational; n=1 organism; the circularity
+pre-announced; the wash a repeated measure pooled.
+
+---
+
 ## e254 — FQ12, the V-span overlap: V-ENRICHED, and the denominator's load is a STANDING STRUCTURE — the committed 2-dim span carries 42-85% of v's squared mass (2.2e7-6.0e7 over the 20-draw null at every archived state; w2/w3 replicate) — H-iii's substrate condition MEASURED: the optimizer's denominator owns the span; "new memories need low-v room" is a fact of the wash's v; THE DROUGHT READ (the verdict's real content, the pre-announced arithmetic honored): at t=5-40 the instantaneous gradient is span-FREE (g2 span-mass 0.001-0.05) while v keeps 0.56-0.80 — the suppression persists through supply droughts on the beta2 window (T225's amplifier read at the span level); the fact hot sets are also v-heavy (0.016% of coords carrying 8-18% of v's L1) but ~4-5 orders less v-dense per dimension — low-v room is abundant off both (2026-10-04 ~22:10Z) — DONE
 
 WHAT WE DID: the frozen FQ12 cell — v reconstructed by
