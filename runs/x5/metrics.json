@@ -1,8 +1,8 @@
 {
   "experiment": "x5_ctrl_logit_fit",
   "phase": "eval-only CPU adjudication of T229's registered prediction (is the one-T fit battery-generic on the 124M archive?) \u2014 x4's desk attempt was honestly instrument-limited (the bracket bound inverts past the p=0.5 crossings); this is the proper full-logit cell",
-  "date": "2026-10-04T21:43:25Z",
-  "status": "PARTIAL: fits through w1 +50",
+  "date": "2026-10-04T21:48:16Z",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from the dispatch brief BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -94,7 +94,7 @@
     "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
   },
   "timing": {
-    "total_s": 101.8
+    "total_s": 218.2
   },
   "organism": {
     "repo": "openai-community/gpt2",
@@ -232,7 +232,7 @@
     "G_ENV": {
       "cpu_only": true,
       "torch_threads": 4,
-      "load_checks": 9,
+      "load_checks": 1,
       "gpu_calls": 0,
       "note": "e248 owns the GPU per the dispatch; this cell never touches it",
       "burst": "one state = one eval burst",
@@ -307,5 +307,953 @@
       }
     ],
     "note": "co-report only, never a gate or a bar: my re-probe vs e238's committed (ungitted) npz dumps \u2014 same weights, same CPU fp32 path, so ~0 expected; it certifies determinism across sessions, and anchors the fact/tmpl co-report fits"
-  }
+  },
+  "fit_rows": [
+    {
+      "battery": "ctrl",
+      "wash": "t0",
+      "state": 0,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 0.9999894754509929,
+      "nll_at_T": 6.933867410739877,
+      "nll_at_T1": 6.933867413596437,
+      "T_lsq": 0.9999896019031499,
+      "T_ref_committed": 1.0,
+      "delta_vs_committed": -1.052454900707378e-05,
+      "R2_own": NaN,
+      "R2_at_committed_T": NaN,
+      "mean_p_obs": 0.7266194721062978,
+      "mean_q": 0.7266192362651408,
+      "mean_abs_resid": 1.96793860009666e-06,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 4.268773359430428e-06,
+      "adjudicates": false
+    },
+    {
+      "battery": "near",
+      "wash": "t0",
+      "state": 0,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 0.9999890595683749,
+      "nll_at_T": 2.0156614544299467,
+      "nll_at_T1": 2.015661455020158,
+      "T_lsq": 0.9999890487680765,
+      "T_ref_committed": 1.0,
+      "delta_vs_committed": -1.0940431625083846e-05,
+      "R2_own": NaN,
+      "R2_at_committed_T": NaN,
+      "mean_p_obs": 0.5891445080439249,
+      "mean_q": 0.5891445274228762,
+      "mean_abs_resid": 5.344665712965954e-07,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 7.333449816666539e-07,
+      "adjudicates": false
+    },
+    {
+      "battery": "fact",
+      "wash": "t0",
+      "state": 0,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 0.9999999717241428,
+      "T_lsq": 0.9999999717241428,
+      "T_ref_committed": 1.0,
+      "delta_vs_committed": -2.827585721121295e-08,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "t0",
+      "state": 0,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 0.999999880221552,
+      "T_lsq": 0.9999999434482864,
+      "T_ref_committed": 1.0,
+      "delta_vs_committed": -1.197784480488906e-07,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 10,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.0430748020048268,
+      "nll_at_T": 7.348612280929883,
+      "nll_at_T1": 7.398096659707891,
+      "T_lsq": 1.0446163268549187,
+      "T_ref_committed": 1.0597956498145238,
+      "delta_vs_committed": -0.01672084780969696,
+      "R2_own": 0.515919319555443,
+      "R2_at_committed_T": 0.4516941340605871,
+      "mean_p_obs": 0.6820740898450216,
+      "mean_q": 0.6872546322843691,
+      "mean_abs_resid": 0.03241088533441905,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.05828147189978071,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 10,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.1313477994775574,
+      "nll_at_T": 2.0518701756418167,
+      "nll_at_T1": 2.1355649406044703,
+      "T_lsq": 1.1308389504512066,
+      "T_ref_committed": 1.0597956498145238,
+      "delta_vs_committed": 0.07155214966303358,
+      "R2_own": 0.6933265689585919,
+      "R2_at_committed_T": 0.4882116679129477,
+      "mean_p_obs": 0.4613621234893799,
+      "mean_q": 0.47266546871998405,
+      "mean_abs_resid": 0.07254408386191695,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.09275109703737139,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 10,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.0206245616877694,
+      "T_lsq": 1.0229547080575097,
+      "T_ref_committed": 1.0597956498145238,
+      "delta_vs_committed": -0.039171088126754405,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 10,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.1238320086912728,
+      "T_lsq": 1.1282589363116258,
+      "T_ref_committed": 1.0597956498145238,
+      "delta_vs_committed": 0.06403635887674897,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 50,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.1835854844229838,
+      "nll_at_T": 8.131761044158297,
+      "nll_at_T1": 9.06600014543709,
+      "T_lsq": 1.1839551406804987,
+      "T_ref_committed": 1.3489839391244727,
+      "delta_vs_committed": -0.16539845470148884,
+      "R2_own": 0.5338755034897413,
+      "R2_at_committed_T": 0.1242953313536862,
+      "mean_p_obs": 0.5221459195017815,
+      "mean_q": 0.5459411746148536,
+      "mean_abs_resid": 0.16056553194094195,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.2847994956789868,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 50,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.4801617448297186,
+      "nll_at_T": 1.5555984892381107,
+      "nll_at_T1": 2.469795350459039,
+      "T_lsq": 1.4909757469741676,
+      "T_ref_committed": 1.3489839391244727,
+      "delta_vs_committed": 0.13117780570524595,
+      "R2_own": 0.9692547407464843,
+      "R2_at_committed_T": 0.916632530914219,
+      "mean_p_obs": 0.2074204981327057,
+      "mean_q": 0.20878523384578573,
+      "mean_abs_resid": 0.05741144442659258,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.0983507918256556,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 50,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.2853047981758914,
+      "T_lsq": 1.272807010930029,
+      "T_ref_committed": 1.3489839391244727,
+      "delta_vs_committed": -0.06367914094858129,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 50,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.5099283399859182,
+      "T_lsq": 1.5128054730997005,
+      "T_ref_committed": 1.3489839391244727,
+      "delta_vs_committed": 0.16094440086144557,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 80,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.2649678250862952,
+      "nll_at_T": 8.147294566590714,
+      "nll_at_T1": 10.05737496717713,
+      "T_lsq": 1.2646985947048917,
+      "T_ref_committed": 1.4525923182890421,
+      "delta_vs_committed": -0.18762449320274688,
+      "R2_own": 0.6324033277126495,
+      "R2_at_committed_T": 0.3935756968897923,
+      "mean_p_obs": 0.43818762960533303,
+      "mean_q": 0.46223534109681297,
+      "mean_abs_resid": 0.19035401357234796,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.3479751083090286,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 80,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.6283721011017986,
+      "nll_at_T": 1.220283661050774,
+      "nll_at_T1": 2.5441727711556066,
+      "T_lsq": 1.6411330341038644,
+      "T_ref_committed": 1.4525923182890421,
+      "delta_vs_committed": 0.17577978281275652,
+      "R2_own": 0.9907855535747513,
+      "R2_at_committed_T": 0.951315323949668,
+      "mean_p_obs": 0.138129194577535,
+      "mean_q": 0.13847493324663182,
+      "mean_abs_resid": 0.037068192322966965,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.08422644384777746,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 80,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.3522936645093486,
+      "T_lsq": 1.3377136799746743,
+      "T_ref_committed": 1.4525923182890421,
+      "delta_vs_committed": -0.10029865377969349,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 80,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.6457471786216875,
+      "T_lsq": 1.6422572383783363,
+      "T_ref_committed": 1.4525923182890421,
+      "delta_vs_committed": 0.1931548603326454,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 2,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.0049600072951197,
+      "nll_at_T": 6.9899515328342305,
+      "nll_at_T1": 6.990586671469998,
+      "T_lsq": 1.0057750003481734,
+      "T_ref_committed": 1.0014473256519658,
+      "delta_vs_committed": 0.003512681643153881,
+      "R2_own": 0.16544942403800178,
+      "R2_at_committed_T": 0.07413666471594227,
+      "mean_p_obs": 0.7200787166754404,
+      "mean_q": 0.7222155251320975,
+      "mean_abs_resid": 0.01023760555104708,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.023076053124751812,
+      "adjudicates": false
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 2,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.007911980384535,
+      "nll_at_T": 2.0183542820820257,
+      "nll_at_T1": 2.018662412807996,
+      "T_lsq": 1.008205719360426,
+      "T_ref_committed": 1.0014473256519658,
+      "delta_vs_committed": 0.006464654732569075,
+      "R2_own": 0.22588380433293853,
+      "R2_at_committed_T": 0.07305703643519068,
+      "mean_p_obs": 0.579871267080307,
+      "mean_q": 0.5822256971434082,
+      "mean_abs_resid": 0.011489132548372841,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.0193788691475753,
+      "adjudicates": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 2,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 0.995426464848472,
+      "T_lsq": 0.9967113594655602,
+      "T_ref_committed": 1.0014473256519658,
+      "delta_vs_committed": -0.006020860803493844,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 2,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.0064003539612871,
+      "T_lsq": 1.0079536355467333,
+      "T_ref_committed": 1.0014473256519658,
+      "delta_vs_committed": 0.004953028309321317,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 10,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.0556419250049314,
+      "nll_at_T": 7.478199128231139,
+      "nll_at_T1": 7.561300524940263,
+      "T_lsq": 1.0567835170081477,
+      "T_ref_committed": 1.0744525359278094,
+      "delta_vs_committed": -0.018810610922878057,
+      "R2_own": 0.6094972158641085,
+      "R2_at_committed_T": 0.5448988989618411,
+      "mean_p_obs": 0.6692046026388804,
+      "mean_q": 0.6753024095452766,
+      "mean_abs_resid": 0.036478810511961675,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.05936679170475628,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 10,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.159141748965224,
+      "nll_at_T": 2.048217175514686,
+      "nll_at_T1": 2.171300999535098,
+      "T_lsq": 1.1589030777312936,
+      "T_ref_committed": 1.0744525359278094,
+      "delta_vs_committed": 0.08468921303741461,
+      "R2_own": 0.8538045824719624,
+      "R2_at_committed_T": 0.6127843780666742,
+      "mean_p_obs": 0.4403582215309143,
+      "mean_q": 0.44810769012916385,
+      "mean_abs_resid": 0.056401435673141896,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.06509538304057196,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 10,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.0348684965499004,
+      "T_lsq": 1.0370371001702872,
+      "T_ref_committed": 1.0744525359278094,
+      "delta_vs_committed": -0.039584039377909,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 10,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.1384588981009676,
+      "T_lsq": 1.1422162879979034,
+      "T_ref_committed": 1.0744525359278094,
+      "delta_vs_committed": 0.06400636217315814,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 50,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.1784804553654609,
+      "nll_at_T": 8.145888607224498,
+      "nll_at_T1": 9.026881517802563,
+      "T_lsq": 1.1790492490705244,
+      "T_ref_committed": 1.3363590444428126,
+      "delta_vs_committed": -0.15787858907735175,
+      "R2_own": 0.5257317831305921,
+      "R2_at_committed_T": 0.1310454128678027,
+      "mean_p_obs": 0.5265404159824053,
+      "mean_q": 0.5512408137908976,
+      "mean_abs_resid": 0.15703215258688533,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.26338822758736324,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 50,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.42290548649577,
+      "nll_at_T": 1.6919712438593912,
+      "nll_at_T1": 2.44006621993107,
+      "T_lsq": 1.4348725310487764,
+      "T_ref_committed": 1.3363590444428126,
+      "delta_vs_committed": 0.08654644205295736,
+      "R2_own": 0.9270763709631693,
+      "R2_at_committed_T": 0.8945519479355658,
+      "mean_p_obs": 0.240962415933609,
+      "mean_q": 0.24313072312558517,
+      "mean_abs_resid": 0.0844458328809085,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.13436679478608393,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 50,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.262807179593365,
+      "T_lsq": 1.2505706601311832,
+      "T_ref_committed": 1.3363590444428126,
+      "delta_vs_committed": -0.07355186484944753,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 50,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.5094684062473749,
+      "T_lsq": 1.5106398133203207,
+      "T_ref_committed": 1.3363590444428126,
+      "delta_vs_committed": 0.17310936180456227,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 80,
+      "smoke": false,
+      "n": 12,
+      "T_mle": 1.2473548883500492,
+      "nll_at_T": 8.158022482466448,
+      "nll_at_T1": 9.82844243478339,
+      "T_lsq": 1.2473853414019778,
+      "T_ref_committed": 1.413836040516422,
+      "delta_vs_committed": -0.16648115216637294,
+      "R2_own": 0.5960852256456309,
+      "R2_at_committed_T": 0.37619190172599637,
+      "mean_p_obs": 0.45459703356027603,
+      "mean_q": 0.480110553005524,
+      "mean_abs_resid": 0.18709341161876913,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.3620010882803825,
+      "adjudicates": true
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 80,
+      "smoke": false,
+      "n": 3,
+      "T_mle": 1.491084818062421,
+      "nll_at_T": 1.5309170912061179,
+      "nll_at_T1": 2.482923466681388,
+      "T_lsq": 1.5004621908526392,
+      "T_ref_committed": 1.413836040516422,
+      "delta_vs_committed": 0.0772487775459989,
+      "R2_own": 0.9782725239168949,
+      "R2_at_committed_T": 0.9617484451711028,
+      "mean_p_obs": 0.2024327019850413,
+      "mean_q": 0.2027008974428425,
+      "mean_abs_resid": 0.053893456378148345,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.08479094377493743,
+      "adjudicates": true
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 80,
+      "smoke": false,
+      "n": 20,
+      "T_mle": 1.373368675181737,
+      "T_lsq": 1.3604667136440798,
+      "T_ref_committed": 1.413836040516422,
+      "delta_vs_committed": -0.04046736533468498,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 80,
+      "smoke": false,
+      "n": 19,
+      "T_mle": 1.5391902870520016,
+      "T_lsq": 1.5384538859605277,
+      "T_ref_committed": 1.413836040516422,
+      "delta_vs_committed": 0.12535424653557947,
+      "source": "e238_npz_co_report",
+      "adjudicates": false
+    }
+  ],
+  "committed_reference_curve": {
+    "source": "runs/e238/metrics.json fit_rows (runtime read)",
+    "rows": [
+      {
+        "wash": "w1",
+        "state": 10,
+        "T_mle": 1.0597956498145238,
+        "T_lsq": 1.0559972137598457,
+        "R2_pooled": 0.2992025479329191,
+        "R2_battery_ctrl": 0.4516941340605871
+      },
+      {
+        "wash": "w1",
+        "state": 50,
+        "T_mle": 1.3489839391244727,
+        "T_lsq": 1.3375654975594329,
+        "R2_pooled": 0.6258844096157501,
+        "R2_battery_ctrl": 0.1242953313536862
+      },
+      {
+        "wash": "w1",
+        "state": 80,
+        "T_mle": 1.4525923182890421,
+        "T_lsq": 1.4571692803801428,
+        "R2_pooled": 0.6896121882948295,
+        "R2_battery_ctrl": 0.3935756968897923
+      },
+      {
+        "wash": "w1",
+        "state": 2,
+        "T_mle": 1.0014473256519658,
+        "T_lsq": 1.0024587973205983,
+        "R2_pooled": 0.013055907749592532,
+        "R2_battery_ctrl": 0.07413666471594227
+      },
+      {
+        "wash": "w2",
+        "state": 10,
+        "T_mle": 1.0744525359278094,
+        "T_lsq": 1.0702050133559553,
+        "R2_pooled": 0.38400894442133393,
+        "R2_battery_ctrl": 0.5448988989618411
+      },
+      {
+        "wash": "w2",
+        "state": 50,
+        "T_mle": 1.3363590444428126,
+        "T_lsq": 1.3216933924116232,
+        "R2_pooled": 0.5994788348804483,
+        "R2_battery_ctrl": 0.1310454128678027
+      },
+      {
+        "wash": "w2",
+        "state": 80,
+        "T_mle": 1.413836040516422,
+        "T_lsq": 1.4110336891076016,
+        "R2_pooled": 0.7085101083883214,
+        "R2_battery_ctrl": 0.37619190172599637
+      }
+    ],
+    "note": "the bars' reference ('the fact-side curve', 'fact's') = e238's committed POOLED-54 one-T MLE per state \u2014 the curve T218 minted as 1.00 -> 1.45; disclosed: pooled over all four batteries, so it CONTAINS ctrl (12/54) \u2014 the fact-only co-report prices the self-reference"
+  },
+  "x4_co_report": {
+    "table": {
+      "w1+2": {
+        "fact": [
+          0.9670676529079614,
+          20
+        ],
+        "ctrl": [
+          1.0400225619692303,
+          12
+        ],
+        "tmpl": [
+          1.0,
+          19
+        ],
+        "near": [
+          1.0049403818189924,
+          2
+        ]
+      },
+      "w1+10": {
+        "fact": [
+          0.9562701803669387,
+          20
+        ],
+        "ctrl": [
+          1.27681144390643,
+          12
+        ],
+        "tmpl": [
+          1.2738390381446538,
+          18
+        ],
+        "near": [
+          0.8496659854091396,
+          2
+        ]
+      },
+      "w1+50": {
+        "fact": [
+          1.2849185069623523,
+          20
+        ],
+        "ctrl": [
+          0.24467052060140596,
+          12
+        ],
+        "tmpl": [
+          1.5495071465866088,
+          19
+        ],
+        "near": [
+          -0.3277207205124073,
+          3
+        ]
+      },
+      "w1+80": {
+        "fact": [
+          0.3790798904912592,
+          20
+        ],
+        "ctrl": [
+          0.4896294976040281,
+          12
+        ],
+        "tmpl": [
+          -1.174541780426452,
+          19
+        ],
+        "near": [
+          -0.26206102408071275,
+          3
+        ]
+      },
+      "w2+10": {
+        "fact": [
+          0.991932774378105,
+          20
+        ],
+        "ctrl": [
+          1.3281303295398579,
+          12
+        ],
+        "tmpl": [
+          1.3127552965001155,
+          19
+        ],
+        "near": [
+          -0.11807349719652609,
+          3
+        ]
+      },
+      "w2+50": {
+        "fact": [
+          1.218796473574482,
+          20
+        ],
+        "ctrl": [
+          0.9844214134004554,
+          11
+        ],
+        "tmpl": [
+          1.4946444486675197,
+          19
+        ],
+        "near": [
+          -0.32251731259324984,
+          3
+        ]
+      },
+      "w2+80": {
+        "fact": [
+          -0.185510108908704,
+          18
+        ],
+        "ctrl": [
+          0.37134255710624486,
+          12
+        ],
+        "tmpl": [
+          -1.2239288939500048,
+          17
+        ],
+        "near": [
+          -0.32786723060578793,
+          3
+        ]
+      }
+    },
+    "slices": {
+      "w1+10": {
+        "x4_ctrl_bracket": 1.27681144390643,
+        "x4_fact_bracket": 0.9562701803669387,
+        "x4_ctrl_minus_fact_bracket": 0.3205412635394913,
+        "x5_ctrl_fulllogit_T": 1.0430748020048268,
+        "x5_factonly_fulllogit_T": 1.0206245616877694,
+        "committed_pooled_T": 1.0597956498145238,
+        "x5_ctrl_minus_committed": -0.01672084780969696
+      },
+      "w2+10": {
+        "x4_ctrl_bracket": 1.3281303295398579,
+        "x4_fact_bracket": 0.991932774378105,
+        "x4_ctrl_minus_fact_bracket": 0.33619755516175287,
+        "x5_ctrl_fulllogit_T": 1.0556419250049314,
+        "x5_factonly_fulllogit_T": 1.0348684965499004,
+        "committed_pooled_T": 1.0744525359278094,
+        "x5_ctrl_minus_committed": -0.018810610922878057
+      }
+    },
+    "direction_confirmed_vs_factonly": true,
+    "gap_fulllogit_ctrl_minus_factonly": {
+      "w1+10": 0.022450240317057446,
+      "w2+10": 0.02077342845503094
+    },
+    "gap_x4_bracket_ctrl_minus_fact": {
+      "w1+10": 0.3205412635394913,
+      "w2+10": 0.33619755516175287
+    },
+    "read": "x4's +10 slice said ctrl flattens MORE than fact (bracket medians ctrl 1.28-1.33 vs fact 0.96-0.99, gaps w1+10: +0.32, w2+10: +0.34). At full precision the ctrl-fact gaps are w1+10: +0.0225, w2+10: +0.0208 \u2014 the bracket's DIRECTION (ctrl > fact) is CONFIRMED, but its MAGNITUDE was instrument-artifact: the bracket's ~+0.3 gap reads as ~+0.02 under the full-logit family. Against the committed pooled reference, ctrl sits BELOW it at +10 (w1+10: -0.0167, w2+10: -0.0188)"
+  },
+  "adjudication": {
+    "bars": {
+      "GENERIC": false,
+      "BATTERY_SPECIFIC": true,
+      "divergence_clause_fired": true,
+      "r2_clause_fired": true,
+      "verdict": "BATTERY-SPECIFIC",
+      "clause": "ctrl's T diverges from the committed fact-side curve (= fact's, the pooled-54 reference) by > 0.15 at 4 adjudication states (deltas: w1+10 -0.0167, w1+50 -0.1654, w1+80 -0.1876, w2+10 -0.0188, w2+50 -0.1579, w2+80 -0.1665) OR ctrl's own-fit R2 left [0.2, 0.6] at: w1+80 +0.6324, w2+10 +0.6095 (all six: w1+10 +0.5159, w1+50 +0.5339, w1+80 +0.6324, w2+10 +0.6095, w2+50 +0.5257, w2+80 +0.5961) \u2014 the batteries have different thermal signatures; x4's +10 signal read at full precision: x4's +10 slice said ctrl flattens MORE than fact (bracket medians ctrl 1.28-1.33 vs fact 0.96-0.99, gaps w1+10: +0.32, w2+10: +0.34). At full precision the ctrl-fact gaps are w1+10: +0.0225, w2+10: +0.0208 \u2014 the bracket's DIRECTION (ctrl > fact) is CONFIRMED, but its MAGNITUDE was instrument-artifact: the bracket's ~+0.3 gap reads as ~+0.02 under the full-logit family. Against the committed pooled reference, ctrl sits BELOW it at +10 (w1+10: -0.0167, w2+10: -0.0188)",
+      "order": "BATTERY-SPECIFIC -> GENERIC -> MIXED (gated on G_STATES/G_BATT/G_CORPUS/G_ENV/G_X4)"
+    },
+    "bar_constants": {
+      "TRACK_TOL": 0.08,
+      "NEAR_TOL": 0.12,
+      "DIV_TOL": 0.15,
+      "DIV_MIN_STATES": 2,
+      "R2_LO": 0.2,
+      "R2_HI": 0.6,
+      "ADJ_STATES": [
+        10,
+        50,
+        80
+      ]
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_BATT": true,
+      "G_CORPUS": true,
+      "G_ENV": true,
+      "G_X4": true
+    },
+    "t0_anchor": {
+      "T_ctrl_t0": 0.9999894754509929,
+      "pass": true
+    },
+    "clause_lines": [
+      "TRACKING (GENERIC): all six |T_ctrl - T_ref| <= 0.08: w1+10 -0.0167, w1+50 -0.1654, w1+80 -0.1876, w2+10 -0.0188, w2+50 -0.1579, w2+80 -0.1665 \u2014 NOT all hold",
+      "NEAR TRACKING (GENERIC, n=3 coarse): all six |T_near - T_ref| <= 0.12: w1+10 +0.0716, w1+50 +0.1312, w1+80 +0.1758, w2+10 +0.0847, w2+50 +0.0865, w2+80 +0.0772 \u2014 NOT all",
+      "DIVERGENCE (BATTERY-SPECIFIC): |T_ctrl - T_ref| > 0.15 at >= 2 states: 4 states",
+      "R2 WINDOW (BATTERY-SPECIFIC): ctrl own-fit R2 outside [0.2, 0.6] at any of the 6 adjudication states: w1+80, w2+10",
+      "t0 ANCHOR (positive control): T_ctrl(t0) = 0.999989 (must be 1.000000; PASS)",
+      "PRECEDENCE: BATTERY-SPECIFIC > GENERIC > MIXED (frozen; ties go against T229's own prediction)"
+    ]
+  },
+  "honesty_reflex": {
+    "lens_not_mechanism": "T228/T229 demoted the fitted T to a lens (p-sharpening seen through one scalar; answer-local, not a contraction); X5 adjudicates the LENS's battery-genericity, not a physical temperature \u2014 a GENERIC verdict says any battery's p-decline maps to the same scalar trajectory, NOT that the wash implements one temperature",
+    "self_reference": "the committed reference curve is the pooled-54 fit and CONTAINS the 12 ctrl probes; ctrl-vs-pooled tracking is therefore partially self-referential; the fact-only (n=20) co-report fits are the discharge \u2014 if fact-only also tracks the pooled curve, the reading is clean",
+    "reference_is_a_fit": "'different thermal signatures' can mean different batteries OR different fit-population mixes; the fact-only/tmpl-only co-reports price the population effect",
+    "n_counts": "ctrl n=12 probes per state; near n=3 (its T is a 3-probe MLE \u2014 coarse, disclosed inside GENERIC's own text); ONE organism; n=2 washes",
+    "device_asymmetry": "wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 the archive's inherited asymmetry, disclosed",
+    "determinism": "the e238-npz cross-check co-reports max|dlogit| per state (expected ~0: same weights, same CPU fp32 path); it is never a gate or a bar",
+    "guarantees_nothing": "nothing here is guaranteed \u2014 the openness is the point; the branches were frozen before compute; no bar shopping"
+  },
+  "compute": {
+    "envelope": "CPU-only eval (dispatch: e248 owns the GPU): threads 4, load checks 1, one state = one eval burst; 15 probes x 8 state reads + construction forwards + 7 checkpoint loads; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 2.8,
+        "tool": "psutil"
+      }
+    ],
+    "state_archive": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+    ]
+  },
+  "provenance": {
+    "git_head_at_start": "f1f612f34ee4df8564f7e0490f43f1702836ebc6",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\x5_ctrl_logit_fit.py",
+    "committed_records": {
+      "e238_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+        "sha256_16": "95290a45b9aaf7e4"
+      },
+      "e214_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+        "sha256_16": "04e84058b4656cd9"
+      },
+      "x4_record": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x4_battery_generic_t.json",
+        "sha256_16": "35ec943ac27a862b"
+      },
+      "e182_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e182\\metrics.json",
+        "sha256_16": "612d5f5320b2c2a4"
+      }
+    },
+    "logit_dumps": {
+      "t0": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_t0.npz",
+        "sha256_16": "b199f492e4582a97",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w1s10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w1s10.npz",
+        "sha256_16": "449e0c26e6ce2f48",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w1s50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w1s50.npz",
+        "sha256_16": "7129d7bdd1fcb524",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w1s80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w1s80.npz",
+        "sha256_16": "f96e3bd3f186c0d7",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w1s2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w1s2.npz",
+        "sha256_16": "b4c126b0e45eeda3",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w2s10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w2s10.npz",
+        "sha256_16": "cd5b8d3e3520a37d",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w2s50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w2s50.npz",
+        "sha256_16": "e1c6d4ee23f4f8eb",
+        "shape": [
+          15,
+          50257
+        ]
+      },
+      "w2s80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\logits_w2s80.npz",
+        "sha256_16": "b86649dd47e3fb2a",
+        "shape": [
+          15,
+          50257
+        ]
+      }
+    },
+    "logit_dumps_git": "NOT tracked (the e238 precedent; regenerable deterministically from the committed checkpoints + this script; sha256 recorded)",
+    "batteries": "module import of lab/e182c_forgetting_control.py (fact/ctrl/near) VERBATIM \u2014 import, never retyped; tmpl not rebuilt (co-report reads e238's npz)",
+    "family": "TempFamily + logit_pass + state_tag + helpers COPIED VERBATIM from lab/e238_temperature_null.py (the committed instrument; fit_T_kl_full dropped \u2014 an e238 co-report X5's bars never reference)",
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "transformers": "5.12.1",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    },
+    "threads": 4,
+    "device": "cpu fp32"
+  },
+  "trims": [],
+  "deviations": [
+    "EVAL-ONLY desk+eval on the committed checkpoints (no wash run here); CPU-only per the dispatch (e248 owns the GPU \u2014 threads 4, load-polite).",
+    "The ctrl/near logits were not committed anywhere (e214/e228 journals carry p/margin/sigma/top-id pairs only; e238's npz are on disk but NOT git-tracked and X5 dumps its OWN ctrl+near set per the dispatch), so the fits use the ONE-TIME re-probe with full answer-position logit dumps (15 x 8), every state re-probe-certified against e214's committed per-probe p (tol 0.005, expected ~0).",
+    "The npz logit dumps (~3 MB/state fp32 for 15 probes) are lab artifacts on disk, NOT git-tracked (the e238 precedent; sha256 + shapes recorded in metrics provenance; regenerable deterministically from the committed checkpoints + this script).",
+    "The tmpl battery was NOT rebuilt locally (not in X5's dump scope); the fact battery was rebuilt (the corpus filter needs its answer_ids) but only certified via the corpus gate. The fact-only and tmpl-only co-report fits read e238's committed npz dumps.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch); the draft NOTES entry rides in metrics['draft_notes_entry'] + the final report.",
+    "Smoke mode: t=0 + the w1 +10 state only, own smoke dir, nothing adjudicated or verified."
+  ],
+  "draft_notes_entry": "## x5 \u2014 the battery-genericity of the one-T fit: BATTERY-SPECIFIC (the proper full-logit adjudication of T229's registered prediction; x4's desk attempt was honestly instrument-limited \u2014 the bracket bound inverts past the p=0.5 crossings) (2026-10-04T21:51:55Z) \u2014 DONE\n\nWHAT WE DID: re-probed the committed two-wash states ONCE with full answer-position logit dumps for the ctrl battery (n=12) and near (n=3, co-report) \u2014 the e238 dump conventions verbatim, every state re-probe-certified against e214's committed records (max dp 0.00e+00, tol 0.005; vs e238's own npz: max|dlogit| 0.0, bit-identical) \u2014 then the committed MLE one-T fit per state per battery (TempFamily verbatim) against e238's committed fact-side curve.\n\nWHAT WE SAW: ctrl's T diverges from the committed fact-side curve (= fact's, the pooled-54 reference) by > 0.15 at 4 adjudication states (deltas: w1+10 -0.0167, w1+50 -0.1654, w1+80 -0.1876, w2+10 -0.0188, w2+50 -0.1579, w2+80 -0.1665) OR ctrl's own-fit R2 left [0.2, 0.6] at: w1+80 +0.6324, w2+10 +0.6095 (all six: w1+10 +0.5159, w1+50 +0.5339, w1+80 +0.6324, w2+10 +0.6095, w2+50 +0.5257, w2+80 +0.5961) \u2014 the batteries have different thermal signatures; x4's +10 signal read at full precision: x4's +10 slice said ctrl flattens MORE than fact (bracket medians ctrl 1.28-1.33 vs fact 0.96-0.99, gaps w1+10: +0.32, w2+10: +0.34). At full precision the ctrl-fact gaps are w1+10: +0.0225, w2+10: +0.0208 \u2014 the bracket's DIRECTION (ctrl > fact) is CONFIRMED, but its MAGNITUDE was instrument-artifact: the bracket's ~+0.3 gap reads as ~+0.02 under the full-logit family. Against the committed pooled reference, ctrl sits BELOW it at +10 (w1+10: -0.0167, w2+10: -0.0188). The ORDERING at the deep states is stable across washes: ctrl LOW (1.18-1.27) < fact-only (1.26-1.37) < the committed pooled curve (1.34-1.45) < near (1.42-1.63) < tmpl (1.51-1.65) \u2014 every battery its own T(t); near's deltas vs the committed curve: w1+10 +0.072, w1+50 +0.131, w1+80 +0.176, w2+10 +0.085, w2+50 +0.087, w2+80 +0.077 (its +-0.12 clause also fails at w1+80). THE t0 ANCHOR read 1.0000 (the instrument's positive control).\n\nHONESTY: n=1 organism; near n=3 (coarse); the reference curve is the pooled-54 fit and contains ctrl (self-reference disclosed; the fact-only co-report tracks it within 0.100; ctrl-vs-fact-only deltas stay inside +0.13, so the R2 clause carries the verdict under either reference \u2014 disclosed sensitivity, not a re-adjudication); lens-not-mechanism (T228/T229); wash-1 CPU replay vs wash-2 GPU (the archive's asymmetry, inherited)."
 }

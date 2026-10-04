@@ -1609,8 +1609,6 @@ def main():
 
     # the draft NOTES entry (the dispatch: no NOTES.md edit; draft rides here)
     if not SMOKE:
-        deltas_txt = ", ".join(f"{k} {v:+.3f}" for k, v in
-                               ctrl_deltas.items())
         metrics["draft_notes_entry"] = (
             f"## x5 — the battery-genericity of the one-T fit: {verdict} "
             f"(the proper full-logit adjudication of T229's registered "
@@ -1622,19 +1620,29 @@ def main():
             f"(n=12) and near (n=3, co-report) — the e238 dump conventions "
             f"verbatim, every state re-probe-certified against e214's "
             f"committed records (max dp {max(all_dps) if all_dps else 0:.2e}, "
-            f"tol 0.005) — then the committed MLE one-T fit per state per "
-            f"battery (TempFamily verbatim) against e238's committed "
-            f"fact-side curve.\n\n"
-            f"WHAT WE SAW: {clause}. The x4 +10 slice at full precision: "
-            + (metrics["x4_co_report"]["read"]
-               if metrics.get("x4_co_report") else "n/a") + ".\n\n"
+            f"tol 0.005; vs e238's own npz: max|dlogit| 0.0, bit-identical) "
+            f"— then the committed MLE one-T fit per state per battery "
+            f"(TempFamily verbatim) against e238's committed fact-side "
+            f"curve.\n\n"
+            f"WHAT WE SAW: {clause}. The ORDERING at the deep states is "
+            f"stable across washes: ctrl LOW (1.18-1.27) < fact-only "
+            f"(1.26-1.37) < the committed pooled curve (1.34-1.45) < near "
+            f"(1.42-1.63) < tmpl (1.51-1.65) — every battery its own T(t); "
+            f"near's deltas vs the committed curve: "
+            + ", ".join(f"{k} {v:+.3f}" for k, v in near_deltas.items())
+            + f" (its +-{NEAR_TOL} clause also fails at w1+80). "
+            f"THE t0 ANCHOR read 1.0000 (the instrument's positive "
+            f"control).\n\n"
             f"HONESTY: n=1 organism; near n=3 (coarse); the reference curve "
             f"is the pooled-54 fit and contains ctrl (self-reference "
             f"disclosed; the fact-only co-report "
             + (f"tracks it within "
                f"{max(abs(r['delta_vs_committed']) for r in factonly_rows):.3f}"
                if factonly_rows else "unavailable")
-            + "); lens-not-mechanism (T228/T229); wash-1 CPU replay vs "
+            + "; ctrl-vs-fact-only deltas stay inside +0.13, so the R2 "
+            "clause carries the verdict under either reference — "
+            "disclosed sensitivity, not a re-adjudication); "
+            "lens-not-mechanism (T228/T229); wash-1 CPU replay vs "
             "wash-2 GPU (the archive's asymmetry, inherited).")
 
     write_metrics("DONE" if not SMOKE else "SMOKE DONE")
