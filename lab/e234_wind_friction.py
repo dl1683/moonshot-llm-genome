@@ -531,6 +531,23 @@ def principal_angles(cA: np.ndarray, GB_block: np.ndarray,
 
 # ------------------------------------------------------------ replay + collect
 
+def drift_vs_archived(net, path) -> dict:
+    """max|dW| and max relative drift of the LIVE net vs an archived
+    checkpoint (compared AT the checkpoint's own step — see the G_REPLAY
+    block)."""
+    sdc = torch.load(path, map_location=CPU, weights_only=False)["model"]
+    md = mr = 0.0
+    with torch.no_grad():
+        for (_k, v), (_kb, va) in zip(net.state_dict().items(),
+                                      sdc.items()):
+            d = (v - va).abs()
+            md = max(md, float(d.max().item()))
+            mr = max(mr, float((d.norm() / va.norm().clamp(min=1e-12)
+                                ).item()))
+    del sdc
+    return {"max_abs_dw": md, "max_rel_dw": mr}
+
+
 def replay_and_collect(net0, train_ids, probes, rd, journal,
                        load_checks, metrics, write_metrics, wi: int,
                        w: str) -> dict:
@@ -627,6 +644,13 @@ def replay_and_collect(net0, train_ids, probes, rd, journal,
         torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
         opt.step()
         recs[str(step)] = {"ce": ce, "gnorm": nrm, "clip_fac": clip_fac}
+        # inline replay-cert: compare the LIVE net at the checkpoint's own
+        # step vs the archived state (the final-net-vs-mid-run-checkpoint
+        # comparison in the first attempt recorded DISPLACEMENT, not
+        # drift — relabeled post-hoc, disclosed)
+        if not SMOKE and step in W_ARCH[w]:
+            wj.setdefault("replay_cert", {})[str(step)] = \
+                drift_vs_archived(net, W_ARCH[w][step])
         if step % 10 == 0:
             log(f"  [{w} replay] s{step:3d}/{S} CE {ce:.4f} |g| {nrm:.2f} "
                 f"({time.time() - t_start:.0f}s)")
@@ -654,26 +678,30 @@ def replay_and_collect(net0, train_ids, probes, rd, journal,
                               weights_only=False)["gen"]
         gen_ok = bool(torch.equal(gen.get_state(), archived))
 
-    # ---- G_REPLAY: weights + probes vs the archived checkpoints ----
-    cert = {"gen_state_identical_after_80": gen_ok}
-    for s_ in (W_ARCH[w] if not SMOKE else {}):
-        sdc = torch.load(W_ARCH[w][s_], map_location=CPU,
-                         weights_only=False)["model"]
-        md = mr = 0.0
-        with torch.no_grad():
-            for (k, v), (_, va) in zip(net.state_dict().items(),
-                                       sdc.items()):
-                d = (v - va).abs()
-                md = max(md, float(d.max().item()))
-                mr = max(mr, float((d.norm() / va.norm().clamp(min=1e-12)
-                                    ).item()))
-        cert[str(s_)] = {"max_abs_dw": md, "max_rel_dw": mr}
-        del sdc
+    # ---- G_REPLAY: the archived-checkpoint drifts were measured inline
+    # AT each checkpoint's own step (see the loop); the end-state drift is
+    # re-confirmed here (valid whether or not the loop ran this session);
+    # intermediate checkpoints not measured this session carry G_TRAJ's
+    # probe-level gate instead (disclosed).
+    cert = wj.setdefault("replay_cert", {})
+    if not SMOKE:
+        sfin = max(W_ARCH[w])
+        cert[str(sfin)] = drift_vs_archived(net, W_ARCH[w][sfin])
+        for s_ in W_ARCH[w]:
+            if str(s_) not in cert:
+                cert[str(s_)] = {"note": "not measured this session — "
+                                 "certified via G_TRAJ's probe-level gate"}
+        cert["gen_state_identical_after_80"] = gen_ok
+    else:
+        cert["gen_state_identical_after_80"] = gen_ok
     wj["replay_cert"] = cert
     journal[w] = wj
     save_journal(rd, journal)
-    log(f"{w}: replay done ({time.time() - t_start:.0f}s); gen_ok {gen_ok}; "
-        f"cert {json.dumps({k: (round(v['max_abs_dw'], 8) if isinstance(v, dict) else v) for k, v in cert.items()})}")
+    _cs = {k: (round(v["max_abs_dw"], 8)
+               if isinstance(v, dict) and "max_abs_dw" in v
+               else str(v)[:40]) for k, v in cert.items()}
+    log(f"{w}: replay done ({time.time() - t_start:.0f}s); gen_ok "
+        f"{gen_ok}; cert {json.dumps(_cs)}")
     del net, opt
     return {"gen_ok": gen_ok, "cert": cert, "traj": traj}
 
