@@ -1,0 +1,576 @@
+{
+  "experiment": "e239_support_stability",
+  "phase": "eval-only on the two-wash 124M archive (CPU fp32 batch-1 support geometry; cross-wash / rotation / set-level reads)",
+  "date": "2026-10-04T15:23:48Z",
+  "status": "PARTIAL: bank w1s80 done",
+  "registration": "bars frozen VERBATIM from the dispatch brief (the ideator's FQ6 spec as dispatched by the coordinator, R63's named W037-direct-test) BEFORE any compute; the dispatch brief is the registration; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "STABLE-AS-VECTORS": "median cross-wash cos >= 0.7 at both states, far above the u0 cloud \u2014 W037 earns physics: behavior-indexed directions are stable where corpus-anchored rays cloud",
+      "CLOUD-LEVEL": "median cross-wash cos ~ 0.3-0.4 (the u0 cloud's range) \u2014 W037 deflates to reads-only; examine the third branch: if the SET-level rotation ranks correlate cross-wash (rho >= 0.6), the fact is POPULATION-stable \u2014 the law at the support level (name it)",
+      "MIXED": "between \u2014 the distributions verbatim (per battery), no narrative inflation"
+    },
+    "operationalization": "states {+50,+80}; washes {w1 (e182c replay), w2 (e182c2 fresh)}; median over all 54 probes of cos(s_i@w1(t), s_i@w2(t)); STABLE-AS-VECTORS := median(+50) >= 0.7 AND median(+80) >= 0.7; CLOUD-LEVEL := median(+50) in [0.30,0.40] AND median(+80) in [0.30,0.40] (the registered range verbatim); MIXED := neither (incl. split states); THIRD BRANCH declared only under CLOUD-LEVEL, co-reported always: Spearman rho of the 54 probes' rotation amounts (angle acos(cos(s@w(t), s@0)) \u2014 rank-identical under any monotone reparametrization) across washes at a state; POPULATION-stable := rho >= 0.6 at either state; permutation null 20k shuffles seed 239; u0 cloud = e231's committed cross-draw cos {0.3184,0.3339,0.3539,0.3703} mean 0.3441; random null N(0,1/sqrt(P)) sd 2.84e-4 analytic + 16 empirical draws; anchors co-reported vs the product family's 5 non-anchor probes (mean +/- 2sd), never adjudicated",
+    "registration": "bars frozen VERBATIM from the dispatch brief (the ideator's FQ6 spec as dispatched by the coordinator, R63's named W037-direct-test) BEFORE any compute; the dispatch brief is the registration; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "FQ6 / W037's direct test: are the 54 supports stable AS VECTORS at matched deep states across independent washes \u2014 or stable only as reads / as a population?",
+  "builds_on": [
+    "scratch/review_ideator_2026-10-04.md (FQ6, the Rank 1)",
+    "W037 (R63 downgrade: 'behavior-INDEXED objects stable; the u0 sign-ray family a cloud' \u2014 THIS CELL is its direct test)",
+    "T213 / e231 (the u0 cloud: cross-draw cos 0.318-0.370, the comparison object)",
+    "T215 / e233 (the family-clause negative: supports do not share family directions \u2014 the band is a noise band)",
+    "T149 / e182c + T183 / e182c2 (the two committed wash archives, read-only)",
+    "e226 (THE machinery, module-imported VERBATIM: the 54 probes, fp64 chunked dots, the committed states, the t=0 bank convention; its +80 rotation records are the G_REPRO anchor)",
+    "e208 (the edge-multiple census \u2014 u0-sign-ray margins, the corpus-anchored class this read contrasts)"
+  ],
+  "whats_new": [
+    "the CROSS-WASH vector read: cos(s@w1(t), s@w2(t)) for all 54 probes at {+50,+80} \u2014 the stability of supports AS VECTORS across independent washes (never measured; e226 only rotated each wash against its own t=0)",
+    "the +50 supports and their rotations (never computed \u2014 e226's rotation read was +80 only)",
+    "the SET-LEVEL read: Spearman rank correlation of the 54 probes' rotation amounts across washes (the POPULATION-stability branch) + permutation null",
+    "the coherence envelope: theta_between vs theta1+theta2 per probe (independent vs coherent rotation, co-reported)",
+    "G_REPRO: the t=0 Gram and the +80 rotations reproduce e226's committed records (the bank pipeline certified against the prior cell's published numbers)"
+  ],
+  "smoke": false,
+  "load_checks": [
+    {
+      "tag": "launch",
+      "cpu_percent": 72.4,
+      "ram_avail_gb": 25.5,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "bank t0",
+      "cpu_percent": 46.2,
+      "ram_avail_gb": 24.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "bank w1s50",
+      "cpu_percent": 48.4,
+      "ram_avail_gb": 23.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "bank w1s80",
+      "cpu_percent": 60.5,
+      "ram_avail_gb": 18.9,
+      "ram_total_gb": 63.4
+    }
+  ],
+  "u0_cloud_reference": {
+    "per_cell": [
+      0.31836848307084004,
+      0.33387752320299513,
+      0.3538730236069898,
+      0.3702666458604731
+    ],
+    "mean": 0.3440964189353245,
+    "min": 0.31836848307084004,
+    "max": 0.3702666458604731,
+    "source": "runs/e231/metrics.json cells J1-J4 second_stream_coreads.cos_u0_10902_vs_10914 (T213's committed cloud)"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32",
+    "torch_threads": 4
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_ENV": {
+      "device": "cpu",
+      "threads": 4,
+      "gpu_used": false,
+      "pass": true,
+      "note": "eval-only; 54 batch-1 probe backwards per bank (t0 + 4 state banks); load checks per phase; two other agents live"
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN (e226's convention); it feeds the battery contamination scans only \u2014 no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "n": 20,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0
+      },
+      "ctrl": {
+        "n": 12,
+        "set_equal_committed": true,
+        "max_dp_w1": 3.2782554626464844e-06,
+        "max_dp_w2": 3.2782554626464844e-06
+      },
+      "near": {
+        "n": 3,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0
+      },
+      "tmpl": {
+        "n": 19,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0
+      },
+      "tol_per_probe_dp": 0.01,
+      "pass": true
+    },
+    "G_ORDER": {
+      "rule": "bank row i == e226's committed probe i (the row contract that makes G_REPRO row-aligned)",
+      "equal_e226": true,
+      "pass": true
+    },
+    "G_SUPPORT": {
+      "rule": "probe-0 recompute self-cos > 0.999 (e226's determinism floor convention; batch-1 supports are deterministic same-session \u2014 the floor carries as the instrument floor on every cos)",
+      "determinism_selfcos_probe0_t0": 0.9999999419953599,
+      "e226_floor_reference": 5.800463998006933e-08,
+      "pass": true,
+      "determinism_selfcos_probe0_state": 0.9999999515252148
+    }
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "timing": {
+    "total_s": 118.2
+  },
+  "probes": [
+    {
+      "i": 0,
+      "fact": "France->Paris",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6850027441978455
+    },
+    {
+      "i": 1,
+      "fact": "Greece->Athens",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.94468092918396
+    },
+    {
+      "i": 2,
+      "fact": "Poland->Warsaw",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6746281981468201
+    },
+    {
+      "i": 3,
+      "fact": "Portugal->Lisbon",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.7412760853767395
+    },
+    {
+      "i": 4,
+      "fact": "Egypt->Cairo",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.8057803511619568
+    },
+    {
+      "i": 5,
+      "fact": "Ireland->Dublin",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6304253935813904
+    },
+    {
+      "i": 6,
+      "fact": "France->French",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.9179711937904358
+    },
+    {
+      "i": 7,
+      "fact": "Germany->German",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8766514658927917
+    },
+    {
+      "i": 8,
+      "fact": "Japan->Japanese",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8385147452354431
+    },
+    {
+      "i": 9,
+      "fact": "Italy->Italian",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8853657841682434
+    },
+    {
+      "i": 10,
+      "fact": "Spain->Spanish",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.744873046875
+    },
+    {
+      "i": 11,
+      "fact": "Russia->Russian",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8519078493118286
+    },
+    {
+      "i": 12,
+      "fact": "China->Chinese",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.5683619379997253
+    },
+    {
+      "i": 13,
+      "fact": "England->English",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8146218657493591
+    },
+    {
+      "i": 14,
+      "fact": "Greece->Greek",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.766821026802063
+    },
+    {
+      "i": 15,
+      "fact": "Poland->Polish",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8325423002243042
+    },
+    {
+      "i": 16,
+      "fact": "Japan->yen",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.8905185461044312
+    },
+    {
+      "i": 17,
+      "fact": "the United Kingdom->pound",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.9533817768096924
+    },
+    {
+      "i": 18,
+      "fact": "the United States->dollar",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.5909402966499329
+    },
+    {
+      "i": 19,
+      "fact": "China->yuan",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.9285135269165039
+    },
+    {
+      "i": 20,
+      "fact": "The social network founded by Mark Zuckerberg->Facebook",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.7398610711097717
+    },
+    {
+      "i": 21,
+      "fact": "The electric car company founded by Elon Musk->Tesla",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.7342566847801208
+    },
+    {
+      "i": 22,
+      "fact": "The rocket company founded by Elon Musk->SpaceX",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.77444988489151
+    },
+    {
+      "i": 23,
+      "fact": "The search engine founded by Larry Page->Google",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.8327568769454956
+    },
+    {
+      "i": 24,
+      "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.6928136348724365
+    },
+    {
+      "i": 25,
+      "fact": "The gaming console made by Microsoft->Xbox",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6225916743278503
+    },
+    {
+      "i": 26,
+      "fact": "The web browser made by Google->Chrome",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7029966711997986
+    },
+    {
+      "i": 27,
+      "fact": "The phone made by Apple->iPhone",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6358935832977295
+    },
+    {
+      "i": 28,
+      "fact": "The tablet made by Apple->iPad",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7676098942756653
+    },
+    {
+      "i": 29,
+      "fact": "The email service made by Google->Gmail",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7456632852554321
+    },
+    {
+      "i": 30,
+      "fact": "The music store made by Apple->iTunes",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6862599849700928
+    },
+    {
+      "i": 31,
+      "fact": "The game console made by Sony->PlayStation",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7842804193496704
+    },
+    {
+      "i": 32,
+      "fact": "Massachusetts->Boston",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.6118616461753845
+    },
+    {
+      "i": 33,
+      "fact": "Georgia->Atlanta",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.6366477012634277
+    },
+    {
+      "i": 34,
+      "fact": "Ohio->Columbus",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.5189241766929626
+    },
+    {
+      "i": 35,
+      "fact": "Boston->Massachusetts",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8855844140052795
+    },
+    {
+      "i": 36,
+      "fact": "Atlanta->Georgia",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9629536271095276
+    },
+    {
+      "i": 37,
+      "fact": "Sacramento->California",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9349073767662048
+    },
+    {
+      "i": 38,
+      "fact": "Austin->Texas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.966093897819519
+    },
+    {
+      "i": 39,
+      "fact": "Columbus->Ohio",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.811143696308136
+    },
+    {
+      "i": 40,
+      "fact": "Denver->Colorado",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.85616534948349
+    },
+    {
+      "i": 41,
+      "fact": "Little Rock->Arkansas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9000856876373291
+    },
+    {
+      "i": 42,
+      "fact": "Hartford->Connecticut",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8384353518486023
+    },
+    {
+      "i": 43,
+      "fact": "Dover->Delaware",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8786457777023315
+    },
+    {
+      "i": 44,
+      "fact": "Tallahassee->Florida",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9273396730422974
+    },
+    {
+      "i": 45,
+      "fact": "Honolulu->Hawaii",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9394004344940186
+    },
+    {
+      "i": 46,
+      "fact": "Boise->Idaho",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9823838472366333
+    },
+    {
+      "i": 47,
+      "fact": "Indianapolis->Indiana",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9422821998596191
+    },
+    {
+      "i": 48,
+      "fact": "Des Moines->Iowa",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9877914190292358
+    },
+    {
+      "i": 49,
+      "fact": "Topeka->Kansas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9824606776237488
+    },
+    {
+      "i": 50,
+      "fact": "Baton Rouge->Louisiana",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8759879469871521
+    },
+    {
+      "i": 51,
+      "fact": "Annapolis->Maryland",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9069494605064392
+    },
+    {
+      "i": 52,
+      "fact": "Lansing->Michigan",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9702924489974976
+    },
+    {
+      "i": 53,
+      "fact": "Jackson->Mississippi",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.6934146285057068
+    }
+  ],
+  "support_geometry_t0_recomputed": {
+    "gmail_iphone_cos": 0.01926585157708887,
+    "product_pairwise_mean": 0.003600425273780514,
+    "product_pairwise_sd": 0.08576369922090218,
+    "family_within_summary": {
+      "cap-cur": {
+        "n": 10,
+        "within_mean_cos": 0.025786560627955563
+      },
+      "founder-anchor": {
+        "n": 5,
+        "within_mean_cos": 0.00373907302999589
+      },
+      "lang": {
+        "n": 10,
+        "within_mean_cos": 0.006053254255683737
+      },
+      "near-uscap": {
+        "n": 3,
+        "within_mean_cos": 0.01979616831835227
+      },
+      "product": {
+        "n": 7,
+        "within_mean_cos": 0.003600425273780514
+      },
+      "rev-capital": {
+        "n": 19,
+        "within_mean_cos": 0.06383554844839552
+      }
+    }
+  }
+}
