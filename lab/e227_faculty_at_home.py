@@ -93,6 +93,25 @@ RE-SCREENED at t=0 on the 10M organism (the gate discipline is
 per-organism); the 10902 +2 soft tie vs g1bS8's C-trace is a
 co-report (their wash wrapper may differ in detail — non-fatal).
 
+10M ADDENDUM (registered AFTER the first 10M pass revealed the Z-gate
+floors 0/30 on this organism — before the re-read; the addendum fixes
+the instrument, not the bars): the FIRST 10M pass showed the 2-shot
+Z-read gates to 0/30 at t=0 (a genuine instrument floor at 10M), which
+emptied mis2M/snip0M (the lift instrument) with it. REGISTERED FIX:
+the exemplar-lift reads and the full-set form reads (keys *_all:
+tmpl2_all / mis2Z_all / mis2M_all / snip0Z_all / snip0M_all, the FULL
+held-30 carrier set) are computed UNGATED at every state as
+CO-REPORTS — the e182 gate governs only which items enter the GATED
+knowledge batteries (the primary adjudication set), never the lift
+(the lift is an internal 2-shot-minus-0-shot difference on identical
+carriers; gating it on the Z-read would censor exactly the regime
+where it is informative). The primary adjudication is unchanged; the
+10M eta2 is co-reported on the _all set where the gated set is empty.
+Also disclosed: the 10M washes hit g1_wash's own 180 s GPU cap before
++300 on the gentle/mid arms (state grids end at +100; the cap is the
+lineage's registered guard) and migrated to CPU mid-run twice (the
+temp>80C guard; both disclosed as device texture).
+
 REGISTERED BARS (frozen VERBATIM from the dispatch brief BEFORE any
 compute; adjudicate against exactly this; no bar shopping):
   - FACULTY-AT-HOME: "the ordering and/or family split replicate at
@@ -1384,6 +1403,14 @@ def main():
         assert G_ROOT10["pass"], f"G_ROOT10 FAILED: {G_ROOT10}"
 
         # re-screen the new-form batteries on the 10M organism
+        # THE ADDENDUM SET: full 30-carrier form reads, UNGATED (co-reports)
+        FORM_KEYS = ("tmpl2", "mis2Z", "mis2M", "snip0Z", "snip0M")
+        full_form_ids = {bk: list(B10[bk]["ids"]) for bk in FORM_KEYS}
+        t0_10_all = {}
+        for bk in FORM_KEYS:
+            per = probe_items(root10, full_form_ids[bk], B10[bk]["ans"])
+            t0_10_all[bk] = {"mean_p": float(np.mean([r["p"] for r in per])),
+                             "per": [{"p": r["p"]} for r in per]}
         tmpl0_10 = probe_items(root10, B10["tmpl2"]["ids"], zid)
         kept10 = [i for i, r in enumerate(tmpl0_10) if gate_pass(r, zid)]
         if len(kept10) > CAP_ITEMS:
@@ -1438,8 +1465,12 @@ def main():
                      "gates": G_ROOT10},
             "screening": screen10,
             "t0_reads": {k: v["mean_p"] for k, v in t0_10.items()},
+            "t0_reads_all_ungated": {k: v["mean_p"]
+                                     for k, v in t0_10_all.items()},
             "t0_fewshot_lift": t0_10["mis2M"]["mean_p"]
                                - t0_10["snip0M"]["mean_p"],
+            "t0_fewshot_lift_all": t0_10_all["mis2M"]["mean_p"]
+                                   - t0_10_all["snip0M"]["mean_p"],
             "arms": {},
         }
         log(f"10M t=0: fact {t0_10['fact']['mean_p']:.4f} | near "
@@ -1447,7 +1478,8 @@ def main():
             f"{t0_10['tmpl2']['mean_p']:.4f} | mis2M "
             f"{t0_10['mis2M']['mean_p']:.4f} | ctrl "
             f"{t0_10['ctrl']['mean_p']:.4f} | lift(M) "
-            f"{metrics['scale10']['t0_fewshot_lift']:.4f} | CE_R "
+            f"{metrics['scale10']['t0_fewshot_lift']:.4f} | lift(M)_all "
+            f"{metrics['scale10']['t0_fewshot_lift_all']:.4f} | CE_R "
             f"{ce10:.4f}")
         write_metrics("PARTIAL: 10M screened; 10M washes pending")
 
@@ -1465,6 +1497,11 @@ def main():
                     per = probe_items(net, B10[k]["ids"], B10[k]["ans"])
                     out[k] = {"mean_p": float(np.mean([r["p"] for r in per])),
                               "per": [{"p": r["p"]} for r in per]}
+            for bk in FORM_KEYS:                     # the ADDENDUM _all reads
+                per = probe_items(net, full_form_ids[bk], B10[bk]["ans"])
+                out[bk + "_all"] = {
+                    "mean_p": float(np.mean([r["p"] for r in per])),
+                    "per": [{"p": r["p"]} for r in per]}
             out["ce_r"] = G1.ce_fixed_cpu(net, *r_eval_xy)
             return out
 
@@ -1488,19 +1525,25 @@ def main():
                              target_mode="true", ckpt_steps=cks, lr=lr,
                              seed=seed)
             states = [{"step": 0,
-                       "reads": {k: {"mean_p": t0_10[k]["mean_p"]}
-                                 for k in BAT_KEYS}, "ce_r": ce10}]
+                       "reads": {**{k: {"mean_p": t0_10[k]["mean_p"]}
+                                    for k in BAT_KEYS},
+                                 **{bk + "_all":
+                                    {"mean_p": t0_10_all[bk]["mean_p"]}
+                                    for bk in FORM_KEYS}},
+                      "ce_r": ce10}]
             for s_ in sorted(res["sds"]):
                 rd_ = read_state10(res["sds"][s_])
                 states.append({"step": s_,
                                "reads": {k: {"mean_p": rd_[k]["mean_p"],
                                              "per": [q["p"]
                                                      for q in rd_[k]["per"]]}
-                                         for k in BAT_KEYS},
+                                         for k in list(rd_.keys())
+                                         if k != "ce_r"},
                                "ce_r": rd_["ce_r"]})
                 log(f"  {tag} +{s_:4d}: " + " ".join(
-                    f"{k} {states[-1]['reads'][k]['mean_p']:.4f}"
-                    for k in ("fact", "near", "tmpl2", "mis2M", "ctrl"))
+                    f"{k} {states[-1]['reads'][k]['mean_p'] if not np.isnan(states[-1]['reads'][k]['mean_p']) else float('nan'):.4f}"
+                    for k in ("fact", "near", "tmpl2_all", "mis2M_all",
+                              "ctrl"))
                     + f" | CE_R {rd_['ce_r']:.4f}")
                 jp.write_text(json.dumps({"tag": tag, "lr": lr, "seed": seed,
                                           "states": states}, indent=1),
@@ -1514,7 +1557,7 @@ def main():
             metrics["scale10"]["arms"][tag] = {
                 "lr": lr, "seed": seed, "device": res.get("device"),
                 "reads": {str(s["step"]): {k: s["reads"][k]["mean_p"]
-                                           for k in BAT_KEYS}
+                                           for k in s["reads"]}
                           for s in states},
                 "ce_r": {str(s["step"]): s["ce_r"] for s in states}}
             write_metrics(f"PARTIAL: 10M arm {tag} complete")
@@ -1545,62 +1588,101 @@ def main():
         except Exception as e:                             # noqa: BLE001
             metrics["scale10"]["soft_tie_g1bS8_C2"] = {"error": str(e)}
 
-        # the 10M adjudication (SAME clauses; no new bars)
+        # the 10M adjudication (SAME clauses; no new bars; _all co-reports)
         adj10: dict = {"arms": {}}
+        KEYS10 = list(BAT_KEYS) + [bk + "_all" for bk in FORM_KEYS]
         qual10: list[tuple[str, dict]] = []
         for tag, arm in arms10_out.items():
             st = {s["step"]: s for s in arm["states"]}
-            base = {k: st[0]["reads"][k]["mean_p"] for k in BAT_KEYS}
-            d = {s_: {k: 1 - rec["reads"][k]["mean_p"] / base[k]
-                      for k in BAT_KEYS}
-                 for s_, rec in st.items() if s_ > 0}
+            base = {k: st[0]["reads"][k]["mean_p"] for k in KEYS10}
+            d = {}
+            for s_, rec in st.items():
+                if s_ == 0:
+                    continue
+                d[s_] = {}
+                for k in KEYS10:
+                    b, v = base[k], rec["reads"][k]["mean_p"]
+                    ok = (b is not None and v is not None
+                          and not np.isnan(b) and not np.isnan(v)
+                          and b > 1e-9)
+                    d[s_][k] = (1 - v / b) if ok else float("nan")
             s_star = None
             for s_ in sorted(d, reverse=True):
                 if d[s_]["near"] < NEAR_QUAL_HI:
                     s_star = s_
                     break
-            rec = {"lr": arm["lr"], "seed": arm["seed"],
-                   "declines": {str(s_): d[s_] for s_ in d},
-                   "s_star": s_star,
-                   "near_decl_s_star": (d[s_star]["near"]
-                                        if s_star is not None else None),
-                   "qualifies": bool(s_star is not None
-                                     and d[s_star]["near"] >= NEAR_QUAL_LO)}
-            rec["O1_per_state"] = {str(s_): bool(
+            rec10 = {"lr": arm["lr"], "seed": arm["seed"],
+                     "declines": {str(s_): d[s_] for s_ in d},
+                     "s_star": s_star,
+                     "near_decl_s_star": (d[s_star]["near"]
+                                          if s_star is not None else None),
+                     "qualifies": bool(s_star is not None
+                                       and d[s_star]["near"] >= NEAR_QUAL_LO)}
+            rec10["O1_per_state"] = {str(s_): bool(
                 d[s_]["ctrl"] < d[s_]["tmpl2"] < d[s_]["near"]
                 and d[s_]["ctrl"] <= d[s_]["near"] / SEP_BAND
                 and min(d[s_]["ctrl"], d[s_]["tmpl2"], d[s_]["near"])
                 > DECL_TRIVIAL) for s_ in d}
-            rec["O1_n_states"] = sum(rec["O1_per_state"].values())
-            rec["ordering_replicates_arm"] = bool(
-                rec["qualifies"] and rec["O1_n_states"] >= ORDER_STATES_MIN)
+            rec10["O1_all_per_state"] = {str(s_): bool(
+                d[s_]["ctrl"] < d[s_]["tmpl2_all"] < d[s_]["near"]
+                and d[s_]["ctrl"] <= d[s_]["near"] / SEP_BAND
+                and min(d[s_]["ctrl"], d[s_]["tmpl2_all"], d[s_]["near"])
+                > DECL_TRIVIAL) for s_ in d}
+            rec10["O1_n_states"] = sum(rec10["O1_per_state"].values())
+            rec10["O1_all_n_states"] = sum(
+                rec10["O1_all_per_state"].values())
+            rec10["ordering_replicates_arm"] = bool(
+                rec10["qualifies"]
+                and rec10["O1_n_states"] >= ORDER_STATES_MIN)
             if s_star is not None:
                 fam_keys = {"fact": "fact", "near": "near", "tmpl2": "tmpl",
                             "mis2Z": "misZ", "snip0Z": "snipZ"}
-                groups = {}
-                for bk, fam in fam_keys.items():
-                    r0 = [q["p"] for q in t0_10[bk]["per"]]
-                    rs = st[s_star]["reads"][bk]["per"]
-                    groups[fam] = [float(rs[i]) / max(r0[i], 1e-9)
-                                   for i in range(len(rs))]
-                e10 = eta2(groups)
-                rec["family_eta2_out_of_corpus"] = e10
-                rec["family_replicates_arm"] = bool(
-                    rec["qualifies"] and e10["eta2"] is not None
-                    and e10["eta2"] >= ETA2_BAR)
-            ch_states = [s_ for s_ in rec["declines"]
-                         if rec["declines"][s_]["tmpl2"]
-                         >= rec["declines"][s_]["near"]
-                         and rec["declines"][s_]["tmpl2"]
-                         >= rec["declines"][s_]["fact"]]
-            rec["channel_states"] = ch_states
-            adj10["arms"][tag] = rec
-            if rec["qualifies"]:
-                qual10.append((tag, rec))
+
+                def _eta(bk_map, t0src):
+                    groups = {}
+                    for bk, fam in bk_map.items():
+                        r0 = [q["p"] for q in t0src[bk]["per"]]
+                        rs = st[s_star]["reads"][bk]["per"]
+                        groups[fam] = [float(rs[i]) / max(r0[i], 1e-9)
+                                       for i in range(min(len(rs), len(r0)))]
+                    return eta2(groups)
+
+                rec10["family_eta2_out_of_corpus"] = _eta(
+                    fam_keys, t0_10)
+                rec10["family_eta2_all_correport"] = _eta(
+                    {"fact": "fact", "near": "near", "tmpl2_all": "tmpl",
+                     "mis2Z_all": "misZ", "snip0Z_all": "snipZ"},
+                    {**t0_10, **{bk + "_all": t0_10_all[bk]
+                                 for bk in FORM_KEYS}})
+                rec10["family_replicates_arm"] = bool(
+                    rec10["qualifies"]
+                    and (rec10["family_eta2_out_of_corpus"]["eta2"]
+                         is not None)
+                    and rec10["family_eta2_out_of_corpus"]["eta2"]
+                    >= ETA2_BAR)
+            ch_states = [s_ for s_ in rec10["declines"]
+                         if rec10["declines"][s_]["tmpl2"]
+                         >= rec10["declines"][s_]["near"]
+                         and rec10["declines"][s_]["tmpl2"]
+                         >= rec10["declines"][s_]["fact"]]
+            ch_all = [s_ for s_ in rec10["declines"]
+                      if not np.isnan(rec10["declines"][s_]["tmpl2_all"])
+                      and rec10["declines"][s_]["tmpl2_all"]
+                      >= rec10["declines"][s_]["near"]
+                      and rec10["declines"][s_]["tmpl2_all"]
+                      >= rec10["declines"][s_]["fact"]]
+            rec10["channel_states"] = ch_states
+            rec10["channel_states_all"] = ch_all
+            adj10["arms"][tag] = rec10
+            if rec10["qualifies"]:
+                qual10.append((tag, rec10))
             log(f"ADJ10 {tag}: s* {s_star} near_decl "
-                f"{rec['near_decl_s_star']} O1@{rec['O1_n_states']} eta2 "
-                f"{(rec.get('family_eta2_out_of_corpus') or {}).get('eta2')}"
-                f" channel@{len(ch_states)} states")
+                f"{rec10['near_decl_s_star']} O1@{rec10['O1_n_states']} "
+                f"O1_all@{rec10['O1_all_n_states']} eta2 "
+                f"{(rec10.get('family_eta2_out_of_corpus') or {}).get('eta2')}"
+                f" eta2_all "
+                f"{(rec10.get('family_eta2_all_correport') or {}).get('eta2')}"
+                f" channel@{len(ch_states)} all@{len(ch_all)} states")
         adj10["qualifying_arms"] = [t for t, _ in qual10]
         adj10["ORDERING-REPLICATES"] = bool(qual10) and all(
             r["ordering_replicates_arm"] for _, r in qual10) \
@@ -1611,8 +1693,12 @@ def main():
         adj10["CHANNEL-DEATH"] = {
             t: len(r["channel_states"]) >= ORDER_STATES_MIN
             for t, r in adj10["arms"].items()}
+        adj10["CHANNEL-DEATH-all-correport"] = {
+            t: len(r.get("channel_states_all", [])) >= ORDER_STATES_MIN
+            for t, r in adj10["arms"].items()}
         # the 10M scale-point synthesis (reported, not a new bar)
         lift10_post = None
+        lift10_post_all = None
         for tag, r in adj10["arms"].items():
             if r["s_star"] is None:
                 continue
@@ -1620,23 +1706,34 @@ def main():
             stt = {s["step"]: s for s in arm["states"]}
             mis = stt[r["s_star"]]["reads"]["mis2M"]["mean_p"]
             snm = stt[r["s_star"]]["reads"]["snip0M"]["mean_p"]
-            lift10_post = mis - snm
+            mis_a = stt[r["s_star"]]["reads"]["mis2M_all"]["mean_p"]
+            snm_a = stt[r["s_star"]]["reads"]["snip0M_all"]["mean_p"]
+            if not np.isnan(mis) and not np.isnan(snm):
+                lift10_post = mis - snm
+            if not np.isnan(mis_a) and not np.isnan(snm_a):
+                lift10_post_all = mis_a - snm_a
             break
         metrics["scale10"]["adjudication"] = adj10
         metrics["scale10"]["synthesis"] = {
             "t0_fewshot_lift": metrics["scale10"]["t0_fewshot_lift"],
+            "t0_fewshot_lift_all": metrics["scale10"]["t0_fewshot_lift_all"],
             "post_wash_exemplar_lift_at_s_star": lift10_post,
+            "post_wash_exemplar_lift_at_s_star_all": lift10_post_all,
             "ORDERING": adj10["ORDERING-REPLICATES"],
             "FAMILY": adj10["FAMILY-REPLICATES"],
             "CHANNEL": adj10["CHANNEL-DEATH"],
+            "CHANNEL_all": adj10["CHANNEL-DEATH-all-correport"],
             "note": "the SAME clauses at 10M; the scale point beside the "
-                    "2.74M verdict — no new bars",
+                    "2.74M verdict — no new bars; the *_all co-reports are "
+                    "the addendum's ungated full-set reads (the gated form "
+                    "battery floors 0/30 at 10M)",
         }
-        log(f"10M SYNTHESIS: lift(t0) "
-            f"{metrics['scale10']['t0_fewshot_lift']:.4f}; lift(post) "
-            f"{lift10_post}; ORDERING {adj10['ORDERING-REPLICATES']} "
+        log(f"10M SYNTHESIS: lift(t0)_all "
+            f"{metrics['scale10']['t0_fewshot_lift_all']:.4f}; lift(post)_all "
+            f"{lift10_post_all}; ORDERING {adj10['ORDERING-REPLICATES']} "
             f"FAMILY {adj10['FAMILY-REPLICATES']} CHANNEL "
-            f"{adj10['CHANNEL-DEATH']}")
+            f"{adj10['CHANNEL-DEATH']} CHANNEL_all "
+            f"{adj10['CHANNEL-DEATH-all-correport']}")
         write_metrics("PARTIAL: 10M adjudicated; 10M plot pending")
 
         # the 10M figure
@@ -1647,12 +1744,15 @@ def main():
         steps10 = [s["step"] for s in st10]
         fig, axes = plt.subplots(1, 2, figsize=(15, 6.2))
         ax = axes[0]
+        PLOT10 = {k: (k + "_all" if k in FORM_KEYS else k) for k in BAT_KEYS}
         for k in BAT_KEYS:
-            r0 = st10[0]["reads"][k]["mean_p"]
-            n_k = len(st10[0]["reads"][k].get("per", []))
-            ax.plot(steps10, [s["reads"][k]["mean_p"] / r0 for s in st10],
+            kk = PLOT10[k]
+            r0 = st10[0]["reads"][kk]["mean_p"]
+            n_k = len(st10[0]["reads"][kk].get("per", []))
+            ax.plot(steps10, [s["reads"][kk]["mean_p"] / r0 for s in st10],
                     "o-", ms=5, lw=1.8, color=cols[k],
-                    label=f"{k} (n={n_k})")
+                    label=f"{k}{' (all, ungated)' if k in FORM_KEYS else ''} "
+                          f"(n={n_k})")
         axr = ax.twinx()
         axr.plot(steps10, [s["ce_r"] for s in st10], "s:", ms=4, lw=1.2,
                  color="seagreen", alpha=0.8)
@@ -1668,13 +1768,14 @@ def main():
                      fontsize=10)
         ax = axes[1]
         for tag, r in adj10["arms"].items():
-            ss = sorted(r["declines"], key=int)
+            ss = [s_ for s_ in sorted(r["declines"], key=int)
+                  if not np.isnan(r["declines"][s_]["tmpl2_all"])]
             ax.plot([r["declines"][s_]["near"] for s_ in ss],
-                    [r["declines"][s_]["tmpl2"] for s_ in ss],
+                    [r["declines"][s_]["tmpl2_all"] for s_ in ss],
                     "o", ms=6, label=f"{tag} (lr {r['lr']:g})")
         ax.plot([0, 1], [0, 1], "k--", lw=0.8, alpha=0.5)
         ax.set_xlabel("decl_near")
-        ax.set_ylabel("decl_tmpl2")
+        ax.set_ylabel("decl_tmpl2_all (ungated)")
         ax.grid(alpha=0.25)
         ax.legend(fontsize=7)
         ax.set_title("tmpl2 vs near at 10M (above the diagonal = "
