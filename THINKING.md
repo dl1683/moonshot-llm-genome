@@ -1481,7 +1481,7 @@ the deepest confirmation yet that the program's recurring split is
 one law, not a habit of instruments: each direct test has killed a
 candidate form and left a sharper one.
 
-## T186 — g1d: the base lottery owns the expression channel — the wall guards what the root has (2026-10-02 ~14:35Z)
+## T186 — g1d: the base lottery owns the expression channel — the wall guards what the root has (2026-10-02 ~14:35Z) [R63 AMENDMENT: the ratio-device clause struck on g1d's single anomaly (n=1) is RESCOPED by T206 to a formation-regime candidate — the wall is a ratio device in the normal formation regime; outside it, the flat phase carries axis-specific cargo]
 
 The third axis resolves as the g2f/g2e pattern at the wall's
 level: the base draw owns whether the fact EXPRESSES at all (the
@@ -5219,7 +5219,7 @@ physics states. That is the culture working.
 
 
 
-## W037 — WONDER: the fact is a shadow cast by behavior — weight-space is the medium, not the message (2026-10-04 ~14:38Z; no bars, no kills — two instrument classes, two stabilities)
+## W037 — WONDER: the fact is a shadow cast by behavior — weight-space is the medium, not the message (2026-10-04 ~14:38Z; no bars, no kills — two instrument classes, two stabilities) [R63 DOWNGRADE: "explains the 0-for-4 in one stroke" is a CANDIDATE READING discriminated by e236 — one of the four currencies died of tautology, not of the world voting no; and the dichotomy's load-bearing blur: e226's supports ARE weight-space objects (per-context gradients) that came back STABLE — the defensible form is "behavior-INDEXED objects are stable; the u0 sign-ray family is a cloud." FQ6 (the cross-wash support-stability read) is the direct test]
 
 Put today's instrument classes side by side. The BEHAVIORAL
 instruments — the 54 per-context gradient supports at 124M —

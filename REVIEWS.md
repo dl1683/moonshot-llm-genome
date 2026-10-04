@@ -91,6 +91,85 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R63 — the cascade day reviewed staggered: the bar discipline held everywhere it was pressed; one escaped number recaptured; the wind downgraded to hypothesis; W037 put on notice (2026-10-04, folded ~15:15Z)
+
+Trigger: the review overdue since 2026-10-02 by stamp (a fresh-questions
+review ran unrecorded); the day's cascade (x2/x3 + e225-e238, W031-W037,
+T204-T215) demanded it. Run STAGGERED under the agent cap: critic ->
+ideator -> auditor (one auditor death on a model-request error, recovered;
+disclosed). The three reports persist verbatim: scratch/
+{review_critic_2026-10-04.md, review_ideator_2026-10-04.md}; the
+auditor's folded below.
+
+### AUDITOR (re-derived, not trusted): Axis verdicts
+- BAR DISCIPLINE: CLEAN, two concerns. e235's "and/or" honored by the
+  frozen letter (the gate-leg verdict correct; the interpretive clause's
+  "the faculty is present at 10M" is half-false in plain reading — the
+  form/lift split must ride every quote). e233's verdict block exemplary
+  (the flip line, the co-stamp, "the stamp discloses, it does not move
+  the bar"). Every mid-cell instrument change left bars untouched and is
+  disclosed at the point of change. CONCERN 1 (DISCHARGED THIS FOLD):
+  e233's potency numbers were not in the record — RECOMPUTED AND
+  COMMITTED (runs/e233/potency_recompute_R63.json: OLS 17.2 dp/unit
+  w/intercept, 29.1 through-origin; the +0.219 battery-hr object and
+  the +0.139 anchor-p object labeled). CONCERN 2: "THE WIND HAS MEMORY"
+  hardened beyond its evidence — DOWNGRADED at the claim sites (the
+  causal wind is 0-for-1.5; the correlational wind is 3/3).
+- INSTRUMENTS: CLEAN. RECIPE-IDENTITY applied at both threatened sites
+  (e234's PINNED guard in code; e236's G_SHADOW); the temperature
+  vertical's threat map covered (e238 dispatched closes the p-side hole).
+  The auditor's own recomputation dissolved the anchor-carried worry:
+  e225's -0.964 transient co-read is RANK-PERFECT under all seven
+  leave-one-out drops.
+- REPLICATION: structural, mostly disclosed (one organism under the
+  124M program; e233 n=1 wash — the w2 rider mandated for e237; the
+  prior-shape claim n=2 draws — STAMPED PENDING until the zoo read; the
+  u0-cloud's width unmeasured — a third stream is the cheap owed read).
+- SYNTHESIS: W035 CLEAN-pending-e234 (the falsifier in flight);
+  W036 CLEAN-disciplined (leg-1 instrument-blocked, honestly
+  re-registered; the card's e231-adjudicates line superseded by T213);
+  W037 CONCERNS — the one synthesis outrunning its evidence: DOWNGRADED
+  to a candidate reading discriminated by e236, the behavior-INDEXED
+  form stated, the e226-supports counterexample carried at the card.
+- LAW CONSISTENCY: CLEAN (T186 amended with the T206 rescope
+  cross-reference this fold).
+
+### CRITIC (scratch/review_critic_2026-10-04.md)
+The three sharpest: (1) the day's most celebrated number is one stream
+wide (e233's +0.219 on a natural 1.9x cross-wash swing — the w2 rider
+MANDATED, e237's bars to carry the anchoring disclosure); (2) W037's
+dichotomy does rhetorical work its data does not license (the direct
+test = FQ6); (3) the currency chain is adding COLUMNS to a table that
+needs ROWS (e236 dispatches ONLY as the W036-vs-W037 discrimination; on
+VARIES-BUT-TRACKS-NOTHING the hunt moves to T206's formation-curve rows
+or stops). The three cheapest replications ranked: the zombie taxonomy
+on w3 + the 7's identity (riding e234); the M-baseline anatomy; FQ6.
+
+### IDEATOR (scratch/review_ideator_2026-10-04.md)
+FQ6-FQ11 minted (the support-stability read; the temperature null —
+dispatched as e238 within the minute, before e234's adjudication; the
+moment archive — a NEW SUBSTRATE: Adam's m/v reconstructible from e234's
+gradient cache, asking whether the optimizer remembers what the weights
+forgot, FQ3 ripening alongside; the +160 window; the wall's commitment
+layer; the lift's baseline relativity). The deliberate non-question: the
+second-organism replicate WAITS until the triangle (e234+e236+e237+FQ6)
+adjudicates. NOVELTY STAMP RECONCILED (the cadence debt named and paid).
+
+### Decisions (applied this fold)
+- x2's eaten NOTES header restored (the format break caught).
+- PARKED honestly: g1bW2, g9 (pre-terrain; re-argue trigger = W036's
+  recapture leg reviving as a NEW design), e167, e168 (the sink era).
+  KEPT as READY filler: e146b (the T089 discriminator, CPU minutes).
+- The seed-10902-stream caveat rides every "-0.964 / edge owns the
+  transient" quote (rank-robust, one-draw in magnitude).
+- Next-3 READY: FQ6 -> e237 (with the w2 rider + the anchoring
+  disclosure) -> FQ8 (after e234's cache). e236 behind them, as the
+  discrimination only.
+- The triangle's adjudication set named: e234 + e236 + e237 + FQ6 —
+  the organism replicate follows it.
+
+---
+
 ## R62 — the densest arc audited: 31/34 exact, no verdict changes, the debt bookkeeping (2026-10-02, folded ~14:45Z)
 
 Trigger: the review clock >5h; the arc T172-T186 (fifteen cards).

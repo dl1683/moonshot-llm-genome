@@ -448,6 +448,8 @@ PHASE.]
 
 
 
+## x2 — the product-algebra span probe (neighbor note 6): GENERIC — no trained layer generates a small closed algebra under products; every span fills like matched-random (2026-10-04 ~13:05Z) — DONE [HEADER RESTORED at R63 — the auditor caught the eaten header line]
+
 WHAT WE DID: the six attention out-projections and six MLP-block
 composites (192x192, float64) of the e131 consolidated root; the
 span{W..W^6, W^T W, W W^T} with EACH PRODUCT UNIT-FROBENIUS-
