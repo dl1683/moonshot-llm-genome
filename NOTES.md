@@ -9,6 +9,38 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e255 — FQ13, the thermal-ledger identity: NUMERATOR-RESIDUE — thermal contraction REFUTED as the supply (the literal logit spread is INERT through the flat phase: fact 3.310 -> 3.310; ctrl 3.514 -> 3.489) while THE NUMERATOR (the argmax gap) carries the thickening in both batteries and both worlds (fact +16.9%, ctrl +13.2%, held-30 +34%): T227's zero-sum-LN needs a SECOND amendment (not LN-denominator redistribution either — D never moves; it is GENERIC RAW-GAP GROWTH); the fact-specific excess honestly sized at +3.75pp over ctrl (16.92% vs 13.17%, 1.29x) — the re-formation layer's small real object, now at numerator level; THE +1 TRANSIENT IS THE ONLY THERMAL STATE (the spread contracts only there — the gust is thermal, the flat phase is not); the fitted T is a LENS, fully (T_sigma 1.011 at +300 while T_fit cools 0.850) (2026-10-04 ~20:05Z) — DONE
+
+WHAT WE DID: the frozen FQ13 cell — the per-probe regression
+(R^2 >= 0.6 bar), the EXACT decomposition (log m = log N -
+log D, identity to 9e-16), the cross-world control (the
+unwalled committed numbers). 27s CPU; 13/13 gates PASS
+(bit-exact joins: fact 0.0 vs e242, ctrl 0.0 vs e251,
+unwalled 6.8e-8 vs e232). Script lab/e255_thermal_ledger.py;
+runs/e255/{metrics.json, 3 PNGs}.
+
+WHAT WE SAW (T229): THE REGRESSION fails per-probe (R^2 ~
+0.0000; the state-median co-report tracks at 0.667 — two
+dials of ONE numerator object). THE DECOMPOSITION IS THE
+FINDING: D inert in both worlds; the numerator carries the
+thickening walled (+16.9%) AND the collapse unwalled (-81.5%,
+c_num -1.74 vs c_den +0.009) — THE GAP IS THE LEDGER.
+THE CROSS-WORLD CONTROL passes its clause while killing BOTH
+candidate supplies (erosion-redistribution AND thermal
+contraction). LAW 4 RE-READ: THE WALL WIDENS THE GAPS; THE
+SPREAD STAYS; the fitted T cools as the p's sharpen. THE
+FITTED T IS A LENS, FULLY — T228's answer-locality made exact
+in the walled world. THE +1 TRANSIENT ALONE contracts the
+spread (D ratio ~0.86) — the gust is thermal; the flat phase
+is not.
+
+HONESTY: n=1 lineage, R=0.7; the residue's size disclosed
+(+3.75pp — the bulk is generic). REGISTERED: the ctrl-battery
+T-fit (the T(t) battery-generic prediction — a tiny desk
+read). NEXT: e256 dispatched (FQ14 — the residency census).
+
+---
+
 ## e252 — the zombie resuscitation (agy consult #002's pick): PARTIAL — the margin/belief split — cooling the +80 logits by the inverse fitted T recovers ~0 of the belief-RANK order (RF -0.03/-0.07; rho 0.42/0.48 vs the 0.8 bar; the sham indistinguishable) but revives the HEIGHTS (half the belief gap, BR 0.52/0.56; the zombies' beliefs rise 33/33, 17/33 un-zombied): THE ZOMBIE'S BELIEF IS PARTLY A MASK; ITS ORDER NEVER WAS; the wrong-choosers' argmaxes provably cannot return (monotonicity); prediction (a) INVERTED PERFECTLY (rho = -1.000 both washes: revival tracks headroom, not thermal share); TWO PHYSICS AMENDMENTS: the +80 state is NOT a scaled t0 (sigma ratio ~1.0 vs T=1.45 — the temperature is ANSWER-LOCAL) and AMPLITUDE AND ORDER DECOUPLE under any scalar (heating helps ranks 0.51/0.60 where cooling helps heights) (2026-10-04 ~19:45Z) — DONE
 
 WHAT WE DID: the frozen scratch/e252_design.md cell — the

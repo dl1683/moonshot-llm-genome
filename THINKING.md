@@ -685,6 +685,37 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T229 — e255: the gap is the ledger — the forge chain's third act, and the fitted T fully demoted to a lens (2026-10-04 ~20:07Z)
+
+The thermal-ledger cell closes the forge chain with the
+day's most surgical decomposition. THE EXACT IDENTITY (log m
+= log N - log D, exact to 9e-16) splits every margin change
+into the argmax gap and the logit spread — and THE SPREAD IS
+INERT IN BOTH WORLDS (fact 3.310 -> 3.310 through the flat
+phase; the unwalled collapse also numerator-carried, c_num
+-1.74 vs c_den +0.009). THE GAP IS THE LEDGER. THE CHAIN'S
+THREE ACTS: the forge (constructive, e242) -> zero-sum LN
+(denominator redistribution, agy/e251) -> GENERIC RAW-GAP
+GROWTH (e255: neither construction nor LN — the gaps
+themselves widen, fact +16.9%, ctrl +13.2%, with a small
+honest fact-excess of +3.75pp — the re-formation layer's
+real object, now at numerator level). THE FITTED T FULLY
+DEMOTED: T_sigma reads ~1.0 where T_fit cools 0.850 — the
+"temperature" is the p-sharpening seen through the one-T
+lens, not a contraction of anything; T228's answer-locality
+is now exact and walled. THE ONE THERMAL STATE IS THE
+TRANSIENT: only at +1 does the spread contract (D ratio
+0.86) — THE GUST IS THERMAL; THE FLAT PHASE IS NOT (the
+shoreline's two-clause law gains its mechanism signature).
+REGISTERED (tiny desk): the ctrl battery's own T-fit — the
+prediction that T(t) is battery-generic (the lens reads the
+same on any battery's p-sharpening). CONNECTIONS: W039's
+amplitude/order decoupling gains its arithmetic root (the
+numerator/denominator split — order lives in the gaps,
+amplitude in a spread that barely moves); W038's law 4 in
+its day-nine final form: THE WALL WIDENS THE GAPS; THE
+SPREAD STAYS.
+
 ## T228 — e252: cooling restores height, never shape — the law's interventional inverse; and the temperature is answer-local (2026-10-04 ~19:47Z)
 
 The resuscitation cell returns the margin/belief split with
