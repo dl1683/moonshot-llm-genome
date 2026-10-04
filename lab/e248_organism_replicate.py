@@ -898,6 +898,17 @@ def cmd_train() -> None:
                 thermal_cooldown(TRAIN["cooldown_target_c"],
                                  TRAIN["cooldown_max_s"])
 
+    # [recovery executor, operational fix, bars untouched] an invocation
+    # that exits ONLY because it spent its per-invocation max_bursts=60
+    # has NOT finished phase 2 — stamping done there would permanently
+    # block re-launch (train_already_done no-op). Exit unmarked; the
+    # supervisor re-invokes `train`, which resumes from the checkpoint.
+    if step < TRAIN["steps"] and stop != "uturn":
+        jlog("train_burst_cap_reached", step=step, bursts=bursts,
+             best_val=round(best_val, 4),
+             note="per-invocation burst cap; resume by re-invoking train")
+        return
+
     stb = torch.load(best, map_location="cpu", weights_only=False)
     m["organism"] = {
         "params": PARAMS_EXPECTED, "cfg": CFG, "done": True,
