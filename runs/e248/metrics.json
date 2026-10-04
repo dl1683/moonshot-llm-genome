@@ -121,7 +121,7 @@
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
     "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T23:09:14Z",
+  "updated": "2026-10-04T23:21:47Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -2611,5 +2611,380 @@
         "conclusion": "stored s_hat = loss gradient (downhill); -s_hat = e226 grad-p convention (uphill)"
       }
     }
+  },
+  "adjudication": {
+    "gates": {
+      "G_ORGANISM": false,
+      "G_SIZE": true,
+      "G_INSTALL": true,
+      "G_CORPUS": true,
+      "G_REPRO": true,
+      "G_SUPPORTFD": false,
+      "G_WASHGRADFD": true,
+      "G_RECALIBRATION_nonkill": {
+        "pass": true,
+        "flip_zone": 0.05
+      }
+    },
+    "all_gates_pass": false,
+    "bars": {
+      "1_PFIRST_MODALITY": {
+        "cells_modal": 3,
+        "need": 4,
+        "pass": false,
+        "census_flip_zone_used": 0.05,
+        "census_counts": {
+          "fact-w1": {
+            "TOGETHER": 8,
+            "NEITHER": 5,
+            "MARGIN-FIRST": 5,
+            "P-FIRST": 2
+          },
+          "fact-w2": {
+            "TOGETHER": 4,
+            "NEITHER": 10,
+            "MARGIN-FIRST": 4,
+            "P-FIRST": 2
+          },
+          "ctrl-w1": {
+            "MARGIN-FIRST": 3,
+            "NEITHER": 6,
+            "P-FIRST": 2,
+            "TOGETHER": 1
+          },
+          "ctrl-w2": {
+            "MARGIN-FIRST": 1,
+            "P-FIRST": 4,
+            "NEITHER": 7
+          },
+          "tmpl-w1": {
+            "P-FIRST": 6,
+            "NEITHER": 8,
+            "TOGETHER": 4,
+            "MARGIN-FIRST": 1
+          },
+          "tmpl-w2": {
+            "NEITHER": 11,
+            "TOGETHER": 2,
+            "P-FIRST": 6
+          },
+          "near-w1": {
+            "TOGETHER": 2,
+            "NEITHER": 1
+          },
+          "near-w2": {
+            "TOGETHER": 1,
+            "NEITHER": 1,
+            "P-FIRST": 1
+          }
+        },
+        "verbatim_zone_coreport": "identical (zone ported verbatim)"
+      },
+      "5_ZOMBIE_RATES": {
+        "cells_in_band": 6,
+        "cells_standing": 6,
+        "need": 4,
+        "pass": true,
+        "detail": {
+          "fact-w1": {
+            "n_pfirst": 2,
+            "standing": 1,
+            "frac": 0.5,
+            "committed": 0.75,
+            "band": [
+              0.375,
+              1.0
+            ],
+            "in_band": true
+          },
+          "fact-w2": {
+            "n_pfirst": 2,
+            "standing": 2,
+            "frac": 1.0,
+            "committed": 0.75,
+            "band": [
+              0.375,
+              1.0
+            ],
+            "in_band": true
+          },
+          "ctrl-w1": {
+            "n_pfirst": 2,
+            "standing": 2,
+            "frac": 1.0,
+            "committed": 1.0,
+            "band": [
+              0.5,
+              1.0
+            ],
+            "in_band": true
+          },
+          "ctrl-w2": {
+            "n_pfirst": 4,
+            "standing": 3,
+            "frac": 0.75,
+            "committed": 1.0,
+            "band": [
+              0.5,
+              1.0
+            ],
+            "in_band": true
+          },
+          "tmpl-w1": {
+            "n_pfirst": 6,
+            "standing": 4,
+            "frac": 0.6666666666666666,
+            "committed": 0.667,
+            "band": [
+              0.3335,
+              1.0
+            ],
+            "in_band": true
+          },
+          "tmpl-w2": {
+            "n_pfirst": 6,
+            "standing": 5,
+            "frac": 0.8333333333333334,
+            "committed": 0.889,
+            "band": [
+              0.4445,
+              1.0
+            ],
+            "in_band": true
+          }
+        }
+      },
+      "2_SEAT_Z_DIRECTION": {
+        "z_fire_washes": 1,
+        "dir_fire_washes": 0,
+        "nosplit_wash_seen": false,
+        "pass": false,
+        "detail": {
+          "w1": {
+            "dying": "The game console made by Sony->PlayStation",
+            "holder": "The tablet made by Apple->iPad",
+            "fate_split": 28.20280717344505,
+            "reads": {
+              "0": {
+                "A_holder": -0.014128985949615603,
+                "A_dying": -0.02694390050000107,
+                "sigma": 0.007544160123832674,
+                "Z": 1.6986535730998087,
+                "ratio_abs": 1.9069946418011772
+              },
+              "2": {
+                "A_holder": -0.036010918494464944,
+                "A_dying": 0.008056843103549895,
+                "sigma": 0.022874920258037078,
+                "Z": 1.9264662390476175,
+                "ratio_abs": 0.22373334089738012
+              },
+              "10": {
+                "A_holder": -0.01045716793874067,
+                "A_dying": 0.019118167979805,
+                "sigma": 0.01225339865796616,
+                "Z": 2.4136434914176403,
+                "ratio_abs": 1.8282357223104282
+              },
+              "50": {
+                "A_holder": -0.02205837435639339,
+                "A_dying": 0.006357428776300253,
+                "sigma": 0.022387273392071635,
+                "Z": 1.2692837861513313,
+                "ratio_abs": 0.28820930652387894
+              },
+              "80": {
+                "A_holder": -0.03470953126341612,
+                "A_dying": 0.015061875418517133,
+                "sigma": 0.03255057114517237,
+                "Z": 1.52904864433738,
+                "ratio_abs": 0.43394061718120536
+              }
+            }
+          },
+          "w2": {
+            "dying": "The game console made by Sony->PlayStation",
+            "holder": "The tablet made by Apple->iPad",
+            "fate_split": 50.88305939764084,
+            "reads": {
+              "0": {
+                "A_holder": -0.07437228142937286,
+                "A_dying": -0.017226644592561024,
+                "sigma": 0.043187123392910316,
+                "Z": 1.323210076228253,
+                "ratio_abs": 0.23162721731106492
+              },
+              "10": {
+                "A_holder": -0.005157508259569059,
+                "A_dying": 0.006895790226129973,
+                "sigma": 0.008510470974706925,
+                "Z": 1.4162904170076334,
+                "ratio_abs": 1.3370391047529138
+              },
+              "50": {
+                "A_holder": -0.006314940308355342,
+                "A_dying": -0.005791745999999857,
+                "sigma": 0.00569481006959069,
+                "Z": 0.09187212601685395,
+                "ratio_abs": 0.9171497618650104
+              },
+              "80": {
+                "A_holder": -0.021731378529279356,
+                "A_dying": -0.014719707355520693,
+                "sigma": 0.019367122417429286,
+                "Z": 0.36203990570372835,
+                "ratio_abs": 0.6773480723134235
+              }
+            }
+          }
+        }
+      },
+      "3_T_R2": {
+        "detail": [
+          {
+            "cell": "w1-50",
+            "R2": 0.7334632636115985,
+            "T": 1.7522893398500061,
+            "in_band": true
+          },
+          {
+            "cell": "w1-80",
+            "R2": 0.8173456297648645,
+            "T": 2.233520778355161,
+            "in_band": false
+          },
+          {
+            "cell": "w2-50",
+            "R2": 0.7525860347594674,
+            "T": 1.8483296183568956,
+            "in_band": true
+          },
+          {
+            "cell": "w2-80",
+            "R2": 0.7972232717267727,
+            "T": 1.9947326682146471,
+            "in_band": true
+          }
+        ],
+        "cells_in_band": 3,
+        "washes_represented": [
+          "w1",
+          "w2"
+        ],
+        "need": 2,
+        "pass": true
+      },
+      "4_SPAN_IDENTITY": {
+        "identity": 0.2631831765174866,
+        "line": 0.9,
+        "pass": false
+      },
+      "6_COMMON_MODE": {
+        "coherence": {
+          "50": 0.7401907849760873,
+          "80": 0.7714148187363931
+        },
+        "pass": true
+      },
+      "7_ANCHOR_EXPOSURE": {
+        "ratios": {
+          "w1": 0.30911766169121724,
+          "w2": 0.23473588332113374
+        },
+        "band": [
+          5.0,
+          10.0
+        ],
+        "pass": false
+      },
+      "8_RESIDUAL_ORDER": {
+        "detail": [
+          {
+            "wash": "w1",
+            "state": 50,
+            "rho_blocked": -0.7060607432218351,
+            "mean_abs_resid": 0.11133529161191943,
+            "n": 51
+          },
+          {
+            "wash": "w1",
+            "state": 80,
+            "rho_blocked": -0.8348119313809805,
+            "mean_abs_resid": 0.1549314932311477,
+            "n": 51
+          },
+          {
+            "wash": "w2",
+            "state": 50,
+            "rho_blocked": -0.8058208482324718,
+            "mean_abs_resid": 0.13682468597091682,
+            "n": 51
+          },
+          {
+            "wash": "w2",
+            "state": 80,
+            "rho_blocked": -0.7322455076268503,
+            "mean_abs_resid": 0.14081788462038866,
+            "n": 51
+          }
+        ],
+        "n_ok": 0,
+        "rho_line": 0.85,
+        "mag_floor": 2.443e-08,
+        "amendment_note": "phase-boundary amendment (pre-wash-compute, coordinator advisory): both clauses per cell \u2014 |rho| >= 0.85 (above the measured seed-0 pure-temperature null max 0.812) AND mean_abs_resid > 10x the null's magnitude",
+        "pass": false
+      }
+    },
+    "primaries_passed": 2,
+    "verdict": "INSTRUMENT-DEAD",
+    "clause": "2/5 primaries within frozen tolerance; co-bars {\"6_COMMON_MODE\": true, \"7_ANCHOR_EXPOSURE\": false, \"8_RESIDUAL_ORDER\": false}; gates FAILED: ['G_ORGANISM', 'G_SUPPORTFD']; span identity carries the sign-shadow guard (recipe+organism at minimum; e234-validated on GPT-2's washes only; corpus-swap named, not run); SUB-GATE ORGANISM PILOT (the coordinator's fork decision 22:0xZ): G_ORGANISM FALSE (best val 1.5781 > the 1.50 gate; two arcs U-turned) \u2014 the eight bars are DESCRIPTIVE of a sub-gate organism, not adjudications of organism-robustness; that question stays open for a healthy organism",
+    "committed_re_read": {
+      "pfirst_counts": {
+        "fact-w1": 8,
+        "fact-w2": 8,
+        "ctrl-w1": 4,
+        "ctrl-w2": 3,
+        "tmpl-w1": 9,
+        "tmpl-w2": 9
+      },
+      "pfirst_ns": {
+        "fact": 20,
+        "ctrl": 12,
+        "tmpl": 19
+      },
+      "seat_ratios": "2.6-14.8x (three washes)",
+      "seat_max_z": 7.19,
+      "tr2": {
+        "w1-50": 0.6259,
+        "w1-80": 0.6896,
+        "w2-50": 0.5995,
+        "w2-80": 0.7085
+      },
+      "span_identity": [
+        0.9619,
+        0.9661,
+        0.9581
+      ],
+      "zombie_standing": {
+        "fact-w1": 0.75,
+        "fact-w2": 0.75,
+        "ctrl-w1": 1.0,
+        "ctrl-w2": 1.0,
+        "tmpl-w1": 0.667,
+        "tmpl-w2": 0.889
+      },
+      "coherence": {
+        "50": 0.873,
+        "80": 0.839
+      },
+      "exposure_ratios": [
+        7.7,
+        9.0,
+        6.5
+      ],
+      "resid_rho_pooled": -0.898,
+      "t_of_t": "1.00 -> 1.45 monotonish (e238)"
+    },
+    "wash_ladder_mult": 1
   }
 }
