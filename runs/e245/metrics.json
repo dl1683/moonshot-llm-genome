@@ -1,0 +1,838 @@
+{
+ "experiment": "e245_death_depth",
+ "phase": "desk-only on COMMITTED data (CPU threads 4; no GPU, no torch, no model loads; load-polite \u2014 two other agents live)",
+ "date": "2026-10-04T17:00:17Z",
+ "status": "DONE",
+ "registration": "bars frozen VERBATIM from the dispatch brief in the script docstring; registration commit precedes any compute; no bar shopping",
+ "question": "over the 19 flips, does the surviving belief mass select the death mode (T221: mis-dials carry higher p(+80) than collapses, median >= 2x \u2014 two stages of death) \u2014 or does the WASH identity write the mode (w1 collapse-heavy, w2 mis-dial-heavy)?",
+ "builds_on": [
+  "T221 (the registration \u2014 prediction + alternative verbatim)",
+  "T219/e241 + T212/e232 (the two modes and the zombie taxonomy)",
+  "e243 (the 19-flip table: identities, modes, targets \u2014 carried verbatim, not re-derived)",
+  "e228 (the per-state per-probe p and argmax journal)",
+  "e214 (the census journal \u2014 provenance re-certification)",
+  "e230 (the committed death-order classes \u2014 read for the census co-report)"
+ ],
+ "registered_bars_verbatim": {
+  "DEPTH-SELECTS": "the mis-dials' median p(+80) >= 2x the collapses' AND the separation holds within each wash (or one wash has no collapses to test \u2014 disclosed) \u2014 two stages of death confirmed",
+  "WASH-WRITES": "depth does not separate (ratio < 2 or within-wash fails) while the wash contingency is lopsided (one wash >= 75% one mode) \u2014 the mode is written by the wash, the stranger branch",
+  "MIXED": "the tables verbatim, no inflation"
+ },
+ "registered_prediction_T221_verbatim": "over the 19 flips, p(+80) (and p at the flip's first-crossing state where available) separates the modes \u2014 the mis-dials carry surviving belief mass, the collapses do not; median separation >= 2x",
+ "operationalizations_frozen": {
+  "population": "e243's 19 (probe, wash) flip records verbatim (do not re-derive)",
+  "p_80": "e228 journal p at (wash,+80); gate: exact vs e243's p_80 for all 19",
+  "flip_time": "earliest state in the wash lineage whose top1_id != t0 top1_id (e228 journal; w1 states +2/+10/+50/+80, w2 +10/+50/+80)",
+  "median": "numpy median, linear interpolation at even n",
+  "depth_bar": "ratio of medians (mis-dial / collapse) >= 2 overall AND within each wash (w2's-collapse-empty escape only if n=0; w2's n disclosed)",
+  "wash_bar": "P(mode | wash's ALL flip records) >= 0.75 adjudicates (OTHER counts against purity); two-mode-restricted and P(wash|mode) co-reports disclosed, NOT adjudicating \u2014 frozen before compute"
+ },
+ "sources": {
+  "e243_metrics": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e243\\metrics.json",
+   "sha256_16": "30fc9bae72ecc131"
+  },
+  "e228_journal": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+   "sha256_16": "e1f476405746ad70"
+  },
+  "e214_journal": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+   "sha256_16": "04e84058b4656cd9"
+  },
+  "e230_metrics": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e230\\metrics.json",
+   "sha256_16": "76dc7422cbdc2f4d"
+  }
+ },
+ "table": [
+  {
+   "wash": "w1",
+   "battery": "fact",
+   "probe": "France->Paris",
+   "classification": "MIS-DIAL",
+   "target_80": " Marse",
+   "target_id_80": 45996,
+   "p_t0": 0.6850027441978455,
+   "p_80": 0.13572438061237335,
+   "p_80_from_e243": 0.13572,
+   "flip_step": 80,
+   "p_at_flip": 0.13572438061237335,
+   "first_cross_token_id": 45996,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.34250137209892273,
+   "e232_fate": "outside-e232-census",
+   "e230_death_order_class": "TOGETHER",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "fact",
+   "probe": "Egypt->Cairo",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.8057803511619568,
+   "p_80": 0.10885904729366302,
+   "p_80_from_e243": 0.10886,
+   "flip_step": 50,
+   "p_at_flip": 0.1612653136253357,
+   "first_cross_token_id": 27872,
+   "first_cross_is_target_80": false,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.4028901755809784,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "fact",
+   "probe": "Ireland->Dublin",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.6304253935813904,
+   "p_80": 0.08268740773200989,
+   "p_80_from_e243": 0.08269,
+   "flip_step": 80,
+   "p_at_flip": 0.08268740773200989,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.3152126967906952,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "fact",
+   "probe": "the United States->dollar",
+   "classification": "MIS-DIAL",
+   "target_80": " dollars",
+   "target_id_80": 5054,
+   "p_t0": 0.5909402966499329,
+   "p_80": 0.09912417083978653,
+   "p_80_from_e243": 0.09912,
+   "flip_step": 50,
+   "p_at_flip": 0.12932845950126648,
+   "first_cross_token_id": 5054,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.29547014832496643,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "ctrl",
+   "probe": "The gaming console made by Microsoft->Xbox",
+   "classification": "MIS-DIAL",
+   "target_80": " PlayStation",
+   "target_id_80": 14047,
+   "p_t0": 0.6225916743278503,
+   "p_80": 0.2825866639614105,
+   "p_80_from_e243": 0.28259,
+   "flip_step": 80,
+   "p_at_flip": 0.2825866639614105,
+   "first_cross_token_id": 14047,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31129583716392517,
+   "e232_fate": "outside-e232-census",
+   "e230_death_order_class": "MARGIN-FIRST",
+   "e230_p_cross_step": 80,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "ctrl",
+   "probe": "The phone made by Apple->iPhone",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.6358935832977295,
+   "p_80": 0.11716761440038681,
+   "p_80_from_e243": 0.11717,
+   "flip_step": 50,
+   "p_at_flip": 0.2197819948196411,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31794679164886475,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "ctrl",
+   "probe": "The tablet made by Apple->iPad",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.7676098942756653,
+   "p_80": 0.24164250493049622,
+   "p_80_from_e243": 0.24164,
+   "flip_step": 80,
+   "p_at_flip": 0.24164250493049622,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.38380494713783264,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 80,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "near",
+   "probe": "Massachusetts->Boston",
+   "classification": "MIS-DIAL",
+   "target_80": " Worcester",
+   "target_id_80": 50075,
+   "p_t0": 0.6118616461753845,
+   "p_80": 0.1682472974061966,
+   "p_80_from_e243": 0.16825,
+   "flip_step": 80,
+   "p_at_flip": 0.1682472974061966,
+   "first_cross_token_id": 50075,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.30593082308769226,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "near",
+   "probe": "Georgia->Atlanta",
+   "classification": "MIS-DIAL",
+   "target_80": " Augusta",
+   "target_id_80": 46820,
+   "p_t0": 0.6366477012634277,
+   "p_80": 0.1052575409412384,
+   "p_80_from_e243": 0.10526,
+   "flip_step": 50,
+   "p_at_flip": 0.1529892086982727,
+   "first_cross_token_id": 46820,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31832385063171387,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "tmpl",
+   "probe": "Columbus->Ohio",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.811143696308136,
+   "p_80": 0.18600709736347198,
+   "p_80_from_e243": 0.18601,
+   "flip_step": 80,
+   "p_at_flip": 0.18600709736347198,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.405571848154068,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w1",
+   "battery": "tmpl",
+   "probe": "Jackson->Mississippi",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.6934146285057068,
+   "p_80": 0.08360926806926727,
+   "p_80_from_e243": 0.08361,
+   "flip_step": 80,
+   "p_at_flip": 0.08360926806926727,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.3467073142528534,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "fact",
+   "probe": "Egypt->Cairo",
+   "classification": "MIS-DIAL",
+   "target_80": " Alexandria",
+   "target_id_80": 27872,
+   "p_t0": 0.8057803511619568,
+   "p_80": 0.1165151298046112,
+   "p_80_from_e243": 0.11652,
+   "flip_step": 50,
+   "p_at_flip": 0.219637930393219,
+   "first_cross_token_id": 27872,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.4028901755809784,
+   "e232_fate": "outside-e232-census",
+   "e230_death_order_class": "TOGETHER",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "fact",
+   "probe": "the United States->dollar",
+   "classification": "MIS-DIAL",
+   "target_80": " dollars",
+   "target_id_80": 5054,
+   "p_t0": 0.5909402966499329,
+   "p_80": 0.05210815742611885,
+   "p_80_from_e243": 0.05211,
+   "flip_step": 50,
+   "p_at_flip": 0.10263804346323013,
+   "first_cross_token_id": 5054,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.29547014832496643,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "fact",
+   "probe": "China->yuan",
+   "classification": "OTHER",
+   "target_80": " sh",
+   "target_id_80": 427,
+   "p_t0": 0.9285135269165039,
+   "p_80": 0.12825030088424683,
+   "p_80_from_e243": 0.12825,
+   "flip_step": 80,
+   "p_at_flip": 0.12825030088424683,
+   "first_cross_token_id": 427,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.46425676345825195,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "ctrl",
+   "probe": "The gaming console made by Microsoft->Xbox",
+   "classification": "MIS-DIAL",
+   "target_80": " PlayStation",
+   "target_id_80": 14047,
+   "p_t0": 0.6225916743278503,
+   "p_80": 0.2354421466588974,
+   "p_80_from_e243": 0.23544,
+   "flip_step": 50,
+   "p_at_flip": 0.3041084408760071,
+   "first_cross_token_id": 14047,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31129583716392517,
+   "e232_fate": "outside-e232-census",
+   "e230_death_order_class": "TOGETHER",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "ctrl",
+   "probe": "The phone made by Apple->iPhone",
+   "classification": "FREQUENCY-COLLAPSE",
+   "target_80": " the",
+   "target_id_80": 262,
+   "p_t0": 0.6358935832977295,
+   "p_80": 0.2173159271478653,
+   "p_80_from_e243": 0.21732,
+   "flip_step": 80,
+   "p_at_flip": 0.2173159271478653,
+   "first_cross_token_id": 262,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31794679164886475,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 80,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "ctrl",
+   "probe": "The music store made by Apple->iTunes",
+   "classification": "OTHER",
+   "target_80": " Music",
+   "target_id_80": 7849,
+   "p_t0": 0.6862599849700928,
+   "p_80": 0.13690724968910217,
+   "p_80_from_e243": 0.13691,
+   "flip_step": 80,
+   "p_at_flip": 0.13690724968910217,
+   "first_cross_token_id": 7849,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.3431299924850464,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "near",
+   "probe": "Georgia->Atlanta",
+   "classification": "MIS-DIAL",
+   "target_80": " Augusta",
+   "target_id_80": 46820,
+   "p_t0": 0.6366477012634277,
+   "p_80": 0.15308833122253418,
+   "p_80_from_e243": 0.15309,
+   "flip_step": 50,
+   "p_at_flip": 0.1494455337524414,
+   "first_cross_token_id": 46820,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.31832385063171387,
+   "e232_fate": "standing-zombie",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  },
+  {
+   "wash": "w2",
+   "battery": "tmpl",
+   "probe": "Jackson->Mississippi",
+   "classification": "OTHER",
+   "target_80": " North",
+   "target_id_80": 2258,
+   "p_t0": 0.6934146285057068,
+   "p_80": 0.13141101598739624,
+   "p_80_from_e243": 0.13141,
+   "flip_step": 80,
+   "p_at_flip": 0.13141101598739624,
+   "first_cross_token_id": 2258,
+   "first_cross_is_target_80": true,
+   "first_cross_is_answer": false,
+   "halved_endpoint": true,
+   "half_threshold": 0.3467073142528534,
+   "e232_fate": "resolved",
+   "e230_death_order_class": "P-FIRST",
+   "e230_p_cross_step": 50,
+   "e230_censored": false
+  }
+ ],
+ "depth_read": {
+  "mis_dial_all": {
+   "n": 9,
+   "median_p_80": 0.13572438061237335,
+   "median_p_at_flip": 0.1529892086982727,
+   "min_p_80": 0.05210815742611885,
+   "max_p_80": 0.2825866639614105
+  },
+  "collapse_all": {
+   "n": 7,
+   "median_p_80": 0.11716761440038681,
+   "median_p_at_flip": 0.18600709736347198,
+   "min_p_80": 0.08268740773200989,
+   "max_p_80": 0.24164250493049622
+  },
+  "other_all": {
+   "n": 3,
+   "median_p_80": 0.13141101598739624,
+   "median_p_at_flip": 0.13141101598739624,
+   "min_p_80": 0.12825030088424683,
+   "max_p_80": 0.13690724968910217
+  },
+  "mis_dial_w1": {
+   "n": 5,
+   "median_p_80": 0.13572438061237335,
+   "median_p_at_flip": 0.1529892086982727,
+   "min_p_80": 0.09912417083978653,
+   "max_p_80": 0.2825866639614105
+  },
+  "collapse_w1": {
+   "n": 6,
+   "median_p_80": 0.11301333084702492,
+   "median_p_at_flip": 0.17363620549440384,
+   "min_p_80": 0.08268740773200989,
+   "max_p_80": 0.24164250493049622
+  },
+  "mis_dial_w2": {
+   "n": 4,
+   "median_p_80": 0.1348017305135727,
+   "median_p_at_flip": 0.1845417320728302,
+   "min_p_80": 0.05210815742611885,
+   "max_p_80": 0.2354421466588974
+  },
+  "collapse_w2": {
+   "n": 1,
+   "median_p_80": 0.2173159271478653,
+   "median_p_at_flip": 0.2173159271478653,
+   "min_p_80": 0.2173159271478653,
+   "max_p_80": 0.2173159271478653
+  },
+  "ratio_overall": 1.1583779469007034,
+  "ratio_w1": 1.2009590337275358,
+  "ratio_w2": 0.6203030412117534,
+  "ratio_p_at_flip_overall": 0.8224912428976846,
+  "clauses": {
+   "ratio_overall_ge_2": false,
+   "within_w1_ge_2": false,
+   "within_w2_ge_2_or_empty": false,
+   "w2_collapse_n": 1,
+   "w2_escape_used": false,
+   "DEPTH-SELECTS": false
+  }
+ },
+ "wash_read": {
+  "counts": {
+   "w1": {
+    "MIS-DIAL": 5,
+    "FREQUENCY-COLLAPSE": 6,
+    "OTHER": 0
+   },
+   "w2": {
+    "MIS-DIAL": 4,
+    "FREQUENCY-COLLAPSE": 1,
+    "OTHER": 3
+   }
+  },
+  "n_per_wash": {
+   "w1": 11,
+   "w2": 8
+  },
+  "P_mode_given_wash_ALLrecords_ADJUDICATING": {
+   "w1": {
+    "MIS-DIAL": 0.45454545454545453,
+    "FREQUENCY-COLLAPSE": 0.5454545454545454,
+    "OTHER": 0.0
+   },
+   "w2": {
+    "MIS-DIAL": 0.5,
+    "FREQUENCY-COLLAPSE": 0.125,
+    "OTHER": 0.375
+   }
+  },
+  "max_lopsidedness": {
+   "p": 0.5454545454545454,
+   "wash": "w1",
+   "mode": "FREQUENCY-COLLAPSE"
+  },
+  "lopsided_at_75": false,
+  "CO_REPORT_two_mode_restricted_not_adjudicating": {
+   "w1": {
+    "MIS-DIAL": 0.45454545454545453,
+    "FREQUENCY-COLLAPSE": 0.5454545454545454
+   },
+   "w2": {
+    "MIS-DIAL": 0.8,
+    "FREQUENCY-COLLAPSE": 0.2
+   }
+  },
+  "CO_REPORT_P_wash_given_mode_not_adjudicating": {
+   "MIS-DIAL": {
+    "w1": 0.5555555555555556,
+    "w2": 0.4444444444444444
+   },
+   "FREQUENCY-COLLAPSE": {
+    "w1": 0.8571428571428571,
+    "w2": 0.14285714285714285
+   },
+   "OTHER": {
+    "w1": 0.0,
+    "w2": 1.0
+   }
+  },
+  "CO_REPORT_collapse_rate_contrast": {
+   "P_collapse_w1": 0.5454545454545454,
+   "P_collapse_w2": 0.125
+  },
+  "other_records_disclosed": [
+   "w2 China->yuan ->  sh",
+   "w2 The music store made by Apple->iTunes ->  Music",
+   "w2 Jackson->Mississippi ->  North"
+  ]
+ },
+ "joint_read": {
+  "within_w1": {
+   "ratio": 1.2009590337275358,
+   "n_md": 5,
+   "n_fc": 6,
+   "median_md": 0.13572438061237335,
+   "median_fc": 0.11301333084702492
+  },
+  "within_w2": {
+   "ratio": 0.6203030412117534,
+   "n_md": 4,
+   "n_fc": 1,
+   "median_md": 0.1348017305135727,
+   "median_fc": 0.2173159271478653
+  },
+  "read": "depth separates within each wash -> depth wins; only wash separates -> the alternative stands",
+  "paired_contrasts": [
+   {
+    "probe": "The gaming console made by Microsoft->Xbox",
+    "w1": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.2825866639614105
+    },
+    "w2": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.2354421466588974
+    },
+    "p_80_ratio_w1_over_w2": 1.2002382240033467,
+    "mode_flipped": false
+   },
+   {
+    "probe": "The phone made by Apple->iPhone",
+    "w1": {
+     "mode": "FREQUENCY-COLLAPSE",
+     "p_80": 0.11716761440038681
+    },
+    "w2": {
+     "mode": "FREQUENCY-COLLAPSE",
+     "p_80": 0.2173159271478653
+    },
+    "p_80_ratio_w1_over_w2": 0.5391579712455409,
+    "mode_flipped": false
+   },
+   {
+    "probe": "Egypt->Cairo",
+    "w1": {
+     "mode": "FREQUENCY-COLLAPSE",
+     "p_80": 0.10885904729366302
+    },
+    "w2": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.1165151298046112
+    },
+    "p_80_ratio_w1_over_w2": 0.9342910871421851,
+    "mode_flipped": true
+   },
+   {
+    "probe": "the United States->dollar",
+    "w1": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.09912417083978653
+    },
+    "w2": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.05210815742611885
+    },
+    "p_80_ratio_w1_over_w2": 1.9022774117532169,
+    "mode_flipped": false
+   },
+   {
+    "probe": "Georgia->Atlanta",
+    "w1": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.1052575409412384
+    },
+    "w2": {
+     "mode": "MIS-DIAL",
+     "p_80": 0.15308833122253418
+    },
+    "p_80_ratio_w1_over_w2": 0.6875608356343804,
+    "mode_flipped": false
+   },
+   {
+    "probe": "Jackson->Mississippi",
+    "w1": {
+     "mode": "FREQUENCY-COLLAPSE",
+     "p_80": 0.08360926806926727
+    },
+    "w2": {
+     "mode": "OTHER",
+     "p_80": 0.13141101598739624
+    },
+    "p_80_ratio_w1_over_w2": 0.6362424598961043,
+    "mode_flipped": true
+   }
+  ]
+ },
+ "sequence_read": {
+  "n_walker_records": 1,
+  "walkers": [
+   {
+    "wash": "w1",
+    "probe": "Egypt->Cairo",
+    "first_cross_step": 50,
+    "first_cross_token_id": 27872,
+    "final_target_80": " the",
+    "p_at_flip": 0.1612653136253357,
+    "p_80": 0.10885904729366302
+   }
+  ],
+  "read": "18/19 first crossings go straight to the final +80 target; the one walker (w1 Egypt->Cairo) crossed to ' Alexandria' \u2014 the SAME runner-up w2 mis-dials to \u2014 at +50, then collapsed to ' the' by +80: both death modes visited IN ORDER inside one record (co-report, not a bar)"
+ },
+ "census_read": {
+  "halved_endpoint_n": 19,
+  "never_halved_endpoint_n": 0,
+  "e232_fate_counts": {
+   "outside-e232-census": 4,
+   "standing-zombie": 9,
+   "resolved": 6
+  },
+  "e230_death_order_counts": {
+   "TOGETHER": 3,
+   "P-FIRST": 15,
+   "MARGIN-FIRST": 1
+  },
+  "mode_by_death_order": {
+   "TOGETHER": {
+    "MIS-DIAL": 3
+   },
+   "P-FIRST": {
+    "FREQUENCY-COLLAPSE": 7,
+    "MIS-DIAL": 5,
+    "OTHER": 3
+   },
+   "MARGIN-FIRST": {
+    "MIS-DIAL": 1
+   }
+  },
+  "gloss_check": "T221 glossed census-outside as 'the belief NEVER halved'; the endpoint criterion (p(w,80) < 0.5*p_t0) adjudicates that gloss"
+ },
+ "adjudication": {
+  "verdict": "MIXED",
+  "bar_fired_verbatim": "the tables verbatim, no inflation",
+  "depth_clauses": {
+   "ratio_overall_ge_2": false,
+   "within_w1_ge_2": false,
+   "within_w2_ge_2_or_empty": false,
+   "w2_collapse_n": 1,
+   "w2_escape_used": false,
+   "DEPTH-SELECTS": false
+  },
+  "wash_clause": {
+   "lopsided_at_75": false,
+   "max_mode_share": [
+    0.5454545454545454,
+    "w1",
+    "FREQUENCY-COLLAPSE"
+   ]
+  },
+  "read": "DEPTH fails at its own bar; the contingency clause of WASH-WRITES is tested only if depth fails \u2014 the verdict follows the frozen ladder"
+ },
+ "gates": {
+  "G_SHA_e228": {
+   "got": "e1f476405746ad70",
+   "committed": "e1f476405746ad70",
+   "pass": true,
+   "desc": "e228 journal sha256_16 == e243's committed source sha"
+  },
+  "G_POP": {
+   "pass": true,
+   "n": 19,
+   "desc": "population carried verbatim from e243's table (do not re-derive); n=19"
+  },
+  "G_P80": {
+   "max_abs_diff_e228_vs_e243": 4.87019538879252e-06,
+   "tol": 5.5e-06,
+   "pass": true,
+   "desc": "p(+80) recomputed from the e228 journal matches e243's committed p_80 for all 19 records within e243's 5-decimal rounding (max diff 4.9e-06 < 5e-06)"
+  },
+  "G_TGT80": {
+   "n_mismatch": 0,
+   "mismatches": [],
+   "pass": true,
+   "desc": "journal top1 at (wash,+80) == e243's target for all 19 (flip identities consistent; e243 G_FLIPS already double-sourced this vs the npz dumps)"
+  },
+  "G_RECERT214": {
+   "records": [
+    {
+     "probe": "w1 France->Paris",
+     "abs_dp_t0": 0.0,
+     "abs_dp_80": 0.0
+    },
+    {
+     "probe": "w1 The phone made by Apple->iPhone",
+     "abs_dp_t0": 0.0,
+     "abs_dp_80": 0.0
+    },
+    {
+     "probe": "w2 Jackson->Mississippi",
+     "abs_dp_t0": 0.0,
+     "abs_dp_80": 0.0
+    }
+   ],
+   "pass": true,
+   "desc": "3 records re-certified vs e214's journal: p at t0 and (wash,+80) identical (independent journal of the same committed archive; e214 records carry p/rank only \u2014 no argmax fields, disclosed)"
+  },
+  "G_E230_JOIN": {
+   "n_joined": 19,
+   "pass": true,
+   "desc": "all 19 records joined to e230's committed death-order class (read, not re-derived)"
+  }
+ },
+ "honesty_reflex": "KNOWN CONFOUNDS, disclosed not corrected: (1) e243's confounds carry VERBATIM \u2014 6 probes die under both washes sharing one t0/RU read; n=19 (9 mis-dial / 7 collapse / 3 other; w1 11 / w2 8); the bars adjudicate on whatever n exists; nothing guaranteed. (2) The w2 collapse stratum is n=1 (iPhone w2) \u2014 the within-w2 depth clause is a single-record comparison, disclosed, not a distribution. (3) The wash contingency's adjudicating denominator includes OTHER (3 records, all w2): frozen before compute; the two-mode-restricted percentages co-report and do NOT adjudicate \u2014 under the restricted reading w2 would read 80% mis-dial, disclosed here so no reader is ambushed by the choice. (4) CENSUS GLOSS: T221 (and e243's coverage note) glossed the census-outside flips as 'the belief NEVER halved' \u2014 the endpoint criterion says otherwise (see census_read); the binary that actually tracks 'census-outside' is e230's death-ORDER class. The registered bars do not read on the census; this is a correction of a gloss, not a bar. (5) p at flip time is confounded with the flip STEP for records that first cross at +80 (n at +80: p_at_flip == p_80 by construction) \u2014 the p(+80) medians carry the bar; the flip-time medians co-report. (6) The death-order join's non-P-FIRST side is n=4 (3 TOGETHER + 1 MARGIN-FIRST): 4/4 mis-dial is a perfect but thin alignment, disclosed; and w1 Egypt->Cairo walks mis-dial (+50, to the runner-up) then collapse (+80, to 'the') INSIDE one record (sequence_read) \u2014 the two modes are stages in TIME and in layer ORDER, not in surviving mass.",
+ "figures": [
+  "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e245\\e245_depth_distributions.png",
+  "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e245\\e245_wash_contingency.png"
+ ],
+ "compute": {
+  "device": "cpu desk pass (threads 4)",
+  "model_loads": 0,
+  "gpu_calls": 0,
+  "training": "none",
+  "torch_imported": false
+ },
+ "provenance": {
+  "git_head_at_start": "46bbdcaa5bfe0c3c241fef42821f7eb6cce0cef8",
+  "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e245_death_depth.py",
+  "script_sha256_16": "4c3968f6bbe86d7b"
+ },
+ "timing": {
+  "wall_s": 0.5
+ },
+ "trims": [],
+ "deviations": [
+  "e214's journal stores each battery's probes as a dict of {p, rank} records (no argmax fields) while e228 stores record lists \u2014 the loader handles both; the 3-record re-certification therefore compares p values (the dispatch's ask), not argmax identities",
+  "G_P80's tolerance was widened from 1e-12 to 5.5e-06 after the first run: e243's table stores p_80 rounded to 5 decimals (observed max diff 4.9e-06) \u2014 a gate-definition fix disclosed in place; no bar, read or adjudication touched"
+ ],
+ "all_gates_pass": true
+}

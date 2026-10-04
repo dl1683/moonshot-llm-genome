@@ -103,15 +103,22 @@ def sha16(p: Path) -> str:
 
 
 def load_journal(path: Path):
-    """-> {(battery, probe): {state_key: record}} with state_key 't0' or 'w1_50'."""
+    """-> {(battery, probe): {state_key: record}} with state_key 't0' or 'w1_50'.
+    e228 stores each battery's probes as a LIST of records; e214 stores a DICT
+    keyed by probe name (records without a name field) — both handled."""
     j = json.loads(path.read_text())
     table = {}
     for s in j["states"]:
         key = "t0" if s["wash"] == "t0" else f"{s['wash']}_{s['step']}"
         for bat in ("fact", "ctrl", "near", "tmpl"):
-            for r in s[bat]["probes"]:
-                table[(bat, r["fact"])] = table.get((bat, r["fact"]), {})
-                table[(bat, r["fact"])][key] = r
+            probes = s[bat]["probes"]
+            items = probes.values() if isinstance(probes, dict) else probes
+            for r in items:
+                name = r.get("fact") if isinstance(r, dict) and "fact" in r else None
+                if name is None and isinstance(probes, dict):
+                    name = [k for k, v in probes.items() if v is r][0]
+                table[(bat, name)] = table.get((bat, name), {})
+                table[(bat, name)][key] = r
     return table
 
 
@@ -189,10 +196,14 @@ def main():
         "n": len(rows),
         "desc": "population carried verbatim from e243's table (do not re-derive); n=19"}
     diffs = [abs(r["p_80"] - r["p_80_from_e243"]) for r in rows]
+    # e243's table stores p_80 rounded to 5 decimals; the journal is the
+    # provenance source, so the gate tolerates that rounding (disclosed).
     gates["G_P80"] = {
         "max_abs_diff_e228_vs_e243": max(diffs),
-        "pass": max(diffs) < 1e-12,
-        "desc": "p(+80) recomputed from the e228 journal equals e243's committed p_80 for all 19 records"}
+        "tol": 5.5e-06,
+        "pass": max(diffs) < 5.5e-06,
+        "desc": ("p(+80) recomputed from the e228 journal matches e243's committed p_80 for all "
+                 "19 records within e243's 5-decimal rounding (max diff 4.9e-06 < 5e-06)")}
     tgt_match = [r["wash"] + " " + r["probe"] for r in rows
                  if j228[(r["battery"], r["probe"])][f"{r['wash']}_80"]["top1_id"] != r["target_id_80"]]
     gates["G_TGT80"] = {
@@ -200,6 +211,8 @@ def main():
         "pass": len(tgt_match) == 0,
         "desc": "journal top1 at (wash,+80) == e243's target for all 19 (flip identities consistent; e243 G_FLIPS already double-sourced this vs the npz dumps)"}
     # provenance re-certification: 3 records vs e214's independent journal
+    # (e214 records carry {p, rank} only — no argmax fields; the p records are
+    #  what the dispatch asked to re-certify; schema difference disclosed)
     recheck = [("fact", "France->Paris", "w1"),
                ("ctrl", "The phone made by Apple->iPhone", "w1"),
                ("tmpl", "Jackson->Mississippi", "w2")]
@@ -208,14 +221,13 @@ def main():
         a, b = j228[(bat, probe)], j214[(bat, probe)]
         d_t0 = abs(a["t0"]["p"] - b["t0"]["p"])
         d_80 = abs(a[f"{wash}_80"]["p"] - b[f"{wash}_80"]["p"])
-        d_flip = abs(a["t0"]["top1_id"] - b["t0"]["top1_id"])
-        cert.append({"probe": f"{wash} {probe}", "abs_dp_t0": d_t0, "abs_dp_80": d_80,
-                     "top1_t0_identical": d_flip == 0})
+        cert.append({"probe": f"{wash} {probe}", "abs_dp_t0": d_t0, "abs_dp_80": d_80})
     gates["G_RECERT214"] = {
         "records": cert,
-        "pass": all(c["abs_dp_t0"] < 1e-12 and c["abs_dp_80"] < 1e-12 and c["top1_t0_identical"]
-                    for c in cert),
-        "desc": "3 records re-certified vs e214's journal: p at t0 and (wash,+80) identical, t0 argmax identical (independent journal of the same committed archive)"}
+        "pass": all(c["abs_dp_t0"] < 1e-12 and c["abs_dp_80"] < 1e-12 for c in cert),
+        "desc": ("3 records re-certified vs e214's journal: p at t0 and (wash,+80) identical "
+                 "(independent journal of the same committed archive; e214 records carry p/rank "
+                 "only — no argmax fields, disclosed)")}
     gates["G_E230_JOIN"] = {
         "n_joined": sum(1 for r in rows if r["e230_death_order_class"] is not None),
         "pass": all(r["e230_death_order_class"] is not None for r in rows),
@@ -333,6 +345,25 @@ def main():
                 "w2": {"mode": b["classification"], "p_80": b["p_80"]},
                 "p_80_ratio_w1_over_w2": a["p_80"] / b["p_80"] if b["p_80"] else None,
                 "mode_flipped": a["classification"] != b["classification"]})
+
+    # sequence co-report: records whose first crossing was NOT to the +80
+    # target — the within-record mode walkers (not a bar; the honest temporal
+    # texture the depth read cannot see)
+    walkers = [{
+        "wash": r["wash"], "probe": r["probe"],
+        "first_cross_step": r["flip_step"],
+        "first_cross_token_id": r["first_cross_token_id"],
+        "final_target_80": r["target_80"],
+        "p_at_flip": r["p_at_flip"], "p_80": r["p_80"],
+    } for r in rows if not r["first_cross_is_target_80"]]
+    sequence_read = {
+        "n_walker_records": len(walkers),
+        "walkers": walkers,
+        "read": ("18/19 first crossings go straight to the final +80 target; the one walker "
+                 "(w1 Egypt->Cairo) crossed to ' Alexandria' — the SAME runner-up w2 mis-dials "
+                 "to — at +50, then collapsed to ' the' by +80: both death modes visited IN "
+                 "ORDER inside one record (co-report, not a bar)"),
+    }
 
     # ---------------- adjudication ----------------
     if depth_selects:
@@ -522,6 +553,7 @@ def main():
         "depth_read": depth,
         "wash_read": wash_read,
         "joint_read": joint,
+        "sequence_read": sequence_read,
         "census_read": census,
         "adjudication": {
             "verdict": verdict,
@@ -549,7 +581,11 @@ def main():
             "read on the census; this is a correction of a gloss, not a bar. (5) p at flip "
             "time is confounded with the flip STEP for records that first cross at +80 (n at "
             "+80: p_at_flip == p_80 by construction) — the p(+80) medians carry the bar; the "
-            "flip-time medians co-report."),
+            "flip-time medians co-report. (6) The death-order join's non-P-FIRST side is n=4 "
+            "(3 TOGETHER + 1 MARGIN-FIRST): 4/4 mis-dial is a perfect but thin alignment, "
+            "disclosed; and w1 Egypt->Cairo walks mis-dial (+50, to the runner-up) then "
+            "collapse (+80, to 'the') INSIDE one record (sequence_read) — the two modes are "
+            "stages in TIME and in layer ORDER, not in surviving mass."),
         "figures": [str(f1), str(f2)],
         "compute": {"device": "cpu desk pass (threads 4)", "model_loads": 0, "gpu_calls": 0,
                     "training": "none", "torch_imported": False},
@@ -560,7 +596,15 @@ def main():
         },
         "timing": {"wall_s": round(time.time() - t_start, 1)},
         "trims": [],
-        "deviations": [],
+        "deviations": [
+            ("e214's journal stores each battery's probes as a dict of {p, rank} records (no "
+             "argmax fields) while e228 stores record lists — the loader handles both; the "
+             "3-record re-certification therefore compares p values (the dispatch's ask), not "
+             "argmax identities"),
+            ("G_P80's tolerance was widened from 1e-12 to 5.5e-06 after the first run: e243's "
+             "table stores p_80 rounded to 5 decimals (observed max diff 4.9e-06) — a gate-"
+             "definition fix disclosed in place; no bar, read or adjudication touched"),
+        ],
         "all_gates_pass": all_pass,
     }
     (OUT / "metrics.json").write_text(json.dumps(metrics, indent=1))
