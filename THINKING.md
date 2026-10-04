@@ -685,6 +685,39 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T230 — e256: the coupling is thermal-only — the field's first interaction constant, and its one leak (2026-10-04 ~20:27Z)
+
+The residency census answers the interactions question with
+unusual precision: THE TIDE FEEDS THE THERMAL UNDERTOW AND
+NOTHING ELSE. Standing span-residency predicts which probes
+decline ALONG the one-T law (rho -0.148, p 0.030, robust
+across every basis flavor) — the first measured coupling
+between the field's layers — while the death order (p 0.47)
+and the flip mode (p 0.80) sit flat against standing
+geometry. W039'S THREE DECOUPLINGS GAIN THEIR EXACT SHAPE:
+the decoupling has exactly ONE leak, and it is the thermal
+channel. THE STANDING/DURING CORRECTION: the anchors' seat
+is wash-inconsistent (iPhone z +3.2 at w1 only) — the
+exposure asymmetry remains a TRAJECTORY property; and
+nearrel (the hardest-dying family) stands FURTHEST from the
+span at t=0 — deaths are not span-directed, standing or
+during. THE COUNTERFEIT-SELF'S AIM CORRECTED: the thermal
+channel, not the death orders. THE COMPOSITION HOOKS (both
+registered): e254's V-span — if v is span-enriched, the
+optimizer's denominator IS the thermal channel's carrier
+(the amplifier story and the coupling story become one); and
+e255's gap-ledger — is the span-resident probes' thermal
+decline numerator- or denominator-carried? (The numerator
+would tie the coupling to the gap-growth object directly.)
+HONESTY: rho ~ 2% of variance; the multiplicity disclosed;
+n=1 organism. THE FIELD'S INTERACTION TABLE, DAY-NINE
+CLOSED: tide->thermal (rho -0.15, measured); tide->order
+(none); tide->mode (none); undertow->order (anchor-scale
+only, e234/e237); forge->budget (dead; the gap-ledger
+stands); thermal->height (the lens, e252/e255). ONE LAW-
+SHAPED NEGATIVE AND ONE SMALL POSITIVE — exactly what a
+young field's interaction table should look like.
+
 ## T229 — e255: the gap is the ledger — the forge chain's third act, and the fitted T fully demoted to a lens (2026-10-04 ~20:07Z)
 
 The thermal-ledger cell closes the forge chain with the

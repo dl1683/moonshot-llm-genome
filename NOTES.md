@@ -9,6 +9,41 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e256 — FQ14, the support-span residency census: RESIDENCY-PREDICTS — THERMAL-ONLY — the tide-undertow coupling exists and lives on the thermal floor alone (t=0 span-residency predicts the one-T fit's residual: Spearman -0.148, p 0.030, n 216, robust across mirror/full-wash/battery-level flavors) while the DEATH ORDER (p 0.47) and the FLIP MODE (p 0.80) are FLAT against standing geometry — the layers decouple on two of three floors (the 'end to end' claim corrected); iPhone the one high-standing anchor at w1 (z +3.2) but WASH-INCONSISTENT (the anchor seat stays a during-wash object); nearrel stands FURTHEST from the span at t=0 (0.49-0.50x product — the dying family the least span-resident standing; deaths are not span-directed, standing or during-wash) (2026-10-04 ~20:25Z) — DONE
+
+WHAT WE DID: desk-only fp64 Gram algebra on committed records
+(e234's journal's gram_scaled/dmat_scaled rebuilt into the
+span bases; certified three ways: spectra 3.3e-15 vs e234's,
+principal angles <= 1e-9, alignments 1.84e-6 vs e226's); the
+three joins (death order / flip mode / thermal deviation)
+against the fates read at runtime. Bars frozen at dee26aa
+BEFORE compute. 12s wall. Script lab/e256_residency_census.py;
+runs/e256/{metrics.json, journal.json (162 census rows),
+e256_residency_by_class.png}.
+
+WHAT WE SAW (T230): THE COUPLING IS THERMAL-CHANNEL-ONLY —
+span-resident supports decline ALONG the one-T law (their
+fit residuals smaller): the tide feeds the THERMAL undertow;
+the order/mode layers stay dynamic. W038'S LAYERS GAIN THEIR
+FIRST COUPLING CONSTANT (rho ~ -0.15, ~2% of rank variance,
+honestly modest). THE COUNTERFEIT-SELF'S AIM: the thermal
+channel, not the death orders. THE ANCHORS: the standing seat
+is wash-inconsistent (iPhone z +3.2 at w1, ~-0.9 at w2/w3) —
+e234's 8-10x exposure remains a DURING-WASH object; Gmail
+band-typical everywhere (its protection is not standing
+residency either). THE HOOKS: e254's V-span (if v is span-
+enriched, the amplifier is the thermal channel's carrier —
+the join to run on landing) + e255's gap-ledger (is the
+span-resident thermal decline numerator- or denominator-
+carried?).
+
+HONESTY: rho modest; three joins + flavors, multiplicity
+disclosed, no correction claimed; n=1 organism, 3 washes;
+w2's order KW undefined (an empty cell, disclosed); the fp16
+per-cos floor carried.
+
+---
+
 ## e255 — FQ13, the thermal-ledger identity: NUMERATOR-RESIDUE — thermal contraction REFUTED as the supply (the literal logit spread is INERT through the flat phase: fact 3.310 -> 3.310; ctrl 3.514 -> 3.489) while THE NUMERATOR (the argmax gap) carries the thickening in both batteries and both worlds (fact +16.9%, ctrl +13.2%, held-30 +34%): T227's zero-sum-LN needs a SECOND amendment (not LN-denominator redistribution either — D never moves; it is GENERIC RAW-GAP GROWTH); the fact-specific excess honestly sized at +3.75pp over ctrl (16.92% vs 13.17%, 1.29x) — the re-formation layer's small real object, now at numerator level; THE +1 TRANSIENT IS THE ONLY THERMAL STATE (the spread contracts only there — the gust is thermal, the flat phase is not); the fitted T is a LENS, fully (T_sigma 1.011 at +300 while T_fit cools 0.850) (2026-10-04 ~20:05Z) — DONE
 
 WHAT WE DID: the frozen FQ13 cell — the per-probe regression
