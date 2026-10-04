@@ -4889,6 +4889,42 @@ physics states. That is the culture working.
 
 
 
+## W033 — WONDER: does the commitment die before the belief? (the margin/p dissociation; 2026-10-04 ~13:20Z; no bars, no kills — the sharpest confound turned into the sharpest question)
+
+E228's honesty block flagged the coupling: margin correlates with
+p at +0.80 — so are the MANUFACTURED thin spots anything more
+than p's shadow (a probe whose answer-probability collapses will
+necessarily thin in margin)? THE TURN: make the confound the
+question. THE ORGANISM HAS TWO LEVELS TO LOSE A FACT AT — the
+BELIEF (p(answer): what it expects) and the COMMITMENT (the
+margin in sigma: how hard it holds the choice against noise,
+T204's dial). DOES THE COMMITMENT DIE BEFORE THE BELIEF? If the
+wash thins margins while p still stands (margin below the flip
+zone, p above its own t=0 half), then the organism ABANDONS ITS
+COMMITMENT BEFORE ITS OPINION — a decision-level death preceding
+the belief-level death, invisible to every p-based instrument
+the lab has run (which is all of them). If they move together,
+the thin spots are p's shadow and T207's free find deflates
+honestly to a co-read. DISCRIMINATING OBSERVATION (desk, all on
+COMMITTED data — runs/e228/journal.json has the per-state
+per-probe margins; the p records live in e214's committed
+journals): per probe, the state index where margin first crosses
+0.05 sigma (the flip zone) vs the state index where p first
+falls below its half-of-t=0 line; the population of MARGIN-FIRST
+probes and the LEAD TIME (states between the two crossings).
+REGISTERED PREDICTION (so we cannot retrofit): the tmpl battery
+carries margin-first probes (the few-shot faculty's death would
+begin in the decision layer — commitments thinning while the
+belief still quotes the template); the fact battery is mostly
+together-moving (installed facts die as wholes). If the
+prediction holds, the lab gains a NEW DISSOCIATION CLASS —
+decision-death precedes belief-death — and FQ5's interior
+question gets its sharpest instrument yet: WHERE the Gmail/
+iPhone differentiation lives if commitments can die before
+opinions. SECOND RIPENING THREAD (same journal): the flip-zone
+ENTRY ORDER vs the erosion order — T207's registered (a); the
+two asks share one desk pass.
+
 ## W032 — WONDER: the wall's currency — decisions or gradients? (composing e225's graded join with e228's margin cell; 2026-10-04 ~13:10Z; no bars, no kills — a composition on paper, ripening)
 
 E225's cons pair killed the strict SNR-conservator: g1e/g1f at
