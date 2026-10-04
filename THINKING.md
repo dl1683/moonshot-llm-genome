@@ -685,6 +685,51 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T218 — e238: the wash is two-thirds a temperature — and the remainder is the order nothing explains (2026-10-04 ~16:22Z)
+
+The temperature null returned the structured branch, and the
+composition with e234 (landed minutes apart) is the day's
+sharpest statement. THE THERMAL LAYER IS REAL AND QUANTIFIED:
+T(t) rises 1.00 -> 1.45 monotonically, wash-replicating — the
+wash HEATS the beliefs, uniformly, ~2/3 of the p-side decline
+at +80 (the KL echo says the whole-distribution flattening is
+milder still — the heating concentrates on the answers). THE
+REMAINDER IS THE ORDER: the per-probe residual r_i correlates
+with the committed erosion order at -0.898, and e234 just
+showed the differential does not track the wind (rho ~ 0,
+instrument valid). COMPOSED: THE EROSION ORDER IS NEITHER
+THERMAL NOR WIND-ALIGNED — real, conserved across washes, and
+now the lab's most precisely-located unexplained object. The
+third dimension has its p-side seat: the residual. THE ANCHOR
+SPLIT REFINES THE TWO BOOKKEEPINGS: Gmail's protection is
+SUPER-THERMAL (+3.86 band-sigma beyond any flattening story)
+while iPhone dies thermally ordinary — on the p-side, the
+holder is the anomaly, not the dying (the mirror of e226's
+geometry, where the dying anchor was the engaged one). TWO
+ALTERNATIVE EXPLANATIONS for the super-thermal protection:
+(H-i EXPOSURE) Gmail's 8-10x lower cumulative wind exposure
+(e234) IS the protection — the holder is simply less touched,
+and 'super-thermal' = thermal + untouched-by-the-differential;
+(H-ii ACTIVE PROTECTION) the organism reinforces the holder
+(e234's Gmail margin GROWTH — the commitment thickening) — an
+active process beyond mere absence of damage. DISCRIMINATING
+(registered): Gmail's residual trajectory r_Gmail(t) vs the
+ctrl-band's — under H-i it sits at the band's protected edge
+consistent with low exposure; under H-ii it RISES relative to
+its own t=0 expectation (the holder gains protection as the
+wash deepens — the re-formation layer sighting #3). REGISTERED
+PREDICTIONS: (a) the residual instrument ports: the wall's
+batteries (g-series) admit a T(t) fit — FQ10's thermal leg —
+and the 2.74M exemplar-lift's return-after-kill should read as
+T RECEDING on the channel (a testable thermal signature);
+(b) the two-moment desk bound prices it (no new dumps needed).
+CONNECTIONS: W035's field re-priced again (the thermal layer is
+the tide's p-side face; the residual is what the tide cannot
+explain; the undertow remains anchor-scale); e232's temperature
+vertical and this cell close the loop — margins T-invariant,
+the p-side two-thirds T; W030's floor of floors gains its
+thermal story (the floor itself heats).
+
 ## T217 — e234: the tide has a direction; the undertow is anchor-scale; the zombies wander next door (2026-10-04 ~16:12Z)
 
 The decomposition's honest bound resolves the field's layers

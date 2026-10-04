@@ -9,6 +9,45 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e238 — FQ7: the one-temperature-per-state null — STRUCTURED (both clauses fire) — one T explains only 60-71% of the pooled p-decline (never the 80% bar; ctrl the least thermal at 0.38), and the residuals ARE the committed erosion order (blocked Spearman -0.898, all 12 n>=10 cells -0.83..-0.95; the calibration shows the information is the MISS, +0.33 for the model's own q-order); the anchor split GMAIL-SIDED (the holder survives +3.86 sigma BEYOND thermal; iPhone's death thermally ordinary at -0.05); T(t) rises 1.00->1.45/1.41, wash-replicating; the two-moment desk bound prices all future T questions (2026-10-04 ~16:20Z) — DONE
+
+WHAT WE DID: one temperature per state, MLE across all 54 probes
+simultaneously on re-probed full logits (8 state dumps certified
+bit-exact against e214's committed p's, dp 0.0); the pre-
+registered 80% variance bar; the blocked residual-erosion join;
+the anchor z-reads against the ctrl/make band; the two-moment
+desk-only bound. Bars frozen at 16d4f80 BEFORE compute. Script
+lab/e238_temperature_null.py; runs/e238/{metrics.json,
+temperature_fit.png, residual_structure.png} + the sha-recorded
+logit dumps as the reusable p-side artifact.
+
+WHAT WE SAW (T218): FLATTENING-DOMINANT is dead — the wash IS
+partly a temperature (T(t) monotone, wash-replicating, the KL
+echo milder still) but only ~2/3 of the p-side at +80. THE
+RESIDUAL IS THE NAMED OBJECT: r_i(t) = p_i(t) - q_i(T*(t))
+correlates with the committed erosion order at -0.898 — the
+differential IS the conserved order. THE ANCHOR SPLIT IS
+GMAIL-SIDED: the holder's protection is SUPER-THERMAL (+3.86
+band-sigma); the dying anchor dies thermally (-0.05; split
+z +4.88) — the two-bookkeepings refined on the p-side.
+CONSEQUENCE (the urgency flag, discharged): e234's join (a) did
+NOT ride a uniform flattening — its NEITHER stands as
+differential structure; COMPOSED (e234 + e238): THE EROSION
+ORDER IS NEITHER THERMAL NOR WIND-ALIGNED — real, conserved,
+and unexplained: the third dimension's p-side seat is the
+residual, now a named, wash-replicating instrument.
+
+HONESTY: first-order; n=2 fitting washes (w1/w2); the per-probe
+T spread grows to 0.33 IQR by +80 (one T serves less and less);
+T212 uncontradicted (margins T-invariant; the temperature
+vertical's blindness discharged by this cell on the p-side).
+NEXT (T218): the residual's anatomy (r_i vs the supports'
+properties at the anchor scale — the holder's protection vs its
+orthogonality) + the wall's own T(t) (FQ10's thermal leg) + e241
+dispatched (the answer-neighbor quantification).
+
+---
+
 ## e234 — the wind/friction decomposition: NEITHER — the honest bound (the wind is real, cross-wash-stable, and does not aim at beliefs; e226's seat is anchor-scale) — the span's cross-wash identity cos 0.958-0.966 across three independent draw streams; prediction (a) INVERTED (the hardest-dying family is the least wind-reached); Gmail's margin GROWS; the 7 wrong-choosers are ANSWER-NEIGHBORS (1/7 corpus-mode — a third texture neither T212 hypothesis registered) (2026-10-04 ~16:10Z) — DONE
 
 WHAT WE DID: the frozen scratch/e234_design.md cell — the three
