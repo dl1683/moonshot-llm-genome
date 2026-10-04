@@ -5521,7 +5521,17 @@ watch only its own fate diverge) — the cut that distinguishes
 Savoring: a lab that knows where it cannot see is doing science;
 a lab that only reports what it saw is doing inventory.
 
-## W029 — WONDER: the killed-objects census — pricing the law before leaning on it (FQ4; 2026-10-02 ~19:20Z; no bars, no kills — a self-audit)
+## W029 — WONDER: the killed-objects census — pricing the law before leaning on it (FQ4; 2026-10-02 ~19:20Z; no bars, no kills — a self-audit) [R63 UPDATE 2026-10-04 — the cascade day's rows:
+
+KILLED: W033 (the commitment-before-belief dissociation — dead at grid, its INVERTED residue standing: P-FIRST modal, the zombies); the span-membership currency (e231 — RECIPE-PINNED, an instrument kill that minted a new class); W034's letter (killed by its own pre-compute derivation — the cleanest death of the day); the strict one-currency (T206's regime split); the 10M faculty-absence-as-scale (e235 decomposed it into variant + scale legs).
+
+SCOPE-DOWNGRADED: T186's ratio-device clause (formation-regime only, R63-amended); the WIND (correlational 3/3 washes, causal 0-for-1.5 — downgraded to registered hypothesis at every claim site); W037's "one stroke" (downgraded to a candidate reading; e239 in flight is its direct test); the cons-pair currency match (n=2, disclosed).
+
+INSTRUMENT CLASSES BORN: RECIPE-IDENTITY (the e231 autopsy — the disclosure now rides every u0/span read); the TEMPERATURE VERTICAL (e232 — the maximal-margin null; e238 in flight closes its p-side blindness).
+
+THE SURVIVING-OBJECTS CENSUS (T212's companion ledger, first rows): the zombies (33/41 standing at +80; the 7 wrong-choosers a new member class); the erosion order (rho 0.94+, the law's own instrument); the supports-as-reads (3/3 washes; the vector test pending); the 2.74M exemplar channel (survives every wash that kills its fact, returns above t0 post-kill); the near-orthogonal holder (Gmail, 3/3 washes); the -0.964 transient co-read (rank-perfect under all seven LOO — the auditor's re-derivation).
+
+THE CENSUS'S OWN VERDICT ON THE DAY: the lab killed its candidates faster than it minted them, and every kill died INTO a sharper residue — the tradition holding under the fastest day the lab has run.]
 
 W028 says shape replicates / height lotteries, and the day-eight
 synthesis leans on it. FQ4's question: were any of the lab's kills
