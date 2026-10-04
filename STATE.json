@@ -2,11 +2,11 @@
   "project": "neural-dissection-lab",
   "created": "2026-09-24T09:50:00Z",
   "tombstone_commit": "106aeff",
-  "last_heartbeat": "2026-10-04T12:40:00Z",
+  "last_heartbeat": "2026-10-04T13:12:00Z",
   "last_review": "2026-10-02T14:45:00Z",
   "last_novelty": "2026-10-01T17:20:00Z",
-  "last_droid_brief": "2026-10-04T12:40:00Z",
-  "current_experiment": "GUARD OK. RESTART COMPLETE (owner order 2026-10-04): e225/e226 predecessors died pre-artifact in a session gap -> both RE-DISPATCHED as recovery agents (e225/FQ2 one-currency join; e226/FQ5 Gmail/iPhone interior; CPU-only). DROID BRIEF lane established (owner-ordered, every 2 h; heartbeat step 6 + scratch/droid_brief.md; CronCreate was blocked by session ownership so the step rides the existing cron). Thinking bulk: W030 - the null as a finding.",
+  "last_droid_brief": "2026-10-04T13:12:00Z",
+  "current_experiment": "GUARD OK. MAX-PRIORITY WINDOW (owner 2026-10-04, 'for now'): fleet 3 — e225/FQ2 one-currency join + e226/FQ5 Gmail/iPhone interior (CPU) + e227/FQ1 faculty-at-home (GPU lane, training unblocked by the window). Direct play landed: x3 ULP floor (T204 — batch-shape re-rounds 85% of bits, zero argmax flips, cosine floor ~3e-7) + x2 algebra span (T205 — GENERIC, no closure anywhere; positive control 2/8). Thinking lane: T204/T205 written; next beat = harvest e225/e226/e227 on land.",
   "cadence": {
     "heartbeat_max_age_min": 15,
     "review_max_age_min": 75,
@@ -15,5 +15,5 @@
   "hardware": "RTX 5090 Laptop 24GB, Python 3.13, torch 2.12 cu128",
   "notes": "Lab live 2026-09-24. RULE 0: 80% thinking / 20% doing â€” THINKING.md interpretation entry gates every new experiment. E001 lesion map + E002 forgetting pilot DONE (first anatomy + T001/T002 interpretations in THINKING.md). Standing idea source: reference/NEURO_AI_LAB.md. Cron automation: heartbeat+review every 10 min. All prior eras preserved at tombstone commit 106aeff.",
   "clock_note": "SECOND CLOCK JUMP: machine moved from 2026-09-30T07:56Z to 2026-10-01T08:06Z (~+24h). True date is 2026-10-01 (env-confirmed). All stamps are best-effort labels under an unstable clock; ordering + commit hashes are the reliable record. THIRD JUMP ~12:57Z (+4h from 08:51Z). Ordering remains the record.",
-  "compute_directive": "OWNER ENVELOPE (2026-10-02, permanent; user message + matrix-native-math note 4): the lab is the LOWEST compute priority on this machine. (1) GPU: check utilization AND temperature BEFORE every launch; run only when cool/idle-ish; keep TOTAL utilization (ours + the neighbor's) <= 60-70%; short bursts only (<= 60-90s preferred, never marathons); no back-to-back heavy jobs; cooldown pauses between (>= 120-180s); high sustained power draw damages the machine even plugged in. (2) CPU: shared - check load first; cap threads; stagger launches. (3) Models small (1M-10M); modest batches. (4) When in doubt: wait. Explore, don't disrupt."
+  "compute_directive": "ACTIVE OVERRIDE (owner 2026-10-04 ~12:46Z, 'for now' = temporary): MAXIMUM compute priority granted; nothing else is running on the machine; 'go ham'. GPU may be used assertively (still NO concurrent GPU jobs; still temp-aware; single runs <=180s lab cap unchanged; cooldowns short 30-60s). Revert to the standing envelope below on the first owner signal that the window closed, or when the neighbor's GPU jobs reappear. || OWNER ENVELOPE (2026-10-02, permanent default; user message + matrix-native-math note 4): the lab is the LOWEST compute priority on this machine. (1) GPU: check utilization AND temperature BEFORE every launch; run only when cool/idle-ish; keep TOTAL utilization (ours + the neighbor's) <= 60-70%; short bursts only (<= 60-90s preferred, never marathons); no back-to-back heavy jobs; cooldown pauses between (>= 120-180s); high sustained power draw damages the machine even plugged in. (2) CPU: shared - check load first; cap threads; stagger launches. (3) Models small (1M-10M); modest batches. (4) When in doubt: wait. Explore, don't disrupt."
 }

@@ -1,0 +1,153 @@
+{
+  "experiment": "x3_ulp_floor",
+  "status": "DONE",
+  "device": "cuda",
+  "gpu_at_start": {
+    "util": 0.0,
+    "mem_used": 0.0,
+    "mem_total": 24463.0,
+    "temp": 56.0,
+    "power": 23.33
+  },
+  "matmul": "y = X @ W.T  (X 256x192 real post-ln2 activations, W 768x192)",
+  "a_same_session": {
+    "r1_r2": {
+      "frac_bit_identical": 1.0,
+      "n_diff": 0,
+      "n_total": 196608
+    },
+    "r1_r3": {
+      "frac_bit_identical": 1.0,
+      "n_diff": 0,
+      "n_total": 196608
+    }
+  },
+  "b_batch_split": {
+    "frac_bit_identical": 0.14984639485677084,
+    "n_diff": 167147,
+    "n_total": 196608
+  },
+  "c_stream": {
+    "frac_bit_identical": 1.0,
+    "n_diff": 0,
+    "n_total": 196608
+  },
+  "d_after_pause": {
+    "frac_bit_identical": 1.0,
+    "n_diff": 0,
+    "n_total": 196608
+  },
+  "gpu_at_end": {
+    "util": 0.0,
+    "mem_used": 318.0,
+    "mem_total": 24463.0,
+    "temp": 57.0,
+    "power": 26.07
+  },
+  "e_cross_device": {
+    "frac_exact_0ulp": 0.0,
+    "p50": 1.8311297558248043,
+    "p90": 6.037234753556549,
+    "p99": 42.672572843655935,
+    "max": 92048.80004882812,
+    "hist_edges": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0
+    ],
+    "hist_counts": [
+      30365,
+      28009,
+      46839,
+      52478,
+      26195,
+      7227,
+      2808,
+      1381,
+      657,
+      649
+    ]
+  },
+  "e_cross_device_cpu_vs_ref": {
+    "frac_exact_0ulp": 0.0,
+    "p50": 1.8311297558248043,
+    "p90": 6.037234753556549,
+    "p99": 42.672572843655935,
+    "max": 92048.80004882812,
+    "hist_edges": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0
+    ],
+    "hist_counts": [
+      30365,
+      28009,
+      46839,
+      52478,
+      26195,
+      7227,
+      2808,
+      1381,
+      657,
+      649
+    ]
+  },
+  "g_tf32_arm": {
+    "frac_exact_0ulp": 0.0,
+    "p50": 1595.099496083334,
+    "p90": 9461.57779405192,
+    "p99": 94052.00554729745,
+    "max": 197509123.1755066,
+    "hist_edges": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0
+    ],
+    "hist_counts": [
+      39,
+      39,
+      72,
+      155,
+      330,
+      639,
+      1218,
+      2501,
+      4983,
+      186632
+    ]
+  },
+  "f_cosine_floor": {
+    "cos_gpu32_vs_fp64ref": 1.0000002525890768,
+    "one_minus_cos": -2.5258907676573017e-07,
+    "statement": "any |Delta cos| at or below one_minus_cos is arithmetically unresolvable in this pipeline; W030 re-reads its floor here"
+  },
+  "h_argmax_downstream": {
+    "argmax_flips_batch_split": 0,
+    "of_rows": 256,
+    "flipped_margin_over_sigma": [],
+    "median_margin_over_sigma_all_rows": 0.18943360447883606,
+    "argmax_flips_fp32gpu_vs_fp64": 0,
+    "fp64_flipped_margin_over_sigma": []
+  }
+}

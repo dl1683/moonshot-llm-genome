@@ -685,6 +685,61 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T204 — x3: the arithmetic floor made literal — batch-shape is a rounding boundary; the cosine floor ~3e-7 (2026-10-04 ~13:00Z)
+
+W030 said closed nulls are the lab recording its own floor; x3 prices
+the floor's ARITHMETIC layer with one real matmul. The structure of
+the result: within a session everything the lab varies (rerun, stream,
+pause) is bit-exact — yet CHANGING THE BATCH SHAPE re-rounds 85% of
+the bits. So the earlier cross-session ~1e-7 drift (e199, our TEXTURE
+tier) decomposes: not thermal, not stochastic — a CODE-PATH boundary.
+The floor under our instruments: |1-cos| <= ~3e-7 in fp32 pipelines;
+every cosine separation the lab has ever bar-ed sits 3+ orders above
+it, so NO past verdict moves — but future GEOMETRY-IDENTICAL-style
+nulls now carry a priced floor: below 3e-7 is floored, not empty.
+TWO ALTERNATIVE EXPLANATIONS for why 85% re-rounding produced ZERO
+argmax flips: (H-i) the storm concentrates where outputs are small
+(ulp-relative; near-cancellation rows) while decisions live on
+large-margin rows — flips would appear only at thin margins; (H-ii)
+the storm is uniform and decision-safety is a property of the MARGIN
+distribution alone (0.19 sigma median here). DISCRIMINATING
+OBSERVATION (registered): bin ulp error vs |y| — H-i predicts flat
+ulp with absolute error concentrated small; and sweep synthetic
+margins — flips should begin at ~0.05 sigma margins under H-ii.
+REGISTERED PREDICTION: any layer whose decision margins dip below
+~0.05 sigma (deep washes? converged fact cells?) will show batch-
+shape-flippable argmax — a candidate instrument for finding the
+organism's thinnest decisions.
+
+## T205 — x2: no closed algebra in any trained layer — closure is not what training buys (2026-10-04 ~13:05Z)
+
+The neighbor's span probe came back GENERIC everywhere: trained
+layers' product algebras fill exactly like std-matched random at
+depth 6 (8/8, with a 2-eigenvalue positive control proving the
+instrument sees closure). TWO ALTERNATIVE EXPLANATIONS: (H-i)
+gradient descent constrains DIRECTIONS and SPECTRA but never
+constrains POLYNOMIAL RELATIONS among W's powers — closure
+(min-poly degree << n) is a measure-zero prior no training
+pressure pushes toward; (H-ii) closure requires normal-ish
+(commuting) structure, and trained matrices are too non-normal —
+but the c_proj texture CUTS AGAINST the easy version of H-ii:
+all six carry |lambda_2/lambda_1| = 1.000 (degenerate top
+eigenvalue magnitudes, the strongest eigengap prior available)
+and still no closure — magnitude-degenerate yet direction-
+generic. DISCRIMINATING OBSERVATION (registered): run the same
+probe on a provably normal object (W^T W itself, PSD by
+construction) — H-ii predicts ITS product family also fills;
+and on a TRAINED matrix with a planted min-poly (built, not
+found) — the probe must read it SPECIAL (instrument validity's
+positive leg, now only synthetic-verified). REGISTERED
+PREDICTION: no training recipe the lab has used (consolidation,
+washes, installs) will move any layer's span off 8/8 — closure,
+if ever seen, marks a fundamentally different training signal.
+Connection: this is W028-complementary — SHAPE is conserved
+under the wash while the ALGEBRA was never special to begin
+with; structure lives in relations to DATA, not in polynomial
+self-relations.
+
 ## T203 — e224: the traversal is gentler — the exposure arc's true residue (2026-10-02 ~23:05Z)
 
 The training-step cell closes the exposure arc with the honest

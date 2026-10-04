@@ -3,36 +3,37 @@
 (Owner-ordered 2026-10-04: refreshed every two hours by the heartbeat's DROID BRIEF step.
  For the supervisor (droid). Read top-down; timestamps UTC.)
 
-## Generated: 2026-10-04T12:40:00Z
+## Generated: 2026-10-04T13:12:00Z
 
 - Beat guard: OK (no THINKING-DUE, no TREADMILL-ALERT).
-- Cadence stamps: heartbeat fresh (12:33Z); **review stale** (last 2026-10-02T14:45Z — but a
+- Cadence stamps: heartbeat fresh (13:12Z); **review stale** (last 2026-10-02T14:45Z — but a
   fresh-questions review + day-eight synthesis ran since; stamp not updated); **novelty stale**
   (last 2026-10-01T17:20Z). Clock caveat: machine clock jumped 3x; commit hashes are the record.
-- Owner envelope in force: lowest compute priority; GPU only cool/idle double-polled, short
-  cooled bursts; CPU threads <=4; when in doubt WAIT. Paper lane PARKED (owner directive);
-  dissection/play only.
+- Owner envelope: **MAXIMUM compute priority granted 2026-10-04 ("for now")** — nothing else
+  running, go ham (still no concurrent GPU jobs; single runs <=180s; temp-aware). Fallback =
+  the 2026-10-02 lowest-priority envelope on the first owner signal or when the neighbor's GPU
+  jobs return. Paper lane PARKED (owner directive); dissection/play only.
 
 ## WHERE WE ARE
 
-- Fleet: 2 recovery agents live (re-dispatched after a shutdown killed their predecessors
-  pre-artifact): **e225** (FQ2, the one-currency join) and **e226** (FQ5, the Gmail/iPhone
-  interior). Both CPU-only desk+eval on committed checkpoints.
-- Through-line: THE SHAPE/HEIGHT LAW (W028) is the named whole — every object splits into a
-  SHAPE (conserved orderings/destinations/erosion order) and a HEIGHT (lotteried
-  distances/rates/carriers). The two live cells are the law's first predictive extensions:
-  is the wall an SNR conservator (one currency across scales), and does the 124M third
-  dimension live in wash-gradient geometry or below the first-order floor?
-- Freshest verdicts:
-  - e214 (rank conservation): baseline rank is HEIGHT, erosion order is SHAPE — the law's
-    own instrument.
-  - W029 (killed-objects census): what the lab has killed, priced — instruments die, one
-    world-object died (baseline-rank), two scopes downgraded.
-  - W030 (the null as a finding): closed nulls are the lab recording its own floor;
-    next instrument = intervention.
-  - e222/e223/e224: exposure-immunity arc closed; residue = the normalizer TRAVELS GENTLY.
-  - e216-e221: the 124M third sorting dimension is REAL-AND-UNNAMED (not entrenchment,
-    not tokens, not compositionality-as-typology) — e226 now asks WHERE it lives.
+- Fleet: 3/3 live (max-priority window put to work): **e225** (FQ2 one-currency join),
+  **e226** (FQ5 Gmail/iPhone interior), **e227** (FQ1 faculty-at-home cross-scale bridge —
+  the training cell the old envelope had parked; owns the GPU lane).
+- Through-line: THE SHAPE/HEIGHT LAW (W028) is the named whole; the three live cells are its
+  first predictive extensions (one currency? where does the third dimension live? does the
+  faculty predate scale?).
+- Freshest verdicts (this hour, direct play under the open window):
+  - **x3** (T204): the arithmetic floor priced — same-session/stream/pause bit-exact, but
+    batch-shape re-rounds 85% of bits (zero decision flips at 0.19σ margins); the cosine
+    floor ~3e-7 (W030's floor-of-floors made literal); e199's cross-session drift re-reads
+    as code-path, not thermals.
+  - **x2** (T205): GENERIC — no trained layer's product algebra closes (all 8/8 =
+    matched-random; positive control 2/8 proves the instrument); texture: c_proj
+    top-eigenvalue-magnitude degeneracy 1.000 at all six layers without closure.
+  - e214: baseline rank is HEIGHT, erosion order is SHAPE — the law's own instrument.
+  - W029/W030: the killed-objects census; the null as a finding.
+  - e216-e221 + e224: third dimension REAL-AND-UNNAMED; the normalizer's third clause
+    (travels gently).
 
 ## WHAT CAN BE DONE (named queue)
 

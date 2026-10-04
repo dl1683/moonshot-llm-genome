@@ -9,6 +9,70 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x2 — the product-algebra span probe (neighbor note 6): GENERIC — no trained layer generates a small closed algebra under products; every span fills like matched-random (2026-10-04 ~13:05Z) — DONE
+
+WHAT WE DID: the six attention out-projections and six MLP-block
+composites (192x192, float64) of the e131 consolidated root; the
+span{W..W^6, W^T W, W W^T} with EACH PRODUCT UNIT-FROBENIUS-
+NORMALIZED before stacking (pre-registered guard: raw powers of
+a rho<1 trained matrix vanish geometrically and fake closure as
+a NORM artifact); std-matched random controls; a 2-distinct-
+eigenvalue positive control (min-poly degree 2 — powers stay in
+span{W, I} exactly). CPU seconds. Script lab/x2_algebra_span.py;
+runs/x2/{metrics.json, span_spectra.png}.
+
+WHAT WE SAW (T205): GENERIC — every trained object's depth-6
+span fills at 8/8 effective dimension (1e-3 threshold),
+indistinguishable from matched-random; the positive control
+reads 2/8, so the instrument SEES closure when closure exists
+(no instrument-tautology). TEXTURE LEFT ON THE TABLE: all six
+c_proj carry |lambda_2/lambda_1| = 1.000 EXACTLY (degenerate
+top eigenvalue MAGNITUDES — magnitude-degenerate yet
+direction-generic: the strongest eigengap prior one could ask
+for, and still no closure); the MLP composites' gaps (0.54-1.00)
+close nothing either.
+
+WHAT'S NEXT: closure would need polynomial relations training
+never constrains (T205's H-i); if we ever want the positive
+object, it must be BUILT (a trained layer with a planted
+min-poly), not found. Neighbor reply queued (REPLY note).
+
+---
+
+## x3 — the ULP floor of one real matmul (neighbor note 5): DETERMINISTIC-WITHIN + FLOOR-QUANTIFIED — same-session/stream/pause bit-exact, but BATCH-SHAPE re-rounds 85% of the bits (zero decision flips); fp32-vs-fp64 p99 = 43 ulp; the cosine floor ~2.5e-7 (2026-10-04 ~12:55Z) — DONE
+
+WHAT WE DID: the real up-projection h.3.mlp.0 (768x192) of the
+e131 consolidated root fed its GENUINE 256-token activation
+stream (forward hook on the live model, post-ln2 residual); the
+bitwise/ULP census across seven conditions (same-session reruns,
+batch-split, non-default stream, after-pause, cross-device,
+fp64 reference, TF32 arm; TF32 off otherwise). GPU seconds.
+Script lab/x3_ulp_floor.py; runs/x3/{metrics.json, ulp_hist.png}.
+
+WHAT WE SAW (T204): (a/c/d) same-session reruns, non-default
+stream, and a 3s pause are ALL BIT-EXACT (196,608/196,608
+elements, frac 1.0) — within a session, fp32 GEMM here is
+kernel-deterministic. (b) THE SURPRISE: one 256-row GEMM vs two
+128-row GEMMs (same data, same device, same kernel family)
+re-rounds 85.0% of the output bits — BATCH-SHAPE IS A ROUNDING
+BOUNDARY. (e/f) fp32-vs-fp64: p50 ~2 ulp, p99 42.7 ulp, max
+9.2e4 ulp (a near-zero-output artifact — the distribution, not
+the max, is the object); the fp32-vs-fp64 COSINE of the
+flattened output reads 1 + 2.5e-7 — the arithmetic floor under
+every gradient-cosine the lab reports is ~3e-7 (W030's
+floor-of-floors, priced). (g) TF32: ~1000x worse (p99 9.4e4
+ulp). DOWNSTREAM: ZERO argmax flips under any condition
+(median decision margin 0.19 sigma — the storm does not reach
+the decisions at this layer). E199'S CROSS-SESSION ~1e-7 DRIFT
+RE-READS: a code-path/batch-shape difference, not thermals.
+
+WHAT'S NEXT: registered in T204 — rows with margins < 0.05
+sigma are the flip candidates; any future cosine claim at or
+below 3e-7 is arithmetically unresolvable and reads as floored,
+not empty.
+
+---
+
 ## e224 — the training-step exposure: TRAINING-IMMUNITY fires on the RAW clause (b) — and the on-ray decomposition takes most of it back (+0.088 mechanical + +0.046 corrected, sub-bar; clause (a) missed by 0.0008); the real finding: THE NORMALIZER'S OFF-AXIS GEOMETRY TOLERIZES (both arms' same-axis residues positive, scaling with off-axis L2 — the traversal gentler than the displacement) (2026-10-02 ~23:05Z) — DONE
 
 WHAT WE DID: the exposure arc's last named limit discharged —
