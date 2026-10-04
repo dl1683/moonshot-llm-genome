@@ -873,8 +873,8 @@ def plot_validation(rd, journal, e233_ledger, ce_dev):
     # (d) CE bit-exactness vs e234's committed journal
     ax = axes[3]
     if ce_dev is not None:
-        ax.bar(["w1", "w2", "w3"][:len(ce_dev)], ce_dev,
-               color="#1a6faf")
+        vals = [float(c) if c is not None else 0.0 for c in ce_dev]
+        ax.bar(["w1", "w2", "w3"][:len(vals)], vals, color="#1a6faf")
         ax.set_ylabel("max |ΔCE| vs e234 journal")
         ax.set_title("the regeneration certificate (bit-exact replay)",
                      fontsize=10)
@@ -1102,15 +1102,40 @@ def main():
                        for pr in probes54}
 
     # ------------------------------------------------ P4 the replays
+    def gen_verify(w: str):
+        """draws-only generator re-verification (no model needed): reseed,
+        replay STEPS randint draws, compare to the archived *_latest."""
+        if SMOKE:
+            return None
+        gen = torch.Generator().manual_seed(W_SEED[w])
+        hi = train_ids.shape[0] - e1.SEQ - 1
+        for _ in range(STEPS):
+            torch.randint(hi, (e1.BATCH,), generator=gen)
+        archived = torch.load(W_LATEST[w], map_location=CPU,
+                              weights_only=False)["gen"]
+        return bool(torch.equal(gen.get_state(), archived))
+
+    def cert_from_journal(wj, e234_wj):
+        if e234_wj is None:
+            return None, None
+        dce = max(abs(wj["steps"][str(t)]["ce"] - e234_wj["ces"][t - 1])
+                  for t in range(1, STEPS + 1))
+        dgn = max(abs(wj["steps"][str(t)]["gnorm_raw"]
+                      - e234_wj["gnorms"][t - 1]) for t in range(1, STEPS + 1))
+        return dce, dgn
+
     replay_out = {}
     for wi, w in enumerate(WASHES):
         load_checks.append(cpu_load_check(f"replay {w}"))
         if journal.get(w, {}).get("steps") and \
                 len(journal[w]["steps"]) == STEPS and \
                 "cos_d" in journal[w]["steps"][str(STEPS)]:
-            log(f"{w}: already complete in journal — skipping replay")
-            replay_out[w] = {"gen_ok": None, "ce_cert": None,
-                             "gnorm_cert": None,
+            log(f"{w}: already complete in journal — skipping replay "
+                f"(certs recomputed from the journal)")
+            dce, dgn = cert_from_journal(journal[w],
+                                         e234j.get(w) if not SMOKE else None)
+            replay_out[w] = {"gen_ok": gen_verify(w), "ce_cert": dce,
+                             "gnorm_cert": dgn,
                              "arch_reads": journal[w].get("arch_reads", {}),
                              "replay_cert": journal[w].get("replay_cert", {})}
             continue
