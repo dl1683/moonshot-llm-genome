@@ -2,7 +2,7 @@
   "experiment": "e239_support_stability",
   "phase": "eval-only on the two-wash 124M archive (CPU fp32 batch-1 support geometry; cross-wash / rotation / set-level reads)",
   "date": "2026-10-04T15:23:48Z",
-  "status": "PARTIAL: bank w1s80 done",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from the dispatch brief (the ideator's FQ6 spec as dispatched by the coordinator, R63's named W037-direct-test) BEFORE any compute; the dispatch brief is the registration; adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -54,6 +54,24 @@
       "tag": "bank w1s80",
       "cpu_percent": 60.5,
       "ram_avail_gb": 18.9,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "bank w2s50",
+      "cpu_percent": 50.8,
+      "ram_avail_gb": 17.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "bank w2s80",
+      "cpu_percent": 32.6,
+      "ram_avail_gb": 16.3,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "dots",
+      "cpu_percent": 46.9,
+      "ram_avail_gb": 16.2,
       "ram_total_gb": 63.4
     }
   ],
@@ -151,6 +169,75 @@
       "e226_floor_reference": 5.800463998006933e-08,
       "pass": true,
       "determinism_selfcos_probe0_state": 0.9999999515252148
+    },
+    "G_STATES": {
+      "tol_reprobe_dp": 0.005,
+      "per_state": {
+        "w1s50": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 8.940696716308594e-07,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt"
+        },
+        "w1s80": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 2.9206275939941406e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt"
+        },
+        "w2s50": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 8.940696716308594e-07,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt"
+        },
+        "w2s80": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 2.4437904357910156e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+        }
+      },
+      "max_dp": 2.9206275939941406e-06,
+      "pass": true,
+      "note": "the archived states reproduce the committed per-probe records when re-probed through the VERBATIM batteries (e228's re-probe convention)"
+    },
+    "G_REPRO": {
+      "rule": "the recomputed banks reproduce e226's committed numbers: (A) t=0 Gram-derived geometry; (B) +80 rotation self-cos, all 54 x both washes; tol 5e-3 (generous vs the ~5e-4 disclosed fp16 floor \u2014 it is provenance, not adjudication)",
+      "part_A_t0_geometry": {
+        "devs": {
+          "gmail_iphone_cos": 0.0,
+          "product_pairwise_mean": 0.0,
+          "product_pairwise_sd": 0.0
+        },
+        "tol": 0.005,
+        "pass": true
+      },
+      "part_B_rot80": {
+        "w1": {
+          "max_abs_dev": 2.4684023402166133e-05,
+          "mean_abs_dev": 6.4399862698498e-06
+        },
+        "w2": {
+          "max_abs_dev": 3.174855850207603e-05,
+          "mean_abs_dev": 8.58245020946208e-06
+        },
+        "tol": 0.005,
+        "pass": true
+      },
+      "pass": true
     }
   },
   "size_gate": {
@@ -160,7 +247,7 @@
     "pass": true
   },
   "timing": {
-    "total_s": 118.2
+    "total_s": 574.7
   },
   "probes": [
     {
@@ -572,5 +659,623 @@
         "within_mean_cos": 0.06383554844839552
       }
     }
-  }
+  },
+  "reads": {
+    "crosswash": {
+      "values": {
+        "50": [
+          0.9857511063813361,
+          0.9985496568978408,
+          0.9974800244617302,
+          0.9969394336918452,
+          0.9982632765751649,
+          0.9984533608951834,
+          0.9982004395967644,
+          0.9979464687110111,
+          0.9967824153664923,
+          0.9966256769096842,
+          0.9961831396746749,
+          0.9969842245034087,
+          0.9964380409369785,
+          0.996948459944202,
+          0.9974979468851761,
+          0.9983264901722542,
+          0.9971115483969345,
+          0.9969763722813707,
+          0.9910257081034044,
+          0.9903043750356103,
+          0.9981037377783663,
+          0.9986912351442301,
+          0.9975769225341314,
+          0.9991871321434878,
+          0.9989128188648609,
+          0.9988461005410295,
+          0.9968719712250972,
+          0.9971412690421536,
+          0.9988137685960833,
+          0.9984135405864766,
+          0.9911609775710997,
+          0.9991190975464611,
+          0.9961099557891734,
+          0.9977317579728839,
+          0.9972453480927133,
+          0.9974434973176285,
+          0.9974316977704331,
+          0.9949479313071782,
+          0.9939927615344157,
+          0.9955968253896685,
+          0.9940687217901654,
+          0.9954537227326786,
+          0.9972302729255218,
+          0.9949756929255316,
+          0.9971032389997279,
+          0.9962754970360534,
+          0.9934328992915461,
+          0.9942472223228511,
+          0.986861410269852,
+          0.9882420485806659,
+          0.9952949437748716,
+          0.9969075586948656,
+          0.9966865246482409,
+          0.9950209134528188
+        ],
+        "80": [
+          0.9693511843215007,
+          0.996118765218119,
+          0.9972360102841568,
+          0.9940047419128926,
+          0.9944199653499267,
+          0.9978482829103933,
+          0.9984879845813363,
+          0.9982537631486609,
+          0.9981803214729379,
+          0.9981017793433434,
+          0.997837071718894,
+          0.9984187959639483,
+          0.9980132153580157,
+          0.997434122507095,
+          0.9983402530438661,
+          0.9973821346875559,
+          0.9939134943458504,
+          0.9929835178000376,
+          0.9919880223899555,
+          0.991882748180959,
+          0.9968910925829907,
+          0.9943093895462419,
+          0.9965334739738233,
+          0.99875695293064,
+          0.9976109663777342,
+          0.9954095769443385,
+          0.995972198340397,
+          0.99598173869258,
+          0.9977854860686551,
+          0.9979743801942083,
+          0.9800754651604433,
+          0.9983355192085718,
+          0.9974072589854089,
+          0.9960908249039211,
+          0.995460287628055,
+          0.9941102504051169,
+          0.9874784313676699,
+          0.9787933321593328,
+          0.9806716445035136,
+          0.9869695353019707,
+          0.9811248279394393,
+          0.9779956780337392,
+          0.9935512903487187,
+          0.9790303428004746,
+          0.9856798441050408,
+          0.9909170364666,
+          0.9820831747244975,
+          0.9892137629745092,
+          0.9668479539400284,
+          0.9626517881678853,
+          0.9861784457001367,
+          0.9873973480283317,
+          0.9901743753908608,
+          0.982596784770789
+        ]
+      },
+      "summary": {
+        "50": {
+          "median": 0.9969624161127864,
+          "mean": 0.996072725548408,
+          "min": 0.9857511063813361,
+          "max": 0.9991871321434878,
+          "q25": 0.9952949437748716,
+          "q75": 0.9979464687110111,
+          "n_below_u0_max": 0,
+          "n_above_stable_bar": 54,
+          "per_battery_median": {
+            "fact": 0.9969802983923897,
+            "ctrl": 0.9985523878653533,
+            "near": 0.9972453480927133,
+            "tmpl": 0.9952949437748716
+          }
+        },
+        "80": {
+          "median": 0.9943646774480843,
+          "mean": 0.9910788265408539,
+          "min": 0.9626517881678853,
+          "max": 0.99875695293064,
+          "q25": 0.9869695353019707,
+          "q75": 0.9976109663777342,
+          "n_below_u0_max": 0,
+          "n_above_stable_bar": 54,
+          "per_battery_median": {
+            "fact": 0.9974081285973254,
+            "ctrl": 0.996712283278407,
+            "near": 0.9960908249039211,
+            "tmpl": 0.9856798441050408
+          }
+        }
+      },
+      "medians": {
+        "50": 0.9969624161127864,
+        "80": 0.9943646774480843
+      }
+    },
+    "rotation": {
+      "values": {
+        "50": {
+          "w1": [
+            0.9755668954207645,
+            0.9764699675773412,
+            0.9766060023592289,
+            0.9642876236396485,
+            0.9763480755948688,
+            0.9478869738247843,
+            0.9560443893900032,
+            0.9547937467758658,
+            0.9592566962023468,
+            0.9527331007658364,
+            0.9710960975786568,
+            0.9783649289928883,
+            0.9150775198205712,
+            0.9645461289708361,
+            0.9668237019204474,
+            0.980238896632525,
+            0.9601991364230171,
+            0.9311565295782709,
+            0.9365439125742705,
+            0.9587710068464387,
+            0.9924793818451821,
+            0.9911234701238022,
+            0.975782763476189,
+            0.9955402729690231,
+            0.9564122648215485,
+            0.966068167372239,
+            0.9610888877933587,
+            0.9134921653339474,
+            0.9252722624806883,
+            0.9372458289992313,
+            0.9727773468559603,
+            0.9504866398961822,
+            0.9807560798720446,
+            0.9593334767938893,
+            0.9562206669940152,
+            0.9195462981984935,
+            0.9387437661106565,
+            0.9535586590206914,
+            0.8824513032962603,
+            0.897482475578042,
+            0.8617718256032665,
+            0.8867270697760471,
+            0.9466959943460725,
+            0.9253053202084044,
+            0.9436260715163141,
+            0.9303429027725971,
+            0.9178185076355341,
+            0.8857777073553678,
+            0.9265564387016222,
+            0.8983541072220855,
+            0.9225296023438129,
+            0.9271111267177445,
+            0.8460513164189142,
+            0.9495091970120504
+          ],
+          "w2": [
+            0.9625433763754206,
+            0.9790228660772776,
+            0.9778680760586196,
+            0.9726639005095051,
+            0.9787303740441812,
+            0.956882649877662,
+            0.9602458979852297,
+            0.9628004278741228,
+            0.9603396783650335,
+            0.9439404452737125,
+            0.9661092873778385,
+            0.9775168017903753,
+            0.9356774073727672,
+            0.9645003072717012,
+            0.960257261476781,
+            0.9793870787430843,
+            0.9619512747895619,
+            0.9353347127309233,
+            0.9502227751421726,
+            0.9627537594929736,
+            0.99352707792209,
+            0.9912377020911206,
+            0.9792417305313268,
+            0.9959536394025995,
+            0.9620761260245009,
+            0.9663303522858996,
+            0.9583905902278477,
+            0.9317142427559799,
+            0.9274301105985554,
+            0.9388198937877766,
+            0.959379983834377,
+            0.9510309814368467,
+            0.981131922634902,
+            0.9470830697896767,
+            0.9607163262529701,
+            0.9232640543183412,
+            0.9334137192104025,
+            0.9539739761333144,
+            0.8753325646746817,
+            0.9007709038340125,
+            0.8634158316213008,
+            0.8880717162130317,
+            0.9468540358950804,
+            0.914422842152493,
+            0.946760777878169,
+            0.9381316528521357,
+            0.9163439027367338,
+            0.884558050124069,
+            0.9078224078893498,
+            0.8772634929576525,
+            0.9266638914235071,
+            0.9292455833480083,
+            0.851409534502871,
+            0.9492873232320365
+          ]
+        },
+        "80": {
+          "w1": [
+            0.9713337103639782,
+            0.9685849329457605,
+            0.9677712560271604,
+            0.9577545787716204,
+            0.951633806484119,
+            0.93780296780765,
+            0.9461983452495055,
+            0.9421939297897705,
+            0.9444150393938984,
+            0.9416457772586134,
+            0.9593095596377061,
+            0.9705345189891423,
+            0.9194720954138761,
+            0.9502950185518195,
+            0.9532724826541027,
+            0.9723576017778899,
+            0.9521602374068185,
+            0.902696993757996,
+            0.919066489902797,
+            0.9472053305457848,
+            0.984796482002675,
+            0.9823091432816693,
+            0.9742268895856353,
+            0.9910790969423454,
+            0.9364643936676078,
+            0.9527508130498948,
+            0.9388811714921006,
+            0.8859991998666877,
+            0.8821013326700405,
+            0.9283597304612919,
+            0.9504896654124799,
+            0.9282510301216377,
+            0.9759892633374952,
+            0.9626866237834181,
+            0.9430852079309222,
+            0.9085674117443269,
+            0.9273661825774809,
+            0.931716263256044,
+            0.8583386793404874,
+            0.8720970214082777,
+            0.8460869536540738,
+            0.8691250369468865,
+            0.9336786729385155,
+            0.9031445691537263,
+            0.919007252135957,
+            0.9255731552054558,
+            0.8996176265522557,
+            0.8677744906817083,
+            0.9146780165879941,
+            0.8665634039553266,
+            0.8982445140981419,
+            0.9065386198393603,
+            0.825978446864295,
+            0.9357648749368406
+          ],
+          "w2": [
+            0.9377243393068313,
+            0.9737931625543572,
+            0.9720357727662258,
+            0.9692185454011862,
+            0.9627866654818241,
+            0.9435936314151745,
+            0.9385758444270194,
+            0.9403465156170151,
+            0.9384450196912834,
+            0.9398993234827343,
+            0.9494469138860735,
+            0.9675221828758129,
+            0.9110784113866018,
+            0.9525737296441312,
+            0.9494138123139201,
+            0.964267969719918,
+            0.9538488941053588,
+            0.9128024616605326,
+            0.9205510721721103,
+            0.9475030059443483,
+            0.988435946723206,
+            0.9864711316320176,
+            0.9695072861485093,
+            0.991603243876561,
+            0.9233952181136973,
+            0.957199333808106,
+            0.9422055259501466,
+            0.908535091637604,
+            0.8889310756780573,
+            0.9245078385840855,
+            0.9235324262961553,
+            0.9403803826729442,
+            0.9772756250288025,
+            0.9614336787641589,
+            0.9517357192578669,
+            0.9191921129213338,
+            0.8982726883341113,
+            0.9429094482701988,
+            0.8523275770311725,
+            0.885900661981483,
+            0.853908148373685,
+            0.876266510999183,
+            0.9351270018467676,
+            0.8868733225590697,
+            0.9404816492422209,
+            0.9277401583798454,
+            0.9026222076187802,
+            0.8724921473619301,
+            0.8825899826560728,
+            0.8588180634429573,
+            0.9047506466523378,
+            0.9168739816593119,
+            0.8296807956893576,
+            0.9311487443150014
+          ]
+        }
+      },
+      "summary": {
+        "w1@+50": {
+          "median": 0.9531458798932639,
+          "mean": 0.9443861240064794,
+          "min": 0.8460513164189142,
+          "max": 0.9955402729690231
+        },
+        "w2@+50": {
+          "median": 0.9525024787850805,
+          "mean": 0.9448114512815297,
+          "min": 0.851409534502871,
+          "max": 0.9959536394025995
+        },
+        "w1@+80": {
+          "median": 0.9371336807376289,
+          "mean": 0.9296858501520938,
+          "min": 0.825978446864295,
+          "max": 0.9910790969423454
+        },
+        "w2@+80": {
+          "median": 0.9385104320591513,
+          "mean": 0.9296028268029481,
+          "min": 0.8296807956893576,
+          "max": 0.991603243876561
+        }
+      }
+    },
+    "set_level": {
+      "rho_detail": {
+        "50": {
+          "obs": 0.9594434915189632,
+          "null_mean": 0.00038258814560701343,
+          "null_sd": 0.13792757293183222,
+          "p_ge_obs": 4.999750012499375e-05,
+          "n_perm": 20000,
+          "seed": 239
+        },
+        "80": {
+          "obs": 0.9287974080426908,
+          "null_mean": -0.0002614979988564895,
+          "null_sd": 0.13763116470971046,
+          "p_ge_obs": 4.999750012499375e-05,
+          "n_perm": 20000,
+          "seed": 239
+        }
+      },
+      "third_branch": {
+        "declared_under": "CLOUD-LEVEL only (per the registered bar text); co-reported always",
+        "rho_bar": 0.6,
+        "rho": {
+          "50": 0.9594434915189632,
+          "80": 0.9287974080426908
+        },
+        "rho_p_perm": {
+          "50": 4.999750012499375e-05,
+          "80": 4.999750012499375e-05
+        },
+        "population_stable_if_cloud": true
+      }
+    },
+    "coherence_envelope": {
+      "50": {
+        "median_ratio_thetaB_over_theta1plus2": 0.1274267057490876,
+        "mean_ratio": 0.1399730142300339,
+        "q25_ratio": 0.10336031276651517,
+        "q75_ratio": 0.16397229520034537,
+        "note": "ratio ~1 = independent rotations (theta_between fills the theta1+theta2 envelope); ~0 = the two washes rotate supports the SAME way"
+      },
+      "80": {
+        "median_ratio_thetaB_over_theta1plus2": 0.1613398714657004,
+        "mean_ratio": 0.16699884079703342,
+        "q25_ratio": 0.11272983103563884,
+        "q75_ratio": 0.19559744527256134,
+        "note": "ratio ~1 = independent rotations (theta_between fills the theta1+theta2 envelope); ~0 = the two washes rotate supports the SAME way"
+      }
+    },
+    "random_null": {
+      "analytic_sd": 8.964381565185707e-05,
+      "empirical_16": {
+        "mean": 8.26160058231551e-06,
+        "min": -0.00015278479258995503,
+        "max": 0.00018848662148229778
+      }
+    },
+    "anchors_called_out": {
+      "Gmail": {
+        "crosswash": {
+          "50": 0.9984135405864766,
+          "80": 0.9979743801942083
+        },
+        "rotation": {
+          "50": {
+            "w1": 0.9372458289992313,
+            "w2": 0.9388198937877766
+          },
+          "80": {
+            "w1": 0.9283597304612919,
+            "w2": 0.9245078385840855
+          }
+        },
+        "crosswash_z_vs_band": {
+          "50": 0.43125504717762564,
+          "80": 0.585810148950719
+        }
+      },
+      "iPhone": {
+        "crosswash": {
+          "50": 0.9971412690421536,
+          "80": 0.99598173869258
+        },
+        "rotation": {
+          "50": {
+            "w1": 0.9134921653339474,
+            "w2": 0.9317142427559799
+          },
+          "80": {
+            "w1": 0.8859991998666877,
+            "w2": 0.908535091637604
+          }
+        },
+        "crosswash_z_vs_band": {
+          "50": 0.05316133339867339,
+          "80": 0.32400704805597824
+        }
+      }
+    },
+    "probes_facts": [
+      "France->Paris",
+      "Greece->Athens",
+      "Poland->Warsaw",
+      "Portugal->Lisbon",
+      "Egypt->Cairo",
+      "Ireland->Dublin",
+      "France->French",
+      "Germany->German",
+      "Japan->Japanese",
+      "Italy->Italian",
+      "Spain->Spanish",
+      "Russia->Russian",
+      "China->Chinese",
+      "England->English",
+      "Greece->Greek",
+      "Poland->Polish",
+      "Japan->yen",
+      "the United Kingdom->pound",
+      "the United States->dollar",
+      "China->yuan",
+      "The social network founded by Mark Zuckerberg->Facebook",
+      "The electric car company founded by Elon Musk->Tesla",
+      "The rocket company founded by Elon Musk->SpaceX",
+      "The search engine founded by Larry Page->Google",
+      "The online encyclopedia that anyone can edit->Wikipedia",
+      "The gaming console made by Microsoft->Xbox",
+      "The web browser made by Google->Chrome",
+      "The phone made by Apple->iPhone",
+      "The tablet made by Apple->iPad",
+      "The email service made by Google->Gmail",
+      "The music store made by Apple->iTunes",
+      "The game console made by Sony->PlayStation",
+      "Massachusetts->Boston",
+      "Georgia->Atlanta",
+      "Ohio->Columbus",
+      "Boston->Massachusetts",
+      "Atlanta->Georgia",
+      "Sacramento->California",
+      "Austin->Texas",
+      "Columbus->Ohio",
+      "Denver->Colorado",
+      "Little Rock->Arkansas",
+      "Hartford->Connecticut",
+      "Dover->Delaware",
+      "Tallahassee->Florida",
+      "Honolulu->Hawaii",
+      "Boise->Idaho",
+      "Indianapolis->Indiana",
+      "Des Moines->Iowa",
+      "Topeka->Kansas",
+      "Baton Rouge->Louisiana",
+      "Annapolis->Maryland",
+      "Lansing->Michigan",
+      "Jackson->Mississippi"
+    ]
+  },
+  "adjudication": {
+    "verdict": "STABLE-AS-VECTORS",
+    "bars_verbatim": {
+      "STABLE-AS-VECTORS": "median cross-wash cos >= 0.7 at both states, far above the u0 cloud \u2014 W037 earns physics: behavior-indexed directions are stable where corpus-anchored rays cloud",
+      "CLOUD-LEVEL": "median cross-wash cos ~ 0.3-0.4 (the u0 cloud's range) \u2014 W037 deflates to reads-only; examine the third branch: if the SET-level rotation ranks correlate cross-wash (rho >= 0.6), the fact is POPULATION-stable \u2014 the law at the support level (name it)",
+      "MIXED": "between \u2014 the distributions verbatim (per battery), no narrative inflation"
+    },
+    "rule_applied": {
+      "STABLE-AS-VECTORS": "median(+50)>=0.7 AND median(+80)>=0.7",
+      "CLOUD-LEVEL": "median(+50) in [0.30,0.40] AND median(+80) in [0.30,0.40]",
+      "MIXED": "neither",
+      "medians": {
+        "50": 0.9969624161127864,
+        "80": 0.9943646774480843
+      }
+    },
+    "gated_on": "G_ENV/G_SIZE/G_CORPUS/G_BATT/G_ORDER/G_STATES/G_SUPPORT/G_REPRO",
+    "all_gates_pass": true
+  },
+  "plot_outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e239\\e239_crosswash.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e239\\e239_setlevel.png"
+  ],
+  "honesty_reflex": {
+    "the_a_priori_bound": "e226's committed +80 rotations (medians ~0.93) ARITHMETICALLY bound the cross-wash angle by theta_between <= theta1+theta2 (cos >= cos(theta1+theta2) ~= 0.73 at e226's angles) \u2014 a STABLE firing must be read against that envelope: the informative content is the coherence ratio (independent vs same-way rotation), co-reported per state",
+    "batch_noise": "supports are SINGLE-CONTEXT batch-1 gradients (deterministic same-session; e226's self-cos ~1.0); the instrument floor on any cos is the fp16 bank rounding (~5e-4, e226's disclosed floor) \u2014 every distribution spread is orders above it",
+    "t0_recompute": "the t=0 bank is RECOMPUTED, not e226's in-RAM cache; G_REPRO-A anchors the geometry to e226's committed t=0 records",
+    "e208_distinction": "e208's memory-vs-noise margins are u0-SIGN-RAY objects (the corpus-anchored class W037 clouds; e231's 0.318-0.370) \u2014 this cell reads the per-context gradient class; the two stabilities must not be conflated",
+    "t215_distinction": "the family-clause negative: the family's other members' supports do NOT share the anchor's direction (e226 t=0 within-family cos ~0.004) \u2014 the product band is a noise band of per-probe objects; a set-level rho firing is therefore about ROTATION AMOUNTS, not shared directions",
+    "nothing_guaranteed": "the +50 cross-wash read has no prior instrument anywhere; MIXED is a real outcome (the registered text carries it)",
+    "provenance": "w1 = CPU-fp32 replay of e182's wash; w2 weights computed GPU fp32 in e182c2's cell; every gradient here is CPU fp32 on the archived states; every loaded state re-probe-certified (tol 0.005)"
+  },
+  "compute": {
+    "wall_s": 574.7,
+    "device": "CPU only",
+    "threads": 4,
+    "backwards": "54 probe supports x 5 banks (t0 + 4 states)",
+    "load_checks": 7
+  },
+  "trims": [],
+  "deviations": [
+    "INSTRUMENT CORRECTION FROM THE SMOKE (pre-full-run, bars untouched): the RAM floor was registered at 12 GB and the smoke HALTED at 11.3 GB available (the shared box runs hotter than at e226's launch \u2014 two other agents live); E239's banks STREAM from disk (memmap), so the resident footprint is ~1 GB with 2-4 GB chunk transients \u2014 the floor is set to 8 GB, still >=2x the largest transient. e226's 16 GB floor guarded a 13.4 GB RESIDENT cache; this cell's is not resident.",
+    "The support banks live in the system TEMP dir, not the repo (the repo tree sits under OneDrive sync; 5 banks x 13.4 GB do not belong in the synced tree) and are DELETED on DONE (the journal + full dot records + G_REPRO certification remain; resume-safe until DONE).",
+    "All cross-bank dots are computed from the fp16 banks (both sides rounded), unlike e226's rotation dots (fresh fp32 vector vs fp16 cache row) \u2014 one extra fp16 rounding per dot, within e226's disclosed ~5e-4 cache floor; G_REPRO quantifies the net drift against e226's committed values.",
+    "The t=0 bank is RECOMPUTED (deterministic same-session pipeline as e226); it is not bit-certified against e226's in-RAM cache (which was never persisted) \u2014 G_REPRO-A anchors it to e226's committed t=0 geometry (Gram-derived reads, tol 5e-3).",
+    "No wash-gradient work (no G_DRAWS): the reads are support-only at the committed states; the draw streams are not consumed. The FD gates of e226 are not re-run: E239 uses supports as DIRECTIONS for cos reads only (never as step directions); e226 already FD-gated all 54 t=0 supports and both anchors' +80 supports.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode (E239_SMOKE=1): 11 probes (product family + founder anchor + one per other battery), state +80 only; nothing adjudicated or gated (SMOKE stamp)."
+  ]
 }
