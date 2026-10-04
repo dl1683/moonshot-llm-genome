@@ -499,6 +499,28 @@ def gpu_poll() -> dict:
                 "power": 0}
 
 
+_PYNVML = {"handle": None, "failed": False}
+
+
+def temp_fast() -> float:
+    """1-5 ms temperature read via pynvml (the 63 ms nvidia-smi subprocess
+    cannot outrun this chip's heating: 79->89C in ~2 s of compute at 165W,
+    the 19:07 diagnostic's lesson); subprocess fallback."""
+    try:
+        if _PYNVML["failed"]:
+            return gpu_poll()["temp"]
+        if _PYNVML["handle"] is None:
+            import pynvml
+            pynvml.nvmlInit()
+            _PYNVML["handle"] = pynvml.nvmlDeviceGetHandleByIndex(0)
+        import pynvml
+        return float(pynvml.nvmlDeviceGetTemperature(
+            _PYNVML["handle"], pynvml.NVML_TEMPERATURE_GPU))
+    except Exception:
+        _PYNVML["failed"] = True
+        return gpu_poll()["temp"]
+
+
 _PS_SCRIPT = Path(os.environ.get("TEMP", "/tmp")) / "e248_ps.ps1"
 _PS_SCRIPT.write_text(
     "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | "
@@ -581,16 +603,27 @@ def thermal_gate(tag: str, start_c: float = 70.0) -> bool:
 
 def mid_burst_check(step, tag, t0, max_s, break_c=78.0,
                     hard_c=82.0) -> tuple[bool, str]:
-    s = gpu_poll()
-    if s["temp"] >= hard_c:
-        jlog("thermal_HARDSTOP", tag=tag, step=step, temp=s["temp"])
+    tC = temp_fast()
+    if tC >= hard_c:
+        jlog("thermal_HARDSTOP", tag=tag, step=step, temp=tC)
         return False, "hard"
-    if s["temp"] >= break_c:
-        jlog("thermal_break", tag=tag, step=step, temp=s["temp"])
+    if tC >= break_c:
+        jlog("thermal_break", tag=tag, step=step, temp=tC)
         return False, "break"
     if time.time() - t0 >= max_s:
         return False, "time"
     return True, ""
+
+
+def pace_for_temp(pace_hi_c: float = 76.0) -> None:
+    """Adaptive software duty-cycle (the 19:07 lesson: burst-kill-restart
+    never lets the fans ramp; pacing keeps the process alive and lets the
+    cooling catch up): sleep briefly when hot, train on when not."""
+    tC = temp_fast()
+    if tC >= 79.0:
+        time.sleep(1.0)
+    elif tC >= pace_hi_c:
+        time.sleep(0.3)
 
 
 def cooldown(lo=30.0, hi=60.0):
@@ -799,6 +832,9 @@ def cmd_train() -> None:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
             sched.step()
+            # per-step pacing poll (pynvml, ~2 ms) + every-4 subprocess
+            # cross-check with the break/hard guards
+            pace_for_temp()
             if step % TRAIN["poll_every"] == 0:
                 ok, why = mid_burst_check(step, f"train-burst{bursts + 1}", t0,
                                           TRAIN["burst_s"],

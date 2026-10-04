@@ -68,3 +68,15 @@
 {"t": "2026-10-04T18:57:28Z", "event": "thermal_HARDSTOP", "tag": "train-burst2", "step": 18, "temp": 82.0}
 {"t": "2026-10-04T18:57:30Z", "event": "train_burst_end", "burst": 2, "step": 18, "stop": "hard", "best_val": Infinity}
 {"t": "2026-10-04T18:59:20Z", "event": "train_arc_rebudgeted", "what": "first live bursts measured ~0.2C/step heating: the chip reaches the 78C break in ~50s from a warm start -> the 12k-step fp32 arc was ~11h of duty-cycling; REBUDGET (operational, bars untouched): steps 12000->4000 (4k x 32x512 chars = 66M chars = ~59 epochs, ample for the val CE gate; sketch said '~15-25 bursts' - bursts now shorter and more numerous), bf16 autocast ON for training (master weights fp32; ALL evals/washes/battery reads stay strict fp32 - the e182 convention unchanged), burst break 76C, start gate 66C, temp-aware cooldown to 62C (max 300s), eval_every 250->200, max_bursts 60"}
+{"t": "2026-10-04T18:59:38Z", "event": "train_resume", "step": 18, "best_val": Infinity}
+{"t": "2026-10-04T18:59:41Z", "event": "thermal_break", "tag": "train-burst1", "step": 24, "temp": 79.0}
+{"t": "2026-10-04T18:59:42Z", "event": "train_burst_end", "burst": 1, "step": 24, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:00:59Z", "event": "thermal_break", "tag": "train-burst2", "step": 28, "temp": 77.0}
+{"t": "2026-10-04T19:01:01Z", "event": "train_burst_end", "burst": 2, "step": 28, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:02:04Z", "event": "thermal_break", "tag": "train-burst3", "step": 36, "temp": 81.0}
+{"t": "2026-10-04T19:02:05Z", "event": "train_burst_end", "burst": 3, "step": 36, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:04:22Z", "event": "thermal_break", "tag": "train-burst4", "step": 40, "temp": 77.0}
+{"t": "2026-10-04T19:04:24Z", "event": "train_burst_end", "burst": 4, "step": 40, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:05:12Z", "event": "thermal_HARDSTOP", "tag": "train-burst5", "step": 48, "temp": 82.0}
+{"t": "2026-10-04T19:05:13Z", "event": "train_burst_end", "burst": 5, "step": 48, "stop": "hard", "best_val": Infinity}
+{"t": "2026-10-04T19:10:08Z", "event": "pacing_lesson_disclosed", "what": "the 19:07 unguarded diagnostic pushed the chip to 89C in ~2s of compute at 165W (a zero->=84C violation by the diagnostic itself, disclosed; the training runs were hard-stopped by their guards); nvidia-smi -pl and -lgc are permission-blocked; the fix is SOFTWARE: pynvml fast polls (~2ms) every step with adaptive pacing (sleep 0.3s at >=76C, 1s at >=79C) so the fans ramp and the duty cycle settles, plus the every-4-step break(76C)/hard(82C) guards retained"}
