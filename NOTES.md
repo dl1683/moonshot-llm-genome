@@ -9,6 +9,46 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e230 — W033's commitment-vs-belief + T207's entry order: the thin spots are the SURVIVORS' (BELIEF-AND-COMMITMENT-TOGETHER + TWO-ORDERS) — but the modal class inverts the question: P-FIRST everywhere, decisions stickier than beliefs (2026-10-04 ~13:50Z) — DONE
+
+WHAT WE DID: the desk pass on committed records only (e228's
+journal margins x e214's journal p, both read at runtime; the
+state grids identical — no interpolation; 6 desk gates PASS
+including G_PP at dp 0.0 and G_DECL reproducing e228's cells
+exactly). Registration committed pre-compute (6139592), bars
+verbatim, W033's prediction quoted. One instrument correction
+disclosed pre-commit (decl = e214's ratio-of-means; G_DECL caught
+the registration-pass slip at max 0.0141; bars untouched).
+
+WHAT WE SAW (T209): READ 1 — BELIEF-AND-COMMITMENT-TOGETHER:
+margin-first probes are NOT a population at this grid (max 1 per
+battery-wash — ctrl w1 Xbox; tmpl carries ZERO in both washes:
+W033's registered prediction failed cleanly; fact is not
+"together-moving" either — together fraction 0.05). THE MIRROR IS
+THE FINDING: P-FIRST (p below its half-of-t0 line while the argmax
+margin still stands >= 0.05 sigma) is the LARGEST crossing class
+in EVERY battery-wash (fact 8/20 both washes, tmpl 9/19 both,
+ctrl 4/3, near 3/3 co-report) — beliefs die while the decision-
+layer commitment stands: THE COMMITMENT OUTLIVES THE BELIEF (the
+dissociation W033 hunted, in the direction nobody registered).
+READ 2 — TWO-ORDERS, not marginally: all six adjudication cells
+NEGATIVE (fact +80 cells -0.510/-0.525; tmpl -0.387..-0.471) —
+flip-zone entry is ANTI-ALIGNED with the committed erosion order:
+THE THIN SPOTS BELONG TO THE P-SURVIVORS. T207's same-author
+hypothesis denied; its free find deflates to a co-read exactly as
+the bar wrote — but the deflation has a signature: the wash grinds
+the commitments of the probes whose beliefs it failed to kill.
+
+HONESTY: the wash grid coarse (TOGETHER = same cell; leads bounded
+by 2/10/50/80); the flip-zone instrument rarely fires in fact/tmpl
+(the timing question weakly powered there); near n=3 quantized;
+n=2 washes is texture. NEXT: T209's registered ask — the ZOMBIE
+LAG and the standing-zombie population at +80; FQ5's interior
+sharpened (the differentiation is not in the commitment layer's
+deaths).
+
+---
+
 ## e229 — W032's wall-currency cell: GRADIENTS-KEEP-THE-FLAT-PHASE (the honest branch) with the pair confirmed inside it — the aggregate does NOT own the flat phase (rho -0.179 vs the multiple's +0.607); the cons pair matches verbatim (g1f 1.754 sigma > g1e 0.665 sigma, matching 0.932 > 0.615); the decisive co-read: rho(aggregate, root strength) = +0.964 — at pristine roots the margin aggregate IS fact strength in decision clothes, and the flat phase tracks neither (2026-10-04 ~13:35Z) — DONE
 
 WHAT WE DID: the margin aggregate (install-60 g-12 battery's

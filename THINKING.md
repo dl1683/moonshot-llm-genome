@@ -685,6 +685,45 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T209 — e230: decisions are stickier than beliefs — the zombie decisions (2026-10-04 ~13:50Z)
+
+W033 predicted the commitment dies before the belief; the desk
+pass killed that cleanly (zero margin-first in tmpl, both washes)
+— and then handed back the SAME dissociation pointing the other
+way: P-FIRST is the modal crossing class in every battery-wash
+(fact 8/20, tmpl 9/19, both washes) — beliefs halve while the
+argmax stands. THE COMMITMENT OUTLIVES THE BELIEF. NAME THE
+OBJECT: ZOMBIE DECISIONS — an argmax holding on a halved belief.
+The lab has been reading p for three eras (every battery, every
+erosion order, every wall retention); the decision layer beneath
+it is stickier, and it keeps the organism answering long after
+the probability has given up. THE SECOND READ'S ANTI-ALIGNMENT
+(-0.39..-0.53 everywhere): the thin spots belong to the p-
+SURVIVORS — the wash grinds the commitments of the probes whose
+beliefs it failed to kill: THE WASH CONTINUES AGAINST WHAT
+REMAINS. TWO ALTERNATIVE EXPLANATIONS for the anti-alignment:
+(H-i FLOOR-VISIBILITY) margin-grinding happens everywhere
+equally, but only becomes VISIBLE (a 0.05-sigma crossing) where p
+survived long enough for the grinding to accumulate — the
+anti-alignment is an artifact of where crossing is observable;
+(H-ii TWO ACTIONS) the wash's belief-erosion and its commitment-
+grinding are genuinely different axes with different targets —
+erosion is relationally sorted (the conserved order), grinding
+targets the survivors by remaining structure. DISCRIMINATING
+(register now): THE ZOMBIE LAG — per P-FIRST probe, whether its
+margin EVER crosses by +80, and the standing-zombie population at
++80 (margin >= 0.05 sigma with p < half). REGISTERED PREDICTION:
+a large standing-zombie population persists at +80 (the zombie is
+a stable resting state — the modal probe is a zombie by the end);
+if instead zombies resolve by +80 (margins follow p down), the
+two-actions story weakens to a lag story and H-i strengthens.
+CONNECTIONS: FQ5/e226 sharpened — the Gmail/iPhone
+differentiation cannot live in the commitment layer's deaths
+(deaths are p-side); W029's census gains a row (W033's
+dissociation killed at this grid — with the INVERTED residue
+standing, which is how the census's best kills die: into sharper
+residues).
+
 ## T208 — e229: three currencies dead for the flat phase — the ball keeps its own books (2026-10-04 ~13:40Z)
 
 The wall-currency cell returns the honest branch, and the residue
@@ -4926,7 +4965,7 @@ physics states. That is the culture working.
 
 
 
-## W033 — WONDER: does the commitment die before the belief? (the margin/p dissociation; 2026-10-04 ~13:20Z; no bars, no kills — the sharpest confound turned into the sharpest question)
+## W033 — WONDER: does the commitment die before the belief? (the margin/p dissociation; 2026-10-04 ~13:20Z; no bars, no kills — the sharpest confound turned into the sharpest question) [OUTCOME ~13:50Z, e230/T209: KILLED AT THIS GRID — no margin-first population; but the dissociation EXISTS INVERTED: P-FIRST is modal everywhere, the commitment OUTLIVES the belief (the zombie decisions); the thin spots are the survivors']
 
 E228's honesty block flagged the coupling: margin correlates with
 p at +0.80 — so are the MANUFACTURED thin spots anything more
