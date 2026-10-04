@@ -1,5 +1,18 @@
 # E237 design — THE PRE-ADAM PROJECTION (the wind's memory cut; T215's registration)
 
+[R63 AMENDMENT (the critic's dispatch question, answered YES): THE W2 REPLICATION
+RIDER is now part of the frozen design. Add: ARM-G2 — the pre-Adam projection run on
+WASH-2's certified stream (80 steps from pristine t=0, the same gradient-level
+projection), with its own hook-path control ARM-C2-w2 if the committed w2 replay does
+not serve; the w2 references are iPhone hr 0.342 / Gmail 0.931 (e226's committed).
+PROMOTION RULE for the memory claim: FATE-FLIPS-MEMORY requires BOTH (i) w1's ARM-G
+crossing its frozen 0.4525 line AND (ii) the w2 rider showing the same-direction
+sparing (iPhone's P2-vs-control gap >= +0.05 while Gmail-P2 ~ control) — the effect
+must replicate across streams before "the wind has memory" is quoted as mechanism.
+ANCHORING DISCLOSURE (standing): the frozen w1 lines (0.4525, the 0.407 reference,
+the 0.342 spread max) are single-stream numbers against iPhone's natural 1.9x
+cross-wash swing; every bar read carries this caveat verbatim.]
+
 Status: RIPE for dispatch when the GPU lane frees (e233's machinery ports whole; 124M
 steps in <=180s bursts with per-step thermal polls — the e233 lessons default).
 Serves: T215 (the between-marker-and-carrier verdict) + W035 (the wind's anatomy).
