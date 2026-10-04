@@ -343,6 +343,12 @@ def contrast(align, killed) -> dict:
     a = np.asarray(align, dtype=np.float64)
     k = np.asarray(killed, dtype=bool)
     K, L = a[k], a[~k]
+    if len(K) == 0 or len(L) == 0:          # undefined (empty group)
+        return {"md": float("nan"), "se": float("nan"),
+                "z": float("nan"), "meanK": float("nan"),
+                "meanL": float("nan"), "sd54": float(a.std(ddof=1))
+                if len(a) > 1 else float("nan"),
+                "nK": int(len(K)), "nL": int(len(L))}
     md = float(K.mean() - L.mean())
     sd = float(a.std(ddof=1))
     se = sd * math.sqrt(1.0 / len(K) + 1.0 / len(L))
@@ -781,8 +787,12 @@ def plot_distributions(rd, probes54, fates, journal, z_at):
                    label=f"killed (n={int(k.sum())})")
         ax.scatter(xs_l, cos80[~k], s=30, alpha=0.8, color="#1a6faf",
                    label=f"living (n={int((~k).sum())})")
-        ax.hlines(cos80[k].mean(), -0.35, 0.35, color="#c0392b", lw=2)
-        ax.hlines(cos80[~k].mean(), -0.35, 0.35, color="#1a6faf", lw=2)
+        if k.any():
+            ax.hlines(float(np.mean(cos80[k])), -0.35, 0.35,
+                      color="#c0392b", lw=2)
+        if (~k).any():
+            ax.hlines(float(np.mean(cos80[~k])), -0.35, 0.35,
+                      color="#1a6faf", lw=2)
         gi = [i for i, pr in enumerate(probes54) if pr["fact"] == ANCHOR_G]
         ii = [i for i, pr in enumerate(probes54) if pr["fact"] == ANCHOR_I]
         for lbl, idx, mk in (("G", gi, "^"), ("i", ii, "v")):
@@ -1240,10 +1250,14 @@ def main():
                        "verbatim")
 
     # the decay statistics (prediction (a))
-    t_peak = int(tsteps[int(np.nanargmax(z_pool["d"]))])
+    zd = np.asarray(z_pool["d"], dtype=np.float64)
+    t_peak = int(tsteps[int(np.nanargmax(zd))]) if np.isfinite(zd).any() \
+        else None
     t_cross = None
     for i in range(len(tsteps)):
-        if all(z < 1.0 for z in z_pool["d"][i:]):
+        tail = zd[i:]
+        finite = tail[np.isfinite(tail)]
+        if len(finite) and bool((finite < 1.0).all()):
             t_cross = tsteps[i]
             break
     fit_win = [i for i in range(min(40, STEPS))
