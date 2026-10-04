@@ -615,15 +615,27 @@ def mid_burst_check(step, tag, t0, max_s, break_c=78.0,
     return True, ""
 
 
-def pace_for_temp(pace_hi_c: float = 76.0) -> None:
-    """Adaptive software duty-cycle (the 19:07 lesson: burst-kill-restart
-    never lets the fans ramp; pacing keeps the process alive and lets the
-    cooling catch up): sleep briefly when hot, train on when not."""
+def pace_for_temp(base_s: float = 0.22, ramp_in: int = 0) -> None:
+    """Fixed gentle pace (~50% duty, matching the ~0.22 s bf16 step) +
+    an adaptive law that keeps the operating point at 70-74C, FAR below
+    the 82C cliff (this chip swings 8-10C between polls when the fans
+    are spinning up — burst-kill architectures cannot hold max-82C on
+    it; the operating point must sit low instead). ramp_in = the first
+    steps of a burst get extra sleep so the fans spin up under load."""
+    if ramp_in:
+        time.sleep(0.25)
+    time.sleep(base_s)
     tC = temp_fast()
-    if tC >= 79.0:
-        time.sleep(1.0)
-    elif tC >= pace_hi_c:
-        time.sleep(0.3)
+    if tC >= 76.0:
+        t0 = time.time()
+        while time.time() - t0 < 12.0:
+            if temp_fast() <= 70.0:
+                break
+            time.sleep(0.25)
+    elif tC >= 72.0:
+        time.sleep(0.35)
+    elif tC >= 68.0:
+        time.sleep(0.12)
 
 
 def cooldown(lo=30.0, hi=60.0):
@@ -815,6 +827,7 @@ def cmd_train() -> None:
             time.sleep(60)
         t0 = time.time()
         stop = None
+        burst_first_step = step
         model.train()
         while step < TRAIN["steps"]:
             step += 1
@@ -832,9 +845,10 @@ def cmd_train() -> None:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
             sched.step()
-            # per-step pacing poll (pynvml, ~2 ms) + every-4 subprocess
-            # cross-check with the break/hard guards
-            pace_for_temp()
+            # per-step pacing (fixed ~50% duty + the temp-gap law, pynvml
+            # ~2 ms) + every-4-step break/hard guards
+            pace_for_temp(ramp_in=max(0, 25 - (step - burst_first_step))
+                          if (step - burst_first_step) < 25 else 0)
             if step % TRAIN["poll_every"] == 0:
                 ok, why = mid_burst_check(step, f"train-burst{bursts + 1}", t0,
                                           TRAIN["burst_s"],

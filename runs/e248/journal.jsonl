@@ -80,3 +80,20 @@
 {"t": "2026-10-04T19:05:12Z", "event": "thermal_HARDSTOP", "tag": "train-burst5", "step": 48, "temp": 82.0}
 {"t": "2026-10-04T19:05:13Z", "event": "train_burst_end", "burst": 5, "step": 48, "stop": "hard", "best_val": Infinity}
 {"t": "2026-10-04T19:10:08Z", "event": "pacing_lesson_disclosed", "what": "the 19:07 unguarded diagnostic pushed the chip to 89C in ~2s of compute at 165W (a zero->=84C violation by the diagnostic itself, disclosed; the training runs were hard-stopped by their guards); nvidia-smi -pl and -lgc are permission-blocked; the fix is SOFTWARE: pynvml fast polls (~2ms) every step with adaptive pacing (sleep 0.3s at >=76C, 1s at >=79C) so the fans ramp and the duty cycle settles, plus the every-4-step break(76C)/hard(82C) guards retained"}
+{"t": "2026-10-04T19:10:23Z", "event": "train_resume", "step": 48, "best_val": Infinity}
+{"t": "2026-10-04T19:10:33Z", "event": "thermal_break", "tag": "train-burst1", "step": 68, "temp": 77.0}
+{"t": "2026-10-04T19:10:34Z", "event": "train_burst_end", "burst": 1, "step": 68, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:12:15Z", "event": "thermal_break", "tag": "train-burst2", "step": 88, "temp": 78.0}
+{"t": "2026-10-04T19:12:16Z", "event": "train_burst_end", "burst": 2, "step": 88, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:14:20Z", "event": "thermal_break", "tag": "train-burst3", "step": 96, "temp": 76.0}
+{"t": "2026-10-04T19:14:22Z", "event": "train_burst_end", "burst": 3, "step": 96, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:15:35Z", "event": "thermal_HARDSTOP", "tag": "train-burst4", "step": 120, "temp": 86.0}
+{"t": "2026-10-04T19:15:36Z", "event": "train_burst_end", "burst": 4, "step": 120, "stop": "hard", "best_val": Infinity}
+{"t": "2026-10-04T19:17:36Z", "event": "heatsoak_done", "temp": 62.0}
+{"t": "2026-10-04T19:17:38Z", "event": "thermal_break", "tag": "train-burst5", "step": 124, "temp": 76.0}
+{"t": "2026-10-04T19:17:39Z", "event": "train_burst_end", "burst": 5, "step": 124, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:18:13Z", "event": "thermal_break", "tag": "train-burst6", "step": 132, "temp": 76.0}
+{"t": "2026-10-04T19:18:14Z", "event": "train_burst_end", "burst": 6, "step": 132, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:19:47Z", "event": "thermal_break", "tag": "train-burst7", "step": 136, "temp": 78.0}
+{"t": "2026-10-04T19:19:48Z", "event": "train_burst_end", "burst": 7, "step": 136, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T19:20:26Z", "event": "pacing_v2", "what": "fixed ~50% duty (0.22s base sleep per 0.22s step) + temp-gap law (>=68C +0.12s; >=72C +0.35s; >=76C sleep-until-70C capped 12s) + 25-step ramp-in per burst (fans spin up under load; the post-heatsoak 62C-idle reading then 76C-in-1s swing was the fan spin-down artifact); operating point 70-74C, far below the 82C cliff"}
