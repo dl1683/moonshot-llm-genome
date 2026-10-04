@@ -1051,12 +1051,27 @@ def _load_state_sd(wname, s, mult=1):
                       map_location="cpu", weights_only=False)["model"]
 
 
-def _dot_rows(A, B=None):
+def _dot_rows(A, B=None, device=None):
     """Pairwise cos dots of fp16 stored rows (unit*16384 convention):
-    returns the (nA, nB) matrix of cosines, fp64, chunked."""
+    returns the (nA, nB) matrix of cosines, fp64, chunked. GPU path
+    (fp32 matmul, fp64 accumulation) when device='cuda' is given."""
     import numpy as np
     nA = A.shape[0]
     nB = (B.shape[0] if B is not None else A.shape[0])
+    if device == "cuda":
+        import torch
+        out = torch.zeros(nA, nB, dtype=torch.float64, device=device)
+        col = 0
+        while col < A.shape[1]:
+            cend = min(col + CHUNK, A.shape[1])
+            a = torch.from_numpy(np.ascontiguousarray(
+                A[:, col:cend])).to(device, dtype=torch.float32)
+            b = (torch.from_numpy(np.ascontiguousarray(
+                B[:, col:cend])).to(device, dtype=torch.float32)
+                if B is not None else a)
+            out += (a @ b.T).double()
+            col = cend
+        return (out / (16384.0 ** 2)).cpu().numpy()
     out = np.zeros((nA, nB), dtype=np.float64)
     col = 0
     while col < A.shape[1]:
@@ -1245,7 +1260,7 @@ def cmd_read() -> None:
             gdir = np.memmap(SCRATCH / f"gdirs_{wname}_m{mult}.npy",
                              dtype=np.float16, mode="r",
                              shape=(WASH["steps"] * mult, PARAMS_EXPECTED))
-            G = _dot_rows(gdir)
+            G = _dot_rows(gdir, device=("cuda" if device == "cuda" else None))
             np.save(Gp, G)
             del gdir
         H = min(40 * mult, G.shape[0] - 1)
@@ -1362,14 +1377,15 @@ def cmd_read() -> None:
             mm.flush()
     if "coherence" not in m["reads"]:
         coh, rot, cross = {}, {w: {} for w in ("w1", "w2")}, {}
+        dev = ("cuda" if device == "cuda" else None)
         for s in deep_states:
             A = np.memmap(_sup_state_path("w1", s), dtype=np.float16,
                           mode="r", shape=(54, PARAMS_EXPECTED))
             B = np.memmap(_sup_state_path("w2", s), dtype=np.float16,
                           mode="r", shape=(54, PARAMS_EXPECTED))
-            c10 = _dot_rows(A, sup)
-            c20 = _dot_rows(B, sup)
-            c12 = _dot_rows(A, B)
+            c10 = _dot_rows(A, sup, device=dev)
+            c20 = _dot_rows(B, sup, device=dev)
+            c12 = _dot_rows(A, B, device=dev)
             t1 = np.arccos(np.clip(c10.diagonal(), -1, 1))
             t2 = np.arccos(np.clip(c20.diagonal(), -1, 1))
             tB = np.arccos(np.clip(c12.diagonal(), -1, 1))
