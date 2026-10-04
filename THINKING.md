@@ -5072,6 +5072,46 @@ physics states. That is the culture working.
 
 
 
+## W035 — WONDER: the wind and the friction — is the wash one field with two components? (2026-10-04 ~13:58Z; no bars, no kills — three instruments converging)
+
+Three of today's results, from three independent instruments,
+may be one picture. (1) E226: the wash's pull works ALONG the
+engaged support (iPhone dies) and PAST the orthogonal one
+(Gmail holds — |cos| <= 0.005 everywhere). (2) E230: beliefs die
+where p-side erosion reaches, while the SURVIVORS' margins thin
+(the thin spots are the survivors', anti-aligned with the
+erosion order). (3) E227: at 2.74M the wash eats the aligned
+fact while the orthogonal-ish exemplar channel survives and even
+RECOVERS its lift after the kill. THE SYNTHESIS CANDIDATE: THE
+WASH IS A WIND PLUS A FRICTION — a DIRECTED component (the span
+the pull lives in: kills what it reaches, spares what points
+past it) and a DIFFUSE component (grinds everyone's commitments;
+visible as margin-thinning precisely on the survivors because
+the dead have no margin left to read). Under this picture: the
+FLAT PHASE is the orthogonal remainder's steady state (what the
+wind cannot reach, settling under friction); the +1 TRANSIENT is
+the wind's first gust consuming the initially-aligned (e225's
+edge-owned transient; e226's t=0 inversion); the zombies are
+friction-only deaths-in-slow-motion (beliefs wind-killed where
+aligned; margins friction-thinned everywhere else). E231 (the
+root-level span overlap) and e233 (the projection intervention)
+are already the wind's tests at two levels. THE MISSING
+INSTRUMENT (registered here): the DECOMPOSITION — split each
+wash step of the committed 124M history into its component
+along the LOCAL wash-span vs the orthogonal residual; predict:
+per-probe BELIEF decline tracks the span-component's alignment
+with the probe's support (the wind), while per-probe MARGIN
+decline tracks the RESIDUAL's magnitude, not the alignment (the
+friction is undirected). If both hold on one desk pass over the
+committed gradient journals, the wash's two-component field is
+named — and the third dimension's open NAME gains its best
+candidate yet: ORIENTATION TO THE WIND. HONESTY: the wind/
+friction split is a decomposition, not yet a mechanism (why does
+the span stay narrow? what sets the friction's rate?); the
+near-orthogonality of Gmail's support is measured THROUGH the
+wash (the support rotates too — sub-bar, but nonzero); nothing
+here is adjudicated until the decomposition cell runs.
+
 ## W034 — WONDER: the zombie as the law's microscope — shape outliving height inside a single death (2026-10-04 ~13:48Z; no bars, no kills — savoring a click)
 
 Look at what the zombie decisions ARE, structurally. The argmax
