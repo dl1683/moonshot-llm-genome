@@ -218,6 +218,15 @@ deviations: list[str] = [
     "same seeds -> bit-identical windows, gated by G_SPLICE/G_BATTERY/"
     "G_ANCHOR against e225's committed values.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "POST-FIRST-RUN REPORTING FIX (numbers untouched): the first pass's "
+    "generated GRADIENTS clause omitted the cons-pair cell's outcome (which "
+    "MATCHED); the clause generator now ALWAYS states the pair read in that "
+    "branch, and two honesty entries (w032_pair_outcome, "
+    "aggregate_is_fact_strength) were added. A second reporting fix: "
+    "gates_summary mis-stamped G_ROOT FAIL (per-root records carry the pass "
+    "flag; the summary now aggregates ALL-roots-pass). Deterministic re-runs "
+    "(T204): every number identical; the bars and all computed values "
+    "unchanged; disclosed here rather than silently patched.",
 ]
 
 
@@ -229,6 +238,10 @@ class _E228NetShim:
 
     def __init__(self, net: TinyGPT):
         self.net = net
+
+    def eval(self):                     # e228's margin_pass calls net.eval()
+        self.net.eval()
+        return self
 
     def __call__(self, input_ids=None):
         lg, _ = self.net(input_ids)
@@ -653,10 +666,24 @@ def main():
                        f"{j4['retention']:.3f})")
         if rho_agg <= -RHO_DECISIONS_LINE:
             why.append("the join is significantly anti-monotone")
+        # the pair cell is ALWAYS stated in this branch (honesty: the frozen
+        # rho clause adjudicates, but W032's registered prediction LIVES at
+        # the pair — its outcome is reported either way, never omitted)
+        pair_txt = (f"the cons-pair cell itself reads "
+                    f"{cons_cell['w032_pair_read']} (aggregate g1f "
+                    f"{j5['aggregate_median']:.4f}s vs g1e "
+                    f"{j4['aggregate_median']:.4f}s, gap {cons_gap:+.4f}s, "
+                    f"against the retention order g1f {j5['retention']:.3f} "
+                    f"> g1e {j4['retention']:.3f}) — W032's pair-level "
+                    f"prediction "
+                    + ("CONFIRMED even as the OVERALL join scatters "
+                       "(a pair is a pair; the currency claim dies at n=7)"
+                       if cons_match else "NOT confirmed"))
         verdict = "GRADIENTS-KEEP-THE-FLAT-PHASE"
-        clause = ("; ".join(why) + " — the flat phase's currency stays "
-                  "gradient-side or unnamed; the honest branch (W032's "
-                  "registered anti-match/scatter branch, fired as written)")
+        clause = ("; ".join(why) + "; " + pair_txt
+                  + " — the flat phase's currency stays gradient-side or "
+                  "unnamed; the honest branch (the frozen clauses "
+                  "adjudicated as written; no bar shopping)")
     else:
         verdict = "PARTIAL"
         clause = (f"anything between — the aggregate clears the multiple's "
@@ -665,6 +692,13 @@ def main():
                   f"sits under the {RHO_DECISIONS_LINE} line — both tables "
                   f"verbatim, no narrative inflation")
 
+    gates_summary = {}
+    for g, v in metrics["gates"].items():
+        if g == "G_ROOT":      # per-root records — the gate is ALL roots pass
+            gates_summary[g] = bool(v) and all(
+                rr.get("pass") for rr in v.values())
+        else:
+            gates_summary[g] = bool(v.get("pass"))
     metrics["adjudication"] = {
         "bars": {"DECISIONS_OWN_THE_FLAT_PHASE": {"fires": decisions_fires},
                  "GRADIENTS_KEEP_THE_FLAT_PHASE": {"fires": gradients_fires},
@@ -675,8 +709,7 @@ def main():
                            "GRADIENTS-KEEP-THE-FLAT-PHASE / PARTIAL (frozen "
                            "before compute; the first two mutually exclusive "
                            "by construction)",
-        "gates_summary": {g: bool(v.get("pass"))
-                          for g, v in metrics["gates"].items()},
+        "gates_summary": gates_summary,
     }
     log("=" * 78)
     log(f"E229 VERDICT: {verdict}")
@@ -813,6 +846,37 @@ def main():
                        "observed-unadjudicated stamp carried on their rows); "
                        "the cons pair is n=2 — its cell is W032's sharpest "
                        "instrument but a pair is a pair",
+        "w032_pair_outcome": ("W032's registered prediction CONFIRMED at its "
+                             "own cell (aggregate g1f "
+                             f"{j5['aggregate_median']:.4f}s > g1e "
+                             f"{j4['aggregate_median']:.4f}s, "
+                             "matching the retention order; the p25 flavor "
+                             "matches too) — while the OVERALL join is "
+                             f"negative ({rho_agg:+.3f}): the pair-level "
+                             "confirmation is a residue the next card owns, "
+                             "not a currency; LOO max "
+                             f"{max(loo.values()):+.3f} "
+                             f"(dropping {max(loo, key=loo.get)}) — no row's "
+                             "removal brings the aggregate join near the "
+                             "0.714 line"),
+        "aggregate_is_fact_strength": f"rho(aggregate, root_gm12) "
+                                      f"{rho_agg_root:+.3f}: at the pristine "
+                                      f"roots the battery's MEDIAN decision "
+                                      f"margin is essentially the root's fact "
+                                      f"strength (mean p(Z)) in rank — the "
+                                      f"margin aggregate is NOT a new axis "
+                                      f"here but the old fact-strength axis "
+                                      f"in decision clothes (rho(agg, "
+                                      f"multiple) {rho_agg_mul:+.3f}: not the "
+                                      f"multiple in disguise); and the flat "
+                                      f"phase tracks fact strength no better "
+                                      f"(rho(root_gm12, retention) "
+                                      f"{rho_root_ret:+.3f}) — the breaker "
+                                      f"rows are the formation lottery's "
+                                      f"exotic members (g1d the half-"
+                                      f"expressed 1.33x record at the table's "
+                                      f"lowest aggregate; take6 the strong "
+                                      f"root whose flat phase falls)",
         "cross_scale_rulers": "content-identical install-60 batteries read by "
                               "different hosts (6L/192d vs 8L/320d) — the "
                               "scale axis (e225's own disclosed caveat, "

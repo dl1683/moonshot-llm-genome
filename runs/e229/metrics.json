@@ -1,0 +1,4074 @@
+{
+  "experiment": "e229_wall_currency",
+  "phase": "W032's discriminating observation \u2014 the wall's flat-phase currency: decisions (margin aggregate) or gradients (the multiple)?",
+  "date": "2026-10-04T13:24:20Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars frozen from W032 verbatim in the module docstring BEFORE any compute (script committed pre-run); adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "DECISIONS_OWN_THE_FLAT_PHASE": "DECISIONS-OWN-THE-FLAT-PHASE \u2014 \"retention tracks the margin aggregate where it failed to track the multiple: the overall Spearman vs the aggregate clears 0.714 (the e225 line) AND the cons pair separates in y AND in the aggregate in matching order \u2014 the wall's currency = decisions; W032's prediction confirmed\"",
+    "GRADIENTS_KEEP_THE_FLAT_PHASE": "GRADIENTS-KEEP-THE-FLAT-PHASE \u2014 \"the aggregate does no better than the multiple (Spearman <= e225's 0.607, or the cons pair matches in NEITHER), or anti-matches \u2014 the flat phase's currency stays gradient-side or unnamed; the honest branch\"",
+    "PARTIAL": "PARTIAL \u2014 \"anything between \u2014 both tables verbatim, no narrative inflation\"",
+    "W032_registered_prediction_verbatim": "within the cons pair, the retention order (g1f 0.932 > g1e 0.615) is matched by the margin-aggregate order of their fact batteries; an anti-match or a scatter kills the composition and leaves the flat phase owning a third currency still unnamed (the honest branch).",
+    "registration": "bars frozen from W032 verbatim in the module docstring BEFORE any compute (script committed pre-run); adjudicate against exactly this; no bar shopping.",
+    "clause_fixes": "DECISIONS := (rho_agg >= 0.714) AND cons_match; GRADIENTS := (rho_agg <= 0.607) OR (NOT cons_match) OR (rho_agg <= -0.714, subsumed); PARTIAL := otherwise (the gap 0.607 < rho_agg < 0.714 WITH cons_match); cons_separates_y := ret(g1f) > ret(g1e) [desk-fixed true]; cons_match := agg(g1f) > agg(g1e) [strict, rank-level]."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; GPU never claimed \u2014 e227 owns the GPU lane)",
+    "torch_threads": 4,
+    "bursts": "one root = one eval burst (60 probes x 3 geometries)",
+    "n_evals": "n=1 per root (margins deterministic in-session, T204)",
+    "cpu_load_pct_at_launch": 37
+  },
+  "deviations": [
+    "EVAL-ONLY on the seven committed pristine roots (no wash, no training; the GPU lane untouched \u2014 CPU-only by dispatch, e227 owns the GPU).",
+    "The margin x-side is computed FRESH here (no committed margins exist at these roots); the y-side (retentions) and the comparison x-side (multiples) are e225's COMMITTED joined table, read at runtime and hard-bound to 1e-12 (G_PARENTS).",
+    "e228's margin_pass is MODULE-IMPORTED and driven through a thin adapter (TinyGPT -> .logits namespace); its arithmetic is untouched. Importing e228 opens its runs/e228_run.log in append mode as a module side effect \u2014 nothing is written to it by this cell (own stdout log).",
+    "The battery protocol rebuild (P0a) re-runs e225's own construction from its module constants (E43.SPLICE_RNG, corpus.encode) \u2014 same code path, same seeds -> bit-identical windows, gated by G_SPLICE/G_BATTERY/G_ANCHOR against e225's committed values.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "POST-FIRST-RUN REPORTING FIX (numbers untouched): the first pass's generated GRADIENTS clause omitted the cons-pair cell's outcome (which MATCHED); the clause generator now ALWAYS states the pair read in that branch, and two honesty entries (w032_pair_outcome, aggregate_is_fact_strength) were added. A second reporting fix: gates_summary mis-stamped G_ROOT FAIL (per-root records carry the pass flag; the summary now aggregates ALL-roots-pass). Deterministic re-runs (T204): every number identical; the bars and all computed values unchanged; disclosed here rather than silently patched."
+  ],
+  "builds_on": [
+    "W032 (the composition card this cell IS the registered discriminating observation of)",
+    "T207 / e228 (the argmax-margin instrument, module-imported; and the honesty note: margins do NOT order the 124M erosion order \u2014 a different question)",
+    "T206 + UPDATE / e225 (the graded join, the cons pair, the seven roots, the retentions and multiples \u2014 the y-side and the comparison x-side)",
+    "T204 / x3 (determinism + the arithmetic floor + the ~0.05 sigma batch-shape flip zone)",
+    "T186/T188/T194/T170/T178 (the wall family's committed flat phases behind e225's table)"
+  ],
+  "whats_new": [
+    "the per-probe argmax margin in sigma at the seven pristine wall roots (the fact battery's decision landscape, t=0)",
+    "the margin-aggregate join vs the committed flat-phase retention \u2014 W032's decisions-or-gradients flip, with the cons pair as the sharpest cell",
+    "the side-by-side page: retention-vs-aggregate and retention-vs-multiple on the same axes for direct comparison"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "-12": [
+          60,
+          118
+        ],
+        "0": [
+          60,
+          130
+        ],
+        "12": [
+          60,
+          142
+        ]
+      },
+      "pass": true,
+      "note": "install-60 battery at ctx offsets {-12,0,+12} \u2014 e225's own construction re-run from its module constants; the g-12 ruler is THE fact battery (the family's own); the 10M roots read the SAME content (g1bS5/G_SPLICE's own convention, e225's committed reading) \u2014 no dialect mixed across scales"
+    },
+    "G_ANCHOR": {
+      "n_windows": 16,
+      "tries": 18,
+      "bank_starts_match_e185_stored": true,
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e225_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e225\\metrics.json",
+        "md5": "50cf5f796beff240c13777933005af91",
+        "sha256_16": "7320370e7c4b88e0"
+      },
+      "hardbound": {
+        "J1": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J2": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J3": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J4": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J5": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J6": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        },
+        "J7": {
+          "d_ret": 0.0,
+          "d_retmed": 0.0,
+          "d_mult": 0.0
+        }
+      },
+      "e225_committed_multiple_rho": 0.6071428571428571,
+      "assert_rho_literal": true,
+      "e225_verdict": "GRADED",
+      "e228_verdict_composed": "ORDER-OUTRUNS-FRAGILITY",
+      "pass": true,
+      "note": "e225's joined table (the y-side AND the comparison x-side) read at runtime and asserted against the literals frozen in this script pre-compute; e225's committed rho 0.6071428... = the does-no-better line; the 0.714 line = the one-sided 5% Spearman critical value at n=7 (e225's own table)"
+    },
+    "G_ROOT": {
+      "J1": {
+        "pass": true,
+        "abs_diff": 5.960464477539063e-08,
+        "flat_md5": "36ae244756475dda71266346e7a0f196"
+      },
+      "J2": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "J3": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "a63113f897d1752a4a16edfc2f838559"
+      },
+      "J4": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "aa0cc2ac17292559bcffd0b68ba6e67a"
+      },
+      "J5": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "65d41518f90ec013f820f3554d2eeafd"
+      },
+      "J6": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "7726a015fb8d63a0f4b7499bb90666bc"
+      },
+      "J7": {
+        "pass": true,
+        "abs_diff": 0.0,
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5"
+      }
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "gpu_calls": 0,
+      "pass": true
+    }
+  },
+  "phase_note": "P5 DONE (honesty + provenance + figure)",
+  "cells": {
+    "J1": {
+      "id": "J1",
+      "tag": "e131",
+      "scale": "2.74M",
+      "organism": "org1 = the e131 consolidated root (g1b's own root)",
+      "ckpt": "e131_consolidated_e113.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.9155886173248291,
+        "battery_read_committed": 0.9155886769294739,
+        "abs_diff": 5.960464477539063e-08,
+        "tol": 0.005,
+        "flat_md5": "36ae244756475dda71266346e7a0f196",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 1.2490181749845963,
+        "median": 1.3318806921021653,
+        "p25": 0.8740982428628148,
+        "min": 0.09466017872478893,
+        "frac_below_T204_flip_zone": 0.0,
+        "frac_argmax_z": 1.0,
+        "mean_pz": 0.9155885967115561,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.9672653675079346,
+            "margin_sigma": 1.069438024746523,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.9846858978271484,
+            "margin_sigma": 1.3233734547736384,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.939495325088501,
+            "margin_sigma": 0.7755719776566865,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.4206354320049286,
+            "margin_sigma": 0.13996657357683095,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.8680850863456726,
+            "margin_sigma": 0.6178234035442097,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.9896446466445923,
+            "margin_sigma": 1.369955222948562,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9903415441513062,
+            "margin_sigma": 1.6077333931862752,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.9697389006614685,
+            "margin_sigma": 1.1201900034118717,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.9632755517959595,
+            "margin_sigma": 1.0075834689718997,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.9924218058586121,
+            "margin_sigma": 1.925362707188983,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.4298158586025238,
+            "margin_sigma": 0.11324487211290556,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.9648293852806091,
+            "margin_sigma": 0.9496928191089077,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.969791829586029,
+            "margin_sigma": 1.0104240331003378,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.9409987926483154,
+            "margin_sigma": 0.8417977224227321,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.986497700214386,
+            "margin_sigma": 1.3288475680693768,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.920756995677948,
+            "margin_sigma": 0.835797290848131,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.9753372073173523,
+            "margin_sigma": 1.2842218030852381,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.9631699323654175,
+            "margin_sigma": 1.4166748976032943,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9885317087173462,
+            "margin_sigma": 2.0987375024522765,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.9817983508110046,
+            "margin_sigma": 1.5707686250083939,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.9911184906959534,
+            "margin_sigma": 1.7226680202807059,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.9580017328262329,
+            "margin_sigma": 1.2908278773981463,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.9934679865837097,
+            "margin_sigma": 1.9343445774234338,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.9879981279373169,
+            "margin_sigma": 1.8072321849105617,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.974668562412262,
+            "margin_sigma": 1.4594533487170183,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.8574420809745789,
+            "margin_sigma": 0.5614232503319614,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9944427609443665,
+            "margin_sigma": 1.8430805403386665,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9782177209854126,
+            "margin_sigma": 1.5323629942863235,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.875018835067749,
+            "margin_sigma": 0.7442443254689304,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.932420015335083,
+            "margin_sigma": 1.3119940292542192,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9910418391227722,
+            "margin_sigma": 1.5964672691308932,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9787395000457764,
+            "margin_sigma": 1.520390606295655,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.22975243628025055,
+            "margin_sigma": 0.09466017872478893,
+            "top1_id": 38,
+            "top2_id": 24,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.558795154094696,
+            "margin_sigma": 0.49038620380196635,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.9734157919883728,
+            "margin_sigma": 1.7662805733982965,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.7346571087837219,
+            "margin_sigma": 0.4739716006912438,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9913755059242249,
+            "margin_sigma": 1.751286214544125,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.862923800945282,
+            "margin_sigma": 0.7868690182233269,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.9890416264533997,
+            "margin_sigma": 1.508792885104662,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9872755408287048,
+            "margin_sigma": 1.5518105958563901,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.975212812423706,
+            "margin_sigma": 1.4556487975366672,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.9781131148338318,
+            "margin_sigma": 1.5245260600507824,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.9222804307937622,
+            "margin_sigma": 1.3114747144747527,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.8875683546066284,
+            "margin_sigma": 0.5995394850561673,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.9804460406303406,
+            "margin_sigma": 1.6706231570403953,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.9889541864395142,
+            "margin_sigma": 1.8047706268657493,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9575626850128174,
+            "margin_sigma": 1.3349138161349539,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9857653975486755,
+            "margin_sigma": 1.8523700811678752,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.9933039546012878,
+            "margin_sigma": 1.8787893141846046,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.9439643621444702,
+            "margin_sigma": 1.000275286861967,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9710053205490112,
+            "margin_sigma": 1.3803488029318682,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.6605714559555054,
+            "margin_sigma": 0.3516977203718082,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.9823703765869141,
+            "margin_sigma": 1.6871868429581738,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.9560767412185669,
+            "margin_sigma": 1.2801192218585293,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.879855215549469,
+            "margin_sigma": 0.8157444709630584,
+            "top1_id": 38,
+            "top2_id": 0,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.9502339363098145,
+            "margin_sigma": 0.8848650830095091,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.9185582399368286,
+            "margin_sigma": 1.0028556653705791,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.9927204847335815,
+            "margin_sigma": 1.4582414184275765,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9681790471076965,
+            "margin_sigma": 1.7605045187692316,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9956417083740234,
+            "margin_sigma": 1.7308437570431514,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 1.333507990559328,
+        "p25": 0.9009604772322337,
+        "mean": 1.1995299272618243,
+        "min": 0.006140658866600356
+      },
+      "texture_g+12": {
+        "median": 1.4892883302980773,
+        "p25": 0.9844105197929607,
+        "mean": 1.3530436669840928,
+        "min": 0.3519045423862195
+      }
+    },
+    "J2": {
+      "id": "J2",
+      "tag": "g1c",
+      "scale": "2.74M",
+      "organism": "g1c's fresh root draw (e001 + fresh install s400 g24314 + cons 10901)",
+      "ckpt": "g1c_root.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1c_root.pt",
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.9026340246200562,
+        "battery_read_committed": 0.9026340246200562,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "a7f02b367c5342535aecfc814d780631",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 0.9814780412830967,
+        "median": 0.9794073282786698,
+        "p25": 0.7820456853101319,
+        "min": 0.08580587033522004,
+        "frac_below_T204_flip_zone": 0.0,
+        "frac_argmax_z": 0.9833333333333333,
+        "mean_pz": 0.9026340226332347,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.8902751803398132,
+            "margin_sigma": 0.659000720237417,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.9664644598960876,
+            "margin_sigma": 1.0149634764203836,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.944304347038269,
+            "margin_sigma": 0.9117729994577998,
+            "top1_id": 38,
+            "top2_id": 29,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.9407933354377747,
+            "margin_sigma": 0.8383772746332585,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.9558776021003723,
+            "margin_sigma": 0.9743362718231812,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.9824889898300171,
+            "margin_sigma": 1.325583026783894,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9252722263336182,
+            "margin_sigma": 0.8569584446437571,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.8724571466445923,
+            "margin_sigma": 0.7796228461765782,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.973913848400116,
+            "margin_sigma": 0.9842614810103716,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.9510387778282166,
+            "margin_sigma": 0.9745531755469681,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.3307296931743622,
+            "margin_sigma": 0.08580587033522004,
+            "top1_id": 18,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.8984997868537903,
+            "margin_sigma": 0.7119274614654073,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.9109170436859131,
+            "margin_sigma": 0.7828532983546497,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.9189185500144958,
+            "margin_sigma": 0.6249128405665749,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.9142162799835205,
+            "margin_sigma": 0.9098762071396641,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.9369915723800659,
+            "margin_sigma": 0.8495861094780498,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.8498134613037109,
+            "margin_sigma": 0.6869287151112895,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.9184215664863586,
+            "margin_sigma": 0.8903382016067818,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9918551445007324,
+            "margin_sigma": 1.6450429270157392,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.8358667492866516,
+            "margin_sigma": 0.7950599763994769,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.9697554707527161,
+            "margin_sigma": 1.405514322577789,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.48701587319374084,
+            "margin_sigma": 0.16300696068332582,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.8953263759613037,
+            "margin_sigma": 0.9028073566449133,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.9294487833976746,
+            "margin_sigma": 1.0591371135902086,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.7916203141212463,
+            "margin_sigma": 0.5014133324178144,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.9928386807441711,
+            "margin_sigma": 1.5400733833091944,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9910675883293152,
+            "margin_sigma": 1.672284024462906,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9214406609535217,
+            "margin_sigma": 0.9390030920367156,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.9589030742645264,
+            "margin_sigma": 1.0928368107223734,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.9825892448425293,
+            "margin_sigma": 1.4481634974474504,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9755807518959045,
+            "margin_sigma": 1.3474040736245263,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9182417988777161,
+            "margin_sigma": 0.9231945084438155,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.8480520844459534,
+            "margin_sigma": 0.5658594795429241,
+            "top1_id": 38,
+            "top2_id": 29,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.9413220882415771,
+            "margin_sigma": 0.9544841845437352,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.9414119124412537,
+            "margin_sigma": 1.1262482837352092,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.4514830708503723,
+            "margin_sigma": 0.16432550690947276,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9479595422744751,
+            "margin_sigma": 1.180260864080886,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.9632309675216675,
+            "margin_sigma": 1.1554268936600247,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.9601780772209167,
+            "margin_sigma": 1.170501330615609,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9364318251609802,
+            "margin_sigma": 1.0276547578972923,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.9448769092559814,
+            "margin_sigma": 1.0875521942838349,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.7944681644439697,
+            "margin_sigma": 0.5193944209504064,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.9629055857658386,
+            "margin_sigma": 1.2456184160254333,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.9768344759941101,
+            "margin_sigma": 1.0268369287970514,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.7885966897010803,
+            "margin_sigma": 0.5210783098321794,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.9837528467178345,
+            "margin_sigma": 1.4445028203683015,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9801549315452576,
+            "margin_sigma": 1.5184797708467168,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9856054186820984,
+            "margin_sigma": 1.5944055499568257,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.9279898405075073,
+            "margin_sigma": 0.9950362432168793,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.9374802708625793,
+            "margin_sigma": 0.918913392717392,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9196897745132446,
+            "margin_sigma": 1.0112387351036878,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.7339836955070496,
+            "margin_sigma": 0.3650798643302627,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.8574885129928589,
+            "margin_sigma": 0.7097350265369688,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.8438688516616821,
+            "margin_sigma": 0.6597055713287328,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.9702761769294739,
+            "margin_sigma": 1.302407324200786,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.9811551570892334,
+            "margin_sigma": 1.1813767201761465,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.937399685382843,
+            "margin_sigma": 1.0412880610370157,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.9840664863586426,
+            "margin_sigma": 1.367856156961629,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9578672647476196,
+            "margin_sigma": 1.340239738768595,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9765666723251343,
+            "margin_sigma": 1.3965761303943034,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 0.7642837269387506,
+        "p25": 0.5141655720432865,
+        "mean": 0.8089422295974944,
+        "min": 0.012700576835478821
+      },
+      "texture_g+12": {
+        "median": 1.1017726778818409,
+        "p25": 0.8823466467324205,
+        "mean": 1.075896283346214,
+        "min": 0.2831138606072792
+      }
+    },
+    "J3": {
+      "id": "J3",
+      "tag": "g1d",
+      "scale": "2.74M",
+      "organism": "g1d's fresh-base root (base s44 + locked install + cons 10901)",
+      "ckpt": "g1d_root.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1d_root.pt",
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.523481547832489,
+        "battery_read_committed": 0.523481547832489,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "a63113f897d1752a4a16edfc2f838559",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 0.382806288927935,
+        "median": 0.26796058555057695,
+        "p25": 0.1203297543424209,
+        "min": 0.01545895080026505,
+        "frac_below_T204_flip_zone": 0.11666666666666667,
+        "frac_argmax_z": 0.6166666666666667,
+        "mean_pz": 0.5234815671729545,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.7911463379859924,
+            "margin_sigma": 0.5844213426785231,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.9591348767280579,
+            "margin_sigma": 1.0389043620749434,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.026126772165298462,
+            "margin_sigma": 0.15297977494652218,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.004374587908387184,
+            "margin_sigma": 0.1206909440889089,
+            "top1_id": 0,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.003720315406098962,
+            "margin_sigma": 0.09498008137276939,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.8894516825675964,
+            "margin_sigma": 0.6522870623825199,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9395808577537537,
+            "margin_sigma": 0.9000552027155876,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.44475504755973816,
+            "margin_sigma": 0.01545895080026505,
+            "top1_id": 17,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.020004628226161003,
+            "margin_sigma": 0.5086116708900895,
+            "top1_id": 15,
+            "top2_id": 18,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.8976044058799744,
+            "margin_sigma": 0.7151486071210016,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.0038356990553438663,
+            "margin_sigma": 0.21392980979491344,
+            "top1_id": 15,
+            "top2_id": 18,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.9197146892547607,
+            "margin_sigma": 0.7743013746292184,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.6913747787475586,
+            "margin_sigma": 0.34911116322954383,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.3643242418766022,
+            "margin_sigma": 0.10371116282374386,
+            "top1_id": 38,
+            "top2_id": 31,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.8852816224098206,
+            "margin_sigma": 0.7254926473202119,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.005929242353886366,
+            "margin_sigma": 0.022604275948954707,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.48369482159614563,
+            "margin_sigma": 0.016643742670657054,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.28945979475975037,
+            "margin_sigma": 0.18277543719447265,
+            "top1_id": 25,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.8846198916435242,
+            "margin_sigma": 0.5945218930965099,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.49663999676704407,
+            "margin_sigma": 0.05015100871731601,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.49284231662750244,
+            "margin_sigma": 0.09536052378452843,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.7336320281028748,
+            "margin_sigma": 0.33660226642567903,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.8977423906326294,
+            "margin_sigma": 0.7950893379740387,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.7824466228485107,
+            "margin_sigma": 0.4304099595229708,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.6868311166763306,
+            "margin_sigma": 0.24655835275401555,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.03232983872294426,
+            "margin_sigma": 0.1753425095008463,
+            "top1_id": 15,
+            "top2_id": 31,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.8022335171699524,
+            "margin_sigma": 0.434137440202434,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9264050722122192,
+            "margin_sigma": 0.699632506884399,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.005485619883984327,
+            "margin_sigma": 0.06354444965935377,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.8503423929214478,
+            "margin_sigma": 0.5789417942782713,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9146500825881958,
+            "margin_sigma": 0.7919763417612633,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.8690671324729919,
+            "margin_sigma": 0.5892143369446007,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.02302587404847145,
+            "margin_sigma": 0.1651383075462398,
+            "top1_id": 15,
+            "top2_id": 18,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.01332022063434124,
+            "margin_sigma": 0.048116663877347574,
+            "top1_id": 15,
+            "top2_id": 28,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.7314620018005371,
+            "margin_sigma": 0.3028738167527341,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.0035391112323850393,
+            "margin_sigma": 0.13154359599157506,
+            "top1_id": 15,
+            "top2_id": 0,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.6516152024269104,
+            "margin_sigma": 0.21268909485170975,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.08216216415166855,
+            "margin_sigma": 0.024218196803263134,
+            "top1_id": 15,
+            "top2_id": 34,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.9535647034645081,
+            "margin_sigma": 1.0318041717424575,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.8425036072731018,
+            "margin_sigma": 0.48980228479157734,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.6271927356719971,
+            "margin_sigma": 0.18745284295159112,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.3162122070789337,
+            "margin_sigma": 0.13328114755755377,
+            "top1_id": 25,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.8453872799873352,
+            "margin_sigma": 0.7530498167347011,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.018456503748893738,
+            "margin_sigma": 0.26779217161913027,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.9104874134063721,
+            "margin_sigma": 0.6409124843467744,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.975540816783905,
+            "margin_sigma": 1.1629898882981924,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9090956449508667,
+            "margin_sigma": 0.7109503041556584,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.8620606660842896,
+            "margin_sigma": 0.6114189862257692,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.9185034036636353,
+            "margin_sigma": 0.7885910337279112,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.016784735023975372,
+            "margin_sigma": 0.09282824750445234,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.6701719760894775,
+            "margin_sigma": 0.24157673005262148,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.01879647560417652,
+            "margin_sigma": 0.2681289994820236,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.8874253034591675,
+            "margin_sigma": 0.7107896857940376,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.289461225271225,
+            "margin_sigma": 0.15379671882239696,
+            "top1_id": 25,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.0074479118920862675,
+            "margin_sigma": 0.026864539910509144,
+            "top1_id": 15,
+            "top2_id": 0,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.06185433268547058,
+            "margin_sigma": 0.09299104574041733,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.019434046000242233,
+            "margin_sigma": 0.11924618510295688,
+            "top1_id": 15,
+            "top2_id": 18,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.6573401689529419,
+            "margin_sigma": 0.23052705691921357,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.41289594769477844,
+            "margin_sigma": 0.047261147514715204,
+            "top1_id": 25,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.6883699297904968,
+            "margin_sigma": 0.2681518366694967,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 0.9850716433391392,
+        "p25": 0.5098236209154976,
+        "mean": 0.892125550174405,
+        "min": 0.06824758438183418
+      },
+      "texture_g+12": {
+        "median": 0.4268876648318454,
+        "p25": 0.18081035290006445,
+        "mean": 0.4754313815800997,
+        "min": 0.03286219899041203
+      }
+    },
+    "J4": {
+      "id": "J4",
+      "tag": "g1e",
+      "scale": "2.74M",
+      "organism": "g1e's cons redraw 1 (locked base+install + cons 10912)",
+      "ckpt": "g1e_root.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1e_root.pt",
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.857479989528656,
+        "battery_read_committed": 0.857479989528656,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "aa0cc2ac17292559bcffd0b68ba6e67a",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 0.6160070797962486,
+        "median": 0.6652406915887169,
+        "p25": 0.37761153421719185,
+        "min": 0.006574649272433567,
+        "frac_below_T204_flip_zone": 0.016666666666666666,
+        "frac_argmax_z": 0.9833333333333333,
+        "mean_pz": 0.8574799776077271,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.8151610493659973,
+            "margin_sigma": 0.38876492784968764,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.5684168934822083,
+            "margin_sigma": 0.07031828150004657,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.6308411955833435,
+            "margin_sigma": 0.12888349408127356,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.8592005968093872,
+            "margin_sigma": 0.4555065067091258,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.8180762529373169,
+            "margin_sigma": 0.35893024505549237,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.8766283392906189,
+            "margin_sigma": 0.5246752830241027,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.944176435470581,
+            "margin_sigma": 0.7510985444290262,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.7431734800338745,
+            "margin_sigma": 0.2844170046440617,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.5976284742355347,
+            "margin_sigma": 0.09592808105059729,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.9277659058570862,
+            "margin_sigma": 0.7076107431796529,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.5991629362106323,
+            "margin_sigma": 0.1131835453336924,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.8037782311439514,
+            "margin_sigma": 0.3727463017516069,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.7179720997810364,
+            "margin_sigma": 0.2519063256259611,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.942638635635376,
+            "margin_sigma": 0.6753069097841828,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.8192518353462219,
+            "margin_sigma": 0.3792332783723868,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.33148327469825745,
+            "margin_sigma": 0.15573328587961,
+            "top1_id": 18,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.9132409691810608,
+            "margin_sigma": 0.6663206925109003,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.7897139191627502,
+            "margin_sigma": 0.35434216497240195,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9165415167808533,
+            "margin_sigma": 0.64343534137837,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.7684094309806824,
+            "margin_sigma": 0.3321898483355005,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.9762090444564819,
+            "margin_sigma": 1.0286992224862619,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.8777643442153931,
+            "margin_sigma": 0.5010327072362687,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.9241645336151123,
+            "margin_sigma": 0.637202950596784,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.922379195690155,
+            "margin_sigma": 0.6876905281955019,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.7439798712730408,
+            "margin_sigma": 0.2873726572345987,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.9916881918907166,
+            "margin_sigma": 1.179182478313627,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9581298828125,
+            "margin_sigma": 0.778564837281046,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9127678871154785,
+            "margin_sigma": 0.6309448920842611,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.9587821960449219,
+            "margin_sigma": 0.7990508406048171,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.9540151953697205,
+            "margin_sigma": 0.9460807179980627,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9224621653556824,
+            "margin_sigma": 0.6641606906665335,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9643412828445435,
+            "margin_sigma": 0.9338195401070166,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.43683645129203796,
+            "margin_sigma": 0.006574649272433567,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.9462677836418152,
+            "margin_sigma": 0.6991954864346825,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.9519435167312622,
+            "margin_sigma": 0.8340446740240687,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.8919201493263245,
+            "margin_sigma": 0.5919713768315386,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9240132570266724,
+            "margin_sigma": 0.6711433043825982,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.9581878781318665,
+            "margin_sigma": 0.8300805027706079,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.881534218788147,
+            "margin_sigma": 0.5525623658291696,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9579611420631409,
+            "margin_sigma": 0.8519038420880228,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.9346855282783508,
+            "margin_sigma": 0.7173388273061869,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.940281093120575,
+            "margin_sigma": 0.7405935785537114,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.9704023003578186,
+            "margin_sigma": 1.0033670746179915,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.9107911586761475,
+            "margin_sigma": 0.824589720500104,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.9446693658828735,
+            "margin_sigma": 0.7614668298763443,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.9836965203285217,
+            "margin_sigma": 1.1151132398889587,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9269421696662903,
+            "margin_sigma": 0.7213846139110804,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9716911911964417,
+            "margin_sigma": 1.0109012624448253,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.8640152215957642,
+            "margin_sigma": 0.503423481757869,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.9078922867774963,
+            "margin_sigma": 0.6271579242184863,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9688400030136108,
+            "margin_sigma": 0.9565513931257608,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.6959149837493896,
+            "margin_sigma": 0.5023611726516344,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.970696747303009,
+            "margin_sigma": 0.9490174427699093,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.9385303854942322,
+            "margin_sigma": 0.7662718796425427,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.9693065881729126,
+            "margin_sigma": 0.8783360568864266,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.9943608641624451,
+            "margin_sigma": 1.267838564678259,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.4761683940887451,
+            "margin_sigma": 0.07116817992889782,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.8068661093711853,
+            "margin_sigma": 0.3595507178212814,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9030851721763611,
+            "margin_sigma": 0.6541234845590072,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9313529133796692,
+            "margin_sigma": 0.7080602727300516,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 0.6276734408195388,
+        "p25": 0.4582451435567869,
+        "mean": 0.6405989383873675,
+        "min": 0.0040361419042786745
+      },
+      "texture_g+12": {
+        "median": 0.824844059231762,
+        "p25": 0.6316973177679428,
+        "mean": 0.819905115137603,
+        "min": 0.2015276014415849
+      }
+    },
+    "J5": {
+      "id": "J5",
+      "tag": "g1f",
+      "scale": "2.74M",
+      "organism": "g1f's cons redraw 2 (locked base+install + cons 10913)",
+      "ckpt": "g1f_root.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1f_root.pt",
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.9682114720344543,
+        "battery_read_committed": 0.9682114720344543,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "65d41518f90ec013f820f3554d2eeafd",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 1.6728731718135075,
+        "median": 1.7539447693197137,
+        "p25": 1.3012081739439605,
+        "min": 0.07839480658770238,
+        "frac_below_T204_flip_zone": 0.0,
+        "frac_argmax_z": 1.0,
+        "mean_pz": 0.9682115142544111,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.9921022057533264,
+            "margin_sigma": 1.5464500587135055,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.9598764777183533,
+            "margin_sigma": 1.0601616266928728,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.9873111248016357,
+            "margin_sigma": 1.1933948981200164,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.8699377775192261,
+            "margin_sigma": 0.6164626724387906,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.8982738852500916,
+            "margin_sigma": 0.6148204847605634,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.9953562617301941,
+            "margin_sigma": 1.9042782460463459,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9943215847015381,
+            "margin_sigma": 2.227071892261733,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.9510205388069153,
+            "margin_sigma": 1.152172256609998,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.49645933508872986,
+            "margin_sigma": 0.07839480658770238,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.9949356317520142,
+            "margin_sigma": 2.057233990590696,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.8567882180213928,
+            "margin_sigma": 0.602243842952416,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.9986666440963745,
+            "margin_sigma": 2.0926632637428693,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.9841461777687073,
+            "margin_sigma": 1.5355945590930824,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.8568052053451538,
+            "margin_sigma": 0.5010952723684935,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.9858194589614868,
+            "margin_sigma": 1.6049359581145186,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.9630019664764404,
+            "margin_sigma": 0.7918432880375477,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.9819046854972839,
+            "margin_sigma": 1.6952672443962014,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.9924771189689636,
+            "margin_sigma": 2.200817754548764,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9936679005622864,
+            "margin_sigma": 2.2240529391026893,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.9919478297233582,
+            "margin_sigma": 1.9858927580404468,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.9957772493362427,
+            "margin_sigma": 2.4547768002214996,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.9961762428283691,
+            "margin_sigma": 2.4005969039761905,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.9930083751678467,
+            "margin_sigma": 1.672808751024715,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.9919337034225464,
+            "margin_sigma": 2.02133302855035,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.9957030415534973,
+            "margin_sigma": 2.131558834458166,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.9787255525588989,
+            "margin_sigma": 1.395666746611817,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9967484474182129,
+            "margin_sigma": 1.7005273028064327,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9950146079063416,
+            "margin_sigma": 2.2825712535954588,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.9824866056442261,
+            "margin_sigma": 1.1392578119803358,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.9991693496704102,
+            "margin_sigma": 2.674932228468872,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9938606023788452,
+            "margin_sigma": 1.9385227606866298,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9937731623649597,
+            "margin_sigma": 2.109001703054437,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.9213159084320068,
+            "margin_sigma": 0.9444659542990954,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.9960635304450989,
+            "margin_sigma": 1.5713134753221185,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.9866918921470642,
+            "margin_sigma": 1.6536121725140318,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.9739810824394226,
+            "margin_sigma": 1.1460971993462874,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9960579872131348,
+            "margin_sigma": 2.432159824051837,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.9668018221855164,
+            "margin_sigma": 1.1059204713356292,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.9830453395843506,
+            "margin_sigma": 1.7678543415071621,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9988999366760254,
+            "margin_sigma": 2.5648049953049457,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.9803322553634644,
+            "margin_sigma": 1.7946987721492293,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.9914360642433167,
+            "margin_sigma": 2.0468206731607324,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.989447832107544,
+            "margin_sigma": 1.85791485386427,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.9852391481399536,
+            "margin_sigma": 1.5144987006846269,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.9673876166343689,
+            "margin_sigma": 1.3371459325519417,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.997505247592926,
+            "margin_sigma": 2.349905792885434,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.996526300907135,
+            "margin_sigma": 2.215321400343578,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9935914874076843,
+            "margin_sigma": 2.2812925674507563,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.9808440804481506,
+            "margin_sigma": 1.7468223095142021,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.9713631868362427,
+            "margin_sigma": 1.1646718863096055,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9927196502685547,
+            "margin_sigma": 2.1018318701249528,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.9926120638847351,
+            "margin_sigma": 1.5554486614992218,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.9959216117858887,
+            "margin_sigma": 1.9484737909471614,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.9816893339157104,
+            "margin_sigma": 1.7610672291252252,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.9898993372917175,
+            "margin_sigma": 1.5447105369645457,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.9817549586296082,
+            "margin_sigma": 1.6963060628251245,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.8912278413772583,
+            "margin_sigma": 0.8378621920982375,
+            "top1_id": 38,
+            "top2_id": 34,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.9923181533813477,
+            "margin_sigma": 1.8521906914770463,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9637819528579712,
+            "margin_sigma": 2.0546033868558236,
+            "top1_id": 38,
+            "top2_id": 58,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9770382642745972,
+            "margin_sigma": 1.91817262564347,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 1.1640012495805079,
+        "p25": 0.8222760805212392,
+        "mean": 1.091441052407017,
+        "min": 0.039484058792882956
+      },
+      "texture_g+12": {
+        "median": 1.6156030827318306,
+        "p25": 0.8912552671281269,
+        "mean": 1.464579619405274,
+        "min": 0.017412958421792368
+      }
+    },
+    "J6": {
+      "id": "J6",
+      "tag": "take5",
+      "scale": "10M",
+      "organism": "the 10M peak root (g1bS5 m020: s500 @ 4e-4, cons 10901; root 0.7677)",
+      "ckpt": "g1bS5_root_m020.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1bS5_root_m020.pt",
+        "n_params": 9977600,
+        "expected_params": 9977600,
+        "battery_read_measured": 0.7676599621772766,
+        "battery_read_committed": 0.7676599621772766,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "7726a015fb8d63a0f4b7499bb90666bc",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 0.8006423537594606,
+        "median": 0.9008607010514801,
+        "p25": 0.629534264371892,
+        "min": 0.0024229146055598635,
+        "frac_below_T204_flip_zone": 0.06666666666666667,
+        "frac_argmax_z": 0.8666666666666667,
+        "mean_pz": 0.7676600183049838,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.8509781360626221,
+            "margin_sigma": 0.7785793497029956,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.9578532576560974,
+            "margin_sigma": 1.16778918810851,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.016105463728308678,
+            "margin_sigma": 0.2436549805364461,
+            "top1_id": 15,
+            "top2_id": 24,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.3198722302913666,
+            "margin_sigma": 0.0695028936277285,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.22400060296058655,
+            "margin_sigma": 0.11549597679760554,
+            "top1_id": 15,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.952177107334137,
+            "margin_sigma": 1.1526130270902202,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9571202993392944,
+            "margin_sigma": 1.202127820156399,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.9597386121749878,
+            "margin_sigma": 1.3163794353602019,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.0863669142127037,
+            "margin_sigma": 0.011583309669566562,
+            "top1_id": 15,
+            "top2_id": 21,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.9615305662155151,
+            "margin_sigma": 1.247087005993566,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.8073374032974243,
+            "margin_sigma": 0.7037577942501886,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.9768003225326538,
+            "margin_sigma": 1.3756579004501541,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.922088623046875,
+            "margin_sigma": 0.8510712333402509,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.48484519124031067,
+            "margin_sigma": 0.0024229146055598635,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.9009412527084351,
+            "margin_sigma": 0.7786763440279039,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.04411027580499649,
+            "margin_sigma": 0.08606356438665358,
+            "top1_id": 28,
+            "top2_id": 15,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.8418647646903992,
+            "margin_sigma": 0.6315851974771264,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.9534419178962708,
+            "margin_sigma": 1.1773213634702702,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9112016558647156,
+            "margin_sigma": 0.8921074769993962,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.9271600842475891,
+            "margin_sigma": 0.9958151570092862,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.8716444969177246,
+            "margin_sigma": 0.707818139813511,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.9442529082298279,
+            "margin_sigma": 1.002442130474461,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.9250460267066956,
+            "margin_sigma": 1.0364995649797806,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.9345005750656128,
+            "margin_sigma": 0.9563597100312758,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.9126101136207581,
+            "margin_sigma": 0.911309870931025,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.9683915972709656,
+            "margin_sigma": 1.6825671930963357,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9320407509803772,
+            "margin_sigma": 1.0650295179520228,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9159250855445862,
+            "margin_sigma": 0.950574127006297,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.8381280899047852,
+            "margin_sigma": 0.8600029558011183,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.9822149872779846,
+            "margin_sigma": 1.4876886750252418,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.9519455432891846,
+            "margin_sigma": 1.1236929913691511,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9321221113204956,
+            "margin_sigma": 0.9891660588169193,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.21559149026870728,
+            "margin_sigma": 0.1000909888125654,
+            "top1_id": 38,
+            "top2_id": 28,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.09895890951156616,
+            "margin_sigma": 0.0359979221794951,
+            "top1_id": 13,
+            "top2_id": 28,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.8605829477310181,
+            "margin_sigma": 0.6233814650561886,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.01789250411093235,
+            "margin_sigma": 0.17514681465460347,
+            "top1_id": 15,
+            "top2_id": 13,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9168636202812195,
+            "margin_sigma": 0.8997179944031263,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.21156589686870575,
+            "margin_sigma": 0.08608136738235488,
+            "top1_id": 15,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.8714268207550049,
+            "margin_sigma": 0.7690793519527749,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9285000562667847,
+            "margin_sigma": 0.9637685270103727,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.8623769283294678,
+            "margin_sigma": 0.7178579237077639,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.8369259834289551,
+            "margin_sigma": 0.5730798731101551,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.987444281578064,
+            "margin_sigma": 1.4786140773136605,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.43583112955093384,
+            "margin_sigma": 0.09061301269264588,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.8925027847290039,
+            "margin_sigma": 0.7716945528335791,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.9478684067726135,
+            "margin_sigma": 1.1069684624962226,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9353628158569336,
+            "margin_sigma": 0.9959609179794927,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9377545118331909,
+            "margin_sigma": 1.0258103093614812,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.9578965902328491,
+            "margin_sigma": 1.1540829263078183,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.8103582859039307,
+            "margin_sigma": 0.7905181697317777,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9279676079750061,
+            "margin_sigma": 0.9503876616801636,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.4314625859260559,
+            "margin_sigma": 0.03060832228799315,
+            "top1_id": 15,
+            "top2_id": 38,
+            "argmax_is_z": false
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.9264870285987854,
+            "margin_sigma": 0.9139375419975377,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.9289854764938354,
+            "margin_sigma": 0.9020034076998339,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.9186763167381287,
+            "margin_sigma": 0.8917856476026523,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.8976603150367737,
+            "margin_sigma": 0.9567156864625708,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.3501046895980835,
+            "margin_sigma": 0.25305623843852276,
+            "top1_id": 38,
+            "top2_id": 15,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.8735750913619995,
+            "margin_sigma": 0.6776118137682627,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9853773713111877,
+            "margin_sigma": 1.4945289504969772,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9292436838150024,
+            "margin_sigma": 1.0369984297898762,
+            "top1_id": 38,
+            "top2_id": 25,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 1.254244566950117,
+        "p25": 0.8679462415947163,
+        "mean": 1.1260471728183559,
+        "min": 0.04850263598439887
+      },
+      "texture_g+12": {
+        "median": 1.1516132944119943,
+        "p25": 0.8834877557729325,
+        "mean": 1.0507010352675257,
+        "min": 0.061281025023111516
+      }
+    },
+    "J7": {
+      "id": "J7",
+      "tag": "take6",
+      "scale": "10M",
+      "organism": "the 10M redraw root (g1bS7 m020f: cons 10903; root 0.9351 \u2014 the formation lottery's upward break, T172)",
+      "ckpt": "g1bS7_root_m020f.pt",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "n_params": 9977600,
+        "expected_params": 9977600,
+        "battery_read_measured": 0.935076117515564,
+        "battery_read_committed": 0.935076117515564,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5",
+        "pass": true
+      },
+      "fact_battery_g-12": {
+        "n": 60,
+        "mean": 1.3509185970203208,
+        "median": 1.3683092125843754,
+        "p25": 0.9589312580413971,
+        "min": 0.2507559930228305,
+        "frac_below_T204_flip_zone": 0.0,
+        "frac_argmax_z": 1.0,
+        "mean_pz": 0.9350760787725448,
+        "probes": [
+          {
+            "fact": "install00@g-12",
+            "p": 0.899080753326416,
+            "margin_sigma": 0.8331656334362183,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install01@g-12",
+            "p": 0.8110166788101196,
+            "margin_sigma": 0.5740391307457128,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install02@g-12",
+            "p": 0.9976255297660828,
+            "margin_sigma": 1.8669416377819499,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install03@g-12",
+            "p": 0.9310556054115295,
+            "margin_sigma": 1.089238584235935,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install04@g-12",
+            "p": 0.9968691468238831,
+            "margin_sigma": 2.150266039763927,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install05@g-12",
+            "p": 0.8124926686286926,
+            "margin_sigma": 0.5705351944140807,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install06@g-12",
+            "p": 0.9463315010070801,
+            "margin_sigma": 1.1684478803582339,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install07@g-12",
+            "p": 0.9168245196342468,
+            "margin_sigma": 0.8573644067365982,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install08@g-12",
+            "p": 0.9501329660415649,
+            "margin_sigma": 1.439478888653427,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install09@g-12",
+            "p": 0.7162969708442688,
+            "margin_sigma": 0.35256541316901335,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install10@g-12",
+            "p": 0.9899437427520752,
+            "margin_sigma": 2.2709500017070385,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install11@g-12",
+            "p": 0.8848919868469238,
+            "margin_sigma": 0.7934941778766778,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install12@g-12",
+            "p": 0.9248354434967041,
+            "margin_sigma": 1.0734190029861397,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install13@g-12",
+            "p": 0.9910444021224976,
+            "margin_sigma": 1.8003932556976348,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install14@g-12",
+            "p": 0.6722301840782166,
+            "margin_sigma": 0.2507559930228305,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install15@g-12",
+            "p": 0.9656462669372559,
+            "margin_sigma": 1.6211573928872094,
+            "top1_id": 38,
+            "top2_id": 18,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install16@g-12",
+            "p": 0.9654917120933533,
+            "margin_sigma": 1.3873292489007236,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install17@g-12",
+            "p": 0.986862063407898,
+            "margin_sigma": 1.7637160240484697,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install18@g-12",
+            "p": 0.9779356718063354,
+            "margin_sigma": 1.5087857423235629,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install19@g-12",
+            "p": 0.9667693376541138,
+            "margin_sigma": 1.448840666126192,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install20@g-12",
+            "p": 0.9516026973724365,
+            "margin_sigma": 1.2409053279677489,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install21@g-12",
+            "p": 0.9273729920387268,
+            "margin_sigma": 0.9615687172794594,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install22@g-12",
+            "p": 0.9504342675209045,
+            "margin_sigma": 1.2344286543054481,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install23@g-12",
+            "p": 0.9606630802154541,
+            "margin_sigma": 1.3616863809896895,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install24@g-12",
+            "p": 0.9840725064277649,
+            "margin_sigma": 1.9305568446742412,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install25@g-12",
+            "p": 0.9929922819137573,
+            "margin_sigma": 2.0609946209775742,
+            "top1_id": 38,
+            "top2_id": 28,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install26@g-12",
+            "p": 0.9655756950378418,
+            "margin_sigma": 1.4061397122236146,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install27@g-12",
+            "p": 0.9800554513931274,
+            "margin_sigma": 1.6290096645202337,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install28@g-12",
+            "p": 0.9955686926841736,
+            "margin_sigma": 2.3443153326799617,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install29@g-12",
+            "p": 0.9165888428688049,
+            "margin_sigma": 0.8858797665891998,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install30@g-12",
+            "p": 0.8808467984199524,
+            "margin_sigma": 0.7801160566603605,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install31@g-12",
+            "p": 0.9719489812850952,
+            "margin_sigma": 1.4559264630021422,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install32@g-12",
+            "p": 0.9783704876899719,
+            "margin_sigma": 1.4187577478641529,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install33@g-12",
+            "p": 0.9972983002662659,
+            "margin_sigma": 2.479114286516426,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install34@g-12",
+            "p": 0.9473457336425781,
+            "margin_sigma": 1.2375674351659318,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install35@g-12",
+            "p": 0.9032303094863892,
+            "margin_sigma": 1.2418140156388715,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install36@g-12",
+            "p": 0.9160737991333008,
+            "margin_sigma": 0.9510188803272103,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install37@g-12",
+            "p": 0.9895914196968079,
+            "margin_sigma": 1.9827515584533102,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install38@g-12",
+            "p": 0.8939030766487122,
+            "margin_sigma": 0.9108118858792956,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install39@g-12",
+            "p": 0.9313740134239197,
+            "margin_sigma": 1.0295418700272403,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install40@g-12",
+            "p": 0.9782066345214844,
+            "margin_sigma": 1.6718714300117195,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install41@g-12",
+            "p": 0.9516476988792419,
+            "margin_sigma": 1.1821861891033933,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install42@g-12",
+            "p": 0.9476105570793152,
+            "margin_sigma": 1.0478049357473591,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install43@g-12",
+            "p": 0.7329442501068115,
+            "margin_sigma": 0.7508376113733638,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install44@g-12",
+            "p": 0.9716660976409912,
+            "margin_sigma": 1.443260969476364,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install45@g-12",
+            "p": 0.9652993679046631,
+            "margin_sigma": 1.3749320441790616,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install46@g-12",
+            "p": 0.9735503196716309,
+            "margin_sigma": 1.4105546296487774,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install47@g-12",
+            "p": 0.9558199048042297,
+            "margin_sigma": 1.1935716437972308,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install48@g-12",
+            "p": 0.8952276706695557,
+            "margin_sigma": 0.8384861548032679,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install49@g-12",
+            "p": 0.818679690361023,
+            "margin_sigma": 1.1401214796496708,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install50@g-12",
+            "p": 0.9846624135971069,
+            "margin_sigma": 1.6847885517965326,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install51@g-12",
+            "p": 0.9893417358398438,
+            "margin_sigma": 1.9826962234360272,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install52@g-12",
+            "p": 0.8962568044662476,
+            "margin_sigma": 0.821730340481411,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install53@g-12",
+            "p": 0.9842372536659241,
+            "margin_sigma": 1.7685020384817596,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install54@g-12",
+            "p": 0.9944029450416565,
+            "margin_sigma": 2.16462464713083,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install55@g-12",
+            "p": 0.9933750033378601,
+            "margin_sigma": 2.050656548667663,
+            "top1_id": 38,
+            "top2_id": 28,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install56@g-12",
+            "p": 0.9499852061271667,
+            "margin_sigma": 1.5711042373420208,
+            "top1_id": 38,
+            "top2_id": 13,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install57@g-12",
+            "p": 0.8762699961662292,
+            "margin_sigma": 0.8694569848090069,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install58@g-12",
+            "p": 0.9764025211334229,
+            "margin_sigma": 1.5842994698248862,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          },
+          {
+            "fact": "install59@g-12",
+            "p": 0.9306920766830444,
+            "margin_sigma": 1.139840154845213,
+            "top1_id": 38,
+            "top2_id": 17,
+            "argmax_is_z": true
+          }
+        ]
+      },
+      "texture_g+0": {
+        "median": 1.000971213885776,
+        "p25": 0.6835864064933135,
+        "mean": 0.9757930131313348,
+        "min": 0.10627618754760662
+      },
+      "texture_g+12": {
+        "median": 1.329965473376776,
+        "p25": 0.9239098016429725,
+        "mean": 1.340893232077311,
+        "min": 0.23967740012160366
+      }
+    }
+  },
+  "join_table": [
+    {
+      "id": "J1",
+      "tag": "e131",
+      "scale": "2.74M",
+      "aggregate_median": 1.3318806921021653,
+      "aggregate_p25": 0.8740982428628148,
+      "retention": 0.9979692766675983,
+      "retention_flat_median_flavor": 1.0027290489458747,
+      "multiple_e225": 3.7206885127780804,
+      "root_gm12": 0.9155886769294739,
+      "frac_argmax_z": 1.0
+    },
+    {
+      "id": "J2",
+      "tag": "g1c",
+      "scale": "2.74M",
+      "aggregate_median": 0.9794073282786698,
+      "aggregate_p25": 0.7820456853101319,
+      "retention": 1.0263911969648605,
+      "retention_flat_median_flavor": 1.037891435414073,
+      "multiple_e225": 1.2161096471128718,
+      "root_gm12": 0.9026340246200562,
+      "frac_argmax_z": 0.9833333333333333
+    },
+    {
+      "id": "J3",
+      "tag": "g1d",
+      "scale": "2.74M",
+      "aggregate_median": 0.26796058555057695,
+      "aggregate_p25": 0.1203297543424209,
+      "retention": 1.3266428034732003,
+      "retention_flat_median_flavor": 1.3448413635063021,
+      "multiple_e225": 1.3789356098383065,
+      "root_gm12": 0.523481547832489,
+      "frac_argmax_z": 0.6166666666666667
+    },
+    {
+      "id": "J4",
+      "tag": "g1e",
+      "scale": "2.74M",
+      "aggregate_median": 0.6652406915887169,
+      "aggregate_p25": 0.37761153421719185,
+      "retention": 0.6153917590189493,
+      "retention_flat_median_flavor": 0.6979575531343495,
+      "multiple_e225": 0.5995813346448845,
+      "root_gm12": 0.857479989528656,
+      "frac_argmax_z": 0.9833333333333333
+    },
+    {
+      "id": "J5",
+      "tag": "g1f",
+      "scale": "2.74M",
+      "aggregate_median": 1.7539447693197137,
+      "aggregate_p25": 1.3012081739439605,
+      "retention": 0.9317064573129114,
+      "retention_flat_median_flavor": 0.9446859198099864,
+      "multiple_e225": 0.5617260108399429,
+      "root_gm12": 0.9682114720344543,
+      "frac_argmax_z": 1.0
+    },
+    {
+      "id": "J6",
+      "tag": "take5",
+      "scale": "10M",
+      "aggregate_median": 0.9008607010514801,
+      "aggregate_p25": 0.629534264371892,
+      "retention": 0.8949634049389881,
+      "retention_flat_median_flavor": 0.9646209309477912,
+      "multiple_e225": 0.5433506780298486,
+      "root_gm12": 0.7676599621772766,
+      "frac_argmax_z": 0.8666666666666667
+    },
+    {
+      "id": "J7",
+      "tag": "take6",
+      "scale": "10M",
+      "aggregate_median": 1.3683092125843754,
+      "aggregate_p25": 0.9589312580413971,
+      "retention": 0.7897980962997516,
+      "retention_flat_median_flavor": 0.832540454235837,
+      "multiple_e225": 1.0231918306111651,
+      "root_gm12": 0.935076117515564,
+      "frac_argmax_z": 1.0
+    }
+  ],
+  "join_statistics": {
+    "primary": {
+      "spearman_aggregate_vs_retention": -0.17857142857142858,
+      "kendall_tau_b": -0.14285714285714285,
+      "n": 7,
+      "ties": 0,
+      "decisions_line": 0.714,
+      "e225_multiple_rho_line": 0.6071428571428571
+    },
+    "cons_pair_cell": {
+      "pair": "J4 = g1e (cons-1) vs J5 = g1f (cons-2)",
+      "retention_g1e": 0.6153917590189493,
+      "retention_g1f": 0.9317064573129114,
+      "aggregate_median_g1e": 0.6652406915887169,
+      "aggregate_median_g1f": 1.7539447693197137,
+      "aggregate_p25_g1e": 0.37761153421719185,
+      "aggregate_p25_g1f": 1.3012081739439605,
+      "multiple_g1e": 0.5995813346448845,
+      "multiple_g1f": 0.5617260108399429,
+      "cons_separates_y": true,
+      "cons_match_median": true,
+      "cons_match_p25": true,
+      "aggregate_gap_median": 1.0887040777309966,
+      "retention_gap": 0.3163146982939621,
+      "w032_prediction_verbatim": "within the cons pair, the retention order (g1f 0.932 > g1e 0.615) is matched by the margin-aggregate order of their fact batteries; an anti-match or a scatter kills the composition and leaves the flat phase owning a third currency still unnamed (the honest branch).",
+      "w032_pair_read": "MATCH",
+      "note": "W032's registered prediction adjudicated at its own cell: MATCH = the aggregate orders the cons pair as the retention does (g1f > g1e); ANTI-MATCH/TIE = the honest branch fires (the flat phase's third currency stays unnamed); the p25 co-report rides beside, never adjudicating"
+    },
+    "co_reports_never_adjudicated": {
+      "spearman_p25_vs_retention": -0.17857142857142858,
+      "spearman_multiple_vs_retention_recomputed": 0.6071428571428571,
+      "spearman_multiple_vs_retention_flatmedian_flavor": 0.5714285714285714,
+      "spearman_aggregate_vs_retention_flatmedian_flavor": -0.32142857142857145,
+      "spearman_aggregate_vs_multiple": -0.14285714285714285,
+      "spearman_aggregate_vs_root_gm12": 0.9642857142857143,
+      "spearman_root_gm12_vs_retention": -0.25,
+      "leave_one_out_spearman": {
+        "J1": -0.14285714285714285,
+        "J2": -0.14285714285714285,
+        "J3": 0.3142857142857143,
+        "J4": -0.5428571428571428,
+        "J5": -0.2571428571428571,
+        "J6": -0.37142857142857144,
+        "J7": -0.08571428571428572
+      },
+      "note": "rho(agg, multiple) prices whether the aggregate is the multiple in disguise; rho(agg, root_gm12) prices whether it is just fact strength (e228's margin-vs-p coupling reflex, ported to the join level); the median-flavor retention joins guard the y-convention"
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "DECISIONS_OWN_THE_FLAT_PHASE": {
+        "fires": false
+      },
+      "GRADIENTS_KEEP_THE_FLAT_PHASE": {
+        "fires": true
+      },
+      "PARTIAL": {
+        "fires": false
+      }
+    },
+    "clause_fixes_applied": "DECISIONS := (rho_agg >= 0.714) AND cons_match; GRADIENTS := (rho_agg <= 0.607) OR (NOT cons_match) OR (rho_agg <= -0.714, subsumed); PARTIAL := otherwise (the gap 0.607 < rho_agg < 0.714 WITH cons_match); cons_separates_y := ret(g1f) > ret(g1e) [desk-fixed true]; cons_match := agg(g1f) > agg(g1e) [strict, rank-level].",
+    "verdict": "GRADIENTS-KEEP-THE-FLAT-PHASE",
+    "clause": "the aggregate does no better than the multiple (rho -0.179 <= e225's 0.607); the cons-pair cell itself reads MATCH (aggregate g1f 1.7539s vs g1e 0.6652s, gap +1.0887s, against the retention order g1f 0.932 > g1e 0.615) \u2014 W032's pair-level prediction CONFIRMED even as the OVERALL join scatters (a pair is a pair; the currency claim dies at n=7) \u2014 the flat phase's currency stays gradient-side or unnamed; the honest branch (the frozen clauses adjudicated as written; no bar shopping)",
+    "composite_order": "DECISIONS-OWN-THE-FLAT-PHASE / GRADIENTS-KEEP-THE-FLAT-PHASE / PARTIAL (frozen before compute; the first two mutually exclusive by construction)",
+    "gates_summary": {
+      "G_NAMEFREE": true,
+      "G_SPLICE": true,
+      "G_BATTERY": true,
+      "G_ANCHOR": true,
+      "G_PARENTS": true,
+      "G_ROOT": true,
+      "G_ENV": true
+    }
+  },
+  "honesty": {
+    "e208_distinction": "e208's margin object was the FACT-EDGE over the wash band (an instrument that died its honest scope death); THIS cell's object is the NEXT-TOKEN ARGMAX MARGIN in sigma vs arithmetic noise \u2014 a different ruler; do not conflate; not a resurrection",
+    "e228_composition_note": "e228 (T207) showed margins do NOT order the 124M erosion order \u2014 a DIFFERENT question (per-probe death order under one wash) from this one (the WALL ROOTS' flat-phase retention across organisms); both facts ride the page; neither collapses into the other",
+    "determinism": "margins are deterministic in-session (T204: same code path, same device -> bit-exact), so n=1 evals suffice; the eval batch shape (1 x L, single-probe forwards) is disclosed \u2014 batch-shape re-rounding sits at the ~3e-7 texture floor, far under every aggregate adjudicated here; the per-root frac below T204's ~0.05 sigma flip zone is co-reported",
+    "aggregate_vs_its_rivals": "the aggregate's own rivals are priced in co-reports: rho(agg, multiple) -0.143 (is it the multiple in disguise?) and rho(agg, root_gm12) +0.964 (is it just fact strength \u2014 e228's margin-vs-p reflex at the join level); the root-gm12 join itself: -0.250",
+    "n_and_scope": "n=7 organisms (5 x 2.74M + 2 x 10M), n=1 margin read each, ONE battery (install-60 g-12; g0/g+12 texture only); the y-side is desk-fixed committed data (e225's GRADED table, with J1's multiple mixed-instrument provenance and J3's observed-unadjudicated stamp carried on their rows); the cons pair is n=2 \u2014 its cell is W032's sharpest instrument but a pair is a pair",
+    "w032_pair_outcome": "W032's registered prediction CONFIRMED at its own cell (aggregate g1f 1.7539s > g1e 0.6652s, matching the retention order; the p25 flavor matches too) \u2014 while the OVERALL join is negative (-0.179): the pair-level confirmation is a residue the next card owns, not a currency; LOO max +0.314 (dropping J3) \u2014 no row's removal brings the aggregate join near the 0.714 line",
+    "aggregate_is_fact_strength": "rho(aggregate, root_gm12) +0.964: at the pristine roots the battery's MEDIAN decision margin is essentially the root's fact strength (mean p(Z)) in rank \u2014 the margin aggregate is NOT a new axis here but the old fact-strength axis in decision clothes (rho(agg, multiple) -0.143: not the multiple in disguise); and the flat phase tracks fact strength no better (rho(root_gm12, retention) -0.250) \u2014 the breaker rows are the formation lottery's exotic members (g1d the half-expressed 1.33x record at the table's lowest aggregate; take6 the strong root whose flat phase falls)",
+    "cross_scale_rulers": "content-identical install-60 batteries read by different hosts (6L/192d vs 8L/320d) \u2014 the scale axis (e225's own disclosed caveat, T182's instrument-shadow class); no battery dialect is mixed across scales",
+    "nothing_guaranteed": "the aggregates could have landed anywhere; the observed outcome is recorded verbatim against the frozen bars; no bar shopping"
+  },
+  "provenance": {
+    "git_head_at_start": "8b26049505fe15e1b951609de083764add80f54a",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e229_wall_currency.py",
+    "e225_metrics": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e225\\metrics.json",
+      "md5": "50cf5f796beff240c13777933005af91",
+      "sha256_16": "7320370e7c4b88e0"
+    },
+    "checkpoints": {
+      "J1": {
+        "file": "runs/checkpoints/e131_consolidated_e113.pt",
+        "flat_md5": "36ae244756475dda71266346e7a0f196",
+        "n_params": 2739072,
+        "battery_read": 0.9155886173248291
+      },
+      "J2": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631",
+        "n_params": 2739072,
+        "battery_read": 0.9026340246200562
+      },
+      "J3": {
+        "file": "runs/checkpoints/g1d_root.pt",
+        "flat_md5": "a63113f897d1752a4a16edfc2f838559",
+        "n_params": 2739072,
+        "battery_read": 0.523481547832489
+      },
+      "J4": {
+        "file": "runs/checkpoints/g1e_root.pt",
+        "flat_md5": "aa0cc2ac17292559bcffd0b68ba6e67a",
+        "n_params": 2739072,
+        "battery_read": 0.857479989528656
+      },
+      "J5": {
+        "file": "runs/checkpoints/g1f_root.pt",
+        "flat_md5": "65d41518f90ec013f820f3554d2eeafd",
+        "n_params": 2739072,
+        "battery_read": 0.9682114720344543
+      },
+      "J6": {
+        "file": "runs/checkpoints/g1bS5_root_m020.pt",
+        "flat_md5": "7726a015fb8d63a0f4b7499bb90666bc",
+        "n_params": 9977600,
+        "battery_read": 0.7676599621772766
+      },
+      "J7": {
+        "file": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5",
+        "n_params": 9977600,
+        "battery_read": 0.935076117515564
+      }
+    },
+    "machinery": {
+      "margin_instrument": "lab/e228_margin_landscape.py margin_pass MODULE-IMPORTED (adapter shim only; arithmetic untouched): margin_sigma = (top1-top2 logit)/std(vocab logits) at the answer position, torch std unbiased",
+      "loads_and_gates": "lab/e225_one_currency.py MODULE-IMPORTED: ROSTER, load_body, battery_cell, flat_params, P0a protocol constants (G_NAMEFREE/G_SPLICE/G_BATTERY/G_ANCHOR re-run; G_ROOT per root at tol 5e-3)",
+      "battery": "install-60 g-12 ruler (SPLICE_RNG 24301; 60 windows; the family's own battery; same content at 10M per the g1bS conventions)"
+    },
+    "eval": {
+      "device": "cpu fp32",
+      "threads": 4,
+      "batch_shape": "1 x L per probe (e228's margin_pass shape)",
+      "n_forwards": "7 roots x 3 geometries x 60 probes = 1260"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e229\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e229\\e229_wall_currency.png"
+  ]
+}
