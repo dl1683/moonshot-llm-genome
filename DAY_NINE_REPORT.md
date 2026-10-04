@@ -8,7 +8,7 @@ everything below is committed; the in-flight is named as in-flight.)
 The owner opened a maximum-compute window at noon ("go ham") and re-issued the ambition
 directive at ~17:00 ("more ambitious, explore more deeply"). Between those two signals
 the lab ran the densest arc of its existence: ~25 cells (x2/x3, e225–e247, e246/e248
-dispatched), seventeen interpretation cards (T204–T224), eight wonder cards (W031–W038),
+dispatched), twenty-one interpretation cards (T204–T225), eight wonder cards (W031–W038),
 two staggered reviews (R63, R64 in flight), two instrument autopsies, two recoveries
 from infrastructure deaths — and the day's three separate big pictures CONVERGED into
 one quantitative draft of a theory: the wash as a FOUR-MOVEMENT FIELD.

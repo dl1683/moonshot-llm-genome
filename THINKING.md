@@ -706,7 +706,7 @@ the right instrument (severing the amplifier's input). THE
 TWO-SIDED TEXTURE nobody registered: v's mass sits on the
 LIVING probes' hot sets while the numerator's direction
 carries the dying — THE OPTIMIZER'S DENOMINATOR HOLDS THE
-HOLDERS: Adam's normalization down-weights exactly the
+HOLDERS [R64: OBSERVATIONAL — z -1.6..-2.6, the causal leg locked; and the 7x is a MEAN of z (the gradient's own peak z 3.07 -> peak-gain ~2x); prediction (a) non-binding (NEITHER verdict); the 16.8 half-life sits between the v-only ~13.9 and tau 20 — one honest sentence owed]: Adam's normalization down-weights exactly the
 coordinates the holders live on, letting the dying's direction
 through the gate. The optimizer is not fate-neutral machinery;
 it is a fate-differential amplifier. FQ3'S NUANCE: the pace
