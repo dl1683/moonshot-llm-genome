@@ -380,7 +380,11 @@ deviations: list[str] = [
     "floor, kept in screening as the honest record); in response the word "
     "pool was widened top-10 -> top-24 and the 'sent' (? -> newline) "
     "sub-family added — both BEFORE the committed registration/wash, "
-    "t=0-information only (the e182c2 screening precedent).",
+    "PLOT-ONLY RE-PASS (the e182c2 precedent, applied twice): (1) the "
+    "curves panel's comparison arm now PREFERS a gentle (role-matched) "
+    "qualifying arm — a display choice, no number moves; (2) the 10M "
+    "addendum re-pass re-ran the 10M washes deterministically (same "
+    "seeds — bit-identical streams) with the *_all reads added.",
 ]
 
 
@@ -992,6 +996,19 @@ def main():
         if ai < len(ARMS) - 1:
             log(f"[thermal] inter-arm cooldown {COOLDOWN_S:.0f}s")
             time.sleep(COOLDOWN_S)
+    # the arms read-tables ALWAYS reflect arms_out (journal restores must
+    # not lose them — the progressive-metrics guarantee)
+    metrics["arms"] = {t: {"lr": a["lr"], "seed": a["seed"],
+                           "device": a["traj_keys"]["device"],
+                           "states": [s["step"] for s in a["states"]],
+                           "reads": {str(s["step"]):
+                                     {k: s["reads"][k]["mean_p"]
+                                      for k in BAT_KEYS}
+                                     for s in a["states"]},
+                           "ce_r": {str(s["step"]): s["ce_r"]
+                                    for s in a["states"]}}
+                      for t, a in arms_out.items()}
+    write_metrics("PARTIAL: 2.74M arms recorded")
 
     # G_WASH: the lineage arm's +2 tie vs g1b's committed C-arm
     lin = arms_out.get("L10902")
@@ -1203,9 +1220,11 @@ def main():
     # ---------------- P6 plots
     pngs = []
     if not SMOKE:
+        # prefer a GENTLE (role-matched) qualifying arm for the curves panel
         comp_tag = next((t for t, r in adj["arms"].items()
-                         if r["qualifies"]), None) or \
-            next(iter(adj["arms"]))
+                         if r["qualifies"] and t.startswith("G")), None) \
+            or next((t for t, r in adj["arms"].items()
+                     if r["qualifies"]), None) or next(iter(adj["arms"]))
         arm = arms_out[comp_tag]
         st = arm["states"]
         steps = [s["step"] for s in st]
