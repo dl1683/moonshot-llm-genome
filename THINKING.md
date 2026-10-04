@@ -685,6 +685,46 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T212 — e232: the zombie is a resting state, the grinding is real, and 7 commitments changed hands (2026-10-04 ~14:12Z)
+
+Both of the desk pass's reads landed on the structured side.
+ZOMBIES-STAND with a TOTAL lag: every commitment-death in the
+archive happens at the final state — the margin layer's lifetime
+exceeds the wash's window (TWO TIMESCALES: the wind kills fast,
+the friction grinds slow — W035's leg count rises to three:
+targets, magnitudes, timescales). RESTRUCTURED at 28x the floor:
+the grinding is not flattening — margins fell from 0.823 to
+0.153 while p fell only 3.5x, and temperature (the maximal-
+margin null — the derivation was registered BEFORE compute and
+killed W034's own premise cleanly) cannot produce that. THE
+THIRD OBJECT: 7/33 standing zombies carry fat margins on a WRONG
+argmax — the commitment outlives the belief AND THE CHOICE IT
+WAS COMMITTED TO. W028 gains a new member class: a commitment
+separable from its target, outliving both the belief and the
+choice. THE QUESTION THE 7 ASK: what are they commited TO now?
+TWO ALTERNATIVES: (H-i RE-TEACHING) the flipped argmaxes are the
+wash-corpus's own modal continuations — the wind writing its
+answer into the decision layer while the belief layer still
+settles (re-teaching visible in decision space FIRST); (H-ii
+DRIFT) the flips are noise-level re-orderings among low logits —
+the commitment persists as pure inertia on whichever token
+edged ahead. DISCRIMINATING (registered): identify the 7 wrong
+choices against the wash-corpus's modal next-token at those
+positions (committed corpora + the wash journals — a tiny desk
+read); H-i predicts >= 5/7 are corpus-mode; H-ii predicts
+scattered, low-probability tokens. REGISTERED PREDICTIONS: (a)
+the answer-holding 26 zombies' margins at +80 sit BELOW the
+friction-only trajectory e234 will measure for orthogonal
+probes (the survivors' grind is the friction's signature —
+e234's join (b) adjudicates); (b) the wrong-choosers' beliefs
+p at +80 are the table's lowest (the belief died hardest where
+the choice flipped — the wind reached both layers). CONNECTION:
+W035 now has three convergent legs and one registered test
+(e234, dispatched); the zombie taxonomy (26 answer-holders /
+7 wrong-choosers / 3 recoveries) is the commitment layer's
+first census — W029's killed-objects census gains a LIVING
+companion: the surviving-objects census.
+
 ## T211 — e227: the zombie structure inverts across scale — what the wash eats is not what the function is (2026-10-04 ~14:12Z)
 
 FQ1's bridge came back PARTIAL-TRACE with a headline nobody

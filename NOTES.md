@@ -9,6 +9,51 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e232 — the zombie lag + the temperature lens: ZOMBIES-STAND (6/6, the lag TOTAL — every resolution at step 80) + RESTRUCTURED (33/33 left of their verticals, 28x the floor — margins 0.823->0.153 while p fell only 3.5x; temperature is the maximal-margin null and the wash does what no temperature can); FREE FIND: 7/33 standing zombies are WRONG-CHOICE survivors — a fat margin on a flipped argmax, temperature-impossible in kind; the commitment outlives the belief AND the choice (2026-10-04 ~14:10Z) — DONE
+
+WHAT WE DID: one desk pass, two registered reads on committed
+records (e230's P-FIRST classes read never re-derived; e228's
+journal margins/p; e214's p re-certified at dp 0.0; e230's
+crossings cross-checked exact on all 108 records). Read 2's
+temperature family DERIVED AND REGISTERED BEFORE COMPUTE:
+temperature divides all logits by T -> argmax invariant,
+sigma-normalized margin EXACTLY invariant (the 1/T factors
+cancel) -> the family is a VERTICAL LINE per probe at
+margin(t0): temperature is the MAXIMAL-MARGIN NULL at matched
+p. Registration dfe6b10 precedes compute; bars verbatim.
+Script lab/e232_zombie_pass.py; runs/e232/{metrics.json,
+zombie_lag_population.png, temperature_lens_cloud.png}.
+
+WHAT WE SAW (T212): ZOMBIES-STAND — all 6 cells >= 0.5 standing
+(fact 6/8 + 6/8, ctrl 7/7, tmpl 6/9 + 8/9; pooled 33/41 = 0.81):
+the zombie is a STABLE RESTING STATE (T209's prediction
+confirmed); THE LAG IS TOTAL — every resolution in the whole
+archive lands AT step 80 (8/8 resolved probes cross only at the
+last state; none earlier): commitment death is deferred to the
+final act or beyond the window — the friction's timescale is
+LONGER than the wash. RESTRUCTURED — median departure 0.683 vs
+the journal floor 0.024 (28x; all sensitivities agree); 33/33
+zombies LEFT of their verticals: the wash's margin-grinding is a
+genuinely different action from p-flattening — the two-actions
+story strengthens on both flanks. W034's letter (cloud above the
+family) denied 0/33; its spirit (mismatch = restructuring)
+confirmed; the "temperature couples tightly" premise was killed
+by the derivation itself, pre-compute. FREE FINDS: crossing is
+an EVENT not a state (3 TOGETHER-class dips recover; G_ZSUBSET
+honestly falsified, verdicts unchanged); 7/33 standing zombies
+hold fat margins on a WRONG argmax — temperature-impossible IN
+KIND — THE COMMITMENT OUTLIVES BOTH THE BELIEF AND THE CHOICE.
+
+HONESTY: one organism; n=2 washes; the grid coarse (resolutions
+quantized into (50,80]); near n=3 co-report; the floor is itself
+wash movement (conservative toward TEMPERATURE-LIKE — the
+verdict survived it 28x over); nothing guaranteed. NEXT (T212):
+identify the 7 wrong choices against the wash-corpus's modal
+continuation (the wind writing its own answer in decision
+space?) + e234 (the wind/friction decomposition, dispatched).
+
+---
+
 ## e227 — FQ1 the faculty at home: PARTIAL-TRACE + CHANNEL-DEATH-UNIVERSAL — the 124M ordering/family do NOT replicate at 2.74M (ctrl improves; eta2 0.03-0.13 vs 0.577) while FQ1's own third branch fires on ALL five qualifying arms (tmpl-form dead at +1 where rulers read 0.65-0.92); THE FEW-SHOT FACULTY EXISTS AT 2.74M (+0.185 exemplar lift on untrained MIRABEL) AND OUTLIVES THE FACT (lift >= t0 at settled post-kill states, to +0.40); the 10M point: lift ABSENT (-0.019, the 2-shot form floors 0/30) — AT 124M THE WASH EATS THE FACULTY AND SPARES THE FACTS; AT 2.74M THE WASH EATS THE FACT AND SPARES THE FACULTY (2026-10-04 ~14:10Z) — DONE
 
 WHAT WE DID: the e182c2 battery conventions ported to the 2.74M
