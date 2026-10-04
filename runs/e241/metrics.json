@@ -1,0 +1,642 @@
+{
+ "experiment": "e241_answer_neighbors",
+ "phase": "desk-only on COMMITTED data + one read-only CPU load of the pristine shared-124M wte (threads 4; no training, no evals, no GPU)",
+ "date": "2026-10-04T16:19:41Z",
+ "status": "DONE",
+ "registration": "bars + classification rules + prediction frozen VERBATIM from the dispatch brief in this file's docstring; the registration commit precedes any compute; adjudicate against exactly this; no bar shopping",
+ "question": "is the wrong-choosers' collapse LOCAL (into the dead answer's semantic neighborhood) or GLOBAL (scattered)?",
+ "builds_on": [
+  "T217 / e234 (the answer-neighbor texture \u2014 'wanders next door'; the registered prediction this cell adjudicates)",
+  "T212 / e232 (the zombie taxonomy \u2014 the 7 wrong-choosers; the (probe, wash) death unit)",
+  "e234's rider (the 1/7 corpus-mode kill of H-i re-teaching \u2014 CITED, never re-derived)",
+  "e238 (the committed answer-position logit dumps, sha-gated; the one-time re-probe that produced them)",
+  "e214/e228/e182c/e182c2 (the two-wash 124M archive underneath)"
+ ],
+ "whats_new": [
+  "the per-record logit-rank of the wrong token at t=0 (the runner-up question on committed logits)",
+  "the embedding z-read: wrong-vs-dead-answer cos sim against a 1000-random-vocab null on the pristine wte",
+  "the p-side start line: p(wrong|t0) vs p(answer|t0) and the raw logit gap",
+  "the NEXT-DOOR / RUNNER-UP-PURE / DISTANT classification and the LOCAL-COLLAPSE / GLOBAL-SCATTER / MIXED adjudication"
+ ],
+ "registered_bars_verbatim": {
+  "LOCAL-COLLAPSE": ">= 5/7 NEXT-DOOR \u2014 the commitment collapses into the dead answer's own neighborhood; T217's prediction confirmed; the zombie's new commitment is a mis-dial, not a re-write",
+  "GLOBAL-SCATTER": ">= 5/7 DISTANT \u2014 the flips are unrelated to the dead answers; the neighborhood texture was anecdotal",
+  "MIXED": "the classification table verbatim, no narrative inflation"
+ },
+ "registered_classification_rules_verbatim": {
+  "NEXT-DOOR": "embedding z >= 2 AND logit-rank <= 3 at t=0",
+  "RUNNER-UP-PURE": "rank 2 only, embedding z < 2",
+  "DISTANT": "neither"
+ },
+ "registered_prediction_T217_verbatim": "the neighbors sit in the dead answer's top-1% semantic neighborhood (a LOCAL collapse, not a global one \u2014 the commitment keeps its ADDRESS but loses its NUMBER)",
+ "operationalizations_frozen": {
+  "unit": "one (probe, wash) death \u2014 e232's convention; 7 adjudicated records (fact/ctrl) over 5 distinct probes (US->dollar and Apple->iPhone die under both washes); the 2 Georgia->Atlanta near records co-report only, counted separately (e232/e234's rule)",
+  "rank_t0": "1-based rank of the wrong token's logit among all 50257 entries of the committed t0 answer-position vector (float64 argsort, stable)",
+  "z_read": "cos(wte[wrong], wte[answer]) on L2-normalized float64 pristine-wte rows; null = 1000 ids drawn uniformly from the vocab minus the two ids; ONE global default_rng(20261004); records in e234 rider order; z = (sim - mean)/std(ddof=1)",
+  "p_side": "softmax in float64 of the committed t0 logits; gap = l(answer) - l(wrong), the raw runner-up gap at the start",
+  "classification_order": "NEXT-DOOR tested first (z >= 2 AND rank <= 3), then RUNNER-UP-PURE (rank == 2 AND z < 2), else DISTANT \u2014 first match wins, exactly the dispatch's wording",
+  "adjudication": "LOCAL-COLLAPSE iff >= 5/7 NEXT-DOOR; GLOBAL-SCATTER iff >= 5/7 DISTANT; else MIXED; the 7 = fact/ctrl records only",
+  "co_reports": "full-vocab embedding percentile of the wrong token (the direct top-1% read), the answer's top-5 wte neighbors, the null percentile, all near-record reads, the runner-up-gap table \u2014 none adjudicate"
+ },
+ "sources": {
+  "rider_identities": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e234\\metrics.json",
+   "sha256_16": "e527130c2aa0f47c"
+  },
+  "wrong_chooser_records": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\metrics.json",
+   "sha256_16": "307d046b7e7e9c5f"
+  },
+  "npz_shas_reference": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\journal.json",
+   "sha256_16": "f6a77b228a8b174f"
+  },
+  "logits_t0": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_t0.npz",
+   "sha256_16": "fd1d302f5713ec82"
+  },
+  "logits_w1s80": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s80.npz",
+   "sha256_16": "f13897401fe60341"
+  },
+  "logits_w2s80": {
+   "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s80.npz",
+   "sha256_16": "9c807dbf906e2cbc"
+  },
+  "wte": {
+   "repo": "openai-community/gpt2",
+   "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+   "wte_sha256_16_fp32bytes": "e182e433b37dbdb4",
+   "snapshot_safetensors_sha256_16": "248dfc3911869ec4",
+   "snapshot_file": "C:\\Users\\devan\\.cache\\huggingface\\hub\\models--openai-community--gpt2\\snapshots\\607a30d783dfa663caf39e06633721c8d4cfcd7e\\model.safetensors"
+  }
+ },
+ "cited_not_rederived": {
+  "corpus_mode_count": {
+   "bigram": 1,
+   "trigram": 0,
+   "source": "runs/e234/metrics.json rider (e234's committed bigram/trigram reads)"
+  }
+ },
+ "table": [
+  {
+   "battery": "fact",
+   "wash": "w1",
+   "probe": "Egypt->Cairo",
+   "dead_answer_token": " Cairo",
+   "dead_answer_id": 23732,
+   "wrong_token": " the",
+   "wrong_id": 262,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 5,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 4.8249,
+   "cos_sim_wrong_vs_answer": 0.0816,
+   "null_mean": 0.2628,
+   "null_std": 0.0454,
+   "embedding_z": -3.992,
+   "null_percentile": 0.0,
+   "full_vocab_emb_rank_of_wrong": 50254,
+   "full_vocab_emb_percentile": 0.01,
+   "answer_top5_emb_neighbors": [
+    [
+     " Cairo",
+     1.0
+    ],
+    [
+     " Egypt",
+     0.6977
+    ],
+    [
+     "Egypt",
+     0.6633
+    ],
+    [
+     " Egyptian",
+     0.6506
+    ],
+    [
+     " Beirut",
+     0.6073
+    ]
+   ],
+   "p_answer_t0": 0.805771,
+   "p_wrong_t0": 0.006468,
+   "p_ratio_answer_over_wrong": 124.57,
+   "classification": "DISTANT",
+   "rider_margin_80": 0.08184035244937499,
+   "rider_p_ans_80": 0.10885904729366302,
+   "rider_is_bigram_mode": true,
+   "join_dp_vs_e232_p_t0": 9.6198e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "fact",
+   "wash": "w1",
+   "probe": "the United States->dollar",
+   "dead_answer_token": " dollar",
+   "dead_answer_id": 8872,
+   "wrong_token": " dollars",
+   "wrong_id": 5054,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 2,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 1.2148,
+   "cos_sim_wrong_vs_answer": 0.7117,
+   "null_mean": 0.236,
+   "null_std": 0.0371,
+   "embedding_z": 12.81,
+   "null_percentile": 1.0,
+   "full_vocab_emb_rank_of_wrong": 4,
+   "full_vocab_emb_percentile": 99.99,
+   "answer_top5_emb_neighbors": [
+    [
+     " dollar",
+     1.0
+    ],
+    [
+     "dollar",
+     0.7329
+    ],
+    [
+     " Dollar",
+     0.7324
+    ],
+    [
+     " dollars",
+     0.7117
+    ],
+    [
+     " Dollars",
+     0.5985
+    ]
+   ],
+   "p_answer_t0": 0.590931,
+   "p_wrong_t0": 0.175365,
+   "p_ratio_answer_over_wrong": 3.37,
+   "classification": "NEXT-DOOR",
+   "rider_margin_80": 0.07057359403389044,
+   "rider_p_ans_80": 0.09912417083978653,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 9.4694e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "fact",
+   "wash": "w2",
+   "probe": "the United States->dollar",
+   "dead_answer_token": " dollar",
+   "dead_answer_id": 8872,
+   "wrong_token": " dollars",
+   "wrong_id": 5054,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 2,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 1.2148,
+   "cos_sim_wrong_vs_answer": 0.7117,
+   "null_mean": 0.2355,
+   "null_std": 0.0396,
+   "embedding_z": 12.04,
+   "null_percentile": 1.0,
+   "full_vocab_emb_rank_of_wrong": 4,
+   "full_vocab_emb_percentile": 99.99,
+   "answer_top5_emb_neighbors": [
+    [
+     " dollar",
+     1.0
+    ],
+    [
+     "dollar",
+     0.7329
+    ],
+    [
+     " Dollar",
+     0.7324
+    ],
+    [
+     " dollars",
+     0.7117
+    ],
+    [
+     " Dollars",
+     0.5985
+    ]
+   ],
+   "p_answer_t0": 0.590931,
+   "p_wrong_t0": 0.175365,
+   "p_ratio_answer_over_wrong": 3.37,
+   "classification": "NEXT-DOOR",
+   "rider_margin_80": 0.2602049104882616,
+   "rider_p_ans_80": 0.05210815742611885,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 9.4694e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "ctrl",
+   "wash": "w1",
+   "probe": "The phone made by Apple->iPhone",
+   "dead_answer_token": " iPhone",
+   "dead_answer_id": 7133,
+   "wrong_token": " the",
+   "wrong_id": 262,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 3,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 2.9374,
+   "cos_sim_wrong_vs_answer": 0.0963,
+   "null_mean": 0.2527,
+   "null_std": 0.0422,
+   "embedding_z": -3.71,
+   "null_percentile": 0.001,
+   "full_vocab_emb_rank_of_wrong": 50255,
+   "full_vocab_emb_percentile": 0.0,
+   "answer_top5_emb_neighbors": [
+    [
+     " iPhone",
+     1.0
+    ],
+    [
+     " iPhones",
+     0.7794
+    ],
+    [
+     " iPad",
+     0.7543
+    ],
+    [
+     "iPhone",
+     0.7395
+    ],
+    [
+     " iOS",
+     0.7278
+    ]
+   ],
+   "p_answer_t0": 0.635883,
+   "p_wrong_t0": 0.033705,
+   "p_ratio_answer_over_wrong": 18.87,
+   "classification": "DISTANT",
+   "rider_margin_80": 0.2927834412479846,
+   "rider_p_ans_80": 0.11716761440038681,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 1.04908e-05,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "ctrl",
+   "wash": "w1",
+   "probe": "The tablet made by Apple->iPad",
+   "dead_answer_token": " iPad",
+   "dead_answer_id": 13133,
+   "wrong_token": " the",
+   "wrong_id": 262,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 9,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 4.6567,
+   "cos_sim_wrong_vs_answer": 0.0519,
+   "null_mean": 0.2642,
+   "null_std": 0.0479,
+   "embedding_z": -4.432,
+   "null_percentile": 0.0,
+   "full_vocab_emb_rank_of_wrong": 50256,
+   "full_vocab_emb_percentile": 0.0,
+   "answer_top5_emb_neighbors": [
+    [
+     " iPad",
+     1.0
+    ],
+    [
+     " iPads",
+     0.7762
+    ],
+    [
+     " iPhone",
+     0.7543
+    ],
+    [
+     " iPod",
+     0.675
+    ],
+    [
+     " iOS",
+     0.6508
+    ]
+   ],
+   "p_answer_t0": 0.767601,
+   "p_wrong_t0": 0.007291,
+   "p_ratio_answer_over_wrong": 105.29,
+   "classification": "DISTANT",
+   "rider_margin_80": 0.06727931406961364,
+   "rider_p_ans_80": 0.24164250493049622,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 8.6011e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "ctrl",
+   "wash": "w2",
+   "probe": "The phone made by Apple->iPhone",
+   "dead_answer_token": " iPhone",
+   "dead_answer_id": 7133,
+   "wrong_token": " the",
+   "wrong_id": 262,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 3,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 2.9374,
+   "cos_sim_wrong_vs_answer": 0.0963,
+   "null_mean": 0.2544,
+   "null_std": 0.0439,
+   "embedding_z": -3.603,
+   "null_percentile": 0.0,
+   "full_vocab_emb_rank_of_wrong": 50255,
+   "full_vocab_emb_percentile": 0.0,
+   "answer_top5_emb_neighbors": [
+    [
+     " iPhone",
+     1.0
+    ],
+    [
+     " iPhones",
+     0.7794
+    ],
+    [
+     " iPad",
+     0.7543
+    ],
+    [
+     "iPhone",
+     0.7395
+    ],
+    [
+     " iOS",
+     0.7278
+    ]
+   ],
+   "p_answer_t0": 0.635883,
+   "p_wrong_t0": 0.033705,
+   "p_ratio_answer_over_wrong": 18.87,
+   "classification": "DISTANT",
+   "rider_margin_80": 0.0829241876029829,
+   "rider_p_ans_80": 0.2173159271478653,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 1.04908e-05,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "ctrl",
+   "wash": "w2",
+   "probe": "The music store made by Apple->iTunes",
+   "dead_answer_token": " iTunes",
+   "dead_answer_id": 4830,
+   "wrong_token": " Music",
+   "wrong_id": 7849,
+   "adjudicates": true,
+   "logit_rank_wrong_t0": 4,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 4.0686,
+   "cos_sim_wrong_vs_answer": 0.4173,
+   "null_mean": 0.254,
+   "null_std": 0.0421,
+   "embedding_z": 3.881,
+   "null_percentile": 0.996,
+   "full_vocab_emb_rank_of_wrong": 124,
+   "full_vocab_emb_percentile": 99.76,
+   "answer_top5_emb_neighbors": [
+    [
+     " iTunes",
+     1.0
+    ],
+    [
+     " iOS",
+     0.5712
+    ],
+    [
+     " iCloud",
+     0.557
+    ],
+    [
+     " iPod",
+     0.5263
+    ],
+    [
+     " iPad",
+     0.5198
+    ]
+   ],
+   "p_answer_t0": 0.686249,
+   "p_wrong_t0": 0.011736,
+   "p_ratio_answer_over_wrong": 58.47,
+   "classification": "DISTANT",
+   "rider_margin_80": 0.13793988022000853,
+   "rider_p_ans_80": 0.13690724968910217,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 1.07919e-05,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "near",
+   "wash": "w1",
+   "probe": "Georgia->Atlanta",
+   "dead_answer_token": " Atlanta",
+   "dead_answer_id": 9371,
+   "wrong_token": " Augusta",
+   "wrong_id": 46820,
+   "adjudicates": false,
+   "logit_rank_wrong_t0": 2,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 1.7024,
+   "cos_sim_wrong_vs_answer": 0.4914,
+   "null_mean": 0.2493,
+   "null_std": 0.0455,
+   "embedding_z": 5.324,
+   "null_percentile": 0.998,
+   "full_vocab_emb_rank_of_wrong": 65,
+   "full_vocab_emb_percentile": 99.87,
+   "answer_top5_emb_neighbors": [
+    [
+     " Atlanta",
+     1.0
+    ],
+    [
+     "Atlanta",
+     0.8502
+    ],
+    [
+     " Philadelphia",
+     0.6331
+    ],
+    [
+     " Georgia",
+     0.6213
+    ],
+    [
+     " Chicago",
+     0.6107
+    ]
+   ],
+   "p_answer_t0": 0.636639,
+   "p_wrong_t0": 0.116022,
+   "p_ratio_answer_over_wrong": 5.49,
+   "classification": "NEXT-DOOR",
+   "rider_margin_80": 0.3630542306764244,
+   "rider_p_ans_80": 0.1052575409412384,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 8.45e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  },
+  {
+   "battery": "near",
+   "wash": "w2",
+   "probe": "Georgia->Atlanta",
+   "dead_answer_token": " Atlanta",
+   "dead_answer_id": 9371,
+   "wrong_token": " Augusta",
+   "wrong_id": 46820,
+   "adjudicates": false,
+   "logit_rank_wrong_t0": 2,
+   "logit_rank_answer_t0": 1,
+   "logit_gap_answer_minus_wrong_t0": 1.7024,
+   "cos_sim_wrong_vs_answer": 0.4914,
+   "null_mean": 0.2478,
+   "null_std": 0.0419,
+   "embedding_z": 5.813,
+   "null_percentile": 1.0,
+   "full_vocab_emb_rank_of_wrong": 65,
+   "full_vocab_emb_percentile": 99.87,
+   "answer_top5_emb_neighbors": [
+    [
+     " Atlanta",
+     1.0
+    ],
+    [
+     "Atlanta",
+     0.8502
+    ],
+    [
+     " Philadelphia",
+     0.6331
+    ],
+    [
+     " Georgia",
+     0.6213
+    ],
+    [
+     " Chicago",
+     0.6107
+    ]
+   ],
+   "p_answer_t0": 0.636639,
+   "p_wrong_t0": 0.116022,
+   "p_ratio_answer_over_wrong": 5.49,
+   "classification": "NEXT-DOOR",
+   "rider_margin_80": 0.2706478244797105,
+   "rider_p_ans_80": 0.15308833122253418,
+   "rider_is_bigram_mode": false,
+   "join_dp_vs_e232_p_t0": 8.45e-06,
+   "join_dm_vs_e232_margin_80": 0.0
+  }
+ ],
+ "adjudication": {
+  "n_adjudicated": 7,
+  "n_NEXT_DOOR": 2,
+  "n_RUNNER_UP_PURE": 0,
+  "n_DISTANT": 5,
+  "verdict": "GLOBAL-SCATTER",
+  "bar_fired_verbatim": ">= 5/7 DISTANT \u2014 the flips are unrelated to the dead answers; the neighborhood texture was anecdotal",
+  "near_co_report_classifications": [
+   "NEXT-DOOR",
+   "NEXT-DOOR"
+  ],
+  "prediction_read": "T217's letter (top-1% semantic neighborhood) is a CO-REPORT here (full-vocab embedding percentile / null percentile columns); the letter's adjudicator was never registered as a bar \u2014 the registered bars are the classification counts only"
+ },
+ "gates": {
+  "G_SHA_t0": {
+   "got": "fd1d302f5713ec82",
+   "committed": "fd1d302f5713ec82",
+   "pass": true,
+   "desc": "logits_t0.npz sha256_16 matches e238 journal"
+  },
+  "G_SHA_w1s80": {
+   "got": "f13897401fe60341",
+   "committed": "f13897401fe60341",
+   "pass": true,
+   "desc": "logits_w1s80.npz sha256_16 matches e238 journal"
+  },
+  "G_SHA_w2s80": {
+   "got": "9c807dbf906e2cbc",
+   "committed": "9c807dbf906e2cbc",
+   "pass": true,
+   "desc": "logits_w2s80.npz sha256_16 matches e238 journal"
+  },
+  "G_GRID": {
+   "pass": true,
+   "desc": "w1s80/w2s80 dumps share the t0 dump's 54-row probe grid"
+  },
+  "G_WTE": {
+   "pass": true,
+   "shape": [
+    50257,
+    768
+   ],
+   "repo": "openai-community/gpt2",
+   "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+   "desc": "pristine shared-124M wte (the archive's t0 organism), read-only"
+  },
+  "G_IDS": {
+   "pass": true,
+   "desc": "tokenizer re-encodes every committed wrong-token string to its committed id; npz ans_ids decode into their probe names"
+  },
+  "G_ANSWER_T0": {
+   "pass": true,
+   "desc": "the dead answer was argmax at t=0 in every record (the commitment existed before the wash)"
+  },
+  "G_FLIP80": {
+   "pass": true,
+   "desc": "re-read argmax of the committed +80 dump equals the committed wrong token in all 9 records"
+  },
+  "G_JOIN232": {
+   "pass": true,
+   "max_dp_observed": 1.0791948205191026e-05,
+   "tol_dp": 0.0001,
+   "desc": "t0 p (float64 softmax of the committed float32 t0 logit dump) reproduces e232's committed p_t0 within the npz round-trip scale (observed max ~1.1e-5, systematic \u2014 see deviations); rider margin_80 equals e232's committed margin_80 exactly on all 9 records"
+  }
+ },
+ "honesty_reflex": "the rank read (t0 decision layer) and the z read (static embedding geometry) are INDEPENDENT instruments \u2014 the classification needs both, so neither alone manufactures a NEXT-DOOR. KNOWN CONFOUND, disclosed not corrected: ' the' is the vocab's most frequent token and its wte vector sits near the embedding cloud's mean direction, so its cosine to ANY answer can be elevated by frequency geometry rather than answer-specific semantics \u2014 the null (1000 uniform vocab ids) mostly samples rare tokens; the full-vocab percentile column is the less confounded read and co-reports only. the +80 dumps are used ONLY to re-verify the committed flips (gate), never to adjudicate; the 2 near records never adjudicate.",
+ "figures": [
+  "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e241\\e241_neighborhoods.png",
+  "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e241\\e241_classification.png"
+ ],
+ "compute": {
+  "device": "cpu desk pass (threads 4)",
+  "model_loads": 1,
+  "model_role": "read-only wte extraction from the pristine shared 124M (the t0 organism)",
+  "gpu_calls": 0,
+  "training": "none"
+ },
+ "provenance": {
+  "git_head_at_start": "5f012f2f24f02cfadcbf250556a0575c853f096a",
+  "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e241_answer_neighbors.py",
+  "script_sha256_16": "3e561dfa7ee9d45d",
+  "versions": {
+   "python": "3.13.7",
+   "numpy": "2.3.5",
+   "torch": "2.12.0.dev20260408+cu128",
+   "transformers": "5.12.1",
+   "matplotlib": "3.10.6"
+  }
+ },
+ "timing": {
+  "started": "2026-10-04T16:19:41Z",
+  "finished": "2026-10-04T16:19:53Z",
+  "wall_s": 12.3
+ },
+ "trims": [],
+ "deviations": [
+  "the null-draw sequence is consumed once for the metrics and re-drawn with the SAME seed for the histogram figure (bit-wise identical by construction; no second sample)",
+  "G_JOIN232's dp tolerance was widened from 1e-6 to 1e-4 after the first run tripped: softmax of the committed FLOAT32 npz dump differs from e232/e214's committed journal p by a systematic 0.8-1.1e-5 on every record (float32 round-trip; e238's own gate compared its LIVE forward to e214 and read exactly 0.0). Identity gate only \u2014 no bar, no read, and no classification sits within orders of magnitude of this scale; per-record dp/dm kept in the table as join_* fields"
+ ],
+ "all_gates_pass": true
+}

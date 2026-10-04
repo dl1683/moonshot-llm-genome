@@ -329,12 +329,18 @@ def main() -> None:
             f"p_ans={p_ans:.3f} p_wrong={p_wrong:.3e} -> {cls}")
 
     # gate roll-up
+    # dp tolerance 1e-4 (set AFTER the first run tripped at 1e-6): the npz
+    # dumps are float32 round-trips of the live forward — softmax-of-dump vs
+    # the committed journal p differs by a SYSTEMATIC ~0.8-1.1e-5 on every
+    # record (e238's own gate compared its LIVE forward to e214 and read
+    # exactly 0.0). This is an identity gate, not a bar; no read in this cell
+    # sits within orders of magnitude of that scale. dm is exact everywhere.
     for rec in table:
         g = rec["_gates"]
         assert g["tokenizer_id_matches_committed"], rec["probe"]
         assert g["answer_is_argmax_t0"], rec["probe"]
         assert g["argmax80_reread_equals_wrong"], rec["probe"]
-        assert g["dp_vs_e232_p_t0"] < 1e-6, rec["probe"]
+        assert g["dp_vs_e232_p_t0"] < 1e-4, rec["probe"]
         assert g["dm_vs_e232_margin_80"] == 0.0, rec["probe"]
     gates["G_IDS"] = {
         "pass": all(r["_gates"]["tokenizer_id_matches_committed"]
@@ -350,12 +356,16 @@ def main() -> None:
         "desc": "re-read argmax of the committed +80 dump equals the committed "
                 "wrong token in all 9 records"}
     gates["G_JOIN232"] = {
-        "pass": all(r["_gates"]["dp_vs_e232_p_t0"] < 1e-6
+        "pass": all(r["_gates"]["dp_vs_e232_p_t0"] < 1e-4
                     and r["_gates"]["dm_vs_e232_margin_80"] == 0.0
                     for r in table),
-        "desc": "t0 p (softmax of the committed t0 logits) reproduces e232's "
-                "committed p_t0 to <1e-6; rider margin_80 equals e232's "
-                "committed margin_80 exactly"}
+        "max_dp_observed": max(r["_gates"]["dp_vs_e232_p_t0"] for r in table),
+        "tol_dp": 1e-4,
+        "desc": "t0 p (float64 softmax of the committed float32 t0 logit "
+                "dump) reproduces e232's committed p_t0 within the npz "
+                "round-trip scale (observed max ~1.1e-5, systematic — see "
+                "deviations); rider margin_80 equals e232's committed "
+                "margin_80 exactly on all 9 records"}
 
     # ------------------------------------------------------- adjudication
     adj = [r for r in table if r["adjudicates"]]
@@ -479,7 +489,9 @@ def main() -> None:
     timing["finished"] = utcnow()
     timing["wall_s"] = round(time.time() - t_start, 1)
     for r in table:
-        r.pop("_gates")
+        g = r.pop("_gates")
+        r["join_dp_vs_e232_p_t0"] = round(g["dp_vs_e232_p_t0"], 10)
+        r["join_dm_vs_e232_margin_80"] = round(g["dm_vs_e232_margin_80"], 10)
     metrics = {
         "experiment": "e241_answer_neighbors",
         "phase": ("desk-only on COMMITTED data + one read-only CPU load of "
@@ -636,6 +648,14 @@ def main() -> None:
             "the null-draw sequence is consumed once for the metrics and "
             "re-drawn with the SAME seed for the histogram figure (bit-wise "
             "identical by construction; no second sample)",
+            "G_JOIN232's dp tolerance was widened from 1e-6 to 1e-4 after "
+            "the first run tripped: softmax of the committed FLOAT32 npz "
+            "dump differs from e232/e214's committed journal p by a "
+            "systematic 0.8-1.1e-5 on every record (float32 round-trip; "
+            "e238's own gate compared its LIVE forward to e214 and read "
+            "exactly 0.0). Identity gate only — no bar, no read, and no "
+            "classification sits within orders of magnitude of this scale; "
+            "per-record dp/dm kept in the table as join_* fields",
         ],
         "all_gates_pass": None,  # filled below
     }
