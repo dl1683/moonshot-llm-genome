@@ -150,6 +150,10 @@ E220_M = common.REPO / "runs" / "e220" / "metrics.json"
 K_HOT = 2000                       # g11's primary k (ladder co-reported)
 K_LADDER = (2000, 20000, 200000)
 FD_EPS = (0.05,) if SMOKE else (0.02, 0.05)   # e204's FD sizes (L2 units)
+WASH_GRAD_FD = (0.005,) if SMOKE else (0.002, 0.005)  # DESCENT-direction
+# eps for the wash-grad FD gate: the registration's eps 0.02 along the
+# gradient is CURVATURE-dominated at 124M (smoke: dCE +3.31 at 0.05) and
+# the step sign must be the wash's own (-g_hat); see deviations.
 Z_BAR = 2.0                        # the frozen 2-sigma bar
 TOL_T0_DP = 0.010                  # e214's TOL_PROBE_DP (t=0 vs records)
 TOL_STATE_DP = 0.005               # e214's TOL_STATE_DP (loaded states)
@@ -218,17 +222,38 @@ REGISTERED_PREDICTION = {
 deviations: list[str] = [
     "The two bars are EXHAUSTIVE complements (any-Z>=2 vs all-Z<2): no "
     "GRADED tier exists for this cell — registered as such, not a trim.",
+    "INSTRUMENT CORRECTIONS FROM THE SMOKE (pre-full-run, bars untouched; "
+    "smoke artifacts on disk in runs/e226_smoke — gitignored by the "
+    "lab's smoke-dir convention, disclosed here): (1a) fp32 dot "
+    "accumulation over 124M coords drifts ~0.6% (the smoke determinism "
+    "gate: the fp32 self-dot of a BITWISE-IDENTICAL unit vector read "
+    "1.0061) — every cache dot/Gram is computed in fp64 after casting "
+    "chunks; (1b) the fp16 cache is written with a 2^14 scale (unscaled "
+    "unit-vector components ~9e-6 sit in fp16's subnormal range, ~150 "
+    "quantization levels; with fp64 dots the fp16 rounding becomes the "
+    "binding term) — the scale cancels in every cos; the measured floor "
+    "after both is ~5e-4 (recorded in G_SUPPORT and adjudication."
+    "instrument_floor). (2) the wash-gradient FD gate is computed along "
+    "the DESCENT direction (-g_hat) at eps {0.002, 0.005}: the "
+    "registration's literal 'CE(W + eps*g_hat) < CE(W) at eps 0.02' had "
+    "the step's SIGN wrong (a +gradient step RAISES CE; the wash steps "
+    "along -g) and its eps was CURVATURE-dominated at 124M (smoke: dCE "
+    "+3.31 at eps 0.05 along +g_hat — the first-order drop ~0.4 nats is "
+    "swamped by the quadratic penalty). The per-state descent-FD ladder "
+    "is recorded; the registered prediction text is preserved verbatim "
+    "and this entry is the gate's honest implementation.",
     "The support cache is fp16 (13.4 GB) not fp32 (26.9 GB): the box is "
     "shared (e225 co-running; 63 GB total). Cache rounding moves cos by "
-    "~5e-4 — two orders below any plausible family sigma; disclosed in "
-    "honesty; determinism re-verified against a fresh recompute.",
+    "~5e-4 — below any plausible family sigma and reported next to every "
+    "sigma (see adjudication.instrument_floor); determinism re-verified "
+    "against a fresh recompute.",
     "w2/w3 weights were computed on GPU fp32 in their own cells (their "
     "archived states are the record); every gradient HERE is CPU fp32 on "
     "those archived states — the origin is disclosed, the read is "
     "state-faithful.",
     "The +80 rotation/FD reads use each wash's archived +80 state only "
-    "(the design's 'settled +80 states'); intermediate-state supports "
-    "are not computed (cost), and this is registered, not trimmed.",
+    "(the design's 'settled +80 states'); intermediate-state supports are "
+    "not computed (cost), and this is registered, not trimmed.",
     "The wash forward is eval-mode: GPT-2 has no batchnorm and every "
     "dropout module was already zeroed by e182c's load_organism (the "
     "VERBATIM organism loader), so train-mode and eval-mode forwards are "
@@ -296,7 +321,9 @@ def probe_support(net, probe: dict) -> tuple[torch.Tensor, float]:
     p0 = float(pvec[probe["ans_id"]].item())
     pvec[probe["ans_id"]].backward()
     g = flat_grad(net)
-    nrm = float(g.norm().item())
+    # fp64 norm: fp32 .norm() over 124M coords drifts ~0.6% — the smoke
+    # determinism gate caught it (the "self-cos" read ||s||_true)
+    nrm = float(g.norm(dtype=torch.float64).item())
     if not (nrm > 0 and math.isfinite(nrm)):
         raise RuntimeError(f"degenerate support for {probe['fact']}")
     net.zero_grad(set_to_none=True)
@@ -311,9 +338,10 @@ def wash_batch(train_ids, off: torch.Tensor):
     return x, y
 
 
-def wash_grad(net, x, y) -> tuple[torch.Tensor, float]:
+def wash_grad(net, x, y) -> tuple[torch.Tensor, float, float]:
     """g = grad of the wash's OWN loss (mean CE over the batch) at the
-    CURRENT weights; returns (normalized direction, batch CE)."""
+    CURRENT weights; returns (normalized direction, batch CE, raw grad
+    L2 norm)."""
     net.eval()
     net.zero_grad(set_to_none=True)
     logits = net(input_ids=x).logits
@@ -321,11 +349,11 @@ def wash_grad(net, x, y) -> tuple[torch.Tensor, float]:
                          y.reshape(-1))
     ce.backward()
     g = flat_grad(net)
-    nrm = float(g.norm().item())
+    nrm = float(g.norm(dtype=torch.float64).item())   # fp64 (see probe_support)
     if not (nrm > 0 and math.isfinite(nrm)):
         raise RuntimeError("degenerate wash gradient")
     net.zero_grad(set_to_none=True)
-    return g / nrm, float(ce.item())
+    return g / nrm, float(ce.item()), nrm
 
 
 @torch.no_grad()
@@ -352,43 +380,52 @@ def overlap_frac(a: set, b: set, k: int) -> float:
 
 
 # ------------------------------------------------------------ cache math
+# SMOKE FINDING (the determinism gate): fp32 dot accumulation over
+# 124M coords drifts ~0.6% (fp32 self-dot of a BITWISE-IDENTICAL unit
+# vector read 1.0061) — every dot against the cache is therefore
+# computed in fp64 after casting chunks. fp16 storage keeps the
+# 2^14 scale (unscaled unit-vector components ~9e-6 sit in fp16's
+# subnormal range, ~150 levels). Measured cos floor after both: ~5e-4.
 
-CHUNK = 8_388_608          # 2^23 coords: 16 MB fp16 / 32 MB fp32 chunks
+CHUNK = 4_194_304          # 2^22 coords per chunk (bounds fp64 casts)
+CACHE_SCALE = 2 ** 14      # puts typical components at ~0.15 (fp16 normal)
 
 
 def cache_row_norms(cache: torch.Tensor) -> torch.Tensor:
-    """fp64 norms of the (fp16) cache rows — the cos denominators."""
+    """fp64 norms of the (fp16) cache rows — the cos denominators
+    (element squares in fp32, reduction accumulated in fp64)."""
     out = torch.zeros(cache.shape[0], dtype=torch.float64)
     for s in range(0, cache.shape[1], CHUNK):
         sl = slice(s, min(s + CHUNK, cache.shape[1]))
-        out += cache[:, sl].to(torch.float32).pow(2).sum(1).to(torch.float64)
+        out += cache[:, sl].to(torch.float32).pow(2).sum(
+            1, dtype=torch.float64)
     return out.sqrt()
 
 
 def dot_vec_rows(vec: torch.Tensor, cache: torch.Tensor,
                  rows: list[int]) -> list[float]:
-    """dot(vec, cache[r]) fp32-chunked, fp64-accumulated (raw dots).
-    Column-slice FIRST (a view), then row-select — never copies whole
+    """dot(vec, cache[r]) with fp64-cast chunks and fp64 matvec —
+    column-slice FIRST (a view), then row-select — never copies whole
     rows."""
     out = [0.0] * len(rows)
     rws = torch.tensor(rows, dtype=torch.long)
     for s in range(0, cache.shape[1], CHUNK):
         sl = slice(s, min(s + CHUNK, cache.shape[1]))
-        C = cache[:, sl].index_select(0, rws).to(torch.float32)
-        v = vec[sl]
-        d = (C @ v).to(torch.float64).tolist()
+        C = cache[:, sl].index_select(0, rws).to(torch.float64)
+        v = vec[sl].to(torch.float64)
+        d = (C @ v).tolist()
         out = [a + b for a, b in zip(out, d)]
     return out
 
 
 def gram_cache(cache: torch.Tensor) -> torch.Tensor:
-    """full Gram (raw dots) in one cache pass, fp64-accumulated."""
+    """full Gram (raw dots) in one cache pass, fp64 matmul."""
     n = cache.shape[0]
     G = torch.zeros(n, n, dtype=torch.float64)
     for s in range(0, cache.shape[1], CHUNK):
         sl = slice(s, min(s + CHUNK, cache.shape[1]))
-        C = cache[:, sl].to(torch.float32)
-        G += (C @ C.T).to(torch.float64)
+        C = cache[:, sl].to(torch.float64)
+        G += C @ C.T
     return G
 
 
@@ -571,13 +608,13 @@ def main():
         f"{e216_rows[ANCHOR_I]['resid_w1']:+.3f}")
 
     # the anchors' fates on all THREE washes (committed, load-only)
-    def _probes(rec, step, batt):
-        return {f: v["p"] for f, v in rec[step][batt]["probes"].items()}
+    def _probes(state_rec, batt):
+        return {f: v["p"] for f, v in state_rec[batt]["probes"].items()}
     anchor_fates = {}
     for tag, fkey in (("Gmail", ANCHOR_G), ("iPhone", ANCHOR_I)):
         anchor_fates[tag] = {}
         for w, recs in (("w1", w1_rec), ("w2", w2_rec), ("w3", w3_rec)):
-            p0c, s80 = _probes(recs, 0, "ctrl"), _probes(recs, 80, "ctrl")
+            p0c, s80 = _probes(recs[0], "ctrl"), _probes(recs[80], "ctrl")
             anchor_fates[tag][w] = {"p0": p0c[fkey], "p80": s80[fkey],
                                     "hr": s80[fkey] / p0c[fkey]}
     metrics["anchor_fates_committed"] = anchor_fates
@@ -685,10 +722,10 @@ def main():
     for b, bl in bats.items():
         mine = [r["fact"] for r in bl]
         mine_p = {r["fact"]: r["p"] for r in bl}
-        ref1 = _probes(w1_rec[0], 0, b) if b != "tmpl" \
-            else _probes(w1_tmpl_rec[0], 0, "tmpl")
-        ref2 = _probes(w2_rec[0], 0, b)
-        ref3 = _probes(w3_rec[0], 0, b)
+        ref1 = _probes(w1_rec[0], b) if b != "tmpl" \
+            else _probes(w1_tmpl_rec[0], "tmpl")
+        ref2 = _probes(w2_rec[0], b)
+        ref3 = _probes(w3_rec[0], b)
         G_BATT[b] = {
             "n": len(bl),
             "order_equal_e216":
@@ -736,7 +773,7 @@ def main():
                 "The web browser made by Google->Chrome",
                 "The tablet made by Apple->iPad",
                 "The music store made by Apple->iTunes",
-                "The console made by Sony->PlayStation",
+                "The game console made by Sony->PlayStation",
                 "The social network founded by Mark Zuckerberg->Facebook",
                 "France->Paris", "Massachusetts->Boston",
                 "Boston->Massachusetts"}
@@ -775,8 +812,9 @@ def main():
                         bool(torch.equal(gen.get_state(), archived)),
                 }
         for s_ in W_STATES[w]:
-            if s_ > 0:
-                batch_off[(w, s_)] = offs[s_]      # draw #(s+1), 0-indexed s
+            # s_=0 uses draw #1 (the wash's FIRST batch — the hot-set
+            # source); state s_ uses draw #(s+1) (its own next batch)
+            batch_off[(w, s_)] = offs[s_]          # 0-indexed draw list
     G_DRAWS["pass"] = bool(all(v["gen_state_identical_after_80"]
                                for k, v in G_DRAWS.items()
                                if isinstance(v, dict) and "seed" in v)) \
@@ -823,7 +861,7 @@ def main():
     assert [n for n, _ in netFD.named_parameters()] == P_NAMES
     for i, pr in enumerate(probes54):
         s_i, p0 = probe_support(net0, pr)
-        cache[i] = s_i.to(torch.float16)
+        cache[i] = (s_i * CACHE_SCALE).to(torch.float16)
         # FD gate: p(theta0 + eps*s_hat) must RISE (e204's convention)
         fd = {}
         for eps in FD_EPS:
@@ -928,19 +966,21 @@ def main():
                 if w == "w1":
                     rec = (w1_rec[s_] if b != "tmpl"
                            else w1_tmpl_rec[s_])
-                    ref = _probes(rec, s_, b if b != "tmpl" else "tmpl")
                 else:
-                    ref = _probes({"w2": w2_rec, "w3": w3_rec}[w], s_, b)
+                    rec = {"w2": w2_rec, "w3": w3_rec}[w][s_]
+                ref = _probes(rec, b)
                 dps[b] = max(abs(pp[f] - v) for f, v in ref.items())
-            # (b) the wash's own next-batch gradient + FD gate
+            # (b) the wash's own next-batch gradient + DESCENT FD ladder
             x, y = wash_batch(train_ids, batch_off[(w, s_)])
-            g_hat, ce0 = wash_grad(net, x, y)
+            g_hat, ce0, gnorm = wash_grad(net, x, y)
             base_sds = [p.detach().clone() for p in net.parameters()]
-            add_flat(net, base_sds, g_hat, FD_EPS[0])
-            ce_fd = wash_ce(net, x, y)
-            restore_flat(net, base_sds)
+            fd = {}
+            for eps in WASH_GRAD_FD:
+                add_flat(net, base_sds, g_hat, -eps)   # DESCENT (-g_hat)
+                fd[str(eps)] = wash_ce(net, x, y) - ce0
+                restore_flat(net, base_sds)
             del base_sds
-            gfd_pass = ce_fd < ce0
+            gfd_pass = fd[str(WASH_GRAD_FD[0])] < 0
             # (c) alignment dots vs the t=0 supports
             dots = dot_vec_rows(g_hat, cache, list(range(n_p)))
             cosr = {probes54[i]["fact"]: dots[i] / row_norms[i]
@@ -948,7 +988,8 @@ def main():
             align.setdefault(w, {})[str(s_)] = cosr
             state_gates[key] = {
                 "reprobe_max_dp": dps, "batch_ce": ce0,
-                "fd_dce": ce_fd - ce0, "fd_pass": bool(gfd_pass),
+                "grad_norm_raw": gnorm, "fd_descent_dce": fd,
+                "fd_pass": bool(gfd_pass),
                 "g_convention": "direction L2-normalized; matched point "
                                 "= the state's own next batch (draw #(s+1))",
             }
@@ -960,7 +1001,8 @@ def main():
                                        for k, v in hh.items()}
                                    for w, hh in hot_sets.items()}
             save_journal()
-            log(f"  {w} +{s_:2d}: CE {ce0:.4f} fd {ce_fd - ce0:+.2e} "
+            log(f"  {w} +{s_:2d}: CE {ce0:.4f} |g| {gnorm:.2f} "
+                f"fd(-eps) {fd[str(WASH_GRAD_FD[0])]:+.2e} "
                 f"cosG {cosr[ANCHOR_G]:+.4f} cosI {cosr[ANCHOR_I]:+.4f} "
                 f"dp {max(dps.values()):.2e}")
             del g_hat
@@ -1010,11 +1052,16 @@ def main():
     }
     metrics["gates"]["G_STATES"] = G_STATES
     metrics["gates"]["G_WASHGRAD"] = {
-        "rule": "CE(W + eps*g_hat) < CE(W) at eps 0.02 — every state's "
-                "wash gradient is a descent direction of its own batch "
-                "loss; anchors' +80 supports FD co-gated (recorded in "
-                "rotation records)",
-        "per_state_fd": {k: v["fd_dce"] for k, v in state_gates.items()},
+        "rule": "CE(W - eps*g_hat) < CE(W) at eps 0.002 (0.005 co-read) "
+                "— every state's wash gradient is a DESCENT direction of "
+                "its own batch loss; the registration's literal '+' step "
+                "and eps 0.02 were the sign/curvature errors the smoke "
+                "caught (see deviations); anchors' +80 supports FD "
+                "co-gated (recorded in rotation records)",
+        "per_state_fd": {k: v["fd_descent_dce"]
+                         for k, v in state_gates.items()},
+        "grad_norms_raw": {k: v["grad_norm_raw"]
+                           for k, v in state_gates.items()},
         "anchor_rot_fd": {w: {a: rot[w][a]["anchor_fd_dp"]
                               for a in (ANCHOR_G, ANCHOR_I)
                               if a in rot.get(w, {})} for w in WASHES},
@@ -1097,6 +1144,12 @@ def main():
         "bars_verbatim": REGISTERED_PREDICTION["bars_verbatim"],
         "fired_reads": fired,
         "max_z": max_z,
+        "instrument_floor": abs(1.0 - G_SUPPORT["determinism_selfcos_probe0"]),
+        "floor_note": "the empirical per-cos instrument floor (fp16 cache "
+                      "rounding + fp32 dot accumulation, measured by the "
+                      "determinism recompute) — every sigma below the "
+                      "floor is instrument, not structure; the z_reads "
+                      "table pairs each sigma with this floor",
         "replication_note": (
             f"{n_firing} of {len(z_reads)} registered reads at Z >= "
             f"{Z_BAR}; firing reads: "
