@@ -9,6 +9,44 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e246 — the engineered seat (the build lane's first cell): GEOMETRY-IRRELEVANT, with the asymmetry the null handed over — retentions ORTHO 1.0735 / ALIGNED 0.9900 / FREE 0.9832 (all inside the family's draw spread; ratio 1.08x vs the 1.5x bar): the wall's protection is GEOMETRY-BLIND at 2.74M; the 124M seat does not transfer to installs — but THE ORTHO install LANDS at matched strength (0.8611) while THE ALIGNED install CANNOT EXPRESS THE FACT AT ALL (g0 0.0000 through 400 steps; its root cons-taught 0.5618): INSTALLS LIVE ENTIRELY OUTSIDE THE WASH-SPAN, NEVER ENTIRELY INSIDE IT — the span is the install's ANTI-SUBSTRATE; and the walled wash's own displacement is 100x span-enriched yet protecting the install from it changes nothing (2026-10-04 ~19:05Z) — DONE
+
+WHAT WE DID: the frozen scratch/e246_design.md cell — three install
+arms at identical dose (ORTHO: gradients projected off the late
+wash-span before Adam; ALIGNED: onto it; FREE: natural — the
+instrumented path validated against the committed g1c install to
+L2 6.6e-4), then the standard wall wash; margins + thermal legs;
+14/14 gates PASS; two smoke-caught instrument bugs + one
+pre-adjudication G_FREE halt amended (g1c's precedent); the
+deterministic re-run identical; thermal max 80.0C, zero polls
+>= 84C. Script lab/e246_engineered_seat.py; runs/e246/
+{metrics.json, 2 PNGs, run.log} + the roots' checkpoints.
+
+WHAT WE SAW (T226): GEOMETRY-IRRELEVANT at the frozen bar —
+the worlds stay separate (the critic's cross-scale reading
+held: e227's dissociation predicted this branch). THE NULL'S
+YIELD: (i) THE ASYMMETRY — the corpus's own directions cannot
+write a new fact (ALIGNED expresses nothing); facts form only
+in directions the ongoing work does not occupy: NEW MEMORIES
+NEED ORTHOGONAL ROOM; (ii) ALIGNED's +2 transient pierced the
+kill bar (0.163) then RECOVERED under the wall — the crush
+re-sighted; (iii) the predictions fired anyway — ORTHO's
+margins thicken (+0.8% vs -13.5%) and ALIGNED's +1 heat
+exceeds ORTHO's (T 1.38 vs 0.91): THE THERMAL/GUST LAYER FEELS
+THE GEOMETRY THE FLAT PHASE DOES NOT — the layers decouple;
+(iv) the span is real (100x enrichment in the wash's
+displacement; cos-to-span 0.14-0.24 vs 0.0019 random).
+
+HONESTY: n=1 per arm (the critic's lottery caveat stands —
+the SEAT bar was inside the 2.2x draw spread); one lineage;
+the amendments disclosed. NEXT (T226): the UNWALLED engineered
+install (ORTHO vs FREE under the kill clock — if geometry ever
+owns fate, it is THERE); the anti-substrate question (what
+makes the span unwritable: interference? the normalizer? the
+corpus's continuous re-absorption?).
+
+---
+
 ## e240 — FQ8, the moment archive: NEITHER at the frozen bars, but the substrate is NOT fate-blind — the applied direction carries the killed probes' supports at z 4-7 for the first ~45 steps (~7x the current gradient's own contrast), then collapses WITH the supply (z(80) ~ 0, perm p 0.96): THE MEMORY IS THE SUPPLY'S LOW-PASS INTEGRAL, not an archive — the EMA + per-coordinate normalizer CONCENTRATE the persistent fate-aligned component; the no-archive law STANDS at +80 (no amendment); the half-life 16.8 ~ e179's 18 ~ 1/(1-beta2) — the stickiness object finds its mechanism candidate; THE TWO-SIDED TEXTURE: v's mass sits on the LIVING probes' hot sets while the numerator's direction carries the dying — THE OPTIMIZER'S DENOMINATOR HOLDS THE HOLDERS (2026-10-04 ~18:20Z) — DONE
 
 WHAT WE DID: the first reconstruction of the optimizer state

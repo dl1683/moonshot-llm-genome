@@ -685,6 +685,40 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T226 — e246: the span is the install's anti-substrate — new memories need orthogonal room (2026-10-04 ~19:07Z)
+
+The build lane's first verdict is the honest bound — the wall's
+protection is geometry-blind; the 124M seat does not transfer to
+installs (the critic's cross-scale reading held) — and the null's
+texture is the more interesting object. THE ASYMMETRY: an install
+restricted to the wash-span's own directions CANNOT EXPRESS A FACT
+AT ALL (g0 = 0.0000 for 400 steps — the root's 0.56 is cons-
+taught residue), while the orthogonal install lands at full
+matched strength. THE CORPUS'S OWN DIRECTIONS CANNOT WRITE NEW
+FACTS: the span — where the ongoing skill work lives, where the
+wash's displacement is 100x enriched — is an ANTI-SUBSTRATE for
+episodic memory. NEW MEMORIES NEED ORTHOGONAL ROOM. TWO
+ALTERNATIVE EXPLANATIONS for the unwritability: (H-i
+INTERFERENCE) every span-direction is continuously re-used by
+the corpus work, overwriting anything written there; (H-ii
+RANK-STARVATION) the ALIGNED projection's rank-k restriction
+starves the update of the per-coordinate diversity a sharp fact
+needs. THE DISCRIMINATOR (registered): a rank-matched RANDOM
+subspace install (same k, random directions): if it also fails,
+H-ii; if it lands, H-i (the span specifically). THE LAYERS
+DECOUPLE (the secondary yield): the margin/thermal layer FEELS
+the geometry (ORTHO thickens +0.8% vs -13.5%; ALIGNED's +1 heat
+1.38 vs ORTHO's 0.91) while the flat phase's economics do not —
+THE WALL'S PROTECTION IS NOT DIRECTIONAL SHIELDING (the ball's
+radial pin; the registered unwalled cell: ORTHO vs FREE under
+the kill clock). CONNECTIONS: e227's dissociation confirmed on
+the build side; W037 (the anti-substrate is behavior-vs-corpus
+in weight-space clothing); the counterfeit-self wild-card
+resharpened (disguise-as-self cannot target the span — it is
+unwritable; it must target the TIDE's rotation); the 0-for-4
+currency ledger's epilogue made interventional at the install
+level.
+
 ## T225 — e240: the moments are an amplifier, not an archive — and the optimizer splits by fate (2026-10-04 ~18:22Z)
 
 The archive question closes with the day's most mechanically
