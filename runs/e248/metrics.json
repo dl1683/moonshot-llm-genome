@@ -2,7 +2,7 @@
   "experiment": "e248_organism_replicate",
   "owner_lane": "e248-replicate",
   "created": "2026-10-04T18:01:20Z",
-  "status": "ORGANISM-TRAINED",
+  "status": "ORGANISM-ARC2 (amendment 2 applied)",
   "phase": "PHASE1 registration (desk)",
   "registration": {
     "docstring": "this file's module docstring (the registration, verbatim)",
@@ -121,7 +121,7 @@
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
     "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T20:46:10Z",
+  "updated": "2026-10-04T21:12:46Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -854,6 +854,22 @@
       "stop": "uturn",
       "best_val": 1.5781417389710743,
       "t": "2026-10-04T20:46:09Z"
+    },
+    {
+      "burst": 1,
+      "arc": 2,
+      "end_step": 918,
+      "stop": "time",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:11:12Z"
+    },
+    {
+      "burst": 2,
+      "arc": 2,
+      "end_step": 932,
+      "stop": "hard",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:12:46Z"
     }
   ],
   "amendments": [
@@ -888,9 +904,30 @@
         "test_construction_notes": "two earlier 'failed' positive controls were synthetic-construction bugs (tiled logit row -> p0 ranged 0.04-0.7; sign-flipped batteries cancelling in the pooled ranks), disclosed; the corrected controls are above"
       },
       "bars_otherwise": "untouched"
+    },
+    {
+      "amendment": 2,
+      "phase_boundary": "post-arc-1-U-turn, pre-arc-2-compute (desk; no arc-2 steps had run)",
+      "source": "coordinator advisory 2026-10-04 ~21:05Z (the g1bS2 precedent: a re-registration of the recipe with the cosine anchored at the observed val minimum is a licensed quality-gate repair); accepted \u2014 the executor's reads agree the U-turn is recipe-shaped",
+      "diagnosis": "recipe-shaped U-turn: val 2.3981@200 -> 1.5815@600 -> 1.5781@800 (BEST, checkpoint anchored) -> 1.7004@1000 -> 2.0667@1200 \u2014 the g1bS signature (a recipe minted at a smaller scale overtraining a larger host, there at s~1000-1113 on 10M, here at s~1000 on 116M); the corpus is the identical input.txt of the whole g-series (not corpus); the thermal pacing is math-inert sleeps (not hardware); bf16-train/fp32-eval unchanged",
+      "changes": {
+        "restart_from": "the arc-1 best checkpoint (step 800, val 1.5781; e248_organism_base.pt)",
+        "peak_lr": "1e-3 -> 3e-4 (the e182-family fine-tune scale)",
+        "warmup": "300 -> 60 (a fresh arc from a trained basin)",
+        "cosine_horizon": "anchored at step 800, decays to 3600 (2800 new steps; the diverged 800->1200 segment stays in the record verbatim)",
+        "optimizer": "fresh AdamW moments (arc-1's moments belong to the diverged trajectory)",
+        "data_seed": "24801 -> 24802 (fresh order)",
+        "dtype": "bf16 TRAINING-ONLY autocast unchanged (evals fp32)",
+        "guards": "the U-turn guard carries VERBATIM (2 strikes, best+0.03) with best_val initialized at the anchor \u2014 no guard shopping"
+      },
+      "bounds": "ONE repair only; if arc-2 fails to beat the anchor the organism remains the arc-1 best with its gate verdict, and phases 3-5 proceed on it"
     }
   ],
-  "organism": {
+  "install": {
+    "reset": true,
+    "reason": "amendment 2 re-anchored the organism (arc 2); arc-1 partial rungs kept in install_arc1_partial; mid-rung ckpt renamed .arc1_discarded.pt"
+  },
+  "organism_arc1_verbatim": {
     "params": 116279296,
     "cfg": {
       "vocab": 65,
@@ -908,5 +945,130 @@
     "G_ORGANISM_pass": false,
     "G_SIZE_pass": true,
     "size_reason": "the replicate demands the 124M organism class (dispatch option (a), scratch/e244 sketch); 116,279,296 params > the 100M free tier, <= the 500M ceiling with this stated reason"
+  },
+  "install_arc1_partial": {
+    "rungs": [
+      {
+        "rung": 0,
+        "lr": 5e-05,
+        "pass": 1,
+        "passes_target": 1,
+        "steps": 80,
+        "gated_ns": {
+          "fact": 0,
+          "ctrl": 3,
+          "near": 0,
+          "tmpl": 0
+        },
+        "mean_p0": 0.15615698650341342,
+        "wash_val_ce": 1.524176816145579,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": false,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T20:56:59Z"
+      },
+      {
+        "rung": 1,
+        "lr": 5e-05,
+        "pass": 1,
+        "passes_target": 2,
+        "steps": 80,
+        "gated_ns": {
+          "fact": 0,
+          "ctrl": 3,
+          "near": 0,
+          "tmpl": 0
+        },
+        "mean_p0": 0.15615698650341342,
+        "wash_val_ce": 1.524176816145579,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": false,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T20:57:41Z"
+      },
+      {
+        "rung": 1,
+        "lr": 5e-05,
+        "pass": 2,
+        "passes_target": 2,
+        "steps": 160,
+        "gated_ns": {
+          "fact": 5,
+          "ctrl": 6,
+          "near": 1,
+          "tmpl": 5
+        },
+        "mean_p0": 0.4080093907261336,
+        "wash_val_ce": 1.5324788490931194,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": false,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T21:00:18Z"
+      },
+      {
+        "rung": 2,
+        "lr": 5e-05,
+        "pass": 1,
+        "passes_target": 4,
+        "steps": 160,
+        "gated_ns": {
+          "fact": 5,
+          "ctrl": 6,
+          "near": 1,
+          "tmpl": 5
+        },
+        "mean_p0": 0.4080093907261336,
+        "wash_val_ce": 1.5324788490931194,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": false,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T21:01:00Z"
+      },
+      {
+        "rung": 2,
+        "lr": 5e-05,
+        "pass": 2,
+        "passes_target": 4,
+        "steps": 160,
+        "gated_ns": {
+          "fact": 5,
+          "ctrl": 6,
+          "near": 1,
+          "tmpl": 5
+        },
+        "mean_p0": 0.4080093907261336,
+        "wash_val_ce": 1.5324788490931194,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": false,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T21:01:42Z"
+      }
+    ],
+    "base_wash_ce": 1.5583397646745045
+  },
+  "amendment2": {
+    "active": true,
+    "anchor_step": 800,
+    "anchor_val": 1.5781417389710743,
+    "amendment": 2,
+    "phase_boundary": "post-arc-1-U-turn, pre-arc-2-compute (desk; no arc-2 steps had run)",
+    "source": "coordinator advisory 2026-10-04 ~21:05Z (the g1bS2 precedent: a re-registration of the recipe with the cosine anchored at the observed val minimum is a licensed quality-gate repair); accepted \u2014 the executor's reads agree the U-turn is recipe-shaped",
+    "diagnosis": "recipe-shaped U-turn: val 2.3981@200 -> 1.5815@600 -> 1.5781@800 (BEST, checkpoint anchored) -> 1.7004@1000 -> 2.0667@1200 \u2014 the g1bS signature (a recipe minted at a smaller scale overtraining a larger host, there at s~1000-1113 on 10M, here at s~1000 on 116M); the corpus is the identical input.txt of the whole g-series (not corpus); the thermal pacing is math-inert sleeps (not hardware); bf16-train/fp32-eval unchanged",
+    "changes": {
+      "restart_from": "the arc-1 best checkpoint (step 800, val 1.5781; e248_organism_base.pt)",
+      "peak_lr": "1e-3 -> 3e-4 (the e182-family fine-tune scale)",
+      "warmup": "300 -> 60 (a fresh arc from a trained basin)",
+      "cosine_horizon": "anchored at step 800, decays to 3600 (2800 new steps; the diverged 800->1200 segment stays in the record verbatim)",
+      "optimizer": "fresh AdamW moments (arc-1's moments belong to the diverged trajectory)",
+      "data_seed": "24801 -> 24802 (fresh order)",
+      "dtype": "bf16 TRAINING-ONLY autocast unchanged (evals fp32)",
+      "guards": "the U-turn guard carries VERBATIM (2 strikes, best+0.03) with best_val initialized at the anchor \u2014 no guard shopping"
+    },
+    "bounds": "ONE repair only; if arc-2 fails to beat the anchor the organism remains the arc-1 best with its gate verdict, and phases 3-5 proceed on it"
   }
 }

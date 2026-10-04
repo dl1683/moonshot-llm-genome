@@ -95,10 +95,11 @@ def main():
         # no train process: classify the exit
         m = read_metrics()
         org = m.get("organism", {})
+        steps = 3600 if m.get("amendment2", {}).get("active") else STEPS
         tail = journal_tail()
         last = tail[-1] if tail else ""
         if org.get("done"):
-            if org.get("final_step", 0) >= STEPS or \
+            if org.get("final_step", 0) >= steps or \
                     "train_uturn_stop" in tail:
                 log(f"PHASE2 COMPLETE: final_step={org.get('final_step')} "
                     f"best_val={org.get('best_val')} gate_pass="
@@ -107,7 +108,7 @@ def main():
                 sys.exit(0)
             # premature stamp from the pre-fix invocation: clear + relaunch
             log(f"CAP-EXIT with premature done stamp (final_step="
-                f"{org.get('final_step')} < {STEPS}; tail {tail[-3:]}) — "
+                f"{org.get('final_step')} < {steps}; tail {tail[-3:]}) — "
                 "clearing stamp, relaunching")
             m["organism"]["done"] = False
             m["organism"]["premature_stamp_cleared_by"] = "watch_phase2"
