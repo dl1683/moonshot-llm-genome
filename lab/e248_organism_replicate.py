@@ -521,8 +521,8 @@ def _e246_cell_active() -> str | None:
         if age < 600.0:
             if p.name == "metrics.json":
                 try:
-                    st = _json.loads(p.read_text(encoding="utf-8")).get("status", "")
-                    if st.upper().startswith("DONE"):
+                    st = _json.loads(p.read_text(encoding="utf-8")).get("status", "").upper()
+                    if st.startswith("DONE") or st.startswith("COMPLETE"):
                         continue
                 except Exception:
                     pass
