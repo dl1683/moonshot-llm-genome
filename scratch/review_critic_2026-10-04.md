@@ -1,0 +1,21 @@
+# The CRITIC's report — staggered frontier review 2026-10-04 (persisted from the role agent; read-only)
+
+## The five axis verdicts ( condensed)
+1. Central claims: each stated in its strongest honest version + its most-endangering observation:
+   (a) Zombies — endangered by the WINDOW (every resolution at step 80; ZOMBIES-STAND is censored by its own grid; a +160 wash would demote "resting state" to "long lag"); the 7 wrong-choosers' identity read registered but NOT RUN; n=1 organism.
+   (b) The seat — endangered by e237's NO-GAIN branch (LETHAL!=CARRIER precedent); the t=0-fixed projection direction is an 80-step-stale target for a support rotating at 0.89-0.91 — the family-clause negative could flip under a current-support projection.
+   (c) The cross-scale dissociation — endangered by the M-baseline confound ALREADY CONFESSED (T214): if lift sign is predictable from 0-shot p(M) alone, the dissociation collapses into a prior-height artifact. The anatomy read is registered but not run.
+   (d) W035 — endangered by VACUITY-BY-COVERAGE: if the span basis captures most of each step's L2, "wind" reduces to "the step" — the span-coverage number is UNFROZEN in e234 (the RECIPE-IDENTITY failure class); the timescale leg is window-censored.
+   (e) W037 — MOST AT RISK as stated: the one-stroke-explanation shape; the dichotomy mislabels its own instruments (supports ARE behavior-anchored weight-space objects); DOUBLE-PROTECTED (weak e236 confirms it, strong only "narrows scope") — narrative until the direct cell runs.
+2. Top 3 replications owed (cheapest first): (1) the zombie taxonomy on w3 + the 7's identity (desk, minutes — riding with e234's rider); (2) the M-baseline anatomy across the root zoo (CPU ~1h — T214's registered ask); (3) e233's ARM-P/ARM-C on wash-2 (GPU-lite — the day's most load-bearing unreplicated number; the +0.219 hr effect measured on ONE stream whose natural swing is 1.9x; e237's frozen bars inherit the single-stream anchoring).
+3. Instrument families: RECIPE-IDENTITY should also ride e225's committed co-reads (the sign-ray edge/band table); the temperature vertical makes every sigma-normalized margin instrument BLIND to the temperature-like action class — the p-side narratives (T211's "the flattening receding") are unconstrained (cheap guard: a one-temperature-per-state null on committed journals); the FD supports' staleness lands on T215's family-clause negative (fixed-direction artifact risk).
+4. Queue shape: STILL GENERATIVE (three new object classes; the e226->e233->e237 chain is the lab's healthiest: observation->intervention->mechanism-cut) with ONE NAMED TREADMILL: the flat-phase currency chain is about to run its FOURTH x-column against the same seven y-values — T206's own row-expansion discriminator unscheduled; e236 must dispatch ONLY as the W036-vs-W037 discrimination, and on VARIES-BUT-TRACKS-NOTHING the hunt moves to new rows or stops. Cadence debt: last_novelty 3 days stale, self-disclosed then not acted on; the prior-era queue tail (g1bW2, g9, e146b, e167/e168) needs renewal or honest parking at the review entry.
+5. Synthesis risk ranking: W037 > W036 > W035 (W035 healthiest — live falsifier in flight, needs the coverage guard). Cheapest discriminating cell: THE CROSS-WASH SUPPORT-STABILITY READ — re-derive the 54 supports at matched deep states under two certified wash replays; cos(s@w1(+80), s@w2(+80)); objects stable -> W037 earns physics ("probe-anchored directions stable, corpus-anchored cloudy" — sharper and testable); cloud-level -> W037 deflates to reads-only.
+
+## The three sharpest critiques
+1. The day's most celebrated number is ONE STREAM wide (e233's 0.188->0.407 vs a natural 1.9x cross-wash swing; e237's bars all w1-anchored).
+2. W037's dichotomy is doing rhetorical work its data does not license (the honest object-level comparison — supports stable AS VECTORS at depth — never run).
+3. The currency chain is adding columns to a table that needs ROWS (4 x-candidates, one fixed 7-y, 0-for-4).
+
+## The dispatch question
+e237 must carry an ARM-P-on-w2 replication rider, or the mechanism claim ("the wind has memory") cannot be told from "the wind's effect is a w1 draw." Runner-up: e236 dispatches ONLY as the W036-vs-W037 discrimination.
