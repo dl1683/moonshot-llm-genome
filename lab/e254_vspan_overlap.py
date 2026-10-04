@@ -197,6 +197,13 @@ CACHE_SCALE = e226.CACHE_SCALE                    # 2**14
 CHUNK = e240.CHUNK                                # 2**22 (e226/e240 chunk)
 K_LADDER_HOT = e226.K_LADDER                      # (2000, 20000, 200000)
 RAM_FLOOR_GB = e240.RAM_FLOOR_GB                  # 16 (e226's cache floor)
+RAM_FLOOR_GRADS_GB = 12.0                         # the grads memmap phase
+                                                   # (page-cache-evictable;
+                                                   # disclosed — the first
+                                                   # full run executed this
+                                                   # phase cleanly at 12-13
+                                                   # GB available twice)
+RAM_WAIT_GRADS_S = 120.0                          # short politeness wait
 RAM_FLOOR_NULL_GB = 12.0                          # snapshot phase (disclosed)
 LR, B1, B2, WD, EPS_ADAM, CLIP = (e240.LR, e240.B1, e240.B2,
                                   e240.WD, e240.EPS_ADAM, e240.CLIP)
@@ -268,6 +275,16 @@ deviations: list[str] = [
     "the squared-supply curve coincide at t=1) is checked as an internal "
     "consistency read.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "RELAUNCH DISCLOSURE (envelope-only, no registered quantity touched): "
+    "the first full run was killed externally mid-w3 (w1/w2 fully "
+    "certified in runs/e254_run.log's first session — dCE 0.0, G_VHOT "
+    "0.0, G_GRAM PASS for both; the null sweep needs the in-RAM v "
+    "snapshots, so a clean deterministic rerun was required); on "
+    "relaunch the grads-memmap RAM wait-floor was lowered 16 -> 12 GB "
+    "with a 120 s cap (the first run executed that phase cleanly twice "
+    "at 12-13 GB available; the two 600 s max-waits it burned were pure "
+    "idle). Identical seeds/threads/arithmetic — every number is "
+    "re-derived, none carried over.",
     "Smoke mode (E254_SMOKE=1): 12 steps, w1 only, the basis from the "
     "regenerated 6x6 block (knee head 5), k-ladder {1,2}, 4 null seeds; "
     "nothing adjudicated or gated (SMOKE stamp).",
@@ -1078,7 +1095,8 @@ def main():
 
     for w in WASHES:
         load_checks.append(cpu_load_check(f"replay {w}"))
-        ram_waits.append(ram_wait(RAM_FLOOR_GB, f"grads memmap {w}"))
+        ram_waits.append(ram_wait(RAM_FLOOR_GRADS_GB, f"grads memmap {w}",
+                                  max_wait_s=RAM_WAIT_GRADS_S))
         metrics["ram_waits"] = ram_waits
         snap_states = set(ARCH_STATES[w]) | (
             set(CURVE_GRID) if w == PRIMARY_WASH else set())
