@@ -1063,6 +1063,7 @@ def cmd_install() -> None:
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 opt.step()
+                pace_for_temp()          # the standing per-step discipline
                 if step % WASH["poll_every"] == 0:
                     ok, why = mid_burst_check(step, f"install-r{ri}", t0,
                                               WASH["burst_s"])
@@ -1073,6 +1074,25 @@ def cmd_install() -> None:
                         "opt": opt.state_dict(),
                         "gen_state": gen.get_state(), "ri": ri, "pi": pi,
                         "step": step}, ck)
+            # [recovery executor, operational fix, recipe/bars untouched] a
+            # mid-pass thermal exit is NOT a completed pass: bumping pi and
+            # reading the rung here would take dose readouts OFF the
+            # registered grid ({80,160,320,640} cumulative steps) and could
+            # accept a rung at a partial dose. Cool (heat-soak on hard,
+            # the collision-fix rule) and resume the SAME pass.
+            if step < target:
+                if why == "hard":
+                    t_wait = time.time()
+                    while (time.time() - t_wait < 120.0
+                           or gpu_poll()["temp"] > 65.0):
+                        time.sleep(20.0)
+                        if time.time() - t_wait > 900.0:
+                            jlog("heatsoak_timeout")
+                            break
+                    jlog("heatsoak_done", temp=gpu_poll()["temp"])
+                else:
+                    cooldown(30, 45)
+                continue
             pi += 1
             # rung readout (pass end)
             reads = battery_read(model, device)
@@ -1160,11 +1180,28 @@ def cmd_wash() -> None:
                 ok, why = mid_burst_check(t, f"wash-{wname}", t0,
                                           WASH["burst_s"])
                 if not ok:
+                    # [recovery executor, operational fix, recipe untouched]
+                    # a >=82C read no longer RAISES: a pause is
+                    # mathematically inert here (the draw stream is a
+                    # seeded sequential generator; wall-clock pauses never
+                    # enter the trajectory), while a raise would kill the
+                    # wash mid-memmap and cost a full deterministic redo.
+                    # Heat-soak per the collision-fix rule, then resume.
                     if why == "hard":
-                        raise RuntimeError("thermal hard stop (>=82C)")
-                    jlog("wash_pause", wash=wname, step=t, why=why,
-                         temp=gpu_poll()["temp"])
-                    time.sleep(45)
+                        jlog("wash_HARDSTOP", wash=wname, step=t,
+                             temp=gpu_poll()["temp"])
+                        t_wait = time.time()
+                        while (time.time() - t_wait < 120.0
+                               or gpu_poll()["temp"] > 65.0):
+                            time.sleep(20.0)
+                            if time.time() - t_wait > 900.0:
+                                jlog("heatsoak_timeout")
+                                break
+                        jlog("heatsoak_done", temp=gpu_poll()["temp"])
+                    else:
+                        jlog("wash_pause", wash=wname, step=t, why=why,
+                             temp=gpu_poll()["temp"])
+                        time.sleep(45)
                     t0 = time.time()
             ix = torch.randint(len(wash_train) - ctx - 1, (WASH["batch"],),
                                generator=gen)
@@ -1180,6 +1217,7 @@ def cmd_wash() -> None:
                 gdir[t - 1] = (flat / max(nrm, 1e-12) * 16384.0).half().cpu().numpy()
             torch.nn.utils.clip_grad_norm_(model.parameters(), WASH["clip"])
             opt.step()
+            pace_for_temp()      # the standing per-step discipline
             if t in grid:
                 torch.save({"model": model.state_dict(), "step": t,
                             "gen_state_after": gen.get_state(),
