@@ -782,7 +782,8 @@ def chunked_install(tag, mode, net0, proj: SpanProjector, inst_x, inst_mask,
         return {"sd": state["model"], "traj": state.get("traj", []),
                 "ledger": state.get("ledger", {}),
                 "steps_ran": n_steps, "n_chunks": state.get("n_chunks", 0),
-                "chunk_table": state.get("chunk_table", [])}
+                "chunk_table": state.get("chunk_table", []),
+                "resumed_final": True}
     net, opt, gen, evl = None, None, None, None
     n_chunks, chunk_table = 0, []
     step = state["step"]
@@ -914,7 +915,8 @@ def chunked_consolidate(tag, net0, pool_a_x, pool_a_mask, cons_anchor,
         log(f"  [{tag}] resume ckpt already COMPLETE at s{state['step']}")
         return {"sd": state["model"], "traj": state.get("traj", []),
                 "steps_ran": n_steps, "n_chunks": state.get("n_chunks", 0),
-                "chunk_table": state.get("chunk_table", [])}
+                "chunk_table": state.get("chunk_table", []),
+                "resumed_final": True}
     net, opt, gen, evl = None, None, None, None
     n_chunks, chunk_table = 0, []
     step = state["step"]
@@ -1045,7 +1047,8 @@ def chunked_wash(tag, net0, anchor_neutral, train_ids, itos, r_eval_xy,
                     "wall_R": _pre.get("wall_R", wall_R),
                     "n_chunks": _pre.get("n_chunks", 0),
                     "chunk_table": _pre.get("chunk_table", []),
-                    "active_s": _pre.get("active_s", 0.0)}
+                    "active_s": _pre.get("active_s", 0.0),
+                    "resumed_final": True}
     while step < n_steps:
         if t_burst is None:
             t_burst, n_burst = _open_burst(f"{tag}-chunk{n_chunks + 1}")
@@ -1680,7 +1683,8 @@ def main():
             f"{arms_rec[arm]['install']['ledger_in_span_frac_median']:.4f}")
         write_partial(f"P2 ARM-{arm} install + post dial + geometry")
 
-        burst_cooldown(f"{arm} inst->cons")
+        if not inst.get("resumed_final", False):
+            burst_cooldown(f"{arm} inst->cons")
         cons = chunked_consolidate(
             f"{arm}-cons", G1.evl_load(sd_install), pool_a_x, pool_a_mask,
             cons_anchor, train_ids, g0_ids, r_eval_xy, zid,
@@ -1724,7 +1728,7 @@ def main():
         del root_net_arm
         metrics["arms"] = arms_rec
         write_partial(f"P3/P4 ARM-{arm} root built + matched read")
-        if arm != ARMS[-1]:
+        if arm != ARMS[-1] and not inst.get("resumed_final", False):
             burst_cooldown(f"{arm} -> next arm")
 
     # ---- G_FREE: THE CONTROL (the design's halt clause) -----------------
@@ -1898,7 +1902,7 @@ def main():
             "theta0_norm": arm_w.get("theta0_norm"),
             "wall_R": arm_w.get("wall_R")}
         write_partial(f"P5 ARM-{arm} wall wash done")
-        if arm != ARMS[-1]:
+        if arm != ARMS[-1] and not arm_w.get("resumed_final", False):
             burst_cooldown(f"{arm} wash -> next")
     # cross-arm input identity
     common_steps = set(washes[ARMS[0]]["x_hashes"])
@@ -1930,13 +1934,15 @@ def main():
                                         - G1C_W1_GM12.get(s, 0))}
                     for s in sorted(set(free_gm12) & set(G1C_W1_GM12))}
     free_flat = [free_gm12[s] for s in FLAT_FULL8 if s in free_gm12]
-    free_ret = (min(free_flat) / free_gm12[0]
-                if free_flat and 0 in free_gm12 else None)
+    free_root_g12 = arms_rec["FREE"]["root"]["gm12"]
+    free_ret = (min(free_flat) / free_root_g12
+                if free_flat and free_root_g12 > 0 else None)
     G_FREE["w1_wash"] = {
         "rows_vs_committed_w1": free_w1_rows,
         "max_abs_diff_vs_committed": max(r["abs_diff"]
                                          for r in free_w1_rows.values()),
         "retention_full8": free_ret,
+        "root_gm12": free_root_g12,
         "draw_spread": [DRAW_SPREAD["lo"], DRAW_SPREAD["hi"]],
         "min_gm12_all_ckpts": min(free_gm12.values()),
         "maintain_bar": float(G1.MAINTAIN_BAR),
@@ -1949,7 +1955,8 @@ def main():
     }
     G_FREE["pass"] = bool(G_FREE["pass"] and G_FREE["w1_wash"]["pass"])
     metrics["gates"]["G_FREE"] = G_FREE
-    log(f"G_FREE tier (iv): FREE W1 retention {free_ret:.4f} in spread "
+    _fr = "n/a" if free_ret is None else f"{free_ret:.4f}"
+    log(f"G_FREE tier (iv): FREE W1 retention {_fr} in spread "
         f"[{DRAW_SPREAD['lo']:.3f}, {DRAW_SPREAD['hi']:.3f}], min g-12 "
         f"{min(free_gm12.values()):.4f} >= {G1.MAINTAIN_BAR} "
         f"(max step |d| vs committed W1 "
@@ -2376,7 +2383,7 @@ def make_fates_plot(rd, gm12_series, retention, washes, readouts, verdict,
     ax.set_ylim(-0.03, 1.05)
     ax.legend(fontsize=7.2, loc="center right")
     ax.grid(alpha=0.25)
-    ax.set_title("THE FATE TRAJECTORIES — fate vs the engineered geometry",
+    ax.set_title("THE FATE TRAJECTORIES (g-12 through the wall wash)",
                  fontsize=10)
 
     # (0,1) THE RETENTIONS vs the draw spread
@@ -2400,9 +2407,9 @@ def make_fates_plot(rd, gm12_series, retention, washes, readouts, verdict,
     ax.set_ylabel("flat-phase retention (min g-12 {10,50,100,300} / root)")
     ax.legend(fontsize=7.4, loc="best")
     ax.grid(alpha=0.25, axis="y")
-    ax.set_title(f"THE CLAIM'S STATISTIC — ORTHO/ALIGNED ratio "
+    ax.set_title(f"RETENTIONS vs the draw spread\nratio ORTHO/ALIGNED "
                  f"{ratio if ratio is not None else float('nan'):.2f}x "
-                 f"(bar >= 1.5x, both landed)", fontsize=10)
+                 f"(bar >= 1.5x)", fontsize=10)
 
     # (1,0) THE MARGINS through the wash (e242's instrument)
     ax = axes[1, 0]
@@ -2418,8 +2425,7 @@ def make_fates_plot(rd, gm12_series, retention, washes, readouts, verdict,
     ax.set_ylabel("battery MEDIAN argmax margin (sigma)")
     ax.legend(fontsize=7.6)
     ax.grid(alpha=0.25)
-    ax.set_title("THE COMMITMENT LAYER — margins through the wash "
-                 "(prediction (a): ORTHO thickens faster)", fontsize=10)
+    ax.set_title("MARGINS through the wash (prediction (a))", fontsize=10)
 
     # (1,1) THE VERDICT PANEL
     ax = axes[1, 1]
@@ -2432,10 +2438,12 @@ def make_fates_plot(rd, gm12_series, retention, washes, readouts, verdict,
         ax.text(0.02, y, wd, fontsize=6.8, va="top", family="monospace")
         y -= 0.024
     y -= 0.012
-    ax.text(0.02, y, "GATES: " + "  ".join(
+    gates_txt = "  ".join(
         f"{g}={'PASS' if v.get('pass') else 'FAIL'}"
-        for g, v in metrics["gates"].items() if isinstance(v, dict)),
-        fontsize=6.6, va="top", family="monospace")
+        for g, v in metrics["gates"].items() if isinstance(v, dict))
+    for wd in textwrap.wrap("GATES: " + gates_txt, width=96)[:2]:
+        ax.text(0.02, y, wd, fontsize=6.4, va="top", family="monospace")
+        y -= 0.02
     fig.suptitle("E246 — THE ENGINEERED SEAT: install a fact ORTHOGONAL to "
                  "the wash-span / IN the span / FREE, then the standard "
                  f"wall wash (R={R_CLAIM}) -> {verdict}", fontsize=11)
