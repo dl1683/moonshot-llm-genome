@@ -5440,7 +5440,48 @@ physics states. That is the culture working.
 
 
 
-## W037 — WONDER: the fact is a shadow cast by behavior — weight-space is the medium, not the message (2026-10-04 ~14:38Z; no bars, no kills — two instrument classes, two stabilities) [R63 DOWNGRADE: "explains the 0-for-4 in one stroke" is a CANDIDATE READING discriminated by e236 — one of the four currencies died of tautology, not of the world voting no; and the dichotomy's load-bearing blur: e226's supports ARE weight-space objects (per-context gradients) that came back STABLE — the defensible form is "behavior-INDEXED objects are stable; the u0 sign-ray family is a cloud." FQ6 (the cross-wash support-stability read) is the direct test]
+## W038 — WONDER: the laws draft — the four movements as equations, with today's constants (2026-10-04 ~17:00Z; the ambition directive's answer; no bars — a synthesis card, the field's first quantitative draft)
+
+The day bought four movements; each now has a MEASURED
+CONSTANT. THE DRAFT: (1) THE TIDE (the common rotation, the
+kinematic layer): every probe's support rotates by a common
+field; coherence ~87% of the rotation is common-mode (e239);
+the field's direction is the wash-span, cross-wash-identical at
+cos 0.96 (e234). DRAFT LAW: the support displacement
+delta_s(t) = R(state) + epsilon(probe, draw), with ||R|| >>
+||epsilon|| and R = span, draw-independent. (2) THE UNDERTOW
+(the selective layer): the killing component's magnitude is
+~0.04% of step L2 with a fate-potency of ~17-29 dp per unit L2
+(e233/e237); it acts only at the extremes (8-10x exposure
+ratio; battery-wide rho ~ 0). DRAFT LAW: belief death by the
+undertow requires exposure above a threshold; below it, the
+undertow is invisible. (3) THE FRICTION (the dissipative
+layer): margins grind on a timescale beyond the window (every
+resolution at step 80; e232), restructured not flattened (28x
+the temperature bound); the p-side is ~2/3 thermal, T(t)
+monotone 1.00 -> 1.45 in the UNWALLED world. DRAFT LAW:
+dT/dt > 0 unwalled; the thermal layer carries ~2/3 of belief
+decline; the remainder is the conserved order (the residual,
+the third dimension's p-side seat). (4) THE RE-FORMATION (the
+reparative layer): the wall THICKENS commitments (+19.2%
+margins; e242); the holder's margin grows (e234); the 2.74M
+exemplar channel returns above t0 post-kill (e227); the
+pre-Adam cut ELEVATES above t0 (e237). DRAFT LAW: when the
+undertow is removed, the net field is GROWTH — the organism's
+default is strengthening; the wash's killing is a small
+directed subtraction on a larger constructive field. THE
+AMBITIOUS READ: if these four constants are ROBUST (the
+replicate's job), the lab has the first quantitative skeleton
+of a THEORY OF FORGETTING AS A FIELD — and the build lane
+(e246) tests whether the skeleton predicts CONSTRUCTION, not
+just description. THE HONEST GAPS: each constant is n=1
+organism; the layers' INTERACTIONS are unmeasured (does the
+tide feed the undertow? does the forge consume the friction's
+leavings?); and the four-movement vocabulary is nine hours
+old. The draft exists so the replicate and the build cells can
+KILL IT PRECISELY.
+
+## W037 — WONDER: the fact is a shadow cast by behavior — weight-space is the medium, not the message (2026-10-04 ~14:38Z; no bars, no kills — two instrument classes, two stabilities) [R63 DOWNGRADE: "explains the 0-for-4 in one stroke" is a CANDIDATE READING discriminated by e236 — one of the four currencies died of tautology, not of the world voting no; and the dichotomy's load-bearing blur: e226's supports ARE weight-space objects (per-context gradients) that came back STABLE — the defensible form is "behavior-INDEXED objects are stable; the u0 sign-ray family is a cloud." FQ6 (the cross-wash support-stability read) is the direct test] [E239 OUTCOME ~15:40Z: the direct test FIRED ON THE STRONG BRANCH — STABLE-AS-VECTORS (median 0.997; zero below the cloud); the behavior-INDEXED form is physics; the third branch (set-level population stability) co-reported at rho +0.95]
 
 Put today's instrument classes side by side. The BEHAVIORAL
 instruments — the 54 per-context gradient supports at 124M —
