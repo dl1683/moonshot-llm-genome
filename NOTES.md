@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e245 — the death-depth read: MIXED — depth DENIED at 2x (ratio 1.158; the p-at-flip co-read runs OPPOSITE — collapses held MORE mass at flip time) and the wash DENIED at 75%; THE HONEST RE-NAME: the separating binary is e230's DEATH ORDER (non-P-FIRST 4/4 mis-dial; collapses 7/7 P-FIRST) and w1's Egypt->Cairo WALKS BOTH MODES IN ORDER inside one record (mis-dial 'Alexandria' at +50 -> collapse 'the' at +80) — the two stages live in ORDER and TIME, not surviving mass (2026-10-04 ~17:05Z) — DONE
+
+WHAT WE DID: T221's registered discrimination, desk-only (the
+19-flip table from e243 verbatim; p(+80) and p-at-flip from
+e228's journal, sha-gated; the census fields re-joined 19/19 to
+e230's order records; 3-record p re-certification vs e214
+exact). Bars frozen at 46bbdca BEFORE compute. Script
+lab/e245_death_depth.py; runs/e245/{metrics.json,
+e245_depth_distributions.png, e245_wash_contingency.png}.
+
+WHAT WE SAW (T222): DEPTH-SELECTS denied all three clauses
+(median ratio 1.158; w2 reversed at 0.620, n=1 disclosed;
+p-at-flip 0.822 OPPOSITE to the registered direction) —
+Egypt->Cairo the depth-killer (same probe, same RU, p80 0.109
+vs 0.117, opposite modes). WASH-WRITES denied (w1 max-share
+54.5%, w2 50%; the two-mode-restricted w2 = 80% co-reported,
+non-adjudicating; the freeze honored). THE RE-NAME:
+T221's "never halved" gloss was FALSE (19/19 halved by +80);
+the separating binary is the DEATH ORDER — every non-P-FIRST
+record (the commitment or the pair dying first) MIS-DIALED
+(4/4), every frequency collapse sat in P-FIRST (7/7, the
+belief dying first); and the lone walker (w1 Egypt) visited
+mis-dial then collapse in sequence. THE TWO DEATH MODES ARE THE
+TWO DEATH ORDERS — e230's taxonomy and e241's are ONE taxonomy
+seen from two instruments.
+
+HONESTY: n=19 (the non-P-FIRST side n=4, thin, disclosed); the
+endpoint-first-crossing read sees only journal states (transient
+mis-dials between states invisible). NEXT (T222): the w3 flip
+census (fatten both sides) + the walker question at finer
+states + e247 dispatched.
+
+---
+
 ## e243 — the mode selector: MIXED at the bar, and the selector is NOT the t=0 standing structure — a local runner-up stands beside essentially every death, in BOTH modes (18/19; 'Alexandria' z+6 beside Cairo's 'the' collapse; Egypt->Cairo flips OPPOSITE WAYS under two washes with the identical RU); every census-outside flip (belief never halved) MIS-DIALED — the collapse needs the belief dead first (2026-10-04 ~16:50Z) — DONE
 
 WHAT WE DID: T219's registered ask, desk-only on committed data.

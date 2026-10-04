@@ -685,7 +685,37 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
-## T221 — e243: the mode is selected by death depth, not standing structure — two stages of the commitment's death (2026-10-04 ~16:52Z)
+## T222 — e245: the two death modes ARE the two death orders — the day's taxonomies unify (2026-10-04 ~17:07Z)
+
+The depth read denied its own registration and handed back a
+unification. The registered dial (surviving mass) is the wrong
+one — Egypt->Cairo kills it single-handedly (same probe, same
+runner-up, near-identical depth, opposite modes). The REAL
+separator is e230's DEATH ORDER: commitment-or-pair-first deaths
+mis-dial (the local slide); belief-first deaths collapse to the
+prior. And the walker (w1 Egypt) visits mis-dial at +50 and
+collapse at +80 IN SEQUENCE. THE TWO DEATH MODES ARE THE TWO
+DEATH ORDERS: e230's P-FIRST taxonomy (built on margins vs p)
+and e241/e243's mode taxonomy (built on argmax targets) are ONE
+taxonomy seen from two instruments. THE PICTURE THIS CLOSES:
+when the belief dies first, the orphaned commitment eventually
+surrenders to the frequency prior (the collapse); when the
+commitment goes first (or they go together), the argmax slides
+within the local field while the belief still stands (the
+mis-dial). THE ORDER IS THE MODE. REGISTERED (e247): the w3
+flip census fattens both sides (the non-P-FIRST side is n=4);
+the walker question at finer states (how many transient mis-
+dials precede collapses between journal states?); prediction:
+the order->mode map holds at w3 (non-P-FIRST -> mis-dial;
+P-FIRST -> collapse-or-other) and the walkers are common (the
+mis-dial is a STAGE most collapses pass through, visible only
+at fine grids). CONNECTIONS: the whole day's arc — e230's
+inversion (P-FIRST modal), e232's standing zombies, e241's
+bimodality, e243's dead selector — collapses into one sentence:
+THE COMMITMENT DIES IN THE ORDER THE LAYERS DIED, AND ITS LAST
+WORD IS EITHER ITS NEIGHBOR OR THE PRIOR.
+
+## T221 — e243: the mode is selected by death depth, not standing structure — two stages of the commitment's death (2026-10-04 ~16:52Z) [E245 OUTCOME ~17:05Z: the mass-dial DENIED (Egypt->Cairo the killer); the stages live in ORDER and TIME — the ordinal version is the story; see T222]
 
 The registered selector died cleanly and left a better story.
 The t=0 candidate field is degenerate: a semantic runner-up
