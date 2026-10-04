@@ -1,0 +1,483 @@
+{
+  "experiment": "e234_wind_friction",
+  "phase": "the three committed 124M washes replayed (CPU fp32, certified draw streams) with every step's raw gradient collected; split-half span decomposition; the two joins across the 54 probes; the 7-zombie rider",
+  "date": "2026-10-04T14:41:06Z",
+  "status": "PARTIAL: w1 replay through s20",
+  "registration": "bars + predictions frozen VERBATIM from scratch/e234_design.md (frozen at dispatch BEFORE this script or any compute); adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "WIND-AND-FRICTION": "join (a) clears rho >= 0.6 (the wind kills aligned beliefs, extended from the anchor pair to all 54 probes) AND margin-vs-alignment rho <= 0.2 while margin-vs-friction rho >= 0.4 \u2014 two components, two targets; the field named",
+      "WIND-ONLY": "beliefs track alignment but margins track the FULL step magnitude (not specifically the residual) \u2014 one directed field; the friction is not separable",
+      "NEITHER": "belief decline does not extend beyond the anchors at the line \u2014 the e226 seat was anchor-specific, not the battery's law; the honest bound"
+    },
+    "predictions_verbatim": {
+      "(a) anchor asymmetry generalizes": "The anchor asymmetry generalizes: nearrel-family probes (the dying family) carry higher wind-alignment than product-family probes, median separation >= 2x.",
+      "(b) margins alignment-independent": "Margin decline is alignment-independent (|rho| <= 0.2) \u2014 the friction is undirected.",
+      "(c) e231 cross-check": "If WIND-AND-FRICTION fires, the flat phase's fourth currency (T208's open ledger) reads as THE WIND'S REACH \u2014 and e231's root-level overlap join should agree in sign; disagreement between them is itself informative (probe-level vs root-level span composition).",
+      "rider H-i (T212)": ">= 5/7 of the wrong-choosers' +80 argmax tokens ARE the wash-corpus's modal continuation at those positions (re-teaching visible in decision space first)",
+      "rider H-ii (T212)": "the flips are scattered, low-probability tokens (noise-level re-orderings among low logits \u2014 pure inertia)"
+    },
+    "registration": "bars + predictions frozen VERBATIM from scratch/e234_design.md (frozen at dispatch BEFORE this script or any compute); adjudicate against exactly this; no bar shopping"
+  },
+  "question": "is the wash one field with two components \u2014 a DIRECTED wind (kills beliefs whose supports its span reaches) and a DIFFUSE friction (grinds everyone's margins, undirected)?",
+  "builds_on": [
+    "scratch/e234_design.md (the frozen design; W035's registered instrument)",
+    "W035 (the wind/friction synthesis this cell adjudicates)",
+    "T198 / e226 (the 54-probe support bank, the wash-gradient conventions, the anchor seat)",
+    "T212 / e232 (the zombie taxonomy; the 7 wrong-choosers; the rider's registration)",
+    "e214 (belief trajectories; the re-probe convention), e228 (the margin instrument), e182c/e182c2/e217 (the three-wash archive + certified draw streams)",
+    "T208 (the fourth-currency ledger), e231 (the root-level overlap \u2014 prediction (c)'s cross-check)"
+  ],
+  "whats_new": [
+    "the split-half SPAN BASIS of the wash (scree knee, stability via subspace principal angles, cross-wash identity, LOO flavor)",
+    "every step's raw gradient decomposed into WIND (span component) and FRICTION (orthogonal residual) on all three committed washes",
+    "the two joins across all 54 probes x 3 washes: belief decline vs cumulative wind-alignment; margin decline vs cumulative friction magnitude AND wind-alignment AND full magnitude",
+    "the +40 / w3 trajectory extension of the committed journals (gated where they overlap)",
+    "the 7 wrong-choice zombies' +80 argmaxes identified against the wash-corpus's modal continuations (H-i/H-ii)"
+  ],
+  "smoke": false,
+  "load_checks": [
+    {
+      "tag": "launch",
+      "cpu_percent": 13.8,
+      "ram_avail_gb": 41.0
+    },
+    {
+      "tag": "supports t=0",
+      "cpu_percent": 17.2,
+      "ram_avail_gb": 40.3
+    },
+    {
+      "tag": "replay w1",
+      "cpu_percent": 13.6,
+      "ram_avail_gb": 16.8
+    },
+    {
+      "tag": "w1 traj 0",
+      "cpu_percent": 8.3,
+      "ram_avail_gb": 16.8
+    },
+    {
+      "tag": "w1 traj 2",
+      "cpu_percent": 23.5,
+      "ram_avail_gb": 14.3
+    },
+    {
+      "tag": "w1 traj 10",
+      "cpu_percent": 22.5,
+      "ram_avail_gb": 12.5
+    }
+  ],
+  "provenance_records": {
+    "w1": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e182c\\metrics.json",
+    "w1_tmpl": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e182c2\\metrics.json",
+    "w2": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e182c2\\journal_p2.json",
+    "w3": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e217\\metrics.json",
+    "belief_traj": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\metrics.json",
+    "families": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e216\\metrics.json",
+    "supports+alignments": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e226\\metrics.json",
+    "margins": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+    "zombies": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\metrics.json"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32",
+    "torch_threads": 8
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "banned_list_identical": true,
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "n": 20,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "ctrl": {
+        "n": 12,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "near": {
+        "n": 3,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "tmpl": {
+        "n": 19,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "pass": true
+    },
+    "G_SUPPORT": {
+      "fd_pass_n": 54,
+      "n": 54,
+      "determinism_selfcos_probe0": 0.9999999420274404,
+      "max_dp_vs_e226_committed_w1s0_alignment": 5.650941853731564e-08,
+      "tol_dp_226": 0.005,
+      "pass": true
+    }
+  },
+  "timing": {
+    "total_s": 256.1
+  },
+  "probes": [
+    {
+      "i": 0,
+      "fact": "France->Paris",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 1,
+      "fact": "Greece->Athens",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 2,
+      "fact": "Poland->Warsaw",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 3,
+      "fact": "Portugal->Lisbon",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 4,
+      "fact": "Egypt->Cairo",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 5,
+      "fact": "Ireland->Dublin",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 6,
+      "fact": "France->French",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 7,
+      "fact": "Germany->German",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 8,
+      "fact": "Japan->Japanese",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 9,
+      "fact": "Italy->Italian",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 10,
+      "fact": "Spain->Spanish",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 11,
+      "fact": "Russia->Russian",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 12,
+      "fact": "China->Chinese",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 13,
+      "fact": "England->English",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 14,
+      "fact": "Greece->Greek",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 15,
+      "fact": "Poland->Polish",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 16,
+      "fact": "Japan->yen",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 17,
+      "fact": "the United Kingdom->pound",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 18,
+      "fact": "the United States->dollar",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 19,
+      "fact": "China->yuan",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 20,
+      "fact": "The social network founded by Mark Zuckerberg->Facebook",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 21,
+      "fact": "The electric car company founded by Elon Musk->Tesla",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 22,
+      "fact": "The rocket company founded by Elon Musk->SpaceX",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 23,
+      "fact": "The search engine founded by Larry Page->Google",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 24,
+      "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 25,
+      "fact": "The gaming console made by Microsoft->Xbox",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 26,
+      "fact": "The web browser made by Google->Chrome",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 27,
+      "fact": "The phone made by Apple->iPhone",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 28,
+      "fact": "The tablet made by Apple->iPad",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 29,
+      "fact": "The email service made by Google->Gmail",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 30,
+      "fact": "The music store made by Apple->iTunes",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 31,
+      "fact": "The game console made by Sony->PlayStation",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 32,
+      "fact": "Massachusetts->Boston",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 33,
+      "fact": "Georgia->Atlanta",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 34,
+      "fact": "Ohio->Columbus",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 35,
+      "fact": "Boston->Massachusetts",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 36,
+      "fact": "Atlanta->Georgia",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 37,
+      "fact": "Sacramento->California",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 38,
+      "fact": "Austin->Texas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 39,
+      "fact": "Columbus->Ohio",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 40,
+      "fact": "Denver->Colorado",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 41,
+      "fact": "Little Rock->Arkansas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 42,
+      "fact": "Hartford->Connecticut",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 43,
+      "fact": "Dover->Delaware",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 44,
+      "fact": "Tallahassee->Florida",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 45,
+      "fact": "Honolulu->Hawaii",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 46,
+      "fact": "Boise->Idaho",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 47,
+      "fact": "Indianapolis->Indiana",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 48,
+      "fact": "Des Moines->Iowa",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 49,
+      "fact": "Topeka->Kansas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 50,
+      "fact": "Baton Rouge->Louisiana",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 51,
+      "fact": "Annapolis->Maryland",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 52,
+      "fact": "Lansing->Michigan",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 53,
+      "fact": "Jackson->Mississippi",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    }
+  ]
+}
