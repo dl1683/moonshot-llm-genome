@@ -685,7 +685,40 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
-## T233 — e257: the carrier is the span, and the anchor's load is the standing seat (2026-10-05 ~00:32Z)
+## T234 — e248: the pilot's split verdict — the dissipative layer is organism-robust; the selective layer is not (2026-10-05 ~01:12Z)
+
+The replicate closes as INSTRUMENT-DEAD at the gates (the
+honest vocabulary for a sub-gate organism with a diagnosed
+port-class) — but the pilot's descriptive bars split the
+field exactly along its own fault line, and that split is the
+night's finding. WHAT REPLICATED ON A FRESH ORGANISM: the
+thermal layer (T-R2 in band on both washes; the fitted T
+rising 1.2 -> 2.2 — steeper than the 124M's 1.0 -> 1.45, a
+sub-gate/char-corpus signature worth one honest sentence) and
+THE ZOMBIES (6/6 rates within 2x; 6/6 standing — decisions
+outlive beliefs wherever the lab looks). WHAT DID NOT: the
+seat's dying-direction split (absent), the anchor exposure
+asymmetry (0.3x, not 5-10x), the span identity (0.26 vs 0.96
+— the sign-shadow honesty clause fires: the span's cross-wash
+stability needs at minimum the matched recipe+organism), and
+P-FIRST modality (TOGETHER/NEITHER grew — the death-order
+mix is organism-sensitive even where the zombie rates hold:
+the ORDERS churn, the MODES persist). THE THIRD-SCALE LAW:
+the recipe-overtraining U-turn now at 0.87M/10M/116M — the
+lab's training practice has its own conserved shape. THE
+FIELD'S RE-READ: W038's movements divide — the friction and
+the zombie layer travel; the undertow's specificity
+(anchor-scale, exposure-shaped) is the n=1-fragile part;
+the tide's span identity is convention-fragile (the
+sign-shadow clause). The replicate did its job: it priced
+which constants were physics and which were biography —
+THE LAW'S OWN LANGUAGE, returned as data. REGISTERED NEXT:
+the freed GPU -> the causal v-heavy/v-light install arm
+(T231 + consult #003's joint #1) + the re-scoped sham arm;
+the nearrel autopsy (the consult's wild-card) as the desk
+rider.
+
+## T233 — e257: the carrier is the span, and the anchor's load is the standing seat (2026-10-05 ~00:32Z)## T233 — e257: the carrier is the span, and the anchor's load is the standing seat (2026-10-05 ~00:32Z)
 
 SPAN-SPECIFIC at the frozen bar: the own-direction denominator
 load does not beat the span-residency pooled (a near-tie), and

@@ -34,6 +34,42 @@ read — the composition's sharper predictor).
 
 ---
 
+## e248 — the organism replicate (the owner-lane; the lab's first multi-phase cell): INSTRUMENT-DEAD at the frozen gate vocabulary (G_ORGANISM FALSE — the two-arc U-turn record; G_SUPPORTFD FALSE — a diagnosed sign-convention port class), 2/5 primaries, SUB-GATE PILOT labeled — and the pilot's descriptive story is the night's payoff: THE THERMAL LAYER REPLICATES (T-R2 3/4 deep cells in band, both washes, T rising 1.2 -> 2.2) and THE ZOMBIES REPLICATE (6/6 cells within 2x, 6/6 standing — decisions outlive beliefs on a fresh organism); the misses are the organism-specificity map: P-FIRST modality weak (TOGETHER/NEITHER grew), the seat's dying-direction split absent, the span identity 0.263 vs 0.9 (the sign-shadow clause: recipe+organism minimum), the anchor exposure 0.31/0.23 vs [5,10], the residual-order 0.835 vs the amended 0.85 (magnitudes 9 orders above the null); the two-arc U-turn record = the recipe-overtraining law's third scale (2026-10-05 ~01:10Z) — DONE
+
+WHAT WE DID: the R64 auditor's dispatch, run as the lab's
+first multi-phase owner-lane cell: the fresh ~116M char-LM
+(12L/14H/896/512ctx; two arcs with the licensed amendment
+between them, the U-turn guard honored twice), the fact-install
+(dose-400 acceptance: fact 15/20, tmpl 19/19, p0 0.830), TWO
+washes (the e182 recipe verbatim; fact_decl 0.498/0.398 — real
+deaths), the eight frozen bars + three co-bars at matched
+conventions. The ops ledger fully disclosed (the memmap
+incident's plain-IO fix; the near-battery floor; the wind_cum
+broadcast; two agent-diagnosed bugs). Script
+lab/e248_organism_replicate.py; runs/e248/ (all artifacts).
+
+WHAT WE SAW (T234): THE PILOT'S SPLIT VERDICT — the field's
+DISSIPATIVE layer (thermal + zombies) replicates on a fresh
+organism at matched conventions; the SELECTIVE layer (the
+seat, the exposure asymmetry, the span identity) does not —
+every miss is organism-specificity, exactly what the pilot was
+labeled to find. THE THIRD-SCALE LAW: both training arcs
+U-turned at s~1000-1200 (with the licensed repair exercised
+and honestly failing) — the recipe-overtraining finding now
+at 0.87M-mint/10M/116M. THE G_SUPPORTFD autopsy: the port
+stored -log p loss gradients vs e226's grad-p convention —
+sign-invariant for every bar read, disclosed as the port-class
+twin of the G_RECAL flip zone (which itself passed verbatim).
+
+HONESTY: sub-gate organism (val 1.578 vs 1.50); char/shakespeare
+vs BPE/web — instrument re-reads, not distribution-matched
+replications; the bars describe, they do not adjudicate
+organism-robustness. NEXT: the GPU released -> the causal
+v-heavy/v-light install (T231 + consult #003's joint top) +
+the re-scoped sham arm.
+
+---
+
 ## e257 — T231's sharper prediction: SPAN-SPECIFIC — the support-v-overlap join does NOT beat the span-residency join (|rho_v| 0.1385 p 0.042 vs |rho_span| 0.1479 p 0.030 on the IDENTICAL 216 rows; delta_pool -0.0094, bar 0.05) — the thermal coupling's carrier is the SPAN BASIS specifically, not v-load generally; the per-wash carriers point OPPOSITE ways at the bar's own margin (w1 v-overlap better +0.072; w2 span better -0.095 — the discordance rule did not fire; the tables verbatim); THE ANCHOR UPGRADE: iPhone's OWN-direction load is extreme AND wash-stable (qov z +19.6..+20.0 vs product at all four states, where its residency z was +3.2 at w1 only); nearrel carries the least v-load too (0.55-0.72 — e256's inversion persists at the denominator level); every support v-heavy 456-656x (pre-announced, disclosed) (2026-10-05 ~00:30Z) — DONE
 
 WHAT WE DID: the registered head-to-head — the per-probe quadratic
