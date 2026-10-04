@@ -9,6 +9,47 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e235 — T211's follow-up (a), the second 10M root's lift: VARIANT-NOT-SCALE ON THE GATE LEG — the 2-shot Z-form instrument ALIVE on g1bS5's peak root (gates 12/30; the g1bS7 control reproduced BIT-EXACTLY, dp 0.0 on all ten committed reads) but the MIRABEL exemplar-following lift NEGATIVE on BOTH 10M roots (-0.150/-0.019 vs 2.74M's +0.185) — e227's 10M absence DECOMPOSES: form-reading = the consolidation draw; exemplar-following = scale-shaped in this instrument form; the wash's post-kill lift return present in direction (+0.025 at +50) at 1/10 the 2.74M strength; the strangest texture: 0-shot p(M) = 0.345 on one 10M draw vs 0.032 on the other — the never-seen-name prior swings 10x across draws (2026-10-04 ~14:40Z) — DONE
+
+WHAT WE DID: T211's registered discriminating cell, eval-only,
+CPU (load-polite with e234; GPU parked for e233): e227's
+battery/lift/wash instruments imported VERBATIM (module import,
+nothing retyped) pointed at g1bS5's peak root (cons seed 10901,
+the original draw — the DRAW is the treatment); the g1bS7
+control re-read as the gate; one lineage-dose wash (lr 1e-3,
+the locked 10902 stream) at {0,+2,+10,+50}. Bars frozen
+verbatim and committed before compute. Script
+lab/e235_second_10m_lift.py; runs/e235/{metrics.json DONE,
+journal_5L10902.json, e235_second_10m_lift.png}.
+
+WHAT WE SAW (T214): (1) THE CONTROL BIT-EXACT — g1bS7
+reproduces every committed scale10 read at dp 0.0 (ruler
+0.9351, the five form means, lift -0.0189, gates 0/30, md5):
+the e227 instrument tie is clean. (2) THE GATE LEG FIRES:
+12/30 2-shot Z-gates on g1bS5 (p0 to 0.799; gated tmpl2 mean
+0.649) — the "form unusable at 10M" half was the consolidation
+VARIANT, not scale. (3) THE LIFT LEG DOES NOT: -0.150 (2-shot
+M 0.195 vs 0-shot M 0.345 — a HIGH 0-shot baseline the
+exemplars REDUCE); and mis2Z 0.446 > tmpl2Z 0.366: the
+exemplar-name competition present at 2.74M (MIRABEL cut the
+Z-read 0.66->0.27) is ABSENT on this root — the two 10M roots
+do not even compete the names. (4) THE WASH: the dose kills
+everything (fact 0.0001 at +2; ctrl 0.025->0.44 recovery) and
+the lift climbs monotonically {-0.150, -0.026, +0.000,
++0.025} — the 2.74M return-after-kill direction at 1/10
+strength.
+
+HONESTY: n=1 per root, n=1 wash draw; the roots differ in fact
+strength (0.768 vs 0.935, co-reported not controlled); the
+verdict rides the dispatch's frozen "and/or" (gates leg) while
+the lift leg failed — both legs verbatim; nothing guaranteed.
+NEXT (T214): the M-baseline anatomy (why does an untrained
+name read 0.345 0-shot on one draw and 0.032 on another — the
+PRIOR SHAPE IS HEIGHT?) + T211's cross-scale seat read + the
+review.
+
+---
+
 ## e231 — the ball-side overlap join: NEITHER, and the instrument's own autopsy — the fourth currency dies with the ledger 0-for-4 (rho -0.071 vs multiple +0.607 / aggregate -0.179); the overlap was ARITHMETICALLY PINNED (AdamW's first displacement IS minus the sign-ray — overlap ~1 by recipe at every root); the decisive co-read: cos(u0, u0') ~ 0.35 across wash draws — THE FACT DIRECTION IS STREAM-RELATIVE, a direction cloud, not a stable geometric object (2026-10-04 ~14:20Z) — DONE
 
 WHAT WE DID: the frozen scratch/e231_design.md cell — u0's

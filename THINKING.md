@@ -685,6 +685,40 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T214 — e235: the 10M absence decomposes — and the prior shape is a lottery too (2026-10-04 ~14:45Z)
+
+T211's table gains its 10M fine print: form-reading was the
+CONSOLIDATION VARIANT (the instrument lives on g1bS5 — 12/30
+gates, control bit-exact); pure exemplar-following is
+SCALE-SHAPED (negative on both 10M roots; the return-after-kill
+present at 1/10 strength). The dissociation sharpens: the
+wash-proof re-teaching surface at 2.74M fades with scale, while
+the FORM-READING machinery was always there. THE TEXTURE THAT
+WANTS ITS OWN CARD-SIZED LOOK: 0-shot p(MIRABEL) = 0.345 on one
+10M draw, 0.032 on the other — an UNTRAINED name (zero corpus
+occurrences) read at 34.5% in the slot on one draw. The prior
+the organism brings to a never-seen name is itself a draw
+property with a 10x swing. THE PRIOR SHAPE IS HEIGHT — the
+never-seen-name baseline belongs to the lottery class (like
+baseline ranks, like carrier identity). REGISTERED ASK (cheap
+desk): p(M|0-shot) at every committed root in the zoo (the
+2.74M family, the 10M draws, the e131 consolidated) — is the
+prior-shape lottery family-structured or free? TWO ALTERNATIVES:
+(H-i) the high-M draws have a slot-fill habit (the name-position
+distribution concentrates on rare tokens generally — check the
+0-shot entropy over the vocab at that position); (H-ii) MIRABEL
+is special-cased by accident (its tokenization/token-id collides
+with something trained — check the top-0-shot tokens' corpus
+frequencies). DISCRIMINATING: the 0-shot top-token distribution
+at the M-position across roots — H-i predicts high-entropy slots
+with rare-token tails everywhere; H-ii predicts a specific
+collision on the high-M roots. REGISTERED PREDICTION: the 2.74M
+family (e227's +0.185 lift lived on a LOW-M baseline 0.087) sits
+low-M; the swing is a 10M-draws phenomenon. CONNECTIONS: T211's
+cross-scale dissociation now has its third leg (the prior shape
+as a confound FOR the lift instrument — the 2.74M lift may ride
+its low-M baseline); W028's HEIGHT class grows another member.
+
 ## T213 — e231: 0-for-4, and the fact direction is a cloud (2026-10-04 ~14:25Z)
 
 The fourth currency died with its instrument's autopsy on the
