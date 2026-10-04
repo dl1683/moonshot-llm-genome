@@ -103,8 +103,12 @@ at every step), G_BASIS (the committed-Gram basis re-derivation vs e234's
 committed spectrum/knee/coverage), G_GRAM (the regenerated first-half
 Gram vs the committed gram_scaled, fp16 cache tier), G_VSPAN (this cell's
 span-mass reads vs e254's COMMITTED journal span_masses/span_masses2 at
-the read states — the v-object reuse gate: my reconstructed v has the
-same span masses as the committed v), G_ROWS (the y-side rows + the
+the read states — the v-object reuse gate, TWO TIERS: the PRIMARY v
+flavor must be BIT-EXACT (tol 1e-12; same fp64 recursion over the same
+bit-exact replay), the v2 raw flavor compares at e254's fp32 SNAPSHOT
+tier (tol 1e-6; e254 stored its raw-flavor snapshots as fp32, this cell
+keeps fp64 — an instrument tier, not the reuse claim)), G_ROWS (the
+y-side rows + the
 recomputed span join == e256's committed join: n 216, |d rho| <= 1e-12).
 
 PROVENANCE (extend-don't-repeat): builds on T231/e254 (the composition:
@@ -291,6 +295,17 @@ deviations: list[str] = [
     "qov (pooled over the wash's 2 read states), repeated across the fit "
     "cell's states — mirroring e256's coarse-read repetition disclosure.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "INSTRUMENT-TIER FIX (envelope-only, no registered quantity touched; "
+    "the e254 RELAUNCH-DISCLOSURE precedent): the first full session ran "
+    "w1 with G_VSPAN's raw-flavor (v2) comparison at the primary's 1e-12 "
+    "tier and it FAILED at 2.34e-8 — diagnosed to e254's fp32 v2 "
+    "SNAPSHOT quantization (e254 stored snaps2 as fp32; this cell keeps "
+    "fp64), while the PRIMARY v flavor was BIT-EXACT (max |d| exactly "
+    "0.0). The gate was re-tiered BEFORE any join was computed (the run "
+    "halted at the gate): primary tol 1e-12, v2 tol 1e-6 (the fp32 "
+    "snapshot tier, disclosed above). No bar, no join, no x/y value was "
+    "touched; the replays were NOT re-run (journal-resume path, every "
+    "number re-certified from the journal).",
     "Smoke mode (E257_SMOKE=1): 12 steps, w1 only, read state {10}, 11 "
     "probes, e254.HALF patched to 6 for the cache-tier helpers; nothing "
     "adjudicated or gated (SMOKE stamp).",
@@ -846,6 +861,26 @@ def main() -> int:
             # rehydrate the per-wash gate records from the journal
             for gname in ("G_STEPS", "G_GRAM", "G_VSPAN"):
                 rec = wj.get("gate_records", {}).get(gname)
+                if gname == "G_VSPAN":
+                    # recomputed from the journal's own primary-flavor
+                    # rows (bit-exactness of v — the reuse claim); the
+                    # fp32-tier v2 co-report is not re-derived on resume
+                    vrows = wj.get("vspan_rows", [])
+                    devs_p = [abs(r["mine"] - r["committed"])
+                              for r in vrows
+                              if r.get("flavor", "v_primary")
+                              == "v_primary"]
+                    rec = {"n_values_primary": len(devs_p),
+                           "max_abs_dev_primary": max(devs_p)
+                           if devs_p else None,
+                           "tol_primary": 1e-12,
+                           "v2_on_resume": "not re-derived (verified in "
+                                           "the original session's "
+                                           "record, fp32 tier)",
+                           "pass": bool(devs_p and max(devs_p) <= 1e-12)}
+                    metrics["gates"].setdefault(gname, {})[w] = rec
+                    wj.setdefault("gate_records", {})[gname] = rec
+                    continue
                 if rec is not None:
                     metrics["gates"].setdefault(gname, {})[w] = rec
                 elif gname == "G_STEPS":   # recomputable from dicts alone
@@ -932,9 +967,14 @@ def main() -> int:
         journal[w]["qov_reads"] = {str(st): rec for st, rec in reads.items()}
 
         # ---- G_VSPAN: my span masses vs e254's COMMITTED journal values
+        # (two tiers, fixed before this cell's adjudication and disclosed:
+        # the PRIMARY v flavor must be BIT-EXACT — same fp64 recursion,
+        # same replay (G_STEPS dev 0.0); the v2 raw flavor is compared at
+        # e254's fp32 SNAPSHOT tier — e254 stored its raw-flavor snapshots
+        # as fp32, this cell keeps fp64, so the tier is the quantization)
         if not SMOKE:
             lad = cA_ladders[w]
-            devs = []
+            devs_p, devs_v2 = [], []
             rows_vspan = []
             for st in sorted(out["snaps"]):
                 vnorm2 = float(out["snaps"][st].double().pow(2).sum())
@@ -949,21 +989,34 @@ def main() -> int:
                 com2 = j254[w].get("span_masses2", {}).get(str(st), {})
                 for k in K_LADDER:
                     if str(k) in com:
-                        devs.append(abs(masses[k] - com[str(k)]))
+                        devs_p.append(abs(masses[k] - com[str(k)]))
                         rows_vspan.append({"state": st, "k": k,
+                                           "flavor": "v_primary",
                                            "mine": masses[k],
                                            "committed": com[str(k)]})
                     if str(k) in com2:
-                        devs.append(abs(masses2[k] - com2[str(k)]))
-            gv = {"n_values": len(devs),
-                  "max_abs_dev": max(devs) if devs else None,
-                  "tol": 1e-12, "rows": rows_vspan}
-            gv["pass"] = bool(devs and max(devs) <= 1e-12)
+                        devs_v2.append(abs(masses2[k] - com2[str(k)]))
+            gv = {"n_values_primary": len(devs_p),
+                  "max_abs_dev_primary": max(devs_p) if devs_p else None,
+                  "tol_primary": 1e-12,
+                  "n_values_v2_raw": len(devs_v2),
+                  "max_abs_dev_v2_raw": max(devs_v2) if devs_v2 else None,
+                  "tol_v2_raw": 1e-6,
+                  "v2_tier_note": "e254 snapshotted its raw-flavor v2 to "
+                                  "fp32 (this cell keeps fp64); the raw "
+                                  "flavor compares at the fp32 snapshot "
+                                  "tier — an instrument tier, not the "
+                                  "reuse claim",
+                  "rows": rows_vspan}
+            gv["pass"] = bool(devs_p and max(devs_p) <= 1e-12
+                              and (not devs_v2 or max(devs_v2) <= 1e-6))
             metrics["gates"].setdefault("G_VSPAN", {})[w] = gv
             journal[w].setdefault("gate_records", {})["G_VSPAN"] = gv
-            log(f"G_VSPAN {w}: {len(devs)} values, max |d| "
-                f"{(max(devs) if devs else float('nan')):.2e} -> "
-                f"{'PASS' if gv['pass'] else 'FAIL'}")
+            log(f"G_VSPAN {w}: primary {len(devs_p)} values, max |d| "
+                f"{(max(devs_p) if devs_p else float('nan')):.2e} (tol "
+                f"1e-12); v2 {len(devs_v2)} values, max |d| "
+                f"{(max(devs_v2) if devs_v2 else float('nan')):.2e} "
+                f"(tol 1e-6) -> {'PASS' if gv['pass'] else 'FAIL'}")
             journal[w]["vspan_rows"] = rows_vspan
 
         # ---- release this wash's grads memmap + snapshots
