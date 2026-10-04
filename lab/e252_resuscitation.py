@@ -1154,9 +1154,11 @@ def main():
     t0_mean_margin = float(np.mean(t0_raw["margin_raw"]))
 
     for r in states_rows:
-        # recovery fractions (defined on the pooled 54; per-battery below)
-        r["RF"] = ((r["rho_cooled"] - r["rho_raw"])
-                   / (1.0 - r["rho_raw"]))
+        # recovery fractions (defined on the pooled 54; per-battery below).
+        # Guard: if rho_raw >= 1 there is NO rank gap to recover -> RF
+        # undefined (None), never a number (the +2/near cells).
+        r["RF"] = (None if r["rho_raw"] >= 1.0 else
+                   (r["rho_cooled"] - r["rho_raw"]) / (1.0 - r["rho_raw"]))
         r["BR"] = ((r["cooled"]["mean_p"] - float(np.mean(r["p_raw"])))
                    / (t0_mean_p - float(np.mean(r["p_raw"]))))
         mr_raw = float(np.mean(r["cooled"]["margin_raw"]))
@@ -1174,9 +1176,12 @@ def main():
             r["per_battery"][b] = {
                 "rho_raw": r["rho_raw_battery"][b],
                 "rho_cooled": r["rho_cooled_battery"][b],
-                "RF_b": ((r["rho_cooled_battery"][b] - r["rho_raw_battery"][b])
-                         / (1.0 - r["rho_raw_battery"][b])
-                         if r["rho_raw_battery"][b] is not None else None),
+                "RF_b": (None
+                         if (r["rho_raw_battery"][b] is None
+                              or r["rho_raw_battery"][b] >= 1.0)
+                         else ((r["rho_cooled_battery"][b]
+                                - r["rho_raw_battery"][b])
+                               / (1.0 - r["rho_raw_battery"][b]))),
                 "BR_b": float((pcb.mean() - prb.mean())
                               / (p0b.mean() - prb.mean()))
                 if p0b.mean() != prb.mean() else None,
@@ -1287,6 +1292,8 @@ def main():
         cls = []
         for b in BATTERIES:
             v = w[ww]["per_battery"][b]["RF_b"]
+            if v is None:
+                continue
             cls.append("stood" if v <= 0.2 else ("revived" if v >= 0.5
                                                 else "mid"))
         if "stood" in cls and "revived" in cls:
