@@ -2,7 +2,7 @@
   "experiment": "e248_organism_replicate",
   "owner_lane": "e248-replicate",
   "created": "2026-10-04T18:01:20Z",
-  "status": "ORGANISM-ARC2 (amendment 2 applied)",
+  "status": "ORGANISM-TRAINED",
   "phase": "PHASE1 registration (desk)",
   "registration": {
     "docstring": "this file's module docstring (the registration, verbatim)",
@@ -121,7 +121,7 @@
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
     "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T21:23:55Z",
+  "updated": "2026-10-04T21:27:53Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -902,6 +902,46 @@
       "stop": "time",
       "best_val": 1.5781417389710743,
       "t": "2026-10-04T21:23:55Z"
+    },
+    {
+      "burst": 7,
+      "arc": 2,
+      "end_step": 1168,
+      "stop": "break",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:25:27Z"
+    },
+    {
+      "burst": 8,
+      "arc": 2,
+      "end_step": 1176,
+      "stop": "break",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:26:03Z"
+    },
+    {
+      "burst": 9,
+      "arc": 2,
+      "end_step": 1184,
+      "stop": "break",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:26:40Z"
+    },
+    {
+      "burst": 10,
+      "arc": 2,
+      "end_step": 1192,
+      "stop": "break",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:27:16Z"
+    },
+    {
+      "burst": 11,
+      "arc": 2,
+      "end_step": 1200,
+      "stop": "uturn",
+      "best_val": 1.5781417389710743,
+      "t": "2026-10-04T21:27:53Z"
     }
   ],
   "amendments": [
@@ -1102,5 +1142,25 @@
       "guards": "the U-turn guard carries VERBATIM (2 strikes, best+0.03) with best_val initialized at the anchor \u2014 no guard shopping"
     },
     "bounds": "ONE repair only; if arc-2 fails to beat the anchor the organism remains the arc-1 best with its gate verdict, and phases 3-5 proceed on it"
+  },
+  "organism": {
+    "params": 116279296,
+    "cfg": {
+      "vocab": 65,
+      "n_layer": 12,
+      "n_head": 14,
+      "n_embd": 896,
+      "block_size": 512
+    },
+    "done": true,
+    "arc": 2,
+    "bursts": 11,
+    "best_val": 1.5781417389710743,
+    "best_step": 800,
+    "final_step": 1200,
+    "gate_val_ce": 1.5,
+    "G_ORGANISM_pass": false,
+    "G_SIZE_pass": true,
+    "size_reason": "the replicate demands the 124M organism class (dispatch option (a), scratch/e244 sketch); 116,279,296 params > the 100M free tier, <= the 500M ceiling with this stated reason"
   }
 }
