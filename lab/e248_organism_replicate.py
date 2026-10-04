@@ -294,6 +294,17 @@ TRAIN = dict(steps=4000, lr=1e-3, warmup=300, batch=32,
              amp=True,
              uturn_tol=0.03, val_ce_gate=1.50, val_ce_target=1.40,
              max_bursts=60)
+# AMENDMENT 2 (the g1bS2 precedent, coordinator advisory 2026-10-04
+# ~21:05Z, accepted by the recovery executor): arc-2 re-registration —
+# a quality-gate repair on the organism, NOT bar shopping. The arc-2
+# schedule re-anchors the cosine at arc-1's observed val minimum.
+TRAIN2 = dict(steps=3600, lr=3e-4, warmup=60, batch=32,
+              eval_every=200, burst_s=175.0, poll_every=4,
+              temp_start_c=66.0, temp_break_c=76.0, temp_hard_c=82.0,
+              cooldown_target_c=62.0, cooldown_max_s=300.0,
+              amp=True,
+              uturn_tol=0.03, val_ce_gate=1.50, val_ce_target=1.40,
+              max_bursts=60)
 
 WASH = dict(lr=5e-5, betas=(0.9, 0.95), wd=0.1, clip=1.0, batch=8,
             steps=80, grids={"w1": [2, 10, 50, 80], "w2": [10, 50, 80]},
@@ -773,6 +784,9 @@ def val_ce(model, val_ids, device, n_batches=12, bs=16, seed=VAL_SEED):
 def cmd_train() -> None:
     import torch
     m = load_metrics()
+    if m.get("amendment2", {}).get("active") and \
+            not m.get("organism", {}).get("done"):
+        return cmd_train_arc2()
     if m.get("organism", {}).get("done"):
         jlog("train_already_done")
         return
@@ -926,13 +940,260 @@ def cmd_train() -> None:
          gate=m["organism"]["G_ORGANISM_pass"])
 
 
-def _train_png(hist) -> None:
+# ------------------------------------------------------- amendment 2 (arc 2)
+def cmd_amend2() -> None:
+    """AMENDMENT 2 — the arc-2 re-registration (g1bS2 precedent; the
+    coordinator's ~21:05Z advisory accepted by the recovery executor).
+    A quality-gate repair on the organism precondition, NOT bar
+    shopping: every bar, gate and phase stays frozen; the failed arc-1
+    is kept verbatim; exactly ONE repair is licensed (a second would be
+    shopping). Idempotent; desk-only."""
+    import torch
+    m = load_metrics()
+    if m.get("amendment2", {}).get("active"):
+        jlog("amendment2_already_applied")
+        return
+    stb = torch.load(CKPT / "e248_organism_base.pt", map_location="cpu",
+                     weights_only=False)
+    anchor = int(stb["step"])
+    anchor_val = float(stb["val"])
+    # the failed arc stays verbatim in the record
+    m["organism_arc1_verbatim"] = m.get("organism")
+    # phase-3 state anchored on the pre-repair organism is reset (the
+    # partial rungs are kept; the mid-rung ckpt renamed, not deleted)
+    inst = m.get("install", {})
+    m["install_arc1_partial"] = {"rungs": inst.get("rungs", []),
+                                 "base_wash_ce": inst.get("base_wash_ce")}
+    m["install"] = {"reset": True,
+                    "reason": ("amendment 2 re-anchored the organism "
+                               "(arc 2); arc-1 partial rungs kept in "
+                               "install_arc1_partial; mid-rung ckpt "
+                               "renamed .arc1_discarded.pt")}
+    ick = CKPT / "e248_install_train.pt"
+    if ick.exists():
+        ick.rename(CKPT / "e248_install_train.arc1_discarded.pt")
+    rec = {
+        "amendment": 2,
+        "phase_boundary": ("post-arc-1-U-turn, pre-arc-2-compute "
+                           "(desk; no arc-2 steps had run)"),
+        "source": ("coordinator advisory 2026-10-04 ~21:05Z (the g1bS2 "
+                   "precedent: a re-registration of the recipe with the "
+                   "cosine anchored at the observed val minimum is a "
+                   "licensed quality-gate repair); accepted — the "
+                   "executor's reads agree the U-turn is recipe-shaped"),
+        "diagnosis": ("recipe-shaped U-turn: val 2.3981@200 -> 1.5815@600 "
+                      "-> 1.5781@800 (BEST, checkpoint anchored) -> "
+                      "1.7004@1000 -> 2.0667@1200 — the g1bS signature "
+                      "(a recipe minted at a smaller scale overtraining "
+                      "a larger host, there at s~1000-1113 on 10M, here "
+                      "at s~1000 on 116M); the corpus is the identical "
+                      "input.txt of the whole g-series (not corpus); the "
+                      "thermal pacing is math-inert sleeps (not "
+                      "hardware); bf16-train/fp32-eval unchanged"),
+        "changes": {
+            "restart_from": (f"the arc-1 best checkpoint (step {anchor}, "
+                             f"val {anchor_val:.4f}; e248_organism_base.pt)"),
+            "peak_lr": "1e-3 -> 3e-4 (the e182-family fine-tune scale)",
+            "warmup": "300 -> 60 (a fresh arc from a trained basin)",
+            "cosine_horizon": (f"anchored at step {anchor}, decays to "
+                               f"3600 ({3600 - anchor} new steps; the "
+                               "diverged 800->1200 segment stays in the "
+                               "record verbatim)"),
+            "optimizer": ("fresh AdamW moments (arc-1's moments belong "
+                          "to the diverged trajectory)"),
+            "data_seed": f"{SEED_BASE} -> {SEED_BASE + 1} (fresh order)",
+            "dtype": "bf16 TRAINING-ONLY autocast unchanged (evals fp32)",
+            "guards": ("the U-turn guard carries VERBATIM (2 strikes, "
+                       "best+0.03) with best_val initialized at the "
+                       "anchor — no guard shopping"),
+        },
+        "bounds": ("ONE repair only; if arc-2 fails to beat the anchor "
+                   "the organism remains the arc-1 best with its gate "
+                   "verdict, and phases 3-5 proceed on it"),
+    }
+    m["amendment2"] = {"active": True, "anchor_step": anchor,
+                       "anchor_val": anchor_val, **rec}
+    m.setdefault("amendments", []).append(rec)
+    m["status"] = "ORGANISM-ARC2 (amendment 2 applied)"
+    write_metrics(m)
+    jlog("amendment2_applied", anchor_step=anchor,
+         anchor_val=round(anchor_val, 4), peak_lr=TRAIN2["lr"],
+         horizon=TRAIN2["steps"])
+
+
+def cmd_train_arc2() -> None:
+    import torch
+    T = TRAIN2
+    m = load_metrics()
+    if m.get("organism", {}).get("done"):
+        jlog("train_already_done")
+        return
+    anchor = int(m["amendment2"]["anchor_step"])
+    while not thermal_gate("train-arc2"):
+        time.sleep(60)
+    device = "cuda"
+    torch.backends.cuda.matmul.allow_tf32 = True     # training only
+    torch.backends.cudnn.allow_tf32 = True
+
+    ids = torch.tensor(encode(_TEXT), dtype=torch.long)
+    n_train = int(0.9 * len(ids))
+    train_ids, val_ids = ids[:n_train], ids[n_train:]
+
+    model = make_model(device)
+    ck = CKPT / "e248_organism_train_arc2.pt"
+    best = CKPT / "e248_organism_base.pt"
+    opt = torch.optim.AdamW(model.parameters(), lr=T["lr"],
+                            weight_decay=0.1, betas=(0.9, 0.95))
+
+    def lr_mult(c: int) -> float:      # c = scheduler steps since arc-2
+        w = T["warmup"]
+        if c < w:
+            return (c + 1) / w
+        p = (c - w) / max(1, (T["steps"] - anchor) - w)
+        return 0.5 * (1.0 + math.cos(math.pi * min(1.0, p)))
+
+    sched = torch.optim.lr_scheduler.LambdaLR(opt, lr_mult)
+    step, hist, c = anchor, [], 0
+    best_val = float(torch.load(best, map_location="cpu",
+                                weights_only=False)["val"])
+    gen = torch.Generator().manual_seed(SEED_BASE + 1)
+    if ck.exists():
+        st = torch.load(ck, map_location="cpu", weights_only=False)
+        model.load_state_dict(st["model"])
+        opt.load_state_dict(st["opt"])
+        sched.load_state_dict(st["sched"])
+        gen.set_state(st["gen_state"])
+        step, hist, c = st["step"], st.get("history", []), st["c"]
+        best_val = st.get("best_val", best_val)
+        jlog("train_arc2_resume", step=step, c=c, best_val=round(best_val, 4))
+
+    m.setdefault("train_bursts", [])
+    bursts = 0
+    uturn_strikes = 0
+    ctx = CFG["block_size"]
+    while step < T["steps"] and bursts < T["max_bursts"]:
+        while not thermal_gate(f"train-arc2-burst{bursts + 1}",
+                               T["temp_start_c"]):
+            time.sleep(60)
+        t0 = time.time()
+        stop = None
+        burst_first_step = step
+        model.train()
+        while step < T["steps"]:
+            step += 1
+            c += 1
+            ix = torch.randint(len(train_ids) - ctx - 1, (T["batch"],),
+                               generator=gen)
+            x = torch.stack([train_ids[i:i + ctx] for i in ix]).to(device)
+            y = torch.stack([train_ids[i + 1:i + 1 + ctx] for i in ix]).to(device)
+            if T["amp"]:
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    _, loss = model(x, y)
+            else:
+                _, loss = model(x, y)
+            opt.zero_grad(set_to_none=True)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            opt.step()
+            sched.step()
+            pace_for_temp(ramp_in=(step - burst_first_step) < 25)
+            if step % T["poll_every"] == 0:
+                ok, why = mid_burst_check(step, f"train-arc2-burst{bursts + 1}",
+                                          t0, T["burst_s"],
+                                          break_c=T["temp_break_c"])
+                if not ok:
+                    stop = why
+                    break
+            if step % T["eval_every"] == 0 or step == T["steps"]:
+                v = val_ce(model, val_ids, device)
+                hist.append({"step": step, "arc": 2,
+                             "train_loss": float(loss.item()),
+                             "val_loss": v, "t": now_iso()})
+                if v < best_val - 1e-4:
+                    best_val, uturn_strikes = v, 0
+                    torch.save({"model": model.state_dict(), "step": step,
+                                "val": v}, best)
+                else:
+                    uturn_strikes += 1
+                jlog("train_eval", step=step, val=round(v, 4),
+                     best=round(best_val, 4))
+                if uturn_strikes >= 2 and v > best_val + T["uturn_tol"]:
+                    stop = "uturn"
+                    break
+            if time.time() - t0 >= T["burst_s"]:
+                stop = stop or "time"
+                break
+        bursts += 1
+        torch.save({"model": model.state_dict(), "opt": opt.state_dict(),
+                    "sched": sched.state_dict(), "gen_state": gen.get_state(),
+                    "step": step, "c": c, "history": hist,
+                    "best_val": best_val}, ck)
+        m["train_bursts"].append({"burst": bursts, "arc": 2, "end_step": step,
+                                  "stop": stop, "best_val": best_val,
+                                  "t": now_iso()})
+        write_metrics(m)
+        jlog("train_burst_end", burst=bursts, arc=2, step=step, stop=stop,
+             best_val=round(best_val, 4))
+        if stop == "uturn":
+            jlog("train_uturn_stop", note="the g1bS lesson honored (arc 2)")
+            break
+        if bursts < T["max_bursts"] and step < T["steps"]:
+            if stop == "hard":
+                t_wait = time.time()
+                while (time.time() - t_wait < 120.0
+                       or gpu_poll()["temp"] > 65.0):
+                    time.sleep(20.0)
+                    if time.time() - t_wait > 900.0:
+                        jlog("heatsoak_timeout")
+                        break
+                jlog("heatsoak_done", temp=gpu_poll()["temp"])
+            else:
+                thermal_cooldown(T["cooldown_target_c"],
+                                 T["cooldown_max_s"])
+
+    if step < T["steps"] and stop != "uturn":
+        jlog("train_burst_cap_reached", arc=2, step=step, bursts=bursts,
+             best_val=round(best_val, 4),
+             note="per-invocation burst cap; resume by re-invoking train")
+        return
+
+    stb = torch.load(best, map_location="cpu", weights_only=False)
+    m["organism"] = {
+        "params": PARAMS_EXPECTED, "cfg": CFG, "done": True, "arc": 2,
+        "bursts": bursts, "best_val": float(stb["val"]),
+        "best_step": int(stb["step"]), "final_step": step,
+        "gate_val_ce": T["val_ce_gate"],
+        "G_ORGANISM_pass": bool(float(stb["val"]) <= T["val_ce_gate"]),
+        "G_SIZE_pass": bool(PARAMS_EXPECTED <= 500_000_000),
+        "size_reason": SIZE_REASON,
+    }
+    m["status"] = "ORGANISM-TRAINED"
+    write_metrics(m)
+    arc1_hist = []
+    a1 = CKPT / "e248_organism_train.pt"
+    if a1.exists():
+        try:
+            arc1_hist = torch.load(a1, map_location="cpu",
+                                   weights_only=False).get("history", [])
+        except Exception:
+            arc1_hist = []
+    _train_png(hist, arc1_hist)
+    jlog("phase2_done", arc=2, best_val=float(stb["val"]),
+         gate=m["organism"]["G_ORGANISM_pass"])
+
+
+def _train_png(hist, arc1_hist=None) -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(7.5, 4.4))
+    if arc1_hist:
+        ax.plot([h["step"] for h in arc1_hist],
+                [h["val_loss"] for h in arc1_hist],
+                "-o", ms=2.5, color="tab:gray", alpha=0.7,
+                label="arc 1 val (U-turned, kept verbatim)")
     ax.plot([h["step"] for h in hist], [h["val_loss"] for h in hist],
-            "-o", ms=2.5, label="val", color="tab:blue")
+            "-o", ms=2.5, label="val (final arc)", color="tab:blue")
     ax.plot([h["step"] for h in hist], [h["train_loss"] for h in hist],
             label="train (burst-last)", alpha=0.5, color="tab:orange")
     ax.axhline(TRAIN["val_ce_gate"], ls="--", c="r", label="gate 1.50")
@@ -2119,11 +2380,11 @@ def _notes_draft(verdict, n_pass, bars, gates) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser(description="e248 the organism replicate")
     ap.add_argument("cmd", choices=["freeze", "build", "train", "install",
-                                    "wash", "read", "adjudicate"])
+                                    "wash", "read", "adjudicate", "amend2"])
     args = ap.parse_args()
     {"freeze": cmd_freeze, "build": cmd_build, "train": cmd_train,
      "install": cmd_install, "wash": cmd_wash, "read": cmd_read,
-     "adjudicate": cmd_adjudicate}[args.cmd]()
+     "adjudicate": cmd_adjudicate, "amend2": cmd_amend2}[args.cmd]()
 
 
 if __name__ == "__main__":
