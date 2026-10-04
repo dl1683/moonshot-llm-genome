@@ -9,6 +9,47 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e239 — FQ6: STABLE-AS-VECTORS, and the washes rotate the supports the SAME way — cross-wash cos median 0.997/+50, 0.994/+80 (all 54 >= 0.963; ZERO below the u0 cloud; random null 2e-4); each wash rotates a support ~17.7-20.3 deg from t=0 but the angle BETWEEN washes is only 4.5-6.1 deg (~87% common-mode); rotation-amount ranks correlate cross-wash at rho +0.959/+0.929; the anchors fate-blind (iPhone dies with a perfectly stable support vector) (2026-10-04 ~15:40Z) — DONE
+
+WHAT WE DID: W037's direct test (the ideator's Rank 1; bars frozen
+pre-compute at 11163c7): all 54 supports re-derived at t=0 and
+{+50,+80} under wash-1 (e182c replay) and wash-2 (e182c2 fresh) —
+270 CPU batch-1 backwards, fp64 chunked dots, e226's machinery
+module-imported verbatim; the t=0 Gram BIT-IDENTICAL to e226's
+committed geometry; +80 rotations reproduce e226's records to
+3.2e-5; determinism self-cos 0.99999994; all 8 gates PASS.
+Script lab/e239_support_stability.py; runs/e239/{metrics.json,
+e239_crosswash.png, e239_setlevel.png, journal.json, run_log.txt}.
+
+WHAT WE SAW (T216): STABLE-AS-VECTORS fires at overwhelming
+strength — the "reads-only" deflation is dead; W037's
+behavior-INDEXED form earns physics. THE CO-READS CARRY THE
+PHYSICS: (1) COHERENT ROTATION — cos(s@w1, s@w2) = 0.997 EXCEEDS
+cos(s@w, s0) = 0.953: the two independent washes move each
+support nearly the SAME way (coherence ratio 0.13/0.16 — ~87%
+common-mode); the supports' deep-state destinations are
+wash-independent to first order: THE WASH'S DISPLACEMENT OF EACH
+SUPPORT IS A FUNCTION OF RECIPE+STATE+PROBE, NOT OF THE DRAW.
+(2) SET-LEVEL — the rotation amounts' ranks replicate at rho
++0.959/+0.929 (perm p at the 1/20001 floor): the rotation
+distribution's SHAPE is conserved. (3) FATE-BLIND — Gmail and
+iPhone equally stable (z < 0.6 vs the product band): VECTOR
+STABILITY DOES NOT PRICE FATE (consistent with T215's scalpel:
+the killing component is ~0.04% of L2). T213's stream-relativity
+is CLASS-SPECIFIC: the corpus-anchored u0 rays cloud (0.34); the
+behavior-indexed supports CONVERGE (0.99+).
+
+HONESTY: the two washes share corpus/optimizer/lr (independence
+is over draw streams — the archive's only independence class); a
+corpus-swap replication is the stronger claim's test; the tmpl
+battery is the softest (median 0.9857 at +80) — still 12x the
+cloud in angle terms. NEXT (T216): the common rotation
+direction's identity (R vs the wash-span's top PCs — e234's
+cache; vs the corpus-gradient; vs the u0-cloud mean) + e237
+dispatched (the wind's memory cut, with the w2 rider).
+
+---
+
 ## e233 — the support-projection intervention: ANY [UNDERPOWERED] — a tiny aligned component with iPhone-specific fate-potency below the registered carrier line: removing ~0.04% of each step's L2 along iPhone's t=0 support MORE THAN DOUBLED iPhone's fate (0.188->0.407) with Gmail, all five product-family members, and the near battery untouched (P~C~committed); the control airtight (ARM-C reproduces the committed w1 wash at every state); the sparing first-order-consistent (predicted +0.105 vs observed +0.139) (2026-10-04 ~14:50Z) — DONE
 
 WHAT WE DID: the frozen scratch/e233_design.md cell — wash-1's

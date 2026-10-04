@@ -685,6 +685,45 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T216 — e239: the wind blows the same direction in both draws — the common rotation is the new object (2026-10-04 ~15:42Z)
+
+The support-stability read returned the strong branch, and the
+co-read hands the lab a new object. THE STRUCTURE: each wash
+rotates each support ~18-20 degrees from t=0 — but the two
+INDEPENDENT washes' rotated supports agree with each other at
+cos 0.997, tighter than either agrees with its own origin
+(0.953). ~87% of the rotation is COMMON-MODE. THE READ: the
+washes blow the same wind in support-space — the displacement
+of each support is a function of RECIPE+STATE+PROBE, not of the
+draw. THE NEW OBJECT: the common rotation direction R (per
+probe, the bisector of its two wash-displacements; pooled, the
+mean displacement field). WHAT IS R? THREE CANDIDATES: (a) the
+wash-span's top principal component (the wind's vector identity
+in weight-space — W035's wind gains a direction); (b) the
+corpus's own training direction at that state; (c) the u0-
+cloud's MEAN (which would RECONCILE T213 with this: the draws
+scatter, but the cloud's central direction is exactly what two
+washes both rotate toward — the stream-relativity was about the
+DRAWS, never the CENTER). REGISTERED DISCRIMINATING READ (desk,
+the moment e234's span cache is certified): cos(R, span-top-PC)
+vs cos(R, corpus-gradient) vs cos(R, u0-cloud-mean) — prediction:
+(a) >= 0.6 wins; if (c) wins, e236's Grassmann retry gains its
+missing ingredient (the consolidated direction is real BECAUSE
+both washes rotate toward it). THE FATE-BLINDNESS composes the
+triangle: stability is not salvation — iPhone dies with a
+perfectly stable support (T215's scalpel: the killing component
+is 0.04% of L2, invisible to vector geometry); W036's shoreline
+gains a support-space analogue (the rotation is the tide, common
+to all probes; the death is the undertow, probe-specific). W037
+RESOLVED UPWARD: the behavior-INDEXED form earns physics (the
+R63 downgrade's defensible version confirmed; the "one stroke"
+reading of the 0-for-4 stays downgraded pending e236). W028:
+the rotation distribution's SHAPE replicates (rho 0.95) while
+each wash's angle-from-t0 is its own height — the law again,
+now in the displacement field itself. HONESTY: the washes share
+corpus/optimizer/lr (draw-independence only); the corpus-swap
+replication is the stronger test — named, not run.
+
 ## T215 — e233: the wind is a scalpel with a memory — between marker and carrier, at 17.9 dp per unit L2 (2026-10-04 ~14:52Z)
 
 The intervention returned the between-state the design's bars
