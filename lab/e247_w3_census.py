@@ -286,6 +286,17 @@ deviations: list[str] = [
     "is delivered in the cell's report only.",
     "Smoke mode: t0 + the w3 +10 state only, own smoke dir, nothing "
     "adjudicated or verified.",
+    "POST-FIRST-RUN REPORTING ADDITIONS, disclosed (deterministic rerun; no "
+    "bar, gate, table or verdict touched): two co-report summary fields "
+    "(map_read.committed_map_reading_CO_REPORT_not_adjudicating and "
+    "walker_read.early_arrival_mis_dials_CO_REPORT) added so the two map "
+    "readings and the mis-dial early-arrival texture are machine-readable — "
+    "every number in them was already in the first run's tables.",
+    "e243 z-join note, disclosed: 10 w3 flips overlap e243's table (same "
+    "probe, same RU token — identity guaranteed by G_RU); the RU z values "
+    "agree within null-draw noise on 9/10 (|dz| <= 0.33); iPhone's RU "
+    "('Apple', z ~ 9.4) reads |dz| = 1.33 — the largest null-draw excursion, "
+    "co-reported in the table's e243_join field; no gate or bar reads on dz.",
 ]
 
 
@@ -1068,6 +1079,35 @@ def main() -> int:
                                         "the literal clause b"),
             "w1w2_literal_violations_count": len(w12_literal_violations),
         },
+        "committed_map_reading_CO_REPORT_not_adjudicating": {
+            "clause_a_nonPF_all_mis_dial": all(
+                r["classification"] == "MIS-DIAL"
+                for r in table if not is_pf(r)),
+            "clause_c_all_collapses_P_FIRST": all(
+                is_pf(r) for r in table
+                if r["classification"] == "FREQUENCY-COLLAPSE"),
+            "violations_w3": committed_viol,
+            "thin_side_grew": thin_side_grew,
+            "holds_on_w3": bool(not committed_viol) and thin_side_grew,
+            "pooled_check_w1w2w3": {
+                "nonPF_all_mis_dial": all(
+                    (r["e230_death_order_class"] == "P-FIRST")
+                    or (r["classification"] == "MIS-DIAL")
+                    for r in e245_table) and all(
+                    r["classification"] == "MIS-DIAL"
+                    for r in table if not is_pf(r)),
+                "all_collapses_P_FIRST": all(
+                    (r["e230_death_order_class"] == "P-FIRST")
+                    for r in e245_table
+                    if r["classification"] == "FREQUENCY-COLLAPSE") and all(
+                    is_pf(r) for r in table
+                    if r["classification"] == "FREQUENCY-COLLAPSE"),
+                "pooled_nonPF_n": pooled_thin,
+            },
+            "note": ("e245/T222's committed unification, evaluated verbatim on "
+                     "w3 and pooled — a CO-REPORT; the LITERAL bar adjudicates "
+                     "the verdict (frozen before compute)"),
+        },
     }
 
     # ------------------------------------------------------- the walker read
@@ -1140,10 +1180,29 @@ def main() -> int:
             f"{r['wash']} {r['probe']}" for r in walker_rows
             if r["classification"] == "MIS-DIAL"
             and not r["passed_through_RU_before_80"]],
+        "early_arrival_mis_dials_CO_REPORT": {
+            "definition": "MIS-DIAL records whose RU was already the argmax "
+                          "at a state STRICTLY BEFORE +80 (the mis-dial as "
+                          "an EARLY, ABSORBING slide — arrived and stayed, "
+                          "vs the collapse's one-way walk past it)",
+            "pooled_n": sum(1 for r in walker_rows
+                            if r["classification"] == "MIS-DIAL"
+                            and r["passed_through_RU_before_80"]),
+            "mis_dial_total_pooled": sum(1 for r in walker_rows
+                                         if r["classification"] == "MIS-DIAL"),
+            "members": [f"{r['wash']} {r['probe']} (RU reached at +"
+                        + str(next(t["step"] for t in r["argmax_trajectory"]
+                                   if t["top1_id"] == r["runner_up_id"])) + ")"
+                        for r in walker_rows
+                        if r["classification"] == "MIS-DIAL"
+                        and r["passed_through_RU_before_80"]]},
         "note": ("the finer-state read between journal states remains "
                  "invisible (the coarseness e245 disclosed); a mis-dial "
                  "AT +80 that is the record's own final target is the "
-                 "mis-dial itself, not a stage — hence strictly-before-80"),
+                 "mis-dial itself, not a stage — hence strictly-before-80; "
+                 "T222's registered 'the walkers are common' is read "
+                 "against the collapse-side walker rate (pooled "
+                 "of_which_passed_through_RU / n_collapses)"),
     }
 
     # -------------------------------------------------------- adjudication
