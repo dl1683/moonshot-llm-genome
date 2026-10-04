@@ -423,7 +423,7 @@ def j214_probe(state, battery, probe):
 
 # G_GRID — shared states only
 shared = sorted(set(S228.keys()) & set(S214.keys()))
-grid_ok = all(
+grid_ok = (
     ("t0", 0) in shared
     and all(("w1", st) in shared for st in [2, 10, 50, 80])
     and all(("w2", st) in shared for st in [10, 50, 80])

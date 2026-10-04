@@ -1,0 +1,1536 @@
+{
+  "experiment": "e232_zombie_pass",
+  "phase": "desk-only pass on COMMITTED data (e230's committed P-FIRST classes x e228 journal margins/p x e214 journal p) - no model loads, no GPU, no wash, pure join + analytic temperature family",
+  "date": "2026-10-04T13:58:49Z",
+  "status": "DONE",
+  "registration": "bars + analytic form frozen VERBATIM from the dispatch brief (T209/W034) in this file's docstring; the registration commit of this file precedes any compute; adjudicate against exactly this; no bar shopping",
+  "stage": "s5-done",
+  "updated": "2026-10-04T13:58:49Z",
+  "question": "READ 1 (the zombie lag): for every P-FIRST probe, does its margin EVER cross below 0.05 sigma by +80 (at which state), and how large is the standing-zombie population at +80 (margin >= 0.05 with p < half) vs resolved \u2014 is the zombie a stable resting state or a lag? READ 2 (the temperature lens): does the natural +80 zombies' (margin, p) cloud lie ON the t=0 vertical temperature lines (pure flattening) or depart them systematically (real restructuring)?",
+  "builds_on": [
+    "T209 / e230 (the zombie decisions \u2014 P-FIRST modal everywhere; read 1's registration; the committed P-FIRST classification this pass reads, not re-derives)",
+    "W034 (the zombie as the law's microscope \u2014 read 2's registration, honored verbatim; its temperature-family intuition corrected analytically in the docstring BEFORE compute)",
+    "e228 (the per-state per-probe margin_sigma journal \u2014 the x-side AND the certified p-side)",
+    "e214 (the committed per-probe p records; re-certified against e228 at runtime, gate G_PP)",
+    "T204 / x3 (the margin dial; the 0.05-sigma flip zone vs arithmetic noise)",
+    "W028 (shape vs height \u2014 the lens's frame: argmax is order/shape, p is scale/height)"
+  ],
+  "whats_new": [
+    "the ZOMBIE LAG population: per P-FIRST probe the margin's eventual fate by +80 (standing vs resolved, crossing state), per battery per wash",
+    "the TEMPERATURE LENS: the correct analytic form worked out and registered BEFORE compute (margin-in-sigma EXACTLY invariant under temperature -> vertical lines in (margin, p); temperature is the maximal-margin null at matched p), and the natural zombie cloud read against those verticals via the complete residual D = margin(+80) - margin(t0)",
+    "the journal-intrinsic noise floor (median minimal-dose |d_margin| at w1@2) registered before compute as the TEMPERATURE-LIKE/RESTRUCTURED line"
+  ],
+  "registered_bars_verbatim": {
+    "ZOMBIES-STAND": "the standing-zombie population at +80 is the modal outcome (>= 50% of P-FIRST probes per battery-wash) \u2014 the zombie is a stable resting state",
+    "ZOMBIES-RESOLVE": "margins follow p down for most P-FIRST probes by +80 (< 50% standing) \u2014 the lag story; commitment death is delayed, not averted",
+    "RESTRUCTURED": "the natural zombie cloud departs the t=0 vertical temperature lines systematically (median departure >= the journals' noise floor)",
+    "TEMPERATURE-LIKE": "the cloud lies on the t=0 verticals within noise \u2014 the wash flattens without restructuring the decision geometry"
+  },
+  "registered_predictions": {
+    "T209_verbatim": "a large standing-zombie population persists at +80 (the zombie is a stable resting state \u2014 the modal probe is a zombie by the end); if instead zombies resolve by +80 (margins follow p down), the two-actions story weakens to a lag story and H-i strengthens",
+    "W034_verbatim": "the natural zombie cloud sits AT HIGHER margins than the temperature family at matched p \u2014 because T209's P-FIRST class keeps margins >= 0.05 sigma while p halves, whereas temperature couples them tightly; a mismatch anywhere in the cloud reads REAL RESTRUCTURING"
+  },
+  "analytic_form_registered": {
+    "family": "l_v -> l_v / T for all vocab v, T >= 1, on the t=0 logits",
+    "argmax": "invariant",
+    "raw_gap": "(l1-l2)/T \u2014 scales 1/T",
+    "sigma_T": "std(l/T) = sigma/T \u2014 scales 1/T",
+    "margin_sigma_T": "(l1-l2)/sigma \u2014 EXACTLY invariant (the 1/T factors cancel); the brief's parenthetical '(top1-top2 logits at T=1)/sigma_T' is resolved to this form per the dispatch's instruction to register the correct analytic form before compute",
+    "p_T": "softmax(l/T)[answer]: continuous, strictly decreasing while the answer holds argmax, from p(t0) at T=1 toward 1/|V| ~ 1.99e-5 as T -> inf",
+    "locus": "a VERTICAL segment per probe at x = margin_sigma(t0), spanning p in (1/|V|, p(t0)]",
+    "corollary": "for each +80 zombie there is exactly one T* matching its p exactly, and at that T* the family's margin is EXACTLY margin(t0) \u2014 the horizontal departure D = margin(+80) - margin(t0) is the COMPLETE temperature residual; temperature is the maximal-margin null at matched p (it can never thin a margin)",
+    "w034_premise_note": "W034's 'temperature couples them tightly' is denied by the derivation itself (margin invariant while p falls \u2014 no coupling); the prediction's letter is still adjudicable as median signed D > 0, its closing clause as the RESTRUCTURED bar; registered before compute"
+  },
+  "operationalizations_frozen": {
+    "read1_population": "committed e230 P-FIRST class (authoritative); STANDING at +80 = margin_sigma(w,80) >= 0.05 AND p(w,80) < 0.5*p_t0 (verified); RESOLVED = margin_sigma(w,80) < 0.05; EVER-CROSSED = any state with margin < 0.05 (strictly below, absorbing); standing probe that ever crossed = 'recovered' (counts standing, disclosed); cross-at-80 = resolved-by-+80",
+    "read1_verdict": "cell STANDS iff standing_fraction >= 0.5; overall ZOMBIES-STAND iff >= 4 of 6 adjudicated cells stand; ZOMBIES-RESOLVE iff >= 4 of 6 have standing_fraction < 0.5; else MIXED; near co-report only",
+    "read2_cloud": "read-1 standing zombies at +80 pooled over washes and fact/ctrl/tmpl; per-wash/per-battery co-reports; near co-report only; a probe under two washes = two points sharing one t0 vertical",
+    "read2_floor": "median over fact/ctrl/tmpl probes of |margin(w1,2) - margin(t0)| (minimal wash dose; journals' smallest registered wash-induced margin movement; single deterministic evals -> no measurement noise to quote; e182 committed p only -> no margin replay floor exists; conservative: biases toward TEMPERATURE-LIKE)",
+    "read2_departure": "departure = |D|; primary = median(departure) over the pooled adjudicated cloud; RESTRUCTURED iff median >= floor; TEMPERATURE-LIKE iff < floor; signed median, per-wash medians, p25/p75 floor sensitivities = co-reports only",
+    "w034_letter": "fires iff median signed D > 0 (cloud right of the verticals); spirit clause = the RESTRUCTURED bar"
+  },
+  "sources": {
+    "margins_and_p": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+      "sha256_16": "e1f476405746ad70"
+    },
+    "p_records": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+      "sha256_16": "04e84058b4656cd9"
+    },
+    "committed_classification": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e230\\metrics.json",
+      "sha256_16": "76dc7422cbdc2f4d"
+    },
+    "classification_provenance": "e230's COMMITTED probe-level classes are READ from its metrics.json (never re-derived); the margin crossings recomputed here from the journals serve ONLY as a consistency cross-check (gate G_E230X)"
+  },
+  "compute": {
+    "device": "cpu desk pass (threads 4)",
+    "model_loads": 0,
+    "gpu_calls": 0,
+    "torch_used": false,
+    "threads_note": "pure json/numpy join + analytic arithmetic; no training, no evals"
+  },
+  "provenance": {
+    "git_head_at_start": "dfe6b10996e61db213d856036aeb02ae84cd1fa9",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e232_zombie_pass.py",
+    "script_sha256_16": "415b7a980b670262",
+    "versions": {
+      "python": "3.13.7",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    },
+    "e230_status_at_read": "DONE"
+  },
+  "gates": {
+    "G_GRID": {
+      "shared_states_used": {
+        "t0": [
+          0
+        ],
+        "w1": [
+          2,
+          10,
+          50,
+          80
+        ],
+        "w2": [
+          10,
+          50,
+          80
+        ]
+      },
+      "n_shared_keys": 8,
+      "pass": true
+    },
+    "G_PROBES": {
+      "mismatches": [],
+      "ns": {
+        "fact": 20,
+        "ctrl": 12,
+        "near": 3,
+        "tmpl": 19
+      },
+      "pass": true
+    },
+    "G_PP": {
+      "max_abs_dp_e228_journal_vs_e214_journal": 0.0,
+      "tol": 0.005,
+      "note": "same re-certification as e230's G_PP (e228's journal p vs e214's committed journal p, every probe, every shared state)",
+      "pass": true
+    },
+    "G_E230X": {
+      "n_records_checked": 108,
+      "mismatches": [],
+      "note": "cross-CHECK only \u2014 the P-FIRST classes are read from e230's committed classification (do not re-derive); recomputed margin crossings must merely AGREE with e230's committed m_cross fields",
+      "pass": true
+    },
+    "G_ZSUBSET": {
+      "standing_zombies_outside_committed_PFIRST": [
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "France->Paris"
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "Egypt->Cairo"
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w2",
+          "probe": "The gaming console made by Microsoft->Xbox"
+        }
+      ],
+      "t_star_bound_violations": [],
+      "note": "every +80 standing-zombie snapshot in the journals must belong to the committed P-FIRST class (NEITHER keeps p >= half at +80; TOGETHER/MARGIN-FIRST crossed margin absorbingly); every zombie's p must lie in (1/|V|, p_t0) so exactly one T* matches it",
+      "pass": false
+    }
+  },
+  "read1_zombie_lag": {
+    "definition": "population = e230's committed P-FIRST class (read, not re-derived); STANDING at +80 = margin_sigma(w,80) >= 0.05 with p(w,80) < 0.5*p_t0 (verified from the journals); RESOLVED = margin(+80) < 0.05; 'recovered' = standing at +80 after an earlier crossing (disclosed, counts standing); cross-at-80 counts as resolved-by-+80",
+    "table": [
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "n_pfirst": 8,
+        "n_standing": 6,
+        "n_resolved": 2,
+        "n_recovered": 0,
+        "standing_fraction": 0.75,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "2": 0,
+          "10": 0,
+          "50": 0,
+          "80": 2
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "n_pfirst": 8,
+        "n_standing": 6,
+        "n_resolved": 2,
+        "n_recovered": 0,
+        "standing_fraction": 0.75,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "10": 0,
+          "50": 0,
+          "80": 2
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w1",
+        "n_pfirst": 4,
+        "n_standing": 4,
+        "n_resolved": 0,
+        "n_recovered": 0,
+        "standing_fraction": 1.0,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "2": 0,
+          "10": 0,
+          "50": 0,
+          "80": 0
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w2",
+        "n_pfirst": 3,
+        "n_standing": 3,
+        "n_resolved": 0,
+        "n_recovered": 0,
+        "standing_fraction": 1.0,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "10": 0,
+          "50": 0,
+          "80": 0
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "near",
+        "wash": "w1",
+        "n_pfirst": 3,
+        "n_standing": 1,
+        "n_resolved": 2,
+        "n_recovered": 0,
+        "standing_fraction": 0.3333333333333333,
+        "adjudicates": false,
+        "cell_stands": null,
+        "cross_step_histogram_resolved": {
+          "2": 0,
+          "10": 0,
+          "50": 0,
+          "80": 2
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "n_pfirst": 3,
+        "n_standing": 3,
+        "n_resolved": 0,
+        "n_recovered": 0,
+        "standing_fraction": 1.0,
+        "adjudicates": false,
+        "cell_stands": null,
+        "cross_step_histogram_resolved": {
+          "10": 0,
+          "50": 0,
+          "80": 0
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "n_pfirst": 9,
+        "n_standing": 6,
+        "n_resolved": 3,
+        "n_recovered": 0,
+        "standing_fraction": 0.6666666666666666,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "2": 0,
+          "10": 0,
+          "50": 0,
+          "80": 3
+        },
+        "n_p_below_half_violations": 0
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "n_pfirst": 9,
+        "n_standing": 8,
+        "n_resolved": 1,
+        "n_recovered": 0,
+        "standing_fraction": 0.8888888888888888,
+        "adjudicates": true,
+        "cell_stands": true,
+        "cross_step_histogram_resolved": {
+          "10": 0,
+          "50": 0,
+          "80": 1
+        },
+        "n_p_below_half_violations": 0
+      }
+    ],
+    "probe_level": {
+      "fact": {
+        "w1": [
+          {
+            "probe": "Greece->Athens",
+            "margin_t0": 1.1781698104110228,
+            "p_t0": 0.94468092918396,
+            "margin_80": 0.36234748537294087,
+            "p_80": 0.3968694806098938,
+            "p_half_t0": 0.47234046459198,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Poland->Warsaw",
+            "margin_t0": 0.8231108730177659,
+            "p_t0": 0.6746281981468201,
+            "margin_80": 0.09858356653577356,
+            "p_80": 0.1412094533443451,
+            "p_half_t0": 0.33731409907341003,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Portugal->Lisbon",
+            "margin_t0": 0.7570613400170839,
+            "p_t0": 0.7412760853767395,
+            "margin_80": 0.19482384049806584,
+            "p_80": 0.14942365884780884,
+            "p_half_t0": 0.37063804268836975,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Egypt->Cairo",
+            "margin_t0": 0.6357743715268048,
+            "p_t0": 0.8057803511619568,
+            "margin_80": 0.08184035244937499,
+            "p_80": 0.10885904729366302,
+            "p_half_t0": 0.4028901755809784,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Ireland->Dublin",
+            "margin_t0": 0.4925394483890496,
+            "p_t0": 0.6304253935813904,
+            "margin_80": 0.04650722290517785,
+            "p_80": 0.08268740773200989,
+            "p_half_t0": 0.3152126967906952,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          },
+          {
+            "probe": "the United Kingdom->pound",
+            "margin_t0": 0.9509313345344212,
+            "p_t0": 0.9533817768096924,
+            "margin_80": 0.2678971444006647,
+            "p_80": 0.41885340213775635,
+            "p_half_t0": 0.4766908884048462,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "the United States->dollar",
+            "margin_t0": 0.2922677329736964,
+            "p_t0": 0.5909402966499329,
+            "margin_80": 0.07057359403389044,
+            "p_80": 0.09912417083978653,
+            "p_half_t0": 0.29547014832496643,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "China->yuan",
+            "margin_t0": 0.8816438614677309,
+            "p_t0": 0.9285135269165039,
+            "margin_80": 0.002336873704543759,
+            "p_80": 0.16364771127700806,
+            "p_half_t0": 0.46425676345825195,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          }
+        ],
+        "w2": [
+          {
+            "probe": "France->Paris",
+            "margin_t0": 0.4605282929929688,
+            "p_t0": 0.6850027441978455,
+            "margin_80": 0.020112702441291597,
+            "p_80": 0.14309145510196686,
+            "p_half_t0": 0.34250137209892273,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          },
+          {
+            "probe": "Greece->Athens",
+            "margin_t0": 1.1781698104110228,
+            "p_t0": 0.94468092918396,
+            "margin_80": 0.42866069352717384,
+            "p_80": 0.40251320600509644,
+            "p_half_t0": 0.47234046459198,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Poland->Warsaw",
+            "margin_t0": 0.8231108730177659,
+            "p_t0": 0.6746281981468201,
+            "margin_80": 0.2040031226201523,
+            "p_80": 0.1767950803041458,
+            "p_half_t0": 0.33731409907341003,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Portugal->Lisbon",
+            "margin_t0": 0.7570613400170839,
+            "p_t0": 0.7412760853767395,
+            "margin_80": 0.2922040856063609,
+            "p_80": 0.21651768684387207,
+            "p_half_t0": 0.37063804268836975,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Ireland->Dublin",
+            "margin_t0": 0.4925394483890496,
+            "p_t0": 0.6304253935813904,
+            "margin_80": 0.08278137845108942,
+            "p_80": 0.10094417631626129,
+            "p_half_t0": 0.3152126967906952,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "the United Kingdom->pound",
+            "margin_t0": 0.9509313345344212,
+            "p_t0": 0.9533817768096924,
+            "margin_80": 0.18912443376202248,
+            "p_80": 0.37188032269477844,
+            "p_half_t0": 0.4766908884048462,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "the United States->dollar",
+            "margin_t0": 0.2922677329736964,
+            "p_t0": 0.5909402966499329,
+            "margin_80": 0.2602049104882616,
+            "p_80": 0.05210815742611885,
+            "p_half_t0": 0.29547014832496643,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "China->yuan",
+            "margin_t0": 0.8816438614677309,
+            "p_t0": 0.9285135269165039,
+            "margin_80": 0.009257919352508224,
+            "p_80": 0.12825030088424683,
+            "p_half_t0": 0.46425676345825195,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          }
+        ]
+      },
+      "ctrl": {
+        "w1": [
+          {
+            "probe": "The web browser made by Google->Chrome",
+            "margin_t0": 0.40959900795566256,
+            "p_t0": 0.7029966711997986,
+            "margin_80": 0.10412646385173799,
+            "p_80": 0.20234887301921844,
+            "p_half_t0": 0.3514983355998993,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "The phone made by Apple->iPhone",
+            "margin_t0": 0.4426872995731846,
+            "p_t0": 0.6358935832977295,
+            "margin_80": 0.2927834412479846,
+            "p_80": 0.11716761440038681,
+            "p_half_t0": 0.31794679164886475,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "The tablet made by Apple->iPad",
+            "margin_t0": 0.7251352898848806,
+            "p_t0": 0.7676098942756653,
+            "margin_80": 0.06727931406961364,
+            "p_80": 0.24164250493049622,
+            "p_half_t0": 0.38380494713783264,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "The music store made by Apple->iTunes",
+            "margin_t0": 0.41187181111091625,
+            "p_t0": 0.6862599849700928,
+            "margin_80": 0.09568626848591211,
+            "p_80": 0.20097064971923828,
+            "p_half_t0": 0.3431299924850464,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          }
+        ],
+        "w2": [
+          {
+            "probe": "The web browser made by Google->Chrome",
+            "margin_t0": 0.40959900795566256,
+            "p_t0": 0.7029966711997986,
+            "margin_80": 0.05601863297692083,
+            "p_80": 0.20110595226287842,
+            "p_half_t0": 0.3514983355998993,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "The phone made by Apple->iPhone",
+            "margin_t0": 0.4426872995731846,
+            "p_t0": 0.6358935832977295,
+            "margin_80": 0.0829241876029829,
+            "p_80": 0.2173159271478653,
+            "p_half_t0": 0.31794679164886475,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "The music store made by Apple->iTunes",
+            "margin_t0": 0.41187181111091625,
+            "p_t0": 0.6862599849700928,
+            "margin_80": 0.13793988022000853,
+            "p_80": 0.13690724968910217,
+            "p_half_t0": 0.3431299924850464,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          }
+        ]
+      },
+      "near": {
+        "w1": [
+          {
+            "probe": "Massachusetts->Boston",
+            "margin_t0": 0.5559557335692159,
+            "p_t0": 0.6118616461753845,
+            "margin_80": 0.0442574034171714,
+            "p_80": 0.1682472974061966,
+            "p_half_t0": 0.30593082308769226,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          },
+          {
+            "probe": "Georgia->Atlanta",
+            "margin_t0": 0.43488736443571857,
+            "p_t0": 0.6366477012634277,
+            "margin_80": 0.3630542306764244,
+            "p_80": 0.1052575409412384,
+            "p_half_t0": 0.31832385063171387,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Ohio->Columbus",
+            "margin_t0": 0.28436951057400955,
+            "p_t0": 0.5189241766929626,
+            "margin_80": 0.012119644680098924,
+            "p_80": 0.14088274538516998,
+            "p_half_t0": 0.2594620883464813,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          }
+        ],
+        "w2": [
+          {
+            "probe": "Massachusetts->Boston",
+            "margin_t0": 0.5559557335692159,
+            "p_t0": 0.6118616461753845,
+            "margin_80": 0.07392347074440293,
+            "p_80": 0.2300376445055008,
+            "p_half_t0": 0.30593082308769226,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Georgia->Atlanta",
+            "margin_t0": 0.43488736443571857,
+            "p_t0": 0.6366477012634277,
+            "margin_80": 0.2706478244797105,
+            "p_80": 0.15308833122253418,
+            "p_half_t0": 0.31832385063171387,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Ohio->Columbus",
+            "margin_t0": 0.28436951057400955,
+            "p_t0": 0.5189241766929626,
+            "margin_80": 0.08380271440273002,
+            "p_80": 0.22417213022708893,
+            "p_half_t0": 0.2594620883464813,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          }
+        ]
+      },
+      "tmpl": {
+        "w1": [
+          {
+            "probe": "Sacramento->California",
+            "margin_t0": 1.1530674745489677,
+            "p_t0": 0.9349073767662048,
+            "margin_80": 0.395366128879412,
+            "p_80": 0.44422367215156555,
+            "p_half_t0": 0.4674536883831024,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Austin->Texas",
+            "margin_t0": 1.3286892235528052,
+            "p_t0": 0.966093897819519,
+            "margin_80": 0.13847276272632777,
+            "p_80": 0.2104656845331192,
+            "p_half_t0": 0.4830469489097595,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Columbus->Ohio",
+            "margin_t0": 0.6925164595094573,
+            "p_t0": 0.811143696308136,
+            "margin_80": 0.0029940581733684437,
+            "p_80": 0.18600709736347198,
+            "p_half_t0": 0.405571848154068,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          },
+          {
+            "probe": "Denver->Colorado",
+            "margin_t0": 1.1125056349188294,
+            "p_t0": 0.85616534948349,
+            "margin_80": 0.13382818134184526,
+            "p_80": 0.1796502023935318,
+            "p_half_t0": 0.428082674741745,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Dover->Delaware",
+            "margin_t0": 0.9550981685052744,
+            "p_t0": 0.8786457777023315,
+            "margin_80": 0.20196680362783348,
+            "p_80": 0.20143166184425354,
+            "p_half_t0": 0.43932288885116577,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Tallahassee->Florida",
+            "margin_t0": 1.2209974467614302,
+            "p_t0": 0.9273396730422974,
+            "margin_80": 0.001323298400258388,
+            "p_80": 0.17769593000411987,
+            "p_half_t0": 0.4636698365211487,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          },
+          {
+            "probe": "Indianapolis->Indiana",
+            "margin_t0": 1.111376227127817,
+            "p_t0": 0.9422821998596191,
+            "margin_80": 0.1525149458150587,
+            "p_80": 0.20983828604221344,
+            "p_half_t0": 0.47114109992980957,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Annapolis->Maryland",
+            "margin_t0": 1.195791207925603,
+            "p_t0": 0.9069494605064392,
+            "margin_80": 0.08041427720495754,
+            "p_80": 0.22994714975357056,
+            "p_half_t0": 0.4534747302532196,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Jackson->Mississippi",
+            "margin_t0": 0.7613399018145312,
+            "p_t0": 0.6934146285057068,
+            "margin_80": 0.013156651733020226,
+            "p_80": 0.08360926806926727,
+            "p_half_t0": 0.3467073142528534,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          }
+        ],
+        "w2": [
+          {
+            "probe": "Austin->Texas",
+            "margin_t0": 1.3286892235528052,
+            "p_t0": 0.966093897819519,
+            "margin_80": 0.1192948150692172,
+            "p_80": 0.27844882011413574,
+            "p_half_t0": 0.4830469489097595,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Columbus->Ohio",
+            "margin_t0": 0.6925164595094573,
+            "p_t0": 0.811143696308136,
+            "margin_80": 0.1756400999391215,
+            "p_80": 0.2546084225177765,
+            "p_half_t0": 0.405571848154068,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Denver->Colorado",
+            "margin_t0": 1.1125056349188294,
+            "p_t0": 0.85616534948349,
+            "margin_80": 0.12929955617053843,
+            "p_80": 0.18885965645313263,
+            "p_half_t0": 0.428082674741745,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Hartford->Connecticut",
+            "margin_t0": 0.6850805907601698,
+            "p_t0": 0.8384353518486023,
+            "margin_80": 0.10651061057063822,
+            "p_80": 0.3765191435813904,
+            "p_half_t0": 0.41921767592430115,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Dover->Delaware",
+            "margin_t0": 0.9550981685052744,
+            "p_t0": 0.8786457777023315,
+            "margin_80": 0.16461789970559806,
+            "p_80": 0.3518761396408081,
+            "p_half_t0": 0.43932288885116577,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Tallahassee->Florida",
+            "margin_t0": 1.2209974467614302,
+            "p_t0": 0.9273396730422974,
+            "margin_80": 0.3841148496817683,
+            "p_80": 0.35582369565963745,
+            "p_half_t0": 0.4636698365211487,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Indianapolis->Indiana",
+            "margin_t0": 1.111376227127817,
+            "p_t0": 0.9422821998596191,
+            "margin_80": 0.3596119539824227,
+            "p_80": 0.39166590571403503,
+            "p_half_t0": 0.47114109992980957,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Annapolis->Maryland",
+            "margin_t0": 1.195791207925603,
+            "p_t0": 0.9069494605064392,
+            "margin_80": 0.3482358551843548,
+            "p_80": 0.361351877450943,
+            "p_half_t0": 0.4534747302532196,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": false,
+            "margin_cross_step": null,
+            "standing_at_80": true,
+            "fate": "standing-zombie"
+          },
+          {
+            "probe": "Jackson->Mississippi",
+            "margin_t0": 0.7613399018145312,
+            "p_t0": 0.6934146285057068,
+            "margin_80": 0.03142329985765679,
+            "p_80": 0.13141101598739624,
+            "p_half_t0": 0.3467073142528534,
+            "p_below_half_at_80": true,
+            "margin_ever_crossed_by_80": true,
+            "margin_cross_step": 80,
+            "standing_at_80": false,
+            "fate": "resolved"
+          }
+        ]
+      }
+    },
+    "adjudication": {
+      "bars": {
+        "ZOMBIES-STAND": true,
+        "ZOMBIES-RESOLVE": false,
+        "MIXED": false
+      },
+      "verdict": "ZOMBIES-STAND",
+      "rule": "cell STANDS iff standing_fraction >= 0.5; overall = modal outcome across the 6 adjudicated cells (>= 4 of 6); near co-report",
+      "clause": "6/6 adjudicated cells have standing_fraction >= 0.5 (fact-w1 6/8 (0.75); fact-w2 6/8 (0.75); ctrl-w1 4/4 (1.00); ctrl-w2 3/3 (1.00); tmpl-w1 6/9 (0.67); tmpl-w2 8/9 (0.89)) \u2014 the standing zombie is the modal P-FIRST outcome; the zombie is a stable resting state",
+      "t209_prediction_clauses": {
+        "prediction_verbatim": "a large standing-zombie population persists at +80 (the zombie is a stable resting state \u2014 the modal probe is a zombie by the end); if instead zombies resolve by +80 (margins follow p down), the two-actions story weakens to a lag story and H-i strengthens",
+        "large_standing_population_persists": true,
+        "note": "the bar adjudicates; this clause read is a co-report against T209's registered wording, no retrofit"
+      }
+    }
+  },
+  "read2_temperature_lens": {
+    "definition": "cloud = read-1 standing zombies at +80 (margin >= 0.05, p < half), pooled over both washes, fact/ctrl/tmpl adjudicated, near co-report; temperature family = vertical line at x = margin_sigma(t0) per probe (analytic form registered above); departure_i = |margin(+80) - margin(t0)|; floor = median |margin(w1,2) - margin(t0)| over fact/ctrl/tmpl (registered before compute)",
+    "noise_floor": {
+      "definition": "median minimal-dose |d_margin| at w1@2 vs t0, all fact/ctrl/tmpl probes",
+      "n": 51,
+      "value": 0.02422397210465599,
+      "p25": 0.010926677174622007,
+      "p75": 0.04549331357926595,
+      "min": 0.00041259529137471773,
+      "max": 0.12018887367437925
+    },
+    "cloud": {
+      "n_pooled_adjudicated": 33,
+      "n_near_coreport": 4,
+      "points": [
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "Greece->Athens",
+          "margin_t0": 1.1781698104110228,
+          "p_t0": 0.94468092918396,
+          "margin_80": 0.36234748537294087,
+          "p_80": 0.3968694806098938,
+          "D_signed": -0.8158223250380818,
+          "departure": 0.8158223250380818,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "Poland->Warsaw",
+          "margin_t0": 0.8231108730177659,
+          "p_t0": 0.6746281981468201,
+          "margin_80": 0.09858356653577356,
+          "p_80": 0.1412094533443451,
+          "D_signed": -0.7245273064819923,
+          "departure": 0.7245273064819923,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "Portugal->Lisbon",
+          "margin_t0": 0.7570613400170839,
+          "p_t0": 0.7412760853767395,
+          "margin_80": 0.19482384049806584,
+          "p_80": 0.14942365884780884,
+          "D_signed": -0.562237499519018,
+          "departure": 0.562237499519018,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "Egypt->Cairo",
+          "margin_t0": 0.6357743715268048,
+          "p_t0": 0.8057803511619568,
+          "margin_80": 0.08184035244937499,
+          "p_80": 0.10885904729366302,
+          "D_signed": -0.5539340190774298,
+          "departure": 0.5539340190774298,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "the United Kingdom->pound",
+          "margin_t0": 0.9509313345344212,
+          "p_t0": 0.9533817768096924,
+          "margin_80": 0.2678971444006647,
+          "p_80": 0.41885340213775635,
+          "D_signed": -0.6830341901337565,
+          "departure": 0.6830341901337565,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w1",
+          "probe": "the United States->dollar",
+          "margin_t0": 0.2922677329736964,
+          "p_t0": 0.5909402966499329,
+          "margin_80": 0.07057359403389044,
+          "p_80": 0.09912417083978653,
+          "D_signed": -0.22169413893980597,
+          "departure": 0.22169413893980597,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "Greece->Athens",
+          "margin_t0": 1.1781698104110228,
+          "p_t0": 0.94468092918396,
+          "margin_80": 0.42866069352717384,
+          "p_80": 0.40251320600509644,
+          "D_signed": -0.7495091168838489,
+          "departure": 0.7495091168838489,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "Poland->Warsaw",
+          "margin_t0": 0.8231108730177659,
+          "p_t0": 0.6746281981468201,
+          "margin_80": 0.2040031226201523,
+          "p_80": 0.1767950803041458,
+          "D_signed": -0.6191077503976136,
+          "departure": 0.6191077503976136,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "Portugal->Lisbon",
+          "margin_t0": 0.7570613400170839,
+          "p_t0": 0.7412760853767395,
+          "margin_80": 0.2922040856063609,
+          "p_80": 0.21651768684387207,
+          "D_signed": -0.464857254410723,
+          "departure": 0.464857254410723,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "Ireland->Dublin",
+          "margin_t0": 0.4925394483890496,
+          "p_t0": 0.6304253935813904,
+          "margin_80": 0.08278137845108942,
+          "p_80": 0.10094417631626129,
+          "D_signed": -0.4097580699379602,
+          "departure": 0.4097580699379602,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "the United Kingdom->pound",
+          "margin_t0": 0.9509313345344212,
+          "p_t0": 0.9533817768096924,
+          "margin_80": 0.18912443376202248,
+          "p_80": 0.37188032269477844,
+          "D_signed": -0.7618069007723988,
+          "departure": 0.7618069007723988,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "fact",
+          "wash": "w2",
+          "probe": "the United States->dollar",
+          "margin_t0": 0.2922677329736964,
+          "p_t0": 0.5909402966499329,
+          "margin_80": 0.2602049104882616,
+          "p_80": 0.05210815742611885,
+          "D_signed": -0.032062822485434794,
+          "departure": 0.032062822485434794,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w1",
+          "probe": "The web browser made by Google->Chrome",
+          "margin_t0": 0.40959900795566256,
+          "p_t0": 0.7029966711997986,
+          "margin_80": 0.10412646385173799,
+          "p_80": 0.20234887301921844,
+          "D_signed": -0.30547254410392455,
+          "departure": 0.30547254410392455,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w1",
+          "probe": "The phone made by Apple->iPhone",
+          "margin_t0": 0.4426872995731846,
+          "p_t0": 0.6358935832977295,
+          "margin_80": 0.2927834412479846,
+          "p_80": 0.11716761440038681,
+          "D_signed": -0.14990385832519998,
+          "departure": 0.14990385832519998,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w1",
+          "probe": "The tablet made by Apple->iPad",
+          "margin_t0": 0.7251352898848806,
+          "p_t0": 0.7676098942756653,
+          "margin_80": 0.06727931406961364,
+          "p_80": 0.24164250493049622,
+          "D_signed": -0.657855975815267,
+          "departure": 0.657855975815267,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w1",
+          "probe": "The music store made by Apple->iTunes",
+          "margin_t0": 0.41187181111091625,
+          "p_t0": 0.6862599849700928,
+          "margin_80": 0.09568626848591211,
+          "p_80": 0.20097064971923828,
+          "D_signed": -0.31618554262500415,
+          "departure": 0.31618554262500415,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w2",
+          "probe": "The web browser made by Google->Chrome",
+          "margin_t0": 0.40959900795566256,
+          "p_t0": 0.7029966711997986,
+          "margin_80": 0.05601863297692083,
+          "p_80": 0.20110595226287842,
+          "D_signed": -0.35358037497874173,
+          "departure": 0.35358037497874173,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w2",
+          "probe": "The phone made by Apple->iPhone",
+          "margin_t0": 0.4426872995731846,
+          "p_t0": 0.6358935832977295,
+          "margin_80": 0.0829241876029829,
+          "p_80": 0.2173159271478653,
+          "D_signed": -0.3597631119702017,
+          "departure": 0.3597631119702017,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "ctrl",
+          "wash": "w2",
+          "probe": "The music store made by Apple->iTunes",
+          "margin_t0": 0.41187181111091625,
+          "p_t0": 0.6862599849700928,
+          "margin_80": 0.13793988022000853,
+          "p_80": 0.13690724968910217,
+          "D_signed": -0.2739319308909077,
+          "departure": 0.2739319308909077,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Sacramento->California",
+          "margin_t0": 1.1530674745489677,
+          "p_t0": 0.9349073767662048,
+          "margin_80": 0.395366128879412,
+          "p_80": 0.44422367215156555,
+          "D_signed": -0.7577013456695557,
+          "departure": 0.7577013456695557,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Austin->Texas",
+          "margin_t0": 1.3286892235528052,
+          "p_t0": 0.966093897819519,
+          "margin_80": 0.13847276272632777,
+          "p_80": 0.2104656845331192,
+          "D_signed": -1.1902164608264774,
+          "departure": 1.1902164608264774,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Denver->Colorado",
+          "margin_t0": 1.1125056349188294,
+          "p_t0": 0.85616534948349,
+          "margin_80": 0.13382818134184526,
+          "p_80": 0.1796502023935318,
+          "D_signed": -0.9786774535769841,
+          "departure": 0.9786774535769841,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Dover->Delaware",
+          "margin_t0": 0.9550981685052744,
+          "p_t0": 0.8786457777023315,
+          "margin_80": 0.20196680362783348,
+          "p_80": 0.20143166184425354,
+          "D_signed": -0.7531313648774409,
+          "departure": 0.7531313648774409,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Indianapolis->Indiana",
+          "margin_t0": 1.111376227127817,
+          "p_t0": 0.9422821998596191,
+          "margin_80": 0.1525149458150587,
+          "p_80": 0.20983828604221344,
+          "D_signed": -0.9588612813127582,
+          "departure": 0.9588612813127582,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w1",
+          "probe": "Annapolis->Maryland",
+          "margin_t0": 1.195791207925603,
+          "p_t0": 0.9069494605064392,
+          "margin_80": 0.08041427720495754,
+          "p_80": 0.22994714975357056,
+          "D_signed": -1.1153769307206454,
+          "departure": 1.1153769307206454,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Austin->Texas",
+          "margin_t0": 1.3286892235528052,
+          "p_t0": 0.966093897819519,
+          "margin_80": 0.1192948150692172,
+          "p_80": 0.27844882011413574,
+          "D_signed": -1.209394408483588,
+          "departure": 1.209394408483588,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Columbus->Ohio",
+          "margin_t0": 0.6925164595094573,
+          "p_t0": 0.811143696308136,
+          "margin_80": 0.1756400999391215,
+          "p_80": 0.2546084225177765,
+          "D_signed": -0.5168763595703358,
+          "departure": 0.5168763595703358,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Denver->Colorado",
+          "margin_t0": 1.1125056349188294,
+          "p_t0": 0.85616534948349,
+          "margin_80": 0.12929955617053843,
+          "p_80": 0.18885965645313263,
+          "D_signed": -0.9832060787482909,
+          "departure": 0.9832060787482909,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Hartford->Connecticut",
+          "margin_t0": 0.6850805907601698,
+          "p_t0": 0.8384353518486023,
+          "margin_80": 0.10651061057063822,
+          "p_80": 0.3765191435813904,
+          "D_signed": -0.5785699801895315,
+          "departure": 0.5785699801895315,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Dover->Delaware",
+          "margin_t0": 0.9550981685052744,
+          "p_t0": 0.8786457777023315,
+          "margin_80": 0.16461789970559806,
+          "p_80": 0.3518761396408081,
+          "D_signed": -0.7904802687996764,
+          "departure": 0.7904802687996764,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Tallahassee->Florida",
+          "margin_t0": 1.2209974467614302,
+          "p_t0": 0.9273396730422974,
+          "margin_80": 0.3841148496817683,
+          "p_80": 0.35582369565963745,
+          "D_signed": -0.8368825970796618,
+          "departure": 0.8368825970796618,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Indianapolis->Indiana",
+          "margin_t0": 1.111376227127817,
+          "p_t0": 0.9422821998596191,
+          "margin_80": 0.3596119539824227,
+          "p_80": 0.39166590571403503,
+          "D_signed": -0.7517642731453942,
+          "departure": 0.7517642731453942,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "tmpl",
+          "wash": "w2",
+          "probe": "Annapolis->Maryland",
+          "margin_t0": 1.195791207925603,
+          "p_t0": 0.9069494605064392,
+          "margin_80": 0.3482358551843548,
+          "p_80": 0.361351877450943,
+          "D_signed": -0.8475553527412483,
+          "departure": 0.8475553527412483,
+          "adjudicates": true,
+          "t_star_exists": true
+        },
+        {
+          "battery": "near",
+          "wash": "w1",
+          "probe": "Georgia->Atlanta",
+          "margin_t0": 0.43488736443571857,
+          "p_t0": 0.6366477012634277,
+          "margin_80": 0.3630542306764244,
+          "p_80": 0.1052575409412384,
+          "D_signed": -0.07183313375929418,
+          "departure": 0.07183313375929418,
+          "adjudicates": false,
+          "t_star_exists": true
+        },
+        {
+          "battery": "near",
+          "wash": "w2",
+          "probe": "Massachusetts->Boston",
+          "margin_t0": 0.5559557335692159,
+          "p_t0": 0.6118616461753845,
+          "margin_80": 0.07392347074440293,
+          "p_80": 0.2300376445055008,
+          "D_signed": -0.482032262824813,
+          "departure": 0.482032262824813,
+          "adjudicates": false,
+          "t_star_exists": true
+        },
+        {
+          "battery": "near",
+          "wash": "w2",
+          "probe": "Georgia->Atlanta",
+          "margin_t0": 0.43488736443571857,
+          "p_t0": 0.6366477012634277,
+          "margin_80": 0.2706478244797105,
+          "p_80": 0.15308833122253418,
+          "D_signed": -0.1642395399560081,
+          "departure": 0.1642395399560081,
+          "adjudicates": false,
+          "t_star_exists": true
+        },
+        {
+          "battery": "near",
+          "wash": "w2",
+          "probe": "Ohio->Columbus",
+          "margin_t0": 0.28436951057400955,
+          "p_t0": 0.5189241766929626,
+          "margin_80": 0.08380271440273002,
+          "p_80": 0.22417213022708893,
+          "D_signed": -0.20056679617127954,
+          "departure": 0.20056679617127954,
+          "adjudicates": false,
+          "t_star_exists": true
+        }
+      ]
+    },
+    "departures": {
+      "median_abs": 0.6830341901337565,
+      "median_signed": -0.6830341901337565,
+      "q25_signed": -0.8158223250380818,
+      "q75_signed": -0.4097580699379602,
+      "n_left_of_vertical": 33,
+      "n_right_of_vertical": 0,
+      "n_on_vertical_exact": 0,
+      "per_wash": {
+        "w1": {
+          "n": 16,
+          "median_departure": 0.7037807483078744,
+          "median_signed": -0.7037807483078744
+        },
+        "w2": {
+          "n": 17,
+          "median_departure": 0.6191077503976136,
+          "median_signed": -0.6191077503976136
+        }
+      },
+      "per_battery": {
+        "fact": {
+          "n": 12,
+          "median_departure": 0.5906726249583159,
+          "median_signed": -0.5906726249583159
+        },
+        "ctrl": {
+          "n": 7,
+          "median_departure": 0.31618554262500415,
+          "median_signed": -0.31618554262500415
+        },
+        "tmpl": {
+          "n": 14,
+          "median_departure": 0.842218974910455,
+          "median_signed": -0.842218974910455
+        }
+      }
+    },
+    "adjudication": {
+      "bars": {
+        "RESTRUCTURED": true,
+        "TEMPERATURE-LIKE": false
+      },
+      "verdict": "RESTRUCTURED",
+      "clause": "median departure 0.6830 sigma >= the journals' noise floor 0.0242 sigma (median minimal-dose |d_margin| at w1@2 over fact/ctrl/tmpl, n=51) \u2014 the zombie cloud departs the t=0 vertical temperature lines systematically; the wash does something temperature cannot",
+      "w034_prediction_clauses": {
+        "prediction_verbatim": "the natural zombie cloud sits AT HIGHER margins than the temperature family at matched p \u2014 because T209's P-FIRST class keeps margins >= 0.05 sigma while p halves, whereas temperature couples them tightly; a mismatch anywhere in the cloud reads REAL RESTRUCTURING",
+        "letter_higher_margins_than_family_at_matched_p": false,
+        "letter_note": "at matched p the family's margin is exactly margin(t0) (the vertical), so the letter fires iff the cloud sits RIGHT of the verticals (median signed D > 0)",
+        "spirit_mismatch_reads_restructuring": true,
+        "premise_note": "the derivation registered before compute denies W034's 'temperature couples them tightly' \u2014 temperature does not couple margin to p at all (margin invariant while p falls); and temperature is the MAXIMAL-margin null at matched p (it predicts t0's full margin at any fallen p), so natural zombies LEFT of the verticals are exactly as fatal to the flattening story as right-of ones; no retrofit \u2014 both notes were written into this file's docstring at the registration commit"
+      },
+      "sensitivities_coreport_only": {
+        "floor_p25_adjudication": "RESTRUCTURED",
+        "floor_p75_adjudication": "RESTRUCTURED",
+        "per_wash": {
+          "w1": "RESTRUCTURED",
+          "w2": "RESTRUCTURED"
+        },
+        "note": "co-reports only \u2014 the primary floor and statistic were registered before compute; these never adjudicate"
+      }
+    }
+  },
+  "figures": {
+    "zombie_lag_population": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\zombie_lag_population.png",
+    "temperature_lens_cloud": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\temperature_lens_cloud.png"
+  },
+  "honesty_reflex": {
+    "e208_distinction": "e208's margin object was the FACT-EDGE over the wash band on the tiny-net organisms (a cross-organism class separator, scoped to NATURAL-STEP organisms after e209/e210); THIS cell's object is the NEXT-TOKEN ARGMAX MARGIN at the answer position in sigma units vs arithmetic noise, per probe, on the committed 124M archive \u2014 a different ruler that shares only the word 'margin'",
+    "classification_provenance": "the P-FIRST classes are e230's COMMITTED classification, read from its metrics.json, never re-derived here; the journal-recomputed margin crossings agree with e230's committed m_cross fields on every record (gate G_E230X)",
+    "near_quantized": "near is n=3 \u2014 every statistic on it is quantized; co-report only, never adjudicates",
+    "grid_coarseness": "the state grid is coarse (w1 2/10/50/80, w2 10/50/80); crossing states and lag lengths are quantized to it; 'resolved at 80' means crossed BY the last observed state \u2014 the true crossing could be anywhere in (50, 80]",
+    "snapshot_definition": "standing/resolved is a +80 SNAPSHOT call (T209's registered definition); a probe that crossed earlier and recovered would count standing (flagged 'recovered', disclosed in the table)",
+    "floor_conservatism": "the noise floor is itself wash-induced movement (w1@2 minimal dose), not measurement noise \u2014 the journals are single deterministic evals and e182 committed p only (no margin replay floor exists); this biases the read TOWARD TEMPERATURE-LIKE, i.e., against the RESTRUCTURED bar \u2014 the conservative direction",
+    "maximal_margin_null": "under the registered analytic form, temperature predicts the probe's FULLEST margin (t0's) at every fallen p \u2014 the null is maximal-margin at matched p, so left-of-vertical departures (natural margins thinner than t0) are as fatal to the flattening story as right-of-vertical ones; registered before compute",
+    "shared_verticals": "a probe zombie under both washes contributes two cloud points sharing one t0 vertical (each wash is a separate death); per-wash medians co-reported",
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 the archive's device asymmetry, inherited, disclosed",
+    "one_organism": "ONE organism's commitment spectrum (the shared pristine 124M); nothing here speaks cross-organism",
+    "guarantees_nothing": "nothing here is guaranteed \u2014 T209/W034's registered branches were written before this pass; no retrofit"
+  },
+  "timing": {
+    "started": "2026-10-04T13:58:49Z",
+    "finished": "2026-10-04T13:58:49Z"
+  },
+  "trims": [],
+  "deviations": [
+    "DESK-ONLY per the dispatch: no model loads, no GPU, no wash; pure join of committed records + analytic arithmetic on the t=0 summaries",
+    "the temperature family is evaluated through its REGISTERED analytic form (vertical lines; margin_sigma exactly invariant) rather than by materializing softmax(l/T) curves \u2014 the journals commit per-probe summaries (p, margin, sigma, top1/top2 ids), not full logits; the registered read (cloud position relative to the verticals) is complete without p(T) curves, and the exact-p T* exists for every zombie (gate G_ZSUBSET) \u2014 disclosed as a scope note, not a bar change"
+  ],
+  "all_gates_pass": false
+}
