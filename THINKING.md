@@ -5112,6 +5112,47 @@ physics states. That is the culture working.
 
 
 
+## W036 — WONDER: the wall's shoreline — are the small-model wall and the 124M wash one field seen from two shores? (2026-10-04 ~14:16Z; no bars, no kills — the day's two worlds converging)
+
+The lab has run two model-worlds on separate tracks all week: the
+g-series small-model WALL (fact installs, ratio device, flat
+phase, recapture by +2) and the 124M WASH (forgetting, erosion
+orders, supports, zombies). TODAY'S INSTRUMENTS APPLY TO BOTH,
+and the pictures they return rhyme suspiciously. The wash: a
+directed wind killing aligned beliefs + a friction grinding
+margins (W035). The wall: the +1 transient consuming the
+initially-aligned (e225's edge-owned transient; e226's t=0
+inversion IS the same shape at 124M), then a flat phase at a
+RATIO of root strength that no root-side currency sets (T208's
+three dead currencies), then RE-CAPTURE by +2 (the wall re-forms
+the fact). THE UNIFICATION CANDIDATE: THE WALL IS THE WIND'S
+SHORELINE — the flat phase is the friction's steady state (the
+orthogonal remainder settling), and the recapture is the wind
+re-forming (the wash's span rotating back to carry the fact's
+direction once the transient has spent the mis-alignment). Under
+this reading the wall's two clauses ("the first step is the
+axis's; the flat phase is the wall's") become the wind's gust
+and the friction's settle — and the RATIO the wall holds the
+fact at (0.6-1.0x root) is the exchange rate between the two
+components' magnitudes, which is exactly why no single root-side
+currency priced it. THE DISCRIMINATING OBSERVATION (registered;
+the instrument is already in flight): e231's root-level overlaps
+adjudicate the flat-phase-is-friction clause at the wall's own
+scale — BALL-OWNS-THE-FLAT-PHASE is the shoreline's first leg;
+the second leg (the recapture-is-the-wind-re-forming) wants the
+wash-span's rotation between +1 and +2 at any g-series root
+(committed gradients exist; a small desk cell if e231 fires).
+REGISTERED PREDICTION: if the shoreline holds, the g1d anomaly
+(the half-expressed root retained ABOVE its own strength) is the
+shoreline's shallowest point — the fact already lying mostly in
+the wind's span, so the gust has nothing to spend and the
+friction's settle IS its formation. HONESTY: this is a rhyme
+promoted to a question, not a law; the two worlds differ in
+every controllable (paradigm, scale, install-vs-pretrain); the
+bridge must earn each clause. But if it holds, the lab's two
+deepest objects — the wall and the wash — are one field, and
+the discipline that paid for both pays off twice.
+
 ## W035 — WONDER: the wind and the friction — is the wash one field with two components? (2026-10-04 ~13:58Z; no bars, no kills — three instruments converging)
 
 Three of today's results, from three independent instruments,
