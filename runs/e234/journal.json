@@ -5283,21 +5283,24 @@
   ],
   "replay_cert": {
    "gen_state_identical_after_80": true,
-   "2": {
-    "max_abs_dw": 0.009979248046875,
-    "max_rel_dw": 0.015049425885081291
-   },
-   "10": {
-    "max_abs_dw": 0.008928298950195312,
-    "max_rel_dw": 0.01383933424949646
-   },
-   "50": {
-    "max_abs_dw": 0.003726959228515625,
-    "max_rel_dw": 0.006173580884933472
-   },
    "80": {
     "max_abs_dw": 0.0,
     "max_rel_dw": 0.0
+   },
+   "displacement_mislabeled_as_drift": {
+    "2": {
+     "max_abs_dw": 0.009979248046875,
+     "max_rel_dw": 0.015049425885081291
+    },
+    "10": {
+     "max_abs_dw": 0.008928298950195312,
+     "max_rel_dw": 0.01383933424949646
+    },
+    "50": {
+     "max_abs_dw": 0.003726959228515625,
+     "max_rel_dw": 0.006173580884933472
+    },
+    "_note": "MISLABEL RELABEL (post-fold): computed as |W_80(live replay) - W_s(archived)| \u2014 wash DISPLACEMENT from s to +80, NOT replay drift (the final-net-vs-mid-checkpoint comparison bug, fixed in lab/e234 commit 2dca1c7: drift is now measured inline at each checkpoint's own step). The true end-state replay drift is the '80' entry; intermediate checkpoints are certified by G_TRAJ's probe-level gate (max dp 9.41e-03) + the bit-exact draw states."
    }
   }
  },
@@ -9393,17 +9396,20 @@
   ],
   "replay_cert": {
    "gen_state_identical_after_80": true,
-   "10": {
-    "max_abs_dw": 0.009061813354492188,
-    "max_rel_dw": 0.014646206051111221
-   },
-   "50": {
-    "max_abs_dw": 0.003749847412109375,
-    "max_rel_dw": 0.006646519526839256
-   },
    "80": {
     "max_abs_dw": 0.0015161335468292236,
     "max_rel_dw": 0.0008275311556644738
+   },
+   "displacement_mislabeled_as_drift": {
+    "10": {
+     "max_abs_dw": 0.009061813354492188,
+     "max_rel_dw": 0.014646206051111221
+    },
+    "50": {
+     "max_abs_dw": 0.003749847412109375,
+     "max_rel_dw": 0.006646519526839256
+    },
+    "_note": "MISLABEL RELABEL (post-fold): computed as |W_80(live replay) - W_s(archived)| \u2014 wash DISPLACEMENT from s to +80, NOT replay drift (the final-net-vs-mid-checkpoint comparison bug, fixed in lab/e234 commit 2dca1c7: drift is now measured inline at each checkpoint's own step). The true end-state replay drift is the '80' entry; intermediate checkpoints are certified by G_TRAJ's probe-level gate (max dp 9.41e-03) + the bit-exact draw states."
    }
   }
  },
@@ -13499,17 +13505,20 @@
   ],
   "replay_cert": {
    "gen_state_identical_after_80": true,
-   "10": {
-    "max_abs_dw": 0.009124755859375,
-    "max_rel_dw": 0.014494924806058407
-   },
-   "50": {
-    "max_abs_dw": 0.0038242340087890625,
-    "max_rel_dw": 0.006436637137085199
-   },
    "80": {
     "max_abs_dw": 0.001497521996498108,
     "max_rel_dw": 0.0008360711508430541
+   },
+   "displacement_mislabeled_as_drift": {
+    "10": {
+     "max_abs_dw": 0.009124755859375,
+     "max_rel_dw": 0.014494924806058407
+    },
+    "50": {
+     "max_abs_dw": 0.0038242340087890625,
+     "max_rel_dw": 0.006436637137085199
+    },
+    "_note": "MISLABEL RELABEL (post-fold): computed as |W_80(live replay) - W_s(archived)| \u2014 wash DISPLACEMENT from s to +80, NOT replay drift (the final-net-vs-mid-checkpoint comparison bug, fixed in lab/e234 commit 2dca1c7: drift is now measured inline at each checkpoint's own step). The true end-state replay drift is the '80' entry; intermediate checkpoints are certified by G_TRAJ's probe-level gate (max dp 9.41e-03) + the bit-exact draw states."
    }
   }
  },

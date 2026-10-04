@@ -2,7 +2,7 @@
   "experiment": "e234_wind_friction",
   "phase": "the three committed 124M washes replayed (CPU fp32, certified draw streams) with every step's raw gradient collected; split-half span decomposition; the two joins across the 54 probes; the 7-zombie rider",
   "date": "2026-10-04T15:39:57Z",
-  "status": "DONE",
+  "status": "DONE (post-fold relabels + neutral anchor caption + desk reads folded \u2014 see deviations[-1]; no recompute)",
   "registration": "bars + predictions frozen VERBATIM from scratch/e234_design.md (frozen at dispatch BEFORE this script or any compute); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -1709,6 +1709,79 @@
     "RAM-LIGHT LIFECYCLE (mid-run restructure, disclosed): the 13.4 GB supports cache is freed after its P2 certification and rebuilt deterministically at P5 (bit-identity certified by G_SUPPORT's probe-0 recompute + the e226 dp 0.0 match) \u2014 the box is shared and available RAM fell below 1 GB during the first full-run attempt with the cache held.",
     "scratch/e234_cache/ holds the fp16 gradient memmaps + resume states (scratch is workspace, NOT runs/ or data/); memmaps deleted only on DONE, kept on any failure for post-mortem.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
-    "Smoke mode (E234_SMOKE=1): 12 steps, w1 only, 11 probes; nothing adjudicated or gated (SMOKE stamp)."
-  ]
+    "Smoke mode (E234_SMOKE=1): 12 steps, w1 only, 11 probes; nothing adjudicated or gated (SMOKE stamp).",
+    "POST-FOLD RELABELS (desk-only, zero wash compute): (1) the first session's replay_cert '2'/'10'/'50' entries were wash displacement (final net vs mid-run checkpoints \u2014 the comparison bug fixed in commit 2dca1c7), relabeled in journal+metrics; the '80' entries are the true end-state drifts (w1 0.0 bit-exact; w2 1.5e-3; w3 1.5e-3 vs GPU-origin archives \u2014 the disclosed TEXTURE tier); (2) the anchor figure's caption was regenerated neutral (the original overclaimed 'the dying anchor rides the wind', which the w1 panel alone supports); (3) desk_reads folded (the raw-alignment control join, the anchors' raw-exposure separation, the battery context)."
+  ],
+  "desk_reads": {
+    "raw_alignment_join_a": {
+      "definition": "Spearman(cumulative RAW alignment sum_t gnorm_t*|cos(g_t, s_i)| = full_cum, belief decline) \u2014 the UNPROJECTED control for join (a): bounds the 'projection ate the signal' alternative",
+      "pooled": 0.054723587665705564,
+      "per_wash": {
+        "w1": -0.0004955212502382314,
+        "w2": 0.05576519916142557,
+        "w3": 0.07855917667238421
+      },
+      "read": "the raw join is as flat as the projected join (0.05 vs -0.01 pooled) \u2014 NEITHER is NOT a projection artifact"
+    },
+    "anchors_raw_exposure": {
+      "w1 iPhone": {
+        "full_cum": 2.45,
+        "fric_cum": 2.5,
+        "wind_cum": 0.3086,
+        "belief_decl": 0.816,
+        "margin_decl": 0.339
+      },
+      "w1 Gmail": {
+        "full_cum": 0.32,
+        "fric_cum": 0.32,
+        "wind_cum": 0.0401,
+        "belief_decl": 0.095,
+        "margin_decl": -0.48
+      },
+      "w2 iPhone": {
+        "full_cum": 1.71,
+        "fric_cum": 1.71,
+        "wind_cum": 0.0109,
+        "belief_decl": 0.661,
+        "margin_decl": 0.805
+      },
+      "w2 Gmail": {
+        "full_cum": 0.19,
+        "fric_cum": 0.19,
+        "wind_cum": 0.0192,
+        "belief_decl": 0.07,
+        "margin_decl": -0.52
+      },
+      "w3 iPhone": {
+        "full_cum": 1.55,
+        "fric_cum": 1.55,
+        "wind_cum": 0.0313,
+        "belief_decl": 0.808,
+        "margin_decl": 0.349
+      },
+      "w3 Gmail": {
+        "full_cum": 0.24,
+        "fric_cum": 0.24,
+        "wind_cum": 0.0417,
+        "belief_decl": 0.137,
+        "margin_decl": -0.402
+      }
+    },
+    "anchors_read": "iPhone's RAW cumulative exposure is 8-10x Gmail's on every wash (1.5-2.5 vs 0.2-0.3) \u2014 e226's seat, expressed cumulatively and cross-wash-stable \u2014 but it does not generalize: the battery between the anchors is uncorrelated (raw rho 0.05). The seat is an anchors-scale tale of extremes, not a battery law. Gmail's margin GROWS through the wash (margin_decl -0.40..-0.52): the holder's commitment thickens.",
+    "battery_belief_decl_means": {
+      "fact": 0.46431657057896397,
+      "ctrl": 0.3988094515162708,
+      "near": 0.7059564463378548,
+      "tmpl": 0.5284280333609804
+    },
+    "battery_read": "the nearrel family dies HARDEST (mean belief decline 0.71) while carrying the LOWEST median wind-alignment (0.029 vs product 0.042 \u2014 prediction (a) inverted, ratio 0.70): the dying family is the least wind-reached; its deaths are not span-directed",
+    "family_wind_cum_medians": {
+      "cap-cur": 0.08070572248940219,
+      "founder-anchor": 0.06938955300119368,
+      "lang": 0.08833670736256244,
+      "near-uscap": 0.02928763196214033,
+      "product": 0.04167228700584088,
+      "rev-capital": 0.0719727307267769
+    }
+  }
 }
