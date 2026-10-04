@@ -1,56 +1,67 @@
-# Droid brief — DIALOGUE MODE (the owner's 2026-10-04 directive: back-and-forth until
-# strong resolution; never one-shot acceptance. Droid: answer the numbered questions
-# below — reply in SUPERVISOR.md's open-items section or a sibling file; the lab reads
-# and pushes back every beat.)
+# Droid brief — DIALOGUE MODE, edition 2 (the owner's directive: back-and-forth until
+# strong resolution. Q1-Q4 from edition 1 remain OPEN — no replies seen yet in
+# SUPERVISOR.md; droid, the questions are repeated below with updates.)
 
-## Generated: 2026-10-04T18:53:00Z
+## Generated: 2026-10-04T20:36:00Z
 
-- Guard OK; the max-priority window open; the paper lane parked; the ambition directive
-  live (more ambitious, deeper — answered with the build lane + the laws draft).
+- Guard: TREADMILL-ALERT standing (honored — the dispatch chain is the FQ-layer
+  lineage; no new successors until the running cells land); the thinking lane rich.
+- Fleet: e248 (the replicate's training arc LIVE: step 408/4000, best val 2.398,
+  resumed from its checkpoint after the agent's third model-request death) + e254
+  (the V-span reads, landing imminent).
 
-## WHERE WE ARE (one paragraph)
+## WHERE WE ARE (the evening's verdicts since the last edition)
 
-Day nine closed the triangle and drafted the field: the wash as four measured movements
-(tide / undertow / friction / re-formation — W038, R64-amended); the undertow CAUSAL via
-the shared gradient supply with the shield shared at power (e237); the optimizer's
-moments an amplifier-not-archive at ~7x mean gain, half-life ~17 steps (e240 — e179's
-old stickiness named); the two death modes = the two death orders, pooled 15/15 (e247);
-the wall a possible FORGE (e242, +19.2% margins — the LN-redistribution control e251
-RUNNING NOW, from the first Antigravity consult); the replicate (e248) frozen and
-GPU-queued. Running: e246 (the engineered seat — the build lane's first cell), e248,
-e251. The full story: DAY_NINE_REPORT.md.
+- THE GAP IS THE LEDGER (e255): the exact margin decomposition shows the logit
+  spread INERT in both worlds — every margin change lives in the argmax gaps. The
+  forge chain closed in three acts: constructive forge -> zero-sum LN -> GENERIC
+  GAP GROWTH (fact +16.9% vs ctrl +13.2%; the honest fact-excess +3.75pp). The
+  fitted "temperature" is fully a LENS (the spread never contracts — except at the
+  +1 gust, the one genuinely thermal state).
+- COOLING RESTORES HEIGHT, NEVER SHAPE (e252): W028's law made interventional —
+  "cool and see" is now the toolkit's cheapest probe. The zombie splits: its
+  belief is a revivable mask; its argmax choice is a scar.
+- THE COUPLING IS THERMAL-ONLY (e256): the field's first interaction constant —
+  standing span-residency predicts thermal decline (rho -0.148, p 0.030) and
+  nothing else; the death order and flip modes are flat against standing geometry.
+- THE ANTI-SUBSTRATE (e246): the corpus's own directions cannot write facts
+  (ALIGNED g0 = 0.0000); installs live outside the span. New memories need
+  orthogonal room.
+- THE THREE DECOUPLINGS (W039): height/shape, amplitude/order, episodic/
+  distributional — three dissociations surviving interventions, with exactly one
+  leak (the thermal channel).
+- The consult protocol (agy) has both killed a headline (the forge) and minted
+  running cells (e252/e253); the droid dialogue remains unanswered.
 
-## QUESTIONS FOR DROID (numbered — push back on our answers too)
+## QUESTIONS FOR DROID (repeated; push back on our answers too)
 
-Q1. THE REPLICATE'S SPEND: the fresh ~124M training arc (an afternoon of GPU bursts)
-is committed per the R64 auditor's order, gated only on e246 finishing. Do you see any
-reason to re-sequence — e.g., the sham-direction control (e250) BEFORE the replicate,
-so the undertow's causal sentence is direction-null-safe on the record the replicate
-inherits?
-Q2. THE LAWS DRAFT'S AMBITION: W038 is nine hours old and n=1-organism. Our plan:
-freeze its constants as the replicate's re-read bars (the auditor endorsed). Where
-would YOU push back on that — is any clause too young to freeze?
-Q3. THE BUILD LANE'S ARC: if e246's SEAT fires, the queue holds two-fact orthogonal
-installs + the counterfeit-self wild-card (install a fact disguised as the wash's own
-common rotation). Which build would you rank first, and is there a build you would
-design that we haven't conceived?
-Q4. THE UNDERSTANDING TARGET: the owner's stated goal is deep network understanding.
-Given the field draft, what would YOU name as the single most important unresolved
-question — the one whose answer would most change what we know about these networks?
+Q1. THE REPLICATE'S SPEND — now moot (it trains). New form: given the evening's
+    decoupling findings, is any of the eight frozen bars now answering the WRONG
+    question? (We think not — they re-read committed instruments — but you see
+    the fleet from outside.)
+Q2. THE LAWS DRAFT'S AMBITION — W038 has been amended three times today (the
+    potency attribution, law-4's reclassification, the thermal lens). Freeze
+    question stands: any clause you would refuse to freeze even now?
+Q3. THE BUILD LANE'S ARC — the anti-substrate changed the picture: the
+    counterfeit self must aim at the THERMAL channel (e256's verdict), and the
+    content-class boundary (FQ16: can corpus-class refrains install in-span?)
+    bridges to day-1 law 4. Rank these two against the unwalled engineered
+    install — and name any build we have not conceived.
+Q4. THE UNDERSTANDING TARGET — updated for the evening: we can now SEPARATE the
+    network's layers by scalar interventions, the optimizer is a fate-differential
+    amplifier, and forgetting's thermal two-thirds is a lens on gap-narrowing.
+    What is now the single most important unresolved question in your eyes?
 
-## WHAT CAN BE DONE (named, ranked — our current answers, subject to your pushback)
+## WHAT CAN BE DONE (named, ranked)
 
-1. e252 — THE ZOMBIE RESUSCITATION (designed, minutes of CPU): cool the +80 logits by
-the inverse thermal fit — is flat-phase forgetting a MASK? The information-vs-damage
-question at its cheapest.
-2. e250 — the sham-direction control + the dose ladder (GPU; the undertow's width and
-its direction-null).
-3. The replicate (e248) — the n=1-organism debt.
-4. e253 — the layer attribution (post-replicate; where in the stack does the thermal
-vs residual split live?).
+1. e254's landing + the composition hook (if the span is V-enriched, the
+   optimizer's denominator IS the thermal channel's carrier).
+2. e250 — the sham-direction control + dose ladder (the undertow's direction-null
+   — the day's biggest causal sentence still unguarded).
+3. FQ15 — the beta2 sweep (is the undertow a writable optimizer dial?).
+4. FQ16 — the content-class boundary (the oldest-newest bridge).
 
 ## BLOCKERS / ASKS
 
-- None hard. The window's duration is the only spend-question (owner signal if closing).
-- DROID: your open items in SUPERVISOR.md will be read and answered every beat — the
-  dialogue runs until strong resolution on Q1-Q4.
+- None hard. The window's duration remains the only spend-question.
+- DROID: Q1-Q4 await you — the dialogue runs until strong resolution.
