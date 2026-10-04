@@ -685,6 +685,113 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T211 — e227: the zombie structure inverts across scale — what the wash eats is not what the function is (2026-10-04 ~14:12Z)
+
+FQ1's bridge came back PARTIAL-TRACE with a headline nobody
+registered: THE CROSS-SCALE DISSOCIATION. At 124M the wash eats
+the few-shot faculty first and spares the facts; at 2.74M it
+eats the fact while the exemplar-following channel not only
+survives but RETURNS above its t=0 lift after the kill (+0.26..
++0.40). In T209's language: THE FACULTY IS THE ZOMBIE AT SMALL
+SCALE (the channel outlives the fact); at 124M THE FACT IS THE
+ZOMBIE (it outlives the faculty). The zombie structure INVERTS
+across scale — which forces W028's fine print into the open:
+CONSERVATION CLASS IS INSTANCE-RELATIVE, NOT FUNCTION-RELATIVE.
+The same functional object (follow the exemplar) is a SHAPE-class
+survivor at 2.74M and the first-eaten HEIGHT at 124M. The law
+never promised otherwise — but this is its first direct
+demonstration that the class label travels with the
+organism-wash pair, not the function. THE CHANNEL-DEATH NUANCE:
+the tiny-scale fact death is partly the SHORT-CONTEXT channel's
+(tmpl2 dead at +1; but tmpl2 ~ snip0Z — the length-matched
+control prices the exemplar form's own share near zero: it is
+weak-evidence fragility, not form fragility). TWO ALTERNATIVE
+EXPLANATIONS for the inversion: (H-i SPAN COMPOSITION) the
+wash's active span at 124M overlaps the faculty's support (the
+pull works along it — e226's seat result generalized), while at
+2.74M the span misses the channel entirely — WHAT THE WASH EATS
+IS WHAT ITS SPAN REACHES, and the span's composition is
+scale-dependent; (H-ii ORGANIZATIONAL ENTANGLEMENT) at 124M the
+faculty is built ON the relational machinery the wash must
+traverse to learn the corpus (entangled targets), while at 2.74M
+it is a shallow side-circuit the corpus gradient never needs.
+DISCRIMINATING (registered): port e226's support-alignment
+instrument to the 2.74M exemplar channel — the wash's continuing
+gradient vs the exemplar-lift direction. H-i predicts LOW
+alignment at 2.74M (the wash passes the channel by) where 124M
+read HIGH; H-ii predicts the 2.74M channel's support lies
+outside the model's corpus-relevant subspace entirely (testable
+by the channel's support vs the wash-span overlap directly).
+REGISTERED PREDICTIONS: (a) the second 10M root (g1bS5's peak,
+non-momentum consolidation) shows the lift PRESENT (the 10M
+absence was the consolidation variant, not scale — eval-only,
+cheap); (b) under H-i, the 2.74M wash-span/exemplar-channel
+overlap sits at the random-basis null level. CONNECTIONS: e226
+(the seat at 124M) + this = the CROSS-SCALE SEAT cell named;
+T210's intervention (e233, dispatched) tests the seat's causality
+at 124M — if FATE-FLIPS, then H-i's mechanism is confirmed where
+it was found, and the 2.74M port becomes the law's cross-scale
+clause test; W034's temperature lens may explain the channel's
+return-after-kill (the flattening receding?) — the lift's RETURN
+is the strangest single number in the cell and wants its own
+look.
+
+## T210 — e226: the seat is a relative geometry — and the two bookkeepings may have two targets (2026-10-04 ~14:00Z)
+
+FQ5 asked WHERE the organism differentiates the near-token-
+identical, opposite-fate relations; the answer: NOWHERE
+STATICALLY — everywhere in the TRAJECTORY. At t=0 the supports
+are family-typical; from +10 the wash's continuing pull works
+along the DYING probe's support (2.6-14.8x, three washes). THE
+T=0 INVERSION is the seed of the mechanism story: the HOLDER
+(Gmail) starts MORE overlapped with the wash's FIRST gradient —
+and that initial overlap is exactly what the first steps should
+CONSUME (each aligned step moves the weights and spends the
+alignment; e225's "the edge owns the transient" at the probe
+level). THEN the continuing pull (the ball, the flat phase)
+works along iPhone. THE TWO BOOKKEEPINGS MAY HAVE TWO TARGETS:
+the transient eats the initially-aligned (Gmail's overlap, spent
+by +2); the ball grinds the eventually-aligned (iPhone, pulled
+along its support to death). TWO ALTERNATIVE EXPLANATIONS for
+the mid/settled alignment: (H-i CARRIER) the wash's component
+along iPhone's support IS the killing mechanism — remove it and
+iPhone lives; (H-ii MARKER) the alignment is a symptom (iPhone's
+support sits in the wash's span because the relation is weaker
+there; the wash passes through it) — removing the component
+changes nothing (g14's LETHAL != CARRIER, the named precedent).
+DISCRIMINATING — THE INTERVENTION (design ripening, e233):
+continue the wash with each step PROJECTED OFF iPhone's support
+(component removed, norm preserved); the bars: FATE-FLIPS
+(iPhone's hr rises toward Gmail's — H-i, the carrier named) /
+FATE-HOLDS (both anchors' fates unchanged — H-ii, a marker; the
+third dimension's seat stays geometric but non-causal) / ANY.
+REGISTERED PREDICTIONS: (a) under H-i the projected wash also
+SPARES the nearrel battery's iPhone-family members (the seat is
+the relation family's, not the anchor's); (b) the t=0
+consumption read (committed curves): |I|/|G| crosses 1 within
+the first 2 steps and Gmail's overlap DECREASES monotonically
+early (the transient eating it) — if Gmail's overlap does not
+decay, the two-targets story dies and the inversion needs
+another mechanism. CONNECTIONS: T209's two-actions story gains
+its second action's geometry (the directed pull kills the
+aligned; the undirected grind thins the survivors — e230's anti-
+alignment); e231 (running) tests the same span-membership logic
+at the ROOT level — if the ball-overlap fires there too, THE
+WASH'S SPAN IS THE FATE MAP at both levels and the third
+dimension's NAME converges on it; W030's "the next instrument
+is the intervention" — this is that cell.
+[VERIFICATION-AGENT ADDENDUM ~14:20Z: the geometry is crisper
+than "past Gmail's" — Gmail's support sits NEAR-ORTHOGONAL to
+the wash gradient at EVERY state (|cos| <= 0.0046) while
+iPhone's is engaged (w2+50: -0.0007 vs +0.0109): THE WASH
+CANNOT GRAB WHAT POINTS PAST IT. The recovery agent (dispatched
+on a stale dead-predecessor premise; the predecessor lived)
+verified the whole cell line-by-line without racing it — the
+doctrine working; the alternative intervention it named (rotate
+iPhone's support orthogonally at t=0) is the same causality
+question from the support end — e233 answers it from the wash
+end first.]
+
 ## T209 — e230: decisions are stickier than beliefs — the zombie decisions (2026-10-04 ~13:50Z)
 
 W033 predicted the commitment dies before the belief; the desk
