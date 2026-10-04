@@ -1265,7 +1265,19 @@ def _dot_rows(A, B=None, device=None):
                 B[:, col:cend])).to(device, dtype=torch.float32)
                 if B is not None else a)
             out += (a @ b.T).double()
+            del a, b
             col = cend
+            # [recovery executor] the standing per-chunk thermal poll:
+            # these chunked matmuls are ~1.5 sustained TFLOP per Gram —
+            # sleep-in-place past 78C (math-inert; strict fp32 unchanged)
+            tC = temp_fast()
+            if tC >= 78.0:
+                jlog("read_dot_thermal_pause", temp=tC)
+                t_wait = time.time()
+                while time.time() - t_wait < 60.0:
+                    if temp_fast() <= 70.0:
+                        break
+                    time.sleep(5.0)
         return (out / (16384.0 ** 2)).cpu().numpy()
     out = np.zeros((nA, nB), dtype=np.float64)
     col = 0
@@ -1306,6 +1318,13 @@ def cmd_read() -> None:
     import torch
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch.backends.cuda.matmul.allow_tf32 = False
+    if device == "cuda":
+        # [recovery executor] the read phase does real GPU work (state
+        # journals, 54-probe support backprops x 5 states, the chunked
+        # Gram dots) — it takes the lane through the same gate as every
+        # other GPU phase instead of starting cold
+        while not thermal_gate("read"):
+            time.sleep(60)
     m = load_metrics()
     mult = int(m.get("wash_ladder_mult", 1))
     m.setdefault("reads", {})
