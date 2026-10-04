@@ -1343,6 +1343,16 @@ def main():
                   "multiple_below_floor": (r["multiple"] < 1.0
                                            if r["multiple"] is not None else None)}
         for r in defined if r["scale"] == "10M"}
+    # T180's triad, re-read on this table (CONTEXT, never adjudicated): the +1
+    # TRANSIENT (the crush) vs the step-to-edge ratio — recomputable verbatim
+    # from the committed table's plus1_read / root_gm12 / step_over_edge.
+    try:
+        se = [r["edge_collapse_coread"]["step_over_edge"] for r in defined]
+        p1 = [r["plus1_read"] / r["root_gm12"] for r in defined]
+        triad_rho = spearman(se, p1) if len(se) >= 3 else None
+        triad_flat = spearman(se, ys) if len(se) >= 3 else None
+    except TypeError:
+        triad_rho = triad_flat = None
     metrics["adjudication"] = {
         "bars": {"ONE_CURRENCY": {"fires": one_fires},
                  "TWO_CURRENCIES": {"fires": two_fires},
@@ -1364,6 +1374,16 @@ def main():
             "bridge_e131": metrics.get("bridge_e131"),
             "retention_median_flavor": {r["id"]: r["retention_flat_median"]
                                         for r in joined},
+            "triad_co_read": {
+                "what": "Spearman(step_over_edge, the +1 transient / root) — "
+                        "T180's margin-step-ball triad re-read on this table "
+                        "(the TRANSIENT, not the flat phase)",
+                "rho_transient": triad_rho,
+                "rho_flat_phase": triad_flat,
+                "note": "CONTEXT ONLY — the frozen bars adjudicate the FLAT "
+                        "phase vs the multiple; this co-read is recomputable "
+                        "verbatim from the committed table "
+                        "(plus1_read/root_gm12 vs step_over_edge)"},
         },
         "composite_order": "ONE-CURRENCY / TWO-CURRENCIES / GRADED (frozen "
                            "before compute; the first two mutually exclusive "
@@ -1377,9 +1397,112 @@ def main():
         + (f"{r['multiple']:.3f}" if r["multiple"] else "NULL")
         + f" ret {r['retention_flat_min']:.3f}" for r in joined))
     log("=" * 78)
+
+    # ---- provenance + honesty (the dispatch's required blocks) --------------
+    metrics["provenance"] = {
+        "recovery": "the first executor died in a session gap pre-artifact; "
+                    "this run is the frozen brief's re-dispatch (see "
+                    "deviations[0]); every number below is this run's own or "
+                    "a hard-bound committed parent",
+        "parents_files_md5": parents_md5,
+        "checkpoints": {r["id"]: {"file": f"runs/checkpoints/{r['ckpt']}",
+                                  "flat_md5": metrics["cells"][
+                                      r["id"]]["G_ROOT"]["flat_md5"]}
+                        for r in roster_run if r["id"] in metrics.get("cells", {})},
+        "machinery": {
+            "multiple": "lab/e209_census_debt.py VERBATIM at the pristine "
+                        "roots (the t=0 post-clip sign-ray u0 on the "
+                        "seed-10902 stream; the 0.05..3.00 onset grid, first "
+                        "0.27 downcrossing linear-in-D interpolated with "
+                        "early stop after the bracket; the 20-step UNWALLED "
+                        "AdamW history; the Gram-SVD span — chunked fp64, "
+                        "disclosed; the 3 fresh Gaussian draws, middle-order "
+                        "statistic with right-censoring)",
+            "retention": "loaded from each row's OWN committed wall record "
+                         "at its hard-bound metrics path (G_RET; the "
+                         "g1bS6/g1bS8 committed flat_phase_retention_min "
+                         "fields reproduced to <1e-9)",
+            "J1_x": "the COMMITTED e209 R1 multiple (3.7207; = e208 R1 = "
+                    "e205's scalar), mixed-instrument provenance carried on "
+                    "the row",
+            "bridge": "the same-instrument fresh re-read at the e131 root "
+                      "(B1): its u0 edge 2.269916581032063 is BIT-IDENTICAL "
+                      "to e199's committed org1 edge — the instrument "
+                      "validation; its band (0.933) vs the committed band "
+                      "(0.610) is the instrument-flavor gap, disclosed",
+            "seeds": "draw seeds 128xx per roster (registry-clean, "
+                     "repo-grep'd); the universal stream seed 10902 gated by "
+                     "G_STREAM (e185's stored step-1 md5 reproduced)",
+        },
+        "u_md5s": {rid: {"sign_ray": c["directions"]["sign_ray_md5"],
+                         "g_ray": c["directions"]["g_ray_md5"],
+                         "draws": [d["u_md5"][:8] for d in c["band"]
+                                   .get("draws", {}).values()]}
+                   for rid, c in metrics.get("cells", {}).items()},
+    }
+    metrics["honesty"] = {
+        "n_and_scope": ("n=1 per organism, 7 joined rows (+1 bridge): every "
+                        "multiple is a single-u0, single-history, 3-draw "
+                        "number; the 2-3x draw lottery (T155) would move any "
+                        "band median on redraw — the J4/J5 spread at matched "
+                        "low multiples is within that texture; n(10M)=2: any "
+                        "two-currencies claim would be underpowered by "
+                        "construction, and the scale layer's NON-separation "
+                        "is the honest read at this n"),
+        "the_two_sides_are_different_objects": (
+            "the retention is the WALLED flat phase; the multiple is the "
+            "UNWALLED noise instrument — the join's whole point. The primary "
+            "table also mixes e209's committed mixed-instrument row (J1) "
+            "with six same-instrument rows; the bridge bounds that gap "
+            "(fresh 2.43 vs committed 3.72 — the EDGE identical to e199's, "
+            "the BAND the mover; J1 stays at the top of the x-range under "
+            "both flavors)"),
+        "retention_convention": ("flat-min over {10,50,100,200,300} / the "
+                                 "experiment's own root g-12 (the g1bS2+ "
+                                 "committed convention). The dispatch's "
+                                 "'retention 0.96' for the e131 row is NOT "
+                                 "reproducible from the committed g1b tables "
+                                 "under any single convention (flat-min "
+                                 "0.998 seed-10902; family-min 0.983; "
+                                 "flat-median 1.003) — the discrepancy is "
+                                 "disclosed, the median flavor co-reported "
+                                 "per row, and the join's reading unchanged "
+                                 "under every candidate"),
+        "cross_scale_rulers": ("content-identical install-60 g-12 batteries "
+                               "read by different hosts (6L/192d vs "
+                               "8L/320d) — T182's instrument-shadow class is "
+                               "this join's named risk; the 10M bands "
+                               "(1.54-2.36) sit above the 2.74M redraw bands "
+                               "(0.69-1.55): the scale axis lives IN the "
+                               "band, and the 10M multiples are low partly "
+                               "because the 10M ball is wide"),
+        "J3_status": ("g1d's own verdict was TEXTURE (G-CONS gate failure); "
+                      "its retention row is OBSERVED-UNADJUDICATED (T186's "
+                      "map) and its 1.33 flat-min (the 1.35x record's "
+                      "median flavor 1.345) is the table's highest "
+                      "retention at a mediocre multiple — excluding J3 is a "
+                      "co-read never taken (it would not flip the verdict: "
+                      "LOO J3 = 0.486)"),
+        "logits_prediction_check": ("every adjudication input is a behavior "
+                                    "read (battery p(Z) crossings); the "
+                                    "cell's only intervention is the 20-step "
+                                    "unwalled history and it MOVED behavior "
+                                    "(the fact died at history step 1 at "
+                                    "every root — the committed C-arm "
+                                    "record's own clock, reproduced)"),
+        "nothing_guaranteed": ("the openness was the point: the fresh "
+                               "multiples could have landed anywhere; the "
+                               "observed outcome is "
+                               f"'{verdict}' (rho {rho:.3f} vs the 0.714 "
+                               "line at n=7 — one-tailed p ~ 0.06, one "
+                               "draw-noisy row short of the rank line; LOO "
+                               "max 0.657). The +1-TRANSIENT vs "
+                               "step-over-edge co-read (see "
+                               "triad_co_read) is context, never adjudicated"),
+    }
     metrics["status"] = "COMPLETE — adjudicated (this write replaces all " \
                         "PARTIAL progressive writes)"
-    write_partial("P3 adjudicated")
+    write_partial("P3 adjudicated (+ provenance + honesty)")
 
     # ================= P4: the figure ========================================
     plot_join(rd / "e225_one_currency.png", joined, defined, verdict, rho,
