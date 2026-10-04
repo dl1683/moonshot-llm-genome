@@ -1,0 +1,518 @@
+{
+  "experiment": "e246_engineered_seat",
+  "phase": "THE BUILD LANE'S FIRST CELL \u2014 install a fact in a CHOSEN geometry relative to the wash's active span (ORTHO / ALIGNED / FREE), then the standard wall wash: does fate follow the ENGINEERED geometry?",
+  "date": "2026-10-04T18:24:54Z",
+  "status": "PARTIAL: startup",
+  "registration": "bars + predictions frozen VERBATIM from scratch/e246_design.md (the frozen design note) and the dispatch letter; this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "bars_verbatim": {
+      "SEAT-IS-ENGINEERABLE": "ARM-ORTHO retains >= 1.5x ARM-ALIGNED's flat-phase retention (both landed at matched t=0 strength) \u2014 fate follows the engineered geometry; the seat is a construction tool",
+      "GEOMETRY-IRRELEVANT": "the three arms' retentions sit within the draw spread \u2014 the seat does not transfer to installs at 2.74M; the honest bound",
+      "CANNOT-LAND": "the orthogonal install fails to reach the matched t=0 strength \u2014 the span is the install's substrate; a finding of a different kind",
+      "ANY": "the trajectories verbatim"
+    },
+    "predictions_verbatim": {
+      "(a)": "Under SEAT-IS-ENGINEERABLE: ARM-ORTHO's margins THICKEN faster than ARM-ALIGNED's (the forge works harder when the undertow cannot reach \u2014 e242's thickening + the exposure law composed).",
+      "(b)": "The t=0 thermal read: ARM-ALIGNED's +1 heat exceeds ARM-ORTHO's (the transient is the gust, and the gust needs the span).",
+      "(c)": "The u0-cloud caveat carried: installs are stream-relative clouds; the arms' geometries verified per-arm by measured overlap (report actual cos-to-span per arm, not the nominal design)."
+    },
+    "operationalizations": "frozen BEFORE compute: THE WASH = the g-cell W1 form VERBATIM (commit R=0.7 RAW L2 at each arm's own root + the seed-10902 300-step neutral wash \u2014 the bars' flat-phase retention and predictions (a)/(b) are wall-family objects); retention = min g-12 over {10,50,100,300} / the arm's OWN root g-12 (e225's flat-min convention on e242's registered grid; the full-8 {10,50,100,200,300} and +300 flavors co-reported); landed := root g-12 within +-10% of the committed g1c root read 0.9026340246200562 -> [0.812371, 0.992897]; CANNOT-LAND fires iff ARM-ORTHO lands UNDER the floor (an over-landing arm is disclosed, never dose-trimmed); the draw spread := the 2.74M wall family's committed retention band [0.615392, 1.326643] (e225's joined table, n=5 roots, hard-bound at runtime); composite order TEXTURE(halt on G_FREE) -> CANNOT-LAND -> SEAT -> GEOMETRY-IRRELEVANT -> ANY; prediction reads: (a) 100*(med_margin(+300)/med_margin(t0)-1) larger for ORTHO than ALIGNED; (b) T_mle(+1) with each arm's OWN t0 L0 family, T_ALIGNED(+1) > T_ORTHO(+1); (c) measured cos-to-span ||S^T d||/||d|| at post-install AND final root + the gradient-level ledger medians; the span is root-fixed (e233's fixed-direction convention); the hook is backward -> clip 1.0 VERBATIM -> project (fp64 chunked) -> opt.step(), norm NOT rescaled.",
+    "registration": "bars + predictions frozen VERBATIM from scratch/e246_design.md (the frozen design note) and the dispatch letter; this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "cuda fp32 (the owner's max-priority window; this cell owns the GPU lane), CPU probing threads 4 (e240/e247 own the CPU lane)",
+    "bursts": "<= 175s, per-step thermal polls at a 78C margin from the first burst, cooldown 45s, the 84C never-past line recorded",
+    "trainings": "3 installs s400 + 3 cons s300 + 3 wall washes s300 + the 20-step span history"
+  },
+  "deviations": [
+    "G_FREE OPERATIONALIZATION AMENDMENT (2026-10-04, made at the P4 halt BEFORE any wash/adjudication compute \u2014 no bar-relevant outcome existed; the g1c GATE-OPERATIONALIZATION-AMENDMENT precedent, same conditions): the first registration gated ARM-FREE's ROOT g-12 at 5e-3 vs the committed g1c root \u2014 a cross-device READ tolerance (e225's G_ROOT convention) mis-anchored onto a 700-step cross-pass TRAJECTORY re-derivation. THE HALT'S AUTOPSY (first pass, runs/e246/run.log): the instrumented-path install reproduced the committed install final to L2 6.6e-4 / max 1.4e-4 / behavioral g-12 3e-6 with the generator state BIT-EQUAL after s400 \u2014 the instrumented code path IS the verbatim install (the control's purpose, validated at the strongest tier); the UNHOOKED consolidation then amplified that kernel-level seed (cross-pass cuBLAS/atomics reduction-order noise; e217's 'fates, not bit values' texture class) into its noisy endpoint basin \u2014 root g-12 0.9586 vs 0.9026, both inside the family's root-lottery spread, with the cons's own step-to-step g0 swinging +-0.15 in BOTH passes. THE AMENDED FORM gates what the control exists to prove, each tier disclosed with its numbers: (i) install-final reproduction (L2 <= 5e-3 AND g-12 |d| <= 5e-3); (ii) FREE's root lands in the pre-registered matched band; (iii) the cons tracks the committed cons (median step |g0 diff| <= 0.05, texture tier); (iv) FREE's W1 retention within the pre-registered draw spread AND the lineage's maintain bar at every ckpt. The first registration's form + failing numbers remain in the record verbatim. The re-run resumes from the saved final phase states (installs/cons complete in their resume ckpts \u2014 no number re-drawn, g1c's re-execution convention).",
+    "SMOKE AUTOPSY (2 instrument bugs found + fixed BEFORE any real compute \u2014 the build lane's first-cell discipline, commit 752359b): (1) the per-slice span projection missed the CROSS-SLICE terms of c = Vp g (a block-diagonal approximation, not the projector) \u2014 rewritten two-pass; verified exact against the true S(S^T g) to fp32 rounding, with the algebraic cross-check that ORTHO applied after ALIGNED reduces the gradient to ~0; (2) chunked_install never called opt.step() (the hook's insertion displaced it \u2014 all three arms were identical because the cons phase did all the movement).",
+    "THE WASH FORM (the operationalization, frozen before compute): 'the standard wall wash (the g-cell convention)' is the g-cell's W1 form VERBATIM \u2014 commit(R=0.7 RAW L2) at each arm's OWN root, then the seed-10902 300-step neutral wash \u2014 read off the bars' own vocabulary ('flat-phase retention'; prediction (a)'s forge thickening = e242's WALL phenomenon; prediction (b)'s +1 heat = e242's wall transient T(+1)=1.31). All three arms get the identical wall treatment; the only cross-arm deltas are the install gradient geometry and the roots it produces.",
+    "THE HOOK (e237's pre-Adam projection ported to the INSTALL phase): backward -> clip_grad_norm_ 1.0 VERBATIM -> PROJECT -> opt.step(); the projection is the last operation before Adam (both moments + the update supply-cut); the projected gradient's norm is NOT rescaled; every dot/norm is fp64 (chunked per-parameter, e237/e226's instrument finding). ORTHO removes the span component; ALIGNED keeps only the span component.",
+    "ARM-FREE runs the INSTRUMENTED path (the fp64 ledger dots computed every step, READ ONLY \u2014 no gradient write): the verbatim trajectory through the hook's code path, so G_FREE validates the instrument against the committed g1c root AND its committed W1 wash record \u2014 the strongest form of e237's C2 hook-path control.",
+    "THE SPAN's provenance: computed ONCE at the COMMITTED g1c root (the design's 'the fresh root's wash-span'), fixed for the whole cell (root-fixed; e233's fixed-direction convention, disclosed); the install arms train from the e001 BASE with that fixed basis. LATE half = segments 11..20 of the 20-step seed-10902 unwalled history under G_SHADOW (e236's |cos(seg_k, -u0)| < 0.5 validity gate, per segment recorded); if any late segment violates, the EMPIRICAL clean trailing range inside the late half is used and disclosed; if none clears, STILL-PINNED -> the cell halts with the autopsy.",
+    "e225/e229/e242 are NOT module-imported (each forces CUDA_VISIBLE_DEVICES=-1 at module level \u2014 this cell OWNS the GPU lane): svd_basis/cos64 (e225), the _E228NetShim adapter (e229), TempFamily + logit_pass (e242's verbatim ports of e238) are COPIED VERBATIM with inline provenance notes (e242's own precedent for e238's thermal class). e228 IS module-imported for margin_pass (arithmetic untouched; opens runs/e228_run.log append \u2014 benign side effect, e242's disclosed precedent).",
+    "The margin/thermal readout states are read through g1's evl_load (settle onto the ball + disarm \u2014 the lineage's registered instrument adaptation; e242's convention); the thermal family base L0 is EACH ARM's OWN t0 full-logit re-probe (the family must be per-arm \u2014 the question is each arm's own T(+1) heat).",
+    "The consolidation runs NATURAL on all three arms (e113 VERBATIM, seed 10901 HELD): the design's intervention is the INSTALL geometry only; cons re-growth of span components is part of the honest design and is captured by the measured cos-to-span at the final root (prediction (c)).",
+    "Identical dose everywhere (s400 install / s300 cons / gen 24314 / cons seed 10901 / wash seed 10902): NO per-arm dose adjustment is attempted in the primary registration \u2014 an under-landing ORTHO is the CANNOT-LAND finding by design; an arm above the band ceiling is disclosed verbatim.",
+    "n=1 per arm, one lineage, one wash draw (the g-series standing caveat); the draw-spread band is the family's n=5-root committed record (e225), itself one lineage \u2014 disclosed, never inflated.",
+    "The span-history step-1 is certified against g1c's committed C-arm step-1 (CE/disp, tol 5e-3) and e185's stored step-1 batch md5 (bit-identity of the stream recipe, device-independent).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "Smoke mode (E246_SMOKE=1): 8-step install/cons, 4-step wash + 4-step history (late start 3), ckpts {1,2,4}, own smoke dir; NOTHING adjudicated or gated (SMOKE stamp on every read)."
+  ],
+  "builds_on": [
+    "scratch/e246_design.md (THE frozen registration \u2014 this cell's spec; the ambition directive 2026-10-04 / W020's generative turn)",
+    "T223 / e237 (the triangle's closed book; the pre-Adam projection hook PORTED to the install phase \u2014 this cell tests whether the seat graduates from finding to tool)",
+    "T215/T217 / e233+e234 (the undertow's anatomy: the wind is a scalpel, span-stable, anchor-scale at the extremes)",
+    "T181 / g1c (the fresh-root lineage this cell builds on: e001+Dmix s400 gen 24314 + e113 cons 10901; the committed root + W1 records are the controls)",
+    "T213/e231+e236 design / e225 (the span machinery: the seed-10902 20-step history, the Gram-SVD chunked-fp64 basis, G_SHADOW's late-half convention)",
+    "T220 / e242 (the margins + thermal instruments this cell re-uses: e228's margin_pass; e238's one-T MLE)"
+  ],
+  "whats_new": [
+    "THE FIRST BUILD CELL: the fact installed in an ENGINEERED geometry (orthogonal-to-span / in-span / natural) at identical dose \u2014 fate vs geometry, the seat as a construction tool",
+    "the pre-Adam projection (e237) ported from the wash phase to the INSTALL phase \u2014 the instrument that proved causality becomes the construction tool",
+    "the per-arm measured geometry ledger (cos-to-span at post-install/root + the gradient-level in-span fractions) \u2014 the u0-cloud caveat made quantitative per arm"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ]
+      },
+      "pass": true
+    },
+    "G_INSTMASK": {
+      "name_positions": 420,
+      "expected": 420,
+      "pass": true
+    },
+    "G_PARENTS": {
+      "g1c_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+        "md5": "05a33ada81e022b61a437db29afe38dd",
+        "verdict": "ROOT-WALL-HOLDS",
+        "root_gm12": 0.9026340246200562,
+        "post_install_cells": {
+          "gm12": 0.16888952255249023,
+          "g0": 0.5302218198776245,
+          "gp12": 0.13285277783870697,
+          "held30_gm12": 0.09104453027248383,
+          "held30_g0": 0.35662180185317993,
+          "ce_r": 1.673575520515442,
+          "site_read_onset": 0.08947604149580002,
+          "site_read_span": 0.8685266375541687,
+          "A129": 0.15837478910883268,
+          "row0_strength": 0.49175444405813856,
+          "dall_g0": 0.30114686489105225,
+          "d183_g0": 0.5302218198776245,
+          "d183_gm12": 0.16888952255249023
+        },
+        "W1_g_m12": {
+          "1": 0.821441113948822,
+          "2": 0.9093567132949829,
+          "4": 0.8956068754196167,
+          "10": 0.9277286529541016,
+          "50": 0.9397175908088684,
+          "100": 0.9368361234664917,
+          "200": 0.9264556169509888,
+          "300": 0.9405527114868164
+        },
+        "C_step1": {
+          "ce": 1.3502024412155151,
+          "disp": 1.654317855834961
+        }
+      },
+      "e225_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e225\\metrics.json",
+        "md5": "50cf5f796beff240c13777933005af91"
+      },
+      "hardbound": {
+        "root_gm12": 0.9026340246200562,
+        "W1_g_m12": {
+          "1": 0.821441113948822,
+          "2": 0.9093567132949829,
+          "4": 0.8956068754196167,
+          "10": 0.9277286529541016,
+          "50": 0.9397175908088684,
+          "100": 0.9368361234664917,
+          "200": 0.9264556169509888,
+          "300": 0.9405527114868164
+        },
+        "C_step1": {
+          "ce": 1.3502024412155151,
+          "disp": 1.654317855834961
+        }
+      },
+      "pass": true,
+      "draw_spread": {
+        "source": "runs/e225/metrics.json joined_table (2.74M rows)",
+        "members": {
+          "g1b": 0.9979692766675983,
+          "g1c": 1.0263911969648605,
+          "g1d": 1.3266428034732003,
+          "g1e": 0.6153917590189493,
+          "g1f": 0.9317064573129114
+        },
+        "band": [
+          0.6153917590189493,
+          1.3266428034732003
+        ],
+        "pass": true
+      }
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOTSPAN": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_STREAM": {
+      "seed": 10902,
+      "x1_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+      "md5_match_e185": true,
+      "ce1_measured": 1.3502024412155151,
+      "ce1_committed": 1.3502024412155151,
+      "disp1_measured": 1.654317855834961,
+      "disp1_committed": 1.654317855834961,
+      "pass": true,
+      "note": "the span-history's step-1 batch/CE/displacement vs g1c's committed C-arm step-1 (same root, same 10902 stream; cross-device texture tol) + e185's stored stream md5"
+    },
+    "G_SHADOW": {
+      "instrument": "cos(seg_k, -u0) for k=1..20 (e236's sign-shadow decay; u0 = the t=0 post-clip sign-ray of the seed-10902 stream's first step at the g1c root)",
+      "decay": {
+        "1": 0.9999696244122814,
+        "2": 0.6554051756510374,
+        "3": 0.49532521534535956,
+        "4": 0.35611174895859843,
+        "5": 0.20783140282416665,
+        "6": 0.1213911948712093,
+        "7": 0.06361195993125335,
+        "8": 0.024703391536422935,
+        "9": 0.0040449449495367175,
+        "10": -0.0021075379106039027,
+        "11": -0.005595421765867822,
+        "12": -0.011427173663529975,
+        "13": -0.013665141126025767,
+        "14": -0.012548006631607734,
+        "15": -0.012795250708831175,
+        "16": -0.01215271871531896,
+        "17": -0.010985446693617028,
+        "18": -0.0064345046344234415,
+        "19": -0.002856450127267588,
+        "20": -0.008259203048030827
+      },
+      "late_half_segments": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "late_half_max_abs_cos": 0.013665141126025767,
+      "shadow_bar": 0.5,
+      "late_half_all_clean": true,
+      "cos_g_sign_t0": 0.5822658586148483,
+      "pass": true
+    },
+    "G_SPAN": {
+      "n_segments": 10,
+      "rank_eff": 10,
+      "sv": [
+        1.2198079744949104,
+        0.637444413357215,
+        0.3708103150768695,
+        0.2553756176302982,
+        0.19979448821552603,
+        0.15285729147931337,
+        0.13088807614129694,
+        0.1115844646306017,
+        0.10221678902998815,
+        0.08960904520525718
+      ],
+      "participation_ratio": 2.0277644911116237,
+      "cond": 13.612554086485755,
+      "orthonormality_max_dev": 1.7285346984863281e-06,
+      "segments_used": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "late_half_all_clean": true,
+      "pass": true
+    }
+  },
+  "phase_note": "P1 THE SPAN built (history + G_SHADOW + Gram-SVD)",
+  "device_events": [],
+  "span": {
+    "history": {
+      "steps": 20,
+      "seed": 10902,
+      "rows": [
+        {
+          "step": 1,
+          "L2": 1.654317855834961,
+          "cum": 1.654317855834961,
+          "ce": 1.3502024412155151
+        },
+        {
+          "step": 2,
+          "L2": 1.0876227617263794,
+          "cum": 2.505685806274414,
+          "ce": 1.756544589996338
+        },
+        {
+          "step": 3,
+          "L2": 0.8470238447189331,
+          "cum": 3.1202073097229004,
+          "ce": 1.7420711517333984
+        },
+        {
+          "step": 4,
+          "L2": 0.727878987789154,
+          "cum": 3.596803665161133,
+          "ce": 1.4423424005508423
+        },
+        {
+          "step": 5,
+          "L2": 0.6917338967323303,
+          "cum": 3.957580804824829,
+          "ce": 1.4397904872894287
+        },
+        {
+          "step": 6,
+          "L2": 0.6514564156532288,
+          "cum": 4.257663726806641,
+          "ce": 1.2811468839645386
+        },
+        {
+          "step": 7,
+          "L2": 0.6229240298271179,
+          "cum": 4.5258708000183105,
+          "ce": 1.1891095638275146
+        },
+        {
+          "step": 8,
+          "L2": 0.6015200018882751,
+          "cum": 4.779654502868652,
+          "ce": 1.106682300567627
+        },
+        {
+          "step": 9,
+          "L2": 0.5667941570281982,
+          "cum": 5.0192341804504395,
+          "ce": 1.158234715461731
+        },
+        {
+          "step": 10,
+          "L2": 0.5393994450569153,
+          "cum": 5.254126071929932,
+          "ce": 1.0151164531707764
+        },
+        {
+          "step": 11,
+          "L2": 0.5207093954086304,
+          "cum": 5.4823102951049805,
+          "ce": 1.0805484056472778
+        },
+        {
+          "step": 12,
+          "L2": 0.5073004961013794,
+          "cum": 5.701998710632324,
+          "ce": 1.0187809467315674
+        },
+        {
+          "step": 13,
+          "L2": 0.4961196482181549,
+          "cum": 5.915532112121582,
+          "ce": 0.9965935349464417
+        },
+        {
+          "step": 14,
+          "L2": 0.48561105132102966,
+          "cum": 6.12366247177124,
+          "ce": 0.9595293998718262
+        },
+        {
+          "step": 15,
+          "L2": 0.4742303192615509,
+          "cum": 6.321010589599609,
+          "ce": 0.9824274778366089
+        },
+        {
+          "step": 16,
+          "L2": 0.46171870827674866,
+          "cum": 6.5136799812316895,
+          "ce": 0.9260542392730713
+        },
+        {
+          "step": 17,
+          "L2": 0.4508240520954132,
+          "cum": 6.699424743652344,
+          "ce": 0.8866755366325378
+        },
+        {
+          "step": 18,
+          "L2": 0.44592463970184326,
+          "cum": 6.87945556640625,
+          "ce": 0.8784633278846741
+        },
+        {
+          "step": 19,
+          "L2": 0.4277830719947815,
+          "cum": 7.052974700927734,
+          "ce": 0.8588528633117676
+        },
+        {
+          "step": 20,
+          "L2": 0.41781342029571533,
+          "cum": 7.218679428100586,
+          "ce": 0.8181192874908447
+        }
+      ],
+      "unwalled": true
+    },
+    "G_SHADOW": {
+      "instrument": "cos(seg_k, -u0) for k=1..20 (e236's sign-shadow decay; u0 = the t=0 post-clip sign-ray of the seed-10902 stream's first step at the g1c root)",
+      "decay": {
+        "1": 0.9999696244122814,
+        "2": 0.6554051756510374,
+        "3": 0.49532521534535956,
+        "4": 0.35611174895859843,
+        "5": 0.20783140282416665,
+        "6": 0.1213911948712093,
+        "7": 0.06361195993125335,
+        "8": 0.024703391536422935,
+        "9": 0.0040449449495367175,
+        "10": -0.0021075379106039027,
+        "11": -0.005595421765867822,
+        "12": -0.011427173663529975,
+        "13": -0.013665141126025767,
+        "14": -0.012548006631607734,
+        "15": -0.012795250708831175,
+        "16": -0.01215271871531896,
+        "17": -0.010985446693617028,
+        "18": -0.0064345046344234415,
+        "19": -0.002856450127267588,
+        "20": -0.008259203048030827
+      },
+      "late_half_segments": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "late_half_max_abs_cos": 0.013665141126025767,
+      "shadow_bar": 0.5,
+      "late_half_all_clean": true,
+      "cos_g_sign_t0": 0.5822658586148483,
+      "pass": true
+    },
+    "span": {
+      "n_segments": 10,
+      "rank_eff": 10,
+      "sv": [
+        1.2198079744949104,
+        0.637444413357215,
+        0.3708103150768695,
+        0.2553756176302982,
+        0.19979448821552603,
+        0.15285729147931337,
+        0.13088807614129694,
+        0.1115844646306017,
+        0.10221678902998815,
+        0.08960904520525718
+      ],
+      "participation_ratio": 2.0277644911116237,
+      "cond": 13.612554086485755,
+      "orthonormality_max_dev": 1.7285346984863281e-06,
+      "segments_used": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "late_half_all_clean": true,
+      "pass": true
+    },
+    "checkpoint": "runs/checkpoints/e246_late_span.pt",
+    "fixed_for_whole_cell": true
+  }
+}
