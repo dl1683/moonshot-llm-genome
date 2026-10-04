@@ -1,0 +1,311 @@
+{
+  "experiment": "x5_ctrl_logit_fit",
+  "phase": "eval-only CPU adjudication of T229's registered prediction (is the one-T fit battery-generic on the 124M archive?) \u2014 x4's desk attempt was honestly instrument-limited (the bracket bound inverts past the p=0.5 crossings); this is the proper full-logit cell",
+  "date": "2026-10-04T21:43:25Z",
+  "status": "PARTIAL: fits through w1 +50",
+  "registration": "bars frozen VERBATIM from the dispatch brief BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "GENERIC": "\"ctrl's T(t) tracks the fact-side curve within +-0.08 at every state (and near's within +-0.12, n=3 disclosed) \u2014 the one-T lens is battery-universal; T229's prediction confirmed; the thermal layer is one object read through any battery\"",
+      "BATTERY-SPECIFIC": "\"ctrl's T diverges from fact's by > 0.15 at >= 2 states OR ctrl's R2 moves out of [0.2, 0.6] \u2014 the batteries have different thermal signatures; x4's +10 signal (ctrl flattens more) confirmed at full precision\"",
+      "MIXED": "\"the trajectories verbatim, both batteries, both washes\""
+    },
+    "operationalizations": "family q_i(T) = softmax(L0_i/T)[ans_i], L0_i = MY re-probed t=0 answer-position logits (p-certified vs e214's committed t0); ONE T per (battery, wash, state), no other fitting freedom; MLE = Bernoulli soft-target cross-entropy (verbatim e238), grid log10 T in [-1,1] x 1201 + golden polish; LSQ echo co-reports; REFERENCE CURVE = e238's committed pooled-54 T_mle read at runtime from runs/e238/metrics.json (disclosed: pooled, contains ctrl \u2014 the fact-only n=20 fit from e238's npz co-reports as the discharge); adjudication states = w1/w2 x {10,50,80}; +2 and t0 co-report only (e228's convention); GENERIC := all six |T_ctrl - T_ref| <= 0.08 AND all six |T_near - T_ref| <= 0.12; BATTERY-SPECIFIC := |T_ctrl - T_ref| > 0.15 at >= 2 adjudication states OR ctrl own-fit R2 outside [0.2, 0.6] at any adjudication state (R2 = battery-restricted decline-variance explained under the battery's own T*; R2-under-committed-T co-reports); PRECEDENCE: BATTERY-SPECIFIC first, then GENERIC, else MIXED (ties go against the lab's own T229 prediction); x4's +10 slice co-reports, never adjudicates; t0 anchor T must read 1.0000 (the instrument's positive control); multiplicity: only the registered clauses adjudicate, everything else co-reports",
+    "registration": "bars frozen VERBATIM from the dispatch brief BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping"
+  },
+  "question": "does the one-T lens read the SAME T(t) when fit on the ctrl battery (n=12) as the committed fact-side curve (pooled-54, 1.00 -> 1.45) \u2014 battery-universal lens (T229 confirmed), or different thermal signatures (x4's +10 signal at full precision)?",
+  "builds_on": [
+    "T229 / e255 (the registered prediction this cell adjudicates)",
+    "T218 / e238 (the one-T instrument + the committed fact-side curve + the dump conventions)",
+    "T228 / e252 (the answer-locality demotion \u2014 lens, not mechanism)",
+    "x4 / runs/x4_battery_generic_t.json (the honest instrument-limited desk attempt + the +10 signal)",
+    "T187 / e214 (the committed per-probe records + the re-probe certification convention)",
+    "T183 / e182c2 + T149 / e182c + T123 / e182 (the machinery and the two-wash archive)"
+  ],
+  "whats_new": [
+    "the per-battery one-T MLE fits on certified ctrl/near logit dumps (the proper adjudication x4 could not do)",
+    "the battery-tracking adjudication (+-0.08/+0.12 vs > 0.15 at >= 2 states + the R2 window)",
+    "the fact-only reference discharge (the self-reference caveat priced at zero forward cost)",
+    "x4's +10 slice co-reported at full precision",
+    "the e238-dump determinism cross-check"
+  ],
+  "smoke": false,
+  "x4_record_gate": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x4_battery_generic_t.json",
+    "sha256_16": "35ec943ac27a862b",
+    "status": "DONE",
+    "method": "bracket-ratio medians per battery per state (e238's validated desk-bound form)",
+    "verdict": "INSTRUMENT-LIMITED (honest null-by-estimator): the bracket-ratio desk bound inverts once probes cross p=0.5 (the +50/+80 states); the deep-state question of battery-genericity CANNOT be adjudicated at desk price. THE READABLE SLICE (+10 states): ctrl flattens MORE than fact early (T_ctrl 1.28-1.33 vs T_fact 0.96-0.99) \u2014 a real early signal, opposite in sign to naive expectation, consistent with the headroom-revival texture of e252. THE PROPER ADJUDICATION: full-logit MLE on the ctrl battery states (new dumps required \u2014 a real mini-cell, not desk). T229 prediction stays OPEN.",
+    "pass": true
+  },
+  "inventory": {
+    "wash1_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:07:14Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:20:17Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:28:00Z"
+      },
+      "2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+        "exists": true,
+        "size_bytes": 652195312,
+        "mtime": "2026-10-01T15:04:11Z"
+      }
+    },
+    "wash2_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:11:49Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:15:03Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:18:15Z"
+      }
+    },
+    "wash1_crosscheck_vs_e182c2_inventory": {
+      "10": true,
+      "50": true,
+      "80": true,
+      "2": true
+    },
+    "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
+  },
+  "timing": {
+    "total_s": 101.8
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN \u2014 it feeds the batteries' contamination scans only; no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "ctrl": {
+        "kept_set_equal": true,
+        "n": 12,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "near": {
+        "kept_set_equal": true,
+        "n": 3,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "tol_per_probe_dp": 0.01,
+      "note": "the ctrl/near batteries are the phase-1 pools VERBATIM (module import); my t=0 logit-pass p must reproduce e214's committed journal t0 \u2014 certifying the forward the logits ride on; fact is rebuilt for the corpus filter only, tmpl not rebuilt (disclosed in deviations)",
+      "pass": true
+    },
+    "G_STATES": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:07:14Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:20:17Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:28:00Z"
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "mtime": "2026-10-01T15:04:11Z"
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:11:49Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:15:03Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:18:15Z"
+        }
+      },
+      "wash1_crosscheck_vs_e182c2_inventory": {
+        "10": true,
+        "50": true,
+        "80": true,
+        "2": true
+      },
+      "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set",
+      "all_exist": true,
+      "reprobe_max_dp": 0.0,
+      "n_reprobe_checks": 14,
+      "tol_reprobe_dp": 0.005,
+      "reprobe_note": "every dumped battery's p (from the SAME forward as the logit dump) compared per-probe to e214's committed journal records on every LOADED state of BOTH archives \u2014 this certifies the dumped logits (e228's convention)",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "load_checks": 9,
+      "gpu_calls": 0,
+      "note": "e248 owns the GPU per the dispatch; this cell never touches it",
+      "burst": "one state = one eval burst",
+      "pass": true
+    }
+  },
+  "e238_npz_crosscheck": {
+    "rows": [
+      {
+        "tag": "t0",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.33514404296875e-05
+      },
+      {
+        "tag": "w1s10",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.4722347259521484e-05
+      },
+      {
+        "tag": "w1s50",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.2516975402832031e-05
+      },
+      {
+        "tag": "w1s80",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.4007091522216797e-05
+      },
+      {
+        "tag": "w1s2",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.2993812561035156e-05
+      },
+      {
+        "tag": "w2s10",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.341104507446289e-05
+      },
+      {
+        "tag": "w2s50",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.2576580047607422e-05
+      },
+      {
+        "tag": "w2s80",
+        "available": true,
+        "probe_matched": true,
+        "max_dlogit": 0.0,
+        "mean_dlogit": 0.0,
+        "dp_max": 1.2099742889404297e-05
+      }
+    ],
+    "note": "co-report only, never a gate or a bar: my re-probe vs e238's committed (ungitted) npz dumps \u2014 same weights, same CPU fp32 path, so ~0 expected; it certifies determinism across sessions, and anchors the fact/tmpl co-report fits"
+  }
+}
