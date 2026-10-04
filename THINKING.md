@@ -685,6 +685,43 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T231 — e254: the denominator owns the span — and the composition names the thermal channel's carrier (2026-10-04 ~22:12Z)
+
+The V-span cell closes the FQ12 confluence with the
+substrate condition measured to seven orders and the honest
+content placed in the drought read: THE DENOMINATOR'S SPAN-
+LOAD IS A STANDING STRUCTURE — v keeps 0.56-0.80 of its mass
+on the span through supply droughts (the instantaneous
+gradient span-free at 0.001-0.05) on the beta2 window. The
+anti-substrate gains its mechanism candidate: NEW MEMORIES
+NEED LOW-V ROOM (T226's H-iii), and the standing structure
+explains why the ALIGNED install could not express a fact
+across 400 steps — the suppression never blinks. THE
+COMPOSITION THE e256 HOOK REGISTERED, NOW RESOLVED IN FORM:
+the span is BOTH v-heavy (this cell) and the thermal
+coupling's residency direction (e256) — THE OPTIMIZER'S
+DENOMINATOR IS THE THERMAL CHANNEL'S CARRIER CANDIDATE: probes
+whose supports live in v-heavy directions see denominator-
+suppressed gradient motion (their beliefs move less
+idiosyncratically), so their decline tracks the GENERIC
+flattening — the one-T law — while off-span probes keep
+gradient-driven idiosyncratic motion (e238's residual, the
+conserved order). ONE STORY, THREE CELLS: the standing v-load
+freezes the span-resident (the thermal coupling), starves the
+in-span writes (the anti-substrate), and persists through
+droughts (the amplifier's span-level face). REGISTERED
+DISCRIMINATOR (the causal leg): the v-heavy-vs-v-light
+install arm (T226's cell sharpened) — install along a v-HEAVY
+random direction vs a v-LIGHT one at matched rank: if only
+the v-heavy arm fails to express, the denominator's standing
+load is CAUSAL for unwritability; and the probe-side
+prediction: a probe's support-v-overlap (not its span
+residency alone) should predict its thermal share better than
+e256's rho -0.148 (a sharper re-read of the committed
+censuses). HONESTY: observational; n=1 organism; the Haar
+null's arithmetic pre-announced (the co-reads carry the
+weight); the causal tests registered, not run.
+
 ## T230 — e256: the coupling is thermal-only — the field's first interaction constant, and its one leak (2026-10-04 ~20:27Z)
 
 The residency census answers the interactions question with

@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e254 — FQ12, the V-span overlap: V-ENRICHED, and the denominator's load is a STANDING STRUCTURE — the committed 2-dim span carries 42-85% of v's squared mass (2.2e7-6.0e7 over the 20-draw null at every archived state; w2/w3 replicate) — H-iii's substrate condition MEASURED: the optimizer's denominator owns the span; "new memories need low-v room" is a fact of the wash's v; THE DROUGHT READ (the verdict's real content, the pre-announced arithmetic honored): at t=5-40 the instantaneous gradient is span-FREE (g2 span-mass 0.001-0.05) while v keeps 0.56-0.80 — the suppression persists through supply droughts on the beta2 window (T225's amplifier read at the span level); the fact hot sets are also v-heavy (0.016% of coords carrying 8-18% of v's L1) but ~4-5 orders less v-dense per dimension — low-v room is abundant off both (2026-10-04 ~22:10Z) — DONE
+
+WHAT WE DID: the frozen FQ12 cell — v reconstructed by
+e240's fp64 recursion (bit-identical: G_VHOT 0.0/1620, dCE
+0.0 x3, G_STEP 3.12e-6, G_MOMENT v 3.27e-7); the span basis
+e234's committed Gram at machine precision AND independently
+regenerated (dcos <= 6.8e-7, knee k=2 reproduced x3); the
+enrichment + the drought + the fact-hot co-reads; 13/13 gates
+PASS. The pre-announced instrument risk (v built from the
+wash's own g2 makes the Haar-null clearance arithmetic)
+disclosed in the frozen docstring — the co-reads carry the
+mechanism. Script lab/e254_vspan_overlap.py; runs/e254/
+{metrics.json, journal.json, 3 PNGs}.
+
+WHAT WE SAW (T231): THE BAR FIRED BY SEVEN ORDERS (the
+substrate condition for T226's H-iii holds: new memories need
+LOW-V room). THE DROUGHT READ IS THE FINDING: the
+denominator's span-load is a STANDING STRUCTURE, not the
+current work's echo — installs projected into the span face
+v-mass that persists on the beta2 window even when the
+instantaneous gradient has rotated away. THE DIVERSIFICATION:
+the span's v-share declines 0.85 -> 0.42 over the wash yet
+never approaches the band. CAUSAL STATUS: observational — the
+kill-test stays with T226's registered rank-matched-random
+cell, now sharpenable into a v-heavy-vs-v-light install arm.
+
+HONESTY: n=1 organism, 3 washes; the first run killed
+externally mid-w3 (w1/w2 certified; clean deterministic
+rerun); the t=0 provenance disclosed (v0 = 0; the pretraining's
+v is not reconstructable — the wash's own supply builds the
+span-load by step 1).
+
+---
+
 ## e256 — FQ14, the support-span residency census: RESIDENCY-PREDICTS — THERMAL-ONLY — the tide-undertow coupling exists and lives on the thermal floor alone (t=0 span-residency predicts the one-T fit's residual: Spearman -0.148, p 0.030, n 216, robust across mirror/full-wash/battery-level flavors) while the DEATH ORDER (p 0.47) and the FLIP MODE (p 0.80) are FLAT against standing geometry — the layers decouple on two of three floors (the 'end to end' claim corrected); iPhone the one high-standing anchor at w1 (z +3.2) but WASH-INCONSISTENT (the anchor seat stays a during-wash object); nearrel stands FURTHEST from the span at t=0 (0.49-0.50x product — the dying family the least span-resident standing; deaths are not span-directed, standing or during-wash) (2026-10-04 ~20:25Z) — DONE
 
 WHAT WE DID: desk-only fp64 Gram algebra on committed records
