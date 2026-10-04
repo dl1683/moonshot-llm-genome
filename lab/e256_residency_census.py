@@ -358,7 +358,8 @@ def main() -> int:
         "rule": "e226's canonical 54 == e234's canonical 54 (facts, order, "
                 "batteries); the fate records key by fact name",
         "equal_e234": bool([n for n, *_ in probes234] == names
-                           and all(bw == bo for (_f, bw, _g), (_f2, _bo, _g2)
+                           and all(bw == bo for (_f, bw, _g),
+                                   (_f2, bo, _fg, _p0)
                                    in zip(probes234, probes226))),
         "n": len(names),
         "pass": bool([n for n, *_ in probes234] == names and len(names) == 54),
