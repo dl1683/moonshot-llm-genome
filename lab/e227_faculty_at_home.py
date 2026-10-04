@@ -74,6 +74,25 @@ draws 10902 locked + 22701 + 22702), GENTLE lr 1e-4 (draws 22711 +
 at 2.74M (the 1e-3 lineage wash damages corpus CE itself: g1b C+2
 CE_R 2.03 vs root 1.64); both roles are covered, nothing post-hoc.
 
+PART (3) — THE 10M SCALE POINT (registered AFTER the 2.74M result was
+read, BEFORE any 10M compute; the dispatch's condition — 'only if the
+2.74M answer is non-trivial' — was met: PARTIAL-TRACE with FQ1's
+channel-death clause firing and the few-shot lift surviving the wash):
+the same battery set + the same wash machinery on the 10M lineage's
+strongest expressing root, runs/checkpoints/g1bS7_root_m020f.pt
+(Cfg 8L/8H/320d/256 = 9,977,600 params; g1bS7's committed root gm12
+0.935076117515564, runtime-read from runs/g1bS7/metrics.json). Arms
+(registered): 10L10902 (lr 1e-3 seed 10902 — the lineage record arm;
+g1bS8's own committed C-trace already shows this dose nukes the 10M:
+CE_R 5.64 at step 1 — the soft-tie co-report), 10G22731 / 10G22732
+(lr 1e-4, fresh draws), 10M22733 (lr 3e-4). NO NEW BARS: the same
+O1 / family / channel clauses adjudicate; the 10M record is the scale
+point beside the 2.74M verdict. Gates: G_ROOT10 (bit-exact load + the
+ruler reproduces the committed 0.9351 within 5e-6); the batteries are
+RE-SCREENED at t=0 on the 10M organism (the gate discipline is
+per-organism); the 10902 +2 soft tie vs g1bS8's C-trace is a
+co-report (their wash wrapper may differ in detail — non-fatal).
+
 REGISTERED BARS (frozen VERBATIM from the dispatch brief BEFORE any
 compute; adjudicate against exactly this; no bar shopping):
   - FACULTY-AT-HOME: "the ordering and/or family split replicate at
@@ -266,6 +285,20 @@ ARMS: list[tuple[str, float, int, tuple[int, ...]]] = [
 ]
 if SMOKE:
     ARMS = [("smk", 1e-3, 10902, (1, 2))]
+    ARMS10 = []
+else:
+    ARMS10 = [
+        ("10L10902", 1e-3, 10902, (1, 2, 4, 10, 25, 50)),      # lineage record
+        ("10G22731", 1e-4, 22731, (4, 10, 25, 50, 100, 300)),  # gentle d1
+        ("10G22732", 1e-4, 22732, (4, 10, 25, 50, 100, 300)),  # gentle d2
+        ("10M22733", 3e-4, 22733, (2, 4, 10, 25, 50, 100, 300)),  # mid
+    ]
+
+# the 10M scale point (part 3)
+SCALE10_CFG = Cfg(vocab=65, n_layer=8, n_head=8, n_embd=320, block_size=256)
+SCALE10_PARAMS = 9_977_600
+ROOT10_CK = "g1bS7_root_m020f.pt"
+G_ROOT10_TOL = 5e-6
 
 COOLDOWN_S = 35.0                     # the dispatch's 30-60 s band
 
@@ -1307,6 +1340,350 @@ def main():
         fig.savefig(p2, dpi=130)
         plt.close(fig)
         pngs.append(p2)
+
+    # ---------------- P7 part (3): the 10M scale point (registered above)
+    if ARMS10:
+        log("=" * 78)
+        log("PHASE 10M — THE SCALE POINT (g1bS7 root; batteries re-screened)")
+        G1.G1_CFG = SCALE10_CFG
+        G1.G1_PARAMS = SCALE10_PARAMS
+        mS7 = json.loads((common.REPO / "runs" / "g1bS7" / "metrics.json")
+                         .read_text(encoding="utf-8"))
+        ref10 = mS7["ckpt_inventory"]["g1bS7_root_m020f"]["root_gm12"]
+        ck10 = common.REPO / "runs" / "checkpoints" / ROOT10_CK
+        root10 = G1.load_g1(ck10)
+        assert root10.num_params() == SCALE10_PARAMS, \
+            f"10M param count {root10.num_params()} != {SCALE10_PARAMS}"
+        theta10 = {k: v.detach().clone()
+                   for k, v in root10.state_dict().items()}
+        raw10 = torch.load(ck10, map_location="cpu", weights_only=False)
+        raw10_sd = (raw10["model"] if isinstance(raw10, dict)
+                    and "model" in raw10 else raw10)
+        md10 = max(float((theta10[k].float() - raw10_sd[k].float()).abs().max())
+                   for k in raw10_sd)
+        import hashlib as _hl
+        md5_10 = _hl.md5(ck10.read_bytes()).hexdigest()
+        B10, ctrl_meta10 = build_batteries(corpus, train_text, val_text,
+                                           install_occ, held_occ, zid)
+        gm12_10_ids = torch.stack(B10["fact"]["ids"])
+        ruler10_cell = G1.battery_cell(root10, gm12_10_ids, zid)
+        G_ROOT10 = {"checkpoint": f"runs/checkpoints/{ROOT10_CK}",
+                    "md5": md5_10, "params": root10.num_params(),
+                    "max_abs_diff_vs_file": md10,
+                    "ruler_ref": ref10, "tol": G_ROOT10_TOL,
+                    "t0_ruler": float(ruler10_cell["mean_pz"]),
+                    "source": "runs/g1bS7/metrics.json "
+                              "ckpt_inventory.g1bS7_root_m020f.root_gm12"}
+        G_ROOT10["pass"] = bool(
+            md10 == 0.0
+            and abs(float(ruler10_cell["mean_pz"]) - ref10) <= G_ROOT10_TOL)
+        metrics["gates"]["G_ROOT10"] = G_ROOT10
+        log(f"G_ROOT10: t0 ruler {float(ruler10_cell['mean_pz']):.10f} vs "
+            f"ref {ref10} -> "
+            f"{'PASS' if G_ROOT10['pass'] else 'FAIL'}")
+        assert G_ROOT10["pass"], f"G_ROOT10 FAILED: {G_ROOT10}"
+
+        # re-screen the new-form batteries on the 10M organism
+        tmpl0_10 = probe_items(root10, B10["tmpl2"]["ids"], zid)
+        kept10 = [i for i, r in enumerate(tmpl0_10) if gate_pass(r, zid)]
+        if len(kept10) > CAP_ITEMS:
+            kept10 = sorted(kept10, key=lambda i: -tmpl0_10[i]["p"])[:CAP_ITEMS]
+        screen10 = {
+            "tmpl2": {"n_probed": len(tmpl0_10), "n_passed": len(kept10),
+                      "reduced_flag": bool(len(kept10) < FLOOR_ITEMS)},
+            "note": "the gate discipline is per-organism (the kept set may "
+                    "differ from 2.74M's — both recorded)",
+        }
+        for bk in ("tmpl2", "mis2Z", "mis2M", "snip0Z", "snip0M"):
+            B10[bk]["ids"] = [B10[bk]["ids"][i] for i in kept10]
+        cr10 = []
+        for c in B10["ctrl"]["cands"]:
+            rec2 = probe_items(root10, [c["ids"]], c["ans_id"])[0]
+            cr10.append((c, rec2))
+        keptc10 = [(c, r) for c, r in cr10 if gate_pass(r, c["ans_id"])]
+        bysub10: dict[str, list] = {}
+        for c, r in keptc10:
+            bysub10.setdefault(c["sub"], []).append((c, r))
+        keptc10 = []
+        for sub in ("colon", "word", "cname", "sent"):
+            keptc10 += bysub10.get(sub, [])[:CTRL_SUB_CAP]
+        if len(keptc10) > CTRL_CAP:
+            keptc10 = keptc10[:CTRL_CAP]
+        B10["ctrl"]["ids"] = [c["ids"] for c, _ in keptc10]
+        B10["ctrl"]["ans_ids"] = [c["ans_id"] for c, _ in keptc10]
+        screen10["ctrl"] = {"n_passed": len(keptc10),
+                            "by_sub": {s: sum(1 for c, _ in keptc10
+                                              if c["sub"] == s)
+                                       for s in ("colon", "word", "cname",
+                                                 "sent")}}
+        log(f"screen@10M: tmpl2 {len(kept10)}/{len(tmpl0_10)}, ctrl "
+            f"{len(keptc10)} {screen10['ctrl']['by_sub']}")
+
+        t0_10: dict[str, dict] = {}
+        for k in BAT_KEYS:
+            if k == "ctrl":
+                per = [probe_items(root10, [i_], a_)[0]
+                       for i_, a_ in zip(B10["ctrl"]["ids"],
+                                         B10["ctrl"]["ans_ids"])]
+                t0_10[k] = {"mean_p": float(np.mean([r["p"] for r in per])),
+                            "per": [{"p": r["p"]} for r in per]}
+            else:
+                per = probe_items(root10, B10[k]["ids"], B10[k]["ans"])
+                t0_10[k] = {"mean_p": float(np.mean([r["p"] for r in per])),
+                            "per": [{"p": r["p"]} for r in per]}
+        ce10 = G1.ce_fixed_cpu(root10, *r_eval_xy)
+        metrics["scale10"] = {
+            "root": {"checkpoint": f"runs/checkpoints/{ROOT10_CK}",
+                     "params": SCALE10_PARAMS, "ce_r_t0": ce10,
+                     "gates": G_ROOT10},
+            "screening": screen10,
+            "t0_reads": {k: v["mean_p"] for k, v in t0_10.items()},
+            "t0_fewshot_lift": t0_10["mis2M"]["mean_p"]
+                               - t0_10["snip0M"]["mean_p"],
+            "arms": {},
+        }
+        log(f"10M t=0: fact {t0_10['fact']['mean_p']:.4f} | near "
+            f"{t0_10['near']['mean_p']:.4f} | tmpl2 "
+            f"{t0_10['tmpl2']['mean_p']:.4f} | mis2M "
+            f"{t0_10['mis2M']['mean_p']:.4f} | ctrl "
+            f"{t0_10['ctrl']['mean_p']:.4f} | lift(M) "
+            f"{metrics['scale10']['t0_fewshot_lift']:.4f} | CE_R "
+            f"{ce10:.4f}")
+        write_metrics("PARTIAL: 10M screened; 10M washes pending")
+
+        def read_state10(sd: dict) -> dict:
+            net = G1.evl_load(sd)
+            out = {}
+            for k in BAT_KEYS:
+                if k == "ctrl":
+                    per = [probe_items(net, [i_], a_)[0]
+                           for i_, a_ in zip(B10["ctrl"]["ids"],
+                                             B10["ctrl"]["ans_ids"])]
+                    out[k] = {"mean_p": float(np.mean([r["p"] for r in per])),
+                              "per": [{"p": r["p"]} for r in per]}
+                else:
+                    per = probe_items(net, B10[k]["ids"], B10[k]["ans"])
+                    out[k] = {"mean_p": float(np.mean([r["p"] for r in per])),
+                              "per": [{"p": r["p"]} for r in per]}
+            out["ce_r"] = G1.ce_fixed_cpu(net, *r_eval_xy)
+            return out
+
+        g0_10_ids = torch.stack([corpus.encode(train_text[p - G1.PRE: p])
+                                 for p, _ in install_occ])
+        arms10_out: dict[str, dict] = {}
+        for ai, (tag, lr, seed, cks) in enumerate(ARMS10):
+            jp = rd / f"journal_{tag}.json"
+            if jp.exists():
+                try:
+                    arms10_out[tag] = json.loads(
+                        jp.read_text(encoding="utf-8"))
+                    log(f"arm {tag}: journal restored")
+                    continue
+                except Exception as e:                 # noqa: BLE001
+                    log(f"journal {tag} unreadable ({e}); recompute")
+            net0_10 = G1.evl_load(theta10)
+            log(f"ARM {tag}: lr {lr:g} seed {seed} ckpts {list(cks)}")
+            res = G1.g1_wash(tag, net0_10, anchor_neutral, train_ids, itos,
+                             r_eval_xy, gm12_10_ids, g0_10_ids, zid,
+                             target_mode="true", ckpt_steps=cks, lr=lr,
+                             seed=seed)
+            states = [{"step": 0,
+                       "reads": {k: {"mean_p": t0_10[k]["mean_p"]}
+                                 for k in BAT_KEYS}, "ce_r": ce10}]
+            for s_ in sorted(res["sds"]):
+                rd_ = read_state10(res["sds"][s_])
+                states.append({"step": s_,
+                               "reads": {k: {"mean_p": rd_[k]["mean_p"],
+                                             "per": [q["p"]
+                                                     for q in rd_[k]["per"]]}
+                                         for k in BAT_KEYS},
+                               "ce_r": rd_["ce_r"]})
+                log(f"  {tag} +{s_:4d}: " + " ".join(
+                    f"{k} {states[-1]['reads'][k]['mean_p']:.4f}"
+                    for k in ("fact", "near", "tmpl2", "mis2M", "ctrl"))
+                    + f" | CE_R {rd_['ce_r']:.4f}")
+                jp.write_text(json.dumps({"tag": tag, "lr": lr, "seed": seed,
+                                          "states": states}, indent=1),
+                              encoding="utf-8")
+                write_metrics(f"PARTIAL: 10M arm {tag} through +{s_}")
+            arms10_out[tag] = {"tag": tag, "lr": lr, "seed": seed,
+                               "states": states,
+                               "device": res.get("device")}
+            jp.write_text(json.dumps(arms10_out[tag], indent=1),
+                          encoding="utf-8")
+            metrics["scale10"]["arms"][tag] = {
+                "lr": lr, "seed": seed, "device": res.get("device"),
+                "reads": {str(s["step"]): {k: s["reads"][k]["mean_p"]
+                                           for k in BAT_KEYS}
+                          for s in states},
+                "ce_r": {str(s["step"]): s["ce_r"] for s in states}}
+            write_metrics(f"PARTIAL: 10M arm {tag} complete")
+            del res
+            if ai < len(ARMS10) - 1:
+                log(f"[thermal] inter-arm cooldown {COOLDOWN_S:.0f}s")
+                time.sleep(COOLDOWN_S)
+
+        # the soft tie vs g1bS8's committed 10M C-trace (+2)
+        try:
+            mS8 = json.loads((common.REPO / "runs" / "g1bS8"
+                              / "metrics.json").read_text(encoding="utf-8"))
+            c2_10 = next(r for r in mS8["arms"]["C"]["trace"]
+                         if r["step"] == 2)
+            s2_mine = next((s for s in arms10_out["10L10902"]["states"]
+                            if s["step"] == 2), None)
+            metrics["scale10"]["soft_tie_g1bS8_C2"] = {
+                "ref_gm12": c2_10["g_m12_mean_pz"], "ref_ce_r": c2_10["ce_r"],
+                "mine_gm12": (s2_mine["reads"]["fact"]["mean_p"]
+                              if s2_mine else None),
+                "note": "CO-REPORT only (g1bS8's wash wrapper may differ in "
+                        "detail; non-fatal either way)"}
+            if s2_mine is not None:
+                mt = metrics["scale10"]["soft_tie_g1bS8_C2"]
+                mt["dp_gm12"] = abs(mt["mine_gm12"] - mt["ref_gm12"])
+                log(f"10M soft tie: +2 gm12 mine {mt['mine_gm12']:.4f} vs "
+                    f"g1bS8 {mt['ref_gm12']:.4f} (dp {mt['dp_gm12']:.4f})")
+        except Exception as e:                             # noqa: BLE001
+            metrics["scale10"]["soft_tie_g1bS8_C2"] = {"error": str(e)}
+
+        # the 10M adjudication (SAME clauses; no new bars)
+        adj10: dict = {"arms": {}}
+        qual10: list[tuple[str, dict]] = []
+        for tag, arm in arms10_out.items():
+            st = {s["step"]: s for s in arm["states"]}
+            base = {k: st[0]["reads"][k]["mean_p"] for k in BAT_KEYS}
+            d = {s_: {k: 1 - rec["reads"][k]["mean_p"] / base[k]
+                      for k in BAT_KEYS}
+                 for s_, rec in st.items() if s_ > 0}
+            s_star = None
+            for s_ in sorted(d, reverse=True):
+                if d[s_]["near"] < NEAR_QUAL_HI:
+                    s_star = s_
+                    break
+            rec = {"lr": arm["lr"], "seed": arm["seed"],
+                   "declines": {str(s_): d[s_] for s_ in d},
+                   "s_star": s_star,
+                   "near_decl_s_star": (d[s_star]["near"]
+                                        if s_star is not None else None),
+                   "qualifies": bool(s_star is not None
+                                     and d[s_star]["near"] >= NEAR_QUAL_LO)}
+            rec["O1_per_state"] = {str(s_): bool(
+                d[s_]["ctrl"] < d[s_]["tmpl2"] < d[s_]["near"]
+                and d[s_]["ctrl"] <= d[s_]["near"] / SEP_BAND
+                and min(d[s_]["ctrl"], d[s_]["tmpl2"], d[s_]["near"])
+                > DECL_TRIVIAL) for s_ in d}
+            rec["O1_n_states"] = sum(rec["O1_per_state"].values())
+            rec["ordering_replicates_arm"] = bool(
+                rec["qualifies"] and rec["O1_n_states"] >= ORDER_STATES_MIN)
+            if s_star is not None:
+                fam_keys = {"fact": "fact", "near": "near", "tmpl2": "tmpl",
+                            "mis2Z": "misZ", "snip0Z": "snipZ"}
+                groups = {}
+                for bk, fam in fam_keys.items():
+                    r0 = [q["p"] for q in t0_10[bk]["per"]]
+                    rs = st[s_star]["reads"][bk]["per"]
+                    groups[fam] = [float(rs[i]) / max(r0[i], 1e-9)
+                                   for i in range(len(rs))]
+                e10 = eta2(groups)
+                rec["family_eta2_out_of_corpus"] = e10
+                rec["family_replicates_arm"] = bool(
+                    rec["qualifies"] and e10["eta2"] is not None
+                    and e10["eta2"] >= ETA2_BAR)
+            ch_states = [s_ for s_ in rec["declines"]
+                         if rec["declines"][s_]["tmpl2"]
+                         >= rec["declines"][s_]["near"]
+                         and rec["declines"][s_]["tmpl2"]
+                         >= rec["declines"][s_]["fact"]]
+            rec["channel_states"] = ch_states
+            adj10["arms"][tag] = rec
+            if rec["qualifies"]:
+                qual10.append((tag, rec))
+            log(f"ADJ10 {tag}: s* {s_star} near_decl "
+                f"{rec['near_decl_s_star']} O1@{rec['O1_n_states']} eta2 "
+                f"{(rec.get('family_eta2_out_of_corpus') or {}).get('eta2')}"
+                f" channel@{len(ch_states)} states")
+        adj10["qualifying_arms"] = [t for t, _ in qual10]
+        adj10["ORDERING-REPLICATES"] = bool(qual10) and all(
+            r["ordering_replicates_arm"] for _, r in qual10) \
+            and len(qual10) >= 2
+        adj10["FAMILY-REPLICATES"] = bool(qual10) and all(
+            r.get("family_replicates_arm") for _, r in qual10) \
+            and len(qual10) >= 2
+        adj10["CHANNEL-DEATH"] = {
+            t: len(r["channel_states"]) >= ORDER_STATES_MIN
+            for t, r in adj10["arms"].items()}
+        # the 10M scale-point synthesis (reported, not a new bar)
+        lift10_post = None
+        for tag, r in adj10["arms"].items():
+            if r["s_star"] is None:
+                continue
+            arm = arms10_out[tag]
+            stt = {s["step"]: s for s in arm["states"]}
+            mis = stt[r["s_star"]]["reads"]["mis2M"]["mean_p"]
+            snm = stt[r["s_star"]]["reads"]["snip0M"]["mean_p"]
+            lift10_post = mis - snm
+            break
+        metrics["scale10"]["adjudication"] = adj10
+        metrics["scale10"]["synthesis"] = {
+            "t0_fewshot_lift": metrics["scale10"]["t0_fewshot_lift"],
+            "post_wash_exemplar_lift_at_s_star": lift10_post,
+            "ORDERING": adj10["ORDERING-REPLICATES"],
+            "FAMILY": adj10["FAMILY-REPLICATES"],
+            "CHANNEL": adj10["CHANNEL-DEATH"],
+            "note": "the SAME clauses at 10M; the scale point beside the "
+                    "2.74M verdict — no new bars",
+        }
+        log(f"10M SYNTHESIS: lift(t0) "
+            f"{metrics['scale10']['t0_fewshot_lift']:.4f}; lift(post) "
+            f"{lift10_post}; ORDERING {adj10['ORDERING-REPLICATES']} "
+            f"FAMILY {adj10['FAMILY-REPLICATES']} CHANNEL "
+            f"{adj10['CHANNEL-DEATH']}")
+        write_metrics("PARTIAL: 10M adjudicated; 10M plot pending")
+
+        # the 10M figure
+        comp10 = next((t for t, r in adj10["arms"].items()
+                       if r["qualifies"]), None) \
+            or next(iter(adj10["arms"]))
+        st10 = arms10_out[comp10]["states"]
+        steps10 = [s["step"] for s in st10]
+        fig, axes = plt.subplots(1, 2, figsize=(15, 6.2))
+        ax = axes[0]
+        for k in BAT_KEYS:
+            r0 = st10[0]["reads"][k]["mean_p"]
+            n_k = len(st10[0]["reads"][k].get("per", []))
+            ax.plot(steps10, [s["reads"][k]["mean_p"] / r0 for s in st10],
+                    "o-", ms=5, lw=1.8, color=cols[k],
+                    label=f"{k} (n={n_k})")
+        axr = ax.twinx()
+        axr.plot(steps10, [s["ce_r"] for s in st10], "s:", ms=4, lw=1.2,
+                 color="seagreen", alpha=0.8)
+        axr.set_ylabel("CE_R (dotted, right)", fontsize=8, color="seagreen")
+        ax.set_xlabel(f"wash steps (10M {comp10}: lr "
+                      f"{arms10_out[comp10]['lr']:g}, seed "
+                      f"{arms10_out[comp10]['seed']})")
+        ax.set_ylabel("retention R(s)/R(0)")
+        ax.set_ylim(-0.05, 1.12)
+        ax.grid(alpha=0.25)
+        ax.legend(fontsize=7, loc="lower left")
+        ax.set_title("THE 10M SCALE POINT — same batteries, same wash",
+                     fontsize=10)
+        ax = axes[1]
+        for tag, r in adj10["arms"].items():
+            ss = sorted(r["declines"], key=int)
+            ax.plot([r["declines"][s_]["near"] for s_ in ss],
+                    [r["declines"][s_]["tmpl2"] for s_ in ss],
+                    "o", ms=6, label=f"{tag} (lr {r['lr']:g})")
+        ax.plot([0, 1], [0, 1], "k--", lw=0.8, alpha=0.5)
+        ax.set_xlabel("decl_near")
+        ax.set_ylabel("decl_tmpl2")
+        ax.grid(alpha=0.25)
+        ax.legend(fontsize=7)
+        ax.set_title("tmpl2 vs near at 10M (above the diagonal = "
+                     "CHANNEL-DEATH territory)", fontsize=9)
+        fig.tight_layout()
+        p3 = rd / "scale10.png"
+        fig.savefig(p3, dpi=130)
+        plt.close(fig)
+        pngs.append(p3)
 
     metrics["honesty_reflex"] = {
         "n_counts": ("n=1 organism (the committed e131 root); wash draws: "
