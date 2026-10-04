@@ -35,3 +35,20 @@
 {"t": "2026-10-04T18:26:53Z", "event": "gpu_wait_owner", "tag": "train-burst3", "owner": "e246_engineered_seat(pid 37292)"}
 {"t": "2026-10-04T18:27:53Z", "event": "gpu_wait_owner", "tag": "train-burst3", "owner": "e246_engineered_seat(pid 37292)"}
 {"t": "2026-10-04T18:29:20Z", "event": "collision_incident_disclosed", "what": "two 4-step training bursts (18:23-18:24Z) slid into an e246 INTER-PHASE process gap (e246 is multi-invocation; the process-only gate misread the gap as a free lane); concurrent GPU work lasted <60s total; the per-step poll HARD-STOPPED at 84C once (the zero->=84C margin violated once, disclosed); no eval/checkpoint pollution (8 steps, optimizer state clean, resumed bit-exactly)", "fix": "cell-liveness gate added: e246 blocks while its metrics.json/run.log mtime < 600s and status != DONE, regardless of process gaps; post-hard-stop heat-soak (>=120s AND <=65C) added"}
+{"t": "2026-10-04T18:29:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 45s ago)"}
+{"t": "2026-10-04T18:30:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 9s ago)"}
+{"t": "2026-10-04T18:31:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 69s ago)"}
+{"t": "2026-10-04T18:32:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 129s ago)"}
+{"t": "2026-10-04T18:33:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 46s ago)"}
+{"t": "2026-10-04T18:34:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 106s ago)"}
+{"t": "2026-10-04T18:35:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 22s ago)"}
+{"t": "2026-10-04T18:36:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 36s ago)"}
+{"t": "2026-10-04T18:37:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 2s ago)"}
+{"t": "2026-10-04T18:38:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 16s ago)"}
+{"t": "2026-10-04T18:39:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 29s ago)"}
+{"t": "2026-10-04T18:40:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 42s ago)"}
+{"t": "2026-10-04T18:41:32Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 10s ago)"}
+{"t": "2026-10-04T18:42:26Z", "event": "phase1_registration_frozen", "primaries": 5, "co_bars": 3}
+{"t": "2026-10-04T18:42:28Z", "event": "build_done", "lines_dropped": 249, "wash_chars": 1105295, "teach_chars": 1284435}
+{"t": "2026-10-04T18:42:48Z", "event": "amendment_applied", "co_bar8": "|rho|>=0.85 AND mean_abs_resid>2.443e-8, >=2/4 cells", "null_check": "seed-0 pure-temperature null rejected (n_ok=0)", "real_check": "structured-residual synthetic passes (n_ok=0)"}
+{"t": "2026-10-04T18:45:16Z", "event": "amendment_validation_recorded", "null": "n_ok=0 rejected", "positive": "n_ok=4 rho-0.998"}

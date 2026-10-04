@@ -128,14 +128,25 @@ THE THREE CO-BARS (the auditor's amendments; each barred):
       wind_cum(holder) per wash (the frozen-rule anchors of bar 2).
       Committed: 7.7/9.0/6.5 (R64-corrected from the escaped 8-10x).
       BAR: ratio in [5, 10] in >= 1 wash (both washes co-reported).
-  (8) THE RESIDUAL-ORDER JOIN |rho| >= 0.5 — the e238 residual
-      structure re-read: per wash x deep state, blocked Spearman
-      (within-battery ranks pooled over fact/ctrl/tmpl) between the
-      per-probe thermal residual r_i = p_obs,i - q_i(T*) and the same
-      organism-wash's erosion order (erosion_i = 1 - p(+80)/p(0), the
-      e214 convention). Committed: -0.898 pooled (w1+50; e238's own bar
-      0.4; the replicate's frozen line 0.5 per the dispatch).
-      BAR: |rho| >= 0.5 at >= 2 of the 4 deep cells; sign co-reported.
+  (8) THE RESIDUAL-ORDER JOIN — the e238 residual structure re-read:
+      per wash x deep state, blocked Spearman (within-battery ranks
+      pooled over fact/ctrl/tmpl) between the per-probe thermal
+      residual r_i = p_obs,i - q_i(T*) and the same organism-wash's
+      erosion order (erosion_i = 1 - p(+80)/p(0), the e214
+      convention). Committed: -0.898 pooled (w1+50; e238's own bar
+      0.4; the dispatch's 0.5).
+      [PHASE-BOUNDARY AMENDMENT, pre-wash-compute, the coordinator's
+      R64-critic-sourced advisory — STRENGTHENING, disclosed in
+      metrics.deviations]: the phase-1c smoke showed this rank
+      statistic passes a NULL (pure-temperature synthetic truth fires
+      |rho| up to 0.812, sign-flipping; the deterministic seed-0
+      re-measurement supersedes the executor's earlier ~0.67 quote —
+      the advisory's 0.75 line was set from that quote, so the line
+      follows the MEASURED floor: 0.85). BAR (both clauses, per cell):
+      (a) |rho_blocked| >= 0.85 AND (b) mean_abs_resid > 2.443e-8
+      (10x the synthetic null's max magnitude 2.443e-9; the committed
+      real magnitudes 0.049-0.216 sit ~9 orders above). PASS := >= 2
+      of the 4 deep cells clear BOTH clauses; sign co-reported.
 
 THE GATES (any failure = INSTRUMENT-DEAD, the full autopsy):
   G_ORGANISM  — the base char-LM's val CE <= 1.50 nats/char (the lab's
@@ -145,6 +156,19 @@ THE GATES (any failure = INSTRUMENT-DEAD, the full autopsy):
   G_SIZE      — params <= 500M with the stated reason: the replicate
                 demands the 124M organism class (the dispatch's own
                 sizing, option (a)); 116,279,296 disclosed.
+  G_RECALIBRATION [AMENDMENT item (i), phase-boundary] — the census
+                thresholds (the 0.05-sigma flip zone; the 0.5*p_t0
+                halving line) are a PORT from the BPE organism: verify
+                at installed t0 that the fresh char-level organism's
+                margin mass lives on a scale where they bite (median
+                margin_sigma >= 0.10, p25 >= 0.05, median p0 in
+                [0.30, 0.999]). PASS -> verbatim thresholds (a true
+                port). FAIL -> RECALIBRATE the flip zone to
+                0.05 * (median_t0_margin / 0.82) (the committed
+                archive's P-FIRST-pooled t0 margin median, the scale
+                anchor), the halving line unchanged (p-relative),
+                DISCLOSED; the census adjudicates on the recalibrated
+                zone with the verbatim-zone census co-reported.
   G_INSTALL   — >= 6 probes per battery pass the e182 gate at the
                 installed t0 ((top-1 and p >= 0.8) or (top-5 and
                 p >= 0.5), the char-dialect answer read); the install
@@ -197,6 +221,13 @@ archive was GPT-2/BPE/web-corpus — this cell is char-level/shakespeare-
 derived, so the bars are INSTRUMENT re-reads at matched conventions,
 not distribution-matched replications; landing outside tolerance reads
 organism-specificity, and the verdict vocabulary is about the reads.
+[AMENDMENT item (ii)] THE SPAN READ'S SIGN-SHADOW GUARD: e234's
+Gram-SVD span was validated on GPT-2's washes only; the two fresh
+washes share corpus/optimizer/lr (draw-independence only), so a
+cross-wash identity pass reads "recipe+organism" at minimum — the
+optimizer's sign-pattern geometry (g12) is a candidate shadow the
+identity bar cannot alone exclude; the corpus-swap replication is the
+stronger test, named, not run (T216's honesty clause, inherited).
 The t=0 anchoring disclosure of the whole 124M program (one organism)
 is discharged by this cell existing at all. Nothing guaranteed.
 
@@ -284,7 +315,11 @@ BARS = dict(
     zomb_factor=2.0, zomb_cells_need=4, zomb_stand_line=0.5,
     coherence_line=0.5,
     exposure_lo=5.0, exposure_hi=10.0, exposure_washes_need=1,
-    resid_rho_line=0.5, resid_cells_need=2,
+    resid_rho_line=0.85, resid_cells_need=2,
+    resid_mag_floor=2.4430e-08,
+    recal_margin_med_min=0.10, recal_margin_p25_min=0.05,
+    recal_p_lo=0.30, recal_p_hi=0.999,
+    committed_anchor_margin_median=0.82,
 )
 COMMITTED = dict(
     pfirst_counts={"fact-w1": 8, "fact-w2": 8, "ctrl-w1": 4, "ctrl-w2": 3,
@@ -1195,6 +1230,31 @@ def cmd_read() -> None:
     max_dp = max(abs(a["p"] - b["p"]) for a, b in zip(journal["t0:0"], r2))
     m["reads"]["G_REPRO"] = {"max_dp_t0_reread": max_dp,
                              "pass": bool(max_dp <= 0.005)}
+    # G_RECALIBRATION [amendment (i)]: the census thresholds' mass check
+    if "G_RECALIBRATION" not in m["reads"]:
+        j0 = journal["t0:0"]
+        margins0 = [r["margin_sigma"] for r in j0]
+        ps0 = [r["p"] for r in j0]
+        med_m = float(np.median(margins0))
+        p25_m = float(np.percentile(margins0, 25))
+        med_p = float(np.median(ps0))
+        passed = (med_m >= BARS["recal_margin_med_min"]
+                  and p25_m >= BARS["recal_margin_p25_min"]
+                  and BARS["recal_p_lo"] <= med_p <= BARS["recal_p_hi"])
+        if passed:
+            fz = 0.05
+        else:
+            fz = 0.05 * med_m / BARS["committed_anchor_margin_median"]
+        m["reads"]["G_RECALIBRATION"] = {
+            "median_t0_margin": med_m, "p25_t0_margin": p25_m,
+            "median_t0_p": med_p, "pass": bool(passed),
+            "census_flip_zone": fz,
+            "note": ("verbatim thresholds ported" if passed else
+                     f"RECALIBRATED flip zone {fz:.4f} (disclosed; the "
+                     "verbatim-zone census co-reports at adjudication)")}
+        write_metrics(m)
+        jlog("G_RECALIBRATION", pass_=passed, med_m=round(med_m, 4),
+             p25_m=round(p25_m, 4), med_p=round(med_p, 4), fz=round(fz, 5))
     write_metrics(m)
     jlog("G_REPRO", max_dp=max_dp)
 
@@ -1578,51 +1638,61 @@ def cmd_adjudicate() -> None:
         "G_SUPPORTFD": bool(reads.get("G_SUPPORTFD", {}).get("pass")),
         "G_WASHGRADFD": bool(reads.get("G_WASHGRADFD", {}).get("pass")),
     }
-    all_gates = all(gates.values())
+    # non-kill gate [amendment (i)]: a fail recalibrates + discloses, it
+    # does not kill the cell
+    recal = reads.get("G_RECALIBRATION", {})
+    gates["G_RECALIBRATION_nonkill"] = {
+        "pass": bool(recal.get("pass")), "flip_zone": recal.get("census_flip_zone")}
+    all_gates = all(v for k, v in gates.items()
+                    if isinstance(v, bool))
     bars_out = {}
 
     # ---- bar 1 + 5: the census -----------------------------------------
+    fz = reads.get("G_RECALIBRATION", {}).get("census_flip_zone", 0.05)
+    fz_verbatim = 0.05
     census = {}
-    for b in ("fact", "ctrl", "tmpl", "near"):
-        for w in ("w1", "w2"):
-            states = [0] + grids[w]
-            rows = {s: {r["fact"]: r for r in
-                        (jr["t0:0"] if s == 0
-                         else jr.get(f"{w}_m{mult}:{s}", []))}
-                    for s in states}
-            b_facts = {p["fact"] for p in BATTERY if p["battery"] == b}
-            classes = {}
-            for fact in rows[0]:
-                if fact not in b_facts:
-                    continue
-                p0 = rows[0][fact]["p"]
-                p_seq = [rows[s][fact]["p"] for s in states if s in rows
-                         and fact in rows[s]]
-                m_seq = [rows[s][fact]["margin_sigma"] for s in states
-                         if s in rows and fact in rows[s]]
-                p_cross = next((k for k in range(1, len(p_seq))
-                                if p_seq[k] < 0.5 * p0), None)
-                m_cross = next((k for k in range(1, len(m_seq))
-                                if m_seq[k] < 0.05), None)
-                if p_cross is None and m_cross is None:
-                    cls = "NEITHER"
-                elif m_cross is None:
-                    cls = "P-FIRST"
-                elif p_cross is None:
-                    cls = "MARGIN-FIRST"
-                elif p_cross == m_cross:
-                    cls = "TOGETHER"
-                elif p_cross < m_cross:
-                    cls = "P-FIRST"
-                else:
-                    cls = "MARGIN-FIRST"
-                classes[fact] = {"class": cls, "p0": p0,
-                                 "p_last": p_seq[-1], "m_last": m_seq[-1]}
-            counts = {}
-            for c in classes.values():
-                counts[c["class"]] = counts.get(c["class"], 0) + 1
-            census[f"{b}-{w}"] = {"counts": counts, "n": len(classes),
-                                  "classes": classes}
+    census_verbatim = {}
+    for zone, fz_use, sink in ((fz, fz, census), (fz_verbatim, fz_verbatim, census_verbatim)):
+        for b in ("fact", "ctrl", "tmpl", "near"):
+            for w in ("w1", "w2"):
+                states = [0] + grids[w]
+                rows = {s: {r["fact"]: r for r in
+                            (jr["t0:0"] if s == 0
+                             else jr.get(f"{w}_m{mult}:{s}", []))}
+                        for s in states}
+                b_facts = {p["fact"] for p in BATTERY if p["battery"] == b}
+                classes = {}
+                for fact in rows[0]:
+                    if fact not in b_facts:
+                        continue
+                    p0 = rows[0][fact]["p"]
+                    p_seq = [rows[s][fact]["p"] for s in states if s in rows
+                             and fact in rows[s]]
+                    m_seq = [rows[s][fact]["margin_sigma"] for s in states
+                             if s in rows and fact in rows[s]]
+                    p_cross = next((k for k in range(1, len(p_seq))
+                                    if p_seq[k] < 0.5 * p0), None)
+                    m_cross = next((k for k in range(1, len(m_seq))
+                                    if m_seq[k] < fz_use), None)
+                    if p_cross is None and m_cross is None:
+                        cls = "NEITHER"
+                    elif m_cross is None:
+                        cls = "P-FIRST"
+                    elif p_cross is None:
+                        cls = "MARGIN-FIRST"
+                    elif p_cross == m_cross:
+                        cls = "TOGETHER"
+                    elif p_cross < m_cross:
+                        cls = "P-FIRST"
+                    else:
+                        cls = "MARGIN-FIRST"
+                    classes[fact] = {"class": cls, "p0": p0,
+                                     "p_last": p_seq[-1], "m_last": m_seq[-1]}
+                counts = {}
+                for c in classes.values():
+                    counts[c["class"]] = counts.get(c["class"], 0) + 1
+                sink[f"{b}-{w}"] = {"counts": counts, "n": len(classes),
+                                    "classes": classes}
     cells_adj = [f"{b}-{w}" for b in ("fact", "ctrl", "tmpl")
                  for w in ("w1", "w2")]
     pfirst_cells = sum(
@@ -1633,7 +1703,11 @@ def cmd_adjudicate() -> None:
     bars_out["1_PFIRST_MODALITY"] = {
         "cells_modal": pfirst_cells, "need": BARS["pfirst_cells_need"],
         "pass": pfirst_cells >= BARS["pfirst_cells_need"],
-        "census_counts": {c: census[c]["counts"] for c in census}}
+        "census_flip_zone_used": fz,
+        "census_counts": {c: census[c]["counts"] for c in census},
+        "verbatim_zone_coreport": ({c: census_verbatim[c]["counts"]
+                                    for c in census_verbatim}
+                                   if fz != 0.05 else "identical (zone ported verbatim)")}
 
     zomb, zomb_ok, stand_modal = {}, 0, 0
     for c in cells_adj:
@@ -1642,7 +1716,7 @@ def cmd_adjudicate() -> None:
         n = len(pf)
         standing = sum(
             1 for f in pf
-            if census[c]["classes"][f]["m_last"] >= 0.05
+            if census[c]["classes"][f]["m_last"] >= fz
             and census[c]["classes"][f]["p_last"] < 0.5 *
             census[c]["classes"][f]["p0"])
         frac = standing / n if n else float("nan")
@@ -1749,13 +1823,19 @@ def cmd_adjudicate() -> None:
         "ratios": exp_detail, "band": [BARS["exposure_lo"], BARS["exposure_hi"]],
         "pass": exp_ok >= BARS["exposure_washes_need"]}
     rj = reads.get("thermal", {}).get("resid_join", [])
+    rj_ok = [r for r in rj
+             if abs(r["rho_blocked"]) >= BARS["resid_rho_line"]
+             and r.get("mean_abs_resid", 0.0) > BARS["resid_mag_floor"]]
     bars_out["8_RESIDUAL_ORDER"] = {
-        "detail": rj,
-        "n_ok": sum(1 for r in rj
-                    if abs(r["rho_blocked"]) >= BARS["resid_rho_line"]),
-        "pass": sum(1 for r in rj
-                    if abs(r["rho_blocked"]) >= BARS["resid_rho_line"])
-        >= BARS["resid_cells_need"]}
+        "detail": rj, "n_ok": len(rj_ok),
+        "rho_line": BARS["resid_rho_line"],
+        "mag_floor": BARS["resid_mag_floor"],
+        "amendment_note": ("phase-boundary amendment (pre-wash-compute, "
+                           "coordinator advisory): both clauses per cell — "
+                           "|rho| >= 0.85 (above the measured seed-0 "
+                           "pure-temperature null max 0.812) AND "
+                           "mean_abs_resid > 10x the null's magnitude"),
+        "pass": len(rj_ok) >= BARS["resid_cells_need"]}
 
     primaries = ["1_PFIRST_MODALITY", "2_SEAT_Z_DIRECTION", "3_T_R2",
                  "4_SPAN_IDENTITY", "5_ZOMBIE_RATES"]
@@ -1778,7 +1858,10 @@ def cmd_adjudicate() -> None:
                    + "; gates "
                    + ("ALL PASS" if all_gates else
                       "FAILED: " + str([k for k, v in gates.items()
-                                        if not v]))),
+                                        if not v]))
+                   + "; span identity carries the sign-shadow guard "
+                   "(recipe+organism at minimum; e234-validated on "
+                   "GPT-2's washes only; corpus-swap named, not run)"),
         "committed_re_read": COMMITTED, "wash_ladder_mult": mult,
     }
     write_metrics(m)

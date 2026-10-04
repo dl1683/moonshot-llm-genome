@@ -23,8 +23,14 @@
       "exposure_lo": 5.0,
       "exposure_hi": 10.0,
       "exposure_washes_need": 1,
-      "resid_rho_line": 0.5,
-      "resid_cells_need": 2
+      "resid_rho_line": 0.85,
+      "resid_cells_need": 2,
+      "resid_mag_floor": 2.443e-08,
+      "recal_margin_med_min": 0.1,
+      "recal_margin_p25_min": 0.05,
+      "recal_p_lo": 0.3,
+      "recal_p_hi": 0.999,
+      "committed_anchor_margin_median": 0.82
     },
     "committed": {
       "pfirst_counts": {
@@ -111,11 +117,11 @@
     "size_reason": "the replicate demands the 124M organism class (dispatch option (a), scratch/e244 sketch); 116,279,296 params > the 100M free tier, <= the 500M ceiling with this stated reason"
   },
   "provenance": {
-    "git_head_at_freeze": "752359b87032481bced39bbcca3ea3870179184d",
+    "git_head_at_freeze": "5c867755a9831ab79abe4d829e3c9645a4ecbe88",
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
-    "script_sha256_16": "abed18d8a864c590"
+    "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T18:01:23Z",
+  "updated": "2026-10-04T18:45:16Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -413,5 +419,55 @@
       "near": 3,
       "tmpl": 19
     }
-  }
+  },
+  "train_bursts": [
+    {
+      "burst": 1,
+      "end_step": 4,
+      "stop": "hard",
+      "best_val": Infinity,
+      "t": "2026-10-04T18:23:17Z"
+    },
+    {
+      "burst": 2,
+      "end_step": 8,
+      "stop": "hard",
+      "best_val": Infinity,
+      "t": "2026-10-04T18:24:06Z"
+    }
+  ],
+  "amendments": [
+    {
+      "phase_boundary": "pre-wash-compute (desk; no wash/install compute had run; only the disclosed 8 stray training steps, discarded)",
+      "source": "coordinator advisory (R64-critic-sourced), accepted with one number superseded by measurement",
+      "items": [
+        {
+          "item": "co_bar_8_rho_line",
+          "from": 0.5,
+          "to": 0.85,
+          "note": "the advisory's 0.75 was set from the executor's earlier ~0.67 quote; the deterministic seed-0 re-measurement puts the pure-temperature null's max |rho| at 0.812 (sign-flipping) - the line follows the MEASURED floor per the amendment's intent (above the floor)"
+        },
+        {
+          "item": "co_bar_8_magnitude_gate",
+          "floor": 2.443e-08,
+          "definition": "10x the seed-0 pure-temperature null's max mean_abs_resid (2.443e-9); BOTH clauses required per cell; committed real magnitudes 0.049-0.216 sit ~9 orders above"
+        },
+        {
+          "item": "G_RECALIBRATION_nonkill",
+          "definition": "the census thresholds' t0 mass check (median margin >= 0.10, p25 >= 0.05, median p0 in [0.30, 0.999]); pass = verbatim port; fail = flip zone recalibrated to 0.05*(median/0.82), verbatim-zone census co-reports"
+        },
+        {
+          "item": "span_sign_shadow_guard",
+          "definition": "carried in the registration honesty block + the adjudication clause (e234 validated on GPT-2's washes only; a pass reads recipe+organism at minimum; corpus-swap named, not run)"
+        }
+      ],
+      "validation": {
+        "null_check": "seed-0 pure-temperature synthetic truth: n_ok=0 (REJECTED; max |rho| 0.812 < 0.85 AND max mean_abs_resid 2.4e-9 < 2.44e-8)",
+        "positive_control": "uniform-p0 battery-blocked residual (+-0.12, the committed magnitude band): rho -0.998, mean_abs_resid 0.040-0.065, n_ok=4 (PASSES)",
+        "weak_structures": "intermediate synthetics (mixed-sign or thermal-dominated declines, rho 0.3-0.5) honestly FAIL - the amended bar demands committed-strength order structure",
+        "test_construction_notes": "two earlier 'failed' positive controls were synthetic-construction bugs (tiled logit row -> p0 ranged 0.04-0.7; sign-flipped batteries cancelling in the pooled ranks), disclosed; the corrected controls are above"
+      },
+      "bars_otherwise": "untouched"
+    }
+  ]
 }
