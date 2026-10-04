@@ -4841,6 +4841,43 @@ physics states. That is the culture working.
 
 
 
+## W032 — WONDER: the wall's currency — decisions or gradients? (composing e225's graded join with e228's margin cell; 2026-10-04 ~13:10Z; no bars, no kills — a composition on paper, ripening)
+
+E225's cons pair killed the strict SNR-conservator: g1e/g1f at
+EQUAL gradient-level currency (multiples 0.60/0.56) with OPPOSITE
+flat phases (0.615/0.932). E228 is mid-flight asking whether the
+conserved erosion order is the shadow of the MARGIN LANDSCAPE (a
+decision-level object: how hard the organism holds each next-token
+choice, in sigma over arithmetic noise). THE COMPOSITION: if e228
+lands MARGIN-ORDERS-EROSION, the two results sharpen each other
+into a new question — THE WALL TRADES IN DECISIONS, NOT
+GRADIENTS: the flat phase (what survives at 0.6-1.0x root
+strength) would be the survival of the organism's COMMITTED
+structure, not the fact's signal-over-noise; the SNR tilt e225
+saw would then be a CORRELATE (committed structure and edge
+co-form in the normal regime), not the currency — which is
+exactly why the regime read (T206) and this card are the same
+question at two levels. DISCRIMINATING OBSERVATION (registered,
+cheap): join e225's seven retentions against a MARGIN-side
+aggregate of each root (the fact battery's median argmax margin
+in sigma — e228's instrument ported to the 2.74M roots, CPU
+evals). If retention tracks the margin aggregate WHERE IT FAILED
+TO TRACK THE MULTIPLE — the cons pair separating in y AND in the
+aggregate — the currency flips from gradients to decisions.
+REGISTERED PREDICTION (no retrofit): within the cons pair, the
+retention order (g1f 0.932 > g1e 0.615) is matched by the
+margin-aggregate order of their fact batteries; an anti-match or
+a scatter kills the composition and leaves the flat phase owning
+a third currency still unnamed (the honest branch). HONESTY
+OWED: e208's residue — THE MARGIN, THE STEP, AND THE BALL ARE
+ONE — already bound the fact's margin to its wash-band SNR per
+step; this card does not contradict it; it asks WHICH LEVEL the
+WALL reads in its flat phase, not whether margins matter. And if
+e228 lands ORDER-OUTRUNS-FRAGILITY instead, this card's question
+inverts deliciously: the wall would conserve an order that is
+neither SNR nor local fragility — three currencies dead, the
+fourth dimension of the flat phase open.
+
 ## W031 — WONDER: the thinnest decisions — is the conserved erosion order the shadow of a margin landscape? (2026-10-04 ~12:55Z; no bars, no kills — a crossing noticed)
 
 Two findings crossed paths this hour and want a card. (1) T204's
