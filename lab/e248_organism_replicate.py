@@ -470,20 +470,34 @@ _PS_SCRIPT.write_text(
 
 
 def gpu_owner_alive() -> str | None:
-    """Live artifacts own the cell: refuse the GPU while e246/e240 run."""
+    """Live artifacts own the cell: refuse the GPU while e246 lives (the
+    dispatch sequenced phase 2 after its DONE) or while ANY python holds
+    GPU memory. Pure-CPU cells (e.g. e240's archive pass) do not block."""
     try:
         out = subprocess.run(
             ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
              "-File", str(_PS_SCRIPT)], capture_output=True, text=True,
             timeout=25).stdout
     except Exception:
-        return None
+        out = ""
+    gpu_pids = set()
+    try:
+        q = subprocess.run(
+            ["nvidia-smi", "--query-compute-apps=pid",
+             "--format=csv,noheader"], capture_output=True, text=True,
+            timeout=10).stdout
+        gpu_pids = {x.strip() for x in q.split() if x.strip().isdigit()}
+    except Exception:
+        pass
     for line in out.splitlines():
         line = line.strip()
-        if "e246_engineered_seat" in line or "e240_moment_archive" in line:
-            script = ("e246_engineered_seat" if "e246" in line
-                      else "e240_moment_archive")
-            return f"{script}(pid {line.split(' ')[0]})"
+        if not line:
+            continue
+        pid = line.split(" ")[0]
+        if "e246_engineered_seat" in line:
+            return f"e246_engineered_seat(pid {pid})"
+        if pid in gpu_pids and "e248_organism_replicate" not in line:
+            return f"gpu-holder(pid {pid}: {line[:80]})"
     return None
 
 
