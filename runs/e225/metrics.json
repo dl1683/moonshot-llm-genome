@@ -1,6 +1,6 @@
 {
   "experiment": "e225_one_currency",
-  "date": "2026-10-04T12:52:06Z",
+  "date": "2026-10-04T13:09:38Z",
   "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
   "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
   "registered_bars": {
@@ -28,14 +28,14 @@
       "J7:g1bS7_root_m020f.pt",
       "B1:bridge"
     ],
-    "cpu_load_pct_at_launch": 36,
-    "cpu_load_pct_after_J2": 10,
-    "cpu_load_pct_after_J3": 1,
-    "cpu_load_pct_after_J4": 80,
-    "cpu_load_pct_after_J5": 8,
-    "cpu_load_pct_after_J6": 8,
-    "cpu_load_pct_after_J7": 24,
-    "cpu_load_pct_after_B1": 6
+    "cpu_load_pct_at_launch": 8,
+    "cpu_load_pct_after_J2": 5,
+    "cpu_load_pct_after_J3": 6,
+    "cpu_load_pct_after_J4": 2,
+    "cpu_load_pct_after_J5": 60,
+    "cpu_load_pct_after_J6": 7,
+    "cpu_load_pct_after_J7": 6,
+    "cpu_load_pct_after_B1": 29
   },
   "deviations": [
     "RECOVERY RE-DISPATCH: the predecessor session died pre-artifact; nothing from it survives or is trusted. The instrument, roster, bars and operationalizations were re-frozen from the dispatch brief + the committed record before any compute.",
@@ -206,7 +206,7 @@
       "note": "the universal 10902 stream's step-1 batch at the e131 root reproduces g1b's committed C-arm rows (CE + the fresh AdamW step-1 L2; cross-device texture) and e185's stored md5"
     }
   },
-  "phase": "P3 adjudicated",
+  "phase": "P3 adjudicated (+ provenance + honesty)",
   "cells": {
     "J2": {
       "id": "J2",
@@ -3996,8 +3996,110 @@
         "J5": 0.9446859198099864,
         "J6": 0.9646209309477912,
         "J7": 0.832540454235837
+      },
+      "triad_co_read": {
+        "what": "Spearman(step_over_edge, the +1 transient / root) \u2014 T180's margin-step-ball triad re-read on this table (the TRANSIENT, not the flat phase)",
+        "rho_transient": -0.9642857142857143,
+        "rho_flat_phase": -0.5714285714285714,
+        "note": "CONTEXT ONLY \u2014 the frozen bars adjudicate the FLAT phase vs the multiple; this co-read is recomputable verbatim from the committed table (plus1_read/root_gm12 vs step_over_edge)"
       }
     },
     "composite_order": "ONE-CURRENCY / TWO-CURRENCIES / GRADED (frozen before compute; the first two mutually exclusive by construction)"
+  },
+  "provenance": {
+    "recovery": "the first executor died in a session gap pre-artifact; this run is the frozen brief's re-dispatch (see deviations[0]); every number below is this run's own or a hard-bound committed parent",
+    "parents_files_md5": {
+      "e208": "9ae713e895fd475ee2ac20b848305f5f",
+      "e209": "6d332e1c828bcca73860235f543dd8d3",
+      "g1b": "833e2bd35602ebcc24108002bda4c1f0",
+      "g1bR": "8f46c904e81acea3fd866a3ab836af8a",
+      "g1c_root": "05a33ada81e022b61a437db29afe38dd",
+      "g1d": "160ef9b1828f4a4c2943f56f4825b2f6",
+      "g1e": "4f5f45d9dfc34d6db915a6008c0d4c2e",
+      "g1f": "6de831305cd93490db2d1ab43eab1e41",
+      "g1bS5": "de6f25902633d064317a69ea78332085",
+      "g1bS6": "581b75ead7f39c906201d0397b82f6c7",
+      "g1bS7": "63db37c49db788e01b8d6a545042df4a",
+      "g1bS8": "6cd073c46d7fe544babcbcc412fcacaa"
+    },
+    "checkpoints": {
+      "J2": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "J3": {
+        "file": "runs/checkpoints/g1d_root.pt",
+        "flat_md5": "a63113f897d1752a4a16edfc2f838559"
+      },
+      "J4": {
+        "file": "runs/checkpoints/g1e_root.pt",
+        "flat_md5": "aa0cc2ac17292559bcffd0b68ba6e67a"
+      },
+      "J5": {
+        "file": "runs/checkpoints/g1f_root.pt",
+        "flat_md5": "65d41518f90ec013f820f3554d2eeafd"
+      },
+      "J6": {
+        "file": "runs/checkpoints/g1bS5_root_m020.pt",
+        "flat_md5": "7726a015fb8d63a0f4b7499bb90666bc"
+      },
+      "J7": {
+        "file": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5"
+      }
+    },
+    "machinery": {
+      "multiple": "lab/e209_census_debt.py VERBATIM at the pristine roots (the t=0 post-clip sign-ray u0 on the seed-10902 stream; the 0.05..3.00 onset grid, first 0.27 downcrossing linear-in-D interpolated with early stop after the bracket; the 20-step UNWALLED AdamW history; the Gram-SVD span \u2014 chunked fp64, disclosed; the 3 fresh Gaussian draws, middle-order statistic with right-censoring)",
+      "retention": "loaded from each row's OWN committed wall record at its hard-bound metrics path (G_RET; the g1bS6/g1bS8 committed flat_phase_retention_min fields reproduced to <1e-9)",
+      "J1_x": "the COMMITTED e209 R1 multiple (3.7207; = e208 R1 = e205's scalar), mixed-instrument provenance carried on the row",
+      "bridge": "the same-instrument fresh re-read at the e131 root (B1): its u0 edge 2.269916581032063 is BIT-IDENTICAL to e199's committed org1 edge \u2014 the instrument validation; its band (0.933) vs the committed band (0.610) is the instrument-flavor gap, disclosed",
+      "seeds": "draw seeds 128xx per roster (registry-clean, repo-grep'd); the universal stream seed 10902 gated by G_STREAM (e185's stored step-1 md5 reproduced)"
+    },
+    "u_md5s": {
+      "J2": {
+        "sign_ray": "4e97cac2975bf11a030a8eb2abe0cb05",
+        "g_ray": "797d29dc20e500f7f332c0c1b5c563b6",
+        "draws": []
+      },
+      "J3": {
+        "sign_ray": "8869069a821636cdd9631677595eb2a9",
+        "g_ray": "f5e23e210b5246272c9e446f989ce89e",
+        "draws": []
+      },
+      "J4": {
+        "sign_ray": "644fe6333239b6d6535c403b6343eb0c",
+        "g_ray": "45699e1f4bd936ec5c493a2116d6ca4a",
+        "draws": []
+      },
+      "J5": {
+        "sign_ray": "6072858bf2a0cb85cf351d960777c3d1",
+        "g_ray": "6b1a5554679957e0a29f26f3ba391045",
+        "draws": []
+      },
+      "J6": {
+        "sign_ray": "7d2c738d5847fc038776a1c696b9f75a",
+        "g_ray": "13e73625cfbf3471efc87699afb0d9b3",
+        "draws": []
+      },
+      "J7": {
+        "sign_ray": "d60e052ee11869b0aea41a8f48d0953f",
+        "g_ray": "e396db58eeecf17b449c72a78cb040c9",
+        "draws": []
+      },
+      "B1": {
+        "sign_ray": "aac6c6d643e327939f680148772dd180",
+        "g_ray": "abb6df7ceefdd048b300c938123d964d",
+        "draws": []
+      }
+    }
+  },
+  "honesty": {
+    "n_and_scope": "n=1 per organism, 7 joined rows (+1 bridge): every multiple is a single-u0, single-history, 3-draw number; the 2-3x draw lottery (T155) would move any band median on redraw \u2014 the J4/J5 spread at matched low multiples is within that texture; n(10M)=2: any two-currencies claim would be underpowered by construction, and the scale layer's NON-separation is the honest read at this n",
+    "the_two_sides_are_different_objects": "the retention is the WALLED flat phase; the multiple is the UNWALLED noise instrument \u2014 the join's whole point. The primary table also mixes e209's committed mixed-instrument row (J1) with six same-instrument rows; the bridge bounds that gap (fresh 2.43 vs committed 3.72 \u2014 the EDGE identical to e199's, the BAND the mover; J1 stays at the top of the x-range under both flavors)",
+    "retention_convention": "flat-min over {10,50,100,200,300} / the experiment's own root g-12 (the g1bS2+ committed convention). The dispatch's 'retention 0.96' for the e131 row is NOT reproducible from the committed g1b tables under any single convention (flat-min 0.998 seed-10902; family-min 0.983; flat-median 1.003) \u2014 the discrepancy is disclosed, the median flavor co-reported per row, and the join's reading unchanged under every candidate",
+    "cross_scale_rulers": "content-identical install-60 g-12 batteries read by different hosts (6L/192d vs 8L/320d) \u2014 T182's instrument-shadow class is this join's named risk; the 10M bands (1.54-2.36) sit above the 2.74M redraw bands (0.69-1.55): the scale axis lives IN the band, and the 10M multiples are low partly because the 10M ball is wide",
+    "J3_status": "g1d's own verdict was TEXTURE (G-CONS gate failure); its retention row is OBSERVED-UNADJUDICATED (T186's map) and its 1.33 flat-min (the 1.35x record's median flavor 1.345) is the table's highest retention at a mediocre multiple \u2014 excluding J3 is a co-read never taken (it would not flip the verdict: LOO J3 = 0.486)",
+    "logits_prediction_check": "every adjudication input is a behavior read (battery p(Z) crossings); the cell's only intervention is the 20-step unwalled history and it MOVED behavior (the fact died at history step 1 at every root \u2014 the committed C-arm record's own clock, reproduced)",
+    "nothing_guaranteed": "the openness was the point: the fresh multiples could have landed anywhere; the observed outcome is 'GRADED' (rho 0.607 vs the 0.714 line at n=7 \u2014 one-tailed p ~ 0.06, one draw-noisy row short of the rank line; LOO max 0.657). The +1-TRANSIENT vs step-over-edge co-read (see triad_co_read) is context, never adjudicated"
   }
 }
