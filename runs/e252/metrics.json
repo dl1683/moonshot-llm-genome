@@ -1,8 +1,8 @@
 {
   "experiment": "e252_resuscitation",
   "phase": "eval-only CPU cell on the committed two-wash 124M archive (agy consult #002's pick; the design FROZEN in scratch/e252_design.md, commit f72a38b)",
-  "date": "2026-10-04T19:03:37Z",
-  "status": "PARTIAL: w2 +80 forwarded + cooled",
+  "date": "2026-10-04T19:09:12Z",
+  "status": "DONE",
   "registration": "bars + predictions frozen VERBATIM from scratch/e252_design.md (commit f72a38b) BEFORE compute; this script committed at birth before the adjudicated run; adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -124,10 +124,135 @@
       "tol_per_probe_dp": 0.01,
       "note": "the four batteries are the phase-1/phase-2 pools VERBATIM (module import); my t=0 forward's p must reproduce e214's committed journal t0 \u2014 certifying the forward the cooled reads ride on",
       "pass": true
+    },
+    "G_STATES": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:07:14Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:20:17Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:28:00Z"
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "mtime": "2026-10-01T15:04:11Z"
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:11:49Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:15:03Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:18:15Z"
+        }
+      },
+      "wash1_crosscheck_vs_e182c2_inventory": {
+        "10": true,
+        "50": true,
+        "80": true,
+        "2": true
+      },
+      "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set",
+      "all_exist": true,
+      "reprobe_max_dp": 0.0,
+      "n_reprobe_checks": 28,
+      "tol_reprobe_dp": 0.005,
+      "reprobe_note": "every battery's p (from the SAME forward the cooled reads ride on) compared per-probe to e214's committed journal records on every LOADED state of BOTH archives \u2014 this certifies the logits",
+      "pass": true
+    },
+    "G_DUMPX": {
+      "rows": [
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s10.npz",
+          "npz_sha256_16": "cd4fdedb5a7d605a",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w1+10"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s50.npz",
+          "npz_sha256_16": "465bac8aca6b4076",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w1+50"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s80.npz",
+          "npz_sha256_16": "f13897401fe60341",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w1+80"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s2.npz",
+          "npz_sha256_16": "59e6c0aa1b220518",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w1+2"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s10.npz",
+          "npz_sha256_16": "b120737f96a65398",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w2+10"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s50.npz",
+          "npz_sha256_16": "06b46035fb76be1a",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w2+50"
+        },
+        {
+          "npz": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s80.npz",
+          "npz_sha256_16": "9c807dbf906e2cbc",
+          "max_abs_dL_vs_dump": 0.0,
+          "names_match": true,
+          "state": "w2+80"
+        }
+      ],
+      "max_abs_dL_all": 0.0,
+      "note": "this run's fp32 logits vs e238's sha-recorded npz dumps (same weights, same CPU fp32 path; expected ~0) \u2014 the committed artifact certifies the transform's substrate both ways",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "load_checks": 9,
+      "gpu_calls": 0,
+      "burst": "one state = one eval burst",
+      "pass": true
     }
   },
   "timing": {
-    "total_s": 42.0
+    "total_s": 41.2
   },
   "inventory": {
     "wash1_files": {
@@ -203,5 +328,1129 @@
     "ceiling": 500000000,
     "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
     "pass": true
-  }
+  },
+  "compute": {
+    "envelope": "CPU-only eval (dispatch; e248 owns the GPU lane); threads 4, load checks, one state = one eval burst; ~54 probes x 8 state reads + 7 checkpoint loads; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 6.7,
+        "tool": "psutil"
+      },
+      {
+        "tag": "t0",
+        "cpu_percent": 13.4,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s10",
+        "cpu_percent": 8.0,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s50",
+        "cpu_percent": 7.4,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s80",
+        "cpu_percent": 3.9,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s2",
+        "cpu_percent": 11.5,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s10",
+        "cpu_percent": 10.8,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s50",
+        "cpu_percent": 7.1,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s80",
+        "cpu_percent": 9.7,
+        "tool": "psutil"
+      }
+    ],
+    "state_archive": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+    ]
+  },
+  "read_a_margins_beliefs": {
+    "t0_mean_p": 0.8087400771953441,
+    "t0_mean_margin_raw": 3.0668867605703847,
+    "states": [
+      {
+        "wash": "w1",
+        "step": 10,
+        "T_true": 1.0597956498145238,
+        "T_sham": 1.0744525359278094,
+        "sigma_ratio_state_over_t0": 0.9787275405834284,
+        "rho_raw": 0.9093577282256528,
+        "rho_cooled": 0.9071469411092052,
+        "rho_sham": 0.9095101963026492,
+        "rho_anti": 0.911492281303602,
+        "RF": -0.024390243902439202,
+        "BR": 0.9012274498668384,
+        "MRF": 0.7048630426383882,
+        "mean_margin_raw_state": 2.8270588627568003,
+        "margin_sigma_invariance_max_abs_d": 3.3306690738754696e-15,
+        "weak_sham": null
+      },
+      {
+        "wash": "w1",
+        "step": 50,
+        "T_true": 1.3489839391244727,
+        "T_sham": 1.3363590444428126,
+        "sigma_ratio_state_over_t0": 1.0066196946487902,
+        "rho_raw": 0.5334476843910806,
+        "rho_cooled": 0.49433962264150944,
+        "rho_sham": 0.49433962264150944,
+        "rho_anti": 0.578273299028016,
+        "RF": -0.08382352941176464,
+        "BR": 0.6362098135868299,
+        "MRF": 0.4904472734390109,
+        "mean_margin_raw_state": 1.7918636180736394,
+        "margin_sigma_invariance_max_abs_d": 5.162537064506978e-15,
+        "weak_sham": null
+      },
+      {
+        "wash": "w1",
+        "step": 80,
+        "T_true": 1.4525923182890421,
+        "T_sham": 1.413836040516422,
+        "sigma_ratio_state_over_t0": 1.0094342944499124,
+        "rho_raw": 0.4401372212692967,
+        "rho_cooled": 0.42275586049170955,
+        "rho_sham": 0.42184105202973127,
+        "rho_anti": 0.5051648561082523,
+        "RF": -0.03104575163398689,
+        "BR": 0.5211443172482854,
+        "MRF": 0.3760656038247963,
+        "mean_margin_raw_state": 1.3918295966254353,
+        "margin_sigma_invariance_max_abs_d": 4.6629367034256575e-15,
+        "weak_sham": {
+          "factor": 1.0597956498145238,
+          "rho": 0.4318277110729941,
+          "mean_p": 0.4560764773358051
+        }
+      },
+      {
+        "wash": "w1",
+        "step": 2,
+        "T_true": 1.0014473256519658,
+        "T_sham": null,
+        "sigma_ratio_state_over_t0": 0.9804968114907966,
+        "rho_raw": 0.9948160853821231,
+        "rho_cooled": 0.9948160853821231,
+        "rho_sham": null,
+        "rho_anti": 0.9948160853821231,
+        "RF": 0.0,
+        "BR": 0.7212590283927613,
+        "MRF": 0.21270644766434652,
+        "mean_margin_raw_state": 3.046159673620152,
+        "margin_sigma_invariance_max_abs_d": 3.608224830031759e-15,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 10,
+        "T_true": 1.0744525359278094,
+        "T_sham": 1.0597956498145238,
+        "sigma_ratio_state_over_t0": 0.9706925207052861,
+        "rho_raw": 0.9092814941871545,
+        "rho_cooled": 0.9109586430341148,
+        "rho_sham": 0.9108824089956166,
+        "rho_anti": 0.9043262816847722,
+        "RF": 0.018487394957984,
+        "BR": 0.8921295711308924,
+        "MRF": 0.7150203084070049,
+        "mean_margin_raw_state": 2.7776589570222083,
+        "margin_sigma_invariance_max_abs_d": 3.2751579226442118e-15,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 50,
+        "T_true": 1.3363590444428126,
+        "T_sham": 1.3489839391244727,
+        "sigma_ratio_state_over_t0": 0.9943084729952979,
+        "rho_raw": 0.5124070897655804,
+        "rho_cooled": 0.45728987993138936,
+        "rho_sham": 0.45965313512483325,
+        "rho_anti": 0.5910806174957118,
+        "RF": -0.11303939962476554,
+        "BR": 0.6492283271778313,
+        "MRF": 0.5173449040025504,
+        "mean_margin_raw_state": 1.8585344950358085,
+        "margin_sigma_invariance_max_abs_d": 4.6629367034256575e-15,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 80,
+        "T_true": 1.413836040516422,
+        "T_sham": 1.4525923182890421,
+        "sigma_ratio_state_over_t0": 1.0259549693926138,
+        "rho_raw": 0.5136268343815513,
+        "rho_cooled": 0.48198970840480276,
+        "rho_sham": 0.4799313893653516,
+        "rho_anti": 0.5990851915380218,
+        "RF": -0.06504702194357354,
+        "BR": 0.5560475301209504,
+        "MRF": 0.4002266152967617,
+        "mean_margin_raw_state": 1.5078074137369812,
+        "margin_sigma_invariance_max_abs_d": 4.884981308350689e-15,
+        "weak_sham": {
+          "factor": 1.0744525359278094,
+          "rho": 0.4983037926434153,
+          "mean_p": 0.5002251508037292
+        }
+      }
+    ],
+    "margin_sigma_invariance_note": "T212's derivation, verified numerically: margin_sigma = (top1-top2)/std is EXACTLY invariant under any positive scalar on the logits (max |d| ~ 0) \u2014 only RAW margins and p move; read (a) therefore rides raw margins + belief heights",
+    "sigma_scale_note": "the state's logit spread vs t=0's (sigma_ratio) sits at ~1.0 at every state while T_fit rises to 1.45 \u2014 the state is NOT a literal scalar heating of t=0; e238's T is an answer-position description (T218's lens-not-mechanism, made interventional: the inverse transform overshoots the global scale while raising the answer beliefs)"
+  },
+  "read_b_ranks": {
+    "states": [
+      {
+        "wash": "w1",
+        "step": 10,
+        "rho_raw": 0.9093577282256528,
+        "rho_cooled": 0.9071469411092052,
+        "rho_sham": 0.9095101963026492,
+        "rho_anti": 0.911492281303602,
+        "RF": -0.024390243902439202,
+        "weak_sham": null
+      },
+      {
+        "wash": "w1",
+        "step": 50,
+        "rho_raw": 0.5334476843910806,
+        "rho_cooled": 0.49433962264150944,
+        "rho_sham": 0.49433962264150944,
+        "rho_anti": 0.578273299028016,
+        "RF": -0.08382352941176464,
+        "weak_sham": null
+      },
+      {
+        "wash": "w1",
+        "step": 80,
+        "rho_raw": 0.4401372212692967,
+        "rho_cooled": 0.42275586049170955,
+        "rho_sham": 0.42184105202973127,
+        "rho_anti": 0.5051648561082523,
+        "RF": -0.03104575163398689,
+        "weak_sham": {
+          "factor": 1.0597956498145238,
+          "rho": 0.4318277110729941,
+          "mean_p": 0.4560764773358051
+        }
+      },
+      {
+        "wash": "w1",
+        "step": 2,
+        "rho_raw": 0.9948160853821231,
+        "rho_cooled": 0.9948160853821231,
+        "rho_sham": null,
+        "rho_anti": 0.9948160853821231,
+        "RF": 0.0,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 10,
+        "rho_raw": 0.9092814941871545,
+        "rho_cooled": 0.9109586430341148,
+        "rho_sham": 0.9108824089956166,
+        "rho_anti": 0.9043262816847722,
+        "RF": 0.018487394957984,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 50,
+        "rho_raw": 0.5124070897655804,
+        "rho_cooled": 0.45728987993138936,
+        "rho_sham": 0.45965313512483325,
+        "rho_anti": 0.5910806174957118,
+        "RF": -0.11303939962476554,
+        "weak_sham": null
+      },
+      {
+        "wash": "w2",
+        "step": 80,
+        "rho_raw": 0.5136268343815513,
+        "rho_cooled": 0.48198970840480276,
+        "rho_sham": 0.4799313893653516,
+        "rho_anti": 0.5990851915380218,
+        "RF": -0.06504702194357354,
+        "weak_sham": {
+          "factor": 1.0744525359278094,
+          "rho": 0.4983037926434153,
+          "mean_p": 0.5002251508037292
+        }
+      }
+    ],
+    "per_battery": {
+      "w1+10": {
+        "fact": {
+          "rho_raw": 0.912781954887218,
+          "rho_cooled": 0.9263157894736842,
+          "RF_b": 0.15517241379310354,
+          "BR_b": 3.801311608687565
+        },
+        "ctrl": {
+          "rho_raw": 0.8881118881118881,
+          "rho_cooled": 0.8601398601398601,
+          "RF_b": -0.2500000000000005,
+          "BR_b": 1.129088199688265
+        },
+        "near": {
+          "rho_raw": 0.5,
+          "rho_cooled": 0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.3152098538844573
+        },
+        "tmpl": {
+          "rho_raw": 0.868421052631579,
+          "rho_cooled": 0.8719298245614036,
+          "RF_b": 0.026666666666666755,
+          "BR_b": 0.47659870573466634
+        }
+      },
+      "w1+50": {
+        "fact": {
+          "rho_raw": 0.47969924812030074,
+          "rho_cooled": 0.4255639097744361,
+          "RF_b": -0.10404624277456645,
+          "BR_b": 0.7449305336083843
+        },
+        "ctrl": {
+          "rho_raw": 0.7202797202797203,
+          "rho_cooled": 0.7692307692307693,
+          "RF_b": 0.17500000000000004,
+          "BR_b": 0.9489422999509709
+        },
+        "near": {
+          "rho_raw": -0.5,
+          "rho_cooled": -0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.29972532167528715
+        },
+        "tmpl": {
+          "rho_raw": 0.7175438596491228,
+          "rho_cooled": 0.7140350877192982,
+          "RF_b": -0.012422360248447244,
+          "BR_b": 0.5026096897474935
+        }
+      },
+      "w1+80": {
+        "fact": {
+          "rho_raw": 0.45864661654135336,
+          "rho_cooled": 0.40601503759398494,
+          "RF_b": -0.09722222222222222,
+          "BR_b": 0.6224859016318475
+        },
+        "ctrl": {
+          "rho_raw": 0.6783216783216783,
+          "rho_cooled": 0.6503496503496503,
+          "RF_b": -0.0869565217391306,
+          "BR_b": 0.735366518931803
+        },
+        "near": {
+          "rho_raw": -0.5,
+          "rho_cooled": -0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.22797585035419407
+        },
+        "tmpl": {
+          "rho_raw": 0.643859649122807,
+          "rho_cooled": 0.6298245614035087,
+          "RF_b": -0.03940886699507402,
+          "BR_b": 0.4138276073058679
+        }
+      },
+      "w1+2": {
+        "fact": {
+          "rho_raw": 0.9954887218045113,
+          "rho_cooled": 0.9954887218045113,
+          "RF_b": 0.0,
+          "BR_b": -0.23378988750500954
+        },
+        "ctrl": {
+          "rho_raw": 0.986013986013986,
+          "rho_cooled": 0.986013986013986,
+          "RF_b": 0.0,
+          "BR_b": 0.19363459242366368
+        },
+        "near": {
+          "rho_raw": 1.0,
+          "rho_cooled": 1.0,
+          "RF_b": null,
+          "BR_b": 0.13094544500829727
+        },
+        "tmpl": {
+          "rho_raw": 0.9947368421052631,
+          "rho_cooled": 0.9947368421052631,
+          "RF_b": 0.0,
+          "BR_b": 0.2234221667821984
+        }
+      },
+      "w2+10": {
+        "fact": {
+          "rho_raw": 0.9187969924812031,
+          "rho_cooled": 0.9338345864661655,
+          "RF_b": 0.18518518518518529,
+          "BR_b": 2.1689302821982506
+        },
+        "ctrl": {
+          "rho_raw": 0.8951048951048951,
+          "rho_cooled": 0.8461538461538461,
+          "RF_b": -0.46666666666666673,
+          "BR_b": 1.0934183260717365
+        },
+        "near": {
+          "rho_raw": 0.5,
+          "rho_cooled": 0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.34436306731620847
+        },
+        "tmpl": {
+          "rho_raw": 0.8701754385964913,
+          "rho_cooled": 0.8701754385964913,
+          "RF_b": 0.0,
+          "BR_b": 0.5318160982537138
+        }
+      },
+      "w2+50": {
+        "fact": {
+          "rho_raw": 0.5278195488721804,
+          "rho_cooled": 0.41353383458646614,
+          "RF_b": -0.2420382165605095,
+          "BR_b": 0.7985972332531758
+        },
+        "ctrl": {
+          "rho_raw": 0.7062937062937062,
+          "rho_cooled": 0.7692307692307693,
+          "RF_b": 0.21428571428571455,
+          "BR_b": 0.946263370464478
+        },
+        "near": {
+          "rho_raw": -0.5,
+          "rho_cooled": -0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.3908348128596983
+        },
+        "tmpl": {
+          "rho_raw": 0.6526315789473685,
+          "rho_cooled": 0.7017543859649122,
+          "RF_b": 0.14141414141414121,
+          "BR_b": 0.4863021326810829
+        }
+      },
+      "w2+80": {
+        "fact": {
+          "rho_raw": 0.4030075187969925,
+          "rho_cooled": 0.3609022556390977,
+          "RF_b": -0.07052896725440809,
+          "BR_b": 0.6011669458875935
+        },
+        "ctrl": {
+          "rho_raw": 0.7412587412587412,
+          "rho_cooled": 0.7692307692307693,
+          "RF_b": 0.10810810810810831,
+          "BR_b": 0.6883029630221233
+        },
+        "near": {
+          "rho_raw": -0.5,
+          "rho_cooled": -0.5,
+          "RF_b": 0.0,
+          "BR_b": 0.373066128323601
+        },
+        "tmpl": {
+          "rho_raw": 0.6526315789473685,
+          "rho_cooled": 0.6877192982456141,
+          "RF_b": 0.10101010101010101,
+          "BR_b": 0.48547302427430017
+        }
+      }
+    },
+    "sham_note": "sham = the OTHER wash's same-state T (magnitude-matched as tightly as the archive allows \u2014 the T's near-degeneracy makes this a WEAK discriminator, disclosed; the weak-sham echo = the same wash's +10 T applied at +80)",
+    "anti_note": "the design's literal typeset 'logits / T_fit' = further HEATING \u2014 moves ranks the OPPOSITE way (and heights the wrong way); reported, never adjudicates"
+  },
+  "read_c_zombies": {
+    "probes": {
+      "w1": [
+        {
+          "battery": "fact",
+          "probe": "Greece->Athens",
+          "wrong_chooser": false,
+          "p_t0": 0.94468092918396,
+          "p_raw": 0.3968694806098938,
+          "p_cooled": 0.7810592955446942,
+          "ratio": 0.8267969336688035,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Poland->Warsaw",
+          "wrong_chooser": false,
+          "p_t0": 0.6746281981468201,
+          "p_raw": 0.1412094533443451,
+          "p_cooled": 0.31517711865389925,
+          "ratio": 0.4671863991450101,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Portugal->Lisbon",
+          "wrong_chooser": false,
+          "p_t0": 0.7412760853767395,
+          "p_raw": 0.14942365884780884,
+          "p_cooled": 0.40329507655590224,
+          "ratio": 0.5440551563874277,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Egypt->Cairo",
+          "wrong_chooser": true,
+          "p_t0": 0.8057803511619568,
+          "p_raw": 0.10885904729366302,
+          "p_cooled": 0.19796826636672948,
+          "ratio": 0.24568514990624177,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "fact",
+          "probe": "the United Kingdom->pound",
+          "wrong_chooser": false,
+          "p_t0": 0.9533817768096924,
+          "p_raw": 0.41885340213775635,
+          "p_cooled": 0.7426006281866318,
+          "ratio": 0.7789121275965658,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "the United States->dollar",
+          "wrong_chooser": true,
+          "p_t0": 0.5909402966499329,
+          "p_raw": 0.09912417083978653,
+          "p_cooled": 0.21220037558982555,
+          "ratio": 0.3590893645141464,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The web browser made by Google->Chrome",
+          "wrong_chooser": false,
+          "p_t0": 0.7029966711997986,
+          "p_raw": 0.20234887301921844,
+          "p_cooled": 0.4053159173333281,
+          "ratio": 0.5765545328139019,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The phone made by Apple->iPhone",
+          "wrong_chooser": true,
+          "p_t0": 0.6358935832977295,
+          "p_raw": 0.11716761440038681,
+          "p_cooled": 0.12092175969285247,
+          "ratio": 0.1901603709629448,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The tablet made by Apple->iPad",
+          "wrong_chooser": true,
+          "p_t0": 0.7676098942756653,
+          "p_raw": 0.24164250493049622,
+          "p_cooled": 0.3450875041287936,
+          "ratio": 0.4495610422719033,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The music store made by Apple->iTunes",
+          "wrong_chooser": false,
+          "p_t0": 0.6862599849700928,
+          "p_raw": 0.20097064971923828,
+          "p_cooled": 0.40541055070401644,
+          "ratio": 0.5907535913254278,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "near",
+          "probe": "Georgia->Atlanta",
+          "wrong_chooser": true,
+          "p_t0": 0.6366477012634277,
+          "p_raw": 0.1052575409412384,
+          "p_cooled": 0.10342348364941864,
+          "ratio": 0.1624501014362805,
+          "un_zombie": false,
+          "belief_above_raw": false,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Sacramento->California",
+          "wrong_chooser": false,
+          "p_t0": 0.9349073767662048,
+          "p_raw": 0.44422367215156555,
+          "p_cooled": 0.7753120795868881,
+          "ratio": 0.8292929319572293,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Austin->Texas",
+          "wrong_chooser": false,
+          "p_t0": 0.966093897819519,
+          "p_raw": 0.2104656845331192,
+          "p_cooled": 0.41604406371715374,
+          "ratio": 0.4306455766423618,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Denver->Colorado",
+          "wrong_chooser": false,
+          "p_t0": 0.85616534948349,
+          "p_raw": 0.1796502023935318,
+          "p_cooled": 0.3645207443975411,
+          "ratio": 0.4257597491155771,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Dover->Delaware",
+          "wrong_chooser": false,
+          "p_t0": 0.8786457777023315,
+          "p_raw": 0.20143166184425354,
+          "p_cooled": 0.4246799426947504,
+          "ratio": 0.48333464232343226,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Indianapolis->Indiana",
+          "wrong_chooser": false,
+          "p_t0": 0.9422821998596191,
+          "p_raw": 0.20983828604221344,
+          "p_cooled": 0.41672629683093154,
+          "ratio": 0.4422521160784055,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Annapolis->Maryland",
+          "wrong_chooser": false,
+          "p_t0": 0.9069494605064392,
+          "p_raw": 0.22994714975357056,
+          "p_cooled": 0.4483921737121444,
+          "ratio": 0.4943959870286078,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        }
+      ],
+      "w2": [
+        {
+          "battery": "fact",
+          "probe": "Greece->Athens",
+          "wrong_chooser": false,
+          "p_t0": 0.94468092918396,
+          "p_raw": 0.40251320600509644,
+          "p_cooled": 0.7728316808016491,
+          "ratio": 0.8180875223862529,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Poland->Warsaw",
+          "wrong_chooser": false,
+          "p_t0": 0.6746281981468201,
+          "p_raw": 0.1767950803041458,
+          "p_cooled": 0.4040370683980777,
+          "ratio": 0.5989033211299991,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Portugal->Lisbon",
+          "wrong_chooser": false,
+          "p_t0": 0.7412760853767395,
+          "p_raw": 0.21651768684387207,
+          "p_cooled": 0.5190673475853185,
+          "ratio": 0.7002348488303279,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "Ireland->Dublin",
+          "wrong_chooser": false,
+          "p_t0": 0.6304253935813904,
+          "p_raw": 0.10094417631626129,
+          "p_cooled": 0.24250273145128953,
+          "ratio": 0.3846652338568616,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "the United Kingdom->pound",
+          "wrong_chooser": false,
+          "p_t0": 0.9533817768096924,
+          "p_raw": 0.37188032269477844,
+          "p_cooled": 0.6498104247602556,
+          "ratio": 0.6815846920576986,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "fact",
+          "probe": "the United States->dollar",
+          "wrong_chooser": true,
+          "p_t0": 0.5909402966499329,
+          "p_raw": 0.05210815742611885,
+          "p_cooled": 0.08315683304156375,
+          "ratio": 0.140719516866566,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The web browser made by Google->Chrome",
+          "wrong_chooser": false,
+          "p_t0": 0.7029966711997986,
+          "p_raw": 0.20110595226287842,
+          "p_cooled": 0.35166304734023907,
+          "ratio": 0.5002342994598519,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The phone made by Apple->iPhone",
+          "wrong_chooser": true,
+          "p_t0": 0.6358935832977295,
+          "p_raw": 0.2173159271478653,
+          "p_cooled": 0.3120424027092211,
+          "ratio": 0.49071481597750427,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "ctrl",
+          "probe": "The music store made by Apple->iTunes",
+          "wrong_chooser": true,
+          "p_t0": 0.6862599849700928,
+          "p_raw": 0.13690724968910217,
+          "p_cooled": 0.1948486744178336,
+          "ratio": 0.28392836342676325,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "near",
+          "probe": "Massachusetts->Boston",
+          "wrong_chooser": false,
+          "p_t0": 0.6118616461753845,
+          "p_raw": 0.2300376445055008,
+          "p_cooled": 0.4371996486539907,
+          "ratio": 0.7145400457551664,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "near",
+          "probe": "Georgia->Atlanta",
+          "wrong_chooser": true,
+          "p_t0": 0.6366477012634277,
+          "p_raw": 0.15308833122253418,
+          "p_cooled": 0.16634464152780487,
+          "ratio": 0.2612820892900325,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": false
+        },
+        {
+          "battery": "near",
+          "probe": "Ohio->Columbus",
+          "wrong_chooser": false,
+          "p_t0": 0.5189241766929626,
+          "p_raw": 0.22417213022708893,
+          "p_cooled": 0.4365610445635733,
+          "ratio": 0.8412809889601232,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Austin->Texas",
+          "wrong_chooser": false,
+          "p_t0": 0.966093897819519,
+          "p_raw": 0.27844882011413574,
+          "p_cooled": 0.45268437571962733,
+          "ratio": 0.46857181971787554,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Columbus->Ohio",
+          "wrong_chooser": false,
+          "p_t0": 0.811143696308136,
+          "p_raw": 0.2546084225177765,
+          "p_cooled": 0.4435365767281046,
+          "ratio": 0.5468039494689171,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Denver->Colorado",
+          "wrong_chooser": false,
+          "p_t0": 0.85616534948349,
+          "p_raw": 0.18885965645313263,
+          "p_cooled": 0.3477278941832347,
+          "ratio": 0.406145722193748,
+          "un_zombie": false,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Hartford->Connecticut",
+          "wrong_chooser": false,
+          "p_t0": 0.8384353518486023,
+          "p_raw": 0.3765191435813904,
+          "p_cooled": 0.5494543848301932,
+          "ratio": 0.6553330362546653,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Dover->Delaware",
+          "wrong_chooser": false,
+          "p_t0": 0.8786457777023315,
+          "p_raw": 0.3518761396408081,
+          "p_cooled": 0.6013485615637876,
+          "ratio": 0.6844038596945412,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Tallahassee->Florida",
+          "wrong_chooser": false,
+          "p_t0": 0.9273396730422974,
+          "p_raw": 0.35582369565963745,
+          "p_cooled": 0.6421860447158632,
+          "ratio": 0.6925035813566148,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Indianapolis->Indiana",
+          "wrong_chooser": false,
+          "p_t0": 0.9422821998596191,
+          "p_raw": 0.39166590571403503,
+          "p_cooled": 0.6811856963436907,
+          "ratio": 0.7229105001083259,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        },
+        {
+          "battery": "tmpl",
+          "probe": "Annapolis->Maryland",
+          "wrong_chooser": false,
+          "p_t0": 0.9069494605064392,
+          "p_raw": 0.361351877450943,
+          "p_cooled": 0.6498737874254394,
+          "ratio": 0.71654906444572,
+          "un_zombie": true,
+          "belief_above_raw": true,
+          "cooled_argmax_is_answer": true
+        }
+      ]
+    },
+    "counts": {
+      "w1": {
+        "n_standing": 17,
+        "n_standing_non_near": 16,
+        "un_zombie_non_near": 6,
+        "un_zombie_all": 6,
+        "belief_above_raw_non_near": 16,
+        "belief_above_raw_all": 16,
+        "n_wrong_choosers_non_near": 4,
+        "wrong_chooser_argmax_returned": 0,
+        "wrong_chooser_belief_revived_above_half": 0
+      },
+      "w2": {
+        "n_standing": 20,
+        "n_standing_non_near": 17,
+        "un_zombie_non_near": 11,
+        "un_zombie_all": 13,
+        "belief_above_raw_non_near": 17,
+        "belief_above_raw_all": 20,
+        "n_wrong_choosers_non_near": 3,
+        "wrong_chooser_argmax_returned": 0,
+        "wrong_chooser_belief_revived_above_half": 0
+      }
+    },
+    "summary_lines": [
+      "w1: 16 non-near standing zombies \u2014 beliefs above raw under cooling 16/16; UN-ZOMBIED (p_cooled >= 0.5 p_t0) 6/16; wrong-choosers 4, argmax returned 0 (provably impossible \u2014 monotonicity), belief revived 0",
+      "w2: 17 non-near standing zombies \u2014 beliefs above raw under cooling 17/17; UN-ZOMBIED (p_cooled >= 0.5 p_t0) 11/17; wrong-choosers 3, argmax returned 0 (provably impossible \u2014 monotonicity), belief revived 0"
+    ],
+    "derivation": "prediction (b), first clause, is settled A PRIORI: a positive scalar rescale of the logits is strictly monotone, so within-probe token ranks \u2014 and hence the argmax identity \u2014 cannot change under ANY cooling factor; the 'within T of flipping' escape is impossible under the scalar transform; verified numerically (0/54 argmax changes per state)"
+  },
+  "read_d_prediction": {
+    "w1": {
+      "R2_batt": {
+        "fact": 0.5542432422426583,
+        "ctrl": 0.3935756968897923,
+        "near": 0.951315323949668,
+        "tmpl": 0.8174917757993546
+      },
+      "BR_b": {
+        "fact": 0.6224859016318475,
+        "ctrl": 0.735366518931803,
+        "near": 0.22797585035419407,
+        "tmpl": 0.4138276073058679
+      },
+      "RF_b": {
+        "fact": -0.09722222222222222,
+        "ctrl": -0.0869565217391306,
+        "near": 0.0,
+        "tmpl": -0.03940886699507402
+      },
+      "revival_order_desc": [
+        "ctrl",
+        "fact",
+        "tmpl",
+        "near"
+      ],
+      "predicted_order_desc": [
+        "near",
+        "tmpl",
+        "fact",
+        "ctrl"
+      ],
+      "order_desc_str": "ctrl > fact > tmpl > near",
+      "spearman_Texplained_vs_BR": -1.0,
+      "prediction_a_holds": false
+    },
+    "w2": {
+      "R2_batt": {
+        "fact": 0.6663064228517837,
+        "ctrl": 0.37619190172599637,
+        "near": 0.9617484451711028,
+        "tmpl": 0.8282890997674817
+      },
+      "BR_b": {
+        "fact": 0.6011669458875935,
+        "ctrl": 0.6883029630221233,
+        "near": 0.373066128323601,
+        "tmpl": 0.48547302427430017
+      },
+      "RF_b": {
+        "fact": -0.07052896725440809,
+        "ctrl": 0.10810810810810831,
+        "near": 0.0,
+        "tmpl": 0.10101010101010101
+      },
+      "revival_order_desc": [
+        "ctrl",
+        "fact",
+        "tmpl",
+        "near"
+      ],
+      "predicted_order_desc": [
+        "near",
+        "tmpl",
+        "fact",
+        "ctrl"
+      ],
+      "order_desc_str": "ctrl > fact > tmpl > near",
+      "spearman_Texplained_vs_BR": -1.0,
+      "prediction_a_holds": false
+    },
+    "order_desc_w1": "ctrl > fact > tmpl > near",
+    "order_desc_w2": "ctrl > fact > tmpl > near"
+  },
+  "adjudication": {
+    "bars": {
+      "RESUSCITATES": false,
+      "STRUCTURAL": false,
+      "PARTIAL": true,
+      "verdict": "PARTIAL",
+      "clause": "RF (rank-gap closed) w1 -0.0310, w2 -0.0650 vs the 0.2 STRUCTURAL line and the 0.8 RESUSCITATES bar (rho_cooled +0.4228/+0.4820) \u2014 the HEIGHTS revive: BR +0.521/+0.556, MRF +0.376/+0.400 (>= 0.5 line) \u2014 the margin/belief split \u2014 zombies: beliefs above raw 16/16 (w1), 17/17 (w2); un-zombied 6/16 (w1), 11/17 (w2); wrong-choosers' argmaxes 0 returned (provably) \u2014 the tables verbatim"
+    },
+    "bar_constants": {
+      "SPEARMAN_BAR": 0.8,
+      "RF_STRUCTURAL": 0.2,
+      "REVIVE_BAR": 0.5,
+      "ADJ_STATES": [
+        80
+      ]
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_BATT": true,
+      "G_CORPUS": true,
+      "G_TFIT": true,
+      "G_DUMPX": true,
+      "G_ENV": true
+    }
+  },
+  "predictions_scored": {
+    "(a)": {
+      "w1": {
+        "holds": false,
+        "spearman_Texplained_vs_BR": -1.0,
+        "revival_order": "ctrl > fact > tmpl > near",
+        "predicted_order": "near > tmpl > fact > ctrl"
+      },
+      "w2": {
+        "holds": false,
+        "spearman_Texplained_vs_BR": -1.0,
+        "revival_order": "ctrl > fact > tmpl > near",
+        "predicted_order": "near > tmpl > fact > ctrl"
+      }
+    },
+    "(b)": {
+      "argmaxes_returned": 0,
+      "holds": true,
+      "note": "settled a priori by monotonicity (the derivation in read_c); the escape clause is impossible under the scalar transform; verified numerically"
+    }
+  },
+  "figures": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e252\\rank_resuscitation.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e252\\zombie_revivals.png"
+  ],
+  "provenance": {
+    "git_head_at_start": "c72a2d1e0a94fb602c26f765893d58e2124bf1b9",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e252_resuscitation.py",
+    "script_sha256_16": "ff03464d10302ad8",
+    "design_doc": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\scratch\\e252_design.md",
+      "commit": "f72a38b"
+    },
+    "committed_records_read_at_runtime": {
+      "e214_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+        "sha256_16": "04e84058b4656cd9"
+      },
+      "e228_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+        "sha256_16": "e1f476405746ad70"
+      },
+      "e238_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+        "sha256_16": "95290a45b9aaf7e4"
+      },
+      "e232_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\metrics.json",
+        "sha256_16": "307d046b7e7e9c5f"
+      }
+    },
+    "batteries": "module import of lab/e182c_forgetting_control.py (fact/ctrl/near) and lab/e182c2_template.py (tmpl), VERBATIM \u2014 import, never retyped",
+    "stat_helpers": "avg_ranks/_pearson/spearman copied VERBATIM from lab/e228_margin_landscape.py via lab/e238_temperature_null.py",
+    "T_family": "the cooled read = softmax(L_state * T_mle(w,s))[ans] in float64 on this run's certified fp32 logits (the inverse of e238's softmax(L0/T) family; the literal 'L/T_mle' typeset runs as the anti-T echo)",
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "transformers": "see e182c",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    },
+    "threads": 4,
+    "device": "cpu fp32"
+  },
+  "honesty_reflex": {
+    "lens_not_mechanism": "the state is NOT a literal scalar heating of t=0 (sigma ratio ~1.0 at every state vs T_fit up to 1.45) \u2014 the cooling is an extrapolation of an answer-position description onto the logit vector; it overshoots the global scale (cooled sigma = T x t0's) while raising answer beliefs",
+    "extrapolation_cap": "the one-T family's late misspecification (the 0.33 IQR T-spread; pooled R2 ~0.69-0.71 at +80) caps expected recovery \u2014 even a perfect mask-reversal instrument would recover at most the thermal share",
+    "argmax_read": "discrete and coarse \u2014 and provably inert under the scalar transform (monotonicity); prediction (b)'s first clause is arithmetic, not evidence",
+    "sham_weakness": "the sham (cross-wash same-state T) is magnitude-matched to near-degeneracy \u2014 it generically moves the reads almost as much as the true T; the control's discriminating power is weak BY CONSTRUCTION, disclosed; the weak-sham echo co-reports the other reading",
+    "borderline_disclosure": "the PARTIAL split's revive line is REVIVE_BAR=0.5 on BR/MRF \u2014 fixed (with pre-run dump-peek knowledge, disclosed) as the natural half-the-gap reading; the clause reports the actual numbers against the line",
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 (inherited asymmetry, disclosed)",
+    "one_organism": "ONE organism (the shared pristine 124M)",
+    "guarantees_nothing": "nothing here is guaranteed \u2014 the openness is the point; no bar shopping (bars frozen in scratch/e252_design.md before this script)"
+  },
+  "trims": [],
+  "deviations": [
+    "EVAL-ONLY CPU cell on the committed checkpoints (no wash run; GPU never touched \u2014 e248 owns the GPU lane; threads 4, load-polite).",
+    "The cooling-direction disambiguation: the primary cooled read is softmax(L_state * T_mle) \u2014 the inverse of e238's family ('cool by the inverse of the fitted temperature'); the design doc's typeset formula 'logits / T_fit', read literally, further HEATS and moves every read the opposite way \u2014 it runs as the ANTI-T ECHO co-report, never adjudicates. Both directions reported everywhere; the choice frozen from the design's semantics, then verified on e238's sha-recorded dumps in a pre-run peek (disclosed here, before the adjudicated run).",
+    "T provenance = e238's committed MLE (runtime read of runs/e238/metrics.json, sha-recorded); the design's two-moment desk bound NOT needed (the full fit is committed) \u2014 stated per the design's gate.",
+    "G_DUMPX added (this run's logits vs e238's sha-recorded npz dumps) \u2014 the committed artifact certifies the forward both ways.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: t=0 + the w1 +10 state only, own smoke dir, nothing adjudicated or verified."
+  ]
 }
