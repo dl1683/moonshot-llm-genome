@@ -1035,7 +1035,8 @@ def cmd_install() -> None:
             if opt is None or opt.param_groups[0]["lr"] != lr:
                 opt = torch.optim.AdamW(model.parameters(), lr=lr,
                                         weight_decay=WASH["wd"],
-                                        betas=WASH["betas"])            while not thermal_gate(f"install-r{ri}-p{pi}"):
+                                        betas=WASH["betas"])
+            while not thermal_gate(f"install-r{ri}-p{pi}"):
                 time.sleep(60)
             t0 = time.time()
             model.train()
