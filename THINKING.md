@@ -685,6 +685,43 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T220 — e242: the wall is a commitment-forge — and the two worlds split thermally at the transient (2026-10-04 ~16:47Z)
+
+The wall's commitment layer lands as a two-layer steady state
+with two upgrades. First: THE COMMITMENT THICKENS (+19.2%
+median margin growth through the flat phase; the battery's one
+non-Z decision at t0 RE-COVERED by the wall) — the wall is not
+a shield; it is a FORGE: the flat phase actively strengthens
+the decisions it holds. The re-formation layer now has two
+sightings at two scales (T217's Gmail anchor; this, battery-
+wide at 2.74M). Second: THE THERMAL INVERSION — the wall's T(t)
+is non-monotone: the +1 transient HEATS (1.31, carrying nearly
+all the p-side decline), then the flat phase COOLS to 0.84-
+0.90. "The wash heats the beliefs" is an UNWALLED statement;
+the walled p-side SHARPENS. THE SHORELINE RE-PRICED: the
+friction-settle clause is dead (the bar's letter); what
+survives of W036 is sharper than before — THE TWO WORLDS'
+TRANSIENTS ARE BOTH THERMAL EVENTS (the wall's +1 gust heats
+exactly where e225's edge-owned transient lives), and their
+flat/steady phases are THERMAL OPPOSITES (the wall cools and
+thickens; the unwalled wash heats and grinds). The shoreline's
+exchange-rate language gains its physical units: DEGREES OF
+TEMPERATURE AND RATES OF THICKENING. REGISTERED CONSEQUENCES:
+(a) the 124M wall-analogue question — does a CONSOLIDATED 124M
+root (the e182c pre-wash state) show the +1 heat too, or is the
+transient-heat a small-scale formation property? (the committed
+t0/+2 states exist — a desk read); (b) the re-formation layer's
+mechanism — thickening under what supply? (e240's moment
+archive may name it: if the moments carry the fact, the wall's
+cooling phase may be the moments RE-DELIVERING the fact —
+H-FOSSIL's wall-analogue). CONNECTIONS: T218 (prediction (a)
+confirmed with the sign surprise; the desk bound's transient
+blindness priced); T217 (the thickening now general); W035's
+four-movement field (the re-formation layer promoted from least-
+measured to twice-seen); W028 (the wall conserves shape and
+GROWS the commitment's height — the law's height class gains a
+member that grows under the destroying force).
+
 ## T219 — e241: two death modes of the commitment — the mis-dial and the frequency collapse (2026-10-04 ~16:32Z)
 
 The answer-neighbor read returned the registered bar's letter

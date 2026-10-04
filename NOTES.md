@@ -9,6 +9,37 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e242 — FQ10, the wall's commitment layer: FLAT-COMMITMENT — and the thermal leg runs the WRONG WAY — the margin median GROWS +19.2% through the flat phase (0.979 -> 1.167 sigma; p25 +10.8%; argmax-Z 59/60 -> 60/60, the t0 battery's one non-Z decision re-covered by the wall); the wall's T(t) is NON-MONOTONE: a 1.31 heat concentrated in the +1 transient (which carries nearly all the p-side decline), then COOLING to 0.84-0.90 through the flat phase — the walled p-side SHARPENS while e238's unwalled 124M heats monotonically to 1.45 (2026-10-04 ~16:45Z) — DONE
+
+WHAT WE DID: the first margin instrument ever run through the
+wall's flat phase (g1c W1's committed wash states {t0..+300},
+e228's margin_pass module-imported, states bit-exact vs g1c's
+record at 6e-8; e238's TempFamily ported for the thermal leg;
+all 8 gates PASS). Bars frozen at 89ee5c6 BEFORE compute. CPU
+eval-only. Script lab/e242_wall_commitment.py; runs/e242/
+{metrics.json, e242_wall_commitment.png, e242_thermal_leg.png}.
+
+WHAT WE SAW (T220): FLAT-COMMITMENT at the frozen composite
+order (no crossover — the median never near the 0.05 sigma flip
+zone; the thin tail's +1 dip — p25 -19.4%, 2 probes under
+0.05 sigma — the only flicker, gone by +2). THE COMMITMENT DOES
+NOT GRIND — IT THICKENS: the wall is not passive protection;
+the re-formation layer's second sighting, now battery-wide.
+THE THERMAL INVERSION: T(t) non-monotone — the +1 transient
+carries a 1.31 HEAT (SS 1.68 of the trajectory's ~3.0 p-side
+decline), then the flat phase COOLS to 0.84-0.90: THE WALLED
+P-SIDE SHARPENS UNDER THE WASH — "the wash heats the beliefs"
+is an UNWALLED statement. The two-moment desk bound misprices
+exactly the transient (0.74 vs 1.31) — priced.
+
+HONESTY: one lineage, one wash draw, one battery (install-60
+g-12); the R2s ride near-degenerate denominators (flagged per
+row); two disclosed fixes, numbers untouched. NEXT (T220): the
+thermal-reframe consequences + e243 dispatched (the mode
+selector).
+
+---
+
 ## e241 — the answer-neighbor quantification: GLOBAL-SCATTER at the bar, BIMODAL underneath — the zombie wrong-choosers split into MIS-DIALS ('dollars' x2 the archetype: the t=0 runner-up AND a top-0.01% semantic neighbor, z +12; 'Music' one rank-position from the bar; 'Augusta' x2) and FREQUENCY COLLAPSES ('the' x4: embedding ANTI-neighbors at z ~ -4, below the random cloud — the commitment falls to the vocab's mean direction, not next door) (2026-10-04 ~16:30Z) — DONE
 
 WHAT WE DID: T217's registered ask, desk-only on committed data
