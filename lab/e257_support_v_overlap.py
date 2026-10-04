@@ -1129,10 +1129,9 @@ def main() -> int:
         res256[(r["wash"], r["fact"])] = r["residency"]     # A-primary
     for r in rows:
         i = idx_of[r["fact"]]
-        r["qov"] = journal[r["wash"]]["qov_reads"][str(r["state"])]
-        ["qov_unit"][i]
-        r["qov2"] = journal[r["wash"]]["qov_reads"][str(r["state"])]
-        ["qov2_unit"][i]
+        qr = journal[r["wash"]]["qov_reads"][str(r["state"])]
+        r["qov"] = qr["qov_unit"][i]
+        r["qov2"] = qr["qov2_unit"][i]
         r["residency"] = res256[(r["wash"], r["fact"])]
     assert len(rows) == 216
 
