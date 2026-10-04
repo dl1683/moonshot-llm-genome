@@ -111,6 +111,16 @@ they do not move the bars):
     instrument-validity guard registered before compute, not a moved
     bar). The readouts here are per-PROBE alignments (not u0-vs-span),
     so the pinning risk is lower than e231's — disclosed regardless.
+  * SPAN-COVERAGE GUARD (coordinator advisory #2 at dispatch; disclosure
+    + adjudication clause, bars untouched): co-reported is the fraction
+    of each second-half step's L2 inside the first-half basis (mean +
+    spread; the smoke read median ~0.07). If the pooled mean coverage
+    exceeds 0.8, a WIND-AND-FRICTION outcome is labeled COVERAGE-VACUOUS
+    rather than firing on the arithmetic split (the decomposition only
+    means something if the basis is genuinely partial); a REDUCED-RANK
+    sensitivity (r = floor(k/2), min 1) is co-reported for joins (a) and
+    (b) regardless — the wind/friction distinction should survive the
+    basis being deliberately partial.
   * JOIN VARIABLES per (probe i, wash w): cumulative over the decomposed
     half's steps t: wind_cum(i) = sum_t |cos(P g_t, s_i)|;
     fric_cum(i) = sum_t ||g_res,t|| * |cos(g_res,t, s_i)| (the residual's
@@ -344,6 +354,22 @@ deviations: list[str] = [
     "The rider's corpus-mode uses the committed ARCHIVED +80 states (the "
     "very states e232's census read), not this cell's replays — the zombie "
     "census stays on its own record; argmax re-verified vs e228's top1_id.",
+    "MID-RUN ADVISORIES (disclosed): coordinator advisory #1 (recipe-"
+    "identity: sign-step shadow) was registered before any compute; "
+    "advisory #2 (span-coverage guard + reduced-rank sensitivity) arrived "
+    "while the first full-run replay was ~85% through wash 1 — the run "
+    "was STOPPED, the coverage clause registered in the docstring, and "
+    "the run relaunched (resuming from the saved step-70 state) BEFORE "
+    "any Gram, decomposition, join, or adjudication compute had run; no "
+    "bars were moved; the coverage numbers (mean fraction of each "
+    "decomposed-half step's L2^2 in the basis) are smoke-anticipated low "
+    "(~0.07 median).",
+    "RAM-LIGHT LIFECYCLE (mid-run restructure, disclosed): the 13.4 GB "
+    "supports cache is freed after its P2 certification and rebuilt "
+    "deterministically at P5 (bit-identity certified by G_SUPPORT's "
+    "probe-0 recompute + the e226 dp 0.0 match) — the box is shared and "
+    "available RAM fell below 1 GB during the first full-run attempt "
+    "with the cache held.",
     "scratch/e234_cache/ holds the fp16 gradient memmaps + resume states "
     "(scratch is workspace, NOT runs/ or data/); memmaps deleted only on "
     "DONE, kept on any failure for post-mortem.",
@@ -364,6 +390,36 @@ def cpu_load_check(tag: str) -> dict:
     log(f"  [load] {tag}: cpu {rec['cpu_percent']}% "
         f"ram_avail {rec['ram_avail_gb']} GB")
     return rec
+
+
+def ram_wait(tag: str, floor_gb: float, max_wait_s: int = 900) -> dict:
+    """Shared-box courtesy: wait (bounded) for available RAM before a
+    heavy phase; proceed with disclosure if the floor never clears."""
+    if psutil is None:
+        return {"tag": tag, "waited_s": 0, "note": "psutil absent"}
+    t0 = time.time()
+    while psutil.virtual_memory().available / 2**30 < floor_gb:
+        if time.time() - t0 > max_wait_s:
+            log(f"  [ram-wait] {tag}: floor {floor_gb} GB NOT reached in "
+                f"{max_wait_s}s — proceeding anyway (disclosed)")
+            return {"tag": tag, "waited_s": round(time.time() - t0, 1),
+                    "floor_gb": floor_gb, "cleared": False}
+        time.sleep(20)
+    log(f"  [ram-wait] {tag}: avail "
+        f"{psutil.virtual_memory().available / 2**30:.1f} GB >= {floor_gb} GB")
+    return {"tag": tag, "waited_s": round(time.time() - t0, 1),
+            "floor_gb": floor_gb, "cleared": True}
+
+
+def build_support_cache(net0, probes54, n_p, n_params) -> torch.Tensor:
+    """The 54 t=0 support rows (e226's convention: L2-normalized fp32
+    grads x 2^14 in fp16). Deterministic; rebuilt at P5 (RAM-light
+    lifecycle: the 13.4 GB cache is NOT held through the replay phase)."""
+    cache = torch.empty((n_p, n_params), dtype=torch.float16)
+    for i, pr in enumerate(probes54):
+        s_i, _p0 = e226.probe_support(net0, pr)
+        cache[i] = (s_i * CACHE_SCALE).to(torch.float16)
+    return cache
 
 
 # ------------------------------------------------------------ e228's margin pass
@@ -1119,6 +1175,7 @@ def main():
     del netFD, base_sds
     row_norms_t = e226.cache_row_norms(cache)
     row_norms = row_norms_t.tolist()
+    del row_norms_t
     s_rep, _ = e226.probe_support(net0, probes54[0])
     d_rep = e226.dot_vec_rows(s_rep, cache, [0])[0] / row_norms[0]
     del s_rep
@@ -1156,6 +1213,13 @@ def main():
         write_metrics("PARTIAL: G_SUPPORT FAILED — halted before replays")
         return 1
     write_metrics("PARTIAL: t=0 supports cached + certified vs e226")
+    # RAM-LIGHT LIFECYCLE: the 13.4 GB cache is NOT held through the
+    # ~1 h replay phase (the box is shared; it rebuilds deterministically
+    # at P5 — bit-identity proven by the G_SUPPORT certification above)
+    del cache
+    import gc
+    gc.collect()
+    log("supports cache FREED for the replay phase (rebuilt at P5)")
 
     # ------------------------------------------------ P3 the replays
     replay_out = {}
@@ -1224,8 +1288,21 @@ def main():
     write_metrics("PARTIAL: replays certified (G_DRAWS/G_REPLAY/G_TRAJ)")
 
     # ------------------------------------------------ P5 the sweeps (Grams + D)
+    metrics["ram_waits"] = metrics.get("ram_waits", [])
+    metrics["ram_waits"].append(ram_wait("P5 cache rebuild", 20.0))
     load_checks.append(cpu_load_check("gram sweeps"))
-    grams, dmats, shadows = {}, {}, {}
+    if psutil is not None and \
+            psutil.virtual_memory().available / 2**30 < RAM_FLOOR_GB:
+        log("FATAL: RAM below floor for the P5 cache rebuild")
+        write_metrics("PARTIAL: RAM floor hit at P5 — HALT (resumable)")
+        return 1
+    cache = build_support_cache(net0, probes54, n_p, N_PARAMS)
+    _rn2 = e226.cache_row_norms(cache).tolist()
+    _dp_rn = max(abs(a - b) for a, b in zip(_rn2, row_norms))
+    del _rn2
+    log(f"P5 support cache rebuilt (max row-norm drift vs P2: "
+        f"{_dp_rn:.2e})")
+    grams, dmats, shadows = {}, {}, {}, {}
     for wi, w in enumerate(WASHES):
         mm = np.lib.format.open_memmap(SCRATCH / f"grads_w{wi + 1}.npy",
                                        mode="r", dtype=np.float16)
@@ -1244,6 +1321,11 @@ def main():
         del mm
     cross = {}
     if len(WASHES) == 3:
+        # the D sweeps are done: free the 13.4 GB cache before the pairs
+        del cache
+        gc.collect()
+        metrics["ram_waits"].append(ram_wait("cross grams", 6.0))
+        log("supports cache FREED again (cross grams need no supports)")
         for a, b in (("w1", "w2"), ("w1", "w3"), ("w2", "w3")):
             ma = np.lib.format.open_memmap(
                 SCRATCH / f"grads_w{WASHES.index(a) + 1}.npy", mode="r",
@@ -1270,9 +1352,34 @@ def main():
         cos_pc1_sign = float(dec[w]["cA"][:, 0] @ sd_true[:HALF] / smn) \
             if smn > 0 else None
         dec[w]["cos_pc1_sign_shadow"] = cos_pc1_sign
+        # SPAN-COVERAGE GUARD (coordinator advisory #2): the fraction of
+        # each second-half step's L2^2 inside the first-half basis, and
+        # the REDUCED-RANK sensitivity (r = floor(k/2), min 1)
+        cov_t = (dec[w]["wind_A"] / gnorms[HALF:]) ** 2
+        dec[w]["coverage_A"] = {
+            "mean": float(np.mean(cov_t)), "median": float(np.median(cov_t)),
+            "min": float(np.min(cov_t)), "max": float(np.max(cov_t)),
+            "definition": "fraction of each decomposed-half step's squared "
+                          "L2 inside the first-half basis (wind^2/gnorm^2)"}
+        kA_red = max(1, dec[w]["kA"] // 2)
+        cAr = dec[w]["cA"][:, :kA_red]
+        B_Ar = cAr.T @ dec[w]["Gn"][:HALF, HALF:]
+        wind_r = np.linalg.norm(B_Ar, axis=0)
+        fric_r = np.sqrt(np.clip(gnorms[HALF:] ** 2 - wind_r ** 2, 0, None))
+        M_Ar = cAr.T @ dec[w]["dmat"][:HALF, :]
+        pg_r = B_Ar.T @ M_Ar
+        dec[w].update({
+            "kA_red": kA_red, "wind_red": wind_r, "fric_red": fric_r,
+            "cos_wind_red": np.abs(pg_r) / np.outer(
+                np.maximum(wind_r, 1e-12), row_norms).clip(min=1e-30),
+            "cos_fric_red": np.abs(dec[w]["dmat"][HALF:, :] - pg_r)
+            / np.outer(np.maximum(fric_r, 1e-12),
+                       row_norms).clip(min=1e-30)})
         log(f"  {w}: kA={dec[w]['kA']} (var "
             f"{dec[w]['metaA']['var_frac_at_k']:.3f}) kB="
-            f"{dec[w]['kB']}; angle(B1,B2) cos "
+            f"{dec[w]['kB']}; coverage(mean/max) "
+            f"{dec[w]['coverage_A']['mean']:.3f}/"
+            f"{dec[w]['coverage_A']['max']:.3f}; angle(B1,B2) cos "
             f"{[round(a, 3) for a in dec[w]['angles_AB_cos'][:4]]}; "
             f"cos(PC1, mean-sign) {cos_pc1_sign:+.3f}; "
             f"wind share median "
@@ -1383,6 +1490,11 @@ def main():
                 np.sum(dec[w]["cos_wind_B"][:, i]))
             row["fric_cum_mirror"] = float(
                 np.sum(dec[w]["fric_B"] * dec[w]["cos_fric_B"][:, i]))
+            # reduced-rank sensitivity (coordinator advisory #2)
+            row["wind_cum_red"] = float(
+                np.sum(dec[w]["cos_wind_red"][:, i]))
+            row["fric_cum_red"] = float(
+                np.sum(dec[w]["fric_red"] * dec[w]["cos_fric_red"][:, i]))
             join_rows.append(row)
     journal["join_rows"] = join_rows
     save_journal(rd, journal)
@@ -1437,6 +1549,17 @@ def main():
         co["rho_mw_mirror"] = float(spearmanr(
             col(pooled, "wind_cum_mirror"),
             col(pooled, "margin_decl_1st_half")).statistic)
+    # reduced-rank sensitivity (coordinator advisory #2): the wind/friction
+    # distinction must survive the basis being deliberately partial
+    co["rho_a_reduced_rank"] = float(spearmanr(
+        col(pooled, "wind_cum_red"), col(pooled, "belief_decl")).statistic)
+    if jn:
+        co["rho_mf_reduced_rank"] = float(spearmanr(
+            [r["fric_cum_red"] for r in jn],
+            [r["margin_decl"] for r in jn]).statistic)
+        co["rho_mw_reduced_rank"] = float(spearmanr(
+            [r["wind_cum_red"] for r in jn],
+            [r["margin_decl"] for r in jn]).statistic)
     co["rho_a_norm_basis"] = None
 
     # -------- the PINNED-INSTRUMENT guard (registered, coordinator
@@ -1446,6 +1569,11 @@ def main():
     wc_spread = float((wc.max() - wc.min()) / wc.mean()) if wc.mean() > 0 \
         else None
     pinned = bool(wc_spread is not None and wc_spread < 0.05)
+    cov_mean = float(np.mean([dec[w]["coverage_A"]["mean"]
+                              for w in WASHES]))
+    cov_max = float(np.max([dec[w]["coverage_A"]["max"]
+                            for w in WASHES]))
+    coverage_vacuous = bool(cov_mean > 0.8)
 
     # -------- the adjudication (bars verbatim, pooled split A primary)
     wa = (rho_a >= 0.6)
@@ -1455,7 +1583,12 @@ def main():
                    "reaches everyone equally; recipe-identity suspect per "
                    "e231's class; NO bar adjudicated; numbers verbatim)")
     elif wa and abs(rho_mw) <= 0.2 and rho_mf >= 0.4:
-        verdict = "WIND-AND-FRICTION"
+        verdict = ("WIND-AND-FRICTION (COVERAGE-VACUOUS — mean span "
+                   f"coverage {cov_mean:.3f} > 0.8: the basis is not "
+                   "genuinely partial, the split is arithmetic not "
+                   "physics; disclosed per coordinator advisory #2; NOT "
+                   "a clean fire)" if coverage_vacuous else
+                   "WIND-AND-FRICTION")
     elif wa and rho_mfull >= 0.4 and rho_mf < 0.4:
         verdict = "WIND-ONLY"
     elif not wa:
@@ -1576,7 +1709,9 @@ def main():
     # ------------------------------------------------ the outputs
     metrics["decomposition"] = {
         w: {"kA": dec[w]["kA"], "kB": dec[w]["kB"],
+            "kA_reduced": dec[w]["kA_red"],
             "metaA": dec[w]["metaA"], "metaB": dec[w]["metaB"],
+            "coverage_A": dec[w]["coverage_A"],
             "cos_pc1_mean_sign_direction":
                 dec[w].get("cos_pc1_sign_shadow"),
             "wind_share_median_A": float(np.median(
@@ -1597,6 +1732,8 @@ def main():
         "per_wash": per_wash, "co_reports": co,
         "n_rows_with_margin": len(col(pooled, "margin_decl")),
         "wind_cum_spread_rel": wc_spread, "pinned_instrument": pinned,
+        "span_coverage_mean": cov_mean, "span_coverage_max": cov_max,
+        "coverage_vacuous": coverage_vacuous,
     }
     metrics["predictions"] = pred
     metrics["rider"] = rider
@@ -1611,8 +1748,10 @@ def main():
                     "G_REPLAY/G_TRAJ/G_DECOMP",
         "all_gates_pass": None,
     }
-    G_DECOMP = {"knees": {w: {"kA": dec[w]["kA"], "kB": dec[w]["kB"]}
+    G_DECOMP = {"knees": {w: {"kA": dec[w]["kA"], "kB": dec[w]["kB"],
+                              "kA_reduced": dec[w]["kA_red"]}
                           for w in WASHES},
+                "coverage": {w: dec[w]["coverage_A"] for w in WASHES},
                 "clamped_negative_fric2":
                     {w: dec[w]["n_negative_fric2_clamped"] for w in WASHES},
                 "pass": True}
@@ -1646,6 +1785,16 @@ def main():
                             "x-spread (verdict says PINNED if "
                             "(max-min)/median < 0.05; readouts here are "
                             "per-PROBE alignments, the lower-risk form)",
+        "span_coverage": "COVERAGE (coordinator advisory #2): the mean "
+                         "fraction of each decomposed-half step's squared "
+                         "L2 inside the first-half basis is co-reported "
+                         "per wash (joins.span_coverage_mean/max); if the "
+                         "pooled mean exceeds 0.8 a WIND-AND-FRICTION "
+                         "outcome is labeled COVERAGE-VACUOUS rather than "
+                         "firing on the arithmetic split, and the "
+                         "reduced-rank (r = floor(k/2)) sensitivity is "
+                         "co-reported for joins (a) and (b) regardless "
+                         "(joins.co_reports.rho_*_reduced_rank)",
         "first_order": "the decomposition is first-order (gradients at "
                        "states); the applied AdamW step is clip- then "
                        "Adam-normalized, so the RAW magnitudes weight the "
