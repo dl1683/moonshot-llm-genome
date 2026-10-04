@@ -2,7 +2,7 @@
   "experiment": "e226_interior",
   "phase": "eval-only on the THREE-wash 124M archive (CPU fp32 batch-1 gradient geometry; supports / wash-gradient alignment / rotation)",
   "date": "2026-10-04T13:21:11Z",
-  "status": "PARTIAL: rotation read through w2",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from scratch/fq5_design.md (the ripened design note, frozen by the dispatch brief BEFORE any compute; the dispatch brief is the registration); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -99,6 +99,30 @@
       "tag": "w2s80",
       "cpu_percent": 5.9,
       "ram_avail_gb": 16.1,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w3s0",
+      "cpu_percent": 8.0,
+      "ram_avail_gb": 12.1,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w3s10",
+      "cpu_percent": 44.8,
+      "ram_avail_gb": 11.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w3s50",
+      "cpu_percent": 50.9,
+      "ram_avail_gb": 11.4,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w3s80",
+      "cpu_percent": 43.7,
+      "ram_avail_gb": 11.5,
       "ram_total_gb": 63.4
     }
   ],
@@ -461,6 +485,309 @@
       "n_fail": 0,
       "determinism_selfcos_probe0": 0.99999994199536,
       "pass": true
+    },
+    "G_STATES": {
+      "tol_reprobe_dp": 0.005,
+      "per_state": {
+        "w1:0": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 3.2782554626464844e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 4.189031600952148,
+          "grad_norm_raw": 22.89351910569019,
+          "fd_descent_dce": {
+            "0.002": -0.04367780685424805,
+            "0.005": -0.10084199905395508
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w1:2": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 1.430511474609375e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.809001922607422,
+          "grad_norm_raw": 8.966146865055821,
+          "fd_descent_dce": {
+            "0.002": -0.015397787094116211,
+            "0.005": -0.027760744094848633
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w1:10": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 3.337860107421875e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.6165826320648193,
+          "grad_norm_raw": 3.9739955854867013,
+          "fd_descent_dce": {
+            "0.002": -0.007063627243041992,
+            "0.005": -0.014251708984375
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w1:50": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 8.940696716308594e-07,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.396632671356201,
+          "grad_norm_raw": 4.330500531902134,
+          "fd_descent_dce": {
+            "0.002": -0.007342815399169922,
+            "0.005": -0.013263702392578125
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w1:80": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 2.9206275939941406e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.286790132522583,
+          "grad_norm_raw": 4.167603778821107,
+          "fd_descent_dce": {
+            "0.002": -0.006797313690185547,
+            "0.005": -0.011538267135620117
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w2:0": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 3.2782554626464844e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 4.3930792808532715,
+          "grad_norm_raw": 25.7324742363585,
+          "fd_descent_dce": {
+            "0.002": -0.04927778244018555,
+            "0.005": -0.11479473114013672
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w2:10": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 6.556510925292969e-07,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.498725652694702,
+          "grad_norm_raw": 4.61168057969544,
+          "fd_descent_dce": {
+            "0.002": -0.007666349411010742,
+            "0.005": -0.01296544075012207
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w2:50": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 8.940696716308594e-07,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.410273790359497,
+          "grad_norm_raw": 4.96671074076526,
+          "fd_descent_dce": {
+            "0.002": -0.007986068725585938,
+            "0.005": -0.012395620346069336
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w2:80": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 2.4437904357910156e-06,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.003727436065674,
+          "grad_norm_raw": 4.041272455409324,
+          "fd_descent_dce": {
+            "0.002": -0.007049083709716797,
+            "0.005": -0.013816118240356445
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w3:0": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 0.0,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 4.358127117156982,
+          "grad_norm_raw": 20.105572687644315,
+          "fd_descent_dce": {
+            "0.002": -0.03799152374267578,
+            "0.005": -0.08704996109008789
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w3:10": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 0.0,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.593353509902954,
+          "grad_norm_raw": 4.646767910925429,
+          "fd_descent_dce": {
+            "0.002": -0.008168220520019531,
+            "0.005": -0.0159761905670166
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w3:50": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 0.0,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.513359308242798,
+          "grad_norm_raw": 4.041424208830746,
+          "fd_descent_dce": {
+            "0.002": -0.007296562194824219,
+            "0.005": -0.015322208404541016
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        },
+        "w3:80": {
+          "reprobe_max_dp": {
+            "fact": 0.0,
+            "ctrl": 0.0,
+            "near": 0.0,
+            "tmpl": 0.0
+          },
+          "batch_ce": 3.361443519592285,
+          "grad_norm_raw": 4.836719410537922,
+          "fd_descent_dce": {
+            "0.002": -0.00827479362487793,
+            "0.005": -0.015589714050292969
+          },
+          "fd_pass": true,
+          "g_convention": "direction L2-normalized; matched point = the state's own next batch (draw #(s+1))"
+        }
+      },
+      "max_dp": 3.337860107421875e-06,
+      "pass": true,
+      "note": "the archived states reproduce the committed per-probe records when re-probed through the VERBATIM batteries (e214's re-probe convention)"
+    },
+    "G_WASHGRAD": {
+      "rule": "CE(W - eps*g_hat) < CE(W) at eps 0.002 (0.005 co-read) \u2014 every state's wash gradient is a DESCENT direction of its own batch loss; the registration's literal '+' step and eps 0.02 were the sign/curvature errors the smoke caught (see deviations); anchors' +80 supports FD co-gated (recorded in rotation records)",
+      "per_state_fd": {
+        "w1:0": {
+          "0.002": -0.04367780685424805,
+          "0.005": -0.10084199905395508
+        },
+        "w1:2": {
+          "0.002": -0.015397787094116211,
+          "0.005": -0.027760744094848633
+        },
+        "w1:10": {
+          "0.002": -0.007063627243041992,
+          "0.005": -0.014251708984375
+        },
+        "w1:50": {
+          "0.002": -0.007342815399169922,
+          "0.005": -0.013263702392578125
+        },
+        "w1:80": {
+          "0.002": -0.006797313690185547,
+          "0.005": -0.011538267135620117
+        },
+        "w2:0": {
+          "0.002": -0.04927778244018555,
+          "0.005": -0.11479473114013672
+        },
+        "w2:10": {
+          "0.002": -0.007666349411010742,
+          "0.005": -0.01296544075012207
+        },
+        "w2:50": {
+          "0.002": -0.007986068725585938,
+          "0.005": -0.012395620346069336
+        },
+        "w2:80": {
+          "0.002": -0.007049083709716797,
+          "0.005": -0.013816118240356445
+        },
+        "w3:0": {
+          "0.002": -0.03799152374267578,
+          "0.005": -0.08704996109008789
+        },
+        "w3:10": {
+          "0.002": -0.008168220520019531,
+          "0.005": -0.0159761905670166
+        },
+        "w3:50": {
+          "0.002": -0.007296562194824219,
+          "0.005": -0.015322208404541016
+        },
+        "w3:80": {
+          "0.002": -0.00827479362487793,
+          "0.005": -0.015589714050292969
+        }
+      },
+      "grad_norms_raw": {
+        "w1:0": 22.89351910569019,
+        "w1:2": 8.966146865055821,
+        "w1:10": 3.9739955854867013,
+        "w1:50": 4.330500531902134,
+        "w1:80": 4.167603778821107,
+        "w2:0": 25.7324742363585,
+        "w2:10": 4.61168057969544,
+        "w2:50": 4.96671074076526,
+        "w2:80": 4.041272455409324,
+        "w3:0": 20.105572687644315,
+        "w3:10": 4.646767910925429,
+        "w3:50": 4.041424208830746,
+        "w3:80": 4.836719410537922
+      },
+      "anchor_rot_fd": {
+        "w1": {
+          "The email service made by Google->Gmail": 0.3230571150779724,
+          "The phone made by Apple->iPhone": 0.8317864909768105
+        },
+        "w2": {
+          "The email service made by Google->Gmail": 0.3034151792526245,
+          "The phone made by Apple->iPhone": 0.7509310096502304
+        },
+        "w3": {
+          "The email service made by Google->Gmail": 0.353235125541687,
+          "The phone made by Apple->iPhone": 0.8200500905513763
+        }
+      },
+      "pass": true
     }
   },
   "size_gate": {
@@ -470,7 +797,7 @@
     "pass": true
   },
   "timing": {
-    "total_s": 825.6
+    "total_s": 1206.0
   },
   "probes": [
     {
@@ -992,5 +1319,2778 @@
       }
     },
     "cache": "fp16 rows of L2-normalized fp32 grads; dots fp32-chunked, fp64-accumulated; cos denominators = fp64 row norms (cache rounding ~5e-4, disclosed)"
-  }
+  },
+  "curves": {
+    "alignment": {
+      "w1": {
+        "0": {
+          "France->Paris": -0.0017013017841151466,
+          "Greece->Athens": -0.008457259271925432,
+          "Poland->Warsaw": -0.004315614865531156,
+          "Portugal->Lisbon": -0.005759576833124797,
+          "Egypt->Cairo": 0.0009302938624373941,
+          "Ireland->Dublin": -0.002608059769088714,
+          "France->French": -0.00540592938836574,
+          "Germany->German": -0.004128959585858499,
+          "Japan->Japanese": -0.004716399661458071,
+          "Italy->Italian": -0.0038438027719012034,
+          "Spain->Spanish": -0.0043494485516986274,
+          "Russia->Russian": -0.004029903609385031,
+          "China->Chinese": -0.005737089021528634,
+          "England->English": 0.0007536447721901731,
+          "Greece->Greek": -0.008868129954430282,
+          "Poland->Polish": -0.0048420996243787985,
+          "Japan->yen": -0.015487406462082076,
+          "the United Kingdom->pound": -0.0022851770476795476,
+          "the United States->dollar": -3.7605816392078763e-06,
+          "China->yuan": -5.174459604486588e-06,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0007351015096230273,
+          "The electric car company founded by Elon Musk->Tesla": 0.0017672991440077603,
+          "The rocket company founded by Elon Musk->SpaceX": -0.0047102089236465165,
+          "The search engine founded by Larry Page->Google": -0.0033570233424838353,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.007093927865146591,
+          "The gaming console made by Microsoft->Xbox": 0.005083148208544345,
+          "The web browser made by Google->Chrome": 0.0020916142334515037,
+          "The phone made by Apple->iPhone": -0.002066606586432586,
+          "The tablet made by Apple->iPad": 0.000613867901667347,
+          "The email service made by Google->Gmail": 0.0031337447544461305,
+          "The music store made by Apple->iTunes": 4.648306081831042e-05,
+          "The game console made by Sony->PlayStation": -0.00010976690553486757,
+          "Massachusetts->Boston": -0.0021350105400017735,
+          "Georgia->Atlanta": 0.0010028240590971044,
+          "Ohio->Columbus": -0.0035412540919406163,
+          "Boston->Massachusetts": 0.002306935208429146,
+          "Atlanta->Georgia": 0.0024417677603462556,
+          "Sacramento->California": 0.004751608488536739,
+          "Austin->Texas": 0.004433285017147574,
+          "Columbus->Ohio": -0.0015559155521275854,
+          "Denver->Colorado": 0.0019460726661808194,
+          "Little Rock->Arkansas": -0.001973560092979908,
+          "Hartford->Connecticut": -0.002111462118727632,
+          "Dover->Delaware": -0.013188990289921801,
+          "Tallahassee->Florida": 0.0034208322345351647,
+          "Honolulu->Hawaii": -0.020682255164447532,
+          "Boise->Idaho": -0.004682640292952765,
+          "Indianapolis->Indiana": -0.005177690416480295,
+          "Des Moines->Iowa": -0.005260304224052241,
+          "Topeka->Kansas": -0.009239582564144968,
+          "Baton Rouge->Louisiana": 0.0016895219826019666,
+          "Annapolis->Maryland": -0.005418727840436218,
+          "Lansing->Michigan": -0.0018475933196633926,
+          "Jackson->Mississippi": -0.004183364894452767
+        },
+        "2": {
+          "France->Paris": -0.0036961838368953503,
+          "Greece->Athens": 0.0034961304692623326,
+          "Poland->Warsaw": 0.00312174643035858,
+          "Portugal->Lisbon": 0.0012017810016189524,
+          "Egypt->Cairo": 0.0017953608178955,
+          "Ireland->Dublin": 0.001171338126945478,
+          "France->French": 0.001893239891820213,
+          "Germany->German": 0.000299763019647933,
+          "Japan->Japanese": -0.0007921790850959248,
+          "Italy->Italian": 0.0004672688801744578,
+          "Spain->Spanish": 0.0006461098310459212,
+          "Russia->Russian": -0.0007807965152820613,
+          "China->Chinese": -0.0025903466721452963,
+          "England->English": 0.001799502703451317,
+          "Greece->Greek": 0.0007501101621833673,
+          "Poland->Polish": 0.0009984513016563631,
+          "Japan->yen": 0.004275616715045385,
+          "the United Kingdom->pound": -0.0010259299384697235,
+          "the United States->dollar": -0.00015532731753042242,
+          "China->yuan": 0.004235619817101433,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0007676658523630325,
+          "The electric car company founded by Elon Musk->Tesla": 0.0010200448273241266,
+          "The rocket company founded by Elon Musk->SpaceX": 0.004796810369588845,
+          "The search engine founded by Larry Page->Google": 0.001961014051130122,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.0048138928233107114,
+          "The gaming console made by Microsoft->Xbox": -0.001077735022907238,
+          "The web browser made by Google->Chrome": -0.0008296984301315402,
+          "The phone made by Apple->iPhone": 0.003915595403682289,
+          "The tablet made by Apple->iPad": 0.002116509085825811,
+          "The email service made by Google->Gmail": 0.0003666561421234562,
+          "The music store made by Apple->iTunes": 0.0007361917875553735,
+          "The game console made by Sony->PlayStation": 0.002007582433964138,
+          "Massachusetts->Boston": -0.0007930975468133108,
+          "Georgia->Atlanta": -0.0005440480930867309,
+          "Ohio->Columbus": 0.0016403017165644502,
+          "Boston->Massachusetts": 0.0003710017929057735,
+          "Atlanta->Georgia": 0.00144768311506597,
+          "Sacramento->California": -0.0017385947949693015,
+          "Austin->Texas": -0.0009730393785603173,
+          "Columbus->Ohio": 0.0009174592804634747,
+          "Denver->Colorado": 0.001822037115264717,
+          "Little Rock->Arkansas": 0.00010913042746933278,
+          "Hartford->Connecticut": 0.0005852858085312419,
+          "Dover->Delaware": 0.003122061567839047,
+          "Tallahassee->Florida": 0.0015021591508284679,
+          "Honolulu->Hawaii": 0.009566404121131354,
+          "Boise->Idaho": 0.001637175099535414,
+          "Indianapolis->Indiana": 0.0015597492551029089,
+          "Des Moines->Iowa": 0.0018212315625657923,
+          "Topeka->Kansas": -0.0007897998762519614,
+          "Baton Rouge->Louisiana": -0.0006792734420413133,
+          "Annapolis->Maryland": 0.004334779838667694,
+          "Lansing->Michigan": 0.0008650409717055616,
+          "Jackson->Mississippi": 0.0013087098159759152
+        },
+        "10": {
+          "France->Paris": 0.005133250586806701,
+          "Greece->Athens": 0.010419750986925927,
+          "Poland->Warsaw": 0.006162558115767684,
+          "Portugal->Lisbon": 0.004569648413578182,
+          "Egypt->Cairo": 0.006653954838249154,
+          "Ireland->Dublin": 0.004232763967650952,
+          "France->French": 0.00337710400654183,
+          "Germany->German": 0.0022341246168063526,
+          "Japan->Japanese": 0.0025753674566827475,
+          "Italy->Italian": 0.004745951459627799,
+          "Spain->Spanish": 0.0022659237977344,
+          "Russia->Russian": 0.0037518578150428786,
+          "China->Chinese": 0.002765692382811126,
+          "England->English": 0.009079010390079778,
+          "Greece->Greek": 0.004333810323697149,
+          "Poland->Polish": 0.004228364313630354,
+          "Japan->yen": 0.007393632692690334,
+          "the United Kingdom->pound": 0.005648264722958452,
+          "the United States->dollar": 0.0019483521464528245,
+          "China->yuan": 0.006089352866306389,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.003420799953915316,
+          "The electric car company founded by Elon Musk->Tesla": 0.00399817477475376,
+          "The rocket company founded by Elon Musk->SpaceX": 0.0019681464328063407,
+          "The search engine founded by Larry Page->Google": 0.0021515620882647,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.007194796480654243,
+          "The gaming console made by Microsoft->Xbox": 0.002476966213955179,
+          "The web browser made by Google->Chrome": 0.004543782712812428,
+          "The phone made by Apple->iPhone": 0.010233694117097706,
+          "The tablet made by Apple->iPad": 0.005530184770472058,
+          "The email service made by Google->Gmail": 0.003947525732062893,
+          "The music store made by Apple->iTunes": 0.004053309580951256,
+          "The game console made by Sony->PlayStation": 0.0028987263252750824,
+          "Massachusetts->Boston": 0.002233171119937754,
+          "Georgia->Atlanta": 0.0012790011961077128,
+          "Ohio->Columbus": 0.000817649409164167,
+          "Boston->Massachusetts": 0.005241409249141505,
+          "Atlanta->Georgia": 0.0049304560144251405,
+          "Sacramento->California": 0.009271993509235651,
+          "Austin->Texas": 0.008877194590472166,
+          "Columbus->Ohio": 0.006667749537139663,
+          "Denver->Colorado": 0.010177696677224393,
+          "Little Rock->Arkansas": 0.004711603627148089,
+          "Hartford->Connecticut": 0.0054572966713089255,
+          "Dover->Delaware": 0.0034986679515696265,
+          "Tallahassee->Florida": 0.0051277917693904685,
+          "Honolulu->Hawaii": 0.02302930637864477,
+          "Boise->Idaho": 0.007937937265330857,
+          "Indianapolis->Indiana": 0.015262944122166255,
+          "Des Moines->Iowa": 0.006432159288228173,
+          "Topeka->Kansas": 0.002477128212782186,
+          "Baton Rouge->Louisiana": 0.00488416425458892,
+          "Annapolis->Maryland": 0.0062170439509980704,
+          "Lansing->Michigan": 0.00529626007544658,
+          "Jackson->Mississippi": 0.0053010486374502255
+        },
+        "50": {
+          "France->Paris": -0.0016470000422222563,
+          "Greece->Athens": -0.003918458115589703,
+          "Poland->Warsaw": -0.0016312496271434585,
+          "Portugal->Lisbon": 0.0003702316198323425,
+          "Egypt->Cairo": -0.0038848577895302695,
+          "Ireland->Dublin": -0.0024983437115175724,
+          "France->French": -0.004141193639401164,
+          "Germany->German": -0.005935785871479413,
+          "Japan->Japanese": -0.007523889675719444,
+          "Italy->Italian": -0.007011003352652339,
+          "Spain->Spanish": -0.005594789403107549,
+          "Russia->Russian": -0.0077261605446857584,
+          "China->Chinese": -0.0036879681872328688,
+          "England->English": -0.004924688881185045,
+          "Greece->Greek": -0.005793152228104896,
+          "Poland->Polish": -0.004196154998668074,
+          "Japan->yen": -0.0031795047877752275,
+          "the United Kingdom->pound": -0.005808175148140305,
+          "the United States->dollar": -0.002940281432014298,
+          "China->yuan": -0.004000132646738207,
+          "The social network founded by Mark Zuckerberg->Facebook": -0.0011697603488156328,
+          "The electric car company founded by Elon Musk->Tesla": -0.0024626450467696254,
+          "The rocket company founded by Elon Musk->SpaceX": 0.0016557949304214514,
+          "The search engine founded by Larry Page->Google": -0.0003825688628555493,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.0033128295956359223,
+          "The gaming console made by Microsoft->Xbox": 0.00034611498426196394,
+          "The web browser made by Google->Chrome": -0.004296220079134328,
+          "The phone made by Apple->iPhone": -0.011650995439738552,
+          "The tablet made by Apple->iPad": -0.005656100447647682,
+          "The email service made by Google->Gmail": -0.0031209922125429762,
+          "The music store made by Apple->iTunes": -0.0012809830719362264,
+          "The game console made by Sony->PlayStation": -0.001031898020552292,
+          "Massachusetts->Boston": -0.0007721295802904737,
+          "Georgia->Atlanta": 0.0007182768119282183,
+          "Ohio->Columbus": 0.0020675558423525827,
+          "Boston->Massachusetts": -0.0032992778411863135,
+          "Atlanta->Georgia": -0.002145923212733635,
+          "Sacramento->California": -0.008812291655803814,
+          "Austin->Texas": -0.009914417223477766,
+          "Columbus->Ohio": -0.005392248362992139,
+          "Denver->Colorado": -0.00818980384738401,
+          "Little Rock->Arkansas": -0.004784281562161351,
+          "Hartford->Connecticut": -0.0036573704801558023,
+          "Dover->Delaware": -0.0009532629596950935,
+          "Tallahassee->Florida": -0.0072382635717345035,
+          "Honolulu->Hawaii": -0.024757418886697,
+          "Boise->Idaho": -0.006166384171284342,
+          "Indianapolis->Indiana": -0.009119643904240051,
+          "Des Moines->Iowa": -0.0070646199787789575,
+          "Topeka->Kansas": -0.001983212932293082,
+          "Baton Rouge->Louisiana": -0.002413836174890253,
+          "Annapolis->Maryland": -0.004860448459419179,
+          "Lansing->Michigan": -0.00664034335035545,
+          "Jackson->Mississippi": -0.0034231993764604375
+        },
+        "80": {
+          "France->Paris": 0.0003010747172411163,
+          "Greece->Athens": 0.003766194022509263,
+          "Poland->Warsaw": 0.0007207216820583376,
+          "Portugal->Lisbon": 0.0034191409679409025,
+          "Egypt->Cairo": 0.0005063139560087668,
+          "Ireland->Dublin": 0.002167714751348624,
+          "France->French": 0.0031828795516972838,
+          "Germany->German": 0.005164466450797851,
+          "Japan->Japanese": 0.005332624244468341,
+          "Italy->Italian": 0.004753585037682562,
+          "Spain->Spanish": 0.0027395041337399412,
+          "Russia->Russian": 0.0042589793949932755,
+          "China->Chinese": 0.003935649293869292,
+          "England->English": 0.0037727177581438668,
+          "Greece->Greek": 0.005736440831011705,
+          "Poland->Polish": 0.003183471240761443,
+          "Japan->yen": 0.005121574685127721,
+          "the United Kingdom->pound": 0.006217838529153379,
+          "the United States->dollar": -0.000690692093480272,
+          "China->yuan": 0.00020579050536189688,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0013824599117404032,
+          "The electric car company founded by Elon Musk->Tesla": 0.003918262061765159,
+          "The rocket company founded by Elon Musk->SpaceX": 0.00251835740901484,
+          "The search engine founded by Larry Page->Google": 0.0002204235408137437,
+          "The online encyclopedia that anyone can edit->Wikipedia": 1.4770070419842056e-05,
+          "The gaming console made by Microsoft->Xbox": 0.0005595703500713389,
+          "The web browser made by Google->Chrome": 0.0005752105592223491,
+          "The phone made by Apple->iPhone": 0.0018043670620588612,
+          "The tablet made by Apple->iPad": 0.002521490801412556,
+          "The email service made by Google->Gmail": 0.004612197408431637,
+          "The music store made by Apple->iTunes": 0.002144475204842292,
+          "The game console made by Sony->PlayStation": 0.0013756304652068783,
+          "Massachusetts->Boston": 0.00028960319668093715,
+          "Georgia->Atlanta": 0.0015486060521254712,
+          "Ohio->Columbus": 0.001774525531759343,
+          "Boston->Massachusetts": 0.005762436253279052,
+          "Atlanta->Georgia": 0.00021865844893567219,
+          "Sacramento->California": 0.0033508907989268488,
+          "Austin->Texas": 0.006291099923380761,
+          "Columbus->Ohio": 0.004938074442757131,
+          "Denver->Colorado": 0.002887925469951192,
+          "Little Rock->Arkansas": 0.0033246955404812486,
+          "Hartford->Connecticut": 0.006741708888500237,
+          "Dover->Delaware": 0.0057083941134840515,
+          "Tallahassee->Florida": 0.0029874573066402885,
+          "Honolulu->Hawaii": 0.00339875841517677,
+          "Boise->Idaho": 0.0064594633222675455,
+          "Indianapolis->Indiana": 0.01276318278843503,
+          "Des Moines->Iowa": 0.004548102010210046,
+          "Topeka->Kansas": 0.004506529310779658,
+          "Baton Rouge->Louisiana": 0.0033177825652549696,
+          "Annapolis->Maryland": 0.0035570703266070525,
+          "Lansing->Michigan": 0.002566585374108053,
+          "Jackson->Mississippi": 0.003675097393669076
+        }
+      },
+      "w2": {
+        "0": {
+          "France->Paris": -0.0022475102062749584,
+          "Greece->Athens": -0.005858118554958206,
+          "Poland->Warsaw": -0.0056176370418764745,
+          "Portugal->Lisbon": -0.005555145442143684,
+          "Egypt->Cairo": -0.00010605775266943472,
+          "Ireland->Dublin": -0.0027214934034574417,
+          "France->French": -0.002608982148832514,
+          "Germany->German": -0.002342840072739797,
+          "Japan->Japanese": -0.001207669535325931,
+          "Italy->Italian": -0.0005522066344364592,
+          "Spain->Spanish": -0.0019647223914139446,
+          "Russia->Russian": -0.0014491734529319196,
+          "China->Chinese": -0.002659338003354562,
+          "England->English": 0.0019817200360291946,
+          "Greece->Greek": -0.003770508482556323,
+          "Poland->Polish": -0.0028843246407701897,
+          "Japan->yen": -0.014647465780446518,
+          "the United Kingdom->pound": -0.004032809162070759,
+          "the United States->dollar": 0.00020778614860266382,
+          "China->yuan": -0.0017221818948217676,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0007081545592080356,
+          "The electric car company founded by Elon Musk->Tesla": 0.0012050229140449676,
+          "The rocket company founded by Elon Musk->SpaceX": -0.005306828682702992,
+          "The search engine founded by Larry Page->Google": -0.003473583418035854,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.006663513011580286,
+          "The gaming console made by Microsoft->Xbox": 0.0037124188109744316,
+          "The web browser made by Google->Chrome": 0.0014822137299431565,
+          "The phone made by Apple->iPhone": 0.0010641102310788477,
+          "The tablet made by Apple->iPad": 0.0017716232670056428,
+          "The email service made by Google->Gmail": 0.002146299413426501,
+          "The music store made by Apple->iTunes": -0.0010170502951698725,
+          "The game console made by Sony->PlayStation": -9.003810739012523e-05,
+          "Massachusetts->Boston": -0.002842054595089643,
+          "Georgia->Atlanta": 0.0017389694193290586,
+          "Ohio->Columbus": -0.0014613518043488656,
+          "Boston->Massachusetts": 0.0022975355812981865,
+          "Atlanta->Georgia": 0.002020502020287014,
+          "Sacramento->California": 0.0025874781462746745,
+          "Austin->Texas": 0.001400821596908505,
+          "Columbus->Ohio": -0.0016753414434359337,
+          "Denver->Colorado": -0.0016571176062840154,
+          "Little Rock->Arkansas": -0.00033063964147371185,
+          "Hartford->Connecticut": -0.0018758026653379809,
+          "Dover->Delaware": -0.009642882784486821,
+          "Tallahassee->Florida": 0.0023890318651225715,
+          "Honolulu->Hawaii": -0.011539763339727232,
+          "Boise->Idaho": -0.004711121565878786,
+          "Indianapolis->Indiana": -0.0026631907312758135,
+          "Des Moines->Iowa": -0.004104736966306105,
+          "Topeka->Kansas": -0.005888181662795715,
+          "Baton Rouge->Louisiana": -0.0014094652321914403,
+          "Annapolis->Maryland": -0.0034357673013986423,
+          "Lansing->Michigan": -0.001972661414485774,
+          "Jackson->Mississippi": -0.0027198775941137702
+        },
+        "10": {
+          "France->Paris": -0.0006093371020596226,
+          "Greece->Athens": 0.0009235810791651728,
+          "Poland->Warsaw": 0.004959363857786696,
+          "Portugal->Lisbon": 0.002815183030319548,
+          "Egypt->Cairo": 0.0018050073441558342,
+          "Ireland->Dublin": 0.00166031662391254,
+          "France->French": -0.0007352530037728385,
+          "Germany->German": -0.0033455036261606807,
+          "Japan->Japanese": -0.0042643008040011915,
+          "Italy->Italian": -0.0001340908731875423,
+          "Spain->Spanish": -0.001200315559024482,
+          "Russia->Russian": -0.0022188238101439254,
+          "China->Chinese": -0.0023353531871034886,
+          "England->English": 0.0016137115512327921,
+          "Greece->Greek": -0.0004082539304267341,
+          "Poland->Polish": 0.00168605213933902,
+          "Japan->yen": 0.006782881942884665,
+          "the United Kingdom->pound": 0.0017272915102625216,
+          "the United States->dollar": 0.002098372466998859,
+          "China->yuan": 0.004739092790840398,
+          "The social network founded by Mark Zuckerberg->Facebook": -0.0016610236283780425,
+          "The electric car company founded by Elon Musk->Tesla": -0.0004572334744872153,
+          "The rocket company founded by Elon Musk->SpaceX": 0.0018332781512250367,
+          "The search engine founded by Larry Page->Google": -0.0010877302654612845,
+          "The online encyclopedia that anyone can edit->Wikipedia": 5.5460423018030206e-05,
+          "The gaming console made by Microsoft->Xbox": -0.0010789178705908945,
+          "The web browser made by Google->Chrome": -0.0008907607276330762,
+          "The phone made by Apple->iPhone": -0.006378662814670633,
+          "The tablet made by Apple->iPad": -0.0019785627377189945,
+          "The email service made by Google->Gmail": 0.0021576720059716266,
+          "The music store made by Apple->iTunes": 0.0012118726552065647,
+          "The game console made by Sony->PlayStation": 0.0005188305297823051,
+          "Massachusetts->Boston": -0.0002995962405580191,
+          "Georgia->Atlanta": -0.00230816716253721,
+          "Ohio->Columbus": 0.00020062495645089347,
+          "Boston->Massachusetts": -0.0022386410577328124,
+          "Atlanta->Georgia": -0.002317253802936632,
+          "Sacramento->California": -0.004532633884374763,
+          "Austin->Texas": -0.0002619676630458613,
+          "Columbus->Ohio": -0.0022192962673578866,
+          "Denver->Colorado": 0.0038520292427096296,
+          "Little Rock->Arkansas": -0.0008575569432383813,
+          "Hartford->Connecticut": 0.0016793560413752464,
+          "Dover->Delaware": 0.001527142401798257,
+          "Tallahassee->Florida": -0.00501202895641843,
+          "Honolulu->Hawaii": -0.010327255513527568,
+          "Boise->Idaho": 0.003869353025076035,
+          "Indianapolis->Indiana": 0.004618199617030671,
+          "Des Moines->Iowa": 0.00014192305777576395,
+          "Topeka->Kansas": -0.002821158555553061,
+          "Baton Rouge->Louisiana": -0.0019017107646718508,
+          "Annapolis->Maryland": 0.0003083054963763857,
+          "Lansing->Michigan": 0.0002228484106660434,
+          "Jackson->Mississippi": 0.0016205166943760643
+        },
+        "50": {
+          "France->Paris": 0.0006084498785452542,
+          "Greece->Athens": 0.008051015500420224,
+          "Poland->Warsaw": 0.004340202457461049,
+          "Portugal->Lisbon": 0.0008482646983870204,
+          "Egypt->Cairo": 0.00521557053929951,
+          "Ireland->Dublin": 0.0018323098872831583,
+          "France->French": -0.0010092383205698146,
+          "Germany->German": -0.001669896991442193,
+          "Japan->Japanese": -0.0016456330357403307,
+          "Italy->Italian": -0.00015666188784438606,
+          "Spain->Spanish": -0.00027468350006265314,
+          "Russia->Russian": -9.416430029185407e-05,
+          "China->Chinese": -0.001076033933740889,
+          "England->English": 0.0010070422715511235,
+          "Greece->Greek": 0.0012603202570643465,
+          "Poland->Polish": 0.000817654647248894,
+          "Japan->yen": -0.0030164029793185573,
+          "the United Kingdom->pound": -0.001811020960439852,
+          "the United States->dollar": 0.000930296862651127,
+          "China->yuan": -0.0024440288719751947,
+          "The social network founded by Mark Zuckerberg->Facebook": -0.0011480568824015905,
+          "The electric car company founded by Elon Musk->Tesla": -0.001269345783442178,
+          "The rocket company founded by Elon Musk->SpaceX": -0.0003887391130146581,
+          "The search engine founded by Larry Page->Google": -0.0008490624114164129,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.005062399240298199,
+          "The gaming console made by Microsoft->Xbox": 0.001505537477431811,
+          "The web browser made by Google->Chrome": -0.0008707512667056284,
+          "The phone made by Apple->iPhone": 0.010877110226319424,
+          "The tablet made by Apple->iPad": 0.0035689659639288186,
+          "The email service made by Google->Gmail": -0.000732761664930215,
+          "The music store made by Apple->iTunes": 0.0008293667100043021,
+          "The game console made by Sony->PlayStation": 0.0006280410685989854,
+          "Massachusetts->Boston": -0.00024660142108596665,
+          "Georgia->Atlanta": -0.0010798656349735934,
+          "Ohio->Columbus": -0.00042232449110097246,
+          "Boston->Massachusetts": -0.0001759197989322678,
+          "Atlanta->Georgia": 0.00019149779625694815,
+          "Sacramento->California": 0.00279459792344785,
+          "Austin->Texas": 0.0012615962791422835,
+          "Columbus->Ohio": 0.0014586646105324477,
+          "Denver->Colorado": 0.0038045191863667433,
+          "Little Rock->Arkansas": -8.324978401644468e-05,
+          "Hartford->Connecticut": 0.0004016449791971713,
+          "Dover->Delaware": -0.0007838875366198195,
+          "Tallahassee->Florida": 0.0022961395647103106,
+          "Honolulu->Hawaii": 0.030571718981933456,
+          "Boise->Idaho": -0.0007451101077630141,
+          "Indianapolis->Indiana": 0.0014445070277947505,
+          "Des Moines->Iowa": -0.0014591548203045858,
+          "Topeka->Kansas": -0.001741309411019436,
+          "Baton Rouge->Louisiana": 0.0009491442673540511,
+          "Annapolis->Maryland": 0.0028144109184951084,
+          "Lansing->Michigan": 0.0005563839951265409,
+          "Jackson->Mississippi": 0.0005337609776171927
+        },
+        "80": {
+          "France->Paris": 0.000323981598890777,
+          "Greece->Athens": -0.010240989658434858,
+          "Poland->Warsaw": -0.005307696968570781,
+          "Portugal->Lisbon": -0.004422180670451184,
+          "Egypt->Cairo": -0.0055460100109635466,
+          "Ireland->Dublin": -0.0022662290664007883,
+          "France->French": -0.002520464182385198,
+          "Germany->German": -0.0030836669428978116,
+          "Japan->Japanese": -0.003176841469406406,
+          "Italy->Italian": -0.0032970103615915704,
+          "Spain->Spanish": -0.002458791117598077,
+          "Russia->Russian": -0.003463582136379549,
+          "China->Chinese": -0.000742287080211509,
+          "England->English": -0.0018966538764594633,
+          "Greece->Greek": -0.0031355890164108625,
+          "Poland->Polish": -0.0018073160400565464,
+          "Japan->yen": -5.2661318909417106e-05,
+          "the United Kingdom->pound": 0.000656930203739933,
+          "the United States->dollar": 0.0010157391851454201,
+          "China->yuan": 0.0011644312224358337,
+          "The social network founded by Mark Zuckerberg->Facebook": -0.0026106092297236263,
+          "The electric car company founded by Elon Musk->Tesla": -0.0026246061089774844,
+          "The rocket company founded by Elon Musk->SpaceX": -0.0035324846501427936,
+          "The search engine founded by Larry Page->Google": -0.002253457167661124,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.008134783423096797,
+          "The gaming console made by Microsoft->Xbox": -0.003990417020033845,
+          "The web browser made by Google->Chrome": -0.0011154467836824973,
+          "The phone made by Apple->iPhone": -0.010956421592682113,
+          "The tablet made by Apple->iPad": -0.0053924302236092285,
+          "The email service made by Google->Gmail": -0.001183851541619433,
+          "The music store made by Apple->iTunes": -0.0027358674702224702,
+          "The game console made by Sony->PlayStation": -0.0029749754672661233,
+          "Massachusetts->Boston": -0.0017610491026271641,
+          "Georgia->Atlanta": -0.003980323313819191,
+          "Ohio->Columbus": -0.002835059292201007,
+          "Boston->Massachusetts": -0.005920689001516188,
+          "Atlanta->Georgia": -0.003633143466182221,
+          "Sacramento->California": -0.005087194938121085,
+          "Austin->Texas": -0.0043831550880664575,
+          "Columbus->Ohio": -0.004732733233640334,
+          "Denver->Colorado": -0.002829149163362118,
+          "Little Rock->Arkansas": -0.0014597103899629347,
+          "Hartford->Connecticut": -0.001995811662213656,
+          "Dover->Delaware": -0.004055857500761385,
+          "Tallahassee->Florida": -0.00499137311962236,
+          "Honolulu->Hawaii": -0.022552618859867007,
+          "Boise->Idaho": -0.0011931223709589378,
+          "Indianapolis->Indiana": -0.005285525871193839,
+          "Des Moines->Iowa": -0.002984597550205531,
+          "Topeka->Kansas": -0.0011957591804252917,
+          "Baton Rouge->Louisiana": -0.0022349718241258454,
+          "Annapolis->Maryland": -0.005934159057353615,
+          "Lansing->Michigan": -0.001266985564926258,
+          "Jackson->Mississippi": -0.003352648035490229
+        }
+      },
+      "w3": {
+        "0": {
+          "France->Paris": -0.0024575037179464577,
+          "Greece->Athens": -0.0070766828427613815,
+          "Poland->Warsaw": -0.003578238585842336,
+          "Portugal->Lisbon": -0.005942027857664394,
+          "Egypt->Cairo": 0.000412366613928766,
+          "Ireland->Dublin": -0.0024952762445093627,
+          "France->French": -0.004241291782519671,
+          "Germany->German": -0.00510203802312809,
+          "Japan->Japanese": -0.005759243252424189,
+          "Italy->Italian": -0.0034090334788069603,
+          "Spain->Spanish": -0.004434812654574798,
+          "Russia->Russian": -0.004152968275775481,
+          "China->Chinese": -0.007431299391384823,
+          "England->English": 0.00027465089967054605,
+          "Greece->Greek": -0.007970136522551281,
+          "Poland->Polish": -0.0038288714401839416,
+          "Japan->yen": -0.014369982242363443,
+          "the United Kingdom->pound": -0.003641223963981582,
+          "the United States->dollar": 0.0005434392406055947,
+          "China->yuan": -0.0007846252580667969,
+          "The social network founded by Mark Zuckerberg->Facebook": 8.505405783827974e-06,
+          "The electric car company founded by Elon Musk->Tesla": 0.00038722125744151975,
+          "The rocket company founded by Elon Musk->SpaceX": -0.004319225107208978,
+          "The search engine founded by Larry Page->Google": -0.002807709043764174,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.0048411167167348055,
+          "The gaming console made by Microsoft->Xbox": 0.004489845017668004,
+          "The web browser made by Google->Chrome": 0.0014835759443547086,
+          "The phone made by Apple->iPhone": 0.0010384807709298354,
+          "The tablet made by Apple->iPad": 0.0021004193303615754,
+          "The email service made by Google->Gmail": 0.0024371452944918623,
+          "The music store made by Apple->iTunes": 0.0013801079315043884,
+          "The game console made by Sony->PlayStation": 0.0007859945544990602,
+          "Massachusetts->Boston": -0.0020497367915616634,
+          "Georgia->Atlanta": 0.0014923337125150816,
+          "Ohio->Columbus": -0.002744255573740893,
+          "Boston->Massachusetts": 0.001150138036377276,
+          "Atlanta->Georgia": 0.002935048648334428,
+          "Sacramento->California": 0.0010627157247245084,
+          "Austin->Texas": 0.001287754863757167,
+          "Columbus->Ohio": -0.0042980968558067704,
+          "Denver->Colorado": -0.0004916765803364212,
+          "Little Rock->Arkansas": -0.001478756470134256,
+          "Hartford->Connecticut": -0.004135954475526195,
+          "Dover->Delaware": -0.014703486836561096,
+          "Tallahassee->Florida": 0.0020008068629233087,
+          "Honolulu->Hawaii": -0.016078846419809327,
+          "Boise->Idaho": -0.005577514720170011,
+          "Indianapolis->Indiana": -0.007588288208702505,
+          "Des Moines->Iowa": -0.005961404023598222,
+          "Topeka->Kansas": -0.010028829454847258,
+          "Baton Rouge->Louisiana": -0.0004202608108328546,
+          "Annapolis->Maryland": -0.0052164234985457745,
+          "Lansing->Michigan": -0.0018584028952199885,
+          "Jackson->Mississippi": -0.005861866870859316
+        },
+        "10": {
+          "France->Paris": 0.0031371669407108975,
+          "Greece->Athens": 0.008727126709739333,
+          "Poland->Warsaw": 0.005522971998128777,
+          "Portugal->Lisbon": 0.004302344372697867,
+          "Egypt->Cairo": 0.004330690643881958,
+          "Ireland->Dublin": 0.004615002100224649,
+          "France->French": 0.002183180239803649,
+          "Germany->German": 0.002034553179207535,
+          "Japan->Japanese": 0.0035993104033136113,
+          "Italy->Italian": 0.004065263837112312,
+          "Spain->Spanish": 0.00355479507181852,
+          "Russia->Russian": 0.004390454956414897,
+          "China->Chinese": 0.005551275842031233,
+          "England->English": 0.007493986983813531,
+          "Greece->Greek": 0.005911721715276314,
+          "Poland->Polish": 0.003496728185498551,
+          "Japan->yen": 0.003986292048679997,
+          "the United Kingdom->pound": 0.0024561972812216456,
+          "the United States->dollar": 0.0006376075951345833,
+          "China->yuan": 0.002053162771662028,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0016468134603992795,
+          "The electric car company founded by Elon Musk->Tesla": 0.0031265722767813697,
+          "The rocket company founded by Elon Musk->SpaceX": 0.0025075444249921097,
+          "The search engine founded by Larry Page->Google": 0.0005353793168879806,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.003583827127786273,
+          "The gaming console made by Microsoft->Xbox": -0.0016365393963693583,
+          "The web browser made by Google->Chrome": -0.0018298394503292613,
+          "The phone made by Apple->iPhone": 0.0027531346117801244,
+          "The tablet made by Apple->iPad": 0.001223196888436171,
+          "The email service made by Google->Gmail": 0.0010312002388401496,
+          "The music store made by Apple->iTunes": -0.00021683683566362517,
+          "The game console made by Sony->PlayStation": 0.0004916043157127873,
+          "Massachusetts->Boston": 0.0007816791061760525,
+          "Georgia->Atlanta": -0.0003195566516667945,
+          "Ohio->Columbus": 0.000981228716952021,
+          "Boston->Massachusetts": 0.0001780417494779626,
+          "Atlanta->Georgia": -0.0036508860045248222,
+          "Sacramento->California": 0.001782237098257181,
+          "Austin->Texas": 0.0027109144388370587,
+          "Columbus->Ohio": 0.002869039105816835,
+          "Denver->Colorado": 0.0039324860918472475,
+          "Little Rock->Arkansas": 0.004329345217043412,
+          "Hartford->Connecticut": 0.004710261479408537,
+          "Dover->Delaware": 0.008618188385372089,
+          "Tallahassee->Florida": 0.0007557571262872637,
+          "Honolulu->Hawaii": 0.015451793063978224,
+          "Boise->Idaho": 0.005697254926140392,
+          "Indianapolis->Indiana": 0.007663637685195803,
+          "Des Moines->Iowa": 0.004261908541163846,
+          "Topeka->Kansas": 0.004160077725673993,
+          "Baton Rouge->Louisiana": -0.0005950631683661902,
+          "Annapolis->Maryland": 0.006341527197417046,
+          "Lansing->Michigan": 0.005965391374315864,
+          "Jackson->Mississippi": 0.005063021809688513
+        },
+        "50": {
+          "France->Paris": 0.0014732344275194408,
+          "Greece->Athens": 0.0018801330700162814,
+          "Poland->Warsaw": 0.00020821469998223103,
+          "Portugal->Lisbon": -0.001522154407874188,
+          "Egypt->Cairo": 0.0017629671374574112,
+          "Ireland->Dublin": 4.6773363710171214e-05,
+          "France->French": 0.0024141741844128316,
+          "Germany->German": 0.0016625171617062474,
+          "Japan->Japanese": 0.0006811971401677159,
+          "Italy->Italian": 0.0021267762494083563,
+          "Spain->Spanish": 0.0009960512506418308,
+          "Russia->Russian": 0.0017752561792974356,
+          "China->Chinese": -0.0003307040047478143,
+          "England->English": 0.0032457901713689122,
+          "Greece->Greek": 0.0008402799830008914,
+          "Poland->Polish": 0.0012818267893533557,
+          "Japan->yen": -0.0031856465786435015,
+          "the United Kingdom->pound": -0.0010665969249726986,
+          "the United States->dollar": -0.0026735616717165614,
+          "China->yuan": 0.0011564129748599832,
+          "The social network founded by Mark Zuckerberg->Facebook": 0.0019141774318695499,
+          "The electric car company founded by Elon Musk->Tesla": 0.0009436134984040472,
+          "The rocket company founded by Elon Musk->SpaceX": 0.0006664201812856648,
+          "The search engine founded by Larry Page->Google": 0.0020315289069753302,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.001032723373283803,
+          "The gaming console made by Microsoft->Xbox": -0.0007386936358580117,
+          "The web browser made by Google->Chrome": -0.0006651453541266225,
+          "The phone made by Apple->iPhone": 0.004832101338813769,
+          "The tablet made by Apple->iPad": 0.002630461328844249,
+          "The email service made by Google->Gmail": -0.001645768954558008,
+          "The music store made by Apple->iTunes": -0.0004687698978310535,
+          "The game console made by Sony->PlayStation": 0.0003522376048320375,
+          "Massachusetts->Boston": -0.00014370675884581917,
+          "Georgia->Atlanta": 0.0009536610731541773,
+          "Ohio->Columbus": -0.0011839180381253247,
+          "Boston->Massachusetts": 0.0012653764459564225,
+          "Atlanta->Georgia": -0.0004303990967063353,
+          "Sacramento->California": 0.0009414426047086332,
+          "Austin->Texas": 0.0004265266788872659,
+          "Columbus->Ohio": 0.002101937012022517,
+          "Denver->Colorado": -0.0017096652561467214,
+          "Little Rock->Arkansas": 0.0014111253413949506,
+          "Hartford->Connecticut": -0.0009496122551888787,
+          "Dover->Delaware": -3.835289500418545e-05,
+          "Tallahassee->Florida": 0.002002695945691826,
+          "Honolulu->Hawaii": 0.009115411825755575,
+          "Boise->Idaho": -0.00040408844445608265,
+          "Indianapolis->Indiana": 0.0021633721683422054,
+          "Des Moines->Iowa": 0.004129239081561987,
+          "Topeka->Kansas": 0.0025566047917147832,
+          "Baton Rouge->Louisiana": -0.0009213597164556807,
+          "Annapolis->Maryland": 0.003806467362626172,
+          "Lansing->Michigan": 0.003555749539077265,
+          "Jackson->Mississippi": 0.0001082847743989881
+        },
+        "80": {
+          "France->Paris": 0.0008372910198070656,
+          "Greece->Athens": -0.00899216902259233,
+          "Poland->Warsaw": -0.007637023163444476,
+          "Portugal->Lisbon": -0.005759005703334626,
+          "Egypt->Cairo": -0.00566906585910421,
+          "Ireland->Dublin": -0.0030619517148716773,
+          "France->French": -0.004956356482117818,
+          "Germany->German": -0.004613062595105399,
+          "Japan->Japanese": -0.003936680678327792,
+          "Italy->Italian": -0.005522236926282811,
+          "Spain->Spanish": -0.003690534631012919,
+          "Russia->Russian": -0.004116363854559376,
+          "China->Chinese": -3.6066254321700625e-05,
+          "England->English": -0.0036797388401363044,
+          "Greece->Greek": -0.0055307609743775275,
+          "Poland->Polish": -0.005057209172735615,
+          "Japan->yen": -0.005426746022783585,
+          "the United Kingdom->pound": -0.0010003202965473826,
+          "the United States->dollar": 0.00017563638799574058,
+          "China->yuan": -0.00080611828537441,
+          "The social network founded by Mark Zuckerberg->Facebook": -0.000316124815638212,
+          "The electric car company founded by Elon Musk->Tesla": -0.0019088498645391965,
+          "The rocket company founded by Elon Musk->SpaceX": -0.0032283468804121676,
+          "The search engine founded by Larry Page->Google": -8.178753917821781e-05,
+          "The online encyclopedia that anyone can edit->Wikipedia": -0.005698968424634266,
+          "The gaming console made by Microsoft->Xbox": 0.00020552225445764755,
+          "The web browser made by Google->Chrome": 0.0008137109977471187,
+          "The phone made by Apple->iPhone": -0.008163335460718027,
+          "The tablet made by Apple->iPad": -0.003737299966345373,
+          "The email service made by Google->Gmail": -0.0021038375521740837,
+          "The music store made by Apple->iTunes": -0.0010185626369282783,
+          "The game console made by Sony->PlayStation": -0.001925769782642204,
+          "Massachusetts->Boston": 0.00026813086045649674,
+          "Georgia->Atlanta": 0.000565568839556372,
+          "Ohio->Columbus": -0.00012764296279477508,
+          "Boston->Massachusetts": -0.002446608771918019,
+          "Atlanta->Georgia": 0.0006053806351292863,
+          "Sacramento->California": -0.003110548956878041,
+          "Austin->Texas": -0.002669105792764498,
+          "Columbus->Ohio": -0.0031901567948136155,
+          "Denver->Colorado": -0.00773430941908575,
+          "Little Rock->Arkansas": -0.002432180371917897,
+          "Hartford->Connecticut": -0.004258357253969202,
+          "Dover->Delaware": -0.0032672761257433905,
+          "Tallahassee->Florida": -0.0032550113229325595,
+          "Honolulu->Hawaii": -0.020700528652465633,
+          "Boise->Idaho": -0.005137052391090277,
+          "Indianapolis->Indiana": -0.0018663404589139279,
+          "Des Moines->Iowa": -0.00274326983296684,
+          "Topeka->Kansas": 0.0002676328417936934,
+          "Baton Rouge->Louisiana": -0.000938848117374589,
+          "Annapolis->Maryland": -0.004298482745000174,
+          "Lansing->Michigan": -0.002646397822124061,
+          "Jackson->Mississippi": -0.00237842006652885
+        }
+      }
+    },
+    "rotation": {
+      "w1": {
+        "France->Paris": {
+          "self_cos": 0.9713385246594355,
+          "hot_overlap": {
+            "2000": 0.089,
+            "20000": 0.21305,
+            "200000": 0.229495
+          },
+          "p_at_state": 0.13572438061237335,
+          "anchor_fd_dp": null
+        },
+        "Greece->Athens": {
+          "self_cos": 0.9685799360920597,
+          "hot_overlap": {
+            "2000": 0.0815,
+            "20000": 0.19485,
+            "200000": 0.21802
+          },
+          "p_at_state": 0.3968694806098938,
+          "anchor_fd_dp": null
+        },
+        "Poland->Warsaw": {
+          "self_cos": 0.9677777524199673,
+          "hot_overlap": {
+            "2000": 0.0725,
+            "20000": 0.19225,
+            "200000": 0.212945
+          },
+          "p_at_state": 0.1412094533443451,
+          "anchor_fd_dp": null
+        },
+        "Portugal->Lisbon": {
+          "self_cos": 0.9577474213025299,
+          "hot_overlap": {
+            "2000": 0.078,
+            "20000": 0.20495,
+            "200000": 0.22472
+          },
+          "p_at_state": 0.14942365884780884,
+          "anchor_fd_dp": null
+        },
+        "Egypt->Cairo": {
+          "self_cos": 0.9516370272653517,
+          "hot_overlap": {
+            "2000": 0.0805,
+            "20000": 0.2006,
+            "200000": 0.22097
+          },
+          "p_at_state": 0.10885904729366302,
+          "anchor_fd_dp": null
+        },
+        "Ireland->Dublin": {
+          "self_cos": 0.9378009775107999,
+          "hot_overlap": {
+            "2000": 0.076,
+            "20000": 0.1952,
+            "200000": 0.221215
+          },
+          "p_at_state": 0.08268740773200989,
+          "anchor_fd_dp": null
+        },
+        "France->French": {
+          "self_cos": 0.946202416501327,
+          "hot_overlap": {
+            "2000": 0.106,
+            "20000": 0.2079,
+            "200000": 0.20988
+          },
+          "p_at_state": 0.8230644464492798,
+          "anchor_fd_dp": null
+        },
+        "Germany->German": {
+          "self_cos": 0.9421978387533454,
+          "hot_overlap": {
+            "2000": 0.0765,
+            "20000": 0.16525,
+            "200000": 0.182665
+          },
+          "p_at_state": 0.7190970182418823,
+          "anchor_fd_dp": null
+        },
+        "Japan->Japanese": {
+          "self_cos": 0.9444154572240175,
+          "hot_overlap": {
+            "2000": 0.092,
+            "20000": 0.19785,
+            "200000": 0.20176
+          },
+          "p_at_state": 0.7728919982910156,
+          "anchor_fd_dp": null
+        },
+        "Italy->Italian": {
+          "self_cos": 0.9416425915537562,
+          "hot_overlap": {
+            "2000": 0.09,
+            "20000": 0.1949,
+            "200000": 0.200515
+          },
+          "p_at_state": 0.7876316905021667,
+          "anchor_fd_dp": null
+        },
+        "Spain->Spanish": {
+          "self_cos": 0.9593019563939894,
+          "hot_overlap": {
+            "2000": 0.0995,
+            "20000": 0.1992,
+            "200000": 0.202735
+          },
+          "p_at_state": 0.5816192626953125,
+          "anchor_fd_dp": null
+        },
+        "Russia->Russian": {
+          "self_cos": 0.9705423453806721,
+          "hot_overlap": {
+            "2000": 0.097,
+            "20000": 0.20115,
+            "200000": 0.206945
+          },
+          "p_at_state": 0.649308443069458,
+          "anchor_fd_dp": null
+        },
+        "China->Chinese": {
+          "self_cos": 0.9194651531949783,
+          "hot_overlap": {
+            "2000": 0.0875,
+            "20000": 0.1907,
+            "200000": 0.203395
+          },
+          "p_at_state": 0.5738397836685181,
+          "anchor_fd_dp": null
+        },
+        "England->English": {
+          "self_cos": 0.95030009964401,
+          "hot_overlap": {
+            "2000": 0.092,
+            "20000": 0.19845,
+            "200000": 0.203685
+          },
+          "p_at_state": 0.6320819854736328,
+          "anchor_fd_dp": null
+        },
+        "Greece->Greek": {
+          "self_cos": 0.9532717913793354,
+          "hot_overlap": {
+            "2000": 0.0975,
+            "20000": 0.19935,
+            "200000": 0.203845
+          },
+          "p_at_state": 0.6970937848091125,
+          "anchor_fd_dp": null
+        },
+        "Poland->Polish": {
+          "self_cos": 0.9723547296041514,
+          "hot_overlap": {
+            "2000": 0.0935,
+            "20000": 0.199,
+            "200000": 0.20711
+          },
+          "p_at_state": 0.7124454975128174,
+          "anchor_fd_dp": null
+        },
+        "Japan->yen": {
+          "self_cos": 0.9521581714548579,
+          "hot_overlap": {
+            "2000": 0.084,
+            "20000": 0.2,
+            "200000": 0.22601
+          },
+          "p_at_state": 0.4514829218387604,
+          "anchor_fd_dp": null
+        },
+        "the United Kingdom->pound": {
+          "self_cos": 0.9026915544232332,
+          "hot_overlap": {
+            "2000": 0.0895,
+            "20000": 0.20975,
+            "200000": 0.2293
+          },
+          "p_at_state": 0.41885340213775635,
+          "anchor_fd_dp": null
+        },
+        "the United States->dollar": {
+          "self_cos": 0.9190718008274795,
+          "hot_overlap": {
+            "2000": 0.0835,
+            "20000": 0.2187,
+            "200000": 0.24061
+          },
+          "p_at_state": 0.09912417083978653,
+          "anchor_fd_dp": null
+        },
+        "China->yuan": {
+          "self_cos": 0.9472055270300881,
+          "hot_overlap": {
+            "2000": 0.0785,
+            "20000": 0.2013,
+            "200000": 0.225845
+          },
+          "p_at_state": 0.16364771127700806,
+          "anchor_fd_dp": null
+        },
+        "The social network founded by Mark Zuckerberg->Facebook": {
+          "self_cos": 0.9847952814656526,
+          "hot_overlap": {
+            "2000": 0.094,
+            "20000": 0.21705,
+            "200000": 0.23847
+          },
+          "p_at_state": 0.6969107389450073,
+          "anchor_fd_dp": null
+        },
+        "The electric car company founded by Elon Musk->Tesla": {
+          "self_cos": 0.9823160514171788,
+          "hot_overlap": {
+            "2000": 0.0735,
+            "20000": 0.2042,
+            "200000": 0.2275
+          },
+          "p_at_state": 0.5711416602134705,
+          "anchor_fd_dp": null
+        },
+        "The rocket company founded by Elon Musk->SpaceX": {
+          "self_cos": 0.974229208568389,
+          "hot_overlap": {
+            "2000": 0.0885,
+            "20000": 0.204,
+            "200000": 0.22705
+          },
+          "p_at_state": 0.6289164423942566,
+          "anchor_fd_dp": null
+        },
+        "The search engine founded by Larry Page->Google": {
+          "self_cos": 0.9910783184965585,
+          "hot_overlap": {
+            "2000": 0.0865,
+            "20000": 0.20615,
+            "200000": 0.229915
+          },
+          "p_at_state": 0.7129104733467102,
+          "anchor_fd_dp": null
+        },
+        "The online encyclopedia that anyone can edit->Wikipedia": {
+          "self_cos": 0.936455905591272,
+          "hot_overlap": {
+            "2000": 0.089,
+            "20000": 0.19955,
+            "200000": 0.229225
+          },
+          "p_at_state": 0.3956748843193054,
+          "anchor_fd_dp": null
+        },
+        "The gaming console made by Microsoft->Xbox": {
+          "self_cos": 0.9527387171970737,
+          "hot_overlap": {
+            "2000": 0.0755,
+            "20000": 0.2128,
+            "200000": 0.229645
+          },
+          "p_at_state": 0.2825866639614105,
+          "anchor_fd_dp": null
+        },
+        "The web browser made by Google->Chrome": {
+          "self_cos": 0.938886509213693,
+          "hot_overlap": {
+            "2000": 0.1105,
+            "20000": 0.2283,
+            "200000": 0.24472
+          },
+          "p_at_state": 0.20234887301921844,
+          "anchor_fd_dp": null
+        },
+        "The phone made by Apple->iPhone": {
+          "self_cos": 0.8859842821604886,
+          "hot_overlap": {
+            "2000": 0.098,
+            "20000": 0.21975,
+            "200000": 0.2372
+          },
+          "p_at_state": 0.11716761440038681,
+          "anchor_fd_dp": 0.8317864909768105
+        },
+        "The tablet made by Apple->iPad": {
+          "self_cos": 0.882124812847438,
+          "hot_overlap": {
+            "2000": 0.091,
+            "20000": 0.22115,
+            "200000": 0.23792
+          },
+          "p_at_state": 0.24164250493049622,
+          "anchor_fd_dp": null
+        },
+        "The email service made by Google->Gmail": {
+          "self_cos": 0.9283427440742348,
+          "hot_overlap": {
+            "2000": 0.0945,
+            "20000": 0.2115,
+            "200000": 0.232485
+          },
+          "p_at_state": 0.6747748851776123,
+          "anchor_fd_dp": 0.3230571150779724
+        },
+        "The music store made by Apple->iTunes": {
+          "self_cos": 0.9504934089416636,
+          "hot_overlap": {
+            "2000": 0.095,
+            "20000": 0.2292,
+            "200000": 0.250735
+          },
+          "p_at_state": 0.20097064971923828,
+          "anchor_fd_dp": null
+        },
+        "The game console made by Sony->PlayStation": {
+          "self_cos": 0.9282544603803238,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.21945,
+            "200000": 0.24392
+          },
+          "p_at_state": 0.5332061648368835,
+          "anchor_fd_dp": null
+        },
+        "Massachusetts->Boston": {
+          "self_cos": 0.9759848187874293,
+          "hot_overlap": {
+            "2000": 0.0785,
+            "20000": 0.19575,
+            "200000": 0.22229
+          },
+          "p_at_state": 0.1682472974061966,
+          "anchor_fd_dp": null
+        },
+        "Georgia->Atlanta": {
+          "self_cos": 0.9626859916338368,
+          "hot_overlap": {
+            "2000": 0.087,
+            "20000": 0.20495,
+            "200000": 0.23068
+          },
+          "p_at_state": 0.1052575409412384,
+          "anchor_fd_dp": null
+        },
+        "Ohio->Columbus": {
+          "self_cos": 0.9430856658788006,
+          "hot_overlap": {
+            "2000": 0.0775,
+            "20000": 0.21435,
+            "200000": 0.23416
+          },
+          "p_at_state": 0.14088274538516998,
+          "anchor_fd_dp": null
+        },
+        "Boston->Massachusetts": {
+          "self_cos": 0.9085884965100588,
+          "hot_overlap": {
+            "2000": 0.101,
+            "20000": 0.2291,
+            "200000": 0.24121
+          },
+          "p_at_state": 0.6420231461524963,
+          "anchor_fd_dp": null
+        },
+        "Atlanta->Georgia": {
+          "self_cos": 0.9273669272448424,
+          "hot_overlap": {
+            "2000": 0.059,
+            "20000": 0.16325,
+            "200000": 0.197265
+          },
+          "p_at_state": 0.6158971190452576,
+          "anchor_fd_dp": null
+        },
+        "Sacramento->California": {
+          "self_cos": 0.9317210371667014,
+          "hot_overlap": {
+            "2000": 0.0935,
+            "20000": 0.21555,
+            "200000": 0.2279
+          },
+          "p_at_state": 0.44422367215156555,
+          "anchor_fd_dp": null
+        },
+        "Austin->Texas": {
+          "self_cos": 0.8583399152200217,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.2169,
+            "200000": 0.23125
+          },
+          "p_at_state": 0.2104656845331192,
+          "anchor_fd_dp": null
+        },
+        "Columbus->Ohio": {
+          "self_cos": 0.8720723373848756,
+          "hot_overlap": {
+            "2000": 0.0995,
+            "20000": 0.21875,
+            "200000": 0.23517
+          },
+          "p_at_state": 0.18600709736347198,
+          "anchor_fd_dp": null
+        },
+        "Denver->Colorado": {
+          "self_cos": 0.846092203699074,
+          "hot_overlap": {
+            "2000": 0.101,
+            "20000": 0.2096,
+            "200000": 0.22577
+          },
+          "p_at_state": 0.1796502023935318,
+          "anchor_fd_dp": null
+        },
+        "Little Rock->Arkansas": {
+          "self_cos": 0.8691298114624348,
+          "hot_overlap": {
+            "2000": 0.1065,
+            "20000": 0.22615,
+            "200000": 0.239
+          },
+          "p_at_state": 0.572907567024231,
+          "anchor_fd_dp": null
+        },
+        "Hartford->Connecticut": {
+          "self_cos": 0.9336771187340983,
+          "hot_overlap": {
+            "2000": 0.0945,
+            "20000": 0.1982,
+            "200000": 0.218845
+          },
+          "p_at_state": 0.28425559401512146,
+          "anchor_fd_dp": null
+        },
+        "Dover->Delaware": {
+          "self_cos": 0.9031268530177122,
+          "hot_overlap": {
+            "2000": 0.09,
+            "20000": 0.20455,
+            "200000": 0.22545
+          },
+          "p_at_state": 0.20143166184425354,
+          "anchor_fd_dp": null
+        },
+        "Tallahassee->Florida": {
+          "self_cos": 0.919004957466804,
+          "hot_overlap": {
+            "2000": 0.1055,
+            "20000": 0.2281,
+            "200000": 0.244785
+          },
+          "p_at_state": 0.17769593000411987,
+          "anchor_fd_dp": null
+        },
+        "Honolulu->Hawaii": {
+          "self_cos": 0.925590794511054,
+          "hot_overlap": {
+            "2000": 0.1115,
+            "20000": 0.2179,
+            "200000": 0.23167
+          },
+          "p_at_state": 0.3108243942260742,
+          "anchor_fd_dp": null
+        },
+        "Boise->Idaho": {
+          "self_cos": 0.8996222259659554,
+          "hot_overlap": {
+            "2000": 0.0935,
+            "20000": 0.2065,
+            "200000": 0.22563
+          },
+          "p_at_state": 0.7089241147041321,
+          "anchor_fd_dp": null
+        },
+        "Indianapolis->Indiana": {
+          "self_cos": 0.8677583165093556,
+          "hot_overlap": {
+            "2000": 0.1065,
+            "20000": 0.21575,
+            "200000": 0.227395
+          },
+          "p_at_state": 0.20983828604221344,
+          "anchor_fd_dp": null
+        },
+        "Des Moines->Iowa": {
+          "self_cos": 0.9146630030787742,
+          "hot_overlap": {
+            "2000": 0.1025,
+            "20000": 0.2149,
+            "200000": 0.23132
+          },
+          "p_at_state": 0.6549640893936157,
+          "anchor_fd_dp": null
+        },
+        "Topeka->Kansas": {
+          "self_cos": 0.8665656618011786,
+          "hot_overlap": {
+            "2000": 0.1175,
+            "20000": 0.23205,
+            "200000": 0.24256
+          },
+          "p_at_state": 0.8464008569717407,
+          "anchor_fd_dp": null
+        },
+        "Baton Rouge->Louisiana": {
+          "self_cos": 0.898248355349965,
+          "hot_overlap": {
+            "2000": 0.093,
+            "20000": 0.2099,
+            "200000": 0.224625
+          },
+          "p_at_state": 0.4516797363758087,
+          "anchor_fd_dp": null
+        },
+        "Annapolis->Maryland": {
+          "self_cos": 0.9065446603326917,
+          "hot_overlap": {
+            "2000": 0.103,
+            "20000": 0.22105,
+            "200000": 0.231045
+          },
+          "p_at_state": 0.22994714975357056,
+          "anchor_fd_dp": null
+        },
+        "Lansing->Michigan": {
+          "self_cos": 0.8259779645682537,
+          "hot_overlap": {
+            "2000": 0.1155,
+            "20000": 0.23115,
+            "200000": 0.24057
+          },
+          "p_at_state": 0.5540649890899658,
+          "anchor_fd_dp": null
+        },
+        "Jackson->Mississippi": {
+          "self_cos": 0.9357567861709387,
+          "hot_overlap": {
+            "2000": 0.107,
+            "20000": 0.215,
+            "200000": 0.231175
+          },
+          "p_at_state": 0.08360926806926727,
+          "anchor_fd_dp": null
+        }
+      },
+      "w2": {
+        "France->Paris": {
+          "self_cos": 0.9377224320490115,
+          "hot_overlap": {
+            "2000": 0.0905,
+            "20000": 0.21445,
+            "200000": 0.23357
+          },
+          "p_at_state": 0.14309145510196686,
+          "anchor_fd_dp": null
+        },
+        "Greece->Athens": {
+          "self_cos": 0.9737846280477284,
+          "hot_overlap": {
+            "2000": 0.08,
+            "20000": 0.19865,
+            "200000": 0.21979
+          },
+          "p_at_state": 0.40251320600509644,
+          "anchor_fd_dp": null
+        },
+        "Poland->Warsaw": {
+          "self_cos": 0.9720495398738542,
+          "hot_overlap": {
+            "2000": 0.0655,
+            "20000": 0.18785,
+            "200000": 0.21382
+          },
+          "p_at_state": 0.1767950803041458,
+          "anchor_fd_dp": null
+        },
+        "Portugal->Lisbon": {
+          "self_cos": 0.9692254216888704,
+          "hot_overlap": {
+            "2000": 0.0795,
+            "20000": 0.20035,
+            "200000": 0.223095
+          },
+          "p_at_state": 0.21651768684387207,
+          "anchor_fd_dp": null
+        },
+        "Egypt->Cairo": {
+          "self_cos": 0.962785677212979,
+          "hot_overlap": {
+            "2000": 0.077,
+            "20000": 0.2022,
+            "200000": 0.22593
+          },
+          "p_at_state": 0.1165151298046112,
+          "anchor_fd_dp": null
+        },
+        "Ireland->Dublin": {
+          "self_cos": 0.9435850500967324,
+          "hot_overlap": {
+            "2000": 0.0675,
+            "20000": 0.19165,
+            "200000": 0.22027
+          },
+          "p_at_state": 0.10094417631626129,
+          "anchor_fd_dp": null
+        },
+        "France->French": {
+          "self_cos": 0.9385705960789765,
+          "hot_overlap": {
+            "2000": 0.0995,
+            "20000": 0.2036,
+            "200000": 0.209995
+          },
+          "p_at_state": 0.8013598322868347,
+          "anchor_fd_dp": null
+        },
+        "Germany->German": {
+          "self_cos": 0.9403467353693787,
+          "hot_overlap": {
+            "2000": 0.0705,
+            "20000": 0.16265,
+            "200000": 0.184785
+          },
+          "p_at_state": 0.6765148043632507,
+          "anchor_fd_dp": null
+        },
+        "Japan->Japanese": {
+          "self_cos": 0.9384373147075956,
+          "hot_overlap": {
+            "2000": 0.086,
+            "20000": 0.18995,
+            "200000": 0.20128
+          },
+          "p_at_state": 0.7309340238571167,
+          "anchor_fd_dp": null
+        },
+        "Italy->Italian": {
+          "self_cos": 0.9398892347501652,
+          "hot_overlap": {
+            "2000": 0.085,
+            "20000": 0.1871,
+            "200000": 0.199615
+          },
+          "p_at_state": 0.7392057776451111,
+          "anchor_fd_dp": null
+        },
+        "Spain->Spanish": {
+          "self_cos": 0.9494441918709524,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.18875,
+            "200000": 0.20191
+          },
+          "p_at_state": 0.4965038299560547,
+          "anchor_fd_dp": null
+        },
+        "Russia->Russian": {
+          "self_cos": 0.9675172153268828,
+          "hot_overlap": {
+            "2000": 0.0905,
+            "20000": 0.1929,
+            "200000": 0.20585
+          },
+          "p_at_state": 0.6401978731155396,
+          "anchor_fd_dp": null
+        },
+        "China->Chinese": {
+          "self_cos": 0.9110677624040094,
+          "hot_overlap": {
+            "2000": 0.08,
+            "20000": 0.18385,
+            "200000": 0.198
+          },
+          "p_at_state": 0.492302268743515,
+          "anchor_fd_dp": null
+        },
+        "England->English": {
+          "self_cos": 0.9525793605478272,
+          "hot_overlap": {
+            "2000": 0.0865,
+            "20000": 0.19045,
+            "200000": 0.202985
+          },
+          "p_at_state": 0.572668194770813,
+          "anchor_fd_dp": null
+        },
+        "Greece->Greek": {
+          "self_cos": 0.9494133585089,
+          "hot_overlap": {
+            "2000": 0.098,
+            "20000": 0.1969,
+            "200000": 0.204445
+          },
+          "p_at_state": 0.6193017959594727,
+          "anchor_fd_dp": null
+        },
+        "Poland->Polish": {
+          "self_cos": 0.9642673126331599,
+          "hot_overlap": {
+            "2000": 0.0945,
+            "20000": 0.1967,
+            "200000": 0.209145
+          },
+          "p_at_state": 0.6972143650054932,
+          "anchor_fd_dp": null
+        },
+        "Japan->yen": {
+          "self_cos": 0.9538477575822613,
+          "hot_overlap": {
+            "2000": 0.086,
+            "20000": 0.1919,
+            "200000": 0.22508
+          },
+          "p_at_state": 0.4676443338394165,
+          "anchor_fd_dp": null
+        },
+        "the United Kingdom->pound": {
+          "self_cos": 0.9128043251336316,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.21095,
+            "200000": 0.233935
+          },
+          "p_at_state": 0.37188032269477844,
+          "anchor_fd_dp": null
+        },
+        "the United States->dollar": {
+          "self_cos": 0.9205555164900593,
+          "hot_overlap": {
+            "2000": 0.0945,
+            "20000": 0.21865,
+            "200000": 0.24852
+          },
+          "p_at_state": 0.05210815742611885,
+          "anchor_fd_dp": null
+        },
+        "China->yuan": {
+          "self_cos": 0.9475039666938609,
+          "hot_overlap": {
+            "2000": 0.0765,
+            "20000": 0.20535,
+            "200000": 0.23184
+          },
+          "p_at_state": 0.12825030088424683,
+          "anchor_fd_dp": null
+        },
+        "The social network founded by Mark Zuckerberg->Facebook": {
+          "self_cos": 0.9884395974917741,
+          "hot_overlap": {
+            "2000": 0.087,
+            "20000": 0.2122,
+            "200000": 0.23801
+          },
+          "p_at_state": 0.709952712059021,
+          "anchor_fd_dp": null
+        },
+        "The electric car company founded by Elon Musk->Tesla": {
+          "self_cos": 0.9864683925036205,
+          "hot_overlap": {
+            "2000": 0.073,
+            "20000": 0.1996,
+            "200000": 0.22401
+          },
+          "p_at_state": 0.5949491858482361,
+          "anchor_fd_dp": null
+        },
+        "The rocket company founded by Elon Musk->SpaceX": {
+          "self_cos": 0.9695068220996441,
+          "hot_overlap": {
+            "2000": 0.075,
+            "20000": 0.19915,
+            "200000": 0.226075
+          },
+          "p_at_state": 0.6274868249893188,
+          "anchor_fd_dp": null
+        },
+        "The search engine founded by Larry Page->Google": {
+          "self_cos": 0.9916054960673311,
+          "hot_overlap": {
+            "2000": 0.086,
+            "20000": 0.2082,
+            "200000": 0.23031
+          },
+          "p_at_state": 0.7314707040786743,
+          "anchor_fd_dp": null
+        },
+        "The online encyclopedia that anyone can edit->Wikipedia": {
+          "self_cos": 0.9234162435217894,
+          "hot_overlap": {
+            "2000": 0.089,
+            "20000": 0.20135,
+            "200000": 0.232415
+          },
+          "p_at_state": 0.4155566096305847,
+          "anchor_fd_dp": null
+        },
+        "The gaming console made by Microsoft->Xbox": {
+          "self_cos": 0.9571859379916416,
+          "hot_overlap": {
+            "2000": 0.0755,
+            "20000": 0.20295,
+            "200000": 0.227445
+          },
+          "p_at_state": 0.2354421466588974,
+          "anchor_fd_dp": null
+        },
+        "The web browser made by Google->Chrome": {
+          "self_cos": 0.9421941911285732,
+          "hot_overlap": {
+            "2000": 0.1015,
+            "20000": 0.2274,
+            "200000": 0.245955
+          },
+          "p_at_state": 0.20110595226287842,
+          "anchor_fd_dp": null
+        },
+        "The phone made by Apple->iPhone": {
+          "self_cos": 0.9085286145783683,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.2182,
+            "200000": 0.236375
+          },
+          "p_at_state": 0.2173159271478653,
+          "anchor_fd_dp": 0.7509310096502304
+        },
+        "The tablet made by Apple->iPad": {
+          "self_cos": 0.8889011116102237,
+          "hot_overlap": {
+            "2000": 0.088,
+            "20000": 0.21575,
+            "200000": 0.236305
+          },
+          "p_at_state": 0.29010629653930664,
+          "anchor_fd_dp": null
+        },
+        "The email service made by Google->Gmail": {
+          "self_cos": 0.9245198359867949,
+          "hot_overlap": {
+            "2000": 0.0895,
+            "20000": 0.2054,
+            "200000": 0.230205
+          },
+          "p_at_state": 0.6942002773284912,
+          "anchor_fd_dp": 0.3034151792526245
+        },
+        "The music store made by Apple->iTunes": {
+          "self_cos": 0.9235408400737518,
+          "hot_overlap": {
+            "2000": 0.1035,
+            "20000": 0.22675,
+            "200000": 0.251425
+          },
+          "p_at_state": 0.13690724968910217,
+          "anchor_fd_dp": null
+        },
+        "The game console made by Sony->PlayStation": {
+          "self_cos": 0.94037396818852,
+          "hot_overlap": {
+            "2000": 0.082,
+            "20000": 0.2213,
+            "200000": 0.24766
+          },
+          "p_at_state": 0.6006705164909363,
+          "anchor_fd_dp": null
+        },
+        "Massachusetts->Boston": {
+          "self_cos": 0.9772780151644396,
+          "hot_overlap": {
+            "2000": 0.064,
+            "20000": 0.19025,
+            "200000": 0.216755
+          },
+          "p_at_state": 0.2300376445055008,
+          "anchor_fd_dp": null
+        },
+        "Georgia->Atlanta": {
+          "self_cos": 0.9614587968291479,
+          "hot_overlap": {
+            "2000": 0.0845,
+            "20000": 0.2006,
+            "200000": 0.227265
+          },
+          "p_at_state": 0.15308833122253418,
+          "anchor_fd_dp": null
+        },
+        "Ohio->Columbus": {
+          "self_cos": 0.9517317734622007,
+          "hot_overlap": {
+            "2000": 0.0775,
+            "20000": 0.2106,
+            "200000": 0.23273
+          },
+          "p_at_state": 0.22417213022708893,
+          "anchor_fd_dp": null
+        },
+        "Boston->Massachusetts": {
+          "self_cos": 0.9192203401190259,
+          "hot_overlap": {
+            "2000": 0.1,
+            "20000": 0.2305,
+            "200000": 0.245905
+          },
+          "p_at_state": 0.7610604166984558,
+          "anchor_fd_dp": null
+        },
+        "Atlanta->Georgia": {
+          "self_cos": 0.8982865169493449,
+          "hot_overlap": {
+            "2000": 0.0535,
+            "20000": 0.1584,
+            "200000": 0.19422
+          },
+          "p_at_state": 0.6683304905891418,
+          "anchor_fd_dp": null
+        },
+        "Sacramento->California": {
+          "self_cos": 0.9428974852379984,
+          "hot_overlap": {
+            "2000": 0.0845,
+            "20000": 0.2051,
+            "200000": 0.223945
+          },
+          "p_at_state": 0.4928411543369293,
+          "anchor_fd_dp": null
+        },
+        "Austin->Texas": {
+          "self_cos": 0.8523330851705924,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.2133,
+            "200000": 0.23078
+          },
+          "p_at_state": 0.27844882011413574,
+          "anchor_fd_dp": null
+        },
+        "Columbus->Ohio": {
+          "self_cos": 0.8858962520562469,
+          "hot_overlap": {
+            "2000": 0.1045,
+            "20000": 0.21295,
+            "200000": 0.232995
+          },
+          "p_at_state": 0.2546084225177765,
+          "anchor_fd_dp": null
+        },
+        "Denver->Colorado": {
+          "self_cos": 0.8539226630227894,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.20815,
+            "200000": 0.224115
+          },
+          "p_at_state": 0.18885965645313263,
+          "anchor_fd_dp": null
+        },
+        "Little Rock->Arkansas": {
+          "self_cos": 0.8762706271262937,
+          "hot_overlap": {
+            "2000": 0.0995,
+            "20000": 0.21975,
+            "200000": 0.23899
+          },
+          "p_at_state": 0.7013681530952454,
+          "anchor_fd_dp": null
+        },
+        "Hartford->Connecticut": {
+          "self_cos": 0.935114670627389,
+          "hot_overlap": {
+            "2000": 0.0915,
+            "20000": 0.1968,
+            "200000": 0.22013
+          },
+          "p_at_state": 0.3765191435813904,
+          "anchor_fd_dp": null
+        },
+        "Dover->Delaware": {
+          "self_cos": 0.8868592854068039,
+          "hot_overlap": {
+            "2000": 0.088,
+            "20000": 0.20895,
+            "200000": 0.226775
+          },
+          "p_at_state": 0.3518761396408081,
+          "anchor_fd_dp": null
+        },
+        "Tallahassee->Florida": {
+          "self_cos": 0.9404791503349303,
+          "hot_overlap": {
+            "2000": 0.1065,
+            "20000": 0.22625,
+            "200000": 0.244715
+          },
+          "p_at_state": 0.35582369565963745,
+          "anchor_fd_dp": null
+        },
+        "Honolulu->Hawaii": {
+          "self_cos": 0.9277719069383474,
+          "hot_overlap": {
+            "2000": 0.109,
+            "20000": 0.21185,
+            "200000": 0.229655
+          },
+          "p_at_state": 0.48182645440101624,
+          "anchor_fd_dp": null
+        },
+        "Boise->Idaho": {
+          "self_cos": 0.9026100924838916,
+          "hot_overlap": {
+            "2000": 0.0885,
+            "20000": 0.20455,
+            "200000": 0.225995
+          },
+          "p_at_state": 0.8212270736694336,
+          "anchor_fd_dp": null
+        },
+        "Indianapolis->Indiana": {
+          "self_cos": 0.8724976613321098,
+          "hot_overlap": {
+            "2000": 0.108,
+            "20000": 0.21565,
+            "200000": 0.22853
+          },
+          "p_at_state": 0.39166590571403503,
+          "anchor_fd_dp": null
+        },
+        "Des Moines->Iowa": {
+          "self_cos": 0.8825837785008015,
+          "hot_overlap": {
+            "2000": 0.093,
+            "20000": 0.202,
+            "200000": 0.222135
+          },
+          "p_at_state": 0.7092366814613342,
+          "anchor_fd_dp": null
+        },
+        "Topeka->Kansas": {
+          "self_cos": 0.8588108564530516,
+          "hot_overlap": {
+            "2000": 0.109,
+            "20000": 0.222,
+            "200000": 0.23464
+          },
+          "p_at_state": 0.9029868841171265,
+          "anchor_fd_dp": null
+        },
+        "Baton Rouge->Louisiana": {
+          "self_cos": 0.9047378799049149,
+          "hot_overlap": {
+            "2000": 0.1005,
+            "20000": 0.20825,
+            "200000": 0.224495
+          },
+          "p_at_state": 0.49601683020591736,
+          "anchor_fd_dp": null
+        },
+        "Annapolis->Maryland": {
+          "self_cos": 0.9168725189504696,
+          "hot_overlap": {
+            "2000": 0.1065,
+            "20000": 0.21855,
+            "200000": 0.22972
+          },
+          "p_at_state": 0.361351877450943,
+          "anchor_fd_dp": null
+        },
+        "Lansing->Michigan": {
+          "self_cos": 0.829690015915659,
+          "hot_overlap": {
+            "2000": 0.1125,
+            "20000": 0.2276,
+            "200000": 0.238985
+          },
+          "p_at_state": 0.7403944134712219,
+          "anchor_fd_dp": null
+        },
+        "Jackson->Mississippi": {
+          "self_cos": 0.9311675382297563,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.20915,
+            "200000": 0.230415
+          },
+          "p_at_state": 0.13141101598739624,
+          "anchor_fd_dp": null
+        }
+      },
+      "w3": {
+        "France->Paris": {
+          "self_cos": 0.9362485532177784,
+          "hot_overlap": {
+            "2000": 0.0835,
+            "20000": 0.2093,
+            "200000": 0.229925
+          },
+          "p_at_state": 0.1564646065235138,
+          "anchor_fd_dp": null
+        },
+        "Greece->Athens": {
+          "self_cos": 0.9705570313282229,
+          "hot_overlap": {
+            "2000": 0.072,
+            "20000": 0.1937,
+            "200000": 0.21754
+          },
+          "p_at_state": 0.4354715049266815,
+          "anchor_fd_dp": null
+        },
+        "Poland->Warsaw": {
+          "self_cos": 0.969979127846016,
+          "hot_overlap": {
+            "2000": 0.0665,
+            "20000": 0.18635,
+            "200000": 0.21139
+          },
+          "p_at_state": 0.11310679465532303,
+          "anchor_fd_dp": null
+        },
+        "Portugal->Lisbon": {
+          "self_cos": 0.9673967884959258,
+          "hot_overlap": {
+            "2000": 0.0785,
+            "20000": 0.20165,
+            "200000": 0.222985
+          },
+          "p_at_state": 0.2152150571346283,
+          "anchor_fd_dp": null
+        },
+        "Egypt->Cairo": {
+          "self_cos": 0.9609685188381143,
+          "hot_overlap": {
+            "2000": 0.071,
+            "20000": 0.201,
+            "200000": 0.22233
+          },
+          "p_at_state": 0.10730832815170288,
+          "anchor_fd_dp": null
+        },
+        "Ireland->Dublin": {
+          "self_cos": 0.9392062999999145,
+          "hot_overlap": {
+            "2000": 0.0645,
+            "20000": 0.1886,
+            "200000": 0.219105
+          },
+          "p_at_state": 0.06503784656524658,
+          "anchor_fd_dp": null
+        },
+        "France->French": {
+          "self_cos": 0.9408429188422937,
+          "hot_overlap": {
+            "2000": 0.1185,
+            "20000": 0.2076,
+            "200000": 0.21158
+          },
+          "p_at_state": 0.7927402853965759,
+          "anchor_fd_dp": null
+        },
+        "Germany->German": {
+          "self_cos": 0.9350210988377214,
+          "hot_overlap": {
+            "2000": 0.0935,
+            "20000": 0.1756,
+            "200000": 0.190015
+          },
+          "p_at_state": 0.6568301320075989,
+          "anchor_fd_dp": null
+        },
+        "Japan->Japanese": {
+          "self_cos": 0.9407424741410648,
+          "hot_overlap": {
+            "2000": 0.094,
+            "20000": 0.199,
+            "200000": 0.205345
+          },
+          "p_at_state": 0.7269326448440552,
+          "anchor_fd_dp": null
+        },
+        "Italy->Italian": {
+          "self_cos": 0.9464050465195024,
+          "hot_overlap": {
+            "2000": 0.0975,
+            "20000": 0.1904,
+            "200000": 0.202905
+          },
+          "p_at_state": 0.7343504428863525,
+          "anchor_fd_dp": null
+        },
+        "Spain->Spanish": {
+          "self_cos": 0.9566317768090856,
+          "hot_overlap": {
+            "2000": 0.1005,
+            "20000": 0.1968,
+            "200000": 0.204455
+          },
+          "p_at_state": 0.5087763071060181,
+          "anchor_fd_dp": null
+        },
+        "Russia->Russian": {
+          "self_cos": 0.9662829713116586,
+          "hot_overlap": {
+            "2000": 0.1045,
+            "20000": 0.20095,
+            "200000": 0.20853
+          },
+          "p_at_state": 0.6018535494804382,
+          "anchor_fd_dp": null
+        },
+        "China->Chinese": {
+          "self_cos": 0.8962978916807316,
+          "hot_overlap": {
+            "2000": 0.0985,
+            "20000": 0.1933,
+            "200000": 0.204215
+          },
+          "p_at_state": 0.5136186480522156,
+          "anchor_fd_dp": null
+        },
+        "England->English": {
+          "self_cos": 0.9427575981807704,
+          "hot_overlap": {
+            "2000": 0.095,
+            "20000": 0.1981,
+            "200000": 0.204835
+          },
+          "p_at_state": 0.5510706901550293,
+          "anchor_fd_dp": null
+        },
+        "Greece->Greek": {
+          "self_cos": 0.9552091296523758,
+          "hot_overlap": {
+            "2000": 0.1065,
+            "20000": 0.2001,
+            "200000": 0.207285
+          },
+          "p_at_state": 0.6194834113121033,
+          "anchor_fd_dp": null
+        },
+        "Poland->Polish": {
+          "self_cos": 0.9639451075323794,
+          "hot_overlap": {
+            "2000": 0.091,
+            "20000": 0.1929,
+            "200000": 0.207825
+          },
+          "p_at_state": 0.6607282757759094,
+          "anchor_fd_dp": null
+        },
+        "Japan->yen": {
+          "self_cos": 0.9499871994844303,
+          "hot_overlap": {
+            "2000": 0.075,
+            "20000": 0.1862,
+            "200000": 0.221035
+          },
+          "p_at_state": 0.5474028587341309,
+          "anchor_fd_dp": null
+        },
+        "the United Kingdom->pound": {
+          "self_cos": 0.8928589780029724,
+          "hot_overlap": {
+            "2000": 0.0945,
+            "20000": 0.20775,
+            "200000": 0.23114
+          },
+          "p_at_state": 0.3688499331474304,
+          "anchor_fd_dp": null
+        },
+        "the United States->dollar": {
+          "self_cos": 0.9362734363376903,
+          "hot_overlap": {
+            "2000": 0.082,
+            "20000": 0.21505,
+            "200000": 0.24092
+          },
+          "p_at_state": 0.08064394444227219,
+          "anchor_fd_dp": null
+        },
+        "China->yuan": {
+          "self_cos": 0.9546509084926916,
+          "hot_overlap": {
+            "2000": 0.072,
+            "20000": 0.2026,
+            "200000": 0.2293
+          },
+          "p_at_state": 0.12305240333080292,
+          "anchor_fd_dp": null
+        },
+        "The social network founded by Mark Zuckerberg->Facebook": {
+          "self_cos": 0.9846277520267874,
+          "hot_overlap": {
+            "2000": 0.092,
+            "20000": 0.2101,
+            "200000": 0.23704
+          },
+          "p_at_state": 0.7313677072525024,
+          "anchor_fd_dp": null
+        },
+        "The electric car company founded by Elon Musk->Tesla": {
+          "self_cos": 0.9866039644689162,
+          "hot_overlap": {
+            "2000": 0.0745,
+            "20000": 0.1937,
+            "200000": 0.221975
+          },
+          "p_at_state": 0.5825947523117065,
+          "anchor_fd_dp": null
+        },
+        "The rocket company founded by Elon Musk->SpaceX": {
+          "self_cos": 0.9610272806888495,
+          "hot_overlap": {
+            "2000": 0.078,
+            "20000": 0.1925,
+            "200000": 0.219245
+          },
+          "p_at_state": 0.6643064618110657,
+          "anchor_fd_dp": null
+        },
+        "The search engine founded by Larry Page->Google": {
+          "self_cos": 0.9894692976263688,
+          "hot_overlap": {
+            "2000": 0.0825,
+            "20000": 0.1967,
+            "200000": 0.22519
+          },
+          "p_at_state": 0.7410845756530762,
+          "anchor_fd_dp": null
+        },
+        "The online encyclopedia that anyone can edit->Wikipedia": {
+          "self_cos": 0.9212221132982182,
+          "hot_overlap": {
+            "2000": 0.0865,
+            "20000": 0.19615,
+            "200000": 0.230925
+          },
+          "p_at_state": 0.4254055619239807,
+          "anchor_fd_dp": null
+        },
+        "The gaming console made by Microsoft->Xbox": {
+          "self_cos": 0.9557919841292414,
+          "hot_overlap": {
+            "2000": 0.0735,
+            "20000": 0.20105,
+            "200000": 0.226185
+          },
+          "p_at_state": 0.28991949558258057,
+          "anchor_fd_dp": null
+        },
+        "The web browser made by Google->Chrome": {
+          "self_cos": 0.9442419234338076,
+          "hot_overlap": {
+            "2000": 0.0975,
+            "20000": 0.2278,
+            "200000": 0.24455
+          },
+          "p_at_state": 0.19396260380744934,
+          "anchor_fd_dp": null
+        },
+        "The phone made by Apple->iPhone": {
+          "self_cos": 0.8941999083639148,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.2165,
+            "200000": 0.23642
+          },
+          "p_at_state": 0.12405470013618469,
+          "anchor_fd_dp": 0.8200500905513763
+        },
+        "The tablet made by Apple->iPad": {
+          "self_cos": 0.8752464658565714,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.21655,
+            "200000": 0.237895
+          },
+          "p_at_state": 0.21954110264778137,
+          "anchor_fd_dp": null
+        },
+        "The email service made by Google->Gmail": {
+          "self_cos": 0.9198999714872318,
+          "hot_overlap": {
+            "2000": 0.089,
+            "20000": 0.2053,
+            "200000": 0.23193
+          },
+          "p_at_state": 0.6440540552139282,
+          "anchor_fd_dp": 0.353235125541687
+        },
+        "The music store made by Apple->iTunes": {
+          "self_cos": 0.9462290478753326,
+          "hot_overlap": {
+            "2000": 0.1,
+            "20000": 0.2262,
+            "200000": 0.248845
+          },
+          "p_at_state": 0.20848527550697327,
+          "anchor_fd_dp": null
+        },
+        "The game console made by Sony->PlayStation": {
+          "self_cos": 0.9197946516032344,
+          "hot_overlap": {
+            "2000": 0.09,
+            "20000": 0.219,
+            "200000": 0.24599
+          },
+          "p_at_state": 0.5805888772010803,
+          "anchor_fd_dp": null
+        },
+        "Massachusetts->Boston": {
+          "self_cos": 0.9692002554231405,
+          "hot_overlap": {
+            "2000": 0.066,
+            "20000": 0.1868,
+            "200000": 0.217665
+          },
+          "p_at_state": 0.19961674511432648,
+          "anchor_fd_dp": null
+        },
+        "Georgia->Atlanta": {
+          "self_cos": 0.9584544624419508,
+          "hot_overlap": {
+            "2000": 0.089,
+            "20000": 0.20345,
+            "200000": 0.229775
+          },
+          "p_at_state": 0.16103896498680115,
+          "anchor_fd_dp": null
+        },
+        "Ohio->Columbus": {
+          "self_cos": 0.9395666956341246,
+          "hot_overlap": {
+            "2000": 0.0795,
+            "20000": 0.21315,
+            "200000": 0.23454
+          },
+          "p_at_state": 0.17600037157535553,
+          "anchor_fd_dp": null
+        },
+        "Boston->Massachusetts": {
+          "self_cos": 0.8985762733243748,
+          "hot_overlap": {
+            "2000": 0.0965,
+            "20000": 0.22035,
+            "200000": 0.24106
+          },
+          "p_at_state": 0.6864262819290161,
+          "anchor_fd_dp": null
+        },
+        "Atlanta->Georgia": {
+          "self_cos": 0.8780720747004439,
+          "hot_overlap": {
+            "2000": 0.058,
+            "20000": 0.1471,
+            "200000": 0.183845
+          },
+          "p_at_state": 0.5672882199287415,
+          "anchor_fd_dp": null
+        },
+        "Sacramento->California": {
+          "self_cos": 0.9426249301417376,
+          "hot_overlap": {
+            "2000": 0.083,
+            "20000": 0.2033,
+            "200000": 0.223935
+          },
+          "p_at_state": 0.40430644154548645,
+          "anchor_fd_dp": null
+        },
+        "Austin->Texas": {
+          "self_cos": 0.8505886034484468,
+          "hot_overlap": {
+            "2000": 0.0925,
+            "20000": 0.2054,
+            "200000": 0.22828
+          },
+          "p_at_state": 0.22490504384040833,
+          "anchor_fd_dp": null
+        },
+        "Columbus->Ohio": {
+          "self_cos": 0.8770466510877242,
+          "hot_overlap": {
+            "2000": 0.096,
+            "20000": 0.209,
+            "200000": 0.232875
+          },
+          "p_at_state": 0.24511225521564484,
+          "anchor_fd_dp": null
+        },
+        "Denver->Colorado": {
+          "self_cos": 0.8494102510937013,
+          "hot_overlap": {
+            "2000": 0.0955,
+            "20000": 0.2004,
+            "200000": 0.2228
+          },
+          "p_at_state": 0.13957132399082184,
+          "anchor_fd_dp": null
+        },
+        "Little Rock->Arkansas": {
+          "self_cos": 0.8771493078943516,
+          "hot_overlap": {
+            "2000": 0.091,
+            "20000": 0.2086,
+            "200000": 0.231145
+          },
+          "p_at_state": 0.5649932026863098,
+          "anchor_fd_dp": null
+        },
+        "Hartford->Connecticut": {
+          "self_cos": 0.9277457355927597,
+          "hot_overlap": {
+            "2000": 0.091,
+            "20000": 0.1896,
+            "200000": 0.218275
+          },
+          "p_at_state": 0.2830052375793457,
+          "anchor_fd_dp": null
+        },
+        "Dover->Delaware": {
+          "self_cos": 0.885716116939735,
+          "hot_overlap": {
+            "2000": 0.095,
+            "20000": 0.2035,
+            "200000": 0.226155
+          },
+          "p_at_state": 0.2470436990261078,
+          "anchor_fd_dp": null
+        },
+        "Tallahassee->Florida": {
+          "self_cos": 0.9321782462328522,
+          "hot_overlap": {
+            "2000": 0.1095,
+            "20000": 0.2241,
+            "200000": 0.243435
+          },
+          "p_at_state": 0.1930282562971115,
+          "anchor_fd_dp": null
+        },
+        "Honolulu->Hawaii": {
+          "self_cos": 0.921798893070705,
+          "hot_overlap": {
+            "2000": 0.105,
+            "20000": 0.20735,
+            "200000": 0.228275
+          },
+          "p_at_state": 0.3915097713470459,
+          "anchor_fd_dp": null
+        },
+        "Boise->Idaho": {
+          "self_cos": 0.9060770613790488,
+          "hot_overlap": {
+            "2000": 0.0845,
+            "20000": 0.1936,
+            "200000": 0.220915
+          },
+          "p_at_state": 0.741114616394043,
+          "anchor_fd_dp": null
+        },
+        "Indianapolis->Indiana": {
+          "self_cos": 0.873677664327196,
+          "hot_overlap": {
+            "2000": 0.108,
+            "20000": 0.20455,
+            "200000": 0.22421
+          },
+          "p_at_state": 0.3030998706817627,
+          "anchor_fd_dp": null
+        },
+        "Des Moines->Iowa": {
+          "self_cos": 0.8845401635573927,
+          "hot_overlap": {
+            "2000": 0.0865,
+            "20000": 0.19105,
+            "200000": 0.21773
+          },
+          "p_at_state": 0.5628165006637573,
+          "anchor_fd_dp": null
+        },
+        "Topeka->Kansas": {
+          "self_cos": 0.8685495596516822,
+          "hot_overlap": {
+            "2000": 0.112,
+            "20000": 0.21605,
+            "200000": 0.23517
+          },
+          "p_at_state": 0.9007924199104309,
+          "anchor_fd_dp": null
+        },
+        "Baton Rouge->Louisiana": {
+          "self_cos": 0.8874965246827256,
+          "hot_overlap": {
+            "2000": 0.0915,
+            "20000": 0.19865,
+            "200000": 0.220045
+          },
+          "p_at_state": 0.4445670247077942,
+          "anchor_fd_dp": null
+        },
+        "Annapolis->Maryland": {
+          "self_cos": 0.914034868264282,
+          "hot_overlap": {
+            "2000": 0.1055,
+            "20000": 0.216,
+            "200000": 0.231625
+          },
+          "p_at_state": 0.3468813896179199,
+          "anchor_fd_dp": null
+        },
+        "Lansing->Michigan": {
+          "self_cos": 0.82861353520923,
+          "hot_overlap": {
+            "2000": 0.115,
+            "20000": 0.2176,
+            "200000": 0.234665
+          },
+          "p_at_state": 0.6771422028541565,
+          "anchor_fd_dp": null
+        },
+        "Jackson->Mississippi": {
+          "self_cos": 0.923184652540324,
+          "hot_overlap": {
+            "2000": 0.093,
+            "20000": 0.1994,
+            "200000": 0.2269
+          },
+          "p_at_state": 0.08147453516721725,
+          "anchor_fd_dp": null
+        }
+      }
+    },
+    "bands": {
+      "w1": {
+        "0": {
+          "align_mu": 0.0015450692997893277,
+          "align_sd": 0.0021603294514401213
+        },
+        "2": {
+          "align_mu": 0.0005905699708613089,
+          "align_sd": 0.0015131113722853095
+        },
+        "10": {
+          "align_mu": 0.0039005939206932004,
+          "align_sd": 0.0012372383318322165
+        },
+        "50": {
+          "align_mu": -0.002383817327001713,
+          "align_sd": 0.002493069430311102
+        },
+        "80": {
+          "align_mu": 0.001435275476151083,
+          "align_sd": 0.0008934423099049368
+        },
+        "rot_mu": 0.9304995817160384,
+        "rot_sd": 0.0287655682189032,
+        "hot_mu": 0.0937,
+        "hot_sd": 0.01255288811389634,
+        "founder_rot_mu": 0.9737749531078101,
+        "founder_rot_sd": 0.021718207262494058
+      },
+      "w2": {
+        "0": {
+          "align_mu": 0.0011718334810726467,
+          "align_sd": 0.0018230599000291995
+        },
+        "10": {
+          "align_mu": -0.00044350763019081906,
+          "align_sd": 0.0012871047270276899
+        },
+        "50": {
+          "align_mu": 0.0011322319906516577,
+          "align_sd": 0.0016151553513779097
+        },
+        "80": {
+          "align_mu": -0.003241827392962833,
+          "align_sd": 0.0015838386008471233
+        },
+        "rot_mu": 0.9304392097985421,
+        "rot_sd": 0.02610204774215257,
+        "hot_mu": 0.0901,
+        "hot_sd": 0.012172715391398914,
+        "founder_rot_mu": 0.9718873103368318,
+        "founder_rot_sd": 0.028418761664402572
+      },
+      "w3": {
+        "0": {
+          "align_mu": 0.0020479885556775475,
+          "align_sd": 0.0014424516413103076
+        },
+        "10": {
+          "align_mu": -0.00039368289564265733,
+          "align_sd": 0.0013263244458512331
+        },
+        "50": {
+          "align_mu": 0.00022201800917211976,
+          "align_sd": 0.0014146351117607149
+        },
+        "80": {
+          "align_mu": -0.001132479826742218,
+          "align_sd": 0.001803141864536091
+        },
+        "rot_mu": 0.9282608145796375,
+        "rot_sd": 0.032474665628841645,
+        "hot_mu": 0.0915,
+        "hot_sd": 0.010717975555113012,
+        "founder_rot_mu": 0.968590081621828,
+        "founder_rot_sd": 0.028803510590157937
+      }
+    },
+    "z_reads": [
+      {
+        "read": "align w1 +0",
+        "z": 2.40720290945071,
+        "gmail": 0.0031337447544461305,
+        "iphone": -0.002066606586432586,
+        "sigma": 0.0021603294514401213
+      },
+      {
+        "read": "align w1 +2",
+        "z": 2.345458058516033,
+        "gmail": 0.0003666561421234562,
+        "iphone": 0.003915595403682289,
+        "sigma": 0.0015131113722853095
+      },
+      {
+        "read": "align w1 +10",
+        "z": 5.080806359859281,
+        "gmail": 0.003947525732062893,
+        "iphone": 0.010233694117097706,
+        "sigma": 0.0012372383318322165
+      },
+      {
+        "read": "align w1 +50",
+        "z": 3.4214864309379243,
+        "gmail": -0.0031209922125429762,
+        "iphone": -0.011650995439738552,
+        "sigma": 0.002493069430311102
+      },
+      {
+        "read": "align w1 +80",
+        "z": 3.142710296170697,
+        "gmail": 0.004612197408431637,
+        "iphone": 0.0018043670620588612,
+        "sigma": 0.0008934423099049368
+      },
+      {
+        "read": "rotation w1 +80",
+        "z": 1.4725404202483448,
+        "gmail": 0.9283427440742348,
+        "iphone": 0.8859842821604886,
+        "sigma": 0.0287655682189032
+      },
+      {
+        "read": "hot-overlap w1 +80",
+        "z": 0.2788202976273979,
+        "gmail": 0.0945,
+        "iphone": 0.098,
+        "sigma": 0.01255288811389634
+      },
+      {
+        "read": "align w2 +0",
+        "z": 0.5936114234811045,
+        "gmail": 0.002146299413426501,
+        "iphone": 0.0010641102310788477,
+        "sigma": 0.0018230599000291995
+      },
+      {
+        "read": "align w2 +10",
+        "z": 6.632199106560049,
+        "gmail": 0.0021576720059716266,
+        "iphone": -0.006378662814670633,
+        "sigma": 0.0012871047270276899
+      },
+      {
+        "read": "align w2 +50",
+        "z": 7.188083722934211,
+        "gmail": -0.000732761664930215,
+        "iphone": 0.010877110226319424,
+        "sigma": 0.0016151553513779097
+      },
+      {
+        "read": "align w2 +80",
+        "z": 6.170180500611474,
+        "gmail": -0.001183851541619433,
+        "iphone": -0.010956421592682113,
+        "sigma": 0.0015838386008471233
+      },
+      {
+        "read": "rotation w2 +80",
+        "z": 0.6126424089939165,
+        "gmail": 0.9245198359867949,
+        "iphone": 0.9085286145783683,
+        "sigma": 0.02610204774215257
+      },
+      {
+        "read": "hot-overlap w2 +80",
+        "z": 0.4929056342054567,
+        "gmail": 0.0895,
+        "iphone": 0.0955,
+        "sigma": 0.012172715391398914
+      },
+      {
+        "read": "align w3 +0",
+        "z": 0.9696439613680878,
+        "gmail": 0.0024371452944918623,
+        "iphone": 0.0010384807709298354,
+        "sigma": 0.0014424516413103076
+      },
+      {
+        "read": "align w3 +10",
+        "z": 1.2982753792454151,
+        "gmail": 0.0010312002388401496,
+        "iphone": 0.0027531346117801244,
+        "sigma": 0.0013263244458512331
+      },
+      {
+        "read": "align w3 +50",
+        "z": 4.5791810478315815,
+        "gmail": -0.001645768954558008,
+        "iphone": 0.004832101338813769,
+        "sigma": 0.0014146351117607149
+      },
+      {
+        "read": "align w3 +80",
+        "z": 3.3605220020239064,
+        "gmail": -0.0021038375521740837,
+        "iphone": -0.008163335460718027,
+        "sigma": 0.001803141864536091
+      },
+      {
+        "read": "rotation w3 +80",
+        "z": 0.7913880751551766,
+        "gmail": 0.9198999714872318,
+        "iphone": 0.8941999083639148,
+        "sigma": 0.032474665628841645
+      },
+      {
+        "read": "hot-overlap w3 +80",
+        "z": 0.6997590133914917,
+        "gmail": 0.089,
+        "iphone": 0.0965,
+        "sigma": 0.010717975555113012
+      }
+    ],
+    "z_bar": 2.0,
+    "n_reads": 19,
+    "n_firing": 10,
+    "hot_ladder_anchors": {
+      "w1": {
+        "The email service made by Google->Gmail": {
+          "2000": 0.0945,
+          "20000": 0.2115,
+          "200000": 0.232485
+        },
+        "The phone made by Apple->iPhone": {
+          "2000": 0.098,
+          "20000": 0.21975,
+          "200000": 0.2372
+        }
+      },
+      "w2": {
+        "The email service made by Google->Gmail": {
+          "2000": 0.0895,
+          "20000": 0.2054,
+          "200000": 0.230205
+        },
+        "The phone made by Apple->iPhone": {
+          "2000": 0.0955,
+          "20000": 0.2182,
+          "200000": 0.236375
+        }
+      },
+      "w3": {
+        "The email service made by Google->Gmail": {
+          "2000": 0.089,
+          "20000": 0.2053,
+          "200000": 0.23193
+        },
+        "The phone made by Apple->iPhone": {
+          "2000": 0.0965,
+          "20000": 0.2165,
+          "200000": 0.23642
+        }
+      }
+    },
+    "anchor_asymmetry_coread": {
+      "definition": "|A(w,s,iPhone)| / |A(w,s,Gmail)| \u2014 DESCRIPTIVE co-report from the committed alignment table; never adjudicated (the bars fired on the signed Z reads)",
+      "ratio_by_state": {
+        "w1": {
+          "0": 0.66,
+          "2": 10.68,
+          "10": 2.59,
+          "50": 3.73,
+          "80": 0.39
+        },
+        "w2": {
+          "0": 0.5,
+          "10": 2.96,
+          "50": 14.84,
+          "80": 9.25
+        },
+        "w3": {
+          "0": 0.43,
+          "10": 2.67,
+          "50": 2.94,
+          "80": 3.88
+        }
+      },
+      "read": "at t=0 Gmail's support overlaps the wash's FIRST gradient MORE (ratio 0.43-0.66 on all three washes); from +2/+10 onward the dying probe's support carries the LARGER wash component (2.6-14.8x on 8 of 9 mid/settled reads; the single exception w1+80) \u2014 the wash's continuing pull works ALONG iPhone's support direction and largely past Gmail's; the differentiation EMERGES with dose (the t=0 ratio points the other way), echoing T185's mid-dose state function and T189's +10->+50 emergence"
+    },
+    "rotation_subbar_echo": {
+      "read": "the rotation read does not fire (Z 0.61-1.47) but its SIGN is consistent on 3/3 washes: Gmail's support rotates LESS (cos to t=0: 0.928/0.924/0.920) than iPhone's (0.886/0.909/0.894) \u2014 the holding relation's support is the more nearly fixed point of the wash; sub-bar echo, never adjudicated",
+      "gmail": {
+        "w1": 0.9283427440742348,
+        "w2": 0.9245198359867949,
+        "w3": 0.9198999714872318
+      },
+      "iphone": {
+        "w1": 0.8859842821604886,
+        "w2": 0.9085286145783683,
+        "w3": 0.8941999083639148
+      }
+    }
+  },
+  "adjudication": {
+    "verdict": "SUPPORT-DIFFERENTIATES",
+    "bars_verbatim": {
+      "SUPPORT-DIFFERENTIATES": "fires if Gmail and iPhone separate on the alignment or rotation curves (>= 2 sigma of the within-family spread at any state) \u2014 the wash treats the two relations' supports differently; the interior mapped; the dimension's seat located even if its name stays open.",
+      "GEOMETRY-IDENTICAL": "fires if the curves sit within the family noise at every read \u2014 the differentiation is below the first-order floor; REAL-AND-UNNAMED confirmed as the correct state; the honest bound recorded."
+    },
+    "fired_reads": [
+      {
+        "read": "align w1 +0",
+        "z": 2.40720290945071,
+        "gmail": 0.0031337447544461305,
+        "iphone": -0.002066606586432586,
+        "sigma": 0.0021603294514401213
+      },
+      {
+        "read": "align w1 +2",
+        "z": 2.345458058516033,
+        "gmail": 0.0003666561421234562,
+        "iphone": 0.003915595403682289,
+        "sigma": 0.0015131113722853095
+      },
+      {
+        "read": "align w1 +10",
+        "z": 5.080806359859281,
+        "gmail": 0.003947525732062893,
+        "iphone": 0.010233694117097706,
+        "sigma": 0.0012372383318322165
+      },
+      {
+        "read": "align w1 +50",
+        "z": 3.4214864309379243,
+        "gmail": -0.0031209922125429762,
+        "iphone": -0.011650995439738552,
+        "sigma": 0.002493069430311102
+      },
+      {
+        "read": "align w1 +80",
+        "z": 3.142710296170697,
+        "gmail": 0.004612197408431637,
+        "iphone": 0.0018043670620588612,
+        "sigma": 0.0008934423099049368
+      },
+      {
+        "read": "align w2 +10",
+        "z": 6.632199106560049,
+        "gmail": 0.0021576720059716266,
+        "iphone": -0.006378662814670633,
+        "sigma": 0.0012871047270276899
+      },
+      {
+        "read": "align w2 +50",
+        "z": 7.188083722934211,
+        "gmail": -0.000732761664930215,
+        "iphone": 0.010877110226319424,
+        "sigma": 0.0016151553513779097
+      },
+      {
+        "read": "align w2 +80",
+        "z": 6.170180500611474,
+        "gmail": -0.001183851541619433,
+        "iphone": -0.010956421592682113,
+        "sigma": 0.0015838386008471233
+      },
+      {
+        "read": "align w3 +50",
+        "z": 4.5791810478315815,
+        "gmail": -0.001645768954558008,
+        "iphone": 0.004832101338813769,
+        "sigma": 0.0014146351117607149
+      },
+      {
+        "read": "align w3 +80",
+        "z": 3.3605220020239064,
+        "gmail": -0.0021038375521740837,
+        "iphone": -0.008163335460718027,
+        "sigma": 0.001803141864536091
+      }
+    ],
+    "max_z": 7.188083722934211,
+    "instrument_floor": 5.800463998006933e-08,
+    "floor_note": "the empirical per-cos instrument floor (fp16 cache rounding + fp32 dot accumulation, measured by the determinism recompute) \u2014 every sigma below the floor is instrument, not structure; the z_reads table pairs each sigma with this floor",
+    "replication_note": "10 of 19 registered reads at Z >= 2.0; firing reads: ['align w1 +0', 'align w1 +2', 'align w1 +10', 'align w1 +50', 'align w1 +80', 'align w2 +10', 'align w2 +50', 'align w2 +80', 'align w3 +50', 'align w3 +80']",
+    "gated_on": "G_ENV/G_SIZE/G_CORPUS/G_BATT/G_STATES/G_DRAWS/G_SUPPORT/G_WASHGRAD",
+    "all_gates_pass": true
+  },
+  "honesty_reflex": {
+    "n_washes": 3,
+    "batch_noise": "supports are SINGLE-CONTEXT batch-1 gradients (the probe's own 2-shot prompt; the design's instrument); the wash gradient is a single 8x512 batch (the state's own next batch \u2014 matched point)",
+    "first_order_floor": "the instruments are first-order (gradients at a point); g11's lesson licenses NO extrapolation to realized-step damage \u2014 a GEOMETRY-IDENTICAL verdict bounds the differentiation to below the FIRST-ORDER floor, not to nothing (the nonlinear interaction stays open, by design)",
+    "multiplicity": "19 registered reads; under a pure-noise Gaussian null P(any Z>=2) ~= 0.59 \u2014 the frozen bar fires on any read as written; the replication count + per-read table carry the robustness read (no bar shopping)",
+    "cache_precision": "fp16 support cache (13.4 GB; shared box) \u2014 cos rounding ~5e-4, two orders below plausible family sigmas; determinism re-verified (probe-0 recompute self-cos > 0.999)",
+    "p0_difference": "Gmail p0 0.746 vs iPhone 0.636 \u2014 the anchors differ in baseline strength; the instruments here are direction-only (normalized), so level differences enter only through the geometry itself, disclosed",
+    "states_provenance": "w2/w3 weights were computed on GPU fp32 in their own cells; every gradient here is CPU fp32 on the archived states"
+  },
+  "plot_outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e226\\e226_anchor.png"
+  ],
+  "compute": {
+    "wall_s": 1206.0,
+    "device": "CPU only",
+    "threads": 4,
+    "backwards": "54 probe supports t=0 + 54x3 rotation + 13 wash-batch grads",
+    "load_checks": 16
+  },
+  "trims": [],
+  "deviations": [
+    "The two bars are EXHAUSTIVE complements (any-Z>=2 vs all-Z<2): no GRADED tier exists for this cell \u2014 registered as such, not a trim.",
+    "INSTRUMENT CORRECTIONS FROM THE SMOKE (pre-full-run, bars untouched; smoke artifacts on disk in runs/e226_smoke \u2014 gitignored by the lab's smoke-dir convention, disclosed here): (1a) fp32 dot accumulation over 124M coords drifts ~0.6% (the smoke determinism gate: the fp32 self-dot of a BITWISE-IDENTICAL unit vector read 1.0061) \u2014 every cache dot/Gram is computed in fp64 after casting chunks; (1b) the fp16 cache is written with a 2^14 scale (unscaled unit-vector components ~9e-6 sit in fp16's subnormal range, ~150 quantization levels; with fp64 dots the fp16 rounding becomes the binding term) \u2014 the scale cancels in every cos; the measured floor after both is ~5e-4 (recorded in G_SUPPORT and adjudication.instrument_floor). (2) the wash-gradient FD gate is computed along the DESCENT direction (-g_hat) at eps {0.002, 0.005}: the registration's literal 'CE(W + eps*g_hat) < CE(W) at eps 0.02' had the step's SIGN wrong (a +gradient step RAISES CE; the wash steps along -g) and its eps was CURVATURE-dominated at 124M (smoke: dCE +3.31 at eps 0.05 along +g_hat \u2014 the first-order drop ~0.4 nats is swamped by the quadratic penalty). The per-state descent-FD ladder is recorded; the registered prediction text is preserved verbatim and this entry is the gate's honest implementation.",
+    "The support cache is fp16 (13.4 GB) not fp32 (26.9 GB): the box is shared (e225 co-running; 63 GB total). Cache rounding moves cos by ~5e-4 \u2014 below any plausible family sigma and reported next to every sigma (see adjudication.instrument_floor); determinism re-verified against a fresh recompute.",
+    "w2/w3 weights were computed on GPU fp32 in their own cells (their archived states are the record); every gradient HERE is CPU fp32 on those archived states \u2014 the origin is disclosed, the read is state-faithful.",
+    "The +80 rotation/FD reads use each wash's archived +80 state only (the design's 'settled +80 states'); intermediate-state supports are not computed (cost), and this is registered, not trimmed.",
+    "The wash forward is eval-mode: GPT-2 has no batchnorm and every dropout module was already zeroed by e182c's load_organism (the VERBATIM organism loader), so train-mode and eval-mode forwards are identical here \u2014 the gradient is the wash's own loss gradient either way.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode (E226_SMOKE=1): product family + one probe per other battery (11 probes), states w1 {0,2,10} / w2,w3 {0,10}, rotation at +10, FD eps {0.05}; nothing adjudicated or gated (SMOKE stamp)."
+  ]
 }
