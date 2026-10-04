@@ -1,7 +1,7 @@
 {
   "experiment": "e225_one_currency",
-  "date": "2026-10-04T12:50:00Z",
-  "status": "PARTIAL (progressive)",
+  "date": "2026-10-04T12:52:06Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
   "registration": "the dispatch's registration IS the registration (the three bars quoted verbatim in the module docstring and here, frozen before compute). Adjudicate against exactly this; no bar shopping.",
   "registered_bars": {
     "ONE_CURRENCY": "ONE-CURRENCY: \"fires if the points lie on/near one monotone curve across both scales \u2014 the wall is an SNR conservator; the two laws are one object; WALL-FADES = edge-collapse, named.\"",
@@ -33,7 +33,9 @@
     "cpu_load_pct_after_J3": 1,
     "cpu_load_pct_after_J4": 80,
     "cpu_load_pct_after_J5": 8,
-    "cpu_load_pct_after_J6": 8
+    "cpu_load_pct_after_J6": 8,
+    "cpu_load_pct_after_J7": 24,
+    "cpu_load_pct_after_B1": 6
   },
   "deviations": [
     "RECOVERY RE-DISPATCH: the predecessor session died pre-artifact; nothing from it survives or is trusted. The instrument, roster, bars and operationalizations were re-frozen from the dispatch brief + the committed record before any compute.",
@@ -204,7 +206,7 @@
       "note": "the universal 10902 stream's step-1 batch at the e131 root reproduces g1b's committed C-arm rows (CE + the fresh AdamW step-1 L2; cross-device texture) and e185's stored md5"
     }
   },
-  "phase": "P1[J7] in-span draw s12862 (kills [1.5440051315693077, 1.6385944240474306])",
+  "phase": "P3 adjudicated",
   "cells": {
     "J2": {
       "id": "J2",
@@ -2889,7 +2891,1113 @@
         "cond": 36.33302010298219,
         "wash_dir_removed_fraction": 0.594235856390043,
         "note": "e193b/e205/e209's convention verbatim: the span of REALIZED unwalled wash steps; this root's OWN history"
-      }
+      },
+      "band": {
+        "seeds": [
+          12861,
+          12862,
+          12863
+        ],
+        "kill_Ds": [
+          1.5440051315693077,
+          1.6385944240474306,
+          1.5501169224784357
+        ],
+        "median_stat": {
+          "median": 1.5501169224784357,
+          "n": 3,
+          "n_resolved": 3,
+          "n_censored": 0,
+          "defined": true,
+          "resolved_sorted": [
+            1.5440051315693077,
+            1.5501169224784357,
+            1.6385944240474306
+          ]
+        },
+        "n_draws": 3,
+        "instrument": "FRESH: onset grid 0.05..3.00 + D=0 anchor, kill = first g-12 <= 0.27 downcrossing INTERPOLATED linear-in-D, early stop after the bracket \u2014 the SAME grid, ruler and run as this row's u0 edge (same-instrument row by construction)",
+        "ruler": "install-60 g-12",
+        "honesty": "n=3 draws of ONE 20-step wash-history realization (seed 10902); None = unresolved-high (right-censored)"
+      },
+      "multiple": 1.0231918306111651
+    },
+    "B1": {
+      "id": "B1",
+      "ckpt": "e131_consolidated_e113.pt",
+      "scale": "2.74M",
+      "organism": "org1 (the e131 root) \u2014 the same-instrument bridge for J1's committed multiple (e205's fine-grid band vs e209's onset grid)",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/e131_consolidated_e113.pt",
+        "meta": {
+          "experiment": null,
+          "desc": null,
+          "cons_seed": null,
+          "root_gm12": null,
+          "params": null,
+          "movement_rms": null,
+          "steps": null,
+          "lr": null,
+          "base": "runs/checkpoints/e048_repro.pt"
+        },
+        "n_params": 2739072,
+        "expected_params": 2739072,
+        "battery_read_measured": 0.9155886173248291,
+        "battery_read_committed": 0.9155886769294739,
+        "abs_diff": 5.960464477539063e-08,
+        "tol": 0.005,
+        "ce_r": 1.663516640663147,
+        "flat_md5": "36ae244756475dda71266346e7a0f196",
+        "pass": true
+      },
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.9156 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)",
+      "directions": {
+        "g_ray_md5": "abb6df7ceefdd048b300c938123d964d",
+        "sign_ray_md5": "aac6c6d643e327939f680148772dd180",
+        "grad_norm_preclip": 0.9828128814697266,
+        "grad_norm_postclip": 0.9829167127609253,
+        "clip_active": false,
+        "cos_g_sign": 0.5950223410099112,
+        "ce_step1_at_root": 1.356567621231079,
+        "stream_seed": 10902
+      },
+      "g_ray": {
+        "rows": [
+          {
+            "D": 0.0,
+            "rms": 0.0,
+            "gm": 0.9155886173248291,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.0
+          },
+          {
+            "D": 0.05,
+            "rms": 3.0211221160576607e-05,
+            "gm": 0.9389259815216064,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.049999553710222244
+          },
+          {
+            "D": 0.1,
+            "rms": 6.0422442321153214e-05,
+            "gm": 0.9512543082237244,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.09999912977218628
+          },
+          {
+            "D": 0.15,
+            "rms": 9.063366348172981e-05,
+            "gm": 0.9577195644378662,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.14999864995479584
+          },
+          {
+            "D": 0.2,
+            "rms": 0.00012084488464230643,
+            "gm": 0.960460901260376,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.19999822974205017
+          },
+          {
+            "D": 0.25,
+            "rms": 0.00015105610580288303,
+            "gm": 0.9604400992393494,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.2500000298023224
+          },
+          {
+            "D": 0.3,
+            "rms": 0.00018126732696345963,
+            "gm": 0.9580700397491455,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.2999972999095917
+          },
+          {
+            "D": 0.35,
+            "rms": 0.00021147854812403623,
+            "gm": 0.9533146023750305,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.3500007092952728
+          },
+          {
+            "D": 0.4,
+            "rms": 0.00024168976928461286,
+            "gm": 0.9453338980674744,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.39999642968177795
+          },
+          {
+            "D": 0.45,
+            "rms": 0.00027190099044518946,
+            "gm": 0.9319430589675903,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.4499974548816681
+          },
+          {
+            "D": 0.5,
+            "rms": 0.00030211221160576606,
+            "gm": 0.9100172519683838,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.5000000596046448
+          },
+          {
+            "D": 0.55,
+            "rms": 0.00033232343276634266,
+            "gm": 0.8762341141700745,
+            "frac_argmax_z": 0.9833333333333333,
+            "disp_check": 0.5499971508979797
+          },
+          {
+            "D": 0.6,
+            "rms": 0.00036253465392691926,
+            "gm": 0.830098032951355,
+            "frac_argmax_z": 0.9666666666666667,
+            "disp_check": 0.5999945998191833
+          },
+          {
+            "D": 0.65,
+            "rms": 0.00039274587508749586,
+            "gm": 0.7695421576499939,
+            "frac_argmax_z": 0.9333333333333333,
+            "disp_check": 0.6499956846237183
+          },
+          {
+            "D": 0.7,
+            "rms": 0.00042295709624807246,
+            "gm": 0.6915305256843567,
+            "frac_argmax_z": 0.8166666666666667,
+            "disp_check": 0.7000013589859009
+          },
+          {
+            "D": 0.75,
+            "rms": 0.00045316831740864906,
+            "gm": 0.5975522994995117,
+            "frac_argmax_z": 0.7333333333333333,
+            "disp_check": 0.7500012516975403
+          },
+          {
+            "D": 0.8,
+            "rms": 0.0004833795385692257,
+            "gm": 0.49156031012535095,
+            "frac_argmax_z": 0.6333333333333333,
+            "disp_check": 0.7999927401542664
+          },
+          {
+            "D": 0.85,
+            "rms": 0.0005135907597298023,
+            "gm": 0.38656380772590637,
+            "frac_argmax_z": 0.45,
+            "disp_check": 0.8499907851219177
+          },
+          {
+            "D": 0.9,
+            "rms": 0.0005438019808903789,
+            "gm": 0.2859579026699066,
+            "frac_argmax_z": 0.26666666666666666,
+            "disp_check": 0.8999948501586914
+          },
+          {
+            "D": 0.95,
+            "rms": 0.0005740132020509555,
+            "gm": 0.19635647535324097,
+            "frac_argmax_z": 0.1,
+            "disp_check": 0.9500045776367188
+          }
+        ],
+        "D_kill": 0.9089049377603712
+      },
+      "sign_ray": {
+        "rows": [
+          {
+            "D": 0.0,
+            "rms": 0.0,
+            "gm": 0.9155886173248291,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.0
+          },
+          {
+            "D": 0.05,
+            "rms": 3.0211221160576607e-05,
+            "gm": 0.926444411277771,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.04995816946029663
+          },
+          {
+            "D": 0.1,
+            "rms": 6.0422442321153214e-05,
+            "gm": 0.9342601299285889,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.09991265088319778
+          },
+          {
+            "D": 0.15,
+            "rms": 9.063366348172981e-05,
+            "gm": 0.9401895403862,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.14993762969970703
+          },
+          {
+            "D": 0.2,
+            "rms": 0.00012084488464230643,
+            "gm": 0.9447203278541565,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.1998247355222702
+          },
+          {
+            "D": 0.25,
+            "rms": 0.00015105610580288303,
+            "gm": 0.9481220841407776,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.24995510280132294
+          },
+          {
+            "D": 0.3,
+            "rms": 0.00018126732696345963,
+            "gm": 0.9505718946456909,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.29987525939941406
+          },
+          {
+            "D": 0.35,
+            "rms": 0.00021147854812403623,
+            "gm": 0.9521926641464233,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.3498727083206177
+          },
+          {
+            "D": 0.4,
+            "rms": 0.00024168976928461286,
+            "gm": 0.9530722498893738,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.3996494710445404
+          },
+          {
+            "D": 0.45,
+            "rms": 0.00027190099044518946,
+            "gm": 0.9532735347747803,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.4503342807292938
+          },
+          {
+            "D": 0.5,
+            "rms": 0.00030211221160576606,
+            "gm": 0.9528422951698303,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.4999102056026459
+          },
+          {
+            "D": 0.55,
+            "rms": 0.00033232343276634266,
+            "gm": 0.9518095254898071,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.5500821471214294
+          },
+          {
+            "D": 0.6,
+            "rms": 0.00036253465392691926,
+            "gm": 0.9501932859420776,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.5997505187988281
+          },
+          {
+            "D": 0.65,
+            "rms": 0.00039274587508749586,
+            "gm": 0.9479982852935791,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.6489022374153137
+          },
+          {
+            "D": 0.7,
+            "rms": 0.00042295709624807246,
+            "gm": 0.9452171325683594,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.6997454166412354
+          },
+          {
+            "D": 0.75,
+            "rms": 0.00045316831740864906,
+            "gm": 0.9418298602104187,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.7500421404838562
+          },
+          {
+            "D": 0.8,
+            "rms": 0.0004833795385692257,
+            "gm": 0.9378047585487366,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.7992984652519226
+          },
+          {
+            "D": 0.85,
+            "rms": 0.0005135907597298023,
+            "gm": 0.9330970644950867,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.8489476442337036
+          },
+          {
+            "D": 0.9,
+            "rms": 0.0005438019808903789,
+            "gm": 0.9276503920555115,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.9006685614585876
+          },
+          {
+            "D": 0.95,
+            "rms": 0.0005740132020509555,
+            "gm": 0.9213942289352417,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.9481725096702576
+          },
+          {
+            "D": 1.0,
+            "rms": 0.0006042244232115321,
+            "gm": 0.914242684841156,
+            "frac_argmax_z": 1.0,
+            "disp_check": 0.9998204112052917
+          },
+          {
+            "D": 1.05,
+            "rms": 0.0006344356443721088,
+            "gm": 0.9060941934585571,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.0496125221252441
+          },
+          {
+            "D": 1.1,
+            "rms": 0.0006646468655326853,
+            "gm": 0.8968280553817749,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.1001629829406738
+          },
+          {
+            "D": 1.15,
+            "rms": 0.0006948580866932619,
+            "gm": 0.8863061666488647,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.1490213871002197
+          },
+          {
+            "D": 1.2,
+            "rms": 0.0007250693078538385,
+            "gm": 0.8743724822998047,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.1995010375976562
+          },
+          {
+            "D": 1.25,
+            "rms": 0.0007552805290144151,
+            "gm": 0.860854983329773,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.2491459846496582
+          },
+          {
+            "D": 1.3,
+            "rms": 0.0007854917501749917,
+            "gm": 0.8455716371536255,
+            "frac_argmax_z": 1.0,
+            "disp_check": 1.297804594039917
+          },
+          {
+            "D": 1.35,
+            "rms": 0.0008157029713355684,
+            "gm": 0.8283399939537048,
+            "frac_argmax_z": 0.9833333333333333,
+            "disp_check": 1.351693034172058
+          },
+          {
+            "D": 1.4,
+            "rms": 0.0008459141924961449,
+            "gm": 0.8090032935142517,
+            "frac_argmax_z": 0.9833333333333333,
+            "disp_check": 1.3994908332824707
+          },
+          {
+            "D": 1.45,
+            "rms": 0.0008761254136567215,
+            "gm": 0.7874673008918762,
+            "frac_argmax_z": 0.95,
+            "disp_check": 1.4532666206359863
+          },
+          {
+            "D": 1.5,
+            "rms": 0.0009063366348172981,
+            "gm": 0.7637382745742798,
+            "frac_argmax_z": 0.9,
+            "disp_check": 1.5000842809677124
+          },
+          {
+            "D": 1.55,
+            "rms": 0.0009365478559778748,
+            "gm": 0.7379499673843384,
+            "frac_argmax_z": 0.9,
+            "disp_check": 1.549142837524414
+          },
+          {
+            "D": 1.6,
+            "rms": 0.0009667590771384514,
+            "gm": 0.7103347778320312,
+            "frac_argmax_z": 0.8666666666666667,
+            "disp_check": 1.5985969305038452
+          },
+          {
+            "D": 1.65,
+            "rms": 0.0009969702982990279,
+            "gm": 0.6811626553535461,
+            "frac_argmax_z": 0.85,
+            "disp_check": 1.6483763456344604
+          },
+          {
+            "D": 1.7,
+            "rms": 0.0010271815194596045,
+            "gm": 0.6506606936454773,
+            "frac_argmax_z": 0.8166666666666667,
+            "disp_check": 1.6978952884674072
+          },
+          {
+            "D": 1.75,
+            "rms": 0.0010573927406201812,
+            "gm": 0.618982195854187,
+            "frac_argmax_z": 0.7666666666666667,
+            "disp_check": 1.753373384475708
+          },
+          {
+            "D": 1.8,
+            "rms": 0.0010876039617807578,
+            "gm": 0.5862300395965576,
+            "frac_argmax_z": 0.6833333333333333,
+            "disp_check": 1.8013371229171753
+          },
+          {
+            "D": 1.85,
+            "rms": 0.0011178151829413345,
+            "gm": 0.5525264143943787,
+            "frac_argmax_z": 0.6333333333333333,
+            "disp_check": 1.8511933088302612
+          },
+          {
+            "D": 1.9,
+            "rms": 0.001148026404101911,
+            "gm": 0.5180846452713013,
+            "frac_argmax_z": 0.5333333333333333,
+            "disp_check": 1.8963450193405151
+          },
+          {
+            "D": 1.95,
+            "rms": 0.0011782376252624876,
+            "gm": 0.483236163854599,
+            "frac_argmax_z": 0.5166666666666667,
+            "disp_check": 1.9532197713851929
+          },
+          {
+            "D": 2.0,
+            "rms": 0.0012084488464230642,
+            "gm": 0.4483865201473236,
+            "frac_argmax_z": 0.45,
+            "disp_check": 1.9996408224105835
+          },
+          {
+            "D": 2.05,
+            "rms": 0.0012386600675836407,
+            "gm": 0.4139039218425751,
+            "frac_argmax_z": 0.38333333333333336,
+            "disp_check": 2.0486667156219482
+          },
+          {
+            "D": 2.1,
+            "rms": 0.0012688712887442175,
+            "gm": 0.38002243638038635,
+            "frac_argmax_z": 0.3333333333333333,
+            "disp_check": 2.0992250442504883
+          },
+          {
+            "D": 2.15,
+            "rms": 0.001299082509904794,
+            "gm": 0.34681713581085205,
+            "frac_argmax_z": 0.25,
+            "disp_check": 2.150775671005249
+          },
+          {
+            "D": 2.2,
+            "rms": 0.0013292937310653706,
+            "gm": 0.31427156925201416,
+            "frac_argmax_z": 0.21666666666666667,
+            "disp_check": 2.2003259658813477
+          },
+          {
+            "D": 2.25,
+            "rms": 0.0013595049522259473,
+            "gm": 0.2823839485645294,
+            "frac_argmax_z": 0.18333333333333332,
+            "disp_check": 2.249338388442993
+          },
+          {
+            "D": 2.3,
+            "rms": 0.0013897161733865237,
+            "gm": 0.25129440426826477,
+            "frac_argmax_z": 0.15,
+            "disp_check": 2.2980427742004395
+          }
+        ],
+        "D_kill": 2.269916581032063
+      },
+      "u0_edge": 2.269916581032063,
+      "wash_history": {
+        "n_steps": 20,
+        "rows": [
+          {
+            "step": 1,
+            "L2": 1.6542880535125732,
+            "cum": 1.6542880535125732,
+            "gm12": 0.6780440807342529
+          },
+          {
+            "step": 2,
+            "L2": 1.0913957357406616,
+            "cum": 2.4892616271972656,
+            "gm12": 0.027077054604887962
+          },
+          {
+            "step": 3,
+            "L2": 0.8403939008712769,
+            "cum": 3.0785462856292725,
+            "gm12": 0.011007101275026798
+          },
+          {
+            "step": 4,
+            "L2": 0.7374950051307678,
+            "cum": 3.526789665222168,
+            "gm12": 0.010940761305391788
+          },
+          {
+            "step": 5,
+            "L2": 0.6829712986946106,
+            "cum": 3.8803164958953857,
+            "gm12": 0.04225516691803932
+          },
+          {
+            "step": 6,
+            "L2": 0.648078978061676,
+            "cum": 4.18756103515625,
+            "gm12": 0.0794403925538063
+          },
+          {
+            "step": 7,
+            "L2": 0.6056900024414062,
+            "cum": 4.4605231285095215,
+            "gm12": 0.10393191128969193
+          },
+          {
+            "step": 8,
+            "L2": 0.585646390914917,
+            "cum": 4.714180946350098,
+            "gm12": 0.04319119080901146
+          },
+          {
+            "step": 9,
+            "L2": 0.5485594272613525,
+            "cum": 4.957010269165039,
+            "gm12": 0.015899859368801117
+          },
+          {
+            "step": 10,
+            "L2": 0.524486780166626,
+            "cum": 5.195915222167969,
+            "gm12": 0.019353048875927925
+          },
+          {
+            "step": 11,
+            "L2": 0.5068569183349609,
+            "cum": 5.4239397048950195,
+            "gm12": 0.017735326662659645
+          },
+          {
+            "step": 12,
+            "L2": 0.49159055948257446,
+            "cum": 5.644277095794678,
+            "gm12": 0.028479738160967827
+          },
+          {
+            "step": 13,
+            "L2": 0.4848543703556061,
+            "cum": 5.855512619018555,
+            "gm12": 0.05640661343932152
+          },
+          {
+            "step": 14,
+            "L2": 0.4709712862968445,
+            "cum": 6.05991792678833,
+            "gm12": 0.06383992731571198
+          },
+          {
+            "step": 15,
+            "L2": 0.45911526679992676,
+            "cum": 6.254332542419434,
+            "gm12": 0.05318879708647728
+          },
+          {
+            "step": 16,
+            "L2": 0.4520505666732788,
+            "cum": 6.442873001098633,
+            "gm12": 0.06995876133441925
+          },
+          {
+            "step": 17,
+            "L2": 0.4399435818195343,
+            "cum": 6.625246047973633,
+            "gm12": 0.056219253689050674
+          },
+          {
+            "step": 18,
+            "L2": 0.4346262514591217,
+            "cum": 6.800528526306152,
+            "gm12": 0.018894603475928307
+          },
+          {
+            "step": 19,
+            "L2": 0.41956835985183716,
+            "cum": 6.96819543838501,
+            "gm12": 0.013496199622750282
+          },
+          {
+            "step": 20,
+            "L2": 0.4132964015007019,
+            "cum": 7.129310607910156,
+            "gm12": 0.0165554191917181
+          }
+        ],
+        "step1_L2": 1.6542880535125732,
+        "one_step_raw_arithmetic": 1.6550141993348577,
+        "cum_final": 7.129310607910156,
+        "ruler_trace_min": 0.010940761305391788,
+        "fact_died_in_history_at_step": 2,
+        "co_read_note": "UNWALLED 10902-stream continuation from the pristine root = the row's own C-arm first episode's stream; whether the fact dies here is the committed C-arm record's own question \u2014 CO-READ, reported never adjudicated"
+      },
+      "span": {
+        "n_segments": 20,
+        "rank_eff": 20,
+        "participation_ratio": 4.117363094870959,
+        "cond": 22.695460035751335,
+        "wash_dir_removed_fraction": 0.5974839437167211,
+        "note": "e193b/e205/e209's convention verbatim: the span of REALIZED unwalled wash steps; this root's OWN history"
+      },
+      "band": {
+        "seeds": [
+          12871,
+          12872,
+          12873
+        ],
+        "kill_Ds": [
+          1.5942766801652024,
+          0.47715624615871693,
+          0.9327197960686119
+        ],
+        "median_stat": {
+          "median": 0.9327197960686119,
+          "n": 3,
+          "n_resolved": 3,
+          "n_censored": 0,
+          "defined": true,
+          "resolved_sorted": [
+            0.47715624615871693,
+            0.9327197960686119,
+            1.5942766801652024
+          ]
+        },
+        "n_draws": 3,
+        "instrument": "FRESH: onset grid 0.05..3.00 + D=0 anchor, kill = first g-12 <= 0.27 downcrossing INTERPOLATED linear-in-D, early stop after the bracket \u2014 the SAME grid, ruler and run as this row's u0 edge (same-instrument row by construction)",
+        "ruler": "install-60 g-12",
+        "honesty": "n=3 draws of ONE 20-step wash-history realization (seed 10902); None = unresolved-high (right-censored)"
+      },
+      "multiple": 2.433653269288053
     }
+  },
+  "bridge_e131": {
+    "multiple": 2.433653269288053,
+    "u0_edge": 2.269916581032063,
+    "band_kill_Ds": [
+      1.5942766801652024,
+      0.47715624615871693,
+      0.9327197960686119
+    ],
+    "band_median": 0.9327197960686119,
+    "vs_committed_J1": {
+      "committed_multiple": 3.7206885127780804,
+      "ratio_fresh_over_committed": 0.6540868070331819
+    },
+    "role": "CONTEXT \u2014 the same-instrument re-read of J1's organism; J1's primary x stays the committed 3.7207 (e209 R1)"
+  },
+  "joined_table": [
+    {
+      "id": "J1",
+      "scale": "2.74M",
+      "organism": "org1 = the e131 consolidated root (g1b's own root)",
+      "ckpt": "runs/checkpoints/e131_consolidated_e113.pt",
+      "retention_flat_min": 0.9979692766675983,
+      "retention_flat_median": 1.0027290489458747,
+      "root_gm12": 0.9155886769294739,
+      "flat_reads": {
+        "10": 0.9226929545402527,
+        "50": 0.9154871106147766,
+        "100": 0.922188937664032,
+        "200": 0.9137293696403503,
+        "300": 0.918087363243103
+      },
+      "plus1_read": 0.9451885223388672,
+      "retention_provenance": {
+        "w1": "runs/g1b/metrics.json",
+        "root": "runs/g1b/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 3.7206885127780804,
+      "multiple_source": "COMMITTED (e209 R1)",
+      "u0_edge": 2.269916581032063,
+      "g_ray_D_kill_coread": 0.9089049377603712,
+      "band_kill_Ds": [
+        1.5942766801652024,
+        0.47715624615871693,
+        0.9327197960686119
+      ],
+      "band_median": 0.9327197960686119,
+      "edge_collapse_coread": {
+        "one_step_raw": 1.6542880535125732,
+        "step_over_edge": 0.72878803888045,
+        "step_over_band": 1.7736173934394355
+      },
+      "row_notes": "the locked root; retention family g1b/g1bR = 0.983-0.998 (3 wash draws; the 10902 row is primary)",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.9156 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J2",
+      "scale": "2.74M",
+      "organism": "g1c's fresh root draw (e001 + fresh install s400 g24314 + cons 10901)",
+      "ckpt": "runs/checkpoints/g1c_root.pt",
+      "retention_flat_min": 1.0263911969648605,
+      "retention_flat_median": 1.037891435414073,
+      "root_gm12": 0.9026340246200562,
+      "flat_reads": {
+        "10": 0.9277286529541016,
+        "50": 0.9397175908088684,
+        "100": 0.9368361234664917,
+        "200": 0.9264556169509888,
+        "300": 0.9405527114868164
+      },
+      "plus1_read": 0.821441113948822,
+      "retention_provenance": {
+        "w1": "runs/g1c_root/metrics.json",
+        "root": "runs/g1c_root/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 1.2161096471128718,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 1.4614111616626646,
+      "g_ray_D_kill_coread": 0.49203465474151653,
+      "band_kill_Ds": [
+        1.5494238108016158,
+        1.2017100309434725,
+        1.1606507456488881
+      ],
+      "band_median": 1.2017100309434725,
+      "edge_collapse_coread": {
+        "one_step_raw": 1.6542880535125732,
+        "step_over_edge": 1.131979895124429,
+        "step_over_band": 1.3766116707986351
+      },
+      "row_notes": "ROOT-WALL-HOLDS (T181); different wiring (d183-indep, A129-neg), identical wall behavior",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.9026 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J3",
+      "scale": "2.74M",
+      "organism": "g1d's fresh-base root (base s44 + locked install + cons 10901)",
+      "ckpt": "runs/checkpoints/g1d_root.pt",
+      "retention_flat_min": 1.3266428034732003,
+      "retention_flat_median": 1.3448413635063021,
+      "root_gm12": 0.523481547832489,
+      "flat_reads": {
+        "10": 0.6944730281829834,
+        "50": 0.7013108730316162,
+        "100": 0.7039996385574341,
+        "200": 0.7283341884613037,
+        "300": 0.7295485138893127
+      },
+      "plus1_read": 0.48199206590652466,
+      "retention_provenance": {
+        "w1": "runs/g1d/metrics.json",
+        "root": "runs/g1d/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 1.3789356098383065,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 1.115319340999562,
+      "g_ray_D_kill_coread": 0.3246154761026481,
+      "band_kill_Ds": [
+        0.6916077310915482,
+        1.0476651379006143,
+        0.8088262664638445
+      ],
+      "band_median": 0.8088262664638445,
+      "edge_collapse_coread": {
+        "one_step_raw": 1.6542880535125732,
+        "step_over_edge": 1.4832416086588986,
+        "step_over_band": 2.0452946721736094
+      },
+      "row_notes": "HALF-EXPRESSED (0.52 vs the family's 0.78-0.94); g1d's own verdict was TEXTURE (G-CONS gate failure) \u2014 the wall arms ran and are reported; the retention row is OBSERVED-UNADJUDICATED (T186's map); the 1.35x record is the flat-MEDIAN flavor (1.345); the frozen flat-min convention gives 1.326",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.5235 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J4",
+      "scale": "2.74M",
+      "organism": "g1e's cons redraw 1 (locked base+install + cons 10912)",
+      "ckpt": "runs/checkpoints/g1e_root.pt",
+      "retention_flat_min": 0.6153917590189493,
+      "retention_flat_median": 0.6979575531343495,
+      "root_gm12": 0.857479989528656,
+      "flat_reads": {
+        "10": 0.5276861190795898,
+        "50": 0.5984846353530884,
+        "100": 0.6057043671607971,
+        "200": 0.6314308047294617,
+        "300": 0.5432717800140381
+      },
+      "plus1_read": 0.2719059884548187,
+      "retention_provenance": {
+        "w1": "runs/g1e/metrics.json",
+        "root": "runs/g1e/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 0.5995813346448845,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 0.70232430745541,
+      "g_ray_D_kill_coread": 0.23674263245787,
+      "band_kill_Ds": [
+        1.9461354741439927,
+        1.1713578573478731,
+        0.8416139302043202
+      ],
+      "band_median": 1.1713578573478731,
+      "edge_collapse_coread": {
+        "one_step_raw": 1.6542880535125732,
+        "step_over_edge": 2.355447527519333,
+        "step_over_band": 1.412282372236035
+      },
+      "row_notes": "CONS-WALL-BOUND (the +1 crush 0.2719); the FLAT PHASE survived (T188: the grid's sharpest honest bound)",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.8575 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J5",
+      "scale": "2.74M",
+      "organism": "g1f's cons redraw 2 (locked base+install + cons 10913)",
+      "ckpt": "runs/checkpoints/g1f_root.pt",
+      "retention_flat_min": 0.9317064573129114,
+      "retention_flat_median": 0.9446859198099864,
+      "root_gm12": 0.9682114720344543,
+      "flat_reads": {
+        "10": 0.9316180944442749,
+        "50": 0.9020888805389404,
+        "100": 0.9027748703956604,
+        "200": 0.9146557450294495,
+        "300": 0.9185181260108948
+      },
+      "plus1_read": 0.25772199034690857,
+      "retention_provenance": {
+        "w1": "runs/g1f/metrics.json",
+        "root": "runs/g1f/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 0.5617260108399429,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 0.693658523032362,
+      "g_ray_D_kill_coread": 0.2981154019819565,
+      "band_kill_Ds": [
+        0.8805709685432226,
+        2.0043810628439562,
+        1.2348698647497947
+      ],
+      "band_median": 1.2348698647497947,
+      "edge_collapse_coread": {
+        "one_step_raw": 1.6542880535125732,
+        "step_over_edge": 2.3848738227575903,
+        "step_over_band": 1.3396456588142263
+      },
+      "row_notes": "CRUSH-IS-TEXTURE (+1 0.2577, second digit match); the flat phase 0.902+ (the redraw family's strictest)",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.9682 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J6",
+      "scale": "10M",
+      "organism": "the 10M peak root (g1bS5 m020: s500 @ 4e-4, cons 10901; root 0.7677)",
+      "ckpt": "runs/checkpoints/g1bS5_root_m020.pt",
+      "retention_flat_min": 0.8949634049389881,
+      "retention_flat_median": 0.9646209309477912,
+      "root_gm12": 0.7676599621772766,
+      "flat_reads": {
+        "10": 0.8379992842674255,
+        "50": 0.7405008673667908,
+        "100": 0.7344890236854553,
+        "200": 0.8255654573440552,
+        "300": 0.6870275735855103
+      },
+      "plus1_read": 0.09395793825387955,
+      "retention_provenance": {
+        "w1": "runs/g1bS6/metrics.json",
+        "root": "runs/g1bS6/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 0.5433506780298486,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 1.0775702789962776,
+      "g_ray_D_kill_coread": 0.3122452442757233,
+      "band_kill_Ds": [
+        1.757713116814334,
+        1.983194873159028,
+        2.3641053354520336
+      ],
+      "band_median": 1.983194873159028,
+      "edge_collapse_coread": {
+        "one_step_raw": 3.1567881107330322,
+        "step_over_edge": 2.929542668598358,
+        "step_over_band": 1.59176899530029
+      },
+      "row_notes": "WALL-FADES take5 (T170): every rung breached at +1 (one 3.16-raw AdamW step); direction held ~1000x; the dispatch's quoted retention 0.895",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.7677 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    },
+    {
+      "id": "J7",
+      "scale": "10M",
+      "organism": "the 10M redraw root (g1bS7 m020f: cons 10903; root 0.9351 \u2014 the formation lottery's upward break, T172)",
+      "ckpt": "runs/checkpoints/g1bS7_root_m020f.pt",
+      "retention_flat_min": 0.7897980962997516,
+      "retention_flat_median": 0.832540454235837,
+      "root_gm12": 0.935076117515564,
+      "flat_reads": {
+        "10": 0.7835121750831604,
+        "50": 0.7990050315856934,
+        "100": 0.7385213375091553,
+        "200": 0.7784886956214905,
+        "300": 0.7704444527626038
+      },
+      "plus1_read": 0.37406545877456665,
+      "retention_provenance": {
+        "w1": "runs/g1bS8/metrics.json",
+        "root": "runs/g1bS8/metrics.json",
+        "convention": "min over {10,50,100,200,300} / the experiment's own root g-12 (g1bS2+ committed convention)"
+      },
+      "multiple": 1.0231918306111651,
+      "multiple_source": "FRESH (this run)",
+      "u0_edge": 1.5860669715720563,
+      "g_ray_D_kill_coread": 0.8391582788603149,
+      "band_kill_Ds": [
+        1.5440051315693077,
+        1.6385944240474306,
+        1.5501169224784357
+      ],
+      "band_median": 1.5501169224784357,
+      "edge_collapse_coread": {
+        "one_step_raw": 3.1567881107330322,
+        "step_over_edge": 1.9903245999783539,
+        "step_over_band": 2.0364838709622872
+      },
+      "row_notes": "WALL-FADES take6 (T178): draw-clean verdict; the +1 dip shallowed 4x on the stronger root BUT the flat phase fell (0.79) \u2014 the lottery's gains do not transfer through the ball",
+      "ruler_caveat": "install-60 g-12 (novel geometry; root read 0.9351 >> 0.27 \u2014 no fallback); content-identical battery across scales (the 10M host reads the same windows: the scale axis)"
+    }
+  ],
+  "adjudication": {
+    "bars": {
+      "ONE_CURRENCY": {
+        "fires": false
+      },
+      "TWO_CURRENCIES": {
+        "fires": false
+      },
+      "GRADED": {
+        "fires": true
+      }
+    },
+    "rank_layer": {
+      "n_defined": 7,
+      "spearman": 0.6071428571428571,
+      "critical_value": 0.714,
+      "defined": true,
+      "table": {
+        "5": 0.9,
+        "6": 0.829,
+        "7": 0.714,
+        "8": 0.643
+      }
+    },
+    "scale_layer": {
+      "x_2p74M": [
+        3.7206885127780804,
+        1.2161096471128718,
+        1.3789356098383065,
+        0.5995813346448845,
+        0.5617260108399429
+      ],
+      "x_10M": [
+        0.5433506780298486,
+        1.0231918306111651
+      ],
+      "complete_separation": false,
+      "direction": null,
+      "decidable": true
+    },
+    "verdict": "GRADED",
+    "clause": "a partial \u2014 rho = 0.607 sits in the gap between -0.714 and +0.714, no complete scale separation; the joined table verbatim (n=7).",
+    "desk_forced_side": "the RETENTION side is closed data (committed wall records); the fresh multiples were the open axis",
+    "context_never_adjudicated": {
+      "leave_one_out_spearman": {
+        "J1": 0.5428571428571428,
+        "J2": 0.4857142857142857,
+        "J3": 0.4857142857142857,
+        "J4": 0.6571428571428571,
+        "J5": 0.6571428571428571,
+        "J6": 0.6571428571428571,
+        "J7": 0.6571428571428571
+      },
+      "edge_collapse_10m": {
+        "J6": {
+          "multiple": 0.5433506780298486,
+          "edge": 1.0775702789962776,
+          "band": 1.983194873159028,
+          "one_step_raw": 3.1567881107330322,
+          "step_over_band": 1.59176899530029,
+          "multiple_below_floor": true
+        },
+        "J7": {
+          "multiple": 1.0231918306111651,
+          "edge": 1.5860669715720563,
+          "band": 1.5501169224784357,
+          "one_step_raw": 3.1567881107330322,
+          "step_over_band": 2.0364838709622872,
+          "multiple_below_floor": false
+        }
+      },
+      "snr_floor": 1.0,
+      "bridge_e131": {
+        "multiple": 2.433653269288053,
+        "u0_edge": 2.269916581032063,
+        "band_kill_Ds": [
+          1.5942766801652024,
+          0.47715624615871693,
+          0.9327197960686119
+        ],
+        "band_median": 0.9327197960686119,
+        "vs_committed_J1": {
+          "committed_multiple": 3.7206885127780804,
+          "ratio_fresh_over_committed": 0.6540868070331819
+        },
+        "role": "CONTEXT \u2014 the same-instrument re-read of J1's organism; J1's primary x stays the committed 3.7207 (e209 R1)"
+      },
+      "retention_median_flavor": {
+        "J1": 1.0027290489458747,
+        "J2": 1.037891435414073,
+        "J3": 1.3448413635063021,
+        "J4": 0.6979575531343495,
+        "J5": 0.9446859198099864,
+        "J6": 0.9646209309477912,
+        "J7": 0.832540454235837
+      }
+    },
+    "composite_order": "ONE-CURRENCY / TWO-CURRENCIES / GRADED (frozen before compute; the first two mutually exclusive by construction)"
   }
 }
