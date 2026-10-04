@@ -561,49 +561,58 @@ class SpanProjector:
         """THE PRE-ADAM HOOK (e237's, ported): ledger dots fp64 on the
         post-clip gradient; ORTHO removes the span component; ALIGNED
         keeps only the span component; FREE computes the ledger and
-        writes NOTHING (the verbatim trajectory)."""
+        writes NOTHING (the verbatim trajectory).
+
+        TWO-PASS (the smoke-run autopsy fix): the in-span coordinates
+        c = Vp g are a SUM over all parameter slices (cross-slice terms
+        included) — a per-slice c is a block-diagonal approximation and
+        is WRONG; pass 1 accumulates the full c, pass 2 writes each
+        slice's true block Vp_s.T c."""
+        params = list(params)
+        c_full = torch.zeros(self.k, dtype=torch.float64,
+                             device=self.slices[0].device)
         gn2 = 0.0
-        ins2 = 0.0
-        corrs = []
+        g64s = []
         for p, S in zip(params, self.slices):
-            g = p.grad.detach().reshape(-1)
-            g64 = g.to(torch.float64)
-            c = S @ g64                                   # (k,) fp64
+            g64 = p.grad.detach().reshape(-1).to(torch.float64)
+            g64s.append(g64)
+            c_full += S @ g64
             gn2 += float(g64 @ g64)
-            ins2 += float(c @ c)
-            corrs.append((S.T @ c).to(torch.float32))     # fp32 correction
-        if mode == "ORTHO":
-            with torch.no_grad():
-                for p, corr in zip(params, corrs):
-                    p.grad.add_((-corr).reshape(p.shape))
-        elif mode == "ALIGNED":
-            with torch.no_grad():
-                for p, corr in zip(params, corrs):
-                    p.grad.copy_(corr.reshape(p.shape))
-        elif mode != "FREE":
-            raise ValueError(mode)
+        ins2 = float(c_full @ c_full)
         gpn2 = 0.0
         if mode != "FREE":
-            for p in params:
-                g = p.grad.detach().reshape(-1).to(torch.float64)
-                gpn2 += float(g @ g)
+            with torch.no_grad():
+                for p, S, g64 in zip(params, self.slices, g64s):
+                    corr = S.T @ c_full                       # fp64 (n,)
+                    c32 = corr.to(torch.float32)
+                    if mode == "ORTHO":
+                        p.grad.add_((-c32).reshape(p.shape))
+                        post = g64 - corr
+                    else:                                     # ALIGNED
+                        p.grad.copy_(c32.reshape(p.shape))
+                        post = corr
+                    gpn2 += float(post @ post)
+        else:
+            gpn2 = gn2
         return {"gn": math.sqrt(gn2), "in_span": math.sqrt(ins2),
-                "gpn": math.sqrt(gpn2) if mode != "FREE" else math.sqrt(gn2),
+                "gpn": math.sqrt(gpn2),
                 "in_span_frac": math.sqrt(ins2) / math.sqrt(gn2)
                 if gn2 > 0 else 0.0}
 
     def cos_to_span(self, flat_cpu: torch.Tensor) -> float:
         """||S^T d|| / ||d|| — the amplitude fraction of a displacement
-        inside the span (fp64, CPU chunks)."""
+        inside the span (fp64, CPU chunks; the FULL cross-slice sum —
+        the same two-pass fix)."""
         d64 = flat_cpu.to(torch.float64)
         n2 = float(d64 @ d64)
-        s2 = 0.0
+        c_full = torch.zeros(self.k, dtype=torch.float64)
         off = 0
         for S in self.slices:
             n = S.shape[1]
             Sc = S.detach().to(CPU)
-            s2 += float((Sc @ d64[off:off + n]) @ (Sc @ d64[off:off + n]))
+            c_full += Sc @ d64[off:off + n]
             off += n
+        s2 = float(c_full @ c_full)
         return math.sqrt(s2) / math.sqrt(n2) if n2 > 0 else 0.0
 
 
@@ -795,6 +804,7 @@ def chunked_install(tag, mode, net0, proj: SpanProjector, inst_x, inst_mask,
             torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
             # ---- THE HOOK (the cell's only intervention) ---------------
             led = proj.step_hook(list(net.parameters()), mode)
+            opt.step()          # BOTH moments + the update see the hook's g'
             if step % 10 == 0 or step == 1 or step == n_steps or SMOKE:
                 state["ledger"][step] = {
                     "ce": float(loss.item()), "gn": led["gn"],
@@ -1590,8 +1600,8 @@ def main():
     }
     log(f"P1 SPAN: {G_SPAN['n_segments']} segments (used "
         f"{G_SPAN['segments_used']}), rank {G_SPAN['rank_eff']}, PR "
-        f"{G_SPAN['pr']:.2f}, cond {G_SPAN['cond']:.1f}, ortho dev "
-        f"{G_SPAN['orthonormality_max_dev']:.1e}: PASS")
+        f"{G_SPAN['participation_ratio']:.2f}, cond {G_SPAN['cond']:.1f}, "
+        f"ortho dev {G_SPAN['orthonormality_max_dev']:.1e}: PASS")
     del hist_segs, H_late
     write_partial("P1 THE SPAN built (history + G_SHADOW + Gram-SVD)")
     burst_cooldown("span->installs")
@@ -1782,6 +1792,8 @@ def main():
     G_INPUTS["pass"] = G_INPUTS["identical"]
     assert G_INPUTS["pass"], "cross-arm wash input streams diverged"
     metrics["gates"]["G_INPUTS"] = G_INPUTS
+    G_BITROOT["pass"] = bool(all(v["pass"] for v in G_BITROOT.values()
+                                 if isinstance(v, dict) and "pass" in v))
     metrics["gates"]["G_BITROOT"] = G_BITROOT
     log(f"G_INPUTS: per-step wash inputs bit-identical across all three "
         f"arms (md5, {len(common_steps)} steps): PASS")
@@ -2036,8 +2048,9 @@ def main():
         g = gm12_series(a)
         log(f"  {a} (wash {WASH_SEED}): g-12 "
             + " -> ".join(f"+{s}:{v:.4f}" for s, v in sorted(g.items())))
-    log(f"  retentions: ORTHO {ret_o:.4f} | ALIGNED {ret_a:.4f} | FREE "
-        f"{ret_f:.4f} (ratio {ratio}); landed "
+    f4 = lambda v: "n/a" if v is None else f"{v:.4f}"
+    log(f"  retentions: ORTHO {f4(ret_o)} | ALIGNED {f4(ret_a)} | FREE "
+        f"{f4(ret_f)} (ratio {ratio}); landed "
         + "/".join(f"{a}:{landed[a]}" for a in ARMS))
     log(f"  predictions: (a) ORTO-thickens-faster {pred_a['ORTHO_faster']} "
         f"(growth " + "/".join(f"{a}:{marg_growth[a]:+.1f}%"
@@ -2370,7 +2383,8 @@ def make_geometry_thermal_plot(rd, G_SHADOW, G_SPAN, pred_c, pred_a, pred_b,
     for arm in ARMS:
         led = arms_rec[arm]["install"]["ledger"]
         xs = sorted(int(k) for k in led)
-        ax.plot(xs, [led[str(s)]["in_span_frac"] for s in xs], "o-",
+        get = lambda s: led[s] if s in led else led[str(s)]
+        ax.plot(xs, [get(s)["in_span_frac"] for s in xs], "o-",
                 ms=3.2, lw=1.3, color=col[arm], alpha=0.9,
                 label=f"ARM-{arm} install |<S,g>|/||g||")
     ax.set_xlabel("install step")
