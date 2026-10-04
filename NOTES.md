@@ -9,6 +9,47 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e228 — W031's margin landscape vs the erosion order: ORDER-OUTRUNS-FRAGILITY — the erosion order is deeper than local decision fragility (all 6 cells join rho 0.12-0.25 vs the order's own replication 0.94-0.96); the wash MANUFACTURES thin spots instead of killing the t=0 ones; margin levels fall 25-74% while margin order dies vs t=0 and re-converges cross-wash (2026-10-04 ~13:55Z) — DONE
+
+WHAT WE DID: per-probe argmax margins in sigma ((top1-top2)/std of
+vocab logits, T204's dial) computed fresh at t=0 and at every state
+of the committed two-wash 124M archive (batteries module-imported
+verbatim; e214's committed records = the y-side, read at runtime;
+28 re-probe checks at dp 0.0); joined margin-rank-at-t=0 vs the
+committed per-probe erosion order, Spearman per battery per wash
+per state, with the erosion order's own wash-to-wash replication
+recomputed as the floor; eval-only CPU, 62s, all gates PASS.
+Script lab/e228_margin_landscape.py; runs/e228/{metrics.json,
+journal.json, margin_vs_erosion.png, margin_conservation.png}.
+
+WHAT WE SAW (T207): the stranger branch fires — every adjudication
+cell (fact/tmpl, w1/w2, +50/+80, decl >= 0.40) has join rho
++0.12..+0.25 (a faint thin-dies-first tilt, consistent with the
+margin-p coupling +0.80) while the erosion order replicates at
+0.935-0.958: the order is real, replicated, and DEEPER than the
+organism's thin spots. THE VIVID INVERSION: China->yuan (0.88
+sigma, the fat end) dies to 0.16; China->Chinese (0.22 sigma, the
+thinnest fact probe) holds at 0.57. THE SECOND READ: margin LEVELS
+fall 25-74% at +80 while margin ORDER vs t=0 dies (0.31-0.59) yet
+re-converges cross-wash (0.76-0.94) — e214's origin-dies/order-
+persists dissociation, weaker at depth. THE FREE FIND: the wash
+MANUFACTURES thin spots — min margins 0.001-0.03 sigma at +80
+(inside T204's ~0.05 flip zone; 5 tmpl probes there on w1) from a
+0.22 t=0 minimum: erosion CREATES fragility, in an order the t=0
+landscape does not name.
+
+HONESTY: near n=3 quantized (co-report only); the e208 distinction
+drawn (argmax margin vs arithmetic noise, not the fact-edge
+object); n=2 washes, one organism; nothing guaranteed. NEXT: the
+carrier candidates for the order are now RELATIONAL or WASH-
+ENDOGENOUS (T187's read, confirmed against the commitment
+spectrum); the manufactured thin spots are a candidate instrument
+for FQ5's interior (which margins enter the flip zone first, and
+is that entry order the erosion order?); W032's join dispatched
+(e229).
+
+---
+
 ## e225 — FQ2's one-currency join: GRADED — a positive tilt under the line (rho 0.607 < 0.714 at n=7), NO scale separation (the 10M multiples 0.543/1.023 interleave the 2.74M cloud 0.562-3.721); the breakers are the lottery's own rows; the edge-collapse arithmetic co-read (2026-10-04 ~12:52Z) — DONE
 
 WHAT WE DID: the wall family's six roots instrumented for the first
@@ -48,6 +89,19 @@ unreproducible under one convention (flat-min 0.895 vs flat-median
 bar shopping. NEXT: T206's regime read (within fresh-formation
 rows the tilt may be law; the exotic-formation rows its boundary)
 + the formation-curve members as the cheap new rows.
+[UPDATE ~13:50Z, the deep completion (05710cc, deterministic re-run
+bit-exact): THE TRANSIENT IS NOW ADJUDICATED — Spearman(step-over-
+edge, +1 transient/root) = -0.964 at n=7 across both scales: the
+edge-multiple OWNS THE TRANSIENT (at 10M one step (3.16) exceeds
+the whole edge, 2.9x/2.0x — the +1 WALL-FADES breach reads as
+EDGE-COLLAPSE-BY-ARITHMETIC for the transient) while the FLAT
+PHASE keeps its own economics on the ball (T178 confirmed inside
+the join). The instrument validated itself: the bridge's fresh
+e131 edge is BIT-IDENTICAL to e199's committed u0 (the seed-10902
+sign-ray is one object across cells); the fresh band 0.93 vs the
+committed 0.61 is the only mover. The two laws are NEIGHBORS,
+split by phase: EDGE OWNS THE TRANSIENT, BALL OWNS THE FLAT
+PHASE.]
 
 
 

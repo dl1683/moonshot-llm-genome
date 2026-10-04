@@ -685,6 +685,48 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T207 — e228: the order outruns fragility — and the wash manufactures thin spots down to the arithmetic floor (2026-10-04 ~14:00Z)
+
+W031 asked whether the conserved erosion order is the shadow of
+the margin landscape; the answer is the STRANGER branch, fired at
+frozen bars with no retrofit: the order replicates (0.935-0.958)
+while margin rank predicts almost nothing of it (+0.12..+0.25).
+The emblem is the inversion: the FAT decision dies (China->yuan,
+0.88 sigma -> 0.16), the THINNEST fact probe holds (China->
+Chinese, 0.22 -> 0.57). Erosion is not the harvest of pre-existing
+fragility. THREE LAYERS TO THIS: (1) THE FAINT TILT — two
+explanations: (H-i) it is the shared p-component (margin-p
+coupling +0.80 — e214's killed baseline-rank echo wearing margin
+clothes); (H-ii) a genuine weak local-fragility current under a
+dominant relational order. DISCRIMINATING (registered): partial-
+correlate margin-rank vs erosion controlling p-rank; H-i predicts
+the tilt dies to ~0. (2) THE MANUFACTURED THIN SPOTS — the free
+find: margins reach 0.001-0.03 sigma at +80, INSIDE T204's flip
+zone, from a 0.22 t=0 minimum. THE ARITHMETIC FLOOR BECOMES
+INHABITED: the wash drags the organism's decisions down to where
+batch-shape re-rounding can flip them — x3's boundary is not
+merely under the instrument, the organism is being WRITTEN INTO
+it. The image to keep: THE WASH WRITES ITS LATE DECISIONS IN INK
+THE ARITHMETIC CAN SMEAR. (3) THE RE-CONVERGENCE — margin order
+vs t=0 dies (0.31-0.59) yet re-converges CROSS-WASH (0.76-0.94):
+the commitment spectrum's SHAPE is re-derived by the wash itself,
+consistently across independent washes — the law again (levels =
+height, falling; order = shape, re-formed) — but the shape's
+AUTHOR is the wash, not the t=0 organism. This composes with
+T187's wash-endogenous read and INVERTS W032 exactly as
+registered: neither SNR (e225's cons pair) nor local fragility
+orders the deaths — the carrier is RELATIONAL or WASH-ENDOGENOUS.
+REGISTERED PREDICTIONS: (a) the flip-zone ENTRY order (which
+probes' margins cross 0.05 sigma first) correlates with the
+erosion order >= 0.6 if it is the same wash writing both — a
+candidate FQ5-interior instrument; (b) W032's join (dispatched as
+e229) on the wall roots adjudicates the flat phase's currency
+with the cons pair as its sharpest cell. CONNECTION: T206's phase
+split (edge owns the transient, ball owns the flat phase) + this
+= the wall's flat phase and the erosion order share the same
+unexplained economy — whatever orders the deaths also sets what
+the ball recaptures.
+
 ## T206 — e225: the wall leans SNR but is not only SNR — the regime read (2026-10-04 ~13:20Z)
 
 The one-currency join came back GRADED, and its failure mode is
@@ -720,6 +762,12 @@ flat phase has BOTH a conserved-order face and a lottery-fragile
 level face — shape/height all the way down. W031's margin
 landscape (just dispatched as e228) may supply the local
 mechanism the SNR cannot.
+[UPDATE ~13:50Z, the deep completion: the transient clause is now
+ADJUDICATED — step-over-edge vs the +1 transient at rho -0.964
+(n=7, both scales): THE EDGE OWNS THE TRANSIENT, THE BALL OWNS
+THE FLAT PHASE. The one-currency question splits by phase; the
+regime read above stands for the flat phase, where the cons pair
+still kills the strict SNR reading.]
 
 ## T204 — x3: the arithmetic floor made literal — batch-shape is a rounding boundary; the cosine floor ~3e-7 (2026-10-04 ~13:00Z)
 
