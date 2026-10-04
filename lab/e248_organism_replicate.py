@@ -469,10 +469,39 @@ _PS_SCRIPT.write_text(
     encoding="utf-8")
 
 
+def _e246_cell_active() -> str | None:
+    """e246 is a MULTI-INVOCATION cell (its agent restarts the python per
+    phase) — a process gap is NOT a free lane. The cell is active while
+    its metrics.json/run.log mtime is fresh (< 600 s) and its status is
+    not DONE. The 2026-10-04 18:23 collision (two 4-step bursts slid
+    into an inter-phase gap; 84C hard-stop) is the named failure this
+    check exists to prevent."""
+    import json as _json
+    for p in (REPO / "runs" / "e246" / "metrics.json",
+              REPO / "runs" / "e246" / "run.log"):
+        try:
+            age = time.time() - p.stat().st_mtime
+        except OSError:
+            continue
+        if age < 600.0:
+            if p.name == "metrics.json":
+                try:
+                    st = _json.loads(p.read_text(encoding="utf-8")).get("status", "")
+                    if st.upper().startswith("DONE"):
+                        continue
+                except Exception:
+                    pass
+            return f"e246-cell-active({p.name}, mtime {age:.0f}s ago)"
+    return None
+
+
 def gpu_owner_alive() -> str | None:
-    """Live artifacts own the cell: refuse the GPU while e246 lives (the
-    dispatch sequenced phase 2 after its DONE) or while ANY python holds
-    GPU memory. Pure-CPU cells (e.g. e240's archive pass) do not block."""
+    """Live artifacts own the cell: refuse the GPU while e246's cell is
+    active (process OR fresh artifacts) or while ANY python holds GPU
+    memory. Pure-CPU cells (e.g. e240's archive pass) do not block."""
+    cell = _e246_cell_active()
+    if cell is not None:
+        return cell
     try:
         out = subprocess.run(
             ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
@@ -757,7 +786,19 @@ def cmd_train() -> None:
             jlog("train_uturn_stop", note="the g1bS lesson honored")
             break
         if bursts < TRAIN["max_bursts"] and step < TRAIN["steps"]:
-            cooldown()
+            if stop == "hard":
+                # post-hard-stop (>= 82C read): heat-soak wait — >= 120 s
+                # AND temp <= 65C (README rule; the 18:23 collision fix)
+                t_wait = time.time()
+                while (time.time() - t_wait < 120.0
+                       or gpu_poll()["temp"] > 65.0):
+                    time.sleep(20.0)
+                    if time.time() - t_wait > 900.0:
+                        jlog("heatsoak_timeout")
+                        break
+                jlog("heatsoak_done", temp=gpu_poll()["temp"])
+            else:
+                cooldown()
 
     stb = torch.load(best, map_location="cpu", weights_only=False)
     m["organism"] = {
