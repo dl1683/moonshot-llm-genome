@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e251 — the LN-redistribution control: ZERO-SUM-LN — agy consult #001's confound FIRES on e242's own states — the ctrl battery thickened +17.24% vs the fact's committed +19.15% (held-30 +72.45%): ALL margins grew through the wall's flat phase; the +19.2% is generic bookkeeping-class (the sigma-normalized margin shares LN's denominator), not a fact-specific forge — T220's FORGE DOWRADES; the wall still cools and the ruler still flats (only the forge noun dies) (2026-10-04 ~19:12Z) — DONE
+
+WHAT WE DID: eval-only, CPU, 26.4s. The 2.74M family's FIRST
+ctrl battery (30 val word + 30 val sentence completions; the
+g-series conventions; seed 26502) + e043's held-30, run through
+e228's margin_pass on e242's bit-certified g1c W1 states (the
+fact battery re-measured bit-exact, max |d| 0.0; 10/10 gates
+PASS). Bars frozen at 1099d76. Script
+lab/e251_ln_confound_control.py; runs/e251/{metrics.json,
+e251_ln_confound_control.png}; the ctrl battery registered for
+any future margin claim on this lineage.
+
+WHAT WE SAW (T227): ZERO-SUM-LN as frozen — ctrl +17.24%
+>= the 0.75x line; held-30 +72.45% (the strongest generic
+thickening). THE MECHANISM (W001's own logic): the sigma-
+normalized margin shares LayerNorm's denominator — when the
+wash erodes aligned beliefs, LN redistributes the variance
+budget to ALL survivors: the thickening is arithmetic, not
+construction. HONEST TEXTURE: the ctrl trajectory is noisy
+(the +50/+100 growths only +9.4%/+3.5%; the registered
+t0->+300 endpoint adjudicates); the SCOPE is precise — the
+ruler-flat stands, the thermal inversion stands (the wall
+cools), e237's interventional elevation stands (p-based, not
+margin-based), e227's lift return stands; ONLY the margin-
+thickening's constructive reading dies.
+
+HONESTY: n=1 lineage, one wash; the ctrl battery new for the
+family (disclosed). NEXT (T227): the amendment at the claim
+sites + the energy-balance question sharpened (if zero-sum,
+WHERE did the variance budget come from? — agy consult #001's
+(a) now the live interaction cell).
+
+---
+
 ## e246 — the engineered seat (the build lane's first cell): GEOMETRY-IRRELEVANT, with the asymmetry the null handed over — retentions ORTHO 1.0735 / ALIGNED 0.9900 / FREE 0.9832 (all inside the family's draw spread; ratio 1.08x vs the 1.5x bar): the wall's protection is GEOMETRY-BLIND at 2.74M; the 124M seat does not transfer to installs — but THE ORTHO install LANDS at matched strength (0.8611) while THE ALIGNED install CANNOT EXPRESS THE FACT AT ALL (g0 0.0000 through 400 steps; its root cons-taught 0.5618): INSTALLS LIVE ENTIRELY OUTSIDE THE WASH-SPAN, NEVER ENTIRELY INSIDE IT — the span is the install's ANTI-SUBSTRATE; and the walled wash's own displacement is 100x span-enriched yet protecting the install from it changes nothing (2026-10-04 ~19:05Z) — DONE
 
 WHAT WE DID: the frozen scratch/e246_design.md cell — three install
