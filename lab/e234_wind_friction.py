@@ -531,7 +531,7 @@ def principal_angles(cA: np.ndarray, GB_block: np.ndarray,
 
 # ------------------------------------------------------------ replay + collect
 
-def replay_and_collect(net0, train_ids, probes, supports, rd, journal,
+def replay_and_collect(net0, train_ids, probes, rd, journal,
                        load_checks, metrics, write_metrics, wi: int,
                        w: str) -> dict:
     """One wash: the VERBATIM e182c replay arithmetic on CPU; every step's
@@ -1226,7 +1226,7 @@ def main():
     for wi, w in enumerate(WASHES):
         load_checks.append(cpu_load_check(f"replay {w}"))
         replay_out[w] = replay_and_collect(
-            net0, train_ids, probes54, cache, rd, journal, load_checks,
+            net0, train_ids, probes54, rd, journal, load_checks,
             metrics, write_metrics, wi, w)
         write_metrics(f"PARTIAL: replay {w} done "
                       f"(gen_ok {replay_out[w]['gen_ok']})")
