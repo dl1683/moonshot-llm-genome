@@ -9,6 +9,46 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e240 — FQ8, the moment archive: NEITHER at the frozen bars, but the substrate is NOT fate-blind — the applied direction carries the killed probes' supports at z 4-7 for the first ~45 steps (~7x the current gradient's own contrast), then collapses WITH the supply (z(80) ~ 0, perm p 0.96): THE MEMORY IS THE SUPPLY'S LOW-PASS INTEGRAL, not an archive — the EMA + per-coordinate normalizer CONCENTRATE the persistent fate-aligned component; the no-archive law STANDS at +80 (no amendment); the half-life 16.8 ~ e179's 18 ~ 1/(1-beta2) — the stickiness object finds its mechanism candidate; THE TWO-SIDED TEXTURE: v's mass sits on the LIVING probes' hot sets while the numerator's direction carries the dying — THE OPTIMIZER'S DENOMINATOR HOLDS THE HOLDERS (2026-10-04 ~18:20Z) — DONE
+
+WHAT WE DID: the first reconstruction of the optimizer state
+over the certified washes (fp64 AdamW recursion, streamed over
+the bit-exact regenerated gradients; the recursion validated
+3.1e-6 vs the live optimizer, m/v to 1e-7, the applied-norm
+trajectory vs e233's committed C-arm at Spearman 0.99995; 11/11
+gates PASS). Bars frozen at 31f62b7 BEFORE compute. Script
+lab/e240_moment_archive.py; runs/e240/{metrics.json DONE,
+journal.json, 3 PNGs}.
+
+WHAT WE SAW (T225): H-FOSSIL dead (no +80 archive — the
+intervention leg stays LOCKED); H-TRANSIENT dead as registered
+(z >= 2 persists past +40); the observed shape sits BETWEEN the
+bars: a ~45-50-step memory. THE MECHANISM: the moments are an
+AMPLIFIER, not an archive — the EMA integrates the aligned
+supply (mean z(d_t) 4.42 vs the gradient's own 0.64 over steps
+1-40); when the supply stops carrying it, the memory decays
+within the beta-window (tau 24.3 ~ 1/(1-beta2) = 20; the fit
+16.8 ~ e179's 18). THE COMPOSITION: T215/e233's near-miss
+mechanism confirmed mechanically — the moments re-grow what
+step-projection shaves — and e237's pre-Adam cut validated as
+exactly the right instrument (severing the amplifier's input;
+the 31x grad/applied ratio EXPLAINED: the low-pass integral).
+FQ3 TEXTURE: the fact battery's hot coordinates run 1.10 ->
+1.38x the global per-coordinate pace (growing; the clock clause
+itself exact to 1e-3); v's mass on the LIVING hot sets
+(vhot z -1.9/-2.6/-1.6) — the denominator down-weights the
+holders, the numerator's direction carries the dying.
+
+HONESTY: the within-killed support overlap 2-3x within-living
+(disclosed; the mean-of-z and majority-fate co-reports robust);
+the fp16 cache floor 5e-4 vs early group md 6-8e-4 (the three-
+wash replication + permutations carry); n=1 organism, 3 washes;
+the supports t=0-fixed. NEXT (T225): the amplifier's
+implications — the partial-cut's moment-level arm now has its
+mechanism prior (the ~17-step half-life).
+
+---
+
 ## e247 — the w3 census: ORDER-MAP-BREAKS at the literal bar / THE COMMITTED MAP HOLDS — the verdict word is the letter's, the finding is the unification's: every violation (4) is clause b (P-FIRST->MIS-DIAL — the clause w1/w2 itself already violates 5x and the committed asymmetric map never claimed); on e245/T222's actual map w3 is PERFECT (non-P-FIRST 1/1 mis-dial; collapses 3/3 P-FIRST; pooled over three washes: non-P-FIRST 5/5, collapses 10/10) — THE TWO DEATH MODES STAY THE TWO DEATH ORDERS; THE WALKER READ DENIES 'walkers are common': 1/10 collapses passed through a runner-up stage while 9/14 mis-dials ARRIVED by +50 and STAYED (the mis-dial an EARLY ABSORBING SLIDE); Egypt w3 = the w1 walker ARRESTED mid-walk on the gentler draw (2026-10-04 ~17:25Z) — DONE
 
 WHAT WE DID: T222's registered follow-up, eval-only CPU (21.6s

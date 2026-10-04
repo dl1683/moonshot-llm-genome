@@ -685,6 +685,42 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T225 — e240: the moments are an amplifier, not an archive — and the optimizer splits by fate (2026-10-04 ~18:22Z)
+
+The archive question closes with the day's most mechanically
+satisfying answer. THE MEMORY'S HONEST FORM: the wind's memory
+is the SUPPLY'S LOW-PASS — the EMA plus Adam's per-coordinate
+normalizer CONCENTRATE the persistent fate-aligned component to
+~7x the instantaneous gradient's contrast (z(d_t) 4.42 vs
+z(g_t) 0.64) but create nothing: when the wash gradients stop
+carrying it, the memory decays inside the beta-window. THE
+MOMENTS ARE AN AMPLIFIER, NOT AN ARCHIVE — and the no-archive
+law stands unamended at +80. THREE CLOSURES AT ONCE: (1) e179's
+~18-step stickiness finds its mechanism candidate (the fit
+16.8; tau ~ 1/(1-beta2)) — an unexplained object from the
+prior era named by today's substrate; (2) T215/e233's near-miss
+is explained mechanically (the moments re-grow what step-
+projection shaves — the 31x grad/applied ratio IS the low-pass
+integral's gain); (3) e237's pre-Adam cut validated as exactly
+the right instrument (severing the amplifier's input). THE
+TWO-SIDED TEXTURE nobody registered: v's mass sits on the
+LIVING probes' hot sets while the numerator's direction
+carries the dying — THE OPTIMIZER'S DENOMINATOR HOLDS THE
+HOLDERS: Adam's normalization down-weights exactly the
+coordinates the holders live on, letting the dying's direction
+through the gate. The optimizer is not fate-neutral machinery;
+it is a fate-differential amplifier. FQ3'S NUANCE: the pace
+co-read does NOT co-move as one object (the fact coords run
+1.1-1.4x the global pace, growing) — the normalizer's clauses
+hold individually but the "one object" framing gains a measured
+exception. W038'S UNDERTOW GAINS ITS HALF-LIFE (~17 steps) AND
+ITS MECHANISM (low-pass amplification) — the laws draft's
+second movement now has an engine. REGISTERED: the partial-cut's
+moment-level arm carries the mechanism prior (cutting m alone
+should decay like the supply's echo, not like the gradient's
+removal — a discriminating signature between the two arms the
+auditor demanded be separate).
+
 ## T224 — e247: the modes are absorbing states — the unification's final form (2026-10-04 ~17:27Z)
 
 The w3 census closes the taxonomy arc at pooled n: non-P-FIRST
