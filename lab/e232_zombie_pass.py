@@ -531,16 +531,23 @@ for b in BATTERIES:
             for st in seq:
                 pr = j228_probe(S228[("t0", 0) if st == 0 else (w, st)], b, probe)
                 traj.append(
-                    {"step": st, "margin": pr["margin_sigma"], "p": pr["p"]}
+                    {
+                        "step": st,
+                        "margin": pr["margin_sigma"],
+                        "p": pr["p"],
+                        "argmax_is_answer": pr["argmax_is_answer"],
+                    }
                 )
             margins = [t["margin"] for t in traj]
             ps = [t["p"] for t in traj]
+            args = [t["argmax_is_answer"] for t in traj]
             m80 = margins[-1]
             p80 = ps[-1]
             cross_i = next(
                 (i for i, mg in enumerate(margins) if mg < FLIP_ZONE), None
             )
             ever = cross_i is not None
+            flip_i = next((i for i, a in enumerate(args) if not a), None)
             p_below_half = p80 < P_HALF * p_t0
             standing = (m80 >= FLIP_ZONE) and p_below_half
             fate = (
@@ -560,6 +567,10 @@ for b in BATTERIES:
                     "margin_cross_step": None if cross_i is None else seq[cross_i],
                     "standing_at_80": standing,
                     "fate": fate,
+                    "argmax_is_answer_80": args[-1],
+                    "argmax_first_flip_step": (
+                        None if flip_i is None else seq[flip_i]
+                    ),
                 }
             )
 
@@ -579,6 +590,14 @@ for b in BATTERIES:
                 "n_standing": n_stand,
                 "n_resolved": n_res,
                 "n_recovered": sum(1 for r in rows if r["fate"] == "recovered"),
+                "n_standing_argmax_hold": sum(
+                    1 for r in rows if r["standing_at_80"]
+                    and r["argmax_is_answer_80"]
+                ),
+                "n_standing_argmax_flip": sum(
+                    1 for r in rows if r["standing_at_80"]
+                    and not r["argmax_is_answer_80"]
+                ),
                 "standing_fraction": frac,
                 "adjudicates": b in ADJ_BATTERIES,
                 "cell_stands": (frac >= 0.5) if (n and b in ADJ_BATTERIES) else None,
@@ -678,14 +697,22 @@ for b in ADJ_BATTERIES + ["near"]:
                     "D_signed": r["margin_80"] - r["margin_t0"],
                     "departure": abs(r["margin_80"] - r["margin_t0"]),
                     "adjudicates": b in ADJ_BATTERIES,
+                    "argmax_is_answer_80": r["argmax_is_answer_80"],
+                    "argmax_first_flip_step": r["argmax_first_flip_step"],
                     "t_star_exists": (r["p_80"] < r["p_t0"])
                     and (r["p_80"] > INV_V),
                 }
             )
 
-# G_ZSUBSET — standing zombies at +80 must be a subset of committed P-FIRST
-# (derived from the journals: NEITHER keeps p >= half; TOGETHER/MARGIN-FIRST
-# have margin crossed absorbingly); plus the T* existence bound
+# G_ZSUBSET — the +80 standing-zombie SNAPSHOT set vs the committed P-FIRST
+# class, plus the T* existence bound. The registered derivation claimed
+# containment (NEITHER keeps p >= half at +80; TOGETHER/MARGIN-FIRST crossed
+# margin absorbingly). HONEST OUTCOME: the containment assumption is
+# FALSIFIABLE and was FALSIFIED — crossing is an absorbing EVENT (first
+# crossing), not an absorbing STATE: margins can dip below 0.05 and recover.
+# The violations are disclosed verbatim below; the registered cloud
+# definition (read-1 standing zombies, P-FIRST-scoped) is a DEFINITION and
+# adjudicates unchanged; the full-snapshot sensitivity is a co-report.
 zsub_violations = [
     c for c in cloud if not c["t_star_exists"]
 ]
@@ -695,8 +722,7 @@ for b in BATTERIES:
         pfirst = {
             r["probe"] for r in e230_level[b][w] if r["class"] == "P-FIRST"
         }
-        for r in read1_rows[b][w]:
-            pass  # rows are P-FIRST by construction
+        class_by_probe = {r["probe"]: r["class"] for r in e230_level[b][w]}
         # scan ALL probes of the battery for +80 standing-zombie snapshots
         t0 = S228[("t0", 0)]
         last = S228[(w, 80)]
@@ -705,17 +731,29 @@ for b in BATTERIES:
             if pr["margin_sigma"] >= FLIP_ZONE and pr["p"] < P_HALF * p_t0:
                 if pr["fact"] not in pfirst:
                     non_pfirst_standing.append(
-                        {"battery": b, "wash": w, "probe": pr["fact"]}
+                        {
+                            "battery": b,
+                            "wash": w,
+                            "probe": pr["fact"],
+                            "e230_class": class_by_probe.get(pr["fact"]),
+                            "argmax_is_answer_80": pr["argmax_is_answer"],
+                            "margin_80": pr["margin_sigma"],
+                            "p_80": pr["p"],
+                        }
                     )
 M["gates"]["G_ZSUBSET"] = {
     "standing_zombies_outside_committed_PFIRST": non_pfirst_standing,
     "t_star_bound_violations": [
         {k: c[k] for k in ("battery", "wash", "probe")} for c in zsub_violations
     ],
-    "note": "every +80 standing-zombie snapshot in the journals must belong to "
-    "the committed P-FIRST class (NEITHER keeps p >= half at +80; "
-    "TOGETHER/MARGIN-FIRST crossed margin absorbingly); every zombie's p must "
-    "lie in (1/|V|, p_t0) so exactly one T* matches it",
+    "note": "registered containment assumption FALSIFIED: crossing is an "
+    "absorbing EVENT (first crossing), not an absorbing STATE — the listed "
+    "+80 standing-zombie snapshots dip below 0.05 earlier (TOGETHER class) "
+    "and recover above it by +80; the registered cloud definition "
+    "(P-FIRST-scoped) adjudicates unchanged (a definition, not a claim); the "
+    "full +80 snapshot set is a sensitivity co-report in "
+    "read2.argmax_decomposition_and_sensitivities; every zombie's p lies in "
+    "(1/|V|, p_t0) so exactly one T* matches it",
     "pass": len(non_pfirst_standing) == 0 and len(zsub_violations) == 0,
 }
 
@@ -847,6 +885,101 @@ M["read2_temperature_lens"] = {
         },
     },
 }
+
+# --- co-report block (added after the registered compute; bars untouched) ---
+# (a) ARGMAX DECOMPOSITION of the cloud: temperature preserves the argmax by
+#     construction (order-preserving division), so a +80 zombie whose argmax
+#     is no longer the answer token is off-vertical IN KIND — no T exists for
+#     it at all, at any margin; a holder is tested metrically (departure).
+adj_hold = [c for c in adj_cloud if c["argmax_is_answer_80"]]
+adj_flip = [c for c in adj_cloud if not c["argmax_is_answer_80"]]
+dep_hold = float(np.median([c["departure"] for c in adj_hold]))
+dep_flip = float(np.median([c["departure"] for c in adj_flip]))
+# (b) FULL +80 SNAPSHOT-ZOMBIE SENSITIVITY: the registered cloud plus the
+#     G_ZSUBSET violations (recovered-from-crossing snapshots outside
+#     P-FIRST) — does the verdict survive the definitional widening?
+snap_extra = []
+for v in non_pfirst_standing:
+    if v["battery"] not in ADJ_BATTERIES:
+        continue
+    t0m = j228_probe(S228[("t0", 0)], v["battery"], v["probe"])["margin_sigma"]
+    snap_extra.append(
+        {
+            "battery": v["battery"],
+            "wash": v["wash"],
+            "probe": v["probe"],
+            "e230_class": v["e230_class"],
+            "margin_t0": t0m,
+            "margin_80": v["margin_80"],
+            "departure": abs(v["margin_80"] - t0m),
+            "D_signed": v["margin_80"] - t0m,
+            "argmax_is_answer_80": v["argmax_is_answer_80"],
+        }
+    )
+snap_all = (
+    [
+        {
+            "battery": c["battery"],
+            "wash": c["wash"],
+            "probe": c["probe"],
+            "e230_class": "P-FIRST",
+            "margin_t0": c["margin_t0"],
+            "margin_80": c["margin_80"],
+            "departure": c["departure"],
+            "D_signed": c["D_signed"],
+            "argmax_is_answer_80": c["argmax_is_answer_80"],
+        }
+        for c in adj_cloud
+    ]
+    + snap_extra
+)
+med_snap = float(np.median([c["departure"] for c in snap_all]))
+med_hold_signed = float(np.median([c["D_signed"] for c in adj_hold]))
+M["read2_temperature_lens"]["argmax_decomposition_and_sensitivities"] = {
+    "added_after": "s6 co-report pass, triggered by the G_ZSUBSET failure "
+    "and the argmax_is_answer column; BARS UNTOUCHED — the adjudication "
+    "above is the registered compute",
+    "argmax_decomposition": {
+        "note": "temperature preserves the argmax for every T (division is "
+        "order-preserving) — an argmax-flipped zombie is off-vertical IN "
+        "KIND (no T exists at any margin); an answer-holding zombie is "
+        "tested metrically (departure)",
+        "n_adjudicated": len(adj_cloud),
+        "n_argmax_hold_answer": len(adj_hold),
+        "n_argmax_flip": len(adj_flip),
+        "flip_first_steps": sorted(
+            {str(c["argmax_first_flip_step"]) for c in adj_flip}
+        ),
+        "median_departure_holders": dep_hold,
+        "median_departure_flipped": dep_flip,
+        "median_signed_holders": med_hold_signed,
+        "n_near_coreport_hold": sum(
+            1 for c in cloud if not c["adjudicates"]
+            and c["argmax_is_answer_80"]
+        ),
+        "n_near_coreport_flip": sum(
+            1 for c in cloud if not c["adjudicates"]
+            and not c["argmax_is_answer_80"]
+        ),
+        "verdict_holders_only_coreport": "RESTRUCTURED"
+        if dep_hold >= floor
+        else "TEMPERATURE-LIKE",
+        "verdict_flipped_in_kind": "RESTRUCTURED-IN-KIND (argmax flip is "
+        "temperature-impossible; not a margin comparison at all)",
+    },
+    "full_snapshot_sensitivity": {
+        "note": "the registered cloud (P-FIRST-scoped) widened to EVERY +80 "
+        "standing-zombie snapshot in the adjudicated batteries (adds the "
+        "G_ZSUBSET violations: TOGETHER-class dips that recovered above "
+        "0.05 by +80); co-report only",
+        "n_full_snapshot": len(snap_all),
+        "extra_points": snap_extra,
+        "median_departure_full_snapshot": med_snap,
+        "verdict_full_snapshot_coreport": "RESTRUCTURED"
+        if med_snap >= floor
+        else "TEMPERATURE-LIKE",
+    },
+}
 write_metrics("s3-read2")
 
 # ---------------------------------------------------------------------------
@@ -863,14 +996,20 @@ res = np.array([c["n_resolved"] for c in cells], dtype=float)
 sta = np.array([c["n_standing"] for c in cells], dtype=float)
 colors = {"fact": "#1f77b4", "ctrl": "#2ca02c", "near": "#9467bd", "tmpl": "#d62728"}
 ax = axes[0]
+sta_hold = np.array([c["n_standing_argmax_hold"] for c in cells], dtype=float)
+sta_flip = np.array([c["n_standing_argmax_flip"] for c in cells], dtype=float)
 ax.bar(x, res, color="#bbbbbb", edgecolor="k", linewidth=0.4,
        label="resolved by +80 (margin < 0.05)")
-ax.bar(x, sta, bottom=res, color="#d62728", edgecolor="k", linewidth=0.4,
-       alpha=0.85, label="standing zombie at +80")
+ax.bar(x, sta_hold, bottom=res, color="#d62728", edgecolor="k",
+       linewidth=0.4, alpha=0.85,
+       label="standing zombie, argmax still the answer")
+ax.bar(x, sta_flip, bottom=res + sta_hold, color="#ff7f0e", edgecolor="k",
+       linewidth=0.4, alpha=0.9,
+       label="standing zombie, argmax FLIPPED (wrong-choice survivor)")
 for i, c in enumerate(cells):
     if c["n_recovered"]:
         ax.text(i, res[i] + sta[i] + 0.15, f"+{c['n_recovered']}rec", ha="center",
-                fontsize=6.5, color="#ff7f0e")
+                fontsize=6.5, color="#7f3f00")
 for i, c in enumerate(cells):
     if c["n_pfirst"]:
         ax.text(i, res[i] + sta[i] / 2, f"{c['standing_fraction']:.2f}",
@@ -951,10 +1090,13 @@ for c in cloud:
             linestyle=":", linewidth=0.8, color=col, alpha=0.5, zorder=1)
     ax.scatter([c["margin_t0"]], [c["p_t0"]], facecolors="none", edgecolors=col,
                s=18, linewidths=0.8, zorder=2)
-    mk = "o" if c["wash"] == "w1" else "s"
-    ax.scatter([c["margin_80"]], [c["p_80"]], marker=mk, color=col, s=24,
-               zorder=3, alpha=0.95,
-               edgecolors="w", linewidths=0.4)
+    if c["argmax_is_answer_80"]:
+        mk = "o" if c["wash"] == "w1" else "s"
+        ax.scatter([c["margin_80"]], [c["p_80"]], marker=mk, color=col, s=24,
+                   zorder=3, alpha=0.95, edgecolors="w", linewidths=0.4)
+    else:
+        ax.scatter([c["margin_80"]], [c["p_80"]], marker="x", color=col, s=30,
+                   zorder=4, linewidths=1.3)
 ax.axvline(FLIP_ZONE, color="k", linewidth=0.8, linestyle="-.")
 ax.text(FLIP_ZONE + 0.004, 0.9, "0.05 flip zone", fontsize=7, rotation=90,
         va="top")
@@ -969,8 +1111,12 @@ handles = [
 for b in ["fact", "ctrl", "tmpl", "near"]:
     handles.append(
         plt.Line2D([], [], marker="o", color=bcols[b], linestyle="",
-                   label=f"{b} zombie at +80 (o=w1, s=w2)")
+                   label=f"{b} zombie at +80 (o/s = w1/w2)")
     )
+handles.append(
+    plt.Line2D([], [], marker="x", color="k", linestyle="",
+               label="argmax FLIPPED at +80 — off-vertical IN KIND")
+)
 ax.legend(handles=handles, fontsize=6.5, loc="upper right")
 ax.set_xlabel("argmax margin (sigma)")
 ax.set_ylabel("p(answer)")
@@ -1054,6 +1200,22 @@ M["honesty_reflex"] = {
     "shared_verticals": "a probe zombie under both washes contributes two "
     "cloud points sharing one t0 vertical (each wash is a separate death); "
     "per-wash medians co-reported",
+    "recovered_snapshot_zombies": "the +80 standing-zombie SNAPSHOT set is "
+    "slightly larger than the registered P-FIRST-scoped cloud: 3 "
+    "adjudicated probes (all TOGETHER-class: margin and p crossed together "
+    "at 50, margin dipped below 0.05, then PARTIALLY RECOVERED above it by "
+    "+80) — crossing is an absorbing EVENT, not an absorbing STATE; "
+    "disclosed in gate G_ZSUBSET; the full-snapshot sensitivity leaves the "
+    "verdict unchanged",
+    "wrong_choice_survivors": "7 of the 33 adjudicated standing zombies (and "
+    "2 of the 4 near co-report points) no longer hold the ANSWER as argmax "
+    "at +80: a fat margin survives on a DIFFERENT token while p(answer) "
+    "stays halved — the commitment outlives the belief but has CHANGED "
+    "HANDS; for the temperature lens these are off-vertical IN KIND "
+    "(temperature preserves the argmax for every T — no temperature can "
+    "write them at any margin); the 26 answer-holders are off-vertical in "
+    "degree (median departure reported separately); both populations "
+    "co-reported, the registered bar pools them as registered",
     "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay "
     "of e182's GPU original, wash 2 is GPU fp32 — the archive's device "
     "asymmetry, inherited, disclosed",
@@ -1080,12 +1242,18 @@ M["deviations"] = [
     "registered read (cloud position relative to the verticals) is complete "
     "without p(T) curves, and the exact-p T* exists for every zombie (gate "
     "G_ZSUBSET) — disclosed as a scope note, not a bar change",
+    "s6 CO-REPORT PASS (post-registration, bars untouched): the registered "
+    "compute falsified this file's own G_ZSUBSET containment assumption "
+    "(crossing is an absorbing event, not state) and surfaced the "
+    "argmax_is_answer column; the argmax hold/flip decomposition and the "
+    "full-snapshot / holders-only sensitivities were added AFTER the "
+    "adjudication, are labeled co-reports everywhere, and change no bar",
 ]
 M["all_gates_pass"] = all(
     bool(M["gates"][g]["pass"]) for g in M["gates"]
 )
 M["status"] = "DONE"
-write_metrics("s5-done")
+write_metrics("s6-coreports-done")
 
 print("e232 done. verdicts:", r1_verdict, "|", r2_verdict)
 print("read1 cells:", cell_txt)
