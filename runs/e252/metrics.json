@@ -1,0 +1,207 @@
+{
+  "experiment": "e252_resuscitation",
+  "phase": "eval-only CPU cell on the committed two-wash 124M archive (agy consult #002's pick; the design FROZEN in scratch/e252_design.md, commit f72a38b)",
+  "date": "2026-10-04T19:03:37Z",
+  "status": "PARTIAL: w2 +80 forwarded + cooled",
+  "registration": "bars + predictions frozen VERBATIM from scratch/e252_design.md (commit f72a38b) BEFORE compute; this script committed at birth before the adjudicated run; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "RESUSCITATES": "\">= the cooled +80 belief-rank order returns to >= 0.8 Spearman with t=0 (from the raw ~committed value) AND the sham-T control does nothing \u2014 the flat-phase decline is substantially a temperature mask; the information persists; W030's floor gains its inverse; the forgetting-is-damage picture amended\"",
+      "STRUCTURAL": "\"cooling recovers <= 0.2 of the rank order (the raw gap stands) \u2014 the erosion order is real destruction, not masking; the thermal layer is cosmetic on ranks; T218's residual stands as physics\"",
+      "PARTIAL": "\"the margin/belief split: margins revive, ranks do not (or per-battery splits) \u2014 the tables verbatim\""
+    },
+    "predictions_verbatim": {
+      "(a)": "\"The tmpl battery (the least thermal at 0.82-0.83 R2) revives LESS than ctrl (the most thermal-dependent at 0.38 R2 \u2014 wait, ctrl is the least-thermal-served; the revival should track the T-explained fraction per battery: near (0.95) revives most, ctrl (0.39) least).\"",
+      "(b)": "\"The zombies' argmaxes do NOT return (the commitment's target is a discrete choice already made; cooling shifts probabilities, not the argmax identity \u2014 unless the mis-dials were within T of flipping, in which case 'dollars'->'dollar' revives).\""
+    },
+    "honesty_guards_verbatim": "\"The cooling is an EXTRAPOLATION of a fit (the one-T family's misspecification late \u2014 the 0.33 IQR T-spread \u2014 caps the expected recovery; disclose); the argmax read is discrete and coarse; n=1 organism, 2-3 washes; the committed T_fits' provenance gates.\"",
+    "operationalizations": "cooling = L_state * T_mle(w,s) (the inverse of e238's softmax(L0/T) family, applied to the state's OWN logits \u2014 'cool by the inverse of the fitted temperature'; the design's literal typeset 'logits / T_fit' = further heating runs as the ANTI-T ECHO, never adjudicates; both directions reported; disambiguation frozen from the design's semantics and verified on e238's sha-recorded dumps BEFORE the adjudicated run, disclosed); T from e238's committed MLE at runtime (no desk bound needed \u2014 stated); sham_T(w,s) = T_mle(other wash, same state) [magnitude-matched, weak discriminator disclosed; weak-sham T_mle(w,+10) echo]; rho = Spearman(p_read, p_t0) pooled-54 primary, per-battery co-report; RF = (rho_c-rho_r)/(1-rho_r); BR = (mean p_c - mean p_r)/(mean p_0 - mean p_r); MRF = same on mean raw margins; margin_sigma invariance = T212's derivation, verified numerically; RESUSCITATES := rho_cooled >= 0.80 at BOTH +80 AND rho_sham < 0.80 at both; STRUCTURAL := NOT resuscitates AND RF <= 0.20 both AND NOT (BR >= 0.5 both OR MRF >= 0.5 both) AND no per-battery straddle; PARTIAL := else (the split / between / per-battery); zombies from e232's census (un-zombie := p_cooled >= 0.5*p_t0; wrong-choosers' argmax return count derivably 0 \u2014 monotonicity); prediction (a) scored on BR_b at +80 vs e238's R2_battery order",
+    "registration": "bars + predictions frozen VERBATIM from scratch/e252_design.md (commit f72a38b) BEFORE compute; this script committed at birth before the adjudicated run; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "is the +80 state's damage STRUCTURAL or THERMAL? cool the logits by the inverse of the fitted temperature in a frozen forward pass \u2014 if the belief-rank order re-converges to t=0 (beyond the sham-T control), flat-phase forgetting is substantially a READOUT MASK",
+  "builds_on": [
+    "agy consult #002 (the pick; the impact framing)",
+    "T218 / e238 (the thermal split \u2014 the committed T_fits are this cell's instrument)",
+    "T212 / e232 + T219 / e241 (the zombies: the census, the two death modes)",
+    "T209 / e230 (decisions stickier than beliefs)",
+    "runs/e228 (the margin conventions + the two-wash journal)",
+    "T187 / e214 (the committed per-probe p's)",
+    "T185 / e213 (the two-wash archive)",
+    "T183 / e182c2 + T149 / e182c + T123 / e182 (the machinery)"
+  ],
+  "whats_new": [
+    "the inverse-temperature INTERVENTIONAL read on the committed states (the resuscitation probe)",
+    "the zombie belief-revival census (un-zombie counts under cooling)",
+    "the sham-T / anti-T / weak-sham control triad",
+    "the sigma-scale misspecification check (is the state literally a heated t=0?)"
+  ],
+  "smoke": false,
+  "gates": {
+    "G_TFIT": {
+      "source": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+      "sha256_16": "95290a45b9aaf7e4",
+      "rows_present": [
+        "w1+10",
+        "w1+2",
+        "w1+50",
+        "w1+80",
+        "w2+10",
+        "w2+50",
+        "w2+80"
+      ],
+      "needed": [
+        "w1+10",
+        "w1+2",
+        "w1+50",
+        "w1+80",
+        "w2+10",
+        "w2+50",
+        "w2+80"
+      ],
+      "T_mle": {
+        "w1+2": 1.0014473256519658,
+        "w1+10": 1.0597956498145238,
+        "w1+50": 1.3489839391244727,
+        "w1+80": 1.4525923182890421,
+        "w2+10": 1.0744525359278094,
+        "w2+50": 1.3363590444428126,
+        "w2+80": 1.413836040516422
+      },
+      "provenance": "e238's committed Bernoulli soft-target MLE (runs/e238/metrics.json fit_rows, read at runtime); the two-moment desk bound NOT needed \u2014 the full fit is committed (the design's gate, stated)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN \u2014 it feeds the batteries' contamination scans only; no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "kept_set_equal": true,
+        "n": 20,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "ctrl": {
+        "kept_set_equal": true,
+        "n": 12,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "near": {
+        "kept_set_equal": true,
+        "n": 3,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "tmpl": {
+        "kept_set_equal": true,
+        "n": 19,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "tol_per_probe_dp": 0.01,
+      "note": "the four batteries are the phase-1/phase-2 pools VERBATIM (module import); my t=0 forward's p must reproduce e214's committed journal t0 \u2014 certifying the forward the cooled reads ride on",
+      "pass": true
+    }
+  },
+  "timing": {
+    "total_s": 42.0
+  },
+  "inventory": {
+    "wash1_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:07:14Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:20:17Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:28:00Z"
+      },
+      "2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+        "exists": true,
+        "size_bytes": 652195312,
+        "mtime": "2026-10-01T15:04:11Z"
+      }
+    },
+    "wash2_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:11:49Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:15:03Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:18:15Z"
+      }
+    },
+    "wash1_crosscheck_vs_e182c2_inventory": {
+      "10": true,
+      "50": true,
+      "80": true,
+      "2": true
+    },
+    "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  }
+}
