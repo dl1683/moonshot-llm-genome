@@ -283,7 +283,7 @@ SPAN'S CROSS-WASH IDENTITY — cos 0.958-0.966 across independent
 draw streams: the wind's direction is a CORPUS+ORGANISM
 property, not a draw property (T216's R question answered in
 the main: the tide's direction is the span); (2) THE SEAT IS
-ANCHOR-SCALE — iPhone's raw cumulative exposure 8-10x Gmail's
+ANCHOR-SCALE — iPhone's raw cumulative exposure ~7-9x Gmail's (the committed ratios 7.7/9.0/6.5 — R64-corrected)
 on every wash: a tale of two extremes, not a battery law; and
 GMAIL'S MARGIN GROWS through the wash (decline -0.4..-0.5 =
 THICKENING — the holder's commitment strengthens); (3)

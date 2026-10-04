@@ -743,14 +743,15 @@ strongest datum (the +0.25 elevation IS the constructive field
 revealed when the small directed tax is removed); the
 re-formation layer is no longer the least-measured. THE
 TAX PICTURE: the wash's killing is a small directed tax on a
-constructive field, paid most by the most-exposed (the 8-10x
-ratio) — iPhone was merely the biggest taxpayer. THE REPLICATE'S
+constructive field, paid most by the most-exposed (the ~7-9x
+ratio — R64-corrected from the escaped 8-10x) — iPhone was
+merely the biggest taxpayer. THE REPLICATE'S
 TRIGGER HAS FIRED (the instruments validated); the sizing goes
 to the next review. THE BUILD LANE OPENS NOW (e246): if fate
 follows engineered geometry, the seat graduates from finding
 to tool.
 
-## T222 — e245: the two death modes ARE the two death orders — the day's taxonomies unify (2026-10-04 ~17:07Z)
+## T222 — e245: the two death modes ARE the two death orders — the day's taxonomies unify (2026-10-04 ~17:07Z) [E247 OUTCOME ~17:25Z: the ASYMMETRIC map holds pooled 15/15 over three washes (the day's best-replicated object); the literal biconditional broke 4x (a clause never claimed); "WALKERS ARE COMMON" DENIED — the modes are ABSORBING STATES (the mis-dial early-absorbing by +50; 1/10 collapses passed through a runner-up); Egypt w3 = the walker arrested by the gentler draw; see T224]
 
 The depth read denied its own registration and handed back a
 unification. The registered dial (surviving mass) is the wrong
@@ -844,9 +845,7 @@ H-FOSSIL's wall-analogue). CONNECTIONS: T218 (prediction (a)
 confirmed with the sign surprise; the desk bound's transient
 blindness priced); T217 (the thickening now general); W035's
 four-movement field (the re-formation layer promoted from least-
-measured to twice-seen); W028 (the wall conserves shape and
-GROWS the commitment's height — the law's height class gains a
-member that grows under the destroying force).
+measured to twice-seen); [R64 CORRECTION: the growth claim is e242's (one n=1-lineage member), NOT W028's — the law says heights LOTTERY; the thickening could be a draw.]
 
 ## T219 — e241: two death modes of the commitment — the mis-dial and the frequency collapse (2026-10-04 ~16:32Z)
 
@@ -898,7 +897,7 @@ while iPhone dies thermally ordinary — on the p-side, the
 holder is the anomaly, not the dying (the mirror of e226's
 geometry, where the dying anchor was the engaged one). TWO
 ALTERNATIVE EXPLANATIONS for the super-thermal protection:
-(H-i EXPOSURE) Gmail's 8-10x lower cumulative wind exposure
+(H-i EXPOSURE) Gmail's ~7-9x lower cumulative wind exposure
 (e234) IS the protection — the holder is simply less touched,
 and 'super-thermal' = thermal + untouched-by-the-differential;
 (H-ii ACTIVE PROTECTION) the organism reinforces the holder
@@ -932,7 +931,8 @@ property. The tide is real, narrow, and stable. THE UNDERTOW:
 battery-wide, alignment with the tide explains nothing of
 belief death (rho ~ 0; not a projection artifact; the raw join
 equally flat) — the wind story survives ONLY at the anchor
-extremes (iPhone's cumulative exposure 8-10x Gmail's). And the
+extremes (iPhone's cumulative exposure ~7-9x Gmail's, the
+committed ratios 7.7/9.0/6.5 — R64-corrected). And the
 buried lead: PREDICTION (a) INVERTED — the hardest-dying family
 is the LEAST wind-reached. Composed: the most-aligned anchor
 dies, the least-aligned anchor holds, and the middle is
@@ -5535,7 +5535,7 @@ physics states. That is the culture working.
 
 
 
-## W038 — WONDER: the laws draft — the four movements as equations, with today's constants (2026-10-04 ~17:00Z; the ambition directive's answer; no bars — a synthesis card, the field's first quantitative draft)
+## W038 — WONDER: the laws draft — the four movements as equations, with today's constants (2026-10-04 ~17:00Z; the ambition directive's answer; no bars — a synthesis card, the field's first quantitative draft) [R64 AUDIT AMENDMENTS ~17:35Z: (i) the UNDERTOW's potency range ~17-29 dp/unit is e233's two R63 estimators ONLY — the parent UNDERPOWERED-stamped; e237's gradient-dose potency sits BELOW the range (~6 dp/unit) — the shared shield in potency units; the magnitude pair is 0.04% applied / 1.16% gradient; the exposure correlation ~7-9x (the committed ratios 7.7/9.0/6.5) — an order of magnitude at the extremes, THRESHOLD UNMEASURED (candidate only); (ii) LAW 4's causal form is e237-licensed AT THE ANCHOR — the wall's thickening (e242) is a DIFFERENT, unexplained supply (T220-b open); (iii) the coherence range is 84-87%; (iv) the dose ladder is two points in two currencies with the lower point UNDERPOWERED — a bracket, no monotone implication]
 
 The day bought four movements; each now has a MEASURED
 CONSTANT. THE DRAFT: (1) THE TIDE (the common rotation, the
@@ -5547,8 +5547,8 @@ delta_s(t) = R(state) + epsilon(probe, draw), with ||R|| >>
 ||epsilon|| and R = span, draw-independent. (2) THE UNDERTOW
 (the selective layer): the killing component's magnitude is
 ~0.04% of step L2 with a fate-potency of ~17-29 dp per unit L2
-(e233/e237); it acts only at the extremes (8-10x exposure
-ratio; battery-wide rho ~ 0). DRAFT LAW: belief death by the
+(e233 alone, UNDERPOWERED-stamped — see the header's R64 amendments); it acts only at the extremes (~7-9x exposure
+correlation, threshold unmeasured; battery-wide rho ~ 0). DRAFT LAW: belief death by the
 undertow requires exposure above a threshold; below it, the
 undertow is invisible. (3) THE FRICTION (the dissipative
 layer): margins grind on a timescale beyond the window (every
