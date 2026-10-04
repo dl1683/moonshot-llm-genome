@@ -4805,6 +4805,45 @@ physics states. That is the culture working.
 
 
 
+## W031 — WONDER: the thinnest decisions — is the conserved erosion order the shadow of a margin landscape? (2026-10-04 ~12:55Z; no bars, no kills — a crossing noticed)
+
+Two findings crossed paths this hour and want a card. (1) T204's
+floor probe left a registered prediction: argmax decisions flip
+under mere BATCH-SHAPE re-rounding exactly where their margins go
+thin (~0.05 sigma and below) — the arithmetic floor (~3e-7 on
+cosines) is invisible to decisions at 0.19 sigma, so the MARGIN is
+the dial that maps an organism's commitment spectrum: where it has
+decided hard, and where it is barely holding its choice against
+arithmetic noise. (2) e214 found the EROSION ORDER is the SHAPE
+layer — the conserved object under the wash, relational,
+replicating at rho 0.94-1.00 across independent washes. THE
+CROSSING QUESTION: is the conserved erosion order the SHADOW of
+the margin landscape? Do the thin-margin probes die first — and
+if that order replicates across draws (as SHAPE must), then the
+"conserved order" acquires a mechanism candidate: DECISION-ORDER =
+local fragility rank. And if it does NOT — if the erosion order is
+conserved while margin ranks scatter — that is STRANGER and better:
+the wash kills in an order that local decision fragility does not
+explain; the order is real, replicated, and deeper than the
+organism's own thin spots. THE LAW'S VERSION OF THE SAME QUESTION:
+the margin landscape itself splits — is its SHAPE (the ORDER of
+probes by thinness) conserved under the wash while its HEIGHT
+(margin levels) falls? DISTINCTION OWED (honesty): e208's margin
+object was the FACT-EDGE over the wash band — that instrument
+died its honest death; this object is the NEXT-TOKEN ARGMAX MARGIN
+in sigma units vs arithmetic noise — new ruler, same beloved word.
+DISCRIMINATING OBSERVATION (desk-eval, committed archive only):
+per-probe argmax margins at t=0 across the three-wash 124M
+archive; correlate margin rank against e214's committed per-probe
+erosion records; the read is a rank-correlation with the wash-to-
+wash replication as its own control. Registered prediction (so we
+cannot retrofit): the correlation is either strong-and-replicating
+(margin rank = the erosion order's mechanism candidate) or weak-
+but-the-erosion-order-still-replicates (the order outruns local
+fragility) — and the margin landscape's OWN shape-conservation is
+the second, quieter read. This is FQ-adjacent (WHERE the organism
+differentiates its commitments) and costs one CPU eval pass.
+
 ## W030 — WONDER: the null as a finding — the lab learning to record its own floor (2026-10-04 ~12:32Z; no bars, no kills — savoring an epistemic shift)
 
 A quiet shift has happened across the last week's nulls, worth
