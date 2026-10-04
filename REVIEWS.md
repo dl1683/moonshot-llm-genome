@@ -91,6 +91,59 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R64 — the second cascade reviewed: the cleanest discipline yet, one load-bearing null-control named and added, the forge killed by a colleague, and the confluence layer minted (2026-10-04, folded ~19:30Z)
+
+Trigger: the cadence + the triangle's completion. STAGGERED (auditor -> critic ->
+ideator), each role fed the landings after it. Persistences:
+scratch/review_r64_{auditor,critic,ideator}.md.
+
+### AUDITOR: "the cleanest cascade yet audited."
+The promotion refusal robust (the tolerance-free committed-spread reading alone
+decides a 17x positive); e247's dual reading genuinely pre-frozen; four corrections
+applied at the claim sites (the ~7-9x ratio; the potency re-attributed to e233
+UNDERPOWERED-stamped with the currency pair; T222's outcome marker; T220's W028
+citation; W038's threshold + law-4 downgrades). Its dispatch order — the replicate
+NOW with quantified bars — executed (e248, phase 1 frozen; its co-bar 8 amended
+AT the phase boundary and validated both ways: the null rejected at 0.85+10x).
+
+### CRITIC: the three sharpest — all honored.
+(1) THE SHAM-DIRECTION NULL was missing from the undertow's causal family ->
+e250 designed WITH the sham arm (DIRECTION-OWNS vs GENTLER-WASH — the honest harder
+branch registered). (2) e248's co-bar 8 sat below its own 0.67 floor -> the
+amendment above. (3) e246's SEAT bar inside the lineage's 2.2x draw spread -> the
+verdict read with the lottery caveat carried; the seed-replicate named if SEAT ever
+fires (it did not — GEOMETRY-IRRELEVANT, and the null's yield — the anti-substrate
+— outran the bar).
+
+### IDEATOR: the confluence layer (FQ12-FQ16).
+Every pair of landings minted a desk-priced question: the V-SPAN OVERLAP (is the
+anti-substrate the optimizer's denominator?), the THERMAL-LEDGER IDENTITY (is the
+thickening supplied by the cooling?), the BETA2 WASH SWEEP (is the undertow a
+writable optimizer dial?), the RESIDENCY CENSUS (does the tide feed the undertow?),
+the CONTENT-CLASS BOUNDARY (can refrains install where facts cannot?). "WHO AIMS
+THE UNDERTOW" deliberately held back until the sham and the replicate speak.
+
+### THE NEW PROTOCOLS (owner-directed, this review's window)
+- THE DROID DIALOGUE: the 2-hour brief is now a back-and-forth until strong
+  resolution (Q1-Q4 posed; replies awaited).
+- THE ANTIGRAVAPH COLLEAGUE (agy, CLI): consults at the checkpoints under the
+  impact framing ("the most interesting/impactful dissections now answerable").
+  Consult #001 KILLED THE FORGE (e251: ZERO-SUM-LN — the ctrl battery thickened
+  +17.2%; the confound fired within the hour of its proposal; the claim sites
+  amended, two overclaiming commits disclosed by their successors). Consult #002
+  minted e252 (running) + e253 + validated e250's priority. THE IDEATOR'S LESSON
+  ADOPTED: consult questions age with landings — re-derived, never forwarded.
+
+### Decisions
+- e254 = FQ12 dispatched (the V-span overlap — the anti-substrate's mechanism
+  candidate; desk on e240's committed reconstruction + the holder-hot-set rider on
+  the rank-matched cell when it runs).
+- The R63-parked rows stand parked. e249 remains the lane-filler. The interactions
+  stay behind the 1D constants and the replicate (the critic's pushback, the
+  consult's concurrence).
+
+---
+
 ## R63 — the cascade day reviewed staggered: the bar discipline held everywhere it was pressed; one escaped number recaptured; the wind downgraded to hypothesis; W037 put on notice (2026-10-04, folded ~15:15Z)
 
 Trigger: the review overdue since 2026-10-02 by stamp (a fresh-questions
