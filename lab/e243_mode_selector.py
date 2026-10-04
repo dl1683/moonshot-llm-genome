@@ -248,6 +248,16 @@ def main() -> None:
     by_state = {(s["wash"], s["step"]): s for s in e228j["states"]}
     t0j = by_state[("t0", 0)]
 
+    # the journal indexes probes per battery; the npz grid is battery-
+    # contiguous (fact 20, ctrl 12, near 3, tmpl 19) — build the row ->
+    # (battery, journal-index) map
+    jidx = {}
+    seen: dict[str, int] = {}
+    for i, b in enumerate(batts):
+        seen[b] = seen.get(b, 0)
+        jidx[i] = (b, seen[b])
+        seen[b] += 1
+
     # npz argmax re-derivation vs journal records (ALL 54 probes x 3 states)
     am = {k: np.argmax(L[k].astype(np.float64), axis=1).astype(int)
           for k in L}
@@ -255,7 +265,8 @@ def main() -> None:
     for k, wash in [("t0", "t0"), ("w1", "w1"), ("w2", "w2")]:
         sj = by_state[(wash, 80 if wash != "t0" else 0)]
         for i in range(len(names)):
-            jt = int(sj[batts[i]]["probes"][i]["top1_id"])
+            b, ji = jidx[i]
+            jt = int(sj[b]["probes"][ji]["top1_id"])
             if int(am[k][i]) != jt:
                 mism.append((k, names[i], int(am[k][i]), jt))
     gates["G_FLIPS"] = {
@@ -271,7 +282,8 @@ def main() -> None:
     for i in range(len(names)):
         r2 = next(t for t, r in ranks0[i].items() if r == 2)
         ru_npz[i] = int(r2)
-        jt2 = int(t0j[batts[i]]["probes"][i]["top2_id"])
+        b, ji = jidx[i]
+        jt2 = int(t0j[b]["probes"][ji]["top2_id"])
         if int(r2) != jt2:
             ru_mism.append((names[i], int(r2), jt2))
     gates["G_RU"] = {
@@ -424,8 +436,9 @@ def main() -> None:
         else:
             fate, standing = "outside-e232-census", None
         sj = by_state[(wash, 80)]
-        p_rec = sj[batt]["probes"][i]
-        p_t0 = t0j[batt]["probes"][i]["p"]
+        _, ji = jidx[i]
+        p_rec = sj[batt]["probes"][ji]
+        p_t0 = t0j[batt]["probes"][ji]["p"]
         p_80 = float(p_rec["p"])
 
         # e241 join fields (identity + z comparison, approximate by null
