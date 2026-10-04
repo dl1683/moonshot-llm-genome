@@ -1,0 +1,2810 @@
+{
+  "experiment": "e228_margin_landscape",
+  "phase": "eval-only desk+eval on the committed two-wash 124M archive (W031's registered discriminating observation)",
+  "date": "2026-10-04T13:08:43Z",
+  "status": "DONE",
+  "registration": "bars frozen VERBATIM from the dispatch brief (commit a58fa48, QUEUE row 'DISPATCHED ~13:25Z Oct-4') BEFORE any compute; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "MARGIN-ORDERS-EROSION": "margin rank at t=0 predicts the erosion order (rho >= the wash-to-wash replication floor's lower edge, ~0.9) \u2014 the conserved order acquires a mechanism candidate: local decision fragility (fires only at the floor; a middling rho is NOT this bar)",
+      "ORDER-OUTRUNS-FRAGILITY": "margin rank does not predict the erosion order (rho clearly below the floor, e.g. < 0.6) while the erosion order still replicates \u2014 the order is deeper than local thinness; the STRANGER read",
+      "PARTIAL": "anything between \u2014 the table verbatim, both batteries, no narrative inflation"
+    },
+    "operationalizations": "margin_i = (top1-top2 logit)/std(vocab logits) at the answer position, one forward per probe (the SAME forward as the p re-probe); t=0 is ONE read of the shared pristine organism (both wash lineages start there \u2014 e214's t0_shared); the y-side is e214's COMMITTED per-probe records read at runtime: primary erosion_i(w,s) = 1 - p_i(w,s)/p_i(0); join statistic SIGNED so POSITIVE = thin margins die first: join_rho = Spearman(margin(0), retention_i(w,s)) = -Spearman(margin(0), erosion); floor = e214's replication band lower edge 0.9 (and recomputed xrho_erosion on the y-side's own erosion vectors per battery per shared state); adjudication cells = (fact/ctrl/tmpl [n>=10], w1/w2, state in {50,80}) with e214's committed battery-level decline >= 0.40 (the e214 echo cut; the 0.50 cut leaves near-n3 + one tmpl cell \u2014 powerless at a 0.9 floor, disclosed); near = coarse co-report everywhere; +2 never adjudicates; MARGIN-ORDERS-EROSION := cells exist and ALL join_rho >= 0.90; ORDER-OUTRUNS-FRAGILITY := cells exist and ALL join_rho < 0.60 AND xrho_erosion >= 0.90 at every cell; PARTIAL := otherwise; order MARGIN-ORDERS-EROSION -> ORDER-OUTRUNS-FRAGILITY -> PARTIAL, gated on G_STATES/G_BATT/G_CORPUS/G_ENV; co-reports (never adjudicated): the full table incl. near and +2, Kendall tau-b, the absolute-drop erosion echo, the margin-vs-p coupling, the relation-block margin texture",
+    "registration": "bars frozen VERBATIM from the dispatch brief (commit a58fa48, QUEUE row 'DISPATCHED ~13:25Z Oct-4') BEFORE any compute; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "is the conserved EROSION ORDER the shadow of the MARGIN LANDSCAPE \u2014 do the thinnest-margin probes die first under the wash? or does the erosion order outrun local decision fragility?",
+  "builds_on": [
+    "W031 (the registered prediction this cell discharges)",
+    "T204 / x3 (the margin dial; the arithmetic floor; the ~0.05 sigma flip threshold)",
+    "W028 + T187 / e214 (the erosion order; the committed per-probe records = the y-side)",
+    "T185 / e213 (the two-wash archive)",
+    "T183 / e182c2 (the fresh draw + the tmpl battery)",
+    "T149 / e182c (the saved-state discipline + batteries)",
+    "T123 / e182 (the parent wash)"
+  ],
+  "whats_new": [
+    "the per-probe argmax margin in sigma at every state of the archive (the commitment spectrum instrument)",
+    "the margin-rank-vs-erosion-order join with the y-side's own replication floor (xrho_erosion)",
+    "the margin landscape's shape/height split (order conservation + level decline)",
+    "the margin-vs-p coupling co-report (is the margin just p?)",
+    "the e208 distinction drawn in the docstring (argmax margin vs arithmetic noise; NOT the fact-edge object)"
+  ],
+  "smoke": false,
+  "inventory": {
+    "wash1_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:07:14Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:20:17Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+        "exists": true,
+        "size_bytes": 652195467,
+        "mtime": "2026-10-01T15:28:00Z"
+      },
+      "2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+        "exists": true,
+        "size_bytes": 652195312,
+        "mtime": "2026-10-01T15:04:11Z"
+      }
+    },
+    "wash2_files": {
+      "10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:11:49Z"
+      },
+      "50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:15:03Z"
+      },
+      "80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+        "exists": true,
+        "size_bytes": 652196552,
+        "mtime": "2026-10-02T13:18:15Z"
+      }
+    },
+    "wash1_crosscheck_vs_e182c2_inventory": {
+      "10": true,
+      "50": true,
+      "80": true,
+      "2": true
+    },
+    "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
+  },
+  "timing": {
+    "total_s": 60.6
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32"
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "lines_total": [
+        40001,
+        40001
+      ],
+      "lines_dropped": [
+        664,
+        664
+      ],
+      "chars_after": [
+        1093972,
+        1093972
+      ],
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "bank_windows": [
+        24,
+        24
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN \u2014 it feeds the batteries' contamination scans only; no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "kept_set_equal": true,
+        "n": 20,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "ctrl": {
+        "kept_set_equal": true,
+        "n": 12,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "near": {
+        "kept_set_equal": true,
+        "n": 3,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "tmpl": {
+        "kept_set_equal": true,
+        "n": 19,
+        "max_dp_vs_e214_t0": 0.0
+      },
+      "tol_per_probe_dp": 0.01,
+      "note": "the four batteries are the phase-1/phase-2 pools VERBATIM (module import); my t=0 margin-pass p must reproduce e214's committed journal t=0 (same pristine organism, same prompts, same CPU fp32 probe path) \u2014 certifying the forward the margins ride on",
+      "pass": true
+    },
+    "G_STATES": {
+      "wash1_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:07:14Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:20:17Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:28:00Z"
+        },
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "mtime": "2026-10-01T15:04:11Z"
+        }
+      },
+      "wash2_files": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:11:49Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:15:03Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:18:15Z"
+        }
+      },
+      "wash1_crosscheck_vs_e182c2_inventory": {
+        "10": true,
+        "50": true,
+        "80": true,
+        "2": true
+      },
+      "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set",
+      "all_exist": true,
+      "reprobe_max_dp": 0.0,
+      "n_reprobe_checks": 28,
+      "tol_reprobe_dp": 0.005,
+      "reprobe_note": "every battery's p re-probed on every LOADED state of BOTH archives (incl. the wash-1-only +2) and compared per-probe to e214's committed journal records \u2014 same fp32 weights + same CPU fp32 probe path -> expected ~0.0; the margins ride the same forwards",
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_only": true,
+      "torch_threads": 4,
+      "load_checks": 9,
+      "gpu_calls": 0,
+      "burst": "one state = one eval burst",
+      "pass": true
+    }
+  },
+  "margins_t0": {
+    "fact": {
+      "mean_margin_sigma": 0.7350870629478902,
+      "median_margin_sigma": 0.7381708953361316,
+      "min_margin_sigma": 0.2214067334921405,
+      "frac_argmax_answer": 1.0,
+      "probes": {
+        "France->Paris": {
+          "margin_sigma": 0.4605282929929688,
+          "p": 0.6850027441978455,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "Greece->Athens": {
+          "margin_sigma": 1.1781698104110228,
+          "p": 0.94468092918396,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "Poland->Warsaw": {
+          "margin_sigma": 0.8231108730177659,
+          "p": 0.6746281981468201,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "Portugal->Lisbon": {
+          "margin_sigma": 0.7570613400170839,
+          "p": 0.7412760853767395,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "Egypt->Cairo": {
+          "margin_sigma": 0.6357743715268048,
+          "p": 0.8057803511619568,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "Ireland->Dublin": {
+          "margin_sigma": 0.4925394483890496,
+          "p": 0.6304253935813904,
+          "argmax_is_answer": true,
+          "relation": "cap"
+        },
+        "France->French": {
+          "margin_sigma": 1.1397963235644066,
+          "p": 0.9179711937904358,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Germany->German": {
+          "margin_sigma": 0.7767037845484992,
+          "p": 0.8766514658927917,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Japan->Japanese": {
+          "margin_sigma": 0.6986428903127981,
+          "p": 0.8385147452354431,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Italy->Italian": {
+          "margin_sigma": 1.0294344433719589,
+          "p": 0.8853657841682434,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Spain->Spanish": {
+          "margin_sigma": 0.6856819895781731,
+          "p": 0.744873046875,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Russia->Russian": {
+          "margin_sigma": 0.8501236868785136,
+          "p": 0.8519078493118286,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "China->Chinese": {
+          "margin_sigma": 0.2214067334921405,
+          "p": 0.5683619379997253,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "England->English": {
+          "margin_sigma": 0.7865954909704331,
+          "p": 0.8146218657493591,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Greece->Greek": {
+          "margin_sigma": 0.6725086545736395,
+          "p": 0.766821026802063,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Poland->Polish": {
+          "margin_sigma": 0.6495397456815175,
+          "p": 0.8325423002243042,
+          "argmax_is_answer": true,
+          "relation": "lang"
+        },
+        "Japan->yen": {
+          "margin_sigma": 0.7192804506551792,
+          "p": 0.8905185461044312,
+          "argmax_is_answer": true,
+          "relation": "cur"
+        },
+        "the United Kingdom->pound": {
+          "margin_sigma": 0.9509313345344212,
+          "p": 0.9533817768096924,
+          "argmax_is_answer": true,
+          "relation": "cur"
+        },
+        "the United States->dollar": {
+          "margin_sigma": 0.2922677329736964,
+          "p": 0.5909402966499329,
+          "argmax_is_answer": true,
+          "relation": "cur"
+        },
+        "China->yuan": {
+          "margin_sigma": 0.8816438614677309,
+          "p": 0.9285135269165039,
+          "argmax_is_answer": true,
+          "relation": "cur"
+        }
+      }
+    },
+    "ctrl": {
+      "mean_margin_sigma": 0.5564379015017129,
+      "median_margin_sigma": 0.47298935420106686,
+      "min_margin_sigma": 0.24481861994228568,
+      "frac_argmax_answer": 1.0,
+      "probes": {
+        "The social network founded by Mark Zuckerberg->Facebook": {
+          "margin_sigma": 0.4746537930517571,
+          "p": 0.7398610711097717,
+          "argmax_is_answer": true,
+          "relation": "found"
+        },
+        "The electric car company founded by Elon Musk->Tesla": {
+          "margin_sigma": 0.8855175778756769,
+          "p": 0.7342566847801208,
+          "argmax_is_answer": true,
+          "relation": "found"
+        },
+        "The rocket company founded by Elon Musk->SpaceX": {
+          "margin_sigma": 0.8427081268348862,
+          "p": 0.77444988489151,
+          "argmax_is_answer": true,
+          "relation": "found"
+        },
+        "The search engine founded by Larry Page->Google": {
+          "margin_sigma": 0.7588267302571498,
+          "p": 0.8327568769454956,
+          "argmax_is_answer": true,
+          "relation": "found"
+        },
+        "The online encyclopedia that anyone can edit->Wikipedia": {
+          "margin_sigma": 0.619060804341354,
+          "p": 0.6928136348724365,
+          "argmax_is_answer": true,
+          "relation": "found"
+        },
+        "The gaming console made by Microsoft->Xbox": {
+          "margin_sigma": 0.24481861994228568,
+          "p": 0.6225916743278503,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The web browser made by Google->Chrome": {
+          "margin_sigma": 0.40959900795566256,
+          "p": 0.7029966711997986,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The phone made by Apple->iPhone": {
+          "margin_sigma": 0.4426872995731846,
+          "p": 0.6358935832977295,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The tablet made by Apple->iPad": {
+          "margin_sigma": 0.7251352898848806,
+          "p": 0.7676098942756653,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The email service made by Google->Gmail": {
+          "margin_sigma": 0.391050841842425,
+          "p": 0.7456632852554321,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The music store made by Apple->iTunes": {
+          "margin_sigma": 0.41187181111091625,
+          "p": 0.6862599849700928,
+          "argmax_is_answer": true,
+          "relation": "make"
+        },
+        "The game console made by Sony->PlayStation": {
+          "margin_sigma": 0.4713249153503766,
+          "p": 0.7842804193496704,
+          "argmax_is_answer": true,
+          "relation": "make"
+        }
+      }
+    },
+    "near": {
+      "mean_margin_sigma": 0.4250708695263146,
+      "median_margin_sigma": 0.43488736443571857,
+      "min_margin_sigma": 0.28436951057400955,
+      "frac_argmax_answer": 1.0,
+      "probes": {
+        "Massachusetts->Boston": {
+          "margin_sigma": 0.5559557335692159,
+          "p": 0.6118616461753845,
+          "argmax_is_answer": true,
+          "relation": "near"
+        },
+        "Georgia->Atlanta": {
+          "margin_sigma": 0.43488736443571857,
+          "p": 0.6366477012634277,
+          "argmax_is_answer": true,
+          "relation": "near"
+        },
+        "Ohio->Columbus": {
+          "margin_sigma": 0.28436951057400955,
+          "p": 0.5189241766929626,
+          "argmax_is_answer": true,
+          "relation": "near"
+        }
+      }
+    },
+    "tmpl": {
+      "mean_margin_sigma": 1.0579292599137018,
+      "median_margin_sigma": 1.111376227127817,
+      "min_margin_sigma": 0.6850805907601698,
+      "frac_argmax_answer": 1.0,
+      "probes": {
+        "Boston->Massachusetts": {
+          "margin_sigma": 1.0559169260839785,
+          "p": 0.8855844140052795,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Atlanta->Georgia": {
+          "margin_sigma": 0.9727418473659492,
+          "p": 0.9629536271095276,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Sacramento->California": {
+          "margin_sigma": 1.1530674745489677,
+          "p": 0.9349073767662048,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Austin->Texas": {
+          "margin_sigma": 1.3286892235528052,
+          "p": 0.966093897819519,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Columbus->Ohio": {
+          "margin_sigma": 0.6925164595094573,
+          "p": 0.811143696308136,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Denver->Colorado": {
+          "margin_sigma": 1.1125056349188294,
+          "p": 0.85616534948349,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Little Rock->Arkansas": {
+          "margin_sigma": 0.7765408500330324,
+          "p": 0.9000856876373291,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Hartford->Connecticut": {
+          "margin_sigma": 0.6850805907601698,
+          "p": 0.8384353518486023,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Dover->Delaware": {
+          "margin_sigma": 0.9550981685052744,
+          "p": 0.8786457777023315,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Tallahassee->Florida": {
+          "margin_sigma": 1.2209974467614302,
+          "p": 0.9273396730422974,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Honolulu->Hawaii": {
+          "margin_sigma": 1.095758617499694,
+          "p": 0.9394004344940186,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Boise->Idaho": {
+          "margin_sigma": 1.4091572405448511,
+          "p": 0.9823838472366333,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Indianapolis->Indiana": {
+          "margin_sigma": 1.111376227127817,
+          "p": 0.9422821998596191,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Des Moines->Iowa": {
+          "margin_sigma": 1.4742278343537114,
+          "p": 0.9877914190292358,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Topeka->Kansas": {
+          "margin_sigma": 1.2847147834207227,
+          "p": 0.9824606776237488,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Baton Rouge->Louisiana": {
+          "margin_sigma": 0.6921151343904683,
+          "p": 0.8759879469871521,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Annapolis->Maryland": {
+          "margin_sigma": 1.195791207925603,
+          "p": 0.9069494605064392,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Lansing->Michigan": {
+          "margin_sigma": 1.1230203692430423,
+          "p": 0.9702924489974976,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        },
+        "Jackson->Mississippi": {
+          "margin_sigma": 0.7613399018145312,
+          "p": 0.6934146285057068,
+          "argmax_is_answer": true,
+          "relation": "tmpl"
+        }
+      }
+    }
+  },
+  "margin_p_coupling_t0": {
+    "spearman_margin_vs_p": {
+      "fact": 0.8030075187969925,
+      "ctrl": 0.5384615384615384,
+      "near": 0.5,
+      "tmpl": 0.8
+    },
+    "note": "the honesty reflex: the margin is a logits object correlated with p but not identical to it \u2014 this coupling prices how much the join re-asks e214's killed baseline-rank question; the join's x is the DECISION margin, not the recall probability"
+  },
+  "join_rows": [
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 2,
+      "n": 20,
+      "decl": -0.005445146501820153,
+      "join_rho": -0.10676691729323308,
+      "join_tau": -0.09473684210526316,
+      "join_rho_absdrop_echo": -0.08270676691729323,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        0.0014208472196372002,
+        -0.0020061055771185554,
+        0.017500379692046097,
+        0.011490567037527821,
+        0.05064632080286113,
+        -0.003975878109629294,
+        -0.008405492604019793,
+        -0.011838299630855031,
+        -0.012331298186238016,
+        -0.011131499969738723,
+        -0.017079281127089452,
+        -0.006111956068024282,
+        -0.08301163301760539,
+        -0.017650213245880453,
+        -0.038408108372388616,
+        -0.014794445659148003,
+        -0.017741399807850167,
+        -0.0029112680314686834,
+        0.04654876934232488,
+        0.006566557999706291
+      ],
+      "floor_xrho_erosion": null,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 2,
+      "n": 12,
+      "decl": 0.009001624209020065,
+      "join_rho": 0.6083916083916084,
+      "join_tau": 0.3939393939393939,
+      "join_rho_absdrop_echo": 0.6643356643356644,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        -0.008280236971341504,
+        0.0085289269240314,
+        -0.0033754805334180737,
+        -0.01202869416552832,
+        -0.013062778767536587,
+        0.0204453558543487,
+        0.01173911830662322,
+        0.029946504314936173,
+        0.014429791005172499,
+        0.020923963046338145,
+        0.0393305894316357,
+        0.008083725526943919
+      ],
+      "floor_xrho_erosion": null,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 2,
+      "n": 3,
+      "decl": 0.015740180612744514,
+      "join_rho": 1.0,
+      "join_tau": 1.0,
+      "join_rho_absdrop_echo": 1.0,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        -0.0025696190138948527,
+        0.004829243521499826,
+        0.0507154004495467
+      ],
+      "floor_xrho_erosion": null,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 2,
+      "n": 19,
+      "decl": 0.0029209954827826845,
+      "join_rho": -0.07192982456140351,
+      "join_tau": -0.06432748538011696,
+      "join_rho_absdrop_echo": -0.12105263157894737,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        -0.00537777161259978,
+        -0.001075163591061301,
+        0.008742349368443758,
+        0.00321648709067901,
+        -0.006772415918513408,
+        0.0229400147075296,
+        -0.00712724221259986,
+        0.00909963316679474,
+        0.005461755905036392,
+        0.021866313651894176,
+        -0.012329222048708566,
+        -0.0009193245391576621,
+        -0.001775901531747559,
+        -0.00021113430229435792,
+        -0.0019279916738230707,
+        0.0040413321712535755,
+        0.008934557222234574,
+        -0.0010068305992465554,
+        0.014477502901732553
+      ],
+      "floor_xrho_erosion": null,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 10,
+      "n": 20,
+      "decl": 0.013021946597506107,
+      "join_rho": -0.11278195488721804,
+      "join_tau": -0.11578947368421053,
+      "join_rho_absdrop_echo": -0.11879699248120301,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        -0.0008329824504615946,
+        0.03951570548161798,
+        0.11644074953109473,
+        0.09267868441639238,
+        0.28977048249501747,
+        0.11419738875232666,
+        -0.016578727577512664,
+        0.005452423756121871,
+        -0.02977499979918874,
+        -0.02686964625558419,
+        -0.04133002307132916,
+        0.0007879578877019178,
+        -0.22109057167346013,
+        -0.02881726003500229,
+        -0.08761867940311796,
+        -0.03793426310422965,
+        -0.038498510952368115,
+        -0.011849572356320337,
+        0.11409360569188065,
+        0.03605768490073613
+      ],
+      "floor_xrho_erosion": 0.9473684210526315,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 10,
+      "n": 12,
+      "decl": 0.061304966314967735,
+      "join_rho": 0.13286713286713286,
+      "join_tau": 0.09090909090909091,
+      "join_rho_absdrop_echo": 0.13286713286713286,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        -0.044068349073928426,
+        0.05924570633316617,
+        0.0731435953801064,
+        0.00858256851775585,
+        0.05470648903547337,
+        0.12436044538457525,
+        0.045465163039824175,
+        0.1326898641274088,
+        0.06572360123267273,
+        0.004787311171389308,
+        0.1730339569126138,
+        0.0706666690986395
+      ],
+      "floor_xrho_erosion": 0.7972027972027972,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 10,
+      "n": 3,
+      "decl": 0.2168948073178304,
+      "join_rho": 1.0,
+      "join_tau": 1.0,
+      "join_rho_absdrop_echo": 1.0,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.08055002588809812,
+        0.233728757956989,
+        0.35700553967716675
+      ],
+      "floor_xrho_erosion": 1.0,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 10,
+      "n": 19,
+      "decl": 0.06818585833316404,
+      "join_rho": 0.20877192982456141,
+      "join_tau": 0.1111111111111111,
+      "join_rho_absdrop_echo": 0.18421052631578946,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.05695157124876016,
+        0.037978343345600796,
+        0.037510273256673554,
+        0.08324250575289327,
+        0.09340987144064039,
+        0.12122635706827123,
+        -0.0032153644556507377,
+        0.07897566798427846,
+        0.10747535992586776,
+        0.18501003138028116,
+        0.010216601935316372,
+        0.004565557875035209,
+        0.05796491995127795,
+        0.01885057013502578,
+        -0.001497850355109298,
+        0.043972298700403534,
+        0.1598318937056551,
+        0.012134305181841998,
+        0.26420417744617797
+      ],
+      "floor_xrho_erosion": 0.9736842105263158,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 50,
+      "n": 20,
+      "decl": 0.33936323101326304,
+      "join_rho": 0.10676691729323308,
+      "join_tau": 0.05263157894736842,
+      "join_rho_absdrop_echo": 0.03007518796992481,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        0.6353367418352187,
+        0.40613741485645005,
+        0.677038186461794,
+        0.6031162664176373,
+        0.7998644253452113,
+        0.7551958379026968,
+        0.060299327296972405,
+        0.10737588992920821,
+        0.057588589888372455,
+        0.06948585405399621,
+        0.188435672346157,
+        0.19090368316788453,
+        -0.0589174320758854,
+        0.19379213727109512,
+        0.06003876216642179,
+        0.10400464155194156,
+        0.27795125197936177,
+        0.39548637794643504,
+        0.7811480106629463,
+        0.7125412251429464
+      ],
+      "floor_xrho_erosion": 0.98796992481203,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 50,
+      "n": 12,
+      "decl": 0.2814038990887431,
+      "join_rho": 0.3356643356643357,
+      "join_tau": 0.21212121212121213,
+      "join_rho_absdrop_echo": 0.3146853146853147,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        -0.020244732678960986,
+        0.15687069087912342,
+        0.08715555694774613,
+        0.06520998483896534,
+        0.30567134604392276,
+        0.4250733459992504,
+        0.62206626965659,
+        0.6543729948022801,
+        0.47352441774987286,
+        0.009547124679680219,
+        0.5185065712241907,
+        0.22364718094075087
+      ],
+      "floor_xrho_erosion": 0.9440559440559441,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 50,
+      "n": 3,
+      "decl": 0.6479293360106464,
+      "join_rho": 0.5,
+      "join_tau": 0.3333333333333333,
+      "join_rho_absdrop_echo": -0.5,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.5721553168990587,
+        0.7596956552349666,
+        0.6001525022159742
+      ],
+      "floor_xrho_erosion": 1.0,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 50,
+      "n": 19,
+      "decl": 0.42118668806761894,
+      "join_rho": 0.25087719298245614,
+      "join_tau": 0.14619883040935672,
+      "join_rho_absdrop_echo": 0.12280701754385964,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.21266289850454723,
+        0.19767201394976786,
+        0.41989148584746727,
+        0.6259900905495348,
+        0.5688372679513956,
+        0.7126643971615011,
+        0.2899322372950226,
+        0.6014168231424044,
+        0.5476835379408638,
+        0.7162593846143166,
+        0.41197132785686563,
+        0.1235281069280254,
+        0.6279935722169172,
+        0.1923807610127447,
+        0.05853276915455996,
+        0.29696891922023805,
+        0.5831398374628116,
+        0.22335471041303645,
+        0.7940872734905812
+      ],
+      "floor_xrho_erosion": 0.9350877192982456,
+      "adjudicates": true,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w1",
+      "state": 80,
+      "n": 20,
+      "decl": 0.4293996354947689,
+      "join_rho": 0.12330827067669173,
+      "join_tau": 0.06315789473684211,
+      "join_rho_absdrop_echo": -0.07518796992481203,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        0.8018630118463104,
+        0.5798904494105539,
+        0.7906855157666957,
+        0.7984237427923132,
+        0.8649023308440255,
+        0.8688387102203005,
+        0.10338750059168234,
+        0.17972301853217598,
+        0.07826069525587354,
+        0.11038837892057562,
+        0.2191699442805638,
+        0.2378184523197321,
+        -0.009637953041104819,
+        0.2240792789275432,
+        0.0909302686752601,
+        0.14425309402192565,
+        0.49301120811714694,
+        0.5606656091756146,
+        0.8322602614820382,
+        0.8237530132485361
+      ],
+      "floor_xrho_erosion": 0.9578947368421052,
+      "adjudicates": true,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w1",
+      "state": 80,
+      "n": 12,
+      "decl": 0.39695033449195793,
+      "join_rho": 0.3356643356643357,
+      "join_tau": 0.21212121212121213,
+      "join_rho_absdrop_echo": 0.23076923076923078,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        0.058051888174546096,
+        0.22214986658990588,
+        0.18791847650366778,
+        0.14391523734799416,
+        0.42888698431554606,
+        0.5461123628636844,
+        0.7121624023142652,
+        0.8157433610310105,
+        0.6852014197152634,
+        0.09506757470771343,
+        0.7071508551850119,
+        0.32013326906845263
+      ],
+      "floor_xrho_erosion": 0.965034965034965,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w1",
+      "state": 80,
+      "n": 3,
+      "decl": 0.765542761255382,
+      "join_rho": 0.5,
+      "join_tau": 0.3333333333333333,
+      "join_rho_absdrop_echo": -0.5,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.7250239519703936,
+        0.834669094489221,
+        0.7285099601968872
+      ],
+      "floor_xrho_erosion": 0.5,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w1",
+      "state": 80,
+      "n": 19,
+      "decl": 0.5612648719004963,
+      "join_rho": 0.17719298245614035,
+      "join_tau": 0.08771929824561403,
+      "join_rho_absdrop_echo": 0.017543859649122806,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.27502885552289225,
+        0.3604083294291339,
+        0.5248473985860378,
+        0.7821477963910736,
+        0.7706853937100537,
+        0.7901688003352253,
+        0.36349663716120306,
+        0.660968978242165,
+        0.7707475902621423,
+        0.8083809685170076,
+        0.6691247067673638,
+        0.27836342515374357,
+        0.7773084474338208,
+        0.3369408998943423,
+        0.13848882072419655,
+        0.4843767680488036,
+        0.7464609002301315,
+        0.4289711419867035,
+        0.8794238473891971
+      ],
+      "floor_xrho_erosion": 0.9543859649122807,
+      "adjudicates": true,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 10,
+      "n": 20,
+      "decl": 0.028620073570266524,
+      "join_rho": -0.04661654135338346,
+      "join_tau": -0.031578947368421054,
+      "join_rho_absdrop_echo": -0.04661654135338346,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        -0.005654587333463246,
+        0.0404145568749702,
+        0.12025039265767912,
+        0.09386856434208557,
+        0.2902384991039483,
+        0.13572898299984026,
+        -0.006541847507184784,
+        0.01566042876245488,
+        -0.027264042795737797,
+        -0.010616284276267374,
+        -0.016076952228777364,
+        0.017618086285236867,
+        -0.22097720619858507,
+        0.0057181899844495065,
+        -0.07498382059649344,
+        -0.00392726326130588,
+        -0.045454472437257865,
+        -0.00022631942348305678,
+        0.25038608245254623,
+        0.051453626015157905
+      ],
+      "floor_xrho_erosion": 0.9473684210526315,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 10,
+      "n": 12,
+      "decl": 0.07901642010911891,
+      "join_rho": 0.36363636363636365,
+      "join_tau": 0.24242424242424243,
+      "join_rho_absdrop_echo": 0.32867132867132864,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        -0.016476608960953154,
+        0.06530385347318801,
+        0.07229999462022685,
+        0.025121208828758235,
+        0.044248695141663186,
+        0.09375267762560491,
+        0.10829731955032285,
+        0.1563191871715337,
+        0.0950472952411554,
+        0.04061924417557128,
+        0.21576775918979507,
+        0.07704565770499894
+      ],
+      "floor_xrho_erosion": 0.7972027972027972,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 10,
+      "n": 3,
+      "decl": 0.25254633537535676,
+      "join_rho": 1.0,
+      "join_tau": 1.0,
+      "join_rho_absdrop_echo": 0.5,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.1588627161217827,
+        0.2751314087512461,
+        0.3352996168320085
+      ],
+      "floor_xrho_erosion": 1.0,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 10,
+      "n": 19,
+      "decl": 0.07674134203014582,
+      "join_rho": 0.15087719298245614,
+      "join_tau": 0.07602339181286549,
+      "join_rho_absdrop_echo": 0.0824561403508772,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.04459705278920123,
+        0.032147453270462534,
+        0.05456838997260016,
+        0.10821504154089312,
+        0.1183880968198876,
+        0.19091091933477633,
+        0.0058187137058824945,
+        0.0731893417682482,
+        0.0789667483649601,
+        0.21007614130652064,
+        0.004360451467222748,
+        0.006031671798227167,
+        0.07627255126108934,
+        0.019443302987680156,
+        0.00038045362618532863,
+        0.04363766436666239,
+        0.20448207216480818,
+        0.011376080039285474,
+        0.2461961150866282
+      ],
+      "floor_xrho_erosion": 0.9736842105263158,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 50,
+      "n": 20,
+      "decl": 0.3096177592905648,
+      "join_rho": 0.12481203007518797,
+      "join_tau": 0.07368421052631578,
+      "join_rho_absdrop_echo": 0.07067669172932331,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        0.6072398992067741,
+        0.3513554320632142,
+        0.6143390358852496,
+        0.4875527366956862,
+        0.7274220821139468,
+        0.7332017684394205,
+        0.056703392201584824,
+        0.13272378255005468,
+        0.035610963166399,
+        0.06831263258658138,
+        0.1824288207247624,
+        0.16452185677077757,
+        -0.06957504516528767,
+        0.13908596616089441,
+        0.011562113441287214,
+        0.07445756085700894,
+        0.2260443513576792,
+        0.34057390854644665,
+        0.826314021830818,
+        0.7219654263432129
+      ],
+      "floor_xrho_erosion": 0.98796992481203,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 50,
+      "n": 12,
+      "decl": 0.2753560340791731,
+      "join_rho": 0.4405594405594406,
+      "join_tau": 0.3333333333333333,
+      "join_rho_absdrop_echo": 0.35664335664335667,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        -0.004285895319906974,
+        0.1315260606506341,
+        0.11642490910376901,
+        0.07856811464496394,
+        0.26626001291867396,
+        0.5115443180246148,
+        0.6143888074325903,
+        0.49182370494737604,
+        0.4493694731400908,
+        -0.003797155494648541,
+        0.5987527980119394,
+        0.19295469645103736
+      ],
+      "floor_xrho_erosion": 0.9440559440559441,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 50,
+      "n": 3,
+      "decl": 0.5909960754218835,
+      "join_rho": 0.5,
+      "join_tau": 0.3333333333333333,
+      "join_rho_absdrop_echo": -0.5,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.46949666036227755,
+        0.7652618026329685,
+        0.5204558227716809
+      ],
+      "floor_xrho_erosion": 1.0,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 50,
+      "n": 19,
+      "decl": 0.4202482009940801,
+      "join_rho": 0.22982456140350876,
+      "join_tau": 0.1111111111111111,
+      "join_rho_absdrop_echo": 0.12456140350877193,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.26133166092786875,
+        0.26122940902336456,
+        0.44385339680996216,
+        0.7124308829156498,
+        0.6495098404825783,
+        0.768364240193466,
+        0.2050123793683728,
+        0.47053113930569346,
+        0.5179382588834174,
+        0.6166446353808267,
+        0.3866403172889429,
+        0.1641382612655784,
+        0.5555784119195855,
+        0.21564288554638167,
+        0.05226890445311538,
+        0.38158547678826427,
+        0.5514570533146925,
+        0.1881234409943825,
+        0.7786177489672772
+      ],
+      "floor_xrho_erosion": 0.9350877192982456,
+      "adjudicates": true,
+      "coarse_n3": false
+    },
+    {
+      "battery": "fact",
+      "wash": "w2",
+      "state": 80,
+      "n": 20,
+      "decl": 0.457907396186509,
+      "join_rho": 0.1849624060150376,
+      "join_tau": 0.11578947368421053,
+      "join_rho_absdrop_echo": -0.06616541353383458,
+      "probes": [
+        "France->Paris",
+        "Greece->Athens",
+        "Poland->Warsaw",
+        "Portugal->Lisbon",
+        "Egypt->Cairo",
+        "Ireland->Dublin",
+        "France->French",
+        "Germany->German",
+        "Japan->Japanese",
+        "Italy->Italian",
+        "Spain->Spanish",
+        "Russia->Russian",
+        "China->Chinese",
+        "England->English",
+        "Greece->Greek",
+        "Poland->Polish",
+        "Japan->yen",
+        "the United Kingdom->pound",
+        "the United States->dollar",
+        "China->yuan"
+      ],
+      "margin_vec": [
+        0.4605282929929688,
+        1.1781698104110228,
+        0.8231108730177659,
+        0.7570613400170839,
+        0.6357743715268048,
+        0.4925394483890496,
+        1.1397963235644066,
+        0.7767037845484992,
+        0.6986428903127981,
+        1.0294344433719589,
+        0.6856819895781731,
+        0.8501236868785136,
+        0.2214067334921405,
+        0.7865954909704331,
+        0.6725086545736395,
+        0.6495397456815175,
+        0.7192804506551792,
+        0.9509313345344212,
+        0.2922677329736964,
+        0.8816438614677309
+      ],
+      "erosion_vec": [
+        0.7911082016619797,
+        0.5739162360853438,
+        0.7379370136175812,
+        0.7079122190569104,
+        0.8554008798593894,
+        0.839879266691961,
+        0.1270316130750202,
+        0.22829672830777692,
+        0.12829914081966354,
+        0.16508431784546806,
+        0.33343831940347424,
+        0.24851276621914964,
+        0.1338225946724938,
+        0.2970134747806903,
+        0.192377654871831,
+        0.16254781911063365,
+        0.47486289209233845,
+        0.6099355664850192,
+        0.9118216210308853,
+        0.8618756785265664
+      ],
+      "floor_xrho_erosion": 0.9578947368421052,
+      "adjudicates": true,
+      "coarse_n3": false
+    },
+    {
+      "battery": "ctrl",
+      "wash": "w2",
+      "state": 80,
+      "n": 12,
+      "decl": 0.37436711922609667,
+      "join_rho": 0.35664335664335667,
+      "join_tau": 0.2727272727272727,
+      "join_rho_absdrop_echo": 0.32867132867132864,
+      "probes": [
+        "The social network founded by Mark Zuckerberg->Facebook",
+        "The electric car company founded by Elon Musk->Tesla",
+        "The rocket company founded by Elon Musk->SpaceX",
+        "The search engine founded by Larry Page->Google",
+        "The online encyclopedia that anyone can edit->Wikipedia",
+        "The gaming console made by Microsoft->Xbox",
+        "The web browser made by Google->Chrome",
+        "The phone made by Apple->iPhone",
+        "The tablet made by Apple->iPad",
+        "The email service made by Google->Gmail",
+        "The music store made by Apple->iTunes",
+        "The game console made by Sony->PlayStation"
+      ],
+      "margin_vec": [
+        0.4746537930517571,
+        0.8855175778756769,
+        0.8427081268348862,
+        0.7588267302571498,
+        0.619060804341354,
+        0.24481861994228568,
+        0.40959900795566256,
+        0.4426872995731846,
+        0.7251352898848806,
+        0.391050841842425,
+        0.41187181111091625,
+        0.4713249153503766
+      ],
+      "erosion_vec": [
+        0.04042429074676002,
+        0.1897258844481634,
+        0.18976445444598222,
+        0.12162754300911105,
+        0.4001899086366876,
+        0.6218353756286885,
+        0.7139304345216136,
+        0.658251108588217,
+        0.6220654544675226,
+        0.0690164165844801,
+        0.8005023567051361,
+        0.23411256781214107
+      ],
+      "floor_xrho_erosion": 0.965034965034965,
+      "adjudicates": false,
+      "coarse_n3": false
+    },
+    {
+      "battery": "near",
+      "wash": "w2",
+      "state": 80,
+      "n": 3,
+      "decl": 0.6563955036139478,
+      "join_rho": -0.5,
+      "join_tau": -0.3333333333333333,
+      "join_rho_absdrop_echo": -0.5,
+      "probes": [
+        "Massachusetts->Boston",
+        "Georgia->Atlanta",
+        "Ohio->Columbus"
+      ],
+      "margin_vec": [
+        0.5559557335692159,
+        0.43488736443571857,
+        0.28436951057400955
+      ],
+      "erosion_vec": [
+        0.6240365024619265,
+        0.7595399607683648,
+        0.5680060010776349
+      ],
+      "floor_xrho_erosion": 0.5,
+      "adjudicates": false,
+      "coarse_n3": true
+    },
+    {
+      "battery": "tmpl",
+      "wash": "w2",
+      "state": 80,
+      "n": 19,
+      "decl": 0.45101039919054775,
+      "join_rho": 0.18771929824561404,
+      "join_tau": 0.09941520467836257,
+      "join_rho_absdrop_echo": 0.10175438596491228,
+      "probes": [
+        "Boston->Massachusetts",
+        "Atlanta->Georgia",
+        "Sacramento->California",
+        "Austin->Texas",
+        "Columbus->Ohio",
+        "Denver->Colorado",
+        "Little Rock->Arkansas",
+        "Hartford->Connecticut",
+        "Dover->Delaware",
+        "Tallahassee->Florida",
+        "Honolulu->Hawaii",
+        "Boise->Idaho",
+        "Indianapolis->Indiana",
+        "Des Moines->Iowa",
+        "Topeka->Kansas",
+        "Baton Rouge->Louisiana",
+        "Annapolis->Maryland",
+        "Lansing->Michigan",
+        "Jackson->Mississippi"
+      ],
+      "margin_vec": [
+        1.0559169260839785,
+        0.9727418473659492,
+        1.1530674745489677,
+        1.3286892235528052,
+        0.6925164595094573,
+        1.1125056349188294,
+        0.7765408500330324,
+        0.6850805907601698,
+        0.9550981685052744,
+        1.2209974467614302,
+        1.095758617499694,
+        1.4091572405448511,
+        1.111376227127817,
+        1.4742278343537114,
+        1.2847147834207227,
+        0.6921151343904683,
+        1.195791207925603,
+        1.1230203692430423,
+        0.7613399018145312
+      ],
+      "erosion_vec": [
+        0.14061222774194104,
+        0.30595776185479273,
+        0.47284493995368737,
+        0.7117787197056138,
+        0.686111815111664,
+        0.7794121701292064,
+        0.22077624083069836,
+        0.5509264456093937,
+        0.5995244630197073,
+        0.6162962655395767,
+        0.4870915142161517,
+        0.16404664431374838,
+        0.5843433041902041,
+        0.2819975272124299,
+        0.08089259480475441,
+        0.43376295083522154,
+        0.601574406087452,
+        0.2369368490539171,
+        0.8104871016774133
+      ],
+      "floor_xrho_erosion": 0.9543859649122807,
+      "adjudicates": true,
+      "coarse_n3": false
+    }
+  ],
+  "erosion_floor": {
+    "e214_quoted_band": "the wash-to-wash replication of the order itself (e214's xrho on the p-vectors): 0.94-1.00 \u2014 lower edge ~0.9 = the registered floor",
+    "xrho_erosion_computed": {
+      "ctrl+10": 0.7972027972027972,
+      "fact+10": 0.9473684210526315,
+      "near+10": 1.0,
+      "tmpl+10": 0.9736842105263158,
+      "ctrl+50": 0.9440559440559441,
+      "fact+50": 0.98796992481203,
+      "near+50": 1.0,
+      "tmpl+50": 0.9350877192982456,
+      "ctrl+80": 0.965034965034965,
+      "fact+80": 0.9578947368421052,
+      "near+80": 0.5,
+      "tmpl+80": 0.9543859649122807
+    },
+    "note": "the floor recomputed on the y-side's OWN erosion vectors (Spearman(erosion_w1, erosion_w2) per battery per shared state, committed records) \u2014 the replication the join is measured against at the exact cells"
+  },
+  "margin_conservation": {
+    "w1": {
+      "2": {
+        "fact": {
+          "state": 2,
+          "rho_m0": 0.9894736842105263,
+          "tau_m0": 0.9368421052631579,
+          "mean_margin_sigma": 0.7529317709259888,
+          "median_margin_sigma": 0.7619192159287917,
+          "level_decline": -0.02427563873391647,
+          "frac_argmax_answer": 1.0
+        },
+        "ctrl": {
+          "state": 2,
+          "rho_m0": 0.9790209790209791,
+          "tau_m0": 0.9393939393939394,
+          "mean_margin_sigma": 0.5516044508948876,
+          "median_margin_sigma": 0.47744055063279733,
+          "level_decline": 0.008686415130566671,
+          "frac_argmax_answer": 1.0
+        },
+        "near": {
+          "state": 2,
+          "rho_m0": 1.0,
+          "tau_m0": 1.0,
+          "mean_margin_sigma": 0.426232796783469,
+          "median_margin_sigma": 0.42829929075397777,
+          "level_decline": -0.002733490672859329,
+          "frac_argmax_answer": 1.0
+        },
+        "tmpl": {
+          "state": 2,
+          "rho_m0": 0.9508771929824561,
+          "tau_m0": 0.8596491228070176,
+          "mean_margin_sigma": 1.0760207690891683,
+          "median_margin_sigma": 1.1109636318364422,
+          "level_decline": -0.017100868518318713,
+          "frac_argmax_answer": 1.0
+        }
+      },
+      "10": {
+        "fact": {
+          "state": 10,
+          "rho_m0": 0.8947368421052632,
+          "tau_m0": 0.7473684210526316,
+          "mean_margin_sigma": 0.7667607604381282,
+          "median_margin_sigma": 0.7725848163827873,
+          "level_decline": -0.043088362027782656,
+          "frac_argmax_answer": 1.0
+        },
+        "ctrl": {
+          "state": 10,
+          "rho_m0": 0.9440559440559441,
+          "tau_m0": 0.8484848484848485,
+          "mean_margin_sigma": 0.5322656142238452,
+          "median_margin_sigma": 0.4854537860020549,
+          "level_decline": 0.04344112292248892,
+          "frac_argmax_answer": 1.0
+        },
+        "near": {
+          "state": 10,
+          "rho_m0": 1.0,
+          "tau_m0": 1.0,
+          "mean_margin_sigma": 0.32764046923808104,
+          "median_margin_sigma": 0.24983083208296178,
+          "level_decline": 0.2292097795287804,
+          "frac_argmax_answer": 1.0
+        },
+        "tmpl": {
+          "state": 10,
+          "rho_m0": 0.8070175438596491,
+          "tau_m0": 0.6140350877192983,
+          "mean_margin_sigma": 0.9201861839780272,
+          "median_margin_sigma": 0.8884334017264892,
+          "level_decline": 0.13020064871531267,
+          "frac_argmax_answer": 1.0
+        }
+      },
+      "50": {
+        "fact": {
+          "state": 50,
+          "rho_m0": 0.4766917293233083,
+          "tau_m0": 0.3473684210526316,
+          "mean_margin_sigma": 0.553878855371741,
+          "median_margin_sigma": 0.5988728107429535,
+          "level_decline": 0.24651257886304945,
+          "frac_argmax_answer": 0.9
+        },
+        "ctrl": {
+          "state": 50,
+          "rho_m0": 0.7132867132867133,
+          "tau_m0": 0.5454545454545454,
+          "mean_margin_sigma": 0.39812682938262367,
+          "median_margin_sigma": 0.39692345822189345,
+          "level_decline": 0.2845080676421211,
+          "frac_argmax_answer": 0.9166666666666666
+        },
+        "near": {
+          "state": 50,
+          "rho_m0": 0.5,
+          "tau_m0": 0.3333333333333333,
+          "mean_margin_sigma": 0.1564876307342628,
+          "median_margin_sigma": 0.09503217413186196,
+          "level_decline": 0.6318551988550812,
+          "frac_argmax_answer": 0.6666666666666666
+        },
+        "tmpl": {
+          "state": 50,
+          "rho_m0": 0.45263157894736844,
+          "tau_m0": 0.2982456140350877,
+          "mean_margin_sigma": 0.4522076050914599,
+          "median_margin_sigma": 0.4183421659579817,
+          "level_decline": 0.5725540239539761,
+          "frac_argmax_answer": 1.0
+        }
+      },
+      "80": {
+        "fact": {
+          "state": 80,
+          "rho_m0": 0.3473684210526316,
+          "tau_m0": 0.2631578947368421,
+          "mean_margin_sigma": 0.48399857693809906,
+          "median_margin_sigma": 0.46919572031702983,
+          "level_decline": 0.34157652700737384,
+          "frac_argmax_answer": 0.8
+        },
+        "ctrl": {
+          "state": 80,
+          "rho_m0": 0.5874125874125874,
+          "tau_m0": 0.42424242424242425,
+          "mean_margin_sigma": 0.36023844538974453,
+          "median_margin_sigma": 0.38236467147735576,
+          "level_decline": 0.35259901524045334,
+          "frac_argmax_answer": 0.75
+        },
+        "near": {
+          "state": 80,
+          "rho_m0": 0.5,
+          "tau_m0": 0.3333333333333333,
+          "mean_margin_sigma": 0.13981042625789825,
+          "median_margin_sigma": 0.0442574034171714,
+          "level_decline": 0.6710891376449801,
+          "frac_argmax_answer": 0.3333333333333333
+        },
+        "tmpl": {
+          "state": 80,
+          "rho_m0": 0.37543859649122807,
+          "tau_m0": 0.23976608187134502,
+          "mean_margin_sigma": 0.2739711234445925,
+          "median_margin_sigma": 0.20196680362783348,
+          "level_decline": 0.7410307722588738,
+          "frac_argmax_answer": 0.8947368421052632
+        }
+      }
+    },
+    "w2": {
+      "10": {
+        "fact": {
+          "state": 10,
+          "rho_m0": 0.9037593984962407,
+          "tau_m0": 0.7684210526315789,
+          "mean_margin_sigma": 0.759103313642331,
+          "median_margin_sigma": 0.7766845193969091,
+          "level_decline": -0.03267130099954341,
+          "frac_argmax_answer": 1.0
+        },
+        "ctrl": {
+          "state": 10,
+          "rho_m0": 0.9440559440559441,
+          "tau_m0": 0.8484848484848485,
+          "mean_margin_sigma": 0.5223968403534478,
+          "median_margin_sigma": 0.47419487127681803,
+          "level_decline": 0.061176747767172523,
+          "frac_argmax_answer": 1.0
+        },
+        "near": {
+          "state": 10,
+          "rho_m0": 1.0,
+          "tau_m0": 1.0,
+          "mean_margin_sigma": 0.3179730363428896,
+          "median_margin_sigma": 0.25452890741377227,
+          "level_decline": 0.25195288800376137,
+          "frac_argmax_answer": 1.0
+        },
+        "tmpl": {
+          "state": 10,
+          "rho_m0": 0.7403508771929824,
+          "tau_m0": 0.5555555555555556,
+          "mean_margin_sigma": 0.9157642453852491,
+          "median_margin_sigma": 0.8438010154233273,
+          "level_decline": 0.13438045426595857,
+          "frac_argmax_answer": 1.0
+        }
+      },
+      "50": {
+        "fact": {
+          "state": 50,
+          "rho_m0": 0.45864661654135336,
+          "tau_m0": 0.3473684210526316,
+          "mean_margin_sigma": 0.5943930955772087,
+          "median_margin_sigma": 0.6018682121028767,
+          "level_decline": 0.19139769214065905,
+          "frac_argmax_answer": 0.9
+        },
+        "ctrl": {
+          "state": 50,
+          "rho_m0": 0.7272727272727273,
+          "tau_m0": 0.5757575757575758,
+          "mean_margin_sigma": 0.3946860867639479,
+          "median_margin_sigma": 0.4189412592063313,
+          "level_decline": 0.29069158355537916,
+          "frac_argmax_answer": 0.9166666666666666
+        },
+        "near": {
+          "state": 50,
+          "rho_m0": 0.5,
+          "tau_m0": 0.3333333333333333,
+          "mean_margin_sigma": 0.23488086919509257,
+          "median_margin_sigma": 0.28118834843593604,
+          "level_decline": 0.44743127315020126,
+          "frac_argmax_answer": 0.6666666666666666
+        },
+        "tmpl": {
+          "state": 50,
+          "rho_m0": 0.5824561403508772,
+          "tau_m0": 0.391812865497076,
+          "mean_margin_sigma": 0.46270943889313787,
+          "median_margin_sigma": 0.37079986544106647,
+          "level_decline": 0.562627241323411,
+          "frac_argmax_answer": 1.0
+        }
+      },
+      "80": {
+        "fact": {
+          "state": 80,
+          "rho_m0": 0.3112781954887218,
+          "tau_m0": 0.24210526315789474,
+          "mean_margin_sigma": 0.45112696948174047,
+          "median_margin_sigma": 0.46599848760226775,
+          "level_decline": 0.3862945054799304,
+          "frac_argmax_answer": 0.85
+        },
+        "ctrl": {
+          "state": 80,
+          "rho_m0": 0.5174825174825175,
+          "tau_m0": 0.36363636363636365,
+          "mean_margin_sigma": 0.35147746273014996,
+          "median_margin_sigma": 0.3225946024079779,
+          "level_decline": 0.36834377783831107,
+          "frac_argmax_answer": 0.75
+        },
+        "near": {
+          "state": 80,
+          "rho_m0": -0.5,
+          "tau_m0": -0.3333333333333333,
+          "mean_margin_sigma": 0.14279133654228113,
+          "median_margin_sigma": 0.08380271440273002,
+          "level_decline": 0.6640764004802229,
+          "frac_argmax_answer": 0.6666666666666666
+        },
+        "tmpl": {
+          "state": 80,
+          "rho_m0": 0.47543859649122805,
+          "tau_m0": 0.3333333333333333,
+          "mean_margin_sigma": 0.36776490341454976,
+          "median_margin_sigma": 0.35380326410414314,
+          "level_decline": 0.6523728784620728,
+          "frac_argmax_answer": 0.9473684210526315
+        }
+      }
+    },
+    "xwash": {
+      "10": {
+        "fact": 0.98796992481203,
+        "ctrl": 1.0,
+        "near": 1.0,
+        "tmpl": 0.968421052631579
+      },
+      "50": {
+        "fact": 0.9609022556390977,
+        "ctrl": 0.972027972027972,
+        "near": 1.0,
+        "tmpl": 0.8807017543859649
+      },
+      "80": {
+        "fact": 0.9443609022556391,
+        "ctrl": 0.8671328671328671,
+        "near": 0.5,
+        "tmpl": 0.7596491228070176
+      }
+    },
+    "t0": {
+      "fact": {
+        "mean_margin_sigma": 0.7350870629478902
+      },
+      "ctrl": {
+        "mean_margin_sigma": 0.5564379015017129
+      },
+      "near": {
+        "mean_margin_sigma": 0.4250708695263146
+      },
+      "tmpl": {
+        "mean_margin_sigma": 1.0579292599137018
+      }
+    }
+  },
+  "adjudication": {
+    "bars": {
+      "MARGIN_ORDERS_EROSION": false,
+      "ORDER_OUTRUNS_FRAGILITY": true,
+      "verdict": "ORDER-OUTRUNS-FRAGILITY",
+      "clause": "margin rank at t=0 does not predict the erosion order (every adjudication cell join rho < 0.6: tmpl/w1+50 +0.251; fact/w1+80 +0.123; tmpl/w1+80 +0.177; tmpl/w2+50 +0.230; fact/w2+80 +0.185; tmpl/w2+80 +0.188) while the erosion order still replicates (its own wash-to-wash xrho on the committed records: tmpl+50 0.935, fact+80 0.958, tmpl+80 0.954, tmpl+50 0.935, fact+80 0.958, tmpl+80 0.954, all >= 0.9) \u2014 the order is deeper than local thinness; the STRANGER read",
+      "order": "MARGIN-ORDERS-EROSION -> ORDER-OUTRUNS-FRAGILITY -> PARTIAL (gated on G_STATES/G_BATT/G_CORPUS/G_ENV)"
+    },
+    "bar_constants": {
+      "FLOOR_BAR": 0.9,
+      "BELOW_BAR": 0.6,
+      "DECL_BAR (the e214 echo cut)": 0.4
+    },
+    "cells": [
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 50,
+        "n": 19,
+        "decl": 0.42118668806761894,
+        "join_rho": 0.25087719298245614,
+        "join_tau": 0.14619883040935672,
+        "join_rho_absdrop_echo": 0.12280701754385964,
+        "floor_xrho_erosion": 0.9350877192982456,
+        "adjudicates": true,
+        "coarse_n3": false
+      },
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "state": 80,
+        "n": 20,
+        "decl": 0.4293996354947689,
+        "join_rho": 0.12330827067669173,
+        "join_tau": 0.06315789473684211,
+        "join_rho_absdrop_echo": -0.07518796992481203,
+        "floor_xrho_erosion": 0.9578947368421052,
+        "adjudicates": true,
+        "coarse_n3": false
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 80,
+        "n": 19,
+        "decl": 0.5612648719004963,
+        "join_rho": 0.17719298245614035,
+        "join_tau": 0.08771929824561403,
+        "join_rho_absdrop_echo": 0.017543859649122806,
+        "floor_xrho_erosion": 0.9543859649122807,
+        "adjudicates": true,
+        "coarse_n3": false
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 50,
+        "n": 19,
+        "decl": 0.4202482009940801,
+        "join_rho": 0.22982456140350876,
+        "join_tau": 0.1111111111111111,
+        "join_rho_absdrop_echo": 0.12456140350877193,
+        "floor_xrho_erosion": 0.9350877192982456,
+        "adjudicates": true,
+        "coarse_n3": false
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "state": 80,
+        "n": 20,
+        "decl": 0.457907396186509,
+        "join_rho": 0.1849624060150376,
+        "join_tau": 0.11578947368421053,
+        "join_rho_absdrop_echo": -0.06616541353383458,
+        "floor_xrho_erosion": 0.9578947368421052,
+        "adjudicates": true,
+        "coarse_n3": false
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 80,
+        "n": 19,
+        "decl": 0.45101039919054775,
+        "join_rho": 0.18771929824561404,
+        "join_tau": 0.09941520467836257,
+        "join_rho_absdrop_echo": 0.10175438596491228,
+        "floor_xrho_erosion": 0.9543859649122807,
+        "adjudicates": true,
+        "coarse_n3": false
+      }
+    ],
+    "n_cells": 6,
+    "n_at_floor": 0,
+    "n_below": 6,
+    "gates_summary": {
+      "G_STATES": true,
+      "G_BATT": true,
+      "G_CORPUS": true,
+      "G_ENV": true
+    }
+  },
+  "honesty_reflex": {
+    "e208_distinction": "e208's margin object was the FACT-EDGE over the wash band on the tiny-net organisms (a cross-organism class separator, scoped to NATURAL-STEP organisms after e209/e210); THIS cell's object is the NEXT-TOKEN ARGMAX MARGIN in sigma units vs arithmetic noise, per probe, on the 124M archive \u2014 a different ruler; do not conflate; not a resurrection",
+    "determinism": "margins are deterministic in-session (T204: same code path, same device -> bit-exact), so n=1 evals suffice; the arithmetic floor (~3e-7 on cosines; batch-shape re-rounding flips only ~<=0.05-sigma decisions) sits far below every margin measured here; provenance recorded",
+    "margin_vs_p": "the t=0 margin-vs-p Spearman coupling per battery (recorded in margin_p_coupling_t0) prices how much of the join re-asks e214's killed baseline-rank question \u2014 the margin is the DECISION's commitment, not the recall probability, but they are correlated objects on the same forwards; the relation-block texture (the wash sorts BY RELATION) is the known breaker of any t=0-strength ordering",
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 the archive's device asymmetry, inherited, disclosed",
+    "one_organism": "the margin landscape is ONE organism's (the shared pristine 124M); nothing here speaks to cross-organism margin structure",
+    "t0_shared": "both wash lineages' t=0 is ONE read of the same pristine organism (e214's G_BATT verified the committed wash-specific t=0s identical to ~1e-6) \u2014 the t=0 margin vector is shared, disclosed",
+    "bar_regime": "the adjudication regime is the e214 ECHO cut (decline >= 0.4) \u2014 the 0.50 cut leaves near (n=3) plus ONE tmpl cell, powerless at a 0.9 floor; ctrl never enters the regime (its committed decline tops out ~0.38); near is a flagged coarse co-report everywhere (Spearman on n=3 is quantized to half-points)",
+    "join_is_rank_level": "the join is rank-level on 12-20 probes per battery; a floor-claim (rho >= 0.9) is a strong-association claim, not an identity; the +2 wash-1-only state and all shallow cells sit in the table but never adjudicate",
+    "guarantees_nothing": "nothing here is guaranteed \u2014 the openness is the point (W031's two named branches and the registered 'either' were written before this cell ran; no retrofit)"
+  },
+  "compute": {
+    "envelope": "CPU-only desk+eval (dispatch): threads 4, load checks 9, one state = one eval burst, decisive; ~54 probes x 8 state reads + screening forwards + 7 checkpoint loads; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 80.5,
+        "tool": "psutil"
+      },
+      {
+        "tag": "t0",
+        "cpu_percent": 78.5,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s10",
+        "cpu_percent": 73.0,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s50",
+        "cpu_percent": 49.7,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s80",
+        "cpu_percent": 40.6,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w1s2",
+        "cpu_percent": 26.6,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s10",
+        "cpu_percent": 19.3,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s50",
+        "cpu_percent": 24.4,
+        "tool": "psutil"
+      },
+      {
+        "tag": "w2s80",
+        "cpu_percent": 24.4,
+        "tool": "psutil"
+      }
+    ],
+    "state_archive": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+    ]
+  },
+  "provenance": {
+    "git_head_at_start": "3b504323bc9a975314bac9dfb2348e8ccceafaf5",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e228_margin_landscape.py",
+    "committed_y_side": {
+      "e214_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\metrics.json",
+        "sha256_16": "50fad9783a19538b",
+        "mtime": "2026-10-02T14:56:49Z"
+      },
+      "e214_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+        "sha256_16": "04e84058b4656cd9",
+        "mtime": "2026-10-02T14:52:44Z"
+      }
+    },
+    "batteries": "module import of lab/e182c_forgetting_control.py (fact/ctrl/near) and lab/e182c2_template.py (tmpl), VERBATIM \u2014 import, never retyped",
+    "margin_definition": "(top1 logit - top2 logit)/std(vocab logits) at the prompt's last position; torch std unbiased; the same forward as the p re-probe",
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "transformers": "5.12.1",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    },
+    "threads": 4,
+    "device": "cpu fp32"
+  },
+  "trims": [],
+  "deviations": [
+    "EVAL-ONLY desk+eval on the committed checkpoints (no wash run here); CPU-only per the dispatch (two other agents live \u2014 threads 4, load-polite).",
+    "The margin x-side is computed FRESH here (no committed margins exist); the erosion y-side is e214's COMMITTED records read at runtime \u2014 the join is my-margin-rank vs committed-erosion-rank, and every state my margins ride on is re-probe-certified against those same records (G_STATES, tol 0.005).",
+    "The adjudication regime uses the e214 ECHO cut (decline >= 0.40), not the 0.50 bar cut: at 0.50 the regime is near (n=3, quantized) plus ONE tmpl cell \u2014 no power at a 0.9 floor. Disclosed in the operationalizations BEFORE compute; the 0.50-cut table is co-reported verbatim inside the full join table.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: t=0 + the w1 +10 state only, own smoke dir, nothing adjudicated or verified."
+  ]
+}

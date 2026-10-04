@@ -444,9 +444,10 @@ def margin_pass(net, battery: list[dict]) -> dict:
 
 
 def mvec(rec: dict, battery: str) -> tuple[list[str], list[float]]:
-    """(probe names, margin_sigma values) in the battery's frozen order."""
+    """(probe names, margin_sigma values) in the battery's frozen order
+    (the journal's margin records store probes as row lists)."""
     pr = rec[battery]["probes"]
-    return list(pr.keys()), [pr[f]["margin_sigma"] for f in pr]
+    return ([f["fact"] for f in pr], [f["margin_sigma"] for f in pr])
 
 
 def pvec_mine(rec: dict, battery: str) -> list[float]:
@@ -644,7 +645,7 @@ def make_conservation_plot(rd, mcons, margins_t0, rel_of):
     ax = axes[1, 1]
     y0 = 0.0
     for b in BATTERIES:
-        pr = sorted(margins_t0[b]["probes"],
+        pr = sorted(margins_t0[b]["probes"].values(),
                     key=lambda r: r["margin_sigma"])
         for r in pr:
             rel = r["relation"]
@@ -1021,9 +1022,10 @@ def main():
         for s_ in sorted(int(k) for k in y_cur[wash]):
             for b in BATTERIES:
                 ref = y_cur[wash][str(s_)][b]["probes"]     # COMMITTED
+                # (the curves' per-probe records are flat {fact: p})
                 names = list(ref.keys())
                 p0 = [y_t0[b]["probes"][f]["p"] for f in names]
-                ps = [ref[f]["p"] for f in names]
+                ps = [ref[f] for f in names]
                 erosion = [1 - pi / p0i for pi, p0i in zip(ps, p0)]
                 retention = [pi / p0i for pi, p0i in zip(ps, p0)]
                 absdrop = [p0i - pi for p0i, pi in zip(p0, ps)]
@@ -1050,10 +1052,10 @@ def main():
         for b in BATTERIES:
             e1v, e2v = [], []
             for wash, out in (("w1", e1v), ("w2", e2v)):
-                ref = y_cur[wash][str(s_)][b]["probes"]
+                ref = y_cur[wash][str(s_)][b]["probes"]  # flat {fact: p}
                 names = list(ref.keys())
                 p0 = [y_t0[b]["probes"][f]["p"] for f in names]
-                ps = [ref[f]["p"] for f in names]
+                ps = [ref[f] for f in names]
                 out.extend(1 - pi / p0i for pi, p0i in zip(ps, p0))
             floor_x[(b, s_)] = spearman(e1v, e2v)[0]
     for r in join_rows:
